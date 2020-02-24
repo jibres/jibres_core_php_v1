@@ -53,8 +53,38 @@ class create
 		elseif($period === '5year')
 		{
 			$period_month = 5*12;
-			$price = 15000;
+			$price = 12000;
 		}
+
+		if(!$irnic_new && !$nic_id)
+		{
+			\dash\notif::error(T_("Please choose IRNIC handle"));
+			return false;
+		}
+
+
+		if($irnic_new)
+		{
+			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
+			if(!$add_quick_contact)
+			{
+				return false;
+			}
+
+			$nic_id = $add_quick_contact;
+		}
+		else
+		{
+			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
+			if(!isset($check_nic_id['nic_id']))
+			{
+				\dash\notif::error(T_("IRNIC handle not fount in your list"));
+				return false;
+			}
+
+			$nic_id = $check_nic_id['nic_id'];
+		}
+
 
 		if($ns1 && $ns2)
 		{
@@ -89,29 +119,6 @@ class create
 				\dash\notif::error(T_("Please enter the dns records"), ['element' => ['ns1', 'ns2']]);
 				return false;
 			}
-		}
-
-
-		if($irnic_new)
-		{
-			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
-			if(!$add_quick_contact)
-			{
-				return false;
-			}
-
-			$nic_id = $add_quick_contact;
-		}
-		else
-		{
-			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
-			if(!isset($check_nic_id['nic_id']))
-			{
-				\dash\notif::error(T_("IRNIC handle not fount in your list"));
-				return false;
-			}
-
-			$nic_id = $check_nic_id['nic_id'];
 		}
 
 
@@ -208,7 +215,8 @@ class create
 			[
 				'msg_go'        => null,
 				'auto_go'       => false,
-				'turn_back'     => \dash\url::kingdom(). '/my/domain/result?id='. $domain_code,
+				'auto_back'       => true,
+				'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
 				'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],

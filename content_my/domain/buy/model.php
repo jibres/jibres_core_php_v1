@@ -54,7 +54,7 @@ class model
 		{
 			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_code_url'))
 			{
-				\dash\redirect::to(\dash\url::this(). '/result?id='. \dash\temp::get('domain_code_url'));
+				\dash\redirect::to(\dash\url::this(). '/?resultid='. \dash\temp::get('domain_code_url'));
 			}
 			else
 			{

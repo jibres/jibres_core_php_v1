@@ -1,3 +1,28 @@
+<?php if(\dash\data::dataRow()) {?>
+
+	<?php if(\dash\data::dataRow_status() === 'enable') {?>
+
+		<div class="msg success fs14 txtC">
+			<b><?php echo \dash\data::dataRow_name(); ?></b>
+			<br>
+			<?php echo T_("Your domain was registered"); ?>
+			<a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
+		</div>
+
+	<?php }elseif(\dash\data::dataRow_status() === 'failed' || true) {?>
+
+		<div class="msg danger fs14 txtC">
+			<b><?php echo \dash\data::dataRow_name(); ?></b>
+			<br>
+			<?php echo T_("Domain register failed"); ?>
+			<br>
+			<?php echo T_("If you have paid, your money back to your account"); ?>
+			<a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
+		</div>
+
+	<?php } //endif ?>
+
+<?php } //endif ?>
 
 
 
@@ -50,6 +75,7 @@
 
   </div>
 </div>
+
 
 <?php
 if(\dash\data::dataTable())

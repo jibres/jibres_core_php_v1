@@ -12,6 +12,13 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
+		$id = \dash\request::get('resultid');
+		$id = \dash\coding::decode($id);
+		if($id)
+		{
+			$detail = \lib\app\nic_domain\get::by_id($id);
+			\dash\data::dataRow($detail);
+		}
 
 		$args =
 		[

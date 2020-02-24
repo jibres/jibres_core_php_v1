@@ -24,7 +24,7 @@ class domain_check
 				$result[$key]['available'] = boolval($value['attr']['avail']);
 			}
 
-			$result[$key]['price'] = 2000;
+			$result[$key]['price'] = 3000;
 			$result[$key]['compareAtPrice'] = 5000;
 			$result[$key]['unit'] = T_('Toman');
 
