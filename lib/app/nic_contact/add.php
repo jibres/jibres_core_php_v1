@@ -60,6 +60,12 @@ class add
 			return false;
 		}
 
+
+		if(substr($_old_contact, -6) !== '-irnic')
+		{
+			$_old_contact = $_old_contact. '-irnic';
+		}
+
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_old_contact);
 		if($check_duplicate)
 		{
@@ -85,6 +91,8 @@ class add
 		}
 		else
 		{
+			\dash\notif::clean();
+			\dash\notif::error(T_("Can not add your contact"));
 			return false;
 		}
 
