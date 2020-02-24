@@ -45,7 +45,7 @@
 				<?php if(\dash\data::dataRow_datemodified()) {?>
 
 				<p>
-					<?php echo T_("Last checked"); ?> <?php echo \dash\data::dataRow_datemodified(); ?>
+					<?php echo T_("Last checked"); ?> <b><?php echo \dash\fit::date_human(\dash\data::dataRow_datemodified()); ?></b>
 				</p>
 
 				<?php } //endif ?>

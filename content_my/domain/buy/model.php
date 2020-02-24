@@ -50,7 +50,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this());
+			if(\dash\temp::get('need_show_domain_result'))
+			{
+				\dash\redirect::to(\dash\url::this(). '/result');
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
 		}
 	}
 }

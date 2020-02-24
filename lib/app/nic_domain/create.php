@@ -113,6 +113,10 @@ class create
 			}
 		}
 
+		// user try to register new domain
+		\dash\session::set('register_domain_result', null);
+
+
 		$user_budget = \dash\user::budget();
 
 
@@ -146,7 +150,7 @@ class create
 			[
 				'msg_go'        => null,
 				'auto_go'       => false,
-				'turn_back'     => \dash\url::kingdom(). '/my/domain',
+				'turn_back'     => \dash\url::kingdom(). '/my/domain/result',
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
 				'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
@@ -172,6 +176,8 @@ class create
 
 		$result = \lib\nic\exec\domain_create::create($ready);
 
+		\dash\temp::set('need_show_domain_result', true);
+
 		if(isset($result['name']))
 		{
 			$insert =
@@ -196,9 +202,13 @@ class create
 			if(!$domain_id)
 			{
 				// must be roolback money
-				\dash\notif::error(T_("Error"));
+				\dash\notif::error(T_("Error! Can not create your domain data"));
+				self::save_result_session();
 				return false;
 			}
+
+			$insert['id'] = $domain_id;
+			\dash\notif::result($insert);
 
 			$insert_action =
 			[
@@ -212,7 +222,6 @@ class create
 			];
 
 			$domain_action_id = \lib\db\nic_domain_action\insert::new_record($insert_action);
-
 
 
 			$insert_billing =
@@ -233,6 +242,7 @@ class create
 			$domain_billing_id = \lib\db\nic_domain_billing\insert::new_record($insert_billing);
 
 			\dash\notif::ok(T_("Your domain was registred"));
+			self::save_result_session();
 
 			return true;
 
@@ -254,10 +264,21 @@ class create
 			if(!$transaction_id)
 			{
 				\dash\notif::error(T_("No way to insert data"));
+				self::save_result_session();
 				return false;
 			}
+
+			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
+			self::save_result_session();
 		}
 
+	}
+
+
+
+	private static function save_result_session()
+	{
+		\dash\session::set('register_domain_result', \dash\notif::get());
 	}
 }
 ?>
