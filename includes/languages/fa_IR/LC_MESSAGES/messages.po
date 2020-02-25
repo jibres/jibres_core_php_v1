@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2020-02-25 15:33+0330\n"
-"PO-Revision-Date: 2020-02-25 17:34+0330\n"
+"PO-Revision-Date: 2020-02-25 17:39+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -22207,10 +22207,12 @@ msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to "
 "renew"
 msgstr ""
+"ما نمی‌توانیم این دامنه را تمدید کنیم چون شناسه‌ی ایرنیک این دامنه دسترسی به تمدید "
+"آن را مسدود کرده است"
 
 #: lib/app/nic_domain/renew.php:118
 msgid "Renew domian :val"
-msgstr ""
+msgstr "تمدید دامنه :val"
 
 #: lib/app/nic_domain/renew.php:175
 msgid "Domain renew ok"
@@ -22218,7 +22220,7 @@ msgstr "تمدید دامنه انجام شد"
 
 #: lib/app/nic_domain/renew.php:185
 msgid "Renew failed :val"
-msgstr ""
+msgstr "تمدید دامنه :val ناموفق بود"
 
 #: lib/app/nic_domain/renew.php:198
 msgid "Can not renew your domain"
@@ -22226,7 +22228,7 @@ msgstr "نمی‌توانید دامنه را تمدید کنید"
 
 #: lib/app/nic_domain/transfer.php:23
 msgid "Only ir domain can be transfer to us at this time"
-msgstr ""
+msgstr "در حال حاضر تنها دامنه آی‌آر قابلیت انتقال را داراست"
 
 #: lib/app/nic_domain/transfer.php:30
 msgid "Please set pin"
@@ -22234,13 +22236,15 @@ msgstr "لطفا پین را وارد کنید"
 
 #: lib/app/nic_domain/transfer.php:39
 msgid "Can not add your IRNIC handle"
-msgstr ""
+msgstr "نمی‌توانیم شناسه ایرنیک شما را اضافه کنیم"
 
 #: lib/app/nic_domain/transfer.php:87
 msgid ""
 "We can not transfer this domain because the bill holder of IRNIC can not access "
 "to transfer"
 msgstr ""
+"ما نمی‌توانیم این دامنه را منتقل کنیم چون شناسه ایرنیک ثبت شده دسترسی رابط مالی "
+"خود را مسدود کرده است"
 
 #: lib/app/nic_domain/transfer.php:98
 msgid ""
@@ -23795,7 +23799,7 @@ msgstr "مورد درخواست شده وجود ندارد"
 #: lib/nic/exec/run.php:191
 msgid ""
 "Currency type of your contract is different with currency type of the holder."
-msgstr ""
+msgstr "نوع واحد مالی مربوط به قرارداد با نوع واحد مالی شناسه متفاوت است."
 
 #: lib/pardakhtyar/app/acceptor.php:37
 msgid "No way to insert Acceptor"
@@ -24032,141 +24036,3 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
-
-#~ msgid ""
-#~ "Domains, like most brilliant ideas, work on more than one level. They include "
-#~ "both a top level domain and a second level domain. And, like brilliant ideas, "
-#~ "they also center around a single point—or in this case, a dot."
-#~ msgstr ""
-#~ "دامنه‌ها مثل اغلب ایده‌های درخشان، در دو سطح کار می‌کنند. دامنه‌های سطح بالا و "
-#~ "دامنه‌های سطح دوم. آن‌ها حول محور یک نقطه که به آن دات می‌گویند، هستند."
-
-#~ msgid ""
-#~ "You can point your domain to your Instagram, Facebook, Twitter, Telegram or "
-#~ "other social media account. I don't know about you, but I'd much rather tell "
-#~ "people to friend me at CosmoHedgehog.rocks than give out some long, convoluted "
-#~ "URL. That reminds me, I should really register that domain now."
-#~ msgstr ""
-#~ "شما می‌توانید دامنه خودتان را به صفحه اینستاگرام، کانال تلگرام، صفحه فیس‌بوک، "
-#~ "توییتر یا سایر شبکه‌های اجتماعی خودتون وصل کنید. الان وقتشه که یه دامنه خوب به "
-#~ "نام خودتون ثبت کنید."
-
-#~ msgid "Contact added to your contact list"
-#~ msgstr "مخاطب به لیست مخاطبان شما اضافه شد"
-
-#~ msgid "Create new IRNIC contact"
-#~ msgstr "افزودن مخاطب جدید در نیک"
-
-#~ msgid "Create new contact"
-#~ msgstr "افزودن مخاطب جدید"
-
-#~ msgid "DNS records"
-#~ msgstr "رکورد‌های دی‌ان‌اس"
-
-#~ msgid "Create new DNS"
-#~ msgstr "ساخت دی‌ان‌اس جدید"
-
-#~ msgid "DNS record"
-#~ msgstr "رکورد دی‌ان‌اس"
-
-#~ msgid "I have read and agree to the terms and conditions"
-#~ msgstr "من شرایط و قوانین را مطالعه کرده و با آن موافقم"
-
-#~ msgid "Show terms"
-#~ msgstr "مشاهده شرایط"
-
-#~ msgid "Please view the privacy policy and check 'I agree' check box"
-#~ msgstr "لطفا شرایط و قوانین را مطالعه کرده و موافقت خود را با آن اعلام کنید"
-
-#~ msgid "Try to start with add new dns!"
-#~ msgstr "با افزودن دی‌ان‌اس جدید تلاشی برای شروع داشته باشید!"
-
-#~ msgid "New DNS record"
-#~ msgstr "رکورد جدید دی‌ان‌اس"
-
-#~ msgid "Last change"
-#~ msgstr "آخرین تغییر"
-
-#~ msgid "Auto renew enabled"
-#~ msgstr "تمدید خودکار فعال شد"
-
-#~ msgid "Without change"
-#~ msgstr "بدون تغییر"
-
-#~ msgid "Manage domain"
-#~ msgstr "مدیریت دامنه"
-
-#~ msgid "Enter you domain to check and renew"
-#~ msgstr "دامنه خود را برای بررسی و تمدید وارد کنید"
-
-#~ msgid "IRNIC contact id"
-#~ msgstr "شناسه کاربری نیک"
-
-#~ msgid "Pay type"
-#~ msgstr "روش پرداخت"
-
-#~ msgid "IRNIC contact"
-#~ msgstr "مخاطبان نیک"
-
-#~ msgid "Register"
-#~ msgstr "ثبت‌نام"
-
-#~ msgid "Terms of Service Agreement"
-#~ msgstr "توافق‌نامه استفاده از سرویس"
-
-#~ msgid "Domain ready to registered"
-#~ msgstr "دامنه آماده ثبت است"
-
-#~ msgid "Add an existing account"
-#~ msgstr "افزودن مخاطب موجود"
-
-#~ msgid "Create new account"
-#~ msgstr "حساب کاربری جدید بسازید"
-
-#~ msgid "Nationalcode or Passport number"
-#~ msgstr "کد ملی یا شماره گذرنامه"
-
-#~ msgid "Add contact"
-#~ msgstr "افزودن مخاطب"
-
-#~ msgid "Account id"
-#~ msgstr "شناسه حساب کاربری"
-
-#~ msgid "NIC ID"
-#~ msgstr "شناسه کاربری نیک"
-
-#~ msgid "Modified"
-#~ msgstr "ویرایش شده"
-
-#~ msgid "Check data from IRNIC server and update contact"
-#~ msgstr "دریافت اطلاعات از پایگاه نیک و به‌روزرسانی مخاطب"
-
-#~ msgid "Edit account"
-#~ msgstr "ویرایش مخاطب"
-
-#~ msgid "Contact list"
-#~ msgstr "لیست مخاطبان"
-
-#~ msgid "Domain contact"
-#~ msgstr "مخاطبان دامنه"
-
-#~ msgid "Try to start with add new domain!"
-#~ msgstr "با افزودن دامنه جدید تلاشی برای شروع داشته باشید!"
-
-#~ msgid "Jibres Domain"
-#~ msgstr "دامنه جیبرس"
-
-#~ msgid "Twig temp cache removed"
-#~ msgstr "حافظه موقت مربوط که کش توئیگ حذف شد"
-
-#~ msgid "Please set your passportcode"
-#~ msgstr "لطفا شماره گذرنامه خود را وارد کنید"
-
-#~ msgid "Invalid passportcode"
-#~ msgstr "شماره گذرنامه اشتباه است"
-
-#~ msgid "Domain ready to register"
-#~ msgstr "دامنه آماده ثبت است"
-
-#~ msgid "Choose dns"
-#~ msgstr "انتخاب دی‌ان‌اس"
