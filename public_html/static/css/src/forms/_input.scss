@@ -221,6 +221,7 @@ input.input{
 	line-height: 1;
 	padding: 5px 1em;
 	background-color: #fff;
+	background-clip: padding-box;
 	border: $inputBorder;
 	transition: 0.3s;
 	border-radius: 0.25rem;

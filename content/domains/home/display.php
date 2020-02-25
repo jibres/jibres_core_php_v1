@@ -5,7 +5,7 @@
    <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
    <p class="txtC"><?php echo T_('Every website starts with a great domain name'); ?></p>
   <div class="input ltr">
-   <input type="text" name="q" id='domainFirstSearch' maxlength='63' autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
+   <input type="search" name="q" id='domainFirstSearch' maxlength='63' autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
    <button class="addon btn primary"><?php echo T_('Search'); ?></button>
   </div>
  </form>
