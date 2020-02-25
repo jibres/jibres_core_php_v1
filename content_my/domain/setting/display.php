@@ -2,6 +2,8 @@
 <div class="f justify-center">
 	<div class="c6 m8 s12">
 		<div class="cbox">
+   			<div class="msg minimal pLR20-f fs16 txtB ltr txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
+
 
 			<table class="tbl1 v4">
 
