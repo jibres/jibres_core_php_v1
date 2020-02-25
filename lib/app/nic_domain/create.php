@@ -106,7 +106,7 @@ class create
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not register this domain because the bill holder of irnic can not access to register"));
+			\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
 			return false;
 		}
 
@@ -117,7 +117,7 @@ class create
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not register this domain because the admin holder of irnic can not access to register"));
+			\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
 			return false;
 		}
 

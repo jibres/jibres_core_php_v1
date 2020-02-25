@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-02-25 13:08+0330\n"
-"PO-Revision-Date: 2020-02-25 13:14+0330\n"
+"POT-Creation-Date: 2020-02-25 14:40+0330\n"
+"PO-Revision-Date: 2020-02-25 14:51+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3300,7 +3300,7 @@ msgstr "جزئیات"
 #: content_crm/log/home/logTable.php:132 content_crm/member/home/display.php:221
 #: content_crm/member/home/display.php:229 content_crm/transactions/display.php:112
 #: content_crm/transactions/display.php:120 content_my/domain/dns/display.php:101
-#: content_my/domain/dns/display.php:109 content_my/domain/home/display.php:181
+#: content_my/domain/dns/display.php:109 content_my/domain/home/display.php:179
 #: content_my/domain/irnic/display.php:85 content_my/domain/irnic/display.php:93
 #: content_su/apilog/home/display.php:187 content_su/apilog/home/display.php:195
 #: content_su/dbtables/display.php:113 content_su/dbtables/display.php:121
@@ -3689,7 +3689,7 @@ msgstr "برای بررسی محصولات موجود در این شرکت سا�
 #: content_cms/attachment/home/display.php:144
 #: content_cms/posts/home/display.php:157 content_cms/terms/display.php:302
 #: content_crm/log/home/logTable.php:138 content_crm/member/home/display.php:235
-#: content_crm/transactions/display.php:126 content_my/domain/home/display.php:193
+#: content_crm/transactions/display.php:126 content_my/domain/home/display.php:191
 #: content_my/domain/irnic/display.php:102 content_su/dbtables/display.php:127
 #: content_support/message/display.php:11
 msgid "Hi!"
@@ -4796,7 +4796,7 @@ msgstr "تعداد ردیف‌های دارای خطا:"
 #: dash/utility/pay/api/asanpardakht/bank.php:319
 #: includes/languages/trans_static.php:622
 #: includes/languages/trans_static_public.php:182
-#: lib/app/nic_domain/transfer.php:140
+#: lib/app/nic_domain/transfer.php:189
 msgid "Error"
 msgstr "خطا"
 
@@ -11254,7 +11254,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/cart/get.php:14 lib/app/cart/remove.php:16 lib/app/cart/search.php:14
 #: lib/app/cart/search.php:37 lib/app/factor/get.php:28
 #: lib/app/nic_contact/add.php:11 lib/app/nic_contact/add.php:58
-#: lib/app/nic_contact/add.php:171 lib/app/nic_contact/edit.php:85
+#: lib/app/nic_contact/add.php:172 lib/app/nic_contact/edit.php:85
 #: lib/app/nic_contact/get.php:18 lib/app/nic_contact/search.php:27
 #: lib/app/nic_contact/search.php:169 lib/app/nic_dns/get.php:20
 #: lib/app/nic_dns/search.php:27 lib/app/nic_dns/search.php:143
@@ -11741,24 +11741,28 @@ msgstr "تمدید دامنه"
 msgid "Transfer domain"
 msgstr "انتقال دامنه"
 
-#: content_my/domain/home/display.php:137 content_my/domain/setting/display.php:7
+#: content_my/domain/home/display.php:138 content_my/domain/setting/display.php:7
 msgid "Expire date"
 msgstr "تاریخ انقضا"
 
-#: content_my/domain/home/display.php:138
+#: content_my/domain/home/display.php:139
+msgid "Create date"
+msgstr "تاریخ ایجاد"
+
+#: content_my/domain/home/display.php:140
 msgid "DNS"
 msgstr "دی‌ان‌اس"
 
-#: content_my/domain/home/display.php:159 content_su/update/display.php:18
+#: content_my/domain/home/display.php:153 content_su/update/display.php:18
 #: includes/languages/trans_static.php:633
 msgid "Lock"
 msgstr "قفل"
 
-#: content_my/domain/home/display.php:163
+#: content_my/domain/home/display.php:154
 msgid "Autorenew"
 msgstr "تمدید خودکار"
 
-#: content_my/domain/home/display.php:194
+#: content_my/domain/home/display.php:192
 msgid "Buy your first winning domain!"
 msgstr "اولین دامنه خودتون رو بخرید و ببرید!"
 
@@ -13543,12 +13547,12 @@ msgstr "لطفا عنوان شغلی را کمتر از ۱۰۰ حرف وارد �
 msgid "Please set country less than 100 character"
 msgstr "لطفا کشور را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/app/address.php:98 lib/app/nic_contact/add.php:237
+#: dash/app/address.php:98 lib/app/nic_contact/add.php:238
 #: lib/app/setting/setup.php:318
 msgid "Invalid country"
 msgstr "کشور نامعتبر"
 
-#: dash/app/address.php:105 lib/app/nic_contact/add.php:249
+#: dash/app/address.php:105 lib/app/nic_contact/add.php:250
 #: lib/app/setting/setup.php:331
 msgid "Please set province less than 100 character"
 msgstr "لطفا استان را کمتر از ۱۰۰ حرف وارد کنید"
@@ -13557,7 +13561,7 @@ msgstr "لطفا استان را کمتر از ۱۰۰ حرف وارد کنید"
 msgid "Invalid province"
 msgstr "استان نامعتبر"
 
-#: dash/app/address.php:118 lib/app/nic_contact/add.php:262
+#: dash/app/address.php:118 lib/app/nic_contact/add.php:263
 #: lib/app/setting/setup.php:344
 msgid "Please set city less than 100 character"
 msgstr "لطفا شهر را کمتر از ۱۰۰ حرف وارد کنید"
@@ -21454,11 +21458,11 @@ msgstr "هیچ کالایی در سبد خرید شما یافت نشد!"
 msgid "The product was removed from your cart"
 msgstr "محصول از سبد خرید شما حذف شد"
 
-#: lib/app/category/add.php:44 lib/app/nic_contact/add.php:161
-#: lib/app/nic_contact/add.php:409 lib/app/nic_domain/create.php:203
-#: lib/app/nic_domain/create.php:313 lib/app/nic_domain/renew.php:102
-#: lib/app/nic_domain/renew.php:169 lib/app/nic_domain/transfer.php:75
-#: lib/app/nic_domain/transfer.php:178 lib/app/product/comment.php:197
+#: lib/app/category/add.php:44 lib/app/nic_contact/add.php:162
+#: lib/app/nic_contact/add.php:410 lib/app/nic_domain/create.php:239
+#: lib/app/nic_domain/create.php:349 lib/app/nic_domain/renew.php:127
+#: lib/app/nic_domain/renew.php:194 lib/app/nic_domain/transfer.php:124
+#: lib/app/nic_domain/transfer.php:227 lib/app/product/comment.php:197
 #: lib/app/product/company.php:39 lib/app/product/company.php:144
 #: lib/app/product/unit.php:39 lib/app/product/unit.php:147
 msgid "No way to insert data"
@@ -21745,100 +21749,115 @@ msgstr "برای دانلود فایل کلیک کنید"
 msgid "This file will be automatically deleted for a few minutes"
 msgstr "این فایل به صورت خودکار تا چند دقیقه دیگر حذف خواهد شد"
 
-#: lib/app/nic_contact/add.php:17 lib/app/nic_contact/add.php:64
+#: lib/app/nic_contact/add.php:17
 msgid "Invalid contact"
 msgstr "مخاطب اشتباه است"
 
-#: lib/app/nic_contact/add.php:43 lib/app/nic_contact/add.php:100
+#: lib/app/nic_contact/add.php:43
 msgid "Can not add your contact"
 msgstr "نمی‌توانیم مخاطب مورد نظر شما را اضافه کنیم"
 
-#: lib/app/nic_contact/add.php:77 lib/app/nic_contact/add.php:150
-#: lib/app/nic_contact/add.php:397
-msgid "This contact already added to your contact list"
-msgstr "این مخاطب قبلا به لیست مخاطبان شما اضافه شده است"
+#: lib/app/nic_contact/add.php:64
+msgid "Invalid IRNIC Handle"
+msgstr "شناسه ایرنیک نامعتبر است"
 
-#: lib/app/nic_contact/add.php:88
-msgid "Contact added to your contact list"
-msgstr "مخاطب به لیست مخاطبان شما اضافه شد"
+#: lib/app/nic_contact/add.php:77
+msgid "You already added this one to your IRNIC handle list"
+msgstr "شما قبلا این مورد را به لیست شناسه‌های ایرنیک خود اضافه کرده‌اید"
 
-#: lib/app/nic_contact/add.php:94
-msgid "Contact is not available"
-msgstr "مخاطب مورد نظر موجود نیست"
+#: lib/app/nic_contact/add.php:89
+msgid "IRNIC handle added successfully"
+msgstr "شناسه ایرنیک با موفقیت اضافه شد"
 
-#: lib/app/nic_contact/add.php:127
+#: lib/app/nic_contact/add.php:95
+msgid "This IRNIC handle is not available!"
+msgstr "این شناسه ایرنیک موجود نیست!"
+
+#: lib/app/nic_contact/add.php:101
+msgid "Can not add your IRNIC Handle"
+msgstr "نمی‌توانیم شناسه ایرنیک شما را ایجاد کنیم"
+
+#: lib/app/nic_contact/add.php:128
 msgid "Title is out of range"
 msgstr "عنوان خارج از محدوده مجاز است"
 
-#: lib/app/nic_contact/add.php:195 lib/app/nic_contact/edit.php:109
+#: lib/app/nic_contact/add.php:151
+msgid "This IRNIC Handle already added to your IRNIC Handle list"
+msgstr "این شناسه ایرنیک قبلا به لیست شناسه‌‌های شما اضافه شده است"
+
+#: lib/app/nic_contact/add.php:196 lib/app/nic_contact/edit.php:109
 msgid "Title must be less than 100 character"
 msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
 
-#: lib/app/nic_contact/add.php:201 lib/app/nic_contact/add.php:213
+#: lib/app/nic_contact/add.php:202 lib/app/nic_contact/add.php:214
 msgid "Firstname is required"
 msgstr "نام الزامی است"
 
-#: lib/app/nic_contact/add.php:207 lib/app/nic_contact/add.php:219
+#: lib/app/nic_contact/add.php:208 lib/app/nic_contact/add.php:220
 msgid "Firstname must be less than 70 character"
 msgstr "نام باید کمتر از ۷۰ کاراکتر باشد"
 
-#: lib/app/nic_contact/add.php:225
+#: lib/app/nic_contact/add.php:226
 msgid "Please set your firstname in latin characters"
 msgstr "لطفا نام خود را با حروف لاتین وارد کنید"
 
-#: lib/app/nic_contact/add.php:231
+#: lib/app/nic_contact/add.php:232
 msgid "Please set your lastname in latin characters"
 msgstr "لطفا نام خانوادگی خود را با حروف لاتین وارد کنید"
 
-#: lib/app/nic_contact/add.php:243 lib/app/setting/setup.php:324
+#: lib/app/nic_contact/add.php:244 lib/app/setting/setup.php:324
 msgid "Please choose your country"
 msgstr "لطفا کشور خود را انتخاب کنید"
 
-#: lib/app/nic_contact/add.php:255
+#: lib/app/nic_contact/add.php:256
 msgid "Please set your province in latin characters"
 msgstr "لطفا استان را به انگلیسی وارد کنید"
 
-#: lib/app/nic_contact/add.php:269 lib/app/setting/setup.php:350
+#: lib/app/nic_contact/add.php:270 lib/app/setting/setup.php:350
 msgid "Please choose your province"
 msgstr "لطفا استان خود را انتخاب کنید"
 
-#: lib/app/nic_contact/add.php:275 lib/app/setting/setup.php:356
+#: lib/app/nic_contact/add.php:276 lib/app/setting/setup.php:356
 msgid "Please choose your city"
 msgstr "لطفا شهر خود را انتخاب کنید"
 
-#: lib/app/nic_contact/add.php:281
+#: lib/app/nic_contact/add.php:282
 msgid "Please set your city in latin characters"
 msgstr "لطفا شهر را به انگلیسی وارد کنید"
 
-#: lib/app/nic_contact/add.php:287
+#: lib/app/nic_contact/add.php:288
 msgid "Please set your nationalcode"
 msgstr "لطفا کد ملی خود را وارد کنید"
 
-#: lib/app/nic_contact/add.php:293 lib/app/setting/setup.php:485
+#: lib/app/nic_contact/add.php:294 lib/app/setting/setup.php:485
 msgid "Invalid nationalcode"
 msgstr "کد ملی اشتباه است"
 
-#: lib/app/nic_contact/add.php:299
+#: lib/app/nic_contact/add.php:300
 msgid "Please set postcode"
 msgstr "لطفا کد‌ پستی را وارد کنید"
 
-#: lib/app/nic_contact/add.php:305
+#: lib/app/nic_contact/add.php:306
 msgid "Please set pos code as a number"
 msgstr "لطفا کد پستی را به صورت عددی وارد کنید"
 
-#: lib/app/nic_contact/add.php:312
+#: lib/app/nic_contact/add.php:313
 msgid "Please set address"
 msgstr "لطفا آدرس را وارد کنید"
 
-#: lib/app/nic_contact/add.php:318
+#: lib/app/nic_contact/add.php:319
 msgid "Please set address less than 100 characters"
 msgstr "لطفا آدرس را کمتر از ۱۰۰ کاراکتر وارد کنید"
 
-#: lib/app/nic_contact/add.php:324
+#: lib/app/nic_contact/add.php:325
 msgid "Please set your address in latin characters"
 msgstr "لطفا آدرس خود را با حروف لاتین وارد کنید"
 
-#: lib/app/nic_contact/add.php:404
+#: lib/app/nic_contact/add.php:398
+msgid "This contact already added to your contact list"
+msgstr "این مخاطب قبلا به لیست مخاطبان شما اضافه شده است"
+
+#: lib/app/nic_contact/add.php:405
 msgid "Contact created"
 msgstr "مخاطب ساخته شد"
 
@@ -21947,31 +21966,52 @@ msgstr "لطفا شناسه ایرنیک را انتخاب کنید"
 msgid "IRNIC handle not fount in your list"
 msgstr "شناسه ایرنیک در لیست شما یافت نشد"
 
-#: lib/app/nic_domain/create.php:119
+#: lib/app/nic_domain/create.php:93 lib/app/nic_domain/renew.php:95
+#: lib/app/nic_domain/transfer.php:71
+msgid "Can not find  billing account detail of this domain"
+msgstr "نمی‌توانید اطلاعات مربوط به رابط مالی دامنه را از جزئیات دامنه دریافت کنیم"
+
+#: lib/app/nic_domain/create.php:99 lib/app/nic_domain/transfer.php:77
+msgid "Can not find  admin account detail of this domain"
+msgstr "نمی‌توانید اطلاعات مربوط به صاحب امتیاز دامنه را از جزئیات دامنه دریافت کنیم"
+
+#: lib/app/nic_domain/create.php:109
+msgid ""
+"We can not register this domain because the bill holder of IRNIC can not access "
+"to register"
+msgstr ""
+
+#: lib/app/nic_domain/create.php:120
+msgid ""
+"We can not register this domain because the admin holder of IRNIC can not access "
+"to register"
+msgstr ""
+
+#: lib/app/nic_domain/create.php:155
 msgid "Please enter the dns records"
 msgstr "لطفا رکوردهای دی‌ان‌اس را وارد کنید"
 
-#: lib/app/nic_domain/create.php:136
+#: lib/app/nic_domain/create.php:172
 msgid "This domain is already in your list"
 msgstr "این دامنه در حال حاضر در لیست شما وجود دارد"
 
-#: lib/app/nic_domain/create.php:178
+#: lib/app/nic_domain/create.php:214
 msgid "Error! Can not create your domain data"
 msgstr ""
 
-#: lib/app/nic_domain/create.php:194
+#: lib/app/nic_domain/create.php:230
 msgid "Buy domian :val"
 msgstr "خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:291
+#: lib/app/nic_domain/create.php:327
 msgid "Your domain was registred"
 msgstr "دامنه شما با موفقیت ثبت شد"
 
-#: lib/app/nic_domain/create.php:304 lib/app/nic_domain/transfer.php:169
+#: lib/app/nic_domain/create.php:340 lib/app/nic_domain/transfer.php:218
 msgid "Register failed :val"
 msgstr ""
 
-#: lib/app/nic_domain/create.php:324
+#: lib/app/nic_domain/create.php:360
 msgid "Can not register your domain, Money back to your account"
 msgstr ""
 
@@ -22024,27 +22064,33 @@ msgstr ""
 msgid "Please choose your period of renew domain"
 msgstr ""
 
-#: lib/app/nic_domain/renew.php:64
-msgid "Can not get domain detail from nic server"
-msgstr ""
-
 #: lib/app/nic_domain/renew.php:82
 msgid "Maximum renew date is 6 year"
 msgstr "حداکثر زمان تمدید ۶ سال است"
 
-#: lib/app/nic_domain/renew.php:93
+#: lib/app/nic_domain/renew.php:88
+msgid "Can not access to billing account of this domain"
+msgstr "نمی‌توانید اطلاعات مربوط به رابط مالی دامنه را از جزئیات دامنه دریافت کنیم"
+
+#: lib/app/nic_domain/renew.php:106
+msgid ""
+"We can not renew this domain because the bill holder of IRNIC can not access to "
+"renew"
+msgstr ""
+
+#: lib/app/nic_domain/renew.php:118
 msgid "Renew domian :val"
 msgstr ""
 
-#: lib/app/nic_domain/renew.php:150
+#: lib/app/nic_domain/renew.php:175
 msgid "Domain renew ok"
 msgstr "تمدید دامنه انجام شد"
 
-#: lib/app/nic_domain/renew.php:160
+#: lib/app/nic_domain/renew.php:185
 msgid "Renew failed :val"
 msgstr ""
 
-#: lib/app/nic_domain/renew.php:173
+#: lib/app/nic_domain/renew.php:198
 msgid "Can not renew your domain"
 msgstr "نمی‌توانید دامنه را تمدید کنید"
 
@@ -22060,13 +22106,32 @@ msgstr "لطفا پین را وارد کنید"
 msgid "Can not add your IRNIC handle"
 msgstr ""
 
-#: lib/app/nic_domain/transfer.php:66
-msgid "Transfer domian :val"
+#: lib/app/nic_domain/transfer.php:87
+msgid ""
+"We can not transfer this domain because the bill holder of IRNIC can not access "
+"to transfer"
 msgstr ""
 
-#: lib/app/nic_domain/transfer.php:157
+#: lib/app/nic_domain/transfer.php:98
+msgid ""
+"We can not transfer this domain because the admin holder of IRNIC can not access "
+"to transfer"
+msgstr ""
+"امکان انتقال دامنه از طریق این شناسه ایرنیک وجود ندارد. شما می‌بایست در سایت nic."
+"ir در قسمت رابط‌ها نماینده دامنه را ji128-irnic انتخاب کنید و یا رابط مالی دامنه "
+"را ji128-irnic قرار دهید."
+
+#: lib/app/nic_domain/transfer.php:115
+msgid "Transfer domian :val"
+msgstr "انتقال دامنه :val"
+
+#: lib/app/nic_domain/transfer.php:206
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
+
+#: lib/app/nic_domain/transfer.php:232
+msgid "Can not transfer this domain"
+msgstr "نمی‌توان این دامنه را انتقال داد"
 
 #: lib/app/pos/add.php:20
 msgid "Please choose your pos"
@@ -23543,7 +23608,7 @@ msgstr "سرور ایرنیک در حال حاضر در دسترس نیست"
 #: lib/nic/exec/domain_renew.php:149 lib/nic/exec/domain_transfer.php:149
 #: lib/nic/exec/domain_update.php:170 lib/nic/exec/poll.php:181
 msgid "Can not connect to domain server"
-msgstr ""
+msgstr "نمی‌توانیم به سرور دامنه‌ها متصل شویم"
 
 #: lib/nic/exec/domain_check.php:43
 msgid "irnic person"
@@ -23595,7 +23660,7 @@ msgstr "فرمان با موفقیت انجام شد. دریافت پیام‌ �
 
 #: lib/nic/exec/run.php:187
 msgid "Object does not exist"
-msgstr ""
+msgstr "مورد درخواست شده وجود ندارد"
 
 #: lib/nic/exec/run.php:191
 msgid ""
@@ -23837,6 +23902,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Contact added to your contact list"
+#~ msgstr "مخاطب به لیست مخاطبان شما اضافه شد"
 
 #~ msgid "Create new IRNIC contact"
 #~ msgstr "افزودن مخاطب جدید در نیک"

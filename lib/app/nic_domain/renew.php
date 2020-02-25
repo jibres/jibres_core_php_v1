@@ -103,7 +103,7 @@ class renew
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not renew this domain because the bill holder of irnic can not access to renew"));
+			\dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
 			return false;
 		}
 

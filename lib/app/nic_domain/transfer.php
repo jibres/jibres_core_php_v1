@@ -84,7 +84,7 @@ class transfer
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not transfer this domain because the bill holder of irnic can not access to transfer"));
+			\dash\notif::error(T_("We can not transfer this domain because the bill holder of IRNIC can not access to transfer"));
 			return false;
 		}
 
@@ -95,7 +95,7 @@ class transfer
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not transfer this domain because the admin holder of irnic can not access to transfer"));
+			\dash\notif::error(T_("We can not transfer this domain because the admin holder of IRNIC can not access to transfer"));
 			return false;
 		}
 
