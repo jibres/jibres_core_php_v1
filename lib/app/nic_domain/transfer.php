@@ -31,6 +31,64 @@ class transfer
 			return false;
 		}
 
+
+		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
+
+		if(!isset($get_domain_detail['exDate']))
+		{
+			// \dash\notif::error(T_("Domain is not exists"));
+			return false;
+		}
+
+
+
+		if(!isset($get_domain_detail['bill']))
+		{
+			\dash\notif::error(T_("Can not access to billing account of this domain"));
+			return false;
+		}
+
+		if(!isset($get_domain_detail['admin']))
+		{
+			\dash\notif::error(T_("Can not access to billing account of this domain"));
+			return false;
+		}
+
+		$get_contac_nic =  \lib\nic\exec\contact_check::check($get_domain_detail['bill']);
+		if(!isset($get_contac_nic[$get_domain_detail['bill']]))
+		{
+			\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+			return false;
+		}
+
+		if(!isset($get_contac_nic[$get_domain_detail['admin']]))
+		{
+			\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+			return false;
+		}
+
+		if(isset($get_contac_nic[$get_domain_detail['bill']]['bill']) && $get_contac_nic[$get_domain_detail['bill']]['bill'] == '1')
+		{
+			// no problem to transfer this domain by tihs contact
+		}
+		else
+		{
+			\dash\notif::error(T_("We can not transfer this domain because the bill holder of irnic can not access to transfer"));
+			return false;
+		}
+
+
+		if(isset($get_contac_nic[$get_domain_detail['admin']]['admin']) && $get_contac_nic[$get_domain_detail['admin']]['admin'] == '1')
+		{
+			// no problem to transfer this domain by tihs contact
+		}
+		else
+		{
+			\dash\notif::error(T_("We can not transfer this domain because the admin holder of irnic can not access to transfer"));
+			return false;
+		}
+
+
 		if($irnic_new)
 		{
 			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
@@ -53,6 +111,8 @@ class transfer
 
 			$nic_id = $check_nic_id['nic_id'];
 		}
+
+
 
 		$price = 5000;
 
@@ -178,6 +238,10 @@ class transfer
 				\dash\notif::error(T_("No way to insert data"));
 				return false;
 			}
+
+
+			\dash\notif::error(T_("Can not transfer this domain"));
+			return false;
 
 		}
 
