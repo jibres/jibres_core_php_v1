@@ -3,7 +3,7 @@
 		<a href="<?php echo \dash\url::that(). '?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(!\dash\url::subchild()) { echo ' active';} ?>" >
 		 <div class="statistic blue">
 		  <div class="value"><i class="sf-info-circle"></i></div>
-		  <div class="label"><?php echo T_("Information"); ?></div>
+		  <div class="label"><?php echo T_("Domain Info"); ?></div>
 		 </div>
 		</a>
 	</div>
