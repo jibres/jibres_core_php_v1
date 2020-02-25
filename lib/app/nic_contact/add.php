@@ -61,7 +61,7 @@ class add
 
 		if(!$_old_contact || !is_string($_old_contact))
 		{
-			\dash\notif::error(T_("Invalid contact"));
+			\dash\notif::error(T_("Invalid IRNIC Handle"));
 			return false;
 		}
 
@@ -74,7 +74,7 @@ class add
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_old_contact);
 		if($check_duplicate)
 		{
-			\dash\notif::error(T_("This contact already added to your contact list"));
+			\dash\notif::error(T_("You already added this one to your IRNIC handle list"));
 			return false;
 		}
 
@@ -85,19 +85,19 @@ class add
 			$result = self::add_account($result[$_old_contact], $_title);
 			if($result)
 			{
-				\dash\notif::ok(T_("Contact added to your contact list"));
+				\dash\notif::ok(T_("IRNIC handle added successfully"));
 				return true;
 			}
 		}
 		elseif(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '0')
 		{
-			\dash\notif::error(T_("Contact is not available"));
+			\dash\notif::error(T_("This IRNIC handle is not available!"));
 			return false;
 		}
 		else
 		{
 			\dash\notif::clean();
-			\dash\notif::error(T_("Can not add your contact"));
+			\dash\notif::error(T_("Can not add your IRNIC Handle"));
 			return false;
 		}
 
@@ -147,7 +147,7 @@ class add
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $id);
 		if($check_duplicate)
 		{
-			\dash\notif::error(T_("This contact already added to your contact list"));
+			\dash\notif::error(T_("This IRNIC Handle already added to your IRNIC Handle list"));
 			return false;
 		}
 
