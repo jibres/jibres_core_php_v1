@@ -1,4 +1,3 @@
-<div class="msg fs14 txtB txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
 <div class="f">
 	<div class="c s6">
 		<a href="<?php echo \dash\url::that(). '?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(!\dash\url::subchild()) { echo ' active';} ?>" >

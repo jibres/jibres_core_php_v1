@@ -2,7 +2,7 @@
 <div class="f justify-center">
 	<div class="c6 m8 s12">
 		<div class="cbox">
-			<div class="msg minimal pLR20-f fs16 txtB txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
+			<div class="msg minimal pLR20-f fs16 txtB ltr txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
 
 			<p class="msg info2"><?php echo T_('You can change domain technical and billing holder to another one to allow them to do some action.'); ?></p>
 			<form method="post" autocomplete="off" class="mB20" >
