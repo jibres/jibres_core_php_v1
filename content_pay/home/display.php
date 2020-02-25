@@ -116,8 +116,9 @@ if(\dash\data::payDetail_final_msg())
 						<td><?php echo \dash\coding::encode(\dash\data::dataRow_id()); ?></td>
 					</tr>
 					<tr>
+
 						<th><?php echo T_("Date"); ?></th>
-						<td><?php \dash\fit::date(\dash\data::dataRow_dateverify()); ?></td>
+						<td><?php echo \dash\fit::date_time(date("Y-m-d H:i:s", \dash\data::dataRow_dateverify())); ?></td>
 					</tr>
 					<tr>
 						<th><?php echo T_("Payment"); ?></th>
