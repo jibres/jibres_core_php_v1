@@ -3,13 +3,11 @@ if(\dash\data::dataTable())
 {
 	if(\dash\data::isFiltered())
 	{
-		htmlSearchBox();
 		htmlTable();
 		htmlFilter();
 	}
 	else
 	{
-		htmlSearchBox();
 		htmlTable();
 
 	}
@@ -19,7 +17,6 @@ else
 {
 	if(\dash\data::isFiltered())
 	{
-		htmlSearchBox();
 		htmlTable();
 		htmlFilter();
 	}
@@ -50,7 +47,7 @@ else
 
 <?php function htmlTable() {?>
 	<div class="tblBox">
-	<table class="tbl1 v4">
+	<table class="tbl1 v1">
 		<thead>
 			<tr>
 				<th class="collapsing">#</th>
@@ -61,9 +58,9 @@ else
 				<th><?php echo T_("DNS #3"); ?></th>
 				<th><?php echo T_("DNS #4"); ?></th>
 
-				<th class="s0"><?php echo T_("Date created"); ?></th>
+				<th class="s0 collapsing"><?php echo T_("Date created"); ?></th>
 
-				<th class="collapsing"><?php echo T_("Action"); ?></th>
+
 			</tr>
 		</thead>
 		<tbody>
@@ -71,18 +68,23 @@ else
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"';} ?>>
-				<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
-				<td><?php echo \dash\get::index($value, 'title'); ?> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php } //endif ?></td>
+				<td><?php echo \dash\fit::number($key + 1); ?></td>
+				<td>
+					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="<?php if(!isset($value['title'])) { echo 'fc-mute';}else{echo 'link';} ?>">
+						<?php if(\dash\get::index($value, 'title')) { echo \dash\get::index($value, 'title'); } else { echo T_("Without title"); } ?>
+					</a>
+						<?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php } //endif ?>
+				</td>
 				<td><?php echo \dash\fit::number(\dash\get::index($value, 'count_useage')); ?></td>
 				<td><?php echo \dash\get::index($value, 'ip1'); ?> <br> <?php echo \dash\get::index($value, 'ns1'); ?></td>
 				<td><?php echo \dash\get::index($value, 'ip2'); ?> <br> <?php echo \dash\get::index($value, 'ns2'); ?></td>
 				<td><?php echo \dash\get::index($value, 'ip3'); ?> <br> <?php echo \dash\get::index($value, 'ns3'); ?></td>
 				<td><?php echo \dash\get::index($value, 'ip4'); ?> <br> <?php echo \dash\get::index($value, 'ns4'); ?></td>
 
-				<td class="s0">
-					<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>
+				<td class="s0 collapsing">
+					<?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="btn info2"><?php echo T_("Manage dns"); ?></a></td>
+
 			</tr>
 			<?php } //endfor ?>
 		</tbody>

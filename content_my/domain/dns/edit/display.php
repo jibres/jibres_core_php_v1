@@ -7,7 +7,7 @@
 
 			<div class="cbox">
 				<p>
-					<?php echo T_("Remove contact"); ?>
+					<?php echo T_("Remove DNS"); ?>
 				</p>
 
 				<div class="txtRa">
