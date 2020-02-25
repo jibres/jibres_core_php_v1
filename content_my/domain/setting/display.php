@@ -3,93 +3,82 @@
 	<div class="c6 m8 s12">
 		<div class="cbox">
 
-			<div class="msg success txtB txtC fs14"><?php echo \dash\data::myDomain(); ?></div>
-			<div class="msg txtC"><?php echo T_("Expire date"); ?> <?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></div>
+			<table class="tbl1 v4">
 
-			<div class="mB20" >
+				<tr class="positive">
+					<td><?php echo T_("Name") ?></td>
+					<td class="txtB txtL ltr"><?php echo \dash\data::domainDetail_name() ?></td>
+				</tr>
 
-				<div class="f fs06">
-					<div class="c6 s12">
-						<div class="dcard x1 <?php if(\dash\data::domainDetail_lock()) { echo ' active';} ?>" data-confirm data-data='{"myaction" : "lock"}'>
-						 <div class="statistic blue">
-						  <div class="value"><i class="sf-lock"></i></div>
-						  <div class="label"><?php echo T_("Lock domain"); ?></div>
-						 </div>
-						</div>
-					</div>
+				<tr>
+					<td><?php echo T_("Expire date") ?></td>
+					<td class="txtL ltr"><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateexpire()); ?></td>
+				</tr>
 
-					<div class="c6 s12">
-						<div class="dcard x1 <?php if(!\dash\data::domainDetail_lock()) { echo ' active';} ?>" data-confirm data-data='{"myaction" : "unlock"}'>
-						 <div class="statistic red">
-						  <div class="value"><i class="sf-unlock"></i></div>
-						  <div class="label"><?php echo T_("Unlock domain"); ?></div>
-						 </div>
-						</div>
-					</div>
+				<tr>
+					<td><?php echo T_("IRNIC holder") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
+				</tr>
 
-				</div>
+				<tr>
+					<td><?php echo T_("IRNIC admin") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
+				</tr>
 
-				<?php if(\dash\data::domainDetail_autorenew()) {?>
+				<tr>
+					<td><?php echo T_("IRNIC billing") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_bill(); ?></td>
+				</tr>
 
-				<div class="dcard fs08 x1 active" data-confirm data-data='{"myaction" : "autorenew", "op" :"unset"}'>
-				 <div class="statistic blue">
-				  <div class="value"><i class="sf-refresh"></i></div>
-				  <div class="label"><?php echo T_("Disalbe Auto renew"); ?></div>
-				 </div>
-				</div>
+				<tr>
+					<td><?php echo T_("IRNIC technical") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_tech(); ?></td>
+				</tr>
 
-				<?php }else{ ?>
+				<tr>
+					<td><div class="ibtn wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(\dash\data::domainDetail_autorenew()) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+					<td class="txtL ltr">
+						<?php  if(\dash\data::domainDetail_autorenew()) {?>
+							<div class="btn" data-confirm data-data='{"myaction" : "autorenew", "op" :"unset"}'><?php echo T_("Click To disable autorenew"); ?></div>
+						<?php }else{ ?>
+							<div class="btn primary2" data-confirm data-data='{"myaction" : "autorenew", "op" :"set"}'><?php echo T_("Click To enable autorenew"); ?></div>
+						<?php }// endif ?>
+					</td>
+				</tr>
 
-				<div class="dcard fs08 x1" data-confirm data-data='{"myaction" : "autorenew", "op" :"set"}'>
-				 <div class="statistic">
-				  <div class="value"><i class="sf-refresh"></i></div>
-				  <div class="label"><?php echo T_("Enable Auto renew"); ?></div>
-				 </div>
-				</div>
 
+				<tr>
+					<td><?php echo T_("Domain Lock Status") ?></td>
+					<td class="txtL ltr"><div class="ibtn wide"><?php echo '<span>'.T_("Lock"). '</span>'; if(\dash\data::domainDetail_lock()) { echo '<i class="sf-lock fc-green"></i>'; } else{ echo '<i class="sf-unlock fc-red"></i>'; }?></div></td>
+				</tr>
+
+
+				<tr>
+					<td><?php echo T_("DNS #1") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ns1() ?></td>
+				</tr>
+				<tr>
+					<td><?php echo T_("DNS #2") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ns2() ?></td>
+				</tr>
+
+				<?php if(\dash\data::domainDetail_ns3()) {?>
+				<tr>
+					<td><?php echo T_("DNS #3") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ns3() ?></td>
+				</tr>
 				<?php } //endif ?>
 
+				<?php if(\dash\data::domainDetail_ns4()) {?>
+				<tr>
+					<td><?php echo T_("DNS #4") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ns4() ?></td>
+				</tr>
+				<?php } //endif ?>
+
+			</table>
 
 
-				<form method="post" autocomplete="off" class="mB20" >
-
-
-				    <label for="iholder"><?php echo T_("Holder"); ?></label>
-					<div class="input ltr">
-						<input type="text" name="holder" id="iholder" maxlength="50" value="<?php echo \dash\data::domainDetail_holder(); ?>" >
-					</div>
-
-					<label for="iadmin"><?php echo T_("Admin"); ?></label>
-					<div class="input ltr">
-						<input type="text" name="admin" id="iadmin" maxlength="50" value="<?php echo \dash\data::domainDetail_admin(); ?>" >
-					</div>
-
-					<label for="itech"><?php echo T_("Technical"); ?></label>
-					<div class="input ltr">
-						<input type="text" name="tech" id="itech" maxlength="50" value="<?php echo \dash\data::domainDetail_tech(); ?>" >
-					</div>
-
-					<label for="ibill"><?php echo T_("Billing"); ?></label>
-					<div class="input ltr">
-						<input type="text" name="bill" id="ibill" maxlength="50" value="<?php echo \dash\data::domainDetail_bill(); ?>" >
-					</div>
-
-					<div class="c6 s12">
-					    <label for="ns1"><?php echo T_("DNS #1"); ?></label>
-						<div class="input ltr">
-							<input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::domainDetail_ns1(); ?>" >
-						</div>
-						<label for="ns2"><?php echo T_("DNS #2"); ?></label>
-						<div class="input ltr">
-							<input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::domainDetail_ns2(); ?>" >
-						</div>
-			    	</div>
-
-					<div class="txtRa">
-						<button class="btn success"><?php echo T_("Update"); ?></button>
-					</div>
-				</form>
-			</div>
 		</div>
 	</div>
 </div>
