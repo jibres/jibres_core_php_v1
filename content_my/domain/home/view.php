@@ -35,7 +35,7 @@ class view
 		$list = \lib\app\nic_domain\search::list($search_string, $args);
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'datecreated'], \dash\url::this());
+		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
 		\dash\data::sortLink($sortLink);
 
 

@@ -80,7 +80,7 @@ class get
 
 		if(isset($fetch['upDate']))
 		{
-			$update_domain['update'] = $fetch['upDate'];
+			$update_domain['dateupdate'] = $fetch['upDate'];
 		}
 
 		if(isset($fetch['status']) && is_array($fetch['status']))
