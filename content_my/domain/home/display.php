@@ -147,7 +147,7 @@ else
 			<tr <?php if(\dash\request::get('resultid') && \dash\coding::encode(\dash\get::index($value, 'id')) == \dash\request::get('resultid')) { echo "class='positive'";} ?>>
 				<td>
 					<!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
-					<a href="<?php echo \dash\url::that(); ?>/setting/<?php echo \dash\get::index($value, 'name'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+					<a href="<?php echo \dash\url::that(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
 				</td>
 				<td class="collapsing">
 					<div class="ibtn wide"><?php echo '<span>'.T_("Lock"). '</span>'; if(isset($value['lock']) && $value['lock']) { echo '<i class="sf-lock fc-green"></i>'; } else{ echo '<i class="sf-unlock fc-red"></i>'; }?></div>

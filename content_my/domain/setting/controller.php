@@ -8,15 +8,7 @@ class controller
 	{
 		\content_my\domain\controller::check_login();
 
-		if(\dash\url::dir(3))
-		{
-			\dash\header::status(404, T_("Invalid url"));
-		}
-
-		\dash\open::get();
-		\dash\open::post();
-
-		$domain = \dash\url::subchild();
+		$domain = \dash\request::get('domain');
 		if($domain)
 		{
 			if(\lib\app\nic_domain\check::syntax($domain))
