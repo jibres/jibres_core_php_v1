@@ -25,10 +25,102 @@ class get
 			\dash\notif::error(T_("Invalid domain"));
 			return false;
 		}
+
+		if(isset($load_domain['lastfetch']) && $load_domain['lastfetch'])
+		{
+			// fetch every 1 hour
+			if(time() - strtotime($load_domain['lastfetch']) > (60*60))
+			{
+				self::update_fetch($_domain, $load_domain);
+				$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
+			}
+		}
+		else
+		{
+			self::update_fetch($_domain, $load_domain);
+			$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
+		}
+
 		return $load_domain;
 
 
 	}
+
+	private static function update_fetch($_domain, $_load_domain)
+	{
+		$fetch = self::info($_domain);
+
+		if(isset($fetch[$_domain]))
+		{
+			$fetch = $fetch[$_domain];
+		}
+
+		$update_domain = [];
+
+		if(is_array($fetch))
+		{
+			$update_domain['result'] = json_encode($fetch, JSON_UNESCAPED_UNICODE);
+		}
+
+		if(isset($fetch['roid']))
+		{
+			$update_domain['roid'] = $fetch['roid'];
+		}
+
+		if(isset($fetch['crDate']))
+		{
+			$update_domain['dateregister'] = $fetch['crDate'];
+		}
+
+
+		if(isset($fetch['exDate']))
+		{
+			$update_domain['dateexpire'] = $fetch['exDate'];
+		}
+
+		if(isset($fetch['upDate']))
+		{
+			$update_domain['update'] = $fetch['upDate'];
+		}
+
+		if(isset($fetch['status']) && is_array($fetch['status']))
+		{
+			$update_domain['nicstatus'] = json_encode($fetch['status'], JSON_UNESCAPED_UNICODE);
+		}
+
+
+
+		if(isset($fetch['holder']))
+		{
+			$update_domain['holder'] = $fetch['holder'];
+		}
+
+		if(isset($fetch['admin']))
+		{
+			$update_domain['admin'] = $fetch['admin'];
+		}
+
+		if(isset($fetch['bill']))
+		{
+			$update_domain['bill'] = $fetch['bill'];
+		}
+
+		if(isset($fetch['tech']))
+		{
+			$update_domain['tech'] = $fetch['tech'];
+		}
+
+		if(isset($fetch['reseller']))
+		{
+			$update_domain['reseller'] = $fetch['reseller'];
+		}
+
+		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
+
+		\lib\db\nic_domain\update::update($update_domain, $_load_domain['id']);
+
+	}
+
 
 	public static function check($_domain)
 	{
