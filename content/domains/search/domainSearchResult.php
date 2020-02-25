@@ -21,7 +21,7 @@ if(\dash\data::infoResult())
 
 
                 // cell1
-                echo '<div class="c pR10">';
+                echo '<div class="c pA5 pR10-f">';
                 if(isset($value['name']) && isset($value['tld']))
                 {
                     echo '<span class="name">'. $value['name']. '</span>';
@@ -39,7 +39,7 @@ if(\dash\data::infoResult())
 
 
                 // cell2
-                echo '<div class="cauto pR20">';
+                echo '<div class="cauto pA5 pR20-f">';
                 if(isset($value['price']))
                 {
                     if(isset($value['unit']))
@@ -56,7 +56,7 @@ if(\dash\data::infoResult())
 
 
                 // cell3
-                echo '<div class="cauto">';
+                echo '<div class="cauto pA5">';
                 if(isset($value['soon']) && $value['soon'])
                 {
                     echo T_("Coming Soon");
