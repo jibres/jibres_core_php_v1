@@ -23,7 +23,7 @@
 
   <section class="domainParts">
    <h3><?php echo T_('What are the parts of a domain?'); ?></h3>
-   <p><?php echo T_('Domains, like most brilliant ideas, work on more than one level. They include both a top level domain and a second level domain. And, like brilliant ideas, they also center around a single point—or in this case, a dot.');?></p>
+   <p><?php echo T_('Domains, like most brilliant ideas, work on more than one level. They include both a top level domain and a second level domain. And, like brilliant ideas, they also center around a single point-or in this case, a dot.');?></p>
 
    <div class="f">
     <figure class="c6 s12 pRa5">
@@ -48,11 +48,11 @@
    <p><?php echo T_('The truth is that if you have a website, it needs to have an address, and that address needs to have a name.'); ?></p>
 
    <h4><?php echo T_('But there are other good reasons to register a domain too.'); ?></h4>
-   <p><?php echo T_("Registering a domain reserves it so no one else can register it. So it might be smart to snatch up a domain now—your personal name, company name, or other things you're involved with, like a book title, band name, or hobby—just to take it 'off the market'."); ?></p>
-   <p><?php echo T_("In my case, I might not need the domain CosmoHedgehog.rocks today, but I'll definitely want to own it once I become super famous."); ?></p>
+   <p><?php echo T_("Registering a domain reserves it so no one else can register it. So it might be smart to snatch up a domain now-your personal name, company name, or other things you're involved with, like a book title, band name, or hobby-just to take it 'off the market'."); ?></p>
+   <p><?php echo T_("In my case, I might not need the domain minion.party today, but I'll definitely want to own it once I become super famous."); ?></p>
 
    <p class="txtB fs11 mB5"><?php echo T_("There's also custom email."); ?></p>
-   <p><?php echo T_("Want an email address like me@cosmohedgehog.rocks? To get such a slick, personalized address, you'll need to reserve the domain first, then attach it to email hosting. This is a smart move especially if you're running a business site. That way, your customers can easily remember info@mybusiness as easily as they remember your domain itself."); ?></p>
+   <p><?php echo T_("Want an email address like me@minion.party? To get such a slick, personalized address, you'll need to reserve the domain first, then attach it to email hosting. This is a smart move especially if you're running a business site. That way, your customers can easily remember info@mybusiness as easily as they remember your domain itself."); ?></p>
   </section>
   <hr>
 
@@ -62,7 +62,7 @@
    <div class="c s12">
     <section class="mT50">
      <h3><?php echo T_("Don't have a website?"); ?> <?php echo T_("No problem!"); ?></h3>
-     <p><?php echo T_("You can point your domain to your Instagram, Facebook, Twitter, Telegram or other social media account. I don't know about you, but I'd much rather tell people to friend me at CosmoHedgehog.rocks than give out some long, convoluted URL. That reminds me, I should really register that domain now."); ?></p>
+     <p><?php echo T_("You can point your domain to your Instagram, Facebook, Twitter, Telegram or other social media account. I don't know about you, but I'd much rather tell people to friend me at minion.party than give out some long, convoluted URL. That reminds me, I should really register that domain now."); ?></p>
     </section>
    </div>
    <div class="c7 s12">
