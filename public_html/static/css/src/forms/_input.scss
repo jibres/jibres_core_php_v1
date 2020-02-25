@@ -10,8 +10,6 @@ $inputBorder: 1px solid rgba(0,0,0,0.1);
 	color: rgba(0,0,0,0.9);
 	width: 100%;
 	border-radius: 0.25rem;
-	background-clip: padding-box;
-	box-shadow: none !important;
 
 	@include flexbox;
 	@include flex-wrap(wrap);
@@ -34,6 +32,8 @@ span.input{
 	height:36px;
 	padding: 8px 1em;
 	background-color: #fff;
+	background-clip: padding-box;
+	// box-shadow: none !important;
 	border: $inputBorder;
 	transition-duration:0.3s;
 	transition-property:opacity, background-color, color, border;
