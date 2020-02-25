@@ -143,7 +143,7 @@ else
 
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-			<tr>
+			<tr <?php if(\dash\request::get('resultid') && \dash\coding::encode(\dash\get::index($value, 'id')) == \dash\request::get('resultid')) { echo "class='positive'";} ?>>
 				<td>
 					<!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
 					<a href="<?php echo \dash\url::that(); ?>/setting/<?php echo \dash\get::index($value, 'name'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
