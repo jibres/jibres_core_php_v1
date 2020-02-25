@@ -29,6 +29,22 @@ class check
 	}
 
 
+	public static function syntax_ir($_domain)
+	{
+		if(!self::syntax($_domain))
+		{
+			return false;
+		}
+
+		if(!preg_match("/^[\w\d]+\.(ir|ایران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $_domain))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+
 	public static function multi_check($_domain)
 	{
 		$check_tld =

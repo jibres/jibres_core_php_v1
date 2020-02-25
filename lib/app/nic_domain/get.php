@@ -44,6 +44,20 @@ class get
 	}
 
 
+	public static function info($_domain)
+	{
+		if(!\lib\app\nic_domain\check::syntax($_domain))
+		{
+			return false;
+		}
+
+		$result = \lib\nic\exec\domain_info::info($_domain);
+
+		return $result;
+
+	}
+
+
 
 	public static function by_id($_id)
 	{
