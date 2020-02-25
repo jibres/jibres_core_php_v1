@@ -132,14 +132,15 @@ else
 <div class="fs12">
 	<table class="tbl1 v1 responsive">
 		<thead>
-			<tr>
+			<tr class="fs09">
 				<th data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
-				<th data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
-				<th class="collapsing"><?php echo T_("DNS"); ?></th>
-				<th class="collapsing" colspan="2"></th>
+				<th></th>
+				<th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
+				<th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'datecreate', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'datecreate', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
+				<th class="txtL"><?php echo T_("DNS"); ?></th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="fs12">
 
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
@@ -148,19 +149,16 @@ else
 					<!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
 					<a href="<?php echo \dash\url::that(); ?>/setting/<?php echo \dash\get::index($value, 'name'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
 				</td>
-				<td class=""><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
 				<td class="collapsing">
+					<div class="ibtn wide"><?php echo '<span>'.T_("Lock"). '</span>'; if(isset($value['lock']) && $value['lock']) { echo '<i class="sf-lock fc-green"></i>'; } else{ echo '<i class="sf-unlock fc-red"></i>'; }?></div>
+					<div class="ibtn wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
+				</td>
+				<td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
+				<td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'datecreate')); ?></td>
+				<td class="collapsing ltr txtL">
 					<code><?php echo \dash\get::index($value, 'ns1'); ?></code>
 					<br>
 					<code><?php echo \dash\get::index($value, 'ns2'); ?></code>
-				</td>
-
-				<td class="collapsing">
-					<div class="ibtn wide"><?php echo '<span>'.T_("Lock"). '</span>'; if(isset($value['lock']) && $value['lock']) { echo '<i class="sf-lock fc-green"></i>'; } else{ echo '<i class="sf-unlock fc-red"></i>'; }?></div>
-				</td>
-
-				<td class="collapsing">
-					<div class="ibtn wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
 				</td>
 
 			</tr>
