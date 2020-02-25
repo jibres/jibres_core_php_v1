@@ -99,12 +99,7 @@ class transfer
 			return false;
 		}
 
-
-
-
-
-		$price = 5000;
-
+		$price = \lib\app\nic_domain\price::transfer();
 		$user_budget = \dash\user::budget();
 
 		if($user_budget >= $price)

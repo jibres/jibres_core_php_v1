@@ -24,8 +24,8 @@ class domain_check
 				$result[$key]['available'] = boolval($value['attr']['avail']);
 			}
 
-			$result[$key]['price'] = 3000;
-			$result[$key]['compareAtPrice'] = 5000;
+			$result[$key]['price'] = \lib\app\nic_domain\price::register('1year');
+			$result[$key]['compareAtPrice'] = \lib\app\nic_domain\price::register_compare('1year');
 			$result[$key]['unit'] = T_('Toman');
 
 			if(isset($value['attr']['normalized_name']))

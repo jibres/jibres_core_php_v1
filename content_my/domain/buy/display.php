@@ -44,13 +44,13 @@
       <div class="c pB10 pRa5">
        <div class="radio3">
       <input type="radio" name="period" value="1year" id="period1year">
-      <label for="period1year"><?php echo T_("1 Year"); ?> <span> <?php echo \dash\fit::number('3000'). ' '. T_("Toman"); ?> </span></label>
+      <label for="period1year"><?php echo T_("1 Year"); ?> <span> <?php echo \lib\app\nic_domain\price::register_string("1year"); ?> </span></label>
        </div>
       </div>
       <div class="c pB10">
        <div class="radio3">
       <input type="radio" name="period" value="5year" id="period5year">
-      <label for="period5year"><?php echo T_("5 Year"); ?> <span> <?php echo \dash\fit::number('12000'). ' '. T_("Toman"); ?> </span></label>
+      <label for="period5year"><?php echo T_("5 Year"); ?> <span> <?php echo \lib\app\nic_domain\price::register_string("5year"); ?> </span></label>
        </div>
       </div>
     </div>

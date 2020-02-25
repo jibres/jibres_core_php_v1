@@ -43,17 +43,15 @@ class create
 		}
 
 		$period_month = 0;
-		$price = 0;
+		$price = \lib\app\nic_domain\price::register($period);
 
 		if($period === '1year')
 		{
 			$period_month = 12;
-			$price = 3000;
 		}
 		elseif($period === '5year')
 		{
 			$period_month = 5*12;
-			$price = 12000;
 		}
 
 		if(!$irnic_new && !$nic_id)

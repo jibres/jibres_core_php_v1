@@ -36,17 +36,16 @@ class renew
 		}
 
 		$period_month = 0;
-		$price = 0;
+		$price = \lib\app\nic_domain\price::renew($period);
 
 		if($period === '1year')
 		{
 			$period_month = 12;
-			$price = 3000;
+
 		}
 		elseif($period === '5year')
 		{
 			$period_month = 5*12;
-			$price = 12000;
 		}
 
 		$domain_id = null;
