@@ -15,6 +15,12 @@ class create
 		$ns4    = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
 		$dnsid  = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
 
+
+		$ip1 = null;
+		$ip2 = null;
+		$ip3 = null;
+		$ip4 = null;
+
 		$irnic_new = isset($_args['irnic_new']) 	? $_args['irnic_new'] 	: null;
 
 
@@ -147,6 +153,15 @@ class create
 
 				$ns1 = $load_dns['ns1'];
 				$ns2 = $load_dns['ns2'];
+				$ns3 = $load_dns['ns3'];
+				$ns4 = $load_dns['ns4'];
+
+				$ip1 = $load_dns['ip1'];
+				$ip2 = $load_dns['ip2'];
+				$ip3 = $load_dns['ip3'];
+				$ip4 = $load_dns['ip4'];
+
+
 			}
 			else
 			{
@@ -261,7 +276,6 @@ class create
 
 			// redirect to bank payment
 			return ;
-
 		}
 
 
@@ -272,6 +286,13 @@ class create
 			'period' => $period_month,
 			'ns1'    => $ns1,
 			'ns2'    => $ns2,
+			'ns3'    => $ns3,
+			'ns4'    => $ns4,
+
+			'ip1'    => $ip1,
+			'ip2'    => $ip2,
+			'ip3'    => $ip3,
+			'ip4'    => $ip4,
 		];
 
 		// need to show result page

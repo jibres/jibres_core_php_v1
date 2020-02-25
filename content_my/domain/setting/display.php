@@ -76,6 +76,34 @@
 				</tr>
 				<?php } //endif ?>
 
+				<?php if(\dash\data::domainDetail_ip1()) {?>
+				<tr>
+					<td><?php echo T_("IP #1") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ip1() ?></td>
+				</tr>
+				<?php } //endif ?>
+
+				<?php if(\dash\data::domainDetail_ip2()) {?>
+				<tr>
+					<td><?php echo T_("IP #2") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ip2() ?></td>
+				</tr>
+				<?php } //endif ?>
+
+				<?php if(\dash\data::domainDetail_ip3()) {?>
+				<tr>
+					<td><?php echo T_("IP #3") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ip3() ?></td>
+				</tr>
+				<?php } //endif ?>
+
+				<?php if(\dash\data::domainDetail_ip4()) {?>
+				<tr>
+					<td><?php echo T_("IP #4") ?></td>
+					<td class="txtL ltr"><?php echo \dash\data::domainDetail_ip4() ?></td>
+				</tr>
+				<?php } //endif ?>
+
 			</table>
 
 

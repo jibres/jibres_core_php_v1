@@ -92,12 +92,70 @@ class domain_create
 
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_args['domain'], $xml);
 		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
+
+		if(isset($_args['ns3']) && $_args['ns3'])
+		{
+			$temp_xml = '<domain:hostAttr><domain:hostName>NS2.JIBRES.TLD</domain:hostName></domain:hostAttr><domain:hostAttr><domain:hostName>NS3.JIBRES.TLD</domain:hostName></domain:hostAttr>';
+			$xml = str_replace('<domain:hostAttr><domain:hostName>NS2.JIBRES.TLD</domain:hostName></domain:hostAttr>', $temp_xml, $xml);
+		}
+
+		if(isset($_args['ns4']) && $_args['ns4'])
+		{
+			if(isset($_args['ns3']) && $_args['ns3'])
+			{
+				$temp_xml = '<domain:hostAttr><domain:hostName>NS3.JIBRES.TLD</domain:hostName></domain:hostAttr><domain:hostAttr><domain:hostName>NS4.JIBRES.TLD</domain:hostName></domain:hostAttr>';
+				$xml = str_replace('<domain:hostAttr><domain:hostName>NS3.JIBRES.TLD</domain:hostName></domain:hostAttr>', $temp_xml, $xml);
+			}
+			else
+			{
+				$temp_xml = '<domain:hostAttr><domain:hostName>NS2.JIBRES.TLD</domain:hostName></domain:hostAttr><domain:hostAttr><domain:hostName>NS4.JIBRES.TLD</domain:hostName></domain:hostAttr>';
+				$xml = str_replace('<domain:hostAttr><domain:hostName>NS2.JIBRES.TLD</domain:hostName></domain:hostAttr>', $temp_xml, $xml);
+			}
+		}
+
+		$sample_ip_xml = '<domain:hostAddr ip="v4">JIBRES-SAMPLE-IP</domain:hostAddr>';
+
+		if(isset($_args['ip1']) && $_args['ip1'])
+		{
+			$temp_sample_ip_xml = str_replace('JIBRES-SAMPLE-IP', $_args['ip1'], $sample_ip_xml);
+			$xml = str_replace('<domain:hostName>NS1.JIBRES.TLD</domain:hostName>', '<domain:hostName>NS1.JIBRES.TLD</domain:hostName>'. $temp_sample_ip_xml, $xml);
+		}
+
+		if(isset($_args['ip2']) && $_args['ip2'])
+		{
+			$temp_sample_ip_xml = str_replace('JIBRES-SAMPLE-IP', $_args['ip2'], $sample_ip_xml);
+			$xml = str_replace('<domain:hostName>NS2.JIBRES.TLD</domain:hostName>', '<domain:hostName>NS2.JIBRES.TLD</domain:hostName>'. $temp_sample_ip_xml, $xml);
+		}
+
+		if(isset($_args['ip3']) && $_args['ip3'])
+		{
+			$temp_sample_ip_xml = str_replace('JIBRES-SAMPLE-IP', $_args['ip3'], $sample_ip_xml);
+			$xml = str_replace('<domain:hostName>NS3.JIBRES.TLD</domain:hostName>', '<domain:hostName>NS3.JIBRES.TLD</domain:hostName>'. $temp_sample_ip_xml, $xml);
+		}
+
+		if(isset($_args['ip4']) && $_args['ip4'])
+		{
+			$temp_sample_ip_xml = str_replace('JIBRES-SAMPLE-IP', $_args['ip4'], $sample_ip_xml);
+			$xml = str_replace('<domain:hostName>NS4.JIBRES.TLD</domain:hostName>', '<domain:hostName>NS4.JIBRES.TLD</domain:hostName>'. $temp_sample_ip_xml, $xml);
+		}
+
 		$xml = str_replace('NS1.JIBRES.TLD', $_args['ns1'], $xml);
 		$xml = str_replace('NS2.JIBRES.TLD', $_args['ns2'], $xml);
+
+		if(isset($_args['ns3']) && $_args['ns3'])
+		{
+			$xml = str_replace('NS3.JIBRES.TLD', $_args['ns3'], $xml);
+		}
+
+		if(isset($_args['ns4']) && $_args['ns4'])
+		{
+			$xml = str_replace('NS4.JIBRES.TLD', $_args['ns4'], $xml);
+		}
+
 		$xml = str_replace('PERIOD', $_args['period'], $xml);
 
-
 		$xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
+
 
 		$insert_log =
 		[
