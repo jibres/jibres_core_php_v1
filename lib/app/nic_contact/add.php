@@ -79,6 +79,7 @@ class add
 		}
 
 		$result = \lib\nic\exec\contact_check::check($_old_contact);
+
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
 		{
 			// $info = \lib\nic\exec\contact_info::info($_old_contact);
