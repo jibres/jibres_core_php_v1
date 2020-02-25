@@ -11,12 +11,12 @@
 
 				    <label for="iholder"><?php echo T_("Holder"); ?></label>
 					<div class="input ltr">
-						<input type="text" name="holder" id="iholder" maxlength="50" value="<?php echo \dash\data::domainDetail_holder(); ?>" >
+						<input type="text" name="holder" id="iholder" maxlength="50" disabled value="<?php echo \dash\data::domainDetail_holder(); ?>" >
 					</div>
 
 					<label for="iadmin"><?php echo T_("Admin"); ?></label>
 					<div class="input ltr">
-						<input type="text" name="admin" id="iadmin" maxlength="50" value="<?php echo \dash\data::domainDetail_admin(); ?>" >
+						<input type="text" name="admin" id="iadmin" maxlength="50" disabled value="<?php echo \dash\data::domainDetail_admin(); ?>" >
 					</div>
 
 					<label for="itech"><?php echo T_("Technical"); ?></label>

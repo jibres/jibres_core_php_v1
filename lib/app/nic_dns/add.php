@@ -115,7 +115,7 @@ class add
 			\dash\notif::error(T_("No way to insert dns"));
 		}
 
-		return true;
+		return $dns_id;
 	}
 
 

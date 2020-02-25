@@ -51,20 +51,113 @@ class edit
 			return false;
 		}
 
-		$args = [];
+		$args                 = [];
 		$update_domian_record = [];
+		$args_new_dns         = [];
+		$new_dns              = false;
 
-		if(isset($load_domain['ns1']) && $load_domain['ns1'] == $ns1 && isset($load_domain['ns2']) && $load_domain['ns2'] == $ns2)
+		if($load_domain['ns1'] != $ns1)
 		{
-			// no chaange in dns record
+			$args['old_ns1']     = $load_domain['ns1'];
+			$args['new_ns1']     = $ns1;
+			$args_new_dns['ns1'] = $ns1;
+			$new_dns             = true;
 		}
 		else
 		{
-			$args['old_ns1'] = $load_domain['ns1'];
-			$args['old_ns2'] = $load_domain['ns2'];
-			$args['new_ns1'] = $ns1;
-			$args['new_ns2'] = $ns2;
+			$args_new_dns['ns1'] = $load_domain['ns1'];
 		}
+
+		if($load_domain['ns2'] != $ns2)
+		{
+			$args['old_ns2']     = $load_domain['ns2'];
+			$args['new_ns2']     = $ns2;
+			$args_new_dns['ns2'] = $ns2;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ns2'] = $load_domain['ns2'];
+		}
+
+		if($load_domain['ns3'] != $ns3)
+		{
+			$args['old_ns3']     = $load_domain['ns3'];
+			$args['new_ns3']     = $ns3;
+			$args_new_dns['ns3'] = $ns3;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ns3'] = $load_domain['ns3'];
+		}
+
+		if($load_domain['ns4'] != $ns4)
+		{
+			$args['old_ns4']     = $load_domain['ns4'];
+			$args['new_ns4']     = $ns4;
+			$args_new_dns['ns4'] = $ns4;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ns4'] = $load_domain['ns4'];
+		}
+
+
+
+
+		if($load_domain['ip1'] != $ip1)
+		{
+			$args['old_ip1']     = $load_domain['ip1'];
+			$args['new_ip1']     = $ip1;
+			$args_new_dns['ip1'] = $ip1;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ip1'] = $load_domain['ip1'];
+		}
+
+
+		if($load_domain['ip2'] != $ip2)
+		{
+			$args['old_ip2']     = $load_domain['ip2'];
+			$args['new_ip2']     = $ip2;
+			$args_new_dns['ip2'] = $ip2;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ip2'] = $load_domain['ip2'];
+		}
+
+
+		if($load_domain['ip3'] != $ip3)
+		{
+			$args['old_ip3']     = $load_domain['ip3'];
+			$args['new_ip3']     = $ip3;
+			$args_new_dns['ip3'] = $ip3;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ip3'] = $load_domain['ip3'];
+		}
+
+
+		if($load_domain['ip4'] != $ip4)
+		{
+			$args['old_ip4']     = $load_domain['ip4'];
+			$args['new_ip4']     = $ip4;
+			$args_new_dns['ip4'] = $ip4;
+			$new_dns             = true;
+		}
+		else
+		{
+			$args_new_dns['ip4'] = $load_domain['ip4'];
+		}
+
 
 		if(isset($load_domain['holder']) && $load_domain['holder'] != $holder)
 		{
@@ -106,9 +199,9 @@ class edit
 			return false;
 		}
 
-		if($ns1 && $ns2)
+		if($new_dns)
 		{
-			$dns_id = \lib\app\nic_dns\add::quick($ns1, $ns2);
+			$dns_id = \lib\app\nic_dns\add::new_record($args_new_dns);
 			if(!$dns_id)
 			{
 				return false;
