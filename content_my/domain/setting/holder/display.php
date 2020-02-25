@@ -3,28 +3,23 @@
 	<div class="c6 m8 s12">
 		<div class="cbox">
 
-
-
-
 				<form method="post" autocomplete="off" class="mB20" >
-
-
-				    <label for="iholder"><?php echo T_("Holder"); ?></label>
+				    <label for="iholder"><?php echo T_("Domain Holder"); ?></label>
 					<div class="input ltr">
 						<input type="text" name="holder" id="iholder" maxlength="50" disabled value="<?php echo \dash\data::domainDetail_holder(); ?>" >
 					</div>
 
-					<label for="iadmin"><?php echo T_("Admin"); ?></label>
+					<label for="iadmin"><?php echo T_("Domain Admin"); ?></label>
 					<div class="input ltr">
 						<input type="text" name="admin" id="iadmin" maxlength="50" disabled value="<?php echo \dash\data::domainDetail_admin(); ?>" >
 					</div>
 
-					<label for="itech"><?php echo T_("Technical"); ?></label>
+					<label for="itech"><?php echo T_("Domain Technical"); ?></label>
 					<div class="input ltr">
 						<input type="text" name="tech" id="itech" maxlength="50" value="<?php echo \dash\data::domainDetail_tech(); ?>" >
 					</div>
 
-					<label for="ibill"><?php echo T_("Billing"); ?></label>
+					<label for="ibill"><?php echo T_("Domain Billing"); ?></label>
 					<div class="input ltr">
 						<input type="text" name="bill" id="ibill" maxlength="50" value="<?php echo \dash\data::domainDetail_bill(); ?>" >
 					</div>
