@@ -26,7 +26,7 @@ class add
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_nic_id);
 		if($check_duplicate)
 		{
-			return true;
+			return $_nic_id;
 		}
 
 		$result = \lib\nic\exec\contact_check::check($_nic_id);

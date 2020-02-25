@@ -61,7 +61,7 @@ else
 
 
     <div class="input ltr mT20">
-        <input type="text" name="code" placeholder='<?php echo T_("Transfer code"); ?>' >
+        <input type="text" name="pin" placeholder='<?php echo T_("Transfer code"); ?>' >
     </div>
 
 

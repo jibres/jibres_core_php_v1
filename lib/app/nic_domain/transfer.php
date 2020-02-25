@@ -6,10 +6,10 @@ class transfer
 {
 	public static function transfer($_args)
 	{
-		$domain = isset($_args['domain']) 	? $_args['domain'] 	: null;
-		$nic_id  = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
-
-		$pin  = isset($_args['pin']) 	? $_args['pin'] 	: null;
+		$domain    = isset($_args['domain']) 	? $_args['domain'] 		: null;
+		$nic_id    = isset($_args['nic_id']) 	? $_args['nic_id'] 		: null;
+		$irnic_new = isset($_args['irnic_new']) ? $_args['irnic_new'] 	: null;
+		$pin       = isset($_args['pin']) 		? $_args['pin'] 		: null;
 
 		if(!$domain)
 		{
@@ -18,19 +18,89 @@ class transfer
 		}
 
 
-		if(!\lib\app\nic_domain\check::syntax($domain))
+		if(!\lib\app\nic_domain\check::syntax_ir($domain))
 		{
-			\dash\notif::error(T_("Invalid domain syntax"));
+			\dash\notif::error(T_("Only ir domain can be transfer to us at this time"));
 			return false;
 		}
 
 
-		if(!$pin)
+		if(!$pin || !is_string($pin))
 		{
 			\dash\notif::error(T_("Please set pin"));
 			return false;
 		}
 
+		if($irnic_new)
+		{
+			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
+			if(!$add_quick_contact)
+			{
+				\dash\notif::error(T_("Can not add your IRNIC handle"));
+				return false;
+			}
+
+			$nic_id = $add_quick_contact;
+		}
+		else
+		{
+			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
+			if(!isset($check_nic_id['nic_id']))
+			{
+				\dash\notif::error(T_("IRNIC handle not fount in your list"));
+				return false;
+			}
+
+			$nic_id = $check_nic_id['nic_id'];
+		}
+
+		$price = 5000;
+
+		$user_budget = \dash\user::budget();
+
+		if($user_budget >= $price)
+		{
+			$insert_transaction =
+			[
+				'user_id' => \dash\user::id(),
+				'title'   => T_("Transfer domian :val", ['val' => $domain]),
+				'verify'  => 1,
+				'minus'   => $price,
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+			if(!$transaction_id)
+			{
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
+			}
+
+			// insert price domain log table
+		}
+		else
+		{
+			$temp_args = $_args;
+
+			// go to bank
+			$meta =
+			[
+				'msg_go'        => null,
+				'auto_go'       => false,
+				'auto_back'       => true,
+				'turn_back'     => \dash\url::kingdom(). '/my/domain',
+				'user_id'       => \dash\user::id(),
+				'amount'        => abs($price),
+				'final_fn'      => ['/lib/app/nic_domain/transfer', 'transfer'],
+				'final_fn_args' => $temp_args,
+			];
+
+			\dash\utility\pay\start::site($meta);
+
+			// redirect to bank payment
+			return ;
+
+		}
 
 
 		$ready =
@@ -87,6 +157,27 @@ class transfer
 			\dash\notif::ok(T_("Your domain was transfered"));
 
 			return true;
+
+		}
+		else
+		{
+			// have error
+			// need to back money
+			$insert_transaction =
+			[
+				'user_id' => \dash\user::id(),
+				'title'   => T_("Register failed :val", ['val' => $domain]),
+				'verify'  => 1,
+				'plus'    => $price,
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+			if(!$transaction_id)
+			{
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
+			}
 
 		}
 

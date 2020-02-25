@@ -8,8 +8,10 @@ class model
 	{
 		$post =
 		[
-			'domain' => \dash\request::post('domain'),
-			'pin'    => \dash\request::post('pin'),
+			'domain'    => \dash\request::post('domain'),
+			'nic_id'    => \dash\request::post('irnicid'),
+			'irnic_new' => \dash\request::post('irnicid-new'),
+			'pin'       => \dash\request::post('pin'),
 		];
 
 
