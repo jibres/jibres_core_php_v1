@@ -140,7 +140,7 @@ else
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
                 <th></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'datecreate', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'datecreate', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'datecreated', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'datecreated', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
                 <th class="txtL"><?php echo T_("DNS"); ?></th>
             </tr>
         </thead>
