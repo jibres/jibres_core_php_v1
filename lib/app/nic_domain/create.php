@@ -86,6 +86,42 @@ class create
 		}
 
 
+
+		$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
+		if(!isset($get_contac_nic[$nic_id]))
+		{
+			\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+			return false;
+		}
+
+		if(!isset($get_contac_nic[$nic_id]))
+		{
+			\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+			return false;
+		}
+
+		if(isset($get_contac_nic[$nic_id]['bill']) && $get_contac_nic[$nic_id]['bill'] == '1')
+		{
+			// no problem to register this domain by tihs contact
+		}
+		else
+		{
+			\dash\notif::error(T_("We can not register this domain because the bill holder of irnic can not access to register"));
+			return false;
+		}
+
+
+		if(isset($get_contac_nic[$nic_id]['admin']) && $get_contac_nic[$nic_id]['admin'] == '1')
+		{
+			// no problem to register this domain by tihs contact
+		}
+		else
+		{
+			\dash\notif::error(T_("We can not register this domain because the admin holder of irnic can not access to register"));
+			return false;
+		}
+
+
 		if($ns1 && $ns2)
 		{
 			$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
