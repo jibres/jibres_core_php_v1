@@ -51,7 +51,7 @@ class renew
 
 		$domain_id = null;
 
-		$load_domain = \lib\db\nic_domain\get::domain_anyone($domain);
+		$load_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
 		if(isset($load_domain['id']))
 		{
 			$domain_id = $load_domain['id'];
@@ -61,7 +61,7 @@ class renew
 
 		if(!isset($get_domain_detail['exDate']))
 		{
-			\dash\notif::error(T_("Can not get domain detail from nic server"));
+			// \dash\notif::error(T_("Domain is not exists"));
 			return false;
 		}
 
@@ -82,6 +82,31 @@ class renew
 			\dash\notif::error(T_("Maximum renew date is 6 year"));
 			return false;
 		}
+
+		if(!isset($get_domain_detail['bill']))
+		{
+			\dash\notif::error(T_("Can not access to billing account of this domain"));
+			return false;
+		}
+
+		$get_contac_nic =  \lib\nic\exec\contact_check::check($get_domain_detail['bill']);
+		if(!isset($get_contac_nic[$get_domain_detail['bill']]))
+		{
+			\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+			return false;
+		}
+
+		$get_contac_nic = $get_contac_nic[$get_domain_detail['bill']];
+		if(isset($get_contac_nic['bill']) && $get_contac_nic['bill'] == '1')
+		{
+			// no problem to renew this domain by tihs contact
+		}
+		else
+		{
+			\dash\notif::error(T_("We can not renew this domain because the bill holder of irnic can not access to renew"));
+			return false;
+		}
+
 
 		$user_budget = \dash\user::budget();
 
