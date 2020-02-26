@@ -1,19 +1,20 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 
 <div class="f fs14 mT10 mB20">
- <div class="c6 pRa5">
-  <div class="panel">
+ <div class="c6 s12 pRa5">
+
+  <div class="panel mB10">
     <table class="tbl1 v4 mB0">
      <tr>
       <th><?php echo T_('Domain') ?></th>
-      <td class="ltr txtL txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
+      <td class="ltr txtL txtB"> <a target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><?php echo \dash\data::domainDetail_name(); ?><i class=" mRa5 sf-link"></i></a></td>
      </tr>
      <tr>
       <th><?php echo T_('Registered on') ?></th>
       <td class="ltr txtL"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
      </tr>
      <tr>
-      <th><?php echo T_('Expired on') ?></th>
+      <th><?php echo T_('Expired on') ?> <a class="badge success" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew'); ?></a></th>
       <td class="ltr txtL"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
      </tr>
      <tr>
@@ -54,8 +55,8 @@ else
   </div>
  </div>
 
- <div class="c6 pLa5">
-  <div class="panel">
+ <div class="c6 s12 pLa5">
+  <div class="panel mB10">
     <table class="tbl1 v4 mB0">
      <tr>
       <td><?php echo T_('Name Servers'). ' - '. T_("DNS #1") ?></td>
@@ -111,7 +112,7 @@ else
     </table>
   </div>
 
-  <div class="panel mT20">
+  <div class="panel mB10">
     <table class="tbl1 v4 mB0 mT10">
      <tr>
       <td><?php echo T_("IRNIC holder") ?></td>
