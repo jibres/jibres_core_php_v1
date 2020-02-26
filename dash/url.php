@@ -75,7 +75,6 @@ class url
 		self::$url['domain']    = self::_domain();
 		self::$url['site']      = self::_site();
 		self::$url['base']      = self::_base();
-		self::$url['static']    = self::_static();
 		self::$url['cdn']       = self::_talambar('cdn');
 		self::$url['cloud']     = self::_talambar('cloud');
 		self::$url['dl']        = self::_talambar('dl');
@@ -413,26 +412,6 @@ class url
 			$my_base .= self::related_url();
 		}
 		return $my_base;
-	}
-
-
-	/**
-	 * get url base of static folder
-	 * @return sting of static folder
-	 */
-	private static function _static()
-	{
-		$staticAddr = '/static';
-		$isFree = \dash\option::url('freeSubdomain');
-		if($isFree)
-		{
-			$staticAddr = self::_base(). $staticAddr;
-		}
-		else
-		{
-			$staticAddr = self::_site(). $staticAddr;
-		}
-		return $staticAddr;
 	}
 
 
