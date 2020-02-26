@@ -1,6 +1,6 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 <div class="f justify-center">
- <div class="c6 m8 s12">
+ <div class="c9 m12 s12">
   <div class="cbox">
    <div class="msg minimal pLR20-f fs16 txtB ltr txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
     <?php if(\dash\data::dataTable()) {?>
