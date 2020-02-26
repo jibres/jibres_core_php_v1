@@ -628,7 +628,7 @@ class log
 			$_file_name = 'log.txt';
 		}
 
-		$fileAddr = root.'includes/log';
+		$fileAddr = YARD.'jibres_log/';
 
 		if($_folder)
 		{

@@ -11,7 +11,8 @@ class log
 	public static function log($_text, $_time = null, $_name = 'log.sql', $_type = 'sql')
 	{
 		// start saving
-		$fileAddr = root.'/includes/log/database/';
+		$fileAddr = YARD.'jibres_log/database/';
+
 		$time_ms  = round($_time*1000);
 		$date_now = new \DateTime("now", new \DateTimeZone('Asia/Tehran') );
 		\dash\file::makeDir($fileAddr, null, true);

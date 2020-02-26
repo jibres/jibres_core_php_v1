@@ -87,7 +87,7 @@ class error
 	{
 		$date_now        = new \DateTime("now", new \DateTimeZone('Asia/Tehran') );
 		$debug_backtrace = array_column(debug_backtrace(), 'file');
-		$directory_addr  = root.'includes/log/'. $_group. '/';
+		$directory_addr = YARD.'jibres_log/'. $_group. '/';
 		$file_addr       = $directory_addr. $_name;
 
 		// start saving
