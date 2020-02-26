@@ -23,7 +23,7 @@
           <?php if($codeValue) {?>
 
           <a href="<?php echo \dash\url::this(); ?>?user=<?php echo $codeValue; ?>">
-            <img src="<?php if(isset($value['avatar']) && $value['avatar']) {echo \dash\get::index($value, 'avatar'); }else{ echo \dash\url::cdn(). '/siftal/images/default/avatar.png'; } ?>" class="avatar mRa5" alt="<?php echo \dash\get::index($value, 'displayname'); ?>">
+            <img src="<?php if(isset($value['avatar']) && $value['avatar']) {echo \dash\get::index($value, 'avatar'); }else{ echo \dash\url::siftal(). '/images/default/avatar.png'; } ?>" class="avatar mRa5" alt="<?php echo \dash\get::index($value, 'displayname'); ?>">
             <span class="txtB s0 fs08"><?php echo \dash\get::index($value, 'displayname'); ?></span>
           </a>
           <div class="txtRa fs08">
@@ -42,7 +42,7 @@
         <?php }else{ ?>
 
           <a href="<?php echo \dash\url::this(); ?>?session_id=<?php echo \dash\get::index($value, 'session_id'); ?>">
-            <img src="<?php echo \dash\url::cdn(); ?>/siftal/images/default/avatar.png" class="avatar mRa5" alt='<?php echo T_("Guest"); ?>'>
+            <img src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" class="avatar mRa5" alt='<?php echo T_("Guest"); ?>'>
             <span class="txtB s0 fs08"><?php echo T_("Guest"); ?></span>
           </a><br>
           <span class="badge light floatR"><a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::text($value['id']); ?></a></span>

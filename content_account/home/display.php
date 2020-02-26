@@ -7,7 +7,7 @@
 <?php if(\dash\user::detail('avatar'))  {?>
       <img class="box100 circle" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()) {?>
-      <img class="box100 circle" src="<?php echo \dash\url::cdn(); ?>/siftal/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
+      <img class="box100 circle" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
 <?php } // endif ?>
     </a>
   </div>

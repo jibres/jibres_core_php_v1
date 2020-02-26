@@ -16,7 +16,7 @@ if(\dash\user::id())
   }
   elseif(\dash\user::id())
   {
-      echo '<img src="'. \dash\url::siftal().'11/images/default/avatar.png" alt='. T_("Default Avatar").'>';
+      echo '<img src="'. \dash\url::siftal().'/images/default/avatar.png" alt='. T_("Default Avatar").'>';
   }
   else
   {
