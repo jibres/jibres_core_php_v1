@@ -73,25 +73,25 @@ else
       <td class="txtRa"><a rel="nofollow" target="_blank" class="btn secondary sm outline" href="https://intodns.com/<?php echo \dash\data::domainDetail_name(); ?>"><?php echo T_("check DNS server and mail server health"); ?></a></td>
      </tr>
      <tr>
-      <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ns1() ?></td>
-      <td class="ltr txtR"><?php echo \dash\data::domainDetail_ip1() ?></td>
+      <td class="ltr txtLa"><?php echo \dash\data::domainDetail_ns1() ?></td>
+      <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ip1() ?></td>
      </tr>
      <tr>
-       <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ns2() ?></td>
-       <td class="ltr txtR"><?php echo \dash\data::domainDetail_ip2() ?></td>
+       <td class="ltr txtLa"><?php echo \dash\data::domainDetail_ns2() ?></td>
+       <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ip2() ?></td>
      </tr>
 
      <?php if(\dash\data::domainDetail_ns3()) {?>
      <tr>
-      <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ns3() ?></td>
-      <td class="ltr txtR"><?php echo \dash\data::domainDetail_ip3() ?></td>
+      <td class="ltr txtLa"><?php echo \dash\data::domainDetail_ns3() ?></td>
+      <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ip3() ?></td>
      </tr>
      <?php } //endif ?>
 
      <?php if(\dash\data::domainDetail_ns4()) {?>
      <tr>
-      <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ns4() ?></td>
-      <td class="ltr txtR"><?php echo \dash\data::domainDetail_ip4() ?></td>
+      <td class="ltr txtLa"><?php echo \dash\data::domainDetail_ns4() ?></td>
+      <td class="ltr txtRa"><?php echo \dash\data::domainDetail_ip4() ?></td>
      </tr>
      <?php } //endif ?>
     </table>
