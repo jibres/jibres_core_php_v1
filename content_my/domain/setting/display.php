@@ -10,6 +10,10 @@
       <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
      <tr>
+      <th><?php echo T_('Status & Validity') ?></th>
+      <td class="ltr txtRa"><div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_(\dash\data::domainDetail_status()); ?></span></div></td>
+     </tr>
+     <tr>
       <th><?php echo T_('Registrar') ?></th>
       <td class="ltr txtRa"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>
      </tr>
@@ -57,7 +61,7 @@ if(\dash\data::domainDetail_autorenew())
 }
 else
 {
- echo "<div class='ibtn wide fc-red'><span>". T_('Disabled'). "</span><i class='sf-times'></i></div>";
+ echo "<div class='ibtn wide fc-red'><span>". T_('Off'). "</span><i class='sf-times'></i></div>";
 }
 ?></td>
      </tr>
