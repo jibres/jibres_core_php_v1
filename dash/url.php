@@ -515,7 +515,7 @@ class url
 		}
 		else
 		{
-			$siftalAddr = self::_static(). '/siftal';
+			$siftalAddr = self::_talambar('cdn'). '/siftal';
 		}
 		return $siftalAddr;
 	}
