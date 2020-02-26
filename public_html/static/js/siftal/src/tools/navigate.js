@@ -422,6 +422,8 @@
 
     if(obj.html)
     {
+      console.log('props 13');
+      console.log(props);
       render(props);
       deferred.resolve();
       if(!obj.nostate)
@@ -445,6 +447,8 @@
       }
       if(!props.data)
       {
+        console.log('data 14');
+        console.log(props.data);
         render(_.extend({}, props, {html: data.html}));
       }
 
@@ -459,6 +463,8 @@
   window.onpopstate = function(e)
   {
     var state = e.state;
+    console.log('state');
+    console.log(state);
 
     if(!state) return true;
     e.preventDefault();
@@ -470,6 +476,8 @@
       {
         var props = _.extend(true, {}, state, data.json);
 
+        console.log('statechange 11');
+        console.log(data);
         render(_.extend({}, props, {html: data.html}));
 
         $window.trigger('statechange');
@@ -477,6 +485,7 @@
     }
     else
     {
+      console.log('statechange 12');
       render(state);
       $window.trigger('statechange');
     }
