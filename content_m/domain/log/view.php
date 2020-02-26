@@ -1,19 +1,16 @@
 <?php
-namespace content_m\domain\home;
+namespace content_m\domain\log;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Domains"));
+		\dash\data::page_title(T_("Domains Log"));
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
-
-		\dash\data::action_text(T_('Log'));
-		\dash\data::action_link(\dash\url::this(). '/log');
 
 
 		$args =
@@ -28,7 +25,7 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\nic_domain\search::list_admin($search_string, $args);
+		$list = \lib\app\nic_log\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
