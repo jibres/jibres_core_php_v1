@@ -840,11 +840,11 @@ class url
 
 	public static function setLogo()
 	{
-		self::$url['icon'] = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
-		self::$url['logo'] = self::_static(). '/logo/en/svg/Jibres-Logo-en.svg';
+		self::$url['icon'] = self::_talambar('cdn'). '/logo/icon/svg/Jibres-Logo-icon.svg';
+		self::$url['logo'] = self::_talambar('cdn'). '/logo/en/svg/Jibres-Logo-en.svg';
 		if(\dash\language::current() === 'fa')
 		{
-			self::$url['logo'] = self::_static(). '/logo/fa/svg/Jibres-Logo-fa.svg';
+			self::$url['logo'] = self::_talambar('cdn'). '/logo/fa/svg/Jibres-Logo-fa.svg';
 		}
 	}
 
