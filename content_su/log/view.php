@@ -7,7 +7,7 @@ class view
 	{
 		if(\dash\request::get('folder') && \dash\request::get('file'))
 		{
-			$addr = root. 'includes/log/'. \dash\request::get('folder'). '/'. \dash\request::get('file');
+			$addr = YARD. 'jibres_log/'. \dash\request::get('folder'). '/'. \dash\request::get('file');
 			$addr = \autoload::fix_os_path($addr);
 			if(!is_file($addr))
 			{
@@ -21,7 +21,7 @@ class view
 		{
 			$folder = '/'. trim(\dash\request::get('folder'),'/');
 
-			$addr = root. 'includes/log'. $folder. '/*';
+			$addr = YARD. 'jibres_log'. $folder. '/*';
 			$addr = \autoload::fix_os_path($addr);
 
 			$glob = glob($addr);
@@ -50,13 +50,13 @@ class view
 		}
 		else
 		{
-			$addr = root. 'includes/log/*';
+			$addr = YARD. 'jibres_log/*';
 			$addr = \autoload::fix_os_path($addr);
 			$glob = glob($addr);
 			$list = [];
 			foreach ($glob as $key => $value)
 			{
-				$name = str_replace(root.'includes/log/', '', $value);
+				$name = str_replace(YARD. 'jibres_log/', '', $value);
 
 				switch ($name)
 				{
@@ -130,7 +130,7 @@ class view
 
 		if($isZip)
 		{
-			$newZipAddr = database.'log/dl.zip';
+			$newZipAddr = YARD.'jibres_log/database/log/dl.zip';
 			// create zip
 			if(\dash\utility\zip::create($filepath, $newZipAddr) === true)
 			{

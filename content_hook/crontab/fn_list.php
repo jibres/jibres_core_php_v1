@@ -47,13 +47,13 @@ trait fn_list
 
 	private static function check_error_file()
 	{
-		$sqlError = root. 'includes/log/database/error.sql';
+		$sqlError = YARD. 'jibres_log/database/error.sql';
 		if(is_file($sqlError))
 		{
 			\dash\log::set('su_sqlError');
 		}
 
-		$phpBug = root. 'includes/log/php/exception.log';
+		$phpBug = YARD. 'jibres_log/php/exception.log';
 		if(is_file($phpBug))
 		{
 			\dash\log::set('su_phpBug');
