@@ -89,26 +89,26 @@
 .fw9{font-weight:900}
 
 // all font colors
-.fc-red    		{color: $red};
-.fc-orange 		{color: $orange};
-.fc-yellow 		{color: $yellow};
-.fc-olive  		{color: $olive};
-.fc-green  		{color: $green};
-.fc-teal   		{color: $teal};
-.fc-blue   		{color: $blue};
-.fc-violet 		{color: $violet};
-.fc-purple 		{color: $purple};
-.fc-pink   		{color: $pink};
-.fc-brown  		{color: $brown};
-.fc-grey   		{color: $grey};
-.fc-graylight   {color: $graylight};
-.fc-black  		{color: $black};
-.fc-white  		{color: $white};
-.fc-mute  		{color: $fcMute};
-.fc-danger 		{color: $fcDanger};
-.fc-warn  		{color: $fcWarn};
-.fc-info  		{color: $fcInfo};
-.fc-gold  		{color: $fcGold};
+.fc-red    		{color: $red!important};
+.fc-orange 		{color: $orange!important};
+.fc-yellow 		{color: $yellow!important};
+.fc-olive  		{color: $olive!important};
+.fc-green  		{color: $green!important};
+.fc-teal   		{color: $teal!important};
+.fc-blue   		{color: $blue!important};
+.fc-violet 		{color: $violet!important};
+.fc-purple 		{color: $purple!important};
+.fc-pink   		{color: $pink!important};
+.fc-brown  		{color: $brown!important};
+.fc-grey   		{color: $grey!important};
+.fc-graylight   {color: $graylight!important};
+.fc-black  		{color: $black!important};
+.fc-white  		{color: $white!important};
+.fc-mute  		{color: $fcMute!important};
+.fc-danger 		{color: $fcDanger!important};
+.fc-warn  		{color: $fcWarn!important};
+.fc-info  		{color: $fcInfo!important};
+.fc-gold  		{color: $fcGold!important};
 
 // all background colors
 .bg-red 		{background-color: $red}
