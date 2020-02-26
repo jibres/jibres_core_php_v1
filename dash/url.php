@@ -76,6 +76,9 @@ class url
 		self::$url['site']      = self::_site();
 		self::$url['base']      = self::_base();
 		self::$url['static']    = self::_static();
+		self::$url['cdn']       = self::_talambar('cdn');
+		self::$url['cloud']     = self::_talambar('cloud');
+		self::$url['dl']        = self::_talambar('dl');
 		self::$url['siftal']    = self::_siftal();
 
 		// generate with path
@@ -430,6 +433,54 @@ class url
 			$staticAddr = self::_site(). $staticAddr;
 		}
 		return $staticAddr;
+	}
+
+
+	/**
+	 * get url base of static folder
+	 * @return sting of static folder
+	 */
+	private static function _talambar($_mode)
+	{
+		$talambarAddr = '';
+
+		if(self::isLocal())
+		{
+			if(self::$url['protocol'] === 'https')
+			{
+				$talambarAddr = 'https';
+			}
+			else
+			{
+				$talambarAddr = 'http';
+			}
+		}
+		else
+		{
+			$talambarAddr = 'https';
+		}
+
+		$talambarAddr .= '://';
+		$talambarAddr .= $_mode;
+		$talambarAddr .= '.talambar.';
+
+		if(self::isLocal())
+		{
+			$talambarAddr .= 'local';
+		}
+		else
+		{
+			if(self::tld() === 'ir')
+			{
+				$talambarAddr .= 'ir';
+			}
+			else
+			{
+				$talambarAddr .= 'com';
+			}
+		}
+
+		return $talambarAddr;
 	}
 
 
