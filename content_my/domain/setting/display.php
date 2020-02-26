@@ -18,7 +18,7 @@
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
      </tr>
      <tr>
-      <th><?php echo T_('Expired on') ?> <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew'); ?></a></th>
+      <th><?php echo T_('Expired on') ?> <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew domain'); ?></a></th>
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
      </tr>
 <?php if(\dash\data::domainDetail_datemodified()) {?>
@@ -28,7 +28,7 @@
      </tr>
 <?php }?>
      <tr>
-      <th><?php echo T_('Transfer lock') ?> <a class="mLa5" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Manage'); ?></a></th>
+      <th><?php echo T_('Transfer lock') ?> <a class="mLa5 hide" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Manage'); ?></a></th>
       <td class="txtRa"><div class="ibtn wide"><?php
 if(\dash\data::domainDetail_lock())
 {
@@ -43,14 +43,14 @@ else
       <th><?php echo T_('Auto Renew');
 if(\dash\data::domainDetail_autorenew())
 {
- echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"unset\"}'>". T_('Disable'). "</span>";
+ echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"unset\"}'>". T_('Click to disable'). "</span>";
 }
 else
 {
- echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"set\"}'>". T_('Enable'). "</span>";
+ echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"set\"}'>". T_('Click to enable'). "</span>";
 }
       ?></th>
-      <td class="txtRa"><?php
+      <td class="txtRa collapsing"><?php
 if(\dash\data::domainDetail_autorenew())
 {
  echo "<div class='ibtn wide fc-blue'><span>". T_('Automatic'). "</span><i class='sf-refresh'></i></div>";
