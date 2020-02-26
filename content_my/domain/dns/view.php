@@ -8,15 +8,12 @@ class view
 	{
 		\dash\data::page_title(T_("DNS list"));
 
-		\dash\data::page_special(true);
-
-
 		// btn
 		\dash\data::action_text(T_('Add dns'));
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 		// btn
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::this());
 
 		$args =

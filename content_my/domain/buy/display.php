@@ -1,16 +1,22 @@
 <?php if(!\dash\data::myDomain()) {?>
 
-<div class="cbox">
-
-  <form class="domainSearchBox" action='<?php echo \dash\url::current() ?>' method='get' autocomplete='off'>
-   <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
-  <div class="input ltr">
-   <input type="text" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\request::get('q'); ?>" autocomplete='off'>
-   <button class="addon btn primary"><?php echo T_('Search'); ?></button>
+  <div class="f justify-center">
+    <div class="c6 m8 s12">
+      <form class="domainSearchBox cbox" action='<?php echo \dash\url::current() ?>' method='get' autocomplete='off'>
+       <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
+      <div class="input ltr">
+       <input type="search" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\request::get('q'); ?>" autocomplete='off' autofocus>
+       <button class="addon btn primary"><?php echo T_('Search'); ?></button>
+      </div>
+     </form>
+    </div>
   </div>
- </form>
+
+<?php if(\dash\request::get('q')) {?>
+<div class="cbox">
 <?php require_once (root. 'content/domains/search/domainSearchResult.php'); ?>
 </div>
+<?php }?>
 
 
 
