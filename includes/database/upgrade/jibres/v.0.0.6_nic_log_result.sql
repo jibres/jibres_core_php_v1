@@ -1,0 +1,1 @@
+ALTER TABLE jibres_nic_log.log ADD `result` text  NULL DEFAULT NULL;
