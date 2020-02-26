@@ -448,7 +448,7 @@
       if(!props.data)
       {
         console.log('data 14');
-        console.log(props.data);
+        console.log(props);
         render(_.extend({}, props, {html: data.html}));
       }
 
@@ -474,11 +474,18 @@
       // logy(state);
       fetch(state).then(function(data)
       {
-        var props = _.extend(true, {}, state, data.json);
-
-        console.log('statechange 11');
+        console.log('statechange 111');
         console.log(data);
-        render(_.extend({}, props, {html: data.html}));
+
+        var props = _.extend(true, {}, state, data.json);
+        console.log('statechange 112');
+        console.log(props);
+
+        props = _.extend({}, props, data);
+        console.log('statechange 113');
+        console.log(props);
+
+        render(_.extend(props));
 
         $window.trigger('statechange');
       });
