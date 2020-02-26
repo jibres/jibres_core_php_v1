@@ -118,8 +118,6 @@
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
     // set panel
-    console.log(obj);
-    console.log(obj.panel);
     $('body').attr('data-panel', obj.panel);
 
     $window.trigger('navigate:render:filter:before', obj.filter);
@@ -422,8 +420,6 @@
 
     if(obj.html)
     {
-      console.log('props 13');
-      console.log(props);
       render(props);
       deferred.resolve();
       if(!obj.nostate)
@@ -447,8 +443,6 @@
       }
       if(!props.data)
       {
-        console.log('data 14');
-        console.log(props);
         render(_.extend({}, props, {html: data.html}));
       }
 
@@ -463,8 +457,6 @@
   window.onpopstate = function(e)
   {
     var state = e.state;
-    console.log('state');
-    console.log(state);
 
     if(!state) return true;
     e.preventDefault();
@@ -474,16 +466,9 @@
       // logy(state);
       fetch(state).then(function(data)
       {
-        console.log('statechange 111');
-        console.log(data);
-
         var props = _.extend(true, {}, state, data.json);
-        console.log('statechange 112');
-        console.log(props);
-
-        props = _.extend({}, props, data);
-        console.log('statechange 113');
-        console.log(props);
+        // combine with data
+        props     = _.extend({}, props, data);
 
         render(_.extend(props));
 
@@ -492,7 +477,6 @@
     }
     else
     {
-      console.log('statechange 12');
       render(state);
       $window.trigger('statechange');
     }
