@@ -41,6 +41,11 @@ class get
 			$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
 		}
 
+		if(isset($load_domain['nicstatus']) && is_string($load_domain['nicstatus']))
+		{
+			$load_domain['nicstatus_array'] = json_decode($load_domain['nicstatus'], true);
+		}
+
 		return $load_domain;
 
 

@@ -11,7 +11,26 @@
      </tr>
      <tr>
       <th><?php echo T_('Status & Validity') ?></th>
-      <td class="ltr txtRa"><div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_(\dash\data::domainDetail_status()); ?></span></div></td>
+
+        <td class="ltr txtRa">
+        <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
+
+        <div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_(\dash\data::domainDetail_status()); ?></span></div>
+
+        <?php
+          }else
+          {
+            if(\dash\data::domainDetail_nicstatus_array())
+            {
+              foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
+              {
+                echo '<div class="badge mLa10 light">'. T_('IRNIC_'. $value). '</div>';
+              }
+            }
+          }
+        ?>
+      </td>
+
      </tr>
      <tr>
       <th><?php echo T_('Registrar') ?></th>
