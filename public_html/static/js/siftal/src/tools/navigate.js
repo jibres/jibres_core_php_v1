@@ -118,6 +118,7 @@
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
     // set panel
+    console.log(obj);
     console.log(obj.panel);
     $('body').attr('data-panel', obj.panel);
 
