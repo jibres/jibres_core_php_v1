@@ -20,6 +20,15 @@ class get
 		return $result;
 	}
 
+
+	public static function by_id($_id)
+	{
+		$query  = "SELECT domain.*, domain.id AS `id`, dns.ns1, dns.ns2, dns.ns3, dns.ns4, dns.ip1, dns.ip2, dns.ip3, dns.ip4
+		FROM domain LEFT JOIN dns ON dns.id = domain.dns WHERE domain.id = $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
 	public static function domain_anyone($_domain)
 	{
 		$query  =

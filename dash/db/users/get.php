@@ -10,5 +10,13 @@ class get
 		$result = \dash\db::get($query, 'id', true, 'master');
 		return $result;
 	}
+
+
+	public static function by_multi_id($_ids)
+	{
+		$query  = "SELECT *  FROM users WHERE users.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 }
 ?>

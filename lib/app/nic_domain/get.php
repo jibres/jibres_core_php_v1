@@ -181,5 +181,32 @@ class get
 		return $load;
 
 	}
+
+
+	public static function only_by_id($_id)
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		if(!is_numeric($_id))
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$load = \lib\db\nic_domain\get::by_id($_id);
+
+		if(!$load)
+		{
+			\dash\notif::error(T_("Domain not found"));
+			return false;
+		}
+
+		return $load;
+
+	}
 }
 ?>

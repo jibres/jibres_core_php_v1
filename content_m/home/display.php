@@ -23,5 +23,19 @@
 	</a>
 
   </div>
+
+
+  <div class="c4 s12">
+
+  	<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/domain'>
+	 <div class="statistic blue">
+	  <div class="value"><i class="sf-rain-2"></i></div>
+	  <div class="label"><?php echo T_("Domains"); ?></div>
+	 </div>
+	</a>
+
+  </div>
+
+
 </div>
 
