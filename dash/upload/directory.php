@@ -6,9 +6,16 @@ namespace dash\upload;
  */
 class directory
 {
-	private static function move_to()
+	private static function move_to($_type)
 	{
-		return root . 'public_html/';
+		if($_type === 'jibres')
+		{
+			return YARD . 'talambar_dl/';
+		}
+		else
+		{
+			return YARD . 'talambar_cloud/';
+		}
 	}
 
 
@@ -27,10 +34,10 @@ class directory
 
 	private static function store_mode($_filename)
 	{
-		$move_to    = self::move_to();
+		$move_to    = self::move_to('store');
 
-		$folder_id  = 'files/';
-		$folder_id  .= \dash\coding::encode(\lib\store::id());
+
+		$folder_id  = \dash\coding::encode(\lib\store::id());
 		$folder_id  .= '/'. date("Ym");
 
 		$folder_loc = $move_to . $folder_id;
@@ -61,9 +68,9 @@ class directory
 	{
 		$qry_count     = \dash\db\files::attachment_count();
 
-		$move_to = self::move_to();
+		$move_to = self::move_to('jibres');
 
-		$folder_prefix = $move_to. 'files/';
+		$folder_prefix = $move_to;
 
 		$folder_id     = ceil(((int) $qry_count + 1) / 1000);
 

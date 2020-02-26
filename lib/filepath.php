@@ -14,12 +14,23 @@ class filepath
 	 */
 	private static function file_domain()
 	{
-		return \dash\url::site();
 
-		$file_domain = '';
-		$file_domain .= \dash\url::protocol(). '://dl.';
-		$file_domain .= \dash\url::domain();
-		return $file_domain;
+		if(\dash\engine\store::inStore())
+		{
+			return \dash\url::cloud();
+		}
+		else
+		{
+			return \dash\url::dl();
+		}
+
+
+		// return \dash\url::site();
+
+		// $file_domain = '';
+		// $file_domain .= \dash\url::protocol(). '://dl.';
+		// $file_domain .= \dash\url::domain();
+		// return $file_domain;
 	}
 
 

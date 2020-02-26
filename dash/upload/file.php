@@ -75,8 +75,7 @@ class file
 			return false;
 		}
 
-		// 6. move file to the new directory
-		if(move_uploaded_file($myFile['tmp_name'], $directory['path']))
+		if(\dash\file::rename($myFile['tmp_name'], $directory['full']))
 		{
 			@chmod($directory['full'], 0644);
 		}
@@ -85,6 +84,17 @@ class file
 			\dash\notif::error(T_("Can not upload file"));
 			return false;
 		}
+
+		// // 6. move file to the new directory
+		// if(move_uploaded_file($myFile['tmp_name'], $directory['path']))
+		// {
+		// 	@chmod($directory['full'], 0644);
+		// }
+		// else
+		// {
+		// 	\dash\notif::error(T_("Can not upload file"));
+		// 	return false;
+		// }
 
 		// 7. save file in some quality if need. for example pictures need to crop and save all need size
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif']))
