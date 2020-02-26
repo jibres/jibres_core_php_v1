@@ -75,7 +75,7 @@ else
 					</a>
 						<?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php } //endif ?>
 				</td>
-				<td><?php echo \dash\fit::number(\dash\get::index($value, 'count_useage')); ?></td>
+				<td><?php echo \dash\fit::number(\dash\get::index($value, 'count_useage')); ?> <a href="<?php echo \dash\url::this(). '?dns='. \dash\coding::encode(\dash\get::index($value, 'id'));  ?>"><i class="sf-question-circle"></i></a></td>
 				<td><?php echo \dash\get::index($value, 'ip1'); ?> <br> <?php echo \dash\get::index($value, 'ns1'); ?></td>
 				<td><?php echo \dash\get::index($value, 'ip2'); ?> <br> <?php echo \dash\get::index($value, 'ns2'); ?></td>
 				<td><?php echo \dash\get::index($value, 'ip3'); ?> <br> <?php echo \dash\get::index($value, 'ns3'); ?></td>

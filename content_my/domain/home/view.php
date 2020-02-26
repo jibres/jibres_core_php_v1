@@ -24,7 +24,7 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
-			// 'admin'  => \dash\request::get('admin'),
+			'dns'  => \dash\request::get('dns'),
 			// 'holder' => \dash\request::get('holder'),
 			// 'tech'   => \dash\request::get('tech'),
 			// 'bill'   => \dash\request::get('bill'),

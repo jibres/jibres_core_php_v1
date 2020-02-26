@@ -70,7 +70,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
-		$query = "SELECT dns.*, (SELECT COUNT(*) FROM domain WHERE domain.dns = dns.id) AS `count_useage` FROM dns $q[where] $q[order] $limit ";
+		$query = "SELECT dns.*, (SELECT COUNT(*) FROM domain WHERE domain.dns = dns.id AND domain.status = 'enable') AS `count_useage` FROM dns $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'nic');
 

@@ -38,6 +38,7 @@ class search
 			'admin'  => null,
 			'tech'   => null,
 			'bill'   => null,
+			'dns'    => null,
 
 		];
 
@@ -58,12 +59,16 @@ class search
 		$order_sort  = null;
 
 
-		// if($_args['bill'])
-		// {
-		// 	$and[]                      = " domain.bill = 1 ";
-		// 	self::$filter_args['bill'] = '*'. T_('Billing');
-		// 	self::$is_filtered          = true;
-		// }
+		if($_args['dns'])
+		{
+			$dns_id = \dash\coding::decode($_args['dns']);
+			if($dns_id)
+			{
+				$and[]                      = " domain.dns = $dns_id ";
+				self::$filter_args[T_("DNS")] = $_args['dns'];
+				self::$is_filtered          = true;
+			}
+		}
 
 
 		if(mb_strlen($_query_string) > 50)
