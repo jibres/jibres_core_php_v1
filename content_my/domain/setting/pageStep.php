@@ -8,6 +8,7 @@
 		</a>
 	</div>
 
+	<?php if(\dash\data::domainDetail_verify()) {?>
 	<div class="c s6">
 		<a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'holder') { echo ' active';} ?>" >
 		 <div class="statistic">
@@ -34,6 +35,7 @@
 		 </div>
 		</a>
 	</div>
+<?php } //endif ?>
 
 	<div class="c s6">
 		<a href="<?php echo \dash\url::that(). '/action?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'action') { echo ' active';} ?>" >

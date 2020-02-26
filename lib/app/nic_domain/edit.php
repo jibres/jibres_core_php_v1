@@ -12,6 +12,17 @@ class edit
 			return false;
 		}
 
+
+		if(isset($load_domain['verify']) && $load_domain['verify'])
+		{
+
+		}
+		else
+		{
+			\dash\notif::error(T_("You can not edit this domain setting"));
+			return false;
+		}
+
 		$ns1   = isset($_args['ns1']) 	? $_args['ns1']		: null;
 		$ip1   = isset($_args['ip1']) 	? $_args['ip1']		: null;
 

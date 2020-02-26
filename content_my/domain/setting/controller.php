@@ -18,6 +18,18 @@ class controller
 				{
 					\dash\header::status(403);
 				}
+
+				if(isset($load_domain['verify']) && $load_domain['verify'])
+				{
+					// no problem
+				}
+				else
+				{
+					if(in_array(\dash\url::subchild(), ['holder', 'dns', 'transfer']))
+					{
+						\dash\header::status(403, T_("Can not change this domain detail"));
+					}
+				}
 				\dash\data::myDomain($domain);
 				\dash\data::domainDetail($load_domain);
 			}
