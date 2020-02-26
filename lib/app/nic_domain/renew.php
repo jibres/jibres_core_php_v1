@@ -35,7 +35,10 @@ class renew
 			return false;
 		}
 
+		$transaction_id = null;
+
 		$period_month = 0;
+
 		$price = \lib\app\nic_domain\price::renew($period);
 
 		if($period === '1year')
@@ -54,6 +57,29 @@ class renew
 		if(isset($load_domain['id']))
 		{
 			$domain_id = $load_domain['id'];
+		}
+		else
+		{
+			$insert =
+			[
+				'user_id'      => \dash\user::id(),
+				'name'         => $domain,
+				'registrar'    => 'irnic',
+				'status'       => 'enable',
+				'holder'       => null,
+				'admin'        => null,
+				'tech'         => null,
+				'bill'         => null,
+				'autorenew'    => null,
+				'lock'         => 1,
+				'dns'          => null,
+				'dateregister' => null,
+				'dateexpire'   => null,
+				'verify'       => null, // in renew is not verify for this user
+				'datecreated'  => date("Y-m-d H:i:s"),
+			];
+
+			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
 		}
 
 		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
@@ -169,7 +195,27 @@ class renew
 			$update               = [];
 			$update['dateexpire'] = $expiredate;
 
-			$_domain_id = \lib\db\nic_domain\update::update($update, $domain_id);
+			\lib\db\nic_domain\update::update($update, $domain_id);
+
+			$insert_action =
+			[
+				'domain_id'      => $domain_id,
+				'user_id'        => \dash\user::id(),
+				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
+				'action'         => 'renew', // 'register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
+				'mode'           => 'manual', // 'auto', 'manual'
+				'detail'         => null,
+				'date'           => date("Y-m-d H:i:s"),
+				'price'          => $price,
+				'discount'       => $transaction_id,
+				'transaction_id' => null,
+				'datecreated'    => date("Y-m-d H:i:s"),
+			];
+
+			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+
+
+
 
 			\dash\notif::ok(T_("Domain renew ok"));
 			return true;

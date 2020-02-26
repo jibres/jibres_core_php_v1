@@ -20,7 +20,7 @@ class model
 			'ip4'   => \dash\request::post('ip4'),
 		];
 
-		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id());
+		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
 
 		if(\dash\engine\process::status())
 		{

@@ -11,6 +11,8 @@ class transfer
 		$irnic_new = isset($_args['irnic_new']) ? $_args['irnic_new'] 	: null;
 		$pin       = isset($_args['pin']) 		? $_args['pin'] 		: null;
 
+		$transaction_id = null;
+
 		if(!$domain)
 		{
 			\dash\notif::error(T_("Please set domain"));
@@ -151,7 +153,7 @@ class transfer
 		[
 			'nic_id' => $nic_id,
 			'domain' => $domain,
-			'pin' => $pin,
+			'pin'    => $pin,
 
 		];
 
@@ -159,44 +161,79 @@ class transfer
 
 		if($result)
 		{
-			$insert =
-			[
-				'user_id'      => \dash\user::id(),
-				'name'         => $domain,
-				'registrar'    => 'irnic',
-				'status'       => 'enable',
-				'holder'       => $nic_id,
-				'admin'        => $nic_id,
-				'tech'         => $nic_id,
-				'bill'         => $nic_id,
-				'autorenew'    => null,
-				'lock'         => 1,
-				'dns'          => $dnsid,
-				'dateregister' => $result['dateregister'],
-				'dateexpire'   => $result['dateexpire'],
-				'datetransferd'  => date("Y-m-d H:i:s"),
-			];
+			$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
 
-			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
-			if(!$domain_id)
+			if(isset($check_duplicate_domain['id']))
 			{
-				// must be roolback money
-				\dash\notif::error(T_("Error"));
-				return false;
+
+				$domain_id = $check_duplicate_domain['id'];
+
+				$update =
+				[
+					'holder'       => $nic_id,
+					'admin'        => $nic_id,
+					'tech'         => $nic_id,
+					'bill'         => $nic_id,
+					'verify'       => 1,
+					'dns'          => $dnsid,
+					'status'       => 'enable',
+					'dateregister' => $result['dateregister'],
+					'dateexpire'   => $result['dateexpire'],
+				];
+
+				\lib\db\nic_domain\update::update($update, $domain_id);
+
+
+
 			}
+			else
+			{
+				$insert =
+				[
+					'user_id'      => \dash\user::id(),
+					'name'         => $domain,
+					'registrar'    => 'irnic',
+					'status'       => 'enable',
+					'holder'       => $nic_id,
+					'admin'        => $nic_id,
+					'tech'         => $nic_id,
+					'bill'         => $nic_id,
+					'autorenew'    => null,
+					'lock'         => 1,
+					'verify'       => 1,
+					'dns'          => $dnsid,
+					'dateregister' => $result['dateregister'],
+					'dateexpire'   => $result['dateexpire'],
+					'datecreated'  => date("Y-m-d H:i:s"),
+				];
+
+				$domain_id = \lib\db\nic_domain\insert::new_record($insert);
+				if(!$domain_id)
+				{
+					// must be roolback money
+					\dash\notif::error(T_("Error"));
+					return false;
+				}
+			}
+
 
 			$insert_action =
 			[
-				'domain_id'   => $domain_id,
-				'user_id'     => \dash\user::id(),
-				'status'      => 'enable',
-				'action'      => 'transfer',
-				'meta'        => null,
-				'date'        => date("Y-m-d H:i:s"),
-				'datetransferd' => date("Y-m-d H:i:s"),
+				'domain_id'      => $domain_id,
+				'user_id'        => \dash\user::id(),
+				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
+				'action'         => 'transfer', // 'register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
+				'mode'           => 'manual', // 'auto', 'manual'
+				'detail'         => null,
+				'date'           => date("Y-m-d H:i:s"),
+				'price'          => $price,
+				'discount'       => $transaction_id,
+				'transaction_id' => null,
+				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
-			$domain_action_id = \lib\db\nic_domain_action\insert::new_record($insert_action);
+			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+
 
 			\dash\notif::ok(T_("Your domain was transfered"));
 

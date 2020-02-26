@@ -179,13 +179,13 @@ class create
 				switch ($check_duplicate_domain['status'])
 				{
 					case 'enable':
-					case 'disable':
-					case 'deleted':
-					case 'expire':
 						\dash\notif::error(T_("This domain is already in your list"));
 						return false;
 						break;
 
+					case 'expire':
+					case 'disable':
+					case 'deleted':
 					case 'failed':
 					case 'pending':
 					case 'awiting':
@@ -305,6 +305,7 @@ class create
 			$update =
 			[
 				'status'       => 'enable',
+				'verify'       => 1,
 				'dateregister' => $result['dateregister'],
 				'dateexpire'   => $result['dateexpire'],
 				'datecreated'  => date("Y-m-d H:i:s"),
@@ -312,36 +313,25 @@ class create
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
+
+
 			$insert_action =
-			[
-				'domain_id'   => $domain_id,
-				'user_id'     => \dash\user::id(),
-				'status'      => 'enable',
-				'action'      => 'buy',
-				'meta'        => null,
-				'date'        => date("Y-m-d H:i:s"),
-				'datecreated' => date("Y-m-d H:i:s"),
-			];
-
-			$domain_action_id = \lib\db\nic_domain_action\insert::new_record($insert_action);
-
-
-			$insert_billing =
 			[
 				'domain_id'      => $domain_id,
 				'user_id'        => \dash\user::id(),
-				'action'         => 'buy',
-				'mode'           => 'manual',
-				'price'          => $price,
-				'discount'       => 0,
-				'discountcode'   => null,
-				'finalprice'     => $price,
-				'transaction_id' => $transaction_id,
+				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
+				'action'         => 'register', // 'register', 'renew', 'transfer', 'openlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
+				'mode'           => 'manual', // 'auto', 'manual'
+				'detail'         => null,
 				'date'           => date("Y-m-d H:i:s"),
-
+				'price'          => $price,
+				'discount'       => null,
+				'transaction_id' => $transaction_id,
+				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
-			$domain_billing_id = \lib\db\nic_domain_billing\insert::new_record($insert_billing);
+			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+
 
 			\dash\notif::ok(T_("Your domain was registred"));
 

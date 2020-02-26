@@ -14,7 +14,7 @@ class model
 			'bill'  => \dash\request::post('bill'),
 		];
 
-		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id());
+		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'holder');
 
 		if(\dash\engine\process::status())
 		{
