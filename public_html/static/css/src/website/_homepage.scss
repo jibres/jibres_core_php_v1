@@ -22,7 +22,7 @@
 @keyframes pulse { 0%{opacity:.2} 50%{opacity:.7} 100%{opacity:.2}}
 
 
-#quote{background-image:url(/static/images/homepage/quote-supersaeed-sadeghi.jpg);min-height:500px;background-position:top left;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff;overflow: hidden;}
+#quote{background-image:url(/images/homepage/quote-supersaeed-sadeghi.jpg);min-height:500px;background-position:top left;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff;overflow: hidden;}
 #quote .title{position:absolute;top:0;bottom:0;width:40%;min-width:280px;max-width:400px;margin:0 auto;right:10%;font-size:1.5em;text-align:center;background-color:rgba(255,255,255,0.1);padding:5em 1em 0;transition:0.3s;}
 #quote:hover .title{text-shadow: 0 0 5px #fff}
 #quote .title h4{font-weight:400;line-height:1.6em;margin-bottom:2em}
