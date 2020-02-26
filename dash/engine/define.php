@@ -64,6 +64,11 @@ define("core", preg_replace("[\\\\]", "/", $dir).'/' );
 define("root", dirname(dirname($_SERVER['SCRIPT_FILENAME'])).'/' );
 
 
+// define talambar folder *****************************************************
+define('TALAMBAR', substr(root, 0,-7). 'talambar/');
+
+
+
 set_include_path(get_include_path() . PATH_SEPARATOR . root.'includes/');
 set_include_path(get_include_path() . PATH_SEPARATOR . core);
 
