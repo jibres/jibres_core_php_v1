@@ -39,13 +39,13 @@ require_once ('section-icon.php');
 <?php if (\dash\language::current() === 'fa')
 {
 ?>
-        <img class="slideImg width-500" src="<?php echo \dash\url::static(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-7-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("SAFE SPACE"); ?>'>
+        <img class="slideImg width-500" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-7-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("SAFE SPACE"); ?>'>
 <?php
 }
 else
 {
 ?>
-        <img class="slideImg width-500" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-7-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("SAFE SPACE"); ?>'>
+        <img class="slideImg width-500" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-7-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("SAFE SPACE"); ?>'>
 <?php
 } // endif
 ?>
@@ -65,13 +65,13 @@ else
 <?php if (\dash\language::current() === 'fa')
 {
 ?>
-        <img class="slideImg width-200" src="<?php echo \dash\url::static(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-8-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("MINIMAL SIZE"); ?>'>
+        <img class="slideImg width-200" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-8-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("MINIMAL SIZE"); ?>'>
 <?php
 }
 else
 {
 ?>
-        <img class="slideImg width-200" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-8-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("MINIMAL SIZE"); ?>'>
+        <img class="slideImg width-200" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-8-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("MINIMAL SIZE"); ?>'>
 <?php
 } // endif
 ?>
@@ -88,7 +88,7 @@ else
         <p><?php echo T_("The Jibres red is bright and vibrant and we want it to stand out clearly. To that end, here are the color values you can use for both digital and print."); ?></p>
       </div>
       <div class="c s12 pLa10">
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-9-img.png" alt='<?php echo T_("JIBRES RED"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-9-img.png" alt='<?php echo T_("JIBRES RED"); ?>'>
       </div>
     </div>
    </div>
@@ -106,13 +106,13 @@ else
 <?php if (\dash\language::current() === 'fa')
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-10-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("USING GRAYSCALE"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-10-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("USING GRAYSCALE"); ?>'>
 <?php
 }
 else
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-10-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("USING GRAYSCALE"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-10-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("USING GRAYSCALE"); ?>'>
 <?php
 } // endif
 ?>
@@ -134,13 +134,13 @@ else
 <?php if (\dash\language::current() === 'fa')
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-11-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("BACKGROUND COLOR"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-11-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("BACKGROUND COLOR"); ?>'>
 <?php
 }
 else
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-11-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("BACKGROUND COLOR"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-11-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("BACKGROUND COLOR"); ?>'>
 <?php
 } // endif
 ?>
@@ -165,13 +165,13 @@ else
 <?php if (\dash\language::current() === 'fa')
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-12-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("WORDMARK"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-12-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("WORDMARK"); ?>'>
 <?php
 }
 else
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-12-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("WORDMARK"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-12-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("WORDMARK"); ?>'>
 <?php
 } // endif
 ?>
@@ -191,13 +191,13 @@ else
 <?php if (\dash\language::current() === 'fa')
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-14-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("LOGO DO NOTS"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-14-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("LOGO DO NOTS"); ?>'>
 <?php
 }
 else
 {
 ?>
-        <img class="slideImg width-300" src="<?php echo \dash\url::static(); ?>/logo/styleguide/png/jibres-logo-styleguide-14-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("LOGO DO NOTS"); ?>'>
+        <img class="slideImg width-300" src="<?php echo \dash\url::cdn(); ?>/logo/styleguide/png/jibres-logo-styleguide-14-img.png" alt='<?php echo T_("Jibres"); ?> <?php echo T_("LOGO DO NOTS"); ?>'>
 <?php
 } // endif
 ?>

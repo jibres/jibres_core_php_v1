@@ -26,10 +26,10 @@
 <?php if(\dash\user::detail('avatar')) { ?>
      <img src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()){ ?>
-     <img src="<?php echo \dash\url::static(); ?>/siftal/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
+     <img src="<?php echo \dash\url::cdn(); ?>/siftal/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
 <?php }else{ ?>
 
-     <img src="<?php echo \dash\url::static(); ?>/siftal/images/avatar/guest.png" alt='<?php echo T_("Default Avatar"); ?>'>
+     <img src="<?php echo \dash\url::cdn(); ?>/siftal/images/avatar/guest.png" alt='<?php echo T_("Default Avatar"); ?>'>
 
 <?php } //endif ?>
     </div>

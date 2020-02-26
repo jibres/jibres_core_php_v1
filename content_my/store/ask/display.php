@@ -33,7 +33,7 @@
             </div>
           </form>
 
-          <img src="<?php echo \dash\url::static(); ?>/img/store/answer-polls.svg" alt='<?php echo T_("answer Jibres polls"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/store/answer-polls.svg" alt='<?php echo T_("answer Jibres polls"); ?>'>
 
         </div>
 

@@ -1,5 +1,5 @@
 <?php
-$myUrlStatic = \dash\url::static();
+$myUrlStatic = \dash\url::cdn();
 ?>
 
 <section class="styleguideBox">

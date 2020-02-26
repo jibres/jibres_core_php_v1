@@ -8,7 +8,7 @@
 
   	<?php }else{ ?>
 
-    <img src="<?php echo \dash\url::static(); ?>/siftal/images/useful/user1.png">
+    <img src="<?php echo \dash\url::cdn(); ?>/siftal/images/useful/user1.png">
   	<?php } ?>
   </a>
   <div class="content">

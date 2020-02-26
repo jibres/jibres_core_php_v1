@@ -26,7 +26,7 @@
      <ul>
        <li>
         <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/ipg">
-         <img src="<?php echo \dash\url::static(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
+         <img src="<?php echo \dash\url::cdn(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
          <div class="key"><?php echo T_("Payment Gateway"); ?></div>
          <div class="go detail"></div>
         </a>
@@ -34,7 +34,7 @@
 
        <li>
         <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/wallet">
-         <img src="<?php echo \dash\url::static(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
+         <img src="<?php echo \dash\url::cdn(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
          <div class="key"><?php echo T_("Electronic Wallet"); ?></div>
          <div class="go"></div>
         </a>
@@ -42,7 +42,7 @@
 
        <li>
         <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/bill">
-         <img src="<?php echo \dash\url::static(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
+         <img src="<?php echo \dash\url::cdn(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
          <div class="key"><?php echo T_("Pay bill"); ?></div>
          <div class="go"></div>
         </a>

@@ -76,5 +76,5 @@
 
 <?php } //endif ?>
 
-<img class="banner w300" src="<?php echo \dash\url::static(); ?>/img/product/export1.png" align='<?php echo T_("import products"); ?>'>
+<img class="banner w300" src="<?php echo \dash\url::cdn(); ?>/img/product/export1.png" align='<?php echo T_("import products"); ?>'>
 

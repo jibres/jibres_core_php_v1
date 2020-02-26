@@ -115,7 +115,7 @@
             </td>
             <td>
               <div><?php echo T_("example"); ?></div>
-              <code><?php echo \dash\url::static(); ?>/images/logo.png</code>
+              <code><?php echo \dash\url::cdn(); ?>/images/logo.png</code>
             </td>
           </tr>
           <tr>
@@ -166,9 +166,9 @@ curl -X GET \
       "cat": "category of notif",
       "excerpt": "Notif excerpt",
       "text" : "Notif text",
-      "image" : "<?php echo \dash\url::static(); ?>/images/logo.png",
+      "image" : "<?php echo \dash\url::cdn(); ?>/images/logo.png",
       "footer" : "Notif footer",
-      "url" : "<?php echo \dash\url::static(); ?>"
+      "url" : "<?php echo \dash\url::cdn(); ?>"
     }
   ]
 }

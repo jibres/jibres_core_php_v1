@@ -136,7 +136,7 @@ if(\dash\url::child() === 'price')
 
 </div>
 
-<img class="banner" src="<?php echo \dash\url::static(); ?>/img/product/camera1.png" align='<?php echo T_("add new product"); ?>'>
+<img class="banner" src="<?php echo \dash\url::cdn(); ?>/img/product/camera1.png" align='<?php echo T_("add new product"); ?>'>
 
 
 <?php } //endfunction ?>

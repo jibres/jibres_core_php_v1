@@ -16,7 +16,7 @@ if(\dash\user::id())
   }
   elseif(\dash\user::id())
   {
-      echo '<img src="'. \dash\url::static().'/siftal/images/default/avatar.png" alt='. T_("Default Avatar").'>';
+      echo '<img src="'. \dash\url::cdn().'/siftal/images/default/avatar.png" alt='. T_("Default Avatar").'>';
   }
   else
   {
@@ -29,7 +29,7 @@ if(\dash\user::id())
 else
 {
   echo "<a href='". \dash\url::kingdom(). "/enter?referer=". \dash\url::pwd(). "' class='avatar'>";
-  echo '<img src="'. \dash\url::static().'/siftal/images/avatar/guest.png" alt="'. T_("Default Avatar").'">';
+  echo '<img src="'. \dash\url::cdn().'/siftal/images/avatar/guest.png" alt="'. T_("Default Avatar").'">';
   echo '<figcaption> '. T_("Hello ").  ' <b> '. T_("dear GUEST!"). '</b></figcaption>';
 }
 

@@ -13,37 +13,37 @@ class view
 				[
 					'title' => T_('Hello'),
 					'desc'  => T_('Welcome to Jibres world'),
-					'image' => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					'image' => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
 					'subtitle' => T_('Sell and Enjoy'),
 					'desc'  => T_('All-in-one ecommerce platform'),
-					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					// 'image'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
 					// 'subtitle' => T_('Sell and Enjoy'),
 					'desc'  => T_('All-in-one ecommerce platform'),
-					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					// 'image'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
 					'title' => T_('Jibres'),
 					// 'desc'  => T_('Jibres'),
-					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					// 'image'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
 					'subtitle' => T_('Sometimes you need a big change.'),
 					// 'desc'  => T_('Jibres'),
-					'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					'image'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
 					// 'subtitle' => T_('Sometimes you need a big change.'),
 					// 'desc'  => T_('Jibres'),
-					'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					'image'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
 					// 'title' => T_('Sometimes you need a big change.'),
 					// 'desc'  => T_('Jibres'),
-					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+					// 'image'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 			],
 			'translation' =>

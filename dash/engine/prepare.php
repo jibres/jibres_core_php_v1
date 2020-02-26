@@ -117,7 +117,7 @@ class prepare
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::static(). '/page/lock/', true, 302);
+				\dash\redirect::to(\dash\url::cdn(). '/page/lock/', true, 302);
 			}
 		}
 
@@ -137,7 +137,7 @@ class prepare
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::static(). '/page/iframe/', true, 302);
+				\dash\redirect::to(\dash\url::cdn(). '/page/iframe/', true, 302);
 			}
 		}
 	}
@@ -636,7 +636,7 @@ class prepare
 		// favicon
 		if(strpos(\dash\url::path(), '/favicon.ico') !== false)
 		{
-			\dash\redirect::to(\dash\url::static(). '/images/favicons/favicon.ico');
+			\dash\redirect::to(\dash\url::cdn(). '/images/favicons/favicon.ico');
 		}
 	}
 

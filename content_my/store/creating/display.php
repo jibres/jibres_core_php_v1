@@ -7,7 +7,7 @@
           <p><?php echo T_("Building your online store in progress."); ?></p>
 
         </div>
-        <img class="loadingGif" src="<?php echo \dash\url::static(); ?>/img/store/loading1.gif" alt='<?php echo T_("Loading Jibres"); ?>'>
+        <img class="loadingGif" src="<?php echo \dash\url::cdn(); ?>/img/store/loading1.gif" alt='<?php echo T_("Loading Jibres"); ?>'>
 
       </div>
     </div>

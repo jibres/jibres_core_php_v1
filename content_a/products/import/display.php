@@ -110,5 +110,5 @@ $awaitingImport = \dash\data::awaitingImport();
 </div>
 <?php } //endif ?>
 
-<img class="banner w300" src="<?php echo \dash\url::static(); ?>/img/product/import1.gif" align='<?php echo T_("import products"); ?>'>
+<img class="banner w300" src="<?php echo \dash\url::cdn(); ?>/img/product/import1.gif" align='<?php echo T_("import products"); ?>'>
 

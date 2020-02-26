@@ -83,7 +83,7 @@ else
        </address>
     </div>
     <a href="https://goo.gl/maps/HUdi1YmcFBz" target="_blank" class="map" title='<?php echo T_("Our location on map"); ?>'>
-     <img src="<?php echo \dash\url::static(); ?>/images/map/ermile.png" alt="<?php echo \dash\data::site_title(); ?>">
+     <img src="<?php echo \dash\url::cdn(); ?>/images/map/ermile.png" alt="<?php echo \dash\data::site_title(); ?>">
     </a>
 
   </div>

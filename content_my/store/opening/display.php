@@ -8,7 +8,7 @@
           <a class="btn master block" href="<?php echo \dash\data::myNewStoreSubdomain(); ?>"><?php echo T_("Bring me to store"); ?></a>
 
         </div>
-        <img class="grandOpening" src="<?php echo \dash\url::static(); ?>/img/store/grand-opening.jpg" alt='<?php echo T_("Grand opening your store on Jibres"); ?>'>
+        <img class="grandOpening" src="<?php echo \dash\url::cdn(); ?>/img/store/grand-opening.jpg" alt='<?php echo T_("Grand opening your store on Jibres"); ?>'>
       </div>
 
       <div class="f align-center fs12">

@@ -59,7 +59,7 @@ class view
 
 		// $result =
 		// [
-		// 	'logo'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+		// 	'logo'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 		// 	'theme' => 'Jibres',
 		// 	'title' => T_('Jibres'),
 		// 	'desc'  => T_('Sell and Enjoy'),

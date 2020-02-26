@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\redirect::to(\dash\url::static(). '/vcard/Jibres-vCard-Javad-Adib.vcf');
+		\dash\redirect::to(\dash\url::cdn(). '/vcard/Jibres-vCard-Javad-Adib.vcf');
 	}
 }
 ?>

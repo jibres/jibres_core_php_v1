@@ -17,6 +17,6 @@
 
         </div>
 
-        <img class="internalError" src="<?php echo \dash\url::static(); ?>/img/store/error500.jpg" alt='<?php echo T_("Loading Jibres"); ?>'>
+        <img class="internalError" src="<?php echo \dash\url::cdn(); ?>/img/store/error500.jpg" alt='<?php echo T_("Loading Jibres"); ?>'>
       </div>
     </div>

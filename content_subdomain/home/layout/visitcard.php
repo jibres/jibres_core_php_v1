@@ -1,5 +1,5 @@
 
- <link rel="stylesheet"       href="<?php echo \dash\url::static(). '/css/subdomain.css'; ?>"/>
+ <link rel="stylesheet"       href="<?php echo \dash\url::cdn(). '/css/subdomain.css'; ?>"/>
 
 <?php
 if (!\dash\data::externalShop())
@@ -55,6 +55,6 @@ $store = \dash\data::store();
 
 
 
-<script src="<?php echo \dash\url::static(); ?>/js/particles.min.js"></script>
+<script src="<?php echo \dash\url::cdn(); ?>/js/particles.min.js"></script>
 
 
