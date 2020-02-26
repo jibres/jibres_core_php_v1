@@ -211,7 +211,7 @@ class create
 				'admin'        => $nic_id,
 				'tech'         => $nic_id,
 				'bill'         => $nic_id,
-				'autorenew'    => null,
+				'autorenew'    => 1,
 				'lock'         => 1,
 				'dns'          => $dnsid,
 				'dateregister' => null,
