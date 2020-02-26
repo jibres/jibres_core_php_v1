@@ -78,7 +78,7 @@ class url
 		self::$url['cdn']       = self::_talambar('cdn');
 		self::$url['cloud']     = self::_talambar('cloud');
 		self::$url['dl']        = self::_talambar('dl');
-		self::$url['siftal']    = self::_siftal();
+		self::$url['siftal']    = self::$url['cdn']. '/siftal';
 
 		// generate with path
 		self::$url['path']      = self::_path();
@@ -419,7 +419,7 @@ class url
 	 * get url base of static folder
 	 * @return sting of static folder
 	 */
-	private static function _talambar($_mode)
+	private static function _talambar($_mode, $_folder = null)
 	{
 		$talambarAddr = '';
 
@@ -462,41 +462,6 @@ class url
 		}
 
 		return $talambarAddr;
-	}
-
-
-	/**
-	 * get url base of static folder
-	 * @return sting of static folder
-	 */
-	private static function _siftal()
-	{
-		$siftalAddr = '';
-		$useDevMode = \dash\option::config('dev', 'siftal');
-
-		if($useDevMode)
-		{
-			if(self::isLocal())
-			{
-				if(self::$url['protocol'] === 'https')
-				{
-					$siftalAddr = 'https://siftal.local/dist';
-				}
-				else
-				{
-					$siftalAddr = 'http://siftal.local/dist';
-				}
-			}
-			else
-			{
-				$siftalAddr = 'https://siftal.ir/dist';
-			}
-		}
-		else
-		{
-			$siftalAddr = self::_talambar('cdn'). '/siftal';
-		}
-		return $siftalAddr;
 	}
 
 
