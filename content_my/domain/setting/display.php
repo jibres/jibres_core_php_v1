@@ -10,6 +10,10 @@
       <td class="ltr txtL txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
      <tr>
+      <th><?php echo T_('Registrar') ?></th>
+      <td class="ltr txtL"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>
+     </tr>
+     <tr>
       <th><?php echo T_('Registered on') ?></th>
       <td class="ltr txtL"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
      </tr>
@@ -17,6 +21,12 @@
       <th><?php echo T_('Expired on') ?> <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew'); ?></a></th>
       <td class="ltr txtL"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
      </tr>
+<?php if(\dash\data::domainDetail_datemodified()) {?>
+     <tr>
+      <th><?php echo T_('Last activity') ?></th>
+      <td class="ltr txtL"><?php echo \dash\fit::date(\dash\data::domainDetail_datemodified()); ?></td>
+     </tr>
+<?php }?>
      <tr>
       <th><?php echo T_('Transfer lock') ?> <a class="mLa5" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Manage'); ?></a></th>
       <td class="txtL"><div class="ibtn wide"><?php
