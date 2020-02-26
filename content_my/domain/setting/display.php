@@ -29,15 +29,24 @@ else
 }?></a></td>
      </tr>
      <tr>
-      <th><?php echo T_('Auto Renew') ?></th>
-      <td class="txtL"><?php
+      <th><?php echo T_('Auto Renew');
 if(\dash\data::domainDetail_autorenew())
 {
- echo "<div class='ibtn wide fc-blue' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"unset\"}'><span>". T_('Automatic'). "</span><i class='sf-refresh'></i></div>";
+ echo "<span class='link pLa10' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"unset\"}'>". T_('Disable'). "</span>";
 }
 else
 {
- echo "<div class='ibtn wide fc-red' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"set\"}'><span>". T_('Disabled'). "</span><i class='sf-times'></i></div>";
+ echo "<span class='link pLa10' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"set\"}'>". T_('Enable'). "</span>";
+}
+      ?></th>
+      <td class="txtL"><?php
+if(\dash\data::domainDetail_autorenew())
+{
+ echo "<div class='ibtn wide fc-blue'><span>". T_('Automatic'). "</span><i class='sf-refresh'></i></div>";
+}
+else
+{
+ echo "<div class='ibtn wide fc-red'><span>". T_('Disabled'). "</span><i class='sf-times'></i></div>";
 }
 ?></td>
      </tr>
@@ -101,44 +110,28 @@ else
 
     </table>
   </div>
- </div>
-</div>
 
-
-
-
-<div class="f justify-center">
- <div class="c6 m8 s12">
-  <div class="cbox">
-
-   <table class="tbl1 v4">
-
-
-    <tr>
-     <td><?php echo T_("IRNIC holder") ?></td>
-     <td class="txtL ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
-    </tr>
-
-    <tr>
-     <td><?php echo T_("IRNIC admin") ?></td>
-     <td class="txtL ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
-    </tr>
-
-    <tr>
-     <td><?php echo T_("IRNIC billing") ?></td>
-     <td class="txtL ltr"><?php echo \dash\data::domainDetail_bill(); ?></td>
-    </tr>
-
-    <tr>
-     <td><?php echo T_("IRNIC technical") ?></td>
-     <td class="txtL ltr"><?php echo \dash\data::domainDetail_tech(); ?></td>
-    </tr>
-
-   </table>
-
-
+  <div class="panel mT20">
+    <table class="tbl1 v4 mB0 mT10">
+     <tr>
+      <td><?php echo T_("IRNIC holder") ?></td>
+      <td class="txtL ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
+     </tr>
+     <tr>
+      <td><?php echo T_("IRNIC admin") ?></td>
+      <td class="txtL ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
+     </tr>
+     <tr>
+      <td><?php echo T_("IRNIC billing") ?></td>
+      <td class="txtL ltr"><?php echo \dash\data::domainDetail_bill(); ?></td>
+     </tr>
+     <tr>
+      <td><?php echo T_("IRNIC technical") ?></td>
+      <td class="txtL ltr"><?php echo \dash\data::domainDetail_tech(); ?></td>
+     </tr>
+    </table>
   </div>
+
  </div>
 </div>
-
 
