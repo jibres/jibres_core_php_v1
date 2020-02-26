@@ -35,6 +35,15 @@
 		</a>
 	</div>
 
+	<div class="c s6">
+		<a href="<?php echo \dash\url::that(). '/action?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'action') { echo ' active';} ?>" >
+		 <div class="statistic">
+		  <div class="value"><i class="sf-history"></i></div>
+		  <div class="label"><?php echo T_("Action history"); ?></div>
+		 </div>
+		</a>
+	</div>
+
 
 
 </div>

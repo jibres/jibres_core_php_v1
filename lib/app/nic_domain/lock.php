@@ -32,6 +32,12 @@ class lock
 			return false;
 		}
 
+		if(array_key_exists('lock', $load_domain) && $load_domain['lock'])
+		{
+			\dash\notif::info(T_("This domain is already locked"));
+			return true;
+		}
+
 		$result = \lib\nic\exec\domain_lock::lock($_domain);
 		if($result)
 		{
@@ -92,6 +98,12 @@ class lock
 		{
 			\dash\notif::error(T_("Invalid domain"));
 			return false;
+		}
+
+		if(array_key_exists('lock', $load_domain) && !$load_domain['lock'])
+		{
+			\dash\notif::info(T_("This domain is already unlocked"));
+			return true;
 		}
 
 		$result = \lib\nic\exec\domain_lock::unlock($_domain);
