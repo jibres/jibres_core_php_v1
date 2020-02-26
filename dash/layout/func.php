@@ -57,11 +57,12 @@ class func
 		return self::$DISPLAY;
 	}
 
+
 	public static function staticmtime($_fileAddr)
 	{
 		$result       = $_fileAddr;
 		$lastTime     = null;
-		$complete_url = root.'public_html/static/'. $_fileAddr;
+		$complete_url = YARD.'talambar_cdn/'. $_fileAddr;
 		if($_fileAddr && \dash\file::exists($complete_url))
 		{
 			$lastTime = filemtime($complete_url);
@@ -72,7 +73,7 @@ class func
 			$result .= '?'. $lastTime;
 		}
 
-		return \dash\url::static(). '/'. $result;
+		return \dash\url::cdn(). '/'. $result;
 	}
 }
 ?>
