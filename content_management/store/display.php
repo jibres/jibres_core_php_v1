@@ -36,6 +36,7 @@
           <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
           <br>
           <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
+          <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(\dash\get::index($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
       </td>
 
 
