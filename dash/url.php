@@ -200,22 +200,10 @@ class url
 			'module'    => null,
 			'child'     => null,
 			'subchild'  => null,
+			'store'     => null,
 		];
 
 		$my_path = trim(strtok($_path, '?'), '/');
-		$specialSubdomain = null;
-		// if(isset(self::$url['subdomain']))
-		// {
-		// 	if(in_array(self::$url['subdomain'], ['api', 'core']))
-		// 	{
-		// 		if(\dash\engine\content::load(self::$url['subdomain']))
-		// 		{
-		// 			$specialSubdomain = true;
-		// 			// do not sumulate content inside url
-		// 			// $path_result['content'] = self::$url['subdomain'];
-		// 		}
-		// 	}
-		// }
 
 		// if we are in root, return empty path result
 		if($my_path === "")
@@ -236,14 +224,23 @@ class url
 			array_shift($my_dir);
 		}
 
-		if($specialSubdomain)
+		if(count($my_dir) > 0)
 		{
-			// if we detect content before this
-			// for example subdomain as content
-			// do nothing
-		}
-		else if(count($my_dir) > 0)
-		{
+			$maybe_store = reset($my_dir);
+			if($maybe_store)
+			{
+				$check_store_id = \dash\coding::decode($maybe_store);
+
+				if($check_store_id)
+				{
+					if(intval($check_store_id) > 1000000 && intval($check_store_id) < 9999999)
+					{
+						$path_result['store'] = $maybe_store;
+						array_shift($my_dir);
+					}
+				}
+			}
+
 			// if we have another string in path
 			// try to detect content
 			$maybe_content = reset($my_dir);
@@ -253,6 +250,18 @@ class url
 				// set language
 				$path_result['content'] = $maybe_content;
 				array_shift($my_dir);
+			}
+		}
+
+		if($path_result['store'])
+		{
+			if($path_result['prefix'])
+			{
+				$path_result['prefix'] .= '/'. $path_result['store'];
+			}
+			else
+			{
+				$path_result['prefix'] = $path_result['store'];
 			}
 		}
 
@@ -477,6 +486,12 @@ class url
 		{
 			$my_kingdom .= '/'. self::$url['lang'];
 		}
+
+		if(self::$url['store'])
+		{
+			$my_kingdom .= '/'. self::$url['store'];
+		}
+
 		return $my_kingdom;
 	}
 
