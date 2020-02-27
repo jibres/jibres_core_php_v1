@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\url::subdomain())
+		if(!\dash\url::store())
 		{
 			\dash\redirect::to(\dash\url::kingdom());
 		}

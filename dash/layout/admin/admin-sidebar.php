@@ -42,7 +42,7 @@ else
 
 
 
-<?php if(\dash\url::subdomain()) {?>
+<?php if(\dash\url::store()) {?>
   <li><a href="<?php echo \dash\url::kingdom(); ?>/a" <?php if(\dash\url::content() === 'a') {?> class="activeContent"<?php }//endif ?>><i class='sf-align-left'></i> <?php echo T_("Store admin panel"); ?></a></li>
   <?php
   if(\dash\url::content() === 'a')

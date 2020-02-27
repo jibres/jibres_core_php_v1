@@ -73,6 +73,10 @@ class store
 		{
 			return self::$store_slug;
 		}
+		elseif(\dash\url::store())
+		{
+			return \dash\url::store();
+		}
 		elseif(\dash\url::subdomain())
 		{
 			return \dash\url::subdomain();
@@ -96,7 +100,6 @@ class store
 			return;
 		}
 
-
 		if(\dash\session::get('store_detail_'. self::store_slug()))
 		{
 			self::$store = \dash\session::get('store_detail_'. self::store_slug());
@@ -106,7 +109,14 @@ class store
 
 		self::clean_session(self::store_slug());
 
- 		$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
+		if(\dash\url::store())
+		{
+ 			$store_detail_file = \dash\engine\store::init_by_id(\dash\coding::decode(self::store_slug()));
+		}
+		else
+		{
+ 			$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
+		}
 
  		// no file founded an no record existe in jibres database
  		if(!$store_detail_file || !isset($store_detail_file['store']))

@@ -89,7 +89,7 @@ myStores();
           <span class="badge light"><?php echo T_("Owner"); ?></span>
         </div>
         <div class="cauto os">
-          <div class="addr ltr"><b><?php echo \dash\get::index($value, 'subdomain'); ?></b><span>.Jibres.<?php echo \dash\url::tld(); ?></span></div>
+          <div class="addr ltr hide"><b><?php echo \dash\get::index($value, 'url'); ?></b></div>
         </div>
       </div>
     </a>

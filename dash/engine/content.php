@@ -24,7 +24,7 @@ class content
 			'r10',
 			'v2',
 			'n',
-			'm',
+			'managment',
 			'p',
 			'pardakhtyar',
 			'pay',
@@ -160,7 +160,7 @@ class content
 	 */
 	private static function dynamic_subdomain()
 	{
-		if(\dash\url::subdomain())
+		if(\dash\url::store())
 		{
 			// if we are in subdomain without finded repository
 			// check if we have content_subDomain route in this folder

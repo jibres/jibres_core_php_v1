@@ -54,28 +54,23 @@ class store
 	 */
 	public static function config()
 	{
-		$subdomain        = \dash\url::subdomain();
+		$store        = \dash\url::store();
 
-		if(!$subdomain)
+		if(!$store)
 		{
 			return;
 		}
 
-		$free_subdomain =
-		[
-			'developers',
-			'api',
-			'core',
-		];
-
-		if(in_array($subdomain, $free_subdomain))
-		{
-			return;
-		}
+		$store_id = \dash\coding::decode($store);
 
 		$user_id = \dash\user::id();
 
-		self::init_subdomain($subdomain);
+		$lock = self::init_by_id($store_id);
+
+		if(!$lock)
+		{
+			\dash\header::status(404, T_("Store not found"));
+		}
 
 		if(self::inStore())
 		{

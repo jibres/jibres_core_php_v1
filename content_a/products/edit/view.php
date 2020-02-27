@@ -31,7 +31,6 @@ class view
 			\dash\data::page_view(\dash\data::productDataRow_url());
 		}
 
-		\dash\data::page_help(\dash\url::kingdom().'/support/test');
 
 
 

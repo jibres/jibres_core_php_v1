@@ -21,9 +21,9 @@
      <div class="cauto"><?php
 if (\dash\user::id())
 {
- if (\dash\url::subdomain())
+ if (\dash\url::store())
  {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/a">'. T_("Store Panel"). '</a>';
+  echo '<a class="master" href="'. \dash\url::kingdom(). '/a">'. T_("Store Panel"). '</a>';
  }
  else
  {
