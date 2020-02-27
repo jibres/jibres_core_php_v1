@@ -9,11 +9,20 @@ class view
 		\dash\data::page_title(T_('Jibres my'));
 		\dash\data::page_desc(T_('Sell and Enjoy'));
 
+		\dash\data::page_titleBox(false);
+
 		if(!\dash\detect\device::detectPWA())
 		{
-			// \dash\redirect::to(\dash\url::kingdom(). '/store');
+			self::site_detail();
 		}
-		\dash\data::page_titleBox(false);
+
+	}
+
+
+	private static function site_detail()
+	{
+		$myStore = \lib\app\store\mystore::list();
+		\dash\data::listStore($myStore);
 	}
 }
 ?>
