@@ -138,7 +138,7 @@
           </div>
       </div>
       <div class="c6 s12">
-        <img loading="lazy" data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing"); ?>'>
+        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing"); ?>'>
       </div>
     </div>
   </div>
@@ -171,7 +171,7 @@
 <section id='roadmap'>
   <div class="cn">
     <div class="f align-center fix">
-      <div class="cauto s12"><img loading="lazy" data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-vision.png" alt='<?php echo T_('Jibres roadmap'); ?>'></div>
+      <div class="cauto s12"><img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-vision.png" alt='<?php echo T_('Jibres roadmap'); ?>'></div>
       <div class="c s12">
         <h2><?php echo T_('Roadmap'); ?></h2>
         <h3><?php echo T_('World #1 Financial Platform'); ?></h3>
@@ -182,7 +182,7 @@
 
 
 
-<section id='quote'>
+<section id='quote' data-bg='<?php echo \dash\url::cdn(); ?>/images/homepage/quote-supersaeed-sadeghi.jpg'>
   <div class="title">
   <h4><?php echo T_('With Jibres we take less time of our customers and this means modern customer orientation'); ?></h4>
   <h5><?php echo T_('Majid Sadeghi'); ?></h5>
