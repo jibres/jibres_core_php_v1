@@ -62,7 +62,14 @@ class filepath
 			}
 			else
 			{
-				return \dash\url::cloud(). '/'. $_path;
+				if(substr($_path, 0, 2) === '1/')
+				{
+					return \dash\url::dl(). '/'. $_path;
+				}
+				else
+				{
+					return \dash\url::cloud(). '/'. $_path;
+				}
 			}
 		}
 
