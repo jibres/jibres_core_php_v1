@@ -9,14 +9,13 @@
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
       <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
+      <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
      <tr>
       <th><?php echo T_('Status & Validity') ?></th>
-
         <td class="ltr txtRa">
-        <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
-
-        <div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_(\dash\data::domainDetail_status()); ?></span></div>
-
+        <div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_("Enable"); ?></span></div>
+      </td>
+     </tr>
         <?php
           }else
           {
@@ -24,14 +23,19 @@
             {
               foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
               {
+                echo '<tr>';
+                if($key === 0)
+                {
+                  echo '<th rowspan='. count(\dash\data::domainDetail_nicstatus_array()).'>'. T_('Status & Validity'). '</th>';
+                }
+
+                echo '<td class="ltr txtRa">';
                 echo '<div class="badge mLa10 light">'. T_('IRNIC_'. $value). '</div>';
+                echo '</td></tr>';
               }
             }
           }
         ?>
-      </td>
-
-     </tr>
      <tr>
       <th><?php echo T_('Registrar') ?></th>
       <td class="ltr txtRa"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>
