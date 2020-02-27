@@ -38,6 +38,10 @@ if(\dash\user::id())
 {
   echo " <meta content='". \dash\coding::encode(\dash\user::id()). "' name='user-Jibres'/>\n";
 }
+if(\dash\url::store())
+{
+  echo " <meta content='". \dash\url::store(). "' name='store-code'/>\n";
+}
 ?>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
