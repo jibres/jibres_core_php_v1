@@ -8,7 +8,7 @@ class controller
 	{
 		if(!\dash\session::get('createNewStore_error', 'CreateNewStore'))
 		{
-			\dash\redirect::to(\dash\url::this());
+			// \dash\redirect::to(\dash\url::this());
 		}
 	}
 }

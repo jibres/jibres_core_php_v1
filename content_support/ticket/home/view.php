@@ -24,6 +24,10 @@ class view
 		// btn
 		\dash\data::back_text(T_('Help center'));
 		\dash\data::back_link(\dash\url::support());
+
+		\dash\data::action_text(T_('New Ticket'));
+		\dash\data::action_icon('plus');
+		\dash\data::action_link(\dash\url::support(). '/ticket/add');
 	}
 
 

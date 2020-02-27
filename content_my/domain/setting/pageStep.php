@@ -1,5 +1,5 @@
 <div class="f">
-	<div class="c s6">
+	<div class="c s12">
 		<a href="<?php echo \dash\url::that(). '?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(!\dash\url::subchild()) { echo ' active';} ?>" >
 		 <div class="statistic blue">
 		  <div class="value"><i class="sf-info-circle"></i></div>

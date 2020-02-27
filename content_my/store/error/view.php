@@ -16,6 +16,13 @@ class view
 		{
 			\dash\data::StoreCreateErrorCode($error['code']);
 		}
+
+		if(\dash\detect\device::detectPWA())
+		{
+			// back
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
+		}
 	}
 }
 ?>

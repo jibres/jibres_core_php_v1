@@ -39,7 +39,7 @@
   </div>
 
 
-  <div class="c s12">
+  <div class="c s6">
     <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/renew'>
      <div class="statistic blue">
       <div class="value"><i class="sf-retweet"></i></div>
@@ -49,7 +49,7 @@
   </div>
 
 
-  <div class="c s12">
+  <div class="c s6">
     <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/transfer'>
      <div class="statistic green">
       <div class="value"><i class="sf-exchange"></i></div>
@@ -59,7 +59,7 @@
   </div>
 
 
-   <div class="cauto s12">
+   <div class="cauto s6">
     <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irnic'>
      <div class="statistic blue">
       <div class="value"><i class="sf-vcard"></i></div>
@@ -68,7 +68,7 @@
     </a>
   </div>
 
-    <div class="cauto s12">
+    <div class="cauto s6">
      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/dns'>
       <div class="statistic blue">
        <div class="value"><i class="sf-internet"></i></div>
