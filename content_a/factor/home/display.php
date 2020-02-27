@@ -181,8 +181,8 @@ $sortLink = \dash\data::sortLink();
           <td ><a href="<?php echo \dash\url::this(); ?>?subtotal=<?php echo \dash\get::index($value, 'subtotal'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subtotal')); ?></a></td>
           <td class="collapsing">
             <div class="f">
-              <div class="c fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'date')); ?>
-              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date(\dash\get::index($value, 'date')); ?></div>
+              <div class="c fs09"><?php echo \dash\fit::date_time(\dash\get::index($value, 'date')); ?>
+              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></div>
             </div>
           </td>
           <?php if(!\dash\request::get('type')) {?>
