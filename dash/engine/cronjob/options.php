@@ -64,11 +64,6 @@ class options
 
 		if($return_val === 0)
 		{
-			if($set_active)
-			{
-				$masterurl = \dash\url::site(). '/hook/cronjob/exec';
-				\dash\file::write(__DIR__. '/masterurl.me.txt', $masterurl);
-			}
 			return true;
 		}
 		else

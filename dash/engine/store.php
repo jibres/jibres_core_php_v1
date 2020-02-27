@@ -280,7 +280,7 @@ class store
 	 */
 	public static function subdomain_addr()
 	{
-		return root. 'includes/stores/subdomain/';
+		return YARD. 'jibres_temp/stores/subdomain/';
 	}
 
 
@@ -292,7 +292,7 @@ class store
 	 */
 	public static function detail_addr()
 	{
-		return root. 'includes/stores/detail/';
+		return YARD. 'jibres_temp/stores/detail/';
 	}
 
 
@@ -304,7 +304,7 @@ class store
 	 */
 	public static function setting_addr()
 	{
-		return root. 'includes/stores/setting/';
+		return YARD. 'jibres_temp/stores/setting/';
 	}
 
 
@@ -316,7 +316,7 @@ class store
 	 */
 	public static function cache_addr()
 	{
-		return root. 'includes/stores/cache/';
+		return YARD. 'jibres_temp/stores/cache/';
 	}
 }
 ?>

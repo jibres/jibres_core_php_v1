@@ -7,12 +7,13 @@ class cronjob
 		// this directory
 		$list_stores_addr = __DIR__;
 		$list_stores_addr = str_replace('dash/engine/cronjob', '', $list_stores_addr);
-
 		// master jibres directory
 		$jibres_addr = $list_stores_addr;
 
 		// store setting file directory
-		$list_stores_addr .= 'includes/stores/subdomain/';
+		$list_stores_addr = substr($list_stores_addr, 0, -7);
+		$list_stores_addr .= 'jibres_temp/stores/subdomain/';
+
 		if(!is_dir($list_stores_addr))
 		{
 			self::save_log('stores subdomain addr not found!');
