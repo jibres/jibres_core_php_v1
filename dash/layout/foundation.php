@@ -40,21 +40,21 @@ if(\dash\user::id())
 }
 ?>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
- <meta content="<?php echo \dash\url::site();?>/browserconfig.xml?v=6" name="msapplication-config"/>
+ <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
  <meta content="#c80a5a" name="theme-color"/>
  <meta content="yes" name="mobile-web-app-capable"/>
  <meta content="yes" name="apple-touch-fullscreen"/>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
  <meta content="yes" name="apple-mobile-web-app-capable"/>
  <meta content="index, follow" name ="robots"/>
- <meta content="<?php echo \dash\url::site();?>" name="jibres:site"/>
+ <meta content="<?php echo \dash\url::cdn();?>/favicons" name="jibres:site"/>
  <meta content="<?php echo \dash\url::sitelang();?>/api/" name="jibres:api"/>
- <link href="<?php echo \dash\url::site();?>/apple-touch-icon.png?v=6" sizes="180x180" rel="apple-touch-icon"/>
- <link href="<?php echo \dash\url::site();?>/favicon-64x64.png?v=6" sizes="64x64" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::site();?>/favicon-32x32.png?v=6" sizes="32x32" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::site();?>/favicon-16x16.png?v=6" sizes="16x16" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::site();?>/safari-pinned-tab.svg?v=6" rel="mask-icon"/>
- <link href="<?php echo \dash\url::site();?>/favicon.ico?v=6" rel="shortcut icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png?v=1" sizes="32x32" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png?v=1" sizes="16x16" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon.ico?v=1" rel="shortcut icon"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
  <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
 <?php
