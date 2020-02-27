@@ -65,7 +65,7 @@ class renew
 				'user_id'      => \dash\user::id(),
 				'name'         => $domain,
 				'registrar'    => 'irnic',
-				'status'       => 'enable',
+				'status'       => 'awaiting',
 				'holder'       => null,
 				'admin'        => null,
 				'tech'         => null,
@@ -194,6 +194,7 @@ class renew
 		{
 			$update               = [];
 			$update['dateexpire'] = $expiredate;
+			$update['status']     = 'enable';
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 

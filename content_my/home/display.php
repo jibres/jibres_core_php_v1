@@ -1,6 +1,6 @@
 
 
-   <h2>Jibres Services</h2>
+   <h2><?php echo T_("Jibres Services"); ?></h2>
    <nav class="pwaItems">
      <ul>
        <li>
