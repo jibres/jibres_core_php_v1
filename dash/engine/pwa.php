@@ -172,7 +172,7 @@ class pwa
 
 
 
-		\dash\code::jsonBoom($manifest, true, 'manifest');
+		\dash\code::jsonBoom($manifest, false, 'manifest');
 	}
 
 

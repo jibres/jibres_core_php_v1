@@ -122,7 +122,7 @@ class code
 			}
 			else
 			{
-				$_data = json_encode($_data, JSON_UNESCAPED_UNICODE);
+				$_data = json_encode($_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 			}
 		}
 		// set header
