@@ -47,7 +47,7 @@ if(\dash\user::id())
  <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
  <meta content="yes" name="apple-mobile-web-app-capable"/>
  <meta content="index, follow" name ="robots"/>
- <meta content="<?php echo \dash\url::cdn();?>/favicons" name="jibres:site"/>
+ <meta content="<?php echo \dash\url::site();?>" name="jibres:site"/>
  <meta content="<?php echo \dash\url::sitelang();?>/api/" name="jibres:api"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>
