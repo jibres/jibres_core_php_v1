@@ -30,7 +30,11 @@
     <tr>
       <td><code><?php echo \dash\get::index($value, 'id'); ?></code></td>
       <td><div class=""><a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'subdomain'). '.jibres.'. \dash\url::tld(); ?>"><?php echo \dash\get::index($value, 'subdomain'); ?></a></div></td>
-      <td><?php echo \dash\get::index($value, 'title'); ?></td>
+      <td>
+        <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
+        <?php echo \dash\get::index($value, 'title'); ?>
+
+        </td>
       <td>
         <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
           <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
