@@ -34,14 +34,16 @@ foreach ($dataTable as $key => $value)
 ?>
 
     <tr class="<?php echo \dash\get::index($value, 'rowColor'); ?>">
-      <td class="collapsing txtB">
+      <td class=" txtB">
         <?php if(isset($value['parent'])) {?>
 
-        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'parent');  echo \dash\data::accessGetAnd(); ?>#<?php echo \dash\get::index($value, 'id');  if(!\dash\user::id()) {?>&guest=<?php echo \dash\get::index($value, 'code');  } //endif ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'parent')); ?></span> </a>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'parent');  echo \dash\data::accessGetAnd(); ?>#<?php echo \dash\get::index($value, 'id');  if(!\dash\user::id()) {?>&guest=<?php echo \dash\get::index($value, 'code');  } //endif ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'parent')); ?></span>
+          <?php echo substr(\dash\get::index($value, 'content'), 0, 60); if(mb_strlen(\dash\get::index($value, 'content')) > 60) { echo '...' ;} ?>
+        </a>
 
         <?php }else{ ?>
 
-        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id');  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'id');} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></span> <?php echo substr(\dash\get::index($value, 'title'), 0, 40); ?></a>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id');  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'id');} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></span> <?php echo substr(\dash\get::index($value, 'content'), 0, 60); if(mb_strlen(\dash\get::index($value, 'content')) > 60) { echo '...' ;} ?></a>
         <?php } // endif ?>
 
         <?php if(isset($value['tag']) && $value['tag'] && is_array($value['tag'])) {?>
@@ -60,8 +62,10 @@ foreach ($dataTable as $key => $value)
 
       </td>
 
+      <?php if(false) {?>
       <td class="s0 m0 pRa10"><a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id'); echo \dash\data::accessGetAnd(); ?><?php if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'code'); } ?>"><?php echo substr(strip_tags(\dash\get::index($value, 'content')), 0, 60); ?></a>
       </td>
+      <?php } //endif ?>
 
       <?php if(\dash\data::haveSubdomain()) {?>
 

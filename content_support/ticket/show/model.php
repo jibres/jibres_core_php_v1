@@ -336,7 +336,7 @@ class model
 			'mobile'  => \dash\user::detail("mobile"),
 			'user_id' => \dash\user::id(),
 			'parent'  => $_id,
-			'file'    => $file['path'],
+			'file'    => isset($file['path']) ? $file['path'] : null,
 		];
 
 
