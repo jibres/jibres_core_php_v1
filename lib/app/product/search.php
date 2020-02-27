@@ -352,7 +352,14 @@ class search
 		foreach ($list as $key => $value)
 		{
 			$list[$key]['variants_detail'] = [];
-			$list[$key]['price_string']    = \dash\fit::number($value['finalprice']);
+			if(isset($value['finalprice']))
+			{
+				$list[$key]['price_string']    = \dash\fit::number($value['finalprice']);
+			}
+			else
+			{
+				$list[$key]['price_string']    = '';
+			}
 		}
 
 		$product_ids = array_column($list, 'id');
