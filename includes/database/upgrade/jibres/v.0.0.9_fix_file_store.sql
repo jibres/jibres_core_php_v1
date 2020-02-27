@@ -1,0 +1,2 @@
+UPDATE `jibres`.`users` SET `jibres`.`users`.`avatar` = REPLACE(`jibres`.`users`.`avatar`, 'https://jibres.com/', '');
+UPDATE `jibres`.`users` SET `jibres`.`users`.`avatar` = REPLACE(`jibres`.`users`.`avatar`, 'https://jibres.ir/', '');

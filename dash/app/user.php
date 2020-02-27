@@ -915,7 +915,7 @@ class user
 					break;
 
 				case 'avatar':
-					$value = \lib\filepath::fix($value);
+					$value = \lib\filepath::force_dl($value);
 
 					$result['avatar_raw'] = $value;
 					if($value)
