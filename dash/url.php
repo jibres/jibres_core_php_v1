@@ -464,9 +464,7 @@ class url
 			}
 			else
 			{
-				// temporary use ir until run .com
-				// $talambarAddr .= 'com';
-				$talambarAddr .= 'ir';
+				$talambarAddr .= 'com';
 			}
 		}
 
