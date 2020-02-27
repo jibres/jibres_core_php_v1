@@ -23,14 +23,6 @@ class filepath
 		{
 			return \dash\url::dl();
 		}
-
-
-		// return \dash\url::site();
-
-		// $file_domain = '';
-		// $file_domain .= \dash\url::protocol(). '://dl.';
-		// $file_domain .= \dash\url::domain();
-		// return $file_domain;
 	}
 
 
@@ -52,6 +44,44 @@ class filepath
 			else
 			{
 				return self::file_domain(). '/'. $_path;
+			}
+		}
+
+		return $_path;
+	}
+
+
+	// in jibres need to load file from cloud (force)
+	public static function force_cloud($_path)
+	{
+		if($_path && is_string($_path))
+		{
+			if(substr($_path, 0, 7) === 'http://' || substr($_path, 0, 8) === 'https://' )
+			{
+				// no change
+			}
+			else
+			{
+				return \dash\url::cloud(). '/'. $_path;
+			}
+		}
+
+		return $_path;
+	}
+
+
+	// in jibres need to load file from dl (force)
+	public static function force_dl($_path)
+	{
+		if($_path && is_string($_path))
+		{
+			if(substr($_path, 0, 7) === 'http://' || substr($_path, 0, 8) === 'https://' )
+			{
+				// no change
+			}
+			else
+			{
+				return \dash\url::dl(). '/'. $_path;
 			}
 		}
 

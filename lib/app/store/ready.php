@@ -47,7 +47,7 @@ class ready
 				case 'logo':
 					if($value)
 					{
-						$value = \lib\filepath::fix($value);
+						$value = \lib\filepath::force_cloud($value);
 					}
 					else
 					{
