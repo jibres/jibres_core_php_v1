@@ -1,5 +1,7 @@
 <?php
 $kingdom = \dash\url::kingdom();
+if(\dash\language::current() === 'fa')
+{
 ?>
 <section id="jibresCertificates">
   <div class="fit-md">
@@ -16,6 +18,7 @@ $kingdom = \dash\url::kingdom();
     </div>
   </div>
 </section>
+<?php } ?>
 
 <section id="jibresSupportLine">
     <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
