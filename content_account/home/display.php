@@ -135,6 +135,27 @@
       </div>
 
   </div>
+  <?php if(\dash\detect\device::detectPWA()) {?>
+     <div class="c6 x4 s12 pA10">
+        <div class="panel">
+          <div class="body pad f">
+            <div class="c9 s6">
+
+              <?php echo T_("Logout from your account!"); ?>
+            </div>
+            <div class="c"></div>
+            <div class="cauto">
+              <i class="sf-log-out fs14"></i>
+            </div>
+
+          </div>
+          <hr>
+          <footer>
+            <a class="special pad" href="<?php echo \dash\url::kingdom(); ?>/logout"><?php echo T_("Logout"); ?></a>
+          </footer>
+        </div>
+    </div>
+  <?php } //endif ?>
 
 </div>
 
