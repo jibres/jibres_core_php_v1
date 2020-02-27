@@ -46,6 +46,11 @@ class controller
 	// for routing check
 	public static function routing()
 	{
+		if(\dash\url::store())
+		{
+			\dash\redirect::to(\dash\url::kingdom(). '/a');
+		}
+
 		if(\dash\user::id())
 		{
 			if(\dash\detect\device::detectPWA())
