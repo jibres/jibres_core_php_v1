@@ -129,7 +129,7 @@
           </div>
       </div>
       <div class="c6 s12">
-        <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing"); ?>'>
+        <img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing"); ?>'>
       </div>
     </div>
   </div>
@@ -162,7 +162,7 @@
 <section id='roadmap'>
   <div class="cn">
     <div class="f align-center fix">
-      <div class="cauto s12"><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-vision.png" alt='<?php echo T_('Jibres roadmap'); ?>'></div>
+      <div class="cauto s12"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-vision.png" alt='<?php echo T_('Jibres roadmap'); ?>'></div>
       <div class="c s12">
         <h2><?php echo T_('Roadmap'); ?></h2>
         <h3><?php echo T_('World #1 Financial Platform'); ?></h3>
