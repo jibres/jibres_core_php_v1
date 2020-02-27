@@ -47,16 +47,6 @@ class view
 			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
 		}
 
-		// user search anything and no result founded
-		if($search_string && !$list)
-		{
-			if(\lib\app\nic_domain\check::syntax($search_string))
-			{
-				\dash\data::myDomain($search_string);
-				$check = \lib\app\nic_domain\check::check($search_string);
-				\dash\data::checkResult($check);
-			}
-		}
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace content_management\analytics;
+namespace content_management\store\analytics;
 
 
 class view
