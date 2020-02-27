@@ -167,7 +167,7 @@ trait search
 		// 	}
 		// }
 
-		$where = join($where, " AND ");
+		$where =  implode(' AND ', $where); //join($where, " AND ");
 
 		$search = null;
 		if($_string !== null)
