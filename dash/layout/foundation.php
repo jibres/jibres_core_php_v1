@@ -113,7 +113,7 @@ echo ">";
 if (\dash\data::include_highcharts())
 {
   echo "\n  ";
-  echo '<script src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
+  echo '<script async src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 
 if (\dash\user::id())
