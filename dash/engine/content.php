@@ -160,7 +160,7 @@ class content
 	 */
 	private static function dynamic_subdomain()
 	{
-		if(\dash\url::store())
+		if(\dash\url::subdomain())
 		{
 			// if we are in subdomain without finded repository
 			// check if we have content_subDomain route in this folder
