@@ -89,44 +89,18 @@ class search
 
 
 
-
-	public static function analytics($_and, $_or, $_order_sort = null)
+	public static function list_analytics($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$where = null;
-		$q     = [];
 
-		if($_and)
+		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM store $q[where]";
+
+		$limit = null;
+		if($q['pagination'] !== false)
 		{
-			$q[] = \dash\db\config::make_where($_and, ['condition' => 'AND']);
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
-
-		if($_or)
-		{
-			$or =  \dash\db\config::make_where($_or, ['condition' => 'OR']);
-			$q[] = "($or)";
-		}
-
-		if($q)
-		{
-			$where = 'WHERE '. implode($q, " AND ");
-		}
-
-		$order = null;
-		if($_order_sort && is_string($_order_sort))
-		{
-			$order = $_order_sort;
-		}
-
-
-		$pagination_query =
-		"
-			SELECT COUNT(*) AS `count` FROM
-			store
-				INNER JOIN store_data ON store_data.id = store.id
-			$where
-		";
-
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
 
 		$query =
 		"
@@ -139,11 +113,16 @@ class search
 			INNER JOIN store_data ON store_data.id = store.id
 			LEFT JOIN store_analytics ON store_analytics.id = store.id
 
-			$where $order $limit";
+			$q[where] $q[order] $limit
+		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\db::get($query, null, false);
 
 		return $result;
 	}
+
+
+
+
 }
 ?>

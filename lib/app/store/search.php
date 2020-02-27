@@ -157,4 +157,142 @@ class search
 		return $list;
 	}
 
+
+	public static function list_analytics($_query_string, $_args)
+	{
+
+
+		$default_args =
+		[
+			'order'  => null,
+			'sort'   => null,
+
+
+		];
+
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$_args       = array_merge($default_args, $_args);
+
+		$and         = [];
+		$meta        = [];
+		$or          = [];
+
+		$meta['limit'] = 20;
+
+
+		$order_sort  = null;
+
+
+		// if($_args['dns'])
+		// {
+		// 	$dns_id = \dash\coding::decode($_args['dns']);
+		// 	if($dns_id)
+		// 	{
+		// 		$and[]                      = " domain.dns = $dns_id ";
+		// 		self::$filter_args[T_("DNS")] = $_args['dns'];
+		// 		self::$is_filtered          = true;
+		// 	}
+		// }
+
+
+		if(mb_strlen($_query_string) > 50)
+		{
+			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
+			return false;
+		}
+
+		$query_string = \dash\safe::forQueryString($_query_string);
+
+
+		if($query_string)
+		{
+			$or[]        = " store_data.title LIKE '%$query_string%'";
+
+
+
+			self::$is_filtered = true;
+		}
+
+
+		if($_args['sort'] && !$order_sort)
+		{
+			if(in_array($_args['sort'], ['name', 'id']))
+			{
+
+				$sort = mb_strtolower($_args['sort']);
+				$order = null;
+				if($_args['order'])
+				{
+					$order = mb_strtolower($_args['order']);
+				}
+
+				$order_sort = " ORDER BY $sort $order";
+			}
+		}
+
+		if(!$order_sort)
+		{
+			$order_sort = " ORDER BY store.id DESC";
+		}
+
+
+
+		$list = \lib\db\store\search::list_analytics($and, $or, $order_sort, $meta);
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+
+		$users_id = array_column($list, 'creator');
+		$users_id = array_filter($users_id);
+		$users_id = array_unique($users_id);
+
+		if($users_id)
+		{
+			$load_some_user = \dash\db\users\get::by_multi_id(implode(',', $users_id));
+			if(is_array($load_some_user))
+			{
+				$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
+				foreach ($list as $key => $value)
+				{
+					if(isset($value['creator']) && $value['creator'] && isset($load_some_user[$value['creator']]))
+					{
+						$user_detail = $load_some_user[$value['creator']];
+						$user_detail = \dash\app\user::ready($user_detail);
+						$list[$key]['user_detail'] = $user_detail;
+					}
+					else
+					{
+						$list[$key]['user_detail'] = [];
+					}
+				}
+			}
+		}
+		$list = array_map(['\\lib\\app\\store\\ready', 'row'], $list);
+
+		$filter_args_data = [];
+
+		foreach (self::$filter_args as $key => $value)
+		{
+			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
+			{
+				$filter_args_data[substr($value, 1)] = $list[0][$key];
+			}
+			else
+			{
+				$filter_args_data[$key] = $value;
+			}
+		}
+
+		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
+
+		return $list;
+	}
+
 }?>
