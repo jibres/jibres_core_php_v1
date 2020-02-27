@@ -104,7 +104,7 @@ echo ">";
 
 
  <div class="js">
-  <script src="<?php echo \dash\layout\func::staticmtime('js/siftal.min.js');?>"></script>
+  <script async src="<?php echo \dash\layout\func::staticmtime('js/siftal.min.js');?>"></script>
 <?php
 if (\dash\data::include_highcharts())
 {
