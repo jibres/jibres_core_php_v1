@@ -10,12 +10,19 @@ class view
 		\dash\data::page_desc(T_("Check your last messages."). ' '. T_("Maybe some messages need your action!"));
 		\dash\data::page_pictogram('bell');
 
-		\dash\data::badge_link(\dash\url::here());
-		\dash\data::badge_text(T_('Back to account'));
 
-		// back
-		\dash\data::back_text(T_('Account'));
-		\dash\data::back_link(\dash\url::here());
+		if(\dash\detect\device::detectPWA())
+		{
+			// back
+			\dash\data::back_text(T_('Dashboard'));
+			\dash\data::back_link(\dash\url::kingdom(). '/my');
+		}
+		else
+		{
+			// back
+			\dash\data::back_text(T_('Account'));
+			\dash\data::back_link(\dash\url::here());
+		}
 
 		$args =
 		[

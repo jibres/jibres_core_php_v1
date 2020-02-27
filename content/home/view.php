@@ -40,9 +40,19 @@ class view
 			\dash\data::moneyUnit(T_('Hezar Toman'));
 		}
 
-		// btn
-		\dash\data::action_text(T_('Enter'));
-		\dash\data::action_link(\dash\url::this(). '/enter');
+		if(!\dash\user::id())
+		{
+			// btn
+			\dash\data::action_text(T_('Enter'));
+			\dash\data::action_link(\dash\url::this(). '/enter');
+		}
+
+		if(\dash\detect\device::detectPWA() && \dash\user::id())
+		{
+			// back
+			\dash\data::back_text(T_('Dashboard'));
+			\dash\data::back_link(\dash\url::kingdom(). '/my');
+		}
 
 	}
 }

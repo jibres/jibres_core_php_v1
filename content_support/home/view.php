@@ -13,7 +13,7 @@ class view
 		\dash\data::badge_text(T_('Tickets'));
 		\dash\data::badge_link(\dash\url::here(). '/ticket'. \dash\data::accessGet());
 
-
+		// load one help article
 		if(\dash\data::isHelpCenter())
 		{
 			\dash\data::supportAdmin('article.php');
@@ -31,6 +31,14 @@ class view
 			\dash\data::action_text(T_('Ticket'));
 			\dash\data::action_icon('plus');
 			\dash\data::action_link(\dash\url::support(). '/ticket/add');
+
+			if(\dash\detect\device::detectPWA())
+			{
+				// back
+				\dash\data::back_text(T_('Dashboard'));
+				\dash\data::back_link(\dash\url::kingdom(). '/my');
+			}
+
 		}
 	}
 
