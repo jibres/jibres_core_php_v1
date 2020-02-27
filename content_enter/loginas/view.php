@@ -21,7 +21,7 @@ class view
 				\dash\redirect::to(\dash\url::kingdom());
 			}
 
-			if(array_key_exists('logo', $load_store_detail_data) && !$load_store_detail_data)
+			if(array_key_exists('logo', $load_store_detail_data) && !$load_store_detail_data['logo'])
 			{
 				$load_store_detail_data['logo'] = \dash\app::static_logo_url();
 			}

@@ -3,6 +3,15 @@ CREATE TABLE `jibres_XXXXXXX`.`products` (
 `title` varchar(500) DEFAULT NULL,
 `seotitle` varchar(300) DEFAULT NULL,
 `slug` varchar(200) DEFAULT NULL,
+
+`finalprice` bigint(20) DEFAULT NULL,
+`vatprice` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
+`discountpercent` int(10) DEFAULT NULL,
+`discount` bigint(20) DEFAULT NULL,
+`compareatprice` bigint(20) UNSIGNED DEFAULT NULL,
+`price` bigint(20) UNSIGNED DEFAULT NULL,
+`buyprice` bigint(20) UNSIGNED DEFAULT NULL,
+
 `seodesc` varchar(500) DEFAULT NULL,
 `desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
 `barcode` varchar(100) DEFAULT NULL,
