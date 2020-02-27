@@ -57,7 +57,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '32x32',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-32.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-32.min.png',
 		];
 
 		// check icon48
@@ -65,7 +65,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '48x48',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-48.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-48.min.png',
 		];
 
 		// check icon64
@@ -73,7 +73,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '64x64',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-64.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-64.min.png',
 		];
 
 		// check icon72
@@ -81,7 +81,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '72x72',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-72.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-72.min.png',
 		];
 
 		// check icon96
@@ -89,7 +89,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '96x96',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-96.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-96.min.png',
 		];
 
 		// check icon128
@@ -97,7 +97,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '128x128',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-128.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-128.min.png',
 		];
 
 		// check icon144
@@ -105,7 +105,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '144x144',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-144.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-144.min.png',
 		];
 
 		// check icon180
@@ -113,7 +113,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '180x180',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-180.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-180.min.png',
 		];
 
 		// check icon192
@@ -121,7 +121,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '192x192',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-192.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-192.min.png',
 		];
 
 		// check icon256
@@ -129,7 +129,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '256x256',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-256.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-256.min.png',
 		];
 
 		// check icon384
@@ -137,7 +137,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '384x384',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-384.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-384.min.png',
 		];
 
 		// check icon500
@@ -145,7 +145,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '500x500',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-500.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-500.min.png',
 		];
 
 		// check icon512
@@ -153,7 +153,7 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '512x512',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-512.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-512.min.png',
 		];
 
 		// check icon1024
@@ -161,16 +161,13 @@ class pwa
 		[
 			'type'  => 'image/png',
 			'sizes' => '1024x1024',
-			'src'   => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-zero-1024.png',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-1024.min.png',
 		];
-
 
 		if($iconsArr)
 		{
 			$manifest['icons'] = $iconsArr;
 		}
-
-
 
 		\dash\code::jsonBoom($manifest, false, 'manifest');
 	}
