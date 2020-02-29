@@ -5,7 +5,7 @@
   <div class="c4 s12">
     <div class="cbox">
 
-      <a href="<?php echo \dash\url::kingdom(); ?>/api/doc" class="btn block outline"><?php echo \dash\data::myTitle(); ?></a>
+      <a href="https://api.jibres.<?php echo \dash\url::tld(); ?>" class="btn block outline"><?php echo \dash\data::myTitle(); ?></a>
 
 
       <?php if(!\dash\user::detail('verifymobile')) {?>

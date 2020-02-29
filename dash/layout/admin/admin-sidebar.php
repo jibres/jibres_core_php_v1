@@ -115,27 +115,29 @@ if(\dash\url::content() === 'support')
 
 
 
+
 <?php
+
 if(\dash\url::content() === 'domain')
 {
   require_once ('sidebar/sidebar-domain.php');
 }
-?>
 
-
-<?php
 if(\dash\url::content() === 'api')
 {
   require_once ('sidebar/sidebar-api.php');
 }
-?>
 
+if(\dash\url::content() === 'v2')
+{
+  require_once ('sidebar/sidebar-api-v2.php');
+}
 
-<?php
 if(\dash\url::content() === 'm')
 {
   require_once ('sidebar/sidebar-m.php');
 }
+
 ?>
 
 
