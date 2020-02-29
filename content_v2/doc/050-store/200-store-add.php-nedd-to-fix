@@ -1,0 +1,111 @@
+<h2 class="f" data-kerkere='#store-add-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge primary">POST</span></span>
+  <span class="c"><?php echo T_("Add new store"); ?></span>
+</h2>
+<div id="store-add-detail">
+  <div class="cbox" id='store-add'>
+
+    <p><?php echo T_("You must be aware of the terms and conditions of the Jibres before adding the store"); ?></p>
+
+    <div class="msg url">
+      <i class="method">POST</i>
+      <span><?php echo \dash\data::JibresApiURL(); ?><b>store/add</b></span>
+    </div>
+
+         <?php require (root. 'content_api/v2/doc/000-public/header-appkey-apikey.php'); ?>
+
+   <div class="tblBox">
+      <h3><?php echo T_("Parameters"); ?></h3>
+      <table class="tbl1 v3">
+        <thead>
+          <tr>
+            <th><?php echo T_("Name"); ?> <small><?php echo T_("type"); ?></small></th>
+            <th><?php echo T_("Description"); ?> <small><?php echo T_("example"); ?></small></th>
+            <th><?php echo T_("Constraints"); ?></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+              <div class="txtB">subdomain</div>
+              <i>String</i>
+            </td>
+            <td>
+              <p><?php echo T_("You can use a-z, 0-9 and underscores."); ?></p>
+              <p><?php echo T_("Minimum length is 5 characters."); ?></p>
+            </td>
+            <td>
+              <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              <div class="txtB">title</div>
+              <i>String</i>
+            </td>
+            <td>
+              <p><?php echo T_("Title of your business"); ?></p>
+
+            </td>
+            <td>
+              <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="txtB">[Question key]</div>
+              <i>String</i>
+            </td>
+            <td>
+              <p><?php echo T_("Question key and number of answer item"); ?></p>
+              <p><?php echo T_("You can get the question from below link"); ?></p>
+              <a class="badge" href="<?php echo \dash\url::that(); ?>#store-add-question"><?php echo T_("Setup Questions"); ?></a>
+            </td>
+            <td>
+              <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
+<pre>
+curl -X POST \
+  <?php echo \dash\data::JibresApiURL(); ?>store/add \
+  -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
+  -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
+  -d {"title":"My Store name","subdomain":"mohiti","Q1":1, "Q2": 3}'
+</pre>
+
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span><?php echo T_("Response"); ?> <small><?php echo T_("Example"); ?></small></h3>
+<pre>
+{
+  "ok": true,
+  "msg": [
+    {
+      "type": "ok",
+      "text": "Your store successfully created",
+      "meta": {
+        "alerty": true
+      }
+    }
+  ],
+  "result": {
+    "subdomain": "{{mySubdomain}}"
+  }
+}
+</pre>
+
+
+  </div>
+</div>
+

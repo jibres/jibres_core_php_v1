@@ -7,7 +7,15 @@ class controller
 	public static function routing()
 	{
 		self::check_subdomain_and_content();
-		self::check_store();
+
+		if(\dash\url::module() === 'doc')
+		{
+
+		}
+		else
+		{
+			self::check_store();
+		}
 	}
 
 
