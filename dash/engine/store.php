@@ -49,10 +49,45 @@ class store
 	}
 
 
+	public static function config()
+	{
+		$store     = \dash\url::store();
+		$subdomain = \dash\url::subdomain();
+
+		// $free_subdomain =
+		// [
+		// 	'developers',
+		// 	'api',
+		// 	'core',
+		// ];
+
+		// if(in_array($subdomain, $free_subdomain))
+		// {
+		// 	$subdomain = null;
+		// }
+
+		if($subdomain && $store)
+		{
+			\dash\header::status(404, T_("Subdomain and store code conflict!"));
+		}
+
+		if($store)
+		{
+			self::config_by_store_id();
+		}
+
+		if($subdomain)
+		{
+			self::config_by_subdomain();
+		}
+
+	}
+
+
 	/**
 	 * call from \dash\engine\power
 	 */
-	public static function config()
+	private static function config_by_store_id()
 	{
 		$store        = \dash\url::store();
 
@@ -71,6 +106,41 @@ class store
 		{
 			\dash\header::status(404, T_("Store not found"));
 		}
+
+		if(self::inStore())
+		{
+			if(!\dash\user::is_init_store_user())
+			{
+				\dash\user::store_init($user_id);
+			}
+		}
+	}
+
+
+	private static function config_by_subdomain()
+	{
+		$subdomain        = \dash\url::subdomain();
+
+		if(!$subdomain)
+		{
+			return;
+		}
+
+		$free_subdomain =
+		[
+			'developers',
+			'api',
+			'core',
+		];
+
+		if(in_array($subdomain, $free_subdomain))
+		{
+			return;
+		}
+
+		$user_id = \dash\user::id();
+
+		self::init_subdomain($subdomain);
 
 		if(self::inStore())
 		{
