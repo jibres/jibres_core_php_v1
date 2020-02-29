@@ -32,6 +32,7 @@ class ready
 
 			switch ($key)
 			{
+
 				case 'store_id':
 					$result['url'] = \dash\url::kingdom(). '/'. \dash\coding::encode($value);
 					break;
@@ -77,13 +78,13 @@ class ready
 				case 'subdomain':
 					$result[$key] = $value;
 
-					// $url_lang = null;
-					// if(\dash\url::lang())
-					// {
-					// 	$url_lang = '/'. \dash\url::lang();
-					// }
+					$url_lang = null;
+					if(\dash\url::lang())
+					{
+						$url_lang = '/'. \dash\url::lang();
+					}
 
-					// $result['url'] = \dash\url::protocol(). '://'. $value. '.'. \dash\url::domain(). $url_lang;
+					$result['url_subdomain'] = \dash\url::protocol(). '://'. $value. '.'. \dash\url::domain(). $url_lang;
 					break;
 
 				case 'status':
