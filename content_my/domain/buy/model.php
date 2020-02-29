@@ -33,8 +33,11 @@ class model
 			'nic_id'    => \dash\request::post('irnicid'),
 			'period'    => \dash\request::post('period'),
 			'irnic_new' => \dash\request::post('irnicid-new'),
+
 			'ns1'       => \dash\request::post('ns1'),
 			'ns2'       => \dash\request::post('ns2'),
+			'ns2'       => \dash\request::post('ns2'),
+			'ns3'       => \dash\request::post('ns3'),
 			// 'ns3'    => \dash\request::post('ns3'),
 			// 'ns4'    => \dash\request::post('ns4'),
 			'dnsid'     => \dash\request::post('dnsid'),

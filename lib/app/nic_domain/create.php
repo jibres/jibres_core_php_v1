@@ -125,50 +125,51 @@ class create
 			return false;
 		}
 
-
-		if($ns1 && $ns2)
+		if($dnsid && $dnsid != 'something-else')
 		{
-			$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
-			if(!isset($get_ns_record['id']))
+			$load_dns = \lib\app\nic_dns\get::get($dnsid);
+
+			if(!$load_dns)
 			{
-				$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
-				if(!$dnsid)
-				{
-					return false;
-				}
+				return false;
 			}
+
+			$dnsid = \dash\coding::decode($dnsid);
+
+			$ns1 = $load_dns['ns1'];
+			$ns2 = $load_dns['ns2'];
+			$ns3 = $load_dns['ns3'];
+			$ns4 = $load_dns['ns4'];
+
+			$ip1 = $load_dns['ip1'];
+			$ip2 = $load_dns['ip2'];
+			$ip3 = $load_dns['ip3'];
+			$ip4 = $load_dns['ip4'];
+
+
 		}
 		else
 		{
-			if($dnsid)
+			if($ns1 && $ns2)
 			{
-				$load_dns = \lib\app\nic_dns\get::get($dnsid);
-
-				if(!$load_dns)
+				$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
+				if(!isset($get_ns_record['id']))
 				{
-					return false;
+					$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
+					if(!$dnsid)
+					{
+						return false;
+					}
 				}
-
-				$dnsid = \dash\coding::decode($dnsid);
-
-				$ns1 = $load_dns['ns1'];
-				$ns2 = $load_dns['ns2'];
-				$ns3 = $load_dns['ns3'];
-				$ns4 = $load_dns['ns4'];
-
-				$ip1 = $load_dns['ip1'];
-				$ip2 = $load_dns['ip2'];
-				$ip3 = $load_dns['ip3'];
-				$ip4 = $load_dns['ip4'];
-
-
 			}
-			else
-			{
-				\dash\notif::error(T_("Please enter the dns records"), ['element' => ['ns1', 'ns2']]);
-				return false;
-			}
+
 		}
+
+		if($dnsid == 'something-else')
+		{
+			$dnsid = null;
+		}
+
 
 
 		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
@@ -294,6 +295,7 @@ class create
 			'ip3'    => $ip3,
 			'ip4'    => $ip4,
 		];
+
 
 		// need to show result page
 		\dash\temp::set('need_show_domain_result', true);

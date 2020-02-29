@@ -5,10 +5,7 @@
    <domain:create xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
     <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
     <domain:period unit="m">PERIOD</domain:period>
-    <domain:ns>
-     <domain:hostAttr><domain:hostName>NS1.JIBRES.TLD</domain:hostName></domain:hostAttr>
-     <domain:hostAttr><domain:hostName>NS2.JIBRES.TLD</domain:hostName></domain:hostAttr>
-    </domain:ns>
+    <domain:ns><domain:hostAttr><domain:hostName>NS1.JIBRES.TLD</domain:hostName></domain:hostAttr><domain:hostAttr><domain:hostName>NS2.JIBRES.TLD</domain:hostName></domain:hostAttr></domain:ns>
     <domain:contact type="holder">JIBRES-NIC-ACCOUNT</domain:contact>
     <domain:contact type="admin">JIBRES-NIC-ACCOUNT</domain:contact>
     <domain:contact type="tech">JIBRES-NIC-ACCOUNT</domain:contact>
