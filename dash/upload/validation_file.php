@@ -58,9 +58,9 @@ class validation_file
 
 		$extCheck           = \dash\upload\extentions::check($fileExt, $_meta);
 
-		$fileType     = isset($extCheck['type']) 	 ? $extCheck['type'] 	 : null;
-		$fileMime     = isset($extCheck['mime']) 	 ? $extCheck['mime'] 	 : null;
-		$fileDisallow = isset($extCheck['disallow']) ? $extCheck['disallow'] : null;
+		$fileType  = isset($extCheck['type'])  ? $extCheck['type']  : null;
+		$fileMime  = isset($extCheck['mime'])  ? $extCheck['mime']  : null;
+		$fileAllow = isset($extCheck['allow']) ? $extCheck['allow'] : false;
 
 		if(!$fileMime)
 		{
@@ -80,7 +80,7 @@ class validation_file
 		}
 
 		// file with long extension does not allowed in our system
-		if(mb_strlen($fileExt) > 10 || $fileDisallow )
+		if(mb_strlen($fileExt) > 10 || $fileAllow === false )
 		{
 			\dash\notif::error(T_('Exceeded file extension limit'));
 			return false;
