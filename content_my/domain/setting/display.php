@@ -9,6 +9,14 @@
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
       <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
+     <tr>
+      <th><?php echo T_('Status & Validity') ?></th>
+        <td class="ltr txtRa">
+        <?php echo \dash\data::domainDetail_status_html(); ?>
+      </td>
+     </tr>
+     <?php if(\dash\permission::supervisor()) {?>
+
       <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
      <tr>
       <th><?php echo T_('Status & Validity') ?></th>
@@ -36,6 +44,7 @@
             }
           }
         ?>
+     <?php }//endif supervisor ?>
      <tr>
       <th><?php echo T_('Registrar') ?></th>
       <td class="ltr txtRa"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>

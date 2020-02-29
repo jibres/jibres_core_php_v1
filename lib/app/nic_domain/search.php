@@ -269,7 +269,9 @@ class search
 
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+			// <div class="ibtn wide"><span>تمدید خودکار</span><i class="sf-refresh fc-blue"></i></div>
+			$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+
 		}
 		else
 		{

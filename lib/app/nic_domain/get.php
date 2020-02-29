@@ -45,7 +45,7 @@ class get
 		{
 			$load_domain['nicstatus_array'] = json_decode($load_domain['nicstatus'], true);
 		}
-
+		$load_domain = \lib\app\nic_domain\ready::row($load_domain);
 		return $load_domain;
 
 

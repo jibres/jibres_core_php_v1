@@ -139,6 +139,7 @@ else
             <tr class="fs09">
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
                 <th></th>
+                <th class="txtC"><?php echo T_("Status"); ?></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateregister', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateregister', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>"><?php echo T_("Date modified"); ?></a></th>
@@ -152,14 +153,20 @@ else
             <tr <?php if(\dash\request::get('resultid') && \dash\coding::encode(\dash\get::index($value, 'id')) == \dash\request::get('resultid')) { echo "class='positive'";} ?>>
                 <td>
                     <!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
-                    <a href="<?php echo \dash\url::that(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+                    <a href="<?php echo \dash\url::that(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
                 </td>
                 <td class="collapsing">
                   <?php if(\dash\get::index($value, 'verify')) {?>
+                    <a href="<?php echo \dash\url::this(). '/setting/transfer?domain='. \dash\get::index($value, 'name'); ?>">
+
                     <div class="ibtn wide"><?php echo '<span>'.T_("Lock"). '</span>'; if(isset($value['lock']) && $value['lock']) { echo '<i class="sf-lock fc-green"></i>'; } else{ echo '<i class="sf-unlock fc-red"></i>'; }?></div>
+                    </a>
                   <?php } //endif ?>
+                    <a href="<?php echo \dash\url::this(). '/setting?domain='. \dash\get::index($value, 'name'); ?>">
                     <div class="ibtn wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
+                    </a>
                 </td>
+                <td class="txtC"><?php echo \dash\get::index($value, 'status_html'); ?></td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></td>
