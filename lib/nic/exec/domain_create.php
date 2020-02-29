@@ -189,8 +189,37 @@ class domain_create
 
 		$xml = str_replace('PERIOD', $_args['period'], $xml);
 
-		$xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
+		$xml = str_replace('<domain:contact type="holder">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="holder">'. $_args['nic_id']. '</domain:contact>', $xml);
 
+		if(isset($_args['irnic_admin']) && $_args['irnic_admin'])
+		{
+			$xml = str_replace('<domain:contact type="admin">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="admin">'. $_args['irnic_admin']. '</domain:contact>', $xml);
+		}
+		else
+		{
+			$xml = str_replace('<domain:contact type="admin">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="admin">'. $_args['nic_id']. '</domain:contact>', $xml);
+		}
+
+		if(isset($_args['irnic_tech']) && $_args['irnic_tech'])
+		{
+			$xml = str_replace('<domain:contact type="tech">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="tech">'. $_args['irnic_tech']. '</domain:contact>', $xml);
+		}
+		else
+		{
+			$xml = str_replace('<domain:contact type="tech">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="tech">'. $_args['nic_id']. '</domain:contact>', $xml);
+		}
+
+
+		if(isset($_args['irnic_bill']) && $_args['irnic_bill'])
+		{
+			$xml = str_replace('<domain:contact type="bill">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="bill">'. $_args['irnic_bill']. '</domain:contact>', $xml);
+		}
+		else
+		{
+			$xml = str_replace('<domain:contact type="bill">JIBRES-NIC-ACCOUNT</domain:contact>', '<domain:contact type="bill">'. $_args['nic_id']. '</domain:contact>', $xml);
+		}
+
+		// $xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
 
 		$insert_log =
 		[

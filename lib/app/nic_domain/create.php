@@ -6,14 +6,33 @@ class create
 {
 	public static function new_domain($_args)
 	{
-		$domain = isset($_args['domain']) 	? $_args['domain'] 	: null;
-		$nic_id = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
-		$period = isset($_args['period']) 	? $_args['period'] 	: null;
-		$ns1    = isset($_args['ns1']) 		? $_args['ns1'] 	: null;
-		$ns2    = isset($_args['ns2']) 		? $_args['ns2'] 	: null;
-		$ns3    = isset($_args['ns3']) 		? $_args['ns3'] 	: null;
-		$ns4    = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
-		$dnsid  = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
+		$domain      = isset($_args['domain']) 	? $_args['domain'] 	: null;
+		$nic_id      = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
+		$period      = isset($_args['period']) 	? $_args['period'] 	: null;
+		$ns1         = isset($_args['ns1']) 		? $_args['ns1'] 	: null;
+		$ns2         = isset($_args['ns2']) 		? $_args['ns2'] 	: null;
+		$ns3         = isset($_args['ns3']) 		? $_args['ns3'] 	: null;
+		$ns4         = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
+		$dnsid       = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
+
+		$irnic_admin = isset($_args['irnic_admin']) 	? $_args['irnic_admin'] 	: null;
+		$irnic_tech  = isset($_args['irnic_tech']) 	? $_args['irnic_tech'] 	: null;
+		$irnic_bill  = isset($_args['irnic_bill']) 	? $_args['irnic_bill'] 	: null;
+
+		if($irnic_admin && substr($irnic_admin, -6) !== '-irnic')
+		{
+			$irnic_admin = $irnic_admin. '-irnic';
+		}
+
+		if($irnic_tech && substr($irnic_tech, -6) !== '-irnic')
+		{
+			$irnic_tech = $irnic_tech. '-irnic';
+		}
+
+		if($irnic_bill && substr($irnic_bill, -6) !== '-irnic')
+		{
+			$irnic_bill = $irnic_bill. '-irnic';
+		}
 
 
 		$ip1 = null;
@@ -91,6 +110,8 @@ class create
 
 
 
+
+
 		$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
 		if(!isset($get_contac_nic[$nic_id]))
 		{
@@ -104,25 +125,86 @@ class create
 			return false;
 		}
 
-		if(isset($get_contac_nic[$nic_id]['bill']) && $get_contac_nic[$nic_id]['bill'] == '1')
+		if($irnic_bill)
 		{
-			// no problem to register this domain by tihs contact
+			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
+			if(!isset($get_contac_nic_bill[$irnic_bill]))
+			{
+				\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+				return false;
+			}
+
+			if(!isset($get_contac_nic_bill[$irnic_bill]))
+			{
+				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+				return false;
+			}
+
+			if(isset($get_contac_nic_bill[$irnic_bill]['bill']) && $get_contac_nic_bill[$irnic_bill]['bill'] == '1')
+			{
+				// no problem to register this domain by tihs contact
+			}
+			else
+			{
+				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
+				return false;
+			}
+
+
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
-			return false;
+
+			if(isset($get_contac_nic[$nic_id]['bill']) && $get_contac_nic[$nic_id]['bill'] == '1')
+			{
+				// no problem to register this domain by tihs contact
+			}
+			else
+			{
+				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
+				return false;
+			}
+
 		}
 
 
-		if(isset($get_contac_nic[$nic_id]['admin']) && $get_contac_nic[$nic_id]['admin'] == '1')
+		if($irnic_admin)
 		{
-			// no problem to register this domain by tihs contact
+			$get_contac_nic_admin =  \lib\nic\exec\contact_check::check($irnic_admin);
+			if(!isset($get_contac_nic_admin[$irnic_admin]))
+			{
+				\dash\notif::error(T_("Can not find account detail of this domain"));
+				return false;
+			}
+
+			if(!isset($get_contac_nic_admin[$irnic_admin]))
+			{
+				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+				return false;
+			}
+
+			if(isset($get_contac_nic_admin[$irnic_admin]['admin']) && $get_contac_nic_admin[$irnic_admin]['admin'] == '1')
+			{
+				// no problem to register this domain by tihs contact
+			}
+			else
+			{
+				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
+				return false;
+			}
+
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
-			return false;
+			if(isset($get_contac_nic[$nic_id]['admin']) && $get_contac_nic[$nic_id]['admin'] == '1')
+			{
+				// no problem to register this domain by tihs contact
+			}
+			else
+			{
+				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
+				return false;
+			}
 		}
 
 		if($dnsid && $dnsid != 'something-else')
@@ -294,6 +376,10 @@ class create
 			'ip2'    => $ip2,
 			'ip3'    => $ip3,
 			'ip4'    => $ip4,
+
+			'irnic_admin' => $irnic_admin,
+			'irnic_tech' => $irnic_tech,
+			'irnic_bill' => $irnic_bill,
 		];
 
 

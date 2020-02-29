@@ -66,7 +66,7 @@
 if (\dash\data::myContactList())
 {
 ?>
-    <label for="irnicid"><?php echo T_("IRNIC Handle"); ?></label>
+    <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <small><?php echo T_("Holder IRNIC"); ?></small></label>
     <div class="f">
 <?php
  foreach (\dash\data::myContactList() as $key => $value)
@@ -108,7 +108,42 @@ else
 }
 ?>
 
+<label class="block" data-kerkere='.otherDomainHandle' data-kerkere-icon ><?php echo T_("Special domain Handle"); ?> <small><?php echo T_("If you wan to customize domain Handle click here") ?></small></label>
 
+
+<div class="otherDomainHandle" data-kerkere-content='hide'>
+
+  <div class="f">
+
+    <div class="c4 s12">
+     <label for="irnic_admin"><?php echo T_("IRNIC Admin"); ?></label>
+     <div class="input ltr">
+      <input type="text" name="irnic_admin" id="irnic_admin" maxlength="50">
+     </div>
+    </div>
+
+    <div class="c4 s12">
+     <div class="mLa5">
+      <label for="irnic_tech"><?php echo T_("IRNIC Tecnical"); ?></label>
+      <div class="input ltr">
+       <input type="text" name="irnic_tech" id="irnic_tech" maxlength="50">
+      </div>
+     </div>
+    </div>
+
+    <div class="c4 s12">
+     <div class="mLa5">
+      <label for="irnic_bill"><?php echo T_("IRNIC Billing"); ?></label>
+      <div class="input ltr">
+       <input type="text" name="irnic_bill" id="irnic_bill" maxlength="50">
+      </div>
+     </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
 
 <?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?>
     <label class="mT20"><?php echo T_("Enter your domain initial DNS record"); ?></label>
@@ -199,16 +234,17 @@ else
 
 <?php } //endif ?>
 
-
-
-
- <p class="fc-mute"><?php
+<div class="check1 mT20">
+  <input type="checkbox" id="sChk1" name="agree">
+  <label for="sChk1"><?php
   echo T_("By clicking Register, you are indicating that you have read the :nic and agree to the :terms.",
     [
       'nic' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms/irnic">'. T_('IRNIC agreement') .'</a>',
       'terms' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms">'. T_('Jibres Terms of Service') .'</a>'
     ])
-?></p>
+?></label>
+</div>
+
 
     <div class="txtRa mT10">
      <button class="btn success"><?php echo T_("Register Domain"); ?></button>
