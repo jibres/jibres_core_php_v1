@@ -8,6 +8,10 @@ class view
 	{
 		\dash\data::page_title(T_("Add IRNIC handle"));
 
+		if(\dash\request::get('type') === 'new')
+		{
+			\dash\data::page_title(T_("Create IRNIC handle"));
+		}
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());
