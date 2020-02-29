@@ -14,6 +14,12 @@ class model
 			'pin'       => \dash\request::post('pin'),
 		];
 
+		if(!\dash\request::post('agree'))
+		{
+			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
+			return false;
+		}
+
 
 		$result = \lib\app\nic_domain\transfer::transfer($post);
 

@@ -66,13 +66,15 @@ else
 
 
 
- <p class="fc-mute"><?php
-  echo T_("By clicking Transfer, you are indicating that you have read the :nic and agree to the :terms.",
+<div class="check1 mT20">
+  <input type="checkbox" id="sChk1" name="agree">
+  <label for="sChk1"><?php
+  echo T_("By clicking Register, you are indicating that you have read the :nic and agree to the :terms.",
     [
       'nic' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms/irnic">'. T_('IRNIC agreement') .'</a>',
       'terms' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms">'. T_('Jibres Terms of Service') .'</a>'
     ])
-?></p>
+?></label>
 
     <div class="txtRa mT10">
      <button class="btn success"><?php echo T_("Transfer Domain"); ?></button>
