@@ -193,6 +193,9 @@ class renew
 
 		$result = \lib\nic\exec\domain_renew::renew($ready);
 
+		\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
+		\dash\temp::set('need_show_domain_result', true);
+
 		if($result && $domain_id)
 		{
 			$update               = [];
@@ -217,9 +220,6 @@ class renew
 			];
 
 			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
-
-			\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
-			\dash\temp::set('need_show_domain_result', true);
 
 
 			\dash\notif::ok(T_("Domain renew ok"));
