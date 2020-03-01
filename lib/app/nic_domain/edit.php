@@ -89,11 +89,11 @@ class edit
 		if($_type == 'dns')
 		{
 
-			if(!$ns1 || !$ns2)
-			{
-				\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
-				return false;
-			}
+			// if(!$ns1 || !$ns2)
+			// {
+			// 	\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
+			// 	return false;
+			// }
 
 			if($load_domain['ns1'] != $ns1)
 			{

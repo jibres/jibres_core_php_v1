@@ -207,6 +207,7 @@ class create
 			}
 		}
 
+
 		if($dnsid && $dnsid != 'something-else')
 		{
 			$load_dns = \lib\app\nic_dns\get::get($dnsid);
@@ -240,14 +241,14 @@ class create
 					$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
 					if(!$dnsid)
 					{
-						return false;
+						$dnsid = null;
 					}
 				}
 			}
 
 		}
 
-		if($dnsid == 'something-else')
+		if($dnsid === 'something-else')
 		{
 			$dnsid = null;
 		}
