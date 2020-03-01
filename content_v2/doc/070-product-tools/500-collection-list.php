@@ -9,7 +9,7 @@
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>collection/list</b></span>
     </div>
 
-         <?php require (root. 'content_api/v2/doc/000-public/header-appkey-apikey.php'); ?>
+         <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>collection/list -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'

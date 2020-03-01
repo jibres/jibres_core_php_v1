@@ -9,7 +9,7 @@
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>category/list</b></span>
     </div>
 
-         <?php require (root. 'content_api/v2/doc/000-public/header-appkey-apikey.php'); ?>
+         <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
    <div class="tblBox">
       <h3><?php echo T_("Parameters"); ?></h3>
       <table class="tbl1 v3">

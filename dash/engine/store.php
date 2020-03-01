@@ -54,17 +54,15 @@ class store
 		$store     = \dash\url::store();
 		$subdomain = \dash\url::subdomain();
 
-		// $free_subdomain =
-		// [
-		// 	'developers',
-		// 	'api',
-		// 	'core',
-		// ];
+		$free_subdomain =
+		[
+			'api',
+		];
 
-		// if(in_array($subdomain, $free_subdomain))
-		// {
-		// 	$subdomain = null;
-		// }
+		if(in_array($subdomain, $free_subdomain))
+		{
+			$subdomain = null;
+		}
 
 		if($subdomain && $store)
 		{

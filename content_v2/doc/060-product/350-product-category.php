@@ -10,7 +10,7 @@
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>products/category/{CATEGORY}</b></span>
     </div>
 
-         <?php require (root. 'content_api/v2/doc/000-public/header-appkey-apikey.php'); ?>
+         <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
 
 
 

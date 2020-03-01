@@ -49,24 +49,21 @@
 {
   "ok": true,
   "result": {
-    "fa": {
-      "name": "fa",
-      "direction": "rtl",
-      "iso": "fa_IR",
-      "localname": "فارسی",
-      "country": [
-          "Iran"
-      ]
-    },
     "en": {
-      "name": "en",
+      "website": "https://jibres.com",
+      "endpoint": "https://api.jibres.com/v2",
+      "doc": "https://api.jibres.com/v2/doc",
       "direction": "ltr",
-      "iso": "en_US",
-      "localname": "English",
-      "country": [
-          "United Kingdom",
-          "United States"
-      ]
+      "lang": "English",
+      "langname": "English"
+    },
+    "fa": {
+      "website": "https://jibres.ir",
+      "endpoint": "https://api.jibres.ir/v2",
+      "doc": "https://api.jibres.ir/v2/doc",
+      "direction": "rtl",
+      "lang": "Persian",
+      "langname": "فارسی"
     }
   }
 }
