@@ -94,9 +94,9 @@ class renew
 
 		$current_date_expire      = $get_domain_detail['exDate'];
 
-		$current_date_expire_time = time() - strtotime($current_date_expire);
+		$current_date_expire_time = strtotime($current_date_expire);
 
-		$new_date_expire          = strtotime("+$period_month month");
+		$new_date_expire          = ($period_month * 30*24*60*60);
 
 		$new_date_expire          = $current_date_expire_time + $new_date_expire;
 
@@ -218,7 +218,8 @@ class renew
 
 			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
 
-
+			\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
+			\dash\temp::set('need_show_domain_result', true);
 
 
 			\dash\notif::ok(T_("Domain renew ok"));

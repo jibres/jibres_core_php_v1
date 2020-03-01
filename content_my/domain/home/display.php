@@ -5,7 +5,7 @@
         <div class="msg success fs14 txtC">
             <b><?php echo \dash\data::dataRow_name(); ?></b>
             <br>
-            <?php echo T_("Your domain was registered"); ?>
+            <?php echo T_("Operation successfully"); ?>
             <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
         </div>
 
@@ -14,7 +14,7 @@
         <div class="msg danger fs14 txtC">
             <b><?php echo \dash\data::dataRow_name(); ?></b>
             <br>
-            <?php echo T_("Domain register failed"); ?>
+            <?php echo T_("Operation failed"); ?>
             <br>
             <?php echo T_("If you have paid, your money back to your account"); ?>
             <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
