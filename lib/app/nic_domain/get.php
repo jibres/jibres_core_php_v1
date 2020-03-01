@@ -51,7 +51,7 @@ class get
 
 	}
 
-	private static function update_fetch($_domain, $_load_domain)
+	public static function update_fetch($_domain, $_load_domain)
 	{
 		$fetch = self::info($_domain);
 
