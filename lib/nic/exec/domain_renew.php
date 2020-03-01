@@ -10,22 +10,7 @@ class domain_renew
 	{
 		$renew = self::analyze_domain_renew($_args);
 
-		if(!$renew || !is_array($renew))
-		{
-			return false;
-		}
-
-		if(!isset($renew['name']))
-		{
-			return false;
-		}
-
-		$result                 = [];
-		$result['name']         = $renew['name'];
-		$result['dateregister'] = isset($renew['crDate']) ? date("Y-m-d H:i:s", strtotime($renew['crDate'])) : null;
-		$result['dateexpire']  = isset($renew['exDate']) ? date("Y-m-d H:i:s", strtotime($renew['exDate'])) : null;
-
-		return $result;
+		return $renew;
 	}
 
 
@@ -33,6 +18,7 @@ class domain_renew
 
 	private static function analyze_domain_renew($_args)
 	{
+
 
 		$object_result = self::get_response_renew($_args);
 
@@ -47,36 +33,15 @@ class domain_renew
 			return false;
 		}
 
-		if(!$object_result->response->resData->xpath('domain:creData'))
+		if(\lib\nic\exec\run::result_code($object_result) === '1001')
+		{
+			return true;
+		}
+		else
 		{
 			return false;
 		}
 
-		foreach ($object_result->response->resData->xpath('domain:creData') as  $domaincreData)
-		{
-			$temp  = [];
-
-			foreach ($domaincreData->xpath('domain:name') as $domainname)
-			{
-				$myKey = $domainname->__toString();
-				$temp['name']   = $myKey;
-			}
-
-
-			foreach ($domaincreData->xpath('domain:crDate') as $domaincrDate)
-			{
-				$temp['crDate']   = $domaincrDate->__toString();
-			}
-
-			foreach ($domaincreData->xpath('domain:exDate') as $domainexDate)
-			{
-				$temp['exDate']   = $domainexDate->__toString();
-			}
-
-			$result = $temp;
-		}
-
-		return $result;
 	}
 
 
@@ -95,7 +60,7 @@ class domain_renew
 		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
 
 		$xml = str_replace('PERIOD', $_args['period'], $xml);
-		$xml = str_replace('JIBRES-EXPIRE-DATE', $_args['expiredate'], $xml);
+		$xml = str_replace('JIBRES-CURRENT-EXPIRE-DATE', $_args['current_expiredate'], $xml);
 
 		$insert_log =
 		[

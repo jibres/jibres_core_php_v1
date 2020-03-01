@@ -90,6 +90,8 @@ class renew
 			return false;
 		}
 
+		$current_expiredate = date("Y-m-d", strtotime($get_domain_detail['exDate']));
+
 		$current_date_expire      = $get_domain_detail['exDate'];
 
 		$current_date_expire_time = time() - strtotime($current_date_expire);
@@ -182,9 +184,10 @@ class renew
 
 		$ready =
 		[
-			'domain'     => $domain,
-			'period'     => $period_month,
-			'expiredate' => $expiredate,
+			'domain'             => $domain,
+			'period'             => $period_month,
+			'expiredate'         => $expiredate,
+			'current_expiredate' => $current_expiredate,
 
 		];
 

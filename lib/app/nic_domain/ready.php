@@ -6,19 +6,23 @@ class ready
 {
 	public static function row($_data)
 	{
-		if(isset($_data['lastfetch']) && $_data['lastfetch'])
+		$domain = isset($_data['name']) ? $_data['name'] : null;
+		if($domain)
 		{
-			// fetch every 1 hour
-			if(time() - strtotime($_data['lastfetch']) > (60*60))
+			if(isset($_data['lastfetch']) && $_data['lastfetch'])
 			{
-				\lib\app\nic_domain\get::update_fetch($_domain, $_data);
-				$_data = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
+				// fetch every 1 hour
+				if(time() - strtotime($_data['lastfetch']) > (60*60))
+				{
+					\lib\app\nic_domain\get::update_fetch($domain, $_data);
+					$_data = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+				}
 			}
-		}
-		else
-		{
-			\lib\app\nic_domain\get::update_fetch($_domain, $_data);
-			$_data = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
+			else
+			{
+				\lib\app\nic_domain\get::update_fetch($domain, $_data);
+				$_data = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+			}
 		}
 
 		$result = [];
@@ -49,6 +53,12 @@ class ready
 						// serverDeleteProhibited
 						// irnicRegistrationPendingDomainCheck
 						// irnicRegistrationRejected
+
+						$result['can_renew'] = true;
+						if(in_array('serverRenewProhibited', $nicstatus))
+						{
+							$result['can_renew'] = false;
+						}
 
 						if(in_array('irnicRegistrationRejected', $nicstatus))
 						{

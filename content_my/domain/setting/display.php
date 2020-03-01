@@ -54,7 +54,11 @@
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
      </tr>
      <tr>
-      <th><?php echo T_('Expired on') ?> <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew domain'); ?></a></th>
+      <th><?php echo T_('Expired on') ?>
+      <?php if(\dash\data::domainDetail_can_renew()) {?>
+      <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew domain'); ?></a>
+      <?php } //endif ?>
+      </th>
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
      </tr>
 <?php if(\dash\data::domainDetail_datemodified()) {?>
