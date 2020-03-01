@@ -7,6 +7,8 @@ class controller
 	{
 		\dash\redirect::remove_subdomain();
 
+		\dash\redirect::remove_store();
+
 		\dash\redirect::to_login();
 
 		if(\dash\url::isLocal())

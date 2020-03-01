@@ -9,6 +9,8 @@ class controller
 		\dash\redirect::to_login();
 
 		\dash\redirect::remove_subdomain();
+
+		\dash\redirect::remove_store();
 	}
 }
 ?>

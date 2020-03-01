@@ -10,6 +10,8 @@ class controller
 
 		\dash\redirect::remove_subdomain();
 
+		\dash\redirect::remove_store();
+
 		\dash\permission::access('listOfStores');
 	}
 }

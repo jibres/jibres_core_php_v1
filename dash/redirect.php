@@ -103,6 +103,19 @@ class redirect
 	}
 
 
+	public static function remove_store()
+	{
+		// need to check some option store
+		if(\dash\url::store())
+		{
+			// remove store
+			$path = str_replace('/'. \dash\url::store(). '/', '/', \dash\url::path());
+
+			\dash\redirect::to(\dash\url::site(). $path);
+		}
+	}
+
+
 	public static function to_login()
 	{
 		if(!\dash\user::login())
