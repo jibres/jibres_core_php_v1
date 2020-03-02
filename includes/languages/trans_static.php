@@ -641,6 +641,53 @@ class TransStatic
 	echo T_("Yearly");
 	echo T_("Running");
 	echo T_("Done");
+
+
+
+	echo T_('serverHold');
+	echo T_('irnicReserved');
+	echo T_('serverRenewProhibited');
+	echo T_('serverDeleteProhibited');
+	echo T_('irnicRegistrationPendingDomainCheck');
+	echo T_('irnicRegistrationRejected');
+	echo T_('pendingUpdate');
+	echo T_('serverUpdateProhibited');
+	echo T_('irnicUnapproved');
+	echo T_('irnicApproved');
+	echo T_('irnicQueued');
+	echo T_('irnicRejected');
+	echo T_('irnicLimited');
+	echo T_('inactive');
+	echo T_('pendingDelete');
+	echo T_('pendingRenew');
+	echo T_('pendingUpdate');
+	echo T_('irnicRegistered');
+	echo T_('irnicLocked');
+	echo T_('irnicExpired');
+	echo T_('irnicRegistrationApproved');
+	echo T_('irnicRegistrationRejected');
+	echo T_('irnicRegistrationPendingHolderCheck');
+	echo T_('irnicRegistrationPendingDomainCheck');
+	echo T_('irnicRegistrationDocRequired');
+	echo T_('irnicRegistrationIsWithdrawn');
+	echo T_('irnicRenewalApproved');
+	echo T_('irnicRenewalRejected');
+	echo T_('irnicRenewalPendingHolderCheck');
+	echo T_('irnicRenewalPendingDomainCheck');
+	echo T_('irnicRenewalDocRequired');
+	echo T_('irnicRenewalIsWithdrawn');
+	echo T_('irnicHolderChangeApproved');
+	echo T_('irnicHolderChangeRejected');
+	echo T_('irnicHolderChangePendingHolderCheck');
+	echo T_('irnicHolderChangePendingDomainCheck');
+	echo T_('irnicHolderChangeDocRequired');
+	echo T_('irnicHolderChangeIsWithdrawn');
+	echo T_('irnicDeletionApproved');
+	echo T_('irnicDeletionRejected');
+	echo T_('irnicDeletionPendingHolderCheck');
+	echo T_('irnicDeletionPendingDomainCheck');
+	echo T_('irnicDeletionDocRequired');
+	echo T_('irnicDeletionIsWithdrawn');
  }
 }
 ?>

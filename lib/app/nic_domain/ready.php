@@ -45,14 +45,56 @@ class ready
 						{
 							$nicstatus = [];
 						}
+						// -------------------------------- NIC HOLDER STATUS LIST
+						// ok 						-- OK
+						// pendingUpdate 			-- PENDING TO UPDAT EHOLDER
+						// serverDeleteProhibited 	-- NO WAY TO DELETE HOLDER
+						// serverUpdateProhibited 	-- NO WAY TO UPDATE HOLDER
+						// irnicUnapproved 			-- UNAPPROVED THE ADDRESS OF HOLDER
+						// irnicApproved 			-- APPROVED THE ADDRESS OF HOLDER
+						// irnicQueued 				-- WAITING TO APPROVE ADDRESS
+						// irnicRejected 			-- REJECT NIC HOLDER
+						// irnicLimited 			-- CAN NOT CHOOSE THIS HOLDER
 
-						// ok
-						// serverHold
+
+						// -------------------------------- NIC DOMAIN STATUS LIST
+						// Ok
+						// serverHold 									-- DOMAIN RESERVED
+						// inactive 									-- DOMAIN IS LOCK OR EXPIRE ( IS NOT ENABLE )
 						// irnicReserved
 						// serverRenewProhibited
-						// serverDeleteProhibited
 						// irnicRegistrationPendingDomainCheck
 						// irnicRegistrationRejected
+						// pendingDelete
+						// pendingRenew
+						// pendingUpdate
+						// irnicRegistered
+						// irnicLocked
+						// irnicExpired
+						// irnicRegistrationApproved
+						// irnicRegistrationRejected
+						// irnicRegistrationPendingHolderCheck
+						// irnicRegistrationPendingDomainCheck
+						// irnicRegistrationDocRequired
+						// irnicRegistrationIsWithdrawn
+						// irnicRenewalApproved
+						// irnicRenewalRejected
+						// irnicRenewalPendingHolderCheck
+						// irnicRenewalPendingDomainCheck
+						// irnicRenewalDocRequired
+						// irnicRenewalIsWithdrawn
+						// irnicHolderChangeApproved
+						// irnicHolderChangeRejected
+						// irnicHolderChangePendingHolderCheck
+						// irnicHolderChangePendingDomainCheck
+						// irnicHolderChangeDocRequired
+						// irnicHolderChangeIsWithdrawn
+						// irnicDeletionApproved
+						// irnicDeletionRejected
+						// irnicDeletionPendingHolderCheck
+						// irnicDeletionPendingDomainCheck
+						// irnicDeletionDocRequired
+						// irnicDeletionIsWithdrawn
 
 						$result['can_renew'] = true;
 						if(in_array('serverRenewProhibited', $nicstatus))
@@ -67,12 +109,30 @@ class ready
 
 						if(in_array('irnicRegistrationPendingDomainCheck', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Pending").'</span><i class="sf-refresh fc-blue"></i></div>';
+							$status_html =  '<div class="ibtn wide"><span>'. T_("Pending Check Document").'</span><i class="sf-refresh fc-blue"></i></div>';
 						}
 
 						if(in_array('ok', $nicstatus))
 						{
 							$status_html =  '<div class="ibtn wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
+						}
+
+
+						if(in_array('irnicLocked', $nicstatus))
+						{
+							$status_html =  '<div class="ibtn wide"><span>'. T_("Locked").'</span><i class="sf-lock fc-red"></i></div>';
+						}
+
+
+						if(in_array('irnicExpired', $nicstatus))
+						{
+							$status_html =  '<div class="ibtn wide"><span>'. T_("Expired").'</span><i class="sf-times fc-yellow"></i></div>';
+						}
+
+
+						if(in_array('irnicRegistrationDocRequired', $nicstatus))
+						{
+							$status_html =  '<div class="ibtn wide"><span>'. T_("Document required").'</span><i class="sf-info-circle fc-yellow"></i></div>';
 						}
 
 					}

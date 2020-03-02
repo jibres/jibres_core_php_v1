@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-01 14:09+0330\n"
-"PO-Revision-Date: 2020-03-01 14:10+0330\n"
+"POT-Creation-Date: 2020-03-02 17:32+0330\n"
+"PO-Revision-Date: 2020-03-02 17:45+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4046,9 +4046,9 @@ msgstr "بازگشت به لیست شرکت‌های سازنده"
 
 #: content_a/controller.php:16 content_api/v1/tools.php:55 content_api/v1/tools.php:90
 #: content_r10/tools.php:55 content_r10/tools.php:90 content_subdomain/controller.php:41
-#: content_v2/controller.php:26 content_v2/tools.php:55 content_v2/tools.php:90
-#: dash/engine/store.php:105 lib/app/category/add.php:12 lib/app/category/edit.php:13
-#: lib/app/category/get.php:32 lib/app/category/get.php:62 lib/app/category/search.php:11
+#: content_v2/controller.php:27 content_v2/tools.php:47 dash/engine/store.php:105
+#: lib/app/category/add.php:12 lib/app/category/edit.php:13 lib/app/category/get.php:32
+#: lib/app/category/get.php:62 lib/app/category/search.php:11
 #: lib/app/category/search.php:88 lib/app/factor/add.php:34 lib/app/factor/get.php:34
 #: lib/app/product/add.php:101 lib/app/product/comment.php:116
 #: lib/app/product/comment.php:261 lib/app/product/comment.php:291
@@ -5177,7 +5177,7 @@ msgstr "لطفا یک گزینه را انتخاب کنید"
 #: content_a/products/tag/display.php:208 content_a/products/tag/display.php:225
 #: content_cms/terms/display.php:250 content_cms/terms/display.php:267
 #: content_my/domain/setting/display.php:24 includes/languages/trans_static.php:538
-#: lib/app/nic_domain/ready.php:75
+#: lib/app/nic_domain/ready.php:117
 msgid "Enable"
 msgstr "فعال"
 
@@ -5188,7 +5188,7 @@ msgid "Disable"
 msgstr "غیرفعال"
 
 #: content_a/products/tag/display.php:210 content_cms/terms/display.php:252
-#: includes/languages/trans_static.php:593
+#: includes/languages/trans_static.php:593 lib/app/nic_domain/ready.php:129
 msgid "Expired"
 msgstr "منقضی‌شده"
 
@@ -7589,7 +7589,7 @@ msgstr "ریال"
 #: content_api/v1/tools.php:249 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:13 content_my/domain/renew/controller.php:13
 #: content_r10/tools.php:249 content_v2/check.php:23
-#: content_v2/doc/001-intro/004-responses.php:95 content_v2/tools.php:249
+#: content_v2/doc/001-intro/004-responses.php:95 content_v2/tools.php:205
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
 
@@ -9964,64 +9964,65 @@ msgstr "تصویر شاخص محصول تنظیم شد"
 msgid "File removed from gallery"
 msgstr "فایل از گالری حذف شد"
 
-#: content_api/v1/profile/controller.php:143 content_v2/profile/controller.php:143
-#: content_v2/profile/model.php:143 content_v2/profile/view.php:143
+#: content_api/v1/profile/controller.php:143 content_v2/profile/old/controller.php:143
+#: content_v2/profile/old/model.php:143 content_v2/profile/old/view.php:143
+#: content_v2/profile/update/avatar/model.php:22
 msgid "No file sended"
 msgstr "فایلی ارسال نشد"
 
-#: content_api/v1/tools.php:20 content_r10/tools.php:20 content_v2/tools.php:20
+#: content_api/v1/tools.php:20 content_r10/tools.php:20
 msgid "Invalid api subdomain. remove subdomain to continue"
 msgstr "زیر دامنه ای‌پی‌آی اشتباه است. آن را حذف کنید تا ادامه دهید"
 
 #: content_api/v1/tools.php:37 content_api/v1/tools.php:113 content_r10/tools.php:37
-#: content_r10/tools.php:113 content_v2/tools.php:37 content_v2/tools.php:113
+#: content_r10/tools.php:113 content_v2/tools.php:29 content_v2/tools.php:69
 msgid "Appkey not set"
 msgstr "کلید برنامه تنظیم نشده است"
 
-#: content_api/v1/tools.php:46 content_r10/tools.php:46 content_v2/tools.php:46
+#: content_api/v1/tools.php:46 content_r10/tools.php:46 content_v2/tools.php:38
 msgid "Apikey not set"
 msgstr "کلید ای‌پی‌آی تنظیم نشده است"
 
-#: content_api/v1/tools.php:81 content_r10/tools.php:81 content_v2/tools.php:81
+#: content_api/v1/tools.php:81 content_r10/tools.php:81
 msgid "Store Detail not found"
 msgstr "جزئیات فروشگاه یافت نشد"
 
-#: content_api/v1/tools.php:95 content_r10/tools.php:95 content_v2/tools.php:95
+#: content_api/v1/tools.php:95 content_r10/tools.php:95
 msgid "subdomain not found"
 msgstr "زیردامنه یافت نشد"
 
-#: content_api/v1/tools.php:126 content_r10/tools.php:126 content_v2/tools.php:126
+#: content_api/v1/tools.php:126 content_r10/tools.php:126 content_v2/tools.php:82
 msgid "Invalid app key"
 msgstr "کلید برنامه نامعتبر است"
 
-#: content_api/v1/tools.php:140 content_r10/tools.php:140 content_v2/tools.php:140
+#: content_api/v1/tools.php:140 content_r10/tools.php:140 content_v2/tools.php:96
 msgid "token not set"
 msgstr "توکن تنظیم نشده است"
 
 #: content_api/v1/tools.php:145 content_api/v1/tools.php:161 content_r10/tools.php:145
-#: content_r10/tools.php:161 content_v2/tools.php:145 content_v2/tools.php:161
+#: content_r10/tools.php:161 content_v2/tools.php:101 content_v2/tools.php:117
 #: dash/utility/pay/start.php:25
 msgid "Invalid token"
 msgstr "توکن نامعتبر"
 
-#: content_api/v1/tools.php:171 content_r10/tools.php:171 content_v2/tools.php:171
+#: content_api/v1/tools.php:171 content_r10/tools.php:171 content_v2/tools.php:127
 msgid "Token is expire"
 msgstr "توکن منقضی شده است"
 
 #: content_api/v1/tools.php:193 content_api/v1/tools.php:209 content_r10/tools.php:193
-#: content_r10/tools.php:209 content_v2/tools.php:193 content_v2/tools.php:209
+#: content_r10/tools.php:209 content_v2/tools.php:149 content_v2/tools.php:165
 msgid "Invalid apikey"
 msgstr "کلید ای‌پی‌آی نامعتبر است"
 
-#: content_api/v1/tools.php:255 content_r10/tools.php:255 content_v2/tools.php:255
+#: content_api/v1/tools.php:255 content_r10/tools.php:255 content_v2/tools.php:211
 msgid "Invalid method"
 msgstr "متد نامعتبر"
 
-#: content_api/v1/tools.php:261 content_r10/tools.php:261 content_v2/tools.php:261
+#: content_api/v1/tools.php:261 content_r10/tools.php:261 content_v2/tools.php:217
 msgid "Invalid param :val"
 msgstr "پارامتر :val اشتباه است"
 
-#: content_api/v1/tools.php:300 content_r10/tools.php:300 content_v2/tools.php:300
+#: content_api/v1/tools.php:300 content_r10/tools.php:300 content_v2/tools.php:256
 msgid "Send your request as json not in post field"
 msgstr "در خواست خود را به صورت جیسون ارسال کنید نه در حالت post field"
 
@@ -12482,6 +12483,7 @@ msgstr "مدیریت"
 
 #: content_management/domain/detail/display.php:58
 #: content_my/domain/setting/display.php:75 includes/languages/trans_static_public.php:581
+#: lib/app/nic_domain/ready.php:123
 msgid "Locked"
 msgstr "قفل شده"
 
@@ -14695,6 +14697,14 @@ msgstr "دسترسی نادرست در آدرس"
 msgid ":val API documentation v2"
 msgstr "نسخه ۲ مستندات رابط برنامه‌نویسی :val"
 
+#: content_v2/profile/address/edit/model.php:14
+msgid "This is not your address"
+msgstr "این آدرس شما نیست"
+
+#: content_v2/profile/update/model.php:13
+msgid "No detail sended"
+msgstr "جزئیاتی ارسال نشده است"
+
 #: dash/app/address.php:58 dash/app/user.php:630
 msgid "Please set title less than 100 character"
 msgstr "لطفا عنوان را کمتر از ۱۰۰ حرف وارد کنید"
@@ -14755,20 +14765,24 @@ msgstr "تلفن باید کمتر از ۵۰ کاراکتر باشد"
 msgid "Please set fax less than 50 character"
 msgstr "فکس باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/app/address.php:355
+#: dash/app/address.php:352
+msgid "You can not add any address"
+msgstr "شما نمی‌توانید هیچ آدرس دیگری را اضافه کنید"
+
+#: dash/app/address.php:362
 msgid "No way to insert address"
 msgstr "هیچ راهی برای افزودن آدرس وجود ندارد"
 
-#: dash/app/address.php:433
+#: dash/app/address.php:459
 msgid "Can not access to edit address"
 msgstr "شما دسترسی لازم برای ویرایش این آدرس را ندارید"
 
-#: dash/app/address.php:486 dash/app/address.php:499 dash/app/address.php:515
-#: dash/app/address.php:528
+#: dash/app/address.php:512 dash/app/address.php:525 dash/app/address.php:541
+#: dash/app/address.php:554
 msgid "Can not access to remove this address"
 msgstr "شما دسترسی لازم برای حذف این آدرس را ندارید"
 
-#: dash/app/address.php:504 dash/app/address.php:533
+#: dash/app/address.php:530 dash/app/address.php:559
 msgid "Address removed"
 msgstr "آدرس حذف شد"
 
@@ -19192,7 +19206,7 @@ msgstr "کد تخفیف"
 msgid "Request"
 msgstr "درخواست"
 
-#: includes/languages/trans_static.php:621 lib/app/nic_domain/ready.php:70
+#: includes/languages/trans_static.php:621
 msgid "Pending"
 msgstr "در انتظار"
 
@@ -19255,6 +19269,170 @@ msgstr "درحال اجرا"
 #: includes/languages/trans_static.php:643
 msgid "Done"
 msgstr "اتمام"
+
+#: includes/languages/trans_static.php:647
+msgid "serverHold"
+msgstr "دامنه رزرو گردیده است"
+
+#: includes/languages/trans_static.php:648
+msgid "irnicReserved"
+msgstr "دامنه رزرو گردیده است"
+
+#: includes/languages/trans_static.php:649
+msgid "serverRenewProhibited"
+msgstr "امکان تمدید دامنه وجود ندارد"
+
+#: includes/languages/trans_static.php:650
+msgid "serverDeleteProhibited"
+msgstr "امکان لغو نمودن دامنه وجود ندارد"
+
+#: includes/languages/trans_static.php:651 includes/languages/trans_static.php:670
+msgid "irnicRegistrationPendingDomainCheck"
+msgstr "در انتظار بررسی دامنه در فرایند ثبت دامنه"
+
+#: includes/languages/trans_static.php:652 includes/languages/trans_static.php:668
+msgid "irnicRegistrationRejected"
+msgstr "درخواست ثبت دامنه رد شد"
+
+#: includes/languages/trans_static.php:653 includes/languages/trans_static.php:663
+msgid "pendingUpdate"
+msgstr "در انتظار بروزآوری دامنه"
+
+#: includes/languages/trans_static.php:654
+msgid "serverUpdateProhibited"
+msgstr "امکان تغییر در مشخصات دامنه وجود ندارد"
+
+#: includes/languages/trans_static.php:655
+msgid "irnicUnapproved"
+msgstr "تایید نشده"
+
+#: includes/languages/trans_static.php:656
+msgid "irnicApproved"
+msgstr "تایید شده"
+
+#: includes/languages/trans_static.php:657
+msgid "irnicQueued"
+msgstr "در انتظار تایید نشانی شناسه"
+
+#: includes/languages/trans_static.php:658
+msgid "irnicRejected"
+msgstr "شناسه رد شده است"
+
+#: includes/languages/trans_static.php:659
+msgid "irnicLimited"
+msgstr "این شناسه از نوع شناسه محدود می‌باشد"
+
+#: includes/languages/trans_static.php:660
+msgid "inactive"
+msgstr "غیرفعال"
+
+#: includes/languages/trans_static.php:661
+msgid "pendingDelete"
+msgstr "در انتظار لغو دامنه"
+
+#: includes/languages/trans_static.php:662
+msgid "pendingRenew"
+msgstr "در انتظار تمدید دامنه"
+
+#: includes/languages/trans_static.php:664
+msgid "irnicRegistered"
+msgstr "دامنه ثبت و فعال است"
+
+#: includes/languages/trans_static.php:665
+msgid "irnicLocked"
+msgstr "دامنه قفل شده است"
+
+#: includes/languages/trans_static.php:666
+msgid "irnicExpired"
+msgstr "دامنه منقضی‌شده شده است"
+
+#: includes/languages/trans_static.php:667
+msgid "irnicRegistrationApproved"
+msgstr "درخواست ثبت دامنه تایید شد"
+
+#: includes/languages/trans_static.php:669
+msgid "irnicRegistrationPendingHolderCheck"
+msgstr "در انتظار بررسی صاحب امتیاز دامنه در فرایند ثبت دامنه"
+
+#: includes/languages/trans_static.php:671
+msgid "irnicRegistrationDocRequired"
+msgstr "برای تکمیل ثبت‌ دامنه مستندات نیاز است"
+
+#: includes/languages/trans_static.php:672
+msgid "irnicRegistrationIsWithdrawn"
+msgstr "درخواست ثبت دامنه توسط خود شخص یا رابط لغو شد"
+
+#: includes/languages/trans_static.php:673
+msgid "irnicRenewalApproved"
+msgstr "درخواست تمدید دامنه تایید شد"
+
+#: includes/languages/trans_static.php:674
+msgid "irnicRenewalRejected"
+msgstr "درخواست تمدید دامنه رد شد"
+
+#: includes/languages/trans_static.php:675
+msgid "irnicRenewalPendingHolderCheck"
+msgstr "در انتظار بررسی صاحب امتیاز در فرایند تمدید دامنه"
+
+#: includes/languages/trans_static.php:676
+msgid "irnicRenewalPendingDomainCheck"
+msgstr "در انتظار بررسی دامنه در فرانید تمدید دامنه"
+
+#: includes/languages/trans_static.php:677
+msgid "irnicRenewalDocRequired"
+msgstr "برای تمدید دامنه مستندات نیاز است"
+
+#: includes/languages/trans_static.php:678
+msgid "irnicRenewalIsWithdrawn"
+msgstr "درخواست تمدید دامنه توسط خود شخص یا رابط لغو شد"
+
+#: includes/languages/trans_static.php:679
+msgid "irnicHolderChangeApproved"
+msgstr "درخواست تغییر صاحب امتیاز دامنه تایید شد"
+
+#: includes/languages/trans_static.php:680
+msgid "irnicHolderChangeRejected"
+msgstr "درخواست تغییر صاحب امتیاز دامنه رد شد"
+
+#: includes/languages/trans_static.php:681
+msgid "irnicHolderChangePendingHolderCheck"
+msgstr "در انتظار بررسی صاحب امتیاز جدید در فرایند تغییر صاحب امتیاز دامنه"
+
+#: includes/languages/trans_static.php:682
+msgid "irnicHolderChangePendingDomainCheck"
+msgstr "در انتظار بررسی دامنه در فرایند تغییر صاحب امتیاز دامنه"
+
+#: includes/languages/trans_static.php:683
+msgid "irnicHolderChangeDocRequired"
+msgstr "برای تغییر صاحب امتیاز دامنه مستندات نیاز است"
+
+#: includes/languages/trans_static.php:684
+msgid "irnicHolderChangeIsWithdrawn"
+msgstr "درخواست تغییر در صاحب امتیاز دامنه توسط خود شخص لغو شد"
+
+#: includes/languages/trans_static.php:685
+msgid "irnicDeletionApproved"
+msgstr "درخواست لغو دامنه تایید شد"
+
+#: includes/languages/trans_static.php:686
+msgid "irnicDeletionRejected"
+msgstr "فرایند لغو دامنه رد شد"
+
+#: includes/languages/trans_static.php:687
+msgid "irnicDeletionPendingHolderCheck"
+msgstr "در انتظار بررسی شناسه صاحب امتیاز در فرایند لغو دامنه"
+
+#: includes/languages/trans_static.php:688
+msgid "irnicDeletionPendingDomainCheck"
+msgstr "در انتظار بررسی دامنه در فرایند لغو دامنه"
+
+#: includes/languages/trans_static.php:689
+msgid "irnicDeletionDocRequired"
+msgstr "برای لغو دامنه مستندات نیاز است"
+
+#: includes/languages/trans_static.php:690
+msgid "irnicDeletionIsWithdrawn"
+msgstr "درخواست لغو دامنه توسط رابط لغو شد"
 
 #: includes/languages/trans_static_public.php:7
 msgid "Dash"
@@ -23210,9 +23388,17 @@ msgstr "دامنه از حالت قفل خارج شده است"
 msgid "Can not unlock your domain"
 msgstr "نمی‌توانید دامنه را از حالت قفل خارج کنید"
 
-#: lib/app/nic_domain/ready.php:65
+#: lib/app/nic_domain/ready.php:107
 msgid "Reject"
 msgstr "رد شده"
+
+#: lib/app/nic_domain/ready.php:112
+msgid "Pending Check Document"
+msgstr "در انتظار بررسی مستندات"
+
+#: lib/app/nic_domain/ready.php:135
+msgid "Document required"
+msgstr "نیاز به ارائه مستندات"
 
 #: lib/app/nic_domain/renew.php:28
 msgid "Invalid domain syntax, Only ir domain can be renew"
