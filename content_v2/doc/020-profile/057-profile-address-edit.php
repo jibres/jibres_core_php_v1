@@ -7,7 +7,7 @@
 
     <div class="msg url">
       <i class="method">PATCH</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/{ADDRESSID}/edit</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/edit?id={ADDRESSID}</b></span>
     </div>
 
     <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -22,7 +22,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X PATCH \
-  <?php echo \dash\data::CustomerApiURL(); ?>profile/address/{ADDRESSID}/edit \
+  <?php echo \dash\data::CustomerApiURL(); ?>profile/address/edit?id={ADDRESSID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
   -d '{"address" : "St 19. qom"}'

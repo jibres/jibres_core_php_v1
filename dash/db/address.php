@@ -11,6 +11,13 @@ class address
 		return $result;
 	}
 
+	public static function get_user_address($_user_id, $_id)
+	{
+		$query = "SELECT * FROM address WHERE address.id = $_id AND address.user_id = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function insert()
 	{

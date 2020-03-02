@@ -429,6 +429,25 @@ class address
 	}
 
 
+	public static function get_user_address($_user_id, $_address_id)
+	{
+		if(!$_address_id)
+		{
+			return false;
+		}
+
+		$address_id = \dash\coding::decode($_address_id);
+		if(!$address_id || !is_numeric($address_id) || !$_user_id || !is_numeric($_user_id))
+		{
+			return false;
+		}
+
+		$load = \dash\db\address::get_user_address($_user_id, $address_id);
+
+		return $load;
+	}
+
+
 	public static function edit($_args, $_id)
 	{
 		\dash\app::variable($_args);
