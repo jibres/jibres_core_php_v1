@@ -53,7 +53,7 @@ class controller
 			// get nic pull request every 5 min
 			if(self::every_5_min())
 			{
-				\lib\app\nic_poll\get::list();
+				\lib\app\nic_poll\get::cronjob_list();
 			}
 			// to not check every min all backup setting!
 			// the backup setting have special schedule

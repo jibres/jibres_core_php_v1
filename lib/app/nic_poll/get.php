@@ -4,14 +4,8 @@ namespace lib\app\nic_poll;
 
 class get
 {
-	public static function list()
+	public static function cronjob_list()
 	{
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
 		$poll = \lib\nic\exec\poll::request();
 
 		if(isset($poll['count']) && is_numeric($poll['count']) && intval($poll['count']) > 0)
@@ -54,6 +48,18 @@ class get
 		}
 		return $poll;
 
+	}
+
+
+	public static function list()
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		return self::cronjob_list();
 	}
 
 
