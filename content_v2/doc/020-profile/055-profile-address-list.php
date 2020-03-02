@@ -9,7 +9,7 @@
     <p><?php echo T_("Get your address list"); ?></p>
     <div class="msg url">
       <i class="method">GET</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/list</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/fetch</b></span>
     </div>
 
     <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -19,7 +19,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X GET \
-  <?php echo \dash\data::CustomerApiURL(); ?>profile/address/list \
+  <?php echo \dash\data::CustomerApiURL(); ?>profile/address/fetch \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
  </pre>
