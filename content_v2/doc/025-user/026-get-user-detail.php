@@ -6,7 +6,7 @@
   <div class="cbox" id='get-user-detail'>
     <div class="msg url">
       <i class="method">GET</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USER}</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/detail?id={USERID}</b></span>
     </div>
 
     <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -15,7 +15,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X GET \
-  <?php echo \dash\data::CustomerApiURL(); ?>user/{USER} \
+  <?php echo \dash\data::CustomerApiURL(); ?>user/detail?id={USERID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
 </pre>

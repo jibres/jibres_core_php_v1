@@ -7,7 +7,7 @@
     <p><?php echo T_("Update profile detail"); ?></p>
     <div class="msg url">
       <i class="method">PATCH</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USER}/edit</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/edit?id={USERID}</b></span>
     </div>
 
     <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -226,7 +226,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X PATCH \
-  <?php echo \dash\data::CustomerApiURL(); ?>user/{USER}/edit \
+  <?php echo \dash\data::CustomerApiURL(); ?>user/edit?id={USERID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
   -d '{"username": "biqarar", "bio": "programing is my life"}'
