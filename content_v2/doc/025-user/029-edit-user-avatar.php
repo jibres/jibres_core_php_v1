@@ -7,7 +7,7 @@
     <p><?php echo T_("Upload user avatar to change it"); ?></p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USER}/edit/avatar</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/edit/avatar?id={USERID}</b></span>
     </div>
 
 <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -46,10 +46,10 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X POST \
-  <?php echo \dash\data::CustomerApiURL(); ?>user/{USER}/edit/avatar \
+  <?php echo \dash\data::CustomerApiURL(); ?>user/edit/avatar?id={USERID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
-  -F avatar=@/home/reza/Desktop/yourfile.jpg
+  -F avatar=@/home/user/Desktop/yourfile.jpg
 </pre>
 
     <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
