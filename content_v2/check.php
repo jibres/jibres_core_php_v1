@@ -14,7 +14,7 @@ class check
 
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1', 'v2'])))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v2', 'v2'])))
 		{
 			// nothing
 		}
@@ -26,11 +26,11 @@ class check
 		// redirect api/doc to api/{last version of api}/doc
 		if($module === 'doc' && !\dash\url::child())
 		{
-			\dash\redirect::to(\dash\url::here(). '/v1/doc');
+			\dash\redirect::to(\dash\url::here(). '/v2/doc');
 		}
 
 
-		if($module === 'v1')
+		if($module === 'v2')
 		{
 			\content_v2\tools::master_check();
 		}

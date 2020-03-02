@@ -34,6 +34,13 @@ class user_auth
 		return \dash\db\config::public_get('user_auth', ...func_get_args());
 	}
 
+
+	public static function jibres_get($_where)
+	{
+		// db_name = fuel
+		return \dash\db\config::public_get('user_auth', $_where, ['db_name' => 'master']);
+	}
+
 	public static function get_count()
 	{
 		return \dash\db\config::public_get_count('user_auth', ...func_get_args());

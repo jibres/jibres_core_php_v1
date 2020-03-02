@@ -4,7 +4,7 @@ namespace content_v2;
 
 class tools
 {
-	public static $v1             = [];
+	public static $v2             = [];
 	private static $REQUEST       = [];
 	private static $request_check = false;
 
@@ -13,22 +13,14 @@ class tools
 	 */
 	public static function master_check()
 	{
-		$subdomain = \dash\url::subdomain();
-
-		if(!in_array($subdomain, [null, 'developers', 'api', 'core']))
-		{
-			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
-		}
-
 		self::check_appkey();
-		self::check_store_init();
 		self::check_apikey();
 	}
 
 
 	public static function appkey_required()
 	{
-		if(isset(self::$v1['appkey_detail']) && self::$v1['appkey_detail'])
+		if(isset(self::$v2['appkey_detail']) && self::$v2['appkey_detail'])
 		{
 			return true;
 		}
@@ -58,43 +50,7 @@ class tools
 
 
 
-	private static function check_store_init()
-	{
-		$STORE = \dash\url::child();
 
-		$store_id = \dash\coding::decode($STORE);
-
-		if(!$store_id)
-		{
-			return false;
-		}
-
-		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
-		{
-			return false;
-		}
-
-		$detail = \dash\engine\store::init_by_id($store_id);
-
-		if(!$detail)
-		{
-			self::stop(403, T_("Store Detail not found"));
-		}
-
-		if(isset($detail['subdomain']))
-		{
-			\lib\store::set_store_slug($detail['subdomain']);
-
-			if(!\lib\store::id())
-			{
-				self::stop(404, T_("Store not found"));
-			}
-		}
-		else
-		{
-			self::stop(403, T_("subdomain not found"));
-		}
-	}
 
 
 	public static function check_appkey()
@@ -113,9 +69,9 @@ class tools
 			self::stop(400, T_("Appkey not set"));
 		}
 
-		$appkey_is_ok              = \dash\app\user_auth::check_appkey($appkey);
+		$appkey_is_ok              = \dash\app\user_auth::jibres_check_appkey($appkey);
 
-		self::$v1['appkey_detail'] = $appkey_is_ok;
+		self::$v2['appkey_detail'] = $appkey_is_ok;
 
 		if($appkey_is_ok)
 		{

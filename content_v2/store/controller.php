@@ -18,7 +18,7 @@ class controller
 
 		\content_v2\tools::appkey_required();
 
-		if($directory === 'v1/store/add')
+		if($directory === 'v2/store/add')
 		{
 
 			\content_v2\tools::apikey_required();
@@ -32,7 +32,7 @@ class controller
 				\content_v2\tools::invalid_method();
 			}
 		}
-		elseif($directory === 'v1/store/question')
+		elseif($directory === 'v2/store/question')
 		{
 			$detail = \lib\app\store\polls::all();
 		}

@@ -7,14 +7,14 @@ class view
 
 	public static function config()
 	{
-		$detail = self::detail_v1();
+		$detail = self::detail_v2();
 		\content_v2\tools::say($detail);
 	}
 
 
 
 
-	private static function detail_v1()
+	private static function detail_v2()
 	{
 		$detail = [];
 
@@ -75,11 +75,11 @@ class view
 			{
 				if($key === 'fa')
 				{
-					$lang_list[$key]['api_url'] = 'https://jibres.ir/api/v1';
+					$lang_list[$key]['api_url'] = 'https://jibres.ir/api/v2';
 				}
 				else
 				{
-					$lang_list[$key]['api_url'] = 'https://jibres.com/api/v1';
+					$lang_list[$key]['api_url'] = 'https://jibres.com/api/v2';
 				}
 			}
 		}
@@ -180,19 +180,19 @@ class view
 		// 			'icon'  => 'info',
 		// 			'type'  => 'api',
 		// 			'title' => T_("About us"),
-		// 			'link'  => \dash\url::kingdom(). '/api/v1/about',
+		// 			'link'  => \dash\url::kingdom(). '/api/v2/about',
 		// 		],
 		// 		[
 		// 			'icon'  => 'lock',
 		// 			'type'  => 'api',
 		// 			'title' => T_("Privacy"),
-		// 			'link'  => \dash\url::kingdom(). '/api/v1/privacy',
+		// 			'link'  => \dash\url::kingdom(). '/api/v2/privacy',
 		// 		],
 		// 		[
 		// 			'icon'  => 'list',
 		// 			'type'  => 'api',
 		// 			'title' => T_("Terms"),
-		// 			'link'  => \dash\url::kingdom(). '/api/v1/terms',
+		// 			'link'  => \dash\url::kingdom(). '/api/v2/terms',
 		// 		],
 		// 	],
 		// ];

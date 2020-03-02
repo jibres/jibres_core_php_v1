@@ -15,6 +15,7 @@ class controller
 		else
 		{
 			self::check_store();
+			\content_v2\tools::master_check();
 		}
 	}
 
