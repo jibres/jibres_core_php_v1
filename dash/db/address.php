@@ -4,6 +4,13 @@ namespace dash\db;
 
 class address
 {
+	public static function get_count_user_address($_user_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM address WHERE address.user_id = $_user_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 
 	public static function insert()
 	{

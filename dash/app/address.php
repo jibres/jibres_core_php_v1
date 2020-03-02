@@ -346,6 +346,13 @@ class address
 			$args['user_id'] = \dash\user::id();
 		}
 
+		$count_user_address = \dash\db\address::get_count_user_address($args['user_id']);
+		if(intval($count_user_address) > 100)
+		{
+			\dash\notif::error(T_("You can not add any address"));
+			return false;
+		}
+
 
 		$address = \dash\db\address::insert($args);
 

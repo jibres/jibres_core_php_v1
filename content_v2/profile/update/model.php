@@ -25,7 +25,8 @@ class model
 			\dash\user::refresh();
 		}
 
-		return $result;
+		\content_v2\tools::say($result);
+
 	}
 
 
