@@ -62,5 +62,17 @@ trait times
 		}
 		return false;
 	}
+
+
+	public static function every_5_min()
+	{
+		$time_now    = date("i");
+		// every 5 minuts
+		if((is_string($time_now) && mb_strlen($time_now) === 2 && in_array(substr($time_now, 1, 1), ['0', '5']) ) || \dash\permission::supervisor())
+		{
+			return true;
+		}
+		return false;
+	}
 }
 ?>

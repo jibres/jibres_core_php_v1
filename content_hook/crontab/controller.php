@@ -47,8 +47,14 @@ class controller
 
 	private static function cronjob_run()
 	{
+
 		if(!\dash\engine\store::inStore())
 		{
+			// get nic pull request every 5 min
+			if(self::every_5_min())
+			{
+				\lib\app\nic_poll\get::list();
+			}
 			// to not check every min all backup setting!
 			// the backup setting have special schedule
 			if(self::every_hour())
