@@ -11,7 +11,13 @@ class view
 		\dash\data::page_desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));
 		\dash\data::page_pictogram('campfire');
 
-		$CustomerApiURL = \dash\url::protocol(). '://api.jibres.'. \dash\url::tld(). '/'. \dash\language::current(). '/{STORE}/v2/';
+		$myStore = '{STORE}';
+		if(\dash\url::store())
+		{
+			$myStore = \dash\url::store();
+		}
+
+		$CustomerApiURL = \dash\url::protocol(). '://api.jibres.'. \dash\url::tld(). '/'. \dash\language::current(). '/'. $myStore .'/v2/';
 		\dash\data::CustomerApiURL($CustomerApiURL);
 
 		$JibresApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/';

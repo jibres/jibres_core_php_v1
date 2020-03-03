@@ -6,13 +6,15 @@ class view
 {
 	public static function config()
 	{
+		$myStore = \dash\url::store();
+
 		$result =
 		[
 			'en' =>
 			[
 				'website'   => 'https://jibres.com',
-				'endpoint'  => 'https://api.jibres.com/v2',
-				'doc'       => 'https://api.jibres.com/v2/doc',
+				'endpoint'  => 'https://api.jibres.com/'. $myStore. '/v2',
+				'doc'       => 'https://api.jibres.com/'. $myStore. '/v2/doc',
 				'direction' => 'ltr',
 				'lang'      => 'English',
 				'langname'  => 'English',
@@ -20,8 +22,8 @@ class view
 			'fa' =>
 			[
 				'website'   => 'https://jibres.ir',
-				'endpoint'  => 'https://api.jibres.ir/v2',
-				'doc'       => 'https://api.jibres.ir/v2/doc',
+				'endpoint'  => 'https://api.jibres.ir/'. $myStore. '/v2',
+				'doc'       => 'https://api.jibres.ir/'. $myStore. '/v2/doc',
 				'direction' => 'rtl',
 				'lang'      => 'Persian',
 				'langname' => 'فارسی',
