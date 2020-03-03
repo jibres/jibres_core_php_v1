@@ -2,52 +2,10 @@
 namespace content_v2\business;
 
 
-class controller
+class pages
 {
 
-
-	public static function routing()
-	{
-
-		$detail = [];
-
-		$my_child = \dash\url::dir(3);
-
-		switch ($my_child)
-		{
-			case 'mission':
-			case 'vision':
-			case 'about':
-			case 'contact':
-				if(\dash\url::dir(4))
-				{
-					\content_v2\tools::invalid_url();
-				}
-				if(!\dash\request::is('get'))
-				{
-					\content_v2\tools::invalid_method();
-				}
-
-				$detail = self::page($my_child);
-				break;
-
-			case 'post':
-			case 'posts':
-				\content_v2\business\posts\controller::api_routing();
-				break;
-
-			default:
-				\content_v2\tools::invalid_url();
-				break;
-		}
-
-		\content_v2\tools::say($detail);
-
-	}
-
-
-
-	private static function page($_type)
+	public static function by_slug($_type)
 	{
 		$result = [];
 		$result_page_args =
@@ -60,6 +18,10 @@ class controller
 		];
 
 		$result_raw = \dash\db\posts::get($result_page_args);
+		if(!$result_raw)
+		{
+			\dash\notif::info(T_("This page is empty"));
+		}
 
 		if($result_raw && is_array($result_raw))
 		{
