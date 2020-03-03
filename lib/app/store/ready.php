@@ -34,6 +34,8 @@ class ready
 			{
 
 				case 'store_id':
+					$result[$key] = $value;
+					$result['store_code'] = \dash\coding::encode($value);
 					$result['url'] = \dash\url::kingdom(). '/'. \dash\coding::encode($value);
 					break;
 

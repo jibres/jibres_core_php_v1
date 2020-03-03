@@ -54,7 +54,7 @@
               <div class="body">
                 <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
                 <div class="position txtRa">
-                  <code class="ltr"><?php echo \dash\coding::encode(\dash\get::index($value, 'store_id')); ?></code>
+                  <code class="ltr"><?php echo \dash\get::index($value, 'store_code'); ?></code>
                 </div>
 
               </div>

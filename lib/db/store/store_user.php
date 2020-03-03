@@ -11,6 +11,7 @@ class store_user
 			SELECT
 				store.*,
 				store_user.*,
+				store.id AS `store_id`,
 				store_data.title,
 				store_data.owner,
 				store_data.plan,
