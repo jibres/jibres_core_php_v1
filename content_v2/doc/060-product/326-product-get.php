@@ -11,7 +11,7 @@
 
     <div class="msg url ltr txtL">
       <i class="method">GET</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/{PRODUCT_ID}</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/detail?id={PRODUCT_ID}</b></span>
     </div>
 
          <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -21,7 +21,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X GET \
-  <?php echo \dash\data::CustomerApiURL(); ?>product/{PRODUCT_ID} \
+  <?php echo \dash\data::CustomerApiURL(); ?>product/detail?id={PRODUCT_ID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>'
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
 </pre>

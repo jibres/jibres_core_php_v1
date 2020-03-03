@@ -10,7 +10,7 @@
 
     <div class="msg url ltr txtL">
       <i class="method">PUT</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/{PRODUCT_ID}/gallery/thumb</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/gallery/thumb?id={PRODUCT_ID}</b></span>
     </div>
 
          <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -57,7 +57,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X PUT \
-  <?php echo \dash\data::CustomerApiURL(); ?>product/{PRODUCT_ID}/gallery/thumb \
+  <?php echo \dash\data::CustomerApiURL(); ?>product/gallery/thumb?id={PRODUCT_ID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
   -d '{"fileid" : 1}'

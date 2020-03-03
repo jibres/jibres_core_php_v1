@@ -106,7 +106,7 @@ class search
 
 		if($_args['cat_id'] && is_numeric($_args['cat_id']))
 		{
-			$and[]   = " products.cat_id  $_args[cat_id] ";
+			$and[]   = " products.cat_id = $_args[cat_id] ";
 			self::$filter_args['cat'] = '*'. T_('Category');
 			self::$is_filtered        = true;
 		}

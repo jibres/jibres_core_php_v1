@@ -6,7 +6,7 @@
   <div class="cbox" id='category-child'>
     <div class="msg url ltr txtL">
       <i class="method">GET</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>category/{CATEGORYID}/child</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>category/child?id={CATEGORYID}</b></span>
     </div>
 
          <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -47,7 +47,7 @@
 
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>category/{CATEGORYID}/child -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
+curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>category/child?id={CATEGORYID} -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span><?php echo T_("Response"); ?> <small><?php echo T_("Example"); ?></small></h3>
