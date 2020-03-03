@@ -9,7 +9,7 @@ class view
 		$myStore = \dash\url::store();
 		if($myStore)
 		{
-			$myStore . '/';
+			$myStore = $myStore . '/';
 		}
 
 		$result =
