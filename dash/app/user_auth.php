@@ -112,6 +112,27 @@ class user_auth
 	}
 
 
+	public static function jibres_get_appkey($_user_id)
+	{
+		$check =
+		[
+			'user_id'    => $_user_id,
+			'type'       => 'appkey',
+			'status'     => 'enable',
+			'gateway'    => null,
+			'gateway_id' => null,
+			'limit'      => 1,
+		];
+
+		$check = \dash\db\user_auth::jibres_get($check);
+
+		if(isset($check['auth']))
+		{
+			return $check;
+		}
+		return false;
+	}
+
 
 	public static function jibres_check_appkey($_appkey)
 	{

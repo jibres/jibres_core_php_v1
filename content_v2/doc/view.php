@@ -28,21 +28,22 @@ class view
 		$YourAPPKey    = 'YourAPPKey';
 		$YourApiKey    = 'YourApiKey';
 
-		// if(\dash\user::id())
-		// {
-		// 	$apikey = \dash\app\user_auth::get_apikey(\dash\user::id(), 'api');
-		// 	if(isset($apikey['auth']))
-		// 	{
-		// 		$YourApiKey = $apikey['auth'];
-		// 	}
+		if(\dash\user::id())
+		{
+			$apikey = \dash\app\user_auth::get_apikey(\dash\user::id(), 'api');
 
-		// 	$appkey = \dash\app\user_auth::get_appkey(\dash\user::id());
-		// 	if(isset($appkey['auth']))
-		// 	{
-		// 		$YourAPPKey = $appkey['auth'];
-		// 	}
+			if(isset($apikey['auth']))
+			{
+				$YourApiKey = $apikey['auth'];
+			}
 
-		// }
+			$appkey = \dash\app\user_auth::jibres_get_appkey(\dash\user::id());
+			if(isset($appkey['auth']))
+			{
+				$YourAPPKey = $appkey['auth'];
+			}
+
+		}
 
 
 		\dash\data::mySubdomain($YourSubdomain);
