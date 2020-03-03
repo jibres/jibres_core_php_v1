@@ -22,8 +22,8 @@ class run
 		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 7); // 7 time out of nic-broker
-		curl_setopt($ch, CURLOPT_TIMEOUT, 7); // 7 time out of nic-broker
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); // 20 time out of nic-broker
+		curl_setopt($ch, CURLOPT_TIMEOUT, 20); // 20 time out of nic-broker
 
 		curl_setopt($ch, CURLOPT_POST, false);
 		//The URL to fetch.
