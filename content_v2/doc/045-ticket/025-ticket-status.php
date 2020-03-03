@@ -6,7 +6,7 @@
   <div class="cbox" id='ticket-status'>
     <div class="msg url ltr txtL">
       <i class="method">PUT</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/{TICKET}/status</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/status?id={TICKETID}</b></span>
     </div>
 
          <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -44,7 +44,7 @@
 
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl -X PUT <?php echo \dash\data::CustomerApiURL(); ?>ticket/{TICKET}/status -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?> -d '{"status": "close"}'
+curl -X PUT <?php echo \dash\data::CustomerApiURL(); ?>ticket/status?id={TICKETID} -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?> -d '{"status": "close"}'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span><?php echo T_("Response"); ?> <small><?php echo T_("Example"); ?></small></h3>

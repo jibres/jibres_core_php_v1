@@ -1,12 +1,12 @@
-<h2 class="f" data-kerkere='#ticket-replay-detail' data-kerkere-icon='open'>
+<h2 class="f" data-kerkere='#ticket-reply-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge primary">POST</span></span>
   <span class="c"><?php echo T_("Replay the ticket"); ?></span>
 </h2>
-<div id="ticket-replay-detail">
-  <div class="cbox" id='ticket-replay'>
+<div id="ticket-reply-detail">
+  <div class="cbox" id='ticket-reply'>
     <div class="msg url ltr txtL">
       <i class="method">POST</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/{TICKET}/replay</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/reply?id={TICKETID}</b></span>
     </div>
 
          <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -54,7 +54,7 @@
 
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl -X POST <?php echo \dash\data::CustomerApiURL(); ?>ticket/{TICKET}/replay -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?> -d '{"content": "Can Help me?"}'
+curl -X POST <?php echo \dash\data::CustomerApiURL(); ?>ticket/reply?id={TICKETID} -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?> -d '{"content": "Can Help me?"}'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span><?php echo T_("Response"); ?> <small><?php echo T_("Example"); ?></small></h3>
