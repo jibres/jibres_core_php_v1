@@ -1,13 +1,13 @@
 <h2 class="f" data-kerkere='#get-post-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge success">GET</span></span>
-  <span class="c"><?php echo T_("Get last get-post"); ?></span>
+  <span class="c"><?php echo T_("Get one post detail"); ?></span>
 </h2>
 <div id="get-post-detail">
   <div class="cbox" id='get-post'>
 
     <div class="msg url ltr txtL">
       <i class="method">GET</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>posts/{$POSTID}</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>business/posts/detail?id={POSTID}</b></span>
     </div>
 
        <div class="tblBox">
@@ -43,7 +43,7 @@
 
 
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
-    <pre>curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>post/{$POSTID} -H 'appkey: <?php echo \dash\data::myAppKey(); ?>'</pre>
+    <pre>curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>business/posts/detail?id={POSTID} -H 'appkey: <?php echo \dash\data::myAppKey(); ?>'</pre>
 
     <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
