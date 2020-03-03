@@ -54,27 +54,23 @@ class store
 		$store     = \dash\url::store();
 		$subdomain = \dash\url::subdomain();
 
-		$free_subdomain =
-		[
-			'api',
-		];
-
-		if(in_array($subdomain, $free_subdomain))
-		{
-			$subdomain = null;
-		}
-
 		if($subdomain && $store)
 		{
-			\dash\header::status(404, T_("Subdomain and store code conflict!"));
+			if($subdomain === 'api' && \dash\url::content() === 'v2')
+			{
+				// no problem
+			}
+			else
+			{
+				\dash\header::status(404, T_("Subdomain and store code conflict!"));
+			}
 		}
 
 		if($store)
 		{
 			self::config_by_store_id();
 		}
-
-		if($subdomain)
+		elseif($subdomain)
 		{
 			self::config_by_subdomain();
 		}
