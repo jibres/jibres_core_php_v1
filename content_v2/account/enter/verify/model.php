@@ -1,8 +1,8 @@
 <?php
-namespace content_v2\account\enter;
+namespace content_v2\account\enter\verify;
 
 
-class enter
+class model
 {
 
 
@@ -14,26 +14,13 @@ class enter
 	private static $response       = null;
 
 
-	public static function fire()
+	public static function post()
 	{
 		\content_v2\tools::check_token();
 
 		\content_v2\tools::apikey_required();
 
-		$subchild = \dash\url::dir(4);
-
-		if(!$subchild)
-		{
-			self::login();
-		}
-		elseif($subchild === 'verify')
-		{
-			self::verify();
-		}
-		else
-		{
-			\content_v2\tools::stop(404);
-		}
+		self::verify();
 
 		if(!\dash\engine\process::status())
 		{
@@ -42,87 +29,6 @@ class enter
 
 		\content_v2\tools::say(self::$response);
 
-	}
-
-	private static function login()
-	{
-		$check_input = self::check_input();
-		if(!$check_input)
-		{
-			return false;
-		}
-
-		$user_id = \dash\app\user::quick_add(['mobile' => self::$mobile]);
-		if(!$user_id)
-		{
-			\dash\log::set('API-canNotSignupUserEnter');
-			\dash\notif::error(T_("Can not signup this mobile"));
-			return false;
-		}
-
-		self::$mobile_user_id = $user_id;
-
-		$check_log =
-		[
-			'caller' => 'enter_apiverificationcode',
-			'to'     => $user_id,
-			'limit'  => 1,
-		];
-
-		$check_log = \dash\db\logs::get($check_log, ['order' => 'ORDER BY logs.id DESC']);
-
-		$generate_new_code = false;
-
-		if(!isset($check_log['id']))
-		{
-			$generate_new_code = true;
-		}
-		else
-		{
-			// 'enable','disable','expire','deliver','awaiting','deleted','cancel','block','notif','notifread','notifexpire'
-			if(isset($check_log['status']) && in_array($check_log['status'], ['enable', 'notif', 'notifread']))
-			{
-				if(isset($check_log['datecreated']))
-				{
-					$old_time = strtotime($check_log['datecreated']);
-					if((time() - $old_time) > self::$life_time)
-					{
-						$generate_new_code = true;
-					}
-				}
-				else
-				{
-					$generate_new_code = true;
-				}
-			}
-			else
-			{
-				$generate_new_code = true;
-			}
-		}
-
-
-		if($generate_new_code)
-		{
-			$myCode = rand(10000, 99999);
-			$myCode = 12345;
-
-			$log =
-			[
-				'to'     => $user_id,
-				'code'   => $myCode,
-				'mycode' => $myCode,
-			];
-
-			\dash\log::set('enter_apiverificationcode', $log);
-			\dash\notif::ok(T_("The verification code sended to phone number"));
-			return true;
-		}
-		else
-		{
-			\dash\notif::error(T_("A verification code was sended to user before"));
-			return false;
-		}
 	}
 
 

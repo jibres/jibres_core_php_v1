@@ -8,8 +8,5 @@ class controller
 	{
 		\content_v2\tools::appkey_required();
 	}
-
-
-
 }
 ?>
