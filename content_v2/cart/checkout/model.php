@@ -1,5 +1,5 @@
 <?php
-namespace content_v2\cart;
+namespace content_v2\cart\add;
 
 
 class controller
