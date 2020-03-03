@@ -4,7 +4,7 @@
 </h2>
 <div id="ticket-status-detail">
   <div class="cbox" id='ticket-status'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">PUT</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/{TICKET}/status</b></span>
     </div>

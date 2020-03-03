@@ -6,7 +6,7 @@
   <div class="cbox" id='location-province'>
 
     <p><?php echo T_("The endpoint for this method is different"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::JibresApiURL(); ?><b>location/province</b></span>
     </div>

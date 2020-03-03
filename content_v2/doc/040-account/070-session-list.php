@@ -7,7 +7,7 @@
     <p>
       <?php echo T_("Get your active session detail."); ?>
     </p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/session</b></span>
     </div>

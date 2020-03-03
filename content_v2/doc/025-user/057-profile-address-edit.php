@@ -5,7 +5,7 @@
 <div id="user-address-edit-detail">
   <div class="cbox" id='user-address-edit'>
     <p><?php echo T_("Edit user address"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">PATCH</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USERID}/address/{ADDRESSID}/edit</b></span>
     </div>

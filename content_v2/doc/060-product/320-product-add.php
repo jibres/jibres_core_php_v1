@@ -6,7 +6,7 @@
 <div id="product-add-detail">
   <div class="cbox" id='product-add'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/add</b></span>
     </div>

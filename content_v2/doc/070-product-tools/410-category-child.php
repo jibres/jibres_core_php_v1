@@ -4,7 +4,7 @@
 </h2>
 <div id="category-child-detail">
   <div class="cbox" id='category-child'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>category/{CATEGORYID}/child</b></span>
     </div>

@@ -7,7 +7,7 @@
   <div class="cbox" id='profile-address-list'>
 
     <p><?php echo T_("Get your address list"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/fetch</b></span>
     </div>

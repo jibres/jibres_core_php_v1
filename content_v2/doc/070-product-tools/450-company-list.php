@@ -4,7 +4,7 @@
 </h2>
 <div id="company-list-detail">
   <div class="cbox" id='company-list'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>company/list</b></span>
     </div>

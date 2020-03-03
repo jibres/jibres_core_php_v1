@@ -4,7 +4,7 @@
 </h2>
 <div id="get-user-detail-detail">
   <div class="cbox" id='get-user-detail'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/detail?id={USERID}</b></span>
     </div>

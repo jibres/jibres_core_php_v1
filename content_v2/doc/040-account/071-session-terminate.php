@@ -5,7 +5,7 @@
 <div id="session-terminate-detail">
   <div class="cbox" id='session-terminate'>
     <p><?php echo T_("Terminate one session or all session"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/session</b></span>
     </div>

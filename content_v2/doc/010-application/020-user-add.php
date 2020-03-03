@@ -6,7 +6,7 @@
   <div class="cbox" id='user-add'>
 
     <p><?php echo T_("This service is used to add users through the Android app."); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/android/add</b></span>
     </div>

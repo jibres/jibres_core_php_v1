@@ -5,7 +5,7 @@
 <div id="about-detail">
   <div class="cbox" id='about'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>business/about</b></span>
     </div>

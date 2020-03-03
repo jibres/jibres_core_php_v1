@@ -4,7 +4,7 @@
 </h2>
 <div id="checkout-cart-detail">
   <div class="cbox" id='checkout-cart'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>cart/checkout</b></span>
     </div>

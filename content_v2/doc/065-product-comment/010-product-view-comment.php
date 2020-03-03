@@ -6,7 +6,7 @@
 <div id="product-comment-view-detail">
   <div class="cbox" id='product-comment-view'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/{PRODUCT_ID}/comment</b></span>
     </div>

@@ -7,7 +7,7 @@
     <p><?php echo T_("Add new user to members list"); ?></p>
     <p><?php echo T_("This method is different by sinup user api"); ?></p>
     <p><?php echo T_("In this metho you must have permission to add new user"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/add</b></span>
     </div>

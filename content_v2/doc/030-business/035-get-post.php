@@ -5,7 +5,7 @@
 <div id="get-post-detail">
   <div class="cbox" id='get-post'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>posts/{$POSTID}</b></span>
     </div>

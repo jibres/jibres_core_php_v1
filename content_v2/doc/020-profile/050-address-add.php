@@ -5,7 +5,7 @@
 <div id="profile-address-add-detail">
   <div class="cbox" id='profile-address-add'>
     <p><?php echo T_("Add new address to your profile"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/add</b></span>
     </div>

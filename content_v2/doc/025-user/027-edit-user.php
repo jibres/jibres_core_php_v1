@@ -5,7 +5,7 @@
 <div id="edit-user-detail">
   <div class="cbox" id='edit-user'>
     <p><?php echo T_("Update profile detail"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">PATCH</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/edit?id={USERID}</b></span>
     </div>

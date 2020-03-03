@@ -4,7 +4,7 @@
 </h2>
 <div id="collection-list-detail">
   <div class="cbox" id='collection-list'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>collection/list</b></span>
     </div>

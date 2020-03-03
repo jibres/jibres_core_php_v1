@@ -5,7 +5,7 @@
 <div id="edit-user-avatar-detail">
   <div class="cbox" id='edit-user-avatar'>
     <p><?php echo T_("Upload user avatar to change it"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/edit/avatar?id={USERID}</b></span>
     </div>

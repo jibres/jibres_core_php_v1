@@ -5,7 +5,7 @@
 
 <div id="product-company-list-detail">
   <div class="cbox" id='product-company-list'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>products/company/{CATEGORY}</b></span>
     </div>

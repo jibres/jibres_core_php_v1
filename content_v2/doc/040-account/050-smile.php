@@ -5,7 +5,7 @@
 <div id="smile-detail">
   <div class="cbox" id='smile'>
     <p><?php echo T_("To get this user have notification or no"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/smile</b></span>
     </div>

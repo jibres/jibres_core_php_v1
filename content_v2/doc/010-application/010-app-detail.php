@@ -9,7 +9,7 @@
     <p>
       <?php echo T_("Get details like pages, language list, translations, and more."); ?>
     </p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>app</b></span>
     </div>

@@ -5,7 +5,7 @@
 <div id="user-login-detail">
   <div class="cbox" id='user-login'>
     <p><?php echo T_("Login user and get new apikey for this user"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/enter</b></span>
     </div>

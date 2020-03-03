@@ -6,9 +6,9 @@
   <div class="cbox" id='user-address-add'>
 
     <p><?php echo T_("Add new address to user"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USERID}/address/add</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/address/add?id={USERID}</b></span>
     </div>
 
     <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -48,7 +48,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X POST \
-  <?php echo \dash\data::CustomerApiURL(); ?>user/{USERID}/address/add \
+  <?php echo \dash\data::CustomerApiURL(); ?>user/address/add?id={USERID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
   -d '{"address" : "St 19. qom"}'

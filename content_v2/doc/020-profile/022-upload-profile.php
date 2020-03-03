@@ -6,7 +6,7 @@
   <div class="cbox" id='upload-avatar'>
 
     <p><?php echo T_("Upload your avatar to change it"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/update/avatar</b></span>
     </div>

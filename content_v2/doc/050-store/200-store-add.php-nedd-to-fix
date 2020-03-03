@@ -7,7 +7,7 @@
 
     <p><?php echo T_("You must be aware of the terms and conditions of the Jibres before adding the store"); ?></p>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::JibresApiURL(); ?><b>store/add</b></span>
     </div>

@@ -7,7 +7,7 @@
 
     <p><?php echo T_("Get access token of new connection from server"); ?></p>
     <p><?php echo T_("This key is disposable and has a time limit. It is usable only at the specified time and if it is used successfully or unsuccessfully once in a request, it loses its validity and needs to be rebuilt for the next request"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/token</b></span>
     </div>

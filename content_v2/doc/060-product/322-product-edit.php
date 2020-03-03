@@ -6,7 +6,7 @@
   <div class="cbox" id='product-edit'>
      <p><?php echo T_("Replace {PRODUCT_ID} by your product id"); ?></p>
 
-     <div class="msg url">
+     <div class="msg url ltr txtL">
       <i class="method">PATCH</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/{PRODUCT_ID}/edit</b></span>
     </div>

@@ -5,7 +5,7 @@
 <div id="profile-address-edit-detail">
   <div class="cbox" id='profile-address-edit'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">PATCH</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/address/edit?id={ADDRESSID}</b></span>
     </div>

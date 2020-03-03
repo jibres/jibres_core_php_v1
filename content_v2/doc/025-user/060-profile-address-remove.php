@@ -4,7 +4,7 @@
 </h2>
 <div id="user-address-remove-detail">
   <div class="cbox" id='user-address-remove'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">DELETE</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USERID}/address/{ADDRESSID}/remove</b></span>
     </div>

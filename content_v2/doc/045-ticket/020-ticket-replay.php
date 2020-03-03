@@ -4,7 +4,7 @@
 </h2>
 <div id="ticket-replay-detail">
   <div class="cbox" id='ticket-replay'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/{TICKET}/replay</b></span>
     </div>

@@ -5,7 +5,7 @@
 <div id="notif-detail">
   <div class="cbox" id='notif'>
     <p><?php echo T_("Get list of your notification"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/notif</b></span>
     </div>

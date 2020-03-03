@@ -6,7 +6,7 @@
 <div id="product-comment-add-detail">
   <div class="cbox" id='product-comment-add'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>product/{PRODUCT_ID}/comment/add</b></span>
     </div>

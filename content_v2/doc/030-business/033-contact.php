@@ -4,7 +4,7 @@
 </h2>
 <div id="contact-detail">
   <div class="cbox" id='contact'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>business/contact</b></span>
     </div>

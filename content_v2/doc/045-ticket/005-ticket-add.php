@@ -6,7 +6,7 @@
 
   <div class="cbox" id='ticket-add'>
 
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>ticket/add</b></span>
     </div>

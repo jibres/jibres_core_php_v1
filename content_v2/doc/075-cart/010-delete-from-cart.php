@@ -4,7 +4,7 @@
 </h2>
 <div id="delete-from-cart-detail">
   <div class="cbox" id='delete-from-cart'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">DELETE</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>cart/delete</b></span>
     </div>

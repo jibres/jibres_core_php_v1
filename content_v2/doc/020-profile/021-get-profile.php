@@ -5,7 +5,7 @@
 
 <div id="get-profile-detail">
   <div class="cbox" id='get-profile'>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/get</b></span>
     </div>

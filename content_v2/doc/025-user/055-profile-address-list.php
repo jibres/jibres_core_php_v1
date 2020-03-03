@@ -5,9 +5,9 @@
 <div id="user-address-list-detail">
   <div class="cbox" id='user-address-list'>
     <p><?php echo T_("Get user address list"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">GET</i>
-      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/{USERID}/address/list</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>user/address/fetch?id={USERID}</b></span>
     </div>
 
     <?php require (root. 'content_v2/doc/000-public/header-appkey-apikey.php'); ?>
@@ -17,7 +17,7 @@
     <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X GET \
-  <?php echo \dash\data::CustomerApiURL(); ?>user/{USERID}/address/list \
+  <?php echo \dash\data::CustomerApiURL(); ?>user/address/fetch?id={USERID} \
   -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
  </pre>

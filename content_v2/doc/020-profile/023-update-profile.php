@@ -6,7 +6,7 @@
   <div class="cbox" id='update-profile'>
 
     <p><?php echo T_("Update profile detail"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>profile/update</b></span>
     </div>

@@ -5,7 +5,7 @@
 <div id="user-login-verify-detail">
   <div class="cbox" id='user-login-verify'>
     <p><?php echo T_("After send verification code to user you must verify it"); ?></p>
-    <div class="msg url">
+    <div class="msg url ltr txtL">
       <i class="method">POST</i>
       <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/enter/verify</b></span>
     </div>
