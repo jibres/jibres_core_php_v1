@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-02 17:32+0330\n"
-"PO-Revision-Date: 2020-03-02 17:45+0330\n"
+"POT-Creation-Date: 2020-03-04 00:06+0330\n"
+"PO-Revision-Date: 2020-03-04 00:07+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4046,7 +4046,7 @@ msgstr "بازگشت به لیست شرکت‌های سازنده"
 
 #: content_a/controller.php:16 content_api/v1/tools.php:55 content_api/v1/tools.php:90
 #: content_r10/tools.php:55 content_r10/tools.php:90 content_subdomain/controller.php:41
-#: content_v2/controller.php:27 content_v2/tools.php:47 dash/engine/store.php:105
+#: content_v2/controller.php:27 content_v2/tools.php:47 dash/engine/store.php:101
 #: lib/app/category/add.php:12 lib/app/category/edit.php:13 lib/app/category/get.php:32
 #: lib/app/category/get.php:62 lib/app/category/search.php:11
 #: lib/app/category/search.php:88 lib/app/factor/add.php:34 lib/app/factor/get.php:34
@@ -5170,7 +5170,7 @@ msgstr "برای طبقه بندی آدرس‌ها استفاده می‌شود"
 #: content_api/v1/store/controller.php:73 content_cms/terms/display.php:224
 #: content_cms/terms/display.php:249 content_cms/terms/display.php:266
 #: content_crm/member/general/display.php:128 content_crm/member/general/display.php:138
-#: content_my/store/ask/model.php:33 content_v2/store/controller.php:73
+#: content_my/store/ask/model.php:33 content_v2/store--need-to-fix/controller.php:73
 msgid "Please select one itme"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -6599,12 +6599,15 @@ msgstr "بیشتر بدانید"
 #: content_account/load.php:15 content_account/security/rememberme/view.php:26
 #: content_account/security/sessions/view.php:27 content_account/security/view.php:28
 #: content_crm/member/main/view.php:18 content_crm/member/main/view.php:25
-#: dash/app/address.php:192 dash/app/user/edit.php:106 dash/app/user_telegram.php:80
-#: dash/app/user_telegram.php:87 lib/pardakhtyar/app/acceptor.php:145
-#: lib/pardakhtyar/app/acceptor.php:152 lib/pardakhtyar/app/customer.php:158
-#: lib/pardakhtyar/app/merchantIbans.php:127 lib/pardakhtyar/app/merchantIbans.php:134
-#: lib/pardakhtyar/app/shop.php:148 lib/pardakhtyar/app/shop.php:155
-#: lib/pardakhtyar/app/terminal.php:136 lib/pardakhtyar/app/terminal.php:143
+#: content_v2/user/address/add/model.php:14 content_v2/user/address/edit/model.php:14
+#: content_v2/user/address/fetch/view.php:14 content_v2/user/address/remove/model.php:14
+#: content_v2/user/edit/avatar/model.php:16 dash/app/address.php:192
+#: dash/app/user/edit.php:106 dash/app/user_telegram.php:80 dash/app/user_telegram.php:87
+#: lib/pardakhtyar/app/acceptor.php:145 lib/pardakhtyar/app/acceptor.php:152
+#: lib/pardakhtyar/app/customer.php:158 lib/pardakhtyar/app/merchantIbans.php:127
+#: lib/pardakhtyar/app/merchantIbans.php:134 lib/pardakhtyar/app/shop.php:148
+#: lib/pardakhtyar/app/shop.php:155 lib/pardakhtyar/app/terminal.php:136
+#: lib/pardakhtyar/app/terminal.php:143
 msgid "Invalid user id"
 msgstr "شناسه کاربر اشتباه است"
 
@@ -7132,7 +7135,7 @@ msgstr "مرا به خاطر بسپار"
 #: content_account/security/rememberme/view.php:77
 #: content_account/security/sessions/view.php:82 content_account/security/view.php:79
 #: content_api/v1/account/session/controller.php:74
-#: content_crm/member/security/view.php:76 content_v2/account/session/controller.php:74
+#: content_crm/member/security/view.php:76 content_v2/account/session/view.php:42
 #: includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
@@ -7140,7 +7143,7 @@ msgstr "ویندوز"
 #: content_account/security/rememberme/view.php:81
 #: content_account/security/sessions/view.php:87 content_account/security/view.php:83
 #: content_api/v1/account/session/controller.php:78
-#: content_crm/member/security/view.php:80 content_v2/account/session/controller.php:78
+#: content_crm/member/security/view.php:80 content_v2/account/session/view.php:46
 #: includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
@@ -7174,7 +7177,7 @@ msgstr "مسدودسازی"
 
 #: content_account/security/sessions/model.php:15
 #: content_api/v1/account/session/controller.php:99
-#: content_v2/account/session/controller.php:99
+#: content_v2/account/session/model.php:13
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
@@ -7376,91 +7379,100 @@ msgid "brand"
 msgstr "نام تجاری"
 
 #: content_api/v1/account/enter/enter.php:59 content_api/v1/account/enter/enter.php:188
-#: content_v2/account/enter/enter.php:59 content_v2/account/enter/enter.php:188
+#: content_v2/account/enter/model.php:49 content_v2/account/enter/verify/model.php:94
 msgid "Can not signup this mobile"
 msgstr "ما نمی توانیم این موبایل را ثبت کنیم"
 
-#: content_api/v1/account/enter/enter.php:118 content_v2/account/enter/enter.php:118
+#: content_api/v1/account/enter/enter.php:118 content_v2/account/enter/model.php:108
 msgid "The verification code sended to phone number"
 msgstr "کد اعتبار سنجی به این شماره تلفن ارسال شد"
 
-#: content_api/v1/account/enter/enter.php:123 content_v2/account/enter/enter.php:123
+#: content_api/v1/account/enter/enter.php:123 content_v2/account/enter/model.php:113
 msgid "A verification code was sended to user before"
 msgstr "کد اعتبارسنجی قبلا برای این کاربر ارسال شده است"
 
 #: content_api/v1/account/enter/enter.php:134 content_enter/callback/model.php:56
-#: content_enter/callback/model.php:139 content_v2/account/enter/enter.php:134
+#: content_enter/callback/model.php:139 content_v2/account/enter/model.php:124
+#: content_v2/account/enter/verify/model.php:40
 msgid "Mobile not set"
 msgstr "موبایل تنظیم نشده است"
 
 #: content_api/v1/account/enter/enter.php:141 content_enter/app/model.php:23
-#: content_v2/account/enter/enter.php:141 dash/app/address.php:155 dash/app/user.php:275
-#: lib/app/factor/check.php:86 lib/app/setting/setup.php:384
+#: content_v2/account/enter/model.php:131 content_v2/account/enter/verify/model.php:47
+#: dash/app/address.php:155 dash/app/user.php:275 lib/app/factor/check.php:86
+#: lib/app/setting/setup.php:384
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
-#: content_api/v1/account/enter/enter.php:150 content_v2/account/enter/enter.php:150
+#: content_api/v1/account/enter/enter.php:150 content_v2/account/enter/model.php:140
+#: content_v2/account/enter/verify/model.php:56
 msgid "Invalid verifycode"
 msgstr "کد اعتبارسنجی نامعتبر است"
 
-#: content_api/v1/account/enter/enter.php:158 content_v2/account/enter/enter.php:158
+#: content_api/v1/account/enter/enter.php:158 content_v2/account/enter/model.php:148
+#: content_v2/account/enter/verify/model.php:64
 msgid "Verification code is out of range"
 msgstr "کد اعتبارسنجی خارج از محدوده مجاز است"
 
 #: content_api/v1/account/enter/enter.php:180 content_api/v1/account/enter/enter.php:235
-#: content_v2/account/enter/enter.php:180 content_v2/account/enter/enter.php:235
+#: content_v2/account/enter/verify/model.php:86
+#: content_v2/account/enter/verify/model.php:141
 msgid "Verification code not set"
 msgstr "کد اعتبارسنجی ارسال نشده است"
 
-#: content_api/v1/account/enter/enter.php:207 content_v2/account/enter/enter.php:207
+#: content_api/v1/account/enter/enter.php:207
+#: content_v2/account/enter/verify/model.php:113
 msgid "No verifycation code sended to this phone number"
 msgstr "هیچ کد اعتبارسنجی به این شماره ارسال نشده است"
 
-#: content_api/v1/account/enter/enter.php:229 content_v2/account/enter/enter.php:229
+#: content_api/v1/account/enter/enter.php:229
+#: content_v2/account/enter/verify/model.php:135
 msgid "Invalid code"
 msgstr "کد اشتباه است"
 
-#: content_api/v1/account/enter/enter.php:241 content_v2/account/enter/enter.php:241
+#: content_api/v1/account/enter/enter.php:241
+#: content_v2/account/enter/verify/model.php:147
 msgid "Verification code was expired"
 msgstr "کد اعتبارسنجی منقضی شده است"
 
 #: content_api/v1/account/enter/enter.php:247 content_api/v1/account/enter/enter.php:253
-#: content_v2/account/enter/enter.php:247 content_v2/account/enter/enter.php:253
+#: content_v2/account/enter/verify/model.php:153
+#: content_v2/account/enter/verify/model.php:159
 msgid "Verification code not found"
 msgstr "کد اعتبارسنجی یافت نشد"
 
-#: content_api/v1/account/enter/enter.php:287 content_v2/account/enter/enter.php:287
+#: content_api/v1/account/enter/enter.php:287
+#: content_v2/account/enter/verify/model.php:193
 msgid "Code is ok"
 msgstr "کد صحیح است"
 
-#: content_api/v1/account/session/controller.php:52
-#: content_v2/account/session/controller.php:52
+#: content_api/v1/account/session/controller.php:52 content_v2/account/session/view.php:21
 msgid "No session founded"
 msgstr "هیچ نشست فعالی یافت نشد"
 
 #: content_api/v1/account/session/controller.php:118
-#: content_v2/account/session/controller.php:118
+#: content_v2/account/session/model.php:32
 msgid "This Session was terminated"
 msgstr "این نشست مسدود شد"
 
 #: content_api/v1/account/session/controller.php:123
-#: content_v2/account/session/controller.php:123
+#: content_v2/account/session/model.php:37
 msgid "This Session is not active"
 msgstr "این نشست فعال نیست"
 
 #: content_api/v1/account/session/controller.php:131
-#: content_v2/account/session/controller.php:131
+#: content_v2/account/session/model.php:45
 msgid "This is not your session"
 msgstr "این نشست متعلق به شما نیست"
 
 #: content_api/v1/account/session/controller.php:137
-#: content_v2/account/session/controller.php:137
+#: content_v2/account/session/model.php:51
 msgid "Session id not send or invalid"
 msgstr "شناسه نشست ارسال نشده است یا نادرست است"
 
 #: content_api/v1/account/session/controller.php:143
 #: content_crm/transactions/add/model.php:64 content_crm/transactions/minus/model.php:64
-#: content_su/update/model.php:38 content_v2/account/session/controller.php:143
+#: content_su/update/model.php:38 content_v2/account/session/model.php:57
 #: dash/app/posts.php:891 dash/app/posts.php:924 lib/app/export/download.php:28
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
@@ -8326,7 +8338,7 @@ msgstr ""
 
 #: content_api/v1/doc/001-intro/001-intro.php:7
 #: content_api/v1/doc/001-intro/002-endpoint.php:13
-#: content_v2/doc/001-intro/001-intro.php:7 content_v2/doc/001-intro/002-endpoint.php:13
+#: content_v2/doc/001-intro/001-intro.php:7 content_v2/doc/001-intro/002-endpoint.php:14
 msgid "Go to My account."
 msgstr "برو به حساب من."
 
@@ -8409,17 +8421,16 @@ msgid "The latest version is Version 1."
 msgstr "آخرین نسخه،‌ نسخه ۱ است."
 
 #: content_api/v1/doc/001-intro/002-endpoint.php:9
-#: content_v2/doc/001-intro/002-endpoint.php:9
 msgid "The stable base URL for all Version 1 HTTPS endpoints is"
 msgstr "آدرس پایدار برای تمامی نقاط اتصال در نسخه ۱ از طریق اچ‌تی‌تی‌پی‌اس عبارت است از"
 
 #: content_api/v1/doc/001-intro/002-endpoint.php:13
-#: content_v2/doc/001-intro/002-endpoint.php:13
+#: content_v2/doc/001-intro/002-endpoint.php:14
 msgid "Use your store code instead of the {STORE}"
 msgstr "عبارت {STORE} را با کد فروشگاه خود جایگزین کنید"
 
 #: content_api/v1/doc/001-intro/002-endpoint.php:13
-#: content_v2/doc/001-intro/002-endpoint.php:13
+#: content_v2/doc/001-intro/002-endpoint.php:14
 msgid ""
 "If you are registered and have store, you can obtain your {STORE} key from 'My Account' "
 "page."
@@ -9528,12 +9539,10 @@ msgid "Get contact text"
 msgstr "دریافت متن و اطلاعات تماس"
 
 #: content_api/v1/doc/030-business/034-posts.php:3
-#: content_v2/doc/030-business/034-posts.php:3
 msgid "Get last posts"
 msgstr "دریافت آخرین نوشته‌ها"
 
 #: content_api/v1/doc/030-business/035-get-post.php:3
-#: content_v2/doc/030-business/035-get-post.php:3
 msgid "Get last get-post"
 msgstr "دریافت آخرین پست‌ها"
 
@@ -9821,7 +9830,6 @@ msgstr "دریافت جزئیات محصول"
 #: content_api/v1/doc/060-product/330-product-list.php:3
 #: content_api/v1/doc/060-product/331-product-search.php:3
 #: content_v2/doc/060-product/330-product-list.php:3
-#: content_v2/doc/060-product/331-product-search.php:3
 msgid "Get list of products"
 msgstr "دریافت لیست محصولات"
 
@@ -9952,21 +9960,20 @@ msgid "Please choose city"
 msgstr "لطفا شهر را انتخاب کنید"
 
 #: content_api/v1/product/action.php:62 content_api/v1/product/action.php:103
-#: content_v2/product/action.php:62 content_v2/product/action.php:103
+#: content_v2/product/gallery/remove/model.php:15
+#: content_v2/product/gallery/thumb/model.php:15
 msgid "File id is required"
 msgstr "شناسه فایل الزامی است"
 
-#: content_api/v1/product/action.php:68 content_v2/product/action.php:68
+#: content_api/v1/product/action.php:68 content_v2/product/gallery/thumb/model.php:21
 msgid "Product thumb set"
 msgstr "تصویر شاخص محصول تنظیم شد"
 
-#: content_api/v1/product/action.php:110 content_v2/product/action.php:110
+#: content_api/v1/product/action.php:110 content_v2/product/gallery/remove/model.php:22
 msgid "File removed from gallery"
 msgstr "فایل از گالری حذف شد"
 
-#: content_api/v1/profile/controller.php:143 content_v2/profile/old/controller.php:143
-#: content_v2/profile/old/model.php:143 content_v2/profile/old/view.php:143
-#: content_v2/profile/update/avatar/model.php:22
+#: content_api/v1/profile/controller.php:143 content_v2/profile/update/avatar/model.php:22
 msgid "No file sended"
 msgstr "فایلی ارسال نشد"
 
@@ -10026,7 +10033,7 @@ msgstr "پارامتر :val اشتباه است"
 msgid "Send your request as json not in post field"
 msgstr "در خواست خود را به صورت جیسون ارسال کنید نه در حالت post field"
 
-#: content_api/v1/user/add.php:43 content_v2/user/add.php:43
+#: content_api/v1/user/add.php:43
 msgid "Please upload a file"
 msgstr "لطفا فایلی را بارگذاری کنید"
 
@@ -12232,7 +12239,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/nic_domain/get.php:190 lib/app/nic_domain/search.php:27
 #: lib/app/nic_domain/search.php:176 lib/app/nic_domain/search.php:308
 #: lib/app/nic_domainaction/search.php:12 lib/app/nic_log/search.php:27
-#: lib/app/nic_poll/get.php:11 lib/app/nic_poll/get.php:65 lib/app/product/tag.php:369
+#: lib/app/nic_poll/get.php:58 lib/app/nic_poll/get.php:71 lib/app/product/tag.php:369
 #: lib/app/product/tag.php:407 lib/app/store/add.php:81
 msgid "Please login to continue"
 msgstr "لطفا برای ادامه مراحل وارد سیستم شوید"
@@ -14693,6 +14700,36 @@ msgstr "داشبورد پشتیبانی"
 msgid "Invalid access in url"
 msgstr "دسترسی نادرست در آدرس"
 
+#: content_v2/business/pages.php:23
+msgid "This page is empty"
+msgstr "این صفحه خالی است"
+
+#: content_v2/business/posts/detail/view.php:14 dash/app/posts.php:1405
+#: dash/upload/cms.php:16 dash/upload/cms.php:65 dash/upload/cms.php:82
+#: dash/upload/product.php:20 dash/upload/product.php:37
+msgid "Post not found"
+msgstr "پست یافت نشد"
+
+#: content_v2/business/posts/fetch/view.php:23
+msgid "No posts was found"
+msgstr "هیچ نوشته‌ای یافت نشد"
+
+#: content_v2/doc/001-intro/002-endpoint.php:9
+msgid "The stable base URL for all Version 2 HTTPS endpoints is"
+msgstr "آدرس پایدار برای تمامی نقاط اتصال در نسخه ۲ از طریق اچ‌تی‌تی‌پی‌اس عبارت است از"
+
+#: content_v2/doc/030-business/034-posts.php:3
+msgid "Get last posts list"
+msgstr "دریافت لیست آخرین نوشته‌ها"
+
+#: content_v2/doc/030-business/035-get-post.php:3
+msgid "Get one post detail"
+msgstr "دریافت جزئیات یک نوشته"
+
+#: content_v2/doc/060-product/331-product-search.php:3
+msgid "Search in products"
+msgstr "جستجو در محصولات"
+
 #: content_v2/doc/view.php:10
 msgid ":val API documentation v2"
 msgstr "نسخه ۲ مستندات رابط برنامه‌نویسی :val"
@@ -15274,11 +15311,6 @@ msgstr "کاربر نامعتبر"
 msgid "Some :type is wrong"
 msgstr "برخی از :type اشتباه هستند"
 
-#: dash/app/posts.php:1405 dash/upload/cms.php:16 dash/upload/cms.php:65
-#: dash/upload/cms.php:82 dash/upload/product.php:20 dash/upload/product.php:37
-msgid "Post not found"
-msgstr "پست یافت نشد"
-
 #: dash/app/posts.php:1430
 msgid "The Featured Image removed"
 msgstr "تصویر شاخص حذف شد"
@@ -15855,7 +15887,7 @@ msgstr "سامان سلطانی"
 msgid "SITE"
 msgstr "سایت"
 
-#: dash/engine/store.php:69
+#: dash/engine/store.php:65
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
@@ -23488,7 +23520,7 @@ msgstr "ویرایش دی‌ان‌اس دامنه‌"
 msgid "Update domain holder"
 msgstr "به‌روزرسانی رابط‌های دامنه"
 
-#: lib/app/nic_poll/get.php:80
+#: lib/app/nic_poll/get.php:86
 msgid "Your domain status was updated"
 msgstr "وضعیت دامنه شما به‌روز شده است"
 
