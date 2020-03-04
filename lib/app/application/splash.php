@@ -23,7 +23,7 @@ class splash
 
 		if(isset($get['id']))
 		{
-			\dash\db\setting\update::value($_theme, $get['id']);
+			\lib\db\setting\update::value($_theme, $get['id']);
 		}
 		else
 		{

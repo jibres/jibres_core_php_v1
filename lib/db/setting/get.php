@@ -45,8 +45,8 @@ class get
 
 	public static function platform_cat_key($_platform, $_cat, $_key)
 	{
-		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";
-		$result = \dash\db::get($query);
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 

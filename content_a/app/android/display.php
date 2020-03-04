@@ -1,8 +1,19 @@
+<?php if(!\dash\data::appQueue()) {?>
 
-<div class="cbox">
-  <div class="msg"><a href="<?php echo \dash\url::this(); ?>/android/intro"><?php echo T_("Intro setting"); ?></a></div>
-  <div class="msg"><a href="<?php echo \dash\url::this(); ?>/android/splash"><?php echo T_("Splash setting"); ?></a></div>
+<div class="welcome">
+  <p><?php echo T_("Easily Create your store application"); ?></p>
+  <h2><?php echo T_("Create a custom app for your store"); ?></h2>
+
+  <div class="buildBtn">
+    <a class="btn xl master" href="<?php echo \dash\url::that(); ?>/splash"><?php echo T_("Build it now"); ?></a>
+  </div>
+
 </div>
 
+
+<?php }else{ ?>
+
+
+<?php } //endif ?>
 
 

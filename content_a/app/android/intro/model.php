@@ -35,6 +35,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
+			\dash\redirect::to(\dash\url::that(). '/setting');
 			\dash\redirect::pwd();
 		}
 	}
