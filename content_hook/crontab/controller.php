@@ -5,7 +5,6 @@ namespace content_hook\crontab;
 class controller
 {
 	use \content_hook\crontab\times;
-	use \content_hook\crontab\fn_list;
 
 
 	public static function routing()
@@ -60,22 +59,22 @@ class controller
 			if(self::every_hour())
 			{
 				\dash\engine\backup\database::run();
-			}
 
-			if(self::every_30_min())
-			{
 				\lib\app\statistics\homepage::refresh();
+
 				self::check_error_file();
-				self::removetempfile();
 			}
 		}
 
 		if(\dash\engine\store::inStore())
 		{
-			// run export if exists
-			\lib\app\export\run::crontab();
-			// run import if exists
-			\lib\app\import\run::crontab();
+			if(self::every_5_min())
+			{
+				// run export if exists
+				\lib\app\export\run::crontab();
+				// run import if exists
+				\lib\app\import\run::crontab();
+			}
 		}
 
 		\dash\app\log\send::notification();
@@ -92,9 +91,10 @@ class controller
 			\dash\db\sessions::remove_old_expire();
 		}
 
-		if(self::every_10_min())
+		if(self::every_hour())
 		{
-			self::expire_notif();
+
+			\dash\db\logs::expire_notif();
 			\dash\db\comments::close_solved_ticket();
 			\dash\utility\ip::check_is_block();
 			\dash\db\comments::spam_by_block_ip();
@@ -104,6 +104,24 @@ class controller
 		if(self::at('01:00'))
 		{
 			\dash\utility\dayevent::save();
+		}
+	}
+
+
+
+
+	private static function check_error_file()
+	{
+		$sqlError = YARD. 'jibres_log/database/error.sql';
+		if(is_file($sqlError))
+		{
+			\dash\log::set('su_sqlError');
+		}
+
+		$phpBug = YARD. 'jibres_log/php/exception.log';
+		if(is_file($phpBug))
+		{
+			\dash\log::set('su_phpBug');
 		}
 	}
 
