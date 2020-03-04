@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor() || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}?>>
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" prefix="og: http://ogp.me/ns#"<?php if (false || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}?>>
 <head>
  <meta charset="UTF-8"/>
  <base href="<?php echo \dash\url::base();?>"/>
@@ -145,7 +145,7 @@ if(\dash\option::config('site', 'googleAnalytics'))
 // foot_js
 // <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
 
-if(\dash\permission::supervisor())
+if(false)
 {
   if(\dash\url::isLocal())
   {
