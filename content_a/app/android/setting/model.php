@@ -15,16 +15,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\lib\app\application\queue::set_android();
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::that());
-			}
-			else
-			{
-				\dash\redirect::pwd();
-			}
+			\dash\redirect::to(\dash\url::that(). '/build');
 		}
 	}
 }

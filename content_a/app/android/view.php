@@ -15,6 +15,7 @@ class view
 
 		$app_queue = \lib\app\application\queue::detail();
 		\dash\data::appQueue($app_queue);
+
 	}
 }
 ?>

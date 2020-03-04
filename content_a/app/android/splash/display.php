@@ -1,4 +1,4 @@
-
+<?php require_once(root. 'content_a/app/android/pageSteps.php'); ?>
 <div class="f justify-center">
   <div class="c6 m12 s12">
     <div class="cbox">
