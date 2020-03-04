@@ -19,14 +19,24 @@ class domain_info
 
 
 
-	private static function analyze_domain_info($_args)
+	private static function analyze_domain_info($_domain)
 	{
 
-		$object_result = self::get_response_info($_args);
+		$object_result = self::get_response_info($_domain);
 
 		if(!$object_result)
 		{
 			return false;
+		}
+
+		if(\lib\nic\exec\run::result_code($object_result) === '2303')
+		{
+			// error object not found and check domain is available so this domain is rejected
+			$check_domain = \lib\nic\exec\domain_check::check($_domain);
+			if(isset($check_domain['available']) && $check_domain['available'])
+			{
+				return ['status' => ['irnicRegistrationRejected']];
+			}
 		}
 
 		$result = [];
