@@ -1,4 +1,4 @@
-CREATE TABLE `store_app` (
+CREATE TABLE jibres.store_app (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NOT NULL,
 `user_id` int(10) UNSIGNED NOT NULL,

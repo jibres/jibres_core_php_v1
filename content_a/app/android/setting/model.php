@@ -12,10 +12,19 @@ class model
 
 		$theme_detail = \lib\app\application\detail::set_android_detail($post);
 
+
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that());
-			\dash\redirect::pwd();
+			\lib\app\application\queue::set_android();
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }
