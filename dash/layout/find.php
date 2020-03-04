@@ -41,12 +41,16 @@ class find
 			}
 		}
 
-		if($myPage !== null)
+		if($myPage !== null || \dash\layout\func::display())
 		{
 			echo "\n <main id='pageContent' data-xhr='pageContent'>";
 			if($myPage)
 			{
 				require_once $myPage;
+			}
+			elseif (\dash\layout\func::display())
+			{
+				require_once \dash\layout\func::display();
 			}
 			echo "\n </main>";
 		}
