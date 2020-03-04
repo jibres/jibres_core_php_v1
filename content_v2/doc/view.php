@@ -20,8 +20,9 @@ class view
 		$CustomerApiURL = \dash\url::protocol(). '://api.jibres.'. \dash\url::tld(). '/'. \dash\language::current(). '/'. $myStore .'/v2/';
 		\dash\data::CustomerApiURL($CustomerApiURL);
 
-		$JibresApiURL = 'need to change it to core --';
-		$JibresApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/';
+		// $JibresApiURL = 'need to change it to core --';
+		// $JibresApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/';
+		$JibresApiURL = \dash\url::protocol(). '://api.jibres.'. \dash\url::tld(). '/'. \dash\language::current(). '/v2/';
 		\dash\data::JibresApiURL($JibresApiURL);
 
 		$YourSubdomain = 'YourSubdomain';

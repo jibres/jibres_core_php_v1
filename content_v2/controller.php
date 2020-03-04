@@ -8,7 +8,7 @@ class controller
 	{
 		self::check_subdomain_and_content();
 
-		if(\dash\url::module() === 'doc')
+		if(in_array(\dash\url::module(), ['doc', 'location']))
 		{
 
 		}
