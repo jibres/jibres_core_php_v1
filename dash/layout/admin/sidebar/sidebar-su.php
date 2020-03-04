@@ -14,6 +14,7 @@
     <li><a href="<?php echo \dash\url::here(); ?>/update" data-shortkey="85+80" data-shortkey-timeout='500'><?php echo T_("Update"); ?><kbd class="floatLa mRa10 fs08">up</kbd></a></li>
 
     <li><a href="<?php echo \dash\url::here(); ?>/log"><?php echo T_("Log"); ?></a></li>
+    <li><a href="<?php echo \dash\url::here(); ?>/tempfile"><?php echo T_("Temp file"); ?></a></li>
     <li><a href="<?php echo \dash\url::here(); ?>/apilog"><?php echo T_("Api Log"); ?></a></li>
     <li><a href="<?php echo \dash\url::here(); ?>/smsclient"><?php echo T_("Sms client"); ?></a></li>
 
