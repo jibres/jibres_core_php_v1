@@ -111,13 +111,11 @@ class store
 	}
 
 
-	private static function config_by_subdomain()
+	public static function free_subdomain($_subdomain = null)
 	{
-		$subdomain        = \dash\url::subdomain();
-
-		if(!$subdomain)
+		if(!$_subdomain)
 		{
-			return;
+			$_subdomain        = \dash\url::subdomain();
 		}
 
 		$free_subdomain =
@@ -127,7 +125,26 @@ class store
 			'core',
 		];
 
-		if(in_array($subdomain, $free_subdomain))
+		if(in_array($_subdomain, $free_subdomain))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+
+	private static function config_by_subdomain()
+	{
+		$subdomain        = \dash\url::subdomain();
+
+		if(!$subdomain)
+		{
+			return;
+		}
+
+		if(self::free_subdomain())
 		{
 			return;
 		}

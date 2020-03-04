@@ -79,7 +79,14 @@ class store
 		}
 		elseif(\dash\url::subdomain())
 		{
-			return \dash\url::subdomain();
+			if(\dash\engine\store::free_subdomain())
+			{
+				return null;
+			}
+			else
+			{
+				return \dash\url::subdomain();
+			}
 		}
 	}
 
