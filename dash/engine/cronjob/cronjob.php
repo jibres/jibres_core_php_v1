@@ -26,7 +26,7 @@ class cronjob
 		// index.php directory
 		$index_php_addr = $jibres_addr. "public_html/index.php";
 
-		// the domain (this domain is safe and nobody can use this domain)
+
 		$SERVER_NAME = 'jibres.ir';
 
 		// fake $_SERVER
@@ -50,25 +50,24 @@ class cronjob
 		$server['HTTP_HOST'] = $HTTP_HOST;
 		$store_exec          = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
 		$exec[]              = $store_exec;
-
 		// load other store name
-		// $list_stores = glob($list_stores_addr. '*');
+		$list_stores = glob($list_stores_addr. '*');
 
-		// if(empty($list_stores))
-		// {
-		// 	self::save_log('stores subdomain folder is empty!');
-		// }
-		// else
-		// {
-		// 	foreach ($list_stores as $key => $value)
-		// 	{
-		// 		$subdomain           = str_replace($list_stores_addr, '', $value);
-		// 		$HTTP_HOST           = $subdomain. '.'. $SERVER_NAME;
-		// 		$server['HTTP_HOST'] = $HTTP_HOST;
-		// 		$store_exec = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
-		// 		$exec[] = $store_exec;
-		// 	}
-		// }
+		if(empty($list_stores))
+		{
+			// self::save_log('stores subdomain folder is empty!');
+		}
+		else
+		{
+			foreach ($list_stores as $key => $value)
+			{
+				$subdomain           = str_replace($list_stores_addr, '', $value);
+				$HTTP_HOST           = $subdomain. '.'. $SERVER_NAME;
+				$server['HTTP_HOST'] = $HTTP_HOST;
+				$store_exec = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
+				$exec[] = $store_exec;
+			}
+		}
 
 		$exec_addr = __DIR__. '/exec.me.php';
 
