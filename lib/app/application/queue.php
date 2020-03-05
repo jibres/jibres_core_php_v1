@@ -151,6 +151,8 @@ class queue
 
 	public static function set_status($_store, $_status, $_filename)
 	{
+		\dash\log::file(json_encode(func_get_args()), 'transfer_file_apk', 'application');
+
 		if(!in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
 		{
 			\dash\notif::error(T_("Please set the status"));
