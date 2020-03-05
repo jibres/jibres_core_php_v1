@@ -385,6 +385,17 @@ class store
 	}
 
 
+	public static function code()
+	{
+		$id = self::id();
+		if($id)
+		{
+			return \dash\coding::encode($id);
+		}
+
+		return null;
+	}
+
 
 	/**
 	 * get title of store

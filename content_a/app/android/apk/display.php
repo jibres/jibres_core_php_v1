@@ -5,11 +5,11 @@
       <h4><?php echo T_("Download your application now"); ?></h4>
 
       <form method="post" autocomplete="off">
-        <pre>
-          <?php print_r(\dash\data::apiList()); ?>
-        </pre>
-        <div class="txtRa">
-          <button class="btn success"><?php echo T_("Download"); ?></button>
+          <?php if(\dash\data::downoadAPK()) {?>
+            <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn block success xl"><?php echo T_("Download Now"); ?></a>
+          <?php }//endif ?>
+        <div class="txtRa mT10">
+          <button class="btn secondary"><?php echo T_("Rebuild"); ?></button>
         </div>
       </form>
     </div>

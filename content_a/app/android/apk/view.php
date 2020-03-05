@@ -16,8 +16,16 @@ class view
 		\dash\data::appDetail($appDetail);
 
 
-		$list = glob(YARD . 'talambar_cloud/'. \dash\url::store() . '/app/*');
-		\dash\data::apiList($list);
+		$app_queue = \lib\app\application\queue::detail();
+
+		if(isset($app_queue['status']) && $app_queue['status'] === 'done')
+		{
+			$downoadAPK = \dash\url::set_subdomain(\lib\store::detail('subdomain'));
+			\dash\data::downoadAPK($downoadAPK. '/app');
+		}
+
+		\dash\data::appQueue($app_queue);
+
 
 	}
 }
