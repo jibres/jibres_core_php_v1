@@ -5,7 +5,8 @@ class model
 {
 	public static function post()
 	{
-		\dash\notif::info('hi');
+		\dash\notif::info("rebuild");
+		\lib\app\application\queue::rebuild();
 	}
 }
 ?>

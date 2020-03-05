@@ -20,6 +20,16 @@ class queue
 
 	}
 
+	public static function rebuild()
+	{
+		$current_queue = self::detail();
+		if(isset($current_queue['id']))
+		{
+			\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'queue');
+		}
+
+
+	}
 
 	public static function set_android()
 	{
