@@ -35,8 +35,15 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that(). '/setting');
-			\dash\redirect::pwd();
+			if(\dash\request::get('setup') === 'wizard')
+			{
+				\dash\redirect::to(\dash\url::that(). '/setting?setup=wizard');
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
+
 		}
 	}
 }

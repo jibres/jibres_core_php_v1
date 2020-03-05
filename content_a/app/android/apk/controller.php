@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\android\build;
+namespace content_a\app\android\apk;
 
 
 class controller

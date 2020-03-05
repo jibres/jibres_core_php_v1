@@ -1,12 +1,12 @@
 <?php
-namespace content_a\app\android\build;
+namespace content_a\app\android\apk;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Bulid application'));
+		\dash\data::page_title(T_('Download app.apk'));
 
 		// back
 		\dash\data::back_text(T_('Back'));

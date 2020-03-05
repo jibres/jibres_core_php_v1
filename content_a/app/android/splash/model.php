@@ -17,8 +17,15 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that(). '/intro');
-			\dash\redirect::pwd();
+			if(\dash\request::get('setup') === 'wizard')
+			{
+				\dash\redirect::to(\dash\url::that(). '/intro?setup=wizard');
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
+
 		}
 	}
 }

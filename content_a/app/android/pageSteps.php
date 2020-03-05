@@ -28,10 +28,10 @@
 	</div>
 
 	<div class="c s12">
-		<a href="<?php echo \dash\url::that(); ?>/build" class="dcard x1 <?php if(\dash\url::subchild() === 'build') { echo ' active';} ?>" >
+		<a href="<?php echo \dash\url::that(); ?>/apk" class="dcard x1 <?php if(\dash\url::subchild() === 'apk') { echo ' active';} ?>" >
 		 <div class="statistic green">
 		  <div class="value"><i class="sf-android-1"></i></div>
-		  <div class="label"><?php echo T_("Build"); ?></div>
+		  <div class="label"><?php echo T_("Download APK"); ?></div>
 		 </div>
 		</a>
 	</div>
