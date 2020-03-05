@@ -8,10 +8,10 @@ class view
 	{
 		$result = \lib\app\application\queue::get_build_queue();
 
-		$result =
-		[
-			'store' => 'y88p',
-		];
+		// $result =
+		// [
+		// 	'store' => 'y88p',
+		// ];
 
 		\dash\notif::api($result);
 	}
