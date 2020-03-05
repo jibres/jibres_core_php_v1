@@ -25,8 +25,8 @@ class view
 
 			'bg' =>
 			[
-				'from' => '#c80a5a',
-				'to'   => '#c80a5a',
+				'from' => '#36D1DC',
+				'to'   => '#5B86E5',
 			],
 
 			'color' =>
