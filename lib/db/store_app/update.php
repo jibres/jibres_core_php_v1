@@ -20,5 +20,17 @@ class update
 		return $result;
 	}
 
+
+	public static function record($_args, $_id)
+	{
+		$set = \dash\db\config::make_set($_args);
+		if($set && $_id && is_numeric($_id))
+		{
+			// make update query
+			$query = "UPDATE store_app SET $set WHERE store_app.id = $_id LIMIT 1";
+			return \dash\db::query($query, 'master');
+		}
+	}
+
 }
 ?>

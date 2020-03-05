@@ -91,7 +91,12 @@ class queue
 
 		if(isset($result['id']) && intval($result['id']) === intval($_id))
 		{
-			\lib\db\store_app\update::set_status($_id, $_status);
+			$update =
+			[
+				'status' => $_status,
+				'datedone' => date("Y-m-d H:i:s"),
+			];
+			\lib\db\store_app\update::record($update, $_id);
 			\dash\notif::ok(T_("Queue status updated"));
 			return true;
 		}
