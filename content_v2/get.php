@@ -7,17 +7,23 @@ class get
 	public static function endpoint($_module = null)
 	{
 		$myEndpoint = '';
+		$store = '';
+		if(\dash\url::store())
+		{
+			$store = '/'. \dash\url::store();
+		}
+
 		if(\dash\url::domain() === 'jibres.ir')
 		{
-			$myEndpoint = 'https://api.jibres.ir/v2/';
+			$myEndpoint = 'https://api.jibres.ir'. $store. '/v2/';
 		}
 		elseif(\dash\url::domain() === 'jibres.local')
 		{
-			$myEndpoint = 'http://api.jibres.local/v2/';
+			$myEndpoint = 'http://api.jibres.local'. $store. '/v2/';
 		}
 		else
 		{
-			$myEndpoint = 'https://api.jibres.com/v2/';
+			$myEndpoint = 'https://api.jibres.com'. $store. '/v2/';
 		}
 
 		if($_module)

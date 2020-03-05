@@ -6,17 +6,19 @@ class view
 {
 	public static function config()
 	{
+		$load_app_detail = \lib\app\application\detail::get_android();
+
 		$result =
 		[
 			'namespace' => 'jibres',
-			'title'     => T_('Jibres'),
+			'title'     => isset($load_app_detail['title']) ? $load_app_detail['title'] : T_('Jibres'),
 			'desc'      => \dash\data::site_desc(),
 			'slogan'    => \dash\data::site_slogan(),
 			'logo'      =>
 			[
-				'standard'      => \dash\url::logo(),
-				'vertical'      => \dash\url::logo(),
-				'icon'      => \dash\url::icon(),
+				'standard' => isset($load_app_detail['logo']) ? $load_app_detail['logo'] : \dash\url::logo(),
+				'vertical' => \dash\url::logo(),
+				'icon'     => \dash\url::icon(),
 			],
 			'version'   =>
 			[
