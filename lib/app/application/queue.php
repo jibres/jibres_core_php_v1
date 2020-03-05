@@ -32,25 +32,73 @@ class queue
 
 		$current_queue = self::detail();
 
-		if(!$current_queue)
+		if(!$current_queue || !isset($current_queue['status']) || !isset($current_queue['id']))
 		{
-			$insert_queue =
-			[
-				'store_id'     => \lib\store::id(), //` int(10) UNSIGNED NOT NULL,
-				'user_id'      => \dash\user::id(), //` int(10) UNSIGNED NOT NULL,
-				'version'      => \lib\app\application\version::get_last_version(), //` smallint(5) UNSIGNED NULL DEFAULT NULL,
-				'status'       => 'queue', //` enum('queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable') DEFAULT NULL,
-				'daterequest'  => date("Y-m-d H:i:s"), //` timestamp NULL DEFAULT NULL,
-				'datequeue'    => null, //` timestamp NULL DEFAULT NULL,
-				'datedone'     => null, //` timestamp NULL DEFAULT NULL,
-				'datedownload' => null, //` timestamp NULL DEFAULT NULL,
-				'datemodified' => null, //` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-			];
+			self::new_queue();
+		}
+		else
+		{
+			switch ($current_queue['status'])
+			{
+				case 'queue':
+				case 'inprogress':
+					// do nothing
+					break;
 
-			\lib\db\store_app\insert::new_record($insert_queue);
+				case 'done':
+				case 'enable':
+					if(isset($current_queue['version']) && $current_queue['version'])
+					{
+						if(intval(\lib\app\application\version::get_last_version()) > intval($current_queue['version']))
+						{
+							\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'expire');
+							self::new_queue();
+						}
+						else
+						{
+							// do nothing
+						}
+					}
+					else
+					{
+						\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'expire');
+						self::new_queue();
+					}
+					break;
+
+				case 'failed':
+				case 'disable':
+				case 'expire':
+				case 'cancel':
+				case 'delete':
+					self::new_queue();
+					break;
+
+				default:
+					// do nothing
+					break;
+			}
 		}
 	}
 
+
+	private static function new_queue()
+	{
+		$insert_queue =
+		[
+			'store_id'     => \lib\store::id(),
+			'user_id'      => \dash\user::id(),
+			'version'      => \lib\app\application\version::get_last_version(),
+			'status'       => 'queue',
+			'daterequest'  => date("Y-m-d H:i:s"),
+			'datequeue'    => null,
+			'datedone'     => null,
+			'datedownload' => null,
+			'datemodified' => null,
+		];
+
+		\lib\db\store_app\insert::new_record($insert_queue);
+	}
 
 
 	public static function get_build_queue($_detail = false)
