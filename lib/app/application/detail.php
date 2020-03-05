@@ -111,7 +111,7 @@ class detail
 			{
 				if($value['key'] === 'logo')
 				{
-					$result['logo']['icon'] = \lib\filepath::fix($value['value']);
+					$result['logo'] = \lib\filepath::fix($value['value']);
 				}
 				else
 				{
