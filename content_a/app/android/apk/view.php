@@ -15,6 +15,10 @@ class view
 		$appDetail = \lib\app\application\detail::get_android();
 		\dash\data::appDetail($appDetail);
 
+
+		$list = glob(YARD . 'talambar_cloud/'. \dash\url::store() . '/app/*');
+		\dash\data::apiList($list);
+
 	}
 }
 ?>

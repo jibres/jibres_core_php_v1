@@ -5,7 +5,9 @@
       <h4><?php echo T_("Download your application now"); ?></h4>
 
       <form method="post" autocomplete="off">
-
+        <pre>
+          <?php print_r(\dash\data::apiList()); ?>
+        </pre>
         <div class="txtRa">
           <button class="btn success"><?php echo T_("Download"); ?></button>
         </div>

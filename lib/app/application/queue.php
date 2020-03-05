@@ -141,7 +141,7 @@ class queue
 	}
 
 
-	public static function set_status($_store, $_status)
+	public static function set_status($_store, $_status, $_filename)
 	{
 		if(!in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
 		{
@@ -162,10 +162,19 @@ class queue
 		{
 			$update =
 			[
-				'status' => $_status,
+				'file'     => $_filename,
+				'status'   => $_status,
 				'datedone' => date("Y-m-d H:i:s"),
 			];
 			\lib\db\store_app\update::record($update, $result['id']);
+
+
+			if($_filename)
+			{
+				// download file in store app folder
+				self::transfer_file($_filename, $_store);
+			}
+
 			\dash\notif::ok(T_("Queue status updated"));
 			return true;
 		}
@@ -174,6 +183,21 @@ class queue
 			\dash\notif::error(T_("This id is not current application id"));
 			return false;
 		}
+	}
+
+
+	private static function transfer_file($_filename, $_store)
+	{
+		$host = 'http://app.jibres.com/';
+		$source = $host. $_filename;
+		$source = trim($source, '/');
+
+
+		$store_addr = YARD . 'talambar_cloud/'. $_store . '/app/';
+		\dash\file::makeDir($store_addr, null, true);
+		$dest = $store_addr . basename($_filename);
+
+		copy($source, $dest);
 	}
 }
 ?>

@@ -6,9 +6,11 @@ class model
 {
 	public static function post()
 	{
-		$status = \dash\request::post('status');
-		$store  = \dash\request::post('store');
-		\lib\app\application\queue::set_status($store, $status);
+		$status   = \dash\request::post('status');
+		$store    = \dash\request::post('store');
+		$filename = \dash\request::post('version');
+
+		\lib\app\application\queue::set_status($store, $status, $filename);
 	}
 }
 ?>
