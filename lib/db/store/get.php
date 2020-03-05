@@ -42,7 +42,7 @@ class get
 				store
 			INNER JOIN store_data ON store_data.id = store.id
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\db::get($query, null, false, 'master');
 		return $result;
 	}
 

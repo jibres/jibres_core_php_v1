@@ -135,6 +135,7 @@ class database
 		$folder       = date('Y_m_d'). '/'. $hour_folder;
 		$backup_dir = self::backup_folder_path() . '/'. $folder;
 
+		// thats mean the backup of this time is already taken
 		if(is_dir($backup_dir))
 		{
 			return;
@@ -147,6 +148,9 @@ class database
 		// make jibres backup
 		$fuel      = \dash\engine\fuel::get('master');
 		self::backup_dump_exec($backup_dir, $fuel, 'jibres');
+		// make nic backup
+		$fuel      = \dash\engine\fuel::get('nic');
+		self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic');
 
 		foreach ($all_store as $key => $value)
 		{
@@ -154,6 +158,8 @@ class database
 			$db_name   = \dash\engine\store::make_database_name($value['id']);
 			self::backup_dump_exec($backup_dir, $fuel, $db_name);
 		}
+
+		\dash\file::append(__DIR__.'/temp.me.exec', ' echo end '. "\n");
 
 		$exec = exec('sh '. __DIR__.'/temp.me.exec', $output, $return_var);
 
@@ -174,7 +180,9 @@ class database
 		$cmd .= " --host='$_fuel[host]' --set-charset='$db_charset'";
 		$cmd .= " --user='$_fuel[user]'";
 		$cmd .= " --password='$_fuel[pass]' '$_database_name'";
-		$cmd .= " | bzip2 -c > $_dir/$dest_file 2>&1 &";
+		$cmd .= " | bzip2 -c > $_dir/$dest_file &&";
+
+		// $cmd .= " | bzip2 -c > $_dir/$dest_file 2>&1 &";
 
 		// to import this file
 		// bunzip2 < filename.sql.bz2 | mysql -u root -p $project_name
