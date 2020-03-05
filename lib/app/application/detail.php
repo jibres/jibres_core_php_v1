@@ -103,7 +103,7 @@ class detail
 	public static function get_android()
 	{
 
-		$setting = \lib\db\setting\get::platform_cat('android', 'setting');
+		$setting = \lib\db\setting\get::platform('android');
 		$result = [];
 		foreach ($setting as $key => $value)
 		{

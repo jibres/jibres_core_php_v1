@@ -47,6 +47,7 @@ class splash
 	public static function get_android()
 	{
 		$result = \lib\db\setting\get::platform_cat('android', 'splash');
+
 		if(!is_array($result))
 		{
 			$result = [];

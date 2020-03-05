@@ -7,54 +7,38 @@ class view
 	public static function config()
 	{
 
-		\content_r10\android\splash\view::config();
+		$detail = \lib\app\application\detail::get_android();
+		$logo   = isset($detail['logo']) ? $detail['logo'] : \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png';
+		$theme  = isset($detail['theme']) ? $detail['theme'] : 'Jibres';
+		$title  = isset($detail['title']) ? $detail['title'] : T_('Jibres');
+		$desc   = isset($detail['desc']) ? $detail['desc'] : T_('Sell and Enjoy');
+		$slogan = isset($detail['slogan']) ? $detail['slogan'] : T_('Powered by Jibres');
 
-		// $result =
-		// [
-		// 	'logo'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-		// 	'theme' => 'Jibres',
-		// 	'title' => T_('Jibres'),
-		// 	'desc'  => T_('Sell and Enjoy'),
-		// 	'meta'  => 'Powered by Ermile',
-		// 	'sleep' => 3000,
+		$result =
+		[
+			'logo'  => $logo,
+			'theme' => $theme,
+			'title' => $title,
+			'desc'  => $desc,
+			'meta'  => $slogan,
+			'sleep' => 3000,
 
-		// 	'bg' =>
-		// 	[
-		// 		'from' => '#c80a5a',
-		// 		'to'   => '#c80a5a',
-		// 	],
+			'bg' =>
+			[
+				'from' => '#c80a5a',
+				'to'   => '#c80a5a',
+			],
 
-		// 	'color' =>
-		// 	[
-		// 		'primary'   => '#ffffff',
-		// 		'secondary' => '#eeeeee',
-		// 	],
-		// ];
+			'color' =>
+			[
+				'primary'   => '#ffffff',
+				'secondary' => '#eeeeee',
+			],
+		];
 
-		// \dash\notif::api($result);
+		\dash\notif::api($result);
 
-		// $result =
-		// [
-		// 	'logo'  => \dash\url::cdn(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-		// 	'theme' => 'Jibres',
-		// 	'title' => T_('Jibres'),
-		// 	'desc'  => T_('Sell and Enjoy'),
-		// 	'meta'  => 'Powered by Ermile',
 
-		// 	'bg' =>
-		// 	[
-		// 		'from' => '#4173cc',
-		// 		'to'   => '#1da1f3',
-		// 	],
-
-		// 	'color' =>
-		// 	[
-		// 		'primary'   => '#fff',
-		// 		'secondary' => '#eee',
-		// 	],
-		// ];
-
-		// \dash\notif::api($result);
 	}
 }
 ?>
