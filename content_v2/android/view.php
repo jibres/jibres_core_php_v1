@@ -10,20 +10,20 @@ class view
 
 		$result =
 		[
-			'namespace' => 'jibres',
+			'namespace' => 'com.jibres.'. \dash\url::store(),
 			'title'     => isset($load_app_detail['title']) ? $load_app_detail['title'] : T_('Jibres'),
-			'desc'      => \dash\data::site_desc(),
-			'slogan'    => \dash\data::site_slogan(),
+			'desc'      => isset($load_app_detail['desc']) ? $load_app_detail['desc'] : \dash\data::site_desc(),
+			'slogan'    => isset($load_app_detail['slogan']) ? $load_app_detail['slogan'] : \dash\data::site_slogan(),
 			'logo'      =>
 			[
-				'standard' => isset($load_app_detail['logo']) ? $load_app_detail['logo'] : \dash\url::logo(),
+				'standard' => \dash\url::logo(),
 				'vertical' => \dash\url::logo(),
-				'icon'     => \dash\url::icon(),
+				'icon'     => isset($load_app_detail['logo']) ? $load_app_detail['logo'] : \dash\url::icon(),
 			],
 			'version'   =>
 			[
-				'last'       => 4,
-				'depricated' => 3,
+				'last'       => \lib\app\application\version::get_last_version(),
+				'depricated' => \lib\app\application\version::get_depricated_version(),
 				'update'     => \content_v2\get::endpoint('android'). '/update',
 			],
 			'url'      =>

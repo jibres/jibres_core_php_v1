@@ -25,7 +25,13 @@ class version
 
 	public static function get_last_version()
 	{
-		return 1;
+		return 4;
+	}
+
+
+	public static function get_depricated_version()
+	{
+		return 3;
 	}
 }
 ?>
