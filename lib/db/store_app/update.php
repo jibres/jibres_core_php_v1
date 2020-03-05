@@ -12,5 +12,13 @@ class update
 		return $result;
 	}
 
+
+	public static function set_field($_id, $_field, $_value)
+	{
+		$query  = "UPDATE store_app SET store_app.$_field = '$_value' WHERE store_app.id = $_id  LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+	}
+
 }
 ?>

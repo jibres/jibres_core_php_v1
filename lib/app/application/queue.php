@@ -38,7 +38,7 @@ class queue
 			[
 				'store_id'     => \lib\store::id(), //` int(10) UNSIGNED NOT NULL,
 				'user_id'      => \dash\user::is_init_jibres_user(), //` int(10) UNSIGNED NOT NULL,
-				'version'      => 1, //` smallint(5) UNSIGNED NULL DEFAULT NULL,
+				'version'      => \lib\app\application\version::get_last_version(), //` smallint(5) UNSIGNED NULL DEFAULT NULL,
 				'status'       => 'queue', //` enum('queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable') DEFAULT NULL,
 				'daterequest'  => date("Y-m-d H:i:s"), //` timestamp NULL DEFAULT NULL,
 				'datequeue'    => null, //` timestamp NULL DEFAULT NULL,
@@ -49,16 +49,22 @@ class queue
 
 			\lib\db\store_app\insert::new_record($insert_queue);
 		}
-
 	}
+
 
 
 	public static function get_build_queue()
 	{
 		$build_queue = \lib\db\store_app\get::build_queue();
+
 		if(isset($build_queue['store_id']))
 		{
 			$build_queue['store'] = \dash\coding::encode($build_queue['store_id']);
+		}
+
+		if(isset($build_queue['id']) && $build_queue && is_array($build_queue) && array_key_exists('datequeue', $build_queue) && !$build_queue['datequeue'])
+		{
+			\lib\db\store_app\update::set_field($build_queue['id'], 'datequeue', date("Y-m-d H:i:s"));
 		}
 
 		return $build_queue;
