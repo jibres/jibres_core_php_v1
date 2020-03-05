@@ -8,6 +8,9 @@ class view
 	{
 		$load_app_detail = \lib\app\application\detail::get_android();
 
+		$subdomain       = \lib\store::detail('subdomain');
+		$homepage        = \dash\url::set_subdomain($subdomain);
+
 		$result =
 		[
 			'namespace' => 'com.jibres.'. \dash\url::store(),
@@ -32,7 +35,7 @@ class view
 				'language' => \content_v2\get::endpoint('android'). '/language',
 				'splash'   => \content_v2\get::endpoint('android'). '/splash',
 				'intro'    => \content_v2\get::endpoint('android'). '/intro',
-				'homepage' => \content_v2\get::endpoint('android'). '/homepage',
+				'homepage' => $homepage,
 				'menu'     => \content_v2\get::endpoint('android'). '/menu',
 				'ad'       => \content_v2\get::endpoint('android'). '/ad',
 			]
