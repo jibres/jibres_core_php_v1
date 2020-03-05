@@ -42,7 +42,7 @@ class view
 				'skip'  => T_('Skip'),
 				'start' => T_('Get Start'),
 			],
-			'theme' => 'Jibres',
+			'theme' => 'store1',
 			'bg' =>
 			[
 				'from' => $from,
