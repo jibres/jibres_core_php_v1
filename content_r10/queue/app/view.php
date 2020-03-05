@@ -6,10 +6,12 @@ class view
 {
 	public static function config()
 	{
-		$result =
-		[
-			'store' => 'y88p',
-		];
+		$result = \lib\app\application\queue::get_build_queue();
+
+		// $result =
+		// [
+		// 	'store' => 'y88p',
+		// ];
 
 		\dash\notif::api($result);
 	}

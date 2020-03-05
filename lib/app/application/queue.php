@@ -51,5 +51,18 @@ class queue
 		}
 
 	}
+
+
+	public static function get_build_queue()
+	{
+		$build_queue = \lib\db\store_app\get::build_queue();
+		if(isset($build_queue['store_id']))
+		{
+			$build_queue['store'] = \dash\coding::encode($build_queue['store_id']);
+		}
+
+		return $build_queue;
+
+	}
 }
 ?>
