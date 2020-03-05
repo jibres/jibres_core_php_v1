@@ -37,7 +37,7 @@ class queue
 			$insert_queue =
 			[
 				'store_id'     => \lib\store::id(), //` int(10) UNSIGNED NOT NULL,
-				'user_id'      => \dash\user::is_init_jibres_user(), //` int(10) UNSIGNED NOT NULL,
+				'user_id'      => \dash\user::id(), //` int(10) UNSIGNED NOT NULL,
 				'version'      => \lib\app\application\version::get_last_version(), //` smallint(5) UNSIGNED NULL DEFAULT NULL,
 				'status'       => 'queue', //` enum('queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable') DEFAULT NULL,
 				'daterequest'  => date("Y-m-d H:i:s"), //` timestamp NULL DEFAULT NULL,
