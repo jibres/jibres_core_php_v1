@@ -107,6 +107,7 @@ class queue
 
 		$result          = [];
 		$result['store'] = null;
+		$result['build'] = 1;
 
 		if(isset($build_queue['store_id']))
 		{
