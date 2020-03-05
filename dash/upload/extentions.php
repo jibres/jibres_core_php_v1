@@ -118,6 +118,12 @@ class extentions
 			}
 		}
 
+		// @example:  $_meta['ext'] = ['jpg', 'png']
+		if(isset($_meta['ext']) && is_array($_meta['ext']))
+		{
+			$myResult['allow'] = in_array($_ext, $_meta['ext']);
+		}
+
 		// else return the
 		return $myResult;
 	}

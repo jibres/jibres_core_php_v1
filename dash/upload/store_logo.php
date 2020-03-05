@@ -48,8 +48,16 @@ class store_logo
 
 	public static function app_android_logo_set()
 	{
+		$meta =
+		[
+			'ext' =>
+			[
+				'png',
+			],
+			'square' => true,
+		];
 
-		$file_detail = \dash\upload\file::upload('logo');
+		$file_detail = \dash\upload\file::upload('logo', $meta);
 
 		if(!$file_detail)
 		{

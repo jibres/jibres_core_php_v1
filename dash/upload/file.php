@@ -64,6 +64,19 @@ class file
 			return false;
 		}
 
+		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif']))
+		{
+			if(isset($_meta['square']) && $_meta['square'])
+			{
+				$square = \dash\upload\crop::check_square($myFile['tmp_name']);
+				if(!$square)
+				{
+					\dash\notif::error(T_("Please use from a square image file"));
+					return false;
+				}
+			}
+		}
+
 		$filename = md5($myFile['filename']). '.'. $myFile['ext'];
 
 		// 5. find best directory to put the file there

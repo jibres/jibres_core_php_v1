@@ -33,5 +33,29 @@ class crop
 	}
 
 
+	public static function check_square($_file_addr)
+	{
+		$detail = getimagesize($_file_addr);
+
+		if(isset($detail[0]) && isset($detail[1]))
+		{
+			if(intval($detail[0]) === intval($detail[1]))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+
+		return null;
+	}
+
+
 }
 ?>
