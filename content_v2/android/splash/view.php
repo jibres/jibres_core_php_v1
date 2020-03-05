@@ -19,8 +19,8 @@ class view
 			'logo'  => $logo,
 			'theme' => $theme,
 			'title' => $title,
-			'desc'  => $desc,
-			'meta'  => $slogan,
+			'desc'  => $slogan,
+			// 'meta'  => $desc,
 			'sleep' => 3000,
 
 			'bg' =>

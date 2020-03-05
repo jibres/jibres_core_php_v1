@@ -22,8 +22,8 @@ class view
 			case 'theme3':
 			case 'theme4':
 			case 'theme5':
-				$from = '#c'. rand(10, 99).'a5a';
-				$to   = '#c'. rand(10, 99).'a5a';
+				$from = '#6'. rand(10, 99).'a0a';
+				$to   = '#6'. rand(10, 99).'a0a';
 				break;
 
 			default:
