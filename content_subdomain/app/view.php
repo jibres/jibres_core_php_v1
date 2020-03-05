@@ -13,7 +13,7 @@ class view
 			$host = \dash\url::cloud();
 			$host .= '/'. \lib\store::code();
 			$host .= '/app/'. basename($app_queue['file']);
-			\dash\redirect::to($host);
+			\dash\redirect::to($host, true , 302);
 		}
 
 		\dash\redirect::to(\dash\url::this());

@@ -116,11 +116,18 @@ class redirect
 	}
 
 
-	public static function to_login()
+	public static function to_login($_php = null)
 	{
 		if(!\dash\user::login())
 		{
-			\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), 'direct');
+			if($_php)
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), true, 302);
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), false);
+			}
 		}
 		\dash\data::pageWithLogin(true);
 	}
