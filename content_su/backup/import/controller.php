@@ -45,6 +45,13 @@ class controller
 				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`jibres\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
 				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot jibres'. "\n");
 			}
+			elseif(preg_match("/(jibres_nic_2020)/", $db_backup_file, $split))
+			{
+				$i++;
+				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "DROP DATABASE \`jibres_nic\`"'. "\n");
+				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`jibres_nic\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
+				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot jibres_nic'. "\n");
+			}
 		}
 
 		\dash\notif::api('Run this code : sh '. __DIR__. '/exec.me.sql');
