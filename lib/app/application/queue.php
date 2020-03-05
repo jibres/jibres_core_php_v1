@@ -53,13 +53,17 @@ class queue
 
 
 
-	public static function get_build_queue()
+	public static function get_build_queue($_detail = false)
 	{
 		$build_queue = \lib\db\store_app\get::build_queue();
+
+		$result          = [];
+		$result['store'] = null;
 
 		if(isset($build_queue['store_id']))
 		{
 			$build_queue['store'] = \dash\coding::encode($build_queue['store_id']);
+			$result['store']      = $build_queue['store'];
 		}
 
 		if(isset($build_queue['id']) && $build_queue && is_array($build_queue) && array_key_exists('datequeue', $build_queue) && !$build_queue['datequeue'])
@@ -67,12 +71,18 @@ class queue
 			\lib\db\store_app\update::set_field($build_queue['id'], 'datequeue', date("Y-m-d H:i:s"));
 		}
 
-		return $build_queue;
-
+		if($_detail)
+		{
+			return $build_queue;
+		}
+		else
+		{
+			return $result;
+		}
 	}
 
 
-	public static function set_status($_id, $_status)
+	public static function set_status($_store, $_status)
 	{
 		if(!in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
 		{
@@ -80,23 +90,23 @@ class queue
 			return false;
 		}
 
-		if(!is_numeric($_id) || !$_id)
-		{
-			\dash\notif::error(T_("Invalid id"));
-			return false;
 
+		if(!$_store)
+		{
+			\dash\notif::error(T_("Please set the store code"));
+			return false;
 		}
 
-		$result = self::get_build_queue();
+		$result = self::get_build_queue(true);
 
-		if(isset($result['id']) && intval($result['id']) === intval($_id))
+		if(isset($result['store']) && $result['store'] === $_store)
 		{
 			$update =
 			[
 				'status' => $_status,
 				'datedone' => date("Y-m-d H:i:s"),
 			];
-			\lib\db\store_app\update::record($update, $_id);
+			\lib\db\store_app\update::record($update, $result['id']);
 			\dash\notif::ok(T_("Queue status updated"));
 			return true;
 		}
