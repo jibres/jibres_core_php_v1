@@ -198,7 +198,7 @@ class queue
 
 	private static function transfer_file($_filename, $_store)
 	{
-		$host = 'http://app.jibres.com/';
+		$host = 'http://app.talambar.ir/';
 		$source = $host. $_filename;
 		$source = trim($source, '/');
 
