@@ -39,7 +39,7 @@ class queue
 				'store_id'     => \lib\store::id(), //` int(10) UNSIGNED NOT NULL,
 				'user_id'      => \dash\user::is_init_jibres_user(), //` int(10) UNSIGNED NOT NULL,
 				'version'      => 1, //` smallint(5) UNSIGNED NULL DEFAULT NULL,
-				'status'       => 'queue', //` enum('','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable') DEFAULT NULL,
+				'status'       => 'queue', //` enum('queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable') DEFAULT NULL,
 				'daterequest'  => date("Y-m-d H:i:s"), //` timestamp NULL DEFAULT NULL,
 				'datequeue'    => null, //` timestamp NULL DEFAULT NULL,
 				'datedone'     => null, //` timestamp NULL DEFAULT NULL,
@@ -63,6 +63,37 @@ class queue
 
 		return $build_queue;
 
+	}
+
+
+	public static function set_status($_id, $_status)
+	{
+		if(!in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
+		{
+			\dash\notif::error(T_("Please set the status"));
+			return false;
+		}
+
+		if(!is_numeric($_id) || !$_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+
+		}
+
+		$result = self::get_build_queue();
+
+		if(isset($result['id']) && intval($result['id']) === intval($_id))
+		{
+			\lib\db\store_app\update::set_status($_id, $_status);
+			\dash\notif::ok(T_("Queue status updated"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("This id is not current application id"));
+			return false;
+		}
 	}
 }
 ?>
