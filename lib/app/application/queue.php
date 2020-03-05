@@ -117,7 +117,15 @@ class queue
 
 		$result          = [];
 		$result['store'] = null;
-		$result['build'] = 1;
+
+		if(isset($build_queue['id']))
+		{
+			$result['build'] = $build_queue['id'];
+		}
+		else
+		{
+			$result['build'] = rand(1, 9999);
+		}
 
 		if(isset($build_queue['store_id']))
 		{
@@ -196,6 +204,8 @@ class queue
 		$store_addr = YARD . 'talambar_cloud/'. $_store . '/app/';
 		\dash\file::makeDir($store_addr, null, true);
 		$dest = $store_addr . basename($_filename);
+
+		\dash\log::file(json_encode([$source, $dest]), 'transfer_file_apk', 'application');
 
 		copy($source, $dest);
 	}
