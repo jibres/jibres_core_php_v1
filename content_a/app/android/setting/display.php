@@ -11,14 +11,24 @@
           <input type="text" name="title" id="title" value="<?php echo \dash\data::appDetail_title(); ?>" maxlength="50">
         </div>
 
+        <label for="desc"><?php echo T_("Application desc"); ?></label>
+        <div class="input">
+          <input type="text" name="desc" id="desc" value="<?php echo \dash\data::appDetail_desc(); ?>" maxlength="50">
+        </div>
+
+        <label for="slogan"><?php echo T_("Application slogan"); ?></label>
+        <div class="input">
+          <input type="text" name="slogan" id="slogan" value="<?php echo \dash\data::appDetail_slogan(); ?>" maxlength="50">
+        </div>
+
         <label for="logo"><?php echo T_("Logo"); ?></label>
         <div class="input">
           <input type="file" name="logo" id="logo">
         </div>
 
-        <?php if(\dash\data::appDetail_logo()) {?>
+        <?php if(\dash\get::index(\dash\data::appDetail(), 'logo', 'icon')) {?>
         <div class="mediaBox mB20">
-          <img src="<?php echo \dash\data::appDetail_logo(); ?>" alt="<?php echo \dash\data::appDetail_title(); ?>" id="logoPreview">
+          <img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'logo', 'icon'); ?>" alt="<?php echo \dash\data::appDetail_title(); ?>" id="logoPreview">
         </div>
         <?php } ?>
 

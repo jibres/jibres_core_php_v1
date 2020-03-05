@@ -8,6 +8,8 @@ class model
 		$post =
 		[
 			'title'  => \dash\request::post('title'),
+			'desc'   => \dash\request::post('desc'),
+			'slogan' => \dash\request::post('slogan'),
 		];
 
 		$theme_detail = \lib\app\application\detail::set_android_detail($post);
