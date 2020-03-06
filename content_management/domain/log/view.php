@@ -17,7 +17,7 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
-			'dns'  => \dash\request::get('dns'),
+			'type'  => \dash\request::get('type'),
 			// 'holder' => \dash\request::get('holder'),
 			// 'tech'   => \dash\request::get('tech'),
 			// 'bill'   => \dash\request::get('bill'),
@@ -54,6 +54,13 @@ class view
 				\dash\data::checkResult($check);
 			}
 		}
+
+		$group_by = \lib\app\nic_log\get::group_by_type();
+		if(!is_array($group_by))
+		{
+			$group_by = [];
+		}
+		\dash\data::groupByType($group_by);
 	}
 }
 ?>

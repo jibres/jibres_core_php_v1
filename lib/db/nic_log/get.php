@@ -11,5 +11,13 @@ class get
 		$result = \dash\db::get($query, null, true, 'nic_log');
 		return $result;
 	}
+
+
+	public static function group_by_type()
+	{
+		$query  = "SELECT COUNT(*) AS `count`, log.type FROM log  GROUP BY log.type";
+		$result = \dash\db::get($query, null, false, 'nic_log');
+		return $result;
+	}
 }
 ?>

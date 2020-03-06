@@ -1,3 +1,17 @@
+<div class="f">
+
+<?php foreach (\dash\data::groupByType() as $key => $value) {?>
+        <div class="c s6">
+        <a href="<?php echo \dash\url::current(). '?type='. $value['type']; ?>" class="dcard x1 <?php if(\dash\request::get('type') == $value['type']) { echo ' active';} ?>" >
+         <div class="statistic">
+          <div class="value"><?php echo \dash\fit::number($value['count']); ?></div>
+          <div class="label"><?php echo T_($value['type']); ?></div>
+         </div>
+        </a>
+    </div>
+<?php } // endfor ?>
+</div>
+
 
 
 <?php

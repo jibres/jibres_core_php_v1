@@ -37,7 +37,7 @@ class search
 			'admin'  => null,
 			'tech'   => null,
 			'bill'   => null,
-			'dns'    => null,
+			'type'    => null,
 
 		];
 
@@ -58,15 +58,13 @@ class search
 		$order_sort  = null;
 
 
-		if($_args['dns'])
+		if($_args['type'])
 		{
-			$dns_id = \dash\coding::decode($_args['dns']);
-			if($dns_id)
-			{
-				$and[]                      = " domain.dns = $dns_id ";
-				self::$filter_args[T_("DNS")] = $_args['dns'];
-				self::$is_filtered          = true;
-			}
+
+			$and[]                      = " log.type = '$_args[type]' ";
+			self::$filter_args[T_("Type")] = $_args['type'];
+			self::$is_filtered          = true;
+
 		}
 
 

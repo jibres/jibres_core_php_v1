@@ -27,6 +27,11 @@ class get
 	}
 
 
+	public static function group_by_type()
+	{
+		$list = \lib\db\nic_log\get::group_by_type();
+		return $list;
+	}
 
 }
 ?>
