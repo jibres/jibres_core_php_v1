@@ -166,7 +166,10 @@ else
                     <div class="ibtn wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
                     </a>
                 </td>
-                <td class="txtC"><?php echo \dash\get::index($value, 'status_html'); ?></td>
+                <td class="txtC">
+                  <?php echo \dash\get::index($value, 'status_html'); ?>
+                    <?php echo \dash\get::index($value, 'other_status'); ?>
+                  </td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></td>

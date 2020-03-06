@@ -13,6 +13,7 @@
       <th><?php echo T_('Status & Validity') ?></th>
         <td class="ltr txtRa">
         <?php echo \dash\data::domainDetail_status_html(); ?>
+        <?php echo \dash\get::index(\dash\data::domainDetail(), 'other_status'); ?>
       </td>
      </tr>
      <?php if(\dash\permission::supervisor()) {?>
