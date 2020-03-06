@@ -8,7 +8,7 @@
 		</a>
 	</div>
 
-	<?php if(\dash\data::domainDetail_verify()) {?>
+	<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_status() === 'enable') {?>
 	<div class="c s6">
 		<a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'holder') { echo ' active';} ?>" >
 		 <div class="statistic">

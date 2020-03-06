@@ -120,6 +120,15 @@ class get
 			$update_domain['reseller'] = $fetch['reseller'];
 		}
 
+
+
+		if(isset($fetch['force_disable']) && $fetch['force_disable'])
+		{
+			// this domain is not enable for this user
+			// nic rejected this domain
+			$update_domain['status'] = 'disable';
+		}
+
 		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
 
 		\lib\db\nic_domain\update::update($update_domain, $_load_domain['id']);

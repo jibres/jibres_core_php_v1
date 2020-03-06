@@ -140,10 +140,16 @@ class check
 	public static function variable()
 	{
 		$autorenew = \dash\app::request('autorenew') ? 1 : null;
-
+		$status = \dash\app::request('status');
+		if($status && !in_array($status, ['awaiting','failed','pending','enable','disable','deleted','expire']))
+		{
+			\dash\notif::error(T_("Invalid status"));
+			return false;
+		}
 
 		$args              = [];
 		$args['autorenew'] = $autorenew;
+		$args['status']    = $status;
 		return $args;
 	}
 }

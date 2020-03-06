@@ -15,13 +15,26 @@ class edit
 
 		if(isset($load_domain['verify']) && $load_domain['verify'])
 		{
-
+			// no problem
 		}
 		else
 		{
 			\dash\notif::error(T_("You can not edit this domain setting"));
 			return false;
 		}
+
+
+		if(isset($load_domain['status']) && $load_domain['status'] === 'enable')
+		{
+			// no problem
+		}
+		else
+		{
+			\dash\notif::error(T_("You can not edit this domain setting"));
+			return false;
+		}
+
+
 
 		$ns1   = isset($_args['ns1']) 	? $_args['ns1']		: null;
 		$ip1   = isset($_args['ip1']) 	? $_args['ip1']		: null;
@@ -361,13 +374,22 @@ class edit
 
 
 		if(!\dash\app::isset_request('autorenew')) unset($args['autorenew']);
+		if(!\dash\app::isset_request('status')) unset($args['status']);
 
 		if(!empty($args))
 		{
 			\lib\db\nic_domain\update::update($args, $load_domain['id']);
 		}
 
-		\dash\notif::ok(T_("Detail updated"));
+		if(isset($args['status']) && $args['status'] === 'deleted')
+		{
+			\dash\notif::ok(T_("Domain removed"));
+
+		}
+		else
+		{
+			\dash\notif::ok(T_("Detail updated"));
+		}
 		return true;
 
 	}

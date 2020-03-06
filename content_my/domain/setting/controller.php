@@ -30,6 +30,20 @@ class controller
 						\dash\header::status(403, T_("Can not change this domain detail"));
 					}
 				}
+
+				if(isset($load_domain['status']) && $load_domain['status'] === 'deleted')
+				{
+					\dash\header::status(404, T_("This domain is removed from your account"));
+				}
+
+				if(isset($load_domain['status']) && $load_domain['status'] === 'disable')
+				{
+					if(in_array(\dash\url::subchild(), ['holder', 'dns', 'transfer']))
+					{
+						\dash\header::status(403, T_("Can not change this domain detail"));
+					}
+				}
+
 				\dash\data::myDomain($domain);
 				\dash\data::domainDetail($load_domain);
 			}

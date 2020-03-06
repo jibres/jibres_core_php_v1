@@ -17,6 +17,18 @@ class model
 			}
 			return;
 		}
+
+		if(\dash\request::post('status') == 'remove')
+		{
+
+			$result = \lib\app\nic_domain\edit::edit(['status' => 'deleted'], \dash\data::domainDetail_id());
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return;
+		}
 	}
 }
 ?>

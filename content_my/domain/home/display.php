@@ -150,8 +150,9 @@ else
 
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-            <tr <?php if(\dash\request::get('resultid') && \dash\coding::encode(\dash\get::index($value, 'id')) == \dash\request::get('resultid')) { echo "class='positive'";} ?>>
+            <tr <?php if(\dash\request::get('resultid') && \dash\coding::encode(\dash\get::index($value, 'id')) == \dash\request::get('resultid')) { echo "class='positive'";} if(\dash\get::index($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
                 <td>
+
                     <!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
                     <a href="<?php echo \dash\url::that(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
                 </td>

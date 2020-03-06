@@ -260,7 +260,7 @@ class search
 			$order_sort = " ORDER BY domain.id DESC";
 		}
 
-		$and[] = " domain.status = 'enable' ";
+		$and[] = " domain.status IN ('enable', 'disable') ";
 
 		$and[] = " domain.user_id = $userId ";
 

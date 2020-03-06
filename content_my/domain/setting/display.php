@@ -39,7 +39,7 @@
                 }
 
                 echo '<td class="ltr txtRa">';
-                echo '<div class="badge mLa10 light">'. T_('IRNIC_'. $value). '</div>';
+                echo '<div class="badge mLa10 light">'. T_($value). '</div>';
                 echo '</td></tr>';
               }
             }
@@ -183,6 +183,25 @@ else
      </tr>
     </table>
   </div>
+
+
+  <?php if(\dash\data::domainDetail_status() === 'disable') {?>
+  <div class="panel mB10">
+    <table class="tbl1 v4 mB0">
+     <tr>
+      <td>
+        <?php echo T_("Remove this domain from your account"); ?>
+      </td>
+      <td class="txtRa ltr"><div data-confirm data-data='{"status" : "remove"}' class="btn danger "><?php echo T_("Remove") ?></div></td>
+     </tr>
+
+
+    </table>
+  </div>
+<?php } //endif ?>
+
+
+
 
  </div>
 </div>

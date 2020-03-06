@@ -42,6 +42,16 @@ class lock
 			return false;
 		}
 
+		if(isset($load_domain['status']) && $load_domain['status'] === 'enable')
+		{
+			// no problem
+		}
+		else
+		{
+			\dash\notif::error(T_("You can not edit this domain setting"));
+			return false;
+		}
+
 
 		if(array_key_exists('lock', $load_domain) && $load_domain['lock'])
 		{
@@ -114,6 +124,17 @@ class lock
 		if(isset($load_domain['verify']) && $load_domain['verify'])
 		{
 
+		}
+		else
+		{
+			\dash\notif::error(T_("You can not edit this domain setting"));
+			return false;
+		}
+
+
+		if(isset($load_domain['status']) && $load_domain['status'] === 'enable')
+		{
+			// no problem
 		}
 		else
 		{

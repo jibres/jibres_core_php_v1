@@ -12,16 +12,16 @@ class ready
 			if(isset($_data['lastfetch']) && $_data['lastfetch'])
 			{
 				// fetch every 1 hour
-				if(time() - strtotime($_data['lastfetch']) > (60*60))
+				if(time() - strtotime($_data['lastfetch']) > (60*5))
 				{
 					\lib\app\nic_domain\get::update_fetch($domain, $_data);
-					$_data = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+					$_data = \lib\db\nic_domain\get::by_id($_data['id']);
 				}
 			}
 			else
 			{
 				\lib\app\nic_domain\get::update_fetch($domain, $_data);
-				$_data = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+				$_data = \lib\db\nic_domain\get::by_id($_data['id']);
 			}
 		}
 
@@ -169,6 +169,11 @@ class ready
 					$result[$key] = $value;
 					break;
 			}
+		}
+
+		if(isset($result['status']) && $result['status'] !== 'enable')
+		{
+			$result['can_renew'] = false;
 		}
 
 		return $result;
