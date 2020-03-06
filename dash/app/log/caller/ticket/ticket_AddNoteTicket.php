@@ -87,7 +87,7 @@ class ticket_AddNoteTicket
 
 		if($file)
 		{
-			$tg_msg .= $file . "\n";
+			$tg_msg .= \lib\filepath::fix($file) . "\n";
 		}
 
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
