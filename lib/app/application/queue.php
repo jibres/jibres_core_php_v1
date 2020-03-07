@@ -150,7 +150,7 @@ class queue
 	}
 
 
-	public static function set_status($_store, $_status, $_filename)
+	public static function set_status($_store, $_status, $_filename, $_meta)
 	{
 		\dash\log::file(json_encode(func_get_args()), 'transfer_file_apk', 'application');
 
@@ -171,12 +171,15 @@ class queue
 
 		if(isset($result['store']) && $result['store'] === $_store)
 		{
+			$meta = is_array($_meta) ? json_encode($_meta, JSON_UNESCAPED_UNICODE) : $_meta;
 			$update =
 			[
 				'file'     => $_filename,
 				'status'   => $_status,
 				'datedone' => date("Y-m-d H:i:s"),
+				'meta'     => $meta,
 			];
+
 			\lib\db\store_app\update::record($update, $result['id']);
 
 
