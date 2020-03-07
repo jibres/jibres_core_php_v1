@@ -237,7 +237,7 @@
 
     <div class="panel mB10 mLa5">
         <table class="tbl1 v4 mB0">
-      <?php if(\dash\data::appQueue_status() === 'queue') {?>
+      <?php if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress') {?>
 
          <tr>
           <td>
@@ -253,7 +253,7 @@
            </td>
          </tr>
 
-    <?php }elseif(\dash\data::appQueue_status() === 'done') {?>
+    <?php }elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status() === 'enable') {?>
 
          <tr>
           <td>
@@ -281,10 +281,24 @@
             </div>
           </td>
          </tr>
+        <?php }//endif ?>
 
-       <?php } //endif ?>
+      <?php }else{ // the other status  ?>
 
-    <?php }//endif ?>
+        <tr>
+          <td><?php echo T_("Your old request status") ?></td>
+          <td class="txtL"><?php echo T_(\dash\data::appQueue_status()); ?></td>
+        </tr>
+        <tr>
+          <td>
+            <?php echo T_("Your application is ready to build again"); ?>
+          </td>
+          <td class="txtL">
+            <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
+          </td>
+         </tr>
+
+        <?php }//endif ?>
 
         </table>
       </div>
