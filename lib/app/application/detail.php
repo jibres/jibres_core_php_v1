@@ -135,8 +135,14 @@ class detail
 
 
 
-	public static function is_ready_to_create($_data)
+	public static function is_ready_to_create($_data = null)
 	{
+
+		if(!$_data)
+		{
+			$_data = self::get_android();
+		}
+
 		$is_ok = true;
 		$message = [];
 

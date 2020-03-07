@@ -200,15 +200,14 @@
     <?php if(\dash\data::isReadyToCreate_ok()) {?>
      <div class="panel mB10 mLa10">
       <table class="tbl1 v4 mB0">
+
        <tr>
         <td>
-          <?php echo T_("Application logo"); ?>
+          <?php echo T_("Your application is ready to build"); ?>
         </td>
-        <?php if(\dash\data::appDetail_logo()) {?>
-          <td class="txtL"><img src="<?php echo \dash\data::appDetail_logo() ?>" class='avatar fs18'></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/setting'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
+        <td class="txtL">
+          <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
+        </td>
        </tr>
 
 

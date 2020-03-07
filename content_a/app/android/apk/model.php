@@ -5,8 +5,10 @@ class model
 {
 	public static function post()
 	{
-
-		\lib\app\application\queue::set_android();
+		if(\dash\request::post('build') === 'now')
+		{
+			\lib\app\application\queue::set_android();
+		}
 		// \lib\app\application\queue::rebuild();
 	}
 }

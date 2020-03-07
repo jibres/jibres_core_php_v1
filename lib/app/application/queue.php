@@ -39,8 +39,19 @@ class queue
 			return false;
 		}
 
+		$check_ok = \lib\app\application\detail::is_ready_to_create();
+		if(isset($check_ok['ok']) && $check_ok['ok'])
+		{
+			// no problem
+		}
+		else
+		{
+			\dash\notif::error(T_("Your application need some detail to ready to build"));
+			return false;
+		}
 
 		$current_queue = self::detail();
+
 
 		if(!$current_queue || !isset($current_queue['status']) || !isset($current_queue['id']))
 		{
@@ -89,6 +100,8 @@ class queue
 					break;
 			}
 		}
+		\dash\notif::ok(T_("Your build request has been queued"));
+		return true;
 	}
 
 
