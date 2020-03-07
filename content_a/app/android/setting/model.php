@@ -17,25 +17,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\lib\app\application\queue::set_android();
-
-			if(\dash\engine\process::status())
+			if(\dash\request::get('setup') === 'wizard')
 			{
-				if(\dash\request::get('setup') === 'wizard')
-				{
-					\dash\redirect::to(\dash\url::that());
-				}
-				else
-				{
-					\dash\redirect::pwd();
-				}
+				\dash\redirect::to(\dash\url::that().'/apk');
 			}
 			else
 			{
 				\dash\redirect::pwd();
 			}
-
-
 		}
 	}
 }

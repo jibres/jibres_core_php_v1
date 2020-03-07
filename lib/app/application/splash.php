@@ -19,7 +19,7 @@ class splash
 			return false;
 		}
 
-		$get = \lib\db\setting\get::platform_cat_key('android', 'splash', 'theme');
+		$get = \lib\db\setting\get::platform_cat_key('android', 'splash', 'splash_theme');
 
 		if(isset($get['id']))
 		{
@@ -31,7 +31,7 @@ class splash
 			[
 				'platform' => 'android',
 				'cat'      => 'splash',
-				'key'      => 'theme',
+				'key'      => 'splash_theme',
 				'value'    => $_theme,
 			];
 

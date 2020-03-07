@@ -104,6 +104,7 @@ class detail
 	{
 
 		$setting = \lib\db\setting\get::platform('android');
+
 		$result = [];
 		foreach ($setting as $key => $value)
 		{
@@ -115,10 +116,98 @@ class detail
 				}
 				else
 				{
+					if(substr($value['value'], 0,1) === '{')
+					{
+						$value['value'] = json_decode($value['value'], true);
+						if(isset($value['value']['file']))
+						{
+							$value['value']['file'] = \lib\filepath::fix($value['value']['file']);
+						}
+					}
 					$result[$value['key']] = $value['value'];
 				}
 			}
 		}
+
+		return $result;
+
+	}
+
+
+
+	public static function is_ready_to_create($_data)
+	{
+		$is_ok = true;
+		$message = [];
+
+		$default =
+		[
+			"logo"   => null,
+			"title"  => null,
+			"desc"   => null,
+			"slogan" => null,
+			"theme"  => null,
+			"page_1" =>
+			[
+				"title" => null,
+				"desc"  => null,
+				"file"  => null,
+			],
+
+			"page_2" =>
+			[
+				"title" => null,
+				"desc"  => null,
+				"file"  => null,
+			],
+
+			"page_3" =>
+			[
+				"title" => null,
+				"desc" => null,
+				"file" => null,
+			],
+
+			"intro_theme"  => null,
+			"splash_theme" => null,
+		];
+
+		if(!is_array($_data))
+		{
+			$_data = [];
+		}
+
+		$check = array_merge($default, $_data);
+
+		if(!$check['logo'])
+		{
+			$is_ok = false;
+			$message[] = T_("Please set your application logo");
+		}
+
+		if(!$check['title'])
+		{
+			$is_ok = false;
+			$message[] = T_("Please set your application title");
+		}
+
+		if(!$check['intro_theme'])
+		{
+			$is_ok = false;
+			$message[] = T_("Please set your application intro theme");
+		}
+
+		if(!$check['splash_theme'])
+		{
+			$is_ok = false;
+			$message[] = T_("Please set your application splash theme");
+		}
+
+
+
+		$result        = [];
+		$result['ok']  = $is_ok;
+		$result['msg'] = $message;
 
 		return $result;
 

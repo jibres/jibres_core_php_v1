@@ -78,7 +78,7 @@ class intro
 			return false;
 		}
 
-		\lib\db\setting\update::overwirte_platform_cat_key($theme, 'android', 'intro', 'theme');
+		\lib\db\setting\update::overwirte_platform_cat_key($theme, 'android', 'intro', 'intro_theme');
 
 		foreach ($ok_intro as $key => $value)
 		{
@@ -157,7 +157,7 @@ class intro
 
 		foreach ($result as $key => $value)
 		{
-			if($value['key'] === 'theme')
+			if($value['key'] === 'intro_theme')
 			{
 				$theme = $value['value'];
 				continue;

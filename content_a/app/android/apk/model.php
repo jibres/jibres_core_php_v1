@@ -5,8 +5,9 @@ class model
 {
 	public static function post()
 	{
-		\dash\notif::info("rebuild");
-		\lib\app\application\queue::rebuild();
+
+		\lib\app\application\queue::set_android();
+		// \lib\app\application\queue::rebuild();
 	}
 }
 ?>

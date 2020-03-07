@@ -15,6 +15,9 @@ class view
 		$appDetail = \lib\app\application\detail::get_android();
 		\dash\data::appDetail($appDetail);
 
+		$isReadyToCreate = \lib\app\application\detail::is_ready_to_create($appDetail);
+		\dash\data::isReadyToCreate($isReadyToCreate);
+
 
 		$app_queue = \lib\app\application\queue::detail();
 

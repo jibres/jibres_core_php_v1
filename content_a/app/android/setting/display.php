@@ -8,12 +8,12 @@
 
         <label for="title"><?php echo T_("Application title"); ?></label>
         <div class="input">
-          <input type="text" name="title" id="title" value="<?php echo \dash\data::appDetail_title(); ?>" maxlength="50">
+          <input type="text" name="title" id="title" value="<?php echo \dash\data::appDetail_title(); ?>" maxlength="20">
         </div>
 
         <label for="desc"><?php echo T_("Application desc"); ?></label>
         <div class="input">
-          <input type="text" name="desc" id="desc" value="<?php echo \dash\data::appDetail_desc(); ?>" maxlength="50">
+          <input type="text" name="desc" id="desc" value="<?php echo \dash\data::appDetail_desc(); ?>" maxlength="150">
         </div>
 
         <label for="slogan"><?php echo T_("Application slogan"); ?></label>
@@ -21,7 +21,7 @@
           <input type="text" name="slogan" id="slogan" value="<?php echo \dash\data::appDetail_slogan(); ?>" maxlength="50">
         </div>
 
-        <label for="logo"><?php echo T_("Logo"); ?></label>
+        <label for="logo"><?php echo T_("Logo"); ?> <small><?php echo T_("Use a square logo in png format"); ?></small></label>
         <div class="input">
           <input type="file" name="logo" id="logo">
         </div>
