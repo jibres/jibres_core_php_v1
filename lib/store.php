@@ -387,6 +387,11 @@ class store
 
 	public static function is_store_code($_code)
 	{
+		if(!$_code || mb_strlen($_code) < 3 || !is_string($_code))
+		{
+			return false;
+		}
+
 		if(substr($_code, 0, 1) !== 'j')
 		{
 			return false;
