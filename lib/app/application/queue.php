@@ -117,14 +117,11 @@ class queue
 
 		$result          = [];
 		$result['store'] = null;
+		$result['build'] = null;
 
 		if(isset($build_queue['id']))
 		{
 			$result['build'] = $build_queue['id'];
-		}
-		else
-		{
-			$result['build'] = rand(1, 9999);
 		}
 
 		if(isset($build_queue['store_id']))
