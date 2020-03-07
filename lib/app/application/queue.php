@@ -25,7 +25,8 @@ class queue
 		$current_queue = self::detail();
 		if(isset($current_queue['id']))
 		{
-			\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'queue');
+			\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'disable');
+			self::new_queue();
 		}
 
 

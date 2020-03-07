@@ -2,6 +2,9 @@
 <div class="f justify-center">
   <div class="c8 m12 s12">
     <div class="cbox">
+      <?php if(\dash\data::appQueue()) {?>
+        <div class="msg warn2"><?php echo T_("Changing these values ​​will need to be rebuilt") ?></div>
+      <?php } //endif ?>
       <h4><?php echo T_("Set your application title and logo"); ?></h4>
 
       <form method="post" autocomplete="off">

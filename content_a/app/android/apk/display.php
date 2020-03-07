@@ -248,6 +248,14 @@
           </td>
          </tr>
          <tr>
+          <td>
+            <?php echo T_("Build"); ?>
+          </td>
+          <td class="txtL">
+            <?php echo \dash\fit::number(\dash\data::appQueue_build()); ?>
+          </td>
+         </tr>
+         <tr>
            <td colspan="2">
              <?php echo T_("Please wait until your application is built, This process may take several minutes"); ?>
            </td>

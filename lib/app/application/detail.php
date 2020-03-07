@@ -7,10 +7,12 @@ class detail
 
 	public static function set_android_detail($_args)
 	{
+		$change = false;
 		$logo = \dash\upload\store_logo::app_android_logo_set();
 		if($logo)
 		{
 			$get = \lib\db\setting\get::platform_cat_key('android', 'setting', 'logo');
+			$change = true;
 
 			if(isset($get['id']))
 			{
@@ -72,6 +74,17 @@ class detail
 
 
 		\dash\notif::ok(T_("Application setting set"));
+
+		if(!$change)
+		{
+			$change = \dash\temp::get('weeHaveChange');
+		}
+
+		if($change)
+		{
+			\lib\app\application\queue::rebuild();
+		}
+
 		return true;
 
 	}
@@ -80,6 +93,14 @@ class detail
 	private static function set_setting_record($_key, $_value)
 	{
 		$get = \lib\db\setting\get::platform_cat_key('android', 'setting', $_key);
+
+		if(isset($get['value']) && $get['value'] === $_value)
+		{
+			// no change
+			return true;
+		}
+
+		\dash\temp::set('weeHaveChange', true);
 
 		if(isset($get['id']))
 		{

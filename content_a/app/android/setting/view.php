@@ -15,6 +15,11 @@ class view
 		$appDetail = \lib\app\application\detail::get_android();
 		\dash\data::appDetail($appDetail);
 
+
+		$app_queue = \lib\app\application\queue::detail();
+
+		\dash\data::appQueue($app_queue);
+
 	}
 }
 ?>
