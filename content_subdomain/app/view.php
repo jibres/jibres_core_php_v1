@@ -16,7 +16,7 @@ class view
 			\dash\redirect::to($host, true , 302);
 		}
 
-		\dash\redirect::to(\dash\url::this());
+		\dash\redirect::to(\dash\url::kingdom());
 	}
 }
 ?>
