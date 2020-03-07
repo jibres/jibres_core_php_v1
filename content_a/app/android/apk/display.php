@@ -196,57 +196,101 @@
 
 
 
-  <div class="c6">
-    <?php if(\dash\data::isReadyToCreate_ok()) {?>
-     <div class="panel mB10 mLa10">
-      <table class="tbl1 v4 mB0">
+  <div class="c6 s12">
+    <?php if(!\dash\data::appQueue()) {?>
 
-       <tr>
-        <td>
-          <?php echo T_("Your application is ready to build"); ?>
-        </td>
-        <td class="txtL">
-          <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
-        </td>
-       </tr>
+      <?php if(\dash\data::isReadyToCreate_ok()) {?>
+       <div class="panel mB10 mLa5">
+        <table class="tbl1 v4 mB0">
 
+         <tr>
+          <td>
+            <?php echo T_("Your application is ready to build"); ?>
+          </td>
+          <td class="txtL">
+            <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
+          </td>
+         </tr>
 
+        </table>
+      </div>
+    <?php }else{ // application is not ready to build ?>
 
+       <div class="panel mB10 mLa10">
+        <table class="tbl1 v4 mB0">
+          <tr>
+            <th class="negative">
+              <?php echo T_("You must complete your application detail to build it"); ?>
+            </th>
+          </tr>
+            <?php foreach (\dash\data::isReadyToCreate_msg() as $key => $value) { ?>
+              <tr>
+                <td><?php echo $value ?></td>
+              </tr>
+            <?php }//endfor ?>
+        </table>
+      </div>
 
-      </table>
-    </div>
-  <?php }else{ // application is not ready to build ?>
+    <?php } //endif ?>
 
-     <div class="panel mB10 mLa10">
-      <table class="tbl1 v4 mB0">
-        <tr>
-          <th class="negative">
-            <?php echo T_("You must complete your application detail to build it"); ?>
-          </th>
-        </tr>
-          <?php foreach (\dash\data::isReadyToCreate_msg() as $key => $value) { ?>
-            <tr>
-              <td><?php echo $value ?></td>
-            </tr>
-          <?php }//endfor ?>
-      </table>
-    </div>
+  <?php }else{ // the user have one quest queue ?>
 
-    <div class="mLa5 hide">
-      <h4><?php echo T_("Download your application now"); ?></h4>
+    <div class="panel mB10 mLa5">
+        <table class="tbl1 v4 mB0">
+      <?php if(\dash\data::appQueue_status() === 'queue') {?>
 
-      <form method="post" autocomplete="off">
+         <tr>
+          <td>
+            <?php echo T_("Your build request was saved"); ?>
+          </td>
+          <td class="txtL">
+            <?php echo \dash\fit::date_human(\dash\data::appQueue_daterequest()); ?>
+          </td>
+         </tr>
+         <tr>
+           <td colspan="2">
+             <?php echo T_("Please wait until your application is built, This process may take several minutes"); ?>
+           </td>
+         </tr>
+
+    <?php }elseif(\dash\data::appQueue_status() === 'done') {?>
+
+         <tr>
+          <td>
+            <?php echo T_("Your application is ready to use"); ?>
+          </td>
+          <td class="txtL">
+            <?php if(\dash\data::downoadAPK()) {?>
+            <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn success"><?php echo T_("Download Now"); ?></a>
+            <?php }//endif ?>
+          </td>
+         </tr>
+
           <?php if(\dash\data::downoadAPK()) {?>
-            <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn block success xl"><?php echo T_("Download Now"); ?></a>
-          <?php }//endif ?>
-        <div class="txtRa mT10">
-          <button class="btn secondary"><?php echo T_("Rebuild"); ?></button>
-        </div>
-      </form>
-    </div>
+         <tr>
+           <td colspan="2">
+             <?php echo T_("You can share this link to everyone need to download your application"); ?>
+           </td>
+         </tr>
+         <tr>
+          <td><span data-copy="#downloadLinkAPK" class="btn xs"><?php echo T_("Copy"); ?></span></td>
+
+          <td class="txtL">
+            <div class="input">
+              <input id="downloadLinkAPK" type="text" value="<?php echo \dash\data::downoadAPK(); ?>" class='txtL' readonly>
+            </div>
+          </td>
+         </tr>
+
+       <?php } //endif ?>
+
+    <?php }//endif ?>
+
+        </table>
+      </div>
 
 
-  <?php } //endif ?>
+  <?php }//endif ?>
 
 
 
