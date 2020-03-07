@@ -229,15 +229,11 @@ class url
 			$maybe_store = reset($my_dir);
 			if($maybe_store)
 			{
-				$check_store_id = \dash\coding::decode($maybe_store);
-
+				$check_store_id = \lib\store::is_store_code($maybe_store);
 				if($check_store_id)
 				{
-					if(intval($check_store_id) > 1000000 && intval($check_store_id) < 9999999)
-					{
-						$path_result['store'] = $maybe_store;
-						array_shift($my_dir);
-					}
+					$path_result['store'] = $maybe_store;
+					array_shift($my_dir);
 				}
 			}
 

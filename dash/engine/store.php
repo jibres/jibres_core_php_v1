@@ -90,7 +90,7 @@ class store
 			return;
 		}
 
-		$store_id = \dash\coding::decode($store);
+		$store_id = \lib\store::is_store_code($store);
 
 		$user_id = \dash\user::id();
 

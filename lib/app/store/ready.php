@@ -35,8 +35,8 @@ class ready
 
 				case 'store_id':
 					$result[$key] = $value;
-					$result['store_code'] = \dash\coding::encode($value);
-					$result['url'] = \dash\url::kingdom(). '/'. \dash\coding::encode($value);
+					$result['store_code'] = \lib\store::code($value);
+					$result['url'] = \dash\url::kingdom(). '/'. $result['store_code'];
 					break;
 
 				case 'creator':
