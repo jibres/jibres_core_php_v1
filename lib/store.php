@@ -96,6 +96,7 @@ class store
 	 */
 	public static function init()
 	{
+
 		// no subdomain and no domains
 		if(!self::store_slug())
 		{
@@ -386,6 +387,13 @@ class store
 
 	public static function is_store_code($_code)
 	{
+		if(substr($_code, 0, 1) !== 'j')
+		{
+			return false;
+		}
+
+		$_code = substr($_code, 1);
+
 		$id = \dash\coding::decode($_code, 'store');
 
 		if($id && intval($id) > 1000000 && intval($id) < 9999999)
@@ -408,7 +416,7 @@ class store
 
 		if($_id)
 		{
-			return \dash\coding::encode($_id, 'store');
+			return 'j'. \dash\coding::encode($_id, 'store');
 		}
 
 		return null;
