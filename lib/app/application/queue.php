@@ -186,7 +186,17 @@ class queue
 			if($_filename)
 			{
 				// download file in store app folder
-				self::transfer_file($_filename, $_store);
+				$transfer_file = self::transfer_file($_filename, $_store);
+				if($transfer_file)
+				{
+					$log =
+					[
+						'to'         => $result['user_id'],
+						'data_build' => $result['build'],
+					];
+
+					\dash\log::set('application_readyToDownload', $log);
+				}
 			}
 
 			\dash\notif::ok(T_("Queue status updated"));
@@ -213,7 +223,19 @@ class queue
 
 		\dash\log::file(json_encode([$source, $dest]), 'transfer_file_apk', 'application');
 
-		copy($source, $dest);
+		if(copy($source, $dest))
+		{
+			// copy application successfully
+			return true;
+		}
+		else
+		{
+			// copy not complete
+			// file not exist
+			// notif to admin to check this application
+			\dash\log::file(json_encode([$source, $dest, 'copy not complete']), 'transfer_file_apk', 'application');
+			return false;
+		}
 	}
 }
 ?>
