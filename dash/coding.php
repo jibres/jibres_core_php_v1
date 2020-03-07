@@ -21,7 +21,7 @@ class coding
 	public static $ALPHABET_NUMBER = '1358962407';
 	// public static $ALPHABET     = '23456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
 	public static $ALPHABET        = 'jBRS2kJ3yP4dLxN5tH6zC7vG8rD9bFhVmqWgKsQnYpTfZcMwX';
-	public static $ALPHABET_STORE  = '23456789bcdefghjkmnpqrstvwxyz';
+	public static $ALPHABET_STORE  = 'r29fzd6eb8ghj3kynp5qvst7wc4xm';
 	public static $ALPHABET_ALL    = 'kjhOYUrxRDFIgZC2bKQ4Ww1JezVB890vE5opl3cLPtfNMdsASXnmiTyu67qaGH';
 
 
