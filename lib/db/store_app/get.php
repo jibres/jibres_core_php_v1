@@ -21,5 +21,14 @@ class get
 	}
 
 
+
+	public static function count_record_store($_store_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM store_app WHERE store_app.store_id = $_store_id ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
 }
 ?>

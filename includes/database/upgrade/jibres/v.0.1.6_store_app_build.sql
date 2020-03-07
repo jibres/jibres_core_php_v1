@@ -1,0 +1,1 @@
+ALTER TABLE `jibres`.`store_app` ADD `build`  int(10) unsigned   NULL DEFAULT NULL AFTER `version`;

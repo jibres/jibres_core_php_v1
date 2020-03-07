@@ -94,12 +94,16 @@ class queue
 
 	private static function new_queue()
 	{
+		$build = \lib\db\store_app\get::count_record_store(\lib\store::id());
+		$build = intval($build) + 1;
+
 		$insert_queue =
 		[
 			'store_id'     => \lib\store::id(),
 			'user_id'      => \dash\user::id(),
 			'version'      => \lib\app\application\version::get_last_version(),
 			'status'       => 'queue',
+			'build'        => $build,
 			'daterequest'  => date("Y-m-d H:i:s"),
 			'datequeue'    => null,
 			'datedone'     => null,
@@ -119,9 +123,9 @@ class queue
 		$result['store'] = null;
 		$result['build'] = null;
 
-		if(isset($build_queue['id']))
+		if(isset($build_queue['build']))
 		{
-			$result['build'] = $build_queue['id'];
+			$result['build'] = $build_queue['build'];
 		}
 
 		if(isset($build_queue['store_id']))
