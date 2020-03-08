@@ -387,12 +387,18 @@ class store
 
 	public static function is_store_code($_code)
 	{
-		if(!$_code || mb_strlen($_code) < 3 || !is_string($_code))
+		// check string and exist
+		if(!$_code || !is_string($_code))
 		{
 			return false;
 		}
-
-		if(substr($_code, 0, 1) !== '@')
+		// check lenght
+		if(mb_strlen($_code) < 1 || mb_strlen($_code) > 7)
+		{
+			return false;
+		}
+		// check $
+		if(substr($_code, 0, 1) !== '$')
 		{
 			return false;
 		}
@@ -400,6 +406,7 @@ class store
 		$_code = substr($_code, 1);
 
 		$id = \dash\coding::decode($_code, 'store');
+		$id += (1000000 - 1);
 
 		if($id && intval($id) > 1000000 && intval($id) < 1100000)
 		{
@@ -419,9 +426,10 @@ class store
 			$_id = self::id();
 		}
 
+		$_id -= (1000000 - 1);
 		if($_id)
 		{
-			return '@'. \dash\coding::encode($_id, 'store');
+			return '$'. \dash\coding::encode($_id, 'store');
 		}
 
 		return null;
