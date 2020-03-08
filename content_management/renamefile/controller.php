@@ -11,7 +11,7 @@ class controller
 		foreach ($store_data as $key => $value)
 		{
 			$old_code = \dash\coding::encode($value['id']);
-			$new_code = \lib\store::code($value['id']);
+			$new_code = \dash\store_coding::encode_raw($value['id']);
 
 			$query = "UPDATE store_data SET store_data.logo = REPLACE(store_data.logo, '$old_code', '$new_code') WHERE store_data.id = $value[id] LIMIT 1 ";
 			\dash\db::query($query);
@@ -21,7 +21,7 @@ class controller
 		foreach ($all_store as $key => $my_store)
 		{
 			$old_code = \dash\coding::encode($my_store['id']);
-			$new_code = \lib\store::code($my_store['id']);
+			$new_code = \dash\store_coding::encode_raw($my_store['id']);
 
 			\dash\db::query("UPDATE `tickets` SET `tickets`.`file`                 = REPLACE(`tickets`.`file`, '$old_code', '$new_code')", $my_store['fuel'], ['database' => 'jibres_'. $my_store['id']]);
 			\dash\db::query("UPDATE `setting` SET `setting`.`value`                = REPLACE(`setting`.`value`, '$old_code', '$new_code')", $my_store['fuel'], ['database' => 'jibres_'. $my_store['id']]);
@@ -40,11 +40,11 @@ class controller
 		{
 			$old        = basename($value);
 			$decode_old = \dash\coding::decode($old);
-			$new_code   = \lib\store::code($decode_old);
+			$new_code   = \dash\store_coding::encode_raw($decode_old);
 			$exec       = "mv ". YARD. 'talambar_cloud/'. $old. ' '. YARD. 'talambar_cloud/'. $new_code;
+			echo($exec);
+			echo '<br>';
 			exec($exec);
-
-
 
 		}
 		echo 'done';

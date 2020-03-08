@@ -11,7 +11,7 @@ class view
 		if(isset($app_queue['status']) && $app_queue['status'] === 'done' && isset($app_queue['file']))
 		{
 			$host = \dash\url::cloud();
-			$host .= '/'. \lib\store::code();
+			$host .= '/'. \dash\store_coding::encode();
 			$host .= '/app/'. basename($app_queue['file']);
 			\dash\redirect::to($host, true , 302);
 		}

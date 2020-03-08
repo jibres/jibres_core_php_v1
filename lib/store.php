@@ -119,7 +119,7 @@ class store
 
 		if(\dash\url::store())
 		{
- 			$store_detail_file = \dash\engine\store::init_by_id(self::is_store_code(self::store_slug()));
+ 			$store_detail_file = \dash\engine\store::init_by_id(\dash\store_coding::decode(self::store_slug()));
 		}
 		else
 		{
@@ -384,55 +384,6 @@ class store
 		}
 		return null;
 	}
-
-	public static function is_store_code($_code)
-	{
-		// check string and exist
-		if(!$_code || !is_string($_code))
-		{
-			return false;
-		}
-		// check lenght
-		if(mb_strlen($_code) < 6 || mb_strlen($_code) > 8)
-		{
-			return false;
-		}
-		// check $
-		if(substr($_code, 0, 1) !== '$')
-		{
-			return false;
-		}
-
-		$_code = substr($_code, 1);
-
-		$id = \dash\coding::decode($_code, 'store');
-
-		if($id && intval($id) > 1000000 && intval($id) < 1100000)
-		{
-			return $id;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-
-	public static function code($_id = null)
-	{
-		if(!$_id)
-		{
-			$_id = self::id();
-		}
-
-		if($_id)
-		{
-			return '$'. \dash\coding::encode($_id, 'store');
-		}
-
-		return null;
-	}
-
 
 
 

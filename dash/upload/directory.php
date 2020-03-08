@@ -37,7 +37,7 @@ class directory
 		$move_to    = self::move_to('store');
 
 
-		$folder_id  = \lib\store::code();
+		$folder_id  = \dash\store_coding::encode_raw();
 		$folder_id  .= '/'. date("Ym");
 
 		$folder_loc = $move_to . $folder_id;

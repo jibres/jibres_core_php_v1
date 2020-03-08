@@ -229,7 +229,7 @@ class url
 			$maybe_store = reset($my_dir);
 			if($maybe_store)
 			{
-				$check_store_id = \lib\store::is_store_code($maybe_store);
+				$check_store_id = \dash\store_coding::decode($maybe_store);
 				if($check_store_id)
 				{
 					$path_result['store'] = $maybe_store;

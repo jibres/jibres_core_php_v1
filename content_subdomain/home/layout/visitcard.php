@@ -39,7 +39,7 @@ $store = \dash\data::store();
 <?php if(\dash\user::id()) {?>
 
     <?php if(\dash\permission::check('contentA')) {?>
-      <a href="<?php echo \dash\url::sitelang(). '/'. \lib\store::code(); ?>/a"  class="btn block primary"><?php echo T_("Store Panel"); ?></a>
+      <a href="<?php echo \dash\url::sitelang(). '/'. \dash\store_coding::encode(); ?>/a"  class="btn block primary"><?php echo T_("Store Panel"); ?></a>
     <?php } // endif ?>
 
 <?php }else{ ?>
