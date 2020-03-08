@@ -113,16 +113,21 @@ class queue
 
 		$insert_queue =
 		[
-			'store_id'     => \lib\store::id(),
-			'user_id'      => \dash\user::id(),
-			'version'      => \lib\app\application\version::get_last_version(),
-			'status'       => 'queue',
-			'build'        => $build,
-			'daterequest'  => date("Y-m-d H:i:s"),
-			'datequeue'    => null,
-			'datedone'     => null,
-			'datedownload' => null,
-			'datemodified' => null,
+			'store_id'      => \lib\store::id(),
+			'user_id'       => \dash\user::id(),
+			'version'       => \lib\app\application\version::get_last_version(),
+			'status'        => 'queue',
+			'build'         => $build,
+			'daterequest'   => date("Y-m-d H:i:s"),
+			'datequeue'     => null,
+			'datedone'      => null,
+			'datedownload'  => null,
+			'datemodified'  => null,
+
+			'versiontitle'  => '4.0.1',
+			'versionnumber' => 40,
+			'packagename'   => 'com.jibres.'. \dash\store_coding::encode_raw(),
+			'keystore'      => 'jibres',
 		];
 
 		\lib\db\store_app\insert::new_record($insert_queue);

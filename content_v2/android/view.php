@@ -11,9 +11,18 @@ class view
 		$subdomain       = \lib\store::detail('subdomain');
 		$homepage        = \dash\url::set_subdomain($subdomain);
 
+		$queue = \lib\app\application\queue::detail();
+
+		$packagename   = isset($queue['packagename']) ? $queue['packagename'] : 'com.jibres.'. \dash\store_coding::encode_raw();
+		$versiontitle  = isset($queue['versiontitle']) ? $queue['versiontitle'] : \lib\app\application\version::get_last_version();
+		$versionnumber = isset($queue['versionnumber']) ? intval($queue['versionnumber']) : \lib\app\application\version::get_last_version();
+		$keystore      = isset($queue['keystore']) ? $queue['keystore'] : 'jibres';
+
+
+
 		$result =
 		[
-			'namespace' => 'com.jibres.'. \dash\url::store(),
+			'namespace' => $packagename,
 			'title'     => isset($load_app_detail['title']) ? $load_app_detail['title'] : T_('Jibres'),
 			'desc'      => isset($load_app_detail['desc']) ? $load_app_detail['desc'] : \dash\data::site_desc(),
 			'slogan'    => isset($load_app_detail['slogan']) ? $load_app_detail['slogan'] : \dash\data::site_slogan(),
@@ -25,7 +34,7 @@ class view
 			],
 			'version'   =>
 			[
-				'last'       => \lib\app\application\version::get_last_version(),
+				'last'       => $versionnumber,
 				'depricated' => \lib\app\application\version::get_depricated_version(),
 				'update'     => \content_v2\get::endpoint('android'). '/update',
 			],
