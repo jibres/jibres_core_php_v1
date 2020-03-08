@@ -393,7 +393,7 @@ class store
 			return false;
 		}
 		// check lenght
-		if(mb_strlen($_code) < 1 || mb_strlen($_code) > 7)
+		if(mb_strlen($_code) < 6 || mb_strlen($_code) > 8)
 		{
 			return false;
 		}
@@ -406,7 +406,6 @@ class store
 		$_code = substr($_code, 1);
 
 		$id = \dash\coding::decode($_code, 'store');
-		$id += (1000000 - 1);
 
 		if($id && intval($id) > 1000000 && intval($id) < 1100000)
 		{
@@ -426,7 +425,6 @@ class store
 			$_id = self::id();
 		}
 
-		$_id -= (1000000 - 1);
 		if($_id)
 		{
 			return '$'. \dash\coding::encode($_id, 'store');
