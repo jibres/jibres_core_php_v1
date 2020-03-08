@@ -248,7 +248,7 @@ class address
 					$result[$key]                 = $value;
 					if($value && mb_strlen($value) === 2)
 					{
-						$result['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($value). '.png';
+						$result['flag'] = \dash\url::cdn(). '/img/flags/png100px/'. mb_strtolower($value). '.png';
 					}
 					else
 					{
