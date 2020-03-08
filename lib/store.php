@@ -392,7 +392,7 @@ class store
 			return false;
 		}
 
-		if(substr($_code, 0, 1) !== 'j')
+		if(substr($_code, 0, 1) !== '@')
 		{
 			return false;
 		}
@@ -401,7 +401,7 @@ class store
 
 		$id = \dash\coding::decode($_code, 'store');
 
-		if($id && intval($id) > 1000000 && intval($id) < 9999999)
+		if($id && intval($id) > 1000000 && intval($id) < 1100000)
 		{
 			return $id;
 		}
@@ -421,7 +421,7 @@ class store
 
 		if($_id)
 		{
-			return 'j'. \dash\coding::encode($_id, 'store');
+			return '@'. \dash\coding::encode($_id, 'store');
 		}
 
 		return null;
