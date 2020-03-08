@@ -15,7 +15,7 @@ class view
 				$temp         = $value;
 				$temp['id']   = $key;
 				$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
-				$temp['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($key). '.png';
+				$temp['flag'] = \dash\url::cdn(). '/img/flags/png100px/'. mb_strtolower($key). '.png';
 
 				if(empty($new_data))
 				{
