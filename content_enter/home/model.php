@@ -6,111 +6,113 @@ class model
 {
 	public static function login_another_session()
 	{
-		if(\dash\permission::check('EnterByAnother'))
+		if(!\dash\permission::supervisor())
 		{
-			$user_id = null;
+			return false;
+		}
 
-			if(\dash\request::post('usernameormobile') && !\dash\utility\filter::mobile(\dash\request::post('usernameormobile')) && ctype_digit(\dash\request::post('usernameormobile')))
+		$user_id = null;
+
+		if(\dash\request::post('usernameormobile') && !\dash\utility\filter::mobile(\dash\request::post('usernameormobile')) && ctype_digit(\dash\request::post('usernameormobile')))
+		{
+			$user_id = \dash\request::post('usernameormobile');
+		}
+		elseif(\dash\request::post('usernameormobile') !== \dash\user::login('mobile') && !\dash\request::get('userid'))
+		{
+			$user_data = \dash\db\users::get_by_mobile(\dash\utility\filter::mobile(\dash\request::post('usernameormobile')));
+
+			if(isset($user_data['id']))
 			{
-				$user_id = \dash\request::post('usernameormobile');
+				$user_id = $user_data['id'];
 			}
-			elseif(\dash\request::post('usernameormobile') !== \dash\user::login('mobile') && !\dash\request::get('userid'))
+			else
 			{
-				$user_data = \dash\db\users::get_by_mobile(\dash\utility\filter::mobile(\dash\request::post('usernameormobile')));
+				\dash\notif::error(T_("Mobile not found"), 'usernameormobile');
+				return true;
+			}
+		}
 
-				if(isset($user_data['id']))
-				{
-					$user_id = $user_data['id'];
-				}
-				else
-				{
-					\dash\notif::error(T_("Mobile not found"), 'usernameormobile');
-					return true;
-				}
+		if(!$user_id && \dash\request::get('userid'))
+		{
+			$user_id = \dash\request::get('userid');
+		}
+
+		if($user_id && is_numeric($user_id))
+		{
+
+			$main_account = \dash\user::id();
+			$main_mobile  = \dash\user::login('mobile');
+
+			$user_detail = \dash\db\users::get_by_id($user_id);
+
+			if(!$user_detail)
+			{
+				\dash\notif::error(T_("User not found"));
+				return true;
 			}
 
-			if(!$user_id && \dash\request::get('userid'))
+			if(\dash\permission::supervisor())
 			{
-				$user_id = \dash\request::get('userid');
+				// nothing
+				// supervisor can login by anyone
 			}
-
-			if($user_id && is_numeric($user_id))
+			else
 			{
-
-				$main_account = \dash\user::id();
-				$main_mobile  = \dash\user::login('mobile');
-
-				$user_detail = \dash\db\users::get_by_id($user_id);
-
-				if(!$user_detail)
+				if(isset($user_detail['permission']) && $user_detail['permission'])
 				{
-					\dash\notif::error(T_("User not found"));
-					return true;
-				}
-
-				if(\dash\permission::supervisor())
-				{
-					// nothing
-					// supervisor can login by anyone
-				}
-				else
-				{
-					if(isset($user_detail['permission']) && $user_detail['permission'])
+					if($user_detail['permission'] === 'admin')
 					{
-						if($user_detail['permission'] === 'admin')
+						if(\dash\user::detail('permission') === 'admin')
 						{
-							if(\dash\user::detail('permission') === 'admin')
-							{
-								// no problem
-								// admin can login by another admin
-							}
-							else
-							{
-								// this user is not admin and try to login by admin!
-								\dash\notif::error(T_("Can not login by this user"));
-								return true;
-							}
-						}
-						elseif($user_detail['permission'] === 'supervisor')
-						{
-							// no user can login by supervisor
-							// just supervisor can login by another supervisor
-							\dash\notif::error(T_("Can not login by this user"));
-							return true;
+							// no problem
+							// admin can login by another admin
 						}
 						else
 						{
-							// the user have permission
-							// but no problem to login by this user
+							// this user is not admin and try to login by admin!
+							\dash\notif::error(T_("Can not login by this user"));
+							return true;
 						}
+					}
+					elseif($user_detail['permission'] === 'supervisor')
+					{
+						// no user can login by supervisor
+						// just supervisor can login by another supervisor
+						\dash\notif::error(T_("Can not login by this user"));
+						return true;
 					}
 					else
 					{
-						// this user have no permission
-						// no problem to login by this user
+						// the user have permission
+						// but no problem to login by this user
 					}
 				}
-
-				// clean existing session
-				\dash\log::set('supervisorLoginByAnother', ['code' => $user_id]);
-
-				\dash\utility\enter::clean_session();
-
-				\dash\user::full_destroy();
-
-				\dash\utility\enter::load_user_data($user_id, 'user_id');
-
-				$_SESSION['main_account'] = $main_account;
-				$_SESSION['main_mobile']  = $main_mobile;
-
-				\dash\session::clean_all();
-
-				// set login session
-				$redirect_url = \dash\utility\enter::enter_set_login(null, true);
-				return true;
+				else
+				{
+					// this user have no permission
+					// no problem to login by this user
+				}
 			}
-			return false;
+
+			// clean existing session
+			\dash\log::set('supervisorLoginByAnother', ['code' => $user_id]);
+
+			\dash\utility\enter::clean_session();
+
+			\dash\user::full_destroy();
+
+			\dash\utility\enter::load_user_data($user_id, 'user_id');
+
+			$_SESSION['main_account'] = $main_account;
+			$_SESSION['main_mobile']  = $main_mobile;
+
+			\dash\session::clean_all();
+
+			// set login session
+			$redirect_url = \dash\utility\enter::enter_set_login(null, true);
+			return true;
 		}
+
 		return false;
 	}
 
@@ -136,6 +138,23 @@ class model
 			return;
 		}
 
+		$condition =
+		[
+			'mobile'   => 'mobile',
+			'password' => 'password',
+		];
+
+		$args =
+		[
+			'mobile'   => $_usernameormobile,
+			'password' => $_password,
+		];
+
+		$require = ['mobile'];
+
+		$data = \dash\clean::data($args, $condition, $require);
+
+
 		$count = \dash\session::get('count_try_to_login', 'enter');
 		if($count)
 		{
@@ -160,8 +179,8 @@ class model
 		// clean existing session
 		\dash\utility\enter::clean_session();
 
-		$password         = $_password;
-		$usernameormobile = $_usernameormobile;
+		$password         = $data['password'];
+		$usernameormobile = $data['mobile'];
 
 		$usernameormobile = \dash\utility\convert::to_en_number($usernameormobile);
 

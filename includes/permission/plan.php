@@ -160,7 +160,6 @@ $master[] = 'contentA';
 $master[] = 'productVariants';
 $master[] = 'ProductEdit';
 $master[] = 'ProductAdd';
-$master[] = 'EnterByAnother';
 $master[] = 'cpPermissionView';
 $master[] = 'cpPermissionAdd';
 $master[] = 'cpPermissionEdit';

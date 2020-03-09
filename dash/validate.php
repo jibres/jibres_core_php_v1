@@ -130,6 +130,23 @@ class validate
 
 	public static function mobile($_data)
 	{
+		if($_data === null || $_data === '')
+		{
+			return null;
+		}
+
+		if(!is_string($_data) || !is_numeric($_data))
+		{
+			return false;
+		}
+
+
+		$_data = \dash\utility\filter::mobile($_data);
+		if(!$_data)
+		{
+			return false;
+		}
+
 		return $_data;
 	}
 
@@ -139,8 +156,18 @@ class validate
 		return $_data;
 	}
 
+	public static function code($_data)
+	{
+		return $_data;
+	}
+
 
 	public static function address($_data)
+	{
+		return $_data;
+	}
+
+	public static function password($_data)
 	{
 		return $_data;
 	}

@@ -7,6 +7,26 @@ class model
 
 	public static function post()
 	{
+		$condition =
+		[
+			'mobile'      => 'mobile',
+			'password'    => 'password',
+			'newpassword' => 'password',
+			'displayname' => 'string_50',
+		];
+
+		$args =
+		[
+			'mobile'      => \dash\request::post('mobile'),
+			'password'    => \dash\request::post('password'),
+			'newpassword' => \dash\request::post('ramzNew'),
+			'displayname' => \dash\request::post('displayname'),
+		];
+
+		$require = ['mobile', 'displayname', 'newpassword'];
+
+		$data = \dash\clean::data($args, $condition, $require);
+
 
 		$count = \dash\session::get('count_signup_check');
 		if($count)
@@ -26,7 +46,7 @@ class model
 			return false;
 		}
 
-		if(\dash\request::post('password'))
+		if($data['password'])
 		{
 			\dash\log::set('hiddenPasswordFieldIsFull');
 			\dash\notif::warn(T_("Your browser has sent a saved password. Delete it and continue"));
@@ -40,7 +60,7 @@ class model
 		\dash\utility\enter::clean_session();
 
 
-		$mobile = \dash\request::post('mobile');
+		$mobile = $data['mobile'];
 		if(!$mobile)
 		{
 			\dash\notif::error(T_("Pleaes set mobile number"), 'mobile');
@@ -55,27 +75,22 @@ class model
 		}
 
 
-		$ramz = \dash\request::post('ramzNew');
-		if(isset($_POST['ramzNew']))
-		{
-			$ramz = $_POST['ramzNew'];
-		}
+		$ramz = $data['newpassword'];
 
 		if(!$ramz || mb_strlen($ramz) < 5 || mb_strlen($ramz) > 50)
 		{
-			\dash\notif::error(T_("Pleaes set a valid password"), 'ramzNew');
+			\dash\notif::error(T_("Pleaes set a valid password"), 'newpassword');
 			return false;
 		}
-
 
 
 		if($mobile && strpos($ramz, $mobile) !== false)
 		{
-			\dash\notif::error(T_("Please do not use your mobile in password!"), ['element' => ['ramzNew', 'mobile']]);
+			\dash\notif::error(T_("Please do not use your mobile in password!"), ['element' => ['newpassword', 'mobile']]);
 			return false;
 		}
 
-		$displayname = \dash\request::post('displayname');
+		$displayname = $data['displayname'];
 		if(!$displayname || mb_strlen($displayname) > 50)
 		{
 			\dash\notif::error(T_("Invalid full name"), 'displayname');

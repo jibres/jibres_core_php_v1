@@ -722,11 +722,6 @@
     "title": "ProductAdd",
     "cat": "Product"
   },
-  "EnterByAnother": {
-    "title": "EnterByAnother",
-    "cat": "Enter",
-    "require": []
-  },
   "cpPermissionView": {
     "title": "cpPermissionView",
     "cat": "Customer relationship management",

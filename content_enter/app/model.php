@@ -15,9 +15,24 @@ class model
 			return;
 		}
 
-		$mobile = \dash\request::post('usernameormobile');
-		$mobile = \dash\utility\convert::to_en_number($mobile);
-		$mobile = \dash\utility\filter::mobile($mobile);
+
+		$condition =
+		[
+			'mobile'      => 'mobile',
+		];
+
+		$args =
+		[
+			'mobile'      => \dash\request::post('usernameormobile'),
+		];
+
+		$require = ['mobile'];
+
+		$data = \dash\clean::data($args, $condition, $require);
+
+
+		$mobile = $data['mobile'];
+
 		if(!$mobile)
 		{
 			\dash\notif::error(T_("Invalid mobile"), 'usernameormobile');

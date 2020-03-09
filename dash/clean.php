@@ -44,21 +44,25 @@ class clean
 				continue;
 			}
 
+			$myData = $_args[$field];
+
+			unset($_args[$field]);
+
 			$check = false;
 
 			if(is_string($validate))
 			{
-				$check = \dash\validate::$validate($_args[$field]);
+				$check = \dash\validate::$validate($myData);
 			}
 			elseif(is_array($validate))
 			{
 				if(isset($validate['enum']) && is_array($validate['enum']))
 				{
-					$check = \dash\validate::enum($_args[$field], $validate['enum']);
+					$check = \dash\validate::enum($myData, $validate['enum']);
 				}
 				else
 				{
-					$temp_data = $_args[$field];
+					$temp_data = $myData;
 
 					if(is_array($temp_data))
 					{
@@ -88,19 +92,27 @@ class clean
 
 			$data[$field] = $check;
 
-			unset($_args[$field]);
 		}
-
-
-		if(!\dash\engine\process::status())
-		{
-			self::bye();
-		}
-
 
 		if(count($_args) >= 1)
 		{
 			\dash\notif::error(T_("Neddless args was received!"));
+			self::bye();
+		}
+
+		if($_required)
+		{
+			foreach ($_required as $required_field)
+			{
+				if(!$data[$required_field])
+				{
+					\dash\notif::error(T_("Field :val is required", ['val' => $required_field]), ['code' => 1500, 'element' => $required_field]);
+				}
+			}
+		}
+
+		if(!\dash\engine\process::status())
+		{
 			self::bye();
 		}
 
