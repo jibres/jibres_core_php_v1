@@ -30,15 +30,6 @@ class notif
 				$_meta = ['element' => $_meta];
 			}
 
-			if(is_array($_meta))
-			{
-				if(array_key_exists('code', $_meta))
-				{
-					self::code($_meta['code']);
-					unset($_meta['code']);
-				}
-			}
-
 			$add['meta'] = $_meta;
 		}
 
