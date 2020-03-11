@@ -65,20 +65,15 @@ class password
 	{
 		$data = $_data;
 
-		if($data === null || $data === '')
-		{
-			return null;
-		}
-
 		$meta        = $_meta;
 		$meta['min'] = 5;
 		$meta['max'] = 50;
 
 		$data = \dash\validate\text::string($data, $_notif, $_element, $_field_title, $meta);
 
-		if($data === false)
+		if($data === false || $data === null)
 		{
-			return false;
+			return $data;
 		}
 
 		if(in_array($data, self::$crazy_password))

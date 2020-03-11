@@ -13,21 +13,9 @@ class cleanse
 			self::bye();
 		}
 
-		if(!$_args)
-		{
-			\dash\notif::error(T_("First Arguments of input function cannot be empty!"));
-			self::bye();
-		}
-
 		if(!is_array($_condition))
 		{
 			\dash\notif::error(T_("Second Arguments of input function is required!"));
-			self::bye();
-		}
-
-		if(!$_condition)
-		{
-			\dash\notif::error(T_("Second Arguments of input function cannot be empty!"));
 			self::bye();
 		}
 
@@ -56,13 +44,15 @@ class cleanse
 				self::bye();
 			}
 
-			$data[$field] = null;
-
 			// the user not send any request by this name
 			if(!array_key_exists($field, $input))
 			{
 				continue;
 			}
+
+			$data[$field] = null;
+
+			$my_data = $input[$field];
 
 			$field_title = $field;
 			if(isset($_meta['field_title'][$field]) && is_string($_meta['field_title'][$field]))
@@ -70,11 +60,9 @@ class cleanse
 				$field_title = $_meta['field_title'][$field];
 			}
 
-
-			$my_data = $input[$field];
-
 			// to check count of needless arguments
 			unset($input[$field]);
+
 
 			$check = null;
 
@@ -98,6 +86,39 @@ class cleanse
 						}
 					}
 					$check = self::data($my_data, 'enum', true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
+				}
+				elseif(isset($validate['bool']) && is_array($validate['bool']))
+				{
+					$my_bool = $validate['bool'];
+					foreach ($my_bool as $my_bool_item)
+					{
+						if(!is_string($my_bool_item) && !is_numeric($my_bool_item) && !is_null($my_bool_item) && !is_bool($my_bool_item))
+						{
+							self::bye(T_("Boolval option must be string or number or null"));
+						}
+					}
+
+					if(!is_string($my_data) && !is_numeric($my_data) && !is_null($my_data) && !is_bool($my_data))
+					{
+						\dash\notif::error(T_("Invalid boolval in field :val", ['val' => $field_title]), ['element' => $field]);
+						continue;
+					}
+
+					if(count($my_bool) !== 2)
+					{
+						self::bye(T_("Boolval array must be contain exactly 2 option"));
+					}
+
+					$my_bool = array_values($my_bool);
+
+					if($my_data)
+					{
+						$check = $my_bool[0];
+					}
+					else
+					{
+						$check = $my_bool[1];
+					}
 				}
 				else
 				{
@@ -165,7 +186,7 @@ class cleanse
 							}
 							else
 							{
-								\dash\notif::error(T_("Vlidate function must be string or array!"));
+								\dash\notif::error(T_("Validate array function must be string or array!"));
 								self::bye();
 							}
 						}
@@ -178,7 +199,7 @@ class cleanse
 			}
 			else
 			{
-				\dash\notif::error(T_("Vlidate function must be string or array!"));
+				\dash\notif::error(T_("Validate function must be string or array!"));
 				self::bye();
 			}
 
@@ -354,6 +375,7 @@ class cleanse
 				break;
 
 			case 'title':
+			case 'seotitle':
 				$data = \dash\validate\text::title($_data, $_notif, $element, $field_title, $meta);
 				break;
 
@@ -362,6 +384,7 @@ class cleanse
 				break;
 
 			case 'desc':
+			case 'seodesc':
 				$data = \dash\validate\text::desc($_data, $_notif, $element, $field_title, $meta);
 				break;
 
@@ -386,6 +409,34 @@ class cleanse
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'number-positive':
+				$data = \dash\validate\number::number_positive($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'percent':
+				$data = \dash\validate\number::number_percent($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'slug':
+				$data = \dash\validate\text::slug($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'barcode':
+				$data = \dash\validate\text::barcode($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'sku':
+				$data = \dash\validate\text::sku($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'url':
+				$data = \dash\validate\text::url($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'nationalcode':
+				$data = \dash\validate\nationalcode::nationalcode($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			default:
 				self::bye(T_("Invalid vaidate function".' '. $function));
 				break;
@@ -400,7 +451,7 @@ class cleanse
 
 	private static function bye($_msg = null)
 	{
-		j($_msg);
+		// \dash\notif::api($_msg);
 		\dash\header::status(400, $_msg);
 	}
 }

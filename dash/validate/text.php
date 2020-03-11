@@ -132,9 +132,9 @@ class text
 
 		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 50]);
 
-		if($data === false)
+		if($data === false || $data === null)
 		{
-			return false;
+			return $data;
 		}
 
 		$data = \dash\utility\convert::to_en_number($data);
@@ -223,9 +223,9 @@ class text
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 50]);
 
-		if($data === false)
+		if($data === false || $data === null)
 		{
-			return false;
+			return $data;
 		}
 
 		if(!filter_var($data, FILTER_VALIDATE_EMAIL))
@@ -247,9 +247,9 @@ class text
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
 
-		if($data === false)
+		if($data === false || $data === null)
 		{
-			return false;
+			return $data;
 		}
 
 		$allow_tag =
@@ -263,6 +263,126 @@ class text
 		return $data;
 	}
 
+
+	public static function slug($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$rules   = true;
+		$splitor = null;
+
+		if(isset($_meta['rules']))
+		{
+			$rules = $_meta['rules'];
+		}
+
+		if(isset($_meta['splitor']))
+		{
+			$splitor = $_meta['splitor'];
+		}
+
+		if($rules === true)
+		{
+			$slugify = new \dash\utility\slugify();
+			$slugify->activateRuleset('persian');
+		}
+		elseif($rules === 'persian')
+		{
+			$data = mb_strtolower($data);
+			$data = mb_ereg_replace('([^ءئآا-ی۰-۹a-z0-9]|-)+', '-', $data);
+			$data = trim($data);
+			$data = mb_strtolower($data);
+
+			return $data;
+		}
+		else
+		{
+			$slugify = new \dash\utility\slugify();
+			if($splitor)
+			{
+				$data = $slugify->slugify($data, $splitor);
+			}
+			else
+			{
+				$data = $slugify->slugify($data);
+			}
+		}
+
+		return $data;
+	}
+
+
+	public static function barcode($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 200]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = \dash\utility\convert::to_barcode($data);
+
+		return $data;
+	}
+
+
+	public static function sku($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 200]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = \dash\utility\convert::to_en_number($data);
+
+		$data = preg_replace("/\_{2,}/", "_", $data);
+		$data = preg_replace("/\-{2,}/", "-", $data);
+
+		if(mb_strlen($data) > 16)
+		{
+			\dash\notif::error(T_("Please set the sku less than 16 character"), 'sku');
+			return false;
+		}
+
+		if(!preg_match("/^[A-Za-z0-9_\-]+$/", $data))
+		{
+			\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in sku"), 'sku');
+			return false;
+		}
+
+		return $data;
+	}
+
+
+
+	public static function url($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 500]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!filter_var($data, FILTER_VALIDATE_URL))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Url is invalid"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
 
 }
 ?>
