@@ -85,6 +85,14 @@ class cleanse
 			{
 				if(isset($validate['enum']) && is_array($validate['enum']))
 				{
+					$my_enum = $validate['enum'];
+					foreach ($my_enum as $my_enum_item)
+					{
+						if(!is_string($my_enum_item) && !is_numeric($my_enum_item))
+						{
+							self::bye(T_("Enum option must be string or number"));
+						}
+					}
 					$check = self::data($myData, 'enum', true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
 				}
 				else
@@ -183,7 +191,8 @@ class cleanse
 		}
 
 		$function    = $_cleans_function;
-		$extra       = null;
+		$max         = null;
+		$min         = null;
 		$data        = null;
 		$element     = null;
 		$field_title = null;
@@ -208,80 +217,109 @@ class cleanse
 
 			if(isset($explode[1]))
 			{
-				$extra = $explode[1];
+				$max = $explode[1];
+			}
+
+			if(isset($explode[2]))
+			{
+				$min = $explode[2];
 			}
 		}
 
+		if($max && !is_numeric($max))
+		{
+			self::bye(T_("Second part of string function must be a number!"));
+		}
+
+		if($max && mb_strlen($max) > 10)
+		{
+			self::bye(T_("Second part of string function must be less than 10 character!"));
+		}
+
+		if($max && intval($max) <= 0)
+		{
+			self::bye(T_("Second part of string function must be larger than zero!"));
+		}
+
+		if($min && !is_numeric($min))
+		{
+			self::bye(T_("Second part of string function must be a number!"));
+		}
+
+		if($min && mb_strlen($min) > 10)
+		{
+			self::bye(T_("Second part of string function must be less than 10 character!"));
+		}
+
+		if($min && intval($min) <= 0)
+		{
+			self::bye(T_("Second part of string function must be larger than zero!"));
+		}
+
+		$meta = $_meta;
+		if($max)
+		{
+			$meta['max'] = $max;
+		}
+
+		if($min)
+		{
+			$meta['min'] = $min;
+		}
 
 		switch ($function)
 		{
 			case 'price':
-				$data = \dash\validate\number::price($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\number::price($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'mobile':
-				$data = \dash\validate\mobile::mobile($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\mobile::mobile($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'ir_mobile':
-				$data = \dash\validate\mobile::ir_mobile($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\mobile::ir_mobile($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'string':
-				if($extra && !is_numeric($extra))
-				{
-					self::bye(T_("Second part of string function must be a number!"));
-				}
-
-				if($extra && mb_strlen($extra) > 10)
-				{
-					self::bye(T_("Second part of string function must be less than 10 character!"));
-				}
-
-				if($extra && intval($extra) <= 0)
-				{
-					self::bye(T_("Second part of string function must be larger than zero!"));
-				}
-				$meta = $_data;
-				if($extra)
-				{
-					$extra       = intval($extra);
-					$meta['max'] = $extra;
-				}
-
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'address':
-				$data = \dash\validate\text::address($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\text::address($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'title':
-				$data = \dash\validate\text::title($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\text::title($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'html':
-				$data = \dash\validate\text::html($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\text::html($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'desc':
-				$data = \dash\validate\text::desc($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\text::desc($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'username':
-				$data = \dash\validate\text::username($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\text::username($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'password':
-				$data = \dash\validate\password::password($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\password::password($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'enum':
-				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'order':
+				$meta['enum'] = ['asc', 'desc'];
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'number':
-				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			default:

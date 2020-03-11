@@ -25,6 +25,8 @@ class controller
 
 			'password'    => 'password',
 			'html'    => 'html',
+			'type'    => ['enum' => ['product', 'fa', 1]],
+			'order' => 'order',
 			// 'newpassword' => 'password',
 
 		];
@@ -95,6 +97,8 @@ class controller
      <h4>Integrated Sales</h4>
      <h2 c',
 
+     		'type' => 'product',
+     		'order' => 'asc',
 			// 'mobile'      => \dash\request::post('mobile'),
 			// 'password'    => \dash\request::post('password'),
 			// 'newpassword' => \dash\request::post('ramzNew'),
