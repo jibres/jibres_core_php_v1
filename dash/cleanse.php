@@ -216,34 +216,67 @@ class cleanse
 		switch ($function)
 		{
 			case 'price':
-				$data = \dash\validate\number::price($_data, $_notif, $_meta);
+				$data = \dash\validate\number::price($_data, $_notif, $element, $field_title);
 				break;
 
 			case 'mobile':
-				$data = \dash\validate\number::mobile($_data, $_notif, $_meta);
+				$data = \dash\validate\mobile::mobile($_data, $_notif, $element, $field_title);
+				break;
+
+			case 'ir_mobile':
+				$data = \dash\validate\mobile::ir_mobile($_data, $_notif, $element, $field_title);
 				break;
 
 			case 'string':
-				if(!is_numeric($extra))
+				if($extra && !is_numeric($extra))
 				{
 					self::bye(T_("Second part of string function must be a number!"));
 				}
 
-				if(mb_strlen($extra) > 10)
+				if($extra && mb_strlen($extra) > 10)
 				{
 					self::bye(T_("Second part of string function must be less than 10 character!"));
 				}
 
-				$extra = intval($extra);
+				if($extra && intval($extra) <= 0)
+				{
+					self::bye(T_("Second part of string function must be larger than zero!"));
+				}
+
+				if($extra)
+				{
+					$extra = intval($extra);
+				}
+
 				$data = \dash\validate\text::string($_data, $_notif, $extra, $element, $field_title);
 				break;
 
+			case 'address':
+				$data = \dash\validate\text::address($_data, $_notif, $element, $field_title);
+				break;
+
+			case 'title':
+				$data = \dash\validate\text::title($_data, $_notif, $element, $field_title);
+				break;
+
+			case 'desc':
+				$data = \dash\validate\text::desc($_data, $_notif, $element, $field_title);
+				break;
+
+			case 'username':
+				$data = \dash\validate\text::username($_data, $_notif, $element, $field_title);
+				break;
+
 			case 'password':
-				$data = \dash\validate\text::password($_data, $_notif, $_meta);
+				$data = \dash\validate\text::password($_data, $_notif, $element, $field_title);
 				break;
 
 			case 'enum':
-				$data = \dash\validate\dataarray::enum($_data, $_notif, $_meta);
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title);
+				break;
+
+			case 'number':
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title);
 				break;
 
 			default:
