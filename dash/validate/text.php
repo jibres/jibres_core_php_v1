@@ -37,12 +37,37 @@ class text
 		}
 
 
-		$data = str_replace('%', '', $data);
+		$data_before = $data;
+
+		// remove \n from string
+		$data = preg_replace("/[\n]/", " ", $data);
+
+		// remove 2 space in everywhere
+		$data = preg_replace("/\h+/", " ", $data);
+
+		$data = strip_tags($data);
+
+		$data = str_replace('"',  '', $data);
+		$data = str_replace("'",  '', $data);
+		$data = str_replace("\\", '', $data);
+		$data = str_replace("`",  '', $data);
+		$data = str_replace('<?', '', $data);
+		$data = str_replace('?>', '', $data);
+		$data = str_replace('../', '', $data);
+		$data = str_replace('<script', '', $data);
+
+		$data = addslashes($data);
+
+		if(mb_strlen($data_before) !== mb_strlen($data))
+		{
+			\dash\notif::warn(T_("We have removed some unauthorized characters from your text"), ['element' => $_element, 'code' => 1700]);
+		}
+
+		// trim needless to aletr to user
+		$data = trim($data);
 
 		return $data;
 	}
-
-
 
 }
 ?>

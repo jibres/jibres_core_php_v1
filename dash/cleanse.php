@@ -172,7 +172,7 @@ class cleanse
 			self::bye(T_("Validate function must be string!"));
 		}
 
-		if(mb_strlen($_cleans_function) > 100)
+		if(mb_strlen($_cleans_function) > 50)
 		{
 			self::bye(T_("Validate function is too long!"));
 		}
@@ -226,8 +226,14 @@ class cleanse
 			case 'string':
 				if(!is_numeric($extra))
 				{
-					self::by(T_("Second part of string function must be a number!"));
+					self::bye(T_("Second part of string function must be a number!"));
 				}
+
+				if(mb_strlen($extra) > 10)
+				{
+					self::bye(T_("Second part of string function must be less than 10 character!"));
+				}
+
 				$extra = intval($extra);
 				$data = \dash\validate\text::string($_data, $_notif, $extra, $element, $field_title);
 				break;
@@ -254,7 +260,7 @@ class cleanse
 
 	private static function bye($_msg = null)
 	{
-		j('sss');
+		j($_msg);
 		\dash\header::status(400, $_msg);
 	}
 }
