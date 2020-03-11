@@ -56,10 +56,11 @@ class cleanse
 				self::bye();
 			}
 
+			$data[$field] = null;
+
 			// the user not send any request by this name
 			if(!array_key_exists($field, $input))
 			{
-				$data[$field] = null;
 				continue;
 			}
 
@@ -70,19 +71,22 @@ class cleanse
 			}
 
 
-			$myData = $input[$field];
+			$my_data = $input[$field];
 
 			// to check count of needless arguments
 			unset($input[$field]);
 
-			$check = false;
+			$check = null;
 
+
+			// validation is a string maybe need to call a function
 			if(is_string($validate))
 			{
-				$check = self::data($myData, $validate, true, ['element' => $field, 'field_title' => $field_title]);
+				$check = self::data($my_data, $validate, true, ['element' => $field, 'field_title' => $field_title]);
 			}
 			elseif(is_array($validate))
 			{
+				// enum mode
 				if(isset($validate['enum']) && is_array($validate['enum']))
 				{
 					$my_enum = $validate['enum'];
@@ -93,23 +97,83 @@ class cleanse
 							self::bye(T_("Enum option must be string or number"));
 						}
 					}
-					$check = self::data($myData, 'enum', true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
+					$check = self::data($my_data, 'enum', true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
 				}
 				else
 				{
-					$temp_data = $myData;
 
-					if(is_array($temp_data))
+					if($my_data === null || $my_data === '')
 					{
-						foreach ($temp_data as $array_key => $array_validate)
+						continue;
+					}
+
+					// data is not array
+					if(!is_array($my_data))
+					{
+						\dash\notif::error(T_("Field :val must be array", ['val' => $field_title]), ['element' => $field]);
+						continue;
+					}
+
+					// no validation rule
+					if(empty($validate))
+					{
+						continue;
+					}
+
+
+					$my_new_data = [];
+
+					foreach ($my_data as $my_value)
+					{
+						if(!is_array($my_value))
 						{
-
+							\dash\notif::error(T_("Value of :val must be array", ['val' => $field]));
+							continue;
 						}
+
+						if(count($my_value) !== count($validate))
+						{
+							\dash\notif::error(T_("Value of :val must be array and contain exactly need parameter", ['val' => $field]));
+							continue;
+						}
+
+						$temp_data = [];
+
+						foreach ($my_value as $my_field => $my_field_value)
+						{
+							if(!isset($validate[$my_field]))
+							{
+								\dash\notif::error(T_("This array key is not supported!"));
+								continue;
+							}
+
+							if(is_string($validate[$my_field]))
+							{
+								$temp_data[$my_field] = self::data($my_field_value, $validate[$my_field], true, ['element' => $my_field, 'field_title' => $my_field]);
+							}
+							elseif(is_array($validate[$my_field]))
+							{
+								$my_enum = $validate[$my_field];
+								foreach ($my_enum as $my_enum_item)
+								{
+									if(!is_string($my_enum_item) && !is_numeric($my_enum_item))
+									{
+										self::bye(T_("Enum option must be string or number"));
+									}
+								}
+								$temp_data[$my_field] = self::data($my_field_value, 'enum', true, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field]);
+							}
+							else
+							{
+								\dash\notif::error(T_("Vlidate function must be string or array!"));
+								self::bye();
+							}
+						}
+
+						$my_new_data[] = $temp_data;
 					}
-					else
-					{
-						\dash\notif::error(T_("Field :val must be array", ['val' => $field]));
-					}
+
+					$check = $my_new_data;
 				}
 			}
 			else
