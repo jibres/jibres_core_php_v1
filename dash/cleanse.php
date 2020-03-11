@@ -5,7 +5,7 @@ namespace dash;
  */
 class cleanse
 {
-	public static function input($_args, $_condition, $_required = [])
+	public static function input($_args, $_condition, $_required = [], $_meta = [])
 	{
 		if(!is_array($_args))
 		{
@@ -37,6 +37,12 @@ class cleanse
 			self::bye();
 		}
 
+		if(!is_array($_meta))
+		{
+			\dash\notif::error(T_("Fourth Arguments of input function must be array!"));
+			self::bye();
+		}
+
 		$input = $_args;
 
 		$data  = [];
@@ -57,6 +63,12 @@ class cleanse
 				continue;
 			}
 
+			$field_title = $field;
+			if(isset($_meta['field_title'][$field]) && is_string($_meta['field_title'][$field]))
+			{
+				$field_title = $_meta['field_title'][$field];
+			}
+
 
 			$myData = $input[$field];
 
@@ -67,13 +79,13 @@ class cleanse
 
 			if(is_string($validate))
 			{
-				$check = self::data($myData, $validate, true);
+				$check = self::data($myData, $validate, true, ['element' => $field, 'field_title' => $field_title]);
 			}
 			elseif(is_array($validate))
 			{
 				if(isset($validate['enum']) && is_array($validate['enum']))
 				{
-					$check = self::data($myData, 'enum', true, $validate['enum']);
+					$check = self::data($myData, 'enum', true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
 				}
 				else
 				{
@@ -148,7 +160,7 @@ class cleanse
 
 
 
-	public static function data($_data, $_cleans_function, $_notif = false, $_meta = null)
+	public static function data($_data, $_cleans_function, $_notif = false, $_meta = [])
 	{
 		if(!$_cleans_function)
 		{
@@ -160,9 +172,31 @@ class cleanse
 			self::bye(T_("Validate function must be string!"));
 		}
 
-		$function = $_cleans_function;
-		$extra    = null;
-		$data     = null;
+		if(mb_strlen($_cleans_function) > 100)
+		{
+			self::bye(T_("Validate function is too long!"));
+		}
+
+		if(!is_array($_meta))
+		{
+			self::bye(T_("Fourth arguments of function data must be array!"));
+		}
+
+		$function    = $_cleans_function;
+		$extra       = null;
+		$data        = null;
+		$element     = null;
+		$field_title = null;
+
+		if(isset($_meta['element']) && is_string($_meta['element']))
+		{
+			$element = $_meta['element'];
+		}
+
+		if(isset($_meta['field_title']) && is_string($_meta['field_title']))
+		{
+			$field_title = $_meta['field_title'];
+		}
 
 		if(strpos($function, '_') !== false)
 		{
@@ -178,32 +212,36 @@ class cleanse
 			}
 		}
 
+
 		switch ($function)
 		{
 			case 'price':
-				$data = \dash\validate\number::price($_data, $_notif);
+				$data = \dash\validate\number::price($_data, $_notif, $_meta);
 				break;
 
 			case 'mobile':
-				$data = \dash\validate\number::mobile($_data, $_notif);
+				$data = \dash\validate\number::mobile($_data, $_notif, $_meta);
 				break;
 
 			case 'string':
-				$data = \dash\validate\text::string($_data, $_notif, $extra);
+				if(!is_numeric($extra))
+				{
+					self::by(T_("Second part of string function must be a number!"));
+				}
+				$extra = intval($extra);
+				$data = \dash\validate\text::string($_data, $_notif, $extra, $element, $field_title);
 				break;
 
-
 			case 'password':
-				$data = \dash\validate\text::password($_data, $_notif);
+				$data = \dash\validate\text::password($_data, $_notif, $_meta);
 				break;
 
 			case 'enum':
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $_meta);
 				break;
 
-
 			default:
-				self::bye(T_("Invalid vaidate function ". $function));
+				self::bye(T_("Invalid vaidate function".' '. $function));
 				break;
 		}
 
@@ -216,6 +254,7 @@ class cleanse
 
 	private static function bye($_msg = null)
 	{
+		j('sss');
 		\dash\header::status(400, $_msg);
 	}
 }
