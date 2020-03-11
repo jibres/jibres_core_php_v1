@@ -23,7 +23,8 @@ class controller
 			'price'      => 'price',
 			'mobile'      => 'mobile',
 
-			// 'password'    => 'password',
+			'password'    => 'password',
+			'html'    => 'html',
 			// 'newpassword' => 'password',
 
 		];
@@ -43,17 +44,16 @@ class controller
 			'displayname' => 'salam',
 			'displayname' => 'salam\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\',
 			'displayname' => ' <section id=\'jibresPageTitle\'><div class="typing"><span class="typed"></span></div>
-    <div id="typed-strings">
-     <h3>Invoice Software</h3>
+
+     <b>Invoice Software</b>
      <h4>Easy Invoicing Software</h4>
-     <h3>Online Invoicing Software</h3>
+     <b>Online Invoicing Software</b>
      <h2>Free Invoicing Software</h2>
-     <h3>Accounting Software</h3>
+     <b>Accounting Software</b>
      <h2>Online Accounting Software</h2>
-     <h3>Sales</h3>
-     <h3>Sales Software</h3>
-     <h4>Integrated Sales</h4>
-     <h2 c',
+     <b>Sales</b>
+     <b>Sales Software</b>
+     <h4>Integrated Sales</h4>',
 			'displayname' => 'salam',
 			'displayname' => '\'\"\;\/\.salam',
 			'displayname' => 'salam',
@@ -81,6 +81,19 @@ class controller
 			'number' => '141312',
 			'price' => 999999999999,
 			'mobile' => '',
+			'password' => '4545454545456',
+			'html' => ' <section id=\'jibresPageTitle\'><div class="typing"><span class="typed"></span></div>
+    <div id="typed-strings">
+     <h3>Invoice Software</h3>
+     <h4>Easy Invoicing Software</h4>
+     <h3>Online Invoicing Software</h3>
+     <h2>Free Invoicing Software</h2>
+     <h3>Accounting Software</h3>
+     <h2>Online Accounting Software</h2>
+     <h3>Sales</h3>
+     <h3>Sales Software</h3>
+     <h4>Integrated Sales</h4>
+     <h2 c',
 
 			// 'mobile'      => \dash\request::post('mobile'),
 			// 'password'    => \dash\request::post('password'),

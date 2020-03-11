@@ -6,7 +6,7 @@ namespace dash\validate;
 class text
 {
 
-	public static function string($_data, $_notif = false, $_length = null, $_element = null, $_field_title = null, $_meta = [])
+	public static function string($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = $_data;
 
@@ -24,7 +24,11 @@ class text
 			return false;
 		}
 
-		$length = $_length;
+		$length = null;
+		if(isset($_meta['max']) && is_numeric($_meta['max']))
+		{
+			$length = intval($_meta['max']);
+		}
 
 		if(!$length)
 		{
@@ -71,7 +75,15 @@ class text
 
 		$data_before = $data;
 
-		$data = strip_tags($data);
+		if(isset($_meta['html']) && $_meta['html'])
+		{
+			// donot strip tag
+		}
+		else
+		{
+			$data = strip_tags($data);
+		}
+
 
 		$data = str_replace('"',  '', $data);
 		$data = str_replace("'",  '', $data);
@@ -98,19 +110,19 @@ class text
 
 	public static function title($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		return self::string($_data, $_notif, 200, $_element, $_field_title);
+		return self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 200]);
 	}
 
 
 	public static function address($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		return self::string($_data, $_notif, 200, $_element, $_field_title, ['min' => 5]);
+		return self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 200]);
 	}
 
 
 	public static function desc($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		return self::string($_data, $_notif, 1000, $_element, $_field_title, ['need_new_line' => true]);
+		return self::string($_data, $_notif, $_element, $_field_title, ['need_new_line' => true, 'max' => 1000]);
 	}
 
 
@@ -118,7 +130,7 @@ class text
 	public static function username($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 
-		$data = self::string($_data, $_notif, 50, $_element, $_field_title, ['min' => 5]);
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 50]);
 
 		if($data === false)
 		{
@@ -209,7 +221,7 @@ class text
 
 	public static function email($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::string($_data, $_notif, 50, $_element, $_field_title, ['min' => 5]);
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 50]);
 
 		if($data === false)
 		{
@@ -224,6 +236,29 @@ class text
 			}
 			return false;
 		}
+
+		return $data;
+	}
+
+
+
+
+	public static function html($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
+
+		if($data === false)
+		{
+			return false;
+		}
+
+		$allow_tag =
+		[
+			'b', 'p', 'br', 'li',
+			'h1','h2','h3','h4','h5','h6',
+		];
+
+		$data = strip_tags($data, $allow_tag);
 
 		return $data;
 	}

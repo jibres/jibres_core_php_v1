@@ -23,6 +23,15 @@ class mobile
 			return null;
 		}
 
+		if(!is_string($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be string", ['val' => $_field_title]), ['element' => $_element, 'code' => 1600]);
+			}
+			return false;
+		}
+
 		$mymobile = str_replace(' ', '', $_data);
 
 		// if user enter plus in start of number delete it

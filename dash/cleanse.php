@@ -242,13 +242,14 @@ class cleanse
 				{
 					self::bye(T_("Second part of string function must be larger than zero!"));
 				}
-
+				$meta = $_data;
 				if($extra)
 				{
-					$extra = intval($extra);
+					$extra       = intval($extra);
+					$meta['max'] = $extra;
 				}
 
-				$data = \dash\validate\text::string($_data, $_notif, $extra, $element, $field_title);
+				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'address':
@@ -257,6 +258,10 @@ class cleanse
 
 			case 'title':
 				$data = \dash\validate\text::title($_data, $_notif, $element, $field_title);
+				break;
+
+			case 'html':
+				$data = \dash\validate\text::html($_data, $_notif, $element, $field_title);
 				break;
 
 			case 'desc':
@@ -268,7 +273,7 @@ class cleanse
 				break;
 
 			case 'password':
-				$data = \dash\validate\text::password($_data, $_notif, $element, $field_title);
+				$data = \dash\validate\password::password($_data, $_notif, $element, $field_title);
 				break;
 
 			case 'enum':
