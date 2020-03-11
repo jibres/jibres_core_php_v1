@@ -52,13 +52,13 @@ class clean
 
 			if(is_string($validate))
 			{
-				$check = \dash\validate::$validate($myData);
+				$check = \dash\validate_old::$validate($myData);
 			}
 			elseif(is_array($validate))
 			{
 				if(isset($validate['enum']) && is_array($validate['enum']))
 				{
-					$check = \dash\validate::enum($myData, $validate['enum']);
+					$check = \dash\validate_old::enum($myData, $validate['enum']);
 				}
 				else
 				{

@@ -12,7 +12,7 @@ namespace dash;
  *
  *
  */
-class validate
+class validate_old
 {
 
 	public static function string($_data)
