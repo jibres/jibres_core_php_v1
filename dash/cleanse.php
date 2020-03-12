@@ -44,13 +44,14 @@ class cleanse
 				self::bye();
 			}
 
+			$data[$field] = null;
+
 			// the user not send any request by this name
 			if(!array_key_exists($field, $input))
 			{
 				continue;
 			}
 
-			$data[$field] = null;
 
 			$my_data = $input[$field];
 
