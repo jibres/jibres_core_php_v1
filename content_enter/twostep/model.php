@@ -12,21 +12,34 @@ class model
 			return false;
 		}
 
-		$action = \dash\request::post('action');
-		if(!in_array($action, ['active', 'deactive']))
-		{
-			\dash\notif::error(T_("Invalid action"));
-			return false;
-		}
+		$condition =
+		[
+			'action' => ['enum' => ['active', 'deactive']],
+		];
 
-		if(\dash\user::detail('twostep') && $action === 'active')
+		$args =
+		[
+			'action' => \dash\request::post('action'),
+		];
+
+		$require = ['action'];
+
+		$meta =
+		[
+
+		];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+
+		if(\dash\user::detail('twostep') && $data['action'] === 'active')
 		{
 			\dash\notif::ok(T_("Two-step verification for you is already active"));
 			return true;
 
 		}
 
-		if(!\dash\user::detail('twostep') && $action === 'deactive')
+		if(!\dash\user::detail('twostep') && $data['action'] === 'deactive')
 		{
 			\dash\notif::warn(T_("Two-step verification for you is already deactive"));
 			return true;
@@ -34,7 +47,7 @@ class model
 
 		\dash\utility\enter::load_user_data(\dash\user::detail(), 'loaded');
 
-		if($action === 'active')
+		if($data['action'] === 'active')
 		{
 			\dash\utility\enter::set_session('verify_from', 'two_step_set');
 		}

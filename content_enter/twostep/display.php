@@ -24,3 +24,6 @@ else
 <?php
 } // endif
 ?>
+
+
+  <a class='link mT20' href="<?php echo \dash\url::sitelang(); ?>/account/security"><?php echo T_("Back"); ?></a>
