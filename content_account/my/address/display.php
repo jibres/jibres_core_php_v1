@@ -1,6 +1,6 @@
 
 
-<?php require_once (__DIR__. '/../../address.php'); ?>
+<?php require_once (root. 'content_account/address.php'); ?>
 
 
 <?php bAddressList(); ?>

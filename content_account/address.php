@@ -108,8 +108,7 @@
         </div>
 
         <div class="cauto os">
-          <input type="hidden" name="addressid" value="<?php echo \dash\data::dataRowAddress_id(); ?>">
-          <button class="btn danger outline block mT20" name="btnremove" value="delete"><?php echo T_("Delete"); ?></button>
+          <div class="btn danger outline block mT20" data-confirm data-data='<?php echo json_encode(['addressid' => \dash\data::dataRowAddress_id(), 'btnremove' => 'delete']); ?>' name="btnremove" value="delete"><?php echo T_("Delete"); ?></div>
         </div>
       </div>
 

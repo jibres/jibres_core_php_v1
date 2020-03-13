@@ -108,24 +108,6 @@ class text
 	}
 
 
-	public static function title($_data, $_notif = false, $_element = null, $_field_title = null)
-	{
-		return self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 200]);
-	}
-
-
-	public static function address($_data, $_notif = false, $_element = null, $_field_title = null)
-	{
-		return self::string($_data, $_notif, $_element, $_field_title, ['min' => 5, 'max' => 200]);
-	}
-
-
-	public static function desc($_data, $_notif = false, $_element = null, $_field_title = null)
-	{
-		return self::string($_data, $_notif, $_element, $_field_title, ['need_new_line' => true, 'max' => 1000]);
-	}
-
-
 
 	public static function username($_data, $_notif = false, $_element = null, $_field_title = null)
 	{

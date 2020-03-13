@@ -266,6 +266,37 @@ class cleanse
 	}
 
 
+	/**
+	 * Unset every index not send from user
+	 */
+	public static function patch_mode($_input, $_data)
+	{
+		if(!is_array($_input))
+		{
+			\dash\notif::error(T_("First Arguments of patch mode function is required!"));
+			self::bye();
+		}
+
+		if(!is_array($_data))
+		{
+			\dash\notif::error(T_("Second Arguments of patch mode function is required!"));
+			self::bye();
+		}
+
+		$clean_data = $_data;
+
+		foreach ($_data as $key => $value)
+		{
+			if(!array_key_exists($key, $_input))
+			{
+				unset($clean_data[$key]);
+			}
+		}
+
+		return $clean_data;
+	}
+
+
 
 	public static function data($_cleans_function, $_data, $_notif = false, $_meta = [])
 	{
@@ -383,18 +414,31 @@ class cleanse
 
 
 
+
+
+
 			// *************** string validate
 			case 'string':
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'address':
-				$data = \dash\validate\text::address($_data, $_notif, $element, $field_title, $meta);
+				$meta['min'] = 5;
+				$meta['max'] = 300;
+				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'title':
 			case 'seotitle':
-				$data = \dash\validate\text::title($_data, $_notif, $element, $field_title, $meta);
+				$meta['min'] = 1;
+				$meta['max'] = 200;
+				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'displayname':
+				$meta['min'] = 1;
+				$meta['max'] = 100;
+				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'html':
@@ -403,7 +447,10 @@ class cleanse
 
 			case 'desc':
 			case 'seodesc':
-				$data = \dash\validate\text::desc($_data, $_notif, $element, $field_title, $meta);
+				$meta['min'] = 0;
+				$meta['max'] = 1000;
+				$meta['need_new_line'] = true;
+				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'username':
@@ -425,6 +472,21 @@ class cleanse
 			case 'url':
 				$data = \dash\validate\text::url($_data, $_notif, $element, $field_title, $meta);
 				break;
+
+
+			// *************** location validate
+			case 'country':
+				$data = \dash\validate\location::country($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'province':
+				$data = \dash\validate\location::province($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'city':
+				$data = \dash\validate\location::city($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 
 			// *************** password validate
 			case 'password':
@@ -483,6 +545,18 @@ class cleanse
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'postcode':
+				$meta['min'] = 100000;
+				$meta['max'] = 9999999999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'phone':
+				$meta['min'] = 10000000;
+				$meta['max'] = 99999999999999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'percent':
 				$data = \dash\validate\number::number_percent($_data, $_notif, $element, $field_title, $meta);
 				break;
@@ -492,9 +566,13 @@ class cleanse
 				break;
 
 
-			// *************** bool validate
+			// *************** bool/bit validate
 			case 'bool':
 				$data = boolval($_data);
+				break;
+
+			case 'bit':
+				$data = $_data ? 1 : null;
 				break;
 
 

@@ -44,176 +44,73 @@ class address
 	}
 
 
+	public static function get_my_address($_id)
+	{
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
+		$id = \dash\coding::decode($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$result = \dash\db\address::get(['id' => $id, 'user_id' => \dash\user::id(), 'limit' => 1]);
+
+		$temp = [];
+		if(is_array($result) && $result)
+		{
+			$temp = self::ready($result);
+		}
+		return $temp;
+	}
+
+
 	/**
 	 * check args
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function check($_id = null)
+	public static function check($_args, $_id = null)
 	{
+		$condition =
+		[
+			'user_id'     => 'id',
+			'title'       => 'string_40',
+			'name'        => 'displayname',
+			'mobile'      => 'mobile',
+			'isdefault'   => 'bit',
+			'company'     => 'bit',
+			'country'     => 'country',
+			'province'    => 'province',
+			'city'        => 'city',
+			'address'     => 'address',
+			'address2'    => 'address',
+			'postcode'    => 'postcode',
+			'phone'       => 'phone',
+			'fax'         => 'phone',
+			'status'      => ['enum' => ['enable','disable','filter','leave','spam','delete']],
+			'favorite'    => 'bit',
 
-		$title = \dash\app::request('title');
-		if($title && mb_strlen($title) >= 100)
+		];
+
+		$require = ['address'];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['province'] && $data['city'])
 		{
-			\dash\notif::error(T_("Please set title less than 100 character"), 'title');
-			return false;
-		}
-
-		$name = \dash\app::request('name');
-		if($name && mb_strlen($name) > 100)
-		{
-			\dash\notif::error(T_("Please set name less than 100 character"), 'name');
-			return false;
-		}
-
-
-		$isdefault = \dash\app::request('isdefault') ? 1 : null;
-
-		$company = \dash\app::request('company') ? 1 : null;
-
-		$companyname = \dash\app::request('companyname');
-		if($companyname && mb_strlen($companyname) > 100)
-		{
-			\dash\notif::error(T_("Please set companyname less than 100 character"), 'companyname');
-			return false;
-		}
-
-		$jobtitle = \dash\app::request('jobtitle');
-		if($jobtitle && mb_strlen($jobtitle) > 100)
-		{
-			\dash\notif::error(T_("Please set jobtitle less than 100 character"), 'jobtitle');
-			return false;
-		}
-
-		$country = \dash\app::request('country');
-
-		if($country && mb_strlen($country) > 100)
-		{
-			\dash\notif::error(T_("Please set country less than 100 character"), 'country');
-			return false;
-		}
-
-		if($country && !\dash\utility\location\countres::check($country))
-		{
-			\dash\notif::error(T_("Invalid country"), 'country');
-			return false;
-		}
-
-		$province = \dash\app::request('province');
-		if($province && mb_strlen($province) > 100)
-		{
-			\dash\notif::error(T_("Please set province less than 100 character"), 'province');
-			return false;
-		}
-
-		if($province && !\dash\utility\location\provinces::check($province))
-		{
-			\dash\notif::error(T_("Invalid province"), 'province');
-			return false;
-		}
-
-		$city = \dash\app::request('city');
-		if($city && mb_strlen($city) > 100)
-		{
-			\dash\notif::error(T_("Please set city less than 100 character"), 'city');
-			return false;
-		}
-
-		if(!$province && $city)
-		{
-			$province = \dash\utility\location\cites::get($city, 'province', 'province');
-			if(!\dash\utility\location\provinces::check($province))
+			$data['province'] = \dash\utility\location\cites::get($data['city'], 'province', 'province');
+			if(!\dash\utility\location\provinces::check($data['province']))
 			{
-				$province = null;
+				$data['province'] = null;
 			}
 		}
 
-		$address = \dash\app::request('address');
-		if($address && mb_strlen($address) > 300)
-		{
-			\dash\notif::error(T_("Please set address less than 300 character"), 'address');
-			return false;
-		}
-
-		if(!$address)
-		{
-			\dash\notif::error(T_("Please fill the address"), 'address');
-			return false;
-		}
-
-		$address2 = \dash\app::request('address2');
-		if($address2 && mb_strlen($address2) > 300)
-		{
-			\dash\notif::error(T_("Please set address2 less than 300 character"), 'address2');
-			return false;
-		}
-
-
-		$mobile = \dash\app::request('mobile');
-		if($mobile && !\dash\utility\filter::mobile($mobile))
-		{
-			\dash\notif::error(T_("Invalid mobile"), 'mobile');
-			return false;
-		}
-
-		$postcode = \dash\app::request('postcode');
-		if($postcode && mb_strlen($postcode) > 50)
-		{
-			\dash\notif::error(T_("Please set postcode less than 50 character"), 'postcode');
-			return false;
-		}
-
-		$phone = \dash\app::request('phone');
-		if($phone && mb_strlen($phone) > 50)
-		{
-			\dash\notif::error(T_("Please set phone less than 50 character"), 'phone');
-			return false;
-		}
-
-		$fax = \dash\app::request('fax');
-		if($fax && mb_strlen($fax) > 50)
-		{
-			\dash\notif::error(T_("Please set fax less than 50 character"), 'fax');
-			return false;
-		}
-
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['enable','disable','filter','leave','spam','delete']))
-		{
-			\dash\notif::error(T_("Invalid status"), 'status');
-			return false;
-		}
-
-		$favorite = \dash\app::request('favorite') ? 1 : null;
-
-		$user_id = \dash\app::request('user_id');
-		if($user_id && !is_numeric($user_id))
-		{
-			\dash\notif::error(T_("Invalid user id"));
-			return false;
-		}
-
-		$args                = [];
-		$args['user_id']       = $user_id;
-		$args['title']       = $title;
-		$args['name']        = $name;
-		$args['mobile']      = $mobile;
-		$args['isdefault']   = $isdefault;
-		$args['company']     = $company;
-		$args['companyname'] = $companyname;
-		$args['jobtitle']    = $jobtitle;
-		$args['country']     = $country;
-		$args['province']    = $province;
-		$args['city']        = $city;
-		$args['address']     = $address;
-		$args['address2']    = $address2;
-		$args['postcode']    = $postcode;
-		$args['phone']       = $phone;
-		$args['fax']         = $fax;
-		$args['status']      = $status;
-		$args['favorite']    = $favorite;
-
-		return $args;
+		return $data;
 
 	}
 
@@ -304,8 +201,6 @@ class address
 	 */
 	public static function add($_args, $_option = [])
 	{
-		\dash\app::variable($_args);
-
 
 		$default_option =
 		[
@@ -327,7 +222,7 @@ class address
 		}
 
 		// check args
-		$args = self::check();
+		$args = self::check($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -393,25 +288,7 @@ class address
 		$option = [];
 		$option = array_merge($default_args, $_args);
 
-		if($option['order'])
-		{
-			if(!in_array($option['order'], ['asc', 'desc']))
-			{
-				unset($option['order']);
-			}
-		}
-
-		if($option['sort'])
-		{
-			if(!in_array($option['sort'], self::$sort_field))
-			{
-				unset($option['sort']);
-			}
-		}
-
-		$field             = [];
-
-		$result = \dash\db\address::search($_string, $option, $field);
+		$result = \dash\db\address::search($_string, $option);
 
 		$temp            = [];
 
@@ -450,9 +327,8 @@ class address
 
 	public static function edit($_args, $_id)
 	{
-		\dash\app::variable($_args);
-
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{
@@ -466,32 +342,14 @@ class address
 		}
 
 		// check args
-		$args = self::check($id);
+		$args = self::check($_args, $id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('name')) unset($args['name']);
-		if(!\dash\app::isset_request('user_id')) unset($args['user_id']);
-		if(!\dash\app::isset_request('isdefault')) unset($args['isdefault']);
-		if(!\dash\app::isset_request('company')) unset($args['company']);
-		if(!\dash\app::isset_request('companyname')) unset($args['companyname']);
-		if(!\dash\app::isset_request('jobtitle')) unset($args['jobtitle']);
-		if(!\dash\app::isset_request('country')) unset($args['country']);
-		if(!\dash\app::isset_request('province')) unset($args['province']);
-		if(!\dash\app::isset_request('city')) unset($args['city']);
-		if(!\dash\app::isset_request('address')) unset($args['address']);
-		if(!\dash\app::isset_request('address2')) unset($args['address2']);
-		if(!\dash\app::isset_request('postcode')) unset($args['postcode']);
-		if(!\dash\app::isset_request('phone')) unset($args['phone']);
-		if(!\dash\app::isset_request('fax')) unset($args['fax']);
-		if(!\dash\app::isset_request('status')) unset($args['status']);
-		if(!\dash\app::isset_request('favorite')) unset($args['favorite']);
-
-		if(!\dash\app::isset_request('mobile')) unset($args['mobile']);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
@@ -505,7 +363,9 @@ class address
 
 	public static function remove($_id)
 	{
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+
+		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{

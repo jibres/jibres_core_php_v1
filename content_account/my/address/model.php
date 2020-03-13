@@ -9,6 +9,7 @@ class model
 	{
 		if(\dash\request::post('btnremove') === 'delete' && \dash\request::post('addressid'))
 		{
+			// remove by checking user id
 			\dash\app\address::remove(\dash\request::post('addressid'));
 			\dash\redirect::to(\dash\url::that());
 			return;
@@ -26,8 +27,8 @@ class model
 		$post['address']     = \dash\request::post('address');
 		$post['address2']    = \dash\request::post('address2');
 		$post['company']     = \dash\request::post('company');
-		$post['companyname'] = \dash\request::post('companyname');
-		$post['jobtitle']    = \dash\request::post('jobtitle');
+		// $post['companyname'] = \dash\request::post('companyname');
+		// $post['jobtitle']    = \dash\request::post('jobtitle');
 
 		if(\dash\request::get('addressid'))
 		{
