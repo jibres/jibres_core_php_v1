@@ -23,7 +23,7 @@ class mobile
 			return null;
 		}
 
-		if(!is_string($data))
+		if(!is_string($_data))
 		{
 			if($_notif)
 			{

@@ -65,6 +65,11 @@ class password
 	{
 		$data = $_data;
 
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
 		$meta        = $_meta;
 		$meta['min'] = 5;
 		$meta['max'] = 50;

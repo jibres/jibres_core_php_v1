@@ -25,7 +25,15 @@ class model
 
 		$require = ['mobile', 'displayname', 'newpassword'];
 
-		$data = \dash\clean::data($args, $condition, $require);
+		$meta =
+		[
+			'field_title' =>
+			[
+				'newpassword' => 'password',
+			],
+		];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
 
 
 		$count = \dash\session::get('count_signup_check');

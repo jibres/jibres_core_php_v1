@@ -152,8 +152,7 @@ class model
 
 		$require = ['mobile'];
 
-		$data = \dash\clean::data($args, $condition, $require);
-
+		$data = \dash\cleanse::input($args, $condition, $require);
 
 		$count = \dash\session::get('count_try_to_login', 'enter');
 		if($count)

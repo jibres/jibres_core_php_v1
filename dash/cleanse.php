@@ -237,9 +237,22 @@ class cleanse
 					continue;
 				}
 
+				$field_title = $required_field;
+				if(isset($_meta['field_title'][$required_field]) && is_string($_meta['field_title'][$required_field]))
+				{
+					$field_title = $_meta['field_title'][$required_field];
+				}
+
 				if(!$data[$required_field] && $data[$required_field] !== 0)
 				{
-					\dash\notif::error(T_("Field :val is required", ['val' => $required_field]), ['code' => 1500, 'element' => $required_field]);
+					if($data[$required_field] === false && !\dash\engine\process::status())
+					{
+						// we have an error in this field. needless to alert required
+					}
+					else
+					{
+						\dash\notif::error(T_("Field :val is required", ['val' => $field_title]), ['code' => 1500, 'element' => $required_field]);
+					}
 				}
 			}
 		}
