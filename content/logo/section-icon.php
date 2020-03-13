@@ -5,14 +5,14 @@ $myUrlStatic = \dash\url::cdn();
    <div class="cn">
 
     <div class="dl vertical msg minimal">
-      <div class="f align-center" data-kerkere=".standardPNG">
+      <div class="f align-center" data-kerkere=".standardPNG-icon">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/icon/svg/Jibres-Logo-icon.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardPNG fs08" data-kerkere-content='hide'>
+      <div class="standardPNG-icon fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon/svg/Jibres-Logo-icon.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon/pdf/Jibres-Logo-icon.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
@@ -57,14 +57,14 @@ $myUrlStatic = \dash\url::cdn();
 
 
     <div class="dl vertical msg minimal">
-      <div class="f align-center" data-kerkere=".standardBlackPNG">
+      <div class="f align-center" data-kerkere=".standardBlackPNG-icon">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("Black"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/icon-black/svg/Jibres-Logo-icon-black.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardBlackPNG fs08" data-kerkere-content='hide'>
+      <div class="standardBlackPNG-icon fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-black/svg/Jibres-Logo-icon-black.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-black/pdf/Jibres-Logo-icon-black.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
@@ -109,14 +109,14 @@ $myUrlStatic = \dash\url::cdn();
 
 
     <div class="dl vertical msg minimal mB0">
-      <div class="f align-center" data-kerkere=".standardWhitePNG">
+      <div class="f align-center" data-kerkere=".standardWhitePNG-icon">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-black" src="<?php echo $myUrlStatic; ?>/logo/icon-white/svg/Jibres-Logo-icon-white.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardWhitePNG fs08" data-kerkere-content='hide'>
+      <div class="standardWhitePNG-icon fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-white/svg/Jibres-Logo-icon-white.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-white/pdf/Jibres-Logo-icon-white.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>

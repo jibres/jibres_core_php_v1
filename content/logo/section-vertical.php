@@ -6,14 +6,14 @@ $myUrlStatic = \dash\url::cdn();
    <div class="cn">
 
     <div class="dl vertical msg minimal">
-      <div class="f align-center" data-kerkere=".standardPNG">
+      <div class="f align-center" data-kerkere=".standardPNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/en-vertical/svg/Jibres-Logo-en-vertical.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardPNG fs08" data-kerkere-content='hide'>
+      <div class="standardPNG-vertical fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-vertical/svg/Jibres-Logo-en-vertical.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-vertical/pdf/Jibres-Logo-en-vertical.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
@@ -56,14 +56,14 @@ $myUrlStatic = \dash\url::cdn();
 
 
     <div class="dl vertical msg minimal">
-      <div class="f align-center" data-kerkere=".standardBlackPNG">
+      <div class="f align-center" data-kerkere=".standardBlackPNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("Black"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/en-vertical-black/svg/Jibres-Logo-en-vertical-black.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardBlackPNG fs08" data-kerkere-content='hide'>
+      <div class="standardBlackPNG-vertical fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-vertical-black/svg/Jibres-Logo-en-vertical-black.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-vertical-black/pdf/Jibres-Logo-en-vertical-black.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
@@ -106,14 +106,14 @@ $myUrlStatic = \dash\url::cdn();
 
 
     <div class="dl vertical msg minimal mB0">
-      <div class="f align-center" data-kerkere=".standardWhitePNG">
+      <div class="f align-center" data-kerkere=".standardWhitePNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-black" src="<?php echo $myUrlStatic; ?>/logo/en-vertical-white/svg/Jibres-Logo-en-vertical-white.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardWhitePNG fs08" data-kerkere-content='hide'>
+      <div class="standardWhitePNG-vertical fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-vertical-white/svg/Jibres-Logo-en-vertical-white.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-vertical-white/pdf/Jibres-Logo-en-vertical-white.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
@@ -144,14 +144,14 @@ if(\dash\language::current() === 'fa')
 ?>
     <hr>
     <div class="dl vertical msg minimal">
-      <div class="f align-center" data-kerkere=".standardFaPNG">
+      <div class="f align-center" data-kerkere=".standardFaPNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardFaPNG fs08" data-kerkere-content='hide'>
+      <div class="standardFaPNG-vertical fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg"><?php echo T_("Jibres Persian Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-vertical/pdf/Jibres-Logo-fa-vertical.pdf"><?php echo T_("Jibres Persian Logo"); ?> - PDF</a>
@@ -194,14 +194,14 @@ if(\dash\language::current() === 'fa')
 
 
     <div class="dl vertical msg minimal">
-      <div class="f align-center" data-kerkere=".standardFaBlackPNG">
+      <div class="f align-center" data-kerkere=".standardFaBlackPNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("Black"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/fa-vertical-black/svg/Jibres-Logo-fa-vertical-black.svg" alt='<?php echo T_("Jibres Persian Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardFaBlackPNG fs08" data-kerkere-content='hide'>
+      <div class="standardFaBlackPNG-vertical fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-vertical-black/svg/Jibres-Logo-fa-vertical-black.svg"><?php echo T_("Jibres Persian Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-vertical-black/pdf/Jibres-Logo-fa-vertical-black.pdf"><?php echo T_("Jibres Persian Logo"); ?> - PDF</a>
@@ -244,14 +244,14 @@ if(\dash\language::current() === 'fa')
 
 
     <div class="dl vertical msg minimal mB0">
-      <div class="f align-center" data-kerkere=".standardFaWhitePNG">
+      <div class="f align-center" data-kerkere=".standardFaWhitePNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-black" src="<?php echo $myUrlStatic; ?>/logo/fa-vertical-white/svg/Jibres-Logo-fa-vertical-white.svg" alt='<?php echo T_("Jibres Persian Logo"); ?> svg'>
         </div>
       </div>
 
-      <div class="standardFaWhitePNG fs08" data-kerkere-content='hide'>
+      <div class="standardFaWhitePNG-vertical fs08" data-kerkere-content='hide'>
         <div class="mB20">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-vertical-white/svg/Jibres-Logo-fa-vertical-white.svg"><?php echo T_("Jibres Persian Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-vertical-white/pdf/Jibres-Logo-fa-vertical-white.pdf"><?php echo T_("Jibres Persian Logo"); ?> - PDF</a>
