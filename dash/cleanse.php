@@ -71,7 +71,7 @@ class cleanse
 			// validation is a string maybe need to call a function
 			if(is_string($validate))
 			{
-				$check = self::data($my_data, $validate, true, ['element' => $field, 'field_title' => $field_title]);
+				$check = self::data($validate, $my_data, true, ['element' => $field, 'field_title' => $field_title]);
 			}
 			elseif(is_array($validate))
 			{
@@ -86,7 +86,7 @@ class cleanse
 							self::bye(T_("Enum option must be string or number"));
 						}
 					}
-					$check = self::data($my_data, 'enum', true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
+					$check = self::data('enum', $my_data, true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
 				}
 				elseif(isset($validate['bool']) && is_array($validate['bool']))
 				{
@@ -171,7 +171,7 @@ class cleanse
 
 							if(is_string($validate[$my_field]))
 							{
-								$temp_data[$my_field] = self::data($my_field_value, $validate[$my_field], true, ['element' => $my_field, 'field_title' => $my_field]);
+								$temp_data[$my_field] = self::data($validate[$my_field], $my_field_value, true, ['element' => $my_field, 'field_title' => $my_field]);
 							}
 							elseif(is_array($validate[$my_field]))
 							{
@@ -183,7 +183,7 @@ class cleanse
 										self::bye(T_("Enum option must be string or number"));
 									}
 								}
-								$temp_data[$my_field] = self::data($my_field_value, 'enum', true, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field]);
+								$temp_data[$my_field] = self::data('enum', $my_field_value, true, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field]);
 							}
 							else
 							{
@@ -267,7 +267,7 @@ class cleanse
 
 
 
-	public static function data($_data, $_cleans_function, $_notif = false, $_meta = [])
+	public static function data($_cleans_function, $_data, $_notif = false, $_meta = [])
 	{
 		if(!$_cleans_function)
 		{
@@ -306,53 +306,57 @@ class cleanse
 			$field_title = $_meta['field_title'];
 		}
 
-		if(strpos($function, '_') !== false)
+		// call function stirng_50 or string_500_20
+		if(substr($function, 0, 6) === 'string')
 		{
-			$explode = explode('_', $function);
-			if(isset($explode[0]))
+			if(strpos($function, '_') !== false)
 			{
-				$function = $explode[0];
+				$explode = explode('_', $function);
+				if(isset($explode[0]))
+				{
+					$function = $explode[0];
+				}
+
+				if(isset($explode[1]))
+				{
+					$max = $explode[1];
+				}
+
+				if(isset($explode[2]))
+				{
+					$min = $explode[2];
+				}
 			}
 
-			if(isset($explode[1]))
+			if($max && !is_numeric($max))
 			{
-				$max = $explode[1];
+				self::bye(T_("Second part of string function must be a number!"));
 			}
 
-			if(isset($explode[2]))
+			if($max && mb_strlen($max) > 10)
 			{
-				$min = $explode[2];
+				self::bye(T_("Second part of string function must be less than 10 character!"));
 			}
-		}
 
-		if($max && !is_numeric($max))
-		{
-			self::bye(T_("Second part of string function must be a number!"));
-		}
+			if($max && intval($max) <= 0)
+			{
+				self::bye(T_("Second part of string function must be larger than zero!"));
+			}
 
-		if($max && mb_strlen($max) > 10)
-		{
-			self::bye(T_("Second part of string function must be less than 10 character!"));
-		}
+			if($min && !is_numeric($min))
+			{
+				self::bye(T_("Second part of string function must be a number!"));
+			}
 
-		if($max && intval($max) <= 0)
-		{
-			self::bye(T_("Second part of string function must be larger than zero!"));
-		}
+			if($min && mb_strlen($min) > 10)
+			{
+				self::bye(T_("Second part of string function must be less than 10 character!"));
+			}
 
-		if($min && !is_numeric($min))
-		{
-			self::bye(T_("Second part of string function must be a number!"));
-		}
-
-		if($min && mb_strlen($min) > 10)
-		{
-			self::bye(T_("Second part of string function must be less than 10 character!"));
-		}
-
-		if($min && intval($min) <= 0)
-		{
-			self::bye(T_("Second part of string function must be larger than zero!"));
+			if($min && intval($min) <= 0)
+			{
+				self::bye(T_("Second part of string function must be larger than zero!"));
+			}
 		}
 
 		$meta = $_meta;
@@ -368,10 +372,7 @@ class cleanse
 
 		switch ($function)
 		{
-			case 'price':
-				$data = \dash\validate\number::price($_data, $_notif, $element, $field_title, $meta);
-				break;
-
+			// *************** mobile validate
 			case 'mobile':
 				$data = \dash\validate\mobile::mobile($_data, $_notif, $element, $field_title, $meta);
 				break;
@@ -380,6 +381,9 @@ class cleanse
 				$data = \dash\validate\mobile::ir_mobile($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+
+
+			// *************** string validate
 			case 'string':
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
@@ -406,31 +410,6 @@ class cleanse
 				$data = \dash\validate\text::username($_data, $_notif, $element, $field_title, $meta);
 				break;
 
-			case 'password':
-				$data = \dash\validate\password::password($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'enum':
-				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'order':
-				$meta['enum'] = ['asc', 'desc'];
-				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'number':
-				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'number-positive':
-				$data = \dash\validate\number::number_positive($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'percent':
-				$data = \dash\validate\number::number_percent($_data, $_notif, $element, $field_title, $meta);
-				break;
-
 			case 'slug':
 				$data = \dash\validate\text::slug($_data, $_notif, $element, $field_title, $meta);
 				break;
@@ -447,9 +426,65 @@ class cleanse
 				$data = \dash\validate\text::url($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			// *************** password validate
+			case 'password':
+				$data = \dash\validate\password::password($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+
+			// *************** identify validate
+			case 'id':
+				$data = \dash\validate\identify::id($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'code':
+				$data = \dash\validate\identify::code($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'id_code':
+				$data = \dash\validate\identify::id_code($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+
+			// *************** array validate
+			case 'enum':
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'order':
+				$meta['enum'] = ['asc', 'desc'];
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+
+			// *************** nationalcode validate
 			case 'nationalcode':
 				$data = \dash\validate\nationalcode::nationalcode($_data, $_notif, $element, $field_title, $meta);
 				break;
+
+			// *************** number validate
+			case 'number':
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'number_positive':
+				$data = \dash\validate\number::number_positive($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'smallint':
+				$meta['min'] = 0;
+				$meta['max'] = 9999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'percent':
+				$data = \dash\validate\number::number_percent($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'price':
+				$data = \dash\validate\number::price($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 
 			default:
 				self::bye(T_("Invalid vaidate function".' '. $function));

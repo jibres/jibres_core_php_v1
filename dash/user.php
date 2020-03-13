@@ -105,7 +105,7 @@ class user
 	 * call from enter
 	 * @return     boolean  True if initialize jibres user, False otherwise.
 	 */
-	public static function is_init_jibres_user($_need = null)
+	public static function jibres_user($_need = null)
 	{
 		if($_need)
 		{
@@ -583,7 +583,7 @@ class user
 					if(\dash\engine\store::inStore())
 					{
 						// check from master
-						$status = \dash\db\sessions::is_active_master($cookie, \dash\user::is_init_jibres_user());
+						$status = \dash\db\sessions::is_active_master($cookie, \dash\user::jibres_user());
 
 						if($status === true)
 						{

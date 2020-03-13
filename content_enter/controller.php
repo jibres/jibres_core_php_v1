@@ -36,7 +36,8 @@ class controller
 
 		// save referer
 		// to redirect the user ofter login or signup on the referered address
-		if(\dash\request::get('referer') && \dash\request::get('referer') != '')
+		$referer = \dash\validate::url(\dash\request::get('referer'));
+		if($referer)
 		{
 			$_SESSION['enter_referer'] = \dash\request::get('referer');
 		}
@@ -193,7 +194,7 @@ class controller
 			return false;
 		}
 		// user must be login on master jibres domain
-		if(!\dash\user::is_init_jibres_user())
+		if(!\dash\user::jibres_user())
 		{
 			return false;
 		}
@@ -236,7 +237,10 @@ class controller
 		// the referer subdomain
 		$referer_subdomain = $host_explode[0];
 
-		$referer = $_SERVER['HTTP_REFERER'];
+		// @reza @check need to make validate subdomain function
+		// $referer_subdomain = \dash\validate::subdomain($referer_subdomain);
+
+		$referer = \dash\validate::url($_SERVER['HTTP_REFERER']);
 
 		// the referer must compare the referer subdomain. for trust referer
 		if(strpos($referer, $referer_subdomain) === false)
@@ -244,7 +248,7 @@ class controller
 			return false;
 		}
 
-		$keyMd5 = microtime(). '_'. \dash\user::is_init_jibres_user(). '_'. rand(). $referer_subdomain;
+		$keyMd5 = microtime(). '_'. \dash\user::jibres_user(). '_'. rand(). $referer_subdomain;
 		$keyMd5 = md5($keyMd5);
 
 		if(!isset($_SESSION['login_as']))

@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('myActionLogin') === 'login')
 		{
-			$result = \lib\app\customer\loginas::user(\dash\user::is_init_jibres_user(), \dash\data::logitToSubdomain());
+			$result = \lib\app\customer\loginas::user(\dash\user::jibres_user(), \dash\data::logitToSubdomain());
 
 			unset($_SESSION['login_as'][\dash\data::logitToSubdomain()]);
 

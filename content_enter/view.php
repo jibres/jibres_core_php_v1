@@ -11,7 +11,7 @@ class view
 		$session_mobile = \dash\utility\enter::get_session('usernameormobile');
 		$temp_mobile    = \dash\utility\enter::get_session('temp_mobile');
 		$myMobile       = null;
-		$get_mobile     = \dash\request::get('mobile');
+		$get_mobile     = \dash\validate::mobile(\dash\request::get('mobile'));
 
 		if(\dash\user::login('mobile'))
 		{
@@ -25,19 +25,20 @@ class view
 		{
 			$myMobile = $temp_mobile;
 		}
-		elseif($get_mobile && \dash\utility\filter::mobile($get_mobile))
+		elseif($get_mobile)
 		{
-			$myMobile = \dash\utility\filter::mobile($get_mobile);
+			$myMobile = $get_mobile;
 		}
 
-		if($get_mobile && \dash\utility\filter::mobile($get_mobile) && \dash\permission::check('EnterByAnother'))
+		if($get_mobile  && \dash\permission::check('EnterByAnother'))
 		{
-			$myMobile = \dash\utility\filter::mobile($get_mobile);
+			$myMobile = $get_mobile;
 		}
 
-		if(\dash\request::get('userid') && \dash\permission::check('EnterByAnother'))
+		$userid = \dash\validate::id_code(\dash\request::get('userid'));
+		if($userid && \dash\permission::check('EnterByAnother'))
 		{
-			$myMobile   = \dash\request::get('userid');
+			$myMobile   = $userid;
 			$get_mobile = true;
 		}
 

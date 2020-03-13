@@ -41,7 +41,7 @@ class user
 		}
 
 		$store_id = \lib\store::id();
-		$creator  = \dash\user::is_init_jibres_user('id');
+		$creator  = \dash\user::jibres_user('id');
 
 		if($jibres_user_id)
 		{

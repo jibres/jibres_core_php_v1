@@ -34,14 +34,10 @@ class view
 			$main_account = true;
 		}
 
-		$mobile = \dash\request::get('mobile');
-		if($mobile)
-		{
-			if(!$main_account)
-			{
-				$mobile = \dash\utility\filter::mobile($mobile);
-			}
+		$mobile = \dash\validate::mobile(\dash\request::get('mobile'));
 
+		if($mobile && !$main_account)
+		{
 			\dash\data::getMobile($mobile);
 		}
 
