@@ -75,22 +75,7 @@ class model
 			return false;
 		}
 
-		$mobile = \dash\utility\filter::mobile($mobile);
-		if(!$mobile)
-		{
-			\dash\notif::error(T_("Pleaes set a valid mobile number"), 'mobile');
-			return false;
-		}
-
-
 		$ramz = $data['newpassword'];
-
-		if(!$ramz || mb_strlen($ramz) < 5 || mb_strlen($ramz) > 50)
-		{
-			\dash\notif::error(T_("Pleaes set a valid password"), 'newpassword');
-			return false;
-		}
-
 
 		if($mobile && strpos($ramz, $mobile) !== false)
 		{
@@ -99,18 +84,14 @@ class model
 		}
 
 		$displayname = $data['displayname'];
-		if(!$displayname || mb_strlen($displayname) > 50)
-		{
-			\dash\notif::error(T_("Invalid full name"), 'displayname');
-			return false;
-		}
-
 
 		$check_mobile = \dash\db\users::get_by_mobile($mobile);
 		if($check_mobile)
 		{
 			\dash\log::set('mobileExistTryToSignup');
-			\dash\notif::error(T_("This mobile is already signuped. You can login by this mobile"), 'mobile');
+			$msg = T_("This mobile is already signuped. You can login by this mobile");
+			$msg .= ' <br><a href="'. \dash\url::kingdom().'/enter">'. T_("Click to login"). '</a>';
+			\dash\notif::error($msg, 'mobile');
 			return false;
 		}
 
