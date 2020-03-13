@@ -6,12 +6,18 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('why'))
+		$condition = ['why' => 'string_200',];
+		$args      = ['why' => \dash\request::post('why'),];
+		$require   = [];
+		$meta      = [];
+		$data      = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		if($data['why'])
 		{
-			\dash\utility\enter::set_session('why', \dash\request::post('why'));
+			\dash\utility\enter::set_session('why', $data['why']);
 		}
 		// save log the user try to delete account
-		\dash\db\logs::set('enter:delete:try', \dash\user::id(), ['meta' => ['session' => $_SESSION, 'input' => \dash\request::post()]]);
+		\dash\log::set('enter:delete:try', ['from' => \dash\user::id(), 'why' => $data['why']]);
 		// set session verify_from signup
 		\dash\utility\enter::set_session('verify_from', 'delete');
 
