@@ -160,7 +160,7 @@ class controller
 		$if_login_not_route_module =
 		[
 			'signup',
-			'google',
+			// 'google',
 		];
 
 		$module = \dash\url::module();
