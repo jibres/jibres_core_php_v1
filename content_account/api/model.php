@@ -11,7 +11,25 @@ class model
 			return;
 		}
 
-		if(\dash\request::post('add') === 'apikey')
+
+		$condition =
+		[
+			'add'    => ['enum' => ['apikey']],
+			'remove' => ['enum' => ['apikey']],
+		];
+
+		$args =
+		[
+			'add'    => \dash\request::post('add'),
+			'remove' => \dash\request::post('remove'),
+		];
+
+		$require = [];
+		$meta    = ['field_title' => ['add' => 'apikey']];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		if($data['add'] === 'apikey')
 		{
 			$check = \dash\app\user_auth::make_user_auth(\dash\user::id(), 'api');
 			if($check)
@@ -25,7 +43,7 @@ class model
 				\dash\notif::error(T_("Error in create new api key"));
 			}
 		}
-		elseif(\dash\request::post('remove') === 'apikey')
+		elseif($data['remove'] === 'apikey')
 		{
 			$check = \dash\app\user_auth::disable_api_key(\dash\user::id(), 'api');
 			if($check)

@@ -66,6 +66,10 @@ class model
 		{
 			return false;
 		}
+		else
+		{
+			$file['path'] = null;
+		}
 
 		if(\dash\permission::check('supportTicketSignature'))
 		{
