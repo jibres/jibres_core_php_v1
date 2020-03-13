@@ -7,14 +7,33 @@ class model
 
 	public static function post()
 	{
-		if(\dash\request::post('ramzNew'))
-		{
-			$temp_ramz = \dash\request::post('ramzNew');
+		$condition =
+		[
+			'ramzNew' => 'password',
+		];
 
-			if(isset($_POST['ramzNew']))
-			{
-				$temp_ramz = $_POST['ramzNew'];
-			}
+		$args =
+		[
+			'ramzNew' => \dash\request::post('ramzNew'),
+		];
+
+		$require = ['ramzNew'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+				'ramzNew' => 'password',
+			],
+		];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+
+		if($data['ramzNew'])
+		{
+			$temp_ramz = $data['ramzNew'];
+
 
 			// check new password = old password
 			// needless to change password
