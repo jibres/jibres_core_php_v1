@@ -20,39 +20,40 @@ class model
 
 	public static function kavenegar()
 	{
-		\dash\temp::set('api', true);
-		$log_meta =
+		\dash\log::set('enter:callback:sms:resieve');
+
+		$condition =
 		[
-			'data' => null,
-			'meta' =>
-			[
-				'get'  => \dash\request::get(),
-				'post' => \dash\request::post(),
-			],
+			'from'    => 'mobile',
+			'message' => 'string_500',
 		];
 
-		\dash\db\logs::set('enter:callback:sms:resieve', null, $log_meta);
+		$args =
+		[
+			'from'    => \dash\request::post('from'),
+			'message' => \dash\request::post('message'),
+		];
 
-		$message = \dash\request::post('message');
-		$message = trim($message);
-		if(!$message || mb_strlen($message) < 1)
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$message = $data['message'];
+
+		if(!$message)
 		{
-			\dash\db\logs::set('enter:callback:message:empty', null, $log_meta);
+			\dash\log::set('enter:callback:message:empty');
 			\dash\notif::error(T_("Message is empty"));
 			return false;
 		}
 
 
-		$mobile = \dash\request::post('from');
-
-		if($mobile)
-		{
-			$mobile = \dash\utility\filter::mobile($mobile);
-		}
+		$mobile = $data['from'];
 
 		if(!$mobile)
 		{
-			\dash\db\logs::set('enter:callback:from:not:set', null, $log_meta);
+			\dash\log::set('enter:callback:from:not:set');
 			\dash\notif::error(T_("Mobile not set"));
 			return false;
 		}
@@ -61,7 +62,13 @@ class model
 
 		if(!$user_data || !isset($user_data['id']))
 		{
-			return self::first_signup_sms();
+			return self::first_signup_sms($mobile);
+		}
+
+		// the message is not a verification code
+		if(!\dash\validate::verification_code($message))
+		{
+			return false;
 		}
 
 		$user_id = $user_data['id'];
@@ -76,21 +83,23 @@ class model
 
 		$find_log = \dash\db\logs::get($find_log);
 
+		$log_detail = ['from' => $user_id];
+
 		if(!$find_log || !is_array($find_log) || count($find_log) === 0)
 		{
-			\dash\db\logs::set('enter:callback:sms:resieve:log:not:found', $user_id, $log_meta);
+			\dash\log::set('enter:callback:sms:resieve:log:not:found', $log_detail);
 			\dash\notif::error(T_("Log not found"));
 			return false;
 		}
 
 		if(count($find_log) > 1)
 		{
-			\dash\db\logs::set('enter:callback:sms:more:than:one:log:found', $user_id, $log_meta);
+			\dash\log::set('enter:callback:sms:more:than:one:log:found', $log_detail);
 			foreach ($find_log as $key => $value)
 			{
 				if(isset($value['id']))
 				{
-					\dash\db\logs::update(['status' => 'expire'], $value);
+					\dash\db\logs::update(['status' => 'expire'], $value['id']);
 				}
 			}
 			\dash\notif::error(T_("More than one log found"));
@@ -125,24 +134,13 @@ class model
 	/**
 	 * singup user and send the regirster sms to he
 	 */
-	public static function first_signup_sms()
+	private static function first_signup_sms($_mobile)
 	{
-		$mobile = \dash\request::post('from');
 
-		if($mobile)
-		{
-			$mobile = \dash\utility\filter::mobile($mobile);
-		}
-
-		if(!$mobile)
-		{
-			\dash\notif::error(T_("Mobile not set"));
-			return false;
-		}
 
 		$signup =
 		[
-			'mobile'      => $mobile,
+			'mobile'      => $_mobile,
 			'password'    => null,
 			'displayname' => null,
 			'datecreated' => date("Y-m-d H:i:s"),
@@ -150,18 +148,7 @@ class model
 
 		$user_id = \dash\app\user::quick_add($signup);
 
-
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'get'  => \dash\request::get(),
-				'post' => \dash\request::post(),
-			],
-		];
-
-		\dash\db\logs::set('enter:callback:signup:by:sms', $user_id, $log_meta);
+		\dash\log::set('enter:callback:signup:by:sms');
 
 		$msg    = T_("Your register was complete");
 
@@ -169,7 +156,7 @@ class model
 
 		// $log_meta['meta']['register_sms_result'] = $kavenegar_send_result;
 
-		// \dash\db\logs::set('enter:callback:sms:registe:reasult', $user_id, $log_meta);
+		// \dash\log::set('enter:callback:sms:registe:reasult');
 
 		\dash\notif::ok(T_("User signup by sms"));
 

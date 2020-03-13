@@ -477,6 +477,12 @@ class cleanse
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'verification_code':
+				$meta['min'] = 10000;
+				$meta['max'] = 99999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'percent':
 				$data = \dash\validate\number::number_percent($_data, $_notif, $element, $field_title, $meta);
 				break;
