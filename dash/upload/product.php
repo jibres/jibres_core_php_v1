@@ -38,7 +38,16 @@ class product
 			return false;
 		}
 
-		$file_detail = \dash\upload\file::upload('gallery');
+		$meta =
+		[
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('gallery', $meta);
 
 		if(!$file_detail)
 		{

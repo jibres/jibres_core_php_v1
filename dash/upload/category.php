@@ -17,7 +17,16 @@ class category
 			return false;
 		}
 
-		$file_detail = \dash\upload\file::upload('file');
+		$meta =
+		[
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('file', $meta);
 
 		if(!$file_detail)
 		{

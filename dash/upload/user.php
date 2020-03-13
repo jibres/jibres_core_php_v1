@@ -23,7 +23,15 @@ class user
 			return false;
 		}
 
-		$file_detail = \dash\upload\file::upload('avatar');
+		$meta =
+		[
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+		$file_detail = \dash\upload\file::upload('avatar', $meta);
 
 		if(!$file_detail)
 		{
@@ -89,7 +97,15 @@ class user
 			return false;
 		}
 
-		$file_detail = \dash\upload\file::upload($_upload_name);
+		$meta =
+		[
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+		$file_detail = \dash\upload\file::upload($_upload_name, $meta);
 
 		if(!$file_detail)
 		{

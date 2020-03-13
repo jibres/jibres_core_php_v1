@@ -27,7 +27,10 @@ class model
 			}
 			else
 			{
-				\dash\notif::warn(T_("No file was received"));
+				if(\dash\engine\process::status())
+				{
+					\dash\notif::warn(T_("No file was received"));
+				}
 				return false;
 			}
 		}

@@ -17,7 +17,16 @@ class cms
 			return false;
 		}
 
-		$file_detail = \dash\upload\file::upload('thumb');
+		$meta =
+		[
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('thumb', $meta);
 
 		if(!$file_detail)
 		{
@@ -83,7 +92,18 @@ class cms
 			return false;
 		}
 
-		$file_detail = \dash\upload\file::upload('gallery');
+		$meta =
+		[
+			'ext' =>
+			[
+				'mp3','wav','ogg','wma','m4a','aac', 	// audio
+				'bmp','gif','jpeg','jpg','png',			// image
+				'mpeg','mpg','mp4','mov','avi',			// video
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('gallery', $meta);
 
 		if(!$file_detail)
 		{

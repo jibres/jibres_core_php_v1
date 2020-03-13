@@ -39,6 +39,8 @@ class validation_file
 				return false;
 		}
 
+		$tmp_name = \dash\request::files($_upload_name, 'tmp_name');
+
 		$fileInfo           = pathinfo(\dash\request::files($_upload_name, 'name'));
 
 		if(isset($fileInfo['filename']))
@@ -56,7 +58,7 @@ class validation_file
 			}
 		}
 
-		$extCheck           = \dash\upload\extentions::check($fileExt, $_meta);
+		$extCheck           = \dash\upload\extentions::check($tmp_name, $fileExt, $_meta);
 
 		$fileType  = isset($extCheck['type'])  ? $extCheck['type']  : null;
 		$fileMime  = isset($extCheck['mime'])  ? $extCheck['mime']  : null;
@@ -86,7 +88,6 @@ class validation_file
 			return false;
 		}
 
-		$tmp_name = \dash\request::files($_upload_name, 'tmp_name');
 
 		$fileMd5      = md5_file($tmp_name);
 

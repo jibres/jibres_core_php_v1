@@ -11,7 +11,7 @@ class extentions
 	 * @return string MIME type of file.
 	 * @static
 	 */
-	public static function check($_ext, $_meta = [])
+	public static function check($_file_addr, $_ext = null, $_meta = [])
 	{
 		$mimes =
 		[
@@ -91,6 +91,7 @@ class extentions
 
 		];
 
+
 		// only accept valid files
 		$myResult = ['allow' => false];
 
@@ -122,6 +123,18 @@ class extentions
 		if(isset($_meta['ext']) && is_array($_meta['ext']))
 		{
 			$myResult['allow'] = in_array($_ext, $_meta['ext']);
+		}
+
+		// allow to upload
+		if($myResult['allow'])
+		{
+			$mime_content_type = mime_content_type($_file_addr);
+
+			// force changed the extentio of file
+			if(isset($myResult['mime']) && $myResult['mime'] !== $mime_content_type)
+			{
+				$myResult['allow'] = false;
+			}
 		}
 
 		// else return the

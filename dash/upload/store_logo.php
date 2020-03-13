@@ -12,7 +12,15 @@ class store_logo
 	public static function set()
 	{
 
-		$file_detail = \dash\upload\file::upload('logo');
+		$meta =
+		[
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+		$file_detail = \dash\upload\file::upload('logo', $meta);
 
 		if(!$file_detail)
 		{

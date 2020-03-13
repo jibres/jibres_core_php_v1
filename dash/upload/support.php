@@ -11,8 +11,21 @@ class support
 	 */
 	public static function ticket()
 	{
+		$meta =
+		[
+			'ext' =>
+			[
+				'zip','rar',
+				'mp3','wav','ogg','wma','m4a','aac',
+				'bmp','gif','jpeg','jpg','png','tif','svg','pdf',
+				'mpeg','mpg','mp4','mov','avi','dvi',
+				'doc','docx','xls','xlsx','ppt','pptx','ppsx',
+				'txt','csv',
+			],
+		];
 
-		$file_detail = \dash\upload\file::upload('file');
+
+		$file_detail = \dash\upload\file::upload('file', $meta);
 
 		if(!$file_detail)
 		{
