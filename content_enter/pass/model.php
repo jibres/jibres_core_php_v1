@@ -7,12 +7,29 @@ class model
 
 	public static function post()
 	{
+		$condition =
+		[
+			'ramz' => 'password',
+		];
 
-		$ramz = \dash\request::post('ramz');
-		if(isset($_POST['ramz']))
-		{
-			$ramz = $_POST['ramz'];
-		}
+		$args =
+		[
+			'ramz' => \dash\request::post('ramz'),
+		];
+
+		$require = ['ramz'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+				'ramz' => 'password',
+			],
+		];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$ramz = $data['ramz'];
 
 		if(!$ramz)
 		{

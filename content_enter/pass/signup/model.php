@@ -6,15 +6,31 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('ramzNew'))
+		$condition =
+		[
+			'ramzNew' => 'password',
+		];
+
+		$args =
+		[
+			'ramzNew' => \dash\request::post('ramzNew'),
+		];
+
+		$require = ['ramzNew'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+				'ramzNew' => 'password',
+			],
+		];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		if($data['ramzNew'])
 		{
-			$temp_ramz = \dash\request::post('ramzNew');
-
-			if(isset($_POST['ramzNew']))
-			{
-				$temp_ramz = $_POST['ramzNew'];
-			}
-
+			$temp_ramz = $data['ramzNew'];
 
 			// check min and max of password and make error
 			if(!\dash\utility\enter::check_pass_syntax($temp_ramz, \dash\utility\enter::user_data('mobile')))
