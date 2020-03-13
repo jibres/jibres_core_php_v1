@@ -71,15 +71,17 @@
 
       <label for="postcode"><?php echo T_("Post code"); ?></label>
       <div class="input ltr">
-        <input type="text" name="postcode" id="postcode" value="<?php echo \dash\data::dataRowAddress_postcode(); ?>" maxlength='40' minlength="1" pattern=".{1,40}" >
+        <input type="text" name="postcode" id="postcode" value="<?php echo \dash\data::dataRowAddress_postcode(); ?>" data-format="postalCode" >
       </div>
 
     <div class="f">
       <div class="c pRa5">
 
+
+
           <label for="iphone"><?php echo T_("Phone"); ?></label>
           <div class="input">
-            <input type="tel" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" pattern=".{1,20}">
+            <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
           </div>
 
       </div>
@@ -87,7 +89,7 @@
 
         <label for="iMobile"><?php echo T_("Mobile"); ?></label>
         <div class="input">
-          <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" pattern=".{1,20}">
+          <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" data-format="tel">
         </div>
 
 

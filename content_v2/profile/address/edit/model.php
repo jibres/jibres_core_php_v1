@@ -6,7 +6,7 @@ class model
 {
 	public static function patch()
 	{
-		$id = \dash\request::get('id');
+		$id = \dash\validate::code(\dash\request::get('id'));
 
 		$dataRow = \dash\app\address::get_user_address(\dash\user::id(), $id);
 		if(!$dataRow)

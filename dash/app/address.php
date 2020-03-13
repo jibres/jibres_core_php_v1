@@ -6,29 +6,11 @@ namespace dash\app;
  */
 class address
 {
-	public static $sort_field =
-	[
-
-		'title',
-		'firstname',
-		'lastname',
-		'company',
-		'companyname',
-		'jobtitle',
-		'country',
-		'province',
-		'city',
-		'phone',
-		'fax',
-		'status',
-		'favorite',
-		'isdefault',
-	];
-
 
 	public static function get($_id)
 	{
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
 			return false;
@@ -51,7 +33,8 @@ class address
 			return false;
 		}
 
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
 			return false;
@@ -99,7 +82,7 @@ class address
 		$require = ['address'];
 		$meta    = [];
 
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		if(!$data['province'] && $data['city'])
 		{
@@ -394,7 +377,9 @@ class address
 
 	public static function remove_admin($_id)
 	{
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+
+		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{
