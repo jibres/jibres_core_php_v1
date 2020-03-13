@@ -28,26 +28,12 @@ class view
 		\dash\data::action_text(T_('Signup'));
 		\dash\data::action_link(\dash\url::here(). '/signup');
 
-		$main_account = false;
-		if(isset($_SESSION['main_account']) && $_SESSION['main_account'])
-		{
-			$main_account = true;
-		}
 
 		$mobile = \dash\validate::mobile(\dash\request::get('mobile'));
 
-		if($mobile && !$main_account)
+		if(\dash\request::get('autosend') && $mobile)
 		{
-			\dash\data::getMobile($mobile);
-		}
-
-		if(\dash\request::get('autosend') && \dash\request::get('mobile'))
-		{
-			$mobile = \dash\utility\filter::mobile(\dash\request::get('mobile'));
-			if($mobile)
-			{
-				\content_enter\home\model::enter_post($mobile);
-			}
+			\content_enter\home\model::enter_post($mobile);
 		}
 	}
 }

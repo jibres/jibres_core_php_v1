@@ -486,6 +486,12 @@ class cleanse
 				break;
 
 
+			// *************** bool validate
+			case 'bool':
+				$data = boolval($_data);
+				break;
+
+
 			default:
 				self::bye(T_("Invalid vaidate function".' '. $function));
 				break;

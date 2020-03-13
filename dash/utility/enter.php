@@ -157,7 +157,7 @@ class enter
 				break;
 
 			case 'user_id':
-				if(ctype_digit($_user_aut_key) && is_numeric($_user_aut_key))
+				if(is_numeric($_user_aut_key))
 				{
 					$data = \dash\db\users::get_by_id($_user_aut_key);
 				}

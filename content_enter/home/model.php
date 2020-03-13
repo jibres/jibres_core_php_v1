@@ -6,20 +6,32 @@ class model
 {
 	public static function login_another_session()
 	{
+		// in other place use from permission EnterByAnother
+		// but this permissio caller added for our customer
 		if(!\dash\permission::supervisor())
 		{
 			return false;
 		}
 
-		$user_id = null;
+		$user_id    = null;
+		$mobile     = null;
 
-		if(\dash\request::post('usernameormobile') && !\dash\utility\filter::mobile(\dash\request::post('usernameormobile')) && ctype_digit(\dash\request::post('usernameormobile')))
+		$get_userid = \dash\validate::id(\dash\request::get('userid'));
+
+		$maybe_mobile_or_id  = \dash\request::post('usernameormobile');
+
+		if(\dash\validate::mobile($maybe_mobile_or_id))
 		{
-			$user_id = \dash\request::post('usernameormobile');
+			$mobile = \dash\validate::mobile($maybe_mobile_or_id);
 		}
-		elseif(\dash\request::post('usernameormobile') !== \dash\user::login('mobile') && !\dash\request::get('userid'))
+		elseif(\dash\validate::id($maybe_mobile_or_id))
 		{
-			$user_data = \dash\db\users::get_by_mobile(\dash\utility\filter::mobile(\dash\request::post('usernameormobile')));
+			$user_id = \dash\validate::id($maybe_mobile_or_id);
+		}
+
+		if($mobile && $mobile !== \dash\user::login('mobile') && !$get_userid)
+		{
+			$user_data = \dash\db\users::get_by_mobile($mobile);
 
 			if(isset($user_data['id']))
 			{
@@ -32,9 +44,9 @@ class model
 			}
 		}
 
-		if(!$user_id && \dash\request::get('userid'))
+		if(!$user_id && $get_userid)
 		{
-			$user_id = \dash\request::get('userid');
+			$user_id = $get_userid;
 		}
 
 		if($user_id && is_numeric($user_id))

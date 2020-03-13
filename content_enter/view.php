@@ -13,6 +13,13 @@ class view
 		$myMobile       = null;
 		$get_mobile     = \dash\validate::mobile(\dash\request::get('mobile'));
 
+		$main_account = false;
+		if(isset($_SESSION['main_account']) && $_SESSION['main_account'])
+		{
+			$main_account = true;
+		}
+
+
 		if(\dash\user::login('mobile'))
 		{
 			$myMobile = \dash\user::login('mobile');
@@ -25,7 +32,7 @@ class view
 		{
 			$myMobile = $temp_mobile;
 		}
-		elseif($get_mobile)
+		elseif($get_mobile && !$main_account)
 		{
 			$myMobile = $get_mobile;
 		}
