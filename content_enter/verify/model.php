@@ -6,49 +6,69 @@ class model
 {
 	public static function post()
 	{
-		$mobile_email = \dash\request::post('usernameormobile');
-		$send_code    = mb_strtolower(\dash\request::post('sendCod'));
 
-		$exist_mobile_email = \dash\utility\enter::get_session('usernameormobile');
+		$way = \dash\utility\enter::list_send_code_way();
+		if(!is_array($way))
+		{
+			$way = [];
+		}
 
-		if(!$exist_mobile_email && \dash\user::login())
+		$condition =
+		[
+			'usernameormobile' => 'mobile',
+			'sendCode'         => ['enum' => $way],
+		];
+
+		$args =
+		[
+			'sendCode'         => \dash\request::post('sendCode'),
+			'usernameormobile' => \dash\request::post('usernameormobile'),
+		];
+
+		$require = ['sendCode', 'usernameormobile'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+				'sendCode'         => 'Verify way',
+				'usernameormobile' => 'mobile',
+			],
+		];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+
+		$mobile    = $data['usernameormobile'];
+		$send_code = $data['sendCode'];
+
+		$exist_mobile = \dash\utility\enter::get_session('usernameormobile');
+
+		if(!$exist_mobile && \dash\user::login())
 		{
 			if(\dash\user::detail('mobile'))
 			{
-				$exist_mobile_email = \dash\utility\filter::mobile(\dash\user::detail('mobile'));
+				$exist_mobile = \dash\user::detail('mobile');
 			}
 			elseif(\dash\user::detail('username'))
 			{
-				$exist_mobile_email = \dash\user::detail('username');
+				$exist_mobile = \dash\user::detail('username');
 			}
 			elseif(\dash\user::detail('email'))
 			{
-				$exist_mobile_email = \dash\user::detail('email');
+				$exist_mobile = \dash\user::detail('email');
 			}
 		}
 
-		if($mobile_email !== $exist_mobile_email)
+		if($mobile !== $exist_mobile)
 		{
-			if(\dash\utility\filter::mobile($mobile_email) !== \dash\utility\filter::mobile($exist_mobile_email))
+			if(\dash\validate::mobile($mobile) !== \dash\validate::mobile($exist_mobile))
 			{
 				\dash\log::set('existMobileIsNotMathcBySendMobile');
 
 				\dash\notif::error(T_("What are you doing?"));
 				return false;
 			}
-		}
-
-		if(!$send_code)
-		{
-			\dash\notif::error(T_("Please select one way to send code"), 'sendCod');
-			return false;
-		}
-
-		if(!in_array($send_code, \dash\utility\enter::list_send_code_way()))
-		{
-			\dash\log::set('sendWayInvalid');
-			\dash\notif::error(T_("Please select one way to send code"));
-			return false;
 		}
 
 		if($send_code !== 'later')

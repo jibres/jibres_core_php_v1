@@ -325,9 +325,9 @@ class enter
 
 		// get url language
 		// if have referer redirect to referer
-		if(\dash\request::get('referer'))
+		if(\dash\validate::url(\dash\request::get('referer')))
 		{
-			$host = \dash\request::get('referer');
+			$host = \dash\validate::url(\dash\request::get('referer'));
 		}
 		elseif(isset($_SESSION['enter_referer']) && $_SESSION['enter_referer'])
 		{
@@ -543,18 +543,21 @@ class enter
 		if($_auto_redirect)
 		{
 
-			if(\dash\request::get('referer') || \dash\request::get('mobile'))
+			$mobile  = \dash\validate::mobile(\dash\request::get('mobile'));
+			$referer = \dash\validate::url(\dash\request::get('referer'));
+
+			if($referer || $mobile)
 			{
 				$get_enter_query = [];
-				if(\dash\request::get('mobile'))
+				if($mobile)
 				{
-					$get_enter_query['mobile']   = \dash\request::get('mobile');
+					$get_enter_query['mobile']   = $mobile;
 					$get_enter_query['autosend'] = 1;
 				}
 
-				if(\dash\request::get('referer'))
+				if($referer)
 				{
-					$get_enter_query['referer']   = \dash\request::get('referer');
+					$get_enter_query['referer']   = $referer;
 				}
 
 				\dash\redirect::to(\dash\url::kingdom(). '/enter?'. http_build_query($get_enter_query));
@@ -833,16 +836,9 @@ class enter
 
 	public static function check_code($_module)
 	{
-		$log_meta =
-		[
-			'meta' =>
-			[
-				'session' => $_SESSION,
-				'post'    => \dash\request::post(),
-			]
-		];
+		$log_meta =	[];
 
-		$verificationCode = \dash\request::post('code');
+		$verificationCode = \dash\validate::verification_code(\dash\request::post('code'));
 
 		if(!$verificationCode)
 		{
