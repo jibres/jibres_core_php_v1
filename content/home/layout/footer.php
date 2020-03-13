@@ -97,9 +97,9 @@ if(\dash\language::current() === 'fa')
             <a href="<?php echo $kingdom; ?>/about"><?php echo T_('About Jibres'); ?></a>
             <a href="<?php echo $kingdom; ?>/mission"><?php echo T_('Jibres Mission'); ?></a>
             <a href="<?php echo $kingdom; ?>/vision"><?php echo T_('Jibres Vision'); ?></a>
-            <a href="<?php echo $kingdom; ?>/team"><?php echo T_('Jibres Team'); ?></a>
+            <a href="<?php echo $kingdom; ?>/team"><?php echo T_('Our Team'); ?></a>
             <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Jibres Logo'); ?></a>
-            <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Jibres Brand Styleguide'); ?></a>
+            <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Brand Styleguide'); ?></a>
             <a target="_blank" href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></a>
             <a href="<?php echo $kingdom; ?>/press"><?php echo T_('Press and Media'); ?></a>
           </nav>

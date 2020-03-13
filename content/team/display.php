@@ -1,7 +1,8 @@
 
 <div class="jibresBanner">
  <div class="fit txtC">
- 	<p class="mB25"><?php echo \dash\data::page_desc(); ?></p>
+ 	<p class=""><?php echo \dash\data::page_desc(); ?></p>
+ 	<h2 class="mB25"><?php echo T_('Meet the people behind Jibres'); ?></h2>
  	<p><a class="btn pain" target="_blank" href="<?php echo \dash\url::kingdom(). '/careers' ?>"><?php echo T_("Join Jibres Team"); ?></a></p>
  </div>
 </div>
