@@ -48,7 +48,7 @@ if(\dash\language::current() === 'fa')
 
         <div class="f" id="footerMenu">
 
-          <nav class="c2 s6 pLR10">
+          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('eCommerce'); ?></h3>
             <a href="<?php echo $kingdom; ?>/benefits"><?php echo T_('Benefits'); ?></a>
             <a href="<?php echo $kingdom; ?>/pricing"><?php echo T_('Pricing'); ?></a>
@@ -59,7 +59,7 @@ if(\dash\language::current() === 'fa')
           {
           ?>
 
-          <nav class="c2 s6 pLR10">
+          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Domains'); ?></h3>
             <a href="<?php echo $kingdom; ?>/domain"><?php echo T_('Domain Name Search'); ?></a>
             <a href="<?php echo $kingdom; ?>/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
@@ -70,7 +70,7 @@ if(\dash\language::current() === 'fa')
           } // endif
           ?>
 
-          <nav class="c2 s6 pLR10">
+          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Jibres Company'); ?></h3>
             <a href="<?php echo $kingdom; ?>/about"><?php echo T_('About'); ?></a>
             <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Logo'); ?></a>
@@ -80,7 +80,7 @@ if(\dash\language::current() === 'fa')
             <a href="<?php echo $kingdom; ?>/press"><?php echo T_('Press and Media'); ?></a>
           </nav>
 
-          <nav class="c2 s6 pLR10">
+          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Resources'); ?></h3>
             <a href="<?php echo $kingdom; ?>/blog"><?php echo T_('Blog'); ?></a>
             <a href="<?php echo $kingdom; ?>/terms"><?php echo T_('Terms of Service'); ?></a>
@@ -89,28 +89,15 @@ if(\dash\language::current() === 'fa')
             <a href="<?php echo $kingdom; ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
           </nav>
 
-          <nav class="c2 s6 pLR10">
+          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Support'); ?></h3>
             <a href="<?php echo $kingdom; ?>/support"><?php echo T_('Support Center'); ?></a>
             <a href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/faq"><?php echo T_('FAQ'); ?></a>
             <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
-            <a href="<?php echo $kingdom; ?>/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
-            <a href="<?php echo $kingdom; ?>/support/ticket/new?type=bug"><?php echo T_('Report Bug'); ?></a>
-            <a href="<?php echo $kingdom; ?>/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
-          </nav>
-
-          <nav class="c2 s6 pLR10">
-            <h3><?php echo T_('Contact'); ?></h3>
-            <a href="tel:+982128422590" class="ltr"><?php echo \dash\fit::text('+98-21-2842-2590'); ?></a>
-            <a href="tel:+982536505460" class="ltr"><?php echo \dash\fit::text('+98-25-3650-5460'); ?></a>
-            <a href="tel:+982536505281" class="ltr"><?php echo \dash\fit::text('+98-25-3650-5281'); ?></a>
-            <a href="mailto:info@Jibres.com" class="ltr">info@Jibres.com</a>
-            <?php
-              echo '<a href="'. $kingdom. '/support">'. T_('2th Floor'). '<br>'. T_('Haft-e-tir 1 St'). '<br>'. T_('Qom, IRAN'). '</a>';
-            ?>
-
-            <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
+            <a href="<?php echo $kingdom; ?>/support/ticket/add"><?php echo T_('Submit Ticket'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support/ticket/add?type=bug"><?php echo T_('Report Bug'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
           </nav>
 
         </div>
