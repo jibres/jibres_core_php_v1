@@ -28,16 +28,9 @@ class model
 
 		$require = ['mobile'];
 
-		$data = \dash\clean::data($args, $condition, $require);
-
+		$data = \dash\cleanse::input($args, $condition, $require);
 
 		$mobile = $data['mobile'];
-
-		if(!$mobile)
-		{
-			\dash\notif::error(T_("Invalid mobile"), 'usernameormobile');
-			return false;
-		}
 
 		$count = \dash\session::get('count_try_to_login_app', 'enter');
 		if($count)

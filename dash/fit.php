@@ -99,7 +99,7 @@ class fit{
 			}
 		}
 
-		$new_text = self::number($new_text);
+		$new_text = self::text($new_text);
 		return $new_text;
 	}
 
