@@ -16,3 +16,7 @@
   <div class='flex' id='ego'>
     <button type="submit"><?php echo T_("Go"); ?></button>
    </div>
+
+
+  <a class='link' href="<?php echo \dash\url::sitelang(); ?>/account/security"><?php echo T_("Back"); ?></a>
+

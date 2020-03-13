@@ -71,7 +71,7 @@ class password
 		}
 
 		$meta        = $_meta;
-		$meta['min'] = 5;
+		$meta['min'] = 6;
 		$meta['max'] = 50;
 
 		$data = \dash\validate\text::string($data, $_notif, $_element, $_field_title, $meta);
@@ -79,6 +79,17 @@ class password
 		if($data === false || $data === null)
 		{
 			return $data;
+		}
+
+
+		if(strpos($_data, ' ') !== false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Do not use space in your password"), ['element' => $_element]);
+			}
+
+			return false;
 		}
 
 		if(in_array($data, self::$crazy_password))
