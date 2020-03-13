@@ -168,6 +168,8 @@ class start
             }
         }
 
+        $_args['amount'] = \dash\validate::price($_args['amount']);
+
         if(is_numeric($_args['amount']) && $_args['amount'] > 0 && $_args['amount'] == round($_args['amount'], 0))
         {
             // no problem to continue!
@@ -215,11 +217,7 @@ class start
 
 		$payment_response = json_encode($payment_response, JSON_UNESCAPED_UNICODE);
 
-		if(\dash\number::is_larger($_args['amount'], 9999999999999999))
-		{
-			\dash\notif::error(T_("Amount is out of range"), 'amount');
-			return false;
-		}
+        $_args['amount'] = \dash\validate::price($_args['amount']);
 
 		$insert_transaction =
 		[

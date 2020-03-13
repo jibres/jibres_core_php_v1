@@ -22,20 +22,6 @@
 
 
 
-       <div class="cbox">
-        <h2><?php echo T_("Promo code"); ?></h2>
-        <p><?php echo T_("If you have a promo code, please enter it below to receive your credit."); ?></p>
-
-        <form method="post" autocomplete="off">
-         <input type="hidden" name="type" value="promo">
-         <div class="input pA5">
-          <input id="promo-number" type="text" name="promo" placeholder='<?php echo T_("Promo Code"); ?>' required spellcheck="false">
-          <button class="addon btn primary"><?php echo T_("Apply Code"); ?></button>
-         </div>
-        </form>
-
-       </div>
-
 
     </div>
 
