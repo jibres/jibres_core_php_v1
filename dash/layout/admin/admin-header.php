@@ -15,14 +15,7 @@
 <?php if(\dash\user::id()) { ?>
     <a href="<?php echo \dash\url::sitelang(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
 
-    <div class="profileShow" title='<?php echo \dash\data::site_title(); ?><br><?php echo \dash\data::userBadge_desc(); ?>'
-    data-desc='<?php echo \dash\data::userBadge_desc(); ?>'
-    data-footer='<?php echo \dash\data::userBadge_footer(); ?>'
-    data-confirmTxt='<?php echo T_("Account"); ?> <i class="sf-user"></i>' data-confirmLink='<?php echo \dash\url::kingdom(); ?>/account'
-    data-cancelTxt='<?php echo T_("Logout"); ?> <i class="sf-out mLa10"></i>'
-    data-logoutConfirmTxt='<?php echo T_("You really want to go?"); ?>'
-    data-logoutTxt='<?php echo T_("We are waiting for you to come back:)"); ?> ☺️'
-    data-logoutUrl='<?php echo \dash\url::kingdom(); ?>/logout'>
+    <a href="<?php echo \dash\url::kingdom(). '/account';?>">
 <?php if(\dash\user::detail('avatar')) { ?>
      <img src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()){ ?>
@@ -32,7 +25,7 @@
      <img src="<?php echo \dash\url::siftal(); ?>/images/avatar/guest.png" alt='<?php echo T_("Default Avatar"); ?>'>
 
 <?php } //endif ?>
-    </div>
+    </a>
 <?php }else{ ?>
     <a href="<?php echo \dash\url::kingdom(); ?>/enter?referer={{url.pwd}}" title='<?php echo T_("Enter to have better experience"); ?>'><i class="sf-hand-stop"></i></a>
 
