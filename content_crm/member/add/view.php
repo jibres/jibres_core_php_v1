@@ -9,7 +9,7 @@ class view
 	{
 		\dash\data::page_title(T_('Add new user'));
 		\dash\data::page_desc(T_('You can add new member and after add with minimal data, we allow you to add extra detail of member.'));
-		\dash\data::page_pictogram('user-plus');
+
 
 
 		\dash\data::action_text(T_('Back to list of users'));

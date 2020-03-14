@@ -9,7 +9,7 @@ class view
 
 		\dash\data::page_title(T_("Category"));
 		\dash\data::page_desc(T_("Easily manage your tickets and monitor or track them to get best answer until fix your problem"));
-		\dash\data::page_pictogram('life-ring');
+
 
 		\dash\data::action_text(T_('Tickets'));
 		\dash\data::action_link(\dash\url::here(). '/ticket'. \dash\data::accessGet());

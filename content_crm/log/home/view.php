@@ -16,7 +16,7 @@ class view
 		\dash\data::action_link(\dash\url::this(). '/caller');
 		\dash\data::action_text(T_("Show log caller"));
 
-		\dash\data::page_pictogram('pinboard');
+
 
 		self::search_log();
 

@@ -21,7 +21,7 @@ class view
 
 					$myTitle = T_('Categories');
 					$myDesc  = T_("Check categories and add or edit some new category");
-					\dash\data::page_pictogram('grid');
+
 					break;
 
 				case 'help_tag':
@@ -29,7 +29,7 @@ class view
 
 					$myTitle = T_('Tags');
 					$myDesc  = T_("Check tags and add or edit some new tag");
-					\dash\data::page_pictogram('tags');
+
 					break;
 
 				case 'support_tag':
@@ -37,7 +37,7 @@ class view
 
 					$myTitle = T_('Tags');
 					$myDesc  = T_("Check tags and add or edit some new tag");
-					\dash\data::page_pictogram('tags');
+
 					break;
 
 				case 'tag':
@@ -46,7 +46,7 @@ class view
 
 					$myTitle = T_('Tags');
 					$myDesc  = T_("Check tags and add or edit some new tag");
-					\dash\data::page_pictogram('tags');
+
 					break;
 			}
 		}

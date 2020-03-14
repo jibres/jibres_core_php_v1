@@ -8,7 +8,7 @@ class view
 	{
 		\dash\data::page_title(T_("Add new ticket"));
 		\dash\data::page_desc(T_("Dot worry!"). ' '. T_("Ask your question."). ' '. T_("We are here to answer your questions."));
-		\dash\data::page_pictogram('plus-circle');
+
 		\dash\data::action_text(T_('Back to tickets list'));
 		\dash\data::action_link(\dash\url::this(). \dash\data::accessGet());
 

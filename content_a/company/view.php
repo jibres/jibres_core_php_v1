@@ -7,7 +7,7 @@ class view
 	{
 		\dash\data::page_title(T_('Company of products'));
 		\dash\data::page_desc(T_('You can manage your company manually.'). ' '. T_("Don't worry! we are add company automatically on add new product"));
-		\dash\data::page_pictogram('eye-galsses');
+
 
 		\dash\data::action_text(T_('Back to product list'));
 		\dash\data::action_link(\dash\url::this());

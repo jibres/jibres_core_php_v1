@@ -10,7 +10,7 @@ class view
 
 		\dash\data::page_title(T_('Member social netword detail'));
 		\dash\data::page_desc(T_('set social network detail and some other detail'));
-		\dash\data::page_pictogram('network');
+
 	}
 }
 ?>

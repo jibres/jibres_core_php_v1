@@ -7,7 +7,7 @@ class view
 	{
 		\dash\data::page_title(T_('Add new category'));
 		\dash\data::page_desc(T_('You can add new category.'));
-		\dash\data::page_pictogram('plus');
+
 
 
 		\dash\data::back_text(T_('Category list'));

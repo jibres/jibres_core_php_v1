@@ -8,7 +8,7 @@ class view
 	{
 		\dash\data::page_title(T_('Price change chart!'));
 		\dash\data::page_desc(T_('Check price change of this product like buy, sale and profit.'));
-		\dash\data::page_pictogram('chart-line');
+
 
 		// back
 		\dash\data::back_text(T_('Dashboard'));

@@ -9,7 +9,7 @@ class view
 
 		\dash\data::page_title(T_('Product prices'));
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
-		\dash\data::page_pictogram('box');
+
 
 		// btn
 		\dash\data::action_text(T_('Add product'));

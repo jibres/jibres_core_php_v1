@@ -10,7 +10,7 @@ class view
 
 		$myTitle = T_('Tags');
 		$myDesc  = T_("Check tags and add or edit some new tag");
-		\dash\data::page_pictogram('tags');
+
 
 
 		\dash\data::page_title($myTitle);

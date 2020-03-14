@@ -11,7 +11,7 @@ class view
 		\dash\data::page_title(T_("Tickets"));
 		\dash\data::page_desc(T_("See list of your tickets!"));
 
-		\dash\data::page_pictogram('question-circle');
+
 
 		\dash\data::action_text(T_('New ticket'));
 		\dash\data::action_link(\dash\url::this(). '/add'.\dash\data::accessGet());

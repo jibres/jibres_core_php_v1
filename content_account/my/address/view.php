@@ -8,7 +8,7 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Addresses'));
-		\dash\data::page_pictogram('pin');
+
 
 		\dash\data::myUrlAddress(\dash\url::that());
 

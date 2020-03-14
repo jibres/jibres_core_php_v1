@@ -10,7 +10,7 @@ class view
 		$moduleTypeTxt = 'attachemnt';
 		$moduleType    = 'attachemnt';
 
-		\dash\data::page_pictogram('file-text-o');
+
 
 		\dash\data::moduleTypeTxt($moduleTypeTxt);
 		\dash\data::moduleType($moduleType);

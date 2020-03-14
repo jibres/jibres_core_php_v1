@@ -21,7 +21,7 @@ class view
 
 		$myTitle = T_("Posts");
 		$myDesc  = T_('Check list of posts and search or filter in them to find your posts.'). ' '. T_('Also add or edit specefic post.');
-		\dash\data::page_pictogram('pinboard');
+
 
 		if($myType)
 		{
@@ -30,7 +30,7 @@ class view
 				case 'page':
 					$myTitle = T_('Pages');
 					$myDesc  = T_('Check list of pages and to find your pages.'). ' '. T_('Also add or edit specefic static page.');
-					\dash\data::page_pictogram('files-o');
+
 
 					if(\dash\permission::check('cpPageAdd'))
 					{
@@ -44,7 +44,7 @@ class view
 					$myTitle     = T_('Help Center');
 					$myDesc      = T_('Check list of article in help center.'). ' '. T_('Also add or edit specefic article.');
 					$myBadgeText = T_('Back to list of helps');
-					\dash\data::page_pictogram('life-ring');
+
 
 					if(\dash\permission::check('cpHelpCenterAdd'))
 					{

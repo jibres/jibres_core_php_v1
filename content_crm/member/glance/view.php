@@ -10,7 +10,7 @@ class view
 
 		\dash\data::page_title(T_('Glance user'));
 		\dash\data::page_desc(' ');
-		\dash\data::page_pictogram('user');
+
 
 		$user_code = \dash\data::dataRowMember_id();
 		$user_id   = \dash\coding::decode($user_code);

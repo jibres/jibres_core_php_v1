@@ -10,7 +10,7 @@ class view
 
 		\dash\data::page_title(T_("Comments"));
 		\dash\data::page_desc(T_('Check list of comments and search or filter in them to find your comments.'). ' '. T_('Also add or edit specefic comments.'));
-		\dash\data::page_pictogram('comments');
+
 
 		// add back level to summary link
 		\dash\data::badge2_text(T_('Back to dashboard'));

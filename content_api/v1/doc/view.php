@@ -9,7 +9,7 @@ class view
 
 		\dash\data::page_title( T_(':val API documentation v1', ['val' => \dash\data::site_title()]));
 		\dash\data::page_desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));
-		\dash\data::page_pictogram('campfire');
+
 
 		$CustomerApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v1/{STORE}/';
 		\dash\data::CustomerApiURL($CustomerApiURL);

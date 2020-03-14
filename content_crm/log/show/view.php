@@ -13,7 +13,7 @@ class view
 		\dash\data::page_title($myTitle);
 		\dash\data::page_desc($myDesc);
 
-		\dash\data::page_pictogram('pinboard');
+
 
 		$log_id = \dash\request::get('id');
 

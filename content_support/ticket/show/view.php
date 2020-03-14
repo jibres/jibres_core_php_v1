@@ -9,7 +9,7 @@ class view
 		\dash\data::page_title(T_("View ticket No"));
 		\dash\data::page_desc(T_("Check detail of your ticket."). ' '. T_("We try to answer to you as soon as posibble."));
 
-		\dash\data::page_pictogram('tickets-o');
+
 
 		\dash\data::action_text(T_('Back to tickets list'));
 		\dash\data::action_link(\dash\url::this().\dash\data::accessGet());

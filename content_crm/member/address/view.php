@@ -20,7 +20,7 @@ class view
 
 		\dash\data::page_title(T_('Member address'));
 		\dash\data::page_desc(T_('set current location and full address'));
-		\dash\data::page_pictogram('map-marker');
+
 
 	}
 }

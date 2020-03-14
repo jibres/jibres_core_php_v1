@@ -17,7 +17,7 @@ class view
 		\dash\data::page_desc($myDesc);
 
 
-		\dash\data::page_pictogram('pinboard');
+
 
 		self::search_log();
 

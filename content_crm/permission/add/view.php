@@ -14,7 +14,7 @@ class view
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to list of permissions'));
 
-		\dash\data::page_pictogram('lock');
+
 
 		\dash\data::perm_list(\dash\permission::categorize_list());
 		\dash\data::perm_group(\dash\permission::groups());

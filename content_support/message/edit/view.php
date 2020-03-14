@@ -11,7 +11,7 @@ class view
 		\dash\data::page_title(T_("Edit message"));
 		\dash\data::page_desc(T_("Edit your message or delete it."));
 
-		\dash\data::page_pictogram('edit');
+
 
 		\dash\data::action_text(T_('Back to tickets list'));
 		\dash\data::action_link(\dash\url::this());

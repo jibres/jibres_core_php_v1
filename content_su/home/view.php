@@ -10,7 +10,7 @@ class view
 
 		\dash\log::set('loadSU');
 
-		\dash\data::page_pictogram('gauge');
+
 
 		// pull dash
 		if(is_dir(root. 'dash'))

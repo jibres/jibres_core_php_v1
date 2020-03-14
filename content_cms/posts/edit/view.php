@@ -15,7 +15,7 @@ class view
 			$moduleType = '?type='. \dash\data::myDataType();
 		}
 
-		\dash\data::page_pictogram('file-text-o');
+
 
 		\dash\data::moduleTypeTxt($moduleTypeTxt);
 		\dash\data::moduleType($moduleType);

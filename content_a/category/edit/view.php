@@ -7,7 +7,7 @@ class view
 	{
 		\dash\data::page_title(T_('Edit category'));
 		\dash\data::page_desc(T_('You can manage your categories manually.'));
-		\dash\data::page_pictogram('edit');
+
 
 
 		\dash\data::back_text(T_('Category list'));

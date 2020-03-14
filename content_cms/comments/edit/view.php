@@ -22,7 +22,7 @@ class view
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to list of comments'));
 
-		\dash\data::page_pictogram('commenting');
+
 
 		if(\dash\data::dataRow_post_id())
 		{

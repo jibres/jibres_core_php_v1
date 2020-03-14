@@ -10,7 +10,7 @@ class view
 		\dash\data::page_desc(T_('Some detail about your users!'));
 		\dash\data::page_desc(T_('Check list of members and search or filter in them to find your user.'));
 		\dash\data::page_desc(\dash\data::page_desc(). ' '. T_('Also add or edit specefic user.'));
-		\dash\data::page_pictogram('users');
+
 
 		$allNeedSearch = \dash\request::get();
 		unset($allNeedSearch['page']);
