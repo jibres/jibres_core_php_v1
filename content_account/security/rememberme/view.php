@@ -9,9 +9,6 @@ class view
 	{
 		\dash\data::page_title(T_('Remember Me'));
 
-		\dash\data::action_link(\dash\url::this());
-		\dash\data::action_text(T_('Back to Account security'));
-
 		// back
 		\dash\data::back_text(T_('Security'));
 		\dash\data::back_link(\dash\url::this());

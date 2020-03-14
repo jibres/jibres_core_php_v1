@@ -9,9 +9,6 @@ class view
 		\dash\data::page_title(T_('Personalization'));
 		\dash\data::page_desc(T_('Your data, activity, and preferences that help make our services more useful to you'));
 
-		\dash\data::action_link(\dash\url::here());
-		\dash\data::action_text(T_('Back to Account'));
-
 		// back
 		\dash\data::back_text(T_('Account'));
 		\dash\data::back_link(\dash\url::here());

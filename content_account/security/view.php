@@ -10,9 +10,6 @@ class view
 		\dash\data::page_title(T_('Security'));
 		\dash\data::page_desc(T_('Settings and recommendations to help you keep your account secure'));
 
-		\dash\data::action_link(\dash\url::here());
-		\dash\data::action_text(T_('Back to Account'));
-
 		// back
 		\dash\data::back_text(T_('Account'));
 		\dash\data::back_link(\dash\url::here());
