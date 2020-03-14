@@ -73,7 +73,7 @@ trait datalist
 			$_args['3.14'] = ["= 3.14", " AND ( users.permission != 'supervisor'  OR `permission` IS NULL OR `permission` = '' ) "];
 		}
 
-		if($_args['check_duplicate'])
+		if($_args['check_duplicate'] && in_array($_args['check_duplicate'], ['mobile', 'username', 'email']))
 		{
 			$_args['search_field']                      = '';
 			$_args['public_show_field']                 = " COUNT(*) AS `count`, users.". $_args['check_duplicate'];

@@ -9,7 +9,7 @@ trait add
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore() && isset($_args['mobile']))
 		{
-			$mobile = \dash\utility\filter::mobile($_args['mobile']);
+			$mobile = \dash\validate::mobile($_args['mobile']);
 			if($mobile)
 			{
 				$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
@@ -34,27 +34,9 @@ trait add
 	 */
 	public static function add($_args, $_option = [])
 	{
-		\dash\app::variable($_args);
-
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
-
 		$default_option =
 		[
-			'save_log'       => true,
-			'contact'        => true,
 			'debug'          => true,
-			'other_field'    => null,
-			'other_field_id' => null,
-			'force_add'      => false,
-			'check_mobile'   => true,
-			'encode'         => true,
 		];
 
 		if(!is_array($_option))
@@ -64,19 +46,15 @@ trait add
 
 		$_option = array_merge($default_option, $_option);
 
-
-		if(!$_option['force_add'])
+		if(!\dash\user::id())
 		{
-			if(!\dash\user::id())
-			{
-				if($_option['save_log']) \dash\app::log('api:user:user_id:notfound', null, $log_meta);
-				if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
-				return false;
-			}
+			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
+			return false;
 		}
 
+
 		// check args
-		$args = self::check(null, $_option);
+		$args = self::check($_args, null, $_option);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -90,14 +68,11 @@ trait add
 			$args['status'] = 'awaiting';
 		}
 
-		if($args['mobile'] && $_option['check_mobile'])
+		$check_mobile_exist = \dash\db\users::get_by_mobile($args['mobile']);
+		if(isset($check_mobile_exist['id']))
 		{
-			$check_mobile_exist = \dash\db\users::get_by_mobile($args['mobile']);
-			if(isset($check_mobile_exist['id']))
-			{
-				\dash\notif::error(T_("Duplicate mobile"), 'mobile');
-				return null;
-			}
+			\dash\notif::error(T_("Duplicate mobile"), 'mobile');
+			return null;
 		}
 
 		if(\dash\app::isset_request('nationalcode') || \dash\app::isset_request('pasportcode'))
@@ -129,21 +104,13 @@ trait add
 
 		if(!$user_id)
 		{
-			if($_option['save_log']) \dash\app::log('api:user:no:way:to:insert:user', \dash\user::id(), $log_meta);
+			\dash\log::set('api:user:no:way:to:insert:user');
 			if($_option['debug']) \dash\notif::error(T_("No way to insert user"), 'db', 'system');
 			return false;
 		}
 
-		if($_option['encode'])
-		{
-			$return['id']      = \dash\coding::encode($user_id);
-			$return['user_id'] = \dash\coding::encode($user_id);
-		}
-		else
-		{
-			$return['id']      = $user_id;
-			$return['user_id'] = $user_id;
-		}
+		$return['id']      = \dash\coding::encode($user_id);
+		$return['user_id'] = \dash\coding::encode($user_id);
 
 		\dash\log::set('addNewUser', ['code' => $user_id]);
 		// $_option['user_id'] = $user_id;

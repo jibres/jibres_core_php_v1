@@ -413,10 +413,6 @@ class cleanse
 				break;
 
 
-
-
-
-
 			// *************** string validate
 			case 'string':
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
@@ -473,6 +469,34 @@ class cleanse
 				$data = \dash\validate\text::url($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'search':
+				$data = \dash\validate\text::search($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'language':
+				$data = \dash\validate\text::language($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'email':
+				$data = \dash\validate\text::email($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			// *************** date validate
+			case 'birthdate':
+				$data = \dash\validate\datetime::birthdate($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'date':
+				$data = \dash\validate\datetime::date($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'datetime':
+				$data = \dash\validate\datetime::datetime($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'time':
+				$data = \dash\validate\datetime::time($_data, $_notif, $element, $field_title, $meta);
+				break;
 
 			// *************** location validate
 			case 'country':

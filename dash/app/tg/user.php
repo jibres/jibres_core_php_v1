@@ -86,15 +86,15 @@ class user
 		unset($_args['username']);
 		unset($_args['chatid']);
 
-		$result             = \dash\app\user::add($_args, ['force_add' => true, 'encode' => false]);
+		$result             = \dash\app\user::quick_add($_args);
 
 		$_args['status']   = $myStatus;
 		$_args['username'] = $myUsername;
 		$_args['chatid']   = $myChatid;
 
-		if(isset($result['user_id']))
+		if(isset($result))
 		{
-			$_args['user_id'] = $result['user_id'];
+			$_args['user_id'] = $result;
 			\dash\app\user_telegram::add($_args);
 		}
 		else

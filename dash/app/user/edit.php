@@ -65,12 +65,10 @@ trait edit
 	 */
 	public static function edit($_args, $_id, $_option = [])
 	{
-		\dash\app::variable($_args, ['raw_field' => ['signature']]);
 
 		$default_option =
 		[
-			'other_field'    => null,
-			'other_field_id' => null,
+
 		];
 
 		if(!is_array($_option))
@@ -80,22 +78,14 @@ trait edit
 
 		$_option = array_merge($default_option, $_option);
 
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
-
 
 		$id = $_id;
+		$id = \dash\validate::code($id);
 		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{
-			\dash\notif::error(T_("Can not access to edit staff"), 'staff');
+			\dash\notif::error(T_("Can not access to edit user"), 'user');
 			return false;
 		}
 
@@ -108,7 +98,7 @@ trait edit
 		}
 
 		// check args
-		$args = self::check($id, $_option, $load_user);
+		$args = self::check($_args, $id, $_option, $load_user);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -167,54 +157,11 @@ trait edit
 			}
 		}
 
-
-		if(!\dash\app::isset_request('mobile'))     	unset($args['mobile']);
-		if(!\dash\app::isset_request('signature'))     	unset($args['signature']);
-		if(!\dash\app::isset_request('displayname')) 	unset($args['displayname']);
-		if(!\dash\app::isset_request('title'))      	unset($args['title']);
-		if(!\dash\app::isset_request('avatar'))     	unset($args['avatar']);
-		if(!\dash\app::isset_request('status'))     	unset($args['status']);
-		if(!\dash\app::isset_request('gender'))     	unset($args['gender']);
-		if(!\dash\app::isset_request('type'))       	unset($args['type']);
-		if(!\dash\app::isset_request('email'))      	unset($args['email']);
-		if(!\dash\app::isset_request('parent'))     	unset($args['parent']);
-		if(!\dash\app::isset_request('permission')) 	unset($args['permission']);
-		if(!\dash\app::isset_request('username'))   	unset($args['username']);
-		if(!\dash\app::isset_request('pin'))        	unset($args['pin']);
-		if(!\dash\app::isset_request('ref'))        	unset($args['ref']);
-		if(!\dash\app::isset_request('twostep'))    	unset($args['twostep']);
-		if(!\dash\app::isset_request('forceremember'))  unset($args['forceremember']);
-		if(!\dash\app::isset_request('unit_id'))    	unset($args['unit_id']);
-		if(!\dash\app::isset_request('language'))   	unset($args['language']);
-		if(!\dash\app::isset_request('password'))   	unset($args['password']);
-		if(!\dash\app::isset_request('website'))    	unset($args['website']);
-		if(!\dash\app::isset_request('facebook'))   	unset($args['facebook']);
-		if(!\dash\app::isset_request('twitter'))    	unset($args['twitter']);
-		if(!\dash\app::isset_request('instagram'))  	unset($args['instagram']);
-		if(!\dash\app::isset_request('linkedin'))   	unset($args['linkedin']);
-		if(!\dash\app::isset_request('gmail'))      	unset($args['gmail']);
-		if(!\dash\app::isset_request('sidebar'))    	unset($args['sidebar']);
-		if(!\dash\app::isset_request('firstname'))  	unset($args['firstname']);
-		if(!\dash\app::isset_request('lastname'))   	unset($args['lastname']);
-		if(!\dash\app::isset_request('bio'))        	unset($args['bio']);
-		if(!\dash\app::isset_request('birthday'))   	unset($args['birthday']);
-		if(!\dash\app::isset_request('theme'))        	unset($args['theme']);
-		// if(!\dash\app::isset_request('tgstatus'))   	unset($args['tgstatus']);
-		// if(!\dash\app::isset_request('tgusername'))   	unset($args['tgusername']);
-		if(!\dash\app::isset_request('father'))         unset($args['father']);
-		if(!\dash\app::isset_request('nationalcode'))   unset($args['nationalcode']);
-		if(!\dash\app::isset_request('marital'))        unset($args['marital']);
-		if(!\dash\app::isset_request('pasportcode'))    unset($args['pasportcode']);
-		if(!\dash\app::isset_request('pasportdate'))    unset($args['pasportdate']);
-		if(!\dash\app::isset_request('phone'))          unset($args['phone']);
-		if(!\dash\app::isset_request('foreign'))        unset($args['foreign']);
-		if(!\dash\app::isset_request('nationality'))    unset($args['nationality']);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
-
 			self::quick_update($args, $id);
-
 		}
 
 		if(\dash\engine\process::status())

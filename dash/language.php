@@ -41,19 +41,16 @@ class language
 
 		foreach (self::$data as $key => $value)
 		{
-			if(array_key_exists($key, self::$data))
+			if($_for_html)
 			{
-				if($_for_html)
+				if(isset(self::$data[$key]['localname']))
 				{
-					if(isset(self::$data[$key]['localname']))
-					{
-						$list[$key] = self::$data[$key]['localname'];
-					}
+					$list[$key] = self::$data[$key]['localname'];
 				}
-				else
-				{
-					$list[$key] = self::$data[$key];
-				}
+			}
+			else
+			{
+				$list[$key] = self::$data[$key];
 			}
 		}
 
@@ -67,16 +64,9 @@ class language
 	 * @param  string $_column [description]
 	 * @return [type]          [description]
 	 */
-	public static function check($_lang, $_all = false)
+	public static function check($_lang)
 	{
-		if($_all)
-		{
-			return array_key_exists($_lang, self::$data);
-		}
-		else
-		{
-			return array_key_exists($_lang, self::all());
-		}
+		return array_key_exists($_lang, self::$data);
 	}
 
 

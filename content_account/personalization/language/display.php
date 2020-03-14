@@ -10,7 +10,7 @@
         <select name="language" class="select ui dropdown" id="language">
           <option value="" readonly><?php echo T_("Please select one language"); ?> *</option>
 
-          <?php foreach (\dash\language::all(true) as $key => $value) {?>
+          <?php foreach (\dash\language::all() as $key => $value) {?>
 
             <option value="<?php echo \dash\get::index($value, 'name'); ?>" <?php if(\dash\data::dataRow_language() === \dash\get::index($value, 'name')) {echo 'selected';} ?>><?php echo \dash\get::index($value, 'localname'); ?></option>
 

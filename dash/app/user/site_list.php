@@ -20,9 +20,11 @@ class site_list
 		$meta         = [];
 		$msg          = T_("Customer not found."). ' ';
 
-		if(\dash\request::get('q'))
+		$q = \dash\validate::search(\dash\request::get('q'));
+
+		if($q)
 		{
-			$resultRaw    = \dash\app\user::list(\dash\request::get('q'), $meta);
+			$resultRaw    = \dash\app\user::list($q, $meta);
 			foreach ($resultRaw as $key => $value)
 			{
 				$result['result'][] = self::getNeededField($value);

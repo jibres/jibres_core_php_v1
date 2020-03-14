@@ -252,6 +252,47 @@ class text
 	}
 
 
+	public static function search($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 100]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\^\&\-\=\_\+])+', ' ', $data);
+		$data = str_replace('%', '', $data);
+		$data = preg_replace("/\h+/", " ", $data);
+		$data = trim($data);
+
+		return $data;
+	}
+
+
+
+	public static function language($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 2, 'max' => 2]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!\dash\language::check($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid language"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 	public static function slug($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title);
