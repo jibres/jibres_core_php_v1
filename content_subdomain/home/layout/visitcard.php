@@ -44,7 +44,7 @@ $store = \dash\data::store();
 
 <?php }else{ ?>
 
-    <a href="<?php echo \dash\url::base(); ?>/enter"  class="btn block info"><?php echo T_("Enter"); ?></a>
+    <a href="<?php echo \dash\url::base(); ?>/enter" data-action class="btn block info"><?php echo T_("Enter"); ?></a>
 <?php } //endif ?>
   </div>
 </div>
