@@ -67,9 +67,6 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
     <span class="txtB"><?php echo $factorDetail['factor']['customer_address']['address']; ?></span>
   <?php } //endif ?>
 
-  <?php if(isset($factorDetail['factor']['customer_address']['phone']) && $factorDetail['factor']['customer_address']['phone']) {?>
-    <div class="mT10"><?php echo T_("Phone"); ?> <span class="txtB"><?php echo \dash\fit::text($factorDetail['factor']['customer_address']['phone']); ?></span></div>
-  <?php } //endif ?>
 
   </div>
 <?php } //endif address ?>

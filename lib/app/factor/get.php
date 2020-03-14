@@ -107,7 +107,23 @@ class get
 			if(isset($load_customer['id']))
 			{
 				$user_address = \dash\app\address::get_last_user_address($load_customer['id']);
+
 				$factor['customer_address'] = $user_address;
+
+				if(isset($user_address['name']) && $user_address['name'])
+				{
+					$factor['customer_displayname'] = $user_address['name'];
+				}
+
+				if(isset($user_address['phone']) && $user_address['phone'])
+				{
+					$factor['customer_phone'] = $user_address['phone'];
+				}
+
+				if(isset($user_address['mobile']) && $user_address['mobile'])
+				{
+					$factor['customer_mobile'] = $user_address['mobile'];
+				}
 			}
 		}
 
