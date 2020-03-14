@@ -12,25 +12,40 @@ class size
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function support_file_size()
+	public static function support_file_size($_pretty = false)
 	{
-		$max_support_file_size = 50000;
-		return self::allow_size($max_support_file_size);
+		return self::MB(7, $_pretty);
 	}
 
 
-	public static function cms_file_size()
+	public static function cms_file_size($_pretty = false)
 	{
-		$max_cms_file_size = 100000;
-		return self::allow_size($max_cms_file_size);
+		return self::MB(10, $_pretty);
 	}
 
 
-	public static function crm_file_size()
+	public static function crm_file_size($_pretty = false)
 	{
-		$max_crm_file_size = 100000;
-		return self::allow_size($max_crm_file_size);
+		return self::MB(10, $_pretty);
 	}
+
+
+	// convert MB to byte
+	public static function MB($_mb, $_pretty = false)
+	{
+		$mb   = intval($_mb) * 1024 * 1024;
+		$size = self::allow_size($mb);
+
+		if(!$_pretty)
+		{
+			return $size;
+		}
+		else
+		{
+			return self::readableSize($size);
+		}
+	}
+
 
 
 

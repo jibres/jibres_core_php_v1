@@ -15,6 +15,14 @@ class quick
 		{
 			return false;
 		}
+		$meta =
+		[
+			'size' => \dash\upload\size::MB(1),
+			'ext' =>
+			[
+				'jpg', 'peg', 'png'
+			],
+		]
 
 		$file_detail = \dash\upload\file::upload($_upload_name);
 

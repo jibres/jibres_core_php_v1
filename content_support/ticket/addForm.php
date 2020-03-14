@@ -24,7 +24,7 @@
 
     <?php } //endif ?>
 
-    <label for="file1"><?php echo T_("Attachment"); ?> <small class="fc-mute"><?php echo T_("Max size 5 MB"); ?></small></label>
+    <label for="file1"><?php echo T_("Attachment"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
     <div class="input">
      <input type="file" name="file" id="file1" data-max="5000">

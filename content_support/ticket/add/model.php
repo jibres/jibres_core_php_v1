@@ -68,7 +68,7 @@ class model
 		}
 		else
 		{
-			$file['path'] = null;
+			$file['path'] = isset($file['path']) ? $file['path'] : null;
 		}
 
 		if(\dash\permission::check('supportTicketSignature'))
