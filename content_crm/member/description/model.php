@@ -9,10 +9,16 @@ class model
 
 		$user_id              = \dash\coding::decode(\dash\request::get('id'));
 		$request              = [];
-		$request['text']      = \dash\request::post('note');
+		$request['text']      = \dash\validate::desc(\dash\request::post('note'));
 		$request['user_id']   = $user_id;
 		$request['creator']   = \dash\user::id();
 		$request['status']    = 'enable';
+
+		if(!$request['user_id'])
+		{
+			\dash\notif::error(T_("Invalid user id"), 'id');
+			return false;
+		}
 
 
 		if(!trim($request['text']))
