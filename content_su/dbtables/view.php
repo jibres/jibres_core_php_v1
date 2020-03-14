@@ -13,8 +13,6 @@ class view
 		$product_list_link        =  T_('Database raw table');
 		\dash\data::page_desc(\dash\data::page_desc() . ' | '. $product_list_link);
 
-		\dash\data::page_titleBox(true);
-
 		\dash\data::back_text(T_('Select table'));
 		\dash\data::back_link(\dash\url::this());
 

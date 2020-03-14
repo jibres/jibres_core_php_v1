@@ -12,7 +12,6 @@ class view
 
 
 		// enable title box
-		\dash\data::page_titleBox(true);
 		if(\dash\url::module() == 'setup')
 		{
 			\dash\data::userToggleSidebar(false);

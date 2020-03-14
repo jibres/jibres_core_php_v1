@@ -15,7 +15,6 @@ class view
 		{
 			self::site_detail();
 		}
-
 	}
 
 

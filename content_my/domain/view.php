@@ -11,9 +11,6 @@ class view
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
 		\dash\data::include_highcharts(true);
-
-		// enable title box
-		\dash\data::page_titleBox(true);
 	}
 }
 ?>
