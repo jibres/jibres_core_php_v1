@@ -90,14 +90,7 @@
 	  </div>
 	</div>
 	  <div class="f" data-response='nationality' data-response-where='IR' data-response-effect='slide' <?php if(\dash\data::dataRowMember_nationality() && \dash\data::dataRowMember_nationality() !== 'IR') { echo 'data-response-hide';}?>>
-	   <div class="c s12 pRa5">
 
-	   	<label for='id'><?php echo T_("Id number"); ?></label>
-		<div class="input">
-		 <input type="tel" name='shcode' id='id' value="<?php $shcode = \dash\data::dataRowMember_detail(); echo \dash\get::index($shcode, 'shcode'); ?>" placeholder='<?php echo T_("Id number"); ?>' />
-		</div>
-
-	   </div>
 	   <div class="c s12 pRa5">
 	   	<label for='nationalcode'><?php echo T_("National Id"); ?></label>
 		<div class="input">

@@ -253,10 +253,12 @@ class user
 			'marital'       => ['enum' => ['single', 'married']],
 
 			'avatar'        => 'avatar',
+			// 'shcode'        => 'smallint',
 			'nationality'   => 'country',
 			'phone'         => 'phone',
 			'status'        => ['enum' => ['active','awaiting','deactive','removed','filter','unreachable']],
 			'website'       => 'url',
+			'title'         => 'string_50',
 			'instagram'     => 'string_50',
 			'linkedin'      => 'string_50',
 			'facebook'      => 'string_50',

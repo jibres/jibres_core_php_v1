@@ -210,7 +210,12 @@ class cleanse
 
 		if(count($input) >= 1)
 		{
-			\dash\notif::error(T_("Needless arguments was received!"));
+			$msg = T_("Needless arguments was received!");
+			if(\dash\url::isLocal())
+			{
+				$msg .= ' '. json_encode(array_keys($input));
+			}
+			\dash\notif::error($msg);
 			self::bye();
 		}
 

@@ -16,7 +16,7 @@ class model
 			'marital'     => \dash\request::post('marital'),
 			'birthday'   => \dash\request::post('birthday'),
 			'gender'      => \dash\request::post('gender'),
-			'shcode'      => \dash\request::post('shcode'),
+			// 'shcode'      => \dash\request::post('shcode'),
 			'nationality' => \dash\request::post('nationality'),
 			'title'       => \dash\request::post('title'),
 			'bio'         => \dash\request::post('bio'),

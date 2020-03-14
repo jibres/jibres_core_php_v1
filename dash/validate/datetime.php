@@ -43,47 +43,8 @@ class datetime
 			return false;
 		}
 
-		$my_date_len = mb_strlen($data);
-
-		if($my_date_len === 10)
-		{
-			// do nothing
-		}
-		elseif($my_date_len === 8 && is_numeric($my_date_len) && strpos($my_date_len, '-') === false)
-		{
-			// try to fix more on date as yyyy-mm-dd soon
-			$convertedDate = strtotime($data);
-			if ($convertedDate === false)
-			{
-				if($_notif)
-				{
-					\dash\notif::error(T_("Field :val is not a date field", ['val' => $_field_title]), ['element' => $_element]);
-				}
-				return false;
-			}
-			$data = date('Y-m-d', $convertedDate);
-		}
-		else
-		{
-			$convertedDate = strtotime($data);
-			if ($convertedDate === false)
-			{
-				if($_notif)
-				{
-					\dash\notif::error(T_("Field :val is not a date field", ['val' => $_field_title]), ['element' => $_element]);
-				}
-				return false;
-			}
-			$data = date('Y-m-d', $convertedDate);
-		}
-
-
-		try
-		{
-			$convertedDate = \DateTime::createFromFormat("Y-m-d", $data);
-			$data          = $convertedDate->format('Y-m-d');
-		}
-		catch(\Exception $e)
+		$convertedDate = strtotime($data);
+		if ($convertedDate === false)
 		{
 			if($_notif)
 			{
@@ -92,6 +53,7 @@ class datetime
 			return false;
 		}
 
+		$data = date('Y-m-d', $convertedDate);
 
 		return $data;
 	}
