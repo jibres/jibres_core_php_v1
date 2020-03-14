@@ -58,7 +58,7 @@ class text
 		}
 
 
-		$data = preg_replace("/[\r\n]{2,}/", "\n", $data);
+		$data = preg_replace("/[\r\n]{3,}/", "\n", $data);
 
 		if(isset($_meta['need_new_line']) && $_meta['need_new_line'])
 		{
@@ -85,14 +85,20 @@ class text
 		}
 
 
-		$data = str_replace('"',  '', $data);
-		$data = str_replace("'",  '', $data);
-		$data = str_replace("\\", '', $data);
-		$data = str_replace("`",  '', $data);
-		$data = str_replace('<?', '', $data);
-		$data = str_replace('?>', '', $data);
+		$data = str_replace('"',   '', $data);
+		$data = str_replace("'",   '', $data);
+		$data = str_replace("\\",  '', $data);
+		$data = str_replace("`",   '', $data);
+		$data = str_replace('<?',  '', $data);
+		$data = str_replace('?>',  '', $data);
 		$data = str_replace('../', '', $data);
+		$data = str_replace('./',  '', $data);
 		$data = str_replace('<script', '', $data);
+		$data = str_replace('< script', '', $data);
+		$data = str_replace('</script>', '', $data);
+		$data = str_replace('<style', '', $data);
+		$data = str_replace('< style', '', $data);
+		$data = str_replace('</style>', '', $data);
 
 
 		if(mb_strlen($data_before) !== mb_strlen($data))
@@ -236,8 +242,8 @@ class text
 
 		$allow_tag =
 		[
-			'b', 'p', 'br', 'li',
-			'h1','h2','h3','h4','h5','h6',
+			'b', 'i', 'p', 'br', 'ul', 'li',
+			'h1','h2','h3','h4'
 		];
 
 		$data = strip_tags($data, $allow_tag);
@@ -277,6 +283,7 @@ class text
 		{
 			$data = mb_strtolower($data);
 			$data = mb_ereg_replace('([^ءئآا-ی۰-۹a-z0-9]|-)+', '-', $data);
+			$data = trim($data, '-');
 			$data = trim($data);
 			$data = mb_strtolower($data);
 
@@ -301,7 +308,7 @@ class text
 
 	public static function barcode($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 200]);
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 50]);
 
 		if($data === false || $data === null)
 		{
@@ -316,7 +323,7 @@ class text
 
 	public static function sku($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 200]);
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 16]);
 
 		if($data === false || $data === null)
 		{
@@ -347,7 +354,7 @@ class text
 
 	public static function url($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 500]);
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
 
 		if($data === false || $data === null)
 		{
