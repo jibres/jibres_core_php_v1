@@ -16,7 +16,7 @@ class identify
 		}
 
 
-		$data = \dash\validate\number::number($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 99999999999999999999]);
+		$data = \dash\validate\number::number($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 9999999999999999999]);
 
 		if($data === false)
 		{

@@ -21,7 +21,7 @@ class nationalcode
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("nationalcode must be a number"), ['element' => $_element]);
+				\dash\notif::error(T_("national code must be a number"), ['element' => $_element]);
 			}
 			return false;
 		}
@@ -72,7 +72,7 @@ class nationalcode
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Invalid nationalcode"), ['element' => $_element]);
+				\dash\notif::error(T_("Invalid national code"), ['element' => $_element]);
 			}
 			return false;
 		}
