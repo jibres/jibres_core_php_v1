@@ -620,7 +620,7 @@ class cleanse
 	private static function bye($_msg = null)
 	{
 		// \dash\notif::api($_msg);
-		\dash\header::status(400, $_msg);
+		\dash\header::status(406, $_msg);
 	}
 }
 ?>
