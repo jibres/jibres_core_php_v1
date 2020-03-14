@@ -14,7 +14,7 @@ class store_logo
 
 		$meta =
 		[
-			'size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::MB(1),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -59,7 +59,7 @@ class store_logo
 	{
 		$meta =
 		[
-			'size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::MB(1),
 			'ext' =>
 			[
 				'png',

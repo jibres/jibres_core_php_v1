@@ -19,7 +19,7 @@ class cms
 
 		$meta =
 		[
-			'size' => \dash\upload\size::cms_file_size(),
+			'allow_size' => \dash\upload\size::cms_file_size(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -95,7 +95,7 @@ class cms
 
 		$meta =
 		[
-			'size' => \dash\upload\size::cms_file_size(),
+			'allow_size' => \dash\upload\size::cms_file_size(),
 			'ext' =>
 			[
 				'mp3','wav','ogg','wma','m4a','aac', 	// audio

@@ -25,12 +25,13 @@ class user
 
 		$meta =
 		[
-			'size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::MB(1),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
 			],
 		];
+
 
 		$file_detail = \dash\upload\file::upload('avatar', $meta);
 
@@ -100,7 +101,7 @@ class user
 
 		$meta =
 		[
-			'size' => \dash\upload\size::crm_file_size(),
+			'allow_size' => \dash\upload\size::crm_file_size(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image

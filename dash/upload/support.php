@@ -13,7 +13,7 @@ class support
 	{
 		$meta =
 		[
-			'size' => \dash\upload\size::support_file_size(),
+			'allow_size' => \dash\upload\size::support_file_size(),
 			'ext' =>
 			[
 				'zip','rar',

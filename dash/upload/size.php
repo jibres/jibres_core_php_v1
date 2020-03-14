@@ -33,12 +33,12 @@ class size
 	// convert MB to byte
 	public static function MB($_mb, $_pretty = false)
 	{
-		$mb   = intval($_mb) * 1024 * 1024;
+		$mb   = floatval($_mb) * 1024 * 1024;
 		$size = self::allow_size($mb);
 
 		if(!$_pretty)
 		{
-			return $size;
+			return round($size);
 		}
 		else
 		{

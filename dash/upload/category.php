@@ -19,7 +19,7 @@ class category
 
 		$meta =
 		[
-			'size' => \dash\upload\size::MB(0.5),
+			'allow_size' => \dash\upload\size::MB(0.5),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image

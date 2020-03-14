@@ -60,7 +60,7 @@ class file
 		$check_size = \dash\upload\size::ok($myFile['size'], $_meta);
 		if(!$check_size)
 		{
-			\dash\notif::error(T_("Invalid file size"));
+			\dash\notif::error(T_("File size is greater than allowed"));
 			return false;
 		}
 
