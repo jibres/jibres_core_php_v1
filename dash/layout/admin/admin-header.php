@@ -15,7 +15,7 @@
 <?php if(\dash\user::id()) { ?>
     <a href="<?php echo \dash\url::sitelang(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
 
-    <a href="<?php echo \dash\url::kingdom(). '/account';?>">
+    <a class="profileShow" href="<?php echo \dash\url::kingdom(). '/account';?>">
 <?php if(\dash\user::detail('avatar')) { ?>
      <img src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()){ ?>
