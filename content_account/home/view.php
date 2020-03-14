@@ -7,7 +7,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Account'));
-		\dash\data::page_tbox(false);
 
 		if(\dash\detect\device::detectPWA())
 		{

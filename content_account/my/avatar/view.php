@@ -12,7 +12,6 @@ class view
 		// back
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::back_text(T_('Personal info'));
-
 	}
 }
 ?>

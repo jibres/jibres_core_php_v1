@@ -12,9 +12,6 @@ class view
 
 		\dash\data::myUrlAddress(\dash\url::that());
 
-		\dash\data::action_link(\dash\url::this());
-		\dash\data::action_text(T_('Back to personal info'));
-
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::back_text(T_('Personal info'));
 

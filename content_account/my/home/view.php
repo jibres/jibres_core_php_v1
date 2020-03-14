@@ -9,10 +9,6 @@ class view
 	{
 		\dash\data::page_title(T_('Personal info'));
 		\dash\data::page_desc(T_('Basic info, like your name and photo, that you use on our services'));
-		\dash\data::page_tbox(false);
-
-		\dash\data::action_link(\dash\url::here());
-		\dash\data::action_text(T_('Back to Account'));
 
 		// back
 		\dash\data::back_text(T_('Account'));

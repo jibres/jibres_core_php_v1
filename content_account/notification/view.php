@@ -8,8 +8,6 @@ class view
 	{
 		\dash\data::page_title(T_("Notifications"));
 		\dash\data::page_desc(T_("Check your last messages."). ' '. T_("Maybe some messages need your action!"));
-		\dash\data::page_pictogram('bell');
-
 
 		if(\dash\detect\device::detectPWA())
 		{
