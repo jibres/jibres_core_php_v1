@@ -29,8 +29,8 @@ class view
 			\dash\data::page_title(\dash\data::page_title(). ' | '. T_('Search for :search', ['search' => $search_string]));
 		}
 
-		\dash\data::badge_link(\dash\url::this(). '/add');
-		\dash\data::badge_text(T_('Add new user'));
+		\dash\data::action_link(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add new user'));
 
 
 		if(!$args['order'])

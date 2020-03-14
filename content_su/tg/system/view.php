@@ -11,8 +11,8 @@ class view
 		\dash\data::page_title($myTitle);
 		\dash\data::page_desc($myDesc);
 		\dash\data::page_pictogram('briefcase');
-		\dash\data::badge_text(T_('Back to dashboard'));
-		\dash\data::badge_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to dashboard'));
+		\dash\data::action_link(\dash\url::this());
 
 
 

@@ -34,8 +34,8 @@ class view
 
 					if(\dash\permission::check('cpPageAdd'))
 					{
-						\dash\data::badge_text(T_('Add new page'));
-						\dash\data::badge_link(\dash\url::this(). '/add'. $moduleType);
+						\dash\data::action_text(T_('Add new page'));
+						\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 					}
 
 					break;
@@ -48,23 +48,23 @@ class view
 
 					if(\dash\permission::check('cpHelpCenterAdd'))
 					{
-						\dash\data::badge_text(T_('Add new help center article'));
-						\dash\data::badge_link(\dash\url::this(). '/add'. $moduleType);
+						\dash\data::action_text(T_('Add new help center article'));
+						\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 					}
 					break;
 
 				case 'post':
 					if(\dash\permission::check('cpPostsAdd'))
 					{
-						\dash\data::badge_text(T_('Add new post'));
-						\dash\data::badge_link(\dash\url::this(). '/add'. $moduleType);
+						\dash\data::action_text(T_('Add new post'));
+						\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 					}
 					break;
 
 				default:
 					\dash\header::status(404);
-					\dash\data::badge_text(T_('Add new post'));
-					\dash\data::badge_link(\dash\url::this(). '/add'. $moduleType);
+					\dash\data::action_text(T_('Add new post'));
+					\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 					break;
 			}
 		}
@@ -72,8 +72,8 @@ class view
 		{
 			if(\dash\permission::check('cpPostsAdd'))
 			{
-				\dash\data::badge_text(T_('Add new post'));
-				\dash\data::badge_link(\dash\url::this(). '/add'. $moduleType);
+				\dash\data::action_text(T_('Add new post'));
+				\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 			}
 		}
 

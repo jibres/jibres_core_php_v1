@@ -10,8 +10,8 @@ class view
 		\dash\data::page_title(T_('Active Sessions'));
 		// \dash\data::page_tbox(false);
 
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_('Back to Account security'));
+		\dash\data::action_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to Account security'));
 
 		// back
 		\dash\data::back_text(T_('Security'));

@@ -10,8 +10,8 @@ class view
 		\dash\data::page_title(T_("Billing information"));
 		\dash\data::page_desc(T_("Check your balance, charge your account, and bill your invoices!"));
 
-		\dash\data::badge_link(\dash\url::here());
-		\dash\data::badge_text(T_('Back to Account'));
+		\dash\data::action_link(\dash\url::here());
+		\dash\data::action_text(T_('Back to Account'));
 
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_text(T_('Account'));

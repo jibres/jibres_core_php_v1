@@ -12,8 +12,8 @@ class view
 
 		\dash\data::page_pictogram('envelope-o');
 
-		\dash\data::badge_link(\dash\url::here());
-		\dash\data::badge_text(T_('Dashboard'));
+		\dash\data::action_link(\dash\url::here());
+		\dash\data::action_text(T_('Dashboard'));
 
 		$get_balance = \dash\session::get('sms_panel_detail');
 		if(!$get_balance)

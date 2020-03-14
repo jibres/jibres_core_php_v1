@@ -11,8 +11,8 @@ class view
 		\dash\data::page_desc(T_('Settings and recommendations to help you keep your account secure'));
 		\dash\data::page_tbox(false);
 
-		\dash\data::badge_link(\dash\url::here());
-		\dash\data::badge_text(T_('Back to Account'));
+		\dash\data::action_link(\dash\url::here());
+		\dash\data::action_text(T_('Back to Account'));
 
 		// back
 		\dash\data::back_text(T_('Account'));

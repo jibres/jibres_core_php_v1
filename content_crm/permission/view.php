@@ -13,8 +13,8 @@ class view
 
 		\dash\data::page_pictogram('unlock-alt');
 
-		\dash\data::badge_link(\dash\url::this().'/add');
-		\dash\data::badge_text(T_('Add new permission'));
+		\dash\data::action_link(\dash\url::this().'/add');
+		\dash\data::action_text(T_('Add new permission'));
 
 		\dash\data::perm_list(\dash\permission::categorize_list());
 		\dash\data::perm_group(\dash\permission::groups());

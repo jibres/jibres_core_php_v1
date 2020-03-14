@@ -13,8 +13,8 @@ class view
 
 		\dash\data::page_pictogram('edit');
 
-		\dash\data::badge_text(T_('Back to tickets list'));
-		\dash\data::badge_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to tickets list'));
+		\dash\data::action_link(\dash\url::this());
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());

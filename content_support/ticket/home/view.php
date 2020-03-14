@@ -13,8 +13,8 @@ class view
 
 		\dash\data::page_pictogram('question-circle');
 
-		\dash\data::badge_text(T_('New ticket'));
-		\dash\data::badge_link(\dash\url::this(). '/add'.\dash\data::accessGet());
+		\dash\data::action_text(T_('New ticket'));
+		\dash\data::action_link(\dash\url::this(). '/add'.\dash\data::accessGet());
 
 		\dash\data::badge2_text(T_('Back to support panel'));
 		\dash\data::badge2_link(\dash\url::here().\dash\data::accessGet());

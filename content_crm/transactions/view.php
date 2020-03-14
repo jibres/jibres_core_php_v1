@@ -13,8 +13,8 @@ class view
 
 
 
-		\dash\data::badge_link(\dash\url::here());
-		\dash\data::badge_text(T_('Back to dashboard'));
+		\dash\data::action_link(\dash\url::here());
+		\dash\data::action_text(T_('Back to dashboard'));
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)

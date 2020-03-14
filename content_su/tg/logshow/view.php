@@ -12,8 +12,8 @@ class view
 		\dash\data::page_title($myTitle);
 		\dash\data::page_desc($myDesc);
 		// add back level to summary link
-		\dash\data::badge_text(T_('Back to log list'));
-		\dash\data::badge_link(\dash\url::this() .'/log');
+		\dash\data::action_text(T_('Back to log list'));
+		\dash\data::action_link(\dash\url::this() .'/log');
 
 
 		$load = \dash\db\telegrams::get(['id' => \dash\request::get('id'), 'limit' => 1]);

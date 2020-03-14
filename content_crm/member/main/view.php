@@ -33,8 +33,8 @@ class view
 		\dash\data::dataRowMember($result);
 
 		// add back level to summary link
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_('Back to list of members'));
+		\dash\data::action_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to list of members'));
 
 
 	}

@@ -58,15 +58,15 @@ class view
 		\dash\data::page_title($myTitle);
 		\dash\data::page_desc($myDesc);
 
-		\dash\data::badge_text(T_('Back to dashboard'));
+		\dash\data::action_text(T_('Back to dashboard'));
 
 		if(\dash\request::get('type') === 'support_tag')
 		{
-			\dash\data::badge_link(\dash\url::kingdom(). '/support');
+			\dash\data::action_link(\dash\url::kingdom(). '/support');
 		}
 		else
 		{
-			\dash\data::badge_link(\dash\url::here());
+			\dash\data::action_link(\dash\url::here());
 		}
 
 

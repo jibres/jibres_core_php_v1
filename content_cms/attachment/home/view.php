@@ -9,8 +9,8 @@ class view
 
 		\dash\data::page_title(T_("Attachments"));
 
-		\dash\data::badge_text(T_('Add new attachment'));
-		\dash\data::badge_link(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add new attachment'));
+		\dash\data::action_link(\dash\url::this(). '/add');
 
 		$search_string = \dash\request::get('q');
 		if($search_string)

@@ -8,8 +8,8 @@ class view
 		\dash\data::page_title(T_("Send photo"));
 		\dash\data::page_desc(T_('Quickly send photo to selected user'));
 		\dash\data::page_pictogram('picture-o');
-		\dash\data::badge_text(T_('Back to Telegram dashboard'));
-		\dash\data::badge_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to Telegram dashboard'));
+		\dash\data::action_link(\dash\url::this());
 
 
 		\dash\data::tg_send(\dash\session::get('tg_send'));

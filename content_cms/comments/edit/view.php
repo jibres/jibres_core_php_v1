@@ -19,8 +19,8 @@ class view
 		\dash\data::page_title(T_("Edit comment"));
 		\dash\data::page_desc(T_("You can edit comments if needed."). ' '. T_("This is often useful when you notice that a commenter has made a typographical error."));
 
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_('Back to list of comments'));
+		\dash\data::action_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to list of comments'));
 
 		\dash\data::page_pictogram('commenting');
 

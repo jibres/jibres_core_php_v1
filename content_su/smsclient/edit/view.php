@@ -5,8 +5,8 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_("Back"));
+		\dash\data::action_link(\dash\url::this());
+		\dash\data::action_text(T_("Back"));
 
 		$master_api_key = \dash\option::sms('kavenegar', 'masterkey');
 		if(!$master_api_key)

@@ -10,7 +10,7 @@ class view
 		\dash\data::page_desc(' ');
 
 		\dash\data::page_pictogram('chart');
-		\dash\data::badge_text(T_('Back to tickets list'));
+		\dash\data::action_text(T_('Back to tickets list'));
 
 		// btn
 		\dash\data::back_text(T_('Ticket'));

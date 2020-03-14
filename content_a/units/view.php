@@ -9,8 +9,8 @@ class view
 		\dash\data::page_desc(T_('You can manage your units manually.'). ' '. T_("Don't worry! we are add units automatically on add new product"));
 		\dash\data::page_pictogram('eye-galsses');
 
-		\dash\data::badge_text(T_('Back to product list'));
-		\dash\data::badge_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to product list'));
+		\dash\data::action_link(\dash\url::this());
 
 		if(\dash\data::editMode())
 		{
@@ -26,8 +26,8 @@ class view
 
 		if(\dash\data::removeMode() || \dash\data::editMode())
 		{
-			\dash\data::badge_text(T_('Back to product unit list'));
-			\dash\data::badge_link(\dash\url::that());
+			\dash\data::action_text(T_('Back to product unit list'));
+			\dash\data::action_link(\dash\url::that());
 		}
 
 

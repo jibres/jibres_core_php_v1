@@ -12,8 +12,8 @@ class view
 		\dash\data::page_title(T_('User log'));
 		\dash\data::page_desc(T_('You can see user log.'));
 
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_('Back to dashbaord'));
+		\dash\data::action_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to dashbaord'));
 
 		self::login_list();
 	}

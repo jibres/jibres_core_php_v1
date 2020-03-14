@@ -78,8 +78,8 @@ class view
 		\dash\data::page_title($myTitle);
 		\dash\data::page_desc($myDesc);
 
-		\dash\data::badge_text($myBadgeText);
-		\dash\data::badge_link($myBadgeLink);
+		\dash\data::action_text($myBadgeText);
+		\dash\data::action_link($myBadgeLink);
 
 
 		if(\dash\permission::check('cpChangePostCreator'))

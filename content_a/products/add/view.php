@@ -10,8 +10,8 @@ class view
 		\dash\data::page_title(T_("Add new product"));
 
 		// back to list of product
-		\dash\data::badge_text(T_('Back'));
-		\dash\data::badge_link(\dash\url::this());
+		\dash\data::action_text(T_('Back'));
+		\dash\data::action_link(\dash\url::this());
 
 		// back
 		\dash\data::back_text(T_('Products'));

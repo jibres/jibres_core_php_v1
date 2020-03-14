@@ -12,8 +12,8 @@ class view
 		\dash\data::page_pictogram('user-plus');
 
 
-		\dash\data::badge_text(T_('Back to list of users'));
-		\dash\data::badge_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to list of users'));
+		\dash\data::action_link(\dash\url::this());
 
 		\content_crm\member\main\view::static_var();
 	}

@@ -9,8 +9,8 @@ class view
 		\dash\data::page_title(T_('Application key'));
 
 
-		\dash\data::badge_link(\dash\url::here(). '/security');
-		\dash\data::badge_text(T_('Back to Account security'));
+		\dash\data::action_link(\dash\url::here(). '/security');
+		\dash\data::action_text(T_('Back to Account security'));
 
 		\dash\data::back_link(\dash\url::here(). '/security');
 		\dash\data::back_text(T_('Back'));

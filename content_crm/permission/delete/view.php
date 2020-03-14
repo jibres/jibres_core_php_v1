@@ -13,8 +13,8 @@ class view
 
 		\dash\data::page_pictogram('unlock');
 
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_('Back to list of permissions'));
+		\dash\data::action_link(\dash\url::this());
+		\dash\data::action_text(T_('Back to list of permissions'));
 
 		if(\dash\request::get('id'))
 		{

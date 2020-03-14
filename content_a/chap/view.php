@@ -66,11 +66,11 @@ class view
 			switch ($factorDetail['factor']['type'])
 			{
 				case 'buy':
-					\dash\data::badge_text(T_('Back to last buy'));
-					\dash\data::badge_link(\dash\url::here(). '/factor?type=buy');
+					\dash\data::action_text(T_('Back to last buy'));
+					\dash\data::action_link(\dash\url::here(). '/factor?type=buy');
 				case 'sale':
-					\dash\data::badge_text(T_('Back to last sales'));
-					\dash\data::badge_link(\dash\url::here(). '/factor?type=sale');
+					\dash\data::action_text(T_('Back to last sales'));
+					\dash\data::action_link(\dash\url::here(). '/factor?type=sale');
 					break;
 
 				default:
