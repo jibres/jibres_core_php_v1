@@ -95,8 +95,6 @@ if(\dash\language::current() === 'fa')
           <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Jibres Company'); ?></h3>
             <a href="<?php echo $kingdom; ?>/about"><?php echo T_('About Jibres'); ?></a>
-            <a href="<?php echo $kingdom; ?>/mission"><?php echo T_('Jibres Mission'); ?></a>
-            <a href="<?php echo $kingdom; ?>/vision"><?php echo T_('Jibres Vision'); ?></a>
             <a href="<?php echo $kingdom; ?>/team"><?php echo T_('Our Team'); ?></a>
             <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Jibres Logo'); ?></a>
             <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Brand Styleguide'); ?></a>
