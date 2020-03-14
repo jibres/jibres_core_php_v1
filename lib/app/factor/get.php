@@ -102,6 +102,13 @@ class get
 			{
 				$factor['customer_mobile'] = $load_customer['mobile'];
 			}
+
+			$factor['customer_address'] = [];
+			if(isset($load_customer['id']))
+			{
+				$user_address = \dash\app\address::get_last_user_address($load_customer['id']);
+				$factor['customer_address'] = $user_address;
+			}
 		}
 
 		// load address saved on this factor

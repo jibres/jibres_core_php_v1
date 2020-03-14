@@ -26,6 +26,29 @@ class address
 	}
 
 
+	public static function get_last_user_address($_user_id)
+	{
+		if(!$_user_id || !is_numeric($_user_id))
+		{
+			return [];
+		}
+
+		$last_user_address = \dash\db\address::last_user_address($_user_id);
+		if($last_user_address)
+		{
+			$last_user_address = self::ready($last_user_address);
+		}
+
+		if(!is_array($last_user_address))
+		{
+			$last_user_address = [];
+		}
+
+		return $last_user_address;
+	}
+
+
+
 	public static function get_my_address($_id)
 	{
 		if(!\dash\user::id())

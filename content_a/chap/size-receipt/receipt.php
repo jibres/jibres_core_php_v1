@@ -56,8 +56,23 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <?php } //endif ?>
 
 <?php if(isset($factorDetail['factor']['customer_address']) && $factorDetail['factor']['customer_address']) {?>
-  <div class="pA10"><?php echo T_("Address"); ?> <span class="txtB"><?php echo $factorDetail['factor']['customer_address']; ?></span></div>
-<?php } //endif ?>
+  <div class="pA10">
+    <?php echo T_("Address"); ?>
+
+  <?php if(isset($factorDetail['factor']['customer_address']['location_string']) && $factorDetail['factor']['customer_address']['location_string']) {?>
+    <span class="txtB"><?php echo $factorDetail['factor']['customer_address']['location_string']; ?></span>
+  <?php } //endif ?>
+
+  <?php if(isset($factorDetail['factor']['customer_address']['address']) && $factorDetail['factor']['customer_address']['address']) {?>
+    <span class="txtB"><?php echo $factorDetail['factor']['customer_address']['address']; ?></span>
+  <?php } //endif ?>
+
+  <?php if(isset($factorDetail['factor']['customer_address']['phone']) && $factorDetail['factor']['customer_address']['phone']) {?>
+    <div class="mT10"><?php echo T_("Phone"); ?> <span class="txtB"><?php echo \dash\fit::text($factorDetail['factor']['customer_address']['phone']); ?></span></div>
+  <?php } //endif ?>
+
+  </div>
+<?php } //endif address ?>
 
 <?php if(isset($factorDetail['factor']['customer_phone']) && $factorDetail['factor']['customer_phone']) {?>
   <div class="pA10"><?php echo T_("Tel"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::text($factorDetail['factor']['customer_phone']); ?></span></div>
