@@ -252,7 +252,7 @@ class user
 			'gender'        => ['enum' => ['male','female', 'company', 'rather not say']],
 			'marital'       => ['enum' => ['single', 'married']],
 
-			'avatar'        => 'avatar',
+			'avatar'        => 'string_200',
 			// 'shcode'        => 'smallint',
 			'nationality'   => 'country',
 			'phone'         => 'phone',
