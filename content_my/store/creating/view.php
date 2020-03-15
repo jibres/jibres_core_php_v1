@@ -10,6 +10,8 @@ class view
 		\lib\app\store\timeline::set('creating');
 
 		\dash\data::userToggleSidebar(false);
+
+		\dash\data::loadScript(true);
 	}
 }
 ?>
