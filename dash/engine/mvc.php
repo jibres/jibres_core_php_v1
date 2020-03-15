@@ -57,7 +57,7 @@ class mvc
 
 		if(\dash\url::child() !== null)
 		{
-			if(\dash\url::child() === 'home')
+			if(\dash\url::child() === 'home' || \dash\url::child() === 'layout')
 			{
 				\dash\header::status('404');
 			}
