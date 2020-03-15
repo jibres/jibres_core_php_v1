@@ -11,10 +11,11 @@
   </form>
 </div>
 
-<table class="tbl1 v1 fs12">
+<table class="tbl1 v1 fs12 selectable">
   <thead>
     <tr>
       <th><?php echo T_("id"); ?></th>
+      <th><?php echo T_("Url"); ?></th>
       <th><?php echo T_("subdomain"); ?></th>
       <th><?php echo T_("title"); ?></th>
       <th><?php echo T_("owner"); ?></th>
@@ -29,6 +30,7 @@
 
     <tr>
       <td><code><?php echo \dash\get::index($value, 'id'); ?></code></td>
+      <td><a href="<?php echo \dash\url::kingdom(). '/'.\dash\store_coding::encode(\dash\get::index($value, 'id'));?>"><code><?php echo \dash\store_coding::encode(\dash\get::index($value, 'id')); ?></code></a></td>
       <td><div class=""><a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'subdomain'). '.jibres.'. \dash\url::tld(); ?>"><?php echo \dash\get::index($value, 'subdomain'); ?></a></div></td>
       <td>
         <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">

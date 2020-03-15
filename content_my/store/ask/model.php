@@ -22,7 +22,7 @@ class model
 				{
 					if(isset($question['id']))
 					{
-						$answer = \dash\request::post($question['id']);
+						$answer = \dash\validate::string_50(\dash\request::post($question['id']));
 						if($answer && is_string($answer))
 						{
 							if(isset($question['items']) && is_array($question['items']))

@@ -9,9 +9,9 @@ class model
 		$can = \dash\data::canAddStore();
 		if(isset($can['can']) && $can['can'])
 		{
-			$title = \dash\request::post('bt');
+			$title = \dash\validate::title(\dash\request::post('bt'));
 
-			if(!$title || !is_string($title))
+			if(!$title)
 			{
 				\dash\notif::error(T_("Please enter name of your bissiness"), 'bt');
 				return false;

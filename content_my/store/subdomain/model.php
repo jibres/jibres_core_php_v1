@@ -9,7 +9,7 @@ class model
 		\lib\app\store\subdomain::$subdomain_field_name = 'sd';
 		\lib\app\store\subdomain::$debug = true;
 
-		$subdomain       = \dash\request::post('sd');
+		$subdomain       = \dash\validate::string_50(\dash\request::post('sd'));
 		if(!\lib\app\store\subdomain::validate_exist($subdomain) || !\dash\engine\process::status())
 		{
 			return false;

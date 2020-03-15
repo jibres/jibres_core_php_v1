@@ -23,7 +23,7 @@ class view
 			}
 
 			// \dash\data::myNewStoreSubdomain(\dash\url::protocol(). '://'. $subdomain. '.'. \dash\url::domain(). $lang. '/a');
-			\dash\data::myNewStoreSubdomain(\dash\url::kingdom(). '/'. \dash\coding::encode(\dash\session::get('myNewStoreID')). '/a');
+			\dash\data::myNewStoreSubdomain(\dash\url::kingdom(). '/'. \dash\store_coding::encode(\dash\session::get('myNewStoreID')). '/a');
 		}
 		else
 		{

@@ -463,6 +463,10 @@ class cleanse
 				$data = \dash\validate\text::md5($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'subdomain':
+				$data = \dash\validate\subdomain::subdomain($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 
 			// *************** date validate
 			case 'birthdate':
@@ -598,7 +602,9 @@ class cleanse
 	private static function bye($_msg = null)
 	{
 		// \dash\notif::api($_msg);
-		\dash\header::status(406, $_msg);
+		// \dash\header::status(406, $_msg);
+		\dash\header::set(423);
+		\dash\code::end();
 	}
 }
 ?>

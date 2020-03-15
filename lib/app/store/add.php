@@ -73,7 +73,25 @@ class add
 
 	public static function free($_args)
 	{
-		\dash\app::variable($_args);
+
+		$condition =
+		[
+			'title'     => 'title',
+			'subdomain' => 'subdomain',
+			'answer'    => ['Q1' => 'smallint', 'Q2' => 'smallint', 'Q3' => 'smallint'],
+		];
+
+		$require = ['title', 'subdomain'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$user_id = \dash\user::id();
 		if(!$user_id)
@@ -83,25 +101,8 @@ class add
 		}
 
 		// check title
-		$title = \dash\app::request('title');
-		if(!$title)
-		{
-			\dash\notif::error(T_("Please fill the store title"), 'title');
-			return false;
-		}
-
-		if(mb_strlen($title) >= 200)
-		{
-			\dash\notif::error(T_("Please fill the store title less than 200 character"), 'title');
-			return false;
-		}
-
-		$subdomain = \dash\app::request('subdomain');
-		$subdomain = \lib\app\store\subdomain::validate($subdomain);
-		if(!$subdomain)
-		{
-			return false;
-		}
+		$title     = $data['title'];
+		$subdomain = $data['subdomain'];
 
 		$check_exist = \lib\db\store\get::subdomain_exist($subdomain);
 		if($check_exist)
@@ -140,6 +141,7 @@ class add
 
 		\dash\db::transaction();
 
+		// add store record in jibres table
 		$store_id = self::new_store($subdomain, $args['creator'], $fuel);
 
 		if(!$store_id)
@@ -155,6 +157,7 @@ class add
 			return false;
 		}
 
+		// add store data in jibres database
 		$add_store_data = self::new_store_data($args, $store_id);
 
 		if(!$add_store_data)
@@ -170,6 +173,7 @@ class add
 			return false;
 		}
 
+		// add store plan in jibres database
 		$add_store_plan = self::new_store_plan($args, $store_id);
 
 		if(!$add_store_plan)
@@ -185,6 +189,7 @@ class add
 			return false;
 		}
 
+		// add store user in jibres database
 		$add_store_user = self::new_store_user($args, $store_id);
 
 		if(!$add_store_user)
