@@ -18,7 +18,6 @@ class view
 		\dash\data::global_title(T_("Jibres"));
 		\dash\data::global_subdomain(\dash\url::subdomain());
 		\dash\data::global_content(\dash\url::content());
-		\dash\data::global_panel(null);
 		if(\dash\data::global_content() === null)
 		{
 			\dash\data::global_content('site');
@@ -28,6 +27,7 @@ class view
 		{
 			\dash\data::global_page('home');
 		}
+		\dash\data::global_panel(null);
 
 
 		\dash\data::site_title(T_(\dash\option::config('site', 'title')));
@@ -180,6 +180,10 @@ class view
 		if(\dash\data::include_adminPanel())
 		{
 			\dash\data::global_panel(true);
+			if(\dash\data::userToggleSidebar() === false)
+			{
+				\dash\data::global_panel('clean');
+			}
 
 			$txtDesc   = '';
 			if(\dash\user::detail('displayname'))
