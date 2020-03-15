@@ -90,12 +90,16 @@ else
 echo " data-page='". \dash\data::global_page(). "'";
 if(\dash\data::include_adminPanel())
 {
-  echo " data-panel";
-}
-// sidebar
 if(!\dash\data::userToggleSidebar())
 {
-  echo " data-clean";
+// without sidebar
+  echo " data-panel='clean'";
+}
+else
+{
+// with sidebar
+  echo " data-panel";
+}
 }
 if(\dash\request::get('iframe'))
 {
