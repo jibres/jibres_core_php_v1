@@ -94,12 +94,6 @@ else
 
 <?php if(\dash\user::id()) {?>
     <li><a href="<?php echo \dash\url::sitelang(); ?>/account" <?php if(\dash\url::content() === 'account') {?> class="activeContent"<?php }//endif ?> data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-user'></i> <span><?php echo T_("My Account"); ?></span></a></li>
-  <?php
-  if(\dash\url::content() === 'account')
-  {
-    require_once ('sidebar/sidebar-account.php');
-  }
-  ?>
 
 <?php }//endif ?>
 
