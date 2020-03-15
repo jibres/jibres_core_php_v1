@@ -124,23 +124,9 @@ if (\dash\data::include_editor())
   echo "\n  ";
   echo '<link  href="'. \dash\layout\func::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
 }
-{
+// load pageScript
+\dash\layout\find::pageScript();
 
-  echo "  ";
-  echo "<div data-xhr='pageScript'>";
-  if(\dash\data::loadScript())
-  {
-    if(file_exists(\dash\layout\func::script_addr()))
-    {
-      echo "<script>";
-      echo file_get_contents(\dash\layout\func::script_addr());
-      echo "</script>";
-    }
-  }
-  echo "</div>";
-}
-// @todo javad
-// foot_js
 // <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
 
 if (\dash\user::id())

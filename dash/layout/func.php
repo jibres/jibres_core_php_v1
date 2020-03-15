@@ -38,6 +38,7 @@ class func
 				echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
 				// create all blocks
 				\dash\layout\find::allBlocks();
+				\dash\layout\find::pageScript();
 			}
 			else
 			{

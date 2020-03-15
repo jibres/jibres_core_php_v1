@@ -187,5 +187,19 @@ class find
 			echo "\n </nav>";
 		}
 	}
+
+	public static function pageScript()
+	{
+  		echo "  ";
+		echo "<script data-xhr='pageScript'>";
+		if(\dash\data::loadScript())
+		{
+			if(file_exists(\dash\layout\func::script_addr()))
+			{
+				echo file_get_contents(\dash\layout\func::script_addr());
+			}
+		}
+  		echo "</script>";
+	}
 }
 ?>
