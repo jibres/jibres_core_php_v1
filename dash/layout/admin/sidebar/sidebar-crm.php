@@ -16,18 +16,7 @@
       <li><a href="<?php echo \dash\url::here(); ?>/permission"><i class='sf-lock'></i> <?php echo T_("Permissions"); ?></a></li>
     <?php } //endif ?>
 
-  <?php if(\dash\permission::check('cpSMS') || \dash\permission::check('cpSmsSend') || \dash\permission::check('cpSmsSendGroup') || \dash\permission::check('cpTemplateSmsView')) {?>
-      <li>
-          <?php if(\dash\permission::check('cpSMS')) {?>
-          <a href="<?php echo \dash\url::here(); ?>/sms"><i class='sf-envelope'></i> <span><?php echo T_("SMS"); ?></span></a>
-          <?php } //endif ?>
-          <ul>
-            <?php if(\dash\permission::check('cpSmsSend')) {?>
-              <li><a href="<?php echo \dash\url::here(); ?>/sms/send"><?php echo T_("Quick send"); ?> <i class='floatLa mRa10 fc-mute sf-paper-plane'></i></a></li>
-            <?php } //endif ?>
-          </ul>
-      </li>
-  <?php } //endif ?>
+
 
   <?php if(\dash\permission::check('cpTransaction') || \dash\permission::check('cpTransactionAdd')) {?>
       <li>

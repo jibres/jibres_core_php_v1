@@ -5,6 +5,12 @@ class view
 {
 	public static function config()
 	{
+		if(!\dash\permission::supervisor())
+		{
+			\dash\header::status(403);
+		}
+
+
 		\dash\permission::access('cpSMS');
 
 		\dash\data::page_title(T_("SMS Dashboard"));
