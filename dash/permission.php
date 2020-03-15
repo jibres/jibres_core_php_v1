@@ -98,14 +98,21 @@ class permission
 	// delete permission from project file
 	public static function delete_permission($_id)
 	{
+		$id = \dash\validate::string($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid permission id"));
+			return false;
+		}
+
 		$user_count = self::usercount();
-		if(isset($user_count[$_id]) && intval($user_count[$_id]) > 0)
+		if(isset($user_count[$id]) && intval($user_count[$id]) > 0)
 		{
 			\dash\notif::error(T_("Someone have this permission!"). ' '. T_("Can not remove it."));
 			return false;
 		}
 
-		if($_id === 'admin')
+		if($id === 'admin')
 		{
 			\dash\notif::error(T_("Can not remove admin!"));
 			return false;
@@ -115,7 +122,13 @@ class permission
 
 		$new = self::groups();
 
-		unset($new[$_id]);
+		if(!isset($new[$id]))
+		{
+			\dash\notif::error(T_("Permission not found"));
+			return false;
+		}
+
+		unset($new[$id]);
 		if(is_callable(['\lib\permission', 'delete_permission']))
 		{
 			$result = \lib\permission::delete_permission($new);
@@ -131,7 +144,7 @@ class permission
 			\dash\file::write(root.'/includes/permission/group.me.json', $new);
 		}
 
-		\dash\log::set('permissionDelete', ['code' => $_id]);
+		\dash\log::set('permissionDelete', ['code' => $id]);
 		\dash\notif::warn(T_("Permission removed"));
 		return true;
 	}

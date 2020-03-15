@@ -24,6 +24,13 @@ class model
 			{
 				continue;
 			}
+
+			if(!\dash\validate::string_50($key) || !\dash\validate::string_50($value))
+			{
+				\dash\notif::error(T_("Invalid permission index"));
+				return false;
+			}
+
 			if($value)
 			{
 				$contain[] = $key;
