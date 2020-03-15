@@ -88,39 +88,6 @@ class cleanse
 					}
 					$check = self::data('enum', $my_data, true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
 				}
-				elseif(isset($validate['bool']) && is_array($validate['bool']))
-				{
-					$my_bool = $validate['bool'];
-					foreach ($my_bool as $my_bool_item)
-					{
-						if(!is_string($my_bool_item) && !is_numeric($my_bool_item) && !is_null($my_bool_item) && !is_bool($my_bool_item))
-						{
-							self::bye(T_("Boolval option must be string or number or null"));
-						}
-					}
-
-					if(!is_string($my_data) && !is_numeric($my_data) && !is_null($my_data) && !is_bool($my_data))
-					{
-						\dash\notif::error(T_("Invalid boolval in field :val", ['val' => $field_title]), ['element' => $field]);
-						continue;
-					}
-
-					if(count($my_bool) !== 2)
-					{
-						self::bye(T_("Boolval array must be contain exactly 2 option"));
-					}
-
-					$my_bool = array_values($my_bool);
-
-					if($my_data)
-					{
-						$check = $my_bool[0];
-					}
-					else
-					{
-						$check = $my_bool[1];
-					}
-				}
 				else
 				{
 
