@@ -58,6 +58,12 @@ class func
 	}
 
 
+	public static function script_addr()
+	{
+		return str_replace('display.php', 'script.js', self::$DISPLAY);
+	}
+
+
 	public static function staticmtime($_fileAddr)
 	{
 		$result       = $_fileAddr;

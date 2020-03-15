@@ -114,8 +114,34 @@ echo ">";
 if (\dash\data::include_highcharts())
 {
   echo "\n  ";
-  echo '<script src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
+  echo '<script async src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
+
+if (\dash\data::include_editor())
+{
+  echo "\n  ";
+  echo '<script async src="'. \dash\layout\func::staticmtime('js/medium-editor.min.js'). '"></script>';
+  echo "\n  ";
+  echo '<link  href="'. \dash\layout\func::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
+}
+{
+
+  echo "  ";
+  echo "<div data-xhr='pageScript'>";
+  if(\dash\data::loadScript())
+  {
+    if(file_exists(\dash\layout\func::script_addr()))
+    {
+      echo "<script>";
+      \dash\layout\func::script_addr();
+      echo "</script>";
+    }
+  }
+  echo "</div>";
+}
+// @todo javad
+// foot_js
+// <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
 
 if (\dash\user::id())
 {
@@ -128,22 +154,12 @@ if (\dash\user::id())
 }
 // @todo Javad check browser and show live or dead
 // <div class="line warn fs20">YOU ARE DEAD!</div>
-
-if (\dash\data::include_editor())
-{
-  echo "\n  ";
-  echo '<script src="'. \dash\layout\func::staticmtime('js/medium-editor.min.js'). '"></script>';
-  echo "\n  ";
-  echo '<link  href="'. \dash\layout\func::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
-}
 if(\dash\option::config('site', 'googleAnalytics'))
 {
   $gAnalytics = \dash\option::config('site', 'googleAnalytics');
+  echo "\n  ";
   echo "<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '$gAnalytics'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '$gAnalytics', {'page_path': pathname}); }</script>";
 }
-// @todo javad
-// foot_js
-// <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
 
 if(false)
 {
