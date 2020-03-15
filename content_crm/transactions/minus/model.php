@@ -10,70 +10,45 @@ class model
 	 */
 	public static function post()
 	{
-		$id = \dash\request::get('id');
-
-		if(!is_numeric($id))
-		{
-			$id = null;
-		}
-
-		$title  = \dash\request::post('title');
-		$unit   = \dash\request::post('unit');
-		$mobile = \dash\request::post('mobile');
-		$minus  = \dash\request::post('amount');
-
-		$desc   = \dash\request::post('desc');
-		$type   = \dash\request::post('type');
-
-		if(!\dash\user::login())
+			if(!\dash\user::login())
 		{
 			\dash\notif::error(T_("You must login to add new transaction"));
 			return false;
 		}
 
-		$user_id = null;
+		$condition =
+		[
+			'id'     => 'id',
+			'title'  => 'string_50',
+			'unit'   => ['enum' => ['toman', 'dollar']],
+			'mobile' => 'mobile',
+			'amount' => 'price',
+			'desc'   => 'desc',
+			'type'   => ['enum' => ['money', 'gift', 'prize', 'transfer']],
+		];
 
-		if(!$title)
-		{
-			\dash\notif::error(T_("Please set the transaction title"));
-			return false;
-		}
+		$args =
+		[
+			'title'  => \dash\request::post('title'),
+			'unit'   => \dash\request::post('unit'),
+			'mobile' => \dash\request::post('mobile'),
+			'amount' => \dash\request::post('amount'),
+			'desc'   => \dash\request::post('desc'),
+			'type'   => \dash\request::post('type'),
+		];
 
-		if(!$unit)
-		{
-			\dash\notif::error(T_("Please select one of the unit items"));
-			return false;
-		}
+		$require = ['title', 'unit', 'mobile', 'type', 'amount'];
 
+		$meta =
+		[
+			'field_title' =>
+			[
+			],
+		];
 
-		if(!$mobile)
-		{
-			\dash\notif::error(T_("Mobile can not be null"));
-			return false;
-		}
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
 
-		if(!$type)
-		{
-			\dash\notif::error(T_("Please select one of the type items"));
-			return false;
-		}
-
-
-		if(!in_array($type, ['money', 'gift', 'prize', 'transfer']))
-		{
-			\dash\notif::error(T_("Invalid type"));
-			return false;
-		}
-
-
-
-		if($minus && !is_numeric($minus))
-		{
-			\dash\notif::error(T_("Invalid minus field"));
-			return false;
-		}
-
-		$user_id = \dash\db\users::get_by_mobile(\dash\utility\filter::mobile($mobile));
+		$user_id = \dash\db\users::get_by_mobile($data['mobile']);
 		if(isset($user_id['id']))
 		{
 			$user_id = $user_id['id'];
@@ -91,19 +66,18 @@ class model
 		}
 
 
-
 		$insert =
 		[
 			'caller'    => 'manually',
-			'title'     => $title,
+			'title'     => $data['title'],
 			'user_id'   => $user_id,
-			'plus'      => null,
-			'minus'     => $minus,
+			'minus'      => $data['amount'],
+			'plus'     => null,
 			'payment'   => null,
-			'type'      => $type,
-			'unit'      => $unit,
+			'type'      => $data['type'],
+			'unit'      => $data['unit'],
 			'date'      => date("Y-m-d H:i:s"),
-			'parent_id' => $id,
+			'parent_id' => $data['id'],
 			'verify'    => 1,
 			'dateverify' => time(),
 		];
@@ -112,7 +86,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\log::set('MinusTransactionManualy', ['title' => $title,  'minus' => $minus, 'user_id' => $user_id]);
+			\dash\log::set('MinusTransactionManualy', ['title' => $data['title'], 'plus' => $data['amount'], 'user_id' => $user_id]);
 			\dash\notif::ok(T_("Transaction inserted"));
 			\dash\redirect::to(\dash\url::here(). '/transactions');
 		}

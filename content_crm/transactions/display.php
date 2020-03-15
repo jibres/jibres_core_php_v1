@@ -60,14 +60,14 @@ $sortLink = \dash\data::sortLink();
   <table class="tbl1 v1">
     <thead>
       <tr>
-      	<th data-sort=<?php echo \dash\get::index($value, 'user_id', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'user_id', 'link'); ?>"><?php echo T_("User"); ?></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'title', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'plus', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'plus', 'link'); ?>"><i class="sf-plus-circle"></i></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'minus', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'minus', 'link'); ?>"><i class="sf-minus-circle"></i></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'budget', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'budget', 'link'); ?>"><?php echo T_("Budget"); ?></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'condition', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'condition', 'link'); ?>"><?php echo T_("Condition"); ?></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'verify', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'verify', 'link'); ?>"><?php echo T_("Verify"); ?></a></th>
-      	<th data-sort=<?php echo \dash\get::index($value, 'datecreated', 'order'); ?>><a href="<?php echo \dash\get::index($value, 'datecreated', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'user_id', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'user_id', 'link'); ?>"><?php echo T_("User"); ?></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'plus', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'plus', 'link'); ?>"><i class="sf-plus-circle"></i></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'minus', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'minus', 'link'); ?>"><i class="sf-minus-circle"></i></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'budget', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'budget', 'link'); ?>"><?php echo T_("Budget"); ?></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'condition', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'condition', 'link'); ?>"><?php echo T_("Condition"); ?></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'verify', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'verify', 'link'); ?>"><?php echo T_("Verify"); ?></a></th>
+      	<th data-sort=<?php echo \dash\get::index($sortLink, 'datecreated', 'order'); ?>><a href="<?php echo \dash\get::index($sortLink, 'datecreated', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
       </tr>
     </thead>
 
