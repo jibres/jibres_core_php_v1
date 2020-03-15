@@ -57,6 +57,10 @@ class mvc
 
 		if(\dash\url::child() !== null)
 		{
+			if(\dash\url::child() === 'home')
+			{
+				\dash\header::status('404');
+			}
 			// something like \content_su\tools\test\controller.php
 			$my_controller = self::checking($my_repo. $my_module. $my_child);
 			if($my_controller)
@@ -68,6 +72,10 @@ class mvc
 
 		if(\dash\url::module() !== null)
 		{
+			if(\dash\url::module() === 'home')
+			{
+				\dash\header::status('404');
+			}
 			// something like \content_su\tools\home\controller.php
 			$my_controller = self::checking($my_repo. $my_module. '\home');
 			if($my_controller)
