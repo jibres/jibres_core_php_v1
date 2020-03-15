@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-07 14:54+0330\n"
-"PO-Revision-Date: 2020-03-07 15:02+0330\n"
+"POT-Creation-Date: 2020-03-15 17:55+0330\n"
+"PO-Revision-Date: 2020-03-15 17:56+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -46,9 +46,10 @@ msgstr "درباره پلتفرم ما"
 #: content/changelog/view.php:13 content/contact/view.php:14
 #: content/domains/home/view.php:14 content/domains/search/view.php:14
 #: content/enterprise/view.php:13 content/forceunlock/view.php:12 content/help/view.php:13
-#: content/logo/view.php:14 content/press/view.php:13 content/pricing/view.php:14
-#: content/privacy/view.php:13 content/socialresponsibility/view.php:13
-#: content/subscribe/view.php:13 content/terms/view.php:13 content/whois/view.php:13
+#: content/logo/view.php:14 content/mission/view.php:12 content/press/view.php:13
+#: content/pricing/view.php:14 content/privacy/view.php:13
+#: content/socialresponsibility/view.php:13 content/subscribe/view.php:13
+#: content/team/view.php:12 content/terms/view.php:13 content/whois/view.php:13
 #: content_api/v1/app/controller.php:273 content_enter/home/view.php:26
 #: content_v2/app/view.php:263 dash/engine/twigFn.php:211 dash/layout/pwa/pwa_menu.php:111
 #: includes/languages/trans_static_public.php:70
@@ -124,7 +125,7 @@ msgstr ""
 #: content_r10/android/view.php:12 content_su/update/display.php:82
 #: content_subdomain/home/layout/visitcard.php:11
 #: content_subdomain/home/layout/visitcard.php:14 content_v2/android/splash/view.php:13
-#: content_v2/android/view.php:17 dash/engine/view.php:18
+#: content_v2/android/view.php:26 dash/engine/view.php:18
 #: dash/layout/admin/admin-sidebar.php:153 dash/layout/admin/admin-sidebar.php:156
 #: dash/layout/schema.php:5 dash/utility/sms.php:34 includes/languages/trans_static.php:7
 #: lib/app/application/intro.php:136 lib/app/application/intro.php:143
@@ -324,13 +325,13 @@ msgstr "کمک نیاز دارید؟ صبور باشید..."
 msgid "Jibres Catalog"
 msgstr "کاتالوگ جیبرس"
 
-#: content/certificates/view.php:9 content/home/layout/footer.php:79
+#: content/certificates/view.php:9 content/home/layout/footer.php:80
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
 
 #: content/changelog/display.php:7 content_a/cart/home/display.php:85
 #: content_a/cart/view/display.php:85 content_a/factor/home/display.php:476
-#: content_account/billing/display.php:66 content_account/billing/display.php:73
+#: content_account/billing/display.php:52 content_account/billing/display.php:59
 #: content_cms/attachment/home/display.php:82 content_cms/comments/home/display.php:85
 #: content_crm/log/home/logTable.php:11 content_crm/member/billing/display.php:24
 #: content_crm/member/billing/display.php:31 content_crm/transactions/display.php:70
@@ -539,7 +540,7 @@ msgstr ""
 "و صدالبته پیشنهادات گرانبهایتان از طریق فرم زیر سبب کمک به ما برای این مهم خواهد شد."
 
 #: content/contact/display.php:22 content/subscribe/display.php:15
-#: content/template/default.php:199 content_a/chap/size-receipt/receipt.php:90
+#: content/template/default.php:199 content_a/chap/size-receipt/receipt.php:102
 #: content_a/setting/general/display.php:26 content_a/setting/general/display.php:28
 #: content_a/setting/pcpos/display.php:300 content_account/address.php:26
 #: content_api/v1/doc/000-public/header-appkey-apikey.php:13
@@ -588,7 +589,7 @@ msgstr ""
 #: content_crm/member/general/display.php:43 content_crm/member/general/display.php:45
 #: content_enter/signup/display.php:12 content_p/home/display.php:179
 #: content_subdomain/template/default.php:199
-#: content_support/ticket/contact_ticket/model.php:148
+#: content_support/ticket/contact_ticket/model.php:112
 #: content_v2/doc/000-public/header-appkey-apikey.php:13
 #: content_v2/doc/010-application/010-app-detail.php:23
 #: content_v2/doc/010-application/010-token.php:20
@@ -643,8 +644,8 @@ msgstr "نام کامل"
 
 #: content/contact/display.php:26 content/subscribe/display.php:11
 #: content/template/default.php:206 content/template/default.php:207
-#: content_a/chap/size-receipt/receipt.php:67 content_a/sale/display.php:44
-#: content_account/address.php:88 content_account/address.php:182
+#: content_a/chap/size-receipt/receipt.php:79 content_a/sale/display.php:44
+#: content_account/address.php:90 content_account/address.php:183
 #: content_account/my/home/display.php:46 content_cms/comments/edit/display.php:13
 #: content_crm/log/home/logTable.php:30 content_crm/member/add/display.php:7
 #: content_crm/member/general/display.php:71 content_crm/member/home/display.php:120
@@ -659,7 +660,7 @@ msgstr "نام کامل"
 #: content_su/tg/log/display.php:98 content_su/tg/system/display.php:24
 #: content_su/tg/users/display.php:99 content_subdomain/template/default.php:206
 #: content_subdomain/template/default.php:207
-#: content_support/ticket/contact_ticket/model.php:138
+#: content_support/ticket/contact_ticket/model.php:102
 #: content_support/ticket/show/display.php:146
 #: includes/languages/trans_static_public.php:162
 msgid "Mobile"
@@ -676,7 +677,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_account/my/home/display.php:52 content_cms/comments/edit/display.php:17
 #: content_crm/log/home/logTable.php:62 content_crm/member/contact/display.php:22
 #: content_crm/member/home/display.php:123 content_crm/member/social/display.php:21
-#: content_support/ticket/contact_ticket/model.php:143
+#: content_support/ticket/contact_ticket/model.php:107
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983
 msgid "Email"
@@ -737,7 +738,7 @@ msgid "Our location on map"
 msgstr "موقعیت ما در نقشه"
 
 #: content/contact/view.php:9 content_my/store/start/display.php:31
-#: content_support/ticket/contact_ticket/model.php:194
+#: content_support/ticket/contact_ticket/model.php:153
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -1673,7 +1674,7 @@ msgid "Barcode reader"
 msgstr "بارکدخوان"
 
 #: content/home/display.php:14 content/home/display.php:34
-#: content_account/home/display.php:14 dash/app/address.php:292
+#: content_account/home/display.php:14 dash/app/address.php:195
 #: includes/languages/trans_static_public.php:33
 msgid ","
 msgstr "،"
@@ -1973,60 +1974,34 @@ msgstr "انتقال دامنه"
 msgid "Whois Lookup"
 msgstr "جستجوی‌ دامنه"
 
-#: content/home/layout/footer.php:74
-msgid "Jibres Company"
-msgstr "شرکت جیبرس"
-
-#: content/home/layout/footer.php:75 dash/social/telegram/commands/ermile.php:332
-#: dash/social/telegram/commands/ermile.php:528
-#: dash/social/telegram/commands/ermileInline.php:76
-msgid "About"
-msgstr "درباره"
-
-#: content/home/layout/footer.php:76 content_a/app/android/setting/display.php:24
-msgid "Logo"
-msgstr "لوگو"
-
-#: content/home/layout/footer.php:77
-msgid "Brand Styleguide"
-msgstr "راهنمای نشان تجاری جیبرس"
-
-#: content/home/layout/footer.php:78
-msgid "Careers"
-msgstr "فرصت‌های شغلی"
-
-#: content/home/layout/footer.php:80
-msgid "Press and Media"
-msgstr "مطبوعات و رسانه‌ها"
-
-#: content/home/layout/footer.php:84
+#: content/home/layout/footer.php:75
 msgid "Resources"
 msgstr "منابع"
 
-#: content/home/layout/footer.php:85
+#: content/home/layout/footer.php:76
 msgid "Blog"
 msgstr "بلاگ"
 
-#: content/home/layout/footer.php:86 content_enter/signup/view.php:23
+#: content/home/layout/footer.php:77 content_enter/signup/view.php:23
 #: content_my/store/start/view.php:11
 msgid "Terms of Service"
 msgstr "شرایط استفاده از خدمات"
 
-#: content/home/layout/footer.php:87 content/privacy/view.php:9
+#: content/home/layout/footer.php:78 content/privacy/view.php:9
 #: content_enter/signup/view.php:24
 msgid "Privacy Policy"
 msgstr "حریم خصوصی"
 
-#: content/home/layout/footer.php:88
+#: content/home/layout/footer.php:79
 msgid "Changelog"
 msgstr "پیشرفت پروژه"
 
-#: content/home/layout/footer.php:89
+#: content/home/layout/footer.php:81
 msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
-#: content/home/layout/footer.php:93 content_account/home/display.php:104
-#: content_account/home/display.php:108 content_support/view.php:42
+#: content/home/layout/footer.php:85 content_account/home/display.php:104
+#: content_account/home/display.php:108 content_support/view.php:40
 #: dash/app/log/caller/ticket/ticket_AddNoteTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AddToTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AnswerTicket.php:13
@@ -2037,85 +2012,93 @@ msgstr "مسئولیت اجتماعی"
 msgid "Support"
 msgstr "پشتیبانی"
 
-#: content/home/layout/footer.php:94
+#: content/home/layout/footer.php:86
 msgid "Support Center"
 msgstr "مرکز پشتیبانی"
 
-#: content/home/layout/footer.php:95 content/home/layout/footer.php:104
-#: content_api/v1/app/controller.php:215 content_v2/app/view.php:205
-#: dash/engine/static_files.php:27 dash/engine/static_files.php:36
-#: dash/engine/static_files.php:46 dash/engine/static_files.php:53
-#: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:628
+#: content/home/layout/footer.php:87 content_api/v1/app/controller.php:215
+#: content_v2/app/view.php:205 dash/engine/static_files.php:27
+#: dash/engine/static_files.php:36 dash/engine/static_files.php:46
+#: dash/engine/static_files.php:53 dash/social/telegram/commands/ermile.php:528
+#: includes/languages/trans_static.php:628
 msgid "Contact"
 msgstr "تماس"
 
-#: content/home/layout/footer.php:96 content_support/faq/view.php:10
+#: content/home/layout/footer.php:88 content_support/faq/view.php:10
 msgid "FAQ"
 msgstr "سوالات پرتکرار"
 
-#: content/home/layout/footer.php:97
+#: content/home/layout/footer.php:89
 msgid "System Status"
 msgstr "وضعیت سیستم"
 
-#: content/home/layout/footer.php:98
+#: content/home/layout/footer.php:90
 msgid "Submit Ticket"
 msgstr "ارسال تیکت"
 
-#: content/home/layout/footer.php:99
+#: content/home/layout/footer.php:91
 msgid "Report Bug"
 msgstr "گزارش خطا"
 
-#: content/home/layout/footer.php:100
+#: content/home/layout/footer.php:92
 msgid "Send us Feedback"
 msgstr "ارسال بازخورد"
 
-#: content/home/layout/footer.php:110
-msgid "2th Floor"
-msgstr "طبقه دوم"
+#: content/home/layout/footer.php:96
+msgid "Jibres Company"
+msgstr "شرکت جیبرس"
 
-#: content/home/layout/footer.php:110
-msgid "Haft-e-tir 1 St"
-msgstr "خیابان هفت تیر، کوچه یکم"
+#: content/home/layout/footer.php:97 content_r10/android/about/view.php:9
+msgid "About Jibres"
+msgstr "درباره جیبرس"
 
-#: content/home/layout/footer.php:110
-msgid "Qom, IRAN"
-msgstr "ایران، قم"
+#: content/home/layout/footer.php:98
+msgid "Our Team"
+msgstr ""
 
-#: content/home/layout/footer.php:113
-msgid "Proudly Made in IRAN"
-msgstr "با افتخار ساخت ایران"
+#: content/home/layout/footer.php:99 content/home/layout/header.php:8
+#: content/home/layout/header.php:12 content/logo/section-icon.php:11
+#: content/logo/section-icon.php:17 content/logo/section-icon.php:18
+#: content/logo/section-icon.php:19 content/logo/section-icon.php:63
+#: content/logo/section-icon.php:69 content/logo/section-icon.php:70
+#: content/logo/section-icon.php:71 content/logo/section-icon.php:115
+#: content/logo/section-icon.php:121 content/logo/section-icon.php:122
+#: content/logo/section-icon.php:123 content/logo/section-standard.php:12
+#: content/logo/section-standard.php:18 content/logo/section-standard.php:19
+#: content/logo/section-standard.php:20 content/logo/section-standard.php:60
+#: content/logo/section-standard.php:66 content/logo/section-standard.php:67
+#: content/logo/section-standard.php:68 content/logo/section-standard.php:108
+#: content/logo/section-standard.php:114 content/logo/section-standard.php:115
+#: content/logo/section-standard.php:116 content/logo/section-standard.php:144
+#: content/logo/section-vertical.php:12 content/logo/section-vertical.php:18
+#: content/logo/section-vertical.php:19 content/logo/section-vertical.php:20
+#: content/logo/section-vertical.php:62 content/logo/section-vertical.php:68
+#: content/logo/section-vertical.php:69 content/logo/section-vertical.php:70
+#: content/logo/section-vertical.php:112 content/logo/section-vertical.php:118
+#: content/logo/section-vertical.php:119 content/logo/section-vertical.php:120
+#: content/logo/section-vertical.php:150 content/logo/view.php:9
+msgid "Jibres Logo"
+msgstr "لوگوی جیبرس"
 
-#: content/home/layout/footer.php:120
+#: content/home/layout/footer.php:100
+msgid "Brand Styleguide"
+msgstr "راهنمای نشان تجاری جیبرس"
+
+#: content/home/layout/footer.php:101
+msgid "Careers"
+msgstr "فرصت‌های شغلی"
+
+#: content/home/layout/footer.php:102
+msgid "Press and Media"
+msgstr "مطبوعات و رسانه‌ها"
+
+#: content/home/layout/footer.php:108
 msgid "All rights reserved."
 msgstr "تمام حقوق محفوظ است."
 
-#: content/home/layout/footer.php:120
+#: content/home/layout/footer.php:108
 msgid "Jibres, LLC"
 msgstr "جیبرس"
-
-#: content/home/layout/header.php:8 content/home/layout/header.php:12
-#: content/logo/section-icon.php:11 content/logo/section-icon.php:17
-#: content/logo/section-icon.php:18 content/logo/section-icon.php:19
-#: content/logo/section-icon.php:63 content/logo/section-icon.php:69
-#: content/logo/section-icon.php:70 content/logo/section-icon.php:71
-#: content/logo/section-icon.php:115 content/logo/section-icon.php:121
-#: content/logo/section-icon.php:122 content/logo/section-icon.php:123
-#: content/logo/section-standard.php:12 content/logo/section-standard.php:18
-#: content/logo/section-standard.php:19 content/logo/section-standard.php:20
-#: content/logo/section-standard.php:60 content/logo/section-standard.php:66
-#: content/logo/section-standard.php:67 content/logo/section-standard.php:68
-#: content/logo/section-standard.php:108 content/logo/section-standard.php:114
-#: content/logo/section-standard.php:115 content/logo/section-standard.php:116
-#: content/logo/section-standard.php:144 content/logo/section-vertical.php:12
-#: content/logo/section-vertical.php:18 content/logo/section-vertical.php:19
-#: content/logo/section-vertical.php:20 content/logo/section-vertical.php:62
-#: content/logo/section-vertical.php:68 content/logo/section-vertical.php:69
-#: content/logo/section-vertical.php:70 content/logo/section-vertical.php:112
-#: content/logo/section-vertical.php:118 content/logo/section-vertical.php:119
-#: content/logo/section-vertical.php:120 content/logo/section-vertical.php:150
-#: content/logo/view.php:9
-msgid "Jibres Logo"
-msgstr "لوگوی جیبرس"
 
 #: content/home/layout/header.php:26 content_subdomain/home/layout/visitcard.php:42
 msgid "Store Panel"
@@ -2123,8 +2106,8 @@ msgstr "پنل فروشگاه"
 
 #: content/home/layout/header.php:30 content/home/view.php:53
 #: content_a/pricehistory/view.php:14 content_a/products/home/view.php:14
-#: content_account/home/view.php:15 content_account/notification/view.php:17
-#: content_crm/sms/home/view.php:16 content_management/domain/home/view.php:12
+#: content_account/home/view.php:14 content_account/notification/view.php:15
+#: content_crm/sms/home/view.php:22 content_management/domain/home/view.php:12
 #: content_management/domain/log/view.php:12 content_management/store/view.php:14
 #: content_my/bill/view.php:12 content_my/domain/home/view.php:12
 #: content_my/ipg/view.php:12 content_my/store/home/view.php:10
@@ -2139,7 +2122,7 @@ msgstr "داشبورد"
 #: content/home/layout/header.php:36 content/home/view.php:46
 #: content_api/v1/app/controller.php:154 content_crm/member/glance/display.php:45
 #: content_crm/member/glance/display.php:71 content_enter/pass/display.php:36
-#: content_enter/pass/recovery/model.php:34 content_enter/signup/view.php:20
+#: content_enter/pass/recovery/model.php:53 content_enter/signup/view.php:20
 #: content_subdomain/home/layout/visitcard.php:47 content_v2/app/view.php:144
 #: dash/app/log/caller/enter/enter_VerificationCode.php:16
 #: dash/app/log/caller/enter/enter_apiverificationcode.php:16
@@ -2298,6 +2281,70 @@ msgstr "لوگوی فارسی جیبرس"
 msgid "Know more about Jibres Logo"
 msgstr "درباره لوگوی جیبرس بیشتر بدانید"
 
+#: content/mission/display.php:11
+msgid ""
+"We are on a mission to simplify business system and their teams can spend more time "
+"creating money."
+msgstr ""
+
+#: content/mission/display.php:14
+msgid "Jibres is a values-driven organization. Here is what we believe in."
+msgstr ""
+
+#: content/mission/display.php:16
+msgid "Simplicity in All We DO"
+msgstr ""
+
+#: content/mission/display.php:17
+msgid ""
+"We make decisions that eliminate complexity and obstacles to our moving fast so we can "
+"enable our Customers to focus on testing their Ideas, building their businesses and "
+"realizing their dreams."
+msgstr ""
+
+#: content/mission/display.php:19
+msgid "We Speak Up When We Have Something To Say and Listen When Others DO"
+msgstr ""
+
+#: content/mission/display.php:20
+msgid ""
+"We create an environment where we are transparent and respectful so we are confident in "
+"bringing our best selves on behalf of our customers and each other, every day."
+msgstr ""
+
+#: content/mission/display.php:23
+msgid "We Are Accountable To Deliver On Our Commitments"
+msgstr ""
+
+#: content/mission/display.php:24
+msgid ""
+"Earning trust every day is our core value proposition to our customers and to each "
+"other. We must be trustworthy, because the opportunity to serve our customers is larger "
+"than any one of us."
+msgstr ""
+
+#: content/mission/display.php:27
+msgid "Love is At Our Core"
+msgstr ""
+
+#: content/mission/display.php:28
+msgid ""
+"Underlying everything we do, love for our customers and our DO is essential to "
+"realizing our fullest potential."
+msgstr ""
+
+#: content/mission/view.php:9
+#, fuzzy
+#| msgid "Jibres Icon"
+msgid "Jibres Mission"
+msgstr "آیکن جیبرس"
+
+#: content/mission/view.php:16
+#, fuzzy
+#| msgid "Vision"
+msgid "Our Vision"
+msgstr "چشم‌انداز"
+
 #: content/press/view.php:9
 msgid "Press"
 msgstr "اخبار"
@@ -2333,7 +2380,7 @@ msgid "30 day Guarantee"
 msgstr "۳۰ روز گارنتی"
 
 #: content/pricing/display.php:46 content/pricing/display.php:69
-#: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:92
+#: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:104
 #: content_a/factor/home/display.php:126 content_a/pricehistory/display.php:37
 #: content_a/pricehistory/display.php:52 content_a/products/home/display.php:68
 #: content_a/products/price/display.php:14 content_a/products/variants/display.php:101
@@ -2603,9 +2650,9 @@ msgstr "اختیاری"
 #: content/pricing/priceTable.php:38 content/pricing/priceTable.php:43
 #: content/pricing/priceTable.php:63 content/pricing/priceTable.php:68
 #: content/pricing/priceTable.php:89 content/pricing/priceTable.php:94
-#: content_a/chap/size-receipt/receipt.php:143 content_a/sale/display.php:62
-#: content_account/billing/display.php:16 content_account/billing/display.php:49
-#: content_account/billing/display.php:108 content_api/v1/app/controller.php:776
+#: content_a/chap/size-receipt/receipt.php:155 content_a/sale/display.php:62
+#: content_account/billing/display.php:16 content_account/billing/display.php:35
+#: content_account/billing/display.php:94 content_api/v1/app/controller.php:776
 #: content_api/v1/app/controller.php:813 content_api/v1/app/controller.php:825
 #: content_api/v1/app/controller.php:837 content_api/v1/app/controller.php:849
 #: content_api/v1/app/controller.php:886 content_api/v1/app/controller.php:898
@@ -3081,6 +3128,40 @@ msgstr "مسئولیت اجتماعی جیبرس"
 msgid "Subscribe to Jibres world"
 msgstr "مشترک شدن در دنیای جبرس"
 
+#: content/team/display.php:5
+msgid "The best thing about Jibres is our people."
+msgstr ""
+
+#: content/team/display.php:8
+msgid ""
+"We are curious. Our team is made up of pioneering innovators that approach some of the "
+"Internet’s toughest challenges with interest and a desire to learn. We are committed to "
+"providing exceptional customer service and solve customer problems in clever and "
+"technically astute ways."
+msgstr ""
+
+#: content/team/display.php:10
+#, fuzzy
+#| msgid "Loading Jibres"
+msgid "Join Jibres Team"
+msgstr "در حال انجام عملیات"
+
+#: content/team/display.php:15
+msgid "Meet the people behind Jibres"
+msgstr ""
+
+#: content/team/view.php:9
+#, fuzzy
+#| msgid "Jibres my"
+msgid "Jibres Team"
+msgstr "جیبرس من"
+
+#: content/team/view.php:16
+#, fuzzy
+#| msgid "join us"
+msgid "Join us"
+msgstr "به ما ملحق شوید"
+
 #: content/template/default.php:71 content_a/products/export/display.php:64
 #: content_cms/posts/edit/display.php:426 content_p/home/display.php:54
 #: content_su/apilog/home/display.php:103 content_subdomain/template/default.php:71
@@ -3117,14 +3198,16 @@ msgstr "امتیاز شما"
 msgid "Write your comment..."
 msgstr "لطفا دیدگاه خود را بنویسید..."
 
-#: content/template/shareBox.php:2 content_subdomain/template/shareBox.php:2
+#: content/template/shareBox.php:2 content_p/home/shareBox.php:2
+#: content_subdomain/template/shareBox.php:2
 msgid "Share"
 msgstr "اشتراک‌گذاری"
 
 #: content/template/shareBox.php:4 content/template/shareBox.php:5
 #: content_api/v1/doc/020-profile/023-update-profile.php:176
-#: content_api/v1/doc/025-user/027-edit-user.php:175
-#: content_subdomain/template/shareBox.php:4 content_subdomain/template/shareBox.php:5
+#: content_api/v1/doc/025-user/027-edit-user.php:175 content_p/home/shareBox.php:4
+#: content_p/home/shareBox.php:5 content_subdomain/template/shareBox.php:4
+#: content_subdomain/template/shareBox.php:5
 #: content_v2/doc/020-profile/023-update-profile.php:176
 #: content_v2/doc/025-user/027-edit-user.php:175
 #: includes/languages/trans_static_public.php:422
@@ -3133,8 +3216,9 @@ msgstr "فیسبوک"
 
 #: content/template/shareBox.php:8 content/template/shareBox.php:9
 #: content_api/v1/doc/020-profile/023-update-profile.php:188
-#: content_api/v1/doc/025-user/027-edit-user.php:187
-#: content_subdomain/template/shareBox.php:8 content_subdomain/template/shareBox.php:9
+#: content_api/v1/doc/025-user/027-edit-user.php:187 content_p/home/shareBox.php:8
+#: content_p/home/shareBox.php:9 content_subdomain/template/shareBox.php:8
+#: content_subdomain/template/shareBox.php:9
 #: content_v2/doc/020-profile/023-update-profile.php:188
 #: content_v2/doc/025-user/027-edit-user.php:187
 #: includes/languages/trans_static_public.php:423
@@ -3143,8 +3227,9 @@ msgstr "توییتر"
 
 #: content/template/shareBox.php:12 content/template/shareBox.php:13
 #: content_api/v1/doc/020-profile/023-update-profile.php:164
-#: content_api/v1/doc/025-user/027-edit-user.php:163
-#: content_subdomain/template/shareBox.php:12 content_subdomain/template/shareBox.php:13
+#: content_api/v1/doc/025-user/027-edit-user.php:163 content_p/home/shareBox.php:12
+#: content_p/home/shareBox.php:13 content_subdomain/template/shareBox.php:12
+#: content_subdomain/template/shareBox.php:13
 #: content_v2/doc/020-profile/023-update-profile.php:164
 #: content_v2/doc/025-user/027-edit-user.php:163
 #: includes/languages/trans_static_public.php:425
@@ -3152,6 +3237,7 @@ msgid "linkedin"
 msgstr "لینکدین"
 
 #: content/template/shareBox.php:16 content/template/shareBox.php:17
+#: content_p/home/shareBox.php:16 content_p/home/shareBox.php:17
 #: content_subdomain/template/shareBox.php:16 content_subdomain/template/shareBox.php:17
 #: dash/app/log/support_tools.php:113 includes/languages/trans_static.php:497
 msgid "telegram"
@@ -3295,7 +3381,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir"
 #: content_a/setting/vat/view.php:13 content_account/api/view.php:16
 #: content_account/appkey/view.php:16 content_account/billing/detail/view.php:13
 #: content_account/billing/invoice/view.php:14 content_api/v1/app/controller.php:152
-#: content_enter/pass/view.php:37 content_enter/verify/view.php:24
+#: content_enter/pass/change/display.php:21 content_enter/pass/view.php:37
+#: content_enter/twostep/display.php:29 content_enter/verify/view.php:24
 #: content_enter/verify/view.php:72 content_my/domain/dns/add/view.php:12
 #: content_my/domain/dns/edit/view.php:12 content_my/domain/irnic/add/view.php:16
 #: content_my/domain/irnic/edit/view.php:14 content_my/store/error/view.php:23
@@ -3413,7 +3500,7 @@ msgstr "لوگوی برنامه"
 msgid "Not set"
 msgstr "تنظیم نشده است"
 
-#: content_a/app/android/apk/display.php:20 content_a/app/android/setting/display.php:9
+#: content_a/app/android/apk/display.php:20 content_a/app/android/setting/display.php:12
 msgid "Application title"
 msgstr "عنوان برنامه"
 
@@ -3421,7 +3508,7 @@ msgstr "عنوان برنامه"
 msgid "Application description"
 msgstr "توضیح برنامه"
 
-#: content_a/app/android/apk/display.php:42 content_a/app/android/setting/display.php:19
+#: content_a/app/android/apk/display.php:42 content_a/app/android/setting/display.php:22
 msgid "Application slogan"
 msgstr "شعار برنامه"
 
@@ -3446,7 +3533,7 @@ msgstr "صفحه اول مقدمه"
 #: content_a/products/price/display.php:12 content_a/products/tag/display.php:116
 #: content_a/products/tag/display.php:176 content_a/products/tag/display.php:178
 #: content_a/setting/pcpos/display.php:221 content_a/setting/pcpos/display.php:223
-#: content_a/units/display.php:41 content_account/billing/display.php:65
+#: content_a/units/display.php:41 content_account/billing/display.php:51
 #: content_cms/posts/home/display.php:95 content_cms/terms/display.php:121
 #: content_cms/terms/display.php:204 content_cms/terms/display.php:206
 #: content_crm/member/billing/display.php:23 content_crm/permission/add/display.php:27
@@ -3472,7 +3559,7 @@ msgstr "صفحه سوم مقدمه"
 msgid "Your application is ready to build"
 msgstr "برنامه شما برای ساخت آماده است"
 
-#: content_a/app/android/apk/display.php:211 content_a/app/android/apk/display.php:297
+#: content_a/app/android/apk/display.php:211 content_a/app/android/apk/display.php:305
 #: content_a/app/android/display.php:8
 msgid "Build it now"
 msgstr "همین الان بساز"
@@ -3487,34 +3574,40 @@ msgid "Your build request was saved"
 msgstr "درخواست ایجاد برنامه شما ذخیره شد"
 
 #: content_a/app/android/apk/display.php:252
+#, fuzzy
+#| msgid "Rebuild"
+msgid "Build"
+msgstr "ساخت مجدد"
+
+#: content_a/app/android/apk/display.php:260
 msgid "Please wait until your application is built, This process may take several minutes"
 msgstr ""
 "لطفا تا اتمام فرایند ساخت برنامه صبر کنید. این فرایند ممکن است چند دقیقه زمان ببرد"
 
-#: content_a/app/android/apk/display.php:260
+#: content_a/app/android/apk/display.php:268
 msgid "Your application is ready to use"
 msgstr "برنامه شما برای استفاده آماده است"
 
-#: content_a/app/android/apk/display.php:264 content_a/products/export/display.php:29
+#: content_a/app/android/apk/display.php:272 content_a/products/export/display.php:29
 msgid "Download Now"
 msgstr "هم‌اکنون دانلود کنید"
 
-#: content_a/app/android/apk/display.php:272
+#: content_a/app/android/apk/display.php:280
 msgid "You can share this link to everyone need to download your application"
 msgstr ""
 "شما می‌توانید این لینک را در اختیار هر کسی که می‌خواهد اپلیکیشن شما را دانلود کند قرار "
 "دهید"
 
-#: content_a/app/android/apk/display.php:276 content_a/products/duplicate/display.php:12
+#: content_a/app/android/apk/display.php:284 content_a/products/duplicate/display.php:12
 #: includes/languages/trans_static_public.php:107
 msgid "Copy"
 msgstr "کپی"
 
-#: content_a/app/android/apk/display.php:289
+#: content_a/app/android/apk/display.php:297
 msgid "Your old request status"
 msgstr "وضعیت درخواست قبلی شما"
 
-#: content_a/app/android/apk/display.php:294
+#: content_a/app/android/apk/display.php:302
 msgid "Your application is ready to build again"
 msgstr "برنامه شما برای ساخت مجدد آماده است"
 
@@ -3558,7 +3651,7 @@ msgid "Edit intro page 3"
 msgstr "ویرایش صفحه سوم اینترو"
 
 #: content_a/app/android/intro/display.php:131
-#: content_a/app/android/setting/display.php:37
+#: content_a/app/android/setting/display.php:40
 #: content_a/app/android/splash/display.php:34 content_a/category/edit/display.php:116
 #: content_a/products/edit/display.php:10 content_a/products/edit/display.php:333
 #: content_a/products/variants/display.php:167 content_a/setting/general/display.php:35
@@ -3566,7 +3659,7 @@ msgstr "ویرایش صفحه سوم اینترو"
 #: content_a/setup/logo/display.php:22 content_a/setup/owner/display.php:41
 #: content_a/setup/payment/display.php:43 content_a/setup/pos/display.php:31
 #: content_a/setup/shipping/display.php:93 content_a/setup/units/display.php:66
-#: content_a/setup/vat/display.php:50 content_account/address.php:107
+#: content_a/setup/vat/display.php:50 content_account/address.php:109
 #: content_account/my/avatar/display.php:29 content_account/my/email/display.php:15
 #: content_account/my/profile/display.php:48 content_account/my/social/display.php:50
 #: content_account/my/username/display.php:19
@@ -3576,7 +3669,7 @@ msgstr "ویرایش صفحه سوم اینترو"
 #: content_account/security/rememberme/display.php:13
 #: content_cms/posts/edit/display.php:62 content_crm/member/avatar/display.php:25
 #: content_crm/member/avatar/display.php:33 content_crm/member/contact/display.php:28
-#: content_crm/member/education/display.php:39 content_crm/member/general/display.php:153
+#: content_crm/member/education/display.php:39 content_crm/member/general/display.php:146
 #: content_crm/member/identification/display.php:35
 #: content_crm/member/security/display.php:103 content_crm/member/social/display.php:58
 #: content_crm/permission/add/display.php:65 content_su/backup/display.php:61
@@ -3601,15 +3694,23 @@ msgstr "عنوان و لوگو"
 msgid "Download APK"
 msgstr "دانلود apk"
 
-#: content_a/app/android/setting/display.php:5
+#: content_a/app/android/setting/display.php:6
+msgid "Changing these values ​​will need to be rebuilt"
+msgstr ""
+
+#: content_a/app/android/setting/display.php:8
 msgid "Set your application title and logo"
 msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 
-#: content_a/app/android/setting/display.php:14
+#: content_a/app/android/setting/display.php:17
 msgid "Application desc"
 msgstr "توضیح برنامه"
 
-#: content_a/app/android/setting/display.php:24
+#: content_a/app/android/setting/display.php:27
+msgid "Logo"
+msgstr "لوگو"
+
+#: content_a/app/android/setting/display.php:27
 msgid "Use a square logo in png format"
 msgstr "از لوگوی مربع با فرمت png استفاده کنید"
 
@@ -3675,8 +3776,8 @@ msgstr "محصول"
 msgid "Item"
 msgstr "گزینه"
 
-#: content_a/cart/home/display.php:126 content_account/billing/display.php:75
-#: content_account/billing/display.php:113 content_cms/comments/home/display.php:82
+#: content_a/cart/home/display.php:126 content_account/billing/display.php:61
+#: content_account/billing/display.php:99 content_cms/comments/home/display.php:82
 #: content_crm/log/home/logTable.php:9 content_crm/member/billing/display.php:33
 #: content_crm/member/billing/display.php:71 content_crm/member/home/display.php:83
 #: content_pay/home/display.php:262 content_su/apilog/home/display.php:102
@@ -3763,7 +3864,7 @@ msgstr "نام دسته‌بندی"
 
 #: content_a/category/add/display.php:11 content_a/company/display.php:73
 #: content_a/products/edit/display.php:367 content_a/products/tag/display.php:163
-#: content_a/units/display.php:84 content_account/address.php:118
+#: content_a/units/display.php:84 content_account/address.php:119
 #: content_cms/posts/edit/display.php:327 content_cms/terms/display.php:191
 #: content_crm/member/add/display.php:12 content_crm/member/security/display.php:139
 #: content_su/ip/display.php:63 includes/languages/trans_static_public.php:143
@@ -3912,51 +4013,51 @@ msgstr "لطفا یک فرمت را برای چاپ انتخاب کنید"
 msgid "Customer Detail"
 msgstr "جزئیات مشتری"
 
-#: content_a/chap/size-receipt/receipt.php:59 content_a/setup/address/display.php:39
+#: content_a/chap/size-receipt/receipt.php:60 content_a/setup/address/display.php:39
 #: content_account/address.php:69 content_crm/member/pageSteps.php:62
 #: content_my/domain/irnic/add/display.php:72
 #: dash/layout/admin/sidebar/sidebar-account.php:9
 msgid "Address"
 msgstr "آدرس"
 
-#: content_a/chap/size-receipt/receipt.php:63
+#: content_a/chap/size-receipt/receipt.php:75
 #: content_subdomain/home/layout/visitcard.php:33
 msgid "Tel"
 msgstr "تلفن"
 
-#: content_a/chap/size-receipt/receipt.php:80
+#: content_a/chap/size-receipt/receipt.php:92
 msgid "Sale Invoice"
 msgstr "فاکتور فروش"
 
-#: content_a/chap/size-receipt/receipt.php:91 content_a/factor/home/display.php:125
+#: content_a/chap/size-receipt/receipt.php:103 content_a/factor/home/display.php:125
 msgid "Qty"
 msgstr "تعداد"
 
-#: content_a/chap/size-receipt/receipt.php:92 content_a/factor/home/display.php:127
+#: content_a/chap/size-receipt/receipt.php:104 content_a/factor/home/display.php:127
 #: content_a/pricehistory/display.php:53 content_a/products/edit/display.php:71
 #: content_a/products/price/display.php:15 content_a/sale/display.php:19
 #: lib/app/product/search.php:102 lib/app/product/updateprice.php:122
 msgid "Discount"
 msgstr "تخفیف"
 
-#: content_a/chap/size-receipt/receipt.php:93
+#: content_a/chap/size-receipt/receipt.php:105
 msgid "Sum"
 msgstr "جمع"
 
-#: content_a/chap/size-receipt/receipt.php:121 content_a/sale/display.php:66
+#: content_a/chap/size-receipt/receipt.php:133 content_a/sale/display.php:66
 msgid "Invoice amount"
 msgstr "مبلغ فاکتور"
 
-#: content_a/chap/size-receipt/receipt.php:127
+#: content_a/chap/size-receipt/receipt.php:139
 msgid "Your total discount and profits"
 msgstr "کل تخفیف و سود شما"
 
-#: content_a/chap/size-receipt/receipt.php:135 content_a/factor/home/display.php:128
+#: content_a/chap/size-receipt/receipt.php:147 content_a/factor/home/display.php:128
 #: content_a/products/edit/display.php:91
 msgid "VAT"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/chap/size-receipt/receipt.php:142 content_a/sale/display.php:62
+#: content_a/chap/size-receipt/receipt.php:154 content_a/sale/display.php:62
 msgid "Total payable"
 msgstr "جمع مبلغ قابل پرداخت"
 
@@ -4032,7 +4133,7 @@ msgstr "حذف"
 #: content_a/pricehistory/display.php:38 content_a/products/edit/display.php:567
 #: content_a/products/edit/display.php:586 content_a/products/edit/display.php:611
 #: content_a/products/tag/display.php:167 content_a/units/display.php:75
-#: content_a/units/display.php:134 content_account/address.php:187
+#: content_a/units/display.php:134 content_account/address.php:188
 #: content_api/v1/app/controller.php:162 content_cms/comments/home/display.php:149
 #: content_cms/terms/display.php:195 content_crm/member/glance/display.php:9
 #: content_crm/member/home/display.php:141 content_crm/permission/display.php:23
@@ -4196,7 +4297,7 @@ msgstr "بازگشت به لیست شرکت‌های سازنده"
 #: content_a/controller.php:16 content_api/v1/tools.php:55 content_api/v1/tools.php:90
 #: content_r10/tools.php:55 content_r10/tools.php:90 content_subdomain/controller.php:41
 #: content_v2/controller.php:27 content_v2/tools.php:47 dash/engine/store.php:101
-#: lib/app/application/queue.php:12 lib/app/application/queue.php:38
+#: lib/app/application/queue.php:12 lib/app/application/queue.php:39
 #: lib/app/category/add.php:12 lib/app/category/edit.php:13 lib/app/category/get.php:32
 #: lib/app/category/get.php:62 lib/app/category/search.php:11
 #: lib/app/category/search.php:88 lib/app/factor/add.php:34 lib/app/factor/get.php:34
@@ -4789,7 +4890,7 @@ msgid "Choose or Drop file here"
 msgstr "انتخاب یا رها کردن فایل در اینجا"
 
 #: content_a/products/edit/display.php:319 content_cms/attachment/add/display.php:14
-#: content_cms/posts/edit/display.php:694
+#: content_cms/posts/edit/display.php:694 content_support/ticket/addForm.php:27
 msgid "Maximum file size"
 msgstr "حداکثر اندازه فایل"
 
@@ -4877,7 +4978,7 @@ msgstr "حجم فایل"
 #: content_a/products/edit/display.php:502 content_su/backup/display.php:115
 #: content_su/ip/display.php:28 content_su/log/display.php:31
 #: content_su/log/display.php:52 content_su/tempfile/display.php:31
-#: dash/upload/size.php:73 dash/utility/human.php:104
+#: dash/upload/size.php:88 dash/utility/human.php:104
 #: includes/languages/trans_static_public.php:45
 msgid "MB"
 msgstr "مگابایت"
@@ -5286,8 +5387,8 @@ msgstr "استفاده شده"
 #: content_a/products/tag/display.php:176 content_account/address.php:69
 #: content_api/v1/doc/060-product/320-product-add.php:28
 #: content_api/v1/doc/065-product-comment/001-product-add-comment.php:28
-#: content_cms/terms/display.php:204 content_crm/member/general/display.php:110
-#: content_crm/member/general/display.php:116 content_crm/permission/add/display.php:23
+#: content_cms/terms/display.php:204 content_crm/member/general/display.php:103
+#: content_crm/member/general/display.php:109 content_crm/permission/add/display.php:23
 #: content_crm/permission/add/display.php:27 content_crm/permission/delete/display.php:26
 #: content_crm/permission/delete/display.php:30
 #: content_crm/transactions/add/display.php:67
@@ -5312,7 +5413,7 @@ msgstr "برای طبقه بندی آدرس‌ها استفاده می‌شود"
 #: content_a/products/tag/display.php:207 content_a/products/tag/display.php:224
 #: content_api/v1/store/controller.php:73 content_cms/terms/display.php:224
 #: content_cms/terms/display.php:249 content_cms/terms/display.php:266
-#: content_crm/member/general/display.php:128 content_crm/member/general/display.php:138
+#: content_crm/member/general/display.php:121 content_crm/member/general/display.php:131
 #: content_my/store/ask/model.php:33 content_v2/store--need-to-fix/controller.php:73
 msgid "Please select one itme"
 msgstr "لطفا یک گزینه را انتخاب کنید"
@@ -5487,17 +5588,17 @@ msgstr "مثل"
 
 #: content_a/sale/display.php:48 content_a/setup/owner/display.php:10
 #: content_account/my/home/display.php:109 content_account/my/profile/display.php:34
-#: content_crm/member/general/display.php:126
+#: content_crm/member/general/display.php:119
 msgid "Gender"
 msgstr "جنسیت"
 
 #: content_a/sale/display.php:50 content_crm/member/home/display.php:159 dash/app.php:365
-#: dash/app.php:366 dash/app/user.php:196 dash/user.php:391
+#: dash/app.php:366 dash/app/user.php:197 dash/user.php:391
 msgid "Mr"
 msgstr "آقای"
 
 #: content_a/sale/display.php:51 content_crm/member/home/display.php:159 dash/app.php:370
-#: dash/app.php:371 dash/app/user.php:200 dash/user.php:395
+#: dash/app.php:371 dash/app/user.php:201 dash/user.php:395
 msgid "Mrs"
 msgstr "خانم"
 
@@ -5859,8 +5960,8 @@ msgstr "لطفا استان را انتخاب کنید"
 msgid "Post code"
 msgstr "کدپستی"
 
-#: content_a/setup/address/display.php:47 content_account/address.php:80
-#: content_account/address.php:177 content_crm/member/contact/display.php:17
+#: content_a/setup/address/display.php:47 content_account/address.php:82
+#: content_account/address.php:178 content_crm/member/contact/display.php:17
 msgid "Phone"
 msgstr "شماره تلفن"
 
@@ -5917,13 +6018,13 @@ msgid "Fill your name and public detail to save on your store."
 msgstr "نام و جزئیات عمومی خود را در فروشگاه‌تان وارد کنید."
 
 #: content_a/setup/owner/display.php:17 content_account/my/profile/display.php:37
-#: content_crm/member/general/display.php:129 includes/languages/trans_static.php:515
+#: content_crm/member/general/display.php:122 includes/languages/trans_static.php:515
 #: lib/pardakhtyar/type.php:104
 msgid "Male"
 msgstr "مرد"
 
 #: content_a/setup/owner/display.php:18 content_account/my/profile/display.php:38
-#: content_crm/member/general/display.php:130 includes/languages/trans_static.php:516
+#: content_crm/member/general/display.php:123 includes/languages/trans_static.php:516
 #: lib/pardakhtyar/type.php:103
 msgid "Female"
 msgstr "زن"
@@ -6323,7 +6424,7 @@ msgstr "نام شخصی که در این آدرس حضور دارد"
 msgid "Select city"
 msgstr "شهر را انتخاب کنید"
 
-#: content_account/address.php:99 content_my/domain/dns/dnsForm.php:64
+#: content_account/address.php:101 content_my/domain/dns/dnsForm.php:64
 #: content_my/domain/irnic/edit/display.php:19
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
@@ -6333,26 +6434,26 @@ msgstr "شهر را انتخاب کنید"
 msgid "Yes"
 msgstr "بلی"
 
-#: content_account/address.php:99 content_my/domain/dns/dnsForm.php:64
+#: content_account/address.php:101 content_my/domain/dns/dnsForm.php:64
 #: content_my/domain/irnic/edit/display.php:19 includes/languages/trans_static.php:537
 msgid "No"
 msgstr "خیر"
 
-#: content_account/address.php:100
+#: content_account/address.php:102
 msgid "Is this a company's address?"
 msgstr "این آدرس شرکت است؟"
 
-#: content_account/address.php:112 content_crm/member/glance/display.php:225
+#: content_account/address.php:113 content_crm/member/glance/display.php:225
 #: content_crm/member/security/display.php:111 includes/languages/trans_static.php:542
 #: includes/languages/trans_static_public.php:88
 msgid "Delete"
 msgstr "حذف"
 
-#: content_account/address.php:134
+#: content_account/address.php:135
 msgid "Saved address"
 msgstr "آدرس‌های ذخیره شده"
 
-#: content_account/address.php:166
+#: content_account/address.php:167
 msgid "Postal code"
 msgstr "کد پستی"
 
@@ -6377,20 +6478,20 @@ msgstr "ساخت کلید اتصال جدید"
 msgid "Get new API KEY"
 msgstr "دریافت کلید اتصال جدید"
 
-#: content_account/api/model.php:20 content_account/notification/model.php:20
+#: content_account/api/model.php:38 content_account/notification/model.php:20
 msgid "Creat new api key successfully complete"
 msgstr "ساخت کلید اتصال با موفقیت انجام شد"
 
-#: content_account/api/model.php:25 content_account/appkey/model.php:31
+#: content_account/api/model.php:43 content_account/appkey/model.php:48
 #: content_account/notification/model.php:25
 msgid "Error in create new api key"
 msgstr "خطا در ساخت کلید اتصال جدید"
 
-#: content_account/api/model.php:34
+#: content_account/api/model.php:52
 msgid "Your api key was removed"
 msgstr "کلید اتصال شما حذف شد"
 
-#: content_account/api/model.php:39
+#: content_account/api/model.php:57
 msgid "Error in remove api key"
 msgstr "خطا در حذف کلید اتصال جدید"
 
@@ -6399,8 +6500,6 @@ msgid "API key"
 msgstr "کلید API"
 
 #: content_account/api/view.php:13 content_account/appkey/view.php:13
-#: content_account/security/rememberme/view.php:13
-#: content_account/security/sessions/view.php:14
 msgid "Back to Account security"
 msgstr "بازگشت به تنظیمات امنیتی حساب کاربری"
 
@@ -6445,15 +6544,15 @@ msgstr "ساخت کلید نرم‌افزار"
 msgid "Your Stores code to use in api"
 msgstr "کد فروشگاه‌های شما جهت استفاده در API"
 
-#: content_account/appkey/model.php:16
+#: content_account/appkey/model.php:33
 msgid "You must verify your mobile to make an appkey"
 msgstr "برای ساخت کلید نرم‌افزار ابتدا باید موبایل خود را تایید کنید"
 
-#: content_account/appkey/model.php:26
+#: content_account/appkey/model.php:43
 msgid "Creat appkey successfully complete"
 msgstr "ساخت کلید نرم‌افزار با موفقیت انجام شد"
 
-#: content_account/appkey/model.php:36
+#: content_account/appkey/model.php:53
 msgid "You can not remove your appkey"
 msgstr "شما نمی‌توانید کلید نرم‌افزار خود را حذف کنید"
 
@@ -6490,45 +6589,29 @@ msgstr "مقدار"
 msgid "Checkout"
 msgstr "پرداخت"
 
-#: content_account/billing/display.php:26 content_account/ref/display.php:35
-msgid "Promo code"
-msgstr "کد تخفیف"
-
-#: content_account/billing/display.php:27
-msgid "If you have a promo code, please enter it below to receive your credit."
-msgstr "اگر کد تخفیف دارید، برای دریافت اعتبار در کادر زیر وارد کنید."
-
-#: content_account/billing/display.php:32
-msgid "Promo Code"
-msgstr "کد تخفیف"
-
-#: content_account/billing/display.php:33
-msgid "Apply Code"
-msgstr "اعمال کد"
-
-#: content_account/billing/display.php:49
+#: content_account/billing/display.php:35
 msgid "Your credit"
 msgstr "اعتبار شما"
 
-#: content_account/billing/display.php:61 content_crm/member/billing/display.php:19
+#: content_account/billing/display.php:47 content_crm/member/billing/display.php:19
 msgid "Billing History"
 msgstr "تاریخچه پرداخت‌ها"
 
-#: content_account/billing/display.php:67 content_crm/member/billing/display.php:25
+#: content_account/billing/display.php:53 content_crm/member/billing/display.php:25
 #: content_crm/member/glance/display.php:27 includes/languages/trans_static_public.php:112
 msgid "Value"
 msgstr "مقدار"
 
-#: content_account/billing/display.php:68 content_crm/member/billing/display.php:26
+#: content_account/billing/display.php:54 content_crm/member/billing/display.php:26
 msgid "Budget After"
 msgstr "بودجه"
 
-#: content_account/billing/display.php:74 content_crm/member/billing/display.php:32
+#: content_account/billing/display.php:60 content_crm/member/billing/display.php:32
 #: content_crm/transactions/display.php:69 content_enter/verify/view.php:131
 msgid "Verify"
 msgstr "اعتبارسنجی"
 
-#: content_account/billing/display.php:124 content_crm/member/billing/display.php:82
+#: content_account/billing/display.php:110 content_crm/member/billing/display.php:82
 msgid "You are not have payment history yet!"
 msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
@@ -6544,39 +6627,6 @@ msgstr "بررسی فاکتور و جزئیات آن را بررسی کنید"
 msgid "You must login to pay amount"
 msgstr "برای دریافت جایزه، ابتدا باید وارد سیستم شوید"
 
-#: content_account/billing/model.php:51 content_account/billing/model.php:93
-#: content_account/billing/model.php:103
-msgid "Invalid promo code"
-msgstr "کد اعتبار هدیه نامعتبر است"
-
-#: content_account/billing/model.php:111
-msgid "You try to referral yourself!"
-msgstr "شما نمی‌توانید معرف خودتان باشید!"
-
-#: content_account/billing/model.php:118
-msgid "You have ref. can not set another ref"
-msgstr "شما معرف دارید. نمی‌توانید معرف دیگری را برای خود ثبت کنید"
-
-#: content_account/billing/model.php:127
-msgid "Ref not found"
-msgstr "معرف پیدا نشد"
-
-#: content_account/billing/model.php:137
-msgid "Promo for using ref"
-msgstr "هدیه استفاده از برنامه معرفی"
-
-#: content_account/billing/model.php:156
-msgid "Someone used your ref link in her referral"
-msgstr "شخصی از لینک معرفی شما استفاده کرد"
-
-#: content_account/billing/model.php:165
-msgid "Your are using referral program and your account was charged"
-msgstr "شما از برنامه معرفی استفاده کردید و حساب کاربری شما شارژ شد"
-
-#: content_account/billing/model.php:174
-msgid "Your ref was set and your account was charge"
-msgstr "معرف شما ثبت شد و حساب کاربری شما شارژ شد"
-
 #: content_account/billing/view.php:10 content_crm/member/billing/view.php:8
 msgid "Billing information"
 msgstr "اطلاعات مالی"
@@ -6585,26 +6635,24 @@ msgstr "اطلاعات مالی"
 msgid "Check your balance, charge your account, and bill your invoices!"
 msgstr "بالانس مالی خود را بررسی کنید، حساب خود را بپردازید و صورتحساب خود را بفروشید!"
 
-#: content_account/billing/view.php:14 content_account/my/home/view.php:15
-#: content_account/personalization/home/view.php:14 content_account/security/view.php:15
+#: content_account/billing/view.php:14
 msgid "Back to Account"
 msgstr "بازگشت به حساب کاربری"
 
 #: content_account/billing/view.php:17 content_account/billing/view.php:21
 #: content_account/home/view.php:9 content_account/my/home/display.php:31
-#: content_account/my/home/view.php:18 content_account/notification/view.php:23
-#: content_account/personalization/home/view.php:17 content_account/security/view.php:18
-#: dash/layout/admin/admin-header.php:21
+#: content_account/my/home/view.php:14 content_account/notification/view.php:21
+#: content_account/personalization/home/view.php:13 content_account/security/view.php:14
 msgid "Account"
 msgstr "حساب کاربری"
 
-#: content_account/home/display.php:8 dash/layout/admin/admin-header.php:27
+#: content_account/home/display.php:8 dash/layout/admin/admin-header.php:20
 #: dash/layout/admin/admin-sidebar.php:15
 msgid "Avatar of you"
 msgstr "آواتار شما"
 
-#: content_account/home/display.php:10 dash/layout/admin/admin-header.php:29
-#: dash/layout/admin/admin-header.php:32 dash/layout/admin/admin-sidebar.php:19
+#: content_account/home/display.php:10 dash/layout/admin/admin-header.php:22
+#: dash/layout/admin/admin-header.php:25 dash/layout/admin/admin-sidebar.php:19
 #: dash/layout/admin/admin-sidebar.php:32
 msgid "Default Avatar"
 msgstr "تصویر پیشفرض"
@@ -6619,11 +6667,11 @@ msgstr ""
 "اطلاعات کاربری، حریم خصوصی و تنظیمات امنیتی خود را مدیریت کنید تا بتوانیم بهتر به شما "
 "خدمت‌رسانی کنیم"
 
-#: content_account/home/display.php:24 content_account/my/address/view.php:19
-#: content_account/my/address/view.php:23 content_account/my/avatar/view.php:18
-#: content_account/my/email/view.php:16 content_account/my/home/display.php:17
-#: content_account/my/home/view.php:10 content_account/my/profile/view.php:16
-#: content_account/my/social/view.php:16 content_account/my/username/view.php:16
+#: content_account/home/display.php:24 content_account/my/address/view.php:16
+#: content_account/my/address/view.php:20 content_account/my/avatar/view.php:14
+#: content_account/my/email/view.php:13 content_account/my/home/display.php:17
+#: content_account/my/home/view.php:10 content_account/my/profile/view.php:13
+#: content_account/my/social/view.php:12 content_account/my/username/view.php:13
 #: content_account/security/display.php:17 dash/layout/admin/sidebar/sidebar-account.php:5
 msgid "Personal info"
 msgstr "اطلاعات شخصی"
@@ -6641,8 +6689,8 @@ msgid "Manage profile"
 msgstr "مدیریت پروفایل"
 
 #: content_account/home/display.php:43 content_account/home/display.php:47
-#: content_account/security/rememberme/view.php:16
-#: content_account/security/sessions/view.php:17 content_account/security/view.php:10
+#: content_account/security/rememberme/view.php:13
+#: content_account/security/sessions/view.php:13 content_account/security/view.php:10
 #: content_crm/member/glance/display.php:193 content_crm/member/pageSteps.php:53
 #: dash/layout/admin/sidebar/sidebar-account.php:10
 msgid "Security"
@@ -6658,8 +6706,8 @@ msgstr "حساب کاربری خود را امن نگه دارید"
 
 #: content_account/home/display.php:64 content_account/home/display.php:68
 #: content_account/personalization/home/view.php:9
-#: content_account/personalization/language/view.php:16
-#: content_account/personalization/sidebar/view.php:16
+#: content_account/personalization/language/view.php:13
+#: content_account/personalization/sidebar/view.php:13
 #: content_account/personalization/theme/view.php:16
 msgid "Personalization"
 msgstr "شخصی‌سازی"
@@ -6722,8 +6770,8 @@ msgid "Logout from your account!"
 msgstr "خروج از حساب کاربری"
 
 #: content_account/home/display.php:154 content_enter/app/display.php:20
-#: content_enter/loginas/display.php:36 dash/layout/admin/admin-header.php:22
-#: includes/languages/trans_static.php:566 includes/languages/trans_static_public.php:100
+#: content_enter/loginas/display.php:36 includes/languages/trans_static.php:566
+#: includes/languages/trans_static_public.php:100
 msgid "Logout"
 msgstr "خروج از سیستم"
 
@@ -6739,13 +6787,13 @@ msgstr "ما متعهد به محافظت از حریم خصوصی و امنیت
 msgid "Learn more"
 msgstr "بیشتر بدانید"
 
-#: content_account/load.php:15 content_account/security/rememberme/view.php:26
-#: content_account/security/sessions/view.php:27 content_account/security/view.php:28
-#: content_crm/member/main/view.php:18 content_crm/member/main/view.php:25
-#: content_v2/user/address/add/model.php:14 content_v2/user/address/edit/model.php:14
-#: content_v2/user/address/fetch/view.php:14 content_v2/user/address/remove/model.php:14
-#: content_v2/user/edit/avatar/model.php:16 dash/app/address.php:192
-#: dash/app/user/edit.php:106 dash/app/user_telegram.php:80 dash/app/user_telegram.php:87
+#: content_account/load.php:15 content_account/security/rememberme/view.php:23
+#: content_account/security/sessions/view.php:23 content_account/security/view.php:24
+#: content_crm/member/description/model.php:19 content_crm/member/main/view.php:18
+#: content_crm/member/main/view.php:25 content_v2/user/address/add/model.php:14
+#: content_v2/user/address/edit/model.php:14 content_v2/user/address/fetch/view.php:14
+#: content_v2/user/address/remove/model.php:14 content_v2/user/edit/avatar/model.php:16
+#: dash/app/user/edit.php:96 dash/app/user_telegram.php:80 dash/app/user_telegram.php:87
 #: lib/pardakhtyar/app/acceptor.php:145 lib/pardakhtyar/app/acceptor.php:152
 #: lib/pardakhtyar/app/customer.php:158 lib/pardakhtyar/app/merchantIbans.php:127
 #: lib/pardakhtyar/app/merchantIbans.php:134 lib/pardakhtyar/app/shop.php:148
@@ -6754,8 +6802,8 @@ msgstr "بیشتر بدانید"
 msgid "Invalid user id"
 msgstr "شناسه کاربر اشتباه است"
 
-#: content_account/load.php:22 content_account/security/rememberme/view.php:33
-#: content_account/security/sessions/view.php:34 content_account/security/view.php:35
+#: content_account/load.php:22 content_account/security/rememberme/view.php:30
+#: content_account/security/sessions/view.php:30 content_account/security/view.php:31
 msgid "User id not found"
 msgstr "شناسه کاربر یافت نشد"
 
@@ -6766,17 +6814,13 @@ msgstr "شناسه کاربر یافت نشد"
 msgid "Invalid address id"
 msgstr "شناسه آدرس نامعتبر است"
 
-#: content_account/my/address/controller.php:21
-msgid "This is not your address!"
-msgstr "این آدرس شما نیست!"
-
-#: content_account/my/address/model.php:37 content_api/v1/user/address.php:43
+#: content_account/my/address/model.php:38 content_api/v1/user/address.php:43
 #: content_crm/member/address/model.php:40 content_crm/member/billing/model.php:40
 #: content_v2/user/address.php:43
 msgid "Address successfully edited"
 msgstr "آدرس با موفقیت به‌روزرسانی شد"
 
-#: content_account/my/address/model.php:46 content_api/v1/user/address.php:31
+#: content_account/my/address/model.php:47 content_api/v1/user/address.php:31
 #: content_crm/member/address/model.php:49 content_crm/member/billing/model.php:49
 #: content_v2/user/address.php:31
 msgid "Address successfully added"
@@ -6785,15 +6829,6 @@ msgstr "آدرس با موفقیت اضافه شد"
 #: content_account/my/address/view.php:10
 msgid "Addresses"
 msgstr "آدرس‌ها"
-
-#: content_account/my/address/view.php:16 content_account/my/avatar/view.php:14
-#: content_account/my/email/view.php:13 content_account/my/profile/view.php:13
-#: content_account/my/social/view.php:13 content_account/my/username/view.php:13
-#: content_account/personalization/language/view.php:13
-#: content_account/personalization/sidebar/view.php:13
-#: content_account/personalization/theme/view.php:13
-msgid "Back to personal info"
-msgstr "بازگشت به اطلاعات شخصی"
 
 #: content_account/my/avatar/display.php:9 content_account/my/home/display.php:89
 #: content_account/my/home/display.php:93 dash/layout/admin/sidebar/sidebar-account.php:7
@@ -6804,7 +6839,7 @@ msgstr "تصویر پروفایل"
 msgid "Your avatar"
 msgstr "تصویر شما"
 
-#: content_account/my/avatar/model.php:30
+#: content_account/my/avatar/model.php:32
 msgid "No file was received"
 msgstr "فایلی دریافت نشد"
 
@@ -6864,7 +6899,7 @@ msgid "Display name"
 msgstr "نام برای نمایش"
 
 #: content_account/my/home/display.php:124 content_account/my/profile/display.php:44
-#: content_account/my/profile/display.php:45 content_crm/member/general/display.php:149
+#: content_account/my/profile/display.php:45 content_crm/member/general/display.php:142
 #: content_crm/member/social/display.php:52 content_crm/member/social/display.php:53
 msgid "Bio"
 msgstr "زندگی‌نامه"
@@ -6877,7 +6912,7 @@ msgstr "شبکه‌های اجتماعی"
 msgid "Website, Email and Social Networks"
 msgstr "وب‌سایت، رایانامه و شبکه‌های اجتماعی"
 
-#: content_account/my/home/display.php:148 content_account/my/social/view.php:10
+#: content_account/my/home/display.php:148 content_account/my/social/view.php:9
 #: dash/layout/admin/sidebar/sidebar-account.php:8
 msgid "Social Networks"
 msgstr "شبکه‌های اجتماعی"
@@ -7037,6 +7072,10 @@ msgstr "حساس به محتوا"
 msgid "Your theme was changed"
 msgstr "قالب شما تغییر یافت"
 
+#: content_account/personalization/theme/view.php:13
+msgid "Back to personal info"
+msgstr "بازگشت به اطلاعات شخصی"
+
 #: content_account/ref/display.php:3
 msgid "Referral Program"
 msgstr "برنامه معرفی"
@@ -7129,6 +7168,10 @@ msgstr ""
 #: content_account/ref/display.php:30
 msgid "Link"
 msgstr "لینک"
+
+#: content_account/ref/display.php:35
+msgid "Promo code"
+msgstr "کد تخفیف"
 
 #: content_account/security/display.php:30
 msgid "Signing in to"
@@ -7275,16 +7318,16 @@ msgstr "ورود من را به خاطر بسپار"
 msgid "Remember Me"
 msgstr "مرا به خاطر بسپار"
 
-#: content_account/security/rememberme/view.php:77
-#: content_account/security/sessions/view.php:82 content_account/security/view.php:79
+#: content_account/security/rememberme/view.php:74
+#: content_account/security/sessions/view.php:78 content_account/security/view.php:75
 #: content_api/v1/account/session/controller.php:74
 #: content_crm/member/security/view.php:76 content_v2/account/session/view.php:42
 #: includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
-#: content_account/security/rememberme/view.php:81
-#: content_account/security/sessions/view.php:87 content_account/security/view.php:83
+#: content_account/security/rememberme/view.php:78
+#: content_account/security/sessions/view.php:83 content_account/security/view.php:79
 #: content_api/v1/account/session/controller.php:78
 #: content_crm/member/security/view.php:80 content_v2/account/session/view.php:46
 #: includes/languages/trans_static_public.php:343
@@ -7534,15 +7577,13 @@ msgstr "کد اعتبار سنجی به این شماره تلفن ارسال ش
 msgid "A verification code was sended to user before"
 msgstr "کد اعتبارسنجی قبلا برای این کاربر ارسال شده است"
 
-#: content_api/v1/account/enter/enter.php:134 content_enter/callback/model.php:56
-#: content_enter/callback/model.php:139 content_v2/account/enter/model.php:124
-#: content_v2/account/enter/verify/model.php:40
+#: content_api/v1/account/enter/enter.php:134 content_enter/callback/model.php:57
+#: content_v2/account/enter/model.php:124 content_v2/account/enter/verify/model.php:40
 msgid "Mobile not set"
 msgstr "موبایل تنظیم نشده است"
 
-#: content_api/v1/account/enter/enter.php:141 content_enter/app/model.php:23
-#: content_v2/account/enter/model.php:131 content_v2/account/enter/verify/model.php:47
-#: dash/app/address.php:155 dash/app/user.php:275 lib/app/factor/check.php:86
+#: content_api/v1/account/enter/enter.php:141 content_v2/account/enter/model.php:131
+#: content_v2/account/enter/verify/model.php:47 lib/app/factor/check.php:86
 #: lib/app/setting/setup.php:384
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
@@ -7569,7 +7610,7 @@ msgid "No verifycation code sended to this phone number"
 msgstr "هیچ کد اعتبارسنجی به این شماره ارسال نشده است"
 
 #: content_api/v1/account/enter/enter.php:229
-#: content_v2/account/enter/verify/model.php:135
+#: content_v2/account/enter/verify/model.php:135 dash/validate/identify.php:52
 msgid "Invalid code"
 msgstr "کد اشتباه است"
 
@@ -7613,10 +7654,9 @@ msgstr "این نشست متعلق به شما نیست"
 msgid "Session id not send or invalid"
 msgstr "شناسه نشست ارسال نشده است یا نادرست است"
 
-#: content_api/v1/account/session/controller.php:143
-#: content_crm/transactions/add/model.php:64 content_crm/transactions/minus/model.php:64
-#: content_su/update/model.php:38 content_v2/account/session/model.php:57
-#: dash/app/posts.php:891 dash/app/posts.php:924 lib/app/export/download.php:28
+#: content_api/v1/account/session/controller.php:143 content_su/update/model.php:38
+#: content_v2/account/session/model.php:57 dash/app/posts.php:891 dash/app/posts.php:924
+#: lib/app/export/download.php:28
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
 
@@ -10218,7 +10258,7 @@ msgstr "افزودن فایل ضمیمه جدید"
 #: content_cms/attachment/home/view.php:18 content_cms/comments/home/view.php:23
 #: content_cms/posts/home/view.php:94 content_crm/log/home/view.php:31
 #: content_crm/member/home/view.php:29 content_crm/transactions/view.php:22
-#: content_su/apilog/home/view.php:32 content_su/dbtables/view.php:24
+#: content_su/apilog/home/view.php:32 content_su/dbtables/view.php:22
 #: content_su/tg/log/view.php:22 content_su/tg/system/view.php:22
 #: content_su/tg/users/view.php:22
 msgid "Search for :search"
@@ -10227,11 +10267,11 @@ msgstr "جستجوی :search"
 #: content_cms/comments/edit/controller.php:15 content_cms/comments/edit/view.php:14
 #: content_cms/posts/edit/controller.php:14 content_my/domain/dns/edit/controller.php:13
 #: content_my/domain/irnic/edit/controller.php:13 content_support/message/edit/view.php:26
-#: content_support/ticket/show/view.php:44 dash/app/file.php:60 dash/app/posts.php:409
-#: lib/app/export/download.php:22 lib/app/nic_contact/get.php:26
-#: lib/app/nic_dns/get.php:28 lib/app/nic_domain/get.php:178
-#: lib/app/nic_domain/get.php:205 lib/app/nic_log/get.php:13 lib/app/pos/remove.php:12
-#: lib/app/pos/tools.php:11
+#: content_support/ticket/show/model.php:13 content_support/ticket/show/view.php:44
+#: dash/app/file.php:60 dash/app/posts.php:409 lib/app/export/download.php:22
+#: lib/app/nic_contact/get.php:26 lib/app/nic_dns/get.php:28
+#: lib/app/nic_domain/get.php:178 lib/app/nic_domain/get.php:205
+#: lib/app/nic_log/get.php:13 lib/app/pos/remove.php:12 lib/app/pos/tools.php:11
 msgid "Invalid id"
 msgstr "شناسه نامعتبر"
 
@@ -10277,10 +10317,9 @@ msgstr "زباله‌دان"
 msgid "Update"
 msgstr "بروزرسانی"
 
-#: content_cms/comments/edit/model.php:12 content_support/ticket/show/model.php:159
-#: dash/app/address.php:183 dash/app/comment.php:312 dash/app/ticket.php:502
-#: dash/app/user.php:550 dash/app/user_telegram.php:123 lib/app/nic_domain/check.php:146
-#: lib/app/product/comment.php:55
+#: content_cms/comments/edit/model.php:12 content_support/ticket/show/model.php:164
+#: dash/app/comment.php:312 dash/app/user_telegram.php:123
+#: lib/app/nic_domain/check.php:146 lib/app/product/comment.php:55
 msgid "Invalid status"
 msgstr "وضعیت نامعتبر است"
 
@@ -10937,13 +10976,13 @@ msgstr "پیام"
 msgid "Telegram"
 msgstr "تلگرام"
 
-#: content_crm/log/home/logTable.php:61 dash/layout/admin/sidebar/sidebar-crm.php:22
-#: includes/languages/trans_static_public.php:940
+#: content_crm/log/home/logTable.php:61 includes/languages/trans_static_public.php:940
 #: includes/languages/trans_static_public.php:982
 msgid "SMS"
 msgstr "پیام کوتاه"
 
-#: content_crm/log/home/logTable.php:63 content_su/apilog/home/display.php:79
+#: content_crm/log/home/logTable.php:63 content_management/store/display.php:18
+#: content_su/apilog/home/display.php:79
 msgid "Url"
 msgstr "نشانی اینترنتی"
 
@@ -10988,7 +11027,7 @@ msgstr "تنظیم آدرس و جزئیات موقعیت فعلی دانش‌آ�
 msgid "Set your avatar"
 msgstr "تصویر پروفایل خود را تنظیم کنید"
 
-#: content_crm/member/avatar/model.php:45 dash/app/user/edit.php:227
+#: content_crm/member/avatar/model.php:45 dash/app/user/edit.php:174
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
@@ -11028,15 +11067,15 @@ msgstr "هرچیزی مثل تماس‌ها، علاقمندی‌ها، سلای
 msgid "Add new note"
 msgstr "افزودن یادداشت جدید"
 
-#: content_crm/member/description/model.php:20
+#: content_crm/member/description/model.php:26
 msgid "Please fill the box"
 msgstr "لطفا متن را پر کنید"
 
-#: content_crm/member/description/model.php:27
+#: content_crm/member/description/model.php:33
 msgid "Duplicate note for user founded"
 msgstr "یادداشت تکراری است"
 
-#: content_crm/member/description/model.php:35
+#: content_crm/member/description/model.php:41
 msgid "Note saved"
 msgstr "پیام شما ذخیره شد"
 
@@ -11085,35 +11124,31 @@ msgstr "ملیت"
 msgid "Choose your nationality"
 msgstr "ملیت را انتخاب کنید"
 
-#: content_crm/member/general/display.php:95 content_crm/member/general/display.php:97
-msgid "Id number"
-msgstr "شماره شناسنامه"
-
-#: content_crm/member/general/display.php:102
+#: content_crm/member/general/display.php:95
 msgid "National Id"
 msgstr "کد ملی"
 
-#: content_crm/member/general/display.php:104
+#: content_crm/member/general/display.php:97
 msgid "10 digit national code"
 msgstr "کدملی ده رقمی"
 
-#: content_crm/member/general/display.php:110 content_crm/member/general/display.php:112
+#: content_crm/member/general/display.php:103 content_crm/member/general/display.php:105
 msgid "Passport id"
 msgstr "شماره گذرنامه"
 
-#: content_crm/member/general/display.php:116
+#: content_crm/member/general/display.php:109
 msgid "Passport expire date"
 msgstr "تاریخ انقضای گذرنامه"
 
-#: content_crm/member/general/display.php:136
+#: content_crm/member/general/display.php:129
 msgid "Marital"
 msgstr "وضعیت تاهل"
 
-#: content_crm/member/general/display.php:139 includes/languages/trans_static.php:525
+#: content_crm/member/general/display.php:132 includes/languages/trans_static.php:525
 msgid "Single"
 msgstr "مجرد"
 
-#: content_crm/member/general/display.php:140 includes/languages/trans_static.php:526
+#: content_crm/member/general/display.php:133 includes/languages/trans_static.php:526
 msgid "Married"
 msgstr "متاهل"
 
@@ -11534,8 +11569,8 @@ msgstr "نگاه اجمالی"
 
 #: content_crm/member/pageSteps.php:44 content_support/ticket/add/view.php:18
 #: content_support/ticket/report/view.php:16 content_support/ticket/show/view.php:26
-#: content_support/ticket/tags/view.php:52 content_support/view.php:58
-#: dash/app/ticket.php:195
+#: content_support/ticket/tags/view.php:52 content_support/view.php:56
+#: dash/app/ticket.php:175
 msgid "Ticket"
 msgstr "تیکت"
 
@@ -11688,6 +11723,12 @@ msgstr "برچسب سطح دسترسی برای نشان دادن آن در بخ
 msgid "Label of your permission"
 msgstr "برچسب سطح دسترسی شما"
 
+#: content_crm/permission/add/model.php:30
+#, fuzzy
+#| msgid "Invalid permission id"
+msgid "Invalid permission index"
+msgstr "شناسه سطح دسترسی اشتباه است"
+
 #: content_crm/permission/add/view.php:11
 msgid "Add new permissions"
 msgstr "افزودن سطح دسترسی جدید"
@@ -11701,6 +11742,7 @@ msgid "Back to list of permissions"
 msgstr "بازگشت به لیست سطوح دسترسی"
 
 #: content_crm/permission/add/view.php:31 content_crm/permission/delete/view.php:26
+#: dash/permission.php:104
 msgid "Invalid permission id"
 msgstr "شناسه سطح دسترسی اشتباه است"
 
@@ -11761,24 +11803,24 @@ msgstr "افزودن سطح دسترسی جدید"
 msgid "Your sms panel balance"
 msgstr "بالانس مالی پنل پیامک شما"
 
-#: content_crm/sms/home/view.php:10
+#: content_crm/sms/home/view.php:16
 msgid "SMS Dashboard"
 msgstr "داشبورد پیامک"
 
-#: content_crm/sms/home/view.php:11
+#: content_crm/sms/home/view.php:17
 msgid "Check your sms setting and balance and quick navigate to every where"
 msgstr "بررسی تنظیمات پیامک و بالانس مالی و دسترسی سریع به بخش‌های مختلف"
 
 #: content_crm/transactions/add/display.php:8 content_crm/transactions/add/display.php:27
 #: content_crm/transactions/add/view.php:8 content_crm/transactions/minus/display.php:8
 #: content_crm/transactions/minus/display.php:27
-#: dash/layout/admin/sidebar/sidebar-crm.php:39
+#: dash/layout/admin/sidebar/sidebar-crm.php:28
 msgid "Plus charge account"
 msgstr "افزایش شارژ حساب کاربری"
 
 #: content_crm/transactions/add/display.php:17
 #: content_crm/transactions/minus/display.php:17 content_crm/transactions/minus/view.php:8
-#: dash/layout/admin/sidebar/sidebar-crm.php:40
+#: dash/layout/admin/sidebar/sidebar-crm.php:29
 msgid "Minus charge account"
 msgstr "کاهش شارژ حساب کاربری"
 
@@ -11816,43 +11858,19 @@ msgstr "مقدار معتبری وارد کنید"
 msgid "Plus"
 msgstr "افزایش"
 
-#: content_crm/transactions/add/model.php:30 content_crm/transactions/minus/model.php:30
+#: content_crm/transactions/add/model.php:16 content_crm/transactions/minus/model.php:15
 msgid "You must login to add new transaction"
 msgstr "برای اضافه‌کردن‌تراکنش جدید باید وارد شوید"
 
-#: content_crm/transactions/add/model.php:38 content_crm/transactions/minus/model.php:38
-msgid "Please set the transaction title"
-msgstr "لطفا یک عنوان برای‌تراکنش وارد کنید‌‌"
-
-#: content_crm/transactions/add/model.php:44 content_crm/transactions/minus/model.php:44
-msgid "Please select one of the unit items"
-msgstr "لطفا یکی از واحدها را انتخاب کنید"
-
-#: content_crm/transactions/add/model.php:51 content_crm/transactions/minus/model.php:51
-msgid "Mobile can not be null"
-msgstr "موبایل نمی‌تواند خالی باشد"
-
-#: content_crm/transactions/add/model.php:57 content_crm/transactions/minus/model.php:57
-msgid "Please select one of the type items"
-msgstr "لطفا یک نوع را انتخاب کنید"
-
-#: content_crm/transactions/add/model.php:70
-msgid "Please fill the minus or plus field"
-msgstr "لطفا مقداری برای افزودن یا کاستن وارد کنید"
-
-#: content_crm/transactions/add/model.php:76
-msgid "Invalid plus field"
-msgstr "مقدار افزودن اشتباه است"
-
-#: content_crm/transactions/add/model.php:88 content_crm/transactions/minus/model.php:83
+#: content_crm/transactions/add/model.php:59 content_crm/transactions/minus/model.php:58
 msgid "Mobile not exist"
 msgstr "موبایل وجود ندارد"
 
-#: content_crm/transactions/add/model.php:94 content_crm/transactions/minus/model.php:89
+#: content_crm/transactions/add/model.php:65 content_crm/transactions/minus/model.php:64
 msgid "User id not set"
 msgstr "شناسه کاربری تعیین نشده است"
 
-#: content_crm/transactions/add/model.php:120 content_crm/transactions/minus/model.php:116
+#: content_crm/transactions/add/model.php:91 content_crm/transactions/minus/model.php:90
 msgid "Transaction inserted"
 msgstr "تراکنش افزوده شد"
 
@@ -11888,10 +11906,6 @@ msgstr "با افزودن رکورد جدید تلاشی برای شروع دا�
 msgid "Minus"
 msgstr "کاهش"
 
-#: content_crm/transactions/minus/model.php:72
-msgid "Invalid minus field"
-msgstr "مقدار کاستن اشتباه است"
-
 #: content_crm/transactions/view.php:10
 msgid "Transactions list"
 msgstr "لیست تراکنش‌ها"
@@ -11906,16 +11920,47 @@ msgstr ""
 msgid "Also add or edit specefic transactions."
 msgstr "هم‌چنین تراکنش خاصی را بیافزایید یا آن را ویرایش کنید."
 
+#: content_enter/--google/display.php:3 content_enter/callback/display.php:3
+msgid "Hi"
+msgstr "سلام"
+
+#: content_enter/--google/display.php:3 content_enter/callback/display.php:3
+msgid "You must not be here!"
+msgstr "شما نباید اینجا باشید!"
+
+#: content_enter/--google/display.php:9 content_enter/callback/display.php:9
+#: content_enter/home/display.php:72
+msgid "No account?"
+msgstr "حساب کاربری ندارید؟"
+
+#: content_enter/--google/display.php:9 content_enter/callback/display.php:9
+#: content_enter/home/display.php:72
+msgid "Create for yourself"
+msgstr "حساب کاربری خود را بسازید"
+
+#: content_enter/--google/display.php:11 content_enter/callback/display.php:11
+#: content_enter/home/display.php:74
+msgid "Create Account"
+msgstr "ساخت حساب کاربری"
+
+#: content_enter/--google/model.php:137
+msgid "System error! try again"
+msgstr "خطای سیستم! دوباره امتحان کنید"
+
+#: content_enter/--google/view.php:18
+msgid "Enter to :name with google"
+msgstr "با استفاده از گوگل وارد :name شوید"
+
 #: content_enter/alert/view.php:9 content_enter/alert/view.php:16
 msgid "Alert!"
 msgstr "هشدار!"
 
-#: content_enter/alert/view.php:16 content_enter/verify/model.php:36
-#: dash/utility/enter.php:918 dash/utility/enter.php:929 dash/utility/enter.php:936
+#: content_enter/alert/view.php:16 content_enter/verify/model.php:69
+#: dash/utility/enter.php:914 dash/utility/enter.php:925 dash/utility/enter.php:932
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
-#: content_enter/alert/view.php:28 content_enter/callback/model.php:107
+#: content_enter/alert/view.php:28 content_enter/callback/model.php:116
 #: content_my/domain/home/display.php:9 content_my/domain/home/display.php:20
 #: includes/languages/trans_static_public.php:542
 msgid "OK"
@@ -11950,18 +11995,18 @@ msgstr "نام کاربری یا موبایل یا رایانامه"
 msgid "Password?"
 msgstr "کلمه عبور؟"
 
-#: content_enter/app/model.php:41 content_enter/home/model.php:153
+#: content_enter/app/model.php:49 content_enter/home/model.php:183
 #: content_support/ticket/contact_ticket/model.php:26
 msgid "You hit our maximum try limit."
 msgstr "شما حداکثر تلاش خود را انجام دادید."
 
-#: content_enter/app/model.php:41 content_enter/home/model.php:153
+#: content_enter/app/model.php:49 content_enter/home/model.php:183
 #: content_support/ticket/contact_ticket/model.php:26
 msgid "Try again later!"
 msgstr "بعدا مجددا تلاش کنید!"
 
-#: content_enter/app/model.php:64 content_enter/verify/later/model.php:36
-#: content_enter/verify/model.php:80
+#: content_enter/app/model.php:72 content_enter/verify/later/model.php:36
+#: content_enter/verify/model.php:100
 msgid "We can not signup you"
 msgstr "ما نمی‌توانیم شما را ثبت نام کنیم"
 
@@ -12017,59 +12062,36 @@ msgstr "خداحافط :("
 msgid "Come back to us!"
 msgstr "پیش ما برگردید!"
 
-#: content_enter/callback/display.php:3 content_enter/google/display.php:3
-msgid "Hi"
-msgstr "سلام"
-
-#: content_enter/callback/display.php:3 content_enter/google/display.php:3
-msgid "You must not be here!"
-msgstr "شما نباید اینجا باشید!"
-
-#: content_enter/callback/display.php:9 content_enter/google/display.php:9
-#: content_enter/home/display.php:72
-msgid "No account?"
-msgstr "حساب کاربری ندارید؟"
-
-#: content_enter/callback/display.php:9 content_enter/google/display.php:9
-#: content_enter/home/display.php:72
-msgid "Create for yourself"
-msgstr "حساب کاربری خود را بسازید"
-
-#: content_enter/callback/display.php:11 content_enter/google/display.php:11
-#: content_enter/home/display.php:74
-msgid "Create Account"
-msgstr "ساخت حساب کاربری"
-
 #: content_enter/callback/model.php:16
 msgid "Invalid service"
 msgstr "سرویس اشتباه"
 
-#: content_enter/callback/model.php:41
+#: content_enter/callback/model.php:47
 msgid "Message is empty"
 msgstr "پیام خالی است"
 
-#: content_enter/callback/model.php:82
+#: content_enter/callback/model.php:91
 msgid "Log not found"
 msgstr "لاگ یافت نشد"
 
-#: content_enter/callback/model.php:96
+#: content_enter/callback/model.php:105
 msgid "More than one log found"
 msgstr "بیشتر از یک لاگ یافت شد"
 
-#: content_enter/callback/model.php:166
+#: content_enter/callback/model.php:153
 msgid "Your register was complete"
 msgstr "ثبت نام شما کامل شد"
 
-#: content_enter/callback/model.php:174
+#: content_enter/callback/model.php:161
 msgid "User signup by sms"
 msgstr "کاربر با ارسال پیامک ثبت نام شد"
 
-#: content_enter/controller.php:51 content_support/ticket/add/model.php:57
+#: content_enter/controller.php:52 content_support/ticket/add/model.php:54
 #: content_support/ticket/contact_ticket/model.php:55
 msgid "Your cookies may have been blocked"
 msgstr "احتمالا کوکی‌های شما بلاک شده است"
 
-#: content_enter/controller.php:51 content_support/ticket/add/model.php:57
+#: content_enter/controller.php:52 content_support/ticket/add/model.php:54
 #: content_support/ticket/contact_ticket/model.php:55
 msgid "You need to enable cookie for usign this service"
 msgstr "برای استفاده از این سرویس شما به کوکی نیاز دارید"
@@ -12082,37 +12104,9 @@ msgstr "خطا در ورود کاربر به سیستم"
 msgid "Why you want to delete your account!?"
 msgstr "چرا می‌خواهید حساب کاربری خود را حذف کنید!؟"
 
-#: content_enter/delete/request/display.php:3
-msgid "We detected two accout for you"
-msgstr "ما متوجه وجود دو حساب کاربری برای شما شدیم"
-
-#: content_enter/delete/request/display.php:4
-msgid "Please remove one of them and"
-msgstr "لطفا یکی را حذف کنید و"
-
-#: content_enter/delete/request/display.php:4
-msgid "if you want to delete this account"
-msgstr "اگر می‌خواهید این حساب کاربری را حذف کنید"
-
-#: content_enter/delete/request/display.php:5
-msgid "click here"
-msgstr "اینجا کلیک کنید"
-
-#: content_enter/delete/request/view.php:9
-msgid "Request delete account"
-msgstr "درخواست حذف حساب کاربری"
-
 #: content_enter/delete/view.php:14
 msgid "Delete account"
 msgstr "حذف حساب کاربری"
-
-#: content_enter/google/model.php:137
-msgid "System error! try again"
-msgstr "خطای سیستم! دوباره امتحان کنید"
-
-#: content_enter/google/view.php:18
-msgid "Enter to :name with google"
-msgstr "با استفاده از گوگل وارد :name شوید"
 
 #: content_enter/home/display.php:59 content_enter/signup/display.php:61
 msgid "Sign in instead"
@@ -12123,36 +12117,36 @@ msgstr "یا وارد شوید"
 msgid "Login"
 msgstr "ورود به سیستم"
 
-#: content_enter/home/model.php:27
+#: content_enter/home/model.php:42
 msgid "Mobile not found"
 msgstr "موبایل یافت نشد"
 
-#: content_enter/home/model.php:47 dash/app/address.php:325 dash/app/posts/add.php:35
-#: dash/app/term.php:607 dash/app/user/add.php:73 dash/upload/category.php:58
-#: dash/upload/user.php:22 dash/upload/user.php:69 dash/upload/user.php:88
-#: dash/upload/user.php:137 lib/app/product/add.php:92 lib/app/product/edit.php:32
+#: content_enter/home/model.php:62 dash/app/address.php:226 dash/app/posts/add.php:35
+#: dash/app/term.php:607 dash/app/user/add.php:51 dash/upload/category.php:68
+#: dash/upload/user.php:22 dash/upload/user.php:79 dash/upload/user.php:98
+#: dash/upload/user.php:156 lib/app/product/add.php:92 lib/app/product/edit.php:32
 #: lib/pardakhtyar/app/acceptor.php:16 lib/pardakhtyar/app/merchantIbans.php:16
 #: lib/pardakhtyar/app/shop.php:16 lib/pardakhtyar/app/terminal.php:16
 msgid "User not found"
 msgstr "کاربر یافت نشد"
 
-#: content_enter/home/model.php:70 content_enter/home/model.php:78
+#: content_enter/home/model.php:85 content_enter/home/model.php:93
 msgid "Can not login by this user"
 msgstr "نمی‌توانید با این کاربر وارد شوید"
 
-#: content_enter/home/model.php:171
+#: content_enter/home/model.php:201
 msgid "Please set the username or mobile or email"
 msgstr "لطفا نام‌کاربری یا موبایل یا رایانامه معتبری وارد کنید"
 
-#: content_enter/home/model.php:196
+#: content_enter/home/model.php:226
 msgid "Username not found"
 msgstr "نام کاربری یافت نشد"
 
-#: content_enter/home/model.php:197
+#: content_enter/home/model.php:227
 msgid "Are you want to signup?"
 msgstr "آیا می‌خواهید ثبت‌نام کنید؟"
 
-#: content_enter/home/model.php:198
+#: content_enter/home/model.php:228
 msgid "Click to signup"
 msgstr "برای ثبت‌نام کلیک کنید"
 
@@ -12221,17 +12215,17 @@ msgstr "گذرواژه‌ای بین ۷ تا ۴۰ کاراکتر وارد کنی
 msgid "Password is password."
 msgstr "گذرواژه همان کلمه‌عبور یا رمز شماست. سعی کنیم فارسی صحبت کنیم:)"
 
-#: content_enter/pass/change/model.php:32 content_enter/pass/recovery/model.php:32
+#: content_enter/pass/change/model.php:50 content_enter/pass/recovery/model.php:51
 msgid "Your new password is your old password"
 msgstr "کلمه‌عبور جدید شما همان قدیمی‌است"
 
-#: content_enter/pass/change/model.php:34 includes/languages/trans_static.php:567
+#: content_enter/pass/change/model.php:52 includes/languages/trans_static.php:567
 #: includes/languages/trans_static_public.php:935 lib/app/import/product.php:17
 #: lib/pardakhtyar/type.php:15
 msgid "Ok"
 msgstr "بسیار خب"
 
-#: content_enter/pass/change/model.php:73 content_enter/pass/recovery/model.php:73
+#: content_enter/pass/change/model.php:91 content_enter/pass/recovery/model.php:92
 msgid "Invalid Password"
 msgstr "گذرواژه نامعتبر"
 
@@ -12239,11 +12233,11 @@ msgstr "گذرواژه نامعتبر"
 msgid "Can't access your account?"
 msgstr "نمی‌توانید به حساب خود وارد شوید؟"
 
-#: content_enter/pass/model.php:19
+#: content_enter/pass/model.php:36
 msgid "Please enter your password"
 msgstr "لطفا گذرواژه خود را وارد کنید"
 
-#: content_enter/pass/model.php:41
+#: content_enter/pass/model.php:58
 msgid "Invalid password, try again"
 msgstr "گذرواژه‌ی اشتباه، دوباره تلاش کنید"
 
@@ -12259,7 +12253,7 @@ msgstr "کلمه عبور خود را به خاطر آوردید!؟"
 msgid "Set Password"
 msgstr "تنظیم گذرواژه"
 
-#: content_enter/pass/set/model.php:44 content_enter/pass/signup/model.php:45
+#: content_enter/pass/set/model.php:64 content_enter/pass/signup/model.php:61
 msgid "No password was send"
 msgstr "گذرواژه‌ای ارسال نشد"
 
@@ -12312,37 +12306,31 @@ msgstr "نام‌کاربری"
 msgid "Enter a valid username from 4 to 50 character"
 msgstr "نام‌کاربری معتبری بین ۴ تا ۵۰ کاراکتر وارد کنید"
 
-#: content_enter/signup/model.php:25
+#: content_enter/signup/model.php:53
 msgid "You do not have permission to register for up to ten minutes"
 msgstr "شما مجاز به ثبت نام تا ۱۰ دقیقه نیستید"
 
-#: content_enter/signup/model.php:32
+#: content_enter/signup/model.php:60
 msgid "Your browser has sent a saved password. Delete it and continue"
 msgstr "مرورگر شما گذرواژه ذخیره شده ای را ارسال کرده است. آن را حذف کنید و ادامه دهید"
 
-#: content_enter/signup/model.php:46
+#: content_enter/signup/model.php:74
 msgid "Pleaes set mobile number"
 msgstr "لطفا شماره تلفن‌همراه را وارد کنید"
 
-#: content_enter/signup/model.php:53
-msgid "Pleaes set a valid mobile number"
-msgstr "لطفا شماره تلفن‌همراه معتبری وارد کنید"
-
-#: content_enter/signup/model.php:66
-msgid "Pleaes set a valid password"
-msgstr "لطفا گذرواژه‌ی معتبری تنظیم کنید"
-
-#: content_enter/signup/model.php:74 dash/utility/enter.php:1415
+#: content_enter/signup/model.php:82 dash/utility/enter.php:1411
 msgid "Please do not use your mobile in password!"
 msgstr "لطفا از موبایل خود در گذرواژه استفاده نکنید!"
 
-#: content_enter/signup/model.php:81
-msgid "Invalid full name"
-msgstr "نام کامل اشتباه"
-
-#: content_enter/signup/model.php:90
+#: content_enter/signup/model.php:92
 msgid "This mobile is already signuped. You can login by this mobile"
 msgstr "این شماره موبایل قبلا ثبت نام کرده است. شما می‌توانید با این موبایل وارد سیستم شود"
+
+#: content_enter/signup/model.php:93
+#, fuzzy
+#| msgid "Click to signup"
+msgid "Click to login"
+msgstr "برای ثبت‌نام کلیک کنید"
 
 #: content_enter/signup/view.php:10
 msgid "Signup in :name"
@@ -12384,19 +12372,15 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/nic_domain/search.php:176 lib/app/nic_domain/search.php:308
 #: lib/app/nic_domainaction/search.php:12 lib/app/nic_log/search.php:27
 #: lib/app/nic_poll/get.php:58 lib/app/nic_poll/get.php:71 lib/app/product/tag.php:369
-#: lib/app/product/tag.php:407 lib/app/store/add.php:81
+#: lib/app/product/tag.php:407 lib/app/store/add.php:99
 msgid "Please login to continue"
 msgstr "لطفا برای ادامه مراحل وارد سیستم شوید"
 
-#: content_enter/twostep/model.php:18
-msgid "Invalid action"
-msgstr "رویداد‌ نامعتبر‌است"
-
-#: content_enter/twostep/model.php:24
+#: content_enter/twostep/model.php:37
 msgid "Two-step verification for you is already active"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما فعال است"
 
-#: content_enter/twostep/model.php:31
+#: content_enter/twostep/model.php:44
 msgid "Two-step verification for you is already deactive"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما غیر فعال است"
 
@@ -12449,7 +12433,7 @@ msgstr "شما باید حساب کاربری خود را در آینده تای
 msgid "Verify now"
 msgstr "هم اکنون تایید می‌کنم"
 
-#: content_enter/verify/later/model.php:20 content_enter/verify/model.php:71
+#: content_enter/verify/later/model.php:20 content_enter/verify/model.php:91
 msgid "We can not find your detail to signup"
 msgstr "ما اطلاعات شما را برای ثبت نام پیدا نکردیم"
 
@@ -12461,11 +12445,7 @@ msgstr "ما اطلاعات اشتباهی از شما برای ثبت نام د
 msgid "Send \":code\" to :num"
 msgstr "ارسال \":code\" به :num"
 
-#: content_enter/verify/model.php:43 content_enter/verify/model.php:50
-msgid "Please select one way to send code"
-msgstr "لطفا راهی برای ارسال کد انتخاب کنید"
-
-#: content_enter/verify/model.php:61
+#: content_enter/verify/model.php:81
 msgid "Verify code in local is :code"
 msgstr "کد فعال‌سازی در سیستم محلی :code است"
 
@@ -12916,26 +12896,26 @@ msgstr "فروشگاه‌ها"
 msgid "View list of stores and add new one easily just in seconds."
 msgstr "مشاهده لیست فروشگاه‌ها و افزودن فروشگاه جدید در چند ثانیه."
 
-#: content_management/store/display.php:18
+#: content_management/store/display.php:19
 msgid "subdomain"
 msgstr "زیردامنه"
 
-#: content_management/store/display.php:19 includes/languages/trans_static.php:280
+#: content_management/store/display.php:20 includes/languages/trans_static.php:280
 #: includes/languages/trans_static.php:304 includes/languages/trans_static.php:328
 #: includes/languages/trans_static.php:346 includes/languages/trans_static_public.php:224
 #: includes/languages/trans_static_public.php:402
 msgid "title"
 msgstr "عنوان"
 
-#: content_management/store/display.php:20
+#: content_management/store/display.php:21
 msgid "owner"
 msgstr "مالک"
 
-#: content_management/store/display.php:22
+#: content_management/store/display.php:23
 msgid "plan"
 msgstr "پلن"
 
-#: content_management/store/display.php:23 includes/languages/trans_static_public.php:412
+#: content_management/store/display.php:24 includes/languages/trans_static_public.php:412
 msgid "datecreated"
 msgstr "تاریخ‌ایجاد"
 
@@ -13354,7 +13334,11 @@ msgstr "لطفا کمی صبر کنید"
 msgid "Building your online store in progress."
 msgstr "ما در حال ساخت فروشگاه آنلاین شما هستیم."
 
-#: content_my/store/creating/display.php:10 content_my/store/error/display.php:20
+#: content_my/store/creating/display.php:8 content_my/store/error/display.php:14
+msgid "Try again"
+msgstr "مجددا تلاش کنید"
+
+#: content_my/store/creating/display.php:11 content_my/store/error/display.php:20
 msgid "Loading Jibres"
 msgstr "در حال انجام عملیات"
 
@@ -13377,10 +13361,6 @@ msgstr "ما نتوانستیم فروشگاه شما را بسازیم!"
 #: content_my/store/error/display.php:6
 msgid "Please contact us to solve this problem."
 msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
-
-#: content_my/store/error/display.php:14
-msgid "Try again"
-msgstr "مجددا تلاش کنید"
 
 #: content_my/store/error/display.php:16
 msgid "Read about this problem"
@@ -13564,10 +13544,6 @@ msgstr "در حال انتقال..."
 #: content_pay/redirect/view.php:10
 msgid "in redirect process..."
 msgstr "در فرآیند انتقال ..."
-
-#: content_r10/android/about/view.php:9
-msgid "About Jibres"
-msgstr "درباره جیبرس"
 
 #: content_r10/android/intro/view.php:14 dash/layout/admin/admin-sidebar.php:26
 #: dash/social/telegram/answer.php:76
@@ -13839,7 +13815,7 @@ msgstr "جدول‌های خام پایگاه داده"
 msgid "Database raw table"
 msgstr "جدول‌های خام پایگاه داده"
 
-#: content_su/dbtables/view.php:18
+#: content_su/dbtables/view.php:16
 msgid "Select table"
 msgstr "انتخاب جدول"
 
@@ -14123,7 +14099,7 @@ msgid ""
 "@channelusername)"
 msgstr "شناسه منحصربه‌فرد برای ارسال پیام به شخص یا کانال در فرمت @نام_کاربری"
 
-#: content_su/tg/sendmessage/display.php:11 dash/app/ticket.php:204
+#: content_su/tg/sendmessage/display.php:11 dash/app/ticket.php:184
 msgid "Message"
 msgstr "پیام"
 
@@ -14333,7 +14309,7 @@ msgstr "به‌روزرسانی دیتابیس سیستم با موفقیت ان
 msgid "System unlock successfully"
 msgstr "بازکردن قفل سیستم با موفقیت انجام شد"
 
-#: content_support/controller.php:30 content_support/controller.php:35
+#: content_support/controller.php:31 content_support/controller.php:36
 msgid "Invalid token!"
 msgstr "توکن دسترسی نامعتبر است!"
 
@@ -14368,7 +14344,7 @@ msgstr "جستجو در پایگاه دانش ما..."
 msgid "Search result"
 msgstr "نتیجه جستجو"
 
-#: content_support/home/dashboard.php:42 dash/app/user/site_list.php:52
+#: content_support/home/dashboard.php:42 dash/app/user/site_list.php:54
 #: lib/app/product/site_list.php:84
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
@@ -14399,11 +14375,7 @@ msgstr "باز کردن تیکت جدید!"
 msgid "Content"
 msgstr "محتوا"
 
-#: content_support/message/edit/model.php:32
-msgid "Please fill the content"
-msgstr "لطفا متن را وارد کنید"
-
-#: content_support/message/edit/model.php:47
+#: content_support/message/edit/model.php:69
 msgid "Ticket updated"
 msgstr "تیکت بروز شد"
 
@@ -14443,7 +14415,7 @@ msgstr ""
 "به‌سادگی پیام‌های تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ "
 "برای رفع مشکل خود برسید"
 
-#: content_support/tag/controller.php:19
+#: content_support/tag/controller.php:20
 msgid "Invalid tag"
 msgstr "تگ نادرست"
 
@@ -14451,21 +14423,21 @@ msgstr "تگ نادرست"
 msgid "Please log in if you need to store this ticket and track it in the future"
 msgstr "لطفا برای ذخیره و پیگیری‌های بعدی این تیکت وارد سیستم شوید"
 
-#: content_support/ticket/add/model.php:37 content_support/ticket/show/model.php:284
+#: content_support/ticket/add/model.php:34 content_support/ticket/show/model.php:289
 msgid "Your ticket was sended"
 msgstr "تیکت شما ارسال شد"
 
-#: content_support/ticket/add/model.php:52
+#: content_support/ticket/add/model.php:49
 #: content_support/ticket/contact_ticket/model.php:50
 msgid "It was very fast!"
 msgstr "خیلی سریع بود!"
 
-#: content_support/ticket/add/model.php:79
+#: content_support/ticket/add/model.php:80
 msgid "You try to send some html code!"
 msgstr "شما در تلاشید کد اچ‌تی‌ام‌ال ارسال کنید!"
 
-#: content_support/ticket/add/model.php:89
-#: content_support/ticket/contact_ticket/model.php:93
+#: content_support/ticket/add/model.php:90
+#: content_support/ticket/contact_ticket/model.php:78
 msgid "Can not set 2 link in one message!"
 msgstr "نمی‌توانید دو لینک را در یک پیام ارسال کنید!"
 
@@ -14489,10 +14461,6 @@ msgstr "لطفا پیام خود را بنویسید"
 msgid "Attachment"
 msgstr "ضمیمه"
 
-#: content_support/ticket/addForm.php:27
-msgid "Max size 5 MB"
-msgstr "حداکثر اندازه فایل ۵ مگابایت است."
-
 #: content_support/ticket/addForm.php:39
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
@@ -14513,26 +14481,26 @@ msgstr "ارسال تیکت"
 msgid "Send new message"
 msgstr "ارسال پیام جدید"
 
-#: content_support/ticket/contact_ticket/model.php:79
+#: content_support/ticket/contact_ticket/model.php:64
 msgid "Please try type something!"
 msgstr "لطفا تلاشی برای تایپ داشته باشید!"
 
-#: content_support/ticket/contact_ticket/model.php:86
+#: content_support/ticket/contact_ticket/model.php:71
 msgid "You try to add some html code!"
 msgstr "شما در تلاشید کد اچ‌تی‌ام‌ال ارسال کنید!"
 
-#: content_support/ticket/contact_ticket/model.php:220
-#: content_support/ticket/contact_ticket/model.php:236
+#: content_support/ticket/contact_ticket/model.php:178
+#: content_support/ticket/contact_ticket/model.php:194
 msgid "You can check your contacting answer here"
 msgstr "شما می‌توانید پاسخ تماس خود را در اینجا بررسی کنید"
 
-#: content_support/ticket/contact_ticket/model.php:221
-#: content_support/ticket/contact_ticket/model.php:237
+#: content_support/ticket/contact_ticket/model.php:179
+#: content_support/ticket/contact_ticket/model.php:195
 msgid "Thank You For contacting us"
 msgstr "از تماس شما متشکریم"
 
-#: content_support/ticket/contact_ticket/model.php:228
-#: content_support/ticket/contact_ticket/model.php:244
+#: content_support/ticket/contact_ticket/model.php:186
+#: content_support/ticket/contact_ticket/model.php:202
 msgid "We could'nt save the contact"
 msgstr "مشکلی در ذخیره‌سازی مخاطب پیش آمد"
 
@@ -14739,55 +14707,55 @@ msgstr "کلیدواژه‌های خود را تگ کنید..."
 msgid "Save tag"
 msgstr "ذخیره کلیدواژه"
 
-#: content_support/ticket/show/model.php:87
+#: content_support/ticket/show/model.php:92
 msgid "Title of ticket saved"
 msgstr "عنوان تیکت ذخیره شد"
 
-#: content_support/ticket/show/model.php:115
+#: content_support/ticket/show/model.php:120
 msgid "Please select tag from list"
 msgstr "لطفا تگ را از لیست انتخاب کنید"
 
-#: content_support/ticket/show/model.php:129
+#: content_support/ticket/show/model.php:134
 msgid "Tag was saved"
 msgstr "کلیدواژه ذخیره شد"
 
-#: content_support/ticket/show/model.php:149 content_support/ticket/show/model.php:276
+#: content_support/ticket/show/model.php:154 content_support/ticket/show/model.php:281
 msgid "This ticket is spam!"
 msgstr "این تیکت به عنوان هرزنامه شناسایی شده است!"
 
-#: content_support/ticket/show/model.php:197
+#: content_support/ticket/show/model.php:202
 msgid "Ticket closed"
 msgstr "تیکت بسته شد"
 
-#: content_support/ticket/show/model.php:201
+#: content_support/ticket/show/model.php:206
 msgid "Ticket was open again"
 msgstr "تیکت دوباره باز شد"
 
-#: content_support/ticket/show/model.php:205
+#: content_support/ticket/show/model.php:210
 msgid "Ticket was deleted"
 msgstr "تیکت حذف شد"
 
-#: content_support/ticket/show/model.php:209
+#: content_support/ticket/show/model.php:214
 msgid "Ticket set on spam"
 msgstr "تیکت به‌عنوان جفنگ علامت‌گذاری شد"
 
-#: content_support/ticket/show/model.php:234
+#: content_support/ticket/show/model.php:239
 msgid "Ticket set as solved"
 msgstr "مشکل حل شد"
 
-#: content_support/ticket/show/model.php:239
+#: content_support/ticket/show/model.php:244
 msgid "Ticket set as unsolved"
 msgstr "مشکل هنوز حل نشده"
 
-#: content_support/ticket/show/model.php:321
+#: content_support/ticket/show/model.php:326
 msgid "Your note saved"
 msgstr "پیام شما ذخیره شد"
 
-#: content_support/ticket/show/model.php:359
+#: content_support/ticket/show/model.php:360
 msgid "Your message has been added"
 msgstr "پیام شما اضافه شد"
 
-#: content_support/ticket/show/model.php:434
+#: content_support/ticket/show/model.php:427
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
@@ -14851,11 +14819,11 @@ msgstr "مدیریت تیکت"
 msgid "Manage all tickets"
 msgstr "مدیریت تمامی تیکت‌ها"
 
-#: content_support/view.php:44
+#: content_support/view.php:42
 msgid "Support dashboard"
 msgstr "داشبورد پشتیبانی"
 
-#: content_support/view.php:84
+#: content_support/view.php:83
 msgid "Invalid access in url"
 msgstr "دسترسی نادرست در آدرس"
 
@@ -14868,7 +14836,7 @@ msgid "This page is empty"
 msgstr "این صفحه خالی است"
 
 #: content_v2/business/posts/detail/view.php:14 dash/app/posts.php:1405
-#: dash/upload/cms.php:16 dash/upload/cms.php:65 dash/upload/cms.php:82
+#: dash/upload/cms.php:16 dash/upload/cms.php:75 dash/upload/cms.php:92
 #: dash/upload/product.php:20 dash/upload/product.php:37
 msgid "Post not found"
 msgstr "پست یافت نشد"
@@ -14905,92 +14873,32 @@ msgstr "این آدرس شما نیست"
 msgid "No detail sended"
 msgstr "جزئیاتی ارسال نشده است"
 
-#: dash/app/address.php:58 dash/app/user.php:630
-msgid "Please set title less than 100 character"
-msgstr "لطفا عنوان را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:65
-msgid "Please set name less than 100 character"
-msgstr "لطفا نام را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:77
-msgid "Please set companyname less than 100 character"
-msgstr "لطفا نام شرکت را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:84
-msgid "Please set jobtitle less than 100 character"
-msgstr "لطفا عنوان شغلی را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:92 lib/app/setting/setup.php:312
-msgid "Please set country less than 100 character"
-msgstr "لطفا کشور را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:98 lib/app/nic_contact/add.php:238 lib/app/setting/setup.php:318
-msgid "Invalid country"
-msgstr "کشور نامعتبر"
-
-#: dash/app/address.php:105 lib/app/nic_contact/add.php:250 lib/app/setting/setup.php:331
-msgid "Please set province less than 100 character"
-msgstr "لطفا استان را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:111 lib/app/setting/setup.php:337
-msgid "Invalid province"
-msgstr "استان نامعتبر"
-
-#: dash/app/address.php:118 lib/app/nic_contact/add.php:263 lib/app/setting/setup.php:344
-msgid "Please set city less than 100 character"
-msgstr "لطفا شهر را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:134 lib/app/setting/setup.php:363
-msgid "Please set address less than 300 character"
-msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:140
-msgid "Please fill the address"
-msgstr "لطفا آدرس را وارد کنید"
-
-#: dash/app/address.php:147
-msgid "Please set address2 less than 300 character"
-msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
-
-#: dash/app/address.php:162 lib/app/setting/setup.php:393
-msgid "Please set postcode less than 50 character"
-msgstr "کدپستی باید کمتر از ۵۰ کاراکتر باشد"
-
-#: dash/app/address.php:169 lib/app/setting/setup.php:407
-msgid "Please set phone less than 50 character"
-msgstr "تلفن باید کمتر از ۵۰ کاراکتر باشد"
-
-#: dash/app/address.php:176 lib/app/setting/setup.php:416
-msgid "Please set fax less than 50 character"
-msgstr "فکس باید کمتر از ۵۰ کاراکتر باشد"
-
-#: dash/app/address.php:352
+#: dash/app/address.php:253
 msgid "You can not add any address"
 msgstr "شما نمی‌توانید هیچ آدرس دیگری را اضافه کنید"
 
-#: dash/app/address.php:362
+#: dash/app/address.php:263
 msgid "No way to insert address"
 msgstr "هیچ راهی برای افزودن آدرس وجود ندارد"
 
-#: dash/app/address.php:459
+#: dash/app/address.php:341
 msgid "Can not access to edit address"
 msgstr "شما دسترسی لازم برای ویرایش این آدرس را ندارید"
 
-#: dash/app/address.php:512 dash/app/address.php:525 dash/app/address.php:541
-#: dash/app/address.php:554
+#: dash/app/address.php:378 dash/app/address.php:391 dash/app/address.php:409
+#: dash/app/address.php:422
 msgid "Can not access to remove this address"
 msgstr "شما دسترسی لازم برای حذف این آدرس را ندارید"
 
-#: dash/app/address.php:530 dash/app/address.php:559
+#: dash/app/address.php:396 dash/app/address.php:427
 msgid "Address removed"
 msgstr "آدرس حذف شد"
 
-#: dash/app/comment.php:125 dash/app/ticket.php:307
+#: dash/app/comment.php:125 dash/app/ticket.php:277
 msgid "This text is duplicate and you are sended something like this before!"
 msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
 
-#: dash/app/comment.php:137 dash/app/ticket.php:323
+#: dash/app/comment.php:137 dash/app/ticket.php:293
 msgid "No way to add new data"
 msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد"
 
@@ -14998,11 +14906,11 @@ msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد
 msgid "Can not access to edit comment"
 msgstr "شما دسترسی لازم را برای ویرایش این نظر ندارید"
 
-#: dash/app/comment.php:262 dash/app/ticket.php:465
+#: dash/app/comment.php:262
 msgid "Please fill the content box"
 msgstr "لطفا باکس متن را پر کنید"
 
-#: dash/app/comment.php:305 dash/app/ticket.php:509
+#: dash/app/comment.php:305
 msgid "Invalid via"
 msgstr "پارامتر via اشتباه است"
 
@@ -15023,12 +14931,11 @@ msgstr "شناسه پست اشتباه است"
 msgid "Comment of this post is closed!"
 msgstr "دیدگاه‌های این نوشته بسته است!"
 
-#: dash/app/comment.php:361 dash/app/ticket.php:517
+#: dash/app/comment.php:361
 msgid "Title is out of range!"
 msgstr "عنوان خارج از محدوده است!"
 
-#: dash/app/comment.php:370 dash/app/term.php:426 dash/app/ticket.php:525
-#: lib/app/category/check.php:78
+#: dash/app/comment.php:370 dash/app/term.php:426 lib/app/category/check.php:78
 msgid "Invalid parent"
 msgstr "شناسه والد اشتباه است"
 
@@ -15582,23 +15489,23 @@ msgstr "هیچ راهی برای ثبت ترم وجود ندارد"
 msgid "Can not access to edit term"
 msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
 
-#: dash/app/ticket.php:193
+#: dash/app/ticket.php:173
 msgid "Count ticket"
 msgstr "تعداد تیکت"
 
-#: dash/app/ticket.php:202
+#: dash/app/ticket.php:182
 msgid "Count message"
 msgstr "تعداد پیام"
 
-#: dash/app/ticket.php:211
+#: dash/app/ticket.php:191
 msgid "Answer time"
 msgstr "زمان‌ پاسخ"
 
-#: dash/app/ticket.php:213
+#: dash/app/ticket.php:193
 msgid "Minutes"
 msgstr "دقیقه"
 
-#: dash/app/ticket.php:371
+#: dash/app/ticket.php:313
 msgid "Can not access to edit ticket"
 msgstr "دسترسی به ویرایش تیکت ندارید"
 
@@ -15610,211 +15517,41 @@ msgstr "شما نمی‌توانید آدرس یک حرفی یا دو حرفی �
 msgid "This address is a system keyword and cannot be selected"
 msgstr "این آدرس یک کلمه کلیدی سیستم است و قابل انتخاب نیست"
 
-#: dash/app/user.php:267
+#: dash/app/user.php:285
 msgid "Mobile is required"
 msgstr "موبایل الزامی است"
 
-#: dash/app/user.php:287 dash/app/user.php:294
-msgid "Plese set firstname less than 100 character"
-msgstr "طول رشته نام باید کمتر از ۱۰۰ کاراکتر باشد"
-
-#: dash/app/user.php:301
-msgid "Invalid father"
-msgstr "نام پدر نامعتبر"
-
-#: dash/app/user.php:308
-msgid "Invalid nationality"
-msgstr "ملیت نادرست"
-
-#: dash/app/user.php:315
-msgid "Invalid nationalcode syntax"
-msgstr "ساختار کدملی نامعتبر است"
-
-#: dash/app/user.php:325
-msgid "Invalid pasportcode"
-msgstr "شماره گذرنامه نامعتبر"
-
-#: dash/app/user.php:350
-msgid "Invalid pasportdate"
-msgstr "تاریخ گذرنامه نامعتبر"
-
-#: dash/app/user.php:366 lib/app/factor/check.php:95
-msgid "Invalid gender"
-msgstr "جنسیت نامعتبر"
-
-#: dash/app/user.php:373
-msgid "Invalid marital"
-msgstr "وضعیت تاهل نامعتبر"
-
-#: dash/app/user.php:380
-msgid "Please set website less than 100 character"
-msgstr "لطفا آدرس را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/user.php:387
-msgid "Please set instagram less than 100 character"
-msgstr "لطفا شناسه اینستاگرام را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/user.php:394
-msgid "Please set linkedin less than 100 character"
-msgstr "لطفا شناسه لینک‌دین را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/user.php:401
-msgid "Please set facebook less than 100 character"
-msgstr "لطفا شناسه فیس‌بوک را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/user.php:408
-msgid "Please set twitter less than 100 character"
-msgstr "لطفا شناسه تویتر را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/user.php:432 dash/app/user.php:438
-msgid "Invalid shcode"
-msgstr "شماره شناسنامه نامعتبر"
-
-#: dash/app/user.php:450
-msgid "Invalid birthcity"
-msgstr "محل تولد نامعتبر"
-
-#: dash/app/user.php:463
-msgid "Invalid religion"
-msgstr "مذهب نامعتبر"
-
-#: dash/app/user.php:476
-msgid "Invalid avatar"
-msgstr "آواتار نامعتبر"
-
-#: dash/app/user.php:483
-msgid "Invalid education"
-msgstr "تحصیلات نامعتبر"
-
-#: dash/app/user.php:496
-msgid "Invalid educationcourse"
-msgstr "رشته تحصیلی نامعتبر"
-
-#: dash/app/user.php:508
-msgid "Invalid issue place"
-msgstr "محل صدور اشتباه"
-
-#: dash/app/user.php:531
-msgid "Invalid email"
-msgstr "رایانامه اشتباه"
-
-#: dash/app/user.php:543
-msgid "Invalid phone"
-msgstr "شماره تلفن‌همراه نامعتبر"
-
-#: dash/app/user.php:577
-msgid "Permission is incorrect"
-msgstr "مجوز نادرست است"
-
-#: dash/app/user.php:615
-msgid "Please set password larger than 6 character"
-msgstr "لطفا کلمه‌ عبور را بزرگتر از ۶ حرف وارد کنید"
-
-#: dash/app/user.php:637
-msgid "Please set bio less than 100 character"
-msgstr "لطفا زندگینامه را کمتر از ۱۰۰ کاراکتر وارد کنید"
-
-#: dash/app/user.php:644
-msgid "Please set displayname less than 100 character"
-msgstr "لطفا نام را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: dash/app/user.php:652
-msgid "Language is incorrect"
-msgstr "زبان نادرست است"
-
-#: dash/app/user.php:666 dash/utility/filter.php:16 lib/app/store/subdomain.php:62
-msgid "Slug must have at least 5 character"
-msgstr "نامک باید بزرگتر از ۵ کاراکتر باشد"
-
-#: dash/app/user.php:672
-msgid "Please set the username less than 50 character"
-msgstr "شناسه‌ی کاربری جدید باید کمتر از ۵۰ کاراکتر باشد"
-
-#: dash/app/user.php:678
-msgid "Only [A-Za-z0-9_-] can use in username"
-msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
-
-#: dash/app/user.php:684
-msgid "You must use a one character from [A-Za-z] in the username"
-msgstr "شما باید حتما از یک حرف لاتین در نام کاربری استفاده کنید"
-
-#: dash/app/user.php:690 dash/utility/filter.php:40 lib/app/store/subdomain.php:89
-msgid "Slug should contain a Latin letter"
-msgstr "نامک باید شامل حداقل یک حرف لاتین باشد"
-
-#: dash/app/user.php:696
-msgid "The username must begin with latin letters"
-msgstr "نام کاربری باید با حرف لاتین شروع شود"
-
-#: dash/app/user.php:702
-msgid "Only [A-Za-z0-9] can use in username"
-msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
-
-#: dash/app/user.php:709 dash/utility/filter.php:59
-msgid "Username must be less than 50 character"
-msgstr "شناسه‌ی کاربری جدید باید کمتر از ۵۰ کاراکتر باشد"
-
-#: dash/app/user.php:717
-msgid "You can not choose this username"
-msgstr "شما نمی توانید نام کاربری را انتخاب دهید"
-
-#: dash/app/user.php:730
-msgid "Duplicate username"
-msgstr "نام کاربری تکراری است! لطفا یک نام کاربری دیگر انتخاب کنید"
-
-#: dash/app/user.php:755
-msgid "You must set the type less than 50 character"
-msgstr "نوع باید کمتر از 50 کاراکتر باشد"
-
-#: dash/app/user.php:764
-msgid "Parent is incorrect"
-msgstr "والدین نادرست است"
-
-#: dash/app/user.php:779
-msgid "Pin is incorrect"
-msgstr "پین نادرست است"
-
-#: dash/app/user.php:787
-msgid "Ref is incorrect"
-msgstr "مرجع نادرست است"
-
-#: dash/app/user.php:795
-msgid "Unit id is incorrect"
-msgstr "کد واحد مالی نادرست است"
-
-#: dash/app/user.php:832
-msgid "Invalid theme id!"
-msgstr "شناسه قالب اشتباه است!"
-
-#: dash/app/user.php:1100
+#: dash/app/user.php:544
 msgid "Can not remove user by permission"
 msgstr "نمی‌توانید کاربری که داری سطح دسترسی هست را حذف کنید"
 
-#: dash/app/user.php:1106
+#: dash/app/user.php:550
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
-#: dash/app/user/add.php:98 dash/app/user/edit.php:124
+#: dash/app/user/add.php:74 dash/app/user/edit.php:114
 msgid "Duplicate mobile"
 msgstr "تلفن همراه تکراری"
 
-#: dash/app/user/add.php:120 dash/app/user/edit.php:161
+#: dash/app/user/add.php:95 dash/app/user/edit.php:151
 msgid "Duplicate nationalcode or pasportcode in your user list"
 msgstr "این کدملی یا شماره گذرنامه در لیست اعضا شما تکراری است"
 
-#: dash/app/user/add.php:133
+#: dash/app/user/add.php:108
 msgid "No way to insert user"
 msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 
-#: dash/app/user/add.php:153
+#: dash/app/user/add.php:120
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/edit.php:98
-msgid "Can not access to edit staff"
-msgstr "شما برای ویرایش این کارمند دسترسی ندارد"
+#: dash/app/user/edit.php:88
+#, fuzzy
+#| msgid "Can not access to edit term"
+msgid "Can not access to edit user"
+msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
 
-#: dash/app/user/edit.php:134
+#: dash/app/user/edit.php:124
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
 
@@ -15822,7 +15559,7 @@ msgstr "ایمیل تکراری است"
 msgid "Customer not found."
 msgstr "مشتری یافت نشد."
 
-#: dash/app/user/site_list.php:36 lib/app/product/site_list.php:68
+#: dash/app/user/site_list.php:38 lib/app/product/site_list.php:68
 msgid "No result founded!"
 msgstr "نتیجه‌ای یافت نشد!"
 
@@ -15838,7 +15575,7 @@ msgstr "لطفا نام خانوادگی را کمتر از ۲۰۰ حرف وار
 msgid "Please set username less than 200 character"
 msgstr "شناسه‌ی کاربری جدید باید کمتر از ۲۰۰ کاراکتر باشد"
 
-#: dash/app/user_telegram.php:115 lib/app/store/check.php:80
+#: dash/app/user_telegram.php:115 dash/validate/text.php:309 lib/app/store/check.php:80
 msgid "Invalid language"
 msgstr "مقدار رشته زبان اشتباه است"
 
@@ -15858,11 +15595,142 @@ msgstr "هیچ راهی برای ثبت کاربر تلگرام وجود ندا�
 msgid "Can not access to edit user_telegram"
 msgstr "شما دسترسی لازم برای ویرایش این کاربر تلگرام را ندارید"
 
-#: dash/date.php:56 dash/date.php:71
+#: dash/cleanse.php:12
+msgid "First Arguments of input function is required!"
+msgstr ""
+
+#: dash/cleanse.php:18
+msgid "Second Arguments of input function is required!"
+msgstr ""
+
+#: dash/cleanse.php:24
+msgid "Third Arguments of input function must be array!"
+msgstr ""
+
+#: dash/cleanse.php:30
+msgid "Fourth Arguments of input function must be array!"
+msgstr ""
+
+#: dash/cleanse.php:43
+msgid "Index of condition arguments must be string!"
+msgstr ""
+
+#: dash/cleanse.php:86 dash/cleanse.php:150
+#, fuzzy
+#| msgid "Value of carton must be a number"
+msgid "Enum option must be string or number"
+msgstr "تعداد در کارتون باید به صورت عددی وارد شود"
+
+#: dash/cleanse.php:102
+msgid "Field :val must be array"
+msgstr ""
+
+#: dash/cleanse.php:119
+#, fuzzy
+#| msgid "Value of minsale must be a number"
+msgid "Value of :val must be array"
+msgstr "مقدار حداقل فروش را به صورت عددی وارد کنید"
+
+#: dash/cleanse.php:125
+msgid "Value of :val must be array and contain exactly need parameter"
+msgstr ""
+
+#: dash/cleanse.php:135
+#, fuzzy
+#| msgid "This payment is not supported in this system"
+msgid "This array key is not supported!"
+msgstr "این درگاه پرداخت در این سرویس پشتیبانی نمی‌شود"
+
+#: dash/cleanse.php:157
+msgid "Validate array function must be string or array!"
+msgstr ""
+
+#: dash/cleanse.php:170
+msgid "Validate function must be string or array!"
+msgstr ""
+
+#: dash/cleanse.php:180
+#, fuzzy
+#| msgid "No file was received"
+msgid "Needless arguments was received!"
+msgstr "فایلی دریافت نشد"
+
+#: dash/cleanse.php:195
+msgid "Arguments of required field must be string!"
+msgstr ""
+
+#: dash/cleanse.php:201
+msgid "Arguments of required field cannot be empty string!"
+msgstr ""
+
+#: dash/cleanse.php:208
+msgid "Field :val is required but not set in condition args!"
+msgstr ""
+
+#: dash/cleanse.php:232
+#, fuzzy
+#| msgid "File id is required"
+msgid "Field :val is required"
+msgstr "شناسه فایل الزامی است"
+
+#: dash/cleanse.php:254
+msgid "First Arguments of patch mode function is required!"
+msgstr ""
+
+#: dash/cleanse.php:260
+msgid "Second Arguments of patch mode function is required!"
+msgstr ""
+
+#: dash/cleanse.php:283
+#, fuzzy
+#| msgid "title of your store is required"
+msgid "Validate function is required!"
+msgstr "پر کردن عنوان فروشگاه الزامی است"
+
+#: dash/cleanse.php:288
+#, fuzzy
+#| msgid "Value of carton must be a number"
+msgid "Validate function must be string!"
+msgstr "تعداد در کارتون باید به صورت عددی وارد شود"
+
+#: dash/cleanse.php:293
+#, fuzzy
+#| msgid "Category description is too large!"
+msgid "Validate function is too long!"
+msgstr "توضیح دسته‌بندی بسیار طولانی است!"
+
+#: dash/cleanse.php:298
+msgid "Fourth arguments of function data must be array!"
+msgstr ""
+
+#: dash/cleanse.php:346 dash/cleanse.php:361
+#, fuzzy
+#| msgid "Value of carton must be a number"
+msgid "Second part of string function must be a number!"
+msgstr "تعداد در کارتون باید به صورت عددی وارد شود"
+
+#: dash/cleanse.php:351 dash/cleanse.php:366
+#, fuzzy
+#| msgid "Store title must be less than 100 character"
+msgid "Second part of string function must be less than 10 character!"
+msgstr "عنوان فروشگاه باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/cleanse.php:356 dash/cleanse.php:371
+msgid "Second part of string function must be larger than zero!"
+msgstr ""
+
+#: dash/cleanse.php:595
+#, fuzzy
+#| msgid "Invalid action"
+msgid "Invalid vaidate function "
+msgstr "رویداد‌ نامعتبر‌است"
+
+#: dash/date.php:56 dash/date.php:71 dash/validate/datetime.php:82
+#: dash/validate/datetime.php:107
 msgid "Invalid birthday"
 msgstr "تاریخ تولد اشتباه است"
 
-#: dash/date.php:86
+#: dash/date.php:86 dash/validate/datetime.php:98
 msgid "Invalid birthday, birthday can not larger than date now!"
 msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
@@ -15945,7 +15813,6 @@ msgid "Amount must be a number"
 msgstr "مبلغ باید به صورت عددی وارد شود"
 
 #: dash/db/transactions/set.php:188 dash/db/transactions/set.php:205
-#: dash/utility/pay/start.php:220
 msgid "Amount is out of range"
 msgstr "مبلغ خارج از محدوده مجاز است"
 
@@ -16067,15 +15934,7 @@ msgstr "فایل وجود ندارد"
 msgid "Exceeded filesize limit"
 msgstr "ظرفیت فایل بیش از حد مجاز"
 
-#: dash/layout/admin/admin-header.php:23
-msgid "You really want to go?"
-msgstr "واقعا میخوای بری؟"
-
-#: dash/layout/admin/admin-header.php:24
-msgid "We are waiting for you to come back:)"
-msgstr "ما در انتظار بازگشت دوباره شما هستیم:)"
-
-#: dash/layout/admin/admin-header.php:37
+#: dash/layout/admin/admin-header.php:30
 msgid "Enter to have better experience"
 msgstr "وارد شوید تا تجربه بهتری داشته باشید"
 
@@ -16420,11 +16279,7 @@ msgstr "کتابخانه"
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
 
-#: dash/layout/admin/sidebar/sidebar-crm.php:26
-msgid "Quick send"
-msgstr "ارسال سریع"
-
-#: dash/layout/admin/sidebar/sidebar-crm.php:35
+#: dash/layout/admin/sidebar/sidebar-crm.php:24
 msgid "Transactions"
 msgstr "تراکنش‌ها"
 
@@ -16496,63 +16351,69 @@ msgstr "سفارشات"
 msgid "Mailer Error :error"
 msgstr "خطا در ارسال‌کننده ایمیل :error"
 
-#: dash/permission.php:104
+#: dash/permission.php:111
 msgid "Someone have this permission!"
 msgstr "عده ای در لیست این سطح دسترسی وجود دارند!"
 
-#: dash/permission.php:104
+#: dash/permission.php:111
 msgid "Can not remove it."
 msgstr "نمی توانید این مورد را حذف کنید."
 
-#: dash/permission.php:110
+#: dash/permission.php:117
 msgid "Can not remove admin!"
 msgstr "اجازه حذف مدیر کل وجود ندارد!"
 
-#: dash/permission.php:135
+#: dash/permission.php:127
+#, fuzzy
+#| msgid "Term id not found"
+msgid "Permission not found"
+msgstr "کد ترم یافت نشد"
+
+#: dash/permission.php:148
 msgid "Permission removed"
 msgstr "سطح دسترسی حذف شد"
 
-#: dash/permission.php:285
+#: dash/permission.php:298
 msgid "Please set a valid name for permission"
 msgstr "لطفا نام معتبری برای سطح دسترسی انتخاب کنید"
 
-#: dash/permission.php:297 dash/permission.php:308
+#: dash/permission.php:310 dash/permission.php:321
 msgid "This key was reserved, Try another"
 msgstr "این نام قبلا رزرو شده است، نامی دیگر انتخاب کنید"
 
-#: dash/permission.php:316
+#: dash/permission.php:329
 msgid "Can not change admin permission"
 msgstr "امکان تغییر سطح دسترسی مدیر کل وجود ندارد"
 
-#: dash/permission.php:322
+#: dash/permission.php:335
 msgid "This key was not found in your permission list!"
 msgstr "این آیتم در لیست سطوح دسترسی شما یافت نشد!"
 
-#: dash/permission.php:329
+#: dash/permission.php:342
 msgid "The title must include at least one alphabetical character"
 msgstr "عنوان باید حد اقل شامل یک کاراکتر حرفی باشد"
 
-#: dash/permission.php:335
+#: dash/permission.php:348
 msgid "Name too large, Try another"
 msgstr "نام بسیار طولانی است،‌ آن را تغییر دهید"
 
-#: dash/permission.php:342
+#: dash/permission.php:355
 msgid "Label too large, Try another"
 msgstr "برچسب بسیار طولانی است، آن را تغییر دهید"
 
-#: dash/permission.php:348
+#: dash/permission.php:361
 msgid "Invalid contain of permission"
 msgstr "آیتم‌های پرمیژن اشتباه هستند"
 
-#: dash/permission.php:358
+#: dash/permission.php:371
 msgid "This item is not in your permission list!"
 msgstr "این گزینه در لیست سطوح دسترسی شما وجود ندارد!"
 
-#: dash/permission.php:391
+#: dash/permission.php:404
 msgid "Permission saved"
 msgstr "سطح دسترسی ذخیره شد"
 
-#: dash/permission.php:586
+#: dash/permission.php:599
 msgid "Permission denied"
 msgstr "دسترسی غیر مجاز"
 
@@ -16856,6 +16717,12 @@ msgstr "برو به منوی اصلی"
 msgid "Sync with website"
 msgstr "همگام‌سازی با وب‌سایت"
 
+#: dash/social/telegram/commands/ermile.php:332
+#: dash/social/telegram/commands/ermile.php:528
+#: dash/social/telegram/commands/ermileInline.php:76
+msgid "About"
+msgstr "درباره"
+
 #: dash/social/telegram/commands/ermile.php:335
 msgid "Get help commands"
 msgstr "دریافت راهنمایی دستورات"
@@ -17133,8 +17000,10 @@ msgid "Category id not set"
 msgstr "شناسه دسته‌بندی تنظیم نشده"
 
 #: dash/upload/file.php:63
-msgid "Invalid file size"
-msgstr "حجم فایل نامعتبر است"
+#, fuzzy
+#| msgid "Sum price is greater than ..."
+msgid "File size is greater than allowed"
+msgstr "جمع مبلغ بزرگتر از ..."
 
 #: dash/upload/file.php:74
 msgid "Please use from a square image file"
@@ -17144,25 +17013,25 @@ msgstr "لطفا از تصویر مربع استفاده کنید"
 msgid "Directory for upload not found"
 msgstr "دایرکتوری برای آپلود یافت نشد"
 
-#: dash/upload/size.php:73 includes/languages/trans_static_public.php:43
+#: dash/upload/size.php:88 includes/languages/trans_static_public.php:43
 msgid "Byte"
 msgstr "بایت"
 
-#: dash/upload/size.php:73 dash/utility/human.php:103
+#: dash/upload/size.php:88 dash/utility/human.php:103
 #: includes/languages/trans_static_public.php:44
 msgid "KB"
 msgstr "کیلوبایت"
 
-#: dash/upload/size.php:73 dash/utility/human.php:105
+#: dash/upload/size.php:88 dash/utility/human.php:105
 #: includes/languages/trans_static_public.php:46
 msgid "GB"
 msgstr "گیگابایت"
 
-#: dash/upload/size.php:73 includes/languages/trans_static_public.php:47
+#: dash/upload/size.php:88 includes/languages/trans_static_public.php:47
 msgid "TB"
 msgstr "ترابایت"
 
-#: dash/upload/size.php:73 includes/languages/trans_static_public.php:48
+#: dash/upload/size.php:88 includes/languages/trans_static_public.php:48
 msgid "PB"
 msgstr "پترابایت"
 
@@ -17174,15 +17043,15 @@ msgstr "فایلی ارسال نشده"
 msgid "Unknown errors"
 msgstr "خطای نامشخص"
 
-#: dash/upload/validation_file.php:67
+#: dash/upload/validation_file.php:69
 msgid "We not support this file type"
 msgstr "ما این نوع فایل را پشتیبانی نمیکنیم"
 
-#: dash/upload/validation_file.php:78
+#: dash/upload/validation_file.php:80
 msgid "Exceeded file name limit"
 msgstr "نام فایل غیرمجاز"
 
-#: dash/upload/validation_file.php:85
+#: dash/upload/validation_file.php:87
 msgid "Can not upload this file because the extension of file is not allowed"
 msgstr "امکان بارگذاری این نوع فایل وجود ندارد"
 
@@ -17202,49 +17071,53 @@ msgstr "عملیات کلادفلر از طریق ای‌پی‌آی با موف
 msgid "User id not found to save your session"
 msgstr "شناسه کاربر برای ذخیره نشست یافت نشد"
 
-#: dash/utility/enter.php:849
+#: dash/utility/enter.php:845
 msgid "Please fill the verification code"
 msgstr "لطفا کد اعتبارسنجی را وارد کنید"
 
-#: dash/utility/enter.php:858
+#: dash/utility/enter.php:854
 msgid "What happend? the code is number. you try to send string!?"
 msgstr "چی شده؟ کد باید عددی باشد. شما چطوری دارین متن وارد میکنید!؟"
 
-#: dash/utility/enter.php:865
+#: dash/utility/enter.php:861
 msgid "Please enter the 5 digit code sent to your mobile phone"
 msgstr "لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:886
+#: dash/utility/enter.php:882
 msgid "System error, try again"
 msgstr "خطای سیستم، دوباره تلاش کنید"
 
-#: dash/utility/enter.php:910
+#: dash/utility/enter.php:906
 msgid "Your sms not deliver to us!"
 msgstr "پیامک شما بدست ما نرسیده است!"
 
-#: dash/utility/enter.php:954
+#: dash/utility/enter.php:950
 msgid "Wrong code entered, Please enter the 5 digit code sent to your mobile phone"
 msgstr "کد اشتباهی وارد شده است، لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:1182
+#: dash/utility/enter.php:1178
 msgid "Your two-step verification is now active for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما فعال است"
 
-#: dash/utility/enter.php:1208
+#: dash/utility/enter.php:1204
 msgid "Your two-step verification is now deactive for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما غیر فعال است"
 
-#: dash/utility/enter.php:1231
+#: dash/utility/enter.php:1227
 msgid "Your password was changed"
 msgstr "کلمه عبور شما تغییر یافت"
 
-#: dash/utility/enter.php:1400
+#: dash/utility/enter.php:1396
 msgid "You must set 6 character and large in password"
 msgstr "گذرواژه باید حداقل ۶ کاراکتر باشد"
 
-#: dash/utility/enter.php:1407
+#: dash/utility/enter.php:1403
 msgid "You must set less than 99 character in password"
 msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
+
+#: dash/utility/filter.php:16 dash/validate/subdomain.php:43
+msgid "Slug must have at least 5 character"
+msgstr "نامک باید بزرگتر از ۵ کاراکتر باشد"
 
 #: dash/utility/filter.php:22
 msgid "Please set the slug less than 50 character"
@@ -17258,13 +17131,21 @@ msgstr "شما باید فقط از حروف و اعداد لاتین در نا�
 msgid "You must use a one character from [A-Za-z] in the slug"
 msgstr "شما باید حتما از یک حرف لاتین در نامک فروشگاه استفاده کنید"
 
+#: dash/utility/filter.php:40 dash/validate/subdomain.php:70
+msgid "Slug should contain a Latin letter"
+msgstr "نامک باید شامل حداقل یک حرف لاتین باشد"
+
 #: dash/utility/filter.php:46
 msgid "The slug must begin with latin letters"
 msgstr "نامک باید با حرف لاتین شروع شود"
 
+#: dash/utility/filter.php:59
+msgid "Username must be less than 50 character"
+msgstr "شناسه‌ی کاربری جدید باید کمتر از ۵۰ کاراکتر باشد"
+
 #: dash/utility/filter.php:67
 msgid "You can not choose this slug"
-msgstr "شما نمی توانید نامک را انتخاب دهید"
+msgstr "شما نمی توانید نامک را انتخاب کنید"
 
 #: dash/utility/git.php:125 dash/utility/git.php:289
 msgid "Not Work!"
@@ -17791,11 +17672,11 @@ msgstr "پرداخت توسط :bank"
 msgid "This payment is not supported in this system"
 msgstr "این درگاه پرداخت در این سرویس پشتیبانی نمی‌شود"
 
-#: dash/utility/pay/start.php:177
+#: dash/utility/pay/start.php:179
 msgid "Invalid amount"
 msgstr "مقدار نامعتبر"
 
-#: dash/utility/pay/start.php:227
+#: dash/utility/pay/start.php:225
 msgid "Pay whith :bank"
 msgstr "پرداخت با :bank"
 
@@ -17818,6 +17699,254 @@ msgstr "Jibres.com"
 #: dash/utility/theme.php:12
 msgid "Night"
 msgstr "شب"
+
+#: dash/validate/dataarray.php:22 dash/validate/datetime.php:22
+#: dash/validate/datetime.php:139
+msgid "Field :val must be string or number"
+msgstr ""
+
+#: dash/validate/dataarray.php:33
+#, fuzzy
+#| msgid "Invalid param :val"
+msgid "Invalid data for :val"
+msgstr "پارامتر :val اشتباه است"
+
+#: dash/validate/dataarray.php:42
+msgid "Enum condition must be array"
+msgstr ""
+
+#: dash/validate/datetime.php:31 dash/validate/datetime.php:148
+#, fuzzy
+#| msgid "Title must be less than 100 character"
+msgid "Field :val must be larger than 2 character"
+msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/validate/datetime.php:41
+#, fuzzy
+#| msgid "Title must be less than 100 character"
+msgid "Field :val must be less than 30 character"
+msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/validate/datetime.php:51
+msgid "Field :val is not a date field"
+msgstr ""
+
+#: dash/validate/datetime.php:158
+#, fuzzy
+#| msgid "Title must be less than 100 character"
+msgid "Field :val must be less than 8 character"
+msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/validate/datetime.php:188
+#, fuzzy
+#| msgid "Invalid tag format"
+msgid "Invalid time format"
+msgstr "فرمت تگ نادرست است"
+
+#: dash/validate/location.php:29 lib/app/nic_contact/add.php:238
+#: lib/app/setting/setup.php:318
+msgid "Invalid country"
+msgstr "کشور نامعتبر"
+
+#: dash/validate/location.php:60 lib/app/setting/setup.php:337
+msgid "Invalid province"
+msgstr "استان نامعتبر"
+
+#: dash/validate/mobile.php:30 dash/validate/text.php:22
+msgid "Field :val must be string"
+msgstr ""
+
+#: dash/validate/mobile.php:58
+msgid "Mobile cannot be contained non digit character"
+msgstr ""
+
+#: dash/validate/mobile.php:67
+#, fuzzy
+#| msgid "Invalid mobile"
+msgid "Invalid mobile number!"
+msgstr "شماره‌ی تلفن همراه نامعتبر است"
+
+#: dash/validate/mobile.php:77
+#, fuzzy
+#| msgid "Title must be less than 100 character"
+msgid "Mobile must between 8 and 15 character"
+msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/validate/mobile.php:98
+#, fuzzy
+#| msgid "Store mobile must be less than 50 character"
+msgid "The IR mobile number must be contain exactly 12 character"
+msgstr "موبایل فروشگاه باید کمتر از ۵۰ کاراکتر باشد"
+
+#: dash/validate/mobile.php:107
+msgid "The IR mobile number must be start 989"
+msgstr ""
+
+#: dash/validate/nationalcode.php:24
+#, fuzzy
+#| msgid "Value of minsale must be a number"
+msgid "national code must be a number"
+msgstr "مقدار حداقل فروش را به صورت عددی وارد کنید"
+
+#: dash/validate/nationalcode.php:75
+#, fuzzy
+#| msgid "Invalid nationalcode"
+msgid "Invalid national code"
+msgstr "کد ملی اشتباه است"
+
+#: dash/validate/number.php:29
+#, fuzzy
+#| msgid "Value of minsale must be a number"
+msgid "Field :val must be a number"
+msgstr "مقدار حداقل فروش را به صورت عددی وارد کنید"
+
+#: dash/validate/number.php:39
+msgid "Number is infinite"
+msgstr ""
+
+#: dash/validate/number.php:50
+#, fuzzy
+#| msgid "Serial is out of range"
+msgid "Number is out of range"
+msgstr "شماره سریال خارج از محدوده مجاز است"
+
+#: dash/validate/number.php:62
+msgid "Field :val must be larger than :min"
+msgstr ""
+
+#: dash/validate/number.php:75
+#, fuzzy
+#| msgid "Firstname must be less than 70 character"
+msgid "Field :val must be less than :max"
+msgstr "نام باید کمتر از ۷۰ کاراکتر باشد"
+
+#: dash/validate/password.php:89
+#, fuzzy
+#| msgid "Enter your password"
+msgid "Do not use space in your password"
+msgstr "کلمه عبور خود را وارد کنید"
+
+#: dash/validate/password.php:99
+#, fuzzy
+#| msgid "This key was reserved, Try another"
+msgid "Crazy password, Try another"
+msgstr "این نام قبلا رزرو شده است، نامی دیگر انتخاب کنید"
+
+#: dash/validate/password.php:109
+msgid "Can not use 123456 in your password, Try another"
+msgstr ""
+
+#: dash/validate/password.php:119
+#, fuzzy
+#| msgid "You must set less than 99 character in password"
+msgid "Please use more than 3 unique character in your password"
+msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
+
+#: dash/validate/subdomain.php:26
+msgid "Please fill subdomain"
+msgstr "لطفا زیردامنه را وارد کنید"
+
+#: dash/validate/subdomain.php:52
+msgid "Please set the subdomain less than 50 character"
+msgstr "لطفا زیردامنه را کمتر از ۵۰ حرف وارد کنید"
+
+#: dash/validate/subdomain.php:61
+msgid "Only [A-Za-z0-9-_] can use in subdomain"
+msgstr "شما باید فقط از حروف و اعداد لاتین در زیردامنه استفاده کنید"
+
+#: dash/validate/subdomain.php:79
+msgid "The subdomain must begin with latin letters"
+msgstr "زیردامنه باید با حرف لاتین شروع شود"
+
+#: dash/validate/subdomain.php:88 dash/validate/subdomain.php:97
+msgid "The subdomain must have one separator"
+msgstr "زیردامنه می‌بایست تنها یک جداکننده داشته باشد"
+
+#: dash/validate/subdomain.php:106
+msgid "Can not use subdomain by jibres keyword"
+msgstr "نمی‌توانید از کلمه جیبرس در زیردامنه استفاده کنید"
+
+#: dash/validate/subdomain.php:115 dash/validate/subdomain.php:124
+#: dash/validate/subdomain.php:133 dash/validate/subdomain.php:142
+#: dash/validate/subdomain.php:151
+msgid "You can not choose this subdomain"
+msgstr "شما نمی توانید زیردامنه را انتخاب کنید"
+
+#: dash/validate/text.php:42
+#, fuzzy
+#| msgid "Title must be less than 100 character"
+msgid "Field :val must be less than :length character"
+msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/validate/text.php:54
+#, fuzzy
+#| msgid "Title must be less than 100 character"
+msgid "Field :val must be larger than :length character"
+msgstr "عنوان باید کمتر از ۱۰۰ حرف باشد"
+
+#: dash/validate/text.php:106
+msgid "We have removed some unauthorized characters from your text"
+msgstr ""
+
+#: dash/validate/text.php:145
+#, fuzzy
+#| msgid "Slug should contain a Latin letter"
+msgid "Username should contain a valid Latin letter"
+msgstr "نامک باید شامل حداقل یک حرف لاتین باشد"
+
+#: dash/validate/text.php:152
+msgid "We have removed _- characters from username"
+msgstr ""
+
+#: dash/validate/text.php:160
+#, fuzzy
+#| msgid "Username must be less than 50 character"
+msgid "Field username must be larger than 5 character"
+msgstr "شناسه‌ی کاربری جدید باید کمتر از ۵۰ کاراکتر باشد"
+
+#: dash/validate/text.php:171
+msgid "Only [A-Za-z0-9_-] can use in username"
+msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
+
+#: dash/validate/text.php:180
+msgid "You must use a one character from [A-Za-z] in the username"
+msgstr "شما باید حتما از یک حرف لاتین در نام کاربری استفاده کنید"
+
+#: dash/validate/text.php:189
+#, fuzzy
+#| msgid "Slug should contain a Latin letter"
+msgid "Username should contain a Latin letter"
+msgstr "نامک باید شامل حداقل یک حرف لاتین باشد"
+
+#: dash/validate/text.php:198
+msgid "The username must begin with latin letters"
+msgstr "نام کاربری باید با حرف لاتین شروع شود"
+
+#: dash/validate/text.php:223
+#, fuzzy
+#| msgid "Customer detail is invalid"
+msgid "Email is invalid"
+msgstr "اطلاعات مشتری اشتباه است"
+
+#: dash/validate/text.php:286
+#, fuzzy
+#| msgid "Invalid id"
+msgid "Invalid md5"
+msgstr "شناسه نامعتبر"
+
+#: dash/validate/text.php:403 lib/app/product/check.php:960
+msgid "Please set the sku less than 16 character"
+msgstr "لطفا کد محصول را کمتر از ۱۶ حرف وارد کنید"
+
+#: dash/validate/text.php:409 lib/app/product/check.php:966
+msgid "Only [A-Za-z0-9_-] can use in sku"
+msgstr "شما باید فقط از حروف و اعداد لاتین در کد محصول استفاده کنید"
+
+#: dash/validate/text.php:431
+#, fuzzy
+#| msgid "Fileaddres is invalid"
+msgid "Url is invalid"
+msgstr "آدرس فایل نادرست است"
 
 #: includes/languages/trans_static.php:9
 msgid "Set home page number"
@@ -22878,35 +23007,35 @@ msgstr "تغییر نویسنده مطالب"
 msgid "Contributor"
 msgstr "مشارکت کننده"
 
-#: lib/app/application/detail.php:37 lib/app/application/detail.php:197
+#: lib/app/application/detail.php:39 lib/app/application/detail.php:218
 msgid "Please set your application title"
 msgstr "لطفا عنوان برنامه را وارد کنید"
 
-#: lib/app/application/detail.php:43
+#: lib/app/application/detail.php:45
 msgid "Your application title must be less than 20 character"
 msgstr "عنوان اپلیکیشن فروشگاه باید کمتر از ۲۰ کاراکتر باشد"
 
-#: lib/app/application/detail.php:54
+#: lib/app/application/detail.php:56
 msgid "Your application desc must be less than 150 character"
 msgstr "توضیح اپلیکیشن فروشگاه باید کمتر از ۱۵۰ کاراکتر باشد"
 
-#: lib/app/application/detail.php:66
+#: lib/app/application/detail.php:68
 msgid "Your application slogan must be less than 50 character"
 msgstr "شعار اپلیکیشن فروشگاه باید کمتر از ۵۰ کاراکتر باشد"
 
-#: lib/app/application/detail.php:74
+#: lib/app/application/detail.php:76
 msgid "Application setting set"
 msgstr "تنظیمات اپلیکیشن انجام شد"
 
-#: lib/app/application/detail.php:191
+#: lib/app/application/detail.php:212
 msgid "Please set your application logo"
 msgstr "لطفا لوگوی اپلیکیشن خود را انتخاب کنید"
 
-#: lib/app/application/detail.php:203
+#: lib/app/application/detail.php:224
 msgid "Please set your application intro theme"
 msgstr "لطفا قالب صفحه مقدمه را انتخاب کنید"
 
-#: lib/app/application/detail.php:209
+#: lib/app/application/detail.php:230
 msgid "Please set your application splash theme"
 msgstr "لطفا قالب صفحه اسپلش را انتخاب کنید"
 
@@ -22938,27 +23067,27 @@ msgstr "قالب صفحه اینترو اشتباه است"
 msgid "Application intro set"
 msgstr "تنظیم صفحه اینترو اپلیکیشن انجام شد"
 
-#: lib/app/application/queue.php:49
+#: lib/app/application/queue.php:50
 msgid "Your application need some detail to ready to build"
 msgstr "برنامه شما برای ساخته شدن نیاز به اطلاعاتی دارند که باید آنها را تکمیل کنید"
 
-#: lib/app/application/queue.php:103
+#: lib/app/application/queue.php:104
 msgid "Your build request has been queued"
 msgstr "درخواست ساخته شدن برنامه شما در صف انتظار قرار گرفت"
 
-#: lib/app/application/queue.php:172
+#: lib/app/application/queue.php:178
 msgid "Please set the status"
 msgstr "لطفا وضعیت را وارد کنید"
 
-#: lib/app/application/queue.php:179
+#: lib/app/application/queue.php:185
 msgid "Please set the store code"
 msgstr "لطفا کد‌ فروشگاه را وارد کنید"
 
-#: lib/app/application/queue.php:215
+#: lib/app/application/queue.php:221
 msgid "Queue status updated"
 msgstr "جزئیات صف به‌روزرسانی شد"
 
-#: lib/app/application/queue.php:220
+#: lib/app/application/queue.php:226
 msgid "This id is not current application id"
 msgstr "این گزینه آخرین رکورد اپلیکیشن نیست"
 
@@ -23217,6 +23346,10 @@ msgstr "نوع فاکتور نامعتبر است"
 msgid "Customer detail is invalid"
 msgstr "اطلاعات مشتری اشتباه است"
 
+#: lib/app/factor/check.php:95
+msgid "Invalid gender"
+msgstr "جنسیت نامعتبر"
+
 #: lib/app/factor/check.php:112
 msgid ""
 "This thirdparyt already added to your store. plase set her mobile or change the name"
@@ -23394,9 +23527,17 @@ msgstr "لطفا نام خانوادگی خود را با حروف لاتین و
 msgid "Please choose your country"
 msgstr "لطفا کشور خود را انتخاب کنید"
 
+#: lib/app/nic_contact/add.php:250 lib/app/setting/setup.php:331
+msgid "Please set province less than 100 character"
+msgstr "لطفا استان را کمتر از ۱۰۰ حرف وارد کنید"
+
 #: lib/app/nic_contact/add.php:256
 msgid "Please set your province in latin characters"
 msgstr "لطفا استان را به انگلیسی وارد کنید"
+
+#: lib/app/nic_contact/add.php:263 lib/app/setting/setup.php:344
+msgid "Please set city less than 100 character"
+msgstr "لطفا شهر را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: lib/app/nic_contact/add.php:270 lib/app/setting/setup.php:350
 msgid "Please choose your province"
@@ -24096,14 +24237,6 @@ msgstr "تخفیف خارج از محدوده مجاز است"
 msgid "Final price is out of range"
 msgstr "قیمت خارج از محدوده مجاز است"
 
-#: lib/app/product/check.php:960
-msgid "Please set the sku less than 16 character"
-msgstr "لطفا کد محصول را کمتر از ۱۶ حرف وارد کنید"
-
-#: lib/app/product/check.php:966
-msgid "Only [A-Za-z0-9_-] can use in sku"
-msgstr "شما باید فقط از حروف و اعداد لاتین در کد محصول استفاده کنید"
-
 #: lib/app/product/check.php:979
 msgid "Duplicate sku code"
 msgstr "کد محصول تکراری است"
@@ -24534,6 +24667,14 @@ msgstr "اطلاعات وارد شده خارج از محدوده مجاز اس�
 msgid "Please choose yoru file"
 msgstr "لطفا فایل خود را انتخاب کنید"
 
+#: lib/app/setting/setup.php:312
+msgid "Please set country less than 100 character"
+msgstr "لطفا کشور را کمتر از ۱۰۰ حرف وارد کنید"
+
+#: lib/app/setting/setup.php:363
+msgid "Please set address less than 300 character"
+msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
+
 #: lib/app/setting/setup.php:369
 msgid "Please fill your address"
 msgstr "لطفا آدرس خود را وارد کنید"
@@ -24541,6 +24682,18 @@ msgstr "لطفا آدرس خود را وارد کنید"
 #: lib/app/setting/setup.php:375
 msgid "This address is too short. Please enter your full address"
 msgstr "این آدرس بسیار کوتاه است. لطفا آدرس کامل خود را وارد کنید"
+
+#: lib/app/setting/setup.php:393
+msgid "Please set postcode less than 50 character"
+msgstr "کدپستی باید کمتر از ۵۰ کاراکتر باشد"
+
+#: lib/app/setting/setup.php:407
+msgid "Please set phone less than 50 character"
+msgstr "تلفن باید کمتر از ۵۰ کاراکتر باشد"
+
+#: lib/app/setting/setup.php:416
+msgid "Please set fax less than 50 character"
+msgstr "فکس باید کمتر از ۵۰ کاراکتر باشد"
 
 #: lib/app/setting/setup.php:443 lib/app/setting/setup.php:457
 #: lib/app/setting/setup.php:471
@@ -24584,28 +24737,20 @@ msgstr "شما نمی‌توانید بیش از سه فروشگاه رایگا�
 msgid "Contact Us if you need more stores"
 msgstr "اگر به فروشگاه‌های بیشتری نیاز دارید با ما تماس بگیرید"
 
-#: lib/app/store/add.php:89
-msgid "Please fill the store title"
-msgstr "لطفا عنوان فروشگاه را وارد کنید"
-
-#: lib/app/store/add.php:95
-msgid "Please fill the store title less than 200 character"
-msgstr "لطفا عنوان فروشگاه را کمتر از ۲۰۰ حرف وارد کنید"
-
-#: lib/app/store/add.php:109 lib/app/store/subdomain.php:23
+#: lib/app/store/add.php:110 lib/app/store/subdomain.php:23
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً اشغال شده است"
 
-#: lib/app/store/add.php:151 lib/app/store/add.php:166 lib/app/store/add.php:181
-#: lib/app/store/add.php:196
+#: lib/app/store/add.php:153 lib/app/store/add.php:169 lib/app/store/add.php:185
+#: lib/app/store/add.php:201
 msgid "Can not add your store"
 msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
 
-#: lib/app/store/add.php:208
+#: lib/app/store/add.php:213
 msgid "We can not create your store!"
 msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
-#: lib/app/store/add.php:229
+#: lib/app/store/add.php:234
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
@@ -24708,40 +24853,6 @@ msgstr "بله؛ من صاحب کسب و کار هستم"
 #: lib/app/store/polls.php:68
 msgid "No, I'm developing a store for a client"
 msgstr "خیر؛ من در حال ایجاد فروشگاه برای مشتری خودم هستم"
-
-#: lib/app/store/subdomain.php:38
-msgid "Please fill subdomain"
-msgstr "لطفا زیردامنه را وارد کنید"
-
-#: lib/app/store/subdomain.php:47
-msgid "Please set subdomain as string!"
-msgstr "لطفا زیردامنه را به صورت متنی وارد کنید!"
-
-#: lib/app/store/subdomain.php:71
-msgid "Please set the subdomain less than 50 character"
-msgstr "لطفا زیردامنه را کمتر از ۵۰ حرف وارد کنید"
-
-#: lib/app/store/subdomain.php:80
-msgid "Only [A-Za-z0-9-_] can use in subdomain"
-msgstr "شما باید فقط از حروف و اعداد لاتین در زیردامنه استفاده کنید"
-
-#: lib/app/store/subdomain.php:98
-msgid "The subdomain must begin with latin letters"
-msgstr "زیردامنه باید با حرف لاتین شروع شود"
-
-#: lib/app/store/subdomain.php:107 lib/app/store/subdomain.php:116
-msgid "The subdomain must have one separator"
-msgstr "زیردامنه می‌بایست تنها یک جداکننده داشته باشد"
-
-#: lib/app/store/subdomain.php:125
-msgid "Can not use subdomain by jibres keyword"
-msgstr "نمی‌توانید از کلمه جیبرس در زیردامنه استفاده کنید"
-
-#: lib/app/store/subdomain.php:134 lib/app/store/subdomain.php:143
-#: lib/app/store/subdomain.php:152 lib/app/store/subdomain.php:161
-#: lib/app/store/subdomain.php:170
-msgid "You can not choose this subdomain"
-msgstr "شما نمی توانید زیردامنه را انتخاب دهید"
 
 #: lib/currency.php:12
 msgid "Iranian Toman"
@@ -25531,11 +25642,263 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "2th Floor"
+#~ msgstr "طبقه دوم"
+
+#~ msgid "Haft-e-tir 1 St"
+#~ msgstr "خیابان هفت تیر، کوچه یکم"
+
+#~ msgid "Qom, IRAN"
+#~ msgstr "ایران، قم"
+
+#~ msgid "Proudly Made in IRAN"
+#~ msgstr "با افتخار ساخت ایران"
+
+#~ msgid "If you have a promo code, please enter it below to receive your credit."
+#~ msgstr "اگر کد تخفیف دارید، برای دریافت اعتبار در کادر زیر وارد کنید."
+
+#~ msgid "Promo Code"
+#~ msgstr "کد تخفیف"
+
+#~ msgid "Apply Code"
+#~ msgstr "اعمال کد"
+
+#~ msgid "Invalid promo code"
+#~ msgstr "کد اعتبار هدیه نامعتبر است"
+
+#~ msgid "You try to referral yourself!"
+#~ msgstr "شما نمی‌توانید معرف خودتان باشید!"
+
+#~ msgid "You have ref. can not set another ref"
+#~ msgstr "شما معرف دارید. نمی‌توانید معرف دیگری را برای خود ثبت کنید"
+
+#~ msgid "Ref not found"
+#~ msgstr "معرف پیدا نشد"
+
+#~ msgid "Promo for using ref"
+#~ msgstr "هدیه استفاده از برنامه معرفی"
+
+#~ msgid "Someone used your ref link in her referral"
+#~ msgstr "شخصی از لینک معرفی شما استفاده کرد"
+
+#~ msgid "Your are using referral program and your account was charged"
+#~ msgstr "شما از برنامه معرفی استفاده کردید و حساب کاربری شما شارژ شد"
+
+#~ msgid "Your ref was set and your account was charge"
+#~ msgstr "معرف شما ثبت شد و حساب کاربری شما شارژ شد"
+
+#~ msgid "This is not your address!"
+#~ msgstr "این آدرس شما نیست!"
+
+#~ msgid "Id number"
+#~ msgstr "شماره شناسنامه"
+
+#~ msgid "Please set the transaction title"
+#~ msgstr "لطفا یک عنوان برای‌تراکنش وارد کنید‌‌"
+
+#~ msgid "Please select one of the unit items"
+#~ msgstr "لطفا یکی از واحدها را انتخاب کنید"
+
+#~ msgid "Mobile can not be null"
+#~ msgstr "موبایل نمی‌تواند خالی باشد"
+
+#~ msgid "Please select one of the type items"
+#~ msgstr "لطفا یک نوع را انتخاب کنید"
+
+#~ msgid "Please fill the minus or plus field"
+#~ msgstr "لطفا مقداری برای افزودن یا کاستن وارد کنید"
+
+#~ msgid "Invalid plus field"
+#~ msgstr "مقدار افزودن اشتباه است"
+
+#~ msgid "Invalid minus field"
+#~ msgstr "مقدار کاستن اشتباه است"
+
+#~ msgid "We detected two accout for you"
+#~ msgstr "ما متوجه وجود دو حساب کاربری برای شما شدیم"
+
+#~ msgid "Please remove one of them and"
+#~ msgstr "لطفا یکی را حذف کنید و"
+
+#~ msgid "if you want to delete this account"
+#~ msgstr "اگر می‌خواهید این حساب کاربری را حذف کنید"
+
+#~ msgid "click here"
+#~ msgstr "اینجا کلیک کنید"
+
+#~ msgid "Request delete account"
+#~ msgstr "درخواست حذف حساب کاربری"
+
+#~ msgid "Pleaes set a valid mobile number"
+#~ msgstr "لطفا شماره تلفن‌همراه معتبری وارد کنید"
+
+#~ msgid "Pleaes set a valid password"
+#~ msgstr "لطفا گذرواژه‌ی معتبری تنظیم کنید"
+
+#~ msgid "Invalid full name"
+#~ msgstr "نام کامل اشتباه"
+
+#~ msgid "Please select one way to send code"
+#~ msgstr "لطفا راهی برای ارسال کد انتخاب کنید"
+
+#~ msgid "Please fill the content"
+#~ msgstr "لطفا متن را وارد کنید"
+
+#~ msgid "Max size 5 MB"
+#~ msgstr "حداکثر اندازه فایل ۵ مگابایت است."
+
+#~ msgid "Please set title less than 100 character"
+#~ msgstr "لطفا عنوان را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set name less than 100 character"
+#~ msgstr "لطفا نام را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set companyname less than 100 character"
+#~ msgstr "لطفا نام شرکت را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set jobtitle less than 100 character"
+#~ msgstr "لطفا عنوان شغلی را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please fill the address"
+#~ msgstr "لطفا آدرس را وارد کنید"
+
+#~ msgid "Please set address2 less than 300 character"
+#~ msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
+
+#~ msgid "Plese set firstname less than 100 character"
+#~ msgstr "طول رشته نام باید کمتر از ۱۰۰ کاراکتر باشد"
+
+#~ msgid "Invalid father"
+#~ msgstr "نام پدر نامعتبر"
+
+#~ msgid "Invalid nationality"
+#~ msgstr "ملیت نادرست"
+
+#~ msgid "Invalid nationalcode syntax"
+#~ msgstr "ساختار کدملی نامعتبر است"
+
+#~ msgid "Invalid pasportcode"
+#~ msgstr "شماره گذرنامه نامعتبر"
+
+#~ msgid "Invalid pasportdate"
+#~ msgstr "تاریخ گذرنامه نامعتبر"
+
+#~ msgid "Invalid marital"
+#~ msgstr "وضعیت تاهل نامعتبر"
+
+#~ msgid "Please set website less than 100 character"
+#~ msgstr "لطفا آدرس را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set instagram less than 100 character"
+#~ msgstr "لطفا شناسه اینستاگرام را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set linkedin less than 100 character"
+#~ msgstr "لطفا شناسه لینک‌دین را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set facebook less than 100 character"
+#~ msgstr "لطفا شناسه فیس‌بوک را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Please set twitter less than 100 character"
+#~ msgstr "لطفا شناسه تویتر را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Invalid shcode"
+#~ msgstr "شماره شناسنامه نامعتبر"
+
+#~ msgid "Invalid birthcity"
+#~ msgstr "محل تولد نامعتبر"
+
+#~ msgid "Invalid religion"
+#~ msgstr "مذهب نامعتبر"
+
+#~ msgid "Invalid avatar"
+#~ msgstr "آواتار نامعتبر"
+
+#~ msgid "Invalid education"
+#~ msgstr "تحصیلات نامعتبر"
+
+#~ msgid "Invalid educationcourse"
+#~ msgstr "رشته تحصیلی نامعتبر"
+
+#~ msgid "Invalid issue place"
+#~ msgstr "محل صدور اشتباه"
+
+#~ msgid "Invalid email"
+#~ msgstr "رایانامه اشتباه"
+
+#~ msgid "Invalid phone"
+#~ msgstr "شماره تلفن‌همراه نامعتبر"
+
+#~ msgid "Permission is incorrect"
+#~ msgstr "مجوز نادرست است"
+
+#~ msgid "Please set password larger than 6 character"
+#~ msgstr "لطفا کلمه‌ عبور را بزرگتر از ۶ حرف وارد کنید"
+
+#~ msgid "Please set bio less than 100 character"
+#~ msgstr "لطفا زندگینامه را کمتر از ۱۰۰ کاراکتر وارد کنید"
+
+#~ msgid "Please set displayname less than 100 character"
+#~ msgstr "لطفا نام را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Language is incorrect"
+#~ msgstr "زبان نادرست است"
+
+#~ msgid "Please set the username less than 50 character"
+#~ msgstr "شناسه‌ی کاربری جدید باید کمتر از ۵۰ کاراکتر باشد"
+
+#~ msgid "Only [A-Za-z0-9] can use in username"
+#~ msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
+
+#~ msgid "You can not choose this username"
+#~ msgstr "شما نمی توانید نام کاربری را انتخاب دهید"
+
+#~ msgid "Duplicate username"
+#~ msgstr "نام کاربری تکراری است! لطفا یک نام کاربری دیگر انتخاب کنید"
+
+#~ msgid "You must set the type less than 50 character"
+#~ msgstr "نوع باید کمتر از 50 کاراکتر باشد"
+
+#~ msgid "Parent is incorrect"
+#~ msgstr "والدین نادرست است"
+
+#~ msgid "Pin is incorrect"
+#~ msgstr "پین نادرست است"
+
+#~ msgid "Ref is incorrect"
+#~ msgstr "مرجع نادرست است"
+
+#~ msgid "Unit id is incorrect"
+#~ msgstr "کد واحد مالی نادرست است"
+
+#~ msgid "Invalid theme id!"
+#~ msgstr "شناسه قالب اشتباه است!"
+
+#~ msgid "Can not access to edit staff"
+#~ msgstr "شما برای ویرایش این کارمند دسترسی ندارد"
+
+#~ msgid "You really want to go?"
+#~ msgstr "واقعا میخوای بری؟"
+
+#~ msgid "We are waiting for you to come back:)"
+#~ msgstr "ما در انتظار بازگشت دوباره شما هستیم:)"
+
+#~ msgid "Quick send"
+#~ msgstr "ارسال سریع"
+
+#~ msgid "Invalid file size"
+#~ msgstr "حجم فایل نامعتبر است"
+
+#~ msgid "Please fill the store title"
+#~ msgstr "لطفا عنوان فروشگاه را وارد کنید"
+
+#~ msgid "Please fill the store title less than 200 character"
+#~ msgstr "لطفا عنوان فروشگاه را کمتر از ۲۰۰ حرف وارد کنید"
+
+#~ msgid "Please set subdomain as string!"
+#~ msgstr "لطفا زیردامنه را به صورت متنی وارد کنید!"
+
 #~ msgid "Download your application now"
 #~ msgstr "هم‌اکنون اپلیکیشن خود را دانلود کنید"
-
-#~ msgid "Rebuild"
-#~ msgstr "ساخت مجدد"
 
 #~ msgid "Exceeded file extension limit"
 #~ msgstr "نوع فایل غیرمجاز"

@@ -314,6 +314,10 @@ class cleanse
 		{
 			$field_title = $_meta['field_title'];
 		}
+		else
+		{
+			$field_title = $element;
+		}
 
 		// call function stirng_50 or string_500_20
 		if(substr($function, 0, 6) === 'string')
@@ -601,8 +605,12 @@ class cleanse
 
 	private static function bye($_msg = null)
 	{
+		if($_msg)
+		{
+			\dash\notif::error($_msg);
+		}
 		// \dash\notif::api($_msg);
-		// \dash\header::status(406, $_msg);
+		// \dash\header::status(423, $_msg);
 		\dash\header::set(423);
 		\dash\code::end();
 	}
