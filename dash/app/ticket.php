@@ -356,6 +356,8 @@ class ticket
 			$_args['sort'] = null;
 		}
 
+		$_string = \dash\validate::search($_string);
+
 		$result            = \dash\db\tickets::search($_string, $_args);
 		$temp              = [];
 
