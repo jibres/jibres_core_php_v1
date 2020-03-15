@@ -15,7 +15,7 @@ class controller
 
 	private static function loadTicketDetail()
 	{
-		$id = \dash\request::get('id');
+		$id = \dash\validate::id(\dash\request::get('id'));
 		if(!$id)
 		{
 			return false;

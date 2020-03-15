@@ -7,6 +7,7 @@ class controller
 	public static function routing()
 	{
 		$child = \dash\url::child();
+		$child = \dash\validate::slug($child);
 		$child = urldecode($child);
 		if(!$child)
 		{

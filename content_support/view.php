@@ -71,7 +71,8 @@ class view
 	public static function acceessModeDetector()
 	{
 		$selected_access = 'mine';
-		$get_access      = \dash\request::get('access');
+		$get_access      = \dash\validate::enum(\dash\request::get('access'), null, ['enum' => ['mine', 'all', 'manage']]);
+
 		if($get_access)
 		{
 			$selected_access = $get_access;

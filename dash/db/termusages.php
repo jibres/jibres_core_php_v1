@@ -178,7 +178,9 @@ class termusages
 					$values[] = "NULL";
 				}
 			}
-			$together[] = join($values, ",");
+
+			$together[] = implode(',', $values);
+
 			$values = [];
 		}
 
@@ -187,9 +189,9 @@ class termusages
 			return null;
 		}
 
-		$fields = join(array_keys($fields), ",");
+		$fields = implode(',', array_keys($fields));
 
-		$values = join($together, "),(");
+		$values = implode("),(", $together);
 
 		$ignore = null;
 		if($_options['ignore'])

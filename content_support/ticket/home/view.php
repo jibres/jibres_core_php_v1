@@ -170,7 +170,7 @@ class view
 			$args['tickets.status'] = ["NOT IN", "('deleted', 'spam')"];
 		}
 
-		$user = \dash\request::get('user');
+		$user = \dash\validate::code(\dash\request::get('user'));
 
 		if($user)
 		{
@@ -182,13 +182,7 @@ class view
 		}
 
 
-
-		$subdomain = \dash\request::get('subdomain');
-
-
-
-
-		$tag = \dash\request::get('tag');
+		$tag = \dash\validate::slug(\dash\request::get('tag'));
 
 		if($tag && \dash\permission::check('supportTicketManage'))
 		{
@@ -247,7 +241,7 @@ class view
 			// $temp['answertime']     = isset($value['answertime']) ? $value['answertime'] : null;
 			// $temp['openNewTab']     = isset($value['openNewTab']) ? $value['openNewTab'] : null;
 
-			$temp['subdomain']         = isset($value['subdomain']) ? $value['subdomain'] : null;
+
 			$temp['solved']            = isset($value['solved']) ? $value['solved'] : null;
 			$temp['via']               = isset($value['via']) ? $value['via'] : null;
 			$temp['see']               = isset($value['see']) ? $value['see'] : null;
@@ -281,7 +275,7 @@ class view
 
 		if(\dash\request::get('user'))
 		{
-			$user = \dash\coding::decode(\dash\request::get('user'));
+			$user = \dash\coding::decode(\dash\validate::code(\dash\request::get('user')));
 			if($user && \dash\permission::check('supportTicketManage'))
 			{
 				$args['tickets.user_id'] = $user;

@@ -242,6 +242,12 @@ class cleanse
 					continue;
 				}
 
+				if(!array_key_exists($required_field, $_args))
+				{
+					// not reseive required field
+					continue;
+				}
+
 				$field_title = $required_field;
 				if(isset($_meta['field_title'][$required_field]) && is_string($_meta['field_title'][$required_field]))
 				{
@@ -485,6 +491,11 @@ class cleanse
 			case 'email':
 				$data = \dash\validate\text::email($_data, $_notif, $element, $field_title, $meta);
 				break;
+
+			case 'md5':
+				$data = \dash\validate\text::md5($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 
 			// *************** date validate
 			case 'birthdate':

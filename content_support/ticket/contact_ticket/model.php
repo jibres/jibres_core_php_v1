@@ -56,22 +56,7 @@ class model
 			return false;
 		}
 
-		$post_content = null;
-		$fn_args = func_get_args();
-		if(isset($fn_args[0]) && is_string($fn_args[0]) && $fn_args[0])
-		{
-			$post_content = $fn_args[0];
-		}
-
-		// get the content
-		if($post_content)
-		{
-			$content = $post_content;
-		}
-		else
-		{
-			$content = \dash\request::post("content");
-		}
+		$content = \dash\validate::desc(\dash\request::post("content"));
 
 		// check content
 		if($content == '' || !trim($content))
@@ -93,43 +78,22 @@ class model
 			\dash\header::status(422, T_("Can not set 2 link in one message!"));
 		}
 
+		$mobile      = null;
+		$displayname = null;
+
 		// check login
 		if(\dash\user::login())
 		{
 			// add new ticket
 			$user_id = \dash\user::id();
-
-			// get mobile from user login session
-			$mobile = \dash\user::detail('mobile');
-
-			if(!$mobile)
-			{
-				$mobile = \dash\request::post('mobile');
-			}
-
-			// get display name from user login session
-			$displayname = \dash\user::detail("displayname");
-			// user not set users display name, we get display name from contact form
-			if(!$displayname)
-			{
-				$displayname = \dash\request::post("name");
-			}
-			// get email from user login session
-			$email = \dash\user::detail('email');
-			// user not set users email, we get email from contact form
-			if(!$email)
-			{
-				$email = \dash\request::post("email");
-			}
-
 		}
 		else
 		{
 			// users not registered
 			$user_id     = null;
-			$displayname = \dash\request::post("name");
-			$email       = \dash\request::post("email");
-			$mobile      = \dash\request::post("mobile");
+			$displayname = \dash\validate::displayname(\dash\request::post("name"));
+			$email       = \dash\validate::email(\dash\request::post("email"));
+			$mobile      = \dash\validate::mobile(\dash\request::post("mobile"));
 
 			$content_temp = null;
 
@@ -156,43 +120,37 @@ class model
 		 */
 		if($mobile && !\dash\user::login())
 		{
-			// check valid mobile
-			$mobile = \dash\utility\convert::to_en_number($mobile);
-			if($mobile = \dash\utility\filter::mobile($mobile))
+
+			// check existing mobile
+			$exists_user = \dash\db\users::get_by_mobile($mobile);
+
+			// register if the mobile is valid
+			if(!$exists_user || empty($exists_user))
 			{
-				// check existing mobile
-				$exists_user = \dash\db\users::get_by_mobile($mobile);
+				// signup user by site_guest
+				$user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'displayname' => $displayname]);
 
-				// register if the mobile is valid
-				if(!$exists_user || empty($exists_user))
+				if(!$user_id)
 				{
-					// signup user by site_guest
-					$user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'displayname' => $displayname]);
-
-					if(!$user_id)
-					{
-						$user_id = null;
-					}
-
-					// save log by caller 'user:send:contact:register:by:mobile'
-					\dash\log::set('contactRegisterByMobile');
+					$user_id = null;
 				}
-				elseif(isset($exists_user['id']))
-				{
-					$user_id = $exists_user['id'];
-				}
+
+				// save log by caller 'user:send:contact:register:by:mobile'
+				\dash\log::set('contactRegisterByMobile');
 			}
+			elseif(isset($exists_user['id']))
+			{
+				$user_id = $exists_user['id'];
+			}
+
 		}
 
 		$args =
 		[
-			'author'  => $displayname,
-			'email'   => $email,
 			'type'    => 'ticket',
 			'via'     => 'contact',
 			'content' => $content,
 			'title'   => \dash\temp::get('tempTicketTitle') ? \dash\temp::get('tempTicketTitle') : T_("Contact Us"),
-			'mobile'  => $mobile,
 			'user_id' => $user_id,
 
 		];

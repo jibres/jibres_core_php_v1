@@ -270,6 +270,28 @@ class text
 	}
 
 
+	public static function md5($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 32, 'max' => 32]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!preg_match("/^[A-Za-z0-9]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid md5"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 
 	public static function language($_data, $_notif = false, $_element = null, $_field_title = null)
 	{

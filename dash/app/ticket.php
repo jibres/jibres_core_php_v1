@@ -27,26 +27,6 @@ class ticket
 	public static $master_join = "LEFT JOIN users ON users.id = tickets.user_id ";
 
 
-	public static function lates_ticket($_args = [])
-	{
-		if(!isset($_args['limit']))
-		{
-			$_args['limit'] = 5;
-		}
-
-		$_args['order_raw'] = 'tickets.id DESC';
-		$_args['pagenation'] = false;
-		$_args['parent'] = null;
-
-		$list = \dash\db\tickets::search(null, $_args);
-
-		if(is_array($list))
-		{
-			$list = array_map(['\\dash\\app\\ticket', 'ready'], $list);
-		}
-
-		return $list;
-	}
 
 	public static function get_user_in_ticket($_ticket_detail)
 	{
@@ -242,6 +222,8 @@ class ticket
 	public static function get($_id)
 	{
 
+		$_id = \dash\validate::id($_id);
+
 		if(!$_id || !is_numeric($_id))
 		{
 			return false;
@@ -263,23 +245,16 @@ class ticket
 
 	public static function add($_args)
 	{
-		$content = null;
-		// if(isset($_args['content']))
-		// {
-		// 	$content = \dash\safe::safe($_args['content'], 'sqlinjection');
-		// }
 
-		\dash\app::variable($_args, ['raw_field' => ['content']]);
 
 		// check args
-		$args = self::check();
+		$args = self::check($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$args['content']    = \dash\app::request('content');
 
 		if(isset($args['user_id']) && is_numeric($args['user_id']))
 		{
@@ -289,11 +264,6 @@ class ticket
 				'content' => $args['content'],
 				'limit'   => 1,
 			];
-
-			if(isset($args['post_id']) && $args['post_id'])
-			{
-				$check_duplicate['post_id'] = $args['post_id'];
-			}
 
 			if(isset($args['parent']) && $args['parent'])
 			{
@@ -324,32 +294,10 @@ class ticket
 			return false;
 		}
 
-		// $replace =
-		// [
-		// 	'displayname'   => \dash\user::detail('displayname'),
-		// 	'link'          => \dash\url::this(). '/show?id='. $ticket_id,
-		// 	'code'          => $ticket_id,
-		// 	'ticketContent' => strip_tags($args['content']),
-		// 	'ticketTitle'   => isset($args['title']) ? $args['title'] : null,
-		// ];
-
-		// \dash\log::set('newTicket', $replace);
-
-		// $notif_args =
-		// [
-		// 	'send_msg'    =>
-		// 	[
-		// 		'telegram' => strip_tags($args['content'])
-		// 	],
-		// ];
-
-		// \dash\notification::send('newTicket', null, $replace, $notif_args);
-
-
 		$return            = [];
 		$return['id']      = $ticket_id;
 		$return['date']    = $dateNow;
-		$return['code']    = md5((string) $ticket_id. '^_^-*_*'. $dateNow);
+		$return['code']    = md5((string) $ticket_id. '^_^-*_*)JIBRES));))__'. $dateNow);
 		$return['codeurl'] = \dash\url::kingdom(). '/support/ticket/show?id='. $return['id']. '&guest='. $return['code'];
 		return $return;
 	}
@@ -357,14 +305,8 @@ class ticket
 
 	public static function edit($_args, $_id)
 	{
-		$content = null;
-		if(isset($_args['content']))
-		{
-			$content = \dash\safe::safe($_args['content'], 'sqlinjection');
-		}
 
-		\dash\app::variable($_args);
-		// check args
+		$_id = \dash\validate::id($_id);
 
 		if(!$_id || !is_numeric($_id))
 		{
@@ -372,34 +314,23 @@ class ticket
 			return false;
 		}
 
-		$args = self::check($_id);
+		$args = self::check($_args, $_id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
-		$args['content'] = $content;
 
-		if(!\dash\app::isset_request('status')) unset($args['status']);
-		if(!\dash\app::isset_request('content')) unset($args['content']);
-		// if(!\dash\app::isset_request('author')) unset($args['author']);
-		if(!\dash\app::isset_request('type'))   unset($args['type']);
-		if(!\dash\app::isset_request('user_id')) unset($args['user_id']);
-		if(!\dash\app::isset_request('post_id')) unset($args['post_id']);
-		if(!\dash\app::isset_request('meta'))   unset($args['meta']);
-		if(!\dash\app::isset_request('mobile')) unset($args['mobile']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('file')) unset($args['file']);
-		if(!\dash\app::isset_request('parent')) unset($args['parent']);
-		if(!\dash\app::isset_request('via')) unset($args['via']);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
-		if(isset($args['status']) && $args['status'] === 'deleted')
+		if($args)
 		{
-			\dash\permission::check('cpCommentsDelete');
+			\dash\log::set('editComment', ['code' => $_id]);
+
+			return \dash\db\tickets::update($args, $_id);
 		}
-		\dash\log::set('editComment', ['code' => $_id, 'datalink' => \dash\coding::encode($_id)]);
-		return \dash\db\tickets::update($args, $_id);
 	}
+
 
 
 	public static function list($_string = null, $_args = [])
@@ -442,105 +373,34 @@ class ticket
 	}
 
 
-	public static function check($_id = null, $_option = [])
+	public static function check($_args, $_id = null)
 	{
 
+		$content_condition = 'desc';
 
-		$default_option =
+		if(\dash\permission::check('supportTicketSignature'))
+		{
+			$content_condition = 'html';
+		}
+
+		$condition =
 		[
-			'meta' => [],
+			'title'   => 'title',
+			'status'  => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
+			'via'     => ['enum' => ['site', 'telegram', 'sms', 'contact', 'admincontact', 'app']],
+			'type'    => 'string_50',
+			'user_id' => 'id',
+			'file'    => 'string',
+			'content' => $content_condition,
+			'parent'  => 'id',
 		];
 
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
+		$require = ['content'];
+		$meta    = [];
 
-		$_option = array_merge($default_option, $_option);
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$content = \dash\app::request('content');
-
-		if(!$content && \dash\app::isset_request('content'))
-		{
-			\dash\notif::error(T_("Please fill the content box"), 'content');
-			return false;
-		}
-
-		// $author = \dash\app::request('author');
-		// if($author && mb_strlen($author) >= 100)
-		// {
-		// 	$author = substr($author, 0, 99);
-		// }
-
-		$type = \dash\app::request('type');
-		if($type && mb_strlen($type) >= 50)
-		{
-			$type = substr($type, 0, 49);
-		}
-
-		$meta = \dash\app::request('meta');
-		if($meta && (is_array($meta) || is_object($meta)))
-		{
-			$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
-		}
-
-		$mobile = \dash\app::request('mobile');
-		if($mobile && mb_strlen($mobile) > 15)
-		{
-			$mobile = substr($mobile, 0, 14);
-		}
-
-		$user_id = \dash\app::request('user_id');
-		if($user_id && !is_numeric($user_id))
-		{
-			$user_id = null;
-		}
-
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']))
-		{
-			\dash\notif::error(T_("Invalid status"), 'status');
-			return false;
-		}
-
-		$via = \dash\app::request('via');
-		if($via && !in_array($via, ['site', 'telegram', 'sms', 'contact', 'admincontact', 'app']))
-		{
-			\dash\notif::error(T_("Invalid via"), 'via');
-			return false;
-		}
-
-
-		$title = \dash\app::request('title');
-		if($title && mb_strlen($title) > 400)
-		{
-			\dash\notif::error(T_("Title is out of range!"));
-			return false;
-		}
-
-		$file = \dash\app::request('file');
-		$parent = \dash\app::request('parent');
-		if(\dash\app::isset_request('parent') && \dash\app::request('parent') && !is_numeric($parent))
-		{
-			\dash\notif::error(T_("Invalid parent"));
-			return false;
-		}
-
-
-		$args            = [];
-		$args['status']  = $status ? $status : 'awaiting';
-		// $args['author']  = $author;
-		$args['type']    = $type;
-		$args['user_id'] = $user_id;
-
-		$args['meta']    = $meta;
-		// $args['mobile']  = $mobile;
-		$args['title']   = $title;
-		$args['file']    = $file;
-		$args['parent']  = $parent;
-		$args['via']     = $via;
-
-		return $args;
+		return $data;
 	}
 
 
@@ -614,7 +474,7 @@ class ticket
 					$datecreated = isset($_data['datecreated']) ? $_data['datecreated'] : null;
 					if($datecreated)
 					{
-						$result['code'] =  md5((string) $value. '^_^-*_*'. $datecreated);
+						$result['code'] =  md5((string) $value. '^_^-*_*)JIBRES));))__'. $datecreated);
 					}
 					break;
 

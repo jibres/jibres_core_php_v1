@@ -7,7 +7,12 @@ class model
 	public static function post()
 	{
 
-		$id = \dash\request::get('id');
+		$id = \dash\validate::id(\dash\request::get('id'));
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
 
 		if(\dash\request::post('TicketFormType') === 'tag')
 		{
@@ -152,7 +157,7 @@ class model
 		// check is my ticket and some permission to load guest , ...
 		$is_my_ticket = \content_support\ticket\show\view::is_my_ticket($main);
 
-		$status = $_status;
+		$status = \dash\validate::string($_status);
 
 		if(!in_array($status, ['close','deleted','awaiting', 'spam']))
 		{
@@ -328,12 +333,8 @@ class model
 		// ready to insert tickets
 		$args =
 		[
-			'author'  => \dash\user::detail('displayname'),
-			'email'   => \dash\user::detail('email'),
 			'type'    => $ticket_type,
 			'content' => $content,
-			// 'title'   => \dash\request::post('title'),
-			'mobile'  => \dash\user::detail("mobile"),
 			'user_id' => \dash\user::id(),
 			'parent'  => $_id,
 			'file'    => isset($file['path']) ? $file['path'] : null,
@@ -373,14 +374,6 @@ class model
 				{
 
 					\dash\permission::access('supportTicketAnswer');
-
-					if(array_key_exists('subdomain', $main))
-					{
-						if($main['subdomain'] != \dash\url::subdomain())
-						{
-							\dash\permission::access('supportTicketManageSubdomain');
-						}
-					}
 
 					$log =
 					[

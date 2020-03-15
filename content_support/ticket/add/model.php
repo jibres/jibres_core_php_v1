@@ -9,12 +9,9 @@ class model
 		$args =
 		[
 			'title'   => $_title,
-			'author'  => \dash\user::detail('displayname'),
-			'email'   => \dash\user::detail('email'),
 			'type'    => 'ticket',
 			'content' => $_content,
 			'via'     => $_via,
-			'mobile'  => \dash\user::detail("mobile"),
 			'file'    => $_file,
 			'user_id' => \dash\user::id(),
 		];
@@ -93,12 +90,7 @@ class model
 			\dash\header::status(422, T_("Can not set 2 link in one message!"));
 		}
 
-		$title = null;
-		if(\dash\request::get('title'))
-		{
-			$title = \dash\request::get('title');
-			$title = substr($title, 0, 50);
-		}
+		$title = \dash\validate::string_50(\dash\request::get('title'));
 
 		// insert tickets
 		$result = self::add_new('site', $content, $file['path'], $title);

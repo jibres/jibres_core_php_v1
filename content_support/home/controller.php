@@ -15,30 +15,38 @@ class controller
 		else
 		{
 
-			$check_arg =
-			[
-				'type'   => 'help',
-				'slug'   => urldecode(\dash\url::directory()),
-				'limit'  => 1
-			];
+			$directory = \dash\url::directory();
+			$directory = \dash\validate::slug($directory);
 
-			if(\dash\permission::check('cpHelpCenterEditForOthers'))
+			if($directory)
 			{
-				$check_arg['status']   = ["NOT IN", "('deleted')"];
-			}
-			else
-			{
-				$check_arg['status'] = 'publish';
-			}
+				$check_arg =
+				[
+					'type'   => 'help',
+					'slug'   => urldecode($directory),
+					'limit'  => 1
+				];
 
 
-			$check = \dash\db\posts::get($check_arg);
-			if($check)
-			{
-				\dash\data::isHelpCenter(true);
-				\dash\data::moduelRow($check);
-				\dash\open::get();
+				if(\dash\permission::check('cpHelpCenterEditForOthers'))
+				{
+					$check_arg['status']   = ["NOT IN", "('deleted')"];
+				}
+				else
+				{
+					$check_arg['status'] = 'publish';
+				}
 
+
+				$check = \dash\db\posts::get($check_arg);
+				if($check)
+				{
+					\dash\data::isHelpCenter(true);
+					\dash\data::moduelRow($check);
+					\dash\open::get();
+
+
+				}
 
 			}
 		}
