@@ -133,7 +133,7 @@ if (\dash\data::include_editor())
     if(file_exists(\dash\layout\func::script_addr()))
     {
       echo "<script>";
-      \dash\layout\func::script_addr();
+      echo file_get_contents(\dash\layout\func::script_addr());
       echo "</script>";
     }
   }
