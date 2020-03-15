@@ -196,7 +196,7 @@ class find
 		{
 			if(file_exists(\dash\layout\func::script_addr()))
 			{
-				echo file_get_contents(\dash\layout\func::script_addr());
+				include_once(\dash\layout\func::script_addr());
 			}
 		}
   		echo "</script>";
