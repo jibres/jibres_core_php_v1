@@ -1,6 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-
   $.ajax(
     {
      url : "<?php echo \dash\url::that(); ?>",
@@ -27,5 +24,3 @@ document.addEventListener('DOMContentLoaded', function() {
    });
 
   $("#linkmhe").delay( (60 * 1000) ).fadeIn( 400 );
-
-}, false);
