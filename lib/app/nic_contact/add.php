@@ -12,16 +12,14 @@ class add
 			return false;
 		}
 
-		if(!$_nic_id || !is_string($_nic_id))
+		$_nic_id = \dash\validate::irnic_id($_nic_id);
+
+		if(!$_nic_id)
 		{
 			\dash\notif::error(T_("Invalid contact"));
 			return false;
 		}
 
-		if(substr($_nic_id, -6) !== '-irnic')
-		{
-			$_nic_id = $_nic_id. '-irnic';
-		}
 
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_nic_id);
 		if($check_duplicate)
@@ -59,16 +57,13 @@ class add
 			return false;
 		}
 
-		if(!$_old_contact || !is_string($_old_contact))
+		$_old_contact = \dash\validate::irnic_id($_old_contact);
+
+
+		if(!$_old_contact)
 		{
 			\dash\notif::error(T_("Invalid IRNIC Handle"));
 			return false;
-		}
-
-
-		if(substr($_old_contact, -6) !== '-irnic')
-		{
-			$_old_contact = $_old_contact. '-irnic';
 		}
 
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_old_contact);
@@ -108,9 +103,9 @@ class add
 	private static function add_account($_detail, $_title = null)
 	{
 
-		$id     = isset($_detail['id']) ? $_detail['id'] : null;
-		$roid   = isset($_detail['roid']) ? $_detail['roid'] : null;
-		$email  = isset($_detail['email']) ? $_detail['email'] : null;
+		$id     = isset($_detail['id']) ? \dash\validate::string($_detail['id']) : null;
+		$roid   = isset($_detail['roid']) ? \dash\validate::string($_detail['roid']) : null;
+		$email  = isset($_detail['email']) ? \dash\validate::string($_detail['email']) : null;
 
 		$holder = isset($_detail['holder']) ? $_detail['holder'] : null;
 		$admin  = isset($_detail['admin']) ? $_detail['admin'] : null;
@@ -173,53 +168,45 @@ class add
 			return false;
 		}
 
+		$condition =
+		[
+			'title'        => 'title',
+			'firstname'    => 'displayname',
+			'lastname'     => 'displayname',
+			'nationalcode' => 'nationalcode',
+			'email'        => 'email',
+			'country'      => 'country',
+			'province'     => 'string',
+			'city'         => 'string',
+			'postcode'     => 'postcode',
+			'phone'        => 'phone',
+			'address'      => 'address',
+		];
 
-		$title    	  = (isset($_args['title']) 	    && is_string($_args['title']))		     ? $_args['title'] 		    : null;
-		$firstname    = (isset($_args['firstname']) 	&& is_string($_args['firstname']))		 ? $_args['firstname'] 	 	: null;
-		$lastname     = (isset($_args['lastname']) 		&& is_string($_args['lastname']))		 ? $_args['lastname'] 		: null;
-		$nationalcode = (isset($_args['nationalcode']) 	&& is_string($_args['nationalcode']))	 ? $_args['nationalcode'] 	: null;
-		$email        = (isset($_args['email']) 		&& is_string($_args['email']))			 ? $_args['email'] 			: null;
-		$country      = (isset($_args['country']) 		&& is_string($_args['country']))		 ? $_args['country'] 		: null;
-		$province     = (isset($_args['province']) 		&& is_string($_args['province']))		 ? $_args['province'] 		: null;
-		$city         = (isset($_args['city']) 			&& is_string($_args['city']))			 ? $_args['city'] 			: null;
-		$postcode     = (isset($_args['postcode']) 		&& is_string($_args['postcode']))		 ? $_args['postcode'] 		: null;
-		$phone        = (isset($_args['phone']) 		&& is_string($_args['phone']))			 ? $_args['phone'] 			: null;
-		$address      = (isset($_args['address']) 		&& is_string($_args['address']))		 ? $_args['address'] 		: null;
+		$require = ['firstname', 'lastname', 'country', 'province', 'city', 'postcode','address', 'nationalcode'];
 
-		$nationalcode = \dash\number::clean($nationalcode);
-		$postcode     = \dash\number::clean($postcode);
-		$phone        = \dash\number::clean($phone);
+		$meta =
+		[
+			'field_title' =>
+			[
 
+			],
+		];
 
-		if($title && mb_strlen($title) > 100)
-		{
-			\dash\notif::error(T_("Title must be less than 100 character"), 'title');
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if(!$firstname)
-		{
-			\dash\notif::error(T_("Firstname is required"), 'firstname');
-			return false;
-		}
+		$title    	  = $data['title'];
+		$firstname    = $data['firstname'];
+		$lastname     = $data['lastname'];
+		$nationalcode = $data['nationalcode'];
+		$email        = $data['email'];
+		$country      = $data['country'];
+		$province     = $data['province'];
+		$city         = $data['city'];
+		$postcode     = $data['postcode'];
+		$phone        = $data['phone'];
+		$address      = $data['address'];
 
-		if(mb_strlen($firstname) > 70)
-		{
-			\dash\notif::error(T_("Firstname must be less than 70 character"), 'firstname');
-			return false;
-		}
-
-		if(!$lastname)
-		{
-			\dash\notif::error(T_("Firstname is required"), 'lastname');
-			return false;
-		}
-
-		if(mb_strlen($lastname) > 70)
-		{
-			\dash\notif::error(T_("Firstname must be less than 70 character"), 'lastname');
-			return false;
-		}
 
 		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $firstname))
 		{
@@ -233,23 +220,6 @@ class add
 			return false;
 		}
 
-		if($country && !\dash\utility\location\countres::check($country))
-		{
-			\dash\notif::error(T_("Invalid country"), 'country');
-			return false;
-		}
-
-		if(!$country)
-		{
-			\dash\notif::error(T_("Please choose your country"), 'country');
-			return false;
-		}
-
-		if($province && mb_strlen($province) > 100)
-		{
-			\dash\notif::error(T_("Please set province less than 100 character"), 'province');
-			return false;
-		}
 
 		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $province))
 		{
@@ -257,66 +227,9 @@ class add
 			return false;
 		}
 
-
-		if($city && mb_strlen($city) > 100)
-		{
-			\dash\notif::error(T_("Please set city less than 100 character"), 'city');
-			return false;
-		}
-
-
-		if(!$province)
-		{
-			\dash\notif::error(T_("Please choose your province"), 'province');
-			return false;
-		}
-
-		if(!$city)
-		{
-			\dash\notif::error(T_("Please choose your city"), 'city');
-			return false;
-		}
-
 		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $city))
 		{
 			\dash\notif::error(T_("Please set your city in latin characters"), 'city');
-			return false;
-		}
-
-		if(!$nationalcode)
-		{
-			\dash\notif::error(T_("Please set your nationalcode"), 'nationalcode');
-			return false;
-		}
-
-		if(!\dash\utility\filter::nationalcode($nationalcode))
-		{
-			\dash\notif::error(T_("Invalid nationalcode"), 'nationalcode');
-			return false;
-		}
-
-		if(!$postcode)
-		{
-			\dash\notif::error(T_("Please set postcode"), 'postcode');
-			return false;
-		}
-
-		if(!is_numeric($postcode))
-		{
-			\dash\notif::error(T_("Please set pos code as a number"), 'postcode');
-			return false;
-		}
-
-
-		if(!$address)
-		{
-			\dash\notif::error(T_("Please set address"), 'address');
-			return false;
-		}
-
-		if(mb_strlen($address) > 100)
-		{
-			\dash\notif::error(T_("Please set address less than 100 characters"), 'address');
 			return false;
 		}
 

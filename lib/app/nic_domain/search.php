@@ -28,25 +28,25 @@ class search
 			return false;
 		}
 
-
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-			'holder' => null,
-			'admin'  => null,
-			'tech'   => null,
-			'bill'   => null,
-			'dns'    => null,
-
+			'order' => 'order',
+			'sort'  => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'dns'   => 'code',
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
 
-		$_args       = array_merge($default_args, $_args);
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$and         = [];
 		$meta        = [];
@@ -58,13 +58,13 @@ class search
 		$order_sort  = null;
 
 
-		if($_args['dns'])
+		if($data['dns'])
 		{
-			$dns_id = \dash\coding::decode($_args['dns']);
+			$dns_id = \dash\coding::decode($data['dns']);
 			if($dns_id)
 			{
 				$and[]                      = " domain.dns = $dns_id ";
-				self::$filter_args[T_("DNS")] = $_args['dns'];
+				self::$filter_args[T_("DNS")] = $data['dns'];
 				self::$is_filtered          = true;
 			}
 		}
@@ -76,7 +76,7 @@ class search
 			return false;
 		}
 
-		$query_string = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
@@ -89,16 +89,16 @@ class search
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
+			if(in_array($data['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";
@@ -179,24 +179,26 @@ class search
 
 		$userId = \dash\user::id();
 
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-			'holder' => null,
-			'admin'  => null,
-			'tech'   => null,
-			'bill'   => null,
-			'dns'    => null,
-
+			'order' => 'order',
+			'sort'  => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'dns'   => 'code',
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
 
-		$_args       = array_merge($default_args, $_args);
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 
 		$and         = [];
 		$meta        = [];
@@ -208,13 +210,13 @@ class search
 		$order_sort  = null;
 
 
-		if($_args['dns'])
+		if($data['dns'])
 		{
-			$dns_id = \dash\coding::decode($_args['dns']);
+			$dns_id = \dash\coding::decode($data['dns']);
 			if($dns_id)
 			{
 				$and[]                      = " domain.dns = $dns_id ";
-				self::$filter_args[T_("DNS")] = $_args['dns'];
+				self::$filter_args[T_("DNS")] = $data['dns'];
 				self::$is_filtered          = true;
 			}
 		}
@@ -226,7 +228,7 @@ class search
 			return false;
 		}
 
-		$query_string = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
@@ -239,16 +241,16 @@ class search
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
+			if(in_array($data['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";

@@ -28,23 +28,24 @@ class search
 			return false;
 		}
 
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-			'holder' => null,
-			'admin'  => null,
-			'tech'   => null,
-			'bill'   => null,
-
+			'order'  => 'order',
+			'sort'   => ['enum' => ['title', 'ns1', 'status']],
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
 
-		$_args       = array_merge($default_args, $_args);
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$and         = [];
 		$meta        = [];
@@ -52,18 +53,9 @@ class search
 
 		$meta['limit'] = 20;
 
-
 		$order_sort  = null;
 
-
-
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
-
-		$query_string = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
@@ -74,21 +66,20 @@ class search
 			$or[]        = " dns.ns3 LIKE '$query_string%'";
 			$or[]        = " dns.ns4 LIKE '$query_string%'";
 
-
 			self::$is_filtered = true;
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['title', 'ns1', 'status']))
+			if(in_array($data['sort'], ['title', 'ns1', 'status']))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";

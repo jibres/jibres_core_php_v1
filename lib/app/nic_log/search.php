@@ -28,25 +28,26 @@ class search
 			return false;
 		}
 
-
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-			'holder' => null,
-			'admin'  => null,
-			'tech'   => null,
-			'bill'   => null,
-			'type'    => null,
-
+			'order' => 'order',
+			'sort'  => ['enum' => ['id', 'type',]],
+			'type'  => 'string_50'
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
 
-		$_args       = array_merge($default_args, $_args);
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 
 		$and         = [];
 		$meta        = [];
@@ -58,11 +59,11 @@ class search
 		$order_sort  = null;
 
 
-		if($_args['type'])
+		if($data['type'])
 		{
 
-			$and[]                      = " log.type = '$_args[type]' ";
-			self::$filter_args[T_("Type")] = $_args['type'];
+			$and[]                      = " log.type = '$data[type]' ";
+			self::$filter_args[T_("Type")] = $data['type'];
 			self::$is_filtered          = true;
 
 		}
@@ -87,16 +88,16 @@ class search
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['id', 'type',]))
+			if(in_array($data['sort'], ['id', 'type',]))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";

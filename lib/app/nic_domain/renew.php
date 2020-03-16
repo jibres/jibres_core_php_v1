@@ -12,28 +12,26 @@ class renew
 			return;
 		}
 
-		$domain = isset($_args['domain']) 	? $_args['domain'] 	: null;
+		$condition =
+		[
+			'domain'      => 'ir_domain',
+			'period'      => ['enum' => ['1year', '5year']],
+		];
 
-		$period = isset($_args['period']) 	? $_args['period'] 	: null;
+		$require = ['domain', 'period'];
 
-		if(!$domain)
-		{
-			\dash\notif::error(T_("Please set domain"));
-			return false;
-		}
+		$meta =
+		[
+			'field_title' =>
+			[
 
+			],
+		];
 
-		if(!\lib\app\nic_domain\check::syntax_ir($domain))
-		{
-			\dash\notif::error(T_("Invalid domain syntax, Only ir domain can be renew"));
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if(!in_array($period, ['1year', '5year']))
-		{
-			\dash\notif::error(T_("Please choose your period of renew domain"));
-			return false;
-		}
+		$domain = $data['domain'];
+		$period = $data['period'];
 
 		$transaction_id = null;
 

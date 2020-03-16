@@ -7,8 +7,8 @@ class get
 
 	public static function by_id($_id)
 	{
-
-		if(!is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;

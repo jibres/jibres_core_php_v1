@@ -6,6 +6,12 @@ class edit
 {
 	public static function domain($_args, $_id, $_type = null)
 	{
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
 		$load_domain = \lib\app\nic_domain\get::by_id($_id);
 		if(!$load_domain || !isset($load_domain['id']))
 		{
@@ -34,60 +40,55 @@ class edit
 			return false;
 		}
 
+		$condition =
+		[
+			'ns1'    => 'dns',
+			'ns2'    => 'dns',
+			'ns3'    => 'dns',
+			'ns4'    => 'dns',
+
+			'ip1'    => 'ip',
+			'ip2'    => 'ip',
+			'ip3'    => 'ip',
+			'ip4'    => 'ip',
+
+			'dnsid'  => 'string',
+			'admin'  => 'irnic_id',
+			'holder' => 'irnic_id',
+			'tech'   => 'irnic_id',
+			'bill'   => 'irnic_id',
+		];
+
+		$require = [];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$ns1   = $data['ns1'];
+		$ip1   = $data['ip1'];
+
+		$ns2   = $data['ns2'];
+		$ip2   = $data['ip2'];
+
+		$ns3   = $data['ns3'];
+		$ip3   = $data['ip3'];
+
+		$ns4   = $data['ns4'];
+		$ip4   = $data['ip4'];
 
 
-		$ns1   = isset($_args['ns1']) 	? $_args['ns1']		: null;
-		$ip1   = isset($_args['ip1']) 	? $_args['ip1']		: null;
+		$holder = $data['holder'];
+		$admin  = $data['admin'];
+		$tech   = $data['tech'];
+		$bill   = $data['bill'];
 
-		$ns2   = isset($_args['ns2']) 	? $_args['ns2']		: null;
-		$ip2   = isset($_args['ip2']) 	? $_args['ip2']		: null;
-
-		$ns3   = isset($_args['ns3']) 	? $_args['ns3']		: null;
-		$ip3   = isset($_args['ip3']) 	? $_args['ip3']		: null;
-
-		$ns4   = isset($_args['ns4']) 	? $_args['ns4']		: null;
-		$ip4   = isset($_args['ip4']) 	? $_args['ip4']		: null;
-
-
-		$holder = isset($_args['holder']) 	? $_args['holder']		: null;
-		$admin  = isset($_args['admin']) 	? $_args['admin']		: null;
-		$tech   = isset($_args['tech']) 	? $_args['tech']		: null;
-		$bill   = isset($_args['bill']) 	? $_args['bill']		: null;
-
-		if($holder && substr($holder, -6) !== '-irnic')
-		{
-			$holder = $holder. '-irnic';
-		}
-
-		if($admin && substr($admin, -6) !== '-irnic')
-		{
-			$admin = $admin. '-irnic';
-		}
-
-		if($bill && substr($bill, -6) !== '-irnic')
-		{
-			$bill = $bill. '-irnic';
-		}
-
-		if($tech && substr($tech, -6) !== '-irnic')
-		{
-			$tech = $tech. '-irnic';
-		}
-
-		$ns1 = \lib\app\nic_dns\add::validate_ns($ns1, 'ns1');
-		$ns2 = \lib\app\nic_dns\add::validate_ns($ns2, 'ns2');
-		$ns3 = \lib\app\nic_dns\add::validate_ns($ns3, 'ns3');
-		$ns4 = \lib\app\nic_dns\add::validate_ns($ns4, 'ns4');
-
-		$ip1 = \lib\app\nic_dns\add::validate_ip($ip1, 'ip1');
-		$ip2 = \lib\app\nic_dns\add::validate_ip($ip2, 'ip2');
-		$ip3 = \lib\app\nic_dns\add::validate_ip($ip3, 'ip3');
-		$ip4 = \lib\app\nic_dns\add::validate_ip($ip4, 'ip4');
-
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
 
 
 		$args                        = [];
@@ -357,24 +358,39 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+
 		$load_domain = \lib\app\nic_domain\get::by_id($_id);
 		if(!$load_domain || !isset($load_domain['id']))
 		{
 			return false;
 		}
 
-		\dash\app::variable($_args);
 
-		$args = \lib\app\nic_domain\check::variable();
+		$condition =
+		[
+			'autorenew' => 'bit',
+			'status'    => ['enum' => ['awaiting','failed','pending','enable','disable','deleted','expire']],
+		];
 
-		if(!$args || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$require = [];
 
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		if(!\dash\app::isset_request('autorenew')) unset($args['autorenew']);
-		if(!\dash\app::isset_request('status')) unset($args['status']);
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
 
 		if(!empty($args))
 		{

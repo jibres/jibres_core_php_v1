@@ -18,52 +18,49 @@ class edit
 			$inUse = true;
 		}
 
-		$title = isset($_args['title']) ? $_args['title']	: null;
+		$condition =
+		[
+			'title'     => 'title',
+			'ns1'       => 'dns',
+			'ip1'       => 'ip',
+			'ns2'       => 'dns',
+			'ip2'       => 'ip',
+			'ns3'       => 'dns',
+			'ip3'       => 'ip',
+			'ns4'       => 'dns',
+			'ip4'       => 'ip',
+			'isdefault' => 'bit',
+		];
 
-		$ns1   = isset($_args['ns1']) 	? $_args['ns1']		: null;
-		$ip1   = isset($_args['ip1']) 	? $_args['ip1']		: null;
+		$require = [];
 
-		$ns2   = isset($_args['ns2']) 	? $_args['ns2']		: null;
-		$ip2   = isset($_args['ip2']) 	? $_args['ip2']		: null;
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		$ns3   = isset($_args['ns3']) 	? $_args['ns3']		: null;
-		$ip3   = isset($_args['ip3']) 	? $_args['ip3']		: null;
+			],
+		];
 
-		$ns4   = isset($_args['ns4']) 	? $_args['ns4']		: null;
-		$ip4   = isset($_args['ip4']) 	? $_args['ip4']		: null;
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$isdefault = isset($_args['isdefault']) 	? $_args['isdefault']		: null;
-		$isdefault = $isdefault ? 1 : null;
 
-		if($title && mb_strlen($title) >= 100)
-		{
-			\dash\notif::error(T_("title must be lessh than 100 character"), 'title');
-			return false;
-		}
+		$title = $data['title'];
 
-		if(!$inUse)
-		{
-			$ns1 = \lib\app\nic_dns\add::validate_ns($ns1, 'ns1');
-			$ns2 = \lib\app\nic_dns\add::validate_ns($ns2, 'ns2');
-			$ns3 = \lib\app\nic_dns\add::validate_ns($ns3, 'ns3');
-			$ns4 = \lib\app\nic_dns\add::validate_ns($ns4, 'ns4');
+		$ns1   = $data['ns1'];
+		$ip1   = $data['ip1'];
 
-			$ip1 = \lib\app\nic_dns\add::validate_ip($ip1, 'ip1');
-			$ip2 = \lib\app\nic_dns\add::validate_ip($ip2, 'ip2');
-			$ip3 = \lib\app\nic_dns\add::validate_ip($ip3, 'ip3');
-			$ip4 = \lib\app\nic_dns\add::validate_ip($ip4, 'ip4');
+		$ns2   = $data['ns2'];
+		$ip2   = $data['ip2'];
 
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
+		$ns3   = $data['ns3'];
+		$ip3   = $data['ip3'];
 
-			// if(!$ns1 || !$ns2)
-			// {
-			// 	\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
-			// 	return false;
-			// }
-		}
+		$ns4   = $data['ns4'];
+		$ip4   = $data['ip4'];
+
+		$isdefault = $data['isdefault'];
+
 
 		if($isdefault)
 		{

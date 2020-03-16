@@ -28,23 +28,29 @@ class search
 			return false;
 		}
 
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-			'holder' => null,
-			'admin'  => null,
-			'tech'   => null,
-			'bill'   => null,
+			'order'  => 'order',
+			'sort'   => ['enum' => ['title', 'nicid', 'status']],
+			'holder' => 'bit',
+			'admin'  => 'bit',
+			'tech'   => 'bit',
+			'bill'   => 'bit',
 
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
 
-		$_args       = array_merge($default_args, $_args);
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$and         = [];
 		$meta        = [];
@@ -56,42 +62,35 @@ class search
 		$order_sort  = null;
 
 
-		if($_args['admin'])
+		if($data['admin'])
 		{
 			$and[]                      = " contact.admin = 1 ";
 			self::$filter_args['admin'] = '*'. T_('Admin');
 			self::$is_filtered          = true;
 		}
 
-		if($_args['holder'])
+		if($data['holder'])
 		{
 			$and[]                      = " contact.holder = 1 ";
 			self::$filter_args['holder'] = '*'. T_('Holder');
 			self::$is_filtered          = true;
 		}
 
-		if($_args['tech'])
+		if($data['tech'])
 		{
 			$and[]                      = " contact.tech = 1 ";
 			self::$filter_args['tech'] = '*'. T_('Technical');
 			self::$is_filtered          = true;
 		}
 
-		if($_args['bill'])
+		if($data['bill'])
 		{
 			$and[]                      = " contact.bill = 1 ";
 			self::$filter_args['bill'] = '*'. T_('Billing');
 			self::$is_filtered          = true;
 		}
 
-
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
-
-		$query_string = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
@@ -104,16 +103,16 @@ class search
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['title', 'nicid', 'status']))
+			if(in_array($data['sort'], ['title', 'nicid', 'status']))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";

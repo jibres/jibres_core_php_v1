@@ -6,6 +6,7 @@ class get
 {
 	public static function is_my_domain($_domain)
 	{
+		$_domain = \dash\validate::domain($_domain);
 		if(!$_domain)
 		{
 			\dash\notif::error(T_("Please fill domain"), 'domain');
@@ -69,23 +70,23 @@ class get
 
 		if(isset($fetch['roid']))
 		{
-			$update_domain['roid'] = $fetch['roid'];
+			$update_domain['roid'] = \dash\validate::string($fetch['roid']);
 		}
 
 		if(isset($fetch['crDate']))
 		{
-			$update_domain['dateregister'] = $fetch['crDate'];
+			$update_domain['dateregister'] = \dash\validate::string($fetch['crDate']);
 		}
 
 
 		if(isset($fetch['exDate']))
 		{
-			$update_domain['dateexpire'] = $fetch['exDate'];
+			$update_domain['dateexpire'] = \dash\validate::string($fetch['exDate']);
 		}
 
 		if(isset($fetch['upDate']))
 		{
-			$update_domain['dateupdate'] = $fetch['upDate'];
+			$update_domain['dateupdate'] = \dash\validate::string($fetch['upDate']);
 		}
 
 		if(isset($fetch['status']) && is_array($fetch['status']))
@@ -97,27 +98,27 @@ class get
 
 		if(isset($fetch['holder']))
 		{
-			$update_domain['holder'] = $fetch['holder'];
+			$update_domain['holder'] = \dash\validate::string($fetch['holder']);
 		}
 
 		if(isset($fetch['admin']))
 		{
-			$update_domain['admin'] = $fetch['admin'];
+			$update_domain['admin'] = \dash\validate::string($fetch['admin']);
 		}
 
 		if(isset($fetch['bill']))
 		{
-			$update_domain['bill'] = $fetch['bill'];
+			$update_domain['bill'] = \dash\validate::string($fetch['bill']);
 		}
 
 		if(isset($fetch['tech']))
 		{
-			$update_domain['tech'] = $fetch['tech'];
+			$update_domain['tech'] = \dash\validate::string($fetch['tech']);
 		}
 
 		if(isset($fetch['reseller']))
 		{
-			$update_domain['reseller'] = $fetch['reseller'];
+			$update_domain['reseller'] = \dash\validate::string($fetch['reseller']);
 		}
 
 
@@ -173,7 +174,7 @@ class get
 			return false;
 		}
 
-		if(!is_numeric($_id))
+		if(!\dash\validate::id($_id))
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;
@@ -200,7 +201,7 @@ class get
 			return false;
 		}
 
-		if(!is_numeric($_id))
+		if(!\dash\validate::id($_id))
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;

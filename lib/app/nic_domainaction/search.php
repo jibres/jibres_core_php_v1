@@ -15,20 +15,23 @@ class search
 
 		$userId = \dash\user::id();
 
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-			'domain_id' => null,
+			'domain_id' => 'id',
 		];
 
+		$require = [];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		$_args       = array_merge($default_args, $_args);
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		if(!$_args['domain_id'])
 		{

@@ -66,7 +66,7 @@
         </div>
 
 		<div class="txtRa">
-			<?php if(\dash\url::child()) {?>
+			<?php if(\dash\url::subchild() === 'add') {?>
 
 				<button class="btn info"><?php echo T_("Add DNS record"); ?></button>
 

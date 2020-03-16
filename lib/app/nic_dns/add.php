@@ -6,19 +6,13 @@ class add
 {
 	public static function quick($_ns1, $_ns2)
 	{
-		$ns1 = self::validate_ns($_ns1, 'ns1');
-		$ns2 = self::validate_ns($_ns2, 'ns2');
+		$ns1 = \dash\validate::dns($_ns1, 'ns1');
+		$ns2 = \dash\validate::dns($_ns2, 'ns2');
 
-		if(!\dash\engine\process::status())
+		if(!$ns1 && !$ns2)
 		{
 			return false;
 		}
-
-		// if(!$ns1 || !$ns2)
-		// {
-		// 	\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
-		// 	return false;
-		// }
 
 		$insert =
 		[
@@ -42,50 +36,49 @@ class add
 
 	public static function new_record($_args)
 	{
+		$condition =
+		[
+			'title'     => 'title',
+			'ns1'       => 'dns',
+			'ip1'       => 'ip',
+			'ns2'       => 'dns',
+			'ip2'       => 'ip',
+			'ns3'       => 'dns',
+			'ip3'       => 'ip',
+			'ns4'       => 'dns',
+			'ip4'       => 'ip',
+			'isdefault' => 'bit',
+		];
 
-		$title = isset($_args['title']) ? $_args['title']	: null;
+		$require = [];
 
-		$ns1   = isset($_args['ns1']) 	? $_args['ns1']		: null;
-		$ip1   = isset($_args['ip1']) 	? $_args['ip1']		: null;
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		$ns2   = isset($_args['ns2']) 	? $_args['ns2']		: null;
-		$ip2   = isset($_args['ip2']) 	? $_args['ip2']		: null;
+			],
+		];
 
-		$ns3   = isset($_args['ns3']) 	? $_args['ns3']		: null;
-		$ip3   = isset($_args['ip3']) 	? $_args['ip3']		: null;
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$ns4   = isset($_args['ns4']) 	? $_args['ns4']		: null;
-		$ip4   = isset($_args['ip4']) 	? $_args['ip4']		: null;
 
-		$isdefault = isset($_args['isdefault']) 	? $_args['isdefault']		: null;
-		$isdefault = $isdefault ? 1 : null;
+		$title = $data['title'];
 
-		if($title && mb_strlen($title) >= 100)
-		{
-			\dash\notif::error(T_("title must be lessh than 100 character"), 'title');
-			return false;
-		}
+		$ns1   = $data['ns1'];
+		$ip1   = $data['ip1'];
 
-		$ns1 = self::validate_ns($ns1, 'ns1');
-		$ns2 = self::validate_ns($ns2, 'ns2');
-		$ns3 = self::validate_ns($ns3, 'ns3');
-		$ns4 = self::validate_ns($ns4, 'ns4');
+		$ns2   = $data['ns2'];
+		$ip2   = $data['ip2'];
 
-		$ip1 = self::validate_ip($ip1, 'ip1');
-		$ip2 = self::validate_ip($ip2, 'ip2');
-		$ip3 = self::validate_ip($ip3, 'ip3');
-		$ip4 = self::validate_ip($ip4, 'ip4');
+		$ns3   = $data['ns3'];
+		$ip3   = $data['ip3'];
 
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
+		$ns4   = $data['ns4'];
+		$ip4   = $data['ip4'];
 
-		// if(!$ns1 || !$ns2)
-		// {
-		// 	\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
-		// 	return false;
-		// }
+		$isdefault = $data['isdefault'];
+
 
 		if($isdefault)
 		{
@@ -118,42 +111,5 @@ class add
 		return $dns_id;
 	}
 
-
-	public static function validate_ip($_ip, $_element)
-	{
-		if(mb_strlen($_ip) >= 100)
-		{
-			\dash\notif::error(T_("IP must be less than 100 character"), $_element);
-			return false;
-		}
-
-		if($_ip && !filter_var($_ip, FILTER_VALIDATE_IP))
-		{
-			\dash\notif::error(T_("Invalid ip"), $_element);
-			return true;
-		}
-
-		return $_ip;
-	}
-
-
-	public static function validate_ns($_ns, $_element)
-	{
-		if(mb_strlen($_ns) >= 100)
-		{
-			\dash\notif::error(T_("DNS must be less than 100 character"), $_element);
-			return false;
-		}
-
-
-		if($_ns && !preg_match("/^[a-zA-Z0-9\.]+$/", $_ns))
-		{
-			\dash\notif::error(T_("Invalid dns syntax"), $_element);
-			return false;
-		}
-
-
-		return $_ns;
-	}
 }
 ?>

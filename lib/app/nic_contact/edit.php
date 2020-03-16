@@ -34,8 +34,8 @@ class edit
 		if(isset($result[$nic_id]['avail']) && $result[$nic_id]['avail'] == '1')
 		{
 
-			$roid   = isset($result[$nic_id]['roid']) 	? $result[$nic_id]['roid'] 	: null;
-			$email  = isset($result[$nic_id]['email']) 	? $result[$nic_id]['email'] : null;
+			$roid   = isset($result[$nic_id]['roid']) 	? \dash\validate::string($result[$nic_id]['roid']) 	: null;
+			$email  = isset($result[$nic_id]['email']) 	? \dash\validate::string($result[$nic_id]['email']) : null;
 			$holder = isset($result[$nic_id]['holder']) ? $result[$nic_id]['holder']: null;
 			$admin  = isset($result[$nic_id]['admin']) 	? $result[$nic_id]['admin'] : null;
 			$tech   = isset($result[$nic_id]['tech']) 	? $result[$nic_id]['tech'] 	: null;
@@ -93,27 +93,33 @@ class edit
 		}
 
 
-		$title    	  = (isset($_args['title']) 	    && is_string($_args['title']))		     ? $_args['title'] 		    : null;
-		$isdefault    = (isset($_args['isdefault']) 	&& is_string($_args['isdefault']))		 ? $_args['isdefault'] 	 	: null;
+		$condition =
+		[
+			'title'     => 'title',
+			'isdefault' => 'bit',
+		];
 
+		$require = [];
 
-		$isdefault = $isdefault ? 1 : null;
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		if($isdefault)
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['isdefault'])
 		{
 			\lib\db\nic_contact\update::remove_old_default(\dash\user::id());
 		}
 
-		if($title && mb_strlen($title) > 100)
-		{
-			\dash\notif::error(T_("Title must be less than 100 character"), 'title');
-			return false;
-		}
-
 		$update =
 		[
-			'title'     => $title,
-			'isdefault' => $isdefault,
+			'title'     => $data['title'],
+			'isdefault' => $data['isdefault'],
 		];
 
 

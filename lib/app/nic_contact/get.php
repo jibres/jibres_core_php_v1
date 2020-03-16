@@ -19,7 +19,8 @@ class get
 			return false;
 		}
 
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{
