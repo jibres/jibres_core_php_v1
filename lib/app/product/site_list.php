@@ -174,6 +174,10 @@ class site_list
 			// 	$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\fit::number($datalist['price']);
 			// }
 		}
+		else
+		{
+			$datalist['price'] = null;
+		}
 
 		if(isset($_data['compareatprice']))
 		{
@@ -191,9 +195,6 @@ class site_list
 		$name   .= $priceTxt. '</span>';
 		$result =
 		[
-			// dropdown
-			'name'     => $name,
-			'value'    => $id,
 			// select22
 			'html'     => $name,
 			'id'       => $id,
