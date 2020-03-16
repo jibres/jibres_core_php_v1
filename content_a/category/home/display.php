@@ -44,7 +44,7 @@ else
 
 <?php function htmlSearchBox() {?>
 <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' data-action>
+  <form method="get" action='<?php echo \dash\url::this(); ?>' >
     <div class="input">
       <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus autocomplete='off'>
 
@@ -126,7 +126,7 @@ if(!is_array($dataTable))
 
 <?php function htmlFilter() {?>
 <p class="f fs14 msg info2">
-  <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
+  <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::here(); ?>/<?php echo \dash\url::module(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endif ?>
