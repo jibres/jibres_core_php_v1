@@ -18,17 +18,10 @@ class add
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
 
-		\dash\app::variable($_args);
 
-		$args = \lib\app\category\check::variable();
-
-		if($args === false || !\dash\engine\process::status())
+		$args = \lib\app\category\check::variable($_args);
+		if(!$args)
 		{
 			return false;
 		}

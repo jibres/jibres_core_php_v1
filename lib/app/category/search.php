@@ -21,7 +21,8 @@ class search
 			}
 		}
 
-		if(!$_category_id || !is_numeric($_category_id))
+		$_category_id = \dash\validate::id($_category_id);
+		if(!$_category_id)
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
@@ -100,6 +101,8 @@ class search
 
 		unset($_args['sort']);
 		unset($_args['order']);
+
+		$_string = \dash\validate::search($_string);
 
 		$result = \lib\db\productcategory\get::list($_string, $_args);
 

@@ -21,14 +21,19 @@ class checkout
 			return false;
 		}
 
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'address_id'      => 'id',
 
-		$address_id = \dash\app::request('address_id');
-		if(!$address_id)
-		{
-			\dash\notif::error(T_("Address id not set"));
-			return false;
-		}
+		];
+
+		$require = ['address_id'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$address_id = $data['address_id'];
 
 		$address_detail = \dash\app\address::get($address_id);
 		if(!$address_detail)

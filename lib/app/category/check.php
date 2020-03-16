@@ -5,81 +5,39 @@ namespace lib\app\category;
 class check
 {
 
-	public static function variable($_id = null)
+	public static function variable($_args, $_id = null)
 	{
-		$title = \dash\app::request('title');
-		if(!is_string($title))
+		$condition =
+		[
+			'title'    => 'title',
+			'desc'     => 'desc',
+			'slug'     => 'slug',
+			'file'     => 'string',
+			'parent'   => 'id',
+			'seotitle' => 'seotitle',
+			'seodesc'  => 'seodesc',
+		];
+
+		$require = ['title'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['slug'])
 		{
-			\dash\notif::error(T_("Format error!"));
-			return false;
+			$data['slug'] = \dash\utility\filter::slug($data['title'], null, 'persian');
 		}
 
-		if(!$title && $title !== '0')
-		{
-			\dash\notif::error(T_("Plese fill the category name"), 'category');
-			return false;
-		}
-
-		if(mb_strlen($title) > 100)
-		{
-			\dash\notif::error(T_("Category name is too large!"), 'category');
-			return false;
-		}
-
-		$desc = \dash\app::request('desc');
-		if(\dash\app::isset_request('desc') && !is_string($desc))
-		{
-			\dash\notif::error(T_("Format error!"));
-			return false;
-		}
-
-		if(mb_strlen($desc) > 10000)
-		{
-			\dash\notif::error(T_("Category description is too large!"), 'category');
-			return false;
-		}
-
-		$file = \dash\app::request('file');
-
-
-		$slug = \dash\app::request('slug');
-		if(\dash\app::isset_request('slug') && !is_string($slug))
-		{
-			\dash\notif::error(T_("Format error!"));
-			return false;
-		}
-
-		if($slug)
-		{
-			$slug = \dash\utility\filter::slug($slug, null, 'persian');
-		}
-
-		if(!$slug)
-		{
-			$slug = \dash\utility\filter::slug($title, null, 'persian');
-		}
-
-		if(mb_strlen($slug) > 100)
-		{
-			\dash\notif::error(T_("Category slug is too large!"), 'category');
-			return false;
-		}
 
 		$parent1 = null;
 		$parent2 = null;
 		$parent3 = null;
 
-
-		$parent = \dash\app::request('parent');
-		if($parent)
+		if($data['parent'])
 		{
-			if(!is_numeric($parent))
-			{
-				\dash\notif::error(T_("Invalid parent"), 'parent');
-				return false;
-			}
 
-			$load_parent = \lib\app\category\get::inline_get($parent);
+			$load_parent = \lib\app\category\get::inline_get($data['parent']);
 			if(!$load_parent)
 			{
 				\dash\notif::error(T_("Parent not found"), 'parent');
@@ -101,17 +59,17 @@ class check
 					}
 					else
 					{
-						$parent3 = $parent;
+						$parent3 = $data['parent'];
 					}
 				}
 				else
 				{
-					$parent2 = $parent;
+					$parent2 = $data['parent'];
 				}
 			}
 			else
 			{
-				$parent1 = $parent;
+				$parent1 = $data['parent'];
 			}
 		}
 		else
@@ -159,7 +117,7 @@ class check
 
 
 		// check unique slug
-		$check_unique_slug = \lib\db\productcategory\get::check_unique_slug($slug, $parent1, $parent2, $parent3);
+		$check_unique_slug = \lib\db\productcategory\get::check_unique_slug($data['slug'], $parent1, $parent2, $parent3);
 		if(isset($check_unique_slug['id']))
 		{
 			if(intval($check_unique_slug['id']) === intval($_id))
@@ -174,33 +132,13 @@ class check
 		}
 
 
-		$seotitle = \dash\app::request('seotitle');
-		if($seotitle && mb_strlen($seotitle) > 200)
-		{
-			\dash\notif::error(T_("seotitle is out of range"), 'seotitle');
-			return false;
-		}
+		$data['parent1']  = $parent1;
+		$data['parent2']  = $parent2;
+		$data['parent3']  = $parent3;
 
-		$seodesc = \dash\app::request('seodesc');
-		if($seodesc && mb_strlen($seodesc) > 300)
-		{
-			\dash\notif::error(T_("seodesc is out of range"), 'seodesc');
-			return false;
-		}
+		unset($data['parent']);
 
-
-		$args             = [];
-		$args['title']    = $title;
-		$args['desc']     = $desc;
-		$args['slug']     = $slug;
-		$args['file']     = $file;
-		$args['parent1']  = $parent1;
-		$args['parent2']  = $parent2;
-		$args['parent3']  = $parent3;
-		$args['seotitle'] = $seotitle;
-		$args['seodesc']  = $seodesc;
-
-		return $args;
+		return $data;
 
 	}
 

@@ -8,7 +8,9 @@ class get
 
 	public static function inline_get($_id)
 	{
-		if(!$_id || !is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+
+		if(!$_id)
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
@@ -35,8 +37,9 @@ class get
 
 		\dash\permission::access('productCategoryListView');
 
+		$_id = \dash\validate::id($_id);
 
-		if(!$_id || !is_numeric($_id))
+		if(!$_id)
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
@@ -63,7 +66,9 @@ class get
 			return false;
 		}
 
-		if(!$_id || !is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+
+		if(!$_id)
 		{
 			$_id = null;
 		}

@@ -19,23 +19,15 @@ class edit
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		\dash\app::variable($_args);
-
 		if(!$_id || !is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
-		$args = \lib\app\category\check::variable($_id);
+		$args = \lib\app\category\check::variable($_args, $_id);
 
-		if($args === false || !\dash\engine\process::status())
+		if(!$args)
 		{
 			return false;
 		}
@@ -56,7 +48,7 @@ class edit
 		}
 
 
-		if(!\dash\app::isset_request('parent'))
+		if(!array_key_exists('parent', $_args))
 		{
 			unset($args['parent1']);
 			unset($args['parent2']);
@@ -64,13 +56,7 @@ class edit
 			unset($args['parent4']);
 		}
 
-		if(!\dash\app::isset_request('title')) 		unset($args['title']);
-		if(!\dash\app::isset_request('slug')) 		unset($args['slug']);
-		if(!\dash\app::isset_request('desc')) 		unset($args['desc']);
-		if(!\dash\app::isset_request('file')) 		unset($args['file']);
-		if(!\dash\app::isset_request('seodesc')) 	unset($args['seodesc']);
-		if(!\dash\app::isset_request('seotitle')) 	unset($args['seotitle']);
-
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
@@ -108,7 +94,7 @@ class edit
 		}
 		else
 		{
-			\dash\notif::error(T_("No data received!"));
+			\dash\notif::info(T_("Category saved whitout chnage"));
 			return false;
 		}
 	}
