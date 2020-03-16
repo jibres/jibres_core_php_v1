@@ -15,6 +15,7 @@ class quick
 		{
 			return false;
 		}
+
 		$meta =
 		[
 			'allow_size' => \dash\upload\size::MB(1),
@@ -22,9 +23,9 @@ class quick
 			[
 				'jpg', 'peg', 'png'
 			],
-		]
+		];
 
-		$file_detail = \dash\upload\file::upload($_upload_name);
+		$file_detail = \dash\upload\file::upload($_upload_name, $meta);
 
 		if(!$file_detail)
 		{

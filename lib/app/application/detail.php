@@ -7,6 +7,20 @@ class detail
 
 	public static function set_android_detail($_args)
 	{
+		$condition =
+		[
+			'title'  => 'string_20',
+			'desc'   => 'string_150',
+			'slogan' => 'string_50',
+		];
+
+		$require = ['title'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 		$change = false;
 		$logo = \dash\upload\store_logo::app_android_logo_set();
 		if($logo)
@@ -33,44 +47,11 @@ class detail
 
 		}
 
-		$title = isset($_args['title']) ? $_args['title'] : null;
-		if(!$title)
-		{
-			\dash\notif::error(T_("Please set your application title"), 'title');
-			return false;
-		}
+		self::set_setting_record('title', $data['title']);
 
-		if(mb_strlen($title) > 20)
-		{
-			\dash\notif::error(T_("Your application title must be less than 20 character"));
-			return false;
-		}
+		self::set_setting_record('desc', $data['desc']);
 
-
-		self::set_setting_record('title', $title);
-
-		$desc = isset($_args['desc']) ? $_args['desc'] : null;
-
-		if($desc && mb_strlen($desc) > 150)
-		{
-			\dash\notif::error(T_("Your application desc must be less than 150 character"));
-			return false;
-		}
-
-		self::set_setting_record('desc', $desc);
-
-
-		$slogan = isset($_args['slogan']) ? $_args['slogan'] : null;
-
-
-		if($slogan && mb_strlen($slogan) > 50)
-		{
-			\dash\notif::error(T_("Your application slogan must be less than 50 character"));
-			return false;
-		}
-
-
-		self::set_setting_record('slogan', $slogan);
+		self::set_setting_record('slogan', $data['slogan']);
 
 
 		\dash\notif::ok(T_("Application setting set"));

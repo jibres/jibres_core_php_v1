@@ -7,6 +7,7 @@ class splash
 
 	public static function set_android_theme($_theme)
 	{
+		$_theme = \dash\validate::string($_theme);
 		if(!$_theme)
 		{
 			\dash\notif::error(T_("Please choose your theme"), 'theme');

@@ -190,11 +190,11 @@ class queue
 
 		if(isset($result['store']) && $result['store'] === $_store)
 		{
-			$meta = is_array($_meta) ? json_encode($_meta, JSON_UNESCAPED_UNICODE) : $_meta;
+			$meta = is_array($_meta) ? json_encode($_meta, JSON_UNESCAPED_UNICODE) : null;
 			$update =
 			[
-				'file'     => $_filename,
-				'status'   => $_status,
+				'file'     => \dash\validate::string($_filename),
+				'status'   => \dash\validate::string($_status),
 				'datedone' => date("Y-m-d H:i:s"),
 				'meta'     => $meta,
 			];

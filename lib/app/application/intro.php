@@ -25,7 +25,18 @@ class intro
 				continue;
 			}
 
+			if(!is_array($value))
+			{
+				continue;
+			}
+
 			if(!array_key_exists('title', $value))
+			{
+				continue;
+			}
+
+
+			if(!array_key_exists('file', $value))
 			{
 				continue;
 			}
@@ -35,24 +46,17 @@ class intro
 				continue;
 			}
 
+			$title = \dash\validate::string_50($value['title']);
+			$desc  = \dash\validate::string_50($value['desc']);
+			$file  = \dash\validate::string_500($value['file']);
 
-			if(mb_strlen($value['title']) > 50)
-			{
-				\dash\notif::error(T_("Splash page title must be less than 50 character"), 'title'. $index);
-				return false;
-			}
 
-			if(mb_strlen($value['desc']) > 100)
-			{
-				\dash\notif::error(T_("Splash page desc must be less than 100 character"), 'desc'. $index);
-				return false;
-			}
 
 			$ok_intro[$index] =
 			[
-				'title' => $value['title'],
-				'desc'  => $value['desc'],
-				'file'  => $value['file'],
+				'title' => $title,
+				'desc'  => $desc,
+				'file'  => $file,
 			];
 
 			$index++;
@@ -67,6 +71,12 @@ class intro
 
 		$theme = isset($_intro['theme']) ? $_intro['theme'] : null;
 		if(!$theme)
+		{
+			\dash\notif::error(T_("Please choose your intro theme"));
+			return false;
+		}
+
+		if(!is_string($theme))
 		{
 			\dash\notif::error(T_("Please choose your intro theme"));
 			return false;
