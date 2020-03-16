@@ -11,7 +11,7 @@
 
 <?php if (\dash\permission::supervisor()) { ?>
     <div class="cbox p0">
-      <select name="product" class="select22 barCode" id="productSearch" autofocus data-default data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
+      <select name="product" class="select22 barCode" id="productSearch" data-model='html' autofocus data-default data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
         <option value=""><?php echo T_("Search in list to add product"); ?> +</option>
       </select>
     </div>

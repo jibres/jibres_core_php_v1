@@ -205,6 +205,7 @@ class site_list
 			'name'     => $name,
 			'value'    => $id,
 			// select22
+			'html'     => $name,
 			'text'     => $name,
 			'id'    => $id,
 			// for extra use and remove double query
