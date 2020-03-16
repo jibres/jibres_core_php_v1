@@ -89,9 +89,9 @@ class number
 	}
 
 
-	public static function number_positive($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	public static function number_negative($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		return self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 999999999999]);
+		return self::number($_data, $_notif, $_element, $_field_title, ['min' => -999999999999, 'max' => 999999999999]);
 	}
 
 

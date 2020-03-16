@@ -1,7 +1,100 @@
 <?php
 namespace dash;
 /**
- * Class for clean args
+ * Class for validate input
+ *
+ *
+ * FUNCTION NAME FROM VALIDATE
+ *
+ * ------------------ MOBILE
+ *->  mobile
+ *->  ir_mobile
+ *
+ * ------------------ STRING
+ *->  string
+ *->  address
+ *->  title
+ *->  seotitle
+ *->  displayname
+ *->  html
+ *->  desc
+ *->  seodesc
+ *->  username
+ *->  slug
+ *->  barcode
+ *->  sku
+ *->  search
+ *->  language
+ *->  email
+ *->  md5
+ *->  subdomain
+ *
+ * ------------------ URL
+ *->  url
+ *->  domain
+ *->  ir_domain
+ *->  ip
+ *->  dns
+ *
+ * ------------------ DATE
+ *->  birthdate
+ *->  date
+ *->  datetime
+ *->  time
+ *
+ * ------------------ LOCATION
+ *->  country
+ *->  province
+ *->  city
+ *
+ * ------------------ PASSWORD
+ *->  password
+ *
+ * ------------------ IDENTIFY
+ *->  id
+ *->  code
+ *->  id_code
+ *
+ * ------------------ ARRAY
+ *->  enum
+ *->  order
+ *->  tag
+ *
+ * ------------------ NATIONAL CODE
+ *->  nationalcode
+ *
+ * ------------------ NUMBER
+ *->  number
+ *->  int
+ *->  float
+ *->  number_negative
+ *->  smallint
+ *->  verification_code
+ *->  postcode
+ *->  phone
+ *->  percent
+ *->  price
+ *
+ * ------------------ IRNIC
+ *->  irnic_id
+ *
+ * ------------------ BOOL
+ *->  bool
+ *->  bit
+ *
+ *
+ * ------------------------------ call to validate data ------------------------------
+ * @call \dash\validate::{function_name}(data, element, field_title, meta);
+ * @call \dash\validate\clean::data({functio_name}, data, element, field_title, meta);
+ *
+ * @example:
+ * 		$string = \dash\validate::string($_input);				// check $_input is string
+ * 		$string = \dash\validate::string_50($_input);			// check $_input is string and less than 50 character
+ * 		$string = \dash\validate::string_100_10($_input);		// check $_input is string and less than 50 character and larger than 10 character
+ *
+ * @author: Reza <rm.biqarar@gmail.com>
+ * @date: 2020-03-16
+ *
  */
 class cleanse
 {
@@ -572,8 +665,8 @@ class cleanse
 				$data = \dash\validate\number::float($_data, $_notif, $element, $field_title, $meta);
 				break;
 
-			case 'number_positive':
-				$data = \dash\validate\number::number_positive($_data, $_notif, $element, $field_title, $meta);
+			case 'number_negative':
+				$data = \dash\validate\number::number_negative($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'smallint':
