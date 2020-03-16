@@ -30,7 +30,6 @@ class site_list
 			$resultRaw    = \lib\app\product\search::list_in_sale($query, $meta);
 			foreach ($resultRaw as $key => $value)
 			{
-				$result['result'][] = self::getNeededField($value);
 				$result['results'][] = self::getNeededField($value);
 			}
 		}
@@ -68,14 +67,6 @@ class site_list
 		}
 		else
 		{
-			$result['result'] =
-			[
-				[
-					"name"  => T_("No result founded!"),
-					"value" => null,
-					// "disabled"  => true
-				]
-			];
 			$result['results'][] = ['text' => T_("No result founded!"), 'id' => null, "disabled"  => true];
 		}
 
@@ -88,7 +79,6 @@ class site_list
 		if(!$result)
 		{
 			$result = [];
-			$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
 			$result['results'][] = ['text' => T_("No result found!"), 'id' => null, "disabled"  => true];
 		}
 
