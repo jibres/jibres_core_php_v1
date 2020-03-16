@@ -6,7 +6,7 @@
       <form method="post" autocomplete="off">
 
         <label for="theme"><?php echo T_("Theme"); ?></label>
-        <select name="theme" class="select ui dropdown" id="theme">
+        <select name="theme" class="select22" id="theme">
           <option value="" readonly><?php echo T_("Please select one theme"); ?> *</option>
             <option value="0"  <?php if(!\dash\data::dataRow_theme()) {echo "selected";} ?>><?php echo T_("Sensitive to content"); ?></option>
 
