@@ -117,7 +117,7 @@
 		<div class="c mRa10">
 			<div class="mT10">
 			  <label for="gender"><?php echo T_("Gender"); ?></label>
-			  <select name="gender" class="ui dropdown select">
+			  <select name="gender" class="select22">
 			    <option value="" readonly><?php echo T_("Please select one itme"); ?></option>
 			    <option value="male" <?php if(\dash\data::dataRowMember_gender() == 'male') { echo 'selected';} ?> ><?php echo T_("Male"); ?></option>
 			    <option value="female" <?php if(\dash\data::dataRowMember_gender() == 'female') { echo 'selected';} ?> ><?php echo T_("Female"); ?></option>
@@ -127,7 +127,7 @@
 		<div class="c">
 			<div class="mT10">
 			  <label for="marital"><?php echo T_("Marital"); ?></label>
-			  <select name="marital" class="ui dropdown select">
+			  <select name="marital" class="select22">
 			    <option value="" readonly><?php echo T_("Please select one itme"); ?></option>
 			    <option value="single" <?php if(\dash\data::dataRowMember_marital() == 'single') { echo 'selected';} ?>><?php echo T_("Single"); ?></option>
 			    <option value="married" <?php if(\dash\data::dataRowMember_marital() == 'married') { echo 'selected';} ?>><?php echo T_("Married"); ?></option>

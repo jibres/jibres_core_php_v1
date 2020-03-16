@@ -65,7 +65,7 @@ else
         <div class="showFilterSearch" <?php if(isset($openKerkere) && $openKerkere) {}else{?> data-kerkere-content='hide' <?php } ?>>
            <label for="special"><?php echo T_("Use Special mode"); ?></label>
 
-          <select name="special" class="ui dropdown select">
+          <select name="special" class="select22">
             <option value=""><i><?php echo T_("Please select one item"); ?></i></option>
             <?php foreach (\dash\data::listSpecial() as $key => $value) {?>
 

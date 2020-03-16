@@ -264,7 +264,7 @@ if(!is_array($dataTable))
 <?php function iLanguage() {?>
 <div class="mB10">
   <label for="language"><?php echo T_("Language"); ?></label>
-  <select name="language" class="ui dropdown select">
+  <select name="language" class="select22">
     <option value=""><i><?php echo T_("Please select one item"); ?></i></option>
     <?php foreach (\dash\language::all(true) as $key => $value) {?>
 

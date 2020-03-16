@@ -226,7 +226,7 @@
               <div data-response='whattodo' data-response-where='new-unit' data-response-hide>
 
               <label for='unit'><?php echo T_("New unit"); ?></label>
-              <select name="unit" class="select ui dropdown search" id="unit">
+              <select name="unit" class="select22" id="unit">
                 <option value=""><?php echo T_("Select new unit to update all product unit"); ?></option>
                 <?php if(is_array(\dash\data::allUnit())) {?>
 

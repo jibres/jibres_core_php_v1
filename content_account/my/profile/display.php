@@ -32,7 +32,7 @@
 
 
           <label for="gender"><?php echo T_("Gender"); ?></label>
-          <select name="gender" class="select ui dropdown" id="gender">
+          <select name="gender" class="select22" id="gender">
             <option value="" readonly><?php echo T_("Please select one item"); ?> *</option>
               <option value="male"  <?php if(\dash\data::dataRow_gender() == 'male') { echo 'selected';} ?>><?php echo T_("Male"); ?></option>
               <option value="female"  <?php if(\dash\data::dataRow_gender() == 'female') { echo 'selected';} ?>><?php echo T_("Female"); ?></option>

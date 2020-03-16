@@ -17,7 +17,7 @@
 
     <div class="mT10">
       <label for="permission"><?php echo T_("Permission"); ?></label>
-      <select name="permission" class="ui dropdown" id="permission">
+      <select name="permission" class="select22" id="permission">
         <option value="" readonly><?php echo T_("No permission"); ?></option>
         <option value="0" readonly><?php echo T_("No permission"); ?></option>
 
@@ -34,7 +34,7 @@
 
     <div class="mTB10">
       <label for="language"><?php echo T_("Default language"); ?></label>
-      <select name="language" class="ui dropdown" id="language">
+      <select name="language" class="select22" id="language">
         <option value="" readonly><?php echo T_("Select one item"); ?></option>
           <?php foreach (\dash\language::all(true) as $key => $value) {?>
 
@@ -74,7 +74,7 @@
 
     <div class="mT10">
     <label for="status"><?php echo T_("Status"); ?></label>
-    <select name="status" class="ui dropdown" id="status">
+    <select name="status" class="select22" id="status">
       <option value="" readonly><?php echo T_("Select one item"); ?> *</option>
       <option value="active" <?php if(\dash\data::dataRowMember_status() == 'active') { echo 'selected';} ?> ><?php echo T_("Active"); ?></option>
       <option value="awaiting" <?php if(\dash\data::dataRowMember_status() == 'awaiting') { echo 'selected';} ?> ><?php echo T_("Awaiting"); ?></option>

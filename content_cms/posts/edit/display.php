@@ -168,7 +168,7 @@ $myFirstURL = '';
     <div class="body specialPanel" data-kerkere-content='hide'>
       <label for="special"><?php echo T_("Use Special mode"); ?></label>
 
-      <select name="special" class="ui dropdown select">
+      <select name="special" class="select22">
         <option value=""><i><?php echo T_("Please select one item"); ?></i></option>
 
         <?php if(\dash\data::dataRow_special()) {?>
@@ -662,7 +662,7 @@ $myFirstURL = '';
   <header data-kerkere='.languagePanel' data-kerkere-icon='close'><?php echo T_("Language"); ?></header>
   <div class="body languagePanel" data-kerkere-content='hide'>
     <label for="language"><?php echo T_("You can publish in another language"); ?></label>
-    <select name="language" class="ui dropdown select">
+    <select name="language" class="select22">
       <option value=""><i><?php echo T_("Please select one item"); ?></i></option>
 
       <?php foreach (\dash\language::all(true) as $key => $value) {?>
@@ -751,7 +751,7 @@ $myFirstURL = '';
 
         <div>
           <label for="parent"><?php echo T_("Parent"); ?> <small><?php echo T_("Choose parent for this page to create related url as tree"); ?></small></label>
-          <select name="parent" class="select ui dropdown search">
+          <select name="parent" class="select22">
             <option value=""><i><?php echo T_("Choose Parent"); ?></i></option>
             <option value="0"><i><?php echo T_("Without Parent"); ?></i></option>
             <?php foreach (\dash\data::pageList() as $key => $value) {?>

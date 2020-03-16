@@ -213,7 +213,7 @@
               <div data-response='whattodo' data-response-where='new-company' data-response-hide>
 
               <label for='company'><?php echo T_("New company"); ?></label>
-              <select name="company" class="select ui dropdown search" id="company">
+              <select name="company" class="select22" id="company">
                 <option value=""><?php echo T_("Select new company to update all product company"); ?></option>
                 <?php if(is_array(\dash\data::allCompany())) {?>
 

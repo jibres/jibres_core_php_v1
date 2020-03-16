@@ -7,7 +7,7 @@
       <form method="post" autocomplete="off">
 
         <label for="language"><?php echo T_("Language"); ?></label>
-        <select name="language" class="select ui dropdown" id="language">
+        <select name="language" class="select22" id="language">
           <option value="" readonly><?php echo T_("Please select one language"); ?> *</option>
 
           <?php foreach (\dash\language::all() as $key => $value) {?>
