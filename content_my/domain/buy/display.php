@@ -35,6 +35,8 @@
   <div class="msg minimal warn2 txtC txtB mB10-f fs16">
    <p><?php echo T_("Can not register this domain"); ?></p>
    <?php echo \dash\data::myDomain(); ?>
+   <br>
+   <a class="fs06 link" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Try another"); ?></a>
   </div>
 
   <?php } //endif ?>

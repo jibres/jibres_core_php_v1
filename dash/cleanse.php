@@ -447,9 +447,6 @@ class cleanse
 				$data = \dash\validate\text::sku($_data, $_notif, $element, $field_title, $meta);
 				break;
 
-			case 'url':
-				$data = \dash\validate\text::url($_data, $_notif, $element, $field_title, $meta);
-				break;
 
 			case 'search':
 				$data = \dash\validate\text::search($_data, $_notif, $element, $field_title, $meta);
@@ -471,6 +468,26 @@ class cleanse
 				$data = \dash\validate\subdomain::subdomain($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			// *************** url validate
+			case 'url':
+				$data = \dash\validate\url::url($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'domain':
+				$data = \dash\validate\url::domain($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'ir_domain':
+				$data = \dash\validate\url::ir_domain($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'ip':
+				$data = \dash\validate\url::ip($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'dns':
+				$data = \dash\validate\url::dns($_data, $_notif, $element, $field_title, $meta);
+				break;
 
 			// *************** date validate
 			case 'birthdate':

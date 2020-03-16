@@ -14,17 +14,19 @@ class controller
 		}
 
 
-		\dash\open::get();
-		\dash\open::post();
 
 		$domain = \dash\url::subchild();
 		$domain = urldecode($domain);
 		$domain = mb_strtolower($domain);
 		if($domain)
 		{
+			\dash\open::get();
+			\dash\open::post();
+
+			\dash\data::myDomain($domain);
+
 			if(\lib\app\nic_domain\check::syntax($domain))
 			{
-				\dash\data::myDomain($domain);
 				$check = \lib\app\nic_domain\check::check($domain);
 				\dash\data::checkResult($check);
 			}
