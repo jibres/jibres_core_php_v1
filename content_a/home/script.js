@@ -3,6 +3,9 @@ function chartDrawer()
   if($("#chartdiv").length == 1){highChart();}
 }
 
+<?php
+$dashboardData = \dash\data::dashboardData();
+?>
 
 
 function highChart()

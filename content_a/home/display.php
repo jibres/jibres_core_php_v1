@@ -104,12 +104,6 @@ $dashboardData = \dash\data::dashboardData();
    <div id="chartdiv" class="chart" ></div>
   </div>
 
-
-
-<script type="text/javascript">
-  <?php require_once(root. 'content_a/home/chart.js'); ?>
-</script>
-
 <?php } //endif ?>
 
 
