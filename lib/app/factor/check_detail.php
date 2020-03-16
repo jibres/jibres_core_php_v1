@@ -48,6 +48,12 @@ class check_detail
 				continue;
 			}
 
+			if(!is_numeric($product_id))
+			{
+				$have_warn[] = $key + 1;
+				continue;
+			}
+
 			if(!array_key_exists('count', $value))
 			{
 				$have_warn[] = $key + 1;
@@ -155,8 +161,16 @@ class check_detail
 
 		foreach ($trust_order_list as $key => $value)
 		{
-			$this_proudct = $check_true_product[$value['product_id']];
+			if(!isset($check_true_product[$value['product_id']]))
+			{
+				continue;
+			}
 
+			$this_proudct = $check_true_product[$value['product_id']];
+			if(!$this_proudct || !is_array($this_proudct))
+			{
+				continue;
+			}
 			if(!array_key_exists('discount', $this_proudct))
 			{
 				\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
