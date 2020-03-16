@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::child() === 'remove' && \dash\request::get('id'))
+		if(\dash\url::child() === 'remove' && \dash\request::get('id') && !\dash\url::subchild())
 		{
 			\dash\open::get();
 			\dash\open::post();

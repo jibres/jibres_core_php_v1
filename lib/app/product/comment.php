@@ -5,72 +5,50 @@ namespace lib\app\product;
 class comment
 {
 
-	private static function check($_id = null)
+	private static function check($_args, $_id = null)
 	{
-		$args               = [];
-		$content = \dash\app::request('content');
+		$condition =
+		[
+			'content'    => 'desc',
+			'star'       => ['enum' => ['1','2','3','4','5']],
+			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close','answered']],
+			'product_id' => 'id',
+		];
 
-		if(mb_strlen($content) > 5000)
+		$require = [];
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if(!$data['content'] && !$data['star'])
 		{
-			\dash\notif::error(T_("Comment name is too large!"), 'comment');
+			\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
 			return false;
 		}
 
-		$star = \dash\app::request('star');
-		if($star && !in_array((string) $star, ['1','2','3','4','5']))
-		{
-			\dash\notif::error(T_("Invalid star number"));
-			return false;
-		}
-		if(\dash\app::isset_request('content') || \dash\app::isset_request('star'))
-		{
-			if(!$content && !$star)
-			{
-				\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
-				return false;
-			}
-		}
 
-		$product_id = \dash\app::request('product_id');
-
-		if(!$product_id || !is_numeric($product_id))
-		{
-			\dash\notif::error(T_("Invalid product id"));
-			return false;
-		}
-
-		$load_product = \lib\db\products\get::by_id($product_id);
+		$load_product = \lib\db\products\get::by_id($data['product_id']);
 		if(!isset($load_product['id']))
 		{
 			\dash\notif::error(T_("Product not found"));
 			return false;
 		}
 
-		$args['product_id'] = $load_product['id'];
-
-
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['approved','awaiting','unapproved','spam','deleted','filter','close','answered']))
-		{
-			\dash\notif::error(T_("Invalid status"));
-			return false;
-		}
-
-		$args['content'] = $content;
-		$args['star']    = $star;
-		$args['status']  = $status;
-
-		return $args;
+		return $data;
 
 	}
 
 	public static function approved_of_product($_product_id, $_string = null)
 	{
-		if(!$_product_id || !is_numeric($_product_id))
+		$_product_id = \dash\validate::id($_product_id);
+		if(!$_product_id)
 		{
 			\dash\notif::error(T_("Invalid product id"));
 			return false;
 		}
+
+		$_string = \dash\validate::search($_string);
 
 		$list = \lib\db\productcomment\get::get_page_list($_string, $_product_id, 'approved');
 
@@ -88,12 +66,15 @@ class comment
 
 	public static function of_product($_product_id, $_string = null)
 	{
-		if(!$_product_id || !is_numeric($_product_id))
+		$_product_id = \dash\validate::id($_product_id);
+
+		if(!$_product_id)
 		{
 			\dash\notif::error(T_("Invalid product id"));
 			return false;
 		}
 
+		$_string = \dash\validate::search($_string);
 
 		$list = \lib\db\productcomment\get::get_page_list($_string, $_product_id);
 
@@ -123,15 +104,7 @@ class comment
 			return false;
 		}
 
-
-		\dash\app::variable($_args);
-
-		$args = self::check();
-
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$args = self::check($_args);
 
 		if(!isset($args['product_id']))
 		{
@@ -236,7 +209,8 @@ class comment
 
 	public static function inline_get($_id)
 	{
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid comment id"));
@@ -264,7 +238,8 @@ class comment
 
 		\dash\permission::access('productCommentListView');
 
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid comment id"));
@@ -297,32 +272,21 @@ class comment
 			return false;
 		}
 
-		\dash\app::variable($_args);
-
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid comment id"));
 			return false;
 		}
 
-		$args = self::check($id);
+		$args = self::check($_args, $id);
 
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		$get_comment = \lib\db\productcomment\get::by_id($id);
-
-
-		if(!\dash\app::isset_request('content')) unset($args['content']);
-		if(!\dash\app::isset_request('star')) unset($args['star']);
-		if(!\dash\app::isset_request('status')) unset($args['status']);
-
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
+			$get_comment = \lib\db\productcomment\get::by_id($id);
 			foreach ($get_comment as $field => $value)
 			{
 				if(array_key_exists($field, $args) && $args[$field] == $value)
@@ -373,6 +337,7 @@ class comment
 
 		\dash\permission::access('productCommentListView');
 
+		$_string = \dash\validate::search($_string);
 
 		$result = \lib\db\productcomment\get::get_page_list($_string);
 

@@ -9,8 +9,11 @@ class view
 		\dash\data::page_desc(T_('You can manage your company manually.'). ' '. T_("Don't worry! we are add company automatically on add new product"));
 
 
-		\dash\data::action_text(T_('Back to product list'));
-		\dash\data::action_link(\dash\url::this());
+
+		// back
+		\dash\data::back_text(T_('Products'));
+		\dash\data::back_link(\lib\backlink::products());
+
 
 		if(\dash\data::editMode())
 		{
@@ -24,16 +27,19 @@ class view
 			\dash\data::allCompany($allCompany);
 		}
 
-		if(\dash\data::removeMode() || \dash\data::editMode())
+		if(\dash\data::removeMode())
 		{
-			\dash\data::action_text(T_('Back to product company list'));
-			\dash\data::action_link(\dash\url::that());
+			\dash\data::page_title(T_('Remove product company'));
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
 		}
 
-
-		// back
-		\dash\data::back_text(T_('Products'));
-		\dash\data::back_link(\lib\backlink::products());
+		if(\dash\data::editMode())
+		{
+			\dash\data::page_title(T_('Edit product company'));
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
+		}
 
 	}
 }

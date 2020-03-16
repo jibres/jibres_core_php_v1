@@ -9,6 +9,13 @@ class company
 
 	public static function check_add($_company)
 	{
+		$_company = \dash\validate::string_100($_company);
+
+		if(!$_company)
+		{
+			return;
+		}
+
 		if(!\lib\store::in_store())
 		{
 			\dash\notif::error(T_("Your are not in this store!"));
@@ -19,11 +26,6 @@ class company
 		if(isset($get_company_title['id']))
 		{
 			return $get_company_title;
-		}
-
-		if(!self::check_title($_company))
-		{
-			return false;
 		}
 
 		$args =
@@ -48,87 +50,31 @@ class company
 	}
 
 
-
-	private static function check_title($_title)
-	{
-		$title = $_title;
-		if(!is_string($title))
-		{
-			\dash\notif::error(T_("Format error!"));
-			return false;
-		}
-
-		if(!$title && $title !== '0')
-		{
-			\dash\notif::error(T_("Plese fill the company name"), 'company');
-			return false;
-		}
-
-		if(mb_strlen($title) > 100)
-		{
-			\dash\notif::error(T_("Company name is too large!"), 'company');
-			return false;
-		}
-
-		return true;
-	}
-
-
-
-	private static function check($_id = null)
-	{
-		$title = \dash\app::request('title');
-		if(!$title && $title !== '0')
-		{
-			if(self::$debug) \dash\notif::error(T_("Plese fill the company name"), 'company');
-			return false;
-		}
-
-		if(mb_strlen($title) > 100)
-		{
-			if(self::$debug) \dash\notif::error(T_("Company name is too large!"), 'company');
-			return false;
-		}
-
-
-		$args            = [];
-		$args['title']   = $title;
-
-
-		return $args;
-
-	}
-
-
 	public static function add($_args)
 	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
 
 		if(!\dash\permission::check('productCompanyListAdd'))
 		{
 			return false;
 		}
 
-		if(!\lib\store::in_store())
+		if(!\lib\store::id())
 		{
-			\dash\notif::error(T_("Your are not in this store!"));
+			\dash\notif::error(T_("Store not found"));
 			return false;
 		}
 
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'title'    => 'title',
+		];
 
-		$args = self::check();
+		$require = [];
+		$meta    =	[];
 
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$get_company_title = \lib\db\productcompany\get::by_title($args['title']);
+		$get_company_title = \lib\db\productcompany\get::by_title($data['title']);
 
 		if(isset($get_company_title['id']))
 		{
@@ -137,7 +83,7 @@ class company
 		}
 
 
-		$id = \lib\db\productcompany\insert::new_record($args);
+		$id = \lib\db\productcompany\insert::new_record($data);
 		if(!$id)
 		{
 			\dash\log::set('productCompanyDbErrorInsert');
@@ -163,14 +109,6 @@ class company
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		\dash\app::variable($_args);
-
 		$load = self::inline_get($_id);
 
 		if(!isset($load['id']))
@@ -179,8 +117,22 @@ class company
 			return false;
 		}
 
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$condition =
+		[
+			'content'  => 'desc',
+			'whattodo' => ['enum' => ['non-company','new-company']],
+			'company'  => 'string_50',
+
+		];
+
+		$require = [];
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
@@ -191,19 +143,12 @@ class company
 
 		if($count_product > 0)
 		{
-			$whattodo = \dash\app::request('whattodo');
-			if(!in_array($whattodo, ['non-company','new-company']))
-			{
-				\dash\notif::error(T_("What to do for old company?"));
-				return false;
-			}
 
 			$check = null;
 
-			$company = \dash\app::request('company');
-			if($company)
+			if($data['company'])
 			{
-				$check = self::inline_get($company);
+				$check = self::inline_get($data['company']);
 				if(!$check)
 				{
 					\dash\notif::error(T_("Invalid new company id!"));
@@ -211,23 +156,29 @@ class company
 				}
 			}
 
-			if($whattodo === 'new-company' && !isset($check['id']))
+			if($data['whattodo'] === 'new-company' && !isset($check['id']))
 			{
 				\dash\notif::error(T_("Please select one company"), 'company');
 				return false;
 			}
 
-			$old_company_id    = $_id;
+			$old_company_id    = $id;
 			if(!$old_company_id || !is_numeric($old_company_id))
 			{
 				\dash\notif::error(T_("Invalid company id!"));
 				return false;
 			}
 
-			if($whattodo === 'new-company')
+			if($data['whattodo'] === 'new-company')
 			{
 				$new_company_id    = $check['id'];
 				$new_company_title = $check['title'];
+
+				if($new_company_id == $old_company_id)
+				{
+					\dash\notif::error(T_("Old company is equal to new company id"));
+					return false;
+				}
 
 				\lib\db\products\update::update_all_company($new_company_id, $old_company_id);
 			}
@@ -251,8 +202,8 @@ class company
 
 	public static function inline_get($_id)
 	{
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
@@ -280,8 +231,9 @@ class company
 
 		\dash\permission::access('productCompanyListView');
 
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
@@ -314,27 +266,24 @@ class company
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		\dash\app::variable($_args);
-
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
 		}
 
-		$args = self::check($id);
+		$condition =
+		[
+			'title'    => 'title',
+		];
 
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$require = [];
+		$meta    =	[];
+
+		$args = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 
 		$get_company = \lib\db\productcompany\get::one($id);
 
@@ -351,8 +300,8 @@ class company
 			}
 		}
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
 
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
