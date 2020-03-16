@@ -37,7 +37,7 @@ class site_list
 			[
 				[
 					"text"  => T_("No result founded!"),
-					"text" => null,
+					"id" => null,
 					// "disabled"  => true
 				]
 			];
@@ -102,7 +102,7 @@ class site_list
 		$result =
 		[
 			// on list
-			'text'     => $name,
+			'html'     => $name,
 			'id'    => $id,
 			'datalist' => $datalist,
 		];

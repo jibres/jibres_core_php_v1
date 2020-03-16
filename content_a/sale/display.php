@@ -4,7 +4,7 @@
   <div class="c9 s12 pRa10">
 
     <div class="cbox p0" id="searchInProducts">
-      <select name="product" class="select22 barCode" id="productSearch" data-model='html' data-selection='clean' autofocus data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
+      <select name="product" class="select22 barCode" id="productSearch" multiple='multiple' data-model='html' data-selection='clean' autofocus data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
       </select>
     </div>
 
