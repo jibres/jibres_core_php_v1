@@ -37,11 +37,11 @@ class model
 		$post['discount']       = \dash\request::post('discount');
 		$post['vat']            = \dash\request::post('vat');
 		$post['sku']            = \dash\request::post('sku');
-		$post['code']           = \dash\request::post('code');
+		// $post['code']           = \dash\request::post('code');
 		$post['barcode']        = \dash\request::post('barcode');
 		$post['barcode2']       = \dash\request::post('barcode2');
 		$post['infinite']       = \dash\request::post('infinite');
-		$post['gallery']        = \dash\request::post('gallery');
+		// $post['gallery']        = \dash\request::post('gallery');
 		$post['weight']         = \dash\request::post('weight');
 		$post['seotitle']       = \dash\request::post('seotitle');
 		$post['slug']           = \dash\request::post('slug');

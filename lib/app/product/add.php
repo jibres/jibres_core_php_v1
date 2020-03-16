@@ -68,6 +68,16 @@ class add
 	{
 		\dash\permission::access('productAdd');
 
+
+		if(!\lib\store::id())
+		{
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("Store not found"));
+			}
+			return false;
+		}
+
 		$default_option =
 		[
 			'debug'       => true,
@@ -82,39 +92,10 @@ class add
 
 		$_option = array_merge($default_option, $_option);
 
-		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
+		$args = \lib\app\product\check::variable($_args, null, $_option);
 
-		if(!\dash\user::id())
-		{
-			if($_option['debug'])
-			{
-				\dash\notif::error(T_("User not found"));
-			}
-			return false;
-		}
-
-		if(!\lib\store::id())
-		{
-			if($_option['debug'])
-			{
-				\dash\notif::error(T_("Store not found"));
-			}
-			return false;
-		}
-
-		if(!\lib\store::in_store())
-		{
-			if($_option['debug'])
-			{
-				\dash\notif::error(T_("Your are not in this store!"));
-			}
-			return false;
-		}
-
-		$args = \lib\app\product\check::variable(null, $_option);
-
-		if($args === false || !\dash\engine\process::status())
+		if(!$args || !\dash\engine\process::status())
 		{
 			return false;
 		}
@@ -147,57 +128,41 @@ class add
 		}
 
 
-		$unit = \dash\app::request('unit');
-		if($unit && is_string($unit))
+		if($args['unit'])
 		{
 			\lib\app\product\unit::$debug = false;
-			$add_unit                     = \lib\app\product\unit::check_add($unit);
+			$add_unit                     = \lib\app\product\unit::check_add($args['unit']);
 			if(isset($add_unit['id']))
 			{
 				$args['unit_id'] = $add_unit['id'];
 			}
-
 		}
 
-		$company = \dash\app::request('company');
-		if($company && is_string($company))
+		unset($args['unit']);
+
+
+		if($args['company'])
 		{
 			\lib\app\product\company::$debug = false;
-			$add_company                     = \lib\app\product\company::check_add($company);
+			$add_company                     = \lib\app\product\company::check_add($args['company']);
 			if(isset($add_company['id']))
 			{
 				$args['company_id'] = $add_company['id'];
 			}
 		}
 
-		$cat_id = \dash\app::request('cat_id');
-		if($cat_id && !is_numeric($cat_id))
-		{
-			\dash\notif::error(T_("Invalid category id"));
-			return false;
-		}
+		unset($args['company']);
 
-		if($cat_id)
+
+		if($args['cat_id'])
 		{
-			$load_cat = \lib\app\category\get::inline_get($cat_id);
+			$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
 			if(!isset($load_cat['id']))
 			{
 				\dash\notif::error(T_("Category not found"));
 				return false;
 			}
 		}
-
-		if($cat_id)
-		{
-			$args['cat_id'] = $cat_id;
-		}
-
-		if(\dash\app::isset_request('cat_id') && !$cat_id)
-		{
-			$args['cat_id'] = null;
-		}
-
-
 
 		$product_id = \lib\db\products\insert::new_record($args);
 
@@ -217,11 +182,7 @@ class add
 			return false;
 		}
 
-		if(
-			(isset($args['buyprice']) && $args['buyprice']) ||
-			(isset($args['price']) && $args['price']) ||
-			(isset($args['discount']) && $args['discount'])
-		  )
+		if($args['buyprice'] ||	$args['price'] || $args['discount'])
 		{
 			// the product was inserted
 			// set the productprice record
@@ -285,6 +246,15 @@ class add
 	}
 
 
+
+	/**
+	 * Create duplicate from one product
+	 *
+	 * @param      <type>   $_id    The identifier
+	 * @param      <type>   $_args  The arguments
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function duplicate($_id, $_args)
 	{
 		$load = \lib\app\product\get::get($_id);

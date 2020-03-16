@@ -23,16 +23,6 @@ class edit
 
 		$_option = array_merge($default_option, $_option);
 
-		\dash\app::variable($_args, \lib\app\product\check::variable_args());
-
-		if(!\dash\user::id())
-		{
-			if($_option['debug'])
-			{
-				\dash\notif::error(T_("User not found"));
-			}
-			return false;
-		}
 
 		if(!\lib\store::id())
 		{
@@ -42,16 +32,6 @@ class edit
 			}
 			return false;
 		}
-
-		if(!\lib\store::in_store())
-		{
-			if($_option['debug'])
-			{
-				\dash\notif::error(T_("Your are not in this store!"));
-			}
-			return false;
-		}
-
 
 		$product_detail = \lib\app\product\get::inline_get($_id);
 		if(!$product_detail || !isset($product_detail['id']))
@@ -72,109 +52,43 @@ class edit
 
 		$_option['isChild'] = $isChild;
 
-		$args = \lib\app\product\check::variable($id, $_option);
+		$args = \lib\app\product\check::variable($_args, $id, $_option);
 
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
-
-		if(!\dash\app::isset_request('title')) 			unset($args['title']);
-		if(!\dash\app::isset_request('slug')) 			unset($args['slug']);
-		if(!\dash\app::isset_request('barcode')) 		unset($args['barcode']);
-		if(!\dash\app::isset_request('barcode2')) 		unset($args['barcode2']);
-		if(!\dash\app::isset_request('minstock')) 		unset($args['minstock']);
-		if(!\dash\app::isset_request('maxstock')) 		unset($args['maxstock']);
-		if(!\dash\app::isset_request('weight')) 		unset($args['weight']);
-		if(!\dash\app::isset_request('status')) 		unset($args['status']);
-		if(!\dash\app::isset_request('thumb')) 			unset($args['thumb']);
-		if(!\dash\app::isset_request('vat')) 			unset($args['vat']);
-		if(!\dash\app::isset_request('saleonline')) 	unset($args['saleonline']);
-		if(!\dash\app::isset_request('carton')) 		unset($args['carton']);
-		if(!\dash\app::isset_request('desc')) 			unset($args['desc']);
-		if(!\dash\app::isset_request('saletelegram')) 	unset($args['saletelegram']);
-		if(!\dash\app::isset_request('saleapp')) 		unset($args['saleapp']);
-		if(!\dash\app::isset_request('infinite')) 		unset($args['infinite']);
-		if(!\dash\app::isset_request('parent')) 		unset($args['parent']);
-		if(!\dash\app::isset_request('scalecode')) 		unset($args['scalecode']);
-		if(!\dash\app::isset_request('optionname1')) 	unset($args['optionname1']);
-		if(!\dash\app::isset_request('optionvalue1')) 	unset($args['optionvalue1']);
-		if(!\dash\app::isset_request('optionname2')) 	unset($args['optionname2']);
-		if(!\dash\app::isset_request('optionvalue2')) 	unset($args['optionvalue2']);
-		if(!\dash\app::isset_request('optionname3')) 	unset($args['optionname3']);
-		if(!\dash\app::isset_request('optionvalue3')) 	unset($args['optionvalue3']);
-		if(!\dash\app::isset_request('sku')) 			unset($args['sku']);
-		if(!\dash\app::isset_request('seotitle')) 		unset($args['seotitle']);
-		if(!\dash\app::isset_request('seodesc')) 		unset($args['seodesc']);
-		if(!\dash\app::isset_request('salestep')) 		unset($args['salestep']);
-		if(!\dash\app::isset_request('minsale')) 		unset($args['minsale']);
-		if(!\dash\app::isset_request('maxsale')) 		unset($args['maxsale']);
-		if(!\dash\app::isset_request('type')) 			unset($args['type']);
-		if(!\dash\app::isset_request('gallery')) 		unset($args['gallery']);
-		if(!\dash\app::isset_request('oversale')) 		unset($args['oversale']);
-		if(!\dash\app::isset_request('length')) 		unset($args['length']);
-		if(!\dash\app::isset_request('width')) 			unset($args['width']);
-		if(!\dash\app::isset_request('height')) 		unset($args['height']);
-		if(!\dash\app::isset_request('filesize')) 		unset($args['filesize']);
-		if(!\dash\app::isset_request('fileaddress')) 	unset($args['fileaddress']);
-		if(!\dash\app::isset_request('price')) 			unset($args['price']);
-		if(!\dash\app::isset_request('discount')) 		unset($args['discount']);
-		if(!\dash\app::isset_request('buyprice')) 		unset($args['buyprice']);
-		if(!\dash\app::isset_request('compareatprice')) unset($args['compareatprice']);
-
-
-
-		if(\dash\app::isset_request('price') || \dash\app::isset_request('discount') || \dash\app::isset_request('buyprice') || \dash\app::isset_request('compareatprice'))
+		if($args['price'] || $args['discount'] || $args['buyprice'] || $args['compareatprice'])
 		{
 			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args);
 		}
 
 
-		$unit = \dash\app::request('unit');
-		if($unit && is_string($unit))
+		if($args['unit'])
 		{
 			\lib\app\product\unit::$debug = false;
-			$add_unit                     = \lib\app\product\unit::check_add($unit);
+			$add_unit                     = \lib\app\product\unit::check_add($args['unit']);
 			if(isset($add_unit['id']))
 			{
 				$args['unit_id'] = $add_unit['id'];
 			}
-
 		}
+		unset($args['unit']);
 
-		if(\dash\app::isset_request('unit') && !$unit)
-		{
-			$args['unit_id'] = null;
-		}
-
-		$company = \dash\app::request('company');
-		if($company && is_string($company))
+		if($args['company'])
 		{
 			\lib\app\product\company::$debug = false;
-			$add_company                     = \lib\app\product\company::check_add($company);
+			$add_company                     = \lib\app\product\company::check_add($args['company']);
 			if(isset($add_company['id']))
 			{
 				$args['company_id'] = $add_company['id'];
 			}
 		}
+		unset($args['company']);
 
-		if(\dash\app::isset_request('company') && !$company)
-		{
-			$args['company_id'] = null;
-		}
 
-		$cat_id = \dash\app::request('cat_id');
-		if($cat_id && !is_numeric($cat_id))
+		if($args['cat_id'])
 		{
-			\dash\notif::error(T_("Invalid category id"));
-			return false;
-		}
-
-		if($cat_id)
-		{
-			$load_cat = \lib\app\category\get::inline_get($cat_id);
+			$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
 			if(!isset($load_cat['id']))
 			{
 				\dash\notif::error(T_("Category not found"));
@@ -182,26 +96,16 @@ class edit
 			}
 		}
 
-		if($cat_id)
+		if($args['tag'])
 		{
-			$args['cat_id'] = $cat_id;
-		}
-
-		if(\dash\app::isset_request('cat_id') && !$cat_id)
-		{
-			$args['cat_id'] = null;
-		}
-
-
-		if(\dash\app::isset_request('tag'))
-		{
-			$tag = \dash\app::request('tag');
-			\lib\app\product\tag::add($tag, $id);
+			\lib\app\product\tag::add($args['tag'], $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;
 			}
 		}
+
+		unset($args['tag']);
 
 		if(isset($args['type']))
 		{

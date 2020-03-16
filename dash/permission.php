@@ -520,6 +520,12 @@ class permission
 	// check permission
 	public static function check($_caller, $_user_id = null)
 	{
+		// user is not login
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
 		// for test and debug permission
 		if(self::$test_mode)
 		{
@@ -531,6 +537,15 @@ class permission
 		if(self::supervisor(false))
 		{
 			return true;
+		}
+
+		// we have store and need to check permission but the user not in this store
+		if(\dash\engine\store::inStore())
+		{
+			if(!\lib\store::in_store())
+			{
+				return false;
+			}
 		}
 
 		$all_list = self::lists();

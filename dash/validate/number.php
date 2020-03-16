@@ -78,7 +78,6 @@ class number
 			}
 		}
 
-
 		return $data;
 	}
 
@@ -96,13 +95,38 @@ class number
 	}
 
 
+	public static function int($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 2000000000]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = intval($data);
+
+		return $data;
+	}
+
+
+	public static function float($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 2000000000]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = floatval($data);
+
+		return $data;
+	}
+
+
 	public static function number_percent($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		return self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 100]);
 	}
-
-
-
 
 }
 ?>

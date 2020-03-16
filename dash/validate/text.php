@@ -378,7 +378,14 @@ class text
 			return $data;
 		}
 
+		$data_before = $data;
+
 		$data = \dash\utility\convert::to_barcode($data);
+
+		if($data != $data_before)
+		{
+			\dash\notif::warn(T_("Your barcode have wrong character. we change it. please check your product again"), 'barcode');
+		}
 
 		return $data;
 	}

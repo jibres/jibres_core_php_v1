@@ -46,5 +46,45 @@ class dataarray
 
 		return $data;
 	}
+
+
+
+	public static function tag($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = $_data;
+
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
+		if(!is_array($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be array", ['val' => $_field_title]), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		$new_tag = [];
+		$count = 0;
+		foreach ($data as $tag)
+		{
+			$count++;
+			$temp = \dash\validate::string_50($tag);
+			if(isset($temp))
+			{
+				$new_tag[] = $temp;
+			}
+
+			if($count > 20)
+			{
+				break;
+			}
+		}
+
+		return $new_tag;
+	}
 }
 ?>

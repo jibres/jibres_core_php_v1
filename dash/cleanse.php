@@ -550,6 +550,9 @@ class cleanse
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'tag':
+				$data = \dash\validate\dataarray::tag($_data, $_notif, $element, $field_title, $meta);
+				break;
 
 			// *************** nationalcode validate
 			case 'nationalcode':
@@ -559,6 +562,14 @@ class cleanse
 			// *************** number validate
 			case 'number':
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'int':
+				$data = \dash\validate\number::int($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'float':
+				$data = \dash\validate\number::float($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'number_positive':
