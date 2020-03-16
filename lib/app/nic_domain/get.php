@@ -138,7 +138,7 @@ class get
 
 	public static function check($_domain)
 	{
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}
@@ -152,7 +152,7 @@ class get
 
 	public static function info($_domain)
 	{
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}

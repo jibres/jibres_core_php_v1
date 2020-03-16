@@ -19,7 +19,7 @@ class lock
 		}
 
 
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			\dash\notif::error(T_("Invalid domain syntax"));
 			return false;
@@ -108,7 +108,7 @@ class lock
 		}
 
 
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			\dash\notif::error(T_("Invalid domain syntax"));
 			return false;

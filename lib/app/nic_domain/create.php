@@ -49,7 +49,7 @@ class create
 			return false;
 		}
 
-		if(!\lib\app\nic_domain\check::syntax($domain))
+		if(!\dash\validate::domain($domain))
 		{
 			\dash\notif::warn('ssss');
 			\dash\notif::error(T_("Invalid domain syntax"));

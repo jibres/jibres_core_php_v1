@@ -8,7 +8,7 @@ class url
 
 	public static function url($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -30,15 +30,14 @@ class url
 
 	public static function domain($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::url($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
-
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 		if($data === false || $data === null)
 		{
 			return $data;
 		}
 
 
-		if(strpos($_domain, '.') === false)
+		if(strpos($data, '.') === false)
 		{
 			if($_notif)
 			{
@@ -53,7 +52,7 @@ class url
 
 	public static function ir_domain($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::url($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -78,7 +77,7 @@ class url
 
 	public static function ip($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -100,7 +99,7 @@ class url
 
 	public static function dns($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::url($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{

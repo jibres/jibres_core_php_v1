@@ -13,7 +13,7 @@ class model
 			return false;
 		}
 
-		if(!\lib\app\nic_domain\check::syntax($domain))
+		if(!\dash\validate::domain($domain))
 		{
 			\dash\notif::error(T_("Please enter a valid domain"), 'domain');
 			return false;

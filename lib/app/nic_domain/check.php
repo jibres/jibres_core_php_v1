@@ -4,47 +4,6 @@ namespace lib\app\nic_domain;
 
 class check
 {
-	public static function syntax($_domain)
-	{
-		if(!$_domain || !is_string($_domain))
-		{
-			// \dash\notif::error(T_("Please fill domain"), 'domain');
-			return false;
-		}
-
-		if(strpos($_domain, '.') === false)
-		{
-			return false;
-		}
-		else
-		{
-			if(!preg_match("/^[\w\d]+\.(ir)$/", $_domain))
-			{
-				// return false;
-			}
-		}
-
-		return true;
-
-	}
-
-
-	public static function syntax_ir($_domain)
-	{
-		if(!self::syntax($_domain))
-		{
-			return false;
-		}
-
-		if(!preg_match("/^[\w\d]+\.(ir|ایران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $_domain))
-		{
-			return false;
-		}
-
-		return true;
-	}
-
-
 	public static function multi_check($_domain)
 	{
 		$check_tld =
@@ -107,7 +66,7 @@ class check
 
 	public static function check($_domain)
 	{
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}
@@ -121,7 +80,7 @@ class check
 
 	public static function info($_domain)
 	{
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}

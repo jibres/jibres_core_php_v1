@@ -12,7 +12,7 @@ class controller
 		$domain = urldecode($domain);
 		if($domain)
 		{
-			if(\lib\app\nic_domain\check::syntax($domain))
+			if(\dash\validate::domain($domain))
 			{
 				$check = \lib\app\nic_domain\check::info($domain);
 				if($check)

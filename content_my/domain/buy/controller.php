@@ -25,7 +25,7 @@ class controller
 
 			\dash\data::myDomain($domain);
 
-			if(\lib\app\nic_domain\check::syntax($domain))
+			if(\dash\validate::domain($domain))
 			{
 				$check = \lib\app\nic_domain\check::check($domain);
 				\dash\data::checkResult($check);

@@ -17,7 +17,7 @@ class controller
 		$domain = \dash\url::child();
 		if($domain)
 		{
-			if(\lib\app\nic_domain\check::syntax($domain))
+			if(\dash\validate::domain($domain))
 			{
 				\dash\data::myDomain(urldecode($domain));
 				$whois = \lib\app\nic_whois\who::is($domain);

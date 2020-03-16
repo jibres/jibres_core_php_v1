@@ -25,7 +25,7 @@ class who
 
 	public static function is($_domain)
 	{
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}
@@ -59,7 +59,7 @@ class who
 
 		public static function is_old($_domain)
 	{
-		if(!\lib\app\nic_domain\check::syntax($_domain))
+		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}

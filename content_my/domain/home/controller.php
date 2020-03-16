@@ -17,7 +17,7 @@ class controller
 		// $domain = \dash\url::module();
 		// if($domain)
 		// {
-		// 	if(\lib\app\nic_domain\check::syntax($domain))
+		// 	if(\dash\validate::domain($domain))
 		// 	{
 		// 		\dash\data::myDomain($domain);
 		// 		$check = \lib\app\nic_domain\check::check($domain);

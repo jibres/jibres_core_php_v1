@@ -58,7 +58,7 @@ class view
 		// user search anything and no result founded
 		if($search_string && !$list)
 		{
-			if(\lib\app\nic_domain\check::syntax($search_string))
+			if(\dash\validate::domain($search_string))
 			{
 				\dash\data::myDomain($search_string);
 				$check = \lib\app\nic_domain\check::check($search_string);

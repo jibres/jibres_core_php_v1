@@ -11,7 +11,7 @@ class controller
 		$domain = \dash\request::get('domain');
 		if($domain)
 		{
-			if(\lib\app\nic_domain\check::syntax($domain))
+			if(\dash\validate::domain($domain))
 			{
 				$load_domain = \lib\app\nic_domain\get::is_my_domain($domain);
 				if(!$load_domain)
