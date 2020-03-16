@@ -206,8 +206,7 @@ class site_list
 			'value'    => $id,
 			// select22
 			'html'     => $name,
-			'text'     => $name,
-			'id'    => $id,
+			'id'       => $id,
 			// for extra use and remove double query
 			'datalist' => $datalist,
 		];
