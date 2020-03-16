@@ -3,19 +3,10 @@
 <form method="post" autocomplete="off" class="f" id='factorAdd' data-disallowEnter data-msgNewError='<?php echo T_("You can add new empty tab if current tab is filled!"); ?>' <?php if(\dash\request::get('extra') == 'true') {?> data-autoClose=2000 <?php } //endif ?>>
   <div class="c9 s12 pRa10">
 
-    <div class="cbox p0">
-      <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='<?php echo \dash\url::this(); ?>?json=true&q={query}' data-shortkey-search>
-        <option value=""><?php echo T_("Search in list to add product"); ?> +</option>
+    <div class="cbox p0 selectBox">
+      <select name="product" class="select22 barCode" id="productSearch" data-model='html' multiple2="multiple" data-selection='clean' autofocus data-default data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
       </select>
     </div>
-
-<?php if (\dash\permission::supervisor()) { ?>
-    <div class="cbox p0">
-      <select name="product" class="select22 barCode" id="productSearch" data-model='html' autofocus data-default data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
-        <option value=""><?php echo T_("Search in list to add product"); ?> +</option>
-      </select>
-    </div>
-<?php } ?>
 
 
       <table class="tbl1 v4 txtC fs13 productList" data-item='0'>
