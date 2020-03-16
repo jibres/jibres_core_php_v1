@@ -20,9 +20,14 @@ class site_list
 		$meta         = [];
 		$msg          = T_("Product not found."). ' ';
 
-		if(\dash\request::get('q'))
+		$query = \dash\request::get('q');
+		if(!$query)
 		{
-			$resultRaw    = \lib\app\product\search::list_in_sale(\dash\request::get('q'), $meta);
+			$query = \dash\request::get('term');
+		}
+		if($query)
+		{
+			$resultRaw    = \lib\app\product\search::list_in_sale($query, $meta);
 			foreach ($resultRaw as $key => $value)
 			{
 				$result['result'][] = self::getNeededField($value);

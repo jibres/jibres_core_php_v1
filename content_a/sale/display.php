@@ -9,6 +9,17 @@
       </select>
     </div>
 
+<?php if (\dash\permission::supervisor()) { ?>
+    <div class="cbox p0">
+      <select name="product" class="select22 barCode" id="productSearch" autofocus data-default data-ajax--url='<?php echo \dash\url::this(); ?>?json=true&q={query}' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
+        <option value=""><?php echo T_("Search in list to add product"); ?> +</option>
+        <option value="1">item 1</option>
+        <option value="2">item 2</option>
+      </select>
+    </div>
+<?php } ?>
+
+
       <table class="tbl1 v4 txtC fs13 productList" data-item='0'>
    <thead>
     <tr class="fs08">
