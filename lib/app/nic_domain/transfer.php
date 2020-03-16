@@ -6,32 +6,33 @@ class transfer
 {
 	public static function transfer($_args)
 	{
-		$domain    = isset($_args['domain']) 	? $_args['domain'] 		: null;
-		$nic_id    = isset($_args['nic_id']) 	? $_args['nic_id'] 		: null;
-		$irnic_new = isset($_args['irnic_new']) ? $_args['irnic_new'] 	: null;
-		$pin       = isset($_args['pin']) 		? $_args['pin'] 		: null;
+		$condition =
+		[
+			'domain'    => 'ir_domain',
+			'nic_id'    => 'irnic_id',
+			'irnic_new' => 'irnic_id',
+			'pin'       => 'string',
+		];
+
+		$require = ['domain', 'pin'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$domain    = $data['domain'];
+		$nic_id    = $data['nic_id'];
+		$irnic_new = $data['irnic_new'];
+		$pin       = $data['pin'];
 
 		$transaction_id = null;
 
-		if(!$domain)
-		{
-			\dash\notif::error(T_("Please set domain"));
-			return false;
-		}
-
-
-		if(!\lib\app\nic_domain\check::syntax_ir($domain))
-		{
-			\dash\notif::error(T_("Only ir domain can be transfer to us at this time"));
-			return false;
-		}
-
-
-		if(!$pin || !is_string($pin))
-		{
-			\dash\notif::error(T_("Please set pin"));
-			return false;
-		}
 
 		if($irnic_new)
 		{
