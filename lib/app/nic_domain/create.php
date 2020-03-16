@@ -6,33 +6,50 @@ class create
 {
 	public static function new_domain($_args)
 	{
-		$domain      = isset($_args['domain']) 	? $_args['domain'] 	: null;
-		$nic_id      = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
-		$period      = isset($_args['period']) 	? $_args['period'] 	: null;
-		$ns1         = isset($_args['ns1']) 		? $_args['ns1'] 	: null;
-		$ns2         = isset($_args['ns2']) 		? $_args['ns2'] 	: null;
-		$ns3         = isset($_args['ns3']) 		? $_args['ns3'] 	: null;
-		$ns4         = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
-		$dnsid       = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
+		$condition =
+		[
+			'domain'      => 'domain',
+			'nic_id'      => 'irnic_id',
+			'period'      => ['enum' => ['1year', '5year']],
+			'ns1'         => 'dns',
+			'ns2'         => 'dns',
+			'ns3'         => 'dns',
+			'ns4'         => 'dns',
+			'dnsid'       => 'string',
+			'irnic_admin' => 'irnic_id',
+			'irnic_tech'  => 'irnic_id',
+			'irnic_bill'  => 'irnic_id',
+			'irnic_new'   => 'irnic_id',
+		];
 
-		$irnic_admin = isset($_args['irnic_admin']) 	? $_args['irnic_admin'] 	: null;
-		$irnic_tech  = isset($_args['irnic_tech']) 	? $_args['irnic_tech'] 	: null;
-		$irnic_bill  = isset($_args['irnic_bill']) 	? $_args['irnic_bill'] 	: null;
+		$require = ['domain', 'period'];
 
-		if($irnic_admin && substr($irnic_admin, -6) !== '-irnic')
-		{
-			$irnic_admin = $irnic_admin. '-irnic';
-		}
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		if($irnic_tech && substr($irnic_tech, -6) !== '-irnic')
-		{
-			$irnic_tech = $irnic_tech. '-irnic';
-		}
+			],
+		];
 
-		if($irnic_bill && substr($irnic_bill, -6) !== '-irnic')
-		{
-			$irnic_bill = $irnic_bill. '-irnic';
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$domain      = $data['domain'];
+		$nic_id      = $data['nic_id'];
+		$period      = $data['period'];
+		$ns1         = $data['ns1'];
+		$ns2         = $data['ns2'];
+		$ns3         = $data['ns3'];
+		$ns4         = $data['ns4'];
+		$dnsid       = $data['dnsid'];
+
+		$irnic_admin = $data['irnic_admin'];
+		$irnic_tech  = $data['irnic_tech'];
+		$irnic_bill  = $data['irnic_bill'];
+		$irnic_new  = $data['irnic_new'];
+
+
 
 
 		$ip1 = null;
@@ -40,32 +57,6 @@ class create
 		$ip3 = null;
 		$ip4 = null;
 
-		$irnic_new = isset($_args['irnic_new']) 	? $_args['irnic_new'] 	: null;
-
-
-		if(!$domain)
-		{
-			\dash\notif::error(T_("Please set domain"));
-			return false;
-		}
-
-		if(!\dash\validate::domain($domain))
-		{
-			\dash\notif::warn('ssss');
-			\dash\notif::error(T_("Invalid domain syntax"));
-			return false;
-		}
-
-		if(!$period)
-		{
-			\dash\notif::error(T_("Please choose your period of register domain"));
-			return false;
-		}
-		if(!in_array($period, ['1year', '5year']))
-		{
-			\dash\notif::error(T_("Invalid period"));
-			return false;
-		}
 
 		$period_month = 0;
 		$price = \lib\app\nic_domain\price::register($period);
@@ -341,7 +332,7 @@ class create
 		}
 		else
 		{
-			$temp_args = $_args;
+			$temp_args = $data;
 
 			// go to bank
 			$meta =

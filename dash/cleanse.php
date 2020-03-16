@@ -598,6 +598,11 @@ class cleanse
 				break;
 
 
+			case 'irnic_id':
+				$data = \dash\validate\irnic::irnic_id($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+
 			// *************** bool/bit validate
 			case 'bool':
 				$data = boolval($_data);
