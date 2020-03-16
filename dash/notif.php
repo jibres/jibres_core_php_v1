@@ -88,6 +88,11 @@ class notif
 		self::add_detail('result', $_result);
 	}
 
+	// just for select22 - reza says
+	public static function results($_result)
+	{
+		self::add_detail('results', $_result);
+	}
 
 	/**
 	 * Use in every where need to add index to master result

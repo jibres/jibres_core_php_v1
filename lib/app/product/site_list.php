@@ -31,6 +31,7 @@ class site_list
 			foreach ($resultRaw as $key => $value)
 			{
 				$result['result'][] = self::getNeededField($value);
+				$result['results'][] = self::getNeededField($value);
 			}
 		}
 		elseif(\dash\request::get('barcode'))
@@ -75,6 +76,7 @@ class site_list
 					// "disabled"  => true
 				]
 			];
+			$result['results'][] = ['text' => T_("No result founded!"), 'id' => null, "disabled"  => true];
 		}
 
 		if(!$result)
@@ -87,6 +89,7 @@ class site_list
 		{
 			$result = [];
 			$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
+			$result['results'][] = ['text' => T_("No result found!"), 'id' => null, "disabled"  => true];
 		}
 
 		\dash\code::jsonBoom($result);
@@ -198,12 +201,12 @@ class site_list
 		$name   .= $priceTxt. '</span>';
 		$result =
 		[
-			// on list
+			// dropdown
 			'name'     => $name,
-			// after select
-			// 'text'     => $name,
-			// value for backend
 			'value'    => $id,
+			// select22
+			'text'     => $name,
+			'id'    => $id,
 			// for extra use and remove double query
 			'datalist' => $datalist,
 		];
