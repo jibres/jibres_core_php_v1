@@ -25,9 +25,10 @@ class site_list
 		if($q)
 		{
 			$resultRaw    = \dash\app\user::list($q, $meta);
+
 			foreach ($resultRaw as $key => $value)
 			{
-				$result['result'][] = self::getNeededField($value);
+				$result['results'][] = self::getNeededField($value);
 			}
 		}
 		else
@@ -35,8 +36,8 @@ class site_list
 			$result['result'] =
 			[
 				[
-					"name"  => T_("No result founded!"),
-					"value" => null,
+					"text"  => T_("No result founded!"),
+					"text" => null,
 					// "disabled"  => true
 				]
 			];
@@ -51,7 +52,7 @@ class site_list
 		if(!$result)
 		{
 			$result = [];
-			$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
+			$result['results'][] = ['name' => T_("No result found!"), 'value' => null];
 		}
 
 		\dash\code::jsonBoom($result);
@@ -101,8 +102,8 @@ class site_list
 		$result =
 		[
 			// on list
-			'name'     => $name,
-			'value'    => $id,
+			'text'     => $name,
+			'id'    => $id,
 			'datalist' => $datalist,
 		];
 
