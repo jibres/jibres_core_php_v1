@@ -1,6 +1,6 @@
 <section class="jibresBanner">
  <div class="fit zero">
-  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-1.jpg" alt='<?php echo \dash\data::page_title();?>'>
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-1.jpg" alt='<?php echo T_("What is Privacy?"); ?>'>
  </div>
 
  <div class="fit">
@@ -10,7 +10,7 @@
  </div>
 
  <div class="fit zero">
-  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-2.jpg" alt='<?php echo \dash\data::page_title();?>'>
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-2.jpg" alt='<?php echo T_("Controversies over the Invasion of Privacy"); ?>'>
  </div>
 
  <div class="fit">
@@ -33,7 +33,7 @@
  </div>
 
  <div class="fit zero">
-  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-4.jpg" alt='<?php echo \dash\data::page_title();?>'>
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-4.jpg" alt='<?php echo T_("Privacy from Our Point of View"); ?>'>
  </div>
 
 </section>
