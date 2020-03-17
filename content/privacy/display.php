@@ -1,7 +1,11 @@
 <section class="jibresBanner">
+ <div class="fit zero">
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-1.jpg" alt='<?php echo \dash\data::page_title();?>'>
+ </div>
+
  <div class="fit">
    <h2><?php echo T_("What is Privacy?"); ?></h2>
-   <p class="msg dark txtC"><?php echo T_("Privacy means that any individual is entitled to choose the information related to them, and selectively, share it with others."); ?></p>
+   <p class="msg info2 txtC"><?php echo T_("Privacy means that any individual is entitled to choose the information related to them, and selectively, share it with others."); ?></p>
    <p><?php echo T_("privacy is so important for mental peace as well as a peaceful personality that some experts have considered invasion of privacy disrespectful to human dignity."); ?></p>
 
   <h3><?php echo T_("Controversies over the Invasion of Privacy"); ?></h3>

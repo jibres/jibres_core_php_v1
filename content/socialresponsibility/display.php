@@ -1,4 +1,9 @@
 <div class="jibresBanner">
+ <div class="fit zero">
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-socialresponsibility-1.jpg" alt='<?php echo \dash\data::page_title();?>'>
+ </div>
+
+
  <div class="fit">
 
   <p class="msg success txtC"><?php echo T_("Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production."); ?></p>
@@ -21,6 +26,10 @@
   <h2 id="customer-care-and-complete-satisfaction"><?php echo T_("Customer Care and Complete Satisfaction"); ?></h2>
   <p><?php echo T_("Attracting people's participation as well as having their valuable presence has always been a great honor for Jibres and to appreciate your support, in return, Jibres presents services to promote customer satisfaction."); ?> <?php echo T_("These services are presented in different time intervals and are aimed at costomer care mission and appreciation of your valuable presence."); ?></p>
 
-
  </div>
+
+ <div class="fit zero">
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-socialresponsibility-2.jpg" alt='<?php echo T_("We are building in Jibres")?>'>
+ </div>
+
 </div>
