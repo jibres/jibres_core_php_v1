@@ -1,5 +1,8 @@
-
 <div class="jibresBanner">
+ <div class="fit zero">
+ 	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-team-1.jpg" alt='<?php echo \dash\data::page_title();?>'>
+ </div>
+
  <div class="fit txtC">
  	<p><?php echo \dash\data::page_desc(); ?></p>
  	<h2 class="txtB"><?php echo T_('The best thing about Jibres is our people.'); ?></h2>

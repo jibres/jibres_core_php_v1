@@ -1,15 +1,17 @@
-
 <div class="jibresBanner">
  <div class="fit zero">
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-mission-1.jpg" alt='<?php echo \dash\data::page_title();?>'>
  </div>
+
  <div class="fit">
  	<p class="mB25"><?php echo \dash\data::page_desc(); ?></p>
+ </div>
 
+ <div class="fit zero">
+ 	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-mission-2.jpg" alt='<?php echo \dash\data::page_title();?>'>
+ </div>
 
-
- 	<p><?php echo T_("We are on a mission to simplify business system and their teams can spend more time creating money."); ?></p>
-
+ <div class="fit">
 
  	<p><?php echo T_("Jibres is a values-driven organization. Here is what we believe in."); ?></p>
 
@@ -28,4 +30,9 @@
  	<p><?php echo T_("Underlying everything we do, love for our customers and our DO is essential to realizing our fullest potential."); ?></p>
 
  </div>
+
+ <div class="fit zero">
+ 	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-mission-3.jpg" alt='<?php echo \dash\data::page_title();?>'>
+ </div>
+
 </div>
