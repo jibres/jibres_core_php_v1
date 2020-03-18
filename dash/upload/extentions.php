@@ -133,7 +133,15 @@ class extentions
 			// force changed the extentio of file
 			if(isset($myResult['mime']) && $myResult['mime'] !== $mime_content_type)
 			{
-				$myResult['allow'] = false;
+				if($_ext === 'csv' && $mime_content_type === 'text/plain')
+				{
+					// mime of csv file is 'text/csv', 'text/plain'
+					// https://github.com/PHPOffice/PhpSpreadsheet/issues/429
+				}
+				else
+				{
+					$myResult['allow'] = false;
+				}
 			}
 		}
 
