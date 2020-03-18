@@ -93,7 +93,9 @@ class check
 			}
 		}
 
-
+		unset($data['mobile']);
+		unset($data['displayname']);
+		unset($data['gender']);
 		return $data;
 	}
 }
