@@ -133,7 +133,8 @@ class product
 		{
 			$index = $key + 1;
 
-			\dash\app::variable($value);
+			\dash\temp::set('clesnse_not_check_needless_args', true);
+			\dash\temp::set('clesnse_not_end_with_error', true);
 
 			$check = \lib\app\product\check::variable($value);
 

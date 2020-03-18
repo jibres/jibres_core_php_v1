@@ -31,21 +31,20 @@ class add
 
 		$upload_setting =
 		[
-			'ext'        => 'csv',
+			'ext'        => ['csv'],
 			'allow_size' => (5*1024*1024),
 		];
 
 		$meta = [];
 
 		$file_detail = \dash\upload\file::upload('import', $upload_setting);
-
 		if(!$file_detail || !isset($file_detail['path']) || !isset($file_detail['id']))
 		{
 			return false;
 		}
 
+		$path = \dash\upload\directory::move_to('store'). $file_detail['path'];
 
-		$path = root. 'public_html/'. $file_detail['path'];
 
 		$meta['file_id'] = $file_detail['id'];
 
