@@ -25,7 +25,7 @@ class breadcrumb
 			}
 		}
 
-		// $qry = \dash\db\posts::get(['url', ["IN",  "('".join("' , '", $breadcrumb)."')"]]);
+
 		$titles    = [];
 		$post_urls = [];
 
@@ -38,7 +38,7 @@ class breadcrumb
 
 		if(count($breadcrumb) != $titles)
 		{
-			// $terms_qry = \dash\db\terms::get(['url', ["IN", "('".join("' , '", $breadcrumb)."')"]]);
+
 			$term_titles = [];
 			$term_urls   = [];
 			// if(is_array($terms_qry))

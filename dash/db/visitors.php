@@ -580,7 +580,7 @@ class visitors
 			}
 		}
 
-		$where = join($where, " AND ");
+		$where = implode(" AND ", $where);
 		$search = null;
 		if($_string !== null && $search_field && !is_array($_string))
 		{

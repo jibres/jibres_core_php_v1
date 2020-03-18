@@ -293,7 +293,7 @@ class kavenegar_api
 	 */
 	public function select($_id)
 	{
-		$id     = is_array($_id)? join(",", $_id) : $_id;
+		$id     = is_array($_id)? implode(",", $_id) : $_id;
 		$path   = $this->get_path(__FUNCTION__);
 		$params = array( "messageid" => $id);
 		$json   = $this->execute($path, $params);
@@ -373,7 +373,7 @@ class kavenegar_api
 	 */
 	public function status($_id)
 	{
-		$id     = is_array($_id)? join(",", $_id) : $_id;
+		$id     = is_array($_id)? implode(",", $_id) : $_id;
 		$path   = $this->get_path(__FUNCTION__);
 		$params = array( "messageid" => $id);
 		$json   = $this->execute($path, $params, true);
@@ -403,7 +403,7 @@ class kavenegar_api
 	 */
 	public function cancel($_id)
 	{
-		$id     = is_array($_id)? join(",", $_id) : $_id;
+		$id     = is_array($_id)? implode(",", $_id) : $_id;
 		$path   = $this->get_path(__FUNCTION__);
 		$params = array( "messageid" => $id);
 		$json   = $this->execute($path, $params);

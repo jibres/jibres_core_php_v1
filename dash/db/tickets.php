@@ -840,7 +840,7 @@ class tickets
 			}
 			$set[] = " $reverse = IF($reverse IS NULL, 0, $reverse - 1) ";
 		}
-		$set = join($set, ', ');
+		$set = implode(', ', $set);
 		$query =
 		"
 			UPDATE

@@ -65,7 +65,7 @@ class safe
 
 		if($remove_inject)
 		{
-			$_string = preg_replace("/\s?[" . join('', $remove_inject) . "]/", "", $_string);
+			$_string = preg_replace("/\s?[" . implode('', $remove_inject) . "]/", "", $_string);
 		}
 
 		if($checkPersianChar)
