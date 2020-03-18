@@ -72,7 +72,7 @@ class sessions
 			return true;
 		}
 
-		$id = implode($get_list, ',');
+		$id = implode(',', $get_list);
 
 		$query =
 		"
