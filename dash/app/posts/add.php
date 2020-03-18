@@ -14,8 +14,6 @@ trait add
 	public static function add($_args, $_option = [])
 	{
 
-		\dash\app::variable($_args, ['raw_field' => self::$raw_field]);
-
 		$default_option =
 		[
 			'save_log' => true,
@@ -37,7 +35,7 @@ trait add
 		}
 
 		// check args
-		$args = self::check(null, $_option);
+		$args = self::check($_args, null, $_option);
 
 		$args['user_id'] = \dash\user::id();
 
@@ -80,7 +78,7 @@ trait add
 			{
 				if(\dash\permission::check('cpTagHelpAdd'))
 				{
-					self::set_post_term($post_id, 'help_tag', 'posts', \dash\app::request('tag'));
+					self::set_post_term($post_id, 'help_tag', 'posts', $args['tag']);
 				}
 			}
 
@@ -95,7 +93,7 @@ trait add
 
 			if($args['type'] === 'mag')
 			{
-				$post_url = self::set_post_term($post_id, 'mag', null, \dash\app::request('cat'));
+				$post_url = self::set_post_term($post_id, 'mag', null, $args['cat']);
 			}
 			else
 			{

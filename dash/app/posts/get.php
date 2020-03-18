@@ -6,6 +6,7 @@ trait get
 {
 	public static function get_category_tag($_post_id, $_type, $_related = 'posts')
 	{
+		$_post_id = \dash\validate::code($_post_id);
 		$post_id = \dash\coding::decode($_post_id);
 		if(!$post_id)
 		{
@@ -56,7 +57,8 @@ trait get
 			}
 		}
 
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{
@@ -79,7 +81,9 @@ trait get
 
 	public static function load_post($_id)
 	{
-		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
+
 		if(!$id || !is_numeric($id))
 		{
 			return false;

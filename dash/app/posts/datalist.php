@@ -29,26 +29,20 @@ trait datalist
 	public static function list($_string = null, $_args = [])
 	{
 
-		$default_meta =
+		$condition =
 		[
-			'sort'  => null,
-			'order' => null,
+			'order'    => 'order',
+			'sort'     => ['enum' => ['id', 'title', 'slug', 'publishdate', 'status', 'commentcount',]],
+			'type'     => ['enum' => ['post', 'page', 'help']],
+			'language' => 'language',
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
+		$meta    =	[];
 
-		$_args = array_merge($default_meta, $_args);
-
-		if($_args['sort'] && !in_array($_args['sort'], self::$sort_field))
-		{
-			$_args['sort'] = null;
-		}
-
-
-		$result            = \dash\db\posts::search($_string, $_args);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$_string = \dash\validate::search($_string);
+		$result            = \dash\db\posts::search($_string, $data);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

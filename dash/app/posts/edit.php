@@ -5,30 +5,15 @@ namespace dash\app\posts;
 trait edit
 {
 
-	public static function edit($_args, $_option = [])
+	public static function edit($_args, $_id)
 	{
+		$_option = [];
 
-		\dash\app::variable($_args, ['raw_field' => self::$raw_field]);
-
-		$default_option =
-		[
-			'debug'    => true,
-			'save_log' => true,
-		];
-
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
-
-		$_option = array_merge($default_option, $_option);
-
-		$id = \dash\app::request('id');
+		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);
 
 		if(!$id)
 		{
-			\dash\app::log('api:posta:edit:permission:denide', \dash\user::id(), \dash\app::log_meta());
 			\dash\notif::error(T_("Can not access to edit posta"), 'posta');
 			return false;
 		}
@@ -62,11 +47,23 @@ trait edit
 		$_option['raw_args'] = $_args;
 
 		// check args
-		$args = self::check($id, $_option);
+		$args = self::check($_args, $id, $_option);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
+		}
+
+		$cat = [];
+		if(isset($_args['cat']) && is_array($_args['cat']))
+		{
+			$cat = $_args['cat'];
+		}
+
+		$tag = [];
+		if(isset($_args['tag']))
+		{
+			$tag = $_args['tag'];
 		}
 
 
@@ -86,18 +83,18 @@ trait edit
 			{
 				if(\dash\permission::check('cpTagHelpAdd'))
 				{
-					self::set_post_term($id, 'help_tag', 'posts', \dash\app::request('tag'));
+					self::set_post_term($id, 'help_tag', 'posts', $tag);
 				}
 			}
 			else
 			{
 				if(\dash\permission::check('cpTagAdd'))
 				{
-					self::set_post_term($id, 'tag');
+					self::set_post_term($id, 'tag', 'posts', $cat);
 				}
 			}
 
-			$post_url = self::set_post_term($id, 'cat');
+			$post_url = self::set_post_term($id, 'cat', 'posts', $tag);
 
 			if($post_url !== false)
 			{
@@ -112,17 +109,24 @@ trait edit
 			}
 		}
 
-		if(!\dash\app::isset_request('type')) unset($args['type']);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
-		\dash\log::set('editPost', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
-
-		\dash\db\posts::update($args, $id);
-
-
-		if(\dash\engine\process::status())
+		if(!empty($args))
 		{
-			\dash\notif::ok(T_("Post successfully updated"));
+			\dash\log::set('editPost', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
+
+			\dash\db\posts::update($args, $id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Post successfully updated"));
+			}
 		}
+		else
+		{
+			\dash\notif::info(T_("Post save without changes"));
+		}
+
 	}
 }
 ?>

@@ -86,7 +86,7 @@ class model
 
 		$post =
 		[
-			'id'          => \dash\request::get('id'),
+
 			'subtitle'    => \dash\request::post('subtitle'),
 			'excerpt'     => \dash\request::post('excerpt'),
 			'title'       => \dash\request::post('title'),

@@ -27,17 +27,6 @@ class posts
 		return $list;
 	}
 
-	public static function all_post_title($_args)
-	{
-		$list = \dash\db\posts::all_post_title($_args);
-		if(is_array($list))
-		{
-			$list = array_map(['self', 'ready'], $list);
-		}
-
-		return $list;
-	}
-
 
 	public static function get_user_can_write_post($_type)
 	{
@@ -253,7 +242,8 @@ class posts
 
 	public static function post_gallery($_post_id, $_file_detail, $_type = 'add')
 	{
-		$post_id = \dash\coding::decode($_post_id);
+		$post_id = \dash\validate::code($_post_id);
+		$post_id = \dash\coding::decode($post_id);
 		if(!$post_id)
 		{
 			\dash\notif::error(T_("Invalid post id"));
@@ -379,8 +369,55 @@ class posts
 		return $myUrl;
 	}
 
-	public static function check($_id = null, $_option = [])
+	public static function check($_args, $_id = null, $_option = [])
 	{
+		$condition =
+		[
+			'language'    => 'language',
+			'title'       => 'title',
+			'seotitle'    => 'seotitle',
+			'excerpt'     => 'string_300',
+			'subtitle'    => 'title',
+			'slug'        => 'slug',
+			'url'         => 'url',
+			'content'     => 'html',
+			'type'        => ['enum' => ['post', 'page', 'help', 'mag']],
+			'comment'     => 'bit',
+			'count'       => 'int',
+			'order'       => 'int',
+			'special'     => 'string',
+			'status'      => ['enum' => ['publish','draft','schedule','deleted','expire']],
+			'parent'      => 'code',
+			'publishdate' => 'date',
+			'publishtime' => 'time',
+			'thumb'       => 'string',
+
+			'icon'        => 'string_50',
+			'btntitle'    => 'string_50',
+			'btnurl'      => 'url',
+			'btntarget'   => 'bit',
+			'btncolor'    => ['enum' => ['primary','primary2','secondary','secondary2','success','success2','danger','danger2','warning','warning2','info','info2','light','dark','pain']],
+			'srctitle'    => 'title',
+			'srcurl'      => 'url',
+			'redirecturl' => 'url',
+			'creator'     => 'code',
+			'tag'         => 'tag',
+			'subtype'     => ['enum' => ['standard','image', 'gallery', 'video', 'audio']],
+
+
+		];
+
+
+		$require = ['title'];
+
+		$meta =	[];
+
+
+		$cat = isset($_args['cat']) ? $_args['cat'] : [];
+
+		unset($_args['cat']);
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$default_option =
 		[
@@ -462,76 +499,17 @@ class posts
 		}
 
 
-		$language = \dash\app::request('language');
-		if($language && mb_strlen($language) !== 2)
+		if($data['title'] && !$data['slug'])
 		{
-			\dash\notif::error(T_("Invalid parameter language"), 'language');
-			return false;
+			$data['slug'] = $data['title'];
 		}
 
-		if($language && !\dash\language::check($language))
-		{
-			\dash\notif::error(T_("Invalid parameter language"), 'language');
-			return false;
-		}
+		$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 
-		$title = \dash\app::request('title');
-		if(!$title)
-		{
-			\dash\notif::error(T_("Title of posts can not be null"), 'title');
-			return false;
-		}
-
-		if($title && mb_strlen($title) > 100)
-		{
-			\dash\notif::error(T_("Please set the title less than 100 character"), 'title');
-			return false;
-		}
-
-		$seotitle = \dash\app::request('seotitle');
-		if($seotitle && mb_strlen($seotitle) > 100)
-		{
-			\dash\notif::error(T_("Please set the seotitle less than 100 character"), 'seotitle');
-			return false;
-		}
-
-		// if(!$seotitle)
-		// {
-		// 	$seotitle = $title . ' | '. T_(\dash\option::config('site', 'title'));
-		// }
-
-		$excerpt = \dash\app::request('excerpt');
-		if($excerpt && mb_strlen($excerpt) > 300)
-		{
-			\dash\notif::error(T_("Please set the excerpt less than 300 character"), 'excerpt');
-			return false;
-		}
-
-		$subtitle = \dash\app::request('subtitle');
-		if($subtitle && mb_strlen($subtitle) > 300)
-		{
-			\dash\notif::error(T_("Please set the subtitle less than 300 character"), 'subtitle');
-			return false;
-		}
-
-		$slug = \dash\app::request('slug');
-		if($slug && mb_strlen($slug) > 100)
-		{
-			\dash\notif::error(T_("Please set the slug less than 100 character"), 'slug');
-			return false;
-		}
-
-		if($title && !$slug)
-		{
-			$slug = $title;
-		}
-
-		$slug = str_replace(substr($slug, 0, strrpos($slug, '/')). '/', '', $slug);
-
-		$slug = \dash\utility\filter::slug($slug, null, 'persian');
+		$data['slug'] = \dash\utility\filter::slug($data['slug'], null, 'persian');
 
 
-		$check_duplicate_args = ['slug' => $slug, 'language' => $language, 'limit' => 1];
+		$check_duplicate_args = ['slug' => $data['slug'], 'language' => $data['language'], 'limit' => 1];
 
 
 		$check_duplicate_slug = \dash\db\posts::get($check_duplicate_args);
@@ -548,45 +526,20 @@ class posts
 			}
 		}
 
-		$url = \dash\app::request('url');
-		if($url && mb_strlen($url) > 255)
+		if(!$data['url'])
 		{
-			\dash\notif::error(T_("Please set the url less than 100 character"), 'url');
-			return false;
+			$data['url'] = $data['slug'];
 		}
 
-		if(!$url)
+		if(!$data['type'])
 		{
-			$url = $slug;
+			$data['type'] = 'post';
 		}
 
-		$content = \dash\app::request('content');
-		if(mb_strlen($content) > 1E+5)
-		{
-			\dash\notif::warn(T_("This text is too large!"), 'content');
-		}
-
-		$type = \dash\app::request('type');
-		if($type && mb_strlen($type) > 100)
-		{
-			\dash\notif::error(T_("Please set the type less than 100 character"), 'type');
-			return false;
-		}
-
-		if(!$type)
-		{
-			$type = 'post';
-		}
-
-		$comment = \dash\app::request('comment');
+		$comment = $data['comment'];
 		$comment = $comment ? 'open' : 'closed';
 
-		$count = \dash\app::request('count');
-		$order = \dash\app::request('order');
-
-
-
-		$special = \dash\app::request('special');
+		$special = $data['special'];
 
 		if($special && !\dash\app\posts\special::check($special))
 		{
@@ -594,14 +547,7 @@ class posts
 			return false;
 		}
 
-
-
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['publish','draft','schedule','deleted','expire']))
-		{
-			\dash\notif::error(T_("Invalid parameter status"), 'status');
-			return false;
-		}
+		$status = $data['status'];
 
 		if($status === 'deleted')
 		{
@@ -661,7 +607,7 @@ class posts
 		$parent_url  = null;
 		$parent_slug = null;
 
-		$parent = \dash\app::request('parent');
+		$parent = $data['parent'];
 
 		if($parent)
 		{
@@ -718,145 +664,61 @@ class posts
 
 		if($parent_slug)
 		{
-			$slug = $parent_slug . '/'. $slug;
+			$data['slug'] = $parent_slug . '/'. $data['slug'];
 		}
 
 		if($parent_url)
 		{
-			$url = $parent_url . '/'. $url;
+			$data['url'] = $parent_url . '/'. $data['url'];
 		}
 
-		$publishdate = \dash\app::request('publishdate');
-		$publishdate = \dash\utility\convert::to_en_number($publishdate);
+		$publishdate = $data['publishdate'];
 
-		if($publishdate && !\dash\date::db($publishdate))
-		{
-			\dash\notif::error(T_("Invalid parameter publishdate"), 'publishdate');
-			return false;
-		}
-
-		if($language === 'fa' && $publishdate)
-		{
-			$publishdate  = \dash\utility\jdate::to_gregorian($publishdate);
-		}
-
-		if(\dash\app::isset_request('publishdate') && !$publishdate && $status === 'publish')
+		if(!$publishdate && $data['status'] === 'publish')
 		{
 			$publishdate = date("Y-m-d");
 		}
 
-		$publishtime = \dash\app::request('publishtime');
-		$publishtime = \dash\utility\convert::to_en_number($publishtime);
-		if($publishtime)
-		{
-			$publishtime = \dash\date::make_time($publishtime);
-			if($publishtime === false)
-			{
-				\dash\notif::error(T_("Invalid publish time"), 'publishtime');
-				return false;
-			}
-			elseif(!$publishtime)
-			{
-				$publishtime = date("H:i");
-			}
-		}
-		elseif($status === 'publish')
+		$publishtime = $data['publishtime'];
+
+		if($data['status'] === 'publish' && !$publishtime)
 		{
 			$publishtime = date("H:i");
 		}
 
-
 		$meta = $_option['meta'];
-		if(\dash\app::isset_request('thumb') && \dash\app::request('thumb'))
+
+		if($data['thumb'])
 		{
-			$meta['thumb'] = \dash\app::request('thumb');
+			$meta['thumb'] = $data['thumb'];
 		}
 
 		if(isset($current_post_detail['type']))
 		{
-			$type = $current_post_detail['type'];
+			$data['type'] = $current_post_detail['type'];
 		}
 
-		if(in_array($type, ['post', 'mag']))
+		if(in_array($data['type'], ['post']))
 		{
-			$cat = \dash\app::request('cat');
-			if(!$cat && \dash\app::isset_request('cat'))
+			if(!$cat)
 			{
 				\dash\notif::warn(T_("Category setting for better access is suggested"));
 			}
 		}
 
-		$icon = \dash\app::request('icon');
+		$icon = $data['icon'];
 		if($icon)
 		{
 			$meta['icon'] = $icon;
 		}
 
-
-		$btntitle = \dash\app::request('btntitle');
-		if($btntitle && mb_strlen($btntitle) > 100)
-		{
-			\dash\notif::error(T_("Button title is out of range"), 'btntitle');
-			return false;
-		}
-
-
-		$btnurl = \dash\app::request('btnurl');
-		if($btnurl && mb_strlen($btnurl) > 1000)
-		{
-			\dash\notif::error(T_("Button url is out of range"), 'btnurl');
-			return false;
-		}
-
-		if($btnurl && isset($_option['raw_args']['btnurl']))
-		{
-			$btnurl = \dash\safe::safe($_option['raw_args']['btnurl'], 'get_url');
-		}
-
-		$btntarget = \dash\app::request('btntarget') ? true : false;
-
-		$btncolor = \dash\app::request('btncolor');
-		if($btncolor && !in_array($btncolor, ['primary','primary2','secondary','secondary2','success','success2','danger','danger2','warning','warning2','info','info2','light','dark','pain']))
-		{
-			\dash\notif::error(T_("Invalid button color"), 'btncolor');
-			return false;
-		}
-
-
-		$srctitle = \dash\app::request('srctitle');
-		if($srctitle && mb_strlen($srctitle) > 200)
-		{
-			\dash\notif::error(T_("Sourse title is out of range"), 'srctitle');
-			return false;
-		}
-
-
-		$srcurl = \dash\app::request('srcurl');
-		if($srcurl && mb_strlen($srcurl) > 1000)
-		{
-			\dash\notif::error(T_("Sourse url is out of range"), 'srcurl');
-			return false;
-		}
-
-
-		if($srcurl && isset($_option['raw_args']['srcurl']))
-		{
-			$srcurl = \dash\safe::safe($_option['raw_args']['srcurl'], 'get_url');
-		}
-
-
-		$redirecturl = \dash\app::request('redirecturl');
-		if($redirecturl && mb_strlen($redirecturl) > 1000)
-		{
-			\dash\notif::error(T_("Sourse url is out of range"), 'redirecturl');
-			return false;
-		}
-
-
-		if($redirecturl && isset($_option['raw_args']['redirecturl']))
-		{
-			$redirecturl = \dash\safe::safe($_option['raw_args']['redirecturl'], 'get_url');
-		}
+		$btntitle    = $data['btntitle'];
+		$btnurl      = $data['btnurl'];
+		$btntarget   = $data['btntarget'] ? true : false;
+		$btncolor    = $data['btncolor'];
+		$srctitle    = $data['srctitle'];
+		$srcurl      = $data['srcurl'];
+		$redirecturl = $data['redirecturl'];
 
 		$meta['download'] =
 		[
@@ -875,28 +737,18 @@ class posts
 		$meta['redirect'] = $redirecturl;
 
 
-
 		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
 
-		if(!$slug)
+		if(!$data['slug'])
 		{
 			\dash\notif::error(T_("Invalid slug"), 'slug');
 			return false;
 		}
 
-		$allow_post_type   = ['post', 'page', 'help', 'mag', 'attachment'];
-
-		if($type && !in_array($type, $allow_post_type))
-		{
-			\dash\notif::error(T_("Invalid type"));
-			return false;
-		}
-
-		$args                = [];
 
 		if(\dash\permission::check('cpChangePostCreator'))
 		{
-			$creator = \dash\app::request('creator');
+			$creator = $data['creator'];
 
 			if($creator && isset($current_post_detail['type']) && isset($current_post_detail['user_id']))
 			{
@@ -911,53 +763,26 @@ class posts
 							\dash\notif::error(T_("Invalid user"));
 							return false;
 						}
-						$args['user_id'] = \dash\coding::decode($creator);
+						$data['user_id'] = \dash\coding::decode($creator);
 					}
 				}
 			}
 		}
 
-
-		$subtype = \dash\app::request('subtype');
-		if($subtype && !in_array($subtype, ['standard','image', 'gallery', 'video', 'audio']))
+		if(!$data['subtype'])
 		{
-			\dash\notif::error(T_("Invalid type"), 'subtype');
-			return false;
-		}
-
-		if(!$subtype)
-		{
-			$subtype = 'standard';
+			$data['subtype'] = 'standard';
 		}
 
 
-		if($url)
+		if($data['url'])
 		{
-			if(!\dash\app\url::check($url))
+			if(!\dash\app\url::check($data['url']))
 			{
 				return false;
 			}
 		}
 
-
-		$args['language']    = $language;
-		$args['subtype']    = $subtype;
-		$args['title']       = $title;
-		$args['slug']        = $slug;
-		$args['url']         = $url;
-		$args['content']     = $content;
-		$args['meta']        = $meta;
-		$args['type']        = $type;
-		$args['comment']     = $comment;
-		// $args['count']       = $count;
-		// $args['order']       = $order;
-		$args['status']      = $status;
-		$args['excerpt']     = $excerpt;
-		$args['subtitle']    = $subtitle;
-		$args['parent']      = $parent;
-		$args['special']     = $special;
-		$args['seotitle']    = $seotitle;
-		$args['publishdate'] = $publishdate ? $publishdate. ' '. $publishtime  : null;
 
 		// check status
 		switch ($current_post_detail['type'])
@@ -965,19 +790,31 @@ class posts
 			case 'help':
 				if(!\dash\permission::check('cpHelpCenterEditStatus'))
 				{
-					unset($args['status']);
+					unset($data['status']);
 				}
 				break;
 
 			default:
 				if(!\dash\permission::check('cpPostsEditStatus'))
 				{
-					unset($args['status']);
+					unset($data['status']);
 				}
 				break;
 		}
 
-		return $args;
+
+		unset($data['btntitle']);
+		unset($data['btnurl']);
+		unset($data['btntarget']);
+		unset($data['btncolor']);
+		unset($data['srctitle']);
+		unset($data['srcurl']);
+		unset($data['redirecturl']);
+		unset($data['publishtime']);
+		unset($data['creator']);
+		unset($data['tag']);
+
+		return $data;
 
 	}
 
@@ -1003,9 +840,12 @@ class posts
 		if(strpos($_type, 'tag') !== false)
 		{
 			$tag = $category;
-			$tag = explode(',', $tag);
-			$tag = array_filter($tag);
-			$tag = array_unique($tag);
+			if(is_string($tag))
+			{
+				$tag = explode(',', $tag);
+				$tag = array_filter($tag);
+				$tag = array_unique($tag);
+			}
 
 			$check_exist_tag = \dash\db\terms::get_mulit_term_title($tag, $_type);
 

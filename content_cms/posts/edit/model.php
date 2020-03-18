@@ -29,7 +29,7 @@ class model
 			return false;
 		}
 
-		$post_detail = \dash\app\posts::edit($posts);
+		$post_detail = \dash\app\posts::edit($posts, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
