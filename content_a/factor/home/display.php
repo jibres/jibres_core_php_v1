@@ -473,13 +473,13 @@ if(
 
 <?php function iFilterdate() {?>
 <div class="input ltr">
-  <input class="datepicker" type="text" name="date" title='<?php echo T_("Date"); ?>' placeholder='<?php echo T_("Special date"); ?>' id="date"  value="<?php echo \dash\data::dateEn(); ?>" maxlength='20' data-format="YYYYMMDD"data-view="month">
+  <input type="text" name="date" title='<?php echo T_("Date"); ?>' placeholder='<?php echo T_("Special date"); ?>' id="date"  value="<?php echo \dash\request::get('date'); ?>" maxlength='20' data-format="date">
 </div>
 <?php } // endfunction ?>
 
 <?php function iFiltertime() {?>
 <div class="input clockpicker" data-placement="top" data-align="left">
-  <input type="text" name="time" id="time" placeholder='<?php echo T_("Time"); ?>' autocomplete="off">
+  <input type="text" name="time" id="time" placeholder='<?php echo T_("Time"); ?>' value="<?php echo \dash\request::get('time') ?>" autocomplete="off" data-format='time'>
 </div>
 
 <?php } // endfunction ?>
@@ -491,13 +491,13 @@ if(
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input class="datepicker" type="text" name="startdate" title='<?php echo T_("Start date"); ?>' placeholder='<?php echo T_("Start date"); ?>' id="startdate"  value="<?php echo \dash\data::startdateEn(); ?>" maxlength='20' data-format="YYYYMMDD"data-view="month">
+          <input type="text" name="startdate" title='<?php echo T_("Start date"); ?>' placeholder='<?php echo T_("Start date"); ?>' id="startdate"  value="<?php echo \dash\request::get('startdate'); ?>" maxlength='20' data-format="date" >
         </div>
       </div>
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input class="datepicker" type="text" name="enddate" title='<?php echo T_("End date"); ?>' placeholder='<?php echo T_("End date"); ?>' id="enddate"  value="<?php echo \dash\data::enddateEn(); ?>" maxlength='20' data-format="YYYYMMDD"data-view="month">
+          <input type="text" name="enddate" title='<?php echo T_("End date"); ?>' placeholder='<?php echo T_("End date"); ?>' id="enddate"  value="<?php echo \dash\request::get('enddate'); ?>" maxlength='20' data-format="date" >
         </div>
       </div>
 
