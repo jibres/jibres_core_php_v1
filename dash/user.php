@@ -196,6 +196,7 @@ class user
 		if(self::inStore())
 		{
 			// supervisor can view all store data
+			// BUT. when we have a user id to save data the supervisror query have error!!
 			if(!$store_data && $user_data && isset($user_data['permission']) && $user_data['permission'] === 'supervisor')
 			{
 				$store_data = $user_data;
