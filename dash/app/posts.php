@@ -832,11 +832,6 @@ class posts
 
 		$category = $_data;
 
-		if(!$category)
-		{
-			return null;
-		}
-
 		$check_all_is_cat = null;
 
 		if(strpos($_type, 'tag') !== false)
@@ -917,14 +912,16 @@ class posts
 				$category_id = array_map(function($_a){return \dash\coding::decode($_a);}, $category);
 				$category_id = array_filter($category_id);
 				$category_id = array_unique($category_id);
-
-				$check_all_is_cat = \dash\db\terms::check_multi_id($category_id, $_type);
-				if(is_array($check_all_is_cat) && is_array($category_id))
+				if($category_id)
 				{
-					if(count($check_all_is_cat) !== count($category_id))
+					$check_all_is_cat = \dash\db\terms::check_multi_id($category_id, $_type);
+					if(is_array($check_all_is_cat) && is_array($category_id))
 					{
-						\dash\notif::warn(T_("Some :type is wrong", ['type' => T_($_type)]), 'cat');
-						return false;
+						if(count($check_all_is_cat) !== count($category_id))
+						{
+							\dash\notif::warn(T_("Some :type is wrong", ['type' => T_($_type)]), 'cat');
+							return false;
+						}
 					}
 				}
 			}
@@ -967,6 +964,11 @@ class posts
 			}
 		}
 
+		if($_type === 'cat')
+		{
+			// j([$must_remove, $must_insert]);
+		}
+
 		if(!empty($must_remove))
 		{
 			$must_remove = array_filter($must_remove);
@@ -988,7 +990,7 @@ class posts
 
 		if($have_term_to_save_log)
 		{
-			\dash\log::set('setPostTerm', ['code' => $_type, 'datalink' => \dash\coding::encode($_post_id)]);
+			\dash\log::set('setPostTerm', ['code' => $_type]);
 		}
 
 		return $new_url;

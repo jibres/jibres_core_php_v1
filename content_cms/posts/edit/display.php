@@ -256,7 +256,7 @@ $myFirstURL = '';
       <div>
         <div>
           <?php if(\dash\data::listCats() && is_array(\dash\data::listCats())) {?>
-            <?php $postCat = \dash\data::postCat(); if(!is_array($postCat)) { $postCat = [];} ?>
+            <?php if(!is_array($postCat)) { $postCat = [];} ?>
             <?php foreach (\dash\data::listCats() as $key => $value) {?>
 
             <div class="check1">
