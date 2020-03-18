@@ -44,15 +44,5 @@ class remove
 	}
 
 
-	private static function hard_delete($_id)
-	{
-		// remove tag
-		// remove fileusage
-		// remove product price
-		\lib\db\productprices\delete::by_product_id($_id);
-		// remove product
-		\lib\db\products\delete::record($_id);
-	}
-
 }
 ?>

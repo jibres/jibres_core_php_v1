@@ -10,7 +10,6 @@ class view
 
 		\dash\data::dataTable(\lib\app\pos\datalist::list());
 
-
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 	}

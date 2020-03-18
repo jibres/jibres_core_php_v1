@@ -6,7 +6,9 @@ class tools
 {
 	public static function default($_id)
 	{
-		if(!$_id || !is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+
+		if(!$_id)
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;

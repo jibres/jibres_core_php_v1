@@ -26,7 +26,16 @@ class model
 		}
 		else
 		{
-			$post = \dash\request::post();
+			$post                 = [];
+			$post['pos']          = \dash\request::post('pos');
+			$post['title']        = \dash\request::post('title');
+			$post['irankish']     = \dash\request::post('irankish');
+			$post['serial']       = \dash\request::post('serial');
+			$post['terminal']     = \dash\request::post('terminal');
+			$post['receiver']     = \dash\request::post('receiver');
+			$post['asanpardakht'] = \dash\request::post('asanpardakht');
+			$post['ip']           = \dash\request::post('ip');
+			$post['port']         = \dash\request::post('port');
 
 			$result = \lib\app\pos\add::new_pos($post);
 

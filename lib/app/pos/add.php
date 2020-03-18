@@ -11,24 +11,6 @@ class add
 			return false;
 		}
 
-		\dash\app::variable($_args);
-
-		$pos = \dash\app::request('pos');
-
-		if(!$pos)
-		{
-			\dash\notif::error(T_("Please choose your pos"), 'pos');
-			return false;
-		}
-
-		$title = \dash\app::request('title');
-
-		if($title && mb_strlen($title) > 100 )
-		{
-			\dash\notif::error(T_("Please set your title less than 100 character"), 'title');
-			return false;
-		}
-
 		$allow_pos =
 		[
 			'saderat', 'mellat', 'tejarat', 'melli', 'sepah', 'keshavarzi',
@@ -39,11 +21,25 @@ class add
 			'zarinpal', 'payir',
 		];
 
-		if(!in_array($pos, $allow_pos))
-		{
-			\dash\notif::error(T_("Invalid pos"), 'pos');
-			return false;
-		}
+		$condition =
+		[
+			'pos'          => ['enum' => $allow_pos],
+			'title'        => 'title',
+			'asanpardakht' => 'bit',
+			'ip'           => 'ip',
+			'port'         => 'smallint',
+			'irankish'     => 'bit',
+			'serial'       => 'bigint',
+			'terminal'     => 'bigint',
+			'receiver'     => 'bigint',
+		];
+
+		$require = ['pos'];
+
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$old = \lib\app\pos\datalist::list();
 
@@ -54,32 +50,36 @@ class add
 		}
 
 		$pc_pos = null;
-		if($pos === 'irkish')
+		if($data['pos'] === 'irkish')
 		{
 			// irankish setting get
-			$pc_pos = \lib\app\pos\irankish::config();
+			$pc_pos =
+			[
+				'serial'   => $data['serial'],
+				'terminal' => $data['terminal'],
+				'receiver' => $data['receiver'],
+			];
 
-			if(!$pc_pos || !is_array($pc_pos))
-			{
-				return false;
-			}
 		}
 
-		if($pos === 'asanpardakht')
+		if($data['pos'] === 'asanpardakht')
 		{
 			// asanpardakht setting get
-			$pc_pos = \lib\app\pos\asanpardakht::config();
+			// @ if change need remove this line
+			$port = 447700;
 
-			if(!$pc_pos || !is_array($pc_pos))
-			{
-				return false;
-			}
+			$pc_pos =
+			[
+				'ip'     => $data['ip'] ,
+				'port'   => $data['port'] ? $data['port'] : $port,
+			];
+
 		}
 
 		$new_pos =
 		[
-			'title'       => $title,
-			'slug'        => $pos,
+			'title'       => $data['title'],
+			'slug'        => $data['pos'],
 			'pcpos'       => $pc_pos ? 1 : null,
 			'setting'     => json_encode($pc_pos, JSON_UNESCAPED_UNICODE),
 			'isdefault'   => $default,

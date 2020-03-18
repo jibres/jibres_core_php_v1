@@ -272,7 +272,7 @@
           <div class="c6 pLa5">
             <label for="port"><?php echo T_("Port"); ?></label>
             <div class="input">
-              <input type="text" name="iport" id="port" placeholder='<?php echo T_("Port"); ?>'  maxlength='500' disabled>
+              <input type="text" name="port" id="port" placeholder='<?php echo T_("Port"); ?>'  maxlength='500' disabled>
             </div>
           </div>
 

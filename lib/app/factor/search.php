@@ -22,14 +22,6 @@ class search
 
 	private static function factors_list($_type, $_query_string, $_args)
 	{
-		$default_args =
-		[
-			'order'                => null,
-			'sort'                 => null,
-
-
-		];
-
 
 		$condition =
 		[

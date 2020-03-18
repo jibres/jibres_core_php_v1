@@ -7,6 +7,7 @@ class filter
 	// get public sort list for api and application
 	public static function public_sort_list($_module = null)
 	{
+		$_module = \dash\validate::string($_module);
 		$list = self::sort_list($_module);
 		$public_sort_list = [];
 		foreach ($list as $key => $value)

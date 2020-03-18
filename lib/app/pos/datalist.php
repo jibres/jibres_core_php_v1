@@ -27,7 +27,8 @@ class datalist
 				case 'setting':
 					if($value)
 					{
-						$result[$key] = json_decode($value, true);
+						$setting = json_decode($value, true);
+						$result[$key] = $setting;
 					}
 					else
 					{
@@ -41,7 +42,6 @@ class datalist
 					break;
 			}
 		}
-
 		return $result;
 	}
 
