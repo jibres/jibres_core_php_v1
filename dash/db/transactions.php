@@ -202,25 +202,14 @@ class transactions
 			{
 				foreach ($_result as $key => $value)
 				{
-					if(isset($value['unit_id']))
-					{
-						$_result[$key]['unit'] = \dash\app\units::get($value['unit_id'], true);
-					}
-
 					if(isset($value['code']))
 					{
 						$_result[$key]['code'] = self::get_caller($value['code']);
 					}
 				}
-
 			}
 			else
 			{
-				if(isset($_result['unit_id']))
-				{
-					$_result['unit'] = \dash\app\units::get($_result['unit_id'], true);
-				}
-
 				if(isset($_result['code']))
 				{
 					$_result['code'] = self::get_caller($_result['code']);

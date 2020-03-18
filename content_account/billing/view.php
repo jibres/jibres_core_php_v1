@@ -23,16 +23,8 @@ class view
 
 		if(\dash\user::login())
 		{
-			$user_unit    = \dash\app\units::find_user_unit(\dash\user::id(), true);
-			$user_unit_id = \dash\app\units::get_id($user_unit);
-			$user_unit_id = (int) $user_unit_id;
 
-			if($user_unit == 'dollar')
-			{
-				$user_unit             = '$';
-			}
-
-			\dash\data::userUnit(T_($user_unit));
+			\dash\data::userUnit(T_("Toman"));
 
 			$user_cash_all = \dash\db\transactions::budget(\dash\user::id(), ['unit' => 'all']);
 
