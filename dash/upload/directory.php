@@ -6,7 +6,18 @@ namespace dash\upload;
  */
 class directory
 {
-	private static function move_to($_type)
+	/**
+	 * Get upload directory
+	 *
+	 *
+	 * use in this function and
+	 * use in import product
+	 *
+	 * @param      string  $_type  The type
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function move_to($_type)
 	{
 		if($_type === 'jibres')
 		{
