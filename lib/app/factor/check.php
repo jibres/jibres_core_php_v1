@@ -11,7 +11,7 @@ class check
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function factor($_option = [])
+	public static function factor($_args, $_option = [])
 	{
 		$default_option =
 		[
@@ -25,37 +25,31 @@ class check
 
 		$_option = array_merge($default_option, $_option);
 
+		$condition =
+		[
+			'desc'        => 'desc',
+			'type'        => ['enum' => ['buy','sale','prefactor','lending','backbuy','backfactor','waste']],
+			'customer'    => 'code',
+			'mobile'      => 'mobile',
+			'displayname' => 'displayname',
+			'gender'      => ['enum' => ['male', 'female']],
+		];
 
-		$desc = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 1000)
+		$require = [];
+
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['type'])
 		{
-			\dash\notif::error(T_("Description of factor out of range"), 'desc');
-			return false;
+			$data['type'] = 'sale';
 		}
 
 
-		$type = \dash\app::request('type');
-		if($type && !in_array($type, ['buy','sale','prefactor','lending','backbuy','backfactor','waste']))
+		if($data['customer'])
 		{
-			\dash\notif::error(T_("Invalid type of factor"), 'type');
-			return false;
-		}
-
-		if(!$type)
-		{
-			$type = 'sale';
-		}
-
-
-		$customer = \dash\app::request('customer');
-		if(!$customer || $customer === '')
-		{
-			$customer = null;
-		}
-
-		if($customer)
-		{
-			$customer_id = \dash\coding::decode($customer);
+			$customer_id = \dash\coding::decode($data['customer']);
 			if($customer_id)
 			{
 				$customer_detail = \dash\db\users::get_by_id($customer_id);
@@ -66,80 +60,41 @@ class check
 				}
 				else
 				{
-					$customer = $customer_detail['id'];
+					$data['customer'] = $customer_detail['id'];
 				}
 			}
 			else
 			{
-				$customer = null;
+				$data['customer'] = null;
 			}
 		}
 
-		if(!$customer)
+		if(!$data['customer'])
 		{
-			$mobile      = \dash\app::request('mobile');
-			if($mobile)
+
+			if($data['mobile'])
 			{
-				$mobile = \dash\utility\filter::mobile($mobile);
-				if(!$mobile)
-				{
-					\dash\notif::error(T_("Invalid mobile"), 'mobile');
-					return false;
-				}
-			}
-
-			$gender      = \dash\app::request('gender');
-
-			if($gender && !in_array($gender, ['male', 'female']))
-			{
-				\dash\notif::error(T_("Invalid gender"), 'gender');
-				return false;
-			}
-
-			$displayname = \dash\app::request('displayname');
-
-			if($mobile)
-			{
-				$customer = \dash\app\user::quick_add(['mobile' => $mobile, 'gender' => $gender, 'displayname' => $displayname]);
+				$data['customer'] = \dash\app\user::quick_add(['mobile' => $data['mobile'], 'gender' => $data['gender'], 'displayname' => $data['displayname']]);
 			}
 			else
 			{
-				if($displayname)
+				if($data['displayname'])
 				{
-					$check_exist_displayname = \dash\db\users::get_by_displayname($displayname);
+					$check_exist_displayname = \dash\db\users::get_by_displayname($data['displayname']);
 					if(isset($check_exist_displayname['id']))
 					{
 						\dash\notif::error(T_("This thirdparyt already added to your store. plase set her mobile or change the name"), 'displayname');
 					}
 					else
 					{
-						$customer = \dash\app\user::quick_add(['mobile' => null, 'gender' => $gender, 'displayname' => $displayname]);
+						$data['customer'] = \dash\app\user::quick_add(['mobile' => null, 'gender' => $data['gender'], 'displayname' => $data['displayname']]);
 					}
 				}
 			}
 		}
 
-		$args                   = [];
-		$args['customer']       = $customer;
-		$args['type']           = $type;
-		$args['seller']         = \dash\user::id();
-		$args['date']           = date("Y-m-d H:i:s");
-		$args['title']          = null;
-		$args['pre']            = null;
-		$args['transport']      = null;
-		$args['pay']            = null;
-		$args['subprice']      = null;
-		$args['subdiscount'] = null;
-		$args['subtotal'] = null;
-		$args['subvat']      = null;
-		$args['item']           = null;
-		$args['qty']            = null;
-		$args['discount']       = null;
-		$args['sum']            = null;
-		$args['status']         = null;
-		$args['desc']           = $desc;
 
-		return $args;
+		return $data;
 	}
 }
 ?>

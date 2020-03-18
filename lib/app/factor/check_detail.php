@@ -12,7 +12,7 @@ class check_detail
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function factor_detail($_option = [])
+	public static function factor_detail($_args, $_option = [])
 	{
 		$default_option =
 		[
@@ -26,54 +26,28 @@ class check_detail
 
 		$_option = array_merge($default_option, $_option);
 
-		$list    = \dash\app::request();
 
-		$decode_list   = [];
-		$allproduct_id = [];
-		$trust_order_list      = [];
+		$condition =
+		[
+			'list' => ['product' => 'id', 'count' => 'smallint', 'discount' => 'price'],
+		];
 
-		$have_warn     = [];
+		$require = [];
+
+		$meta    =	[];
+
+		$data = \dash\cleanse::input(['list' => $_args], $condition, $require, $meta);
+
+
+		$list             = $data['list'];
+
+
+		$decode_list      = [];
+		$allproduct_id    = [];
+		$trust_order_list = [];
 
 		foreach ($list as $key => $value)
 		{
-			$product_id = null;
-			if(isset($value['product']))
-			{
-				$product_id = $value['product'];
-			}
-
-			if(!$product_id)
-			{
-				$have_warn[] = $key + 1;
-				continue;
-			}
-
-			if(!is_numeric($product_id))
-			{
-				$have_warn[] = $key + 1;
-				continue;
-			}
-
-			if(!array_key_exists('count', $value))
-			{
-				$have_warn[] = $key + 1;
-				continue;
-			}
-
-			$value['count'] = \dash\number::clean($value['count']);
-
-			if(!is_numeric($value['count']))
-			{
-				$have_warn[] = $key + 1;
-				continue;
-			}
-
-			if(floatval($value['count']) == 0)
-			{
-				$have_warn[] = $key + 1;
-				continue;
-			}
-
 
 			/**
 			 * @CHECK @REZA
@@ -95,12 +69,7 @@ class check_detail
 			switch ($_option['type'])
 			{
 				case 'sale':
-					if(isset($value['discount']) && $value['discount'] &&  !is_numeric($value['discount']))
-					{
-						$have_warn[] = $key + 1;
-						$continue    = true;
-						break;
-					}
+					// nothing to save
 					break;
 
 				case 'buy':
@@ -127,9 +96,9 @@ class check_detail
 
 			$trust_order_list[$key]['count']      = floatval($value['count']);
 			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? intval($value['discount']) : null;
-			$trust_order_list[$key]['product_id'] = $product_id;
+			$trust_order_list[$key]['product_id'] = $value['product'];
 
-			$allproduct_id[]              = $product_id;
+			$allproduct_id[]              = $value['product'];
 		}
 
 		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
@@ -145,13 +114,6 @@ class check_detail
 			\dash\notif::error(T_("No valid products found in your list"));
 			return false;
 		}
-
-
-		if(!empty($have_warn))
-		{
-			\dash\notif::warn(T_("Invalid product detail in some record of this factor, [:key]", ['key' => implode(',', $have_warn)]));
-		}
-
 
 		$check_true_product = \lib\db\products\get::by_multi_id(implode(',', $allproduct_id));
 		$true_product_ids   = array_column($check_true_product, 'id');

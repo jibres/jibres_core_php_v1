@@ -38,28 +38,19 @@ class add
 		// check permission to add new factor
 		\dash\permission::access('factorAccess');
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-
-		\dash\app::variable($_factor);
 		// check args
-		$factor          = \lib\app\factor\check::factor($_option);
+		$factor          = \lib\app\factor\check::factor($_factor, $_option);
+
 		$_option['type'] = $factor['type'];
 
-		if($factor === false || !\dash\engine\process::status())
+		if(!$factor || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		\dash\app::variable($_factor_detail);
+		$factor_detail = \lib\app\factor\check_detail::factor_detail($_factor_detail, $_option);
 
-		$factor_detail = \lib\app\factor\check_detail::factor_detail($_option);
-
-		if($factor_detail === false || !\dash\engine\process::status())
+		if(!$factor_detail || !\dash\engine\process::status())
 		{
 			return false;
 		}
@@ -73,30 +64,37 @@ class add
 		$factor['discount']    = null;
 		$factor['total']       = intval($factor['subtotal']) - intval($factor['discount']);
 		$factor['status']      = 'draft';
+		$factor['seller']      = \dash\user::id();
+		$factor['date']        = date("Y-m-d H:i:s");
+		$factor['title']       = null;
+		$factor['pre']         = null;
+		$factor['transport']   = null;
+		$factor['pay']         = null;
+
 
 		// qty field in int(10)
-		if(\dash\number::is_larger($factor['qty'], 999999999))
+		if(!\dash\validate::bigint($factor['qty'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
 			return false;
 		}
 
 		// item field in bigint(20)
-		if(\dash\number::is_larger($factor['item'], 9999999999999999999))
+		if(!\dash\validate::bigint($factor['item'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column item"), 'item');
 			return false;
 		}
 
 		// subprice field in bigint(20)
-		if(\dash\number::is_larger($factor['subprice'], 9999999999999999999))
+		if(!\dash\validate::bigint($factor['subprice'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
 			return false;
 		}
 
 		// subdiscount field in bigint(20)
-		if(\dash\number::is_larger($factor['subdiscount'], 9999999999999999999))
+		if(!\dash\validate::bigint($factor['subdiscount'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
 			return false;
@@ -104,14 +102,14 @@ class add
 
 
 		// subtotal field in bigint(20)
-		if(\dash\number::is_larger($factor['subtotal'], 9999999999999999999))
+		if(!\dash\validate::bigint($factor['subtotal'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
 			return false;
 		}
 
 		// total field in bigint(20)
-		if(\dash\number::is_larger($factor['total'], 9999999999999999999))
+		if(!\dash\validate::bigint($factor['total'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column total"), 'total');
 			return false;

@@ -66,6 +66,7 @@ namespace dash;
  * ------------------ NUMBER
  *->  number
  *->  int
+ *->  bigint
  *->  float
  *->  number_negative
  *->  smallint
@@ -673,6 +674,12 @@ class cleanse
 
 			case 'number_negative':
 				$data = \dash\validate\number::number_negative($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'bigint':
+				$meta['min'] = 0;
+				$meta['max'] = 9999999999999999999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'smallint':
