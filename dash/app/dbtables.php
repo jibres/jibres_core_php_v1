@@ -8,9 +8,47 @@ class dbtables
 {
 	public static $table = null;
 
-	use \dash\app\dbtables\add;
-	use \dash\app\dbtables\edit;
-	use \dash\app\dbtables\datalist;
+	public static function sort_field()
+	{
+		return self::get_field();
+	}
+
+
+	/**
+	 * Gets the dbtables.
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  The dbtables.
+	 */
+	public static function list($_string = null, $_args = [])
+	{
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
+		$default_meta =
+		[
+			'sort'  => null,
+			'order' => null,
+		];
+
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$_args = array_merge($default_meta, $_args);
+
+		if($_args['sort'] && !in_array($_args['sort'], self::sort_field()))
+		{
+			$_args['sort'] = null;
+		}
+
+		$result            = \dash\db\config::public_search(self::$table, $_string, $_args);
+		return $result;
+	}
 
 
 	public static function get_field()
@@ -20,33 +58,7 @@ class dbtables
 		return $result;
 	}
 
-	public static function get($_id)
-	{
-		if(!$id)
-		{
-			\dash\notif::error(T_(":dbtables id not set"));
-			return false;
-		}
-
-		$get = \dash\db\config::public_get(self::$table, ['id' => $id, 'school_id' => \dash\school::id(), 'limit' => 1]);
-
-		return $get;
-	}
 
 
-	/**
-	 * check args
-	 *
-	 * @return     array|boolean  ( description_of_the_return_value )
-	 */
-	private static function check($_id = null)
-	{
-		$args           = [];
-		foreach (\dash\app::request() as $key => $value)
-		{
-			$args[$key]  = $value;
-		}
-		return $args;
-	}
 }
 ?>
