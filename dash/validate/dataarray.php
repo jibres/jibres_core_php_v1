@@ -72,7 +72,7 @@ class dataarray
 		foreach ($data as $tag)
 		{
 			$count++;
-			$temp = \dash\validate::string_50($tag);
+			$temp = \dash\validate::string_30($tag);
 			if(isset($temp))
 			{
 				$new_tag[] = $temp;
@@ -83,6 +83,9 @@ class dataarray
 				break;
 			}
 		}
+
+		$new_tag = array_unique($new_tag);
+		$new_tag = array_filter($new_tag);
 
 		return $new_tag;
 	}

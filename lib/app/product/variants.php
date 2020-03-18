@@ -111,10 +111,7 @@ class variants
 			return false;
 		}
 
-		// set option variants to app variable
-		\dash\app::variable($_variants);
-
-		$variants = self::check_option_variable();
+		$variants = self::check_option_variable($_variants);
 		if(!$variants)
 		{
 			return false;
@@ -139,12 +136,29 @@ class variants
 	}
 
 
-	private static function check_option_variable()
+	private static function check_option_variable($_args)
 	{
 
-		$optionname1 = self::check_option_name('optionname1');
-		$optionname2 = self::check_option_name('optionname2');
-		$optionname3 = self::check_option_name('optionname3');
+		$condition =
+		[
+			'optionname1'  => 'string_20',
+			'optionname2'  => 'string_20',
+			'optionname3'  => 'string_20',
+			'optionvalue1' => 'tag',
+			'optionvalue2' => 'tag',
+			'optionvalue3' => 'tag',
+		];
+
+
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$optionname1 = $data['optionname1'];
+		$optionname2 = $data['optionname2'];
+		$optionname3 = $data['optionname3'];
 
 		if(!\dash\engine\process::status())
 		{
@@ -169,9 +183,9 @@ class variants
 			return false;
 		}
 
-		$optionvalue1 = self::check_option_value('optionvalue1');
-		$optionvalue2 = self::check_option_value('optionvalue2');
-		$optionvalue3 = self::check_option_value('optionvalue3');
+		$optionvalue1 = $data['optionvalue1'];
+		$optionvalue2 = $data['optionvalue2'];
+		$optionvalue3 = $data['optionvalue3'];
 
 		if(!\dash\engine\process::status())
 		{
@@ -226,55 +240,6 @@ class variants
 	}
 
 
-	private static function check_option_name($_option_name)
-	{
-		$optionname = \dash\app::request($_option_name);
-		if($optionname && mb_strlen($optionname) >= 20)
-		{
-			\dash\notif::error(T_("Please set option name less than 20 characters"), $_option_name);
-			return false;
-		}
-
-		return $optionname;
-	}
-
-
-	private static function check_option_value($_option_value)
-	{
-		$optionvalue = \dash\app::request($_option_value);
-
-		if(is_string($optionvalue))
-		{
-			$optionvalue = explode(',', $optionvalue);
-		}
-		elseif(is_array($optionvalue))
-		{
-			// nothing
-		}
-		else
-		{
-			return false;
-		}
-
-		if(is_array($optionvalue))
-		{
-			foreach ($optionvalue as $key => $value)
-			{
-				if(mb_strlen($value) >= 30)
-				{
-					\dash\notif::error(T_("Please set option value less than 30 characters"), $_option_value);
-					return false;
-				}
-				$optionvalue[$key] = \dash\safe::safe($value);
-			}
-		}
-
-		$optionvalue = array_unique($optionvalue);
-		$optionvalue = array_filter($optionvalue);
-
-		return $optionvalue;
-	}
-
 
 	/**
 	 * clean json of variants
@@ -287,7 +252,8 @@ class variants
 			return false;
 		}
 
-		if($_product_id && is_numeric($_product_id))
+		$_product_id = \dash\validate::id($_product_id);
+		if($_product_id)
 		{
 			\dash\temp::set('productHasChange', true);
 			\lib\db\products\update::variants_clean_product($_product_id);
@@ -349,8 +315,31 @@ class variants
 		$multi_product = [];
 
 		$parent_fields = self::parent_field();
+		$condition =
+		[
+			'list'  =>
+			[
+				'option1'  => 'string_20',
+				'option2'  => 'string_20',
+				'option3'  => 'string_20',
+				'stock'    => 'int',
+				'barcode'  => 'barcode',
+				'price'    => 'price',
+				'buyprice' => 'price',
+				'discount' => 'price',
+				'sku'      => 'sku',
+			]
+		];
 
-		foreach ($_variants as $key => $value)
+
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input(['list' => $_variants], $condition, $require, $meta);
+
+		$variants_list = $data['list'];
+
+		foreach ($variants_list as $key => $value)
 		{
 			$temp =
 			[
@@ -361,7 +350,7 @@ class variants
 				'optionvalue2' => array_key_exists('option2', $value) ? $value['option2'] : null,
 				'optionname3'  => $option3_name,
 				'optionvalue3' => array_key_exists('option3', $value) ? $value['option3'] : null,
-				'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
+				// 'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
 				'barcode'      => array_key_exists('barcode', $value) ? $value['barcode'] : null,
 				'price'        => array_key_exists('price', $value) ? $value['price'] : null,
 				'buyprice'     => array_key_exists('buyprice', $value) ? $value['buyprice'] : null,
@@ -369,11 +358,11 @@ class variants
 				'sku'          => array_key_exists('sku', $value) ? $value['sku'] : null,
 			];
 
-			if(!$temp['stock'] || !is_numeric($temp['stock']))
-			{
-				\dash\notif::error(T_("Zero stock!"));
-				return false;
-			}
+			// if(!$temp['stock'] || !is_numeric($temp['stock']))
+			// {
+			// 	\dash\notif::error(T_("Zero stock!"));
+			// 	return false;
+			// }
 
 			if(!$temp['price'] || !is_numeric($temp['price']))
 			{
@@ -417,7 +406,8 @@ class variants
 	// load every product by this parent id
 	public static function family($_parent)
 	{
-		if(!$_parent || !is_numeric($_parent))
+		$_parent = \dash\validate::id($_parent);
+		if(!$_parent)
 		{
 			return false;
 		}
