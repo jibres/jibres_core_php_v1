@@ -26,6 +26,8 @@ class timeline
 			$session = [];
 		}
 
+		$_store_id = \dash\validate::id($_store_id);
+
 		if(isset($session['id']) && $_store_id)
 		{
 			\lib\db\store\timeline::set_store_id($session['id'], $_store_id);
@@ -117,6 +119,7 @@ class timeline
 			'agents','apilog',
 		];
 
+		$_store_id = \dash\validate::id($_store_id);
 		if($_store_id)
 		{
 			if(in_array($_current_module, $allow_field))

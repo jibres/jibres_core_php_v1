@@ -92,23 +92,16 @@ class edit
 			return false;
 		}
 
-		\dash\app::variable($_args);
 
-		$args = \lib\app\store\check::variable();
+
+		$args = \lib\app\store\check::variable($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('website')) unset($args['website']);
-		if(!\dash\app::isset_request('desc')) unset($args['desc']);
-		if(!\dash\app::isset_request('lang')) unset($args['lang']);
-		if(!\dash\app::isset_request('status')) unset($args['status']);
-		if(!\dash\app::isset_request('address')) unset($args['address']);
-		if(!\dash\app::isset_request('phone')) unset($args['phone']);
-		if(!\dash\app::isset_request('mobile')) unset($args['mobile']);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{

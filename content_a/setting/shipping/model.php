@@ -14,8 +14,6 @@ class model
 		$post['shipping_other_country']              = \dash\request::post('shipping_other_country');
 		$post['shipping_other_country_value']        = \dash\request::post('shipping_other_country_value');
 		$post['shipping_other_country_value_type']   = \dash\request::post('shipping_other_country_value_type');
-		$post['length_unit']                         = \dash\request::post('length_unit');
-		$post['mass_unit']                           = \dash\request::post('mass_unit');
 
 		\lib\app\setting\setup::save_shipping($post);
 	}

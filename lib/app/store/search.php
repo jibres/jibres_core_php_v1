@@ -22,22 +22,18 @@ class search
 
 	public static function list_admin($_query_string, $_args)
 	{
-
-
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-
-
+			'order'          => 'order',
+			'sort'           => ['enum' => ['name','id']],
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
+		$meta    =	[];
 
-		$_args       = array_merge($default_args, $_args);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 
 		$and         = [];
 		$meta        = [];
@@ -49,47 +45,33 @@ class search
 		$order_sort  = null;
 
 
-		// if($_args['dns'])
-		// {
-		// 	$dns_id = \dash\coding::decode($_args['dns']);
-		// 	if($dns_id)
-		// 	{
-		// 		$and[]                      = " domain.dns = $dns_id ";
-		// 		self::$filter_args[T_("DNS")] = $_args['dns'];
-		// 		self::$is_filtered          = true;
-		// 	}
-		// }
-
-
 		if(mb_strlen($_query_string) > 50)
 		{
 			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
 			return false;
 		}
 
-		$query_string = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
 		{
 			$or[]        = " store_data.title LIKE '%$query_string%'";
 
-
-
 			self::$is_filtered = true;
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['name', 'id']))
+			if(in_array($data['sort'], ['name', 'id']))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";
@@ -161,21 +143,17 @@ class search
 	public static function list_analytics($_query_string, $_args)
 	{
 
-
-		$default_args =
+		$condition =
 		[
-			'order'  => null,
-			'sort'   => null,
-
-
+			'order'          => 'order',
+			'sort'           => ['enum' => ['name','id']],
 		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
+		$require = [];
+		$meta    =	[];
 
-		$_args       = array_merge($default_args, $_args);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$and         = [];
 		$meta        = [];
@@ -183,20 +161,7 @@ class search
 
 		$meta['limit'] = 20;
 
-
 		$order_sort  = null;
-
-
-		// if($_args['dns'])
-		// {
-		// 	$dns_id = \dash\coding::decode($_args['dns']);
-		// 	if($dns_id)
-		// 	{
-		// 		$and[]                      = " domain.dns = $dns_id ";
-		// 		self::$filter_args[T_("DNS")] = $_args['dns'];
-		// 		self::$is_filtered          = true;
-		// 	}
-		// }
 
 
 		if(mb_strlen($_query_string) > 50)
@@ -205,29 +170,27 @@ class search
 			return false;
 		}
 
-		$query_string = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
 		{
 			$or[]        = " store_data.title LIKE '%$query_string%'";
 
-
-
 			self::$is_filtered = true;
 		}
 
 
-		if($_args['sort'] && !$order_sort)
+		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], ['name', 'id']))
+			if(in_array($data['sort'], ['name', 'id']))
 			{
 
-				$sort = mb_strtolower($_args['sort']);
+				$sort = mb_strtolower($data['sort']);
 				$order = null;
-				if($_args['order'])
+				if($data['order'])
 				{
-					$order = mb_strtolower($_args['order']);
+					$order = mb_strtolower($data['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";

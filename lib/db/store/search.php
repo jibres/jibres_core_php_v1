@@ -63,7 +63,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM store $q[where]";
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM store INNER JOIN store_data ON store_data.id = store.id $q[where]";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -94,7 +94,8 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM store $q[where]";
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM store INNER JOIN store_data ON store_data.id = store.id
+			LEFT JOIN store_analytics ON store_analytics.id = store.id $q[where]";
 
 		$limit = null;
 		if($q['pagination'] !== false)
