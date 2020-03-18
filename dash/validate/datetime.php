@@ -55,6 +55,11 @@ class datetime
 
 		$data = date('Y-m-d', $convertedDate);
 
+		if(\dash\utility\jdate::is_jalali($data))
+		{
+			$data = \dash\utility\jdate::to_gregorian($data);
+		}
+
 		return $data;
 	}
 
@@ -70,10 +75,6 @@ class datetime
 			return $data;
 		}
 
-		if(\dash\utility\jdate::is_jalali($data))
-		{
-			$data = \dash\utility\jdate::to_gregorian($data);
-		}
 
 		if($data === false)
 		{

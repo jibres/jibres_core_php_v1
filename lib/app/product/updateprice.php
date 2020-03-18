@@ -5,19 +5,13 @@ class updateprice
 {
 	public static function special_date($_id, $_date)
 	{
-
-		if(!$_id || !is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
 		{
 			return false;
 		}
 
-		$_date                 = \dash\utility\convert::to_en_number($_date);
-		if(\dash\utility\jdate::is_jalali($_date))
-		{
-			$_date = \dash\utility\jdate::to_gregorian($_date);
-		}
-
-		$_date = \dash\date::db($_date);
+		$_date = \dash\validate::date($_date);
 		if(!$_date)
 		{
 			return false;
@@ -39,8 +33,9 @@ class updateprice
 
 	public static function chart($_id)
 	{
+		$_id = \dash\validate::id($_id);
 
-		if(!$_id || !is_numeric($_id))
+		if(!$_id)
 		{
 			return false;
 		}

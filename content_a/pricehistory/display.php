@@ -13,10 +13,8 @@
 
 
 		<label for="productid"><?php echo T_("Choose product"); ?></label>
-		<select name="id" id="productid" class="ui dropdown search selection" data-source='<?php echo \dash\url::here(); ?>/sale?json=true&q={query}'>
-			<option value=""><?php echo T_("Choose product"); ?></option>
-		</select>
-
+		<select name="id" class="select22 barCode" id="productSearch"  data-model='html'  autofocus data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose product"); ?>'>
+      </select>
 			<label for="date" ><?php echo T_("Show Price in special date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
 			<div class="input">
 			<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="date" id="date" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
