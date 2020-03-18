@@ -44,7 +44,7 @@ else
 <?php function htmlSearchBox() {?>
 
 <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' data-action>
+  <form method="get" action='<?php echo \dash\url::this(); ?>' >
 
     <?php if(\dash\data::allNeedSearch()) {?>
       <?php foreach (\dash\data::allNeedSearch() as $key => $value) {?>

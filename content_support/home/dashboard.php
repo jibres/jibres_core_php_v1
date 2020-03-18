@@ -1,7 +1,7 @@
 <?php if(\dash\data::listCats() || \dash\data::randomFAQ() || \dash\data::randomArticles()) {?>
 
 <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' data-action>
+  <form method="get" action='<?php echo \dash\url::this(); ?>' >
     <div class="input">
       <?php foreach (\dash\request::get() as $key => $value)
       {

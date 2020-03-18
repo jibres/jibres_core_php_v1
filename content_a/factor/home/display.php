@@ -84,7 +84,7 @@ else
 
 <?php function htmlSearchBox() {?>
 <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' data-action>
+  <form method="get" action='<?php echo \dash\url::this(); ?>' >
     <div class="input">
     <label for="q" data-kerkere=".ShowFilterResult" data-kerkere-icon class="addon"><?php echo T_("Advance result"); ?></label>
       <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus autocomplete='off'>
