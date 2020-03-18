@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::child() === 'remove' && \dash\request::get('id'))
+		if(\dash\url::child() === 'remove' && \dash\request::get('id') && !\dash\url::subchild())
 		{
 			\dash\open::get();
 			\dash\open::post();
@@ -23,15 +23,15 @@ class controller
 
 			if(!$dataRow)
 			{
-				\dash\header::status(404, T_("Invalid product unit id"));
+				\dash\header::status(404, T_("Invalid product units id"));
 			}
 
 			\dash\data::dataRow($dataRow);
 		}
 		else
 		{
-			$unitList = \lib\app\product\unit::list();
-			\dash\data::dataTable($unitList);
+			$unitsList = \lib\app\product\unit::list();
+			\dash\data::dataTable($unitsList);
 		}
 	}
 }

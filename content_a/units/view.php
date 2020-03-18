@@ -9,8 +9,11 @@ class view
 		\dash\data::page_desc(T_('You can manage your units manually.'). ' '. T_("Don't worry! we are add units automatically on add new product"));
 
 
-		\dash\data::action_text(T_('Back to product list'));
-		\dash\data::action_link(\dash\url::this());
+
+		// back
+		\dash\data::back_text(T_('Products'));
+		\dash\data::back_link(\lib\backlink::products());
+
 
 		if(\dash\data::editMode())
 		{
@@ -20,20 +23,23 @@ class view
 
 		if(\dash\data::removeMode())
 		{
-			$allUnit = \lib\app\product\unit::list(null, ['pagenation' => false]);
-			\dash\data::allUnit($allUnit);
+			$allCompany = \lib\app\product\unit::list(null, ['pagenation' => false]);
+			\dash\data::allCompany($allCompany);
 		}
 
-		if(\dash\data::removeMode() || \dash\data::editMode())
+		if(\dash\data::removeMode())
 		{
-			\dash\data::action_text(T_('Back to product unit list'));
-			\dash\data::action_link(\dash\url::that());
+			\dash\data::page_title(T_('Remove product unit'));
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
 		}
 
-
-		// back
-		\dash\data::back_text(T_('Products'));
-		\dash\data::back_link(\lib\backlink::products());
+		if(\dash\data::editMode())
+		{
+			\dash\data::page_title(T_('Edit product unit'));
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
+		}
 
 	}
 }

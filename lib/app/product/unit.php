@@ -9,6 +9,13 @@ class unit
 
 	public static function check_add($_unit)
 	{
+		$_unit = \dash\validate::string_100($_unit);
+
+		if(!$_unit)
+		{
+			return;
+		}
+
 		if(!\lib\store::in_store())
 		{
 			\dash\notif::error(T_("Your are not in this store!"));
@@ -19,11 +26,6 @@ class unit
 		if(isset($get_unit_title['id']))
 		{
 			return $get_unit_title;
-		}
-
-		if(!self::check_title($_unit))
-		{
-			return false;
 		}
 
 		$args =
@@ -48,90 +50,32 @@ class unit
 	}
 
 
-
-	private static function check_title($_title)
-	{
-		$title = $_title;
-		if(!is_string($title))
-		{
-			\dash\notif::error(T_("Format error!"));
-			return false;
-		}
-
-		if(!$title && $title !== '0')
-		{
-			\dash\notif::error(T_("Plese fill the unit name"), 'unit');
-			return false;
-		}
-
-		if(mb_strlen($title) > 100)
-		{
-			\dash\notif::error(T_("Unit name is too large!"), 'unit');
-			return false;
-		}
-
-		return true;
-	}
-
-
-
-	private static function check($_id = null)
-	{
-		$title = \dash\app::request('title');
-		if(!$title && $title !== '0')
-		{
-			if(self::$debug) \dash\notif::error(T_("Plese fill the unit name"), 'unit');
-			return false;
-		}
-
-		if(mb_strlen($title) > 100)
-		{
-			if(self::$debug) \dash\notif::error(T_("Unit name is too large!"), 'unit');
-			return false;
-		}
-
-		$int = \dash\app::request('int') ? 1 : null;
-
-
-
-		$args            = [];
-		$args['title']   = $title;
-		$args['int']     = $int;
-
-		return $args;
-
-	}
-
-
 	public static function add($_args)
 	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
 
 		if(!\dash\permission::check('productUnitListAdd'))
 		{
 			return false;
 		}
 
-		if(!\lib\store::in_store())
+		if(!\lib\store::id())
 		{
-			\dash\notif::error(T_("Your are not in this store!"));
+			\dash\notif::error(T_("Store not found"));
 			return false;
 		}
 
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'title' => 'title',
+			'int'   => 'bit',
+		];
 
-		$args = self::check();
+		$require = [];
+		$meta    =	[];
 
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$get_unit_title = \lib\db\productunit\get::by_title($args['title']);
+		$get_unit_title = \lib\db\productunit\get::by_title($data['title']);
 
 		if(isset($get_unit_title['id']))
 		{
@@ -140,7 +84,7 @@ class unit
 		}
 
 
-		$id = \lib\db\productunit\insert::new_record($args);
+		$id = \lib\db\productunit\insert::new_record($data);
 		if(!$id)
 		{
 			\dash\log::set('productUnitDbErrorInsert');
@@ -166,14 +110,6 @@ class unit
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		\dash\app::variable($_args);
-
 		$load = self::inline_get($_id);
 
 		if(!isset($load['id']))
@@ -182,8 +118,22 @@ class unit
 			return false;
 		}
 
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$condition =
+		[
+			'content'  => 'desc',
+			'whattodo' => ['enum' => ['non-unit','new-unit']],
+			'unit'  => 'string_50',
+
+		];
+
+		$require = [];
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
@@ -194,19 +144,12 @@ class unit
 
 		if($count_product > 0)
 		{
-			$whattodo = \dash\app::request('whattodo');
-			if(!in_array($whattodo, ['non-unit','new-unit']))
-			{
-				\dash\notif::error(T_("What to do for old unit?"));
-				return false;
-			}
 
 			$check = null;
 
-			$unit = \dash\app::request('unit');
-			if($unit)
+			if($data['unit'])
 			{
-				$check = self::inline_get($unit);
+				$check = self::inline_get($data['unit']);
 				if(!$check)
 				{
 					\dash\notif::error(T_("Invalid new unit id!"));
@@ -214,23 +157,29 @@ class unit
 				}
 			}
 
-			if($whattodo === 'new-unit' && !isset($check['id']))
+			if($data['whattodo'] === 'new-unit' && !isset($check['id']))
 			{
 				\dash\notif::error(T_("Please select one unit"), 'unit');
 				return false;
 			}
 
-			$old_unit_id    = $_id;
+			$old_unit_id    = $id;
 			if(!$old_unit_id || !is_numeric($old_unit_id))
 			{
 				\dash\notif::error(T_("Invalid unit id!"));
 				return false;
 			}
 
-			if($whattodo === 'new-unit')
+			if($data['whattodo'] === 'new-unit')
 			{
 				$new_unit_id    = $check['id'];
 				$new_unit_title = $check['title'];
+
+				if($new_unit_id == $old_unit_id)
+				{
+					\dash\notif::error(T_("Old unit is equal to new unit id"));
+					return false;
+				}
 
 				\lib\db\products\update::update_all_unit($new_unit_id, $old_unit_id);
 			}
@@ -254,8 +203,8 @@ class unit
 
 	public static function inline_get($_id)
 	{
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
@@ -283,8 +232,9 @@ class unit
 
 		\dash\permission::access('productUnitListView');
 
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
@@ -317,27 +267,25 @@ class unit
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		\dash\app::variable($_args);
-
-		$id = $_id;
-		if(!$id || !is_numeric($id))
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
 		}
 
-		$args = self::check($id);
+		$condition =
+		[
+			'title' => 'title',
+			'int'   => 'bit',
+		];
 
-		if($args === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
+		$require = [];
+		$meta    =	[];
+
+		$args = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 
 		$get_unit = \lib\db\productunit\get::one($id);
 
@@ -354,9 +302,8 @@ class unit
 			}
 		}
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('int')) unset($args['int']);
 
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{

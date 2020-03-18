@@ -232,7 +232,7 @@
 
                   <?php foreach (\dash\data::allUnit() as $key => $value) {?>
 
-                    <?php if(isset($value['title']) && $value['title'] !== \dash\request::get('id')) {?>
+                    <?php if(isset($value['id']) && $value['id'] !== \dash\request::get('id')) {?>
 
                     <option value="<?php echo \dash\get::index($value, 'id'); ?>"><?php echo $value['title']; ?></option>
 
