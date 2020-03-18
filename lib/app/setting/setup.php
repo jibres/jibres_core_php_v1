@@ -145,87 +145,99 @@ class setup
 
 	public static function save_pos($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'barcode' => 'bit',
+			'scale'   => 'bit',
+		];
 
+		$require = [];
 
-		$barcode = \dash\app::request('barcode') ? 1 : null;
-		$scale   = \dash\app::request('scale') ? 1 : null;
+		$meta =	[];
 
-		$args            = [];
-		$args['barcode'] = $barcode;
-		$args['scale']   = $scale;
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		return self::multi_save($args, 'pos');
+		return self::multi_save($data, 'pos');
 	}
 
 
 	public static function save_payment($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'payment_online'     => 'bit',
+			'payment_check'      => 'bit',
+			'payment_bank'       => 'bit',
+			'payment_on_deliver' => 'bit',
+		];
 
-		$payment_online     = \dash\app::request('payment_online') ? 1 : null;
-		$payment_check     = \dash\app::request('payment_check') ? 1 : null;
-		$payment_bank       = \dash\app::request('payment_bank') ? 1 : null;
-		$payment_on_deliver = \dash\app::request('payment_on_deliver') ? 1 : null;
+		$require = [];
 
-		$args                       = [];
-		$args['payment_online']     = $payment_online;
-		$args['payment_check']     = $payment_check;
-		$args['payment_bank']       = $payment_bank;
-		$args['payment_on_deliver'] = $payment_on_deliver;
+		$meta =	[];
 
-		return self::multi_save($args, 'payment');
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		return self::multi_save($data, 'payment');
 
 	}
 
 	public static function save_vat($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'tax_status'         => 'bit',
+			'tax_calc'           => 'bit',
+			'tax_calc_all_price' => 'bit',
+			'tax_shipping'       => 'bit',
+		];
 
-		$tax_status         = \dash\app::request('tax_status') ? 1 : null;
-		$tax_calc           = \dash\app::request('tax_calc') ? 1 : null;
-		$tax_calc_all_price = \dash\app::request('tax_calc_all_price') ? 1 : null;
-		$tax_shipping       = \dash\app::request('tax_shipping') ? 1 : null;
+		$require = [];
 
-		$args                       = [];
-		$args['tax_status']         = $tax_status;
-		$args['tax_calc']           = $tax_calc;
-		$args['tax_calc_all_price'] = $tax_calc_all_price;
-		$args['tax_shipping']       = $tax_shipping;
+		$meta =	[];
 
-		return self::multi_save($args, 'vat');
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		return self::multi_save($data, 'vat');
 
 	}
 
 
 	public static function save_shipping($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'shipping_status'                     => 'bit',
+			'shipping_current_country'            => 'bit',
+			'shipping_current_country_value'      => 'bit',
+			'shipping_current_country_value_type' => 'string',
+			'shipping_other_country'              => 'bit',
+			'shipping_other_country_value'        => 'bit',
+			'shipping_other_country_value_type'   => 'string',
+		];
 
-		$shipping_status                     = \dash\app::request('shipping_status') ? 1 : null;
-		$shipping_current_country            = \dash\app::request('shipping_current_country') ? 1 : null;
-		$shipping_current_country_value      = \dash\app::request('shipping_current_country_value');
-		$shipping_current_country_value_type = \dash\app::request('shipping_current_country_value_type');
-		$shipping_other_country              = \dash\app::request('shipping_other_country') ? 1 : null;
-		$shipping_other_country_value        = \dash\app::request('shipping_other_country_value');
-		$shipping_other_country_value_type   = \dash\app::request('shipping_other_country_value_type');
+		$require = [];
 
-		if($shipping_current_country_value_type === 'free')
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if($data['shipping_current_country_value_type'] === 'free')
 		{
-			$shipping_current_country_value = 0;
+			$data['shipping_current_country_value'] = 0;
 		}
 		else
 		{
-			if($shipping_current_country_value && !\dash\number::is($shipping_current_country_value))
+			if($data['shipping_current_country_value'] && !\dash\number::is($data['shipping_current_country_value']))
 			{
 				\dash\notif::error(T_("Invalid number data"), 'shipping_current_country_value');
 				return false;
 			}
 
-			if($shipping_current_country_value)
+			if($data['shipping_current_country_value'])
 			{
-				$shipping_current_country_value = \dash\number::clean($shipping_current_country_value);
-				if(\dash\number::is_larger($shipping_current_country_value, 999999999999))
+				$data['shipping_current_country_value'] = \dash\number::clean($data['shipping_current_country_value']);
+				if(\dash\number::is_larger($data['shipping_current_country_value'], 999999999999))
 				{
 					\dash\notif::error(T_("Data is out of range"), 'shipping_current_country_value');
 					return false;
@@ -233,22 +245,22 @@ class setup
 			}
 		}
 
-		if($shipping_other_country_value_type === 'free')
+		if($data['shipping_other_country_value_type'] === 'free')
 		{
-			$shipping_other_country_value = 0;
+			$data['shipping_other_country_value'] = 0;
 		}
 		else
 		{
-			if($shipping_other_country_value && !\dash\number::is($shipping_other_country_value))
+			if($data['shipping_other_country_value'] && !\dash\number::is($data['shipping_other_country_value']))
 			{
 				\dash\notif::error(T_("Invalid number data"), 'shipping_other_country_value');
 				return false;
 			}
 
-			if($shipping_other_country_value)
+			if($data['shipping_other_country_value'])
 			{
-				$shipping_other_country_value = \dash\number::clean($shipping_other_country_value);
-				if(\dash\number::is_larger($shipping_other_country_value, 999999999999))
+				$data['shipping_other_country_value'] = \dash\number::clean($data['shipping_other_country_value']);
+				if(\dash\number::is_larger($data['shipping_other_country_value'], 999999999999))
 				{
 					\dash\notif::error(T_("Data is out of range"), 'shipping_other_country_value');
 					return false;
@@ -256,16 +268,7 @@ class setup
 			}
 		}
 
-
-		$args                                   = [];
-		$args['shipping_status']                = $shipping_status;
-		$args['shipping_current_country']       = $shipping_current_country;
-		$args['shipping_current_country_value'] = $shipping_current_country_value;
-		$args['shipping_other_country']         = $shipping_other_country;
-		$args['shipping_other_country_value']   = $shipping_other_country_value;
-
-
-		return self::multi_save($args, 'shipping');
+		return self::multi_save($data, 'shipping');
 	}
 
 
@@ -303,259 +306,80 @@ class setup
 
 	public static function save_address($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'country'  => 'country',
+			'province' => 'province',
+			'city'     => 'city',
+			'address'  => 'address',
+			'mobile'   => 'mobile',
+			'postcode' => 'postcode',
+			'phone'    => 'phone',
+			'fax'      => 'phone',
+
+		];
+
+		$require = ['country', 'address'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		$country = \dash\app::request('country');
-		if($country && mb_strlen($country) > 100)
-		{
-			\dash\notif::error(T_("Please set country less than 100 character"), 'country');
-			return false;
-		}
-
-		if($country && !\dash\utility\location\countres::check($country))
-		{
-			\dash\notif::error(T_("Invalid country"), 'country');
-			return false;
-		}
-
-		if(!$country)
-		{
-			\dash\notif::error(T_("Please choose your country"), 'country');
-			return false;
-		}
-
-		$province = \dash\app::request('province');
-		if($province && mb_strlen($province) > 100)
-		{
-			\dash\notif::error(T_("Please set province less than 100 character"), 'province');
-			return false;
-		}
-
-		if($province && !\dash\utility\location\provinces::check($province))
-		{
-			\dash\notif::error(T_("Invalid province"), 'province');
-			return false;
-		}
-
-		$city = \dash\app::request('city');
-		if($city && mb_strlen($city) > 100)
-		{
-			\dash\notif::error(T_("Please set city less than 100 character"), 'city');
-			return false;
-		}
-
-		if($country === 'IR' && !$province)
+		if($data['country'] === 'IR' && !$data['province'])
 		{
 			\dash\notif::error(T_("Please choose your province"), 'province');
 			return false;
 		}
 
-		if($country === 'IR' && !$city)
+		if($data['country'] === 'IR' && !$data['city'])
 		{
 			\dash\notif::error(T_("Please choose your city"), 'city');
 			return false;
 		}
 
-		$address = \dash\app::request('address');
-		if($address && mb_strlen($address) > 300)
-		{
-			\dash\notif::error(T_("Please set address less than 300 character"), 'address');
-			return false;
-		}
-
-		if(!$address)
-		{
-			\dash\notif::error(T_("Please fill your address"), 'address');
-			return false;
-		}
-
-		if(mb_strlen($address) < 5)
-		{
-			\dash\notif::error(T_("This address is too short. Please enter your full address"), 'address');
-			return false;
-		}
-
-
-		$mobile = \dash\app::request('mobile');
-		$module = \dash\number::clean($mobile);
-		if($mobile && !\dash\utility\filter::mobile($mobile))
-		{
-			\dash\notif::error(T_("Invalid mobile"), 'mobile');
-			return false;
-		}
-
-
-		$postcode = \dash\app::request('postcode');
-		$postcode = \dash\number::clean($postcode);
-		if($postcode && mb_strlen($postcode) > 50)
-		{
-			\dash\notif::error(T_("Please set postcode less than 50 character"), 'postcode');
-			return false;
-		}
-
-		// if(!$postcode)
-		// {
-		// 	\dash\notif::error(T_("Please set your postcode"), 'postcode');
-		// 	return false;
-		// }
-
-		$phone = \dash\app::request('phone');
-		$phone = \dash\number::clean($phone);
-		if($phone && mb_strlen($phone) > 50)
-		{
-			\dash\notif::error(T_("Please set phone less than 50 character"), 'phone');
-			return false;
-		}
-
-
-		$fax = \dash\app::request('fax');
-		$fax = \dash\number::clean($fax);
-		if($fax && mb_strlen($fax) > 50)
-		{
-			\dash\notif::error(T_("Please set fax less than 50 character"), 'fax');
-			return false;
-		}
-
-		$args             = [];
-		$args['country']  = $country;
-		$args['province'] = $province;
-		$args['city']     = $city;
-		$args['address']  = $address;
-		$args['mobile']   = $mobile;
-		$args['postcode'] = $postcode;
-		$args['phone']    = $phone;
-		$args['fax']      = $fax;
-
-		return self::multi_save($args, 'address');
-
+		return self::multi_save($data, 'address');
 	}
 
 
 	public static function save_company($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'companyeconomiccode'   => 'bigint',
+			'companynationalid'     => 'bigint',
+			'companyregisternumber' => 'bigint',
+			'ceonationalcode'       => 'nationalcode',
+			'companyname'           => 'string_100',
+		];
 
-		$companyeconomiccode = \dash\app::request('companyeconomiccode');
-		$companyeconomiccode = \dash\number::clean($companyeconomiccode);
-		if($companyeconomiccode && !is_numeric($companyeconomiccode))
-		{
-			\dash\notif::error(T_("Please fill the field as a number"), 'companyeconomiccode');
-			return false;
-		}
+		$require = [];
 
-		if($companyeconomiccode && mb_strlen($companyeconomiccode) > 100)
-		{
-			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companyeconomiccode');
-			return false;
-		}
+		$meta =	[];
 
-		$companynationalid = \dash\app::request('companynationalid');
-		$companynationalid = \dash\number::clean($companynationalid);
-		if($companynationalid && !is_numeric($companynationalid))
-		{
-			\dash\notif::error(T_("Please fill the field as a number"), 'companynationalid');
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if($companynationalid && mb_strlen($companynationalid) > 100)
-		{
-			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companynationalid');
-			return false;
-		}
-
-		$companyregisternumber = \dash\app::request('companyregisternumber');
-		$companyregisternumber = \dash\number::clean($companyregisternumber);
-		if($companyregisternumber && !is_numeric($companyregisternumber))
-		{
-			\dash\notif::error(T_("Please fill the field as a number"), 'companyregisternumber');
-			return false;
-		}
-
-		if($companyregisternumber && mb_strlen($companyregisternumber) > 100)
-		{
-			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companyregisternumber');
-			return false;
-		}
-
-		$ceonationalcode = \dash\app::request('ceonationalcode');
-		$ceonationalcode = \dash\number::clean($ceonationalcode);
-		if($ceonationalcode && !\dash\utility\filter::nationalcode($ceonationalcode))
-		{
-			\dash\notif::error(T_("Invalid nationalcode"), 'ceonationalcode');
-			return false;
-		}
-
-		$companyname = \dash\app::request('companyname');
-		if($companyname && mb_strlen($companyname) > 100)
-		{
-			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companyname');
-			return false;
-		}
-
-		$args                          = [];
-		$args['companyeconomiccode']   = $companyeconomiccode;
-		$args['companynationalid']     = $companynationalid;
-		$args['companyregisternumber'] = $companyregisternumber;
-		$args['ceonationalcode']       = $ceonationalcode;
-		$args['companyname']           = $companyname;
-
-		return self::multi_save($args, 'company');
+		return self::multi_save($data, 'company');
 	}
 
 
 	public static function save_units($_args)
 	{
-		\dash\app::variable($_args);
+		$condition =
+		[
+			'currency'    => ['enum' => array_keys(\lib\currency::list())],
+			'length_unit' => ['enum' => array_keys(\lib\units::length())],
+			'mass_unit'   => ['enum' => array_keys(\lib\units::mass())],
+		];
 
-		$currency = \dash\app::request('currency');
+		$require = ['currency', 'length_unit', 'mass_unit'];
 
-		if($currency && !in_array($currency, array_keys(\lib\currency::list())))
-		{
-			\dash\notif::error(T_("Invalid currency"), 'currency');
-			return false;
-		}
+		$meta =	[];
 
-		if(!$currency)
-		{
-			\dash\notif::error(T_("Please set your currency"), 'currency');
-			return false;
-		}
-
-		$length_unit         = \dash\app::request('length_unit');
-		if($length_unit && !in_array($length_unit, array_keys(\lib\units::length())))
-		{
-			\dash\notif::error(T_("Invalid length"), 'length_unit');
-			return false;
-		}
-
-		if(!$length_unit)
-		{
-			\dash\notif::error(T_("Please set your length unit"), 'length_unit');
-			return false;
-		}
-
-		$mass_unit         = \dash\app::request('mass_unit');
-		if($mass_unit && !in_array($mass_unit, array_keys(\lib\units::mass())))
-		{
-			\dash\notif::error(T_("Invalid mass"), 'mass_unit');
-			return false;
-		}
-
-		if(!$mass_unit)
-		{
-			\dash\notif::error(T_("Please set your mass unit"), 'mass_unit');
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		$args                = [];
-		$args['currency']    = $currency;
-		$args['length_unit'] = $length_unit;
-		$args['mass_unit']   = $mass_unit;
-
-
-		return self::multi_save($args, 'units');
+		return self::multi_save($data, 'units');
 	}
 }
 ?>
