@@ -20,10 +20,10 @@ class site_list
 		$meta         = [];
 		$msg          = T_("Product not found."). ' ';
 
-		$query = \dash\request::get('q');
+		$query = \dash\validate::search(\dash\request::get('q'), false);
 		if(!$query)
 		{
-			$query = \dash\request::get('term');
+			$query = \dash\validate::search(\dash\request::get('term'), false);
 		}
 		if($query)
 		{
@@ -33,9 +33,9 @@ class site_list
 				$result['results'][] = self::getNeededField($value);
 			}
 		}
-		elseif(\dash\request::get('barcode'))
+		elseif(\dash\validate::barcode(\dash\request::get('barcode'), false))
 		{
-			$result = \lib\app\product\find::barcode(\dash\request::get('barcode'));
+			$result = \lib\app\product\find::barcode(\dash\validate::barcode(\dash\request::get('barcode'), false));
 			if(!$result)
 			{
 				$msg .= '<a href="'. \dash\url::here(). '/products/add';
@@ -58,9 +58,9 @@ class site_list
 			\dash\code::jsonBoom(\dash\notif::get());
 
 		}
-		elseif(\dash\request::get('id'))
+		elseif(\dash\validate::id(\dash\request::get('id'), false))
 		{
-			$result = \lib\app\product\search::list_in_sale(null, ['id' => \dash\request::get('id')]);
+			$result = \lib\app\product\search::list_in_sale(null, ['id' => \dash\validate::id(\dash\request::get('id'), false)]);
 			$result = self::getNeededField_barcode($result);
 			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 			\dash\code::jsonBoom(\dash\notif::get());
