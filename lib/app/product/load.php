@@ -67,11 +67,6 @@ class load
 	// load one product by id in site
 	public static function site($_id)
 	{
-		if(!$_id || !is_numeric($_id))
-		{
-			return false;
-		}
-
 		// load detail
 		$detail = \lib\app\product\get::get($_id, ['load_gallery' => true]);
 		if(!$detail)

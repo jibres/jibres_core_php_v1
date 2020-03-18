@@ -17,18 +17,12 @@ class get
 			return false;
 		}
 
+		$_id = \dash\validate::id($_id);
 		if(!$_id)
 		{
 			\dash\notif::error(T_("Product id not set"));
 			return false;
 		}
-
-		if(!is_numeric($_id))
-		{
-			\dash\notif::error(T_("Invalid product id"));
-			return false;
-		}
-
 
 		if(isset(self::$product_detail[$_id]))
 		{
