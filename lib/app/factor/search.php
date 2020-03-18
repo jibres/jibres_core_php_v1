@@ -49,9 +49,9 @@ class search
 			'subpricelarger'    => 'bigint',
 			'subpriceless'      => 'bigint',
 			'subpriceequal'     => 'bigint',
-			'itemlarger'        => 'int',
-			'itemless'          => 'int',
-			'itemequal'         => 'int',
+			'itemlarger'        => 'smallint',
+			'itemless'          => 'smallint',
+			'itemequal'         => 'smallint',
 			'qtylarger'         => 'int',
 			'qtyless'           => 'int',
 			'qtyequal'          => 'int',
@@ -200,21 +200,21 @@ class search
 		if($data['itemlarger'])
 		{
 			$and[] = " factors.item > $data[itemlarger] ";
-			self::$filter_args[T_('Item larger than')] = \lib\number::down($data['itemlarger']);
+			self::$filter_args[T_('Item larger than')] = $data['itemlarger'];
 			self::$is_filtered = true;
 		}
 
 		if($data['itemless'])
 		{
 			$and[] = " factors.item <  $data[itemless] ";
-			self::$filter_args[T_('Item less than')] = \lib\number::down($data['itemless']);
+			self::$filter_args[T_('Item less than')] = $data['itemless'];
 			self::$is_filtered = true;
 		}
 
 		if($data['itemequal'])
 		{
 			$and[] = " factors.item =  $data[itemequal] ";
-			self::$filter_args[T_('Item equal')] = \lib\number::down($data['itemequal']);
+			self::$filter_args[T_('Item equal')] = $data['itemequal'];
 			self::$is_filtered = true;
 		}
 
