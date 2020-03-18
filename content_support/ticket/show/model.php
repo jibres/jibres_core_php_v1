@@ -124,8 +124,7 @@ class model
 			}
 		}
 
-		\dash\app::variable(['support_tag' => $_tag]);
-		\dash\app\posts::set_post_term($_id, 'support_tag', 'tickets');
+		\dash\app\posts::set_post_term($_id, 'support_tag', 'tickets', $_tag);
 		\dash\log::temp_set('ticket_ticketAddTag', ['code' => $_id, 'tag' => $_tag, 'masterid' => $_id,]);
 
 		if(\dash\engine\process::status())

@@ -70,6 +70,18 @@ trait add
 			return false;
 		}
 
+		$cat = [];
+		if(isset($_args['cat']) && is_array($_args['cat']))
+		{
+			$cat = $_args['cat'];
+		}
+
+		$tag = [];
+		if(isset($_args['tag']))
+		{
+			$tag = $_args['tag'];
+		}
+
 
 		if(in_array($args['type'], ['post', 'help', 'mag']))
 		{
@@ -78,26 +90,25 @@ trait add
 			{
 				if(\dash\permission::check('cpTagHelpAdd'))
 				{
-					self::set_post_term($post_id, 'help_tag', 'posts', $args['tag']);
+					self::set_post_term($post_id, 'help_tag', 'posts', $tag);
 				}
 			}
-
 			else
 			{
 				if(\dash\permission::check('cpTagAdd'))
 				{
-					self::set_post_term($post_id, 'tag');
+					self::set_post_term($post_id, 'tag', 'posts', $tag);
 				}
 			}
 
 
 			if($args['type'] === 'mag')
 			{
-				$post_url = self::set_post_term($post_id, 'mag', null, $args['cat']);
+				$post_url = self::set_post_term($post_id, 'mag', 'posts', $cat);
 			}
 			else
 			{
-				$post_url = self::set_post_term($post_id, 'cat');
+				$post_url = self::set_post_term($post_id, 'cat', 'posts', $cat);
 			}
 
 

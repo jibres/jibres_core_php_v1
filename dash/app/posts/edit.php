@@ -90,11 +90,11 @@ trait edit
 			{
 				if(\dash\permission::check('cpTagAdd'))
 				{
-					self::set_post_term($id, 'tag', 'posts', $cat);
+					self::set_post_term($id, 'tag', 'posts', $tag);
 				}
 			}
 
-			$post_url = self::set_post_term($id, 'cat', 'posts', $tag);
+			$post_url = self::set_post_term($id, 'cat', 'posts', $cat);
 
 			if($post_url !== false)
 			{

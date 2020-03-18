@@ -821,6 +821,7 @@ class posts
 
 	public static function set_post_term($_post_id, $_type, $_related = 'posts', $_data = [])
 	{
+
 		$have_term_to_save_log = false;
 
 		// set default
@@ -829,10 +830,11 @@ class posts
 			$_related = 'posts';
 		}
 
-		$category = \dash\app::request($_type);
-		if(!$category && $_data)
+		$category = $_data;
+
+		if(!$category)
 		{
-			$category = $_data;
+			return null;
 		}
 
 		$check_all_is_cat = null;
@@ -845,6 +847,11 @@ class posts
 				$tag = explode(',', $tag);
 				$tag = array_filter($tag);
 				$tag = array_unique($tag);
+			}
+
+			if(!is_array($tag))
+			{
+				$tag = [];
 			}
 
 			$check_exist_tag = \dash\db\terms::get_mulit_term_title($tag, $_type);
@@ -912,11 +919,13 @@ class posts
 				$category_id = array_unique($category_id);
 
 				$check_all_is_cat = \dash\db\terms::check_multi_id($category_id, $_type);
-
-				if(count($check_all_is_cat) !== count($category_id))
+				if(is_array($check_all_is_cat) && is_array($category_id))
 				{
-					\dash\notif::warn(T_("Some :type is wrong", ['type' => T_($_type)]), 'cat');
-					return false;
+					if(count($check_all_is_cat) !== count($category_id))
+					{
+						\dash\notif::warn(T_("Some :type is wrong", ['type' => T_($_type)]), 'cat');
+						return false;
+					}
 				}
 			}
 		}

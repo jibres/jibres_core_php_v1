@@ -302,12 +302,12 @@ else
     $myTagType = 'tag';
   }
 
-  $postTag = \dash\app\term::load_tag_html(["post_id" => \dash\request::get('id') , "title" => true, "format" => 'csv', "type" => $myTagType]);
+  $postTag = \dash\app\term::load_tag_html(["post_id" => \dash\request::get('id') , "title" => true, "type" => $myTagType]);
   $tagCount = 0;
 
-  if($postTag)
+  if($postTag && is_array($postTag))
   {
-    $tagCount = count(explode(',', $postTag));
+    $tagCount = count($postTag);
   }
 
 
@@ -318,15 +318,21 @@ else
   <div class="body tagPanel" data-kerkere-content='hide'>
     <div class="tagDetector">
 
-      <div class="input mB10 hide">
-        <input type="text" class="input tagVals" name="tag" value="<?php echo $postTag; ?>" id="tagValues" placeholder='<?php echo T_("Tag"); ?>'>
-      </div>
-      <label><?php echo T_("Add tag to link articles"); ?></label>
-      <div class="input">
-        <input type="text" class="tagInput" placeholder='<?php echo T_("Keywords"); ?>...'>
-        <button class="addon tagAdd"><?php echo T_("Add"); ?></button>
-      </div>
-      <div class="tagBox"></div>
+
+
+        <div class="mB10">
+          <label for='tag'><?php echo T_("Tag"); ?></label>
+          <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
+
+            <?php foreach ($postTag as $key => $value) {?>
+
+              <option value="<?php echo $value; ?>" selected><?php echo $value; ?></option>
+
+            <?php } //endfor ?>
+
+          </select>
+        </div>
+
     </div>
   </div>
 
