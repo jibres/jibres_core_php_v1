@@ -50,9 +50,10 @@ class request
 		if(!self::$GET)
 		{
 			self::$GET = \dash\safe::safe($_GET, 'get_url-nottrim');
-			if(count(self::$GET) > 10)
+			// 26 input in search factors
+			if(count(self::$GET) > 30)
 			{
-				self::$GET = array_slice(self::$GET, 0, 10);
+				self::$GET = array_slice(self::$GET, 0, 30);
 			}
 		}
 
