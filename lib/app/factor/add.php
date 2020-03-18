@@ -73,47 +73,47 @@ class add
 
 
 		// qty field in int(10)
-		if(!\dash\validate::bigint($factor['qty'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
-			return false;
-		}
+		// if(!\dash\validate::float($factor['qty'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
+		// 	return false;
+		// }
 
-		// item field in bigint(20)
-		if(!\dash\validate::bigint($factor['item'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column item"), 'item');
-			return false;
-		}
+		// // item field in bigint(20)
+		// if(!\dash\validate::float($factor['item'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column item"), 'item');
+		// 	return false;
+		// }
 
-		// subprice field in bigint(20)
-		if(!\dash\validate::bigint($factor['subprice'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
-			return false;
-		}
+		// // subprice field in bigint(20)
+		// if(!\dash\validate::float($factor['subprice'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
+		// 	return false;
+		// }
 
-		// subdiscount field in bigint(20)
-		if(!\dash\validate::bigint($factor['subdiscount'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
-			return false;
-		}
+		// // subdiscount field in bigint(20)
+		// if(!\dash\validate::float($factor['subdiscount'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
+		// 	return false;
+		// }
 
 
-		// subtotal field in bigint(20)
-		if(!\dash\validate::bigint($factor['subtotal'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
-			return false;
-		}
+		// // subtotal field in bigint(20)
+		// if(!\dash\validate::float($factor['subtotal'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
+		// 	return false;
+		// }
 
-		// total field in bigint(20)
-		if(!\dash\validate::bigint($factor['total'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column total"), 'total');
-			return false;
-		}
+		// // total field in bigint(20)
+		// if(!\dash\validate::float($factor['total'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column total"), 'total');
+		// 	return false;
+		// }
 
 		// start transaction of db
 		\dash\db::transaction();
