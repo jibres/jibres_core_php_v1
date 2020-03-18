@@ -394,17 +394,16 @@ if(
 
 
 <?php function iFilterproduct() {?>
-<select name="product" class="ui dropdown search" id="product" data-source='<?php echo \dash\url::here(); ?>/product?json=true&q={query}'>
-  <option value="" readonly><?php echo T_("Please choose product"); ?></option>
+<label for="productid"><?php echo T_("Choose product"); ?></label>
+    <select name="product" class="select22" id="productSearch"  data-model='html'  autofocus data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose product"); ?>'>
 </select>
 <?php } // endfunction ?>
 
 
 
 <?php function iFiltercustomer() {?>
-<select name="customer" class="ui dropdown search" id="customer" data-source='<?php echo \dash\url::here(); ?>/thirdparty?json=true&q={query}'>
-  <option value="" readonly><?php echo T_("Please choose product"); ?></option>
-</select>
+  <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
+        </select>
 <?php } // endfunction ?>
 
 
