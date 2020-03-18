@@ -11,11 +11,6 @@ class tag
 			return false;
 		}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
 
 		if(!$_tag)
 		{
@@ -186,7 +181,8 @@ class tag
 
 	public static function load_product_by_tag($_tag)
 	{
-		if(!$_tag || !is_string($_tag))
+		$_tag = \dash\validate::string($_tag);
+		if(!$_tag)
 		{
 			return false;
 		}
@@ -213,7 +209,8 @@ class tag
 
 	public static function get_tag($_tag_id)
 	{
-		if(!$_tag_id || !is_numeric($_tag_id))
+		$_tag_id = \dash\validate::id($_tag_id);
+		if(!$_tag_id)
 		{
 			return false;
 		}
@@ -233,7 +230,7 @@ class tag
 		$and          = [];
 		$or           = [];
 
-		$query_string = \dash\safe::forQueryString($_string);
+		$query_string = \dash\validate::search($_string);
 
 		if($query_string)
 		{
@@ -269,72 +266,32 @@ class tag
 
 
 
-	public static function check($_id = null)
+	public static function check($_args, $_id = null)
 	{
+		$condition =
+		[
+			'title'    => 'title',
+			'slug'     => 'slug',
+			'language' => 'language',
+			'desc'     => 'desc',
+			'status'   => ['enum' => ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']],
+		];
 
-		$title = \dash\app::request('title');
-		if(!$title)
+		$require = ['title'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['slug'])
 		{
-			\dash\notif::error(T_("Please set the tag title"), 'title');
-			return false;
+			$data['slug'] = \dash\utility\filter::slug($data['title'], null, 'persian');
 		}
 
-		if(mb_strlen($title) > 150)
-		{
-			\dash\notif::error(T_("Please set the tag title less than 150 character"), 'title');
-			return false;
-		}
-
-
-		$slug = \dash\app::request('slug');
-
-		if($slug && mb_strlen($slug) > 150)
-		{
-			\dash\notif::error(T_("Please set the tag slug less than 150 character"), 'slug');
-			return false;
-		}
-
-		if(!$slug)
-		{
-			$slug = \dash\utility\filter::slug($title, null, 'persian');
-		}
-		else
-		{
-			$slug = \dash\utility\filter::slug($slug, null, 'persian');
-		}
-
-		$language = \dash\app::request('language');
-		if($language && mb_strlen($language) !== 2)
-		{
-			\dash\notif::error(T_("Invalid parameter language"), 'language');
-			return false;
-		}
-
-		if($language && !\dash\language::check($language))
-		{
-			\dash\notif::error(T_("Invalid parameter language"), 'language');
-			return false;
-		}
-
-		$desc = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 500)
-		{
-			\dash\notif::error(T_("Please set the tag desc less than 500 character"), 'desc');
-			return false;
-		}
-
-
-		$status = \dash\app::request('status');
-
-		if($status && !in_array($status, ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']))
-		{
-			\dash\notif::error(T_("Invalid status of term"));
-			return false;
-		}
 
 		// check duplicate
 		// lang+slug
-		$check_duplicate = \lib\db\producttag\get::check_duplicate($slug, $language);
+		$check_duplicate = \lib\db\producttag\get::check_duplicate($data['slug'], $data['language']);
 
 		if(isset($check_duplicate['id']))
 		{
@@ -350,14 +307,7 @@ class tag
 			}
 		}
 
-
-		$args             = [];
-		$args['title']    = $title;
-		$args['desc']     = $desc;
-		$args['status']   = $status;
-		$args['slug']     = $slug;
-		$args['language'] = $language;
-		return $args;
+		return $data;
 	}
 
 
@@ -370,9 +320,8 @@ class tag
 			return false;
 		}
 
-		\dash\app::variable($_args);
 
-		$args = self::check();
+		$args = self::check($_args);
 		if(!$args)
 		{
 			return false;
@@ -396,7 +345,8 @@ class tag
 
 	public static function edit($_args, $_id)
 	{
-		if(!$_id || !is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
 		{
 			\dash\notif::error(T_("Id not set"));
 			return false;
@@ -408,9 +358,7 @@ class tag
 			return false;
 		}
 
-		\dash\app::variable($_args);
-
-		$args = self::check($_id);
+		$args = self::check($_args, $_id);
 		if(!$args)
 		{
 			return false;
