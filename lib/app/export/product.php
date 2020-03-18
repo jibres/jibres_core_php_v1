@@ -37,7 +37,7 @@ class product
 		$msg .= '<br>'. T_("This file will be automatically deleted tomorrow");
 
 		$myname = T_("Products");
-		$user_id = isset($_detail['creator']) ? $_detail['creator']: null;
+		$user_id = isset($_detail['creator']) ? \dash\validate::id($_detail['creator']): null;
 
 		if($user_id)
 		{

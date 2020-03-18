@@ -6,7 +6,7 @@ class directory
 
 	private static function get($_type, $_name)
 	{
-		$master_dir = root. 'includes/stores/export/';
+		$master_dir = YARD. 'jibres_temp/stores/export/';
 		$master_dir .= \lib\store::id().'/';
 		$master_dir .= $_type. '/';
 

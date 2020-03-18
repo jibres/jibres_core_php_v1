@@ -10,7 +10,8 @@ class download
 
 	public static function by_id($_id, $_type)
 	{
-		if(!$_id || !is_numeric($_id))
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
 		{
 			return null;
 		}
