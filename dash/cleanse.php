@@ -272,13 +272,22 @@ class cleanse
 
 		if(count($input) >= 1)
 		{
-			$msg = T_("Needless arguments was received!");
-			if(\dash\url::isLocal())
+			// in import product needless to check args
+			// because my export have some field and we not get in add new product
+			if(\dash\temp::get('clesnse_not_check_needless_args'))
 			{
-				$msg .= ' '. json_encode(array_keys($input));
+				// nothing
 			}
-			\dash\notif::error($msg);
-			self::bye();
+			else
+			{
+				$msg = T_("Needless arguments was received!");
+				if(\dash\url::isLocal())
+				{
+					$msg .= ' '. json_encode(array_keys($input));
+				}
+				\dash\notif::error($msg);
+				self::bye();
+			}
 		}
 
 		if($_required)
@@ -332,7 +341,15 @@ class cleanse
 
 		if(!\dash\engine\process::status())
 		{
-			self::bye();
+			// in import product we need to check all input
+			if(\dash\temp::get('clesnse_not_end_with_error'))
+			{
+				// nothing
+			}
+			else
+			{
+				self::bye();
+			}
 		}
 
 		return $data;
