@@ -57,6 +57,7 @@ namespace dash;
  *
  * ------------------ ARRAY
  *->  enum
+ *->  weekday
  *->  order
  *->  tag
  *
@@ -647,6 +648,11 @@ class cleanse
 
 			case 'order':
 				$meta['enum'] = ['asc', 'desc'];
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'weekday':
+				$meta['enum'] = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 

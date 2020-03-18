@@ -20,6 +20,14 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'customer':
+					if($value)
+					{
+						$value = \dash\coding::encode($value);
+					}
+					$result[$key] = $value;
+					break;
+
 				case 'id' :
 					$result[$key] = $value;
 					$result['id_code'] = 'JF'. $value;

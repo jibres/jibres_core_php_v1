@@ -45,7 +45,7 @@
 
 if(\dash\data::dataTable())
 {
-  if(\dash\data::dataFilter())
+  if(\dash\data::isFiltered())
   {
 
     htmlSearchBox();
@@ -61,7 +61,7 @@ if(\dash\data::dataTable())
 }
 else
 {
-  if(\dash\data::dataFilter())
+  if(\dash\data::isFiltered())
   {
 
     htmlSearchBox();

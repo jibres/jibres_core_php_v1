@@ -3,20 +3,22 @@ namespace lib\db\factors;
 
 class search
 {
-	private static function ready_to_sql($_and, $_or, $_order_sort = null, $_meta = [])
+		private static function ready_to_sql($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$where = null;
 		$q     = [];
 
 		if($_and)
 		{
-			$q[] = \dash\db\config::make_where($_and, ['condition' => 'AND']);
+			$_and = implode(' AND ', $_and);
+			$q[] = "$_and";
+
 		}
 
 		if($_or)
 		{
-			$or =  \dash\db\config::make_where($_or, ['condition' => 'OR']);
-			$q[] = "($or)";
+			$_or = implode(' OR ', $_or);
+			$q[] = "($_or)";
 		}
 
 		if($q)
@@ -30,10 +32,24 @@ class search
 			$order = $_order_sort;
 		}
 
+		$pagination = null;
+		if(array_key_exists('pagination', $_meta))
+		{
+			$pagination = $_meta['pagination'];
+		}
+
+		$limit = null;
+		if(array_key_exists('limit', $_meta))
+		{
+			$limit = $_meta['limit'];
+		}
+
 		return
 		[
-			'where' => $where,
-			'order' => $order,
+			'where'      => $where,
+			'order'      => $order,
+			'pagination' => $pagination,
+			'limit'      => $limit,
 		];
 	}
 

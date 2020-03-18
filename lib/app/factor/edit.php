@@ -13,70 +13,73 @@ class edit
 	 */
 	public static function edit($_id, $_factor, $_factor_detail, $_option = [])
 	{
-		$default_option =
-		[
-			'debug' => true,
-		];
+		\dash\notif::errot('Not ready');
+		return;
 
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
+		// $default_option =
+		// [
+		// 	'debug' => true,
+		// ];
 
-		$_option = array_merge($default_option, $_option);
+		// if(!is_array($_option))
+		// {
+		// 	$_option = [];
+		// }
 
-		\dash\app::variable($_factor);
+		// $_option = array_merge($default_option, $_option);
 
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
+		// \dash\app::variable($_factor);
 
-		$id = \dash\coding::decode($_id);
+		// $log_meta =
+		// [
+		// 	'data' => null,
+		// 	'meta' =>
+		// 	[
+		// 		'input' => \dash\app::request(),
+		// 	]
+		// ];
 
-		if(!$id || !is_numeric($id))
-		{
-			\dash\app::log('api:factor:method:put:id:not:set', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Id not set"));
-			return false;
-		}
+		// $id = \dash\coding::decode($_id);
 
-		if(!\lib\store::id())
-		{
-			\dash\app::log('api:factor:edit:store:id:not:set', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Id not set"));
-			return false;
-		}
+		// if(!$id || !is_numeric($id))
+		// {
+		// 	\dash\app::log('api:factor:method:put:id:not:set', \dash\user::id(), $log_meta);
+		// 	if($_option['debug']) \dash\notif::error(T_("Id not set"));
+		// 	return false;
+		// }
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("You are not in this store"));
-			return false;
-		}
+		// if(!\lib\store::id())
+		// {
+		// 	\dash\app::log('api:factor:edit:store:id:not:set', \dash\user::id(), $log_meta);
+		// 	if($_option['debug']) \dash\notif::error(T_("Id not set"));
+		// 	return false;
+		// }
 
-		$load_factor = \lib\db\factors::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+		// if(!\lib\store::in_store())
+		// {
+		// 	\dash\notif::error(T_("You are not in this store"));
+		// 	return false;
+		// }
 
-		if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
-		{
-			\dash\app::log('api:factor:edit:factor:not:found', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'factor', 'permission');
-			return false;
-		}
+		// $load_factor = \lib\db\factors::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
-		\lib\db\factordetails::remove_factor($load_factor['id']);
+		// if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
+		// {
+		// 	\dash\app::log('api:factor:edit:factor:not:found', \dash\user::id(), $log_meta);
+		// 	if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'factor', 'permission');
+		// 	return false;
+		// }
 
-		$return = \lib\app\factor::add($_factor, $_factor_detail, ['factor_id' => $load_factor['id'], 'debug' => false]);
+		// \lib\db\factordetails::remove_factor($load_factor['id']);
 
-		if(\dash\engine\process::status())
-		{
-			\dash\notif::ok(T_("Your factor successfully updated"));
-		}
+		// $return = \lib\app\factor::add($_factor, $_factor_detail, ['factor_id' => $load_factor['id'], 'debug' => false]);
 
-		return $return;
+		// if(\dash\engine\process::status())
+		// {
+		// 	\dash\notif::ok(T_("Your factor successfully updated"));
+		// }
+
+		// return $return;
 	}
 }
 ?>

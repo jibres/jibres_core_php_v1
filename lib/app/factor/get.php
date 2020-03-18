@@ -35,16 +35,16 @@ class get
 			return false;
 		}
 
-
-		$_id = self::fix_id($_id);
-
+		$_id = \dash\validate::string_50($_id);
 		if(!$_id)
 		{
 			\dash\notif::error(T_("Factor id not set"));
 			return false;
 		}
 
-		if(!is_numeric($_id))
+		$_id = self::fix_id($_id);
+
+		if(!\dash\validate::id($_id))
 		{
 			\dash\notif::error(T_("Invalid factor id"));
 			return false;
@@ -70,6 +70,7 @@ class get
 		$factor = self::one($_id);
 		if(!$factor)
 		{
+			\dash\header::status(404, T_("Factor not found"));
 			return false;
 		}
 
