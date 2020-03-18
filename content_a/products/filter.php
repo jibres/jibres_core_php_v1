@@ -57,10 +57,14 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
       <div class="cauto">
         <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
           <option><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
-            <?php foreach (\dash\data::sortList() as $key => $value) {?>
-
-              <option value="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == \dash\get::index($value, 'query')['sort'] && \dash\request::get('order') == \dash\get::index($value, 'query')['order']) { echo 'selected'; }?> ><?php echo \dash\get::index($value, 'title'); ?></a>
-            <?php } //endfor ?>
+<?php
+  foreach (\dash\data::sortList() as $key => $value)
+  {
+?>
+          <option value="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == \dash\get::index($value, 'query')['sort'] && \dash\request::get('order') == \dash\get::index($value, 'query')['order']) { echo 'selected'; }?> ><?php echo \dash\get::index($value, 'title'); ?></option>
+<?php
+  }
+?>
         </select>
       </div>
     </div>
