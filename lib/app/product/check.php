@@ -203,7 +203,7 @@ class check
 
 		$data['vatprice'] = 0;
 
-		if(\dash\app::request('vat'))
+		if($data['vat'])
 		{
 			$vatprice_percent = 9; // 9% in iran. need to get from setting
 			if($vatprice_percent)

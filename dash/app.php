@@ -123,60 +123,6 @@ class app
 			return null;
 		}
 
-		// $log_meta = null;
-
-		// switch ($_level)
-		// {
-		// 	// EASY LOG
-		// 	case 1:
-		// 		$log_meta =
-		// 		[
-		// 			'data' => null,
-		// 			'meta' =>
-		// 			[
-		// 				'input' => \dash\app::request(),
-		// 				'args'  => $_array,
-		// 			],
-		// 		];
-		// 		break;
-
-		// 	// MEDIOM LOG
-		// 	case 2:
-		// 		$log_meta =
-		// 		[
-		// 			'data' => null,
-		// 			'meta' =>
-		// 			[
-		// 				'input'   => \dash\app::request(),
-		// 				'session' => $_SESSION,
-		// 				'args'    => $_array,
-		// 			],
-		// 		];
-		// 		break;
-
-		// 	// HARD LOG
-		// 	case 3:
-		// 		$log_meta =
-		// 		[
-		// 			'data' => null,
-		// 			'meta' =>
-		// 			[
-		// 				'request' => $_REQUEST,
-		// 				'server'  => $_SERVER,
-		// 				'session' => $_SESSION,
-		// 				'input'   => \dash\app::request(),
-		// 				'args'    => $_array,
-		// 			],
-		// 		];
-		// 		break;
-
-		// 	// not log detail
-		// 	default:
-		// 		$log_meta = null;
-
-		// 		break;
-		// }
-		// return $log_meta;
 	}
 
 

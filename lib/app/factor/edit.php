@@ -30,15 +30,6 @@ class edit
 
 		// \dash\app::variable($_factor);
 
-		// $log_meta =
-		// [
-		// 	'data' => null,
-		// 	'meta' =>
-		// 	[
-		// 		'input' => \dash\app::request(),
-		// 	]
-		// ];
-
 		// $id = \dash\coding::decode($_id);
 
 		// if(!$id || !is_numeric($id))
