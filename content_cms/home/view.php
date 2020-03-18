@@ -45,7 +45,7 @@ class view
 			$chart['post']             = \dash\utility\dayevent::chart(['field' => ['news', 'page', 'help', 'attachment']]);
 			$dashboard_detail['chart'] = $chart;
 
-			\dash\session::set('cpDashboardCache_'. \dash\language::current(), $dashboard_detail, null, (60*1));
+			// \dash\session::set('cpDashboardCache_'. \dash\language::current(), $dashboard_detail, null, (60*1));
 		}
 
 		\dash\data::dashboardDetail($dashboard_detail);
@@ -69,7 +69,7 @@ class view
 			$dashboard_detail_no_lang['latesPost']      = \dash\app\posts::lates_post(['type' => 'post']);
 			$dashboard_detail_no_lang['latesHelp']      = \dash\app\posts::lates_post(['type' => 'help']);
 			$dashboard_detail_no_lang['latesTag']      = \dash\app\term::lates_term(['type' => 'tag']);
-			\dash\session::set('cpDashboardCacheNoLang_'. \dash\language::current(), $dashboard_detail_no_lang, null, (60*1));
+			// \dash\session::set('cpDashboardCacheNoLang_'. \dash\language::current(), $dashboard_detail_no_lang, null, (60*1));
 		}
 
 		\dash\data::dashboardDetailNoLang($dashboard_detail_no_lang);

@@ -56,7 +56,7 @@ class view
 
 			$dashboard_detail['chart'] = $chart;
 
-			\dash\session::set('crmDashboardCache', $dashboard_detail, null, (60*1));
+			// \dash\session::set('crmDashboardCache', $dashboard_detail, null, (60*1));
 		}
 		else
 		{
