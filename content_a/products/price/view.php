@@ -31,16 +31,16 @@ class view
 			// 'discount'     => \dash\request::get('discount'),
 			'unit_id'      => \dash\request::get('unitid'),
 			'company_id'   => \dash\request::get('companyid'),
-			'filter'       => [],
+
 		];
 
 
-		if(\dash\request::get('duplicatetitle')) $args['filter']['duplicatetitle']   = true;
-		if(\dash\request::get('hbarcode')) 		 $args['filter']['hbarcode'] 		 = true;
-		if(\dash\request::get('hnotbarcode')) 	 $args['filter']['hnotbarcode'] 	 = true;
-		if(\dash\request::get('wbuyprice')) 	 $args['filter']['wbuyprice'] 	 	 = true;
-		if(\dash\request::get('wprice')) 		 $args['filter']['wprice'] 		 	 = true;
-		if(\dash\request::get('wdiscount')) 	 $args['filter']['wdiscount'] 	 	 = true;
+		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle']   = true;
+		if(\dash\request::get('hbarcode')) 		 $args['hbarcode'] 		 = true;
+		if(\dash\request::get('hnotbarcode')) 	 $args['hnotbarcode'] 	 = true;
+		if(\dash\request::get('wbuyprice')) 	 $args['wbuyprice'] 	 	 = true;
+		if(\dash\request::get('wprice')) 		 $args['wprice'] 		 	 = true;
+		if(\dash\request::get('wdiscount')) 	 $args['wdiscount'] 	 	 = true;
 
 		$search_string = \dash\request::get('q');
 

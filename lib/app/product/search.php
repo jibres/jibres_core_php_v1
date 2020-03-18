@@ -38,21 +38,20 @@ class search
 			'tag_id'         => 'id',
 			'unit_id'        => 'id',
 			'company_id'     => 'id',
-			'filter' =>
-			[
-				'duplicatetitle' => 'bit',
-				'hbarcode'       => 'bit',
-				'hnotbarcode'    => 'bit',
-				'wbuyprice'      => 'bit',
-				'wprice'         => 'bit',
-				'wdiscount'      => 'bit',
-			],
+			'duplicatetitle' => 'bit',
+			'hbarcode'       => 'bit',
+			'hnotbarcode'    => 'bit',
+			'wbuyprice'      => 'bit',
+			'wprice'         => 'bit',
+			'wdiscount'      => 'bit',
+
 		];
 
 		$require = [];
 		$meta    =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		if(!is_array($_where))
 		{
@@ -132,7 +131,7 @@ class search
 
 		// set filter
 
-		if(isset($data['filter']['duplicatetitle']) && $data['filter']['duplicatetitle'])
+		if(isset($data['duplicatetitle']) && $data['duplicatetitle'])
 		{
 			$duplicate_id = \lib\db\products\get::duplicate_id();
 			self::$filter_args['Duplicate title'] = null;
@@ -151,7 +150,7 @@ class search
 
 		}
 
-		if(isset($data['filter']['hbarcode']) && $data['filter']['hbarcode'])
+		if(isset($data['hbarcode']) && $data['hbarcode'])
 		{
 			$or[] = "products.barcode IS NOT NULL";
 			$or[] = "products.barcode2 IS NOT NULL";
@@ -160,7 +159,7 @@ class search
 			self::$is_filtered       = true;
 		}
 
-		if(isset($data['filter']['hnotbarcode']) && $data['filter']['hnotbarcode'])
+		if(isset($data['hnotbarcode']) && $data['hnotbarcode'])
 		{
 			$and[] = "products.barcode IS NULL";
 			$and[] = "products.barcode2 IS NULL";
@@ -168,7 +167,7 @@ class search
 			self::$is_filtered        = true;
 		}
 
-		if(isset($data['filter']['wbuyprice']) && $data['filter']['wbuyprice'])
+		if(isset($data['wbuyprice']) && $data['wbuyprice'])
 		{
 			$and[] = "(products.buyprice IS  NULL OR products.buyprice = 0 )";
 
@@ -179,7 +178,7 @@ class search
 			self::$is_filtered            = true;
 		}
 
-		if(isset($data['filter']['wprice']) && $data['filter']['wprice'])
+		if(isset($data['wprice']) && $data['wprice'])
 		{
 			$and[] = " (products.price  IS  NULL OR products.price = 0 )";
 			self::$filter_args['price'] = T_("without price");
@@ -190,7 +189,7 @@ class search
 		}
 
 
-		if(isset($data['filter']['wdiscount']) && $data['filter']['wdiscount'])
+		if(isset($data['wdiscount']) && $data['wdiscount'])
 		{
 			$and[] = "(products.discount IS NULL OR products.discount = 0 )";
 			self::$filter_args['discount']       = T_("without discount");

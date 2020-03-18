@@ -11,12 +11,12 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
 <div class="f align-center">
 
   <div class="c">
-    <a class='btn <?php if(\dash\request::get('duplicatetitle')) { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?filter=1&duplicatetitle=1<?php echo $andQ; ?>"><?php echo T_("Duplicate title"); ?></a>
-    <a class='btn <?php if(\dash\request::get('hbarcode')) { echo 'primary2'; }else{ echo 'light';} ?> mB5 ' href="<?php echo \dash\url::that(); ?>?filter=1&hbarcode=1<?php echo $andQ; ?>"><?php echo T_("Have barcode"); ?></a>
-    <a class='btn <?php if(\dash\request::get('hnotbarcode')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?filter=1&hnotbarcode=1<?php echo $andQ; ?>"><?php echo T_("Have not barcode"); ?></a>
-    <a class='btn <?php if(\dash\request::get('wbuyprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?filter=1&wbuyprice=1<?php echo $andQ; ?>"><?php echo T_("Whithout buyprice"); ?></a>
-    <a class='btn <?php if(\dash\request::get('wprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?filter=1&wprice=1<?php echo $andQ; ?>"><?php echo T_("Whithout price"); ?></a>
-    <a class='btn <?php if(\dash\request::get('wdiscount')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?filter=1&wdiscount=1<?php echo $andQ; ?>"><?php echo T_("Whithout discount"); ?></a>
+    <a class='btn <?php if(\dash\request::get('duplicatetitle')) { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?duplicatetitle=1<?php echo $andQ; ?>"><?php echo T_("Duplicate title"); ?></a>
+    <a class='btn <?php if(\dash\request::get('hbarcode')) { echo 'primary2'; }else{ echo 'light';} ?> mB5 ' href="<?php echo \dash\url::that(); ?>?hbarcode=1<?php echo $andQ; ?>"><?php echo T_("Have barcode"); ?></a>
+    <a class='btn <?php if(\dash\request::get('hnotbarcode')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?hnotbarcode=1<?php echo $andQ; ?>"><?php echo T_("Have not barcode"); ?></a>
+    <a class='btn <?php if(\dash\request::get('wbuyprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wbuyprice=1<?php echo $andQ; ?>"><?php echo T_("Whithout buyprice"); ?></a>
+    <a class='btn <?php if(\dash\request::get('wprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wprice=1<?php echo $andQ; ?>"><?php echo T_("Whithout price"); ?></a>
+    <a class='btn <?php if(\dash\request::get('wdiscount')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wdiscount=1<?php echo $andQ; ?>"><?php echo T_("Whithout discount"); ?></a>
   </div>
 </div>
 
@@ -32,7 +32,6 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
 <?php function htmlSearchBox() {?>
 <form method="get" action="<?php echo \dash\url::that(); ?>">
 
-  <?php if(\dash\request::get('filter')) {?><input type="hidden" name="filter" value="1"><?php } //endif ?>
   <?php if(\dash\request::get('duplicatetitle')) {?><input type="hidden" name="duplicatetitle" value="1"><?php } //endif ?>
   <?php if(\dash\request::get('hbarcode')) {?><input type="hidden" name="hbarcode" value="1"><?php } //endif ?>
   <?php if(\dash\request::get('hnotbarcode')) {?><input type="hidden" name="hnotbarcode" value="1"><?php } //endif ?>
