@@ -30,40 +30,33 @@
 
 
       <div class="mB10">
-        <label for='country'><?php echo T_("Country"); ?></label>
-        <div class="ui fluid search selection dropdown">
-          <input type="hidden" name="country" value="<?php if(\dash\data::dataRowAddress_country()) { echo \dash\data::dataRowAddress_country(); }elseif(\dash\language::current() === 'fa'){ echo 'IR'; }?>">
-          <i class="dropdown icon"></i>
-          <div class="default text"><?php echo T_("Choose your country"); ?></div>
-          <div class="menu">
-
+          <label for='country'><?php echo T_("Country"); ?></label>
+          <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRowAddress_province(); ?>'>
+            <option value=""><?php echo T_("Choose your country"); ?></option>
             <?php foreach (\dash\data::countryList() as $key => $value) {?>
 
-            <div class="item" data-value="<?php echo $key; ?>">
-              <i class="<?php echo mb_strtolower(\dash\get::index($value, 'iso2')); ?> flag"></i><?php echo T_(\dash\get::index($value, 'name')); ?><small class="description"><?php echo ucfirst(\dash\get::index($value, 'name')); ?></small>
-            </div>
+              <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowAddress_country() == $key) { echo 'selected';} ?>><?php echo ucfirst($value['name']); if(\dash\language::current() != 'en') { echo ' - '. T_(ucfirst($value['name']));} ?></option>
 
-            <?php } //endfor ?>
-
-          </div>
+            <?php } //endif ?>
+          </select>
         </div>
-      </div>
 
 
-      <div data-response='country' data-response-where='IR' <?php if(\dash\data::dataRowAddress_country() === 'IR' || (!\dash\data::dataRowAddress() && \dash\language::current() === 'fa')) {}else{ echo 'data-response-hide';} ?>>
+        <div class="mB10" data-status='hide'>
+          <label for='province'><?php echo T_("Province"); ?></label>
+          <select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRowAddress_city(); ?>'>
+            <option value="0"><?php echo T_("Please choose country"); ?></option>
+            <option value="<?php echo \dash\data::dataRowAddress_province(); ?>" selected><?php echo \dash\data::dataRowAddress_province(); ?></option>
+          </select>
+        </div>
 
-      <label for='city'><?php echo T_("City"); ?></label>
-      <select name="city" class="ui dropdown select search mB10" id="city">
-        <option value="" readonly><?php echo T_("Select city"); ?></option>
 
-        <?php foreach (\dash\data::cityList() as $key => $value) {?>
-
-          <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowAddress_city() == $key) { echo 'selected';}?>><?php echo $value; ?></option>
-
-        <?php } //endfor ?>
-
-      </select>
-      </div>
+        <div class="mB10" data-status='hide'>
+          <label for='city'><?php echo T_("City"); ?></label>
+          <select name="city" id="city" class="select22">
+            <option value=""><?php echo T_("Please choose province"); ?></option>
+          </select>
+        </div>
 
 
       <label for="address"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
