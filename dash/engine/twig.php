@@ -37,16 +37,16 @@ class twig
 		$tmpname_addr = \autoload::fix_os_path(root. ltrim($tmpname, '\\'));
 		if(!is_file($tmpname_addr))
 		{
-			if(\dash\url::content() === null && \dash\app\template::$finded_template)
+			if(\dash\url::content() === null && \dash\egnine\template::$finded_template)
 			{
-				$tmpname_addr = root. \dash\app\template::$display_name;
+				$tmpname_addr = root. \dash\egnine\template::$display_name;
 				$tmpname_addr = \autoload::fix_os_path($tmpname_addr);
 				if(!is_file($tmpname_addr))
 				{
 					\dash\header::status(206, "without display");
 					return false;
 				}
-				$tmpname = \dash\app\template::$display_name;
+				$tmpname = \dash\egnine\template::$display_name;
 			}
 			else
 			{

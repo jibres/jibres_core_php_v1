@@ -132,11 +132,11 @@ class mvc
 			return false;
 		}
 
-		$template = \dash\app\template::find();
+		$template = \dash\engine\template::find();
 
-		if(\dash\app\template::$finded_template)
+		if(\dash\engine\template::$finded_template)
 		{
-			self::$folder_addr = \dash\app\template::$display_name;
+			self::$folder_addr = \dash\engine\template::$display_name;
 			return true;
 		}
 	}
@@ -260,7 +260,7 @@ class mvc
 			// combine two type of set title into one
 			if(\dash\url::content() === null)
 			{
-				\dash\data::datarow(\dash\app\template::$datarow);
+				\dash\data::datarow(\dash\engine\template::$datarow);
 				\dash\engine\view::set_cms_titles();
 			}
 			else

@@ -1,5 +1,5 @@
 <?php
-namespace dash\app;
+namespace dash\engine;
 
 class template
 {
