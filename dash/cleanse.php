@@ -164,7 +164,7 @@ class cleanse
 			// validation is a string maybe need to call a function
 			if(is_string($validate))
 			{
-				$check = self::data($validate, $my_data, true, ['element' => $field, 'field_title' => $field_title]);
+				$check = self::data($validate, $my_data, true, ['element' => $field, 'field_title' => $field_title, 'continue_with_error' => true]);
 			}
 			elseif(is_array($validate))
 			{
@@ -179,7 +179,7 @@ class cleanse
 							self::bye(T_("Enum option must be string or number"));
 						}
 					}
-					$check = self::data('enum', $my_data, true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field]);
+					$check = self::data('enum', $my_data, true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field, 'continue_with_error' => true]);
 				}
 				else
 				{
@@ -231,7 +231,7 @@ class cleanse
 
 							if(is_string($validate[$my_field]))
 							{
-								$temp_data[$my_field] = self::data($validate[$my_field], $my_field_value, true, ['element' => $my_field, 'field_title' => $my_field]);
+								$temp_data[$my_field] = self::data($validate[$my_field], $my_field_value, true, ['element' => $my_field, 'field_title' => $my_field, 'continue_with_error' => true]);
 							}
 							elseif(is_array($validate[$my_field]))
 							{
@@ -243,7 +243,7 @@ class cleanse
 										self::bye(T_("Enum option must be string or number"));
 									}
 								}
-								$temp_data[$my_field] = self::data('enum', $my_field_value, true, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field]);
+								$temp_data[$my_field] = self::data('enum', $my_field_value, true, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field, 'continue_with_error' => true]);
 							}
 							else
 							{
@@ -369,7 +369,7 @@ class cleanse
 
 
 
-	public static function data($_cleans_function, $_data, $_notif = false, $_meta = [])
+	public static function data($_cleans_function, $_data, $_notif = true, $_meta = [])
 	{
 		if(!$_cleans_function)
 		{
@@ -397,6 +397,12 @@ class cleanse
 		$data        = null;
 		$element     = null;
 		$field_title = null;
+
+		$continue_with_error = false;
+		if(isset($_meta['continue_with_error']) && $_meta['continue_with_error'])
+		{
+			$continue_with_error = true;
+		}
 
 		if(isset($_meta['element']) && is_string($_meta['element']))
 		{
@@ -722,6 +728,16 @@ class cleanse
 				break;
 		}
 
+		// only whene call this function from self::input() needless to end code in every validate
+		// the code will be ended in that function (self::input())
+		if(!$continue_with_error)
+		{
+			// everywhere call validate and have error in validate code must be ended
+			if(!\dash\engine\process::status())
+			{
+				self::bye();
+			}
+		}
 
 		return $data;
 	}
@@ -735,9 +751,16 @@ class cleanse
 		{
 			\dash\notif::error($_msg);
 		}
-		// \dash\notif::api($_msg);
-		// \dash\header::status(423, $_msg);
-		\dash\header::set(423);
+
+		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
+		{
+			\dash\header::set(423);
+		}
+		else
+		{
+			\dash\header::status(423, $_msg);
+		}
+
 		\dash\code::end();
 	}
 }
