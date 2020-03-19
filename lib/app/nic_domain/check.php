@@ -22,7 +22,7 @@ class check
 			'ac.ir',
 		];
 
-		$_domain = \dash\validate::domain($_domain);
+		$_domain = \dash\validate::string_200($_domain);
 
 		if(!$_domain)
 		{

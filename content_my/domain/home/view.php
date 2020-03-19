@@ -38,6 +38,7 @@ class view
 		$search_string = \dash\request::get('q');
 
 		$list = \lib\app\nic_domain\search::list($search_string, $args);
+
 		\dash\data::dataTable($list);
 
 		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
@@ -53,17 +54,6 @@ class view
 		if($isFiltered)
 		{
 			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
-		}
-
-		// user search anything and no result founded
-		if($search_string && !$list)
-		{
-			if(\dash\validate::domain($search_string))
-			{
-				\dash\data::myDomain($search_string);
-				$check = \lib\app\nic_domain\check::check($search_string);
-				\dash\data::checkResult($check);
-			}
 		}
 	}
 }

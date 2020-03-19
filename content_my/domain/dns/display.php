@@ -47,7 +47,7 @@ else
 
 <?php function htmlTable() {?>
 	<div class="tblBox fs12">
-	<table class="tbl1 v1">
+	<table class="tbl1 v1 responsive">
 		<thead>
 			<tr>
 				<th class="collapsing">#</th>
