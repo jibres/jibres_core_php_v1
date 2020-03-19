@@ -374,7 +374,7 @@ class setup
 
 		$require = ['currency', 'length_unit', 'mass_unit'];
 
-		$meta =	[];
+		$meta =	['field_title' => ['length_unit' => T_("Length unit"), 'mass_unit' => T_("Mass unit")]];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
