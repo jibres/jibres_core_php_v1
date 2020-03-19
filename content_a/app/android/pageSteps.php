@@ -1,11 +1,29 @@
 <div class="stepGuide">
  <section>
-  <div class="f">
-   <div class="c"><a class="item complete" href="<?php echo \dash\url::that();?>/setting"><?php echo T_('General Settings');?></a></div>
-   <div class="c"><a class="item current" href="<?php echo \dash\url::that();?>/intro"><?php echo T_('App Intro');?></a></div>
-   <div class="c"><a class="item" href="<?php echo \dash\url::that();?>/splash"><?php echo T_('App Splash');?></a></div>
-   <div class="c"><a class="item fail" href="<?php echo \dash\url::that();?>/review"><?php echo T_('Review');?></a></div>
-   <div class="c"><a class="item" href="<?php echo \dash\url::that();?>/apk"><?php echo T_('Generate Your App');?></a></div>
-  </div>
+  <div class="f"><?php
+$mySteps = \content_a\app\android\view::stepSetup();
+foreach ($mySteps as $key => $item)
+{
+	echo '<div class="c">';
+	// echo '<a class="">';
+	echo '<a class="item';
+	if(isset($item['class']))
+	{
+		echo ' '. $item['class'];
+	}
+	echo '"';
+	if(isset($item['link']))
+	{
+		echo ' href="'. $item['link']. '"';
+	}
+	echo '>';
+	if(isset($item['title']))
+	{
+		echo $item['title'];
+	}
+	echo '</a>';
+	echo '</div>';
+}
+?></div>
  </section>
 </div>
