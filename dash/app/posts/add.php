@@ -29,7 +29,6 @@ trait add
 
 		if(!\dash\user::id())
 		{
-			if($_option['save_log']) \dash\app::log('api:posts:user_id:notfound', null, \dash\app::log_meta());
 			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
 			return false;
 		}
@@ -65,7 +64,6 @@ trait add
 
 		if(!$post_id)
 		{
-			if($_option['save_log']) \dash\app::log('api:posts:no:way:to:insert:post', \dash\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \dash\notif::error(T_("No way to insert post"), 'db', 'system');
 			return false;
 		}

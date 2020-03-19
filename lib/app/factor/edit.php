@@ -28,20 +28,17 @@ class edit
 
 		// $_option = array_merge($default_option, $_option);
 
-		// \dash\app::variable($_factor);
 
 		// $id = \dash\coding::decode($_id);
 
 		// if(!$id || !is_numeric($id))
 		// {
-		// 	\dash\app::log('api:factor:method:put:id:not:set', \dash\user::id(), $log_meta);
 		// 	if($_option['debug']) \dash\notif::error(T_("Id not set"));
 		// 	return false;
 		// }
 
 		// if(!\lib\store::id())
 		// {
-		// 	\dash\app::log('api:factor:edit:store:id:not:set', \dash\user::id(), $log_meta);
 		// 	if($_option['debug']) \dash\notif::error(T_("Id not set"));
 		// 	return false;
 		// }
@@ -56,7 +53,6 @@ class edit
 
 		// if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
 		// {
-		// 	\dash\app::log('api:factor:edit:factor:not:found', \dash\user::id(), $log_meta);
 		// 	if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'factor', 'permission');
 		// 	return false;
 		// }

@@ -154,7 +154,6 @@ class model
 
 		// $kavenegar_send_result = \dash\utility\sms::send($mobile, $msg);
 
-		// $log_meta['meta']['register_sms_result'] = $kavenegar_send_result;
 
 		// \dash\log::set('enter:callback:sms:registe:reasult');
 

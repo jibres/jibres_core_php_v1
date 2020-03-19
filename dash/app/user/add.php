@@ -75,7 +75,7 @@ trait add
 			return null;
 		}
 
-		if(\dash\app::isset_request('nationalcode') || \dash\app::isset_request('pasportcode'))
+		if($args['nationalcode'] || $args['pasportcode'])
 		{
 			if($args['nationalcode'] || $args['pasportcode'])
 			{
