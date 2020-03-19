@@ -117,10 +117,10 @@
   <div class="c s12">
 
 
-    <table class="tbl1 v1 txtC cbox fs12">
+    <table class="tbl1 v1 txtC cbox fs12 ">
       <thead>
         <tr class="fs09">
-          <th colspan="2"><?php echo T_("Bank"); ?></th>
+          <th colspan="2" class=""><?php echo T_("Bank"); ?></th>
           <th><?php echo T_("Name"); ?></th>
           <th class="s0"><?php echo T_("Default"); ?></th>
           <th><?php echo T_("Action"); ?></th>
@@ -138,7 +138,7 @@
             <?php if(isset($value['pcpos']) && $value['pcpos']) {?>
 
           <span class="badge primary"><?php echo T_("PcPos"); ?></span>
-            <div class="mT10">
+            <div class="mT10 s0">
               <?php if(isset($value['setting']) && is_array($value['setting'])) {?>
 
                 <?php foreach ($value['setting'] as $k => $v) {?>

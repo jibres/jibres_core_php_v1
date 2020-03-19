@@ -81,7 +81,7 @@ $dashboardData = \dash\data::dashboardData();
 <?php } //endif ?>
 
 
-  <div class="c4 s6">
+  <div class="c4 s">
    <div class="dcard">
      <div class="block">
       <div class="f">

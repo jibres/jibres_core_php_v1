@@ -15,6 +15,9 @@ class view
 			\dash\data::action_link(\dash\url::this(). '/add');
 		}
 
+		\dash\data::back_text(T_('Products'));
+		\dash\data::back_link(\dash\url::here(). '/products');
+
 
 		$args =
 		[

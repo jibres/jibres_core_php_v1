@@ -21,7 +21,10 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
 </div>
 
 <div class="txtRa fs12">
-  <a class="btn outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
+  <?php if(\dash\request::get()) {?>
+    <a class="btn outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
+  <?php }//endif ?>
+
   <button class="btn primary"><?php echo T_("Apply"); ?></button>
 </div>
 <?php } //endfunction ?>

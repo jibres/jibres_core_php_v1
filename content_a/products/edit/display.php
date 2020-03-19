@@ -330,7 +330,9 @@ $productDataRow = \dash\data::productDataRow();
 
   </div>
   <div class="c4 x3 s12 mB10">
-    <button class="btn block master mB10" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
+    <?php if(!\dash\detect\device::detectPWA()) {?>
+      <button class="btn block master mB10" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
+    <?php } //endif ?>
 
     <section class="jbox">
     <header data-kerkere='.jboxOrganize' data-kerkere-icon='open'><h2><?php echo T_("Organization"); ?></h2></header>
@@ -664,4 +666,10 @@ $productDataRow = \dash\data::productDataRow();
 <?php } //endif ?>
 
   </div>
+
+
+<?php if(\dash\detect\device::detectPWA()) {?>
+  <button class="btn block master mTB10" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
+<?php } //endif ?>
+
 </form>

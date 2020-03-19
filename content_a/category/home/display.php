@@ -82,7 +82,7 @@ if(!is_array($dataTable))
         <th class="collapsing">&nbsp;</th>
         <th><?php echo T_("Title"); ?></th>
         <th class="s0"><?php echo T_("Slug"); ?></th>
-        <th class="collapsing s0"><?php echo T_("Count product"); ?></th>
+        <th class="collapsing"><?php echo T_("Count product"); ?></th>
 
       </tr>
     </thead>
@@ -99,7 +99,7 @@ if(!is_array($dataTable))
           <span class="fc-mute fs09"><?php echo \dash\get::index($value, 'parent_title'); ?></span>
         </td>
         <td class="s0"><?php echo \dash\get::index($value, 'full_slug'); ?></td>
-        <td class="s0 collapsing">
+        <td class="collapsing">
           <a href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small class="fc-mute"><?php echo T_("Product"); ?></small></a>
         </td>
 
