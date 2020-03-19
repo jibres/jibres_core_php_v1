@@ -813,6 +813,7 @@ class posts
 		unset($data['publishtime']);
 		unset($data['creator']);
 		unset($data['tag']);
+		unset($data['icon']);
 
 		return $data;
 

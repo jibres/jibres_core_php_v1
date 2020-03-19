@@ -1,221 +1,46 @@
-
-
 <div class="f">
   <div class="c5 s12 pRa10">
-
 
     <div class="cbox">
      <form method="post" autocomplete="off">
       <h2><?php echo T_("Add new pos to you store"); ?></h2>
 
-      <label for="pos"><?php echo T_("Pos issuer bank"); ?></label>
-
-
-      <div class="ui fluid selection dropdown search posList">
-      <input type="hidden" name="pos" >
-      <i class="dropdown icon"></i>
-      <div class="default text"><?php echo T_("Please choose bank"); ?></div>
-      <div class="menu">
-      <div class="item" data-value="saderat">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-saderat"></i></div>
-          <div class="txtB"><?php echo T_("Saderat"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="mellat">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-mellat"></i></div>
-          <div class="txtB"><?php echo T_("Mellat"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="tejarat">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-tejarat"></i></div>
-          <div class="txtB"><?php echo T_("Tejarat"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="melli">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-melli"></i></div>
-          <div class="txtB"><?php echo T_("Melli"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="sepah">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-sepah"></i></div>
-          <div class="txtB"><?php echo T_("Sepah"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="keshavarzi">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-keshavarzi"></i></div>
-          <div class="txtB"><?php echo T_("Keshavarzi"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="parsian">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-parsian"></i></div>
-          <div class="txtB"><?php echo T_("Parsian"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="maskan">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-maskan"></i></div>
-          <div class="txtB"><?php echo T_("Maskan"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="refah">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-refah"></i></div>
-          <div class="txtB"><?php echo T_("Refah"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="novin">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-novin"></i></div>
-          <div class="txtB"><?php echo T_("Novin"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="ansar">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-ansar"></i></div>
-          <div class="txtB"><?php echo T_("Ansar"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="pasargad">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-pasargad"></i></div>
-          <div class="txtB"><?php echo T_("Pasargad"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="saman">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-saman"></i></div>
-          <div class="txtB"><?php echo T_("Saman"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="sina">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-sina"></i></div>
-          <div class="txtB"><?php echo T_("Sina"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="post">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-post"></i></div>
-          <div class="txtB"><?php echo T_("Post"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="ghavamin">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-ghavamin"></i></div>
-          <div class="txtB"><?php echo T_("Ghavamin"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="taavon">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-taavon"></i></div>
-          <div class="txtB"><?php echo T_("Taavon"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="shahr">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-shahr"></i></div>
-          <div class="txtB"><?php echo T_("Shahr"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="ayande">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-ayande"></i></div>
-          <div class="txtB"><?php echo T_("Ayande"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="sarmayeh">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-sarmayeh"></i></div>
-          <div class="txtB"><?php echo T_("Sarmayeh"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="day">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-day"></i></div>
-          <div class="txtB"><?php echo T_("Day bank"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="hekmat">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-hekmat"></i></div>
-          <div class="txtB"><?php echo T_("Hekmat"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="iranzamin">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-iranzamin"></i></div>
-          <div class="txtB"><?php echo T_("Iranzamin"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="karafarin">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-karafarin"></i></div>
-          <div class="txtB"><?php echo T_("Karafarin"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="gardeshgari">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-gardeshgari"></i></div>
-          <div class="txtB"><?php echo T_("Gardeshgari"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="madan">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-madan"></i></div>
-          <div class="txtB"><?php echo T_("Madan"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="tsaderat">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-tsaderat"></i></div>
-          <div class="txtB"><?php echo T_("Tsaderat"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="khavarmiyane">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-khavarmiyane"></i></div>
-          <div class="txtB"><?php echo T_("Khavarmiyane"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="ivbb">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-ivbb"></i></div>
-          <div class="txtB"><?php echo T_("Ivbb"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="irkish">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-irkish"></i></div>
-          <div class="txtB"><?php echo T_("Irkish"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="asanpardakht">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-asanpardakht"></i></div>
-          <div class="txtB"><?php echo T_("Asanpardakht"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="zarinpal">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-zarinpal"></i></div>
-          <div class="txtB"><?php echo T_("Zarinpal"); ?></div>
-        </div>
-      </div>
-      <div class="item" data-value="payir">
-        <div class="f align-center">
-          <div class="cauto pRa10"><i class="spay-32-payir"></i></div>
-          <div class="txtB"><?php echo T_("Payir"); ?></div>
-        </div>
-      </div>
-      </div>
-    </div>
+      <select name="pos" class="select22">
+        <option></option>
+        <option value="saderat"><?php echo T_("Saderat"); ?></option>
+        <option value="mellat"><?php echo T_("Mellat"); ?></option>
+        <option value="tejarat"><?php echo T_("Tejarat"); ?></option>
+        <option value="melli"><?php echo T_("Melli"); ?></option>
+        <option value="sepah"><?php echo T_("Sepah"); ?></option>
+        <option value="keshavarzi"><?php echo T_("Keshavarzi"); ?></option>
+        <option value="parsian"><?php echo T_("Parsian"); ?></option>
+        <option value="maskan"><?php echo T_("Maskan"); ?></option>
+        <option value="refah"><?php echo T_("Refah"); ?></option>
+        <option value="novin"><?php echo T_("Novin"); ?></option>
+        <option value="ansar"><?php echo T_("Ansar"); ?></option>
+        <option value="pasargad"><?php echo T_("Pasargad"); ?></option>
+        <option value="saman"><?php echo T_("Saman"); ?></option>
+        <option value="sina"><?php echo T_("Sina"); ?></option>
+        <option value="post"><?php echo T_("Post"); ?></option>
+        <option value="ghavamin"><?php echo T_("Ghavamin"); ?></option>
+        <option value="taavon"><?php echo T_("Taavon"); ?></option>
+        <option value="shahr"><?php echo T_("Shahr"); ?></option>
+        <option value="ayande"><?php echo T_("Ayande"); ?></option>
+        <option value="sarmayeh"><?php echo T_("Sarmayeh"); ?></option>
+        <option value="day"><?php echo T_("Day bank"); ?></option>
+        <option value="hekmat"><?php echo T_("Hekmat"); ?></option>
+        <option value="iranzamin"><?php echo T_("Iranzamin"); ?></option>
+        <option value="karafarin"><?php echo T_("Karafarin"); ?></option>
+        <option value="gardeshgari"><?php echo T_("Gardeshgari"); ?></option>
+        <option value="madan"><?php echo T_("Madan"); ?></option>
+        <option value="tsaderat"><?php echo T_("Tsaderat"); ?></option>
+        <option value="khavarmiyane"><?php echo T_("Khavarmiyane"); ?></option>
+        <option value="ivbb"><?php echo T_("Ivbb"); ?></option>
+        <option value="irkish"><?php echo T_("Irkish"); ?></option>
+        <option value="asanpardakht"><?php echo T_("Asanpardakht"); ?></option>
+        <option value="zarinpal"><?php echo T_("Zarinpal"); ?></option>
+        <option value="payir"><?php echo T_("Payir"); ?></option>
+      </select>
 
 
       <label for="title"><?php echo T_("Title"); ?></label>
@@ -283,7 +108,6 @@
       <button class="btn block primary mT10"><?php echo T_("Add pos"); ?></button>
      </form>
     </div>
-
 
 
   </div>

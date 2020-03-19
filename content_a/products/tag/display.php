@@ -21,7 +21,6 @@
   <?php iDescription(); ?>
   <?php iLanguage(); ?>
 
-  <?php tagColor(); ?>
   <?php iStatus(); ?>
   <?php if(\dash\data::editMode()) { iedit();} else { iadd(); } ?>
 </form>
@@ -61,31 +60,6 @@
 <?php }// endfunction ?>
 
 
-<?php function tagColor() {?>
-  <?php if(\dash\request::get('type') === 'support_tag' || \dash\permission::supervisor()) {?>
-
-<label><?php echo T_("Tag color"); ?></label>
-<div class="ui fluid selection dropdown">
-  <input type="hidden" name="color" value="<?php $meta = \dash\data::datarow_meta(); echo \dash\get::index($meta, 'color'); ?>">
-  <i class="dropdown icon"></i>
-  <div class="default text"><?php echo T_("Select tag color"); ?></div>
-  <div class="menu">
-
-    <div class="item" data-value="primary"><span class="mA3 badge rounded primary">&nbsp;</span> <?php echo T_("Primary"); ?></div>
-    <div class="item" data-value="secondary"><span class="mA3 badge rounded secondary">&nbsp;</span> <?php echo T_("Secondary"); ?></div>
-    <div class="item" data-value="success"><span class="mA3 badge rounded success">&nbsp;</span> <?php echo T_("Success"); ?></div>
-    <div class="item" data-value="danger"><span class="mA3 badge rounded danger">&nbsp;</span> <?php echo T_("Danger"); ?></div>
-    <div class="item" data-value="warning"><span class="mA3 badge rounded warning">&nbsp;</span> <?php echo T_("Warning"); ?></div>
-    <div class="item" data-value="info"><span class="mA3 badge rounded info">&nbsp;</span> <?php echo T_("Info"); ?></div>
-    <div class="item" data-value="light"><span class="mA3 badge rounded light">&nbsp;</span> <?php echo T_("Light"); ?></div>
-    <div class="item" data-value="dark"><span class="mA3 badge rounded dark">&nbsp;</span> <?php echo T_("Dark"); ?></div>
-    <div class="item" data-value="pain"><span class="mA3 badge rounded pain">&nbsp;</span> <?php echo T_("Pain"); ?></div>
-
-  </div>
-</div>
-<?php } //endif ?>
-
-<?php }// endfunction ?>
 
 <?php function htmlSearchBox() {?>
 <div class="cbox fs12">
