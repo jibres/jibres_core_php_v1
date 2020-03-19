@@ -71,68 +71,28 @@ class user_telegram
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function check($_id = null)
+	public static function check($_args, $_id = null)
 	{
 
-		$user_id = \dash\app::request('user_id');
-		if(!$user_id || !is_numeric($user_id))
-		{
-			\dash\notif::error(T_("Invalid user id"), 'user_id');
-			return false;
-		}
 
-		$chatid = \dash\app::request('chatid');
-		if(!$chatid || !is_numeric($chatid))
-		{
-			\dash\notif::error(T_("Invalid user id"), 'chatid');
-			return false;
-		}
+		$condition =
+		[
+			'user_id'   => 'id',
+			'chatid'    => 'id',
+			'firstname' => 'displayname',
+			'lastname'  => 'displayname',
+			'username'  => 'displayname',
+			'language'  => 'language',
+			'status'    => ['enum' => ['active','deactive','spam','bot','block','unreachable','unknown','filter','awaiting','inline','callback']],
+		];
 
-		$firstname = \dash\app::request('firstname');
-		if($firstname && mb_strlen($firstname) >= 200)
-		{
-			\dash\notif::error(T_("Please set firstname less than 200 character"), 'firstname');
-			return false;
-		}
+		$require = ['chatid'];
 
-		$lastname = \dash\app::request('lastname');
-		if($lastname && mb_strlen($lastname) >= 200)
-		{
-			\dash\notif::error(T_("Please set lastname less than 200 character"), 'lastname');
-			return false;
-		}
+		$meta =	[];
 
-		$username = \dash\app::request('username');
-		if($username && mb_strlen($username) >= 200)
-		{
-			\dash\notif::error(T_("Please set username less than 200 character"), 'username');
-			return false;
-		}
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$language = \dash\app::request('language');
-		if($language && mb_strlen($language) !== 2)
-		{
-			\dash\notif::error(T_("Invalid language"), 'language');
-			return false;
-		}
-
-
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['active','deactive','spam','bot','block','unreachable','unknown','filter','awaiting','inline','callback']))
-		{
-			\dash\notif::error(T_("Invalid status"), 'status');
-			return false;
-		}
-
-		$args              = [];
-		$args['firstname'] = $firstname;
-		$args['lastname']  = $lastname;
-		$args['username']  = $username;
-		$args['language']  = $language;
-		$args['user_id']   = $user_id;
-		$args['chatid']    = $chatid;
-		$args['status']    = $status;
-		return $args;
+		return $data;
 	}
 
 
@@ -201,8 +161,6 @@ class user_telegram
 	 */
 	public static function add($_args, $_option = [])
 	{
-		\dash\app::variable($_args);
-
 
 		$default_option =
 		[
@@ -217,7 +175,7 @@ class user_telegram
 		$_option = array_merge($default_option, $_option);
 
 		// check args
-		$args = self::check();
+		$args = self::check($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -316,7 +274,6 @@ class user_telegram
 
 	public static function edit($_args, $_id)
 	{
-		\dash\app::variable($_args);
 
 		$id = \dash\coding::decode($_id);
 
@@ -332,20 +289,14 @@ class user_telegram
 		}
 
 		// check args
-		$args = self::check($id);
+		$args = self::check($_args, $id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		if(!\dash\app::isset_request('firstname')) unset($args['firstname']);
-		if(!\dash\app::isset_request('lastname')) unset($args['lastname']);
-		if(!\dash\app::isset_request('username')) unset($args['username']);
-		if(!\dash\app::isset_request('language')) unset($args['language']);
-		if(!\dash\app::isset_request('user_id')) unset($args['user_id']);
-		if(!\dash\app::isset_request('chatid')) unset($args['chatid']);
-		if(!\dash\app::isset_request('status')) unset($args['status']);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
