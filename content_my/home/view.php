@@ -13,6 +13,12 @@ class view
 
 		if(!\dash\detect\device::detectPWA())
 		{
+			\dash\data::page_title(' ');
+
+			\dash\data::page_titleBox(true);
+			\dash\data::action_text(T_('Stores'));
+			\dash\data::action_link(\dash\url::here() . '/store');
+
 			self::site_detail();
 		}
 	}

@@ -11,9 +11,9 @@ class view
 
 		if(\dash\detect\device::detectPWA())
 		{
-			// back
-			\dash\data::back_text(T_('Dashboard'));
-			\dash\data::back_link(\dash\url::kingdom(). '/my');
+			// // back
+			// \dash\data::back_text(T_('Dashboard'));
+			// \dash\data::back_link(\dash\url::kingdom(). '/my');
 		}
 		else
 		{

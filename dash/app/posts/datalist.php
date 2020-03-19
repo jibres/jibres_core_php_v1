@@ -15,7 +15,7 @@ trait datalist
 
 	public static function random_post($_args = [])
 	{
-		$_args['order_raw'] = " RAND() ";
+		$_args['order_raw'] = "RAND()";
 		return self::list(null, $_args);
 	}
 
@@ -31,14 +31,18 @@ trait datalist
 
 		$condition =
 		[
-			'order'    => 'order',
-			'sort'     => ['enum' => ['id', 'title', 'slug', 'publishdate', 'status', 'commentcount',]],
-			'type'     => ['enum' => ['post', 'page', 'help']],
-			'language' => 'language',
+			'order'     => 'order',
+			'sort'      => ['enum' => ['id', 'title', 'slug', 'publishdate', 'status', 'commentcount',]],
+			'type'      => ['enum' => ['post', 'page', 'help']],
+			'language'  => 'language',
+			'limit'     => 'int',
+			'status'    => ['enum' => ['publish','draft','schedule','deleted','expire']],
+			'order_raw' => ['enum' => ['RAND()', '']],
 		];
 
 		$require = [];
 		$meta    =	[];
+
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 		$_string = \dash\validate::search($_string);

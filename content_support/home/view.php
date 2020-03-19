@@ -32,13 +32,6 @@ class view
 			\dash\data::action_icon('plus');
 			\dash\data::action_link(\dash\url::support(). '/ticket/add');
 
-			if(\dash\detect\device::detectPWA())
-			{
-				// back
-				\dash\data::back_text(T_('Dashboard'));
-				\dash\data::back_link(\dash\url::kingdom(). '/my');
-			}
-
 		}
 	}
 
@@ -111,11 +104,10 @@ class view
 
 		$random_post_arg =
 		[
-			'type' => 'help',
-			'limit' => 5,
-			'status' =>
-			'publish',
-			'parent' => ["IS", "NOT NULL"]
+			'type'   => 'help',
+			'limit'  => 5,
+			'status' => 'publish',
+			// 'parent' => ["IS", "NOT NULL"]
 		];
 
 		$random_faq_args = ['type' => 'help', 'limit' => 5, 'tag' => 'faq', 'random' => true];
@@ -123,11 +115,11 @@ class view
 
 		if(\dash\permission::check('cpHelpCenterEditForOthers'))
 		{
-			$get_posts_term['status']   = ["NOT IN", "('deleted')"];
+			// $get_posts_term['status']   = ["NOT IN", "('deleted')"];
 		}
 		else
 		{
-			$get_posts_term['status']   = 'publish';
+			// $get_posts_term['status']   = 'publish';
 		}
 
 		$search = \dash\request::get('q');
