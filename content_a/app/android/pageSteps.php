@@ -1,41 +1,11 @@
-<div class="f">
-
-	<div class="c s6">
-		<a href="<?php echo \dash\url::that(); ?>/splash" class="dcard x1 <?php if(\dash\url::subchild() === 'splash') { echo ' active';} ?>" >
-		 <div class="statistic">
-		  <div class="value"><i class="sf-googleplus"></i></div>
-		  <div class="label"><?php echo T_("Splash"); ?></div>
-		 </div>
-		</a>
-	</div>
-
-	<div class="c s6">
-		<a href="<?php echo \dash\url::that(); ?>/intro" class="dcard x1 <?php if(\dash\url::subchild() === 'intro') { echo ' active';} ?>" >
-		 <div class="statistic">
-		  <div class="value"><i class="sf-in-alt"></i></div>
-		  <div class="label"><?php echo T_("Intro"); ?></div>
-		 </div>
-		</a>
-	</div>
-
-	<div class="c s6">
-		<a href="<?php echo \dash\url::that(); ?>/setting" class="dcard x1 <?php if(\dash\url::subchild() === 'setting') { echo ' active';} ?>" >
-		 <div class="statistic">
-		  <div class="value"><i class="sf-windows-2"></i></div>
-		  <div class="label"><?php echo T_("Title & logo"); ?></div>
-		 </div>
-		</a>
-	</div>
-
-	<div class="c s6">
-		<a href="<?php echo \dash\url::that(); ?>/apk" class="dcard x1 <?php if(\dash\url::subchild() === 'apk') { echo ' active';} ?>" >
-		 <div class="statistic green">
-		  <div class="value"><i class="sf-android-1"></i></div>
-		  <div class="label"><?php echo T_("Download APK"); ?></div>
-		 </div>
-		</a>
-	</div>
-
-
-
+<div class="stepGuide">
+ <section>
+  <div class="f">
+   <div class="c"><a class="item complete" href="<?php echo \dash\url::that();?>/setting"><?php echo T_('General Settings');?></a></div>
+   <div class="c"><a class="item current" href="<?php echo \dash\url::that();?>/intro"><?php echo T_('App Intro');?></a></div>
+   <div class="c"><a class="item" href="<?php echo \dash\url::that();?>/splash"><?php echo T_('App Splash');?></a></div>
+   <div class="c"><a class="item fail" href="<?php echo \dash\url::that();?>/review"><?php echo T_('Review');?></a></div>
+   <div class="c"><a class="item" href="<?php echo \dash\url::that();?>/apk"><?php echo T_('Generate Your App');?></a></div>
+  </div>
+ </section>
 </div>
