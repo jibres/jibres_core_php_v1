@@ -243,7 +243,7 @@ class user
 			'bio'           => 'desc',
 			'displayname'   => 'displayname',
 			'nationalcode'  => 'nationalcode',
-			'pasportcode'   => 'pasportcode',
+			'pasportcode'   => 'id',
 			'firstname'     => 'displayname',
 			'lastname'      => 'displayname',
 			'father'        => 'displayname',

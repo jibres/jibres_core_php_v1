@@ -73,22 +73,20 @@
 	  <input type="tel" name="mobile" id="mobile" placeholder='<?php echo T_("Like 09120123456"); ?>' value="<?php echo \dash\data::dataRowMember_mobile(); ?>" maxlength='30'>
 	</div>
 
-	  <div class="mB10">
-	  <label for='nationality'><?php echo T_("Nationality"); ?></label>
-	  <div class="ui fluid search selection dropdown">
-	    <input type="hidden" name="nationality" value="<?php if(\dash\data::dataRowMember_nationality()) {?><?php echo \dash\data::dataRowMember_nationality(); ?><?php }else{ ?>IR<?php } //endif ?>">
-	    <i class="dropdown icon"></i>
-	    <div class="default text"><?php echo T_("Choose your nationality"); ?></div>
-	    <div class="menu">
-	    	<?php foreach (\dash\data::countryList() as $key => $value) {?>
 
-	      <div class="item" data-value="<?php echo $key; ?>">
-	        <i class="<?php echo mb_strtolower($value['iso2']); ?> flag"></i><?php echo T_($value['name']); ?><small class="description"><?php echo ucfirst($value['name']); ?></small>
-	      </div>
-		<?php }//endfor ?>
-	    </div>
-	  </div>
-	</div>
+	    <div class="mB10">
+          <label for='country'><?php echo T_("Country"); ?></label>
+          <select class="select22" name="nationality" id="country" data-model='country' >
+            <option value=""><?php echo T_("Choose your country"); ?></option>
+            <?php foreach (\dash\data::countryList() as $key => $value) {?>
+
+              <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowMember_nationality() == $key) { echo 'selected';} ?>><?php echo ucfirst($value['name']); if(\dash\language::current() != 'en') { echo ' - '. T_(ucfirst($value['name']));} ?></option>
+
+            <?php } //endif ?>
+          </select>
+        </div>
+
+
 	  <div class="f" data-response='nationality' data-response-where='IR' data-response-effect='slide' <?php if(\dash\data::dataRowMember_nationality() && \dash\data::dataRowMember_nationality() !== 'IR') { echo 'data-response-hide';}?>>
 
 	   <div class="c s12 pRa5">
