@@ -81,16 +81,9 @@ class comment
 
 	public static function add($_args)
 	{
-		// $content = null;
-		// if(isset($_args['content']))
-		// {
-		// 	$content = \dash\safe::safe($_args['content'], 'sqlinjection');
-		// }
-
-		\dash\app::variable($_args);
 
 		// check args
-		$args = self::check();
+		$args = self::check($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -147,14 +140,7 @@ class comment
 
 	public static function edit($_args, $_id)
 	{
-		$content = null;
-		if(isset($_args['content']))
-		{
-			$content = \dash\safe::safe($_args['content'], 'sqlinjection');
-		}
 
-		\dash\app::variable($_args);
-		// check args
 		$id = \dash\coding::decode($_id);
 		if(!$id)
 		{
@@ -162,36 +148,26 @@ class comment
 			return false;
 		}
 
-		$args = self::check($id);
+		$args = self::check($_args, $id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
-		$args['content'] = $content;
 
-		if(!\dash\app::isset_request('status')) unset($args['status']);
-		if(!\dash\app::isset_request('content')) unset($args['content']);
-		if(!\dash\app::isset_request('author')) unset($args['author']);
-		if(!\dash\app::isset_request('user_id')) unset($args['user_id']);
-		if(!\dash\app::isset_request('post_id')) unset($args['post_id']);
-		if(!\dash\app::isset_request('meta'))   unset($args['meta']);
-		if(!\dash\app::isset_request('mobile')) unset($args['mobile']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('file')) unset($args['file']);
-		if(!\dash\app::isset_request('parent')) unset($args['parent']);
-		if(!\dash\app::isset_request('via')) unset($args['via']);
-		if(!\dash\app::isset_request('star')) unset($args['star']);
-		if(!\dash\app::isset_request('url')) unset($args['url']);
-		if(!\dash\app::isset_request('email')) unset($args['email']);
-
-
-		if(isset($args['status']) && $args['status'] === 'deleted')
+		if($args['status'] === 'deleted')
 		{
 			\dash\permission::check('cpCommentsDelete');
 		}
-		\dash\log::set('editComment', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
-		return \dash\db\comments::update($args, $id);
+
+		$args = \dash\cleanse::patch_mode($_args, $args);
+
+		if($args)
+		{
+			\dash\log::set('editComment', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
+
+			return \dash\db\comments::update($args, $id);
+		}
 	}
 
 
@@ -213,14 +189,10 @@ class comment
 
 		$_args = array_merge($default_meta, $_args);
 
-		if($_args['sort'] && !in_array($_args['sort'], self::$sort_field))
-		{
-			$_args['sort'] = null;
-		}
-
 		unset($_args['order']);
 		unset($_args['sort']);
 
+		$_string = \dash\validate::search($_string);
 
 		$result            = \dash\db\comments::search_full($_string, $_args);
 		$temp              = [];
@@ -239,105 +211,51 @@ class comment
 	}
 
 
-	public static function check($_id = null, $_option = [])
+	public static function check($_args, $_id = null)
 	{
 
-
-		$default_option =
+		$condition =
 		[
-			'meta' => [],
+			'content' => 'desc',
+			'status'  => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
+			'author'  => 'displayname',
+			'user_id' => 'id',
+			'post_id' => 'code',
+			'meta'    => '',
+			'mobile'  => 'mobile',
+			'title'   => 'title',
+			'file'    => 'string',
+			'parent'  => 'code',
+			'via'     => ['enum' => ['site', 'telegram', 'sms', 'contact', 'admincontact', 'app']],
+			'star'    => ['enum' => [1,2,3,4,5]],
+			'url'     => 'url',
+			'email'   => 'email',
+
 		];
 
-		if(!is_array($_option))
+
+
+		$require = ['content'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if(!$data['user_id'] && $data['mobile'])
 		{
-			$_option = [];
-		}
-
-		$_option = array_merge($default_option, $_option);
-
-		$content = \dash\app::request('content');
-
-		if(!$content && \dash\app::isset_request('content'))
-		{
-			\dash\notif::error(T_("Please fill the content box"), 'content');
-			return false;
-		}
-
-		$author = \dash\app::request('author');
-		if($author && mb_strlen($author) >= 100)
-		{
-			$author = substr($author, 0, 99);
-		}
-
-
-
-		$meta = \dash\app::request('meta');
-		if($meta && (is_array($meta) || is_object($meta)))
-		{
-			$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
-		}
-
-		$mobile = \dash\app::request('mobile');
-		if($mobile && mb_strlen($mobile) > 15)
-		{
-			$mobile = substr($mobile, 0, 14);
-		}
-
-		$user_id = \dash\app::request('user_id');
-		if($user_id && !is_numeric($user_id))
-		{
-			$user_id = null;
-		}
-
-
-		if(!$user_id && \dash\utility\filter::mobile($mobile))
-		{
-			$get_user = \dash\db\users::get_by_mobile(\dash\utility\filter::mobile($mobile));
+			$get_user = \dash\db\users::get_by_mobile($data['mobile']);
 			if(isset($get_user['id']))
 			{
-				$user_id = $get_user['id'];
+				$data['user_id'] = $get_user['id'];
 			}
 		}
 
-		$via = \dash\app::request('via');
-		if($via && !in_array($via, ['site', 'telegram', 'sms', 'contact', 'admincontact', 'app']))
+		if($data['post_id'])
 		{
-			\dash\notif::error(T_("Invalid via"), 'via');
-			return false;
-		}
+			$data['post_id'] = \dash\coding::decode($data['post_id']);
 
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']))
-		{
-			\dash\notif::error(T_("Invalid status"), 'status');
-			return false;
-		}
-
-		$star = \dash\app::request('star');
-		$star = \dash\utility\convert::to_en_number($star);
-		if($star && !is_numeric($star))
-		{
-			\dash\notif::error(T_("Invalid parameter star, Star must be a number"), 'star');
-			return false;
-		}
-
-		if($star && !in_array(intval($star), [1,2,3,4,5]))
-		{
-			\dash\notif::error(T_("Invalid star, Star number must be between 1 and 5"), 'star');
-			return false;
-		}
-
-		$post_id = \dash\app::request('post_id');
-		if($post_id)
-		{
-			$post_id = \dash\coding::decode($post_id);
-			if(!$post_id)
-			{
-				\dash\notif::error(T_("Invalid post id"));
-				return false;
-			}
-
-			$check_ok_post = \dash\db\posts::get(['id' => $post_id, 'limit' => 1]);
+			$check_ok_post = \dash\db\posts::get(['id' => $data['post_id'], 'limit' => 1]);
 			if(!isset($check_ok_post['comment']))
 			{
 				\dash\notif::error(T_("Invalid post id"));
@@ -352,58 +270,18 @@ class comment
 		}
 		else
 		{
-			$post_id = null;
+			$data['post_id'] = null;
 		}
 
-		$title = \dash\app::request('title');
-		if($title && mb_strlen($title) > 400)
+
+		if($data['parent'])
 		{
-			\dash\notif::error(T_("Title is out of range!"));
-			return false;
+			$data['parent'] = \dash\coding::decode($data['parent']);
 		}
 
-		$file = \dash\app::request('file');
-		$parent = \dash\app::request('parent');
-		$parent = \dash\coding::decode($parent);
-		if(\dash\app::isset_request('parent') && \dash\app::request('parent') && !$parent)
-		{
-			\dash\notif::error(T_("Invalid parent"));
-			return false;
-		}
+		$data['status']  = $data['status'] ? $data['status'] : 'awaiting';
 
-		$email = \dash\app::request('email');
-		if($email && !\dash\utility\filter::email($email))
-		{
-			\dash\notif::error(T_("Invalid email address"), 'email');
-			return false;
-		}
-
-		$url = \dash\app::request('url');
-		if($url && !\dash\utility\filter::url($url))
-		{
-			\dash\notif::error(T_("Invalid url address"), 'url');
-			return false;
-		}
-
-
-		$args            = [];
-		$args['status']  = $status ? $status : 'awaiting';
-		$args['author']  = $author;
-
-		$args['user_id'] = $user_id;
-		$args['post_id'] = $post_id;
-		$args['meta']    = $meta;
-		$args['mobile']  = $mobile;
-		$args['title']   = $title;
-		$args['file']    = $file;
-		$args['parent']  = $parent;
-		$args['via']     = $via;
-		$args['star']    = $star;
-		$args['content'] = $content;
-		$args['url']     = $url;
-		$args['email']   = $email;
-
-		return $args;
+		return $data;
 	}
 
 
