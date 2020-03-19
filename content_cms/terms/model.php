@@ -72,7 +72,7 @@ class model
 		$post             = [];
 		$post['title']    = \dash\request::post('title');
 		$post['desc']     = \dash\request::post('desc');
-		$post['excerpt']  = \dash\request::post('excerpt');
+		// $post['excerpt']  = \dash\request::post('excerpt');
 		$post['parent']   = \dash\request::post('parent');
 		$post['language'] = \dash\request::post('language');;
 		$post['slug']     = \dash\request::post('slug');
@@ -130,8 +130,7 @@ class model
 				\dash\permission::access('cpTagEdit');
 			}
 
-			$post['id'] = \dash\request::get('edit');
-			\dash\app\term::edit($post);
+			\dash\app\term::edit($post, \dash\request::get('edit'));
 		}
 		else
 		{

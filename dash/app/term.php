@@ -312,93 +312,42 @@ class term
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function check($_id = null)
+	public static function check($_args, $_id = null)
 	{
 
-		$title = \dash\app::request('title');
-		if(!$title)
+		$condition =
+		[
+			'title'    => 'title',
+			'parent'   => 'code',
+			'desc'     => 'desc',
+			'status'   => ['enum' => ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']],
+			'slug'     => 'slug',
+			'url'      => 'url',
+			'type'     => ['enum' => ['tag', 'cat', 'code', 'other', 'help', 'term', 'support_tag', 'help_tag', 'category']],
+			'language' => 'language',
+
+		];
+
+
+		$require = ['title'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if(!$data['slug'])
 		{
-			\dash\notif::error(T_("Please set the term title"), 'title');
-			return false;
+			$data['slug'] = \dash\utility\filter::slug($data['title'], null, 'persian');
 		}
 
-		if(mb_strlen($title) > 150)
+		if($data['type'] === 'category')
 		{
-			\dash\notif::error(T_("Please set the term title less than 150 character"), 'title');
-			return false;
+			$data['type'] = 'cat';
 		}
 
 
-		$slug = \dash\app::request('slug');
-
-		if($slug && mb_strlen($slug) > 150)
-		{
-			\dash\notif::error(T_("Please set the term slug less than 150 character"), 'slug');
-			return false;
-		}
-
-		if(!$slug)
-		{
-			$slug = \dash\utility\filter::slug($title, null, 'persian');
-		}
-		else
-		{
-			$slug = \dash\utility\filter::slug($slug, null, 'persian');
-		}
-
-		$language = \dash\app::request('language');
-		if($language && mb_strlen($language) !== 2)
-		{
-			\dash\notif::error(T_("Invalid parameter language"), 'language');
-			return false;
-		}
-
-		if($language && !\dash\language::check($language))
-		{
-			\dash\notif::error(T_("Invalid parameter language"), 'language');
-			return false;
-		}
-
-		$desc = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 500)
-		{
-			\dash\notif::error(T_("Please set the term desc less than 500 character"), 'desc');
-			return false;
-		}
-
-		$type = \dash\app::request('type');
-		switch ($type)
-		{
-			case 'tag':
-			case 'cat':
-			case 'code':
-			case 'other':
-			case 'help':
-			case 'term':
-			case 'support_tag':
-			case 'help_tag':
-				// nothing
-				break;
-
-			case 'category':
-				$type = 'cat';
-				break;
-
-			default:
-				\dash\notif::error(T_("Invalid term type"), 'type');
-				return false;
-				break;
-		}
-
-		$status = \dash\app::request('status');
-
-		if($status && !in_array($status, ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']))
-		{
-			\dash\notif::error(T_("Invalid status of term"));
-			return false;
-		}
-
-		$check_duplicate_args = ['type' => $type, 'slug' => $slug, 'language' => $language, 'limit' => 1];
+		$check_duplicate_args = ['type' => $data['type'], 'slug' => $data['slug'], 'language' => $data['language'], 'limit' => 1];
 
 
 		// check duplicate
@@ -420,22 +369,17 @@ class term
 
 
 
-		$parent = \dash\app::request('parent');
-		if($parent && !\dash\coding::is($parent))
-		{
-			\dash\notif::error(T_("Invalid parent"), 'parent');
-			return false;
-		}
 
-		$url = $slug;
 
-		if($type === 'cat')
+		$data['url'] = $data['slug'];
+
+		if($data['type'] === 'cat')
 		{
-			if($parent)
+			if($data['parent'])
 			{
-				$parent = \dash\coding::decode($parent);
+				$data['parent'] = \dash\coding::decode($data['parent']);
 
-				$get_parent = \dash\db\terms::get(['id' => $parent, 'limit' => 1]);
+				$get_parent = \dash\db\terms::get(['id' => $data['parent'], 'limit' => 1]);
 
 				if(!isset($get_parent['id']) || !array_key_exists('type', $get_parent) || !array_key_exists('url', $get_parent))
 				{
@@ -448,57 +392,27 @@ class term
 					\dash\notif::error(T_("Can not set the parent as yourself"), 'parent');
 					return false;
 				}
-				if($get_parent['type'] != $type)
+				if($get_parent['type'] != $data['type'])
 				{
-					\dash\notif::error(T_("The parent is not a :type", ['type' => $type]), 'parent');
+					\dash\notif::error(T_("The parent is not a :type", ['type' => $data['type']]), 'parent');
 					return false;
 				}
-				$url = $get_parent['url'] . '/'. $slug;
-				$url = ltrim($url, '/');
+				$data['url'] = $get_parent['url'] . '/'. $data['slug'];
+				$data['url'] = ltrim($url, '/');
 			}
 		}
 
-		$meta = [];
-		$args = [];
 
-		if(\dash\app::request('color'))
+
+		if($data['url'])
 		{
-			$meta['color'] = \dash\app::request('color');
-		}
-
-		if(\dash\app::request('icon'))
-		{
-			$meta['icon'] = \dash\app::request('icon');
-		}
-
-		if(!empty($meta))
-		{
-			$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
-			$args['meta'] = $meta;
-		}
-
-
-		if($url)
-		{
-			if(!\dash\app\url::check($url))
+			if(!\dash\app\url::check($data['url']))
 			{
 				return false;
 			}
 		}
 
-
-
-		$args['title']    = $title;
-		$args['parent']   = $parent;
-		$args['desc']     = $desc;
-
-		$args['status']   = $status;
-		$args['slug']     = $slug;
-		$args['url']      = $url;
-		$args['type']     = $type;
-		$args['language'] = $language;
-
-		return $args;
+		return $data;
 	}
 
 
@@ -586,7 +500,6 @@ class term
 	 */
 	public static function add($_args, $_option = [])
 	{
-		\dash\app::variable($_args);
 
 
 		$default_option =
@@ -609,7 +522,7 @@ class term
 		}
 
 		// check args
-		$args = self::check();
+		$args = self::check($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -697,9 +610,8 @@ class term
 	}
 
 
-	public static function edit($_args, $_option = [])
+	public static function edit($_args, $_id, $_option = [])
 	{
-		\dash\app::variable($_args);
 
 		$default_option =
 		[
@@ -713,8 +625,7 @@ class term
 
 		$_option = array_merge($default_option, $_option);
 
-		$id = \dash\app::request('id');
-		$id = \dash\coding::decode($id);
+		$id = \dash\coding::decode($_id);
 
 		if(!$id)
 		{
@@ -723,7 +634,7 @@ class term
 		}
 
 		// check args
-		$args = self::check($id);
+		$args = self::check($_args, $id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
