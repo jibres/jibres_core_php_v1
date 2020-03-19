@@ -1,3 +1,5 @@
+<?php require_once(root. 'content_a/app/android/setupGuide.php'); ?>
+
 <?php if(!\dash\data::appQueue()) {?>
 
 <div class="welcome">
