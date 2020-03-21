@@ -13,12 +13,54 @@ class queue
 			return false;
 		}
 
+		$store_app_detail = self::check_detail_from_file();
 
-		$store_app_detail = \lib\db\store_app\get::jibres_my_app_detail(\lib\store::id());
+		if(!$store_app_detail)
+		{
+			$store_app_detail = self::check_detail_from_setting();
+
+			if(!$store_app_detail)
+			{
+				$store_app_detail = \lib\db\store_app\get::jibres_my_app_detail(\lib\store::id());
+
+				if(!$store_app_detail)
+				{
+					// create empty array from store queue to not send query to jibres again
+					// catch this detail in setting record and file
+					$store_app_detail =
+					[
+						'file'          => null,
+						'store_id'      => null,
+						'user_id'       => null,
+						'version'       => null,
+						'build'         => null,
+						'status'        => null,
+						'daterequest'   => null,
+						'datequeue'     => null,
+						'datedone'      => null,
+						'datedownload'  => null,
+						'datemodified'  => null,
+						'versiontitle'  => null,
+						'versionnumber' => null,
+						'packagename'   => null,
+						'keystore'      => null,
+						'file'          => null,
+						'meta'          => null,
+					];
+				}
+
+				self::check_detail_from_setting($store_app_detail);
+				self::check_detail_from_file($store_app_detail);
+			}
+			else
+			{
+				self::check_detail_from_file($store_app_detail);
+			}
+		}
 
 		return $store_app_detail;
-
 	}
+
 
 	public static function rebuild()
 	{
@@ -32,7 +74,110 @@ class queue
 
 	}
 
-	public static function set_android()
+
+
+	private static function check_detail_from_setting($_new_detail = null)
+	{
+		if($_new_detail === null)
+		{
+			$app_queue_detail = \lib\db\setting\get::platform_cat_key('android', 'application', 'queue_detail');
+
+			if(isset($app_queue_detail['value']) && is_string($app_queue_detail['value']))
+			{
+				$app_queue_detail = json_decode($app_queue_detail['value'], true);
+
+				if(!is_array($app_queue_detail))
+				{
+					return false;
+				}
+
+				return $app_queue_detail;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			// save detail to setting record
+			$value = json_encode($_new_detail, JSON_UNESCAPED_UNICODE);
+			\lib\db\setting\update::overwirte_platform_cat_key($value, 'android', 'application', 'queue_detail');
+		}
+	}
+
+
+	private static function check_detail_from_file($_new_detail = null)
+	{
+		$app_queue_detail_folder = YARD . 'talambar_cloud/'. \dash\store_coding::encode_raw() . '/app/';
+		$app_queue_detail_addr = $app_queue_detail_folder . 'detail.json';
+
+		if($_new_detail === null)
+		{
+			if(is_file($app_queue_detail_addr))
+			{
+				$app_queue_detail = json_decode(\dash\file::read($app_queue_detail_addr), true);
+				if(!is_array($app_queue_detail))
+				{
+					return false;
+				}
+
+				return $app_queue_detail;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			if(!file_exists($app_queue_detail_folder))
+			{
+				\dash\file::makeDir($app_queue_detail_folder, null, true);
+			}
+
+			$value = json_encode($_new_detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+			\dash\file::write($app_queue_detail_addr, $value);
+		}
+	}
+
+
+	private static function new_queue()
+	{
+		$build = \lib\db\store_app\get::count_record_store(\lib\store::id());
+		$build = intval($build) + 1;
+
+		$insert_queue =
+		[
+			'store_id'      => \lib\store::id(),
+			'user_id'       => \dash\user::id(),
+			'version'       => \lib\app\application\version::get_last_version(),
+			'status'        => 'queue',
+			'build'         => $build,
+			'daterequest'   => date("Y-m-d H:i:s"),
+			'datequeue'     => null,
+			'datedone'      => null,
+			'datedownload'  => null,
+			'datemodified'  => null,
+
+			'versiontitle'  => '4.0.1',
+			'versionnumber' => 40,
+			'packagename'   => 'com.jibres.'. \dash\store_coding::encode_raw(),
+			'keystore'      => 'jibres',
+		];
+
+		\lib\db\store_app\insert::new_record($insert_queue);
+	}
+
+
+
+	/**
+	 * Adds a new queue.
+	 * All application queue in jibres database
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function add_new_queue()
 	{
 		if(!\lib\store::id())
 		{
@@ -40,10 +185,12 @@ class queue
 			return false;
 		}
 
+		// check required detail is ok or no
+		// for example logo, title and intro theme must be set
 		$check_ok = \lib\app\application\detail::is_ready_to_create();
 		if(isset($check_ok['ok']) && $check_ok['ok'])
 		{
-			// no problem
+			// no problem, all is well
 		}
 		else
 		{
@@ -51,15 +198,18 @@ class queue
 			return false;
 		}
 
+		// load current queue
 		$current_queue = self::detail();
 
-
+		// no curren queue. need to create one
 		if(!$current_queue || !isset($current_queue['status']) || !isset($current_queue['id']))
 		{
 			self::new_queue();
 		}
 		else
 		{
+			// we have an old queue
+			// check curren queue status
 			switch ($current_queue['status'])
 			{
 				case 'queue':
@@ -101,39 +251,22 @@ class queue
 					break;
 			}
 		}
+
 		\dash\notif::ok(T_("Your build request has been queued"));
 		return true;
 	}
 
 
-	private static function new_queue()
-	{
-		$build = \lib\db\store_app\get::count_record_store(\lib\store::id());
-		$build = intval($build) + 1;
 
-		$insert_queue =
-		[
-			'store_id'      => \lib\store::id(),
-			'user_id'       => \dash\user::id(),
-			'version'       => \lib\app\application\version::get_last_version(),
-			'status'        => 'queue',
-			'build'         => $build,
-			'daterequest'   => date("Y-m-d H:i:s"),
-			'datequeue'     => null,
-			'datedone'      => null,
-			'datedownload'  => null,
-			'datemodified'  => null,
-
-			'versiontitle'  => '4.0.1',
-			'versionnumber' => 40,
-			'packagename'   => 'com.jibres.'. \dash\store_coding::encode_raw(),
-			'keystore'      => 'jibres',
-		];
-
-		\lib\db\store_app\insert::new_record($insert_queue);
-	}
-
-
+	/**
+	 * Gets the build queue.
+	 * @call this function from api
+	 * Jibres call have any application queue?
+	 *
+	 * @param      boolean  $_detail  The detail
+	 *
+	 * @return     array    The build queue.
+	 */
 	public static function get_build_queue($_detail = false)
 	{
 		$build_queue = \lib\db\store_app\get::build_queue();
@@ -168,7 +301,16 @@ class queue
 		}
 	}
 
-
+	/**
+	 * Sets the status.
+	 * Jibres Android server response call this function from api
+	 * @param      <type>   $_store     The store
+	 * @param      <type>   $_status    The status
+	 * @param      <type>   $_filename  The filename
+	 * @param      <type>   $_meta      The meta
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function set_status($_store, $_status, $_filename, $_meta)
 	{
 		// save log in file
@@ -246,6 +388,14 @@ class queue
 	}
 
 
+	/**
+	 * Copy maked apk file from talambar server to store file location
+	 *
+	 * @param      <type>   $_filename  The filename
+	 * @param      string   $_store     The store
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	private static function transfer_file($_filename, $_store)
 	{
 		$host = 'http://app.talambar.ir/';

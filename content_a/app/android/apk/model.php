@@ -7,7 +7,7 @@ class model
 	{
 		if(\dash\request::post('build') === 'now')
 		{
-			\lib\app\application\queue::set_android();
+			\lib\app\application\queue::add_new_queue();
 			\dash\redirect::pwd();
 		}
 		// \lib\app\application\queue::rebuild();
