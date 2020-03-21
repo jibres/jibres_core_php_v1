@@ -13,8 +13,8 @@ class view
 		\dash\data::back_link(\dash\url::kingdom());
 
 		// btn
-		\dash\data::action_text(T_('Join us'));
-		\dash\data::action_link(\dash\url::kingdom(). '/careers');
+		// \dash\data::action_text(T_('Join us'));
+		// \dash\data::action_link(\dash\url::kingdom(). '/careers');
 	}
 }
 ?>
