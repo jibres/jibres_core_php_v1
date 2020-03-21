@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Jibres Vission'));
-		\dash\data::page_desc("We are on a mission to simplify business system and their teams can spend more time creating money.");
+		\dash\data::page_title(T_('Jibres Vision'));
+		\dash\data::page_desc("World #1 Financial Platform.");
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
