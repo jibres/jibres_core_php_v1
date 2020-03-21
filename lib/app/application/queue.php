@@ -171,7 +171,20 @@ class queue
 
 	public static function set_status($_store, $_status, $_filename, $_meta)
 	{
+		// save log in file
 		\dash\log::file(json_encode(func_get_args()), 'transfer_file_apk', 'application');
+
+		if(!is_string($_status))
+		{
+			\dash\notif::error(T_("Please set the status"));
+			return false;
+		}
+
+		if($_filename && !is_string($_filename))
+		{
+			\dash\notif::error(T_("Please set the status"));
+			return false;
+		}
 
 		if(!in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
 		{
@@ -180,7 +193,7 @@ class queue
 		}
 
 
-		if(!$_store)
+		if(!$_store || !is_string($_store))
 		{
 			\dash\notif::error(T_("Please set the store code"));
 			return false;
@@ -190,42 +203,46 @@ class queue
 
 		if(isset($result['store']) && $result['store'] === $_store)
 		{
-			$meta = is_array($_meta) ? json_encode($_meta, JSON_UNESCAPED_UNICODE) : null;
-			$update =
-			[
-				'file'     => \dash\validate::string($_filename),
-				'status'   => \dash\validate::string($_status),
-				'datedone' => date("Y-m-d H:i:s"),
-				'meta'     => $meta,
-			];
-
-			\lib\db\store_app\update::record($update, $result['id']);
-
-
-			if($_filename)
-			{
-				// download file in store app folder
-				$transfer_file = self::transfer_file($_filename, $_store);
-				if($transfer_file)
-				{
-					$log =
-					[
-						'to'         => $result['user_id'],
-						'data_build' => $result['build'],
-					];
-
-					\dash\log::set('application_readyToDownload', $log);
-				}
-			}
-
-			\dash\notif::ok(T_("Queue status updated"));
-			return true;
+			// do nothing
+			// continue code
 		}
 		else
 		{
 			\dash\notif::error(T_("This id is not current application id"));
 			return false;
 		}
+
+		$meta = is_array($_meta) ? json_encode($_meta, JSON_UNESCAPED_UNICODE) : null;
+		$update =
+		[
+			'file'     => $_filename,
+			'status'   => $_status,
+			'datedone' => date("Y-m-d H:i:s"),
+			'meta'     => $meta,
+		];
+
+		\lib\db\store_app\update::record($update, $result['id']);
+
+
+		if($_filename)
+		{
+			// download file in store app folder
+			$transfer_file = self::transfer_file($_filename, $_store);
+			if($transfer_file)
+			{
+				$log =
+				[
+					'to'         => $result['user_id'],
+					'data_build' => $result['build'],
+				];
+
+				\dash\log::set('application_readyToDownload', $log);
+			}
+		}
+
+		\dash\notif::ok(T_("Queue status updated"));
+		return true;
+
 	}
 
 
@@ -242,7 +259,7 @@ class queue
 
 		\dash\log::file(json_encode([$source, $dest]), 'transfer_file_apk', 'application');
 
-		if(copy($source, $dest))
+		if(@copy($source, $dest))
 		{
 			// copy application successfully
 			return true;
@@ -252,6 +269,7 @@ class queue
 			// copy not complete
 			// file not exist
 			// notif to admin to check this application
+			\dash\notif::error(T_("Can not copy application file from talambar server!"));
 			\dash\log::file(json_encode([$source, $dest, 'copy not complete']), 'transfer_file_apk', 'application');
 			return false;
 		}
