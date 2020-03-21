@@ -1,7 +1,7 @@
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 <div class="f justify-center">
   <div class="c6 m8 s12">
-    <form method="post" autocomplete="off" class="box">
+    <form method="post" autocomplete="off" class="box impact">
       <header><h2><?php echo T_("Set your application title and logo"); ?></h2></header>
       <div class="body zeroPad">
         <?php if(\dash\data::appQueue()) {?>

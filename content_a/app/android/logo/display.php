@@ -2,7 +2,7 @@
 <div class="f justify-center">
   <div class="c6 m8 s12">
     <form method="post" autocomplete="off" class="box impact">
-      <header><h4><?php echo T_("Set your application title logo");?></h4></header>
+      <header><h2><?php echo T_("Set your application title logo");?></h2></header>
       <div class="body zeroPad">
 <?php if(\dash\data::appQueue()) {?>
         <div class="msg warn2 mB0"><?php echo T_("Changing these values ​​will need to be rebuilt") ?></div>
