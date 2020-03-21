@@ -4,30 +4,13 @@
       <form method="post" autocomplete="off" class="box impact">
         <header><h2><?php echo T_("Application Splash setting"); ?></h2></header>
         <div class="body">
+
+        <?php foreach (\dash\data::themeColor() as $key => $value) {?>
           <div class="radio1">
-            <input type="radio" name="theme" value="blue" <?php if(\dash\data::splashSaved_splash_theme() == 'blue') { echo 'checked';} ?>  id="sRdc1">
-            <label for="sRdc1">Blue (Default)</label>
+            <input type="radio" name="theme" value="<?php echo \dash\get::index($value, 'start').'_'. \dash\get::index($value, 'end'). '_'. \dash\get::index($value, 'text_color'). '_'. \dash\get::index($value, 'meta_color'); ?>" <?php if(\dash\data::splashSaved_splash_theme() == $key) { echo 'checked';} ?>  id="<?php echo 'splash_'. $key; ?>">
+            <label for="<?php echo 'splash_'. $key; ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
           </div>
-
-          <div class="radio1 red">
-            <input type="radio" name="theme" value="red" <?php if(\dash\data::splashSaved_splash_theme() == 'red') { echo 'checked';} ?>  id="sRdc2">
-            <label for="sRdc2">Red</label>
-          </div>
-
-          <div class="radio1 yellow">
-            <input type="radio" name="theme" value="yellow" <?php if(\dash\data::splashSaved_splash_theme() == 'yellow') { echo 'checked';} ?>  id="sRdc3">
-            <label for="sRdc3">Yellow</label>
-          </div>
-
-          <div class="radio1 green">
-            <input type="radio" name="theme" value="green" <?php if(\dash\data::splashSaved_splash_theme() == 'green') { echo 'checked';} ?>  id="sRdc4">
-            <label for="sRdc4">Green</label>
-          </div>
-
-          <div class="radio1 black">
-            <input type="radio" name="theme" value="balck" <?php if(\dash\data::splashSaved_splash_theme() == 'balck') { echo 'checked';} ?>  id="sRdc5">
-            <label for="sRdc5">Black</label>
-          </div>
+        <?php }//endfor ?>
 
           <p class="txtB"><?php echo T_("Advance option");?></p>
           <div>

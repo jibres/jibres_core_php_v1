@@ -19,6 +19,10 @@ class view
 
 		\dash\data::loadScript(true);
 
+		$theme_color = \lib\app\application\splash::theme_color();
+		\dash\data::themeColor($theme_color);
+
+
 	}
 }
 ?>
