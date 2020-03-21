@@ -14,26 +14,13 @@
           <input type="text" name="title" id="title" value="<?php echo \dash\data::appDetail_title(); ?>" maxlength="20">
         </div>
 
-        <label for="desc"><?php echo T_("Application desc"); ?></label>
-        <div class="input">
-          <input type="text" name="desc" id="desc" value="<?php echo \dash\data::appDetail_desc(); ?>" maxlength="150">
-        </div>
-
         <label for="slogan"><?php echo T_("Application slogan"); ?></label>
         <div class="input">
           <input type="text" name="slogan" id="slogan" value="<?php echo \dash\data::appDetail_slogan(); ?>" maxlength="50">
         </div>
 
-        <label for="logo"><?php echo T_("Logo"); ?> <small><?php echo T_("Use a square logo in png format"); ?></small></label>
-        <div class="input">
-          <input type="file" name="logo" id="logo">
-        </div>
-
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'logo')) {?>
-        <div class="mediaBox mB20">
-          <img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'logo'); ?>" alt="<?php echo \dash\data::appDetail_title(); ?>" id="logoPreview">
-        </div>
-        <?php } ?>
+        <label for="desc"><?php echo T_("Application desc"); ?></label>
+        <textarea class="txt mB10" name="desc" maxlength="150" rows="2" id="desc" ><?php echo \dash\data::appDetail_desc(); ?></textarea>
 
 
         <div class="txtRa">
