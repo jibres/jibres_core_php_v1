@@ -14,13 +14,6 @@
         <div class="input">
           <input type="file" name="logo" id="logo">
         </div>
-
-
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'logo')) {?>
-        <div class="mediaBox">
-          <img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'logo'); ?>" alt="<?php echo \dash\data::appDetail_title(); ?>" id="logoPreview">
-        </div>
-        <?php } ?>
       </div>
 
 
@@ -28,6 +21,9 @@
         <button class="btn success"><?php echo T_("Save"); ?></button>
       </footer>
     </form>
+  </div>
+  <div class="c6 s12">
+<?php require_once(root. 'content_a/app/android/appPreview.php'); ?>
   </div>
 </div>
 

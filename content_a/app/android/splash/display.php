@@ -47,12 +47,7 @@
       </form>
   </div>
   <div class="c6 s12">
-    <div data-frame='iphone-x' data-activity='splash' data-color='red' data-bg-from='#333' data-bg-to='#aaa'>
-      <img src="<?php echo \dash\data::appDetail_logo(); ?>" alt='<?php echo \dash\data::appDetail_title(); ?>'>
-      <h1><?php echo \dash\data::appDetail_title(); ?></h1>
-      <h2><?php echo \dash\data::appDetail_slogan(); ?></h2>
-      <div class="desc"><?php echo \dash\data::appDetail_desc(); ?></div>
-    </div>
+<?php require_once(root. 'content_a/app/android/appPreview.php'); ?>
   </div>
 </div>
 

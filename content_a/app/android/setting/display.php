@@ -27,6 +27,9 @@
       <footer class="txtRa"><button class="btn success"><?php echo T_("Save"); ?></button></footer>
     </form>
   </div>
+  <div class="c6 s12">
+<?php require_once(root. 'content_a/app/android/appPreview.php'); ?>
+  </div>
 </div>
 
 
