@@ -17,6 +17,7 @@ class view
 		\dash\data::splashSaved($saved);
 		\content_a\app\android\view::ready();
 
+		\dash\data::loadScript(true);
 
 	}
 }
