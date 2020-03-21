@@ -29,10 +29,9 @@
             <label for="sRdc5">Black</label>
           </div>
 
-
-          <div class="mT50">
-
-            <p class="txtB"><?php echo T_("Advance option");?></p>
+          <p class="txtB"><?php echo T_("Advance option");?></p>
+          <div>
+            <p class="msg warn2"><?php echo T_("If you want to personalize more you need to increase your plan.");?></p>
 
             <label for='from'><?php echo T_("Gradient From"); ?></label>
             <div class="input">
@@ -46,12 +45,12 @@
 
             <label for='colortext'><?php echo T_("Text color"); ?></label>
             <div class="input">
-              <input class="ltr" type="text" name="colortext" id='colortext' value="#000" disabled>
+              <input class="ltr" type="text" name="colortext" id='colortext' value="#000000" disabled>
             </div>
 
             <label for='colordesc'><?php echo T_("Meta color"); ?></label>
             <div class="input">
-              <input class="ltr" type="text" name="colordesc" id='colordesc' value="#000" disabled>
+              <input class="ltr" type="text" name="colordesc" id='colordesc' value="#333333" disabled>
             </div>
 
           </div>
