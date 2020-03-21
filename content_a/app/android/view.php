@@ -16,8 +16,14 @@ class view
 		$app_queue = \lib\app\application\queue::detail();
 		\dash\data::appQueue($app_queue);
 
+		$setupGuide = \lib\app\application\detail::make_setup_guide();
+		\dash\data::setupGuide($setupGuide);
+
 	}
 
+
+
+	// call in all module inside android to load detail and run stepGuide
 	public static function ready()
 	{
 		$appDetail = \lib\app\application\detail::get_android();
@@ -30,6 +36,8 @@ class view
 
 		self::stepGuide();
 	}
+
+
 
 	public static function stepGuide()
 	{

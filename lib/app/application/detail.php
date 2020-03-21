@@ -222,5 +222,102 @@ class detail
 	}
 
 
+	public static function make_setup_guide($_data = null)
+	{
+
+		$setupGuideDetail =
+		[
+			'setting'  => false,
+			'logo'     => false,
+			'intro'    => false,
+			'splash'   => false,
+			'apk'      => false,
+			'download' => false,
+		];
+
+		if(!$_data)
+		{
+			$_data = self::get_android();
+		}
+
+		$is_ok = true;
+		$message = [];
+
+		$default =
+		[
+			"logo"   => null,
+			"title"  => null,
+			"desc"   => null,
+			"slogan" => null,
+			"theme"  => null,
+			"page_1" =>
+			[
+				"title" => null,
+				"desc"  => null,
+				"file"  => null,
+			],
+
+			"page_2" =>
+			[
+				"title" => null,
+				"desc"  => null,
+				"file"  => null,
+			],
+
+			"page_3" =>
+			[
+				"title" => null,
+				"desc" => null,
+				"file" => null,
+			],
+
+			"intro_theme"  => null,
+			"splash_theme" => null,
+		];
+
+		if(!is_array($_data))
+		{
+			$_data = [];
+		}
+
+		$check = array_merge($default, $_data);
+
+		if($check['logo'])
+		{
+			$setupGuideDetail['logo'] = true;
+		}
+
+		if($check['title'])
+		{
+			$setupGuideDetail['setting'] = true;
+		}
+
+		if(!$check['intro_theme'])
+		{
+			$setupGuideDetail['intro'] = true;
+		}
+
+		if($check['splash_theme'])
+		{
+			$setupGuideDetail['splash'] = true;
+		}
+
+
+		if($check['splash_theme'])
+		{
+			$setupGuideDetail['splash'] = true;
+		}
+
+		if($check['splash_theme'])
+		{
+			$setupGuideDetail['splash'] = true;
+		}
+
+		return $setupGuideDetail;
+
+	}
+
+
+
 }
 ?>
