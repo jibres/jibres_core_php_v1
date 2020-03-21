@@ -16,14 +16,14 @@
           <div>
             <p class="msg warn2"><?php echo T_("If you want to personalize more you need to increase your plan.");?></p>
 
-            <label for='from'><?php echo T_("Gradient From"); ?></label>
+            <label for='start'><?php echo T_("Gradient Start"); ?></label>
             <div class="input">
-              <input class="ltr" type="text" name="from" id='from' value="#6DE195" disabled>
+              <input class="ltr" type="text" name="start" id='start' value="#6DE195" disabled>
             </div>
 
-            <label for='to'><?php echo T_("Gradient To"); ?></label>
+            <label for='end'><?php echo T_("Gradient End"); ?></label>
             <div class="input">
-              <input class="ltr" type="text" name="to" id='to' value="#C4E759" disabled>
+              <input class="ltr" type="text" name="end" id='end' value="#C4E759" disabled>
             </div>
 
             <label for='colortext'><?php echo T_("Text color"); ?></label>
@@ -47,7 +47,7 @@
       </form>
   </div>
   <div class="c6 s12">
-    <div data-frame='iphone-x' data-activity='splash' data-color='red'>
+    <div data-frame='iphone-x' data-activity='splash' data-color='red' data-bg-from='#333' data-bg-to='#aaa'>
       <img src="https://cdn.talambar.com/logo/icon/png/Jibres-Logo-icon-512.png" alt='jibres'>
       <h1>Jibres</h1>
       <h2>Sell and Enjoy</h2>

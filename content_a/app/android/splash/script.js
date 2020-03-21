@@ -2,15 +2,17 @@
 
 $('[data-page="app_android_splash"] input[type=radio][name=theme]').change(function() {
   console.log(this.value);
+  var myColors = this.value.split('_');
+  console.log(myColors);
 
-  var from      = '#6DE195';
-  var to        = '#C4E759';
-  var colortext = '#000000';
-  var colordesc = '#333333';
+  var start     = myColors[0];
+  var end       = myColors[1];
+  var colortext = myColors[2];
+  var colordesc = myColors[3];
 
 
-  $('[data-page="app_android_splash"] #from').val(from);
-  $('[data-page="app_android_splash"] #to').val(to);
+  $('[data-page="app_android_splash"] #start').val(start);
+  $('[data-page="app_android_splash"] #end').val(end);
   $('[data-page="app_android_splash"] #colortext').val(colortext);
   $('[data-page="app_android_splash"] #colordesc').val(colordesc);
 
@@ -18,12 +20,21 @@ $('[data-page="app_android_splash"] input[type=radio][name=theme]').change(funct
   applySplashColors();
 });
 
-
 function applySplashColors()
 {
-  $('[data-page="app_android_splash"] #from').val()
-  $('[data-page="app_android_splash"] #to').val()
-  $('[data-page="app_android_splash"] #colortext').val()
-  $('[data-page="app_android_splash"] #colordesc').val()
-}
+  var myStyle;
+  var mySplashPrev = $('[data-page="app_android_splash"] [data-frame="iphone-x"][data-activity="splash"]');
 
+  myStyle = 'background: linear-gradient(0deg, ';
+  myStyle += $('[data-page="app_android_splash"] #start').val();
+  myStyle += ', ';
+  myStyle += $('[data-page="app_android_splash"] #end').val();
+  myStyle += ')';
+
+  mySplashPrev.attr('style', myStyle);
+  mySplashPrev.find('h1').css('color', $('[data-page="app_android_splash"] #colortext').val());
+  mySplashPrev.find('h2').css('color', $('[data-page="app_android_splash"] #colordesc').val());
+  mySplashPrev.find('.desc').css('color', $('[data-page="app_android_splash"] #colordesc').val());
+}
+// run on init
+applySplashColors();
