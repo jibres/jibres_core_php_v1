@@ -47,8 +47,8 @@ class view
 		[
 			'setting',
 			'logo',
-			'intro',
 			'splash',
+			'intro',
 			'review',
 			'apk',
 		];
@@ -102,6 +102,7 @@ class view
 	{
 
 
+
 		$setting = self::check_position('setting');
 		$logo    = self::check_position('logo');
 		$intro   = self::check_position('intro');
@@ -109,41 +110,59 @@ class view
 		$review  = self::check_position('review');
 		$apk     = self::check_position('apk');
 
+		$app_queue = \lib\app\application\queue::detail();
+		if($app_queue && $review == '')
+		{
+			$review = 'complete';
+		}
+
+		if($app_queue && $apk == '')
+		{
+			$apk = 'complete';
+		}
+
 		if(\dash\url::subchild() === 'apk')
 		{
 			$review = 'complete';
 		}
 
+		$get_wizard = '';
+		if(\dash\request::get('setup') === 'wizard')
+		{
+			$get_wizard = '?setup=wizard';
+		}
+
+
 		$mySteps =
 		[
 			[
 				'title' => T_('General Settings'),
-				'link'  => \dash\url::that(). '/setting',
+				'link'  => \dash\url::that(). '/setting'. $get_wizard,
 				'class' => $setting,
 			],
 			[
 				'title' => T_('App logo'),
-				'link'  => \dash\url::that(). '/logo',
+				'link'  => \dash\url::that(). '/logo'. $get_wizard,
 				'class' => $logo,
 			],
 			[
-				'title' => T_('App Intro'),
-				'link'  => \dash\url::that(). '/intro',
-				'class' => $intro,
-			],
-			[
 				'title' => T_('App Splash'),
-				'link'  => \dash\url::that(). '/splash',
+				'link'  => \dash\url::that(). '/splash'. $get_wizard,
 				'class' => $splash,
 			],
 			[
+				'title' => T_('App Intro'),
+				'link'  => \dash\url::that(). '/intro'. $get_wizard,
+				'class' => $intro,
+			],
+			[
 				'title' => T_('Review'),
-				'link'  => \dash\url::that(). '/review',
+				'link'  => \dash\url::that(). '/review'. $get_wizard,
 				'class' => $review,
 			],
 			[
 				'title' => T_('Generate Your App'),
-				'link'  => \dash\url::that(). '/apk',
+				'link'  => \dash\url::that(). '/apk'. $get_wizard,
 				'class' => $apk,
 			],
 		];

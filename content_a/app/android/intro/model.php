@@ -37,7 +37,7 @@ class model
 		{
 			if(\dash\request::get('setup') === 'wizard')
 			{
-				\dash\redirect::to(\dash\url::that(). '/setting?setup=wizard');
+				\dash\redirect::to(\dash\url::that(). '/review?setup=wizard');
 			}
 			else
 			{

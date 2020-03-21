@@ -19,7 +19,7 @@ class model
 		{
 			if(\dash\request::get('setup') === 'wizard')
 			{
-				\dash\redirect::to(\dash\url::that().'/apk');
+				\dash\redirect::to(\dash\url::that().'/logo?setup=wizard');
 			}
 			else
 			{

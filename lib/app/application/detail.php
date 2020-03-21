@@ -36,6 +36,10 @@ class detail
 				\lib\app\application\queue::rebuild();
 			}
 		}
+		else
+		{
+			\dash\notif::error(T_("Please upload your application logo"));
+		}
 	}
 
 
