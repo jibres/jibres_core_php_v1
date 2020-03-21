@@ -48,10 +48,10 @@
   </div>
   <div class="c6 s12">
     <div data-frame='iphone-x' data-activity='splash' data-color='red' data-bg-from='#333' data-bg-to='#aaa'>
-      <img src="https://cdn.talambar.com/logo/icon/png/Jibres-Logo-icon-512.png" alt='jibres'>
-      <h1>Jibres</h1>
-      <h2>Sell and Enjoy</h2>
-      <div class="desc">#1 World Sales Engineering System</div>
+      <img src="<?php echo \dash\data::appDetail_logo(); ?>" alt='<?php echo \dash\data::appDetail_title(); ?>'>
+      <h1><?php echo \dash\data::appDetail_title(); ?></h1>
+      <h2><?php echo \dash\data::appDetail_slogan(); ?></h2>
+      <div class="desc"><?php echo \dash\data::appDetail_desc(); ?></div>
     </div>
   </div>
 </div>
