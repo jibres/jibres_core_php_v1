@@ -28,6 +28,34 @@
             <input type="radio" name="theme" value="balck" <?php if(\dash\data::splashSaved_splash_theme() == 'balck') { echo 'checked';} ?>  id="sRdc5">
             <label for="sRdc5">Black</label>
           </div>
+
+
+          <div class="mT50">
+
+            <p class="txtB"><?php echo T_("Advance option");?></p>
+
+            <label for='from'><?php echo T_("Gradient From"); ?></label>
+            <div class="input">
+              <input class="ltr" type="text" name="from" id='from' value="#6DE195" disabled>
+            </div>
+
+            <label for='to'><?php echo T_("Gradient To"); ?></label>
+            <div class="input">
+              <input class="ltr" type="text" name="to" id='to' value="#C4E759" disabled>
+            </div>
+
+            <label for='colortext'><?php echo T_("Text color"); ?></label>
+            <div class="input">
+              <input class="ltr" type="text" name="colortext" id='colortext' value="#000" disabled>
+            </div>
+
+            <label for='colordesc'><?php echo T_("Meta color"); ?></label>
+            <div class="input">
+              <input class="ltr" type="text" name="colordesc" id='colordesc' value="#000" disabled>
+            </div>
+
+          </div>
+
         </div>
 
         <footer class="txtRa">
@@ -37,8 +65,11 @@
       </form>
   </div>
   <div class="c6 s12">
-    <div data-frame='iphone-x'>
-
+    <div data-frame='iphone-x' data-activity='splash' data-color='red'>
+      <img src="https://cdn.talambar.com/logo/icon/png/Jibres-Logo-icon-512.png" alt='jibres'>
+      <h1>Jibres</h1>
+      <h2>Sell and Enjoy</h2>
+      <div class="desc">#1 World Sales Engineering System</div>
     </div>
   </div>
 </div>
