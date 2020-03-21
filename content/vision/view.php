@@ -13,8 +13,8 @@ class view
 		\dash\data::back_link(\dash\url::kingdom());
 
 		// btn
-		\dash\data::action_text(T_('Our Vision'));
-		\dash\data::action_link(\dash\url::kingdom(). '/vision');
+		\dash\data::action_text(T_('About'));
+		\dash\data::action_link(\dash\url::kingdom(). '/about');
 	}
 }
 ?>
