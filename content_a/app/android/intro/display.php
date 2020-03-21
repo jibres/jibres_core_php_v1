@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="c6 s12">
-       <div data-frame='iphone-x' data-activity='splash' style="background: linear-gradient(0deg, #eee, #999);">
+       <div data-frame='iphone-x' data-activity='splash' data-size='small'>
         <img src="<?php echo \dash\get::index($introSaved, $i, 'image'); ?>" alt='<?php echo \dash\get::index($introSaved, $i, 'title'); ?>'>
         <h1><?php echo \dash\get::index($introSaved, $i, 'title'); ?></h1>
         <h2><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></h2>

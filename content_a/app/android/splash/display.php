@@ -8,7 +8,7 @@
 <?php foreach (\dash\data::themeColor() as $key => $value) {?>
             <div class="radio3 colored">
               <input type="radio" name="theme" value="<?php echo \dash\get::index($value, 'start').'_'. \dash\get::index($value, 'end'). '_'. \dash\get::index($value, 'text_color'). '_'. \dash\get::index($value, 'meta_color'); ?>" <?php if(\dash\data::splashSaved_splash_theme() == $key) { echo 'checked';} ?>  id="<?php echo 'splash_'. $key; ?>">
-              <label for="<?php echo 'splash_'. $key; ?>" style="background: linear-gradient(0deg, <?php echo \dash\get::index($value, 'start') ?>, <?php echo \dash\get::index($value, 'end'); ?>); color:<?php echo \dash\get::index($value, 'text_color'); ?> ;"><?php echo \dash\get::index($value, 'title'); ?></label>
+              <label for="<?php echo 'splash_'. $key; ?>" style="background: linear-gradient(0deg, <?php echo \dash\get::index($value, 'start') ?>, <?php echo \dash\get::index($value, 'end'); ?>); color:<?php echo \dash\get::index($value, 'text_color'); ?> ;"><?php echo \dash\get::index($value, 'title2'); ?></label>
             </div>
 <?php }//endfor ?>
           </div>
