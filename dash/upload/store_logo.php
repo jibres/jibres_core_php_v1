@@ -55,6 +55,54 @@ class store_logo
 	}
 
 
+
+	public static function app_intro_logo($_page_number)
+	{
+
+		$meta =
+		[
+			'allow_size' => \dash\upload\size::MB(1),
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+		$file_detail = \dash\upload\file::upload('file'. $_page_number, $meta);
+
+		if(!$file_detail)
+		{
+			return false;
+		}
+
+		$fileusage =
+		[
+			'file_id'     => $file_detail['id'],
+			'user_id'     => \dash\user::id(),
+			'title'       => null,
+			'alt'         => null,
+			'desc'        => null,
+			'related'     => 'app_intro_logo'. $_page_number,
+			'related_id'  => \lib\store::id(),
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$check_duplicate_usage = \dash\db\fileusage::duplicate('app_intro_logo'. $_page_number, \lib\store::id());
+
+		if(isset($check_duplicate_usage['id']))
+		{
+			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
+		}
+		else
+		{
+			\dash\db\fileusage::insert($fileusage);
+		}
+
+		return $file_detail['path'];
+	}
+
+
+
 	public static function app_android_logo_set()
 	{
 		$meta =

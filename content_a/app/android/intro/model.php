@@ -7,29 +7,27 @@ class model
 	{
 		$post =
 		[
-			'theme'  => \dash\request::post('theme'),
 			'intro1' =>
 			[
 				'title' => \dash\request::post('title1'),
 				'desc'  => \dash\request::post('desc1'),
-				'file'  => \dash\upload\quick::upload('file1'),
+				'file'  => \dash\upload\store_logo::app_intro_logo('1'),
 			],
 
 			'intro2' =>
 			[
 				'title' => \dash\request::post('title2'),
 				'desc'  => \dash\request::post('desc2'),
-				'file'  => \dash\upload\quick::upload('file2'),
+				'file'  => \dash\upload\store_logo::app_intro_logo('2'),
 			],
 
 			'intro3' =>
 			[
 				'title' => \dash\request::post('title3'),
 				'desc'  => \dash\request::post('desc3'),
-				'file'  => \dash\upload\quick::upload('file3'),
+				'file'  => \dash\upload\store_logo::app_intro_logo('3'),
 			],
 		];
-
 
 		$theme_detail = \lib\app\application\intro::set_android($post);
 

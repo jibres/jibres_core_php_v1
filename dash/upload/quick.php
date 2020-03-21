@@ -21,7 +21,7 @@ class quick
 			'allow_size' => \dash\upload\size::MB(1),
 			'ext' =>
 			[
-				'jpg', 'peg', 'png'
+				'jpg', 'jpeg', 'png'
 			],
 		];
 

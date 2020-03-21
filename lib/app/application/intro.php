@@ -69,27 +69,6 @@ class intro
 			return false;
 		}
 
-		$theme = isset($_intro['theme']) ? $_intro['theme'] : null;
-		if(!$theme)
-		{
-			\dash\notif::error(T_("Please choose your intro theme"));
-			return false;
-		}
-
-		if(!is_string($theme))
-		{
-			\dash\notif::error(T_("Please choose your intro theme"));
-			return false;
-		}
-
-		if(!in_array($theme, ['theme1','theme2','theme3','theme4','theme5']))
-		{
-			\dash\notif::error(T_("Invalid intro theme"));
-			return false;
-		}
-
-		\lib\db\setting\update::overwirte_platform_cat_key($theme, 'android', 'intro', 'intro_theme');
-
 		foreach ($ok_intro as $key => $value)
 		{
 			$my_key   = 'page_'. $key;
