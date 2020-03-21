@@ -119,7 +119,7 @@ class get
 		return $result;
 	}
 
-	public static function id_detail($_id)
+	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM store WHERE store.id = $_id LIMIT 1 ";
 		$result = \dash\db::get($query, null, true, 'master');

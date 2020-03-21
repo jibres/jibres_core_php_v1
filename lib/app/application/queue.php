@@ -365,6 +365,26 @@ class queue
 
 		\lib\db\store_app\update::record($update, $result['id']);
 
+		$save_in_store_detail = array_merge($result, $update);
+		$save_in_store_detail = json_encode($save_in_store_detail, JSON_UNESCAPED_UNICODE);
+		$my_store_fuel        = null;
+
+		if(is_numeric($result['store_id']))
+		{
+			$load_store = \lib\db\store\get::by_id($result['store_id']);
+			if(isset($load_store['fuel']))
+			{
+				$my_store_fuel = $load_store['fuel'];
+			}
+
+			$my_store_db          = \dash\engine\store::make_database_name($result['store_id']);
+
+			\lib\db\setting\update::overwirte_platform_cat_key_fuel($save_in_store_detail, 'android', 'application', 'queue_detail', $my_store_fuel, $my_store_db);
+
+			$app_queue_detail_addr = YARD . 'talambar_cloud/'. \dash\store_coding::encode_raw($result['store_id']) . '/app/detail.json';
+			\dash\file::delete($app_queue_detail_addr);
+		}
+
 
 		if($_filename)
 		{

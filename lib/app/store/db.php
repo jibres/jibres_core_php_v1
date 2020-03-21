@@ -124,7 +124,7 @@ class db
 		$set_setting[] = self::make_setting_record('store_setting', 'startplan', 		$_args['startplan']);
 		$set_setting[] = self::make_setting_record('store_setting', 'expireplan',  		$_args['expireplan']);
 
-		\lib\db\setting\insert::jibres_customer_insert($_database, $_fuel, $set_setting);
+		\lib\db\setting\insert::insert_fuel($set_setting, $_fuel, $_database);
 
 	}
 

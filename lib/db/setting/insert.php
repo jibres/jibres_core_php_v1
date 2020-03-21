@@ -5,7 +5,7 @@ namespace lib\db\setting;
 class insert
 {
 
-	public static function jibres_customer_insert($_database, $_fuel, $_set)
+	public static function insert_fuel($_set, $_fuel, $_database)
 	{
 		$set_setting = \dash\db\config::make_multi_insert($_set);
 
