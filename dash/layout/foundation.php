@@ -43,17 +43,18 @@ if(\dash\url::store())
   echo " <meta content='". \dash\url::store(). "' name='store-code'/>\n";
 }
 ?>
- <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
- <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
- <meta content="#c80a5a" name="theme-color"/>
- <meta content="yes" name="mobile-web-app-capable"/>
- <meta content="yes" name="apple-touch-fullscreen"/>
- <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
- <meta content="yes" name="apple-mobile-web-app-capable"/>
- <meta content="index, follow" name ="robots"/>
  <meta content="<?php echo \dash\url::site();?>" name="jibres:site"/>
  <meta content="<?php echo \dash\url::set_subdomain('api');?>/" name="jibres:api"/>
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
+ <meta content="index, follow" name ="robots"/>
+ <meta content="yes" name="mobile-web-app-capable"/>
+ <meta content="yes" name="apple-touch-fullscreen"/>
+ <meta content="yes" name="apple-mobile-web-app-capable"/>
+ <meta content="#c80a5a" name="theme-color"/>
+ <meta content="#c80a5a" name="msapplication-TileColor">
+ <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
+ <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
+ <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png?v=1" sizes="32x32" type="image/png" rel="icon"/>
