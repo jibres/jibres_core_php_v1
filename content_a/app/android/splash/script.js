@@ -2,9 +2,11 @@
 function pushStateFinal()
 {
   $('[data-page="app_android_splash"] input[type=radio][name=theme]').change(function() {
-    console.log(this.value);
     var myColors = this.value.split('_');
-    console.log(myColors);
+    if(myColors.length != 4)
+    {
+      return false;
+    }
 
     var start     = myColors[0];
     var end       = myColors[1];
@@ -23,7 +25,6 @@ function pushStateFinal()
 
   function applySplashColors()
   {
-    console.log('aaaa');
     var myStyle;
     var mySplashPrev = $('[data-page="app_android_splash"] [data-frame="iphone-x"][data-activity="splash"]');
 
