@@ -18,7 +18,20 @@ class view
 
 	}
 
-	public static function stepSetup()
+	public static function ready()
+	{
+		$appDetail = \lib\app\application\detail::get_android();
+		\dash\data::appDetail($appDetail);
+
+
+		$app_queue = \lib\app\application\queue::detail();
+
+		\dash\data::appQueue($app_queue);
+
+		self::stepGuide();
+	}
+
+	public static function stepGuide()
 	{
 		$mySteps =
 		[
@@ -26,6 +39,11 @@ class view
 				'title' => T_('General Settings'),
 				'link' => \dash\url::that(). '/setting',
 				'class' => 'complete',
+			],
+			[
+				'title' => T_('App logo'),
+				'link' => \dash\url::that(). '/logo',
+				'class' => 'fail',
 			],
 			[
 				'title' => T_('App Intro'),
@@ -49,7 +67,7 @@ class view
 			],
 		];
 
-		return $mySteps;
+		\dash\data::stepGuide($mySteps);
 	}
 }
 ?>

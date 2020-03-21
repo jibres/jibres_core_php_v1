@@ -12,14 +12,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$appDetail = \lib\app\application\detail::get_android();
-		\dash\data::appDetail($appDetail);
-
-
-		$app_queue = \lib\app\application\queue::detail();
-
-		\dash\data::appQueue($app_queue);
-
+		\content_a\app\android\view::ready();
 	}
 }
 ?>

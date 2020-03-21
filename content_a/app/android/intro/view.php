@@ -15,7 +15,7 @@ class view
 		$saved_intro = \lib\app\application\intro::get();
 		\dash\data::introSaved($saved_intro);
 
-
+		\content_a\app\android\view::ready();
 	}
 }
 ?>

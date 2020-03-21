@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\android\apk;
+namespace content_a\app\android\review;
 
 
 class view

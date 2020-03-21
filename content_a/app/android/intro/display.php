@@ -1,4 +1,4 @@
-<?php require_once(root. 'content_a/app/android/pageSteps.php'); ?>
+<?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 <?php
 $introSaved = \dash\data::introSaved();
 
