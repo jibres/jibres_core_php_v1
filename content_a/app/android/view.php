@@ -142,7 +142,7 @@ class view
 				}
 				else
 				{
-					$review = 'fail';
+					$review = '';
 				}
 			}
 		}
@@ -160,7 +160,7 @@ class view
 			}
 			else
 			{
-				$apk = 'fail';
+				$apk = '';
 			}
 		}
 
