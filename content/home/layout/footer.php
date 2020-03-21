@@ -72,16 +72,6 @@ if(\dash\language::current() === 'fa')
 
 
           <nav class="c3 s6 pLR10">
-            <h3><?php echo T_('Resources'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/blog"><?php echo T_('Blog'); ?></a>
-            <a href="<?php echo $kingdom; ?>/terms"><?php echo T_('Terms of Service'); ?></a>
-            <a href="<?php echo $kingdom; ?>/privacy"><?php echo T_('Privacy Policy'); ?></a>
-            <a href="<?php echo $kingdom; ?>/changelog"><?php echo T_('Changelog'); ?></a>
-            <a href="<?php echo $kingdom; ?>/certificates"><?php echo T_('Certificates'); ?></a>
-            <a href="<?php echo $kingdom; ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
-          </nav>
-
-          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Support'); ?></h3>
             <a href="<?php echo $kingdom; ?>/support"><?php echo T_('Support Center'); ?></a>
             <a href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact'); ?></a>
@@ -93,12 +83,25 @@ if(\dash\language::current() === 'fa')
           </nav>
 
           <nav class="c3 s6 pLR10">
+            <h3><?php echo T_('Resources'); ?></h3>
+            <a href="<?php echo $kingdom; ?>/blog"><?php echo T_('Blog'); ?></a>
+            <a href="<?php echo $kingdom; ?>/terms"><?php echo T_('Terms of Service'); ?></a>
+            <a href="<?php echo $kingdom; ?>/privacy"><?php echo T_('Privacy Policy'); ?></a>
+            <a href="<?php echo $kingdom; ?>/changelog"><?php echo T_('Changelog'); ?></a>
+            <a href="<?php echo $kingdom; ?>/certificates"><?php echo T_('Certificates'); ?></a>
+            <a href="<?php echo $kingdom; ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+          </nav>
+
+          <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Jibres Company'); ?></h3>
             <a href="<?php echo $kingdom; ?>/about"><?php echo T_('About Jibres'); ?></a>
+            <a href="<?php echo $kingdom; ?>/mission"><?php echo T_('Jibres Mission'); ?></a>
+            <a href="<?php echo $kingdom; ?>/vision"><?php echo T_('Jibres Vision'); ?></a>
+            <a href="<?php echo $kingdom; ?>/values"><?php echo T_('Our Values'); ?></a>
             <a href="<?php echo $kingdom; ?>/team"><?php echo T_('Our Team'); ?></a>
+            <a target="_blank" href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></a>
             <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Jibres Logo'); ?></a>
             <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Brand Styleguide'); ?></a>
-            <a target="_blank" href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></a>
             <a href="<?php echo $kingdom; ?>/press"><?php echo T_('Press and Media'); ?></a>
           </nav>
         </div>
