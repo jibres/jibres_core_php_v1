@@ -38,163 +38,81 @@ class view
 	}
 
 
+	private static $setupGuide = [];
 
-	public static function stepGuide()
+	private static function check_position($_module)
 	{
+
+		$sort =
+		[
+			'setting',
+			'logo',
+			'intro',
+			'splash',
+			'review',
+			'apk',
+		];
+
 		$subchild = \dash\url::subchild();
 
-		$setupGuide = \lib\app\application\detail::make_setup_guide();
-
-		$setting = '';
-		$logo    = '';
-		$intro   = '';
-		$splash  = '';
-		$review  = '';
-		$apk     = '';
-
-
-		if(isset($setupGuide['setting']) && $setupGuide['setting'])
+		if(!self::$setupGuide)
 		{
-			$setting = 'complete';
+			self::$setupGuide = \lib\app\application\detail::make_setup_guide();
+		}
+
+		$setupGuide = self::$setupGuide;
+
+		$class = '';
+
+		if(isset($setupGuide[$_module]) && $setupGuide[$_module])
+		{
+			$class = 'complete';
 		}
 		else
 		{
-			if($subchild == 'setting')
+			if($subchild == $_module)
 			{
-				$setting = 'current';
+				$class = 'current';
 			}
 			else
 			{
-				$setting = 'fail';
-			}
-
-		}
-
-
-
-		if(isset($setupGuide['logo']) && $setupGuide['logo'])
-		{
-			$logo = 'complete';
-		}
-		else
-		{
-			if($subchild == 'logo')
-			{
-				$logo = 'current';
-			}
-			else
-			{
-				$logo = 'fail';
-			}
-		}
-
-
-
-		if(isset($setupGuide['intro']) && $setupGuide['intro'])
-		{
-			$intro = 'complete';
-		}
-		else
-		{
-			if($subchild == 'intro')
-			{
-				$intro = 'current';
-			}
-			else
-			{
-				$intro = 'fail';
-			}
-		}
-
-
-		if(isset($setupGuide['splash']) && $setupGuide['splash'])
-		{
-			$splash = 'complete';
-		}
-		else
-		{
-			if($subchild == 'splash')
-			{
-				$splash = 'current';
-			}
-			else
-			{
-				$splash = 'fail';
-			}
-		}
-
-
-		if(isset($setupGuide['review']) && $setupGuide['review'])
-		{
-			$review = 'complete';
-		}
-		else
-		{
-			if($subchild == 'review')
-			{
-				$review = 'current';
-			}
-			else
-			{
-				if($subchild === 'apk')
+				if(array_search($_module, $sort) < array_search($subchild, $sort))
 				{
-					$review = 'complete';
+					$class = 'fail';
 				}
 				else
 				{
-					$review = '';
+					$class = '';
 				}
 			}
+
 		}
 
-
-		if(isset($setupGuide['apk']) && $setupGuide['apk'])
+		if($subchild === $_module)
 		{
-			$apk = 'complete';
+			$class = 'current';
 		}
-		else
+
+		return $class;
+
+	}
+
+
+	public static function stepGuide()
+	{
+
+
+		$setting = self::check_position('setting');
+		$logo    = self::check_position('logo');
+		$intro   = self::check_position('intro');
+		$splash  = self::check_position('splash');
+		$review  = self::check_position('review');
+		$apk     = self::check_position('apk');
+
+		if(\dash\url::subchild() === 'apk')
 		{
-			if($subchild == 'apk')
-			{
-				$apk = 'current';
-			}
-			else
-			{
-				$apk = '';
-			}
+			$review = 'complete';
 		}
-
-
-		if($subchild == 'setting')
-		{
-			$setting = 'current';
-		}
-
-		if($subchild == 'logo')
-		{
-			$logo = 'current';
-		}
-
-		if($subchild == 'intro')
-		{
-			$intro = 'current';
-		}
-
-		if($subchild == 'splash')
-		{
-			$splash = 'current';
-		}
-
-		if($subchild == 'review')
-		{
-			$review = 'current';
-		}
-
-		if($subchild == 'apk')
-		{
-			$apk = 'current';
-		}
-
 
 		$mySteps =
 		[
