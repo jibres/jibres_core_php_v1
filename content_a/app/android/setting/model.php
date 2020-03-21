@@ -19,7 +19,7 @@ class model
 		{
 			if(\dash\request::get('setup') === 'wizard')
 			{
-				\dash\redirect::to(\dash\url::that().'/logo?setup=wizard');
+				\dash\redirect::to(\dash\url::that().'/splash?setup=wizard');
 			}
 			else
 			{

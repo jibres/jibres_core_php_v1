@@ -45,8 +45,8 @@ class view
 
 		$sort =
 		[
-			'setting',
 			'logo',
+			'setting',
 			'splash',
 			'intro',
 			'review',
@@ -136,14 +136,14 @@ class view
 		$mySteps =
 		[
 			[
-				'title' => T_('General Settings'),
-				'link'  => \dash\url::that(). '/setting'. $get_wizard,
-				'class' => $setting,
-			],
-			[
 				'title' => T_('App logo'),
 				'link'  => \dash\url::that(). '/logo'. $get_wizard,
 				'class' => $logo,
+			],
+			[
+				'title' => T_('General Settings'),
+				'link'  => \dash\url::that(). '/setting'. $get_wizard,
+				'class' => $setting,
 			],
 			[
 				'title' => T_('App Splash'),
