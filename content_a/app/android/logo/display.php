@@ -10,6 +10,12 @@
       <form method="post" autocomplete="off">
 
 
+        <label for="logo"><?php echo T_("Logo"); ?> <small><?php echo T_("Use a square logo in png format"); ?></small></label>
+        <div class="input">
+          <input type="file" name="logo" id="logo">
+        </div>
+
+
         <?php if(\dash\get::index(\dash\data::appDetail(), 'logo')) {?>
         <div class="mediaBox mB20">
           <img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'logo'); ?>" alt="<?php echo \dash\data::appDetail_title(); ?>" id="logoPreview">

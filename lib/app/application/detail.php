@@ -4,28 +4,14 @@ namespace lib\app\application;
 
 class detail
 {
-
-	public static function set_android_detail($_args)
+	public static function set_android_logo()
 	{
-		$condition =
-		[
-			'title'  => 'string_20',
-			'desc'   => 'string_150',
-			'slogan' => 'string_50',
-		];
-
-		$require = ['title'];
-
-		$meta =	[];
-
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-
-		$change = false;
 		$logo = \dash\upload\store_logo::app_android_logo_set();
+
 		if($logo)
 		{
 			$get = \lib\db\setting\get::platform_cat_key('android', 'setting', 'logo');
+
 			$change = true;
 
 			if(isset($get['id']))
@@ -45,7 +31,32 @@ class detail
 				\lib\db\setting\insert::new_record($insert);
 			}
 
+			if($change)
+			{
+				\lib\app\application\queue::rebuild();
+			}
 		}
+	}
+
+
+	public static function set_android_detail($_args)
+	{
+		$condition =
+		[
+			'title'  => 'string_20',
+			'desc'   => 'string_150',
+			'slogan' => 'string_50',
+		];
+
+		$require = ['title'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$change = false;
+
 
 		self::set_setting_record('title', $data['title']);
 
@@ -292,7 +303,7 @@ class detail
 			$setupGuideDetail['setting'] = true;
 		}
 
-		if(!$check['intro_theme'])
+		if($check['intro_theme'])
 		{
 			$setupGuideDetail['intro'] = true;
 		}

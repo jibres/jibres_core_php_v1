@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\android\setting;
+namespace content_a\app\android\logo;
 
 class model
 {

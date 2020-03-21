@@ -41,6 +41,8 @@ class view
 
 	public static function stepGuide()
 	{
+		$subchild = \dash\url::subchild();
+
 		$setupGuide = \lib\app\application\detail::make_setup_guide();
 
 		$setting = '';
@@ -57,7 +59,7 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild() == 'setting')
+			if($subchild == 'setting')
 			{
 				$setting = 'current';
 			}
@@ -76,7 +78,7 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild() == 'logo')
+			if($subchild == 'logo')
 			{
 				$logo = 'current';
 			}
@@ -94,7 +96,7 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild() == 'intro')
+			if($subchild == 'intro')
 			{
 				$intro = 'current';
 			}
@@ -111,7 +113,7 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild() == 'splash')
+			if($subchild == 'splash')
 			{
 				$splash = 'current';
 			}
@@ -128,13 +130,13 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild() == 'review')
+			if($subchild == 'review')
 			{
 				$review = 'current';
 			}
 			else
 			{
-				if(\dash\url::subchild() === 'apk')
+				if($subchild === 'apk')
 				{
 					$review = 'complete';
 				}
@@ -152,7 +154,7 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild() == 'apk')
+			if($subchild == 'apk')
 			{
 				$apk = 'current';
 			}
@@ -160,6 +162,37 @@ class view
 			{
 				$apk = 'fail';
 			}
+		}
+
+
+		if($subchild == 'setting')
+		{
+			$setting = 'current';
+		}
+
+		if($subchild == 'logo')
+		{
+			$logo = 'current';
+		}
+
+		if($subchild == 'intro')
+		{
+			$intro = 'current';
+		}
+
+		if($subchild == 'splash')
+		{
+			$splash = 'current';
+		}
+
+		if($subchild == 'review')
+		{
+			$review = 'current';
+		}
+
+		if($subchild == 'apk')
+		{
+			$apk = 'current';
 		}
 
 

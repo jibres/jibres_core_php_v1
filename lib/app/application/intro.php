@@ -46,9 +46,9 @@ class intro
 				continue;
 			}
 
-			$title = \dash\validate::string_50($value['title']);
-			$desc  = \dash\validate::string_50($value['desc']);
-			$file  = \dash\validate::string_500($value['file']);
+			$title = \dash\validate::string_50($value['title'], false);
+			$desc  = \dash\validate::string_50($value['desc'], false);
+			$file  = \dash\validate::string_500($value['file'], false);
 
 
 
