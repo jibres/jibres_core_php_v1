@@ -3,7 +3,6 @@ $mySteps = \dash\data::stepGuide();
 if($mySteps && is_array($mySteps)) {
 ?>
 <div class="stepGuide">
- <section>
   <div class="f"><?php
 	foreach ($mySteps as $key => $item)
 	{
@@ -28,6 +27,5 @@ if($mySteps && is_array($mySteps)) {
 		echo '</div>';
 	} // endfor?>
   </div>
- </section>
 </div>
 <?php } //endif ?>
