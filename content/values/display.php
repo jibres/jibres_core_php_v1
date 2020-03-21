@@ -25,7 +25,7 @@
  </div>
 
  <div class="fit zero">
- 	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-mission-3.jpg" alt='<?php echo \dash\data::page_title();?>'>
+ 	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-values-2.jpg" alt='<?php echo T_("Jibres is a values driven organization.");?>'>
  </div>
 
 </div>
