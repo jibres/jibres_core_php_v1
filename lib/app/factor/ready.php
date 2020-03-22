@@ -41,6 +41,7 @@ class ready
 
 
 				case 'price':
+				case 'finalprice':
 				case 'discount':
 					$value = \lib\price::down($value);
 					$result[$key] = $value;
