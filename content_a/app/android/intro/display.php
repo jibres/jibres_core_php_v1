@@ -35,11 +35,13 @@
       </div>
     </div>
     <div class="c6 s12">
-       <div class="mobileFrame" data-intro>
-        <img src="<?php echo \dash\get::index($introSaved, $i, 'image'); ?>" alt='<?php echo \dash\get::index($introSaved, $i, 'title'); ?>'>
-        <h1><?php echo \dash\get::index($introSaved, $i, 'title'); ?></h1>
-        <h2><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></h2>
-       </div>
+       <section class="mobileFrame" data-intro>
+        <div class="screen">
+          <img src="<?php echo \dash\get::index($introSaved, $i, 'image'); ?>" alt='<?php echo \dash\get::index($introSaved, $i, 'title'); ?>'>
+          <h1><?php echo \dash\get::index($introSaved, $i, 'title'); ?></h1>
+          <h2><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></h2>
+        </div>
+       </section>
     </div>
   </div>
 
