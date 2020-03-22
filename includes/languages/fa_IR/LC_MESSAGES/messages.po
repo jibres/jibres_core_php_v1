@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-22 16:09+0430\n"
-"PO-Revision-Date: 2020-03-22 16:09+0430\n"
+"POT-Creation-Date: 2020-03-22 16:53+0430\n"
+"PO-Revision-Date: 2020-03-22 16:53+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2410,7 +2410,7 @@ msgstr "اختیاری"
 #: content/pricing/priceTable.php:38 content/pricing/priceTable.php:43
 #: content/pricing/priceTable.php:63 content/pricing/priceTable.php:68
 #: content/pricing/priceTable.php:89 content/pricing/priceTable.php:94
-#: content_a/chap/size-receipt/receipt.php:155 content_a/sale/display.php:62
+#: content_a/chap/size-receipt/receipt.php:166 content_a/sale/display.php:62
 #: content_account/billing/display.php:16 content_account/billing/display.php:35
 #: content_account/billing/display.php:94 content_account/billing/view.php:27
 #: content_crm/member/billing/display.php:66 content_crm/member/billing/view.php:16
@@ -3899,31 +3899,28 @@ msgstr "فاکتور فروش"
 msgid "Qty"
 msgstr "تعداد"
 
-#: content_a/chap/size-receipt/receipt.php:104 content_a/factor/home/display.php:127
-#: content_a/pricehistory/display.php:51 content_a/products/edit/display.php:71
-#: content_a/products/price/display.php:15 content_a/sale/display.php:19
-#: lib/app/product/search.php:98 lib/app/product/updateprice.php:117
-msgid "Discount"
-msgstr "تخفیف"
+#: content_a/chap/size-receipt/receipt.php:104
+msgid "For you"
+msgstr "برای شما"
 
 #: content_a/chap/size-receipt/receipt.php:105
 msgid "Sum"
 msgstr "جمع"
 
-#: content_a/chap/size-receipt/receipt.php:133 content_a/sale/display.php:66
+#: content_a/chap/size-receipt/receipt.php:144 content_a/sale/display.php:66
 msgid "Invoice amount"
 msgstr "مبلغ فاکتور"
 
-#: content_a/chap/size-receipt/receipt.php:139
+#: content_a/chap/size-receipt/receipt.php:150
 msgid "Your total discount and profits"
 msgstr "کل تخفیف و سود شما"
 
-#: content_a/chap/size-receipt/receipt.php:147 content_a/factor/home/display.php:128
+#: content_a/chap/size-receipt/receipt.php:158 content_a/factor/home/display.php:128
 #: content_a/products/edit/display.php:91
 msgid "VAT"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/chap/size-receipt/receipt.php:154 content_a/sale/display.php:62
+#: content_a/chap/size-receipt/receipt.php:165 content_a/sale/display.php:62
 msgid "Total payable"
 msgstr "جمع مبلغ قابل پرداخت"
 
@@ -4201,6 +4198,13 @@ msgstr "مشتری"
 #: content_a/factor/home/display.php:124
 msgid "Items"
 msgstr "آیتم‌ها"
+
+#: content_a/factor/home/display.php:127 content_a/pricehistory/display.php:51
+#: content_a/products/edit/display.php:71 content_a/products/price/display.php:15
+#: content_a/sale/display.php:19 lib/app/product/search.php:98
+#: lib/app/product/updateprice.php:117
+msgid "Discount"
+msgstr "تخفیف"
 
 #: content_a/factor/home/display.php:129 content_a/sale/display.php:20
 #: dash/utility/pagination.php:405
@@ -22376,7 +22380,7 @@ msgstr "جزئیات دستگاه پوز یافت نشد"
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/add.php:162 lib/app/product/edit.php:94
+#: lib/app/product/add.php:162 lib/app/product/edit.php:99
 msgid "Category not found"
 msgstr "دسته بندی یافت نشد"
 
@@ -22531,23 +22535,23 @@ msgstr "شرکت سازنده با موفقیت ویرایش شد"
 msgid "Can not update your product company"
 msgstr "نمی‌توانید شرکت سازنده محصولات خود را ویرایش کنید"
 
-#: lib/app/product/edit.php:155
+#: lib/app/product/edit.php:160
 msgid "Title of product can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/edit.php:176
+#: lib/app/product/edit.php:181
 msgid "Can not update product"
 msgstr "نمی‌توانیم محصول را به‌روزرسانی کنیم"
 
-#: lib/app/product/edit.php:202 lib/app/product/edit.php:212
+#: lib/app/product/edit.php:207 lib/app/product/edit.php:217
 msgid "Your product successfully updated"
 msgstr "محصول با موفقیت به روز رسانی شد"
 
-#: lib/app/product/edit.php:221
+#: lib/app/product/edit.php:226
 msgid "Your product saved without change"
 msgstr "محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/edit.php:230
+#: lib/app/product/edit.php:235
 msgid "No value found for editing"
 msgstr "هیچ مقداری برای ویرایش وجود ندارد"
 
@@ -23486,6 +23490,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "With Discount"
+#~ msgstr "با تخفیف"
 
 #~ msgid ""
 #~ "Please set general detail about your app, then ley us create your android "
