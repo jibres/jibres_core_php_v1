@@ -134,7 +134,6 @@ class get
 		$result                  = [];
 		$result['factor']        = $factor;
 		$result['factor_detail'] = $factor_detail;
-
 		return $result;
 	}
 }

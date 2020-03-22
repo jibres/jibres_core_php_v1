@@ -67,7 +67,7 @@ class check
 
 			'buyprice'       => 'price',
 			'price'          => 'price',
-			'compareatprice' => 'price',
+			// 'compareatprice' => 'price',
 			'discount'       => 'price',
 			'vat'            => 'bit',
 
@@ -136,13 +136,12 @@ class check
 			$data['type'] = 'product';
 		}
 
-		$data['vat']          = $data['vat'] 			? 'yes' : null;
-		$data['saleonline']   = $data['saleonline'] 	? 'yes' : null;
-		$data['oversale']     = $data['oversale'] 		? 'yes' : null;
-		$data['saletelegram'] = $data['saletelegram'] 	? 'yes' : null;
-		$data['saleapp']      = $data['saleapp'] 		? 'yes' : null;
-		$data['infinite']     = $data['infinite'] 		? 'yes' : null;
-
+		$data['vat']          = $data['vat'] 			? 'yes' : 'no';
+		$data['saleonline']   = $data['saleonline'] 	? 'yes' : 'no';
+		$data['oversale']     = $data['oversale'] 		? 'yes' : 'no';
+		$data['saletelegram'] = $data['saletelegram'] 	? 'yes' : 'no';
+		$data['saleapp']      = $data['saleapp'] 		? 'yes' : 'no';
+		$data['infinite']     = $data['infinite'] 		? 'yes' : 'no';
 
 		if($data['parent'])
 		{
@@ -188,10 +187,10 @@ class check
 			$discountpercent = round((intval($data['discount']) * 100) / intval($data['price']), 2);
 		}
 
-		if($data['price'] && !$data['compareatprice'])
-		{
-			$data['compareatprice'] = $data['price'];
-		}
+		// if($data['price'] && !$data['compareatprice'])
+		// {
+		// 	$data['compareatprice'] = $data['price'];
+		// }
 
 		$data['finalprice'] = floatval($data['price']) - floatval($data['discount']);
 
@@ -217,7 +216,7 @@ class check
 
 		$data['buyprice']        = \lib\price::up($data['buyprice']);
 		$data['price']           = \lib\price::up($data['price']);
-		$data['compareatprice']  = \lib\price::up($data['compareatprice']);
+		// $data['compareatprice']  = \lib\price::up($data['compareatprice']);
 		$data['discount']        = \lib\price::up($data['discount']);
 		$data['discountpercent'] = \lib\price::up($discountpercent);
 		$data['finalprice']      = \lib\price::up($data['finalprice']);

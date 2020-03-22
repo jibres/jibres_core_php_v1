@@ -116,18 +116,6 @@ class ready
 				case 'vat':
 				case 'infinite':
 				case 'oversale':
-					if(!$value)
-					{
-						$value = false;
-					}
-					else
-					{
-						$value = true;
-					}
-
-					$result[$key] = $value;
-					break;
-
 				case 'saleonline':
 				case 'saletelegram':
 				case 'saleapp':

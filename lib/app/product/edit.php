@@ -54,14 +54,14 @@ class edit
 
 		$args = \lib\app\product\check::variable($_args, $id, $_option);
 
-		if($args['price'] || $args['discount'] || $args['buyprice'] || $args['compareatprice'])
+		if($args['price'] || $args['discount'] || $args['buyprice'])
 		{
 			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args);
 		}
 
 		// to not remove in patch_mode function
-		$_args['compareatprice']  = $args['compareatprice'];
+		// $_args['compareatprice']  = $args['compareatprice'];
 		$_args['discountpercent'] = $args['discountpercent'];
 		$_args['finalprice']      = $args['finalprice'];
 		$_args['vatprice']        = $args['vatprice'];

@@ -143,6 +143,7 @@ class updateprice
 			return false;
 		}
 
+
 		$changed    = false;
 		$changed    = $_from_buy_factor;
 
@@ -160,13 +161,14 @@ class updateprice
 			// old record exist
 			if((array_key_exists('price', $last_product_price) && array_key_exists('price', $_args) && floatval($_args['price']) !== floatval($last_product_price['price'])) || $changed)
 			{
+
 				$changed = true;
 			}
 
-			if((array_key_exists('compareatprice', $last_product_price) && array_key_exists('compareatprice', $_args) && floatval($_args['compareatprice']) !== floatval($last_product_price['compareatprice'])) || $changed)
-			{
-				$changed = true;
-			}
+			// if((array_key_exists('compareatprice', $last_product_price) && array_key_exists('compareatprice', $_args) && floatval($_args['compareatprice']) !== floatval($last_product_price['compareatprice'])) || $changed)
+			// {
+			// 	$changed = true;
+			// }
 
 
 			if((array_key_exists('discount', $last_product_price) && array_key_exists('discount', $_args) && floatval($_args['discount']) !== floatval($last_product_price['discount'])) || $changed)
@@ -185,12 +187,13 @@ class updateprice
 			}
 		}
 
+
 		if($changed)
 		{
 			$new_record['price']           = array_key_exists('price', $_args) 				? $_args['price'] 			: null;
 			$new_record['discount']        = array_key_exists('discount', $_args) 			? $_args['discount'] 		: null;
 			$new_record['buyprice']        = array_key_exists('buyprice', $_args) 			? $_args['buyprice'] 		: null;
-			$new_record['compareatprice']  = array_key_exists('compareatprice', $_args) 	? $_args['compareatprice'] 	: null;
+			// $new_record['compareatprice']  = array_key_exists('compareatprice', $_args) 	? $_args['compareatprice'] 	: null;
 			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) 	? $_args['discountpercent'] : null;
 			$new_record['finalprice']      = array_key_exists('finalprice', $_args) 		? $_args['finalprice'] 		: null;
 			$new_record['vatprice']        = array_key_exists('vatprice', $_args) 			? $_args['vatprice'] 		: null;
