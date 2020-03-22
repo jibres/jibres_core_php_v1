@@ -29,7 +29,6 @@ class queue
 					// catch this detail in setting record and file
 					$store_app_detail =
 					[
-						'file'          => null,
 						'store_id'      => null,
 						'user_id'       => null,
 						'version'       => null,
@@ -109,8 +108,8 @@ class queue
 
 	private static function check_detail_from_file($_new_detail = null)
 	{
-		$app_queue_detail_folder = YARD . 'talambar_cloud/'. \dash\store_coding::encode_raw() . '/app/';
-		$app_queue_detail_addr = $app_queue_detail_folder . 'detail.json';
+		$app_queue_detail_folder = YARD . 'jibres_temp/app/';
+		$app_queue_detail_addr = $app_queue_detail_folder . \lib\store::id();
 
 		if($_new_detail === null)
 		{
@@ -381,7 +380,7 @@ class queue
 
 			\lib\db\setting\update::overwirte_platform_cat_key_fuel($save_in_store_detail, 'android', 'application', 'queue_detail', $my_store_fuel, $my_store_db);
 
-			$app_queue_detail_addr = YARD . 'talambar_cloud/'. \dash\store_coding::encode_raw($result['store_id']) . '/app/detail.json';
+			$app_queue_detail_addr = YARD . 'jibres_temp/app/'. $result['store_id'];
 			\dash\file::delete($app_queue_detail_addr);
 		}
 
