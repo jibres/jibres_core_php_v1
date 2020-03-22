@@ -42,13 +42,17 @@
           </div>
           <h2><?php echo \dash\get::index($introSaved, $i, 'title'); ?></h2>
           <p><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></p>
-          <nav class="f">
-            <?php if ($i === 3) {?>
-            <div class="c12 next"><?php echo "Get Started"; ?></div>
-            <?php } else{?>
+          <nav class="f align-center">
+            <?php if ($i === 1) {?>
             <div class="c4 prev txtLa"><?php echo "Skip"; ?></div>
-            <div class="c4 step"></div>
+            <div class="c4 step"><i class="current"></i><i></i><i></i></div>
             <div class="c4 next txtRa"><?php echo "Next"; ?></div>
+            <?php } elseif ($i === 2) {?>
+            <div class="c4 prev txtLa"><?php echo "Skip"; ?></div>
+            <div class="c4 step"><i></i><i class="current"></i><i></i></div>
+            <div class="c4 next txtRa"><?php echo "Next"; ?></div>
+            <?php } elseif ($i === 3) {?>
+            <div class="c12 next"><?php echo "Get Started"; ?></div>
             <?php }?>
           </nav>
         </div>
