@@ -26,7 +26,7 @@ function pushStateFinal()
   function applySplashColors()
   {
     var myStyle;
-    var mySplashPrev = $('[data-page="app_android_splash"] [data-frame="iphone-x"][data-activity="splash"]');
+    var mySplashPrev = $('[data-page="app_android_splash"] .mobileFrame[data-splash]');
 
     myStyle = 'background: linear-gradient(0deg, ';
     myStyle += $('[data-page="app_android_splash"] #start').val();
