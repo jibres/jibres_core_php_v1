@@ -87,7 +87,8 @@ class get
 		// load customer detail
 		if(isset($factor['customer']) && $factor['customer'])
 		{
-			$load_customer = \dash\db\users::get_by_id($factor['customer']);
+			$customer_id = \dash\coding::decode($factor['customer']);
+			$load_customer = \dash\db\users::get_by_id($customer_id);
 
 			if(isset($load_customer['displayname']))
 			{

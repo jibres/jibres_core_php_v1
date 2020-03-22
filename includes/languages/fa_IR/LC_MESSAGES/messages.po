@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-22 16:53+0430\n"
-"PO-Revision-Date: 2020-03-22 16:53+0430\n"
+"POT-Creation-Date: 2020-03-22 17:58+0430\n"
+"PO-Revision-Date: 2020-03-22 18:36+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4155,7 +4155,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: content_a/controller.php:16 content_r10/tools.php:55 content_r10/tools.php:90
 #: content_subdomain/controller.php:41 content_v2/controller.php:27
 #: content_v2/tools.php:47 dash/engine/store.php:101 lib/app/application/queue.php:12
-#: lib/app/application/queue.php:184 lib/app/category/add.php:12
+#: lib/app/application/queue.php:183 lib/app/category/add.php:12
 #: lib/app/category/edit.php:13 lib/app/category/get.php:34 lib/app/category/get.php:65
 #: lib/app/category/search.php:11 lib/app/category/search.php:89 lib/app/factor/add.php:34
 #: lib/app/factor/get.php:34 lib/app/product/add.php:76 lib/app/product/comment.php:97
@@ -16292,11 +16292,11 @@ msgid "Field :val must be string or number"
 msgstr ""
 
 #: dash/validate/dataarray.php:33
-msgid "Invalid data for :val"
+msgid "Your entered value is outside the approved list for field :val"
 msgstr ""
 
 #: dash/validate/dataarray.php:42
-msgid "Enum condition must be array"
+msgid "Enum list must be array"
 msgstr ""
 
 #: dash/validate/datetime.php:31 dash/validate/datetime.php:149
@@ -16308,7 +16308,7 @@ msgid "Field :val must be less than 30 character"
 msgstr ""
 
 #: dash/validate/datetime.php:51
-msgid "Field :val is not a date field"
+msgid "Field :val is not a valid date field"
 msgstr ""
 
 #: dash/validate/datetime.php:159
@@ -16316,7 +16316,7 @@ msgid "Field :val must be less than 8 character"
 msgstr ""
 
 #: dash/validate/datetime.php:189
-msgid "Invalid time format"
+msgid "Invalid time format, Please enter the time by correct format for example 12:15"
 msgstr ""
 
 #: dash/validate/irnic.php:23
@@ -16360,8 +16360,8 @@ msgid "The IR mobile number must be start 989"
 msgstr ""
 
 #: dash/validate/nationalcode.php:24
-msgid "national code must be a number"
-msgstr ""
+msgid "National code must be a number"
+msgstr "کد ملی باید به صورت عددی وارد شود"
 
 #: dash/validate/nationalcode.php:75
 msgid "Invalid national code"
@@ -16372,7 +16372,7 @@ msgid "Field :val must be a number"
 msgstr ""
 
 #: dash/validate/number.php:39
-msgid "Number is infinite"
+msgid "Number is infinite!"
 msgstr ""
 
 #: dash/validate/number.php:50
@@ -21617,32 +21617,32 @@ msgstr "لطفا مقادیر اینترو را کامل کنید"
 msgid "Application intro set"
 msgstr "تنظیم صفحه اینترو اپلیکیشن انجام شد"
 
-#: lib/app/application/queue.php:197
+#: lib/app/application/queue.php:196
 msgid "Your application need some detail to ready to build"
 msgstr "برنامه شما برای ساخته شدن نیاز به اطلاعاتی دارند که باید آنها را تکمیل کنید"
 
-#: lib/app/application/queue.php:255
+#: lib/app/application/queue.php:254
 msgid "Your build request has been queued"
 msgstr "درخواست ساخته شدن برنامه شما در صف انتظار قرار گرفت"
 
-#: lib/app/application/queue.php:321 lib/app/application/queue.php:327
-#: lib/app/application/queue.php:333
+#: lib/app/application/queue.php:320 lib/app/application/queue.php:326
+#: lib/app/application/queue.php:332
 msgid "Please set the status"
 msgstr "لطفا وضعیت را وارد کنید"
 
-#: lib/app/application/queue.php:340
+#: lib/app/application/queue.php:339
 msgid "Please set the store code"
 msgstr "لطفا کد‌ فروشگاه را وارد کنید"
 
-#: lib/app/application/queue.php:353
+#: lib/app/application/queue.php:352
 msgid "This id is not current application id"
 msgstr "این گزینه آخرین رکورد اپلیکیشن نیست"
 
-#: lib/app/application/queue.php:405
+#: lib/app/application/queue.php:404
 msgid "Queue status updated"
 msgstr "جزئیات صف به‌روزرسانی شد"
 
-#: lib/app/application/queue.php:442
+#: lib/app/application/queue.php:441
 msgid "Can not copy application file from talambar server!"
 msgstr ""
 
@@ -21939,31 +21939,31 @@ msgstr ""
 
 #: lib/app/factor/search.php:230
 msgid "Qty equal"
-msgstr ""
+msgstr "تعداد برابر با"
 
 #: lib/app/factor/search.php:237
 msgid "Subtotal larger than"
-msgstr ""
+msgstr "جمع بزرگتر از"
 
 #: lib/app/factor/search.php:244
 msgid "Subtotal less than"
-msgstr ""
+msgstr "جمع کوچکتر از"
 
 #: lib/app/factor/search.php:251 lib/app/factor/search.php:258
 msgid "Subtotal equal"
-msgstr ""
+msgstr "جمع مساوی با"
 
 #: lib/app/factor/search.php:265
 msgid "Subdiscount larger than"
-msgstr ""
+msgstr "جمع تخفیف بزرگتر از"
 
 #: lib/app/factor/search.php:272
 msgid "Subdiscount less than"
-msgstr ""
+msgstr "جمع تخفیف کوچکتر از"
 
 #: lib/app/factor/search.php:279
 msgid "Subdiscount equal"
-msgstr ""
+msgstr "جمع تخفیف برابر با"
 
 #: lib/app/import/add.php:85
 msgid "Can not save your import request"
@@ -22408,35 +22408,35 @@ msgstr "لطفا نام محصول را برای تهیه نسخه کپی وار
 msgid "Duplicate barcode in one product"
 msgstr "بارکد تکراری در یک محصول"
 
-#: lib/app/product/check.php:152
+#: lib/app/product/check.php:151
 msgid "Ivalid parent id"
 msgstr "شناسه والد اشتباه است"
 
-#: lib/app/product/check.php:171
+#: lib/app/product/check.php:170
 msgid "Duplicate sku code"
 msgstr "کد محصول تکراری است"
 
-#: lib/app/product/check.php:200
+#: lib/app/product/check.php:199
 msgid "Final price is out of range"
 msgstr "قیمت خارج از محدوده مجاز است"
 
-#: lib/app/product/check.php:265
+#: lib/app/product/check.php:264
 msgid "This barcode used as barcode :title"
 msgstr "این بارکد پیش‌تر به‌عنوان بارکد در :title استفاده شده است"
 
-#: lib/app/product/check.php:271
+#: lib/app/product/check.php:270
 msgid "This barcode used as barcode2 :title"
 msgstr "این بارکد پیش‌تر به‌عنوان ایران بارکد در :title استفاده شده است"
 
-#: lib/app/product/check.php:289
+#: lib/app/product/check.php:288
 msgid "Duplicate barcode"
 msgstr "بارکد تکراری است"
 
-#: lib/app/product/check.php:297
+#: lib/app/product/check.php:296
 msgid "Undefined error was happend"
 msgstr "خطای ناشناخته رخ داده است"
 
-#: lib/app/product/check.php:304
+#: lib/app/product/check.php:303
 msgid "More than 2 products saved by this barcode"
 msgstr "بیش از دو محصول با این بارکد به ثبت رسیده اند"
 
@@ -22517,7 +22517,7 @@ msgstr "شناسه شرکت سازنده اشتباه است!"
 
 #: lib/app/product/company.php:179
 msgid "Old company is equal to new company id"
-msgstr ""
+msgstr "شناسه شرکت قبلی برابر با شناسه شرکت جدید است"
 
 #: lib/app/product/company.php:197
 msgid "Company successfully removed"
@@ -22683,7 +22683,7 @@ msgstr "شناسه واحد اشتباه است!"
 
 #: lib/app/product/unit.php:180
 msgid "Old unit is equal to new unit id"
-msgstr ""
+msgstr "شناسه واحد قبلی برابر با شناسه واحد جدید است"
 
 #: lib/app/product/unit.php:198
 msgid "Unit successfully removed"
@@ -22808,11 +22808,11 @@ msgstr "لطفا شهر خود را انتخاب کنید"
 
 #: lib/app/setting/setup.php:377
 msgid "Length unit"
-msgstr ""
+msgstr "واحد طول"
 
 #: lib/app/setting/setup.php:377
 msgid "Mass unit"
-msgstr ""
+msgstr "واحد وزن"
 
 #: lib/app/store/add.php:47
 msgid "You can not have more than 3 free or trial stores."
@@ -24017,9 +24017,6 @@ msgstr "یارد"
 
 #~ msgid "Value of salestep is out of range"
 #~ msgstr "مقدار گام فروش خارج از محدوده مجاز است"
-
-#~ msgid "Value of minsale must be a number"
-#~ msgstr "مقدار حداقل فروش را به صورت عددی وارد کنید"
 
 #~ msgid "Value of minsale is out of range"
 #~ msgstr "مقدار حداقل فروش خارج از محدوده مجاز است"
