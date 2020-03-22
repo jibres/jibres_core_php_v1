@@ -48,7 +48,7 @@ class datetime
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Field :val is not a date field", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\notif::error(T_("Field :val is not a valid date field", ['val' => $_field_title]), ['element' => $_element]);
 			}
 			return false;
 		}
@@ -186,7 +186,7 @@ class datetime
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Invalid time format", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\notif::error(T_("Invalid time format, Please enter the time by correct format for example 12:15", ['val' => $_field_title]), ['element' => $_element]);
 			}
 			return false;
 		}

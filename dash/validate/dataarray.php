@@ -30,7 +30,7 @@ class dataarray
 			{
 				if($_notif)
 				{
-					\dash\notif::error(T_("Invalid data for :val", ['val' => $_field_title]), ['element' => $_element]);
+					\dash\notif::error(T_("Your entered value is outside the approved list for field :val", ['val' => $_field_title]), ['element' => $_element]);
 				}
 				return false;
 			}
@@ -39,7 +39,7 @@ class dataarray
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Enum condition must be array"), ['element' => $_element]);
+				\dash\notif::error(T_("Enum list must be array"), ['element' => $_element]);
 			}
 			return false;
 		}

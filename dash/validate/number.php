@@ -36,7 +36,7 @@ class number
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Number is infinite"), ['element' => $_element]);
+				\dash\notif::error(T_("Number is infinite!"), ['element' => $_element]);
 			}
 			return false;
 		}
