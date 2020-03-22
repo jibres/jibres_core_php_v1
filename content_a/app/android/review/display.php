@@ -1,204 +1,101 @@
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 
 <div class="f fs14">
-  <div class="c6 s12">
-    <div class="panel mB10">
-      <table class="tbl1 v4 mB0">
-       <tr>
-        <td>
-          <?php echo T_("Application logo"); ?>
-        </td>
-        <?php if(\dash\data::appDetail_logo()) {?>
-          <td class="txtL"><img src="<?php echo \dash\data::appDetail_logo() ?>" class='avatar fs18'></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/setting'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
+  <div class="c2 s12">
 
-       <tr>
-        <td>
-          <?php echo T_("Application title"); ?>
-        </td>
-        <?php if(\dash\data::appDetail_title()) {?>
-          <td class="txtL"><?php echo \dash\data::appDetail_title() ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/setting'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Application description"); ?>
-        </td>
-        <?php if(\dash\data::appDetail_desc()) {?>
-          <td class="txtL"><?php echo \dash\data::appDetail_desc() ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/setting'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Application slogan"); ?>
-        </td>
-        <?php if(\dash\data::appDetail_slogan()) {?>
-          <td class="txtL"><?php echo \dash\data::appDetail_slogan() ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/setting'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Intro theme"); ?>
-        </td>
-        <?php if(\dash\data::appDetail_intro_theme()) {?>
-          <td class="txtL"><?php echo \dash\data::appDetail_intro_theme() ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Splash theme"); ?>
-        </td>
-        <?php if(\dash\data::appDetail_splash_theme()) {?>
-          <td class="txtL"><?php echo \dash\data::appDetail_splash_theme() ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/splash'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-
-
-      </table>
+    <div class="msg minimal mB5 <?php if(\dash\data::appDetail_logo()) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Application logo"); ?></div>
     </div>
 
+    <div class="msg minimal mB5 <?php if(\dash\data::appDetail_title()) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Application title"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\data::appDetail_desc()) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo ''; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Application description"); ?></div>
+    </div>
+
+
+    <div class="msg minimal mB5 <?php if(\dash\data::appDetail_slogan()) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo ''; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Application slogan"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\data::appDetail_intro_theme()) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Intro theme"); ?></div>
+    </div>
+
+
+    <div class="msg minimal mB5 <?php if(\dash\data::appDetail_splash_theme()) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Splash theme"); ?></div>
+    </div>
+
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'title')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Title"). ' '. T_("Intro page #1"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'desc')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo ''; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Description"). ' '. T_("Intro page #1"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'file')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("File"). ' '. T_("Intro page #1"); ?></div>
+    </div>
+
+
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'title')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Title"). ' '. T_("Intro page #2"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'desc')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo ''; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Description"). ' '. T_("Intro page #2"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'file')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("File"). ' '. T_("Intro page #2"); ?></div>
+    </div>
+
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'title')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Title"). ' '. T_("Intro page #3"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'desc')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo ''; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("Description"). ' '. T_("Intro page #3"); ?></div>
+    </div>
+
+    <div class="msg minimal mB5 <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'file')) { echo 'success2'; $myIcon = 'sf-check fc-green fs14'; }else{echo 'danger2'; $myIcon = 'sf-times fc-red fs14';} ?> f align-center">
+      <div class="c2"><i class="<?php echo $myIcon ?>"></i></div>
+      <div class="c"><?php echo T_("File"). ' '. T_("Intro page #3"); ?></div>
+    </div>
 
   </div>
-  <div class="c6 s12">
-    <div class="mLa5">
 
+  <div class="c">
+      <div class="f">
+        <div class="c"><?php require(root. 'content_a/app/android/appPreview.php'); ?></div>
+        <div class="c"><?php require(root. 'content_a/app/android/appPreview.php'); ?></div>
+        <div class="c"><?php require(root. 'content_a/app/android/appPreview.php'); ?></div>
+        <div class="c"><?php require(root. 'content_a/app/android/appPreview.php'); ?></div>
 
-    <div class="panel mB10">
-      <table class="tbl1 v4 mB0">
-       <tr>
-        <td>
-          <?php echo T_("Intro page #1"); ?>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'file')) {?>
-          <td class="txtL"><img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'page_1', 'file'); ?>" class='avatar fs18'></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Title"); ?>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'title')) {?>
-          <td class="txtL"><?php echo \dash\get::index(\dash\data::appDetail(), 'page_1', 'title') ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-         <td><?php echo T_("Description"); ?></td>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'desc')) {?>
-          <td class="txtL"><?php echo \dash\get::index(\dash\data::appDetail(), 'page_1', 'desc') ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-       </tr>
-
-      </table>
-    </div>
-
-
-    <div class="panel mB10">
-      <table class="tbl1 v4 mB0">
-       <tr>
-        <td>
-          <?php echo T_("Intro page #2"); ?>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'file')) {?>
-          <td class="txtL"><img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'page_2', 'file'); ?>" class='avatar fs18'></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Title"); ?>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'title')) {?>
-          <td class="txtL"><?php echo \dash\get::index(\dash\data::appDetail(), 'page_2', 'title') ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-         <td><?php echo T_("Description"); ?></td>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'desc')) {?>
-          <td class="txtL"><?php echo \dash\get::index(\dash\data::appDetail(), 'page_2', 'desc') ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-       </tr>
-
-      </table>
-    </div>
-
-
-    <div class="panel mB10">
-      <table class="tbl1 v4 mB0">
-       <tr>
-        <td>
-          <?php echo T_("Intro page #3"); ?>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'file')) {?>
-          <td class="txtL"><img src="<?php echo \dash\get::index(\dash\data::appDetail(), 'page_3', 'file'); ?>" class='avatar fs18'></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-        <td>
-          <?php echo T_("Title"); ?>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'title')) {?>
-          <td class="txtL"><?php echo \dash\get::index(\dash\data::appDetail(), 'page_3', 'title') ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-
-       <tr>
-         <td><?php echo T_("Description"); ?></td>
-        </td>
-        <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'desc')) {?>
-          <td class="txtL"><?php echo \dash\get::index(\dash\data::appDetail(), 'page_3', 'desc') ?></td>
-        <?php }else{ ?>
-          <td class="txtL"><a href="<?php echo \dash\url::that().'/intro'; ?>"><small class="sf-mute"><?php echo T_("Not set"); ?></small></a></td>
-        <?php }//endif ?>
-       </tr>
-       </tr>
-
-      </table>
-    </div>
-
-    </div>
+      </div>
   </div>
+
 
   </div>
 </div>
