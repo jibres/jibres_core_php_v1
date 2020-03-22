@@ -111,12 +111,12 @@ class view
 		$apk     = self::check_position('apk');
 
 		$app_queue = \lib\app\application\queue::detail();
-		if($app_queue && $review == '')
+		if($app_queue && isset($app_queue['status']) && in_array($app_queue['status'], ['inprogres', 'done']) && $review == '')
 		{
 			$review = 'complete';
 		}
 
-		if($app_queue && $apk == '')
+		if($app_queue && isset($app_queue['status']) && in_array($app_queue['status'], ['inprogres', 'done']) && $apk == '')
 		{
 			$apk = 'complete';
 		}
