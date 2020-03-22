@@ -1,11 +1,11 @@
 <?php
 $kingdom = \dash\url::kingdom();
-if(\dash\language::current() === 'fa')
+if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 {
 ?>
 <section id="jibresCertificates">
   <div class="fit-md">
-    <h2><?php echo T_('Jibres Certificates'); ?></h2>
+    <h2><a href="<?php echo \dash\url::kingdom() ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h2>
     <div class="f">
       <div class="c3 s6"><a tabindex='-1' target="_blank" rel='nofollow' href="https://pub.daneshbonyan.ir/"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='DaneshBonyan Jibres'></a></div>
       <!-- <div class="c3 s6"><a tabindex='-1' target="_blank" rel='nofollow' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div> -->
