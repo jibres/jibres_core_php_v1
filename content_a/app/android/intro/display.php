@@ -2,11 +2,11 @@
 
 <?php $introSaved = \dash\data::introSaved(); ?>
 
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" class="f">
 
 <?php for ($i=1; $i <= 3 ; $i++) { ?>
 
-  <div class="f justify-center mB20">
+  <div class="justify-center mB20 c4 s12 pA5">
     <div class="c6 m8 s12">
       <div class="box">
         <header><h2><?php echo T_("App Intro detail"); ?> <?php echo T_("Page"). ' '. \dash\fit::number($i); ?></h2></header>
@@ -19,6 +19,7 @@
               <input type="text" name="title<?php echo $i; ?>" id="title<?php echo $i; ?>" value="<?php echo \dash\get::index($introSaved, $i, 'title'); ?>" maxlength="50">
             </div>
 
+
             <label for="desc<?php echo $i; ?>"><?php echo T_("Description"); ?></label>
             <div class="input">
               <input type="text" name="desc<?php echo $i; ?>" id="desc<?php echo $i; ?>" value="<?php echo \dash\get::index($introSaved, $i, 'desc'); ?>" maxlength="100">
@@ -29,17 +30,12 @@
               <input type="file" name="file<?php echo $i; ?>" id="file<?php echo $i; ?>">
             </div>
            </div>
-
         </div>
-        <?php if($i === 3) {?>
-        <footer class="f">
-          <div class="c">
-            <a class="ibtn" href="<?php echo \dash\url::that(). '/splash'; ?>"><i data-prev></i><span><?php echo T_("App splash"); ?></span></a>
 
-          </div>
-          <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>
+        <footer class="txtRa">
+          <button class="btn success"><?php echo \dash\data::nextBtnAll(); ?></button>
         </footer>
-      <?php } //endif ?>
+
       </div>
     </div>
     <div class="c6 s12">

@@ -36,7 +36,7 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
             <?php echo T_("Your application is ready to use"); ?>
           </div>
 
-          <?php if(\dash\data::downoadAPK() or 1) {?>
+          <?php if(\dash\data::downoadAPK()) {?>
           <div class="msg"><?php echo T_("You can share your app link via social networks or publish your app via stores."). ' <b>'. T_('Go change the worlds.'). '</b>'; ?><br>
           </div>
 

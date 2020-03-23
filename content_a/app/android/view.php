@@ -41,10 +41,12 @@ class view
 		if(\dash\request::get('setup') === 'wizard')
 		{
 			\dash\data::nextBtn(T_('Save & Next'));
+			\dash\data::nextBtnAll(T_('Save All & Next'));
 		}
 		else
 		{
 			\dash\data::nextBtn(T_('Save'));
+			\dash\data::nextBtnAll(T_('Save All'));
 		}
 
 		self::stepGuide();
