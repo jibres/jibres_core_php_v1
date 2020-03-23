@@ -46,6 +46,11 @@
 
       <footer class="txtRa">
         <button class="btn success"><?php echo T_("Save"); ?></button>
+
+        <?php if(\dash\data::appDetail_logo()) {?>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/setting'; ?>"><?php echo T_("Next"); ?></a>
+        <?php } //endif ?>
+
       </footer>
     </form>
   </div>
