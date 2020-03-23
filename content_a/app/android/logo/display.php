@@ -8,25 +8,16 @@
         <div class="input">
           <input type="file" name="logo" id="logo">
         </div>
-
-        <?php if(\dash\data::canUseStoreLogo()) {?>
-        <div class="msg info2 f align-center">
-          <div class="cauto s12">
-            <img class="avatar fs14" src="<?php echo \lib\store::logo(); ?>">
-          </div>
-          <div class="c s12 mLa20">
-            <?php echo T_("You can use from your store logo"); ?>
-          </div>
-          <div class="cauto s12">
-            <div class="btn primary" data-ajaxify data-data='{"usestorelogo": 1}' data-method='post'><?php echo T_("Set as application logo"); ?></div>
-          </div>
-        </div>
-        <?php } //endif ?>
       </div>
-
-
       <footer class="f">
+        <?php if(\dash\data::canUseStoreLogo()) {?>
+          <div class="c">
+            <div class="btn" data-ajaxify data-data='{"usestorelogo": 1}' data-method='post' ><span><?php echo T_("Use from store logo"); ?></span></div>
+          </div>
+        <?php } //endif ?>
         <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>
+
+
       </footer>
     </form>
   </div>
