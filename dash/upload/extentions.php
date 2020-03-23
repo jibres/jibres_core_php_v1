@@ -140,6 +140,8 @@ class extentions
 				}
 				else
 				{
+					\dash\notif::error(T_("Content type of this file is different by extension of file"));
+
 					$myResult['allow'] = false;
 				}
 			}

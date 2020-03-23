@@ -71,7 +71,14 @@ class file
 				$square = \dash\upload\crop::check_square($myFile['tmp_name']);
 				if(!$square)
 				{
-					\dash\notif::error(T_("Please use from a square image file"));
+					if(isset($_meta['notif_msg_square']))
+					{
+						\dash\notif::error($_meta['notif_msg_square']);
+					}
+					else
+					{
+						\dash\notif::error(T_("Please use from a square image file"));
+					}
 					return false;
 				}
 			}

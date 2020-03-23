@@ -34,7 +34,7 @@
         <?php if($i === 3) {?>
         <footer class="f">
           <div class="c">
-            <a class="ibtn" href="<?php echo \dash\url::that(). '/review'; ?>"><i data-prev></i><span><?php echo T_("App Title"); ?></span></a>
+            <a class="ibtn" href="<?php echo \dash\url::that(). '/splash'; ?>"><i data-prev></i><span><?php echo T_("App splash"); ?></span></a>
 
           </div>
           <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>

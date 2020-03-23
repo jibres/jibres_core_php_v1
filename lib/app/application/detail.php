@@ -86,7 +86,6 @@ class detail
 
 		if($logo)
 		{
-			$change = true;
 
 			if(isset($get['id']))
 			{
@@ -105,25 +104,22 @@ class detail
 				\lib\db\setting\insert::new_record($insert);
 			}
 
-			if($change)
-			{
-				\lib\app\application\queue::rebuild();
-			}
+			\dash\notif::ok(T_("Your application logo was saved"));
+
 		}
 		else
 		{
-			if(isset($get['id']))
+			if(\dash\engine\process::status())
 			{
-				// whe have old logo
-				\dash\notif::info(T_("Your application logo saved without change"));
-			}
-			else
-			{
-				if(\dash\engine\process::status())
+				if(isset($get['id']))
+				{
+					// whe have old logo
+					\dash\notif::info(T_("Your application logo saved without change"));
+				}
+				else
 				{
 					\dash\notif::error(T_("Please choose a file to set as your application logo"));
 				}
-
 			}
 		}
 	}
@@ -157,15 +153,6 @@ class detail
 
 		\dash\notif::ok(T_("Application setting set"));
 
-		if(!$change)
-		{
-			$change = \dash\temp::get('weeHaveChange');
-		}
-
-		if($change)
-		{
-			\lib\app\application\queue::rebuild();
-		}
 
 		return true;
 
@@ -181,8 +168,6 @@ class detail
 			// no change
 			return true;
 		}
-
-		\dash\temp::set('weeHaveChange', true);
 
 		if(isset($get['id']))
 		{

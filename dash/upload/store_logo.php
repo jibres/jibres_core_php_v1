@@ -112,7 +112,9 @@ class store_logo
 			[
 				'png',
 			],
-			'square' => true,
+			'square'           => true,
+			'notif_msg_ext'    => T_("You must upload only png file format for application logo"),
+			'notif_msg_square' => T_("Please use from a png image at square format for application logo"),
 		];
 
 		$file_detail = \dash\upload\file::upload('logo', $meta);

@@ -84,7 +84,14 @@ class validation_file
 		// file with long extension does not allowed in our system
 		if(mb_strlen($fileExt) > 10 || $fileAllow === false )
 		{
-			\dash\notif::error(T_('Can not upload this file because the extension of file is not allowed'));
+			if(isset($_meta['notif_msg_ext']))
+			{
+				\dash\notif::error($_meta['notif_msg_ext']);
+			}
+			else
+			{
+				\dash\notif::error(T_('Can not upload this file because the extension of file is not allowed'));
+			}
 			return false;
 		}
 
