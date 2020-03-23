@@ -134,15 +134,12 @@ if(\dash\url::content() === 'm')
 
 ?>
 
-
-
-
    </ul>
   </div>
  </div>
   <abbr class="toggleClean" title='{%trans "Click to toggle sidebar status"%}'><span class="sf-arrows-out"></span></abbr>
 
-  <a href="<?php echo \dash\url::kingdom() ?>" id='ermileBadge' class="f" target="_blank">
+  <a href="<?php echo \dash\url::sitelang() ?>" id='ermileBadge' class="f">
    <div class="cauto pRa10">
     <img src="<?php echo \dash\url::icon() ?>" alt='<?php echo T_("Jibres") ?>'>
    </div>
@@ -151,11 +148,4 @@ if(\dash\url::content() === 'm')
     <h3><?php echo T_("Sell & Enjoy") ?></h3>
    </div>
   </a>
-
-
-
-
-
-
-
 
