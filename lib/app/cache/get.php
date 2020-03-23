@@ -9,7 +9,7 @@ class get
 	public static function admin_dashboard()
 	{
 		$result                   = [];
-		$result['month_detail']   = \dash\date::month_precent();
+		$result['month_detail']   = self::month_precent();
 		$result['product_count']  = self::product_count();
 		$result['customer_count'] = self::customer_count();
 		$result['staff_count']    = self::staff_count();
@@ -18,6 +18,49 @@ class get
 
 		return $result;
 	}
+
+
+	 public static function month_precent($_type = null)
+    {
+    	$lang = \dash\language::current();
+
+    	if($lang === 'fa')
+    	{
+			$d = intval(\dash\utility\jdate::date("d", false, false));
+			$m = intval(\dash\utility\jdate::date("m", false, false));
+			$t = intval(\dash\utility\jdate::date("t", false, false));
+    	}
+    	else
+    	{
+			$d = intval(date("d"));
+			$m = intval(date("m"));
+			$t = intval(date("t"));
+    	}
+
+        $left   = round(($d * 100) / $t);
+        $remain = round((($t - $d) * 100) / $t);
+
+        $return = null;
+        switch ($_type)
+        {
+            case 'left':
+                $return = $left;
+                break;
+            case 'remain':
+                $return = $remain;
+                break;
+            default:
+                $return =
+                [
+					'left'   => $left,
+					'remain' => $remain,
+					'count'  => $t,
+                ];
+                break;
+        }
+        return $return;
+    }
+
 
 
 	public static function product_count()
