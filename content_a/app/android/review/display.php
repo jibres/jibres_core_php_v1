@@ -3,6 +3,22 @@
 <div class="f fs14 justify-center">
   <div class="c6 s12">
 
+    <?php if(\dash\data::isReadyToCreate()) {?>
+        <div  class="box impact">
+          <header><h2><?php echo T_("Review Application detail");?></h2></header>
+          <div class="body zeroPad">
+            <div class="msg">
+                <?php echo T_("Hooray!"); ?> 😍
+                <br>
+                <?php echo T_("Your Application ready to build") ?>
+            </div>
+          </div>
+          <footer class="txtRa">
+            <a class="btn secondary" href="<?php echo \dash\url::that(). '/apk'; ?>"><?php echo T_("Next"); ?></a>
+          </footer>
+        </div>
+    <?php } // endif ?>
+
     <div class="checklist" <?php if(\dash\data::appDetail_logo()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Application logo"); ?></div>
 
     <div class="checklist" <?php if(\dash\data::appDetail_title()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Application title"); ?></div>
