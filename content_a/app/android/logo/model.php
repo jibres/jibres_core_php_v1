@@ -5,7 +5,11 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('usestorelogo'))
+		if(\dash\request::post('removelogo'))
+		{
+			\lib\app\application\detail::remove_logo();
+		}
+		elseif(\dash\request::post('usestorelogo'))
 		{
 			\lib\app\application\detail::set_android_logo_from_store_logo();
 		}

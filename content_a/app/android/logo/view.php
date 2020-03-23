@@ -14,9 +14,12 @@ class view
 
 		\content_a\app\android\view::ready();
 
-		if(\lib\app\application\detail::can_user_store_logo())
+		if(!\dash\data::appDetail_logo())
 		{
-			\dash\data::canUseStoreLogo(true);
+			if(\lib\app\application\detail::can_user_store_logo())
+			{
+				\dash\data::canUseStoreLogo(true);
+			}
 		}
 	}
 }

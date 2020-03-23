@@ -51,6 +51,23 @@ class detail
 		}
 	}
 
+	public static function remove_logo()
+	{
+		$get = \lib\db\setting\get::platform_cat_key('android', 'setting', 'logo');
+
+		if(isset($get['id']))
+		{
+			\lib\db\setting\delete::record($get['id']);
+			\dash\notif::ok(T_("Your application logo was removed"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("You have not any application logo!"));
+			return false;
+		}
+	}
+
 
 	public static function set_android_logo($_logo = null)
 	{
@@ -93,7 +110,10 @@ class detail
 		}
 		else
 		{
-			\dash\notif::error(T_("Please upload your application logo"));
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::error(T_("Please choose a file to set as your application logo"));
+			}
 		}
 	}
 

@@ -29,8 +29,19 @@
         </div>
         <?php } //endif ?>
 
-      </div>
+        <?php if(\dash\data::appDetail_logo()) {?>
+          <div class="msg f align-center">
 
+          <div class="c s12 mLa20">
+            <?php echo T_("Remove application logo"); ?>
+          </div>
+          <div class="cauto s12">
+            <div class="link fc-red" data-confirm data-data='{"removelogo": 1}' ><?php echo T_("Remove"); ?></div>
+          </div>
+        </div>
+        <?php } //endif ?>
+
+      </div>
 
 
       <footer class="txtRa">
