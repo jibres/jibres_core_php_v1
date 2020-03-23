@@ -1,89 +1,61 @@
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 
+<?php $addNew = false; ?>
+
 <div class="f fs14 justify-center">
-  <div class="c8 s12">
+  <div class="c6 m8 s12">
 
-
-    <div class="panel mB10 mLa5">
-        <table class="tbl1 v4 mB0">
-      <?php if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress') {?>
-
-         <tr>
-          <td>
-            <?php echo T_("Your build request was saved"); ?>
-          </td>
-          <td class="txtL">
-            <?php echo \dash\fit::date_human(\dash\data::appQueue_daterequest()); ?>
-          </td>
-         </tr>
-         <tr>
-          <td>
-            <?php echo T_("Build"); ?>
-          </td>
-          <td class="txtL">
-            <?php echo \dash\fit::number(\dash\data::appQueue_build()); ?>
-          </td>
-         </tr>
-         <tr>
-           <td colspan="2">
-             <?php echo T_("Please wait until your application is built, This process may take several minutes"); ?>
-           </td>
-         </tr>
-
-    <?php }elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status() === 'enable') {?>
-
-         <tr>
-          <td>
-            <?php echo T_("Your application is ready to use"); ?>
-          </td>
-          <td class="txtL">
-            <?php if(\dash\data::downoadAPK()) {?>
-            <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn success"><?php echo T_("Download Now"); ?></a>
-            <?php }//endif ?>
-          </td>
-         </tr>
-
-          <?php if(\dash\data::downoadAPK()) {?>
-         <tr>
-           <td colspan="2">
-             <?php echo T_("You can share this link to everyone need to download your application"); ?>
-           </td>
-         </tr>
-         <tr>
-          <td><span data-copy="#downloadLinkAPK" class="btn xs"><?php echo T_("Copy"); ?></span></td>
-
-          <td class="txtL">
-            <div class="input">
-              <input id="downloadLinkAPK" type="text" value="<?php echo \dash\data::downoadAPK(); ?>" class='txtL' readonly>
+    <div  class="box impact">
+      <header><h2><?php echo T_("Build Application Now");?></h2></header>
+        <div class="body zeroPad">
+          <?php if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress') {?>
+            <div class="msg">
+              <?php echo T_("Your build request was saved"); ?>
+              <?php echo \dash\fit::date_human(\dash\data::appQueue_daterequest()); ?>
             </div>
-          </td>
-         </tr>
-        <?php }//endif ?>
+            <div class="msg">
+              <?php echo T_("Build series"); ?>
+              <?php echo \dash\fit::number(\dash\data::appQueue_build()); ?>
+            </div>
+            <div class="msg">
+              <?php echo T_("Please wait until your application is built, This process may take several minutes"); ?>
+            </div>
+        <?php }elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status() === 'enable') {?>
+            <div class="msg success2">
+              <?php echo T_("Your application is ready to use"); ?>
+            </div>
+            <?php if(\dash\data::downoadAPK()) {?>
+
+            <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn success"><?php echo T_("Download Now"); ?></a>
+
+            <?php echo T_("You can share this link to everyone need to download your application"); ?>
+
+            <span data-copy="#downloadLinkAPK" class="btn xs"><?php echo T_("Copy"); ?></span>
+            <div class="input txtL">
+               <input id="downloadLinkAPK" type="text" value="<?php echo \dash\data::downoadAPK(); ?>" class='txtL' readonly>
+            </div>
+
+            <?php }//endif ?>
 
         <?php }else{ // create first app  ?>
+            <?php $addNew = true; ?>
+            <?php if(\dash\data::appQueue_status()){ // the other status  ?>
+              <div class="msg">
+                <?php echo T_("Your old request status") ?>
+                <div class="txtL"><?php echo T_(\dash\data::appQueue_status()); ?></div>
+              </div>
+            <?php }//endif ?>
 
-        <?php if(\dash\data::appQueue_status()){ // the other status  ?>
-          <tr>
-            <td><?php echo T_("Your old request status") ?></td>
-            <td class="txtL"><?php echo T_(\dash\data::appQueue_status()); ?></td>
-          </tr>
-        <?php }//endif ?>
+          <?php }//endif ?>
 
-        <tr>
-          <td>
-            <?php echo T_("Your application is ready to build again"); ?>
-          </td>
-          <td class="txtL">
+        </div>
+
+        <?php if($addNew) {?>
+          <footer class="txtRa">
             <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
-          </td>
-         </tr>
-
-
-        <?php }//endif ?>
-
-        </table>
-      </div>
-
+          </footer>
+        <?php } //endif ?>
+    </div>
 
 
   </div>
