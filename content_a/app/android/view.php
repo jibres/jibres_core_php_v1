@@ -167,7 +167,7 @@ class view
 			],
 			[
 				'title' => T_('Generate Your App'),
-				'link'  => \dash\url::that(). '/apk'. $get_wizard,
+				// 'link'  => \dash\url::that(). '/apk'. $get_wizard,
 				'class' => $apk,
 			],
 		];

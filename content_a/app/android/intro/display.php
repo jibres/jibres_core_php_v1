@@ -34,7 +34,7 @@
         <?php if($i === 3) {?>
         <footer class="txtRa">
           <button class="btn success"><?php echo T_("Save"); ?></button>
-           <?php if(\dash\get::index($introSaved, 1, 'title') && \dash\get::index($introSaved, 2, 'title') && \dash\get::index($introSaved, 3, 'title')) {?>
+           <?php if(\dash\get::index($introSaved, 'usersaved')) {?>
             <a class="btn secondary" href="<?php echo \dash\url::that(). '/review'; ?>"><?php echo T_("Next"); ?></a>
            <?php } //endif ?>
         </footer>

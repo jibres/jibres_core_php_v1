@@ -151,6 +151,7 @@ class intro
 		];
 
 		$theme = null;
+		$usersaved = false;
 
 		foreach ($result as $key => $value)
 		{
@@ -171,6 +172,7 @@ class intro
 
 			if(isset($meta['title']))
 			{
+				$usersaved = true;
 				$intro[$index]['title'] = $meta['title'];
 			}
 
@@ -186,6 +188,8 @@ class intro
 		}
 
 		$intro['theme'] = $theme;
+		$intro['usersaved'] = $usersaved;
+
 
 		return $intro;
 	}

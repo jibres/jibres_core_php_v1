@@ -12,11 +12,12 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$appDetail = \lib\app\application\detail::get_android();
-		\dash\data::appDetail($appDetail);
+		$isReadyToCreate = \lib\app\application\detail::is_ready_to_create();
+		if(!$isReadyToCreate['ok'])
+		{
+			\dash\redirect::to(\dash\url::that(). '/review');
+		}
 
-		$isReadyToCreate = \lib\app\application\detail::is_ready_to_create($appDetail);
-		\dash\data::isReadyToCreate($isReadyToCreate);
 
 
 		$app_queue = \lib\app\application\queue::detail();
