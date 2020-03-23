@@ -5,26 +5,41 @@ namespace lib\app\application;
 class splash
 {
 
-	public static function set_android_theme($_theme)
+	public static function set_android_theme($_args)
 	{
-		$_theme = \dash\validate::string($_theme);
-		if(!$_theme)
-		{
-			\dash\notif::error(T_('Please choose your theme'), 'theme');
-			return false;
-		}
 
-		if(!in_array($_theme, ['blue','red','yellow','green','balck']))
-		{
-			\dash\notif::error(T_('Invalid theme'), 'theme');
-			return false;
-		}
+		$condition =
+		[
+			'theme'     => ['enum' => array_column(self::theme_color(), 'key')],
+			'start'     => 'string',
+			'end'       => 'string',
+			'colortext' => 'string',
+			'colordesc' => 'string',
+		];
+
+		$require = ['theme'];
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$theme      = $data['theme'];
+		$theme      = explode('_', $theme);
+
+		$theme_array =
+		[
+			'start'      => $theme[0],
+			'end'        => $theme[1],
+			'text_color' => $theme[2],
+			'meta_color' => $theme[3],
+		];
+
+		$theme = json_encode($theme_array);
 
 		$get = \lib\db\setting\get::platform_cat_key('android', 'splash', 'splash_theme');
 
 		if(isset($get['id']))
 		{
-			\lib\db\setting\update::value($_theme, $get['id']);
+			\lib\db\setting\update::value($theme, $get['id']);
 		}
 		else
 		{
@@ -33,13 +48,13 @@ class splash
 				'platform' => 'android',
 				'cat'      => 'splash',
 				'key'      => 'splash_theme',
-				'value'    => $_theme,
+				'value'    => $theme,
 			];
 
 			\lib\db\setting\insert::new_record($insert);
 		}
 
-		\dash\notif::ok(T_('Application intro set'));
+		\dash\notif::ok(T_('Application splash setting saved'));
 		return true;
 
 	}
@@ -47,23 +62,31 @@ class splash
 
 	public static function get_android()
 	{
-		$result = \lib\db\setting\get::platform_cat('android', 'splash');
+		$result = \lib\db\setting\get::platform_cat_key('android', 'splash', 'splash_theme');
 
-		if(!is_array($result))
+		if(isset($result['value']) && is_string($result['value']))
+		{
+			$result = json_decode($result['value'], true);
+			if(!is_array($result))
+			{
+				$result = [];
+			}
+
+			if(isset($result['start']) && isset($result['end']) && isset($result['text_color']) && isset($result['meta_color']))
+			{
+				$key = implode('_', [$result['start'], $result['end'], $result['text_color'], $result['meta_color']]);
+				$result['key'] = $key;
+			}
+		}
+		else
 		{
 			$result = [];
 		}
 
-		$splash = [];
-
-		foreach ($result as $key => $value)
-		{
-			$splash[$value['key']] = $value['value'];
-		}
-
-		return $splash;
+		return $result;
 
 	}
+
 
 
 	public static function theme_color()
@@ -86,6 +109,11 @@ class splash
 			'gradient13' => ['start' => '#F0EFF0',   'end' => '#FAF8F9', 'text_color' => '#000000', 'meta_color' => '#333333', 'title' => 'gradient13'],
 			'gradient14' => ['start' => '#121317',   'end' => '#323B42', 'text_color' => '#ffffff', 'meta_color' => '#eeeeee', 'title' => 'gradient14'],
 		];
+
+		foreach ($theme_color as $key => $value)
+		{
+			$theme_color[$key]['key'] = implode('_', [$value['start'], $value['end'], $value['text_color'], $value['meta_color']]);
+		}
 
 		return $theme_color;
 	}

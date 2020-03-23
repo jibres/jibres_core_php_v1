@@ -36,6 +36,9 @@ class view
 			\dash\data::appQueue($app_queue);
 		}
 
+		$splashSaved = \lib\app\application\splash::get_android();
+		\dash\data::splashSaved($splashSaved);
+
 		self::stepGuide();
 	}
 

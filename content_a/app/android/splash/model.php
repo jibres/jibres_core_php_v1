@@ -5,15 +5,20 @@ class model
 {
 	public static function post()
 	{
-		$theme = \dash\request::post('theme');
+		$post              = [];
+		$post['theme']     = \dash\request::post('theme');
+		$post['start']     = \dash\request::post('start');
+		$post['end']       = \dash\request::post('end');
+		$post['colortext'] = \dash\request::post('colortext');
+		$post['colordesc'] = \dash\request::post('colordesc');
 
-		if(!$theme)
+		if(!$post['theme'])
 		{
 			\dash\notif::warn(T_("Please choose your theme"));
 			return false;
 		}
 
-		$theme_detail = \lib\app\application\splash::set_android_theme($theme);
+		$theme_detail = \lib\app\application\splash::set_android_theme($post);
 
 		if(\dash\engine\process::status())
 		{
