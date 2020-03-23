@@ -159,6 +159,35 @@ class detail
 	}
 
 
+	public static function set_android_download_detail($_args)
+	{
+		$condition =
+		[
+			'googleplay'    => 'url',
+			'cafebazar'     => 'url',
+			'myket'         => 'url',
+			'downloadtitle' => 'title',
+			'downloaddesc'  => 'desc',
+
+		];
+
+		$require = [];
+		$meta    =	[];
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+
+		self::set_setting_record('googleplay', $data['googleplay']);
+		self::set_setting_record('cafebazar', $data['cafebazar']);
+		self::set_setting_record('myket', $data['myket']);
+		self::set_setting_record('downloadtitle', $data['downloadtitle']);
+		self::set_setting_record('downloaddesc', $data['downloaddesc']);
+
+
+		\dash\notif::ok(T_("Application download setting saved"));
+	}
+
+
 	private static function set_setting_record($_key, $_value)
 	{
 		$get = \lib\db\setting\get::platform_cat_key('android', 'setting', $_key);
