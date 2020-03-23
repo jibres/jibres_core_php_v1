@@ -266,7 +266,7 @@ class detail
 				"file" => null,
 			],
 
-			"intro_theme"  => null,
+			// "intro_theme"  => null,
 			"splash_theme" => null,
 		];
 
@@ -289,11 +289,11 @@ class detail
 			$message[] = T_("Please set your application title");
 		}
 
-		if(!$check['intro_theme'])
-		{
-			$is_ok = false;
-			$message[] = T_("Please set your application intro theme");
-		}
+		// if(!$check['intro_theme'])
+		// {
+		// 	$is_ok = false;
+		// 	$message[] = T_("Please set your application intro theme");
+		// }
 
 		if(!$check['splash_theme'])
 		{
@@ -361,7 +361,7 @@ class detail
 				"file" => null,
 			],
 
-			"intro_theme"  => null,
+			// "intro_theme"  => null,
 			"splash_theme" => null,
 		];
 
@@ -382,7 +382,7 @@ class detail
 			$setupGuideDetail['setting'] = true;
 		}
 
-		if($check['intro_theme'])
+		if($check['page_1']['title'])
 		{
 			$setupGuideDetail['intro'] = true;
 		}

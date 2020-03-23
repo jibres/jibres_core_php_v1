@@ -12,9 +12,6 @@
 
     <div class="checklist" <?php if(\dash\data::appDetail_slogan()) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Application slogan"); ?></div>
 
-    <div class="checklist" <?php if(\dash\data::appDetail_intro_theme()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Intro theme"); ?></div>
-
-
     <div class="checklist" <?php if(\dash\data::appDetail_splash_theme()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Splash theme"); ?></div>
 
 

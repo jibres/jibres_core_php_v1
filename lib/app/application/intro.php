@@ -51,6 +51,13 @@ class intro
 			$file  = \dash\validate::string_500($value['file'], false);
 
 
+			if($title && !$file)
+			{
+				if(in_array($index, [1, 2, 3]))
+				{
+					$file = \dash\url::cdn(). '/img/app/app-intro-'. $index.'.jpg';
+				}
+			}
 
 			$ok_intro[$index] =
 			[
@@ -58,6 +65,7 @@ class intro
 				'desc'  => $desc,
 				'file'  => $file,
 			];
+
 
 			$index++;
 
