@@ -10,7 +10,7 @@
           <p class="mB0-f"><?php echo T_("Hooray!"). ' 😍<br>'. T_("Your Application ready to build") ?></p>
         </div>
         <footer class="txtRa">
-          <a class="btn primary" href="<?php echo \dash\url::that(). '/apk'; ?>"><?php echo T_("Let's go build my android app"); ?></a>
+          <div data-confirm data-data='{"build" : "now"}' class="btn primary" ><?php echo T_("Let's go build my android app"); ?></div>
         </footer>
     </div>
     <?php } // endif ?>
