@@ -325,7 +325,7 @@ class cleanse
 					$field_title = $_meta['field_title'][$required_field];
 				}
 
-				if(!$data[$required_field] && $data[$required_field] !== 0)
+				if(!$data[$required_field] && $data[$required_field] !== 0 && $data[$required_field] !== '0')
 				{
 					if($data[$required_field] === false && !\dash\engine\process::status())
 					{
