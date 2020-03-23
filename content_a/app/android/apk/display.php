@@ -24,25 +24,28 @@
             <div class="msg success2">
               <?php echo T_("Your application is ready to use"); ?>
             </div>
+
             <?php if(\dash\data::downoadAPK()) {?>
 
-            <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn success"><?php echo T_("Download Now"); ?></a>
+            <div class="msg">
+              <?php echo T_("You can share this link to everyone need to download your application"); ?>
+            <br>
 
-            <?php echo T_("You can share this link to everyone need to download your application"); ?>
-
-            <span data-copy="#downloadLinkAPK" class="btn xs"><?php echo T_("Copy"); ?></span>
             <div class="input txtL">
+              <span data-copy="#downloadLinkAPK" class="btn addon"><?php echo T_("Copy"); ?></span>
                <input id="downloadLinkAPK" type="text" value="<?php echo \dash\data::downoadAPK(); ?>" class='txtL' readonly>
+            </div>
             </div>
 
             <?php }//endif ?>
 
         <?php }else{ // create first app  ?>
+
             <?php $addNew = true; ?>
             <?php if(\dash\data::appQueue_status()){ // the other status  ?>
               <div class="msg">
                 <?php echo T_("Your old request status") ?>
-                <div class="txtL"><?php echo T_(\dash\data::appQueue_status()); ?></div>
+                <div class="txtL"><?php echo T_(ucfirst(\dash\data::appQueue_status())); ?></div>
               </div>
             <?php }//endif ?>
 
@@ -54,7 +57,12 @@
           <footer class="txtRa">
             <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
           </footer>
+        <?php }elseif(\dash\data::downoadAPK())  {?>
+          <footer class="txtRa">
+                <a target="_blank" href="<?php echo \dash\data::downoadAPK(); ?>" class="btn success"><?php echo T_("Download Now"); ?></a>
+          </footer>
         <?php } //endif ?>
+
     </div>
 
 
