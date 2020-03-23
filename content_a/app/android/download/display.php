@@ -8,7 +8,7 @@
           <p class="">
             <?php echo T_("You can customize application download page"); ?>
             <br>
-            <a href="<?php echo \lib\store::subdomain_url(). '/app'; ?>"><?php echo T_("Download page"); ?></a>
+            <a data-direct target="_blank" href="<?php echo \lib\store::subdomain_url(). '/app'; ?>"><?php echo T_("Download page"); ?></a>
 
           </p>
 
