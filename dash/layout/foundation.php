@@ -43,7 +43,7 @@ if(\dash\url::store())
   echo " <meta content='". \dash\url::store(). "' name='store-code'/>\n";
 }
 ?>
- <meta content="<?php echo \dash\url::site();?>/" name="jibres:site"/>
+ <meta content="<?php echo \dash\url::sitelang();?>/" name="jibres:sitelang"/>
  <meta content="<?php echo \dash\url::set_subdomain('api');?>/" name="jibres:api"/>
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
  <meta content="index, follow" name ="robots"/>
