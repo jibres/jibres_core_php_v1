@@ -412,6 +412,12 @@ class detail
 			$setupGuideDetail['splash'] = true;
 		}
 
+		$queue_detail = \lib\app\application\queue::detail();
+		if(isset($queue_detail['status']) && $queue_detail['status'])
+		{
+			$setupGuideDetail['apk'] = true;
+		}
+
 		return $setupGuideDetail;
 
 	}
