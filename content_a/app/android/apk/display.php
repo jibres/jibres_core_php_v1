@@ -1,46 +1,8 @@
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 
 <div class="f fs14 justify-center">
-
-
   <div class="c8 s12">
-    <?php if(!\dash\data::appQueue()) {?>
 
-      <?php if(\dash\data::isReadyToCreate_ok()) {?>
-       <div class="panel mB10 mLa5">
-        <table class="tbl1 v4 mB0">
-
-         <tr>
-          <td>
-            <?php echo T_("Your application is ready to build"); ?>
-          </td>
-          <td class="txtL">
-            <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
-          </td>
-         </tr>
-
-        </table>
-      </div>
-    <?php }else{ // application is not ready to build ?>
-
-       <div class="panel mB10 mLa10">
-        <table class="tbl1 v4 mB0">
-          <tr>
-            <th class="negative">
-              <?php echo T_("You must complete your application detail to build it"); ?>
-            </th>
-          </tr>
-            <?php foreach (\dash\data::isReadyToCreate_msg() as $key => $value) { ?>
-              <tr>
-                <td><?php echo $value ?></td>
-              </tr>
-            <?php }//endfor ?>
-        </table>
-      </div>
-
-    <?php } //endif ?>
-
-  <?php }else{ // the user have one quest queue ?>
 
     <div class="panel mB10 mLa5">
         <table class="tbl1 v4 mB0">
@@ -98,12 +60,15 @@
          </tr>
         <?php }//endif ?>
 
-      <?php }else{ // the other status  ?>
+        <?php }else{ // create first app  ?>
 
-        <tr>
-          <td><?php echo T_("Your old request status") ?></td>
-          <td class="txtL"><?php echo T_(\dash\data::appQueue_status()); ?></td>
-        </tr>
+        <?php if(\dash\data::appQueue_status()){ // the other status  ?>
+          <tr>
+            <td><?php echo T_("Your old request status") ?></td>
+            <td class="txtL"><?php echo T_(\dash\data::appQueue_status()); ?></td>
+          </tr>
+        <?php }//endif ?>
+
         <tr>
           <td>
             <?php echo T_("Your application is ready to build again"); ?>
@@ -113,17 +78,13 @@
           </td>
          </tr>
 
+
         <?php }//endif ?>
 
         </table>
       </div>
 
 
-  <?php }//endif ?>
-
-
-
-  </div>
 
   </div>
 </div>

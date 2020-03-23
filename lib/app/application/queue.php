@@ -166,6 +166,13 @@ class queue
 		];
 
 		\lib\db\store_app\insert::new_record($insert_queue);
+
+		\lib\db\setting\update::overwirte_platform_cat_key(null, 'android', 'application', 'queue_detail');
+
+		$app_queue_detail_addr = YARD . 'jibres_temp/app/'. \lib\store::id();
+		\dash\file::delete($app_queue_detail_addr);
+
+
 	}
 
 
