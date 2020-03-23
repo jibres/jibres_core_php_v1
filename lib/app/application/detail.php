@@ -4,6 +4,8 @@ namespace lib\app\application;
 
 class detail
 {
+	private static $app_detail = [];
+
 	public static function can_user_store_logo()
 	{
 		$store_logo = \lib\store::logo();
@@ -203,8 +205,12 @@ class detail
 
 	public static function get_android()
 	{
+		if(!self::$app_detail)
+		{
+			self::$app_detail = \lib\db\setting\get::platform('android');
+		}
 
-		$setting = \lib\db\setting\get::platform('android');
+		$setting = self::$app_detail;
 
 		$result = [];
 		foreach ($setting as $key => $value)
