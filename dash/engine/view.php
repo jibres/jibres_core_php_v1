@@ -27,7 +27,18 @@ class view
 		{
 			\dash\data::global_page('home');
 		}
+		// set panel
 		\dash\data::global_panel(null);
+		// set store
+		if(\dash\url::store())
+		{
+			\dash\data::global_env(\dash\url::store());
+		}
+		else
+		{
+			\dash\data::global_env('Jibres');
+		}
+
 
 
 		\dash\data::site_title(T_(\dash\option::config('site', 'title')));

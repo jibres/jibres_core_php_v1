@@ -102,6 +102,9 @@ if(\dash\data::include_adminPanel())
     echo " data-panel";
   }
 }
+// set env as store code or Jibres or something else
+echo " data-env='". \dash\data::global_env(). "'";
+// set iframe
 if(\dash\request::get('iframe'))
 {
   echo " data-iframe";
