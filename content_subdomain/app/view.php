@@ -6,7 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\lib\app\application\download::site();
+		\dash\data::page_title(T_('Download setting'));
+
 	}
 }
 ?>

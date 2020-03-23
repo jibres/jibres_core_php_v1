@@ -400,6 +400,13 @@ class store
 	}
 
 
+	public static function subdomain_url()
+	{
+		$url = \dash\url::set_subdomain(self::detail('subdomain'));
+		return $url;
+	}
+
+
 	public static function logo()
 	{
 		return self::detail('logo');
