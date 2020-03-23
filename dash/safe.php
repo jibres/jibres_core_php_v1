@@ -40,11 +40,8 @@ class safe
 			switch ($value)
 			{
 				case 'get_url':
-					$remove_inject = ["'", '"', '\\\\\\', '`', '\*', ';'];
-					break;
-
 				case 'sqlinjection':
-					$remove_inject = ["'", '"', '\\\\\\', '`', '\*', "\\?", ';'];
+					$remove_inject = ["'", '"', '\\\\\\', '`', '\*', ';'];
 					$checkPersianChar = true;
 					break;
 
