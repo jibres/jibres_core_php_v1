@@ -91,24 +91,23 @@ else
 echo " data-page='". \dash\data::global_page(). "'";
 if(\dash\data::include_adminPanel())
 {
-if(!\dash\data::userToggleSidebar())
-{
-// without sidebar
-  echo " data-panel='clean'";
-}
-else
-{
-// with sidebar
-  echo " data-panel";
-}
+  if(!\dash\data::userToggleSidebar())
+  {
+  // without sidebar
+    echo " data-panel='clean'";
+  }
+  else
+  {
+  // with sidebar
+    echo " data-panel";
+  }
 }
 if(\dash\request::get('iframe'))
 {
   echo " data-iframe";
 }
 echo " data-preload";
-echo ">";
-
+?>><?php
 \dash\layout\find::allBlocks();
 ?>
 
