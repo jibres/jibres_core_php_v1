@@ -58,6 +58,12 @@ class get
 	}
 
 
+	public static function application_dowload_page()
+	{
+		$query = "SELECT * FROM setting WHERE setting.platform = 'android' AND setting.cat = 'setting' AND setting.key IN ('googleplay','cafebazar','myket','downloadtitle','downloaddesc') ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 
 }
 ?>

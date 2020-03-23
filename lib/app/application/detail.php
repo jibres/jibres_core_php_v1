@@ -188,6 +188,25 @@ class detail
 	}
 
 
+	/**
+	 * Gets the dowload page detail
+	 *
+	 * @return     array  The dowload page.
+	 */
+	public static function get_dowload_page()
+	{
+		$get = \lib\db\setting\get::application_dowload_page();
+		if(!is_array($get))
+		{
+			return [];
+		}
+
+		$get = array_column($get, 'value', 'key');
+		return $get;
+	}
+
+
+
 	private static function set_setting_record($_key, $_value)
 	{
 		$get = \lib\db\setting\get::platform_cat_key('android', 'setting', $_key);

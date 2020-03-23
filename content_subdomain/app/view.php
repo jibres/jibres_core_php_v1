@@ -8,6 +8,10 @@ class view
 	{
 		\dash\data::page_title(T_('Download setting'));
 
+		$appDetail = \lib\app\application\detail::get_dowload_page();
+		\dash\data::appDetail($appDetail);
+
+
 	}
 }
 ?>
