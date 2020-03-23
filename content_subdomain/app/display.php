@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="c4 s0">
+      <div class="c4 s12">
       	<div class="mobileFrame hide mT20-f">
       	</div>
         	<img src="<?php \dash\url::cdn(); ?>https://khadije.com/static/images/app/cover1.png" class="preview" alt='<?php echo T_('Mobile Application'). ' - '. \dash\data::appDetail_downloadtitle(); ?>'>
