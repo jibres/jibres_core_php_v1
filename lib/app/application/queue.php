@@ -220,6 +220,8 @@ class queue
 			{
 				case 'queue':
 				case 'inprogress':
+					\dash\notif::info(T_("Your request to create store app is saved and on queue in our app factory."));
+					return true;
 					// do nothing
 					break;
 

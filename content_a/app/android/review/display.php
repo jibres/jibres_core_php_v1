@@ -2,6 +2,25 @@
 
 <div class="f fs14 justify-center">
   <div class="c6 s12">
+<?php
+if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress' || \dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status() === 'enable')
+{
+?>
+    <div  class="box impact mB25-f">
+      <header><h2><?php echo T_("Review Application detail");?></h2></header>
+        <div class="body">
+          <p><?php echo T_("Your request to create store app is saved and on queue in our app factory."). ' '. T_("We are send a message notification to you after your app is being ready. which usually take some minutes."); ?></p>
+        </div>
+        <footer class="txtRa">
+          <a href="<?php echo \dash\url::that(). '/apk'; ?>" class="btn primary" ><?php echo T_("Check status"); ?></a>
+        </footer>
+    </div>
+
+<?php
+}
+else
+{
+?>
 
     <?php if(\dash\data::isReadyToCreate_ok()) {?>
     <div  class="box impact mB25-f">
@@ -14,6 +33,16 @@
         </footer>
     </div>
     <?php } // endif ?>
+
+<?php
+} // endif
+?>
+
+
+
+
+
+
 
     <div class="mB20">
 
