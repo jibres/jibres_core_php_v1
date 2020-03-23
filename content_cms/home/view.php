@@ -81,15 +81,6 @@ class view
 		$args             = [];
 		$args['language'] = \dash\language::current();
 
-
-		$allWordCloud = \dash\utility\catch_file::get('cpWordCload_'. \dash\url::subdomain(), false);
-		if(!$allWordCloud)
-		{
-			$allWordCloud = \dash\app\posts::all_word_cloud($args);
-			\dash\utility\catch_file::set('cpWordCload_'. \dash\url::subdomain(), $allWordCloud, 60*2);
-		}
-
-		\dash\data::allWordCloud($allWordCloud);
 	}
 }
 ?>

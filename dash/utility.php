@@ -30,10 +30,8 @@ class utility
 		{
 			if(!$_not_check_crazy)
 			{
-				if(\dash\utility\passwords::is_crazy($raw_password))
+				if(!\dash\validate::password($raw_password))
 				{
-					\dash\log::set('useCreazyPassword');
-					\dash\notif::error(T_("This password is very simple and guessable, please use stronger password!"));
 					return false;
 				}
 			}

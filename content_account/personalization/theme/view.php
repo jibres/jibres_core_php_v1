@@ -16,9 +16,6 @@ class view
 		\dash\data::back_text(T_('Personalization'));
 		\dash\data::back_link(\dash\url::this());
 
-		$themeList = \dash\utility\theme::all();
-
-		\dash\data::themeList($themeList);
 
 
 	}
