@@ -53,12 +53,13 @@
 
         </div>
 
-        <footer class="txtRa">
-          <button class="btn success"><?php echo T_("Save"); ?></button>
-          <?php if(\dash\data::splashSaved_start()) {?>
-            <a class="btn secondary" href="<?php echo \dash\url::that(). '/intro'; ?>"><?php echo T_("Next"); ?></a>
-          <?php } //endif ?>
-        </footer>
+      <footer class="f">
+        <div class="c">
+          <a class="ibtn" href="<?php echo \dash\url::that(). '/setting'; ?>"><i data-next></i><span><?php echo T_("App Title"); ?></span></a>
+
+        </div>
+        <div class="cauto os"><button class="btn success"><?php echo T_("Save & Next"); ?></button></div>
+      </footer>
 
       </form>
   </div>

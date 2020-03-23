@@ -35,8 +35,8 @@ function pushStateFinal()
     myStyle += ')';
 
     mySplashPrev.attr('style', myStyle);
-    mySplashPrev.find('h1').css('color', $('[data-page="app_android_splash"] #colortext').val());
-    mySplashPrev.find('h2').css('color', $('[data-page="app_android_splash"] #colordesc').val());
+    mySplashPrev.find('h2').css('color', $('[data-page="app_android_splash"] #colortext').val());
+    mySplashPrev.find('h3').css('color', $('[data-page="app_android_splash"] #colordesc').val());
     mySplashPrev.find('.desc').css('color', $('[data-page="app_android_splash"] #colordesc').val());
   }
   // run on init

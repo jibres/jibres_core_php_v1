@@ -3,11 +3,6 @@
   <div class="c6 m8 s12">
     <form method="post" autocomplete="off" class="box impact">
       <header><h2><?php echo T_("Set your application title and slogan"); ?></h2></header>
-      <div class="body zeroPad">
-        <?php if(\dash\data::appQueue()) {?>
-          <div class="msg warn2 mB0"><?php echo T_("Changing these values ​​will need to be rebuilt") ?></div>
-        <?php } //endif ?>
-      </div>
       <div class="body">
 
           <label for="title"><?php echo T_("Application title"); ?> <small class="fc-red fs08"><?php echo T_("Required"); ?></small></label>
@@ -24,12 +19,12 @@
           <textarea class="txt mB10" name="desc" maxlength="150" rows="3" id="desc" ><?php echo \dash\data::appDetail_desc(); ?></textarea>
 
       </div>
-      <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Save"); ?></button>
-        <?php if(\dash\data::appDetail_title() || \dash\data::appDetail_title() == '0') {?>
-          <a class="btn secondary" href="<?php echo \dash\url::that(). '/splash'; ?>"><?php echo T_("Next"); ?></a>
-        <?php } //endif ?>
+      <footer class="f">
+        <div class="c">
+          <a class="ibtn" href="<?php echo \dash\url::that(). '/logo'; ?>"><i data-next></i><span><?php echo T_("Logo"); ?></span></a>
 
+        </div>
+        <div class="cauto os"><button class="btn success"><?php echo T_("Save & Next"); ?></button></div>
       </footer>
     </form>
   </div>

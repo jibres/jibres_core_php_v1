@@ -39,6 +39,8 @@ class view
 		$splashSaved = \lib\app\application\splash::get_android();
 		\dash\data::splashSaved($splashSaved);
 
+		\dash\data::nextBtn(T_('Save & Next'));
+
 		self::stepGuide();
 	}
 
