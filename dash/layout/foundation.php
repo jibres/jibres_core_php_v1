@@ -78,6 +78,8 @@ if (\dash\url::subdomain())
 {
   echo " data-subdomain='". \dash\url::subdomain(). "'";
 }
+// set env as store code or Jibres or something else
+echo " data-env='". \dash\data::global_env(). "'";
 // content
 if(\dash\url::content() === null)
 {
@@ -102,8 +104,6 @@ if(\dash\data::include_adminPanel())
     echo " data-panel";
   }
 }
-// set env as store code or Jibres or something else
-echo " data-env='". \dash\data::global_env(). "'";
 // set iframe
 if(\dash\request::get('iframe'))
 {
