@@ -107,12 +107,12 @@ class view
 			\dash\data::page_special(true);
 		}
 
-
-		if(!\dash\data::page_desc() && \dash\data::page_desc() !== false && !\dash\url::content())
+		if(!\dash\url::content())
 		{
-
+			// remove page desc
 			\dash\data::page_desc(\dash\data::site_desc());
 		}
+
 
 		self::setSocialTitle();
 	}
