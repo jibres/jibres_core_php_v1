@@ -5,7 +5,14 @@ class model
 {
 	public static function post()
 	{
-		$theme_detail = \lib\app\application\detail::set_android_logo();
+		if(\dash\request::post('usestorelogo'))
+		{
+			\lib\app\application\detail::set_android_logo_from_store_logo();
+		}
+		else
+		{
+			\lib\app\application\detail::set_android_logo();
+		}
 
 		if(\dash\engine\process::status())
 		{

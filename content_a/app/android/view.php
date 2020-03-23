@@ -31,8 +31,10 @@ class view
 
 
 		$app_queue = \lib\app\application\queue::detail();
-
-		\dash\data::appQueue($app_queue);
+		if(isset($app_queue['status']) && $app_queue['status'])
+		{
+			\dash\data::appQueue($app_queue);
+		}
 
 		self::stepGuide();
 	}

@@ -4,9 +4,64 @@ namespace lib\app\application;
 
 class detail
 {
-	public static function set_android_logo()
+	public static function can_user_store_logo()
 	{
-		$logo = \dash\upload\store_logo::app_android_logo_set();
+		$store_logo = \lib\store::logo();
+		if(!$store_logo)
+		{
+			return false;
+		}
+
+		if(!\dash\upload\crop::check_square($store_logo))
+		{
+			return false;
+		}
+
+		$image_detail = @getimagesize($store_logo);
+		if(isset($image_detail['mime']) && $image_detail['mime'] === 'image/png')
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	public static function set_android_logo_from_store_logo()
+	{
+
+		if(!self::can_user_store_logo())
+		{
+			if(\lib\store::logo())
+			{
+				\dash\notif::error(T_("Your store logo is not set"));
+				return false;
+			}
+			else
+			{
+				\dash\notif::error(T_("Your store logo is not a square logo"));
+				return false;
+			}
+		}
+		else
+		{
+			$store_logo = \lib\store::logo();
+			$store_logo = \lib\filepath::raw_path($store_logo);
+			self::set_android_logo($store_logo);
+		}
+	}
+
+
+	public static function set_android_logo($_logo = null)
+	{
+		if(!$_logo)
+		{
+			$logo = \dash\upload\store_logo::app_android_logo_set();
+		}
+		else
+		{
+			$logo = $_logo;
+		}
 
 		if($logo)
 		{

@@ -35,7 +35,7 @@ class crop
 
 	public static function check_square($_file_addr)
 	{
-		$detail = getimagesize($_file_addr);
+		$detail = @getimagesize($_file_addr);
 
 		if(isset($detail[0]) && isset($detail[1]))
 		{

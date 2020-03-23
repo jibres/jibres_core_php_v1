@@ -88,5 +88,21 @@ class filepath
 		return $_path;
 	}
 
+
+	/**
+	 * Remove the host from file
+	 * in some place we have the full address file and need to remove host to save in database
+	 *
+	 * @param      <type>  $_addr  The address
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function raw_path($_addr)
+	{
+		$addr = str_replace(\dash\url::cloud(). '/', '', $_addr);
+		$addr = str_replace(\dash\url::dl(). '/', '', $addr);
+		return $addr;
+	}
+
 }
 ?>

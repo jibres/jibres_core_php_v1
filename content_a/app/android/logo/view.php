@@ -13,6 +13,11 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 		\content_a\app\android\view::ready();
+
+		if(\lib\app\application\detail::can_user_store_logo())
+		{
+			\dash\data::canUseStoreLogo(true);
+		}
 	}
 }
 ?>
