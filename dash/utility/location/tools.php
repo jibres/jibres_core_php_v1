@@ -175,7 +175,7 @@ trait tools
 
 						if(isset(self::$data[$key]['localname']) && self::$data[$key]['localname'])
 						{
-							if(\dash\utility\filter::slug($myKey) != \dash\utility\filter::slug(self::$data[$key]['localname']))
+							if(\dash\validate::slug($myKey, false) != \dash\validate::slug(self::$data[$key]['localname'], false))
 							{
 								$myKey .= ' - '. self::$data[$key]['localname'];
 							}
@@ -222,7 +222,7 @@ trait tools
 
 					if(isset(self::$data[$_data]['localname']) && self::$data[$_data]['localname'])
 					{
-						if(\dash\utility\filter::slug($_data) != \dash\utility\filter::slug(self::$data[$_data]['localname']))
+						if(\dash\validate::slug($_data, false) != \dash\validate::slug(self::$data[$_data]['localname'], false))
 						{
 							$_data .= ' - '. self::$data[$_data]['localname'];
 						}

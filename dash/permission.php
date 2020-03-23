@@ -303,7 +303,7 @@ class permission
 
 		if(!$_update)
 		{
-			$_name = \dash\utility\filter::slug($_name);
+			$_name = \dash\validate::slug($_name, false);
 
 			if(array_key_exists($_name, $groups))
 			{

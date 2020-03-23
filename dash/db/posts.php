@@ -135,7 +135,7 @@ class posts
 	{
 		$query = "SELECT * FROM posts WHERE id = $_post_id LIMIT 1";
 		$result = \dash\db::get($query);
-		$result = \dash\utility\filter::meta_decode($result);
+
 		if(isset($result[0]))
 		{
 			$result = $result[0];
@@ -164,7 +164,6 @@ class posts
 		}
 
 		$result = \dash\db::get("SELECT * FROM posts WHERE id IN ($_ids)");
-		$result = \dash\utility\filter::meta_decode($result);
 		return $result;
 	}
 

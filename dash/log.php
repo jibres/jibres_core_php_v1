@@ -370,7 +370,7 @@ class log
 		{
 			foreach ($_user_detail as $key => $value)
 			{
-				if(isset($value['mobile']) && \dash\utility\filter::mobile($value['mobile']))
+				if(isset($value['mobile']) && \dash\validate::mobile($value['mobile'], false))
 				{
 					// check if send by tg not send by sms
 					if(isset($new_args[$key]['telegram']))

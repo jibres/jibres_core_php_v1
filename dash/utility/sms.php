@@ -108,15 +108,9 @@ class sms
 		$_options = array_merge($default_option, $_options);
 
 
-		$mobile = \dash\utility\filter::mobile($_mobile);
+		$mobile = \dash\validate::ir_mobile($_mobile, false);
 		if(!$mobile)
 		{
-			return false;
-		}
-
-		if(substr($mobile, 0, 2) !== '98')
-		{
-			// add another service for outside of iran
 			return false;
 		}
 
@@ -196,15 +190,10 @@ class sms
 		$accepted_mobile = [];
 		foreach ($_mobiles as $key => $value)
 		{
-			$mobile = \dash\utility\filter::mobile($value);
+			$mobile = \dash\validate::ir_mobile($value, false);
 
 			if($mobile)
 			{
-				if(substr($mobile, 0, 2) !== '98')
-				{
-					// add another service for outside of iran
-					continue;
-				}
 				array_push($accepted_mobile, $value);
 			}
 		}

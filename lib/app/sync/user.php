@@ -21,7 +21,7 @@ class user
 			return null;
 		}
 
-		$mobile = \dash\utility\filter::mobile($_args['mobile']);
+		$mobile = \dash\validate::mobile($_args['mobile'], false);
 
 		if(!$mobile)
 		{

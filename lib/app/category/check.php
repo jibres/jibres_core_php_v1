@@ -26,7 +26,7 @@ class check
 
 		if(!$data['slug'])
 		{
-			$data['slug'] = \dash\utility\filter::slug($data['title'], null, 'persian');
+			$data['slug'] = \dash\validate::slug($data['title'], false);
 		}
 
 

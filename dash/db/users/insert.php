@@ -49,7 +49,7 @@ class insert
 
 		if(isset($_args['mobile']) && $_args['mobile'])
 		{
-			$mobile = \dash\utility\filter::mobile($_args['mobile']);
+			$mobile = \dash\validate::mobile($_args['mobile'], false);
 			if(!$mobile)
 			{
 				return false;
@@ -130,7 +130,7 @@ class insert
 
 		if(isset($_args['mobile']) && $_args['mobile'])
 		{
-			$mobile = \dash\utility\filter::mobile($_args['mobile']);
+			$mobile = \dash\validate::mobile($_args['mobile'], false);
 			if(!$mobile)
 			{
 				return false;

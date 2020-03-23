@@ -822,7 +822,6 @@ class config
 		if(!$only_one_value)
 		{
 			$result = \dash\db::get($query, null, false, $db_name);
-			$result = \dash\utility\filter::meta_decode($result);
 		}
 		else
 		{

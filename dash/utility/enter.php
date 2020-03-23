@@ -143,7 +143,7 @@ class enter
 				break;
 
 			case 'mobile':
-				if(\dash\utility\filter::mobile($_user_aut_key))
+				if(\dash\validate::mobile($_user_aut_key, false))
 				{
 					$data = \dash\db\users::get_by_mobile($_user_aut_key);
 				}
@@ -651,7 +651,7 @@ class enter
 			array_push($way, 'telegram');
 		}
 
-		if($mobile && \dash\utility\filter::mobile($mobile))
+		if($mobile && \dash\validate::mobile($mobile, false))
 		{
 			array_push($way, 'sms');
 			array_push($way, 'call');

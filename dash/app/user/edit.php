@@ -41,7 +41,7 @@ trait edit
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore() && isset($_args['mobile']))
 		{
-			$mobile = \dash\utility\filter::mobile($_args['mobile']);
+			$mobile = \dash\validate::mobile($_args['mobile'], false);
 			if($mobile)
 			{
 				$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);

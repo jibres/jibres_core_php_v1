@@ -632,7 +632,6 @@ class visitors
 		if(!$only_one_value)
 		{
 			$result = \dash\db::get($query, null, false);
-			$result = \dash\utility\filter::meta_decode($result);
 		}
 		else
 		{

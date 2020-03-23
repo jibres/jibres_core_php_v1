@@ -40,15 +40,9 @@ class call
 
 		$_options = array_merge($default_option, $_options);
 
-		$mobile = \dash\utility\filter::mobile($_mobile);
+		$mobile = \dash\validate::ir_mobile($_mobile, false);
 		if(!$mobile)
 		{
-			return false;
-		}
-
-		if(substr($mobile, 0, 2) !== '98')
-		{
-			// add another service for outside of iran
 			return false;
 		}
 
@@ -66,17 +60,13 @@ class call
 			return null;
 		}
 
-		$mobile = \dash\utility\filter::mobile($_mobile);
+		$mobile = \dash\validate::ir_mobile($_mobile, false);
 		if(!$mobile)
 		{
 			return false;
 		}
 
-		if(substr($mobile, 0, 2) !== '98')
-		{
-			// add another service for outside of iran
-			return false;
-		}
+
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_text = null, $_type = 'sms')
 		$api    = new \dash\utility\kavenegar_api(self::$kavenegar_auth, 100020009);

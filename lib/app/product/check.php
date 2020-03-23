@@ -97,7 +97,7 @@ class check
 
 		if(!$data['slug'])
 		{
-			$data['slug'] = \dash\utility\filter::slug($data['title'], null, 'persian');
+			$data['slug'] = \dash\validate::slug($data['title'], false);
 		}
 
 		if($data['barcode'] && $data['barcode2'] && $data['barcode'] == $data['barcode2'])

@@ -166,7 +166,7 @@ class users
 				)
 			";
 
-			$mobile = \dash\utility\filter::mobile($_string);
+			$mobile = \dash\validate::mobile($_string, false);
 			if($mobile || is_numeric($_string))
 			{
 				$search_field =
@@ -382,10 +382,10 @@ class users
 		}
 
 		// if email search only in email
-		if(\dash\utility\filter::mobile($_find))
+		if(\dash\validate::mobile($_find, false))
 		{
 			// mobile in mobile
-			$fix_mobile = \dash\utility\filter::mobile($_find);
+			$fix_mobile = \dash\validate::mobile($_find);
 			$query      = "SELECT * FROM users WHERE users.mobile = '$fix_mobile' ORDER BY users.id ASC LIMIT 1";
 		}
 		elseif(filter_var($_find, FILTER_VALIDATE_EMAIL))

@@ -7,7 +7,7 @@ class account
 
 	public static function register($_chat_id, $_mobile, $_args = [])
 	{
-		$mobile = \dash\utility\filter::mobile($_mobile);
+		$mobile = \dash\validate::mobile($_mobile, false);
 		if(!$mobile)
 		{
 			// invalid mobile synax

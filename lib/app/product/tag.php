@@ -95,7 +95,7 @@ class tag
 					return false;
 				}
 
-				$slug = \dash\utility\filter::slug($value, null, 'persian');
+				$slug = \dash\validate::slug($value, false);
 
 				$multi_insert_tag[] =
 				[
@@ -285,7 +285,7 @@ class tag
 
 		if(!$data['slug'])
 		{
-			$data['slug'] = \dash\utility\filter::slug($data['title'], null, 'persian');
+			$data['slug'] = \dash\validate::slug($data['title'], false);
 		}
 
 

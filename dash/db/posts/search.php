@@ -215,7 +215,6 @@ trait search
 		";
 
 		$result = \dash\db::get($query);
-		$result = \dash\utility\filter::meta_decode($result);
 		return $result;
 	}
 }

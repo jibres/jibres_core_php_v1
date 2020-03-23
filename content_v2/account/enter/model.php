@@ -125,7 +125,7 @@ class model
 			return false;
 		}
 
-		$mobile = \dash\utility\filter::mobile($mobile);
+		$mobile = \dash\validate::mobile($mobile, false);
 		if(!$mobile)
 		{
 			\dash\notif::error(T_("Invalid mobile"), 'mobile');

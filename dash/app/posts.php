@@ -502,11 +502,11 @@ class posts
 		if($data['title'] && !$data['slug'])
 		{
 			$data['slug'] = $data['title'];
+			$data['slug'] = \dash\validate::slug($data['slug'], false);
 		}
 
 		$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 
-		$data['slug'] = \dash\utility\filter::slug($data['slug'], null, 'persian');
 
 
 		$check_duplicate_args = ['slug' => $data['slug'], 'language' => $data['language'], 'limit' => 1];
@@ -883,7 +883,7 @@ class posts
 				$multi_insert_tag = [];
 				foreach ($must_insert_tag as $key => $value)
 				{
-					$slug = \dash\utility\filter::slug($value, null, 'persian');
+					$slug = \dash\validate::slug($value, false);
 
 					$multi_insert_tag[] =
 					[
