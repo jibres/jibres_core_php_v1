@@ -38,8 +38,14 @@ class view
 
 		$splashSaved = \lib\app\application\splash::get_android();
 		\dash\data::splashSaved($splashSaved);
-
-		\dash\data::nextBtn(T_('Save & Next'));
+		if(\dash\request::get('setup') === 'wizard')
+		{
+			\dash\data::nextBtn(T_('Save & Next'));
+		}
+		else
+		{
+			\dash\data::nextBtn(T_('Save'));
+		}
 
 		self::stepGuide();
 	}
@@ -166,11 +172,6 @@ class view
 				'title' => T_('Review'),
 				'link'  => \dash\url::that(). '/review'. $get_wizard,
 				'class' => $review,
-			],
-			[
-				'title' => T_('Generate Your App'),
-				// 'link'  => \dash\url::that(). '/apk'. $get_wizard,
-				'class' => $apk,
 			],
 		];
 

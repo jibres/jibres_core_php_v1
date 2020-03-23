@@ -80,10 +80,10 @@ class detail
 			$logo = $_logo;
 		}
 
+		$get = \lib\db\setting\get::platform_cat_key('android', 'setting', 'logo');
+
 		if($logo)
 		{
-			$get = \lib\db\setting\get::platform_cat_key('android', 'setting', 'logo');
-
 			$change = true;
 
 			if(isset($get['id']))
@@ -110,9 +110,18 @@ class detail
 		}
 		else
 		{
-			if(\dash\engine\process::status())
+			if(isset($get['id']))
 			{
-				\dash\notif::error(T_("Please choose a file to set as your application logo"));
+				// whe have old logo
+				\dash\notif::info(T_("Your application logo saved without change"));
+			}
+			else
+			{
+				if(\dash\engine\process::status())
+				{
+					\dash\notif::error(T_("Please choose a file to set as your application logo"));
+				}
+
 			}
 		}
 	}

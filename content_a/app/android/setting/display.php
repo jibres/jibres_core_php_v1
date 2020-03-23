@@ -21,10 +21,10 @@
       </div>
       <footer class="f">
         <div class="c">
-          <a class="ibtn" href="<?php echo \dash\url::that(). '/logo'; ?>"><i data-next></i><span><?php echo T_("Logo"); ?></span></a>
+          <a class="ibtn" href="<?php echo \dash\url::that(). '/logo'; ?>"><i data-prev></i><span><?php echo T_("Logo"); ?></span></a>
 
         </div>
-        <div class="cauto os"><button class="btn success"><?php echo T_("Save & Next"); ?></button></div>
+        <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>
       </footer>
     </form>
   </div>
