@@ -122,23 +122,23 @@ class intro
 		[
 			1 =>
 			[
-				'title' => T_("Jibres"),
-				'desc'  => T_("Sell and Enjoy"),
-				'image'  => \dash\url::icon(),
+				'title' => T_("Faster"),
+				'desc'  => T_("Anything you need"),
+				'image'  => \dash\url::cdn(). '/img/app/app-intro-1.jpg',
 			],
 
 			2 =>
 			[
-				'title' => T_("Jibres"),
-				'desc'  => T_("Sell and Enjoy"),
-				'image'  => \dash\url::icon(),
+				'title' => T_("Beter"),
+				'desc'  => T_("Special experience"),
+				'image'  => \dash\url::cdn(). '/img/app/app-intro-2.jpg',
 			],
 
 			3 =>
 			[
-				'title' => T_("Jibres"),
-				'desc'  => T_("Sell and Enjoy"),
-				'image'  => \dash\url::icon(),
+				'title' => T_("Enjoy!"),
+				'desc'  => T_("Be ready to fly"),
+				'image'  => \dash\url::cdn(). '/img/app/app-intro-4.jpg',
 			],
 		];
 

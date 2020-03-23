@@ -44,15 +44,15 @@
           <p><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></p>
           <nav class="f align-center">
             <?php if ($i === 1) {?>
-            <div class="c4 prev txtLa"><?php echo "Skip"; ?></div>
+            <div class="c4 prev txtLa"><?php echo T_("Skip"); ?></div>
             <div class="c4 step"><i class="current"></i><i></i><i></i></div>
-            <div class="c4 next txtRa"><?php echo "Next"; ?></div>
+            <div class="c4 next txtRa"><?php echo T_("Next"); ?></div>
             <?php } elseif ($i === 2) {?>
-            <div class="c4 prev txtLa"><?php echo "Skip"; ?></div>
+            <div class="c4 prev txtLa"><?php echo T_("Skip"); ?></div>
             <div class="c4 step"><i></i><i class="current"></i><i></i></div>
-            <div class="c4 next txtRa"><?php echo "Next"; ?></div>
+            <div class="c4 next txtRa"><?php echo T_("Next"); ?></div>
             <?php } elseif ($i === 3) {?>
-            <div class="c12 next"><?php echo "Get Started"; ?></div>
+            <div class="c12 next"><?php echo T_("Get Started"); ?></div>
             <?php }?>
           </nav>
         </div>
