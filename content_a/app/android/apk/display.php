@@ -2,7 +2,7 @@
 <?php $addNew = false; ?>
 
 <div class="f fs14 justify-center">
-  <div class="c6 m8 s12">
+  <div class="c6 m8 s12 x4">
 
     <div  class="box impact">
       <header><h2><?php echo T_("Your Store Android Application Status");?></h2></header>
