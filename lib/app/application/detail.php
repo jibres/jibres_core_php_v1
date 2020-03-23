@@ -298,7 +298,7 @@ class detail
 		if(!$check['splash_theme'])
 		{
 			$is_ok = false;
-			$message[] = T_("Please set your application splash theme");
+			$message[] = T_("Please choose application splash theme");
 		}
 
 
