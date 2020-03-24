@@ -7,7 +7,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Price change chart!'));
-		\dash\data::page_desc(T_('Check price change of this product like buy, sale and profit.'));
 
 		\dash\data::loadScript(true);
 

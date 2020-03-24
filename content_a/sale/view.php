@@ -9,9 +9,7 @@ class view
 		// show dropdown of product list
 		\lib\app\product\site_list::dropdown();
 
-
 		\dash\data::page_title(T_('Sale invoicing'));
-		// \dash\data::page_desc(T_('Sale your product via Jibres and enjoy using integrated web base platform.'));
 
 
 		if(\dash\permission::check('factorSaleList'))

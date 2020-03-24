@@ -6,14 +6,10 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Unit of products'));
-		\dash\data::page_desc(T_('You can manage your units manually.'). ' '. T_("Don't worry! we are add units automatically on add new product"));
-
-
 
 		// back
 		\dash\data::back_text(T_('Products'));
 		\dash\data::back_link(\lib\backlink::products());
-
 
 		if(\dash\data::editMode())
 		{

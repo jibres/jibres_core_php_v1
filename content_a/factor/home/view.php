@@ -90,7 +90,6 @@ class view
 		{
 			$myTitle     = T_('List of :type', ['type' => T_($moduleType)]);
 			$myDesc      = T_('Search in list of :type factors, add or edit them.', ['type' => T_($moduleType)]);
-			$myDesc      .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
 
 			switch ($moduleType)
 			{
@@ -113,7 +112,6 @@ class view
 		}
 
 		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
 
 		\dash\data::action_text($myBadgeText);
 		\dash\data::action_link($myBadgeLink);
