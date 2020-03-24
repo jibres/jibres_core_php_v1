@@ -40,7 +40,6 @@ class view
 		}
 
 
-
 		\dash\data::site_title(T_(\dash\option::config('site', 'title')));
 		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
 		\dash\data::site_slogan(T_(\dash\option::config('site', 'slogan')));
@@ -106,7 +105,6 @@ class view
 			\dash\data::page_title(\dash\data::site_title());
 			\dash\data::page_special(true);
 		}
-
 
 		if(!\dash\data::page_desc())
 		{
@@ -206,26 +204,7 @@ class view
 				$txtDesc .= \dash\fit::mobile(\dash\user::detail('mobile'));
 			}
 
-			$txtFooter = '';
-			// $txtFooter .= '<div class="align-center txtC">';
-			// $txtFooter .= ' <div>';
-			// notification
-			// $txtFooter .= '  <a class="btn outline lg" href="'. \dash\url::kingdom(). '/account/notification" title="'. T_("Notifications"). '">'. '<i class="sf-bell"></i>'. '</a>';
-			// profile
-			// $txtFooter .= '  <a class="btn outline lg" href="'. \dash\url::kingdom(). '/account/profile" title="'. T_("Profile"). '">'. '<i class="sf-user"></i>'. '</a>';
-			// billing
-			// $txtFooter .= '  <a class="btn outline lg" href="'. \dash\url::kingdom(). '/account/billing" title="'. T_("Billing"). '">'. '<i class="sf-credit-card"></i>'. '</a>';
-			// support
-			// $txtFooter .= '  <a class="btn outline lg" href="'. \dash\url::kingdom(). '/support" title="'. T_("Support center"). '">'. '<i class="sf-life-ring"></i>'. '</a>';
-			// ticket
-			// $txtFooter .= '  <a class="btn outline lg" href="'. \dash\url::kingdom(). '/support/ticket" title="'. T_("Tickets"). '">'. '<i class="sf-question-circle"></i>'. '</a>';
-			// $txtFooter .= ' </div>';
-
-			// $txtFooter .= '</div>';
-
-
 			\dash\data::userBadge_desc($txtDesc);
-			\dash\data::userBadge_footer($txtFooter);
 		}
 	}
 
