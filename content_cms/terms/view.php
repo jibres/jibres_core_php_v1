@@ -8,7 +8,6 @@ class view
 	{
 
 		$myTitle = T_("Terms");
-		$myDesc  = T_("Check terms and filter by type or view and edit some terms");
 
 		$myType = \dash\request::get('type');
 		if($myType)
@@ -20,7 +19,6 @@ class view
 					\dash\permission::access('cpCategoryView');
 
 					$myTitle = T_('Categories');
-					$myDesc  = T_("Check categories and add or edit some new category");
 
 					break;
 
@@ -28,7 +26,6 @@ class view
 					\dash\permission::access('cpTagHelpView');
 
 					$myTitle = T_('Tags');
-					$myDesc  = T_("Check tags and add or edit some new tag");
 
 					break;
 
@@ -36,7 +33,6 @@ class view
 					\dash\permission::access('cpTagSupportView');
 
 					$myTitle = T_('Tags');
-					$myDesc  = T_("Check tags and add or edit some new tag");
 
 					break;
 
@@ -45,7 +41,6 @@ class view
 					\dash\permission::access('cpTagView');
 
 					$myTitle = T_('Tags');
-					$myDesc  = T_("Check tags and add or edit some new tag");
 
 					break;
 			}
@@ -56,7 +51,6 @@ class view
 		}
 
 		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
 
 		\dash\data::action_text(T_('Back to dashboard'));
 

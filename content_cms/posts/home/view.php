@@ -20,7 +20,6 @@ class view
 		$myType = \dash\request::get('type');
 
 		$myTitle = T_("Posts");
-		$myDesc  = T_('Check list of posts and search or filter in them to find your posts.'). ' '. T_('Also add or edit specefic post.');
 
 
 		if($myType)
@@ -29,7 +28,6 @@ class view
 			{
 				case 'page':
 					$myTitle = T_('Pages');
-					$myDesc  = T_('Check list of pages and to find your pages.'). ' '. T_('Also add or edit specefic static page.');
 
 
 					if(\dash\permission::check('cpPageAdd'))
@@ -42,7 +40,6 @@ class view
 
 				case 'help':
 					$myTitle     = T_('Help Center');
-					$myDesc      = T_('Check list of article in help center.'). ' '. T_('Also add or edit specefic article.');
 					$myBadgeText = T_('Back to list of helps');
 
 
@@ -81,7 +78,6 @@ class view
 		// add back level to summary link
 
 		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
 
 
 		\dash\data::badge2_text(T_('Back to dashboard'));

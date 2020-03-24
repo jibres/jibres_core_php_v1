@@ -22,7 +22,6 @@ class view
 
 
 		$myTitle = T_("Edit post");
-		$myDesc  = T_("You can change everything, change url and add gallery or some other change");
 
 		$myBadgeLink = \dash\url::this(). $moduleType;
 		$myBadgeText = T_('Back to list of posts');
@@ -49,7 +48,6 @@ class view
 					\dash\permission::access('cpHelpCenterEdit');
 					$myTitle     = T_('Edit help');
 					$myBadgeText = T_('Back to list of helps');
-					$myDesc      = T_("Helps can contain keyword and category with title and descriptions.");
 					\dash\data::listCats(\dash\app\term::cat_list('help'));
 					$pageList = \dash\db\posts::get(['type' => 'help', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
 					$pageList = array_map(['\dash\app\posts', 'ready'], $pageList);
@@ -76,7 +74,6 @@ class view
 		}
 
 		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
 
 		\dash\data::action_text($myBadgeText);
 		\dash\data::action_link($myBadgeLink);

@@ -10,21 +10,14 @@ class view
 		$moduleTypeTxt = 'attachemnt';
 		$moduleType    = 'attachemnt';
 
-
-
 		\dash\data::moduleTypeTxt($moduleTypeTxt);
 		\dash\data::moduleType($moduleType);
 
-
 		$myTitle   = T_("Add new attachemnt");
-		$myDesc    = ' ';
-
 		$myBadgeLink = \dash\url::this();
 		$myBadgeText = T_('Back to list of attachemnt');
 
-
 		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
 
 		\dash\data::action_text($myBadgeText);
 		\dash\data::action_link($myBadgeLink);
