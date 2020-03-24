@@ -6,7 +6,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_("Telegram webhook"));
-		\dash\data::page_desc(T_('Show telegram webhook information'));
 
 		\dash\data::action_text(T_('Back to Telegram dashboard'));
 		\dash\data::action_link(\dash\url::this());

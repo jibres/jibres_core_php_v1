@@ -6,7 +6,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_("Send message"));
-		\dash\data::page_desc(T_('Send simple text message to selected user'));
 
 		\dash\data::action_text(T_('Back to Telegram dashboard'));
 		\dash\data::action_link(\dash\url::this());

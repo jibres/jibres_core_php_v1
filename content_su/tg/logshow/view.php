@@ -6,11 +6,7 @@ class view
 {
 	public static function config()
 	{
-		$myTitle = T_("Telegram log");
-		$myDesc  = T_('Check list of telegram and search or filter in them to find your telegram.');
-
-		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
+		\dash\data::page_title(T_("Telegram log");
 		// add back level to summary link
 		\dash\data::action_text(T_('Back to log list'));
 		\dash\data::action_link(\dash\url::this() .'/log');

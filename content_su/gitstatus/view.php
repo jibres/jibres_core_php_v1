@@ -6,7 +6,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_("Git Status"));
-		\dash\data::page_desc(T_('Check file status on this project'));
 
 		echo "<h1><a href='". \dash\url::this(). "?discard=all'>Discard all</a></h1>";
 

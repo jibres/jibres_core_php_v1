@@ -6,7 +6,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_("Nano"));
-		\dash\data::page_desc(T_('Edit some server file'));
 
 		$file = \dash\request::get('file');
 		if($file)

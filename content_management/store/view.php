@@ -7,8 +7,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_("Stores"));
-		\dash\data::page_desc(T_("View list of stores and add new one easily just in seconds."));
-
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
