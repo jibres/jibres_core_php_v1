@@ -2,7 +2,7 @@
 <div class="msg info2 fs16"><?php echo T_("Please set general detail about your app, then let us create your android application."); ?></div>
 <?php } //endif ?>
 
-<div class="setupGuide">
+<div class="setupGuide<?php if(\dash\data::appQueue()) { ?> finish<?php } //endif ?>">
  <header><?php echo T_("Setup Progress"); ?></header>
  <section>
   <div class="f">

@@ -1,4 +1,3 @@
-<?php require_once(root. 'content_a/android/setupGuide.php'); ?>
 
 <div class="f">
   <div class="c8 x9 s12">
@@ -39,3 +38,4 @@
 </div>
 
 
+<?php require_once(root. 'content_a/android/setupGuide.php'); ?>
