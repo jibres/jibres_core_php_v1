@@ -112,11 +112,11 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
       <nav class="c langlist"><?php
         if(\dash\language::current() == 'fa')
         {
-          echo "<a hreflang='en' target='_blank'  href='https://jibres.com'>English</a>";
+          echo "<a hreflang='en' target='_blank'  href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
         }
         else
         {
-          echo "<a hreflang='fa' target='_blank'  href='https://jibres.ir'>فارسی</a>";
+          echo "<a hreflang='fa' target='_blank'  href='https://jibres.ir'>فارسی <span class='mLa5 sf-external-link'></span></a>";
         }
       ?></nav>
       <nav class="cauto os share1">
