@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Press and Media'));
+		\dash\data::page_title(T_('Press and Media'). ' | '. T_("Jibres"));
 		\dash\data::page_desc(T_('Need HELP? Be patient...'));
 
 		// btn
