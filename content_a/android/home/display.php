@@ -32,11 +32,7 @@
   <div class="c4 x3 s12">
     <a class="mobileFrame" data-apk href="<?php echo \dash\url::this();?>/apk">
       <div class="screen">
-<?php if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress') { ?>
-          <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/gif/jibres-app-queue.gif" alt='<?php echo \dash\data::page_title(); ?>'>
-<?php } elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status() === 'enable') { ?>
-          <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/gif/jibres-rocket-launching.gif" alt='<?php echo \dash\data::page_title(); ?>'>
-<?php } ?>
+        <p><?php echo T_("Click to check your app status"); ?></p>
       </div>
     </a>
   </div>
