@@ -76,7 +76,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <a href="<?php echo $kingdom; ?>/support"><?php echo T_('Support Center'); ?></a>
             <a href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/faq"><?php echo T_('FAQ'); ?></a>
-            <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
+            <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?> <span class="mLa5 sf-external-link"></span></a>
             <a href="<?php echo $kingdom; ?>/support/ticket/add"><?php echo T_('Submit Ticket'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/ticket/add?type=bug"><?php echo T_('Report Bug'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
