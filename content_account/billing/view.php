@@ -8,7 +8,6 @@ class view
 
 		\dash\data::amount(\dash\request::get('amount'));
 		\dash\data::page_title(T_("Billing information"));
-		\dash\data::page_desc(T_("Check your balance, charge your account, and bill your invoices!"));
 
 		\dash\data::action_link(\dash\url::here());
 		\dash\data::action_text(T_('Back to Account'));

@@ -90,9 +90,6 @@ class view
 		}
 
 		\dash\data::sessionsList($mySessionData);
-
-		// \dash\data::page_title(T_('Active sessions'));
-		// \dash\data::page_desc(\dash\data::page_title());
 	}
 }
 ?>

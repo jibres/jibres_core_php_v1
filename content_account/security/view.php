@@ -8,7 +8,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Security'));
-		\dash\data::page_desc(T_('Settings and recommendations to help you keep your account secure'));
 
 		// back
 		\dash\data::back_text(T_('Account'));
@@ -86,9 +85,6 @@ class view
 		}
 
 		\dash\data::sessionsList($mySessionData);
-
-		// \dash\data::page_title(T_('Active sessions'));
-		// \dash\data::page_desc(\dash\data::page_title());
 	}
 }
 ?>

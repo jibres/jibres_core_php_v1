@@ -8,7 +8,6 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Personal info'));
-		\dash\data::page_desc(T_('Basic info, like your name and photo, that you use on our services'));
 
 		// back
 		\dash\data::back_text(T_('Account'));
