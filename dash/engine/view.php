@@ -107,7 +107,8 @@ class view
 			\dash\data::page_special(true);
 		}
 
-		if(!\dash\url::content())
+
+		if(!\dash\data::page_desc())
 		{
 			// remove page desc
 			\dash\data::page_desc(\dash\data::site_desc());
@@ -126,7 +127,6 @@ class view
 			{
 				\dash\data::page_title(T_("Latest news"));
 			}
-			self::set_title();
 			return false;
 		}
 
