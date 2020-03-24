@@ -8,11 +8,7 @@ class view
 
 
 		\dash\data::page_title(T_("Transactions list"));
-		\dash\data::page_desc(T_('Check list of Transactions and search or filter in them to find your transactions.'). ' '. T_('Also add or edit specefic transactions.'));
 		// add back level to summary link
-
-
-
 		\dash\data::action_link(\dash\url::here());
 		\dash\data::action_text(T_('Back to dashboard'));
 

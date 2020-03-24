@@ -9,9 +9,6 @@ class view
 		\dash\permission::access('cpPermissionDelete');
 
 		\dash\data::page_title(T_("Delete a permissions"));
-		\dash\data::page_desc(T_("Set and config permission group to categorize user access."));
-
-
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to list of permissions'));

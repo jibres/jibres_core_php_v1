@@ -9,8 +9,6 @@ class view
 		\content_crm\member\main\view::dataRowMember();
 
 		\dash\data::page_title(T_('Glance user'));
-		\dash\data::page_desc(' ');
-
 
 		$user_code = \dash\data::dataRowMember_id();
 		$user_id   = \dash\coding::decode($user_code);

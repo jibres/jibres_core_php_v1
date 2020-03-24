@@ -19,10 +19,8 @@ class view
 		\dash\data::myUrlAddress(\dash\url::this(). '/address');
 
 		\dash\data::page_title(T_('Member address'));
-		\dash\data::page_desc(T_('set current location and full address'));
 
 		self::static_var();
-
 	}
 
 	private static function static_var()

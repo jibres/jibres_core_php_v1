@@ -6,12 +6,7 @@ class view
 {
 	public static function config()
 	{
-		$myTitle = T_("Log");
-		$myDesc  = T_('Check list of log and search or filter in them to find your logs.');
-
-
-		\dash\data::page_title($myTitle);
-		\dash\data::page_desc($myDesc);
+		\dash\data::page_title(T_("Log"));
 
 		\dash\data::action_link(\dash\url::this(). '/caller');
 		\dash\data::action_text(T_("Show log caller"));

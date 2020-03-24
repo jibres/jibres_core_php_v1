@@ -9,8 +9,6 @@ class view
 		\content_crm\member\main\view::dataRowMember();
 
 		\dash\data::page_title(T_('Member education detail'));
-		\dash\data::page_desc(T_('set education detail and some other detail'));
-
 	}
 }
 ?>

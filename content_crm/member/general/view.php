@@ -9,12 +9,8 @@ class view
 		\content_crm\member\main\view::dataRowMember();
 
 		\dash\data::page_title(T_('Edit user general detail'));
-		\dash\data::page_desc(T_('you can edit detail of member'));
-
 
 		\content_crm\member\main\view::static_var();
-
-
 	}
 }
 ?>

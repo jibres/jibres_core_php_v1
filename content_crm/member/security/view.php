@@ -10,7 +10,6 @@ class view
 		\content_crm\member\main\view::dataRowMember();
 
 		\dash\data::page_title(T_('Edit user security'));
-		\dash\data::page_desc(T_('You can edit user security.'));
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to dashbaord'));
@@ -87,9 +86,6 @@ class view
 		}
 
 		\dash\data::sessionsList($mySessionData);
-
-		// \dash\data::page_title(T_('Active sessions'));
-		// \dash\data::page_desc(\dash\data::page_title());
 	}
 }
 ?>
