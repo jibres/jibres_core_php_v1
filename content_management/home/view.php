@@ -8,7 +8,7 @@ class view
 	{
 		\dash\data::page_title(T_("Jibres Management"));
 
-		\dash\data::page_special(true);
+
 	}
 }
 ?>

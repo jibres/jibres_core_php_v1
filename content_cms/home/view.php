@@ -11,7 +11,7 @@ class view
 		\dash\data::dash_lastUpdate(\dash\utility\git::getLastUpdate());
 
 		\dash\data::page_title(T_('Control Panel'). ' '. \dash\data::site_title());
-		\dash\data::page_special(true);
+
 
 		self::dashboard_detail();
 		self::dashboard_detail_no_lang();

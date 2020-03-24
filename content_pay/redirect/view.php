@@ -8,7 +8,7 @@ class view
 	{
 		\dash\data::page_title(T_('redirecting...'));
 		\dash\data::page_desc(T_('in redirect process...'));
-		\dash\data::page_special(true);
+
 
 		$autoredirect = \dash\temp::get('autoredirect');
 

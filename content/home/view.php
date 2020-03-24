@@ -30,7 +30,7 @@ class view
 		}
 		// dash\data::page_seotitle()
 		\dash\data::page_desc2($homepageShortDesc);
-		\dash\data::page_special(true);
+
 
 		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
 

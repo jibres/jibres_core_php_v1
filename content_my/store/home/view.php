@@ -30,7 +30,7 @@ class view
 		else
 		{
 			\dash\data::page_title(T_("Welcome to Jibres world"));
-			\dash\data::page_special(true);
+
 		}
 	}
 }

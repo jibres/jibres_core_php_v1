@@ -11,7 +11,6 @@ class view
 		\dash\data::page_title(null);
 		\dash\data::page_seotitle(null);
 		\dash\data::page_desc(null);
-		\dash\data::page_special(null);
 
 
 		// define default value for global
@@ -74,10 +73,7 @@ class view
 				$page_title = \dash\data::get('breadcrumb', $page_title);
 			}
 			// replace title of page
-			if(!\dash\data::page_special())
-			{
-				$page_title = ucwords(str_replace('-', ' ', $page_title));
-			}
+			$page_title = ucwords(str_replace('-', ' ', $page_title));
 
 			// translate all title at last step
 			$page_title = T_($page_title);
@@ -89,21 +85,14 @@ class view
 				\dash\data::page_seotitle($page_title);
 			}
 
-			if(\dash\data::page_special())
-			{
-				\dash\data::global_title(\dash\data::page_seotitle());
-			}
-			else
-			{
-				\dash\data::global_title(\dash\data::page_seotitle(). ' | '. \dash\data::site_title());
-			}
+			\dash\data::global_title(\dash\data::page_seotitle(). ' | '. \dash\data::site_title());
 		}
 		else
 		{
 			\dash\data::global_title(\dash\data::site_title());
 			// if this page does not have title use site title
 			\dash\data::page_title(\dash\data::site_title());
-			\dash\data::page_special(true);
+
 		}
 
 		if(!\dash\data::page_desc())
