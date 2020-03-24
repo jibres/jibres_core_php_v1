@@ -67,16 +67,12 @@ class view
 	{
 		if($page_title = \dash\data::page_title())
 		{
-			// set title of locations if exist in breadcrumb
-			if(\dash\data::get('breadcrumb', $page_title))
-			{
-				$page_title = \dash\data::get('breadcrumb', $page_title);
-			}
-			// replace title of page
-			$page_title = ucwords(str_replace('-', ' ', $page_title));
-
 			// translate all title at last step
 			$page_title = T_($page_title);
+			if(\dash\url::content())
+			{
+				$page_title .= ' | '. \dash\data::site_title();
+			}
 
 			\dash\data::page_title($page_title);
 			// fill page title into seo title
@@ -86,6 +82,7 @@ class view
 			}
 
 			\dash\data::global_title(\dash\data::page_seotitle(). ' | '. \dash\data::site_title());
+			\dash\data::global_title(\dash\data::page_seotitle());
 		}
 		else
 		{
@@ -114,7 +111,6 @@ class view
 			{
 				\dash\data::page_title(T_("Latest news"));
 			}
-			return false;
 		}
 
 		// set title
