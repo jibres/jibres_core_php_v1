@@ -13,7 +13,7 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
-		\content_a\android\view::ready();
+		\content_a\android\load::detail();
 
 		\dash\data::loadScript(true);
 

@@ -2,29 +2,11 @@
 namespace content_a\android;
 
 
-class view
+class load
 {
-	public static function config()
-	{
-		\dash\data::page_title(T_('Android Application'));
-
-		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::here());
-
-
-		$app_queue = \lib\app\application\queue::detail();
-		\dash\data::appQueue($app_queue);
-
-		$setupGuide = \lib\app\application\detail::make_setup_guide();
-		\dash\data::setupGuide($setupGuide);
-
-	}
-
-
 
 	// call in all module inside android to load detail and run stepGuide
-	public static function ready()
+	public static function detail()
 	{
 		$appDetail = \lib\app\application\detail::get_android();
 		\dash\data::appDetail($appDetail);

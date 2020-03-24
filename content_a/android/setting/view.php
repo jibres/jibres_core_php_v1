@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		\content_a\android\view::ready();
+		\content_a\android\load::detail();
 	}
 }
 ?>

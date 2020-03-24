@@ -26,7 +26,7 @@ class view
 			\dash\data::appQueue($app_queue);
 		}
 
-		\content_a\android\view::ready();
+		\content_a\android\load::detail();
 
 
 

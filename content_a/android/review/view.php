@@ -15,7 +15,7 @@ class view
 		$isReadyToCreate = \lib\app\application\detail::is_ready_to_create();
 		\dash\data::isReadyToCreate($isReadyToCreate);
 
-		\content_a\android\view::ready();
+		\content_a\android\load::detail();
 
 
 
