@@ -429,7 +429,25 @@ class prepare
 		// else
 		if(\dash\url::tld())
 		{
-			$target_host .= '.'.\dash\url::tld();
+			if(\dash\url::tld() === 'local')
+			{
+				// local is exception
+				$target_host .= '.'.\dash\url::tld();
+			}
+			elseif(\dash\url::tld() !== 'ir' && \dash\language::current() === 'fa')
+			{
+				// disallow open fa in another tld
+				$target_host .= '.ir';
+			}
+			elseif(\dash\url::tld() !== 'com' && \dash\language::current() === 'en')
+			{
+				// disallow open en in another tld
+				$target_host .= '.com';
+			}
+			else
+			{
+				$target_host .= '.'.\dash\url::tld();
+			}
 		}
 
 		// if(\dash\option::url('port') && \dash\option::url('port') !== 80 && \dash\option::url('port') !== 443)
