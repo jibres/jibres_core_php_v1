@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-25 10:49+0430\n"
-"PO-Revision-Date: 2020-03-25 10:54+0430\n"
+"POT-Creation-Date: 2020-03-25 12:00+0430\n"
+"PO-Revision-Date: 2020-03-25 12:01+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -139,7 +139,7 @@ msgstr ""
 #: content_r10/android/splash/view.php:13 content_r10/android/view.php:12
 #: content_su/update/display.php:91 content_subdomain/home/layout/visitcard.php:11
 #: content_subdomain/home/layout/visitcard.php:14 content_v2/android/splash/view.php:13
-#: content_v2/android/view.php:26 dash/engine/view.php:17
+#: content_v2/android/view.php:27 dash/engine/view.php:17
 #: dash/layout/admin/admin-sidebar.php:144 dash/layout/admin/admin-sidebar.php:147
 #: dash/layout/schema.php:5 dash/utility/sms.php:34 includes/languages/trans_static.php:7
 msgid "Jibres"
@@ -3428,7 +3428,7 @@ msgstr "نصب فعال"
 
 #: content_a/android/home/display.php:32
 msgid "Download your App"
-msgstr "اپلیکیشن خود را دانلود کنید"
+msgstr "دانلود اپلیکیشن"
 
 #: content_a/android/home/display.php:33 content_a/android/setupGuide.php:13
 msgid "App Download Page"
@@ -3479,6 +3479,14 @@ msgstr "نصب در ماه اخیر"
 #: content_a/android/home/view.php:9
 msgid "Application Dashboard"
 msgstr "داشبورد اپلیکیشن"
+
+#: content_a/android/home/view.php:22
+msgid "Application status"
+msgstr "وضعیت اپلیکیشن"
+
+#: content_a/android/home/view.php:28
+msgid "Setup Your app"
+msgstr "اپلیکیشن خود را بسازید"
 
 #: content_a/android/intro/display.php:12
 msgid "App Intro detail"
@@ -5573,63 +5581,68 @@ msgstr "هیچ محصولی برای فروش انتخاب نشده است"
 msgid "Sale invoicing"
 msgstr "صدور فاکتور فروش"
 
-#: content_a/setting/address/view.php:9 content_a/setting/general/display.php:51
+#: content_a/setting/address/view.php:9 content_a/setting/home/display.php:6
 #: content_a/setup/address/view.php:9
 msgid "Set your store address"
 msgstr "تنظیم آدرس فروشگاه شما"
 
-#: content_a/setting/company/view.php:9 content_a/setting/general/display.php:52
+#: content_a/setting/company/view.php:9 content_a/setting/home/display.php:7
 #: content_a/setup/company/view.php:9
 msgid "Store legal information"
 msgstr "اطلاعات حقوقی فروشگاه"
 
-#: content_a/setting/general/display.php:48
-msgid "Stroe settings"
-msgstr "تنظیمات فروشگاه"
-
-#: content_a/setting/general/display.php:53 content_a/setting/logo/view.php:9
-#: content_a/setup/logo/view.php:9
-msgid "Set logo of your store"
-msgstr "تنظیم لوگوی فروشگاه شما"
-
-#: content_a/setting/general/display.php:54 content_a/setting/payment/view.php:9
-#: content_a/setup/payment/view.php:9
-msgid "Payment channels"
-msgstr "روش‌های پرداخت"
-
-#: content_a/setting/general/display.php:55 content_a/setting/pos/view.php:9
-#: content_a/setup/pos/view.php:9
-msgid "Point of sale hardwares"
-msgstr "سخت‌افزارهای صندوق فروشگاهی"
-
-#: content_a/setting/general/display.php:56 content_a/setting/shipping/view.php:9
-#: content_a/setup/shipping/view.php:9
-msgid "Setting up shipping rates"
-msgstr "تنظیم نرخ حمل و نقل"
-
-#: content_a/setting/general/display.php:57 content_a/setting/units/view.php:9
-#: content_a/setup/units/view.php:9
-msgid "Store Units"
-msgstr "واحد‌های فروشگاه"
-
-#: content_a/setting/general/display.php:58 content_a/setting/vat/view.php:9
-#: content_a/setup/vat/view.php:9
-msgid "Tax settings"
-msgstr "تنظیمات مالیاتی"
-
-#: content_a/setting/general/display.php:59
-msgid "PC-POS setting"
-msgstr "تنظیمات دستگاه کارتخوان"
-
-#: content_a/setting/general/view.php:8 content_a/setting/home/view.php:9
-#: content_a/setting/pcpos/view.php:8 content_v2/app/view.php:247
-#: dash/layout/admin/sidebar/sidebar-a.php:41 dash/layout/pwa/pwa_menu.php:135
+#: content_a/setting/general/view.php:8 content_a/setting/general/view.php:12
+#: content_a/setting/home/view.php:8 content_a/setting/pcpos/view.php:8
+#: content_v2/app/view.php:247 dash/layout/admin/sidebar/sidebar-a.php:41
+#: dash/layout/pwa/pwa_menu.php:135
 msgid "Setting"
 msgstr "تنظیمات"
 
 #: content_a/setting/general/view.php:8
 msgid "General"
 msgstr "عمومی"
+
+#: content_a/setting/home/display.php:5
+msgid "Store title and logo"
+msgstr "تنظیم عنوان و لوگوی فروشگاه"
+
+#: content_a/setting/home/display.php:8 content_a/setting/logo/view.php:9
+#: content_a/setup/logo/view.php:9
+msgid "Set logo of your store"
+msgstr "تنظیم لوگوی فروشگاه شما"
+
+#: content_a/setting/home/display.php:9 content_a/setting/payment/view.php:9
+#: content_a/setup/payment/view.php:9
+msgid "Payment channels"
+msgstr "روش‌های پرداخت"
+
+#: content_a/setting/home/display.php:10 content_a/setting/pos/view.php:9
+#: content_a/setup/pos/view.php:9
+msgid "Point of sale hardwares"
+msgstr "سخت‌افزارهای صندوق فروشگاهی"
+
+#: content_a/setting/home/display.php:11 content_a/setting/shipping/view.php:9
+#: content_a/setup/shipping/view.php:9
+msgid "Setting up shipping rates"
+msgstr "تنظیم نرخ حمل و نقل"
+
+#: content_a/setting/home/display.php:12 content_a/setting/units/view.php:9
+#: content_a/setup/units/view.php:9
+msgid "Store Units"
+msgstr "واحد‌های فروشگاه"
+
+#: content_a/setting/home/display.php:13 content_a/setting/vat/view.php:9
+#: content_a/setup/vat/view.php:9
+msgid "Tax settings"
+msgstr "تنظیمات مالیاتی"
+
+#: content_a/setting/home/display.php:14
+msgid "PC-POS setting"
+msgstr "تنظیمات دستگاه کارتخوان"
+
+#: content_a/setting/home/display.php:20
+msgid "Android app"
+msgstr "اپلیکیشن اندروید"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:120
 #: lib/app/store/edit.php:114
@@ -23356,6 +23369,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Stroe settings"
+#~ msgstr "تنظیمات فروشگاه"
+
 #~ msgid "Android Application"
 #~ msgstr "برنامه اندروید"
 
@@ -23606,9 +23622,6 @@ msgstr "یارد"
 #~ msgid "Changing these values ​​will need to be rebuilt"
 #~ msgstr "با تغییر این مقادیر نیازمند ساخت مجدد اپ هستید"
 
-#~ msgid "Set app title and logo"
-#~ msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
-
 #~ msgid "Not set"
 #~ msgstr "تنظیم نشده است"
 
@@ -23617,9 +23630,6 @@ msgstr "یارد"
 
 #~ msgid "Splash setting"
 #~ msgstr "تنظیمات صفحه اسپلش"
-
-#~ msgid "Application setting"
-#~ msgstr "تنظیمات اپلیکیشن"
 
 #~ msgid "This password is very simple and guessable, please use stronger password!"
 #~ msgstr "این رمز عبور بسیار ساده و قابل حدس است، لطفا از رمز عبور قوی استفاده کنید!"
