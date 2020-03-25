@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-25 10:07+0430\n"
-"PO-Revision-Date: 2020-03-25 10:08+0430\n"
+"POT-Creation-Date: 2020-03-25 10:49+0430\n"
+"PO-Revision-Date: 2020-03-25 10:54+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3119,8 +3119,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content/terms/irnic/view.php:13 content_a/android/apk/view.php:12
 #: content_a/android/download/view.php:12 content_a/android/home/view.php:12
 #: content_a/android/intro/view.php:12 content_a/android/logo/view.php:12
-#: content_a/android/review/view.php:12 content_a/android/setting/view.php:12
-#: content_a/android/splash/view.php:12 content_a/cart/home/view.php:12
+#: content_a/android/review/view.php:12 content_a/android/splash/view.php:12
+#: content_a/android/title/view.php:12 content_a/cart/home/view.php:12
 #: content_a/cart/view/view.php:12 content_a/company/view.php:30
 #: content_a/company/view.php:37 content_a/products/duplicate/view.php:22
 #: content_a/products/variants/view.php:25 content_a/setting/address/view.php:11
@@ -3307,13 +3307,15 @@ msgstr "وضعیت اپلیکیشن اندروید فروشگاه شما"
 #: content_a/android/apk/display.php:14 content_a/android/review/display.php:12
 #: lib/app/application/queue.php:223
 msgid "Your request to create store app is saved and on queue in our app factory."
-msgstr ""
+msgstr "درخواست شما برای ساخت اپلیکیشن در کارخانه اپلیکیشن ما ذخیره شد و در صف تولید است."
 
 #: content_a/android/apk/display.php:14 content_a/android/review/display.php:12
 msgid ""
 "We are send a message notification to you after your app is being ready. which usually "
 "take some minutes."
 msgstr ""
+"پس از اتمام فرایند ساخت و آماده شدن برنامه جهت استفاده ما یک پیام به شما ارسال خواهیم "
+"کرد. این فرایند معمولا چند دقیقه طول می‌کشد."
 
 #: content_a/android/apk/display.php:17
 msgid "Build series"
@@ -3414,32 +3416,31 @@ msgstr "تنظیمات صفحه دانلود"
 
 #: content_a/android/home/display.php:8
 msgid "Total Download"
-msgstr ""
+msgstr "تعداد کل دانلود"
 
 #: content_a/android/home/display.php:14
 msgid "Total Install"
-msgstr ""
+msgstr "تعداد کل نصب"
 
 #: content_a/android/home/display.php:20
 msgid "Active Install"
-msgstr ""
+msgstr "نصب فعال"
 
 #: content_a/android/home/display.php:32
 msgid "Download your App"
-msgstr ""
+msgstr "اپلیکیشن خود را دانلود کنید"
 
 #: content_a/android/home/display.php:33 content_a/android/setupGuide.php:13
 msgid "App Download Page"
-msgstr ""
+msgstr "صفحه دانلود اپ"
 
 #: content_a/android/home/display.php:34 content_a/android/setupGuide.php:8
 msgid "App Logo"
 msgstr "لوگوی اپ"
 
-#: content_a/android/home/display.php:35 content_a/android/load.php:141
-#: content_a/android/setupGuide.php:9
-msgid "General Settings"
-msgstr "تنظیمات عمومی"
+#: content_a/android/home/display.php:35
+msgid "App Title"
+msgstr "عنوان برنامه"
 
 #: content_a/android/home/display.php:36 content_a/android/load.php:146
 #: content_a/android/setupGuide.php:10
@@ -3455,9 +3456,29 @@ msgstr "صفحه معرفی اپ"
 msgid "Review Your App"
 msgstr "بازبینی جزئیاپ اپلیکیشن"
 
+#: content_a/android/home/display.php:47
+msgid "Download last week"
+msgstr "دانلود در هفته گذشته"
+
+#: content_a/android/home/display.php:53
+msgid "Download last month"
+msgstr "دانلود در ماه گذشته"
+
+#: content_a/android/home/display.php:59
+msgid "Download last year"
+msgstr "دانلود در یک سال گذشته"
+
+#: content_a/android/home/display.php:66
+msgid "Install last week"
+msgstr "نصب در هفته گذشته"
+
+#: content_a/android/home/display.php:73
+msgid "Install last month"
+msgstr "نصب در ماه اخیر"
+
 #: content_a/android/home/view.php:9
 msgid "Application Dashboard"
-msgstr ""
+msgstr "داشبورد اپلیکیشن"
 
 #: content_a/android/intro/display.php:12
 msgid "App Intro detail"
@@ -3527,6 +3548,10 @@ msgstr "ذخیره همه"
 msgid "App logo"
 msgstr "لوگوی اپ"
 
+#: content_a/android/load.php:141
+msgid "App title"
+msgstr "عنوان برنامه"
+
 #: content_a/android/load.php:156
 msgid "Review"
 msgstr "بررسی"
@@ -3535,7 +3560,7 @@ msgstr "بررسی"
 msgid "Set your application title logo"
 msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 
-#: content_a/android/logo/display.php:7 content_a/android/setting/display.php:24
+#: content_a/android/logo/display.php:7
 msgid "Logo"
 msgstr "لوگو"
 
@@ -3571,8 +3596,8 @@ msgstr "برنامه شما برای ساخته شدن آماده است"
 msgid "Let's go build my android app"
 msgstr "بزن بریم اپلیکیشن اندروید رو بسازیم"
 
-#: content_a/android/review/display.php:53 content_a/android/setting/display.php:8
-#: content_a/android/setting/view.php:9
+#: content_a/android/review/display.php:53 content_a/android/title/display.php:8
+#: content_a/android/title/view.php:9
 msgid "Application title"
 msgstr "عنوان برنامه"
 
@@ -3580,7 +3605,7 @@ msgstr "عنوان برنامه"
 msgid "Application description"
 msgstr "توضیح برنامه"
 
-#: content_a/android/review/display.php:58 content_a/android/setting/display.php:13
+#: content_a/android/review/display.php:58 content_a/android/title/display.php:13
 msgid "Application slogan"
 msgstr "شعار برنامه"
 
@@ -3613,11 +3638,74 @@ msgstr "صفحه سوم مقدمه"
 msgid "Download app.apk"
 msgstr "دانلود اپلیکیشن"
 
-#: content_a/android/setting/display.php:5
+#: content_a/android/setupGuide.php:2
+msgid ""
+"Please set general detail about your app, then let us create your android application."
+msgstr ""
+"لطفا توضیحات عمومی درباره اپ را تنظیم کنید، سپس به ما اجازه دهید تا کار ساخت اپلیکیشن "
+"اختصاصی اندروید شما را انجام دهیم."
+
+#: content_a/android/setupGuide.php:5
+msgid "Setup Progress"
+msgstr "روند تنظیم اولیه"
+
+#: content_a/android/setupGuide.php:9
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: content_a/android/setupGuide.php:19
+msgid "Easily Create your store application"
+msgstr "اپلیکیشن فروشگاه خود را به راحتی ایجاد کنید"
+
+#: content_a/android/setupGuide.php:20
+msgid "Create a custom app for your store"
+msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی داشته باشید"
+
+#: content_a/android/setupGuide.php:23
+msgid "Build it now"
+msgstr "همین الان بساز"
+
+#: content_a/android/splash/display.php:5
+msgid "Application Splash setting"
+msgstr "تنظیمات صفحه نخست اپ"
+
+#: content_a/android/splash/display.php:16
+msgid "Advance option"
+msgstr "تنظیمات پیشرفته"
+
+#: content_a/android/splash/display.php:19
+msgid "If you want to personalize more you need to increase your plan."
+msgstr "اگر مایل به سفارشی‌سازی بیشتر هستید، باید پلن خود را ارتقا دهید."
+
+#: content_a/android/splash/display.php:23
+msgid "Gradient Start"
+msgstr "شروع طیف رنگی"
+
+#: content_a/android/splash/display.php:30
+msgid "Gradient End"
+msgstr "پایان طیف رنگی"
+
+#: content_a/android/splash/display.php:39
+msgid "Text color"
+msgstr "رنگ متن اصلی"
+
+#: content_a/android/splash/display.php:45
+msgid "Meta color"
+msgstr "رنگ متن توضیحات"
+
+#: content_a/android/splash/model.php:17
+msgid "Please choose your theme"
+msgstr "لطفا قالب مد نظر خود را انتخاب کنید"
+
+#: content_a/android/splash/view.php:9
+msgid "App splash"
+msgstr "صفحه نخست اپ"
+
+#: content_a/android/title/display.php:5
 msgid "Set your application title and slogan"
 msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 
-#: content_a/android/setting/display.php:8
+#: content_a/android/title/display.php:8
 #: content_v2/doc/000-public/header-appkey-apikey.php:29
 #: content_v2/doc/000-public/header-appkey-apikey.php:43
 #: content_v2/doc/010-application/010-app-detail.php:39
@@ -3667,72 +3755,9 @@ msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 msgid "Required"
 msgstr "الزامی"
 
-#: content_a/android/setting/display.php:18
+#: content_a/android/title/display.php:18
 msgid "Application desc"
 msgstr "توضیح برنامه"
-
-#: content_a/android/setupGuide.php:2
-msgid ""
-"Please set general detail about your app, then let us create your android application."
-msgstr ""
-"لطفا توضیحات عمومی درباره اپ را تنظیم کنید، سپس به ما اجازه دهید تا کار ساخت اپلیکیشن "
-"اختصاصی اندروید شما را انجام دهیم."
-
-#: content_a/android/setupGuide.php:5
-msgid "Setup Progress"
-msgstr "روند تنظیم اولیه"
-
-#: content_a/android/setupGuide.php:19
-msgid "Easily Create your store application"
-msgstr "اپلیکیشن فروشگاه خود را به راحتی ایجاد کنید"
-
-#: content_a/android/setupGuide.php:20
-msgid "Create a custom app for your store"
-msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی داشته باشید"
-
-#: content_a/android/setupGuide.php:23
-msgid "Build it now"
-msgstr "همین الان بساز"
-
-#: content_a/android/splash/display.php:5
-msgid "Application Splash setting"
-msgstr "تنظیمات صفحه نخست اپ"
-
-#: content_a/android/splash/display.php:16
-msgid "Advance option"
-msgstr "تنظیمات پیشرفته"
-
-#: content_a/android/splash/display.php:19
-msgid "If you want to personalize more you need to increase your plan."
-msgstr "اگر مایل به سفارشی‌سازی بیشتر هستید، باید پلن خود را ارتقا دهید."
-
-#: content_a/android/splash/display.php:23
-msgid "Gradient Start"
-msgstr "شروع طیف رنگی"
-
-#: content_a/android/splash/display.php:30
-msgid "Gradient End"
-msgstr "پایان طیف رنگی"
-
-#: content_a/android/splash/display.php:39
-msgid "Text color"
-msgstr "رنگ متن اصلی"
-
-#: content_a/android/splash/display.php:45
-msgid "Meta color"
-msgstr "رنگ متن توضیحات"
-
-#: content_a/android/splash/display.php:58
-msgid "App Title"
-msgstr "عنوان برنامه"
-
-#: content_a/android/splash/model.php:17
-msgid "Please choose your theme"
-msgstr "لطفا قالب مد نظر خود را انتخاب کنید"
-
-#: content_a/android/splash/view.php:9
-msgid "App splash"
-msgstr "صفحه نخست اپ"
 
 #: content_a/cart/home/display.php:82 content_crm/log/home/logTable.php:8
 #: content_crm/permission/display.php:43 content_crm/permission/display.php:102
@@ -11167,11 +11192,11 @@ msgstr "به‌روزرسانی مخازن گیت"
 
 #: content_su/update/display.php:59
 msgid "Talambar CDN"
-msgstr ""
+msgstr "سی‌دی‌ان تلمبار"
 
 #: content_su/update/display.php:60
 msgid "Pull CDN repository"
-msgstr ""
+msgstr "به‌روزرسانی مخازن گیت سی‌دی‌ان"
 
 #: content_su/update/display.php:71 content_su/update/display.php:72
 msgid "Force unlock page"
