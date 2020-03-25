@@ -373,7 +373,21 @@ class queue
 			return false;
 		}
 
-		$meta = is_array($_meta) ? json_encode($_meta, JSON_UNESCAPED_UNICODE) : null;
+		$meta = null;
+
+		if(is_array($_meta) || is_object($_meta))
+		{
+			$meta = json_encode($_meta, JSON_UNESCAPED_UNICODE);
+		}
+		elseif(is_string($_meta))
+		{
+			$meta = \dash\validate::string($_meta);
+		}
+		else
+		{
+			$meta = null;
+		}
+
 		$update =
 		[
 			'file'     => $_filename,
