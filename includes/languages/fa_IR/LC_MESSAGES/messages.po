@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-03-25 12:00+0430\n"
-"PO-Revision-Date: 2020-03-25 12:01+0430\n"
+"POT-Creation-Date: 2020-03-25 13:18+0430\n"
+"PO-Revision-Date: 2020-03-25 13:20+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -138,8 +138,8 @@ msgstr ""
 #: content_enter/home/view.php:19 content_r10/android/intro/view.php:29
 #: content_r10/android/splash/view.php:13 content_r10/android/view.php:12
 #: content_su/update/display.php:91 content_subdomain/home/layout/visitcard.php:11
-#: content_subdomain/home/layout/visitcard.php:14 content_v2/android/splash/view.php:13
-#: content_v2/android/view.php:27 dash/engine/view.php:17
+#: content_subdomain/home/layout/visitcard.php:14 content_v2/android/splash/view.php:20
+#: content_v2/android/view.php:26 dash/engine/view.php:17
 #: dash/layout/admin/admin-sidebar.php:144 dash/layout/admin/admin-sidebar.php:147
 #: dash/layout/schema.php:5 dash/utility/sms.php:34 includes/languages/trans_static.php:7
 msgid "Jibres"
@@ -382,8 +382,8 @@ msgid "Date"
 msgstr "تاریخ"
 
 #: content/changelog/display.php:12 content_a/android/intro/display.php:23
-#: content_a/android/review/display.php:67 content_a/android/review/display.php:75
-#: content_a/android/review/display.php:82 content_a/category/edit/display.php:36
+#: content_a/android/review/display.php:84 content_a/android/review/display.php:92
+#: content_a/android/review/display.php:99 content_a/category/edit/display.php:36
 #: content_a/category/edit/display.php:37 content_a/products/edit/display.php:22
 #: content_a/products/tag/display.php:94 content_a/products/tag/display.php:169
 #: content_a/products/tag/display.php:170 content_a/products/tag/display.php:211
@@ -2111,7 +2111,7 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:25 content/home/view.php:29 content/view.php:32
 #: content_r10/android/intro/view.php:19 content_r10/android/splash/view.php:14
-#: content_subdomain/home/layout/visitcard.php:9 content_v2/android/splash/view.php:14
+#: content_subdomain/home/layout/visitcard.php:9 content_v2/android/splash/view.php:21
 #: dash/utility/sms.php:35
 msgid "Sell and Enjoy"
 msgstr "بفروش و لذت ببر"
@@ -3304,12 +3304,12 @@ msgstr "کیست"
 msgid "Your Store Android Application Status"
 msgstr "وضعیت اپلیکیشن اندروید فروشگاه شما"
 
-#: content_a/android/apk/display.php:14 content_a/android/review/display.php:12
-#: lib/app/application/queue.php:223
+#: content_a/android/apk/display.php:14 content_a/android/review/display.php:25
+#: lib/app/application/queue.php:234
 msgid "Your request to create store app is saved and on queue in our app factory."
 msgstr "درخواست شما برای ساخت اپلیکیشن در کارخانه اپلیکیشن ما ذخیره شد و در صف تولید است."
 
-#: content_a/android/apk/display.php:14 content_a/android/review/display.php:12
+#: content_a/android/apk/display.php:14 content_a/android/review/display.php:25
 msgid ""
 "We are send a message notification to you after your app is being ready. which usually "
 "take some minutes."
@@ -3496,8 +3496,8 @@ msgstr "جزئیات صفحه معرفی اپ"
 msgid "Page"
 msgstr "صفحه"
 
-#: content_a/android/intro/display.php:17 content_a/android/review/display.php:65
-#: content_a/android/review/display.php:73 content_a/android/review/display.php:80
+#: content_a/android/intro/display.php:17 content_a/android/review/display.php:82
+#: content_a/android/review/display.php:90 content_a/android/review/display.php:97
 #: content_a/category/add/display.php:6 content_a/category/edit/display.php:31
 #: content_a/category/home/display.php:83 content_a/company/display.php:41
 #: content_a/products/edit/display.php:16 content_a/products/home/display.php:67
@@ -3525,13 +3525,13 @@ msgstr "تصویر"
 #: content_a/android/intro/display.php:51 content_a/android/intro/display.php:55
 #: content_a/setup/company/display.php:53 content_a/setup/logo/display.php:21
 #: content_my/store/ask/display.php:31 content_r10/android/intro/view.php:53
-#: content_v2/android/intro/view.php:42
+#: content_v2/android/intro/view.php:27
 msgid "Skip"
 msgstr "رد شو"
 
 #: content_a/android/intro/display.php:53 content_a/android/intro/display.php:57
 #: content_my/store/ask/display.php:28 content_r10/android/intro/view.php:51
-#: content_v2/android/intro/view.php:40 content_v2/app/view.php:289
+#: content_v2/android/intro/view.php:25 content_v2/app/view.php:289
 #: content_v2/app/view.php:311 content_v2/app/view.php:333
 msgid "Next"
 msgstr "بعدی"
@@ -3580,65 +3580,80 @@ msgstr "از لوگوی مربع با فرمت png استفاده کنید"
 msgid "Use from store logo"
 msgstr "استفاده از لوگوی فروشگاه"
 
-#: content_a/android/logo/view.php:9 content_a/android/review/display.php:50
+#: content_a/android/logo/view.php:9 content_a/android/review/display.php:67
 msgid "Application logo"
 msgstr "لوگوی برنامه"
 
-#: content_a/android/review/display.php:10 content_a/android/review/display.php:27
+#: content_a/android/review/display.php:12
+msgid "Rebuild Application"
+msgstr "ساخت مجدد اپلیکیشن"
+
+#: content_a/android/review/display.php:14
+msgid ""
+"Your have some change in  application detail and need to build your application again"
+msgstr ""
+"شما در تنظیمات اولیه برنامه خود تغییراتی ایجاد کرده‌اید که اگر می‌خواهید این تغییرات در "
+"اپلیکیشن شما اعمال شود نیاز است که مجددا اپلیکیشن خود را بسازید"
+
+#: content_a/android/review/display.php:17
+msgid "Rebuild application"
+msgstr "ساخت مجدد اپلیکیشن"
+
+#: content_a/android/review/display.php:23 content_a/android/review/display.php:44
 msgid "Review Application detail"
 msgstr "بازبینی جزئیات اپلیکیشن"
 
-#: content_a/android/review/display.php:15
+#: content_a/android/review/display.php:28
 msgid "Check status"
 msgstr "بررسی وضعیت"
 
-#: content_a/android/review/display.php:29
+#: content_a/android/review/display.php:46
 msgid "Hooray!"
 msgstr "هورا!"
 
-#: content_a/android/review/display.php:29
+#: content_a/android/review/display.php:46
 msgid "Your Application ready to build"
 msgstr "برنامه شما برای ساخته شدن آماده است"
 
-#: content_a/android/review/display.php:32
+#: content_a/android/review/display.php:49
 msgid "Let's go build my android app"
 msgstr "بزن بریم اپلیکیشن اندروید رو بسازیم"
 
-#: content_a/android/review/display.php:53 content_a/android/title/display.php:8
+#: content_a/android/review/display.php:70 content_a/android/title/display.php:8
 #: content_a/android/title/view.php:9
 msgid "Application title"
 msgstr "عنوان برنامه"
 
-#: content_a/android/review/display.php:55
+#: content_a/android/review/display.php:72
 msgid "Application description"
 msgstr "توضیح برنامه"
 
-#: content_a/android/review/display.php:58 content_a/android/title/display.php:13
+#: content_a/android/review/display.php:75 content_a/android/title/display.php:13
 msgid "Application slogan"
 msgstr "شعار برنامه"
 
-#: content_a/android/review/display.php:61
+#: content_a/android/review/display.php:78
 msgid "Splash theme"
 msgstr "قالب اسپلش"
 
-#: content_a/android/review/display.php:65 content_a/android/review/display.php:67
-#: content_a/android/review/display.php:69
+#: content_a/android/review/display.php:82 content_a/android/review/display.php:84
+#: content_a/android/review/display.php:86
 msgid "Intro page #1"
 msgstr "صفحه اول مقدمه"
 
-#: content_a/android/review/display.php:69 content_a/android/review/display.php:77
-#: content_a/android/review/display.php:84 content_a/products/edit/display.php:361
+#: content_a/android/review/display.php:86 content_a/android/review/display.php:94
+#: content_a/android/review/display.php:101 content_a/products/edit/display.php:361
 #: includes/languages/trans_static.php:528
 msgid "File"
 msgstr "فایل"
 
-#: content_a/android/review/display.php:73 content_a/android/review/display.php:75
-#: content_a/android/review/display.php:77
+#: content_a/android/review/display.php:90 content_a/android/review/display.php:92
+#: content_a/android/review/display.php:94
 msgid "Intro page #2"
 msgstr "صفحه دوم مقدمه"
 
-#: content_a/android/review/display.php:80 content_a/android/review/display.php:82
-#: content_a/android/review/display.php:84
+#: content_a/android/review/display.php:97 content_a/android/review/display.php:99
+#: content_a/android/review/display.php:101
 msgid "Intro page #3"
 msgstr "صفحه سوم مقدمه"
 
@@ -4303,7 +4318,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: content_a/controller.php:16 content_r10/tools.php:55 content_r10/tools.php:90
 #: content_subdomain/controller.php:41 content_v2/controller.php:27
 #: content_v2/tools.php:47 dash/engine/store.php:101 lib/app/application/queue.php:12
-#: lib/app/application/queue.php:190 lib/app/category/add.php:12
+#: lib/app/application/queue.php:201 lib/app/category/add.php:12
 #: lib/app/category/edit.php:13 lib/app/category/get.php:34 lib/app/category/get.php:65
 #: lib/app/category/search.php:11 lib/app/category/search.php:89 lib/app/factor/add.php:34
 #: lib/app/factor/get.php:34 lib/app/product/add.php:76 lib/app/product/comment.php:97
@@ -10472,12 +10487,12 @@ msgstr "پلتفرم تجارت الکترونیک همه کاره"
 msgid "Sometimes you need a big change."
 msgstr "برخی اوقات شما نیاز به یک تغییر بزرگ دارید."
 
-#: content_r10/android/intro/view.php:52 content_v2/android/intro/view.php:41
+#: content_r10/android/intro/view.php:52 content_v2/android/intro/view.php:26
 #: content_v2/app/view.php:307 content_v2/app/view.php:329
 msgid "Prev"
 msgstr "قبلی"
 
-#: content_r10/android/intro/view.php:54 content_v2/android/intro/view.php:43
+#: content_r10/android/intro/view.php:54 content_v2/android/intro/view.php:28
 msgid "Get Start"
 msgstr "بریم شروع کنیم"
 
@@ -11932,7 +11947,7 @@ msgstr "شناسه نشست ارسال نشده است یا نادرست است"
 msgid "No session founded"
 msgstr "هیچ نشست فعالی یافت نشد"
 
-#: content_v2/android/splash/view.php:15
+#: content_v2/android/splash/view.php:22
 msgid "Powered by Jibres"
 msgstr "قدرت گرفته از جیبرس"
 
@@ -21427,35 +21442,39 @@ msgstr "لوگوی برنامه شما حذف شد"
 msgid "You have not any application logo!"
 msgstr "شما هیچ لوگویی برای برنامه خود ندارید!"
 
-#: lib/app/application/detail.php:107
+#: lib/app/application/detail.php:126
+msgid "You application logo saved without change"
+msgstr "لوگوی برنامه شما بدون تغییر ذخیره شد"
+
+#: lib/app/application/detail.php:155
 msgid "Your application logo was saved"
 msgstr "لوگوی برنامه شما ذخیره شد"
 
-#: lib/app/application/detail.php:117
+#: lib/app/application/detail.php:166
 msgid "Your application logo saved without change"
 msgstr "لوگوی برنامه شما بدون تغییر ذخیره شد"
 
-#: lib/app/application/detail.php:121
+#: lib/app/application/detail.php:170
 msgid "Please choose a file to set as your application logo"
 msgstr "لطفا فایلی را برای تنظیم لوگوی برنامه انتخاب کنید"
 
-#: lib/app/application/detail.php:154
+#: lib/app/application/detail.php:203
 msgid "Application setting set"
 msgstr "تنظیمات اپلیکیشن انجام شد"
 
-#: lib/app/application/detail.php:187
+#: lib/app/application/detail.php:238
 msgid "Application download setting saved"
 msgstr "تنظیمات صفحه دانلود اپلیکیشن ذخیره شد"
 
-#: lib/app/application/detail.php:331
+#: lib/app/application/detail.php:382
 msgid "Please set your application logo"
 msgstr "لطفا لوگوی اپلیکیشن خود را انتخاب کنید"
 
-#: lib/app/application/detail.php:337
+#: lib/app/application/detail.php:388
 msgid "Please set your application title"
 msgstr "لطفا عنوان برنامه را وارد کنید"
 
-#: lib/app/application/detail.php:349
+#: lib/app/application/detail.php:400
 msgid "Please choose application splash theme"
 msgstr "لطفا قالب صفحه نخست اپ را انتخاب کنید"
 
@@ -21495,32 +21514,40 @@ msgstr "لذت ببرید!"
 msgid "Be ready to fly"
 msgstr "برای پرواز آماده شو"
 
-#: lib/app/application/queue.php:203
+#: lib/app/application/queue.php:73
+msgid "Your application build request saved in queue."
+msgstr "درخواست ساخته شدن برنامه شما در صف انتظار قرار گرفت"
+
+#: lib/app/application/queue.php:78
+msgid "No change in your application detail and needless to rebuild it!"
+msgstr "تغییری در تنظیمات اپلیکیشن شما یافت نشد و نیازی به ساخت مجدد برنامه نیست!"
+
+#: lib/app/application/queue.php:214
 msgid "Your application need some detail to ready to build"
 msgstr "برنامه شما برای ساخته شدن نیاز به اطلاعاتی دارند که باید آنها را تکمیل کنید"
 
-#: lib/app/application/queue.php:263
+#: lib/app/application/queue.php:274
 msgid "Your build request has been queued"
 msgstr "درخواست ساخته شدن برنامه شما در صف انتظار قرار گرفت"
 
-#: lib/app/application/queue.php:329 lib/app/application/queue.php:335
-#: lib/app/application/queue.php:341
+#: lib/app/application/queue.php:340 lib/app/application/queue.php:346
+#: lib/app/application/queue.php:352
 msgid "Please set the status"
 msgstr "لطفا وضعیت را وارد کنید"
 
-#: lib/app/application/queue.php:348
+#: lib/app/application/queue.php:359
 msgid "Please set the store code"
 msgstr "لطفا کد‌ فروشگاه را وارد کنید"
 
-#: lib/app/application/queue.php:361
+#: lib/app/application/queue.php:372
 msgid "This id is not current application id"
 msgstr "این گزینه آخرین رکورد اپلیکیشن نیست"
 
-#: lib/app/application/queue.php:413
+#: lib/app/application/queue.php:424
 msgid "Queue status updated"
 msgstr "جزئیات صف به‌روزرسانی شد"
 
-#: lib/app/application/queue.php:450
+#: lib/app/application/queue.php:461
 msgid "Can not copy application file from talambar server!"
 msgstr "نمی‌توانیم فایل اپلیکیشن را از سرویس تلمبار دانلود کنیم!"
 
@@ -23593,10 +23620,6 @@ msgstr "یارد"
 #~ msgid "Show telegram webhook information"
 #~ msgstr "نمایش اطلاعات وب‌هوک تلگرام"
 
-#~ msgid "You must complete your application detail to build it"
-#~ msgstr ""
-#~ "شما باید ابتدا جزئیات مربوط به برنامه خود را تکمیل کنید تا بتوانید برنامه را بسازید"
-
 #~ msgid "Your build request was saved"
 #~ msgstr "درخواست ایجاد برنامه شما ذخیره شد"
 
@@ -23607,11 +23630,6 @@ msgstr "یارد"
 #~ "Please wait until your application is built, This process may take several minutes"
 #~ msgstr ""
 #~ "لطفا تا اتمام فرایند ساخت برنامه صبر کنید. این فرایند ممکن است چند دقیقه زمان ببرد"
-
-#~ msgid "You can share this link to everyone need to download your application"
-#~ msgstr ""
-#~ "شما می‌توانید این لینک را در اختیار هر کسی که می‌خواهد اپلیکیشن شما را دانلود کند قرار "
-#~ "دهید"
 
 #~ msgid "Your application is ready to build again"
 #~ msgstr "برنامه شما برای ساخت مجدد آماده است"
