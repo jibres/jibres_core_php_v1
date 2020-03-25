@@ -445,7 +445,7 @@ class queue
 		if($_filename)
 		{
 			// download file in store app folder
-			$transfer_file = self::transfer_file($_filename, $_store);
+			$transfer_file = self::transfer_file($_filename, $_store, $_meta);
 			if($transfer_file)
 			{
 				$log =
@@ -472,10 +472,17 @@ class queue
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	private static function transfer_file($_filename, $_store)
+	private static function transfer_file($_filename, $_store, $_meta)
 	{
 		$host = 'http://app.talambar.ir/';
-		$source = $host. $_filename;
+
+		$source = $host;
+
+		if(isset($_meta['path']))
+		{
+			$source = $host. $_meta['path'];
+		}
+
 		$source = trim($source, '/');
 
 		$store = str_replace('$', '', $_store);
