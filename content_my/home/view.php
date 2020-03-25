@@ -7,13 +7,13 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Jibres my'));
-		\dash\data::page_titleBox(false);
+		\dash\face::boxTitle(false);
 
 		if(!\dash\detect\device::detectPWA())
 		{
 			\dash\face::title(' ');
 
-			\dash\data::page_titleBox(true);
+			\dash\face::boxTitle(true);
 			\dash\data::action_text(T_('Stores'));
 			\dash\data::action_link(\dash\url::here() . '/store');
 

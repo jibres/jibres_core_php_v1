@@ -9,7 +9,7 @@ class view
 
 		\dash\data::include_editor(true);
 
-		// \dash\data::page_titleBox(true);
+		// \dash\face::boxTitle(true);
 	}
 }
 ?>

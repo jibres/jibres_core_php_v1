@@ -15,7 +15,7 @@ class view
 		if(\dash\url::module() == 'setup')
 		{
 			\dash\data::userToggleSidebar(false);
-			\dash\data::page_titleBox(false);
+			\dash\face::boxTitle(false);
 		}
 
 		\dash\data::include_adminPanel(true);

@@ -1,6 +1,6 @@
 
 <?php
-if(\dash\data::page_titleBox() !== false && !\dash\detect\device::detectPWA())
+if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
 {
 ?>
 
