@@ -63,11 +63,20 @@ class queue
 
 	public static function rebuild()
 	{
-		$current_queue = self::detail();
-		if(isset($current_queue['id']))
+		if(\lib\app\application\detail::need_to_rebuild())
 		{
-			\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'disable');
-			self::new_queue();
+			$current_queue = self::detail();
+			if(isset($current_queue['id']))
+			{
+				\lib\db\store_app\update::set_field($current_queue['id'], 'status', 'disable');
+				self::new_queue();
+				\dash\notif::ok(T_("Your application build request saved in queue."));
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("No change in your application detail and needless to rebuild it!"));
+			return false;
 		}
 
 
