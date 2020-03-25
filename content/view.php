@@ -26,7 +26,7 @@ class view
 		$jibresDesc .= T_('Fully API');
 
 
-		\dash\data::site_title(T_("Jibres"));
+		\dash\face::site(T_("Jibres"));
 		\dash\data::site_desc($jibresDesc);
 		\dash\data::site_slogan(T_("#1 World Sales Engineering System"));
 		\dash\data::site_slogan(T_("Sell and Enjoy"));

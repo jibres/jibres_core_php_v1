@@ -220,7 +220,7 @@ $productDataRow = \dash\data::productDataRow();
       </a>
       <div class="f">
         <div class="c s12 pLa10">
-          <h3><?php if(\dash\data::productDataRow_seotitle()) { echo \dash\data::productDataRow_seotitle(); }else{ echo \dash\data::productDataRow_title(); } ?> | <?php echo \dash\data::site_title(); ?></h3>
+          <h3><?php if(\dash\data::productDataRow_seotitle()) { echo \dash\data::productDataRow_seotitle(); }else{ echo \dash\data::productDataRow_title(); } ?> | <?php echo \dash\face::site(); ?></h3>
           <p class="desc"><?php echo \dash\get::index($productDataRow,'seodesc'); ?></p>
         </div>
         <div class="cauto os s12">
@@ -235,7 +235,7 @@ $productDataRow = \dash\data::productDataRow();
           <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
           <div class="input">
             <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::productDataRow_seotitle()) {echo \dash\data::productDataRow_title();} ?>' value="<?php echo \dash\get::index($productDataRow,'seotitle'); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
-            <label class="addon"> | <?php echo \dash\data::site_title(); ?></label>
+            <label class="addon"> | <?php echo \dash\face::site(); ?></label>
           </div>
         </div>
 

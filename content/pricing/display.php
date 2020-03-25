@@ -18,7 +18,7 @@ require_once ('priceTable.php');
         </div>
       </div>
       <div class="c5 s12">
-        <img class="preview" src="<?php echo \dash\url::cdn(); ?>/images/homepage/guaranteeBadge.png" alt='<?php echo \dash\data::site_title(); ?> <?php echo T_("30 day Guarantee"); ?>'>
+        <img class="preview" src="<?php echo \dash\url::cdn(); ?>/images/homepage/guaranteeBadge.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("30 day Guarantee"); ?>'>
       </div>
     </div>
   </div>

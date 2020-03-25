@@ -686,7 +686,7 @@ $myFirstURL = '';
   <section class="cbox">
     <div class="seoPreview">
       <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL. \dash\data::dataRow_url(); ?>">
-        <h3><?php if(\dash\data::dataRow_seotitle()) { echo \dash\data::dataRow_seotitle(); } else { echo \dash\data::dataRow_title();} ?> | <?php echo \dash\data::site_title(); ?></h3>
+        <h3><?php if(\dash\data::dataRow_seotitle()) { echo \dash\data::dataRow_seotitle(); } else { echo \dash\data::dataRow_title();} ?> | <?php echo \dash\face::site(); ?></h3>
         <cite><span><?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL; ?></span><?php echo \dash\data::dataRow_url(); ?></cite>
       </a>
       <div class="f">
@@ -715,7 +715,7 @@ $myFirstURL = '';
           <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character and appear at the beginning of page content"); ?></small></label>
           <div class="input">
             <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::dataRow_seotitle()) { echo \dash\data::dataRow_title();}?>' value="<?php echo \dash\data::dataRow_seotitle(); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
-            <label class="addon"> | <?php echo \dash\data::site_title(); ?></label>
+            <label class="addon"> | <?php echo \dash\face::site(); ?></label>
           </div>
         </div>
 

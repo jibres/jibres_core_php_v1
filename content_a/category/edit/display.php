@@ -85,7 +85,7 @@
                   <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
                   <div class="input">
                     <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::dataRow_seotitle()) { echo \dash\data::dataRow_title(); } ?>' value="<?php echo \dash\data::dataRow_seotitle(); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
-                    <label class="addon"> | <?php echo \dash\data::site_title(); ?></label>
+                    <label class="addon"> | <?php echo \dash\face::site(); ?></label>
                   </div>
                 </div>
 

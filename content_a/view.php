@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::site_title(T_("Jibres"));
+		\dash\face::site(T_("Jibres"));
 		\dash\data::site_desc(T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
@@ -23,7 +23,7 @@ class view
 		// use old version of chart until new version is being stable
 		\dash\data::include_highcharts(true);
 
-		\dash\data::site_title(\lib\store::title());
+		\dash\face::site(\lib\store::title());
 		\dash\data::store(\lib\store::detail());
 		// \dash\data::currentStore(\lib\app\store::ready(\lib\store::detail()));
 		\dash\data::site_logo(\lib\store::logo());

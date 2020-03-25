@@ -22,7 +22,7 @@ $tg = \dash\data::tg();
 
 
   <label for="text"><?php echo T_("Caption"); ?></label>
-  <textarea class="txt mB10" name="text" id="text" rows="7" placeholder='<?php echo T_("Text of the message to be sent"); ?>'><?php echo \dash\data::site_title(); ?></textarea>
+  <textarea class="txt mB10" name="text" id="text" rows="7" placeholder='<?php echo T_("Text of the message to be sent"); ?>'><?php echo \dash\face::site(); ?></textarea>
 
   <button class="btn primary block"><?php echo T_("Send"); ?></button>
 </form>

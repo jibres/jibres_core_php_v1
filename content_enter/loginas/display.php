@@ -2,7 +2,7 @@
   <h1 class='logo'>
   	<div class="f justify-center txtC">
   		<div class="caouto">
-			<img src='<?php echo \dash\url::icon(); ?>' alt='<?php echo \dash\data::site_title(); ?>'>
+			<img src='<?php echo \dash\url::icon(); ?>' alt='<?php echo \dash\face::site(); ?>'>
   		</div>
   		<div class="caouto mT20">
   			<i class="sf-exchange"></i>

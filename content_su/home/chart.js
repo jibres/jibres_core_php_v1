@@ -88,7 +88,7 @@ function highChart()
       useUTC: false
     },
     title: {
-      text: '<?php echo T_("Server live resource usage") . ' '. \dash\data::site_title(); ?> '
+      text: '<?php echo T_("Server live resource usage") . ' '. \dash\face::site(); ?> '
     },
     xAxis: [{
       type: 'datetime',

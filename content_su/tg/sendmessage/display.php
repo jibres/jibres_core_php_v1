@@ -10,7 +10,7 @@ $tg = \dash\data::tg();
 
   <label for="text"><?php echo T_("Message"); ?></label>
   <textarea class="txt mB10" name="text" id="text" rows="7" placeholder='<?php echo T_("Text of the message to be sent"); ?>' required>
-    <?php echo \dash\data::site_title(); ?>
+    <?php echo \dash\face::site(); ?>
 
     <?php echo \dash\fit::date(date("Y-m-d")); ?>
     <?php echo \dash\fit::text(date("H:i:s")); ?>

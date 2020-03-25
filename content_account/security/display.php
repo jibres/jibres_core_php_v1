@@ -27,7 +27,7 @@ else
       <div class="body pad">
         <div class="f">
           <div class="c">
-            <h3><?php echo T_("Signing in to"); ?> <?php echo \dash\data::site_title(); ?></h3>
+            <h3><?php echo T_("Signing in to"); ?> <?php echo \dash\face::site(); ?></h3>
           </div>
           <div class="cauto os">
             <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/security-signin.png" alt='<?php echo T_("Signing to account"); ?>'>
@@ -135,7 +135,7 @@ else
           <div class="c">
             <h3><?php echo T_("API key and Application key"); ?></h3>
             <p><?php echo T_("Protect this key like a password!"); ?></p>
-            <p><?php echo T_("Keys used to access APIs in"); ?> <?php echo \dash\data::site_title(); ?></p>
+            <p><?php echo T_("Keys used to access APIs in"); ?> <?php echo \dash\face::site(); ?></p>
             <a href="<?php echo \dash\url::here(); ?>/api" class="btn primary outline"><?php echo T_("API key"); ?></a>
             <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn primary outline"><?php echo T_("Application key"); ?></a>
           </div>

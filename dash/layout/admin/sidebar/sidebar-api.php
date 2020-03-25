@@ -1,6 +1,6 @@
 
   <li>
-    <a href="<?php echo \dash\url::that(); ?>"><i class='sf-campfire'></i> <span><?php echo \dash\data::site_title(); ?> <?php echo T_("API"); ?></span></a>
+    <a href="<?php echo \dash\url::that(); ?>"><i class='sf-campfire'></i> <span><?php echo \dash\face::site(); ?> <?php echo T_("API"); ?></span></a>
     <ul>
       <?php // ------------------------------------------------------------------------------------------------------------------ INTRO  ?>
       <li><a href="<?php echo \dash\url::that(); ?>#intro"><i class='sf-tree-1'></i> <span><?php echo T_("Introduction"); ?></span></a></li>

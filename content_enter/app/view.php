@@ -10,7 +10,7 @@ class view extends \content_enter\home\view
 		parent::config();
 
 
-		\dash\face::title(T_('Enter to :name', ['name' => \dash\data::site_title()]));
+		\dash\face::title(T_('Enter to :name', ['name' => \dash\face::site()]));
 		\dash\face::desc(\dash\face::title());
 
 	}

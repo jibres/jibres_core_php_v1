@@ -26,7 +26,7 @@ class view
 
 		$myBreadCrumb[] =
 		[
-			"text"  => \dash\data::site_title(),
+			"text"  => \dash\face::site(),
 			"link"  => \dash\url::sitelang(),
 			'title' => \dash\data::site_desc(),
 			"icon"  => "home",

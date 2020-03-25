@@ -2,8 +2,8 @@
    <div class="sidenavHandler c0 sauto mauto"><i class="sf-ellipsis-v"></i></div>
 
 
-   <a class="cauto logo" href="<?php echo \dash\url::kingdom(); ?>" ><img src="<?php echo \dash\data::site_logo(); ?>" alt='<?php echo \dash\data::site_title(); ?>'></a>
-   <h1 class='c'><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\data::site_title(); ?></a></h1>
+   <a class="cauto logo" href="<?php echo \dash\url::kingdom(); ?>" ><img src="<?php echo \dash\data::site_logo(); ?>" alt='<?php echo \dash\face::site(); ?>'></a>
+   <h1 class='c'><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\face::site(); ?></a></h1>
 
 
 

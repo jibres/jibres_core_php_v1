@@ -39,7 +39,7 @@ class view
 		}
 
 
-		\dash\data::site_title(T_(\dash\option::config('site', 'title')));
+		\dash\face::site(T_(\dash\option::config('site', 'title')));
 		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
 		\dash\data::site_slogan(T_(\dash\option::config('site', 'slogan')));
 		\dash\data::site_logo(\dash\url::icon());
@@ -77,7 +77,7 @@ class view
 				}
 				else
 				{
-					$page_title .= ' | '. \dash\data::site_title();
+					$page_title .= ' | '. \dash\face::site();
 				}
 			}
 
@@ -88,14 +88,14 @@ class view
 				\dash\face::seo($page_title);
 			}
 
-			// \dash\data::global_title(\dash\face::seo(). ' | '. \dash\data::site_title());
+			// \dash\data::global_title(\dash\face::seo(). ' | '. \dash\face::site());
 			\dash\data::global_title(\dash\face::seo());
 		}
 		else
 		{
-			\dash\data::global_title(\dash\data::site_title());
+			\dash\data::global_title(\dash\face::site());
 			// if this page does not have title use site title
-			\dash\face::title(\dash\data::site_title());
+			\dash\face::title(\dash\face::site());
 
 		}
 

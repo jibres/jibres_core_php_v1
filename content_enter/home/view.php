@@ -8,12 +8,12 @@ class view
 	public static function config()
 	{
 
-		\dash\face::title(T_('Enter to :name', ['name' => \dash\data::site_title()]));
+		\dash\face::title(T_('Enter to :name', ['name' => \dash\face::site()]));
 		\dash\face::desc(\dash\data::site_desc());
 
 		if(mb_strlen(\dash\face::desc()) < 150)
 		{
-			\dash\face::desc(\dash\face::desc(). ' | '. \dash\data::site_title());
+			\dash\face::desc(\dash\face::desc(). ' | '. \dash\face::site());
 			if(mb_strlen(\dash\face::desc()) < 150)
 			{
 				\dash\face::desc(\dash\face::desc(). ' | '. T_('Jibres'));

@@ -30,7 +30,7 @@ if (!\dash\data::pageWithLogin())
  <meta content="<?php echo \dash\face::desc(); ?>" property ="og:description"/>
  <meta content="<?php echo \dash\face::cover(); ?>" property ="og:image"/>
  <meta content="<?php echo \dash\url::pwd();?>" property ="og:url"/>
- <meta content="<?php echo \dash\data::site_title(); ?>" property ="og:site_name"/>
+ <meta content="<?php echo \dash\face::site(); ?>" property ="og:site_name"/>
  <meta content='<?php echo \dash\language::current(); ?>' property ='og:locale'/>
 <?php
 }
@@ -52,8 +52,8 @@ if(\dash\url::store())
  <meta content="yes" name="apple-mobile-web-app-capable"/>
  <meta content="#c80a5a" name="theme-color"/>
  <meta content="#c80a5a" name="msapplication-TileColor">
- <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
- <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
+ <meta content="<?php echo \dash\face::site(); ?>" name="application-name"/>
+ <meta content="<?php echo \dash\face::site(); ?>" name="apple-mobile-web-app-title"/>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>

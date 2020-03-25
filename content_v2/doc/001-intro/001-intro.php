@@ -1,4 +1,4 @@
-<h2 class="f " data-kerkere='#intro-detail' data-kerkere-icon='open'><?php echo \dash\data::site_title(); ?> <?php echo T_("APIs"); ?></h2>
+<h2 class="f " data-kerkere='#intro-detail' data-kerkere-icon='open'><?php echo \dash\face::site(); ?> <?php echo T_("APIs"); ?></h2>
 <div id="intro-detail">
   <div class="cbox fs15" id='intro'>
 

@@ -22,11 +22,11 @@ class view
 		$homepageShortDesc .= T_('Sell more and more.'). ' ';
 
 
-		\dash\face::seo(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
-		\dash\face::title(\dash\data::site_title());
+		\dash\face::seo(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
+		\dash\face::title(\dash\face::site());
 		if (!\dash\detect\device::detectPWA())
 		{
-			\dash\face::title(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
+			\dash\face::title(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
 		}
 		// dash\data::page_seotitle()
 		\dash\data::page_desc2($homepageShortDesc);
