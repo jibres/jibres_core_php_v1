@@ -15,34 +15,18 @@ function highChart()
 
   Highcharts.chart('chartdiv',
   {
-    chart: {
-      zoomType: 'x'
-    },
-    title: {
-      text: '<?php echo T_("Total Download application per day"); ?>'
-    },
+    title: { text: '<?php echo T_("Total Download application per day"); ?>' },
     xAxis: [{
       categories: <?php echo \dash\get::index($dashboardData, 'categories'); ?>,
       crosshair: true
     }],
-    yAxis:
-    {
-      title: false
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'left',
-      x: 120,
-      verticalAlign: 'top',
-      y: 50,
-      floating: true,
-      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
-    },
+    yAxis: [{ title: false }],
     series:
     [
       {
         name: '<?php echo T_("Count"); ?>',
         data: <?php echo \dash\get::index($dashboardData, 'count'); ?>,
+        showInLegend: false,
         tooltip: {
           valueSuffix: ' <?php echo T_("Count"); ?>'
         }
