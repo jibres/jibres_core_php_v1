@@ -370,7 +370,7 @@ class queue
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function set_status($_store, $_status, $_filename, $_meta)
+	public static function set_status($_store, $_status, $_filename, $_path, $_meta)
 	{
 		// save log in file
 		\dash\log::file(json_encode(func_get_args()), 'transfer_file_apk', 'application');
@@ -378,6 +378,12 @@ class queue
 		if(!is_string($_status))
 		{
 			\dash\notif::error(T_("Please set the status"));
+			return false;
+		}
+
+		if(!is_string($_path))
+		{
+			\dash\notif::error(T_("Please set the path"));
 			return false;
 		}
 
@@ -445,7 +451,7 @@ class queue
 		if($_filename)
 		{
 			// download file in store app folder
-			$transfer_file = self::transfer_file($_filename, $_store, $_meta);
+			$transfer_file = self::transfer_file($_filename, $_store, $_path);
 			if($transfer_file)
 			{
 				$log =
@@ -472,16 +478,12 @@ class queue
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	private static function transfer_file($_filename, $_store, $_meta)
+	private static function transfer_file($_filename, $_store, $_path)
 	{
 		$host = 'http://app.talambar.ir/';
 
-		$source = $host;
+		$source = $host. $_path;
 
-		if(isset($_meta['path']))
-		{
-			$source = $host. $_meta['path'];
-		}
 
 		$source = trim($source, '/');
 
@@ -489,7 +491,7 @@ class queue
 
 		$store_addr = YARD . 'talambar_cloud/'. $store . '/app/';
 		\dash\file::makeDir($store_addr, null, true);
-		$dest = $store_addr . basename($_filename);
+		$dest = $store_addr . basename($_path);
 
 		\dash\log::file(json_encode([$source, $dest]), 'transfer_file_apk', 'application');
 
