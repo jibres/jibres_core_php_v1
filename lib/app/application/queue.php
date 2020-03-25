@@ -439,8 +439,6 @@ class queue
 		\lib\db\store_app\update::record($update, $result['id']);
 
 		$save_in_store_detail = array_merge($result, $update);
-		$save_in_store_detail = json_encode($save_in_store_detail, JSON_UNESCAPED_UNICODE);
-		$my_store_fuel        = null;
 
 		self::remove_store_catch_detail($save_in_store_detail);
 
