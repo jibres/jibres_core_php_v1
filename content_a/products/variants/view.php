@@ -31,7 +31,7 @@ class view
 			\dash\data::page_view(\dash\data::productDataRow_url());
 		}
 
-		\dash\data::page_help(\dash\url::support().'/variants');
+		\dash\face::help(\dash\url::support().'/variants');
 
 
 		$variants_list = \lib\app\product\variants::get($id);

@@ -29,8 +29,8 @@ if(\dash\data::page_titleBox() !== false && !\dash\detect\device::detectPWA())
 <?php if(\dash\data::page_view()) { ?>
       <a class="btn light" href="<?php echo \dash\data::page_view(); ?>" target="_blank"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
 <?php } // endif ?>
-<?php if(\dash\data::page_help()) { ?>
-      <a class="btn light" href="<?php echo \dash\data::page_help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
+<?php if(\dash\face::help()) { ?>
+      <a class="btn light" href="<?php echo \dash\face::help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
 <?php } // endif ?>
     </nav>
 

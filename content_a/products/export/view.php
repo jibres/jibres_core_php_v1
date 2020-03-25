@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Products'));
 		\dash\data::back_link(\dash\url::this());
 		// support link
-		\dash\data::page_help(\dash\url::support().'/products/export');
+		\dash\face::help(\dash\url::support().'/products/export');
 
 		$count_all = \lib\app\product\export::count_all();
 		\dash\data::countAll($count_all);

@@ -13,7 +13,7 @@ class view
 			\dash\data::back_link(\dash\url::here());
 		}
 
-		// \dash\data::page_help(\dash\url::support().'/store');
+		// \dash\face::help(\dash\url::support().'/store');
 
 		$myStore = \dash\data::listStore();
 

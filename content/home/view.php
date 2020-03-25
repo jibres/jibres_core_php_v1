@@ -28,9 +28,6 @@ class view
 		{
 			\dash\face::title(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
 		}
-		// dash\data::page_seotitle()
-		\dash\data::page_desc2($homepageShortDesc);
-
 
 		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
 

@@ -20,7 +20,7 @@ class view
 		// operations
 		\dash\data::page_import(\dash\url::this().'/import');
 		\dash\data::page_export(\dash\url::this().'/export');
-		// \dash\data::page_help(\dash\url::support().'/products');
+		// \dash\face::help(\dash\url::support().'/products');
 
 		$args =
 		[
