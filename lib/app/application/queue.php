@@ -301,7 +301,7 @@ class queue
 
 		if(isset($build_queue['store_id']))
 		{
-			$build_queue['store'] = \dash\store_coding::encode($build_queue['store_id']);
+			$build_queue['store'] = \dash\store_coding::encode_raw($build_queue['store_id']);
 			$result['store']      = $build_queue['store'];
 		}
 
