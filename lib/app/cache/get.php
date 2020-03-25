@@ -117,11 +117,11 @@ class get
 			{
 				foreach ($sale_time_chart as $key => $value)
 				{
-					$count = intval($value['count']);
+					$count = floatval($value['count']);
 					$sum   = \lib\number::down($value['sum']);
 					$sum   = \lib\price::down($sum);
 
-					$temp[] = ['key' => \dash\fit::number($value['key']), 'count' => intval($count), 'sum' => intval($sum)];
+					$temp[] = ['key' => \dash\fit::number($value['key']), 'count' => $count, 'sum' => $sum];
 				}
 			}
 			$hi_chart               = [];
