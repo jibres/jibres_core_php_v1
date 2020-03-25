@@ -18,7 +18,7 @@ if (!\dash\data::pageWithLogin())
 {
 ?>
  <meta content="<?php echo \dash\url::kingdom();?>" name="site:root"/>
- <meta content="<?php echo \dash\data::page_twitterCard(); ?>" name="twitter:card"/>
+ <meta content="<?php echo \dash\face::twitterCard(); ?>" name="twitter:card"/>
  <meta content="<?php echo \dash\face::title(); ?>" name="twitter:title"/>
  <meta content="<?php echo \dash\face::desc(); ?>" name="twitter:description"/>
  <meta content="<?php echo \dash\face::cover(); ?>" name="twitter:image"/>

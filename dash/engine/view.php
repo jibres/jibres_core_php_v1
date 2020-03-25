@@ -161,17 +161,17 @@ class view
 		// if we dont have page image, use site image
 		if(\dash\face::cover())
 		{
-			\dash\data::page_twitterCard('summary_large_image');
+			\dash\face::twitterCard('summary_large_image');
 		}
 		elseif(\dash\data::page_video())
 		{
-			\dash\data::page_twitterCard('player');
+			\dash\face::twitterCard('player');
 		}
 		else
 		{
 
 			\dash\face::cover(\dash\data::site_logo());
-			\dash\data::page_twitterCard('summary');
+			\dash\face::twitterCard('summary');
 		}
 	}
 
