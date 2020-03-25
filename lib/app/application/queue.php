@@ -478,8 +478,9 @@ class queue
 		$source = $host. $_filename;
 		$source = trim($source, '/');
 
+		$store = str_replace('$', '', $_store);
 
-		$store_addr = YARD . 'talambar_cloud/'. $_store . '/app/';
+		$store_addr = YARD . 'talambar_cloud/'. $store . '/app/';
 		\dash\file::makeDir($store_addr, null, true);
 		$dest = $store_addr . basename($_filename);
 
