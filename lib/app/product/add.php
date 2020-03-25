@@ -164,6 +164,8 @@ class add
 			}
 		}
 
+		unset($args['tag']);
+
 		$product_id = \lib\db\products\insert::new_record($args);
 
 		if(!$product_id)
