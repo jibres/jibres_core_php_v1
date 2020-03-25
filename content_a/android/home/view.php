@@ -19,7 +19,7 @@ class view
 		$setupGuide = \lib\app\application\detail::make_setup_guide();
 		\dash\data::setupGuide($setupGuide);
 
-		\dash\data::dashboardData(\lib\app\cache\get::admin_dashboard());
+		\dash\data::dashboardData(\lib\app\application\download::chart());
 
 		\dash\data::loadScript(true);
 
