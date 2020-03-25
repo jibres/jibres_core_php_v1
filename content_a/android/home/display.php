@@ -3,13 +3,13 @@
 <div class="f">
   <div class="c8 x9 s12 pRa10">
     <div class="f">
-      <div class="c pRa5">
+      <div class="c pRa10">
         <a href="" class="stat">
           <h3><?php echo T_("Total Download");?></h3>
           <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownload());?></div>
         </a>
       </div>
-      <div class="c pRa5">
+      <div class="c pRa10">
         <div class="stat">
           <h3><?php echo T_("Total Install");?></h3>
           <div class="val"><?php echo \dash\fit::number('-');?></div>
@@ -42,26 +42,26 @@
 </div>
 
 <div class="f">
-  <div class="c pRa5">
+  <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Download last week");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownloadLastWeek());?></div>
     </a>
   </div>
-  <div class="c pRa5">
+  <div class="c pRa10">
     <div class="stat">
       <h3><?php echo T_("Download last month");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownloadLastMonth());?></div>
     </div>
   </div>
-  <div class="c pRa5">
+  <div class="c pRa10">
     <div class="stat">
       <h3><?php echo T_("Download last year");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownloadLastYear());?></div>
     </div>
   </div>
 
-  <div class="c pRa5">
+  <div class="c pRa10">
     <div class="stat">
       <h3><?php echo T_("Install last week");?></h3>
       <div class="val"><?php echo \dash\fit::number('-');?></div>
