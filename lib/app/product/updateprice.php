@@ -170,6 +170,10 @@ class updateprice
 			// 	$changed = true;
 			// }
 
+			if((array_key_exists('finalprice', $last_product_price) && array_key_exists('finalprice', $_args) && floatval($_args['finalprice']) !== floatval($last_product_price['finalprice'])) || $changed)
+			{
+				$changed = true;
+			}
 
 			if((array_key_exists('discount', $last_product_price) && array_key_exists('discount', $_args) && floatval($_args['discount']) !== floatval($last_product_price['discount'])) || $changed)
 			{

@@ -202,7 +202,7 @@ class check
 
 		$data['vatprice'] = 0;
 
-		if($data['vat'])
+		if($data['vat'] === 'yes')
 		{
 			$vatprice_percent = 9; // 9% in iran. need to get from setting
 			if($vatprice_percent)

@@ -54,7 +54,7 @@ class edit
 
 		$args = \lib\app\product\check::variable($_args, $id, $_option);
 
-		if($args['price'] || $args['discount'] || $args['buyprice'])
+		if($args['price'] || $args['discount'] || $args['buyprice'] || $args['finalprice'])
 		{
 			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args);
@@ -62,9 +62,21 @@ class edit
 
 		// to not remove in patch_mode function
 		// $_args['compareatprice']  = $args['compareatprice'];
-		$_args['discountpercent'] = $args['discountpercent'];
-		$_args['finalprice']      = $args['finalprice'];
-		$_args['vatprice']        = $args['vatprice'];
+		if($args['discountpercent'])
+		{
+			$_args['discountpercent'] = $args['discountpercent'];
+		}
+
+		if($args['finalprice'])
+		{
+			$_args['finalprice']      = $args['finalprice'];
+		}
+
+		if($args['vatprice'])
+		{
+			$_args['vatprice']        = $args['vatprice'];
+		}
+
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
