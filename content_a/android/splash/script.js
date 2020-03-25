@@ -1,7 +1,7 @@
 
 function pushStateFinal()
 {
-  $('[data-page="app_android_splash"] input[type=radio][name=theme]').change(function() {
+  $('[data-page="android_splash"] input[type=radio][name=theme]').change(function() {
     var myColors = this.value.split('_');
     if(myColors.length != 4)
     {
@@ -14,10 +14,10 @@ function pushStateFinal()
     var colordesc = myColors[3];
 
 
-    $('[data-page="app_android_splash"] #start').val(start);
-    $('[data-page="app_android_splash"] #end').val(end);
-    $('[data-page="app_android_splash"] #colortext').val(colortext);
-    $('[data-page="app_android_splash"] #colordesc').val(colordesc);
+    $('[data-page="android_splash"] #start').val(start);
+    $('[data-page="android_splash"] #end').val(end);
+    $('[data-page="android_splash"] #colortext').val(colortext);
+    $('[data-page="android_splash"] #colordesc').val(colordesc);
 
 
     applySplashColors();
@@ -26,18 +26,18 @@ function pushStateFinal()
   function applySplashColors()
   {
     var myStyle;
-    var mySplashPrev = $('[data-page="app_android_splash"] .mobileFrame[data-splash]');
+    var mySplashPrev = $('[data-page="android_splash"] .mobileFrame[data-splash]');
 
     myStyle = 'background: linear-gradient(0deg, ';
-    myStyle += $('[data-page="app_android_splash"] #start').val();
+    myStyle += $('[data-page="android_splash"] #start').val();
     myStyle += ', ';
-    myStyle += $('[data-page="app_android_splash"] #end').val();
+    myStyle += $('[data-page="android_splash"] #end').val();
     myStyle += ')';
 
     mySplashPrev.attr('style', myStyle);
-    mySplashPrev.find('h2').css('color', $('[data-page="app_android_splash"] #colortext').val());
-    mySplashPrev.find('h3').css('color', $('[data-page="app_android_splash"] #colordesc').val());
-    mySplashPrev.find('.desc').css('color', $('[data-page="app_android_splash"] #colordesc').val());
+    mySplashPrev.find('h2').css('color', $('[data-page="android_splash"] #colortext').val());
+    mySplashPrev.find('h3').css('color', $('[data-page="android_splash"] #colordesc').val());
+    mySplashPrev.find('.desc').css('color', $('[data-page="android_splash"] #colordesc').val());
   }
   // run on init
   applySplashColors();
