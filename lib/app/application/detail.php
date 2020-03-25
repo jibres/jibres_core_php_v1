@@ -383,11 +383,13 @@ class detail
 
 		$default =
 		[
-			"logo"   => null,
-			"title"  => null,
-			"desc"   => null,
-			"slogan" => null,
-			"theme"  => null,
+			"logo"          => null,
+			"title"         => null,
+			"desc"          => null,
+			"slogan"        => null,
+			"theme"         => null,
+			"downloadtitle" => null,
+			"downloaddesc"  => null,
 			"page_1" =>
 			[
 				"title" => null,
@@ -456,6 +458,12 @@ class detail
 		{
 			$setupGuideDetail['apk'] = true;
 		}
+
+		if($check['downloadtitle'])
+		{
+			$setupGuideDetail['download'] = true;
+		}
+
 
 		return $setupGuideDetail;
 
