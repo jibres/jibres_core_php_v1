@@ -16,6 +16,20 @@ class view
 		$app_queue = \lib\app\application\queue::detail();
 		\dash\data::appQueue($app_queue);
 
+		if(isset($app_queue['status']) && $app_queue['status'])
+		{
+			// action
+			\dash\data::action_text(T_('Application status'));
+			\dash\data::action_link(\dash\url::this(). '/apk');
+		}
+		else
+		{
+			// action
+			\dash\data::action_text(T_('Setup Your app'));
+			\dash\data::action_link(\dash\url::this(). '/logo?setup=wizard');
+		}
+
+
 		$setupGuide = \lib\app\application\detail::make_setup_guide();
 		\dash\data::setupGuide($setupGuide);
 
