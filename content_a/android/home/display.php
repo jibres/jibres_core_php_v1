@@ -23,30 +23,12 @@
       </div>
     </div>
 
-
-    <div class="dcard x3 pA0">
-     <div id="chartdiv" class="chart" ></div>
-    </div>
+    <div id="chartdiv" class="box chart x240"></div>
   </div>
 
   <div class="c4 x3 s12">
-
    <nav class="items">
      <ul>
-       <li>
-        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/domain">
-         <div class="key"><?php echo T_("Domain Center"); ?></div>
-         <div class="go"></div>
-        </a>
-       </li>
-
-       <li>
-        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/store">
-         <div class="key"><?php echo T_("Stores"); ?></div>
-         <div class="go"></div>
-        </a>
-       </li>
-
        <li><a class="f <?php if(\dash\data::setupGuide_logo()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/logo"><div class="key"><?php echo T_('App Logo');?></div><div class="go"></div></a></li>
        <li><a class="f <?php if(\dash\data::setupGuide_setting()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setting"><div class="key"><?php echo T_('General Settings');?></div><div class="go"></div></a></li>
        <li><a class="f <?php if(\dash\data::setupGuide_splash()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/splash"><div class="key"><?php echo T_('App Splash');?></div><div class="go"></div></a></li>
@@ -58,4 +40,6 @@
    </nav>
   </div>
 </div>
+
+<div id="chartdiv2" class="box chart x400"></div>
 
