@@ -121,7 +121,7 @@ echo " data-preload";
 if (\dash\data::include_highcharts())
 {
   echo "\n  ";
-  echo '<script async src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'). '"></script>';
+  echo '<script src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'). '"></script>';
 }
 
 if (\dash\data::include_editor())
