@@ -50,7 +50,7 @@ class load
 			'apk',
 		];
 
-		$subchild = \dash\url::subchild();
+		$child = \dash\url::child();
 
 		if(!self::$setupGuide)
 		{
@@ -67,13 +67,13 @@ class load
 		}
 		else
 		{
-			if($subchild == $_module)
+			if($child == $_module)
 			{
 				$class = 'current';
 			}
 			else
 			{
-				if(array_search($_module, $sort) < array_search($subchild, $sort))
+				if(array_search($_module, $sort) < array_search($child, $sort))
 				{
 					$class = 'fail';
 				}
@@ -85,7 +85,7 @@ class load
 
 		}
 
-		if($subchild === $_module)
+		if($child === $_module)
 		{
 			$class = 'current';
 		}
@@ -118,7 +118,7 @@ class load
 			$apk = 'complete';
 		}
 
-		if(\dash\url::subchild() === 'apk')
+		if(\dash\url::child() === 'apk')
 		{
 			$review = 'complete';
 		}
