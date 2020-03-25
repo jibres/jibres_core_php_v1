@@ -11,7 +11,7 @@ class view
 			'namespace' => 'jibres',
 			'title'     => T_('Jibres'),
 			'desc'      => \dash\data::site_desc(),
-			'slogan'    => \dash\data::site_slogan(),
+			'slogan'    => \dash\face::slogan(),
 			'logo'      =>
 			[
 				'standard'      => \dash\url::logo(),

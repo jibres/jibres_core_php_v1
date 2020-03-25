@@ -41,7 +41,7 @@ class view
 
 		\dash\face::site(T_(\dash\option::config('site', 'title')));
 		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
-		\dash\data::site_slogan(T_(\dash\option::config('site', 'slogan')));
+		\dash\face::slogan(T_(\dash\option::config('site', 'slogan')));
 		\dash\face::logo(\dash\url::icon());
 		// set custom logo
 		if(\dash\option::config('site', 'logo'))

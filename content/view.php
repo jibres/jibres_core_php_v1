@@ -28,8 +28,8 @@ class view
 
 		\dash\face::site(T_("Jibres"));
 		\dash\data::site_desc($jibresDesc);
-		\dash\data::site_slogan(T_("#1 World Sales Engineering System"));
-		\dash\data::site_slogan(T_("Sell and Enjoy"));
+		\dash\face::slogan(T_("#1 World Sales Engineering System"));
+		\dash\face::slogan(T_("Sell and Enjoy"));
 
 
 
