@@ -20,10 +20,6 @@
 
       </div>
       <footer class="f">
-        <div class="c">
-          <a class="ibtn" href="<?php echo \dash\url::this(). '/logo'; ?>"><i data-prev></i><span><?php echo T_("Logo"); ?></span></a>
-
-        </div>
         <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>
       </footer>
     </form>

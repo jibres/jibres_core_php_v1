@@ -54,10 +54,7 @@
         </div>
 
       <footer class="f">
-        <div class="c">
-          <a class="ibtn" href="<?php echo \dash\url::this(). '/setting'; ?>"><i data-prev></i><span><?php echo T_("App Title"); ?></span></a>
 
-        </div>
         <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>
       </footer>
 
