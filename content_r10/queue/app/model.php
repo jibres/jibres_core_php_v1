@@ -12,6 +12,8 @@ class model
 		$meta     = \dash\request::post('meta');
 
 		\lib\app\application\queue::set_status($store, $status, $filename, $meta);
+
+		\content_r10\tools::say();
 	}
 }
 ?>
