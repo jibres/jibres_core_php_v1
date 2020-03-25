@@ -68,7 +68,7 @@ class view
 			],
 		];
 
-		\dash\notif::api($result);
+		\content_r10\tools::say($result);
 	}
 }
 ?>

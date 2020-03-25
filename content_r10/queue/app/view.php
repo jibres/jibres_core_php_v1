@@ -13,7 +13,7 @@ class view
 		// 	'store' => 'y88p',
 		// ];
 
-		\dash\notif::api($result);
+		\content_r10\tools::say($result);
 	}
 }
 ?>

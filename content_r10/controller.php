@@ -23,6 +23,9 @@ class controller
 			}
 			\dash\redirect::to($newCoreAddress);
 		}
+
+		// save api log
+		\dash\app\apilog::start();
 	}
 }
 ?>
