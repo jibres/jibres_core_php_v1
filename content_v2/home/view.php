@@ -34,7 +34,7 @@ class view
 			],
 		];
 
-		\dash\notif::api($result);
+		\content_v2\tools::say($result);
 	}
 }
 ?>
