@@ -159,7 +159,7 @@ class check_detail
 			}
 
 
-			if(array_key_exists('vat', $this_proudct) && $this_proudct['vat'])
+			if(array_key_exists('vat', $this_proudct) && $this_proudct['vat'] === 'yes')
 			{
 				$vat_percent = 9; // 9% in iran. need to get from setting
 				if($vat_percent)
