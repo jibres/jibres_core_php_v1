@@ -13,8 +13,8 @@ class view
 		\dash\data::action_text(T_('Add product'));
 		\dash\data::action_link(\dash\url::this(). '/add');
 		// operations
-		\dash\face::import(\dash\url::this().'/import');
-		\dash\face::export(\dash\url::this().'/export');
+		\dash\face::btnImport(\dash\url::this().'/import');
+		\dash\face::btnExport(\dash\url::this().'/export');
 
 		$args =
 		[

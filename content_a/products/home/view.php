@@ -18,8 +18,8 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
 		// operations
-		\dash\face::import(\dash\url::this().'/import');
-		\dash\face::export(\dash\url::this().'/export');
+		\dash\face::btnImport(\dash\url::this().'/import');
+		\dash\face::btnExport(\dash\url::this().'/export');
 		// \dash\face::help(\dash\url::support().'/products');
 
 		$args =

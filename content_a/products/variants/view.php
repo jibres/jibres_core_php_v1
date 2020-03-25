@@ -17,8 +17,8 @@ class view
 
 		\dash\face::title(T_("Variants"). ' | '. $title);
 
-		\dash\data::page_next(\dash\url::this(). '/next/'. \dash\request::get('id'));
-		\dash\data::page_prev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
+		\dash\face::btnNext(\dash\url::this(). '/next/'. \dash\request::get('id'));
+		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
 
 
 		// back
@@ -28,7 +28,7 @@ class view
 
 		if(\dash\data::productDataRow_url())
 		{
-			\dash\data::page_view(\dash\data::productDataRow_url());
+			\dash\face::btnView(\dash\data::productDataRow_url());
 		}
 
 		\dash\face::help(\dash\url::support().'/variants');
@@ -67,7 +67,7 @@ class view
 		}
 		else
 		{
-			// \dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
+			// \dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
 	}
 }
