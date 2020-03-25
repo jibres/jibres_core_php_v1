@@ -81,6 +81,7 @@ else
                 <th><?php echo T_("Date queue"); ?></th>
                 <th><?php echo T_("Date done"); ?></th>
                 <th><?php echo T_("File"); ?></th>
+                <th><?php echo T_("Meta"); ?></th>
 
             </tr>
         </thead>
@@ -110,6 +111,7 @@ else
                 <td class=" "><?php echo \dash\fit::date_human(\dash\get::index($value, 'datequeue')); ?></td>
                 <td class=" "><?php echo \dash\fit::date_human(\dash\get::index($value, 'datedone')); ?></td>
                 <td class=" "><?php if(\dash\get::index($value, 'file')) { echo '<a href="'.\dash\url::cdn().'/app/'. $value['file'].'" class="btn">'.T_("Download").'</a>'; }?></td>
+                <td class=" "><?php echo \dash\get::index($value, 'meta'); ?></td>
 
 
             </tr>
