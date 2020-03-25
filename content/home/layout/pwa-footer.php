@@ -72,11 +72,28 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           {
           ?>
 
-          <nav class="c3 s12 pLR10">
+          <nav class="c3 s12 pLR10 items">
             <h3><?php echo T_('Domains'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/domain"><?php echo T_('Domain Name Search'); ?></a>
-            <a href="<?php echo $kingdom; ?>/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
-            <a href="<?php echo $kingdom; ?>/whois"><?php echo T_('Whois Lookup'); ?></a>
+            <ul>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/domain">
+                <div class="key"><?php echo T_('Domain Name Search'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/domain/transfer">
+                <div class="key"><?php echo T_('Transfer Domain'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/whois">
+                <div class="key"><?php echo T_('Whois Lookup'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+            </ul>
           </nav>
 
           <?php
@@ -84,45 +101,161 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           ?>
 
 
-          <nav class="c3 s12 pLR10">
+          <nav class="c3 s12 pLR10 items">
             <h3><?php echo T_('Support'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/support"><?php echo T_('Support Center'); ?></a>
-            <a href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact'); ?></a>
-            <a href="<?php echo $kingdom; ?>/support/faq"><?php echo T_('FAQ'); ?></a>
-            <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?> <span class="mLa5 sf-external-link"></span></a>
-            <a href="<?php echo $kingdom; ?>/support/ticket/add"><?php echo T_('Submit Ticket'); ?></a>
-            <a href="<?php echo $kingdom; ?>/support/ticket/add?type=bug"><?php echo T_('Report Bug'); ?></a>
-            <a href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
+            <ul>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/support">
+                <div class="key"><?php echo T_('Support Center'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/contact">
+                <div class="key"><?php echo T_('Contact'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/support/faq">
+                <div class="key"><?php echo T_('FAQ'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="https://status.jibres.com" target="_blank">
+                <div class="key"><?php echo T_('System Status'); ?> <span class="mLa5 sf-external-link"></span></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/support/ticket/add">
+                <div class="key"><?php echo T_('Submit Ticket'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/support/ticket/add?type=bug">
+                <div class="key"><?php echo T_('Report Bug'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback">
+                <div class="key"><?php echo T_('Send us Feedback'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+            </ul>
           </nav>
 
-          <nav class="c3 s12 pLR10">
+          <nav class="c3 s12 pLR10 items">
             <h3><?php echo T_('Resources'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/blog"><?php echo T_('Blog'); ?></a>
-            <a href="<?php echo $kingdom; ?>/terms"><?php echo T_('Terms of Service'); ?></a>
-            <a href="<?php echo $kingdom; ?>/privacy"><?php echo T_('Privacy Policy'); ?></a>
-            <a href="<?php echo $kingdom; ?>/changelog"><?php echo T_('Changelog'); ?></a>
-            <a href="<?php echo $kingdom; ?>/certificates"><?php echo T_('Certificates'); ?></a>
-            <a href="<?php echo $kingdom; ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+            <ul>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/blog">
+                <div class="key"><?php echo T_('Blog'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/terms">
+                <div class="key"><?php echo T_('Terms of Service'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/privacy">
+                <div class="key"><?php echo T_('Privacy Policy'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/changelog">
+                <div class="key"><?php echo T_('Changelog'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/certificates">
+                <div class="key"><?php echo T_('Certificates'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/socialresponsibility">
+                <div class="key"><?php echo T_('Social Responsibility'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+            </ul>
           </nav>
 
-          <nav class="c3 s12 pLR10">
+          <nav class="c3 s12 pLR10 items">
             <h3><?php echo T_('Jibres Company'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/about"><?php echo T_('About Jibres'); ?></a>
-            <a href="<?php echo $kingdom; ?>/mission"><?php echo T_('Jibres Mission'); ?></a>
-            <a href="<?php echo $kingdom; ?>/vision"><?php echo T_('Jibres Vision'); ?></a>
-            <a href="<?php echo $kingdom; ?>/values"><?php echo T_('Our Values'); ?></a>
-            <a href="<?php echo $kingdom; ?>/team"><?php echo T_('Our Team'); ?></a>
-            <a target="_blank" href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></a>
-            <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Jibres Logo'); ?></a>
-            <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Brand Styleguide'); ?></a>
-            <a href="<?php echo $kingdom; ?>/press"><?php echo T_('Press and Media'); ?></a>
+            <ul>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/about">
+                <div class="key"><?php echo T_('About Jibres'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/mission">
+                <div class="key"><?php echo T_('Jibres Mission'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/vision">
+                <div class="key"><?php echo T_('Jibres Vision'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/values">
+                <div class="key"><?php echo T_('Our Values'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/team">
+                <div class="key"><?php echo T_('Our Team'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" target="_blank" href="<?php echo $kingdom; ?>/careers">
+                <div class="key"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/logo">
+                <div class="key"><?php echo T_('Jibres Logo'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/brand">
+                <div class="key"><?php echo T_('Brand Styleguide'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/press">
+                <div class="key"><?php echo T_('Press and Media'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+            </ul>
           </nav>
         </div>
     </div>
 
     <div id="jibresLastLine" class="f align-center">
-      <div id="jibresCopyright" class="cauto">&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'). ' '. T_('Jibres, LLC'). ' ' ; ?>&reg;</div>
-      <nav class="c langlist"><?php
+      <div id="jibresCopyright" class="cauto s12">&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'). ' '. T_('Jibres, LLC'). ' ' ; ?>&reg;</div>
+      <nav class="c s12 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
           echo "<a hreflang='en' target='_blank'  href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
@@ -132,7 +265,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           echo "<a hreflang='fa' target='_blank'  href='https://jibres.ir'>فارسی <span class='mLa5 sf-external-link'></span></a>";
         }
       ?></nav>
-      <nav class="cauto os share1">
+      <nav class="cauto s12 os share1">
         <a target="_blank" rel="nofollow" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
         <a target="_blank" rel="nofollow" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
         <a target="_blank" rel="nofollow" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
