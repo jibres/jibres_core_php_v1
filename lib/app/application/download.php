@@ -16,7 +16,7 @@ class download
 			self::save_download_log($app_queue);
 
 			$host = \dash\url::cloud();
-			$host .= '/'. \dash\store_coding::encode();
+			$host .= '/'. \dash\store_coding::encode_raw();
 			$host .= '/app/'. basename($app_queue['file']);
 			\dash\redirect::to($host, true , 302);
 
