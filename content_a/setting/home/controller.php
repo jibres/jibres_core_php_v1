@@ -7,10 +7,6 @@ class controller
 	{
 		\dash\permission::access('settingView');
 
-		$new_url = \dash\url::this(). '/general';
-
-		\dash\redirect::to($new_url);
-
 	}
 }
 ?>

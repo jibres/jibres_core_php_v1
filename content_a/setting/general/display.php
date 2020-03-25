@@ -41,27 +41,4 @@ $storeData = \dash\data::store_store_data();
  </div>
 </div>
 
-<div class="cbox">
-
-  <div class="pA20">
-
-    <p><?php echo T_("Stroe settings"); ?></p>
-
-    <ul>
-        <li><a href="<?php echo \dash\url::this(); ?>/address"><?php echo T_("Set your store address"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/company"><?php echo T_("Store legal information"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/logo"><?php echo T_("Set logo of your store"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/payment"><?php echo T_("Payment channels"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/pos"><?php echo T_("Point of sale hardwares"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/shipping"><?php echo T_("Setting up shipping rates"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/units"><?php echo T_("Store Units"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/vat"><?php echo T_("Tax settings"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/pcpos"><?php echo T_("PC-POS setting"); ?></a></li>
-
-    </ul>
-
-  </div>
-
-</div>
-
 

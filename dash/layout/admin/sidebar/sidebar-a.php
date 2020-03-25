@@ -38,6 +38,6 @@ $urlHere = \dash\url::here();
 
 
   <li>
-    <?php if(\dash\permission::check('settingView')) {?><a href="<?php echo $urlHere; ?>/setting/general"><i class="sf-cogs"></i><?php echo T_("Setting"); ?></a><?php } //endif ?>
+    <?php if(\dash\permission::check('settingView')) {?><a href="<?php echo $urlHere; ?>/setting"><i class="sf-cogs"></i><?php echo T_("Setting"); ?></a><?php } //endif ?>
 
   </li>
