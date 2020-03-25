@@ -21,6 +21,11 @@ if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() ==
             <div class="c"><?php echo T_("Queue start time"); ?></div>
             <div class="cauto"><?php echo \dash\fit::date_human(\dash\data::appQueue_daterequest()); ?></div>
           </div>
+
+          <div class="msg f">
+            <div class="c"><?php echo T_("Status"); ?></div>
+            <div class="cauto"><?php echo T_(ucfirst(\dash\data::appQueue_status())); ?></div>
+          </div>
         </div>
 
         <div class="body zeroPad">
