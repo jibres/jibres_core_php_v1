@@ -163,7 +163,7 @@ class view
 		{
 			\dash\face::twitterCard('summary_large_image');
 		}
-		elseif(\dash\data::page_video())
+		elseif(\dash\face::video())
 		{
 			\dash\face::twitterCard('player');
 		}
