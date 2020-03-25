@@ -17,11 +17,11 @@ if(\dash\data::page_titleBox() !== false && !\dash\detect\device::detectPWA())
     </div>
     <nav class="cauto actions">
 
-<?php if(\dash\data::page_import()) { ?>
-      <a class="btn light" href="<?php echo \dash\data::page_import(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
+<?php if(\dash\face::import()) { ?>
+      <a class="btn light" href="<?php echo \dash\face::import(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
 <?php } // endif ?>
-<?php if(\dash\data::page_export()) { ?>
-      <a class="btn light" href="<?php echo \dash\data::page_export(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
+<?php if(\dash\face::export()) { ?>
+      <a class="btn light" href="<?php echo \dash\face::export(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\data::page_duplicate()) { ?>
       <a class="btn light" href="<?php echo \dash\data::page_duplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
