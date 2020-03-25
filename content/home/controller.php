@@ -48,6 +48,11 @@ class controller
 	{
 		if(\dash\url::store())
 		{
+			if(\dash\url::module() === 'apk' && !\dash\url::child())
+			{
+				\lib\app\application\download::from_site();
+			}
+
 			\dash\redirect::to(\dash\url::kingdom(). '/a');
 		}
 
