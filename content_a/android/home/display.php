@@ -76,5 +76,5 @@
   </div>
 </div>
 
-<div id="chartdiv2" class="box chart x400"></div>
+<div class="box chart x400" id="charttotaldownload"></div>
 

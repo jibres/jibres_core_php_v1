@@ -1,7 +1,7 @@
 function chartDrawer()
 {
   if($("#chartdiv").length == 1){highChart();}
-  if($("#chartdiv2").length == 1){highChart2();}
+  if($("#charttotaldownload").length == 1){highChart2();}
 }
 
 <?php
@@ -15,7 +15,7 @@ function highChart()
 
   Highcharts.chart('chartdiv',
   {
-    title: { text: '<?php echo T_("Total Download application per day"); ?>' },
+    title: { text: '<?php echo T_("Total new download application per day"); ?>' },
     xAxis: [{
       categories: <?php echo \dash\get::index($dashboardData, 'categories'); ?>,
       crosshair: true
@@ -26,6 +26,7 @@ function highChart()
       {
         name: '<?php echo T_("Count"); ?>',
         data: <?php echo \dash\get::index($dashboardData, 'count'); ?>,
+        type: 'column',
         showInLegend: false,
         tooltip: {
           valueSuffix: ' <?php echo T_("Count"); ?>'
@@ -40,109 +41,25 @@ function highChart()
 function highChart2()
 {
 
-  Highcharts.chart('chartdiv2',
+  Highcharts.chart('charttotaldownload',
   {
-    chart: {
-      zoomType: 'x',
-      style: {
-        fontFamily: 'IRANSans, Tahoma, sans-serif'
-      }
-    },
-    title: {
-      text: '<?php echo T_("Total Download application"); ?>'
-    },
+    title: { text: '<?php echo T_("Total Download application per day"); ?>' },
     xAxis: [{
       categories: <?php echo \dash\get::index($dashboardData, 'categories'); ?>,
       crosshair: true
     }],
-    yAxis: [{ // Primary yAxis
-      labels: {
-        format: '{value}',
-        style: {
-          color: Highcharts.getOptions().colors[0]
-        }
-      },
-      title: {
-        text: '<?php echo T_("Count"); ?>',
-        useHTML: Highcharts.hasBidiBug,
-        style: {
-          color: Highcharts.getOptions().colors[0]
-        }
-      }
-    },
-    { // Secondary yAxis
-      title: {
-        text: '<?php echo T_("Count"); ?>',
-        useHTML: Highcharts.hasBidiBug,
-        style: {
-          color: Highcharts.getOptions().colors[1]
-        }
-      },
-      labels: {
-        format: '{value}',
-        style: {
-          color: Highcharts.getOptions().colors[1]
-        }
-      },
-      opposite: true
-    }],
-    tooltip: {
-      useHTML: true,
-      borderWidth: 0,
-      shared: true
-    },
-    exporting:
-    {
-      buttons:
+    yAxis: [{ title: false }],
+    series:
+    [
       {
-        contextButton:
-        {
-          menuItems:
-          [
-           'printChart',
-           'separator',
-           'downloadPNG',
-           'downloadJPEG',
-           'downloadSVG'
-          ]
+        name: '<?php echo T_("Count"); ?>',
+        data: <?php echo \dash\get::index($dashboardData, 'count_all'); ?>,
+        type: 'area',
+        showInLegend: false,
+        tooltip: {
+          valueSuffix: ' <?php echo T_("Count"); ?>'
         }
       }
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'left',
-      x: 120,
-      verticalAlign: 'top',
-      y: 100,
-      floating: true,
-      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
-    },
-    credits:
-    {
-        text: '<?php echo T_('Jibres'); ?>',
-        href: '<?php echo 'https://jibres.com'; ?>',
-        position:
-        {
-            x: -35,
-            y: -7
-        },
-        style: {
-            fontWeight: 'bold'
-        }
-    },
-    series: [
-    {
-      name: '<?php echo T_("Count"); ?>',
-      type: 'column',
-      yAxis: 1,
-      data: <?php echo \dash\get::index($dashboardData, 'count_all'); ?>,
-      tooltip: {
-        valueSuffix: ' <?php echo T_("Count"); ?>'
-      }
-    }
     ]
-  }, function(_chart)
-  {
-    _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 }
