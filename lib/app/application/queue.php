@@ -158,7 +158,7 @@ class queue
 		$insert_queue =
 		[
 			'store_id'      => \lib\store::id(),
-			'user_id'       => \dash\user::id(),
+			'user_id'       => \dash\user::jibres_user('id') ? \dash\user::jibres_user('id') : \dash\user::id(),
 			'version'       => \lib\app\application\version::get_last_version(),
 			'status'        => 'queue',
 			'build'         => $build,
