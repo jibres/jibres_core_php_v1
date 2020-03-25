@@ -69,3 +69,16 @@
    </nav>
 
 
+<?php if(\dash\permission::supervisor()) { ?>
+   <nav class="items">
+     <ul>
+       <li>
+        <a class="f align-center" href="<?php echo \dash\url::kingdom(); ?>/hook/screen" data-direct>
+          <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_('Screen Size'); ?></div>
+         <div class="go"></div>
+        </a>
+       </li>
+     </ul>
+   </nav>
+<?php } ?>
