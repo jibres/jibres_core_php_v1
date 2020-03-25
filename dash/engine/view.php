@@ -149,7 +149,7 @@ class view
 		$meta = \dash\data::datarow_meta();
 		if(isset($meta['thumb']))
 		{
-			\dash\data::page_cover($meta['thumb']);
+			\dash\face::cover($meta['thumb']);
 		}
 
 		// set new title
@@ -159,7 +159,7 @@ class view
 	public static function setSocialTitle()
 	{
 		// if we dont have page image, use site image
-		if(\dash\data::page_cover())
+		if(\dash\face::cover())
 		{
 			\dash\data::page_twitterCard('summary_large_image');
 		}
@@ -170,7 +170,7 @@ class view
 		else
 		{
 
-			\dash\data::page_cover(\dash\data::site_logo());
+			\dash\face::cover(\dash\data::site_logo());
 			\dash\data::page_twitterCard('summary');
 		}
 	}
