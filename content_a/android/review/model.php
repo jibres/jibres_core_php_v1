@@ -16,7 +16,7 @@ class model
 				\lib\app\application\queue::add_new_queue();
 			}
 
-			\dash\redirect::pwd();
+			\dash\redirect::to(\dash\url::this(). '/apk');
 		}
 	}
 }

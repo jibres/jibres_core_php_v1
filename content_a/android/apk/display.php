@@ -70,8 +70,13 @@ else
                 <div class="cauto"><?php echo T_(ucfirst(\dash\data::appQueue_status())); ?></div>
               </div>
             <?php }//endif ?>
-
         </div>
+
+         <?php if($addNew) {?>
+          <footer class="txtRa">
+            <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
+          </footer>
+        <?php } //endif ?>
 <?php
 }
 //endif
