@@ -12,6 +12,8 @@ class view
 		unset($page['usersaved']);
 
 		$page = array_values($page);
+		$page = array_filter($page);
+
 
 		$from = '#c80a5a';
 		$to   = '#c80a5a';
