@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_("View ticket No"));
-		\dash\data::page_desc(T_("Check detail of your ticket."). ' '. T_("We try to answer to you as soon as posibble."));
+		\dash\face::desc(T_("Check detail of your ticket."). ' '. T_("We try to answer to you as soon as posibble."));
 
 
 

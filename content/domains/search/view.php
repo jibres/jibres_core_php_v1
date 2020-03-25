@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Domain Name Search'));
-		\dash\data::page_desc(T_('Every website starts with a great domain name.'). ' '. T_('Find your dream domain.'));
+		\dash\face::desc(T_('Every website starts with a great domain name.'). ' '. T_('Find your dream domain.'));
 		// btn
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::kingdom(). '/domains');

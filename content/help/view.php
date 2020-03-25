@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Help Center'));
-		\dash\data::page_desc(T_('Need HELP? Be patient...'));
+		\dash\face::desc(T_('Need HELP? Be patient...'));
 
 		// btn
 		\dash\data::back_text(T_('Home'));

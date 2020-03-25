@@ -9,7 +9,7 @@ class view
 	{
 
 		\dash\face::title(T_("Tickets"));
-		\dash\data::page_desc(T_("See list of your tickets!"));
+		\dash\face::desc(T_("See list of your tickets!"));
 
 
 

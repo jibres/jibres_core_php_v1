@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Plans and Pricing of Jibres'));
-		\dash\data::page_desc(T_("Always know what you'll pay per month.") . ' ' . T_('Simple pricing'));
+		\dash\face::desc(T_("Always know what you'll pay per month.") . ' ' . T_('Simple pricing'));
 
 
 		// btn

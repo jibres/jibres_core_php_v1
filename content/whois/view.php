@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Whois'));
-		\dash\data::page_desc(T_("Check domain"));
+		\dash\face::desc(T_("Check domain"));
 
 		// btn
 		\dash\data::back_text(T_('Home'));

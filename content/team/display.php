@@ -4,7 +4,7 @@
  </div>
 
  <div class="fit txtC">
- 	<p><?php echo \dash\data::page_desc(); ?></p>
+ 	<p><?php echo \dash\face::desc(); ?></p>
  	<h2 class="txtB"><?php echo T_('The best thing about Jibres is our people.'); ?></h2>
  	<hr>
 

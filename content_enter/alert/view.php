@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_('Alert!'));
 
-		\dash\data::page_desc(\dash\face::title());
+		\dash\face::desc(\dash\face::title());
 
 
 		$alert = \dash\utility\enter::get_session('alert');

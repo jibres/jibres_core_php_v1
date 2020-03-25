@@ -10,7 +10,7 @@ class view
 
 		\dash\face::title(null);
 		\dash\data::page_seotitle(null);
-		\dash\data::page_desc(null);
+		\dash\face::desc(null);
 
 
 		// define default value for global
@@ -99,10 +99,10 @@ class view
 
 		}
 
-		if(!\dash\data::page_desc())
+		if(!\dash\face::desc())
 		{
 			// remove page desc
-			\dash\data::page_desc(\dash\data::site_desc());
+			\dash\face::desc(\dash\data::site_desc());
 		}
 
 
@@ -134,15 +134,15 @@ class view
 		// set desc
 		if(\dash\data::datarow_excerpt())
 		{
-			\dash\data::page_desc(\dash\data::datarow_excerpt());
+			\dash\face::desc(\dash\data::datarow_excerpt());
 		}
 		elseif(\dash\data::datarow_content())
 		{
-			\dash\data::page_desc(\dash\utility\excerpt::extractRelevant(\dash\data::datarow_content()));
+			\dash\face::desc(\dash\utility\excerpt::extractRelevant(\dash\data::datarow_content()));
 		}
 		elseif(\dash\data::datarow_desc())
 		{
-			\dash\data::page_desc(\dash\utility\excerpt::extractRelevant(\dash\data::datarow_desc()));
+			\dash\face::desc(\dash\utility\excerpt::extractRelevant(\dash\data::datarow_desc()));
 		}
 
 		// set page cover

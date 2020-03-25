@@ -4,7 +4,7 @@
  </div>
 
  <div class="fit">
- 	<p class="mB25"><?php echo \dash\data::page_desc(); ?></p>
+ 	<p class="mB25"><?php echo \dash\face::desc(); ?></p>
  </div>
 
  <div class="fit zero">

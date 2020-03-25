@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_("Ticket report"));
-		\dash\data::page_desc(' ');
+		\dash\face::desc(' ');
 
 
 		\dash\data::action_text(T_('Back to tickets list'));

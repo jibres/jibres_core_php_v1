@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_("Help center"));
-		\dash\data::page_desc(T_("Easily manage your tickets and monitor or track them to get best answer until fix your problem"));
+		\dash\face::desc(T_("Easily manage your tickets and monitor or track them to get best answer until fix your problem"));
 
 
 		\dash\data::action_text(T_('Tickets'));
@@ -78,7 +78,7 @@ class view
 		// set page desc
 		if(isset($master['excerpt']))
 		{
-			\dash\data::page_desc($master['excerpt']);
+			\dash\face::desc($master['excerpt']);
 		}
 		// set page desc
 		if(isset($master['meta']['icon']))

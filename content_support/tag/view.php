@@ -8,7 +8,7 @@ class view
 	{
 
 		\dash\face::title(T_("Category"));
-		\dash\data::page_desc(T_("Easily manage your tickets and monitor or track them to get best answer until fix your problem"));
+		\dash\face::desc(T_("Easily manage your tickets and monitor or track them to get best answer until fix your problem"));
 
 
 		\dash\data::action_text(T_('Tickets'));

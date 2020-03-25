@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Privacy Policy'). ' | '. T_("Jibres"));
-		\dash\data::page_desc(T_('We wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access.'));
+		\dash\face::desc(T_('We wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access.'));
 
 		// btn
 		\dash\data::back_text(T_('Home'));

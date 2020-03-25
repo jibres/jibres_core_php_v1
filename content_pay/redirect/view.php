@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('redirecting...'));
-		\dash\data::page_desc(T_('in redirect process...'));
+		\dash\face::desc(T_('in redirect process...'));
 
 
 		$autoredirect = \dash\temp::get('autoredirect');

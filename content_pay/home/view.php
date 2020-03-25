@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Pay detail'));
-		\dash\data::page_desc(T_('Pay'));
+		\dash\face::desc(T_('Pay'));
 
 
 		\dash\data::myPayment_parsian(\dash\setting\parsian::get());

@@ -8,7 +8,7 @@ class view
 		\dash\data::include_adminPanel(true);
 
 		\dash\face::title( T_(':val API documentation v2', ['val' => \dash\data::site_title()]));
-		\dash\data::page_desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));
+		\dash\face::desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));
 
 
 		$myStore = '{STORE}';

@@ -4,7 +4,7 @@
  <meta charset="UTF-8"/>
  <base href="<?php echo \dash\url::base();?>"/>
  <title><?php echo \dash\face::title(); ?></title>
- <meta content="<?php echo \dash\data::page_desc(); ?>" name="description"/>
+ <meta content="<?php echo \dash\face::desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/{{lang.current}}';</script><![endif]-->
  <meta content="<?php
@@ -20,14 +20,14 @@ if (!\dash\data::pageWithLogin())
  <meta content="<?php echo \dash\url::kingdom();?>" name="site:root"/>
  <meta content="<?php echo \dash\data::page_twitterCard(); ?>" name="twitter:card"/>
  <meta content="<?php echo \dash\face::title(); ?>" name="twitter:title"/>
- <meta content="<?php echo \dash\data::page_desc(); ?>" name="twitter:description"/>
+ <meta content="<?php echo \dash\face::desc(); ?>" name="twitter:description"/>
  <meta content="<?php echo \dash\data::page_cover(); ?>" name="twitter:image"/>
  <meta content="@jibres_com" name="twitter:site"/>
  <meta content="@jibres_com" name="twitter:creator"/>
  <meta content="<?php echo \dash\url::pwd();?>" name="twitter:url"/>
  <meta content="website" property ="og:type"/>
  <meta content="<?php echo \dash\face::title(); ?>" property ="og:title"/>
- <meta content="<?php echo \dash\data::page_desc(); ?>" property ="og:description"/>
+ <meta content="<?php echo \dash\face::desc(); ?>" property ="og:description"/>
  <meta content="<?php echo \dash\data::page_cover(); ?>" property ="og:image"/>
  <meta content="<?php echo \dash\url::pwd();?>" property ="og:url"/>
  <meta content="<?php echo \dash\data::site_title(); ?>" property ="og:site_name"/>

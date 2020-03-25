@@ -146,7 +146,7 @@ class view
 		}
 
 		\dash\face::title($myTitle);
-		\dash\data::page_desc($myDesc);
+		\dash\face::desc($myDesc);
 	}
 }
 ?>

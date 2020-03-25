@@ -9,7 +9,7 @@
     	<?php echo \dash\data::site_title(). ' '. T_("twitter"); ?>
     </a>
 
-    <a target="_blank" title='<?php echo T_("linkedin"); ?>' href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo \dash\url::pwd(); ?>&title=<?php echo urlencode(\dash\face::title()); ?>&summary=<?php echo urlencode(\dash\data::page_desc()); ?>" class="linkedin">
+    <a target="_blank" title='<?php echo T_("linkedin"); ?>' href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo \dash\url::pwd(); ?>&title=<?php echo urlencode(\dash\face::title()); ?>&summary=<?php echo urlencode(\dash\face::desc()); ?>" class="linkedin">
     	<?php echo \dash\data::site_title(). ' '. T_("linkedin"); ?>
     </a>
 

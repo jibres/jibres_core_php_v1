@@ -13,7 +13,7 @@ class view
 
 		\dash\face::title(T_('Two step verification'));
 
-		\dash\data::page_desc(T_('You can trun it on or off'));
+		\dash\face::desc(T_('You can trun it on or off'));
 
 
 

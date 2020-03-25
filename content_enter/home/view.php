@@ -9,14 +9,14 @@ class view
 	{
 
 		\dash\face::title(T_('Enter to :name', ['name' => \dash\data::site_title()]));
-		\dash\data::page_desc(\dash\data::site_desc());
+		\dash\face::desc(\dash\data::site_desc());
 
-		if(mb_strlen(\dash\data::page_desc()) < 150)
+		if(mb_strlen(\dash\face::desc()) < 150)
 		{
-			\dash\data::page_desc(\dash\data::page_desc(). ' | '. \dash\data::site_title());
-			if(mb_strlen(\dash\data::page_desc()) < 150)
+			\dash\face::desc(\dash\face::desc(). ' | '. \dash\data::site_title());
+			if(mb_strlen(\dash\face::desc()) < 150)
 			{
-				\dash\data::page_desc(\dash\data::page_desc(). ' | '. T_('Jibres'));
+				\dash\face::desc(\dash\face::desc(). ' | '. T_('Jibres'));
 			}
 		}
 		\dash\data::mobileReadonly(false);

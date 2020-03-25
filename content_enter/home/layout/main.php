@@ -17,7 +17,7 @@ if(\dash\url::module() === null)
 }
 else
 {
- echo "<h2>". \dash\data::page_desc(). "</h2>";
+ echo "<h2>". \dash\face::desc(). "</h2>";
 }
 ?>
    <form method="post" autocomplete="off">

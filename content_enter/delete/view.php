@@ -12,7 +12,7 @@ class view
 		}
 
 		\dash\face::title(T_('Delete account'));
-		\dash\data::page_desc(\dash\face::title());
+		\dash\face::desc(\dash\face::title());
 	}
 }
 ?>
