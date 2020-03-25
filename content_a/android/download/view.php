@@ -15,6 +15,14 @@ class view
 		$appDetail = \lib\app\application\detail::get_android();
 		\dash\data::appDetail($appDetail);
 
+		if(!\dash\data::appDetail_downloadtitle())
+		{
+			\dash\data::appDetail_downloadtitle(\lib\store::detail('title'));
+		}
+		if(!\dash\data::appDetail_downloaddesc())
+		{
+			\dash\data::appDetail_downloaddesc(\lib\store::detail('desc'));
+		}
 	}
 }
 ?>
