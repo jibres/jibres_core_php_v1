@@ -26,7 +26,7 @@ class view
 		\dash\face::site(\lib\store::title());
 		\dash\data::store(\lib\store::detail());
 		// \dash\data::currentStore(\lib\app\store::ready(\lib\store::detail()));
-		\dash\data::site_logo(\lib\store::logo());
+		\dash\face::logo(\lib\store::logo());
 
 		// set shortkey for all badges is this content
 		\dash\data::badge_shortkey(120);

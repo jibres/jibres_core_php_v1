@@ -42,11 +42,11 @@ class view
 		\dash\face::site(T_(\dash\option::config('site', 'title')));
 		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
 		\dash\data::site_slogan(T_(\dash\option::config('site', 'slogan')));
-		\dash\data::site_logo(\dash\url::icon());
+		\dash\face::logo(\dash\url::icon());
 		// set custom logo
 		if(\dash\option::config('site', 'logo'))
 		{
-			\dash\data::site_logo(\dash\url::site(). \dash\option::config('site', 'logo'));
+			\dash\face::logo(\dash\url::site(). \dash\option::config('site', 'logo'));
 		}
 
 		// toggle side bar
@@ -170,7 +170,7 @@ class view
 		else
 		{
 
-			\dash\face::cover(\dash\data::site_logo());
+			\dash\face::cover(\dash\face::logo());
 			\dash\face::twitterCard('summary');
 		}
 	}
