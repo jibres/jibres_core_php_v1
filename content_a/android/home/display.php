@@ -31,7 +31,7 @@
 
   <div class="c4 x3 s12">
 
-   <nav class="pwaItems">
+   <nav class="items">
      <ul>
        <li>
         <a class="f align-center" href="<?php echo \dash\url::this(); ?>/domain">
