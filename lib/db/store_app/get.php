@@ -15,7 +15,7 @@ class get
 
 	public static function build_queue()
 	{
-		$query  = "SELECT * FROM store_app WHERE  store_app.status = 'queue' ORDER BY store_app.id ASC LIMIT 1";
+		$query  = "SELECT * FROM store_app WHERE  store_app.status IN ('queue', 'inprogress') ORDER BY store_app.id ASC LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}

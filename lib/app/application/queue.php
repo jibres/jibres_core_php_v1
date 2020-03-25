@@ -305,9 +305,23 @@ class queue
 			$result['store']      = $build_queue['store'];
 		}
 
+		$remove_store_catch_detail = false;
+
 		if(isset($build_queue['id']) && $build_queue && is_array($build_queue) && array_key_exists('datequeue', $build_queue) && !$build_queue['datequeue'])
 		{
+			$remove_store_catch_detail = true;
 			\lib\db\store_app\update::set_field($build_queue['id'], 'datequeue', date("Y-m-d H:i:s"));
+		}
+
+		if(isset($build_queue['status']) && $build_queue['status'] === 'queue')
+		{
+			$remove_store_catch_detail = true;
+			\lib\db\store_app\update::set_field($build_queue['id'], 'status', 'inprogress');
+		}
+
+		if($remove_store_catch_detail)
+		{
+			self::remove_store_catch_detail(array_merge($build_queue, ['status' => 'inprogress']));
 		}
 
 		if($_detail)
@@ -318,6 +332,32 @@ class queue
 		{
 			return $result;
 		}
+	}
+
+
+
+	private static function remove_store_catch_detail($_result)
+	{
+		if(isset($_result['store_id']) && is_numeric($_result['store_id']))
+		{
+			$load_store = \lib\db\store\get::by_id($_result['store_id']);
+			if(isset($load_store['fuel']))
+			{
+				$my_store_fuel = $load_store['fuel'];
+			}
+			else
+			{
+				return false;
+			}
+
+			$my_store_db          = \dash\engine\store::make_database_name($_result['store_id']);
+
+			\lib\db\setting\update::overwirte_platform_cat_key_fuel(json_encode($_result, JSON_UNESCAPED_UNICODE), 'android', 'application', 'queue_detail', $my_store_fuel, $my_store_db);
+
+			$app_queue_detail_addr = YARD . 'jibres_temp/app/'. $_result['store_id'];
+			\dash\file::delete($app_queue_detail_addr);
+		}
+
 	}
 
 	/**
@@ -402,22 +442,7 @@ class queue
 		$save_in_store_detail = json_encode($save_in_store_detail, JSON_UNESCAPED_UNICODE);
 		$my_store_fuel        = null;
 
-		if(is_numeric($result['store_id']))
-		{
-			$load_store = \lib\db\store\get::by_id($result['store_id']);
-			if(isset($load_store['fuel']))
-			{
-				$my_store_fuel = $load_store['fuel'];
-			}
-
-			$my_store_db          = \dash\engine\store::make_database_name($result['store_id']);
-
-			\lib\db\setting\update::overwirte_platform_cat_key_fuel($save_in_store_detail, 'android', 'application', 'queue_detail', $my_store_fuel, $my_store_db);
-
-			$app_queue_detail_addr = YARD . 'jibres_temp/app/'. $result['store_id'];
-			\dash\file::delete($app_queue_detail_addr);
-		}
-
+		self::remove_store_catch_detail($save_in_store_detail);
 
 		if($_filename)
 		{
