@@ -21,6 +21,10 @@ class view
 
 		\dash\data::dashboardData(\lib\app\application\download::chart());
 
+		$stat = \lib\app\application\download::stat();
+		\dash\data::stat($stat);
+
+
 		\dash\data::loadScript(true);
 
 

@@ -6,19 +6,19 @@
       <div class="c pRa5">
         <a href="" class="stat">
           <h3><?php echo T_("Total Download");?></h3>
-          <div class="val"><?php echo \dash\fit::number(5000);?></div>
+          <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownload());?></div>
         </a>
       </div>
       <div class="c pRa5">
         <div class="stat">
           <h3><?php echo T_("Total Install");?></h3>
-          <div class="val"><?php echo \dash\fit::number(3600);?></div>
+          <div class="val"><?php echo \dash\fit::number('-');?></div>
         </div>
       </div>
       <div class="c">
         <div class="stat">
           <h3><?php echo T_("Active Install");?></h3>
-          <div class="val"><?php echo \dash\fit::number(1200);?></div>
+          <div class="val"><?php echo \dash\fit::number('-');?></div>
         </div>
       </div>
     </div>
@@ -38,6 +38,41 @@
        <li><a class="f <?php if(\dash\data::setupGuide_review()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/review"><div class="key"><?php echo T_('Review Your App');?></div><div class="go"></div></a></li>
      </ul>
    </nav>
+  </div>
+</div>
+
+<div class="f">
+  <div class="c pRa5">
+    <a href="" class="stat">
+      <h3><?php echo T_("Download last week");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownloadLastWeek());?></div>
+    </a>
+  </div>
+  <div class="c pRa5">
+    <div class="stat">
+      <h3><?php echo T_("Download last month");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownloadLastMonth());?></div>
+    </div>
+  </div>
+  <div class="c pRa5">
+    <div class="stat">
+      <h3><?php echo T_("Download last year");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\data::stat_totalDownloadLastYear());?></div>
+    </div>
+  </div>
+
+  <div class="c pRa5">
+    <div class="stat">
+      <h3><?php echo T_("Install last week");?></h3>
+      <div class="val"><?php echo \dash\fit::number('-');?></div>
+    </div>
+  </div>
+
+  <div class="c">
+    <div class="stat">
+      <h3><?php echo T_("Install last month");?></h3>
+      <div class="val"><?php echo \dash\fit::number('-');?></div>
+    </div>
   </div>
 </div>
 

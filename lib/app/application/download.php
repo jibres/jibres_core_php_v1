@@ -72,5 +72,21 @@ class download
 		return $hi_chart;
 	}
 
+
+
+	public static function stat()
+	{
+		$last_week  = date("Y-m-d H:i:s", strtotime("-7 days"));
+		$last_month = date("Y-m-d H:i:s", strtotime("-30 days"));
+		$last_year  = date("Y-m-d H:i:s", strtotime("-365 days"));
+
+		$result                           = [];
+		$result['totalDownload']          = \lib\db\app_download\get::count_all();
+		$result['totalDownloadLastWeek']  = \lib\db\app_download\get::count_from_date($last_week);
+		$result['totalDownloadLastMonth'] = \lib\db\app_download\get::count_from_date($last_month);
+		$result['totalDownloadLastYear']  = \lib\db\app_download\get::count_from_date($last_year);
+		return $result;
+	}
+
 }
 ?>
