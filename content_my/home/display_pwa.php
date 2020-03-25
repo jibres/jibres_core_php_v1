@@ -1,5 +1,5 @@
    <h2><?php echo T_("Jibres Services"); ?></h2>
-   <nav class="pwaItems">
+   <nav class="items">
      <ul>
        <li>
         <a class="f align-center" href="<?php echo \dash\url::this(); ?>/domain">
@@ -20,7 +20,7 @@
      </ul>
    </nav>
 
-   <nav class="pwaItems">
+   <nav class="items">
      <ul>
        <li>
         <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/ipg">
@@ -49,7 +49,7 @@
      </ul>
    </nav>
 
-   <nav class="pwaItems">
+   <nav class="items">
      <ul>
        <li>
         <a class="f align-center" href="<?php echo \dash\url::kingdom(); ?>">

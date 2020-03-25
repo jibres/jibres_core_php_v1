@@ -3,7 +3,7 @@
 
 <?php if($listStore_owner && is_array($listStore_owner)) {?>
   <?php $createYourStore = false; ?>
- <nav class="pwaItems">
+ <nav class="items">
    <ul>
     <?php foreach ($listStore_owner as $key => $value) {?>
      <li>
@@ -19,7 +19,7 @@
 <?php }//endif ?>
 
 <?php if(\dash\data::listStore_staff() && is_array(\dash\data::listStore_staff())) {?>
- <nav class="pwaItems">
+ <nav class="items">
    <ul>
     <?php foreach (\dash\data::listStore_staff() as $key => $value) {?>
      <li>
