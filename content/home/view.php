@@ -22,7 +22,7 @@ class view
 		$homepageShortDesc .= T_('Sell more and more.'). ' ';
 
 
-		\dash\data::page_seotitle(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
+		\dash\face::seo(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
 		\dash\face::title(\dash\data::site_title());
 		if (!\dash\detect\device::detectPWA())
 		{

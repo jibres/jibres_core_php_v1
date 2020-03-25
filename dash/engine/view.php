@@ -9,7 +9,7 @@ class view
 		\dash\engine\history::save();
 
 		\dash\face::title(null);
-		\dash\data::page_seotitle(null);
+		\dash\face::seo(null);
 		\dash\face::desc(null);
 
 
@@ -83,13 +83,13 @@ class view
 
 			\dash\face::title($page_title);
 			// fill page title into seo title
-			if(!\dash\data::page_seotitle())
+			if(!\dash\face::seo())
 			{
-				\dash\data::page_seotitle($page_title);
+				\dash\face::seo($page_title);
 			}
 
-			// \dash\data::global_title(\dash\data::page_seotitle(). ' | '. \dash\data::site_title());
-			\dash\data::global_title(\dash\data::page_seotitle());
+			// \dash\data::global_title(\dash\face::seo(). ' | '. \dash\data::site_title());
+			\dash\data::global_title(\dash\face::seo());
 		}
 		else
 		{
@@ -128,7 +128,7 @@ class view
 		// set seo title
 		if(\dash\data::datarow_seotitle())
 		{
-			\dash\data::page_seotitle(\dash\data::datarow_seotitle());
+			\dash\face::seo(\dash\data::datarow_seotitle());
 		}
 
 		// set desc
