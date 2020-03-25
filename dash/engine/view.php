@@ -71,7 +71,14 @@ class view
 			$page_title = T_($page_title);
 			if(\dash\url::content())
 			{
-				$page_title .= ' | '. \dash\data::site_title();
+				if(\dash\detect\device::detectPWA())
+				{
+					// dont add on pwa
+				}
+				else
+				{
+					$page_title .= ' | '. \dash\data::site_title();
+				}
 			}
 
 			\dash\data::page_title($page_title);
@@ -81,7 +88,7 @@ class view
 				\dash\data::page_seotitle($page_title);
 			}
 
-			\dash\data::global_title(\dash\data::page_seotitle(). ' | '. \dash\data::site_title());
+			// \dash\data::global_title(\dash\data::page_seotitle(). ' | '. \dash\data::site_title());
 			\dash\data::global_title(\dash\data::page_seotitle());
 		}
 		else

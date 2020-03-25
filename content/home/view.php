@@ -50,8 +50,8 @@ class view
 		if(\dash\detect\device::detectPWA() && \dash\user::id())
 		{
 			// back
-			\dash\data::back_text(T_('Dashboard'));
-			\dash\data::back_link(\dash\url::kingdom(). '/my');
+			\dash\data::action_text(T_('Dashboard'));
+			\dash\data::action_link(\dash\url::kingdom(). '/my');
 		}
 
 	}
