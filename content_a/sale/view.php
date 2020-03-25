@@ -14,8 +14,8 @@ class view
 
 		if(\dash\permission::check('factorSaleList'))
 		{
-			\dash\data::action_text(T_('Back to last sales'));
-			\dash\data::action_link(\dash\url::here(). '/factor?type=sale');
+			\dash\data::back_text(T_('Factors'));
+			\dash\data::back_link(\dash\url::here(). '/factor?type=sale');
 		}
 
 
