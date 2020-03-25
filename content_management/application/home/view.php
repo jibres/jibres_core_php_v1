@@ -12,6 +12,13 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
+		if(\dash\permission::supervisor())
+		{
+			// btn
+			\dash\data::action_text(T_('Show api log'));
+			\dash\data::action_link(\dash\url::kingdom().'/su/apilog');
+		}
+
 
 		$args =
 		[
