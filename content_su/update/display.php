@@ -54,6 +54,15 @@
     </div>
   </div>
 
+  <div class="c s6">
+    <div class="msg fs14">
+    <p><?php echo T_("Talambar CDN"); ?></p>
+    <a class="btn success" target="_blank" href="https://cdn.talambar.ir/tmp/update/?hey=CDN"><?php echo T_("Pull CDN repository"); ?></a>
+    </div>
+  </div>
+
+
+
 </div>
 
 <?php if(\dash\data::isLockService()) {?>
