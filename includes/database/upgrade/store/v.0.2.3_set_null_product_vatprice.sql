@@ -1,2 +1,0 @@
-UPDATE jibres_XXXXXXX.products SET jibres_XXXXXXX.products.vatprice = NULL WHERE 1;
-UPDATE jibres_XXXXXXX.products SET jibres_XXXXXXX.products.finalprice = (jibres_XXXXXXX.products.price - jibres_XXXXXXX.products.discount) WHERE 1;
