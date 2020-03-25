@@ -80,6 +80,10 @@ class fit{
 
 	public static function date_human($_date)
 	{
+		if(!$_date)
+		{
+			return null;
+		}
 		return \dash\datetime::fit($_date, 'human', 'year');
 	}
 
