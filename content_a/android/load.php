@@ -43,7 +43,7 @@ class load
 		$sort =
 		[
 			'logo',
-			'setting',
+			'title',
 			'splash',
 			'intro',
 			'review',
@@ -100,7 +100,7 @@ class load
 
 
 
-		$setting = self::check_position('setting');
+		$title = self::check_position('title');
 		$logo    = self::check_position('logo');
 		$intro   = self::check_position('intro');
 		$splash  = self::check_position('splash');
@@ -138,9 +138,9 @@ class load
 				'class' => $logo,
 			],
 			[
-				'title' => T_('General Settings'),
-				'link'  => \dash\url::this(). '/setting'. $get_wizard,
-				'class' => $setting,
+				'title' => T_('App title'),
+				'link'  => \dash\url::this(). '/title'. $get_wizard,
+				'class' => $title,
 			],
 			[
 				'title' => T_('App Splash'),

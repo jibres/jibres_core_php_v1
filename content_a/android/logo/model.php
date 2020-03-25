@@ -22,7 +22,7 @@ class model
 		{
 			if(\dash\request::get('setup') === 'wizard')
 			{
-				\dash\redirect::to(\dash\url::this().'/setting?setup=wizard');
+				\dash\redirect::to(\dash\url::this().'/title?setup=wizard');
 			}
 			else
 			{

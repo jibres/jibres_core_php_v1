@@ -1,5 +1,5 @@
 <?php
-namespace content_a\android\setting;
+namespace content_a\android\title;
 
 
 class controller

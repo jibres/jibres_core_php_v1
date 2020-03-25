@@ -365,7 +365,7 @@ class detail
 
 		$setupGuideDetail =
 		[
-			'setting'  => false,
+			'title'  => false,
 			'logo'     => false,
 			'intro'    => false,
 			'splash'   => false,
@@ -429,7 +429,7 @@ class detail
 
 		if($check['title'])
 		{
-			$setupGuideDetail['setting'] = true;
+			$setupGuideDetail['title'] = true;
 		}
 
 		if($check['page_1']['title'])
