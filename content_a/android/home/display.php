@@ -1,5 +1,7 @@
 <?php require_once(root. 'content_a/android/setupGuide.php'); ?>
 
+<?php if(\dash\data::appQueue_status()) { ?>
+
 <div class="f">
   <div class="c8 x9 s12 pRa10">
     <div class="f">
@@ -106,3 +108,4 @@
 
 <div class="box chart x350" id="charttotaldownload"></div>
 
+<?php } //endif ?>

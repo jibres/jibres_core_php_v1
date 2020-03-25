@@ -1,7 +1,7 @@
-<?php if(!\dash\data::appQueue()) { ?>
+<?php if(!\dash\data::appQueue_status()) { ?>
 <div class="msg info2 fs16"><?php echo T_("Please set general detail about your app, then let us create your android application."); ?></div>
 
-<div class="setupGuide<?php if(\dash\data::appQueue()) { ?> finish<?php } //endif ?>">
+<div class="setupGuide">
  <header><?php echo T_("Setup Progress"); ?></header>
  <section>
   <div class="f">
