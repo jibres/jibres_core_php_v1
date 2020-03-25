@@ -1,6 +1,5 @@
 <?php if(!\dash\data::appQueue()) { ?>
 <div class="msg info2 fs16"><?php echo T_("Please set general detail about your app, then let us create your android application."); ?></div>
-<?php } //endif ?>
 
 <div class="setupGuide<?php if(\dash\data::appQueue()) { ?> finish<?php } //endif ?>">
  <header><?php echo T_("Setup Progress"); ?></header>
@@ -16,7 +15,6 @@
  </section>
 </div>
 
-<?php if(!\dash\data::appQueue()) { ?>
 <div class="welcome">
   <p><?php echo T_("Easily Create your store application"); ?></p>
   <h2><?php echo T_("Create a custom app for your store"); ?></h2>
