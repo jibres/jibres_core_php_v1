@@ -81,10 +81,10 @@ class download
 		$last_year  = date("Y-m-d H:i:s", strtotime("-365 days"));
 
 		$result                           = [];
-		$result['totalDownload']          = \lib\db\app_download\get::count_all();
-		$result['totalDownloadLastWeek']  = \lib\db\app_download\get::count_from_date($last_week);
-		$result['totalDownloadLastMonth'] = \lib\db\app_download\get::count_from_date($last_month);
-		$result['totalDownloadLastYear']  = \lib\db\app_download\get::count_from_date($last_year);
+		$result['totalDownload']          = intval(\lib\db\app_download\get::count_all());
+		$result['totalDownloadLastWeek']  = intval(\lib\db\app_download\get::count_from_date($last_week));
+		$result['totalDownloadLastMonth'] = intval(\lib\db\app_download\get::count_from_date($last_month));
+		$result['totalDownloadLastYear']  = intval(\lib\db\app_download\get::count_from_date($last_year));
 		return $result;
 	}
 
