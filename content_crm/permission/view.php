@@ -8,7 +8,7 @@ class view
 	{
 		\dash\permission::access('cpPermissionView');
 
-		\dash\data::page_title(T_("Permissions"));
+		\dash\face::title(T_("Permissions"));
 
 		\dash\data::action_link(\dash\url::this().'/add');
 		\dash\data::action_text(T_('Add new permission'));

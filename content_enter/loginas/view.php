@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		// \dash\data::page_title(T_('Login as'));
-		\dash\data::page_desc(\dash\data::page_title());
+		// \dash\face::title(T_('Login as'));
+		\dash\data::page_desc(\dash\face::title());
 
 		$logitToSubdomain = \dash\data::logitToSubdomain();
 

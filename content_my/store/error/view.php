@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Oops!"));
+		\dash\face::title(T_("Oops!"));
 
 		\dash\data::userToggleSidebar(false);
 

@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Supervisor dashboard"));
+		\dash\face::title(T_("Supervisor dashboard"));
 
 		\dash\log::set('loadSU');
 

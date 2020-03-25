@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Subscribe to Jibres world'));
+		\dash\face::title(T_('Subscribe to Jibres world'));
 
 
 		// btn

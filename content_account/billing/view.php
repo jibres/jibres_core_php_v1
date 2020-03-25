@@ -7,7 +7,7 @@ class view
 	{
 
 		\dash\data::amount(\dash\request::get('amount'));
-		\dash\data::page_title(T_("Billing information"));
+		\dash\face::title(T_("Billing information"));
 
 		\dash\data::action_link(\dash\url::here());
 		\dash\data::action_text(T_('Back to Account'));

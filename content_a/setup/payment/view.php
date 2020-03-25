@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Payment channels'));
+		\dash\face::title(T_('Payment channels'));
 	}
 }
 ?>

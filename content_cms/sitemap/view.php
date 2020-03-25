@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Sitemap'));
+		\dash\face::title(T_('Sitemap'));
 
 		$result = \dash\session::get('result_create_sitemap');
 		\dash\data::sitemapData($result);

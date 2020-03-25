@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('About Jibres'));
+		\dash\face::title(T_('About Jibres'));
 
 	}
 }

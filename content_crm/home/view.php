@@ -9,7 +9,7 @@ class view
 		\dash\data::dash_version(\dash\engine\version::get());
 		\dash\data::dash_lastUpdate(\dash\utility\git::getLastUpdate());
 
-		\dash\data::page_title(T_('Control Panel'). ' '. \dash\data::site_title());
+		\dash\face::title(T_('Control Panel'). ' '. \dash\data::site_title());
 
 
 		$cache = \dash\session::get('crmDashboardCache');

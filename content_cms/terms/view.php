@@ -50,7 +50,7 @@ class view
 			\dash\permission::access('cpTagView');
 		}
 
-		\dash\data::page_title($myTitle);
+		\dash\face::title($myTitle);
 
 		\dash\data::action_text(T_('Back to dashboard'));
 

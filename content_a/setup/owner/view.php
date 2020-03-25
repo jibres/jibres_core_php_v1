@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Complete your profile'));
+		\dash\face::title(T_('Complete your profile'));
 		$user_data = \dash\user::detail();
 		if(isset($user_data['birthday']) && $user_data['birthday'])
 		{

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('App Intro'));
+		\dash\face::title(T_('App Intro'));
 
 		// back
 		\dash\data::back_text(T_('Back'));

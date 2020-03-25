@@ -3,7 +3,7 @@
 <div id="get_started_card">
   <div class="body">
     <div class="pad">
-      <h1><?php echo \dash\data::page_title(); ?></h1>
+      <h1><?php echo \dash\face::title(); ?></h1>
       <p><?php echo T_("Fill your name and public detail to save on your store."); ?></p>
       <form method="post" autocomplete="off">
 

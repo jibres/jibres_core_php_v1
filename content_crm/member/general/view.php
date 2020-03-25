@@ -8,7 +8,7 @@ class view
 	{
 		\content_crm\member\main\view::dataRowMember();
 
-		\dash\data::page_title(T_('Edit user general detail'));
+		\dash\face::title(T_('Edit user general detail'));
 
 		\content_crm\member\main\view::static_var();
 	}

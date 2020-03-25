@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Stores"));
+		\dash\face::title(T_("Stores"));
 
 		$args =
 		[
@@ -33,7 +33,7 @@ class view
 
 		if($isFiltered)
 		{
-			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 	}
 }

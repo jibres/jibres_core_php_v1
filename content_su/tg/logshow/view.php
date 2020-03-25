@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Telegram log");
+		\dash\face::title(T_("Telegram log");
 		// add back level to summary link
 		\dash\data::action_text(T_('Back to log list'));
 		\dash\data::action_link(\dash\url::this() .'/log');

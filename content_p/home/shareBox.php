@@ -9,11 +9,11 @@
     	<?php echo \dash\data::site_title(). ' '. T_("twitter"); ?>
     </a>
 
-    <a target="_blank" title='<?php echo T_("linkedin"); ?>' href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo \dash\url::pwd(); ?>&title=<?php echo urlencode(\dash\data::page_title()); ?>&summary=<?php echo urlencode(\dash\data::page_desc()); ?>" class="linkedin">
+    <a target="_blank" title='<?php echo T_("linkedin"); ?>' href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo \dash\url::pwd(); ?>&title=<?php echo urlencode(\dash\face::title()); ?>&summary=<?php echo urlencode(\dash\data::page_desc()); ?>" class="linkedin">
     	<?php echo \dash\data::site_title(). ' '. T_("linkedin"); ?>
     </a>
 
-    <a target="_blank" title='<?php echo T_("telegram"); ?>' href="https://t.me/share/url?url=<?php echo \dash\url::pwd(); ?>&text=<?php echo urlencode(\dash\data::page_title()); ?>" class="telegram">
+    <a target="_blank" title='<?php echo T_("telegram"); ?>' href="https://t.me/share/url?url=<?php echo \dash\url::pwd(); ?>&text=<?php echo urlencode(\dash\face::title()); ?>" class="telegram">
     	<?php echo \dash\data::site_title(). ' '. T_("telegram"); ?>
     </a>
 

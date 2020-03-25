@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Edit dns record"));
+		\dash\face::title(T_("Edit dns record"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));

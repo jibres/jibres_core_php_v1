@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Electronic Wallet'));
+		\dash\face::title(T_('Electronic Wallet'));
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));

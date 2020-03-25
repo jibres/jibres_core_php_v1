@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Send photo"));
+		\dash\face::title(T_("Send photo"));
 
 		\dash\data::action_text(T_('Back to Telegram dashboard'));
 		\dash\data::action_link(\dash\url::this());

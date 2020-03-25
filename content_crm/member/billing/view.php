@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Billing information"));
+		\dash\face::title(T_("Billing information"));
 
 		\content_crm\member\main\view::dataRowMember();
 

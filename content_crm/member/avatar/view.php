@@ -8,7 +8,7 @@ class view
 	{
 		\content_crm\member\main\view::dataRowMember();
 
-		\dash\data::page_title(T_('Member avatar'));
+		\dash\face::title(T_('Member avatar'));
 	}
 }
 ?>

@@ -8,7 +8,7 @@ class view
 	{
 		\dash\permission::access('cpCommentsView');
 
-		\dash\data::page_title(T_("Comments"));
+		\dash\face::title(T_("Comments"));
 
 
 		// add back level to summary link
@@ -19,7 +19,7 @@ class view
 		$search_string            = \dash\request::get('q');
 		if($search_string)
 		{
-			\dash\data::page_title(\dash\data::page_title(). ' | '. T_('Search for :search', ['search' => $search_string]));
+			\dash\face::title(\dash\face::title(). ' | '. T_('Search for :search', ['search' => $search_string]));
 		}
 
 		$args =

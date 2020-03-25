@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_('Theme'));
+		\dash\face::title(T_('Theme'));
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to personal info'));

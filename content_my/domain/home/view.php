@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Domains"));
+		\dash\face::title(T_("Domains"));
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
@@ -53,7 +53,7 @@ class view
 
 		if($isFiltered)
 		{
-			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 	}
 }

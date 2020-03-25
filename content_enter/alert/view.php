@@ -6,9 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Alert!'));
+		\dash\face::title(T_('Alert!'));
 
-		\dash\data::page_desc(\dash\data::page_title());
+		\dash\data::page_desc(\dash\face::title());
 
 
 		$alert = \dash\utility\enter::get_session('alert');

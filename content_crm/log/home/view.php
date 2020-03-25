@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Log"));
+		\dash\face::title(T_("Log"));
 
 		\dash\data::action_link(\dash\url::this(). '/caller');
 		\dash\data::action_text(T_("Show log caller"));

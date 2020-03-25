@@ -83,7 +83,7 @@ if (\dash\language::current() === 'fa')
  </div>
 
  <div class="fit zero">
-  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-2.jpg" alt='<?php echo \dash\data::page_title();?>'>
+  <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-2.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
 <?php

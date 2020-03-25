@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('IRNIC - Dot-IR (.ir) ccTLD Registry Agreement'));
+		\dash\face::title(T_('IRNIC - Dot-IR (.ir) ccTLD Registry Agreement'));
 		\dash\data::page_desc(T_('Text of agreement for registering domains under .ir and .ایران.ir '));
 
 		// btn

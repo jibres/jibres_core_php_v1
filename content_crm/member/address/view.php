@@ -18,7 +18,7 @@ class view
 
 		\dash\data::myUrlAddress(\dash\url::this(). '/address');
 
-		\dash\data::page_title(T_('Member address'));
+		\dash\face::title(T_('Member address'));
 
 		self::static_var();
 	}

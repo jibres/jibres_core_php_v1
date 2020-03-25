@@ -16,7 +16,7 @@ class view
 
 		\dash\data::dataRow($detail);
 
-		\dash\data::page_title(T_("Edit comment"));
+		\dash\face::title(T_("Edit comment"));
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to list of comments'));

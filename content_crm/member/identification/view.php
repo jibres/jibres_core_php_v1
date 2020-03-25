@@ -10,7 +10,7 @@ class view
 
 		\content_crm\member\main\view::static_var();
 
-		\dash\data::page_title(T_('Member identification detail'));
+		\dash\face::title(T_('Member identification detail'));
 	}
 }
 ?>

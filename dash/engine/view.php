@@ -8,7 +8,7 @@ class view
 	{
 		\dash\engine\history::save();
 
-		\dash\data::page_title(null);
+		\dash\face::title(null);
 		\dash\data::page_seotitle(null);
 		\dash\data::page_desc(null);
 
@@ -65,7 +65,7 @@ class view
 	 */
 	public static function set_title()
 	{
-		if($page_title = \dash\data::page_title())
+		if($page_title = \dash\face::title())
 		{
 			// translate all title at last step
 			$page_title = T_($page_title);
@@ -81,7 +81,7 @@ class view
 				}
 			}
 
-			\dash\data::page_title($page_title);
+			\dash\face::title($page_title);
 			// fill page title into seo title
 			if(!\dash\data::page_seotitle())
 			{
@@ -95,7 +95,7 @@ class view
 		{
 			\dash\data::global_title(\dash\data::site_title());
 			// if this page does not have title use site title
-			\dash\data::page_title(\dash\data::site_title());
+			\dash\face::title(\dash\data::site_title());
 
 		}
 
@@ -116,14 +116,14 @@ class view
 		{
 			if(\dash\url::module() === 'blog')
 			{
-				\dash\data::page_title(T_("Latest news"));
+				\dash\face::title(T_("Latest news"));
 			}
 		}
 
 		// set title
 		if(\dash\data::datarow_title())
 		{
-			\dash\data::page_title(\dash\data::datarow_title());
+			\dash\face::title(\dash\data::datarow_title());
 		}
 		// set seo title
 		if(\dash\data::datarow_seotitle())

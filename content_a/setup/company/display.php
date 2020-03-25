@@ -3,7 +3,7 @@
 <div id="get_started_card">
   <div class="body">
     <div class="pad">
-      <h1><?php echo \dash\data::page_title(); ?></h1>
+      <h1><?php echo \dash\face::title(); ?></h1>
       <p><?php echo T_("If you want to issue an official invoice, complete your legal information."); ?> <?php echo T_("It's totaly optional!"); ?></p>
       <form method="post" autocomplete="off">
 

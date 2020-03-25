@@ -3,7 +3,7 @@
 <div id="get_started_card">
   <div class="body">
     <div class="pad">
-      <h1><?php echo \dash\data::page_title(); ?></h1>
+      <h1><?php echo \dash\face::title(); ?></h1>
       <div class="msg primary2"><?php echo T_("You can change these settings everytime."); ?></div>
       <form method="post" autocomplete="off">
 

@@ -6,12 +6,12 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Jibres my'));
+		\dash\face::title(T_('Jibres my'));
 		\dash\data::page_titleBox(false);
 
 		if(!\dash\detect\device::detectPWA())
 		{
-			\dash\data::page_title(' ');
+			\dash\face::title(' ');
 
 			\dash\data::page_titleBox(true);
 			\dash\data::action_text(T_('Stores'));

@@ -8,7 +8,7 @@ class view
 	{
 		\dash\permission::access('cpPermissionAdd');
 
-		\dash\data::page_title(T_("Add new permissions"));
+		\dash\face::title(T_("Add new permissions"));
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to list of permissions'));
@@ -30,7 +30,7 @@ class view
 				\dash\header::status(404, T_("Invalid permission id"));
 			}
 
-			\dash\data::page_title(T_("Edit permission :name" , ['name' => $load_permission['title']]));
+			\dash\face::title(T_("Edit permission :name" , ['name' => $load_permission['title']]));
 
 			\dash\data::perm_load($load_permission);
 		}

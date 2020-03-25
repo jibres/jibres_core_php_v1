@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(\lib\store::title(). ' | '. \dash\data::dataRow_title());
+		\dash\face::title(\lib\store::title(). ' | '. \dash\data::dataRow_title());
 	}
 }
 ?>

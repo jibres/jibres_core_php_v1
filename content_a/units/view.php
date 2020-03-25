@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Unit of products'));
+		\dash\face::title(T_('Unit of products'));
 
 		// back
 		\dash\data::back_text(T_('Products'));
@@ -13,7 +13,7 @@ class view
 
 		if(\dash\data::editMode())
 		{
-			\dash\data::page_title(T_('Edit product unit'));
+			\dash\face::title(T_('Edit product unit'));
 
 		}
 
@@ -25,14 +25,14 @@ class view
 
 		if(\dash\data::removeMode())
 		{
-			\dash\data::page_title(T_('Remove product unit'));
+			\dash\face::title(T_('Remove product unit'));
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this());
 		}
 
 		if(\dash\data::editMode())
 		{
-			\dash\data::page_title(T_('Edit product unit'));
+			\dash\face::title(T_('Edit product unit'));
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this());
 		}

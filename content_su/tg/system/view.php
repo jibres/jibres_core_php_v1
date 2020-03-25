@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		$myTitle = T_("Telegram log");
-		\dash\data::page_title($myTitle);
+		\dash\face::title($myTitle);
 
 		\dash\data::action_text(T_('Back to dashboard'));
 		\dash\data::action_link(\dash\url::this());

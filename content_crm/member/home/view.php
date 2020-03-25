@@ -6,7 +6,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_("List of users"));
+		\dash\face::title(T_("List of users"));
 
 		$allNeedSearch = \dash\request::get();
 		unset($allNeedSearch['page']);
@@ -22,7 +22,7 @@ class view
 		$search_string            = \dash\request::get('q');
 		if($search_string)
 		{
-			\dash\data::page_title(\dash\data::page_title(). ' | '. T_('Search for :search', ['search' => $search_string]));
+			\dash\face::title(\dash\face::title(). ' | '. T_('Search for :search', ['search' => $search_string]));
 		}
 
 		\dash\data::action_link(\dash\url::this(). '/add');

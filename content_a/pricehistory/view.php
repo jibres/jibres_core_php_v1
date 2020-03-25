@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Price change chart!'));
+		\dash\face::title(T_('Price change chart!'));
 
 		\dash\data::loadScript(true);
 

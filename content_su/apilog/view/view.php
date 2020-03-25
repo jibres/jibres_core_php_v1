@@ -9,7 +9,7 @@ class view
 		$myTitle = T_("View api log");
 
 
-		\dash\data::page_title($myTitle);
+		\dash\face::title($myTitle);
 
 		// add back level to summary link
 		\dash\data::action_text(T_('Back to log list'));

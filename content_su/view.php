@@ -10,7 +10,7 @@ class view
 
 		\dash\data::dir_right(\dash\language::dir() == 'rtl'? 'left':  'right');
 		\dash\data::dir_left(\dash\language::dir() == 'rtl'? 'right': 'left');
-		\dash\data::page_title(T_(ucfirst( str_replace('/', ' ', \dash\url::directory()) )));
+		\dash\face::title(T_(ucfirst( str_replace('/', ' ', \dash\url::directory()) )));
 
 		\dash\data::badge_shortkey(120);
 		\dash\data::badge2_shortkey(121);

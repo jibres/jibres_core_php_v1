@@ -13,7 +13,7 @@ if(\dash\data::page_titleBox() !== false && !\dash\detect\device::detectPWA())
     <?php } // ?>
 
     <div class="c s10 pRa10 pageTitle">
-      <h2><?php echo \dash\data::page_title(); ?></h2>
+      <h2><?php echo \dash\face::title(); ?></h2>
     </div>
     <nav class="cauto actions">
 

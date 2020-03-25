@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Database raw table data"));
+		\dash\face::title(T_("Database raw table data"));
 
 		\dash\log::set('showDataTableRaw');
 
@@ -15,7 +15,7 @@ class view
 		$search_string            = \dash\request::get('q');
 		if($search_string)
 		{
-			\dash\data::page_title(\dash\data::page_title() . ' | '. T_('Search for :search', ['search' => $search_string]));
+			\dash\face::title(\dash\face::title() . ' | '. T_('Search for :search', ['search' => $search_string]));
 		}
 
 		$table = \dash\request::get('table');

@@ -7,8 +7,8 @@ class view
 	public static function config()
 	{
 
-		\dash\data::page_title(T_('Signup in :name' , ['name' => \dash\data::site_title()]));
-		\dash\data::page_desc(\dash\data::page_title());
+		\dash\face::title(T_('Signup in :name' , ['name' => \dash\data::site_title()]));
+		\dash\data::page_desc(\dash\face::title());
 
 		// set el value to use in display
 		\dash\data::el_username(false);

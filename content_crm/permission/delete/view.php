@@ -8,7 +8,7 @@ class view
 	{
 		\dash\permission::access('cpPermissionDelete');
 
-		\dash\data::page_title(T_("Delete a permissions"));
+		\dash\face::title(T_("Delete a permissions"));
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to list of permissions'));
@@ -24,7 +24,7 @@ class view
 			}
 			\dash\data::perm_load($load_permission);
 
-			\dash\data::page_title(T_("Edit permission :name" , ['name' => $load_permission['title']]));
+			\dash\face::title(T_("Edit permission :name" , ['name' => $load_permission['title']]));
 		}
 		else
 		{

@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Product categories'));
+		\dash\face::title(T_('Product categories'));
 		\dash\data::page_desc(T_('You can manage your categories manually.'). ' '. T_("Don't worry! we are add categories automatically on add new product"));
 
 
@@ -30,7 +30,7 @@ class view
 
 		if($search_string)
 		{
-			\dash\data::page_title(T_('Search'). ' '.  $search_string);
+			\dash\face::title(T_('Search'). ' '.  $search_string);
 		}
 
 		// work with product list

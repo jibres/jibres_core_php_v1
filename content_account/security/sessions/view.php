@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_('Active Sessions'));
+		\dash\face::title(T_('Active Sessions'));
 
 		// back
 		\dash\data::back_text(T_('Security'));

@@ -145,7 +145,7 @@ class view
 				break;
 		}
 
-		\dash\data::page_title($myTitle);
+		\dash\face::title($myTitle);
 		\dash\data::page_desc($myDesc);
 	}
 }

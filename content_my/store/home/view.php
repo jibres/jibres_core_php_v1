@@ -20,7 +20,7 @@ class view
 		// if store is not exist
 		if(isset($myStore['owner']) && $myStore['owner'])
 		{
-			\dash\data::page_title(T_("Store Lists"));
+			\dash\face::title(T_("Store Lists"));
 
 			// btn to add new store
 			\dash\data::action_text(T_('Add new store'));
@@ -29,7 +29,7 @@ class view
 		}
 		else
 		{
-			\dash\data::page_title(T_("Welcome to Jibres world"));
+			\dash\face::title(T_("Welcome to Jibres world"));
 
 		}
 	}

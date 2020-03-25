@@ -29,7 +29,7 @@ if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() ==
         </div>
 
         <div class="body zeroPad">
-          <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/gif/jibres-app-queue.gif" alt='<?php echo \dash\data::page_title(); ?>'>
+          <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/gif/jibres-app-queue.gif" alt='<?php echo \dash\face::title(); ?>'>
         </div>
 <?php
 }
@@ -54,7 +54,7 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
         </div>
 
         <div class="body zeroPad">
-          <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/gif/jibres-rocket-launching.gif" alt='<?php echo \dash\data::page_title(); ?>'>
+          <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/gif/jibres-rocket-launching.gif" alt='<?php echo \dash\face::title(); ?>'>
         </div>
 <?php
 }

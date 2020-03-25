@@ -7,7 +7,7 @@ class view
 	{
 
 
-		\dash\data::page_title(T_("Transactions list"));
+		\dash\face::title(T_("Transactions list"));
 		// add back level to summary link
 		\dash\data::action_link(\dash\url::here());
 		\dash\data::action_text(T_('Back to dashboard'));
@@ -15,7 +15,7 @@ class view
 		$search_string            = \dash\request::get('q');
 		if($search_string)
 		{
-			\dash\data::page_title(\dash\data::page_title() . ' | '. T_('Search for :search', ['search' => $search_string]));
+			\dash\face::title(\dash\face::title() . ' | '. T_('Search for :search', ['search' => $search_string]));
 		}
 
 		$args =

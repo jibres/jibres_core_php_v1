@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("IRNIC handle list"));
+		\dash\face::title(T_("IRNIC handle list"));
 
 		// btn
 		\dash\data::action_text(T_('Add New IRNIC Handle'));
@@ -39,7 +39,7 @@ class view
 
 		if($isFiltered)
 		{
-			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
 	}

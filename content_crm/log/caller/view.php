@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Log"));
+		\dash\face::title(T_("Log"));
 
 		$dataTable = \dash\db\logs::get_caller_group();
 		\dash\data::dataTable($dataTable);

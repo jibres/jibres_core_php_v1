@@ -6,9 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('You are Banned!!'));
+		\dash\face::title(T_('You are Banned!!'));
 
-		\dash\data::page_desc(\dash\data::page_title());
+		\dash\data::page_desc(\dash\face::title());
 	}
 }
 ?>

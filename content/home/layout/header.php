@@ -46,7 +46,7 @@ if (\dash\url::module())
 {
 ?>
     <div id="typed-strings">
-     <h2><?php echo \dash\data::page_title(); ?></h2>
+     <h2><?php echo \dash\face::title(); ?></h2>
     </div>
 <?php
 }

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("DNS list"));
+		\dash\face::title(T_("DNS list"));
 
 		// btn
 		\dash\data::action_text(T_('Add dns'));
@@ -39,7 +39,7 @@ class view
 
 		if($isFiltered)
 		{
-			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 	}
 }

@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Edit category'));
+		\dash\face::title(T_('Edit category'));
 
 		\dash\data::back_text(T_('Category list'));
 		\dash\data::back_link(\dash\url::this());
@@ -14,7 +14,7 @@ class view
 
 		if(\dash\data::dataRow_title())
 		{
-			\dash\data::page_title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
+			\dash\face::title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
 		}
 	}
 }

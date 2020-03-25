@@ -15,7 +15,7 @@ class view
 			$product_title = T_("Whitout name");
 		}
 
-		\dash\data::page_title(T_("Make copy from :val", ['val' => $product_title]));
+		\dash\face::title(T_("Make copy from :val", ['val' => $product_title]));
 
 
 		// back

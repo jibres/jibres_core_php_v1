@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 
-		\dash\data::page_title(T_("Attachments"));
+		\dash\face::title(T_("Attachments"));
 
 		\dash\data::action_text(T_('Add new attachment'));
 		\dash\data::action_link(\dash\url::this(). '/add');

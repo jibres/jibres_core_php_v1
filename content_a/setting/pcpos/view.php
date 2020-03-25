@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Setting'). ' | '. T_('Pos'));
+		\dash\face::title(T_('Setting'). ' | '. T_('Pos'));
 
 		\dash\data::dataTable(\lib\app\pos\datalist::list());
 

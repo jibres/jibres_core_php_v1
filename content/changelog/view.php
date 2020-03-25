@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Change log of Jibres'));
+		\dash\face::title(T_('Change log of Jibres'));
 		\dash\data::page_desc(T_('We were born to do Best!'). ' ' . T_("We are Developers, please wait!"));
 
 		// btn

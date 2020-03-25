@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_('Language'));
+		\dash\face::title(T_('Language'));
 
 		// back
 		\dash\data::back_text(T_('Personalization'));

@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Company of products'));
+		\dash\face::title(T_('Company of products'));
 
 		// back
 		\dash\data::back_text(T_('Products'));
@@ -14,7 +14,7 @@ class view
 
 		if(\dash\data::editMode())
 		{
-			\dash\data::page_title(T_('Edit product company'));
+			\dash\face::title(T_('Edit product company'));
 
 		}
 
@@ -26,14 +26,14 @@ class view
 
 		if(\dash\data::removeMode())
 		{
-			\dash\data::page_title(T_('Remove product company'));
+			\dash\face::title(T_('Remove product company'));
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this());
 		}
 
 		if(\dash\data::editMode())
 		{
-			\dash\data::page_title(T_('Edit product company'));
+			\dash\face::title(T_('Edit product company'));
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this());
 		}

@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		// page title
-		\dash\data::page_title(T_("Export products"));
+		\dash\face::title(T_("Export products"));
 		// back
 		\dash\data::back_text(T_('Products'));
 		\dash\data::back_link(\dash\url::this());

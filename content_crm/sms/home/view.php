@@ -13,7 +13,7 @@ class view
 
 		\dash\permission::access('cpSMS');
 
-		\dash\data::page_title(T_("SMS Dashboard"));
+		\dash\face::title(T_("SMS Dashboard"));
 
 		\dash\data::action_link(\dash\url::here());
 		\dash\data::action_text(T_('Dashboard'));

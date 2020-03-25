@@ -77,7 +77,7 @@ class view
 		\dash\data::listSpecial(\dash\app\posts\special::list());
 		// add back level to summary link
 
-		\dash\data::page_title($myTitle);
+		\dash\face::title($myTitle);
 
 
 		\dash\data::badge2_text(T_('Back to dashboard'));

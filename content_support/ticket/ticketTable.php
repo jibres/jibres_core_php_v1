@@ -1,7 +1,7 @@
 
 <div class="msg pain special f align-center fs14">
 
-  <div class="c"><span class="txtB"><?php if(\dash\url::module() === 'ticket') { echo \dash\data::page_title(); }else { echo T_("Last active tickets"); }?></span>
+  <div class="c"><span class="txtB"><?php if(\dash\url::module() === 'ticket') { echo \dash\face::title(); }else { echo T_("Last active tickets"); }?></span>
     <span class="badge rounded pA5-f mLa5">
       <?php
         $sidebarDetail = \dash\data::sidebarDetail();

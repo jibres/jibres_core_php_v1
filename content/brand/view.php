@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Jibres Brand'));
+		\dash\face::title(T_('Jibres Brand'));
 		\dash\data::page_desc(T_('These guidelines are here to help ensure that your use of the Jibres logo is consistent with the way we present ourselves.'));
 		// btn
 		\dash\data::back_text(T_('Home'));

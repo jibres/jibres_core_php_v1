@@ -8,7 +8,7 @@ class view
 	public static function config()
 	{
 
-		\dash\data::page_title(T_("Tickets"));
+		\dash\face::title(T_("Tickets"));
 		\dash\data::page_desc(T_("See list of your tickets!"));
 
 
@@ -107,50 +107,50 @@ class view
 			switch ($status)
 			{
 				case 'open':
-					\dash\data::page_title(T_("Open tickets"));
+					\dash\face::title(T_("Open tickets"));
 					$args['tickets.status'] = ["IN", "('awaiting', 'answered')"];
 					break;
 
 				case 'awaiting':
-					\dash\data::page_title(T_("Tickets waiting for the answer"));
+					\dash\face::title(T_("Tickets waiting for the answer"));
 					$args['tickets.status'] = "awaiting";
 					break;
 
 				case 'unsolved':
-					\dash\data::page_title(T_("Un solved ticket"));
+					\dash\face::title(T_("Un solved ticket"));
 					$args['1.1'] = ["= 1.1", " AND (tickets.solved = b'0' OR tickets.solved IS NULL ) "];
 					$args['tickets.status'] = ["NOT IN", "('deleted', 'spam')"];
 					break;
 
 				case 'solved':
-					\dash\data::page_title(T_("Solved ticket"));
+					\dash\face::title(T_("Solved ticket"));
 					$args['tickets.solved'] = 1;
 					$args['tickets.status'] = ["NOT IN", "('deleted', 'spam')"];
 					break;
 
 				case 'answered':
-					\dash\data::page_title(T_("Answered tickets"));
+					\dash\face::title(T_("Answered tickets"));
 					$args['tickets.status'] = "answered";
 					break;
 
 				case 'spam':
-					\dash\data::page_title(T_("Spam tickets"));
+					\dash\face::title(T_("Spam tickets"));
 					$args['tickets.status'] = "spam";
 					break;
 
 				case 'close':
 				case 'archived':
-					\dash\data::page_title(T_("Archived tickets"));
+					\dash\face::title(T_("Archived tickets"));
 					$args['tickets.status'] = "close";
 					break;
 
 				case 'deleted':
-					\dash\data::page_title(T_("Deleted tickets"));
+					\dash\face::title(T_("Deleted tickets"));
 					$args['tickets.status'] = "deleted";
 					break;
 
 				case 'all':
-					\dash\data::page_title(T_("All tickets"));
+					\dash\face::title(T_("All tickets"));
 					$args['tickets.status'] = ["NOT IN", "('deleted', 'spam')"];
 					break;
 

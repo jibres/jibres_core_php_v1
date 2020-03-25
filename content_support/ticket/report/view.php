@@ -6,7 +6,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_("Ticket report"));
+		\dash\face::title(T_("Ticket report"));
 		\dash\data::page_desc(' ');
 
 

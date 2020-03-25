@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_('Add new user'));
+		\dash\face::title(T_('Add new user'));
 
 		\dash\data::action_text(T_('Back to list of users'));
 		\dash\data::action_link(\dash\url::this());

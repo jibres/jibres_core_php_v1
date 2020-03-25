@@ -9,7 +9,7 @@ class view
 		// show dropdown of product list
 		\lib\app\product\site_list::dropdown();
 
-		\dash\data::page_title(T_('Sale invoicing'));
+		\dash\face::title(T_('Sale invoicing'));
 
 
 		if(\dash\permission::check('factorSaleList'))

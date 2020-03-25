@@ -5,7 +5,7 @@
         <div class="pad">
           <?php if(\dash\data::canAddStore_can()) {?>
 
-          <h1><?php echo \dash\data::page_title(); ?></h1>
+          <h1><?php echo \dash\face::title(); ?></h1>
           <p><?php echo T_("To make a online store from scratch, please enter name of your business."); ?></p>
 
           <form method="post" autocomplete="off">

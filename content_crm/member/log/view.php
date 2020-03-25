@@ -9,7 +9,7 @@ class view
 	{
 		\content_crm\member\main\view::dataRowMember();
 
-		\dash\data::page_title(T_('User log'));
+		\dash\face::title(T_('User log'));
 
 		\dash\data::action_link(\dash\url::this());
 		\dash\data::action_text(T_('Back to dashbaord'));

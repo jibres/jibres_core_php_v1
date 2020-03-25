@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Billing usage detail"));
+		\dash\face::title(T_("Billing usage detail"));
 		\dash\data::detail([]);
 
 		\dash\data::back_link(\dash\url::here(). '/billing');

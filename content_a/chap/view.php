@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Print factor'));
+		\dash\face::title(T_('Print factor'));
 
 		// back
 		\dash\data::back_text(T_('Factors'));

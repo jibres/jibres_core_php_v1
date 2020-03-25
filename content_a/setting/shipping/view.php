@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Setting up shipping rates'));
+		\dash\face::title(T_('Setting up shipping rates'));
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());

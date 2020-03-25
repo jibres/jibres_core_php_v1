@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Transfer domain"));
+		\dash\face::title(T_("Transfer domain"));
 
 		// btn
 		\dash\data::back_text(T_('Domains'));

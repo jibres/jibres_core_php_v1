@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Telegram"));
+		\dash\face::title(T_("Telegram"));
 
 		\dash\data::action_text(T_('Check logs'));
 		\dash\data::action_link(\dash\url::this().'/log');

@@ -6,7 +6,7 @@
 
 
       <div class="cbox">
-        <h3 class="txtC mB20"><?php echo \dash\data::page_title(); ?></h3>
+        <h3 class="txtC mB20"><?php echo \dash\face::title(); ?></h3>
 
 
             <label for="website"><?php echo T_("Website"); ?></label>

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Tags'));
+		\dash\face::title(T_('Tags'));
 
 		// back
 		\dash\data::back_text(T_('Products'));

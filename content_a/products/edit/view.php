@@ -15,7 +15,7 @@ class view
 			$title = T_("Whitout name");
 		}
 
-		\dash\data::page_title($title);
+		\dash\face::title($title);
 
 		\dash\data::page_next(\dash\url::this(). '/next/'. \dash\request::get('id'));
 		\dash\data::page_prev(\dash\url::this(). '/prev/'. \dash\request::get('id'));

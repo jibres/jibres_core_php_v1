@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Pay detail'));
+		\dash\face::title(T_('Pay detail'));
 		\dash\data::page_desc(T_('Pay'));
 
 

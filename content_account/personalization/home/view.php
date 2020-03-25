@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Personalization'));
+		\dash\face::title(T_('Personalization'));
 		\dash\data::page_desc(T_('Your data, activity, and preferences that help make our services more useful to you'));
 
 		// back

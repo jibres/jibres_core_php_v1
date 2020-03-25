@@ -6,7 +6,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_("View ticket No"));
+		\dash\face::title(T_("View ticket No"));
 		\dash\data::page_desc(T_("Check detail of your ticket."). ' '. T_("We try to answer to you as soon as posibble."));
 
 
@@ -128,7 +128,7 @@ class view
 
 		if(isset($dataTable[0]['id']))
 		{
-			\dash\data::page_title(\dash\data::page_title() . ' '. \dash\fit::text($dataTable[0]['id']) );
+			\dash\face::title(\dash\face::title() . ' '. \dash\fit::text($dataTable[0]['id']) );
 		}
 
 		\dash\data::isMyTicket(self::is_my_ticket($main));

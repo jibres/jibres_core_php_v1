@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_('Remember Me'));
+		\dash\face::title(T_('Remember Me'));
 
 		// back
 		\dash\data::back_text(T_('Security'));

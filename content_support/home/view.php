@@ -6,7 +6,7 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_("Help center"));
+		\dash\face::title(T_("Help center"));
 		\dash\data::page_desc(T_("Easily manage your tickets and monitor or track them to get best answer until fix your problem"));
 
 
@@ -73,7 +73,7 @@ class view
 		// set page title
 		if(isset($master['title']))
 		{
-			// \dash\data::page_title($master['title']);
+			// \dash\face::title($master['title']);
 		}
 		// set page desc
 		if(isset($master['excerpt']))
