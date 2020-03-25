@@ -12,7 +12,6 @@
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/units"><div class="key"><?php echo T_("Store Units"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/vat"><div class="key"><?php echo T_("Tax settings"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/pcpos"><div class="key"><?php echo T_("PC-POS setting"); ?></div><div class="go"></div></a></li>
-
       </ul>
     </nav>
 
