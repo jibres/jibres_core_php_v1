@@ -6,6 +6,19 @@
 if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress' || \dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status() === 'enable')
 {
 ?>
+
+    <?php if(\dash\data::isReadyToCreate_ok() && \dash\data::haveChangeAndroid()) {?>
+    <div  class="box impact mB25-f">
+      <header><h2><?php echo T_("Rebuild Application");?></h2></header>
+        <div class="body">
+          <p class="mB0-f"><?php echo T_("Your have some change in  application detail and need to build your application again"); ?></p>
+        </div>
+        <footer class="txtRa">
+          <div data-confirm data-data='{"build" : "now", "rebuild" : true}' class="btn success" ><?php echo T_("Rebuild application"); ?></div>
+        </footer>
+    </div>
+    <?php }else{ ?>
+
     <div  class="box impact mB25-f">
       <header><h2><?php echo T_("Review Application detail");?></h2></header>
         <div class="body">
@@ -15,6 +28,10 @@ if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() ==
           <a href="<?php echo \dash\url::this(). '/apk'; ?>" class="btn primary" ><?php echo T_("Check status"); ?></a>
         </footer>
     </div>
+
+    <?php } // endif ?>
+
+
 
 <?php
 }

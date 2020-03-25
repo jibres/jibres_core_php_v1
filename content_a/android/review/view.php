@@ -17,6 +17,8 @@ class view
 
 		\content_a\android\load::detail();
 
+		\dash\data::haveChangeAndroid(\lib\app\application\detail::need_to_rebuild());
+
 
 
 	}

@@ -172,6 +172,8 @@ class queue
 		$app_queue_detail_addr = YARD . 'jibres_temp/app/'. \lib\store::id();
 		\dash\file::delete($app_queue_detail_addr);
 
+		\lib\app\application\detail::need_to_rebuild(false);
+
 
 	}
 

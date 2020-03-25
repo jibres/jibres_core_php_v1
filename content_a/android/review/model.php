@@ -7,10 +7,17 @@ class model
 	{
 		if(\dash\request::post('build') === 'now')
 		{
-			\lib\app\application\queue::add_new_queue();
+			if(\dash\request::post('rebuild'))
+			{
+				\lib\app\application\queue::rebuild();
+			}
+			else
+			{
+				\lib\app\application\queue::add_new_queue();
+			}
+
 			\dash\redirect::pwd();
 		}
-		// \lib\app\application\queue::rebuild();
 	}
 }
 ?>

@@ -71,6 +71,37 @@ class detail
 	}
 
 
+
+	public static function need_to_rebuild($_set = null)
+	{
+		$get = \lib\db\setting\get::platform_cat_key('android', 'setting', 'need_to_rebuild');
+
+		if($_set === null)
+		{
+			if($get)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		elseif($_set === true)
+		{
+			\lib\db\setting\update::overwirte_platform_cat_key('1', 'android', 'setting', 'need_to_rebuild');
+		}
+		elseif($_set === false)
+		{
+			if(isset($get['id']))
+			{
+				\lib\db\setting\delete::record($get['id']);
+			}
+		}
+
+	}
+
+
 	public static function set_android_logo($_logo = null)
 	{
 		if(!$_logo)
@@ -86,10 +117,19 @@ class detail
 
 		if($logo)
 		{
+			$have_change = false;
 
 			if(isset($get['id']))
 			{
-				\lib\db\setting\update::value($logo, $get['id']);
+				if(isset($get['value']) && $get['value'] === $logo)
+				{
+					\dash\notif::info(T_("You application logo saved without change"));
+				}
+				else
+				{
+					$have_change = true;
+					\lib\db\setting\update::value($logo, $get['id']);
+				}
 			}
 			else
 			{
@@ -101,10 +141,19 @@ class detail
 					'value'    => $logo,
 				];
 
+				$have_change = true;
 				\lib\db\setting\insert::new_record($insert);
 			}
 
-			\dash\notif::ok(T_("Your application logo was saved"));
+			if($have_change)
+			{
+				self::need_to_rebuild(true);
+			}
+
+			if($have_change)
+			{
+				\dash\notif::ok(T_("Your application logo was saved"));
+			}
 
 		}
 		else
@@ -152,6 +201,8 @@ class detail
 
 
 		\dash\notif::ok(T_("Application setting set"));
+
+		self::need_to_rebuild(true);
 
 
 		return true;
