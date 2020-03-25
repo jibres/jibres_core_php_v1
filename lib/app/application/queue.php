@@ -436,7 +436,7 @@ class queue
 
 		$update =
 		[
-			'file'     => $_filename,
+			'file'     => basename($_path),
 			'status'   => $_status,
 			'datedone' => date("Y-m-d H:i:s"),
 			'meta'     => $meta,
@@ -448,21 +448,19 @@ class queue
 
 		self::remove_store_catch_detail($save_in_store_detail);
 
-		if($_filename)
+		// download file in store app folder
+		$transfer_file = self::transfer_file($_store, $_path);
+		if($transfer_file)
 		{
-			// download file in store app folder
-			$transfer_file = self::transfer_file($_filename, $_store, $_path);
-			if($transfer_file)
-			{
-				$log =
-				[
-					'to'         => $result['user_id'],
-					'data_build' => $result['build'],
-				];
+			$log =
+			[
+				'to'         => $result['user_id'],
+				'data_build' => $result['build'],
+			];
 
-				\dash\log::set('application_readyToDownload', $log);
-			}
+			\dash\log::set('application_readyToDownload', $log);
 		}
+
 
 		\dash\notif::ok(T_("Queue status updated"));
 		return true;
@@ -478,14 +476,9 @@ class queue
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	private static function transfer_file($_filename, $_store, $_path)
+	private static function transfer_file($_store, $_path)
 	{
-		$host = 'http://app.talambar.ir/';
-
-		$source = $host. $_path;
-
-
-		$source = trim($source, '/');
+		$source = 'http://app.talambar.ir/'. $_path;
 
 		$store = str_replace('$', '', $_store);
 
