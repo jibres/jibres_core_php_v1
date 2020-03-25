@@ -50,10 +50,10 @@ if(\dash\data::page_titleBox() !== false && !\dash\detect\device::detectPWA())
 <?php } // endif ?>
   </div>
 
-<?php if(\dash\data::page_breadcrumb() && false)  {?>
+<?php if(\dash\face::breadcrumb() && false)  {?>
 
   <nav class="breadcrumb">
-    <?php foreach (\dash\data::page_breadcrumb() as $key => $value)
+    <?php foreach (\dash\face::breadcrumb() as $key => $value)
     {
       echo '<a';
       if(isset($value['link']) && $value['link'])

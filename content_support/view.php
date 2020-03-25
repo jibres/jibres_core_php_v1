@@ -64,7 +64,7 @@ class view
 			}
 		}
 
-		\dash\data::page_breadcrumb($myBreadCrumb);
+		\dash\face::breadcrumb($myBreadCrumb);
 	}
 
 
