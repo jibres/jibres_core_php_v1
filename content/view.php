@@ -27,7 +27,7 @@ class view
 
 
 		\dash\face::site(T_("Jibres"));
-		\dash\data::site_desc($jibresDesc);
+		\dash\face::intro($jibresDesc);
 		\dash\face::slogan(T_("#1 World Sales Engineering System"));
 		\dash\face::slogan(T_("Sell and Enjoy"));
 

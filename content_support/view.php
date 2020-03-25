@@ -28,7 +28,7 @@ class view
 		[
 			"text"  => \dash\face::site(),
 			"link"  => \dash\url::sitelang(),
-			'title' => \dash\data::site_desc(),
+			'title' => \dash\face::intro(),
 			"icon"  => "home",
 			'attr'  => '',
 		];

@@ -9,7 +9,7 @@ class view
 	{
 
 		\dash\face::title(T_('Enter to :name', ['name' => \dash\face::site()]));
-		\dash\face::desc(\dash\data::site_desc());
+		\dash\face::desc(\dash\face::intro());
 
 		if(mb_strlen(\dash\face::desc()) < 150)
 		{

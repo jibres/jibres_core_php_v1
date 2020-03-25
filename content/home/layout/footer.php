@@ -40,7 +40,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
        }
        ?>" alt='<?php echo T_("Jibres Vertical Logo") ?>'>
       </a>
-      <figcaption class="c s12"><?php echo \dash\data::site_desc(); ?> <a href="<?php echo $kingdom; ?>/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
+      <figcaption class="c s12"><?php echo \dash\face::intro(); ?> <a href="<?php echo $kingdom; ?>/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
     </figure>
 
 

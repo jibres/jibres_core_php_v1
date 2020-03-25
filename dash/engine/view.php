@@ -40,7 +40,7 @@ class view
 
 
 		\dash\face::site(T_(\dash\option::config('site', 'title')));
-		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
+		\dash\face::intro(T_(\dash\option::config('site', 'desc')));
 		\dash\face::slogan(T_(\dash\option::config('site', 'slogan')));
 		\dash\face::logo(\dash\url::icon());
 		// set custom logo
@@ -102,7 +102,7 @@ class view
 		if(!\dash\face::desc())
 		{
 			// remove page desc
-			\dash\face::desc(\dash\data::site_desc());
+			\dash\face::desc(\dash\face::intro());
 		}
 
 

@@ -10,7 +10,7 @@ class view
 		[
 			'namespace' => 'jibres',
 			'title'     => T_('Jibres'),
-			'desc'      => \dash\data::site_desc(),
+			'desc'      => \dash\face::intro(),
 			'slogan'    => \dash\face::slogan(),
 			'logo'      =>
 			[

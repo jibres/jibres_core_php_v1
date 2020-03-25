@@ -24,7 +24,7 @@ class view
 		[
 			'namespace' => $packagename,
 			'title'     => isset($load_app_detail['title']) ? $load_app_detail['title'] : T_('Jibres'),
-			'desc'      => isset($load_app_detail['desc']) ? $load_app_detail['desc'] : \dash\data::site_desc(),
+			'desc'      => isset($load_app_detail['desc']) ? $load_app_detail['desc'] : \dash\face::intro(),
 			'slogan'    => isset($load_app_detail['slogan']) ? $load_app_detail['slogan'] : \dash\face::slogan(),
 			'logo'      =>
 			[

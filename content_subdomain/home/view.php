@@ -10,7 +10,7 @@ class view
 
 
 		\dash\face::site(\dash\get::index(\dash\data::store(), 'store_data', 'title'));
-		\dash\data::site_desc(\dash\data::store_desc());
+		\dash\face::intro(\dash\data::store_desc());
 	}
 }
 ?>
