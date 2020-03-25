@@ -16,7 +16,7 @@ class view
 		{
 			// btn
 			\dash\data::action_text(T_('Show api log'));
-			\dash\data::action_link(\dash\url::kingdom().'/su/apilog');
+			\dash\data::action_link(\dash\url::kingdom().'/su/apilog?urlmd5=27e9f0effb17ca7a7df4c11e4ea9cca2');
 		}
 
 

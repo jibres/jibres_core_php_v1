@@ -36,7 +36,7 @@
         <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
         <?php echo \dash\get::index($value, 'title'); ?>
 
-        </td>
+      </td>
       <td>
         <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
           <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>

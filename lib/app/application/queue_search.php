@@ -113,18 +113,20 @@ class queue_search
 
 		$list = \lib\db\store_app\search::list($and, $or, $order_sort, $meta);
 
+		$users_id = [];
+
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+			$users_id = array_column($list, 'user_id');
+			$users_id = array_filter($users_id);
+			$users_id = array_unique($users_id);
+			$list = array_map(['\\lib\\app\\store\\ready', 'row'], $list);
 		}
 		else
 		{
 			$list = [];
 		}
 
-		$users_id = array_column($list, 'user_id');
-		$users_id = array_filter($users_id);
-		$users_id = array_unique($users_id);
 
 		if($users_id)
 		{

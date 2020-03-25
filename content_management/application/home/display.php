@@ -71,6 +71,7 @@ else
         <thead>
             <tr class="fs09">
                 <th class="collapsing">#</th>
+                <th><?php echo T_("Store"); ?></th>
                 <th><?php echo T_("User"); ?></th>
                 <th><?php echo T_("Status"); ?></th>
                 <th><?php echo T_("Version"); ?></th>
@@ -89,6 +90,10 @@ else
 
             <tr>
                 <td class=""><a href="<?php echo \dash\url::that(). '/view?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-rain-1"></i></a></td>
+                <td>
+                    <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
+                    <?php echo \dash\get::index($value, 'title'); ?>
+                </td>
                 <td>
 
                   <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
