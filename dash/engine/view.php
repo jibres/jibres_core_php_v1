@@ -69,6 +69,7 @@ class view
 		{
 			// translate all title at last step
 			$page_title = T_($page_title);
+			\dash\face::title($page_title);
 			if(\dash\url::content())
 			{
 				if(\dash\detect\device::detectPWA())
@@ -81,7 +82,7 @@ class view
 				}
 			}
 
-			\dash\face::title($page_title);
+			\dash\face::headTitle($page_title);
 			// fill page title into seo title
 			if(!\dash\face::seo())
 			{
