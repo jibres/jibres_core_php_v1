@@ -1,0 +1,1 @@
+ALTER TABLE `jibres`.`store_app` ADD `path`   varchar(200)   	NULL DEFAULT NULL;

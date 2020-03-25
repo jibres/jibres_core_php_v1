@@ -437,6 +437,7 @@ class queue
 		$update =
 		[
 			'file'     => basename($_path),
+			'path'     => $_path,
 			'status'   => $_status,
 			'datedone' => date("Y-m-d H:i:s"),
 			'meta'     => $meta,
