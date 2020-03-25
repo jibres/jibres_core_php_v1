@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\lib\app\application\download::site();
+		\lib\app\application\download::from_site();
 	}
 }
 ?>
