@@ -83,6 +83,37 @@ class queue
 	}
 
 
+	public static function load_by_id($_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\store_app\get::by_id($id);
+		return $load;
+	}
+
+	public static function update_status_id($_status, $_id)
+	{
+		$detail = self::load_by_id($_id);
+		if(!$detail)
+		{
+			\dash\notif::error(T_("Invalid record detail"));
+			return false;
+		}
+
+		$_status = \dash\validate::enum($_status, true, ['enum' => ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']]);
+		if($_status)
+		{
+			\lib\db\store_app\update::record(['status' => $_status], $_id);
+			\dash\notif::ok(T_("Record was updated"));
+			return true;
+		}
+	}
+
+
 
 	private static function check_detail_from_setting($_new_detail = null)
 	{

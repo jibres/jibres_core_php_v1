@@ -21,6 +21,14 @@ class get
 	}
 
 
+	public static function by_id($_id)
+	{
+		$query  = "SELECT * FROM store_app WHERE  store_app.id = $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
+
 
 	public static function count_record_store($_store_id)
 	{

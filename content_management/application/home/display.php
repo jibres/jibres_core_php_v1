@@ -91,7 +91,7 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
             <tr>
-                <td class=""><a href="<?php echo \dash\url::that(). '/view?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-rain-1"></i></a></td>
+                <td class=""><a class="btn" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-edit"></i></a></td>
                 <td>
                     <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
                     <?php echo \dash\get::index($value, 'title'); ?>
