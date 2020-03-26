@@ -68,15 +68,15 @@
                 <label for="target"><?php echo T_("Open in New tab"); ?><small></small></label>
               </div>
 
-              <footer class="f">
-                <div class="c">
-                </div>
-                <div class="cauto os">
-                  <button class="btn success"><?php echo T_("Add"); ?></button>
-
-                </div>
-              </footer>
             </div>
+            <footer class="f">
+              <div class="c">
+              </div>
+              <div class="cauto os">
+                <button class="btn success"><?php echo T_("Add"); ?></button>
+
+              </div>
+            </footer>
 
           </form>
 
@@ -121,15 +121,15 @@
                 <label for="target_<?php echo $key; ?>"><?php echo T_("Open in New tab"); ?><small></small></label>
               </div>
 
-              <footer class="f">
-                <div class="c">
-                  <button class="btn primary"><?php echo T_("Update"); ?></button>
-                </div>
-                <div class="cauto os">
-                  <button class="btn danger" name="remove" value="remove"><?php echo T_("Remove"); ?></button>
-                </div>
-              </footer>
             </div>
+            <footer class="f">
+              <div class="c">
+                <button class="btn primary"><?php echo T_("Update"); ?></button>
+              </div>
+              <div class="cauto os">
+                <button class="btn danger" name="remove" value="remove"><?php echo T_("Remove"); ?></button>
+              </div>
+            </footer>
 
           </form>
 
