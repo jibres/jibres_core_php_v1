@@ -327,7 +327,7 @@ class text
 		$rules   = true;
 		$splitor = null;
 
-		if(isset($_meta['rules']))
+		if(array_key_exists('rules', $_meta))
 		{
 			$rules = $_meta['rules'];
 		}
@@ -341,16 +341,14 @@ class text
 		{
 			$slugify = new \dash\utility\slugify();
 			$slugify->activateRuleset('persian');
+			$data = $slugify->slugify($data);
 		}
 		elseif($rules === 'persian')
 		{
-			$data = mb_strtolower($data);
 			$data = mb_ereg_replace('([^ءئآا-ی۰-۹a-z0-9]|-)+', '-', $data);
 			$data = trim($data, '-');
 			$data = trim($data);
 			$data = mb_strtolower($data);
-
-			return $data;
 		}
 		else
 		{
@@ -363,6 +361,23 @@ class text
 			{
 				$data = $slugify->slugify($data);
 			}
+		}
+
+
+		$length = null;
+		if(isset($_meta['max']) && is_numeric($_meta['max']))
+		{
+			$length = intval($_meta['max']);
+		}
+
+		if(!$length)
+		{
+			$length = 100000;
+		}
+
+		if(mb_strlen($data) > $length)
+		{
+			$data = mb_substr($data, 0, $length);
 		}
 
 		return $data;

@@ -8,15 +8,10 @@ class model
 	{
 		$post =
 		[
-			'googleplay'    => \dash\request::post('googleplay'),
-			'cafebazar'     => \dash\request::post('cafebazar'),
-			'myket'         => \dash\request::post('myket'),
-			'downloadtitle' => \dash\request::post('title'),
-			'downloaddesc'  => \dash\request::post('desc'),
+			'title'    => \dash\request::post('title'),
 		];
 
-		$theme_detail = \lib\app\application\detail::set_android_download_detail($post);
-
+		$theme_detail = \lib\app\menu\add::new_menu($post);
 
 		if(\dash\engine\process::status())
 		{

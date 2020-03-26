@@ -12,6 +12,9 @@ class view
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
+
+		$menu_list = \lib\app\menu\get::list_all_menu();
+		\dash\data::menuList($menu_list);
 	}
 }
 ?>
