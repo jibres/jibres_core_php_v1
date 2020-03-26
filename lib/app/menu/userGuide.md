@@ -33,8 +33,8 @@
 ## Header
 
 * platform = website
-* key      = header
-* cat      = header1, spcial_header, header_dark, ... _Unique slug get from jibres header list_
+* cat      = header
+* key      = header1, header_special, header_dark, ... _Unique slug get from jibres header list_
 * value
 ```
 {
@@ -47,8 +47,8 @@
 ## Footer
 
 * platform = website
-* key      = footer
-* cat      = footer1, spcial_footer, footer_dark, ... _Unique slug get from jibres footer list_
+* cat      = footer
+* key      = footer1, footer_special, footer_dark, ... _Unique slug get from jibres footer list_
 * value
 ```
 {
