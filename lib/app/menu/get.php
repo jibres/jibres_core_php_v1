@@ -16,6 +16,27 @@ class get
 	}
 
 
+	public static function load_menu_edit()
+	{
+		$id = \dash\validate::code(\dash\request::get('id'));
+		$id = \dash\coding::decode($id);
+		if(!$id)
+		{
+			\dash\header::status(404);
+		}
+
+		$load = \lib\db\setting\get::by_id($id);
+		if(!$load)
+		{
+			\dash\header::status(404, T_("Menu detail not found"));
+		}
+
+		$load = self::ready($load);
+		return $load;
+
+	}
+
+
 	private static function ready($_data)
 	{
 		if(!is_array($_data))

@@ -36,6 +36,14 @@ class get
 	}
 
 
+	public static function by_id($_id)
+	{
+		$query = "SELECT * FROM setting WHERE setting.id = '$_id' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function platform_cat($_platform, $_cat)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' ";
