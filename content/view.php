@@ -43,7 +43,7 @@ class view
 		// 	$total_users                     = 10; // intval(\lib\db\userteams::total_userteam());
 		// 	$total_users                     = number_format($total_users);
 		// 	$this->data->total_users         = \dash\fit::number($total_users);
-		// 	$this->data->footer_stat         = T_("We help :count people to work beter!", ['count' => $this->data->total_users]);
+		// 	$this->data->footer_stat         = T_("We help :count people to work better!", ['count' => $this->data->total_users]);
 		// }
 
 		// if you need to set a class for body element in html add in this value

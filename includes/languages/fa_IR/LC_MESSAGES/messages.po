@@ -21499,7 +21499,7 @@ msgid "Anything you need"
 msgstr "هر آنچه شما نیاز دارید"
 
 #: lib/app/application/intro.php:140
-msgid "Beter"
+msgid "Better"
 msgstr "بهترین"
 
 #: lib/app/application/intro.php:141

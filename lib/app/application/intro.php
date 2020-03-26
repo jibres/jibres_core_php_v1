@@ -137,7 +137,7 @@ class intro
 
 			2 =>
 			[
-				'title' => T_("Beter"),
+				'title' => T_("Better"),
 				'desc'  => T_("Special experience"),
 				'image'  => \dash\url::cdn(). '/img/app/app-intro-2.jpg',
 			],
