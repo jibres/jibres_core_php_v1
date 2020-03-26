@@ -14,6 +14,12 @@ class detail
 			return false;
 		}
 
+		// can not use from default store logo to app store logo
+		if(substr($store_logo, -30) === 'siftal/images/default/logo.png')
+		{
+			return false;
+		}
+
 		if(!\dash\upload\crop::check_square($store_logo))
 		{
 			return false;
