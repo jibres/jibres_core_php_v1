@@ -16,7 +16,7 @@
 
       </div>
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Save"); ?></button>
+        <button class="btn success"><?php echo T_("Add"); ?></button>
       </footer>
     </form>
   </div>
@@ -27,7 +27,7 @@
      <ul>
     <?php foreach (\dash\data::menuList() as $key => $value) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/theme">
+        <a class="f" href="<?php echo \dash\url::this();?>/menu/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
           <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
           <div class="go"></div></a>
        </li>

@@ -23,6 +23,13 @@ class get
 			$_data = [];
 		}
 
+		$result = [];
+
+		if(isset($_data['id']))
+		{
+			$_data['id'] = \dash\coding::encode($_data['id']);
+		}
+
 		if(isset($_data['value']) && is_string($_data['value']))
 		{
 			$_data['value'] = json_decode($_data['value'], true);
@@ -31,7 +38,20 @@ class get
 			{
 				$_data['title'] = $_data['value']['title'];
 			}
+
+			if(isset($_data['value']['slug']))
+			{
+				$_data['slug'] = $_data['value']['slug'];
+			}
+
+			if(isset($_data['value']['list']))
+			{
+				$_data['list'] = $_data['value']['list'];
+			}
 		}
+
+		unset($_data['value']);
+
 
 		return $_data;
 	}
