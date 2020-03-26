@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Download setting'));
+		\dash\face::title(T_('Download App'). ' - '. \dash\data::appDetail_downloadtitle());
 
 		$appDetail = \lib\app\application\detail::get_dowload_page();
 		\dash\data::appDetail($appDetail);
