@@ -37,8 +37,9 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
 {
 ?>
         <div class="body">
-          <div class="msg success2">
-            <?php echo T_("Your application is ready to use"); ?>
+          <div class="msg success2 f">
+            <div class="c"><?php echo T_("Your application is ready to use"); ?></div>
+            <div class="cauto os"><a class="link" href="<?php echo \dash\data::downoadAPK();?>"><?php echo T_("Download");?></a></div>
           </div>
 
           <?php if(\dash\data::downoadAPK()) {?>
