@@ -1,5 +1,5 @@
 
-<div class="f justify-center">
+<div class="f">
   <div class="c6 m8 s12 x4">
     <form method="post" autocomplete="off" class="box impact">
       <header><h2><?php echo T_("Build new menu"); ?></h2></header>
@@ -22,7 +22,7 @@
   </div>
 
   <?php if(\dash\data::menuList()) {?>
-  <div class="c4 pLa10">
+  <div class="c s12 pLa10">
     <nav class="items">
      <ul>
     <?php foreach (\dash\data::menuList() as $key => $value) {?>

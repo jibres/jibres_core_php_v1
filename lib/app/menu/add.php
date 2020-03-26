@@ -17,26 +17,36 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$slug = \dash\validate::slug($data['title'], false);
-
-		$new_menu_value = ['title' => $data['title'], 'slug' => $slug, 'list' => []];
+		$new_menu_value = ['title' => $data['title'], 'list' => []];
 
 		$new_menu_value = json_encode($new_menu_value, JSON_UNESCAPED_UNICODE);
 
 
-		$get = \lib\db\setting\get::platform_cat_key('website', 'menu', $slug);
-
-		if(isset($get['id']))
+		$list_all_menu = \lib\app\menu\get::list_all_menu();
+		if(is_array($list_all_menu))
 		{
-			\dash\notif::error(T_("This title was exists in your menu list. Try another"));
+			$all_title = array_column($list_all_menu, 'title');
+			if(in_array($data['title'], $all_title))
+			{
+				\dash\notif::error(T_("This title was exists in your menu list. Try another"), 'title');
+				return false;
+			}
+		}
+
+		if(count($list_all_menu) > 10)
+		{
+			\dash\notif::error(T_("You are using all your menu build capacity and you cannot build a new menu"));
 			return false;
 		}
+
+		$key = 'menu_';
+		$key .= (count($list_all_menu) + 1);
 
 		$insert =
 		[
 			'platform' => 'website',
 			'cat'      => 'menu',
-			'key'      => $slug,
+			'key'      => $key,
 			'value'    => $new_menu_value,
 		];
 
