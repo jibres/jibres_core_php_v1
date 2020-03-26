@@ -1,1 +1,1 @@
-UPDATE jibres_XXXXXXX.factors SET jibres_XXXXXXX.factors.date = jibres_XXXXXXX.factors.datecreated, jibres_XXXXXXX.factors.datemodified = NULL  WHERE 1;
+SELECT NULL;

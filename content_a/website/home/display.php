@@ -16,8 +16,6 @@
           <div class="key"><?php echo T_('Choose theme');?></div>
           <div class="go"></div></a>
        </li>
-
-
      </ul>
    </nav>
   </div>
