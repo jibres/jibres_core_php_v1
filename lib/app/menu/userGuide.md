@@ -32,6 +32,7 @@
 
 ## Header
 
+
 * platform = website
 * cat      = header
 * key      = header1, header_special, header_dark, ... _Unique slug get from jibres header list_
@@ -41,6 +42,15 @@
 	"header_menu_1" : "menu_1",  _// This key get from header1 setting and in this position just fill by menu key_
 }
 ```
+
+### Save active user header
+> This record means the user use from this header
+
+* platform = website
+* cat      = header
+* key      = active
+* value    = header1
+
 
 
 
@@ -54,7 +64,7 @@
 {
 	"footer_menu_1" : "menu_2",  _// This key get from footer1 setting and in this position just fill by menu key_
 	"footer_menu_2" : "menu_2",
-	"footer_text" : "User text ??? Or save text in record and show it by key???",
+	"footer_text" : "footer_text_1",
 }
 ```
 
