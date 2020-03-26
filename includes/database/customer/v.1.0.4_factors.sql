@@ -3,7 +3,7 @@ CREATE TABLE `jibres_XXXXXXX`.`factors` (
 `type` enum('sale','buy','presell','lending','backbuy','backsell','waste') NOT NULL,
 `customer` int(10) UNSIGNED DEFAULT NULL,
 `seller` int(10) UNSIGNED NOT NULL,
-`date` timestamp NOT NULL,
+`date` timestamp NULL,
 `title` varchar(500) DEFAULT NULL,
 `qty` int(10) UNSIGNED DEFAULT NULL,
 `item` bigint(20) UNSIGNED DEFAULT NULL,

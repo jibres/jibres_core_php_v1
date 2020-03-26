@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `date` `date` TIMESTAMP NULL;
