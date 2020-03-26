@@ -70,10 +70,12 @@ class add
 	{
 		$condition =
 		[
-			'title'  => 'string_50',
-			'url'    => 'url',
-			'target' => 'bit',
-			'sort'   => 'smallint',
+			'title'   => 'string_50',
+			'url'     => 'url',
+			'target'  => 'bit',
+			'remove'  => 'bit',
+			'itemkey' => 'smallint',
+			'sort'    => 'smallint',
 		];
 
 		$require = ['title', 'url'];
@@ -105,19 +107,51 @@ class add
 			$load_detail['list'] = [];
 		}
 
+
 		$sort = $data['sort'];
 		if(!$sort)
 		{
 			$sort = count($load_detail['list']) + 1;
 		}
 
-		$load_detail['list'][] =
-		[
-			'title'  => $data['title'],
-			'url'    => $data['url'],
-			'target' => $data['target'],
-			'sort'   => $sort,
-		];
+
+		if(isset($data['itemkey']))
+		{
+			if(!isset($load_detail['list'][$data['itemkey']]))
+			{
+				\dash\notif::error(T_("This item is not set in your menu list!"));
+				return false;
+			}
+
+			if($data['remove'])
+			{
+				unset($load_detail['list'][$data['itemkey']]);
+			}
+			else
+			{
+				// add new item
+				$load_detail['list'][$data['itemkey']] =
+				[
+					'title'  => $data['title'],
+					'url'    => $data['url'],
+					'target' => $data['target'],
+					'sort'   => $sort,
+				];
+			}
+
+		}
+		else
+		{
+			// add new item
+			$load_detail['list'][] =
+			[
+				'title'  => $data['title'],
+				'url'    => $data['url'],
+				'target' => $data['target'],
+				'sort'   => $sort,
+			];
+		}
+
 
 		if(count($load_detail['list']) > 20)
 		{
@@ -143,7 +177,18 @@ class add
 
 		if($result)
 		{
-			\dash\notif::ok(T_("Your item added to your menu"));
+			if($data['remove'])
+			{
+				\dash\notif::ok(T_("Your list removed from your menu"));
+			}
+			elseif($data['itemkey'])
+			{
+				\dash\notif::ok(T_("Menu item was updated"));
+			}
+			else
+			{
+				\dash\notif::ok(T_("Your item added to your menu"));
+			}
 			return true;
 		}
 		else
