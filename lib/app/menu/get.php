@@ -73,6 +73,12 @@ class get
 
 		unset($_data['value']);
 
+		$_data['count_child'] = 0;
+
+		if(isset($_data['list']) && is_array($_data['list']))
+		{
+			$_data['count_child'] = count($_data['list']);
+		}
 
 		return $_data;
 	}

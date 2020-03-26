@@ -29,7 +29,8 @@
        <li>
         <a class="f" href="<?php echo \dash\url::this();?>/menu/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
           <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-          <div class="go"></div></a>
+          <div class="go"><?php echo \dash\fit::number(\dash\get::index($value, 'count_child')). ' '. T_("Link"); ?> </div>
+        </a>
        </li>
     <?php } //enfor ?>
      </ul>

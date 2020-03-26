@@ -11,6 +11,7 @@ class model
 			'title'  => \dash\request::post('title'),
 			'url'    => \dash\request::post('url'),
 			'target' => \dash\request::post('target'),
+			'sort'   => \dash\request::post('sort'),
 		];
 
 		$theme_detail = \lib\app\menu\add::menu_item($post, \dash\request::get('id'));

@@ -1,5 +1,5 @@
 
-<div class="f justify-center">
+<div class="f">
   <div class="c6 m8 s12 x5">
     <form method="post" autocomplete="off" class="box impact">
       <header><h2><?php echo \dash\data::menuDetail_title(); ?></h2></header>
@@ -17,6 +17,11 @@
             <input type="url" name="url" id="url" value=""  required>
           </div>
 
+          <label for="sort"><?php echo T_("Sort"); ?></label>
+          <div class="input">
+            <input type="number" name="sort" id="sort" value="" min="0" max="9999">
+          </div>
+
           <div class="switch1 mB5">
             <input type="checkbox" name="target" id="target" >
             <label for="target"></label>
@@ -32,14 +37,14 @@
   </div>
 
   <?php if(\dash\data::menuDetailList()) {?>
-  <div class="c4 pLa10">
+  <div class="c s12 pLa10">
     <nav class="items">
      <ul>
     <?php foreach (\dash\data::menuDetailList() as $key => $value) {?>
        <li>
         <a class="f" href="<?php echo \dash\get::index($value, 'url');?>">
           <div class="key"><?php echo \dash\get::index($value, 'title');?>
-            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-link"></i> <?php }// endif ?>
+            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-link fc-mute"></i> <?php }// endif ?>
           </div>
           <div class="go"></div></a>
        </li>

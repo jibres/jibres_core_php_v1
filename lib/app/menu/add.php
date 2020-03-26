@@ -73,6 +73,7 @@ class add
 			'title'  => 'string_50',
 			'url'    => 'url',
 			'target' => 'bit',
+			'sort'   => 'smallint',
 		];
 
 		$require = ['title', 'url'];
@@ -104,12 +105,36 @@ class add
 			$load_detail['list'] = [];
 		}
 
+		$sort = $data['sort'];
+		if(!$sort)
+		{
+			$sort = count($load_detail['list']) + 1;
+		}
+
 		$load_detail['list'][] =
 		[
 			'title'  => $data['title'],
 			'url'    => $data['url'],
 			'target' => $data['target'],
+			'sort'   => $sort,
 		];
+
+		if(count($load_detail['list']) > 20)
+		{
+			\dash\notif::error(T_("You can not add more than 20 link in one menu!"), ['element' => ['title', 'url', 'sort']]);
+			return false;
+		}
+
+		$sort_column = array_column($load_detail['list'], 'sort');
+
+		if(count($sort_column) === count($load_detail['list']))
+		{
+			$my_sorted_list = $load_detail['list'];
+
+			array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+			$load_detail['list'] = $my_sorted_list;
+		}
 
 
 		$new_detail = json_encode($load_detail, JSON_UNESCAPED_UNICODE);
