@@ -1,7 +1,7 @@
 
-<div class="f">
-  <div class="c6 m8 s12 x5">
-    <form method="post" autocomplete="off" class="box impact">
+<div class="f justify-center">
+  <div class="c6 m8 s12 x5 hide">
+    <form method="post" class="box impact" autocomplete="off">
       <header><h2><?php echo T_("Add item to menu"). ' '. \dash\data::menuDetail_title(); ?></h2></header>
 
       <div class="body">
@@ -36,7 +36,55 @@
     </form>
   </div>
 
-  <div class="c s12 pLa10">
+  <div class="c6 x8 s12 pLa10">
+    <nav class="items">
+     <ul>
+       <li>
+        <a class="f"  data-kerkere='.addNewItem' data-kerkere-single>
+          <div class="key txtB"><?php echo T_("Add item to menu"). ' '. \dash\data::menuDetail_title(); ?></div>
+          <div class="go"></div>
+        </a>
+
+        <div class="addNewItem" data-kerkere-content=''>
+          <form method="post" class="box" autocomplete="off">
+            <div class="body">
+
+              <div class="input mB10">
+                <input type="text" name="title" id="title" maxlength="50" required>
+              </div>
+
+
+              <div class="input mB10">
+                <input type="url" name="url" id="url"  required>
+              </div>
+
+
+              <div class="input mB10">
+                <input type="number" name="sort" id="sort" min="0" max="9999">
+              </div>
+
+              <div class="check1 mB5">
+                <input type="checkbox" name="target" id="target" >
+                <label for="target"><?php echo T_("Open in New tab"); ?><small></small></label>
+              </div>
+
+              <footer class="f">
+                <div class="c">
+                </div>
+                <div class="cauto os">
+                  <button class="btn success"><?php echo T_("Add"); ?></button>
+
+                </div>
+              </footer>
+            </div>
+
+          </form>
+
+        </div>
+
+       </li>
+        </ul>
+   </nav>
     <nav class="items">
      <ul>
 
@@ -50,7 +98,7 @@
         </a>
 
         <div class="showMenuItem_<?php echo $key; ?>" data-kerkere-content='hide'>
-          <form method="post" class="box">
+          <form method="post" class="box" autocomplete="off">
             <div class="body">
 
               <input type="hidden" name="itemkey" value="<?php echo $key; ?>">
