@@ -8,6 +8,20 @@ class log
 	private static $from_detail = [];
 
 
+	/**
+	 * Critical error
+	 *
+	 * @param      <type>  $_type  The type
+	 */
+	public static function oops($_type = null)
+	{
+		\dash\log::set('criticalErrorOops!');
+		\dash\notif::error(T_("Oops! We cannot complete your request. Please contact to administrator"));
+		return false;
+	}
+
+
+
 	public static function temp_set($_caller, $_args)
 	{
 		self::$temp_log[$_caller] = $_args;

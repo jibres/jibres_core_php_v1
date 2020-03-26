@@ -13,6 +13,16 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/menu');
 
+		$list = \dash\data::menuDetail_list();
+
+		if(!$list || !is_array($list))
+		{
+			$list = [];
+		}
+
+
+		\dash\data::menuDetailList($list);
+
 
 	}
 }

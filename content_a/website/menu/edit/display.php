@@ -31,14 +31,16 @@
     </form>
   </div>
 
-  <?php if(\dash\data::menuList()) {?>
+  <?php if(\dash\data::menuDetailList()) {?>
   <div class="c4 pLa10">
     <nav class="items">
      <ul>
-    <?php foreach (\dash\data::menuList() as $key => $value) {?>
+    <?php foreach (\dash\data::menuDetailList() as $key => $value) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/menu/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
-          <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
+        <a class="f" href="<?php echo \dash\get::index($value, 'url');?>">
+          <div class="key"><?php echo \dash\get::index($value, 'title');?>
+            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-link"></i> <?php }// endif ?>
+          </div>
           <div class="go"></div></a>
        </li>
     <?php } //enfor ?>
