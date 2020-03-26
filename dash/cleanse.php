@@ -700,32 +700,37 @@ class cleanse
 				break;
 
 			case 'bigint':
-				$meta['min'] = 0;
-				$meta['max'] = 9999999999999999999;
+				$meta['min']   = 0;
+				$meta['max']   = 9999999999999999999;
+				$meta['round'] = true;
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'smallint':
-				$meta['min'] = 0;
-				$meta['max'] = 9999;
+				$meta['min']   = 0;
+				$meta['max']   = 9999;
+				$meta['round'] = true;
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'verification_code':
-				$meta['min'] = 10000;
-				$meta['max'] = 99999;
+				$meta['min']   = 10000;
+				$meta['max']   = 99999;
+				$meta['round'] = true;
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'postcode':
-				$meta['min'] = 100000;
-				$meta['max'] = 9999999999;
+				$meta['min']   = 100000;
+				$meta['max']   = 9999999999;
+				$meta['round'] = true;
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'phone':
-				$meta['min'] = 10000000;
-				$meta['max'] = 99999999999999;
+				$meta['min']   = 10000000;
+				$meta['max']   = 99999999999999;
+				$meta['round'] = true;
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 

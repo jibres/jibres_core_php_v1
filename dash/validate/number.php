@@ -78,6 +78,17 @@ class number
 			}
 		}
 
+		if(isset($_meta['round']) && $_meta['round'])
+		{
+			if(floatval($data) !== floatval(round($data)))
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Cannot use decimal number in field :val", ['val' => $_field_title]), ['element' => $_element]);
+				}
+			}
+		}
+
 		return $data;
 	}
 
@@ -103,7 +114,7 @@ class number
 			return $data;
 		}
 
-		$data = intval($data);
+		$data = round($data);
 
 		return $data;
 	}
