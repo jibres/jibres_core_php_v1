@@ -12,9 +12,24 @@
        </li>
 
        <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/theme">
-          <div class="key"><?php echo T_('Choose theme');?></div>
-          <div class="go"></div></a>
+        <a class="f" href="<?php echo \dash\url::this();?>/header">
+          <div class="key"><?php echo T_('Choose header');?></div>
+          <div class="go"></div>
+        </a>
+       </li>
+
+       <li>
+        <a class="f" href="<?php echo \dash\url::this();?>/footer">
+          <div class="key"><?php echo T_('Choose footer');?></div>
+          <div class="go"></div>
+        </a>
+       </li>
+
+       <li>
+        <a class="f" href="<?php echo \dash\url::this();?>/body">
+          <div class="key"><?php echo T_('Choose body');?></div>
+          <div class="go"></div>
+        </a>
        </li>
      </ul>
    </nav>

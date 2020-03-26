@@ -6,15 +6,18 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Website Headers'));
+		\dash\face::title(T_('Customize Website Headers'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$header_template = \lib\app\website_header\template::list();
+		if(true) // check need to load menu
+		{
+			$menu = \lib\app\menu\get::list_all_menu();
+			\dash\data::allMenu($menu);
+		}
 
-		\dash\data::headerTemplate($header_template);
 	}
 }
 ?>

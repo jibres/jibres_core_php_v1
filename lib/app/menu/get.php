@@ -4,6 +4,22 @@ namespace lib\app\menu;
 class get
 {
 
+	public static function list_all_menu_keys()
+	{
+		$get = \lib\db\setting\get::platform_cat('website', 'menu');
+
+		$keys = [];
+
+		if(is_array($get))
+		{
+			$keys = array_column($get, 'key');
+		}
+
+		return $keys;
+	}
+
+
+
 	public static function list_all_menu()
 	{
 		$get = \lib\db\setting\get::platform_cat('website', 'menu');

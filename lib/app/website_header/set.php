@@ -31,5 +31,28 @@ class set
 		}
 	}
 
+
+	public static function customize_header($_args)
+	{
+		$condition =
+		[
+			'description' => 'desc',
+			'menu'        => ['enum' => \lib\app\menu\get::list_all_menu_keys()],
+		];
+
+		$require = [];
+
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$save_header = \lib\app\website_header\get::active_header_detail();
+
+		\dash\notif::info("not ready");
+
+
+	}
+
 }
 ?>

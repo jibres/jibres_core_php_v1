@@ -7,11 +7,11 @@ class model
 	{
 		$post =
 		[
-			'header'    => \dash\request::post('header'),
+			'description' => \dash\request::post('description'),
+			'menu'        => \dash\request::post('menu'),
 		];
 
-		$theme_detail = \lib\app\website_header\set::set_header_template($post);
-
+		$customize_header = \lib\app\website_header\set::customize_header($post);
 
 		if(\dash\engine\process::status())
 		{

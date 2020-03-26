@@ -2,7 +2,7 @@
 <div class="f justify-center">
   <div class="c6 m8 s12">
     <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Set your application title logo");?></h2></header>
+      <header><h2><?php echo T_("Set your application logo");?></h2></header>
       <div class="body">
         <label for="logo"><?php echo T_("Logo"); ?> <small><?php echo T_("Use a square logo in png format"); ?></small></label>
         <div class="input">
