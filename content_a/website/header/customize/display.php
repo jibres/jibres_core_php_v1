@@ -1,4 +1,4 @@
-
+<?php $header_detail = \dash\data::activeHeaderDetail(); ?>
 
 <div class="f justify-center">
   <div class="c6 m8 s12">
@@ -6,7 +6,7 @@
 	  <?php echo T_("Customize your header"); ?>
 	</div>
 <?php
-foreach (\dash\data::activeHeaderDetail_step() as $box)
+foreach (\dash\data::activeHeaderDetail_step() as $box => $box_detail)
 {
 	if(is_string($box))
 	{

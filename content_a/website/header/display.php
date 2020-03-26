@@ -12,7 +12,7 @@
       </div>
     </div>
     <footer class="txtRa">
-      <div data-confirm data-data='{"header" : "<?php echo $key; ?>"}' class="btn success"><?php echo T_("Choose this header"); ?></div>
+      <div data-confirm data-data='{"header" : "<?php echo \dash\get::index($value, 'key'); ?>"}' class="btn success"><?php echo T_("Choose this header"); ?></div>
     </footer>
   </div>
 <?php } // endfor ?>

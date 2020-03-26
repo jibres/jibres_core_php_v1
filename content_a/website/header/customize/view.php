@@ -18,6 +18,8 @@ class view
 			\dash\data::allMenu($menu);
 		}
 
+
+
 	}
 }
 ?>

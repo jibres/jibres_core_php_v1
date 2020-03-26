@@ -1,7 +1,7 @@
 <form method="post" autocomplete="off" class="box impact">
   <header><h2><?php echo T_("Set logo");?></h2></header>
   <div class="body">
-    <label for="logo"><?php echo T_("Logo"); ?> <small><?php echo T_("Use a square logo in png format"); ?></small></label>
+    <label for="logo"><?php echo T_("Logo"); ?></label>
     <div class="input">
       <input type="file" name="logo" id="logo">
     </div>
