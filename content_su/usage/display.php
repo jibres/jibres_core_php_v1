@@ -17,7 +17,27 @@ echo @$dat["ru_utime.tv_usec"]; // user time used (microseconds)
 echo @$dat["ru_utime.tv_sec"];  // user time used (seconds)
 echo @$dat["ru_stime.tv_usec"]; // system time used (microseconds)
 
+
+$rustart = getrusage();
+
+// Code ...
+
+// Script end
+function rutime($ru, $rus, $index) {
+    return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
+     -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
+}
+
 echo "<pre class='box pA20'>";
+
+echo "This process used " . rutime($dat, $rustart, "utime") .
+    " ms for its computations\n";
+echo "It spent " . rutime($dat, $rustart, "stime") .
+    " ms in system calls\n";
+
+
+echo "<hr>";
 var_dump($dat);
 echo "</pre>";
+
 ?>
