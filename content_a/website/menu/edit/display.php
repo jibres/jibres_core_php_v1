@@ -48,24 +48,24 @@
         <div class="addNewItem" data-kerkere-content=''>
           <form method="post" class="box" autocomplete="off">
             <div class="body">
-
+              <label for="title"><?php echo T_("Title"); ?></label>
               <div class="input mB10">
                 <input type="text" name="title" id="title" maxlength="50" required>
               </div>
 
-
+              <label for="url"><?php echo T_("Url"); ?></label>
               <div class="input mB10">
                 <input type="url" name="url" id="url"  required>
               </div>
-
+              <label for="sort"><?php echo T_("Sort"); ?></label>
 
               <div class="input mB10">
                 <input type="number" name="sort" id="sort" min="0" max="9999">
               </div>
 
               <div class="check1 mB5">
-                <input type="checkbox" name="target" id="target" >
-                <label for="target"><?php echo T_("Open in New tab"); ?><small></small></label>
+                <input type="checkbox" name="target" id="targetadd" >
+                <label for="targetadd"><?php echo T_("Open in New tab"); ?></label>
               </div>
 
             </div>
