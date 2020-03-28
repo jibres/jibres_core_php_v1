@@ -23,11 +23,10 @@ class get
 
 	public static function by_id($_by_id)
 	{
-		$_id = \dash\validate::id($_by_id, false);
-
-		if($_by_id && is_numeric($_by_id))
+		$id = \dash\validate::id($_by_id, false);
+		if($id)
 		{
-			$by_id_detail = \lib\db\store\get::detail($_by_id);
+			$by_id_detail = \lib\db\store\get::detail($id);
 			if($by_id_detail)
 			{
 				return $by_id_detail;
