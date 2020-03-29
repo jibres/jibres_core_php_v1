@@ -10,13 +10,21 @@
           <div class="key"><?php echo T_('Menu');?></div>
           <div class="go"></div></a>
        </li>
-
-       <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/header">
-          <div class="key"><?php echo T_('Choose header');?></div>
-          <div class="go"></div>
-        </a>
-       </li>
+       <?php if(\dash\data::issetHeader()) {?>
+         <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/header/customize">
+            <div class="key"><?php echo T_('Customize header');?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+       <?php }else{ ?>
+        <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/header">
+            <div class="key"><?php echo T_('Choose header');?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+        <?php } ?>
 
        <li>
         <a class="f" href="<?php echo \dash\url::this();?>/footer">

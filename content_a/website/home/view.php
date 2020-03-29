@@ -12,6 +12,11 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+		$isset_header = \lib\app\website_header\get::isset_header();
+
+		\dash\data::issetHeader($isset_header);
+
+
 	}
 }
 ?>
