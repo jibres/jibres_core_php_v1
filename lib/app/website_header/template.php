@@ -60,7 +60,7 @@ class template
 			'desc'         => T_("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  ccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
 			'sample_image' => \dash\url::logo(),
 			'css_file'     => 'the css file location addr',
-			'contain'      => ['logo', 'header_menu_1', 'header_description'],
+			'contain'      => ['logo', 'header_menu_1',],
 		];
 
 		return $header_1;
@@ -77,7 +77,7 @@ class template
 			'desc'         => T_("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  ccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
 			'sample_image' => \dash\url::logo(),
 			'css_file'     => 'the css file location addr',
-			'contain'      => ['logo', 'header_menu_2', 'header_menu_1', 'header_description'],
+			'contain'      => ['logo', 'header_menu_2', 'header_menu_1',],
 		];
 
 		return $header_2;

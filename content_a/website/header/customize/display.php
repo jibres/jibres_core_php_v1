@@ -10,10 +10,13 @@ foreach (\dash\data::activeHeaderDetail_step() as $box => $box_detail)
 {
 	if(is_string($box))
 	{
-		$addr = root. 'content_a/website/header/customize/box_'. $box. '.php';
-		if(is_file($addr))
+		if($box_detail)
 		{
-			require_once($addr);
+			$addr = root. 'content_a/website/header/customize/box_'. $box. '.php';
+			if(is_file($addr))
+			{
+				require_once($addr);
+			}
 		}
 	}
 }
