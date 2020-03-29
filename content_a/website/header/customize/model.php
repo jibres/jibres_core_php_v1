@@ -5,12 +5,21 @@ class model
 {
 	public static function post()
 	{
-		$post =
-		[
-			'header_menu_1'      => \dash\request::post('header_menu_1'),
-			'header_menu_2'      => \dash\request::post('header_menu_2'),
+		$post = [];
+		if(\dash\request::post('header_menu_1'))
+		{
+			$post['header_menu_1'] = \dash\request::post('header_menu_1');
+		}
 
-		];
+		if(\dash\request::post('header_menu_2'))
+		{
+			$post['header_menu_2'] = \dash\request::post('header_menu_2');
+		}
+
+		if(\dash\request::files('header_logo'))
+		{
+			$post['header_logo'] = \dash\request::post('header_logo');
+		}
 
 		$customize_header = \lib\app\website_header\set::customize_header($post);
 
