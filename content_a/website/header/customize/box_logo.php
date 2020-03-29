@@ -2,8 +2,8 @@
   <header><h2><?php echo T_("Set logo");?></h2></header>
   <div class="body">
     <div class="txtC">
-    <?php if(\dash\get::index($header_detail, 'current_detail', 'header_logo_file')) {?>
-      <img src="<?php echo \dash\get::index($header_detail, 'current_detail', 'header_logo_file') ?>" class="avatar fs50">
+    <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
+      <img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>" class="avatar fs50">
     </div>
       <br>
     <?php } // endif ?>

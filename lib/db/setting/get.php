@@ -65,6 +65,16 @@ class get
 		return $result;
 	}
 
+	public static function platform_cat_multi_key($_platform, $_cat, $_keys)
+	{
+		$_keys = implode("','", $_keys);
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key IN ('$_keys')";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 
 	public static function application_dowload_page()
 	{

@@ -28,39 +28,48 @@ class get
 			return false;
 		}
 
-		$current_detail_setting = \lib\db\setting\get::platform_cat_key('website', $header_key, 'customized');
-		$current_detail = [];
-		if(isset($current_detail_setting['value']) && is_string($current_detail_setting['value']))
-		{
-			$current_detail = json_decode($current_detail_setting['value'], true);
-			if(!is_array($current_detail))
-			{
-				$current_detail = [];
-			}
-
-			if(isset($current_detail['website_header_logo_setting_id']) && is_numeric($current_detail['website_header_logo_setting_id']))
-			{
-				$load_logo_detail = \lib\db\setting\get::by_id($current_detail['website_header_logo_setting_id']);
-				if(isset($load_logo_detail['value']))
-				{
-					$current_detail['header_logo_file'] = \lib\filepath::fix($load_logo_detail['value']);
-				}
-			}
-		}
-
-
 		$contain = \lib\app\website_header\template::get($active_header['value'], 'contain');
 		if(!is_array($contain))
 		{
 			$contain = [];
 		}
 
+		$load_saved_detail = [];
+
+		if($contain)
+		{
+			$saved_contain = array_map(['self', 'saved_contain'], $contain);
+			$load_saved_detail = \lib\db\setting\get::platform_cat_multi_key('website', 'header_customized', $saved_contain);
+			if(is_array($load_saved_detail))
+			{
+				$load_saved_detail = array_column($load_saved_detail, 'value', 'key');
+				$remove_saved_from_key = [];
+				foreach ($load_saved_detail as $key => $value)
+				{
+					if(substr($key, 0, 6) === 'saved_')
+					{
+						$remove_saved_from_key[substr($key, 6)] = $value;
+					}
+
+
+				}
+
+				$load_saved_detail = $remove_saved_from_key;
+			}
+		}
+
+		if(isset($load_saved_detail['header_logo']) && $load_saved_detail['header_logo'])
+		{
+			$load_saved_detail['header_logo'] = \lib\filepath::fix($load_saved_detail['header_logo']);
+		}
+
+
 		$step         = [];
 		$step['menu'] = [];
 		$step['logo'] = [];
 		$step['desc'] = [];
 
-		if(in_array('logo', $contain))
+		if(in_array('header_logo', $contain))
 		{
 			$step['logo'][] = ['title' => T_("Set logo"), 'name' => 'logo'];
 		}
@@ -79,13 +88,31 @@ class get
 		{
 			$step['desc'][] = ['title' => T_("Set Description"), 'name' => 'header_description'];
 		}
-
 		$active_header_detail['step'] = $step;
-		$active_header_detail['current_detail'] = $current_detail;
-
+		$active_header_detail['saved'] = $load_saved_detail;
 
 		return $active_header_detail;
 
+	}
+
+
+	/**
+	 * Saved detail in setting table start by 'saved_' string
+	 *
+	 * @param      <type>  $_data  The data
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function saved_contain($_data)
+	{
+		if(is_string($_data))
+		{
+			return 'saved_'. $_data;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 }

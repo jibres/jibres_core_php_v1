@@ -7,7 +7,7 @@
     <select name="<?php echo \dash\get::index($boxValue, 'name'); ?>" id="idmenu<?php echo \dash\get::index($boxValue, 'name'); ?>" class="select22">
       <option></option>
       <?php foreach (\dash\data::allMenu() as $key => $value) {?>
-        <option value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if(\dash\get::index($header_detail, 'current_detail', \dash\get::index($boxValue, 'name')) == \dash\get::index($value, 'key')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
+        <option value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if(\dash\get::index($header_detail, 'saved', \dash\get::index($boxValue, 'name')) == \dash\get::index($value, 'key')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
       <?php } //endfor ?>
     </select>
   <?php } //endfor ?>

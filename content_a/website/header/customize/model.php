@@ -7,7 +7,6 @@ class model
 	{
 		$post =
 		[
-			'header_description' => \dash\request::post('header_description'),
 			'header_menu_1'      => \dash\request::post('header_menu_1'),
 			'header_menu_2'      => \dash\request::post('header_menu_2'),
 
