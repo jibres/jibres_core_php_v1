@@ -1,6 +1,12 @@
 <form method="post" autocomplete="off" class="box impact">
   <header><h2><?php echo T_("Set logo");?></h2></header>
   <div class="body">
+    <div class="txtC">
+    <?php if(\dash\get::index($header_detail, 'current_detail', 'header_logo_file')) {?>
+      <img src="<?php echo \dash\get::index($header_detail, 'current_detail', 'header_logo_file') ?>" class="avatar fs50">
+    </div>
+      <br>
+    <?php } // endif ?>
     <label for="logo"><?php echo T_("Logo"); ?></label>
     <div class="input">
       <input type="file" name="logo" id="logo">

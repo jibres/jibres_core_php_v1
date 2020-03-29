@@ -37,8 +37,16 @@ class get
 			{
 				$current_detail = [];
 			}
-		}
 
+			if(isset($current_detail['website_header_logo_setting_id']) && is_numeric($current_detail['website_header_logo_setting_id']))
+			{
+				$load_logo_detail = \lib\db\setting\get::by_id($current_detail['website_header_logo_setting_id']);
+				if(isset($load_logo_detail['value']))
+				{
+					$current_detail['header_logo_file'] = \lib\filepath::fix($load_logo_detail['value']);
+				}
+			}
+		}
 
 
 		$contain = \lib\app\website_header\template::get($active_header['value'], 'contain');
