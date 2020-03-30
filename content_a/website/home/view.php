@@ -16,6 +16,10 @@ class view
 
 		\dash\data::issetHeader($isset_header);
 
+		$isset_footer = \lib\app\website_footer\get::isset_footer();
+
+		\dash\data::issetFooter($isset_footer);
+
 
 	}
 }

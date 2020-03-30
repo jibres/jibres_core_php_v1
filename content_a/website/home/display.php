@@ -26,12 +26,23 @@
          </li>
         <?php } ?>
 
-       <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/footer">
-          <div class="key"><?php echo T_('Choose footer');?></div>
-          <div class="go"></div>
-        </a>
-       </li>
+         <?php if(\dash\data::issetFooter()) {?>
+         <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/footer/customize">
+            <div class="key"><?php echo T_('Customize footer');?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+       <?php }else{ ?>
+        <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/footer">
+            <div class="key"><?php echo T_('Choose footer');?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+        <?php } ?>
+
+
 
        <li>
         <a class="f" href="<?php echo \dash\url::this();?>/body">
