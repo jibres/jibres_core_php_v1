@@ -7,14 +7,14 @@ class model
 	{
 		$post =
 		[
-			'body'    => \dash\request::post('body'),
+			'line'    => \dash\request::post('line'),
 		];
 
-		$theme_detail = \lib\app\website_body\set::set_body_template($post);
+		$theme_detail = \lib\app\website_body\set::add_line($post);
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/body/customize');
+			\dash\redirect::pwd();
 		}
 	}
 }

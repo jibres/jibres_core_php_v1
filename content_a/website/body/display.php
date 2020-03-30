@@ -20,3 +20,19 @@
     </footer>
   </div>
 </form>
+
+<?php if(\dash\data::bodyLineList()) {?>
+<nav class="items">
+  <ul>
+  <?php foreach (\dash\data::bodyLineList() as $key => $value) {?>
+     <li>
+        <a class="f" href="#">
+          <div class="key"><?php echo $value;?></div>
+          <div class="go"></div>
+        </a>
+     </li>
+  <?php } //endfor ?>
+  </ul>
+</nav>
+<?php } //endif ?>
+

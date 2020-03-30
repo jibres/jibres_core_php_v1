@@ -13,8 +13,10 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 		$body_line = \lib\app\website_body\line::list();
-
 		\dash\data::bodyLine($body_line);
+
+		$body_line_list = \lib\app\website_body\get::line_list();
+		\dash\data::bodyLineList($body_line_list);
 
 
 	}
