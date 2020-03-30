@@ -65,6 +65,51 @@ class add
 
 	}
 
+	public static function remove_menu($_args)
+	{
+		$list_all_menu = \lib\app\menu\get::list_all_menu();
+
+		if(is_array($list_all_menu))
+		{
+			$my_menu_ids = array_column($list_all_menu, 'id');
+		}
+		else
+		{
+			$my_menu_ids = [];
+		}
+
+		$condition =
+		[
+			'removemenu' => ['enum' => $my_menu_ids],
+		];
+
+		$require = ['removemenu'];
+
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$id = \dash\coding::decode($_args['removemenu']);
+		if($id)
+		{
+			$delete = \lib\db\setting\delete::record($id);
+		}
+
+
+		if($delete)
+		{
+			\dash\notif::ok(T_("Your menu was removed"));
+			return true;
+		}
+		else
+		{
+			\dash\log::oops('db');
+			return false;
+		}
+
+	}
+
+
 
 	public static function menu_item($_args, $_id)
 	{

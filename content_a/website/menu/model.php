@@ -6,12 +6,27 @@ class model
 {
 	public static function post()
 	{
-		$post =
-		[
-			'title'    => \dash\request::post('title'),
-		];
+		if(\dash\request::post('removemenu'))
+		{
 
-		$theme_detail = \lib\app\menu\add::new_menu($post);
+			$post =
+			[
+				'removemenu'    => \dash\request::post('removemenu'),
+			];
+
+			$theme_detail = \lib\app\menu\add::remove_menu($post);
+		}
+		else
+		{
+
+			$post =
+			[
+				'title'    => \dash\request::post('title'),
+			];
+
+			$theme_detail = \lib\app\menu\add::new_menu($post);
+
+		}
 
 		if(\dash\engine\process::status())
 		{
