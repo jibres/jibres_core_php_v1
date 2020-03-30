@@ -26,7 +26,27 @@ class dataarray
 
 		if(isset($_meta['enum']) && is_array($_meta['enum']))
 		{
-			if(!in_array($data, $_meta['enum']))
+			$my_enum = [];
+
+			foreach ($_meta['enum'] as $value)
+			{
+				if($value === null)
+				{
+					$my_enum[] = null;
+				}
+
+				if(is_string($value))
+				{
+					$my_enum[] = $value;
+				}
+
+				if(is_numeric($value))
+				{
+					$my_enum[] = (string) $value;
+				}
+			}
+
+			if(!in_array($data, $my_enum))
 			{
 				if($_notif)
 				{
