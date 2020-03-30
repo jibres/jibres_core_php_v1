@@ -33,7 +33,8 @@ class add
 			}
 		}
 
-		if(count($list_all_menu) > 10)
+		// +1 whit adding current request
+		if((count($list_all_menu) + 1) > 10)
 		{
 			\dash\notif::error(T_("You are using all your menu build capacity and you cannot build a new menu"));
 			return false;
@@ -41,6 +42,8 @@ class add
 
 		$key = 'menu_';
 		$key .= (count($list_all_menu) + 1);
+		$key .= '_'. time();
+		$key .= '_'. rand(1, 9999);
 
 		$insert =
 		[
