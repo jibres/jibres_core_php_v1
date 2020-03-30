@@ -83,7 +83,8 @@ class add
 
 		$condition =
 		[
-			'removemenu' => ['enum' => $my_menu_ids],
+			'removemenu'    => ['enum' => $my_menu_ids],
+			'removealllink' => 'bit',
 		];
 
 		$require = ['removemenu'];
@@ -91,6 +92,22 @@ class add
 		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		foreach ($list_all_menu as $key => $value)
+		{
+			if(isset($value['id']) && $value['id'] === $data['removemenu'])
+			{
+				if(isset($value['list']) && $value['list'])
+				{
+					if(!$data['removealllink'])
+					{
+						\dash\notif::error(T_("This list has a subset, If you wish to delete this list, confirm that it will also delete all subsets"), 'removealllink');
+						return false;
+					}
+				}
+			}
+		}
+
 
 		$id = \dash\coding::decode($_args['removemenu']);
 		if($id)

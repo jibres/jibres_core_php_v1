@@ -40,6 +40,15 @@
                 <?php } // endfor ?>
               </select>
             </div>
+
+          <div data-response='removemenu' data-response-where='<?php echo \dash\data::haveChildID(); ?>' data-response-effect='slide' data-response-hide>
+            <div class="msg"><?php echo T_("This list has a subset, If you wish to delete this list, confirm that it will also delete all subsets or remove all subsets manually") ?></div>
+           <div class="check1 mB5">
+              <input type="checkbox" name="removealllink" id="removealllink" >
+              <label for="removealllink"><?php echo T_("Also Remove all child menu link"); ?><small></small></label>
+            </div>
+          </div>
+
         </div>
         <footer class="txtRa">
           <button class="btn danger"><?php echo T_("Remove"); ?></button>

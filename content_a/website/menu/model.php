@@ -12,6 +12,7 @@ class model
 			$post =
 			[
 				'removemenu'    => \dash\request::post('removemenu'),
+				'removealllink' => \dash\request::post('removealllink'),
 			];
 
 			$theme_detail = \lib\app\website_menu\add::remove_menu($post);
