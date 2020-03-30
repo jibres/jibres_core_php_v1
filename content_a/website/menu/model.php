@@ -14,7 +14,7 @@ class model
 				'removemenu'    => \dash\request::post('removemenu'),
 			];
 
-			$theme_detail = \lib\app\menu\add::remove_menu($post);
+			$theme_detail = \lib\app\website_menu\add::remove_menu($post);
 		}
 		else
 		{
@@ -24,7 +24,7 @@ class model
 				'title'    => \dash\request::post('title'),
 			];
 
-			$theme_detail = \lib\app\menu\add::new_menu($post);
+			$theme_detail = \lib\app\website_menu\add::new_menu($post);
 
 		}
 

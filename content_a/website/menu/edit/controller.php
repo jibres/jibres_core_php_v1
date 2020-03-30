@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		$menu_detail = \lib\app\menu\get::load_menu_edit();
+		$menu_detail = \lib\app\website_menu\get::load_menu_edit();
 		\dash\data::menuDetail($menu_detail);
 	}
 }

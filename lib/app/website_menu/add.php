@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\menu;
+namespace lib\app\website_menu;
 
 class add
 {
@@ -22,7 +22,7 @@ class add
 		$new_menu_value = json_encode($new_menu_value, JSON_UNESCAPED_UNICODE);
 
 
-		$list_all_menu = \lib\app\menu\get::list_all_menu();
+		$list_all_menu = \lib\app\website_menu\get::list_all_menu();
 		if(is_array($list_all_menu))
 		{
 			$all_title = array_column($list_all_menu, 'title');
@@ -67,7 +67,7 @@ class add
 
 	public static function remove_menu($_args)
 	{
-		$list_all_menu = \lib\app\menu\get::list_all_menu();
+		$list_all_menu = \lib\app\website_menu\get::list_all_menu();
 
 		if(is_array($list_all_menu))
 		{
