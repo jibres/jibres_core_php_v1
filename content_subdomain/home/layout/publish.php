@@ -1,3 +1,4 @@
+<div class="blogEx sample">
 <?php
 $website = \dash\data::website();
 
@@ -33,3 +34,4 @@ if(isset($website['footer']['active']))
 }
 
 ?>
+</div>

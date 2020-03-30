@@ -6,41 +6,43 @@ if(\dash\data::allPostList())
 {
 ?>
 
+<main>
 
-<article class="f postListPreview">
+
 
 <?php
-foreach (\dash\data::allPostList() as $key => $value)
+foreach (\dash\data::allPostList() as $key => $post)
 {
 ?>
 
-      <section class="c4 s12 pA5">
-        <a class="vcard" href="<?php echo \dash\url::here(). '/'. $value['url']; ?>">
-          <?php if (isset($value['meta']['thumb']))
-          {
-            echo "<img src='". $value['meta']['thumb']."' alt='". $value['title']. "' >";
-          }
-          else
-          {
-            echo '<img src="'. \dash\url::siftal() .'/images/default/image-wide.png" alt="default image">' ;
-          }
-          ?>
 
+<article>
+  <header>
+    <h2><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo \dash\get::index($post, 'title'); ?></a></h2>
+    <div class="meta">
+<?php if(\dash\get::index($post, 'subtitle')) {?>
+      <div class="fs09"><?php echo \dash\get::index($post, 'subtitle'); ?></div>
+<?php } //endif ?>
+      <time datetime="<?php echo \dash\get::index($post, 'publishdate'); ?>"><?php echo \dash\fit::date_human(\dash\get::index($post, 'publishdate')); ?></time>
+    </div>
+  </header>
+  <section>
+<?php if(\dash\get::index($post, 'meta', 'thumb')) {?>
 
-          <div class="content">
-            <h3><?php echo $value['title']; ?></h3>
-            <p><?php echo $value['excerpt']; ?></p>
-          </div>
+    <a href="<?php echo \dash\get::index($post, 'link'); ?>" class="thumb">
+      <img src="<?php echo \dash\get::index($post, 'meta', 'thumb'); ?>" alt="<?php echo \dash\get::index($post, 'title'); ?>">
+    </a>
+<?php } //endif ?>
+    <p><?php echo \dash\get::index($post, 'excerpt'); ?></p>
+    <div class="more"><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo T_("Keep Reading"); ?> <span class="sf-angle-double-right"></span></a></div>
+  </section>
+</article>
 
-          <div class="footer f">
-            <button class="cauto os btn"><?php echo T_("Read more"); ?></button>
-          </div>
-        </a>
-      </section>
 <?php
 } // end foreach
 ?>
-</article>
+</main>
+
 
 
 <?php
