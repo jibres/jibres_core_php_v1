@@ -11,8 +11,8 @@
             </div>
 
             <div class="radio3">
-              <input type="radio" name="status" value="commingsoon" id="typecommingsoon" <?php if(\dash\data::websiteStatus() === 'commingsoon') {echo 'checked';} ?>>
-              <label for="typecommingsoon"><?php echo T_("Comming Soon"); ?></label>
+              <input type="radio" name="status" value="comingsoon" id="typecomingsoon" <?php if(\dash\data::websiteStatus() === 'comingsoon') {echo 'checked';} ?>>
+              <label for="typecomingsoon"><?php echo T_("Coming Soon"); ?></label>
             </div>
 
             <div class="radio3">

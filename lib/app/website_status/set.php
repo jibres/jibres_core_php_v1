@@ -8,7 +8,7 @@ class set
 	{
 		$condition =
 		[
-			'status' => ['enum' => ['publish', 'commingsoon', 'visitcard']],
+			'status' => ['enum' => ['publish', 'comingsoon', 'visitcard']],
 		];
 
 		$require = ['status'];
