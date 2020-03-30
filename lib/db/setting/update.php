@@ -24,13 +24,21 @@ class update
 
 	public static function overwirte_platform_cat_key($_value, $_platform, $_cat, $_key)
 	{
-		$query = "SELECT setting.id AS `id` FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, 'id', true);
-		if($check)
+		$query = "SELECT setting.id, setting.value FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
+		$check = \dash\db::get($query, null, true);
+
+		if(isset($check['id']))
 		{
-			$query = "UPDATE setting SET setting.value = '$_value'  WHERE setting.id = $check LIMIT 1";
-			$result = \dash\db::query($query);
-			return $result;
+			if(isset($check['value']) && $check['value'] === $_value)
+			{
+				return null;
+			}
+			else
+			{
+				$query = "UPDATE setting SET setting.value = '$_value'  WHERE setting.id = $check[id] LIMIT 1";
+				$result = \dash\db::query($query);
+				return $result;
+			}
 		}
 		else
 		{

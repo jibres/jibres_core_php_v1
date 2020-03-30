@@ -50,6 +50,7 @@ class set
 
 		$need_save = \dash\cleanse::patch_mode($_args, $data);
 
+		$have_change = null;
 		foreach ($need_save as $key => $value)
 		{
 
@@ -63,12 +64,24 @@ class set
 				}
 			}
 
-			\lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', $key);
+			$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', $key);
 
+			// like true | false | any id
+			if($query_result !== null)
+			{
+				$have_change = true;
+			}
 		}
 
+		if($have_change)
+		{
+			\dash\notif::ok(T_("Your header customized"));
+		}
+		else
+		{
+			\dash\notif::info(T_("Your website header saved without change"));
+		}
 
-		\dash\notif::ok(T_("Your header customized"));
 		return true;
 	}
 
