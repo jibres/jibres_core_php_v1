@@ -34,7 +34,7 @@ class set
 
 	public static function customize_header($_args)
 	{
-		$menu = ['enum' => \lib\app\menu\get::list_all_menu_keys()];
+		$menu = ['enum' => \lib\app\website_menu\get::list_all_menu_keys()];
 		$condition =
 		[
 			'header_menu_1' => $menu,
