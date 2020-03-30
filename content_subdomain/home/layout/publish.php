@@ -10,4 +10,16 @@ if(isset($website['header']['active']))
   }
 }
 
+if(isset($website['lines']['list']) && is_array($website['lines']['list']))
+{
+	foreach ($website['lines']['list'] as $key => $value)
+	{
+		$addr = root. 'content_subdomain/home/layout/body/'. $value. '.php';
+		if(is_file($addr))
+		{
+			require_once($addr);
+		}
+	}
+}
+
 ?>
