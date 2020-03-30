@@ -3,12 +3,17 @@ namespace lib\app\website_footer;
 
 class get
 {
-	public static function isset_footer()
+	public static function isset_footer($_only_name = false)
 	{
 		$active_footer = \lib\db\setting\get::platform_cat_key('website', 'footer', 'active');
 		if(!$active_footer || !isset($active_footer['value']))
 		{
 			return false;
+		}
+
+		if($_only_name)
+		{
+			return $active_footer['value'];
 		}
 
 		return $active_footer;
@@ -54,6 +59,11 @@ class get
 			{
 				$load_saved_detail = array_column($load_saved_detail, 'value', 'key');
 			}
+		}
+
+		if(isset($load_saved_detail['footer_logo']) && $load_saved_detail['footer_logo'])
+		{
+			$load_saved_detail['footer_logo'] = \lib\filepath::fix($load_saved_detail['footer_logo']);
 		}
 
 

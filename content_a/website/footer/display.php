@@ -12,7 +12,11 @@
       </div>
     </div>
     <footer class="txtRa">
-      <div data-confirm data-data='{"footer" : "<?php echo \dash\get::index($value, 'key'); ?>"}' class="btn success"><?php echo T_("Choose this footer"); ?></div>
+      <?php if(\dash\get::index($value, 'key') === \dash\data::issetFooter()) {?>
+        <div class="btn secondary outline"><?php echo T_("Current Template"); ?></div>
+      <?php }else{ ?>
+        <div data-confirm data-data='{"footer" : "<?php echo \dash\get::index($value, 'key'); ?>"}' class="btn success"><?php echo T_("Choose this footer"); ?></div>
+      <?php } //endif ?>
     </footer>
   </div>
 <?php } // endfor ?>

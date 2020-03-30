@@ -11,15 +11,26 @@ class model
 			$post['footer_menu_1'] = \dash\request::post('footer_menu_1');
 		}
 
+		if(\dash\request::post('footer_menu_1') === '0')
+		{
+			$post['footer_menu_1'] = null;
+		}
+
 		if(\dash\request::post('footer_menu_2'))
 		{
 			$post['footer_menu_2'] = \dash\request::post('footer_menu_2');
 		}
 
-		if(\dash\request::files('footer_logo'))
+		if(\dash\request::post('footer_menu_2') === '0')
 		{
-			$post['footer_logo'] = \dash\request::post('footer_logo');
+			$post['footer_menu_2'] = null;
 		}
+
+		if(\dash\request::files('logo'))
+		{
+			$post['footer_logo'] = 'have_logo';
+		}
+
 
 		$customize_footer = \lib\app\website_footer\set::customize_footer($post);
 

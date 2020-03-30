@@ -8,7 +8,7 @@ class set
 	{
 		$condition =
 		[
-			'footer' => ['enum' => array_keys(\lib\app\website_footer\template::list())],
+			'footer' => ['enum' => \lib\app\website_footer\template::get_keys()],
 		];
 
 		$require = ['footer'];
@@ -39,6 +39,7 @@ class set
 		[
 			'footer_menu_1' => $menu,
 			'footer_menu_2' => $menu,
+			'footer_logo'   => 'string',
 		];
 
 		$require = [];
@@ -49,13 +50,38 @@ class set
 
 		$need_save = \dash\cleanse::patch_mode($_args, $data);
 
+		$have_change = null;
 		foreach ($need_save as $key => $value)
 		{
-			\lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'footer_customized', $key);
+
+			if($key === 'footer_logo')
+			{
+				$logo = \dash\upload\store_logo::website_logo();
+
+				if($logo)
+				{
+					$value = $logo;
+				}
+			}
+
+			$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'footer_customized', $key);
+
+			// like true | false | any id
+			if($query_result !== null)
+			{
+				$have_change = true;
+			}
 		}
 
+		if($have_change)
+		{
+			\dash\notif::ok(T_("Your footer customized"));
+		}
+		else
+		{
+			\dash\notif::info(T_("Your website footer saved without change"));
+		}
 
-		\dash\notif::ok(T_("Your footer customized"));
 		return true;
 	}
 

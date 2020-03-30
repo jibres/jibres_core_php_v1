@@ -4,6 +4,16 @@ namespace lib\app\website_footer;
 class template
 {
 
+
+	public static function get_keys()
+	{
+		$list_keys = self::list();
+		$list_keys = array_column($list_keys, 'key');
+		return $list_keys;
+	}
+
+
+
 	/**
 	 * Get one template detail
 	 *
@@ -77,7 +87,7 @@ class template
 			'desc'         => T_("Description"),
 			'sample_image' => \dash\url::logo(),
 			'css_file'     => 'the css file location addr',
-			'contain'      => ['footer_menu_1', 'footer_menu_2', 'footer_text_1', 'footer_social_link'],
+			'contain'      => ['footer_menu_1', 'footer_menu_2', ],
 		];
 
 		return $footer_2;

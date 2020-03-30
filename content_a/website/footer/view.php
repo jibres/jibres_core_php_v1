@@ -15,6 +15,12 @@ class view
 		$footer_template = \lib\app\website_footer\template::list();
 
 		\dash\data::footerTemplate($footer_template);
+
+
+		$isset_footer = \lib\app\website_footer\get::isset_footer(true);
+		\dash\data::issetFooter($isset_footer);
+
+
 	}
 }
 ?>
