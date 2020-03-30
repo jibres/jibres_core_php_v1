@@ -36,7 +36,7 @@
     </form>
   </div>
 
-  <div class="c6 x8 s12 pLa10">
+  <div class="c6 x5 s12 pLa10">
     <nav class="items">
      <ul>
        <li>
@@ -45,7 +45,7 @@
           <div class="go"></div>
         </a>
 
-        <div class="addNewItem" data-kerkere-content=''>
+        <div class="addNewItem" data-kerkere-content='<?php if(\dash\data::menuDetailList()){echo 'hide';} ?>'>
           <form method="post" class="box" autocomplete="off">
             <div class="body">
               <label for="title"><?php echo T_("Title"); ?></label>
@@ -127,7 +127,7 @@
                 <button class="btn primary"><?php echo T_("Update"); ?></button>
               </div>
               <div class="cauto os">
-                <button class="btn danger" name="remove" value="remove"><?php echo T_("Remove"); ?></button>
+                <div data-confirm data-data='{"itemkey": "<?php echo $key; ?>", "remove": "remove"}' class="btn danger" ><?php echo T_("Remove"); ?></div>
               </div>
             </footer>
 

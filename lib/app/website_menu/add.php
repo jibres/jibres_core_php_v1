@@ -143,7 +143,15 @@ class add
 			'sort'    => 'smallint',
 		];
 
-		$require = ['title', 'url'];
+		if(isset($_args['itemkey']) && isset($_args['remove']) && $_args['remove'])
+		{
+			$require = [];
+		}
+		else
+		{
+			$require = ['title', 'url'];
+		}
+
 
 		$meta    = [];
 
