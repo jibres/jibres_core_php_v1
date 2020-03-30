@@ -11,9 +11,19 @@ class model
 			$post['header_menu_1'] = \dash\request::post('header_menu_1');
 		}
 
+		if(\dash\request::post('header_menu_1') === '0')
+		{
+			$post['header_menu_1'] = null;
+		}
+
 		if(\dash\request::post('header_menu_2'))
 		{
 			$post['header_menu_2'] = \dash\request::post('header_menu_2');
+		}
+
+		if(\dash\request::post('header_menu_2') === '0')
+		{
+			$post['header_menu_2'] = null;
 		}
 
 		if(\dash\request::files('logo'))
