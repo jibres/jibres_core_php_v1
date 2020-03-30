@@ -63,7 +63,7 @@ class set
 				}
 			}
 
-			\lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', 'saved_'. $key);
+			\lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', $key);
 
 		}
 

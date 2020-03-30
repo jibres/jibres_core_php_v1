@@ -16,10 +16,11 @@ class model
 			$post['header_menu_2'] = \dash\request::post('header_menu_2');
 		}
 
-		if(\dash\request::files('header_logo'))
+		if(\dash\request::files('logo'))
 		{
-			$post['header_logo'] = \dash\request::post('header_logo');
+			$post['header_logo'] = 'have_logo';
 		}
+
 
 		$customize_header = \lib\app\website_header\set::customize_header($post);
 

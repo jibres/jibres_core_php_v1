@@ -39,7 +39,6 @@ class set
 		[
 			'footer_menu_1' => $menu,
 			'footer_menu_2' => $menu,
-			'footer_logo'   => 'string',
 		];
 
 		$require = [];
@@ -52,19 +51,7 @@ class set
 
 		foreach ($need_save as $key => $value)
 		{
-
-			if($key === 'footer_logo')
-			{
-				$logo = \dash\upload\store_logo::website_logo();
-
-				if($logo)
-				{
-					$value = $logo;
-				}
-			}
-
-			\lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'footer_customized', 'saved_'. $key);
-
+			\lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'footer_customized', $key);
 		}
 
 

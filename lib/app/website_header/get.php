@@ -49,23 +49,10 @@ class get
 
 		if($contain)
 		{
-			$saved_contain = array_map(['self', 'saved_contain'], $contain);
-			$load_saved_detail = \lib\db\setting\get::platform_cat_multi_key('website', 'header_customized', $saved_contain);
+			$load_saved_detail = \lib\db\setting\get::platform_cat_multi_key('website', 'header_customized', $contain);
 			if(is_array($load_saved_detail))
 			{
 				$load_saved_detail = array_column($load_saved_detail, 'value', 'key');
-				$remove_saved_from_key = [];
-				foreach ($load_saved_detail as $key => $value)
-				{
-					if(substr($key, 0, 6) === 'saved_')
-					{
-						$remove_saved_from_key[substr($key, 6)] = $value;
-					}
-
-
-				}
-
-				$load_saved_detail = $remove_saved_from_key;
 			}
 		}
 
@@ -106,25 +93,6 @@ class get
 
 	}
 
-
-	/**
-	 * Saved detail in setting table start by 'saved_' string
-	 *
-	 * @param      <type>  $_data  The data
-	 *
-	 * @return     string  ( description_of_the_return_value )
-	 */
-	private static function saved_contain($_data)
-	{
-		if(is_string($_data))
-		{
-			return 'saved_'. $_data;
-		}
-		else
-		{
-			return null;
-		}
-	}
 
 }
 ?>
