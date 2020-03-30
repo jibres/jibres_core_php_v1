@@ -10,7 +10,12 @@ class model
 			\lib\app\application\queue::add_new_queue();
 			\dash\redirect::pwd();
 		}
-		// \lib\app\application\queue::rebuild();
+
+		if(\dash\request::post('build') === 'rebuild' && \dash\permission::supervisor())
+		{
+			\lib\app\application\queue::rebuild(true);
+			\dash\redirect::pwd();
+		}
 	}
 }
 ?>

@@ -61,9 +61,9 @@ class queue
 	}
 
 
-	public static function rebuild()
+	public static function rebuild($_force = false)
 	{
-		if(\lib\app\application\detail::need_to_rebuild())
+		if(\lib\app\application\detail::need_to_rebuild() || $_force)
 		{
 			$current_queue = self::detail();
 			if(isset($current_queue['id']))

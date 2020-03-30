@@ -5,7 +5,13 @@
   <div class="c6 m8 s12 x4">
 
     <div  class="box impact">
-      <header><h2><?php echo T_("Your Store Android Application Status");?></h2></header>
+      <header><h2><?php echo T_("Your Store Android Application Status");?></h2>
+        <?php if(\dash\permission::supervisor()) {?>
+          <div data-confirm data-data='{"build" : "rebuild"}' class="btn success xs"><?php echo T_("Rebuild it"); ?></div>
+        <?php } //endif ?>
+      </header>
+
+
 <?php
 if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() === 'inprogress')
 {
