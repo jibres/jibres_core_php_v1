@@ -8,7 +8,7 @@ class set
 	{
 		$condition =
 		[
-			'header' => ['enum' => array_keys(\lib\app\website_header\template::list())],
+			'header' => ['enum' => \lib\app\website_header\template::get_keys()],
 		];
 
 		$require = ['header'];

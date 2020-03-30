@@ -4,6 +4,16 @@ namespace lib\app\website_header;
 class template
 {
 
+
+	public static function get_keys()
+	{
+		$list_keys = self::list();
+		$list_keys = array_column($list_keys, 'key');
+		return $list_keys;
+	}
+
+
+
 	/**
 	 * Get one template detail
 	 *
