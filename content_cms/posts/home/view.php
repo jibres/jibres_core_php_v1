@@ -150,7 +150,6 @@ class view
 		$args['language'] = \dash\language::current();
 		$get_post_counter_args['language'] = $args['language'];
 
-
 		\dash\data::sortLink(\content_cms\view::make_sort_link(\dash\app\posts::$sort_field, \dash\url::this()) );
 		\dash\data::dataTable(\dash\app\posts::list(\dash\request::get('q'), $args) );
 

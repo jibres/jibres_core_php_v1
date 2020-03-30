@@ -48,7 +48,6 @@ trait edit
 
 		// check args
 		$args = self::check($_args, $id, $_option);
-
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
@@ -108,6 +107,8 @@ trait edit
 				}
 			}
 		}
+
+		$_args['meta'] = 'need - meta :/ ';
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 

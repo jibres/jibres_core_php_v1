@@ -505,6 +505,7 @@ class posts
 			$data['slug'] = \dash\validate::slug($data['slug'], false);
 		}
 
+
 		$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 
 
@@ -604,6 +605,7 @@ class posts
 			}
 
 		}
+
 		$parent_url  = null;
 		$parent_slug = null;
 
@@ -706,6 +708,7 @@ class posts
 			}
 		}
 
+
 		$icon = $data['icon'];
 		if($icon)
 		{
@@ -739,6 +742,7 @@ class posts
 
 		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
 
+		$data['meta'] = $meta;
 		if(!$data['slug'])
 		{
 			\dash\notif::error(T_("Invalid slug"), 'slug');
@@ -814,6 +818,7 @@ class posts
 		unset($data['creator']);
 		unset($data['tag']);
 		unset($data['icon']);
+		unset($data['thumb']);
 
 		return $data;
 

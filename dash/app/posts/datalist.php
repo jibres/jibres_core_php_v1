@@ -44,10 +44,11 @@ trait datalist
 		$meta    =	[];
 
 
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$args    = \dash\cleanse::patch_mode($_args, $data);
 		$_string = \dash\validate::search($_string);
-		$result            = \dash\db\posts::search($_string, $data);
-		$temp              = [];
+		$result  = \dash\db\posts::search($_string, $args);
+		$temp    = [];
 
 		foreach ($result as $key => $value)
 		{
