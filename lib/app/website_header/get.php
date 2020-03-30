@@ -3,12 +3,17 @@ namespace lib\app\website_header;
 
 class get
 {
-	public static function isset_header()
+	public static function isset_header($_only_name = false)
 	{
 		$active_header = \lib\db\setting\get::platform_cat_key('website', 'header', 'active');
 		if(!$active_header || !isset($active_header['value']))
 		{
 			return false;
+		}
+
+		if($_only_name)
+		{
+			return $active_header['value'];
 		}
 
 		return $active_header;

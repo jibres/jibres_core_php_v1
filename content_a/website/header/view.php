@@ -15,6 +15,12 @@ class view
 		$header_template = \lib\app\website_header\template::list();
 
 		\dash\data::headerTemplate($header_template);
+
+
+		$isset_header = \lib\app\website_header\get::isset_header(true);
+		\dash\data::issetHeader($isset_header);
+
+
 	}
 }
 ?>
