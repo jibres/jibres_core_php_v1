@@ -120,6 +120,11 @@ class baby
 		{
 			$result = true;
 		}
+		// check for someone try inject script
+		if(self::script($_txt))
+		{
+			$result = true;
+		}
 		// check for problem for containing forbidden chars
 		else if(self::forbidden($_txt))
 		{
@@ -150,6 +155,58 @@ class baby
 		if(preg_match("#0x#", $_txt))
 		{
 			self::$level = 2;
+			return true;
+		}
+		// if cant find something return false
+		return false;
+	}
+
+
+	/**
+	 * check some problem on hexas input or someother things
+	 * @param  [type] $_txt [description]
+	 * @return [type]       [description]
+	 */
+	public static function script($_txt)
+	{
+		if(preg_match("/<script>/", $_txt))
+		{
+			self::$level = 1;
+			return true;
+		}
+		if(preg_match("/</script>/", $_txt))
+		{
+			self::$level = 2;
+			return true;
+		}
+		if(preg_match("/<\s+script/", $_txt))
+		{
+			self::$level = 3;
+			return true;
+		}
+		if(preg_match("/<(.*)script/", $_txt))
+		{
+			self::$level = 4;
+			return true;
+		}
+		if(preg_match("/alert(.*)\(/", $_txt))
+		{
+			self::$level = 5;
+			return true;
+		}
+		if(preg_match("/<(.*)>/", $_txt))
+		{
+			self::$level = 3;
+			return true;
+		}
+		if(preg_match("/<(.*)\?/", $_txt))
+		{
+			self::$level = 2;
+			return true;
+		}
+		if(preg_match("/</", $_txt))
+		{
+			self::$level = 1;
 			return true;
 		}
 		// if cant find something return false
