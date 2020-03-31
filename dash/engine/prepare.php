@@ -509,17 +509,17 @@ class prepare
 
 		$full_target = $target_url;
 
-		if(\dash\url::query())
-		{
-			$query_string = \dash\url::query();
+		// if(\dash\url::query())
+		// {
+		// 	$query_string = \dash\url::query();
 
-			if(substr($query_string, -1) === '/')
-			{
-				$query_string = substr($query_string, 0, (mb_strlen($query_string) - 1));
-			}
+		// 	if(substr($query_string, -1) === '/')
+		// 	{
+		// 		$query_string = substr($query_string, 0, (mb_strlen($query_string) - 1));
+		// 	}
 
-			$full_target .= '?'. $query_string;
-		}
+		// 	$full_target .= '?'. $query_string;
+		// }
 
 
 		// if we have new target url, and dont on force show mode, try to change it
