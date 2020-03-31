@@ -76,7 +76,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <a href="<?php echo $kingdom; ?>/support"><?php echo T_('Support Center'); ?></a>
             <a href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/faq"><?php echo T_('FAQ'); ?></a>
-            <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?> <span class="mLa5 sf-external-link"></span></a>
+            <a href="<?php echo $kingdom; ?>/status"><?php echo T_('System Status'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/ticket/add"><?php echo T_('Submit Ticket'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/ticket/add?type=bug"><?php echo T_('Report Bug'); ?></a>
             <a href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
@@ -99,7 +99,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <a href="<?php echo $kingdom; ?>/vision"><?php echo T_('Jibres Vision'); ?></a>
             <a href="<?php echo $kingdom; ?>/values"><?php echo T_('Our Values'); ?></a>
             <a href="<?php echo $kingdom; ?>/team"><?php echo T_('Our Team'); ?></a>
-            <a target="_blank" href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></a>
+            <a href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?></a>
             <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Jibres Logo'); ?></a>
             <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Brand Styleguide'); ?></a>
             <a href="<?php echo $kingdom; ?>/press"><?php echo T_('Press and Media'); ?></a>
