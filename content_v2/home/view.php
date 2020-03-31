@@ -14,15 +14,15 @@ class view
 
 		$result =
 		[
-			'en' =>
-			[
-				'website'   => 'https://jibres.com',
-				'endpoint'  => 'https://api.jibres.com/'. $myStore. 'v2',
-				'doc'       => 'https://api.jibres.com/'. $myStore. 'v2/doc',
-				'direction' => 'ltr',
-				'lang'      => 'English',
-				'langname'  => 'English',
-			],
+			// 'en' =>
+			// [
+			// 	'website'   => 'https://jibres.com',
+			// 	'endpoint'  => 'https://api.jibres.com/'. $myStore. 'v2',
+			// 	'doc'       => 'https://api.jibres.com/'. $myStore. 'v2/doc',
+			// 	'direction' => 'ltr',
+			// 	'lang'      => 'English',
+			// 	'langname'  => 'English',
+			// ],
 			'fa' =>
 			[
 				'website'   => 'https://jibres.ir',
