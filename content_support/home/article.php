@@ -5,7 +5,7 @@
 
   <div class="cms cbox">
       <div class="show <?php echo \dash\data::datarow_type(); ?>">
-        <h2 class="txtB txtC mB10"><a href="<?php echo \dash\url::pwd(); ?>"><?php echo \dash\data::datarow_title(); ?></a></h2>
+        <h2 class="txtB txtC mB10"><a href="<?php echo \dash\url::current(); ?>"><?php echo \dash\data::datarow_title(); ?></a></h2>
         <div class="ovh">
         <?php
           $meta = \dash\data::datarow_meta();
