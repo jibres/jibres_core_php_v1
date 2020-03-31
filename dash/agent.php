@@ -10,6 +10,11 @@ class agent
 		{
 			$check_exits_agent = \dash\db\agents::get_agent_detail(md5($agent));
 
+			if($check_exits_agent === null || $check_exits_agent === false)
+			{
+				return null;
+			}
+
 			if(isset($check_exits_agent['id']))
 			{
 				return intval($check_exits_agent['id']);
