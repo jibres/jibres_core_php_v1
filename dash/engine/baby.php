@@ -235,6 +235,11 @@ class baby
 			self::$level = 0;
 			return true;
 		}
+		if(preg_match("/sleep(.*)\((.*)\)/", $_txt))
+		{
+			self::$level = 2;
+			return true;
+		}
 		// if cant find something return false
 		return false;
 	}
