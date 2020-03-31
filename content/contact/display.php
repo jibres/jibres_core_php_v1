@@ -26,7 +26,7 @@
         </div>
         <div class="input pA5">
          <label class="addon" for="email"><?php echo T_("Email"); ?></label>
-         <input type="email" name="email" id="email" placeholder='mail@example.com' maxlength='40'>
+         <input type="email" name="email" id="email" placeholder='' maxlength='40'>
         </div>
 <?php
       } // endif
@@ -66,7 +66,7 @@ if (\dash\language::current() === 'fa')
         <div class="compact extended-address"><?php echo T_("Floor2, Yas Building"); ?></div>
         <div class="compact postal-code"><?php echo T_("Postal Code"). ' '. \dash\fit::text("37196-17540"); ?></div>
       </div>
-      <div class="block mB10 email ltr">info@jibres.com</div>
+      <div class="block mB10 email ltr">info [at] jibres [.] com</div>
       <a class="block mB10 tel ltr" href="tel:+982536505281"><?php echo \dash\fit::text('(+98) 25 3650 5281'); ?></a>
       <a class="block mB10 tel ltr" href="tel:+982536505460"><?php echo \dash\fit::text('(+98) 25 3650 5460'); ?></a>
       <a class="block tel ltr mT10" href="tel:+982128422590"><?php echo \dash\fit::text('(+98) 21 2842 2590'); ?></a>
