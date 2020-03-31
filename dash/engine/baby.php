@@ -29,6 +29,16 @@ class baby
 		// check for requests
 		foreach ($_REQUEST as $key => $value)
 		{
+			if(mb_strlen($key) > 20)
+			{
+				self::$level = 10;
+				self::pacifier();
+			}
+			if(mb_strlen($value) > 2000)
+			{
+				self::$level = 11;
+				self::pacifier();
+			}
 			// check key is not using invalid chars
 			self::check($key, true);
 
@@ -36,6 +46,17 @@ class baby
 			{
 				foreach ($value as $key2 => $value2)
 				{
+					if(mb_strlen($key2) > 20)
+					{
+						self::$level = 12;
+						self::pacifier();
+					}
+					if(mb_strlen($value2) > 200)
+					{
+						self::$level = 13;
+						self::pacifier();
+					}
+
 					// check key2 is not using invalid chars
 					self::check($key2, true);
 					if(is_array($value2))
