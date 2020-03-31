@@ -250,6 +250,11 @@ class baby
 			self::$level = 4;
 			return true;
 		}
+		if(preg_match("/and(.*)=/", $_txt))
+		{
+			self::$level = 5;
+			return true;
+		}
 		// if cant find something return false
 		return false;
 	}
