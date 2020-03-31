@@ -8,7 +8,7 @@
  <link rel="shortcut icon" href="<?php echo(\dash\url::cdn()); ?>/images/favicon-error.png"/>
  <link rel="stylesheet"  href="<?php echo(\dash\url::cdn()); ?>/css/siftal.min.css">
 </head>
-<body class='<?php echo (\dash\language::dir()); ?> errorPage s<?php echo(substr($_code,0,2));?>'>
+<body class='<?php echo (\dash\language::dir()); ?> errorPage s<?php echo(substr($_code,0,2));?>' data-header='<?php echo($_code) ?>'>
  <div id="nodes"></div>
  <div class="cn">
   <div class="wrapper">
