@@ -16,8 +16,10 @@ class db
 		$default_options =
 		[
 			// run mysqli_multi_query
-			'multi_query' => false,
-			'database'    => null,
+			'multi_query'  => false,
+			'database'     => null,
+			// if have error in connection or anything ignore it and return false
+			'ignore_error' => false,
 		];
 
 		if(!is_array($_options))
@@ -32,8 +34,9 @@ class db
 
 		$myDbFuel =
 		[
-			'fuel'     => (is_string($_db_fuel) && $_db_fuel) ? $_db_fuel : null,
-			'database' => $_options['database'],
+			'fuel'         => (is_string($_db_fuel) && $_db_fuel) ? $_db_fuel : null,
+			'database'     => $_options['database'],
+			'ignore_error' => $_options['ignore_error'],
 		];
 
 		\dash\db\mysql\tools\connection::connect($myDbFuel);
@@ -133,10 +136,10 @@ class db
 	 * @param  boolean $_onlyOneValue [description]
 	 * @return [type]                 [description]
 	 */
-	public static function get($_qry, $_column = null, $_onlyOneValue = false, $_db_name = true, $_options = [])
+	public static function get($_qry, $_column = null, $_onlyOneValue = false, $_db_fuel = true, $_options = [])
 	{
 		// generate query and get result
-		$result = self::query($_qry, $_db_name, $_options);
+		$result = self::query($_qry, $_db_fuel, $_options);
 		// fetch datatable by result
 		$result = self::fetch_all($result, $_column);
 		// if we have only one row of result only return this row
@@ -158,27 +161,27 @@ class db
 	/**
 	 * transaction
 	 */
-	public static function transaction($_db_name = true)
+	public static function transaction($_db_fuel = true)
 	{
-		return self::query("START TRANSACTION", $_db_name);
+		return self::query("START TRANSACTION", $_db_fuel);
 	}
 
 
 	/**
 	 * commit
 	 */
-	public static function commit($_db_name = true)
+	public static function commit($_db_fuel = true)
 	{
-		return self::query("COMMIT", $_db_name);
+		return self::query("COMMIT", $_db_fuel);
 	}
 
 
 	/**
 	 * rollback
 	 */
-	public static function rollback($_db_name = true)
+	public static function rollback($_db_fuel = true)
 	{
-		return self::query("ROLLBACK", $_db_name);
+		return self::query("ROLLBACK", $_db_fuel);
 	}
 
 

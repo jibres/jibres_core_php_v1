@@ -185,7 +185,8 @@ class sessions
 	 */
 	public static function get_cookie()
 	{
-		return \dash\utility\cookie::read(self::cookie_name());
+		$cookie = \dash\utility\cookie::read(self::cookie_name());
+		return \dash\validate::string_100($cookie);
 	}
 
 	/**
@@ -239,13 +240,7 @@ class sessions
 	// by search in code and user id
 	public static function disable_cookie($_code, $_user_id)
 	{
-		$get =
-		[
-			'user_id' => $_user_id,
-			'code'    => addslashes($_code),
-		];
-
-		$get = self::get($get);
+		$get = self::get_user_cookie($_code, $_user_id);
 
 		if(isset($get['id']))
 		{
@@ -254,7 +249,7 @@ class sessions
 		}
 		else
 		{
-			\dash\log::set('notCookieFoundToDisalbe');
+			// \dash\log::set('notCookieFoundToDisalbe');
 		}
 	}
 
@@ -265,6 +260,20 @@ class sessions
 		return $cookie_domain;
 	}
 
+
+	public static function get_user_cookie($_code, $_user_id)
+	{
+		if(!$_code || !$_user_id ||  !is_numeric($_user_id))
+		{
+			return false;
+		}
+
+		$_code = addslashes($_code);
+		$query = "SELECT * FROM sessions WHERE sessions.user_id = $_user_id AND sessions.code = '$_code' LIMIT 1";
+		$get   = \dash\db::get($query, null, true, null, ['ignore_error' => true]);
+
+		return $get;
+	}
 
 
 	public static function is_active_master($_code, $_user_id)
@@ -297,7 +306,7 @@ class sessions
 		{
 			$_code = addslashes($_code);
 			$query = "SELECT * FROM sessions WHERE sessions.user_id = $_user_id AND sessions.status = 'active' AND sessions.code = '$_code' LIMIT 1";
-			$get   = \dash\db::get($query, null, true);
+			$get   = \dash\db::get($query, null, true, null, ['ignore_error' => true]);
 
 			if(isset($get['status']))
 			{

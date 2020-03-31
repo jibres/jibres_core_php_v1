@@ -41,18 +41,18 @@ class connection
 	}
 
 
-	private static function create_link($_love)
+	private static function create_link($_love, $_option = null)
 	{
 		// check database is exist.
 		if(!$_love)
 		{
-			self::make_error(500, T_("We dont have Love!"). T_("Please contact lovers!"));
+			self::make_error(500, T_("We dont have Love!"). T_("Please contact lovers!"), $_option);
 			return false;
 		}
 		// if mysqli class does not exist or have some problem show related error
 		if(!class_exists('mysqli'))
 		{
-			self::make_error(503, T_("We can't find database service!"));
+			self::make_error(503, T_("We can't find database service!"), $_option);
 		}
 
 		$link = \mysqli_init();
@@ -64,23 +64,23 @@ class connection
 
 		if(!isset($_love['user']))
 		{
-			self::make_error(503, T_("Whats that name!"));
+			self::make_error(503, T_("Whats that name!"), $_option);
 		}
 		if(!isset($_love['pass']))
 		{
-			self::make_error(503, T_("Whats that code!"));
+			self::make_error(503, T_("Whats that code!"), $_option);
 		}
 		if(!isset($_love['host']))
 		{
-			self::make_error(503, T_("Where is that home!"));
+			self::make_error(503, T_("Where is that home!"), $_option);
 		}
 		if(!isset($_love['port']))
 		{
-			self::make_error(503, T_("Where is that door!"));
+			self::make_error(503, T_("Where is that door!"), $_option);
 		}
 		if(!isset($_love['database']))
 		{
-			self::make_error(503, T_("Where is that bed room!"));
+			self::make_error(503, T_("Where is that bed room!"), $_option);
 		}
 
 		if($_love['host'] === 'localhost')
@@ -98,32 +98,38 @@ class connection
 		{
 			// Access denied for user 'user'@'hostname' (using password: YES)
 			case 1045:
-				self::make_error(503, T_("We can't connect to database service!"));
+				self::make_error(503, T_("We can't connect to database service!"), $_option);
 				break;
 
 
 			// ERROR 1049 (42000): Unknown database
 			case 1049:
-				// self::make_error(503, T_("We can't connect to correct database!"));
-				self::make_error(510, T_("Unable to connect to this store at this time"));
+				if(\dash\url::store())
+				{
+					self::make_error(503, T_("Unable to connect to this store at this time").  " 1049 ", $_option);
+				}
+				else
+				{
+					self::make_error(503, T_("Please contact administrator!"). " 1049 ", $_option);
+				}
 				break;
 
 
 			case 2002:
 				// i dont know!
-				self::make_error(503, T_("Hello!"). " 2002 ");
+				self::make_error(503, T_("Hello!"). " 2002 ", $_option);
 				break;
 
 
 			// MySQL server has gone away
 			case 2006:
-				self::make_error(503, T_("Hello!"). " 2006 ");
+				self::make_error(503, T_("Hello!"). " 2006 ", $_option);
 				break;
 
 
 			// Connections using insecure transport are prohibited while --require_secure_transport=ON.
 			case 3159:
-				self::make_error(503, T_("Hello!"). " 3159 ");
+				self::make_error(503, T_("Hello!"). " 3159 ", $_option);
 				break;
 
 			default:
@@ -137,8 +143,14 @@ class connection
 	}
 
 
-	private static function make_error($_header, $_msg)
+	private static function make_error($_header, $_msg, $_option = null)
 	{
+		// ignore error
+		if(isset($_option['ignore_error']) && $_option['ignore_error'])
+		{
+			return false;
+		}
+
 		// \dash\notif::error($_msg);
 		\dash\header::status($_header, $_msg);
 		return false;
@@ -152,7 +164,6 @@ class connection
 	 */
 	public static function connect($_db_fuel = null)
 	{
-
 		// find my Love!
 		$myLove = \dash\engine\detective::who($_db_fuel);
 		$myDbName = null;
@@ -170,7 +181,7 @@ class connection
 		}
 
 		// create link
-		$link = self::create_link($myLove);
+		$link = self::create_link($myLove, $_db_fuel);
 
 		// link is created and exist,
 		// check if link is exist set it as global variable
