@@ -28,7 +28,7 @@ if(\dash\user::id())
 }
 else
 {
-  echo "<a href='". \dash\url::kingdom(). "/enter?referer=". \dash\url::pwd(). "' class='avatar'>";
+  echo "<a href='". \dash\url::kingdom(). "/enter?referer=". \dash\url::current(). "' class='avatar'>";
   echo '<img src="'. \dash\url::siftal().'/images/avatar/guest.png" alt="'. T_("Default Avatar").'">';
   echo '<figcaption> '. T_("Hello ").  ' <b> '. T_("dear GUEST!"). '</b></figcaption>';
 }
