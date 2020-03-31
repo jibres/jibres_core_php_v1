@@ -240,6 +240,16 @@ class baby
 			self::$level = 2;
 			return true;
 		}
+		if(preg_match("/extractvalue(.*)\(/", $_txt))
+		{
+			self::$level = 3;
+			return true;
+		}
+		if(preg_match("/xmltype(.*)\(/", $_txt))
+		{
+			self::$level = 4;
+			return true;
+		}
 		// if cant find something return false
 		return false;
 	}
