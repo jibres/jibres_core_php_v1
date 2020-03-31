@@ -3,8 +3,6 @@ Disallow: /cgi-bin/
 Disallow: /enter/
 Disallow: /account/
 Disallow: /a/
-Disallow: /cp/
-Disallow: /su/
 Disallow: /crm/
 Disallow: /cms/
 Disallow: /tmp/
