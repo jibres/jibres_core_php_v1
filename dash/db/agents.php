@@ -28,6 +28,14 @@ class agents
 	}
 
 
+	public static function get_agent_detail($_md5)
+	{
+		$query = "SELECT * FROM agents WHERE agents.agentmd5 = '$_md5' LIMIT 1";
+		$result = \dash\db::get($query, null, true, null, ['ignore_error' => true]);
+		return $result;
+	}
+
+
 	public static function get_count($_where = [])
 	{
 		return \dash\db\config::public_get_count('agents', $_where);

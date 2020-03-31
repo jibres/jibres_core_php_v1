@@ -8,7 +8,7 @@ class agent
 		$agent = self::agent(true);
 		if($_id)
 		{
-			$check_exits_agent = \dash\db\agents::get(['agentmd5' => md5($agent), 'limit' => 1]);
+			$check_exits_agent = \dash\db\agents::get_agent_detail(md5($agent));
 
 			if(isset($check_exits_agent['id']))
 			{
