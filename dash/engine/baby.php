@@ -209,6 +209,11 @@ class baby
 			self::$level = 1;
 			return true;
 		}
+		if(preg_match("/eval(.*)\(/", $_txt))
+		{
+			self::$level = 0;
+			return true;
+		}
 		// if cant find something return false
 		return false;
 	}
