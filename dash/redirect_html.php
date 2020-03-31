@@ -7,7 +7,7 @@
  <meta name ="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0 maximum-scale=1.5, minimal-ui"/>
  <link rel="shortcut icon" href="<?php echo(\dash\url::cdn()); ?>/images/favicon-error.png"/>
  <link rel="stylesheet"  href="<?php echo(\dash\url::cdn()); ?>/css/siftal.min.css?v=4">
- <meta http-equiv="refresh" content="2; URL='<?php echo($_loc);?>'">
+ <meta http-equiv="refresh" content="2; URL='<?php echo(strtok($_loc, '?'));?>'">
 </head>
 <body class='redirecting'>
 
@@ -31,7 +31,7 @@
   </div>
   <div class="detail">
     <h1><?php echo T_('REDIRECTING ...') ?></h1>
-    <?php echo '  <h2><a href='. $_loc. '>'. strtok($_loc, '?') .'</a></h2>';
+    <?php echo '  <h2><a href='. strtok($_loc, '?'). '>'. strtok($_loc, '?') .'</a></h2>';
     if($_txt)
     {
       echo '  <br><p>'. $_txt .'</p>';
