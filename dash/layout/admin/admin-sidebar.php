@@ -1,6 +1,5 @@
  <div class="scr">
-  <figure>
-<?php
+  <figure><?php
 if(\dash\user::id())
 {
   $avatarLink = \dash\data::avatarLink();
@@ -33,8 +32,7 @@ else
   echo '<figcaption> '. T_("Hello ").  ' <b> '. T_("dear GUEST!"). '</b></figcaption>';
 }
 
-?>
-  </figure>
+?></figure>
   <div class="menu">
    <ul class="sidenav">
 
