@@ -1,6 +1,6 @@
 
 <div class="cbox">
-  <form method="post" enctype="multipart/form-data" autocomplete="off" action="<?php echo \dash\url::pwd(); ?>">
+  <form method="post" enctype="multipart/form-data" autocomplete="off" action="<?php echo \dash\url::current(); ?>">
 
     <?php \dash\utility\hive::html(); ?>
 

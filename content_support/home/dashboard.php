@@ -3,10 +3,12 @@
 <div class="cbox fs12">
   <form method="get" action='<?php echo \dash\url::this(); ?>' >
     <div class="input">
-      <?php foreach (\dash\request::get() as $key => $value)
-      {
-        echo "<input type='hidden' name='$key' value='$value'>";
-      }
+      <?php
+      // foreach (\dash\request::get() as $key => $value)
+      // {
+      //   echo "<input type='hidden' name='$key' value='$value'>";
+      // }
+      // @TODO check @reza
       ?>
 
       <input type="search" name="q" placeholder='<?php echo T_("Search our knowledge base..."); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autocomplete='off'>
