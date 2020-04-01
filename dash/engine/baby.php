@@ -111,7 +111,7 @@ class baby
 			$_level = self::$level;
 		}
 
-		$msg = 'Hi Baby'. str_repeat('!', $_level);
+		$msg = 'Hi Baby ('. $_level. ')';
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
 			\dash\header::status($_status_code, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', $_level));
@@ -133,6 +133,7 @@ class baby
 	public static function check($_txt, $_block = false)
 	{
 		$result = null;
+		$status_code = 418;
 		// decode url
 		$_txt = urldecode($_txt);
 		// check for problem in hex
@@ -143,6 +144,7 @@ class baby
 		// check for someone try inject script
 		if(self::script($_txt))
 		{
+			$status_code = 451;
 			$result = true;
 		}
 		// check for problem for containing forbidden chars
@@ -153,7 +155,7 @@ class baby
 		// if needed block
 		if($result === true && $_block)
 		{
-			self::pacifier();
+			self::pacifier(null, $status_code);
 		}
 		// return final result if not blocked!
 		return $result;
