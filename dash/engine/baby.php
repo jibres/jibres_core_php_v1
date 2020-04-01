@@ -99,12 +99,35 @@ class baby
 	{
 		if (isset($_SERVER['HTTP_ORIGIN']))
 		{
-        	if(strpos(\dash\url::site(), $_SERVER['HTTP_ORIGIN']) !== 0)
+	    	$origin = $_SERVER['HTTP_ORIGIN'];
+
+        	if(strpos(\dash\url::site(), $origin) !== 0)
         	{
             	self::$level = 30;
 				self::pacifier();
         	}
+
+			$allowed_domains =
+			[
+			    'http://jibres.local',
+			    'https://jibres.local',
+
+			    'https://jibres.ir',
+			    'https://jibres.com',
+			    'https://jibres.xyz',
+			    'https://jibres.icu',
+			];
+
+			if (in_array($origin, $allowed_domains))
+			{
+			    header('Access-Control-Allow-Origin: ' . $origin);
+			}
+
+	    	// header('Access-Control-Allow-Origin: *', true);
+
     	}
+
+
 	}
 
 
