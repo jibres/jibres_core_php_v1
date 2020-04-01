@@ -51,6 +51,9 @@ class view
 			\dash\data::action_link(\dash\url::kingdom(). '/my');
 		}
 
+
+		// allow to open homepage via enamad
+		// @header('X-Frame-Options: https://enamad.ir');
 	}
 }
 ?>
