@@ -142,7 +142,7 @@ class domain_transfer
 
 		try
 		{
-			$object = new \SimpleXMLElement($response);
+			$object = @new \SimpleXMLElement($response);
 		}
 		catch (\Exception $e)
 		{

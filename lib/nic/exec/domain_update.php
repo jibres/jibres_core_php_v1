@@ -413,7 +413,7 @@ class domain_update
 
 		try
 		{
-			$object = new \SimpleXMLElement($response);
+			$object = @new \SimpleXMLElement($response);
 		}
 		catch (\Exception $e)
 		{

@@ -206,7 +206,7 @@ class contact_info
 
 		try
 		{
-			$object = new \SimpleXMLElement($response);
+			$object = @new \SimpleXMLElement($response);
 		}
 		catch (\Exception $e)
 		{
