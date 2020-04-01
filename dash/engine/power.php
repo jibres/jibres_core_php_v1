@@ -24,6 +24,8 @@ class power
 		// find store detail and set to connect to true store
 		\dash\engine\store::config();
 
+		\dash\engine\prepare::origin();
+
 		// // check if isset remember me and login by this
 		\dash\user::check_remeber_login();
 

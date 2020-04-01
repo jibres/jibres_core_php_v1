@@ -20,9 +20,6 @@ class baby
 			\dash\header::status(412, 'Hi Father!');
 		}
 
-		// check origine
-		self::origin();
-
 		// check duble slash in url
 		self::dbl_slash();
 
@@ -94,54 +91,6 @@ class baby
 		// we can add some check on php://input and maybe another one!
 	}
 
-
-	private static function origin()
-	{
-
-		// @TODO
-		// check customer domain origine
-
-		if (isset($_SERVER['HTTP_ORIGIN']))
-		{
-	    	$origin = $_SERVER['HTTP_ORIGIN'];
-
-	    	if(!\dash\url::jibreLocal())
-	    	{
-		    	if(substr($origin, 0, 8) !== 'https://')
-		    	{
-		    		self::$level = 25;
-					self::pacifier();
-		    	}
-	    	}
-
-	    	if($origin === \dash\url::base())
-	    	{
-	    		return;
-	    	}
-
-	    	$domain = \dash\url::domain();
-	    	$myOrigin = str_replace($domain, '', $origin);
-	    	$last_char = substr($myOrigin, -1);
-
-	    	if($last_char === '/' || $last_char === '.')
-	    	{
-	    	    // header('Access-Control-Allow-Origin: *', true);
-			    header('Access-Control-Allow-Origin: ' . $origin);
-
-				// header('Access-Control-Allow-Headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With');
-				header('Access-Control-Allow-Headers: Accept,Cache-Control,Content-Type,Keep-Alive,Origin,X-Requested-With');
-
-				// header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-				header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-
-	    	}
-	    	else
-	    	{
-            	self::$level = 30;
-				self::pacifier();
-	    	}
-    	}
-	}
 
 
 	private static function dbl_slash()
