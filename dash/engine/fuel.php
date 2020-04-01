@@ -13,7 +13,7 @@ class fuel
 	{
 		if(isset($_force_fuel['fuel']) && $_force_fuel['fuel'] && is_string($_force_fuel['fuel']))
 		{
-			$myFuel             = \dash\engine\fuel::get($_force_fuel['fuel']);
+			$myFuel             = self::get($_force_fuel['fuel']);
 
 			if(isset($_force_fuel['database']) && $_force_fuel['database'])
 			{
@@ -30,12 +30,13 @@ class fuel
 				$store_detail = \dash\engine\store::store_detail();
 				if(isset($store_detail['fuel']) && isset($store_detail['db_name']))
 				{
-					$myFuel             = \dash\engine\fuel::get($store_detail['fuel']);
+					$myFuel             = self::get($store_detail['fuel']);
 					$myFuel['database'] = $store_detail['db_name'];
 				}
 				else
 				{
-					$myFuel             = \dash\engine\fuel::get();
+					\dash\header::status(507);
+					// $myFuel             = self::get();
 				}
 
 				return $myFuel;
@@ -43,24 +44,72 @@ class fuel
 			else
 			{
 				// connect to jibres
-				$myFuel = \dash\engine\fuel::master();
+				$myFuel = self::get('master');
 				return $myFuel;
 			}
 		}
 	}
 
-	public static function get($_request = null)
-	{
-		if(is_callable(['self', $_request]))
-		{
-			self::set_header($_request);
 
-			if(\dash\url::isLocal() && $_request !== 'master' && $_request !== 'nic_log' && $_request !== 'nic')
+
+	/**
+	 * Gets the specified request.
+	 * Get
+	 *	 master
+	 *	 nic
+	 *	 nic_log
+	 *	 jibres101
+	 *	 jibres203
+	 *	 ...
+	 *
+	 * @param      <type>  $_requested_fuel  The request
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function get($_requested_fuel = null)
+	{
+		$target = null;
+
+		// for example: the request need to connect jibres101 but the local need to connect to reza-jibres
+		if(\dash\url::isLocal())
+		{
+			if(!function_exists('gethostname'))
 			{
-				return self::myStoreLocal();
+				\dash\header::status(505, 'Function gethostname not exists');
 			}
 
-			return self::$_request();
+			$target = gethostname();
+		}
+		elseif(in_array($_requested_fuel, ['master', 'nic', 'nic_log']))
+		{
+			switch ($_requested_fuel)
+			{
+				case 'master':
+				case 'nic':
+				case 'nic_log':
+					$target = 'jibres101';
+					break;
+			}
+		}
+		else
+		{
+			// jibres101, jibres203, ...
+			$target = $_requested_fuel;
+		}
+
+		$result = \dash\setting\fuel::server($target);
+
+		if(isset($result[$_requested_fuel]))
+		{
+			// return detail for master, nic, nic_log
+			return $result[$_requested_fuel];
+		}
+		else
+		{
+			if(isset($result['store']))
+			{
+				return $result['store'];
+			}
 		}
 
 		return null;
@@ -69,91 +118,7 @@ class fuel
 
 	public static function priority($_tld)
 	{
-		if(\dash\url::isLocal())
-		{
-			return 'myLocal';
-		}
-
 		return "jibres101";
-	}
-
-
-	public static function master()
-	{
-		self::set_header('master');
-
-		if(\dash\url::isLocal())
-		{
-			return self::myLocal();
-		}
-
-		return self::jibres_master();
-	}
-
-
-	// ----------------------------------------------- list of servers
-
-	/**
-	 * Jibres Master
-	 * @return [type] [description]
-	 */
-	private static function jibres_master()
-	{
-		return \dash\setting\fuel::server(__FUNCTION__);
-	}
-
-	private static function jibres101()
-	{
-		return \dash\setting\fuel::server(__FUNCTION__);
-	}
-
-	private static function jibres101rg6()
-	{
-		return \dash\setting\fuel::server(__FUNCTION__);
-	}
-
-	private static function local()
-	{
-		return self::jibres101();
-	}
-
-
-	private static function nic_log()
-	{
-		if(\dash\url::isLocal())
-		{
-			return \dash\setting\fuel::server('nic_log_local');
-		}
-
-		return \dash\setting\fuel::server('nic_log');
-	}
-
-
-	private static function nic()
-	{
-		if(\dash\url::isLocal())
-		{
-			return \dash\setting\fuel::server('nic_local');
-		}
-
-		return \dash\setting\fuel::server('nic');
-	}
-
-
-	// ----------------------------------------------- Local
-	private static function jibres101_test_local()
-	{
-		return \dash\setting\fuel::server(__FUNCTION__);
-	}
-
-	private static function myLocal()
-	{
-		return \dash\setting\fuel::server(__FUNCTION__);
-	}
-
-	private static function myStoreLocal()
-	{
-		return \dash\setting\fuel::server(__FUNCTION__);
 	}
 
 

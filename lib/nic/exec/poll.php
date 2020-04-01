@@ -68,7 +68,7 @@ class poll
 
 		try
 		{
-			$object = new \SimpleXMLElement($response);
+			$object = @new \SimpleXMLElement($response);
 		}
 		catch (\Exception $e)
 		{
@@ -255,7 +255,7 @@ class poll
 
 		try
 		{
-			$object = new \SimpleXMLElement($response);
+			$object = @new \SimpleXMLElement($response);
 		}
 		catch (\Exception $e)
 		{

@@ -9,45 +9,44 @@ class fuel
 	private static $fuel_server = null;
 
 
-	private static function load()
+	private static function load($_code)
 	{
-		if(self::$fuel === null)
+		if(!isset(self::$fuel[$_code]))
 		{
-			$json = \dash\file::read(__DIR__. '/secret/fuel.secret.json');
-			if($json && is_string($json))
+			$detail = \dash\file::read(__DIR__. '/secret/fuel/'. $_code. '.secret.json');
+			if($detail && is_string($detail))
 			{
-				$json = json_decode($json, true);
+				$detail = json_decode($detail, true);
 			}
 
-			if(!is_array($json))
+			if(!is_array($detail))
 			{
-				$json = [];
+				$detail = [];
 			}
 
-			self::$fuel = $json;
+			self::$fuel[$_code] = $detail;
 		}
 
-		if(self::$fuel_server === null)
-		{
-			$json = \dash\file::read(__DIR__. '/secret/fuel_server.secret.json');
-			if($json && is_string($json))
-			{
-				$json = json_decode($json, true);
-			}
-
-			if(!is_array($json))
-			{
-				$json = [];
-			}
-
-			self::$fuel_server = $json;
-		}
 
 	}
 
 	public static function server_name($_ip)
 	{
-		self::load();
+		if(self::$fuel_server === null)
+		{
+			$detail = \dash\file::read(__DIR__. '/secret/fuel/servername.json');
+			if($detail && is_string($detail))
+			{
+				$detail = json_decode($detail, true);
+			}
+
+			if(!is_array($detail))
+			{
+				$detail = [];
+			}
+
+			self::$fuel_server = $detail;
+		}
 
 		if(isset(self::$fuel_server[$_ip]))
 		{
@@ -60,7 +59,7 @@ class fuel
 
 	public static function server($_code)
 	{
-		self::load();
+		self::load($_code);
 
 		if(isset(self::$fuel[$_code]))
 		{
