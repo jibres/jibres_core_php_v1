@@ -165,7 +165,7 @@ class connection
 	public static function connect($_db_fuel = null)
 	{
 		// find my Love!
-		$myLove = \dash\engine\detective::who($_db_fuel);
+		$myLove = \dash\engine\fuel::who($_db_fuel);
 		$myDbName = null;
 		if(isset($myLove['database']))
 		{

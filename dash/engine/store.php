@@ -5,7 +5,7 @@ namespace dash\engine;
 class store
 {
 	/**
-	 * save store loaded detail to get from detective
+	 * save store loaded detail to get from fuel
 	 *
 	 * @var        array
 	 */
