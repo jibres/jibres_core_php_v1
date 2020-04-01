@@ -191,27 +191,27 @@ class baby
 	 */
 	public static function script($_txt)
 	{
-		if(preg_match("/<script>/", $_txt))
+		if(preg_match("/<script>/i", $_txt))
 		{
 			self::$level = 1;
 			return true;
 		}
-		if(preg_match("/</script>/", $_txt))
+		if(preg_match("/</script>/i", $_txt))
 		{
 			self::$level = 2;
 			return true;
 		}
-		if(preg_match("/<\s+script/", $_txt))
+		if(preg_match("/<\s+script/i", $_txt))
 		{
 			self::$level = 3;
 			return true;
 		}
-		if(preg_match("/<(.*)script/", $_txt))
+		if(preg_match("/<(.*)script/i", $_txt))
 		{
 			self::$level = 4;
 			return true;
 		}
-		if(preg_match("/alert(.*)\(/", $_txt))
+		if(preg_match("/alert(.*)\(/i", $_txt))
 		{
 			self::$level = 5;
 			return true;
@@ -231,27 +231,32 @@ class baby
 			self::$level = 1;
 			return true;
 		}
-		if(preg_match("/eval(.*)\(/", $_txt))
+		if(preg_match("/eval(.*)\(/i", $_txt))
 		{
 			self::$level = 0;
 			return true;
 		}
-		if(preg_match("/sleep(.*)\((.*)\)/", $_txt))
+		if(preg_match("/sleep(.*)\((.*)\)/i", $_txt))
 		{
 			self::$level = 2;
 			return true;
 		}
-		if(preg_match("/extractvalue(.*)\(/", $_txt))
+		if(preg_match("/extractvalue(.*)\(/i", $_txt))
 		{
 			self::$level = 3;
 			return true;
 		}
-		if(preg_match("/xmltype(.*)\(/", $_txt))
+		if(preg_match("/xmltype(.*)\(/i", $_txt))
 		{
 			self::$level = 4;
 			return true;
 		}
-		if(preg_match("/\/and(.*)=/", $_txt))
+		if(preg_match("/\/([^\/]*)(and|or)(\s|\()+(.*)=(.*)/i", $_txt))
+		{
+			self::$level = 6;
+			return true;
+		}
+		if(preg_match("/\/([^\/]*)union(.*)(\(|\=|\))=(.*)/i", $_txt))
 		{
 			self::$level = 5;
 			return true;
