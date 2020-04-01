@@ -727,6 +727,17 @@ class url
 	}
 
 
+	public static function jibreLocal()
+	{
+		if(self::get('site') === 'http://jibres.local')
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+
 	/**
 	 * return specefic dir or array of all
 	 * @param  [type] $_index [description]

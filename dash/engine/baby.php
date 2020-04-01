@@ -105,6 +105,16 @@ class baby
 		{
 	    	$origin = $_SERVER['HTTP_ORIGIN'];
 
+	    	if(!\dash\url::jibreLocal())
+	    	{
+		    	if(substr($origin, 0, 8) !== 'https://')
+		    	{
+		    		self::$level = 25;
+					self::pacifier();
+		    	}
+	    	}
+
+
 	    	$domain = \dash\url::domain();
 	    	$myOrigin = str_replace($domain, '', $origin);
 	    	$last_char = substr($myOrigin, -1);
@@ -153,7 +163,7 @@ class baby
 		$msg = 'Hi Baby'. str_repeat('!', self::$level);
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
-			\dash\header::status(418, T_("Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request."). ' '. str_repeat('!', self::$level));
+			\dash\header::status(418, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', self::$level));
 		}
 		else
 		{
