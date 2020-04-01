@@ -114,6 +114,10 @@ class baby
 		    	}
 	    	}
 
+	    	if($origin === \dash\url::base())
+	    	{
+	    		return;
+	    	}
 
 	    	$domain = \dash\url::domain();
 	    	$myOrigin = str_replace($domain, '', $origin);
