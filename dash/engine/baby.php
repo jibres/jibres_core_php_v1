@@ -31,13 +31,11 @@ class baby
 		{
 			if(mb_strlen($key) > 20)
 			{
-				self::$level = 10;
-				self::pacifier();
+				self::pacifier(10, 414);
 			}
 			if(mb_strlen($value) > 2000)
 			{
-				self::$level = 11;
-				self::pacifier();
+				self::pacifier(11, 414);
 			}
 			// check key is not using invalid chars
 			self::check($key, true);
@@ -48,13 +46,11 @@ class baby
 				{
 					if(mb_strlen($key2) > 20)
 					{
-						self::$level = 12;
-						self::pacifier();
+						self::pacifier(12, 414);
 					}
 					if(mb_strlen($value2) > 200)
 					{
-						self::$level = 13;
-						self::pacifier();
+						self::pacifier(13, 414);
 					}
 
 					// check key2 is not using invalid chars
@@ -62,14 +58,12 @@ class baby
 					if(is_array($value2))
 					{
 						// now we are not allow to give object in array request
-						self::$level = 20;
-						self::pacifier();
+						self::pacifier(20, 415);
 					}
 					else if(is_object($value2))
 					{
 						// now we are not allow to give object in array request
-						self::$level = 11;
-						self::pacifier();
+						self::pacifier(11, 415);
 					}
 					else
 					{
@@ -80,8 +74,7 @@ class baby
 			else if(is_object($value))
 			{
 				// now we are not allow to give object in request
-				self::$level = 10;
-				self::pacifier();
+				self::pacifier(10, 415);
 			}
 			else
 			{
@@ -103,7 +96,7 @@ class baby
 			// http://dash.local/enter?referer=http://dash.local/cp
 			if(strpos($_SERVER['REQUEST_URI'], '?') === false || strpos($_SERVER['REQUEST_URI'], '?') > strpos($_SERVER['REQUEST_URI'], '//'))
 			{
-				\dash\header::status(421, 'What are you doing!');
+				self::pacifier(18, 421);
 			}
 		}
 	}
@@ -111,7 +104,7 @@ class baby
 	/**
 	 * check duble slass in url
 	 */
-	public static function pacifier($_level = null)
+	public static function pacifier($_level = null, $_status_code = 418)
 	{
 		if($_level === null)
 		{
@@ -121,11 +114,11 @@ class baby
 		$msg = 'Hi Baby'. str_repeat('!', $_level);
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
-			\dash\header::status(418, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', $_level));
+			\dash\header::status($_status_code, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', $_level));
 		}
 		else
 		{
-			\dash\header::status(418, $msg);
+			\dash\header::status($_status_code, $msg);
 		}
 
 	}

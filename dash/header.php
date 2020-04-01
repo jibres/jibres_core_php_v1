@@ -88,7 +88,7 @@ class header
 			307 => 'Temporary Redirect',
 			308 => 'Permanent Redirect',
 
-			400 => 'Bad Request',
+			400 => 'Bad Request', // ----------------------- @Hive, @API and some other module
 			401 => 'Unauthorized',
 			402 => 'Payment Required',
 			403 => 'Forbidden', // ------------------------- @Permission -> \dash\permission::access()
@@ -102,13 +102,13 @@ class header
 			411 => 'Length Required',
 			412 => 'Precondition Failed', // --------------- @Baby -> $_SERVER['REQUEST_URI'] not set!
 			413 => 'Request Entity Too Large',
-			414 => 'Request-URI Too Long',
-			415 => 'Unsupported Media Type',
+			414 => 'Request-URI Too Long', // -------------- @Baby -> check length
+			415 => 'Unsupported Media Type', // ------------ @Baby -> send multi array
 			416 => 'Requested Range Not Satisfiable',
 			417 => 'Expectation Failed',
 			418 => 'I\'m a teapot', // --------------------- @Baby -> Have unauthorized character
 			421 => 'Misdirected Request', // --------------- @Baby -> Found dbl // in url
-			422 => 'Unprocessable Entity',
+			422 => 'Unprocessable Entity', //--------------- @Ticket add. Its very fast, try to send html content, Have 2 link in content
 			423 => 'Locked', // ---------------------------- @Cleanse -> Check input and validate args. \dash\clense::data()
 			424 => 'Failed Dependency',
 			426 => 'Upgrade Required',
