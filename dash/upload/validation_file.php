@@ -48,6 +48,7 @@ class validation_file
 			$fileName     = $fileInfo['filename'];
 		}
 
+		$fileExt = null;
 		if(isset($fileInfo['extension']))
 		{
 			$fileExt      = mb_strtolower($fileInfo['extension']);
