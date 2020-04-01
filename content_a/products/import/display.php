@@ -62,7 +62,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 					<?php }else{ ?>
 
-						<div class="c s12"><small><?php echo T_("Error in index record"); ?></small> <b>php<?php echo @implode(',', \dash\get::index($value, 'index')); ?></b></div>
+						<div class="c s12"><small><?php echo T_("Error in index record"); ?></small> <b><?php echo @implode(',', \dash\get::index($value, 'index')); ?></b></div>
 
 					<?php } //endif ?>
 				</div>
