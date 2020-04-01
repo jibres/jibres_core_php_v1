@@ -325,15 +325,29 @@ class cleanse
 					$field_title = $_meta['field_title'][$required_field];
 				}
 
-				if(!$data[$required_field] && $data[$required_field] !== 0 && $data[$required_field] !== '0')
+				// contain null, '', 0, false
+				if(!$data[$required_field])
 				{
-					if($data[$required_field] === false && !\dash\engine\process::status())
+					$send_variable = false;
+
+					if(is_numeric($data[$required_field]))
 					{
-						// we have an error in this field. needless to alert required
+						if(floatval($data[$required_field]) === floatval(0))
+						{
+							$send_variable = true;
+						}
 					}
-					else
+
+					if(!$send_variable)
 					{
-						\dash\notif::error(T_("Field :val is required", ['val' => $field_title]), ['code' => 1500, 'element' => $required_field]);
+						if($data[$required_field] === false && !\dash\engine\process::status())
+						{
+							// we have an error in this field. needless to alert required
+						}
+						else
+						{
+							\dash\notif::error(T_("Field :val is required", ['val' => $field_title]), ['code' => 1500, 'element' => $required_field]);
+						}
 					}
 				}
 			}
