@@ -20,6 +20,9 @@ class baby
 			\dash\header::status(412, 'Hi Father!');
 		}
 
+		// check origine
+		self::origin();
+
 		// check duble slash in url
 		self::dbl_slash();
 
@@ -92,6 +95,19 @@ class baby
 	}
 
 
+	private static function origin()
+	{
+		if (isset($_SERVER['HTTP_ORIGIN']))
+		{
+        	if(strpos(\dash\url::base(), $_SERVER['HTTP_ORIGIN']) !== 0)
+        	{
+            	self::$level = 30;
+				self::pacifier();
+        	}
+    	}
+	}
+
+
 	private static function dbl_slash()
 	{
 		// @check
@@ -115,7 +131,7 @@ class baby
 		$msg = 'Hi Baby'. str_repeat('!', self::$level);
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
-			\dash\header::status(418, $msg. ' Are you healthy?');
+			\dash\header::status(418, T_("Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request."). ' '. str_repeat('!', self::$level));
 		}
 		else
 		{
