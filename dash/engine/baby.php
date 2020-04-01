@@ -22,7 +22,6 @@ class baby
 
 		// check origine
 		self::origin();
-		self::xframe_option();
 
 		// check duble slash in url
 		self::dbl_slash();
@@ -93,23 +92,6 @@ class baby
 			}
 		}
 		// we can add some check on php://input and maybe another one!
-	}
-
-
-	private static function xframe_option()
-	{
-		if(isset($_SERVER['HTTP_REFERER']))
-		{
-			$enamad = 'https://trustseal.enamad.ir/';
-
-			if(strpos($_SERVER['HTTP_REFERER'], $enamad) !== false)
-			{
-				@header('X-Frame-Options: *');
-				return;
-			}
-
-		}
-		@header('X-Frame-Options: DENY');
 	}
 
 
