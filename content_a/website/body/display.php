@@ -26,8 +26,18 @@
   <ul>
   <?php foreach (\dash\data::bodyLineList() as $key => $value) {?>
      <li>
-        <a class="f" href="#">
-          <div class="key"><?php echo $value;?></div>
+        <a class="f">
+          <div class="key">
+            <div class="f">
+              <div class="c"><?php echo \dash\get::index($value, 'title')?> <?php echo $value?></div>
+              <div class="c"></div>
+              <div class="cauto"><div data-confirm data-data='{"removeline" : "removeline", "linekey": "<?php echo $key; ?>", "linetype": "<?php echo $value; ?>"}' class="link fc-red"><?php echo T_("Remove"); ?></div></div>
+              <div class="c1"></div>
+              <div class="cauto"><div data-ajaxify data-data='{"editline": ""}' data-method='post' class="link"><?php echo T_("Edit"); ?></div></div>
+            </div>
+
+
+            </div>
           <div class="go"></div>
         </a>
      </li>
