@@ -111,10 +111,15 @@ class baby
 
 	    	if($last_char === '/' || $last_char === '.')
 	    	{
-			    header('Access-Control-Allow-Origin: ' . $origin);
 	    	    // header('Access-Control-Allow-Origin: *', true);
-				header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-				header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+			    header('Access-Control-Allow-Origin: ' . $origin);
+
+				// header('Access-Control-Allow-Headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With');
+				header('Access-Control-Allow-Headers: Accept,Cache-Control,Content-Type,Keep-Alive,Origin,X-Requested-With');
+
+				// header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+				header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+
 	    	}
 	    	else
 	    	{
