@@ -153,7 +153,7 @@ class header
 		$status_header = "HTTP/1.1 $_code $desc";
 		@header($status_header, true, $_code);
 
-		\dash\log::file(null, "$_code.txt", 'header');
+		\dash\log::file($status_header. ' -- '. $_text, "$_code.txt", 'header');
 
 		// translate desc of header if in this level T_ fn is defined!
 		$translatedDesc = $desc;
