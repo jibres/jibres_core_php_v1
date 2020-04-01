@@ -111,18 +111,23 @@ class baby
 	/**
 	 * check duble slass in url
 	 */
-	private static function pacifier()
+	public static function pacifier($_level = null)
 	{
-		$msg = 'Hi Baby'. str_repeat('!', self::$level);
+		if($_level === null)
+		{
+			$_level = self::$level;
+		}
+
+		$msg = 'Hi Baby'. str_repeat('!', $_level);
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
-			\dash\header::status(418, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', self::$level));
+			\dash\header::status(418, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', $_level));
 		}
 		else
 		{
 			\dash\header::status(418, $msg);
 		}
-		self::$level = null;
+
 	}
 
 

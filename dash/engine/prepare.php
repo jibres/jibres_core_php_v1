@@ -83,8 +83,7 @@ class prepare
 	    	{
 		    	if(substr($origin, 0, 8) !== 'https://')
 		    	{
-		    		self::$level = 25;
-					self::pacifier();
+					\dash\engine\baby::pacifier(25);
 		    	}
 	    	}
 
@@ -111,8 +110,8 @@ class prepare
 	    	}
 	    	else
 	    	{
-            	self::$level = 30;
-				self::pacifier();
+
+				\dash\engine\baby::pacifier(30);
 	    	}
     	}
 	}
