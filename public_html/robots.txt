@@ -1,9 +1,5 @@
 User-Agent: *
-Disallow: /cgi-bin/
-Disallow: /enter/
-Disallow: /account/
-Disallow: /a/
-Disallow: /tmp/
 Disallow: /*.txt$
+
 
 Sitemap: /sitemap.xml
