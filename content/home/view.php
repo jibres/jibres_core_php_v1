@@ -54,7 +54,7 @@ class view
 
 		// allow to open homepage via enamad
 		// @header('X-Frame-Options: https://enamad.ir');
-    	header('Access-Control-Allow-Origin: https://ermile.com', true);
+    	// header('Access-Control-Allow-Origin: https://ermile.com', true);
 	}
 }
 ?>

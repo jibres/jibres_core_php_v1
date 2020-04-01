@@ -97,37 +97,31 @@ class baby
 
 	private static function origin()
 	{
+
+		// @TODO
+		// check customer domain origine
+
 		if (isset($_SERVER['HTTP_ORIGIN']))
 		{
 	    	$origin = $_SERVER['HTTP_ORIGIN'];
 
-        	if(strpos(\dash\url::site(), $origin) !== 0)
-        	{
+	    	$domain = \dash\url::domain();
+	    	$myOrigin = str_replace($domain, '', $origin);
+	    	$last_char = substr($myOrigin, -1);
+
+	    	if($last_char === '/' || $last_char === '.')
+	    	{
+			    header('Access-Control-Allow-Origin: ' . $origin);
+	    	    // header('Access-Control-Allow-Origin: *', true);
+				header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+				header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+	    	}
+	    	else
+	    	{
             	self::$level = 30;
 				self::pacifier();
-        	}
-
-			$allowed_domains =
-			[
-			    'http://jibres.local',
-			    'https://jibres.local',
-
-			    'https://jibres.ir',
-			    'https://jibres.com',
-			    'https://jibres.xyz',
-			    'https://jibres.icu',
-			];
-
-			if (in_array($origin, $allowed_domains))
-			{
-			    header('Access-Control-Allow-Origin: ' . $origin);
-			}
-
-	    	// header('Access-Control-Allow-Origin: *', true);
-
+	    	}
     	}
-
-
 	}
 
 
