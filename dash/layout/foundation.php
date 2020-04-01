@@ -127,7 +127,7 @@ if (\dash\data::include_highcharts())
 if (\dash\data::include_editor())
 {
   echo "\n  ";
-  echo '<script async src="'. \dash\layout\func::staticmtime('js/medium-editor.min.js'). '"></script>';
+  echo '<script src="'. \dash\layout\func::staticmtime('js/medium-editor.min.js'). '"></script>';
   echo "\n  ";
   echo '<link  href="'. \dash\layout\func::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
 }
