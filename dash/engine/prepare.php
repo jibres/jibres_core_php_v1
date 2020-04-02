@@ -484,7 +484,7 @@ class prepare
 				// local is exception
 				$target_host .= '.'.\dash\url::tld();
 			}
-			if(\dash\url::tld() === 'icu' || \dash\url::tld() === 'xyz')
+			elseif(\dash\url::tld() === 'icu' || \dash\url::tld() === 'xyz')
 			{
 				// icu and xyz is exception
 				$target_host .= '.'.\dash\url::tld();
