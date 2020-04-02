@@ -5,7 +5,18 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('removeline') === 'removeline')
+		if(\dash\request::post('config_line_key') && \dash\request::post('config_line_type'))
+		{
+			$post =
+			[
+				'config_line_key'      => \dash\request::post('config_line_key'),
+				'config_line_type'     => \dash\request::post('config_line_type'),
+				'body_last_news_limit' => \dash\request::post('body_last_news_limit'),
+			];
+
+			$theme_detail = \lib\app\website_body\config::line($post);
+		}
+		elseif(\dash\request::post('removeline') === 'removeline')
 		{
 			$post =
 			[
