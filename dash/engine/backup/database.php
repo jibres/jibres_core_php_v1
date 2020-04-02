@@ -175,7 +175,7 @@ class database
 		$dest_file  = $_database_name. '_'. $date. '.sql.bz2';
 
 
-		$cmd  = "mysqldump --single-transaction --add-drop-table";
+		$cmd  = "mysqldump --single-transaction --databases --add-drop-table";
 		$cmd .= " --skip-lock-tables ";
 		$cmd .= " --host='$_fuel[host]' --set-charset='$db_charset'";
 		$cmd .= " --user='$_fuel[user]'";
