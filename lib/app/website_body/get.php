@@ -21,7 +21,21 @@ class get
 				$value = [];
 			}
 
-			return $value;
+			$line_detail = \lib\app\website_body\line::list();
+			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
+
+			$result = [];
+			foreach ($value as $index => $line_key)
+			{
+				$result[$index] = $line_key;
+
+				if(isset($line_detail[$line_key]))
+				{
+					$result[$index] = $line_detail[$line_key];
+				}
+			}
+
+			return $result;
 		}
 
 	}
