@@ -9,7 +9,7 @@ class prepare
 		self::hi_developers();
 		self::minimum_requirement();
 
-		// self::xframe_option();
+		self::xframe_option();
 
 		self::error_handler();
 		self::debug();
