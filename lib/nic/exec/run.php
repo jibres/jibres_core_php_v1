@@ -35,6 +35,12 @@ class run
 		// grab URL and pass it to the browser
 		$response = curl_exec($ch);
 
+		if($response === 'Failed to connect to epp.nic.ir port 443: No route to host:7')
+		{
+			\dash\notif::error(T_("Nic server is down!"));
+			return false;
+		}
+
 		if($response === false)	{
 			// echo Errors
 			\dash\log::set('IRNIC:CurlError', ['message' => curl_error($ch)]);
