@@ -31,7 +31,7 @@
             <div class="f">
               <div class="c"><?php echo \dash\get::index($value, 'title')?></div>
               <div class="c"></div>
-              <div class="cauto"><div data-confirm data-data='{"removeline" : "removeline", "linekey": "<?php echo $key; ?>", "linetype": "<?php echo \dash\get::index($value, 'key'); ?>"}' class="link fc-red"><?php echo T_("Remove"); ?></div></div>
+              <div class="cauto"><div data-confirm data-data='{"removeline" : "removeline", "linekey": "<?php echo \dash\get::index($value, 'line_key'); ?>", "linetype": "<?php echo \dash\get::index($value, 'key'); ?>"}' class="link fc-red"><?php echo T_("Remove"); ?></div></div>
               <div class="c1"></div>
               <div class="cauto"><div data-ajaxify data-data='{"editline": ""}' data-method='post' class="link"><?php echo T_("Edit"); ?></div></div>
             </div>

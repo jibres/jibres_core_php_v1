@@ -19,10 +19,23 @@ class set
 
 		$load_line = \lib\db\setting\get::platform_cat_key('website', 'lines', 'list');
 
+		$line_rand_key = microtime();
+		$line_rand_key .= rand(1,9999);
+		$line_rand_key .= rand(1,9999);
+		$line_rand_key .= $data['line'];
+		$line_rand_key = md5($line_rand_key);
+
+		$new_value =
+		[
+			'type'     => $data['line'],
+			'line_key' => $line_rand_key
+		];
+
 		if(!isset($load_line['id']) || !isset($load_line['value']))
 		{
-			$value  = [$_args['line']];
-			$value  = json_encode($value, JSON_UNESCAPED_UNICODE);
+			$value   = [];
+			$value[] = $new_value;
+			$value   = json_encode($value, JSON_UNESCAPED_UNICODE);
 			$insert =
 			[
 				'platform' => 'website',
@@ -40,9 +53,9 @@ class set
 				$value = [];
 			}
 
-			$value[] = $_args['line'];
-			$new_value = json_encode($value, JSON_UNESCAPED_UNICODE);
-			\lib\db\setting\update::value($new_value, $load_line['id']);
+			$value[] = $new_value;
+			$value = json_encode($value, JSON_UNESCAPED_UNICODE);
+			\lib\db\setting\update::value($value, $load_line['id']);
 		}
 
 		\dash\notif::ok(T_("Your line was saved"));
@@ -54,7 +67,7 @@ class set
 	{
 		$condition =
 		[
-			'linekey'  => 'smallint',
+			'linekey'  => 'md5',
 			'linetype' => ['enum' => array_column(\lib\app\website_body\line::list(), 'key')],
 		];
 
@@ -79,11 +92,21 @@ class set
 				$value = [];
 			}
 
-			if(isset($value[$data['linekey']]) && $value[$data['linekey']] === $data['linetype'])
+			$find = false;
+			foreach ($value as $my_key => $my_value)
 			{
-				unset($value[$data['linekey']]);
+				if(isset($my_value['line_key']) && $my_value['line_key'] === $data['linekey'])
+				{
+					if(isset($my_value['type']) && $my_value['type'] === $data['linetype'])
+					{
+						unset($value[$my_key]);
+						$find = true;
+						break;
+					}
+				}
 			}
-			else
+
+			if(!$find)
 			{
 				\dash\notif::error(T_("Invalid line key and line type!"));
 				return false;

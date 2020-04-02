@@ -24,14 +24,14 @@ class get
 			$line_detail = \lib\app\website_body\line::list();
 			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
 
-			$result = [];
-			foreach ($value as $index => $line_key)
-			{
-				$result[$index] = $line_key;
 
-				if(isset($line_detail[$line_key]))
+			$result = [];
+			foreach ($value as $index => $saved_line_detail)
+			{
+				$result[$index] = $saved_line_detail;
+				if(isset($saved_line_detail['type']) && isset($line_detail[$saved_line_detail['type']]))
 				{
-					$result[$index] = $line_detail[$line_key];
+					$result[$index] = array_merge($saved_line_detail, $line_detail[$saved_line_detail['type']]);
 				}
 			}
 
