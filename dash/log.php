@@ -666,6 +666,8 @@ class log
 			$my_text .= "\r\n";
 		}
 
+		// error_log($my_text, 3, $fileAddr);
+
 		@file_put_contents($fileAddr, $my_text, FILE_APPEND);
 	}
 }
