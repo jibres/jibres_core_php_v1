@@ -196,7 +196,7 @@ class baby
 			self::$level = 1;
 			return true;
 		}
-		if(preg_match("/</script>/i", $_txt))
+		if(preg_match("/<\/script>/i", $_txt))
 		{
 			self::$level = 2;
 			return true;
