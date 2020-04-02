@@ -192,10 +192,22 @@ class upgrade
 		$runExec = exec($exec, $return);
 
 
-		\dash\file::append(__DIR__.'/log.me.json', date("Y-m-d H:i:s"). "\n");
-		\dash\file::append(__DIR__.'/log.me.json', 'exec command: '. $exec. "\n");
-		\dash\file::append(__DIR__.'/log.me.json', 'exec result: '. $runExec. "\n");
-		\dash\file::append(__DIR__.'/log.me.json', 'exec all result: '. implode("\n", $return). "\n");
+		$log_detail = '@Date: '. date("Y-m-d H:i:s");
+		$log_detail .= "\n";
+		$log_detail .= '@Query: '. str_repeat('-', 50);
+		$log_detail .= "\n";
+		$log_detail .= str_replace(' ; ', "\n", file_get_contents($_file));
+		$log_detail .= "\n";
+		$log_detail .= '@Result: '. str_repeat('-', 50);
+		$log_detail .= "\n";
+		$log_detail .= implode("\n", $return). "\n";
+
+		\dash\log::file($log_detail, 'upgrade_db_'. date("Y_m_d_H_i_s"), 'upgrade_database');
+
+		// \dash\file::append(__DIR__.'/log.me.json', date("Y-m-d H:i:s"). "\n");
+		// // \dash\file::append(__DIR__.'/log.me.json', 'exec command: '. $exec. "\n");
+		// \dash\file::append(__DIR__.'/log.me.json', 'exec result: '. $runExec. "\n");
+		// \dash\file::append(__DIR__.'/log.me.json', 'exec all result: '. implode("\n", $return). "\n");
 
 		// End line of sql file write SELECT 'OK'; to return ok in exec result ;)
 		if($runExec === 'OK')
