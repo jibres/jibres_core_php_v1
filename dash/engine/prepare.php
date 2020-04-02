@@ -9,7 +9,7 @@ class prepare
 		self::hi_developers();
 		self::minimum_requirement();
 
-		self::xframe_option();
+		// self::xframe_option();
 
 		self::error_handler();
 		self::debug();
@@ -484,12 +484,17 @@ class prepare
 				// local is exception
 				$target_host .= '.'.\dash\url::tld();
 			}
-			elseif(\dash\url::tld() !== 'ir' && \dash\language::current() === 'fa')
+			if(\dash\url::tld() === 'icu' || \dash\url::tld() === 'xyz')
+			{
+				// icu and xyz is exception
+				$target_host .= '.'.\dash\url::tld();
+			}
+			elseif(\dash\language::current() === 'fa')
 			{
 				// disallow open fa in another tld
 				$target_host .= '.ir';
 			}
-			elseif(\dash\url::tld() !== 'com' && \dash\language::current() === 'en')
+			elseif(\dash\language::current() === 'en')
 			{
 				// disallow open en in another tld
 				$target_host .= '.com';
