@@ -11,7 +11,7 @@
       // @TODO check @reza
       ?>
 
-      <input type="search" name="q" placeholder='<?php echo T_("Search our knowledge base..."); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search our knowledge base..."); ?>' id="q" value="<?php echo \dash\data::queryString(); ?>" autocomplete='off'>
       <button class="addon btn "><?php echo T_("Search"); ?></button>
     </div>
   </form>

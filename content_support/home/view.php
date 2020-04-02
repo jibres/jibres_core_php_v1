@@ -123,7 +123,8 @@ class view
 		}
 
 		$search = \dash\request::get('q');
-
+		$search = \dash\validate::search($search, false);
+		\dash\data::queryString($search);
 		if($search)
 		{
 
