@@ -20,6 +20,10 @@ class view
 
 		\dash\data::issetFooter($isset_footer);
 
+		$website_status = \lib\app\website_status\get::status();
+
+		\dash\data::websiteStatus($website_status);
+
 
 	}
 }
