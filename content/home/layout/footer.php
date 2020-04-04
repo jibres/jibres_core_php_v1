@@ -29,7 +29,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
   <div class="fit">
     <figure class="f align-center logo">
       <a class="cauto s12" href="/">
-        <img loading="lazy" src="<?php echo \dash\url::cdn();
+        <img src="<?php echo \dash\url::cdn();
        if (\dash\language::current() === 'fa')
        {
         echo "/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg";
