@@ -125,8 +125,9 @@ class guard
 
 		if(\dash\url::tld() === 'local')
 		{
-			$mine = 'https://'. $_subdomain. '.'. $_domain. '.local';
-			$mine .= ' http://'. $_subdomain. '.'. $_domain. '.local';
+
+			$mine = \dash\url::protocol(). '://'. $_subdomain. '.'. $_domain. '.local';
+			$mine .= ' https://'. $_subdomain. '.'. $_domain. '.com';
 		}
 		elseif(\dash\url::tld() === 'ir')
 		{
