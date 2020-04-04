@@ -173,11 +173,18 @@ class connection
 		}
 
 		// if link exist before this, use it
-		$LinkKey = $myLove['code']. '_'. $myDbName;
-		if(array_key_exists($LinkKey, self::$link_open))
+		if(isset($myLove['code']))
 		{
-			self::$link = self::$link_open[$LinkKey];
-			return true;
+			$LinkKey = $myLove['code']. '_'. $myDbName;
+			if(array_key_exists($LinkKey, self::$link_open))
+			{
+				self::$link = self::$link_open[$LinkKey];
+				return true;
+			}
+		}
+		else
+		{
+			\dash\header::status(503, "!0123 ");
 		}
 
 		// create link
