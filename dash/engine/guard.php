@@ -11,7 +11,7 @@ class guard
 		self::header_content_security_policy();
 		self::header_referrer_policy();
 		self::header_feature_policy();
-		self::header_expect_ct();
+		// self::header_expect_ct();
 		// check server lock status
 		self::server_lock();
 	}
