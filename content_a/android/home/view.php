@@ -39,7 +39,7 @@ class view
 		\dash\data::stat($stat);
 
 
-		\dash\data::loadScript(true);
+		\dash\data::loadScript('/js/chart/a/androiddashboard.js');
 
 
 	}
