@@ -13,6 +13,7 @@
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/vat"><div class="key"><?php echo T_("Tax settings"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/pcpos"><div class="key"><?php echo T_("PC-POS setting"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/googleanalytics"><div class="key"><?php echo T_("Google analytics setting"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/domain"><div class="key"><?php echo T_("Connect store to your domain"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
 
