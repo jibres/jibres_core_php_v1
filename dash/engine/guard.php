@@ -54,11 +54,9 @@ class guard
 		// $csp .= "default-src 'self'; ";
 		$csp .= "default-src 'none'; ";
 		// script-src
-		// $csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com; ";
+		$csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com 'unsafe-inline'; ";
 		// style-src
-		// $csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
-		$csp .= "style-src ". self::csp_domain('cdn'). "; ";
+		$csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
 		// img-src
 		$csp .= "img-src ". self::csp_domain(). " data:; ";
 		// font-src
