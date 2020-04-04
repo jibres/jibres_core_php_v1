@@ -64,6 +64,24 @@ class store
 
 	public static function config()
 	{
+		self::privacy_domain_check();
+
+		$store     = \dash\url::store();
+		$subdomain = \dash\url::subdomain();
+
+		if($store)
+		{
+			self::config_by_store_id();
+		}
+		elseif($subdomain)
+		{
+			self::config_by_subdomain();
+		}
+	}
+
+
+	private static function privacy_domain_check()
+	{
 		$store     = \dash\url::store();
 		$subdomain = \dash\url::subdomain();
 
@@ -75,19 +93,28 @@ class store
 			}
 			else
 			{
-				\dash\header::status(404, T_("Subdomain and store code conflict!"));
+				\dash\header::status(409, T_("Subdomain and store code conflict!"));
 			}
 		}
 
-		if($store)
+		if(self::inCustomerDomain())
 		{
-			self::config_by_store_id();
-		}
-		elseif($subdomain)
-		{
-			self::config_by_subdomain();
-		}
+			if($subdomain)
+			{
+				\dash\header::status(409, T_("Can not route subdomain in your domain!"));
+			}
 
+			if($store)
+			{
+				\dash\header::status(409, T_("Domain and store code conflict!"));
+			}
+
+			// not route any content in customer domain
+			if(\dash\url::content())
+			{
+				\dash\header::status(409, T_("Can not route this address from your domain!"));
+			}
+		}
 	}
 
 
@@ -380,6 +407,7 @@ class store
 		if($load_detail && is_numeric($load_detail))
 		{
 			self::init_by_id($load_detail);
+			\dash\engine\content::set('content_subdomain');
 			self::$inCustomerDomain = true;
 			return true;
 		}
