@@ -55,6 +55,9 @@ class view
 			\dash\data::userToggleSidebar(true);
 		}
 
+
+		\dash\data::googleAnalytics(self::google_analytics());
+
 		// @todo Javad check browser via new lib
 		// \dash\detect\browser::deadbrowserDetection();
 	}
@@ -199,6 +202,42 @@ class view
 
 			\dash\data::userBadge_desc($txtDesc);
 		}
+	}
+
+
+	private static function google_analytics()
+	{
+		// supersaeed guid
+		// UA-130946685-3
+		$google_analytics = null;
+
+		if(\dash\url::tld() === 'ir')
+		{
+			$jibres_google_analytics = 'UA-130946685-2';
+		}
+		else
+		{
+			$jibres_google_analytics = 'UA-130946685-1';
+		}
+
+
+		if(!\dash\engine\store::inStore())
+		{
+			$google_analytics = $jibres_google_analytics;
+		}
+		else
+		{
+			if(\lib\store::detail('google_analytics'))
+			{
+				$google_analytics = \lib\store::detail('google_analytics');
+			}
+			else
+			{
+				$google_analytics = $jibres_google_analytics;
+			}
+		}
+
+		return $google_analytics;
 	}
 
 }
