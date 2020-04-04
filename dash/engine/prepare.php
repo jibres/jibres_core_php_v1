@@ -684,7 +684,7 @@ class prepare
 			$is_bot = false;
 			if($is_bot)
 			{
-				$emergencydomain = root. 'public_html/static/page/domain/bot.php';
+				$emergencydomain = core. 'layout/html/botMode.html';
 				require_once ($emergencydomain);
 				\dash\code::boom();
 			}
@@ -703,14 +703,14 @@ class prepare
 					return true;
 				}
 
-				$emergencydomain = root. 'public_html/static/page/domain/index.php';
+				$emergencydomain = core. 'layout/html/emergencyMode.html';
 				require_once ($emergencydomain);
 				\dash\code::boom();
 			}
 		}
 
 
-		$emergencydomain = root. 'public_html/static/page/domain/unknown.php';
+		$emergencydomain = core. 'layout/html/unknownMode.html';
 		require_once ($emergencydomain);
 		\dash\code::boom();
 	}
