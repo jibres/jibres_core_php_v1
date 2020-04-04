@@ -7,12 +7,10 @@ class guard
 {
 	public static function protect()
 	{
-		// add frame option
 		self::header_xframe_option();
-		// add csp
 		self::header_content_security_policy();
-		// add csp
 		self::header_referrer_policy();
+		self::header_feature_policy();
 		// check server lock status
 		self::server_lock();
 	}
@@ -91,12 +89,21 @@ class guard
 	private static function header_referrer_policy()
 	{
 		// origin-when-cross-origin
-		// The browser will send the full URL to requests to the same origin but only send the origin when requests are cross-origin.
+		// The browser will send the full URL to requests to the same origin
+		// but only send the origin when requests are cross-origin.
 
 		// strict-origin-when-cross-origin
-		// Similar to origin-when-cross-origin above but will not allow any information to be sent when a scheme downgrade happens (the user is navigating from HTTPS to HTTP).
+		// Similar to origin-when-cross-origin above
+		// but will not allow any information to be sent
+		// when a scheme downgrade happens (the user is navigating from HTTPS to HTTP).
 
-		@header("referrer-policy: strict-origin-when-cross-origin");
+		@header("Referrer-Policy: strict-origin-when-cross-origin");
+	}
+
+
+	private static function header_feature_policy()
+	{
+		@header("Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'");
 	}
 
 
@@ -116,7 +123,6 @@ class guard
 
 		return $mine;
 	}
-
 
 
 	private static function server_lock()
