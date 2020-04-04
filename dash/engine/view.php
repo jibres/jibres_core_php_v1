@@ -39,15 +39,15 @@ class view
 		}
 
 
-		\dash\face::site(T_(\dash\option::config('site', 'title')));
-		\dash\face::intro(T_(\dash\option::config('site', 'desc')));
-		\dash\face::slogan(T_(\dash\option::config('site', 'slogan')));
+		\dash\face::site(T_(\dash\face::siteTitle()));
+		\dash\face::intro(T_(\dash\face::siteDesc()));
+		\dash\face::slogan(T_(\dash\face::siteSlogan()));
 		\dash\face::logo(\dash\url::icon());
 		// set custom logo
-		if(\dash\option::config('site', 'logo'))
-		{
-			\dash\face::logo(\dash\url::site(). \dash\option::config('site', 'logo'));
-		}
+		// if(\dash\option::config('site', 'logo'))
+		// {
+		// 	\dash\face::logo(\dash\url::site(). \dash\option::config('site', 'logo'));
+		// }
 
 		// toggle side bar
 		if(\dash\user::sidebar() === null || \dash\user::sidebar() === true)

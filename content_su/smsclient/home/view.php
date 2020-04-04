@@ -8,10 +8,10 @@ class view
 		\dash\data::action_link(\dash\url::here());
 		\dash\data::action_text(T_("Back"));
 
-		$master_api_key = \dash\option::sms('kavenegar', 'masterkey');
+		$master_api_key = null; // \dash\option::sms('kavenegar', 'masterkey');
 		if(!$master_api_key)
 		{
-			$master_api_key = \dash\option::sms('kavenegar', 'apikey');
+			// $master_api_key = \dash\option::sms('kavenegar', 'apikey');
 		}
 
 		// send sms

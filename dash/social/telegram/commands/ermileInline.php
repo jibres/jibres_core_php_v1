@@ -58,12 +58,12 @@ class ermileInline
 
 	public static function iq_about()
 	{
-		$siteTitle  = T_(\dash\option::config('site', 'title'));
-		$siteSlogan = T_(\dash\option::config('site', 'slogan'));
+		$siteTitle  = T_(\dash\face::siteTitle());
+		$siteSlogan = T_(\dash\face::siteSlogan());
 
 		$msg = "<a href='". bot::website(). "'>".$siteTitle. "</a>". "\n";
 		$msg .= $siteSlogan. "\n\n";
-		$msg .= T_(\dash\option::config('site', 'desc')). "\n";
+		$msg .= T_(\dash\face::siteDesc()). "\n";
 		$msg .= bot::website();
 
 		$resultInline =
@@ -119,7 +119,7 @@ class ermileInline
 					'id'                    => 1,
 					'latitude'              => 34.6500896,
 					'longitude'             => 50.8789642,
-					'title'                 => T_(\dash\option::config('site', 'title')),
+					'title'                 => T_(\dash\face::siteTitle()),
 					'description'           => T_('Read more about us'),
 					'address'               => $msg,
 					'foursquare_id'         => '5bd1d8293b8307002bdb5dbb',

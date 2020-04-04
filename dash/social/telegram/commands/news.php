@@ -29,7 +29,7 @@ class news
 	{
 		bot::ok();
 
-		$siteTitle   = T_(\dash\option::config('site', 'title'));
+		$siteTitle   = T_(\dash\face::siteTitle());
 		$apiUrl      = bot::website(). '/api/v6/posts?limit=10';
 		$apiResponse = \dash\curl::go($apiUrl);
 

@@ -114,9 +114,9 @@ class view
 
 	private static function site(&$detail)
 	{
-		$detail['site']['name']   = T_(\dash\option::config('site','title'));
-		$detail['site']['desc']   = T_(\dash\option::config('site','desc'));
-		$detail['site']['slogan'] = T_(\dash\option::config('site','slogan'));
+		$detail['site']['name']   = T_(\dash\face::siteTitle()));
+		$detail['site']['desc']   = T_(\dash\face::siteDesc()));
+		$detail['site']['slogan'] = T_(\dash\face::siteSlogan()));
 		$detail['site']['logo']   = \dash\url::icon();
 	}
 
@@ -276,8 +276,8 @@ class view
 		$intro   = [];
 		$intro[] =
 		[
-			'title'       => T_(\dash\option::config('site','title')),
-			'desc'        => T_(\dash\option::config('site','desc')),
+			'title'       => T_(\dash\face::siteTitle())),
+			'desc'        => T_(\dash\face::siteDesc())),
 			'bg_from'     => '#ffffff',
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',

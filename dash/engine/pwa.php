@@ -7,7 +7,7 @@ class pwa
 {
 	public static function manifest()
 	{
-		$siteTitle = \dash\option::config('site', 'title');
+		$siteTitle = \dash\face::siteTtitle();
 		// $siteTitle = mb_strtolower($siteTitle);
 
 		$manifest  =
@@ -15,7 +15,7 @@ class pwa
 			// 'name'             => T_($siteTitle). ' | '. T_(\dash\option::config('site', 'slogan')),
 			'name'             => T_($siteTitle),
 			'short_name'       => T_($siteTitle),
-			'description'      => T_(\dash\option::config('site', 'desc')),
+			'description'      => T_(\dash\face::siteDesc())),
 			'dir'              => \dash\language::dir(),
 			'lang'             => str_replace('_', '-', \dash\language::currentAll('iso')),
 

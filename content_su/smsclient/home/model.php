@@ -14,10 +14,10 @@ class model
 
 		$result = null;
 
-		$master_api_key = \dash\option::sms('kavenegar', 'masterkey');
+		$master_api_key = null; //\dash\option::sms('kavenegar', 'masterkey');
 		if(!$master_api_key)
 		{
-			$master_api_key = \dash\option::sms('kavenegar', 'apikey');
+			// $master_api_key = \dash\option::sms('kavenegar', 'apikey');
 		}
 
 		$api    = new \dash\utility\kavenegar_api($master_api_key);

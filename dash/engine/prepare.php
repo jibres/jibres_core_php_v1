@@ -438,18 +438,18 @@ class prepare
 		}
 
 		// help new language detect in target site by set /fa
-		if(!\dash\url::lang() && \dash\option::url('tld') && \dash\option::url('tld') !== \dash\url::tld())
-		{
-			switch (\dash\url::tld())
-			{
-				case 'ir':
-					// $target_host .= '/fa';
-					break;
+		// if(!\dash\url::lang() && \dash\option::url('tld') && \dash\option::url('tld') !== \dash\url::tld())
+		// {
+		// 	switch (\dash\url::tld())
+		// 	{
+		// 		case 'ir':
+		// 			// $target_host .= '/fa';
+		// 			break;
 
-				default:
-					break;
-			}
-		}
+		// 		default:
+		// 			break;
+		// 	}
+		// }
 
 		$target_url = $target_host;
 		$myContent  = \dash\url::content();

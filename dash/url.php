@@ -385,7 +385,7 @@ class url
 	private static function _sitelang()
 	{
 		$myAddr = '';
-		$isFree = \dash\option::url('freeSubdomain');
+		$isFree = null; // \dash\option::url('freeSubdomain');
 		if($isFree)
 		{
 			$myAddr = self::_base();

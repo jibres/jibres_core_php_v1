@@ -27,5 +27,23 @@ class face
 		// if key is not set return null
 		return null;
 	}
+
+
+	public static function siteTitle()
+	{
+		return "Jibres";
+	}
+
+
+	public static function siteDesc()
+	{
+		return "Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.";
+	}
+
+
+	public static function siteSlogan()
+	{
+		return "Integrated Sales and Online Accounting";
+	}
 }
 ?>

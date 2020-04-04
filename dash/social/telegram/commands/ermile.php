@@ -12,7 +12,7 @@ class ermile
 	 */
 	public static function run($_cmd)
 	{
-		$siteTitle = \dash\option::config('site', 'title');
+		$siteTitle = \dash\face::siteTitle();
 		$domanName = \dash\url::root();
 
 		switch ($_cmd['command'])
@@ -175,8 +175,8 @@ class ermile
 		$result['text'] = T_('Hello!'). "\n";
 		$result['text'] .= T_('We are so glad to meet you.'). "\n\n";
 
-		$result['text'] .= "<a href='". bot::website(). "'>".T_(\dash\option::config('site', 'title')). "</a>". "\n";
-		$result['text'] .= T_(\dash\option::config('site', 'slogan')). "\n\n";
+		$result['text'] .= "<a href='". bot::website(). "'>".T_(\dash\face::siteTitle()). "</a>". "\n";
+		$result['text'] .= T_(\dash\face::siteSlogan()). "\n\n";
 		// $result['text'] .= bot::website(). "\n";
 		$result['text'] .= '/help'. "\n";
 		$result['text'] .= T_('Made by @Ermile');
@@ -194,9 +194,9 @@ class ermile
 	 */
 	public static function about()
 	{
-		$msg = "<b>".T_(\dash\option::config('site', 'title')). "</b>\n";
-		$msg .= T_(\dash\option::config('site', 'slogan')). "\n\n";
-		$msg .= T_(\dash\option::config('site', 'desc'));
+		$msg = "<b>".T_(\dash\face::siteTitle()). "</b>\n";
+		$msg .= T_(\dash\face::siteSlogan()). "\n\n";
+		$msg .= T_(\dash\face::siteDesc());
 
 		$result = [];
 		$result['method']  = "sendPhoto";
@@ -243,7 +243,7 @@ class ermile
 			'method'    => "sendVenue",
 			'latitude'  => '34.6500896',
 			'longitude' => '50.8789642',
-			'title'     => T_(\dash\option::config('site', 'title')),
+			'title'     => T_(\dash\face::siteTitle()),
 			'address'   => $address,
 			'foursquare_id' => '5bd1d8293b8307002bdb5dbb',
 			'text'      => T_("We are happy to see you!"),
@@ -285,9 +285,9 @@ class ermile
 
 	public static function website()
 	{
-		$msg = "<a href='". bot::website(). "'>".T_(\dash\option::config('site', 'title')). "</a>". "\n";
-		$msg .= T_(\dash\option::config('site', 'slogan')). "\n\n";
-		$msg .= T_(\dash\option::config('site', 'desc')). "\n";
+		$msg = "<a href='". bot::website(). "'>".T_(\dash\face::siteTitle()). "</a>". "\n";
+		$msg .= T_(\dash\face::siteSlogan()). "\n\n";
+		$msg .= T_(\dash\face::siteDesc()). "\n";
 		$msg .= bot::website();
 
 		$result = [];
@@ -300,13 +300,13 @@ class ermile
 			[
 				[
 					[
-						'text' => T_("Open :val website", ['val' => T_(\dash\option::config('site', 'title'))]),
+						'text' => T_("Open :val website", ['val' => T_(\dash\face::siteTitle())]),
 						'url'  => bot::website(),
 					],
 				],
 				[
 					[
-						'text' => T_(":val Telegram bot", ['val' => T_(\dash\option::config('site', 'title'))]),
+						'text' => T_(":val Telegram bot", ['val' => T_(\dash\face::siteTitle())]),
 						'url'  => bot::deepLink()
 					],
 				]
@@ -421,7 +421,7 @@ class ermile
 			bot::answerCallbackQuery(T_("Sync account"));
 		}
 
-		$result['text'] .= "\n". T_('You can connect complete your registeration on :val from telegram by share your mobile number.', ['val' => T_(\dash\option::config('site', 'title'))]);
+		$result['text'] .= "\n". T_('You can connect complete your registeration on :val from telegram by share your mobile number.', ['val' => T_(\dash\face::siteTitle())]);
 		$result['text'] .= "\n\n". T_('By press share contact we get your mobile and after that you can use our website and your account is synced.');
 		$result['text'] .= "\n\n". T_('Also you can do it anytime you need with /register command.');
 
@@ -530,7 +530,7 @@ class ermile
 			// add sync
 			if(\dash\user::detail('mobile'))
 			{
-				$menu['keyboard'][] = [T_("Website"). ' '. T_(\dash\option::config('site', 'title'))];
+				$menu['keyboard'][] = [T_("Website"). ' '. T_(\dash\face::siteTitle())];
 			}
 			else
 			{
