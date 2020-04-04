@@ -79,7 +79,9 @@
 	</div>
 </div>
 
-<script>
-<?php require_once(root. 'content_a/pricehistory/chart.js'); ?>
-</script>
-
+<div class="hide">
+	<div id="charttitle"><?php echo T_("Price change in time line"); ?></div>
+	<div id="chartcategory"><?php echo \dash\data::cahrtDetail_categories(); ?></div>
+	<div id="charttitleprice"><?php echo T_("Price"); ?></div>
+	<div id="chartseries"><?php echo \dash\data::cahrtDetail_data(); ?></div>
+</div>
