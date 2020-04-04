@@ -13,4 +13,7 @@
       </div>
     </div>
 
-
+<div class="hide">
+  <div id="urlthat"><?php echo \dash\url::that(); ?></div>
+  <div id="urlthis"><?php echo \dash\url::this(); ?></div>
+</div>

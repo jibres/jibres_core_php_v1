@@ -11,7 +11,7 @@ class view
 
 		\dash\data::userToggleSidebar(false);
 
-		\dash\data::loadScript(true);
+		\dash\data::loadScript('/js/page/store_creating.js');
 	}
 }
 ?>
