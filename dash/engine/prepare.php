@@ -789,7 +789,13 @@ class prepare
 
 	private static function header_referrer_policy()
 	{
-		// @header("referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin;");
+		// origin-when-cross-origin
+		// The browser will send the full URL to requests to the same origin but only send the origin when requests are cross-origin.
+
+		// strict-origin-when-cross-origin
+		// Similar to origin-when-cross-origin above but will not allow any information to be sent when a scheme downgrade happens (the user is navigating from HTTPS to HTTP).
+
+		@header("referrer-policy: origin-when-cross-origin;");
 	}
 
 
