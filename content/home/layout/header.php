@@ -40,6 +40,9 @@ else
     </div>
    </div>
   </div>
+<?php if (\dash\language::current() !== 'fa' && \dash\request::country() === 'IR') {?>
+  <a id="jibresGoToFa" href="https://jibres.ir" target="_blank">سلام. برای استفاده از نسخه فارسی جیبرس کلیک کنید</a>
+<?php }?>
   <section id='jibresPageTitle'><div class="typing"><span class="typed"></span></div>
 <?php
 if (\dash\url::module())
