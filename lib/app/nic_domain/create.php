@@ -8,7 +8,7 @@ class create
 	{
 		$condition =
 		[
-			'domain'      => 'domain',
+			'domain'      => 'ir_domain',
 			'nic_id'      => 'irnic_id',
 			'period'      => ['enum' => ['1year', '5year']],
 			'ns1'         => 'dns',
