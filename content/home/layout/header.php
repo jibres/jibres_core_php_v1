@@ -1,5 +1,5 @@
 
-  <div id="jibresHeader" <?php echo \dash\request::country(); ?>>
+  <div id="jibresHeader">
    <div class="fit">
     <div class="f">
      <div class="cauto">
