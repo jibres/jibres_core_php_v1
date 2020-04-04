@@ -527,10 +527,10 @@ class permission
 		}
 
 		// for test and debug permission
-		if(self::$test_mode)
-		{
-			return self::check_test($_caller);
-		}
+		// if(self::$test_mode)
+		// {
+		// 	return self::check_test($_caller);
+		// }
 
 		self::load_user($_user_id);
 

@@ -127,7 +127,16 @@ class request
 	{
 		$input = @file_get_contents('php://input');
 
-		$result = \dash\engine\baby::check($input, ["`" , "'", '*']);
+
+		if(\dash\engine\baby::hex($input))
+		{
+			\dash\engine\baby::pacifier(12, 424);
+		}
+
+		if(\dash\engine\baby::script($input))
+		{
+			\dash\engine\baby::pacifier(12, 424);
+		}
 
 		return $input;
 	}
