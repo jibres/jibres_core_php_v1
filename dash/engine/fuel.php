@@ -70,15 +70,17 @@ class fuel
 	{
 		$target = null;
 
+		if(!function_exists('gethostname'))
+		{
+			\dash\header::status(505, 'Function gethostname not exists');
+		}
+
+		$gethostname = gethostname();
+
 		// for example: the request need to connect jibres101 but the local need to connect to reza-jibres
 		if(\dash\url::isLocal())
 		{
-			if(!function_exists('gethostname'))
-			{
-				\dash\header::status(505, 'Function gethostname not exists');
-			}
-
-			$target = gethostname();
+			$target = 'local';
 		}
 		elseif(in_array($_requested_fuel, ['master', 'nic', 'nic_log']))
 		{
@@ -96,6 +98,8 @@ class fuel
 			// jibres101, jibres203, ...
 			$target = $_requested_fuel;
 		}
+
+		$target = $target. '_from_'. $gethostname;
 
 		$result = \dash\setting\fuel::server($target);
 
