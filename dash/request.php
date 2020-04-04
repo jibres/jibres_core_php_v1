@@ -245,5 +245,21 @@ class request
 		return self::is_app('ios');
 	}
 
+
+	public static function country()
+	{
+		if(isset($_SERVER['HTTP_CF_IPCOUNTRY']))
+		{
+			$ipCountry = mb_strtoupper($_SERVER['HTTP_CF_IPCOUNTRY']);
+		}
+		elseif(isset($_SERVER['HTTP_AR_REAL_COUNTRY']))
+		{
+			$ipCountry = mb_strtoupper($_SERVER['HTTP_AR_REAL_COUNTRY']);
+		}
+		else
+		{
+			return null;
+		}
+	}
 }
 ?>
