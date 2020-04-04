@@ -55,7 +55,7 @@ class guard
 		$csp .= "default-src 'none'; ";
 		// script-src
 		// $csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com static.cloudflareinsights.com; ";
+		$csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com static.cloudflareinsights.com 'unsafe-inline'; ";
 		// style-src
 		$csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_domain('cdn'). "; ";
