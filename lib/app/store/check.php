@@ -22,14 +22,15 @@ class check
 
 		$condition =
 		[
-			'title'   => 'title',
-			'website' => 'website',
-			'desc'    => 'desc',
-			'lang'    => 'lang',
-			'status'  => ['enum' => ['enable', 'disable', 'close']],
-			'address' => 'address',
-			'phone'   => 'phone',
-			'mobile'  => 'mobile',
+			'title'            => 'title',
+			'website'          => 'website',
+			'desc'             => 'desc',
+			'lang'             => 'lang',
+			'status'           => ['enum' => ['enable', 'disable', 'close']],
+			'address'          => 'address',
+			'phone'            => 'phone',
+			'mobile'           => 'mobile',
+			'google_analytics' => 'string_50',
 		];
 
 		$require = ['title'];
@@ -37,6 +38,16 @@ class check
 		$meta =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if($data['google_analytics'])
+		{
+			if(!preg_match("/^[A-Za-z0-9\-]+$/", $data['google_analytics']))
+			{
+				\dash\notif::error(T_("Only Latin letter and number can use in google analytics code"), 'google_analytics');
+				return false;
+			}
+		}
 
 		return $data;
 	}
