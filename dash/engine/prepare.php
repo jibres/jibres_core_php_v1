@@ -719,7 +719,6 @@ class prepare
 	private static function hi_developers()
 	{
 		// change header and remove php from it
-		@header("X-Made-In: Ermile!");
 		@header("X-Powered-By: Jibres");
 		$server_code_name = \dash\engine\fuel::server_code_name(\dash\server::server_ip());
 		@header("X-Node: ". $server_code_name);
