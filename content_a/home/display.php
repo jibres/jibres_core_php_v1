@@ -109,3 +109,14 @@
   </div>
 </div>
 
+
+
+<div class="hide">
+  <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardData(), 'chart', 'categories'); ?></div>
+  <div id="chartsum"><?php echo \dash\get::index(\dash\data::dashboardData(), 'chart', 'sum'); ?></div>
+  <div id="chartcount"><?php echo \dash\get::index(\dash\data::dashboardData(), 'chart', 'count'); ?></div>
+  <div id="charttitle"><?php echo T_("Sum factor price and count of it group by hours"); ?></div>
+  <div id="charttitlesum"><?php echo T_("Sum price"); ?></div>
+  <div id="charttitlecount"><?php echo T_("Count"); ?></div>
+  <div id="charttitleunit"><?php echo T_("Toman"); ?></div>
+</div>
