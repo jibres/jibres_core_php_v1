@@ -112,7 +112,7 @@ class guard
 	{
 		if(\dash\url::protocol() === 'https')
 		{
-			@header("Expect-CT : max-age=0;");
+			// @header("Expect-CT : max-age=0;");
 		}
 	}
 
