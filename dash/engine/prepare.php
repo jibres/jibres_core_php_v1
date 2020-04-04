@@ -9,7 +9,6 @@ class prepare
 		self::hi_developers();
 		self::minimum_requirement();
 
-
 		self::error_handler();
 		self::debug();
 	}
@@ -33,9 +32,11 @@ class prepare
 		// dont run on some condition
 		self::dont_run_exception();
 		// add frame option
-		self::xframe_option();
+		self::header_xframe_option();
 		// add csp
-		self::content_security_policy();
+		self::header_content_security_policy();
+		// add csp
+		self::header_referrer_policy();
 		// check service is locked
 		self::server_lock();
 		// check run site in iframe
@@ -729,7 +730,7 @@ class prepare
 
 
 
-	private static function xframe_option()
+	private static function header_xframe_option()
 	{
 		if(isset($_SERVER['HTTP_REFERER']))
 		{
@@ -746,7 +747,7 @@ class prepare
 	}
 
 
-	private static function content_security_policy()
+	private static function header_content_security_policy()
 	{
 		$csp = '';
 		// default src
@@ -777,13 +778,20 @@ class prepare
 		// frame-ancestors
 		$csp .= "frame-ancestors 'none'; ";
 		// block all mixed content
-		$csp .= "block-all-mixed-content; ";
+		$csp .= "block-all-mixed-content;";
 
 		// @todo add report
 		// report-uri core.jibres.com/r10/csp/log
 
-		@header("Content-Security-Policy: ". $csp. ";");
+		@header("Content-Security-Policy: ". $csp);
 	}
+
+
+	private static function header_referrer_policy()
+	{
+		// @header("referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin;");
+	}
+
 
 	private static function csp_domain($_subdomain = '*', $_domain = 'talambar')
 	{
