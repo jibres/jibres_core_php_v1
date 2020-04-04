@@ -47,6 +47,12 @@ class content
 		// list of contents exist in dash,
 		$myrep       = 'content_'.$_content_name;
 
+		// the customer domain only show the content subdomain
+		if(\dash\engine\store::inCustomerDomain())
+		{
+			return self::set('content_subdomain');
+		}
+
 		// check content_aaa folder is exist in project folder
 		if(in_array($_content_name, self::content_list()))
 		{

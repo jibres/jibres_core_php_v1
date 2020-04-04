@@ -20,6 +20,14 @@ class store
 
 
 	/**
+	 * CHECK DOMAIN LOADED IS A CUSTOMER DOMAIN OR NOT
+	 *
+	 * @var        boolean
+	 */
+	private static $inCustomerDomain = false;
+
+
+	/**
 	 * if not found store detail file check store detail in database one time
 	 *
 	 * @var        boolean
@@ -37,6 +45,11 @@ class store
 		return self::$IN_SOTE;
 	}
 
+
+	public static function inCustomerDomain()
+	{
+		return self::$inCustomerDomain;
+	}
 
 	/**
 	 * Stores a detail.
@@ -350,6 +363,11 @@ class store
 
 	public static function is_customer_domain($_domain)
 	{
+		if(self::$inCustomerDomain)
+		{
+			return true;
+		}
+
 		$customer_domain = self::customer_domain_addr(). $_domain;
 		if(!is_file($customer_domain))
 		{
@@ -362,6 +380,7 @@ class store
 		if($load_detail && is_numeric($load_detail))
 		{
 			self::init_by_id($load_detail);
+			self::$inCustomerDomain = true;
 			return true;
 		}
 	}

@@ -88,6 +88,10 @@ class store
 				return \dash\url::subdomain();
 			}
 		}
+		elseif(\dash\engine\store::inCustomerDomain())
+		{
+			return \dash\url::domain();
+		}
 	}
 
 
@@ -119,13 +123,12 @@ class store
 
 		self::clean_session(self::store_slug());
 
-		if(\dash\url::store())
+		$store_detail_file = [];
+
+		$store_id = \dash\engine\store::store_detail();
+		if(isset($store_id['id']) && is_numeric($store_id['id']))
 		{
- 			$store_detail_file = \dash\engine\store::init_by_id(\dash\store_coding::decode(self::store_slug()));
-		}
-		else
-		{
- 			$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
+			$store_detail_file = \dash\engine\store::init_by_id($store_id['id']);
 		}
 
  		// no file founded an no record existe in jibres database
