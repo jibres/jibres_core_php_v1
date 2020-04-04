@@ -86,7 +86,7 @@ class apilog
 		}
 		else
 		{
-			$rawInput = @file_get_contents('php://input');
+			$rawInput = \dash\request::php_input();
 			if($rawInput)
 			{
 				$myBody = $rawInput;

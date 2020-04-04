@@ -83,7 +83,7 @@ class tg
 	public static function fisher()
 	{
 		// get hook and save in static variable
-		self::$hook = json_decode(file_get_contents('php://input'), true);
+		self::$hook = json_decode(\dash\request::php_input(), true);
 		// save hook datetime
 		log::hook();
 		// force set session for this telegram user

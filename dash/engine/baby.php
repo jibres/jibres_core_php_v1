@@ -129,7 +129,7 @@ class baby
 	 * @param  boolean $_onlyCheck [description]
 	 * @return [type]              [description]
 	 */
-	public static function check($_txt, $_block = false)
+	public static function check($_txt, $_block = false, $_block_char = null)
 	{
 		$result = null;
 		$status_code = 418;
@@ -154,7 +154,7 @@ class baby
 			$result = true;
 		}
 		// check for problem for containing forbidden chars
-		else if(self::forbidden($_txt))
+		else if(self::forbidden($_txt, $_block_char))
 		{
 			$result = true;
 		}

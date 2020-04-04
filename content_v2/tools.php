@@ -256,7 +256,7 @@ class tools
 				\dash\notif::warn(T_("Send your request as json not in post field"));
 			}
 
-			$request = @file_get_contents('php://input');
+			$request = \dash\request::php_input();
 			if(is_string($request))
 			{
 				$request = json_decode($request, true);

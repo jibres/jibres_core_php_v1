@@ -118,6 +118,22 @@ class request
 
 
 	/**
+	 * Get php input for api
+	 * check value by baby check
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function php_input()
+	{
+		$input = @file_get_contents('php://input');
+
+		$result = \dash\engine\baby::check($input, ["`" , "'", '*']);
+
+		return $input;
+	}
+
+
+	/**
 	 * check request method
 	 * POST
 	 * GET
