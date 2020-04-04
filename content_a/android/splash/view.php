@@ -15,7 +15,7 @@ class view
 
 		\content_a\android\load::detail();
 
-		\dash\data::loadScript(true);
+		\dash\data::loadScript('/js/pagescript/a/androidsplash.js');
 
 		$theme_color = \lib\app\application\splash::theme_color();
 		\dash\data::themeColor($theme_color);
