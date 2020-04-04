@@ -41,7 +41,16 @@ class url
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Domain is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\notif::error(T_("Domain must be contain one dot character."), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+		}
+
+		if(substr_count($data, '.') >= 2)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Doamin must contain only one dot character"), ['element' => $_element, 'code' => 1605]);
 			}
 			return false;
 		}
