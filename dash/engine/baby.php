@@ -179,6 +179,12 @@ class baby
 			self::$level = 2;
 			return true;
 		}
+		if(preg_match("%00", $_txt))
+		{
+			var_dump(11);
+			self::$level = 3;
+			return true;
+		}
 		// if cant find something return false
 		return false;
 	}
@@ -246,6 +252,11 @@ class baby
 			self::$level = 3;
 			return true;
 		}
+		if(preg_match("/fromCharCode/i", $_txt))
+		{
+			self::$level = 4;
+			return true;
+		}
 		if(preg_match("/xmltype(.*)\(/i", $_txt))
 		{
 			self::$level = 4;
@@ -287,6 +298,8 @@ class baby
 			}
 		}
 	}
+
+
 
 }
 ?>
