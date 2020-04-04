@@ -22,7 +22,6 @@ class baby
 
 		// check duble slash in url
 		self::dbl_slash();
-
 		// check request uri
 		self::check($_SERVER['REQUEST_URI'], true);
 
@@ -136,6 +135,13 @@ class baby
 		$status_code = 418;
 		// decode url
 		$_txt = urldecode($_txt);
+
+		if(self::blockNonPrintableChar($_txt))
+		{
+			$status_code = 431;
+			$result = true;
+			self::pacifier(null, $status_code);
+		}
 		// check for problem in hex
 		if(self::hex($_txt))
 		{
@@ -179,9 +185,8 @@ class baby
 			self::$level = 2;
 			return true;
 		}
-		if(preg_match("%00", $_txt))
+		if(preg_match("/%00/", $_txt))
 		{
-			var_dump(11);
 			self::$level = 3;
 			return true;
 		}
@@ -300,6 +305,73 @@ class baby
 	}
 
 
+	private static function blockNonPrintableChar($_txt)
+	{
+		if(preg_match('/[\x00-\x1F\x7F-\xFF]/', $_txt))
+		{
+			self::$level = 11;
+			return true;
+		}
+		if(preg_match('/[\x00-\x1F\x7F]/', $_txt))
+		{
+			self::$level = 12;
+			return true;
+		}
+		if(preg_match('/[\x00-\x1F\x7F]/u', $_txt))
+		{
+			self::$level = 13;
+			return true;
+		}
+		if(preg_match('/[\x00-\x1F\x7F\xA0]/u', $_txt))
+		{
+			self::$level = 14;
+			return true;
+		}
+		if(preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/u', $_txt))
+		{
+			self::$level = 15;
+			return true;
+		}
+		if(preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', $_txt))
+		{
+			self::$level = 16;
+			return true;
+		}
+		if(preg_match('/[\x00-\x1F\x7F-\xA0\xAD]/u', $_txt))
+		{
+			self::$level = 17;
+			return true;
+		}
+		if(preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/u', $_txt))
+		{
+			self::$level = 18;
+			return true;
+		}
+  		if(preg_match('/(?>[\x00-\x1F]|\xC2[\x80-\x9F]|\xE2[\x80-\x8F]{2}|\xE2\x80[\xA4-\xA8]|\xE2\x81[\x9F-\xAF])/', $_txt))
+		{
+			self::$level = 20;
+			return true;
+		}
+		$badchar = [
+			// control characters
+			chr(0), chr(1), chr(2), chr(3), chr(4), chr(5), chr(6), chr(7), chr(8), chr(9), chr(10),
+			chr(11), chr(12), chr(13), chr(14), chr(15), chr(16), chr(17), chr(18), chr(19), chr(20),
+			chr(21), chr(22), chr(23), chr(24), chr(25), chr(26), chr(27), chr(28), chr(29), chr(30),
+			chr(31),
+			// non-printing characters
+			chr(127)
+		];
 
+		//replace the unwanted chars
+		$newStr = str_replace($badchar, '', $_txt);
+		// exit();
+		if($_txt !== $newStr)
+		{
+			self::$level = 21;
+			return true;
+		}
+
+		return false;
+	}
 }
 ?>
