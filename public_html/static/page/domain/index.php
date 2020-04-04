@@ -8,8 +8,8 @@
   <meta name="viewport"     content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="description"  content="Jibres is fantastic! new service is comming soon">
   <meta name="author"       content="Javad Adib | Jibres">
-  <link href="static/page/domain/style.css"    rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon-64x64.png" type="image/x-icon" />
+  <link href="https://cdn.talambar.com/static/page/domain/style.css"    rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="https://cdn.talambar.com/favicons/favicon-64x64.png" type="image/x-icon" />
   <!-- [if lte IE 8]><script>document.location = 'http://deadbrowser.com';</script><![endif] -->
 
  </head>
@@ -26,6 +26,6 @@
 
   <div id="maximage" class="mc-cycle"><div class="mc-image bg1"></div></div>
   <div class="mesh"></div>
-  <script type="text/javascript" src="static/js/siftal.min.js"></script>
+  <script type="text/javascript" src="https://cdn.talambar.com/favicons/js/siftal.min.js"></script>
  </body>
 </html>
