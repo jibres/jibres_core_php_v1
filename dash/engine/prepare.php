@@ -652,7 +652,6 @@ class prepare
 	{
 
 		$domain = \dash\url::domain();
-
 		switch ($domain)
 		{
 			case 'jibres.com':
@@ -664,7 +663,7 @@ class prepare
 		}
 
 		// check is customer domain or no
-		$is_customer_domain = false;
+		$is_customer_domain = \dash\engine\store::is_customer_domain($domain);
 
 		if($is_customer_domain)
 		{

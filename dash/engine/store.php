@@ -348,6 +348,31 @@ class store
 	}
 
 
+	public static function is_customer_domain($_domain)
+	{
+		$customer_domain = self::customer_domain_addr(). $_domain;
+		if(!is_file($customer_domain))
+		{
+			return false;
+		}
+
+		$load_detail = \dash\file::read($customer_domain);
+		$load_detail = trim($load_detail);
+
+		if($load_detail && is_numeric($load_detail))
+		{
+			self::init_by_id($load_detail);
+			return true;
+		}
+	}
+
+
+
+	public static function customer_domain_addr()
+	{
+		return root. 'includes/stores/domain/';
+	}
+
 	/**
 	 * subdomain folder addr
 	 * use in this file and app store add

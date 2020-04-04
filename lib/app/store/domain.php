@@ -89,7 +89,7 @@ class domain
 			$old_domain = $_old_record['value'];
 		}
 
-		$domain_addr = root. 'includes/stores/domain/';
+		$domain_addr = \dash\engine\store::customer_domain_addr();
 
 		if(!\dash\file::exists($domain_addr))
 		{
