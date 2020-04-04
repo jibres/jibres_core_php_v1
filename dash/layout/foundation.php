@@ -151,7 +151,8 @@ if(\dash\data::googleAnalytics())
 {
   $gAnalytics = \dash\data::googleAnalytics();
   echo "\n  ";
-  echo '<script async src="https://www.googletagmanager.com/gtag/js?id='. $gAnalytics. '"></script>';
+  echo "<script async id='gAnalyticsScript' data-id='$gAnalytics' src='https://www.googletagmanager.com/gtag/js?id=". $gAnalytics. "'></script>";
+  echo "\n  ";
   echo "<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '$gAnalytics'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '$gAnalytics', {'page_path': pathname}); }</script>";
 }
 
