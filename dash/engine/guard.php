@@ -11,6 +11,7 @@ class guard
 		self::header_content_security_policy();
 		self::header_referrer_policy();
 		self::header_feature_policy();
+		self::header_expect_ct();
 		// check server lock status
 		self::server_lock();
 	}
@@ -104,6 +105,15 @@ class guard
 	private static function header_feature_policy()
 	{
 		@header("Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'");
+	}
+
+
+	private static function header_expect_ct()
+	{
+		if(\dash\url::protocol() === 'https')
+		{
+			@header("Expect-CT : max-age=0;");
+		}
 	}
 
 
