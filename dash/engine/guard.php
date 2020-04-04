@@ -60,7 +60,7 @@ class guard
 		$csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_domain('cdn'). "; ";
 		// img-src
-		$csp .= "img-src ". self::csp_domain(). " data:; ";
+		$csp .= "img-src ". self::csp_domain(). " *.google-analytics.com data:; ";
 		// font-src
 		$csp .= "font-src ". self::csp_domain('cdn'). "; ";
 		// media-src
