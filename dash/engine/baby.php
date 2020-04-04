@@ -29,7 +29,7 @@ class baby
 		// check for requests
 		foreach ($_REQUEST as $key => $value)
 		{
-			if(mb_strlen($key) > 20)
+			if(mb_strlen($key) > 40)
 			{
 				self::pacifier(10, 414);
 			}
@@ -44,7 +44,7 @@ class baby
 			{
 				foreach ($value as $key2 => $value2)
 				{
-					if(mb_strlen($key2) > 20)
+					if(mb_strlen($key2) > 40)
 					{
 						self::pacifier(12, 414);
 					}
