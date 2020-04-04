@@ -9,7 +9,6 @@ class prepare
 		self::hi_developers();
 		self::minimum_requirement();
 
-		self::xframe_option();
 
 		self::error_handler();
 		self::debug();
@@ -33,7 +32,10 @@ class prepare
 
 		// dont run on some condition
 		self::dont_run_exception();
-
+		// add frame option
+		self::xframe_option();
+		// add csp
+		self::content_security_policy();
 		// check service is locked
 		self::server_lock();
 		// check run site in iframe
@@ -741,6 +743,63 @@ class prepare
 
 		}
 		@header('X-Frame-Options: DENY');
+	}
+
+
+	private static function content_security_policy()
+	{
+		$csp = '';
+		// default src
+		// $csp .= "default-src 'self'; ";
+		$csp .= "default-src 'none'; ";
+		// script-src
+		$csp .= "script-src ". self::csp_domain('cdn'). " *.google-analytics.com 'unsafe-inline'; ";
+		// style-src
+		$csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
+		// img-src
+		$csp .= "img-src ". self::csp_domain(). " data:; ";
+		// font-src
+		$csp .= "font-src ". self::csp_domain('cdn'). "; ";
+		// media-src
+		$csp .= "media-src ". self::csp_domain(). " data:; ";
+		// frame-src
+		$csp .= "frame-src 'self'; ";
+		// base-uri
+		$csp .= "base-uri 'self'; ";
+		// manifest-src
+		$csp .= "manifest-src 'self'; ";
+		// connect-src
+		$csp .= "connect-src 'self' ". self::csp_domain('*', 'jibres'). "; ";
+		// form-action
+		$csp .= "form-action 'self'; ";
+
+		// -------------------------------------- blocked
+		// frame-ancestors
+		$csp .= "frame-ancestors 'none'; ";
+		// block all mixed content
+		$csp .= "block-all-mixed-content; ";
+
+		// @todo add report
+		// report-uri core.jibres.com/r10/csp/log
+
+		@header("Content-Security-Policy: ". $csp. ";");
+	}
+
+	private static function csp_domain($_subdomain = '*', $_domain = 'talambar')
+	{
+		$mine = 'https://'. $_subdomain. '.'. $_domain. '.com';
+
+		if(\dash\url::tld() === 'local')
+		{
+			$mine = 'https://'. $_subdomain. '.'. $_domain. '.local';
+			$mine .= ' http://'. $_subdomain. '.'. $_domain. '.local';
+		}
+		elseif(\dash\url::tld() === 'ir')
+		{
+			$mine = 'https://'. $_subdomain. '.'. $_domain. '.ir';
+		}
+
+		return $mine;
 	}
 
 
