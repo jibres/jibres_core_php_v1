@@ -307,11 +307,6 @@ class baby
 
 	private static function blockNonPrintableChar($_txt)
 	{
-		if(preg_match('/[\x00-\x1F\x7F-\xFF]/', $_txt))
-		{
-			self::$level = 11;
-			return true;
-		}
 		if(preg_match('/[\x00-\x1F\x7F]/', $_txt))
 		{
 			self::$level = 12;
