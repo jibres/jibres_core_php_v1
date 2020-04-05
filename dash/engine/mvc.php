@@ -286,9 +286,14 @@ class mvc
 	 */
 	private static function load_model()
 	{
-		$my_model = self::$folder_addr. '\\model';
-		if(!\dash\request::is('get'))
+		if(\dash\request::is('options'))
 		{
+			// request option and send okay
+			\dash\header::status(200);
+		}
+		elseif(!\dash\request::is('get'))
+		{
+			$my_model = self::$folder_addr. '\\model';
 			if(class_exists($my_model))
 			{
 				$my_model_function = \dash\open::license(null, true);
