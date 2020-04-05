@@ -1,1 +1,0 @@
-ALTER TABLE `jibres`.`store_app` ADD `file`  varchar(500)   NULL DEFAULT NULL;

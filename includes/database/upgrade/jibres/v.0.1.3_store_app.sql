@@ -1,1 +1,0 @@
-ALTER TABLE `jibres`.`store_app` CHANGE `user_id` `user_id` int(10) UNSIGNED  NULL DEFAULT NULL;
