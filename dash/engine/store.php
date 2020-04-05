@@ -398,7 +398,15 @@ class store
 		$customer_domain = self::customer_domain_addr(). $_domain;
 		if(!is_file($customer_domain))
 		{
-			return false;
+			$check_db = \lib\db\store_domain\get::is_customer_domain($_domain);
+			if(!isset($check_db['store_id']))
+			{
+				return false;
+			}
+			else
+			{
+				\dash\file::write($customer_domain, $check_db['store_id']);
+			}
 		}
 
 		$load_detail = \dash\file::read($customer_domain);

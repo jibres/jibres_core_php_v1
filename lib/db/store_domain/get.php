@@ -11,5 +11,15 @@ class get
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}
+
+
+	public static function is_customer_domain($_domain)
+	{
+		$query  = "SELECT * FROM store_domain WHERE store_domain.domain = '$_domain' LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
+
 }
 ?>
