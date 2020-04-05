@@ -417,7 +417,7 @@ class store
 
 	public static function customer_domain_addr()
 	{
-		return root. 'includes/stores/domain/';
+		return YARD. 'jibres_temp/stores/domain/';
 	}
 
 	/**
