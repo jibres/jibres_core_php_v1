@@ -6,7 +6,7 @@
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <meta name ="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0 maximum-scale=1.5, minimal-ui"/>
  <link rel="shortcut icon" href="<?php echo(\dash\url::cdn()); ?>/images/favicon-error.png"/>
- <link rel="stylesheet"  href="<?php echo(\dash\url::cdn()); ?>/css/siftal.min.css?v=4">
+ <link rel="stylesheet"  href="<?php echo(\dash\url::cdn()); ?>/css/jibres.min.css?v=4">
  <meta http-equiv="refresh" content="2; URL='<?php echo(strtok($_loc, '?'));?>'">
 </head>
 <body class='redirecting'>

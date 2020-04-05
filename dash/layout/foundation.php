@@ -69,7 +69,7 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
 ?>
  <link href="<?php echo \dash\url::kingdom();?>/humans.txt" rel="author"/>
 <?php // @todo add rel alternative ?>
- <link href="<?php echo \dash\layout\func::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
+ <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
 </head>
 
 <body<?php
