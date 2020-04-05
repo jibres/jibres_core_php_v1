@@ -4,6 +4,77 @@ namespace lib\app\store;
 
 class domain
 {
+	public static function remove($_args)
+	{
+		$condition =
+		[
+			'domain' => 'domain',
+			'id'     => 'code',
+		];
+
+		$require = ['domain', 'id'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$id = \dash\coding::decode($data['id']);
+		if(!is_numeric($id))
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$load_setting_record = \lib\db\setting\get::by_id($id);
+
+		if(isset($load_setting_record['value']) && $load_setting_record['value'] === $data['domain'])
+		{
+			// no problem
+		}
+		else
+		{
+			\dash\notif::error(T_("This domain not found in your domain list!"));
+			return false;
+		}
+
+		$check_duplicate_domain = \lib\db\store_domain\get::check_duplicate($data['domain']);
+
+		if(!isset($check_duplicate_domain['id']))
+		{
+			// BUG!!!
+			// nothing
+			// needless to delete record
+		}
+		else
+		{
+			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && intval($check_duplicate_domain['store_id']) === intval(\lib\store::id()))
+			{
+				// delete record
+				\lib\db\store_domain\delete::record($check_duplicate_domain['id']);
+			}
+			else
+			{
+				// bug
+				\dash\log::oops('db');
+			}
+		}
+
+		\lib\db\setting\delete::record($load_setting_record['id']);
+
+		$domain_addr = \dash\engine\store::customer_domain_addr();
+
+		if(is_file($domain_addr. $data['domain']))
+		{
+			\dash\file::delete($domain_addr. $data['domain']);
+		}
+
+
+		\dash\notif::ok(T_("Domain disconnected"));
+		return true;
+
+	}
+
+
 	public static function set($_args)
 	{
 		$condition =
@@ -150,6 +221,45 @@ class domain
 		return $_domain;
 	}
 
+
+
+	public static function get_domain_list()
+	{
+		$domain_list = \lib\db\setting\get::by_cat_key_all('store_setting', 'domain');
+		$domain_list = array_map(['self', 'ready'], $domain_list);
+		return $domain_list;
+	}
+
+
+	private static function ready($_data)
+	{
+		if(!is_array($_data))
+		{
+			$_data = [];
+		}
+
+		$result = [];
+
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'id':
+					$result[$key] = \dash\coding::encode($value);
+					break;
+
+				case 'value':
+					$result['domain'] = $value;
+					break;
+
+				default:
+					# code...
+					break;
+			}
+		}
+
+		return $result;
+	}
 
 
 	// private static function check_domain_file($_old_record, $_new_domain)

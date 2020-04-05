@@ -6,12 +6,26 @@ class model
 {
 	public static function post()
 	{
-		$post =
-		[
-			'domain' => \dash\request::post('domain'),
-		];
+		if(\dash\request::post('remove') === 'domain')
+		{
+			$post =
+			[
+				'domain' => \dash\request::post('domain'),
+				'id'     => \dash\request::post('id'),
+			];
 
-		\lib\app\store\domain::set($post);
+			\lib\app\store\domain::remove($post);
+		}
+		else
+		{
+			$post =
+			[
+				'domain' => \dash\request::post('domain'),
+			];
+
+			\lib\app\store\domain::set($post);
+		}
+
 
 		if(\dash\engine\process::status())
 		{
