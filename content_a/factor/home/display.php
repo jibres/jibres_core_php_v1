@@ -145,15 +145,16 @@ $sortLink = \dash\data::sortLink();
             <?php if(isset($value['customer'])) {?>
 
             <a href="<?php echo \dash\url::this(); ?>?customer=<?php echo \dash\get::index($value, 'customer'); ?>">
-              <?php if(isset($value['customer_firstname']) || isset($value['customer_lastname'])) {?>
+              <?php if(isset($value['avatar'])) {?>
+                <img src="<?php echo $value['avatar']; ?>" class="avatar">
+              <?php } ?>
+              <?php if(isset($value['firstname']) || isset($value['lastname'])) {?>
 
-              <?php echo \dash\get::index($value, 'customer_firstname'); ?> <b><?php echo \dash\get::index($value, 'customer_lastname'); ?></b>
+              <?php echo \dash\get::index($value, 'firstname'); ?> <b><?php echo \dash\get::index($value, 'lastname'); ?></b>
 
-            <?php } //endif ?>
+            <?php }elseif(isset($value['displayname'])) { ?>
 
-            <?php if(isset($value['customer_displayname'])) {?>
-
-               <b><?php echo \dash\get::index($value, 'customer_displayname'); ?></b>
+               <b><?php echo \dash\get::index($value, 'displayname'); ?></b>
 
             <?php }else{ ?>
 

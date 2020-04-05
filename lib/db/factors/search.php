@@ -64,6 +64,7 @@ class search
 		"
 			SELECT COUNT(*) AS `count` FROM factors
 			LEFT JOIN factordetails ON factors.id = factordetails.factor_id
+			LEFT JOIN users ON users.id = factors.customer
 			$q[where]
 		";
 
@@ -72,9 +73,16 @@ class search
 		$query =
 		"
 			SELECT
-				factors.*
+				factors.*,
+				users.displayname,
+				users.firstname,
+				users.lastname,
+				users.gender,
+				users.mobile,
+				users.avatar
 			FROM factors
 			LEFT JOIN factordetails ON factors.id = factordetails.factor_id
+			LEFT JOIN users ON users.id = factors.customer
 			$q[where] $q[order] $limit
 		";
 
@@ -94,7 +102,20 @@ class search
 
 		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
 
-		$query = "SELECT factors.* FROM factors $q[where] $q[order] $limit ";
+		$query =
+		"
+			SELECT
+				factors.*,
+				users.displayname,
+				users.firstname,
+				users.lastname,
+				users.gender,
+				users.mobile,
+				users.avatar
+			FROM
+				factors
+			LEFT JOIN users ON users.id = factors.customer
+			$q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query);
 

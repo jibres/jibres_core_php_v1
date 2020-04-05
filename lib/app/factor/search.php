@@ -323,6 +323,7 @@ class search
 		if(is_array($list))
 		{
 			$list = array_map(['\\lib\\app\\factor\\ready', 'row'], $list);
+			$list = array_map(['\\dash\\app', 'fix_avatar'], $list);
 		}
 		else
 		{
