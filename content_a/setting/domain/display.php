@@ -22,13 +22,20 @@ $storeData = \dash\data::store_store_data();
 
           </p>
           <?php if(\dash\data::domainList()) {?>
+
+            <h4><?php echo T_("Connected domain"); ?></h4>
+            <div class="mB50">
             <?php foreach (\dash\data::domainList() as $key => $value) {?>
-              <div class="msg f primary2">
-                <div class="c"><?php echo \dash\get::index($value, 'domain'); ?></div>
+              <div class="msg f primary2 align-center">
+                <div class="c txtB"><?php echo \dash\get::index($value, 'domain'); ?></div>
                 <div class="cauto"><span class="btn danger" data-confirm data-data='{"remove": "domain", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Remove"); ?></span></div>
               </div>
             <?php }// endfor ?>
+            </div>
           <?php } // endif ?>
+          <?php if(\dash\data::domainList()) {?>
+            <h6><?php echo T_("Connected New domain"); ?></h6>
+          <?php }//endif ?>
             <label for="idomain"><?php echo T_("Domain"); ?> <span class="fc-red">*</span></label>
             <div class="input ltr">
               <input type="text" name="domain" id="idomain" autofocus required maxlength='70' minlength="1"  >

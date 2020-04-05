@@ -161,6 +161,13 @@ class domain
 			}
 		}
 
+		$domain_list = \lib\db\setting\get::by_cat_key_all('store_setting', 'domain');
+		if(is_array($domain_list) && count($domain_list) >= 10)
+		{
+			\dash\notif::error(T_("You have used the maximum capacity of connection to the store. Can not connect new domain!"), 'domain');
+			return false;
+		}
+
 		$insert =
 		[
 			'store_id'    => \lib\store::id(),
