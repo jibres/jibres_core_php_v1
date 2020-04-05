@@ -333,13 +333,18 @@ class search
 		$filter_args_data = [];
 		foreach (self::$filter_args as $key => $value)
 		{
-			if(isset($list[0][$key]) && substr($value, 0, 1)=== '*')
+			$my_key = $key;
+			if($key === 'customer')
 			{
-				$filter_args_data[substr($value, 1)] = T_(ucfirst($list[0][$key]));
+				$my_key = 'displayname';
+			}
+			if(isset($list[0][$my_key]) && substr($value, 0, 1)=== '*')
+			{
+				$filter_args_data[substr($value, 1)] = T_(ucfirst($list[0][$my_key]));
 			}
 			else
 			{
-				$filter_args_data[$key] = $value;
+				$filter_args_data[$my_key] = $value;
 			}
 		}
 
