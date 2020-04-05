@@ -129,7 +129,7 @@ if (\dash\data::include_editor())
   echo "\n  ";
   echo '<script src="'. \dash\layout\func::staticmtime('js/medium-editor/medium-editor.min.js'). '"></script>';
   echo "\n  ";
-  echo '<link  href="'. \dash\layout\func::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
+  echo '<link  href="'. \dash\layout\func::staticmtime('css/lib/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
 }
 // load pageScript
 \dash\layout\find::pageScript();

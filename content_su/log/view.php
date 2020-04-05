@@ -153,7 +153,7 @@ class view
 		$output .= ' <title>Log | '. $name. '</title>';
 		$output .= ' <script src="'. $myCommon. '"></script>';
 		$output .= ' <script src="'. $myCode. 'js/highlight/highlight.min.js"></script>';
-		$output .= ' <link rel="stylesheet" href="'. $myCode. 'css/highlight-atom-one-dark.css">';
+		$output .= ' <link rel="stylesheet" href="'. $myCode. 'css/lib/highlight-atom-one-dark.css">';
 		$output .= ' <style>';
 		$output .= 'body{margin:0;height:100%;} .clear{position:absolute;top:1em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none} .zip{position:absolute;bottom:1.5em;right:2em;background-color:#000;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none}
 		.downloaditnow{position:absolute;top:5em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none}
