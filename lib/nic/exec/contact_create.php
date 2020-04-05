@@ -148,7 +148,7 @@ class contact_create
 		}
 		catch (\Exception $e)
 		{
-			\dash\notif::error(T_("Can not connect to domain server"));
+			// \dash\notif::error(T_("Can not connect to domain server"));
 			\lib\db\nic_log\update::update($update_after_send, $log_id);
 			return false;
 		}

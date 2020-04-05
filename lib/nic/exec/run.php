@@ -7,6 +7,11 @@ class run
 	public static function send($_xml)
 	{
 
+		if(!self::allow_request())
+		{
+			return false;
+		}
+
 		$_xml = trim($_xml);
 
 		$data          = [];
@@ -73,6 +78,34 @@ class run
 		}
 
 		return $response;
+	}
+
+
+	private static function allow_request()
+	{
+		// check time
+		$hour = intval(date("Hi"));
+		// 0, 120 => 01:20 , 240 => 02:40, 700 => 7:00, 701 => 7:01
+		if($hour >= 701)
+		{
+			return true;
+		}
+
+		// check count request
+		$count_request = \lib\db\nic_log\get::count_request_in_day(date("Y-m-d"));
+		$count_request = intval($count_request);
+
+		if($count_request < 1700)
+		{
+			return true;
+		}
+
+		// @TODO check request type
+
+		\dash\log::set('IRNIC:MaxRequestIn12-7am');
+
+		\dash\notif::warn(T_("Unfortunately, we are currently unable to respond until 7 am due to the fact that we are in the last hours of the night and the number of requests sent to Irnic has increased. While apologizing, please come back after 7 am and repeat your request"));
+		return false;
 	}
 
 

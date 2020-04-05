@@ -19,5 +19,13 @@ class get
 		$result = \dash\db::get($query, null, false, 'nic_log');
 		return $result;
 	}
+
+
+	public static function count_request_in_day($_date)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM log WHERE DATE(log.datesend) = DATE('$_date')";
+		$result = \dash\db::get($query, 'count', true, 'nic_log');
+		return $result;
+	}
 }
 ?>
