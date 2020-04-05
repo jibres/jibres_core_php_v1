@@ -56,6 +56,6 @@ $store = \dash\data::store();
 
 
 
-<script src="<?php echo \dash\url::cdn(); ?>/js/particles.min.js"></script>
+<script src="<?php echo \dash\url::cdn(); ?>/js/particles/particles1.min.js"></script>
 
 
