@@ -40,7 +40,7 @@ class guard
 			{
 				if(!$_readonly)
 				{
-					@header('X-Frame-Options: ALLOW-FROM '. $_SERVER['HTTP_REFERER']);
+					// @header('X-Frame-Options: *');
 				}
 				return true;
 			}
