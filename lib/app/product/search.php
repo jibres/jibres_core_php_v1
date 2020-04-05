@@ -214,8 +214,6 @@ class search
 			$and[] = "products.barcode2 IS NULL";
 			$meta['pagination']                  = false;
 
-			self::$filter_args['price'] = T_("without price");
-
 			$type                         = 'price_factor_count';
 
 			self::$is_filtered = true;
