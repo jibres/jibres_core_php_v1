@@ -94,12 +94,45 @@ CREATE TABLE IF NOT EXISTS `store_data` (
 `lastactivity` timestamp NULL DEFAULT NULL,
 `dbversion` varchar(50) NULL,
 `dbversiondate` datetime NULL,
+`province` varchar(200) NULL DEFAULT NULL,
+`city` varchar(200) NULL DEFAULT NULL,
+`address` varchar(200) NULL DEFAULT NULL,
+`mobile` varchar(200) NULL DEFAULT NULL,
+`postcode` varchar(200) NULL DEFAULT NULL,
+`phone` varchar(200) NULL DEFAULT NULL,
+`fax` varchar(200) NULL DEFAULT NULL,
+`companyeconomiccode` varchar(200) NULL DEFAULT NULL,
+`companynationalid` varchar(200) NULL DEFAULT NULL,
+`companyregisternumber` varchar(200) NULL DEFAULT NULL,
+`ceonationalcode` varchar(200) NULL DEFAULT NULL,
+`companyname` varchar(200) NULL DEFAULT NULL,
+`currency` varchar(200) NULL DEFAULT NULL,
+`length_unit` varchar(200) NULL DEFAULT NULL,
+`mass_unit` varchar(200) NULL DEFAULT NULL,
+`barcode` varchar(200) NULL DEFAULT NULL,
+`scale` varchar(200) NULL DEFAULT NULL,
+`tax_status` varchar(200) NULL DEFAULT NULL,
+`tax_calc` varchar(200) NULL DEFAULT NULL,
+`tax_calc_all_price` varchar(200) NULL DEFAULT NULL,
+`tax_shipping` varchar(200) NULL DEFAULT NULL,
+`shipping_status` varchar(200) NULL DEFAULT NULL,
+`shipping_current_country` varchar(200) NULL DEFAULT NULL,
+`shipping_current_country_value` varchar(200) NULL DEFAULT NULL,
+`shipping_other_country` varchar(200) NULL DEFAULT NULL,
+`shipping_other_country_value` varchar(200) NULL DEFAULT NULL,
+`payment_online` varchar(200) NULL DEFAULT NULL,
+`payment_check` varchar(200) NULL DEFAULT NULL,
+`payment_bank` varchar(200) NULL DEFAULT NULL,
+`payment_on_deliver` varchar(200) NULL DEFAULT NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
 CONSTRAINT `store_data_id` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `store_data_owner` FOREIGN KEY (`owner`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `store_analytics` (
@@ -114,8 +147,8 @@ CREATE TABLE IF NOT EXISTS `store_analytics` (
 `lastsale` timestamp NULL DEFAULT NULL,
 `lastbuy` timestamp NULL DEFAULT NULL,
 
-`dbtrafic` int(10) UNSIGNED DEFAULT NULL,
-`dbsize` int(10) UNSIGNED DEFAULT NULL,
+`dbtrafic` bigint(20) UNSIGNED DEFAULT NULL,
+`dbsize` bigint(20) UNSIGNED DEFAULT NULL,
 
 `users` int(10) UNSIGNED DEFAULT NULL,
 `customer` int(10) UNSIGNED DEFAULT NULL,
@@ -133,14 +166,14 @@ CREATE TABLE IF NOT EXISTS `store_analytics` (
 `transaction` int(10) UNSIGNED DEFAULT NULL,
 `term` int(10) UNSIGNED DEFAULT NULL,
 `termusages` int(10) UNSIGNED DEFAULT NULL,
-`sumplustransaction` int(10) UNSIGNED DEFAULT NULL,
-`summinustransaction` int(10) UNSIGNED DEFAULT NULL,
+`sumplustransaction` bigint(20) UNSIGNED DEFAULT NULL,
+`summinustransaction` bigint(20) UNSIGNED DEFAULT NULL,
 `product` int(10) UNSIGNED DEFAULT NULL,
-`factor` int(10) UNSIGNED DEFAULT NULL,
-`factorbuy` int(10) UNSIGNED DEFAULT NULL,
-`factorsale` int(10) UNSIGNED DEFAULT NULL,
-`factordetail` int(10) UNSIGNED DEFAULT NULL,
-`sumfactor` int(10) UNSIGNED DEFAULT NULL,
+`factor` bigint(20) UNSIGNED DEFAULT NULL,
+`factorbuy` bigint(20) UNSIGNED DEFAULT NULL,
+`factorsale` bigint(20) UNSIGNED DEFAULT NULL,
+`factordetail` bigint(20) UNSIGNED DEFAULT NULL,
+`sumfactor` bigint(20) UNSIGNED DEFAULT NULL,
 `planhistory` int(10) UNSIGNED DEFAULT NULL,
 `help` int(10) UNSIGNED DEFAULT NULL,
 `attachment` int(10) UNSIGNED DEFAULT NULL,
@@ -158,6 +191,11 @@ CREATE TABLE IF NOT EXISTS `store_analytics` (
 `user_filter` int(10) UNSIGNED DEFAULT NULL,
 `user_unreachabl` int(10) UNSIGNED DEFAULT NULL,
 `user_permission` int(10) UNSIGNED DEFAULT NULL,
+
+`log` bigint(20) UNSIGNED NULL DEFAULT NULL,
+`cart` bigint(20) UNSIGNED NULL DEFAULT NULL,
+`sync` bigint(20) UNSIGNED NULL DEFAULT NULL,
+`apilog` bigint(20) UNSIGNED NULL DEFAULT NULL,
 
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -223,6 +261,32 @@ CREATE TABLE IF NOT EXISTS `store_file` (
 PRIMARY KEY (`id`),
 CONSTRAINT `store_files_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 KEY `files_md5_search` (`md5`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE IF NOT EXISTS `store_app` (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`store_id` int(10) UNSIGNED NOT NULL,
+`user_id` int(10) UNSIGNED  NULL DEFAULT NULL,
+`version` smallint(5) UNSIGNED NULL DEFAULT NULL,
+`status` enum('queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable') DEFAULT NULL,
+`daterequest` timestamp NULL DEFAULT NULL,
+`datequeue` timestamp NULL DEFAULT NULL,
+`datedone` timestamp NULL DEFAULT NULL,
+`file`  varchar(500)   NULL DEFAULT NULL,
+`build`  int(10) unsigned   NULL DEFAULT NULL,
+`meta`  text   NULL DEFAULT NULL,
+`versiontitle`  varchar(50)     NULL DEFAULT NULL,
+`versionnumber` int(10) unsigned   NULL DEFAULT NULL,
+`packagename`   varchar(200)    NULL DEFAULT NULL,
+`keystore`     varchar(50)      NULL DEFAULT NULL,
+`path`   varchar(200)     NULL DEFAULT NULL,
+`datedownload` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`),
+KEY `index_search_store_app_status` (`status`),
+CONSTRAINT `store_app_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -531,6 +595,18 @@ CONSTRAINT `fileusage_file_id` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+CREATE TABLE IF NOT EXISTS `sync` (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`title` varchar(200) DEFAULT NULL,
+`query` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+`fuel` varchar(100) DEFAULT NULL,
+`database` varchar(100) DEFAULT NULL,
+`status` enum('pending','awaiting','success','fail','deleted') DEFAULT NULL,
+`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`),
+KEY `index_search_sync_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 

@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `log` (
 `client_id` varchar(100) DEFAULT NULL,
 `result_code` varchar(100) DEFAULT NULL,
 `request_count` smallint(5) DEFAULT NULL,
+`result` text  NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `log_index_search_type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -145,6 +146,13 @@ CREATE TABLE IF NOT EXISTS `domain` (
 
 `lock` bit(1) NULL DEFAULT NULL,
 
+`lastfetch` timestamp  NULL DEFAULT NULL,
+`dateupdate` timestamp  NULL DEFAULT NULL,
+`nicstatus` text  NULL DEFAULT NULL,
+`reseller` varchar(100)  NULL DEFAULT NULL,
+`roid` varchar(100)  NULL DEFAULT NULL,
+`verify` bit(1) NULL DEFAULT NULL,
+
 `dns` int(10) UNSIGNED NULL DEFAULT NULL,
 
 
@@ -165,48 +173,48 @@ CONSTRAINT `domain_dns` FOREIGN KEY (`dns`) REFERENCES `dns` (`id`) ON UPDATE CA
 
 
 
-CREATE TABLE IF NOT EXISTS `domain_action` (
+CREATE TABLE IF NOT EXISTS `domainaction` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 
 `domain_id` int(10) UNSIGNED NULL,
 `user_id` int(10) UNSIGNED NULL,
 
 `status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
-`action` enum('buy', 'renew', 'transfer', 'openlock', 'lock') NULL DEFAULT NULL,
-`meta` text NULL DEFAULT NULL,
+`action` enum('register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire') NULL DEFAULT NULL,
+`mode` enum('auto', 'manual') NULL DEFAULT NULL,
+
+`detail` text NULL DEFAULT NULL,
+
 `date` timestamp NULL DEFAULT NULL,
+
+`price` int(10) UNSIGNED NULL DEFAULT NULL,
+`discount` int(10) UNSIGNED NULL DEFAULT NULL,
+
+`transaction_id` int(10) UNSIGNED NULL DEFAULT NULL,
 
 `datecreated` timestamp NULL DEFAULT NULL,
 
 PRIMARY KEY (`id`),
-CONSTRAINT `domain_action_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON UPDATE CASCADE
+CONSTRAINT `domainaction_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 
-CREATE TABLE IF NOT EXISTS `domain_billing` (
+
+CREATE TABLE IF NOT EXISTS `poll` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-
-`domain_id` int(10) UNSIGNED NULL,
-`user_id` int(10) UNSIGNED NULL,
-
-`action` enum('buy', 'renew', 'transfer') NULL DEFAULT NULL,
-`mode` enum('auto', 'manual') NULL DEFAULT NULL,
-
-`price` int(10) UNSIGNED NULL DEFAULT NULL,
-`discount` int(10) UNSIGNED NULL DEFAULT NULL,
-`discountcode` int(10) UNSIGNED NULL DEFAULT NULL,
-`finalprice` int(10) UNSIGNED NULL DEFAULT NULL,
-
-`transaction_id` int(10) UNSIGNED NULL DEFAULT NULL,
-
-`date` timestamp NULL DEFAULT NULL,
-
-PRIMARY KEY (`id`),
-CONSTRAINT `domain_billing_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON UPDATE CASCADE
+`server_id` varchar(50)  NULL,
+`domain` varchar(100)  NULL,
+`nic_id` varchar(50)  NULL,
+`notif_count` int(10) UNSIGNED  NULL,
+`index` varchar(500)  NULL,
+`note` varchar(500)  NULL,
+`detail` text NULL DEFAULT NULL,
+`read` bit(1) NULL DEFAULT NULL,
+`acknowledge` bit(1) NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 
