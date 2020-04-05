@@ -56,6 +56,39 @@ class update
 	}
 
 
+	public static function overwirte_cat_key($_value, $_cat, $_key)
+	{
+		$query = "SELECT setting.id, setting.value FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
+		$check = \dash\db::get($query, null, true);
+
+		if(isset($check['id']))
+		{
+			if(isset($check['value']) && $check['value'] === $_value)
+			{
+				return null;
+			}
+			else
+			{
+				$query = "UPDATE setting SET setting.value = '$_value'  WHERE setting.id = $check[id] LIMIT 1";
+				$result = \dash\db::query($query);
+				return $result;
+			}
+		}
+		else
+		{
+
+			$insert =
+			[
+				'cat'      => $_cat,
+				'key'      => $_key,
+				'value'    => $_value,
+			];
+
+			return \lib\db\setting\insert::new_record($insert);
+		}
+	}
+
+
 
 	public static function overwirte_platform_cat_key_fuel($_value, $_platform, $_cat, $_key, $_fuel, $_database)
 	{

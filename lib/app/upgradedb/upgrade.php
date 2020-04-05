@@ -63,12 +63,27 @@ class upgrade
 	}
 
 
-	public static function jibres_last_version()
+	public static function jibres_last_version($_set = null)
 	{
-		$version_addr = self::addr(null, 'version');
-		$version_file = $version_addr . 'jibres';
-		$last_version = \dash\file::read($version_file);
-		return $last_version;
+		$get = \lib\db\setting\get::by_cat_key('jibres_dabase_upgrade', 'version');
+
+		if($_set)
+		{
+			\lib\db\setting\update::overwirte_cat_key($_set, 'jibres_dabase_upgrade', 'version');
+			return true;
+		}
+
+		if(isset($get['value']))
+		{
+			return $get['value'];
+		}
+		return null;
+
+		// $version_addr = self::addr(null, 'version');
+		// $version_file = $version_addr . 'jibres';
+		// $last_version = \dash\file::read($version_file);
+		// return $last_version;
+
 	}
 
 
@@ -166,7 +181,7 @@ class upgrade
 			\dash\file::makeDir($version_addr, null, true);
 		}
 
-		$version_file = $version_addr . 'jibres';
+		// $version_file = $version_addr . 'jibres';
 
 		foreach ($list as $key => $file)
 		{
@@ -177,7 +192,7 @@ class upgrade
 				if(version_compare($current_version, $_last_version, '>'))
 				{
 					self::runExecFile($file, 'master');
-					\dash\file::write($version_file, $current_version);
+					self::jibres_last_version($current_version);
 				}
 			}
 		}
