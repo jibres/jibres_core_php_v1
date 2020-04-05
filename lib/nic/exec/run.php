@@ -60,6 +60,18 @@ class run
 		// close cURL resource, and free up system resources
 		curl_close ($ch);
 
+		if(!is_string($response))
+		{
+			\dash\log::set('IRNIC:CurlErrorResponseIsNotString');
+			return false;
+		}
+
+		if(mb_strlen($response) > 10000)
+		{
+			\dash\log::set('IRNIC:CurlResponseMaxLen', ['responselen' => mb_strlen($response)]);
+			// return false
+		}
+
 		return $response;
 	}
 
