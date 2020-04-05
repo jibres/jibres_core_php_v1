@@ -40,7 +40,7 @@ class guard
 			{
 				if(!$_readonly)
 				{
-					@header('X-Frame-Options: *');
+					@header('X-Frame-Options: ALLOW-FROM '. $_SERVER['HTTP_REFERER']);
 				}
 				return true;
 			}
@@ -55,8 +55,7 @@ class guard
 		}
 		if(!$_readonly)
 		{
-			// @header('X-Frame-Options: DENY');
-			@header('X-Frame-Options: *');
+			@header('X-Frame-Options: DENY');
 		}
 		return false;
 	}
