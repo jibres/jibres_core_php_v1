@@ -50,12 +50,6 @@ class view
 			\dash\data::action_text(T_('Dashboard'));
 			\dash\data::action_link(\dash\url::kingdom(). '/my');
 		}
-
-
-		// allow to open homepage via enamad
-		// @header('X-Frame-Options: *');
-		// @header('X-Frame-Options: deny');
-    	// header('Access-Control-Allow-Origin: https://ermile.com', true);
 	}
 }
 ?>
