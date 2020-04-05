@@ -88,17 +88,17 @@ $needUpgrade = \dash\data::needUpgrade();
 
     <?php if(isset($needUpgrade['jibres']) && $needUpgrade['jibres']) {?>
       <div class="c">
-        <span><?php echo T_("Jibres"); ?></span>
-         <div><?php echo T_("current version"); ?><?php echo \dash\get::index($needUpgrade, 'jibres', 'current'); ?></div>
-         <div><?php echo T_("new version"); ?><?php echo \dash\get::index($needUpgrade, 'jibres', 'upgrade'); ?></div>
+        <span class="txtB"><?php echo T_("Jibres"); ?></span>
+         <div><?php echo T_("current version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'jibres', 'current'); ?></b></div>
+         <div><?php echo T_("new version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'jibres', 'upgrade'); ?></b></div>
       </div>
     <?php } //endif ?>
 
     <?php if(isset($needUpgrade['store']) && $needUpgrade['store']) {?>
       <div class="c">
-        <span><?php echo T_("Stores"); ?></span>
-         <div><?php echo T_("current version"); ?><?php echo \dash\get::index($needUpgrade, 'store', 'current'); ?></div>
-         <div><?php echo T_("new version"); ?><?php echo \dash\get::index($needUpgrade, 'store', 'upgrade'); ?></div>
+        <span class="txtB"><?php echo T_("Stores"); ?></span>
+         <div><?php echo T_("current version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'store', 'current'); ?></b></div>
+         <div><?php echo T_("new version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'store', 'upgrade'); ?></b></div>
       </div>
     <?php } //endif ?>
    </div>
