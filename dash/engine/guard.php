@@ -255,9 +255,6 @@ class guard
 				\dash\engine\baby::pacifier(30);
 	    	}
     	}
-
-		header('Access-Control-Allow-Origin: *', true);
-		header('Access-Control-Allow-Headers: Accept,Cache-Control,Content-Type,Keep-Alive,Origin,X-Requested-With,x-request-type');
 	}
 
 }
