@@ -41,7 +41,6 @@ class guard
 				if(!$_readonly)
 				{
 					@header('X-Frame-Options: *');
-
 				}
 				return true;
 			}
@@ -50,11 +49,9 @@ class guard
 				if(!$_readonly)
 				{
 					@header('X-Frame-Options: *');
-
 				}
 				return true;
 			}
-
 		}
 		if(!$_readonly)
 		{
@@ -98,8 +95,16 @@ class guard
 		// frame-ancestors
 		if(!self::header_xframe_option(true))
 		{
-			// allow iframe on some conditions
-			$csp .= "frame-ancestors 'none'; ";
+			if(\dash\url::moduel() !== 'billboard')
+			{
+				// allow iframe on some conditions
+				$csp .= "frame-ancestors 'none'; ";
+			}
+			else
+			{
+				// allow iframe on some conditions
+				$csp .= "frame-ancestors https:; ";
+			}
 		}
 		// block all mixed content
 		$csp .= "block-all-mixed-content;";
