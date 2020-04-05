@@ -8,9 +8,11 @@ class view
 	{
 		\dash\data::store(\lib\store::detail());
 
+		\dash\face::site(\lib\store::detail('title'));
+		\dash\face::title(\lib\store::detail('title'));
 
-		\dash\face::site(\dash\get::index(\dash\data::store(), 'store_data', 'title'));
-		\dash\face::intro(\dash\data::store_desc());
+		\dash\face::desc(\lib\store::detail('desc'));
+		\dash\face::intro(\lib\store::detail('desc'));
 
 		if(\dash\url::isLocal())
 		{
