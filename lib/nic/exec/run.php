@@ -37,7 +37,17 @@ class run
 
 		if($response === 'Failed to connect to epp.nic.ir port 443: No route to host:7')
 		{
-			\dash\notif::error(T_("Nic server is down!"));
+			if(\dash\permission::supervisor())
+			{
+				if(is_string($response))
+				{
+					\dash\notif::error($response);
+				}
+				else
+				{
+					\dash\notif::error(T_("Nic server is down!"));
+				}
+			}
 			return false;
 		}
 
