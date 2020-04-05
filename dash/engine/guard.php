@@ -72,7 +72,7 @@ class guard
 		// manifest-src
 		$csp .= "manifest-src 'self'; ";
 		// connect-src
-		$csp .= "connect-src 'self' ". self::csp_domain('*', 'jibres'). "; ";
+		$csp .= "connect-src 'self' ". self::csp_domain('*', 'jibres'). " ". self::csp_domain(false, 'jibres'). "; ";
 		// form-action
 		$csp .= "form-action 'self'; ";
 
@@ -121,16 +121,34 @@ class guard
 
 	private static function csp_domain($_subdomain = '*', $_domain = 'talambar')
 	{
+		// $mine = 'https://'. $_subdomain. '.'. $_domain. '.com';
 		$mine = 'https://'. $_subdomain. '.'. $_domain. '.com';
+		if($_subdomain === false)
+		{
+			$mine = 'https://'. $_domain. '.com';
+		}
 
 		if(\dash\url::tld() === 'local')
 		{
-
-			$mine .= ' '. \dash\url::protocol(). '://'. $_subdomain. '.'. $_domain. '.local';
+			if($_subdomain === false)
+			{
+				$mine .= ' '. \dash\url::protocol(). '://'. $_domain. '.local';
+			}
+			else
+			{
+				$mine .= ' '. \dash\url::protocol(). '://'. $_subdomain. '.'. $_domain. '.local';
+			}
 		}
 		elseif(\dash\url::tld() === 'ir')
 		{
-			$mine .= ' https://'. $_subdomain. '.'. $_domain. '.ir';
+			if($_subdomain === false)
+			{
+				$mine .= ' https://'. $_domain. '.ir';
+			}
+			else
+			{
+				$mine .= ' https://'. $_subdomain. '.'. $_domain. '.ir';
+			}
 		}
 
 		return $mine;
