@@ -123,7 +123,7 @@ class run
 		$test  = '';
 		$local = '';
 
-		$test  = 'TEST-';
+		$test  = '';
 
 		if(\dash\url::isLocal())
 		{
