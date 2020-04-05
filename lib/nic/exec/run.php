@@ -40,6 +40,17 @@ class run
 		// grab URL and pass it to the browser
 		$response = curl_exec($ch);
 
+		$CurlError = curl_error($ch);
+
+		curl_close ($ch);
+
+		if($response && !is_string($response))
+		{
+			\dash\log::set('IRNIC:CurlErrorResponseIsNotString');
+			\dash\notif::error(T_("Result of IRNIC server is not valid!"));
+			return false;
+		}
+
 		if($response === 'Failed to connect to epp.nic.ir port 443: No route to host:7')
 		{
 			if(\dash\permission::supervisor())
@@ -53,28 +64,38 @@ class run
 					\dash\notif::error(T_("Nic server is down!"));
 				}
 			}
-			return false;
+			return $response;
 		}
 
-		if($response === false)	{
-			// echo Errors
-			\dash\log::set('IRNIC:CurlError', ['message' => curl_error($ch)]);
-			// \dash\notif::error(curl_error($ch));
-			return false;
-		}
-		// close cURL resource, and free up system resources
-		curl_close ($ch);
-
-		if(!is_string($response))
+		if($response === false)
 		{
-			\dash\log::set('IRNIC:CurlErrorResponseIsNotString');
+			// echo Errors
+			\dash\log::set('IRNIC:CurlError', ['message' => $CurlError]);
+			\dash\notif::error(T_("Can not connect to domain server"));
+
+			// \dash\notif::error(curl_error($ch));
 			return false;
 		}
 
 		if(mb_strlen($response) > 10000)
 		{
+			\dash\notif::error(T_("Response of IRNIC server is too large! Please contact to administrator"));
 			\dash\log::set('IRNIC:CurlResponseMaxLen', ['responselen' => mb_strlen($response)]);
-			// return false
+			return false;
+		}
+
+		$md5response = md5($response);
+
+		// با عرض پوزش، سامانه ایرنیک به جهت عملیات روزانه هر شب از ساعت ۲۳:۰۰ لغایت ۳۰ دقیقه بامداد در دسترس نمی‌باشد.
+		if($md5response === 'e933b76e159b9875b6af08f8b04cd40f')
+		{
+			\dash\notif::error(T_("IRNIC server in every day from 23:00 to 00:30 for upgrade process is busy and not respond."));
+		}
+
+		// Arvan 504 Time-out
+		if($md5response === '5f9bebf23e3d629f2651b895846e155c')
+		{
+			\dash\notif::error(T_("The waiting time for the domain server response was very long!"));
 		}
 
 		return $response;
