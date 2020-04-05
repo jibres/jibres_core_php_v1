@@ -290,6 +290,38 @@ CONSTRAINT `store_app_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+CREATE TABLE IF NOT EXISTS `store_domain` (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`store_id` int(10) UNSIGNED NOT NULL,
+`user_id` int(10) UNSIGNED DEFAULT NULL,
+`domain` varchar(100) DEFAULT NULL,
+`subdomain` varchar(100) DEFAULT NULL,
+`root` varchar(100) DEFAULT NULL,
+`tld` varchar(100) DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `index_search_domain` (`domain`),
+CONSTRAINT `store_domain_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_domain_creator` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `setting` (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`platform` enum('android','ios','telegram','website') DEFAULT NULL,
+`lang` char(2) DEFAULT NULL,
+`cat` varchar(50) DEFAULT NULL,
+`key` varchar(50) DEFAULT NULL,
+`value` text,
+PRIMARY KEY (`id`),
+KEY `setting_index_search_cat` (`cat`),
+KEY `setting_index_search_key` (`key`),
+KEY `setting_index_search_lang` (`lang`),
+KEY `setting_index_search_platform` (`platform`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 CREATE TABLE IF NOT EXISTS `address` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED NOT NULL,
