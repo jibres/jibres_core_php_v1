@@ -8,8 +8,7 @@ class model
 	{
 		$post =
 		[
-			'domain1' => \dash\request::post('domain1'),
-			'domain2' => \dash\request::post('domain2'),
+			'domain' => \dash\request::post('domain'),
 		];
 
 		\lib\app\store\domain::set($post);

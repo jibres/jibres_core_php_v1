@@ -8,45 +8,17 @@ class domain
 	{
 		$condition =
 		[
-			'domain1' => 'domain',
-			'domain2' => 'domain',
-
+			'domain' => 'domain',
 		];
 
-		$require = [];
+		$require = ['domain'];
 
 		$meta =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		if($data['domain1'])
-		{
-			$data['domain1'] = self::clean_domain($data['domain1']);
-		}
-
-		if($data['domain2'])
-		{
-			$data['domain2'] = self::clean_domain($data['domain2']);
-		}
-
-		$load_domain_1 = \lib\db\setting\get::by_cat_key('store_setting', 'domain1');
-
-		self::check_domain_file($load_domain_1, $data['domain1']);
-
-		if(isset($load_domain_1['value']) && \dash\validate::is_equal($load_domain_1['value'], $data['domain1']))
-		{
-			unset($data['domain1']);
-		}
-
-		$load_domain_2 = \lib\db\setting\get::by_cat_key('store_setting', 'domain2');
-
-		self::check_domain_file($load_domain_2, $data['domain2']);
-
-		if(isset($load_domain_1['value']) && \dash\validate::is_equal($load_domain_2['value'], $data['domain2']))
-		{
-			unset($data['domain2']);
-		}
+		$data['domain'] = self::clean_domain($data['domain']);
 
 		// have error in domain file
 		if(!\dash\engine\process::status())
@@ -54,21 +26,106 @@ class domain
 			return false;
 		}
 
-		if(!empty($data))
-		{
-			foreach ($data as $key => $value)
-			{
-				\lib\app\setting\tools::update('store_setting', $key, $value);
-			}
+		$domain    = $data['domain'];
+		$subdomain = null;
+		$root      = null;
+		$tld       = null;
 
-			\dash\notif::ok(T_("Your domain connected to your store"));
-			return true;
+		$my_domain = $data['domain'];
+		$my_domain = explode('.', $my_domain);
+		// remove empty character for example reza.
+		$my_domain = array_filter($my_domain);
+
+		if(count($my_domain) >= 4)
+		{
+			$subdomain = $my_domain[0];
+
+			array_shift($my_domain);
+			reset($my_domain);
+
+			$root      = $my_domain[0];
+
+			array_shift($my_domain);
+			reset($my_domain);
+
+			$tld       = implode('.', $my_domain);
+		}
+		elseif(count($my_domain) === 3)
+		{
+			$subdomain = $my_domain[0];
+			$root      = $my_domain[1];
+			$tld       = $my_domain[2];
+		}
+		elseif(count($my_domain) === 2)
+		{
+			$root      = $my_domain[0];
+			$tld       = $my_domain[1];
 		}
 		else
 		{
-			\dash\notif::info(T_("Your domain detail saved without change"));
-			return true;
+			\dash\notif::error(T_("Domain is not valid"), 'domain');
+			return false;
 		}
+
+		$check_duplicate_domain = \lib\db\store_domain\get::check_duplicate($domain);
+
+		if(!isset($check_duplicate_domain['id']))
+		{
+			// nothing
+			// no duplicate domain
+		}
+		else
+		{
+			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && intval($check_duplicate_domain['store_id']) === intval(\lib\store::id()))
+			{
+				// needless to update domain
+				// exactly this domain exists for this store
+				\dash\notif::info(T_("Your domain detail saved without change"));
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("This domain is reserved. Can not choose it"));
+				return false;
+			}
+		}
+
+		$insert =
+		[
+			'store_id'    => \lib\store::id(),
+			'user_id'     => \dash\user::jibres_user(),
+			'domain'      => $domain,
+			'subdomain'   => $subdomain,
+			'root'        => $root,
+			'tld'         => $tld,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$insert_domain = \lib\db\store_domain\insert::new_record($insert);
+		if(!$insert_domain)
+		{
+			\dash\log::oops('db');
+			return false;
+		}
+
+		$insert_setting_args =
+		[
+			'platform' => null,
+			'cat'      => 'store_setting',
+			'key'      => 'domain',
+			'value'    => $domain,
+		];
+
+		$insert_setting = \lib\db\setting\insert::new_record($insert_setting_args);
+
+		if(!$insert_domain)
+		{
+			\dash\log::oops('db');
+			return false;
+		}
+		\dash\notif::ok(T_("Your domain connected to your store"));
+		return true;
+
 	}
 
 
@@ -76,55 +133,69 @@ class domain
 	{
 		$_domain = str_replace('http://', '', $_domain);
 		$_domain = str_replace('https://', '', $_domain);
+
+		if(strpos($_domain, '/') !== false)
+		{
+			$_domain = str_replace(substr($_domain, strpos($_domain, '/')), '', $_domain);
+		}
+
 		$_domain = str_replace('/', '', $_domain);
+
+		if(!\dash\validate::domain($_domain, false))
+		{
+			\dash\notif::error(T_("This domain is not a valid domain"), 'domain');
+			return null;
+		}
+
 		return $_domain;
 	}
 
 
-	private static function check_domain_file($_old_record, $_new_domain)
-	{
-		$old_domain = null;
-		if(isset($_old_record['value']) && $_old_record['value'])
-		{
-			$old_domain = $_old_record['value'];
-		}
 
-		$domain_addr = \dash\engine\store::customer_domain_addr();
+	// private static function check_domain_file($_old_record, $_new_domain)
+	// {
+	// 	$old_domain = null;
+	// 	if(isset($_old_record['value']) && $_old_record['value'])
+	// 	{
+	// 		$old_domain = $_old_record['value'];
+	// 	}
 
-		if(!\dash\file::exists($domain_addr))
-		{
-			\dash\file::makeDir($domain_addr, null, true);
-		}
+	// 	$domain_addr = \dash\engine\store::customer_domain_addr();
 
-		if($old_domain)
-		{
-			if(!is_file($domain_addr. $old_domain))
-			{
-				\dash\file::write($domain_addr. $old_domain, \lib\store::id());
-			}
-		}
+	// 	if(!\dash\file::exists($domain_addr))
+	// 	{
+	// 		\dash\file::makeDir($domain_addr, null, true);
+	// 	}
 
-		if(\dash\validate::is_equal($old_domain, $_new_domain))
-		{
-			// every thing is ok
-			return true;
-		}
+	// 	if($old_domain)
+	// 	{
+	// 		if(!is_file($domain_addr. $old_domain))
+	// 		{
+	// 			\dash\file::write($domain_addr. $old_domain, \lib\store::id());
+	// 		}
+	// 	}
 
-		if(is_file($domain_addr. $_new_domain))
-		{
-			\dash\notif::error(T_("This domain is reserved. Can not choose it"));
-			return false;
-		}
+	// 	if(\dash\validate::is_equal($old_domain, $_new_domain))
+	// 	{
+	// 		// every thing is ok
+	// 		return true;
+	// 	}
 
-		if($old_domain)
-		{
-			\dash\file::delete($domain_addr. $old_domain);
-		}
+	// 	if(is_file($domain_addr. $_new_domain))
+	// 	{
+	// 		\dash\notif::error(T_("This domain is reserved. Can not choose it"));
+	// 		return false;
+	// 	}
 
-		if($_new_domain)
-		{
-			\dash\file::write($domain_addr. $_new_domain, \lib\store::id());
-		}
-	}
+	// 	if($old_domain)
+	// 	{
+	// 		\dash\file::delete($domain_addr. $old_domain);
+	// 	}
+
+	// 	if($_new_domain)
+	// 	{
+	// 		\dash\file::write($domain_addr. $_new_domain, \lib\store::id());
+	// 	}
+	// }
 }
 ?>

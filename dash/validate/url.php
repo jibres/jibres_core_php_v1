@@ -46,11 +46,11 @@ class url
 			return false;
 		}
 
-		if(substr_count($data, '.') >= 2)
+		if(substr_count($data, '.') >= 4)
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Doamin must contain only one dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\notif::error(T_("Doamin can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
 			}
 			return false;
 		}
