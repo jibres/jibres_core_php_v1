@@ -30,7 +30,7 @@ class guard
 	}
 
 
-	private static function header_xframe_option()
+	private static function header_xframe_option($_readonly = null)
 	{
 		if(isset($_SERVER['HTTP_REFERER']))
 		{
@@ -38,12 +38,30 @@ class guard
 
 			if(strpos($_SERVER['HTTP_REFERER'], $enamad) !== false)
 			{
-				@header('X-Frame-Options: *');
-				return;
+				if(!$_readonly)
+				{
+					@header('X-Frame-Options: *');
+
+				}
+				return true;
+			}
+			if(strpos($_SERVER['HTTP_REFERER'], '.local/') !== false)
+			{
+				if(!$_readonly)
+				{
+					@header('X-Frame-Options: *');
+
+				}
+				return true;
 			}
 
 		}
-		@header('X-Frame-Options: DENY');
+		if(!$_readonly)
+		{
+			// @header('X-Frame-Options: DENY');
+			@header('X-Frame-Options: *');
+		}
+		return false;
 	}
 
 
@@ -78,7 +96,11 @@ class guard
 
 		// -------------------------------------- blocked
 		// frame-ancestors
-		$csp .= "frame-ancestors 'none'; ";
+		if(!self::header_xframe_option(true))
+		{
+			// allow iframe on some conditions
+			$csp .= "frame-ancestors 'none'; ";
+		}
 		// block all mixed content
 		$csp .= "block-all-mixed-content;";
 
