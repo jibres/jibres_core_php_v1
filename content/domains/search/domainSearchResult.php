@@ -3,7 +3,13 @@ if(\dash\data::infoResult())
 {
     foreach (\dash\data::infoResult() as $key => $value)
     {
-        echo '<div class="msg minimal mB5';
+        $hideClass = null;
+        if(isset($value['tld']) && $value['tld'] === 'ایران' && !\dash\get::index($value, 'available'))
+        {
+            $hideClass = ' hide';
+        }
+
+        echo '<div class="msg minimal mB5'. $hideClass;
         if(isset($value['available']))
         {
             if($value['available'])
