@@ -95,15 +95,14 @@ class guard
 		// frame-ancestors
 		if(!self::header_xframe_option(true))
 		{
-			if(\dash\url::moduel() !== 'billboard')
+			// allow iframe on some conditions
+			if(\dash\url::module() === 'billboard')
 			{
-				// allow iframe on some conditions
-				$csp .= "frame-ancestors 'none'; ";
+				$csp .= "frame-ancestors https:; ";
 			}
 			else
 			{
-				// allow iframe on some conditions
-				$csp .= "frame-ancestors https:; ";
+				$csp .= "frame-ancestors 'none'; ";
 			}
 		}
 		// block all mixed content
