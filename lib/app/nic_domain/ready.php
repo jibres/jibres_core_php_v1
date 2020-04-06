@@ -148,6 +148,13 @@ class ready
 							unset($other_status[array_search('irnicRegistrationDocRequired', $other_status)]);
 						}
 
+						if(in_array('irnicRegistrationApproved', $nicstatus))
+						{
+							$status_html =  '<div class="ibtn wide"><span>'. T_("Register Approved").'</span><i class="sf-info-check fc-green"></i></div>';
+							unset($other_status[array_search('irnicRegistrationDocRequired', $other_status)]);
+						}
+
+
 						$other_status_html = '';
 
 						if($other_status)
