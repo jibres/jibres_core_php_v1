@@ -8,7 +8,7 @@
   <table class="tbl1 v10 fs09 mB0">
    <thead>
     <tr>
-     <th><?php echo T_("Date"); ?></th>
+     <th class="collapsing"><?php echo T_("Date"); ?></th>
      <th><?php echo T_("Description"); ?></th>
      <th class="collapsing"></th>
     </tr>
@@ -40,14 +40,26 @@
     </tr>
 
     <tr>
+     <td><?php echo \dash\fit::date("2020-03-20"); ?></td>
+     <td><?php echo T_("happy Nowruz"); ?> <?php echo \dash\fit::number("1399", false); ?></td>
+     <td></td>
+    </tr>
+
+    <tr>
      <td><?php echo \dash\fit::date("2020-02-23"); ?></td>
-     <td><?php echo T_("COVID-19 is come and we are release our 60% our employees! GOD bless us"); ?></td>
+     <td><?php echo T_("COVID-19 is come and we are release our 60% our employees! GOD bless us..."); ?></td>
      <td></td>
     </tr>
 
     <tr>
      <td><?php echo \dash\fit::date("2020-02-02"); ?></td>
      <td><?php echo T_(":val is ready.", ['val' => '<a target="_blank" href="'. \dash\url::kingdom(). '/catalog">'. T_("Jibres catalog"). '</a>']);?></td>
+     <td></td>
+    </tr>
+
+    <tr>
+     <td><?php echo \dash\fit::date("2020-01-01"); ?></td>
+     <td><?php echo T_("happy New Year"); ?> <?php echo \dash\fit::number("2020", false); ?></td>
      <td></td>
     </tr>
 
