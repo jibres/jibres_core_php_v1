@@ -41,7 +41,7 @@
 
     <tr>
      <td><?php echo \dash\fit::date("2020-02-23"); ?></td>
-     <td><?php echo T_("COVID-19 is come and we are release our 60% our employees!"); ?></td>
+     <td><?php echo T_("COVID-19 is come and we are release our 60% our employees! GOD bless us"); ?></td>
      <td></td>
     </tr>
 
