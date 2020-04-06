@@ -46,7 +46,7 @@ class url
 			return false;
 		}
 
-		if(substr_count($data, '.') >= 4)
+		if(substr_count($data, '.') > 3)
 		{
 			if($_notif)
 			{
@@ -54,6 +54,28 @@ class url
 			}
 			return false;
 		}
+
+		return $data;
+	}
+
+	public static function domain_root($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(substr_count($data, '.') > 2)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Doamin can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+		}
+
+		// $data = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.])+', '', $data);
 
 		return $data;
 	}

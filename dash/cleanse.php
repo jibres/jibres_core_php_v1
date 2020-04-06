@@ -609,6 +609,10 @@ class cleanse
 				$data = \dash\validate\url::domain($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'domain_root':
+				$data = \dash\validate\url::domain_root($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'ir_domain':
 				$data = \dash\validate\url::ir_domain($_data, $_notif, $element, $field_title, $meta);
 				break;
