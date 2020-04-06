@@ -43,23 +43,26 @@ if(\dash\data::infoResult())
                 }
                 echo '</div>';
 
-
-                // cell2
-                echo '<div class="cauto pA5 pR20-f">';
-                if(isset($value['price']))
+                if(isset($value['available']) && $value['available'])
                 {
-                    if(isset($value['unit']))
+
+                    // cell2
+                    echo '<div class="cauto pA5 pR20-f">';
+                    if(isset($value['price']))
                     {
-                        echo '<span class="compact unit">'. $value['unit']. '</span>';
+                        if(isset($value['unit']))
+                        {
+                            echo '<span class="compact unit">'. $value['unit']. '</span>';
+                        }
+                        echo ' <span class="compact price">'. \dash\fit::number($value['price']). '</span>';
                     }
-                    echo ' <span class="compact price">'. \dash\fit::number($value['price']). '</span>';
-                }
-                if(isset($value['compareAtPrice']))
-                {
-                    echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
-                }
-                echo '</div>';
+                    if(isset($value['compareAtPrice']))
+                    {
+                        echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
+                    }
+                    echo '</div>';
 
+                }
 
                 // cell3
                 echo '<div class="cauto pA5">';
