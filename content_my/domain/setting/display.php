@@ -10,42 +10,21 @@
       <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
      <tr>
-      <th><?php echo T_('Status & Validity') ?></th>
+      <th><?php echo T_('Status & Validity') ?>
+        <?php if(\dash\get::index(\dash\data::domainDetail(), 'other_status')) {?>
+          <span class="mLa10 btn xs light" data-kerkere='.showOtherStatus'><?php echo T_("Detail") ?></span>
+        <?php } //endif ?>
+      </th>
         <td class="ltr txtRa">
         <?php echo \dash\data::domainDetail_status_html(); ?>
-        <?php echo \dash\get::index(\dash\data::domainDetail(), 'other_status'); ?>
+
+        <?php if(\dash\get::index(\dash\data::domainDetail(), 'other_status')) {?>
+          <div class="showOtherStatus mT20" data-kerkere-content='hide'>
+            <?php echo \dash\get::index(\dash\data::domainDetail(), 'other_status'); ?>
+          </div>
+        <?php } //endif ?>
       </td>
      </tr>
-     <?php if(\dash\permission::supervisor()) {?>
-
-      <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
-     <tr>
-      <th><?php echo T_('Status & Validity') ?></th>
-        <td class="ltr txtRa">
-        <div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_("Enable"); ?></span></div>
-      </td>
-     </tr>
-        <?php
-          }else
-          {
-            if(\dash\data::domainDetail_nicstatus_array())
-            {
-              foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
-              {
-                echo '<tr>';
-                if($key === 0)
-                {
-                  echo '<th rowspan='. count(\dash\data::domainDetail_nicstatus_array()).'>'. T_('Status & Validity'). '</th>';
-                }
-
-                echo '<td class="ltr txtRa">';
-                echo '<div class="badge mLa10 light">'. T_($value) . ' '. $value . '</div>';
-                echo '</td></tr>';
-              }
-            }
-          }
-        ?>
-     <?php }//endif supervisor ?>
      <tr>
       <th><?php echo T_('Registrar') ?></th>
       <td class="ltr txtRa"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>
@@ -183,6 +162,32 @@ else
      </tr>
     </table>
   </div>
+
+
+<?php if(\dash\permission::supervisor()) {?>
+<div class="panel mB10">
+ <table class="tbl1 v4 mB0">
+  <?php
+   if(\dash\data::domainDetail_nicstatus_array())
+    {
+      foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
+      {
+        echo '<tr>';
+        if($key === 0)
+        {
+          echo '<th rowspan='. count(\dash\data::domainDetail_nicstatus_array()).'>'. T_('Status & Validity'). '</th>';
+        }
+
+        echo '<td class="ltr txtRa">';
+        echo '<div class="badge mLa10 light">'. T_($value) . ' '. $value . '</div>';
+        echo '</td></tr>';
+      }
+    }
+  ?>
+  </table>
+</div>
+<?php }//endif supervisor ?>
+
 
 
   <?php if(\dash\data::domainDetail_status() === 'disable') {?>
