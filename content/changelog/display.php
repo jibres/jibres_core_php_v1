@@ -34,6 +34,18 @@
     </tr>
 
     <tr>
+     <td><?php echo \dash\fit::date("2020-03-30"); ?></td>
+     <td><?php echo T_("Our app generator is finished. Now we have a factory to create android application for our bussiness."); ?></td>
+     <td></td>
+    </tr>
+
+    <tr>
+     <td><?php echo \dash\fit::date("2019-12-17"); ?></td>
+     <td><?php echo T_("Jibres presend features at Advertising & Marketing 2019 Tehran, Iran. 17 - 20 Dec 2019."); ?></td>
+     <td></td>
+    </tr>
+
+    <tr>
      <td><?php echo \dash\fit::date("2019-02-07"); ?></td>
      <td><?php echo T_("add support of digital scale barcode and get weight of product automatically."); ?></td>
      <td></td>
