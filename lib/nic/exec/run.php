@@ -270,6 +270,7 @@ class run
 				break;
 
 			case 2104:
+				// @TODO Duplicate message by one reuslt code => 2104: Not enough credit for your request.
 				$msg = T_("Currency type of your contract is different with currency type of the holder.");
 				break;
 
