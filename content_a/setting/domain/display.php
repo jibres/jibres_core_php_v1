@@ -34,7 +34,7 @@ $storeData = \dash\data::store_store_data();
             </div>
           <?php } // endif ?>
           <?php if(\dash\data::domainList()) {?>
-            <h6><?php echo T_("Connected New domain"); ?></h6>
+            <h6><?php echo T_("Connect new domain"); ?></h6>
           <?php }//endif ?>
             <label for="idomain"><?php echo T_("Domain"); ?> <span class="fc-red">*</span></label>
             <div class="input ltr">
