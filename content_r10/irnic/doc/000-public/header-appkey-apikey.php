@@ -1,9 +1,7 @@
 <?php $myClassRand = md5(rand()); ?>
 
-<h3 class="mB20" data-kerkere='.<?php echo $myClassRand; ?>' data-kerkere-icon='close'><?php echo T_("Required parameters"); ?> <?php echo T_("on header"); ?> <code>appkey</code> <i><?php echo T_("And"); ?></i> <code>apikey</code>
-  <br>
-  <small class="fc-mute mR15"><?php echo T_("Click to show detail"); ?></small>
-</h3>
+<div class="mB20" data-kerkere='.<?php echo $myClassRand; ?>' data-kerkere-icon='close'><?php echo T_("Required parameters"); ?> <?php echo T_("on header"); ?> <code>appkey</code> <i><?php echo T_("And"); ?></i> <code>apikey</code>
+</div>
 <div class="<?php echo $myClassRand; ?>" data-kerkere-content='hide'>
 
   <div class="tblBox">
