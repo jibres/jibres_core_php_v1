@@ -16,16 +16,7 @@ class view
 			\dash\face::boxTitle(true);
 			\dash\data::action_text(T_('Stores'));
 			\dash\data::action_link(\dash\url::here() . '/store');
-
-			self::site_detail();
 		}
-	}
-
-
-	private static function site_detail()
-	{
-		$myStore = \lib\app\store\mystore::list();
-		\dash\data::listStore($myStore);
 	}
 }
 ?>

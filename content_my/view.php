@@ -8,8 +8,12 @@ class view
 	{
 		\dash\data::include_adminPanel(true);
 
-		$myStore = \lib\app\store\mystore::list();
-		\dash\data::listStore($myStore);
+
+		if(\dash\url::module() === null || \dash\url::module() === 'store')
+		{
+			$myStore = \lib\app\store\mystore::list();
+			\dash\data::listStore($myStore);
+		}
 	}
 }
 ?>
