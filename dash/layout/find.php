@@ -20,25 +20,23 @@ class find
 	public static function main()
 	{
 		$myPage = null;
-		if (\dash\detect\device::detectPWA() && false)
+
+		if(\dash\url::content() === 'enter')
 		{
-			// $myPage = core.'layout/pwa/pwa-main.php';
+			$myPage = root.'content_enter/home/layout/main.php';
+			// do nothing
 		}
-		else
+		elseif(\dash\engine\content::get() === 'content_subdomain')
 		{
-			if(\dash\url::content() === 'enter')
-			{
-				$myPage = root.'content_enter/home/layout/main.php';
-				// do nothing
-			}
-			elseif(\dash\url::content() === null)
-			{
-				$myPage = root.'content/home/layout/main.php';
-			}
-			elseif(\dash\data::include_adminPanel())
-			{
-				$myPage = core.'layout/admin/admin-main.php';
-			}
+			// do nothing
+		}
+		elseif(\dash\url::content() === null)
+		{
+			$myPage = root.'content/home/layout/main.php';
+		}
+		elseif(\dash\data::include_adminPanel())
+		{
+			$myPage = core.'layout/admin/admin-main.php';
 		}
 
 		if($myPage !== null || \dash\layout\func::display())
@@ -70,16 +68,13 @@ class find
 			{
 				// do nothing
 			}
+			elseif(\dash\engine\content::get() === 'content_subdomain')
+			{
+				// do nothing
+			}
 			elseif(\dash\url::content() === null)
 			{
-				if(\dash\engine\content::get() === 'content_subdomain')
-				{
-					// do nothing
-				}
-				else
-				{
-					$myPage = root.'content/home/layout/header.php';
-				}
+				$myPage = root.'content/home/layout/header.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
@@ -111,16 +106,13 @@ class find
 			{
 				// do nothing
 			}
+			elseif(\dash\engine\content::get() === 'content_subdomain')
+			{
+				// do nothing
+			}
 			elseif(\dash\url::content() === null)
 			{
-				if(\dash\engine\content::get() === 'content_subdomain')
-				{
-					// do nothing
-				}
-				else
-				{
-					$myPage = root.'content/home/layout/footer.php';
-				}
+				$myPage = root.'content/home/layout/footer.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
@@ -172,21 +164,21 @@ class find
 	}
 
 
-	public static function nav()
-	{
-		$myPage = null;
-		// do nothing
+	// public static function nav()
+	// {
+	// 	$myPage = null;
+	// 	// do nothing
 
-		if($myPage !== null)
-		{
-			echo "\n <nav id='pageNav' data-xhr='pageNav'>";
-			if($myPage)
-			{
-				require_once $myPage;
-			}
-			echo "\n </nav>";
-		}
-	}
+	// 	if($myPage !== null)
+	// 	{
+	// 		echo "\n <nav id='pageNav' data-xhr='pageNav'>";
+	// 		if($myPage)
+	// 		{
+	// 			require_once $myPage;
+	// 		}
+	// 		echo "\n </nav>";
+	// 	}
+	// }
 
 	public static function pageScript()
 	{
