@@ -19,8 +19,7 @@
         <pre>curl -X GET <?php echo \dash\data::IRNICApiURL(); ?>contact_list -H 'appkey: <?php echo \dash\data::myAppKey(); ?>'</pre>
 
         <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
-<samp>
-{
+<samp>{
   "ok": true,
   "result": {
     "lang_list": {
