@@ -169,10 +169,6 @@ else
                 </td>
                 <td class="txtC">
                   <?php echo \dash\get::index($value, 'status_html'); ?>
-                  <?php if(\dash\get::index($value, 'other_status')) {?>
-                    <br>
-                    <?php echo \dash\get::index($value, 'other_status'); ?>
-                  <?php } // endif ?>
                   </td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></td>

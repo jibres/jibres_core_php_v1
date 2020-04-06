@@ -11,18 +11,9 @@
      </tr>
      <tr>
       <th><?php echo T_('Status & Validity') ?>
-        <?php if(\dash\get::index(\dash\data::domainDetail(), 'other_status')) {?>
-          <span class="mLa10 btn xs light" data-kerkere='.showOtherStatus'><?php echo T_("Detail") ?></span>
-        <?php } //endif ?>
       </th>
         <td class="ltr txtRa">
         <?php echo \dash\data::domainDetail_status_html(); ?>
-
-        <?php if(\dash\get::index(\dash\data::domainDetail(), 'other_status')) {?>
-          <div class="showOtherStatus mT20" data-kerkere-content='hide'>
-            <?php echo \dash\get::index(\dash\data::domainDetail(), 'other_status'); ?>
-          </div>
-        <?php } //endif ?>
       </td>
      </tr>
      <tr>
@@ -164,7 +155,7 @@ else
   </div>
 
 
-<?php if(\dash\permission::supervisor()) {?>
+
 <div class="panel mB10">
  <table class="tbl1 v4 mB0">
   <?php
@@ -173,20 +164,26 @@ else
       foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
       {
         echo '<tr>';
-        if($key === 0)
+
+        if(mb_strtolower($value) === 'ok')
         {
-          echo '<th rowspan='. count(\dash\data::domainDetail_nicstatus_array()).'>'. T_('Status & Validity'). '</th>';
+          echo "<td>".T_("Domain is OK"). "</td>";
+        }
+        else
+        {
+          echo "<td>". T_($value). "</td>";
         }
 
-        echo '<td class="ltr txtRa">';
-        echo '<div class="badge mLa10 light">'. T_($value) . ' '. $value . '</div>';
-        echo '</td></tr>';
+        if(\dash\language::current() === 'fa')
+        {
+          echo '<td class="ltr txtRa">' . $value. "</td>";
+        }
+        echo '</tr>';
       }
     }
   ?>
   </table>
 </div>
-<?php }//endif supervisor ?>
 
 
 
