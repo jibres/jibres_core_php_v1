@@ -258,11 +258,24 @@ class guard
 	    		return;
 	    	}
 
-	    	$domain = \dash\url::domain();
-	    	$myOrigin = str_replace($domain, '', $origin);
-	    	$last_char = substr($myOrigin, -1);
+			$domain    = \dash\url::domain();
+			$myOrigin  = str_replace($domain, '', $origin);
+			$last_char = substr($myOrigin, -1);
+
+	    	$allow_origine = false;
 
 	    	if($last_char === '/' || $last_char === '.')
+	    	{
+	    		$allow_origine = true;
+	    	}
+
+	    	// allow bank payment
+	    	if(strpos($origin, '.shaparak.ir') !== false)
+	    	{
+	    		$allow_origine = true;
+	    	}
+
+	    	if($allow_origine)
 	    	{
 	    	    // header('Access-Control-Allow-Origin: *', true);
 			    header('Access-Control-Allow-Origin: ' . $origin);
@@ -276,7 +289,6 @@ class guard
 	    	}
 	    	else
 	    	{
-
 				\dash\engine\baby::pacifier(30);
 	    	}
     	}
