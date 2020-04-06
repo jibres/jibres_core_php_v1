@@ -61,8 +61,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c3 s6 pLR10">
             <h3><?php echo T_('Domains'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/domain"><?php echo T_('Domain Name Search'); ?></a>
-            <a href="<?php echo $kingdom; ?>/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
+            <a href="<?php echo $kingdom; ?>/domains"><?php echo T_('Domain Name Search'); ?></a>
+            <a href="<?php echo $kingdom; ?>/my/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
             <a href="<?php echo $kingdom; ?>/whois"><?php echo T_('Whois Lookup'); ?></a>
           </nav>
 
