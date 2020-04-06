@@ -1,4 +1,4 @@
-<?php require_once (root. 'content_management/domain/detail/pageStep.php'); ?>
+<?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 
 <div class="f fs14 mT10 mB20">
  <div class="c6 s12 pRa5">
@@ -11,12 +11,20 @@
      </tr>
      <tr>
       <th><?php echo T_('Status & Validity') ?></th>
-
         <td class="ltr txtRa">
-        <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
+        <?php echo \dash\data::domainDetail_status_html(); ?>
+        <?php echo \dash\get::index(\dash\data::domainDetail(), 'other_status'); ?>
+      </td>
+     </tr>
+     <?php if(\dash\permission::supervisor()) {?>
 
-        <div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_(\dash\data::domainDetail_status()); ?></span></div>
-
+      <?php if(\dash\data::domainDetail_nicstatus_array() && count(\dash\data::domainDetail_nicstatus_array()) === 2 && in_array('ok', \dash\data::domainDetail_nicstatus_array()) && in_array('irnicRegistered', \dash\data::domainDetail_nicstatus_array())) {?>
+     <tr>
+      <th><?php echo T_('Status & Validity') ?></th>
+        <td class="ltr txtRa">
+        <div class="ibtn wide fc-green"><i class="sf-check"></i><span><?php echo T_("Enable"); ?></span></div>
+      </td>
+     </tr>
         <?php
           }else
           {
@@ -24,14 +32,20 @@
             {
               foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
               {
-                echo '<div class="badge mLa10 light">'. T_('IRNIC_'. $value). '</div>';
+                echo '<tr>';
+                if($key === 0)
+                {
+                  echo '<th rowspan='. count(\dash\data::domainDetail_nicstatus_array()).'>'. T_('Status & Validity'). '</th>';
+                }
+
+                echo '<td class="ltr txtRa">';
+                echo '<div class="badge mLa10 light">'. T_($value). ' '. $value. '</div>';
+                echo '</td></tr>';
               }
             }
           }
         ?>
-      </td>
-
-     </tr>
+     <?php }//endif supervisor ?>
      <tr>
       <th><?php echo T_('Registrar') ?></th>
       <td class="ltr txtRa"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>
@@ -41,7 +55,11 @@
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
      </tr>
      <tr>
-      <th><?php echo T_('Expired on') ?> <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew domain'); ?></a></th>
+      <th><?php echo T_('Expired on') ?>
+      <?php if(\dash\data::domainDetail_can_renew()) {?>
+      <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew domain'); ?></a>
+      <?php } //endif ?>
+      </th>
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
      </tr>
 <?php if(\dash\data::domainDetail_datemodified()) {?>
@@ -165,6 +183,25 @@ else
      </tr>
     </table>
   </div>
+
+
+  <?php if(\dash\data::domainDetail_status() === 'disable') {?>
+  <div class="panel mB10">
+    <table class="tbl1 v4 mB0">
+     <tr>
+      <td>
+        <?php echo T_("Remove this domain from your account"); ?>
+      </td>
+      <td class="txtRa ltr"><div data-confirm data-data='{"status" : "remove"}' class="btn danger "><?php echo T_("Remove") ?></div></td>
+     </tr>
+
+
+    </table>
+  </div>
+<?php } //endif ?>
+
+
+
 
  </div>
 </div>

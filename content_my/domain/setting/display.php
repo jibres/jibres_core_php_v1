@@ -39,7 +39,7 @@
                 }
 
                 echo '<td class="ltr txtRa">';
-                echo '<div class="badge mLa10 light">'. T_($value). '</div>';
+                echo '<div class="badge mLa10 light">'. T_($value) . ' '. $value . '</div>';
                 echo '</td></tr>';
               }
             }
