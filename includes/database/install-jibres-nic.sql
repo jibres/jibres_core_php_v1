@@ -34,8 +34,11 @@ CREATE TABLE IF NOT EXISTS `log` (
 `result_code` varchar(100) DEFAULT NULL,
 `request_count` smallint(5) DEFAULT NULL,
 `result` text  NULL DEFAULT NULL,
+`runtime` text  NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `log_index_search_type` (`type`)
+KEY `log_index_search_userid` (`userid`)
+KEY `log_index_search_datesend` (`datesend`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

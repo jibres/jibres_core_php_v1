@@ -32,7 +32,7 @@ class contact_create
 	private static function analyze_contact_create($_args)
 	{
 
-		$object_result = self::get_response_create($_args);
+		$object_result = self::send_xml($_args);
 
 		if(!$object_result)
 		{
@@ -75,7 +75,7 @@ class contact_create
 
 
 
-	private static function get_response_create($_args)
+	private static function send_xml($_args)
 	{
 		$addr = root. 'lib/nic/exec/samples/contact_create.xml';
 		$xml = \dash\file::read($addr);
@@ -85,7 +85,6 @@ class contact_create
 			return false;
 		}
 
-		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
 
 		$xml = str_replace('JIBRES-FIRSTNAME', 		$_args['firstname'], 	$xml);
 		$xml = str_replace('JIBRES-LASTNAME', 		$_args['lastname'], 	$xml);
@@ -101,74 +100,16 @@ class contact_create
 		$xml = str_replace('JIBRES-SIGNATURE', 		$_args['signator'], 	$xml);
 		$xml = str_replace('JIBRES-EMAIL', 			$_args['email'], 		$xml);
 
-		$insert_log =
-		[
-			'type'          => 'contact_create',
-			'user_id'       => \dash\user::id(),
-			'send'          => null,
-			'datesend'      => date("Y-m-d H:i:s"),
-			'request_count' => 1,
-		];
+		$response = \lib\nic\exec\run::send($xml, 'contact_create');
 
-		$log_id = \lib\db\nic_log\insert::new_record($insert_log);
-
-		$tracking_number = \lib\nic\exec\run::make_tracking_number($log_id, get_class());
-
-		$xml = str_replace('JIBRES-TRACKING-NUMBER', $tracking_number, $xml);
-
-		$update_befor_send =
-		[
-			'send'      => addslashes($xml),
-			'client_id' => $tracking_number,
-		];
-
-		\lib\db\nic_log\update::update($update_befor_send, $log_id);
-
-		$response = \lib\nic\exec\run::send($xml);
-
-		$update_after_send = [];
-
-		$update_after_send['dateresponse'] = date("Y-m-d H:i:s");
-
-		if(isset($response))
-		{
-			$update_after_send['response'] = addslashes($response);
-		}
-
-		if(!$response)
-		{
-			\dash\notif::error(T_("IRNIC server is not available at this time"));
-			return false;
-		}
-
-
-		try
-		{
-			$object = @new \SimpleXMLElement($response);
-		}
-		catch (\Exception $e)
-		{
-			// \dash\notif::error(T_("Can not connect to domain server"));
-			\lib\db\nic_log\update::update($update_after_send, $log_id);
-			return false;
-		}
-
-		$result_code = \lib\nic\exec\run::result_code($object);
-
-		$update_after_send['result_code'] = $result_code;
-		$update_after_send['server_id']   = \lib\nic\exec\run::server_id($object);
-
-		\lib\db\nic_log\update::update($update_after_send, $log_id);
+		$result_code = \lib\nic\exec\run::result_code($response);
 
 		if($result_code != 1000)
 		{
 			\dash\notif::error(\lib\nic\exec\run::code_msg($result_code));
 		}
 
-		return $object;
-
+		return $response;
 	}
-
-
 }
 ?>

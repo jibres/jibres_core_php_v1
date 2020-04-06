@@ -4,13 +4,97 @@ namespace lib\nic\exec;
 
 class run
 {
-	public static function send($_xml)
+	public static function send($_xml, $_type, $_request_count = 1)
 	{
+		$xml = $_xml;
 
-		if(!self::allow_request())
+		$xml = str_replace('JIBRES-TOKEN', self::token(), $xml);
+
+		$tracking_number = self::make_tracking_number($_type);
+
+		$xml = str_replace('JIBRES-TRACKING-NUMBER', $tracking_number, $xml);
+
+		$insert_log =
+		[
+			'type'          => $_type,
+			'user_id'       => \dash\user::id(),
+			'send'          => addslashes($xml),
+			'datesend'      => date("Y-m-d H:i:s"),
+			'request_count' => $_request_count,
+			'client_id'     => $tracking_number,
+		];
+
+		$allow_request = self::allow_request($_type);
+
+		if(!$allow_request)
 		{
+			$insert_log['result'] = 'not-allow-send-to-nic';
+		}
+
+		if(!$allow_request)
+		{
+			\lib\db\nic_log\insert::new_record($insert_log);
 			return false;
 		}
+
+
+		if(\dash\url::isLocal())
+		{
+			\lib\db\nic_log\insert::new_record($insert_log);
+			\dash\notif::warn("Can not send NICIR Request in local mode!");
+			return false;
+		}
+
+		// connect to nic server
+		$response = \lib\nic\exec\run::nic_curl($xml);
+
+		$insert_log['dateresponse'] = date("Y-m-d H:i:s");
+
+		$object = false;
+
+		if(isset($response))
+		{
+			$insert_log['response'] = addslashes($response);
+
+			// try to get object from xml
+			try
+			{
+				$object = @new \SimpleXMLElement($response);
+
+				$result_code                      = self::result_code($object);
+
+				$insert_log['result_code'] = $result_code;
+
+				$insert_log['server_id']   = self::server_id($object);
+
+				$message = self::code_msg($result_code);
+
+				if($message && \dash\permission::supervisor())
+				{
+					\dash\notif::info($message);
+				}
+			}
+			catch (\Exception $e)
+			{
+				\dash\notif::error(T_("Can not connect to domain server"));
+
+				$insert_log['result'] = 'cannot-parse-xml';
+
+			}
+		}
+		else
+		{
+			$insert_log['result'] = 'response-of-nic-is-empty';
+		}
+
+		\lib\db\nic_log\insert::new_record($insert_log);
+
+		return $object;
+	}
+
+
+	private static function nic_curl($_xml)
+	{
 
 		$_xml = trim($_xml);
 
@@ -102,7 +186,7 @@ class run
 	}
 
 
-	private static function allow_request()
+	private static function allow_request($_type)
 	{
 		// check time
 		$hour = intval(date("Hi"));
@@ -110,6 +194,13 @@ class run
 		if($hour >= 701)
 		{
 			return true;
+		}
+
+		if($_type === 'poll')
+		{
+			// in 12:00 - 7:00. No poll request need to send
+			// with cronjob and also for user
+			return false;
 		}
 
 		// check count request
@@ -194,32 +285,22 @@ class run
 	}
 
 
-	public static function make_tracking_number($_log_id, $_class_name)
+	public static function make_tracking_number($_type)
 	{
-		$test  = '';
-		$local = '';
-
-		$test  = '';
+		$tracking_number = 'JIBRES-';
 
 		if(\dash\url::isLocal())
 		{
-			$local = 'LOCAL-';
+			$tracking_number .= 'LOCAL-';
 		}
 
-		$class = substr(strrchr($_class_name, "\\"), 1);
-		$class = mb_strtoupper(str_replace('_', '-', $class));
-
-		$time = date("Y-m-d-H:i:s");
-
-		$tracking_number = $test;
-		$tracking_number .= $local;
-
-		$tracking_number .= 'JIBRES-';
-		$tracking_number .= $time;
+		$tracking_number .= date("Y-m-d-H:i:s");
 		$tracking_number .= '-';
-		$tracking_number .= $class;
+
+		$tracking_number .= $_type;
 		$tracking_number .= '-';
-		$tracking_number .= $_log_id;
+
+		$tracking_number .= \dash\coding::encode(rand(1, 999). rand(1,999). rand(1,999). rand(1,999), 'all');
 
 		return $tracking_number;
 	}

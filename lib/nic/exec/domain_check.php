@@ -118,7 +118,8 @@ class domain_check
 
 	private static function analyze_domain_check($_domain)
 	{
-		$object_result = self::get_response_check($_domain);
+		$object_result = self::send_xml($_domain);
+
 		if(!$object_result)
 		{
 			return false;
@@ -170,7 +171,7 @@ class domain_check
 
 
 
-	private static function get_response_check($_domain)
+	private static function send_xml($_domain)
 	{
 		$addr = root. 'lib/nic/exec/samples/domain_check.xml';
 		$xml = \dash\file::read($addr);
@@ -179,8 +180,13 @@ class domain_check
 		{
 			return false;
 		}
+
+		$count = 1;
+
 		if(is_array($_domain))
 		{
+			$count = count($_domain);
+
 			$temp_string_xml = '<domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>';
 			$string_xml = '';
 			foreach ($_domain as $key => $one_domain)
@@ -196,62 +202,9 @@ class domain_check
 			$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
 		}
 
-		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
+		$response = \lib\nic\exec\run::send($xml, 'domain_check', $count);
 
-		$insert_log =
-		[
-			'type'          => 'domain_check',
-			'user_id'       => \dash\user::id(),
-			'send'          => null,
-			'datesend'      => date("Y-m-d H:i:s"),
-			'request_count' => 1,
-		];
-
-		$log_id = \lib\db\nic_log\insert::new_record($insert_log);
-
-		$tracking_number = \lib\nic\exec\run::make_tracking_number($log_id, get_class());
-
-		$xml = str_replace('JIBRES-TRACKING-NUMBER', $tracking_number, $xml);
-
-		$update_befor_send =
-		[
-			'send'      => addslashes($xml),
-			'client_id' => $tracking_number,
-		];
-
-		\lib\db\nic_log\update::update($update_befor_send, $log_id);
-
-		$response = \lib\nic\exec\run::send($xml);
-
-		$update_after_send = [];
-
-		$update_after_send['dateresponse'] = date("Y-m-d H:i:s");
-
-		if(isset($response))
-		{
-			$update_after_send['response'] = addslashes($response);
-		}
-
-
-		try
-		{
-			$object = @new \SimpleXMLElement($response);
-		}
-		catch (\Exception $e)
-		{
-			// \dash\notif::error(T_("Can not connect to domain server"));
-			\lib\db\nic_log\update::update($update_after_send, $log_id);
-			return false;
-		}
-
-
-		$update_after_send['result_code'] = \lib\nic\exec\run::result_code($object);
-		$update_after_send['server_id'] = \lib\nic\exec\run::server_id($object);
-
-
-		\lib\db\nic_log\update::update($update_after_send, $log_id);
-
-		return $object;
+		return $response;
 
 	}
 
