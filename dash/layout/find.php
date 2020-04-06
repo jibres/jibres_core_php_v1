@@ -70,7 +70,7 @@ class find
 			}
 			elseif(\dash\engine\content::get() === 'content_subdomain')
 			{
-				// do nothing
+				$myPage = root.'content_subdomain/home/layout/header.php';
 			}
 			elseif(\dash\url::content() === null)
 			{
