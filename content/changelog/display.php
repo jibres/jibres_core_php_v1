@@ -40,10 +40,17 @@
     </tr>
 
     <tr>
+     <td><?php echo \dash\fit::date("2020-02-23"); ?></td>
+     <td><?php echo T_("COVID-19 is come and we are release our 60% our employees!"); ?></td>
+     <td></td>
+    </tr>
+
+    <tr>
      <td><?php echo \dash\fit::date("2020-02-02"); ?></td>
      <td><?php echo T_(":val is ready.", ['val' => '<a target="_blank" href="'. \dash\url::kingdom(). '/catalog">'. T_("Jibres catalog"). '</a>']);?></td>
      <td></td>
     </tr>
+
     <tr>
      <td><?php echo \dash\fit::date("2019-12-17"); ?></td>
      <td><?php echo T_("Jibres presend features at Advertising & Marketing 2019 Tehran, Iran. 17 - 20 Dec 2019."); ?></td>
