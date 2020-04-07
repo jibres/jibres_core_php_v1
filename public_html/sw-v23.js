@@ -3,13 +3,9 @@
 const CACHE = "jibres-pwa";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
-  "/static/siftal/images/cert/irannsr.png",
-  "/static/siftal/images/cert/enamad2.png",
-  "/static/siftal/images/cert/samandehi.png",
-  "/static/siftal/images/cert/shamad.png",
-  "/static/logo/icon/png/Jibres-Logo-icon-144.png",
+  "https://cdn.talambar.com/logo/icon/png/Jibres-Logo-icon-144.png",
+  "https://cdn.talambar.com/logo/icon/svg/Jibres-Logo-icon.svg",
   "/manifest.webmanifest",
-  "/static/logo/icon/svg/Jibres-Logo-icon.svg",
 ];
 
 const offlineFallbackPage = "offline.html";
