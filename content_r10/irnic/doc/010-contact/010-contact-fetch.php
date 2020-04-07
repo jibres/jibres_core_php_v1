@@ -1,11 +1,11 @@
 <div class="box">
   <header>
-    <h2 class="f" data-kerkere='#contact-detail' data-kerkere-icon='open'>
+    <h2 class="f" data-kerkere='#contact-fetch' data-kerkere-icon='open'>
       <span class="cauto pRa10"><span class="badge success">GET</span></span>
       <span class="c"><?php echo T_("Get IRNIC contact list"); ?></span>
     </h2>
   </header>
-  <div class="body" id="contact-detail">
+  <div class="body" id="contact-fetch">
       <div id='contact'>
 
         <div class="msg url ltr txtL">
