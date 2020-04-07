@@ -154,8 +154,9 @@ class tools
 		// need to get store in session name
 		// if not. every user by unit auth id can be login togheder in another store!!!
 		// the url::kingdom have store code and subdomain
-		$session_id = \dash\url::kingdom(). 'APIV2'. $get['id'];
-		$session_id = 'APIV2-'. md5($session_id);
+		// $session_id = \dash\url::kingdom(). 'APIV2'. $get['id'];
+		$session_id_text = \dash\url::subdomain(). '.'. \dash\url::root(). '.'. \dash\url::store(). 'v2-'. $apikey;
+		$session_id = 'APIV2-'. md5($session_id_text);
 
 		\dash\session::restart($session_id);
 
