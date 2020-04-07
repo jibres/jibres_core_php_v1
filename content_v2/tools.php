@@ -157,7 +157,7 @@ class tools
 		$session_id = \dash\url::kingdom(). 'APIV2'. $get['id'];
 		$session_id = 'APIV2-'. md5($session_id);
 
-		\dash\engine\prepare::session_api_start($session_id);
+		\dash\session::restart($session_id);
 
 		if(!\dash\user::id())
 		{

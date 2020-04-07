@@ -154,7 +154,7 @@ class prepare
 	private static function session_start()
 	{
 		// in api content needless to start session
-		// check apikey and start session by function self::session_api_start()
+		// check apikey and start session by function \dash\session::restart()
 		if(\dash\engine\content::api_content())
 		{
 			return;
@@ -176,27 +176,6 @@ class prepare
 		}
 
 		// start sessions
-		session_start();
-	}
-
-
-	/**
-	 * Call this function from api contents
-	 * check api key and if everything is ok start session without set cookie
-	 *
-	 * @param      <type>  $_session_name  The session name
-	 */
-	public static function session_api_start($_session_name)
-	{
-		// if a session is currently opened, close it
-		if(session_id() != '')
-		{
-			session_write_close();
-		}
-
-		session_id($_session_name);
-
-		// start new session
 		session_start();
 	}
 

@@ -137,7 +137,7 @@ class tools
 
 		$session_id = \dash\url::root(). 'APICORE'. $get['id'];
 
-		\dash\engine\prepare::session_api_start($session_id);
+		\dash\session::restart($session_id);
 
 		if(!\dash\user::id())
 		{
