@@ -8,7 +8,7 @@
 
     <p><?php echo T_("The stable base URL for all Version 10 HTTPS endpoints is"); ?></p>
 
-    <pre><?php echo \dash\data::IRNICApiURL(); ?></pre>
+    <samp><?php echo \dash\data::IRNICApiURL(); ?></samp>
 
   </div>
 </div>

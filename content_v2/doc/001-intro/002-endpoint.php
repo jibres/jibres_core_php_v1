@@ -8,7 +8,7 @@
 
     <p><?php echo T_("The stable base URL for all Version 2 HTTPS endpoints is"); ?></p>
 
-    <pre><?php echo \dash\data::CustomerApiURL(); ?></pre>
+    <samp><?php echo \dash\data::CustomerApiURL(); ?></samp>
 
     <?php if(!\dash\url::store()) {?>
     <p><?php echo T_("Use your store code instead of the {STORE}"); ?> <?php echo T_("If you are registered and have store, you can obtain your {STORE} key from 'My Account' page."); ?> <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/account/appkey"><?php echo T_("Go to My account."); ?></a></p>

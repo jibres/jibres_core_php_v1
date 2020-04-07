@@ -13,7 +13,7 @@
 
 
     <h3><?php echo T_("Success Response"); ?> <small><?php echo T_("example"); ?></small></h3>
-<pre>
+<samp>
 {
   "ok": true,
   "result":
@@ -29,11 +29,11 @@
     }
   ]
 }
-</pre>
+</samp>
 
 
     <h3><?php echo T_("Error Response"); ?> <small><?php echo T_("example"); ?></small></h3>
-<pre>
+<samp>
 {
   "ok": false,
   "msg":
@@ -44,7 +44,7 @@
     }
   ]
 }
-</pre>
+</samp>
 
 
     <h3><?php echo T_("HTTP response codes"); ?></h3>
