@@ -28,12 +28,24 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\nic_dns\search::list($search_string, $args);
+		if(\dash\url::isLocal())
+		{
+			$get_api    = new \lib\nic\api();
+			$list       = $get_api->dns_fetch();
+			$filterBox  = $get_api->meta('filter_message');
+			$isFiltered = $get_api->meta('is_filtered');
+		}
+		else
+		{
+
+			$list          = \lib\app\nic_dns\search::list($search_string, $args);
+			$filterBox     = \lib\app\nic_dns\search::filter_message();
+			$isFiltered    = \lib\app\nic_dns\search::is_filtered();
+		}
+
 		\dash\data::dataTable($list);
 
-		\dash\data::filterBox(\lib\app\nic_dns\search::filter_message());
-
-		$isFiltered = \lib\app\nic_dns\search::is_filtered();
+		\dash\data::filterBox($filterBox);
 
 		\dash\data::isFiltered($isFiltered);
 

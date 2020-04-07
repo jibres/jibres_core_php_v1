@@ -70,14 +70,14 @@ else
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"';} ?>>
 				<td><?php echo \dash\fit::number($key + 1); ?></td>
 				<td>
-					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="<?php if(!isset($value['title'])) { echo 'fc-mute';}else{echo 'link';} ?>">
+					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="<?php if(!isset($value['title'])) { echo 'fc-mute';}else{echo 'link';} ?>">
 						<?php if(\dash\get::index($value, 'title')) { echo \dash\get::index($value, 'title'); } else { echo ' <i class="sf-edit"></i> '. T_("Without title"); } ?>
 					</a>
 						<?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php } //endif ?>
 				</td>
 				<td>
 					<?php if(\dash\get::index($value, 'count_useage')) {?>
-						<?php echo \dash\fit::number(\dash\get::index($value, 'count_useage')). ' '. T_("Domain");?> <a href="<?php echo \dash\url::this(). '?dns='. \dash\coding::encode(\dash\get::index($value, 'id'));  ?>"><i class="sf-question-circle"></i></a>
+						<?php echo \dash\fit::number(\dash\get::index($value, 'count_useage')). ' '. T_("Domain");?> <a href="<?php echo \dash\url::this(). '?dns='. \dash\get::index($value, 'id');  ?>"><i class="sf-question-circle"></i></a>
 					<?php }else{ echo ' - ';} ?>
 				</td>
 				<td><?php echo \dash\get::index($value, 'ip1'); ?> <br> <?php echo \dash\get::index($value, 'ns1'); ?></td>

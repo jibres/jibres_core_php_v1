@@ -8,12 +8,21 @@ class model
 	{
 		if(\dash\request::post('myaction') === 'remove')
 		{
+			if(\dash\url::isLocal())
+			{
+				$get_api    = new \lib\nic\api();
+				$remove     = $get_api->dns_remove(\dash\request::get('id'));
+			}
+			else
+			{
+				$remove = \lib\app\nic_dns\edit::remove(\dash\request::get('id'));
+			}
 
-			$create = \lib\app\nic_dns\edit::remove(\dash\request::get('id'));
-			if(\dash\engine\process::status())
+			if(\dash\engine\process::status() && $remove)
 			{
 				\dash\redirect::to(\dash\url::that());
 			}
+
 			return;
 		}
 
@@ -31,8 +40,15 @@ class model
 			'isdefault' => \dash\request::post('isdefault'),
 		];
 
-
-		$create = \lib\app\nic_dns\edit::edit($post, \dash\request::get('id'));
+		if(\dash\url::isLocal())
+		{
+			$get_api    = new \lib\nic\api();
+			$create     = $get_api->dns_edit($post, \dash\request::get('id'));
+		}
+		else
+		{
+			$create = \lib\app\nic_dns\edit::edit($post, \dash\request::get('id'));
+		}
 
 		if($create && \dash\engine\process::status())
 		{

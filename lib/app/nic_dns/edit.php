@@ -89,7 +89,15 @@ class edit
 			]);
 		}
 
-		$update_dns = \lib\db\nic_dns\update::update($update, $load['id']);
+		$update_arg = \dash\cleanse::patch_mode($_args, $update);
+
+		if(empty($update_arg))
+		{
+			\dash\notif::info(T_("Your dns saved without change"));
+			return false;
+		}
+
+		$update_dns = \lib\db\nic_dns\update::update($update_arg, $load['id']);
 		if($update_dns)
 		{
 			\dash\notif::ok(T_("DNS record successfully updated"));

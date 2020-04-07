@@ -8,6 +8,10 @@ class get
 	{
 		$id = \dash\request::get('id');
 		$result = self::get($id);
+		if($result)
+		{
+			$result = \lib\app\nic_dns\ready::row($result);
+		}
 		return $result;
 
 	}

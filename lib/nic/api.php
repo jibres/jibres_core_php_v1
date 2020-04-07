@@ -23,11 +23,13 @@ class api
 		$appkey    = 'd4690f919c32165b1541ffe28a57324c'; // local
 		$appkey    = 'd4690f919c32165b1541ffe28a57324c'; // .ir
 
-		$apikey    = '55e77fe05aa4126fa739a6f21829c454'; // local
 		$apikey    = '312942427c94b0fafe37ca2770f6424c'; // .ir
+		$apikey    = '55e77fe05aa4126fa739a6f21829c454'; // local
 		$registrar = 'irnic';
 
 		$master_url = "https://core.jibres.ir/%s/%s/%s";
+		$master_url = "https://core.jibres.com/%s/%s/%s";
+		$master_url = "http://core.jibres.local/%s/%s/%s";
 
 		$default_option =
 		[
@@ -104,6 +106,7 @@ class api
 
 		if(!$result['ok'])
 		{
+			var_dump($response);exit();
 			// build error
 			return false;
 		}
@@ -136,9 +139,8 @@ class api
 		return null;
 	}
 
-	/**
-	 * get contact list
-	 */
+
+	// ---------------------------------------- CONTACT ---------------------------------------- //
 	public function contact_fetch()
 	{
 		$result = self::run('contact/fetch', 'get');
@@ -188,6 +190,7 @@ class api
 	}
 
 
+	// ---------------------------------------- DOMAIN ---------------------------------------- //
 
 	public function domain_check($_domin)
 	{
@@ -199,6 +202,49 @@ class api
 	public function domain_available($_domin)
 	{
 		$result = self::run('domain/available', 'get', ['domain' => $_domin], null, ['apikey' => false]);
+		return $result;
+	}
+
+
+	// ---------------------------------------- DNS ---------------------------------------- //
+	public function dns_fetch()
+	{
+		$result = self::run('dns/fetch', 'get');
+		return $result;
+	}
+
+
+	public function dns_fetch_all()
+	{
+		$result = self::run('dns/fetch', 'get', ['all' => true]);
+		return $result;
+	}
+
+
+	public function dns_load($_id)
+	{
+		$result = self::run('dns', 'get', ['id' => $_id]);
+		return $result;
+	}
+
+
+	public function dns_remove($_id)
+	{
+		$result = self::run('dns', 'delete', ['id' => $_id]);
+		return $result;
+	}
+
+
+	public function dns_edit($_args, $_id)
+	{
+		$result = self::run('dns', 'patch', ['id' => $_id], $_args);
+		return $result;
+	}
+
+
+	public function dns_create($_args)
+	{
+		$result = self::run('dns/create', 'post', null, $_args);
 		return $result;
 	}
 

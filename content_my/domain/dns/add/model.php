@@ -20,7 +20,15 @@ class model
 			'isdefault' => \dash\request::post('isdefault'),
 		];
 
-		$create = \lib\app\nic_dns\add::new_record($post);
+		if(\dash\url::isLocal())
+		{
+			$get_api    = new \lib\nic\api();
+			$create       = $get_api->dns_create($post);
+		}
+		else
+		{
+			$create = \lib\app\nic_dns\add::new_record($post);
+		}
 
 		if($create && \dash\engine\process::status())
 		{
