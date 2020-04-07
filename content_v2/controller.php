@@ -10,23 +10,19 @@ class controller
 
 		if(in_array(\dash\url::module(), ['doc', 'location']))
 		{
-
+			// needless to check store, appkey and apikey
 		}
 		else
 		{
-			self::check_store();
+			if(!\lib\store::id())
+			{
+				\dash\header::status(403, T_("Store not found"));
+			}
+
 			\content_v2\tools::master_check();
 		}
 	}
 
-
-	private static function check_store()
-	{
-		if(!\lib\store::id())
-		{
-			\dash\header::status(403, T_("Store not found"));
-		}
-	}
 
 	private static function check_subdomain_and_content()
 	{

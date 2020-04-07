@@ -40,22 +40,11 @@ class tools
 	}
 
 
-	public static function store_required()
-	{
-		if(!\lib\store::id())
-		{
-			self::stop(403, T_("Store not found"));
-		}
-	}
-
-
-
-
-
-
 	public static function check_appkey()
 	{
 		$appkey = \dash\header::get('appkey');
+
+		$appkey = \dash\validate::md5($appkey);
 
 		if(!$appkey)
 		{
@@ -88,13 +77,14 @@ class tools
 	public static function check_token()
 	{
 		$token = \dash\header::get('token');
-
-		\dash\app\apilog::static_var('token', $token);
+		$token = \dash\validate::md5($token);
 
 		if(!$token)
 		{
 			self::stop(401, T_("token not set"));
 		}
+
+		\dash\app\apilog::static_var('token', $token);
 
 		if(!$token || mb_strlen($token) !== 32)
 		{
@@ -136,6 +126,7 @@ class tools
 	public static function check_apikey()
 	{
 		$apikey = \dash\header::get('apikey');
+		$apikey = \dash\validate::md5($apikey);
 
 		if(!$apikey)
 		{
@@ -143,11 +134,6 @@ class tools
 		}
 
 		\dash\app\apilog::static_var('apikey', $apikey);
-
-		if(mb_strlen($apikey) !== 32)
-		{
-			self::stop(401, T_("Invalid apikey"));
-		}
 
 		$get =
 		[
@@ -165,38 +151,20 @@ class tools
 			self::stop(401, T_("Invalid apikey"));
 		}
 
-		self::api_user_login($get['id']);
+		// need to get store in session name
+		// if not. every user by unit auth id can be login togheder in another store!!!
+		// the url::kingdom have store code and subdomain
+		$session_id = \dash\url::kingdom(). 'APIV2'. $get['id'];
+		$session_id = 'APIV2-'. md5($session_id);
+
+		\dash\engine\prepare::session_api_start($session_id);
 
 		if(!\dash\user::id())
 		{
-			if(\dash\engine\store::inStore())
-			{
-				\dash\user::store_init($get['user_id'], true);
-			}
-			else
-			{
-				\dash\user::init($get['user_id']);
-			}
+			\dash\user::store_init($get['user_id'], true);
 		}
 
 		return true;
-	}
-
-
-	private static function api_user_login($_id)
-	{
-		$session_id = \dash\url::root(). 'API'. $_id;
-
-		// if a session is currently opened, close it
-		if(session_id() != '')
-		{
-			session_write_close();
-		}
-
-		// use new id
-		session_id($session_id);
-		// start new session
-		session_start();
 	}
 
 
