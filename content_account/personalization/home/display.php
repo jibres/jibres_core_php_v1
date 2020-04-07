@@ -17,7 +17,7 @@ else
 
 
 <div class="txtC fs14 mTB25">
-  <img class="box700 mB20-f" src="<?php echo \dash\url::siftal(); ?>/images/account/personalization-cover.png" alt='<?php echo \dash\face::title(); ?>'>
+  <img class="box700 mB20-f" src="<?php echo \dash\url::cdn(); ?>/img/account/personalization-cover.png" alt='<?php echo \dash\face::title(); ?>'>
   <h2><?php echo \dash\face::title(); ?></h2>
   <p><?php echo \dash\face::desc(); ?></p>
 </div>

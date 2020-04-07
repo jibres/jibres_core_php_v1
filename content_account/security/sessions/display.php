@@ -2,7 +2,7 @@
 
 
 <div class="txtC fs14 mTB25">
-  <img class="box700 mB20-f" src="<?php echo \dash\url::siftal(); ?>/images/account/privacy-checkup.png" alt='<?php echo T_("Sessions"); ?>'>
+  <img class="box700 mB20-f" src="<?php echo \dash\url::cdn(); ?>/img/account/privacy-checkup.png" alt='<?php echo T_("Sessions"); ?>'>
   <h2><?php echo \dash\face::title(); ?> <span class="badge"><?php if(is_array(\dash\data::sessionsList())) {echo \dash\fit::number(count(\dash\data::sessionsList()));} ?></span></h2>
   <p><?php echo T_("Devices that have been active on your account in the last month, or are currently signed in."); ?></p>
 </div>

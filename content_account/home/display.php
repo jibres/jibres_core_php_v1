@@ -25,7 +25,7 @@
           <p><?php echo T_("Basic info, like your name and photo, that you use on our services"); ?></p>
         </div>
         <div class="c3 s12">
-          <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/profile.png" alt='<?php echo T_("profile"); ?>'>
+          <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/profile.png" alt='<?php echo T_("profile"); ?>'>
         </div>
       </div>
       <hr>
@@ -44,7 +44,7 @@
             <p><?php echo T_("Settings and recommendations to help you keep your account secure"); ?></p>
           </div>
           <div class="c3 s12">
-            <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/security.png" alt='<?php echo T_("Security"); ?>'>
+            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/security.png" alt='<?php echo T_("Security"); ?>'>
           </div>
         </div>
         <hr>
@@ -65,7 +65,7 @@
             <p><?php echo T_("See the data in your account and choose what activity is saved to personalize your experience"); ?></p>
           </div>
           <div class="c3 s12">
-            <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/personalization.png" alt='<?php echo T_("Personalization"); ?>'>
+            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/personalization.png" alt='<?php echo T_("Personalization"); ?>'>
           </div>
         </div>
         <hr>
@@ -85,7 +85,7 @@
             <p><?php echo T_("Check your last messages."); ?> <?php echo T_("Maybe some messages need your action!"); ?></p>
           </div>
           <div class="c3 s12">
-            <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/notification.png" alt='<?php echo T_("Notifications"); ?>'>
+            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/notification.png" alt='<?php echo T_("Notifications"); ?>'>
           </div>
         </div>
         <hr>
@@ -105,7 +105,7 @@
             <p><?php echo T_("Get expert answers and advice on our service or contact our legendary support team"); ?></p>
           </div>
           <div class="c3 s12">
-            <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/support.png" alt='<?php echo T_("Support"); ?>'>
+            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/support.png" alt='<?php echo T_("Support"); ?>'>
           </div>
         </div>
         <hr>
@@ -125,7 +125,7 @@
             <p><?php echo T_("Check your account balance, charge your account, and bill your invoices!"); ?></p>
           </div>
           <div class="c3 s12">
-            <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/billing.png" alt='<?php echo T_("Billing"); ?>'>
+            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/billing.png" alt='<?php echo T_("Billing"); ?>'>
           </div>
         </div>
         <hr>

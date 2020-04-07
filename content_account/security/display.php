@@ -14,7 +14,7 @@ else
 
 
 <div class="txtC fs14 mTB25">
-  <img class="box700 mB20-f" src="<?php echo \dash\url::siftal(); ?>/images/account/security-cover.png" alt='<?php echo T_("Personal info"); ?>'>
+  <img class="box700 mB20-f" src="<?php echo \dash\url::cdn(); ?>/img/account/security-cover.png" alt='<?php echo T_("Personal info"); ?>'>
   <h2><?php echo \dash\face::title(); ?></h2>
   <p><?php echo \dash\face::desc(); ?></p>
 </div>
@@ -30,7 +30,7 @@ else
             <h3><?php echo T_("Signing in to"); ?> <?php echo \dash\face::site(); ?></h3>
           </div>
           <div class="cauto os">
-            <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/security-signin.png" alt='<?php echo T_("Signing to account"); ?>'>
+            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/security-signin.png" alt='<?php echo T_("Signing to account"); ?>'>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ else
             <p><?php echo T_("These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account"); ?></p>
           </div>
           <div class="cauto os">
-            <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/security-recovery.png" alt='<?php echo T_("Recovery Account"); ?>'>
+            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/security-recovery.png" alt='<?php echo T_("Recovery Account"); ?>'>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@ else
             <a href="<?php echo \dash\url::this(); ?>/sessions" class="btn primary outline"><?php echo T_("Check all active sessions"); ?> <span class="badge primary"><?php if(is_array(\dash\data::sessionsList())) {echo \dash\fit::number(count(\dash\data::sessionsList()));} ?></span></a>
           </div>
           <div class="cauto os">
-            <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/privacy-checkup.png" alt='<?php echo T_("Sessions"); ?>'>
+            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/privacy-checkup.png" alt='<?php echo T_("Sessions"); ?>'>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@ else
             <p><?php echo T_("No activity in the last month."); ?> <?php echo T_("You'll be notified if unusual security activity is detected, like a sign-in from a new device or if a sensitive setting is changed in your account."); ?></p>
           </div>
           <div class="cauto os">
-            <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/security-event.svg" alt='<?php echo T_("Security Event"); ?>'>
+            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/security-event.svg" alt='<?php echo T_("Security Event"); ?>'>
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ else
             <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn primary outline"><?php echo T_("Application key"); ?></a>
           </div>
           <div class="cauto os">
-            <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/data-collected.svg" alt='<?php echo T_("Sessions"); ?>'>
+            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/data-collected.svg" alt='<?php echo T_("Sessions"); ?>'>
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@ else
             <a class="btn danger outline sm" href="<?php echo \dash\url::kingdom(); ?>/enter/delete"  target="_blank"><?php echo T_("Delete my Account"); ?></a>
           </div>
           <div class="cauto os">
-            <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/account-delete.png" alt='<?php echo T_("Security Event"); ?>'>
+            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/account-delete.png" alt='<?php echo T_("Security Event"); ?>'>
           </div>
         </div>
       </div>
