@@ -12,7 +12,7 @@ class api
 	private $result_raw = [];
 
 
-	private function run($_path, $_method, $_param = null, $_body = null)
+	private function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
 
 		$appkey    = '[YOUR APP KEY]';
@@ -26,13 +26,30 @@ class api
 		$registrar = 'irnic';
 		$master_url = "https://core.jibres.local/%s/%s/%s";
 
-
-		$header =
+		$default_option =
 		[
-        	'Content-Type:application/json',
-        	'appkey: '. $appkey,
-        	'apikey: '. $apikey,
+			'apikey' => true,
 		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
+
+		// set headers
+		$header   = [];
+		$header[] = 'Content-Type:application/json';
+		$header[] = 'appkey: '. $appkey;
+
+		// set header apikey if need
+		if($_option['apikey'])
+		{
+			$header[] = 'apikey: '. $apikey;
+		}
+
 
 		$url = sprintf($master_url, 'r10', $registrar, $_path);
 
@@ -157,6 +174,14 @@ class api
 	public function contact_create_new($_args)
 	{
 		$result = self::run('contact/create', 'post', null, $_args);
+		return $result;
+	}
+
+
+
+	public function domain_check($_domin)
+	{
+		$result = self::run('domain/check', 'get', ['domain' => $_domin], null, ['apikey' => false]);
 		return $result;
 	}
 

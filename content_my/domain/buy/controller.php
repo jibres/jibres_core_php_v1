@@ -13,11 +13,12 @@ class controller
 			\dash\header::status(404, T_("Invalid url"));
 		}
 
-
-
 		$domain = \dash\url::subchild();
 		$domain = urldecode($domain);
 		$domain = mb_strtolower($domain);
+
+		$q      = \dash\request::get('q');
+
 		if($domain)
 		{
 			\dash\open::get();
@@ -25,7 +26,7 @@ class controller
 
 			\dash\data::myDomain($domain);
 
-			if(\dash\validate::domain($domain))
+			if(\dash\validate::domain($domain, false))
 			{
 				$check = \lib\app\nic_domain\check::check($domain);
 				\dash\data::checkResult($check);
@@ -35,13 +36,19 @@ class controller
 				\dash\data::domainError(T_("Invalid error syntax"));
 			}
 		}
-		else
+		elseif($q)
 		{
-			$q = \dash\request::get('q');
-			$q = urldecode($q);
-			$q = mb_strtolower($q);
 
-			$info = \lib\app\nic_domain\check::multi_check($q);
+			if(\dash\url::isLocal())
+			{
+				$get_api = new \lib\nic\api();
+				$info    = $get_api->domain_check($q);
+			}
+			else
+			{
+				$info = \lib\app\nic_domain\check::multi_check($q);
+			}
+
 
 			\dash\data::infoResult($info);
 		}

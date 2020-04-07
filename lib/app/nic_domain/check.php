@@ -29,6 +29,9 @@ class check
 			return false;
 		}
 
+		$_domain = urldecode($_domain);
+		$_domain = mb_strtolower($_domain);
+
 		$myDomainName = $_domain;
 
 		if(strpos($_domain, '.') !== false)
