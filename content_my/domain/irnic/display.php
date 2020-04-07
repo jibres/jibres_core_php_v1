@@ -54,7 +54,7 @@ else
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"'; } ?>>
 				<td>
 
-					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="link"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></a>
+					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></a>
 					<?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success mLR10"><?php echo T_("Default"); ?></span> <?php }// endif ?>
 					<div class="mT10"><?php echo substr(\dash\get::index($value, 'title'), 0, 50); ?></div>
 

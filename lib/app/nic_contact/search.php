@@ -131,7 +131,7 @@ class search
 
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_contact\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\nic_contact\\ready', 'row'], $list);
 		}
 		else
 		{
