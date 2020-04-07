@@ -30,8 +30,10 @@ class controller
 
 	private static function check_subdomain_and_content()
 	{
+		$subdomain = \dash\url::subdomain();
+
 		// replace api form content to subdomain
-		if(\dash\url::subdomain() === null)
+		if($subdomain === null)
 		{
 			$newCoreAddress = \dash\url::set_subdomain('api');
 
@@ -40,6 +42,12 @@ class controller
 				$newCoreAddress .= \dash\url::path();
 			}
 			\dash\redirect::to($newCoreAddress);
+		}
+
+
+		if($subdomain !== 'api')
+		{
+			\dash\header::status(404, T_("Invalid subdomain. remove subdomain to continue"));
 		}
 	}
 }

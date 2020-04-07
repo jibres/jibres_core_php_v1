@@ -13,12 +13,6 @@ class tools
 	 */
 	public static function master_check()
 	{
-		$subdomain = \dash\url::subdomain();
-
-		if(!in_array($subdomain, [null, 'developers', 'api', 'core']))
-		{
-			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
-		}
 
 		self::check_appkey();
 		self::check_store_init();
