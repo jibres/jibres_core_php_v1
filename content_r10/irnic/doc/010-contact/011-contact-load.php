@@ -48,7 +48,7 @@
 
 
       <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
-      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k'; } ?> -X GET '<?php echo \dash\data::IRNICApiURL(); ?>contact?id=B' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
+      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X GET '<?php echo \dash\data::IRNICApiURL(); ?>contact?id=B' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
 
       <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <samp>{

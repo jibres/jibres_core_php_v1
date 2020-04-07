@@ -16,10 +16,8 @@ class view
 		$q = \dash\validate::domain_root($q, false);
 		if($q)
 		{
-			$q = urldecode($q);
-			$q = mb_strtolower($q);
-
 			\dash\data::myDomain($q);
+
 			$info = \lib\app\nic_domain\check::multi_check($q);
 
 			\dash\data::infoResult($info);

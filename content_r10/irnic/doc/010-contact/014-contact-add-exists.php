@@ -48,7 +48,7 @@
 
       <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl <?php if(\dash\url::isLocal()) { echo '-k'; } ?> -X POST '<?php echo \dash\data::IRNICApiURL(); ?>contact/add' \
+curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X POST '<?php echo \dash\data::IRNICApiURL(); ?>contact/add' \
 -H 'Content-Type: application/json' \
 -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
 -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
