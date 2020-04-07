@@ -221,19 +221,9 @@ class guard
 		}
 		else
 		{
-			$updatePageUrl = root. 'public_html/static/page/lock/index.html';
-			$updatePage = \dash\file::read($updatePageUrl);
-			if($updatePage)
-			{
-				echo $updatePage;
-				\dash\code::boom();
-			}
-			else
-			{
-				\dash\redirect::to(\dash\url::cdn(). '/page/lock/', true, 302);
-			}
+			require_once (core. 'layout/html/lockMode.html');
+			\dash\code::boom();
 		}
-
 	}
 
 
