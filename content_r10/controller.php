@@ -7,6 +7,11 @@ class controller
 	public static function routing()
 	{
 		self::check_subdomain_and_content();
+
+		// load appkey if exist
+		// load apikey if exist
+		// check not loaded store
+		\content_r10\tools::master_check();
 	}
 
 
