@@ -26,6 +26,7 @@ class check
 
 		if(!$_domain)
 		{
+			\dash\notif::error(T_("Please enter a valid domain for check"));
 			return false;
 		}
 
