@@ -34,15 +34,15 @@ class app
 		switch ($_type)
 		{
 			case 'male':
-				$url .= 'images/avatar/man.png';
+				$url .= 'img/avatar/man.png';
 				break;
 
 			case 'female':
-				$url .= 'images/avatar/woman.png';
+				$url .= 'img/avatar/woman.png';
 				break;
 
 			default:
-				$url .= 'images/default/avatar.png';
+				$url .= 'img/default/avatar.png';
 				break;
 		}
 		return $url;

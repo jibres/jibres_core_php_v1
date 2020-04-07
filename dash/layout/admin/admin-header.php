@@ -22,7 +22,7 @@
      <img src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
 <?php }else{ ?>
 
-     <img src="<?php echo \dash\url::siftal(); ?>/images/avatar/guest.png" alt='<?php echo T_("Default Avatar"); ?>'>
+     <img src="<?php echo \dash\url::cdn(); ?>/img/avatar/guest.png" alt='<?php echo T_("Default Avatar"); ?>'>
 
 <?php } //endif ?>
     </a>
