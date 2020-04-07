@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\irnic\domain\info;
+namespace content_r10\irnic\domain\available;
 
 
 class view

@@ -27,7 +27,7 @@ class api
 		$apikey    = '312942427c94b0fafe37ca2770f6424c'; // .ir
 		$registrar = 'irnic';
 
-		$master_url = "https://core.jibres.com/%s/%s/%s";
+		$master_url = "https://core.jibres.ir/%s/%s/%s";
 
 		$default_option =
 		[
@@ -189,9 +189,9 @@ class api
 	}
 
 
-	public function domain_info($_domin)
+	public function domain_available($_domin)
 	{
-		$result = self::run('domain/info', 'get', ['domain' => $_domin], null, ['apikey' => false]);
+		$result = self::run('domain/available', 'get', ['domain' => $_domin], null, ['apikey' => false]);
 		return $result;
 	}
 

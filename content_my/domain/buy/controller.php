@@ -31,7 +31,7 @@ class controller
 				if(\dash\url::isLocal())
 				{
 					$get_api = new \lib\nic\api();
-					$check    = $get_api->domain_info($q);
+					$check    = $get_api->domain_available($domain);
 				}
 				else
 				{
