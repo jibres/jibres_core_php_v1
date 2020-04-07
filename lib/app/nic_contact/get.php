@@ -7,7 +7,15 @@ class get
 	public static function load()
 	{
 		$id = \dash\request::get('id');
-		return self::get($id);
+
+		$result = self::get($id);
+
+		if($result)
+		{
+			$result = \lib\app\nic_contact\ready::row($result);
+		}
+
+		return $result;
 	}
 
 

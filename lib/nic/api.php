@@ -12,7 +12,7 @@ class api
 	private $result_raw = [];
 
 
-	private function run($_path, $_method, $_data = null)
+	private function run($_path, $_method, $_param = null, $_body = null)
 	{
 
 		$appkey    = '[YOUR APP KEY]';
@@ -26,7 +26,6 @@ class api
 		$registrar = 'irnic';
 		$master_url = "https://core.jibres.local/%s/%s/%s";
 
-		$url = sprintf($master_url, 'r10', $registrar, $_path);
 
 		$header =
 		[
@@ -35,6 +34,12 @@ class api
         	'apikey: '. $apikey,
 		];
 
+		$url = sprintf($master_url, 'r10', $registrar, $_path);
+
+		if($_param && is_array($_param))
+		{
+			$url .= '?'. http_build_query($_param);
+		}
 
 		$ch = curl_init();
 
@@ -42,11 +47,10 @@ class api
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, mb_strtoupper($_method));
 		curl_setopt($ch, CURLOPT_URL, $url);
 
-		if($_data)
+		if($_body && is_array($_body))
 		{
-			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($_data, JSON_UNESCAPED_UNICODE));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($_body, JSON_UNESCAPED_UNICODE));
 		}
-
 
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
@@ -118,7 +122,15 @@ class api
 	public function contact_fetch()
 	{
 		$result = self::run('contact/fetch', 'get');
+		return $result;
+	}
 
+	/**
+	 * Locad one contact detail
+	 */
+	public function contact_load($_id)
+	{
+		$result = self::run('contact', 'get', ['id' => $_id]);
 		return $result;
 	}
 
