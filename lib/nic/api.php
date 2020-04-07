@@ -146,6 +146,13 @@ class api
 	}
 
 
+	public function contact_fetch_all()
+	{
+		$result = self::run('contact/fetch', 'get', ['all' => true]);
+		return $result;
+	}
+
+
 	public function contact_load($_id)
 	{
 		$result = self::run('contact', 'get', ['id' => $_id]);
