@@ -21,6 +21,18 @@ class view
 
 		$list = \lib\app\nic_contact\search::list(null, $args);
 
+
+		$filterBox     = \lib\app\nic_contact\search::filter_message();
+		$isFiltered    = \lib\app\nic_contact\search::is_filtered();
+
+		$meta =
+		[
+			'filter_message' => $filterBox,
+			'is_filtered'    => $isFiltered,
+		];
+
+		\dash\notif::meta($meta);
+
 		\content_r10\tools::say($list);
 
 

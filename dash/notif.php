@@ -126,6 +126,12 @@ class notif
 	}
 
 
+	public static function meta($_meta)
+	{
+		self::add_detail('meta', $_meta);
+	}
+
+
 	private static function pagination()
 	{
 		$pagination = \dash\utility\pagination::api_detail();
