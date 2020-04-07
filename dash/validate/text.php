@@ -272,11 +272,20 @@ class text
 
 	public static function md5($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 32, 'max' => 32]);
+		$data = self::string($_data, $_notif, $_element, $_field_title);
 
 		if($data === false || $data === null)
 		{
 			return $data;
+		}
+
+		if(mb_strlen($data) !== 32)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be exactly 32 character", ['val' => $_field_title]), ['element' => $_element]);
+			}
+			return false;
 		}
 
 		if(!preg_match("/^[A-Za-z0-9]+$/", $data))
