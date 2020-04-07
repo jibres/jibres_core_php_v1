@@ -125,9 +125,7 @@ class api
 		return $result;
 	}
 
-	/**
-	 * Locad one contact detail
-	 */
+
 	public function contact_load($_id)
 	{
 		$result = self::run('contact', 'get', ['id' => $_id]);
@@ -142,6 +140,11 @@ class api
 	}
 
 
+	public function contact_edit($_args, $_id)
+	{
+		$result = self::run('contact', 'patch', ['id' => $_id], $_args);
+		return $result;
+	}
 
 }
 ?>

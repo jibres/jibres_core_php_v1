@@ -19,7 +19,6 @@ class model
 
 		if(\dash\request::post('myaction') === 'remove')
 		{
-
 			if(\dash\url::isLocal())
 			{
 				$get_api = new \lib\nic\api();
@@ -43,7 +42,16 @@ class model
 			'isdefault' => \dash\request::post('isdefault'),
 		];
 
-		$edit = \lib\app\nic_contact\edit::edit($post, \dash\request::get('id'));
+		if(\dash\url::isLocal())
+		{
+			$get_api = new \lib\nic\api();
+			$edit  = $get_api->contact_edit($post, \dash\request::get('id'));
+		}
+		else
+		{
+			$edit = \lib\app\nic_contact\edit::edit($post, \dash\request::get('id'));
+		}
+
 
 		if(\dash\engine\process::status())
 		{

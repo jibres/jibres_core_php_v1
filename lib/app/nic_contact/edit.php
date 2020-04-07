@@ -118,12 +118,13 @@ class edit
 			\lib\db\nic_contact\update::remove_old_default(\dash\user::id());
 		}
 
-		$update =
-		[
-			'title'     => $data['title'],
-			'isdefault' => $data['isdefault'],
-		];
+		$update = \dash\cleanse::patch_mode($_args, $data);
 
+		if(empty($update))
+		{
+			\dash\notif::info(T_("No data received to update"));
+			return true;
+		}
 
 		$contact = \lib\db\nic_contact\update::update($update, $load['id']);
 		if($contact)

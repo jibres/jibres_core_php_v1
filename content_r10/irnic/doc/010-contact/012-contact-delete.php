@@ -1,11 +1,11 @@
 <div class="box">
   <header>
-    <h2 class="f" data-kerkere='#contact-load' data-kerkere-icon='open'>
+    <h2 class="f" data-kerkere='#contact-delete' data-kerkere-icon='open'>
       <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
       <span class="c"><?php echo T_("Delete contact from your list"); ?></span>
     </h2>
   </header>
-  <div class="body" id="contact-load">
+  <div class="body" id="contact-delete">
     <div id='contact'>
 
       <div class="msg url ltr txtL">
