@@ -134,5 +134,14 @@ class api
 		return $result;
 	}
 
+
+	public function contact_remove($_id)
+	{
+		$result = self::run('contact', 'delete', ['id' => $_id]);
+		return $result;
+	}
+
+
+
 }
 ?>

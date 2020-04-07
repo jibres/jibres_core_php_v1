@@ -7,8 +7,10 @@ class edit
 	public static function remove($_id)
 	{
 		$load = \lib\app\nic_contact\get::get($_id);
+
 		if(!$load || !isset($load['id']) || !isset($load['nic_id']))
 		{
+			\dash\notif::error(T_("Contact not found"));
 			return false;
 		}
 
