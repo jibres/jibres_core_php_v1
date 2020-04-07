@@ -188,5 +188,12 @@ class api
 		return $result;
 	}
 
+
+	public function domain_info($_domin)
+	{
+		$result = self::run('domain/info', 'get', ['domain' => $_domin], null, ['apikey' => false]);
+		return $result;
+	}
+
 }
 ?>

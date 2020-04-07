@@ -28,7 +28,16 @@ class controller
 
 			if(\dash\validate::domain($domain, false))
 			{
-				$check = \lib\app\nic_domain\check::check($domain);
+				if(\dash\url::isLocal())
+				{
+					$get_api = new \lib\nic\api();
+					$check    = $get_api->domain_info($q);
+				}
+				else
+				{
+					$check = \lib\app\nic_domain\check::check($domain);
+				}
+
 				\dash\data::checkResult($check);
 			}
 			else
