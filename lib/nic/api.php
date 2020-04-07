@@ -146,5 +146,19 @@ class api
 		return $result;
 	}
 
+
+	public function contact_add_exists($_contact_id)
+	{
+		$result = self::run('contact/add', 'post', null, ['contact_id' => $_contact_id]);
+		return $result;
+	}
+
+
+	public function contact_create_new($_args)
+	{
+		$result = self::run('contact/create', 'post', null, $_args);
+		return $result;
+	}
+
 }
 ?>

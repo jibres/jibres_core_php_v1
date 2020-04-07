@@ -1,22 +1,22 @@
 <div class="box">
   <header>
-    <h2 class="f" data-kerkere='#contact-delete' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
-      <span class="c"><?php echo T_("Delete contact from your list"); ?></span>
+    <h2 class="f" data-kerkere='#contact-add' data-kerkere-icon='open'>
+      <span class="cauto pRa10"><span class="badge primary">POST</span></span>
+      <span class="c"><?php echo T_("Add An existing contact to your list"); ?></span>
     </h2>
   </header>
-  <div class="body" id="contact-delete">
+  <div class="body" id="contact-add">
     <div>
 
       <div class="msg url ltr txtL">
-        <i class="method">DELETE</i>
-        <span><?php echo \dash\data::IRNICApiURL(); ?><b>contact</b></span>
+        <i class="method">POST</i>
+        <span><?php echo \dash\data::IRNICApiURL(); ?><b>contact/add</b></span>
       </div>
 
       <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey-apikey.php'); ?>
 
 
-      <h3 class="mB20"><?php echo T_("Query Params"); ?></h3>
+      <h3 class="mB20"><?php echo T_("Body"); ?></h3>
 
       <div class="tblBox">
         <table class="tbl1 v3">
@@ -28,14 +28,13 @@
             </tr>
           </thead>
           <tbody>
-             <tr>
+            <tr>
               <td>
-                <div class="txtB">id</div>
-                <i>code</i>
+                <div class="txtB">contact_id</div>
+                <i>String</i>
               </td>
               <td>
-                <i><?php echo T_("For example") ?></i>
-                <code>'B'</code>
+                <i><?php echo T_("Exists contact id"); ?></i>
               </td>
               <td>
                 <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
@@ -48,7 +47,13 @@
 
 
       <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
-      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k'; } ?> -X DELETE '<?php echo \dash\data::IRNICApiURL(); ?>contact?id=B' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
+<pre>
+curl <?php if(\dash\url::isLocal()) { echo '-k'; } ?> -X POST '<?php echo \dash\data::IRNICApiURL(); ?>contact/add' \
+-H 'Content-Type: application/json' \
+-H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
+-H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
+--data-raw '{"contact_id":"ex66-xxxxx"}'
+</pre>
 
       <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <samp>{
@@ -56,7 +61,7 @@
   "msg": [
     {
       "type": "ok",
-      "text": "Contact removed"
+      "text": "Contact added"
     }
   ],
   "result": true

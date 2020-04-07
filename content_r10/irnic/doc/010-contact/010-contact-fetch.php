@@ -6,7 +6,7 @@
     </h2>
   </header>
   <div class="body" id="contact-fetch">
-      <div id='contact'>
+      <div>
 
         <div class="msg url ltr txtL">
           <i class="method">GET</i>
@@ -66,6 +66,7 @@
     }
   ]
 }</samp>
+    </div>
   </div>
 </div>
 

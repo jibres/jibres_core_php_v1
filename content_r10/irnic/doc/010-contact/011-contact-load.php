@@ -6,7 +6,7 @@
     </h2>
   </header>
   <div class="body" id="contact-load">
-    <div id='contact'>
+    <div>
 
       <div class="msg url ltr txtL">
         <i class="method">GET</i>
@@ -85,6 +85,6 @@
     "datemodified": null
   }
 }</samp>
+    </div>
   </div>
 </div>
-

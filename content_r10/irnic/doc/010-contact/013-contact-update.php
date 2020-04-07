@@ -6,7 +6,7 @@
     </h2>
   </header>
   <div class="body" id="contact-patch">
-    <div id='contact'>
+    <div>
 
       <div class="msg url ltr txtL">
         <i class="method">PATCH</i>
@@ -110,6 +110,7 @@ curl <?php if(\dash\url::isLocal()) { echo '-k'; } ?> -X PATCH '<?php echo \dash
   ],
   "result": true
 }</samp>
+    </div>
   </div>
 </div>
 
