@@ -12,6 +12,11 @@ class session
 
 	public static function clean_all()
 	{
+		if(!isset($_SESSION))
+		{
+			return false;
+		}
+
 		unset($_SESSION[self::$key]);
 		unset($_SESSION[self::$key_time]);
 		unset($_SESSION[self::$key_limit]);
@@ -19,6 +24,11 @@ class session
 
 	public static function clean_cat($_cat)
 	{
+		if(!isset($_SESSION))
+		{
+			return false;
+		}
+
 		unset($_SESSION[self::$key][$_cat]);
 		unset($_SESSION[self::$key_time][$_cat]);
 		unset($_SESSION[self::$key_limit][$_cat]);
@@ -26,6 +36,11 @@ class session
 
 	public static function clean($_key, $_cat = null)
 	{
+		if(!isset($_SESSION))
+		{
+			return false;
+		}
+
 		if($_cat)
 		{
 			unset($_SESSION[self::$key][$_cat][$_key]);
@@ -50,6 +65,11 @@ class session
 	 */
 	public static function set($_key, $_value, $_cat = null, $_time = null)
 	{
+		if(!isset($_SESSION))
+		{
+			return false;
+		}
+
 		if($_cat)
 		{
 			$_SESSION[self::$key][$_cat][$_key] = $_value;
