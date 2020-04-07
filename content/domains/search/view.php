@@ -18,7 +18,15 @@ class view
 		{
 			\dash\data::myDomain($q);
 
-			$info = \lib\app\nic_domain\check::multi_check($q);
+			if(\dash\url::isLocal())
+			{
+				$get_api = new \lib\nic\api();
+				$info    = $get_api->domain_check($q);
+			}
+			else
+			{
+				$info = \lib\app\nic_domain\check::multi_check($q);
+			}
 
 			\dash\data::infoResult($info);
 		}
