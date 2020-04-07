@@ -13,10 +13,11 @@ class tools
 	 */
 	public static function master_check()
 	{
-
 		self::check_appkey();
-		self::check_store_init();
 		self::check_apikey();
+
+		// never store init in r10
+		self::check_store_not_init();
 	}
 
 
@@ -42,58 +43,33 @@ class tools
 	}
 
 
-	public static function store_required()
+	private static function check_store_not_init()
 	{
-		if(!\lib\store::id())
+		if(\dash\url::store())
 		{
-			self::stop(403, T_("Store not found"));
-		}
-	}
-
-
-
-	private static function check_store_init()
-	{
-		$STORE = \dash\url::child();
-
-		$store_id = \dash\coding::decode($STORE);
-
-		if(!$store_id)
-		{
+			self::stop(403, T_("Can not set store in url"));
 			return false;
 		}
 
-		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
-		{
-			return false;
-		}
-
-		$detail = \dash\engine\store::init_by_id($store_id);
-
-		if(!$detail)
-		{
-			self::stop(403, T_("Store Detail not found"));
-		}
-
-		if(isset($detail['subdomain']))
-		{
-			\lib\store::set_store_slug($detail['subdomain']);
-
-			if(!\lib\store::id())
-			{
-				self::stop(404, T_("Store not found"));
-			}
-		}
-		else
-		{
-			self::stop(403, T_("subdomain not found"));
-		}
+		// if(\lib\store::id())
+		// {
+		// 	self::stop(403, T_("Can not set store in url"));
+		// }
 	}
 
 
+	/**
+	 * Load appkey from header
+	 * IF exists
+	 * Check require in another function
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function check_appkey()
 	{
 		$appkey = \dash\header::get('appkey');
+
+		$appkey = \dash\validate::md5($appkey);
 
 		if(!$appkey)
 		{
@@ -123,57 +99,18 @@ class tools
 
 
 
-	public static function check_token()
-	{
-		$token = \dash\header::get('token');
-
-		\dash\app\apilog::static_var('token', $token);
-
-		if(!$token)
-		{
-			self::stop(401, T_("token not set"));
-		}
-
-		if(!$token || mb_strlen($token) !== 32)
-		{
-			self::stop(401, T_("Invalid token"));
-		}
-
-		$get =
-		[
-			'status'  => 'enable',
-			'user_id' => null,
-			'type'    => 'guest',
-			'auth'    => $token,
-			'limit'   => 1,
-		];
-
-		$get = \dash\db\user_auth::get($get);
-
-		if(!isset($get['id']) || !isset($get['datecreated']))
-		{
-			self::stop(401, T_("Invalid token"));
-		}
-
-		$time_left = time() - strtotime($get['datecreated']);
-
-		$life_time = 60 * 3;
-
-		if($time_left > $life_time)
-		{
-			\dash\db\user_auth::update(['status' => 'expire'], $get['id']);
-			self::stop(401, T_("Token is expire"));
-		}
-
-		\dash\db\user_auth::update(['status' => 'used'], $get['id']);
-
-		return true;
-	}
-
-
+	/**
+	 * Get api key from header
+	 * if exists
+	 * Check required in another function
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function check_apikey()
 	{
 		$apikey = \dash\header::get('apikey');
+
+		$apikey = \dash\validate::md5($apikey);
 
 		if(!$apikey)
 		{
@@ -181,11 +118,6 @@ class tools
 		}
 
 		\dash\app\apilog::static_var('apikey', $apikey);
-
-		if(mb_strlen($apikey) !== 32)
-		{
-			self::stop(401, T_("Invalid apikey"));
-		}
 
 		$get =
 		[
@@ -203,39 +135,18 @@ class tools
 			self::stop(401, T_("Invalid apikey"));
 		}
 
-		self::api_user_login($get['id']);
+		$session_id = \dash\url::root(). 'APICORE'. $get['id'];
+
+		\dash\engine\prepare::session_api_start($session_id);
 
 		if(!\dash\user::id())
 		{
-			if(\dash\engine\store::inStore())
-			{
-				\dash\user::store_init($get['user_id'], true);
-			}
-			else
-			{
-				\dash\user::init($get['user_id']);
-			}
+			\dash\user::init($get['user_id']);
 		}
 
 		return true;
 	}
 
-
-	private static function api_user_login($_id)
-	{
-		$session_id = \dash\url::root(). 'API'. $_id;
-
-		// if a session is currently opened, close it
-		if(session_id() != '')
-		{
-			session_write_close();
-		}
-
-		// use new id
-		session_id($session_id);
-		// start new session
-		session_start();
-	}
 
 
 	public static function invalid_url()
