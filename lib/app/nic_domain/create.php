@@ -349,7 +349,29 @@ class create
 				'final_fn_args' => $temp_args,
 			];
 
-			\dash\utility\pay\start::site($meta);
+			if(!\dash\engine\content::api_content())
+			{
+				\dash\utility\pay\start::site($meta);
+			}
+			else
+			{
+				$result = \dash\utility\pay\start::api($meta);
+
+				if(isset($result['url']))
+				{
+					$msg = T_("Pay link :val", ['val' => $result['url']]);
+					\dash\notif::meta($result);
+					\dash\notif::error($msg);
+					return;
+				}
+				else
+				{
+					\dash\log::oops('generate_pay_error');
+					return false;
+				}
+			}
+
+
 
 			// redirect to bank payment
 			return ;

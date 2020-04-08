@@ -122,6 +122,21 @@ class start
 		return self::token($_args);
 	}
 
+
+	public static function api($_args)
+	{
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$_args['get_token'] = true;
+		$_args['api_mode']  = true;
+
+		return self::token($_args);
+	}
+
+
 	public static function token($_args, $_return = false)
 	{
 		$default =
@@ -143,6 +158,7 @@ class start
 			'final_msg'       => false,
 			'user_id'         => null,
 			'get_token'       => false,
+			'api_mode'        => false,
 			'other_field'     => [],
 		];
 
@@ -212,6 +228,7 @@ class start
 			'final_msg'       => $_args['final_msg'],
 			'auto_go'         => $_args['auto_go'],
 			'get_token'       => $_args['get_token'],
+			'api_mode'        => $_args['api_mode'],
 			'raw'             => $_args,
 		];
 
@@ -271,8 +288,23 @@ class start
 			}
 			else
 			{
-				\dash\notif::result($detail);
-				\dash\code::jsonBoom(\dash\notif::get());
+				if($_args['api_mode'])
+				{
+					$url = \dash\url::sitelang(). '/pay/'. $token;
+
+					$detail =
+					[
+						'token' => $token,
+						'url'   => $url,
+					];
+
+					return $detail;
+				}
+				else
+				{
+					\dash\notif::result($detail);
+					\dash\code::jsonBoom(\dash\notif::get());
+				}
 			}
 		}
 		else
