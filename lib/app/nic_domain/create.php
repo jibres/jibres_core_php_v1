@@ -361,7 +361,7 @@ class create
 				{
 					$msg = T_("Pay link :val", ['val' => $result['url']]);
 					\dash\notif::meta($result);
-					\dash\notif::error($msg);
+					\dash\notif::ok($msg);
 					return;
 				}
 				else
