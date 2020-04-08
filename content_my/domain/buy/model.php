@@ -51,7 +51,17 @@ class model
 			return false;
 		}
 
-		$result = \lib\app\nic_domain\create::new_domain($post);
+		if (\dash\url::isLocal())
+		{
+			$get_api = new \lib\nic\api();
+			$result  = $get_api->domain_buy($post);
+
+		}
+		else
+		{
+			$result = \lib\app\nic_domain\create::new_domain($post);
+		}
+
 
 		if(\dash\engine\process::status())
 		{

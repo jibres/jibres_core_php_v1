@@ -206,6 +206,13 @@ class api
 	}
 
 
+	public function domain_buy($_args)
+	{
+		$result = self::run('domain/buy', 'post', null, $_args);
+		return $result;
+	}
+
+
 	// ---------------------------------------- DNS ---------------------------------------- //
 	public function dns_fetch()
 	{
