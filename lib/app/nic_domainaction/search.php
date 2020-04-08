@@ -17,7 +17,7 @@ class search
 
 		$condition =
 		[
-			'domain_id' => 'id',
+			'domain_id' => 'code',
 		];
 
 		$require = [];
@@ -33,10 +33,12 @@ class search
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		if(!$_args['domain_id'])
+		if(!$data['domain_id'])
 		{
 			return [];
 		}
+
+		$data['domain_id'] = \dash\coding::decode($data['domain_id']);
 
 		$and           = [];
 		$meta          = [];
@@ -46,7 +48,7 @@ class search
 
 		$order_sort    = " ORDER BY domainaction.id DESC";
 
-		$and[]         = " domainaction.domain_id = $_args[domain_id] ";
+		$and[]         = " domainaction.domain_id = $data[domain_id] ";
 		$and[]         = " domainaction.user_id = $userId ";
 
 

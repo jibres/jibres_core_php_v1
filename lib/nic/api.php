@@ -291,6 +291,13 @@ class api
 	}
 
 
+	public function domain_action($_domin_id)
+	{
+		$result = self::run('domain/action', 'get', ['id' => $_domin_id]);
+		return $result;
+	}
+
+
 
 
 
