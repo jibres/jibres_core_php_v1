@@ -10,7 +10,7 @@ class check
 		[
 			// person
 			'ir',
-			'ایران',
+			// 'ایران', // Not enable!
 			'id.ir',
 			// gov
 			'gov.ir',

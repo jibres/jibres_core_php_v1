@@ -6,7 +6,7 @@
   </header>
   <div class="body" id="postman-collection">
     <p><?php echo T_("If you use from postman for api, can import this collection to get all request in postman"); ?></p>
-    <a class="btn success" data-direct href="<?php echo \dash\url::cdn(). '/api/Jibres_Domain_API_r10.postman_collection.json'; ?>" download><?php echo T_("Download Postman Collection"); ?></a>
+    <a class="btn success" data-direct target="_blank" href="<?php echo \dash\url::cdn(). '/api/Jibres_Domain_API_r10.postman_collection.json'; ?>" download><?php echo T_("Download Postman Collection"); ?></a>
   </div>
 </div>
 
