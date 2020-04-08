@@ -74,14 +74,21 @@ class api
 			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($_body, JSON_UNESCAPED_UNICODE));
 		}
 
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+
+		if(\dash\url::isLocal())
+		{
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		}
+		else
+		{
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		}
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 
 		$response = curl_exec($ch);
-
 		$CurlError = curl_error($ch);
 
 		curl_close ($ch);
@@ -95,7 +102,7 @@ class api
 
 		if(!is_array($result))
 		{
-			var_dump($response);exit();
+			// var_dump($response);exit();
 			return false;
 		}
 
