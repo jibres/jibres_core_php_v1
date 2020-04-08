@@ -358,12 +358,13 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
-		$_id = \dash\validate::id($_id);
+		$_id = \dash\validate::code($_id);
 		if(!$_id)
 		{
 			return false;
 		}
 
+		$_id = \dash\coding::decode($_id);
 
 		$load_domain = \lib\app\nic_domain\get::by_id($_id);
 		if(!$load_domain || !isset($load_domain['id']))
