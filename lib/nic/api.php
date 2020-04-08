@@ -298,15 +298,19 @@ class api
 	}
 
 
-
-
-
 	public function domain_buy($_args)
 	{
 		$result = self::run('domain/buy', 'post', null, $_args);
 		return $result;
 	}
 
+
+	// ---------------------------------------- POLL ---------------------------------------- //
+	public function poll_fetch()
+	{
+		$result = self::run('poll', 'get');
+		return $result;
+	}
 
 	// ---------------------------------------- DNS ---------------------------------------- //
 	public function dns_fetch()
