@@ -304,6 +304,19 @@ class api
 		return $result;
 	}
 
+	public function domain_renew($_args)
+	{
+		$result = self::run('domain/renew', 'post', null, $_args);
+		return $result;
+	}
+
+
+	public function domain_transfer($_args)
+	{
+		$result = self::run('domain/transfer', 'post', null, $_args);
+		return $result;
+	}
+
 
 	// ---------------------------------------- POLL ---------------------------------------- //
 	public function poll_fetch()

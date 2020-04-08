@@ -12,16 +12,20 @@ class model
 			'nic_id'    => \dash\request::post('irnicid'),
 			'irnic_new' => \dash\request::post('irnicid-new'),
 			'pin'       => \dash\request::post('pin'),
+			'agree'     => \dash\request::post('agree'),
 		];
 
-		if(!\dash\request::post('agree'))
+		if(\lib\nic\mode::api())
 		{
-			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
+			$get_api = new \lib\nic\api();
+			$result  = $get_api->domain_transfer($post);
+		}
+		else
+		{
+			$result = \lib\app\nic_domain\transfer::transfer($post);
 		}
 
 
-		$result = \lib\app\nic_domain\transfer::transfer($post);
 
 		if(\dash\engine\process::status())
 		{

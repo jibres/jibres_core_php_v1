@@ -15,6 +15,7 @@ class renew
 		$condition =
 		[
 			'domain'      => 'ir_domain',
+			'agree'      => 'bit',
 			'period'      => ['enum' => ['1year', '5year']],
 		];
 
@@ -27,6 +28,16 @@ class renew
 
 			],
 		];
+
+		if(isset($_args['agree']) && $_args['agree'])
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\notif::error(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
+			return false;
+		}
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -172,7 +183,28 @@ class renew
 				'final_fn_args' => $temp_args,
 			];
 
-			\dash\utility\pay\start::site($meta);
+
+			if(!\dash\engine\content::api_content())
+			{
+				\dash\utility\pay\start::site($meta);
+			}
+			else
+			{
+				$result = \dash\utility\pay\start::api($meta);
+
+				if(isset($result['url']))
+				{
+					$msg = T_("Pay link :val", ['val' => $result['url']]);
+					\dash\notif::meta($result);
+					\dash\notif::ok($msg);
+					return;
+				}
+				else
+				{
+					\dash\log::oops('generate_pay_error');
+					return false;
+				}
+			}
 
 			// redirect to bank payment
 			return ;
