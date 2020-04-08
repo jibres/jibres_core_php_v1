@@ -297,7 +297,7 @@ class run
 		$tracking_number .= date("Y-m-d-H:i:s");
 		$tracking_number .= '-';
 
-		$tracking_number .= $_type;
+		$tracking_number .= str_replace('_', '-', $_type);
 		$tracking_number .= '-';
 
 		$tracking_number .= \dash\coding::encode(rand(1, 999). rand(1,999). rand(1,999). rand(1,999), 'all');
