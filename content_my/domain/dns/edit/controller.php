@@ -8,7 +8,7 @@ class controller
 	{
 		\content_my\domain\controller::check_login();
 
-		if(\dash\url::isLocal())
+		if(\lib\nic\mode::api())
 		{
 			$get_api    = new \lib\nic\api();
 			$detail     = $get_api->dns_load(\dash\request::get('id'));

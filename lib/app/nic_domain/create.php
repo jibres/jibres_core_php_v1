@@ -20,20 +20,20 @@ class create
 			'irnic_tech'  => 'irnic_id',
 			'irnic_bill'  => 'irnic_id',
 			'irnic_new'   => 'irnic_id',
+			'agree'       => 'bit',
 		];
 
 		$require = ['domain', 'period'];
 
-		$meta =
-		[
-			'field_title' =>
-			[
-
-			],
-		];
+		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if(!$data['agree'])
+		{
+			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
+			return false;
+		}
 
 		$domain      = $data['domain'];
 		$nic_id      = $data['nic_id'];
@@ -48,9 +48,6 @@ class create
 		$irnic_tech  = $data['irnic_tech'];
 		$irnic_bill  = $data['irnic_bill'];
 		$irnic_new  = $data['irnic_new'];
-
-
-
 
 		$ip1 = null;
 		$ip2 = null;

@@ -28,7 +28,7 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		if(\dash\url::isLocal())
+		if(\lib\nic\mode::api())
 		{
 			$get_api    = new \lib\nic\api();
 			$list       = $get_api->contact_fetch();

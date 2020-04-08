@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('oldcontact'))
 		{
-			if(\dash\url::isLocal())
+			if(\lib\nic\mode::api())
 			{
 				$get_api = new \lib\nic\api();
 				$check   = $get_api->contact_add_exists(\dash\request::post('oldcontact'), \dash\request::post('titleold'));
@@ -46,7 +46,7 @@ class model
 				'address'      => \dash\request::post('address'),
 			];
 
-			if(\dash\url::isLocal())
+			if(\lib\nic\mode::api())
 			{
 				$get_api = new \lib\nic\api();
 				$create = $get_api->contact_create_new($post);

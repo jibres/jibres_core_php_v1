@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::this());
 
-		if(\dash\url::isLocal())
+		if(\lib\nic\mode::api())
 		{
 			$get_api = new \lib\nic\api();
 			$list    = $get_api->contact_fetch_all();

@@ -41,21 +41,14 @@ class model
 			'ns3'         => \dash\request::post('ns3'),
 			'ns4'         => \dash\request::post('ns4'),
 			'dnsid'       => \dash\request::post('dnsid'),
-
+			'agree'       => \dash\request::post('agree'),
 		];
 
 
-		if(!\dash\request::post('agree'))
-		{
-			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
-		}
-
-		if (\dash\url::isLocal())
+		if(\lib\nic\mode::api())
 		{
 			$get_api = new \lib\nic\api();
 			$result  = $get_api->domain_buy($post);
-
 		}
 		else
 		{

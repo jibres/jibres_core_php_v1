@@ -28,7 +28,7 @@ class controller
 
 			if(\dash\validate::domain($domain, false))
 			{
-				if(\dash\url::isLocal())
+				if(\lib\nic\mode::api())
 				{
 					$get_api = new \lib\nic\api();
 					$check    = $get_api->domain_available($domain);
@@ -48,7 +48,7 @@ class controller
 		elseif($q)
 		{
 
-			if(\dash\url::isLocal())
+			if(\lib\nic\mode::api())
 			{
 				$get_api = new \lib\nic\api();
 				$info    = $get_api->domain_check($q);

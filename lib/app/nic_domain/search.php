@@ -116,7 +116,7 @@ class search
 
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
 		}
 		else
 		{

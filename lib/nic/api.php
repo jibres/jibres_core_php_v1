@@ -23,13 +23,13 @@ class api
 		$appkey    = 'd4690f919c32165b1541ffe28a57324c'; // local
 		$appkey    = 'd4690f919c32165b1541ffe28a57324c'; // .ir
 
-		$apikey    = '55e77fe05aa4126fa739a6f21829c454'; // local
 		$apikey    = '312942427c94b0fafe37ca2770f6424c'; // .ir
+		$apikey    = '55e77fe05aa4126fa739a6f21829c454'; // local
 		$registrar = 'irnic';
 
 		$master_url = "https://core.jibres.com/%s/%s/%s";
-		$master_url = "http://core.jibres.local/%s/%s/%s";
 		$master_url = "https://core.jibres.ir/%s/%s/%s";
+		$master_url = "https://core.jibres.local/%s/%s/%s";
 
 		$default_option =
 		[
@@ -104,14 +104,16 @@ class api
 			return false;
 		}
 
+		$this->result_raw = $result;
+
+		$this->make_notif();
+
 		if(!$result['ok'])
 		{
-			var_dump($response);exit();
+			// var_dump($response, json_decode($response, true));exit();
 			// build error
 			return false;
 		}
-
-		$this->result_raw = $result;
 
 		if(isset($result['result']))
 		{
@@ -119,6 +121,33 @@ class api
 		}
 
 		return false;
+	}
+
+
+	private function make_notif()
+	{
+		if(empty($this->result_raw))
+		{
+			return;
+		}
+
+		$msg = [];
+
+		if(isset($this->result_raw['msg']) && is_array($this->result_raw['msg']))
+		{
+			$msg = $this->result_raw['msg'];
+		}
+
+		$notif = [];
+
+		foreach ($msg as $key => $value)
+		{
+			if(isset($value['text']) && isset($value['type']) && in_array($value['type'], ['info','ok','warn','error']))
+			{
+				$my_fn = $value['type'];
+				\dash\notif::$my_fn($value['text']);
+			}
+		}
 	}
 
 
@@ -195,6 +224,13 @@ class api
 	public function domain_check($_domin)
 	{
 		$result = self::run('domain/check', 'get', ['domain' => $_domin], null, ['apikey' => false]);
+		return $result;
+	}
+
+
+	public function domain_fetch($_param)
+	{
+		$result = self::run('domain/fetch', 'get', $_param);
 		return $result;
 	}
 

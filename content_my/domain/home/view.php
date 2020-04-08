@@ -37,24 +37,39 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\nic_domain\search::list($search_string, $args);
+		if(\lib\nic\mode::api())
+		{
+			$args['q'] = $search_string;
+
+			$get_api    = new \lib\nic\api();
+			$list       = $get_api->domain_fetch($args);
+			$filterBox  = $get_api->meta('filter_message');
+			$isFiltered = $get_api->meta('is_filtered');
+		}
+		else
+		{
+
+			$list          = \lib\app\nic_domain\search::list($search_string, $args);
+			$filterBox     = \lib\app\nic_domain\search::filter_message();
+			$isFiltered    = \lib\app\nic_domain\search::is_filtered();
+
+		}
+
+		\dash\data::filterBox($filterBox);
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
-		\dash\data::sortLink($sortLink);
-
-
-		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
-
-		$isFiltered = \lib\app\nic_domain\search::is_filtered();
-
 		\dash\data::isFiltered($isFiltered);
+
 
 		if($isFiltered)
 		{
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
+
+		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
+		\dash\data::sortLink($sortLink);
+
 	}
 }
 ?>

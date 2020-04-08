@@ -172,6 +172,15 @@ class ready
 
 					break;
 
+				case 'id':
+				case 'dns':
+					$result[$key] = \dash\coding::encode($value);
+					break;
+
+				case 'user_id':
+				case 'result':
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
