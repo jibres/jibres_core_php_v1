@@ -78,6 +78,11 @@ class get
 		{
 			foreach ($list as $key => $value)
 			{
+				unset($list[$key]['id']);
+				unset($list[$key]['server_id']);
+				unset($list[$key]['notif_count']);
+				unset($list[$key]['detail']);
+
 				if(isset($value['index']))
 				{
 					switch ($value['index'])

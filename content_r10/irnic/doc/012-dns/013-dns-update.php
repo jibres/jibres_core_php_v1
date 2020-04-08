@@ -35,7 +35,7 @@
               </td>
               <td>
                 <i><?php echo T_("For example") ?></i>
-                <code>'d'</code>
+                <code>'B'</code>
               </td>
               <td>
                 <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
@@ -46,7 +46,7 @@
       </div>
 
 
-      <h3 class="mB20"><?php echo T_("Body"); ?></h3>
+      <h3 class="mB20"><?php echo T_("Input Body"); ?></h3>
 
       <div class="tblBox">
         <table class="tbl1 v3">
@@ -65,7 +65,7 @@
               </td>
               <td>
                 <i><?php echo T_("For example") ?></i>
-                <code>dns New title</code>
+                <code>DNS New title</code>
               </td>
               <td>
                 <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
@@ -84,6 +84,15 @@
                 <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
               </td>
             </tr>
+
+            <tr><td><div class="txtB">ns1</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ns2</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ip1</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ip2</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ns3</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ns4</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ip3</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
+            <tr><td><div class="txtB">ip4</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
           </tbody>
         </table>
       </div>
@@ -92,11 +101,11 @@
 
       <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X PATCH '<?php echo \dash\data::IRNICApiURL(); ?>dns?id=d' \
+curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X PATCH '<?php echo \dash\data::IRNICApiURL(); ?>dns?id=B' \
 -H 'Content-Type: application/json' \
 -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
 -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
---data-raw '{"isdefault":false, "title":"dns New title"}'
+--data-raw '{"isdefault":false, "title":"DNS New title"}'
 </pre>
 
       <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
@@ -105,7 +114,7 @@ curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X PATCH '<?php echo \dash
   "msg": [
     {
       "type": "ok",
-      "text": "dns updateded"
+      "text": "DNS updateded"
     }
   ],
   "result": true

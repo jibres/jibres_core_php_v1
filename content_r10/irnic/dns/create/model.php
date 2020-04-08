@@ -20,7 +20,14 @@ class model
 
 		$create = \lib\app\nic_dns\add::new_record($post);
 
-		\content_r10\tools::say($create);
+		if($create)
+		{
+			\dash\notif::ok(T_("DNS added"));
+			\content_r10\tools::say(true);
+		}
+
+		\content_r10\tools::say(false);
+
 
 	}
 }

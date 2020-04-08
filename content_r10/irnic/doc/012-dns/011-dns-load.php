@@ -35,7 +35,7 @@
               </td>
               <td>
                 <i><?php echo T_("For example") ?></i>
-                <code>'d'</code>
+                <code>'B'</code>
               </td>
               <td>
                 <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
@@ -48,29 +48,26 @@
 
 
       <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
-      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X GET '<?php echo \dash\data::IRNICApiURL(); ?>dns?id=d' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
+      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X GET '<?php echo \dash\data::IRNICApiURL(); ?>dns?id=B' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
 
       <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <samp>{
   "ok": true,
   "result": {
-    "ok": true,
-    "result": {
-      "id": "d",
-      "title": "my DNS",
-      "ns1": "ns1.jibres.com",
-      "ip1": null,
-      "ns2": "ns2.jibres.com",
-      "ip2": null,
-      "ns3": null,
-      "ip3": null,
-      "ns4": null,
-      "ip4": null,
-      "isdefault": "1",
-      "status": "enable",
-      "datecreated": "2020-04-08 04:05:09",
-      "count_useage": "0"
-    }
+    "id": "B",
+    "title": "my Dns",
+    "ns1": "ns1.jibres.com",
+    "ip1": null,
+    "ns2": "ns2.jibres.com",
+    "ip2": null,
+    "ns3": null,
+    "ip3": null,
+    "ns4": null,
+    "ip4": null,
+    "isdefault": null,
+    "status": "enable",
+    "datecreated": "2020-04-08 04:13:39",
+    "count_useage": "3"
   }
 }</samp>
     </div>

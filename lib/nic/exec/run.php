@@ -373,6 +373,10 @@ class run
 				$msg = T_("Parameter value policy error");
 				break;
 
+			case 2201:
+				$msg = T_("Authorization error");
+				break;
+
 			case 1001:
 			case 1300:
 			case 1500:
@@ -386,7 +390,6 @@ class run
 			case 2103:
 			case 2106:
 			case 2200:
-			case 2201:
 			case 2202:
 			case 2300:
 			case 2301:
