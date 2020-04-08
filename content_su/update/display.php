@@ -57,7 +57,8 @@
   <div class="c s6">
     <div class="msg fs14">
     <p><?php echo T_("Talambar CDN"); ?></p>
-    <a class="btn success" target="_blank" href="https://cdn.talambar.ir/tmp/update/?hey=CDN"><?php echo T_("Pull CDN repository"); ?></a>
+
+    <a class="btn success" target="_blank" href="https://cdn.talambar.<?php if(\dash\url::tld() === 'ir') {echo 'ir';}else{echo 'com';} ?>/tmp/update/?hey=CDN"><?php echo T_("Pull CDN repository"); ?></a>
     </div>
   </div>
 
