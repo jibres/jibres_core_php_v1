@@ -4,6 +4,25 @@ namespace lib\app\nic_domain;
 
 class lock
 {
+	public static function lock_id($_id)
+	{
+		$_id = \dash\validate::code($_id);
+		$_id = \dash\coding::decode($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+		$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+
+		if(isset($load_domain['name']))
+		{
+			return self::lock($load_domain['name']);
+		}
+
+		return false;
+	}
+
 	public static function lock($_domain)
 	{
 
@@ -92,6 +111,26 @@ class lock
 
 	}
 
+
+	public static function unlock_id($_id)
+	{
+		$_id = \dash\validate::code($_id);
+		$_id = \dash\coding::decode($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+		$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+
+		if(isset($load_domain['name']))
+		{
+			return self::unlock($load_domain['name']);
+		}
+
+		return false;
+
+	}
 
 	public static function unlock($_domain)
 	{

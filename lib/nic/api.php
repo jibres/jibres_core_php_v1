@@ -256,9 +256,37 @@ class api
 	}
 
 
+	public function domain_update_holder($_domin_id, $_args)
+	{
+		$result = self::run('domain/holder', 'patch', ['id' => $_domin_id], $_args);
+		return $result;
+	}
+
+
+	public function domain_update_dns($_domin_id, $_args)
+	{
+		$result = self::run('domain/dns', 'patch', ['id' => $_domin_id], $_args);
+		return $result;
+	}
+
+
 	public function domain_delete($_domin_id)
 	{
 		$result = self::run('domain', 'delete', ['id' => $_domin_id]);
+		return $result;
+	}
+
+
+	public function domain_lock($_domin_id)
+	{
+		$result = self::run('domain', 'put', ['id' => $_domin_id], ['lock' => true]);
+		return $result;
+	}
+
+
+	public function domain_unlock($_domin_id)
+	{
+		$result = self::run('domain', 'put', ['id' => $_domin_id], ['lock' => false]);
 		return $result;
 	}
 
