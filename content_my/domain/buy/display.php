@@ -241,7 +241,7 @@ else
 
     <div class="c6 s12">
      <div class="mLa5">
-      <label for="ns4"><?php echo T_("DNS #2"); ?></label>
+      <label for="ns4"><?php echo T_("DNS #4"); ?></label>
       <div class="input ltr">
        <input type="text" name="ns4" id="ns4" maxlength="100">
       </div>

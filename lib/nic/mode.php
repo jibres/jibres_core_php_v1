@@ -18,13 +18,13 @@ class mode
 		}
 
 
-		// only in local mode can set this configure
-
 		return true; // everything fetch from api
-
-
-
+		// only in local mode can set this configure
 		return false; // api is disable
+
+
+
+
 
 	}
 }

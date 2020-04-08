@@ -23,13 +23,13 @@ class api
 		$appkey    = 'd4690f919c32165b1541ffe28a57324c'; // local
 		$appkey    = 'd4690f919c32165b1541ffe28a57324c'; // .ir
 
-		$apikey    = '312942427c94b0fafe37ca2770f6424c'; // .ir
 		$apikey    = '55e77fe05aa4126fa739a6f21829c454'; // local
+		$apikey    = '312942427c94b0fafe37ca2770f6424c'; // .ir
 		$registrar = 'irnic';
 
 		$master_url = "https://core.jibres.com/%s/%s/%s";
-		$master_url = "https://core.jibres.ir/%s/%s/%s";
 		$master_url = "https://core.jibres.local/%s/%s/%s";
+		$master_url = "https://core.jibres.ir/%s/%s/%s";
 
 		$default_option =
 		[

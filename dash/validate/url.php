@@ -90,8 +90,7 @@ class url
 			return $data;
 		}
 
-
-		if(!preg_match("/^[\w\d]+\.(ir|ایران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $data))
+		if(!preg_match("/\.(ir|ایران|ايران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $data))
 		{
 			if($_notif)
 			{

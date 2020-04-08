@@ -27,13 +27,18 @@ class create
 
 		$meta = [];
 
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if(!$data['agree'])
+		if(isset($_args['agree']) && $_args['agree'])
 		{
-			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
+			// nothing
+		}
+		else
+		{
+			\dash\notif::error(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
 			return false;
 		}
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$domain      = $data['domain'];
 		$nic_id      = $data['nic_id'];
