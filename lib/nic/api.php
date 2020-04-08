@@ -242,6 +242,13 @@ class api
 	}
 
 
+	public function domain_detail($_domin)
+	{
+		$result = self::run('domain/detail', 'get', ['domain' => $_domin]);
+		return $result;
+	}
+
+
 	public function domain_buy($_args)
 	{
 		$result = self::run('domain/buy', 'post', null, $_args);

@@ -13,7 +13,16 @@ class controller
 		{
 			if(\dash\validate::domain($domain))
 			{
-				$load_domain = \lib\app\nic_domain\get::is_my_domain($domain);
+				if(\lib\nic\mode::api())
+				{
+					$get_api     = new \lib\nic\api();
+					$load_domain = $get_api->domain_detail($domain);
+				}
+				else
+				{
+					$load_domain = \lib\app\nic_domain\get::is_my_domain($domain);
+				}
+
 				if(!$load_domain)
 				{
 					\dash\header::status(403);
