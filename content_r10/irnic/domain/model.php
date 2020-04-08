@@ -6,7 +6,7 @@ class model
 {
 	public static function delete()
 	{
-		$result = \lib\app\nic_domain\edit::remove(\dash\request::get('id'));
+		$result = \lib\app\nic_domain\edit::edit(['status' => 'deleted'], \dash\request::get('id'));
 		\content_r10\tools::say($result);
 	}
 

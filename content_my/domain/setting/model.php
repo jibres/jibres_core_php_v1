@@ -29,8 +29,15 @@ class model
 
 		if(\dash\request::post('status') == 'remove')
 		{
-
-			$result = \lib\app\nic_domain\edit::edit(['status' => 'deleted'], \dash\data::domainDetail_id());
+			if(\lib\nic\mode::api())
+			{
+				$get_api     = new \lib\nic\api();
+				$load_domain = $get_api->domain_delete(\dash\data::domainDetail_id());
+			}
+			else
+			{
+				$result = \lib\app\nic_domain\edit::edit(['status' => 'deleted'], \dash\data::domainDetail_id());
+			}
 
 			if(\dash\engine\process::status())
 			{

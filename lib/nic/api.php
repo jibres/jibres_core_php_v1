@@ -256,6 +256,13 @@ class api
 	}
 
 
+	public function domain_delete($_domin_id)
+	{
+		$result = self::run('domain', 'delete', ['id' => $_domin_id]);
+		return $result;
+	}
+
+
 
 
 
