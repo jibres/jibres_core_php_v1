@@ -156,8 +156,6 @@ class poll
 			return false;
 		}
 
-		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
-
 		$response = \lib\nic\exec\run::send($xml, 'poll_request');
 
 		return $response;

@@ -11,6 +11,7 @@ class mode
 	 */
 	public static function api()
 	{
+		// only in local mode can set this configure
 		// in server needless to run api
 		if(!\dash\url::isLocal())
 		{
@@ -19,12 +20,8 @@ class mode
 
 
 		return true; // everything fetch from api
-		// only in local mode can set this configure
+
 		return false; // api is disable
-
-
-
-
 
 	}
 }

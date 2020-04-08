@@ -8,7 +8,7 @@ class run
 	{
 		$xml = $_xml;
 
-		$xml = str_replace('JIBRES-TOKEN', self::token(), $xml);
+		$xml = str_replace('JIBRES-TOKEN', \dash\setting\nic::token(), $xml);
 
 		$tracking_number = self::make_tracking_number($_type);
 
@@ -67,7 +67,7 @@ class run
 
 				$insert_log['server_id']   = self::server_id($object);
 
-				$message = self::code_msg($result_code);
+				$message = self::code_msg($result_code, $object);
 
 				if($message && \dash\permission::supervisor())
 				{
@@ -100,7 +100,7 @@ class run
 
 		$data          = [];
 		$data['xml']   = $_xml;
-		$data['token'] = self::curl_token();
+		$data['token'] = \dash\setting\nic::curl_token();
 
 		// create a new cURL resource
 		$ch = curl_init();
@@ -249,7 +249,7 @@ class run
 	}
 
 
-	public static function server_id($_response)
+	private static function server_id($_response)
 	{
 		if(!$_response || !is_object($_response))
 		{
@@ -268,24 +268,8 @@ class run
 	}
 
 
-	private static function curl_token()
-	{
-		return \dash\setting\nic::curl_token();
-	}
 
-	public static function token()
-	{
-		return \dash\setting\nic::token();
-	}
-
-
-	public static function jibres_nic_account()
-	{
-		return \dash\setting\nic::jibres_nic_account();
-	}
-
-
-	public static function make_tracking_number($_type)
+	private static function make_tracking_number($_type)
 	{
 		$tracking_number = 'JIBRES-';
 
@@ -306,8 +290,38 @@ class run
 	}
 
 
+	private static function detect_error_message($_code, $_object)
+	{
+		if(isset($_object->response->result))
+		{
+			$result = $_object->response->result;
+			if(isset($result->extValue))
+			{
+				$extValue = $result->extValue;
 
-	public static function code_msg($_code)
+				foreach ($extValue as $key => $value)
+				{
+					foreach ($value as $myKey => $reason)
+					{
+						if($myKey === 'reason')
+						{
+							$string = $reason->__toString();
+							if(trim($string))
+							{
+								if(\dash\permission::supervisor())
+								{
+									\dash\notif::info("Extra value: ". $string);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	private static function code_msg($_code, $_object = null)
 	{
 		if(is_numeric($_code))
 		{
@@ -355,6 +369,10 @@ class run
 				$msg = T_("Currency type of your contract is different with currency type of the holder.");
 				break;
 
+			case 2306:
+				$msg = T_("Parameter value policy error");
+				break;
+
 			case 1001:
 			case 1300:
 			case 1500:
@@ -373,7 +391,6 @@ class run
 			case 2300:
 			case 2301:
 			case 2305:
-			case 2306:
 			case 2307:
 			case 2308:
 			case 2400:
@@ -386,6 +403,11 @@ class run
 			default:
 				$msg = 'Unknown error '. $_code;
 				break;
+		}
+
+		if($_code !== 1000)
+		{
+			self::detect_error_message($_code, $_object);
 		}
 
 		return $msg;

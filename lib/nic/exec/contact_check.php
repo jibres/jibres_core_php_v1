@@ -105,11 +105,6 @@ class contact_check
 
 		$result_code = \lib\nic\exec\run::result_code($response);
 
-		if($result_code != 1000)
-		{
-			\dash\notif::error(\lib\nic\exec\run::code_msg($result_code));
-		}
-
 		return $response;
 
 	}
