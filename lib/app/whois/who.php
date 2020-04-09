@@ -10,7 +10,6 @@ class who
 	{
 		if(!\dash\validate::domain($_domain, false))
 		{
-			// \dash\notif::error(T_("This domain is not a valid domain"), 'domain');
 			return false;
 		}
 
@@ -90,6 +89,31 @@ class who
 
 			if(in_array($key, ['holder-c','admin-c','tech-c','bill-c', 'nic-hdl']))
 			{
+				if($key === 'holder-c')
+				{
+					$key = "Holder";
+				}
+
+				if($key === 'admin-c')
+				{
+					$key = "Admin holder";
+				}
+
+				if($key === 'tech-c')
+				{
+					$key = "Technical holder";
+				}
+
+				if($key === 'bill-c')
+				{
+					$key = "Billing holder";
+				}
+
+				if($key === 'nic-hdl')
+				{
+					$key = "IRNIC holder";
+				}
+
 				$group = 'Registrar Info';
 			}
 
@@ -110,11 +134,36 @@ class who
 
 			if(in_array($key, ['last-updated', 'expire-date']))
 			{
+				if($key === 'last-updated')
+				{
+					$key = "Last updated";
+				}
+
+				if($key === 'expire-date')
+				{
+					$key = "Expire date";
+				}
+
 				$group = 'Important Dates';
 			}
 
 			if(in_array($key, ['person', 'e-mail', 'address', 'phone', 'org']))
 			{
+				if($key === 'person')
+				{
+					$key = "Admin Name";
+				}
+
+				if($key === 'e-mail')
+				{
+					$key = "Email";
+				}
+
+				if($key === 'address')
+				{
+					$key = "Address";
+				}
+
 				$group = 'Registrar Data';
 			}
 
@@ -125,7 +174,7 @@ class who
 
 			if($key || $value)
 			{
-				$pre[$group][] = ['key' => $key, 'value' => $value];
+				$pre[$group][] = ['key' => $key, 'title' => T_(ucfirst($key)), 'value' => $value];
 			}
 		}
 

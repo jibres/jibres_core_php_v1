@@ -82,10 +82,10 @@ function make_whois_detail_box($_title, $_array)
 			{
 				echo '<tr>';
 				echo '<td class="txtB">';
-					echo $value['key'];
+					echo $value['title'];
 				echo '</td>';
 
-				echo '<td>';
+				echo '<td class="ltr">';
 					echo $value['value'];
 				echo '</td>';
 				echo '</tr>';
