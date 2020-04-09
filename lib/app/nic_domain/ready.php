@@ -9,20 +9,25 @@ class ready
 		$domain = isset($_data['name']) ? $_data['name'] : null;
 		if($domain)
 		{
-			if(isset($_data['lastfetch']) && $_data['lastfetch'])
+			// only enable domain fetch & update result
+			if(isset($_data['status']) && $_data['status'] === 'enable')
 			{
-				// fetch every 1 hour
-				if(time() - strtotime($_data['lastfetch']) > (60*5))
+				if(isset($_data['lastfetch']) && $_data['lastfetch'])
+				{
+					// fetch every 1 hour
+					if(time() - strtotime($_data['lastfetch']) > (60*60))
+					{
+						\lib\app\nic_domain\get::update_fetch($domain, $_data);
+						$_data = \lib\db\nic_domain\get::by_id($_data['id']);
+					}
+				}
+				else
 				{
 					\lib\app\nic_domain\get::update_fetch($domain, $_data);
 					$_data = \lib\db\nic_domain\get::by_id($_data['id']);
 				}
 			}
-			else
-			{
-				\lib\app\nic_domain\get::update_fetch($domain, $_data);
-				$_data = \lib\db\nic_domain\get::by_id($_data['id']);
-			}
+
 		}
 
 		$result = [];
