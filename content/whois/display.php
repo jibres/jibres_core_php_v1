@@ -24,7 +24,7 @@ if(\dash\data::whoisResult())
 
 <div class="f justify-center mT20">
 
-	<div class="c8 s12 mT10">
+	<div class="c12 s12 mT10">
 
 		<?php if(\dash\data::whoisResult_available()) {?>
 			<div class="f msg success">
@@ -36,7 +36,7 @@ if(\dash\data::whoisResult())
 		<?php } //endif ?>
 
 
-<pre><?php echo \dash\data::whoisResult_answer(); ?></pre>
+<?php if(\dash\data::whoisResult_answer()) {?><samp><?php echo \dash\data::whoisResult_answer(); ?></samp><?php } //endif ?>
 	</div>
 </div>
 

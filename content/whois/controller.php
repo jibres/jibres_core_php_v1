@@ -17,16 +17,9 @@ class controller
 		$domain = \dash\url::child();
 		if($domain)
 		{
-			if(\dash\validate::domain($domain))
-			{
-				\dash\data::myDomain(urldecode($domain));
-				$whois = \lib\app\nic_whois\who::is($domain);
-				\dash\data::whoisResult($whois);
-			}
-			else
-			{
-				\dash\data::domainError(T_("Invalid error syntax"));
-			}
+			\dash\data::myDomain(urldecode($domain));
+			$whois = \lib\app\whois\who::is($domain);
+			\dash\data::whoisResult($whois);
 		}
 	}
 }

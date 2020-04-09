@@ -13,7 +13,7 @@ class model
 			return false;
 		}
 
-		if(!\dash\validate::domain($domain))
+		if(!\dash\validate::domain($domain, false))
 		{
 			\dash\notif::error(T_("Please enter a valid domain"), 'domain');
 			return false;

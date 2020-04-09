@@ -1,32 +1,16 @@
 <?php
-namespace lib\app\nic_whois;
+namespace lib\app\whois;
 
 
 
 class who
 {
-	public static function is_quick($_domain)
-	{
-		$result = self::is($_domain);
-
-		if(!is_array($result))
-		{
-			return false;
-		}
-
-		if(array_key_exists('available', $result))
-		{
-			return ['available' => $result['available']];
-		}
-
-		return false;
-	}
-
 
 	public static function is($_domain)
 	{
-		if(!\dash\validate::domain($_domain))
+		if(!\dash\validate::domain($_domain, false))
 		{
+			// \dash\notif::error(T_("This domain is not a valid domain"), 'domain');
 			return false;
 		}
 
@@ -37,6 +21,8 @@ class who
 		// Creating default configured client
 		$whois = \lib\nic\Iodev\Whois\Whois::create();
 
+
+		$result['domain'] = $_domain;
 
 		// Checking availability
 		if ($whois->isDomainAvailable($_domain))
@@ -52,12 +38,34 @@ class who
 		$response = $whois->lookupDomain($_domain);
 		$result['answer'] = $response->getText();
 
+		self::analyze_response($result);
+		// var_dump($result);exit();
+
 		return $result;
 
 	}
 
 
-		public static function is_old($_domain)
+	private static function analyze_response(&$result)
+	{
+		if(isset($result['answer']) && $result['answer'] && is_string($result['answer']))
+		{
+			$whois = $result['answer'];
+		}
+		else
+		{
+			return false;
+		}
+
+		// var_dump($whois);exit();
+
+	}
+
+
+
+
+
+	public static function is_old($_domain)
 	{
 		if(!\dash\validate::domain($_domain))
 		{
