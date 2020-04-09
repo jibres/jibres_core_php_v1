@@ -27,20 +27,24 @@ class get
 			return false;
 		}
 
-		if(isset($load_domain['lastfetch']) && $load_domain['lastfetch'])
+		if(isset($load_domain['status']) && $load_domain['status'] === 'enable')
 		{
-			// fetch every 1 hour
-			if(time() - strtotime($load_domain['lastfetch']) > (60*60))
+			if(isset($load_domain['lastfetch']) && $load_domain['lastfetch'])
+			{
+				// fetch every 1 hour
+				if(time() - strtotime($load_domain['lastfetch']) > (60*60))
+				{
+					self::update_fetch($_domain, $load_domain);
+					$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
+				}
+			}
+			else
 			{
 				self::update_fetch($_domain, $load_domain);
 				$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
 			}
 		}
-		else
-		{
-			self::update_fetch($_domain, $load_domain);
-			$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
-		}
+
 
 		if(isset($load_domain['nicstatus']) && is_string($load_domain['nicstatus']))
 		{
