@@ -20,6 +20,11 @@ class edit
 			return false;
 		}
 
+		if(empty($_args))
+		{
+			\dash\notif::info(T_("No change in domain"));
+			return true;
+		}
 
 		if(isset($load_domain['verify']) && $load_domain['verify'])
 		{
