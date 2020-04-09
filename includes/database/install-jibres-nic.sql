@@ -36,9 +36,9 @@ CREATE TABLE IF NOT EXISTS `log` (
 `result` text  NULL DEFAULT NULL,
 `runtime` text  NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
-KEY `log_index_search_type` (`type`)
-KEY `log_index_search_userid` (`userid`)
-KEY `log_index_search_datesend` (`datesend`)
+KEY `log_index_search_type` (`type`),
+KEY `log_index_search_userid` (`user_id`),
+KEY `log_index_search_datesend` (`datesend`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
