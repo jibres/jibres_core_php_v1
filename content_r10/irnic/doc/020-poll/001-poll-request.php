@@ -34,7 +34,7 @@
       "taction": "وضعیت دامنه شما به‌روز شده است",
       "class": "",
       "meta": "rezamohiti.ir",
-      "icon": "<i class=\"sf-refresh fc-blue\"></i>"
+      "icon": ""
     }
   ]
 }</samp>
