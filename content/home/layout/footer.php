@@ -137,5 +137,4 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
 
 
-
 <div id="jibresBottomLine"></div>
