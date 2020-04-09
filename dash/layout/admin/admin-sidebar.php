@@ -125,6 +125,11 @@ if(\dash\url::content() === 'v2')
   require_once ('sidebar/sidebar-api-v2.php');
 }
 
+if(\dash\url::content() === 'r10' && \dash\url::module() === 'irnic')
+{
+  require_once ('sidebar/sidebar-api-domain.php');
+}
+
 if(\dash\url::content() === 'm')
 {
   require_once ('sidebar/sidebar-m.php');
