@@ -39,7 +39,7 @@ if(\dash\data::whoisResult())
 <?php
 $whois = \dash\data::whoisResult_pretty();
 // if(isset($whois['Domain name']) && is_array($whois['Domain name'])) { make_whois_detail_box("Domain name", $whois['Domain name']);}
-if(isset($whois['Registrar Data']) && is_array($whois['Registrar Data'])) { make_whois_detail_box("Registrar Data", $whois['Registrar Data']);}
+if(isset($whois['Registrar']) && is_array($whois['Registrar'])) { make_whois_detail_box("Registrar", $whois['Registrar']);}
 if(isset($whois['Important Dates']) && is_array($whois['Important Dates'])) { make_whois_detail_box("Important Dates", $whois['Important Dates']);}
 if(isset($whois['Name Servers']) && is_array($whois['Name Servers'])) { make_whois_detail_box("Name Servers", $whois['Name Servers']);}
 if(isset($whois['Registrar Info']) && is_array($whois['Registrar Info'])) { make_whois_detail_box("Registrar Info", $whois['Registrar Info']);}
@@ -48,8 +48,8 @@ if(isset($whois['Registrar Info']) && is_array($whois['Registrar Info'])) { make
 
 <?php if(\dash\data::whoisResult_answer()) {?>
 <div class="box">
-	<header><h2 class="f" data-kerkere="#rawresult" data-kerkere-icon="close"><?php echo T_("Show raw result"); ?></h2></header>
-	<div class="body" id="rawresult" data-kerkere-content='hide'>
+	<header><h2 class="f" data-kerkere="#rawresult" data-kerkere-icon="open"><?php echo T_("Whois answer"); ?></h2></header>
+	<div class="body zeroPad" id="rawresult">
 		<samp><?php echo \dash\data::whoisResult_answer(); ?></samp>
 	</div>
 
