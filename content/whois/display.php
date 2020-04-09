@@ -36,13 +36,64 @@ if(\dash\data::whoisResult())
 		<?php } //endif ?>
 
 
-<?php if(\dash\data::whoisResult_answer()) {?><samp><?php echo \dash\data::whoisResult_answer(); ?></samp><?php } //endif ?>
+<?php
+$whois = \dash\data::whoisResult_pretty();
+// if(isset($whois['Domain name']) && is_array($whois['Domain name'])) { make_whois_detail_box("Domain name", $whois['Domain name']);}
+if(isset($whois['Registrar Data']) && is_array($whois['Registrar Data'])) { make_whois_detail_box("Registrar Data", $whois['Registrar Data']);}
+if(isset($whois['Important Dates']) && is_array($whois['Important Dates'])) { make_whois_detail_box("Important Dates", $whois['Important Dates']);}
+if(isset($whois['Name Servers']) && is_array($whois['Name Servers'])) { make_whois_detail_box("Name Servers", $whois['Name Servers']);}
+if(isset($whois['Registrar Info']) && is_array($whois['Registrar Info'])) { make_whois_detail_box("Registrar Info", $whois['Registrar Info']);}
+
+?>
+
+<?php if(\dash\data::whoisResult_answer()) {?>
+<div class="box">
+	<header><h2 class="f" data-kerkere="#rawresult" data-kerkere-icon="close"><?php echo T_("Show raw result"); ?></h2></header>
+	<div class="body" id="rawresult" data-kerkere-content='hide'>
+		<samp><?php echo \dash\data::whoisResult_answer(); ?></samp>
+	</div>
+
+</div>
+<?php } //endif ?>
+
 	</div>
 </div>
 
-<?php
-} // endif
-?>
+<?php } // endif whois result ?>
 
  </div>
 </div>
+
+
+
+<?php
+function make_whois_detail_box($_title, $_array)
+{
+	echo '<div class="box">';
+		echo '<header>';
+		echo '<h2 class="f" data-kerkere="#'. md5($_title). '" data-kerkere-icon="open">';
+		echo T_($_title);
+		echo '</h2>';
+		echo '</header>';
+		echo '<div class="body zeroPad" id="'. md5($_title).'">';
+			echo '<table class="tbl1 v4">';
+			echo '<tbody>';
+			foreach ($_array as $key => $value)
+			{
+				echo '<tr>';
+				echo '<td class="txtB">';
+					echo $value['key'];
+				echo '</td>';
+
+				echo '<td>';
+					echo $value['value'];
+				echo '</td>';
+				echo '</tr>';
+			}
+
+			echo '</tbody>';
+			echo '</table>';
+		echo '</div>';
+	echo '</div>';
+}
+?>

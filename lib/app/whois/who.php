@@ -21,7 +21,6 @@ class who
 		// Creating default configured client
 		$whois = \lib\nic\Iodev\Whois\Whois::create();
 
-
 		$result['domain'] = $_domain;
 
 		// Checking availability
@@ -39,7 +38,6 @@ class who
 		$result['answer'] = $response->getText();
 
 		self::analyze_response($result);
-		// var_dump($result);exit();
 
 		return $result;
 
@@ -57,7 +55,83 @@ class who
 			return false;
 		}
 
-		// var_dump($whois);exit();
+		$whois_lines = explode("\n", $whois);
+
+		$pre = [];
+		$pre['desc'] = [];
+
+		foreach ($whois_lines as  $line)
+		{
+			if(substr($line, 0, 1) === '%')
+			{
+				$pre['desc'][] = $line;
+				continue;
+			}
+
+			if($line === '')
+			{
+				continue;
+			}
+
+			$detect = explode(':', $line, 2);
+			$key    = null;
+			$value  = null;
+			$group  = 'other';
+
+			if(isset($detect[0]))
+			{
+				$key = trim($detect[0]);
+			}
+
+			if(isset($detect[1]))
+			{
+				$value = trim($detect[1]);
+			}
+
+			if(in_array($key, ['holder-c','admin-c','tech-c','bill-c', 'nic-hdl']))
+			{
+				$group = 'Registrar Info';
+			}
+
+			if(in_array($key, ['domain','ascii']))
+			{
+				$group = 'Domain name';
+			}
+
+			if(in_array($key, ['remarks', 'source']))
+			{
+				$group = 'Other';
+			}
+
+			if(in_array($key, ['nserver']))
+			{
+				$group = 'Name Servers';
+			}
+
+			if(in_array($key, ['last-updated', 'expire-date']))
+			{
+				$group = 'Important Dates';
+			}
+
+			if(in_array($key, ['person', 'e-mail', 'address', 'phone', 'org']))
+			{
+				$group = 'Registrar Data';
+			}
+
+			if($group && !isset($pre[$group]))
+			{
+				$pre[$group] = [];
+			}
+
+			if($key || $value)
+			{
+				$pre[$group][] = ['key' => $key, 'value' => $value];
+			}
+		}
+
+		$pre['desc'] = implode("\n", $pre['desc']);
+
+		$result['pretty'] = $pre;
 
 	}
 
