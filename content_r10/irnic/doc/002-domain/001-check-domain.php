@@ -64,14 +64,6 @@ curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X GET '<?php echo \dash\d
     "tld": "ir",
     "paperwork": null
   },
-  "jibresisamazing.ایران": {
-    "name": "jibresisamazing",
-    "available": false,
-    "price": 5000,
-    "compareAtPrice": 6000,
-    "unit": "Toman",
-    "tld": "ایران"
-  },
   "jibresisamazing.id.ir": {
     "name": "jibresisamazing",
     "available": true,
