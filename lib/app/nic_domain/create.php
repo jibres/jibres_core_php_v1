@@ -106,17 +106,17 @@ class create
 
 
 		$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
-		if(!isset($get_contac_nic[$nic_id]))
-		{
-			\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-			return false;
-		}
+		// if(!isset($get_contac_nic[$nic_id]))
+		// {
+		// 	\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+		// 	return false;
+		// }
 
-		if(!isset($get_contac_nic[$nic_id]))
-		{
-			\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-			return false;
-		}
+		// if(!isset($get_contac_nic[$nic_id]))
+		// {
+		// 	\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+		// 	return false;
+		// }
 
 		if($irnic_bill)
 		{
@@ -207,6 +207,7 @@ class create
 
 			if(!$load_dns)
 			{
+				\dash\notif::error(T_("DNS not found"));
 				return false;
 			}
 

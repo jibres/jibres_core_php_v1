@@ -688,6 +688,9 @@ class TransStatic
 	echo T_('irnicDeletionPendingDomainCheck');
 	echo T_('irnicDeletionDocRequired');
 	echo T_('irnicDeletionIsWithdrawn');
+
+	echo T_('period');
+	echo T_('domain');
  }
 }
 ?>

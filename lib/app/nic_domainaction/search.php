@@ -58,6 +58,25 @@ class search
 		{
 			foreach ($list as $key => $value)
 			{
+				if(isset($list[$key]['id']))
+				{
+					$list[$key]['id'] = \dash\coding::encode($list[$key]['id']);
+				}
+
+				if(isset($list[$key]['domain_id']))
+				{
+					$list[$key]['domain_id'] = \dash\coding::encode($list[$key]['domain_id']);
+				}
+
+
+				if(isset($list[$key]['transaction_id']))
+				{
+					$list[$key]['transaction_id'] = \dash\coding::encode($list[$key]['transaction_id']);
+				}
+
+				unset($list[$key]['user_id']);
+
+
 				if(isset($value['action']))
 				{
 					switch ($value['action'])

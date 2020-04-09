@@ -36,7 +36,7 @@ class model
 			}
 			else
 			{
-				$result = \lib\app\nic_domain\edit::edit(['status' => 'deleted'], \dash\data::domainDetail_id());
+				$result = \lib\app\nic_domain\remove::remove(\dash\data::domainDetail_id());
 			}
 
 			if(\dash\engine\process::status())
