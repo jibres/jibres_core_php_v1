@@ -13,6 +13,7 @@ class db
 	 */
 	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
+
 		$default_options =
 		[
 			// run mysqli_multi_query
@@ -38,6 +39,7 @@ class db
 			'database'     => $_options['database'],
 			'ignore_error' => $_options['ignore_error'],
 		];
+		\dash\runtime::db('start_connection');
 
 		\dash\db\mysql\tools\connection::connect($myDbFuel);
 
@@ -48,6 +50,7 @@ class db
 			return null;
 		}
 
+		\dash\runtime::db('start_query');
 		/**
 		 * send the query to mysql engine
 		 */
@@ -77,6 +80,8 @@ class db
 		{
 			$result = @mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
 		}
+
+		\dash\runtime::db('end_query');
 
 		// get diff of time after exec
 		$qry_exec_time = microtime(true) - $qry_exec_time;
@@ -141,6 +146,8 @@ class db
 		// generate query and get result
 		$result = self::query($_qry, $_db_fuel, $_options);
 		// fetch datatable by result
+
+
 		$result = self::fetch_all($result, $_column);
 		// if we have only one row of result only return this row
 		if($_onlyOneValue && is_array($result) && count($result) === 1)
@@ -154,6 +161,9 @@ class db
 				$result = null;
 			}
 		}
+
+		\dash\runtime::db('end_fetch_result');
+
 		return $result;
 	}
 
