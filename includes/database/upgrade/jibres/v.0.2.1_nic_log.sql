@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS jibres_nic_log.domainactivity (
 `datecreated` timestamp NULL DEFAULT NULL,
 `type` varchar(200) NULL DEFAULT NULL,
 `result` text NULL DEFAULT NULL,
+`runtime` text NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 CONSTRAINT `domainactivity_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON UPDATE CASCADE,
 KEY `domainactivity_index_search_type` (`type`),
