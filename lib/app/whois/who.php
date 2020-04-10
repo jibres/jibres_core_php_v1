@@ -13,87 +13,95 @@ class who
 			return false;
 		}
 
+		$result              = [];
+		$answer              = null;
+		$_domain             = urldecode($_domain);
+		$result['domain']    = $_domain;
+		$result['available'] = false;
+
+		try
+		{
+
+			$phpwhois = new \lib\nic\phpwhois\whois($_domain);
+
+			$answer                  = $phpwhois->info();
+
+			if($phpwhois->isAvailable())
+			{
+				$result['available'] = true;
+			}
+
+		}
+		catch (\Exception $e)
+		{
+
+			\dash\notif::error(T_("Can not connect to whois service not! Please try again later"));
+			return false;
+		}
+
+		$result['answer'] = $answer;
+
+		if(\dash\validate::ir_domain($_domain, false))
+		{
+			self::analyze_response_ir($result);
+		}
+		else
+		{
+			self::analyze_response($result);
+		}
+
+
+		return $result;
+
+	}
+
+
+	public static function is_by_iodev($_domain)
+	{
+		if(!\dash\validate::domain($_domain, false))
+		{
+			return false;
+		}
+
 		$result = [];
+		$answer = null;
 
-		$result['answer'] = 'Domain name: jibres.com
-Registry Domain ID: 1880989581_DOMAIN_COM-VRSN
-Registrar WHOIS Server: whois.namecheap.com
-Registrar URL: http://www.namecheap.com
-Updated Date: 2019-02-08T19:53:14.39Z
-Creation Date: 2014-10-18T12:04:45.00Z
-Registrar Registration Expiration Date: 2022-10-18T12:04:45.00Z
-Registrar: NAMECHEAP INC
-Registrar IANA ID: 1068
-Registrar Abuse Contact Email: abuse@namecheap.com
-Registrar Abuse Contact Phone: +1.6613102107
-Reseller: NAMECHEAP INC
-Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
-Registry Registrant ID:
-Registrant Name: WhoisGuard Protected
-Registrant Organization: WhoisGuard, Inc.
-Registrant Street: P.O. Box 0823-03411
-Registrant City: Panama
-Registrant State/Province: Panama
-Registrant Postal Code:
-Registrant Country: PA
-Registrant Phone: +507.8365503
-Registrant Phone Ext:
-Registrant Fax: +51.17057182
-Registrant Fax Ext:
-Registrant Email: d9ad7f4f0a5a4d31a21c4b3f24b8bafc.protect@whoisguard.com
-Registry Admin ID:
-Admin Name: WhoisGuard Protected
-Admin Organization: WhoisGuard, Inc.
-Admin Street: P.O. Box 0823-03411
-Admin City: Panama
-Admin State/Province: Panama
-Admin Postal Code:
-Admin Country: PA
-Admin Phone: +507.8365503
-Admin Phone Ext:
-Admin Fax: +51.17057182
-Admin Fax Ext:
-Admin Email: d9ad7f4f0a5a4d31a21c4b3f24b8bafc.protect@whoisguard.com
-Registry Tech ID:
-Tech Name: WhoisGuard Protected
-Tech Organization: WhoisGuard, Inc.
-Tech Street: P.O. Box 0823-03411
-Tech City: Panama
-Tech State/Province: Panama
-Tech Postal Code:
-Tech Country: PA
-Tech Phone: +507.8365503
-Tech Phone Ext:
-Tech Fax: +51.17057182
-Tech Fax Ext:
-Tech Email: d9ad7f4f0a5a4d31a21c4b3f24b8bafc.protect@whoisguard.com
-Name Server: anna.ns.cloudflare.com
-Name Server: damon.ns.cloudflare.com
-DNSSEC: unsigned
-URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
->>> Last update of WHOIS database: 2020-04-09T00:13:02.23Z <<<
-
-For more information on Whois status codes, please visit https://icann.org/epp';
 		$_domain = urldecode($_domain);
 
-		// // Creating default configured client
-		// $whois = \lib\nic\Iodev\Whois\Whois::create();
+		$result['domain']    = $_domain;
+		$result['available'] = false;
 
-		$result['domain'] = $_domain;
+		try
+		{
+			// Creating default configured client
+			$whois = \lib\nic\Iodev\Whois\Whois::create();
 
-		// // Checking availability
-		// if ($whois->isDomainAvailable($_domain))
-		// {
-		// 	$result['available'] = true;
-		// }
-		// else
-		// {
-		// 	$result['available'] = false;
+			// Checking availability
+			if ($whois->isDomainAvailable($_domain))
+			{
+				$result['available'] = true;
+			}
 
-		// }
+			$response = $whois->lookupDomain($_domain);
 
-		// $response = $whois->lookupDomain($_domain);
-		// $result['answer'] = $response->getText();
+			$answer =  $response->getText();
+		}
+		catch (\Exception $e)
+		{
+			$mesage = $e->getMessage();
+
+			if(substr($mesage, 0, 29) === 'No servers matched for domain')
+			{
+				\dash\notif::error(T_("No servers matched for domain :val", ['val' => $_domain]), 'domain');
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not connect to whois service not! Please try again later"));
+			}
+			return false;
+		}
+
+		$result['answer'] = $answer;
 
 		if(\dash\validate::ir_domain($_domain, false))
 		{
@@ -318,47 +326,6 @@ For more information on Whois status codes, please visit https://icann.org/epp';
 		}
 
 		$result['pretty'] = $pre;
-
 	}
-
-
-
-
-
-	public static function is_old($_domain)
-	{
-		if(!\dash\validate::domain($_domain))
-		{
-			return false;
-		}
-
-		$result = null;
-
-		$domain = new \lib\nic\phpwhois\whois($_domain);
-		if(\dash\engine\process::status())
-		{
-			$whois_answer                  = $domain->info();
-			$result                        = [];
-			$result['answer']              = $whois_answer;
-			$result['php_whois_available'] = $domain->isAvailable();
-
-		}
-
-		$check_domain = \lib\app\nic_domain\check::check($_domain);
-		if(isset($check_domain['available']) && $check_domain['available'])
-		{
-			$result['available'] = true;
-		}
-		else
-		{
-			$result['available'] = false;
-		}
-
-
-		return $result;
-
-	}
-
-
 }
 ?>
