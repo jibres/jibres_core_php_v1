@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS jibres_nic_log.domains (
 `dateregister` timestamp NULL DEFAULT NULL,
 `dateexpire` timestamp NULL DEFAULT NULL,
 `dateupdate` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
 `ns1` varchar(200) NULL DEFAULT NULL,
 `ns2` varchar(200) NULL DEFAULT NULL,
 `ns3` varchar(200) NULL DEFAULT NULL,
@@ -35,11 +36,13 @@ CREATE TABLE IF NOT EXISTS jibres_nic_log.domainactivity (
 `user_id` int(10) UNSIGNED DEFAULT NULL,
 `datecreated` timestamp NULL DEFAULT NULL,
 `type` varchar(200) NULL DEFAULT NULL,
+`available` bit(1) NULL DEFAULT NULL,
 `ip` varchar(100) NULL DEFAULT NULL,
 `result` text NULL DEFAULT NULL,
 `runtime` text NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 CONSTRAINT `domainactivity_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON UPDATE CASCADE,
 KEY `domainactivity_index_search_type` (`type`),
+KEY `domainactivity_index_search_available` (`available`),
 KEY `domainactivity_index_search_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

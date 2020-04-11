@@ -66,6 +66,11 @@ class detect
 				$meta['ns4'] = substr($_result['name_servers']['ns4'], 0, 100);
 			}
 
+			if(isset($_result['available']))
+			{
+				$meta['available'] = $_result['available'];
+			}
+
 			self::set($_domain, 'whois', $meta);
 
 		}
@@ -104,6 +109,7 @@ class detect
 			'type'        => $_type,
 			'ip'          => \dash\server::ip(true),
 			'result'      => null,
+			'available'   => (isset($_meta['available']) && $_meta['available']) ? 1 : null,
 			// 'runtime'     => \dash\runtime::json(),
 		];
 
@@ -182,16 +188,53 @@ class detect
 
 	private static function id($_detail, $_meta)
 	{
+		$allow_field = ['domain','root','tld','domainlen','registrar','datecreated','dateregister','dateexpire','dateupdate','ns1','ns2','ns3','ns4'];
+
 		$check_exists = \lib\db\domains\get::check_exists($_detail['domain']);
 
 		if(isset($check_exists['id']))
 		{
+			$update = [];
+			$new_detail = $_meta;
+
+			if(!is_array($new_detail))
+			{
+				$new_detail = [];
+			}
+			$new_detail = array_map('mb_strtolower', $new_detail);
+
+			foreach ($allow_field as $field)
+			{
+				if(array_key_exists($field, $check_exists) && array_key_exists($field, $new_detail) && !\dash\validate::is_equal($new_detail[$field], $check_exists[$field]))
+				{
+					$update[$field] = $new_detail[$field];
+				}
+			}
+
+			if(!empty($update))
+			{
+				$update['datemodified'] = date("Y-m-d H:i:s");
+				\lib\db\domains\update::update($update, $check_exists['id']);
+			}
+
 			return $check_exists['id'];
 		}
 		else
 		{
-			$insert = array_merge($_detail, $_meta);
-			$insert = array_map('mb_strtolower', $insert);
+			$args = array_merge($_detail, $_meta);
+			$args = array_map('mb_strtolower', $args);
+
+			$insert = [];
+
+			foreach ($args as $key => $value)
+			{
+				// allow field
+				if(in_array($key, $allow_field))
+				{
+					$insert[$key] = $value;
+				}
+			}
+
 			$insert_id = \lib\db\domains\insert::new_record($insert);
 			return $insert_id;
 		}
