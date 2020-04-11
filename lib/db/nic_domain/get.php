@@ -56,7 +56,7 @@ class get
 
 	public static function count_usage_dns($_dns_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.dns = '$_dns_id' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.dns = '$_dns_id' AND domain.status = 'enable' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}

@@ -133,7 +133,7 @@ class edit
 
 		if($inUse)
 		{
-			\dash\notif::error(T_("This dns in use and can not be removed"));
+			\dash\notif::error(T_("This dns in used and can not be removed"));
 			return false;
 		}
 
