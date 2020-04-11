@@ -183,12 +183,14 @@ class find
 	public static function pageScript()
 	{
   		echo "  ";
-		echo "<script data-xhr='pageScript'";
+		echo "<div data-xhr='pageScript'>";
+		echo "<script";
 		if(\dash\data::loadScript() && is_string(\dash\data::loadScript()))
 		{
 			echo ' src="'. \dash\url::cdn(). \dash\data::loadScript(). '"';
 		}
   		echo "></script>";
+  		echo "</div>";
 	}
 }
 ?>
