@@ -1,5 +1,10 @@
 <div class="f">
-
+      <a href="<?php echo \dash\url::current(); ?>" class="dcard x1 <?php if(!\dash\request::get('type')) { echo ' active';} ?>" >
+         <div class="statistic">
+          <div class="value"><?php echo \dash\fit::number(array_sum(array_column(\dash\data::groupByType(), 'count'))); ?></div>
+          <div class="label"><?php echo T_("All"); ?></div>
+         </div>
+        </a>
 <?php foreach (\dash\data::groupByType() as $key => $value) {?>
         <div class="c s6">
         <a href="<?php echo \dash\url::current(). '?type='. $value['type']; ?>" class="dcard x1 <?php if(\dash\request::get('type') == $value['type']) { echo ' active';} ?>" >
@@ -73,7 +78,8 @@ else
                 <th class="collapsing">#</th>
                 <th><?php echo T_("User"); ?></th>
                 <th><?php echo T_("Type"); ?></th>
-                <th><?php echo T_("Client ID / Server ID"); ?></th>
+                <th><?php echo T_("Domain"); ?></th>
+                <th><?php echo T_("IRNIC id"); ?></th>
 
                 <th><?php echo T_("Resutl code"); ?></th>
                 <th><?php echo T_("Date send"); ?></th>
@@ -95,20 +101,26 @@ else
                 </td>
 
                 <td class="collapsing "><code><?php echo \dash\get::index($value, 'type'); ?></code></td>
+                <td class="collapsing "><code><?php echo \dash\get::index($value, 'domain'); ?></code></td>
+                <td class="collapsing "><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
 
-                <td class="collapsing ">
-                    <div class="fs08">
-                        <code><?php echo \dash\get::index($value, 'client_id'); ?></code>
-                        <br>
-                        <code><?php echo \dash\get::index($value, 'server_id'); ?></code>
-                    </div>
-                </td>
 
                 <td class="collapsing "><code><?php echo \dash\get::index($value, 'result_code'); ?></code></td>
 
 
-                <td class="collapsing "><?php echo \dash\fit::date(\dash\get::index($value, 'datesend')); ?></td>
-                <td class="collapsing "><?php echo \dash\fit::date(\dash\get::index($value, 'dateresponse')); ?></td>
+                <td class="collapsing ">
+                    <?php echo \dash\fit::date_time(\dash\get::index($value, 'datesend')); ?>
+                    <br>
+                    <small class="fc-mute"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datesend')); ?></small>
+                </td>
+
+                <td class="collapsing ">
+                    <?php if(\dash\get::index($value, 'dateresponse')) { ?>
+                        <?php echo \dash\fit::date_time(\dash\get::index($value, 'dateresponse')); ?>
+                        <br>
+                        <small class="fc-mute"><?php echo \dash\fit::date_human(\dash\get::index($value, 'dateresponse')); ?></small>
+                    <?php } //endif ?>
+                </td>
 
 
             </tr>
