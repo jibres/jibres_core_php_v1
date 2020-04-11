@@ -27,9 +27,9 @@ class api
 		$apikey    = '312942427c94b0fafe37ca2770f6424c'; // .ir
 		$registrar = 'irnic';
 
-		$master_url = "https://core.jibres.com/%s/%s/%s";
 		$master_url = "https://core.jibres.local/%s/%s/%s";
 		$master_url = "https://core.jibres.ir/%s/%s/%s";
+		$master_url = "https://core.jibres.com/%s/%s/%s";
 
 		$default_option =
 		[

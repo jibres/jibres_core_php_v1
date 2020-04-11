@@ -99,8 +99,10 @@ class get
 							$list[$key]['icon']    = '<i class="sf-refresh fc-blue"></i>';
 							break;
 
+						// case 'DomainUpdateStatus DomainNotice':
+						// 	break
 						default:
-							$list[$key]['taction'] = $value['action'];
+							$list[$key]['taction'] = $value['index'];
 							break;
 					}
 				}

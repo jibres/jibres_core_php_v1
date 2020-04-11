@@ -378,6 +378,9 @@ class run
 				break;
 
 			case 1001:
+				$msg = T_("Command completed successfully; action pending");
+				break;
+
 			case 1300:
 			case 1500:
 			case 2000:
