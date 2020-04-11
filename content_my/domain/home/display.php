@@ -9,14 +9,23 @@
             <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
         </div>
 
-    <?php }elseif(\dash\data::dataRow_status() === 'failed' || true) {?>
+    <?php }else{?>
 
         <div class="msg danger fs14 txtC">
             <b><?php echo \dash\data::dataRow_name(); ?></b>
             <br>
             <?php echo T_("Operation failed"); ?>
-            <br>
-            <?php echo T_("If you have paid, your money back to your account"); ?>
+            <?php
+            if(\dash\temp::get('domainFaildMessage'))
+            {
+              echo '<br>';
+              echo \dash\temp::get('domainFaildMessage');
+            }
+            ?>
+            <?php if(\dash\temp::get('domainHaveTransaction')) {?>
+              <br>
+              <?php echo T_("Your money back to your account"); ?>
+            <?php } ?>
             <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
         </div>
 

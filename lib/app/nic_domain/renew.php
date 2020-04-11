@@ -281,6 +281,8 @@ class renew
 				return false;
 			}
 
+			\dash\temp::set('domainHaveTransaction', true);
+
 			\dash\notif::error(T_("Can not renew your domain"));
 			return false;
 		}

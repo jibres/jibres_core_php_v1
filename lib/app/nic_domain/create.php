@@ -481,6 +481,8 @@ class create
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
 			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
+
+			\dash\temp::set('domainHaveTransaction', true);
 		}
 
 	}

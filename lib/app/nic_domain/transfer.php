@@ -297,6 +297,7 @@ class transfer
 				return false;
 			}
 
+			\dash\temp::set('domainHaveTransaction', true);
 
 			\dash\notif::error(T_("Can not transfer this domain"));
 			return false;
