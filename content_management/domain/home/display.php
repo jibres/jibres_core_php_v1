@@ -1,4 +1,3 @@
-
 <div class="f">
   <div class="c pRa10">
     <a href="" class="stat">
@@ -24,7 +23,7 @@
       <div class="val"><?php echo \dash\fit::number(49350);?></div>
     </a>
   </div>
-  <div class="c">
+  <div class="c3 s12">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Total");?></h3>
       <div class="val counter"><?php echo \dash\fit::number(493350);?></div>
@@ -32,7 +31,24 @@
   </div>
 </div>
 
-<div id="chartdiv" class="box chart x150" data-hint='Domain sale in last 180 days'></div>
+<div class="f">
+  <div class="c9 s12 pRa10">
+    <div id="chartdiv" class="box chart x210" data-hint='Domain buy & renew & transfer & whois & total buy in lasy 30 days'></div>
+  </div>
+  <div class="c3 s12">
+    <a href="" class="stat">
+      <h3><?php echo T_("Total Buyers");?></h3>
+      <div class="val"><?php echo \dash\fit::number(128);?></div>
+    </a>
+    <a href="" class="stat">
+      <h3><?php echo T_("Total Log");?></h3>
+      <div class="val"><?php echo \dash\fit::number(2950124);?></div>
+    </a>
+  </div>
+</div>
+
+
+
 
 <div class="f">
   <div class="c3 s6 pRa10">
@@ -64,15 +80,10 @@
 
 <div class="f">
   <div class="c s12 pRa10">
-    <div id="chartdiv" class="box chart x150" data-hint='Domain buy & renew & transfer & whois in lasy 30 days'></div>
-    <div id="chartdiv" class="box chart x200" data-hint='All API request in 10 last days'></div>
+    <div id="chartdiv" class="box chart x320" data-hint='All API request in 10 last days'></div>
 
   </div>
   <div class="c3">
-    <a href="" class="stat">
-      <h3><?php echo T_("Total Buyers");?></h3>
-      <div class="val"><?php echo \dash\fit::number(128);?></div>
-    </a>
 
    <nav class="items">
      <ul>
@@ -84,21 +95,14 @@
        </li>
 
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/log">
-            <div class="key"><?php echo T_('Logs');?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-
-       <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/apk">
+          <a class="f" href="<?php echo \dash\url::this();?>/dns">
             <div class="key"><?php echo T_('Name servers');?></div>
             <div class="go"></div>
           </a>
        </li>
 
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/apk">
+          <a class="f" href="<?php echo \dash\url::this();?>/irnic">
             <div class="key"><?php echo T_('IRNIC handlers');?></div>
             <div class="go"></div>
           </a>
@@ -109,8 +113,26 @@
    <nav class="items">
      <ul>
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/apk">
-            <div class="key"><?php echo T_('3 char domains');?></div>
+          <a class="f" href="<?php echo \dash\url::this();?>/log">
+            <div class="key"><?php echo T_('Logs');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/polls">
+            <div class="key"><?php echo T_('Polls');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+     </ul>
+   </nav>
+
+   <nav class="items">
+     <ul>
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/short">
+            <div class="key"><?php echo T_('Short domains');?></div>
             <div class="go"></div>
           </a>
        </li>
