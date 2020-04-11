@@ -8,14 +8,19 @@ class who
 
 	public static function is($_domain)
 	{
-		if(!\dash\validate::domain($_domain, false))
+		$_domain = \dash\validate::domain($_domain, false);
+
+		if(!$_domain)
 		{
 			return false;
 		}
 
 		$result              = [];
 		$answer              = null;
-		$_domain             = urldecode($_domain);
+
+		\lib\app\domains\detect::whois($_domain);
+
+
 		$result['domain']    = $_domain;
 		$result['available'] = false;
 

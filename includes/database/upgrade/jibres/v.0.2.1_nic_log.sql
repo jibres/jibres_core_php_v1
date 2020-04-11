@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS jibres_nic_log.domainactivity (
 `user_id` int(10) UNSIGNED DEFAULT NULL,
 `datecreated` timestamp NULL DEFAULT NULL,
 `type` varchar(200) NULL DEFAULT NULL,
+`ip` varchar(100) NULL DEFAULT NULL,
 `result` text NULL DEFAULT NULL,
 `runtime` text NULL DEFAULT NULL,
 PRIMARY KEY (`id`),

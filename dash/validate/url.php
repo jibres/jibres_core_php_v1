@@ -55,6 +55,9 @@ class url
 			return false;
 		}
 
+		$data = urldecode($data);
+		$data = mb_strtolower($data);
+
 		return $data;
 	}
 
@@ -76,6 +79,8 @@ class url
 		}
 
 		// $data = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.])+', '', $data);
+		$data = urldecode($data);
+		$data = mb_strtolower($data);
 
 		return $data;
 	}
@@ -99,6 +104,8 @@ class url
 			return false;
 
 		}
+		$data = urldecode($data);
+		$data = mb_strtolower($data);
 
 		return $data;
 	}
@@ -144,6 +151,10 @@ class url
 			}
 			return false;
 		}
+
+		$data = urldecode($data);
+		$data = mb_strtolower($data);
+
 
 		return $data;
 	}
