@@ -1,3 +1,39 @@
+
+<div class="f">
+  <div class="c pRa10">
+    <a href="" class="stat">
+      <h3><?php echo T_("Sale Count - Today");?></h3>
+      <div class="val"><?php echo \dash\fit::number(2070);?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a href="" class="stat">
+      <h3><?php echo T_("Sale Count - Yesterday");?></h3>
+      <div class="val"><?php echo \dash\fit::number(306);?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a href="" class="stat">
+      <h3><?php echo T_("Sale Count - Last Week");?></h3>
+      <div class="val"><?php echo \dash\fit::number(129);?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a href="" class="stat">
+      <h3><?php echo T_("Sale Count - Last Month");?></h3>
+      <div class="val"><?php echo \dash\fit::number(49350);?></div>
+    </a>
+  </div>
+  <div class="c">
+    <a href="" class="stat">
+      <h3><?php echo T_("Sale Count - Total");?></h3>
+      <div class="val counter"><?php echo \dash\fit::number(493350);?></div>
+    </a>
+  </div>
+</div>
+
+<div id="chartdiv" class="box chart x150" data-hint='Domain sale in last 180 days'></div>
+
 <div class="f">
   <div class="c3 s6 pRa10">
     <a href="" class="stat">
@@ -20,57 +56,68 @@
   <div class="c3 s6">
     <a href="" class="stat">
       <h3><?php echo T_("Total Whois");?></h3>
-      <div class="val counter"><?php echo \dash\fit::number(49350);?></div>
+      <div class="val"><?php echo \dash\fit::number(49350);?></div>
     </a>
   </div>
 </div>
 
-<div id="chartdiv" class="box chart x200"></div>
 
 <div class="f">
-  <div class="c8 pRa10">
-    <div id="chartdiv" class="box chart x200"></div>
+  <div class="c s12 pRa10">
+    <div id="chartdiv" class="box chart x150" data-hint='Domain buy & renew & transfer & whois in lasy 30 days'></div>
+    <div id="chartdiv" class="box chart x200" data-hint='All API request in 10 last days'></div>
 
   </div>
-  <div class="c4">
+  <div class="c3">
+    <a href="" class="stat">
+      <h3><?php echo T_("Total Buyers");?></h3>
+      <div class="val"><?php echo \dash\fit::number(128);?></div>
+    </a>
+
+   <nav class="items">
+     <ul>
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/all">
+            <div class="key"><?php echo T_('Domains');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/log">
+            <div class="key"><?php echo T_('Logs');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/apk">
+            <div class="key"><?php echo T_('Name servers');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/apk">
+            <div class="key"><?php echo T_('IRNIC handlers');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+     </ul>
+   </nav>
+
    <nav class="items">
      <ul>
        <li>
           <a class="f" href="<?php echo \dash\url::this();?>/apk">
-            <div class="key"><?php echo T_('Download your App');?></div>
-            <div class="value"><?php echo \dash\fit::number(49350);?></div>
+            <div class="key"><?php echo T_('3 char domains');?></div>
             <div class="go"></div>
           </a>
        </li>
-
-       <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/apk">
-            <div class="key"><?php echo T_('Download your App');?></div>
-            <div class="value"><?php echo \dash\fit::number(49350);?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-
-       <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/apk">
-            <div class="key"><?php echo T_('Download your App');?></div>
-            <div class="value"><?php echo \dash\fit::number(49350);?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-
-       <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/apk">
-            <div class="key"><?php echo T_('Download your App');?></div>
-            <div class="value"><?php echo \dash\fit::number(49350);?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-
-
-
      </ul>
    </nav>
+
   </div>
 </div>
+
 
