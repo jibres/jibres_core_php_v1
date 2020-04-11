@@ -26,6 +26,8 @@ class view
 			// 'bill'   => \dash\request::get('bill'),
 		];
 
+		\dash\temp::set('disableDomainFetch', true);
+
 		$search_string = \dash\request::get('q');
 
 		$list = \lib\app\nic_domain\search::list_admin($search_string, $args);

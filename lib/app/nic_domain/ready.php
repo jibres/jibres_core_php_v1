@@ -7,7 +7,11 @@ class ready
 	public static function row($_data)
 	{
 		$domain = isset($_data['name']) ? $_data['name'] : null;
-		if($domain)
+
+		// disableDomainFetch set in admin panel of supervisor
+		// the supervisor load many domain and needless to fetch all domain
+
+		if($domain && !\dash\temp::get('disableDomainFetch'))
 		{
 			// only enable domain fetch & update result
 			if(isset($_data['status']) && $_data['status'] === 'enable')
