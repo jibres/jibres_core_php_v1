@@ -168,7 +168,7 @@ class contact_info
 
 		$xml = str_replace('JIBRES-CONACT-FOR-INFO', $_contact, $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'contact_info');
+		$response = \lib\nic\exec\run::send($xml, 'contact_info', 1, null, $_contact);
 
 		return $response;
 	}

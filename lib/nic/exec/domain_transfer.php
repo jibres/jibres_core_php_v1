@@ -96,7 +96,7 @@ class domain_transfer
 
 		$xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_transfer');
+		$response = \lib\nic\exec\run::send($xml, 'domain_transfer', 1, $_args['domain']);
 
 		return $response;
 	}

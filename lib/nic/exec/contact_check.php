@@ -101,7 +101,7 @@ class contact_check
 
 		$xml = str_replace('JIBRES-CONACT-FOR-CHECK', $_contact, $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'contact_check');
+		$response = \lib\nic\exec\run::send($xml, 'contact_check', 1, null, $_contact);
 
 		$result_code = \lib\nic\exec\run::result_code($response);
 

@@ -366,7 +366,7 @@ class domain_update
 
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_args['domain'], $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_update');
+		$response = \lib\nic\exec\run::send($xml, 'domain_update', 1, $_args['domain']);
 
 		return $response;
 	}

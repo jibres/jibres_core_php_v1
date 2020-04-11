@@ -155,7 +155,7 @@ class domain_info
 
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_info');
+		$response = \lib\nic\exec\run::send($xml, 'domain_info', 1, $_domain);
 
 		return $response;
 	}

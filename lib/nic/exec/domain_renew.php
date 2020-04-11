@@ -61,7 +61,7 @@ class domain_renew
 		$xml = str_replace('PERIOD', $_args['period'], $xml);
 		$xml = str_replace('JIBRES-CURRENT-EXPIRE-DATE', $_args['current_expiredate'], $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_renew');
+		$response = \lib\nic\exec\run::send($xml, 'domain_renew', 1, $_args['domain']);
 
 		return $response;
 	}

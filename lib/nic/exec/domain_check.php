@@ -183,6 +183,8 @@ class domain_check
 
 		$count = 1;
 
+		$first_domain = null;
+
 		if(is_array($_domain))
 		{
 			$count = count($_domain);
@@ -191,6 +193,11 @@ class domain_check
 			$string_xml = '';
 			foreach ($_domain as $key => $one_domain)
 			{
+				if(!$first_domain)
+				{
+					$first_domain = $one_domain;
+				}
+
 				$string_xml .= str_replace('JIBRES-SAMPLE-DOMAIN.IR', $one_domain, $temp_string_xml);
 			}
 
@@ -199,10 +206,11 @@ class domain_check
 		}
 		elseif(is_string($_domain))
 		{
+			$first_domain = $_domain;
 			$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
 		}
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_check', $count);
+		$response = \lib\nic\exec\run::send($xml, 'domain_check', $count, $first_domain);
 
 		return $response;
 

@@ -4,7 +4,7 @@ namespace lib\nic\exec;
 
 class run
 {
-	public static function send($_xml, $_type, $_request_count = 1)
+	public static function send($_xml, $_type, $_request_count = 1, $_domain = null, $_nic_id = null)
 	{
 		$xml = $_xml;
 
@@ -22,6 +22,8 @@ class run
 			'datesend'      => date("Y-m-d H:i:s"),
 			'request_count' => $_request_count,
 			'client_id'     => $tracking_number,
+			'nic_id'        => $_nic_id,
+			'domain'        => $_domain,
 		];
 
 		$allow_request = self::allow_request($_type);

@@ -49,7 +49,7 @@ class domain_lock
 
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_lock');
+		$response = \lib\nic\exec\run::send($xml, 'domain_lock', 1, $_domain);
 
 		if(\lib\nic\exec\run::result_code($response) != '1000')
 		{
@@ -76,7 +76,7 @@ class domain_lock
 
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_unlock');
+		$response = \lib\nic\exec\run::send($xml, 'domain_unlock', 1, $_domain);
 
 		if(\lib\nic\exec\run::result_code($response) != '1000')
 		{
