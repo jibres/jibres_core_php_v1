@@ -20,6 +20,13 @@ class get
 		return $result;
 	}
 
+	public static function group_by_code()
+	{
+		$query  = "SELECT COUNT(*) AS `count`, log.result_code FROM log  GROUP BY log.result_code";
+		$result = \dash\db::get($query, null, false, 'nic_log');
+		return $result;
+	}
+
 
 	public static function count_request_in_day($_date)
 	{

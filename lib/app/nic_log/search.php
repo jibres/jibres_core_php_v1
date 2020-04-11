@@ -30,9 +30,10 @@ class search
 
 		$condition =
 		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['id', 'type',]],
-			'type'  => 'string_50'
+			'order'       => 'order',
+			'sort'        => ['enum' => ['id', 'type',]],
+			'type'        => 'string_50',
+			'result_code' => 'number',
 		];
 
 		$require = [];
@@ -64,6 +65,15 @@ class search
 
 			$and[]                      = " log.type = '$data[type]' ";
 			self::$filter_args[T_("Type")] = $data['type'];
+			self::$is_filtered          = true;
+
+		}
+
+		if($data['result_code'])
+		{
+
+			$and[]                      = " log.result_code = '$data[result_code]' ";
+			self::$filter_args[T_("Result code")] = $data['result_code'];
 			self::$is_filtered          = true;
 
 		}

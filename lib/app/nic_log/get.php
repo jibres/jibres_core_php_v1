@@ -33,5 +33,12 @@ class get
 		return $list;
 	}
 
+
+	public static function group_by_code()
+	{
+		$list = \lib\db\nic_log\get::group_by_code();
+		return $list;
+	}
+
 }
 ?>

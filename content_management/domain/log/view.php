@@ -18,6 +18,7 @@ class view
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 			'type'  => \dash\request::get('type'),
+			'result_code'  => \dash\request::get('result_code'),
 			// 'holder' => \dash\request::get('holder'),
 			// 'tech'   => \dash\request::get('tech'),
 			// 'bill'   => \dash\request::get('bill'),
@@ -44,16 +45,6 @@ class view
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
-		// user search anything and no result founded
-		if($search_string && !$list)
-		{
-			if(\dash\validate::domain($search_string))
-			{
-				\dash\data::myDomain($search_string);
-				$check = \lib\app\nic_domain\check::check($search_string);
-				\dash\data::checkResult($check);
-			}
-		}
 
 		$group_by = \lib\app\nic_log\get::group_by_type();
 		if(!is_array($group_by))
@@ -61,6 +52,13 @@ class view
 			$group_by = [];
 		}
 		\dash\data::groupByType($group_by);
+
+		$group_by_code = \lib\app\nic_log\get::group_by_code();
+		if(!is_array($group_by_code))
+		{
+			$group_by_code = [];
+		}
+		\dash\data::groupByCode($group_by_code);
 	}
 }
 ?>
