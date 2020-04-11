@@ -38,6 +38,7 @@ class controller
 					$check = \lib\app\nic_domain\check::check($domain);
 				}
 
+				\dash\data::haveBuyDomain(true);
 				\dash\data::checkResult($check);
 			}
 			else
