@@ -59,6 +59,13 @@ class edit
 		$ns4   = $data['ns4'];
 		$ip4   = $data['ip4'];
 
+
+		\lib\app\domains\detect::dns($ns1);
+		\lib\app\domains\detect::dns($ns2);
+		\lib\app\domains\detect::dns($ns3);
+		\lib\app\domains\detect::dns($ns4);
+
+
 		$isdefault = $data['isdefault'];
 
 

@@ -37,12 +37,14 @@ class lock
 			return false;
 		}
 
-
-		if(!\dash\validate::domain($_domain))
+		$_domain = \dash\validate::domain($_domain);
+		if(!$_domain)
 		{
 			\dash\notif::error(T_("Invalid domain syntax"));
 			return false;
 		}
+
+		\lib\app\domains\detect::domain('lock', $_domain);
 
 		$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
 		if(!isset($load_domain['id']))
@@ -146,12 +148,15 @@ class lock
 			return false;
 		}
 
-
-		if(!\dash\validate::domain($_domain))
+		$_domain = \dash\validate::domain($_domain);
+		if(!$_domain)
 		{
 			\dash\notif::error(T_("Invalid domain syntax"));
 			return false;
 		}
+
+		\lib\app\domains\detect::domain('unlock', $_domain);
+
 
 		$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
 		if(!isset($load_domain['id']))

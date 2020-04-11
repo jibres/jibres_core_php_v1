@@ -62,6 +62,9 @@ class renew
 
 		$domain_id = null;
 
+		\lib\app\domains\detect::domain('start_renew', $domain);
+
+
 		$load_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
 		if(isset($load_domain['id']))
 		{
@@ -231,6 +234,9 @@ class renew
 			$update               = [];
 			$update['dateexpire'] = $expiredate;
 			$update['status']     = 'enable';
+
+			\lib\app\domains\detect::domain('renew', $domain);
+
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 

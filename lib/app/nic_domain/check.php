@@ -49,6 +49,7 @@ class check
 
 		$result = \lib\nic\exec\domain_check::multi_check($domains);
 
+		\lib\app\domains\detect::domain_check_multi($result);
 
 		// $check_tld =
 		// [
@@ -79,6 +80,8 @@ class check
 
 		$result = \lib\nic\exec\domain_check::check($_domain);
 
+		\lib\app\domains\detect::domain('check', $_domain, $result);
+
 		return $result;
 
 	}
@@ -91,7 +94,11 @@ class check
 			return false;
 		}
 
+
 		$result = \lib\nic\exec\domain_info::info($_domain);
+
+		\lib\app\domains\detect::domain('info', $_domain, $result);
+
 		if(!isset($result[$_domain]))
 		{
 			\dash\notif::error(T_("Domain not found"));

@@ -14,6 +14,9 @@ class add
 			return false;
 		}
 
+		\lib\app\domains\detect::dns($ns1);
+		\lib\app\domains\detect::dns($ns2);
+
 		$insert =
 		[
 			'user_id'     => \dash\user::id(),
@@ -79,6 +82,11 @@ class add
 
 		$isdefault = $data['isdefault'];
 
+
+		\lib\app\domains\detect::dns($ns1);
+		\lib\app\domains\detect::dns($ns2);
+		\lib\app\domains\detect::dns($ns3);
+		\lib\app\domains\detect::dns($ns4);
 
 		if($isdefault)
 		{

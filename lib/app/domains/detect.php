@@ -81,8 +81,60 @@ class detect
 	}
 
 
+	public static function dns($_domain)
+	{
+		self::set($_domain, 'dns');
+	}
+
+
+	public static function domain($_type, $_domain, $_meta = [])
+	{
+		$meta = [];
+
+		if(isset($_meta['available']))
+		{
+			$meta['available'] = $_meta['available'];
+		}
+
+		self::set($_domain, $_type, $meta);
+	}
+
+
+	public static function domain_check_multi($_domains)
+	{
+		if(!is_array($_domains))
+		{
+			return;
+		}
+
+		foreach ($_domains as $key => $value)
+		{
+			if(isset($value['name']) && isset($value['tld']))
+			{
+				$meta = [];
+
+				$domain = $value['name']. '.'. $value['tld'];
+
+				if(isset($value['available']))
+				{
+					$meta['available'] = $value['available'];
+				}
+
+				self::set($domain, 'check_multi', $meta);
+			}
+		}
+	}
+
+
+
 	public static function set($_domain, $_type, $_meta = null)
 	{
+
+		if(!$_domain)
+		{
+			return;
+		}
+
 		$detail = self::analyze_domain($_domain);
 		if(!$detail)
 		{
@@ -124,6 +176,9 @@ class detect
 		{
 			return false;
 		}
+
+		$_domain = mb_strtolower($_domain);
+		$_domain = urldecode($_domain);
 
 		$subdomain = null;
 		$root      = null;

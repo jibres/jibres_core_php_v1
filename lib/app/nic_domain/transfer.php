@@ -45,6 +45,7 @@ class transfer
 
 		$transaction_id = null;
 
+		\lib\app\domains\detect::domain('start_transfer', $domain);
 
 		if($irnic_new)
 		{
@@ -196,6 +197,8 @@ class transfer
 		if($result)
 		{
 			$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+
+			\lib\app\domains\detect::domain('transfer', $domain);
 
 			if(isset($check_duplicate_domain['id']))
 			{

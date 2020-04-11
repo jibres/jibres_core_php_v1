@@ -30,6 +30,11 @@ class get
 					$poll_id = \lib\db\nic_poll\insert::new_record($insert);
 					if($poll_id)
 					{
+						if(isset($insert['domain']) && $insert['domain'])
+						{
+							\lib\app\domains\detect::domain('poll', $insert['domain']);
+						}
+
 						$set_as_acknowledge = \lib\nic\exec\poll::acknowledge($poll['id']);
 						if($set_as_acknowledge)
 						{

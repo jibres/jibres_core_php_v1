@@ -49,6 +49,15 @@ class create
 		$ns4         = $data['ns4'];
 		$dnsid       = $data['dnsid'];
 
+
+		\lib\app\domains\detect::domain('register', $domain);
+		\lib\app\domains\detect::dns($ns1);
+		\lib\app\domains\detect::dns($ns2);
+		\lib\app\domains\detect::dns($ns3);
+		\lib\app\domains\detect::dns($ns4);
+
+
+
 		$irnic_admin = $data['irnic_admin'];
 		$irnic_tech  = $data['irnic_tech'];
 		$irnic_bill  = $data['irnic_bill'];

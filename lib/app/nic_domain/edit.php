@@ -96,6 +96,13 @@ class edit
 		$tech   = $data['tech'];
 		$bill   = $data['bill'];
 
+		\lib\app\domains\detect::domain('update', $load_domain['name']);
+		\lib\app\domains\detect::dns($ns1);
+		\lib\app\domains\detect::dns($ns2);
+		\lib\app\domains\detect::dns($ns3);
+		\lib\app\domains\detect::dns($ns4);
+
+
 
 
 		$args                        = [];

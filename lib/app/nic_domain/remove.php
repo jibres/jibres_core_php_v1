@@ -30,6 +30,7 @@ class remove
 			return false;
 		}
 
+		\lib\app\domains\detect::domain('remove', $load_domain['name']);
 
 		\lib\db\nic_domain\update::update(['status' => 'deleted'], $load_domain['id']);
 

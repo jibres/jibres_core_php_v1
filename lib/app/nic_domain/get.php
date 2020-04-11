@@ -150,6 +150,8 @@ class get
 
 		$result = \lib\nic\exec\domain_check::check($_domain);
 
+		\lib\app\domains\detect::domain('check', $_domain, $result);
+
 		return $result;
 
 	}
@@ -163,6 +165,8 @@ class get
 		}
 
 		$result = \lib\nic\exec\domain_info::info($_domain);
+
+		\lib\app\domains\detect::domain('info', $_domain, $result);
 
 		return $result;
 
