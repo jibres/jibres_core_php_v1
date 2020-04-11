@@ -5,13 +5,78 @@ namespace lib\app\domains;
 class detect
 {
 
-	public static function whois($_domain)
+	private static $detect = [];
+
+	public static function whois($_domain, $_result = null)
 	{
-		return self::set($_domain, 'whois');
+		if($_result)
+		{
+			$meta = [];
+			if(isset($_result['answer']) && strpos($_result['answer'], 'http://whois.nic.ir/') !== false)
+			{
+				$meta['registrar'] = 'irnic';
+			}
+
+			if(isset($_result['registrar_info']['registrar']))
+			{
+				$meta['registrar'] = substr($_result['registrar_info']['registrar'], 0, 100);
+			}
+
+			if(isset($_result['important_dates']['last-updated']))
+			{
+				if(strtotime($_result['important_dates']['last-updated']) !== false)
+				{
+					$meta['dateupdate'] = date("Y-m-d H:i:s", strtotime($_result['important_dates']['last-updated']));
+				}
+			}
+
+			if(isset($_result['important_dates']['creation-date']))
+			{
+				if(strtotime($_result['important_dates']['creation-date']) !== false)
+				{
+					$meta['dateregister'] = date("Y-m-d H:i:s", strtotime($_result['important_dates']['creation-date']));
+				}
+			}
+
+			if(isset($_result['important_dates']['expire-date']))
+			{
+				if(strtotime($_result['important_dates']['expire-date']) !== false)
+				{
+					$meta['dateexpire'] = date("Y-m-d H:i:s", strtotime($_result['important_dates']['expire-date']));
+				}
+			}
+
+			if(isset($_result['name_servers']['ns1']))
+			{
+				$meta['ns1'] = substr($_result['name_servers']['ns1'], 0, 100);
+			}
+
+			if(isset($_result['name_servers']['ns2']))
+			{
+				$meta['ns2'] = substr($_result['name_servers']['ns2'], 0, 100);
+			}
+
+			if(isset($_result['name_servers']['ns3']))
+			{
+				$meta['ns3'] = substr($_result['name_servers']['ns3'], 0, 100);
+			}
+
+			if(isset($_result['name_servers']['ns4']))
+			{
+				$meta['ns4'] = substr($_result['name_servers']['ns4'], 0, 100);
+			}
+
+			self::set($_domain, 'whois', $meta);
+
+		}
+		else
+		{
+			self::set($_domain, 'whois');
+		}
 	}
 
 
-	public static function set($_domain, $_type)
+	public static function set($_domain, $_type, $_meta = null)
 	{
 		$detail = self::analyze_domain($_domain);
 		if(!$detail)
@@ -19,18 +84,16 @@ class detect
 			return false;
 		}
 
-		$domain_id = self::id($detail);
-
-
-		// `registrar` varchar(200) NULL DEFAULT NULL,
-		// `datecreated` timestamp NULL DEFAULT NULL,
-		// `dateregister` timestamp NULL DEFAULT NULL,
-		// `dateexpire` timestamp NULL DEFAULT NULL,
-		// `dateupdate` timestamp NULL DEFAULT NULL,
-		// `ns1` varchar(200) NULL DEFAULT NULL,
-		// `ns2` varchar(200) NULL DEFAULT NULL,
-		// `ns3` varchar(200) NULL DEFAULT NULL,
-		// `ns4` varchar(200) NULL DEFAULT NULL,
+		if(isset(self::$detect[$_domain]['id']))
+		{
+			$domain_id = self::$detect[$_domain]['id'];
+		}
+		else
+		{
+			$domain_id              = self::id($detail, $_meta);
+			$detail['id']           = $domain_id;
+			self::$detect[$_domain] = $detail;
+		}
 
 
 		$insert_domainactivity =
@@ -39,7 +102,7 @@ class detect
 			'user_id'     => \dash\user::id(),
 			'datecreated' => date("Y-m-d H:i:s"),
 			'type'        => $_type,
-			'ip'          => \dash\server::ip(),
+			'ip'          => \dash\server::ip(true),
 			'result'      => null,
 			// 'runtime'     => \dash\runtime::json(),
 		];
@@ -104,6 +167,7 @@ class detect
 
 		$result =
 		[
+			'datecreated' => date("Y-m-d H:i:s"),
 			'subdomain' => $subdomain,
 			'root'      => $root,
 			'tld'       => $tld,
@@ -116,7 +180,7 @@ class detect
 	}
 
 
-	private static function id($_detail)
+	private static function id($_detail, $_meta)
 	{
 		$check_exists = \lib\db\domains\get::check_exists($_detail['domain']);
 
@@ -126,7 +190,9 @@ class detect
 		}
 		else
 		{
-			$insert_id = \lib\db\domains\insert::new_record($_detail);
+			$insert = array_merge($_detail, $_meta);
+			$insert = array_map('mb_strtolower', $insert);
+			$insert_id = \lib\db\domains\insert::new_record($insert);
 			return $insert_id;
 		}
 	}
