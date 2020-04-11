@@ -78,13 +78,10 @@
 </div>
 
 
+<div id="chartdiv" class="box chart x200" data-hint='All API request in 10 last days'></div>
+
 <div class="f">
-  <div class="c s12 pRa10">
-    <div id="chartdiv" class="box chart x320" data-hint='All API request in 10 last days'></div>
-
-  </div>
-  <div class="c3">
-
+  <div class="c3 s12 pRa10">
    <nav class="items">
      <ul>
        <li>
@@ -93,14 +90,12 @@
             <div class="go"></div>
           </a>
        </li>
-
        <li>
           <a class="f" href="<?php echo \dash\url::this();?>/dns">
             <div class="key"><?php echo T_('Name servers');?></div>
             <div class="go"></div>
           </a>
        </li>
-
        <li>
           <a class="f" href="<?php echo \dash\url::this();?>/irnic">
             <div class="key"><?php echo T_('IRNIC handlers');?></div>
@@ -110,6 +105,27 @@
      </ul>
    </nav>
 
+  </div>
+  <div class="c3 s12 pRa10">
+   <nav class="items">
+     <ul>
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/payments">
+            <div class="key"><?php echo T_('Payments');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/gifts">
+            <div class="key"><?php echo T_('Gifts');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+     </ul>
+   </nav>
+  </div>
+
+  <div class="c3 s12 pRa10">
    <nav class="items">
      <ul>
        <li>
@@ -127,6 +143,9 @@
        </li>
      </ul>
    </nav>
+  </div>
+
+  <div class="c3 s12">
 
    <nav class="items">
      <ul>
