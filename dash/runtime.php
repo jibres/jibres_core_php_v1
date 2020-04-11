@@ -36,6 +36,17 @@ class runtime
 	}
 
 
+	public static function json()
+	{
+		if(empty(self::$runtime))
+		{
+			return null;
+		}
+
+		return json_encode(self::$runtime, JSON_UNESCAPED_UNICODE);
+	}
+
+
 	// call in shutdown function
 	public static function show()
 	{
