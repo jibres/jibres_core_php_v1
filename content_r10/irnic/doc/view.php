@@ -10,8 +10,19 @@ class view
 		\dash\face::title( T_('Jibres IRNIC API'));
 		\dash\face::desc(T_('Last modified'). ' '. \dash\datetime::fit('2020-04-06 18:57', 'human', 'year'));
 
-		$IRNICApiURL = \dash\url::protocol(). '://core.jibres.'. \dash\url::tld(). '/r10/irnic/';
-		$IRNICApiURL = \dash\url::protocol(). '://core.jibres.ir/r10/irnic/';
+		$tld = 'com';
+
+		if(\dash\url::isLocal())
+		{
+			$tld = 'local';
+		}
+		elseif(\dash\language::current() === 'fa')
+		{
+			$tld = 'ir';
+		}
+
+		$IRNICApiURL = \dash\url::protocol(). '://core.jibres.'. $tld. '/r10/irnic/';
+
 		\dash\data::IRNICApiURL($IRNICApiURL);
 
 
