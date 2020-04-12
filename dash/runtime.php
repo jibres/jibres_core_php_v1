@@ -18,7 +18,10 @@ class runtime
 		{
 			$_group = 'non';
 		}
+
 		$i = count(self::$runtime) + 10;
+		$i = 'a'. $i;
+
 		self::$runtime[$i. '_'. $_group. '_'. $_key] = microtime(true);
 	}
 
