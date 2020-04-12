@@ -9,14 +9,14 @@
    <div class="c pRa10">
     <a class="stat x70">
 	   <h3><?php echo T_("Count request"); ?></h3>
-	   <div class="val"><?php echo \dash\data::dataRow_request_count(); ?></div>
+	   <div class="val"><?php echo \dash\fit::text(\dash\data::dataRow_request_count()); ?></div>
 	  </a>
 	 </div>
 
    <div class="c pRa10">
     <a class="stat x70">
      <h3><?php echo T_("Type"); ?></h3>
-     <div class="val"><?php echo \dash\data::dataRow_type(); ?></div>
+     <div class="val"><?php echo T_(\dash\data::dataRow_type()); ?></div>
     </a>
    </div>
 
@@ -33,6 +33,13 @@
 	   <div class="val"><?php echo \dash\data::dataRow_domain(); ?></div>
 	  </a>
 	 </div>
+
+   <div class="c pRa10">
+    <a class="stat x70">
+     <h3><?php echo T_("IP Address"); ?></h3>
+     <code class="val"><?php echo \dash\data::dataRow_ip(); ?></code>
+    </a>
+   </div>
 
 	 <div class="c">
     <a class="stat x70 <?php if(in_array(\dash\data::dataRow_result_code(), [1000, 1001, 1300, 1302])) echo 'ok'; else echo 'nok'; ?>">
