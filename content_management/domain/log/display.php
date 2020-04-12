@@ -16,24 +16,23 @@
   </div>
 
 
-<div class="f">
-      <a href="<?php echo \dash\url::current(); ?>" class="dcard x1 <?php if(!\dash\request::get('result_code')) { echo ' active';} ?>" >
-         <div class="statistic">
-          <div class="value"><?php echo \dash\fit::number(array_sum(array_column(\dash\data::groupByCode(), 'count'))); ?></div>
-          <div class="label"><?php echo T_("All"); ?></div>
-         </div>
-        </a>
+  <div class="f">
+   <div class="c pRa5">
+    <a href="<?php echo \dash\url::current(); ?>" class="stat x70 <?php if(!\dash\request::get('result_code')) { echo ' active';} ?>" >
+      <h3><?php echo T_("All"); ?></h3>
+      <div class="val"><?php echo \dash\fit::number(array_sum(array_column(\dash\data::groupByCode(), 'count'))); ?></div>
+    </a>
+
+   </div>
 <?php foreach (\dash\data::groupByCode() as $key => $value) {?>
-        <div class="c s6">
-        <a href="<?php echo \dash\url::current(). '?result_code='. $value['result_code']; ?>" class="dcard x1 <?php if(\dash\request::get('result_code') == $value['result_code']) { echo ' active';} ?>" >
-         <div class="statistic">
-          <div class="value"><?php echo \dash\fit::number($value['count']); ?></div>
-          <div class="label">Code: <?php echo T_($value['result_code']); ?></div>
-         </div>
-        </a>
-    </div>
+   <div class="c pRa5">
+    <a href="<?php echo \dash\url::current(). '?result_code='. $value['result_code']; ?>" class="stat x70 <?php if(\dash\request::get('result_code') == $value['result_code']) { echo ' active';} ?>" >
+      <h3>Code: <?php echo T_($value['result_code']); ?></h3>
+      <div class="val"><?php echo \dash\fit::number($value['count']); ?></div>
+    </a>
+   </div>
 <?php } // endfor ?>
-</div>
+  </div>
 
 <?php
 if(\dash\data::dataTable())
