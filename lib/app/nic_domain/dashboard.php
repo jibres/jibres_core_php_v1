@@ -24,10 +24,13 @@ class dashboard
 
 		$result['total_buyers']          = \lib\db\nic_domainaction\get::total_buyers();
 		$result['total_log']             = \lib\db\nic_log\get::count_all();
-		$result['total_domain_buy']      = 100000000;
-		$result['total_domain_renew']    = 1000000000;
-		$result['total_domain_transfer'] = 10000000000;
-		$result['total_domain_whois']    = 100000000000;
+
+		$group_by_action = \lib\db\nic_domainaction\get::count_group_by_action();
+
+		$result['total_domain_buy']      = isset($group_by_action['register']) ? $group_by_action['register'] : null;
+		$result['total_domain_renew']    = isset($group_by_action['renew']) ? $group_by_action['renew'] : null;;
+		$result['total_domain_transfer'] = isset($group_by_action['transfer']) ? $group_by_action['transfer'] : null;;
+		$result['total_domain_whois']    = \lib\db\domains\get::count_all();
 
 
 

@@ -30,5 +30,18 @@ class get
 		return $result;
 
 	}
+
+
+
+	public static function count_group_by_action()
+	{
+		$query  = "SELECT COUNT(*) AS `count`, domainaction.action FROM domainaction  WHERE domainaction.action IN ('register', 'transfer', 'renew') GROUP BY domainaction.action";
+		$result = \dash\db::get($query, ['action', 'count'], false, 'nic');
+		return $result;
+	}
+
+
+
+
 }
 ?>
