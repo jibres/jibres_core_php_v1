@@ -70,11 +70,19 @@ class fit{
 
 	public static function date($_date)
 	{
+		if(!$_date)
+		{
+			return null;
+		}
 		return \dash\datetime::fit($_date, null, 'date');
 	}
 
 	public static function date_time($_date)
 	{
+		if(!$_date)
+		{
+			return null;
+		}
 		return \dash\datetime::fit($_date);
 	}
 

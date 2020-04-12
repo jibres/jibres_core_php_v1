@@ -15,7 +15,9 @@ class view
 		\dash\data::action_text(T_('NIC Notification'));
 		\dash\data::action_link(\dash\url::this(). '/poll');
 
-
+		\dash\face::btnImport(\dash\url::this().'/import');
+		// \dash\face::btnExport(\dash\url::this().'/export');
+		\dash\face::help(\dash\url::support().'/domain');
 
 		$id = \dash\request::get('resultid');
 		$id = \dash\coding::decode($id);
@@ -24,6 +26,7 @@ class view
 			$detail = \lib\app\nic_domain\get::by_id($id);
 			\dash\data::dataRow($detail);
 		}
+
 
 		$args =
 		[

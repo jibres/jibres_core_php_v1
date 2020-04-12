@@ -117,15 +117,6 @@ class url
 			return $data;
 		}
 
-		if(!preg_match("/\.(ir|ایران|ايران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $data))
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("This is not an IR domain"), ['element' => $_element, 'code' => 1605]);
-			}
-			return false;
-
-		}
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
 
@@ -139,6 +130,16 @@ class url
 		}
 
 		$data = str_replace('/', '', $data);
+
+		if(!preg_match("/\.(ir|ایران|ايران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("This is not an IR domain"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+
+		}
 
 		return $data;
 	}

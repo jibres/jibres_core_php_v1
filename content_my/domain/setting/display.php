@@ -45,10 +45,16 @@ if(\dash\data::domainDetail_lock())
 {
  echo '<div class="fc-green"><span>'.T_("Locked"). '</span>'. '<i class="sf-lock"></i></div>';
 }
-else
+elseif(\dash\data::domainDetail_lock() == '0')
 {
  echo '<div class="fc-red"><span>'.T_("Unlocked"). '</span>'. '<i class="sf-unlock"></i></div>';
-}?></div></td>
+}
+else
+{
+ echo '<div class="fc-red"><span>'.T_("Unknown"). '</span>'. '<i class="sf-question"></i></div>';
+
+}
+?></div></td>
      </tr>
      <tr>
       <th><?php echo T_('Auto Renew');
@@ -158,7 +164,7 @@ else
   </div>
 
 
-
+<?php if(\dash\data::domainDetail_nicstatus_array()) {?>
 <div class="panel mB10">
  <table class="tbl1 v4 mB0">
   <?php
@@ -187,6 +193,7 @@ else
   ?>
   </table>
 </div>
+<?php } //endif ?>
 
 
 

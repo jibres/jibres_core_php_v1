@@ -26,5 +26,16 @@ class insert
 			return false;
 		}
 	}
+
+
+	public static function multi_insert($_args)
+	{
+		$set = \dash\db\config::make_multi_insert($_args);
+		if($set)
+		{
+			$query = " INSERT INTO `domain` $set ";
+			return \dash\db::query($query, 'nic');
+		}
+	}
 }
 ?>

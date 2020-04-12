@@ -21,6 +21,16 @@ class get
 	}
 
 
+	public static function check_multi_duplicate($_domains, $_user_id)
+	{
+		$my_domains = implode("','", $_domains);
+
+		$query  = "SELECT domain.id, domain.name FROM domain WHERE domain.user_id = $_user_id AND domain.name IN ('$my_domains') AND domain.status = 'enable' ";
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
+
 	public static function by_id($_id)
 	{
 		$query  = "SELECT domain.*, domain.id AS `id`, dns.ns1, dns.ns2, dns.ns3, dns.ns4, dns.ip1, dns.ip2, dns.ip3, dns.ip4

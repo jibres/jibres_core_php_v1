@@ -196,7 +196,7 @@ class lock
 		$result = \lib\nic\exec\domain_lock::unlock($_domain);
 		if($result)
 		{
-			$_domain_id = \lib\db\nic_domain\update::update(['lock' => null], $load_domain['id']);
+			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 0], $load_domain['id']);
 
 			$insert_action =
 			[
