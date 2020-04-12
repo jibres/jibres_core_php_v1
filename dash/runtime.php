@@ -19,7 +19,7 @@ class runtime
 			$_group = 'non';
 		}
 
-		self::$runtime[$_group. '-'. $_key] = microtime(true);
+		self::$runtime[$_group. '_'. $_key] = microtime(true);
 	}
 
 	public static function get()
