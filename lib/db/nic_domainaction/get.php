@@ -11,7 +11,7 @@ class get
 		$date = null;
 		if($_date)
 		{
-			$date = " AND DATE(domainaction.date) = DATE('$_date') ";
+			$date = " AND DATE(domainaction.date) > DATE('$_date') ";
 		}
 
 		$query  = "SELECT COUNT(*) AS `count` FROM domainaction WHERE domainaction.action = 'register' $date";
