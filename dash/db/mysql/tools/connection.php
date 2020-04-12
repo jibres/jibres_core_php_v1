@@ -187,12 +187,12 @@ class connection
 			\dash\header::status(503, "!0123 ");
 		}
 
-		\dash\runtime::set('db', 'before-connection-'. $myDbName , true);
+		\dash\runtime::set('db', $myDbName. '-before-connection' , true);
 
 		// create link
 		$link = self::create_link($myLove, $_db_fuel);
 
-		\dash\runtime::set('db', 'after-connection-'. $myDbName, true);
+		\dash\runtime::set('db', $myDbName. '-after-connection', true);
 		// link is created and exist,
 		// check if link is exist set it as global variable
 		if($link)
