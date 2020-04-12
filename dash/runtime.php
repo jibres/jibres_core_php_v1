@@ -20,9 +20,9 @@ class runtime
 		}
 
 		$i = count(self::$runtime) + 10;
-		$i = 'a'. $i;
+		$i = 'x'. $i;
 
-		self::$runtime[$i. '_'. $_group. '_'. $_key] = microtime(true);
+		self::$runtime[$i. '-'. $_group. '_'. $_key] = microtime(true);
 	}
 
 	public static function get()
@@ -58,15 +58,11 @@ class runtime
 
 			$last_time = null;
 
-			$i = 10;
-
 			$len       = 0;
 			$last_time = 0;
-			$result = [];
 
 			foreach ($runtime as $key => $time)
 			{
-				$i++;
 
 				if($last_time)
 				{
@@ -75,7 +71,7 @@ class runtime
 
 				$last_time = $time;
 
-				$header = 'x-RunTime-'. $i. '-'. $key. ': ';
+				$header = 'x-RunTime-'. $key. ': ';
 
 				$header .= date("H:i:s", intval($time));
 
@@ -83,13 +79,10 @@ class runtime
 				{
 					$header.= ' -len '. round($len, 3). ' s';
 				}
-				$result[] = $header;
+
+				@header($header);
 			}
 
-			if(\dash\url::module() !== 'smile')
-			{
-				\dash\log::file(implode("\n", $result), 'runtime', 'database');
-			}
 		}
 	}
 }

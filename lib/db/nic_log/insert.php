@@ -15,12 +15,8 @@ class insert
 		{
 			$query = " INSERT INTO `log` SET $set ";
 
-			\dash\runtime::set('nic', 'before-insert-query-2', true);
-
 			if(\dash\db::query($query, 'nic_log'))
 			{
-				\dash\runtime::set('nic', 'before-insert-query-3', true);
-
 				return \dash\db::insert_id();
 			}
 			else

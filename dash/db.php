@@ -40,17 +40,13 @@ class db
 			'ignore_error' => $_options['ignore_error'],
 		];
 
-		\dash\runtime::set('nic', 'before-insert-query-4', true);
-
 		\dash\db\mysql\tools\connection::connect($myDbFuel);
-
 
 		// check the mysql link
 		if(!\dash\db\mysql\tools\connection::link())
 		{
 			return null;
 		}
-
 
 		/**
 		 * send the query to mysql engine
