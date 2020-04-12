@@ -1,21 +1,19 @@
-<div class="f">
-      <a href="<?php echo \dash\url::current(); ?>" class="dcard x1 <?php if(!\dash\request::get('type')) { echo ' active';} ?>" >
-         <div class="statistic">
-          <div class="value"><?php echo \dash\fit::number(array_sum(array_column(\dash\data::groupByType(), 'count'))); ?></div>
-          <div class="label"><?php echo T_("All"); ?></div>
-         </div>
-        </a>
+  <div class="f">
+   <div class="c pRa5">
+    <a href="<?php echo \dash\url::current(); ?>" class="stat x70 <?php if(!\dash\request::get('type')) { echo ' active';} ?>">
+     <h3><?php echo T_("All"); ?></h3>
+     <div class="val"><?php echo \dash\fit::number(array_sum(array_column(\dash\data::groupByType(), 'count'))); ?></div>
+    </a>
+   </div>
 <?php foreach (\dash\data::groupByType() as $key => $value) {?>
-        <div class="c s6">
-        <a href="<?php echo \dash\url::current(). '?type='. $value['type']; ?>" class="dcard x1 <?php if(\dash\request::get('type') == $value['type']) { echo ' active';} ?>" >
-         <div class="statistic">
-          <div class="value"><?php echo \dash\fit::number($value['count']); ?></div>
-          <div class="label"><?php echo T_($value['type']); ?></div>
-         </div>
-        </a>
-    </div>
+   <div class="c pRa5">
+    <a href="<?php echo \dash\url::current(). '?type='. $value['type']; ?>" class="stat x70 <?php if(\dash\request::get('type') == $value['type']) { echo ' active';} ?>" >
+     <h3><?php echo T_($value['type']); ?></h3>
+     <div class="val"><?php echo \dash\fit::number($value['count']); ?></div>
+    </a>
+   </div>
 <?php } // endfor ?>
-</div>
+  </div>
 
 
 <div class="f">
