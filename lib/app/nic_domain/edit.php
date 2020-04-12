@@ -365,7 +365,27 @@ class edit
 			return true;
 		}
 
+	}
 
+
+	public static function remove_last_fetch($_id)
+	{
+		$_id = \dash\validate::code($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+		$_id = \dash\coding::decode($_id);
+
+		$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+		if(!$load_domain || !isset($load_domain['id']))
+		{
+			\dash\notif::error(T_("Domain not found"));
+			return false;
+		}
+
+		\lib\db\nic_domain\update::update(['lastfetch' => null], $load_domain['id']);
 
 	}
 

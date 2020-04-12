@@ -215,6 +215,32 @@ else
 
 
 
+  <?php if(\dash\permission::supervisor()) {?>
+  <div class="panel mB10">
+    <table class="tbl1 v4 mB0">
+      <tr>
+      <td>
+        <?php echo T_("Last fetch"); ?>
+      </td>
+      <td class="txtRa ltr"><?php echo \dash\fit::date_human(\dash\data::domainDetail_lastfetch()); ?></td>
+     </tr>
+
+     <tr>
+      <td>
+        <?php echo T_("Remove to check again"); ?>
+      </td>
+      <td class="txtRa ltr">
+        <div data-confirm data-data='{"clean" : "lastfetch"}' class="btn secondary outline"><?php echo T_("Clean fetch") ?></div>
+      </td>
+     </tr>
+
+    </table>
+  </div>
+<?php } //endif ?>
+
+
+
+
  </div>
 </div>
 
