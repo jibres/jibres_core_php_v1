@@ -62,7 +62,7 @@ class runtime
 
 			$len       = 0;
 			$last_time = 0;
-
+			$result = [];
 
 			foreach ($runtime as $key => $time)
 			{
@@ -83,10 +83,13 @@ class runtime
 				{
 					$header.= ' -len '. round($len, 3). ' s';
 				}
-
-				// @header($header);
+				$result[] = $header;
 			}
 
+			if(\dash\url::module() !== 'smile')
+			{
+				\dash\log::file(implode("\n", $result), 'runtime', 'database');
+			}
 		}
 	}
 }
