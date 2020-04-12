@@ -55,7 +55,7 @@ class runtime
 
 			$last_time = null;
 
-			$i = 0;
+			$i = 10;
 
 			$len       = 0;
 			$last_time = 0;
