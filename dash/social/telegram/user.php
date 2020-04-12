@@ -219,7 +219,7 @@ class user
 			[
 				[
 					[
-						'text' => T_("Enter in :val website", ['val' => T_(\dash\face::siteTitle()))]),
+						'text' => T_("Enter in :val website", ['val' => T_(\dash\face::siteTitle())]),
 						'url'  => tg::website(). '/enter?autosend=true&mobile='. $mobile,
 					]
 				]
