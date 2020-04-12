@@ -65,7 +65,10 @@ class run
 			// try to get object from xml
 			try
 			{
+				\dash\runtime::set('nic', 'before-xml', true);
+
 				$object = @new \SimpleXMLElement($response);
+
 
 				$result_code                      = self::result_code($object);
 
@@ -79,6 +82,9 @@ class run
 				{
 					\dash\notif::info($message);
 				}
+
+				\dash\runtime::set('nic', 'after-xml', true);
+
 			}
 			catch (\Exception $e)
 			{
@@ -93,7 +99,11 @@ class run
 			$insert_log['result'] = 'response-of-nic-is-empty';
 		}
 
+		\dash\runtime::set('nic', 'before-insert-query-1', true);
+
 		\lib\db\nic_log\insert::new_record($insert_log);
+
+		\dash\runtime::set('nic', 'after-insert-query-1', true);
 
 		return $object;
 	}
