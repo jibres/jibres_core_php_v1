@@ -61,7 +61,7 @@ class dashboard
 		{
 			foreach ($list as $key => $value)
 			{
-				if(isset($value['action']))
+				if(isset($value['action']) && isset($value['date']) && $value['date'] === $one_date)
 				{
 					$action = $value['action'];
 
