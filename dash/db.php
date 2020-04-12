@@ -39,6 +39,9 @@ class db
 			'database'     => $_options['database'],
 			'ignore_error' => $_options['ignore_error'],
 		];
+
+		\dash\runtime::set('nic', 'before-insert-query-4', true);
+
 		\dash\db\mysql\tools\connection::connect($myDbFuel);
 
 
@@ -47,6 +50,8 @@ class db
 		{
 			return null;
 		}
+
+
 		/**
 		 * send the query to mysql engine
 		 */

@@ -164,8 +164,12 @@ class connection
 	 */
 	public static function connect($_db_fuel = null)
 	{
+		\dash\runtime::set('nic', 'start-get-fuel', true);
+
 		// find my Love!
 		$myLove = \dash\engine\fuel::who($_db_fuel);
+
+		\dash\runtime::set('nic', 'end-get-fuel', true);
 		$myDbName = null;
 		if(isset($myLove['database']))
 		{

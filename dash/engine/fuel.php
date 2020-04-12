@@ -75,7 +75,11 @@ class fuel
 			\dash\header::status(505, 'Function gethostname not exists');
 		}
 
+		\dash\runtime::set('nic', 'start-gethostname', true);
+
 		$gethostname = gethostname();
+
+		\dash\runtime::set('nic', 'end-gethostname', true);
 
 		// for example: the request need to connect jibres101 but the local need to connect to reza-jibres
 		if(\dash\url::isLocal())
