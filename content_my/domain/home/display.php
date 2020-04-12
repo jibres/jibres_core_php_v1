@@ -146,12 +146,14 @@ else
     <table class="tbl1 v1 responsive">
         <thead>
             <tr class="fs09">
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
-                <th></th>
+                <th colspan="2" data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
                 <th class="txtC"><?php echo T_("Status"); ?></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateregister', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateregister', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>"><?php echo T_("Date modified"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>">
+                  <a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>">
+                    <?php echo T_("Create date"); ?><br><?php echo T_("Date modified"); ?>
+                  </a>
+                </th>
                 <th class="txtL"><?php echo T_("DNS"); ?></th>
             </tr>
         </thead>
@@ -163,7 +165,7 @@ else
                 <td>
 
                     <!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
-                    <a href="<?php echo \dash\url::that(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+                    <a href="<?php echo \dash\url::that(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link block"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
                 </td>
                 <td class="collapsing">
                   <?php if(\dash\get::index($value, 'verify')) {?>
@@ -180,8 +182,10 @@ else
                   <?php echo \dash\get::index($value, 'status_html'); ?>
                   </td>
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></td>
+                <td class="collapsing txtL">
+                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></div>
+                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></div>
+                </td>
                 <td class="collapsing ltr txtL">
                     <code><?php echo \dash\get::index($value, 'ns1'); ?></code>
                     <br>

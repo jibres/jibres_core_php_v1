@@ -96,10 +96,8 @@ else
                 <th><?php echo T_("Domain"); ?></th>
                 <th><?php echo T_("IRNIC id"); ?></th>
 
-                <th><?php echo T_("Resutl code"); ?></th>
-                <th><?php echo T_("Date send"); ?></th>
-                <th><?php echo T_("Date response"); ?></th>
-
+                <th><?php echo T_("Result code"); ?></th>
+                <th><?php echo T_("Date"); ?></th>
             </tr>
         </thead>
         <tbody class="fs12">
@@ -115,28 +113,21 @@ else
                     <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
                 </td>
 
-                <td class="collapsing "><code><?php echo \dash\get::index($value, 'type'); ?></code></td>
-                <td class="collapsing "><code><?php echo \dash\get::index($value, 'domain'); ?></code></td>
-                <td class="collapsing "><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
+                <td class="collapsing"><code><?php echo \dash\get::index($value, 'type'); ?></code></td>
+                <td class="collapsing"><code><?php echo \dash\get::index($value, 'domain'); ?></code></td>
+                <td class="collapsing"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
 
 
-                <td class="collapsing "><code><?php echo \dash\get::index($value, 'result_code'); ?></code></td>
+                <td class="collapsing"><code><?php echo \dash\get::index($value, 'result_code'); ?></code></td>
 
 
-                <td class="collapsing ">
-                    <?php echo \dash\fit::date_time(\dash\get::index($value, 'datesend')); ?>
-                    <br>
-                    <small class="fc-mute"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datesend')); ?></small>
+                <td class="collapsing ltr txtL">
+                  <div><?php echo \dash\fit::date_time(\dash\get::index($value, 'datesend')); ?></div>
+<?php if(\dash\get::index($value, 'dateresponse')) { ?>
+                  <div><?php echo \dash\fit::date_time(\dash\get::index($value, 'dateresponse')); ?></div>
+<?php } //endif ?>
+                  <small class="fc-mute rtl compact"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datesend')); ?></small>
                 </td>
-
-                <td class="collapsing ">
-                    <?php if(\dash\get::index($value, 'dateresponse')) { ?>
-                        <?php echo \dash\fit::date_time(\dash\get::index($value, 'dateresponse')); ?>
-                        <br>
-                        <small class="fc-mute"><?php echo \dash\fit::date_human(\dash\get::index($value, 'dateresponse')); ?></small>
-                    <?php } //endif ?>
-                </td>
-
 
             </tr>
             <?php } //endfor ?>
