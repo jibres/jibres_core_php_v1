@@ -14,8 +14,8 @@ class dayevent
 	public static function get_all()
 	{
 		$query = "SELECT * FROM dayevent";
-		$resutl = \dash\db::get($query, null, false);
-		return $resutl;
+		$result = \dash\db::get($query, null, false);
+		return $result;
 	}
 
 
@@ -27,9 +27,9 @@ class dayevent
 		{
 			$query  ="INSERT IGNORE INTO dayevent SET $set ";
 
-			$resutl = \dash\db::query($query);
-			$resutl = \dash\db::insert_id();
-			return $resutl;
+			$result = \dash\db::query($query);
+			$result = \dash\db::insert_id();
+			return $result;
 		}
 	}
 
