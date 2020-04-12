@@ -39,8 +39,6 @@ class db
 			'database'     => $_options['database'],
 			'ignore_error' => $_options['ignore_error'],
 		];
-		\dash\runtime::db('start_connection');
-
 		\dash\db\mysql\tools\connection::connect($myDbFuel);
 
 
@@ -49,8 +47,6 @@ class db
 		{
 			return null;
 		}
-
-		\dash\runtime::db('start_query');
 		/**
 		 * send the query to mysql engine
 		 */
@@ -80,8 +76,6 @@ class db
 		{
 			$result = @mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
 		}
-
-		\dash\runtime::db('end_query');
 
 		// get diff of time after exec
 		$qry_exec_time = microtime(true) - $qry_exec_time;
@@ -161,8 +155,6 @@ class db
 				$result = null;
 			}
 		}
-
-		\dash\runtime::db('end_fetch_result');
 
 		return $result;
 	}

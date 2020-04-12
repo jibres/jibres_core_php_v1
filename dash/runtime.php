@@ -6,8 +6,13 @@ class runtime
 {
 	private static $runtime = [];
 
+	public static function start_engine()
+	{
+		self::set('engine', 'start', true);
+	}
 
-	public static function set($_key, $_group)
+
+	public static function set($_group, $_key, $_important = false)
 	{
 		if(!$_group)
 		{
@@ -21,14 +26,6 @@ class runtime
 
 		self::$runtime[$_group][$_key] = microtime(true);
 	}
-
-
-
-	public static function db($_key)
-	{
-		self::set($_key, 'db');
-	}
-
 
 	public static function get()
 	{
@@ -55,6 +52,8 @@ class runtime
 			return;
 		}
 
+		self::set('engine', 'end', true);
+
 		if(\dash\permission::supervisor())
 		{
 			$runtime = self::$runtime;
@@ -64,11 +63,7 @@ class runtime
 			foreach ($runtime as $group => $value)
 			{
 				$len = 0;
-
-				$header = 'Jibres-Runtime-'. $group. ': ';
-
-				$text = '';
-
+				$last_time = 0;
 				foreach ($value as $key => $time)
 				{
 					if($last_time)
@@ -78,17 +73,17 @@ class runtime
 
 					$last_time = $time;
 
-					$text .= $key. ': '. date("H:i:s", $time);
+					$header = 'x-jibres-runtime-'. $group.'-'. $key. ': ';
+
+					$header .= $key. ': '. date("H:i:s", intval($time));
 
 					if($len)
 					{
-						$text.= ' -len: '. round($len * 1000). ' ms';
+						$header.= ' -len: '. round($len * 1000). ' ms';
 					}
 
-					$text .= ' | ';
+					@header($header);
 				}
-
-				@header($header. $text);
 			}
 		}
 	}

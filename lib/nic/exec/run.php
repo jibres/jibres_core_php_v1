@@ -47,8 +47,12 @@ class run
 			return false;
 		}
 
+		\dash\runtime::set('nic', 'start-curl', true);
+
 		// connect to nic server
 		$response = \lib\nic\exec\run::nic_curl($xml);
+
+		\dash\runtime::set('nic', 'end-curl', true);
 
 		$insert_log['dateresponse'] = date("Y-m-d H:i:s");
 
