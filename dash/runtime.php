@@ -84,7 +84,7 @@ class runtime
 					$header.= ' -len '. round($len, 3). ' s';
 				}
 
-				@header($header);
+				// @header($header);
 			}
 
 		}
