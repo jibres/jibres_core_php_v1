@@ -54,7 +54,10 @@ class dashboard
 		$all_date = array_unique($all_date);
 		$all_date = array_filter($all_date);
 
-		$result = [];
+		$result             = [];
+		$result['register'] = [];
+		$result['renew']    = [];
+		$result['transfer'] = [];
 
 
 		foreach ($all_date as $one_date)
