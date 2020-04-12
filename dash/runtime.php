@@ -18,8 +18,8 @@ class runtime
 		{
 			$_group = 'non';
 		}
-
-		self::$runtime[$_group. '_'. $_key] = microtime(true);
+		$i = count(self::$runtime) + 10;
+		self::$runtime[$i. '_'. $_group. '_'. $_key] = microtime(true);
 	}
 
 	public static function get()
@@ -78,7 +78,7 @@ class runtime
 
 				if($len)
 				{
-					$header.= ' -len '. round($len * 1000). ' ms';
+					$header.= ' -len '. round($len, 3). ' s';
 				}
 
 				@header($header);
