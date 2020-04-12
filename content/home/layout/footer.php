@@ -108,8 +108,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
     </div>
 
     <div id="jibresLastLine" class="f align-center">
-      <div id="jibresCopyright" class="cauto">&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'). ' '. T_('Jibres, LLC'). ' ' ; ?>&reg;</div>
-      <nav class="c langlist"><?php
+      <div id="jibresCopyright" class="cauto pRa10">&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'). ' '. T_('Jibres, LLC'). ' ' ; ?>&reg;</div>
+      <nav class="c pRa10 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
           echo "<a hreflang='en' target='_blank'  href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
