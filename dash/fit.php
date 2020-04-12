@@ -61,6 +61,43 @@ class fit{
 		return $new_text;
 	}
 
+	public static function stats($_txt)
+	{
+		$number = $_txt;
+
+		if(!is_numeric($number))
+		{
+			return null;
+		}
+
+		$result = null;
+
+		$number = floatval($number);
+
+		if($number < 1000)
+		{
+			$result = self::number($number);
+		}
+		elseif($number < 1000000)
+		{
+			$k = round($number / 1000);
+			$result = self::number($k). ' K';
+		}
+		elseif($number < 1000000000)
+		{
+			$k = round($number / 1000000);
+			$result = self::number($k). ' Mi';
+		}
+		else
+		{
+			$k = round($number / 1000000000);
+			$result = self::number($k). ' Bi';
+		}
+
+		return $result;
+
+	}
+
 
 	public static function text($_txt)
 	{
