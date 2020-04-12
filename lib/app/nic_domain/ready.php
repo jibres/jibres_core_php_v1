@@ -46,7 +46,7 @@ class ready
 			switch ($key)
 			{
 				case 'nicstatus':
-					$status_html = '<div class="ibtn wide"><span>'.T_("Unknown").'</span><i class="sf-question"></i></div>';
+					$status_html = '<div class="ibtn x30 wide"><span>'.T_("Unknown").'</span><i class="sf-question"></i></div>';
 					if($value && is_string($value))
 					{
 						$nicstatus = json_decode($value, true);
@@ -115,51 +115,51 @@ class ready
 
 						if(in_array('irnicRegistrationRejected', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Reject").'</span><i class="sf-times fc-red"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Reject").'</span><i class="sf-times fc-red"></i></div>';
 							unset($other_status[array_search('irnicRegistrationRejected', $other_status)]);
 						}
 
 						if(in_array('irnicRegistrationPendingDomainCheck', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Pending Approved").'</span><i class="sf-refresh fc-blue"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Pending Approved").'</span><i class="sf-refresh fc-blue"></i></div>';
 							unset($other_status[array_search('irnicRegistrationPendingDomainCheck', $other_status)]);
 						}
 
 						if(in_array('ok', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
 							unset($other_status[array_search('ok', $other_status)]);
 						}
 
 						if(in_array('irnicRegistered', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
 							unset($other_status[array_search('irnicRegistered', $other_status)]);
 						}
 
 						if(in_array('irnicLocked', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Locked").'</span><i class="sf-lock fc-red"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Locked").'</span><i class="sf-lock fc-red"></i></div>';
 							unset($other_status[array_search('irnicLocked', $other_status)]);
 						}
 
 
 						if(in_array('irnicExpired', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Expired").'</span><i class="sf-times fc-yellow"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Expired").'</span><i class="sf-times fc-yellow"></i></div>';
 							unset($other_status[array_search('irnicExpired', $other_status)]);
 						}
 
 
 						if(in_array('irnicRegistrationDocRequired', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Document required").'</span><i class="sf-info-circle fc-yellow"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Document required").'</span><i class="sf-info-circle fc-yellow"></i></div>';
 							unset($other_status[array_search('irnicRegistrationDocRequired', $other_status)]);
 						}
 
 						if(in_array('irnicRegistrationApproved', $nicstatus))
 						{
-							$status_html =  '<div class="ibtn wide"><span>'. T_("Register Approved").'</span><i class="sf-check fc-green"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Register Approved").'</span><i class="sf-check fc-green"></i></div>';
 							unset($other_status[array_search('irnicRegistrationApproved', $other_status)]);
 						}
 

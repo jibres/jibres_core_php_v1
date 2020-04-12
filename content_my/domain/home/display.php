@@ -180,9 +180,9 @@ else
                 </td>
                 <td class="txtC">
                   <?php echo \dash\get::index($value, 'status_html'); ?>
-                  </td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL">
+                </td>
+                <td class="collapsing txtL fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
+                <td class="collapsing txtL fs09">
                   <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></div>
                   <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></div>
                 </td>
