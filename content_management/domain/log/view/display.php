@@ -1,95 +1,82 @@
-<div class="f">
-   	<div class="c">
-    <a class="dcard x1">
-     <div class="statistic">
-      <div class="value"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
-      <div class="label"><?php echo T_("ID"); ?></div>
-     </div>
-    </a>
-   </div>
-	<div class="c">
-	<a class="dcard x1">
-     <div class="statistic">
-      <div class="value"><?php echo \dash\fit::text(\dash\data::dataRow_result_code()); ?></div>
-      <div class="label"><?php echo T_("Result code"); ?></div>
-     </div>
+  <div class="f">
+   <div class="c pRa10">
+    <a class="stat x70">
+      <h3><?php echo T_("Request ID"); ?></h3>
+      <div class="val"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
     </a>
    </div>
 
-   	<div class="c">
-    <a class="dcard x1">
-     <div class="statistic">
-      <div class="value"><?php echo \dash\data::dataRow_type(); ?></div>
-      <div class="label"><?php echo T_("Type"); ?></div>
-     </div>
+   <div class="c pRa10">
+    <a class="stat x70">
+	   <h3><?php echo T_("Count request"); ?></h3>
+	   <div class="val"><?php echo \dash\data::dataRow_request_count(); ?></div>
+	  </a>
+	 </div>
+
+   <div class="c pRa10">
+    <a class="stat x70">
+     <h3><?php echo T_("Type"); ?></h3>
+     <div class="val"><?php echo \dash\data::dataRow_type(); ?></div>
     </a>
    </div>
 
-    <?php if(\dash\data::dataRow_nic_id()) {?>
-    	<div class="c">
-    	<a class="dcard x1">
-	     <div class="statistic">
-	      <div class="value"><?php echo \dash\data::dataRow_nic_id(); ?></div>
-	      <div class="label"><?php echo T_("IRNIC id"); ?></div>
-	     </div>
-	    </a>
-	   </div>
-    <?php } //endif ?>
+   <div class="c pRa10">
+    <a class="stat x70">
+	   <h3><?php echo T_("IRNIC id"); ?></h3>
+	   <div class="val"><?php echo \dash\data::dataRow_nic_id(); ?></div>
+	  </a>
+	 </div>
 
-    <?php if(\dash\data::dataRow_domain()) {?>
-    	<div class="c">
-    	<a class="dcard x1">
-	     <div class="statistic">
-	      <div class="value"><?php echo \dash\data::dataRow_domain(); ?></div>
-	      <div class="label"><?php echo T_("Domain"); ?></div>
-	     </div>
-	    </a>
-	   </div>
-    <?php } //endif ?>
+   <div class="c pRa10">
+    <a class="stat x70">
+	   <h3><?php echo T_("Domain"); ?></h3>
+	   <div class="val"><?php echo \dash\data::dataRow_domain(); ?></div>
+	  </a>
+	 </div>
 
-    <?php if(\dash\data::dataRow_request_count() > 1) {?>
-    	<div class="c">
-    	<a class="dcard x1">
-	     <div class="statistic">
-	      <div class="value"><?php echo \dash\data::dataRow_request_count(); ?></div>
-	      <div class="label"><?php echo T_("Count request"); ?></div>
-	     </div>
-	    </a>
-	   </div>
-    <?php } //endif ?>
-</div>
-<div class="cbox">
+	 <div class="c">
+    <a class="stat x70 <?php if(in_array(\dash\data::dataRow_result_code(), [1000, 1001, 1300, 1302])) echo 'ok'; else echo 'nok'; ?>">
+     <h3><?php echo T_("Result code"); ?></h3>
+     <div class="val"><?php echo \dash\fit::text(\dash\data::dataRow_result_code()); ?></div>
+    </a>
+   </div>
+  </div>
 
-<div class="f align-center">
-	<div class="c s12 msg secondary txtB "><?php echo T_("Cliend ID"); ?>: <br><code><?php echo \dash\data::dataRow_client_id(); ?></code></div>
-	<div class="c s12 msg secondary txtB mLa5"><?php echo T_("Server ID"); ?>: <br><code><?php echo \dash\data::dataRow_server_id(); ?></code></div>
-</div>
+  <div class="f">
+   <div class="c pRa10">
+    <a class="stat x50">
+      <h3><?php echo T_("Cliend ID"); ?></h3>
+      <code class="val"><?php echo \dash\data::dataRow_client_id(); ?></code>
+    </a>
+   </div>
+
+   <div class="c pRa10">
+    <a class="stat x50">
+     <h3><?php echo T_("Server ID"); ?></h3>
+      <code class="val"><?php echo \dash\data::dataRow_server_id(); ?></code>
+    </a>
+   </div>
+ </div>
 
 
-<div class="f align-center">
 
-	<div class="c s12 msg primary2 txtB "><?php echo T_("Date Send"); ?>: <br>
-		<code><?php echo \dash\data::dataRow_datesend(); ?></code><br>
-		<?php echo \dash\fit::date_time(\dash\data::dataRow_datesend()); ?><br>
-		<?php echo \dash\fit::date_human(\dash\data::dataRow_datesend()); ?>
-	</div>
 
-	<div class="c s12 msg primary2 txtB mLa5"><?php echo T_("Date Response"); ?>: <br>
-		<code><?php echo \dash\data::dataRow_dateresponse(); ?></code><br>
-		<?php echo \dash\fit::date_time(\dash\data::dataRow_dateresponse()); ?><br>
-		<?php echo \dash\fit::date_human(\dash\data::dataRow_dateresponse()); ?>
-	</div>
 
+
+<div class="box">
+  <header><h3><?php echo T_("Request"); ?></h3></header>
+  <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_send()); ?></samp>
 </div>
 
-<h3>Send</h3>
-<samp><?php echo htmlspecialchars(\dash\data::dataRow_send()); ?></samp>
-<h3>Response</h3>
-<samp><?php echo htmlspecialchars(\dash\data::dataRow_response()); ?></samp>
+<div class="box">
+  <header><h3><?php echo T_("Response"); ?></h3></header>
+  <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_response()); ?></samp>
+</div>
+
 
 <?php if(\dash\data::dataRow_result()) {?>
-<h3>Result</h3>
-<samp><?php echo htmlspecialchars(\dash\data::dataRow_result()); ?></samp>
-<?php } //endif ?>
-
+<div class="box">
+  <header><h3><?php echo T_("Result"); ?></h3></header>
+  <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_result()); ?></samp>
 </div>
+<?php } //endif ?>
