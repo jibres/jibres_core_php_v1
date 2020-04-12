@@ -188,7 +188,7 @@ class connection
 		}
 		else
 		{
-			\dash\header::status(503, "!0123 ");
+			\dash\header::status(503, "!0123");
 		}
 
 		\dash\runtime::set('db', $myDbName. '-before-connection' , true);
@@ -205,7 +205,7 @@ class connection
 			@mysqli_set_charset($link, 'utf8mb4');
 			// save link as global variable
 			self::$link = $link;
-			self::$link_open[$myDbName] = $link;
+			self::$link_open[$LinkKey] = $link;
 			return true;
 		}
 		// if link is not created return false
