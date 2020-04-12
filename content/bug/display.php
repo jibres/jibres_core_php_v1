@@ -111,5 +111,5 @@
  </div>
 
 </div>
-<canvas id="matrix"/>
+<canvas id="matrix"></canvas>
 <script src='<?php echo \dash\url::cdn(); ?>/js/page/matrix.js'></script>

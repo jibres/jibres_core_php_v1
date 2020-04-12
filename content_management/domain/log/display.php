@@ -86,47 +86,47 @@ else
 <?php function htmlTable() {?>
 <?php $sortLink = \dash\data::sortLink(); ?>
 
-<div class="fs12">
-    <table class="tbl1 v1 responsive">
+<div class="fs12 tblBox">
+    <table class="tbl1 v1 minimal">
         <thead>
-            <tr class="fs09">
+            <tr>
                 <th class="collapsing">#</th>
-                <th><?php echo T_("User"); ?></th>
-                <th><?php echo T_("Type"); ?></th>
                 <th><?php echo T_("Domain"); ?></th>
                 <th><?php echo T_("IRNIC id"); ?></th>
-
+                <th><?php echo T_("Type"); ?></th>
                 <th><?php echo T_("Result code"); ?></th>
                 <th><?php echo T_("Date"); ?></th>
+                <th><?php echo T_("User"); ?></th>
             </tr>
         </thead>
-        <tbody class="fs12">
+        <tbody>
 
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-
             <tr>
-                <td class="collapsing"><a href="<?php echo \dash\url::that(). '/view?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-rain-1"></i></a></td>
-                <td>
+                <td class="collapsing"><a href="<?php echo \dash\url::that(). '/view?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-info-circle mRa10"></i><?php echo T_("Request"). ' '. \dash\fit::number(\dash\get::index($value, 'id')); ?></a></td>
 
-                  <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
-                    <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
-                    <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-                </td>
+                <td class="collapsing ltr txtL"><code><?php echo \dash\get::index($value, 'domain'); ?></code></td>
+                <td class="collapsing ltr txtL"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
+                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?type='.\dash\get::index($value, 'type'); ?>"><code><?php echo \dash\get::index($value, 'type'); ?></code></a></td>
 
-                <td class="collapsing"><code><?php echo \dash\get::index($value, 'type'); ?></code></td>
-                <td class="collapsing"><code><?php echo \dash\get::index($value, 'domain'); ?></code></td>
-                <td class="collapsing"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
-
-
-                <td class="collapsing"><code><?php echo \dash\get::index($value, 'result_code'); ?></code></td>
+                <td class="collapsing"><a href="<?php echo \dash\url::that(). '?result_code='.\dash\get::index($value, 'result_code'); ?>"><code><?php echo \dash\get::index($value, 'result_code'); ?></code></a></td>
 
 
                 <td class="collapsing ltr txtL">
                   <div><?php echo \dash\fit::date_time(\dash\get::index($value, 'datesend')); ?></div>
-<?php if(\dash\get::index($value, 'dateresponse')) { ?>
+<?php if(\dash\get::index($value, 'dateresponse                                                   ')) { ?>
                   <div><?php echo \dash\fit::date_time(\dash\get::index($value, 'dateresponse')); ?></div>
 <?php } //endif ?>
-                  <small class="fc-mute rtl compact"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datesend')); ?></small>
+                </td>
+
+                <td class="collapsing">
+                  <a href="" class="f userPack">
+                    <div class="c pRa10">
+                      <div class="mobile"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
+                      <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
+                    </div>
+                    <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
+                  </a>
                 </td>
 
             </tr>
