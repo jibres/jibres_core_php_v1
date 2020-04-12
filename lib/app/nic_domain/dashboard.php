@@ -65,11 +65,6 @@ class dashboard
 				{
 					$action = $value['action'];
 
-					if(!isset($result[$action][$one_date]))
-					{
-						$result[$action][$one_date] = intval($value['count']);
-					}
-
 					if($action === 'register')
 					{
 						if(!isset($result['renew'][$one_date]))
@@ -108,6 +103,13 @@ class dashboard
 							$result['register'][$one_date] = 0;
 						}
 					}
+
+					if(!isset($result[$action][$one_date]))
+					{
+						$result[$action][$one_date] = 0;
+					}
+
+					$result[$action][$one_date] = intval($value['count']);
 				}
 			}
 		}

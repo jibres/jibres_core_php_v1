@@ -13,7 +13,7 @@ class get
 			$date = " AND DATE(domainaction.date) > DATE('$_date') ";
 		}
 
-		$query  = "SELECT COUNT(*) AS `count` FROM domainaction WHERE domainaction.action = 'register' $date";
+		$query  = "SELECT COUNT(*) AS `count` FROM domainaction WHERE domainaction.action IN ('register', 'transfer', 'renew') $date";
 
 		$result = \dash\db::get($query, 'count', true, 'nic');
 
