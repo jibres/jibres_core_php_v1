@@ -10,6 +10,7 @@ class model
 		$post =
 		[
 			'domains' => \dash\request::post('domains'),
+			'autorenew' => \dash\request::post('autorenew'),
 		];
 
 		$result = \lib\app\nic_domain\import::import($post);
