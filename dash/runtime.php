@@ -19,12 +19,7 @@ class runtime
 			$_group = 'non';
 		}
 
-		if(!isset(self::$runtime[$_group]))
-		{
-			self::$runtime[$_group] = [];
-		}
-
-		self::$runtime[$_group][$_key] = microtime(true);
+		self::$runtime[$_group. '-'. $_key] = microtime(true);
 	}
 
 	public static function get()
@@ -60,31 +55,35 @@ class runtime
 
 			$last_time = null;
 
-			foreach ($runtime as $group => $value)
+			$i = 0;
+
+			$len       = 0;
+			$last_time = 0;
+
+
+			foreach ($runtime as $key => $time)
 			{
-				$len = 0;
-				$last_time = 0;
-				foreach ($value as $key => $time)
+				$i++;
+
+				if($last_time)
 				{
-					if($last_time)
-					{
-						$len = floatval($time) - floatval($last_time);
-					}
-
-					$last_time = $time;
-
-					$header = 'x-jibres-runtime-'. $group.'-'. $key. ': ';
-
-					$header .= $key. ': '. date("H:i:s", intval($time));
-
-					if($len)
-					{
-						$header.= ' -len: '. round($len * 1000). ' ms';
-					}
-
-					@header($header);
+					$len = floatval($time) - floatval($last_time);
 				}
+
+				$last_time = $time;
+
+				$header = 'x-RunTime-'. $i. '-'. $key. ': ';
+
+				$header .= date("H:i:s", intval($time));
+
+				if($len)
+				{
+					$header.= ' -len '. round($len * 1000). ' ms';
+				}
+
+				@header($header);
 			}
+
 		}
 	}
 }
