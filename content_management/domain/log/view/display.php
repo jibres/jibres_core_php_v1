@@ -71,19 +71,31 @@
 
 
 <div class="box">
-  <header><h3><?php echo T_("Request"); ?></h3></header>
+  <header class="f align-center">
+    <h3 class="c pRa10"><?php echo T_("Request"); ?></h3>
+    <div class="cauto pRa10"><?php echo \dash\fit::date_human(\dash\data::dataRow_datesend()); ?> /</div>
+    <div class="cauto"><?php echo \dash\fit::date_time(\dash\data::dataRow_datesend()); ?></div>
+  </header>
   <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_send()); ?></samp>
 </div>
 
 <div class="box">
-  <header><h3><?php echo T_("Response"); ?></h3></header>
+  <header class="f align-center">
+    <h3 class="c pRa10"><?php echo T_("Response"); ?></h3>
+    <div class="cauto pRa10"><?php echo \dash\fit::date_human(\dash\data::dataRow_dateresponse()); ?> /</div>
+    <div class="cauto"><?php echo \dash\fit::date_time(\dash\data::dataRow_dateresponse()); ?></div>
+  </header>
   <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_response()); ?></samp>
 </div>
 
 
 <?php if(\dash\data::dataRow_result()) {?>
 <div class="box">
-  <header><h3><?php echo T_("Result"); ?></h3></header>
+  <header class="f align-center">
+    <h3 class="c pRa10"><?php echo T_("Result"); ?></h3>
+    <div class="cauto pRa10"></div>
+    <div class="cauto"></div>
+  </header>
   <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_result()); ?></samp>
 </div>
 <?php } //endif ?>
