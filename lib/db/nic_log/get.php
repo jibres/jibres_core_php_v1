@@ -20,6 +20,14 @@ class get
 		return $result;
 	}
 
+
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM log";
+		$result = \dash\db::get($query, 'count', true, 'nic_log');
+		return $result;
+	}
+
 	public static function group_by_code()
 	{
 		$query  = "SELECT COUNT(*) AS `count`, log.result_code FROM log  GROUP BY log.result_code";

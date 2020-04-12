@@ -8,16 +8,22 @@ class dashboard
 	{
 		\dash\permission::access('showDomainStats');
 
+		$today      = date("Y-m-d");
+		$yesterday  = date("Y-m-d", strtotime("yesterday"));
+		$last_week  = date("Y-m-d", strtotime("-1 week"));
+		$last_month = date("Y-m-d", strtotime("-1 month"));
+
+
 		$result                          = [];
-		$result['sale_count_today']      = 1;
-		$result['sale_count_yesterday']  = 100;
+		$result['sale_count_today']      = \lib\db\nic_domainaction\get::sale_count_date($today);
+		$result['sale_count_yesterday']  = \lib\db\nic_domainaction\get::sale_count_date($yesterday);
+		$result['sale_count_last_week']  = \lib\db\nic_domainaction\get::sale_count_date($last_week);
+		$result['sale_count_last_month'] = \lib\db\nic_domainaction\get::sale_count_date($last_month);
+		$result['sale_count_total']      = \lib\db\nic_domainaction\get::sale_count_date();
 
-		$result['sale_count_last_week']  = 1000;
-		$result['sale_count_last_month'] = 10000;
-		$result['sale_count_total']      = 100000;
 
-		$result['total_buyers']          = 1000000;
-		$result['total_log']             = 10000000;
+		$result['total_buyers']          = \lib\db\nic_domainaction\get::total_buyers();
+		$result['total_log']             = \lib\db\nic_log\get::count_all();
 		$result['total_domain_buy']      = 100000000;
 		$result['total_domain_renew']    = 1000000000;
 		$result['total_domain_transfer'] = 10000000000;

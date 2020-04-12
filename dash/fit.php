@@ -80,18 +80,18 @@ class fit{
 		}
 		elseif($number < 1000000)
 		{
-			$k = round($number / 1000);
-			$result = self::number($k). ' K';
+			$k = round(($number / 1000), 2);
+			$result = self::text($k). ' K';
 		}
 		elseif($number < 1000000000)
 		{
-			$k = round($number / 1000000);
-			$result = self::number($k). ' Mi';
+			$k = round($number / 1000000, 2);
+			$result = self::text($k). ' Mi';
 		}
 		else
 		{
-			$k = round($number / 1000000000);
-			$result = self::number($k). ' Bi';
+			$k = round($number / 1000000000, 2);
+			$result = self::text($k). ' Bi';
 		}
 
 		return $result;
