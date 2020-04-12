@@ -17,7 +17,10 @@ class controller
 		$domain = urldecode($domain);
 		$domain = mb_strtolower($domain);
 
-		$q      = \dash\request::get('q');
+		$q = \dash\request::get('q');
+		$q = \dash\validate::domain($q, false);
+
+		\dash\data::getDomain($q);
 
 		if($domain)
 		{
@@ -26,7 +29,9 @@ class controller
 
 			\dash\data::myDomain($domain);
 
-			if(\dash\validate::domain($domain, false))
+			$domain = \dash\validate::domain($domain, false);
+
+			if($domain)
 			{
 				if(\lib\nic\mode::api())
 				{

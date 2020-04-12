@@ -5,14 +5,14 @@
       <form class="domainSearchBox cbox" action='<?php echo \dash\url::current() ?>' method='get' autocomplete='off'>
        <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
       <div class="input ltr">
-       <input type="search" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\request::get('q'); ?>" autocomplete='off' autofocus>
+       <input type="search" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\data::getDomain(); ?>" autocomplete='off' autofocus>
        <button class="addon btn primary"><?php echo T_('Search'); ?></button>
       </div>
      </form>
     </div>
   </div>
 
-<?php if(\dash\request::get('q')) {?>
+<?php if(\dash\data::getDomain()) {?>
 <div class="cbox">
 <?php require_once (root. 'content/domains/search/domainSearchResult.php'); ?>
 </div>

@@ -58,6 +58,17 @@ class url
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
 
+		$data = str_replace('http://', '', $data);
+		$data = str_replace('https://', '', $data);
+		$data = str_replace(':', '', $data);
+
+		if(strpos($data, '/') !== false)
+		{
+			$data = str_replace(substr($data, strpos($data, '/')), '', $data);
+		}
+
+		$data = str_replace('/', '', $data);
+
 		return $data;
 	}
 
@@ -81,6 +92,17 @@ class url
 		// $data = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.])+', '', $data);
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
+
+		$data = str_replace('http://', '', $data);
+		$data = str_replace('https://', '', $data);
+		$data = str_replace(':', '', $data);
+
+		if(strpos($data, '/') !== false)
+		{
+			$data = str_replace(substr($data, strpos($data, '/')), '', $data);
+		}
+
+		$data = str_replace('/', '', $data);
 
 		return $data;
 	}
@@ -106,6 +128,17 @@ class url
 		}
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
+
+		$data = str_replace('http://', '', $data);
+		$data = str_replace('https://', '', $data);
+		$data = str_replace(':', '', $data);
+
+		if(strpos($data, '/') !== false)
+		{
+			$data = str_replace(substr($data, strpos($data, '/')), '', $data);
+		}
+
+		$data = str_replace('/', '', $data);
 
 		return $data;
 	}
@@ -143,7 +176,7 @@ class url
 			return $data;
 		}
 
-		if(!preg_match("/^[a-zA-Z0-9\.]+$/", $data))
+		if(!preg_match("/^[a-zA-Z0-9\-\.]+$/", $data))
 		{
 			if($_notif)
 			{
