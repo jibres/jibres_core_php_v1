@@ -37,7 +37,7 @@ $myData = \dash\data::dashboardDetail();
 
 <div class="f">
   <div class="c9 s12 pRa10">
-    <div id="chartdiv" class="box chart x210" data-hint='Domain buy & renew & transfer & whois & total buy in lasy 30 days'></div>
+    <div id="chartdivdomain" class="box chart x210" data-hint1='Domain buy & renew & transfer & whois & total buy in lasy 30 days'></div>
   </div>
   <div class="c3 s12">
     <a href="" class="stat">
@@ -82,7 +82,7 @@ $myData = \dash\data::dashboardDetail();
 </div>
 
 
-<div id="chartdiv" class="box chart x200" data-hint='All API request in 10 last days'></div>
+<div id="chartdiv" class="box chart x200" data-hint2='All API request in 10 last days'></div>
 
 <div class="f">
   <div class="c3 s12 pRa10">
@@ -165,4 +165,24 @@ $myData = \dash\data::dashboardDetail();
   </div>
 </div>
 
+
+<div class="hide">
+  <div id="chartdomaintitle"><?php echo T_("Domain buy & renew & transfer & whois & total buy in lasy 30 days"); ?></div>
+  <div id="chartdomaincategory"><?php echo \dash\get::index($myData, 'domain_action_chart', 'categories'); ?></div>
+  <div id="chartdomaincountregister"><?php echo \dash\get::index($myData, 'domain_action_chart', 'register'); ?></div>
+  <div id="chartdomaincountrenew"><?php echo \dash\get::index($myData, 'domain_action_chart', 'renew'); ?></div>
+  <div id="chartdomaincounttransfer"><?php echo \dash\get::index($myData, 'domain_action_chart', 'transfer'); ?></div>
+  <div id="charttitletransfer"><?php echo T_("Transfer"); ?></div>
+  <div id="charttitlerenew"><?php echo T_("Renew"); ?></div>
+  <div id="charttitleregister"><?php echo T_("Register"); ?></div>
+
+  <div id="charttitlecount"><?php echo T_("Count"); ?></div>
+
+  <div id="chartlogtitle"><?php echo T_("All API request in 60 last days"); ?></div>
+  <div id="chartlogcategory"><?php echo \dash\get::index($myData, 'domain_log_chart', 'categories'); ?></div>
+  <div id="chartlogcount"><?php echo \dash\get::index($myData, 'domain_log_chart', 'count'); ?></div>
+  <div id="charttitlelog"><?php echo T_("Log"); ?></div>
+
+
+</div>
 

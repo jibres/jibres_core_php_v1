@@ -53,6 +53,9 @@ class view
 
 		\dash\data::dashboardDetail($dashboard_detail);
 
+		\dash\data::loadScript('/js/chart/management/domainhomepage.js');
+
+
 	}
 }
 ?>

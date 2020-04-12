@@ -42,5 +42,28 @@ class get
 		$result = \dash\db::get($query, 'count', true, 'nic_log');
 		return $result;
 	}
+
+
+	public static function chart_per_day($_date)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				DATE(log.datesend) AS `date`
+			FROM
+				log
+			WHERE
+				DATE(log.datesend) > DATE('$_date')
+			GROUP BY
+				DATE(log.datesend)
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic_log');
+		return $result;
+	}
+
+
+
 }
 ?>

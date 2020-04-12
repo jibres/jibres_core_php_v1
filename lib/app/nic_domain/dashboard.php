@@ -25,16 +25,134 @@ class dashboard
 		$result['total_buyers']          = \lib\db\nic_domainaction\get::total_buyers();
 		$result['total_log']             = \lib\db\nic_log\get::count_all();
 
-		$group_by_action = \lib\db\nic_domainaction\get::count_group_by_action();
+		$group_by_action                 = \lib\db\nic_domainaction\get::count_group_by_action();
 
 		$result['total_domain_buy']      = isset($group_by_action['register']) ? $group_by_action['register'] : null;
 		$result['total_domain_renew']    = isset($group_by_action['renew']) ? $group_by_action['renew'] : null;;
 		$result['total_domain_transfer'] = isset($group_by_action['transfer']) ? $group_by_action['transfer'] : null;;
 		$result['total_domain_whois']    = \lib\db\domains\get::count_all();
 
+		$result['domain_action_chart']   = self::domain_action_chart($last_month);
+		$result['domain_log_chart']      = self::domain_log_chart($last_month);
 
 
 		return $result;
+	}
+
+
+	private static function domain_action_chart($_date)
+	{
+		$list = \lib\db\nic_domainaction\get::chart_domain_action($_date);
+
+		$hi_chart               = [];
+		$hi_chart['categories'] = [];
+		$hi_chart['register']   = [];
+		$hi_chart['renew']      = [];
+		$hi_chart['transfer']   = [];
+
+		$all_date = array_column($list, 'date');
+		$all_date = array_unique($all_date);
+		$all_date = array_filter($all_date);
+
+		$result = [];
+
+
+		foreach ($all_date as $one_date)
+		{
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['action']))
+				{
+					$action = $value['action'];
+
+					if(!isset($result[$action][$one_date]))
+					{
+						$result[$action][$one_date] = intval($value['count']);
+					}
+
+					if($action === 'register')
+					{
+						if(!isset($result['renew'][$one_date]))
+						{
+							$result['renew'][$one_date] = 0;
+						}
+
+						if(!isset($result['transfer'][$one_date]))
+						{
+							$result['transfer'][$one_date] = 0;
+						}
+					}
+
+					if($action === 'renew')
+					{
+						if(!isset($result['register'][$one_date]))
+						{
+							$result['register'][$one_date] = 0;
+						}
+
+						if(!isset($result['transfer'][$one_date]))
+						{
+							$result['transfer'][$one_date] = 0;
+						}
+					}
+
+					if($action === 'transfer')
+					{
+						if(!isset($result['renew'][$one_date]))
+						{
+							$result['renew'][$one_date] = 0;
+						}
+
+						if(!isset($result['register'][$one_date]))
+						{
+							$result['register'][$one_date] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		foreach ($all_date as $key => $value)
+		{
+			$all_date[$key] = \dash\fit::date($value);
+		}
+
+
+		$hi_chart['categories'] = json_encode($all_date, JSON_UNESCAPED_UNICODE);
+		$hi_chart['register']   = json_encode(array_values($result['register']), JSON_UNESCAPED_UNICODE);
+		$hi_chart['renew']      = json_encode(array_values($result['renew']), JSON_UNESCAPED_UNICODE);
+		$hi_chart['transfer']   = json_encode(array_values($result['transfer']), JSON_UNESCAPED_UNICODE);
+
+		return $hi_chart;
+
+	}
+
+
+
+	private static function domain_log_chart($_date)
+	{
+		$list = \lib\db\nic_log\get::chart_per_day($_date);
+
+
+		$hi_chart               = [];
+		$hi_chart['categories'] = [];
+		$hi_chart['count']      = [];
+
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['date']))
+			{
+				array_push($hi_chart['categories'], \dash\fit::date($value['date']));
+				array_push($hi_chart['count'], intval($value['count']));
+			}
+		}
+
+		$hi_chart['categories'] = json_encode($hi_chart['categories'], JSON_UNESCAPED_UNICODE);
+		$hi_chart['count'] = json_encode($hi_chart['count'], JSON_UNESCAPED_UNICODE);
+
+		return $hi_chart;
+
 	}
 }
 ?>
