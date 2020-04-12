@@ -42,7 +42,7 @@
    </div>
   </div>
 
-  <div class="f">
+  <div class="f hide">
    <div class="c pRa10">
     <a class="stat x50">
       <h3><?php echo T_("Cliend ID"); ?></h3>
