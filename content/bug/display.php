@@ -99,7 +99,7 @@
       </div>
 
       <div>
-       <label for="content"><?php echo T_("Description"); ?> *</label>
+       <label><?php echo T_("Description"); ?> *</label>
        <textarea class="txt" name="content" id="contenct" placeholder='<?php echo T_("What is the vulnerability? In clear steps, how do you reproduce it?"); ?>' rows="10" minlength="5" maxlength="1000" data-resizable></textarea>
       </div>
 
