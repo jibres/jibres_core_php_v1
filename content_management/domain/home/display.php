@@ -1,32 +1,36 @@
+<?php
+$myData = \dash\data::dashboardDetail();
+?>
+
 <div class="f">
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Today");?></h3>
-      <div class="val"><?php echo \dash\fit::number(2070);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_today'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Yesterday");?></h3>
-      <div class="val"><?php echo \dash\fit::number(306);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_yesterday'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Last Week");?></h3>
-      <div class="val"><?php echo \dash\fit::number(129);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_last_week'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Last Month");?></h3>
-      <div class="val"><?php echo \dash\fit::number(49350);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_last_month'));?></div>
     </a>
   </div>
   <div class="c3 s12">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Total");?></h3>
-      <div class="val counter"><?php echo \dash\fit::number(493350);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_total'));?></div>
     </a>
   </div>
 </div>
@@ -38,11 +42,11 @@
   <div class="c3 s12">
     <a href="" class="stat">
       <h3><?php echo T_("Total Buyers");?></h3>
-      <div class="val"><?php echo \dash\fit::number(128);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_buyers'));?></div>
     </a>
     <a href="" class="stat">
       <h3><?php echo T_("Total Log");?></h3>
-      <div class="val"><?php echo \dash\fit::number(2950124);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_log'));?></div>
     </a>
   </div>
 </div>
@@ -54,25 +58,25 @@
   <div class="c3 s6 pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Total Domain Buy");?></h3>
-      <div class="val"><?php echo \dash\fit::number(2070);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_buy'));?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Total Domain Renew");?></h3>
-      <div class="val"><?php echo \dash\fit::number(306);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_renew'));?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Total Domain Transfer");?></h3>
-      <div class="val"><?php echo \dash\fit::number(129);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_transfer'));?></div>
     </a>
   </div>
   <div class="c3 s6">
     <a href="" class="stat">
       <h3><?php echo T_("Total Whois");?></h3>
-      <div class="val"><?php echo \dash\fit::number(49350);?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_whois'));?></div>
     </a>
   </div>
 </div>

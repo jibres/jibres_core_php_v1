@@ -49,6 +49,10 @@ class view
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
+		$dashboard_detail = \lib\app\nic_domain\dashboard::admin();
+
+		\dash\data::dashboardDetail($dashboard_detail);
+
 	}
 }
 ?>
