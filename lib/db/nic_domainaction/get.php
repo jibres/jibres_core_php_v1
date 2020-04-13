@@ -37,6 +37,27 @@ class get
 	}
 
 
+	public static function caller_domain_user_id_date($_caller, $_domain, $_user_id, $_date)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				domainaction
+			WHERE
+				domainaction.user_id           = $_user_id AND
+				domainaction.action            = '$_caller' AND
+				domainaction.domainname        = '$_domain' AND
+				DATE(domainaction.datecreated) = DATE('$_date')
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 	public static function chart_domain_action($_date)
 	{
 		$query  =

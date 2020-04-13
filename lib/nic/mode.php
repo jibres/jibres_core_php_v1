@@ -18,6 +18,10 @@ class mode
 			return false;
 		}
 
+		if(gethostname() === 'reza-jibres')
+		{
+			return false;
+		}
 
 		return true; // everything fetch from api
 

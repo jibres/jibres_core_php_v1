@@ -40,12 +40,14 @@ class run
 			return false;
 		}
 
-
-		if(\dash\url::isLocal())
+		if(gethostname() !== 'reza-jibres')
 		{
-			\lib\db\nic_log\insert::new_record($insert_log);
-			\dash\notif::warn("Can not send NICIR Request in local mode!");
-			return false;
+			if(\dash\url::isLocal())
+			{
+				\lib\db\nic_log\insert::new_record($insert_log);
+				\dash\notif::warn("Can not send NICIR Request in local mode!");
+				return false;
+			}
 		}
 
 		\dash\runtime::set('nic', 'start-curl', true);

@@ -34,5 +34,24 @@ class action
 		$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert);
 
 	}
+
+	public static function ready_buy_domain($_domain)
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		// unique every domain every day
+
+		$load_old_action = \lib\db\nic_domainaction\get::caller_domain_user_id_date('ready_buy_domain', $_domain, \dash\user::id(), date("Y-m-d"));
+		if(isset($load_old_action['id']))
+		{
+			return false;
+		}
+
+		return self::set('ready_buy_domain', ['domain' => $_domain]);
+	}
 }
 ?>
