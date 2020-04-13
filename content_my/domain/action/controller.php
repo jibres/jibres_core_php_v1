@@ -1,5 +1,5 @@
 <?php
-namespace content_my\domain\poll;
+namespace content_my\domain\action;
 
 
 class controller

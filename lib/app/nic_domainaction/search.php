@@ -4,8 +4,7 @@ namespace lib\app\nic_domainaction;
 class search
 {
 
-
-	public static function list($_query_string, $_args)
+	public static function all_list($_query_string, $_args)
 	{
 		if(!\dash\user::id())
 		{
@@ -13,11 +12,33 @@ class search
 			return false;
 		}
 
-		$userId = \dash\user::id();
+		$_args['user_id'] = \dash\user::id();
+
+		return self::list($_query_string, $_args);
+	}
+
+
+	public static function domain_list($_query_string, $_args)
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		$_args['user_id'] = \dash\user::id();
+
+		return self::list($_query_string, $_args);
+	}
+
+
+	private static function list($_query_string, $_args)
+	{
 
 		$condition =
 		[
 			'domain_id' => 'code',
+			'user_id'   => 'id',
 		];
 
 		$require = [];
@@ -32,25 +53,25 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
-		if(!$data['domain_id'])
-		{
-			return [];
-		}
-
-		$data['domain_id'] = \dash\coding::decode($data['domain_id']);
-
 		$and           = [];
 		$meta          = [];
 		$or            = [];
 
+
+		if($data['domain_id'])
+		{
+			$data['domain_id'] = \dash\coding::decode($data['domain_id']);
+			$and[]         = " domainaction.domain_id = $data[domain_id] ";
+		}
+
+		if($data['user_id'])
+		{
+			$and[]         = " domainaction.user_id = $data[user_id] ";
+		}
+
 		$meta['limit'] = 20;
 
 		$order_sort    = " ORDER BY domainaction.id DESC";
-
-		$and[]         = " domainaction.domain_id = $data[domain_id] ";
-		$and[]         = " domainaction.user_id = $userId ";
-
 
 		$list = \lib\db\nic_domainaction\search::list($and, $or, $order_sort, $meta);
 

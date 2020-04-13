@@ -25,6 +25,7 @@
       <li><a href="<?php echo \dash\url::that(); ?>#domain-buy"><i class="sf-shop"></i><span><?php echo T_("Buy new domain"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::that(); ?>#domain-renew"><i class="sf-shop"></i><span><?php echo T_("Renew domain"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::that(); ?>#domain-transfer"><i class="sf-shop"></i><span><?php echo T_("Transfer domain"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::that(); ?>#domain-history"><i class="sf-list"></i><span><?php echo T_("Domain history"); ?></span></a></li>
       <li><hr></li>
 
       <!--   CONTACT   -->

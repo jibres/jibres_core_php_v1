@@ -25,7 +25,8 @@ class view
 			[
 				'domain_id' => \dash\data::domainDetail_id(),
 			];
-			$list = \lib\app\nic_domainaction\search::list(null, $args);
+
+			$list = \lib\app\nic_domainaction\search::domain_list(null, $args);
 		}
 
 		\dash\data::dataTable($list);

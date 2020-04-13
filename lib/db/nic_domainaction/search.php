@@ -70,7 +70,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
-		$query = "SELECT domainaction.* FROM domainaction $q[where] $q[order] $limit ";
+		$query = "SELECT domainaction.*, domain.name FROM domainaction LEFT JOIN domain ON domain.id = domainaction.domain_id $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'nic');
 
