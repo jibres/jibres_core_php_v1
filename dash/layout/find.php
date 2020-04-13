@@ -182,9 +182,9 @@ class find
 
 	public static function pageScript()
 	{
-  		echo "  ";
+  		echo "\n  ";
 		echo "<div data-xhr='pageScript'>";
-		echo "<script";
+		echo "<script async";
 		if(\dash\data::loadScript() && is_string(\dash\data::loadScript()))
 		{
 			echo ' src="'. \dash\url::cdn(). \dash\data::loadScript(). '"';
