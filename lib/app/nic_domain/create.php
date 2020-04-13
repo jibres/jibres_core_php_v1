@@ -426,9 +426,6 @@ class create
 		];
 
 
-		// need to show result page
-		\dash\temp::set('need_show_domain_result', true);
-
 		$result = \lib\nic\exec\domain_create::create($ready);
 
 		if(isset($result['name']))

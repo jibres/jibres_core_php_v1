@@ -1,39 +1,3 @@
-<?php if(\dash\data::dataRow()) {?>
-
-    <?php if(\dash\data::dataRow_status() === 'enable') {?>
-
-        <div class="msg success fs14 txtC">
-            <b><?php echo \dash\data::dataRow_name(); ?></b>
-            <br>
-            <?php echo T_("Operation successfully"); ?>
-            <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
-        </div>
-
-    <?php }else{?>
-
-        <div class="msg danger fs14 txtC">
-            <b><?php echo \dash\data::dataRow_name(); ?></b>
-            <br>
-            <?php echo T_("Operation failed"); ?>
-            <?php
-            if(\dash\temp::get('domainFaildMessage'))
-            {
-              echo '<br>';
-              echo \dash\temp::get('domainFaildMessage');
-            }
-            ?>
-            <?php if(\dash\temp::get('domainHaveTransaction')) {?>
-              <br>
-              <?php echo T_("Your money back to your account"); ?>
-            <?php } ?>
-            <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
-        </div>
-
-    <?php } //endif ?>
-
-<?php } //endif ?>
-
-
 
 <?php
 if(\dash\data::dataTable())
