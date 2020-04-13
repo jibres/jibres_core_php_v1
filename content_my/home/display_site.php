@@ -26,16 +26,15 @@
 
 
    <div class="f">
-    <div class="c6">
+    <div class="c6 s12 pRa10">
+     <nav class="items">
+      <ul>
+       <li class="pA10"><?php echo T_("Bussiness that you are owner"); ?></li>
 <?php
 $listStore_owner = \dash\data::listStore_owner();
 if($listStore_owner && is_array($listStore_owner))
 {
-?>
-     <nav class="items">
-      <ul>
-       <li class="pA10"><?php echo T_("Bussiness that you are owner"); ?></li>
-<?php foreach ($listStore_owner as $key => $value) {?>
+ foreach ($listStore_owner as $key => $value) {?>
        <li>
         <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>/a">
          <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
@@ -52,20 +51,20 @@ if($listStore_owner && is_array($listStore_owner))
          <div class="go plus"></div>
         </a>
        </li>
+<?php }//endif ?>
       </ul>
      </nav>
-<?php }//endif ?>
     </div>
-    <div class="c6">
+
+    <div class="c6 s12">
+     <nav class="items">
+      <ul>
+       <li class="pA10"><?php echo T_("Bussiness that you are staff"); ?></li>
 <?php
 $listStore_staff = \dash\data::listStore_staff();
 if($listStore_staff && is_array($listStore_staff))
 {
-?>
-     <nav class="items">
-      <ul>
-       <li class="pA10"><?php echo T_("Bussiness that you are staff"); ?></li>
-<?php foreach ($listStore_staff as $key => $value) {?>
+ foreach ($listStore_staff as $key => $value) {?>
        <li>
         <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>/a">
          <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
@@ -75,9 +74,11 @@ if($listStore_staff && is_array($listStore_staff))
         </a>
        </li>
 <?php }//endfor ?>
+<?php } else { //endif ?>
+       <li class="pA10"><div class="msg"><?php echo T_("You are not staff yet!"); ?></div></li>
+<?php }//endif ?>
       </ul>
      </nav>
-<?php }//endif ?>
     </div>
    </div>
 
