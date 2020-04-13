@@ -36,27 +36,48 @@
      </div>
 
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="stat x70">
+      <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat x70">
        <h3><?php echo T_("Last Year Payments");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/" class="stat x70">
+      <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat x70">
        <h3><?php echo T_("Your Current Balance");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
 
      <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/" class="stat x70">
+      <a href="<?php echo \dash\url::this() ?>/predict" class="stat x70">
        <h3><?php echo T_("Predict Late Payments");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
-
     </section>
+
+    <section class="f">
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circleChartBox">
+       <div class="circleChart" data-percent='70'></div>
+       <h3><?php echo T_("Domain with Auto Renew");?></h3>
+      </a>
+     </div>
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circleChartBox">
+       <div class="circleChart" data-percent='20'></div>
+       <h3><?php echo T_("Domain Locked");?></h3>
+      </a>
+     </div>
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circleChartBox">
+       <div class="circleChart" data-percent='94'></div>
+       <h3><?php echo T_("Domain with Auto Renew");?></h3>
+      </a>
+     </div>
+   </section>
+
    </div>
 
 
@@ -123,6 +144,12 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/payments">
         <div class="key"><?php echo T_('Payments History');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/predict">
+        <div class="key"><?php echo T_('Predict Late Payments');?></div>
         <div class="go"></div>
        </a>
       </li>
