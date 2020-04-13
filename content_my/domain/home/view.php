@@ -22,6 +22,9 @@ class view
 
 		$dashboard_detail = \lib\app\nic_domain\dashboard::user();
 		\dash\data::dashboardDetail($dashboard_detail);
+
+		\dash\data::loadScript('/js/chart/my/domainhomepage.js');
+
 	}
 }
 ?>

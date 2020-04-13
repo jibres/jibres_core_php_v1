@@ -88,7 +88,7 @@ if($listStore_staff && is_array($listStore_staff))
   <div class="c3 s12">
 
    <section class="circularChartBox">
-    <?php $myPercent=40;include core.'\layout\elements\circularChart.php';?>
+    <?php $myPercent=40;include core.'/layout/elements/circularChart.php';?>
     <h3><?php echo T_("Account Status");?></h3>
    </section>
 

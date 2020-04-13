@@ -18,5 +18,26 @@ class get
 
 		return $result;
 	}
+
+
+	public static function chart_my_pay($_user_id)
+	{
+		$query  =
+		"
+			SELECT
+				SUM(domainbilling.price) AS `price`,
+				MONTH(domainbilling.datecreated) AS `month`,
+				YEAR(domainbilling.datecreated) AS `year`
+			FROM
+				domainbilling
+			WHERE
+				domainbilling.user_id = $_user_id
+			GROUP BY
+				`month`,`year`
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
 }
 ?>

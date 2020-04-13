@@ -75,9 +75,59 @@ class dashboard
 		$result['last_year_payment']    = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id, $last_year));
 		$result['predict_late_payment'] = $result['last_year_payment'];
 
+		$result['domain_pay_chart']      = self::domain_pay_chart($user_id);
 
-		// var_dump($result);exit();
 		return $result;
+	}
+
+
+
+	private static function domain_pay_chart($_user_id)
+	{
+		$list = \lib\db\nic_domainbilling\get::chart_my_pay($_user_id);
+
+		$start_date = date("Y-m", strtotime("2020-01"));
+
+		$end_date   = date("Y-m");
+
+		$datetime1  = date_create($start_date);
+		$datetime2  = date_create($end_date);
+
+		$interval   = date_diff($datetime1, $datetime2);
+
+		$diff_month = $interval->format("%m");
+
+
+		$my_list = [];
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['year']) && isset($value['month']) && isset($value['price']))
+			{
+				$my_list[$value['year']. '-'. str_pad($value['month'], 2, "0", STR_PAD_LEFT)] = $value['price'];
+			}
+		}
+
+		$result = [];
+
+	    for ($i = 0; $i < intval($diff_month) + 1 ; $i++)
+	    {
+	    	$new_date = date("Y-m", strtotime("+$i month", strtotime($start_date)));
+	    	if(isset($my_list[$new_date]))
+	    	{
+	    		$result[$new_date] = intval($my_list[$new_date]);
+	    	}
+	    	else
+	    	{
+	    		$result[$new_date] = 0;
+	    	}
+	    }
+
+		$hi_chart               = [];
+		$hi_chart['categories'] = json_encode(array_keys($result), JSON_UNESCAPED_UNICODE);
+		$hi_chart['price']      = json_encode(array_values($result), JSON_UNESCAPED_UNICODE);
+
+		return $hi_chart;
+
 	}
 
 

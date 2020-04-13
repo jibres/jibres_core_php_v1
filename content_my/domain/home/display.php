@@ -27,7 +27,7 @@
      </div>
     </section>
 
-    <div id="chartdivdomain" class="box chart x260" data-hint='Domain Payments - from start - group by month'></div>
+    <div id="chartdiv" class="box chart x260" ></div>
 
 
 
@@ -192,64 +192,11 @@
   </div>
 
 
+<div class="hide">
+  <div id="charttitle"><?php echo T_("Total pay per month"); ?></div>
+  <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'categories'); ?></div>
+  <div id="chartprice"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'price'); ?></div>
+  <div id="charttitleprice"><?php echo T_("Toman"); ?></div>
+  <div id="charttitlepayed"><?php echo T_("Payed"); ?></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php if(\dash\data::dataRow()) {?>
-
-  <?php if(\dash\data::dataRow_status() === 'enable') {?>
-
-    <div class="msg success fs14 txtC">
-      <b><?php echo \dash\data::dataRow_name(); ?></b>
-      <br>
-      <?php echo T_("Operation successfully"); ?>
-      <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
-    </div>
-
-  <?php }else{?>
-
-    <div class="msg danger fs14 txtC">
-      <b><?php echo \dash\data::dataRow_name(); ?></b>
-      <br>
-      <?php echo T_("Operation failed"); ?>
-      <?php
-      if(\dash\temp::get('domainFaildMessage'))
-      {
-       echo '<br>';
-       echo \dash\temp::get('domainFaildMessage');
-      }
-      ?>
-      <?php if(\dash\temp::get('domainHaveTransaction')) {?>
-       <br>
-       <?php echo T_("Your money back to your account"); ?>
-      <?php } ?>
-      <a href="<?php echo \dash\url::this() ?>" class="btn xs secondary" ><?php echo T_("OK"); ?></a>
-    </div>
-
-  <?php } //endif ?>
-
-<?php } //endif ?>
-
-
-
+</div>
