@@ -63,13 +63,17 @@ class dashboard
 			$my_all = 1;
 		}
 
+		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_all);
+		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
+		$result['domain_active_percent']    = round($result['domain_active'] * 100 / $my_all);
+		$result['user_budget']              = \dash\user::budget();
+		$result['user_unit']         = T_("Toman");
 
-		$result['domain_autorenew_percent'] =	round($count_autorenew * 100 / $my_all);
-		$result['domain_lock_percent']      =	round($count_lock * 100 / $my_all);
-		$result['domain_active_percent']      =	round($result['domain_active'] * 100 / $my_all);
+		$last_year = date("Y-m-d", strtotime("-365 days"));
 
-
-
+		$result['total_payment']        = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id));
+		$result['last_year_payment']    = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id, $last_year));
+		$result['predict_late_payment'] = $result['last_year_payment'];
 
 
 		// var_dump($result);exit();
