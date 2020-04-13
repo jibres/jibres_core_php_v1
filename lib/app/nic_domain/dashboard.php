@@ -40,6 +40,27 @@ class dashboard
 	}
 
 
+	public static function user()
+	{
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
+		$user_id = \dash\user::id();
+
+		$result                          = [];
+		$result['domain_active']   = intval(\lib\db\nic_domain\get::my_active_count($user_id));
+		$result['domain_deactive'] = intval(\lib\db\nic_domain\get::my_deactive_count($user_id));
+		$result['domain_all']      = intval($result['domain_deactive'] + $result['domain_active']);
+
+
+
+		// var_dump($result);exit();
+		return $result;
+	}
+
+
 	private static function domain_action_chart($_date)
 	{
 		$list = \lib\db\nic_domainaction\get::chart_domain_action($_date);

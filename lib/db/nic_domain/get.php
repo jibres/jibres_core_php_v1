@@ -79,5 +79,24 @@ class get
 		$result = \dash\db::get($query, null, true, 'nic');
 		return $result;
 	}
+
+
+
+
+	public static function my_active_count($_user_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
+
+
+	public static function my_deactive_count($_user_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status NOT IN ('deleted', 'enable') ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
+
 }
 ?>

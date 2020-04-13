@@ -181,9 +181,11 @@ class search
 
 		$condition =
 		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'dns'   => 'code',
+			'order'  => 'order',
+			'sort'   => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'action' => ['enum' => ['active', 'deactive']],
+			'dns'    => 'code',
+
 		];
 
 		$require = [];
@@ -262,7 +264,19 @@ class search
 			$order_sort = " ORDER BY domain.id DESC";
 		}
 
-		$and[] = " domain.status IN ('enable', 'disable') ";
+		if($data['action'] === 'active')
+		{
+			$and[] = " domain.status = 'enable' ";
+		}
+		elseif($data['action'] === 'deactive')
+		{
+			$and[] = " domain.status NOT IN ('deleted', 'enable') ";
+		}
+		else
+		{
+			$and[] = " domain.status != 'deleted' ";
+		}
+
 
 		$and[] = " domain.user_id = $userId ";
 

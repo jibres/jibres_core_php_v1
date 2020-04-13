@@ -19,6 +19,9 @@ class view
 		\dash\face::btnImport(\dash\url::this().'/import');
 		// \dash\face::btnExport(\dash\url::this().'/export');
 		\dash\face::help(\dash\url::support().'/domain');
+
+		$dashboard_detail = \lib\app\nic_domain\dashboard::user();
+		\dash\data::dashboardDetail($dashboard_detail);
 	}
 }
 ?>

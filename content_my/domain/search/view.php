@@ -32,7 +32,9 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
-			'dns'  => \dash\request::get('dns'),
+			'dns'    => \dash\request::get('dns'),
+			'action' => \dash\request::get('action'),
+
 			// 'holder' => \dash\request::get('holder'),
 			// 'tech'   => \dash\request::get('tech'),
 			// 'bill'   => \dash\request::get('bill'),
