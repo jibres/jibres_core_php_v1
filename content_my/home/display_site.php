@@ -64,24 +64,74 @@ if($listStore_staff && is_array($listStore_staff))
   <div class="c3 s12">
 
    <section class="circularChartBox">
-    <?php $myPercent2=40;$myColor2='blue';include core.'\layout\elements\circularChart.php';?>
-    <h3><?php echo T_("Profile Status");?></h3>
+    <?php $myPercent=40;include core.'\layout\elements\circularChart.php';?>
+    <h3><?php echo T_("Account Status");?></h3>
    </section>
-
 
    <nav class="items">
     <ul>
      <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/domain">
-       <div class="key"><?php echo T_('Domain Center');?></div>
-       <div class="value">8</div>
-       <div class="go"></div>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my">
+       <div class="key"><?php echo T_('Mobile');?></div>
+       <div class="go check ok"></div>
       </a>
      </li>
      <li>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/email">
+       <div class="key"><?php echo T_('Email');?></div>
+       <div class="go times nok"></div>
+      </a>
+     </li>
+     <li>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/username">
+       <div class="key"><?php echo T_('Username');?></div>
+       <div class="go times nok"></div>
+      </a>
+     </li>
+     <li>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/avatar">
+       <div class="key"><?php echo T_('Avatar');?></div>
+       <div class="go check ok"></div>
+      </a>
+     </li>
+    </ul>
+   </nav>
+
+   <nav class="items">
+    <ul>
+     <li>
+      <a class="f" href="<?php echo \dash\url::here();?>/store/start">
+       <div class="key"><?php echo T_('Add Your First Bussiness');?></div>
+       <div class="go ok check"></div>
+      </a>
+     </li>
+     <li>
+      <a class="f" href="">
+       <div class="key"><?php echo T_('Add Your First Product');?></div>
+       <div class="go nok times"></div>
+      </a>
+     </li>
+     <li>
+      <a class="f" href="">
+       <div class="key"><?php echo T_('Sale Your First Invoice');?></div>
+       <div class="go nok times"></div>
+      </a>
+     </li>
+   </ul>
+  </nav>
+
+   <nav class="items">
+    <ul>
+     <li>
       <a class="f" href="<?php echo \dash\url::here();?>/domain/buy">
-       <div class="key"><?php echo T_('Buy New Domain');?></div>
-       <div class="go"></div>
+       <div class="key"><?php echo T_('Buy Your First Domain');?></div>
+       <div class="go ok check"></div>
+      </a>
+     </li>
+     <li>
+      <a class="f" href="<?php echo \dash\url::here();?>/domain/renew">
+       <div class="key"><?php echo T_('Renew Your First Domain');?></div>
+       <div class="go nok times"></div>
       </a>
      </li>
     </ul>
@@ -111,3 +161,20 @@ if($listStore_staff && is_array($listStore_staff))
      </div>
     </section>
 
+   <nav class="items">
+    <ul>
+     <li>
+      <a class="f" href="<?php echo \dash\url::here();?>/domain">
+       <div class="key"><?php echo T_('Domain Center');?></div>
+       <div class="value">8</div>
+       <div class="go"></div>
+      </a>
+     </li>
+     <li>
+      <a class="f" href="<?php echo \dash\url::here();?>/domain/buy">
+       <div class="key"><?php echo T_('Buy New Domain');?></div>
+       <div class="go"></div>
+      </a>
+     </li>
+    </ul>
+   </nav>
