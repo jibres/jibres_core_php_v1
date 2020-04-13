@@ -453,6 +453,22 @@ class create
 
 			\lib\app\nic_domainaction\action::set('register', $domain_action_detail);
 
+			$insert_billing =
+			[
+				'domain_id'      => $domain_id,
+				'user_id'        => \dash\user::id(),
+				'action'         => 'register',
+				'status'         => 'enable',
+				'mode'           => 'manual',
+				'price'          => $price,
+				'transaction_id' => $transaction_id,
+				'detail'         => null,
+				'date'           => date("Y-m-d H:i:s"),
+				'datecreated'    => date("Y-m-d H:i:s"),
+			];
+
+			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
+
 			\dash\notif::ok(T_("Your domain was registred"));
 
 

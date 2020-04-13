@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS jibres_nic.domainbilling (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `domain_id` int(10) UNSIGNED NULL,
 `user_id` int(10) UNSIGNED NULL,
-`action` varchar(100) NULL DEFAULT NULL,
+`action` enum('register', 'renew', 'transfer', 'delete') NULL DEFAULT NULL,
 `status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
 `mode` enum('auto', 'manual') NULL DEFAULT NULL,
 `detail` text NULL DEFAULT NULL,
