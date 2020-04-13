@@ -469,7 +469,7 @@ class create
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
-			\dash\notif::ok(T_("Your domain was registred"));
+			\dash\notif::ok(T_("Your domain was registred"), ['alerty' => true]);
 
 
 			return true;

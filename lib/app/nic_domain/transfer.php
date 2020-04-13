@@ -296,7 +296,7 @@ class transfer
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
 
-			\dash\notif::ok(T_("Your domain was transfered"));
+			\dash\notif::ok(T_("Your domain was transfered"), ['alerty' => true]);
 
 			return true;
 

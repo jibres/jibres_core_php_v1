@@ -129,29 +129,42 @@ class renew
 			return false;
 		}
 
-		if(!isset($get_domain_detail['bill']))
-		{
-			\dash\notif::error(T_("Can not access to billing account of this domain"));
-			return false;
-		}
+		$jibres_nic_contact = 'ji128-irnic';
 
-		$get_contac_nic =  \lib\nic\exec\contact_check::check($get_domain_detail['bill']);
-		if(!isset($get_contac_nic[$get_domain_detail['bill']]))
+		if((isset($get_domain_detail['reseller']) && $get_domain_detail['reseller'] === $jibres_nic_contact) || (isset($get_domain_detail['bill']) && $get_domain_detail['bill'] === $jibres_nic_contact))
 		{
-			\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-			return false;
-		}
-
-		$get_contac_nic = $get_contac_nic[$get_domain_detail['bill']];
-		if(isset($get_contac_nic['bill']) && $get_contac_nic['bill'] == '1')
-		{
-			// no problem to renew this domain by tihs contact
+			// nothing
 		}
 		else
 		{
-			\dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
+			\dash\temp::set('ji128-irnic-not-allow', true);
+			$msg = T_("We can not renew this domain because the bill holder of IRNIC can not access to renew");
+			$msg .= '<br>';
+			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
+
+			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
+
+			// \dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
 			return false;
 		}
+
+		// $get_contac_nic =  \lib\nic\exec\contact_check::check($get_domain_detail['bill']);
+		// if(!isset($get_contac_nic[$get_domain_detail['bill']]))
+		// {
+		// 	\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+		// 	return false;
+		// }
+
+		// $get_contac_nic = $get_contac_nic[$get_domain_detail['bill']];
+		// if(isset($get_contac_nic['bill']) && $get_contac_nic['bill'] == '1')
+		// {
+		// 	// no problem to renew this domain by tihs contact
+		// }
+		// else
+		// {
+		// 	\dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
+		// 	return false;
+		// }
 
 
 		$user_budget = \dash\user::budget();
@@ -284,7 +297,7 @@ class renew
 
 
 
-			\dash\notif::ok(T_("Domain renew ok"));
+			\dash\notif::ok(T_("Domain renew ok"), ['alerty' => true]);
 			return true;
 
 		}
