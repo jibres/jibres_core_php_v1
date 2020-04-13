@@ -85,22 +85,12 @@ class lock
 		{
 			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 1], $load_domain['id']);
 
-			$insert_action =
+			$domain_action_detail =
 			[
 				'domain_id'      => $load_domain['id'],
-				'user_id'        => \dash\user::id(),
-				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
-				'action'         => 'lock', // 'register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
-				'mode'           => 'manual', // 'auto', 'manual'
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
-				'price'          => null,
-				'discount'       => null,
-				'transaction_id' => null,
-				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
-			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+			\lib\app\nic_domainaction\action::set('domain_lock', $domain_action_detail);
 
 
 			\dash\notif::ok(T_("Domain is locked"));
@@ -198,22 +188,12 @@ class lock
 		{
 			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 0], $load_domain['id']);
 
-			$insert_action =
+			$domain_action_detail =
 			[
 				'domain_id'      => $load_domain['id'],
-				'user_id'        => \dash\user::id(),
-				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
-				'action'         => 'unlock', // 'register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
-				'mode'           => 'manual', // 'auto', 'manual'
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
-				'price'          => null,
-				'discount'       => null,
-				'transaction_id' => null,
-				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
-			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+			\lib\app\nic_domainaction\action::set('domain_unlock', $domain_action_detail);
 
 
 			\dash\notif::ok(T_("Domain is unlocked"));

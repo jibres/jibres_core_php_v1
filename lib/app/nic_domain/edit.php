@@ -432,6 +432,26 @@ class edit
 			\lib\db\nic_domain\update::update($args, $load_domain['id']);
 		}
 
+		if(array_key_exists('autorenew', $args))
+		{
+			$domain_action_detail =
+			[
+				'domain_id'      => $load_domain['id'],
+			];
+
+			if($args['autorenew'])
+			{
+				\lib\app\nic_domainaction\action::set('domain_enable_autorenew', $domain_action_detail);
+			}
+			else
+			{
+				\lib\app\nic_domainaction\action::set('domain_disable_autorenew', $domain_action_detail);
+			}
+
+
+
+		}
+
 		if(isset($args['status']) && $args['status'] === 'deleted')
 		{
 			\dash\notif::ok(T_("Domain removed"));
