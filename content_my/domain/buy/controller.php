@@ -18,7 +18,7 @@ class controller
 		$domain = mb_strtolower($domain);
 
 		$q = \dash\request::get('q');
-		$q = \dash\validate::domain($q, false);
+		$q = \dash\validate::string($q, false);
 
 		\dash\data::getDomain($q);
 
