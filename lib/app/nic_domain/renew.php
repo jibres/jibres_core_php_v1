@@ -94,6 +94,13 @@ class renew
 			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
 		}
 
+		$domain_action_detail =
+		[
+			'domain_id'      => $domain_id,
+		];
+
+		\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
+
 		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
 
 		if(!isset($get_domain_detail['exDate']))
@@ -186,28 +193,37 @@ class renew
 				'final_fn_args' => $temp_args,
 			];
 
+			$result_pay = \dash\utility\pay\start::api($meta);
 
-			if(!\dash\engine\content::api_content())
+			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
 			{
-				\dash\utility\pay\start::site($meta);
-			}
-			else
-			{
-				$result = \dash\utility\pay\start::api($meta);
+				$domain_action_detail =
+				[
+					'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
+					'domain_id'      => $domain_id,
+					'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
+				];
 
-				if(isset($result['url']))
+				\lib\app\nic_domainaction\action::set('domain_renew_pay_link', $domain_action_detail);
+
+				if(\dash\engine\content::api_content())
 				{
-					$msg = T_("Pay link :val", ['val' => $result['url']]);
-					\dash\notif::meta($result);
+					$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
+					\dash\notif::meta($result_pay);
 					\dash\notif::ok($msg);
 					return;
 				}
 				else
 				{
-					\dash\log::oops('generate_pay_error');
-					return false;
+					\dash\redirect::to($result_pay['url']);
 				}
 			}
+			else
+			{
+				\dash\log::oops('generate_pay_error');
+				return false;
+			}
+
 
 			// redirect to bank payment
 			return ;
@@ -240,22 +256,16 @@ class renew
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
-			$insert_action =
+
+			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				'user_id'        => \dash\user::id(),
-				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
-				'action'         => 'renew', // 'register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
-				'mode'           => 'manual', // 'auto', 'manual'
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
 				'price'          => $price,
-				'discount'       => $transaction_id,
-				'transaction_id' => null,
-				'datecreated'    => date("Y-m-d H:i:s"),
+				'transaction_id' => $transaction_id,
 			];
 
-			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+			\lib\app\nic_domainaction\action::set('renew', $domain_action_detail);
+
 
 
 			\dash\notif::ok(T_("Domain renew ok"));
@@ -280,6 +290,16 @@ class renew
 				\dash\notif::error(T_("No way to insert data"));
 				return false;
 			}
+
+			$domain_action_detail =
+			[
+				'domain_id'      => $domain_id,
+				'price'          => $price,
+				'transaction_id' => $transaction_id,
+			];
+
+			\lib\app\nic_domainaction\action::set('renew_faled', $domain_action_detail);
+
 
 			\dash\temp::set('domainHaveTransaction', true);
 

@@ -41,7 +41,6 @@ class controller
 				}
 				else
 				{
-					\lib\app\nic_domainaction\action::ready_buy_domain($domain);
 					$check = \lib\app\nic_domain\check::check($domain);
 				}
 

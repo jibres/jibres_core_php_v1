@@ -111,9 +111,6 @@ class create
 		}
 
 
-
-
-
 		$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
 		// if(!isset($get_contac_nic[$nic_id]))
 		// {
@@ -132,12 +129,14 @@ class create
 			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
 			if(!isset($get_contac_nic_bill[$irnic_bill]))
 			{
+				// bug!!
 				\dash\notif::error(T_("Can not find  billing account detail of this domain"));
 				return false;
 			}
 
 			if(!isset($get_contac_nic_bill[$irnic_bill]))
 			{
+				// bug!!
 				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
 				return false;
 			}
@@ -316,6 +315,13 @@ class create
 			}
 		}
 
+		$domain_action_detail =
+		[
+			'domain_id'      => $domain_id,
+		];
+
+		\lib\app\nic_domainaction\action::set('domain_buy_ready', $domain_action_detail);
+
 
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
@@ -359,27 +365,38 @@ class create
 				'final_fn_args' => $temp_args,
 			];
 
-			if(!\dash\engine\content::api_content())
-			{
-				\dash\utility\pay\start::site($meta);
-			}
-			else
-			{
-				$result = \dash\utility\pay\start::api($meta);
 
-				if(isset($result['url']))
+			$result_pay = \dash\utility\pay\start::api($meta);
+
+			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
+			{
+				$domain_action_detail =
+				[
+					'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
+					'domain_id'      => $domain_id,
+					'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
+				];
+
+				\lib\app\nic_domainaction\action::set('domain_buy_pay_link', $domain_action_detail);
+
+				if(\dash\engine\content::api_content())
 				{
-					$msg = T_("Pay link :val", ['val' => $result['url']]);
-					\dash\notif::meta($result);
+					$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
+					\dash\notif::meta($result_pay);
 					\dash\notif::ok($msg);
 					return;
 				}
 				else
 				{
-					\dash\log::oops('generate_pay_error');
-					return false;
+					\dash\redirect::to($result_pay['url']);
 				}
 			}
+			else
+			{
+				\dash\log::oops('generate_pay_error');
+				return false;
+			}
+
 
 
 
@@ -427,25 +444,14 @@ class create
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
-
-
-			$insert_action =
+			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				'user_id'        => \dash\user::id(),
-				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
-				'action'         => 'register', // 'register', 'renew', 'transfer', 'openlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
-				'mode'           => 'manual', // 'auto', 'manual'
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
 				'price'          => $price,
-				'discount'       => null,
 				'transaction_id' => $transaction_id,
-				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
-			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
-
+			\lib\app\nic_domainaction\action::set('register', $domain_action_detail);
 
 			\dash\notif::ok(T_("Your domain was registred"));
 
@@ -479,6 +485,16 @@ class create
 			];
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
+
+			$domain_action_detail =
+			[
+				'domain_id'      => $domain_id,
+				'price'          => $price,
+				'transaction_id' => $transaction_id,
+			];
+
+			\lib\app\nic_domainaction\action::set('register_failed', $domain_action_detail);
+
 
 			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
 

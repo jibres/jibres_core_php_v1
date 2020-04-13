@@ -47,6 +47,14 @@ class transfer
 
 		\lib\app\domains\detect::domain('start_transfer', $domain);
 
+		$domain_action_detail =
+		[
+			'domainname'   => $domain,
+		];
+
+		\lib\app\nic_domainaction\action::set('domain_transfer_ready', $domain_action_detail);
+
+
 		if($irnic_new)
 		{
 			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
@@ -156,26 +164,35 @@ class transfer
 			];
 
 
-			if(!\dash\engine\content::api_content())
-			{
-				\dash\utility\pay\start::site($meta);
-			}
-			else
-			{
-				$result = \dash\utility\pay\start::api($meta);
+			$result_pay = \dash\utility\pay\start::api($meta);
 
-				if(isset($result['url']))
+			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
+			{
+				$domain_action_detail =
+				[
+					'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
+					'domain_id'      => $domain_id,
+					'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
+				];
+
+				\lib\app\nic_domainaction\action::set('domain_tranfer_pay_link', $domain_action_detail);
+
+				if(\dash\engine\content::api_content())
 				{
-					$msg = T_("Pay link :val", ['val' => $result['url']]);
-					\dash\notif::meta($result);
+					$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
+					\dash\notif::meta($result_pay);
 					\dash\notif::ok($msg);
 					return;
 				}
 				else
 				{
-					\dash\log::oops('generate_pay_error');
-					return false;
+					\dash\redirect::to($result_pay['url']);
 				}
+			}
+			else
+			{
+				\dash\log::oops('generate_pay_error');
+				return false;
 			}
 
 			// redirect to bank payment
@@ -253,23 +270,14 @@ class transfer
 				}
 			}
 
-
-			$insert_action =
+			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				'user_id'        => \dash\user::id(),
-				'status'         => 'enable', // 'enable', 'disable', 'deleted', 'expire'
-				'action'         => 'transfer', // 'register', 'renew', 'transfer', 'unlock', 'lock', 'changedns', 'updateholder', 'delete', 'expire'
-				'mode'           => 'manual', // 'auto', 'manual'
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
 				'price'          => $price,
-				'discount'       => $transaction_id,
-				'transaction_id' => null,
-				'datecreated'    => date("Y-m-d H:i:s"),
+				'transaction_id' => $transaction_id,
 			];
 
-			$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
+			\lib\app\nic_domainaction\action::set('transfer', $domain_action_detail);
 
 
 			\dash\notif::ok(T_("Your domain was transfered"));
@@ -296,6 +304,18 @@ class transfer
 				\dash\notif::error(T_("No way to insert data"));
 				return false;
 			}
+
+
+			$domain_action_detail =
+			[
+				'domain_id'      => $domain_id,
+				'price'          => $price,
+				'transaction_id' => $transaction_id,
+			];
+
+			\lib\app\nic_domainaction\action::set('transfer_faled', $domain_action_detail);
+
+
 
 			\dash\temp::set('domainHaveTransaction', true);
 

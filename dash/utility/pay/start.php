@@ -267,6 +267,7 @@ class start
 
 		$result = \dash\utility\pay\transactions::start($insert_transaction);
 
+
 		if(!$result)
 		{
 			return self::endCompile($_args);
@@ -294,8 +295,9 @@ class start
 
 					$detail =
 					[
-						'token' => $token,
-						'url'   => $url,
+						'token'          => $token,
+						'url'            => $url,
+						'transaction_id' => \dash\coding::encode($result),
 					];
 
 					return $detail;

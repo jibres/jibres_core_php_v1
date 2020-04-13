@@ -45,13 +45,13 @@ class action
 
 		// unique every domain every day
 
-		$load_old_action = \lib\db\nic_domainaction\get::caller_domain_user_id_date('ready_buy_domain', $_domain, \dash\user::id(), date("Y-m-d"));
+		$load_old_action = \lib\db\nic_domainaction\get::caller_domain_user_id_date('domain_buy_ready', $_domain, \dash\user::id(), date("Y-m-d"));
 		if(isset($load_old_action['id']))
 		{
 			return false;
 		}
 
-		return self::set('ready_buy_domain', ['domain' => $_domain]);
+		return self::set('domain_buy_ready', ['domain' => $_domain]);
 	}
 }
 ?>
