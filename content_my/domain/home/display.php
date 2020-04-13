@@ -24,6 +24,8 @@
      </div>
     </section>
 
+    <div id="chartdivdomain" class="box chart x210" data-hint='Domain Payments - from start'></div>
+
 
     <section class="f">
      <div class="c pRa10">
@@ -40,9 +42,16 @@
       </a>
      </div>
 
-     <div class="c">
+     <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/" class="stat x70">
        <h3><?php echo T_("Your Current Balance");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+
+     <div class="c">
+      <a href="<?php echo \dash\url::this() ?>/" class="stat x70">
+       <h3><?php echo T_("Predict Late Payments");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
