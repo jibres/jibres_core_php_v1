@@ -1,7 +1,30 @@
 <?php $myData = \dash\data::dashboardDetail(); ?>
 
  <div class="f">
-  <div class="c9 s12">
+  <div class="c9 s12 pRa10">
+
+    <section class="f">
+     <div class="c pRa10">
+      <a href="" class="stat">
+       <h3><?php echo T_("Bussiness");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::here() ?>/domain" class="stat">
+       <h3><?php echo T_("Domains");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+     <div class="c">
+      <a href="<?php echo \dash\url::here() ?>/search?" class="stat">
+       <h3><?php echo T_("Account Balance");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+    </section>
+
+
    <div class="f">
     <div class="c6">
 <?php
@@ -136,45 +159,17 @@ if($listStore_staff && is_array($listStore_staff))
      </li>
     </ul>
    </nav>
-  </div>
- </div>
-
-
-    <section class="f">
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search" class="stat">
-       <h3><?php echo T_("Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="stat">
-       <h3><?php echo T_("Account Balance");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-     <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="stat">
-       <h3><?php echo T_("Inter");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-    </section>
 
    <nav class="items">
     <ul>
      <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/domain">
-       <div class="key"><?php echo T_('Domain Center');?></div>
-       <div class="value">8</div>
-       <div class="go"></div>
-      </a>
-     </li>
-     <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/domain/buy">
-       <div class="key"><?php echo T_('Buy New Domain');?></div>
-       <div class="go"></div>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/billing">
+       <div class="key"><?php echo T_('Add First Money');?></div>
+       <div class="go nok times"></div>
       </a>
      </li>
     </ul>
    </nav>
+
+  </div>
+ </div>
