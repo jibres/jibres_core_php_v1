@@ -130,6 +130,15 @@ class transactions
 
 
 
+	public static function load_multi_id($_ids)
+	{
+		$query = "SELECT * FROM transactions WHERE transactions.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 	/**
 	 * get the transaction record
 	 *
