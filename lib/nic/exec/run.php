@@ -24,6 +24,7 @@ class run
 			'client_id'     => $tracking_number,
 			'nic_id'        => $_nic_id,
 			'domain'        => $_domain,
+			'ip'            => \dash\server::ip(true),
 		];
 
 		$allow_request = self::allow_request($_type);
