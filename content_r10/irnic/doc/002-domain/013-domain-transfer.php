@@ -82,7 +82,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Resister holder"); ?></span>
+               <span><?php echo T_("Register holder"); ?></span>
                <br>
                <i><code>ex66-irnic</code></i>
 

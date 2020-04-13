@@ -81,7 +81,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Resister holder"); ?></span>
+               <span><?php echo T_("Register holder"); ?></span>
                <br>
                <i><code>ex66-irnic</code></i>
 
@@ -99,7 +99,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Resister admin"); ?></span>
+               <span><?php echo T_("Register admin"); ?></span>
                <br>
                <i><code>ex66-irnic</code></i>
                 <div><?php echo T_("Leave null to read from nic_id"); ?></div>
@@ -116,7 +116,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Resister technical"); ?></span>
+               <span><?php echo T_("Register technical"); ?></span>
                <br>
                <i><code>ex66-irnic</code></i>
                 <div><?php echo T_("Leave null to read from nic_id"); ?></div>
@@ -132,7 +132,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Resister billing"); ?></span>
+               <span><?php echo T_("Register billing"); ?></span>
                <br>
                <i><code>ex66-irnic</code></i>
                 <div><?php echo T_("Leave null to read from nic_id"); ?></div>
