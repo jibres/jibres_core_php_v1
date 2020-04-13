@@ -67,14 +67,14 @@ class fit{
 
 		if(!is_numeric($number))
 		{
-			return null;
+			return '-';
 		}
 
 		$result = null;
 
 		$number = floatval($number);
 
-		if($number < 1000)
+		if($number < 100000)
 		{
 			$result = self::number($number);
 		}
@@ -86,12 +86,12 @@ class fit{
 		elseif($number < 1000000000)
 		{
 			$k = round($number / 1000000, 2);
-			$result = self::text($k). ' Mi';
+			$result = self::text($k). ' M';
 		}
 		else
 		{
 			$k = round($number / 1000000000, 2);
-			$result = self::text($k). ' Bi';
+			$result = self::text($k). ' B';
 		}
 
 		return $result;
