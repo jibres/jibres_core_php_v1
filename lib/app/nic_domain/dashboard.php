@@ -54,6 +54,22 @@ class dashboard
 		$result['domain_deactive'] = intval(\lib\db\nic_domain\get::my_deactive_count($user_id));
 		$result['domain_all']      = intval($result['domain_deactive'] + $result['domain_active']);
 
+		$count_autorenew = intval(\lib\db\nic_domain\get::my_autorenew_count($user_id));
+		$count_lock = intval(\lib\db\nic_domain\get::my_lock_count($user_id));
+
+		$my_all = $result['domain_all'];
+		if(!$my_all)
+		{
+			$my_all = 1;
+		}
+
+
+		$result['domain_autorenew_percent'] =	round($count_autorenew * 100 / $my_all);
+		$result['domain_lock_percent']      =	round($count_lock * 100 / $my_all);
+		$result['domain_active_percent']      =	round($result['domain_active'] * 100 / $my_all);
+
+
+
 
 
 		// var_dump($result);exit();

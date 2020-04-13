@@ -30,44 +30,26 @@
     <div id="chartdivdomain" class="box chart x260" data-hint='Domain Payments - from start - group by month'></div>
 
 
+
+
     <section class="f s0">
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent = 75; ?>
-       <div class="circularChart">
-          <svg viewBox="0 0 36 36" class="circular-chart green">
-            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-            <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-            <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
-          </svg>
-       </div>
+       <?php $myPercent=\dash\get::index($myData, 'domain_autorenew_percent');$myColor='green';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain with Auto Renew");?></h3>
       </a>
      </div>
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent = 25; ?>
-       <div class="circularChart">
-          <svg viewBox="0 0 36 36" class="circular-chart orange">
-            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-            <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-            <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
-          </svg>
-       </div>
+       <?php $myPercent=\dash\get::index($myData, 'domain_lock_percent');$myColor='red';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain Locked");?></h3>
       </a>
      </div>
+
      <div class="c">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent = 69; ?>
-       <div class="circularChart">
-          <svg viewBox="0 0 36 36" class="circular-chart blue">
-            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-            <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-            <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
-          </svg>
-       </div>
-       <h3><?php echo T_("Domain with Auto Renew");?></h3>
+       <?php $myPercent=\dash\get::index($myData, 'domain_active_percent');$myColor='orange';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Active domain");?></h3>
       </a>
      </div>
    </section>
