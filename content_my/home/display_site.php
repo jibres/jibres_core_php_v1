@@ -62,6 +62,13 @@ if($listStore_staff && is_array($listStore_staff))
 
 
   <div class="c3 s12">
+
+   <section class="circularChartBox">
+    <?php $myPercent2=40;$myColor2='blue';include core.'\layout\elements\circularChart.php';?>
+    <h3><?php echo T_("Profile Status");?></h3>
+   </section>
+
+
    <nav class="items">
     <ul>
      <li>
@@ -103,3 +110,4 @@ if($listStore_staff && is_array($listStore_staff))
       </a>
      </div>
     </section>
+
