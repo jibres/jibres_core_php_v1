@@ -72,6 +72,13 @@ class edit
 		if($isdefault)
 		{
 			\lib\db\nic_dns\update::remove_old_default(\dash\user::id());
+
+			// $domain_action_detail =
+			// [
+			// 	'detail' => json_encode($data, JSON_UNESCAPED_UNICODE),
+			// ];
+
+			// \lib\app\nic_domainaction\action::set('dns_default_set', $domain_action_detail);
 		}
 
 		$update =

@@ -127,7 +127,7 @@ class detect
 
 
 
-	public static function set($_domain, $_type, $_meta = null)
+	public static function set($_domain, $_type, $_meta = [])
 	{
 
 		if(!$_domain)
@@ -276,6 +276,15 @@ class detect
 		}
 		else
 		{
+			if(!is_array($_detail))
+			{
+				$_detail = [];
+			}
+			if(!is_array($_meta))
+			{
+				$_meta = [];
+			}
+
 			$args = array_merge($_detail, $_meta);
 			$args = array_map('mb_strtolower', $args);
 

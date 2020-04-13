@@ -218,6 +218,19 @@ class search
 							$list[$key]['icon']    = '<i class="sf-info fc-red"></i>';
 							break;
 
+						case 'nic_contact_default_set':
+							$list[$key]['taction'] = T_("Change default IRNIC handle");
+							$list[$key]['class']   = '';
+							$list[$key]['icon']    = '<i class="sf-info fc-blue"></i>';
+							break;
+
+						case 'dns_default_set':
+							$list[$key]['taction'] = T_("Change default DNS");
+							$list[$key]['class']   = '';
+							$list[$key]['icon']    = '<i class="sf-info fc-blue"></i>';
+							break;
+
+
 						case 'delete':
 						case 'expire':
 						default:

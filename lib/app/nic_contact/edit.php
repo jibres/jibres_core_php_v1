@@ -116,6 +116,15 @@ class edit
 		if($data['isdefault'])
 		{
 			\lib\db\nic_contact\update::remove_old_default(\dash\user::id());
+
+			// $nic_id = isset($load['nic_id']) ? $load['nic_id'] : null;
+
+			// $domain_action_detail =
+			// [
+			// 	'detail' => json_encode(['nicid' => $nic_id], JSON_UNESCAPED_UNICODE),
+			// ];
+
+			// \lib\app\nic_domainaction\action::set('nic_contact_default_set', $domain_action_detail);
 		}
 
 		$update = \dash\cleanse::patch_mode($_args, $data);

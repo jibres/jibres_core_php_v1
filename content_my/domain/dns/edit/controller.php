@@ -16,7 +16,7 @@ class controller
 		}
 		else
 		{
-			$detail = \lib\app\nic_contact\get::load();
+			$detail = \lib\app\nic_dns\get::load();
 		}
 
 		if(!$detail)
