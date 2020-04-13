@@ -99,7 +99,6 @@ class renew
 			'domain_id'      => $domain_id,
 		];
 
-		\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
 
 		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
 
@@ -166,6 +165,7 @@ class renew
 		// 	return false;
 		// }
 
+		\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
 
 		$user_budget = \dash\user::budget();
 
