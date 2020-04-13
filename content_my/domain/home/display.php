@@ -27,36 +27,6 @@
     <div id="chartdivdomain" class="box chart x260" data-hint='Domain Payments - from start - group by month'></div>
 
 
-    <section class="f">
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/payments" class="stat x70">
-       <h3><?php echo T_("Total Payments");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat x70">
-       <h3><?php echo T_("Last Year Payments");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat x70">
-       <h3><?php echo T_("Your Current Balance");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-
-     <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/predict" class="stat x70">
-       <h3><?php echo T_("Predict Late Payments");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
-      </a>
-     </div>
-    </section>
-
     <section class="f s0">
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
@@ -75,7 +45,7 @@
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
        <?php $myPercent = 25; ?>
        <div class="circularChart">
-          <svg viewBox="0 0 36 36" class="circular-chart green">
+          <svg viewBox="0 0 36 36" class="circular-chart orange">
             <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
             <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
             <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
@@ -88,7 +58,7 @@
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
        <?php $myPercent = 69; ?>
        <div class="circularChart">
-          <svg viewBox="0 0 36 36" class="circular-chart green">
+          <svg viewBox="0 0 36 36" class="circular-chart blue">
             <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
             <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
             <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
@@ -98,6 +68,37 @@
       </a>
      </div>
    </section>
+
+
+    <section class="f">
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
+       <h3><?php echo T_("Total Payments");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
+       <h3><?php echo T_("Last Year Payments");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat">
+       <h3><?php echo T_("Your Current Balance");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+
+     <div class="c">
+      <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
+       <h3><?php echo T_("Predict Late Payments");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+    </section>
 
    </div>
 
@@ -189,6 +190,11 @@
        <a class="f" target="_blank" href="<?php echo \dash\url::api('core');?>/r10/irnic/doc">
         <div class="key"><?php echo T_('Doamin API');?></div>
         <div class="go"></div>
+       </a>
+      </li>
+      <li>
+       <a class="f" >
+        <div class="key"><?php echo T_('Build for Developers ;)');?></div>
        </a>
       </li>
      </ul>
