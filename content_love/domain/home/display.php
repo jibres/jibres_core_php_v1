@@ -2,7 +2,7 @@
 $myData = \dash\data::dashboardDetail();
 ?>
 
-<div class="f">
+<section class="f">
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Sale Count - Today");?></h3>
@@ -33,9 +33,9 @@ $myData = \dash\data::dashboardDetail();
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_total'));?></div>
     </a>
   </div>
-</div>
+</section>
 
-<div class="f">
+<section class="f">
   <div class="c9 s12 pRa10">
     <div id="chartdivdomain" class="box chart x210" data-hint1='Domain buy & renew & transfer & whois & total buy in lasy 30 days'></div>
   </div>
@@ -49,12 +49,12 @@ $myData = \dash\data::dashboardDetail();
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_log'));?></div>
     </a>
   </div>
-</div>
+</section>
 
 
 
 
-<div class="f">
+<section class="f">
   <div class="c3 s6 pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Total Domain Buy");?></h3>
@@ -79,7 +79,7 @@ $myData = \dash\data::dashboardDetail();
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_whois'));?></div>
     </a>
   </div>
-</div>
+</section>
 
 
 <div id="chartdiv" class="box chart x200" data-hint2='All API request in 10 last days'></div>
