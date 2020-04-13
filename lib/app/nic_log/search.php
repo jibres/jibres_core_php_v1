@@ -34,6 +34,7 @@ class search
 			'sort'        => ['enum' => ['id', 'type',]],
 			'type'        => 'string_50',
 			'result_code' => 'number',
+			'user_id'     => 'code',
 		];
 
 		$require = [];
@@ -74,6 +75,15 @@ class search
 
 			$and[]                      = " log.result_code = '$data[result_code]' ";
 			self::$filter_args[T_("Result code")] = $data['result_code'];
+			self::$is_filtered          = true;
+
+		}
+
+		if($data['user_id'])
+		{
+			$user_id = \dash\coding::decode($data['user_id']);
+			$and[]                      = " log.user_id = '$user_id' ";
+			self::$filter_args[T_("User")] = $data['user_id'];
 			self::$is_filtered          = true;
 
 		}
@@ -125,14 +135,14 @@ class search
 
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\nic_log\\ready', 'row'], $list);
 		}
 		else
 		{
 			$list = [];
 		}
 
-		$users_id = array_column($list, 'user_id');
+		$users_id = array_column($list, 'user_id_raw');
 		$users_id = array_filter($users_id);
 		$users_id = array_unique($users_id);
 
@@ -144,9 +154,9 @@ class search
 				$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
 				foreach ($list as $key => $value)
 				{
-					if(isset($value['user_id']) && $value['user_id'] && isset($load_some_user[$value['user_id']]))
+					if(isset($value['user_id_raw']) && $value['user_id_raw'] && isset($load_some_user[$value['user_id_raw']]))
 					{
-						$user_detail = $load_some_user[$value['user_id']];
+						$user_detail = $load_some_user[$value['user_id_raw']];
 						$user_detail = \dash\app\user::ready($user_detail);
 						$list[$key]['user_detail'] = $user_detail;
 					}

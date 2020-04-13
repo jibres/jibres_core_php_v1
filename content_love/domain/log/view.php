@@ -19,6 +19,7 @@ class view
 			'sort'   => \dash\request::get('sort'),
 			'type'  => \dash\request::get('type'),
 			'result_code'  => \dash\request::get('result_code'),
+			'user_id'  => \dash\request::get('user'),
 			// 'holder' => \dash\request::get('holder'),
 			// 'tech'   => \dash\request::get('tech'),
 			// 'bill'   => \dash\request::get('bill'),
