@@ -6,7 +6,7 @@
 <?php } //endif ?>
 
 <div class="cbox pA0">
-    <div class="chart x4" id='usageChart'></div>
+    <div class="chart x400" id='usageChart'></div>
 </div>
 
 <div class="f">
