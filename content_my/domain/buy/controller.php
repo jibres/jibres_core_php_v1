@@ -33,6 +33,7 @@ class controller
 
 			if($domain)
 			{
+
 				if(\lib\nic\mode::api())
 				{
 					$get_api = new \lib\nic\api();
@@ -40,6 +41,7 @@ class controller
 				}
 				else
 				{
+					\lib\app\nic_domainaction\action::set('ready_to_buy_domain', ['domain' => $domain]);
 					$check = \lib\app\nic_domain\check::check($domain);
 				}
 
