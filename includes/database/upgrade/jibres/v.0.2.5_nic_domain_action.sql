@@ -20,3 +20,35 @@ CONSTRAINT `domainbilling_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domai
 ALTER TABLE jibres_nic.domainaction ADD `category` VARCHAR(200) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domainaction ADD `domainname` VARCHAR(300) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domainaction CHANGE `action` `action` VARCHAR(200) NULL DEFAULT NULL;
+
+
+
+INSERT INTO jibres_nic.domainbilling
+(`id`,
+`domain_id`,
+`user_id`,
+`action`,
+`status`,
+`mode`,
+`detail`,
+`date`,
+`price`,
+`discount`,
+`transaction_id`,
+`datecreated`)
+SELECT
+jibres_nic.domainaction.id,
+jibres_nic.domainaction.domain_id,
+jibres_nic.domainaction.user_id,
+jibres_nic.domainaction.action,
+jibres_nic.domainaction.status,
+jibres_nic.domainaction.mode,
+jibres_nic.domainaction.detail,
+jibres_nic.domainaction.date,
+jibres_nic.domainaction.price,
+jibres_nic.domainaction.discount,
+jibres_nic.domainaction.transaction_id,
+jibres_nic.domainaction.datecreated
+FROM
+jibres_nic.domainaction
+WHERE jibres_nic.domainaction.transaction_id IS NOT NULL;
