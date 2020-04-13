@@ -666,6 +666,11 @@ class url
 		}
 	}
 
+	public static function api($_apiType = 'api')
+	{
+		return self::set_subdomain($_apiType);
+	}
+
 
 	/**
 	 * get value from url variable
