@@ -139,6 +139,8 @@ class renew
 			\dash\temp::set('ji128-irnic-not-allow', true);
 			$msg = T_("We can not renew this domain because the bill holder of IRNIC can not access to renew");
 			$msg .= '<br>';
+			$msg .= T_("If you are administrator of this domain Your must go to nic.ir and set billing holder of this domain on 'ji128-irnic' ");
+			$msg .= '<br>';
 			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
 
 			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
