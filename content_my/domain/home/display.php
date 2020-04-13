@@ -24,7 +24,7 @@
      </div>
     </section>
 
-    <div id="chartdivdomain" class="box chart x210" data-hint='Domain Payments - from start'></div>
+    <div id="chartdivdomain" class="box chart x210" data-hint='Domain Payments - from start - group by month'></div>
 
 
     <section class="f">
@@ -121,7 +121,7 @@
        </a>
       </li>
       <li>
-       <a class="f" href="<?php echo \dash\url::this();?>/logs">
+       <a class="f" href="<?php echo \dash\url::this();?>/history">
         <div class="key"><?php echo T_('Last Activities');?></div>
         <div class="go"></div>
        </a>
