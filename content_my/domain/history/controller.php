@@ -1,5 +1,5 @@
 <?php
-namespace content_my\domain\action;
+namespace content_my\domain\history;
 
 
 class controller
