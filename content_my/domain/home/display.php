@@ -109,6 +109,12 @@
         <div class="go"></div>
        </a>
       </li>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/setting">
+        <div class="key"><?php echo T_('Settings');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
      </ul>
     </nav>
 
@@ -129,6 +135,16 @@
      </ul>
     </nav>
 
+    <nav class="items">
+     <ul>
+      <li>
+       <a class="f" target="_blank" href="<?php echo \dash\url::api('core');?>/r10/irnic/doc">
+        <div class="key"><?php echo T_('Doamin API');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+     </ul>
+    </nav>
    </div>
   </div>
 

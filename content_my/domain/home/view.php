@@ -12,8 +12,9 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
-		\dash\data::action_text(T_('NIC Notification'));
-		\dash\data::action_link(\dash\url::this(). '/poll');
+		\dash\data::action_text(T_('Buy your dream domain'));
+		\dash\data::action_icon('plus');
+		\dash\data::action_link(\dash\url::this(). '/buy');
 
 		\dash\face::btnImport(\dash\url::this().'/import');
 		// \dash\face::btnExport(\dash\url::this().'/export');
