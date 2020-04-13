@@ -24,16 +24,25 @@
      </div>
     </section>
 
+
     <section class="f">
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="stat x70">
-       <h3><?php echo T_("");?></h3>
+      <a href="<?php echo \dash\url::this() ?>/payments" class="stat x70">
+       <h3><?php echo T_("Total Payments");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
-     <div class="c3 s12">
+
+     <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?" class="stat x70">
-       <h3><?php echo T_("Sale Count - Total");?></h3>
+       <h3><?php echo T_("Last Year Payments");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+      </a>
+     </div>
+
+     <div class="c">
+      <a href="<?php echo \dash\url::this() ?>/" class="stat x70">
+       <h3><?php echo T_("Your Current Balance");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
@@ -93,6 +102,24 @@
       </li>
      </ul>
     </nav>
+
+    <nav class="items">
+     <ul>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/payments">
+        <div class="key"><?php echo T_('Payments History');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/logs">
+        <div class="key"><?php echo T_('Last Activities');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+     </ul>
+    </nav>
+
    </div>
   </div>
 
