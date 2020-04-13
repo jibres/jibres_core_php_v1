@@ -57,22 +57,43 @@
      </div>
     </section>
 
-    <section class="f">
+    <section class="f s0">
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circleChartBox">
-       <div class="circleChart" data-percent='70'></div>
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+       <?php $myPercent = 75; ?>
+       <div class="circularChart">
+          <svg viewBox="0 0 36 36" class="circular-chart green">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
+          </svg>
+       </div>
        <h3><?php echo T_("Domain with Auto Renew");?></h3>
       </a>
      </div>
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circleChartBox">
-       <div class="circleChart" data-percent='20'></div>
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+       <?php $myPercent = 25; ?>
+       <div class="circularChart">
+          <svg viewBox="0 0 36 36" class="circular-chart green">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
+          </svg>
+       </div>
        <h3><?php echo T_("Domain Locked");?></h3>
       </a>
      </div>
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circleChartBox">
-       <div class="circleChart" data-percent='94'></div>
+     <div class="c">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+       <?php $myPercent = 69; ?>
+       <div class="circularChart">
+          <svg viewBox="0 0 36 36" class="circular-chart green">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text>
+          </svg>
+       </div>
        <h3><?php echo T_("Domain with Auto Renew");?></h3>
       </a>
      </div>
