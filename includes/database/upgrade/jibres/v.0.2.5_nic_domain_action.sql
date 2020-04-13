@@ -18,4 +18,5 @@ CONSTRAINT `domainbilling_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domai
 
 
 ALTER TABLE jibres_nic.domainaction ADD `category` VARCHAR(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domainaction ADD `domainname` VARCHAR(300) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domainaction CHANGE `action` `action` VARCHAR(200) NULL DEFAULT NULL;
