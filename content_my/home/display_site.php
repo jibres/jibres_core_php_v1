@@ -113,6 +113,12 @@ if($listStore_staff && is_array($listStore_staff))
       </a>
      </li>
      <li>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/profile">
+       <div class="key"><?php echo T_('Birthday');?></div>
+       <div class="go times nok"></div>
+      </a>
+     </li>
+     <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/avatar">
        <div class="key"><?php echo T_('Avatar');?></div>
        <div class="go check ok"></div>
