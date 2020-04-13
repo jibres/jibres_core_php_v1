@@ -24,7 +24,7 @@
      </div>
     </section>
 
-    <div id="chartdivdomain" class="box chart x210" data-hint='Domain Payments - from start - group by month'></div>
+    <div id="chartdivdomain" class="box chart x260" data-hint='Domain Payments - from start - group by month'></div>
 
 
     <section class="f">
