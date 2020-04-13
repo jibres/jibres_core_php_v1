@@ -146,25 +146,31 @@ class search
 		$users_id = array_filter($users_id);
 		$users_id = array_unique($users_id);
 
+		$load_some_user = [];
+
 		if($users_id)
 		{
 			$load_some_user = \dash\db\users\get::by_multi_id(implode(',', $users_id));
-			if(is_array($load_some_user))
+
+			if(!is_array($load_some_user))
 			{
-				$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
-				foreach ($list as $key => $value)
-				{
-					if(isset($value['user_id_raw']) && $value['user_id_raw'] && isset($load_some_user[$value['user_id_raw']]))
-					{
-						$user_detail = $load_some_user[$value['user_id_raw']];
-						$user_detail = \dash\app\user::ready($user_detail);
-						$list[$key]['user_detail'] = $user_detail;
-					}
-					else
-					{
-						$list[$key]['user_detail'] = [];
-					}
-				}
+					$load_some_user = [];
+			}
+
+			$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
+		}
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['user_id_raw']) && $value['user_id_raw'] && isset($load_some_user[$value['user_id_raw']]))
+			{
+				$user_detail = $load_some_user[$value['user_id_raw']];
+				$user_detail = \dash\app\user::ready($user_detail);
+				$list[$key]['user_detail'] = $user_detail;
+			}
+			else
+			{
+				$list[$key]['user_detail'] = \dash\app::fix_avatar([]);
 			}
 		}
 

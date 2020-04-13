@@ -137,6 +137,12 @@ class app
 			$_data['gender'] = null;
 		}
 
+		if(!isset($_data['displayname']))
+		{
+			$_data['displayname'] = null;
+		}
+
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
@@ -160,6 +166,15 @@ class app
 						$result['genderString']  = null;
 					}
 					break;
+
+				case 'displayname':
+					if(!$value && $value != '0')
+					{
+						$value = T_("Whitout name");
+					}
+					$result[$key] = $value;
+					break;
+
 
 				case 'avatar':
 					if($value)
