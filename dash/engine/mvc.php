@@ -277,7 +277,15 @@ class mvc
 
 			if(!$nativeTemplate)
 			{
-				\dash\header::status(206, "Without display");
+				if(\dash\engine\content::api_content())
+				{
+					// in api contenct not allow this method
+					\dash\header::status(405);
+				}
+				else
+				{
+					\dash\header::status(206, "Without display");
+				}
 				return false;
 			}
 		}
