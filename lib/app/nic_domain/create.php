@@ -356,9 +356,9 @@ class create
 			// go to bank
 			$meta =
 			[
-				'msg_go'        => null,
+				'msg_go'        => T_("Buy :domain For :year year by IRNIC handle :nic_id", ['domain' => $domain, 'year' => \dash\fit::number(round($period_month / 12)), 'nic_id' => $nic_id]),
 				'auto_go'       => false,
-				'auto_back'       => true,
+				'auto_back'     => true,
 				'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),

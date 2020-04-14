@@ -153,9 +153,9 @@ class transfer
 			// go to bank
 			$meta =
 			[
-				'msg_go'        => null,
+				'msg_go'        => T_("Transfer :domain", ['domain' => $domain]),
 				'auto_go'       => false,
-				'auto_back'       => true,
+				'auto_back'     => true,
 				'turn_back'     => \dash\url::kingdom(). '/my/domain',
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
