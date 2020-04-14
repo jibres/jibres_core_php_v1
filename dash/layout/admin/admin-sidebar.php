@@ -124,12 +124,12 @@ if(\dash\url::subdomain() === 'developers')
   {
     require_once ('sidebar/sidebar-api-v2.php');
   }
+  elseif(\dash\url::directory() === 'docs/irnic/r10')
+  {
+    require_once ('sidebar/sidebar-api-domain.php');
+  }
 }
 
-if(\dash\url::content() === 'r10' && \dash\url::module() === 'irnic')
-{
-  require_once ('sidebar/sidebar-api-domain.php');
-}
 
 if(\dash\url::content() === 'm')
 {
