@@ -103,12 +103,8 @@ class edit
 		\lib\app\domains\detect::dns($ns4);
 
 
-
-
 		$args                        = [];
 		$update_domian_record        = [];
-		$args_new_dns                = [];
-		$new_dns                     = false;
 		$update_holder               = false;
 		$update_holder_detail        = [];
 		$update_holder_detail['old'] = [];
@@ -116,59 +112,48 @@ class edit
 
 		if($_type == 'dns')
 		{
-
-			// if(!$ns1 || !$ns2)
-			// {
-			// 	\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
-			// 	return false;
-			// }
-
 			if($load_domain['ns1'] != $ns1)
 			{
 				$args['old_ns1']     = $load_domain['ns1'];
 				$args['new_ns1']     = $ns1;
-				$args_new_dns['ns1'] = $ns1;
-				$new_dns             = true;
+				$update_domian_record['ns1'] = $ns1;
 			}
 			else
 			{
-				$args_new_dns['ns1'] = $load_domain['ns1'];
+				$update_domian_record['ns1'] = $load_domain['ns1'];
 			}
 
 			if($load_domain['ns2'] != $ns2)
 			{
 				$args['old_ns2']     = $load_domain['ns2'];
 				$args['new_ns2']     = $ns2;
-				$args_new_dns['ns2'] = $ns2;
-				$new_dns             = true;
+				$update_domian_record['ns2'] = $ns2;
 			}
 			else
 			{
-				$args_new_dns['ns2'] = $load_domain['ns2'];
+				$update_domian_record['ns2'] = $load_domain['ns2'];
 			}
 
 			if($load_domain['ns3'] != $ns3)
 			{
 				$args['old_ns3']     = $load_domain['ns3'];
 				$args['new_ns3']     = $ns3;
-				$args_new_dns['ns3'] = $ns3;
-				$new_dns             = true;
+				$update_domian_record['ns3'] = $ns3;
 			}
 			else
 			{
-				$args_new_dns['ns3'] = $load_domain['ns3'];
+				$update_domian_record['ns3'] = $load_domain['ns3'];
 			}
 
 			if($load_domain['ns4'] != $ns4)
 			{
 				$args['old_ns4']     = $load_domain['ns4'];
 				$args['new_ns4']     = $ns4;
-				$args_new_dns['ns4'] = $ns4;
-				$new_dns             = true;
+				$update_domian_record['ns4'] = $ns4;
 			}
 			else
 			{
-				$args_new_dns['ns4'] = $load_domain['ns4'];
+				$update_domian_record['ns4'] = $load_domain['ns4'];
 			}
 
 
@@ -178,12 +163,11 @@ class edit
 			{
 				$args['old_ip1']     = $load_domain['ip1'];
 				$args['new_ip1']     = $ip1;
-				$args_new_dns['ip1'] = $ip1;
-				$new_dns             = true;
+				$update_domian_record['ip1'] = $ip1;
 			}
 			else
 			{
-				$args_new_dns['ip1'] = $load_domain['ip1'];
+				$update_domian_record['ip1'] = $load_domain['ip1'];
 			}
 
 
@@ -191,12 +175,11 @@ class edit
 			{
 				$args['old_ip2']     = $load_domain['ip2'];
 				$args['new_ip2']     = $ip2;
-				$args_new_dns['ip2'] = $ip2;
-				$new_dns             = true;
+				$update_domian_record['ip2'] = $ip2;
 			}
 			else
 			{
-				$args_new_dns['ip2'] = $load_domain['ip2'];
+				$update_domian_record['ip2'] = $load_domain['ip2'];
 			}
 
 
@@ -204,12 +187,11 @@ class edit
 			{
 				$args['old_ip3']     = $load_domain['ip3'];
 				$args['new_ip3']     = $ip3;
-				$args_new_dns['ip3'] = $ip3;
-				$new_dns             = true;
+				$update_domian_record['ip3'] = $ip3;
 			}
 			else
 			{
-				$args_new_dns['ip3'] = $load_domain['ip3'];
+				$update_domian_record['ip3'] = $load_domain['ip3'];
 			}
 
 
@@ -217,12 +199,11 @@ class edit
 			{
 				$args['old_ip4']     = $load_domain['ip4'];
 				$args['new_ip4']     = $ip4;
-				$args_new_dns['ip4'] = $ip4;
-				$new_dns             = true;
+				$update_domian_record['ip4'] = $ip4;
 			}
 			else
 			{
-				$args_new_dns['ip4'] = $load_domain['ip4'];
+				$update_domian_record['ip4'] = $load_domain['ip4'];
 			}
 
 		}
@@ -265,8 +246,6 @@ class edit
 				$update_holder_detail['new']['bill'] = $bill;
 				$update_holder                       = true;
 			}
-
-
 		}
 
 		if(empty($args))
@@ -284,16 +263,6 @@ class edit
 			return false;
 		}
 
-		if($new_dns)
-		{
-			$dns_id = \lib\app\nic_dns\add::new_record($args_new_dns);
-			if(!$dns_id)
-			{
-				return false;
-			}
-
-			$update_domian_record['dns'] = $dns_id;
-		}
 
 		if(!empty($update_domian_record))
 		{
@@ -317,7 +286,6 @@ class edit
 				$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert_action);
 			}
 
-			if($new_dns)
 			{
 				$update_dns_detail        = [];
 				$update_dns_detail['old'] = [];
