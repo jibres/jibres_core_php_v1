@@ -38,6 +38,7 @@
       <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_datemodified()); ?></td>
      </tr>
 <?php }?>
+<?php if(\dash\data::domainDetail_verify()) {?>
      <tr>
       <th><?php echo T_('Transfer lock') ?> <a class="mLa5 hide" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Manage'); ?></a></th>
       <td class="txtRa"><div class="ibtn wide"><?php
@@ -56,6 +57,7 @@ else
 }
 ?></div></td>
      </tr>
+<?php } //endif ?>
      <tr>
       <th><?php echo T_('Auto Renew');
 if(\dash\data::domainDetail_autorenew())
