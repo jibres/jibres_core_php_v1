@@ -22,7 +22,7 @@ class controller
 		// replace core form content to subdomain
 		if($subdomain === null)
 		{
-			$newCoreAddress = \dash\url::set_subdomain('core');
+			$newCoreAddress = \dash\url::api('core');
 
 			if(\dash\url::path())
 			{

@@ -31,7 +31,7 @@ class controller
 		// replace api form content to subdomain
 		if($subdomain === null)
 		{
-			$newCoreAddress = \dash\url::set_subdomain('api');
+			$newCoreAddress = \dash\url::api('api');
 
 			if(\dash\url::path())
 			{
