@@ -101,37 +101,42 @@ class find
 
 	public static function footer()
 	{
-		$myPage = null;
-		if (\dash\detect\device::detectPWA())
-		{
-			$myPage = core.'layout/pwa/pwa-footer.php';
-		}
-		else
-		{
-			if(\dash\url::content() === 'enter')
-			{
-				// do nothing
-			}
-			elseif(\dash\engine\content::get() === 'content_subdomain')
-			{
-				// do nothing
-			}
-			elseif(\dash\url::content() === null)
-			{
-				$myPage = root.'content/home/layout/footer.php';
-			}
-			elseif(\dash\data::include_adminPanel())
-			{
-				// do nothing
-				// $myPage = core.'layout/admin/admin-footer.php';
-			}
+		$myFooter = \dash\layout\func::page_footer();
 
+		// set header for some scenario
+		// if we dont have header
+		// and we are not in api content
+		if($myFooter === null && !\dash\engine\content::api_content())
+		{
+			if (\dash\detect\device::detectPWA())
+			{
+				// if is not set, on pwa force add
+				$myFooter = core.'layout/pwa/pwa-footer.php';
+			}
+			else
+			{
+				if(\dash\engine\content::get() === 'content')
+				{
+					// jibres homepage webiste
+					$myFooter = root.'content/home/layout/footer.php';
+				}
+				elseif(\dash\data::include_adminPanel())
+				{
+					// admin panels
+					$myFooter = core.'layout/admin/admin-footer.php';
+				}
+				elseif(\dash\engine\content::get() === 'content_subdomain')
+				{
+					// subdomain of stores
+					$myFooter = root.'content_subdomain/home/layout/footer.php';
+				}
+			}
 		}
 
 		echo "\n  <footer id='pageFooter' data-xhr='pageFooter'>";
-		if($myPage)
+		if($myFooter)
 		{
-			require_once $myPage;
+			require_once $myFooter;
 		}
 		echo "</footer>";
 	}
