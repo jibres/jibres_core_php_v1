@@ -20,7 +20,6 @@ class content
 			'crm',
 			'dashboard',
 			'account',
-			'api',
 			'r10',
 			'v2',
 			'n',
