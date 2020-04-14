@@ -133,31 +133,10 @@ class find
 
 	public static function sidebar()
 	{
-		$myPage = null;
-		if (\dash\detect\device::detectPWA())
-		{
-			// $myPage = core.'layout/pwa/pwa-sidebar.php';
-		}
-		else
-		{
-			if(\dash\url::content() === 'enter')
-			{
-				// do nothing
-			}
-			elseif(\dash\url::content() === null)
-			{
-				// do nothing
-			}
-			elseif(\dash\data::include_adminPanel())
-			{
-				$myPage = core.'layout/admin/admin-sidebar.php';
-			}
-		}
-
 		echo "\n <aside id='sidebar' data-xhr='sidebar'>";
-		if($myPage)
+		if(\dash\data::include_adminPanel())
 		{
-			require_once $myPage;
+			require_once core.'layout/admin/admin-sidebar.php';
 			echo "\n";
 		}
 		echo "</aside>";
