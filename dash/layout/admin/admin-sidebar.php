@@ -77,7 +77,10 @@ else
 
 <?php if(\dash\permission::supervisor()) {?>
 
-  <li><a href="<?php echo \dash\url::sitelang(); ?>/management" <?php if(\dash\url::content() === 'management') {?> class="activeContent"<?php }//endif ?> ><i class='sf-tools'></i> <span><?php echo T_("Jibres Managment"); ?></span></a></li>
+  <li>
+    <a href="<?php echo \dash\url::sitelang(); ?>/love" <?php if(\dash\url::content() === 'love') {?> class="activeContent"<?php }//endif ?> ><img src="<?php echo \dash\url::icon() ?>" class="avatar"> <span><?php echo T_("Jibres Managment"); ?></span>
+    </a>
+  </li>
 
   <li><a href="<?php echo \dash\url::sitelang(); ?>/su" <?php if(\dash\url::content() === 'su') {?> class="activeContent"<?php }//endif ?> data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-heartbeat'></i> <span><?php echo T_("Supervisor Panel"); ?></span></a></li>
   <?php
