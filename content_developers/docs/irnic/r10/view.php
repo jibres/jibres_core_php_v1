@@ -24,6 +24,7 @@ class view
 		$IRNICApiURL = \dash\url::protocol(). '://core.jibres.'. $tld. '/r10/irnic/';
 
 		\dash\data::IRNICApiURL($IRNICApiURL);
+		\dash\data::endPoint($IRNICApiURL);
 
 
 		$YourAPPKey    = 'YourAPPKey';
