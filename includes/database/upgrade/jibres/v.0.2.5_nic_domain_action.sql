@@ -107,6 +107,8 @@ CREATE TABLE IF NOT EXISTS jibres_nic.usersetting (
 `user_id` int(10) UNSIGNED NULL,
 
 `autorenewperiod` varchar(100) NULL DEFAULT NULL,
+`domainlifetime` varchar(100) NULL DEFAULT NULL,
+
 
 `notifsms` bit(1) NULL DEFAULT NULL,
 `notifemail` bit(1) NULL DEFAULT NULL,

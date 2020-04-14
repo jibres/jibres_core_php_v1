@@ -144,13 +144,7 @@
        </a>
       </li>
       <li>
-       <a class="f" href="<?php echo \dash\url::this();?>/dns">
-        <div class="key"><?php echo T_('DNS');?></div>
-        <div class="go"></div>
-       </a>
-      </li>
-      <li>
-       <a class="f" href="<?php echo \dash\url::this();?>/setting">
+       <a class="f" href="<?php echo \dash\url::this();?>/option">
         <div class="key"><?php echo T_('Settings');?></div>
         <div class="go"></div>
        </a>
