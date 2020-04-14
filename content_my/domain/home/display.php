@@ -2,6 +2,14 @@
 
 
 
+<?php if(\dash\data::paymentVerifyMsg()) {?>
+<div class="msg txtC <?php if(\dash\data::paymentVerifyMsgTrue()) {echo 'success';}else{ echo 'danger';}?>"><?php echo \dash\data::paymentVerifyMsg() ?></div>
+<?php } //endif ?>
+
+
+
+
+
 
   <div class="f">
    <div class="c9 s12 pRa10">
