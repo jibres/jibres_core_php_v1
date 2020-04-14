@@ -5,7 +5,10 @@ namespace dash\layout;
  */
 class func
 {
-	private static $DISPLAY = null;
+	private static $DISPLAY     = null;
+	private static $PAGE_HEADER = null;
+	private static $PAGE_MAIN   = null;
+	private static $PAGE_FOOTER = null;
 
 
 	public static function shoot()
@@ -56,6 +59,36 @@ class func
 	public static function display()
 	{
 		return self::$DISPLAY;
+	}
+
+
+	public static function page_header($_header = null)
+	{
+		if($_header !== null)
+		{
+			self::$PAGE_HEADER = $_header;
+		}
+		return self::$PAGE_HEADER;
+	}
+
+
+	public static function page_main($_main = null)
+	{
+		if($_main !== null)
+		{
+			self::$PAGE_MAIN = $_main;
+		}
+		return self::$PAGE_MAIN;
+	}
+
+
+	public static function page_footer($_footer = null)
+	{
+		if($_footer !== null)
+		{
+			self::$PAGE_FOOTER = $_footer;
+		}
+		return self::$PAGE_FOOTER;
 	}
 
 
