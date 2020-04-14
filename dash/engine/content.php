@@ -14,22 +14,23 @@ class content
 	{
 		$dash_contents =
 		[
-			'enter',
-			'su',
+			'a',
+			'account',
 			'cms',
 			'crm',
-			'dashboard',
-			'account',
-			'r10',
-			'v2',
-			'n',
-			'managment',
-			'p',
-			'pardakhtyar',
-			'pay',
-			'store',
-			'support',
+			'developers',
+			'enter',
 			'hook',
+			'love',
+			'my',
+			'n',
+			'p',
+			'pay',
+			'r10',
+			'su',
+			// 'subdomain',
+			'support',
+			'v2',
 		];
 
 		return $dash_contents;
