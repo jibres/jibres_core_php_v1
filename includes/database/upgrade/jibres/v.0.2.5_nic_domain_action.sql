@@ -54,3 +54,34 @@ jibres_nic.domainaction.datecreated
 FROM
 jibres_nic.domainaction
 WHERE jibres_nic.domainaction.transaction_id IS NOT NULL;
+
+
+
+
+ALTER TABLE jibres_nic_log.domainactivity ADD `holder` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `admin` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `tech` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `bill` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `nicstatus` text  NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `reseller` varchar(100)  NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `roid` varchar(100)  NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `dateregister` timestamp NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `dateexpire` timestamp NULL DEFAULT NULL;
+
+
+ALTER TABLE jibres_nic_log.domainactivity ADD `ns1` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `ns2` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `ns3` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domainactivity ADD `ns4` varchar(200) NULL DEFAULT NULL;
+
+
+
+ALTER TABLE jibres_nic_log.domains ADD `holder` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domains ADD `admin` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domains ADD `tech` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domains ADD `bill` varchar(30) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domains ADD `nicstatus` text  NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domains ADD `reseller` varchar(100)  NULL DEFAULT NULL;
+ALTER TABLE jibres_nic_log.domains ADD `roid` varchar(100)  NULL DEFAULT NULL;
+
+

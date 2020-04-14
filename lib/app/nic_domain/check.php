@@ -97,7 +97,7 @@ class check
 
 		$result = \lib\nic\exec\domain_info::info($_domain);
 
-		\lib\app\domains\detect::domain('info', $_domain, $result);
+		\lib\app\domains\detect::domain_info($_domain, $result);
 
 		if(!isset($result[$_domain]))
 		{

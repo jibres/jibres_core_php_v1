@@ -81,6 +81,34 @@ class detect
 	}
 
 
+	public static function domain_info($_domain, $_info)
+	{
+		$domain_info = [];
+		if(isset($_info[$_domain]))
+		{
+			$domain_info = $_info[$_domain];
+		}
+
+		$meta = [];
+
+		$meta['holder']       = isset($domain_info['holder'])	? $domain_info['holder'] 	: null;
+		$meta['admin']        = isset($domain_info['admin'])	? $domain_info['admin'] 	: null;
+		$meta['tech']         = isset($domain_info['tech'])	 	? $domain_info['tech'] 		: null;
+		$meta['bill']         = isset($domain_info['bill'])	 	? $domain_info['bill'] 		: null;
+		$meta['nicstatus']    = isset($domain_info['status'])	? json_encode($domain_info['status'], JSON_UNESCAPED_UNICODE) 	: null;
+		$meta['reseller']     = isset($domain_info['reseller'])	? $domain_info['reseller'] 	: null;
+		$meta['roid']         = isset($domain_info['roid'])	 	? $domain_info['roid'] 		: null;
+		$meta['dateregister'] = isset($domain_info['crDate'])	? date("Y-m-d H:i:s", strtotime($domain_info['crDate']))  	: null;
+		$meta['dateexpire']   = isset($domain_info['exDate'])	? date("Y-m-d H:i:s", strtotime($domain_info['exDate'])) 	: null;
+		$meta['ns1']          = isset($domain_info['ns'][0])	? $domain_info['ns'][0] 	: null;
+		$meta['ns2']          = isset($domain_info['ns'][1])	? $domain_info['ns'][1] 	: null;
+		$meta['ns3']          = isset($domain_info['ns'][2])	? $domain_info['ns'][2] 	: null;
+		$meta['ns4']          = isset($domain_info['ns'][3])	? $domain_info['ns'][3] 	: null;
+
+		self::set($_domain, 'info', $meta);
+	}
+
+
 	public static function dns($_domain)
 	{
 		self::set($_domain, 'dns');
@@ -155,13 +183,26 @@ class detect
 
 		$insert_domainactivity =
 		[
-			'domain_id'   => $domain_id,
-			'user_id'     => \dash\user::id(),
-			'datecreated' => date("Y-m-d H:i:s"),
-			'type'        => $_type,
-			'ip'          => \dash\server::ip(true),
-			'result'      => null,
-			'available'   => (isset($_meta['available']) && $_meta['available']) ? 1 : null,
+			'domain_id'    => $domain_id,
+			'user_id'      => \dash\user::id(),
+			'datecreated'  => date("Y-m-d H:i:s"),
+			'type'         => $_type,
+			'ip'           => \dash\server::ip(true),
+			'result'       => null,
+			'available'    => (isset($_meta['available']) && $_meta['available']) ? 1 : null,
+			'holder'       => isset($_meta['holder']) 		? $_meta['holder'] 			: null,
+			'admin'        => isset($_meta['admin']) 		? $_meta['admin'] 			: null,
+			'tech'         => isset($_meta['tech']) 		? $_meta['tech'] 			: null,
+			'bill'         => isset($_meta['bill']) 		? $_meta['bill'] 			: null,
+			'nicstatus'    => isset($_meta['nicstatus']) 	? $_meta['nicstatus'] 		: null,
+			'reseller'     => isset($_meta['reseller']) 	? $_meta['reseller'] 		: null,
+			'roid'         => isset($_meta['roid']) 		? $_meta['roid'] 			: null,
+			'dateregister' => isset($_meta['dateregister']) ? $_meta['dateregister'] 	: null,
+			'dateexpire'   => isset($_meta['dateexpire']) 	? $_meta['dateexpire'] 		: null,
+			'ns1'          => isset($_meta['ns1']) 			? $_meta['ns1'] 			: null,
+			'ns2'          => isset($_meta['ns2']) 			? $_meta['ns2'] 			: null,
+			'ns3'          => isset($_meta['ns3']) 			? $_meta['ns3'] 			: null,
+			'ns4'          => isset($_meta['ns4']) 			? $_meta['ns4'] 			: null,
 			// 'runtime'     => \dash\runtime::json(),
 		];
 
@@ -243,7 +284,8 @@ class detect
 
 	private static function id($_detail, $_meta)
 	{
-		$allow_field = ['domain','root','tld','domainlen','registrar','datecreated','dateregister','dateexpire','dateupdate','ns1','ns2','ns3','ns4'];
+
+		$allow_field = ['domain','root','tld','domainlen','registrar','datecreated','dateregister','dateexpire','dateupdate','ns1','ns2','ns3','ns4', 'holder','admin','tech','bill','nicstatus','reseller','roid'];
 
 		$check_exists = \lib\db\domains\get::check_exists($_detail['domain']);
 
