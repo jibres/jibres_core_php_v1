@@ -18,6 +18,18 @@ class view
 		$list = \lib\app\nic_contact\search::my_list();
 		\dash\data::myContactList($list);
 
+		\dash\data::myContactList($list);
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['nic_id']))
+			{
+				if((isset($value['isdefault']) && $value['isdefault'] ) || count($list) === 1)
+				{
+					\dash\data::myContactListDefault($value['nic_id']);
+				}
+			}
+		}
+
 
 	}
 }
