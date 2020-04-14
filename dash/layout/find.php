@@ -19,32 +19,37 @@ class find
 
 	public static function main()
 	{
-		$myPage = null;
+		$myMain = \dash\layout\func::page_main();
 
-		if(\dash\url::content() === 'enter')
+		// set header for some scenario
+		// if we dont have header
+		// and we are not in api content
+		if($myMain === null && !\dash\engine\content::api_content())
 		{
-			$myPage = root.'content_enter/home/layout/main.php';
-			// do nothing
-		}
-		elseif(\dash\engine\content::get() === 'content_subdomain')
-		{
-			// do nothing
-		}
-		elseif(\dash\url::content() === null)
-		{
-			$myPage = root.'content/home/layout/main.php';
-		}
-		elseif(\dash\data::include_adminPanel())
-		{
-			$myPage = core.'layout/admin/admin-main.php';
+			if(\dash\engine\content::get() === 'content')
+			{
+				// jibres homepage webiste
+				$myMain = root.'content/home/layout/main.php';
+			}
+			elseif(\dash\data::include_adminPanel())
+			{
+				// admin panels
+				$myMain = core.'layout/admin/admin-main.php';
+			}
+			elseif(\dash\engine\content::get() === 'content_enter')
+			{
+				$myMain = root.'content_enter/home/layout/main.php';
+				// do nothing
+			}
 		}
 
-		if($myPage !== null || \dash\layout\func::display())
+
+		if($myMain !== null || \dash\layout\func::display())
 		{
 			echo "\n <main id='pageContent' data-xhr='pageContent'>";
-			if($myPage)
+			if($myMain)
 			{
-				require_once $myPage;
+				require_once $myMain;
 			}
 			elseif (\dash\layout\func::display())
 			{
@@ -119,16 +124,6 @@ class find
 				{
 					// jibres homepage webiste
 					$myFooter = root.'content/home/layout/footer.php';
-				}
-				elseif(\dash\data::include_adminPanel())
-				{
-					// admin panels
-					$myFooter = core.'layout/admin/admin-footer.php';
-				}
-				elseif(\dash\engine\content::get() === 'content_subdomain')
-				{
-					// subdomain of stores
-					$myFooter = root.'content_subdomain/home/layout/footer.php';
 				}
 			}
 		}
