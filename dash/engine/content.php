@@ -45,18 +45,17 @@ class content
 	public static function load($_content_name)
 	{
 		// list of contents exist in dash,
-		$myrep       = 'content_'.$_content_name;
-
+		$myrep = 'content_'.$_content_name;
 		// check content_aaa folder is exist in project folder
 		if(in_array($_content_name, self::content_list()))
 		{
 			return self::set($myrep);
 		}
-		elseif(is_dir(root.$myrep))
+		elseif($_content_name && is_dir(root. $myrep))
 		{
 			return self::set($myrep);
 		}
-		elseif(\dash\url::subdomain() === 'developers')
+		elseif(in_array(\dash\url::subdomain(), ['developers', 'core', 'api']))
 		{
 			self::set('content_developers');
 		}
@@ -88,40 +87,12 @@ class content
 			return true;
 		}
 
-		if(\dash\url::subdomain() === 'core')
+		if(in_array(\dash\url::subdomain(), ['developers', 'core', 'api']))
 		{
 			return true;
 		}
 
 		return false;
-	}
-
-
-	/**
-	 * detect name of content folder
-	 * @return [type] [description]
-	 */
-	public static function name()
-	{
-		$url_content = \dash\url::content();
-		$content = 'content';
-		if($url_content)
-		{
-			$content .= '_'. $url_content;
-		}
-		elseif(\dash\url::subdomain() === 'developers')
-		{
-			self::set('content_developers');
-		}
-		elseif($dynamic_sub_domain = self::dynamic_subdomain())
-		{
-			$content = $dynamic_sub_domain;
-		}
-		elseif(self::enterprise_customers())
-		{
-			$content = self::enterprise_customers();
-		}
-		return $content;
 	}
 
 
