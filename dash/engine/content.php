@@ -56,6 +56,10 @@ class content
 		{
 			return self::set($myrep);
 		}
+		elseif(\dash\url::subdomain() === 'developers')
+		{
+			self::set('content_developers');
+		}
 		elseif($dynamic_sub_domain = self::dynamic_subdomain())
 		{
 			// only init set
@@ -104,6 +108,10 @@ class content
 		if($url_content)
 		{
 			$content .= '_'. $url_content;
+		}
+		elseif(\dash\url::subdomain() === 'developers')
+		{
+			self::set('content_developers');
 		}
 		elseif($dynamic_sub_domain = self::dynamic_subdomain())
 		{
@@ -172,6 +180,7 @@ class content
 		}
 		return null;
 	}
+
 
 
 	/**
