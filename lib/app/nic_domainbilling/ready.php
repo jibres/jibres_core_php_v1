@@ -29,9 +29,9 @@ class ready
 
 					$result['payed'] = null;
 
-					if(isset($_transaction_detail[$value]['status']))
+					if(isset($_transaction_detail[$value]['condition']))
 					{
-						if($_transaction_detail[$value]['status'] === 'request')
+						if($_transaction_detail[$value]['condition'] === 'request')
 						{
 							$result['payed'] = false;
 						}
