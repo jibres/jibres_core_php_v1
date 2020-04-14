@@ -317,7 +317,8 @@ class create
 
 		$domain_action_detail =
 		[
-			'domain_id'      => $domain_id,
+			'domain_id' => $domain_id,
+			'period'    => $period_month,
 		];
 
 		\lib\app\nic_domainaction\action::set('domain_buy_ready', $domain_action_detail);
@@ -374,6 +375,7 @@ class create
 				[
 					'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
 					'domain_id'      => $domain_id,
+					'period'    => $period_month,
 					'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
 				];
 
@@ -445,6 +447,7 @@ class create
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
+				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];
 
@@ -457,6 +460,7 @@ class create
 				'action'         => 'register',
 				'status'         => 'enable',
 				'mode'           => 'manual',
+				'period'         => $period_month,
 				'price'          => $price,
 				'transaction_id' => $transaction_id,
 				'detail'         => null,
@@ -503,6 +507,7 @@ class create
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
+				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];
 

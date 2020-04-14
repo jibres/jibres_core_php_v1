@@ -94,10 +94,6 @@ class renew
 			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
 		}
 
-		$domain_action_detail =
-		[
-			'domain_id'      => $domain_id,
-		];
 
 
 		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
@@ -166,6 +162,12 @@ class renew
 		// 	\dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
 		// 	return false;
 		// }
+
+		$domain_action_detail =
+		[
+			'domain_id' => $domain_id,
+			'period'    => $period_month,
+		];
 
 		\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
 
@@ -277,6 +279,7 @@ class renew
 				'domain_id'      => $domain_id,
 				'price'          => $price,
 				'transaction_id' => $transaction_id,
+				'period'         => $period_month,
 			];
 
 			\lib\app\nic_domainaction\action::set('renew', $domain_action_detail);
@@ -289,6 +292,7 @@ class renew
 				'status'         => 'enable',
 				'mode'           => 'manual',
 				'price'          => $price,
+				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 				'detail'         => null,
 				'date'           => date("Y-m-d H:i:s"),
@@ -326,6 +330,7 @@ class renew
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
+				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];
 

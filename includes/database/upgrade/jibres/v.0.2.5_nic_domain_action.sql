@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS jibres_nic.domainbilling (
 `mode` enum('auto', 'manual') NULL DEFAULT NULL,
 `detail` text NULL DEFAULT NULL,
 `date` timestamp NULL DEFAULT NULL,
-`year` smallint(3) UNSIGNED NULL DEFAULT NULL,
+`period` smallint(3) UNSIGNED NULL DEFAULT NULL,
 `price` int(10) UNSIGNED NULL DEFAULT NULL,
 `discount` int(10) UNSIGNED NULL DEFAULT NULL,
 `transaction_id` int(10) UNSIGNED NULL DEFAULT NULL,
@@ -19,7 +19,7 @@ CONSTRAINT `domainbilling_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domai
 
 
 ALTER TABLE jibres_nic.domainaction ADD `category` VARCHAR(200) NULL DEFAULT NULL;
-ALTER TABLE jibres_nic.domainaction ADD `year` smallint(3) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domainaction ADD `period` smallint(3) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domainaction ADD `domainname` VARCHAR(300) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domainaction CHANGE `action` `action` VARCHAR(200) NULL DEFAULT NULL;
 

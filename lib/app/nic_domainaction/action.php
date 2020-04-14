@@ -21,6 +21,7 @@ class action
 			'status'         => isset($_args['status']) 			? $_args['status'] 			: 'enable',
 			'mode'           => isset($_args['mode']) 				? $_args['mode'] 			: 'manual',
 			'category'       => isset($_args['category']) 			? $_args['category'] 		: null,
+			'period'         => isset($_args['period']) 			? $_args['period'] 		: null,
 			'domain_id'      => isset($_args['domain_id']) 			? $_args['domain_id'] 		: null,
 			'domainname'     => isset($_args['domain']) 			? $_args['domain'] 			: null,
 			'detail'         => isset($_args['detail']) 			? $_args['detail'] 			: null,
