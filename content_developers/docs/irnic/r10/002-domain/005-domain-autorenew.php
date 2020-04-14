@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#domain-autorenew' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge info">PATCH</span></span>
       <span class="c"><?php echo T_("Enable or disable domain autorenew"); ?></span>
+      <span class="cauto pRa10"><span class="badge info">PATCH</span></span>
     </h2>
   </header>
   <div class="body" id="domain-autorenew">

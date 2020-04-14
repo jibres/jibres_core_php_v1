@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#domain-available' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge success">GET</span></span>
       <span class="c"><?php echo T_("Load domain available"); ?></span>
+      <span class="cauto pRa10"><span class="badge success">GET</span></span>
     </h2>
   </header>
   <div class="body" id="domain-available">

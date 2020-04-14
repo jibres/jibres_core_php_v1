@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#contact-add' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge primary">POST</span></span>
       <span class="c"><?php echo T_("Add An existing contact to your list"); ?></span>
+      <span class="cauto pRa10"><span class="badge primary">POST</span></span>
     </h2>
   </header>
   <div class="body" id="contact-add">

@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#contact-create-new' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge primary">POST</span></span>
       <span class="c"><?php echo T_("Create new IRNIC contact"); ?></span>
+      <span class="cauto pRa10"><span class="badge primary">POST</span></span>
     </h2>
   </header>
   <div class="body" id="contact-create-new">

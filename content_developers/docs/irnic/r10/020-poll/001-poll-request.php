@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#poll-request' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge success">GET</span></span>
       <span class="c"><?php echo T_("Get IRNIC poll request"); ?></span>
+      <span class="cauto pRa10"><span class="badge success">GET</span></span>
     </h2>
   </header>
   <div class="body" id="poll-request">

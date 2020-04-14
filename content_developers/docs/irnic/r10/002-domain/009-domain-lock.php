@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#domain-lock' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge warn">PUT</span></span>
       <span class="c"><?php echo T_("Lock and Unlock domain"); ?></span>
+      <span class="cauto pRa10"><span class="badge warn">PUT</span></span>
     </h2>
   </header>
   <div class="body" id="domain-lock">

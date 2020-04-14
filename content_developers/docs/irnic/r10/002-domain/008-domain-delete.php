@@ -1,8 +1,8 @@
 <div class="box">
   <header>
     <h2 class="f" data-kerkere='#domain-remove' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
       <span class="c"><?php echo T_("Remove domain"); ?></span>
+      <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
     </h2>
   </header>
   <div class="body" id="domain-remove">
