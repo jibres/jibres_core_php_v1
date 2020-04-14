@@ -18,9 +18,9 @@
      </nav>
      <nav class="cauto">
        <a href="<?php echo \dash\url::kingdom() ?>/"><?php echo T_("Developers Home"); ?></a>
-       <a href="<?php echo \dash\url::kingdom() ?>/docs"><?php echo T_("Docs"); ?></a>
        <a href="<?php echo \dash\url::kingdom() ?>/libraries"><?php echo T_("Libraries"); ?></a>
        <a href="<?php echo \dash\url::kingdom() ?>/guides"><?php echo T_("Guides"); ?></a>
+       <a href="<?php echo \dash\url::kingdom() ?>/docs"><?php echo T_("Docs"); ?></a>
      </nav>
     </div>
    </div>
