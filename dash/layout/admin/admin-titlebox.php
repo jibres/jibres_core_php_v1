@@ -3,56 +3,47 @@
 if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
 {
 ?>
-
-<div class="titleBox">
-  <div class="f align-center">
-    <?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
-      <div class="cauto pRa10">
-        <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>
-      </div>
+  <div class="titleBox">
+   <div class="f align-center">
+<?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
+    <div class="cauto pRa10">
+     <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>
+    </div>
     <?php } // ?>
-
     <div class="c s10 pRa10 pageTitle">
-      <h2><?php echo \dash\face::title(); ?></h2>
+     <h2><?php echo \dash\face::title(); ?></h2>
     </div>
     <nav class="cauto actions">
-
 <?php if(\dash\face::btnImport()) { ?>
-      <a class="btn light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnExport()) { ?>
-      <a class="btn light" href="<?php echo \dash\face::btnExport(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::btnExport(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnDuplicate()) { ?>
-      <a class="btn light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnView()) { ?>
-      <a class="btn light" href="<?php echo \dash\face::btnView(); ?>" target="_blank"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::btnView(); ?>" target="_blank"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::help()) { ?>
-      <a class="btn light" href="<?php echo \dash\face::help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
 <?php } // endif ?>
     </nav>
-
 <?php if(\dash\face::btnPrev() || \dash\face::btnNext()) { ?>
-
     <nav class="cauto os pLa10 nav">
-       <a class="btn <?php if(\dash\face::btnPrev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnPrev() !== 'disabled') { echo 'href="'. \dash\face::btnPrev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
-       <a class="btn <?php if(\dash\face::btnNext() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnNext() !== 'disabled') { echo 'href="'. \dash\face::btnNext().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
+     <a class="btn <?php if(\dash\face::btnPrev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnPrev() !== 'disabled') { echo 'href="'. \dash\face::btnPrev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
+     <a class="btn <?php if(\dash\face::btnNext() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnNext() !== 'disabled') { echo 'href="'. \dash\face::btnNext().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
     </nav>
 <?php } // endif ?>
-
-
 <?php if(\dash\data::action_text() && \dash\data::action_link()) { ?>
     <nav class="cauto os pLa10">
-       <a class="btn master" href="<?php echo \dash\data::action_link(); ?>" data-shortkey="120"><span><?php echo \dash\data::action_text(); ?></span> <kbd>F9</kbd></a>
+     <a class="btn master" href="<?php echo \dash\data::action_link(); ?>" data-shortkey="120"><span><?php echo \dash\data::action_text(); ?></span> <kbd>F9</kbd></a>
     </nav>
 <?php } // endif ?>
-  </div>
-
+   </div>
 <?php if(\dash\face::breadcrumb() && false)  {?>
-
-  <nav class="breadcrumb">
+   <nav class="breadcrumb">
     <?php foreach (\dash\face::breadcrumb() as $key => $value)
     {
       echo '<a';
@@ -87,14 +78,7 @@ if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
       echo '</a>';
     }
     ?>
-
-  </nav>
-
+   </nav>
 <?php } // endif ?>
-
-</div>
-
-
+  </div>
 <?php } // endif ?>
-
-
