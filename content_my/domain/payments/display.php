@@ -5,12 +5,18 @@
 
     <div class="tblBox">
         <table class="tbl1 v1">
-
+            <thead>
+                <th><?php echo T_("Domain"); ?></th>
+                <th><?php echo T_("Price"); ?></th>
+                <th><?php echo T_("Period"); ?></th>
+                <th><?php echo T_("Date"); ?></th>
+            </thead>
             <tbody>
      	      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
-                    <td><?php echo \dash\get::index($value, 'title'); ?></td>
+                    <td><?php echo \dash\get::index($value, 'domain'); ?></td>
                     <td><?php if(\dash\get::index($value, 'price')) {?><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?> <small><?php echo T_("Toman"); ?></small><?php }//endif ?></td>
+                    <td><?php echo \dash\get::index($value, 'period_title'); ?></td>
                     <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
                 </tr>
               <?php }// endfor ?>

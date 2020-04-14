@@ -47,6 +47,11 @@ class ready
 
 					break;
 
+				case 'period':
+					$result[$key] = $value;
+					$result['period_title'] = \dash\fit::number(round($value / 12)). ' '. T_("Year");
+					break;
+
 				case 'price':
 					$price        = $value;
 					$result[$key] = $value;
