@@ -76,25 +76,31 @@ class find
 			}
 			else
 			{
-				if(\dash\engine\content::get() === 'content')
+				$myContent = \dash\engine\content::get();
+				if($myContent === 'content')
 				{
 					// jibres homepage webiste
 					$myHeader = root.'content/home/layout/header.php';
+				}
+				elseif($myContent === 'content_subdomain')
+				{
+					// subdomain of stores
+					$myHeader = root.'content_subdomain/home/layout/header.php';
+				}
+				elseif($myContent === 'content_developers')
+				{
+					// subdomain of stores
+					$myHeader = root.'content_developers/home/layout/header.php';
 				}
 				elseif(\dash\data::include_adminPanel())
 				{
 					// admin panels
 					$myHeader = core.'layout/admin/admin-header.php';
 				}
-				elseif(\dash\engine\content::get() === 'content_subdomain')
-				{
-					// subdomain of stores
-					$myHeader = root.'content_subdomain/home/layout/header.php';
-				}
 			}
 		}
 
-		echo "\n  <header id='pageHeader' data-xhr='pageHeader' data-scroll>";
+		echo "\n <header id='pageHeader' data-xhr='pageHeader' data-scroll>";
 		if($myHeader)
 		{
 			require_once $myHeader;
@@ -128,7 +134,7 @@ class find
 			}
 		}
 
-		echo "\n  <footer id='pageFooter' data-xhr='pageFooter'>";
+		echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
 		if($myFooter)
 		{
 			require_once $myFooter;
