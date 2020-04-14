@@ -97,3 +97,45 @@ ALTER TABLE jibres_nic.domain ADD `ip2` varchar(200) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domain ADD `ip3` varchar(200) NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domain ADD `ip4` varchar(200) NULL DEFAULT NULL;
 
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS jibres_nic.usersetting (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`user_id` int(10) UNSIGNED NULL,
+
+`autorenewperiod` varchar(100) NULL DEFAULT NULL,
+
+`notifsms` bit(1) NULL DEFAULT NULL,
+`notifemail` bit(1) NULL DEFAULT NULL,
+
+`firstname` varchar(100) NULL DEFAULT NULL,
+`lastname` varchar(100) NULL DEFAULT NULL,
+`firstname_en` varchar(100) NULL DEFAULT NULL,
+`lastname_en` varchar(100) NULL DEFAULT NULL,
+`nationalcode` varchar(20) NULL DEFAULT NULL,
+`passportcode` varchar(50) NULL DEFAULT NULL,
+
+`company` varchar(200) NULL DEFAULT NULL,
+`category` varchar(200) NULL DEFAULT NULL,
+
+`email` varchar(200) NULL DEFAULT NULL,
+`country` varchar(20) NULL DEFAULT NULL,
+`province` varchar(50) NULL DEFAULT NULL,
+`city` varchar(100) NULL DEFAULT NULL,
+`postcode` varchar(20) NULL DEFAULT NULL,
+`address` varchar(200) NULL DEFAULT NULL,
+`mobile` varchar(20) NULL DEFAULT NULL,
+
+`ns1` varchar(200) NULL DEFAULT NULL,
+`ns2` varchar(200) NULL DEFAULT NULL,
+`ns3` varchar(200) NULL DEFAULT NULL,
+`ns4` varchar(200) NULL DEFAULT NULL,
+
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `usersetting_index_search_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
