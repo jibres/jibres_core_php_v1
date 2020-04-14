@@ -5,34 +5,10 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::subdomain() === 'core')
-		{
-			if(\dash\url::module())
-			{
-				\dash\header::status(404);
-			}
-
-			\content_r10\home\view::config();
-			return;
-		}
-		elseif(\dash\url::subdomain() === 'api')
-		{
-			if(\dash\url::module())
-			{
-				\dash\header::status(404);
-			}
-
-			\content_v2\home\view::config();
-			return;
-		}
-		elseif(\dash\url::subdomain() === 'shop')
+		if(\dash\url::subdomain() === 'shop')
 		{
 			\dash\data::externalShop(true);
 			// this is special page for shop aname
-		}
-		elseif(in_array(\dash\url::subdomain(), ['developers']))
-		{
-
 		}
 		else
 		{
