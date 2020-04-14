@@ -57,36 +57,42 @@ class find
 
 	public static function header()
 	{
-		$myPage = null;
-		if (\dash\detect\device::detectPWA())
-		{
-			$myPage = core.'layout/pwa/pwa-header.php';
-		}
-		else
-		{
-			if(\dash\url::content() === 'enter')
-			{
-				// do nothing
-			}
-			elseif(\dash\engine\content::get() === 'content_subdomain')
-			{
-				$myPage = root.'content_subdomain/home/layout/header.php';
-			}
-			elseif(\dash\url::content() === null)
-			{
-				$myPage = root.'content/home/layout/header.php';
-			}
-			elseif(\dash\data::include_adminPanel())
-			{
-				$myPage = core.'layout/admin/admin-header.php';
-			}
+		$myHeader = \dash\layout\func::page_header();
 
+		// set header for some scenario
+		// if we dont have header
+		// and we are not in api content
+		if($myHeader === null && !\dash\engine\content::api_content())
+		{
+			if (\dash\detect\device::detectPWA())
+			{
+				// if is not set, on pwa force add
+				$myHeader = core.'layout/pwa/pwa-header.php';
+			}
+			else
+			{
+				if(\dash\engine\content::get() === 'content')
+				{
+					// jibres homepage webiste
+					$myHeader = root.'content/home/layout/header.php';
+				}
+				elseif(\dash\data::include_adminPanel())
+				{
+					// admin panels
+					$myHeader = core.'layout/admin/admin-header.php';
+				}
+				elseif(\dash\engine\content::get() === 'content_subdomain')
+				{
+					// subdomain of stores
+					$myHeader = root.'content_subdomain/home/layout/header.php';
+				}
+			}
 		}
 
 		echo "\n  <header id='pageHeader' data-xhr='pageHeader' data-scroll>";
-		if($myPage)
+		if($myHeader)
 		{
-			require_once $myPage;
+			require_once $myHeader;
 			echo "\n  ";
 		}
 		echo "</header>";
