@@ -35,7 +35,7 @@
      </div>
     </section>
 
-    <div id="chartdiv" class="box chart x260" ></div>
+    <div id="chartdiv" class="box chart x200" ></div>
 
 
 
@@ -138,12 +138,6 @@
     <nav class="items">
      <ul>
       <li>
-       <a class="f" href="<?php echo \dash\url::this();?>/irnic">
-        <div class="key"><?php echo T_('IRNIC Handle');?></div>
-        <div class="go"></div>
-       </a>
-      </li>
-      <li>
        <a class="f" href="<?php echo \dash\url::this();?>/option">
         <div class="key"><?php echo T_('Settings');?></div>
         <div class="go"></div>
@@ -160,14 +154,6 @@
         <div class="go"></div>
        </a>
       </li>
-      <?php if(false) {?>
-      <li>
-       <a class="f" href="<?php echo \dash\url::this();?>/predict">
-        <div class="key"><?php echo T_('Predict Late Payments');?></div>
-        <div class="go"></div>
-       </a>
-      </li>
-    <?php } // endif ?>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/history">
         <div class="key"><?php echo T_('Last Activities');?></div>
