@@ -1,5 +1,5 @@
 <?php
-namespace content_developers\docs;
+namespace content_developers\docs\home;
 
 
 class view
