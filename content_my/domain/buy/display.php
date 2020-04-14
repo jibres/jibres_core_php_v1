@@ -64,51 +64,10 @@
     </div>
 
 
-<?php
-if (\dash\data::myContactList())
-{
-?>
-    <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <small><?php echo T_("Holder IRNIC"); ?></small></label>
-    <div class="f">
-<?php
- foreach (\dash\data::myContactList() as $key => $value)
- {
-?>
-       <div class="c6 s12 pB5 pRa5">
-        <div class="radio3">
-       <input type="radio" name="irnicid" value="<?php echo \dash\get::index($value, 'nic_id'); ?>" id="ir-<?php echo \dash\get::index($value, 'nic_id'); ?>" <?php if(\dash\get::index($value, 'isdefault')) { echo 'checked';} ?>>
-       <label for="ir-<?php echo \dash\get::index($value, 'nic_id'); ?>"><?php echo \dash\get::index($value, 'nic_id'); ?></label>
-        </div>
-       </div>
-<?php
- }
-?>
-      <div class="c6 s12 pB5 pRa5">
-        <div class="radio3">
-        <input type="radio" name="irnicid" value="something-else" id="ir-something-else">
-        <label for="ir-something-else"><?php echo T_("Another IRNIC Handle") ?></label>
-        </div>
-      </div>
-    </div>
-     <div data-response='irnicid' data-response-where='something-else' data-response-effect='slide' data-response-hide>
-      <label for="irnicid"><?php echo T_("Enter Your new IRNIC Handle"); ?></label>
-      <div class="input ltr">
-       <input type="text" name="irnicid-new" id="irnicid" maxlength="15">
-      </div>
-     </div>
-
-<?php
-}
-else
-{
-?>
       <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::this() ?>/irnic/add?type=new" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
       <div class="input ltr">
-       <input type="text" name="irnicid-new" id="irnicid" maxlength="15">
+       <input type="text" name="irnicid-new" id="irnicid" maxlength="15" value="<?php echo \dash\data::myContactListDefault(); ?>">
       </div>
-<?php
-}
-?>
 
 <label class="block" data-kerkere='.otherDomainHandle' data-kerkere-icon ><?php echo T_("Special domain Handle"); ?> <small><?php echo T_("If you wan to customize domain Handle click here") ?></small></label>
 
@@ -147,78 +106,13 @@ else
 
 <br>
 
-<?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?>
-    <label class="mT20"><?php echo T_("Enter your domain initial DNS record"); ?></label>
-    <div class="f">
-<?php foreach (\dash\data::myDNSList() as $key => $value) {?>
-
-       <div class="c12 s12 pB5 pRa5">
-        <div class="radio3">
-       <input type="radio" name="dnsid" value="<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" id="dns-<?php echo $key; ?>" <?php if(\dash\get::index($value, 'isdefault')) { echo 'checked';} ?>>
-       <label for="dns-<?php echo $key; ?>"><?php if(\dash\get::index($value, 'title')) { echo \dash\get::index($value, 'title'). ' - '; } echo \dash\get::index($value, 'ns1') . ' - '. \dash\get::index($value, 'ns2'); ?></label>
-        </div>
-       </div>
-
-<?php } //endfor ?>
-      <div class="c12 s12 pB5 pRa5">
-        <div class="radio3">
-        <input type="radio" name="dnsid" value="something-else" id="dns-something-else">
-        <label for="dns-something-else"><?php echo T_("Enter New DNS for this domain") ?></label>
-        </div>
-      </div>
-    </div>
-     <div data-response='dnsid' data-response-where='something-else' data-response-effect='slide' data-response-hide>
-
-     <div class="f">
-      <div class="c6 s12">
-       <label for="ns1"><?php echo T_("DNS #1"); ?></label>
-       <div class="input ltr">
-        <input type="text" name="ns1" id="ns1" maxlength="100">
-       </div>
-      </div>
-
-      <div class="c6 s12">
-       <div class="mLa5">
-        <label for="ns2"><?php echo T_("DNS #2"); ?></label>
-        <div class="input ltr">
-         <input type="text" name="ns2" id="ns2" maxlength="100">
-        </div>
-       </div>
-      </div>
-    </div>
-
-
-     <div class="f">
-      <div class="c6 s12">
-       <label for="ns3"><?php echo T_("DNS #3"); ?></label>
-       <div class="input ltr">
-        <input type="text" name="ns3" id="ns3" maxlength="100">
-       </div>
-      </div>
-
-      <div class="c6 s12">
-       <div class="mLa5">
-        <label for="ns4"><?php echo T_("DNS #4"); ?></label>
-        <div class="input ltr">
-         <input type="text" name="ns4" id="ns4" maxlength="100">
-        </div>
-       </div>
-      </div>
-    </div>
-
-
-     </div>
-
-
-
-<?php }else{ ?>
 
 
   <div class="f mT20">
     <div class="c6 s12">
      <label for="ns1"><?php echo T_("DNS #1"); ?></label>
      <div class="input ltr">
-      <input type="text" name="ns1" id="ns1" maxlength="100">
+      <input type="text" name="ns1" id="ns1" maxlength="100" value="<?php echo \dash\data::userSetting_ns1(); ?>">
      </div>
     </div>
 
@@ -226,7 +120,7 @@ else
      <div class="mLa5">
       <label for="ns2"><?php echo T_("DNS #2"); ?></label>
       <div class="input ltr">
-       <input type="text" name="ns2" id="ns2" maxlength="100">
+       <input type="text" name="ns2" id="ns2" maxlength="100" value="<?php echo \dash\data::userSetting_ns2(); ?>">
       </div>
      </div>
     </div>
@@ -235,7 +129,7 @@ else
     <div class="c6 s12">
      <label for="ns3"><?php echo T_("DNS #3"); ?></label>
      <div class="input ltr">
-      <input type="text" name="ns3" id="ns3" maxlength="100">
+      <input type="text" name="ns3" id="ns3" maxlength="100" value="<?php echo \dash\data::userSetting_ns3(); ?>">
      </div>
     </div>
 
@@ -243,7 +137,7 @@ else
      <div class="mLa5">
       <label for="ns4"><?php echo T_("DNS #4"); ?></label>
       <div class="input ltr">
-       <input type="text" name="ns4" id="ns4" maxlength="100">
+       <input type="text" name="ns4" id="ns4" maxlength="100" value="<?php echo \dash\data::userSetting_ns4(); ?>">
       </div>
      </div>
     </div>
@@ -252,8 +146,6 @@ else
   </div>
 
 
-
-<?php } //endif ?>
 
 <div class="check1 mT20">
   <input type="checkbox" id="sChk1" name="agree">

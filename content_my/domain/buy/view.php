@@ -14,6 +14,10 @@ class view
 
 		if(\dash\data::haveBuyDomain())
 		{
+			$my_setting = \lib\app\nic_usersetting\get::get();
+			\dash\data::userSetting($my_setting);
+
+
 			if(\lib\nic\mode::api())
 			{
 				$get_api = new \lib\nic\api();
@@ -25,6 +29,16 @@ class view
 			}
 
 			\dash\data::myContactList($list);
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['nic_id']))
+				{
+					if((isset($value['isdefault']) && $value['isdefault'] ) || count($list) === 1)
+					{
+						\dash\data::myContactListDefault($value['nic_id']);
+					}
+				}
+			}
 
 		}
 
