@@ -10,6 +10,7 @@
                 <th class="collapsing">&nbsp;</th>
                 <th><?php echo T_("Title"); ?></th>
                 <th></th>
+                <th></th>
                 <th><?php echo T_("Date"); ?></th>
             </thead>
             <tbody>
@@ -18,6 +19,8 @@
                     <td class="collapsing"><?php echo \dash\get::index($value, 'icon'); ?></td>
                     <td>
                         <?php echo \dash\get::index($value, 'title'); ?>
+                    </td>
+                    <td>
                         <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
                             <div>
                                 <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
