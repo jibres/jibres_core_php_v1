@@ -82,12 +82,7 @@ class content
 	 */
 	public static function api_content()
 	{
-		if(in_array(self::get(), ['content_api', 'content_v2', 'content_r10']))
-		{
-			return true;
-		}
-
-		if(in_array(\dash\url::subdomain(), ['developers', 'core', 'api']))
+		if(in_array(\dash\url::subdomain(), ['core', 'api']))
 		{
 			return true;
 		}
