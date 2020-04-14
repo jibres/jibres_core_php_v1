@@ -265,6 +265,17 @@ class guard
 	    		$allow_origine = true;
 	    	}
 
+	    	// open some special origine
+	    	$allow_origine_list =
+	    	[
+	    		'https://pay.ir',
+	    	];
+
+	    	if(in_array($origin, $allow_origine_list))
+	    	{
+	    		$allow_origine = true;
+	    	}
+
 	    	if($allow_origine)
 	    	{
 	    	    // header('Access-Control-Allow-Origin: *', true);
