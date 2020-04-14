@@ -1,3 +1,4 @@
+
  <div class="scr">
   <figure><?php
 if(\dash\user::id())
@@ -35,11 +36,6 @@ else
 ?></figure>
   <div class="menu">
    <ul class="sidenav">
-
-
-
-
-
 <?php if(\dash\url::store()) {?>
   <li><a href="<?php echo \dash\url::kingdom(); ?>/a" <?php if(\dash\url::content() === 'a') {?> class="activeContent"<?php }//endif ?>><i class='sf-align-left'></i> <?php echo T_("Store admin panel"); ?></a></li>
   <?php
@@ -49,7 +45,6 @@ else
   }
   ?>
 <?php }//endif ?>
-
   <li><a href="<?php echo \dash\url::sitelang(); ?>/my" <?php if(\dash\url::content() === 'my') {?> class="activeContent"<?php }//endif ?>><i class='sf-atom'></i> <?php echo T_("Jibres Panel"); ?></a></li>
 
 <?php if(\dash\permission::check('contentCp')) {?>
@@ -60,9 +55,7 @@ else
     require_once ('sidebar/sidebar-cms.php');
   }
   ?>
-
 <?php }//endif ?>
-
 <?php if(\dash\permission::check('contentCrm')) {?>
    <li><a href="<?php echo \dash\url::kingdom(); ?>/crm" <?php if(\dash\url::content() === 'crm') {?> class="activeContent"<?php }//endif ?> data-shortkey="77+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-group-full'></i> <?php echo T_("CRM Panel"); ?></a></li>
 
@@ -73,15 +66,11 @@ else
     }
     ?>
 <?php }//endif ?>
-
-
 <?php if(\dash\permission::supervisor()) {?>
-
   <li>
     <a href="<?php echo \dash\url::sitelang(); ?>/love" <?php if(\dash\url::content() === 'love') {?> class="activeContent"<?php }//endif ?> ><img src="<?php echo \dash\url::icon() ?>" class="avatar"> <span><?php echo T_("Jibres Managment"); ?></span>
     </a>
   </li>
-
   <li><a href="<?php echo \dash\url::sitelang(); ?>/su" <?php if(\dash\url::content() === 'su') {?> class="activeContent"<?php }//endif ?> data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-heartbeat'></i> <span><?php echo T_("Supervisor Panel"); ?></span></a></li>
   <?php
   if(\dash\url::content() === 'su')
@@ -89,15 +78,10 @@ else
     require_once ('sidebar/sidebar-su.php');
   }
   ?>
-
 <?php }//endif ?>
-
-
 <?php if(\dash\user::id()) {?>
     <li><a href="<?php echo \dash\url::sitelang(); ?>/account" <?php if(\dash\url::content() === 'account') {?> class="activeContent"<?php }//endif ?> data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-user'></i> <span><?php echo T_("My Account"); ?></span></a></li>
-
 <?php }//endif ?>
-
   <li><a href="<?php echo \dash\url::sitelang(); ?>/support" <?php if(\dash\url::content() === 'support') {?> class="activeContent"<?php }//endif ?> data-shortkey="112" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-life-ring'></i> <span><?php echo T_("Help Center"); ?></span></a></li>
 <?php
 if(\dash\url::content() === 'support')
@@ -105,12 +89,6 @@ if(\dash\url::content() === 'support')
   require_once ('sidebar/sidebar-support.php');
 }
 ?>
-
-
-
-
-
-
 <?php
 
 if(\dash\url::content() === 'domain')
@@ -137,7 +115,6 @@ if(\dash\url::content() === 'm')
 }
 
 ?>
-
    </ul>
   </div>
  </div>
