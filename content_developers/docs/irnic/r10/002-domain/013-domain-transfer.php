@@ -1,19 +1,19 @@
 <div class="box">
   <header>
-    <h2 class="f" data-kerkere='#domain-buy' data-kerkere-icon='open'>
+    <h2 class="f" data-kerkere='#domain-transfer' data-kerkere-icon='open'>
       <span class="cauto pRa10"><span class="badge primary">POST</span></span>
-      <span class="c"><?php echo T_("Buy new domain"); ?></span>
+      <span class="c"><?php echo T_("Transfer domain"); ?></span>
     </h2>
   </header>
-  <div class="body" id="domain-buy">
+  <div class="body" id="domain-transfer">
       <div>
 
         <div class="msg url ltr txtL">
           <i class="method">POST</i>
-          <span><?php echo \dash\data::IRNICApiURL(); ?><b>domain/buy</b></span>
+          <span><?php echo \dash\data::IRNICApiURL(); ?><b>domain/transfer</b></span>
         </div>
 
-        <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey-apikey.php'); ?>
+        <?php require(root. 'content_developers/docs/irnic/r10/000-public/header-appkey-apikey.php'); ?>
 
       <h3 class="mB20"><?php echo T_("Input Body"); ?></h3>
 
@@ -52,7 +52,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Domain to buy"); ?></span>
+               <span><?php echo T_("Domain to transfer"); ?></span>
               </td>
               <td>
                 <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
@@ -75,7 +75,8 @@
               </td>
             </tr>
 
-             <tr>
+
+              <tr>
               <td>
                 <div class="txtB">nic_id</div>
                 <i>String</i>
@@ -92,61 +93,21 @@
               </td>
             </tr>
 
-
-             <tr>
+              <tr>
               <td>
-                <div class="txtB">irnic_admin</div>
+                <div class="txtB">pin</div>
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Register admin"); ?></span>
+               <span><?php echo T_("Domain pin"); ?></span>
                <br>
-               <i><code>ex66-irnic</code></i>
-                <div><?php echo T_("Leave null to read from nic_id"); ?></div>
+               <i><code>abc123</code></i>
+
               </td>
               <td>
-                <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
+                <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
               </td>
             </tr>
-
-
-             <tr>
-              <td>
-                <div class="txtB">irnic_tech</div>
-                <i>String</i>
-              </td>
-              <td>
-               <span><?php echo T_("Register technical"); ?></span>
-               <br>
-               <i><code>ex66-irnic</code></i>
-                <div><?php echo T_("Leave null to read from nic_id"); ?></div>
-              </td>
-              <td>
-                <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="txtB">irnic_bill</div>
-                <i>String</i>
-              </td>
-              <td>
-               <span><?php echo T_("Register billing"); ?></span>
-               <br>
-               <i><code>ex66-irnic</code></i>
-                <div><?php echo T_("Leave null to read from nic_id"); ?></div>
-              </td>
-              <td>
-                <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
-              </td>
-            </tr>
-
-            <tr><td><div class="txtB">ns1</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
-            <tr><td><div class="txtB">ns2</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
-            <tr><td><div class="txtB">ns3</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
-            <tr><td><div class="txtB">ns4</div><i>String</i></td><td></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
-            <tr><td><div class="txtB">dnsid</div><i>Code</i></td><td><?php echo T_("If you want to set dns from your dns list"); ?></td><td><div class="fc-green"><?php echo T_("Optional"); ?></div></td></tr>
 
           </tbody>
         </table>
@@ -155,11 +116,11 @@
 
         <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X POST '<?php echo \dash\data::IRNICApiURL(); ?>domain/buy' \
+curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X POST '<?php echo \dash\data::IRNICApiURL(); ?>domain/transfer' \
 -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
 -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
 -H 'Content-Type: application/json' \
---data-raw '{"agree" : 1, "domain": "rezamohiti.ir", "period" : "1year", "nic_id" : "ex66-irnic"}'
+--data-raw '{"agree" : 1, "domain": "rezamohiti.ir", "nic_id" : "ex66-irnic", "pin": "abc123"}'
 </pre>
 
         <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>

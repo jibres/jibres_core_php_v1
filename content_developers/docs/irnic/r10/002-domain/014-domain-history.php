@@ -13,7 +13,7 @@
           <span><?php echo \dash\data::IRNICApiURL(); ?><b>domain/history</b></span>
         </div>
 
-        <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey-apikey.php'); ?>
+        <?php require(root. 'content_developers/docs/irnic/r10/000-public/header-appkey-apikey.php'); ?>
 
 
 

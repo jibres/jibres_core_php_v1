@@ -13,7 +13,7 @@
           <span><?php echo \dash\data::IRNICApiURL(); ?><b>domain/check</b></span>
         </div>
 
-        <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey.php'); ?>
+        <?php require(root. 'content_developers/docs/irnic/r10/000-public/header-appkey.php'); ?>
 
 
       <h3 class="mB20"><?php echo T_("Query Params"); ?></h3>

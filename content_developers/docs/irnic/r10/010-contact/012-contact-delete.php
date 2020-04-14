@@ -1,19 +1,19 @@
 <div class="box">
   <header>
-    <h2 class="f" data-kerkere='#contact-load' data-kerkere-icon='open'>
-      <span class="cauto pRa10"><span class="badge success">GET</span></span>
-      <span class="c"><?php echo T_("Load domain contact detail"); ?></span>
+    <h2 class="f" data-kerkere='#contact-delete' data-kerkere-icon='open'>
+      <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
+      <span class="c"><?php echo T_("Delete contact from your list"); ?></span>
     </h2>
   </header>
-  <div class="body" id="contact-load">
+  <div class="body" id="contact-delete">
     <div>
 
       <div class="msg url ltr txtL">
-        <i class="method">GET</i>
+        <i class="method">DELETE</i>
         <span><?php echo \dash\data::IRNICApiURL(); ?><b>contact</b></span>
       </div>
 
-      <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey-apikey.php'); ?>
+      <?php require(root. 'content_developers/docs/irnic/r10/000-public/header-appkey-apikey.php'); ?>
 
 
       <h3 class="mB20"><?php echo T_("Query Params"); ?></h3>
@@ -48,42 +48,18 @@
 
 
       <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
-      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X GET '<?php echo \dash\data::IRNICApiURL(); ?>contact?id=B' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
+      <pre>curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X DELETE '<?php echo \dash\data::IRNICApiURL(); ?>contact?id=B' -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'</pre>
 
       <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <samp>{
   "ok": true,
-  "result": {
-    "id": "B",
-    "nic_id": "ex66-irnic",
-    "roid": "ex66-irnic",
-    "title": "dsfsdfsdf",
-    "holder": "1",
-    "admin": "1",
-    "tech": "1",
-    "bill": "1",
-    "isdefault": "1",
-    "firstname": null,
-    "lastname": null,
-    "firstname_en": null,
-    "lastname_en": null,
-    "nationalcode": null,
-    "passportcode": null,
-    "company": null,
-    "category": null,
-    "email": null,
-    "country": null,
-    "province": null,
-    "city": null,
-    "postcode": null,
-    "address": null,
-    "mobile": null,
-    "signator": null,
-    "status": "enable",
-    "jsonstatus": null,
-    "datecreated": "2020-02-25 13:39:16",
-    "datemodified": null
-  }
+  "msg": [
+    {
+      "type": "ok",
+      "text": "Contact removed"
+    }
+  ],
+  "result": true
 }</samp>
     </div>
   </div>

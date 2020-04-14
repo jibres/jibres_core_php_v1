@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\irnic\doc;
+namespace content_developers\docs\irnic\r10;
 
 class view
 {
@@ -56,7 +56,7 @@ class view
 	private static function load_project_api_doc()
 	{
 		$projectDoc     = [];
-		$addr           = root. 'content_r10/irnic/doc';
+		$addr           = root. 'content_developers/docs/irnic/r10';
 
 		if(is_dir($addr))
 		{

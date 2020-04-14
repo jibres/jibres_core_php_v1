@@ -1,19 +1,19 @@
 <div class="box">
   <header>
-    <h2 class="f" data-kerkere='#domain-transfer' data-kerkere-icon='open'>
+    <h2 class="f" data-kerkere='#domain-renew' data-kerkere-icon='open'>
       <span class="cauto pRa10"><span class="badge primary">POST</span></span>
-      <span class="c"><?php echo T_("Transfer domain"); ?></span>
+      <span class="c"><?php echo T_("Renew domain"); ?></span>
     </h2>
   </header>
-  <div class="body" id="domain-transfer">
+  <div class="body" id="domain-renew">
       <div>
 
         <div class="msg url ltr txtL">
           <i class="method">POST</i>
-          <span><?php echo \dash\data::IRNICApiURL(); ?><b>domain/transfer</b></span>
+          <span><?php echo \dash\data::IRNICApiURL(); ?><b>domain/renew</b></span>
         </div>
 
-        <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey-apikey.php'); ?>
+        <?php require(root. 'content_developers/docs/irnic/r10/000-public/header-appkey-apikey.php'); ?>
 
       <h3 class="mB20"><?php echo T_("Input Body"); ?></h3>
 
@@ -52,7 +52,7 @@
                 <i>String</i>
               </td>
               <td>
-               <span><?php echo T_("Domain to transfer"); ?></span>
+               <span><?php echo T_("Domain to renew"); ?></span>
               </td>
               <td>
                 <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
@@ -75,40 +75,6 @@
               </td>
             </tr>
 
-
-              <tr>
-              <td>
-                <div class="txtB">nic_id</div>
-                <i>String</i>
-              </td>
-              <td>
-               <span><?php echo T_("Register holder"); ?></span>
-               <br>
-               <i><code>ex66-irnic</code></i>
-
-              </td>
-              <td>
-                <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
-                <div><?php echo T_("The IRNIC handle must be exist in your domain contact list") ?></div>
-              </td>
-            </tr>
-
-              <tr>
-              <td>
-                <div class="txtB">pin</div>
-                <i>String</i>
-              </td>
-              <td>
-               <span><?php echo T_("Domain pin"); ?></span>
-               <br>
-               <i><code>abc123</code></i>
-
-              </td>
-              <td>
-                <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
-              </td>
-            </tr>
-
           </tbody>
         </table>
       </div>
@@ -116,11 +82,11 @@
 
         <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X POST '<?php echo \dash\data::IRNICApiURL(); ?>domain/transfer' \
+curl <?php if(\dash\url::isLocal()) { echo '-k '; } ?>-X POST '<?php echo \dash\data::IRNICApiURL(); ?>domain/renew' \
 -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
 -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
 -H 'Content-Type: application/json' \
---data-raw '{"agree" : 1, "domain": "rezamohiti.ir", "nic_id" : "ex66-irnic", "pin": "abc123"}'
+--data-raw '{"agree" : 1, "domain": "rezamohiti.ir", "period" : "1year"}'
 </pre>
 
         <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>

@@ -13,7 +13,7 @@
         <span><?php echo \dash\data::IRNICApiURL(); ?><b>contact/add</b></span>
       </div>
 
-      <?php require(root. 'content_r10/irnic/doc/000-public/header-appkey-apikey.php'); ?>
+      <?php require(root. 'content_developers/docs/irnic/r10/000-public/header-appkey-apikey.php'); ?>
 
 
       <h3 class="mB20"><?php echo T_("Body"); ?></h3>
