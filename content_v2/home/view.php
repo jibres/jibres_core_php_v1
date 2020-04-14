@@ -27,7 +27,7 @@ class view
 			[
 				'website'   => 'https://jibres.ir',
 				'endpoint'  => 'https://api.jibres.ir/'. $myStore. 'v2',
-				'doc'       => 'https://api.jibres.ir/'. $myStore. 'v2/doc',
+				'doc'       => 'https://developers.jibres.ir/docs/api/v2',
 				'direction' => 'rtl',
 				'lang'      => 'Persian',
 				'langname' => 'فارسی',

@@ -12,7 +12,7 @@ class view
 			[
 				'website'   => 'https://jibres.com',
 				'endpoint'  => 'https://core.jibres.com/r10',
-				'doc'       => 'https://core.jibres.com/r10/doc',
+				'doc'       => 'https://developers.jibres.com/docs/core/r10',
 				'direction' => 'ltr',
 				'lang'      => 'English',
 				'langname'  => 'English',
@@ -21,7 +21,7 @@ class view
 			[
 				'website'   => 'https://jibres.ir',
 				'endpoint'  => 'https://core.jibres.ir/r10',
-				'doc'       => 'https://core.jibres.ir/r10/doc',
+				'doc'       => 'https://developers.jibres.ir/docs/core/r10',
 				'direction' => 'rtl',
 				'lang'      => 'Persian',
 				'langname' => 'فارسی',
