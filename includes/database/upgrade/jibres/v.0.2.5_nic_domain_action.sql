@@ -85,3 +85,15 @@ ALTER TABLE jibres_nic_log.domains ADD `reseller` varchar(100)  NULL DEFAULT NUL
 ALTER TABLE jibres_nic_log.domains ADD `roid` varchar(100)  NULL DEFAULT NULL;
 
 
+
+
+
+ALTER TABLE jibres_nic.domain ADD `ns1` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ns2` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ns3` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ns4` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ip1` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ip2` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ip3` varchar(200) NULL DEFAULT NULL;
+ALTER TABLE jibres_nic.domain ADD `ip4` varchar(200) NULL DEFAULT NULL;
+
