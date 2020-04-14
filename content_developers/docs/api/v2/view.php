@@ -24,6 +24,7 @@ class view
 		// $JibresApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/';
 		$JibresApiURL = \dash\url::protocol(). '://api.jibres.'. \dash\url::tld(). '/'. \dash\language::current(). '/v2/';
 		\dash\data::JibresApiURL($JibresApiURL);
+		\dash\data::endPoint($JibresApiURL);
 
 		$YourSubdomain = 'YourSubdomain';
 		$YourAPPKey    = 'YourAPPKey';
