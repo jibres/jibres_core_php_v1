@@ -118,14 +118,12 @@ if(\dash\url::content() === 'domain')
   require_once ('sidebar/sidebar-domain.php');
 }
 
-if(\dash\url::content() === 'api')
+if(\dash\url::subdomain() === 'developers')
 {
-  require_once ('sidebar/sidebar-api.php');
-}
-
-if(\dash\url::content() === 'v2')
-{
-  require_once ('sidebar/sidebar-api-v2.php');
+  if(\dash\url::directory() === 'docs/api/v2')
+  {
+    require_once ('sidebar/sidebar-api-v2.php');
+  }
 }
 
 if(\dash\url::content() === 'r10' && \dash\url::module() === 'irnic')
