@@ -39,7 +39,7 @@ class who
 		catch (\Exception $e)
 		{
 
-			\dash\notif::error(T_("Can not connect to whois service not! Please try again later"));
+			\dash\notif::error(T_("Can not connect to whois service now! Please try again later"));
 			\lib\app\domains\detect::whois($_domain);
 			return false;
 		}
@@ -95,7 +95,7 @@ class who
 			}
 			else
 			{
-				\dash\notif::error(T_("Can not connect to whois service not! Please try again later"));
+				\dash\notif::error(T_("Can not connect to whois service now! Please try again later"));
 			}
 			return false;
 		}

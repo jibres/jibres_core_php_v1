@@ -33,7 +33,7 @@ class view
 			{
 				if(isset($get_msg['condition']) && $get_msg['condition'] === 'ok' && isset($get_msg['plus']))
 				{
-					\dash\data::paymentVerifyMsg(T_("Paymen successfull", ['amount' => \dash\utility\human::fitNumber($get_msg['plus'])]));
+					\dash\data::paymentVerifyMsg(T_("Payment successfull", ['amount' => \dash\utility\human::fitNumber($get_msg['plus'])]));
 					\dash\data::paymentVerifyMsgTrue(true);
 				}
 				else
