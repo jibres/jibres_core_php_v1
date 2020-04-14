@@ -133,7 +133,7 @@ class dashboard
 
 	private static function domain_action_chart($_date)
 	{
-		$list = \lib\db\nic_domainaction\get::chart_domain_action($_date);
+		$list = \lib\db\nic_domainbilling\get::chart_domain_action($_date);
 
 		$hi_chart               = [];
 		$hi_chart['categories'] = [];
@@ -145,66 +145,80 @@ class dashboard
 		$all_date = array_unique($all_date);
 		$all_date = array_filter($all_date);
 
+		asort($all_date);
+
+		$new_all_date = [];
+
+		$start_date = current($all_date);
+		$end_date = end($all_date);
+
+		$start_date = date("Y-m-d", strtotime($start_date));
+		$end_date   = date("Y-m-d", strtotime($end_date));
+
+		$datetime1  = date_create($start_date);
+		$datetime2  = date_create($end_date);
+
+		$interval   = date_diff($datetime1, $datetime2);
+
+		$diff_days = $interval->format("%d");
+
+	    for ($i = 0; $i < intval($diff_days) + 1 ; $i++)
+	    {
+	    	$new_date = date("Y-m-d", strtotime("+$i days", strtotime($start_date)));
+	    	$new_all_date[] = $new_date;
+	    }
+
+	    $all_date = $new_all_date;
+
+
 		$result             = [];
 		$result['register'] = [];
 		$result['renew']    = [];
 		$result['transfer'] = [];
 
 
-		foreach ($all_date as $one_date)
+		$new_list             = [];
+		$new_list['register'] = [];
+		$new_list['renew']    = [];
+		$new_list['transfer'] = [];
+
+
+
+		foreach ($list as $key => $value)
 		{
-			foreach ($list as $key => $value)
+			if(isset($value['action']) && isset($new_list[$value['action']]))
 			{
-				if(isset($value['action']) && isset($value['date']) && $value['date'] === $one_date)
-				{
-					$action = $value['action'];
+				$new_list[$value['action']][$value['date']] = $value['count'];
+			}
+		}
 
-					if($action === 'register')
-					{
-						if(!isset($result['renew'][$one_date]))
-						{
-							$result['renew'][$one_date] = 0;
-						}
+		foreach ($all_date as $key => $one_date)
+		{
+			if(isset($new_list['register'][$one_date]))
+			{
+				$result['register'][$one_date] = intval($new_list['register'][$one_date]);
+			}
+			else
+			{
+				$result['register'][$one_date] = 0;
+			}
 
-						if(!isset($result['transfer'][$one_date]))
-						{
-							$result['transfer'][$one_date] = 0;
-						}
-					}
+			if(isset($new_list['renew'][$one_date]))
+			{
+				$result['renew'][$one_date] = intval($new_list['renew'][$one_date]);
+			}
+			else
+			{
+				$result['renew'][$one_date] = 0;
+			}
 
-					if($action === 'renew')
-					{
-						if(!isset($result['register'][$one_date]))
-						{
-							$result['register'][$one_date] = 0;
-						}
-
-						if(!isset($result['transfer'][$one_date]))
-						{
-							$result['transfer'][$one_date] = 0;
-						}
-					}
-
-					if($action === 'transfer')
-					{
-						if(!isset($result['renew'][$one_date]))
-						{
-							$result['renew'][$one_date] = 0;
-						}
-
-						if(!isset($result['register'][$one_date]))
-						{
-							$result['register'][$one_date] = 0;
-						}
-					}
-
-					if(!isset($result[$action][$one_date]))
-					{
-						$result[$action][$one_date] = 0;
-					}
-
-					$result[$action][$one_date] = intval($value['count']);
-				}
+			if(isset($new_list['transfer'][$one_date]))
+			{
+				$result['transfer'][$one_date] = intval($new_list['transfer'][$one_date]);
+			}
+			else
+			{
+				$result['transfer'][$one_date] = 0;
 			}
 		}
 
