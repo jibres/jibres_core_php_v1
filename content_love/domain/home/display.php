@@ -154,7 +154,7 @@ $myData = \dash\data::dashboardDetail();
    <nav class="items">
      <ul>
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/short">
+          <a class="f" href="<?php echo \dash\url::this();?>/fetch?short=1">
             <div class="key"><?php echo T_('Short domains');?></div>
             <div class="go"></div>
           </a>
