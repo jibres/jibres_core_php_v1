@@ -52,6 +52,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <h3><?php echo T_('eCommerce'); ?></h3>
             <a href="<?php echo $kingdom; ?>/benefits"><?php echo T_('Benefits'); ?></a>
             <a href="<?php echo $kingdom; ?>/pricing"><?php echo T_('Pricing'); ?></a>
+            <a target="_blank" href="<?php echo \dash\url::api('developers'); ?>/"><?php echo T_('Developers API'); ?></a>
           </nav>
 
           <?php
