@@ -47,7 +47,7 @@ class create
 		$ns2         = $data['ns2'];
 		$ns3         = $data['ns3'];
 		$ns4         = $data['ns4'];
-		$dnsid       = $data['dnsid'];
+		// $dnsid       = $data['dnsid'];
 
 
 		\lib\app\domains\detect::domain('register', $domain);
@@ -88,6 +88,8 @@ class create
 		}
 
 
+		$get_contac_nic = [];
+
 		if($irnic_new)
 		{
 			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
@@ -97,6 +99,7 @@ class create
 			}
 
 			$nic_id = $add_quick_contact;
+			$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
 		}
 		else
 		{
@@ -108,21 +111,9 @@ class create
 			}
 
 			$nic_id = $check_nic_id['nic_id'];
+			$get_contac_nic[$nic_id] =  $check_nic_id;
 		}
 
-
-		$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
-		// if(!isset($get_contac_nic[$nic_id]))
-		// {
-		// 	\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-		// 	return false;
-		// }
-
-		// if(!isset($get_contac_nic[$nic_id]))
-		// {
-		// 	\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-		// 	return false;
-		// }
 
 		if($irnic_bill)
 		{
@@ -209,51 +200,51 @@ class create
 		}
 
 
-		if($dnsid && $dnsid != 'something-else')
-		{
-			$load_dns = \lib\app\nic_dns\get::get($dnsid);
+		// if($dnsid && $dnsid != 'something-else')
+		// {
+		// 	$load_dns = \lib\app\nic_dns\get::get($dnsid);
 
-			if(!$load_dns)
-			{
-				\dash\notif::error(T_("DNS not found"));
-				return false;
-			}
+		// 	if(!$load_dns)
+		// 	{
+		// 		\dash\notif::error(T_("DNS not found"));
+		// 		return false;
+		// 	}
 
-			$dnsid = \dash\coding::decode($dnsid);
+		// 	$dnsid = \dash\coding::decode($dnsid);
 
-			$ns1 = $load_dns['ns1'];
-			$ns2 = $load_dns['ns2'];
-			$ns3 = $load_dns['ns3'];
-			$ns4 = $load_dns['ns4'];
+		// 	$ns1 = $load_dns['ns1'];
+		// 	$ns2 = $load_dns['ns2'];
+		// 	$ns3 = $load_dns['ns3'];
+		// 	$ns4 = $load_dns['ns4'];
 
-			$ip1 = $load_dns['ip1'];
-			$ip2 = $load_dns['ip2'];
-			$ip3 = $load_dns['ip3'];
-			$ip4 = $load_dns['ip4'];
+		// 	$ip1 = $load_dns['ip1'];
+		// 	$ip2 = $load_dns['ip2'];
+		// 	$ip3 = $load_dns['ip3'];
+		// 	$ip4 = $load_dns['ip4'];
 
 
-		}
-		else
-		{
-			if($ns1 && $ns2)
-			{
-				$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
-				if(!isset($get_ns_record['id']))
-				{
-					$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
-					if(!$dnsid)
-					{
-						$dnsid = null;
-					}
-				}
-			}
+		// }
+		// else
+		// {
+		// 	if($ns1 && $ns2)
+		// 	{
+		// 		$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
+		// 		if(!isset($get_ns_record['id']))
+		// 		{
+		// 			$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
+		// 			if(!$dnsid)
+		// 			{
+		// 				$dnsid = null;
+		// 			}
+		// 		}
+		// 	}
 
-		}
+		// }
 
-		if($dnsid === 'something-else')
-		{
-			$dnsid = null;
-		}
+		// if($dnsid === 'something-else')
+		// {
+		// 	$dnsid = null;
+		// }
 
 
 
@@ -293,13 +284,21 @@ class create
 				'name'         => $domain,
 				'registrar'    => 'irnic',
 				'status'       => 'awaiting',
+
 				'holder'       => $nic_id,
 				'admin'        => $nic_id,
 				'tech'         => $nic_id,
 				'bill'         => $nic_id,
+
 				'autorenew'    => 1,
 				'lock'         => 1,
-				'dns'          => $dnsid,
+
+				'ns1'          => $ns1,
+				'ns2'          => $ns2,
+				'ns3'          => $ns3,
+				'ns4'          => $ns4,
+				// 'dns'       => $dnsid,
+
 				'dateregister' => null,
 				'dateexpire'   => null,
 				'datecreated'  => date("Y-m-d H:i:s"),

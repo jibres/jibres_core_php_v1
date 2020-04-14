@@ -74,23 +74,23 @@ class get
 
 		if(isset($fetch['roid']))
 		{
-			$update_domain['roid'] = \dash\validate::string($fetch['roid']);
+			$update_domain['roid'] = \dash\validate::string($fetch['roid'], false);
 		}
 
 		if(isset($fetch['crDate']))
 		{
-			$update_domain['dateregister'] = \dash\validate::string($fetch['crDate']);
+			$update_domain['dateregister'] = \dash\validate::string($fetch['crDate'], false);
 		}
 
 
 		if(isset($fetch['exDate']))
 		{
-			$update_domain['dateexpire'] = \dash\validate::string($fetch['exDate']);
+			$update_domain['dateexpire'] = \dash\validate::string($fetch['exDate'], false);
 		}
 
 		if(isset($fetch['upDate']))
 		{
-			$update_domain['dateupdate'] = \dash\validate::string($fetch['upDate']);
+			$update_domain['dateupdate'] = \dash\validate::string($fetch['upDate'], false);
 		}
 
 		if(isset($fetch['status']) && is_array($fetch['status']))
@@ -98,33 +98,50 @@ class get
 			$update_domain['nicstatus'] = json_encode($fetch['status'], JSON_UNESCAPED_UNICODE);
 		}
 
-
-
 		if(isset($fetch['holder']))
 		{
-			$update_domain['holder'] = \dash\validate::string($fetch['holder']);
+			$update_domain['holder'] = \dash\validate::string($fetch['holder'], false);
 		}
 
 		if(isset($fetch['admin']))
 		{
-			$update_domain['admin'] = \dash\validate::string($fetch['admin']);
+			$update_domain['admin'] = \dash\validate::string($fetch['admin'], false);
 		}
 
 		if(isset($fetch['bill']))
 		{
-			$update_domain['bill'] = \dash\validate::string($fetch['bill']);
+			$update_domain['bill'] = \dash\validate::string($fetch['bill'], false);
 		}
 
 		if(isset($fetch['tech']))
 		{
-			$update_domain['tech'] = \dash\validate::string($fetch['tech']);
+			$update_domain['tech'] = \dash\validate::string($fetch['tech'], false);
 		}
 
 		if(isset($fetch['reseller']))
 		{
-			$update_domain['reseller'] = \dash\validate::string($fetch['reseller']);
+			$update_domain['reseller'] = \dash\validate::string($fetch['reseller'], false);
 		}
 
+		if(isset($fetch['ns'][0]))
+		{
+			$update_domain['ns1'] = \dash\validate::string($fetch['ns'][0], false);
+		}
+
+		if(isset($fetch['ns'][1]))
+		{
+			$update_domain['ns2'] = \dash\validate::string($fetch['ns'][1], false);
+		}
+
+		if(isset($fetch['ns'][2]))
+		{
+			$update_domain['ns3'] = \dash\validate::string($fetch['ns'][2], false);
+		}
+
+		if(isset($fetch['ns'][3]))
+		{
+			$update_domain['ns4'] = \dash\validate::string($fetch['ns'][3], false);
+		}
 
 
 		if(isset($fetch['force_disable']) && $fetch['force_disable'])

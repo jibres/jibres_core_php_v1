@@ -54,6 +54,7 @@ class transfer
 
 		\lib\app\nic_domainaction\action::set('domain_transfer_ready', $domain_action_detail);
 
+		$get_contac_nic = [];
 
 		if($irnic_new)
 		{
@@ -65,6 +66,7 @@ class transfer
 			}
 
 			$nic_id = $add_quick_contact;
+			$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
 		}
 		else
 		{
@@ -76,6 +78,7 @@ class transfer
 			}
 
 			$nic_id = $check_nic_id['nic_id'];
+			$get_contac_nic[$nic_id] = $check_nic_id;
 		}
 
 
@@ -87,41 +90,6 @@ class transfer
 			return false;
 		}
 
-
-
-		$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
-		if(!isset($get_contac_nic[$nic_id]))
-		{
-			\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-			return false;
-		}
-
-		if(!isset($get_contac_nic[$nic_id]))
-		{
-			\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-			return false;
-		}
-
-		if(isset($get_contac_nic[$nic_id]['bill']) && $get_contac_nic[$nic_id]['bill'] == '1')
-		{
-			// no problem to transfer this domain by tihs contact
-		}
-		else
-		{
-			\dash\notif::error(T_("We can not transfer this domain because the bill holder of IRNIC can not access to transfer"));
-			return false;
-		}
-
-
-		if(isset($get_contac_nic[$nic_id]['admin']) && $get_contac_nic[$nic_id]['admin'] == '1')
-		{
-			// no problem to transfer this domain by tihs contact
-		}
-		else
-		{
-			\dash\notif::error(T_("We can not transfer this domain because the admin holder of IRNIC can not access to transfer"));
-			return false;
-		}
 
 		$price = \lib\app\nic_domain\price::transfer();
 		$user_budget = \dash\user::budget();
@@ -229,7 +197,7 @@ class transfer
 					'tech'         => $nic_id,
 					'bill'         => $nic_id,
 					'verify'       => 1,
-					'dns'          => $dnsid,
+					// 'dns'          => $dnsid,
 					'status'       => 'enable',
 					'dateregister' => $result['dateregister'],
 					'dateexpire'   => $result['dateexpire'],
@@ -255,7 +223,7 @@ class transfer
 					'autorenew'    => null,
 					'lock'         => 1,
 					'verify'       => 1,
-					'dns'          => $dnsid,
+					// 'dns'          => $dnsid,
 					'dateregister' => $result['dateregister'],
 					'dateexpire'   => $result['dateexpire'],
 					'datecreated'  => date("Y-m-d H:i:s"),
