@@ -136,7 +136,7 @@ class get
 
 		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
 
-		\lib\db\nic_domain\update::update($update_domain, $_load_domain['id']);
+		\lib\db\nic_domain\update::update_by_dumain($update_domain, $_load_domain['name']);
 
 	}
 
