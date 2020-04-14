@@ -5,10 +5,13 @@
       <header><h2><?php echo T_("Your domain setting"); ?></h2></header>
 
       <div class="body">
-        <p class="">
-          <?php echo T_("Set your default DNS record"); ?>
-        </p>
-        <div class="f">
+        <div class="mB10 msg">
+          <?php echo T_("Set default DNS record"); ?>
+          <br>
+          <?php echo T_("This will help you to fill in their default DNS when you register new domain"); ?>
+
+        </div>
+        <div class="f mB20">
           <div class="c6 s12">
             <label for="ns1"><?php echo T_("DNS #1"); ?></label>
             <div class="input ltr">
@@ -42,9 +45,9 @@
           </div>
         </div>
 
-        <p class="">
+        <div class="mB10 msg">
           <?php echo T_("Default renew time for auto renew"); ?>
-        </p>
+        </div>
 
         <div class="f mB10">
           <div class="c pB10 pRa5">
@@ -61,49 +64,24 @@
           </div>
         </div>
 
-        <p class="">
-          <?php echo T_("Set life time domain"); ?>
-        </p>
-
-        <div class="f mB10">
-          <div class="c6 pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="domainlifetime" value="3day" id="domainlifetime3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') { echo 'checked';} ?>>
-              <label for="domainlifetime3day"><?php echo T_("3 Day"); ?></label>
-            </div>
-          </div>
-          <div class="c6 pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="domainlifetime" value="1week" id="domainlifetime1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') { echo 'checked';} ?>>
-              <label for="domainlifetime1week"><?php echo T_("1 Week"); ?></label>
-            </div>
-          </div>
-          <div class="c6 pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="domainlifetime" value="1month" id="domainlifetime1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month') { echo 'checked';} ?>>
-              <label for="domainlifetime1month"><?php echo T_("1 Month"); ?></label>
-            </div>
-          </div>
-          <div class="c6 pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="domainlifetime" value="6month" id="domainlifetime6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') { echo 'checked';} ?>>
-              <label for="domainlifetime6month"><?php echo T_("6 Month"); ?></label>
-            </div>
-          </div>
-          <div class="c6 pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="domainlifetime" value="1year" id="domainlifetime1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') { echo 'checked';} ?>>
-              <label for="domainlifetime1year"><?php echo T_("1 Year"); ?></label>
-            </div>
-          </div>
-          <div class="c6 pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="domainlifetime" value="3year" id="domainlifetime3year" <?php if(\dash\data::dataRow_domainlifetime() === '3year') { echo 'checked';} ?>>
-              <label for="domainlifetime3year"><?php echo T_("3 Year"); ?></label>
-            </div>
-          </div>
-
+        <div class="mB20 msg">
+          <?php echo T_("Save my domain life time"); ?>
+          <br>
+          <?php echo T_("How many days to expire the remaining domain to automatically renew it?"); ?>
         </div>
+
+        <div>
+          <select name="domainlifetime"  class="select22">
+            <option></option>
+            <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
+            <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
+            <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month') {echo 'selected';} ?>><?php echo T_("1 Month"); ?></option>
+            <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
+            <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
+            <option value="3year" <?php if(\dash\data::dataRow_domainlifetime() === '3year') {echo 'selected';} ?>><?php echo T_("3 Year"); ?></option>
+          </select>
+        </div>
+
       </div>
 
       <footer class="txtRa">
