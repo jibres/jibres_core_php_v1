@@ -1,5 +1,6 @@
 <div class="f justify-center">
- <div class="c9 m12 s12 fs14">
+ <div class="c11 m12 s12">
+    <div class="fs14">
 
     <?php if(\dash\data::dataTable()) {?>
 
@@ -17,9 +18,11 @@
                     <td class="collapsing"><?php echo \dash\get::index($value, 'icon'); ?></td>
                     <td>
                         <?php echo \dash\get::index($value, 'title'); ?>
-                        <?php if(\dash\get::index($value, 'domain')) {?>
-                            <div class="link">
-                                <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                        <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
+                            <div>
+                                <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
+                                    <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                                </a>
                             </div>
                         <?php } // endif ?>
                     </td>
@@ -40,6 +43,7 @@
 
       <div class="msg warn2"><?php echo T_("No action history founded"); ?></div>
     <?php } //endif ?>
+    </div>
 
 <?php \dash\utility\pagination::html(); ?>
 

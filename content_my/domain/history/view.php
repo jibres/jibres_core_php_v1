@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("IRNIC Notification"));
+		\dash\face::title(T_("Domain activity"));
 
 		// btn
 		\dash\data::back_text(T_('Domains'));
