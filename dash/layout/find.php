@@ -143,22 +143,6 @@ class find
 	}
 
 
-	// public static function nav()
-	// {
-	// 	$myPage = null;
-	// 	// do nothing
-
-	// 	if($myPage !== null)
-	// 	{
-	// 		echo "\n <nav id='pageNav' data-xhr='pageNav'>";
-	// 		if($myPage)
-	// 		{
-	// 			require_once $myPage;
-	// 		}
-	// 		echo "\n </nav>";
-	// 	}
-	// }
-
 	public static function pageScript()
 	{
   		echo "\n  ";
