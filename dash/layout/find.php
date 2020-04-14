@@ -26,15 +26,15 @@ class find
 		// and we are not in api content
 		if($myMain === null && !\dash\engine\content::api_content())
 		{
-			if(\dash\engine\content::get() === 'content')
-			{
-				// jibres homepage webiste
-				$myMain = root.'content/home/layout/main.php';
-			}
-			elseif(\dash\data::include_adminPanel())
+			if(\dash\data::include_adminPanel())
 			{
 				// admin panels
 				$myMain = core.'layout/admin/admin-main.php';
+			}
+			elseif(\dash\engine\content::get() === 'content')
+			{
+				// jibres homepage webiste
+				$myMain = root.'content/home/layout/main.php';
 			}
 			elseif(\dash\engine\content::get() === 'content_enter')
 			{
@@ -77,7 +77,12 @@ class find
 			else
 			{
 				$myContent = \dash\engine\content::get();
-				if($myContent === 'content')
+				if(\dash\data::include_adminPanel())
+				{
+					// admin panels
+					$myHeader = core.'layout/admin/admin-header.php';
+				}
+				elseif($myContent === 'content')
 				{
 					// jibres homepage webiste
 					$myHeader = root.'content/home/layout/header.php';
@@ -91,11 +96,6 @@ class find
 				{
 					// subdomain of stores
 					$myHeader = root.'content_developers/home/layout/header.php';
-				}
-				elseif(\dash\data::include_adminPanel())
-				{
-					// admin panels
-					$myHeader = core.'layout/admin/admin-header.php';
 				}
 			}
 		}
