@@ -70,7 +70,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
-		$query = "SELECT domain.*, dns.ns1, dns.ns2 FROM domain LEFT JOIN dns ON dns.id = domain.dns $q[where] $q[order] $limit ";
+		$query = "SELECT * FROM domain $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'nic');
 
