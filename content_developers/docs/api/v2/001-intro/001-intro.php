@@ -1,6 +1,6 @@
-<h2 class="f " data-kerkere='#intro-detail' data-kerkere-icon='open'><?php echo \dash\face::site(); ?> <?php echo T_("APIs"); ?></h2>
-<div id="intro-detail">
-  <div class="cbox fs15" id='intro'>
+<div class="box">
+  <header data-kerkere='#intro' data-kerkere-icon='open'><h2><?php echo \dash\face::site(); ?> <?php echo T_("APIs"); ?></h2></header>
+  <div class="body" id="intro">
 
     <p><?php echo T_("With our API you can control the entire infrastructure via a standardized programmatic interface."); ?> <?php echo T_("You can using API do just about anything you can do via your dashboard."); ?></p>
 
@@ -11,13 +11,14 @@
     <p><?php echo T_("Most peoples manage their settings in the web dashboard, built using these APIs."); ?> <?php echo T_("Virtually anything you can do in the customer dashboard may be done via API."); ?></p>
 
     <p><?php echo T_("We offers public APIs with three audiences in mind."); ?></p>
-    <ol class="list">
+    <ul class="list mB25-f">
       <li><?php echo T_("Partners"); ?></li>
       <li><?php echo T_("Customers"); ?></li>
       <li><?php echo T_("Developers"); ?></li>
-    </ol>
+    </ul>
 
     <p><?php echo T_("The API documentation will start with a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints."); ?></p>
 
   </div>
 </div>
+
