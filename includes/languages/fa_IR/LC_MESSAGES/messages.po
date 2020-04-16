@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-16 16:42+0430\n"
-"PO-Revision-Date: 2020-04-16 19:28+0430\n"
+"POT-Creation-Date: 2020-04-16 19:30+0430\n"
+"PO-Revision-Date: 2020-04-16 19:33+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -42,7 +42,7 @@ msgid ""
 "Advancement of technology and development of Web-based business Cause Need new tools to "
 "resolve the daily needs and that’s the goal of making Jibres."
 msgstr ""
-"با پیشرفت روزافزون تکنولوژی و گسترش کسب و کارهای مدرن مبتنی بر وب، احتیاج به ابزارهایی "
+"با پیشرفت روزافزون تکنولوژی و گسترش بیزینس‌های مدرن مبتنی بر وب، احتیاج به ابزارهایی "
 "مدرن برای رفع نیازهای روزمره، جرقه‌ای برای تولد جیبرس بود."
 
 #: content/about/display.php:81
@@ -50,7 +50,7 @@ msgid ""
 "Jibres have a set of simple and practical tools on a regular basis for modern "
 "businesses."
 msgstr ""
-"جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار کسب و کارهای مدرن و "
+"جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار بیزینس‌های مدرن و "
 "همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
 
 #: content/about/view.php:9 content/home/layout/footer.php:98
@@ -780,10 +780,10 @@ msgstr ""
 #: content/changelog/display.php:38
 msgid ""
 "Our app generator is finished. Now we have a factory to create android application for "
-"our bussiness."
+"our business."
 msgstr ""
 "کارهای اپلیکیشین ساز ما تمام شد. الان ما یک کارخانه مجهز برای ساخت سریع اپلیکیشن "
-"اندروید کسب و کارها داریم."
+"اندروید بیزینس‌هامون داریم."
 
 #: content/changelog/display.php:44
 msgid "happy Nowruz"
@@ -1218,7 +1218,7 @@ msgid ""
 msgstr ""
 "ثبت دامنه از طرفی منجر به ذخیره کردن دامنه می‌شود. یعنی بعد از خرید، دامنه در مالکیت "
 "شماست و کسی نمی‌تواند آن را بخرد. پس خرید دامنه یکی از راه‌های رزرو کردن نام‌های خاص مثل "
-"نام شخص یا نام بیزینس است. اگر کتابی در دست تالیف دارید یا ایده کسب و کاری آنلاین در "
+"نام شخص یا نام بیزینس است. اگر کتابی در دست تالیف دارید یا ایده بیزینس آنلاینی در "
 "ذهنتون هست که روزی نیاز به راه‌اندازی وب‌سایت داشته باشد می‌تونید همین الان با هزینه‌ای "
 "ناچیز دامنه بخرید و انحصار اون رو در دستتون بگیرید."
 
@@ -1339,7 +1339,7 @@ msgid ""
 "Been dreaming of a .com or .dev that says exactly what you want to say about your "
 "business? Find that perfect domain name and get it registered today!"
 msgstr ""
-"در حال رویاپردازی برای خرید یک دامنه .ir یا .com‌ هستید تا کسب و کارتون رو با اون گسترش "
+"در حال رویاپردازی برای خرید یک دامنه .ir یا .com‌ هستید تا بیزینس خودتون رو با اون گسترش "
 "بدید؟ همین امروز این نام فوق العاده رو پیدا کنید و با جیبرس ثبتش کنید!"
 
 #: content/domains/home/display.php:20
@@ -1590,7 +1590,7 @@ msgid ""
 "photos of your international trip with .travel, write your thoughts on the latest "
 "catwalk trends with .blog or get creative with a .is."
 msgstr ""
-"اگر به‌دنبال چیزی متفاوت برای کسب و کارتون هستید چرا از تی‌ال‌دی‌های جدید استفاده نمی‌کنید؟ "
+"اگر به‌دنبال چیزی متفاوت برای بیزینس خودتون هستید چرا از تی‌ال‌دی‌های جدید استفاده نمی‌کنید؟ "
 "صدها پسوند جدید می‌تونند جذابیت جالبی به کار شما ببخشند. یک وب‌سایت شخصی دارید؟ چرا پسوند "
 "me رو تست نمی‌کنید؟ می‌خواین سفرهای بین‌المللی خودتون رو به‌اشتراک بذارین؟ چرا پسوند travel‌ "
 "رو انتخاب نمی‌کنید؟ می‌خواین نظراتتون رو نشر بدین؟ چرا پسوند blog رو به‌عنوان تی‌ال‌دی "
@@ -1601,7 +1601,7 @@ msgid ""
 "Looking to conquer your industry? Set up a web developer startup with a .dev and get a ."
 "inc to show you mean business."
 msgstr ""
-"آیا می‌خواین صنعت خودتون رو تسخیر کنید؟ کسب و کارتون رو با پسوند dev راه‌اندازی کنید یا "
+"آیا می‌خواین صنعت خودتون رو تسخیر کنید؟ بیزینس خودتون رو با پسوند dev راه‌اندازی کنید یا "
 "از تی‌ال‌دی inc برای نمایش بیزینس خودتون بهره ببرید."
 
 #: content/domains/home/faq.php:70
@@ -1662,7 +1662,7 @@ msgstr ""
 "بازدیدکنندگان سایت را به یک صفحه اختصاصی که برای فروش تعبیه کردید منتقل کنید یا شاید "
 "بخواهید آنان را به صفحه اینستاگرام بفرستید. این کاملا به انتخاب شما در مورد نحوه "
 "استفاده از این دامنه برمی‌گردد. شما هم‌چنین می‌توانید ایمیل اختصاصی روی این دامنه داشته "
-"باشید که در ایجاد اعتماد به نشان تجاری شما و ارتقای کسب و کارتان سودمند است."
+"باشید که در ایجاد اعتماد به نشان تجاری شما و ارتقای بیزینس شما سودمند است."
 
 #: content/domains/home/view.php:9
 msgid "Domain Registration"
@@ -2607,8 +2607,7 @@ msgstr "لوگوی فارسی جیبرس"
 msgid ""
 "We are on a mission to simplify business system. Empowering businesses to creating "
 "money."
-msgstr ""
-"ماموریت ما آسان نمودن سیستم‌های بیزینس هاست. توانمندسازی کسب و کارها برای خلق ثروت."
+msgstr "ماموریت ما آسان نمودن سیستم‌های بیزینس هاست. توانمندسازی بیزینس‌ها برای خلق ثروت."
 
 #: content/pricing/display.php:14
 msgid "30 day satisfaction guarantee"
@@ -3615,8 +3614,8 @@ msgid ""
 "realizing their dreams."
 msgstr ""
 "تصمیمات ما بر پایه اصل ساده‌سازی است. ما تلاش داریم تا پیچیدگی و موانع حرکت سریع را از "
-"میان برداریم تا بدین‌وسیله بتوانیم مشتریان خود را قادر سازیم تا با تمرکز روی ایده‌ها، کسب "
-"و کارهای خود را بسازند و به رویاهای خود تحقق بخشند."
+"میان برداریم تا بدین‌وسیله بتوانیم مشتریان خود را قادر سازیم تا با تمرکز روی ایده‌ها، "
+"بیزینس‌های خود را بسازند و به رویاهای خود تحقق بخشند."
 
 #: content/values/display.php:14 content/values/view.php:10
 msgid "Transparency"
@@ -11300,7 +11299,7 @@ msgstr "رابط برنامه‌نویسی"
 
 #: content_developers/docs/home/display.php:14
 msgid ""
-"Programmatically manage all of your bussiness data with Jibres RESTful API including "
+"Programmatically manage all of your business data with Jibres RESTful API including "
 "user data, products, invoices."
 msgstr ""
 "مدیریت برنامه‌ریزی شده برای دسترسی به داده‌های بیزینس توسط رابط برنامه‌نویسی رست‌فول شامل "
@@ -11695,7 +11694,7 @@ msgid "Jibres API"
 msgstr "رابط برنامه‌نویسی جیبرس"
 
 #: content_developers/home/view.php:12
-msgid "Power your bussiness with Jibres simple API."
+msgid "Power your business with Jibres simple API."
 msgstr "بیزینس خود را با کمک رابط برنامه‌نویسی جیبرس قدرتمندتر کنید."
 
 #: content_developers/home/view.php:13 content_developers/view.php:9
@@ -13401,7 +13400,7 @@ msgid "Homepage"
 msgstr "صفحه نخست"
 
 #: content_my/home/display_site.php:9
-msgid "Bussiness"
+msgid "Business"
 msgstr "بیزینس"
 
 #: content_my/home/display_site.php:21
@@ -13409,7 +13408,7 @@ msgid "Account Balance"
 msgstr "موجود حساب"
 
 #: content_my/home/display_site.php:32
-msgid "Bussiness that you are owner"
+msgid "Business that you are owner"
 msgstr "بیزینس‌هایی که شما مالک آن‌ها هستید"
 
 #: content_my/home/display_site.php:49 content_my/home/display_site.php:50
@@ -13417,7 +13416,7 @@ msgid "Add New Business"
 msgstr "افزودن بیزینس جدید"
 
 #: content_my/home/display_site.php:62
-msgid "Bussiness that you are staff"
+msgid "Business that you are staff"
 msgstr "بیزینس‌هایی که شما در آن‌ها کارمند هستید"
 
 #: content_my/home/display_site.php:78
@@ -13429,7 +13428,7 @@ msgid "Account Status"
 msgstr "وضعیت حساب کاربری"
 
 #: content_my/home/display_site.php:134
-msgid "Add Your First Bussiness"
+msgid "Add Your First Business"
 msgstr "اولین بیزینس خود را اضافه کنید"
 
 #: content_my/home/display_site.php:140
@@ -13624,8 +13623,8 @@ msgid "Limit of create store"
 msgstr "محدودیت در ساخت فروشگاه"
 
 #: content_my/store/start/model.php:16
-msgid "Please enter name of your bissiness"
-msgstr "لطفا نام بیزینس خود را وارد کنید"
+msgid "Please enter name of your business"
+msgstr "لطفا نام بیزینس خودتون رو وارد کنید"
 
 #: content_my/store/start/model.php:22
 msgid "Please fill the store title less than 100 character"
@@ -24741,7 +24740,7 @@ msgstr "سعی‌ می‌کنم بیزینس خودم رو ایجاد کنم"
 
 #: lib/app/store/polls.php:32
 msgid "I want to extend my business"
-msgstr "می‌خوام کسب و کارم رو گسترش بدم"
+msgstr "می‌خوام بیزینس خودم رو گسترش بدم"
 
 #: lib/app/store/polls.php:33
 msgid "I'm just playing around 😀"
@@ -25572,6 +25571,38 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid ""
+#~ "Our app generator is finished. Now we have a factory to create android application "
+#~ "for our bussiness."
+#~ msgstr ""
+#~ "کارهای اپلیکیشین ساز ما تمام شد. الان ما یک کارخانه مجهز برای ساخت سریع اپلیکیشن "
+#~ "اندروید کسب و کارها داریم."
+
+#~ msgid ""
+#~ "Programmatically manage all of your bussiness data with Jibres RESTful API including "
+#~ "user data, products, invoices."
+#~ msgstr ""
+#~ "مدیریت برنامه‌ریزی شده برای دسترسی به داده‌های بیزینس توسط رابط برنامه‌نویسی رست‌فول "
+#~ "شامل داده‌های مشتریان، محصولات و فاکتورها."
+
+#~ msgid "Power your bussiness with Jibres simple API."
+#~ msgstr "بیزینس خود را با کمک رابط برنامه‌نویسی جیبرس قدرتمندتر کنید."
+
+#~ msgid "Bussiness"
+#~ msgstr "بیزینس"
+
+#~ msgid "Bussiness that you are owner"
+#~ msgstr "بیزینس‌هایی که شما مالک آن‌ها هستید"
+
+#~ msgid "Bussiness that you are staff"
+#~ msgstr "بیزینس‌هایی که شما در آن‌ها کارمند هستید"
+
+#~ msgid "Add Your First Bussiness"
+#~ msgstr "اولین بیزینس خود را اضافه کنید"
+
+#~ msgid "Please enter name of your bissiness"
+#~ msgstr "لطفا نام بیزینس خود را وارد کنید"
 
 #~ msgid "Holder IRNIC"
 #~ msgstr "صاحب امتیاز"

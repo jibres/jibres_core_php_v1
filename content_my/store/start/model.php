@@ -13,7 +13,7 @@ class model
 
 			if(!$title)
 			{
-				\dash\notif::error(T_("Please enter name of your bissiness"), 'bt');
+				\dash\notif::error(T_("Please enter name of your business"), 'bt');
 				return false;
 			}
 
