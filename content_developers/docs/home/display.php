@@ -11,7 +11,7 @@
 				<div class="box">
 					<header><h3><?php echo T_("API");?></h3></header>
 					<div class="body">
-						<p><?php echo T_("Programmatically manage all of your bussiness data with Jibres RESTful API including user data, products, invoices."); ?></p>
+						<p><?php echo T_("Programmatically manage all of your business data with Jibres RESTful API including user data, products, invoices."); ?></p>
 						<a class="btn2 blue" href="<?php echo \dash\url::kingdom() ?>/docs/api/v2"><?php echo T_("View API v2 Documentations"); ?></a>
 					</div>
 				</div>

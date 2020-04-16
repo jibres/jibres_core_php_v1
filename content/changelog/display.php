@@ -35,7 +35,7 @@
 
     <tr>
      <td><?php echo \dash\fit::date("2020-03-30"); ?></td>
-     <td><?php echo T_("Our app generator is finished. Now we have a factory to create android application for our bussiness."); ?></td>
+     <td><?php echo T_("Our app generator is finished. Now we have a factory to create android application for our business."); ?></td>
      <td></td>
     </tr>
 

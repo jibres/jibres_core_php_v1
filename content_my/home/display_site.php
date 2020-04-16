@@ -6,7 +6,7 @@
     <section class="f">
      <div class="c pRa10">
       <a href="" class="stat">
-       <h3><?php echo T_("Bussiness");?></h3>
+       <h3><?php echo T_("Business");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
       </a>
      </div>
@@ -29,7 +29,7 @@
     <div class="c6 s12 pRa10">
      <nav class="items">
       <ul>
-       <li class="pA10"><?php echo T_("Bussiness that you are owner"); ?></li>
+       <li class="pA10"><?php echo T_("Business that you are owner"); ?></li>
 <?php
 $listStore_owner = \dash\data::listStore_owner();
 if($listStore_owner && is_array($listStore_owner))
@@ -59,7 +59,7 @@ if($listStore_owner && is_array($listStore_owner))
     <div class="c6 s12">
      <nav class="items">
       <ul>
-       <li class="pA10"><?php echo T_("Bussiness that you are staff"); ?></li>
+       <li class="pA10"><?php echo T_("Business that you are staff"); ?></li>
 <?php
 $listStore_staff = \dash\data::listStore_staff();
 if($listStore_staff && is_array($listStore_staff))
@@ -131,7 +131,7 @@ if($listStore_staff && is_array($listStore_staff))
     <ul>
      <li>
       <a class="f" href="<?php echo \dash\url::here();?>/store/start">
-       <div class="key"><?php echo T_('Add Your First Bussiness');?></div>
+       <div class="key"><?php echo T_('Add Your First Business');?></div>
        <div class="go ok check"></div>
       </a>
      </li>
