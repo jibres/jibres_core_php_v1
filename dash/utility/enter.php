@@ -341,7 +341,7 @@ class enter
 		}
 		elseif(self::get_session('first_signup'))
 		{
-			$host .= '/my/store';
+			$host .= '/my';
 		}
 		else
 		{
@@ -351,7 +351,7 @@ class enter
 			}
 			else
 			{
-				$host .= '/my/store';
+				$host .= '/my';
 			}
 
 		}
