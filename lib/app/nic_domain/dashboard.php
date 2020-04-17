@@ -73,7 +73,30 @@ class dashboard
 
 		$result['total_payment']        = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id));
 		$result['last_year_payment']    = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id, $last_year));
-		$result['predict_late_payment'] = $result['last_year_payment'];
+
+		$next_year = date("Y-m-d", strtotime("+365 days"));
+
+		$predict_late_payment = 0;
+
+		$count_expire_domain_next_year = intval(\lib\db\nic_domain\get::count_expire_domain_date($user_id, $next_year));
+		if($count_expire_domain_next_year)
+		{
+			$get_setting = \lib\db\nic_usersetting\get::my_setting($user_id);
+			if(isset($get_setting['autorenewperiod']))
+			{
+				$autorenewperiod = $get_setting['autorenewperiod'];
+			}
+			else
+			{
+				$autorenewperiod = '5year';
+			}
+
+			$price = \lib\app\nic_domain\price::renew($autorenewperiod);
+
+			$predict_late_payment = $price * $count_expire_domain_next_year;
+		}
+
+		$result['predict_late_payment'] = $predict_late_payment;
 
 		$result['domain_pay_chart']      = self::domain_pay_chart($user_id);
 
