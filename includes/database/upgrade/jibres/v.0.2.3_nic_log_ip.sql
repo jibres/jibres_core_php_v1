@@ -1,1 +1,0 @@
-ALTER TABLE jibres_nic_log.log ADD `ip` VARCHAR(50) NULL DEFAULT NULL;
