@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS jibres.gift (
 `datemodified` timestamp NULL DEFAULT NULL,
 `datefirstuse` timestamp NULL DEFAULT NULL,
 `datefinish` timestamp NULL DEFAULT NULL,
-`status` enum('enable', 'disable', 'deleted', 'expire', 'blocked') NULL DEFAULT NULL,
+`status` enum('draft', 'enable', 'disable', 'deleted', 'expire', 'blocked') NULL DEFAULT NULL,
 `usagestatus` enum('used', 'full') NULL DEFAULT NULL,
 `forusein` enum('any', 'domain', 'store', 'sms', 'ipg') NULL DEFAULT NULL,
 `emailto` text NULL DEFAULT NULL,
