@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\domains;
+namespace lib\app\gift;
 
 
 class ready
@@ -17,6 +17,10 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'id':
+				case 'creator':
+					$result[$key] = \dash\coding::encode($value);
+					break;
 
 				default:
 					$result[$key] = $value;

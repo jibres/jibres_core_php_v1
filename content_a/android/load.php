@@ -99,13 +99,12 @@ class load
 	{
 
 
-
-		$title = self::check_position('title');
-		$logo    = self::check_position('logo');
-		$intro   = self::check_position('intro');
-		$splash  = self::check_position('splash');
-		$review  = self::check_position('review');
-		$apk     = self::check_position('apk');
+		$title  = self::check_position('title');
+		$logo   = self::check_position('logo');
+		$intro  = self::check_position('intro');
+		$splash = self::check_position('splash');
+		$review = self::check_position('review');
+		$apk    = self::check_position('apk');
 
 		$app_queue = \lib\app\application\queue::detail();
 		if($app_queue && isset($app_queue['status']) && in_array($app_queue['status'], ['inprogres', 'done']) && $review == '')
