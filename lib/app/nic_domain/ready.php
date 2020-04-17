@@ -19,7 +19,7 @@ class ready
 				if(isset($_data['lastfetch']) && $_data['lastfetch'])
 				{
 					// fetch every 1 hour
-					if(time() - strtotime($_data['lastfetch']) > (60*60))
+					if(time() - strtotime($_data['lastfetch']) > (60*60*24*7))
 					{
 						\lib\app\nic_domain\get::update_fetch($domain, $_data);
 						$_data = \lib\db\nic_domain\get::by_id($_data['id']);
