@@ -49,6 +49,12 @@ class controller
 
 		if(!\dash\engine\store::inStore())
 		{
+			// set expire notif
+			if(self::at('09:00'))
+			{
+				\lib\app\nic_domain\notif_expire::run();
+			}
+
 			// get nic pull request every 5 min
 			if(self::every_5_min())
 			{
@@ -90,6 +96,8 @@ class controller
 		{
 			\dash\db\sessions::remove_old_expire();
 		}
+
+
 
 		if(self::every_hour())
 		{

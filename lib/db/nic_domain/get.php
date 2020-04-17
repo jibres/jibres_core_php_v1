@@ -103,5 +103,13 @@ class get
 		return $result;
 	}
 
+
+	public static function notif_expire($_date)
+	{
+		$query  = "SELECT * FROM domain WHERE domain.status != 'deleted' AND ( domain.autorenew = 0 OR domain.autorenew IS NULL) AND DATE(domain.dateexpire) = DATE('$_date') ";
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
 }
 ?>
