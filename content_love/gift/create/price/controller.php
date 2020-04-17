@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_love\gift\create\controller::load();
+		\content_love\gift\create\controller::load(false);
 
 		$type = null;
 

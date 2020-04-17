@@ -10,12 +10,15 @@ class controller
 	}
 
 
-	public static function load()
+	public static function load($_redirect = true)
 	{
 		$id = \dash\validate::code(\dash\request::get('id'));
 		if(!$id)
 		{
-			\dash\redirect::to(\dash\url::that());
+			if($_redirect)
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
 			return;
 		}
 
