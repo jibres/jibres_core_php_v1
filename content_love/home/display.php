@@ -40,7 +40,7 @@
 		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/gift'>
 			<div class="statistic red">
 				<div class="value"><i class="sf-gift"></i></div>
-				<div class="label"><?php echo T_("Gift cart"); ?></div>
+				<div class="label"><?php echo T_("Gift card"); ?></div>
 			</div>
 		</a>
 	</div>
