@@ -86,7 +86,7 @@
           </div>
         </form>
 
-        <?php if(\dash\data::giftDetail()) {?>
+        <?php if(\dash\request::get('gift')) {?>
           <?php if(\dash\data::giftDetail_msgsuccess()) {?>
             <div class="msg success"><?php echo \dash\data::giftDetail_msgsuccess(); ?></div>
           <?php }// endif ?>
@@ -95,9 +95,14 @@
 
               <?php $discount = \dash\data::giftDetail_discount(); ?>
 
-              <?php echo T_("Discount") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_discount()); ?>
-              <br>
-              <?php echo T_("Final Price") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_finalprice()); ?>
+              <?php if(\dash\data::giftDetail_type() === 'percent') {?>
+                <?php echo T_("Discount percent") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_giftpercent()); ?> <?php echo T_("%"); ?>
+              <?php }elseif(\dash\data::giftDetail_type() === 'amount') { ?>
+                <?php echo T_("Discount amount") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_giftamount()); ?>
+              <?php }else{ ?>
+                <?php echo T_("Invalid gift code") ?> 😔
+              <?php } //endif ?>
+
             </div>
             <div class="cauto">
               <a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>" class="btn xs danger"><?php echo T_("Remove"); ?></a>
@@ -112,7 +117,7 @@
       <div class="box impact">
         <header><h2><?php echo T_("Register domain"); ?></h2></header>
         <div class="body">
-          <?php if(\dash\data::userBudget()) {?>
+          <?php if(\dash\data::userBudget() && false) {?>
             <div class="check1">
               <input type="checkbox" name="usebudget"  id="budget" checked>
               <label for="budget"><?php echo T_("Use from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
@@ -133,7 +138,18 @@
                   <td class="ltr floatL"><?php echo \dash\fit::number($discount); ?> <?php echo T_("Toman"); ?> </td>
                 </tr>
               <?php } // endif ?>
-              <tr class="active">
+            <?php if(\dash\data::userBudget()) {?>
+                <tr class="active">
+                  <td>
+                    <div class="check1">
+                      <input type="checkbox" name="usebudget"  id="budget" checked>
+                      <label for="budget"><?php echo T_("Use from your budget"); ?></label>
+                    </div>
+                  </td>
+                  <td class="ltr floatL align-centers"><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></td>
+                </tr>
+            <?php } //endif ?>
+              <tr class="positive">
                   <td><?php echo T_("Amount payable") ?></td>
                   <td class="ltr floatL"><?php echo \dash\fit::number(\dash\data::myPrice() - $discount) ?> <?php echo T_("Toman"); ?></td>
               </tr>
