@@ -8,20 +8,28 @@ class create
 	{
 		$condition =
 		[
-			'domain'       => 'ir_domain',
-			'nic_id'       => 'irnic_id',
-			'period'       => ['enum' => ['1year', '5year']],
-			'ns1'          => 'dns',
-			'ns2'          => 'dns',
-			'ns3'          => 'dns',
-			'ns4'          => 'dns',
-			'dnsid'        => 'string',
-			'irnic_admin'  => 'irnic_id',
-			'irnic_tech'   => 'irnic_id',
-			'irnic_bill'   => 'irnic_id',
-			'irnic_new'    => 'irnic_id',
-			'agree'        => 'bit',
-			'register_now' => 'bit',
+			'domain'            => 'ir_domain',
+			'nic_id'            => 'irnic_id',
+			'period'            => ['enum' => ['1year', '5year']],
+			'ns1'               => 'dns',
+			'ns2'               => 'dns',
+			'ns3'               => 'dns',
+			'ns4'               => 'dns',
+			'dnsid'             => 'string',
+			'irnic_admin'       => 'irnic_id',
+			'irnic_tech'        => 'irnic_id',
+			'irnic_bill'        => 'irnic_id',
+			'irnic_new'         => 'irnic_id',
+			'agree'             => 'bit',
+			'register_now'      => 'bit',
+			'gift'              => 'string_100',
+			'usebudget'         => 'bit',
+			'discount'          => 'price',
+			'pay_amount_bank'   => 'price',
+			'pay_amount_budget' => 'price',
+			'minus_transaction' => 'price',
+			'after_pay'         => 'bit',
+
 		];
 
 		$require = ['domain'];
@@ -357,6 +365,7 @@ class create
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
 
+		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
 		if(!$data['register_now'])
 		{
 			$result              = [];
@@ -366,85 +375,127 @@ class create
 			return $result;
 		}
 
-		$user_budget = \dash\user::budget();
 
-		if($user_budget >= $price)
+		// this code just run before pay
+		if(!$data['after_pay'])
 		{
-			$insert_transaction =
-			[
-				'user_id' => \dash\user::id(),
-				'title'   => T_("Buy domian :val", ['val' => $domain]),
-				'verify'  => 1,
-				'minus'   => $price,
-				'type'    => 'money',
-			];
+			$remain_amount     = $price;
+			$minus_transaction = 0;
+			$pay_amount_bank   = 0;
+			$pay_amount_budget = 0;
+			$discount          = 0;
 
-			$transaction_id = \dash\db\transactions::set($insert_transaction);
-			if(!$transaction_id)
+			// check gift card
+
+			if($data['gift'])
 			{
-				\dash\notif::error(T_("No way to insert data"));
-				return false;
-			}
-
-			// insert price domain log table
-		}
-		else
-		{
-			$temp_args = $data;
-
-			// go to bank
-			$meta =
-			[
-				'msg_go'        => T_("Buy :domain For :year year by IRNIC handle :nic_id", ['domain' => $domain, 'year' => \dash\fit::number(round($period_month / 12)), 'nic_id' => $nic_id]),
-				'auto_go'       => false,
-				'auto_back'     => true,
-				'final_msg'     => true,
-				'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
-				'user_id'       => \dash\user::id(),
-				'amount'        => abs($price),
-				'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
-				'final_fn_args' => $temp_args,
-			];
-
-
-			$result_pay = \dash\utility\pay\start::api($meta);
-
-			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
-			{
-				$domain_action_detail =
+				$gift_args =
 				[
-					'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
-					'domain_id'      => $domain_id,
-					'period'    => $period_month,
-					'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
+					'code'    => $data['gift'],
+					'price'   => $price,
+					'user_id' => \dash\user::id(),
 				];
 
-				\lib\app\nic_domainaction\action::set('domain_buy_pay_link', $domain_action_detail);
+				$gift_detail = \lib\app\gift\check::check($gift_args);
 
-				if(\dash\engine\content::api_content())
+				if(!\dash\engine\process::status())
 				{
-					$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
-					\dash\notif::meta($result_pay);
-					\dash\notif::ok($msg);
-					return;
+					return false;
 				}
-				else
-				{
-					\dash\redirect::to($result_pay['url']);
-				}
+
+				$remain_amount = $gift_detail['finalprice'];
+				$discount = $gift_detail['discount'];
+			}
+
+
+			if($remain_amount <= 0)
+			{
+				// all price minus by gift card
 			}
 			else
 			{
-				\dash\log::oops('generate_pay_error');
-				return false;
+				$user_budget = \dash\user::budget();
+
+				if($data['usebudget'] && $user_budget)
+				{
+					$pay_amount_budget = $remain_amount;
+
+					$minus_transaction = $remain_amount;
+
+					$remain_amount = floatval($remain_amount) - floatval($user_budget);
+
+				}
+				else
+				{
+					$pay_amount_bank                = $remain_amount;
+				}
 			}
 
 
+			if($remain_amount > 0)
+			{
+
+				$temp_args                      = $data;
+				$temp_args['pay_amount_bank']   = $pay_amount_bank;
+				$temp_args['pay_amount_budget'] = $pay_amount_budget;
+				$temp_args['after_pay']         = true;
+				$temp_args['discount']          = $discount;
+				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
 
 
-			// redirect to bank payment
-			return ;
+				// go to bank
+				$meta =
+				[
+					'msg_go'        => T_("Buy :domain For :year year by IRNIC handle :nic_id", ['domain' => $domain, 'year' => \dash\fit::number(round($period_month / 12)), 'nic_id' => $nic_id]),
+					'auto_go'       => false,
+					'auto_back'     => true,
+					'final_msg'     => true,
+					'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
+					'user_id'       => \dash\user::id(),
+					'amount'        => abs($remain_amount),
+					'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
+					'final_fn_args' => $temp_args,
+				];
+
+
+				$result_pay = \dash\utility\pay\start::api($meta);
+
+				if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
+				{
+					$domain_action_detail =
+					[
+						'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
+						'domain_id'      => $domain_id,
+						'period'    => $period_month,
+						'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
+					];
+
+					\lib\app\nic_domainaction\action::set('domain_buy_pay_link', $domain_action_detail);
+
+					if(\dash\engine\content::api_content())
+					{
+						$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
+						\dash\notif::meta($result_pay);
+						\dash\notif::ok($msg);
+						return;
+					}
+					else
+					{
+						\dash\redirect::to($result_pay['url']);
+					}
+				}
+				else
+				{
+					\dash\log::oops('generate_pay_error');
+					return false;
+				}
+
+				// redirect to bank payment
+				return ;
+			}
 		}
+
+		// -------------------------------------------------- Register now ---------------------------------------------- //
 
 
 		$ready =
@@ -468,7 +519,10 @@ class create
 		];
 
 
-		$result = \lib\nic\exec\domain_create::create($ready);
+		// $result = \lib\nic\exec\domain_create::create($ready);
+
+		$result = [];
+		$result['name'] = $domain;
 
 		if(isset($result['name']))
 		{
@@ -483,10 +537,32 @@ class create
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
+			if($data['minus_transaction'])
+			{
+
+				$insert_transaction =
+				[
+					'user_id' => \dash\user::id(),
+					'title'   => T_("Buy domian :val", ['val' => $domain]),
+					'verify'  => 1,
+					'minus'   => floatval($data['minus_transaction']),
+					'type'    => 'money',
+				];
+
+				$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+				if(!$transaction_id)
+				{
+					\dash\log::oops('transaction_db');
+					return false;
+				}
+			}
+
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
+				'discount'       => $data['discount'],
 				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];
@@ -502,6 +578,7 @@ class create
 				'mode'           => 'manual',
 				'period'         => $period_month,
 				'price'          => $price,
+				'discount'       => $data['discount'],
 				'transaction_id' => $transaction_id,
 				'detail'         => null,
 				'date'           => date("Y-m-d H:i:s"),
@@ -518,23 +595,23 @@ class create
 		}
 		else
 		{
-			// have error
-			// need to back money
-			$insert_transaction =
-			[
-				'user_id' => \dash\user::id(),
-				'title'   => T_("Register failed :val", ['val' => $domain]),
-				'verify'  => 1,
-				'plus'    => $price,
-				'type'    => 'money',
-			];
+			// // have error
+			// // need to back money
+			// $insert_transaction =
+			// [
+			// 	'user_id' => \dash\user::id(),
+			// 	'title'   => T_("Register failed :val", ['val' => $domain]),
+			// 	'verify'  => 1,
+			// 	'plus'    => $price,
+			// 	'type'    => 'money',
+			// ];
 
-			$transaction_id = \dash\db\transactions::set($insert_transaction);
-			if(!$transaction_id)
-			{
-				\dash\notif::error(T_("No way to insert data"));
-				return false;
-			}
+			// $transaction_id = \dash\db\transactions::set($insert_transaction);
+			// if(!$transaction_id)
+			// {
+			// 	\dash\notif::error(T_("No way to insert data"));
+			// 	return false;
+			// }
 
 			$update =
 			[
@@ -556,7 +633,7 @@ class create
 
 			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
 
-			\dash\temp::set('domainHaveTransaction', true);
+			// \dash\temp::set('domainHaveTransaction', true);
 		}
 
 	}

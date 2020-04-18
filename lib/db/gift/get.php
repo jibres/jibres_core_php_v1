@@ -11,5 +11,13 @@ class get
 		return $result;
 	}
 
+
+	public static function by_code($_code)
+	{
+		$query  = "SELECT * FROM gift WHERE gift.code = '$_code' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 }
 ?>

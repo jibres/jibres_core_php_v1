@@ -35,6 +35,25 @@ class controller
 		\dash\data::dataRowAction($load_last_activity);
 		\dash\data::dataRow($detail);
 
+		$period = null;
+
+        if(\dash\data::dataRowAction_period() == '12')
+        {
+        	$period = '1year';
+        }
+        elseif(\dash\data::dataRowAction_period() == '60')
+        {
+        	$period = '5year';
+        }
+
+        \dash\data::myPeriod($period);
+
+        $price = \lib\app\nic_domain\price::register(\dash\data::myPeriod());
+
+        \dash\data::myPrice($price);
+
+
+
 	}
 }
 ?>

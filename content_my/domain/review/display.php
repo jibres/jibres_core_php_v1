@@ -56,57 +56,63 @@
               </tr>
             <?php } //endif ?>
 
-            <?php $period = null; ?>
             <tr>
               <td><?php echo T_("Period") ?></td>
-              <td class="ltr floatL"><?php if(\dash\data::dataRowAction_period() == '12') { echo T_("1 Year"); $period = '1year'; }elseif(\dash\data::dataRowAction_period() == '60'){echo T_("5 Year"); $period = '5year'; }else{echo T_("Unknown");} ?></td>
+              <td class="ltr floatL"><?php if(\dash\data::myPeriod() == '1year') { echo T_("1 Year"); }elseif(\dash\data::myPeriod() == '5year'){echo T_("5 Year");}else{echo T_("Unknown");} ?></td>
             </tr>
 
-            <?php if($period) {?>
+            <?php if(\dash\data::myPeriod()) {?>
               <tr>
                 <td><?php echo T_("Price") ?></td>
-                <td class="ltr floatL"><?php echo \lib\app\nic_domain\price::register_string($period); ?> </td>
+                <td class="ltr floatL"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?> </td>
               </tr>
             <?php } // endif ?>
 
           </tbody>
         </table>
-
-        <?php if($period && \dash\data::userBudget() && intval(\dash\data::userBudget()) > intval(\lib\app\nic_domain\price::register($period))) {?>
-        <?php } // endif ?>
-        <?php if (true) {?>
-        <div class="f mB10">
-          <div class="c pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="paytype" value="budget" id="budget" checked>
-              <label for="budget"><?php echo T_("Pay from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
-            </div>
-          </div>
-          <div class="c pB10">
-            <div class="radio3">
-              <input type="radio" name="paytype" value="bypayment" id="bypayment">
-              <label for="bypayment"><?php echo T_("Pay by IGP"); ?></label>
-            </div>
-          </div>
-        </div>
-      <?php } //endif ?>
-
-
-        <label for="gift"><?php echo T_("Gift code") ?></label>
-        <div class="input ltr">
-          <button class="btn primary addon"><?php echo T_("Check"); ?></button>
-          <input type="text" name="gift"  id="gift" >
-        </div>
-
-
       </div>
 
-      <footer class="txtRa">
-        <form method="post" autocomplete="off">
-          <input type="hidden" name="register" value="1">
-        <button class="btn success"><?php echo T_("Register domain"); ?></button>
-        </form>
-      </footer>
+
     </div>
+
+    <div class="box impact">
+      <header><h2><?php echo T_("Gift card"); ?></h2></header>
+      <div class="body">
+        <form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
+          <input type="hidden" name="id" value="<?php echo \dash\request::get('id'); ?>">
+          <label for="gift"><?php echo T_("Gift code") ?></label>
+          <div class="input ltr">
+            <button class="btn primary addon"><?php echo T_("Check"); ?></button>
+            <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" >
+          </div>
+        </form>
+
+        <?php if(\dash\data::giftDetail()) {?>
+          <div class="msg success2">
+            <?php echo T_("Discount") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_discount()); ?>
+            <br>
+            <?php echo T_("Final Price") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_finalprice()); ?>
+          </div>
+        <?php } // endif ?>
+      </div>
+    </div>
+
+
+    <form method="post" autocomplete="off">
+      <div class="box impact">
+        <header><h2><?php echo T_("Register domain"); ?></h2></header>
+        <div class="body">
+          <?php if(\dash\data::userBudget()) {?>
+            <div class="check1">
+              <input type="checkbox" name="usebudget"  id="budget" checked>
+              <label for="budget"><?php echo T_("Use from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
+            </div>
+          <?php } //endif ?>
+        </div>
+        <footer class="txtRa">
+          <button class="btn success"><?php echo T_("Register domain"); ?></button>
+        </footer>
+      </div>
+    </form>
   </div>
 </div>

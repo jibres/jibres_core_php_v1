@@ -6,24 +6,11 @@ class model
 {
 	public static function post()
 	{
-
-		$period = null;
-
-        if(\dash\data::dataRowAction_period() == '12')
-        {
-        	$period = '1year';
-        }
-        elseif(\dash\data::dataRowAction_period() == '60')
-        {
-        	$period = '5year';
-        }
-
-
 		$post =
 		[
 			'domain'       => \dash\data::dataRow_name(),
 			'nic_id'       => null,
-			'period'       => $period,
+			'period'       => \dash\data::myPeriod(),
 			'irnic_new'    => \dash\data::dataRow_holder(),
 			'irnic_admin'  => \dash\data::dataRow_admin(),
 			'irnic_tech'   => \dash\data::dataRow_tech(),
@@ -34,6 +21,8 @@ class model
 			'ns4'          => \dash\data::dataRow_ns4(),
 			'register_now' => true,
 			'agree'        => true,
+			'gift'         => \dash\request::get('gift'),
+			'usebudget'    => \dash\request::post('usebudget'),
 		];
 
 
