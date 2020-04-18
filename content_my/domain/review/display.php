@@ -1,8 +1,9 @@
+<?php $discount = 0; ?>
 <div class="f justify-center">
   <div class="c6 m8 s12">
 
     <div class="box impact">
-      <header><h2><?php echo T_("Your domain ready to register"); ?></h2></header>
+      <header><h2><?php echo T_("Domain register detail"); ?></h2></header>
 
       <div class="body">
         <table class="tbl1 v4">
@@ -61,12 +62,7 @@
               <td class="ltr floatL"><?php if(\dash\data::myPeriod() == '1year') { echo T_("1 Year"); }elseif(\dash\data::myPeriod() == '5year'){echo T_("5 Year");}else{echo T_("Unknown");} ?></td>
             </tr>
 
-            <?php if(\dash\data::myPeriod()) {?>
-              <tr>
-                <td><?php echo T_("Price") ?></td>
-                <td class="ltr floatL"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?> </td>
-              </tr>
-            <?php } // endif ?>
+
 
           </tbody>
         </table>
@@ -78,20 +74,34 @@
     <div class="box impact">
       <header><h2><?php echo T_("Gift card"); ?></h2></header>
       <div class="body">
+        <p>
+          <?php echo T_("If you have gift cart enter here") ?> 🎁
+        </p>
         <form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
           <input type="hidden" name="id" value="<?php echo \dash\request::get('id'); ?>">
           <label for="gift"><?php echo T_("Gift code") ?></label>
           <div class="input ltr">
             <button class="btn primary addon"><?php echo T_("Check"); ?></button>
-            <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" >
+            <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" maxlength="100">
           </div>
         </form>
 
         <?php if(\dash\data::giftDetail()) {?>
-          <div class="msg success2">
-            <?php echo T_("Discount") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_discount()); ?>
-            <br>
-            <?php echo T_("Final Price") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_finalprice()); ?>
+          <?php if(\dash\data::giftDetail_msgsuccess()) {?>
+            <div class="msg success"><?php echo \dash\data::giftDetail_msgsuccess(); ?></div>
+          <?php }// endif ?>
+          <div class="msg success2 f align-center">
+            <div class="c">
+
+              <?php $discount = \dash\data::giftDetail_discount(); ?>
+
+              <?php echo T_("Discount") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_discount()); ?>
+              <br>
+              <?php echo T_("Final Price") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_finalprice()); ?>
+            </div>
+            <div class="cauto">
+              <a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>" class="btn xs danger"><?php echo T_("Remove"); ?></a>
+            </div>
           </div>
         <?php } // endif ?>
       </div>
@@ -108,6 +118,27 @@
               <label for="budget"><?php echo T_("Use from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
             </div>
           <?php } //endif ?>
+
+          <table class="tbl1 v4">
+            <tbody>
+              <?php if(\dash\data::myPeriod()) {?>
+                <tr>
+                  <td><?php echo T_("Price") ?></td>
+                  <td class="ltr floatL"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?> </td>
+                </tr>
+              <?php } // endif ?>
+              <?php if($discount) {?>
+                <tr>
+                  <td><?php echo T_("Discount") ?></td>
+                  <td class="ltr floatL"><?php echo \dash\fit::number($discount); ?> <?php echo T_("Toman"); ?> </td>
+                </tr>
+              <?php } // endif ?>
+              <tr class="active">
+                  <td><?php echo T_("Amount payable") ?></td>
+                  <td class="ltr floatL"><?php echo \dash\fit::number(\dash\data::myPrice() - $discount) ?> <?php echo T_("Toman"); ?></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <footer class="txtRa">
           <button class="btn success"><?php echo T_("Register domain"); ?></button>

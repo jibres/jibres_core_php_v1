@@ -54,6 +54,23 @@ class edit
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if($data['code'])
+		{
+			$check_duplicate_code = \lib\db\gift\get::check_duplicate_code($data['code']);
+			if(isset($check_duplicate_code['id']))
+			{
+				if(intval($check_duplicate_code['id']) === intval($id))
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::error(T_("This gift code was reserved before. Try another"), 'code');
+					return false;
+				}
+			}
+
+		}
 
 		$args = \dash\cleanse::patch_mode($_args, $data);
 

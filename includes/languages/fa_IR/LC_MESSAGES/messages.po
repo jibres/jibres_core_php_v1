@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2020-04-18 18:20+0430\n"
-"PO-Revision-Date: 2020-04-18 18:25+0430\n"
+"PO-Revision-Date: 2020-04-18 18:33+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -12645,7 +12645,7 @@ msgstr "شناسه یافت نشد"
 
 #: content_love/gift/create/message/display.php:18
 msgid "Success msg"
-msgstr "پیام پظ"
+msgstr "پیام بعد از استفاده از این کد تخفیف"
 
 #: content_love/gift/create/price/display.php:17
 msgid "Set percent of discount for this gift card"

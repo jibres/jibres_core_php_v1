@@ -67,7 +67,7 @@ class check
 		$result['giftamount']  = $giftamount;
 		$result['type']        = $type;
 		$result['finalprice']  = floatval($data['price']) - floatval($discount);
-
+		$result['msgsuccess'] = (isset($load['msgsuccess']) && $load['msgsuccess']) 	? $load['msgsuccess'] 	: null;
 		return $result;
 
 	}

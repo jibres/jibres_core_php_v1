@@ -17,7 +17,7 @@
 
         <label for="usageperuser"><?php echo T_("Gift usage limit per user"); ?></label>
         <div class="input ltr">
-          <input type="text" name="usageperuser" value="<?php echo \dash\data::dataRow_usageperuser(); ?>" id="usageperuser" max="9999999" data-format='price' placeholder="1">
+          <input type="text" name="usageperuser" value="<?php echo \dash\data::dataRow_usageperuser(); ?>" id="usageperuser" max="9999999" data-format='price' >
         </div>
 
 
