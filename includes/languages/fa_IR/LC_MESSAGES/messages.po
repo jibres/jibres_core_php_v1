@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-18 10:04+0430\n"
-"PO-Revision-Date: 2020-04-18 10:23+0430\n"
+"POT-Creation-Date: 2020-04-18 18:20+0430\n"
+"PO-Revision-Date: 2020-04-18 18:24+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1867,9 +1867,9 @@ msgstr "دامنه‌ی رویایی خودتان را بیابید."
 #: content_my/domain/buy/view.php:12 content_my/domain/history/view.php:12
 #: content_my/domain/import/view.php:12 content_my/domain/irnic/view.php:16
 #: content_my/domain/payments/view.php:12 content_my/domain/poll/view.php:12
-#: content_my/domain/renew/view.php:12 content_my/domain/search/view.php:9
-#: content_my/domain/setting/action/view.php:12 content_my/domain/setting/dns/view.php:12
-#: content_my/domain/setting/holder/view.php:12
+#: content_my/domain/renew/view.php:12 content_my/domain/review/view.php:12
+#: content_my/domain/search/view.php:9 content_my/domain/setting/action/view.php:12
+#: content_my/domain/setting/dns/view.php:12 content_my/domain/setting/holder/view.php:12
 #: content_my/domain/setting/transfer/view.php:12 content_my/domain/setting/view.php:12
 #: content_my/domain/transfer/view.php:12 content_my/domain/view.php:9
 #: content_my/home/display_site.php:15
@@ -2650,8 +2650,8 @@ msgstr "۳۰ روز گارنتی"
 #: content_a/products/variants/display.php:101 content_a/products/variants/display.php:142
 #: content_a/sale/display.php:18 content_crm/transactions/add/display.php:67
 #: content_crm/transactions/minus/display.php:67 content_my/domain/payments/display.php:10
-#: lib/app/product/search.php:84 lib/app/product/site_list.php:275
-#: lib/app/product/updateprice.php:113
+#: content_my/domain/review/display.php:66 lib/app/product/search.php:84
+#: lib/app/product/site_list.php:275 lib/app/product/updateprice.php:113
 msgid "Price"
 msgstr "قیمت"
 
@@ -2849,11 +2849,11 @@ msgstr "اختیاری"
 #: content_crm/transactions/add/display.php:54 content_crm/transactions/add/display.php:69
 #: content_crm/transactions/minus/display.php:54
 #: content_crm/transactions/minus/display.php:69 content_my/domain/home/display.php:189
-#: content_my/domain/payments/display.php:26 content_pay/home/display.php:64
-#: content_v2/app/view.php:766 content_v2/app/view.php:803 content_v2/app/view.php:815
-#: content_v2/app/view.php:827 content_v2/app/view.php:839 content_v2/app/view.php:876
-#: content_v2/app/view.php:888 content_v2/app/view.php:1023 content_v2/app/view.php:1035
-#: content_v2/app/view.php:1072 content_v2/app/view.php:1084
+#: content_my/domain/payments/display.php:26 content_my/domain/review/display.php:108
+#: content_pay/home/display.php:64 content_v2/app/view.php:766 content_v2/app/view.php:803
+#: content_v2/app/view.php:815 content_v2/app/view.php:827 content_v2/app/view.php:839
+#: content_v2/app/view.php:876 content_v2/app/view.php:888 content_v2/app/view.php:1023
+#: content_v2/app/view.php:1035 content_v2/app/view.php:1072 content_v2/app/view.php:1084
 #: lib/app/nic_domain/dashboard.php:70 lib/app/nic_domain/price.php:56
 #: lib/app/nic_domain/price.php:64 lib/nic/exec/domain_check.php:29
 msgid "Toman"
@@ -3716,8 +3716,8 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_love/domain/detail/display.php:9 content_love/domain/fetch/display.php:60
 #: content_love/domain/log/display.php:94 content_love/domain/log/view/display.php:32
 #: content_my/domain/payments/display.php:9 content_my/domain/renew/display.php:11
-#: content_my/domain/search/display.php:58 content_my/domain/setting/display.php:9
-#: content_my/domain/transfer/display.php:11
+#: content_my/domain/review/display.php:11 content_my/domain/search/display.php:58
+#: content_my/domain/setting/display.php:9 content_my/domain/transfer/display.php:11
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:15
 msgid "Domain"
@@ -3731,7 +3731,8 @@ msgstr "بررسی دامنه"
 msgid "Domain is available"
 msgstr "دامنه موجود است"
 
-#: content/whois/display.php:32 lib/app/nic_domainaction/ready.php:84
+#: content/whois/display.php:32 content_my/domain/review/display.php:103
+#: content_my/domain/review/display.php:113 lib/app/nic_domainaction/ready.php:84
 #: lib/app/nic_domainbilling/ready.php:83
 msgid "Register domain"
 msgstr "ثبت دامنه"
@@ -4908,8 +4909,8 @@ msgstr "آیتم‌ها"
 
 #: content_a/factor/home/display.php:127 content_a/pricehistory/display.php:51
 #: content_a/products/edit/display.php:71 content_a/products/price/display.php:15
-#: content_a/sale/display.php:19 lib/app/product/search.php:98
-#: lib/app/product/updateprice.php:117
+#: content_a/sale/display.php:19 content_my/domain/review/display.php:92
+#: lib/app/product/search.php:98 lib/app/product/updateprice.php:117
 msgid "Discount"
 msgstr "تخفیف"
 
@@ -5378,7 +5379,7 @@ msgstr "قیمت فروش"
 msgid "Charge taxes"
 msgstr "شامل مالیات"
 
-#: content_a/products/edit/display.php:102
+#: content_a/products/edit/display.php:102 content_my/domain/review/display.php:94
 msgid "Final Price"
 msgstr "قیمت نهایی"
 
@@ -5894,7 +5895,7 @@ msgid "Product prices"
 msgstr "قیمت محصولات"
 
 #: content_a/products/tag/controller.php:19 content_cms/terms/controller.php:19
-#: content_support/ticket/tags/view.php:47
+#: content_my/domain/review/controller.php:16 content_support/ticket/tags/view.php:47
 msgid "Id not found"
 msgstr "کد یافت نشد"
 
@@ -7531,6 +7532,7 @@ msgstr ""
 "بپردازید!"
 
 #: content_account/home/display.php:133 content_my/domain/irnic/edit/display.php:88
+#: content_my/domain/review/display.php:85
 msgid "Check"
 msgstr "بررسی"
 
@@ -8678,8 +8680,9 @@ msgid "Latest Members"
 msgstr "آخرین اعضا"
 
 #: content_crm/home/display.php:79 content_crm/home/display.php:102
-#: content_my/domain/setting/display.php:55 dash/app/user.php:52 dash/app/user.php:94
-#: dash/app/user.php:144 dash/app/visitor.php:112 dash/app/visitor.php:141
+#: content_my/domain/review/display.php:61 content_my/domain/setting/display.php:55
+#: dash/app/user.php:52 dash/app/user.php:94 dash/app/user.php:144
+#: dash/app/visitor.php:112 dash/app/visitor.php:141
 #: includes/languages/trans_static.php:571 lib/app/nic_domain/ready.php:49
 msgid "Unknown"
 msgstr "ناشناس"
@@ -12653,7 +12656,8 @@ msgstr ""
 "می‌شود."
 
 #: content_love/domain/detail/dns/display.php:12 content_my/domain/buy/display.php:113
-#: content_my/domain/option/display.php:16 content_my/domain/setting/dns/display.php:12
+#: content_my/domain/option/display.php:16 content_my/domain/review/display.php:33
+#: content_my/domain/setting/dns/display.php:12
 msgid "DNS #1"
 msgstr "دی‌ان‌اس ۱"
 
@@ -12663,7 +12667,8 @@ msgid "Server IP #1"
 msgstr "سرور آی‌پی ۱"
 
 #: content_love/domain/detail/dns/display.php:26 content_my/domain/buy/display.php:121
-#: content_my/domain/option/display.php:24 content_my/domain/setting/dns/display.php:26
+#: content_my/domain/option/display.php:24 content_my/domain/review/display.php:40
+#: content_my/domain/setting/dns/display.php:26
 msgid "DNS #2"
 msgstr "دی‌ان‌اس ۲"
 
@@ -12673,7 +12678,8 @@ msgid "Server IP #2"
 msgstr "سرور آی‌پی ۲"
 
 #: content_love/domain/detail/dns/display.php:39 content_my/domain/buy/display.php:130
-#: content_my/domain/option/display.php:32 content_my/domain/setting/dns/display.php:39
+#: content_my/domain/option/display.php:32 content_my/domain/review/display.php:47
+#: content_my/domain/setting/dns/display.php:39
 msgid "DNS #3"
 msgstr "دی‌ان‌اس ۳"
 
@@ -12683,7 +12689,8 @@ msgid "Server IP #3"
 msgstr "سرور آی‌پی ۲"
 
 #: content_love/domain/detail/dns/display.php:51 content_my/domain/buy/display.php:138
-#: content_my/domain/option/display.php:40 content_my/domain/setting/dns/display.php:51
+#: content_my/domain/option/display.php:40 content_my/domain/review/display.php:54
+#: content_my/domain/setting/dns/display.php:51
 msgid "DNS #4"
 msgstr "دی‌ان‌اس ۴"
 
@@ -12917,7 +12924,7 @@ msgstr "بر اساس مبلغ تخفیف"
 msgid "Choose type of gift card"
 msgstr "نوع کارت هدیه را مشخص کنید"
 
-#: content_love/gift/create/code/display.php:13
+#: content_love/gift/create/code/display.php:13 content_my/domain/review/display.php:83
 msgid "Gift code"
 msgstr "کد هدیه"
 
@@ -13052,7 +13059,7 @@ msgstr "آمار فروشگاه"
 msgid "Android application queue"
 msgstr "صف ساخت برنامه اندروید"
 
-#: content_love/home/display.php:43
+#: content_love/home/display.php:43 content_my/domain/review/display.php:79
 msgid "Gift card"
 msgstr "کارت‌ هدیه"
 
@@ -13131,11 +13138,12 @@ msgstr "مدت زمانی که مایلید این دامنه را بخرید ا
 
 #: content_my/domain/buy/display.php:55 content_my/domain/option/display.php:56
 #: content_my/domain/option/display.php:80 content_my/domain/renew/display.php:20
+#: content_my/domain/review/display.php:61
 msgid "1 Year"
 msgstr "یک سال"
 
 #: content_my/domain/buy/display.php:61 content_my/domain/option/display.php:62
-#: content_my/domain/renew/display.php:26
+#: content_my/domain/renew/display.php:26 content_my/domain/review/display.php:61
 msgid "5 Year"
 msgstr "پنج سال"
 
@@ -13156,7 +13164,7 @@ msgstr "سفارشی سازی رابط‌های دامنه"
 msgid "If you wan to customize domain Handle click here"
 msgstr "اگر تمایل دارید رابط‌های دامنه را سفارشی سازی کنید اینجا کلیک کنید"
 
-#: content_my/domain/buy/display.php:80
+#: content_my/domain/buy/display.php:80 content_my/domain/review/display.php:15
 msgid "IRNIC Admin"
 msgstr "رابط اداری دامنه"
 
@@ -13164,7 +13172,7 @@ msgstr "رابط اداری دامنه"
 msgid "IRNIC Tecnical"
 msgstr "رابط فنی دامنه"
 
-#: content_my/domain/buy/display.php:97
+#: content_my/domain/buy/display.php:97 content_my/domain/review/display.php:19
 msgid "IRNIC Billing"
 msgstr "رابط مالی دامنه"
 
@@ -13498,7 +13506,7 @@ msgstr "سه سال"
 msgid "Domain setting"
 msgstr "تنظیمات دامنه"
 
-#: content_my/domain/payments/display.php:11
+#: content_my/domain/payments/display.php:11 content_my/domain/review/display.php:60
 msgid "Period"
 msgstr "بازه زمانی"
 
@@ -13509,6 +13517,34 @@ msgstr "تاریخچه پرداختی‌های دامنه خالی است"
 #: content_my/domain/poll/view.php:9
 msgid "IRNIC Notification"
 msgstr "پیام‌های ایرنیک"
+
+#: content_my/domain/review/controller.php:22
+msgid "Detail not found"
+msgstr "جزئیات یافت نشد"
+
+#: content_my/domain/review/controller.php:31
+msgid "Detail is wrong!"
+msgstr "برخی از جزئیات اشتباه هستند"
+
+#: content_my/domain/review/display.php:5
+msgid "Your domain ready to register"
+msgstr "دامنه شما آماده ثبت است"
+
+#: content_my/domain/review/display.php:23
+msgid "IRNIC Technical"
+msgstr "رابط فنی دامنه"
+
+#: content_my/domain/review/display.php:27
+msgid "IRNIC Holder"
+msgstr "صاحب امتیاز دامنه"
+
+#: content_my/domain/review/display.php:108
+msgid "Use from your budget"
+msgstr "استفاده از شارژ حساب کاربری"
+
+#: content_my/domain/review/view.php:9
+msgid "Review detail"
+msgstr "بازبینی جزئیات"
 
 #: content_my/domain/search/display.php:132
 msgid "Buy your first winning domain!"
@@ -23628,8 +23664,7 @@ msgid "The product was removed from your cart"
 msgstr "محصول از سبد خرید شما حذف شد"
 
 #: lib/app/category/add.php:37 lib/app/nic_contact/add.php:157
-#: lib/app/nic_contact/add.php:323 lib/app/nic_domain/create.php:345
-#: lib/app/nic_domain/create.php:495 lib/app/nic_domain/renew.php:190
+#: lib/app/nic_contact/add.php:323 lib/app/nic_domain/renew.php:190
 #: lib/app/nic_domain/renew.php:326 lib/app/nic_domain/transfer.php:111
 #: lib/app/nic_domain/transfer.php:288 lib/app/product/comment.php:170
 #: lib/app/product/company.php:41 lib/app/product/company.php:90
@@ -23881,6 +23916,14 @@ msgstr "جمع تخفیف کوچکتر از"
 msgid "Subdiscount equal"
 msgstr "جمع تخفیف برابر با"
 
+#: lib/app/gift/check.php:26 lib/app/gift/check.php:33
+msgid "Invalid gift code"
+msgstr "کد هدیه نامعتبر است"
+
+#: lib/app/gift/check.php:49
+msgid "For use this gift code your cart amount must be larget than :val"
+msgstr "برای استفاده از این کد هدیه باید حداقل :val تومان در سبد خرید شما موجود باشد"
+
 #: lib/app/gift/create.php:65
 msgid "Your gift card was created"
 msgstr "کارت هدیه شما ساخته شد"
@@ -24080,28 +24123,32 @@ msgstr "لطفا دامنه را به صورت صحیح وارد کنید"
 msgid "Domain not found"
 msgstr "دامنه یافت نشد"
 
-#: lib/app/nic_domain/create.php:37 lib/app/nic_domain/renew.php:38
+#: lib/app/nic_domain/create.php:46 lib/app/nic_domain/renew.php:38
 #: lib/app/nic_domain/transfer.php:35
 msgid "Please view the privacy policy and check 'I agree' check box"
 msgstr "لطفا شرایط و قوانین را مطالعه کرده و موافقت خود را با آن اعلام کنید"
 
-#: lib/app/nic_domain/create.php:86
-msgid "Please choose IRNIC handle"
-msgstr "لطفا شناسه ایرنیک را انتخاب کنید"
+#: lib/app/nic_domain/create.php:54
+msgid "Please indicate the duration of the domain purchase, 1 year or 5 year?"
+msgstr "لطفا مشخص کنید که دامنه را با چه مدت زمانی خریداری خواهید کرد. یک سال یا پنج سال؟"
 
-#: lib/app/nic_domain/create.php:109 lib/app/nic_domain/transfer.php:76
+#: lib/app/nic_domain/create.php:101
+msgid "Please enter IRNIC handle"
+msgstr "لطفا شناسه ایرنیک خود را وارد کنید"
+
+#: lib/app/nic_domain/create.php:124 lib/app/nic_domain/transfer.php:76
 msgid "IRNIC handle not fount in your list"
 msgstr "شناسه ایرنیک در لیست شما یافت نشد"
 
-#: lib/app/nic_domain/create.php:124
+#: lib/app/nic_domain/create.php:139
 msgid "Can not find  billing account detail of this domain"
 msgstr "نمی‌توانید اطلاعات مربوط به رابط مالی دامنه را از جزئیات دامنه دریافت کنیم"
 
-#: lib/app/nic_domain/create.php:131 lib/app/nic_domain/create.php:174
+#: lib/app/nic_domain/create.php:146 lib/app/nic_domain/create.php:189
 msgid "Can not find  admin account detail of this domain"
 msgstr "نمی‌توانید اطلاعات مربوط به صاحب امتیاز دامنه را از جزئیات دامنه دریافت کنیم"
 
-#: lib/app/nic_domain/create.php:141 lib/app/nic_domain/create.php:156
+#: lib/app/nic_domain/create.php:156 lib/app/nic_domain/create.php:171
 msgid ""
 "We can not register this domain because the bill holder of IRNIC can not access to "
 "register"
@@ -24110,11 +24157,11 @@ msgstr ""
 "اجازه دسترسی نمی‌دهد. لازم است تا به وب‌سایت ایرنیک مراجعه کرده و جیبرس را به عنوان "
 "نماینده خودتون ثبت کنید"
 
-#: lib/app/nic_domain/create.php:168
+#: lib/app/nic_domain/create.php:183
 msgid "Can not find account detail of this domain"
 msgstr "نمی‌توانید اطلاعات مربوط به صاحب امتیاز دامنه را از جزئیات دامنه دریافت کنیم"
 
-#: lib/app/nic_domain/create.php:184 lib/app/nic_domain/create.php:197
+#: lib/app/nic_domain/create.php:199 lib/app/nic_domain/create.php:212
 msgid ""
 "We can not register this domain because the admin holder of IRNIC can not access to "
 "register"
@@ -24123,36 +24170,36 @@ msgstr ""
 "دسترسی برای تنظیم به‌عنوان صاحب امتیاز یک دامنه را نمی‌دهد. لازم است تا به وب‌سایت ایرنیک "
 "مراجعه کرده و جیبرس را به عنوان نماینده خودتون ثبت کنید"
 
-#: lib/app/nic_domain/create.php:259
+#: lib/app/nic_domain/create.php:274
 msgid "This domain is already in your list"
 msgstr "این دامنه در حال حاضر در لیست شما وجود دارد"
 
-#: lib/app/nic_domain/create.php:312
+#: lib/app/nic_domain/create.php:351
 msgid "Error! Can not create your domain data"
 msgstr "خطا! نمی‌توانیم داده وب‌سایت را بسازیم"
 
-#: lib/app/nic_domain/create.php:336
-msgid "Buy domian :val"
-msgstr "خرید دامنه :val"
+#: lib/app/nic_domain/create.php:374
+msgid "Domain ready to register"
+msgstr "دامنه آماده ثبت است"
 
-#: lib/app/nic_domain/create.php:358
+#: lib/app/nic_domain/create.php:449
 msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
-#: lib/app/nic_domain/create.php:386 lib/app/nic_domain/renew.php:229
+#: lib/app/nic_domain/create.php:477 lib/app/nic_domain/renew.php:229
 #: lib/app/nic_domain/transfer.php:150
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/nic_domain/create.php:473
+#: lib/app/nic_domain/create.php:546
+msgid "Buy domian :val"
+msgstr "خرید دامنه :val"
+
+#: lib/app/nic_domain/create.php:590
 msgid "Domain :domain was registered in your name"
 msgstr "دامنه :domain با موفقیت ثبت شد"
 
-#: lib/app/nic_domain/create.php:486 lib/app/nic_domain/transfer.php:279
-msgid "Register failed :val"
-msgstr "خطا در ثبت :val"
-
-#: lib/app/nic_domain/create.php:517
+#: lib/app/nic_domain/create.php:634
 msgid "Can not register your domain, Money back to your account"
 msgstr "نمی‌توانیم دامنه را ثبت کنیم. پول به حساب شما برگشت داده شد"
 
@@ -24269,6 +24316,10 @@ msgstr "نیاز به ارائه مستندات"
 msgid "Register Approved"
 msgstr "ثبت دامنه تایید شد"
 
+#: lib/app/nic_domain/ready.php:169
+msgid "Domain reserved"
+msgstr "دامنه رزرو شده است"
+
 #: lib/app/nic_domain/remove.php:29
 msgid "Can not edit this domain status"
 msgstr "نمی‌توانیم وضعیت این دامنه را به‌روزرسانی کنیم"
@@ -24327,6 +24378,10 @@ msgstr "انتقال دامنه :domain"
 #: lib/app/nic_domain/transfer.php:267
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
+
+#: lib/app/nic_domain/transfer.php:279
+msgid "Register failed :val"
+msgstr "خطا در ثبت :val"
 
 #: lib/app/nic_domain/transfer.php:306
 msgid "Can not transfer this domain"
@@ -25777,9 +25832,6 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
-#~ msgid "Your domain was registred"
-#~ msgstr "دامنه شما با موفقیت ثبت شد"
-
 #~ msgid ""
 #~ "Our app generator is finished. Now we have a factory to create android application "
 #~ "for our bussiness."
@@ -25984,9 +26036,6 @@ msgstr "یارد"
 #~| msgid "Download setting"
 #~ msgid "Download Postman Collection"
 #~ msgstr "تنظیمات صفحه دانلود"
-
-#~ msgid "Store Detail not found"
-#~ msgstr "جزئیات فروشگاه یافت نشد"
 
 #~ msgid "subdomain not found"
 #~ msgstr "زیردامنه یافت نشد"
