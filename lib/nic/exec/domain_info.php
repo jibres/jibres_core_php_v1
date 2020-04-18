@@ -7,11 +7,24 @@ class domain_info
 
 	public static function info($_domain)
 	{
+		$load_session = \dash\session::get('lastDomainFetched');
+		var_dump($load_session);exit();
+		if(isset($load_session[$_domain]) && isset($load_session['time']))
+		{
+			if(time() - $load_session['time'] < 60*2)
+			{
+				return $load_session[$_domain];
+			}
+		}
+
 		$info = self::analyze_domain_info($_domain);
 		if(!$info || !is_array($info))
 		{
 			return false;
 		}
+
+		$set_session = [$_domain => $info, 'time' => time()];
+		\dash\session::set('lastDomainFetched', $set_session);
 
 		return $info;
 	}

@@ -89,6 +89,17 @@ class domain_check
 
 	public static function check($_domain)
 	{
+		$load_session = \dash\session::get('lastDomainChecked');
+
+		if(isset($load_session[$_domain]) && isset($load_session['time']))
+		{
+			if(time() - $load_session['time'] < 60*2)
+			{
+				return $load_session[$_domain];
+			}
+		}
+
+
 		$check = self::analyze_domain_check($_domain);
 		if(!$check || !is_array($check))
 		{
@@ -110,6 +121,9 @@ class domain_check
 
 		$result              = [];
 		$result['available'] = $available;
+
+		$set_session = [$_domain => $result, 'time' => time()];
+		\dash\session::set('lastDomainChecked', $set_session);
 
 		return $result;
 	}

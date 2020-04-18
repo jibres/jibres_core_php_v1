@@ -23,7 +23,7 @@ class create
 			'agree'       => 'bit',
 		];
 
-		$require = ['domain', 'period'];
+		$require = ['domain'];
 
 		$meta = [];
 
@@ -39,6 +39,12 @@ class create
 		}
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['period'])
+		{
+			\dash\notif::error(T_("Please indicate the duration of the domain purchase, 1 year or 5 year?"));
+			return false;
+		}
 
 		$domain      = $data['domain'];
 		$nic_id      = $data['nic_id'];
@@ -83,7 +89,7 @@ class create
 
 		if(!$irnic_new && !$nic_id)
 		{
-			\dash\notif::error(T_("Please choose IRNIC handle"));
+			\dash\notif::error(T_("Please enter IRNIC handle"), 'irnicid-new');
 			return false;
 		}
 
