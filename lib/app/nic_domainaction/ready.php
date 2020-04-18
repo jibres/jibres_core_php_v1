@@ -4,7 +4,7 @@ namespace lib\app\nic_domainaction;
 
 class ready
 {
-	public static function row($_data, $_transaction_detail)
+	public static function row($_data, $_transaction_detail = [])
 	{
 		$result = [];
 

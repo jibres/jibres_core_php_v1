@@ -8,19 +8,20 @@ class create
 	{
 		$condition =
 		[
-			'domain'      => 'ir_domain',
-			'nic_id'      => 'irnic_id',
-			'period'      => ['enum' => ['1year', '5year']],
-			'ns1'         => 'dns',
-			'ns2'         => 'dns',
-			'ns3'         => 'dns',
-			'ns4'         => 'dns',
-			'dnsid'       => 'string',
-			'irnic_admin' => 'irnic_id',
-			'irnic_tech'  => 'irnic_id',
-			'irnic_bill'  => 'irnic_id',
-			'irnic_new'   => 'irnic_id',
-			'agree'       => 'bit',
+			'domain'       => 'ir_domain',
+			'nic_id'       => 'irnic_id',
+			'period'       => ['enum' => ['1year', '5year']],
+			'ns1'          => 'dns',
+			'ns2'          => 'dns',
+			'ns3'          => 'dns',
+			'ns4'          => 'dns',
+			'dnsid'        => 'string',
+			'irnic_admin'  => 'irnic_id',
+			'irnic_tech'   => 'irnic_id',
+			'irnic_bill'   => 'irnic_id',
+			'irnic_new'    => 'irnic_id',
+			'agree'        => 'bit',
+			'register_now' => 'bit',
 		];
 
 		$require = ['domain'];
@@ -271,7 +272,7 @@ class create
 					case 'deleted':
 					case 'failed':
 					case 'pending':
-					case 'awiting':
+					case 'awaiting':
 					default:
 						$domain_id = $check_duplicate_domain['id'];
 						break;
@@ -281,6 +282,30 @@ class create
 			{
 				$domain_id = $check_duplicate_domain['id'];
 			}
+
+			$update_domain_record =
+			[
+				'registrar'    => 'irnic',
+				'status'       => 'awaiting',
+
+				'holder'       => $nic_id,
+				'admin'        => $nic_id,
+				'tech'         => $nic_id,
+				'bill'         => $nic_id,
+
+				'autorenew'    => 1,
+				'lock'         => 1,
+
+				'ns1'          => $ns1,
+				'ns2'          => $ns2,
+				'ns3'          => $ns3,
+				'ns4'          => $ns4,
+
+			];
+
+			\lib\db\nic_domain\update::update($update_domain_record, $domain_id);
+
+
 		}
 		else
 		{
@@ -331,6 +356,15 @@ class create
 
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
+
+		if(!$data['register_now'])
+		{
+			$result              = [];
+			$result['domain_id'] = $domain_code;
+
+			\dash\notif::ok(T_("Domain ready to register"));
+			return $result;
+		}
 
 		$user_budget = \dash\user::budget();
 

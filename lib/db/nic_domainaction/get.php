@@ -37,6 +37,27 @@ class get
 	}
 
 
+	public static function last_record_domain_id_caller($_id, $_action)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				domainaction
+			WHERE
+				domainaction.domain_id = $_id AND
+				domainaction.action    = '$_action'
+			ORDER BY
+				domainaction.id DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 	public static function caller_domain_user_id_date($_caller, $_domain, $_user_id, $_date)
 	{
 		$query  =

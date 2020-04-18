@@ -806,10 +806,10 @@ class cleanse
 		}
 
 		// show all result in local
-		// if(\dash\url::isLocal())
-		// {
-		// 	\dash\notif::api("END CLEANSE FUNCTION");
-		// }
+		if(\dash\url::isLocal())
+		{
+			\dash\notif::api("END CLEANSE FUNCTION");
+		}
 
 		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
 		{
