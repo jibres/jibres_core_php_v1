@@ -29,12 +29,13 @@ class create
 			'pay_amount_budget' => 'price',
 			'minus_transaction' => 'price',
 			'after_pay'         => 'bit',
+			'user_id' => 'id',
 
 		];
 
 		$require = ['domain'];
 
-		$meta = [];
+		$meta    = [];
 
 
 		if(isset($_args['agree']) && $_args['agree'])
@@ -48,6 +49,16 @@ class create
 		}
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		// after pay get user id from args
+		$user_id = $data['user_id'];
+
+		if(!$user_id)
+		{
+			$user_id = \dash\user::id();
+		}
+
 
 		if(!$data['period'])
 		{
@@ -118,7 +129,7 @@ class create
 		}
 		else
 		{
-			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
+			$check_nic_id = \lib\db\nic_contact\get::user_nic_id($user_id, $nic_id);
 			if(!isset($check_nic_id['nic_id']))
 			{
 				\dash\notif::error(T_("IRNIC handle not fount in your list"));
@@ -243,7 +254,7 @@ class create
 		// {
 		// 	if($ns1 && $ns2)
 		// 	{
-		// 		$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
+		// 		$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2($user_id, $ns1, $ns2);
 		// 		if(!isset($get_ns_record['id']))
 		// 		{
 		// 			$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
@@ -263,7 +274,7 @@ class create
 
 
 
-		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
 		if(isset($check_duplicate_domain['id']))
 		{
 			if(isset($check_duplicate_domain['status']))
@@ -319,7 +330,7 @@ class create
 		{
 			$insert =
 			[
-				'user_id'      => \dash\user::id(),
+				'user_id'      => $user_id,
 				'name'         => $domain,
 				'registrar'    => 'irnic',
 				'status'       => 'awaiting',
@@ -393,7 +404,7 @@ class create
 				[
 					'code'    => $data['gift'],
 					'price'   => $price,
-					'user_id' => \dash\user::id(),
+					'user_id' => $user_id,
 				];
 
 				$gift_detail = \lib\app\gift\check::check($gift_args);
@@ -441,8 +452,9 @@ class create
 				$temp_args['after_pay']         = true;
 				$temp_args['discount']          = $discount;
 				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
+				$temp_args['user_id']           = $user_id;
 
-
+				var_dump($temp_args);exit();
 				// go to bank
 				$meta =
 				[
@@ -451,7 +463,7 @@ class create
 					'auto_back'     => true,
 					'final_msg'     => true,
 					'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
-					'user_id'       => \dash\user::id(),
+					'user_id'       => $user_id,
 					'amount'        => abs($remain_amount),
 					'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
 					'final_fn_args' => $temp_args,
@@ -542,7 +554,7 @@ class create
 
 				$insert_transaction =
 				[
-					'user_id' => \dash\user::id(),
+					'user_id' => $user_id,
 					'title'   => T_("Buy domian :val", ['val' => $domain]),
 					'verify'  => 1,
 					'minus'   => floatval($data['minus_transaction']),
@@ -558,6 +570,23 @@ class create
 				}
 			}
 
+			if($data['gift'])
+			{
+				$gift_meta =
+				[
+					'code'            => $data['gift'],
+					'transaction_id'  => $transaction_id,
+					'price'           => $price,
+					'discount'        => $data['discount'],
+					'discountpercent' => round((floatval($data['discount']) * 100) / floatval($price)),
+					'finalprice'      => floatval($price) - floatval($data['discount']),
+					'user_id'         => $user_id,
+				];
+
+				\lib\app\gift\usage::set($gift_meta);
+			}
+
+
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
@@ -572,7 +601,7 @@ class create
 			$insert_billing =
 			[
 				'domain_id'      => $domain_id,
-				'user_id'        => \dash\user::id(),
+				'user_id'        => $user_id,
 				'action'         => 'register',
 				'status'         => 'enable',
 				'mode'           => 'manual',
@@ -599,7 +628,7 @@ class create
 			// // need to back money
 			// $insert_transaction =
 			// [
-			// 	'user_id' => \dash\user::id(),
+			// 	'user_id' => $user_id,
 			// 	'title'   => T_("Register failed :val", ['val' => $domain]),
 			// 	'verify'  => 1,
 			// 	'plus'    => $price,
