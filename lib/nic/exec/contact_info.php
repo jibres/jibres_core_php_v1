@@ -5,13 +5,22 @@ namespace lib\nic\exec;
 class contact_info
 {
 
+	private static $detail = [];
+
 	public static function info($_contact)
 	{
+		if(isset(self::$detail[$_contact]))
+		{
+			return self::$detail[$_contact];
+		}
+
 		$info = self::analyze_contact_info($_contact);
 		if(!$info || !is_array($info))
 		{
 			return false;
 		}
+
+		self::$detail[$_contact] = $info;
 
 		return $info;
 	}

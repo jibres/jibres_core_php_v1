@@ -4,14 +4,22 @@ namespace lib\nic\exec;
 
 class contact_check
 {
+	private static $detail = [];
 
 	public static function check($_contact)
 	{
+		if(isset(self::$detail[$_contact]))
+		{
+			return self::$detail[$_contact];
+		}
+
 		$check = self::analyze_contact_check($_contact);
 		if(!$check || !is_array($check))
 		{
 			return false;
 		}
+
+		self::$detail[$_contact] = $check;
 
 		return $check;
 	}
