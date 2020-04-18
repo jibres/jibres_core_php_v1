@@ -164,6 +164,12 @@ class ready
 						}
 
 
+						if(in_array(['serverHold', 'irnicReserved', 'serverRenewProhibited', 'serverDeleteProhibited', 'irnicRegistrationApproved'], $nicstatus))
+						{
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Domain reserved").'</span><i class="sf-info-circle fc-blue"></i></div>';
+						}
+
+
 						$other_status_html = '';
 
 						if($other_status)
