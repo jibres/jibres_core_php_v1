@@ -22,13 +22,13 @@
       </a>
      </div>
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?action=deactive" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/search?action=active" class="stat">
        <h3><?php echo T_("Your Active Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_active'));?></div>
       </a>
      </div>
      <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/search?action=active" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/search?action=deactive" class="stat">
        <h3><?php echo T_("Your Deactive Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_deactive'));?></div>
       </a>
