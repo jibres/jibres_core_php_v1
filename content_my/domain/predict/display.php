@@ -56,14 +56,9 @@ else
         <thead>
             <tr class="fs09">
                 <th colspan="2" data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
-                <th class="txtC"><?php echo T_("Status"); ?></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>">
-                  <a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>">
-                    <?php echo T_("Create date"); ?><br><?php echo T_("Date modified"); ?>
-                  </a>
-                </th>
-                <th class="txtL"><?php echo T_("DNS"); ?></th>
+
+                <th class="" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
+                <th><?php echo T_("Renew amount") ?></th>
             </tr>
         </thead>
         <tbody class="fs12">
@@ -76,7 +71,7 @@ else
                     <!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
                     <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link flex"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
                 </td>
-                <td class="collapsing">
+                <td class="">
                   <?php if(\dash\get::index($value, 'verify')) {?>
                     <a href="<?php echo \dash\url::this(). '/setting/transfer?domain='. \dash\get::index($value, 'name'); ?>">
 
@@ -87,19 +82,15 @@ else
                     <div class="ibtn x30 wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
                     </a>
                 </td>
-                <td class="txtC">
-                  <?php echo \dash\get::index($value, 'status_html'); ?>
+
+                <td class="  fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
+                <td>
+                    <div><?php echo T_("1 Year"). ' '. \lib\app\nic_domain\price::register_string('1year'); ?></div>
+                    <div><?php echo T_("5 Year"). ' '. \lib\app\nic_domain\price::register_string('5year'); ?></div>
+
+
                 </td>
-                <td class="collapsing txtL fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL fs09">
-                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></div>
-                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></div>
-                </td>
-                <td class="collapsing ltr txtL">
-                    <code><?php echo \dash\get::index($value, 'ns1'); ?></code>
-                    <br>
-                    <code><?php echo \dash\get::index($value, 'ns2'); ?></code>
-                </td>
+
 
             </tr>
             <?php } //endfor ?>

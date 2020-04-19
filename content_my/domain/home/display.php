@@ -71,14 +71,14 @@
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
        <h3><?php echo T_("Total Payments");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_payment'));?></div>
+       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'total_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
        <h3><?php echo T_("Last Year Payments");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'last_year_payment'));?></div>
+       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'last_year_payment'));?></div>
       </a>
      </div>
 
@@ -92,7 +92,7 @@
      <div class="c">
       <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
        <h3><?php echo T_("Predict Late Payments");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'predict_late_payment'));?></div>
+       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'predict_late_payment'));?></div>
       </a>
      </div>
     </section>
@@ -157,6 +157,12 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/history">
         <div class="key"><?php echo T_('Last Activities');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/predict">
+        <div class="key"><?php echo T_('Predict Late Payments');?></div>
         <div class="go"></div>
        </a>
       </li>

@@ -181,10 +181,11 @@ class search
 
 		$condition =
 		[
-			'order'  => 'order',
-			'sort'   => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'action' => ['enum' => ['active', 'deactive']],
-			'dns'    => 'code',
+			'order'   => 'order',
+			'sort'    => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'action'  => ['enum' => ['active', 'deactive']],
+			'dns'     => 'code',
+			'predict' => 'bit',
 
 		];
 
@@ -264,17 +265,27 @@ class search
 			$order_sort = " ORDER BY domain.id DESC";
 		}
 
-		if($data['action'] === 'active')
+		if($data['predict'])
 		{
-			$and[] = " domain.status = 'enable' ";
-		}
-		elseif($data['action'] === 'deactive')
-		{
-			$and[] = " domain.status NOT IN ('deleted', 'enable') ";
+			$next_year = date("Y-m-d", strtotime("+365 days"));
+			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
+			$and[] = " domain.status != 'deleted' ";
 		}
 		else
 		{
-			$and[] = " domain.status != 'deleted' ";
+
+			if($data['action'] === 'active')
+			{
+				$and[] = " domain.status = 'enable' ";
+			}
+			elseif($data['action'] === 'deactive')
+			{
+				$and[] = " domain.status NOT IN ('deleted', 'enable') ";
+			}
+			else
+			{
+				$and[] = " domain.status != 'deleted' ";
+			}
 		}
 
 
