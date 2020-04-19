@@ -53,12 +53,55 @@ class datetime
 			return false;
 		}
 
-		$data = date('Y-m-d', $convertedDate);
+		$format = 'Y-m-d';
+
+		if(isset($_meta['format']))
+		{
+			$format = $_meta['format'];
+		}
 
 		if(\dash\utility\jdate::is_jalali($data))
 		{
 			$data = \dash\utility\jdate::to_gregorian($data);
 		}
+
+		try
+		{
+
+			$data_datetime = new \DateTime($data);
+			$year = $data_datetime->format("Y");
+
+			if(intval($year) > 3000)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
+				}
+				return false;
+			}
+
+			if(intval($year) < 1000)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
+				}
+				return false;
+			}
+
+			$date = $data_datetime->format($format);
+
+
+		}
+		catch(\Exception $e)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
+			}
+			return false;
+		}
+
 
 		return $data;
 	}
@@ -117,9 +160,12 @@ class datetime
 
 	public static function datetime($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$meta = $_meta;
+		$meta           = $_meta;
 		$meta['format'] = 'Y-m-d H:i:s';
-		return self::date($_data, $_notif, $_element, $_field_title, $meta);
+		$data           = self::date($_data, $_notif, $_element, $_field_title, $meta);
+
+		return $data;
+
 	}
 
 
