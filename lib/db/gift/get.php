@@ -27,5 +27,22 @@ class get
 		return $result;
 	}
 
+
+	public static function count_usaget_gift_id($_gift_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM giftusage WHERE giftusage.gift_id = $_gift_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function count_usaget_gift_id_user_id($_gift_id, $_user_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM giftusage WHERE giftusage.gift_id = $_gift_id AND giftusage.user_id = $_user_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
 }
 ?>

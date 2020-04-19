@@ -349,8 +349,8 @@ class create
 				return false;
 			}
 
-			$remain_amount = $gift_detail['finalprice'];
 			$discount      = $gift_detail['discount'];
+			$remain_amount = $remain_amount - floatval($discount);
 		}
 
 
