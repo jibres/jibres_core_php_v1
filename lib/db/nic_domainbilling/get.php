@@ -12,7 +12,7 @@ class get
 			$date = " AND DATE(domainbilling.datecreated) > DATE('$_date') ";
 		}
 
-		$query  = "SELECT SUM(domainbilling.price) AS `price` FROM domainbilling WHERE domainbilling.user_id = $_user_id $date";
+		$query  = "SELECT SUM(domainbilling.finalprice) AS `price` FROM domainbilling WHERE domainbilling.user_id = $_user_id $date";
 
 		$result = \dash\db::get($query, 'price', true, 'nic');
 
@@ -25,7 +25,7 @@ class get
 		$query  =
 		"
 			SELECT
-				SUM(domainbilling.price) AS `price`,
+				SUM(domainbilling.finalprice) AS `price`,
 				MONTH(domainbilling.datecreated) AS `month`,
 				YEAR(domainbilling.datecreated) AS `year`
 			FROM
