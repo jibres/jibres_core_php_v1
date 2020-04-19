@@ -476,11 +476,12 @@ class create
 		$gift_usage_id = null;
 
 		// run nic create domain exec
-		// $result = \lib\nic\exec\domain_create::create($ready);
-		$result                 = [];
-		$result['name']         = $domain;
-		$result['dateregister'] = null;
-		$result['dateexpire']   = null;
+		$result = \lib\nic\exec\domain_create::create($ready);
+
+		// $result                 = [];
+		// $result['name']         = $domain;
+		// $result['dateregister'] = null;
+		// $result['dateexpire']   = null;
 
 		if(isset($result['name']))
 		{
