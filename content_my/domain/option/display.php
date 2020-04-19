@@ -52,7 +52,7 @@
         <div class="f mB10">
           <div class="c pB10 pRa5">
             <div class="radio3">
-              <input type="radio" name="period" value="1year" id="period1year" <?php if(\dash\data::dataRow_autorenewperiod() === '1year') {echo 'checked';} ?>>
+              <input type="radio" name="period" value="1year" id="period1year" <?php if(\dash\data::dataRow_autorenewperiod() === '1year' || !\dash\data::dataRow_autorenewperiod()) {echo 'checked';} ?>>
               <label for="period1year"><?php echo T_("1 Year"); ?></label>
             </div>
           </div>
@@ -75,10 +75,9 @@
             <option></option>
             <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
             <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
-            <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month') {echo 'selected';} ?>><?php echo T_("1 Month"); ?></option>
+            <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?></option>
             <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
             <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
-            <option value="3year" <?php if(\dash\data::dataRow_domainlifetime() === '3year') {echo 'selected';} ?>><?php echo T_("3 Year"); ?></option>
           </select>
         </div>
 

@@ -55,6 +55,11 @@ class controller
 				\lib\app\nic_domain\notif_expire::run();
 			}
 
+			if(self::every_hour())
+			{
+				\lib\app\nic_domain\autorenew::run();
+			}
+
 			// get nic pull request every 5 min
 			if(self::every_5_min())
 			{

@@ -19,7 +19,7 @@ class set
 			'ns3'             => 'dns',
 			'ns4'             => 'dns',
 			'autorenewperiod' => ['enum' => ['1year', '5year']],
-			'domainlifetime'  => ['enum' => ['3day', '1week','1month', '6month', '1year', '3year']],
+			'domainlifetime'  => ['enum' => ['3day', '1week','1month', '6month', '1year']],
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
