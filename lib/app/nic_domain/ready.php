@@ -14,7 +14,7 @@ class ready
 		if($domain && !\dash\temp::get('disableDomainFetch'))
 		{
 			// only enable domain fetch & update result
-			if(isset($_data['status']) && $_data['status'] === 'enable')
+			if(isset($_data['status']) && ($_data['status'] === 'enable' || $_data['status'] === 'awaiting'))
 			{
 				if(isset($_data['lastfetch']) && $_data['lastfetch'])
 				{
