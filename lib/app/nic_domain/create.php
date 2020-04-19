@@ -340,6 +340,7 @@ class create
 				'code'    => $data['gift'],
 				'price'   => $price,
 				'user_id' => $user_id,
+				'usein'   => 'domain',
 			];
 
 			$gift_detail = \lib\app\gift\check::check($gift_args);

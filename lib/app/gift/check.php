@@ -11,6 +11,7 @@ class check
 			'code'    => 'string_100',
 			'price'   => 'price',
 			'user_id' => 'id',
+			'usein'   => 'string_100',
 		];
 
 		$require = ['code', 'price', 'user_id'];
@@ -61,6 +62,16 @@ class check
 		{
 			$type     = 'amount';
 			$discount = floatval($giftamount);
+		}
+
+		// check forusein
+		if(isset($load['forusein']) && $load['forusein'] && $data['usein'])
+		{
+			if($load['forusein'] !== $data['usein'] && $load['forusein'] !== 'any')
+			{
+				\dash\notif::error(T_("This gift card not working here!"));
+				return false;
+			}
 		}
 
 		// check max gift

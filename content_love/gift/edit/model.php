@@ -22,6 +22,7 @@ class model
 			'physical'     => \dash\request::post('physical'),
 			'chap'         => \dash\request::post('chap'),
 			'status'       => \dash\request::post('status'),
+			'forusein'     => \dash\request::post('forusein'),
 
 		];
 

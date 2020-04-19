@@ -23,6 +23,7 @@ class view
 				'code'    => $gift,
 				'price'   => \dash\data::myPrice(),
 				'user_id' => \dash\user::id(),
+				'usein'   => 'domain',
 			];
 
 			$detail = \lib\app\gift\check::check($gift_args);
