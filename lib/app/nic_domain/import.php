@@ -103,6 +103,7 @@ class import
 				'user_id'     => $user_id,
 				'status'      => 'enable',
 				'datecreated' => date("Y-m-d H:i:s"),
+				'lastfetch'   => date("Y-m-d H:i:s"),
 			];
 		}
 
