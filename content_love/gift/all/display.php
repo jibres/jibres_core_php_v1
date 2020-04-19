@@ -69,7 +69,7 @@ else
 
             <tr>
                 <td>
-                    <a href="<?php echo \dash\url::that(); ?>/detail?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'code'); ?></code></a>
+                    <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'code'); ?></code></a>
                 </td>
 
                 <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
