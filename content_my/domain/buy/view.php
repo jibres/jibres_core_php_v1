@@ -15,6 +15,24 @@ class view
 		if(\dash\data::haveBuyDomain())
 		{
 			$my_setting = \lib\app\nic_usersetting\get::get();
+			if(isset($my_setting['ns1']) && $my_setting['ns1'])
+			{
+				// nothing
+			}
+			else
+			{
+				$my_setting['ns1'] = 'w.ns.arvancdn.com';
+			}
+
+			if(isset($my_setting['ns2']) && $my_setting['ns2'])
+			{
+				// nothing
+			}
+			else
+			{
+				$my_setting['ns2'] = 'f.ns.arvancdn.com';
+			}
+
 			\dash\data::userSetting($my_setting);
 
 
