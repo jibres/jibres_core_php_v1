@@ -80,20 +80,21 @@ class create
 		\lib\app\domains\detect::dns($ns4);
 
 
-
 		$irnic_admin = $data['irnic_admin'];
 		$irnic_tech  = $data['irnic_tech'];
 		$irnic_bill  = $data['irnic_bill'];
-		$irnic_new  = $data['irnic_new'];
+		$irnic_new   = $data['irnic_new'];
 
-		$ip1 = null;
-		$ip2 = null;
-		$ip3 = null;
-		$ip4 = null;
+		$ip1         = null;
+		$ip2         = null;
+		$ip3         = null;
+		$ip4         = null;
 
+		$transaction_id = null;
 
 		$period_month = 0;
-		$price = \lib\app\nic_domain\price::register($period);
+
+		$price        = \lib\app\nic_domain\price::register($period);
 
 		if($period === '1year')
 		{
@@ -109,7 +110,6 @@ class create
 			\dash\notif::error(T_("Please enter IRNIC handle"), 'irnicid-new');
 			return false;
 		}
-
 
 		$get_contac_nic = [];
 
@@ -164,12 +164,9 @@ class create
 				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
 				return false;
 			}
-
-
 		}
 		else
 		{
-
 			if(isset($get_contac_nic[$nic_id]['bill']) && $get_contac_nic[$nic_id]['bill'] == '1')
 			{
 				// no problem to register this domain by tihs contact
@@ -179,7 +176,6 @@ class create
 				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
 				return false;
 			}
-
 		}
 
 
@@ -207,7 +203,6 @@ class create
 				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
 				return false;
 			}
-
 		}
 		else
 		{
@@ -272,8 +267,6 @@ class create
 			];
 
 			\lib\db\nic_domain\update::update($update_domain_record, $domain_id);
-
-
 		}
 		else
 		{
@@ -313,14 +306,6 @@ class create
 			}
 		}
 
-		$domain_action_detail =
-		[
-			'domain_id' => $domain_id,
-			'period'    => $period_month,
-		];
-
-		\lib\app\nic_domainaction\action::set('domain_buy_ready', $domain_action_detail);
-
 
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
@@ -328,6 +313,15 @@ class create
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
 		if(!$data['register_now'])
 		{
+
+			$domain_action_detail =
+			[
+				'domain_id' => $domain_id,
+				'period'    => $period_month,
+			];
+
+			\lib\app\nic_domainaction\action::set('domain_buy_ready', $domain_action_detail);
+
 			$result              = [];
 			$result['domain_id'] = $domain_code;
 
@@ -335,38 +329,38 @@ class create
 			return $result;
 		}
 
+		// check gift card
+		$remain_amount     = $price;
+		$discount          = 0;
+
+		if($data['gift'])
+		{
+			$gift_args =
+			[
+				'code'    => $data['gift'],
+				'price'   => $price,
+				'user_id' => $user_id,
+			];
+
+			$gift_detail = \lib\app\gift\check::check($gift_args);
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			$remain_amount = $gift_detail['finalprice'];
+			$discount      = $gift_detail['discount'];
+		}
+
+
 
 		// this code just run before pay
 		if(!$data['after_pay'])
 		{
-			$remain_amount     = $price;
 			$minus_transaction = 0;
 			$pay_amount_bank   = 0;
 			$pay_amount_budget = 0;
-			$discount          = 0;
-
-			// check gift card
-
-			if($data['gift'])
-			{
-				$gift_args =
-				[
-					'code'    => $data['gift'],
-					'price'   => $price,
-					'user_id' => $user_id,
-				];
-
-				$gift_detail = \lib\app\gift\check::check($gift_args);
-
-				if(!\dash\engine\process::status())
-				{
-					return false;
-				}
-
-				$remain_amount = $gift_detail['finalprice'];
-				$discount = $gift_detail['discount'];
-			}
-
 
 			if($remain_amount <= 0)
 			{
@@ -391,7 +385,6 @@ class create
 				}
 			}
 
-
 			if($remain_amount > 0)
 			{
 
@@ -399,7 +392,7 @@ class create
 				$temp_args['pay_amount_bank']   = $pay_amount_bank;
 				$temp_args['pay_amount_budget'] = $pay_amount_budget;
 				$temp_args['after_pay']         = true;
-				$temp_args['discount']          = $discount;
+				// $temp_args['discount']          = $discount;
 				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
 				$temp_args['user_id']           = $user_id;
 
@@ -479,11 +472,15 @@ class create
 		];
 
 
-		$finalprice = floatval($price) - floatval($data['discount']);
+		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
 
 		// run nic create domain exec
-		$result = \lib\nic\exec\domain_create::create($ready);
+		// $result = \lib\nic\exec\domain_create::create($ready);
+		$result                 = [];
+		$result['name']         = $domain;
+		$result['dateregister'] = null;
+		$result['dateexpire']   = null;
 
 		if(isset($result['name']))
 		{
@@ -527,8 +524,8 @@ class create
 					'code'            => $data['gift'],
 					'transaction_id'  => $transaction_id,
 					'price'           => $price,
-					'discount'        => $data['discount'],
-					'discountpercent' => round((floatval($data['discount']) * 100) / floatval($price)),
+					'discount'        => $discount,
+					'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
 					'finalprice'      => $finalprice,
 					'user_id'         => $user_id,
 				];
@@ -542,7 +539,7 @@ class create
 				'domain_id'      => $domain_id,
 				'price'          => $price,
 				'period'         => $period_month,
-				'discount'       => $data['discount'],
+				'discount'       => $discount,
 				'finalprice'     => $finalprice,
 				'transaction_id' => $transaction_id,
 				'giftusage_id'   => $gift_usage_id,
@@ -559,7 +556,7 @@ class create
 				'mode'           => 'manual',
 				'period'         => $period_month,
 				'price'          => $price,
-				'discount'       => $data['discount'],
+				'discount'       => $discount,
 				'finalprice'     => $finalprice,
 				'transaction_id' => $transaction_id,
 				'detail'         => null,
@@ -591,7 +588,7 @@ class create
 				'domain_id'      => $domain_id,
 				'price'          => $price,
 				'finalprice'     => $finalprice,
-				'discount'       => $data['discount'],
+				'discount'       => $discount,
 				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];

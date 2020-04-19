@@ -22,13 +22,14 @@ class controller
 			\dash\header::status(404, T_("Detail not found"));
 		}
 
+
 		if(isset($detail['status']) && $detail['status'] === 'awaiting')
 		{
 			// nothing
 		}
 		else
 		{
-			\dash\header::status(404, T_("Detail is wrong!"));
+			// \dash\header::status(404, T_("Detail is wrong!"));
 		}
 
 		$load_last_activity = \lib\app\nic_domainaction\get::last_record_domain_id_caller($id, 'domain_buy_ready');
