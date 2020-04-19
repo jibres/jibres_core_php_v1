@@ -13,6 +13,7 @@
                 <th><?php echo T_("Title"); ?></th>
                 <th></th>
                 <th></th>
+                <th></th>
                 <th><?php echo T_("Date"); ?></th>
             </thead>
             <tbody>
@@ -37,6 +38,15 @@
                         <?php } // endif ?>
                         <?php echo \dash\get::index($value, 'desc'); ?>
 
+                    </td>
+                    <td>
+                        <?php if(\dash\get::index($value, 'price')) {?>
+                            <?php echo T_("Price"). ': '. \dash\fit::number($value['price']). ' '. T_("Toman"); ?>
+                        <?php } // endif ?>
+                        <?php if(\dash\get::index($value, 'discount')) {?>
+                            <br>
+                            <?php echo T_("Discount"). ': '. \dash\fit::number($value['discount']). ' '. T_("Toman"); ?>
+                        <?php } // endif ?>
                     </td>
                     <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
                 </tr>
