@@ -91,7 +91,7 @@ class check
 
 			if($left_time <= 0)
 			{
-				\dash\notif::error(T_("This gift card is not enable"));
+				\dash\notif::error(T_("This gift card is expired"));
 				return false;
 			}
 		}

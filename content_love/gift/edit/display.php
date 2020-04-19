@@ -54,6 +54,7 @@
           <label for="status"><?php echo T_("Status"); ?></label>
           <select class="select22" name="status">
             <option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') {echo 'selected'; } ?>><?php echo T_("draft") ?></option>
+            <option value="enable" <?php if(\dash\data::dataRow_status() === 'enable') {echo 'selected'; } ?>><?php echo T_("enable") ?></option>
             <option value="disable" <?php if(\dash\data::dataRow_status() === 'disable') {echo 'selected'; } ?>><?php echo T_("disable") ?></option>
             <option value="deleted" <?php if(\dash\data::dataRow_status() === 'deleted') {echo 'selected'; } ?>><?php echo T_("deleted") ?></option>
             <option value="expire" <?php if(\dash\data::dataRow_status() === 'expire') {echo 'selected'; } ?>><?php echo T_("expire") ?></option>
