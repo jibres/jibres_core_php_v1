@@ -33,6 +33,12 @@ class update
 	}
 
 
+	public static function remove_lastfetch_domain($_domain)
+	{
+		$query  = "UPDATE domain SET domain.lastfetch = NULL WHERE domain.name = '$_domain' ";
+		$result = \dash\db::query($query, 'nic');
+		return $result;
+	}
 
 
 

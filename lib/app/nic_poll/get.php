@@ -33,6 +33,36 @@ class get
 						if(isset($insert['domain']) && $insert['domain'])
 						{
 							\lib\app\domains\detect::domain('poll', $insert['domain']);
+
+							\lib\db\nic_domain\update::remove_lastfetch_domain($insert['domain']);
+
+							$get_domain = \lib\db\nic_domain\get::who_verify_enable_domain($insert['domain']);
+
+							if(isset($get_domain['user_id']))
+							{
+								$log_meta =
+								[
+									'to'       => $get_domain['user_id'],
+									'mydomain' => $insert['domain'],
+								];
+
+								\dash\log::set('domain_irnicChangeStatus', $log_meta);
+							}
+
+							if(isset($get_domain['id']))
+							{
+
+								// save action
+								$domain_action_detail =
+								[
+									'domain_id' => $get_domain['id'],
+									'mode'      => 'auto',
+									'category'  => 'irnic',
+									'detail'    => $insert['detail'],
+								];
+
+								\lib\app\nic_domainaction\action::set($insert['index'], $domain_action_detail);
+							}
 						}
 
 						$set_as_acknowledge = \lib\nic\exec\poll::acknowledge($poll['id']);

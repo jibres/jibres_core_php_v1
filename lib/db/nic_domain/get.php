@@ -20,6 +20,16 @@ class get
 	}
 
 
+
+
+	public static function who_verify_enable_domain($_domain)
+	{
+		$query  = "SELECT * FROM domain WHERE domain.name = '$_domain' AND  domain.status = 'enable' AND  domain.verify = 1 LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 	public static function check_multi_duplicate($_domains, $_user_id)
 	{
 		$my_domains = implode("','", $_domains);
