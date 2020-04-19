@@ -220,7 +220,7 @@ class domain_create
 
 		// $xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'domain_create', 1, $_args['domain']);
+		$response = \lib\nic\exec\run::send($xml, 'domain_create', 1, $_args['domain'], $_args['nic_id']);
 
 		return $response;
 
