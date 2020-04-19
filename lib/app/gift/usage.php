@@ -44,7 +44,9 @@ class usage
 			'datecreated'     => date("Y-m-d H:i:s"),
 		];
 
-		\lib\db\gift\insert::new_record_usage($insert_usage);
+		$usage_id = \lib\db\gift\insert::new_record_usage($insert_usage);
+
+		return $usage_id;
 
 
 	}

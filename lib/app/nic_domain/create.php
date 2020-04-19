@@ -29,14 +29,13 @@ class create
 			'pay_amount_budget' => 'price',
 			'minus_transaction' => 'price',
 			'after_pay'         => 'bit',
-			'user_id' => 'id',
+			'user_id'           => 'id',
 
 		];
 
 		$require = ['domain'];
 
 		$meta    = [];
-
 
 		if(isset($_args['agree']) && $_args['agree'])
 		{
@@ -50,7 +49,6 @@ class create
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
 		// after pay get user id from args
 		$user_id = $data['user_id'];
 
@@ -58,7 +56,6 @@ class create
 		{
 			$user_id = \dash\user::id();
 		}
-
 
 		if(!$data['period'])
 		{
@@ -224,54 +221,6 @@ class create
 				return false;
 			}
 		}
-
-
-		// if($dnsid && $dnsid != 'something-else')
-		// {
-		// 	$load_dns = \lib\app\nic_dns\get::get($dnsid);
-
-		// 	if(!$load_dns)
-		// 	{
-		// 		\dash\notif::error(T_("DNS not found"));
-		// 		return false;
-		// 	}
-
-		// 	$dnsid = \dash\coding::decode($dnsid);
-
-		// 	$ns1 = $load_dns['ns1'];
-		// 	$ns2 = $load_dns['ns2'];
-		// 	$ns3 = $load_dns['ns3'];
-		// 	$ns4 = $load_dns['ns4'];
-
-		// 	$ip1 = $load_dns['ip1'];
-		// 	$ip2 = $load_dns['ip2'];
-		// 	$ip3 = $load_dns['ip3'];
-		// 	$ip4 = $load_dns['ip4'];
-
-
-		// }
-		// else
-		// {
-		// 	if($ns1 && $ns2)
-		// 	{
-		// 		$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2($user_id, $ns1, $ns2);
-		// 		if(!isset($get_ns_record['id']))
-		// 		{
-		// 			$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
-		// 			if(!$dnsid)
-		// 			{
-		// 				$dnsid = null;
-		// 			}
-		// 		}
-		// 	}
-
-		// }
-
-		// if($dnsid === 'something-else')
-		// {
-		// 	$dnsid = null;
-		// }
-
 
 
 		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
@@ -454,7 +403,6 @@ class create
 				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
 				$temp_args['user_id']           = $user_id;
 
-				var_dump($temp_args);exit();
 				// go to bank
 				$meta =
 				[
@@ -531,10 +479,11 @@ class create
 		];
 
 
-		// $result = \lib\nic\exec\domain_create::create($ready);
+		$finalprice = floatval($price) - floatval($data['discount']);
+		$gift_usage_id = null;
 
-		$result = [];
-		$result['name'] = $domain;
+		// run nic create domain exec
+		$result = \lib\nic\exec\domain_create::create($ready);
 
 		if(isset($result['name']))
 		{
@@ -570,6 +519,7 @@ class create
 				}
 			}
 
+
 			if($data['gift'])
 			{
 				$gift_meta =
@@ -579,11 +529,11 @@ class create
 					'price'           => $price,
 					'discount'        => $data['discount'],
 					'discountpercent' => round((floatval($data['discount']) * 100) / floatval($price)),
-					'finalprice'      => floatval($price) - floatval($data['discount']),
+					'finalprice'      => $finalprice,
 					'user_id'         => $user_id,
 				];
 
-				\lib\app\gift\usage::set($gift_meta);
+				$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
 			}
 
 
@@ -591,9 +541,11 @@ class create
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
-				'discount'       => $data['discount'],
 				'period'         => $period_month,
+				'discount'       => $data['discount'],
+				'finalprice'     => $finalprice,
 				'transaction_id' => $transaction_id,
+				'giftusage_id'   => $gift_usage_id,
 			];
 
 			\lib\app\nic_domainaction\action::set('register', $domain_action_detail);
@@ -608,10 +560,12 @@ class create
 				'period'         => $period_month,
 				'price'          => $price,
 				'discount'       => $data['discount'],
+				'finalprice'     => $finalprice,
 				'transaction_id' => $transaction_id,
 				'detail'         => null,
 				'date'           => date("Y-m-d H:i:s"),
 				'datecreated'    => date("Y-m-d H:i:s"),
+				'giftusage_id'   => $gift_usage_id,
 			];
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
@@ -624,24 +578,7 @@ class create
 		}
 		else
 		{
-			// // have error
-			// // need to back money
-			// $insert_transaction =
-			// [
-			// 	'user_id' => $user_id,
-			// 	'title'   => T_("Register failed :val", ['val' => $domain]),
-			// 	'verify'  => 1,
-			// 	'plus'    => $price,
-			// 	'type'    => 'money',
-			// ];
-
-			// $transaction_id = \dash\db\transactions::set($insert_transaction);
-			// if(!$transaction_id)
-			// {
-			// 	\dash\notif::error(T_("No way to insert data"));
-			// 	return false;
-			// }
-
+			// have error in register domain
 			$update =
 			[
 				'status'       => 'failed',
@@ -653,19 +590,16 @@ class create
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
+				'finalprice'     => $finalprice,
+				'discount'       => $data['discount'],
 				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];
 
 			\lib\app\nic_domainaction\action::set('register_failed', $domain_action_detail);
 
-
 			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
-
-			// \dash\temp::set('domainHaveTransaction', true);
 		}
-
 	}
-
 }
 ?>
