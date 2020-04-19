@@ -6,10 +6,10 @@
                 <button class="btn addon success"><?php echo T_("Get Info"); ?></button>
             </div>
         </form>
-    </div>
-
-</div>
 
 <?php if(\dash\data::DomainInfo()) {?>
 <samp><?php print_r(\dash\data::DomainInfo()) ?></samp>
 <?php }//endif ?>
+    </div>
+
+</div>
