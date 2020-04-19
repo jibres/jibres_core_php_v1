@@ -10,6 +10,7 @@ class controller
 		if($id)
 		{
 			$detail = \lib\app\nic_log\get::by_id($id);
+
 			\dash\data::dataRow($detail);
 		}
 	}

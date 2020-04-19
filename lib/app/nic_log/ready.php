@@ -17,6 +17,16 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'ip':
+					if($value)
+					{
+						$result[$key] = long2ip($value);
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
 				case 'user_id':
 					$result['user_id_raw'] = $value;
 					$result[$key] = \dash\coding::encode($value);

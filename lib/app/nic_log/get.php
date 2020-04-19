@@ -22,6 +22,8 @@ class get
 			return false;
 		}
 
+		$load = \lib\app\nic_log\ready::row($load);
+
 		return $load;
 
 	}
