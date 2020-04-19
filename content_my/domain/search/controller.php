@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\content_my\domain\controller::check_login();
+
 		// if(\dash\url::child())
 		// {
 		// 	\dash\header::status(404, T_("Invalid url"));
