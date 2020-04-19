@@ -35,7 +35,7 @@
      </div>
     </section>
 
-    <div id="chartdiv" class="box chart x200" ></div>
+    <div id="chartdiv" class="box chart x210" ></div>
 
 
 
@@ -171,6 +171,12 @@
 
     <nav class="items">
      <ul>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/whois">
+        <div class="key"><?php echo T_('Whois?');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
       <li>
        <a class="f" target="_blank" href="<?php echo \dash\url::api('core');?>/r10/irnic/doc">
         <div class="key"><?php echo T_('Doamin API');?></div>

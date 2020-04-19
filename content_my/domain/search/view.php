@@ -14,6 +14,8 @@ class view
 
 
 
+		\dash\face::btnImport(\dash\url::this().'/import');
+		// \dash\face::btnExport(\dash\url::this().'/export');
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
