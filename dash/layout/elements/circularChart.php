@@ -15,7 +15,7 @@ if(!isset($myColor))
 {
 	$myColor = null;
 }
-if(!$myColor)
+if(!$myColor || $myColor=='auto' )
 {
 	if($myPercent == 100)
 	{
