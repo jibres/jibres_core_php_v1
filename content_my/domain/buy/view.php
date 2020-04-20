@@ -19,6 +19,31 @@ class view
 				$sugest_domain = \lib\app\nic_domain\suggestion::get(\dash\data::getDomain());
 				\dash\data::domainSuggestion($sugest_domain);
 			}
+
+			$new_result = [];
+			if(\dash\data::infoResult() && is_array(\dash\data::infoResult()))
+			{
+				foreach (\dash\data::infoResult() as $key => $value)
+				{
+					if(isset($value['tld']))
+					{
+						if($value['tld'] === 'ir')
+						{
+							$new_result['ir'] = $value;
+						}
+						else
+						{
+							if(!isset($new_result['other']))
+							{
+								$new_result['other'] = [];
+							}
+
+							$new_result['other'][] = $value;
+						}
+					}
+				}
+			}
+			\dash\data::infoResult($new_result);
 		}
 
 		if(\dash\data::haveBuyDomain())
