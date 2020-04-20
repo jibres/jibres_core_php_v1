@@ -101,14 +101,8 @@ $myData = \dash\data::dashboardDetail();
           </a>
        </li>
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/action">
-            <div class="key"><?php echo T_('Domain action');?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-       <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/billing">
-            <div class="key"><?php echo T_('Domain billing');?></div>
+          <a class="f" href="<?php echo \dash\url::this();?>/polls">
+            <div class="key"><?php echo T_('IRNIC Polls');?></div>
             <div class="go"></div>
           </a>
        </li>
@@ -120,14 +114,14 @@ $myData = \dash\data::dashboardDetail();
    <nav class="items">
      <ul>
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/payments">
+          <a class="f" href="<?php echo \dash\url::this();?>/billing">
             <div class="key"><?php echo T_('Payments');?></div>
             <div class="go"></div>
           </a>
        </li>
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/gifts">
-            <div class="key"><?php echo T_('Gifts');?></div>
+          <a class="f" href="<?php echo \dash\url::this();?>/action">
+            <div class="key"><?php echo T_('Domain action');?></div>
             <div class="go"></div>
           </a>
        </li>
@@ -145,12 +139,7 @@ $myData = \dash\data::dashboardDetail();
           </a>
        </li>
 
-       <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/polls">
-            <div class="key"><?php echo T_('IRNIC Polls');?></div>
-            <div class="go"></div>
-          </a>
-       </li>
+
        <li>
           <a class="f" href="<?php echo \dash\url::this();?>/fetch?short=1">
             <div class="key"><?php echo T_('Short domains');?></div>
