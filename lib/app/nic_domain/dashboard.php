@@ -98,7 +98,8 @@ class dashboard
 
 		$result['predict_late_payment'] = $predict_late_payment;
 
-		$result['domain_pay_chart']      = self::domain_pay_chart($user_id);
+		// $result['domain_pay_chart']      = self::domain_pay_chart($user_id);
+		$result['domain_pay_chart']      = self::domain_pay_chart_day($user_id);
 
 		return $result;
 	}
@@ -166,6 +167,62 @@ class dashboard
 
 		$hi_chart               = [];
 		$hi_chart['categories'] = json_encode(array_keys($result), JSON_UNESCAPED_UNICODE);
+		$hi_chart['price']      = json_encode(array_values($result), JSON_UNESCAPED_UNICODE);
+
+		return $hi_chart;
+
+	}
+
+
+
+
+	private static function domain_pay_chart_day($_user_id)
+	{
+		$list = \lib\db\nic_domainbilling\get::chart_my_pay_per_day($_user_id);
+
+
+		$start_date = date("Y-m-d", strtotime("2020-04-01"));
+
+		$end_date   = date("Y-m-d");
+
+		$datetime1  = date_create($start_date);
+		$datetime2  = date_create($end_date);
+
+		$interval   = date_diff($datetime1, $datetime2);
+
+		$diff_day = 0;
+		if(isset($interval->days))
+		{
+			$diff_day = $interval->days;
+		}
+
+
+		$my_list = [];
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['mydate']) && isset($value['price']))
+			{
+				$my_list[$value['mydate']] = $value['price'];
+			}
+		}
+
+		$result = [];
+
+	    for ($i = 0; $i < intval($diff_day) + 1 ; $i++)
+	    {
+	    	$new_date = date("Y-m-d", strtotime("+$i days", strtotime($start_date)));
+	    	if(isset($my_list[$new_date]))
+	    	{
+	    		$result[$new_date] = intval($my_list[$new_date]);
+	    	}
+	    	else
+	    	{
+	    		$result[$new_date] = 0;
+	    	}
+	    }
+
+		$hi_chart               = [];
+		$hi_chart['categories'] = json_encode(array_map(['\\dash\\fit', 'date'], array_keys($result)), JSON_UNESCAPED_UNICODE);
 		$hi_chart['price']      = json_encode(array_values($result), JSON_UNESCAPED_UNICODE);
 
 		return $hi_chart;

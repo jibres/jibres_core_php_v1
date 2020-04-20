@@ -20,6 +20,28 @@ class get
 	}
 
 
+
+
+	public static function chart_my_pay_per_day($_user_id)
+	{
+		$query  =
+		"
+			SELECT
+				SUM(domainbilling.finalprice) AS `price`,
+				DATE(domainbilling.datecreated) AS `mydate`
+			FROM
+				domainbilling
+			WHERE
+				domainbilling.user_id = $_user_id
+			GROUP BY
+				`mydate`
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
+
 	public static function chart_my_pay($_user_id)
 	{
 		$query  =
@@ -41,7 +63,7 @@ class get
 	}
 
 
-		public static function sale_count_date($_date = null)
+	public static function sale_count_date($_date = null)
 	{
 		$date = null;
 		if($_date)
