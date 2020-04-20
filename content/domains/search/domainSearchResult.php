@@ -80,7 +80,18 @@ if(\dash\data::infoResult())
                         }
                         else
                         {
-                            echo '<a class="btn light" target="_blank" href="'. \dash\url::kingdom(). '/whois/'. urlencode($key).'">'. T_("Whois taken?"). '</a>' ;
+                            if(array_key_exists('domain_restricted', $value) && $value['domain_restricted'])
+                            {
+                                echo '<div class="btn light">'. T_("Domain restricted for register"). '</div>' ;
+                            }
+                            elseif(array_key_exists('domain_name_valid', $value) && $value['domain_name_valid'] === false)
+                            {
+                                echo '<div class="btn light">'. T_("Domain name is not valid"). '</div>' ;
+                            }
+                            else
+                            {
+                                echo '<a class="btn light" target="_blank" href="'. \dash\url::kingdom(). '/whois/'. urlencode($key).'">'. T_("Whois taken?"). '</a>' ;
+                            }
                         }
                     }
                     else

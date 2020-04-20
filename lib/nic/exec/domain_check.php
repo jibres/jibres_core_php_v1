@@ -24,6 +24,27 @@ class domain_check
 				$result[$key]['available'] = boolval($value['attr']['avail']);
 			}
 
+			$result[$key]['domain_restricted'] = false;
+			$result[$key]['domain_name_valid'] = true;
+
+			if(isset($value['reason']))
+			{
+				if($value['reason'] === 'Domain name is restricted')
+				{
+					$msg = T_('Domain name is restricted'); // for translate
+					$result[$key]['domain_restricted'] = true;
+				}
+				elseif($value['reason'] === 'Domain name is not valid')
+				{
+					$msg = T_('Domain name is not valid'); // for translate
+					$result[$key]['domain_name_valid'] = false;
+				}
+
+				$result[$key]['reason'] = T_($value['reason']);
+			}
+
+
+
 			$result[$key]['price'] = \lib\app\nic_domain\price::register('1year');
 			$result[$key]['compareAtPrice'] = \lib\app\nic_domain\price::register_compare('1year');
 			$result[$key]['unit'] = T_('Toman');
