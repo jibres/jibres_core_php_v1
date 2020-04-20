@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-20 13:39+0430\n"
-"PO-Revision-Date: 2020-04-20 13:45+0430\n"
+"POT-Creation-Date: 2020-04-20 19:13+0430\n"
+"PO-Revision-Date: 2020-04-20 19:17+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1010,7 +1010,7 @@ msgstr "نام کامل"
 #: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
 #: content_enter/pass/set/display.php:7 content_enter/pass/signup/display.php:7
 #: content_enter/signup/display.php:5 content_enter/verify/display.php:3
-#: content_my/home/display_site.php:99 content_p/home/display.php:186
+#: content_my/home/display_site.php:108 content_p/home/display.php:186
 #: content_p/home/display.php:187 content_su/tg/log/display.php:98
 #: content_su/tg/system/display.php:24 content_su/tg/users/display.php:99
 #: content_subdomain/template/default.php:206 content_subdomain/template/default.php:207
@@ -1031,7 +1031,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_account/my/home/display.php:52 content_cms/comments/edit/display.php:17
 #: content_crm/log/home/logTable.php:62 content_crm/member/contact/display.php:22
 #: content_crm/member/home/display.php:123 content_crm/member/social/display.php:21
-#: content_my/home/display_site.php:105
+#: content_my/home/display_site.php:114
 #: content_support/ticket/contact_ticket/model.php:107
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983
@@ -1293,7 +1293,7 @@ msgstr ""
 "قبل از ساخت خونه مشخص کنید. اما یادتون باشه برای نمایش محتویات سایت و تصاویرتون روی "
 "وب‌سایت نیاز به جایی دارین که اون‌ها رو روش قرار بدین یعنی همون هاست."
 
-#: content/domains/home/display.php:5
+#: content/domains/home/display.php:5 content_my/home/display_site.php:28
 msgid "Search for your dream domain"
 msgstr "به دنبال دامنه‌ی رویایی خودتان بگردید"
 
@@ -1322,10 +1322,11 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_love/domain/log/display.php:79 content_love/gift/all/display.php:44
 #: content_love/gift/all/display.php:45 content_love/store/analytics/display.php:6
 #: content_love/store/analytics/display.php:8 content_love/store/display.php:7
-#: content_love/store/display.php:9 content_my/domain/buy/display.php:9
+#: content_love/store/display.php:9 content_my/domain/buy/display-search.php:11
 #: content_my/domain/irnic/display.php:40 content_my/domain/irnic/display.php:41
 #: content_my/domain/predict/display.php:43 content_my/domain/predict/display.php:44
-#: content_my/domain/search/display.php:82 content_su/apilog/home/display.php:48
+#: content_my/domain/search/display.php:82 content_my/domain/short/display.php:47
+#: content_my/domain/short/display.php:48 content_su/apilog/home/display.php:48
 #: content_su/apilog/home/display.php:56 content_su/tg/log/display.php:48
 #: content_su/tg/log/display.php:56 content_su/tg/users/display.php:49
 #: content_su/tg/users/display.php:57 content_support/home/dashboard.php:15
@@ -1334,7 +1335,8 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 msgid "Search"
 msgstr "جستجو"
 
-#: content/domains/home/display.php:18 content_my/domain/buy/display.php:163
+#: content/domains/home/display.php:18 content_my/domain/buy/display-settings.php:133
+#: content_my/home/display_site.php:33
 msgid "Register Domain"
 msgstr "ثبت دامنه"
 
@@ -1681,7 +1683,7 @@ msgstr ""
 msgid "Buy or transfer a domain name today!"
 msgstr "همین امروز دامنه خودتان را بخرید یا منتقل کنید!"
 
-#: content/domains/search/display.php:5 content_my/domain/buy/display.php:6
+#: content/domains/search/display.php:5 content_my/domain/buy/display-search.php:6
 msgid "Discover the perfect domain now"
 msgstr "همین الان به دنبال یک دامنه‌ی عالی بگردید"
 
@@ -1733,20 +1735,36 @@ msgstr ""
 "برخی از دامنه‌های بین‌المللی در زمان خرید به قیمت ذکر شده اضافه می‌شود."
 
 #: content/domains/search/domainSearchResult.php:71
-#: content_a/website/status/display.php:15 content_subdomain/home/layout/comingsoon.php:28
+#: content_a/website/status/display.php:15
+#: content_my/domain/buy/domain-search-result-ir.php:62
+#: content_subdomain/home/layout/comingsoon.php:28
 msgid "Coming Soon"
 msgstr "بزودی"
 
 #: content/domains/search/domainSearchResult.php:79
+#: content_my/domain/buy/domain-search-result-ir.php:70
 msgid "Let's Buy"
 msgstr "بریم بخریم"
 
-#: content/domains/search/domainSearchResult.php:83
+#: content/domains/search/domainSearchResult.php:85
+#: content_my/domain/buy/domain-search-result-ir.php:76
+msgid "Domain restricted for register"
+msgstr "این دامنه اجازه ثبت ندارد"
+
+#: content/domains/search/domainSearchResult.php:89
+#: content_my/domain/buy/domain-search-result-ir.php:80 lib/nic/exec/domain_check.php:39
+msgid "Domain name is not valid"
+msgstr "نام دامنه معتبر نیست"
+
+#: content/domains/search/domainSearchResult.php:93
+#: content_my/domain/buy/domain-search-result-ir.php:84
 msgid "Whois taken?"
 msgstr "کی گرفته؟"
 
-#: content/domains/search/domainSearchResult.php:88
-#: content_a/products/edit/display.php:655 includes/languages/trans_static.php:532
+#: content/domains/search/domainSearchResult.php:99
+#: content_a/products/edit/display.php:655
+#: content_my/domain/buy/domain-search-result-ir.php:90
+#: includes/languages/trans_static.php:532
 msgid "Unavailable"
 msgstr "ناموجود"
 
@@ -2444,9 +2462,10 @@ msgstr "پنل فروشگاه"
 #: content_my/domain/home/view.php:12 content_my/domain/option/view.php:12
 #: content_my/domain/payments/view.php:12 content_my/domain/predict/view.php:12
 #: content_my/domain/renew/view.php:12 content_my/domain/search/view.php:12
-#: content_my/domain/transfer/view.php:12 content_my/domain/whois/view.php:14
-#: content_my/ipg/view.php:12 content_my/store/home/view.php:12
-#: content_my/wallet/view.php:12 dash/layout/admin/sidebar/sidebar-a.php:6
+#: content_my/domain/short/view.php:12 content_my/domain/transfer/view.php:12
+#: content_my/domain/whois/view.php:14 content_my/ipg/view.php:12
+#: content_my/store/home/view.php:12 content_my/wallet/view.php:12
+#: dash/layout/admin/sidebar/sidebar-a.php:6
 #: dash/layout/admin/sidebar/sidebar-domain.php:4
 #: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:37
 #: includes/languages/trans_static_public.php:89
@@ -2857,7 +2876,7 @@ msgstr "اختیاری"
 #: content_crm/transactions/minus/display.php:54
 #: content_crm/transactions/minus/display.php:69
 #: content_love/domain/billing/display.php:29 content_love/domain/billing/display.php:30
-#: content_love/domain/billing/display.php:31 content_my/domain/home/display.php:201
+#: content_love/domain/billing/display.php:31 content_my/domain/home/display.php:202
 #: content_my/domain/payments/display.php:29 content_my/domain/payments/display.php:30
 #: content_my/domain/payments/display.php:31 content_my/domain/review/display.php:123
 #: content_my/domain/review/display.php:138 content_my/domain/review/display.php:149
@@ -2869,7 +2888,7 @@ msgstr "اختیاری"
 #: content_v2/app/view.php:888 content_v2/app/view.php:1023 content_v2/app/view.php:1035
 #: content_v2/app/view.php:1072 content_v2/app/view.php:1084
 #: lib/app/nic_domain/dashboard.php:70 lib/app/nic_domain/price.php:56
-#: lib/app/nic_domain/price.php:64 lib/nic/exec/domain_check.php:29
+#: lib/app/nic_domain/price.php:64 lib/nic/exec/domain_check.php:50
 msgid "Toman"
 msgstr "تومان"
 
@@ -4421,12 +4440,12 @@ msgstr "جزئیات"
 #: content_love/domain/irnic/display.php:93 content_love/domain/log/display.php:147
 #: content_love/gift/all/display.php:93 content_my/domain/irnic/display.php:85
 #: content_my/domain/irnic/display.php:93 content_my/domain/predict/display.php:110
-#: content_my/domain/search/display.php:187 content_su/apilog/home/display.php:187
-#: content_su/apilog/home/display.php:195 content_su/dbtables/display.php:113
-#: content_su/dbtables/display.php:121 content_su/tg/log/display.php:192
-#: content_su/tg/log/display.php:200 content_su/tg/users/display.php:133
-#: content_su/tg/users/display.php:141 content_support/ticket/home/display.php:64
-#: content_support/ticket/home/display.php:72
+#: content_my/domain/search/display.php:187 content_my/domain/short/display.php:86
+#: content_su/apilog/home/display.php:187 content_su/apilog/home/display.php:195
+#: content_su/dbtables/display.php:113 content_su/dbtables/display.php:121
+#: content_su/tg/log/display.php:192 content_su/tg/log/display.php:200
+#: content_su/tg/users/display.php:133 content_su/tg/users/display.php:141
+#: content_support/ticket/home/display.php:64 content_support/ticket/home/display.php:72
 msgid "Clear filters"
 msgstr "پاک‌سازی فیلترها"
 
@@ -4796,8 +4815,8 @@ msgstr "برای بررسی محصولات موجود در این شرکت سا�
 #: content_love/domain/fetch/display.php:114 content_love/domain/irnic/display.php:102
 #: content_love/domain/log/display.php:159 content_love/gift/all/display.php:105
 #: content_my/domain/irnic/display.php:102 content_my/domain/predict/display.php:122
-#: content_my/domain/search/display.php:199 content_su/dbtables/display.php:127
-#: content_support/message/display.php:11
+#: content_my/domain/search/display.php:199 content_my/domain/short/display.php:98
+#: content_su/dbtables/display.php:127 content_support/message/display.php:11
 msgid "Hi!"
 msgstr "سلام!"
 
@@ -4916,8 +4935,8 @@ msgstr "همه"
 msgid "Sale"
 msgstr "فروش"
 
-#: content_a/factor/home/display.php:31 includes/languages/trans_static.php:25
-#: includes/languages/trans_static.php:544
+#: content_a/factor/home/display.php:31 content_my/domain/short/display.php:66
+#: includes/languages/trans_static.php:25 includes/languages/trans_static.php:544
 msgid "Buy"
 msgstr "خرید"
 
@@ -5158,7 +5177,8 @@ msgstr "خرید"
 #: content_love/domain/log/view.php:46 content_love/gift/all/view.php:39
 #: content_love/store/analytics/view.php:36 content_love/store/view.php:44
 #: content_my/domain/irnic/view.php:55 content_my/domain/predict/view.php:52
-#: content_my/domain/search/view.php:63 includes/languages/trans_static.php:594
+#: content_my/domain/search/view.php:63 content_my/domain/short/view.php:42
+#: includes/languages/trans_static.php:594
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -6621,7 +6641,7 @@ msgid "Last name"
 msgstr "نام‌خانوادگی"
 
 #: content_a/setup/owner/display.php:32 content_account/my/profile/display.php:21
-#: content_crm/member/general/display.php:64 content_my/home/display_site.php:117
+#: content_crm/member/general/display.php:64 content_my/home/display_site.php:126
 msgid "Birthday"
 msgstr "تاریخ تولد"
 
@@ -7633,7 +7653,7 @@ msgid "Addresses"
 msgstr "آدرس‌ها"
 
 #: content_account/my/avatar/display.php:9 content_account/my/home/display.php:89
-#: content_account/my/home/display.php:93 content_my/home/display_site.php:123
+#: content_account/my/home/display.php:93 content_my/home/display_site.php:132
 #: dash/layout/admin/sidebar/sidebar-account.php:7
 msgid "Avatar"
 msgstr "تصویر پروفایل"
@@ -7674,7 +7694,7 @@ msgstr "پروفایل"
 #: content_account/my/username/display.php:15 content_account/my/username/view.php:10
 #: content_crm/member/glance/display.php:137 content_crm/member/home/display.php:114
 #: content_crm/member/security/display.php:50 content_crm/member/security/display.php:52
-#: content_my/home/display_site.php:111
+#: content_my/home/display_site.php:120
 msgid "Username"
 msgstr "نام‌کاربری"
 
@@ -11536,16 +11556,18 @@ msgstr "محتوای بدنه"
 #: content_developers/docs/irnic/r10/002-domain/011-domain-buy.php:39
 #: content_developers/docs/irnic/r10/002-domain/012-domain-renew.php:39
 #: content_developers/docs/irnic/r10/002-domain/013-domain-transfer.php:39
-#: content_my/domain/buy/display.php:155 content_my/domain/irnic/add/display.php:103
-#: content_my/domain/renew/display.php:37 content_my/domain/transfer/display.php:31
+#: content_my/domain/buy/display-settings.php:125
+#: content_my/domain/irnic/add/display.php:103 content_my/domain/renew/display.php:37
+#: content_my/domain/transfer/display.php:31
 msgid "IRNIC agreement"
 msgstr "توافقنامه ایرنیک"
 
 #: content_developers/docs/irnic/r10/002-domain/011-domain-buy.php:40
 #: content_developers/docs/irnic/r10/002-domain/012-domain-renew.php:40
 #: content_developers/docs/irnic/r10/002-domain/013-domain-transfer.php:40
-#: content_my/domain/buy/display.php:156 content_my/domain/irnic/add/display.php:104
-#: content_my/domain/renew/display.php:38 content_my/domain/transfer/display.php:32
+#: content_my/domain/buy/display-settings.php:126
+#: content_my/domain/irnic/add/display.php:104 content_my/domain/renew/display.php:38
+#: content_my/domain/transfer/display.php:32
 msgid "Jibres Terms of Service"
 msgstr "شرایط استفاده از خدمات جیبرس"
 
@@ -11599,7 +11621,7 @@ msgid "If you want to set dns from your dns list"
 msgstr "اگر می‌خواهید دی‌ان‌اس را از لیست دی‌ان‌اس‌های خود انتخاب کنید"
 
 #: content_developers/docs/irnic/r10/002-domain/012-domain-renew.php:4
-#: content_love/domain/detail/display.php:60 content_my/domain/home/display.php:125
+#: content_love/domain/detail/display.php:60 content_my/domain/home/display.php:126
 #: content_my/domain/renew/view.php:9 content_my/domain/setting/display.php:30
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:20
 msgid "Renew domain"
@@ -11610,7 +11632,7 @@ msgid "Domain to renew"
 msgstr "دامنه برای تمدید"
 
 #: content_developers/docs/irnic/r10/002-domain/013-domain-transfer.php:4
-#: content_my/domain/home/display.php:131 content_my/domain/transfer/view.php:9
+#: content_my/domain/home/display.php:132 content_my/domain/transfer/view.php:9
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:21
 #: dash/layout/admin/sidebar/sidebar-domain.php:7
 msgid "Transfer domain"
@@ -12729,9 +12751,9 @@ msgstr ""
 "سرور را که به آن گلو رکورد می‌گویند وارد کنید. در غیر این‌صورت آدرس آی‌پی نادیده گرفته "
 "می‌شود."
 
-#: content_love/domain/detail/dns/display.php:12 content_my/domain/buy/display.php:113
-#: content_my/domain/option/display.php:30 content_my/domain/review/display.php:34
-#: content_my/domain/setting/dns/display.php:12
+#: content_love/domain/detail/dns/display.php:12
+#: content_my/domain/buy/display-settings.php:79 content_my/domain/option/display.php:30
+#: content_my/domain/review/display.php:34 content_my/domain/setting/dns/display.php:12
 msgid "DNS #1"
 msgstr "دی‌ان‌اس ۱"
 
@@ -12740,9 +12762,9 @@ msgstr "دی‌ان‌اس ۱"
 msgid "Server IP #1"
 msgstr "سرور آی‌پی ۱"
 
-#: content_love/domain/detail/dns/display.php:26 content_my/domain/buy/display.php:121
-#: content_my/domain/option/display.php:38 content_my/domain/review/display.php:41
-#: content_my/domain/setting/dns/display.php:26
+#: content_love/domain/detail/dns/display.php:26
+#: content_my/domain/buy/display-settings.php:86 content_my/domain/option/display.php:38
+#: content_my/domain/review/display.php:41 content_my/domain/setting/dns/display.php:26
 msgid "DNS #2"
 msgstr "دی‌ان‌اس ۲"
 
@@ -12751,9 +12773,9 @@ msgstr "دی‌ان‌اس ۲"
 msgid "Server IP #2"
 msgstr "سرور آی‌پی ۲"
 
-#: content_love/domain/detail/dns/display.php:39 content_my/domain/buy/display.php:130
-#: content_my/domain/option/display.php:46 content_my/domain/review/display.php:48
-#: content_my/domain/setting/dns/display.php:39
+#: content_love/domain/detail/dns/display.php:39
+#: content_my/domain/buy/display-settings.php:99 content_my/domain/option/display.php:46
+#: content_my/domain/review/display.php:48 content_my/domain/setting/dns/display.php:39
 msgid "DNS #3"
 msgstr "دی‌ان‌اس ۳"
 
@@ -12762,9 +12784,9 @@ msgstr "دی‌ان‌اس ۳"
 msgid "Server IP #3"
 msgstr "سرور آی‌پی ۲"
 
-#: content_love/domain/detail/dns/display.php:51 content_my/domain/buy/display.php:138
-#: content_my/domain/option/display.php:54 content_my/domain/review/display.php:55
-#: content_my/domain/setting/dns/display.php:51
+#: content_love/domain/detail/dns/display.php:51
+#: content_my/domain/buy/display-settings.php:106 content_my/domain/option/display.php:54
+#: content_my/domain/review/display.php:55 content_my/domain/setting/dns/display.php:51
 msgid "DNS #4"
 msgstr "دی‌ان‌اس ۴"
 
@@ -13309,60 +13331,68 @@ msgstr "پرداخت قبض"
 msgid "Invalid error syntax"
 msgstr "خطای ساختار اشتباه"
 
-#: content_my/domain/buy/display.php:36
+#: content_my/domain/buy/display-search.php:10 content_my/home/display_site.php:32
+msgid "Enter your idea for domain name"
+msgstr "نام ایده‌آل خودتون رو برای دامنه وارد کنید"
+
+#: content_my/domain/buy/display-search.php:58
+msgid "Suggestion for you"
+msgstr "پیشنهادی برای شما"
+
+#: content_my/domain/buy/display-settings.php:11
 msgid "Can not register this domain"
 msgstr "نمی‌توان این دامنه را ثبت کرد"
 
-#: content_my/domain/buy/display.php:39
+#: content_my/domain/buy/display-settings.php:14
 msgid "Try another"
 msgstr "مجددا تلاش کنید"
 
-#: content_my/domain/buy/display.php:49 content_my/domain/renew/display.php:14
+#: content_my/domain/buy/display-settings.php:24 content_my/domain/renew/display.php:14
 msgid "Choose register time"
 msgstr "مدت زمانی که مایلید این دامنه را بخرید انتخاب کنید"
 
-#: content_my/domain/buy/display.php:55 content_my/domain/option/display.php:70
+#: content_my/domain/buy/display-settings.php:30 content_my/domain/option/display.php:70
 #: content_my/domain/option/display.php:94 content_my/domain/predict/display.php:88
 #: content_my/domain/renew/display.php:20 content_my/domain/review/display.php:62
 msgid "1 Year"
 msgstr "یک سال"
 
-#: content_my/domain/buy/display.php:61 content_my/domain/option/display.php:76
+#: content_my/domain/buy/display-settings.php:36 content_my/domain/option/display.php:76
 #: content_my/domain/predict/display.php:89 content_my/domain/renew/display.php:26
 #: content_my/domain/review/display.php:62
 msgid "5 Year"
 msgstr "پنج سال"
 
-#: content_my/domain/buy/display.php:67 content_my/domain/irnic/add/display.php:123
-#: content_my/domain/transfer/display.php:14
+#: content_my/domain/buy/display-settings.php:42
+#: content_my/domain/irnic/add/display.php:123 content_my/domain/transfer/display.php:14
 msgid "IRNIC Handle"
 msgstr "شناسه ایرنیک"
 
-#: content_my/domain/buy/display.php:67 content_my/domain/transfer/display.php:14
+#: content_my/domain/buy/display-settings.php:42 content_my/domain/transfer/display.php:14
 msgid "Don't have IRNIC Handle? Create one."
 msgstr "شناسه ایرنیک ندارید؟ یکی بسازید."
 
-#: content_my/domain/buy/display.php:72
-msgid "Special domain Handle"
-msgstr "سفارشی سازی رابط‌های دامنه"
-
-#: content_my/domain/buy/display.php:72
-msgid "If you wan to customize domain Handle click here"
+#: content_my/domain/buy/display-settings.php:47
+msgid "If you want to customize domain Handle click here"
 msgstr "اگر تمایل دارید رابط‌های دامنه را سفارشی سازی کنید اینجا کلیک کنید"
 
-#: content_my/domain/buy/display.php:80 content_my/domain/review/display.php:16
+#: content_my/domain/buy/display-settings.php:53 content_my/domain/review/display.php:16
 msgid "IRNIC Admin"
 msgstr "رابط اداری دامنه"
 
-#: content_my/domain/buy/display.php:88
+#: content_my/domain/buy/display-settings.php:59
 msgid "IRNIC Tecnical"
 msgstr "رابط فنی دامنه"
 
-#: content_my/domain/buy/display.php:97 content_my/domain/review/display.php:20
+#: content_my/domain/buy/display-settings.php:65 content_my/domain/review/display.php:20
 msgid "IRNIC Billing"
 msgstr "رابط مالی دامنه"
 
-#: content_my/domain/buy/display.php:153 content_my/domain/renew/display.php:35
+#: content_my/domain/buy/display-settings.php:94
+msgid "If you have more DNS click here to set them"
+msgstr "اگر می‌خواهید تعداد بیشتری دی‌ان‌اس تنظیم کنید اینجا کلیک کنید"
+
+#: content_my/domain/buy/display-settings.php:123 content_my/domain/renew/display.php:35
 #: content_my/domain/transfer/display.php:29
 msgid ""
 "By clicking Register, you are indicating that you have read the :nic and agree to the :"
@@ -13371,15 +13401,15 @@ msgstr ""
 "با فشردن دکمه خرید دامنه، شما تایید کرده‌اید که :nic و :terms را خوانده‌اید و موافقت خود "
 "را با آن اعلام کرده‌اید."
 
-#: content_my/domain/buy/display.php:173
+#: content_my/domain/buy/display-settings.php:143
 msgid "Domain is occupied"
 msgstr "این دامنه اشغال است"
 
-#: content_my/domain/buy/display.php:176
+#: content_my/domain/buy/display-settings.php:146
 msgid "Who is?"
 msgstr "کی گرفته؟"
 
-#: content_my/domain/buy/view.php:9 content_my/domain/home/display.php:119
+#: content_my/domain/buy/view.php:9 content_my/domain/home/display.php:120
 #: dash/layout/admin/sidebar/sidebar-domain.php:6
 msgid "Buy domain"
 msgstr "خرید دامنه"
@@ -13424,44 +13454,44 @@ msgstr "مجموع پرداختی در سال گذشته"
 msgid "Your Current Balance"
 msgstr "بالانس مالی شما"
 
-#: content_my/domain/home/display.php:94 content_my/domain/home/display.php:165
+#: content_my/domain/home/display.php:94 content_my/domain/home/display.php:172
 #: content_my/domain/predict/view.php:9
 msgid "Predict Late Payments"
 msgstr "پیش‌بینی پرداخت‌های آتی"
 
-#: content_my/domain/home/display.php:108
+#: content_my/domain/home/display.php:109
 msgid "My Domains"
 msgstr "دامنه‌های من"
 
-#: content_my/domain/home/display.php:142
+#: content_my/domain/home/display.php:138
+msgid "Buy Short domains"
+msgstr "خرید دامنه‌های کوتاه"
+
+#: content_my/domain/home/display.php:149
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: content_my/domain/home/display.php:153
+#: content_my/domain/home/display.php:160
 msgid "Payments History"
 msgstr "تاریخچه پرداخت"
 
-#: content_my/domain/home/display.php:159
+#: content_my/domain/home/display.php:166
 msgid "Last Activities"
 msgstr "آخرین فعالیت‌ها"
 
-#: content_my/domain/home/display.php:176 content_my/domain/setting/display.php:98
-msgid "Whois?"
-msgstr "کیه؟"
-
-#: content_my/domain/home/display.php:182
+#: content_my/domain/home/display.php:183
 msgid "Doamin API"
 msgstr "رابط برنامه‌نویسی دامنه‌ها"
 
-#: content_my/domain/home/display.php:188
+#: content_my/domain/home/display.php:189
 msgid "Build for Developers ;)"
 msgstr "ساخته‌شده برای توسعه‌دهندگان :)"
 
-#: content_my/domain/home/display.php:198
-msgid "Total pay per month"
-msgstr "جمع مبلغ قابل پرداخت‌شده به تفکیک ماه"
+#: content_my/domain/home/display.php:199
+msgid "Total pay per day"
+msgstr "جمع مبلغ قابل پرداخت‌شده به تفکیک روز"
 
-#: content_my/domain/home/display.php:202
+#: content_my/domain/home/display.php:203
 msgid "Payed"
 msgstr "پرداخت شده"
 
@@ -13676,6 +13706,7 @@ msgid "Renew amount"
 msgstr "هزینه تمدید"
 
 #: content_my/domain/predict/display.php:123 content_my/domain/search/display.php:200
+#: content_my/domain/short/display.php:99
 msgid "Buy your first winning domain!"
 msgstr "اولین دامنه خودتون رو بخرید و ببرید!"
 
@@ -13780,6 +13811,10 @@ msgstr "نمی‌توانید جزئیات دامنه را ویرایش کنید
 msgid "This domain is removed from your account"
 msgstr "این دامنه از لیست دامنه‌های شما حذف شده است"
 
+#: content_my/domain/setting/display.php:98
+msgid "Whois?"
+msgstr "کیه؟"
+
 #: content_my/domain/setting/display.php:168
 msgid "Reseller"
 msgstr "نماینده"
@@ -13803,6 +13838,10 @@ msgstr "تمیزکردن دریافت"
 #: content_my/domain/setting/model.php:12
 msgid "Last fetch removed"
 msgstr "آخرین دریافت حذف شد"
+
+#: content_my/domain/short/view.php:9
+msgid "Suggestion Domains"
+msgstr "دامنه‌های پیشنهادی"
 
 #: content_my/domain/transfer/display.php:21
 msgid "Transfer code"
@@ -13833,47 +13872,47 @@ msgstr "بیزینس"
 msgid "Account Balance"
 msgstr "موجود حساب"
 
-#: content_my/home/display_site.php:32
+#: content_my/home/display_site.php:42
 msgid "Business that you are owner"
 msgstr "بیزینس‌هایی که شما مالک آن‌ها هستید"
 
-#: content_my/home/display_site.php:49 content_my/home/display_site.php:50
+#: content_my/home/display_site.php:59 content_my/home/display_site.php:60
 msgid "Add New Business"
 msgstr "افزودن بیزینس جدید"
 
-#: content_my/home/display_site.php:62
+#: content_my/home/display_site.php:72
 msgid "Business that you are staff"
 msgstr "بیزینس‌هایی که شما در آن‌ها کارمند هستید"
 
-#: content_my/home/display_site.php:78
+#: content_my/home/display_site.php:88
 msgid "You are not staff yet!"
 msgstr "شما هنوز کارمند نشده‌اید!"
 
-#: content_my/home/display_site.php:92 includes/languages/trans_static_public.php:295
+#: content_my/home/display_site.php:101 includes/languages/trans_static_public.php:295
 msgid "Account Status"
 msgstr "وضعیت حساب کاربری"
 
-#: content_my/home/display_site.php:134
+#: content_my/home/display_site.php:143
 msgid "Add Your First Business"
 msgstr "اولین بیزینس خود را اضافه کنید"
 
-#: content_my/home/display_site.php:140
+#: content_my/home/display_site.php:149
 msgid "Add Your First Product"
 msgstr "افزودن اولین محصول شما"
 
-#: content_my/home/display_site.php:146
+#: content_my/home/display_site.php:155
 msgid "Sale Your First Invoice"
 msgstr "ثبت اولین فاکتور فروش"
 
-#: content_my/home/display_site.php:157
+#: content_my/home/display_site.php:166
 msgid "Buy Your First Domain"
 msgstr "اولین دامنه خودتون رو بخرید و ببرید!"
 
-#: content_my/home/display_site.php:163
+#: content_my/home/display_site.php:172
 msgid "Renew Your First Domain"
 msgstr "اولین تمدید دامنه شما"
 
-#: content_my/home/display_site.php:174
+#: content_my/home/display_site.php:183
 msgid "Add First Money"
 msgstr "اولین پرداخت شما"
 
@@ -23775,7 +23814,7 @@ msgstr "جزئیات صف به‌روزرسانی شد"
 msgid "Can not copy application file from talambar server!"
 msgstr "نمی‌توانیم فایل اپلیکیشن را از سرویس تلمبار دانلود کنیم!"
 
-#: lib/app/application/queue_search.php:74 lib/app/domains/search.php:75
+#: lib/app/application/queue_search.php:74 lib/app/domains/search.php:95
 #: lib/app/gift/search.php:75 lib/app/nic_domain/search.php:75
 #: lib/app/nic_domain/search.php:219 lib/app/nic_log/search.php:94
 #: lib/app/store/search.php:50 lib/app/store/search.php:169
@@ -25896,23 +25935,27 @@ msgstr "رند آفریقای جنوبی"
 msgid "Zambian Kwacha"
 msgstr "کواچای زامبیا"
 
-#: lib/nic/exec/domain_check.php:43
+#: lib/nic/exec/domain_check.php:34
+msgid "Domain name is restricted"
+msgstr "این دامنه اجازه ثبت ندارد"
+
+#: lib/nic/exec/domain_check.php:64
 msgid "irnic person"
 msgstr "نیازمند شناسه ایرنیک شخص حقیقی"
 
-#: lib/nic/exec/domain_check.php:48
+#: lib/nic/exec/domain_check.php:69
 msgid "irnic private"
 msgstr "نیازمند شناسه ایرنیک شرکت، موسسه یا نهاد غیردولتی"
 
-#: lib/nic/exec/domain_check.php:53
+#: lib/nic/exec/domain_check.php:74
 msgid "irnic gov"
 msgstr "نیازمند شناسه ایرنیک وزارتخانه، سازمان یا شرکت دولتی"
 
-#: lib/nic/exec/domain_check.php:58
+#: lib/nic/exec/domain_check.php:79
 msgid "irnic edu"
 msgstr "نیازمند شناسه ایرنیک مرکز آموزشی و پژوهشی"
 
-#: lib/nic/exec/domain_check.php:62
+#: lib/nic/exec/domain_check.php:83
 msgid "irnic private or edu"
 msgstr "نیازمند شناسه ایرنیک شرکت یا مرکز آموزشی"
 
@@ -26045,6 +26088,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Special domain Handle"
+#~ msgstr "سفارشی سازی رابط‌های دامنه"
 
 #~ msgid "Name servers"
 #~ msgstr "نیم سرورها"
