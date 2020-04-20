@@ -1,6 +1,6 @@
 <?php
     echo '<div class="box result ltr mB25-f mLR5-f">';
-    echo '<div class="msg minimal mB0';
+    echo '<div class="msg fs12 mB0';
     if(isset($value['available']))
     {
         if($value['available'])

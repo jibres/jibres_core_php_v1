@@ -1,6 +1,6 @@
 <?php
 echo '<div class="c pA5">';
-    echo '<a class="stat';
+    echo '<a class="stat x70';
         if(isset($value['available']))
         {
             if($value['available'])
@@ -23,9 +23,13 @@ echo '<div class="c pA5">';
 
         // f
         echo '<h3>';
-        if(isset($value['name']))
+        if($value['available'])
         {
-            echo $value['name'];
+            echo T_("Available");
+        }
+        else
+        {
+            echo T_('Unavailable');
         }
         echo '</h3>';
 
