@@ -13,7 +13,7 @@
    <footer class='f'>
 
 	<?php if(\dash\data::startNewMobile()) { ?>
-		<a class="c" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>
+		<a class="c link" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>
 	<?php }//endif ?>
 
 	<a class="link cauto" href="<?php echo \dash\url::here(); ?>/verify"><?php echo T_("Go back"); ?></a>
