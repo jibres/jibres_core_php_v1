@@ -1,14 +1,19 @@
 <?php if(!\dash\data::myDomain()) {?>
 
   <div class="f justify-center">
-    <div class="c6 m8 s12">
-      <form class="domainSearchBox cbox" action='<?php echo \dash\url::current() ?>' method='get' autocomplete='off'>
-        <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
-        <div class="input ltr">
-          <input type="search" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\data::getDomain(); ?>" autocomplete='off' autofocus>
-          <button class="addon btn primary"><?php echo T_('Search'); ?></button>
-        </div>
-      </form>
+    <div class="c8 m9 s12">
+
+
+      <section class="box domainQuickBuy">
+        <h3><a href="<?php echo \dash\url::here() ?>/domain"><?php echo T_("Discover the perfect domain now"); ?></a></h3>
+        <p><?php echo "Every website start with a great domain name"; ?></p>
+        <form method="get" action='<?php echo \dash\url::current() ?>' autocomplete='off'>
+          <div class="input ltr">
+            <input type="search" name="q" autocomplete="off" maxlength="65" value="<?php echo \dash\data::getDomain(); ?>" placeholder='<?php echo T_('Enter your idea for domain name') ?>' autofocus>
+            <button class="addon btn warn"><?php echo T_("Search"); ?></button>
+          </div>
+        </form>
+      </section>
     </div>
   </div>
 
