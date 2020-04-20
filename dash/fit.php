@@ -114,6 +114,16 @@ class fit{
 		return \dash\datetime::fit($_date, null, 'date');
 	}
 
+
+	public static function time($_date)
+	{
+		if(!$_date)
+		{
+			return null;
+		}
+		return \dash\datetime::fit($_date, null, 'time');
+	}
+
 	public static function date_time($_date)
 	{
 		if(!$_date)
