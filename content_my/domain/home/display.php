@@ -15,19 +15,19 @@
    <div class="c9 s12 pRa10">
 
     <section class="f">
-     <div class="c pRa10">
+     <div class="c s12 pRa10">
       <a href="<?php echo \dash\url::this() ?>/search" class="stat">
        <h3><?php echo T_("Your Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_all'));?></div>
       </a>
      </div>
-     <div class="c pRa10">
+     <div class="c s6 pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?action=active" class="stat">
        <h3><?php echo T_("Your Active Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_active'));?></div>
       </a>
      </div>
-     <div class="c">
+     <div class="c s6">
       <a href="<?php echo \dash\url::this() ?>/search?action=deactive" class="stat">
        <h3><?php echo T_("Your Deactive Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_deactive'));?></div>
