@@ -27,17 +27,18 @@ class view
 				{
 					if(isset($value['tld']))
 					{
+						if(!isset($new_result['other']))
+						{
+							$new_result['other'] = [];
+						}
+
 						if($value['tld'] === 'ir')
 						{
 							$new_result['ir'][$key] = $value;
+							$new_result['other'][$key] = $value;
 						}
 						else
 						{
-							if(!isset($new_result['other']))
-							{
-								$new_result['other'] = [];
-							}
-
 							$new_result['other'][$key] = $value;
 						}
 					}
@@ -45,7 +46,7 @@ class view
 			}
 
 			\dash\data::domain_ir($new_result['ir']);
-			\dash\data::domain_ir_other($new_result['other']);
+			\dash\data::domain_ir_stat($new_result['other']);
 		}
 
 		if(\dash\data::haveBuyDomain())
