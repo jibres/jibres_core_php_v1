@@ -35,6 +35,13 @@ class ready
 						if($_transaction_detail[$value]['condition'] === 'request')
 						{
 							$result['payed'] = false;
+							if(isset($_transaction_detail[$value]['datecreated']))
+							{
+								if(time() - strtotime($_transaction_detail[$value]['datecreated']) > (60*60*24*3))
+								{
+									$result['payed'] = null;
+								}
+							}
 						}
 					}
 
