@@ -105,6 +105,14 @@ class get
 
 
 
+	public static function count_all_my_domain($_user_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
+
+
 	public static function my_active_count($_user_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
@@ -119,6 +127,17 @@ class get
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
+
+
+
+	public static function my_awaiting_count($_user_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'awaiting' ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
+
+
 
 
 

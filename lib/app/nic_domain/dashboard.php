@@ -104,6 +104,25 @@ class dashboard
 	}
 
 
+	public static function count_group_by_status()
+	{
+
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
+		$user_id = \dash\user::id();
+
+		$result             = [];
+		$result['all']      = floatval(\lib\db\nic_domain\get::count_all_my_domain($user_id));
+		$result['active']   = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
+		$result['deactive'] = floatval(\lib\db\nic_domain\get::my_deactive_count($user_id));
+		$result['awaiting'] = floatval(\lib\db\nic_domain\get::my_awaiting_count($user_id));
+
+		return $result;
+	}
+
 
 	private static function domain_pay_chart($_user_id)
 	{

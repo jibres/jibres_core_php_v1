@@ -181,11 +181,12 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'action'  => ['enum' => ['active', 'deactive']],
-			'dns'     => 'code',
-			'predict' => 'bit',
+			'order'     => 'order',
+			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'action'    => ['enum' => ['active', 'deactive', 'awaiting']],
+			'lock'      => ['enum' => ['on', 'off', 'unknown']],
+			'autorenew' => ['enum' => ['on', 'off']],
+			'predict'   => 'bit',
 
 		];
 
@@ -211,18 +212,6 @@ class search
 
 
 		$order_sort  = null;
-
-
-		if($data['dns'])
-		{
-			$dns_id = \dash\coding::decode($data['dns']);
-			if($dns_id)
-			{
-				$and[]                      = " domain.dns = $dns_id ";
-				self::$filter_args[T_("DNS")] = $data['dns'];
-				self::$is_filtered          = true;
-			}
-		}
 
 
 		if(mb_strlen($_query_string) > 50)
@@ -273,14 +262,57 @@ class search
 		}
 		else
 		{
+			if($data['autorenew'] === 'on')
+			{
+				$and[] = " domain.autorenew = 1 ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Autorenew")] = T_("Active");
+
+			}
+			elseif($data['autorenew'] === 'off')
+			{
+				$and[] = " ( domain.autorenew IS NULL OR domain.autorenew = 0 ) ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Autorenew")] = T_("Deactive");
+			}
+
+			if($data['lock'] === 'on')
+			{
+				$and[] = " domain.lock = 1 ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Lock")] = T_("Active");
+			}
+			elseif($data['lock'] === 'off')
+			{
+				$and[] = " domain.lock = 0 ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Lock")] = T_("Deactive");
+			}
+			elseif($data['lock'] === 'unknown')
+			{
+				$and[] = " domain.lock IS NULL  ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Lock")] = T_("Unknown");
+			}
+
 
 			if($data['action'] === 'active')
 			{
 				$and[] = " domain.status = 'enable' ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Status")] = T_("Active");
 			}
 			elseif($data['action'] === 'deactive')
 			{
 				$and[] = " domain.status NOT IN ('deleted', 'enable') ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Status")] = T_("Deactive");
+			}
+			elseif($data['action'] === 'awaiting')
+			{
+				$and[] = " domain.status = 'awaiting' ";
+				self::$is_filtered          = true;
+				self::$filter_args[T_("Status")] = T_("Awaiting");
 			}
 			else
 			{
@@ -290,7 +322,6 @@ class search
 
 
 		$and[] = " domain.user_id = $userId ";
-
 
 		$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
 

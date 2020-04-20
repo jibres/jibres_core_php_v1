@@ -1,3 +1,34 @@
+<div class="f">
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(); ?>" class="stat x70 <?php if(!\dash\request::get()) { echo ' active';} ?>" >
+            <h3><?php echo T_("All"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_all()); ?></div>
+        </a>
+    </div>
+
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(); ?>?action=active" class="stat x70 <?php if(\dash\request::get('action') === 'active') { echo ' active';} ?>" >
+            <h3><?php echo T_("Active"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_active()); ?></div>
+        </a>
+    </div>
+
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(); ?>?action=awaiting" class="stat x70 <?php if(\dash\request::get('action') === 'awaiting') { echo ' active';} ?>" >
+            <h3><?php echo T_("Awaiting"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_deactive()); ?></div>
+        </a>
+    </div>
+
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(); ?>?action=deactive" class="stat x70 <?php if(\dash\request::get('action') === 'deactive') { echo ' active';} ?>" >
+            <h3><?php echo T_("Deactive"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_awaiting()); ?></div>
+        </a>
+    </div>
+
+
+</div>
 
 <?php
 if(\dash\data::dataTable())
@@ -37,14 +68,55 @@ else
 
 
 <?php function htmlSearchBox() {?>
-<div class="fs12">
-    <form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
-        <div class="input search">
-            <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
-            <button class="btn addon success"><?php echo T_("Search"); ?></button>
-        </div>
+    <form method="get" action="<?php echo \dash\url::that(); ?>">
+        <?php if(\dash\request::get('autorenew')) {?><input type="hidden" name="autorenew" value="<?php echo \dash\request::get('autorenew'); ?>"><?php } //endif ?>
+        <?php if(\dash\request::get('lock')) {?><input type="hidden" name="lock" value="<?php echo \dash\request::get('lock'); ?>"><?php } //endif ?>
+        <div class="searchBox">
+            <div class="f">
+                <div class="cauto pRa10">
+                    <a class="btn light3 <?php if(in_array('autorenew', array_keys(\dash\request::get())) || in_array('lock', array_keys(\dash\request::get()))) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
+                </div>
+                <div class="c pRa10">
+                    <div>
+                        <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+                            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
+                            <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cauto">
+                    <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
+                        <option value="<?php echo \dash\url::that(); ?>"><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
+                        <?php foreach (\dash\data::mySort() as $key => $value) {?>
+                            <option value="<?php echo \dash\url::that(). '?'. $value['link']; ?>" <?php if(\dash\request::get('sort') == $value['sort'] && \dash\request::get('order') == $value['order']) { echo 'selected'; }?> ><?php echo $value['title']; ?></option>
+                        <?php } //endif ?>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="filterBox" data-kerkere-content='hide'>
+
+                <p><?php echo T_("Show domain where"); ?></p>
+
+                <div class="f align-center">
+
+                    <div class="c">
+                        <a class='btn <?php if(\dash\request::get('autorenew') === 'on') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?autorenew=on"><?php echo T_("Autorenew On"); ?></a>
+                        <a class='btn <?php if(\dash\request::get('autorenew') === 'off') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?autorenew=off"><?php echo T_("Autorenew Off"); ?></a>
+
+                        <a class='btn <?php if(\dash\request::get('lock') === 'on') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?lock=on"><?php echo T_("Locked"); ?></a>
+                        <a class='btn <?php if(\dash\request::get('lock') === 'off') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?lock=off"><?php echo T_("Unlocked"); ?></a>
+                        <a class='btn <?php if(\dash\request::get('lock') === 'unknown') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?lock=unknown"><?php echo T_("Unknown lock status"); ?></a>
+
+                    </div>
+                </div>
+            </div>
     </form>
-</div>
+
 <?php } //endfunction ?>
 
 
@@ -55,14 +127,10 @@ else
     <table class="tbl1 v1 responsive">
         <thead>
             <tr class="fs09">
-                <th colspan="2" data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
+                <th colspan="2"><?php echo T_("Domain"); ?></th>
                 <th class="txtC"><?php echo T_("Status"); ?></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>">
-                  <a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>">
-                    <?php echo T_("Create date"); ?><br><?php echo T_("Date modified"); ?>
-                  </a>
-                </th>
+                <th class="txtL"><?php echo T_("Expire date"); ?></th>
+                <th class="txtL"><?php echo T_("Create date"); ?><br><?php echo T_("Date modified"); ?></th>
                 <th class="txtL"><?php echo T_("DNS"); ?></th>
             </tr>
         </thead>
