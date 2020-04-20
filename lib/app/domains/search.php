@@ -20,7 +20,7 @@ class search
 	}
 
 
-	public static function list_admin($_query_string, $_args)
+	public static function list($_query_string, $_args)
 	{
 		if(!\dash\user::id())
 		{
@@ -28,11 +28,27 @@ class search
 			return false;
 		}
 
+		return self::get_list($_query_string, $_args);
+	}
+
+
+	public static function list_admin($_query_string, $_args)
+	{
+		return self::get_list($_query_string, $_args);
+	}
+
+
+	private static function get_list($_query_string, $_args)
+	{
+
+
 		$condition =
 		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'dns'   => 'code',
+			'order'     => 'order',
+			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'domainlen' => 'smallint',
+			'available' => 'bit',
+			'tld'       => 'string_50',
 		];
 
 		$require = [];
@@ -52,22 +68,26 @@ class search
 		$meta        = [];
 		$or          = [];
 
-		$meta['limit'] = 20;
+		$meta['limit'] = 15;
 
 
 		$order_sort  = null;
 
 
-		// if($data['dns'])
-		// {
-		// 	$dns_id = \dash\coding::decode($data['dns']);
-		// 	if($dns_id)
-		// 	{
-		// 		$and[]                      = " domains.dns = $dns_id ";
-		// 		self::$filter_args[T_("DNS")] = $data['dns'];
-		// 		self::$is_filtered          = true;
-		// 	}
-		// }
+		if($data['available'])
+		{
+			$and[] = " (SELECT domainactivity.available FROM domainactivity WHERE domainactivity.domain_id = domains.id ORDER BY domainactivity.id DESC LIMIT 1) = 1 ";
+		}
+
+		if($data['domainlen'])
+		{
+			$and[] = " domains.domainlen = $data[domainlen] ";
+		}
+
+		if($data['tld'])
+		{
+			$and[] = " domains.tld = '$data[tld]' ";
+		}
 
 
 		if(mb_strlen($_query_string) > 50)
@@ -81,17 +101,14 @@ class search
 
 		if($query_string)
 		{
-			$or[]        = " domains.name LIKE '%$query_string%'";
-
-
-
+			$or[]        = " domains.domain LIKE '$query_string%'";
 			self::$is_filtered = true;
 		}
 
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
+			if(in_array($data['sort'], ['domain', 'tld']))
 			{
 
 				$sort = mb_strtolower($data['sort']);
