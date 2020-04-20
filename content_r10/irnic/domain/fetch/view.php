@@ -11,10 +11,6 @@ class view
 		[
 			'order' => \dash\request::get('order'),
 			'sort'  => \dash\request::get('sort'),
-			'dns'   => \dash\request::get('dns'),
-			// 'holder' => \dash\request::get('holder'),
-			// 'tech'   => \dash\request::get('tech'),
-			// 'bill'   => \dash\request::get('bill'),
 		];
 
 		$search_string = \dash\request::get('q');
