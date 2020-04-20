@@ -12,6 +12,15 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
+		if(!\dash\data::haveBuyDomain())
+		{
+			if(\dash\data::getDomain())
+			{
+				$sugest_domain = \lib\app\nic_domain\suggestion::get(\dash\data::getDomain());
+				\dash\data::domainSuggestion($sugest_domain);
+			}
+		}
+
 		if(\dash\data::haveBuyDomain())
 		{
 			$my_setting = \lib\app\nic_usersetting\get::get();
