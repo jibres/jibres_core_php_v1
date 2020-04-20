@@ -44,9 +44,15 @@ class view
 					}
 				}
 			}
+			if(isset($new_result['ir']))
+			{
+				\dash\data::domain_ir($new_result['ir']);
+			}
 
-			\dash\data::domain_ir($new_result['ir']);
-			\dash\data::domain_ir_stat($new_result['other']);
+			if(isset($new_result['other']))
+			{
+				\dash\data::domain_ir_stat($new_result['other']);
+			}
 		}
 
 		if(\dash\data::haveBuyDomain())

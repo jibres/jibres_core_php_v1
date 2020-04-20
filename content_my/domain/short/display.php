@@ -1,5 +1,3 @@
-<div class="f justify-center">
-    <div class="c7 x4 s12">
 
 <?php
 if(\dash\data::dataTable())
@@ -31,8 +29,6 @@ else
     }
 }
 ?>
-    </div>
-</div>
 
 
 
@@ -41,6 +37,8 @@ else
 
 
 <?php function htmlSearchBox() {?>
+<div class="f justify-center">
+    <div class="c7 x4 s12">
     <div class="fs12">
         <form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
             <div class="input search ltr">
@@ -49,31 +47,25 @@ else
             </div>
         </form>
     </div>
+    </div>
+</div>
 <?php } //endfunction ?>
 
 
 <?php function htmlTable() {?>
-    <?php $sortLink = \dash\data::sortLink(); ?>
+<div class="f">
 
-    <div class="fs12">
-        <table class="tbl1 v5 responsive">
-            <tbody class="fs12">
-
-                <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-
-                    <tr>
-                        <td>
-                            <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="btn success2"><?php echo T_("Buy"); ?></a>
-                        </td>
-                        <td class="collapsing">
-                            <div class="link ltr"><?php echo \dash\get::index($value, 'domain'); ?></div>
-                        </td>
-                    </tr>
-                <?php } //endfor ?>
-            </tbody>
-        </table>
+<?php foreach (\dash\data::dataTable() as $key => $value) {?>
+    <div class="c2 pA5">
+        <a class="stat x70 available" href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>">
+            <h3><?php echo T_("Available") ?></h3>
+            <div class="val ltr"><?php echo \dash\get::index($value, 'root'); ?> <small>.<?php echo \dash\get::index($value, 'tld'); ?></small></div>
+        </a>
     </div>
-    <?php \dash\utility\pagination::html(); ?>
+<?php } //endfor ?>
+</div>
+
+   <?php \dash\utility\pagination::html(); ?>
 
 <?php } //endfunction ?>
 

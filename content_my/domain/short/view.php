@@ -37,11 +37,6 @@ class view
 		\dash\data::isFiltered($isFiltered);
 
 
-		if($isFiltered)
-		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
-		}
-
 		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::that());
 		\dash\data::sortLink($sortLink);
 

@@ -68,7 +68,7 @@ class search
 		$meta        = [];
 		$or          = [];
 
-		$meta['limit'] = 15;
+		$meta['limit'] = 30;
 
 
 		$order_sort  = null;
