@@ -101,6 +101,7 @@
 
 
    <div class="c3 s12">
+
     <nav class="items">
      <ul>
       <li>
@@ -129,6 +130,12 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/transfer">
         <div class="key"><?php echo T_('Transfer domain');?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/short">
+        <div class="key"><?php echo T_('Buy Short domains');?></div>
         <div class="go"></div>
        </a>
       </li>
@@ -171,12 +178,6 @@
 
     <nav class="items">
      <ul>
-      <li>
-       <a class="f" href="<?php echo \dash\url::this();?>/whois">
-        <div class="key"><?php echo T_('Whois?');?></div>
-        <div class="go"></div>
-       </a>
-      </li>
       <li>
        <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">
         <div class="key"><?php echo T_('Doamin API');?></div>
