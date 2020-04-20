@@ -1,5 +1,4 @@
-<div class="fs14">
-
+<div class="cbox">
 	<div class="f justify-center">
 		<div class="c6 s12">
 			<form method="post" autocomplete="off" action="<?php echo \dash\url::that(); ?>"  >
@@ -16,5 +15,5 @@
 			?>
 		</div>
 	</div>
+	<?php require_once(root. 'content/whois/whoisDisplay.php'); ?>
 </div>
-<?php require_once(root. 'content/whois/whoisDisplay.php'); ?>

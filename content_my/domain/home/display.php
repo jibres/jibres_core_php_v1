@@ -178,7 +178,7 @@
        </a>
       </li>
       <li>
-       <a class="f" target="_blank" href="<?php echo \dash\url::api('core');?>/r10/irnic/doc">
+       <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">
         <div class="key"><?php echo T_('Doamin API');?></div>
         <div class="go"></div>
        </a>
