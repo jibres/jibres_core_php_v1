@@ -74,26 +74,26 @@ class view
 		// \dash\data::action_text(T_('Recovery'));
 		// \dash\data::action_link(\dash\url::here(). '/pass/recovery');
 
-
+		$verifyReason = '';
 		// swich verify from
 		switch (\dash\utility\enter::get_session('verify_from'))
 		{
 			case 'ask_twostep':
 				\dash\data::rememberLink(false);
 				\dash\data::startNewMobile(true);
-				$myDesc .= ' '. T_("This is request of two-step verification!");
+				$verifyReason = T_("This is request of two-step verification!");
 				break;
 
 			case 'two_step_set':
 				\dash\data::rememberLink(false);
 				\dash\data::startNewMobile(false);
-				$myDesc .= ' '. T_("This is request of active two-step verification of you account!");
+				$verifyReason = T_("This is request of active two-step verification of you account!");
 				break;
 
 			case 'two_step_unset':
 				\dash\data::rememberLink(false);
 				\dash\data::startNewMobile(false);
-				$myDesc .= ' '. T_("This is request of deactive two-step verification of you account!");
+				$verifyReason = T_("This is request of deactive two-step verification of you account!");
 				break;
 
 			// user from signup go to this page
@@ -101,21 +101,21 @@ class view
 			case 'set':
 				\dash\data::rememberLink(false);
 				\dash\data::startNewMobile(false);
-				// $myDesc .= T_("Your verification code send to your telegram.");
+				// $verifyReason = T_("Your verification code send to your telegram.");
 				break;
 
 			// user from delete go to this page
 			case 'delete':
 				\dash\data::rememberLink(false);
 				\dash\data::startNewMobile(false);
-				$myDesc .= ' '. T_("This is request of delete account!");
+				$verifyReason = T_("This is request of delete account!");
 				break;
 
 			// user from recovery go to this page
 			case 'recovery':
 				\dash\data::rememberLink(true);
 				\dash\data::startNewMobile(true);
-				$myDesc .= ' '. T_("This is request of account recovery.");
+				$verifyReason = T_("This is request of account recovery.");
 				break;
 
 			// user from change password go to this page
@@ -123,7 +123,7 @@ class view
 				\dash\data::rememberLink(false);
 				\dash\data::startNewMobile(false);
 				// swich way
-				$myDesc .= ' '. T_("This is request of change password.");
+				$verifyReason = T_("This is request of change password.");
 				break;
 		}
 
@@ -147,6 +147,7 @@ class view
 
 		\dash\face::title($myTitle);
 		\dash\face::desc($myDesc);
+		\dash\face::reason($verifyReason);
 	}
 }
 ?>

@@ -19,6 +19,10 @@ else
 {
  echo "<h2>". \dash\face::desc(). "</h2>";
 }
+if(\dash\face::reason())
+{
+	echo "<div class='msg glass mB0'>". \dash\face::reason(). "</div>";
+}
 ?>
    <form method="post" autocomplete="off">
 <?php require_once \dash\layout\func::display(); ?>
