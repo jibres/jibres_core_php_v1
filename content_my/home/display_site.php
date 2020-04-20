@@ -5,7 +5,7 @@
 
     <section class="f">
      <div class="c pRa10">
-      <a href="" class="stat">
+      <a href="<?php echo \dash\url::here() ?>/store"  class="stat">
        <h3><?php echo T_("Business");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'store_count'));?></div>
       </a>
