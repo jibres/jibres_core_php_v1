@@ -12,6 +12,10 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
+		$args =
+		[
+			'lastyear' => \dash\request::get('time') === '365' ? true : null,
+		];
 
 		if(\lib\nic\mode::api())
 		{
@@ -20,7 +24,7 @@ class view
 		}
 		else
 		{
-			$list = \lib\app\nic_domainbilling\search::my_list(null, []);
+			$list = \lib\app\nic_domainbilling\search::my_list(null, $args);
 		}
 
 		\dash\data::dataTable($list);

@@ -24,10 +24,11 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['id',]],
+			'order'     => 'order',
+			'sort'      => ['enum' => ['id',]],
 			'domain_id' => 'code',
 			'user_id'   => 'id',
+			'lastyear'  => 'bit',
 		];
 
 		$require = [];
@@ -56,6 +57,13 @@ class search
 		if($data['user_id'])
 		{
 			$and[]         = " domainbilling.user_id = $data[user_id] ";
+		}
+
+		if($data['lastyear'])
+		{
+			$lastyear = date("Y-m-d", strtotime("-365 days"));
+
+			$and[]         = " DATE(domainbilling.datecreated) > DATE('$lastyear') ";
 		}
 
 		$meta['limit'] = 20;
