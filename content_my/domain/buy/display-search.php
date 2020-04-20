@@ -15,12 +15,41 @@
     </div>
   </div>
 
-  <?php if(\dash\data::getDomain()) {?>
-    <div class="cbox">
-      <?php require_once (root. 'content/domains/search/domainSearchResult.php'); ?>
-    </div>
-  <?php }?>
-
+<?php
+if(\dash\data::getDomain())
+{
+  if(\dash\data::domain_ir())
+  {
+    foreach (\dash\data::domain_ir() as $key => $value)
+    {
+      if(isset($value['tld']) && $value['tld'] === 'ir')
+      {
+        require('domain-search-result-ir.php');
+      }
+    }
+  }
+  if(\dash\data::domain_ir_other())
+  {
+    echo '<div class="f result ltr" data-ir-others>';
+    foreach (\dash\data::domain_ir_other() as $key => $value)
+    {
+      if(isset($value['tld']))
+      {
+        if($value['tld'] === 'ایران')
+        {
+          // do not show
+        }
+        elseif(strpos($value['tld'], '.ir'))
+        {
+          require('domain-search-result-ir-others.php');
+          // show in stat
+        }
+      }
+    }
+    echo '</div">';
+  }
+}
+?>
 <?php if(\dash\data::domainSuggestion()) {?>
   <section class="f">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>

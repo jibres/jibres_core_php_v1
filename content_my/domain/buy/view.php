@@ -29,7 +29,7 @@ class view
 					{
 						if($value['tld'] === 'ir')
 						{
-							$new_result['ir'] = $value;
+							$new_result['ir'][$key] = $value;
 						}
 						else
 						{
@@ -38,12 +38,14 @@ class view
 								$new_result['other'] = [];
 							}
 
-							$new_result['other'][] = $value;
+							$new_result['other'][$key] = $value;
 						}
 					}
 				}
 			}
-			\dash\data::infoResult($new_result);
+
+			\dash\data::domain_ir($new_result['ir']);
+			\dash\data::domain_ir_other($new_result['other']);
 		}
 
 		if(\dash\data::haveBuyDomain())
