@@ -5,6 +5,16 @@ namespace lib\db\nic_domainaction;
 class get
 {
 
+
+
+	public static function firstrenew_user($_user_id)
+	{
+		$query  = "SELECT * FROM domainaction  WHERE domainaction.action = 'renew' AND domainaction.user_id = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 	public static function sale_count_date($_date = null)
 	{
 		$date = null;

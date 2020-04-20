@@ -5,6 +5,45 @@ namespace lib\db\store;
 class get
 {
 
+
+
+
+	public static function user_first_product($_user_id)
+	{
+		$query =
+		"
+			SELECT
+				SUM(store_analytics.product) AS `sum`
+			FROM
+				store_analytics
+			INNER JOIN store_data ON store_data.id = store_analytics.id
+			WHERE
+				store_data.owner = $_user_id
+		";
+		$result = \dash\db::get($query, 'sum', true, 'master');
+
+		return $result;
+	}
+
+
+	public static function user_first_order($_user_id)
+	{
+		$query =
+		"
+			SELECT
+				SUM(store_analytics.factor) AS `sum`
+			FROM
+				store_analytics
+			INNER JOIN store_data ON store_data.id = store_analytics.id
+			WHERE
+				store_data.owner = $_user_id
+		";
+		$result = \dash\db::get($query, 'sum', true, 'master');
+
+		return $result;
+	}
+
+
 	public static function count_store_analytics_product()
 	{
 		$query = "SELECT SUM(store_analytics.product) AS `product` FROM store_analytics ";

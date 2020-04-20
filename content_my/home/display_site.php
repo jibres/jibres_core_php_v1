@@ -7,19 +7,19 @@
      <div class="c pRa10">
       <a href="" class="stat">
        <h3><?php echo T_("Business");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'store_count'));?></div>
       </a>
      </div>
      <div class="c pRa10">
       <a href="<?php echo \dash\url::here() ?>/domain" class="stat">
        <h3><?php echo T_("Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_count'));?></div>
       </a>
      </div>
      <div class="c">
       <a href="<?php echo \dash\url::here() ?>/search?" class="stat">
        <h3><?php echo T_("Account Balance");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'aa'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'budget'));?></div>
       </a>
      </div>
     </section>
@@ -84,11 +84,10 @@ if($listStore_staff && is_array($listStore_staff))
 
   </div>
 
-
   <div class="c3 s12">
 
    <section class="circularChartBox">
-    <?php $myPercent=40;include core.'/layout/elements/circularChart.php';?>
+    <?php $myPercent=\dash\get::index($myData, 'complete_profile', 'percent'); include core.'/layout/elements/circularChart.php';?>
     <h3><?php echo T_("Account Status");?></h3>
    </section>
 
@@ -97,31 +96,31 @@ if($listStore_staff && is_array($listStore_staff))
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my">
        <div class="key"><?php echo T_('Mobile');?></div>
-       <div class="go check ok"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'mobile')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/email">
        <div class="key"><?php echo T_('Email');?></div>
-       <div class="go times nok"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'email')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/username">
        <div class="key"><?php echo T_('Username');?></div>
-       <div class="go times nok"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'username')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/profile">
        <div class="key"><?php echo T_('Birthday');?></div>
-       <div class="go times nok"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'birthday')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/avatar">
        <div class="key"><?php echo T_('Avatar');?></div>
-       <div class="go check ok"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'avatar')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
     </ul>
@@ -132,19 +131,19 @@ if($listStore_staff && is_array($listStore_staff))
      <li>
       <a class="f" href="<?php echo \dash\url::here();?>/store/start">
        <div class="key"><?php echo T_('Add Your First Business');?></div>
-       <div class="go ok check"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firststore')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="">
        <div class="key"><?php echo T_('Add Your First Product');?></div>
-       <div class="go nok times"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstproduct')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="">
        <div class="key"><?php echo T_('Sale Your First Invoice');?></div>
-       <div class="go nok times"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstorder')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
    </ul>
@@ -155,13 +154,13 @@ if($listStore_staff && is_array($listStore_staff))
      <li>
       <a class="f" href="<?php echo \dash\url::here();?>/domain/buy">
        <div class="key"><?php echo T_('Buy Your First Domain');?></div>
-       <div class="go ok check"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstdomain')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::here();?>/domain/renew">
        <div class="key"><?php echo T_('Renew Your First Domain');?></div>
-       <div class="go nok times"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstrenew')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
     </ul>
@@ -172,7 +171,7 @@ if($listStore_staff && is_array($listStore_staff))
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/billing">
        <div class="key"><?php echo T_('Add First Money');?></div>
-       <div class="go nok times"></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstpay')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
     </ul>
