@@ -19,11 +19,13 @@ class search
 
 
 
-	private static function list($_query_string, $_args)
+	public static function list($_query_string, $_args)
 	{
 
 		$condition =
 		[
+			'order'   => 'order',
+			'sort'    => ['enum' => ['id',]],
 			'domain_id' => 'code',
 			'user_id'   => 'id',
 		];
