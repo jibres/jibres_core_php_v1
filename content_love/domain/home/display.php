@@ -95,12 +95,6 @@ $myData = \dash\data::dashboardDetail();
           </a>
        </li>
        <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/dns">
-            <div class="key"><?php echo T_('Name servers');?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-       <li>
           <a class="f" href="<?php echo \dash\url::this();?>/irnic">
             <div class="key"><?php echo T_('IRNIC handlers');?></div>
             <div class="go"></div>
@@ -141,7 +135,7 @@ $myData = \dash\data::dashboardDetail();
 
        <li>
           <a class="f" href="<?php echo \dash\url::this();?>/polls">
-            <div class="key"><?php echo T_('Polls');?></div>
+            <div class="key"><?php echo T_('IRNIC Polls');?></div>
             <div class="go"></div>
           </a>
        </li>

@@ -20,6 +20,7 @@ class search
 	}
 
 
+
 	public static function list($_query_string, $_args)
 	{
 		if(!\dash\user::id())
@@ -28,14 +29,24 @@ class search
 			return false;
 		}
 
+		$_args['user_id'] = \dash\user::id();
+
+		return self::get_list($_query_string, $_args);
+	}
+
+
+	public static function get_list($_query_string, $_args)
+	{
+
 		$condition =
 		[
-			'order'  => 'order',
-			'sort'   => ['enum' => ['title', 'nicid', 'status']],
-			'holder' => 'bit',
-			'admin'  => 'bit',
-			'tech'   => 'bit',
-			'bill'   => 'bit',
+			'order'   => 'order',
+			'sort'    => ['enum' => ['title', 'nicid', 'status']],
+			'holder'  => 'bit',
+			'admin'   => 'bit',
+			'tech'    => 'bit',
+			'bill'    => 'bit',
+			'user_id' => 'id',
 
 		];
 
@@ -125,7 +136,11 @@ class search
 		}
 
 		$and[] = " contact.status != 'deleted' ";
-		$and[] = " contact.user_id = ". \dash\user::id();
+
+		if($data['user_id'])
+		{
+			$and[] = " contact.user_id = ". $data['user_id'];
+		}
 
 		$list = \lib\db\nic_contact\search::list($and, $or, $order_sort, $meta);
 

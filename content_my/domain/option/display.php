@@ -5,6 +5,20 @@
       <header><h2><?php echo T_("Your domain setting"); ?></h2></header>
 
       <div class="body">
+
+        <nav class="items">
+         <ul>
+          <li>
+           <a class="f" href="<?php echo \dash\url::this();?>/irnic">
+            <div class="key"><?php echo T_('IRNIC contact manager');?></div>
+            <div class="go"></div>
+           </a>
+          </li>
+         </ul>
+        </nav>
+
+        <hr>
+
         <div class="mB10 msg">
           <?php echo T_("Set default DNS record"); ?>
           <br>
