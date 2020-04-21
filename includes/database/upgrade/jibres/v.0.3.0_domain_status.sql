@@ -11,3 +11,6 @@ KEY `domainstatus_domain` (`domain`),
 KEY `domainstatus_status` (`status`),
 KEY `domainstatus_active` (`active`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+ALTER TABLE jibres_nic.domain ADD `available` bit(1) NULL DEFAULT NULL;
