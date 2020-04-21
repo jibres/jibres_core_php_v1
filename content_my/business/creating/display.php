@@ -4,7 +4,7 @@
       <div class="body">
         <div class="pad">
           <h1><?php echo T_("Please wait"); ?></h1>
-          <p><?php echo T_("Building your online store in progress."); ?></p>
+          <p><?php echo T_("Building your online business in progress."); ?></p>
           <a style="display: none;" id="linkmhe" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Try again"); ?></a>
 
         </div>

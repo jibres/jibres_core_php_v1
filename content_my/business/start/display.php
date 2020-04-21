@@ -6,7 +6,7 @@
           <?php if(\dash\data::canAddStore_can()) {?>
 
           <h1><?php echo \dash\face::title(); ?></h1>
-          <p><?php echo T_("To make a online store from scratch, please enter name of your business."); ?></p>
+          <p><?php echo T_("To make a online business from scratch, please enter name of your business."); ?></p>
 
           <form method="post" autocomplete="off">
             <div class="input">
@@ -15,7 +15,7 @@
 
             <button class="btn success block"><?php echo T_("Let's go"); ?></button>
           </form>
-          <img src="<?php echo \dash\url::cdn(); ?>/img/business/your-brand.svg" alt='<?php echo T_("Create a store on Jibres"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/business/your-brand.svg" alt='<?php echo T_("Create a business on Jibres"); ?>'>
 
         <?php }else{ ?>
 

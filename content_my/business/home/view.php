@@ -17,7 +17,7 @@ class view
 
 		$myStore = \dash\data::listStore();
 
-		// if store is not exist
+		// if business is not exist
 		if(isset($myStore['owner']) && $myStore['owner'])
 		{
 			\dash\face::title(T_("Store Lists"));

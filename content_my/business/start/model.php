@@ -19,7 +19,7 @@ class model
 
 			if(mb_strlen($title) >= 100)
 			{
-				\dash\notif::error(T_("Please fill the store title less than 100 character"), 'title');
+				\dash\notif::error(T_("Please fill the business title less than 100 character"), 'title');
 				return false;
 			}
 
