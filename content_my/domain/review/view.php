@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Review detail"));
+		\dash\face::title(T_("Review and Confirm Domain Detail"));
 
 		// btn
 		\dash\data::back_text(T_('Domains'));

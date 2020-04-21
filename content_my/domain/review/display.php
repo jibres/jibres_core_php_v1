@@ -1,114 +1,144 @@
 <?php $discount = 0; ?>
-<div class="f justify-center">
-  <div class="c6 m8 s12">
-
-    <div class="box impact">
-      <header><h2><?php echo T_("Domain register detail"); ?></h2></header>
-
-      <div class="body">
-        <table class="tbl1 v4">
-          <tbody>
-            <tr>
-              <td><?php echo T_("Domain") ?></td>
-              <td class="ltr floatL txtB"><code><?php echo \dash\data::dataRow_name(); ?></code></td>
-            </tr>
-            <tr>
-              <td><?php echo T_("IRNIC Admin") ?></td>
-              <td class="ltr floatL"><code><?php echo \dash\data::dataRow_admin(); ?></code></td>
-            </tr>
-            <tr>
-              <td><?php echo T_("IRNIC Billing") ?></td>
-              <td class="ltr floatL"><code><?php echo \dash\data::dataRow_bill(); ?></code></td>
-            </tr>
-            <tr>
-              <td><?php echo T_("IRNIC Technical") ?></td>
-              <td class="ltr floatL"><code><?php echo \dash\data::dataRow_tech(); ?></code></td>
-            </tr>
-            <tr>
-              <td><?php echo T_("IRNIC Holder") ?></td>
-              <td class="ltr floatL"><code><?php echo \dash\data::dataRow_holder(); ?></code></td>
-            </tr>
-
-            <?php if(\dash\data::dataRow_ns1()) {?>
-              <tr>
-                <td><?php echo T_("DNS #1") ?></td>
-                <td class="ltr floatL"><code><?php echo \dash\data::dataRow_ns1(); ?></code></td>
-              </tr>
-            <?php } //endif ?>
-
-            <?php if(\dash\data::dataRow_ns2()) {?>
-              <tr>
-                <td><?php echo T_("DNS #2") ?></td>
-                <td class="ltr floatL"><code><?php echo \dash\data::dataRow_ns2(); ?></code></td>
-              </tr>
-            <?php } //endif ?>
-
-            <?php if(\dash\data::dataRow_ns3()) {?>
-              <tr>
-                <td><?php echo T_("DNS #3") ?></td>
-                <td class="ltr floatL"><code><?php echo \dash\data::dataRow_ns3(); ?></code></td>
-              </tr>
-            <?php } //endif ?>
-
-            <?php if(\dash\data::dataRow_ns4()) {?>
-              <tr>
-                <td><?php echo T_("DNS #4") ?></td>
-                <td class="ltr floatL"><code><?php echo \dash\data::dataRow_ns4(); ?></code></td>
-              </tr>
-            <?php } //endif ?>
-
-            <tr>
-              <td><?php echo T_("Period") ?></td>
-              <td class="ltr floatL"><?php if(\dash\data::myPeriod() == '1year') { echo T_("1 Year"); }elseif(\dash\data::myPeriod() == '5year'){echo T_("5 Year");}else{echo T_("Unknown");} ?></td>
-            </tr>
 
 
+<div class="f">
+  <div class="c4 s12 pRa10">
 
-          </tbody>
-        </table>
-      </div>
-
-
+    <div class="stat">
+     <h3><?php echo T_("Domain Name");?></h3>
+     <div class="val ltr"><?php echo \dash\data::dataRow_name(); ?></div>
     </div>
 
+    <nav class="items">
+     <ul>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('Domain Period');?></div>
+        <div class="value ltr txtB"><?php if(\dash\data::myPeriod() == '1year') { echo T_("1 Year"); }elseif(\dash\data::myPeriod() == '5year'){echo T_("5 Year");}else{echo T_("Unknown");} ?></div>
+        <div class="go detail"></div>
+       </div>
+      </li>
+     </ul>
+    </nav>
+
+    <nav class="items">
+     <ul>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('Domain Holder');?></div>
+        <code class="value ltr"><?php echo \dash\data::dataRow_holder(); ?></code>
+       </div>
+      </li>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('Domain Admin');?></div>
+        <code class="value ltr"><?php echo \dash\data::dataRow_admin(); ?></code>
+       </div>
+      </li>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('Domain Technical');?></div>
+        <code class="value ltr"><?php echo \dash\data::dataRow_tech(); ?></code>
+       </div>
+      </li>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('Domain Billing');?></div>
+        <code class="value ltr"><?php echo \dash\data::dataRow_bill(); ?></code>
+       </div>
+      </li>
+     </ul>
+    </nav>
+
+
+    <nav class="items">
+     <ul>
+
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('DNS #1');?></div>
+<?php if(\dash\data::dataRow_ns1()) {?>
+        <code class="value ltr"><?php echo \dash\data::dataRow_ns1(); ?></code>
+<?php } else { ?>
+        <code class="value ltr">-</code>
+<?php } //endif ?>
+       </div>
+      </li>
+
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('DNS #2');?></div>
+<?php if(\dash\data::dataRow_ns2()) {?>
+        <code class="value ltr"><?php echo \dash\data::dataRow_ns2(); ?></code>
+<?php } else { ?>
+        <code class="value ltr">-</code>
+<?php } //endif ?>
+       </div>
+      </li>
+
+<?php if(\dash\data::dataRow_ns3()) {?>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('DNS #3');?></div>
+        <code class="value ltr"><?php echo \dash\data::dataRow_ns3(); ?></code>
+       </div>
+      </li>
+<?php } //endif ?>
+
+<?php if(\dash\data::dataRow_ns4()) {?>
+      <li>
+       <div class="f item">
+        <div class="key"><?php echo T_('DNS #4');?></div>
+        <code class="value ltr"><?php echo \dash\data::dataRow_ns4(); ?></code>
+       </div>
+      </li>
+<?php } //endif ?>
+
+
+     </ul>
+   </nav>
+
+  </div>
+  <div class="c s12">
+
     <div class="box impact">
-      <header><h2><?php echo T_("Gift card"); ?></h2></header>
       <div class="body">
-        <p>
-          <?php echo T_("If you have gift cart enter here") ?> 🎁
-        </p>
         <form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
           <input type="hidden" name="id" value="<?php echo \dash\request::get('id'); ?>">
-          <label for="gift"><?php echo T_("Gift code") ?></label>
+          <label for="gift"><?php echo T_("If you have gift cart enter here") ?> 🎁</label>
           <div class="input ltr">
+            <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" maxlength="50" placeholder='<?php echo T_("Gift code") ?>'>
             <button class="btn primary addon"><?php echo T_("Check"); ?></button>
-            <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" maxlength="100">
           </div>
         </form>
 
-        <?php if(\dash\request::get('gift')) {?>
-          <?php if(\dash\data::giftDetail_msgsuccess()) {?>
+<?php if(\dash\request::get('gift')) {?>
+  <?php if(\dash\data::giftDetail_msgsuccess()) {?>
             <div class="msg success"><?php echo \dash\data::giftDetail_msgsuccess(); ?></div>
-          <?php }// endif ?>
-          <div class="msg success2 f align-center">
+  <?php }// endif ?>
+          <div class="msg danger2 f align-center">
             <div class="c">
-
-              <?php $discount = \dash\data::giftDetail_discount(); ?>
-
-              <?php if(\dash\data::giftDetail_type() === 'percent') {?>
-                <?php echo T_("Discount percent") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_giftpercent()); ?> <?php echo T_("%"); ?>
-              <?php }elseif(\dash\data::giftDetail_type() === 'amount') { ?>
-                <?php echo T_("Discount amount") ?>: <?php echo \dash\fit::number(\dash\data::giftDetail_giftamount()); ?>
-              <?php }else{ ?>
-                <?php echo T_("Invalid gift code") ?> 😔
-              <?php } //endif ?>
-
-            </div>
-            <div class="cauto">
-              <a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>" class="btn xs danger"><?php echo T_("Remove"); ?></a>
+<?php
+$discount = \dash\data::giftDetail_discount();
+  if(\dash\data::giftDetail_type() === 'percent')
+  {
+    echo T_("Discount percent"). ':';
+    echo \dash\fit::number(\dash\data::giftDetail_giftpercent());
+    echo T_("%");
+  }
+  elseif(\dash\data::giftDetail_type() === 'amount')
+  {
+    echo T_("Discount amount"). ':';
+    echo \dash\fit::number(\dash\data::giftDetail_giftamount());
+  }
+  else
+  {
+    echo T_("Invalid gift code"). '😔';
+  }
+?>
             </div>
           </div>
-        <?php } // endif ?>
+<?php } // endif ?>
       </div>
     </div>
 
@@ -161,5 +191,7 @@
         </footer>
       </div>
     </form>
+
   </div>
 </div>
+
