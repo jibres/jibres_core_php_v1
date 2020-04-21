@@ -145,11 +145,12 @@ class get
 
 		self::update_domain_status($_domain, $_load_domain, $fetch);
 
-		if(isset($fetch['force_disable']) && $fetch['force_disable'])
+		if(isset($fetch['available']) && $fetch['available'])
 		{
 			// this domain is not enable for this user
 			// nic rejected this domain
-			$update_domain['status'] = 'disable';
+			$update_domain['status']    = 'disable';
+			$update_domain['available'] = 1;
 		}
 
 		$update_domain['lastfetch'] = date("Y-m-d H:i:s");

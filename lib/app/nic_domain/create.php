@@ -258,6 +258,7 @@ class create
 
 				'autorenew'    => null,
 				'lock'         => null,
+				'available'    => 1,
 
 				'ns1'          => $ns1,
 				'ns2'          => $ns2,
@@ -284,6 +285,7 @@ class create
 
 				'autorenew'    => null,
 				'lock'         => null,
+				'available'    => 1,
 
 				'ns1'          => $ns1,
 				'ns2'          => $ns2,
@@ -493,6 +495,7 @@ class create
 
 				'autorenew'    => 1,
 				'lock'         => 1,
+				'available'    => 0,
 
 				'dateregister' => $result['dateregister'],
 				'dateexpire'   => $result['dateexpire'],
