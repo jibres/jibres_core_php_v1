@@ -23,6 +23,13 @@ class controller
 			$whois = \lib\app\whois\who::is($domain);
 			\dash\data::whoisResult($whois);
 		}
+		elseif(\dash\request::get('domain'))
+		{
+			$domain = \dash\request::get('domain');
+			$whois = \lib\app\whois\who::is($domain);
+			\dash\data::myDomain(urldecode($domain));
+			\dash\data::whoisResult($whois);
+		}
 	}
 }
 ?>
