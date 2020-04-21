@@ -207,6 +207,17 @@ class ready
 			$result['can_renew'] = false;
 		}
 
+
+		if(isset($result['available']) && $result['available'] === '1')
+		{
+			$new_result = [];
+			$new_result['name'] = $result['name'];
+			$status_html =  '<a href="'.\dash\url::this(). '/buy/'. $result['name'].'"><div class="ibtn x30 wide"><span>'. T_("Register now").'</span><i class="sf-shop fc-green"></i></div></a>';
+			$new_result['status_html'] = $status_html;
+
+			$result = $new_result;
+		}
+
 		return $result;
 	}
 }

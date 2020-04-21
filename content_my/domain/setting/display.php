@@ -1,4 +1,6 @@
+<?php if(\dash\data::domainDetail_available() === '0') {?>
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
+
 
 <div class="f fs14 mT10 mB20">
  <div class="c6 s12 pRa5">
@@ -254,3 +256,14 @@ else
  </div>
 </div>
 
+<?php }else{ ?>
+  <div class="f justify-center fs14">
+    <div class="c6 s12">
+      <div class="msg info2 txtC">
+        <p class="txtB fs12"><?php echo \dash\data::domainDetail_name(); ?> </p>
+        <p><?php echo T_("Domain is Available for buy") ?></p>
+        <a class="btn success" href="<?php echo \dash\url::this() . '/buy/'. \dash\data::domainDetail_name(); ?>"><?php echo T_("Buy now"); ?></a>
+      </div>
+    </div>
+  </div>
+<?php } //endif ?>

@@ -145,6 +145,8 @@ class get
 
 		self::update_domain_status($_domain, $_load_domain, $fetch);
 
+		$update_domain['available'] = 0;
+
 		if(isset($fetch['available']) && $fetch['available'])
 		{
 			// this domain is not enable for this user
