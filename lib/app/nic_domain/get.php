@@ -151,8 +151,24 @@ class get
 		{
 			// this domain is not enable for this user
 			// nic rejected this domain
-			$update_domain['status']    = 'disable';
-			$update_domain['available'] = 1;
+			$update_domain['status']       = 'disable';
+			$update_domain['available']    = 1;
+
+			$update_domain['lock']         = null;
+			$update_domain['autorenew']    = null;
+
+			$update_domain['holder']       = null;
+			$update_domain['admin']        = null;
+			$update_domain['tech']         = null;
+			$update_domain['bill']         = null;
+
+			$update_domain['ns1']          = null;
+			$update_domain['ns2']          = null;
+			$update_domain['ns3']          = null;
+			$update_domain['ns4']          = null;
+
+			$update_domain['dateregister'] = null;
+			$update_domain['dateexpire']   = null;
 		}
 
 		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
