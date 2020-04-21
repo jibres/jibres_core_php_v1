@@ -194,7 +194,7 @@ class get
 
 	public static function count_expire_domain_date($_user_id, $_date)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.status != 'deleted' AND domain.user_id = $_user_id AND DATE(domain.dateexpire) <= DATE('$_date') ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'deleted' AND domain.verify = 1 AND domain.autorenew = 1  AND DATE(domain.dateexpire) <= DATE('$_date') ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}

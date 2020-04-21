@@ -25,8 +25,11 @@ class autorenew
 			}
 
 			$dateexpire      = $value['dateexpire'];
-			$autorenewperiod = '1year';
-			$domainlifetime  = '1month';
+
+			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+
+			$domainlifetime = \lib\app\nic_usersetting\defaultval::domainlifetime();
+
 
 			if(isset($value['autorenewperiod']))
 			{
@@ -39,7 +42,7 @@ class autorenew
 			}
 
 			$remain_time = strtotime($dateexpire) - time();
-			$life_time   = self::get_time($domainlifetime);
+			$life_time   = \lib\app\nic_usersetting\defaultval::get_time($domainlifetime);
 
 			if($remain_time < $life_time)
 			{
@@ -50,34 +53,6 @@ class autorenew
 	}
 
 
-	private static function get_time($_key)
-	{
-		$time = 0;
-		switch ($_key)
-		{
-			case '3day':
-				$time = (60*60*24*3);
-				break;
 
-			case '1week':
-				$time = (60*60*24*7);
-				break;
-
-			case '1month':
-				$time = (60*60*24*30);
-				break;
-
-			case '6month':
-				$time = (60*60*24*30*6);
-				break;
-
-			case '1year':
-				$time = (60*60*24*30*12);
-				break;
-
-		}
-
-		return $time;
-	}
 }
 ?>

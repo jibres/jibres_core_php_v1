@@ -257,9 +257,12 @@ class search
 
 		if($data['predict'])
 		{
-			$next_year = date("Y-m-d", strtotime("+365 days"));
-			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
+			// $next_year = date("Y-m-d", strtotime("+365 days"));
+			// $and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
+			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[] = " domain.status != 'deleted' ";
+			$and[] = " domain.verify = 1 ";
+			$and[] = " domain.autorenew = 1 ";
 		}
 		else
 		{

@@ -28,8 +28,8 @@ class dashboard
 		$group_by_action                 = \lib\db\nic_domainbilling\get::count_group_by_action();
 
 		$result['total_domain_buy']      = isset($group_by_action['register']) ? $group_by_action['register'] : null;
-		$result['total_domain_renew']    = isset($group_by_action['renew']) ? $group_by_action['renew'] : null;;
-		$result['total_domain_transfer'] = isset($group_by_action['transfer']) ? $group_by_action['transfer'] : null;;
+		$result['total_domain_renew']    = isset($group_by_action['renew']) ? $group_by_action['renew'] : null;
+		$result['total_domain_transfer'] = isset($group_by_action['transfer']) ? $group_by_action['transfer'] : null;
 		$result['total_domain_whois']    = \lib\db\domains\get::count_all();
 
 		$result['domain_action_chart']   = self::domain_action_chart($last_month);
@@ -74,25 +74,38 @@ class dashboard
 		$result['total_payment']        = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id));
 		$result['last_year_payment']    = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id, $last_year));
 
-		$next_year = date("Y-m-d", strtotime("+365 days"));
 
 		$predict_late_payment = 0;
+
+		$get_setting = \lib\db\nic_usersetting\get::my_setting($user_id);
+
+		if(isset($get_setting['autorenewperiod']))
+		{
+			$autorenewperiod = $get_setting['autorenewperiod'];
+		}
+		else
+		{
+			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+		}
+
+		if(isset($get_setting['domainlifetime']))
+		{
+			$domainlifetime = $get_setting['domainlifetime'];
+		}
+		else
+		{
+			$domainlifetime = \lib\app\nic_usersetting\defaultval::domainlifetime();
+		}
+
+		$life_time   = \lib\app\nic_usersetting\defaultval::get_time($domainlifetime);
+
+		$next_year = date("Y-m-d", strtotime("+365 days") - $life_time);
+
 
 		$count_expire_domain_next_year = intval(\lib\db\nic_domain\get::count_expire_domain_date($user_id, $next_year));
 		if($count_expire_domain_next_year)
 		{
-			$get_setting = \lib\db\nic_usersetting\get::my_setting($user_id);
-			if(isset($get_setting['autorenewperiod']))
-			{
-				$autorenewperiod = $get_setting['autorenewperiod'];
-			}
-			else
-			{
-				$autorenewperiod = '5year';
-			}
-
 			$price = \lib\app\nic_domain\price::renew($autorenewperiod);
-
 			$predict_late_payment = $price * $count_expire_domain_next_year;
 		}
 
@@ -100,6 +113,7 @@ class dashboard
 
 		// $result['domain_pay_chart']      = self::domain_pay_chart($user_id);
 		$result['domain_pay_chart']      = self::domain_pay_chart_day($user_id);
+
 
 		return $result;
 	}

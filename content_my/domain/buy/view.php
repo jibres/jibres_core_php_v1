@@ -64,7 +64,7 @@ class view
 			}
 			else
 			{
-				$my_setting['ns1'] = 'w.ns.arvancdn.com';
+				$my_setting['ns1'] = \lib\app\nic_usersetting\defaultval::ns1();
 			}
 
 			if(isset($my_setting['ns2']) && $my_setting['ns2'])
@@ -73,7 +73,7 @@ class view
 			}
 			else
 			{
-				$my_setting['ns2'] = 'f.ns.arvancdn.com';
+				$my_setting['ns2'] = \lib\app\nic_usersetting\defaultval::ns2();
 			}
 
 			\dash\data::userSetting($my_setting);
