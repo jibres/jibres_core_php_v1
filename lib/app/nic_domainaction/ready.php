@@ -174,9 +174,9 @@ class ready
 							$result['icon']    = '<i class="sf-info-circle fs12 fc-green"></i>';
 							break;
 
-						case 'domain_tranfer_pay_link':
-							$result['title'] = T_("Domain transfer pay link created");
-							$result['icon']    = '<i class="sf-credit-card fs12 fc-green"></i>';
+						case 'domain_imported':
+							$result['title'] = T_("Import manually domains successful");
+							$result['icon']    = '<i class="sf-list fs12 fc-green"></i>';
 							break;
 
 						case 'transfer_faled':

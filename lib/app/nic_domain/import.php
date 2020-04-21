@@ -101,9 +101,9 @@ class import
 				'registrar'   => 'irnic',
 				'autorenew'   => $autorenew,
 				'user_id'     => $user_id,
-				'status'      => 'enable',
+				'status'      => 'awaiting',
 				'datecreated' => date("Y-m-d H:i:s"),
-				'lastfetch'   => date("Y-m-d H:i:s"),
+				// 'lastfetch'   => date("Y-m-d H:i:s"),
 			];
 		}
 
@@ -116,7 +116,7 @@ class import
 				'detail'         => json_encode(['count' => count($insert_multi)], JSON_UNESCAPED_UNICODE),
 			];
 
-			\lib\app\nic_domainaction\action::set('domain_tranfer_pay_link', $domain_action_detail);
+			\lib\app\nic_domainaction\action::set('domain_imported', $domain_action_detail);
 
 			\dash\notif::ok(T_(":val Domain added to your list", ['val' => \dash\fit::number(count($insert_multi))]));
 		}
