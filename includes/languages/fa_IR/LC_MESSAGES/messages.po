@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-20 19:13+0430\n"
-"PO-Revision-Date: 2020-04-20 19:17+0430\n"
+"POT-Creation-Date: 2020-04-21 18:37+0430\n"
+"PO-Revision-Date: 2020-04-21 18:38+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -97,10 +97,12 @@ msgstr "جیبرس چه کارهایی میتواند انجام دهد؟"
 #: content_developers/docs/api/v2/040-account/041-user-login-verify.php:50
 #: content_developers/docs/api/v2/040-account/041-user-login-verify.php:66
 #: content_developers/docs/api/v2/040-account/055-notif.php:77
-#: content_my/store/home/display_pwa.php:54 content_my/store/home/display_pwa.php:60
-#: content_my/store/home/display_pwa.php:66 content_my/store/home/display_pwa.php:72
-#: content_my/store/home/display_site.php:142 content_my/store/home/display_site.php:148
-#: content_my/store/home/display_site.php:154 content_my/store/home/display_site.php:160
+#: content_my/business/home/display_pwa.php:54 content_my/business/home/display_pwa.php:60
+#: content_my/business/home/display_pwa.php:66 content_my/business/home/display_pwa.php:72
+#: content_my/business/home/display_site.php:142
+#: content_my/business/home/display_site.php:148
+#: content_my/business/home/display_site.php:154
+#: content_my/business/home/display_site.php:160
 msgid "Read more"
 msgstr "بیشتر بخوانید"
 
@@ -1073,7 +1075,7 @@ msgstr "کد پستی"
 msgid "Our location on map"
 msgstr "موقعیت ما در نقشه"
 
-#: content/contact/view.php:9 content_my/store/start/display.php:31
+#: content/contact/view.php:9 content_my/business/start/display.php:31
 #: content_support/ticket/contact_ticket/model.php:153
 msgid "Contact Us"
 msgstr "تماس با ما"
@@ -1325,8 +1327,8 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_love/store/display.php:9 content_my/domain/buy/display-search.php:11
 #: content_my/domain/irnic/display.php:40 content_my/domain/irnic/display.php:41
 #: content_my/domain/predict/display.php:43 content_my/domain/predict/display.php:44
-#: content_my/domain/search/display.php:82 content_my/domain/short/display.php:47
-#: content_my/domain/short/display.php:48 content_su/apilog/home/display.php:48
+#: content_my/domain/search/display.php:64 content_my/domain/short/display.php:45
+#: content_my/domain/short/display.php:46 content_su/apilog/home/display.php:48
 #: content_su/apilog/home/display.php:56 content_su/tg/log/display.php:48
 #: content_su/tg/log/display.php:56 content_su/tg/users/display.php:49
 #: content_su/tg/users/display.php:57 content_support/home/dashboard.php:15
@@ -1386,7 +1388,7 @@ msgstr ""
 "هستیم:)"
 
 #: content/domains/home/display.php:34 content_my/domain/renew/display.php:43
-#: lib/app/nic_domainaction/ready.php:89 lib/app/nic_domainbilling/ready.php:89
+#: lib/app/nic_domainaction/ready.php:96 lib/app/nic_domainbilling/ready.php:89
 msgid "Renew Domain"
 msgstr "تمدید دامنه"
 
@@ -1763,6 +1765,7 @@ msgstr "کی گرفته؟"
 
 #: content/domains/search/domainSearchResult.php:99
 #: content_a/products/edit/display.php:655
+#: content_my/domain/buy/domain-search-result-ir-others.php:32
 #: content_my/domain/buy/domain-search-result-ir.php:90
 #: includes/languages/trans_static.php:532
 msgid "Unavailable"
@@ -2255,7 +2258,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 msgid "Products"
 msgstr "محصولات"
 
-#: content/home/display.php:159 content_my/store/home/display_site.php:72
+#: content/home/display.php:159 content_my/business/home/display_site.php:72
 #: dash/layout/admin/sidebar/sidebar-a.php:25
 msgid "Factor"
 msgstr "فاکتور"
@@ -2330,7 +2333,7 @@ msgid "Developers API"
 msgstr "رابط برنامه‌نویسی توسعه‌دهندگان API"
 
 #: content/home/layout/footer.php:66 content/home/layout/pwa-footer.php:86
-#: content_my/domain/transfer/display.php:37 lib/app/nic_domainaction/ready.php:94
+#: content_my/domain/transfer/display.php:37 lib/app/nic_domainaction/ready.php:101
 #: lib/app/nic_domainbilling/ready.php:95
 msgid "Transfer Domain"
 msgstr "انتقال دامنه"
@@ -2393,7 +2396,7 @@ msgid "Blog"
 msgstr "بلاگ"
 
 #: content/home/layout/footer.php:89 content/home/layout/pwa-footer.php:163
-#: content_enter/signup/view.php:23 content_my/store/start/view.php:11
+#: content_enter/signup/view.php:23 content_my/business/start/view.php:11
 msgid "Terms of Service"
 msgstr "شرایط استفاده از خدمات"
 
@@ -2458,13 +2461,13 @@ msgstr "پنل فروشگاه"
 #: content_love/domain/irnic/view.php:12 content_love/domain/log/view.php:12
 #: content_love/domain/polls/view.php:12 content_love/gift/all/view.php:12
 #: content_love/store/view.php:12 content_my/bill/view.php:12
-#: content_my/domain/buy/view.php:12 content_my/domain/history/view.php:12
-#: content_my/domain/home/view.php:12 content_my/domain/option/view.php:12
-#: content_my/domain/payments/view.php:12 content_my/domain/predict/view.php:12
-#: content_my/domain/renew/view.php:12 content_my/domain/search/view.php:12
-#: content_my/domain/short/view.php:12 content_my/domain/transfer/view.php:12
-#: content_my/domain/whois/view.php:14 content_my/ipg/view.php:12
-#: content_my/store/home/view.php:12 content_my/wallet/view.php:12
+#: content_my/business/home/view.php:12 content_my/domain/buy/view.php:12
+#: content_my/domain/history/view.php:12 content_my/domain/home/view.php:12
+#: content_my/domain/option/view.php:12 content_my/domain/payments/view.php:12
+#: content_my/domain/predict/view.php:12 content_my/domain/renew/view.php:12
+#: content_my/domain/search/view.php:12 content_my/domain/short/view.php:12
+#: content_my/domain/transfer/view.php:12 content_my/domain/whois/view.php:14
+#: content_my/ipg/view.php:12 content_my/wallet/view.php:12
 #: dash/layout/admin/sidebar/sidebar-a.php:6
 #: dash/layout/admin/sidebar/sidebar-domain.php:4
 #: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:37
@@ -3616,8 +3619,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
 #: content_love/gift/create/setting/view.php:12 content_love/gift/create/usage/view.php:12
 #: content_love/gift/edit/view.php:12 content_love/gift/home/view.php:12
+#: content_my/business/error/view.php:23 content_my/business/start/display.php:36
 #: content_my/domain/irnic/add/view.php:16 content_my/domain/irnic/edit/view.php:14
-#: content_my/store/error/view.php:23 content_my/store/start/display.php:36
 #: content_pay/home/display.php:159 content_su/backup/display.php:9
 #: content_su/log/display.php:21 content_su/nano/display.php:5
 #: content_su/smsclient/edit/view.php:9 content_su/smsclient/home/view.php:9
@@ -3735,8 +3738,8 @@ msgstr "گواهینامه اس‌اس‌ال"
 msgid "Fully API"
 msgstr "ای‌پی‌آی کامل"
 
-#: content/view.php:31 content_my/store/home/display_pwa.php:44
-#: content_my/store/home/display_site.php:132
+#: content/view.php:31 content_my/business/home/display_pwa.php:44
+#: content_my/business/home/display_site.php:132
 msgid "#1 World Sales Engineering System"
 msgstr "#1 جهان در سیستم مهندسی فروش"
 
@@ -3751,11 +3754,12 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_love/domain/log/display.php:94 content_love/domain/log/view/display.php:32
 #: content_my/domain/payments/display.php:9 content_my/domain/predict/display.php:58
 #: content_my/domain/renew/display.php:11 content_my/domain/review/display.php:12
-#: content_my/domain/search/display.php:130 content_my/domain/setting/display.php:9
+#: content_my/domain/search/display.php:112 content_my/domain/setting/display.php:11
 #: content_my/domain/transfer/display.php:11 content_my/domain/whois/display.php:6
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:15
 #: lib/app/log/caller/domain/domain_irnicChangeStatus.php:15
+#: lib/app/log/caller/domain/domain_irnicDomainApproved.php:15
 msgid "Domain"
 msgstr "دامنه"
 
@@ -3785,7 +3789,7 @@ msgid "Domain is available"
 msgstr "دامنه موجود است"
 
 #: content/whois/whoisDisplay.php:14 content_my/domain/review/display.php:118
-#: content_my/domain/review/display.php:160 lib/app/nic_domainaction/ready.php:84
+#: content_my/domain/review/display.php:160 lib/app/nic_domainaction/ready.php:91
 #: lib/app/nic_domainbilling/ready.php:83
 msgid "Register domain"
 msgstr "ثبت دامنه"
@@ -3834,10 +3838,9 @@ msgstr "زمان شروع قرارگیری در صف"
 #: content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76 content_love/domain/all/display.php:65
 #: content_love/domain/fetch/display.php:65 content_love/gift/all/display.php:62
-#: content_love/gift/edit/display.php:67 content_my/domain/search/display.php:131
+#: content_love/gift/edit/display.php:67 content_my/domain/search/display.php:113
 #: content_su/smsclient/home/display.php:16 content_support/ticket/show/chatList.php:20
-#: lib/app/nic_domain/search.php:303 lib/app/nic_domain/search.php:309
-#: lib/app/nic_domain/search.php:315
+#: lib/app/nic_domain/search.php:305 lib/app/nic_domain/search.php:313
 msgid "Status"
 msgstr "وضعیت"
 
@@ -4073,13 +4076,13 @@ msgstr "تصویر"
 
 #: content_a/android/intro/display.php:51 content_a/android/intro/display.php:55
 #: content_a/setup/company/display.php:53 content_a/setup/logo/display.php:21
-#: content_my/store/ask/display.php:31 content_r10/android/intro/view.php:53
+#: content_my/business/ask/display.php:31 content_r10/android/intro/view.php:53
 #: content_v2/android/intro/view.php:29
 msgid "Skip"
 msgstr "رد شو"
 
 #: content_a/android/intro/display.php:53 content_a/android/intro/display.php:57
-#: content_my/store/ask/display.php:28 content_r10/android/intro/view.php:51
+#: content_my/business/ask/display.php:28 content_r10/android/intro/view.php:51
 #: content_v2/android/intro/view.php:27 content_v2/app/view.php:289
 #: content_v2/app/view.php:311 content_v2/app/view.php:333
 msgid "Next"
@@ -4403,7 +4406,7 @@ msgstr "بدون نام"
 #: content_a/cart/home/display.php:120 content_a/cart/view/display.php:83
 #: content_a/category/home/display.php:103 content_a/company/display.php:51
 #: content_a/products/edit/display.php:347 content_a/sale/display.php:16
-#: content_a/units/display.php:62 content_my/store/home/display_site.php:70
+#: content_a/units/display.php:62 content_my/business/home/display_site.php:70
 #: includes/languages/trans_static.php:527 lib/app/factor/search.php:119
 msgid "Product"
 msgstr "محصول"
@@ -4440,7 +4443,7 @@ msgstr "جزئیات"
 #: content_love/domain/irnic/display.php:93 content_love/domain/log/display.php:147
 #: content_love/gift/all/display.php:93 content_my/domain/irnic/display.php:85
 #: content_my/domain/irnic/display.php:93 content_my/domain/predict/display.php:110
-#: content_my/domain/search/display.php:187 content_my/domain/short/display.php:86
+#: content_my/domain/search/display.php:169 content_my/domain/short/display.php:78
 #: content_su/apilog/home/display.php:187 content_su/apilog/home/display.php:195
 #: content_su/dbtables/display.php:113 content_su/dbtables/display.php:121
 #: content_su/tg/log/display.php:192 content_su/tg/log/display.php:200
@@ -4750,7 +4753,7 @@ msgstr "شما می‌توانید هم اکنون این را حذف کنید!"
 #: content_cms/terms/display.php:172 content_crm/member/avatar/display.php:27
 #: content_crm/permission/delete/display.php:37 content_love/domain/detail/display.php:195
 #: content_my/domain/irnic/edit/display.php:24 content_my/domain/review/display.php:108
-#: content_my/domain/setting/display.php:217 content_su/ip/display.php:72
+#: content_my/domain/setting/display.php:219 content_su/ip/display.php:72
 #: content_support/message/edit/display.php:22
 msgid "Remove"
 msgstr "حذف"
@@ -4774,9 +4777,9 @@ msgstr "ویرایش"
 #: content_a/company/display.php:244 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
 #: content_account/address.php:10 content_enter/loginas/display.php:29
-#: content_my/store/ask/display.php:45 content_my/store/ask/view.php:21
-#: content_my/store/start/display.php:50 content_my/store/start/view.php:19
-#: content_my/store/subdomain/display.php:22 content_my/store/subdomain/view.php:18
+#: content_my/business/ask/display.php:45 content_my/business/ask/view.php:21
+#: content_my/business/start/display.php:50 content_my/business/start/view.php:19
+#: content_my/business/subdomain/display.php:22 content_my/business/subdomain/view.php:18
 #: content_pay/home/display.php:151 dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketCreate.php:44
@@ -4815,7 +4818,7 @@ msgstr "برای بررسی محصولات موجود در این شرکت سا�
 #: content_love/domain/fetch/display.php:114 content_love/domain/irnic/display.php:102
 #: content_love/domain/log/display.php:159 content_love/gift/all/display.php:105
 #: content_my/domain/irnic/display.php:102 content_my/domain/predict/display.php:122
-#: content_my/domain/search/display.php:199 content_my/domain/short/display.php:98
+#: content_my/domain/search/display.php:181 content_my/domain/short/display.php:90
 #: content_su/dbtables/display.php:127 content_support/message/display.php:11
 msgid "Hi!"
 msgstr "سلام!"
@@ -4926,7 +4929,7 @@ msgstr "فروشگاه یافت نشد"
 #: content_a/factor/home/display.php:9 content_cms/comments/home/display.php:198
 #: content_cms/posts/home/display.php:171 content_crm/member/home/display.php:731
 #: content_love/domain/log/display.php:4 content_love/domain/log/display.php:22
-#: content_my/domain/search/display.php:4 dash/layout/admin/sidebar/sidebar-support.php:9
+#: dash/layout/admin/sidebar/sidebar-support.php:9
 msgid "All"
 msgstr "همه"
 
@@ -4935,8 +4938,8 @@ msgstr "همه"
 msgid "Sale"
 msgstr "فروش"
 
-#: content_a/factor/home/display.php:31 content_my/domain/short/display.php:66
-#: includes/languages/trans_static.php:25 includes/languages/trans_static.php:544
+#: content_a/factor/home/display.php:31 includes/languages/trans_static.php:25
+#: includes/languages/trans_static.php:544
 msgid "Buy"
 msgstr "خرید"
 
@@ -4945,7 +4948,7 @@ msgid "Advance result"
 msgstr "نتایج پیشرفته"
 
 #: content_a/factor/home/display.php:123 content_a/filter.php:71 content_a/filter.php:140
-#: content_a/home/display.php:63 content_my/store/home/display_site.php:71
+#: content_a/home/display.php:63 content_my/business/home/display_site.php:71
 #: content_su/smsclient/home/display.php:14 includes/languages/trans_static.php:61
 #: lib/app/factor/search.php:91 lib/app/factor/search.php:100
 msgid "Customer"
@@ -5177,8 +5180,7 @@ msgstr "خرید"
 #: content_love/domain/log/view.php:46 content_love/gift/all/view.php:39
 #: content_love/store/analytics/view.php:36 content_love/store/view.php:44
 #: content_my/domain/irnic/view.php:55 content_my/domain/predict/view.php:52
-#: content_my/domain/search/view.php:63 content_my/domain/short/view.php:42
-#: includes/languages/trans_static.php:594
+#: content_my/domain/search/view.php:64 includes/languages/trans_static.php:594
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -5283,7 +5285,7 @@ msgid "Supplier"
 msgstr "تامین‌کننده"
 
 #: content_a/filter.php:135 content_a/home/display.php:72
-#: content_my/store/home/display_site.php:41 includes/languages/trans_static.php:65
+#: content_my/business/home/display_site.php:41 includes/languages/trans_static.php:65
 msgid "Staff"
 msgstr "کارمند"
 
@@ -5674,7 +5676,9 @@ msgstr "نمودار تغییر قیمت محصول"
 msgid "Comments"
 msgstr "دیدگاه‌ها"
 
-#: content_a/products/edit/display.php:653 includes/languages/trans_static.php:531
+#: content_a/products/edit/display.php:653
+#: content_my/domain/buy/domain-search-result-ir-others.php:28
+#: content_my/domain/short/display.php:61 includes/languages/trans_static.php:531
 msgid "Available"
 msgstr "موجود"
 
@@ -5778,7 +5782,7 @@ msgid "Show all products where"
 msgstr "نمایش محصولات با شرط"
 
 #: content_a/products/filter.php:48 content_crm/member/home/display.php:711
-#: content_crm/member/security/display.php:83 content_my/domain/search/display.php:77
+#: content_crm/member/security/display.php:83 content_my/domain/search/display.php:59
 #: includes/languages/trans_static.php:523
 msgid "Filter"
 msgstr "فیلتر"
@@ -5788,7 +5792,7 @@ msgid "Search products"
 msgstr "جستجو در محصولات"
 
 #: content_a/products/filter.php:61 content_a/website/menu/edit/display.php:20
-#: content_a/website/menu/edit/display.php:60 content_my/domain/search/display.php:90
+#: content_a/website/menu/edit/display.php:60 content_my/domain/search/display.php:72
 msgid "Sort"
 msgstr "ترتیب"
 
@@ -5988,7 +5992,7 @@ msgstr "برای طبقه بندی آدرس‌ها استفاده می‌شود"
 #: content_a/products/tag/display.php:181 content_a/products/tag/display.php:198
 #: content_cms/terms/display.php:199 content_cms/terms/display.php:224
 #: content_cms/terms/display.php:241 content_crm/member/general/display.php:119
-#: content_crm/member/general/display.php:129 content_my/store/ask/model.php:33
+#: content_crm/member/general/display.php:129 content_my/business/ask/model.php:33
 #: content_v2/store--need-to-fix/controller.php:73
 msgid "Please select one itme"
 msgstr "لطفا یک گزینه را انتخاب کنید"
@@ -6014,8 +6018,7 @@ msgstr "منقضی‌شده"
 #: content_a/products/tag/display.php:185 content_cms/comments/edit/display.php:48
 #: content_cms/comments/home/display.php:207 content_cms/terms/display.php:228
 #: content_crm/member/home/display.php:682 content_crm/member/security/display.php:80
-#: content_my/domain/search/display.php:18 includes/languages/trans_static.php:520
-#: includes/languages/trans_static_public.php:936 lib/app/nic_domain/search.php:315
+#: includes/languages/trans_static.php:520 includes/languages/trans_static_public.php:936
 msgid "Awaiting"
 msgstr "در حال انتظار"
 
@@ -7150,10 +7153,10 @@ msgstr "وضعیت وب‌سایت"
 #: content_a/website/home/view.php:9 content_account/my/home/display.php:154
 #: content_account/my/social/display.php:12 content_cms/comments/edit/display.php:21
 #: content_crm/member/social/display.php:15 content_crm/member/social/display.php:17
-#: content_my/store/home/display_pwa.php:53 content_my/store/home/display_site.php:141
-#: content_v2/app/view.php:230 dash/engine/static_files.php:25
-#: dash/engine/static_files.php:26 dash/engine/static_files.php:35
-#: dash/social/telegram/commands/ermile.php:346
+#: content_my/business/home/display_pwa.php:53
+#: content_my/business/home/display_site.php:141 content_v2/app/view.php:230
+#: dash/engine/static_files.php:25 dash/engine/static_files.php:26
+#: dash/engine/static_files.php:35 dash/social/telegram/commands/ermile.php:346
 #: dash/social/telegram/commands/ermile.php:533
 msgid "Website"
 msgstr "وب‌سایت"
@@ -7409,7 +7412,7 @@ msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 msgid "Billing usage detail"
 msgstr "جزئیات میزان استفاده"
 
-#: content_account/billing/display.php:9 content_my/store/start/display.php:27
+#: content_account/billing/display.php:9 content_my/business/start/display.php:27
 msgid "Charge your account"
 msgstr "شارژ حساب کاربری"
 
@@ -8007,7 +8010,7 @@ msgid "On"
 msgstr "روشن"
 
 #: content_account/security/display.php:45 content_account/security/display.php:52
-#: content_love/domain/detail/display.php:101 content_my/domain/setting/display.php:79
+#: content_love/domain/detail/display.php:101 content_my/domain/setting/display.php:81
 msgid "Off"
 msgstr "خاموش"
 
@@ -8226,8 +8229,8 @@ msgstr "جستجوی :search"
 #: content_support/message/edit/view.php:26 content_support/ticket/show/model.php:13
 #: content_support/ticket/show/view.php:44 dash/app/file.php:60 dash/app/posts.php:446
 #: lib/app/export/download.php:23 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
-#: lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:204
-#: lib/app/nic_domain/get.php:231 lib/app/nic_log/get.php:13 lib/app/pos/remove.php:13
+#: lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:275
+#: lib/app/nic_domain/get.php:302 lib/app/nic_log/get.php:13 lib/app/pos/remove.php:13
 #: lib/app/pos/tools.php:13 lib/app/store/domain.php:24
 msgid "Invalid id"
 msgstr "شناسه نامعتبر"
@@ -8738,11 +8741,11 @@ msgid "Latest Members"
 msgstr "آخرین اعضا"
 
 #: content_crm/home/display.php:79 content_crm/home/display.php:102
-#: content_my/domain/review/display.php:62 content_my/domain/search/display.php:150
-#: content_my/domain/setting/display.php:55 dash/app/user.php:52 dash/app/user.php:94
+#: content_my/domain/review/display.php:62 content_my/domain/search/display.php:132
+#: content_my/domain/setting/display.php:57 dash/app/user.php:52 dash/app/user.php:94
 #: dash/app/user.php:144 dash/app/visitor.php:112 dash/app/visitor.php:141
 #: includes/languages/trans_static.php:571 lib/app/nic_domain/ready.php:49
-#: lib/app/nic_domain/search.php:295
+#: lib/app/nic_domain/search.php:296
 msgid "Unknown"
 msgstr "ناشناس"
 
@@ -8804,7 +8807,7 @@ msgid "Date created"
 msgstr "تاریخ ثبت"
 
 #: content_crm/log/home/logTable.php:98 content_love/domain/all/display.php:64
-#: content_love/domain/fetch/display.php:64 content_my/domain/search/display.php:133
+#: content_love/domain/fetch/display.php:64 content_my/domain/search/display.php:115
 msgid "Date modified"
 msgstr "تاریخ ویرایش"
 
@@ -9164,16 +9167,14 @@ msgid "Have not username"
 msgstr "بدون نام کاربری"
 
 #: content_crm/member/home/display.php:672 content_crm/member/security/display.php:79
-#: content_my/domain/search/display.php:11 includes/languages/trans_static.php:519
-#: lib/app/nic_domain/search.php:269 lib/app/nic_domain/search.php:283
-#: lib/app/nic_domain/search.php:303
+#: includes/languages/trans_static.php:519 lib/app/nic_domain/search.php:270
+#: lib/app/nic_domain/search.php:284 lib/app/nic_domain/search.php:305
 msgid "Active"
 msgstr "فعال"
 
 #: content_crm/member/home/display.php:692 content_crm/member/security/display.php:81
-#: content_my/domain/search/display.php:25 includes/languages/trans_static.php:521
-#: lib/app/nic_domain/search.php:276 lib/app/nic_domain/search.php:289
-#: lib/app/nic_domain/search.php:309
+#: includes/languages/trans_static.php:521 lib/app/nic_domain/search.php:277
+#: lib/app/nic_domain/search.php:290 lib/app/nic_domain/search.php:313
 msgid "Deactive"
 msgstr "غیر فعال"
 
@@ -11519,7 +11520,7 @@ msgstr "مخاطبان نیک"
 
 #: content_developers/docs/irnic/r10/002-domain/007-domain-dns.php:4
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:15
-#: lib/app/nic_domainaction/ready.php:111
+#: lib/app/nic_domainaction/ready.php:118
 msgid "Change domain dns"
 msgstr "ویرایش دی‌ان‌اس دامنه‌"
 
@@ -11622,7 +11623,7 @@ msgstr "اگر می‌خواهید دی‌ان‌اس را از لیست دی‌
 
 #: content_developers/docs/irnic/r10/002-domain/012-domain-renew.php:4
 #: content_love/domain/detail/display.php:60 content_my/domain/home/display.php:126
-#: content_my/domain/renew/view.php:9 content_my/domain/setting/display.php:30
+#: content_my/domain/renew/view.php:9 content_my/domain/setting/display.php:32
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:20
 msgid "Renew domain"
 msgstr "تمدید دامنه"
@@ -12259,12 +12260,12 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/nic_contact/add.php:167 lib/app/nic_contact/edit.php:87
 #: lib/app/nic_contact/get.php:26 lib/app/nic_contact/search.php:28
 #: lib/app/nic_contact/search.php:183 lib/app/nic_domain/get.php:18
-#: lib/app/nic_domain/get.php:198 lib/app/nic_domain/get.php:225
+#: lib/app/nic_domain/get.php:269 lib/app/nic_domain/get.php:296
 #: lib/app/nic_domain/search.php:27 lib/app/nic_domain/search.php:176
-#: lib/app/nic_domain/search.php:366 lib/app/nic_domainaction/action.php:11
+#: lib/app/nic_domain/search.php:367 lib/app/nic_domainaction/action.php:11
 #: lib/app/nic_domainaction/action.php:44 lib/app/nic_domainaction/search.php:11
 #: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
-#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:93 lib/app/nic_poll/get.php:106
+#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:108 lib/app/nic_poll/get.php:121
 #: lib/app/nic_poll/search.php:27 lib/app/nic_poll/search.php:119
 #: lib/app/nic_usersetting/get.php:12 lib/app/nic_usersetting/search.php:27
 #: lib/app/nic_usersetting/search.php:134 lib/app/product/tag.php:319
@@ -12611,30 +12612,30 @@ msgstr "رخدادهای دامنه"
 
 #: content_love/domain/all/display.php:62 content_love/domain/fetch/display.php:62
 #: content_love/gift/create/setting/display.php:13 content_love/gift/edit/display.php:78
-#: content_my/domain/predict/display.php:60 content_my/domain/search/display.php:132
+#: content_my/domain/predict/display.php:60 content_my/domain/search/display.php:114
 msgid "Expire date"
 msgstr "تاریخ انقضا"
 
 #: content_love/domain/all/display.php:63 content_love/domain/fetch/display.php:63
-#: content_my/domain/search/display.php:133
+#: content_my/domain/search/display.php:115
 msgid "Create date"
 msgstr "تاریخ ایجاد"
 
 #: content_love/domain/all/display.php:66 content_love/domain/fetch/display.php:66
-#: content_my/domain/search/display.php:134 lib/app/nic_domain/search.php:67
+#: content_my/domain/search/display.php:116 lib/app/nic_domain/search.php:67
 msgid "DNS"
 msgstr "دی‌ان‌اس"
 
 #: content_love/domain/all/display.php:85 content_my/domain/predict/display.php:78
-#: content_my/domain/search/display.php:150 content_su/update/display.php:18
-#: includes/languages/trans_static.php:633 lib/app/nic_domain/search.php:283
-#: lib/app/nic_domain/search.php:289 lib/app/nic_domain/search.php:295
+#: content_my/domain/search/display.php:132 content_su/update/display.php:18
+#: includes/languages/trans_static.php:633 lib/app/nic_domain/search.php:284
+#: lib/app/nic_domain/search.php:290 lib/app/nic_domain/search.php:296
 msgid "Lock"
 msgstr "قفل"
 
 #: content_love/domain/all/display.php:87 content_my/domain/predict/display.php:82
-#: content_my/domain/search/display.php:155 lib/app/nic_domain/search.php:269
-#: lib/app/nic_domain/search.php:276
+#: content_my/domain/search/display.php:137 lib/app/nic_domain/search.php:270
+#: lib/app/nic_domain/search.php:277
 msgid "Autorenew"
 msgstr "تمدید خودکار"
 
@@ -12652,92 +12653,92 @@ msgid "Domain billing"
 msgstr "پرداختی‌های دامنه"
 
 #: content_love/domain/detail/display.php:13 content_love/domain/detail/display.php:23
-#: content_love/domain/detail/display.php:38 content_my/domain/setting/display.php:13
+#: content_love/domain/detail/display.php:38 content_my/domain/setting/display.php:15
 msgid "Status & Validity"
 msgstr "وضعیت دامنه"
 
-#: content_love/domain/detail/display.php:50 content_my/domain/setting/display.php:20
+#: content_love/domain/detail/display.php:50 content_my/domain/setting/display.php:22
 msgid "Registrar"
 msgstr "ریجسترر"
 
-#: content_love/domain/detail/display.php:54 content_my/domain/setting/display.php:24
+#: content_love/domain/detail/display.php:54 content_my/domain/setting/display.php:26
 msgid "Registered on"
 msgstr "ثبت شده در"
 
-#: content_love/domain/detail/display.php:58 content_my/domain/setting/display.php:28
+#: content_love/domain/detail/display.php:58 content_my/domain/setting/display.php:30
 msgid "Expired on"
 msgstr "منقضی در"
 
 #: content_love/domain/detail/display.php:67 content_love/store/analytics/display.php:22
-#: content_my/domain/setting/display.php:37 content_support/ticket/show/chatList.php:26
+#: content_my/domain/setting/display.php:39 content_support/ticket/show/chatList.php:26
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
-#: content_love/domain/detail/display.php:72 content_my/domain/setting/display.php:43
+#: content_love/domain/detail/display.php:72 content_my/domain/setting/display.php:45
 msgid "Transfer lock"
 msgstr "قفل انتقال دامنه"
 
-#: content_love/domain/detail/display.php:72 content_my/domain/setting/display.php:43
+#: content_love/domain/detail/display.php:72 content_my/domain/setting/display.php:45
 msgid "Manage"
 msgstr "مدیریت"
 
-#: content_love/domain/detail/display.php:76 content_my/domain/search/display.php:111
-#: content_my/domain/setting/display.php:47 includes/languages/trans_static_public.php:581
+#: content_love/domain/detail/display.php:76 content_my/domain/search/display.php:93
+#: content_my/domain/setting/display.php:49 includes/languages/trans_static_public.php:581
 #: lib/app/nic_domain/ready.php:142
 msgid "Locked"
 msgstr "قفل شده"
 
-#: content_love/domain/detail/display.php:80 content_my/domain/search/display.php:112
-#: content_my/domain/setting/display.php:51
+#: content_love/domain/detail/display.php:80 content_my/domain/search/display.php:94
+#: content_my/domain/setting/display.php:53
 msgid "Unlocked"
 msgstr "باز شده"
 
-#: content_love/domain/detail/display.php:84 content_my/domain/setting/display.php:62
+#: content_love/domain/detail/display.php:84 content_my/domain/setting/display.php:64
 msgid "Auto Renew"
 msgstr "تمدید خودکار"
 
-#: content_love/domain/detail/display.php:87 content_my/domain/setting/display.php:65
+#: content_love/domain/detail/display.php:87 content_my/domain/setting/display.php:67
 msgid "Click to disable"
 msgstr "برای غیرفعال کردن کلیک کنید"
 
-#: content_love/domain/detail/display.php:91 content_my/domain/setting/display.php:69
+#: content_love/domain/detail/display.php:91 content_my/domain/setting/display.php:71
 msgid "Click to enable"
 msgstr "برای فعال کردن کلیک کنید"
 
-#: content_love/domain/detail/display.php:97 content_my/domain/setting/display.php:75
+#: content_love/domain/detail/display.php:97 content_my/domain/setting/display.php:77
 msgid "Automatic"
 msgstr "خودکار"
 
 #: content_love/domain/detail/display.php:115 content_love/domain/detail/display.php:116
-#: content_my/domain/setting/display.php:93 content_my/domain/setting/display.php:94
+#: content_my/domain/setting/display.php:95 content_my/domain/setting/display.php:96
 msgid "Name Servers"
 msgstr "نیم سرور"
 
-#: content_love/domain/detail/display.php:118 content_my/domain/setting/display.php:97
+#: content_love/domain/detail/display.php:118 content_my/domain/setting/display.php:99
 msgid "check DNS server and mail server health"
 msgstr "بررسی وضعیت سلامت دی‌ان‌اس سرور و ایمیل سرور"
 
 #: content_love/domain/detail/display.php:155 content_love/domain/detail/display.php:156
-#: content_my/domain/setting/display.php:136 content_my/domain/setting/display.php:137
+#: content_my/domain/setting/display.php:138 content_my/domain/setting/display.php:139
 msgid "IRNIC holder"
 msgstr "صاحب امتیاز دامنه"
 
 #: content_love/domain/detail/display.php:163 content_love/domain/detail/display.php:164
-#: content_my/domain/setting/display.php:144 content_my/domain/setting/display.php:145
+#: content_my/domain/setting/display.php:146 content_my/domain/setting/display.php:147
 msgid "IRNIC admin"
 msgstr "رابط اداری دامنه"
 
 #: content_love/domain/detail/display.php:171 content_love/domain/detail/display.php:172
-#: content_my/domain/setting/display.php:152 content_my/domain/setting/display.php:153
+#: content_my/domain/setting/display.php:154 content_my/domain/setting/display.php:155
 msgid "IRNIC billing"
 msgstr "رابط مالی دامنه"
 
 #: content_love/domain/detail/display.php:179 content_love/domain/detail/display.php:180
-#: content_my/domain/setting/display.php:160 content_my/domain/setting/display.php:161
+#: content_my/domain/setting/display.php:162 content_my/domain/setting/display.php:163
 msgid "IRNIC technical"
 msgstr "رابط فنی دامنه"
 
-#: content_love/domain/detail/display.php:193 content_my/domain/setting/display.php:215
+#: content_love/domain/detail/display.php:193 content_my/domain/setting/display.php:217
 msgid "Remove this domain from your account"
 msgstr "این دامنه را از حساب کاربری خود حذف کنید"
 
@@ -12859,13 +12860,13 @@ msgstr ""
 
 #: content_love/domain/detail/transfer/display.php:14
 #: content_my/domain/setting/transfer/display.php:14
-#: lib/app/nic_domainaction/ready.php:105
+#: lib/app/nic_domainaction/ready.php:112
 msgid "Lock domain"
 msgstr "قفل کردن دامنه"
 
 #: content_love/domain/detail/transfer/display.php:23
 #: content_my/domain/setting/transfer/display.php:23
-#: lib/app/nic_domainaction/ready.php:100
+#: lib/app/nic_domainaction/ready.php:107
 msgid "Unlock domain"
 msgstr "باز کردن قفل دامنه"
 
@@ -13326,6 +13327,228 @@ msgstr "تاریخ‌ایجاد"
 msgid "Pay bill"
 msgstr "پرداخت قبض"
 
+#: content_my/business/ask/display.php:6
+msgid "Tell us a little about yourself"
+msgstr "به ما کمی در مورد خودتان بگویید"
+
+#: content_my/business/ask/display.php:7
+msgid "Your answer is important for us."
+msgstr "پاسخ شما برای ما بسیار با ارزش است."
+
+#: content_my/business/ask/display.php:36
+msgid "answer Jibres polls"
+msgstr "به نظرسنجی‌های جیبرس پاسخ دهید"
+
+#: content_my/business/ask/view.php:9
+msgid "Help Jibres work better"
+msgstr "جیبرس کمک می‌کند تا بهتر کار کنید"
+
+#: content_my/business/ask/view.php:20 content_my/business/start/view.php:9
+msgid "Create a new business"
+msgstr "افزودن بیزینس جدید"
+
+#: content_my/business/creating/display.php:6
+msgid "Please wait"
+msgstr "لطفا کمی صبر کنید"
+
+#: content_my/business/creating/display.php:7
+msgid "Building your online business in progress."
+msgstr "ما در حال ساخت بیزینس آنلاین شما هستیم."
+
+#: content_my/business/creating/display.php:8 content_my/business/error/display.php:14
+msgid "Try again"
+msgstr "مجددا تلاش کنید"
+
+#: content_my/business/creating/display.php:11 content_my/business/error/display.php:20
+msgid "Loading Jibres"
+msgstr "در حال انجام عملیات"
+
+#: content_my/business/creating/model.php:53
+msgid "Can not create your business!"
+msgstr "نمی‌توانیم بیزینس شما را ایجاد کنیم!"
+
+#: content_my/business/creating/view.php:9
+msgid "Creating your business"
+msgstr "درحال ساخت بیزینس شما"
+
+#: content_my/business/error/display.php:5 content_my/business/error/view.php:9
+msgid "Oops!"
+msgstr "اوه!"
+
+#: content_my/business/error/display.php:6
+msgid "We can not build your business!"
+msgstr "ما نتوانستیم بیزینس شما را بسازیم!"
+
+#: content_my/business/error/display.php:6
+msgid "Please contact us to solve this problem."
+msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
+
+#: content_my/business/error/display.php:16 lib/app/nic_domain/renew.php:140
+msgid "Read about this problem"
+msgstr "درباره این مشکل بخوانید"
+
+#: content_my/business/home/display_pwa.php:43
+#: content_my/business/home/display_site.php:131
+msgid "Jibres can painlessly and quickly help you to start your online business."
+msgstr "جیبرس می‌تواند بدون دردسر و سریع به شما در شروع کسب‌وکارتان کمک کند."
+
+#: content_my/business/home/display_pwa.php:47
+#: content_my/business/home/display_site.php:135
+msgid "Build my own business"
+msgstr "بیزینس من را بساز"
+
+#: content_my/business/home/display_pwa.php:59
+#: content_my/business/home/display_site.php:147
+#: lib/app/log/caller/application/application_readyToDownload.php:22
+msgid "Application"
+msgstr "برنامه"
+
+#: content_my/business/home/display_pwa.php:65
+#: content_my/business/home/display_site.php:153
+msgid "Sale in store"
+msgstr "فروش در فروشگاه"
+
+#: content_my/business/home/display_pwa.php:71
+#: content_my/business/home/display_site.php:159
+msgid "Telegram bot"
+msgstr "ربات تلگرام"
+
+#: content_my/business/home/display_site.php:40
+#: content_my/business/home/display_site.php:115
+msgid "From"
+msgstr "از"
+
+#: content_my/business/home/display_site.php:76 content_support/ticket/ticketTable.php:85
+msgid "Created on"
+msgstr "ساخته شده در"
+
+#: content_my/business/home/display_site.php:80
+#: content_my/business/home/display_site.php:116
+msgid "Owner"
+msgstr "مالک"
+
+#: content_my/business/home/view.php:23
+msgid "Business Lists"
+msgstr "لیست بیزینس‌ها"
+
+#: content_my/business/home/view.php:26
+msgid "Add new business"
+msgstr "افزودن بیزینس جدید"
+
+#: content_my/business/home/view.php:31 content_r10/android/intro/view.php:15
+msgid "Welcome to Jibres world"
+msgstr "به دنیای جیبرس خوش آمدید"
+
+#: content_my/business/opening/display.php:5
+msgid "Your business is ready to go!"
+msgstr "بیزینس شما آماده حرکت شد!"
+
+#: content_my/business/opening/display.php:6
+msgid "We are do everything you need and now you can fly with Jibres power."
+msgstr ""
+"ما همه کارهایی رو که نیاز بود، انجام دادیم؛ از این بعدش با شماست تا با قدرت جیبرس پرواز "
+"کنید."
+
+#: content_my/business/opening/display.php:8
+msgid "Bring me to business"
+msgstr "منو به بیزینس خودم ببر"
+
+#: content_my/business/opening/display.php:11
+msgid "Grand opening your business on Jibres"
+msgstr "افتتاح بزرگ بیزینس شما در جیبرس"
+
+#: content_my/business/opening/display.php:15
+msgid "All of my business"
+msgstr "تمام بیزینیس‌های من"
+
+#: content_my/business/opening/view.php:9
+msgid "Big Opening"
+msgstr "افتتاح بزرگ"
+
+#: content_my/business/opening/view.php:39
+msgid "My business"
+msgstr "بیزینس‌های من"
+
+#: content_my/business/start/display.php:9
+msgid "To make a online business from scratch, please enter name of your business."
+msgstr "برای ساخت بیزینس آنلاین، لطفا ابتدا نام بیزینس خودتون را وارد کنید."
+
+#: content_my/business/start/display.php:13
+msgid "Your business title"
+msgstr "عنوان بیزینس شما"
+
+#: content_my/business/start/display.php:16
+msgid "Let's go"
+msgstr "بزن بریم"
+
+#: content_my/business/start/display.php:18
+msgid "Create a business on Jibres"
+msgstr "افزودن یک بیزینس در جیبرس"
+
+#: content_my/business/start/display.php:22
+msgid "Can not add new business"
+msgstr "نمی‌توانید بیزینس جدیدی را اضافه کنید"
+
+#: content_my/business/start/display.php:31
+msgid "Create more business"
+msgstr "ساخت بیزینس‌های بیشتر"
+
+#: content_my/business/start/display.php:38
+msgid "Limit of create business"
+msgstr "محدودیت در ساخت بیزینس"
+
+#: content_my/business/start/model.php:16
+msgid "Please enter name of your business"
+msgstr "لطفا نام بیزینس خودتون رو وارد کنید"
+
+#: content_my/business/start/model.php:22
+msgid "Please fill the business title less than 100 character"
+msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
+
+#: content_my/business/start/model.php:37
+msgid "Can not add new business!"
+msgstr "نمی‌توانید بیزینس جدیدی را اضافه کنید!"
+
+#: content_my/business/start/view.php:12
+msgid "By press Create button, you're agreeing to our :term."
+msgstr "با فشردن دکمه ساخت فروشگاه، شما موافقت خود با :term ما اعلام خواهید کرد."
+
+#: content_my/business/subdomain/display.php:5
+msgid "Choose your online address"
+msgstr "آدرس فروشگاه آنلاین خود را انتخاب کنید"
+
+#: content_my/business/subdomain/display.php:6
+msgid "Your online business has online address on Jibres domain."
+msgstr "بیزینس شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
+
+#: content_my/business/subdomain/display.php:6
+msgid ""
+"Although you can connect your domain into business but to finish setup we need to set "
+"it."
+msgstr ""
+"اگرچه می‌توانید دامنه اختصاصی خودتان را به بیزینس متصل کنید اما برای تکمیل عملیات، ما به "
+"ساختن آن روی زیردامنه‌ی جیبرس داریم."
+
+#: content_my/business/subdomain/display.php:7
+msgid "Set it carefully, you can not change it."
+msgstr "در آینده قادر به تغییر نیستید؛ با دقت تنظیم کنید."
+
+#: content_my/business/subdomain/display.php:11
+msgid "Your subdomain"
+msgstr "آدرس فروشگاه شما"
+
+#: content_my/business/subdomain/display.php:15
+msgid "Build my online business"
+msgstr "بیزینس آنلاین منو بساز"
+
+#: content_my/business/subdomain/display.php:19
+msgid "choose subdomain on Jibres"
+msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
+
+#: content_my/business/subdomain/view.php:9
+msgid "Business address"
+msgstr "آدرس‌های بیزینس"
+
 #: content_my/domain/buy/controller.php:52 content_my/domain/setting/controller.php:61
 #: content_my/domain/transfer/controller.php:26
 msgid "Invalid error syntax"
@@ -13335,7 +13558,7 @@ msgstr "خطای ساختار اشتباه"
 msgid "Enter your idea for domain name"
 msgstr "نام ایده‌آل خودتون رو برای دامنه وارد کنید"
 
-#: content_my/domain/buy/display-search.php:58
+#: content_my/domain/buy/display-search.php:51
 msgid "Suggestion for you"
 msgstr "پیشنهادی برای شما"
 
@@ -13705,8 +13928,8 @@ msgstr "پیام‌های ایرنیک"
 msgid "Renew amount"
 msgstr "هزینه تمدید"
 
-#: content_my/domain/predict/display.php:123 content_my/domain/search/display.php:200
-#: content_my/domain/short/display.php:99
+#: content_my/domain/predict/display.php:123 content_my/domain/search/display.php:182
+#: content_my/domain/short/display.php:91
 msgid "Buy your first winning domain!"
 msgstr "اولین دامنه خودتون رو بخرید و ببرید!"
 
@@ -13755,51 +13978,51 @@ msgstr "مبلغ قابل پرداخت"
 msgid "Review detail"
 msgstr "بازبینی جزئیات"
 
-#: content_my/domain/search/display.php:103
+#: content_my/domain/search/display.php:85
 msgid "Show domain where"
 msgstr "نمایش دامنه‌ها با شرط"
 
-#: content_my/domain/search/display.php:108
+#: content_my/domain/search/display.php:90
 msgid "Autorenew On"
 msgstr "تمدید خودکار فعال"
 
-#: content_my/domain/search/display.php:109
+#: content_my/domain/search/display.php:91
 msgid "Autorenew Off"
 msgstr "تمدید خودکار غیرفعال"
 
-#: content_my/domain/search/display.php:113
+#: content_my/domain/search/display.php:95
 msgid "Unknown lock status"
 msgstr "وضعیت قفل نامشخص"
 
-#: content_my/domain/search/view.php:79
+#: content_my/domain/search/view.php:80
 msgid "Domain Name ASC"
 msgstr "بر اساس نام، صعودی"
 
-#: content_my/domain/search/view.php:84
+#: content_my/domain/search/view.php:85
 msgid "Domain Name DESC"
 msgstr "بر اساس نام، نزولی"
 
-#: content_my/domain/search/view.php:90
+#: content_my/domain/search/view.php:91
 msgid "Expredate ASC"
 msgstr "بر اساس تاریخ انقضا، صعودی"
 
-#: content_my/domain/search/view.php:95
+#: content_my/domain/search/view.php:96
 msgid "Expredate DESC"
 msgstr "بر اساس تاریخ انقضا، نزولی"
 
-#: content_my/domain/search/view.php:101
+#: content_my/domain/search/view.php:102
 msgid "Date register ASC"
 msgstr "تاریخ ثبت،‌ صعودی"
 
-#: content_my/domain/search/view.php:106
+#: content_my/domain/search/view.php:107
 msgid "Date register DESC"
 msgstr "تاریخ ثبت، نزولی"
 
-#: content_my/domain/search/view.php:112
+#: content_my/domain/search/view.php:113
 msgid "Date update ASC"
 msgstr "بر اساس تاریخ به‌روزرسانی، صعودی"
 
-#: content_my/domain/search/view.php:117
+#: content_my/domain/search/view.php:118
 msgid "Date update DESC"
 msgstr "بر اساس تاریخ به‌روزرسانی، نزولی"
 
@@ -13811,29 +14034,37 @@ msgstr "نمی‌توانید جزئیات دامنه را ویرایش کنید
 msgid "This domain is removed from your account"
 msgstr "این دامنه از لیست دامنه‌های شما حذف شده است"
 
-#: content_my/domain/setting/display.php:98
+#: content_my/domain/setting/display.php:100
 msgid "Whois?"
 msgstr "کیه؟"
 
-#: content_my/domain/setting/display.php:168
+#: content_my/domain/setting/display.php:170
 msgid "Reseller"
 msgstr "نماینده"
 
-#: content_my/domain/setting/display.php:189
+#: content_my/domain/setting/display.php:191
 msgid "Domain is OK"
 msgstr "دامنه آماده است"
 
-#: content_my/domain/setting/display.php:233
+#: content_my/domain/setting/display.php:235
 msgid "Last fetch"
 msgstr "آخرین دریافت"
 
-#: content_my/domain/setting/display.php:240
+#: content_my/domain/setting/display.php:242
 msgid "Remove to check again"
 msgstr "حذف برای بررسی مجدد"
 
-#: content_my/domain/setting/display.php:243
+#: content_my/domain/setting/display.php:245
 msgid "Clean fetch"
 msgstr "تمیزکردن دریافت"
+
+#: content_my/domain/setting/display.php:264
+msgid "Domain is Available for buy"
+msgstr "دامنه برای خرید موجود است"
+
+#: content_my/domain/setting/display.php:265
+msgid "Buy now"
+msgstr "همین الان بخر"
 
 #: content_my/domain/setting/model.php:12
 msgid "Last fetch removed"
@@ -13927,216 +14158,6 @@ msgstr "بیزینس خودتون رو اضافه کنید"
 #: content_my/ipg/view.php:9
 msgid "Internet Payment Gateway"
 msgstr "درگاه پرداخت اینترنتی"
-
-#: content_my/store/ask/display.php:6
-msgid "Tell us a little about yourself"
-msgstr "به ما کمی در مورد خودتان بگویید"
-
-#: content_my/store/ask/display.php:7
-msgid "Your answer is important for us."
-msgstr "پاسخ شما برای ما بسیار با ارزش است."
-
-#: content_my/store/ask/display.php:36
-msgid "answer Jibres polls"
-msgstr "به نظرسنجی‌های جیبرس پاسخ دهید"
-
-#: content_my/store/ask/view.php:9
-msgid "Help Jibres work better"
-msgstr "جیبرس کمک می‌کند تا بهتر کار کنید"
-
-#: content_my/store/ask/view.php:20 content_my/store/start/view.php:9
-msgid "Create a new store"
-msgstr "ساخت فروشگاه جدید"
-
-#: content_my/store/creating/display.php:6
-msgid "Please wait"
-msgstr "لطفا کمی صبر کنید"
-
-#: content_my/store/creating/display.php:7
-msgid "Building your online store in progress."
-msgstr "ما در حال ساخت فروشگاه آنلاین شما هستیم."
-
-#: content_my/store/creating/display.php:8 content_my/store/error/display.php:14
-msgid "Try again"
-msgstr "مجددا تلاش کنید"
-
-#: content_my/store/creating/display.php:11 content_my/store/error/display.php:20
-msgid "Loading Jibres"
-msgstr "در حال انجام عملیات"
-
-#: content_my/store/creating/model.php:53
-msgid "Can not create your store!"
-msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
-
-#: content_my/store/creating/view.php:9
-msgid "Creating your store"
-msgstr "درحال ساخت فروشگاه شما"
-
-#: content_my/store/error/display.php:5 content_my/store/error/view.php:9
-msgid "Oops!"
-msgstr "اوه!"
-
-#: content_my/store/error/display.php:6
-msgid "We can not build your store!"
-msgstr "ما نتوانستیم فروشگاه شما را بسازیم!"
-
-#: content_my/store/error/display.php:6
-msgid "Please contact us to solve this problem."
-msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
-
-#: content_my/store/error/display.php:16 lib/app/nic_domain/renew.php:140
-msgid "Read about this problem"
-msgstr "درباره این مشکل بخوانید"
-
-#: content_my/store/home/display_pwa.php:43 content_my/store/home/display_site.php:131
-msgid "Jibres can painlessly and quickly help you to start your online business."
-msgstr "جیبرس می‌تواند بدون دردسر و سریع به شما در شروع کسب‌وکارتان کمک کند."
-
-#: content_my/store/home/display_pwa.php:47 content_my/store/home/display_site.php:135
-msgid "Build my own store"
-msgstr "فروشگاه من را بساز"
-
-#: content_my/store/home/display_pwa.php:59 content_my/store/home/display_site.php:147
-#: lib/app/log/caller/application/application_readyToDownload.php:22
-msgid "Application"
-msgstr "برنامه"
-
-#: content_my/store/home/display_pwa.php:65 content_my/store/home/display_site.php:153
-msgid "Sale in store"
-msgstr "فروش در فروشگاه"
-
-#: content_my/store/home/display_pwa.php:71 content_my/store/home/display_site.php:159
-msgid "Telegram bot"
-msgstr "ربات تلگرام"
-
-#: content_my/store/home/display_site.php:40 content_my/store/home/display_site.php:115
-msgid "From"
-msgstr "از"
-
-#: content_my/store/home/display_site.php:76 content_support/ticket/ticketTable.php:85
-msgid "Created on"
-msgstr "ساخته شده در"
-
-#: content_my/store/home/display_site.php:80 content_my/store/home/display_site.php:116
-msgid "Owner"
-msgstr "مالک"
-
-#: content_my/store/home/view.php:23
-msgid "Store Lists"
-msgstr "لیست فروشگاه‌ها"
-
-#: content_my/store/home/view.php:26
-msgid "Add new store"
-msgstr "افزودن فروشگاه جدید"
-
-#: content_my/store/home/view.php:31 content_r10/android/intro/view.php:15
-msgid "Welcome to Jibres world"
-msgstr "به دنیای جیبرس خوش آمدید"
-
-#: content_my/store/opening/display.php:5
-msgid "Your store is ready to go!"
-msgstr "فروشگاه شما آماده شد!"
-
-#: content_my/store/opening/display.php:6
-msgid "We are do everything you need and now you can fly with Jibres power."
-msgstr ""
-"ما همه کارهایی رو که نیاز بود، انجام دادیم؛ از این بعدش با شماست تا با قدرت جیبرس پرواز "
-"کنید."
-
-#: content_my/store/opening/display.php:8
-msgid "Bring me to store"
-msgstr "منو به فروشگاهم ببر"
-
-#: content_my/store/opening/display.php:11
-msgid "Grand opening your store on Jibres"
-msgstr "افتتاح بزرگ فروشگاه شما در جیبرس"
-
-#: content_my/store/opening/display.php:15 content_my/store/opening/view.php:39
-msgid "My stores"
-msgstr "فروشگاه‌های من"
-
-#: content_my/store/opening/view.php:9
-msgid "Big Opening"
-msgstr "افتتاح بزرگ"
-
-#: content_my/store/start/display.php:9
-msgid "To make a online store from scratch, please enter name of your business."
-msgstr "برای ساخت فروشگاه آنلاین، لطفا ابتدا نام بیزینس خودتون را وارد کنید."
-
-#: content_my/store/start/display.php:13
-msgid "Your business title"
-msgstr "عنوان بیزینس شما"
-
-#: content_my/store/start/display.php:16
-msgid "Let's go"
-msgstr "بزن بریم"
-
-#: content_my/store/start/display.php:18
-msgid "Create a store on Jibres"
-msgstr "ساخت یک فروشگاه در جیبرس"
-
-#: content_my/store/start/display.php:22
-msgid "Can not add new store"
-msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید"
-
-#: content_my/store/start/display.php:31
-msgid "Create more store"
-msgstr "ساخت فروشگاه‌های بیشتر"
-
-#: content_my/store/start/display.php:38
-msgid "Limit of create store"
-msgstr "محدودیت در ساخت فروشگاه"
-
-#: content_my/store/start/model.php:16
-msgid "Please enter name of your business"
-msgstr "لطفا نام بیزینس خودتون رو وارد کنید"
-
-#: content_my/store/start/model.php:22
-msgid "Please fill the store title less than 100 character"
-msgstr "لطفا عنوان فروشگاه را کمتر از ۱۰۰ حرف وارد کنید"
-
-#: content_my/store/start/model.php:37
-msgid "Can not add new store!"
-msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید!"
-
-#: content_my/store/start/view.php:12
-msgid "By press Create button, you're agreeing to our :term."
-msgstr "با فشردن دکمه ساخت فروشگاه، شما موافقت خود با :term ما اعلام خواهید کرد."
-
-#: content_my/store/subdomain/display.php:5
-msgid "Choose your online address"
-msgstr "آدرس فروشگاه آنلاین خود را انتخاب کنید"
-
-#: content_my/store/subdomain/display.php:6
-msgid "Your online store has online address on Jibres domain."
-msgstr "فروشگاه شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
-
-#: content_my/store/subdomain/display.php:6
-msgid ""
-"Although you can connect your domain into store but to finish setup we need to set it."
-msgstr ""
-"اگرچه می‌توانید دامنه اختصاصی خودتان را به فروشگاه متصل کنید اما برای تکمیل عملیات، ما "
-"به ساختن آن روی زیردامنه‌ی جیبرس داریم."
-
-#: content_my/store/subdomain/display.php:7
-msgid "Set it carefully, you can not change it."
-msgstr "در آینده قادر به تغییر نیستید؛ با دقت تنظیم کنید."
-
-#: content_my/store/subdomain/display.php:11
-msgid "Your subdomain"
-msgstr "آدرس فروشگاه شما"
-
-#: content_my/store/subdomain/display.php:15
-msgid "Build my online store"
-msgstr "فروشگاه آنلاین منو بساز"
-
-#: content_my/store/subdomain/display.php:19
-msgid "choose subdomain on Jibres"
-msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
-
-#: content_my/store/subdomain/view.php:9
-msgid "Store online address"
-msgstr "آدرس آنلاین فروشگاه"
 
 #: content_pay/home/display.php:115
 msgid "Track id"
@@ -14337,7 +14358,7 @@ msgstr "هیچ فایل پشتیبانی یافت نشد"
 msgid "Start backup every"
 msgstr "شروع عملیات پشتیبان گیری هر"
 
-#: content_su/backup/display.php:157 lib/app/nic_domainaction/ready.php:53
+#: content_su/backup/display.php:157 lib/app/nic_domainaction/ready.php:60
 #: lib/app/nic_domainbilling/ready.php:52
 msgid "Year"
 msgstr "سال"
@@ -23816,7 +23837,7 @@ msgstr "نمی‌توانیم فایل اپلیکیشن را از سرویس ت�
 
 #: lib/app/application/queue_search.php:74 lib/app/domains/search.php:95
 #: lib/app/gift/search.php:75 lib/app/nic_domain/search.php:75
-#: lib/app/nic_domain/search.php:219 lib/app/nic_log/search.php:94
+#: lib/app/nic_domain/search.php:220 lib/app/nic_log/search.php:94
 #: lib/app/store/search.php:50 lib/app/store/search.php:169
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
@@ -24274,6 +24295,14 @@ msgstr "وضعیت دامنه شما به‌روز شده است"
 msgid "Status of Domain :domain was changed with IRNIC Registrar"
 msgstr "وضعیت دامنه  :domain توسط ایرنیک به‌روزرسانی شد"
 
+#: lib/app/log/caller/domain/domain_irnicDomainApproved.php:13
+msgid "Your domain register was approved"
+msgstr "ثبت دامنه شما تایید شد"
+
+#: lib/app/log/caller/domain/domain_irnicDomainApproved.php:29
+msgid "Register Domain :domain was approved"
+msgstr "ثبت دامنه :domain تایید شد"
+
 #: lib/app/nic_contact/add.php:19
 msgid "Invalid contact"
 msgstr "مخاطب اشتباه است"
@@ -24371,7 +24400,7 @@ msgid "Please enter a valid domain for check"
 msgstr "لطفا دامنه را به صورت صحیح وارد کنید"
 
 #: lib/app/nic_domain/check.php:104 lib/app/nic_domain/edit.php:352
-#: lib/app/nic_domain/get.php:212 lib/app/nic_domain/get.php:239
+#: lib/app/nic_domain/get.php:283 lib/app/nic_domain/get.php:310
 #: lib/app/nic_log/get.php:21
 msgid "Domain not found"
 msgstr "دامنه یافت نشد"
@@ -24427,32 +24456,32 @@ msgstr ""
 msgid "This domain is already in your list"
 msgstr "این دامنه در حال حاضر در لیست شما وجود دارد"
 
-#: lib/app/nic_domain/create.php:304
+#: lib/app/nic_domain/create.php:306
 msgid "Error! Can not create your domain data"
 msgstr "خطا! نمی‌توانیم داده وب‌سایت را بسازیم"
 
-#: lib/app/nic_domain/create.php:328
+#: lib/app/nic_domain/create.php:330
 msgid "Domain ready to register"
 msgstr "دامنه آماده ثبت است"
 
-#: lib/app/nic_domain/create.php:403
+#: lib/app/nic_domain/create.php:405
 msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
-#: lib/app/nic_domain/create.php:431 lib/app/nic_domain/renew.php:229
+#: lib/app/nic_domain/create.php:433 lib/app/nic_domain/renew.php:229
 #: lib/app/nic_domain/transfer.php:150
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/nic_domain/create.php:506
+#: lib/app/nic_domain/create.php:513
 msgid "Buy domian :val"
 msgstr "خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:572
+#: lib/app/nic_domain/create.php:579
 msgid "Domain :domain was registered in your name"
 msgstr "دامنه :domain با موفقیت ثبت شد"
 
-#: lib/app/nic_domain/create.php:600
+#: lib/app/nic_domain/create.php:607
 msgid "Can not register your domain, Money back to your account"
 msgstr "نمی‌توانیم دامنه را ثبت کنیم. پول به حساب شما برگشت داده شد"
 
@@ -24573,6 +24602,10 @@ msgstr "ثبت دامنه تایید شد"
 msgid "Domain reserved"
 msgstr "دامنه رزرو شده است"
 
+#: lib/app/nic_domain/ready.php:215
+msgid "Register now"
+msgstr "هم‌اکنون ثبت‌نام کنید"
+
 #: lib/app/nic_domain/remove.php:29
 msgid "Can not edit this domain status"
 msgstr "نمی‌توانیم وضعیت این دامنه را به‌روزرسانی کنیم"
@@ -24640,59 +24673,63 @@ msgstr "خطا در ثبت :val"
 msgid "Can not transfer this domain"
 msgstr "نمی‌توان این دامنه را انتقال داد"
 
-#: lib/app/nic_domainaction/ready.php:116
+#: lib/app/nic_domainaction/ready.php:123
 msgid "Update domain holder"
 msgstr "به‌روزرسانی رابط‌های دامنه"
 
-#: lib/app/nic_domainaction/ready.php:121
+#: lib/app/nic_domainaction/ready.php:128
 msgid "Ready to buy domain"
 msgstr "آماده سازی جهت خرید دامنه"
 
-#: lib/app/nic_domainaction/ready.php:126
+#: lib/app/nic_domainaction/ready.php:133
 msgid "Domain register pay link created"
 msgstr "لینک پرداخت برای خرید دامنه ساخته شد"
 
-#: lib/app/nic_domainaction/ready.php:131
+#: lib/app/nic_domainaction/ready.php:138
 msgid "Register domain failed"
 msgstr "ثبت‌دامنه ناموفق بود"
 
-#: lib/app/nic_domainaction/ready.php:136
+#: lib/app/nic_domainaction/ready.php:143
 msgid "Enable domain auto renew"
 msgstr "فعال سازی تمدید خودکار دامنه"
 
-#: lib/app/nic_domainaction/ready.php:141
+#: lib/app/nic_domainaction/ready.php:148
 msgid "Disable domain auto renew"
 msgstr "غیرفعال سازی تمدید خودکار دامنه"
 
-#: lib/app/nic_domainaction/ready.php:146 lib/app/nic_domainaction/ready.php:171
+#: lib/app/nic_domainaction/ready.php:153
 msgid "Domain transfer pay link created"
 msgstr "لینک پرداخت برای انتقال دامنه ساخته شد"
 
-#: lib/app/nic_domainaction/ready.php:151
+#: lib/app/nic_domainaction/ready.php:158
 msgid "Ready to renew domain"
 msgstr "آماده سازی جهت تمدید دامنه"
 
-#: lib/app/nic_domainaction/ready.php:156
+#: lib/app/nic_domainaction/ready.php:163
 msgid "Domain renew pay link created"
 msgstr "لینک پرداخت برای تمدید دامنه ساخته شد"
 
-#: lib/app/nic_domainaction/ready.php:161
+#: lib/app/nic_domainaction/ready.php:168
 msgid "Renew domain failed"
 msgstr "تمدید دامنه ناموفق بود"
 
-#: lib/app/nic_domainaction/ready.php:166
+#: lib/app/nic_domainaction/ready.php:173
 msgid "Ready transfer domain"
 msgstr "آماده سازی جهت انتقال دامنه"
 
-#: lib/app/nic_domainaction/ready.php:176
+#: lib/app/nic_domainaction/ready.php:178
+msgid "Import manually domains successful"
+msgstr "افزودن دستی دامنه با موفقیت انجام شد"
+
+#: lib/app/nic_domainaction/ready.php:183
 msgid "Transfer domain failed"
 msgstr "انتقال دامنه ناموفق بود"
 
-#: lib/app/nic_domainaction/ready.php:181
+#: lib/app/nic_domainaction/ready.php:188
 msgid "Change default IRNIC handle"
 msgstr "تغییر شناسه ایرنیک پیشفرض"
 
-#: lib/app/nic_domainaction/ready.php:186
+#: lib/app/nic_domainaction/ready.php:193
 msgid "Change default DNS"
 msgstr "تغییر دی‌ان‌اس پیشفرض"
 
@@ -24700,7 +24737,7 @@ msgstr "تغییر دی‌ان‌اس پیشفرض"
 msgid "Pay :price toman fro :action domain :domain"
 msgstr "پرداخت :price تومان برای :action دامنه :domain"
 
-#: lib/app/nic_poll/get.php:126
+#: lib/app/nic_poll/get.php:141
 msgid "Your domain status was updated"
 msgstr "وضعیت دامنه شما به‌روز شده است"
 
@@ -26088,6 +26125,79 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Create a new store"
+#~ msgstr "ساخت فروشگاه جدید"
+
+#~ msgid "Building your online store in progress."
+#~ msgstr "ما در حال ساخت فروشگاه آنلاین شما هستیم."
+
+#~ msgid "Can not create your store!"
+#~ msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
+
+#~ msgid "Creating your store"
+#~ msgstr "درحال ساخت فروشگاه شما"
+
+#~ msgid "We can not build your store!"
+#~ msgstr "ما نتوانستیم فروشگاه شما را بسازیم!"
+
+#~ msgid "Build my own store"
+#~ msgstr "فروشگاه من را بساز"
+
+#~ msgid "Store Lists"
+#~ msgstr "لیست فروشگاه‌ها"
+
+#~ msgid "Add new store"
+#~ msgstr "افزودن فروشگاه جدید"
+
+#~ msgid "Your store is ready to go!"
+#~ msgstr "فروشگاه شما آماده شد!"
+
+#~ msgid "Bring me to store"
+#~ msgstr "منو به فروشگاهم ببر"
+
+#~ msgid "Grand opening your store on Jibres"
+#~ msgstr "افتتاح بزرگ فروشگاه شما در جیبرس"
+
+#~ msgid "My stores"
+#~ msgstr "فروشگاه‌های من"
+
+#~ msgid "To make a online store from scratch, please enter name of your business."
+#~ msgstr "برای ساخت فروشگاه آنلاین، لطفا ابتدا نام بیزینس خودتون را وارد کنید."
+
+#~ msgid "Create a store on Jibres"
+#~ msgstr "ساخت یک فروشگاه در جیبرس"
+
+#~ msgid "Can not add new store"
+#~ msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید"
+
+#~ msgid "Create more store"
+#~ msgstr "ساخت فروشگاه‌های بیشتر"
+
+#~ msgid "Limit of create store"
+#~ msgstr "محدودیت در ساخت فروشگاه"
+
+#~ msgid "Please fill the store title less than 100 character"
+#~ msgstr "لطفا عنوان فروشگاه را کمتر از ۱۰۰ حرف وارد کنید"
+
+#~ msgid "Can not add new store!"
+#~ msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید!"
+
+#~ msgid "Your online store has online address on Jibres domain."
+#~ msgstr "فروشگاه شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
+
+#~ msgid ""
+#~ "Although you can connect your domain into store but to finish setup we need to set "
+#~ "it."
+#~ msgstr ""
+#~ "اگرچه می‌توانید دامنه اختصاصی خودتان را به فروشگاه متصل کنید اما برای تکمیل عملیات، "
+#~ "ما به ساختن آن روی زیردامنه‌ی جیبرس داریم."
+
+#~ msgid "Build my online store"
+#~ msgstr "فروشگاه آنلاین منو بساز"
+
+#~ msgid "Store online address"
+#~ msgstr "آدرس آنلاین فروشگاه"
 
 #~ msgid "Special domain Handle"
 #~ msgstr "سفارشی سازی رابط‌های دامنه"

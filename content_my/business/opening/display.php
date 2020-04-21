@@ -12,7 +12,7 @@
       </div>
 
       <div class="f align-center fs12">
-        <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn"><?php echo T_("All of my busines"); ?></a></div>
+        <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn"><?php echo T_("All of my business"); ?></a></div>
       </div>
     </div>
 

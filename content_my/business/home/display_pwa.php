@@ -62,7 +62,7 @@
     </div>
     <div class="c3 pLa10">
       <div class="msg pTB20">
-        <h3><?php echo T_("Sale in business"); ?></h3>
+        <h3><?php echo T_("Sale in store"); ?></h3>
         <a target="_blank" href="<?php echo \dash\url::support(); ?>/business/pos"><?php echo T_("Read more"); ?></a>
       </div>
     </div>
