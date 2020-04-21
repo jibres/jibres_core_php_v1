@@ -14,16 +14,9 @@
     </div>
 
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(); ?>?action=awaiting" class="stat x70 <?php if(\dash\request::get('action') === 'awaiting') { echo ' active';} ?>" >
-            <h3><?php echo T_("Awaiting"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_deactive()); ?></div>
-        </a>
-    </div>
-
-    <div class="c pRa5">
         <a href="<?php echo \dash\url::that(); ?>?action=deactive" class="stat x70 <?php if(\dash\request::get('action') === 'deactive') { echo ' active';} ?>" >
             <h3><?php echo T_("Deactive"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_awaiting()); ?></div>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_deactive()); ?></div>
         </a>
     </div>
 

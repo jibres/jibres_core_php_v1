@@ -115,7 +115,8 @@ class get
 
 	public static function my_active_count($_user_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
+		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND domain.available = 0 AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -123,20 +124,11 @@ class get
 
 	public static function my_deactive_count($_user_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status NOT IN ('deleted', 'enable') ";
+		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status NOT IN ('deleted', 'enable') ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND ( domain.verify = 0 OR domain.verify IS NULL OR domain.available = 1 OR domain.available IS NULL ) AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
-
-
-
-	public static function my_awaiting_count($_user_id)
-	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'awaiting' ";
-		$result = \dash\db::get($query, 'count', true, 'nic');
-		return $result;
-	}
-
 
 
 

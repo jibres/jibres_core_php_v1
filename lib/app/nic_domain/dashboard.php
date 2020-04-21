@@ -119,7 +119,7 @@ class dashboard
 		$result['all']      = floatval(\lib\db\nic_domain\get::count_all_my_domain($user_id));
 		$result['active']   = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
 		$result['deactive'] = floatval(\lib\db\nic_domain\get::my_deactive_count($user_id));
-		$result['awaiting'] = floatval(\lib\db\nic_domain\get::my_awaiting_count($user_id));
+
 
 		return $result;
 	}
