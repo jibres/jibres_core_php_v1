@@ -171,7 +171,7 @@ class get
 
 	public static function my_autorenew_count($_user_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'deleted' AND domain.autorenew = 1 ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND domain.available = 0 AND domain.status != 'deleted' AND domain.autorenew = 1 ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -179,7 +179,7 @@ class get
 
 	public static function my_lock_count($_user_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'enable' AND domain.lock = 1 ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND domain.available = 0 AND domain.status != 'deleted' AND domain.lock = 1 ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}

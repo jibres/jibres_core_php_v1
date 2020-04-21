@@ -257,8 +257,8 @@ class search
 
 		if($data['predict'])
 		{
-			// $next_year = date("Y-m-d", strtotime("+365 days"));
-			// $and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
+			$next_year = date("Y-m-d", strtotime("+5 year"));
+			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[] = " domain.status != 'deleted' ";
 			$and[] = " domain.verify = 1 ";
@@ -366,10 +366,87 @@ class search
 
 		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
+
+		if($data['predict'])
+		{
+			$new_list = \lib\db\nic_domain\search::calc_pay_period_predict($and, $or, $order_sort, $meta);
+			self::calc_pay_period_predict($new_list, $userId);
+		}
+
 		return $list;
 	}
 
+	private static function calc_pay_period_predict($_list, $_user_id)
+	{
+		$result          = [];
+		$result['week']  = 0;
+		$result['month'] = 0;
+		$result['year']  = 0;
+		$result['5year'] = 0;
 
+		if(!is_array($_list))
+		{
+			$_list = [];
+		}
+
+		foreach ($_list as $key => $value)
+		{
+			if(isset($value['dateexpire']))
+			{
+				$dateexpire = strtotime($value['dateexpire']);
+				if(!$dateexpire)
+				{
+					continue;
+				}
+
+				$time = time();
+				$mytime = $dateexpire - $time;
+
+				if($mytime < (60*60*24*7))
+				{
+					$result['week']++;
+				}
+				elseif($mytime < (60*60*24*30))
+				{
+					$result['month']++;
+				}
+				elseif($mytime < (60*60*24*365))
+				{
+					$result['year']++;
+				}
+				elseif($mytime < (60*60*24*365*5))
+				{
+					$result['5year']++;
+				}
+
+			}
+		}
+
+		$get_setting = \lib\db\nic_usersetting\get::my_setting($_user_id);
+
+		if(isset($get_setting['autorenewperiod']))
+		{
+			$autorenewperiod = $get_setting['autorenewperiod'];
+		}
+		else
+		{
+			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+		}
+
+		$price = \lib\app\nic_domain\price::renew($autorenewperiod);
+
+
+		$return = [];
+
+		$return[] = ['title' => T_("Pay in next week"), 'count' => $result['week'], 'price' => ($price * $result['week'])];
+		$return[] = ['title' => T_("Pay in next month"), 'count' => $result['month'], 'price' => ($price * $result['month'])];
+		$return[] = ['title' => T_("Pay in next year"), 'count' => $result['year'], 'price' => ($price * $result['year'])];
+		$return[] = ['title' => T_("Pay in next 5year"), 'count' => $result['5year'], 'price' => ($price * $result['5year'])];
+
+
+
+		\dash\data::myPayCalc($return);
+	}
 
 
 

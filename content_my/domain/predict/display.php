@@ -1,3 +1,20 @@
+<?php if(\dash\data::myPayCalc() && is_array(\dash\data::myPayCalc())) {?>
+<div class="f">
+    <?php foreach (\dash\data::myPayCalc() as $period => $value) {?>
+       <div class="c pRa5">
+            <a class="stat x70">
+                <h3><?php echo \dash\get::index($value, 'title'); ?></h3>
+                <div class="val"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></div>
+            </a>
+        </div>
+    <?php }//endfor ?>
+
+</div>
+<?php } ?>
+
+
+
+
 
 <?php
 if(\dash\data::dataTable())
@@ -119,7 +136,7 @@ else
 
 <div class="fs14 msg info2 pTB20">
   <p><?php echo T_("Hi!"); ?></p>
-  <p><a href="<?php echo \dash\url::that(); ?>/buy"><?php echo T_("Buy your first winning domain!"); ?></a></p>
+  <p><?php echo T_("If the domain registered for you enable autorenew of it, you will see it in this list and you will see the amount of renew."); ?></p>
 
 </div>
 
