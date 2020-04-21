@@ -129,10 +129,10 @@ class dashboard
 
 		$user_id = \dash\user::id();
 
-		$result             = [];
-		$result['all']      = floatval(\lib\db\nic_domain\get::count_all_my_domain($user_id));
-		$result['active']   = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
-		$result['deactive'] = floatval(\lib\db\nic_domain\get::my_deactive_count($user_id));
+		$result              = [];
+		$result['mydomain']  = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
+		$result['maybe']     = floatval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
+		$result['available'] = floatval(\lib\db\nic_domain\get::my_available_count($user_id));
 
 
 		return $result;

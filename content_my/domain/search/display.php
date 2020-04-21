@@ -1,14 +1,24 @@
 <div class="f">
-<?php if (\dash\data::groupByStatus() && is_array(\dash\data::groupByStatus()))  {?>
-    <?php foreach (\dash\data::groupByStatus() as $status => $count) {?>
-        <div class="c pRa5">
-            <a href="<?php echo \dash\url::that(). '?status='. $status ?>" class="stat x70 <?php if(\dash\request::get('status') == $status) { echo ' active';} ?>" >
-                <h3><?php echo T_($status); ?></h3>
-                <div class="val"><?php echo \dash\fit::number($count); ?></div>
-            </a>
-        </div>
-    <?php } // endfor ?>
-<?php } // endif ?>
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(). '?action=mydomain' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'mydomain' || !\dash\request::get('action')) { echo ' active';} ?>" >
+            <h3><?php echo T_("Your domain"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_mydomain()); ?></div>
+        </a>
+    </div>
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(). '?action=maybe' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'maybe') { echo ' active';} ?>" >
+            <h3><?php echo T_("Maybe for you"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
+        </a>
+    </div>
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(). '?action=available' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'available') { echo ' active';} ?>" >
+            <h3><?php echo T_("Available domains"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_available()); ?></div>
+        </a>
+    </div>
+
+
 
 </div>
 
@@ -103,60 +113,25 @@ else
 
 
 <?php function htmlTable() {?>
-<?php $sortLink = \dash\data::sortLink(); ?>
+<?php
+if(!\dash\request::get('action') || \dash\request::get('action') === 'mydomain')
+{
+    require_once('display-mydomain.php');
+}
+elseif(\dash\request::get('action') === 'maybe')
+{
+    require_once('display-maybemydomain.php');
+}
+elseif(\dash\request::get('action') === 'available')
+{
+    require_once('display-availabledomain.php');
+}
+else
+{
+    // nothing
+}
+?>
 
-<div class="fs12">
-    <table class="tbl1 v1 responsive">
-        <thead>
-            <tr class="fs09">
-                <th colspan="2"><?php echo T_("Domain"); ?></th>
-                <th class="txtC"><?php echo T_("Status"); ?></th>
-                <th class="txtL"><?php echo T_("Expire date"); ?></th>
-                <th class="txtL"><?php echo T_("Create date"); ?><br><?php echo T_("Date modified"); ?></th>
-                <th class="txtL"><?php echo T_("DNS"); ?></th>
-            </tr>
-        </thead>
-        <tbody class="fs12">
-
-            <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-
-            <tr <?php  if(\dash\get::index($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
-                <td>
-                    <!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
-                    <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link flex"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
-                </td>
-                <td class="collapsing">
-
-                    <a <?php if(\dash\get::index($value, 'verify')) {?> href="<?php echo \dash\url::this(). '/setting/transfer?domain='. \dash\get::index($value, 'name'); ?>" <?php } //endif ?>>
-                        <div class="ibtn x30 wide">
-                            <?php if(isset($value['lock']) && $value['lock'] == 1 ) { echo '<span>'.T_("Lock"). '</span>'; echo '<i class="sf-lock fc-green"></i>'; } elseif(isset($value['lock']) && $value['lock'] == 0){ echo '<span>'.T_("Lock"). '</span>'; echo '<i class="sf-unlock fc-red"></i>'; }else{echo '<span>'.T_("Unknown"). '</span>'; echo '<i class="sf-lock"></i>';}?>
-                        </div>
-                    </a>
-
-                    <a href="<?php echo \dash\url::this(). '/setting?domain='. \dash\get::index($value, 'name'); ?>">
-                    <div class="ibtn x30 wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
-                    </a>
-                </td>
-                <td class="txtC">
-                  <?php echo \dash\get::index($value, 'status_html'); ?>
-                </td>
-                <td class="collapsing txtL fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL fs09">
-                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></div>
-                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></div>
-                </td>
-                <td class="collapsing ltr txtL">
-                    <code><?php echo \dash\get::index($value, 'ns1'); ?></code>
-                    <br>
-                    <code><?php echo \dash\get::index($value, 'ns2'); ?></code>
-                </td>
-
-            </tr>
-            <?php } //endfor ?>
-        </tbody>
-    </table>
-</div>
-<?php \dash\utility\pagination::html(); ?>
 
 <?php } //endfunction ?>
 

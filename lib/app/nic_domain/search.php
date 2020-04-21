@@ -183,7 +183,7 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'action'    => ['enum' => ['active', 'deactive']],
+			'action'    => ['enum' => ['mydomain', 'maybe', 'available']],
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
@@ -296,21 +296,31 @@ class search
 				self::$filter_args[T_("Lock")] = T_("Unknown");
 			}
 
-
-			if($data['action'] === 'active')
+			if(!$data['action'])
+			{
+				$and[] = " domain.verify = 1 AND domain.available = 0 ";
+			}
+			elseif($data['action'] === 'mydomain')
 			{
 				// $and[] = " domain.status = 'enable' ";
 				$and[] = " domain.verify = 1 AND domain.available = 0 ";
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Status")] = T_("Active");
+				// self::$is_filtered          = true;
+				// self::$filter_args[T_("Status")] = T_("My domains");
 			}
-			elseif($data['action'] === 'deactive')
+			elseif($data['action'] === 'maybe')
 			{
 				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
-				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL OR domain.available = 1 OR domain.available IS NULL ) ";
+				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 ";
 
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Status")] = T_("Deactive");
+				// self::$is_filtered          = true;
+				// self::$filter_args[T_("Status")] = T_("Maybe for your");
+			}
+			elseif($data['action'] === 'available')
+			{
+				$and[] = " domain.available = 1 ";
+
+				// self::$is_filtered          = true;
+				// self::$filter_args[T_("Status")] = T_("Available");
 			}
 		}
 
