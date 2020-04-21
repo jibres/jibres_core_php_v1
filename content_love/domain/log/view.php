@@ -31,13 +31,13 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
+		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::that());
 		\dash\data::sortLink($sortLink);
 
 
-		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
+		\dash\data::filterBox(\lib\app\nic_log\search::filter_message());
 
-		$isFiltered = \lib\app\nic_domain\search::is_filtered();
+		$isFiltered = \lib\app\nic_log\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 

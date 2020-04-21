@@ -100,7 +100,18 @@ class search
 
 		if($query_string)
 		{
-			// $or[]        = " domain.name LIKE '%$query_string%'";
+			$mobile = \dash\validate::mobile($query_string, false);
+			if($mobile)
+			{
+				$load_user = \dash\db\users::get_by_mobile($mobile);
+				if(isset($load_user['id']))
+				{
+					$or[]        = " log.user_id = $load_user[id] ";
+				}
+			}
+
+			$or[]        = " log.domain LIKE '%$query_string%'";
+			$or[]        = " log.nic_id LIKE '%$query_string%'";
 
 
 
