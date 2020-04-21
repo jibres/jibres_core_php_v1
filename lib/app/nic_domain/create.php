@@ -256,8 +256,8 @@ class create
 				'tech'         => $nic_id,
 				'bill'         => $nic_id,
 
-				'autorenew'    => 1,
-				'lock'         => 1,
+				'autorenew'    => null,
+				'lock'         => null,
 
 				'ns1'          => $ns1,
 				'ns2'          => $ns2,
@@ -282,8 +282,8 @@ class create
 				'tech'         => $nic_id,
 				'bill'         => $nic_id,
 
-				'autorenew'    => 1,
-				'lock'         => 1,
+				'autorenew'    => null,
+				'lock'         => null,
 
 				'ns1'          => $ns1,
 				'ns2'          => $ns2,
@@ -490,6 +490,10 @@ class create
 			[
 				'status'       => 'enable',
 				'verify'       => 1,
+
+				'autorenew'    => 1,
+				'lock'         => 1,
+
 				'dateregister' => $result['dateregister'],
 				'dateexpire'   => $result['dateexpire'],
 				'datecreated'  => date("Y-m-d H:i:s"),
