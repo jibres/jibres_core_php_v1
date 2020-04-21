@@ -266,7 +266,8 @@ class dashboard
 		$end_date = end($all_date);
 
 		$start_date = date("Y-m-d", strtotime($start_date));
-		$end_date   = date("Y-m-d", strtotime($end_date));
+		// $end_date   = date("Y-m-d", strtotime($end_date));
+		$end_date   = date("Y-m-d");
 
 		$datetime1  = date_create($start_date);
 		$datetime2  = date_create($end_date);
