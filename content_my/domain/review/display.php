@@ -1,4 +1,4 @@
-<?php $discount = 0; ?>
+<?php $giftCode = 0; ?>
 
 
 <div class="f">
@@ -119,16 +119,16 @@
           <div class="msg danger2 f align-center">
             <div class="c">
 <?php
-$discount = \dash\data::giftDetail_discount();
+$giftCode = \dash\data::giftDetail_discount();
   if(\dash\data::giftDetail_type() === 'percent')
   {
-    echo T_("Discount percent"). ':';
+    echo T_("Gift percent"). ':';
     echo \dash\fit::number(\dash\data::giftDetail_giftpercent());
     echo T_("%");
   }
   elseif(\dash\data::giftDetail_type() === 'amount')
   {
-    echo T_("Discount amount"). ':';
+    echo T_("Gift amount"). ':';
     echo \dash\fit::number(\dash\data::giftDetail_giftamount());
   }
   else
@@ -143,54 +143,73 @@ $discount = \dash\data::giftDetail_discount();
     </div>
 
 
-    <form method="post" autocomplete="off">
-      <div class="box impact">
-        <header><h2><?php echo T_("Register domain"); ?></h2></header>
-        <div class="body">
-          <?php if(\dash\data::userBudget() && false) {?>
-            <div class="check1">
-              <input type="checkbox" name="usebudget"  id="budget" checked>
-              <label for="budget"><?php echo T_("Use from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
-            </div>
-          <?php } //endif ?>
+    <div class="box impact">
+     <div class="body">
+      <form method="post" autocomplete="off">
+        <table class="tbl1 v5">
+          <tbody>
 
-          <table class="tbl1 v4">
-            <tbody>
-              <?php if(\dash\data::myPeriod()) {?>
-                <tr>
-                  <td><?php echo T_("Price") ?></td>
-                  <td class="ltr floatL"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?> </td>
-                </tr>
-              <?php } // endif ?>
-              <?php if($discount) {?>
-                <tr>
-                  <td><?php echo T_("Discount") ?></td>
-                  <td class="ltr floatL"><?php echo \dash\fit::number($discount); ?> <?php echo T_("Toman"); ?> </td>
-                </tr>
-              <?php } // endif ?>
-            <?php if(\dash\data::userBudget()) {?>
-                <tr class="active">
-                  <td>
-                    <div class="check1">
-                      <input type="checkbox" name="usebudget"  id="budget" checked>
-                      <label for="budget"><?php echo T_("Use from your budget"); ?></label>
-                    </div>
-                  </td>
-                  <td class="ltr floatL align-centers"><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></td>
-                </tr>
-            <?php } //endif ?>
-              <tr class="positive">
-                  <td><?php echo T_("Amount payable") ?></td>
-                  <td class="ltr floatL"><?php echo \dash\fit::number(\dash\data::myPrice() - $discount) ?> <?php echo T_("Toman"); ?></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <footer class="txtRa">
-          <button class="btn success"><?php echo T_("Register domain"); ?></button>
-        </footer>
-      </div>
-    </form>
+           <tr>
+            <th><?php echo T_("Domain Price") ?></th>
+            <?php if(\dash\data::myPeriod()) {?>
+            <td class="txtRa"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?></td>
+            <?php } else { ?>
+            <td class="txtRa"><del class="mLR10">36000</del><span>15000</span> <span class="fc-mute mLa5">Toman</span></td>
+            <?php } // endif ?>
+           </tr>
+
+<?php if($giftCode) {?>
+           <tr>
+            <th><?php echo T_("Your Gift") ?></th>
+            <td class="txtRa">
+              <span><?php echo \dash\fit::number($giftCode);?></span>
+              <span class="fc-mute mLa5"><?php echo T_("Toman");?></span>
+            </td>
+
+           </tr>
+<?php } // endif ?>
+
+<?php if(\dash\data::userBudget()) {?>
+           <tr>
+            <th>
+              <div><?php echo T_("Account Balance") ?></div>
+              <div class="check1">
+                <input type="checkbox" name="usebudget"  id="budget" checked>
+                <label for="budget"><?php echo T_("Pay from my account balance"); ?></label>
+              </div>
+            </th>
+            <td class="txtRa">
+              <span><?php echo \dash\fit::number(\dash\data::userBudget());?></span>
+              <span class="fc-mute mLa5"><?php echo T_("Toman");?></span>
+            </td>
+           </tr>
+<?php } //endif ?>
+
+           <tr>
+            <th><?php echo T_("Amount payable") ?></th>
+            <td class="txtRa collapsing">
+              <span class="txtB fs20"><?php echo \dash\fit::number(\dash\data::myPrice() - $giftCode) ?></span>
+              <span class="fc-mute mLa5"><?php echo T_("Toman");?></span>
+            </td>
+           </tr>
+
+          </tbody>
+        </table>
+      </form>
+     </div>
+    <footer class="txtRa">
+      <button class="btn success"><?php echo T_("Register domain"); ?></button>
+    </footer>
+    </div>
+
+
+        <?php if(\dash\data::userBudget() && false) { //@reza check ?>
+          <div class="check1">
+            <input type="checkbox" name="usebudget" id="budget" checked>
+            <label for="budget"><?php echo T_("Use from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
+          </div>
+        <?php } //endif ?>
+
 
   </div>
 </div>
