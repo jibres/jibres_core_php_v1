@@ -46,7 +46,22 @@ class get
 									'mydomain' => $insert['domain'],
 								];
 
-								\dash\log::set('domain_irnicChangeStatus', $log_meta);
+								if(isset($poll['detail'][$insert['domain']]['status']) && is_array($poll['detail'][$insert['domain']]['status']))
+								{
+									if(in_array('irnicRegistrationApproved', $poll['detail'][$insert['domain']]['status']))
+									{
+										\dash\log::set('domain_irnicDomainApproved', $log_meta);
+									}
+									else
+									{
+										\dash\log::set('domain_irnicChangeStatus', $log_meta);
+									}
+								}
+								else
+								{
+									\dash\log::set('domain_irnicChangeStatus', $log_meta);
+								}
+
 							}
 
 							if(isset($get_domain['id']))
