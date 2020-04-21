@@ -25,6 +25,7 @@ class view
 			'action'    => \dash\request::get('action'),
 			'lock'      => \dash\request::get('lock'),
 			'autorenew' => \dash\request::get('autorenew'),
+			'status' => \dash\request::get('status'),
 
 		];
 
@@ -48,7 +49,7 @@ class view
 
 		}
 
-		$count_group_by_status = \lib\app\nic_domain\dashboard::count_group_by_status();
+		$count_group_by_status = \lib\app\nic_domain\dashboard::count_group_by_status_nic();
 		\dash\data::groupByStatus($count_group_by_status);
 
 		\dash\data::filterBox($filterBox);

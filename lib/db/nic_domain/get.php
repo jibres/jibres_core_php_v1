@@ -5,6 +5,24 @@ namespace lib\db\nic_domain;
 class get
 {
 
+	public static function count_group_by_nic_status($_user_id)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				domainstatus.status
+			FROM
+				domainstatus
+			WHERE
+				domainstatus.domain IN (SELECT domain.name FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'deleted' AND domain.verify = 1 and domain.available = 0)
+			GROUP BY domainstatus.status
+		";
+
+		$result = \dash\db::get($query, ['status', 'count'], false, 'nic');
+		return $result;
+	}
+
 	public static function autorenew_list($_date, $_hour)
 	{
 		$query  =

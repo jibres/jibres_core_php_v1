@@ -187,6 +187,7 @@ class search
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
+			'status'     => 'string_100',
 
 		];
 
@@ -311,6 +312,12 @@ class search
 				self::$is_filtered          = true;
 				self::$filter_args[T_("Status")] = T_("Deactive");
 			}
+		}
+
+		if($data['status'])
+		{
+			$and[] = " (SELECT domainstatus.status FROM domainstatus WHERE domainstatus.domain = domain.name and domainstatus.status = '$data[status]') IS NOT NULL ";
+			$and[] = " domain.verify = 1 AND domain.available = 0 ";
 		}
 
 		$and[] = " domain.status != 'deleted' ";

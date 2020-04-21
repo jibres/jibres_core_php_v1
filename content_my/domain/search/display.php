@@ -1,25 +1,14 @@
 <div class="f">
-    <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(); ?>" class="stat x70 <?php if(!\dash\request::get()) { echo ' active';} ?>" >
-            <h3><?php echo T_("All"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_all()); ?></div>
-        </a>
-    </div>
-
-    <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(); ?>?action=active" class="stat x70 <?php if(\dash\request::get('action') === 'active') { echo ' active';} ?>" >
-            <h3><?php echo T_("Active"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_active()); ?></div>
-        </a>
-    </div>
-
-    <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(); ?>?action=deactive" class="stat x70 <?php if(\dash\request::get('action') === 'deactive') { echo ' active';} ?>" >
-            <h3><?php echo T_("Deactive"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_deactive()); ?></div>
-        </a>
-    </div>
-
+<?php if (\dash\data::groupByStatus() && is_array(\dash\data::groupByStatus()))  {?>
+    <?php foreach (\dash\data::groupByStatus() as $status => $count) {?>
+        <div class="c pRa5">
+            <a href="<?php echo \dash\url::that(). '?status='. $status ?>" class="stat x70 <?php if(\dash\request::get('status') == $status) { echo ' active';} ?>" >
+                <h3><?php echo T_($status); ?></h3>
+                <div class="val"><?php echo \dash\fit::number($count); ?></div>
+            </a>
+        </div>
+    <?php } // endfor ?>
+<?php } // endif ?>
 
 </div>
 

@@ -104,6 +104,20 @@ class dashboard
 		return $result;
 	}
 
+	public static function count_group_by_status_nic()
+	{
+
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
+		$user_id = \dash\user::id();
+
+		$list = \lib\db\nic_domain\get::count_group_by_nic_status($user_id);
+
+		return $list;
+	}
 
 	public static function count_group_by_status()
 	{
