@@ -15,7 +15,7 @@
 
             <button class="btn success block"><?php echo T_("Let's go"); ?></button>
           </form>
-          <img src="<?php echo \dash\url::cdn(); ?>/img/store/your-brand.svg" alt='<?php echo T_("Create a store on Jibres"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/business/your-brand.svg" alt='<?php echo T_("Create a store on Jibres"); ?>'>
 
         <?php }else{ ?>
 
@@ -35,7 +35,7 @@
 
             <a href="<?php echo \dash\url::this(); ?>" class="btn block outline mT10 success"><?php echo T_("Back"); ?></a>
 
-            <img src="<?php echo \dash\url::cdn(); ?>/img/store/limit1.gif" alt='<?php echo T_("Limit of create store"); ?>'>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/business/limit1.gif" alt='<?php echo T_("Limit of create store"); ?>'>
 
 
         <?php } //endif ?>

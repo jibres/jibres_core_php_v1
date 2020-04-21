@@ -16,7 +16,7 @@
           </form>
 
         </div>
-        <img src="<?php echo \dash\url::cdn(); ?>/img/store/choose-subdomain.svg" alt='<?php echo T_("choose subdomain on Jibres"); ?>'>
+        <img src="<?php echo \dash\url::cdn(); ?>/img/business/choose-subdomain.svg" alt='<?php echo T_("choose subdomain on Jibres"); ?>'>
       </div>
       <div class="f align-center">
         <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn"><?php echo T_("Cancel"); ?></a></div>

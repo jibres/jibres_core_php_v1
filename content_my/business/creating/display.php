@@ -8,7 +8,7 @@
           <a style="display: none;" id="linkmhe" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Try again"); ?></a>
 
         </div>
-        <img class="loadingGif" src="<?php echo \dash\url::cdn(); ?>/img/store/loading1.gif" alt='<?php echo T_("Loading Jibres"); ?>'>
+        <img class="loadingGif" src="<?php echo \dash\url::cdn(); ?>/img/business/loading1.gif" alt='<?php echo T_("Loading Jibres"); ?>'>
 
       </div>
     </div>
