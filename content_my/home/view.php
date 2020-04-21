@@ -13,7 +13,7 @@ class view
 		{
 			\dash\data::action_text(T_('Add Your Business'));
 			\dash\data::action_icon('plus');
-			\dash\data::action_link(\dash\url::this(). '/store/start');
+			\dash\data::action_link(\dash\url::this(). '/business/start');
 
 			$dashboard_detail = \lib\app\my\dashboard::detail();
 			\dash\data::dashboardDetail($dashboard_detail);

@@ -5,7 +5,7 @@
 
     <section class="f">
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::here() ?>/store"  class="stat">
+      <a href="<?php echo \dash\url::here() ?>/business"  class="stat">
        <h3><?php echo T_("Business");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'store_count'));?></div>
       </a>
@@ -55,7 +55,7 @@ if($listStore_owner && is_array($listStore_owner))
        </li>
 <?php }//endfor ?>
        <li>
-        <a class="f" href="<?php echo \dash\url::here(); ?>/store/start">
+        <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
          <img src="<?php echo \dash\url::icon();?>" alt="<?php echo T_("Add New Business");?>">
          <div class="key"><?php echo T_("Add New Business");?></div>
          <div class="go plus"></div>
@@ -139,7 +139,7 @@ if($listStore_staff && is_array($listStore_staff))
    <nav class="items">
     <ul>
      <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/store/start">
+      <a class="f" href="<?php echo \dash\url::here();?>/business/start">
        <div class="key"><?php echo T_('Add Your First Business');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firststore')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>

@@ -10,7 +10,7 @@
        </li>
 
        <li>
-        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/store">
+        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/business">
          <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
          <div class="key"><?php echo T_("Stores"); ?></div>
          <div class="go"></div>
