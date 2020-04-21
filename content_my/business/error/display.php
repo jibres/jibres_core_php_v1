@@ -3,7 +3,7 @@
       <div class="body">
         <div class="pad">
           <h1><?php echo T_("Oops!"); ?></h1>
-          <p> <?php echo T_("We can not build your store!"); ?> <?php echo T_("Please contact us to solve this problem."); ?></p>
+          <p> <?php echo T_("We can not build your business!"); ?> <?php echo T_("Please contact us to solve this problem."); ?></p>
 
           <?php if(\dash\data::StoreCreateErrorCode()) {?>
 

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Create a new store"));
+		\dash\face::title(T_("Create a new business"));
 
 		$termLink = '<a href="'. \dash\url::kingdom(). '/terms" target="_blank">'. T_('Terms of Service') .'</a>';
 		\dash\data::termOfService(T_("By press Create button, you're agreeing to our :term.", ['term' => $termLink]));

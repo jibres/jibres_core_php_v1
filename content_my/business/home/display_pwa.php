@@ -44,7 +44,7 @@
   <h2><?php echo T_("#1 World Sales Engineering System"); ?></h2>
 
   <div class="buildBtn">
-    <a class="btn xl master" href="<?php echo \dash\url::here(); ?>/business/start"><?php echo T_("Build my own store"); ?></a>
+    <a class="btn xl master" href="<?php echo \dash\url::here(); ?>/business/start"><?php echo T_("Build my own business"); ?></a>
   </div>
 
   <div class="f salesChannel s0">
@@ -62,7 +62,7 @@
     </div>
     <div class="c3 pLa10">
       <div class="msg pTB20">
-        <h3><?php echo T_("Sale in store"); ?></h3>
+        <h3><?php echo T_("Sale in business"); ?></h3>
         <a target="_blank" href="<?php echo \dash\url::support(); ?>/business/pos"><?php echo T_("Read more"); ?></a>
       </div>
     </div>

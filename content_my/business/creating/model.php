@@ -50,7 +50,7 @@ class model
 
 				\dash\session::set('createNewStore_error', \dash\notif::get(), 'CreateNewStore');
 
-				\dash\header::status(501, T_("Can not create your store!"));
+				\dash\header::status(501, T_("Can not create your business!"));
 				return false;
 			}
 		}

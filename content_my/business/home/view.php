@@ -22,8 +22,8 @@ class view
 		{
 			\dash\face::title(T_("Store Lists"));
 
-			// btn to add new store
-			\dash\data::action_text(T_('Add new store'));
+			// btn to add new business
+			\dash\data::action_text(T_('Add new business'));
 			\dash\data::action_link(\dash\url::this(). '/start');
 		}
 		else

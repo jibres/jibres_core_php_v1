@@ -12,7 +12,7 @@
               <label class="addon ltr" for="sd">.Jibres.<?php echo \dash\url::tld(); ?></label>
             </div>
 
-            <button class="btn success block"><?php echo T_("Build my online store"); ?></button>
+            <button class="btn success block"><?php echo T_("Build my online business"); ?></button>
           </form>
 
         </div>

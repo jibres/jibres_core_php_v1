@@ -17,7 +17,7 @@ class view
 		if(\dash\detect\device::detectPWA())
 		{
 			// back
-			\dash\face::title(T_("Create a new store"));
+			\dash\face::title(T_("Create a new business"));
 			\dash\data::back_text(T_('Cancel'));
 			\dash\data::back_link(\dash\url::this());
 		}

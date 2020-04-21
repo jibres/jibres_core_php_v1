@@ -34,7 +34,7 @@ class model
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not add new store!"));
+			\dash\notif::error(T_("Can not add new business!"));
 			return false;
 		}
 	}

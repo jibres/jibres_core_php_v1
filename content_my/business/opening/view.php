@@ -36,7 +36,7 @@ class view
 		if(\dash\detect\device::detectPWA())
 		{
 			// back
-			\dash\data::back_text(T_('My stores'));
+			\dash\data::back_text(T_('My business'));
 			\dash\data::back_link(\dash\url::this());
 		}
 	}
