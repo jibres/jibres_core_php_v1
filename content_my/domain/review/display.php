@@ -143,9 +143,9 @@ $giftCode = \dash\data::giftDetail_discount();
     </div>
 
 
+    <form method="post" autocomplete="off">
     <div class="box impact">
      <div class="body">
-      <form method="post" autocomplete="off">
         <table class="tbl1 v5">
           <tbody>
 
@@ -195,12 +195,12 @@ $giftCode = \dash\data::giftDetail_discount();
 
           </tbody>
         </table>
-      </form>
      </div>
     <footer class="txtRa">
       <button class="btn success"><?php echo T_("Register domain"); ?></button>
     </footer>
     </div>
+      </form>
 
 
         <?php if(\dash\data::userBudget() && false) { //@reza check ?>
