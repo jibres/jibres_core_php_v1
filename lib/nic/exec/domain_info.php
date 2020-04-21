@@ -48,7 +48,7 @@ class domain_info
 			$check_domain = \lib\nic\exec\domain_check::check($_domain);
 			if(isset($check_domain['available']) && $check_domain['available'])
 			{
-				return ['status' => ['irnicRegistrationRejected'], 'force_disable' => true];
+				return ['available' => true, 'force_disable' => true];
 			}
 		}
 

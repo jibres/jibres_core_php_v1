@@ -143,6 +143,7 @@ class get
 			$update_domain['ns4'] = \dash\validate::string($fetch['ns'][3], false);
 		}
 
+		self::update_domain_status($_domain, $_load_domain, $fetch);
 
 		if(isset($fetch['force_disable']) && $fetch['force_disable'])
 		{
@@ -154,6 +155,57 @@ class get
 		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
 
 		\lib\db\nic_domain\update::update_by_dumain($update_domain, $_load_domain['name']);
+
+	}
+
+
+	private static function update_domain_status($_domain, $_load_domain, $_fetch)
+	{
+		$get_current_domain_status = \lib\db\nic_domainstatus\get::by_domain($_domain);
+		if(!is_array($get_current_domain_status))
+		{
+			$get_current_domain_status = [];
+		}
+
+		$current_status = array_column($get_current_domain_status, 'status');
+
+		$new_status = [];
+
+		if(isset($_fetch['status']) && is_array($_fetch['status']))
+		{
+			$new_status = $_fetch['status'];
+		}
+
+		$must_add    = array_diff($new_status, $current_status);
+		$must_remove = array_diff($current_status, $new_status);
+
+		if(!empty($must_add))
+		{
+
+			$add_multi = [];
+			foreach ($must_add as $key => $value)
+			{
+				$add_multi[] =
+				[
+					'domain'      => $_domain,
+					'status'      => $value,
+					'active'      => 1,
+					'datecreated' => date("Y-m-d H:i:s"),
+				];
+			}
+
+			\lib\db\nic_domainstatus\insert::multi_insert($add_multi);
+		}
+
+		if(!empty($must_remove))
+		{
+			foreach ($must_remove as $key => $value)
+			{
+				$update = ['active' => 0, 'datemodified' => date("Y-m-d H:i:s")];
+				$where  = ['domain' => $_domain, 'active' => 1, 'status' => $value];
+				\lib\db\nic_domainstatus\update::update_where($update, $where);
+			}
+		}
 
 	}
 
