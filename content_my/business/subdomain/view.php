@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Store online address"));
+		\dash\face::title(T_("Business address"));
 
 		\lib\app\store\timeline::set('subdomain');
 

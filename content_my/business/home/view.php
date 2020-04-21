@@ -20,7 +20,7 @@ class view
 		// if business is not exist
 		if(isset($myStore['owner']) && $myStore['owner'])
 		{
-			\dash\face::title(T_("Store Lists"));
+			\dash\face::title(T_("Business Lists"));
 
 			// btn to add new business
 			\dash\data::action_text(T_('Add new business'));
