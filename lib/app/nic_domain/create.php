@@ -30,6 +30,7 @@ class create
 			'minus_transaction' => 'price',
 			'after_pay'         => 'bit',
 			'user_id'           => 'id',
+			'admin_register_force' => 'bit',
 
 		];
 
@@ -371,7 +372,7 @@ class create
 			}
 			else
 			{
-				$user_budget = \dash\user::budget();
+				$user_budget = floatval(\dash\db\transactions::budget($user_id));
 
 				if($data['usebudget'] && $user_budget)
 				{
