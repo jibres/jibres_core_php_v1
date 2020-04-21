@@ -1,5 +1,5 @@
 <?php
-namespace content_my\store\home;
+namespace content_my\business\home;
 
 
 class view

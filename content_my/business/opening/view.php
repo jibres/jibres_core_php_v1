@@ -1,5 +1,5 @@
 <?php
-namespace content_my\store\opening;
+namespace content_my\business\opening;
 
 
 class view

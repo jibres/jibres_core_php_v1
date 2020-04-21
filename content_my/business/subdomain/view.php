@@ -1,5 +1,5 @@
 <?php
-namespace content_my\store\subdomain;
+namespace content_my\business\subdomain;
 
 
 class view

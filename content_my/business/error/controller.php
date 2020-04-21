@@ -1,5 +1,5 @@
 <?php
-namespace content_my\store\error;
+namespace content_my\business\error;
 
 
 class controller

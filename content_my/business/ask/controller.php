@@ -1,5 +1,5 @@
 <?php
-namespace content_my\store\ask;
+namespace content_my\business\ask;
 
 
 class controller

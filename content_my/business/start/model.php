@@ -1,5 +1,5 @@
 <?php
-namespace content_my\store\start;
+namespace content_my\business\start;
 
 
 class model
