@@ -55,6 +55,29 @@ class view
 		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
 		\dash\data::sortLink($sortLink);
 
+		$get_setting = \lib\db\nic_usersetting\get::my_setting(\dash\user::id());
+
+		if(isset($get_setting['autorenewperiod']))
+		{
+			$autorenewperiod = $get_setting['autorenewperiod'];
+		}
+		else
+		{
+			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+		}
+		\dash\data::autorenewperiod($autorenewperiod);
+
+		if(isset($get_setting['domainlifetime']))
+		{
+			$domainlifetime = $get_setting['domainlifetime'];
+		}
+		else
+		{
+			$domainlifetime = \lib\app\nic_usersetting\defaultval::domainlifetime();
+		}
+
+		$life_time   = \lib\app\nic_usersetting\defaultval::get_time($domainlifetime);
+
 	}
 }
 ?>

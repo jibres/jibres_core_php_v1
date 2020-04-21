@@ -85,8 +85,7 @@ else
 
                 <td class="  fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
                 <td>
-                    <div><?php echo T_("1 Year"). ' '. \lib\app\nic_domain\price::register_string('1year'); ?></div>
-                    <div><?php echo T_("5 Year"). ' '. \lib\app\nic_domain\price::register_string('5year'); ?></div>
+                    <div><?php echo \lib\app\nic_domain\price::register_string(\dash\data::autorenewperiod()); ?></div>
 
 
                 </td>
