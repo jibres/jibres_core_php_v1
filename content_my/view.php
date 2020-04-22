@@ -10,7 +10,7 @@ class view
 		\dash\data::include_highcharts(true);
 
 
-		if(\dash\url::module() === null || \dash\url::module() === 'store')
+		if(\dash\url::module() === null || \dash\url::module() === 'business')
 		{
 			$myStore = \lib\app\store\mystore::list();
 			\dash\data::listStore($myStore);

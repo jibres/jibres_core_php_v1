@@ -196,19 +196,18 @@ $giftCode = \dash\data::giftDetail_discount();
           </tbody>
         </table>
      </div>
-    <footer class="txtRa">
-      <button class="btn success"><?php echo T_("Register domain"); ?></button>
+    <footer class="f">
+      <div class="cauto">
+        <a href="<?php echo \dash\url::this(). '/buy/'. \dash\data::dataRow_name() ?>" class="btn"><?php echo T_("Cancel") ?></a>
+      </div>
+      <div class="c"></div>
+      <div class="cauto">
+        <button class="btn success"><?php echo T_("Register domain"); ?></button>
+      </div>
     </footer>
     </div>
       </form>
 
-
-        <?php if(\dash\data::userBudget() && false) { //@reza check ?>
-          <div class="check1">
-            <input type="checkbox" name="usebudget" id="budget" checked>
-            <label for="budget"><?php echo T_("Use from your budget"); ?> <small><?php echo \dash\fit::number(\dash\data::userBudget()); ?> <?php echo T_("Toman") ?></small></label>
-          </div>
-        <?php } //endif ?>
 
 
   </div>
