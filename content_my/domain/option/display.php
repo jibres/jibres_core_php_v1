@@ -38,7 +38,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <select name="domainlifetime"  class="select22">
+        <select name="domainlifetime" class="select22">
           <option></option>
           <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
           <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
@@ -51,74 +51,71 @@
 </section>
 
 
-
-
-<div class="f justify-center">
-  <div class="c6 m8 s12">
-
-    <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Your domain setting"); ?></h2></header>
-
+<section class="f" data-option='default-dns'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Domain Default DNS");?></h3>
       <div class="body">
+        <p><?php echo T_("This will help you to buy new domains faster.");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" autocomplete="off">
+    <div class="action f">
 
-        <nav class="items">
-         <ul>
-          <li>
-           <a class="f" href="<?php echo \dash\url::this();?>/irnic">
-            <div class="key"><?php echo T_('IRNIC contact manager');?></div>
-            <div class="go"></div>
-           </a>
-          </li>
-         </ul>
-        </nav>
-
-        <hr>
-
-        <div class="mB10 msg">
-          <?php echo T_("Set default DNS record"); ?>
-          <br>
-          <?php echo T_("This will help you to fill in their default DNS when you register new domain"); ?>
-
+      <div class="c12 mB5">
+        <div class="input ltr">
+          <label class="addon" for="ns1"><?php echo T_("DNS #1"); ?></label>
+          <input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::dataRow_ns1(); ?>">
         </div>
-        <div class="f mB20">
-          <div class="c6 s12">
-            <label for="ns1"><?php echo T_("DNS #1"); ?></label>
-            <div class="input ltr">
-              <input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::dataRow_ns1(); ?>">
-            </div>
-          </div>
-
-          <div class="c6 s12">
-            <div class="mLa5">
-              <label for="ns2"><?php echo T_("DNS #2"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::dataRow_ns2(); ?>">
-              </div>
-            </div>
-          </div>
-
-          <div class="c6 s12">
-            <label for="ns3"><?php echo T_("DNS #3"); ?></label>
-            <div class="input ltr">
-              <input type="text" name="ns3" id="ns3" maxlength="50" value="<?php echo \dash\data::dataRow_ns3(); ?>">
-            </div>
-          </div>
-
-          <div class="c6 s12">
-            <div class="mLa5">
-              <label for="ns4"><?php echo T_("DNS #4"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="ns4" id="ns4" maxlength="50" value="<?php echo \dash\data::dataRow_ns4(); ?>">
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="c12 mB5">
+        <div class="input ltr">
+          <label class="addon" for="ns2"><?php echo T_("DNS #2"); ?></label>
+          <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::dataRow_ns2(); ?>">
         </div>
-
+      </div>
+      <div class="c12 mB5">
+        <div class="input ltr">
+          <label class="addon" for="ns3"><?php echo T_("DNS #3"); ?></label>
+          <input type="text" name="ns3" id="ns3" maxlength="50" value="<?php echo \dash\data::dataRow_ns3(); ?>">
+        </div>
+      </div>
+      <div class="c12 mB5">
+        <div class="input ltr">
+          <label class="addon" for="ns4"><?php echo T_("DNS #4"); ?></label>
+          <input type="text" name="ns4" id="ns4" maxlength="50" value="<?php echo \dash\data::dataRow_ns4(); ?>">
+        </div>
       </div>
 
-      <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Save"); ?></button>
-      </footer>
-    </form>
+      <div class="c12 mT10">
+        <button class="btn success block"><?php echo T_("Save"); ?></button>
+      </div>
+
+    </div>
+  </form>
+</section>
+
+
+<section class="f" data-option='default-handle'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Domain Default IRNIC Handle");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can manage your IRNIC handle and choose one of them as default. Buy set default you can buy new domains faster.");?></p>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="c4 s12">
+    <div class="action">
+        <select name="domainlifetime" class="select22">
+          <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
+          <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
+          <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?> (<?php echo T_("default"); ?>)</option>
+          <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
+          <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
+        </select>
+    </div>
+  </div>
+</section>
+

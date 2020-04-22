@@ -26,7 +26,7 @@
 
     <section class="box domainQuickBuy">
       <h3><a href="<?php echo \dash\url::here() ?>/domain"><?php echo T_("Search for your dream domain"); ?></a></h3>
-      <p><?php echo "Every website start with a great domain name"; ?></p>
+      <p><?php echo T_("Every website start with a great domain name"); ?></p>
       <form method="get" action="<?php echo \dash\url::here(); ?>/domain/buy" autocomplete='off'>
         <div class="input ltr">
           <input type="search" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Enter your idea for domain name') ?>'>
@@ -101,7 +101,7 @@ if($listStore_staff && is_array($listStore_staff))
     <h3><?php echo T_("Account Status");?></h3>
    </section>
 
-   <nav class="items">
+   <nav class="items long">
     <ul>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my">
