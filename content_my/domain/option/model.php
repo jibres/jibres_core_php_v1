@@ -58,15 +58,7 @@ class model
 			'ns4'             => \dash\request::post('ns4'),
 		];
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api    = new \lib\nic\api();
-			$create     = $get_api->domain_option($post);
-		}
-		else
-		{
-			$create = \lib\app\nic_usersetting\set::set($post);
-		}
+		$create = \lib\app\nic_usersetting\set::set($post);
 
 		if($create && \dash\engine\process::status())
 		{
