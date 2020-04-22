@@ -619,6 +619,7 @@ class posts
 				\dash\notif::error(T_("Invalid parameter parent"), 'parent');
 				return false;
 			}
+			$data['parent'] = $parent;
 
 			$parent_detail = \dash\db\posts::get(['id' => $parent, 'limit' => 1]);
 			if(!isset($parent_detail['slug']) || !isset($parent_detail['url']))
@@ -641,8 +642,8 @@ class posts
 
 					if(isset($current_post_parent_detail['slug']) && isset($current_post_parent_detail['url']))
 					{
-						$slug = str_replace($current_post_parent_detail['slug']. '-', '', $slug);
-						$url = str_replace($current_post_parent_detail['url']. '/', '', $url);
+						$slug = str_replace($current_post_parent_detail['slug']. '-', '', $data['slug']);
+						$url = str_replace($current_post_parent_detail['url']. '/', '', $data['url']);
 
 						$parent_slug = $parent_detail['slug'];
 						$parent_url = $parent_detail['url'];
