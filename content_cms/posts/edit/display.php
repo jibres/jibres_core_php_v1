@@ -731,7 +731,7 @@ $myFirstURL = '';
 
               <?php if(isset($value['id']) && $value['id'] == \dash\data::dataRow_id()) {}else{?>
 
-                <option value="<?php echo $value['id']; ?>" <?php if(\dash\data::dataRow_parent() == $value['id']) { echo 'selected';} ?>><?php echo substr($value['title'], 0, 50); ?></option>
+                <option value="<?php echo $value['id']; ?>" <?php if(\dash\data::dataRow_parent() == $value['id']) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
               <?php } //endif ?>
 
         <?php } //endfor ?>
