@@ -146,7 +146,7 @@ class renew
 
 		$jibres_nic_contact = 'ji128-irnic';
 
-		if((isset($get_domain_detail['reseller']) && $get_domain_detail['reseller'] === $jibres_nic_contact) || (isset($get_domain_detail['bill']) && $get_domain_detail['bill'] === $jibres_nic_contact))
+		if((isset($get_domain_detail['reseller']) && $get_domain_detail['reseller'] !== $jibres_nic_contact) && (isset($get_domain_detail['bill']) && $get_domain_detail['bill'] !== $jibres_nic_contact))
 		{
 			// nothing
 		}
