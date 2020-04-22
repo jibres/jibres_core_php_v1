@@ -28,144 +28,10 @@ class search
 			return false;
 		}
 
-		$condition =
-		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'dns'   => 'code',
-		];
+		$_args['is_admin'] = true;
 
-		$require = [];
+		return self::get_list($_query_string, $_args);
 
-		$meta =
-		[
-			'field_title' =>
-			[
-
-			],
-		];
-
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-
-		$and         = [];
-		$meta        = [];
-		$or          = [];
-
-		$meta['limit'] = 20;
-
-
-		$order_sort  = null;
-
-
-		if($data['dns'])
-		{
-			$dns_id = \dash\coding::decode($data['dns']);
-			if($dns_id)
-			{
-				$and[]                      = " domain.dns = $dns_id ";
-				self::$filter_args[T_("DNS")] = $data['dns'];
-				self::$is_filtered          = true;
-			}
-		}
-
-
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
-
-		$query_string = \dash\validate::search($_query_string);
-
-
-		if($query_string)
-		{
-			$or[]        = " domain.name LIKE '%$query_string%'";
-
-
-
-			self::$is_filtered = true;
-		}
-
-
-		if($data['sort'] && !$order_sort)
-		{
-			if(in_array($data['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
-			{
-
-				$sort = mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = mb_strtolower($data['order']);
-				}
-
-				$order_sort = " ORDER BY $sort $order";
-			}
-		}
-
-		if(!$order_sort)
-		{
-			$order_sort = " ORDER BY domain.id DESC";
-		}
-
-
-
-		$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
-
-		if(is_array($list))
-		{
-			$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
-		}
-		else
-		{
-			$list = [];
-		}
-
-		$users_id = array_column($list, 'user_id');
-		$users_id = array_filter($users_id);
-		$users_id = array_unique($users_id);
-
-		if($users_id)
-		{
-			$load_some_user = \dash\db\users\get::by_multi_id(implode(',', $users_id));
-			if(is_array($load_some_user))
-			{
-				$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
-				foreach ($list as $key => $value)
-				{
-					if(isset($value['user_id']) && $value['user_id'] && isset($load_some_user[$value['user_id']]))
-					{
-						$user_detail = $load_some_user[$value['user_id']];
-						$user_detail = \dash\app\user::ready($user_detail);
-						$list[$key]['user_detail'] = $user_detail;
-					}
-					else
-					{
-						$list[$key]['user_detail'] = [];
-					}
-				}
-			}
-		}
-
-		$filter_args_data = [];
-
-		foreach (self::$filter_args as $key => $value)
-		{
-			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
-			{
-				$filter_args_data[substr($value, 1)] = $list[0][$key];
-			}
-			else
-			{
-				$filter_args_data[$key] = $value;
-			}
-		}
-
-		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
-
-		return $list;
 	}
 
 
@@ -177,7 +43,14 @@ class search
 			return false;
 		}
 
-		$userId = \dash\user::id();
+		$_args['user_id'] = \dash\user::id();
+
+		return self::get_list($_query_string, $_args);
+	}
+
+
+	public static function get_list($_query_string, $_args)
+	{
 
 		$condition =
 		[
@@ -187,7 +60,9 @@ class search
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
-			'status'     => 'string_100',
+			'status'    => 'string_100',
+			'user_id'   => 'id',
+			'is_admin'  => 'bit',
 
 		];
 
@@ -255,7 +130,11 @@ class search
 			$order_sort = " ORDER BY domain.id DESC";
 		}
 
-		if($data['predict'])
+		if($data['is_admin'])
+		{
+
+		}
+		elseif($data['predict'])
 		{
 			$next_year = date("Y-m-d", strtotime("+5 year"));
 			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
@@ -335,9 +214,41 @@ class search
 
 		$and[] = " domain.status != 'deleted' ";
 
-		$and[] = " domain.user_id = $userId ";
+		if($data['user_id'])
+		{
+			$and[] = " domain.user_id = $data[user_id] ";
+		}
 
 		$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
+
+		if($data['is_admin'])
+		{
+			$users_id = array_column($list, 'user_id');
+			$users_id = array_filter($users_id);
+			$users_id = array_unique($users_id);
+
+			if($users_id)
+			{
+				$load_some_user = \dash\db\users\get::by_multi_id(implode(',', $users_id));
+				if(is_array($load_some_user))
+				{
+					$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
+					foreach ($list as $key => $value)
+					{
+						if(isset($value['user_id']) && $value['user_id'] && isset($load_some_user[$value['user_id']]))
+						{
+							$user_detail = $load_some_user[$value['user_id']];
+							$user_detail = \dash\app\user::ready($user_detail);
+							$list[$key]['user_detail'] = $user_detail;
+						}
+						else
+						{
+							$list[$key]['user_detail'] = [];
+						}
+					}
+				}
+			}
+		}
 
 		if(is_array($list))
 		{
@@ -370,7 +281,7 @@ class search
 		if($data['predict'])
 		{
 			$new_list = \lib\db\nic_domain\search::calc_pay_period_predict($and, $or, $order_sort, $meta);
-			self::calc_pay_period_predict($new_list, $userId);
+			self::calc_pay_period_predict($new_list, $data['user_id']);
 		}
 
 		return $list;

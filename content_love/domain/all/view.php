@@ -12,18 +12,10 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-		\dash\data::action_text(T_('Log'));
-		\dash\data::action_link(\dash\url::this(). '/log');
-
-
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
-			'dns'  => \dash\request::get('dns'),
-			// 'holder' => \dash\request::get('holder'),
-			// 'tech'   => \dash\request::get('tech'),
-			// 'bill'   => \dash\request::get('bill'),
 		];
 
 		\dash\temp::set('disableDomainFetch', true);
