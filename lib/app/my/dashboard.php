@@ -39,10 +39,11 @@ class dashboard
 
 		$avatar = \dash\user::detail('avatar');
 
-		if(substr($avatar, -22) === 'img/default/avatar.png')
+		if(strpos($avatar, 'img/avatar/') !== false)
 		{
 			$avatar = null;
 		}
+
 
 		$result['complete_profile'] =
 		[
@@ -51,7 +52,7 @@ class dashboard
 			'username'     => \dash\user::detail('username') ? true : false,
 			'birthday'     => \dash\user::detail('birthday') ? true : false,
 			'avatar'       => $avatar ? true : false,
-			'firststore'   => $listStore ? true : false,
+			'firststore'   => $store_count ? true : false,
 			'firstproduct' => $firstproduct ? true : false,
 			'firstorder'   => $firstorder ? true : false,
 			'firstdomain'  => $domain_count ? true : false,
