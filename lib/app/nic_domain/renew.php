@@ -149,15 +149,21 @@ class renew
 
 		$jibres_nic_contact = 'ji128-irnic';
 
-		if($bill === $jibres_nic_contact)
+
+		if($reseller === $jibres_nic_contact)
 		{
 			// is ok
 		}
-		elseif($reseller === $jibres_nic_contact)
+		elseif($bill === $jibres_nic_contact)
 		{
 			// is ok
 		}
-		elseif($reseller && $reseller !== $jibres_nic_contact && $bill && $bill !== $jibres_nic_contact)
+		elseif($bill === null)
+		{
+			// Don't know
+			// Buy from nic.ir and set bill on jibres. for example rezamohiti.ir
+		}
+		else
 		{
 			\dash\temp::set('ji128-irnic-not-allow', true);
 			$msg = T_("We can not renew this domain because the bill holder of IRNIC can not access to renew");
