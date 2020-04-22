@@ -24,17 +24,19 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
 
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
 		$load = \lib\db\nic_usersetting\get::my_setting(\dash\user::id());
 		if(isset($load['id']))
 		{
-			$data['datemodified'] = date("Y-m-d H:i:s");
-			\lib\db\nic_usersetting\update::update($data, $load['id']);
+			$args['datemodified'] = date("Y-m-d H:i:s");
+			\lib\db\nic_usersetting\update::update($args, $load['id']);
 		}
 		else
 		{
-			$data['user_id']     = \dash\user::id();
-			$data['datecreated'] = date("Y-m-d H:i:s");
-			\lib\db\nic_usersetting\insert::new_record($data);
+			$args['user_id']     = \dash\user::id();
+			$args['datecreated'] = date("Y-m-d H:i:s");
+			\lib\db\nic_usersetting\insert::new_record($args);
 		}
 
 		\dash\notif::ok(T_("Setting saved"));
