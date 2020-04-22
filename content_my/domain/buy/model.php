@@ -57,7 +57,7 @@ class model
 
 		if(\dash\engine\process::status() && isset($result['domain_id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/review?id='. $result['domain_id']);
+			\dash\redirect::to(\dash\url::this(). '/review?type=register&id='. $result['domain_id']);
 		}
 
 

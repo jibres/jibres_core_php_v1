@@ -5,7 +5,7 @@
   <div class="c4 s12 pRa10">
 
     <div class="stat">
-     <h3><?php echo T_("Domain Name");?></h3>
+     <h3><?php echo \dash\data::myActionTitle();?></h3>
      <div class="val ltr"><?php echo \dash\data::dataRow_name(); ?></div>
     </div>
 

@@ -29,10 +29,36 @@ class controller
 		}
 		else
 		{
+			self::have_error();
 			// \dash\header::status(404, T_("Detail is wrong!"));
 		}
 
-		$load_last_activity = \lib\app\nic_domainaction\get::last_record_domain_id_caller($id, 'domain_buy_ready');
+		$type = \dash\validate::enum(\dash\request::get('type'), true, ['enum' => ['register', 'renew', 'transfer']]);
+		if(!$type)
+		{
+			self::have_error();
+		}
+
+		$load_last_activity = \lib\app\nic_domainaction\get::last_record_domain_id($id);
+
+		switch (\dash\request::get('type'))
+		{
+			case 'register':
+				if(isset($load_last_activity['action']) && $load_last_activity['action'] === 'domain_buy_ready')
+				{
+					// no problem
+				}
+				else
+				{
+					self::have_error();
+				}
+				break;
+
+			default:
+				self::have_error();
+				break;
+		}
+
 		\dash\data::dataRowAction($load_last_activity);
 		\dash\data::dataRow($detail);
 
@@ -55,6 +81,12 @@ class controller
 
 
 
+	}
+
+
+	private static function have_error()
+	{
+		\dash\redirect::to(\dash\url::this());
 	}
 }
 ?>

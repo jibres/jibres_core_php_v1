@@ -9,7 +9,7 @@ class insert
 	public static function new_record($_args)
 	{
 
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
+		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
 
 		if($set)
 		{

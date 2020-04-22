@@ -10,5 +10,12 @@ class get
 		$detail = \lib\app\nic_domainaction\ready::row($detail);
 		return $detail;
 	}
+
+	public static function last_record_domain_id($_id)
+	{
+		$detail = \lib\db\nic_domainaction\get::last_record_domain_id($_id);
+		$detail = \lib\app\nic_domainaction\ready::row($detail);
+		return $detail;
+	}
 }
 ?>

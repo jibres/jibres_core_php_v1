@@ -29,6 +29,17 @@ class view
 			$detail = \lib\app\gift\check::check($gift_args);
 			\dash\data::giftDetail($detail);
 		}
+
+		switch (\dash\request::get('type'))
+		{
+			case 'register':
+				\dash\data::myActionTitle(T_("Register domain"));
+				break;
+
+			default:
+				# code...
+				break;
+		}
 	}
 }
 ?>
