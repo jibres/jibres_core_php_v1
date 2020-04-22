@@ -13,7 +13,7 @@ class app
 	 */
 	public static function static_logo_url()
 	{
-		$url = \dash\url::siftal(). '/images/default/logo.png';
+		$url = \dash\url::cdn(). '/img/logo/default.png';
 		return $url;
 	}
 
@@ -21,16 +21,16 @@ class app
 	/**
 	 * return the url of static logo file
 	 */
-	public static function static_image_url($_type = 'image')
+	public static function static_image_url()
 	{
-		$url = \dash\url::siftal(). '/images/default/'. $_type. '.png';
+		$url = \dash\url::cdn(). '/img/default/image.png';
 		return $url;
 	}
 
 
 	public static function static_avatar_url($_type = 'default')
 	{
-		$url = \dash\url::siftal(). '/';
+		$url = \dash\url::cdn(). '/';
 		switch ($_type)
 		{
 			case 'male':
@@ -42,7 +42,7 @@ class app
 				break;
 
 			default:
-				$url .= 'img/default/avatar.png';
+				$url .= 'img/avatar/default.png';
 				break;
 		}
 		return $url;
