@@ -378,7 +378,7 @@ class posts
 			'seotitle'    => 'seotitle',
 			'excerpt'     => 'string_300',
 			'subtitle'    => 'title',
-			'slug'        => 'slug',
+			'slug'        => 'string_100',
 			'url'         => 'url',
 			'content'     => 'html',
 			'type'        => ['enum' => ['post', 'page', 'help', 'mag']],
@@ -502,11 +502,13 @@ class posts
 		if($data['title'] && !$data['slug'])
 		{
 			$data['slug'] = $data['title'];
-			$data['slug'] = \dash\validate::slug($data['slug'], false);
 		}
 
-
-		$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
+		if($data['slug'])
+		{
+			$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
+			$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
+		}
 
 
 
