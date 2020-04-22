@@ -56,7 +56,8 @@
     <div class="data">
       <h3><?php echo T_("Domain Default DNS");?></h3>
       <div class="body">
-        <p><?php echo T_("This will help you to buy new domains faster.");?></p>
+        <p><?php echo T_("The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names, like jibres.com or google.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.");?></p>
+        <p><?php echo T_("Set default will help you to buy new domains faster.");?></p>
       </div>
     </div>
   </div>
