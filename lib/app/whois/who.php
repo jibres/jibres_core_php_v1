@@ -302,6 +302,11 @@ class who
 							$temp['address'] = $explode_value[1];
 							break;
 
+
+						case 'person':
+							$temp['person'] = $explode_value[1];
+							break;
+
 						case 'phone':
 							$mobile = \dash\validate::mobile($explode_value[1], false);
 							if($mobile)
