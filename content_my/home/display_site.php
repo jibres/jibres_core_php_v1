@@ -61,6 +61,18 @@ if($listStore_owner && is_array($listStore_owner))
          <div class="go plus"></div>
         </a>
        </li>
+<?php }else{ ?>
+
+       <li class="pA10"><div class="msg"><?php echo T_("You are not owner yet!"); ?></div></li>
+
+       <li>
+        <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
+         <img src="<?php echo \dash\url::icon();?>" alt="<?php echo T_("Add New Business");?>">
+         <div class="key"><?php echo T_("Add New Business");?></div>
+         <div class="go plus"></div>
+        </a>
+       </li>
+
 <?php }//endif ?>
       </ul>
      </nav>

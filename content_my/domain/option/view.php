@@ -15,6 +15,9 @@ class view
 		$my_setting = \lib\app\nic_usersetting\get::get();
 		\dash\data::dataRow($my_setting);
 
+		$list          = \lib\app\nic_contact\search::my_list();
+
+		\dash\data::contactList($list);
 	}
 }
 ?>

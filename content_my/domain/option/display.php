@@ -89,8 +89,8 @@
         </div>
       </div>
 
-      <div class="c12 mT10">
-        <button class="btn success block"><?php echo T_("Save"); ?></button>
+      <div class="c12 mT10 txtC">
+        <button class="btn block primary"><?php echo T_("Save"); ?></button>
       </div>
 
     </div>
@@ -109,13 +109,15 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <select name="domainlifetime" class="select22">
-          <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
-          <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
-          <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?> (<?php echo T_("default"); ?>)</option>
-          <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
-          <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
-        </select>
+        <?php if(\dash\data::contactList()): ?>
+          <select name="defaultcontact" class="select22">
+            <?php foreach (\dash\data::contactList() as $key => $value): ?>
+                <option value="<?php echo \dash\get::index($value, 'nic_id'); ?>" <?php if(\dash\get::index($value, 'isdefault')) { echo "selected";} ?>><?php echo \dash\get::index($value, 'nic_id') ?></option>
+            <?php endforeach ?>
+          </select>
+        <?php else: ?>
+          <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn primary w200"><?php echo T_("Manage IRNIC Handle"); ?></a>
+        <?php endif ?>
     </div>
   </div>
 </section>
