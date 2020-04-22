@@ -45,6 +45,15 @@
 		</a>
 	</div>
 
+	<div class="c4 s12">
+		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/transactions'>
+			<div class="statistic red">
+				<div class="value"><i class="sf-card"></i></div>
+				<div class="label"><?php echo T_("Transaction"); ?></div>
+			</div>
+		</a>
+	</div>
+
 
 </div>
 
