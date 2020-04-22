@@ -1,5 +1,5 @@
 
-<section class="f" data-option='renew'>
+<section class="f" data-option='renew-period'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("IR Domain Auto Renew Period");?></h3>
@@ -27,33 +27,28 @@
 </section>
 
 
-
-
-        <div class="mB10 msg">
-          <?php echo T_("Default renew time for auto renew"); ?>
-        </div>
-
-
-        <div class="mB20 msg">
-          <?php echo T_("Save my domain life time"); ?>
-          <br>
-          <?php echo T_("How many days to expire the remaining domain to automatically renew it?"); ?>
-        </div>
-
-        <div>
-          <select name="domainlifetime"  class="select22">
-            <option></option>
-            <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
-            <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
-            <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?></option>
-            <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
-            <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
-          </select>
-        </div>
-
-
-
-
+<section class="f" data-option='renew-remain'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("IR Domain Auto Renew Remain Time");?></h3>
+      <div class="body">
+        <p><?php echo T_("Minimum date until we try to auto renew your domain. We are suggest one month.");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <select name="domainlifetime"  class="select22">
+          <option></option>
+          <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
+          <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
+          <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?> (<?php echo T_("default"); ?>)</option>
+          <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
+          <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
+        </select>
+    </div>
+  </div>
+</section>
 
 
 
