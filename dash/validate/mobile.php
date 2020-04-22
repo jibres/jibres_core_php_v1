@@ -32,7 +32,11 @@ class mobile
 			return false;
 		}
 
-		$mymobile = str_replace(' ', '', $_data);
+
+		$_data    = \dash\utility\convert::to_en_number($_data);
+		$replace  = ['{', '}', '(', ')', '_', '-', '+', ' ', ','];
+		$mymobile = str_replace($replace, '', $_data);
+
 
 		// if user enter plus in start of number delete it
 		if(substr($mymobile, 0, 1) === '+')

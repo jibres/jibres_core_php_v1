@@ -50,6 +50,11 @@ class who
 
 		\lib\app\domains\detect::whois($_domain, $result);
 
+		if(\dash\validate::ir_domain($_domain, false))
+		{
+			self::save_nic_contact_detail($result);
+		}
+
 		return $result;
 
 	}
@@ -236,6 +241,116 @@ class who
 
 	}
 
+
+
+	private static function save_nic_contact_detail($_result)
+	{
+		$answer = isset($_result['answer']) ? $_result['answer'] : null;
+		if(!$answer)
+		{
+			return;
+		}
+
+		$explode = explode('source:', $answer);
+
+
+		$nic_contact = [];
+		foreach ($explode as $value)
+		{
+			$check_value = self::remove_nl_space($value);
+
+			if(substr($check_value, 0, 22) === 'IRNIC#Filterednic-hdl:')
+			{
+				$nic_contact[] = $value;
+			}
+		}
+
+		if(empty($nic_contact))
+		{
+			return;
+		}
+
+		$nic_contact_detail = [];
+		foreach ($nic_contact as $nic_detail)
+		{
+			$nic_detail_explode = explode("\n", $nic_detail);
+
+			$temp = [];
+
+			foreach ($nic_detail_explode as  $line)
+			{
+				$explode_value = explode(":", $line);
+				$explode_value = array_map('trim', $explode_value);
+
+				if(count($explode_value) === 2)
+				{
+					switch ($explode_value[0])
+					{
+						case 'nic-hdl':
+							$temp['nic_id'] = $explode_value[1];
+							break;
+
+						case 'org':
+							$temp['org'] = $explode_value[1];
+							break;
+
+						case 'e-mail':
+							$temp['email'] = $explode_value[1];
+							break;
+
+						case 'address':
+							$temp['address'] = $explode_value[1];
+							break;
+
+						case 'phone':
+							$mobile = \dash\validate::mobile($explode_value[1], false);
+							if($mobile)
+							{
+								$temp['mobile'] = $mobile;
+							}
+							$temp['phone'] = $explode_value[1];
+							break;
+
+						case 'fax-no':
+							$temp['fax'] = $explode_value[1];
+							break;
+					}
+				}
+			}
+
+			$nic_contact_detail[] = $temp;
+		}
+
+
+		foreach ($nic_contact_detail as $key => $value)
+		{
+			if(isset($value['nic_id']))
+			{
+				$get_detail = \lib\db\nic_contactdetail\get::by_nic_id($value['nic_id']);
+				if(isset($get_detail['id']))
+				{
+					$value['datemodified'] = date("Y-m-d H:i:s");
+					\lib\db\nic_contactdetail\update::update($value, $get_detail['id']);
+				}
+				else
+				{
+					$value['datecreated'] = date("Y-m-d H:i:s");
+					\lib\db\nic_contactdetail\insert::new_record($value);
+				}
+			}
+		}
+
+	}
+
+
+	private static function remove_nl_space($_string)
+	{
+		$_string = preg_replace("/[\n]/", " ", $_string);
+		$_string = trim($_string);
+		$_string = str_replace(' ', '', $_string);
+		return $_string;
+
+	}
 
 }
 ?>
