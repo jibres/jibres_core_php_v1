@@ -22,6 +22,14 @@ class ready
 					$result[$key] = \dash\coding::encode($value);
 					break;
 
+				case 'dedicated':
+					$result[$key] = $value;
+					if($value)
+					{
+						$result['dedicated_string'] = implode("\n", json_decode($value, true));
+					}
+					break;
+
 				case 'dateexpire':
 					if(\dash\language::current() === 'fa' && $value)
 					{

@@ -23,6 +23,7 @@ class model
 			'chap'         => \dash\request::post('chap'),
 			'status'       => \dash\request::post('status'),
 			'forusein'     => \dash\request::post('forusein'),
+			'dedicated'   => \dash\request::post('dedicated'),
 
 		];
 

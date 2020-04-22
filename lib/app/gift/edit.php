@@ -46,6 +46,7 @@ class edit
 			'dedicated'     => 'desc',
 			'physical'      => 'bit',
 			'chap'          => 'bit',
+			'dedicated'    => 'desc',
 
 		];
 
@@ -72,7 +73,37 @@ class edit
 
 		}
 
+
+		if($data['dedicated'])
+		{
+			$mobile_list = explode("\n", $data['dedicated']);
+			$mobile_list = array_filter($mobile_list);
+			$mobile_list = array_unique($mobile_list);
+			$mobiles = [];
+			foreach ($mobile_list as $key => $value)
+			{
+				$temp = \dash\validate::mobile($value, false);
+				if($temp)
+				{
+					$mobiles[] = $temp;
+				}
+			}
+
+			$mobiles = array_unique($mobiles);
+
+			if(!empty($mobiles))
+			{
+				$data['dedicated'] = json_encode($mobiles);
+			}
+			else
+			{
+				$data['dedicated'] = null;
+			}
+		}
+
+
 		$args = \dash\cleanse::patch_mode($_args, $data);
+
 
 		if(!empty($args))
 		{

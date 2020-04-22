@@ -20,6 +20,10 @@
           <input type="text" name="usageperuser" value="<?php echo \dash\data::dataRow_usageperuser(); ?>" id="usageperuser" max="9999999" data-format='price' >
         </div>
 
+        <label for="dedicated"><?php echo T_("Dedicated for users"); ?></label>
+        <textarea name="dedicated" class="txt ltr" rows="3" placeholder="<?php echo T_("Every mobile in one line") ?>"><?php echo \dash\data::dataRow_dedicated_string(); ?></textarea>
+
+
 
       </div>
 

@@ -11,6 +11,7 @@ class model
 		[
 			'usagetotal'   => \dash\request::post('usagetotal'),
 			'usageperuser' => \dash\request::post('usageperuser'),
+			'dedicated'   => \dash\request::post('dedicated'),
 		];
 
 		$edit = \lib\app\gift\edit::edit($post, \dash\request::get('id'));
