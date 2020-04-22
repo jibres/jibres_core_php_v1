@@ -20,6 +20,7 @@ class view
 			'type'  => \dash\request::get('type'),
 			'result_code'  => \dash\request::get('result_code'),
 			'user_id'  => \dash\request::get('user'),
+			'ip'  => \dash\request::get('ip'),
 			// 'holder' => \dash\request::get('holder'),
 			// 'tech'   => \dash\request::get('tech'),
 			// 'bill'   => \dash\request::get('bill'),

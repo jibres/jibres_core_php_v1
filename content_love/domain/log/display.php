@@ -96,6 +96,7 @@ else
                 <th><?php echo T_("Type"); ?></th>
                 <th><?php echo T_("Result code"); ?></th>
                 <th><?php echo T_("Date"); ?></th>
+                <th><?php echo T_("IP"); ?></th>
                 <th><?php echo T_("User"); ?></th>
             </tr>
         </thead>
@@ -119,6 +120,7 @@ else
 <?php } //endif ?>
                 </td>
 
+                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?ip='. \dash\get::index($value, 'ip'); ?>"><code><?php echo \dash\get::index($value, 'ip'); ?></code></a></td>
                 <td class="collapsing">
                   <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f userPack">
                     <div class="c pRa10">

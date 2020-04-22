@@ -35,7 +35,7 @@
 	 </div>
 
    <div class="c pRa10">
-    <a class="stat x70">
+    <a href="<?php echo \dash\url::that(). '?ip='. \dash\data::dataRow_ip() ?>" class="stat x70">
      <h3><?php echo T_("IP Address"); ?></h3>
      <code class="val"><?php echo \dash\data::dataRow_ip(); ?></code>
     </a>

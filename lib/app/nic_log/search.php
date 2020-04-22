@@ -35,6 +35,7 @@ class search
 			'type'        => 'string_50',
 			'result_code' => 'number',
 			'user_id'     => 'code',
+			'ip'          => 'ip',
 		];
 
 		$require = [];
@@ -77,6 +78,14 @@ class search
 			self::$filter_args[T_("Result code")] = $data['result_code'];
 			self::$is_filtered          = true;
 
+		}
+
+		if($data['ip'])
+		{
+			$ip = ip2long($data['ip']);
+			$and[]                      = " log.ip = $ip ";
+			self::$filter_args[T_("IP")] = $data['ip'];
+			self::$is_filtered          = true;
 		}
 
 		if($data['user_id'])
