@@ -123,6 +123,7 @@ class renew
 			return false;
 		}
 
+		\lib\db\nic_domain\update::update(['available' => 0], $domain_id);
 
 		$current_expiredate = date("Y-m-d", strtotime($get_domain_detail['exDate']));
 
