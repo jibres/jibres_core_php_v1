@@ -56,19 +56,19 @@ $myData = \dash\data::dashboardDetail();
 
 <section class="f">
   <div class="c3 s6 pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this() ?>/billing?action=register" class="stat">
       <h3><?php echo T_("Total Domain Buy");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_buy'));?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this() ?>/billing?action=renew" class="stat">
       <h3><?php echo T_("Total Domain Renew");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_renew'));?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this() ?>/billing?action=transfer" class="stat">
       <h3><?php echo T_("Total Domain Transfer");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_transfer'));?></div>
     </a>
@@ -82,7 +82,7 @@ $myData = \dash\data::dashboardDetail();
 </section>
 
 
-<div id="chartdiv" class="box chart x200" data-hint2='All API request in 10 last days'></div>
+<div id="chartdiv" class="box chart x200"></div>
 
 <div class="f">
   <div class="c3 s12 pRa10">

@@ -37,8 +37,8 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['id',]],
+			'order'     => 'order',
+			'sort'      => ['enum' => ['id',]],
 			'domain_id' => 'code',
 			'user_id'   => 'id',
 		];

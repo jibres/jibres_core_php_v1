@@ -20,6 +20,22 @@ class get
 	}
 
 
+	public static function group_by_action()
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				domainbilling.action
+			FROM
+				domainbilling
+			GROUP BY
+				domainbilling.action
+		";
+
+		$result = \dash\db::get($query, ['action', 'count'], false, 'nic');
+		return $result;
+	}
 
 
 	public static function chart_my_pay_per_day($_user_id)

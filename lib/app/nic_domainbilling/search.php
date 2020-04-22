@@ -28,7 +28,10 @@ class search
 			'sort'      => ['enum' => ['id',]],
 			'domain_id' => 'code',
 			'user_id'   => 'id',
+			'user'   => 'code',
 			'lastyear'  => 'bit',
+			'action'    => 'string_100',
+			'is_admin'  => 'bit',
 		];
 
 		$require = [];
@@ -54,16 +57,27 @@ class search
 			$and[]         = " domainbilling.domain_id = $data[domain_id] ";
 		}
 
+		if($data['user'])
+		{
+			$data['user_id'] = \dash\coding::decode($data['user']);
+		}
+
 		if($data['user_id'])
 		{
 			$and[]         = " domainbilling.user_id = $data[user_id] ";
 		}
+
 
 		if($data['lastyear'])
 		{
 			$lastyear = date("Y-m-d", strtotime("-365 days"));
 
 			$and[]         = " DATE(domainbilling.datecreated) > DATE('$lastyear') ";
+		}
+
+		if($data['action'])
+		{
+			$and[]         = " domainbilling.action = '$data[action]' ";
 		}
 
 		$meta['limit'] = 20;
@@ -92,11 +106,47 @@ class search
 			$load_transaction_detail = array_combine(array_column($load_transaction_detail, 'id'), $load_transaction_detail);
 		}
 
+		if($data['is_admin'])
+		{
+
+			$users_id = array_column($list, 'user_id');
+			$users_id = array_filter($users_id);
+			$users_id = array_unique($users_id);
+
+			$load_some_user = [];
+
+			if($users_id)
+			{
+				$load_some_user = \dash\db\users\get::by_multi_id(implode(',', $users_id));
+
+				if(!is_array($load_some_user))
+				{
+						$load_some_user = [];
+				}
+
+				$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
+			}
+
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['user_id']) && $value['user_id'] && isset($load_some_user[$value['user_id']]))
+				{
+					$user_detail = $load_some_user[$value['user_id']];
+					$user_detail = \dash\app\user::ready($user_detail);
+					$list[$key]['user_detail'] = $user_detail;
+				}
+				else
+				{
+					$list[$key]['user_detail'] = \dash\app::fix_avatar([]);
+				}
+			}
+
+		}
+
 		foreach ($list as $key => $value)
 		{
 			$list[$key] = \lib\app\nic_domainbilling\ready::row($value, $load_transaction_detail);
 		}
-
 
 		return $list;
 	}

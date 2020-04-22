@@ -14,8 +14,11 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
+			'order'    => \dash\request::get('order'),
+			'sort'     => \dash\request::get('sort'),
+			'action'   => \dash\request::get('action'),
+			'user'   => \dash\request::get('user'),
+			'is_admin' => true,
 		];
 
 
@@ -27,6 +30,10 @@ class view
 
 		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
 		\dash\data::sortLink($sortLink);
+
+
+		$group_by_action = \lib\app\nic_domainbilling\get::group_by_action();
+		\dash\data::groupByAction($group_by_action);
 
 
 	}

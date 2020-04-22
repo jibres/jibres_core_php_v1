@@ -21,6 +21,13 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'user_id':
+					if(\dash\url::content() === 'love')
+					{
+						$result[$key] = \dash\coding::encode($value);
+					}
+					// not show user id to users
+					break;
 				case 'domain_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
@@ -71,9 +78,7 @@ class ready
 					$result[$key] = $detail;
 					break;
 
-				case 'user_id':
-					// not show user id to users
-					break;
+
 
 				case 'action':
 					$result[$key] = $value;
