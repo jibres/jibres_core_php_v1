@@ -24,7 +24,18 @@ class autorenew
 				continue;
 			}
 
-			$dateexpire      = $value['dateexpire'];
+			if(!isset($value['user_id']))
+			{
+				continue;
+			}
+
+			if(!isset($value['name']))
+			{
+				continue;
+			}
+
+			$dateexpire = $value['dateexpire'];
+			$user_id    = $value['user_id'];
 
 			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
 
@@ -47,6 +58,37 @@ class autorenew
 			if($remain_time < $life_time)
 			{
 				// must renew this domain whit $autrenweperiod
+				$price = \lib\app\nic_domain\price::renew($autorenewperiod);
+
+				$user_budget = floatval(\dash\db\transactions::budget($user_id));
+
+				if(floatval($price) > $user_budget)
+				{
+					// save action log
+					continue;
+				}
+
+
+				$renew =
+				[
+					'user_id'              => $user_id,
+					'domain'               => $value['name'],
+					'period'               => $autorenewperiod,
+					'agree'                => true,
+					'register_now'         => true,
+					'usebudget'            => true,
+				];
+
+				$result = \lib\app\nic_domain\renew::renew($renew);
+				if($result === false && \dash\temp::get('ji128-irnic-not-allow'))
+				{
+					// save log
+				}
+
+				if($result)
+				{
+					// save log
+				}
 
 			}
 		}

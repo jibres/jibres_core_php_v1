@@ -58,6 +58,12 @@ class create
 			$user_id = \dash\user::id();
 		}
 
+		if(!$user_id)
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
 		if(!$data['period'])
 		{
 			\dash\notif::error(T_("Please indicate the duration of the domain purchase, 1 year or 5 year?"));

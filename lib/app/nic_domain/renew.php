@@ -7,11 +7,6 @@ class renew
 	public static function renew($_args)
 	{
 
-		if(!\dash\user::id())
-		{
-			return;
-		}
-
 		$condition =
 		[
 			'domain'            => 'ir_domain',
@@ -51,6 +46,7 @@ class renew
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		\dash\temp::set('ji128-irnic-not-allow', null);
 
 		// after pay get user id from args
 		$user_id = $data['user_id'];
@@ -58,6 +54,12 @@ class renew
 		if(!$user_id)
 		{
 			$user_id = \dash\user::id();
+		}
+
+		if(!$user_id)
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
 		}
 
 		$domain = $data['domain'];
@@ -84,7 +86,7 @@ class renew
 		\lib\app\domains\detect::domain('start_renew', $domain);
 
 
-		$load_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+		$load_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
 		if(isset($load_domain['id']))
 		{
 			$domain_id = $load_domain['id'];
@@ -93,7 +95,7 @@ class renew
 		{
 			$insert =
 			[
-				'user_id'      => \dash\user::id(),
+				'user_id'      => $user_id,
 				'name'         => $domain,
 				'registrar'    => 'irnic',
 				'status'       => 'awaiting',
@@ -120,6 +122,7 @@ class renew
 			// \dash\notif::error(T_("Domain is not exists"));
 			return false;
 		}
+
 
 		$current_expiredate = date("Y-m-d", strtotime($get_domain_detail['exDate']));
 
@@ -286,7 +289,7 @@ class renew
 						$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
 						\dash\notif::meta($result_pay);
 						\dash\notif::ok($msg);
-						return;
+						return null;
 					}
 					else
 					{
@@ -300,7 +303,7 @@ class renew
 				}
 
 				// redirect to bank payment
-				return ;
+				return null;
 			}
 		}
 
