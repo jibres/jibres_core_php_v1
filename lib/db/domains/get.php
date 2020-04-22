@@ -44,5 +44,30 @@ class get
 
 		return $result;
 	}
+
+
+	public static function suggestion_char4($_first_char, $_max_use_char, $_domainlen)
+	{
+		$query   =
+		"
+			SELECT
+				*
+			FROM
+				domains
+			WHERE
+				domains.registrar IS NULL AND
+				domains.domainlen = $_domainlen AND
+				domains.tld = 'ir' AND
+				(domains.root LIKE '%$_first_char%' AND domains.root LIKE '%$_max_use_char%' ) AND
+				(SELECT domainactivity.available FROM domainactivity WHERE domainactivity.domain_id = domains.id ORDER BY domainactivity.id DESC LIMIT 1) = 1
+
+			ORDER BY RAND()
+			LIMIT 5
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic_log');
+
+		return $result;
+	}
 }
 ?>

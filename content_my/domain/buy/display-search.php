@@ -55,3 +55,16 @@ if(\dash\data::getDomain())
    <?php }//endfor ?>
     </section>
 <?php } // endif ?>
+
+<?php if(\dash\data::domainSuggestion4()) {?>
+  <section class="f">
+    <?php foreach (\dash\data::domainSuggestion4() as $key => $value) {?>
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat">
+       <h3><?php echo T_("Suggestion for you");?></h3>
+       <div class="val"><?php echo \dash\get::index($value, 'domain'); ?></div>
+      </a>
+     </div>
+   <?php }//endfor ?>
+    </section>
+<?php } // endif ?>
