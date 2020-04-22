@@ -38,19 +38,51 @@ trait edit
 
 	public static function quick_update($_args, $_id)
 	{
+		$is_staff = null;
 		// in stroe whene user signuped we need to set jibres_user_id
-		if(\dash\engine\store::inStore() && isset($_args['mobile']))
+		if(\dash\engine\store::inStore())
 		{
-			$mobile = \dash\validate::mobile($_args['mobile'], false);
-			if($mobile)
+			if(isset($_args['mobile']))
 			{
-				$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
+				$mobile = \dash\validate::mobile($_args['mobile'], false);
+				if($mobile)
+				{
+					$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
+				}
+			}
+
+			if(array_key_exists('permission', $_args))
+			{
+				$is_staff = $_args['permission'] ? true : false;
 			}
 		}
 
 		\dash\log::set('editUser', ['code' => $_id]);
 
-		return \dash\db\users::update($_args, $_id);
+		$result = \dash\db\users::update($_args, $_id);
+
+		if($result)
+		{
+			if($is_staff === true || $is_staff === false)
+			{
+				$load_user = \dash\db\users::get_by_id($_id);
+				if(isset($load_user['jibres_user_id']))
+				{
+					if($is_staff === true)
+					{
+						$set = ['staff' => 'yes'];
+					}
+					else
+					{
+						$set = ['staff' => 'no'];
+					}
+
+					\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $load_user['jibres_user_id'], $set);
+				}
+			}
+
+		}
+		return $result;
 
 	}
 
