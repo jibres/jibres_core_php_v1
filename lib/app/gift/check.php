@@ -29,13 +29,14 @@ class check
 		}
 
 		$load = \lib\db\gift\get::by_code($code);
+
 		if(!$load || !isset($load['id']))
 		{
 			\dash\notif::error(T_("Invalid gift code"), 'gift');
 			return false;
 		}
 
-		$gift_id = $load['id'];
+		$gift_id     = $load['id'];
 
 		$type        = null;
 		$percent     = null;
@@ -44,8 +45,28 @@ class check
 
 		$giftpercent = (isset($load['giftpercent']) && $load['giftpercent']) 	? floatval($load['giftpercent']) 	: null;
 		$giftamount  = (isset($load['giftamount']) && $load['giftamount']) 		? floatval($load['giftamount']) 	: null;
-		$giftmax     = (isset($load['giftmax']) && $load['giftmax']) 			? floatval($load['giftmax']) 	: null;
-		$pricefloor  = (isset($load['pricefloor']) && $load['pricefloor']) 		? floatval($load['pricefloor']) : null;
+		$giftmax     = (isset($load['giftmax']) && $load['giftmax']) 			? floatval($load['giftmax']) 		: null;
+		$pricefloor  = (isset($load['pricefloor']) && $load['pricefloor']) 		? floatval($load['pricefloor']) 	: null;
+		$dedicated   = (isset($load['dedicated']) && $load['dedicated']) 		? $load['dedicated'] 				: null;
+
+		if($dedicated && is_string($dedicated))
+		{
+			$dedicated = json_decode($dedicated, true);
+		}
+
+		if(!is_array($dedicated))
+		{
+			$dedicated = [];
+		}
+
+		if($dedicated)
+		{
+			if(!in_array(\dash\user::detail('mobile'), $dedicated))
+			{
+				\dash\notif::error(T_("This gift card is not enable for you"));
+				return false;
+			}
+		}
 
 		if(floatval($data['price']) < floatval($pricefloor))
 		{
