@@ -144,13 +144,20 @@ class renew
 			return false;
 		}
 
+		$reseller = isset($get_domain_detail['reseller']) ? $get_domain_detail['reseller'] : null;
+		$bill     = isset($get_domain_detail['bill']) ? $get_domain_detail['bill'] : null;
+
 		$jibres_nic_contact = 'ji128-irnic';
 
-		if((isset($get_domain_detail['reseller']) && $get_domain_detail['reseller'] !== $jibres_nic_contact) && (isset($get_domain_detail['bill']) && $get_domain_detail['bill'] !== $jibres_nic_contact))
+		if($bill === $jibres_nic_contact)
 		{
-			// nothing
+			// is ok
 		}
-		else
+		elseif($reseller === $jibres_nic_contact)
+		{
+			// is ok
+		}
+		elseif($reseller && $reseller !== $jibres_nic_contact && $bill && $bill !== $jibres_nic_contact)
 		{
 			\dash\temp::set('ji128-irnic-not-allow', true);
 			$msg = T_("We can not renew this domain because the bill holder of IRNIC can not access to renew");
@@ -164,7 +171,6 @@ class renew
 			// \dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
 			return false;
 		}
-
 
 
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
