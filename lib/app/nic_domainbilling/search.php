@@ -80,6 +80,22 @@ class search
 			$and[]         = " domainbilling.action = '$data[action]' ";
 		}
 
+
+		if(mb_strlen($_query_string) > 50)
+		{
+			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
+			return false;
+		}
+
+		$query_string = \dash\validate::search($_query_string);
+
+
+		if($query_string)
+		{
+			$or[]        = " domain.name LIKE '%$query_string%'";
+
+		}
+
 		$meta['limit'] = 20;
 
 		$order_sort    = " ORDER BY domainbilling.id DESC";

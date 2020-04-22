@@ -62,7 +62,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM domainbilling $q[where] ";
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM domainbilling LEFT JOIN domain ON domain.id = domainbilling.domain_id  $q[where] ";
 
 		$limit = null;
 		if($q['pagination'] !== false)
