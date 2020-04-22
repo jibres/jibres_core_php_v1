@@ -50,14 +50,14 @@ class dashboard
 		$user_id = \dash\user::id();
 
 		$result                          = [];
-		$result['domain_active']   = intval(\lib\db\nic_domain\get::my_active_count($user_id));
-		$result['domain_deactive'] = intval(\lib\db\nic_domain\get::my_available_count($user_id));
-		$result['domain_all']      = intval($result['domain_active']);
+		$result['maybe_my_domain']   = intval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
+		$result['available_domain'] = intval(\lib\db\nic_domain\get::my_available_count($user_id));
+		$result['my_domain']      = intval(\lib\db\nic_domain\get::my_active_count($user_id));
 
 		$count_autorenew = intval(\lib\db\nic_domain\get::my_autorenew_count($user_id));
 		$count_lock = intval(\lib\db\nic_domain\get::my_lock_count($user_id));
 
-		$my_all = $result['domain_all'];
+		$my_all = $result['my_domain'];
 		if(!$my_all)
 		{
 			$my_all = 1;
@@ -65,7 +65,7 @@ class dashboard
 
 		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_all);
 		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
-		$result['domain_active_percent']    = round($result['domain_active'] * 100 / $my_all);
+		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_all);
 		$result['user_budget']              = \dash\user::budget();
 		$result['user_unit']         = T_("Toman");
 

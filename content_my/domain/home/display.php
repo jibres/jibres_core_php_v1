@@ -11,6 +11,8 @@
 
 
 
+
+
   <div class="f">
    <div class="c9 s12 pRa10">
 
@@ -18,19 +20,19 @@
      <div class="c s12 pRa10">
       <a href="<?php echo \dash\url::this() ?>/search" class="stat">
        <h3><?php echo T_("Your Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_all'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'my_domain'));?></div>
       </a>
      </div>
      <div class="c s6 pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?action=maybe" class="stat">
        <h3><?php echo T_("Maybe Your Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_active'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'maybe_my_domain'));?></div>
       </a>
      </div>
      <div class="c s6">
       <a href="<?php echo \dash\url::this() ?>/search?action=available" class="stat">
        <h3><?php echo T_("Available domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'domain_deactive'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'available_domain'));?></div>
       </a>
      </div>
     </section>
