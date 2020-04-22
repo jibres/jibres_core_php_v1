@@ -14,21 +14,22 @@
 	 </div>
 
    <div class="c pRa10">
-    <a class="stat x70">
+    <a href="<?php echo \dash\url::that(). '?type='. \dash\data::dataRow_type() ?>" class="stat x70">
+
      <h3><?php echo T_("Type"); ?></h3>
      <div class="val"><?php echo T_(\dash\data::dataRow_type()); ?></div>
     </a>
    </div>
 
    <div class="c pRa10">
-    <a class="stat x70">
+    <a href="<?php echo \dash\url::that(). '?q='. \dash\data::dataRow_nic_id() ?>" class="stat x70">
 	   <h3><?php echo T_("IRNIC id"); ?></h3>
 	   <div class="val"><?php echo \dash\data::dataRow_nic_id(); ?></div>
 	  </a>
 	 </div>
 
    <div class="c pRa10">
-    <a class="stat x70">
+    <a href="<?php echo \dash\url::that(). '?q='. \dash\data::dataRow_domain() ?>" class="stat x70">
 	   <h3><?php echo T_("Domain"); ?></h3>
 	   <div class="val"><?php echo \dash\data::dataRow_domain(); ?></div>
 	  </a>
@@ -42,7 +43,9 @@
    </div>
 
 	 <div class="c">
-    <a class="stat x70 <?php if(in_array(\dash\data::dataRow_result_code(), [1000, 1001, 1300, 1302])) echo 'ok'; else echo 'nok'; ?>">
+
+
+    <a href="<?php echo \dash\url::that(). '?result_code='. \dash\data::dataRow_result_code() ?>" class="stat x70 <?php if(in_array(\dash\data::dataRow_result_code(), [1000, 1001, 1300, 1302])) echo 'ok'; else echo 'nok'; ?>">
      <h3><?php echo T_("Result code"); ?></h3>
      <div class="val"><?php echo \dash\fit::text(\dash\data::dataRow_result_code()); ?></div>
     </a>
