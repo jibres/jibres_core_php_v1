@@ -137,7 +137,7 @@ $giftCode = \dash\data::giftDetail_discount();
   }
   else
   {
-    echo T_("Invalid gift code"). '😔';
+    echo T_("Invalid gift code"). ' 😔';
   }
 ?>
             </div>
