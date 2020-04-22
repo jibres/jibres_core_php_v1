@@ -148,7 +148,7 @@ if($listStore_staff && is_array($listStore_staff))
     </ul>
    </nav>
 
-   <nav class="items">
+   <nav class="items long">
     <ul>
      <li>
       <a class="f" href="<?php echo \dash\url::here();?>/business/start">
@@ -171,7 +171,7 @@ if($listStore_staff && is_array($listStore_staff))
    </ul>
   </nav>
 
-   <nav class="items">
+   <nav class="items long">
     <ul>
      <li>
       <a class="f" href="<?php echo \dash\url::here();?>/domain/buy">
@@ -188,7 +188,7 @@ if($listStore_staff && is_array($listStore_staff))
     </ul>
    </nav>
 
-   <nav class="items">
+   <nav class="items long">
     <ul>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/billing">
