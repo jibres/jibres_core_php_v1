@@ -35,5 +35,14 @@ class get
 		$result = \dash\db::get($query, null, true, 'nic');
 		return $result;
 	}
+
+
+
+	public static function by_nic_id($_nic_id, $_user_id)
+	{
+		$query  = "SELECT * FROM contact WHERE contact.user_id = $_user_id AND contact.nic_id = '$_nic_id' AND contact.status != 'deleted' LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
 }
 ?>

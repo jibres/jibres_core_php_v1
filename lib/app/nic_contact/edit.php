@@ -21,6 +21,29 @@ class edit
 	}
 
 
+	public static function set_default_contact($_contact)
+	{
+		$contact = \dash\validate::irnic_id($_contact);
+		if(!$contact)
+		{
+			return false;
+		}
+
+		$load_contact = \lib\db\nic_contact\get::by_nic_id($contact, \dash\user::id());
+		if(isset($load_contact['id']))
+		{
+			\lib\db\nic_contact\update::remove_old_default(\dash\user::id());
+			\lib\db\nic_contact\update::update(['isdefault' => 1], $load_contact['id']);
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("This IRNIC contact not found in your list!"));
+			return false;
+		}
+	}
+
+
 	public static function update($_id)
 	{
 		$load = \lib\app\nic_contact\get::get($_id);

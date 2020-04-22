@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div class="c4 s12">
+  <form method="post" class="c4 s12">
     <div class="action">
       <div>
         <div class="radio1">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </section>
 
 
@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  <div class="c4 s12">
+  <form class="c4 s12" method="post" data-path>
     <div class="action">
         <select name="domainlifetime" class="select22">
           <option></option>
@@ -47,7 +47,7 @@
           <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
         </select>
     </div>
-  </div>
+  </form>
 </section>
 
 
@@ -107,18 +107,18 @@
       </div>
     </div>
   </div>
-  <div class="c4 s12">
+  <form class="c4 s12" method="post" data-patch>
     <div class="action">
-        <?php if(\dash\data::contactList()): ?>
+        <?php if(\dash\data::contactList()) {?>
           <select name="defaultcontact" class="select22">
-            <?php foreach (\dash\data::contactList() as $key => $value): ?>
+            <?php foreach (\dash\data::contactList() as $key => $value) {?>
                 <option value="<?php echo \dash\get::index($value, 'nic_id'); ?>" <?php if(\dash\get::index($value, 'isdefault')) { echo "selected";} ?>><?php echo \dash\get::index($value, 'nic_id') ?></option>
-            <?php endforeach ?>
+            <?php } ?>
           </select>
-        <?php else: ?>
+        <?php }else{ ?>
           <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn primary w200"><?php echo T_("Manage IRNIC Handle"); ?></a>
-        <?php endif ?>
+        <?php } ?>
     </div>
-  </div>
+  </form>
 </section>
 
