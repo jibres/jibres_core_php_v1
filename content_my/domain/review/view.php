@@ -34,6 +34,14 @@ class view
 		{
 			case 'register':
 				\dash\data::myActionTitle(T_("Register domain"));
+				\dash\data::backUrl(\dash\url::this(). '/buy/'. \dash\data::dataRow_name());
+				\dash\data::buttonTitle(T_("Register domain"));
+				break;
+
+			case 'renew':
+				\dash\data::myActionTitle(T_("Renew domain"));
+				\dash\data::backUrl(\dash\url::this(). '/renew?domain='. \dash\data::dataRow_name());
+				\dash\data::buttonTitle(T_("Renew domain"));
 				break;
 
 			default:

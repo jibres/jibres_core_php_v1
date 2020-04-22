@@ -21,6 +21,8 @@
      </ul>
     </nav>
 
+<?php if (\dash\request::get('type') === 'register'): ?>
+
     <nav class="items">
      <ul>
       <li>
@@ -97,6 +99,7 @@
 
      </ul>
    </nav>
+<?php endif ?>
 
   </div>
   <div class="c s12">
@@ -105,6 +108,7 @@
       <div class="body">
         <form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
           <input type="hidden" name="id" value="<?php echo \dash\request::get('id'); ?>">
+          <input type="hidden" name="type" value="<?php echo \dash\request::get('type'); ?>">
           <label for="gift"><?php echo T_("If you have gift cart enter here") ?> 🎁</label>
           <div class="input ltr">
             <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" maxlength="50" placeholder='<?php echo T_("Gift code") ?>'>
@@ -198,11 +202,11 @@ $giftCode = \dash\data::giftDetail_discount();
      </div>
     <footer class="f">
       <div class="cauto">
-        <a href="<?php echo \dash\url::this(). '/buy/'. \dash\data::dataRow_name() ?>" class="btn"><?php echo T_("Cancel") ?></a>
+        <a href="<?php echo \dash\data::backUrl(); ?>" class="btn"><?php echo T_("Cancel") ?></a>
       </div>
       <div class="c"></div>
       <div class="cauto">
-        <button class="btn success"><?php echo T_("Register domain"); ?></button>
+        <button class="btn success"><?php echo \dash\data::buttonTitle(); ?></button>
       </div>
     </footer>
     </div>

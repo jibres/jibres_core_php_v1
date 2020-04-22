@@ -23,15 +23,6 @@ class controller
 		}
 
 
-		if(isset($detail['status']) && $detail['status'] === 'awaiting')
-		{
-			// nothing
-		}
-		else
-		{
-			self::have_error();
-			// \dash\header::status(404, T_("Detail is wrong!"));
-		}
 
 		$type = \dash\validate::enum(\dash\request::get('type'), true, ['enum' => ['register', 'renew', 'transfer']]);
 		if(!$type)
@@ -52,6 +43,18 @@ class controller
 				{
 					self::have_error();
 				}
+				break;
+
+			case 'renew':
+				if(isset($load_last_activity['action']) && $load_last_activity['action'] === 'domain_renew_ready')
+				{
+					// no problem
+				}
+				else
+				{
+					self::have_error();
+				}
+
 				break;
 
 			default:
