@@ -22,7 +22,7 @@ class view
 		[
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
-			'action'    => \dash\request::get('action'),
+			'list'    => \dash\request::get('list'),
 			'lock'      => \dash\request::get('lock'),
 			'autorenew' => \dash\request::get('autorenew'),
 			// 'status' => \dash\request::get('status'),

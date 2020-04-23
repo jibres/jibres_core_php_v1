@@ -24,13 +24,13 @@
       </a>
      </div>
      <div class="c s6 pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?action=maybe" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/search?list=maybe" class="stat">
        <h3><?php echo T_("Maybe Your Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'maybe_my_domain'));?></div>
       </a>
      </div>
      <div class="c s6">
-      <a href="<?php echo \dash\url::this() ?>/search?action=available" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/search?list=available" class="stat">
        <h3><?php echo T_("Available domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'available_domain'));?></div>
       </a>

@@ -56,7 +56,7 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'action'    => ['enum' => ['mydomain', 'maybe', 'available', 'import']],
+			'list'    => ['enum' => ['mydomain', 'maybe', 'available', 'import']],
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
@@ -178,18 +178,18 @@ class search
 				self::$filter_args[T_("Lock")] = T_("Unknown");
 			}
 
-			if(!$data['action'])
+			if(!$data['list'])
 			{
 				$and[] = " domain.verify = 1 AND domain.available = 0 ";
 			}
-			elseif($data['action'] === 'mydomain')
+			elseif($data['list'] === 'mydomain')
 			{
 				// $and[] = " domain.status = 'enable' ";
 				$and[] = " domain.verify = 1 AND domain.available = 0 ";
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("My domains");
 			}
-			elseif($data['action'] === 'maybe')
+			elseif($data['list'] === 'maybe')
 			{
 				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
 				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND domain.gateway != 'import' ";
@@ -197,14 +197,14 @@ class search
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Maybe for your");
 			}
-			elseif($data['action'] === 'available')
+			elseif($data['list'] === 'available')
 			{
 				$and[] = " domain.available = 1 ";
 
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Available");
 			}
-			elseif($data['action'] === 'import')
+			elseif($data['list'] === 'import')
 			{
 				$and[] = " domain.gateway = 'import' AND domain.available = 0 AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
 

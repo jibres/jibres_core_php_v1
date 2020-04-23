@@ -1,19 +1,19 @@
 <div class="f">
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(). '?action=mydomain' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'mydomain' || !\dash\request::get('action')) { echo ' active';} ?>" >
+        <a href="<?php echo \dash\url::that(). '?list=mydomain' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'mydomain' || !\dash\request::get('list')) { echo ' active';} ?>" >
             <h3><?php echo T_("Your Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_mydomain()); ?></div>
         </a>
     </div>
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(). '?action=maybe' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'maybe') { echo ' active';} ?>" >
+        <a href="<?php echo \dash\url::that(). '?list=maybe' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'maybe') { echo ' active';} ?>" >
             <h3><?php echo T_("Renewed Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
         </a>
     </div>
     <?php if(\dash\data::groupByStatus_imported() > 0) {?>
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(). '?action=import' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'import') { echo ' active';} ?>" >
+        <a href="<?php echo \dash\url::that(). '?list=import' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'import') { echo ' active';} ?>" >
             <h3><?php echo T_("Imported Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_imported()); ?></div>
         </a>
@@ -21,7 +21,7 @@
     <?php } //endif ?>
     <?php if(\dash\data::groupByStatus_available() > 0) {?>
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(). '?action=available' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'available') { echo ' active';} ?>" >
+        <a href="<?php echo \dash\url::that(). '?list=available' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'available') { echo ' active';} ?>" >
             <h3><?php echo T_("Free Domains"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_available()); ?></div>
         </a>
@@ -68,7 +68,11 @@ else
 
 
 <?php function htmlSearchBox() {?>
+    <?php if(\dash\request::get('list') !== 'available') {?>
+
+
     <form method="get" action="<?php echo \dash\url::that(); ?>">
+        <?php if(\dash\request::get('list')) {?><input type="hidden" name="list" value="<?php echo \dash\request::get('list'); ?>"><?php } //endif ?>
         <?php if(\dash\request::get('autorenew')) {?><input type="hidden" name="autorenew" value="<?php echo \dash\request::get('autorenew'); ?>"><?php } //endif ?>
         <?php if(\dash\request::get('lock')) {?><input type="hidden" name="lock" value="<?php echo \dash\request::get('lock'); ?>"><?php } //endif ?>
         <div class="searchBox">
@@ -116,25 +120,35 @@ else
                 </div>
             </div>
     </form>
+<?php }else{ ?>
+
+    <form method="get" action="<?php echo \dash\url::that(); ?>">
+        <?php if(\dash\request::get('list')) {?><input type="hidden" name="list" value="<?php echo \dash\request::get('list'); ?>"><?php } //endif ?>
+        <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
+            <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+        </div>
+    </form>
+<?php } //endif ?>
 
 <?php } //endfunction ?>
 
 
 <?php function htmlTable() {?>
 <?php
-if(!\dash\request::get('action') || \dash\request::get('action') === 'mydomain')
+if(!\dash\request::get('list') || \dash\request::get('list') === 'mydomain')
 {
     require_once('display-mydomain.php');
 }
-elseif(\dash\request::get('action') === 'maybe')
+elseif(\dash\request::get('list') === 'maybe')
 {
     require_once('display-maybemydomain.php');
 }
-elseif(\dash\request::get('action') === 'import')
+elseif(\dash\request::get('list') === 'import')
 {
     require_once('display-imported.php');
 }
-elseif(\dash\request::get('action') === 'available')
+elseif(\dash\request::get('list') === 'available')
 {
     require_once('display-availabledomain.php');
 }
@@ -165,22 +179,22 @@ else
 <div class="fs14 msg info2 pTB20">
   <p><?php echo T_("Hi!"); ?></p>
 <?php
-if(!\dash\request::get('action') || \dash\request::get('action') === 'mydomain')
+if(!\dash\request::get('list') || \dash\request::get('list') === 'mydomain')
 {
     $msg = T_("Buy your first winning domain!");
     $url = \dash\url::this(). '/buy';
 }
-elseif(\dash\request::get('action') === 'maybe')
+elseif(\dash\request::get('list') === 'maybe')
 {
     $msg = T_("Try renew domain");
     $url = \dash\url::this(). '/renew';
 }
-elseif(\dash\request::get('action') === 'import')
+elseif(\dash\request::get('list') === 'import')
 {
     $msg = T_("If you import any domain in your account can see here");
     $url = \dash\url::this(). '/import';
 }
-elseif(\dash\request::get('action') === 'available')
+elseif(\dash\request::get('list') === 'available')
 {
     $msg = T_("Domains you try to register or renew but operation incomplete and are available yet");
     $url = \dash\url::this(). '/buy';
