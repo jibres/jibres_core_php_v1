@@ -41,6 +41,10 @@ class app
 				$url .= 'img/avatar/woman.png';
 				break;
 
+			case 'unknown':
+				$url .= 'img/avatar/unknown.png';
+				break;
+
 			default:
 				$url .= 'img/avatar/default.png';
 				break;
@@ -113,7 +117,7 @@ class app
 						}
 						else
 						{
-							$avatar = \dash\app::static_avatar_url();
+							$avatar = \dash\app::static_avatar_url('unknown');
 						}
 					}
 					$result[$key] = $avatar;
@@ -194,7 +198,7 @@ class app
 					}
 					else
 					{
-						if(isset($_data['gender']))
+						if(isset($_data['gender']) && $_data['gender'] !== false)
 						{
 							if($_data['gender'] === 'male')
 							{
@@ -211,7 +215,7 @@ class app
 						}
 						else
 						{
-							$avatar = \dash\app::static_avatar_url();
+							$avatar = \dash\app::static_avatar_url('unknown');
 						}
 					}
 					$result[$key] = $avatar;
