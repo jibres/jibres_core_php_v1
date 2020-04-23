@@ -28,6 +28,12 @@
             {
                 echo $key;
             }
+
+            if(isset($value['available']) && !$value['available'] && array_key_exists('domain_restricted', $value) && !$value['domain_restricted'] && array_key_exists('domain_name_valid', $value) && $value['domain_name_valid'] !== false)
+            {
+                echo '<a class="btn link mLR10 fs08"  href="'. \dash\url::this(). '/renew?domain='. urlencode($key).'">'. T_("If is your domain you can renew it"). '</a>' ;
+            }
+
             if(isset($value['paperwork']))
             {
                 echo '<span class="badge light mL10">'. $value['paperwork']. '</span>';
