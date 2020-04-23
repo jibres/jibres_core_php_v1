@@ -23,9 +23,13 @@
                     <td>
                         <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
                             <div>
+                                <?php if(\dash\get::index($value, 'verify')) {?>
                                 <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
                                     <code><?php echo \dash\get::index($value, 'domain') ?></code>
                                 </a>
+                                <?php }else{ ?>
+                                    <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                                <?php } // endif ?>
                             </div>
                         <?php } // endif ?>
                     </td>
