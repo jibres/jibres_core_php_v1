@@ -76,7 +76,7 @@ class get
 	{
 		$my_domains = implode("','", $_domains);
 
-		$query  = "SELECT domain.id, domain.name FROM domain WHERE domain.user_id = $_user_id AND domain.name IN ('$my_domains') AND domain.status = 'enable' ";
+		$query  = "SELECT domain.id, domain.name FROM domain WHERE domain.user_id = $_user_id AND domain.name IN ('$my_domains') AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, null, false, 'nic');
 		return $result;
 	}
