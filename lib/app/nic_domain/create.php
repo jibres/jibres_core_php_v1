@@ -602,9 +602,9 @@ class create
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				'price'          => $price,
-				'finalprice'     => $finalprice,
-				'discount'       => $discount,
+				// 'price'          => $price,
+				// 'finalprice'     => $finalprice,
+				// 'discount'       => $discount,
 				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];

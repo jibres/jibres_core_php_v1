@@ -340,6 +340,9 @@ class renew
 
 		];
 
+		$finalprice = floatval($price) - floatval($discount);
+		$gift_usage_id = null;
+
 		$result = \lib\nic\exec\domain_renew::renew($ready);
 
 		\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
@@ -444,7 +447,7 @@ class renew
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				'price'          => $price,
+				// 'price'          => $price,
 				'period'         => $period_month,
 				'transaction_id' => $transaction_id,
 			];
