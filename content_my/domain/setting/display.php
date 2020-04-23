@@ -59,7 +59,6 @@ else
 }
 ?></div></td>
      </tr>
-<?php } //endif ?>
      <tr>
       <th><?php echo T_('Auto Renew');
 if(\dash\data::domainDetail_autorenew())
@@ -82,6 +81,7 @@ else
 }
 ?></td>
      </tr>
+<?php } //endif ?>
     </table>
   </div>
  </div>
