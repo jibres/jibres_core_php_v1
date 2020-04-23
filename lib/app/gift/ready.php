@@ -31,10 +31,9 @@ class ready
 					break;
 
 				case 'dateexpire':
-					if(\dash\language::current() === 'fa' && $value)
+					if($value)
 					{
 						$value = \dash\fit::date($value);
-						$value = \dash\utility\convert::to_en_number($value);
 					}
 
 					$result[$key] = $value;
