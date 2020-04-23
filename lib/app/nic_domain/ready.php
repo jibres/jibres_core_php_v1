@@ -202,11 +202,6 @@ class ready
 			}
 		}
 
-		if(isset($result['status']) && $result['status'] !== 'enable')
-		{
-			$result['can_renew'] = false;
-		}
-
 
 		if(isset($result['available']) && $result['available'] === '1')
 		{
