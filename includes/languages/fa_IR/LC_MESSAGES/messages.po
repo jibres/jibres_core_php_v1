@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-23 20:04+0430\n"
-"PO-Revision-Date: 2020-04-23 20:05+0430\n"
+"POT-Creation-Date: 2020-04-23 20:54+0430\n"
+"PO-Revision-Date: 2020-04-23 20:56+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1351,7 +1351,8 @@ msgid "Search"
 msgstr "جستجو"
 
 #: content/domains/home/display.php:18 content_love/domain/domainbuy/display.php:126
-#: content_my/domain/buy/display-settings.php:133 content_my/home/display_site.php:33
+#: content_my/domain/buy/display-settings.php:133 content_my/domain/search/view.php:35
+#: content_my/home/display_site.php:33
 msgid "Register Domain"
 msgstr "ثبت دامنه"
 
@@ -1403,7 +1404,8 @@ msgstr ""
 "هستیم:)"
 
 #: content/domains/home/display.php:34 content_my/domain/renew/display.php:43
-#: lib/app/nic_domainaction/ready.php:96 lib/app/nic_domainbilling/ready.php:94
+#: content_my/domain/search/view.php:25 lib/app/nic_domainaction/ready.php:96
+#: lib/app/nic_domainbilling/ready.php:94
 msgid "Renew Domain"
 msgstr "تمدید دامنه"
 
@@ -2903,7 +2905,7 @@ msgstr "اختیاری"
 #: content_love/transactions/minus/display.php:69 content_my/domain/home/display.php:192
 #: content_my/domain/payments/display.php:29 content_my/domain/payments/display.php:30
 #: content_my/domain/payments/display.php:31 content_my/domain/review/display.php:192
-#: content_my/domain/review/display.php:209 content_my/domain/review/display.php:218
+#: content_my/domain/review/display.php:209 content_my/domain/review/display.php:219
 #: content_my/domain/setting/action/display.php:44
 #: content_my/domain/setting/action/display.php:48 content_pay/home/display.php:64
 #: content_v2/app/view.php:766 content_v2/app/view.php:803 content_v2/app/view.php:815
@@ -3799,8 +3801,8 @@ msgstr "کیه"
 msgid "Domain is available"
 msgstr "دامنه موجود است"
 
-#: content/whois/whoisDisplay.php:14 content_my/domain/review/view.php:36
-#: content_my/domain/review/view.php:38 lib/app/nic_domainaction/ready.php:91
+#: content/whois/whoisDisplay.php:14 content_my/domain/review/view.php:37
+#: content_my/domain/review/view.php:39 lib/app/nic_domainaction/ready.php:91
 #: lib/app/nic_domainbilling/ready.php:88
 msgid "Register domain"
 msgstr "ثبت دامنه"
@@ -4797,7 +4799,7 @@ msgstr "ویرایش"
 #: content_my/business/ask/display.php:45 content_my/business/ask/view.php:21
 #: content_my/business/start/display.php:50 content_my/business/start/view.php:19
 #: content_my/business/subdomain/display.php:22 content_my/business/subdomain/view.php:18
-#: content_my/domain/review/display.php:227 content_pay/home/display.php:151
+#: content_my/domain/review/display.php:228 content_pay/home/display.php:151
 #: dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketCreate.php:44
@@ -5200,7 +5202,7 @@ msgstr "خرید"
 #: content_love/domain/log/view.php:47 content_love/gift/all/view.php:39
 #: content_love/store/analytics/view.php:36 content_love/store/view.php:44
 #: content_my/domain/irnic/view.php:55 content_my/domain/predict/view.php:52
-#: content_my/domain/search/view.php:64 includes/languages/trans_static.php:594
+#: content_my/domain/search/view.php:83 includes/languages/trans_static.php:594
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -11685,8 +11687,8 @@ msgstr "اگر می‌خواهید دی‌ان‌اس را از لیست دی‌
 
 #: content_developers/docs/irnic/r10/002-domain/012-domain-renew.php:4
 #: content_love/domain/detail/display.php:60 content_my/domain/home/display.php:116
-#: content_my/domain/renew/view.php:9 content_my/domain/review/view.php:42
-#: content_my/domain/review/view.php:44 content_my/domain/setting/display.php:32
+#: content_my/domain/renew/view.php:9 content_my/domain/review/view.php:43
+#: content_my/domain/review/view.php:45 content_my/domain/setting/display.php:32
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:20
 msgid "Renew domain"
 msgstr "تمدید دامنه"
@@ -13904,6 +13906,7 @@ msgid "Enable auto renew for this domains"
 msgstr "فعال کردن تمدید خودکار برای این دامنه"
 
 #: content_my/domain/import/display.php:21 content_my/domain/import/view.php:9
+#: content_my/domain/search/view.php:30
 msgid "Import domain"
 msgstr "وارد کردن دسته‌ای دامنه"
 
@@ -14189,7 +14192,9 @@ msgstr ""
 
 #: content_my/domain/review/display.php:115
 msgid "Your request maybe rejected from IRNIC!"
-msgstr "درخواست شما ممکن از توسط ایرنیک رد شود!"
+msgstr ""
+"در صورت عدم تنظیم رابط مالی یا نماینده دامنه روی «ji128-irnic» درخواست شما توسط ایرنیک "
+"رد خواهد شد!"
 
 #: content_my/domain/review/display.php:126
 msgid "If you have gift cart enter here"
@@ -14279,35 +14284,35 @@ msgstr ""
 "دامنه‌هایی که شما تلاش به ثبت یا تمدید آن داشتید ولی عملیات را رها کردید و آن دامنه‌ها "
 "همچنان آزاد هستند"
 
-#: content_my/domain/search/view.php:80
+#: content_my/domain/search/view.php:99
 msgid "Domain Name ASC"
 msgstr "بر اساس نام، صعودی"
 
-#: content_my/domain/search/view.php:85
+#: content_my/domain/search/view.php:104
 msgid "Domain Name DESC"
 msgstr "بر اساس نام، نزولی"
 
-#: content_my/domain/search/view.php:91
+#: content_my/domain/search/view.php:110
 msgid "Expredate ASC"
 msgstr "بر اساس تاریخ انقضا، صعودی"
 
-#: content_my/domain/search/view.php:96
+#: content_my/domain/search/view.php:115
 msgid "Expredate DESC"
 msgstr "بر اساس تاریخ انقضا، نزولی"
 
-#: content_my/domain/search/view.php:102
+#: content_my/domain/search/view.php:121
 msgid "Date register ASC"
 msgstr "تاریخ ثبت،‌ صعودی"
 
-#: content_my/domain/search/view.php:107
+#: content_my/domain/search/view.php:126
 msgid "Date register DESC"
 msgstr "تاریخ ثبت، نزولی"
 
-#: content_my/domain/search/view.php:113
+#: content_my/domain/search/view.php:132
 msgid "Date update ASC"
 msgstr "بر اساس تاریخ به‌روزرسانی، صعودی"
 
-#: content_my/domain/search/view.php:118
+#: content_my/domain/search/view.php:137
 msgid "Date update DESC"
 msgstr "بر اساس تاریخ به‌روزرسانی، نزولی"
 
