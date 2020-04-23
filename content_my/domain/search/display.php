@@ -1,19 +1,25 @@
 <div class="f">
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?action=mydomain' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'mydomain' || !\dash\request::get('action')) { echo ' active';} ?>" >
-            <h3><?php echo T_("Your domain"); ?></h3>
+            <h3><?php echo T_("Your Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_mydomain()); ?></div>
         </a>
     </div>
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?action=maybe' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'maybe') { echo ' active';} ?>" >
-            <h3><?php echo T_("Maybe for you"); ?></h3>
+            <h3><?php echo T_("Renewed Domain"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
+        </a>
+    </div>
+    <div class="c pRa5">
+        <a href="<?php echo \dash\url::that(). '?action=maybe' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'maybe') { echo ' active';} ?>" >
+            <h3><?php echo T_("Imported Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
         </a>
     </div>
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?action=available' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'available') { echo ' active';} ?>" >
-            <h3><?php echo T_("Available domains"); ?></h3>
+            <h3><?php echo T_("Free Domains"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_available()); ?></div>
         </a>
     </div>
