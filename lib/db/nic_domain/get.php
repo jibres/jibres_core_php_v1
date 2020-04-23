@@ -112,6 +112,18 @@ class get
 	}
 
 
+	public static function load_domain_user($_domain, $_user_id)
+	{
+		$query  =
+		"
+			SELECT * FROM domain WHERE domain.name = '$_domain' AND domain.user_id = $_user_id AND domain.status != 'deleted' LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+
+	}
+
+
 
 	public static function check_duplicate($_user_id, $_nic_id)
 	{

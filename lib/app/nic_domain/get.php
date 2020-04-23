@@ -20,7 +20,7 @@ class get
 		}
 
 
-		$load_domain = \lib\db\nic_domain\get::domain_user($_domain, \dash\user::id());
+		$load_domain = \lib\db\nic_domain\get::load_domain_user($_domain, \dash\user::id());
 		if(!isset($load_domain['id']))
 		{
 			\dash\notif::error(T_("Invalid domain"));
