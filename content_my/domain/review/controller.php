@@ -32,6 +32,10 @@ class controller
 
 		$load_last_activity = \lib\app\nic_domainaction\get::last_record_domain_id($id);
 
+		if(isset($load_last_activity['detail']['dont_know_nic_bill']) && $load_last_activity['detail']['dont_know_nic_bill'])
+		{
+			\dash\data::nicMaybeError(true);
+		}
 		switch (\dash\request::get('type'))
 		{
 			case 'register':

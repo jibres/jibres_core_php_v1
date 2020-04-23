@@ -160,6 +160,7 @@ class renew
 
 		$jibres_nic_contact = 'ji128-irnic';
 
+		$dont_know_nic_bill = false;
 
 		if($reseller === $jibres_nic_contact)
 		{
@@ -171,6 +172,7 @@ class renew
 		}
 		elseif($bill === null)
 		{
+			$dont_know_nic_bill = true;
 			// Don't know
 			// Buy from nic.ir and set bill on jibres. for example rezamohiti.ir
 		}
@@ -199,6 +201,11 @@ class renew
 				'domain_id' => $domain_id,
 				'period'    => $period_month,
 			];
+
+			if($dont_know_nic_bill)
+			{
+				$domain_action_detail['detail'] = json_encode(['dont_know_nic_bill' => true]);
+			}
 
 			\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
 

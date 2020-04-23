@@ -104,6 +104,20 @@
   </div>
   <div class="c s12">
 
+    <?php if(\dash\data::nicMaybeError() || 1) {?>
+
+        <div class="msg warn fs14">
+          <p>
+            <?php echo T_("We can not detect the reseller or billing contact of this account"); ?>
+            <br>
+            <?php echo T_("If you are administrator of this domain Your must go to nic.ir and set billing holder of this domain on 'ji128-irnic' "); ?>
+            <br>
+            <?php echo T_("Your request maybe rejected from IRNIC!"); ?>
+          </p>
+
+        </div>
+    <?php } //endif ?>
+
     <div class="box impact">
       <div class="body">
         <form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
