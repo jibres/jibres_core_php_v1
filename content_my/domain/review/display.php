@@ -126,14 +126,14 @@
 $giftCode = \dash\data::giftDetail_discount();
   if(\dash\data::giftDetail_type() === 'percent')
   {
-    echo T_("Gift percent"). ':';
-    echo \dash\fit::number(\dash\data::giftDetail_giftpercent());
-    echo T_("%");
+    // echo T_("Gift percent"). ':';
+    // echo \dash\fit::number(\dash\data::giftDetail_giftpercent());
+    // echo T_("%");
   }
   elseif(\dash\data::giftDetail_type() === 'amount')
   {
-    echo T_("Gift amount"). ':';
-    echo \dash\fit::number(\dash\data::giftDetail_giftamount());
+    // echo T_("Gift amount"). ':';
+    // echo \dash\fit::number(\dash\data::giftDetail_giftamount());
   }
   else
   {
@@ -166,7 +166,15 @@ $giftCode = \dash\data::giftDetail_discount();
            <tr>
             <th><?php echo T_("Your Gift") ?></th>
             <td class="txtRa">
-              <span><?php echo \dash\fit::number($giftCode);?></span>
+              <span><?php echo \dash\fit::number($giftCode);?> (
+                <?php
+                if(\dash\data::giftDetail_type() === 'percent')
+                {
+                  echo \dash\fit::number(\dash\data::giftDetail_giftpercent());
+                  echo T_("%");
+                }
+                ?> )
+              </span>
               <span class="fc-mute mLa5"><?php echo T_("Toman");?></span>
             </td>
 
