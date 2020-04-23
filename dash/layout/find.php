@@ -17,6 +17,16 @@ class find
 	}
 
 
+	public static function allNotifs()
+	{
+		\dash\notif::ok('heeeeeeeeeeeeeeeey');
+		$myNotif = \dash\notif::json();
+		if($myNotif)
+		{
+			echo "\n <div id='pageNotif' style='display:none;'>". $myNotif. "</div>";
+		}
+	}
+
 	public static function main()
 	{
 		$myMain = \dash\layout\func::page_main();
