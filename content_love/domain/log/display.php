@@ -124,7 +124,7 @@ else
                 <td class="collapsing">
                   <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f userPack">
                     <div class="c pRa10">
-                      <div class="mobile"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
+                      <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
                       <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
                     </div>
                     <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">

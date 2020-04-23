@@ -39,18 +39,37 @@
 
                 // cell2
                 echo '<div class="cauto pA5 pR20-f">';
-                if(isset($value['price']))
-                {
-                    if(isset($value['unit']))
-                    {
-                        echo '<span class="compact unit">'. $value['unit']. '</span>';
-                    }
-                    echo ' <span class="compact price">'. \dash\fit::number($value['price']). '</span>';
-                }
-                if(isset($value['compareAtPrice']))
-                {
-                    echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
-                }
+                    echo '<div>';
+                        if(isset($value['price']))
+                        {
+                            if(isset($value['unit']))
+                            {
+                                echo '<span class="compact unit">'. $value['unit']. '</span>';
+                            }
+                            echo ' <span class="compact price">'. \dash\fit::number($value['price']). '</span>';
+                        }
+                        if(isset($value['compareAtPrice']))
+                        {
+                            echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
+                        }
+                        echo '<span class="compact period pRa10">'. T_("1 Year"). '</span>';
+                    echo '</div>';
+
+                    echo '<div>';
+                        if(isset($value['price']))
+                        {
+                            if(isset($value['unit']))
+                            {
+                                echo '<span class="compact unit">'. $value['unit']. '</span>';
+                            }
+                            echo ' <span class="compact price">'. \dash\fit::number($value['price']). '</span>';
+                        }
+                        if(isset($value['compareAtPrice']))
+                        {
+                            echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
+                        }
+                        echo '<span class="compact period pRa10">'. T_("5 Year"). '</span>';
+                    echo '</div>';
                 echo '</div>';
 
             }
