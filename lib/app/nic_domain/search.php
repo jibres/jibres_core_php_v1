@@ -192,7 +192,7 @@ class search
 			elseif($data['list'] === 'renew')
 			{
 				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
-				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND domain.gateway != 'import' ";
+				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND (domain.gateway IS NULL OR domain.gateway != 'import') ";
 
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Maybe for your");
