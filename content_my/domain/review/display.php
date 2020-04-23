@@ -118,7 +118,7 @@
 
 <?php if(\dash\request::get('gift')) {?>
   <?php if(\dash\data::giftDetail_msgsuccess()) {?>
-            <div class="msg success"><?php echo \dash\data::giftDetail_msgsuccess(); ?></div>
+            <div class="msg success"><?php echo nl2br(\dash\data::giftDetail_msgsuccess()); ?></div>
   <?php }// endif ?>
           <div class="msg danger2 f align-center">
             <div class="c">
