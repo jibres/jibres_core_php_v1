@@ -209,7 +209,7 @@ else
 
 
 
-  <?php if(\dash\data::domainDetail_status() === 'disable') {?>
+  <?php if(!\dash\data::domainDetail_verify()) {?>
   <div class="panel mB10">
     <table class="tbl1 v4 mB0">
      <tr>
