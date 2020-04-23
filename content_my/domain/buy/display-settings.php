@@ -26,7 +26,7 @@
      <div class="f mB10">
       <div class="c pB10 pRa5">
        <div class="radio3">
-        <input type="radio" name="period" value="1year" id="period1year">
+        <input type="radio" name="period" value="1year" id="period1year" checked>
         <label for="period1year"><?php echo T_("1 Year"); ?> <span> <?php echo \lib\app\nic_domain\price::register_string("1year"); ?> </span></label>
        </div>
       </div>
