@@ -214,7 +214,7 @@ $giftCode = \dash\data::giftDetail_discount();
            <tr data-payable>
             <th><?php echo T_("Amount payable") ?></th>
             <td class="txtRa collapsing">
-              <span class="txtB fs20" id='domainPayablePrice'><?php echo \dash\fit::number(\dash\data::myPrice() - $giftCode) ?></span>
+              <span class="txtB fs20" id='domainPayablePrice'><?php echo \dash\fit::number(\dash\data::myPrice() - \dash\data::userBudget() - $giftCode) ?></span>
               <span class="fc-mute mLa5"><?php echo T_("Toman");?></span>
             </td>
            </tr>
