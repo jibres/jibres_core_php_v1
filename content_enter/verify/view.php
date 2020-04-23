@@ -34,7 +34,8 @@ class view
 		\dash\data::rememberLink(false);
 		\dash\data::startNewMobile(false);
 		// the verify msg
-		$myDesc  = T_('Please verify yourself.'). ' ';
+		$myDesc = T_('Please verify yourself.'). ' ';
+		$verifyReason = '';
 
 		switch (\dash\url::child())
 		{
@@ -55,7 +56,7 @@ class view
 				break;
 
 			case 'later':
-				$myDesc .= '';
+				$myDesc = T_("You requested to verify your account later.");
 				break;
 
 			case null:
@@ -74,7 +75,7 @@ class view
 		// \dash\data::action_text(T_('Recovery'));
 		// \dash\data::action_link(\dash\url::here(). '/pass/recovery');
 
-		$verifyReason = '';
+
 		// swich verify from
 		switch (\dash\utility\enter::get_session('verify_from'))
 		{
