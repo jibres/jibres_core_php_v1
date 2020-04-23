@@ -144,6 +144,10 @@ class view
 			case 'sms':
 				$myTitle = T_('verify with SMS');
 				break;
+
+			case 'later':
+				$myTitle = T_('Really want to verify later?');
+				break;
 		}
 
 		\dash\face::title($myTitle);
