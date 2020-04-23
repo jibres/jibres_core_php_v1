@@ -141,7 +141,17 @@ class renew
 
 		if($new_date_expire >= $year_6)
 		{
-			\dash\notif::error(T_("Maximum renew date is 6 year"));
+			$msg = T_("The domain expire time is :date", ['date' => \dash\fit::date($current_expiredate)]);
+			$msg .= '<br>';
+			$msg .= T_("You try to renew this domain for :val years", ['val' => \dash\fit::number(substr($period, 0, 1))]);
+			$msg .= '<br>';
+			$msg .= T_("Because the maximum validity period of the domain is six years, and depending on the period you choose and the expiration date of the domain, your domain will be more than six years, and this is not possible.");
+			$msg .= '<br>';
+			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
+
+			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+
+
 			return false;
 		}
 
