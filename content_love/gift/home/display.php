@@ -23,5 +23,12 @@
 
 </div>
 
+<?php
+$gCode       = \dash\data::dataRow_code();
+$gPercent    = \dash\data::dataRow_giftpercent();
+$gExpireDate = \dash\data::dataRow_dateexpire();
+$gMaxGift    = \dash\data::dataRow_giftmax();
+?>
+
 <?php require root."/content_love/gift/home/giftcard.php"; ?>
 
