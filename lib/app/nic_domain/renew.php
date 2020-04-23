@@ -447,7 +447,7 @@ class renew
 			$msg .= '<br>';
 			$msg .= T_("Domain date expire:");
 			$msg .= '<br>';
-			$msg .= \dash\fit::date_time($expiredate);
+			$msg .= \dash\fit::date($expiredate);
 
 			\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
