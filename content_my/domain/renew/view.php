@@ -15,6 +15,7 @@ class view
 		$list = \lib\app\nic_contact\search::my_list();
 		\dash\data::myContactList($list);
 
+		\dash\data::autorenewperiod(\lib\app\nic_usersetting\defaultval::user_autorenewperiod(\dash\user::id()));
 	}
 }
 ?>

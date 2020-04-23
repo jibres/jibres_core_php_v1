@@ -35,6 +35,13 @@
 	  </a>
 	 </div>
 
+  <div class="c pRa10">
+    <a href="<?php echo \dash\url::that(). '?user='. \dash\data::dataRow_user_id() ?>" class="stat x70">
+     <h3><?php echo T_("User"); ?></h3>
+     <code class="val"><?php echo \dash\data::dataRow_user_id(); ?></code>
+    </a>
+   </div>
+
    <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '?ip='. \dash\data::dataRow_ip() ?>" class="stat x70">
      <h3><?php echo T_("IP Address"); ?></h3>

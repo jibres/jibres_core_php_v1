@@ -16,13 +16,13 @@
     <div class="f mB10">
       <div class="c pB10 pRa5">
        <div class="radio3">
-      <input type="radio" name="period" value="1year" id="period1year">
+      <input type="radio" name="period" value="1year" id="period1year" <?php if(\dash\data::autorenewperiod() === '1year') { echo 'checked';} ?>>
       <label for="period1year"><?php echo T_("1 Year"); ?> <span> <?php echo \lib\app\nic_domain\price::renew_string("1year"); ?> </span></label>
        </div>
       </div>
       <div class="c pB10">
        <div class="radio3">
-      <input type="radio" name="period" value="5year" id="period5year">
+      <input type="radio" name="period" value="5year" id="period5year" <?php if(\dash\data::autorenewperiod() === '5year') { echo 'checked';} ?>>
       <label for="period5year"><?php echo T_("5 Year"); ?> <span> <?php echo \lib\app\nic_domain\price::renew_string("5year"); ?> </span></label>
        </div>
       </div>

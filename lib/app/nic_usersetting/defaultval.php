@@ -58,5 +58,23 @@ class defaultval
 
 		return $time;
 	}
+
+
+
+	public static function user_autorenewperiod($_user_id)
+	{
+		$get_setting = \lib\db\nic_usersetting\get::my_setting($_user_id);
+
+		if(isset($get_setting['autorenewperiod']))
+		{
+			$autorenewperiod = $get_setting['autorenewperiod'];
+		}
+		else
+		{
+			$autorenewperiod = self::autorenewperiod();
+		}
+
+		return $autorenewperiod;
+	}
 }
 ?>

@@ -61,6 +61,18 @@ class view
 		if(\dash\data::haveBuyDomain())
 		{
 			$my_setting = \lib\app\nic_usersetting\get::get();
+
+			if(isset($my_setting['autorenewperiod']))
+			{
+				$autorenewperiod = $my_setting['autorenewperiod'];
+			}
+			else
+			{
+				$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+			}
+
+			$my_setting['autorenewperiod'] = $autorenewperiod;
+
 			if(isset($my_setting['ns1']) && $my_setting['ns1'])
 			{
 				// nothing
