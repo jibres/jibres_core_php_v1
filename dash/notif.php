@@ -144,7 +144,12 @@ class notif
 
 	public static function json()
 	{
-		return json_encode(self::$notif);
+		if(count(self::$notif) > 0)
+		{
+			return json_encode(self::$notif);
+
+		}
+		return null;
 	}
 
 
