@@ -13,6 +13,7 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 		\dash\data::userBudget(\dash\user::budget());
+		\dash\data::loadScript("/js/page/my_domain_review.js");
 
 
 		$gift = \dash\request::get('gift');

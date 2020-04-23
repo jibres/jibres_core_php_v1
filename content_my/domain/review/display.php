@@ -167,7 +167,7 @@ $giftCode = \dash\data::giftDetail_discount();
         <table class="tbl1 v5">
           <tbody>
 
-           <tr>
+           <tr data-price='<?php echo \dash\data::myPeriod(); ?>'>
             <th><?php echo T_("Domain Price") ?></th>
             <?php if(\dash\data::myPeriod()) {?>
             <td class="txtRa"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?></td>
@@ -177,7 +177,7 @@ $giftCode = \dash\data::giftDetail_discount();
            </tr>
 
 <?php if($giftCode) {?>
-           <tr>
+           <tr data-gift='<?php echo $giftCode; ?>'>
             <th><?php echo T_("Your Gift") ?></th>
             <td class="txtRa">
               <span><?php echo \dash\fit::number($giftCode);?> (
@@ -196,11 +196,11 @@ $giftCode = \dash\data::giftDetail_discount();
 <?php } // endif ?>
 
 <?php if(\dash\data::userBudget()) {?>
-           <tr>
+           <tr data-bugdet='<?php echo \dash\data::userBudget(); ?>'>
             <th>
               <div><?php echo T_("Account Balance") ?></div>
               <div class="check1">
-                <input type="checkbox" name="usebudget"  id="budget" checked>
+                <input type="checkbox" name="usebudget" id="budget" checked>
                 <label for="budget"><?php echo T_("Pay from my account balance"); ?></label>
               </div>
             </th>
@@ -211,7 +211,7 @@ $giftCode = \dash\data::giftDetail_discount();
            </tr>
 <?php } //endif ?>
 
-           <tr>
+           <tr data-payable>
             <th><?php echo T_("Amount payable") ?></th>
             <td class="txtRa collapsing">
               <span class="txtB fs20"><?php echo \dash\fit::number(\dash\data::myPrice() - $giftCode) ?></span>
@@ -238,4 +238,3 @@ $giftCode = \dash\data::giftDetail_discount();
 
   </div>
 </div>
-
