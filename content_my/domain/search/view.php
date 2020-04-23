@@ -17,6 +17,25 @@ class view
 		\dash\face::btnImport(\dash\url::this().'/import');
 		// \dash\face::btnExport(\dash\url::this().'/export');
 
+		$urlGetList = \dash\request::get('list');
+
+		switch ($urlGetList)
+		{
+			case 'renew':
+				\dash\data::action_text(T_('Renew Domain'));
+				\dash\data::action_link(\dash\url::this(). '/renew');
+				break;
+			case 'import':
+				\dash\face::btnImport(null);
+				\dash\data::action_text(T_('Import domain'));
+				\dash\data::action_link(\dash\url::this(). '/import');
+				break;
+
+			default:
+				\dash\data::action_text(T_('Register Domain'));
+				\dash\data::action_link(\dash\url::this(). '/buy');
+				break;
+		}
 
 		$args =
 		[
