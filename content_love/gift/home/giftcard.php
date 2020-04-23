@@ -27,8 +27,8 @@ if(!isset($gMaxGift))
 				<h2 class="txtB mB0"><?php echo T_("Jibres"); ?></h2>
 				<h3><?php echo T_("Sell & Enjoy"); ?></h3>
 			</div>
-			<div class="cauto os pLa20">
-				<div class="f">
+			<div class="cauto os pLa20 pTB20">
+				<div class="f mB10">
 					<abbr class="c6"><?php echo T_("Expire Date");?></abbr>
 					<span class="c6"><?php echo \dash\fit::date($gExpireDate); ?></span>
 				</div>
@@ -39,7 +39,7 @@ if(!isset($gMaxGift))
 			</div>
 		</header>
 		<div class="body">
-			<img src="<?php echo \dash\url::cdn();?>/img/bg/enter/default.jpg" alt="<?php echo T_("Jibres Gift Card");?>">
+			<img src="<?php echo \dash\url::cdn();?>/img/bg/gift/star-red.jpg" alt="<?php echo T_("Jibres Gift Card");?>">
 			<div class="code">
 				<abbr><?php echo T_("Jibres Gift Code"); ?></abbr>
 				<span class="block"><?php echo $gCode; ?></span>
