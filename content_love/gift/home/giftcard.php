@@ -30,7 +30,7 @@ if(!isset($gMaxGift))
 			<div class="cauto os pLa20 pTB20">
 				<div class="f mB10">
 					<abbr class="c6"><?php echo T_("Expire Date");?></abbr>
-					<span class="c6"><?php echo \dash\fit::date($gExpireDate); ?></span>
+					<span class="c6"><?php echo $gExpireDate; ?></span>
 				</div>
 				<div class="f">
 					<abbr class="c6"><?php echo T_("Max Gift");?></abbr>
