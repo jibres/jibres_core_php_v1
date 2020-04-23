@@ -82,7 +82,17 @@ class controller
 
         \dash\data::myPeriod($period);
 
-        $price = \lib\app\nic_domain\price::register(\dash\data::myPeriod());
+        $price = 0;
+
+        if(\dash\request::get('type') === 'register')
+        {
+        	$price = \lib\app\nic_domain\price::register(\dash\data::myPeriod());
+
+        }
+        elseif(\dash\request::get('type') === 'renew')
+        {
+        	$price = \lib\app\nic_domain\price::renew(\dash\data::myPeriod());
+        }
 
         \dash\data::myPrice($price);
 

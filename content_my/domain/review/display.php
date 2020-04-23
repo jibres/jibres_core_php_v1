@@ -167,7 +167,7 @@ $giftCode = \dash\data::giftDetail_discount();
         <table class="tbl1 v5">
           <tbody>
 
-           <tr data-price='<?php echo \dash\data::myPeriod(); ?>'>
+           <tr data-price='<?php echo \dash\data::myPrice(); ?>'>
             <th><?php echo T_("Domain Price") ?></th>
             <?php if(\dash\data::myPeriod()) {?>
             <td class="txtRa"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?></td>
