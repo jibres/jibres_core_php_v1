@@ -134,8 +134,6 @@
   <?php if(\dash\data::giftDetail_msgsuccess()) {?>
             <div class="msg success"><?php echo nl2br(\dash\data::giftDetail_msgsuccess()); ?></div>
   <?php }// endif ?>
-          <div class="msg danger2 f align-center">
-            <div class="c">
 <?php
 $giftCode = \dash\data::giftDetail_discount();
   if(\dash\data::giftDetail_type() === 'percent')
@@ -151,11 +149,13 @@ $giftCode = \dash\data::giftDetail_discount();
   }
   else
   {
-    echo T_("Invalid gift code"). ' 😔';
+    echo '<div class="msg danger2 f align-center">';
+      echo '<div class="c">';
+        echo T_("Invalid gift code"). ' 😔';
+      echo '</div>';
+    echo '</div>';
   }
 ?>
-            </div>
-          </div>
 <?php } // endif ?>
       </div>
     </div>
