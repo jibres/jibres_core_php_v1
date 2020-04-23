@@ -150,7 +150,8 @@ elseif(\dash\request::get('list') === 'renew')
 }
 elseif(\dash\request::get('list') === 'import')
 {
-    require_once('display-imported.php');
+    require_once('display-maybemydomain.php');
+
 }
 elseif(\dash\request::get('list') === 'available')
 {
