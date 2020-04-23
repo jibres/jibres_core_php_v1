@@ -22,3 +22,6 @@
 
 
 </div>
+
+<?php require root."/content_love/gift/home/giftcard.php"; ?>
+
