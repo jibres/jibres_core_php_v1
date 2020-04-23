@@ -104,7 +104,7 @@
   </div>
   <div class="c s12">
 
-    <?php if(\dash\data::nicMaybeError() || 1) {?>
+    <?php if(\dash\data::nicMaybeError()) {?>
 
         <div class="msg warn fs14">
           <p>
