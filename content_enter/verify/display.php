@@ -25,16 +25,9 @@ $sendWayCod = \dash\data::sendWayCod();
 
   <div class="fs08">
 
-<?php if(in_array('telegram', $sendWayCod)) { ?>
-	<div class="radio1">
-		<input type="radio" name="sendCode" value="telegram" id="sRd3" checked autofocus>
-		<label for="sRd3"><?php echo T_("Send code in your Telegram"); ?></label>
-	</div>
-<?php } // endif ?>
-
 <?php if(in_array('sms', $sendWayCod)) { ?>
 	<div class="radio1">
-		<input type="radio" name="sendCode" value="sms" id="sRd1" <?php if(!in_array('telegram', $sendWayCod)) { ?>checked autofocus <?php }//endif ?>	>
+		<input type="radio" name="sendCode" value="sms" id="sRd1" <?php if(!in_array('telegram', $sendWayCod) or true) { ?>checked autofocus <?php }//endif ?>	>
 		<label for="sRd1"><?php echo T_("Send code as sms to your phone"); ?></label>
 	</div>
 <?php } // endif ?>
@@ -43,6 +36,13 @@ $sendWayCod = \dash\data::sendWayCod();
 	<div class="radio1">
 		<input type="radio" name="sendCode" value="call" id="sRd2">
 		<label for="sRd2"><?php echo T_("Call you to send code"); ?></label>
+	</div>
+<?php } // endif ?>
+
+<?php if(in_array('telegram', $sendWayCod)) { ?>
+	<div class="radio1">
+		<input type="radio" name="sendCode" value="telegram" id="sRd3">
+		<label for="sRd3"><?php echo T_("Send code in your Telegram"); ?></label>
 	</div>
 <?php } // endif ?>
 
@@ -65,7 +65,7 @@ $sendWayCod = \dash\data::sendWayCod();
   </div>
 
 
-<div class='flex' id='ego'>
+<div class='flex mT10-f' id='ego'>
     <button type="submit"><?php echo T_("Go"); ?></button>
    </div>
 
