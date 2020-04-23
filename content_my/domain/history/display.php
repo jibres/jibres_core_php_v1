@@ -9,9 +9,9 @@
             <thead>
                 <th class="collapsing">&nbsp;</th>
                 <th><?php echo T_("Title"); ?></th>
-                <th></th>
-                <th></th>
-                <th><?php echo T_("Date"); ?></th>
+                <th class="collapsing"></th>
+                <th class="collapsing"></th>
+                <th class="collapsing"><?php echo T_("Date"); ?></th>
             </thead>
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
@@ -20,7 +20,7 @@
                     <td>
                         <?php echo \dash\get::index($value, 'title'); ?>
                     </td>
-                    <td>
+                    <td class="collapsing">
                         <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
                             <div>
                                 <?php if(\dash\get::index($value, 'verify')) {?>
@@ -33,7 +33,7 @@
                             </div>
                         <?php } // endif ?>
                     </td>
-                    <td>
+                    <td class="collapsing">
                         <?php if(\dash\get::index($value, 'detail', 'pay_link')) {?>
                             <a href="<?php echo \dash\get::index($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
                         <?php } // endif ?>

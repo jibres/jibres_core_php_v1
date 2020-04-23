@@ -1,6 +1,6 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 <div class="f justify-center">
- <div class="c9 m12 s12">
+ <div class="c12 m12 s12">
 
    <div class="fs14">
 
@@ -11,10 +11,10 @@
             <thead>
                 <th class="collapsing">&nbsp;</th>
                 <th><?php echo T_("Title"); ?></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><?php echo T_("Date"); ?></th>
+                <th class="collapsing"></th>
+                <th class="collapsing"></th>
+                <th class="collapsing"></th>
+                <th class="collapsing"><?php echo T_("Date"); ?></th>
             </thead>
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
@@ -23,7 +23,7 @@
                     <td>
                         <?php echo \dash\get::index($value, 'title'); ?>
                     </td>
-                    <td>
+                    <td class="collapsing">
                         <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
                             <div>
                                 <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
@@ -32,14 +32,14 @@
                             </div>
                         <?php } // endif ?>
                     </td>
-                    <td>
+                    <td class="collapsing">
                         <?php if(\dash\get::index($value, 'detail', 'pay_link')) {?>
                             <a href="<?php echo \dash\get::index($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
                         <?php } // endif ?>
                         <?php echo \dash\get::index($value, 'desc'); ?>
 
                     </td>
-                    <td>
+                    <td class="collapsing">
                         <?php if(\dash\get::index($value, 'price')) {?>
                             <?php echo T_("Price"). ': '. \dash\fit::number($value['price']). ' '. T_("Toman"); ?>
                         <?php } // endif ?>

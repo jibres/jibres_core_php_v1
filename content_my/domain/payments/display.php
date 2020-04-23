@@ -1,5 +1,5 @@
 <div class="f justify-center">
- <div class="c9 m12 s12 fs14">
+ <div class="c11 m12 s12 fs14">
 
     <?php if(\dash\data::dataTable()) {?>
 
