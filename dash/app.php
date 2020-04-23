@@ -102,9 +102,13 @@ class app
 							{
 								$avatar = \dash\app::static_avatar_url('male');
 							}
-							else
+							elseif($_data['gender'] === 'female')
 							{
 								$avatar = \dash\app::static_avatar_url('female');
+							}
+							else
+							{
+								$avatar = \dash\app::static_avatar_url();
 							}
 						}
 						else
@@ -129,17 +133,17 @@ class app
 	{
 		if(!isset($_data['avatar']))
 		{
-			$_data['avatar'] = null;
+			$_data['avatar'] = false;
 		}
 
 		if(!isset($_data['gender']))
 		{
-			$_data['gender'] = null;
+			$_data['gender'] = false;
 		}
 
 		if(!isset($_data['displayname']))
 		{
-			$_data['displayname'] = null;
+			$_data['displayname'] = false;
 		}
 
 
@@ -168,9 +172,16 @@ class app
 					break;
 
 				case 'displayname':
-					if(!$value && $value != '0')
+					if($value === false)
 					{
-						$value = T_("Whitout name");
+						$value = T_("Whitout user");
+					}
+					else
+					{
+						if(!$value && $value != '0')
+						{
+							$value = T_("Whitout name");
+						}
 					}
 					$result[$key] = $value;
 					break;
@@ -189,9 +200,13 @@ class app
 							{
 								$avatar = \dash\app::static_avatar_url('male');
 							}
-							else
+							elseif($_data['gender'] === 'female')
 							{
 								$avatar = \dash\app::static_avatar_url('female');
+							}
+							else
+							{
+								$avatar = \dash\app::static_avatar_url();
 							}
 						}
 						else
