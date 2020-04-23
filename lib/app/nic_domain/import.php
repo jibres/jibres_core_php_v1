@@ -64,9 +64,9 @@ class import
 			return false;
 		}
 
-		if(count($valid_domain) > 1000)
+		if(count($valid_domain) > 50)
 		{
-			\dash\notif::error(T_("Maximum domain in one request is 1,000 domain"), 'domains');
+			\dash\notif::error(T_("Maximum domain in one request is 50 domain"), 'domains');
 			return false;
 		}
 
@@ -112,6 +112,15 @@ class import
 
 		if($insert)
 		{
+			// fetch now
+			foreach ($insert_multi as $key => $value)
+			{
+				if(isset($value['name']))
+				{
+					\lib\app\nic_domain\get::force_fetch($value['name']);
+				}
+			}
+
 			$domain_action_detail =
 			[
 				'detail'         => json_encode(['count' => count($insert_multi)], JSON_UNESCAPED_UNICODE),

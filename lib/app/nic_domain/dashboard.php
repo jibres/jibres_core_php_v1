@@ -65,7 +65,7 @@ class dashboard
 
 		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_all);
 		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
-		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_all);
+		$result['domain_active_percent']    = round($result['my_domain'] * 100 / (floatval($result['my_domain']) +  floatval($result['maybe_my_domain'])));
 		$result['user_budget']              = \dash\user::budget();
 		$result['user_unit']         = T_("Toman");
 

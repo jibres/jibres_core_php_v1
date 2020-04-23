@@ -16,6 +16,8 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/buy');
 
+		\dash\face::btnImport(\dash\url::this().'/import');
+
 		\dash\face::help(\dash\url::support().'/domain');
 
 		$dashboard_detail = \lib\app\nic_domain\dashboard::user();

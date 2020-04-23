@@ -52,9 +52,20 @@ class get
 		}
 		$load_domain = \lib\app\nic_domain\ready::row($load_domain);
 		return $load_domain;
-
-
 	}
+
+
+	public static function force_fetch($_domain)
+	{
+		$load_domain = \lib\db\nic_domain\get::domain_anyone($_domain);
+		if(!isset($load_domain['id']))
+		{
+			return false;
+		}
+
+		self::update_fetch($_domain, $load_domain);
+	}
+
 
 	public static function update_fetch($_domain, $_load_domain)
 	{

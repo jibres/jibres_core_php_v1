@@ -56,7 +56,7 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'list'    => ['enum' => ['mydomain', 'maybe', 'available', 'import']],
+			'list'    => ['enum' => ['mydomain', 'renew', 'available', 'import']],
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
@@ -189,7 +189,7 @@ class search
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("My domains");
 			}
-			elseif($data['list'] === 'maybe')
+			elseif($data['list'] === 'renew')
 			{
 				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
 				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND domain.gateway != 'import' ";

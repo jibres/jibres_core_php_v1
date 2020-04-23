@@ -6,7 +6,7 @@
         </a>
     </div>
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(). '?list=maybe' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'maybe') { echo ' active';} ?>" >
+        <a href="<?php echo \dash\url::that(). '?list=renew' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'renew') { echo ' active';} ?>" >
             <h3><?php echo T_("Renewed Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
         </a>
@@ -140,7 +140,7 @@ if(!\dash\request::get('list') || \dash\request::get('list') === 'mydomain')
 {
     require_once('display-mydomain.php');
 }
-elseif(\dash\request::get('list') === 'maybe')
+elseif(\dash\request::get('list') === 'renew')
 {
     require_once('display-maybemydomain.php');
 }
@@ -184,7 +184,7 @@ if(!\dash\request::get('list') || \dash\request::get('list') === 'mydomain')
     $msg = T_("Buy your first winning domain!");
     $url = \dash\url::this(). '/buy';
 }
-elseif(\dash\request::get('list') === 'maybe')
+elseif(\dash\request::get('list') === 'renew')
 {
     $msg = T_("Try renew domain");
     $url = \dash\url::this(). '/renew';
