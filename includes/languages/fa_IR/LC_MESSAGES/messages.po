@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-23 18:59+0430\n"
-"PO-Revision-Date: 2020-04-23 18:59+0430\n"
+"POT-Creation-Date: 2020-04-23 19:08+0430\n"
+"PO-Revision-Date: 2020-04-23 19:09+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2900,8 +2900,8 @@ msgstr "اختیاری"
 #: content_love/transactions/minus/display.php:54
 #: content_love/transactions/minus/display.php:69 content_my/domain/home/display.php:192
 #: content_my/domain/payments/display.php:29 content_my/domain/payments/display.php:30
-#: content_my/domain/payments/display.php:31 content_my/domain/review/display.php:178
-#: content_my/domain/review/display.php:195 content_my/domain/review/display.php:204
+#: content_my/domain/payments/display.php:31 content_my/domain/review/display.php:192
+#: content_my/domain/review/display.php:209 content_my/domain/review/display.php:218
 #: content_my/domain/setting/action/display.php:44
 #: content_my/domain/setting/action/display.php:48 content_pay/home/display.php:64
 #: content_v2/app/view.php:766 content_v2/app/view.php:803 content_v2/app/view.php:815
@@ -4795,7 +4795,7 @@ msgstr "ویرایش"
 #: content_my/business/ask/display.php:45 content_my/business/ask/view.php:21
 #: content_my/business/start/display.php:50 content_my/business/start/view.php:19
 #: content_my/business/subdomain/display.php:22 content_my/business/subdomain/view.php:18
-#: content_my/domain/review/display.php:213 content_pay/home/display.php:151
+#: content_my/domain/review/display.php:227 content_pay/home/display.php:151
 #: dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketCreate.php:44
@@ -7621,7 +7621,7 @@ msgstr ""
 "بپردازید!"
 
 #: content_account/home/display.php:133 content_my/domain/irnic/edit/display.php:88
-#: content_my/domain/review/display.php:115
+#: content_my/domain/review/display.php:129
 msgid "Check"
 msgstr "بررسی"
 
@@ -13232,7 +13232,7 @@ msgid "Choose type of gift card"
 msgstr "نوع کارت هدیه را مشخص کنید"
 
 #: content_love/gift/create/code/display.php:13 content_love/gift/edit/display.php:10
-#: content_my/domain/review/display.php:114
+#: content_my/domain/review/display.php:128
 msgid "Gift code"
 msgstr "کد هدیه"
 
@@ -13555,7 +13555,7 @@ msgid "Please contact us to solve this problem."
 msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
 
 #: content_my/business/error/display.php:16 lib/app/nic_domain/renew.php:150
-#: lib/app/nic_domain/renew.php:184 lib/app/nic_domain/renew.php:484
+#: lib/app/nic_domain/renew.php:186 lib/app/nic_domain/renew.php:491
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
@@ -14140,36 +14140,53 @@ msgstr "جزئیات یافت نشد"
 msgid "Domain Period"
 msgstr "بازه زمانی دامنه"
 
-#: content_my/domain/review/display.php:112
+#: content_my/domain/review/display.php:111
+msgid "We can not detect the reseller or billing contact of this account"
+msgstr "ما نتوانستیم اطلاعات مربوط به نمایده یا رابط مالی دامنه شما را شناسایی کنیم"
+
+#: content_my/domain/review/display.php:113 lib/app/nic_domain/renew.php:184
+#: lib/app/nic_domain/renew.php:478
+msgid ""
+"If you are administrator of this domain Your must go to nic.ir and set billing holder "
+"of this domain on 'ji128-irnic' "
+msgstr ""
+"اگر شما مالک این دامنه هستید باید وارد سایت nic.ir شوید و رابط مالی و یا نماینده این "
+"دامنه را بر روی شناسه «ji128-irnic» تنظیم کنید. "
+
+#: content_my/domain/review/display.php:115
+msgid "Your request maybe rejected from IRNIC!"
+msgstr "درخواست شما ممکن از توسط ایرنیک رد شود!"
+
+#: content_my/domain/review/display.php:126
 msgid "If you have gift cart enter here"
 msgstr "اگر کد هدیه‌ای در اختیار دارید در این قسمت وارد کنید"
 
-#: content_my/domain/review/display.php:140 lib/app/gift/check.php:27
+#: content_my/domain/review/display.php:154 lib/app/gift/check.php:27
 #: lib/app/gift/check.php:35
 msgid "Invalid gift code"
 msgstr "کد هدیه نامعتبر است"
 
-#: content_my/domain/review/display.php:157
+#: content_my/domain/review/display.php:171
 msgid "Domain Price"
 msgstr "هزینه دامنه"
 
-#: content_my/domain/review/display.php:167
+#: content_my/domain/review/display.php:181
 msgid "Your Gift"
 msgstr "هدیه شما"
 
-#: content_my/domain/review/display.php:174
+#: content_my/domain/review/display.php:188
 msgid "%"
 msgstr "٪"
 
-#: content_my/domain/review/display.php:187 content_my/home/display_site.php:21
+#: content_my/domain/review/display.php:201 content_my/home/display_site.php:21
 msgid "Account Balance"
 msgstr "موجودی حساب"
 
-#: content_my/domain/review/display.php:190
+#: content_my/domain/review/display.php:204
 msgid "Pay from my account balance"
 msgstr "استفاده از شارژ حساب کاربری"
 
-#: content_my/domain/review/display.php:201
+#: content_my/domain/review/display.php:215
 msgid "Amount payable"
 msgstr "مبلغ قابل پرداخت"
 
@@ -24718,7 +24735,7 @@ msgstr "دامنه آماده ثبت است"
 msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
-#: lib/app/nic_domain/create.php:440 lib/app/nic_domain/renew.php:312
+#: lib/app/nic_domain/create.php:440 lib/app/nic_domain/renew.php:319
 #: lib/app/nic_domain/transfer.php:150
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
@@ -24878,52 +24895,44 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از شش سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/nic_domain/renew.php:180 lib/app/nic_domain/renew.php:469
+#: lib/app/nic_domain/renew.php:182 lib/app/nic_domain/renew.php:476
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
 "ما نمی‌توانیم این دامنه را تمدید کنیم چون شناسه‌ی ایرنیک این دامنه دسترسی به تمدید آن را "
 "مسدود کرده است"
 
-#: lib/app/nic_domain/renew.php:182 lib/app/nic_domain/renew.php:471
-msgid ""
-"If you are administrator of this domain Your must go to nic.ir and set billing holder "
-"of this domain on 'ji128-irnic' "
-msgstr ""
-"اگر شما مالک این دامنه هستید باید وارد سایت nic.ir شوید و رابط مالی و یا نماینده این "
-"دامنه را بر روی شناسه «ji128-irnic» تنظیم کنید. "
-
-#: lib/app/nic_domain/renew.php:208
+#: lib/app/nic_domain/renew.php:215
 msgid "Domain ready to renew"
 msgstr "دامنه آماده انتقال است"
 
-#: lib/app/nic_domain/renew.php:284
+#: lib/app/nic_domain/renew.php:291
 msgid "Renew :domain For :year year"
 msgstr "تمدید دامنه :domain برای :year سال"
 
-#: lib/app/nic_domain/renew.php:372
+#: lib/app/nic_domain/renew.php:379
 msgid "Renew domian :val"
 msgstr "تمدید دامنه :val"
 
-#: lib/app/nic_domain/renew.php:439
+#: lib/app/nic_domain/renew.php:446
 msgid "Domain :domain was renewed"
 msgstr "تمدید دامنه :domain انجام شد"
 
-#: lib/app/nic_domain/renew.php:441
+#: lib/app/nic_domain/renew.php:448
 msgid "Domain date expire:"
 msgstr "تاریخ انقضای دامنه:"
 
-#: lib/app/nic_domain/renew.php:473
+#: lib/app/nic_domain/renew.php:480
 msgid "After change this problem you can try again"
 msgstr "بعد از انجام اقدامات ذکر شده می‌توانید مجددا تلاش کنید"
 
-#: lib/app/nic_domain/renew.php:475
+#: lib/app/nic_domain/renew.php:482
 msgid "If you pay any amount, Your amount is saved in your account"
 msgstr ""
 "اگر مبلغی را پرداخت کرده باشید، آن مبلغ در حساب کاربری شما ذخیره شده است و می‌توانید از "
 "آن استفاده کنید"
 
-#: lib/app/nic_domain/renew.php:480
+#: lib/app/nic_domain/renew.php:487
 msgid "Don't worry! Your gift is ok and not used. You can use it again"
 msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
@@ -26751,9 +26760,6 @@ msgstr "یارد"
 
 #~ msgid "DNS not found"
 #~ msgstr "دی‌ان‌اس یافت نشد"
-
-#~ msgid "Can not access to billing account of this domain"
-#~ msgstr "نمی‌توانید اطلاعات مربوط به رابط مالی دامنه را از جزئیات دامنه دریافت کنیم"
 
 #~ msgid ""
 #~ "We can not transfer this domain because the bill holder of IRNIC can not access to "
