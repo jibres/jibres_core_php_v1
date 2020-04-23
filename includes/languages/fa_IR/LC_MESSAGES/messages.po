@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-23 19:18+0430\n"
-"PO-Revision-Date: 2020-04-23 19:18+0430\n"
+"POT-Creation-Date: 2020-04-23 20:04+0430\n"
+"PO-Revision-Date: 2020-04-23 20:05+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -143,6 +143,7 @@ msgstr ""
 #: content_developers/home/layout/header.php:15 content_developers/home/view.php:9
 #: content_developers/view.php:8 content_enter/home/layout/main.php:14
 #: content_enter/home/layout/main.php:19 content_enter/home/view.php:19
+#: content_love/gift/home/giftcard.php:24 content_love/gift/home/giftcard.php:27
 #: content_r10/android/intro/view.php:29 content_r10/android/splash/view.php:13
 #: content_r10/android/view.php:12 content_su/update/display.php:92
 #: content_subdomain/home/layout/comingsoon.php:11
@@ -2895,7 +2896,8 @@ msgstr "اختیاری"
 #: content_crm/transactions/minus/display.php:54
 #: content_crm/transactions/minus/display.php:69
 #: content_love/domain/billing/display.php:89 content_love/domain/billing/display.php:90
-#: content_love/domain/billing/display.php:91 content_love/transactions/add/display.php:54
+#: content_love/domain/billing/display.php:91 content_love/gift/home/giftcard.php:37
+#: content_love/transactions/add/display.php:54
 #: content_love/transactions/add/display.php:69
 #: content_love/transactions/minus/display.php:54
 #: content_love/transactions/minus/display.php:69 content_my/domain/home/display.php:192
@@ -4406,8 +4408,8 @@ msgid "Item count"
 msgstr "تعداد آیتم‌ها"
 
 #: content_a/cart/home/display.php:86 content_a/factor/home/display.php:194
-#: content_cms/attachment/home/display.php:109 dash/layout/admin/admin-titlebox.php:27
-#: includes/languages/trans_static_public.php:142
+#: content_cms/attachment/home/display.php:109 content_love/gift/all/display.php:63
+#: dash/layout/admin/admin-titlebox.php:27 includes/languages/trans_static_public.php:142
 msgid "View"
 msgstr "نمایش"
 
@@ -4455,7 +4457,7 @@ msgstr "جزئیات"
 #: content_love/application/home/display.php:134 content_love/domain/all/display.php:108
 #: content_love/domain/billing/display.php:125 content_love/domain/fetch/display.php:102
 #: content_love/domain/irnic/display.php:85 content_love/domain/irnic/display.php:93
-#: content_love/domain/log/display.php:149 content_love/gift/all/display.php:93
+#: content_love/domain/log/display.php:149 content_love/gift/all/display.php:95
 #: content_love/transactions/display.php:112 content_love/transactions/display.php:120
 #: content_my/domain/irnic/display.php:85 content_my/domain/irnic/display.php:93
 #: content_my/domain/predict/display.php:126 content_my/domain/search/display.php:173
@@ -4834,7 +4836,7 @@ msgstr "برای بررسی محصولات موجود در این شرکت سا�
 #: content_love/application/home/display.php:146 content_love/domain/all/display.php:120
 #: content_love/domain/billing/display.php:137 content_love/domain/fetch/display.php:114
 #: content_love/domain/irnic/display.php:102 content_love/domain/log/display.php:161
-#: content_love/gift/all/display.php:105 content_love/transactions/display.php:126
+#: content_love/gift/all/display.php:107 content_love/transactions/display.php:126
 #: content_my/domain/irnic/display.php:102 content_my/domain/predict/display.php:138
 #: content_my/domain/search/display.php:185 content_my/domain/short/display.php:90
 #: content_su/dbtables/display.php:127 content_support/message/display.php:11
@@ -13202,6 +13204,10 @@ msgstr "یادداشت"
 msgid "Domain polls"
 msgstr "اعلام‌های نیک"
 
+#: content_love/gift/all/display.php:77
+msgid "Show gitft card"
+msgstr "نمایش کارت هدیه"
+
 #: content_love/gift/all/view.php:9
 msgid "Gift cards"
 msgstr "کارت‌های هدیه"
@@ -13421,6 +13427,26 @@ msgstr "افزودن کارت هدیه جدید"
 #: content_love/gift/home/display.php:18
 msgid "List"
 msgstr "لیست"
+
+#: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:25
+msgid "Sell & Enjoy"
+msgstr "بفروش و لذت ببر"
+
+#: content_love/gift/home/giftcard.php:32
+msgid "Expire Date"
+msgstr "تاریخ انقضا"
+
+#: content_love/gift/home/giftcard.php:36
+msgid "Max Gift"
+msgstr "سقف هدیه"
+
+#: content_love/gift/home/giftcard.php:42
+msgid "Jibres Gift Card"
+msgstr "کارت هدیه جیبرس"
+
+#: content_love/gift/home/giftcard.php:44
+msgid "Jibres Gift Code"
+msgstr "کد هدیه جیبرس"
 
 #: content_love/gift/home/view.php:9
 msgid "Gift card Management"
@@ -16946,10 +16972,6 @@ msgstr "پنل مدیر فنی"
 #: dash/layout/admin/admin-sidebar-frame.php:77
 msgid "My Account"
 msgstr "حساب من"
-
-#: dash/layout/admin/admin-sidebar.php:25
-msgid "Sell & Enjoy"
-msgstr "بفروش و لذت ببر"
 
 #: dash/layout/admin/admin-titlebox.php:21
 #: lib/app/log/caller/export/export_ExportProduct.php:20
