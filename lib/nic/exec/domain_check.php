@@ -44,10 +44,11 @@ class domain_check
 			}
 
 
-
-			$result[$key]['price'] = \lib\app\nic_domain\price::register('1year');
-			$result[$key]['compareAtPrice'] = \lib\app\nic_domain\price::register_compare('1year');
-			$result[$key]['unit'] = T_('Toman');
+			$result[$key]['price_1year']          = \lib\app\nic_domain\price::register('1year');
+			$result[$key]['compareAtPrice_1year'] = \lib\app\nic_domain\price::register_compare('1year');
+			$result[$key]['price_5year']          = \lib\app\nic_domain\price::register('5year');
+			$result[$key]['compareAtPrice_5year'] = \lib\app\nic_domain\price::register_compare('5year');
+			$result[$key]['unit']                 = T_('Toman');
 
 			if(isset($value['attr']['normalized_name']))
 			{
