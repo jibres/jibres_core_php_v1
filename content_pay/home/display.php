@@ -182,7 +182,7 @@ $myPayment = \dash\data::myPayment();
 
 	<?php if(isset($myPayment['parsian']['status']) && $myPayment['parsian']['status']) {?>
 	<div class="radioGateway" title='<?php echo T_("Parsian"); ?>'>
-	<input type="radio" name="bank" value="parsian" id="parsian"  >
+	<input type="radio" name="bank" value="parsian" id="parsian"  checked>
 	<label for='parsian' class="spay-64-parsian"></label>
 	</div>
 	<?php } //endif ?>
