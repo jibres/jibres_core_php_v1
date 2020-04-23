@@ -353,6 +353,8 @@ class edit
 			return false;
 		}
 
+		\dash\session::set('lastDomainFetched', null);
+
 		\lib\db\nic_domain\update::update(['lastfetch' => null], $load_domain['id']);
 
 	}
