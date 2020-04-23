@@ -11,6 +11,12 @@ class view
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
+
+		if(\dash\request::get('id'))
+		{
+			$load = \lib\app\gift\get::by_id(\dash\request::get('id'));
+			\dash\data::dataRow($load);
+		}
 	}
 }
 ?>

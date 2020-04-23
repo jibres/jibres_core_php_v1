@@ -60,6 +60,7 @@ else
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'code', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'code', 'link'); ?>"><?php echo T_("Code"); ?></a></th>
 
                 <th class="txtC"><?php echo T_("Status"); ?></th>
+                <th class="txtC"><?php echo T_("View"); ?></th>
 
             </tr>
         </thead>
@@ -73,6 +74,7 @@ else
                 </td>
 
                 <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
+                <td class="collapsing txtC"><a class="btn light" href="<?php echo \dash\url::this() .'?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show gitft card") ?></a></td>
 
 
             </tr>
