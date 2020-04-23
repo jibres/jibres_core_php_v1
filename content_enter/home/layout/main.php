@@ -1,5 +1,7 @@
 
   <section id="enterBox">
+<?php if (\dash\detect\device::detectPWA() && \dash\url::module() === 'verify' && !\dash\url::child()) { ?>
+<?php } else { ?>
    <h1 class='logo'><a href="<?php
 if (\dash\detect\device::detectPWA())
 {
@@ -10,6 +12,7 @@ else
  echo \dash\url::kingdom();
 }
 ?>"><img src='<?php echo \dash\url::icon(); ?>' alt='<?php echo T_("Jibres") ?>'><span><?php echo T_("Jibres") ?></span></a></h1>
+<?php } ?>
    <?php
 if(\dash\url::module() === null)
 {
