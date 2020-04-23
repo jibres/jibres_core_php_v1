@@ -463,7 +463,7 @@ class renew
 			$msg .= '<br>';
 			$msg .= T_("After change this problem you can try again");
 			$msg .= '<br>';
-			$msg .= T_("If you yor pay any amount, Your amount is saved in your account");
+			$msg .= T_("If you pay any amount, Your amount is saved in your account");
 			$msg .= '<br>';
 
 			if($data['gift'])
