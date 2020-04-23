@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-23 19:08+0430\n"
-"PO-Revision-Date: 2020-04-23 19:09+0430\n"
+"POT-Creation-Date: 2020-04-23 19:16+0430\n"
+"PO-Revision-Date: 2020-04-23 19:16+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -13002,7 +13002,7 @@ msgid "If you have more DNS click here to set them"
 msgstr "برای تنظیم دی‌ان‌اس بیشتر کلیک کنید"
 
 #: content_love/domain/domainbuy/display.php:116
-#: content_my/domain/buy/display-settings.php:123 content_my/domain/renew/display.php:35
+#: content_my/domain/buy/display-settings.php:123
 #: content_my/domain/transfer/display.php:29
 msgid ""
 "By clicking Register, you are indicating that you have read the :nic and agree to the :"
@@ -14131,6 +14131,14 @@ msgid ""
 msgstr ""
 "اگر شما دامنه‌ای خریداری کرده باشید و تمدید خودکار آن فعال باشد در این لیست نمایش داده "
 "خواهد شد و مبلغ تمدید آن را می‌توانید مشاهده کنید."
+
+#: content_my/domain/renew/display.php:35
+msgid ""
+"By clicking Renew, you are indicating that you have read the :nic and agree to the :"
+"terms."
+msgstr ""
+"با فشردن دکمه تمدید دامنه، شما تایید کرده‌اید که :nic و :terms را خوانده‌اید و موافقت خود "
+"را با آن اعلام کرده‌اید."
 
 #: content_my/domain/review/controller.php:22
 msgid "Detail not found"
@@ -28202,13 +28210,6 @@ msgstr "یارد"
 
 #~ msgid "Back to account"
 #~ msgstr "بازگشت به حساب کاربری"
-
-#~ msgid ""
-#~ "By clicking Renew, you are indicating that you have read the :nic and agree to the :"
-#~ "terms."
-#~ msgstr ""
-#~ "با فشردن دکمه تمدید دامنه، شما تایید کرده‌اید که :nic و :terms را خوانده‌اید و موافقت "
-#~ "خود را با آن اعلام کرده‌اید."
 
 #~ msgid ""
 #~ "By clicking Transfer, you are indicating that you have read the :nic and agree to "
