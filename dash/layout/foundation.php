@@ -112,7 +112,6 @@ if(\dash\request::get('iframe'))
 echo " data-preload";
 ?>><?php
 \dash\layout\find::allBlocks();
-\dash\layout\find::allNotifs();
 ?>
 
  <div class="js">
@@ -168,6 +167,8 @@ if(false)
   }
 }
 ?>
+<?php \dash\layout\find::allNotifs(); ?>
+
  </div>
 </body>
 </html>

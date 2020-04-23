@@ -153,6 +153,17 @@ class notif
 	}
 
 
+	public static function jsonHtml()
+	{
+		if(count(self::$notif) > 0)
+		{
+			return json_encode(self::$notif, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+		}
+		return null;
+	}
+
+
 	public static function get()
 	{
 		return self::$notif;

@@ -19,11 +19,10 @@ class find
 
 	public static function allNotifs()
 	{
-		\dash\notif::ok('heeeeeeeeeeeeeeeey');
-		$myNotif = \dash\notif::json();
+		$myNotif = \dash\notif::jsonHtml();
 		if($myNotif)
 		{
-			echo "\n <div id='pageNotif' style='display:none;'>". $myNotif. "</div>";
+			echo "\n  <div id='pageNotif' style='display:none;'>". $myNotif. "</div>";
 		}
 	}
 
