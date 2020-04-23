@@ -457,7 +457,24 @@ class renew
 
 			\dash\temp::set('domainHaveTransaction', true);
 
-			\dash\notif::error(T_("Can not renew your domain"));
+			$msg = T_("We can not renew this domain because the bill holder of IRNIC can not access to renew");
+			$msg .= '<br>';
+			$msg .= T_("If you are administrator of this domain Your must go to nic.ir and set billing holder of this domain on 'ji128-irnic' ");
+			$msg .= '<br>';
+			$msg .= T_("After change this problem you can try again");
+			$msg .= '<br>';
+			$msg .= T_("If you yor pay any amount, Your amount is saved in your account");
+			$msg .= '<br>';
+
+			if($data['gift'])
+			{
+				$msg .= T_("Don't worry! Your gift is ok and not used. You can use it again");
+				$msg .= '<br>';
+			}
+
+			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
+
+			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
 			return false;
 		}
 	}
