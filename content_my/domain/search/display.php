@@ -1,16 +1,20 @@
 <div class="f">
+    <?php if(\dash\data::groupByStatus_maybe() > 0 || \dash\data::groupByStatus_imported() > 0 || \dash\data::groupByStatus_available() > 0) {?>
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?list=mydomain' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'mydomain' || !\dash\request::get('list')) { echo ' active';} ?>" >
             <h3><?php echo T_("Your Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_mydomain()); ?></div>
         </a>
     </div>
+    <?php } //endif ?>
+    <?php if(\dash\data::groupByStatus_maybe() > 0) {?>
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?list=renew' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'renew') { echo ' active';} ?>" >
             <h3><?php echo T_("Renewed Domain"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
         </a>
     </div>
+    <?php } //endif ?>
     <?php if(\dash\data::groupByStatus_imported() > 0) {?>
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?list=import' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'import') { echo ' active';} ?>" >
