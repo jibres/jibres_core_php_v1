@@ -435,7 +435,16 @@ class renew
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
-			\dash\notif::ok(T_("Domain :domain was renewed", ['domain' => $domain]), ['alerty' => true]);
+
+			$msg = T_("Domain :domain was renewed", ['domain' => $domain]);
+			$msg .= '<br>';
+			$msg .= T_("New date expire:");
+			$msg .= '<br>';
+			$msg .= \dash\fit::date_time($expiredate);
+
+			\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+
+			// \dash\notif::ok(, ['alerty' => true]);
 
 
 			return true;
