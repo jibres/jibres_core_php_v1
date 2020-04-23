@@ -438,7 +438,7 @@ class renew
 
 			$msg = T_("Domain :domain was renewed", ['domain' => $domain]);
 			$msg .= '<br>';
-			$msg .= T_("New date expire:");
+			$msg .= T_("Domain date expire:");
 			$msg .= '<br>';
 			$msg .= \dash\fit::date_time($expiredate);
 

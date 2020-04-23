@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-23 18:51+0430\n"
-"PO-Revision-Date: 2020-04-23 18:55+0430\n"
+"POT-Creation-Date: 2020-04-23 18:59+0430\n"
+"PO-Revision-Date: 2020-04-23 18:59+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -13555,7 +13555,7 @@ msgid "Please contact us to solve this problem."
 msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
 
 #: content_my/business/error/display.php:16 lib/app/nic_domain/renew.php:150
-#: lib/app/nic_domain/renew.php:184 lib/app/nic_domain/renew.php:475
+#: lib/app/nic_domain/renew.php:184 lib/app/nic_domain/renew.php:484
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
@@ -24878,14 +24878,14 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از شش سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/nic_domain/renew.php:180 lib/app/nic_domain/renew.php:460
+#: lib/app/nic_domain/renew.php:180 lib/app/nic_domain/renew.php:469
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
 "ما نمی‌توانیم این دامنه را تمدید کنیم چون شناسه‌ی ایرنیک این دامنه دسترسی به تمدید آن را "
 "مسدود کرده است"
 
-#: lib/app/nic_domain/renew.php:182 lib/app/nic_domain/renew.php:462
+#: lib/app/nic_domain/renew.php:182 lib/app/nic_domain/renew.php:471
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
@@ -24905,21 +24905,25 @@ msgstr "تمدید دامنه :domain برای :year سال"
 msgid "Renew domian :val"
 msgstr "تمدید دامنه :val"
 
-#: lib/app/nic_domain/renew.php:438
+#: lib/app/nic_domain/renew.php:439
 msgid "Domain :domain was renewed"
 msgstr "تمدید دامنه :domain انجام شد"
 
-#: lib/app/nic_domain/renew.php:464
+#: lib/app/nic_domain/renew.php:441
+msgid "Domain date expire:"
+msgstr "تاریخ انقضای دامنه:"
+
+#: lib/app/nic_domain/renew.php:473
 msgid "After change this problem you can try again"
 msgstr "بعد از انجام اقدامات ذکر شده می‌توانید مجددا تلاش کنید"
 
-#: lib/app/nic_domain/renew.php:466
+#: lib/app/nic_domain/renew.php:475
 msgid "If you pay any amount, Your amount is saved in your account"
 msgstr ""
 "اگر مبلغی را پرداخت کرده باشید، آن مبلغ در حساب کاربری شما ذخیره شده است و می‌توانید از "
 "آن استفاده کنید"
 
-#: lib/app/nic_domain/renew.php:471
+#: lib/app/nic_domain/renew.php:480
 msgid "Don't worry! Your gift is ok and not used. You can use it again"
 msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
