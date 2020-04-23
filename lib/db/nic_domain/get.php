@@ -136,7 +136,8 @@ class get
 	public static function maybe_my_domain_count($_user_id)
 	{
 		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.available = 0 and (domain.verify = 0 OR domain.verify IS NULL)  AND domain.status != 'deleted' ";
+
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND domain.gateway != 'import'  AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -148,6 +149,16 @@ class get
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
+
+
+	public static function my_imported_count($_user_id)
+	{
+		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.gateway = 'import' AND domain.available = 0 AND ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
+
 
 	public static function my_active_count($_user_id)
 	{

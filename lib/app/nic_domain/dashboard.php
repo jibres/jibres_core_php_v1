@@ -147,6 +147,7 @@ class dashboard
 		$result['mydomain']  = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
 		$result['maybe']     = floatval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
 		$result['available'] = floatval(\lib\db\nic_domain\get::my_available_count($user_id));
+		$result['imported'] = floatval(\lib\db\nic_domain\get::my_imported_count($user_id));
 
 
 		return $result;

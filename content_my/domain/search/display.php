@@ -11,20 +11,22 @@
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
         </a>
     </div>
+    <?php if(\dash\data::groupByStatus_imported() > 0) {?>
     <div class="c pRa5">
-        <a href="<?php echo \dash\url::that(). '?action=maybe' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'maybe') { echo ' active';} ?>" >
+        <a href="<?php echo \dash\url::that(). '?action=import' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'import') { echo ' active';} ?>" >
             <h3><?php echo T_("Imported Domain"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_imported()); ?></div>
         </a>
     </div>
+    <?php } //endif ?>
+    <?php if(\dash\data::groupByStatus_available() > 0) {?>
     <div class="c pRa5">
         <a href="<?php echo \dash\url::that(). '?action=available' ?>" class="stat x70 <?php if(\dash\request::get('action') == 'available') { echo ' active';} ?>" >
             <h3><?php echo T_("Free Domains"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_available()); ?></div>
         </a>
     </div>
-
-
+    <?php } //endif ?>
 
 </div>
 
@@ -128,6 +130,10 @@ elseif(\dash\request::get('action') === 'maybe')
 {
     require_once('display-maybemydomain.php');
 }
+elseif(\dash\request::get('action') === 'import')
+{
+    require_once('display-imported.php');
+}
 elseif(\dash\request::get('action') === 'available')
 {
     require_once('display-availabledomain.php');
@@ -137,8 +143,6 @@ else
     // nothing
 }
 ?>
-
-
 <?php } //endfunction ?>
 
 
@@ -160,7 +164,34 @@ else
 
 <div class="fs14 msg info2 pTB20">
   <p><?php echo T_("Hi!"); ?></p>
-  <p><a href="<?php echo \dash\url::this(); ?>/buy"><?php echo T_("Buy your first winning domain!"); ?></a></p>
+<?php
+if(!\dash\request::get('action') || \dash\request::get('action') === 'mydomain')
+{
+    $msg = T_("Buy your first winning domain!");
+    $url = \dash\url::this(). '/buy';
+}
+elseif(\dash\request::get('action') === 'maybe')
+{
+    $msg = T_("Try renew domain");
+    $url = \dash\url::this(). '/renew';
+}
+elseif(\dash\request::get('action') === 'import')
+{
+    $msg = T_("If you import any domain in your account can see here");
+    $url = \dash\url::this(). '/import';
+}
+elseif(\dash\request::get('action') === 'available')
+{
+    $msg = T_("Domains you try to register or renew but operation incomplete and are available yet");
+    $url = \dash\url::this(). '/buy';
+}
+else
+{
+    $msg = T_("Buy your first winning domain!");
+    $url = \dash\url::this(). '/buy';
+}
+?>
+  <p><a href="<?php echo $url; ?>"><?php echo $msg; ?></a></p>
 
 </div>
 

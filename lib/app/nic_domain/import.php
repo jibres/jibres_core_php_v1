@@ -103,6 +103,7 @@ class import
 				'user_id'     => $user_id,
 				'status'      => 'awaiting',
 				'datecreated' => date("Y-m-d H:i:s"),
+				'gateway'     => 'import',
 				// 'lastfetch'   => date("Y-m-d H:i:s"),
 			];
 		}

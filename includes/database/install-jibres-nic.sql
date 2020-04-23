@@ -432,3 +432,49 @@ ALTER TABLE jibres_nic.domainbilling ADD `giftusage_id` bigint(20) UNSIGNED NULL
 
 ALTER TABLE jibres_nic.domainaction ADD `finalprice` bigint(20) UNSIGNED NULL DEFAULT NULL;
 ALTER TABLE jibres_nic.domainaction ADD `giftusage_id` bigint(20) UNSIGNED NULL DEFAULT NULL;
+
+
+
+CREATE TABLE IF NOT EXISTS jibres_nic.domainstatus (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`domain` varchar(300) NULL DEFAULT NULL,
+`status` varchar(100) NULL DEFAULT NULL,
+`active` bit(1) NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `domainstatus_domain` (`domain`),
+KEY `domainstatus_status` (`status`),
+KEY `domainstatus_active` (`active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+ALTER TABLE jibres_nic.domain ADD `available` bit(1) NULL DEFAULT NULL;
+
+
+CREATE TABLE IF NOT EXISTS jibres_nic.contactdetail (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`nic_id` varchar(300) NULL DEFAULT NULL,
+`person` varchar(500) NULL DEFAULT NULL,
+`email` varchar(500) NULL DEFAULT NULL,
+`address` text NULL DEFAULT NULL,
+`phone` varchar(300) NULL DEFAULT NULL,
+`mobile` varchar(15) NULL DEFAULT NULL,
+`fax` varchar(300) NULL DEFAULT NULL,
+`org` varchar(500) NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `contactdetail_nic_id` (`nic_id`),
+KEY `contactdetail_email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+ALTER TABLE jibres_nic.domain ADD KEY `domain_search_index_verify` (`verify`);
+ALTER TABLE jibres_nic.domain ADD KEY `domain_search_index_available` (`available`);
+ALTER TABLE jibres_nic.domain ADD KEY `domain_search_index_autorenew` (`autorenew`);
+
+ALTER TABLE jibres_nic_log.domains ADD KEY `domains_search_index_registrar` (`registrar`);
+ALTER TABLE jibres_nic_log.domainactivity ADD KEY `domainactivity_search_index_available` (`available`);
+ALTER TABLE jibres_nic_log.domainactivity ADD KEY `domainactivity_search_index_type` (`type`);

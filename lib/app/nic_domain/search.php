@@ -56,7 +56,7 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'action'    => ['enum' => ['mydomain', 'maybe', 'available']],
+			'action'    => ['enum' => ['mydomain', 'maybe', 'available', 'import']],
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
@@ -132,7 +132,7 @@ class search
 
 		if($data['is_admin'])
 		{
-
+			// nothing
 		}
 		elseif($data['predict'])
 		{
@@ -192,7 +192,7 @@ class search
 			elseif($data['action'] === 'maybe')
 			{
 				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
-				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 ";
+				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND domain.gateway != 'import' ";
 
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Maybe for your");
@@ -200,6 +200,13 @@ class search
 			elseif($data['action'] === 'available')
 			{
 				$and[] = " domain.available = 1 ";
+
+				// self::$is_filtered          = true;
+				// self::$filter_args[T_("Status")] = T_("Available");
+			}
+			elseif($data['action'] === 'import')
+			{
+				$and[] = " domain.gateway = 'import' AND domain.available = 0 AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
 
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Available");
@@ -220,6 +227,7 @@ class search
 		}
 
 		$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
+
 
 		if($data['is_admin'])
 		{
@@ -260,6 +268,7 @@ class search
 		{
 			$list = [];
 		}
+
 
 		$filter_args_data = [];
 

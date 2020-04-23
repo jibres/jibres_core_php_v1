@@ -342,9 +342,10 @@ class renew
 
 			$update =
 			[
-				'status'       => 'enable',
-				'available'    => 0,
-				'dateexpire'   => $expiredate,
+				'status'     => 'enable',
+				'gateway'    => null,
+				'available'  => 0,
+				'dateexpire' => $expiredate,
 			];
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
