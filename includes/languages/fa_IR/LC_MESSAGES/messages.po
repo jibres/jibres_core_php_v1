@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-22 19:22+0430\n"
-"PO-Revision-Date: 2020-04-22 19:40+0430\n"
+"POT-Creation-Date: 2020-04-23 13:15+0430\n"
+"PO-Revision-Date: 2020-04-23 13:19+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -707,7 +707,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_developers/docs/irnic/r10/010-contact/013-contact-update.php:56
 #: content_developers/docs/irnic/r10/010-contact/014-contact-add-exists.php:26
 #: content_developers/docs/irnic/r10/010-contact/014-contact-create-new.php:26
-#: content_love/gift/create/message/display.php:14 content_love/gift/edit/display.php:26
+#: content_love/gift/create/message/display.php:14 content_love/gift/edit/display.php:30
 #: content_love/transactions/add/display.php:78
 #: content_love/transactions/add/display.php:79
 #: content_love/transactions/minus/display.php:78
@@ -3630,7 +3630,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_account/appkey/view.php:16 content_account/billing/detail/view.php:12
 #: content_account/billing/invoice/view.php:13 content_enter/pass/change/display.php:21
 #: content_enter/pass/view.php:37 content_enter/twostep/display.php:29
-#: content_enter/verify/view.php:24 content_enter/verify/view.php:72
+#: content_enter/verify/view.php:24 content_enter/verify/view.php:73
 #: content_love/application/edit/view.php:12 content_love/gift/create/add/view.php:12
 #: content_love/gift/create/code/view.php:12 content_love/gift/create/message/view.php:12
 #: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
@@ -3768,7 +3768,7 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_a/setting/domain/view.php:8 content_love/domain/all/display.php:60
 #: content_love/domain/billing/display.php:74 content_love/domain/detail/display.php:9
 #: content_love/domain/domaininfo/display.php:5 content_love/domain/fetch/display.php:60
-#: content_love/domain/log/display.php:94 content_love/domain/log/view/display.php:32
+#: content_love/domain/log/display.php:94 content_love/domain/log/view/display.php:33
 #: content_my/domain/payments/display.php:9 content_my/domain/predict/display.php:75
 #: content_my/domain/renew/display.php:11
 #: content_my/domain/search/display-maybemydomain.php:8
@@ -3845,7 +3845,7 @@ msgstr "زمان شروع قرارگیری در صف"
 #: content_crm/member/home/display.php:129 content_crm/member/security/display.php:76
 #: content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76 content_love/domain/fetch/display.php:65
-#: content_love/gift/all/display.php:62 content_love/gift/edit/display.php:67
+#: content_love/gift/all/display.php:62 content_love/gift/edit/display.php:71
 #: content_my/domain/search/display-maybemydomain.php:9
 #: content_my/domain/search/display-mydomain.php:9
 #: content_su/smsclient/home/display.php:16 content_support/ticket/show/chatList.php:20
@@ -4107,7 +4107,7 @@ msgstr "بزن بریم"
 #: content_a/android/load.php:25 content_love/gift/create/code/display.php:21
 #: content_love/gift/create/message/display.php:25
 #: content_love/gift/create/setting/display.php:34
-#: content_love/gift/create/usage/display.php:27 content_love/gift/edit/display.php:102
+#: content_love/gift/create/usage/display.php:31 content_love/gift/edit/display.php:106
 msgid "Save & Next"
 msgstr "ذخیره و بعدی"
 
@@ -4995,7 +4995,7 @@ msgstr "تاریخ فاکتور"
 
 #: content_a/factor/home/display.php:133 content_cms/attachment/home/display.php:80
 #: content_cms/terms/display.php:101 content_love/domain/log/display.php:96
-#: content_love/domain/log/view/display.php:18 lib/app/application/queue_search.php:66
+#: content_love/domain/log/view/display.php:19 lib/app/application/queue_search.php:66
 #: lib/app/factor/search.php:111 lib/app/nic_log/search.php:69
 msgid "Type"
 msgstr "نوع"
@@ -5359,7 +5359,7 @@ msgid "Show Price in special date"
 msgstr "نمایش قیمت در تاریخ خاص"
 
 #: content_a/pricehistory/display.php:18 content_a/setup/owner/display.php:32
-#: content_love/gift/create/setting/display.php:13 content_love/gift/edit/display.php:78
+#: content_love/gift/create/setting/display.php:13 content_love/gift/edit/display.php:82
 msgid "yyyy/mm/dd"
 msgstr "سال \\ ماه \\ روز"
 
@@ -7472,7 +7472,7 @@ msgid "Budget After"
 msgstr "بودجه"
 
 #: content_account/billing/display.php:60 content_crm/member/billing/display.php:32
-#: content_crm/transactions/display.php:69 content_enter/verify/view.php:131
+#: content_crm/transactions/display.php:69 content_enter/verify/view.php:132
 #: content_love/transactions/display.php:69
 msgid "Verify"
 msgstr "اعتبارسنجی"
@@ -10777,7 +10777,7 @@ msgstr "cURL"
 #: content_developers/docs/irnic/r10/010-contact/014-contact-add-exists.php:58
 #: content_developers/docs/irnic/r10/010-contact/014-contact-create-new.php:57
 #: content_developers/docs/irnic/r10/020-poll/001-poll-request.php:22
-#: content_love/domain/log/view/display.php:84
+#: content_love/domain/log/view/display.php:87
 msgid "Response"
 msgstr "پاسخ"
 
@@ -12352,14 +12352,14 @@ msgid "Verify Code"
 msgstr "کد اعتبارسنجی"
 
 #: content_enter/verify/call/display.php:16 content_enter/verify/force/display.php:19
-#: content_enter/verify/later/display.php:15 content_enter/verify/sendsms/display.php:27
-#: content_enter/verify/sms/display.php:16 content_enter/verify/telegram/display.php:16
+#: content_enter/verify/sendsms/display.php:27 content_enter/verify/sms/display.php:16
+#: content_enter/verify/telegram/display.php:16
 msgid "Restart with new mobile"
 msgstr "شروع دوباره با موبایل جدید"
 
 #: content_enter/verify/call/display.php:19 content_enter/verify/force/display.php:22
-#: content_enter/verify/later/display.php:18 content_enter/verify/sendsms/display.php:30
-#: content_enter/verify/sms/display.php:19 content_enter/verify/telegram/display.php:19
+#: content_enter/verify/sendsms/display.php:30 content_enter/verify/sms/display.php:19
+#: content_enter/verify/telegram/display.php:19
 msgid "Go back"
 msgstr "برگرد"
 
@@ -12379,17 +12379,25 @@ msgstr "تماس با شما برای ارسال کد"
 msgid "You send code to us and we check it"
 msgstr "شما کد را برای ما ارسال کنید و ما چک کنیم"
 
-#: content_enter/verify/display.php:62 content_enter/verify/later/display.php:8
+#: content_enter/verify/display.php:62
 msgid "Verify later"
 msgstr "بعدا تایید می‌کنم"
 
 #: content_enter/verify/later/display.php:3
-msgid "You must confirm your mobile in the future"
-msgstr "شما باید حساب کاربری خود را در آینده تایید کنید"
+msgid ""
+"To do some action you must verify your account. If you could we ask you to verify your "
+"account now."
+msgstr ""
+"برای انجام برخی از فعالیت‌های حساس، شما باید اکانت خود را تایید کرده باشید. اگر برای شما "
+"ممکن است، لطفا همین الان حساب خود را تایید و فعال کنید."
 
 #: content_enter/verify/later/display.php:6
-msgid "Verify now"
-msgstr "هم اکنون تایید می‌کنم"
+msgid "Okay! Go verify"
+msgstr "باشه، بریم فعال کنم"
+
+#: content_enter/verify/later/display.php:8
+msgid "I want to verify later"
+msgstr "مایلم در آینده فعال کنم"
 
 #: content_enter/verify/later/model.php:20 content_enter/verify/model.php:91
 msgid "We can not find your detail to signup"
@@ -12442,23 +12450,23 @@ msgstr "اگر شما درخواست کد را نداده‌اید،‌ این �
 msgid "Please verify yourself."
 msgstr "لطفا هویت خود را تایید کنید."
 
-#: content_enter/verify/view.php:42
+#: content_enter/verify/view.php:43
 msgid "We've sent the code via Telegram. Please enter the code below."
 msgstr ""
 "ما کد اعتبارسنجی را از طریق تلگرام برای شما ارسال کردیم. لطفا کد را در باکس پایین وارد "
 "کنید."
 
-#: content_enter/verify/view.php:46
+#: content_enter/verify/view.php:47
 msgid "We trying to call you. be patient..."
 msgstr "ما در حال تلاش برای تماس با شما هستیم و تا لحظاتی دیگر با شما تماس می‌گیریم."
 
-#: content_enter/verify/view.php:50
+#: content_enter/verify/view.php:51
 msgid "Your verification code sended to your mobile number via sms. be patient..."
 msgstr ""
 "کد اعتبارسنجی از طریق پیامک به شماره شما ارسال شده است و بزودی به‌دست شما خواهد رسید. "
 "صبور باشید..."
 
-#: content_enter/verify/view.php:54
+#: content_enter/verify/view.php:55
 msgid ""
 "We can't send code to you with our existing methods! For the last chance of verify "
 "yourself you can send code to our number."
@@ -12466,45 +12474,53 @@ msgstr ""
 "ما نتوانستیم از طریق روش‌های موجود کد را بدست شما برسانیم! به‌عنوان آخرین شانس برای "
 "اعتبارسنجی شما می‌توانید کد را به ما پیامک کنید."
 
-#: content_enter/verify/view.php:66
+#: content_enter/verify/view.php:59
+msgid "You requested to verify your account later."
+msgstr "درخواست فعال‌سازی حساب کاربری در آینده"
+
+#: content_enter/verify/view.php:67
 msgid "What happend?"
 msgstr "اتفاقی افتاده؟"
 
-#: content_enter/verify/view.php:84
+#: content_enter/verify/view.php:85
 msgid "This is request of two-step verification!"
 msgstr "این درخواست برای تایید ورود به حساب کاربری شما می‌باشد!"
 
-#: content_enter/verify/view.php:90
+#: content_enter/verify/view.php:91
 msgid "This is request of active two-step verification of you account!"
 msgstr "این درخواست برای فعال سازی ورود دو مرحله‌ای به حساب کاربری شما می‌باشد!"
 
-#: content_enter/verify/view.php:96
+#: content_enter/verify/view.php:97
 msgid "This is request of deactive two-step verification of you account!"
 msgstr "این درخواست برای غیر فعال سازی ورود دو مرحله‌ای به حساب کاربری شما می‌باشد!"
 
-#: content_enter/verify/view.php:111
+#: content_enter/verify/view.php:112
 msgid "This is request of delete account!"
 msgstr "این درخواست برای حذف حساب کاربری است!"
 
-#: content_enter/verify/view.php:118
+#: content_enter/verify/view.php:119
 msgid "This is request of account recovery."
 msgstr "این درخواست برای بازیابی حساب کاربری است."
 
-#: content_enter/verify/view.php:126
+#: content_enter/verify/view.php:127
 msgid "This is request of change password."
 msgstr "این درخواست برای تغییر گذرواژه است."
 
-#: content_enter/verify/view.php:136
+#: content_enter/verify/view.php:137
 msgid "Verify by Call"
 msgstr "اعتبارسنجی با تماس"
 
-#: content_enter/verify/view.php:140
+#: content_enter/verify/view.php:141
 msgid "Verify via Telegram"
 msgstr "اعتبارسنجی با تلگرام"
 
-#: content_enter/verify/view.php:144
+#: content_enter/verify/view.php:145
 msgid "verify with SMS"
 msgstr "تایید با پیامک"
+
+#: content_enter/verify/view.php:149
+msgid "Really want to verify later?"
+msgstr "واقعا می‌خواین در آینده تایید کنید؟"
 
 #: content_enter/verify/what/display.php:2
 msgid "We can not find any way to send verification code to you!"
@@ -12672,7 +12688,7 @@ msgid "Domain action"
 msgstr "رخدادهای دامنه"
 
 #: content_love/domain/all/display.php:62 content_love/domain/fetch/display.php:62
-#: content_love/gift/create/setting/display.php:13 content_love/gift/edit/display.php:78
+#: content_love/gift/create/setting/display.php:13 content_love/gift/edit/display.php:82
 #: content_my/domain/predict/display.php:77
 #: content_my/domain/search/display-maybemydomain.php:10
 #: content_my/domain/search/display-mydomain.php:10
@@ -13115,17 +13131,17 @@ msgstr "مالی"
 msgid "Try to start with add new contact!"
 msgstr "با افزودن مخاطب جدید تلاشی برای شروع داشته باشید!"
 
-#: content_love/domain/log/display.php:95 content_love/domain/log/view/display.php:25
+#: content_love/domain/log/display.php:95 content_love/domain/log/view/display.php:26
 #: content_love/domain/polls/display.php:12
 msgid "IRNIC id"
 msgstr "شناسه ایرنیک"
 
-#: content_love/domain/log/display.php:97 content_love/domain/log/view/display.php:46
+#: content_love/domain/log/display.php:97 content_love/domain/log/view/display.php:49
 #: lib/app/nic_log/search.php:78
 msgid "Result code"
 msgstr "کد نتیجه"
 
-#: content_love/domain/log/display.php:107 content_love/domain/log/view/display.php:75
+#: content_love/domain/log/display.php:107 content_love/domain/log/view/display.php:78
 #: includes/languages/trans_static.php:619
 msgid "Request"
 msgstr "درخواست"
@@ -13142,19 +13158,19 @@ msgstr "شناسه درخواست"
 msgid "Count request"
 msgstr "تعداد درخواست"
 
-#: content_love/domain/log/view/display.php:39
+#: content_love/domain/log/view/display.php:40
 msgid "IP Address"
 msgstr "آدرس آی‌پی"
 
-#: content_love/domain/log/view/display.php:55
+#: content_love/domain/log/view/display.php:58
 msgid "Cliend ID"
 msgstr "شناسه کاربر"
 
-#: content_love/domain/log/view/display.php:62
+#: content_love/domain/log/view/display.php:65
 msgid "Server ID"
 msgstr "شناسه سرور"
 
-#: content_love/domain/log/view/display.php:95
+#: content_love/domain/log/view/display.php:98
 msgid "Result"
 msgstr "نتیجه"
 
@@ -13225,7 +13241,7 @@ msgstr "لطفا کد هدیه را وارد کنید"
 msgid "ID not found"
 msgstr "شناسه یافت نشد"
 
-#: content_love/gift/create/message/display.php:18 content_love/gift/edit/display.php:30
+#: content_love/gift/create/message/display.php:18 content_love/gift/edit/display.php:34
 msgid "Success msg"
 msgstr "پیام بعد از استفاده از این کد تخفیف"
 
@@ -13233,12 +13249,12 @@ msgstr "پیام بعد از استفاده از این کد تخفیف"
 msgid "Set percent of discount for this gift card"
 msgstr "لطفا درصد تخفیف را وارد کنید"
 
-#: content_love/gift/create/price/display.php:19 content_love/gift/edit/display.php:33
+#: content_love/gift/create/price/display.php:19 content_love/gift/edit/display.php:37
 #: content_my/domain/review/display.php:129
 msgid "Gift percent"
 msgstr "درصد تخفیف"
 
-#: content_love/gift/create/price/display.php:25 content_love/gift/edit/display.php:38
+#: content_love/gift/create/price/display.php:25 content_love/gift/edit/display.php:42
 msgid "Gift max"
 msgstr "حداکثر هدیه"
 
@@ -13246,12 +13262,12 @@ msgstr "حداکثر هدیه"
 msgid "Set amount of discount for this gift card"
 msgstr "لطفا مبلغ تخفیف را وارد کنید"
 
-#: content_love/gift/create/price/display.php:36 content_love/gift/edit/display.php:43
+#: content_love/gift/create/price/display.php:36 content_love/gift/edit/display.php:47
 #: content_my/domain/review/display.php:135
 msgid "Gift amount"
 msgstr "مبلغ هدیه"
 
-#: content_love/gift/create/price/display.php:46 content_love/gift/edit/display.php:48
+#: content_love/gift/create/price/display.php:46 content_love/gift/edit/display.php:52
 msgid "Price floor"
 msgstr "حداقل مبلغ برای اعمال شدن هدیه"
 
@@ -13276,22 +13292,22 @@ msgid "code"
 msgstr "کد"
 
 #: content_love/gift/create/setting/display.php:20
-#: content_love/gift/create/setting/display.php:26 content_love/gift/edit/display.php:85
-#: content_love/gift/edit/display.php:91
+#: content_love/gift/create/setting/display.php:26 content_love/gift/edit/display.php:89
+#: content_love/gift/edit/display.php:95
 msgid "YES"
 msgstr "بله"
 
 #: content_love/gift/create/setting/display.php:20
-#: content_love/gift/create/setting/display.php:26 content_love/gift/edit/display.php:85
-#: content_love/gift/edit/display.php:91
+#: content_love/gift/create/setting/display.php:26 content_love/gift/edit/display.php:89
+#: content_love/gift/edit/display.php:95
 msgid "NO"
 msgstr "نه"
 
-#: content_love/gift/create/setting/display.php:21 content_love/gift/edit/display.php:86
+#: content_love/gift/create/setting/display.php:21 content_love/gift/edit/display.php:90
 msgid "Physical card?"
 msgstr "این کارت هدیه به صورت فیزیکی است؟"
 
-#: content_love/gift/create/setting/display.php:27 content_love/gift/edit/display.php:92
+#: content_love/gift/create/setting/display.php:27 content_love/gift/edit/display.php:96
 msgid "Are you want to print this gift card?"
 msgstr "آیا می‌خواهید این کارت‌هدیه را چاپ کنید؟"
 
@@ -13323,63 +13339,71 @@ msgstr "تعداد کل دفعات مجاز به استفاده از این کد
 msgid "Gift usage limit per user"
 msgstr "تعداد مجاز استفاده هر کاربر از این کارت هدیه"
 
+#: content_love/gift/create/usage/display.php:23 content_love/gift/edit/display.php:25
+msgid "Dedicated for users"
+msgstr "اختصاصی برای کاربران"
+
+#: content_love/gift/create/usage/display.php:24 content_love/gift/edit/display.php:26
+msgid "Every mobile in one line"
+msgstr "هر موبایل در یک خط"
+
 #: content_love/gift/create/usage/view.php:9
 msgid "Set usage of gift card"
 msgstr "تنظیم میزان استفاده از کارت هدیه"
 
-#: content_love/gift/edit/display.php:55
+#: content_love/gift/edit/display.php:59
 msgid "For use in"
 msgstr "برای استفاده در"
 
-#: content_love/gift/edit/display.php:57
+#: content_love/gift/edit/display.php:61
 msgid "any"
 msgstr "همه"
 
-#: content_love/gift/edit/display.php:58 includes/languages/trans_static.php:693
+#: content_love/gift/edit/display.php:62 includes/languages/trans_static.php:693
 msgid "domain"
 msgstr "دامنه"
 
-#: content_love/gift/edit/display.php:59
+#: content_love/gift/edit/display.php:63
 msgid "store"
 msgstr "فروشگاه"
 
-#: content_love/gift/edit/display.php:60 dash/app/log/support_tools.php:117
+#: content_love/gift/edit/display.php:64 dash/app/log/support_tools.php:117
 #: includes/languages/trans_static.php:498
 msgid "sms"
 msgstr "پیامک"
 
-#: content_love/gift/edit/display.php:61
+#: content_love/gift/edit/display.php:65
 msgid "ipg"
 msgstr "درگاه پرداخت الکترونیکی"
 
-#: content_love/gift/edit/display.php:69 includes/languages/trans_static.php:325
+#: content_love/gift/edit/display.php:73 includes/languages/trans_static.php:325
 #: includes/languages/trans_static.php:422 includes/languages/trans_static_public.php:912
 msgid "draft"
 msgstr "پیش نویس"
 
-#: content_love/gift/edit/display.php:70 includes/languages/trans_static.php:288
+#: content_love/gift/edit/display.php:74 includes/languages/trans_static.php:288
 #: includes/languages/trans_static.php:409 includes/languages/trans_static_public.php:225
 #: includes/languages/trans_static_public.php:852
 msgid "enable"
 msgstr "فعال"
 
-#: content_love/gift/edit/display.php:71 includes/languages/trans_static.php:289
+#: content_love/gift/edit/display.php:75 includes/languages/trans_static.php:289
 #: includes/languages/trans_static.php:410 includes/languages/trans_static_public.php:226
 #: includes/languages/trans_static_public.php:853
 msgid "disable"
 msgstr "غیرفعال"
 
-#: content_love/gift/edit/display.php:72 includes/languages/trans_static.php:236
+#: content_love/gift/edit/display.php:76 includes/languages/trans_static.php:236
 #: includes/languages/trans_static.php:406 includes/languages/trans_static_public.php:855
 msgid "deleted"
 msgstr "حذف شده"
 
-#: content_love/gift/edit/display.php:73 includes/languages/trans_static.php:290
+#: content_love/gift/edit/display.php:77 includes/languages/trans_static.php:290
 #: includes/languages/trans_static.php:421 includes/languages/trans_static_public.php:854
 msgid "expire"
 msgstr "منقضی شده"
 
-#: content_love/gift/edit/display.php:74 includes/languages/trans_static.php:466
+#: content_love/gift/edit/display.php:78 includes/languages/trans_static.php:466
 #: includes/languages/trans_static_public.php:923
 msgid "blocked"
 msgstr "مسدودشده"
@@ -13528,7 +13552,7 @@ msgstr "ما نتوانستیم بیزینس شما را بسازیم!"
 msgid "Please contact us to solve this problem."
 msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
 
-#: content_my/business/error/display.php:16 lib/app/nic_domain/renew.php:160
+#: content_my/business/error/display.php:16 lib/app/nic_domain/renew.php:174
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
@@ -14118,7 +14142,7 @@ msgid "%"
 msgstr "٪"
 
 #: content_my/domain/review/display.php:140 lib/app/gift/check.php:27
-#: lib/app/gift/check.php:34
+#: lib/app/gift/check.php:35
 msgid "Invalid gift code"
 msgstr "کد هدیه نامعتبر است"
 
@@ -24344,27 +24368,31 @@ msgstr "جمع تخفیف کوچکتر از"
 msgid "Subdiscount equal"
 msgstr "جمع تخفیف برابر با"
 
-#: lib/app/gift/check.php:52
+#: lib/app/gift/check.php:66
+msgid "This gift card is not enable for you"
+msgstr "این کارت هدیه قابلیت استفاده برای حساب کاربری شما را ندارد"
+
+#: lib/app/gift/check.php:73
 msgid "For use this gift code your cart amount must be larget than :val"
 msgstr "برای استفاده از این کد هدیه باید حداقل :val تومان در سبد خرید شما موجود باشد"
 
-#: lib/app/gift/check.php:72
+#: lib/app/gift/check.php:93
 msgid "This gift card not working here!"
 msgstr "این کارت هدیه برای این خرید تولید نشده است و کاربرد آن جای دیگری است"
 
-#: lib/app/gift/check.php:92
+#: lib/app/gift/check.php:113
 msgid "This gift card is not enable"
 msgstr "امکان استفاده از این کارت هدیه وجود ندارد"
 
-#: lib/app/gift/check.php:105
+#: lib/app/gift/check.php:126
 msgid "This gift card is expired"
 msgstr "این کارت هدیه منقضی شده است"
 
-#: lib/app/gift/check.php:120
+#: lib/app/gift/check.php:141
 msgid "Capacity of this gift card is full"
 msgstr "ظرفیت استفاده از این کد تخفیف تکمیل شده است"
 
-#: lib/app/gift/check.php:132
+#: lib/app/gift/check.php:153
 msgid "You have used the maximum capacity of this discount code"
 msgstr ""
 "شما یک یا چند بار از این کد تخفیف استفاده کرده‌اید و امکان استفاده مجدد آن برای شما "
@@ -24378,15 +24406,15 @@ msgstr "کارت هدیه شما ساخته شد"
 msgid "Gift detail not found"
 msgstr "جزئیات کارت هدیه یافت نشد"
 
-#: lib/app/gift/edit.php:68
+#: lib/app/gift/edit.php:69
 msgid "This gift code was reserved before. Try another"
 msgstr "این کد کارت هدیه قبلا رزرو شده است. کد دیگری انتخاب کنید"
 
-#: lib/app/gift/edit.php:80
+#: lib/app/gift/edit.php:111
 msgid "Gift setting saved"
 msgstr "تنظیمات کارت هدیه ذخیره شد"
 
-#: lib/app/gift/edit.php:85
+#: lib/app/gift/edit.php:116
 msgid "Gift card saved without change"
 msgstr "کات هدیه بدون تغییر ذخیره شد"
 
@@ -24656,7 +24684,7 @@ msgstr "دامنه آماده ثبت است"
 msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
-#: lib/app/nic_domain/create.php:440 lib/app/nic_domain/renew.php:289
+#: lib/app/nic_domain/create.php:440 lib/app/nic_domain/renew.php:302
 #: lib/app/nic_domain/transfer.php:150
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
@@ -24802,18 +24830,18 @@ msgstr "هم‌اکنون ثبت‌نام کنید"
 msgid "Can not edit this domain status"
 msgstr "نمی‌توانیم وضعیت این دامنه را به‌روزرسانی کنیم"
 
-#: lib/app/nic_domain/renew.php:143
+#: lib/app/nic_domain/renew.php:144
 msgid "Maximum renew date is 6 year"
 msgstr "حداکثر زمان تمدید ۶ سال است"
 
-#: lib/app/nic_domain/renew.php:156
+#: lib/app/nic_domain/renew.php:170
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
 "ما نمی‌توانیم این دامنه را تمدید کنیم چون شناسه‌ی ایرنیک این دامنه دسترسی به تمدید آن را "
 "مسدود کرده است"
 
-#: lib/app/nic_domain/renew.php:158
+#: lib/app/nic_domain/renew.php:172
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
@@ -24821,23 +24849,23 @@ msgstr ""
 "اگر شما مالک این دامنه هستید باید وارد سایت nic.ir شوید و رابط مالی و یا نماینده این "
 "دامنه را بر روی شناسه «ji128-irnic» تنظیم کنید. "
 
-#: lib/app/nic_domain/renew.php:185
+#: lib/app/nic_domain/renew.php:198
 msgid "Domain ready to renew"
 msgstr "دامنه آماده انتقال است"
 
-#: lib/app/nic_domain/renew.php:261
+#: lib/app/nic_domain/renew.php:274
 msgid "Renew :domain For :year year"
 msgstr "تمدید دامنه :domain برای :year سال"
 
-#: lib/app/nic_domain/renew.php:345
+#: lib/app/nic_domain/renew.php:358
 msgid "Renew domian :val"
 msgstr "تمدید دامنه :val"
 
-#: lib/app/nic_domain/renew.php:411
+#: lib/app/nic_domain/renew.php:424
 msgid "Domain :domain was renewed"
 msgstr "انتقال دامنه :domain انجام شد"
 
-#: lib/app/nic_domain/renew.php:433
+#: lib/app/nic_domain/renew.php:446
 msgid "Can not renew your domain"
 msgstr "نمی‌توانید دامنه را تمدید کنید"
 
@@ -26333,6 +26361,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "You must confirm your mobile in the future"
+#~ msgstr "شما باید حساب کاربری خود را در آینده تایید کنید"
+
+#~ msgid "Verify now"
+#~ msgstr "هم اکنون تایید می‌کنم"
 
 #~ msgid "Your domain setting"
 #~ msgstr "تنظیمات دامنه‌های شما"
