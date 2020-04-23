@@ -28,7 +28,7 @@
 
         <div class="mB20">
           <label for="desc"><?php echo T_("Description"); ?></label>
-          <textarea id="desc" name="desc" class="txt" rows="5"><?php echo \dash\data::dataRow_msgsuccess(); ?></textarea>
+          <textarea id="desc" name="desc" class="txt" rows="5"><?php echo \dash\data::dataRow_desc(); ?></textarea>
         </div>
 
         <label for="msgsuccess"><?php echo T_("Success msg"); ?></label>
