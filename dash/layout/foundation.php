@@ -112,8 +112,8 @@ if(\dash\request::get('iframe'))
 echo " data-preload";
 ?>><?php
 \dash\layout\find::allBlocks();
+\dash\layout\find::allNotifs();
 ?>
-
 
  <div class="js">
   <script src="<?php echo \dash\layout\func::staticmtime('js/siftal.min.js');?>"></script>
