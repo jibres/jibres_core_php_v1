@@ -33,12 +33,17 @@ class view
 			{
 				if(isset($get_msg['condition']) && $get_msg['condition'] === 'ok' && isset($get_msg['plus']))
 				{
-					\dash\data::paymentVerifyMsg(T_("Payment successfull", ['amount' => \dash\fit::number($get_msg['plus'])]));
-					\dash\data::paymentVerifyMsgTrue(true);
+					$msg = T_("Payment successfull");
+					$msg .= '<br>';
+					\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					// \dash\data::paymentVerifyMsg(T_("Payment successfull", ['amount' => \dash\fit::number($get_msg['plus'])]));
+					// \dash\data::paymentVerifyMsgTrue(true);
 				}
 				else
 				{
-					\dash\data::paymentVerifyMsg(T_("Payment unsuccessfull"));
+					$msg = T_("Payment unsuccessfull");
+					$msg .= '<br>';
+					\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 				}
 			}
 			else
