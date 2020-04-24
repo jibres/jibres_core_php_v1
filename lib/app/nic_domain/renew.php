@@ -115,19 +115,32 @@ class renew
 			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
 		}
 
-		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
+		$get_domain_info = \lib\app\nic_domain\check::info($domain);
 
-		if(!isset($get_domain_detail['exDate']))
+		if(!isset($get_domain_info['exDate']))
 		{
 			// \dash\notif::error(T_("Domain is not exists"));
 			return false;
 		}
 
+		if(isset($get_domain_info['status']) && is_array($get_domain_info['status']))
+		{
+			if(in_array('pendingRenew', $get_domain_info['status']))
+			{
+				$msg = T_("Domain is pending to renew");
+				$msg .= '<br>';
+				$msg .= T_("Can not renew again at this time!");
+
+				\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+				return false;
+			}
+		}
+
 		\lib\db\nic_domain\update::update(['available' => 0], $domain_id);
 
-		$current_expiredate = date("Y-m-d", strtotime($get_domain_detail['exDate']));
+		$current_expiredate = date("Y-m-d", strtotime($get_domain_info['exDate']));
 
-		$current_date_expire      = $get_domain_detail['exDate'];
+		$current_date_expire      = $get_domain_info['exDate'];
 
 		$current_date_expire_time = strtotime($current_date_expire);
 
@@ -155,8 +168,8 @@ class renew
 			return false;
 		}
 
-		$reseller = isset($get_domain_detail['reseller']) ? $get_domain_detail['reseller'] : null;
-		$bill     = isset($get_domain_detail['bill']) ? $get_domain_detail['bill'] : null;
+		$reseller = isset($get_domain_info['reseller']) ? $get_domain_info['reseller'] : null;
+		$bill     = isset($get_domain_info['bill']) ? $get_domain_info['bill'] : null;
 
 		$jibres_nic_contact = 'ji128-irnic';
 
