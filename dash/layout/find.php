@@ -83,12 +83,12 @@ class find
 		// and we are not in api content
 		if($myHeader === null && !\dash\engine\content::api_content())
 		{
-			$headerScroll = null;
+			$headerScroll = true;
 			if (\dash\detect\device::detectPWA())
 			{
 				// if is not set, on pwa force add
 				$myHeader = core.'layout/pwa/pwa-header.php';
-				$headerScroll = true;
+				$headerScroll = false;
 			}
 			else
 			{
