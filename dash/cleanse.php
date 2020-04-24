@@ -739,10 +739,7 @@ class cleanse
 				break;
 
 			case 'postcode':
-				$meta['min']   = 100000;
-				$meta['max']   = 9999999999;
-				$meta['round'] = true;
-				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				$data = \dash\validate\number::postcode($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'phone':

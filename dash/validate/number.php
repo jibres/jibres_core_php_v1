@@ -134,6 +134,39 @@ class number
 	}
 
 
+	public static function postcode($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['round' => true]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = (string) $data;
+
+		if(mb_strlen($data) < 6)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Post code must be larger than 6 character"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+
+		if(mb_strlen($data) > 10)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Post code must be less than 10 character"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 	public static function number_percent($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		return self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 100]);
