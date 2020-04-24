@@ -116,7 +116,7 @@ if($listStore_staff && is_array($listStore_staff))
    <nav class="items long">
     <ul>
      <li>
-      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my">
+      <a class="f" href="<?php if(\dash\get::index($myData, 'complete_profile', 'mobile')) { echo \dash\url::kingdom(). '/account/my'; }else{ echo \dash\url::kingdom(). '/enter/verify';}?>">
        <div class="key"><?php echo T_('Mobile');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'mobile')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
