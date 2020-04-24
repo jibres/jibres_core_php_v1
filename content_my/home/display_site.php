@@ -111,6 +111,7 @@ if($listStore_staff && is_array($listStore_staff))
    <section class="circularChartBox">
     <?php $myPercent=\dash\get::index($myData, 'complete_profile', 'percent'); include core.'/layout/elements/circularChart.php';?>
     <h3><?php echo T_("Account Status");?></h3>
+    <p><?php echo T_("Badges are little bits of digital flair that you earn for your simple actions on Jibres"); ?></p>
    </section>
 
    <nav class="items long">
