@@ -19,6 +19,12 @@ class view
 			\dash\data::DomainInfo($info);
 		}
 
+		$log_id = \dash\temp::get('IRNIC-last-log-id');
+		if($log_id)
+		{
+			\dash\data::action_link(\dash\url::this(). '/log/view?id='. \dash\data::lastLogId());
+			\dash\data::action_text(T_("Show log"));
+		}
 	}
 }
 ?>

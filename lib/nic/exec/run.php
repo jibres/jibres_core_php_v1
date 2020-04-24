@@ -99,7 +99,9 @@ class run
 			$insert_log['result'] = 'response-of-nic-is-empty';
 		}
 
-		\lib\db\nic_log\insert::new_record($insert_log);
+		$log_id = \lib\db\nic_log\insert::new_record($insert_log);
+
+		\dash\temp::set('IRNIC-last-log-id', $log_id);
 
 		return $object;
 	}
