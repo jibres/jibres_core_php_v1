@@ -1,14 +1,10 @@
 <?php
 $urlHere = \dash\url::here();
 ?>
-
-
   <li><a href="<?php echo $urlHere; ?>"><i class='sf-gauge'></i> <span><?php echo T_("Dashboard"); ?></span></a></li>
-
   <li>
   <?php if(\dash\permission::check('productList')) {?><a href="<?php echo $urlHere; ?>/products"><i class="sf-box"></i><?php echo T_("Products"); ?></a><?php } //endif ?>
   <?php if(in_array(\dash\url::module(), ['products', 'category', 'units', 'company', 'pricehistory'])) {?>
-
     <ul>
         <?php if(\dash\permission::check('productListPrice')) {?><li><a href="<?php echo $urlHere; ?>/products/price"><i class="floatRa mRa10 fc-mute sf-dollar"></i><?php echo T_("Product price"); ?></a></li><?php } //endif ?>
         <?php if(\dash\permission::check('productAdd')) {?><li><a href="<?php echo $urlHere; ?>/products/add"><i class="floatRa mRa10 fc-mute sf-plus"></i><?php echo T_("Add new Product"); ?></a></li><?php } //endif ?>
@@ -20,10 +16,8 @@ $urlHere = \dash\url::here();
     </ul>
   <?php } //endif ?>
   </li>
-
   <li>
     <?php if(\dash\permission::check('factorAccess')) {?><a href="<?php echo $urlHere; ?>/factor"><i class="sf-print"></i><?php echo T_("Factor"); ?></a><?php } //endif ?>
-
     <ul>
       <?php if(\dash\permission::check('factorSaleAdd')) {?><li><a href="<?php echo $urlHere; ?>/sale"><i class="floatRa mRa10 fc-mute sf-cart-plus"></i><?php echo T_("register new sale factor"); ?> <kbd class="light">F2</kbd> </a></li><?php } //endif ?>
   <?php if(in_array(\dash\url::module(), ['factor', 'sale', 'buy'])) {?>
@@ -34,10 +28,4 @@ $urlHere = \dash\url::here();
 <?php } //endif ?>
     </ul>
   </li>
-
-
-
-  <li>
-    <?php if(\dash\permission::check('settingView')) {?><a href="<?php echo $urlHere; ?>/setting"><i class="sf-cogs"></i><?php echo T_("Setting"); ?></a><?php } //endif ?>
-
-  </li>
+  <li><?php if(\dash\permission::check('settingView')) {?><a href="<?php echo $urlHere; ?>/setting"><i class="sf-cogs"></i><?php echo T_("Setting"); ?></a><?php } //endif ?></li>

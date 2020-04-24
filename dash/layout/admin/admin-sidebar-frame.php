@@ -23,7 +23,6 @@ if(\dash\user::id())
  }
  echo '</a>';
  echo '<figcaption>'. T_("Hello").' <b>'. \dash\user::detail('displayname'). '</b></figcaption>';
-
 }
 else
 {
@@ -31,7 +30,6 @@ else
  echo '<img src="'. \dash\url::cdn().'/img/avatar/guest.png" alt="'. T_("Default Avatar").'">';
  echo '<figcaption> '. T_("Hello ").  ' <b> '. T_("dear GUEST!"). '</b></figcaption>';
 }
-
 ?></figure>
    <div class="menu">
     <ul class="sidenav">
