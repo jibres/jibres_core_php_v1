@@ -39,4 +39,4 @@ if(!$myColor || $myColor=='auto' )
 	}
 }
 
-?><div class="circularChart" data-color='<?php echo $myColor;?>'><svg viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><text class="percentage" x="18" y="20.35"><?php echo $myPercent;?>%</text></svg></div>
+?><div class="circularChart" data-color='<?php echo $myColor;?>'><svg viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="circle" stroke-dasharray="<?php echo $myPercent;?>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><text class="percentage" x="18" y="20.35"><?php echo \dash\fit::number($myPercent);?>%</text></svg></div>
