@@ -56,7 +56,26 @@ class model
 			return false;
 		}
 
-		$content = \dash\validate::desc(\dash\request::post("content"));
+
+		$default_args =
+		[
+			'content' => \dash\request::post('content'),
+			'name'    => \dash\request::post('name'),
+			'email'   => \dash\request::post('email'),
+			'mobile'  => \dash\request::post('mobile'),
+		];
+
+		$func_args = func_get_args();
+
+		$args = [];
+		if(isset($func_args[0]))
+		{
+			$args = $func_args[0];
+		}
+
+		$args = array_merge($default_args, $args);
+
+		$content = \dash\validate::desc($args["content"]);
 
 		// check content
 		if($content == '' || !trim($content))
@@ -91,9 +110,9 @@ class model
 		{
 			// users not registered
 			$user_id     = null;
-			$displayname = \dash\validate::displayname(\dash\request::post("name"));
-			$email       = \dash\validate::email(\dash\request::post("email"));
-			$mobile      = \dash\validate::mobile(\dash\request::post("mobile"));
+			$displayname = \dash\validate::displayname($args["name"]);
+			$email       = \dash\validate::email($args["email"]);
+			$mobile      = \dash\validate::mobile($args["mobile"]);
 
 			$content_temp = null;
 

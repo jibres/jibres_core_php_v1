@@ -7,14 +7,14 @@
  <div class="fit">
  		<h2><?php echo T_("Vulnerability Disclosure Philosophy"); ?></h2>
  		<ul class="list">
- 			<li><?php echo "<b>Respect privacy.</b> Make a good faith effort not to access or destroy another users data."; ?></li>
- 			<li><?php echo "<b>Be patient.</b> Make a good faith effort to clarify and support their reports upon request."; ?></li>
- 			<li><?php echo "<b>Do no harm.</b> Act for the common good through the prompt reporting of all found vulnerabilities. Never willfully exploit others without their permission."; ?></li>
+ 			<li><?php echo T_("<b>Respect privacy.</b> Make a good faith effort not to access or destroy another users data."); ?></li>
+ 			<li><?php echo T_("<b>Be patient.</b> Make a good faith effort to clarify and support their reports upon request."); ?></li>
+ 			<li><?php echo T_("<b>Do no harm.</b> Act for the common good through the prompt reporting of all found vulnerabilities. Never willfully exploit others without their permission."); ?></li>
  		</ul>
  </div>
 
 <div class="fit">
-	<p><?php echo "A software bug that would allow an attacker to perform an action in violation of an expressed security policy. A bug that enables escalated access or privilege is a vulnerability. Design flaws and failures to adhere to security best practices may qualify as vulnerabilities. Weaknesses exploited by viruses, malicious code, and social engineering are not considered vulnerabilities"; ?></p>
+	<p><?php echo T_("A software bug that would allow an attacker to perform an action in violation of an expressed security policy. A bug that enables escalated access or privilege is a vulnerability. Design flaws and failures to adhere to security best practices may qualify as vulnerabilities. Weaknesses exploited by viruses, malicious code, and social engineering are not considered vulnerabilities"); ?></p>
 
 	<p class="mB0"><?php echo T_("If you believe you have found a vulnerability, please submit a Report here. The Report should include a detailed description of your discovery with clear, concise reproducible steps or a working proof-of-concept. If you don't explain the vulnerability in detail, there may be significant delays in the disclosure process, which is undesirable for everyone. We are use CVSS v.3 calculator on Jibres."); ?> <a href="https://www.first.org/cvss/calculator/3.0"><?php echo T_("Learn more about CVSS v3 rating"); ?></a></p>
 </div>
@@ -83,14 +83,14 @@
        <input type="text" name="iu1" id="iu1" placeholder='<?php echo T_("Whatever you want"); ?>' maxlength='40'>
       </div>
 
-      <label for="mobile"><?php echo T_("Your mobile number"); ?></label>
+      <label for="xum"><?php echo T_("Your mobile number"); ?></label>
       <div class="input">
-       <input type="tel" name="mobile" id="mobile" placeholder='' maxlength="17" autocomplete="off">
+       <input type="tel" name="xum" id="xum" placeholder='' maxlength="17" autocomplete="off">
       </div>
 
-      <label for="email"><?php echo T_("Your Email address"); ?></label>
+      <label for="wue"><?php echo T_("Your Email address"); ?></label>
       <div class="input">
-       <input type="email" name="email" id="email" placeholder='' maxlength='40'>
+       <input type="email" name="wue" id="wue" placeholder='' maxlength='40'>
       </div>
 
       <label for="title"><?php echo T_("Bug Title"); ?> *</label>
