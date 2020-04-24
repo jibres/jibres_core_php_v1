@@ -6,7 +6,7 @@ class nationalcode
 
 	public static function nationalcode($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = \dash\validate\number::number($_data, $_notif, $_element, $_field_title, ['min' => 1111111111, 'max' => 9999999999]);
+		$data = \dash\validate\number::number($_data, $_notif, $_element, $_field_title);
 
 		if($data === false || $data === null)
 		{
@@ -22,6 +22,15 @@ class nationalcode
 			if($_notif)
 			{
 				\dash\notif::error(T_("National code must be a number"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		if(mb_strlen($data) !== 10)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("National code must be exactly 10 character"), ['element' => $_element]);
 			}
 			return false;
 		}
