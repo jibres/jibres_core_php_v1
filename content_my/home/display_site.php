@@ -117,32 +117,43 @@ if($listStore_staff && is_array($listStore_staff))
     <ul>
      <li>
       <a class="f" href="<?php if(\dash\get::index($myData, 'complete_profile', 'mobile')) { echo \dash\url::kingdom(). '/account/my'; }else{ echo \dash\url::kingdom(). '/enter/verify';}?>">
-       <div class="key"><?php echo T_('Mobile');?></div>
+       <div class="key"><?php echo T_('Verify Mobile');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'mobile')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/email">
-       <div class="key"><?php echo T_('Email');?></div>
+       <div class="key"><?php echo T_('Verify Email');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'email')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/username">
-       <div class="key"><?php echo T_('Username');?></div>
+       <div class="key"><?php echo T_('Set Username');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'username')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/profile">
-       <div class="key"><?php echo T_('Birthday');?></div>
+       <div class="key"><?php echo T_('Set Birthday');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'birthday')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
       <a class="f" href="<?php echo \dash\url::kingdom();?>/account/my/avatar">
-       <div class="key"><?php echo T_('Avatar');?></div>
+       <div class="key"><?php echo T_('Set Avatar');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'avatar')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
+      </a>
+     </li>
+    </ul>
+   </nav>
+
+   <nav class="items long">
+    <ul>
+     <li>
+      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/billing">
+       <div class="key"><?php echo T_('Top up Your Account');?></div>
+       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstpay')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
     </ul>
@@ -183,17 +194,6 @@ if($listStore_staff && is_array($listStore_staff))
       <a class="f" href="<?php echo \dash\url::here();?>/domain/renew">
        <div class="key"><?php echo T_('Renew Your First Domain');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstrenew')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
-      </a>
-     </li>
-    </ul>
-   </nav>
-
-   <nav class="items long">
-    <ul>
-     <li>
-      <a class="f" href="<?php echo \dash\url::kingdom();?>/account/billing">
-       <div class="key"><?php echo T_('Add First Money');?></div>
-       <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstpay')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
     </ul>
