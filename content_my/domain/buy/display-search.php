@@ -47,7 +47,7 @@ if(\dash\data::getDomain())
   <section class="f">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat">
+      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat x70">
        <h3><?php echo T_("Suggestion for you");?></h3>
        <div class="val"><?php echo \dash\get::index($value, 'domain'); ?></div>
       </a>
@@ -60,7 +60,7 @@ if(\dash\data::getDomain())
   <section class="f">
     <?php foreach (\dash\data::domainSuggestion4() as $key => $value) {?>
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat">
+      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat x50">
        <h3><?php echo T_("Suggestion for you");?></h3>
        <div class="val"><?php echo \dash\get::index($value, 'domain'); ?></div>
       </a>
