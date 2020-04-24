@@ -55,7 +55,12 @@ class find
 
 		if($myMain !== null || \dash\layout\func::display())
 		{
-			echo "\n <main id='pageContent' data-xhr='pageContent'>";
+			echo "\n <main id='pageContent' data-xhr='pageContent'";
+			if (\dash\detect\device::detectPWA())
+			{
+				echo " data-scroll";
+			}
+			echo ">";
 			if($myMain)
 			{
 				require_once $myMain;
@@ -78,10 +83,12 @@ class find
 		// and we are not in api content
 		if($myHeader === null && !\dash\engine\content::api_content())
 		{
+			$headerScroll = null;
 			if (\dash\detect\device::detectPWA())
 			{
 				// if is not set, on pwa force add
 				$myHeader = core.'layout/pwa/pwa-header.php';
+				$headerScroll = true;
 			}
 			else
 			{
@@ -109,7 +116,12 @@ class find
 			}
 		}
 
-		echo "\n <header id='pageHeader' data-xhr='pageHeader' data-scroll>";
+		echo "\n <header id='pageHeader' data-xhr='pageHeader'";
+		if($headerScroll)
+		{
+			echo " data-scroll";
+		}
+		echo ">";
 		if($myHeader)
 		{
 			require_once $myHeader;
