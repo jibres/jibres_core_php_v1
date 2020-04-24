@@ -90,6 +90,11 @@ class renew
 		if(isset($load_domain['id']))
 		{
 			$domain_id = $load_domain['id'];
+
+			if(isset($load_domain['status']) && $load_domain['status'] === 'deleted')
+			{
+				\lib\db\nic_domain\update::update(['status' => 'awaiting'], $domain_id);
+			}
 		}
 		else
 		{
