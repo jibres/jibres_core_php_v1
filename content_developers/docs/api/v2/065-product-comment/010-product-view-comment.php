@@ -51,7 +51,7 @@ curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>product/{PRODUCT_ID}/comm
         "datecreated": "2020-01-11 20:27:39",
         "user_id": "10",
         "avatar": "http://jibres.local/static/siftal/images/default/avatar.png",
-        "displayname": "Whitout name",
+        "displayname": "Without name",
         "gender": null
       }
     ]

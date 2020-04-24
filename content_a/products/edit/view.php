@@ -12,7 +12,7 @@ class view
 		$title = \dash\data::productDataRow_title();
 		if(!isset($title))
 		{
-			$title = T_("Whitout name");
+			$title = T_("Without name");
 		}
 
 		\dash\face::title($title);

@@ -77,7 +77,7 @@ class app
 				case 'displayname':
 					if(!$value && $value != '0')
 					{
-						$value = T_("Whitout name");
+						$value = T_("Without name");
 					}
 					$result[$key] = $value;
 					break;
@@ -178,13 +178,13 @@ class app
 				case 'displayname':
 					if($value === false)
 					{
-						$value = T_("Whitout user");
+						$value = T_("Without user");
 					}
 					else
 					{
 						if(!$value && $value != '0')
 						{
-							$value = T_("Whitout name");
+							$value = T_("Without name");
 						}
 					}
 					$result[$key] = $value;

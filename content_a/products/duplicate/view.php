@@ -12,7 +12,7 @@ class view
 		$product_title = \dash\data::productDataRow_title();
 		if(!isset($product_title))
 		{
-			$product_title = T_("Whitout name");
+			$product_title = T_("Without name");
 		}
 
 		\dash\face::title(T_("Make copy from :val", ['val' => $product_title]));

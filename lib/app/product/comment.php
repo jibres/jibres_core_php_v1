@@ -385,7 +385,7 @@ class comment
 				case 'displayname':
 					if(!$value)
 					{
-						$value = T_("Whitout name");
+						$value = T_("Without name");
 					}
 					$result[$key] = $value;
 					break;

@@ -373,7 +373,7 @@ class visitors
 			"pagenation"        => true,
 			// for example in get_count mode we needless to limit and pagenation
 			// default limit of record is 10
-			// set the limit    = null and pagenation = false to get all record whitout limit
+			// set the limit    = null and pagenation = false to get all record without limit
 			"limit"             => 10,
 			// for manual pagenation set the statrt_limit and end limit
 			"start_limit"       => 0,

@@ -5426,7 +5426,7 @@ msgstr "کپی"
 #: content_a/products/duplicate/view.php:15 content_a/products/edit/view.php:15
 #: content_a/products/variants/view.php:15 dash/app.php:80 dash/app.php:187
 #: lib/app/product/comment.php:388
-msgid "Whitout name"
+msgid "Without name"
 msgstr "بدون نام"
 
 #: content_a/products/duplicate/view.php:18
@@ -16076,7 +16076,7 @@ msgid "Token is expire"
 msgstr "توکن منقضی شده است"
 
 #: dash/app.php:181
-msgid "Whitout user"
+msgid "Without user"
 msgstr "بدون کاربر"
 
 #: dash/app/address.php:253
@@ -24250,7 +24250,7 @@ msgid "Can not update your product category"
 msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌روزرسانی کنیم"
 
 #: lib/app/category/edit.php:97
-msgid "Category saved whitout chnage"
+msgid "Category saved without chnage"
 msgstr "دسته‌بندی بدون تغییر ذخیره شد"
 
 #: lib/app/category/remove.php:42

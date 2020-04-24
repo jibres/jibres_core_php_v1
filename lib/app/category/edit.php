@@ -94,7 +94,7 @@ class edit
 		}
 		else
 		{
-			\dash\notif::info(T_("Category saved whitout chnage"));
+			\dash\notif::info(T_("Category saved without chnage"));
 			return false;
 		}
 	}
