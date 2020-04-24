@@ -5,7 +5,7 @@
     {
         if($value['available'])
         {
-            echo " success2";
+            echo "";
         }
         else
         {
@@ -21,7 +21,7 @@
             echo '<div class="c pA5 pR10-f">';
             if(isset($value['name']) && isset($value['tld']))
             {
-                echo '<span class="name">'. $value['name']. '</span>';
+                echo '<span class="name fs14">'. $value['name']. '</span>';
                 echo '<span class="tld txtB mL5">.'. $value['tld']. '</span>';
             }
             else
