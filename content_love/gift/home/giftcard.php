@@ -30,12 +30,17 @@ if(!isset($gMaxGift))
 			<div class="cauto os pLa20 pTB20">
 				<div class="f mB10">
 					<abbr class="c6"><?php echo T_("Expire Date");?></abbr>
-					<span class="c6"><?php echo \dash\fit::text($gExpireDate); ?></span>
+					<span class="c6"><?php echo $gExpireDate; ?></span>
 				</div>
 				<div class="f">
 					<abbr class="c6"><?php echo T_("Max Gift");?></abbr>
 					<span class="c6"><?php echo \dash\fit::number($gMaxGift). ' '. T_("Toman");?></span>
 				</div>
+				<div class="f">
+					<abbr class="c6"><?php echo T_("Total Usage for you");?></abbr>
+					<span class="c6"><?php echo \dash\fit::number($gUsageperuser). ' '. T_("Toman");?></span>
+				</div>
+
 			</div>
 		</header>
 		<div class="body">
@@ -46,6 +51,15 @@ if(!isset($gMaxGift))
 			</div>
 			<code class="circle"><span class="percent"><?php echo $gPercent; ?></span><span>%</span></code>
 		</div>
+	</div>
+	<div class="txtC fs14 mT20">
+		<p><?php echo T_("You can use gift card on last step of your buy process."); ?></p>
+<?php
+if(isset($gDesc))
+{
+	echo "<div class='msg txtB fs14 mB10'>". $gDesc. "</div>";
+}
+?>
 	</div>
 </div>
 
