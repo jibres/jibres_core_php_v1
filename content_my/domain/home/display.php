@@ -97,7 +97,7 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/search">
         <div class="key"><?php echo T_('My Domains');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
      </ul>
@@ -108,25 +108,25 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/buy">
         <div class="key"><?php echo T_('Buy domain');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/renew">
         <div class="key"><?php echo T_('Renew domain');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/transfer">
         <div class="key"><?php echo T_('Transfer domain');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/short">
         <div class="key"><?php echo T_('Buy Short domains');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
      </ul>
@@ -137,7 +137,7 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/option">
         <div class="key"><?php echo T_('Settings');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
      </ul>
@@ -148,19 +148,19 @@
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/payments">
         <div class="key"><?php echo T_('Payments History');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/history">
         <div class="key"><?php echo T_('Last Activities');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/predict">
         <div class="key"><?php echo T_('Predict Late Payments');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
      </ul>
@@ -171,7 +171,7 @@
       <li>
        <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">
         <div class="key"><?php echo T_('Doamin API');?></div>
-        <div class="go"></div>
+        <div class="go next"></div>
        </a>
       </li>
       <li>

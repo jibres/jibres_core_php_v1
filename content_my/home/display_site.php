@@ -50,13 +50,12 @@ if($listStore_owner && is_array($listStore_owner))
          <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
          <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
          <div class="value"><?php echo \dash\get::index($value, 'subdomain'); ?></div>
-         <div class="go"></div>
+         <div class="go next"></div>
         </a>
        </li>
 <?php }//endfor ?>
        <li>
         <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
-         <img src="<?php echo \dash\url::icon();?>" alt="<?php echo T_("Add New Business");?>">
          <div class="key"><?php echo T_("Add New Business");?></div>
          <div class="go plus"></div>
         </a>
@@ -92,7 +91,7 @@ if($listStore_staff && is_array($listStore_staff))
          <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
          <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
          <div class="value"><?php echo \dash\get::index($value, 'subdomain'); ?></div>
-         <div class="go"></div>
+         <div class="go next"></div>
         </a>
        </li>
 <?php }//endfor ?>
