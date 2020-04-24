@@ -16,7 +16,7 @@
      </div>
      <nav class="c s0">
        <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-       <?php if(false) { ?><a href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a> <?php } // endif ?>
+       <a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Domains"); ?></a>
        <a href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
      </nav>
      <div class="cauto"><?php
