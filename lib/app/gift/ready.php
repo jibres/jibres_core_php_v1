@@ -31,14 +31,8 @@ class ready
 					break;
 
 				case 'dateexpire':
-					$fitDate = \dash\fit::date($value);
-					if($value)
-					{
-						$result[$key] = $fitDate;
-					}
-					$result['dateexpire_raw'] = $fitDate;
-
-					$result[$key] = $value;
+					$result[$key] = \dash\fit::date($value);
+					$result['dateexpire_raw'] = $value;
 					break;
 
 				default:

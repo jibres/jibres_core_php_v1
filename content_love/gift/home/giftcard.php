@@ -10,11 +10,11 @@ if(!isset($gPercent))
 }
 if(!isset($gExpireDate))
 {
-	$gExpireDate = "2020-02-12";
+	$gExpireDate = "-";
 }
 if(!isset($gMaxGift))
 {
-	$gMaxGift = "10000";
+	$gMaxGift = "-";
 }
 ?>
 <div class="giftBox">
@@ -27,19 +27,21 @@ if(!isset($gMaxGift))
 				<h2 class="txtB mB0"><?php echo T_("Jibres"); ?></h2>
 				<h3><?php echo T_("Sell & Enjoy"); ?></h3>
 			</div>
-			<div class="cauto os pLa20 pTB20">
+			<div class="cauto os pLa20 pTB10 meta">
 				<div class="f mB10">
-					<abbr class="c6"><?php echo T_("Expire Date");?></abbr>
-					<span class="c6"><?php echo $gExpireDate; ?></span>
+					<abbr class="c"><?php echo T_("Max Gift");?></abbr>
+					<span class="c5"><?php echo \dash\fit::number($gMaxGift). ' '. T_("Toman");?></span>
 				</div>
 				<div class="f">
-					<abbr class="c6"><?php echo T_("Max Gift");?></abbr>
-					<span class="c6"><?php echo \dash\fit::number($gMaxGift). ' '. T_("Toman");?></span>
+					<abbr class="c"><?php echo T_("Expire Date");?></abbr>
+					<span class="c5"><?php echo $gExpireDate; ?></span>
 				</div>
-				<div class="f">
-					<abbr class="c6"><?php echo T_("Total Usage for you");?></abbr>
-					<span class="c6"><?php echo \dash\fit::number($gUsageperuser). ' '. T_("Toman");?></span>
+<?php if (isset($gUsageperuser)) { ?>
+				<div class="f mT10">
+					<abbr class="c"><?php echo T_("Total Usage for you");?></abbr>
+					<span class="c5"><?php echo \dash\fit::number($gUsageperuser). ' '. T_('Times');?></span>
 				</div>
+<?php } ?>
 
 			</div>
 		</header>
