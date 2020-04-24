@@ -56,8 +56,8 @@ if($listStore_owner && is_array($listStore_owner))
 <?php }//endfor ?>
        <li>
         <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
+         <div class="go plus ok"></div>
          <div class="key"><?php echo T_("Add New Business");?></div>
-         <div class="go plus"></div>
         </a>
        </li>
 <?php }else{ ?>
