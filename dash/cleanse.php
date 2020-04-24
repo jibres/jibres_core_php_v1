@@ -319,7 +319,7 @@ class cleanse
 					continue;
 				}
 
-				$field_title = $required_field;
+				$field_title = T_(ucfirst($required_field));
 				if(isset($_meta['field_title'][$required_field]) && is_string($_meta['field_title'][$required_field]))
 				{
 					$field_title = $_meta['field_title'][$required_field];
