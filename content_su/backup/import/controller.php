@@ -29,16 +29,8 @@ class controller
 
 		foreach ($list as $key => $db_backup_file)
 		{
-			if(preg_match("/(jibres\_\d{7})/", $db_backup_file, $split))
-			{
-				$i++;
-				$db_name = $split[1];
-				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "DROP DATABASE \`'.$db_name.'\`"'. "\n");
-				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`'.$db_name.'\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
-				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot '. $db_name. "\n");
 
-			}
-			elseif(preg_match("/(jibres_2020)/", $db_backup_file, $split))
+			if(preg_match("/(jibres_2020)/", $db_backup_file, $split))
 			{
 				$i++;
 				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "DROP DATABASE \`jibres\`"'. "\n");
@@ -58,6 +50,19 @@ class controller
 				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "DROP DATABASE \`jibres_nic_log\`"'. "\n");
 				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`jibres_nic_log\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
 				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot jibres_nic_log'. "\n");
+			}
+		}
+
+		foreach ($list as $key => $db_backup_file)
+		{
+			if(preg_match("/(jibres\_\d{7})/", $db_backup_file, $split))
+			{
+				$i++;
+				$db_name = $split[1];
+				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "DROP DATABASE \`'.$db_name.'\`"'. "\n");
+				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`'.$db_name.'\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
+				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot '. $db_name. "\n");
+
 			}
 		}
 
