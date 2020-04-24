@@ -33,8 +33,9 @@ class ready
 				case 'dateexpire':
 					if($value)
 					{
-						$value = \dash\fit::date($value);
+						$result[$key] = \dash\fit::date($value);
 					}
+					$result['dateexpire_raw'] = \dash\utility\convert::to_en_number(\dash\fit::date($value));
 
 					$result[$key] = $value;
 					break;

@@ -12,7 +12,7 @@
 
         <label for="dateexpire" ><?php echo T_("Expire date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
         <div class="input">
-        <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="dateexpire" value="<?php echo \dash\data::dataRow_dateexpire(); ?>" id="dateexpire" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
+        <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="dateexpire" value="<?php echo \dash\data::dataRow_dateexpire_raw(); ?>" id="dateexpire" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
         </div>
 
         <div class="switch1 mB20">
