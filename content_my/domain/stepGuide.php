@@ -14,6 +14,7 @@ class stepGuide
 		$review  = null;
 
 		$choose_link = null;
+		$setting_link = null;
 
 		if(\dash\request::get('q'))
 		{
@@ -35,16 +36,15 @@ class stepGuide
 			$choose      = 'complete';
 			$setting     = 'complete';
 			$review      = 'current';
-			$choose_link = \dash\url::that(). '?q='. \dash\data::myDomain();
+			$choose_link = \dash\url::that(). '?q='. \dash\data::dataRow_name();
+			$setting_link = \dash\url::this(). '/buy/'. \dash\data::dataRow_name();
 		}
-
-
 
 		$mySteps =
 		[
 			[
 				'title' => T_('Search domain'),
-				'link'  => \dash\url::that(),
+				'link'  => \dash\url::this() . '/buy',
 				'class' => $search,
 			],
 			[
@@ -54,6 +54,7 @@ class stepGuide
 			],
 			[
 				'title' => T_('Setting'),
+				'link'  => $setting_link,
 				'class' => $setting,
 			],
 			[
