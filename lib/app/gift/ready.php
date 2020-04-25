@@ -32,7 +32,18 @@ class ready
 
 				case 'dateexpire':
 					$result[$key] = \dash\fit::date($value);
-					$result['dateexpire_raw'] = $value;
+					if($value)
+					{
+
+						if(\dash\language::current() === 'fa')
+						{
+							$result['dateexpire_raw'] = \dash\utility\convert::to_en_number(\dash\fit::date($value));
+						}
+						else
+						{
+							$result['dateexpire_raw'] = $value;
+						}
+					}
 					break;
 
 				default:
