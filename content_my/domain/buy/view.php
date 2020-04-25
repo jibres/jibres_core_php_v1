@@ -60,6 +60,9 @@ class view
 
 		if(\dash\data::haveBuyDomain())
 		{
+			\dash\data::defaultNDS1(\lib\app\nic_usersetting\defaultval::ns1());
+			\dash\data::defaultNDS2(\lib\app\nic_usersetting\defaultval::ns2());
+
 			$my_setting = \lib\app\nic_usersetting\get::get();
 
 			if(isset($my_setting['autorenewperiod']))
@@ -73,26 +76,7 @@ class view
 
 			$my_setting['autorenewperiod'] = $autorenewperiod;
 
-			if(isset($my_setting['ns1']) && $my_setting['ns1'])
-			{
-				// nothing
-			}
-			else
-			{
-				$my_setting['ns1'] = \lib\app\nic_usersetting\defaultval::ns1();
-			}
-
-			if(isset($my_setting['ns2']) && $my_setting['ns2'])
-			{
-				// nothing
-			}
-			else
-			{
-				$my_setting['ns2'] = \lib\app\nic_usersetting\defaultval::ns2();
-			}
-
 			\dash\data::userSetting($my_setting);
-
 
 			if(\lib\nic\mode::api())
 			{

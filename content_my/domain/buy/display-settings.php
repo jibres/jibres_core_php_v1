@@ -78,14 +78,14 @@
       <div class="c6 s12">
        <label for="ns1"><?php echo T_("DNS #1"); ?></label>
        <div class="input ltr">
-        <input type="text" name="ns1" id="ns1" maxlength="100" value="<?php echo \dash\data::userSetting_ns1(); ?>">
+        <input type="text" name="ns1" id="ns1" maxlength="100" value="<?php echo \dash\data::userSetting_ns1(); ?>" placeholder="<?php echo \dash\data::defaultNDS1(); ?>" >
        </div>
       </div>
       <div class="c6 s12">
        <div class="mLa5">
         <label for="ns2"><?php echo T_("DNS #2"); ?></label>
         <div class="input ltr">
-         <input type="text" name="ns2" id="ns2" maxlength="100" value="<?php echo \dash\data::userSetting_ns2(); ?>">
+         <input type="text" name="ns2" id="ns2" maxlength="100" value="<?php echo \dash\data::userSetting_ns2(); ?>" placeholder="<?php echo \dash\data::defaultNDS1(); ?>" >
         </div>
        </div>
       </div>

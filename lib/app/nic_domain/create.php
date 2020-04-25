@@ -88,6 +88,15 @@ class create
 		\lib\app\domains\detect::dns($ns3);
 		\lib\app\domains\detect::dns($ns4);
 
+		if(!$ns1)
+		{
+			$ns1 = \lib\app\nic_usersetting\defaultval::ns1();
+		}
+
+		if(!$ns2)
+		{
+			$ns2 = \lib\app\nic_usersetting\defaultval::ns2();
+		}
 
 		$irnic_admin = $data['irnic_admin'];
 		$irnic_tech  = $data['irnic_tech'];
