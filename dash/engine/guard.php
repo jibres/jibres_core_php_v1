@@ -76,7 +76,7 @@ class guard
 		// img-src
 		$csp .= "img-src ". self::csp_domain(). " *.google-analytics.com data:; ";
 		// font-src
-		$csp .= "font-src ". self::csp_domain('cdn'). "; ";
+		$csp .= "font-src ". self::csp_domain('cdn'). " data:; ";
 		// media-src
 		$csp .= "media-src ". self::csp_domain(). " data:; ";
 		// frame-src
