@@ -166,7 +166,7 @@ $giftCode = \dash\data::giftDetail_discount();
      <div class="body">
         <table class="tbl1 v5">
           <tbody>
-
+<?php if($giftCode || \dash\data::userBudget()) {?>
            <tr data-price='<?php echo \dash\data::myPrice(); ?>'>
             <th><?php echo T_("Domain Price") ?></th>
             <?php if(\dash\data::myPeriod()) {?>
@@ -175,12 +175,11 @@ $giftCode = \dash\data::giftDetail_discount();
             <td class="txtRa">-</td>
             <?php } // endif ?>
            </tr>
+<?php } // endif ?>
 
 <?php if($giftCode) {?>
            <tr data-gift='<?php echo $giftCode; ?>'>
-            <th><?php echo T_("Your Gift") ?></th>
-            <td class="txtRa">
-              <span><?php echo \dash\fit::number($giftCode);?> (
+            <th><?php echo T_("Your Gift") ?> (
                 <?php
                 if(\dash\data::giftDetail_type() === 'percent')
                 {
@@ -188,7 +187,9 @@ $giftCode = \dash\data::giftDetail_discount();
                   echo T_("%");
                 }
                 ?> )
-              </span>
+            </th>
+            <td class="txtRa">
+              <span><?php echo \dash\fit::number($giftCode);?></span>
               <span class="fc-mute mLa5"><?php echo T_("Toman");?></span>
             </td>
 
