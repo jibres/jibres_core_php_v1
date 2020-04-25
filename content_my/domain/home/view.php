@@ -49,14 +49,16 @@ class view
 						$msg .= '<br>';
 					}
 
-					\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					// \dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					\dash\notif::ok($msg);
 
 				}
 				else
 				{
 					$msg = T_("Payment unsuccessfull");
 					$msg .= '<br>';
-					\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					// \dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					\dash\notif::error($msg);
 				}
 			}
 			else
