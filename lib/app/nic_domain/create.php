@@ -611,7 +611,7 @@ class create
 
 			\lib\app\nic_domainaction\action::set('register_failed', $domain_action_detail);
 
-			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
+			\dash\notif::warn(T_("Can not register your domain"));
 		}
 	}
 }

@@ -4,6 +4,9 @@ namespace lib\nic\exec;
 
 class run
 {
+	private static $response_raw = null;
+
+
 	public static function send($_xml, $_type, $_request_count = 1, $_domain = null, $_nic_id = null)
 	{
 		$xml = $_xml;
@@ -61,16 +64,14 @@ class run
 
 		$object = false;
 
+		$insert_log['response'] = addslashes(self::$response_raw);
+
 		if(isset($response))
 		{
-			$insert_log['response'] = addslashes($response);
-
 			// try to get object from xml
 			try
 			{
-
 				$object = @new \SimpleXMLElement($response);
-
 
 				$result_code                      = self::result_code($object);
 
@@ -88,10 +89,12 @@ class run
 			}
 			catch (\Exception $e)
 			{
-				\dash\notif::error(T_("Can not connect to domain server"));
+				if(\dash\engine\process::status())
+				{
+					\dash\notif::error(T_("Can not connect to domain server"));
+				}
 
 				$insert_log['result'] = 'cannot-parse-xml';
-
 			}
 		}
 		else
@@ -142,12 +145,22 @@ class run
 
 		curl_close ($ch);
 
+
 		if($response && !is_string($response))
 		{
 			\dash\log::set('IRNIC:CurlErrorResponseIsNotString');
 			\dash\notif::error(T_("Result of IRNIC server is not valid!"));
 			return false;
 		}
+
+		if(mb_strlen($response) > 10000)
+		{
+			\dash\notif::error(T_("Response of IRNIC server is too large! Please contact to administrator"));
+			\dash\log::set('IRNIC:CurlResponseMaxLen', ['responselen' => mb_strlen($response)]);
+			return false;
+		}
+
+		self::$response_raw = $response;
 
 		if($response === 'Failed to connect to epp.nic.ir port 443: No route to host:7')
 		{
@@ -175,25 +188,20 @@ class run
 			return false;
 		}
 
-		if(mb_strlen($response) > 10000)
-		{
-			\dash\notif::error(T_("Response of IRNIC server is too large! Please contact to administrator"));
-			\dash\log::set('IRNIC:CurlResponseMaxLen', ['responselen' => mb_strlen($response)]);
-			return false;
-		}
-
 		$md5response = md5($response);
 
 		// با عرض پوزش، سامانه ایرنیک به جهت عملیات روزانه هر شب از ساعت ۲۳:۰۰ لغایت ۳۰ دقیقه بامداد در دسترس نمی‌باشد.
 		if($md5response === 'e933b76e159b9875b6af08f8b04cd40f')
 		{
 			\dash\notif::error(T_("IRNIC server in every day from 23:00 to 00:30 for upgrade process is busy and not respond."));
+			return false;
 		}
 
 		// Arvan 504 Time-out
 		if($md5response === '5f9bebf23e3d629f2651b895846e155c')
 		{
 			\dash\notif::error(T_("The waiting time for the domain server response was very long!"));
+			return false;
 		}
 
 		return $response;
