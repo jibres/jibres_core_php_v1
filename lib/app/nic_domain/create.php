@@ -315,8 +315,8 @@ class create
 
 				'holder'       => $nic_id,
 				'admin'        => $nic_id,
-				'tech'         => $nic_id,
-				'bill'         => $nic_id,
+				'tech'         => $irnic_tech,
+				'bill'         => $irnic_bill,
 
 				'autorenew'    => null,
 				'lock'         => null,
@@ -342,8 +342,8 @@ class create
 
 				'holder'       => $nic_id,
 				'admin'        => $nic_id,
-				'tech'         => $nic_id,
-				'bill'         => $nic_id,
+				'tech'         => $irnic_tech,
+				'bill'         => $irnic_bill,
 
 				'autorenew'    => null,
 				'lock'         => null,
