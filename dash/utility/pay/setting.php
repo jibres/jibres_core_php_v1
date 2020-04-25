@@ -54,6 +54,11 @@ class setting
     		return false;
     	}
 
+    	if(isset($load['payment_response']) && is_string($load['payment_response']))
+    	{
+    		$load['payment_response'] = json_decode($load['payment_response'], true);
+    	}
+
     	if(isset($load['id']))
     	{
     		\dash\utility\pay\transactions::update(['finalmsg' => 1], $load['id']);

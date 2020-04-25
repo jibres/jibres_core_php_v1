@@ -29,15 +29,28 @@ class view
 		if(\dash\request::get('token'))
 		{
 			$get_msg = \dash\utility\pay\setting::final_msg(\dash\request::get('token'));
+
 			if($get_msg)
 			{
+				$domain = isset($get_msg['payment_response']['final_fn_args']['domain']) ? $get_msg['payment_response']['final_fn_args']['domain'] : null;
+				$period = isset($get_msg['payment_response']['final_fn_args']['period']) ? $get_msg['payment_response']['final_fn_args']['period'] : null;
+
+
 				if(isset($get_msg['condition']) && $get_msg['condition'] === 'ok' && isset($get_msg['plus']))
 				{
-					$msg = T_("Payment successfull");
-					$msg .= '<br>';
+					if($domain)
+					{
+						$msg = T_("Domain :domain was registered in your name", ['domain' => $domain]);
+						$msg .= '<br>';
+					}
+					else
+					{
+						$msg = T_("Payment successfull");
+						$msg .= '<br>';
+					}
+
 					\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
-					// \dash\data::paymentVerifyMsg(T_("Payment successfull", ['amount' => \dash\fit::number($get_msg['plus'])]));
-					// \dash\data::paymentVerifyMsgTrue(true);
+
 				}
 				else
 				{
