@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-25 18:59+0430\n"
-"PO-Revision-Date: 2020-04-25 19:01+0430\n"
+"POT-Creation-Date: 2020-04-25 19:41+0430\n"
+"PO-Revision-Date: 2020-04-25 19:42+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2098,7 +2098,7 @@ msgstr "احتمالا سوالات اولیه و ساده‌ی شما از جی
 
 #: content/help/faq/view.php:13 content/help/view.php:9 content/home/layout/header.php:20
 #: content_cms/posts/home/view.php:42 dash/layout/admin/admin-header.php:7
-#: dash/layout/admin/admin-sidebar-frame.php:77
+#: dash/layout/admin/admin-sidebar-frame.php:84
 #: dash/layout/admin/sidebar/sidebar-cms.php:29 dash/layout/pwa/pwa_menu.php:55
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
@@ -17072,7 +17072,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:208
+#: dash/engine/guard.php:219
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -17190,27 +17190,35 @@ msgstr "میهمان عزیز!"
 msgid "Store admin panel"
 msgstr "پنل مدیریت فروشگاه"
 
-#: dash/layout/admin/admin-sidebar-frame.php:45
+#: dash/layout/admin/admin-sidebar-frame.php:47
 msgid "Jibres Panel"
 msgstr "پنل جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:47
+#: dash/layout/admin/admin-sidebar-frame.php:48
+msgid "Jibres Domains"
+msgstr "دامنه‌های جیبرس"
+
+#: dash/layout/admin/admin-sidebar-frame.php:49
+msgid "My Business"
+msgstr "بیزینس‌های من"
+
+#: dash/layout/admin/admin-sidebar-frame.php:54
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
-#: dash/layout/admin/admin-sidebar-frame.php:56
+#: dash/layout/admin/admin-sidebar-frame.php:63
 msgid "CRM Panel"
 msgstr "پنل مدیریت ارتباط با مشتریان"
 
-#: dash/layout/admin/admin-sidebar-frame.php:65
+#: dash/layout/admin/admin-sidebar-frame.php:72
 msgid "Jibres Managment"
 msgstr "مدیریت جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:66
+#: dash/layout/admin/admin-sidebar-frame.php:73
 msgid "Supervisor Panel"
 msgstr "پنل مدیر فنی"
 
-#: dash/layout/admin/admin-sidebar-frame.php:75
+#: dash/layout/admin/admin-sidebar-frame.php:82
 msgid "My Account"
 msgstr "حساب من"
 
