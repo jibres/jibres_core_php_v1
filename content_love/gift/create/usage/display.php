@@ -6,7 +6,7 @@
 
 
     <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Create new gift card"); ?></h2></header>
+      <header><h2><?php echo T_("Set usage of gift card"); ?></h2></header>
 
       <div class="body">
 
@@ -18,6 +18,18 @@
         <label for="usageperuser"><?php echo T_("Gift usage limit per user"); ?></label>
         <div class="input ltr">
           <input type="text" name="usageperuser" value="<?php echo \dash\data::dataRow_usageperuser(); ?>" id="usageperuser" max="9999999" data-format='price' >
+        </div>
+
+        <div>
+          <label for="forusein"><?php echo T_("For use in"); ?></label>
+          <select class="select22" name="forusein">
+            <option value="any" <?php if(\dash\data::dataRow_forusein() === 'any') {echo 'selected'; } ?>><?php echo T_("any") ?></option>
+            <option value="domain" <?php if(\dash\data::dataRow_forusein() === 'domain') {echo 'selected'; } ?>><?php echo T_("domain") ?></option>
+            <option value="store" <?php if(\dash\data::dataRow_forusein() === 'store') {echo 'selected'; } ?>><?php echo T_("store") ?></option>
+            <option value="sms" <?php if(\dash\data::dataRow_forusein() === 'sms') {echo 'selected'; } ?>><?php echo T_("sms") ?></option>
+            <option value="ipg" <?php if(\dash\data::dataRow_forusein() === 'ipg') {echo 'selected'; } ?>><?php echo T_("ipg") ?></option>
+
+          </select>
         </div>
 
         <label for="dedicated"><?php echo T_("Dedicated for users"); ?></label>

@@ -16,7 +16,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that(). '/review?id='. \dash\request::get('id'));
+			\dash\redirect::to(\dash\url::this(). '/all');
 		}
 
 	}

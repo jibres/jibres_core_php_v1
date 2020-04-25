@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Set code of gift card"));
+		\dash\face::title(T_("Gift code"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));

@@ -6,16 +6,13 @@
 
 
     <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Create new gift card"); ?></h2></header>
+      <header><h2><?php if(\dash\data::myType() === 'percent') { echo T_("Set percent of discount for this gift card"); }else{ echo T_("Set amount of discount for this gift card");} ?></h2></header>
 
       <div class="body">
 
 
         <?php if(\dash\data::myType() === 'percent') {?>
 
-          <div class="mB10 msg">
-            <?php echo T_("Set percent of discount for this gift card"); ?>
-          </div>
           <label for="giftpercent"><?php echo T_("Gift percent"); ?></label>
           <div class="input ltr">
             <input type="number" name="giftpercent" value="<?php echo \dash\data::dataRow_giftpercent(); ?>" id="giftpercent" min="1" max="100" step="1">
@@ -29,9 +26,6 @@
 
         <?php }elseif(\dash\data::myType() === 'amount'){ ?>
 
-          <div class="mB10 msg">
-            <?php echo T_("Set amount of discount for this gift card"); ?>
-          </div>
 
           <label for="giftamount"><?php echo T_("Gift amount"); ?></label>
           <div class="input ltr">

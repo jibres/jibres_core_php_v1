@@ -6,7 +6,7 @@
 
 
     <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Create new gift card"); ?></h2></header>
+      <header><h2><?php echo T_("Gift card message"); ?></h2></header>
 
       <div class="body">
 
