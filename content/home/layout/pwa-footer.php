@@ -7,13 +7,13 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
   <div class="fit-md">
     <h2><a href="<?php echo \dash\url::kingdom() ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h2>
     <div class="f">
-      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow' href="https://pub.daneshbonyan.ir/"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='DaneshBonyan Jibres'></a></div>
-      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div> -->
-      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-shaparak.png" alt=''></a></div> -->
+      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://pub.daneshbonyan.ir/"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='DaneshBonyan Jibres'></a></div>
+      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div> -->
+      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-shaparak.png" alt=''></a></div> -->
       <div class="c3 s4"><a tabindex='-1' target="_blank" href="https://jibres.ir/certificates"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bmn.png" alt=''></a></div>
-      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow' href="https://trustseal.enamad.ir/?id=118387&Code=2iL8ULp5lVA5oSXMRiLp"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad.png" alt=''></a></div>
-      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow' href="http://qom.irannsr.org/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/content_view.php&cnt_id=225820&ctp_id=61&id=17394&sisOp=view"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-nsr.png" alt=''></a></div>
-      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow' href=""><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png" alt=''></a></div> -->
+      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://trustseal.enamad.ir/?id=118387&Code=2iL8ULp5lVA5oSXMRiLp"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad.png" alt=''></a></div>
+      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="http://qom.irannsr.org/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/content_view.php&cnt_id=225820&ctp_id=61&id=17394&sisOp=view"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-nsr.png" alt=''></a></div>
+      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href=""><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png" alt=''></a></div> -->
       <div class="c3 s4"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=460, height=600, top=30")'></div>
     </div>
   </div>
@@ -258,20 +258,20 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
       <nav class="c s12 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
-          echo "<a hreflang='en' target='_blank'  href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='en' target='_blank' rel='follow noopener' href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
         }
         else
         {
-          echo "<a hreflang='fa' target='_blank'  href='https://jibres.ir'>فارسی <span class='mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='fa' target='_blank' rel='follow noopener' href='https://jibres.ir'>فارسی <span class='mLa5 sf-external-link'></span></a>";
         }
       ?></nav>
       <nav class="cauto s12 os share1">
-        <a target="_blank" rel="nofollow" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
-        <a target="_blank" rel="nofollow" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
-        <a target="_blank" rel="nofollow" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
-        <a target="_blank" rel="nofollow" href="https://github.com/jibres" class="github">Connect to Jibres on Github</a>
-        <a target="_blank" rel="nofollow" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
-        <a target="_blank" rel="nofollow" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
+        <a target="_blank" rel="nofollow noopener" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
+        <a target="_blank" rel="nofollow noopener" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
+        <a target="_blank" rel="nofollow noopener" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
+        <a target="_blank" rel="nofollow noopener" href="https://github.com/jibres" class="github">Connect to Jibres on Github</a>
+        <a target="_blank" rel="nofollow noopener" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
+        <a target="_blank" rel="nofollow noopener" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
       </nav>
     </div>
 
