@@ -50,20 +50,19 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c3 s12 pLR10 items">
             <ul>
-
-            <h3><?php echo T_('eCommerce'); ?></h3>
-            <li>
-              <a class="f" href="<?php echo $kingdom; ?>/benefits">
-                <div class="key"><?php echo T_('Benefits'); ?></div>
-                <div class="go"></div>
-              </a>
-            </li>
-            <li>
-              <a class="f" href="<?php echo $kingdom; ?>/pricing">
-                <div class="key"><?php echo T_('Pricing'); ?></div>
-                <div class="go"></div>
-              </a>
-            </li>
+              <li><h3><?php echo T_('eCommerce'); ?></h3></li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/benefits">
+                  <div class="key"><?php echo T_('Benefits'); ?></div>
+                  <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/pricing">
+                  <div class="key"><?php echo T_('Pricing'); ?></div>
+                  <div class="go"></div>
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -73,8 +72,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           ?>
 
           <nav class="c3 s12 pLR10 items">
-            <h3><?php echo T_('Domains'); ?></h3>
             <ul>
+              <li><h3><?php echo T_('Domains'); ?></h3></li>
               <li>
                 <a class="f" href="<?php echo $kingdom; ?>/domain">
                 <div class="key"><?php echo T_('Domain Name Search'); ?></div>
@@ -102,8 +101,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
 
           <nav class="c3 s12 pLR10 items">
-            <h3><?php echo T_('Support'); ?></h3>
             <ul>
+              <li><h3><?php echo T_('Support'); ?></h3></li>
               <li>
                 <a class="f" href="<?php echo $kingdom; ?>/support">
                 <div class="key"><?php echo T_('Support Center'); ?></div>
@@ -123,7 +122,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 </a>
               </li>
               <li>
-                <a class="f" href="https://status.jibres.com" target="_blank">
+                <a class="f" href="https://status.jibres.com" target="_blank" rel="nofollow noopener">
                 <div class="key"><?php echo T_('System Status'); ?> <span class="mLa5 sf-external-link"></span></div>
                 <div class="go"></div>
                 </a>
@@ -150,8 +149,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           </nav>
 
           <nav class="c3 s12 pLR10 items">
-            <h3><?php echo T_('Resources'); ?></h3>
             <ul>
+              <li><h3><?php echo T_('Resources'); ?></h3></li>
               <li>
                 <a class="f" href="<?php echo $kingdom; ?>/blog">
                 <div class="key"><?php echo T_('Blog'); ?></div>
@@ -192,8 +191,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           </nav>
 
           <nav class="c3 s12 pLR10 items">
-            <h3><?php echo T_('Jibres Company'); ?></h3>
             <ul>
+              <li><h3><?php echo T_('Jibres Company'); ?></h3></li>
               <li>
                 <a class="f" href="<?php echo $kingdom; ?>/about">
                 <div class="key"><?php echo T_('About Jibres'); ?></div>
