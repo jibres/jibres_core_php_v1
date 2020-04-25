@@ -20,13 +20,17 @@ class model
 
 		$maybe_mobile_or_id  = \dash\request::post('usernameormobile');
 
-		if(\dash\validate::mobile($maybe_mobile_or_id))
+		if(\dash\validate::mobile($maybe_mobile_or_id, false))
 		{
-			$mobile = \dash\validate::mobile($maybe_mobile_or_id);
+			$mobile = \dash\validate::mobile($maybe_mobile_or_id, false);
 		}
-		elseif(\dash\validate::id($maybe_mobile_or_id))
+		elseif(\dash\validate::id($maybe_mobile_or_id, false))
 		{
-			$user_id = \dash\validate::id($maybe_mobile_or_id);
+			$user_id = \dash\validate::id($maybe_mobile_or_id, false);
+		}
+		elseif(\dash\validate::code($maybe_mobile_or_id, false))
+		{
+			$user_id = \dash\coding::decode(\dash\validate::id($maybe_mobile_or_id, false));
 		}
 
 		if($mobile && $mobile !== \dash\user::login('mobile') && !$get_userid)
