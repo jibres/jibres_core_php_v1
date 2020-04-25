@@ -40,7 +40,7 @@ $myData = \dash\data::dashboardDetail();
     <div id="chartdivdomain" class="box chart x210" data-hint1='Domain buy & renew & transfer & whois & total buy in lasy 30 days'></div>
   </div>
   <div class="c3 s12">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/buyers'; ?>" class="stat">
       <h3><?php echo T_("Total Buyers");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_buyers'));?></div>
     </a>

@@ -1,12 +1,12 @@
 <?php
-namespace content_love\domain\action;
+namespace content_love\domain\buyers;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Domain action"));
+		\dash\face::title(T_("Domain buyers"));
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
@@ -14,15 +14,15 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
+			'order'    => \dash\request::get('order'),
+			'sort'     => \dash\request::get('sort'),
 			'is_admin' => true,
 		];
 
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\nic_domainaction\search::list($search_string, $args);
+		$list = \lib\app\nic_domainbilling\search::buyers($search_string, $args);
 
 		\dash\data::dataTable($list);
 
