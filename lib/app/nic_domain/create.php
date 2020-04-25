@@ -252,14 +252,14 @@ class create
 			if(!isset($get_contac_nic_tech[$irnic_tech]))
 			{
 				// bug!!
-				\dash\notif::error(T_("Can not find  teching account detail of this domain"));
+				\dash\notif::error(T_("Can not find  technical account detail of this domain"));
 				return false;
 			}
 
 			if(!isset($get_contac_nic_tech[$irnic_tech]))
 			{
 				// bug!!
-				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+				\dash\notif::error(T_("Can not find technical account detail of this domain"));
 				return false;
 			}
 
@@ -269,7 +269,7 @@ class create
 			}
 			else
 			{
-				\dash\notif::error(T_("We can not register this domain because the tech holder of IRNIC can not access to register"));
+				\dash\notif::error(T_("We can not register this domain because the technical holder of IRNIC can not access to register"));
 				return false;
 			}
 		}
