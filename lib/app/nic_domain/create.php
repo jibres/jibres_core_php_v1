@@ -145,6 +145,18 @@ class create
 		}
 
 
+		if(isset($get_contac_nic[$nic_id]['holder']) && $get_contac_nic[$nic_id]['holder'])
+		{
+			// no proble
+		}
+		else
+		{
+			// @reza @check
+			// can not use this contact as holder of domain
+			// need to make error
+		}
+
+
 		if($irnic_bill)
 		{
 			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
