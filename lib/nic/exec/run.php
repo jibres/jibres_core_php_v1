@@ -375,6 +375,7 @@ class run
 				break;
 
 			case 2105:
+				// This domain cannot be renewed for selected durtion. Maximum renewal request for this domain is exceeded.
 				$msg = T_("Object is not eligible for renewal");
 				break;
 

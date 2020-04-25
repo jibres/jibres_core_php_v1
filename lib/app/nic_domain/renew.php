@@ -139,6 +139,13 @@ class renew
 				\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 				return false;
 			}
+
+			if(in_array('serverRenewProhibited', $get_domain_info['status']))
+			{
+				$msg = T_("Can not renew again at this time!");
+				\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+				return false;
+			}
 		}
 
 		\lib\db\nic_domain\update::update(['available' => 0], $domain_id);
