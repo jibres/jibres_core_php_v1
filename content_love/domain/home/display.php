@@ -139,6 +139,13 @@ $myData = \dash\data::dashboardDetail();
           </a>
        </li>
 
+      <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/nicdetail">
+            <div class="key"><?php echo T_('IRNIC detail');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
 
        <li>
           <a class="f" href="<?php echo \dash\url::this();?>/fetch?short=1">
