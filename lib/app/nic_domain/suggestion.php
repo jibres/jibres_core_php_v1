@@ -40,10 +40,8 @@ class suggestion
 			break;
 		}
 
-		$end = end($count_chars);
-		$end_char = chr($end);
-
 		$first_char = substr($_domain, 0, 1);
+		$end_char   = substr($_domain, -1, 1);
 
 		$list_domain_suggestion = \lib\db\domains\get::suggestion_char4($first_char, $end_char, $fchar, 4);
 
