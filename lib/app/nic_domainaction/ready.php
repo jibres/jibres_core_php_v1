@@ -164,6 +164,7 @@ class ready
 							$result['icon']    = '<i class="sf-credit-card fs12 fc-green"></i>';
 							break;
 
+						case 'renew_failed':
 						case 'renew_faled':
 							$result['title'] = T_("Renew domain failed");
 							$result['icon']    = '<i class="sf-info-circle fs12 fc-red"></i>';
@@ -179,7 +180,7 @@ class ready
 							$result['icon']    = '<i class="sf-list fs12 fc-green"></i>';
 							break;
 
-						case 'transfer_faled':
+						case 'transfer_failed':
 							$result['title'] = T_("Transfer domain failed");
 							$result['icon']    = '<i class="sf-info-circle fs12 fc-red"></i>';
 							break;

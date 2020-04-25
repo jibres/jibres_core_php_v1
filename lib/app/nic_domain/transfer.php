@@ -123,7 +123,7 @@ class transfer
 			[
 				'msg_go'        => T_("Transfer :domain", ['domain' => $domain]),
 				'auto_go'       => false,
-				'auto_back'     => true,
+				'auto_back'     => false,
 				'turn_back'     => \dash\url::kingdom(). '/my/domain',
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
@@ -197,6 +197,7 @@ class transfer
 					'tech'         => $nic_id,
 					'bill'         => $nic_id,
 					'verify'       => 1,
+					'available'       => 0,
 					// 'dns'          => $dnsid,
 					'status'       => 'enable',
 					'dateregister' => $result['dateregister'],
@@ -223,6 +224,7 @@ class transfer
 					'autorenew'    => null,
 					'lock'         => 1,
 					'verify'       => 1,
+					'available'       => 0,
 					// 'dns'          => $dnsid,
 					'dateregister' => $result['dateregister'],
 					'dateexpire'   => $result['dateexpire'],
@@ -293,11 +295,10 @@ class transfer
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				'price'          => $price,
 				'transaction_id' => $transaction_id,
 			];
 
-			\lib\app\nic_domainaction\action::set('transfer_faled', $domain_action_detail);
+			\lib\app\nic_domainaction\action::set('transfer_failed', $domain_action_detail);
 
 
 

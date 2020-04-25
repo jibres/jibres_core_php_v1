@@ -486,7 +486,7 @@ class renew
 				'transaction_id' => $transaction_id,
 			];
 
-			\lib\app\nic_domainaction\action::set('renew_faled', $domain_action_detail);
+			\lib\app\nic_domainaction\action::set('renew_failed', $domain_action_detail);
 
 
 			\dash\temp::set('domainHaveTransaction', true);
