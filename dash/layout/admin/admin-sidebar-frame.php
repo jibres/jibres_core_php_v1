@@ -45,8 +45,8 @@ else
 
 
      <li><a href="<?php echo \dash\url::sitelang(); ?>/my" <?php if(\dash\url::content() === 'my') {?> class="activeContent"<?php }//endif ?>><i class='sf-atom'></i> <?php echo T_("Jibres Panel"); ?></a></li>
-     <li><a href="<?php echo \dash\url::sitelang(); ?>/my/domain" <?php if(\dash\url::content() === 'my' && \dash\url::module() === 'domain') {?> class="active"<?php }//endif ?>><i class='sf-rain-1'></i> <?php echo T_("Jibres Domains"); ?></a></li>
-     <li><a href="<?php echo \dash\url::sitelang(); ?>/my/business" <?php if(\dash\url::content() === 'my' && \dash\url::module() === 'business') {?> class="active"<?php }//endif ?>><i class='sf-heartbeat'></i> <?php echo T_("My Business"); ?></a></li>
+     <li><a href="<?php echo \dash\url::sitelang(); ?>/my/domain" <?php if(\dash\url::content() === 'my' && \dash\url::module() === 'domain') {?> class="active"<?php }//endif ?>><i class='sf-flag'></i> <?php echo T_("Jibres Domains"); ?></a></li>
+     <li><a href="<?php echo \dash\url::sitelang(); ?>/my/business" <?php if(\dash\url::content() === 'my' && \dash\url::module() === 'business') {?> class="active"<?php }//endif ?>><i class='sf-heart'></i> <?php echo T_("My Business"); ?></a></li>
 
 
 
