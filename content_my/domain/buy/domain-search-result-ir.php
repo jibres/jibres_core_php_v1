@@ -21,8 +21,8 @@
             echo '<div class="c pA5 pR10-f">';
             if(isset($value['name']) && isset($value['tld']))
             {
-                echo '<span class="name fs14">'. $value['name']. '</span>';
-                echo '<span class="tld txtB mL5">.'. $value['tld']. '</span>';
+                echo '<span class="name txtB fs20">'. $value['name']. '</span>';
+                echo '<span class="tld mL5 fs14">.'. $value['tld']. '</span>';
             }
             else
             {
@@ -92,7 +92,7 @@
                 {
                     if($value['available'])
                     {
-                        echo '<a class="btn success" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $key.'">'. T_("Let's Buy"). '</a>' ;
+                        echo '<a class="btn success lg" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $key.'">'. T_("Let's Buy"). '</a>' ;
                     }
                     else
                     {
