@@ -392,6 +392,7 @@ class run
 				break;
 
 			case 2306:
+				// You are not allowed to use this contact. this contact should authorize you for this relation.
 				$msg = T_("Parameter value policy error");
 				break;
 
