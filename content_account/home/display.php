@@ -15,6 +15,10 @@
   <p><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
 </div>
 
+<?php if(!\dash\user::detail('verifymobile'))  {?>
+  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="msg warn txtC txtB fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
+<?php }//endif ?>
+
 <div class="f fs14">
   <div class="c6 x4 s12 pA10">
 
