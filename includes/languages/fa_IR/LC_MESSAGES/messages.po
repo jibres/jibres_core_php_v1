@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2020-04-25 13:28+0430\n"
-"PO-Revision-Date: 2020-04-25 13:31+0430\n"
+"PO-Revision-Date: 2020-04-25 14:32+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -377,18 +377,24 @@ msgid ""
 "<b>Respect privacy.</b> Make a good faith effort not to access or destroy another users "
 "data."
 msgstr ""
+"<b>به حریم خصوصی احترام بگذاریم.</b> لطفا حسن نیست داشته باشید و از داده‌های کاربران "
+"دیگر سوء استفاده نکنید یا برای از بین بردن آن‌ها تلاش نکنید."
 
 #: content/bug/display.php:11
 msgid ""
 "<b>Be patient.</b> Make a good faith effort to clarify and support their reports upon "
 "request."
 msgstr ""
+"<b>صبور باشید.</b> لطفا گزارش‌های خود را به‌صورت شفاف و همراه با جزئیات ارسال کنید تا در "
+"مدت زمان پاسخ‌دهی ما را کاهش دهید."
 
 #: content/bug/display.php:12
 msgid ""
 "<b>Do no harm.</b> Act for the common good through the prompt reporting of all found "
 "vulnerabilities. Never willfully exploit others without their permission."
 msgstr ""
+"<b>آسیب نزنید.</b> از طریق ارسال گزارش‌های سریع، آسیب‌پذیری‌های یافت شده را گزارش کنید. "
+"هرگز بدون اجازه از داده‌های کسی استفاده نکنید."
 
 #: content/bug/display.php:17
 msgid ""
@@ -398,6 +404,10 @@ msgid ""
 "qualify as vulnerabilities. Weaknesses exploited by viruses, malicious code, and social "
 "engineering are not considered vulnerabilities"
 msgstr ""
+"باگ یا اشکال نرم‌افزاری به مهاجمان این امکان را می‌دهد تا با نقض خط مشی امنیتی نسبت به "
+"نفوذ اقدام کنند. نقص در طراحی یا عدم رعایت بهترین شیوه‌های امنیتی ممکن است به‌عنوان "
+"آسیب‌پذیری شناخته شود. نقاط ضعف مورد استفاده توسط ویروس‌ها، کدهای مخرب و مهندسی اجتماعی، "
+"آسیب‌پذیری محسوب نمی‌شوند."
 
 #: content/bug/display.php:19
 msgid ""
@@ -13339,7 +13349,7 @@ msgstr "مبلغ کارت هدیه"
 
 #: content_love/gift/create/review/display.php:9
 msgid "Review gift detail and publish"
-msgstr ""
+msgstr "بازبینی جزئیات کد هدیه و انتشار"
 
 #: content_love/gift/create/review/display.php:16 content_my/domain/review/display.php:187
 msgid "%"
@@ -13377,11 +13387,11 @@ msgstr "آیا می‌خواهید این کارت‌هدیه را چاپ کنی
 
 #: content_love/gift/create/review/display.php:45
 msgid "Leave draft"
-msgstr ""
+msgstr "پیش‌نویس رها کن"
 
 #: content_love/gift/create/setting/display.php:9
 msgid "Gift card setting"
-msgstr ""
+msgstr "تنظیمات کارت هدیه"
 
 #: content_love/gift/create/setting/display.php:20
 #: content_love/gift/create/setting/display.php:26 content_love/gift/edit/display.php:89
@@ -13503,11 +13513,11 @@ msgstr "تاریخ انقضا"
 
 #: content_love/gift/home/giftcard.php:41
 msgid "Total Usage for you"
-msgstr ""
+msgstr "مجموع دفعات قابل استفاده برای شما"
 
 #: content_love/gift/home/giftcard.php:42
 msgid "Times"
-msgstr ""
+msgstr "بار"
 
 #: content_love/gift/home/giftcard.php:49
 msgid "Jibres Gift Card"
@@ -13519,7 +13529,7 @@ msgstr "کد هدیه جیبرس"
 
 #: content_love/gift/home/giftcard.php:58
 msgid "You can use gift card on last step of your buy process."
-msgstr ""
+msgstr "شما می‌توانید از این کد هدیه در آخرین مرحله خرید خود استفاده کنید."
 
 #: content_love/gift/home/view.php:9
 msgid "Gift card Management"
@@ -14493,26 +14503,27 @@ msgstr "وضعیت حساب کاربری"
 msgid ""
 "Badges are little bits of digital flair that you earn for your simple actions on Jibres"
 msgstr ""
+"با تکمیل پروفایل و استفاده از امکانات جیبرس، به‌سادگی سطح کاربری خود را ارتقا دهید."
 
 #: content_my/home/display_site.php:120
 msgid "Verify Mobile"
-msgstr ""
+msgstr "تایید موبایل"
 
 #: content_my/home/display_site.php:126
 msgid "Verify Email"
-msgstr ""
+msgstr "تایید ایمیل"
 
 #: content_my/home/display_site.php:132
 msgid "Set Username"
-msgstr ""
+msgstr "تنظیم نام کاربری"
 
 #: content_my/home/display_site.php:138
 msgid "Set Birthday"
-msgstr ""
+msgstr "تنظیم تاریخ تولد"
 
 #: content_my/home/display_site.php:155
 msgid "Top up Your Account"
-msgstr ""
+msgstr "شارژ کیف پول"
 
 #: content_my/home/display_site.php:166
 msgid "Add Your First Business"
@@ -18869,7 +18880,7 @@ msgstr "کد ملی باید به صورت عددی وارد شود"
 
 #: dash/validate/nationalcode.php:33
 msgid "National code must be exactly 10 character"
-msgstr ""
+msgstr "کد ملی باید دقیقا ۱۰ رقم باشد"
 
 #: dash/validate/nationalcode.php:84
 msgid "Invalid national code"
@@ -18897,11 +18908,11 @@ msgstr "مقدار  :val باید بیشتر از :max باشد"
 
 #: dash/validate/number.php:151
 msgid "Post code must be larger than 6 character"
-msgstr ""
+msgstr "کد پستی باید بیش از ۶ کاراکتر باشد"
 
 #: dash/validate/number.php:161
 msgid "Post code must be less than 10 character"
-msgstr ""
+msgstr "کد پستی باید کمتر از ۱۰ کاراکتر باشد"
 
 #: dash/validate/password.php:89
 msgid "Do not use space in your password"
@@ -24885,7 +24896,7 @@ msgstr "خرید دامنه :val"
 
 #: lib/app/nic_domain/create.php:626
 msgid "Can not register your domain"
-msgstr ""
+msgstr "نمی‌توانیم دامنه شما را ثبت کنیم"
 
 #: lib/app/nic_domain/edit.php:25 lib/app/nic_domain/edit.php:253
 msgid "No change in domain"
@@ -25014,11 +25025,11 @@ msgstr "هم‌اکنون ثبت‌نام کنید"
 
 #: lib/app/nic_domain/renew.php:135
 msgid "Domain is pending to renew"
-msgstr ""
+msgstr "دامنه در انتظار تایید تمدید است"
 
 #: lib/app/nic_domain/renew.php:137
 msgid "Can not renew again at this time!"
-msgstr ""
+msgstr "شما نمی‌توانید در حال حاضر درخواست تمدید داشته باشید!"
 
 #: lib/app/nic_domain/renew.php:162
 msgid "The domain expire time is :date"
