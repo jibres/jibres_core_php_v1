@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-25 18:08+0430\n"
-"PO-Revision-Date: 2020-04-25 18:09+0430\n"
+"POT-Creation-Date: 2020-04-25 18:59+0430\n"
+"PO-Revision-Date: 2020-04-25 19:01+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2968,8 +2968,8 @@ msgstr "اختیاری"
 #: content_love/transactions/minus/display.php:54
 #: content_love/transactions/minus/display.php:69 content_my/domain/home/display.php:192
 #: content_my/domain/payments/display.php:29 content_my/domain/payments/display.php:30
-#: content_my/domain/payments/display.php:31 content_my/domain/review/display.php:195
-#: content_my/domain/review/display.php:212 content_my/domain/review/display.php:222
+#: content_my/domain/payments/display.php:31 content_my/domain/review/display.php:198
+#: content_my/domain/review/display.php:215 content_my/domain/review/display.php:225
 #: content_my/domain/setting/action/display.php:44
 #: content_my/domain/setting/action/display.php:48 content_pay/home/display.php:64
 #: content_v2/app/view.php:766 content_v2/app/view.php:803 content_v2/app/view.php:815
@@ -4870,7 +4870,7 @@ msgstr "ویرایش"
 #: content_my/business/ask/display.php:45 content_my/business/ask/view.php:21
 #: content_my/business/start/display.php:50 content_my/business/start/view.php:19
 #: content_my/business/subdomain/display.php:22 content_my/business/subdomain/view.php:18
-#: content_my/domain/review/display.php:231 content_pay/home/display.php:161
+#: content_my/domain/review/display.php:234 content_pay/home/display.php:161
 #: dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketCreate.php:44
@@ -7697,7 +7697,7 @@ msgstr ""
 "بپردازید!"
 
 #: content_account/home/display.php:137 content_my/domain/irnic/edit/display.php:88
-#: content_my/domain/review/display.php:131
+#: content_my/domain/review/display.php:134
 msgid "Check"
 msgstr "بررسی"
 
@@ -13359,7 +13359,7 @@ msgstr "لطفا کد هدیه را وارد کنید"
 
 #: content_love/gift/create/code/display.php:13 content_love/gift/create/code/view.php:9
 #: content_love/gift/create/review/display.php:14 content_love/gift/edit/display.php:10
-#: content_love/gift/view/display.php:11 content_my/domain/review/display.php:130
+#: content_love/gift/view/display.php:11 content_my/domain/review/display.php:133
 msgid "Gift code"
 msgstr "کد هدیه"
 
@@ -13424,7 +13424,7 @@ msgid "Review gift detail and publish"
 msgstr "بازبینی جزئیات کد هدیه و انتشار"
 
 #: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
-#: content_my/domain/review/display.php:189
+#: content_my/domain/review/display.php:192
 msgid "%"
 msgstr "٪"
 
@@ -14387,51 +14387,59 @@ msgstr "جزئیات یافت نشد"
 msgid "Domain Period"
 msgstr "بازه زمانی دامنه"
 
-#: content_my/domain/review/display.php:113
-msgid "We can not detect the reseller or billing contact of this account"
-msgstr "ما نتوانستیم اطلاعات مربوط به نمایده یا رابط مالی دامنه شما را شناسایی کنیم"
+#: content_my/domain/review/display.php:110
+msgid ""
+"To make full use of jibres domain services, please go to nic.ir and set domain reseller "
+"on 'ji128-irnic'"
+msgstr ""
+"برای استفاده کامل از خدمات دامنه جیبرس،‌ لطفا وارد سایت nic.ir شده شناسه «ji128-"
+"irnic» (جیبرس) را به عنوان نماینده خود تنظیم کنید."
 
-#: content_my/domain/review/display.php:115 lib/app/nic_domain/renew.php:209
+#: content_my/domain/review/display.php:119
+msgid "We can not detect the reseller or billing contact of this account"
+msgstr "ما نتوانستیم اطلاعات مربوط به نماینده یا رابط مالی دامنه شما را شناسایی کنیم"
+
+#: content_my/domain/review/display.php:120 lib/app/nic_domain/renew.php:209
 #: lib/app/nic_domain/renew.php:503
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
 msgstr ""
-"اگر شما مالک این دامنه هستید باید وارد سایت nic.ir شوید و رابط مالی و یا نماینده این "
-"دامنه را بر روی شناسه «ji128-irnic» تنظیم کنید. "
+"اگر شما مالک این دامنه هستید باید وارد سایت nic.ir شوید و رابط مالی و نماینده این دامنه "
+"را بر روی شناسه «ji128-irnic» تنظیم کنید. "
 
-#: content_my/domain/review/display.php:117
+#: content_my/domain/review/display.php:121
 msgid "Your request maybe rejected from IRNIC!"
 msgstr ""
 "در صورت عدم تنظیم رابط مالی یا نماینده دامنه روی «ji128-irnic» درخواست شما توسط ایرنیک "
 "رد خواهد شد!"
 
-#: content_my/domain/review/display.php:128
+#: content_my/domain/review/display.php:131
 msgid "If you have gift cart enter here"
 msgstr "اگر کد هدیه‌ای در اختیار دارید در این قسمت وارد کنید"
 
-#: content_my/domain/review/display.php:156 lib/app/gift/check.php:27
+#: content_my/domain/review/display.php:159 lib/app/gift/check.php:27
 #: lib/app/gift/check.php:35
 msgid "Invalid gift code"
 msgstr "کد هدیه نامعتبر است"
 
-#: content_my/domain/review/display.php:173
+#: content_my/domain/review/display.php:176
 msgid "Domain Price"
 msgstr "هزینه دامنه"
 
-#: content_my/domain/review/display.php:184
+#: content_my/domain/review/display.php:187
 msgid "Your Gift"
 msgstr "هدیه شما"
 
-#: content_my/domain/review/display.php:204 content_my/home/display_site.php:21
+#: content_my/domain/review/display.php:207 content_my/home/display_site.php:21
 msgid "Account Balance"
 msgstr "موجودی حساب"
 
-#: content_my/domain/review/display.php:207
+#: content_my/domain/review/display.php:210
 msgid "Pay from my account balance"
 msgstr "استفاده از شارژ حساب کاربری"
 
-#: content_my/domain/review/display.php:218
+#: content_my/domain/review/display.php:221
 msgid "Amount payable"
 msgstr "مبلغ قابل پرداخت"
 

@@ -229,7 +229,7 @@ class renew
 
 			if($dont_know_nic_bill)
 			{
-				$domain_action_detail['detail'] = json_encode(['dont_know_nic_bill' => true]);
+				$domain_action_detail['detail'] = json_encode(['dont_know_nic_bill' => true, 'must_set_reseller' => $reseller === $jibres_nic_contact ? true : false]);
 			}
 
 			\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);

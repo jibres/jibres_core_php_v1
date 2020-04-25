@@ -105,18 +105,21 @@
 
   </div>
   <div class="c s12">
+    <?php if(\dash\data::MustSetReseller()) {?>
+        <div class="msg warn fs14">
+          <?php  echo  T_("To make full use of jibres domain services, please go to nic.ir and set domain reseller on 'ji128-irnic'"); ?>
+        </div>
+    <?php }//endif ?>
 
     <?php if(\dash\data::nicMaybeError()) {?>
 
-        <div class="msg warn fs14">
-          <p>
-            <?php echo T_("We can not detect the reseller or billing contact of this account"); ?>
-            <br>
-            <?php echo T_("If you are administrator of this domain Your must go to nic.ir and set billing holder of this domain on 'ji128-irnic' "); ?>
-            <br>
-            <?php echo T_("Your request maybe rejected from IRNIC!"); ?>
+        <div class="msg danger fs14">
+          <p><?php
+            echo
+            T_("We can not detect the reseller or billing contact of this account"). '. '.
+            T_("If you are administrator of this domain Your must go to nic.ir and set billing holder of this domain on 'ji128-irnic' ") .' '.
+            T_("Your request maybe rejected from IRNIC!"); ?>
           </p>
-
         </div>
     <?php } //endif ?>
 

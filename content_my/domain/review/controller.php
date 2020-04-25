@@ -36,6 +36,11 @@ class controller
 		{
 			\dash\data::nicMaybeError(true);
 		}
+
+		if(isset($load_last_activity['detail']['must_set_reseller']) && $load_last_activity['detail']['must_set_reseller'])
+		{
+			\dash\data::MustSetReseller(true);
+		}
 		switch (\dash\request::get('type'))
 		{
 			case 'register':
