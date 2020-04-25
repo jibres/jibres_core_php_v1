@@ -79,6 +79,8 @@ class create
 		$ns4         = $data['ns4'];
 		// $dnsid       = $data['dnsid'];
 
+		$jibres_nic_contact = 'ji128-irnic';
+
 
 		\lib\app\domains\detect::domain('register', $domain);
 		\lib\app\domains\detect::dns($ns1);
@@ -145,56 +147,22 @@ class create
 		}
 
 
-		if(isset($get_contac_nic[$nic_id]['holder']) && $get_contac_nic[$nic_id]['holder'])
+		if(isset($get_contac_nic[$nic_id]['holder']) && $get_contac_nic[$nic_id]['holder'] == '1')
 		{
 			// no proble
 		}
 		else
 		{
-			// @reza @check
 			// can not use this contact as holder of domain
 			// need to make error
-		}
+			$msg = T_("We can not register domain by your IRNIC holder");
+			$msg .= '<br>';
+			$msg .= T_("Your must go to nic.ir and set change holder setting and allow to reseller to access to your account");
+			$msg .= '<br>';
+			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
 
-
-		if($irnic_bill)
-		{
-			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
-			if(!isset($get_contac_nic_bill[$irnic_bill]))
-			{
-				// bug!!
-				\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-				return false;
-			}
-
-			if(!isset($get_contac_nic_bill[$irnic_bill]))
-			{
-				// bug!!
-				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-				return false;
-			}
-
-			if(isset($get_contac_nic_bill[$irnic_bill]['bill']) && $get_contac_nic_bill[$irnic_bill]['bill'] == '1')
-			{
-				// no problem to register this domain by tihs contact
-			}
-			else
-			{
-				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
-				return false;
-			}
-		}
-		else
-		{
-			if(isset($get_contac_nic[$nic_id]['bill']) && $get_contac_nic[$nic_id]['bill'] == '1')
-			{
-				// no problem to register this domain by tihs contact
-			}
-			else
-			{
-				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
-				return false;
-			}
+			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			return false;
 		}
 
 
@@ -235,6 +203,72 @@ class create
 				return false;
 			}
 		}
+
+
+		if($irnic_bill)
+		{
+			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
+			if(!isset($get_contac_nic_bill[$irnic_bill]))
+			{
+				// bug!!
+				\dash\notif::error(T_("Can not find  billing account detail of this domain"));
+				return false;
+			}
+
+			if(!isset($get_contac_nic_bill[$irnic_bill]))
+			{
+				// bug!!
+				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+				return false;
+			}
+
+			if(isset($get_contac_nic_bill[$irnic_bill]['bill']) && $get_contac_nic_bill[$irnic_bill]['bill'] == '1')
+			{
+				// no problem to register this domain by tihs contact
+			}
+			else
+			{
+				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
+				return false;
+			}
+		}
+		else
+		{
+			$irnic_bill = $jibres_nic_contact;
+		}
+
+		if($irnic_tech)
+		{
+			$get_contac_nic_tech =  \lib\nic\exec\contact_check::check($irnic_tech);
+			if(!isset($get_contac_nic_tech[$irnic_tech]))
+			{
+				// bug!!
+				\dash\notif::error(T_("Can not find  teching account detail of this domain"));
+				return false;
+			}
+
+			if(!isset($get_contac_nic_tech[$irnic_tech]))
+			{
+				// bug!!
+				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
+				return false;
+			}
+
+			if(isset($get_contac_nic_tech[$irnic_tech]['tech']) && $get_contac_nic_tech[$irnic_tech]['tech'] == '1')
+			{
+				// no problem to register this domain by tihs contact
+			}
+			else
+			{
+				\dash\notif::error(T_("We can not register this domain because the tech holder of IRNIC can not access to register"));
+				return false;
+			}
+		}
+		else
+		{
+			$irnic_tech = $jibres_nic_contact;
+		}
+
 
 
 		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
