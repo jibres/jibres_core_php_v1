@@ -80,7 +80,18 @@ class guard
 		// media-src
 		$csp .= "media-src ". self::csp_domain(). " data:; ";
 		// frame-src
-		$csp .= "frame-src 'self'; ";
+		if(\dash\url::module() === 'team')
+		{
+			$csp .= "frame-src 'self' https://tejarak.com/; ";
+		}
+		elseif(\dash\url::module() === 'status')
+		{
+			$csp .= "frame-src 'self' https://status.jibres.com/; ";
+		}
+		else
+		{
+			$csp .= "frame-src 'self'; ";
+		}
 		// base-uri
 		$csp .= "base-uri 'self'; ";
 		// manifest-src
