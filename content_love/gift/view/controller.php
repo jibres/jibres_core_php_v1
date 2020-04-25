@@ -1,5 +1,5 @@
 <?php
-namespace content_love\gift\edit;
+namespace content_love\gift\view;
 
 
 class controller

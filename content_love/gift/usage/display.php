@@ -56,12 +56,13 @@ else
     <table class="tbl1 v1 responsive">
         <thead>
             <tr class="fs09">
-
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'code', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'code', 'link'); ?>"><?php echo T_("Code"); ?></a></th>
-
-                <th class="txtC"><?php echo T_("Status"); ?></th>
-                <th class="txtC"><?php echo T_("View"); ?></th>
-
+                <th><?php echo T_("Transaction ID"); ?></th>
+                <th><?php echo T_("Price"); ?></th>
+                <th><?php echo T_("Discount"); ?></th>
+                <th><?php echo T_("Discount Percent"); ?></th>
+                <th><?php echo T_("Final price"); ?></th>
+                <th><?php echo T_("Date"); ?></th>
+                <th class="collapsing"><?php echo T_("User"); ?></th>
             </tr>
         </thead>
         <tbody class="fs12">
@@ -69,13 +70,23 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
             <tr>
-                <td>
-                    <a href="<?php echo \dash\url::this(); ?>/view?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'code'); ?></code></a>
+
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'transaction_id')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'discountpercent')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
+                <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+
+                <td class="collapsing">
+                  <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f userPack">
+                    <div class="c pRa10">
+                      <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
+                      <div class="name"><?php echo \dash\get::index($value, 'displayname'); ?></div>
+                    </div>
+                    <img class="cauto" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
+                  </a>
                 </td>
-
-                <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
-                <td class="collapsing txtC"><a class="btn light" href="<?php echo \dash\url::this() .'?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show gitft card") ?></a></td>
-
 
             </tr>
             <?php } //endfor ?>

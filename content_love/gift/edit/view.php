@@ -10,7 +10,8 @@ class view
 
 		// btn
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/view?id='. \dash\request::get('id'));
+
 
 	}
 }
