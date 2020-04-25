@@ -119,5 +119,10 @@
         <?php } ?>
     </div>
   </form>
+  <?php if(\dash\data::contactList()) {?>
+    <footer class="txtRa">
+     <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn link"><?php echo T_("Manage IRNIC Handle"); ?></a>
+    </footer>
+  <?php } //endif ?>
 </section>
 
