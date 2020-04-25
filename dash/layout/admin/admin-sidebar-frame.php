@@ -42,7 +42,12 @@ else
  }
 ?>
 <?php }//endif ?>
+
+
      <li><a href="<?php echo \dash\url::sitelang(); ?>/my" <?php if(\dash\url::content() === 'my') {?> class="activeContent"<?php }//endif ?>><i class='sf-atom'></i> <?php echo T_("Jibres Panel"); ?></a></li>
+     <li><a href="<?php echo \dash\url::sitelang(); ?>/my/domain" <?php if(\dash\url::content() === 'my' && \dash\url::module() === 'domain') {?> class="active"<?php }//endif ?>><i class='sf-heartbeat'></i> <?php echo T_("Jibres Domains"); ?></a></li>
+
+
 <?php if(\dash\permission::check('contentCp')) {?>
      <li><a href="<?php echo \dash\url::kingdom(); ?>/cms" <?php if(\dash\url::content() === 'cms') {?> class="activeContent"<?php }//endif ?> data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-align-left'></i> <?php echo T_("CMS"); ?></a></li>
 <?php
