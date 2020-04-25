@@ -8,7 +8,7 @@
     <div class="c3 m6 s12">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
-        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step1.png" alt="<?php echo T_('Point of Sale Software'); ?>">
+        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step1-500.png" alt="<?php echo T_('Point of Sale Software'); ?>">
 <?php } ?>
         <h3><?php echo T_('Point of Sale Software'); ?></h3>
         <p><?php echo T_('Barcode reader'). T_(','). T_('Receipt printer'). T_(','). T_('PC POS'). T_(','). T_('Label Printing Scale'). T_(','). T_('Invoice Software'); ?></p>
@@ -18,7 +18,7 @@
     <div class="c3 m6 s12">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
-        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step2.png" alt='<?php echo T_('Online Store Website'); ?>'>
+        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step2-500.png" alt='<?php echo T_('Online Store Website'); ?>'>
 <?php } ?>
         <h3><?php echo T_('Online Store Website'); ?></h3>
         <p><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></p>
@@ -28,7 +28,7 @@
     <div class="c3 m6 s12">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
-        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step3.png" alt='<?php echo T_('Mobile Online Store'); ?>'>
+        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step3-500.png" alt='<?php echo T_('Mobile Online Store'); ?>'>
 <?php } ?>
         <h3><?php echo T_('Mobile Online Store'); ?></h3>
         <p><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(','). T_('Fully Customizable'); ?></p>
@@ -38,7 +38,7 @@
     <div class="c3 m6 s12">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
-        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step4.png" alt='<?php echo T_('Social Marketing'); ?>'>
+        <img data-src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step4-500.png" alt='<?php echo T_('Social Marketing'); ?>'>
 <?php } ?>
 
         <h3><?php echo T_('Social Marketing'); ?></h3>
