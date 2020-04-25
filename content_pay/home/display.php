@@ -86,7 +86,17 @@ $myTurnBackUrl = \dash\data::payDetail_turn_back();
 
 if(\dash\data::payDetail_final_msg())
 {
-	$myTurnBackUrl = \dash\data::payDetail_turn_back(). '?token='. \dash\data::dataRow_token();
+
+	$myTurnBackUrl = \dash\data::payDetail_turn_back();
+	if(strpos($myTurnBackUrl, '?') === false)
+	{
+		$myTurnBackUrl .= '?token='. \dash\data::dataRow_token();
+	}
+	else
+	{
+		$myTurnBackUrl .= '&token='. \dash\data::dataRow_token();
+	}
+
 }
 ?>
 
