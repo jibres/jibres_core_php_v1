@@ -8,6 +8,7 @@ class view
 	{
 		\dash\face::title(T_("Review and Confirm Domain Detail"));
 
+
 		// btn
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::this());
@@ -34,6 +35,7 @@ class view
 		switch (\dash\request::get('type'))
 		{
 			case 'register':
+				\content_my\domain\stepGuide::set();
 				\dash\data::myActionTitle(T_("Register domain"));
 				\dash\data::backUrl(\dash\url::this(). '/buy/'. \dash\data::dataRow_name());
 				\dash\data::buttonTitle(T_("Register domain"));
