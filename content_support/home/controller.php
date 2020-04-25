@@ -16,7 +16,7 @@ class controller
 		{
 
 			$directory = \dash\url::directory();
-			$directory = \dash\validate::slug($directory);
+			$directory = \dash\validate::string_300($directory, false);
 
 			if($directory)
 			{
