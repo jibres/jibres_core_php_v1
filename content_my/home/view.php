@@ -7,6 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Jibres Dashboard'));
+		\dash\face::specialTitle(true);
 		\dash\face::help(\dash\url::support().'/dashboard');
 
 		if(!\dash\detect\device::detectPWA())

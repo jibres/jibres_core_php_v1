@@ -79,6 +79,10 @@ class view
 				{
 					// dont add on pwa
 				}
+				elseif(\dash\face::specialTitle())
+				{
+					// do nothing
+				}
 				else
 				{
 					$page_title .= ' | '. \dash\face::site();
