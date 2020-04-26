@@ -37,14 +37,16 @@
 
    <div class="f">
     <div class="c6 s12 pRa10">
+     <h5 class="txtB mT20"><?php echo T_("Business that you are owner"); ?></h5>
      <nav class="items">
       <ul>
-       <li class="pA10"><?php echo T_("Business that you are owner"); ?></li>
 <?php
 $listStore_owner = \dash\data::listStore_owner();
 if($listStore_owner && is_array($listStore_owner))
 {
- foreach ($listStore_owner as $key => $value) {?>
+ foreach ($listStore_owner as $key => $value)
+ {
+?>
        <li>
         <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>/a">
          <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
@@ -53,34 +55,30 @@ if($listStore_owner && is_array($listStore_owner))
          <div class="go next"></div>
         </a>
        </li>
-<?php }//endfor ?>
+<?php
+  } //endfor
+} //endif
+?>
+      </ul>
+     </nav>
+
+     <nav class="items">
+      <ul>
        <li>
         <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
          <div class="go plus ok"></div>
          <div class="key"><?php echo T_("Add New Business");?></div>
         </a>
        </li>
-<?php }else{ ?>
-
-       <li class="pA10"><div class="msg"><?php echo T_("You are not owner yet!"); ?></div></li>
-
-       <li>
-        <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
-         <img src="<?php echo \dash\url::icon();?>" alt="<?php echo T_("Add New Business");?>">
-         <div class="key"><?php echo T_("Add New Business");?></div>
-         <div class="go plus"></div>
-        </a>
-       </li>
-
-<?php }//endif ?>
       </ul>
      </nav>
+
     </div>
 
     <div class="c6 s12">
+     <h5 class="txtB mT20"><?php echo T_("Business that you are staff"); ?></h5>
      <nav class="items">
       <ul>
-       <li class="pA10"><?php echo T_("Business that you are staff"); ?></li>
 <?php
 $listStore_staff = \dash\data::listStore_staff();
 if($listStore_staff && is_array($listStore_staff))
@@ -96,7 +94,7 @@ if($listStore_staff && is_array($listStore_staff))
        </li>
 <?php }//endfor ?>
 <?php } else { //endif ?>
-       <li class="pA10"><div class="msg"><?php echo T_("You are not staff yet!"); ?></div></li>
+       <li class="pA10"><div class="msg mB0"><?php echo T_("You are not staff yet!"); ?></div></li>
 <?php }//endif ?>
       </ul>
      </nav>
