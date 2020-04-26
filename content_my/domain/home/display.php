@@ -73,7 +73,7 @@
      </div>
 
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat">
+      <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat<?php if(\dash\get::index($myData, 'user_budget')>0) echo " green"; ?>">
        <h3><?php echo T_("Your Current Balance");?></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'user_budget'));?></div>
       </a>

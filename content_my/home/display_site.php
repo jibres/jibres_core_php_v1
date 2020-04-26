@@ -17,7 +17,7 @@
       </a>
      </div>
      <div class="c">
-      <a href="<?php echo \dash\url::kingdom() ?>/account/billing" class="stat">
+      <a href="<?php echo \dash\url::kingdom() ?>/account/billing" class="stat <?php if(\dash\get::index($myData, 'budget')>0) echo " green"; ?>">
        <h3><?php echo T_("Account Balance");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'budget'));?></div>
       </a>
