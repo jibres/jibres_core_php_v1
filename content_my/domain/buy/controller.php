@@ -22,6 +22,7 @@ class controller
 
 		\dash\data::getDomain($q);
 
+
 		if($domain)
 		{
 			\dash\open::get();
@@ -63,6 +64,11 @@ class controller
 			else
 			{
 				$info = \lib\app\nic_domain\check::multi_check($q);
+			}
+
+			if(\dash\request::get('q') && !$info)
+			{
+				\dash\data::InvalidDomain(true);
 			}
 
 

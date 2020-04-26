@@ -12,6 +12,11 @@
           </div>
         </form>
       </section>
+        <?php if(\dash\data::InvalidDomain()) {?>
+          <div class="msg warn fs14">
+            <?php echo T_("Please enter a valid domain") ?>
+          </div>
+        <?php } //endif ?>
     </div>
   </div>
 
