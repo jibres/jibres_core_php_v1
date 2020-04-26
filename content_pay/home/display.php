@@ -15,7 +15,7 @@
 <?php
 $ticketClass = 'active';
 $ticketIcon  = 'sf-plus-circle';
-$ticekMsg    = 'Pay';
+$ticketMsg   = T_('Pay');
 
 if(\dash\data::dataRow_banktoken())
 {
@@ -23,14 +23,14 @@ if(\dash\data::dataRow_banktoken())
 	{
 		$ticketClass = 'positive';
 		$ticketIcon  = 'sf-check-circle';
-		$ticekMsg    = 'Successfull';
+		$ticketMsg   = T_('Successful');
 
 	}
 	elseif(\dash\data::dataRow_condition() === 'error' || \dash\data::dataRow_condition() === 'verify_error')
 	{
 		$ticketClass = 'negative';
 		$ticketIcon  = 'sf-times-circle';
-		$ticekMsg    = 'Error';
+		$ticketMsg   = T_('Error');
 	}
 	else
 	{
@@ -39,11 +39,11 @@ if(\dash\data::dataRow_banktoken())
 
 		if(\dash\data::dataRow_condition() === 'cancel')
 		{
-			$ticekMsg    = 'Cancel';
+			$ticketMsg = T_('Cancel');
 		}
 		else
 		{
-			$ticekMsg    = '';
+			$ticketMsg = '';
 		}
 	}
 }
@@ -69,7 +69,7 @@ if(\dash\data::dataRow_banktoken())
 		</div>
 		<div class="c status">
 			<span class="myStatus <?php echo $ticketIcon; ?>"></span>
-			<abbr class="statusDesc"><?php echo T_($ticekMsg); ?></abbr>
+			<abbr class="statusDesc"><?php echo $ticketMsg; ?></abbr>
 		</div>
 	</div>
 </div>
