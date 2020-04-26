@@ -29,5 +29,6 @@ if(\dash\face::reason())
 ?>
    <form method="post" autocomplete="off">
 <?php require_once \dash\layout\func::display(); ?>
+		<div class="hide"><?php echo \dash\face::intro(). ' | '. \dash\face::slogan(); ?></div>
    </form>
   </section>
