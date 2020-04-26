@@ -1,4 +1,6 @@
+
 <?php
+require_once(root. 'content_pardakhtyar/shop/layout.html');
 if(\dash\data::dataTable())
 {
   if(\dash\data::dataFilter())
@@ -33,13 +35,11 @@ else
 
 
 
-
-
 <?php function htmlSearchBox() {?>
 <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::here(); ?>/customer'>
+  <form method="get" action='<?php echo \dash\url::here(); ?>/shop'>
     <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search in customers"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus  data-pass='submit' autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search in shops"); ?>' id="q" value="<?php echo \dash\request::get('q') ?>" autofocus  data-pass='submit' autocomplete='off'>
       <button class="addon btn "><?php echo T_("Search"); ?></button>
     </div>
   </form>
@@ -67,28 +67,25 @@ else
       <tr>
         <td>
 
-          <div><a href="<?php echo \dash\url::here(); ?>/customer/dashboard?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn success"><?php echo T_("Dashboard"); ?></a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/shop/dashboard?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn success"><?php echo T_("Dashboard"); ?></a></div>
 
-          <?php if(false) {?>
+          <div><a href="<?php echo \dash\url::here(); ?>/shop/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="badge">Edit <?php echo \dash\get::index($value, 'id'); ?></a></div>
 
-          <div><a href="<?php echo \dash\url::here(); ?>/customer/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="badge">Edit <?php echo \dash\get::index($value, 'id'); ?></a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo \dash\get::index($value, 'id'); ?>&table=shop&requestType=13" class="badge success">Add</a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo \dash\get::index($value, 'id'); ?>&table=shop&fetch=1&trackingNumber=<?php echo \dash\get::index($value, 'trackingNumber'); ?>" class="badge primary">Check</a></div>
 
-          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo \dash\get::index($value, 'id'); ?>&table=customer&requestType=13" class="badge success">Add</a></div>
-          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo \dash\get::index($value, 'id'); ?>&table=customer&fetch=1&trackingNumber=<?php echo \dash\get::index($value, 'trackingNumber'); ?>" class="badge primary">Check</a></div>
-
-          <div class="btn" data-confirm data-data='{"id" : "<?php echo \dash\get::index($value, 'id'); ?>", "table" : "customer", "requestType" : 13}'>Add request</div>
-          <div class="btn" data-confirm data-data='{"id" : "<?php echo \dash\get::index($value, 'id'); ?>", "table" : "customer", "fetch" : 1, "trackingNumber" : "<?php echo \dash\get::index($value, 'trackingNumber'); ?>"}'>Fetch</div>
-          <div><a href="<?php echo \dash\url::here(); ?>/shop?customer_id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn info">Shop</a></div>
-          <?php } //endif ?>
+          <div class="btn" data-confirm data-data='{"id" : "<?php echo \dash\get::index($value, 'id'); ?>", "table" : "shop", "requestType" : 13}'>Add request</div>
+          <div class="btn" data-confirm data-data='{"id" : "<?php echo \dash\get::index($value, 'id'); ?>", "table" : "shop", "fetch" : 1, "trackingNumber" : "<?php echo \dash\get::index($value, 'trackingNumber'); ?>"}'>Fetch</div>
+          <div><a href="<?php echo \dash\url::here(); ?>/shop/shop?id=<?php echo \dash\get::index($value, 'id'); ?>" class="badge info">Shop</a></div>
 
 
         </td>
         <td>
           <div><small><?php echo T_("trackingNumber"); ?></small> <b><?php echo \dash\get::index($value, 'trackingNumber'); ?></b></div>
-          <?php if(false) {?>
+
             <div><small><?php echo T_("trackingNumberPsp"); ?></small> <b><?php echo \dash\get::index($value, 'trackingNumberPsp'); ?></b></div>
             <div><small><?php echo T_("requestType"); ?></small> <b><?php echo \dash\get::index($value, 'requestType'); ?></b></div>
-          <?php } //endif ?>
+
           <div><small><?php echo T_("status"); ?></small> <b><?php echo \dash\get::index($value, 'status'); ?></b></div>
           <div><small><?php echo T_("merchantType"); ?></small> <b><?php echo \dash\get::index($value, 'merchantType_title'); ?></b></div>
           <div><small><?php echo T_("residencyType"); ?></small> <b><?php echo \dash\get::index($value, 'residencyType_title'); ?></b></div>
@@ -139,13 +136,14 @@ else
   </table>
 <?php \dash\utility\pagination::html(); ?>
 
+
 <?php } //endfunction ?>
 
 
 <?php function htmlFilter() {?>
 <p class="f fs14 msg info2">
-  <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::here(); ?>/customer"><?php echo T_("Clear filters"); ?></a>
+  <span class="c"><?php echo \dash\data::dataFilter() ?></span>
+  <a class="cauto" href="<?php echo \dash\url::here(); ?>/shop"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endfunction ?>
 
@@ -153,12 +151,12 @@ else
 <?php function htmlFilterNoResult() {?>
 <p class="f fs14 msg warn2">
   <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::here(); ?>/customer"><?php echo T_("Clear filters"); ?></a>
+  <a class="cauto" href="<?php echo \dash\url::here(); ?>/shop"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endfunction ?>
 
 
 <?php function htmlStartAddNew() {?>
-<p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?> <a href="<?php echo \dash\url::here(); ?>/customer/add"><?php echo T_("Try to start with add new customer!"); ?></a></p>
+<p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?> <a href="<?php echo \dash\url::here(); ?>/shop/add?customer_id=<?php echo \dash\request::get('customer_id') ?>"><?php echo T_("Try to start with add new shop!"); ?></a></p>
 <?php } //endfunction ?>
 

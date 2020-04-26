@@ -1,18 +1,18 @@
 
-{%block XTerminalDetail%}
+<?php function XTerminalDetail() {?>
 
 <form method="post" autocomplete="off">
 	<input type="hidden" name="formSubmitType" value="terminal">
-	<input type="hidden" name="terminalid" value="{{dataRowTerminal.id}}">
+	<input type="hidden" name="terminalid" value="<?php echo \dash\data::dataRowTerminal_id(); ?>">
 	<div class="f">
 		<div class="c4 s12">
 			<div class="mRa5">
 
 
-{{block('Isequence')}}
-{{block('IterminalNumber')}}
-{{block('IterminalType')}}
-{{block('IsetupDate')}}
+<?php Isequence(); ?>
+<?php IterminalNumber(); ?>
+<?php IterminalType(); ?>
+<?php IsetupDate(); ?>
 
 
 			</div>
@@ -37,13 +37,13 @@
 			<div class="f">
 				<div class="c4 s12">
 					<div class="mRa5">
-						{{block('IserialNumber')}}
-						{{block('IhardwareBrand')}}
-						{{block('IhardwareModel')}}
-						{{block('IaccessAddress')}}
-						{{block('IaccessPort')}}
-						{{block('IcallbackAddress')}}
-						{{block('IcallbackPort')}}
+						<?php IserialNumber(); ?>
+						<?php IhardwareBrand(); ?>
+						<?php IhardwareModel(); ?>
+						<?php IaccessAddress(); ?>
+						<?php IaccessPort(); ?>
+						<?php IcallbackAddress(); ?>
+						<?php IcallbackPort(); ?>
 
 					</div>
 				</div>
@@ -59,104 +59,98 @@
 	</div>
 
 	<div class="txtRa">
-		<button class="btn success">{%trans "Update"%}</button>
+		<button class="btn success"><?php echo T_("Update"); ?></button>
 	</div>
 </form>
 
+<?php } //endif ?>
 
 
 
-
-
-
-{%endblock%}
-
-
-
-{% block Isequence %}
+<?php function Isequence() {?>
 <label for="i_sequence">sequence <span class="mLa10">شماره یکتای جزئیات درخواست</span></label>
 <div class="input">
-	<input type="text" name="sequence" value="{{dataRowTerminal.sequence}}">
+	<input type="text" name="sequence" value="<?php echo \dash\data::dataRowTerminal_sequence(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IterminalNumber %}
+<?php function IterminalNumber() {?>
 <label for="i_terminalNumber">terminalNumber <span class="mLa10">شماره پایانه</span></label>
 <div class="input">
-	<input type="text" name="terminalNumber" value="{{dataRowTerminal.terminalNumber}}">
+	<input type="text" name="terminalNumber" value="<?php echo \dash\data::dataRowTerminal_terminalNumber(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IterminalType %}
+<?php function IterminalType() {?>
 <label for="i_terminalType">terminalType <span class="mLa10">نوع پایانه</span></label>
 <div class="input">
-	<input type="text" name="terminalType" value="{{dataRowTerminal.terminalType}}">
+	<input type="text" name="terminalType" value="<?php echo \dash\data::dataRowTerminal_terminalType(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IserialNumber %}
+<?php function IserialNumber() {?>
 <label for="i_serialNumber">serialNumber <span class="mLa10">سریال سخت افزاری پایانه</span></label>
 <div class="input">
-	<input type="text" name="serialNumber" value="{{dataRowTerminal.serialNumber}}">
+	<input type="text" name="serialNumber" value="<?php echo \dash\data::dataRowTerminal_serialNumber(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IsetupDate %}
+<?php function IsetupDate() {?>
 <label for="i_setupDate">setupDate <span class="mLa10">تاریخ فعال سازی</span></label>
 <div class="input">
-	<input type="text" name="setupDate" value="{{dataRowTerminal.setupDate}}">
+	<input type="text" name="setupDate" value="<?php echo \dash\data::dataRowTerminal_setupDate(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IhardwareBrand %}
+<?php function IhardwareBrand() {?>
 <label for="i_hardwareBrand">hardwareBrand <span class="mLa10">برند سخت‌افزاری پایانه</span></label>
 <div class="input">
-	<input type="text" name="hardwareBrand" value="{{dataRowTerminal.hardwareBrand}}">
+	<input type="text" name="hardwareBrand" value="<?php echo \dash\data::dataRowTerminal_hardwareBrand(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IhardwareModel %}
+<?php function IhardwareModel() {?>
 <label for="i_hardwareModel">hardwareModel <span class="mLa10">مدل سخت‌افزار پایانه</span></label>
 <div class="input">
-	<input type="text" name="hardwareModel" value="{{dataRowTerminal.hardwareModel}}">
+	<input type="text" name="hardwareModel" value="<?php echo \dash\data::dataRowTerminal_hardwareModel(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IaccessAddress %}
+<?php function IaccessAddress() {?>
 <label for="i_accessAddress">accessAddress <span class="mLa10">آدرس پایگاه اینترنتی</span></label>
 <div class="input">
-	<input type="text" name="accessAddress" value="{{dataRowTerminal.accessAddress}}">
+	<input type="text" name="accessAddress" value="<?php echo \dash\data::dataRowTerminal_accessAddress(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IaccessPort %}
+<?php function IaccessPort() {?>
 <label for="i_accessPort">accessPort <span class="mLa10">پورت پایگاه اینترنتی استفاده کننده از درگاه اینترنتی</span></label>
 <div class="input">
-	<input type="text" name="accessPort" value="{{dataRowTerminal.accessPort}}">
+	<input type="text" name="accessPort" value="<?php echo \dash\data::dataRowTerminal_accessPort(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IcallbackAddress %}
+<?php function IcallbackAddress() {?>
 <label for="i_callbackAddress">callbackAddress <span class="mLa10">آدرس بازگشت درگاه اینترنتی</span></label>
 <div class="input">
-	<input type="text" name="callbackAddress" value="{{dataRowTerminal.callbackAddress}}">
+	<input type="text" name="callbackAddress" value="<?php echo \dash\data::dataRowTerminal_callbackAddress(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
 
-{% block IcallbackPort %}
+<?php function IcallbackPort() {?>
 <label for="i_callbackPort">callbackPort <span class="mLa10">پورت بازگشت درگاه اینترنتی</span></label>
 <div class="input">
-	<input type="text" name="callbackPort" value="{{dataRowTerminal.callbackPort}}">
+	<input type="text" name="callbackPort" value="<?php echo \dash\data::dataRowTerminal_callbackPort(); ?>">
 </div>
-{% endblock%}
+<?php } //endfunction ?>
 
