@@ -6,7 +6,7 @@
  <title><?php echo \dash\face::headTitle(); ?></title>
  <meta content="<?php echo \dash\face::desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
- <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/{{lang.current}}';</script><![endif]-->
+ <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/<?php echo \dash\language::current(); ?>';</script><![endif]-->
  <meta content="<?php
 if (\dash\detect\device::detectPWA())
   echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
@@ -133,7 +133,7 @@ if (\dash\data::include_editor())
 // load pageScript
 \dash\layout\find::pageScript();
 
-// <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
+// <div data-xhr='foot_js' class="foot_js">foot_js endblock</div>
 
 if (\dash\user::id())
 {
