@@ -1,5 +1,5 @@
 <?php
-namespace content_my\ipg;
+namespace content_my\ipg\home;
 
 
 class view

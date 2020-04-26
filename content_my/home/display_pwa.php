@@ -22,6 +22,7 @@
 
    <nav class="items">
      <ul>
+      <?php if(false) {?>
        <li>
         <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/ipg">
          <img src="<?php echo \dash\url::cdn(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
@@ -29,6 +30,7 @@
          <div class="go detail"></div>
         </a>
        </li>
+     <?php } //endif ?>
 
        <li>
         <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/wallet">
