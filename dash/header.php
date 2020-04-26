@@ -144,7 +144,8 @@ class header
 	 */
 	public static function status($_code, $_text = null)
 	{
-		$desc = self::desc($_code);
+		$desc   = self::desc($_code);
+		$myCode = \dash\fit::number($_code);
 		if(!$desc)
 		{
 			return false;
@@ -161,10 +162,23 @@ class header
 		{
 			$translatedDesc = T_($desc);
 		}
+		else
+		{
+			if($_code === 418)
+			{
+				// detect fa language
+				if(\dash\url::tld() === 'ir' || \dash\url::lang() === 'fa')
+				{
+					$translatedDesc = 'خطا در مقادیر  وارد شده';
+					$_text = 'لطفا مقادیر ورودی را  اصلاح کنید.';
+					$myCode = '۴۱۸';
+				}
+			}
+		}
 
 		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
 		{
-			$translatedDesc .= ' '. \dash\fit::number($_code);
+			$translatedDesc .= ' - '. $myCode;
 			// depending on title if exist or not
 			if($_text)
 			{
