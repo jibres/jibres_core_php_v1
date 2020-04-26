@@ -43,7 +43,7 @@ class face
 
 	public static function siteSlogan()
 	{
-		return "Integrated Sales and Online Accounting";
+		return "Sell & Enjoy";
 	}
 }
 ?>

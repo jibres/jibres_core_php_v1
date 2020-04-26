@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-26 15:51+0430\n"
-"PO-Revision-Date: 2020-04-26 15:52+0430\n"
+"POT-Creation-Date: 2020-04-26 15:55+0430\n"
+"PO-Revision-Date: 2020-04-26 15:56+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -13654,6 +13654,7 @@ msgid "List"
 msgstr "لیست"
 
 #: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:25
+#: includes/languages/trans_static.php:696
 msgid "Sell & Enjoy"
 msgstr "بفروش و لذت ببر"
 
@@ -21367,6 +21368,14 @@ msgstr "درخواست لغو دامنه توسط رابط لغو شد"
 #: includes/languages/trans_static.php:692
 msgid "period"
 msgstr "زمان"
+
+#: includes/languages/trans_static.php:695
+msgid ""
+"Jibres is not just an online accounting software; We try to create the best financial "
+"platform that has everything you need to sale and manage your financial life."
+msgstr ""
+"جیبرس تنها یک نرم‌افزار حسابداری آنلاین نیست. ما در تلاش برای خلق برترین پلتفرم مالی "
+"جهان هستیم تا تمام نیازهای مالی دنیای شما را برطرف کنیم."
 
 #: includes/languages/trans_static_domain.php:7
 msgid "contact_check"
