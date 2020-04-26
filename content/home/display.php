@@ -151,15 +151,15 @@
     <h2 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h2>
     <div class="f txtC">
       <div class="c s12 pA10">
-          <div class="fs50"><?php echo \dash\data::homepagenumber_product(); ?>+</div>
+          <div class="fs50"><?php echo \dash\fit::stats(\dash\data::homepagenumber_product()) ?>+</div>
           <h5><?php echo T_('Products'); ?></h5>
       </div>
       <div class="c s12 pA10">
-          <div class="fs50"><?php echo \dash\data::homepagenumber_factor(); ?>+</div>
+          <div class="fs50"><?php echo \dash\fit::stats(\dash\data::homepagenumber_factor()) ?>+</div>
           <h5><?php echo T_('Factor'); ?></h5>
       </div>
       <div class="c s12 pA10">
-          <div class="fs40"><?php echo \dash\data::homepagenumber_sum_factor(); ?>+</div>
+          <div class="fs40"><?php echo \dash\fit::stats(\dash\data::homepagenumber_sum_factor()) ?>+</div>
           <h5><?php echo T_('Sold on Jibres'); ?></h5>
       </div>
     </div>
