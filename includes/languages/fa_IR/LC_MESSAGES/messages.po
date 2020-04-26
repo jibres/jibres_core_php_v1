@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-04-26 13:31+0430\n"
-"PO-Revision-Date: 2020-04-26 15:49+0430\n"
+"POT-Creation-Date: 2020-04-26 15:51+0430\n"
+"PO-Revision-Date: 2020-04-26 15:52+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2543,7 +2543,7 @@ msgstr "پنل فروشگاه"
 #: content_love/gift/all/view.php:12 content_love/store/view.php:12
 #: content_love/transactions/view.php:13 content_my/bill/view.php:12
 #: content_my/business/home/view.php:12 content_my/domain/buy/view.php:13
-#: content_my/domain/history/view.php:12 content_my/domain/home/view.php:12
+#: content_my/domain/history/view.php:12 content_my/domain/home/view.php:13
 #: content_my/domain/option/view.php:12 content_my/domain/payments/view.php:12
 #: content_my/domain/predict/view.php:12 content_my/domain/renew/view.php:12
 #: content_my/domain/search/view.php:12 content_my/domain/short/view.php:12
@@ -14158,21 +14158,21 @@ msgstr "پرداخت شده"
 msgid "Jibres Domain Center"
 msgstr "مرکز دامنه جیبرس"
 
-#: content_my/domain/home/view.php:15
+#: content_my/domain/home/view.php:16
 msgid "Buy your dream domain"
 msgstr "دامنه‌ی رویایی خودتان را بیابید"
 
-#: content_my/domain/home/view.php:43 lib/app/nic_domain/create.php:641
+#: content_my/domain/home/view.php:44 lib/app/nic_domain/create.php:641
 msgid "Domain :domain was registered in your name"
 msgstr "دامنه :domain با موفقیت ثبت شد"
 
-#: content_my/domain/home/view.php:48
-msgid "Payment successfull"
-msgstr "پرداخت با موفقیت انجام شد"
+#: content_my/domain/home/view.php:49
+msgid "Payment successful"
+msgstr "پرداخت موفقیت‌آمیز"
 
-#: content_my/domain/home/view.php:57
-msgid "Payment unsuccessfull"
-msgstr "پرداخت ناموفق بود"
+#: content_my/domain/home/view.php:58
+msgid "Payment unsuccessful"
+msgstr "پرداخت ناموفق"
 
 #: content_my/domain/import/display.php:10
 msgid "Import your domain to manage it"
@@ -14756,7 +14756,7 @@ msgstr "اولین تمدید دامنه شما"
 msgid "Jibres Dashboard"
 msgstr "داشبورد جیبرس"
 
-#: content_my/home/view.php:14
+#: content_my/home/view.php:15
 msgid "Add Your Business"
 msgstr "بیزینس خودتون رو اضافه کنید"
 
@@ -17553,7 +17553,7 @@ msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل د�
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/view.php:123
+#: dash/engine/view.php:127
 msgid "Latest news"
 msgstr "آخرین اخبار"
 
@@ -19273,9 +19273,9 @@ msgstr "عملیات با موفقیت انجام شد"
 
 #: dash/utility/pay/api/zarinpal/bank.php:124
 msgid ""
-"Payment operation was successfull and PatmentVerification of the transaction has "
-"already done"
-msgstr "عملیات پرداخت موفقیت آمیز بوده است و تأیید پرداخت قبلا انجام شده است"
+"Payment operation was successful and PatmentVerification of the transaction has already "
+"done"
+msgstr "عملیات پرداخت با موفقیت‌آمیز بوده و تایید پرداخت تراکنش هم با موفقیت انجام شد"
 
 #: dash/utility/pay/api/zarinpal/bank.php:125
 msgid "The error code is :code"
@@ -27350,6 +27350,17 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Payment successfull"
+#~ msgstr "پرداخت با موفقیت انجام شد"
+
+#~ msgid "Payment unsuccessfull"
+#~ msgstr "پرداخت ناموفق بود"
+
+#~ msgid ""
+#~ "Payment operation was successfull and PatmentVerification of the transaction has "
+#~ "already done"
+#~ msgstr "عملیات پرداخت موفقیت آمیز بوده است و تأیید پرداخت قبلا انجام شده است"
 
 #~ msgid "You are not owner yet!"
 #~ msgstr "شما هنوز مالک نشدید!"

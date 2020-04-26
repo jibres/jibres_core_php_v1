@@ -121,7 +121,7 @@ class bank
             case -42:  $msg = T_("Valid lifespan of ID must be between 30 minutes to 45 days"); break;
             case -54:  $msg = T_("The request is archived"); break;
             case 100:  $msg = T_("Operation was successfully done"); break;
-            case 101:  $msg = T_("Payment operation was successfull and PatmentVerification of the transaction has already done"); break;
+            case 101:  $msg = T_("Payment operation was successful and PatmentVerification of the transaction has already done"); break;
             default:   $msg = T_("The error code is :code", ['code' => $result->Status]); break;
         }
         return $msg;

@@ -46,7 +46,7 @@ class view
 					}
 					else
 					{
-						$msg = T_("Payment successfull");
+						$msg = T_("Payment successful");
 						$msg .= '<br>';
 					}
 
@@ -55,7 +55,7 @@ class view
 				}
 				else
 				{
-					$msg = T_("Payment unsuccessfull");
+					$msg = T_("Payment unsuccessful");
 					$msg .= '<br>';
 					\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 				}
