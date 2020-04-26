@@ -1,0 +1,162 @@
+
+{%block XTerminalDetail%}
+
+<form method="post" autocomplete="off">
+	<input type="hidden" name="formSubmitType" value="terminal">
+	<input type="hidden" name="terminalid" value="{{dataRowTerminal.id}}">
+	<div class="f">
+		<div class="c4 s12">
+			<div class="mRa5">
+
+
+{{block('Isequence')}}
+{{block('IterminalNumber')}}
+{{block('IterminalType')}}
+{{block('IsetupDate')}}
+
+
+			</div>
+		</div>
+
+		<div class="c4 s12">
+			<div class="mRa5">
+
+			</div>
+		</div>
+		<div class="c4 s12">
+			<div class="mRa5">
+
+			</div>
+		</div>
+	</div>
+
+	<div data-kerkere='.ShowTerminalFieldDetail' data-kerkere-icon>جزئیات بیشتر</div>
+
+	<div class="ShowTerminalFieldDetail" data-kerkere-content='hide'>
+		<div class="example">
+			<div class="f">
+				<div class="c4 s12">
+					<div class="mRa5">
+						{{block('IserialNumber')}}
+						{{block('IhardwareBrand')}}
+						{{block('IhardwareModel')}}
+						{{block('IaccessAddress')}}
+						{{block('IaccessPort')}}
+						{{block('IcallbackAddress')}}
+						{{block('IcallbackPort')}}
+
+					</div>
+				</div>
+
+				<div class="c4 s12">
+					<div class="mRa5">
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="txtRa">
+		<button class="btn success">{%trans "Update"%}</button>
+	</div>
+</form>
+
+
+
+
+
+
+
+{%endblock%}
+
+
+
+{% block Isequence %}
+<label for="i_sequence">sequence <span class="mLa10">شماره یکتای جزئیات درخواست</span></label>
+<div class="input">
+	<input type="text" name="sequence" value="{{dataRowTerminal.sequence}}">
+</div>
+{% endblock%}
+
+
+{% block IterminalNumber %}
+<label for="i_terminalNumber">terminalNumber <span class="mLa10">شماره پایانه</span></label>
+<div class="input">
+	<input type="text" name="terminalNumber" value="{{dataRowTerminal.terminalNumber}}">
+</div>
+{% endblock%}
+
+
+{% block IterminalType %}
+<label for="i_terminalType">terminalType <span class="mLa10">نوع پایانه</span></label>
+<div class="input">
+	<input type="text" name="terminalType" value="{{dataRowTerminal.terminalType}}">
+</div>
+{% endblock%}
+
+
+{% block IserialNumber %}
+<label for="i_serialNumber">serialNumber <span class="mLa10">سریال سخت افزاری پایانه</span></label>
+<div class="input">
+	<input type="text" name="serialNumber" value="{{dataRowTerminal.serialNumber}}">
+</div>
+{% endblock%}
+
+
+{% block IsetupDate %}
+<label for="i_setupDate">setupDate <span class="mLa10">تاریخ فعال سازی</span></label>
+<div class="input">
+	<input type="text" name="setupDate" value="{{dataRowTerminal.setupDate}}">
+</div>
+{% endblock%}
+
+
+{% block IhardwareBrand %}
+<label for="i_hardwareBrand">hardwareBrand <span class="mLa10">برند سخت‌افزاری پایانه</span></label>
+<div class="input">
+	<input type="text" name="hardwareBrand" value="{{dataRowTerminal.hardwareBrand}}">
+</div>
+{% endblock%}
+
+
+{% block IhardwareModel %}
+<label for="i_hardwareModel">hardwareModel <span class="mLa10">مدل سخت‌افزار پایانه</span></label>
+<div class="input">
+	<input type="text" name="hardwareModel" value="{{dataRowTerminal.hardwareModel}}">
+</div>
+{% endblock%}
+
+
+{% block IaccessAddress %}
+<label for="i_accessAddress">accessAddress <span class="mLa10">آدرس پایگاه اینترنتی</span></label>
+<div class="input">
+	<input type="text" name="accessAddress" value="{{dataRowTerminal.accessAddress}}">
+</div>
+{% endblock%}
+
+
+{% block IaccessPort %}
+<label for="i_accessPort">accessPort <span class="mLa10">پورت پایگاه اینترنتی استفاده کننده از درگاه اینترنتی</span></label>
+<div class="input">
+	<input type="text" name="accessPort" value="{{dataRowTerminal.accessPort}}">
+</div>
+{% endblock%}
+
+
+{% block IcallbackAddress %}
+<label for="i_callbackAddress">callbackAddress <span class="mLa10">آدرس بازگشت درگاه اینترنتی</span></label>
+<div class="input">
+	<input type="text" name="callbackAddress" value="{{dataRowTerminal.callbackAddress}}">
+</div>
+{% endblock%}
+
+
+{% block IcallbackPort %}
+<label for="i_callbackPort">callbackPort <span class="mLa10">پورت بازگشت درگاه اینترنتی</span></label>
+<div class="input">
+	<input type="text" name="callbackPort" value="{{dataRowTerminal.callbackPort}}">
+</div>
+{% endblock%}
+

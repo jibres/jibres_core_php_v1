@@ -1,0 +1,53 @@
+{%extends display.dash%}
+{%use 'content_pardakhtyar/customer/layout-input.html'%}
+
+{%block ADDEDITFORM%}
+	<div class="f">
+		<div class="c4 s12">
+			<div class="mRa5">
+		    {{block ('ImerchantType')}}
+		    {{block ('IresidencyType')}}
+		    {{block ('IvitalStatus')}}
+		    {{block ('Igender')}}
+		    {{block ('InationalCode')}}
+		    {{block ('IfirstNameFa')}}
+		    {{block ('IlastNameFa')}}
+		    {{block ('IfatherNameFa')}}
+		    {{block ('IfirstNameEn')}}
+		    {{block ('IlastNameEn')}}
+		    {{block ('IfatherNameEn')}}
+		    {{block ('IbirthDate')}}
+			</div>
+		</div>
+		<div class="c4 s12">
+			<div class="mRa5">
+		    {{block ('IcellPhoneNumber')}}
+		    {{block ('ItelephoneNumber')}}
+		    {{block ('IemailAddress')}}
+		    {{block ('IwebSite')}}
+		    {{block ('Ifax')}}
+		    {{block ('IbirthCrtfctNumber')}}
+		    {{block ('IbirthCrtfctSerial')}}
+		    {{block ('IbirthCrtfctSeriesLetter')}}
+		    {{block ('IbirthCrtfctSeriesNumber')}}
+			</div>
+		</div>
+		<div class="c4 s12">
+			<div class="mRa5">
+		    {{block ('IforeignPervasiveCode')}}
+		    {{block ('IcountryCode')}}
+		    {{block ('IpassportNumber')}}
+		    {{block ('IpassportExpireDate')}}
+
+		    {{block ('InationalLegalCode')}}
+		    {{block ('IregisterNumber')}}
+		    {{block ('IcomNameFa')}}
+		    {{block ('IregisterDate')}}
+		    {{block ('IcomNameEn')}}
+		    {{block ('IcommercialCode')}}
+			</div>
+		</div>
+	</div>
+
+{%endblock%}
+

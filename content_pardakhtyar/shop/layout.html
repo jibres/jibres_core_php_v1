@@ -1,0 +1,54 @@
+{%extends display.dash%}
+{%use 'content_pardakhtyar/shop/layout-input.html'%}
+
+
+{%block ADDEDITFORM%}
+	<div class="f">
+		<div class="c4 s12">
+			<div class="mRa5">
+			{{block('IfarsiName')}}
+			{{block('IenglishName')}}
+			{{block('ItelephoneNumberShop')}}
+			{{block('IpostalCode')}}
+			{{block('IbusinessCertificateNumber')}}
+			{{block('IcertificateIssueDate')}}
+			{{block('IcertificateExpiryDate')}}
+			{{block('IDescription')}}
+
+			</div>
+		</div>
+		<div class="c4 s12">
+			<div class="mRa5">
+
+
+			{{block('IbusinessCategoryCode')}}
+			{{block('IbusinessSubCategoryCode')}}
+			{{block('IownershipType')}}
+			{{block('IrentalContractNumber')}}
+			{{block('IrentalExpiryDate')}}
+			{{block('IAddress')}}
+			{{block('IcountryCode')}}
+			{{block('IprovinceCode')}}
+
+
+			</div>
+		</div>
+		<div class="c4 s12">
+			<div class="mRa5">
+
+			{{block('IcityCode')}}
+			{{block('IbusinessType')}}
+			{{block('IetrustCertificateType')}}
+			{{block('IetrustCertificateIssueDate')}}
+			{{block('IetrustCertificateExpiryDate')}}
+			{{block('IemailAddress')}}
+			{{block('IwebsiteAddress')}}
+
+			</div>
+		</div>
+	</div>
+
+{%endblock%}
+
+
+
