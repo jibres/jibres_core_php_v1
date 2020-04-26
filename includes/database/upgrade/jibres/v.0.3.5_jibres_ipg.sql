@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `userdetail` (
 `province` varchar(50) NULL DEFAULT NULL,
 `city` varchar(100) NULL DEFAULT NULL,
 `postcode` varchar(20) NULL DEFAULT NULL,
+`phone` varchar(20) NULL DEFAULT NULL,
 `address` varchar(200) NULL DEFAULT NULL,
 
 `companyeconomiccode` varchar(200) NULL DEFAULT NULL,
@@ -57,11 +58,59 @@ CREATE TABLE IF NOT EXISTS `iban` (
 `hesab` varchar(100) NULL DEFAULT NULL,
 `bank` varchar(100) NULL DEFAULT NULL,
 
-`gender` enum('enable', 'disable', 'deleted') NULL DEFAULT NULL,
+`status` enum('enable', 'disable', 'deleted') NULL DEFAULT NULL,
 
 `datecreated` timestamp NULL DEFAULT NULL,
 `datemodified` timestamp NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
-KEY `userdetail_index_search_user_id` (`user_id`),
-KEY `userdetail_index_search_username` (`username`)
+KEY `iban_index_search_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE IF NOT EXISTS `gateway` (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`user_id` int(10) UNSIGNED NOT NULL,
+
+`apikey` varchar(100) NULL DEFAULT NULL,
+
+`title` varchar(100) NULL DEFAULT NULL,
+`website` varchar(100) NULL DEFAULT NULL,
+`email` varchar(200) NULL DEFAULT NULL,
+
+`status` enum('enable', 'disable', 'deleted', 'lock', 'reject') NULL DEFAULT NULL,
+
+`country` varchar(20) NULL DEFAULT NULL,
+`province` varchar(50) NULL DEFAULT NULL,
+`city` varchar(100) NULL DEFAULT NULL,
+`postcode` varchar(20) NULL DEFAULT NULL,
+`phone` varchar(20) NULL DEFAULT NULL,
+`address` varchar(200) NULL DEFAULT NULL,
+
+`category` varchar(200) NULL DEFAULT NULL,
+`subcategory` varchar(200) NULL DEFAULT NULL,
+
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `gateway_index_search_user_id` (`user_id`),
+KEY `gateway_index_search_apikey` (`apikey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE IF NOT EXISTS `wallet` (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`user_id` int(10) UNSIGNED NOT NULL,
+`gateway_id` int(10) UNSIGNED  NULL,
+
+`title` varchar(100) NULL DEFAULT NULL,
+`category` varchar(100) NULL DEFAULT NULL,
+
+`status` enum('enable', 'disable', 'deleted') NULL DEFAULT NULL,
+
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `wallet_index_search_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
