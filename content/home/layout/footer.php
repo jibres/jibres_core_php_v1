@@ -119,7 +119,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
         <a target="_blank" rel="nofollow noopener" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
         <a target="_blank" rel="nofollow noopener" href="https://github.com/jibres" class="github">Connect to Jibres on Github</a>
         <a target="_blank" rel="nofollow noopener" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
-        <a target="_blank" rel="nofollow noopener" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
+        <a target="_blank" rel="nofollow noopener" href="https://instagram.com/JibresDotCom" class="instagram">Follow Jibres on Instagram</a>
       </nav>
     </div>
 
