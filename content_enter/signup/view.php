@@ -8,6 +8,7 @@ class view
 	{
 
 		\dash\face::title(T_('Signup in :name' , ['name' => \dash\face::site()]));
+		\dash\face::specialTitle(true);
 		\dash\face::desc(\dash\face::title());
 
 		// set el value to use in display
