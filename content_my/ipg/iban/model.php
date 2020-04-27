@@ -1,5 +1,5 @@
 <?php
-namespace content_my\ipg\profile;
+namespace content_my\ipg\iban;
 
 
 class model
@@ -8,30 +8,15 @@ class model
 	{
 		$post =
 		[
-			'type'                  => \dash\request::get('type'),
-
-			'gender'                => \dash\request::post('gender'),
-			'firstname'             => \dash\request::post('firstname'),
-			'firstname_en'          => \dash\request::post('firstname_en'),
-			'lastname'              => \dash\request::post('lastname'),
-			'lastname_en'           => \dash\request::post('lastname_en'),
-			'father'                => \dash\request::post('father'),
-			'father_en'             => \dash\request::post('father_en'),
-			'nationalcode'          => \dash\request::post('nationalcode'),
-			'birthdate'             => \dash\request::post('birthdate'),
-			'companyname'           => \dash\request::post('companyname'),
-			'companyname_en'        => \dash\request::post('companyname_en'),
-			'companynationalid'     => \dash\request::post('companynationalid'),
-			'companyregisternumber' => \dash\request::post('companyregisternumber'),
-			'ceonationalcode'       => \dash\request::post('ceonationalcode'),
-			'phone'                 => \dash\request::post('phone'),
+			'iban' => \dash\request::post('iban'),
+			'card'  => \dash\request::post('card'),
 		];
 
-		\lib\app\ipg\profile\set::user_set($post);
+		\lib\app\ipg\iban\set::user_default_iban($post);
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/iban');
+			\dash\redirect::to(\dash\url::this(). '/gateway');
 		}
 	}
 }

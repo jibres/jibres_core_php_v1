@@ -5,11 +5,7 @@
   <div class="c6 m8 s12">
 
     <form method="post" enctype="multipart/form-data" autocomplete="off" class="box impact">
-      <?php if(\dash\request::get('type') === 'real') {?>
-        <header><h2><?php echo T_("Complete your profile"); ?></h2></header>
-      <?php }else{ ?>
-        <header><h2><?php echo T_("Enter your company detail"); ?></h2></header>
-      <?php } //endif ?>
+      <header><h2><?php echo T_("Upload Identify image"); ?></h2></header>
 
       <div class="body">
 

@@ -13,7 +13,7 @@ class stepGuide
 			'profile',
 			'upload',
 			'iban',
-			'api',
+			'gateway',
 			'veirfy',
 
 		];
@@ -57,7 +57,7 @@ class stepGuide
 		$profile = self::check_position('profile');
 		$upload  = self::check_position('upload');
 		$iban    = self::check_position('iban');
-		$api     = self::check_position('api');
+		$gateway     = self::check_position('gateway');
 		$veirfy  = self::check_position('veirfy');
 		$review  = self::check_position('review');
 
@@ -79,14 +79,14 @@ class stepGuide
 				'class' => $upload,
 			],
 			[
-				'title' => T_('Add Iban'),
+				'title' => T_('IBAN'),
 				'link'  => \dash\url::this(). '/iban',
 				'class' => $iban,
 			],
 			[
-				'title' => T_('Create your IPG'),
-				'link'  => \dash\url::this(). '/api',
-				'class' => $api,
+				'title' => T_('Gateway detail'),
+				'link'  => \dash\url::this(). '/gateway',
+				'class' => $gateway,
 			],
 			[
 				'title' => T_('Upgrade your plan'),
