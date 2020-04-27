@@ -9,6 +9,7 @@ class stepGuide
 
 		$sort =
 		[
+			'type',
 			'profile',
 			'iban',
 			'api',
@@ -52,29 +53,35 @@ class stepGuide
 	public static function set()
 	{
 
-		$profile     = self::check_position('profile');
-		$iban   = self::check_position('iban');
-		$upload   = self::check_position('upload');
-		$api    = self::check_position('api');
-		$veirfy = self::check_position('veirfy');
+		$type    = self::check_position('type');
+		$profile = self::check_position('profile');
+		$upload  = self::check_position('upload');
+		$iban    = self::check_position('iban');
+		$api     = self::check_position('api');
+		$veirfy  = self::check_position('veirfy');
 		$review  = self::check_position('review');
 
 		$mySteps =
 		[
+			[
+				'title' => T_('Profile type'),
+				'link'  => \dash\url::this(). '/type',
+				'class' => $type,
+			],
 			[
 				'title' => T_('Complete profile'),
 				'link'  => \dash\url::this(). '/profile',
 				'class' => $profile,
 			],
 			[
-				'title' => T_('Add Iban'),
-				'link'  => \dash\url::this(). '/iban',
-				'class' => $iban,
-			],
-			[
 				'title' => T_('Upload Document'),
 				'link'  => \dash\url::this(). '/upload',
 				'class' => $upload,
+			],
+			[
+				'title' => T_('Add Iban'),
+				'link'  => \dash\url::this(). '/iban',
+				'class' => $iban,
 			],
 			[
 				'title' => T_('Create your IPG'),

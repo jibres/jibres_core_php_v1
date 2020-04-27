@@ -5,26 +5,15 @@
   <div class="c6 m8 s12">
 
     <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Edit your profile"); ?></h2></header>
+      <?php if(\dash\request::get('type') === 'real') {?>
+        <header><h2><?php echo T_("Complete your profile"); ?></h2></header>
+      <?php }else{ ?>
+        <header><h2><?php echo T_("Enter your company detail"); ?></h2></header>
+      <?php } //endif ?>
 
       <div class="body">
 
-        <div class="f mB10">
-          <div class="c pRa5">
-            <div class="radio3">
-              <input type="radio" name="type" value="human" id="typehuman" checked>
-              <label for="typehuman"><?php echo T_("Real person"); ?></label>
-            </div>
-          </div>
-          <div class="c">
-            <div class="radio3">
-              <input type="radio" name="type" value="legal" id="typelegal">
-              <label for="typelegal"><?php echo T_("Leagal person"); ?></label>
-            </div>
-          </div>
-        </div>
-
-        <div data-response='type' data-response-where='human' data-response-effect='slide'>
+        <?php if(\dash\request::get('type') === 'real') {?>
           <label for="firstname"><?php echo T_("First name"); ?></label>
           <div class="input">
             <input type="text" name="firstname" id="firstname" placeholder='<?php echo T_("Firstname"); ?>' value="<?php echo \dash\data::dataRow_firstname(); ?>" maxlength='40' minlength="1" pattern=".{1,40}">
@@ -52,10 +41,10 @@
             <option value="male"  <?php if(\dash\data::dataRow_gender() == 'male') { echo 'selected';} ?>><?php echo T_("Male"); ?></option>
             <option value="female"  <?php if(\dash\data::dataRow_gender() == 'female') { echo 'selected';} ?>><?php echo T_("Female"); ?></option>
           </select>
-        </div>
+        <?php } //endif ?>
 
 
-        <div data-response='type' data-response-where='legal' data-response-hide data-response-effect='slide'>
+        <?php if(\dash\request::get('type') === 'legal') {?>
           <label for="icompanyname"><?php echo T_("Company name"); ?></label>
           <div class="input">
             <input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRow_companyname(); ?>" maxlength="40">
@@ -77,7 +66,8 @@
           <div class="input">
             <input type="text" name="ceonationalcode" id="iceonationalcode" value="<?php echo \dash\data::dataRow_ceonationalcode(); ?>" data-format='nationalCode'>
           </div>
-        </div>
+
+        <?php }//endif ?>
 
 
       </div>
