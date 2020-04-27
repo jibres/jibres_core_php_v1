@@ -11,9 +11,9 @@ class stepGuide
 		[
 			'type',
 			'profile',
+			'upload',
 			'iban',
 			'api',
-			'upload',
 			'veirfy',
 
 		];

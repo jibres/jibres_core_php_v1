@@ -24,13 +24,16 @@ class set
 			'father'                => 'string_50',
 			'father_en'             => 'enstring_50',
 			'nationalcode'          => 'nationalcode',
-			'birthdate'              => 'birthdate',
+			'birthdate'             => 'birthdate',
 			'companyname'           => 'string_50',
 			'companyname_en'        => 'enstring_50',
 			'companynationalid'     => 'intstring_11_11',
 			'companyregisternumber' => 'intstring_10_10',
 			'ceonationalcode'       => 'nationalcode',
 			'phone'                 => 'phone',
+
+			'nationalpic'           => 'string_1000',
+			'shpic'                 => 'string_1000',
 		];
 
 
