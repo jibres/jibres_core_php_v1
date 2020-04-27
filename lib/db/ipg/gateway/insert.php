@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\ipg\iban;
+namespace lib\db\ipg\gateway;
 
 
 class insert
@@ -11,7 +11,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `iban` SET $set ";
+			$query = " INSERT INTO `gateway` SET $set ";
 			if(\dash\db::query($query, 'ipg'))
 			{
 				return \dash\db::insert_id();
