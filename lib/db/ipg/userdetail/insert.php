@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\nic_domain;
+namespace lib\db\ipg\userdetail;
 
 
 class insert
@@ -11,10 +11,10 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `domain` SET $set ";
-			if(\dash\db::query($query, 'nic'))
+			$query = " INSERT INTO `userdetail` SET $set ";
+			if(\dash\db::query($query, 'ipg'))
 			{
-				return \dash\db::insert_id();
+				return true;
 			}
 			else
 			{

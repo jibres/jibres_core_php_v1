@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `userdetail` (
 `firstname` varchar(100) NULL DEFAULT NULL,
 `lastname` varchar(100) NULL DEFAULT NULL,
 `father` varchar(100) NULL DEFAULT NULL,
-`birthday` date NULL DEFAULT NULL,
+`birthdate` date NULL DEFAULT NULL,
 `firstname_en` varchar(100) NULL DEFAULT NULL,
 `lastname_en` varchar(100) NULL DEFAULT NULL,
 `father_en` varchar(100) NULL DEFAULT NULL,
@@ -23,9 +23,12 @@ CREATE TABLE IF NOT EXISTS `userdetail` (
 `shpic` varchar(300) NULL DEFAULT NULL,
 `verifypic` varchar(300) NULL DEFAULT NULL,
 `postcode` varchar(20) NULL DEFAULT NULL,
+`phone` varchar(20) NULL DEFAULT NULL,
 
 `company` bit(1) NULL DEFAULT NULL,
 `companyname` varchar(200) NULL DEFAULT NULL,
+`companyname_en` varchar(200) NULL DEFAULT NULL,
+
 `companyregisternumber` varchar(200) NULL DEFAULT NULL,
 `companynationalid` varchar(200) NULL DEFAULT NULL,
 `companyeconomiccode` varchar(200) NULL DEFAULT NULL,
