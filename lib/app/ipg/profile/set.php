@@ -47,42 +47,47 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
 		if($data['type'] === 'legal')
 		{
-			$data['firstname']    = null;
-			$data['firstname_en'] = null;
-			$data['lastname']     = null;
-			$data['lastname_en']  = null;
-			$data['father']       = null;
-			$data['father_en']    = null;
-			$data['nationalcode'] = null;
-			$data['birthdate']    = null;
-			$data['gender']       = 'company';
-			$data['company']      = 1;
+			unset($args['firstname']);
+			unset($args['firstname_en']);
+			unset($args['lastname']);
+			unset($args['lastname_en']);
+			unset($args['father']);
+			unset($args['father_en']);
+			unset($args['nationalcode']);
+			unset($args['birthdate']);
+			unset($args['gender']);
+
+			// $args['gender']       = 'company';
+			$args['company']      = 1;
 		}
 		elseif($data['type'] === 'real')
 		{
-			$data['companyname']           = null;
-			$data['companyname_en']        = null;
-			$data['companynationalid']     = null;
-			$data['companyregisternumber'] = null;
-			$data['ceonationalcode']       = null;
-			$data['company']      = 0;
+			unset($args['companyname']);
+			unset($args['companyname_en']);
+			unset($args['companynationalid']);
+			unset($args['companyregisternumber']);
+			unset($args['ceonationalcode']);
+
+			$args['company']      = 0;
 		}
 
-		unset($data['type']);
+		unset($args['type']);
 
 		$load = \lib\db\ipg\userdetail\get::my_detail(\dash\user::id());
 		if(isset($load['user_id']))
 		{
-			$data['datemodified'] = date("Y-m-d H:i:s");
-			\lib\db\ipg\userdetail\update::update_user_id($data, $load['user_id']);
+			$args['datemodified'] = date("Y-m-d H:i:s");
+			\lib\db\ipg\userdetail\update::update_user_id($args, $load['user_id']);
 		}
 		else
 		{
-			$data['user_id']     = \dash\user::id();
-			$data['datecreated'] = date("Y-m-d H:i:s");
-			\lib\db\ipg\userdetail\insert::new_record($data);
+			$args['user_id']     = \dash\user::id();
+			$args['datecreated'] = date("Y-m-d H:i:s");
+			\lib\db\ipg\userdetail\insert::new_record($args);
 		}
 
 		\dash\notif::ok(T_("Your profile was updated"));
