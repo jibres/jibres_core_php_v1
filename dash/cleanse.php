@@ -588,10 +588,6 @@ class cleanse
 				$data = \dash\validate\text::sku($_data, $_notif, $element, $field_title, $meta);
 				break;
 
-			case 'iban':
-				$data = \dash\validate\text::iban($_data, $_notif, $element, $field_title, $meta);
-				break;
-
 
 			case 'search':
 				$data = \dash\validate\text::search($_data, $_notif, $element, $field_title, $meta);
@@ -611,6 +607,15 @@ class cleanse
 
 			case 'subdomain':
 				$data = \dash\validate\subdomain::subdomain($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			// *************** IBAN validate
+			case 'iban':
+				$data = \dash\validate\iban::check($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'iban_detail':
+				$data = \dash\validate\iban::detail($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			// *************** url validate

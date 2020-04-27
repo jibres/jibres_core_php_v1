@@ -512,56 +512,6 @@ class text
 
 
 
-	public static function iban($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
-	{
-		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 26]);
-
-		if($data === false || $data === null)
-		{
-			return $data;
-		}
-
-		if(is_string($data))
-		{
-			$data    = \dash\utility\convert::to_en_number($data);
-			$replace = ['{', '}', '(', ')', '_', '-', '+', ' ', ',', ':'];
-			$data    = str_replace($replace, '', $data);
-		}
-
-		$data = mb_strtolower($data);
-
-		// sample: IR780700001000114904182001
-
-		if(substr($data, 0, 2) === 'ir')
-		{
-			$data = substr($data, 2);
-		}
-
-		if(mb_strlen($data) !== 24)
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("IBAN number must be exactly 26 character"), ['element' => $_element]);
-			}
-			return false;
-		}
-
-		if(!ctype_digit($data))
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("IBAN number must be a number"), ['element' => $_element]);
-			}
-			return false;
-		}
-
-		$data = 'IR'. $data;
-
-		return $data;
-	}
-
-
-
 	public static function url($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 4, 'max' => 300]);
