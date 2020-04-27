@@ -17,20 +17,20 @@ class nationalcode
 
 		$data = (string) $data;
 
-		if(!ctype_digit($data))
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("National code must be a number"), ['element' => $_element]);
-			}
-			return false;
-		}
-
 		if(mb_strlen($data) !== 10)
 		{
 			if($_notif)
 			{
 				\dash\notif::error(T_("National code must be exactly 10 character"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		if(!ctype_digit($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("National code must be a number"), ['element' => $_element]);
 			}
 			return false;
 		}

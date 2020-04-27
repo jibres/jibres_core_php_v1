@@ -452,7 +452,8 @@ class cleanse
 		}
 
 		// call function stirng_50 or string_500_20
-		if(substr($function, 0, 6) === 'string')
+		// call function enstirng_50 or enstring_500_20
+		if(substr($function, 0, 6) === 'string' || substr($function, 0, 8) === 'enstring' || substr($function, 0, 9) === 'intstring')
 		{
 			if(strpos($function, '_') !== false)
 			{
@@ -530,6 +531,14 @@ class cleanse
 			// *************** string validate
 			case 'string':
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'enstring':
+				$data = \dash\validate\text::enstring($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'intstring':
+				$data = \dash\validate\text::intstring($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'address':
@@ -743,10 +752,7 @@ class cleanse
 				break;
 
 			case 'phone':
-				$meta['min']   = 10000000;
-				$meta['max']   = 99999999999999;
-				$meta['round'] = true;
-				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				$data = \dash\validate\number::phone($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'percent':

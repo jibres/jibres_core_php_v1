@@ -59,7 +59,8 @@ class number
 			{
 				if($_notif)
 				{
-					\dash\notif::error(T_("Field :val must be larger than :min", ['val' => $_field_title, 'min' => \dash\fit::number($_meta['min'])]), ['element' => $_element]);
+					// \dash\notif::error(T_("Field :val must be larger than :min", ['val' => $_field_title, 'min' => \dash\fit::number($_meta['min'])]), ['element' => $_element]);
+					\dash\notif::error(T_("Field :val must be larger than :min character", ['val' => $_field_title, 'min' => \dash\fit::number(mb_strlen($_meta['min']))]), ['element' => $_element]);
 				}
 				return false;
 			}
@@ -72,7 +73,8 @@ class number
 			{
 				if($_notif)
 				{
-					\dash\notif::error(T_("Field :val must be less than :max", ['val' => $_field_title, 'max' => \dash\fit::number($_meta['max'])]), ['element' => $_element]);
+					// \dash\notif::error(T_("Field :val must be less than :max", ['val' => $_field_title, 'max' => \dash\fit::number($_meta['max'])]), ['element' => $_element]);
+					\dash\notif::error(T_("Field :val must be less than :max character", ['val' => $_field_title, 'max' => \dash\fit::number(mb_strlen($_meta['max']))]), ['element' => $_element]);
 				}
 				return false;
 			}
@@ -159,6 +161,39 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Post code must be less than 10 character"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
+	public static function phone($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['round' => true]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = (string) $data;
+
+		if(mb_strlen($data) < 8)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Phone number must be larger than 8 character"), ['element' => $_element]);
+			}
+			return false;
+		}
+
+
+		if(mb_strlen($data) > 14)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Phone number must be less than 14 character"), ['element' => $_element]);
 			}
 			return false;
 		}

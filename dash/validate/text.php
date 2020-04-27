@@ -35,6 +35,20 @@ class text
 			$length = 100000;
 		}
 
+		if(isset($_meta['min']) && is_numeric($_meta['min']) && floatval($length) === floatval($_meta['min']))
+		{
+			if(mb_strlen($data) != intval($_meta['min']))
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Field :val must be exactly :length character", ['val' => $_field_title, 'length' => \dash\fit::number($length)]), ['element' => $_element, 'code' => 1605]);
+				}
+				return false;
+			}
+
+		}
+
+
 		if(mb_strlen($data) > $length)
 		{
 			if($_notif)
@@ -113,6 +127,58 @@ class text
 		return $data;
 	}
 
+
+	public static function enstring($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+
+		if(!preg_match("/^[A-Za-z0-9\_\-\s\.]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Only English character can be enter in field :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
+
+	public static function intstring($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(is_string($data))
+		{
+			$data    = \dash\utility\convert::to_en_number($data);
+			$replace = ['{', '}', '(', ')', '_', '-', '+', ' ', ','];
+			$data    = str_replace($replace, '', $data);
+		}
+
+		if(!preg_match("/^[0-9]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Only Numeric character can be enter in field :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
 
 
 	public static function username($_data, $_notif = false, $_element = null, $_field_title = null)
