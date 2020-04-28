@@ -14,17 +14,17 @@ class set
 
 		$condition =
 		[
-			'title'      => 'string_100',
-			'website'    => 'enstring_50',
-			'websiteurl' => 'url',
-			'email'      => 'email',
-			'phone'      => 'phone',
-			'logo'       => 'string_500',
-			'status'     => ['enum' => ['enable', 'disable', 'deleted', 'lock', 'reject', 'pending', 'blocked', 'error']],
-			'category'   => 'string_50',
+			'title'           => 'string_100',
+			'website'         => 'enstring_50',
+			'websiteAddress'  => 'url',
+			'emailAddress'    => 'email',
+			'telephoneNumber' => 'phone',
+			'logo'            => 'string_500',
+			'status'          => ['enum' => ['enable', 'disable', 'deleted', 'lock', 'reject', 'pending', 'blocked', 'error']],
+			'category'        => 'string_50',
 		];
 
-		$require = ['websiteurl', 'email', 'phone'];
+		$require = ['websiteAddress', 'emailAddress', 'telephoneNumber'];
 
 		$meta =	[];
 
@@ -42,6 +42,7 @@ class set
 		}
 		else
 		{
+			$args['status']      = 'pending';
 			$args['user_id']     = \dash\user::id();
 			$args['datecreated'] = date("Y-m-d H:i:s");
 			\lib\db\shaparak\shop\insert::new_record($args);

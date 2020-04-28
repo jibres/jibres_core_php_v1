@@ -9,12 +9,12 @@ class model
 		$post =
 		[
 			'title'      => \dash\request::post('title'),
-			'websiteurl' => \dash\request::post('websiteurl'),
-			'email'      => \dash\request::post('email'),
-			'phone'      => \dash\request::post('phone'),
+			'websiteAddress' => \dash\request::post('websiteurl'),
+			'emailAddress'      => \dash\request::post('email'),
+			'telephoneNumber'      => \dash\request::post('phone'),
 		];
 
-		\lib\app\shaparak\shop\set::first_gateway($post);
+		\lib\app\shaparak\shop\set::first_shop($post);
 
 		if(\dash\engine\process::status())
 		{

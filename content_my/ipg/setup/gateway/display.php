@@ -15,17 +15,17 @@
 
           <label for="iwebsiteurl"><?php echo T_("Website"); ?></label>
           <div class="input ltr">
-            <input type="url" name="websiteurl" placeholder="" value="<?php echo \dash\data::gatewayDetail_websiteurl(); ?>" id="iwebsiteurl"  maxlength="100" required>
+            <input type="url" name="websiteurl" placeholder="" value="<?php echo \dash\data::gatewayDetail_websiteAddress(); ?>" id="iwebsiteurl"  maxlength="100" required>
           </div>
 
           <label for="iemail"><?php echo T_("Email"); ?></label>
           <div class="input ltr">
-            <input type="email" name="email" placeholder="" value="<?php echo \dash\data::gatewayDetail_email(); ?>" id="iemail"  maxlength="100" required>
+            <input type="email" name="email" placeholder="" value="<?php echo \dash\data::gatewayDetail_emailAddress(); ?>" id="iemail"  maxlength="100" required>
           </div>
 
           <label for="iphone"><?php echo T_("Phone"); ?></label>
           <div class="input ltr">
-            <input type="tel" name="phone" placeholder="" value="<?php echo \dash\data::gatewayDetail_phone(); ?>" id="iphone"  data-format='tel' maxlength="100">
+            <input type="tel" name="phone" placeholder="" value="<?php echo \dash\data::gatewayDetail_telephoneNumber(); ?>" id="iphone"  data-format='tel' maxlength="100">
           </div>
 
       </div>
