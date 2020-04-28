@@ -251,11 +251,18 @@ class view
 		$newJs = [];
 		if (\dash\data::include_highcharts())
 		{
-			$newJs[] = \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js');
+			$newJs[] =
+			[
+				"url" => \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'),
+				"fn"  => 'pageChart',
+			];
 		}
-		if (\dash\data::include_editor())
+		if (\dash\data::include_editor() or 1)
 		{
-			$newJs[] = \dash\layout\func::staticmtime('js/medium-editor/medium-editor.min.js');
+			$newJs[] =
+			[
+				"url" => \dash\layout\func::staticmtime('js/medium-editor/medium-editor.min.js'),
+			];
 		}
 
 		if(count($newJs) > 0)
