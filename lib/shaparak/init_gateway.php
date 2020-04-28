@@ -42,7 +42,15 @@ class init_gateway
 		}
 
 
-		// $result = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $_load_contract);
+
+		$load_shop = \lib\app\shaparak\shop\ready::for_shaparak($load_shop);
+		$load_customer = \lib\app\shaparak\profile\ready::for_shaparak($load_customer);
+		$load_ibans = array_map(['\\lib\\app\\shaparak\\iban\\ready', 'for_shaparak'], $load_ibans);
+		$load_acceptor = \lib\app\shaparak\acceptor\ready::for_shaparak($load_acceptor);
+		$load_terminal = \lib\app\shaparak\terminal\ready::for_shaparak($load_terminal);
+		$load_contract = \lib\app\shaparak\contract\ready::for_shaparak($load_contract);
+
+		$result = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $load_contract);
 
 
 
@@ -82,7 +90,7 @@ class init_gateway
 		}
 
 		$send                            = [];
-		$send['trackingNumberPsp']       = 'customer_'. $_id;
+		$send['trackingNumberPsp']       = 'Jibres-5-'. date("Y-m-d.H:i:s"). '-'. \dash\coding::encode(rand(1, 9999). rand(1, 9999));
 		$send['requestType']             = 5;
 		$send['merchant']                = $merchant;
 		$send['relatedMerchants']        = null;
@@ -96,6 +104,8 @@ class init_gateway
 		];
 
 		$send['description']             = null;
+
+		var_dump($send);exit();
 
 		$result = \lib\pardakhtyar\start::request($send, $_id);
 

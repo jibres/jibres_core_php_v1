@@ -35,5 +35,32 @@ class ready
 
 		return $result;
 	}
+
+
+		// remove useless field to send to shaparak
+	public static function for_shaparak($_data)
+	{
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'merchantIban':
+					$result[$key] = $value;
+					break;
+
+				case 'Address':
+				case 'Description':
+				default:
+					// nothing
+					break;
+			}
+		}
+
+		return $result;
+	}
+
+
+
 }
 ?>

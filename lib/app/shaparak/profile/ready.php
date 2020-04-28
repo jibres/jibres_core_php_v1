@@ -35,5 +35,71 @@ class ready
 
 		return $result;
 	}
+
+
+
+	// remove useless field to send to shaparak
+	public static function for_shaparak($_data)
+	{
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'birthDate':
+				case 'passportExpireDate':
+				case 'registerDate':
+
+					if($value)
+					{
+						$result[$key] = strtotime($value). '000';
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
+
+				case 'firstNameFa':
+				case 'lastNameFa':
+				case 'fatherNameFa':
+				case 'firstNameEn':
+				case 'lastNameEn':
+				case 'fatherNameEn':
+				case 'registerNumber':
+				case 'comNameFa':
+				case 'comNameEn':
+				case 'birthCrtfctNumber':
+				case 'commercialCode':
+				case 'foreignPervasiveCode':
+				case 'passportNumber':
+				case 'telephoneNumber':
+				case 'emailAddress':
+				case 'webSite':
+				case 'fax':
+				case 'gender':
+				case 'merchantType':
+				case 'residencyType':
+				case 'vitalStatus':
+				case 'birthCrtfctSeriesLetter':
+				case 'birthCrtfctSeriesNumber':
+				case 'nationalCode':
+				case 'birthCrtfctSerial':
+				case 'nationalLegalCode':
+				case 'countryCode':
+				case 'cellPhoneNumber':
+					$result[$key] = $value;
+					break;
+
+				case 'Description':
+				default:
+					// nothing
+					break;
+			}
+		}
+
+		return $result;
+	}
+
 }
 ?>
