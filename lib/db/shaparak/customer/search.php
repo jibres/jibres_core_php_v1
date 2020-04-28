@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\shaparak\userdetail;
+namespace lib\db\shaparak\customer;
 
 
 class search
@@ -71,7 +71,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
-		$query = "SELECT dns.*, (SELECT COUNT(*) FROM userdetail WHERE userdetail.dns = dns.id AND userdetail.status = 'enable') AS `count_useage` FROM dns $q[where] $q[order] $limit ";
+		$query = "SELECT dns.*, (SELECT COUNT(*) FROM customer WHERE customer.dns = dns.id AND customer.status = 'enable') AS `count_useage` FROM dns $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'nic');
 

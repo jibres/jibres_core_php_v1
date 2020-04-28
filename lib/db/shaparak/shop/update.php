@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\shaparak\gateway;
+namespace lib\db\shaparak\shop;
 
 class update
 {
@@ -11,7 +11,7 @@ class update
 			return false;
 		}
 
-		$query  = "UPDATE gateway SET $set WHERE gateway.id = $_id LIMIT 1";
+		$query  = "UPDATE shop SET $set WHERE shop.id = $_id LIMIT 1";
 		$result = \dash\db::query($query, 'shaparak');
 		return $result;
 	}

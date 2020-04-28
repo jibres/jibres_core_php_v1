@@ -1,10 +1,10 @@
 <?php
-namespace lib\app\shaparak\gateway;
+namespace lib\app\shaparak\shop;
 
 
 class set
 {
-	public static function first_gateway($_args)
+	public static function first_shop($_args)
 	{
 		if(!\dash\user::id())
 		{
@@ -33,18 +33,18 @@ class set
 		$args = \dash\cleanse::patch_mode($_args, $data);
 
 
-		$load = \lib\db\shaparak\gateway\get::my_first_gateway(\dash\user::id());
+		$load = \lib\db\shaparak\shop\get::my_first_shop(\dash\user::id());
 
 		if(isset($load['id']))
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
-			\lib\db\shaparak\gateway\update::update($args, $load['id']);
+			\lib\db\shaparak\shop\update::update($args, $load['id']);
 		}
 		else
 		{
 			$args['user_id']     = \dash\user::id();
 			$args['datecreated'] = date("Y-m-d H:i:s");
-			\lib\db\shaparak\gateway\insert::new_record($args);
+			\lib\db\shaparak\shop\insert::new_record($args);
 		}
 
 		\dash\notif::ok(T_("Your profile was updated"));

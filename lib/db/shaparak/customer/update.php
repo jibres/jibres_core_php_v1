@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\shaparak\userdetail;
+namespace lib\db\shaparak\customer;
 
 class update
 {
@@ -11,7 +11,7 @@ class update
 			return false;
 		}
 
-		$query  = "UPDATE userdetail SET $set WHERE userdetail.user_id = $_user_id LIMIT 1";
+		$query  = "UPDATE customer SET $set WHERE customer.user_id = $_user_id LIMIT 1";
 		$result = \dash\db::query($query, 'shaparak');
 		return $result;
 	}

@@ -12,7 +12,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\db\shaparak\userdetail\get::my_detail(\dash\user::id());
+		$load = \lib\db\shaparak\customer\get::my_detail(\dash\user::id());
 
 		$load = \lib\app\shaparak\profile\ready::row($load);
 

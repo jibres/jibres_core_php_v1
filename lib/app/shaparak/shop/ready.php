@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\shaparak\gateway;
+namespace lib\app\shaparak\shop;
 
 
 class ready

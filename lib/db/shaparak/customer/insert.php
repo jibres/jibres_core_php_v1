@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\shaparak\userdetail;
+namespace lib\db\shaparak\customer;
 
 
 class insert
@@ -11,7 +11,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `userdetail` SET $set ";
+			$query = " INSERT INTO `customer` SET $set ";
 			if(\dash\db::query($query, 'shaparak'))
 			{
 				return true;

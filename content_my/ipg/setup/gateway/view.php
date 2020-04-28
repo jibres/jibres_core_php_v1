@@ -13,7 +13,7 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-		$gatewayDetail = \lib\app\shaparak\gateway\get::my_first_gateway();
+		$gatewayDetail = \lib\app\shaparak\shop\get::my_first_shop();
 		\dash\data::gatewayDetail($gatewayDetail);
 	}
 }

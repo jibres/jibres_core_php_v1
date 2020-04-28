@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\shaparak\gateway;
+namespace lib\db\shaparak\shop;
 
 
 class insert
@@ -11,7 +11,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `gateway` SET $set ";
+			$query = " INSERT INTO `shop` SET $set ";
 			if(\dash\db::query($query, 'shaparak'))
 			{
 				return \dash\db::insert_id();

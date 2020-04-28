@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\shaparak\gateway;
+namespace lib\db\shaparak\shop;
 
 
 class search
@@ -71,7 +71,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
-		$query = "SELECT dns.*, (SELECT COUNT(*) FROM gateway WHERE gateway.dns = dns.id AND gateway.status = 'enable') AS `count_useage` FROM dns $q[where] $q[order] $limit ";
+		$query = "SELECT dns.*, (SELECT COUNT(*) FROM shop WHERE shop.dns = dns.id AND shop.status = 'enable') AS `count_useage` FROM dns $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'nic');
 

@@ -14,7 +14,7 @@ class model
 			'phone'      => \dash\request::post('phone'),
 		];
 
-		\lib\app\shaparak\gateway\set::first_gateway($post);
+		\lib\app\shaparak\shop\set::first_gateway($post);
 
 		if(\dash\engine\process::status())
 		{

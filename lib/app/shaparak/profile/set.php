@@ -80,17 +80,17 @@ class set
 
 		unset($args['type']);
 
-		$load = \lib\db\shaparak\userdetail\get::my_detail(\dash\user::id());
+		$load = \lib\db\shaparak\customer\get::my_detail(\dash\user::id());
 		if(isset($load['user_id']))
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
-			\lib\db\shaparak\userdetail\update::update_user_id($args, $load['user_id']);
+			\lib\db\shaparak\customer\update::update_user_id($args, $load['user_id']);
 		}
 		else
 		{
 			$args['user_id']     = \dash\user::id();
 			$args['datecreated'] = date("Y-m-d H:i:s");
-			\lib\db\shaparak\userdetail\insert::new_record($args);
+			\lib\db\shaparak\customer\insert::new_record($args);
 		}
 
 		\dash\notif::ok(T_("Your profile was updated"));

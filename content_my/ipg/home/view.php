@@ -20,7 +20,7 @@ class view
 		$ibanDetail = \lib\app\shaparak\iban\get::my_default_iban();
 		\dash\data::ibanDetail($ibanDetail);
 
-		$gatewayDetail = \lib\app\shaparak\gateway\get::my_first_gateway();
+		$gatewayDetail = \lib\app\shaparak\shop\get::my_first_shop();
 		\dash\data::gatewayDetail($gatewayDetail);
 
 	}
