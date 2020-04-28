@@ -215,6 +215,22 @@ PRIMARY KEY (`id`)
 
 
 
+CREATE TABLE IF NOT EXISTS jibres_shaparak.contract (
+`id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`user_id`					int(10) unsigned DEFAULT NULL,
+`contractDate` 				varchar(100) NULL DEFAULT NULL,
+`expiryDate` 				varchar(100) NULL DEFAULT NULL,
+`serviceStartDate` 			varchar(100) NULL DEFAULT NULL,
+`contractNumber` 			varchar(100) NULL DEFAULT NULL,
+`description` 				varchar(100) NULL DEFAULT NULL,
+`datecreated`				timestamp NULL DEFAULT NULL,
+`datemodified`				timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+
 CREATE TABLE IF NOT EXISTS jibres_shaparak.iban (
 `id`				bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `user_id` 			int(10) UNSIGNED NOT NULL,
