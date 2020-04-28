@@ -1,5 +1,5 @@
 <?php
-namespace content_my\ipg;
+namespace content_my\ipg\setup;
 
 
 class stepGuide
@@ -18,19 +18,19 @@ class stepGuide
 
 		];
 
-		$child = \dash\url::child();
+		$subchild = \dash\url::subchild();
 
 
 
 		$class = '';
 
-		if($child == $_module)
+		if($subchild == $_module)
 		{
 			$class = 'current';
 		}
 		else
 		{
-			if(array_search($_module, $sort) < array_search($child, $sort))
+			if(array_search($_module, $sort) < array_search($subchild, $sort))
 			{
 				$class = 'complete';
 			}
@@ -41,7 +41,7 @@ class stepGuide
 		}
 
 
-		if($child === $_module)
+		if($subchild === $_module)
 		{
 			$class = 'current';
 		}
@@ -65,32 +65,32 @@ class stepGuide
 		[
 			[
 				'title' => T_('Profile type'),
-				'link'  => \dash\url::this(). '/type',
+				'link'  => \dash\url::that(). '/type',
 				'class' => $type,
 			],
 			[
 				'title' => T_('Complete profile'),
-				'link'  => \dash\url::this(). '/profile',
+				'link'  => \dash\url::that(). '/profile',
 				'class' => $profile,
 			],
 			[
 				'title' => T_('Upload Document'),
-				'link'  => \dash\url::this(). '/upload',
+				'link'  => \dash\url::that(). '/upload',
 				'class' => $upload,
 			],
 			[
 				'title' => T_('IBAN'),
-				'link'  => \dash\url::this(). '/iban',
+				'link'  => \dash\url::that(). '/iban',
 				'class' => $iban,
 			],
 			[
 				'title' => T_('Gateway detail'),
-				'link'  => \dash\url::this(). '/gateway',
+				'link'  => \dash\url::that(). '/gateway',
 				'class' => $gateway,
 			],
 			[
-				'title' => T_('Upgrade your plan'),
-				'link'  => \dash\url::this(). '/verify',
+				'title' => T_('Verify'),
+				'link'  => \dash\url::that(). '/verify',
 				'class' => $veirfy,
 			],
 		];

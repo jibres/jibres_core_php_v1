@@ -11,10 +11,10 @@
 
         <div class="f">
           <div class="c6 s12">
-            <a class="btn block xl light" href="<?php echo \dash\url::this(). '/profile?type=real'; ?>"><?php echo T_("Real person") ?></a>
+            <a class="btn block xl light" href="<?php echo \dash\url::that(). '/profile?type=real'; ?>"><?php echo T_("Real person") ?></a>
           </div>
           <div class="c6 s12">
-            <a class="btn block xl mLa5 light" href="<?php echo \dash\url::this(). '/profile?type=legal'; ?>"><?php echo T_("Legal profile") ?></a>
+            <a class="btn block xl mLa5 light" href="<?php echo \dash\url::that(). '/profile?type=legal'; ?>"><?php echo T_("Legal profile") ?></a>
           </div>
         </div>
 

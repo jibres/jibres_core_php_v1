@@ -1,5 +1,5 @@
 <?php
-namespace content_my\ipg\type;
+namespace content_my\ipg\setup\type;
 
 
 class view
@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_('Choose profile type'));
 
-		\content_my\ipg\stepGuide::set();
+		\content_my\ipg\setup\stepGuide::set();
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
