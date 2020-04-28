@@ -21,14 +21,14 @@ if (!\dash\data::pageWithLogin())
  <meta content="<?php echo \dash\face::twitterCard(); ?>" name="twitter:card"/>
  <meta content="<?php echo \dash\face::headTitle(); ?>" name="twitter:title"/>
  <meta content="<?php echo \dash\face::desc(); ?>" name="twitter:description"/>
- <meta content="<?php echo \dash\face::cover(); ?>" name="twitter:image"/>
+ <meta content="<?php echo \dash\face::cover(); ?>?v=2" name="twitter:image"/>
  <meta content="@jibres_com" name="twitter:site"/>
  <meta content="@jibres_com" name="twitter:creator"/>
  <meta content="<?php echo \dash\url::current();?>" name="twitter:url"/>
  <meta content="website" property ="og:type"/>
  <meta content="<?php echo \dash\face::headTitle(); ?>" property ="og:title"/>
  <meta content="<?php echo \dash\face::desc(); ?>" property ="og:description"/>
- <meta content="<?php echo \dash\face::cover(); ?>" property ="og:image"/>
+ <meta content="<?php echo \dash\face::cover(); ?>?v=2" property ="og:image"/>
  <meta content="<?php echo \dash\url::current();?>" property ="og:url"/>
  <meta content="<?php echo \dash\face::site(); ?>" property ="og:site_name"/>
  <meta content='<?php echo \dash\language::current(); ?>' property ='og:locale'/>
