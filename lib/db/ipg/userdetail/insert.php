@@ -12,7 +12,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `userdetail` SET $set ";
-			if(\dash\db::query($query, 'ipg'))
+			if(\dash\db::query($query, 'shaparak'))
 			{
 				return true;
 			}

@@ -12,7 +12,7 @@ class update
 		}
 
 		$query  = "UPDATE iban SET $set WHERE iban.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'ipg');
+		$result = \dash\db::query($query, 'shaparak');
 		return $result;
 	}
 
