@@ -18,7 +18,7 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::that(). '/add');
 
-		$dataTable = \lib\app\ipg\iban\get::my_iban();
+		$dataTable = \lib\app\shaparak\iban\get::my_iban();
 
 		\dash\data::dataTable($dataTable);
 	}

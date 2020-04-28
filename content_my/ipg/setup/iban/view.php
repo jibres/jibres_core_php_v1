@@ -13,7 +13,7 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-		$ibanDetail = \lib\app\ipg\iban\get::my_default_iban();
+		$ibanDetail = \lib\app\shaparak\iban\get::my_default_iban();
 		\dash\data::ibanDetail($ibanDetail);
 	}
 }

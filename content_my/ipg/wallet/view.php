@@ -18,7 +18,7 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::that(). '/add');
 
-		$dataTable = \lib\app\ipg\wallet\get::my_wallet();
+		$dataTable = \lib\app\shaparak\wallet\get::my_wallet();
 
 		\dash\data::dataTable($dataTable);
 	}

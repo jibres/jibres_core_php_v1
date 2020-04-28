@@ -13,7 +13,7 @@ class model
 			'card'  => \dash\request::post('card'),
 		];
 
-		\lib\app\ipg\iban\set::add_new_iban($post);
+		\lib\app\shaparak\iban\set::add_new_iban($post);
 
 		if(\dash\engine\process::status())
 		{

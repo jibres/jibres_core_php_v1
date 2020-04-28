@@ -12,7 +12,7 @@ class model
 			'card'  => \dash\request::post('card'),
 		];
 
-		\lib\app\ipg\iban\set::user_default_iban($post);
+		\lib\app\shaparak\iban\set::user_default_iban($post);
 
 		if(\dash\engine\process::status())
 		{

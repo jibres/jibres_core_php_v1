@@ -27,7 +27,7 @@ class model
 			'phone'                 => \dash\request::post('phone'),
 		];
 
-		\lib\app\ipg\profile\set::user_set($post);
+		\lib\app\shaparak\profile\set::user_set($post);
 
 		if(\dash\engine\process::status())
 		{

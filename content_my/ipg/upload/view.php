@@ -13,7 +13,7 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-		$profileDetail = \lib\app\ipg\profile\get::my_profile();
+		$profileDetail = \lib\app\shaparak\profile\get::my_profile();
 		\dash\data::profileDetail($profileDetail);
 	}
 }

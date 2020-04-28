@@ -11,7 +11,7 @@ class model
 			'title' => \dash\request::post('title'),
 		];
 
-		\lib\app\ipg\wallet\set::add_new_wallet($post);
+		\lib\app\shaparak\wallet\set::add_new_wallet($post);
 
 		if(\dash\engine\process::status())
 		{

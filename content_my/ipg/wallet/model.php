@@ -12,7 +12,7 @@ class model
 			'card'  => \dash\request::post('card'),
 		];
 
-		\lib\app\ipg\wallet\set::user_default_wallet($post);
+		\lib\app\shaparak\wallet\set::user_default_wallet($post);
 
 		if(\dash\engine\process::status())
 		{

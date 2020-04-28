@@ -26,7 +26,7 @@ class model
 
 			if(!empty($post))
 			{
-				\lib\app\ipg\profile\set::user_set($post);
+				\lib\app\shaparak\profile\set::user_set($post);
 			}
 			else
 			{
