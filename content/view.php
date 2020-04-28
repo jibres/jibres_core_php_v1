@@ -37,7 +37,7 @@ class view
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-en-3.jpg');
 		if(\dash\url::tld() === 'ir')
 		{
-			\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-fa-3.jpg');
+			\dash\face::cover(\dash\url::cdn(). '/img/cover/ir/Jibres-cover-fa-3.jpg');
 		}
 
 
