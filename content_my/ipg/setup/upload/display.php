@@ -13,8 +13,8 @@
         <div class="input">
           <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalpic" data-max="1000" id="nationalpic1">
         </div>
-        <?php if(\dash\data::profileDetail_pre_nationalpic()) {?>
-          <img src="<?php echo \dash\data::profileDetail_pre_nationalpic(); ?>" class="box200">
+        <?php if(\dash\data::profileDetail_nationalpic()) {?>
+          <img src="<?php echo \dash\data::profileDetail_nationalpic(); ?>" class="box200">
         <?php } //endif ?>
 
 
@@ -22,8 +22,8 @@
         <div class="input">
           <input type="file" accept="image/gif, image/jpeg, image/png" name="shpic" data-max="1000" id="shpic1">
         </div>
-        <?php if(\dash\data::profileDetail_pre_shpic()) {?>
-          <img src="<?php echo \dash\data::profileDetail_pre_shpic(); ?>" class="box200">
+        <?php if(\dash\data::profileDetail_shpic()) {?>
+          <img src="<?php echo \dash\data::profileDetail_shpic(); ?>" class="box200">
         <?php } //endif ?>
 
       </div>

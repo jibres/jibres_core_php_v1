@@ -7,7 +7,7 @@
  <section>
   <div class="f">
    <div class="c"><a class="item <?php if(\dash\data::profileDetail()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setup/profile"><?php echo T_('Complete profile');?></a></div>
-   <div class="c"><a class="item <?php if(\dash\data::profileDetail_pre_nationalpic()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setup/upload"><?php echo T_('Upload Document');?></a></div>
+   <div class="c"><a class="item <?php if(\dash\data::profileDetail_nationalpic()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setup/upload"><?php echo T_('Upload Document');?></a></div>
    <div class="c"><a class="item <?php if(\dash\data::ibanDetail()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setup/iban"><?php echo T_('IBAN');?></a></div>
    <div class="c"><a class="item <?php if(\dash\data::gatewayDetail()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setup/gateway"><?php echo T_('Gateway detail');?></a></div>
    <div class="c"><a class="item <?php if(\dash\data::setupGuide_splash()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/setup/verify"><?php echo T_('Verify');?></a></div>
