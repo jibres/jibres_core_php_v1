@@ -6,7 +6,7 @@ class init_gateway
 {
 	public static function run($_shop_id)
 	{
-		return;
+
 		$load_shop = \lib\db\shaparak\shop\get::by_id($_shop_id);
 		if(!isset($load_shop['user_id']))
 		{
@@ -23,20 +23,24 @@ class init_gateway
 
 		$load_ibans = \lib\db\shaparak\iban\get::by_user_id($load_shop['user_id']);
 
-
 		$load_acceptor = \lib\db\shaparak\acceptor\get::by_user_id($load_shop['user_id']);
 		if(!isset($load_acceptor['id']))
 		{
-			$new_acceptor =
-			[
-			];
+			$load_acceptor = \lib\app\shaparak\acceptor\add::new_acceptor($load_shop['user_id']);
 		}
-		var_dump($load_acceptor);exit();
 
-		var_dump($load_ibans);
-		var_dump($load_customer);
-		var_dump($load_shop);
-		var_dump($_shop_id);exit();
+		$load_terminal = \lib\db\shaparak\terminal\get::by_user_id($load_shop['user_id']);
+		if(!isset($load_terminal['id']))
+		{
+			$load_terminal = \lib\app\shaparak\terminal\add::new_terminal($load_shop['user_id']);
+		}
+
+		$load_contract = \lib\db\shaparak\contract\get::by_user_id($load_shop['user_id']);
+		if(!isset($load_contract['id']))
+		{
+			$load_contract = \lib\app\shaparak\contract\add::new_contract($load_shop['user_id']);
+		}
+
 
 		// $result = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $_load_contract);
 
