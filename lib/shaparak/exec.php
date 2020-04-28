@@ -3,6 +3,9 @@ namespace lib\shaparak;
 
 class exec
 {
+	private static $response_raw_detail = null;
+
+
 	private static function go($_request, $_url)
 	{
 		// set headers
@@ -23,24 +26,34 @@ class exec
 		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); // 20 time out of nic-broker
-		curl_setopt($ch, CURLOPT_TIMEOUT, 20); // 20 time out of nic-broker
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2); // 20 time out of nic-broker
+		curl_setopt($ch, CURLOPT_TIMEOUT, 2); // 20 time out of nic-broker
 
-		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POST, false);
 		// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, mb_strtoupper($_method));
 		//The URL to fetch.
 		curl_setopt($ch, CURLOPT_URL, $_url);
 
+		$postfields = json_encode($_request, JSON_UNESCAPED_UNICODE);
 
 		//The full data to post in a HTTP "POST" operation.
-		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($_request, JSON_UNESCAPED_UNICODE));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
 
 		// grab URL and pass it to the browser
 		$response = curl_exec($ch);
 
 		$CurlError = curl_error($ch);
 
+		self::$response_raw_detail =
+		[
+			'response' => $response,
+			'code'     => curl_getinfo($ch, CURLINFO_HTTP_CODE),
+			'header'   => curl_getinfo($ch, CURLINFO_HEADER_OUT),
+			'info'     => curl_getinfo($ch),
+		];
+
 		curl_close ($ch);
+
 
 		if($response && !is_string($response))
 		{
@@ -50,8 +63,6 @@ class exec
 		}
 
 
-		self::$response_raw = $response;
-
 		if($response === false)
 		{
 			// echo Errors
@@ -60,6 +71,12 @@ class exec
 
 			// \dash\notif::error(curl_error($ch));
 			return false;
+		}
+
+		$first_char = substr($response, 0, 1);
+		if($response && ($first_char === "{" || $first_char === "["))
+		{
+			$response = json_decode($response, true);
 		}
 
 

@@ -43,14 +43,14 @@ class init_gateway
 
 
 
-		$load_shop = \lib\app\shaparak\shop\ready::for_shaparak($load_shop);
+		$load_shop     = \lib\app\shaparak\shop\ready::for_shaparak($load_shop);
 		$load_customer = \lib\app\shaparak\profile\ready::for_shaparak($load_customer);
-		$load_ibans = array_map(['\\lib\\app\\shaparak\\iban\\ready', 'for_shaparak'], $load_ibans);
+		$load_ibans    = array_map(['\\lib\\app\\shaparak\\iban\\ready', 'for_shaparak'], $load_ibans);
 		$load_acceptor = \lib\app\shaparak\acceptor\ready::for_shaparak($load_acceptor);
 		$load_terminal = \lib\app\shaparak\terminal\ready::for_shaparak($load_terminal);
 		$load_contract = \lib\app\shaparak\contract\ready::for_shaparak($load_contract);
 
-		$result = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $load_contract);
+		$result        = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $load_contract);
 
 
 
@@ -105,16 +105,11 @@ class init_gateway
 
 		$send['description']             = null;
 
-		var_dump($send);exit();
+		$send = [$send];
 
-		$result = \lib\pardakhtyar\start::request($send, $_id);
+		$result = \lib\shaparak\exec::run($send, 5);
 
-		return \lib\pardakhtyar\app\shaparak\request::analyze_result($result, $_id);
-	}
-
-	private static function contract($_shop_id)
-	{
-
+		return $result;
 	}
 
 }
