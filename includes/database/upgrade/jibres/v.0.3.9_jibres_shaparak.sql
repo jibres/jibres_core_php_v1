@@ -198,7 +198,7 @@ PRIMARY KEY (`id`)
 
 
 
-CREATE TABLE IF NOT EXISTS jibres_shaparak.merchantIbans (
+CREATE TABLE IF NOT EXISTS jibres_shaparak.iban (
 `id`				bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `user_id` 			int(10) UNSIGNED NOT NULL,
 
