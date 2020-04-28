@@ -31,7 +31,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/upload');
+			\dash\redirect::pwd();
 		}
 	}
 }

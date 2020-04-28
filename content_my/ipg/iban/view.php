@@ -13,8 +13,14 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-		$ibanDetail = \lib\app\ipg\iban\get::my_default_iban();
-		\dash\data::ibanDetail($ibanDetail);
+		// btn
+		\dash\data::action_text(T_('Add new IBAN'));
+		\dash\data::action_icon('plus');
+		\dash\data::action_link(\dash\url::that(). '/add');
+
+		$dataTable = \lib\app\ipg\iban\get::my_iban();
+
+		\dash\data::dataTable($dataTable);
 	}
 }
 ?>

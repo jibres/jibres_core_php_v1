@@ -34,7 +34,7 @@ class model
 			}
 
 
-			\dash\redirect::to(\dash\url::this(). '/iban');
+			\dash\redirect::pwd();
 		}
 	}
 }
