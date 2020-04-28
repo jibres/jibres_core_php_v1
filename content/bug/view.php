@@ -12,6 +12,8 @@ class view extends \content_support\ticket\contact_ticket\view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-bug-1.jpg');
+
 		self::codeurl();
 	}
 }

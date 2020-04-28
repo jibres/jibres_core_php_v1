@@ -8,6 +8,9 @@ class view
 	{
 		\dash\face::title(T_('Jibres Team'));
 		\dash\face::desc("We are here to build something different. Something new from scratch, that's really cool.");
+
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-team-1.jpg');
+
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
