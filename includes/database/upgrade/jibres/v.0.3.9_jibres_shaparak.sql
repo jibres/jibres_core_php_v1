@@ -3,51 +3,94 @@ CREATE DATABASE IF NOT EXISTS `jibres_shaparak` DEFAULT CHARACTER SET utf8mb4 CO
 USE `jibres_shaparak`;
 
 
+
+CREATE TABLE IF NOT EXISTS jibres_shaparak.wallet (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`user_id` int(10) UNSIGNED NOT NULL,
+`title` varchar(100) NULL DEFAULT NULL,
+`color` varchar(100) NULL DEFAULT NULL,
+`status` enum('enable', 'disable', 'deleted') NULL DEFAULT NULL,
+`master` bit(1) NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `wallet_index_search_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+
+
 CREATE TABLE IF NOT EXISTS jibres_shaparak.customer (
 `id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-`user_id`					int(10) unsigned DEFAULT NULL,
-`creator`					int(10) unsigned DEFAULT NULL,
-`trackingNumber`			varchar(50) NULL DEFAULT NULL,
-`trackingNumberPsp`			varchar(50) NULL DEFAULT NULL,
-`requestType`				varchar(50) NULL DEFAULT NULL,
-`status`					varchar(50) NULL DEFAULT NULL,
-`createby` 					varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`firstNameFa` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`lastNameFa` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`fatherNameFa` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`firstNameEn` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`lastNameEn` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`fatherNameEn` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`gender` 					smallint(2) NULL DEFAULT NULL,
-`birthDate`					date NULL DEFAULT NULL,
-`registerDate` 				date NULL DEFAULT NULL,
-`nationalCode` 				char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`registerNumber` 			varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`comNameFa` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`comNameEn` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`merchantType` 				smallint(2) NULL DEFAULT NULL,
-`residencyType` 			smallint(2) NULL DEFAULT NULL,
-`vitalStatus` 				smallint(2) NULL DEFAULT NULL,
-`birthCrtfctNumber` 		varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`birthCrtfctSerial` 		char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`birthCrtfctSeriesLetter` 	smallint(2) NULL DEFAULT NULL,
-`birthCrtfctSeriesNumber` 	smallint(2) NULL DEFAULT NULL,
-`nationalLegalCode` 		char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`commercialCode` 			varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`countryCode` 				char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`foreignPervasiveCode` 		varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`passportNumber` 			varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`passportExpireDate` 		date NULL DEFAULT NULL,
-`Description` 				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`telephoneNumber` 			varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`cellPhoneNumber` 			char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`emailAddress` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`webSite` 					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`fax` 						varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`datecreated`				timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified`				timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+`user_id`					int(10) unsigned NOT NULL,
+
+`pre_firstname` varchar(100) NULL DEFAULT NULL,
+`pre_lastname` varchar(100) NULL DEFAULT NULL,
+`pre_father` varchar(100) NULL DEFAULT NULL,
+`pre_birthdate` date NULL DEFAULT NULL,
+
+
+
+`nationality` varchar(100) NULL DEFAULT NULL,
+`passportpic` varchar(300) NULL DEFAULT NULL,
+`nationalpic` varchar(300) NULL DEFAULT NULL,
+`shpic` varchar(300) NULL DEFAULT NULL,
+`verifypic` varchar(300) NULL DEFAULT NULL,
+`lock` bit(1) NULL DEFAULT NULL,
+`actionstatus` enum('active', 'pending', 'deactive', 'block', 'error') NULL DEFAULT NULL,
+
+
+`trackingNumber`			varchar(100) NULL DEFAULT NULL, -- varchar(50)
+`trackingNumberPsp`			varchar(100) NULL DEFAULT NULL, -- varchar(50)
+`requestType`				varchar(100) NULL DEFAULT NULL, -- varchar(50)
+`status`					varchar(100) NULL DEFAULT NULL, -- varchar(50)
+`createby` 					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`firstNameFa` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`lastNameFa` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`fatherNameFa` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`firstNameEn` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`lastNameEn` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`fatherNameEn` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`gender` 					smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`birthDate`					varchar(100) NULL DEFAULT NULL, -- date
+`registerDate` 				varchar(100) NULL DEFAULT NULL, -- date
+`nationalCode` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(10)
+`registerNumber` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`comNameFa` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`comNameEn` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`merchantType` 				smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`residencyType` 			smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`vitalStatus` 				smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`birthCrtfctNumber` 		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(10)
+`birthCrtfctSerial` 		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(6)
+`birthCrtfctSeriesLetter` 	smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`birthCrtfctSeriesNumber` 	smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`nationalLegalCode` 		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(11)
+`commercialCode` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`countryCode` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(2)
+`foreignPervasiveCode` 		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`passportNumber` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`passportExpireDate` 		varchar(100) NULL DEFAULT NULL, -- date
+`Description` 				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(255)
+`telephoneNumber` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(12)
+`cellPhoneNumber` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(11)
+`emailAddress` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(100)
+`webSite` 					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(100)
+`fax` 						varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(12)
+
+`fix_birthDate`				date NULL DEFAULT NULL,
+
+
+`datecreated`				timestamp NULL DEFAULT NULL,
+`datemodified`				timestamp NULL DEFAULT NULL,
+
+KEY `customer_index_search_user_id` (`user_id`),
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 
 
 
@@ -55,34 +98,44 @@ PRIMARY KEY (`id`)
 CREATE TABLE IF NOT EXISTS jibres_shaparak.shop (
 `id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `user_id`					int(10) unsigned DEFAULT NULL,
-`creator`					int(10) unsigned DEFAULT NULL,
-`customer_id`				bigint(20) unsigned DEFAULT NULL,
-`farsiName`					varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`englishName`				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`telephoneNumber`			varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`postalCode`				char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`businessCertificateNumber`	varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`certificateIssueDate`		datetime NULL DEFAULT NULL,
-`certificateExpiryDate`		datetime NULL DEFAULT NULL,
-`Description`				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`businessCategoryCode`		char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`businessSubCategoryCode`	varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`ownershipType`				smallint(2) NULL DEFAULT NULL,
-`rentalContractNumber`		varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`rentalExpiryDate`			datetime NULL DEFAULT NULL,
-`Address`					varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`countryCode`				char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`provinceCode`				char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`cityCode`					char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`businessType`				smallint(2) NULL DEFAULT NULL,
-`etrustCertificateType`		smallint(2) NULL DEFAULT NULL,
-`etrustCertificateIssueDate` datetime NULL DEFAULT NULL,
-`etrustCertificateExpiryDate` datetime NULL DEFAULT NULL,
-`emailAddress`				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`websiteAddress`			varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`datecreated`				timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified`				timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-CONSTRAINT `shop_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+
+`title` varchar(100) NULL DEFAULT NULL,
+`wallet_id` int(10) UNSIGNED NULL,
+`apikey` varchar(100) NULL DEFAULT NULL,
+`logo` varchar(20) NULL DEFAULT NULL,
+`status` enum('enable', 'disable', 'deleted', 'lock', 'reject', 'pending', 'blocked', 'error') NULL DEFAULT NULL,
+`precategory` varchar(200) NULL DEFAULT NULL,
+
+
+`farsiName`					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`englishName`				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`telephoneNumber`			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(12)
+`postalCode`				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(10)
+`businessCertificateNumber`	varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`certificateIssueDate`		varchar(100) NULL DEFAULT NULL, -- datetime -- varchar(100)
+`certificateExpiryDate`		varchar(100) NULL DEFAULT NULL, -- datetime -- varchar(100)
+`Description`				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(255)
+`businessCategoryCode`		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(4)
+`businessSubCategoryCode`	varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(4)
+`ownershipType`				smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`rentalContractNumber`		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`rentalExpiryDate`			varchar(100) NULL DEFAULT NULL, -- datetime -- varchar(100)
+`Address`					varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(255)
+`countryCode`				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(2)
+`provinceCode`				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(3)
+`cityCode`					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(6)
+`businessType`				smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`etrustCertificateType`		smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`etrustCertificateIssueDate` varchar(100) NULL DEFAULT NULL, -- datetime -- varchar(100)
+`etrustCertificateExpiryDate` varchar(100) NULL DEFAULT NULL, -- datetime -- varchar(100)
+`emailAddress`				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(255)
+`websiteAddress`			varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(255)
+`datecreated`				timestamp NULL DEFAULT NULL,
+`datemodified`				timestamp NULL DEFAULT NULL,
+
+CONSTRAINT `shop_wallet_id` FOREIGN KEY (`wallet_id`) REFERENCES `wallet` (`id`) ON UPDATE CASCADE,
+KEY `shop_index_search_user_id` (`user_id`),
+KEY `shop_index_search_apikey` (`apikey`),
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -91,18 +144,17 @@ PRIMARY KEY (`id`)
 CREATE TABLE IF NOT EXISTS jibres_shaparak.acceptor (
 `id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `user_id`					int(10) unsigned DEFAULT NULL,
-`creator`					int(10) unsigned DEFAULT NULL,
-`customer_id`				bigint(20) unsigned DEFAULT NULL,
-`iin`						varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`acceptorCode`				char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`acceptorType`				smallint(2) NULL DEFAULT NULL,
-`facilitatorAcceptorCode`	char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+
+`iin`						varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(9)
+`acceptorCode`				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(15)
+`acceptorType`				smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`facilitatorAcceptorCode`	varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(15)
 `cancelable`				bit(1) NULL DEFAULT NULL,
 `refundable`				bit(1) NULL DEFAULT NULL,
 `blockable`					bit(1) NULL DEFAULT NULL,
 `chargeBackable`			bit(1) NULL DEFAULT NULL,
 `settledSeparately`			bit(1) NULL DEFAULT NULL,
-`allowScatteredSettlement`	smallint(2) NULL DEFAULT NULL,
+`allowScatteredSettlement`	smallint(5) NULL DEFAULT NULL, -- smallint(2)
 `acceptCreditCardTransaction` bit(1) NULL DEFAULT NULL,
 `allowIranianProductsTrx`	bit(1) NULL DEFAULT NULL,
 `allowKaraCardTrx`			bit(1) NULL DEFAULT NULL,
@@ -115,9 +167,9 @@ CREATE TABLE IF NOT EXISTS jibres_shaparak.acceptor (
 `allowAmericanExpressTrx`	bit(1) NULL DEFAULT NULL,
 `allowOtherInternationaCardsTrx` bit(1) NULL DEFAULT NULL,
 `Description`				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`datecreated`				timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified`				timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-CONSTRAINT `acceptor_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+`datecreated`				timestamp NULL DEFAULT NULL,
+`datemodified`				timestamp NULL DEFAULT NULL,
+KEY `acceptor_index_search_user_id` (`user_id`),
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -126,23 +178,20 @@ PRIMARY KEY (`id`)
 CREATE TABLE IF NOT EXISTS jibres_shaparak.terminal (
 `id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `user_id`					int(10) unsigned DEFAULT NULL,
-`creator`					int(10) unsigned DEFAULT NULL,
-`customer_id`				bigint(20) unsigned DEFAULT NULL,
 `sequence` 					bigint(20) NULL DEFAULT NULL,
-`terminalNumber` 			char(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`terminalType` 				smallint(2) NULL DEFAULT NULL,
-`serialNumber` 				varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`terminalNumber` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- char(8)
+`terminalType` 				smallint(5) NULL DEFAULT NULL, -- smallint(2)
+`serialNumber` 				varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
 `setupDate` 				datetime NULL DEFAULT NULL,
-`hardwareBrand` 			varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`hardwareModel` 			varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`accessAddress` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`hardwareBrand` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`hardwareModel` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(50)
+`accessAddress` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(100)
 `accessPort` 				int(5) NULL DEFAULT NULL,
-`callbackAddress` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`callbackAddress` 			varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(100)
 `callbackPort` 				int(5) NULL DEFAULT NULL,
 `Description`				varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`datecreated`				timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified`				timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-CONSTRAINT `terminal_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+`datecreated`				timestamp NULL DEFAULT NULL,
+`datemodified`				timestamp NULL DEFAULT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -151,15 +200,17 @@ PRIMARY KEY (`id`)
 
 CREATE TABLE IF NOT EXISTS jibres_shaparak.merchantIbans (
 `id`				bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-`user_id`			int(10) unsigned DEFAULT NULL,
-`creator`			int(10) unsigned DEFAULT NULL,
-`customer_id`		bigint(20) unsigned DEFAULT NULL,
-`merchantIban` 		varchar(34) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`user_id` 			int(10) UNSIGNED NOT NULL,
+
+`title` varchar(200) NULL DEFAULT NULL,
+`bank` varchar(100) NULL DEFAULT NULL,
+`isdefault` bit(1) NULL DEFAULT NULL,
+`status` enum('enable', 'expire', 'pending', 'deleted', 'block', 'error') NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+
+`merchantIban` 		varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, -- varchar(34)
 `Description`		varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-`datecreated`		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified`		timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-CONSTRAINT `merchantIbans_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
 
