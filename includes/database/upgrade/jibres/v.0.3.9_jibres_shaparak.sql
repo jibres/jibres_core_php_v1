@@ -27,14 +27,31 @@ CREATE TABLE IF NOT EXISTS jibres_shaparak.customer (
 `id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `user_id`					int(10) unsigned NOT NULL,
 
+
+`pre_gender` enum('male', 'female', 'company') NULL DEFAULT NULL,
 `pre_firstname` varchar(100) NULL DEFAULT NULL,
 `pre_lastname` varchar(100) NULL DEFAULT NULL,
 `pre_father` varchar(100) NULL DEFAULT NULL,
 `pre_birthdate` date NULL DEFAULT NULL,
+`pre_firstname_en` varchar(100) NULL DEFAULT NULL,
+`pre_lastname_en` varchar(100) NULL DEFAULT NULL,
+`pre_father_en` varchar(100) NULL DEFAULT NULL,
+`pre_nationality` varchar(100) NULL DEFAULT NULL,
+`pre_passport` varchar(100) NULL DEFAULT NULL,
+`pre_passportexpire` date NULL DEFAULT NULL,
+`pre_nationalcode` varchar(20) NULL DEFAULT NULL,
+`pre_postcode` varchar(20) NULL DEFAULT NULL,
+`pre_phone` varchar(20) NULL DEFAULT NULL,
+
+`pre_company` bit(1) NULL DEFAULT NULL,
+`pre_companyname` varchar(200) NULL DEFAULT NULL,
+`pre_companyname_en` varchar(200) NULL DEFAULT NULL,
+`pre_companyregisternumber` varchar(200) NULL DEFAULT NULL,
+`pre_companynationalid` varchar(200) NULL DEFAULT NULL,
+`pre_companyeconomiccode` varchar(200) NULL DEFAULT NULL,
+`pre_ceonationalcode` varchar(200) NULL DEFAULT NULL,
 
 
-
-`nationality` varchar(100) NULL DEFAULT NULL,
 `passportpic` varchar(300) NULL DEFAULT NULL,
 `nationalpic` varchar(300) NULL DEFAULT NULL,
 `shpic` varchar(300) NULL DEFAULT NULL,

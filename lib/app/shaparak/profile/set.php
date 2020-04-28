@@ -50,6 +50,22 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		// $pre_data['pre_gender']                = $data['gender'];
+		// $pre_data['pre_firstname']             = $data['firstname'];
+		// $pre_data['pre_firstname_en']          = $data['firstname_en'];
+		// $pre_data['pre_lastname']              = $data['lastname'];
+		// $pre_data['pre_lastname_en']           = $data['lastname_en'];
+		// $pre_data['pre_father']                = $data['father'];
+		// $pre_data['pre_father_en']             = $data['father_en'];
+		// $pre_data['pre_nationalcode']          = $data['nationalcode'];
+		// $pre_data['pre_birthdate']             = $data['birthdate'];
+		// $pre_data['pre_companyname']           = $data['companyname'];
+		// $pre_data['pre_companyname_en']        = $data['companyname_en'];
+		// $pre_data['pre_companynationalid']     = $data['companynationalid'];
+		// $pre_data['pre_companyregisternumber'] = $data['companyregisternumber'];
+		// $pre_data['pre_ceonationalcode']       = $data['ceonationalcode'];
+		// $pre_data['pre_phone']                 = $data['phone'];
+
 		$args = \dash\cleanse::patch_mode($_args, $data);
 
 		if($data['type'] === 'legal')
@@ -79,6 +95,25 @@ class set
 		}
 
 		unset($args['type']);
+
+		$my_pre_field =
+		[
+			'gender','firstname','firstname_en','lastname',
+			'lastname_en','father','father_en','nationalcode',
+			'birthdate','companyname','companyname_en',
+			'companynationalid','companyregisternumber',
+			'ceonationalcode','phone', 'company',
+		];
+
+		foreach ($args as $key => $value)
+		{
+			if(in_array($key, $my_pre_field))
+			{
+				$args['pre_'. $key] = $value;
+				unset($args[$key]);
+			}
+		}
+
 
 		$load = \lib\db\shaparak\customer\get::my_detail(\dash\user::id());
 		if(isset($load['user_id']))
