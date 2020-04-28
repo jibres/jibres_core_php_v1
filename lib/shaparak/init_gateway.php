@@ -6,6 +6,7 @@ class init_gateway
 {
 	public static function run($_shop_id)
 	{
+		return;
 		$load_shop = \lib\db\shaparak\shop\get::by_id($_shop_id);
 		if(!isset($load_shop['user_id']))
 		{
@@ -23,6 +24,15 @@ class init_gateway
 		$load_ibans = \lib\db\shaparak\iban\get::by_user_id($load_shop['user_id']);
 
 
+		$load_acceptor = \lib\db\shaparak\acceptor\get::by_user_id($load_shop['user_id']);
+		if(!isset($load_acceptor['id']))
+		{
+			$new_acceptor =
+			[
+			];
+		}
+		var_dump($load_acceptor);exit();
+
 		var_dump($load_ibans);
 		var_dump($load_customer);
 		var_dump($load_shop);
@@ -37,7 +47,7 @@ class init_gateway
 	public static function send($_merchant, $_ibans, $_shop, $_acceptor, $_contract)
 	{
 
-		$merchant = $_merchant
+		$merchant = $_merchant;
 
 
 		$merchantIbans = [];

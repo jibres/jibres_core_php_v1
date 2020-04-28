@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\lib\shaparak\init_gateway::run(1);
+
 		\dash\face::title(T_('Internet Payment Gateway'));
 
 		\dash\data::loadScript('/js/chart/my/ipg_home.js');
