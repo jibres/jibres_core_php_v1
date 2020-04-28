@@ -10,7 +10,7 @@
                 <th><?php echo T_("Title"); ?></th>
                 <th><?php echo T_("Bank"); ?></th>
                 <th><?php echo T_("IBAN"); ?></th>
-                <th><?php echo T_("Card"); ?></th>
+
                 <th class="collapsing"><?php echo T_("Date"); ?></th>
             </thead>
             <tbody>
@@ -18,8 +18,8 @@
                 <tr>
                     <td><?php echo \dash\get::index($value, 'title'); ?></td>
                     <td><?php echo \dash\get::index($value, 'bank'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'iban'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'card'); ?></td>
+                    <td><?php echo \dash\get::index($value, 'merchantIban'); ?></td>
+
 
                     <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
                 </tr>

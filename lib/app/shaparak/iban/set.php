@@ -77,7 +77,7 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$check_duplicate_ibann = \lib\db\shaparak\iban\get::check_duplicate_ibann($data['iban'], \dash\user::id());
+		$check_duplicate_ibann = \lib\db\shaparak\iban\get::check_duplicate_ibann($data['merchantIban'], \dash\user::id());
 
 		if(isset($check_duplicate_ibann['id']))
 		{

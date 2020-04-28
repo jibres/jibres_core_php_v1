@@ -15,10 +15,6 @@
             <input type="text" name="iban" placeholder="IR000000000000000000000000"  id="iiban"  maxlength="26" required>
           </div>
 
-          <label for="icard"><?php echo T_("Card number"); ?></label>
-          <div class="input ltr">
-            <input type="text" name="card" id="icard"   maxlength="20" data-format='card'>
-          </div>
       </div>
 
       <footer class="txtRa">

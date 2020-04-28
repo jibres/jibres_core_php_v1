@@ -9,8 +9,7 @@ class model
 		$post =
 		[
 			'title' => \dash\request::post('title'),
-			'iban'  => \dash\request::post('iban'),
-			'card'  => \dash\request::post('card'),
+			'merchantIban'  => \dash\request::post('iban'),
 		];
 
 		\lib\app\shaparak\iban\set::add_new_iban($post);
