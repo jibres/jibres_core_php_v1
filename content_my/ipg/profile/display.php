@@ -13,7 +13,7 @@
 
       <div class="body">
 
-        <?php if(\dash\request::get('type') === 'real') {?>
+        <?php if(!\dash\data::profileDetail_company()) {?>
 
           <div class="f mB10">
             <div class="c pRa5">
@@ -95,7 +95,7 @@
         <?php } //endif ?>
 
 
-        <?php if(\dash\request::get('type') === 'legal') {?>
+        <?php if(\dash\data::profileDetail_company()) {?>
 
 
           <div class="f">

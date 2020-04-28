@@ -64,6 +64,22 @@
 
   <div class="c3 s12">
 
+      <nav class="items">
+      <ul>
+        <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/gateway/add">
+            <div class="key"><?php echo T_('New gateway');?></div>
+            <div class="go next"></div>
+          </a>
+        </li>
+        <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/wallet/add">
+            <div class="key"><?php echo T_('New wallet');?></div>
+            <div class="go next"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
 
 
@@ -119,12 +135,22 @@
   </div>
 </div>
 
-
+<?php if(false) {?>
 <div class="hide">
   <div id="charttitle"><?php echo T_("Total pay per day"); ?></div>
   <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'categories'); ?></div>
   <div id="chartprice"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'price'); ?></div>
   <div id="charttitleprice"><?php echo T_("Toman"); ?></div>
   <div id="charttitlepayed"><?php echo T_("Payed"); ?></div>
+
+</div>
+<?php } //endif ?>
+
+<div class="hide">
+  <div id="charttitle">جمع مبلغ قابل پرداخت‌شده به تفکیک روز</div>
+  <div id="chartcategory">["۱۳۹۹-۰۱-۱۳","۱۳۹۹-۰۱-۱۴","۱۳۹۹-۰۱-۱۵","۱۳۹۹-۰۱-۱۶","۱۳۹۹-۰۱-۱۷","۱۳۹۹-۰۱-۱۸","۱۳۹۹-۰۱-۱۹","۱۳۹۹-۰۱-۲۰","۱۳۹۹-۰۱-۲۱","۱۳۹۹-۰۱-۲۲","۱۳۹۹-۰۱-۲۳","۱۳۹۹-۰۱-۲۴","۱۳۹۹-۰۱-۲۵","۱۳۹۹-۰۱-۲۶","۱۳۹۹-۰۱-۲۷","۱۳۹۹-۰۱-۲۸","۱۳۹۹-۰۱-۲۹","۱۳۹۹-۰۱-۳۰","۱۳۹۹-۰۱-۳۱","۱۳۹۹-۰۲-۰۱","۱۳۹۹-۰۲-۰۲","۱۳۹۹-۰۲-۰۳","۱۳۹۹-۰۲-۰۴","۱۳۹۹-۰۲-۰۵","۱۳۹۹-۰۲-۰۶","۱۳۹۹-۰۲-۰۷","۱۳۹۹-۰۲-۰۸","۱۳۹۹-۰۲-۰۹"]</div>
+  <div id="chartprice">[0,0,0,0,0,5000,0,7400,0,15000,0,9000,12000,18000,0,27000,0,0,16000,0,17000,0,3000,0,9000,0,0,0]</div>
+  <div id="charttitleprice">تومان</div>
+  <div id="charttitlepayed">پرداخت شده</div>
 
 </div>

@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_('Gateway detail'));
 
-		\content_my\ipg\stepGuide::set();
+
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
