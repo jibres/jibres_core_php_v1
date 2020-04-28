@@ -23,7 +23,7 @@ class get
 
 	public static function check_duplicate_ibann($_iban, $_user_id)
 	{
-		$query  = "SELECT *  FROM iban WHERE iban.user_id = $_user_id AND iban.iban = '$_iban' AND iban.status != 'deleted' LIMIT 1";
+		$query  = "SELECT *  FROM iban WHERE iban.user_id = $_user_id AND iban.merchantIban = '$_iban' AND iban.status != 'deleted' LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'shaparak');
 		return $result;
 	}

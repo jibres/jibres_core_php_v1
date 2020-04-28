@@ -9,13 +9,9 @@
       <div class="body">
           <label for="iiban"><?php echo T_("IBAN"); ?></label>
           <div class="input ltr">
-            <input type="text" name="iban" placeholder="IR000000000000000000000000" value="<?php echo \dash\data::ibanDetail_iban(); ?>" id="iiban"  maxlength="26" required>
+            <input type="text" name="iban" placeholder="IR000000000000000000000000" value="<?php echo \dash\data::ibanDetail_merchantIban(); ?>" id="iiban"  maxlength="26" required>
           </div>
 
-          <label for="icard"><?php echo T_("Card number"); ?></label>
-          <div class="input ltr">
-            <input type="text" name="card" value="<?php echo \dash\data::ibanDetail_card(); ?>" id="icard"   maxlength="20">
-          </div>
       </div>
 
       <footer class="txtRa">

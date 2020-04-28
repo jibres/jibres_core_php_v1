@@ -8,8 +8,7 @@ class model
 	{
 		$post =
 		[
-			'iban' => \dash\request::post('iban'),
-			'card'  => \dash\request::post('card'),
+			'merchantIban' => \dash\request::post('iban'),
 		];
 
 		\lib\app\shaparak\iban\set::user_default_iban($post);

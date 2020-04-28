@@ -16,11 +16,10 @@ class set
 		$condition =
 		[
 
-			'card'  => 'string_50',
-			'iban' => 'iban',
+			'merchantIban' => 'iban',
 		];
 
-		$require = ['iban'];
+		$require = ['merchantIban'];
 
 		$meta =	[];
 
@@ -33,13 +32,13 @@ class set
 
 		if(isset($load['id']))
 		{
-			$args['status']       = 'pending';
 			$args['datemodified'] = date("Y-m-d H:i:s");
 			\lib\db\shaparak\iban\update::update($args, $load['id']);
 		}
 		else
 		{
 			$args['isdefault']   = 1;
+			$args['status']      = 'pending';
 			$args['user_id']     = \dash\user::id();
 			$args['datecreated'] = date("Y-m-d H:i:s");
 			\lib\db\shaparak\iban\insert::new_record($args);
@@ -69,11 +68,10 @@ class set
 		$condition =
 		[
 			'title' => 'string_50',
-			'card'  => 'string_50',
-			'iban'  => 'iban',
+			'merchantIban'  => 'iban',
 		];
 
-		$require = ['iban'];
+		$require = ['merchantIban'];
 
 		$meta =	[];
 
