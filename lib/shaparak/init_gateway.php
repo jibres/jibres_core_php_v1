@@ -6,7 +6,7 @@ class init_gateway
 {
 	public static function run($_shop_id)
 	{
-		// return;
+		return;
 		$load_shop = \lib\db\shaparak\shop\get::by_id($_shop_id);
 		if(!isset($load_shop['user_id']))
 		{
