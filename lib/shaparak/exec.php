@@ -122,11 +122,53 @@ class exec
 	}
 
 
-	public static function run($_request, $_type)
+	public static function run($_request, $_meta = [])
 	{
 		$url = self::addr('write');
 
+		$save_log                = [];
+
+		$save_log['user_id']     =  \dash\user::id();
+		$save_log['datecreated'] =  date("Y-m-d H:i:s");
+		$save_log['sendmd5']     =  md5(json_encode($_request, JSON_UNESCAPED_UNICODE));
+		$save_log['send']        =  json_encode($_request, JSON_UNESCAPED_UNICODE);
+		$save_log['url']         =  $url;
+		$save_log['sendtime']    =  time();
+		$save_log['related']     =  isset($meta['related']) ? $meta['related'] : null;
+		$save_log['related_id']  =  isset($meta['related_id']) ? $meta['related_id'] : null;
+
+		if(isset($_request['trackingNumberPsp']))
+		{
+			$save_log['trackingNumberPsp'] = $_request['trackingNumberPsp'];
+		}
+
+		// ************************** SEND DETAIL TO SHAPARAK ****************************/
 		$response = self::go($_request, $url);
+
+
+		if(isset($response['trackingNumber']))
+		{
+			$save_log['trackingNumber'] = $response['trackingNumber'];
+		}
+
+		if(isset($response['requestRejectionReasons']))
+		{
+			$save_log['requestRejectionReasons'] = $response['requestRejectionReasons'];
+		}
+
+		if(isset($response['success']))
+		{
+			$save_log['success'] = $response['success'];
+		}
+
+
+		$save_log['responsemd5']  =  md5(json_encode($response, JSON_UNESCAPED_UNICODE));
+		$save_log['response']     =  json_encode($response, JSON_UNESCAPED_UNICODE);
+		$save_log['responsetime'] =  time();
+
+		$save_log['diff'] = time() - intval($save_log['sendtime']);
+
+		\lib\db\shaparak\log\insert::new_record($save_log);
 
 		return $response;
 	}

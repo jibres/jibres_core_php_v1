@@ -20,16 +20,19 @@ CREATE TABLE IF NOT EXISTS jibres_shaparak_log.request (
 `sendtime`					int(10) unsigned NULL DEFAULT NULL,
 `responsetime`				int(10) unsigned NULL DEFAULT NULL,
 `diff`						int(10) unsigned NULL DEFAULT NULL,
+`related`					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`related_id`				bigint(20) NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE IF NOT EXISTS jibres_shaparak_log.check (
 `id`						bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-`request_id`				bigint(20) unsigned  NULL,
 `user_id`					int(10) unsigned DEFAULT NULL,
+`request_id`				bigint(20) unsigned  NULL,
+`related` 					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`related_id`				bigint(20) NULL,
 `sendmd5`					char(32) NULL DEFAULT NULL,
-`table` 					varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
 `responsemd5`				char(32) NULL DEFAULT NULL,
 `trackingNumber` 			varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
 `trackingNumberPsp` 		varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
