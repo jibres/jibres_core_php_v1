@@ -45,6 +45,26 @@ class ready
 			}
 		}
 
+		if(array_key_exists('accessPort', $result) && !$result['accessPort'])
+		{
+			$result['accessPort'] = '443';
+		}
+
+
+		if(array_key_exists('accessAddress', $result) && !$result['accessAddress'])
+		{
+			$result['accessAddress'] = 'jibres.com';
+		}
+
+		if(array_key_exists('callbackPort', $result) && !$result['callbackPort'])
+		{
+			$result['callbackPort'] = '443';
+		}
+
+		if(array_key_exists('callbackAddress', $result) && !$result['callbackAddress'])
+		{
+			$result['callbackAddress'] = 'jibres.com';
+		}
 
 		return $result;
 	}

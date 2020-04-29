@@ -6,7 +6,7 @@ class init_gateway
 {
 	public static function run($_shop_id)
 	{
-
+		// return;
 		$load_shop = \lib\db\shaparak\shop\get::by_id($_shop_id);
 		if(!isset($load_shop['user_id']))
 		{
@@ -41,8 +41,6 @@ class init_gateway
 			$load_contract = \lib\app\shaparak\contract\add::new_contract($load_shop['user_id']);
 		}
 
-
-
 		$load_shop     = \lib\app\shaparak\shop\ready::for_shaparak($load_shop);
 		$load_customer = \lib\app\shaparak\profile\ready::for_shaparak($load_customer);
 		$load_ibans    = array_map(['\\lib\\app\\shaparak\\iban\\ready', 'for_shaparak'], $load_ibans);
@@ -50,13 +48,13 @@ class init_gateway
 		$load_terminal = \lib\app\shaparak\terminal\ready::for_shaparak($load_terminal);
 		$load_contract = \lib\app\shaparak\contract\ready::for_shaparak($load_contract);
 
-		$result        = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $load_contract);
+		$result        = self::send($load_customer, $load_ibans, $load_shop, $load_acceptor, $load_contract, $load_terminal);
 
 
 
 	}
 
-	public static function send($_merchant, $_ibans, $_shop, $_acceptor, $_contract)
+	public static function send($_merchant, $_ibans, $_shop, $_acceptor, $_contract, $_load_terminal)
 	{
 
 		$merchant = $_merchant;
@@ -88,6 +86,12 @@ class init_gateway
 			\dash\notif::error('acceptor not found');
 			return false;
 		}
+
+		$acceptor['terminals'] = [$_load_terminal];
+
+		$merchantIban = array_column($ibans, 'merchantIban');
+
+		$acceptor['shaparakSettlementIbans'] = $merchantIban;
 
 		$send                            = [];
 		$send['trackingNumberPsp']       = 'Jibres-5-'. date("Y-m-d.H:i:s"). '-'. \dash\coding::encode(rand(1, 9999). rand(1, 9999));

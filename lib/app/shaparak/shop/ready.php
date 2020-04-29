@@ -88,6 +88,80 @@ class ready
 			}
 		}
 
+		if(array_key_exists('businessSubCategoryCode', $result) && !$result['businessSubCategoryCode'])
+		{
+			if(true)
+			{
+				$result['businessSubCategoryCode'] = '0';
+			}
+		}
+
+		if(array_key_exists('businessCategoryCode', $result) && !$result['businessCategoryCode'])
+		{
+			if(true)
+			{
+				$result['businessCategoryCode'] = '4816';
+			}
+		}
+
+
+		if(array_key_exists('telephoneNumber', $result))
+		{
+			if(true)
+			{
+				$result['telephoneNumber'] = '025-36505460';
+			}
+		}
+
+		if(array_key_exists('farsiName', $result) && !$result['farsiName'])
+		{
+			if(isset($_data['title']) && $_data['title'])
+			{
+				$result['farsiName'] = $_data['title'];
+			}
+		}
+
+		if(array_key_exists('englishName', $result) && !$result['englishName'])
+		{
+			if(isset($_data['title']) && $_data['title'])
+			{
+				$result['englishName'] = "Reza market";
+			}
+		}
+
+		if(array_key_exists('postalCode', $result) && !$result['postalCode'])
+		{
+			if(isset($_data['title']) && $_data['title'])
+			{
+				$result['postalCode'] = '3714816445';
+			}
+		}
+
+
+		if(array_key_exists('businessType', $result) && !$result['businessType'])
+		{
+			if(true)
+			{
+				$result['businessType'] = 2; // 0 = physical shop. 1= physical & virtual shop, 2 = virtual shop
+			}
+		}
+
+		if(array_key_exists('ownershipType', $result) && !$result['ownershipType'])
+		{
+			if(true)
+			{
+				$result['ownershipType'] = 0; // 0 = malek. 1 = mostajer
+			}
+		}
+
+
+		if(array_key_exists('countryCode', $result) && !$result['countryCode'])
+		{
+			$result['countryCode'] = "IR";
+		}
+
+		// var_dump($result);exit();
+
 		return $result;
 	}
 }
