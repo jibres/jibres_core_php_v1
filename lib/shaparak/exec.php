@@ -85,7 +85,8 @@ class exec
 	private static function authHeader()
 	{
 		// set header of connection
-		$auth   = base64_encode('926028'. ':'. '123456');
+		// $auth   = base64_encode('926028'. ':'. '123456'); // test api
+		$auth   = base64_encode('rozp_pf'. ':'. '*T#9!b$H%2'); // real api
 		$result = 'Authorization: Basic '. $auth;
 		return $result;
 	}
@@ -93,7 +94,9 @@ class exec
 
 	private static function addr($_path = null)
 	{
-		$addr = 'http://192.168.250.100:9095/merchant/';
+
+		// $addr = 'http://192.168.250.100:9095/merchant/'; // test api
+		$addr = 'https://mms.shaparak.ir/merchant/'; // real api
 
 		if($_path === 'write')
 		{
