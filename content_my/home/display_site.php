@@ -160,19 +160,19 @@ if($listStore_staff && is_array($listStore_staff))
    <nav class="items long">
     <ul>
      <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/business/start">
+      <a class="f" href="<?php if(\dash\get::index($myData, 'complete_profile', 'firststore')){ echo \dash\url::here(). '/business/'; }else{echo \dash\url::here(). '/business/start'; } ?>">
        <div class="key"><?php echo T_('Add Your First Business');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firststore')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
-      <a class="f" href="">
+      <a class="f">
        <div class="key"><?php echo T_('Add Your First Product');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstproduct')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
-      <a class="f" href="">
+      <a class="f">
        <div class="key"><?php echo T_('Sale Your First Invoice');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstorder')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
@@ -183,13 +183,13 @@ if($listStore_staff && is_array($listStore_staff))
    <nav class="items long">
     <ul>
      <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/domain/buy">
+      <a class="f" href="<?php if(\dash\get::index($myData, 'complete_profile', 'firstdomain')){ echo \dash\url::here(). '/domain/search?list=mydomain'; }else{ echo \dash\url::here(). '/domain/buy'; } ?>">
        <div class="key"><?php echo T_('Buy Your First Domain');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstdomain')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
      <li>
-      <a class="f" href="<?php echo \dash\url::here();?>/domain/renew">
+      <a class="f" href="<?php if(\dash\get::index($myData, 'complete_profile', 'firstrenew')){ echo \dash\url::here(). '/domain/search?list=renew'; }else{ echo \dash\url::here(). '/domain/renew'; } ?>">
        <div class="key"><?php echo T_('Renew Your First Domain');?></div>
        <div class="go <?php if(\dash\get::index($myData, 'complete_profile', 'firstrenew')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
