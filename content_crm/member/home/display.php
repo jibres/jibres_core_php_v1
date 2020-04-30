@@ -166,7 +166,7 @@ if(\dash\request::get('status'))
           </div>
         </td>
         <td class="pRa5">
-          <a href="<?php echo \dash\url::this(); ?>/glance?id=<?php echo $value['id']; ?><?php echo $shoLogUrl; ?>"><?php \dash\fit::mobile($value['mobile']); ?></a>
+          <a href="<?php echo \dash\url::this(); ?>/glance?id=<?php echo $value['id']; ?><?php echo $shoLogUrl; ?>"><?php echo \dash\fit::mobile($value['mobile']); ?></a>
         </td>
         <td class="s0 m0 pRa5">
           <a href="<?php echo \dash\url::this(); ?>/glance?id=<?php echo $value['id']; ?><?php echo $shoLogUrl; ?>"><?php echo $value['email']; ?></a>
