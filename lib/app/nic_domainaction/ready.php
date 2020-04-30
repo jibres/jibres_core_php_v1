@@ -28,30 +28,30 @@ class ready
 
 				case 'transaction_id':
 
-					$result['payed'] = null;
+					// $result['payed'] = null;
 
-					if(isset($_transaction_detail[$value]['condition']))
-					{
-						if($_transaction_detail[$value]['condition'] === 'request')
-						{
-							$result['payed'] = false;
-							if(isset($_transaction_detail[$value]['datecreated']))
-							{
-								if(time() - strtotime($_transaction_detail[$value]['datecreated']) > (60*60*24*3))
-								{
-									$result['payed'] = null;
-								}
-							}
-						}
-					}
+					// if(isset($_transaction_detail[$value]['condition']))
+					// {
+					// 	if($_transaction_detail[$value]['condition'] === 'request')
+					// 	{
+					// 		$result['payed'] = false;
+					// 		if(isset($_transaction_detail[$value]['datecreated']))
+					// 		{
+					// 			if(time() - strtotime($_transaction_detail[$value]['datecreated']) > (60*60*24*3))
+					// 			{
+					// 				$result['payed'] = null;
+					// 			}
+					// 		}
+					// 	}
+					// }
 
-					if(isset($_transaction_detail[$value]['verify']))
-					{
-						if($_transaction_detail[$value]['verify'])
-						{
-							$result['payed'] = true;
-						}
-					}
+					// if(isset($_transaction_detail[$value]['verify']))
+					// {
+					// 	if($_transaction_detail[$value]['verify'])
+					// 	{
+					// 		$result['payed'] = true;
+					// 	}
+					// }
 
 					break;
 
@@ -212,14 +212,15 @@ class ready
 			}
 		}
 
-		if(array_key_exists('payed', $result) && $result['payed'] === false)
-		{
-			// nothing
-		}
-		else
-		{
-			unset($result['detail']['pay_link']);
-		}
+		// if(array_key_exists('payed', $result) && $result['payed'] === false)
+		// {
+		// 	// nothing
+		// }
+		// else
+		// {
+		// 	unset($result['detail']['pay_link']);
+		// }
+		unset($result['detail']['pay_link']);
 
 		return $result;
 	}
