@@ -60,28 +60,28 @@
     <section class="f">
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
-       <h3><?php echo T_("Total Payments");?></h3>
+       <h3><?php echo T_("Total Payments");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'total_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
-       <h3><?php echo T_("Last Year Payments");?></h3>
+       <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'last_year_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
       <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat<?php if(\dash\get::index($myData, 'user_budget')>0) echo " green"; ?>">
-       <h3><?php echo T_("Your Current Balance");?></h3>
+       <h3><?php echo T_("Your Current Balance");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'user_budget'));?></div>
       </a>
      </div>
 
      <div class="c">
       <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
-       <h3><?php echo T_("Predict Late Payments");?></h3>
+       <h3><?php echo T_("Predict Late Payments");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'predict_late_payment'));?></div>
       </a>
      </div>
