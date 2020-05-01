@@ -39,7 +39,7 @@ class view
 					$myBadgeText = T_('Back to list of pages');
 
 					$pageList = \dash\db\posts::get(['type' => 'page', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
-					$pageList = array_map(['\dash\app\posts', 'ready'], $pageList);
+					$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
 
 					\dash\data::pageList($pageList);
 					break;
@@ -50,7 +50,7 @@ class view
 					$myBadgeText = T_('Back to list of helps');
 					\dash\data::listCats(\dash\app\term::cat_list('help'));
 					$pageList = \dash\db\posts::get(['type' => 'help', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
-					$pageList = array_map(['\dash\app\posts', 'ready'], $pageList);
+					$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
 					\dash\data::pageList($pageList);
 					break;
 
@@ -98,7 +98,6 @@ class view
 			$user_detail = \dash\app\user::ready($user_detail);
 			\dash\data::userAuthorPost($user_detail);
 		}
-
 	}
 }
 ?>

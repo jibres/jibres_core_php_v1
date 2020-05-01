@@ -1089,12 +1089,17 @@ class posts
 	}
 
 
+	public static function ready_row($_data)
+	{
+		return self::ready($_data, false);
+	}
+
 	/**
 	 * ready data of classroom to load in api
 	 *
 	 * @param      <type>  $_data  The data
 	 */
-	public static function ready($_data)
+	public static function ready($_data, $_load_parent = true)
 	{
 		$result = [];
 		foreach ($_data as $key => $value)
@@ -1105,28 +1110,31 @@ class posts
 				case 'parent':
 					if(isset($value))
 					{
-						$parent_detail  = \dash\db\posts::get(['id' => $value, 'limit' => 1]);
-
-						$myParentDetail = [];
-
-						if(isset($parent_detail['title']))
+						if($_load_parent)
 						{
-							$myParentDetail['title'] = $parent_detail['title'];
-						}
+							$parent_detail  = \dash\db\posts::get(['id' => $value, 'limit' => 1]);
 
-						if(isset($parent_detail['slug']))
-						{
-							$myParentDetail['slug'] = $parent_detail['slug'];
-						}
+							$myParentDetail = [];
 
-						if(isset($parent_detail['url']))
-						{
-							$myParentDetail['url'] = $parent_detail['url'];
-						}
+							if(isset($parent_detail['title']))
+							{
+								$myParentDetail['title'] = $parent_detail['title'];
+							}
 
-						if(!empty($myParentDetail))
-						{
-							$result['parent_detail'] = $myParentDetail;
+							if(isset($parent_detail['slug']))
+							{
+								$myParentDetail['slug'] = $parent_detail['slug'];
+							}
+
+							if(isset($parent_detail['url']))
+							{
+								$myParentDetail['url'] = $parent_detail['url'];
+							}
+
+							if(!empty($myParentDetail))
+							{
+								$result['parent_detail'] = $myParentDetail;
+							}
 						}
 
 						$result[$key] = \dash\coding::encode($value);
@@ -1224,7 +1232,6 @@ class posts
 					break;
 			}
 		}
-
 
 		return $result;
 	}

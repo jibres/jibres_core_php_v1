@@ -824,7 +824,8 @@ $myFirstURL = '';
   <header data-kerkere='.iconPanel' data-kerkere-icon='close'><?php echo T_("Icon"); ?></header>
   <div class="body iconPanel" data-kerkere-content='hide'>
     <div class="input ltr mB10">
-      <input type="text" name="icon" id="icon" placeholder='<?php echo T_("Icon"); ?>' value="<?php echo \dash\data::dataRow_icon(); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
+      <?php $icon = \dash\data::dataRow_meta(); if(isset($icon['icon'])){$icon = $icon['icon'];}else{$icon = null;} ?>
+      <input type="text" name="icon" id="icon" placeholder='<?php echo T_("Icon"); ?>' value="<?php echo $icon; ?>" maxlength='100' minlength="1" pattern=".{1,100}">
     </div>
   </div>
 </section>
