@@ -88,6 +88,8 @@ else
   </div>
  </div>
 
+
+
  <div class="c6 s12 pLa5">
   <div class="panel mB10">
     <table class="tbl1 v4 mB0">
@@ -210,6 +212,34 @@ else
 <?php } //endif ?>
 
 
+
+
+<?php if(\dash\data::NICdomainStatus()) {?>
+  <div class="c6 s12 pLa5">
+    <div class="panel mB10">
+      <table class="tbl1 v4 mB0">
+        <thead>
+          <th class="collapsing"></th>
+          <th class="fs08"><?php echo T_("Status") ?></th>
+
+          <th class="fs08"><?php echo T_("Date created") ?></th>
+          <th class="fs08"><?php echo T_("Date modified") ?></th>
+        </thead>
+        <tbody>
+          <?php foreach (\dash\data::NICdomainStatus() as $key => $value) {?>
+            <tr <?php if(\dash\get::index($value, 'active')) {echo 'class="positive"';}else{echo 'class="negative"';} ?>>
+              <td><?php if(\dash\get::index($value, 'active')) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } ?></td>
+              <td><?php echo \dash\get::index($value, 'status'); ?></td>
+              <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+              <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datemodified')); ?></td>
+            </tr>
+          <?php } // endfor ?>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+<?php } //endif ?>
 
 
 
