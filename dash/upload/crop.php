@@ -17,6 +17,10 @@ class crop
 
 		\dash\utility\image::load($_file_addr);
 
+		// thumb image
+		\dash\utility\image::thumb(150, 150);
+		\dash\utility\image::save($url_thumb);
+
 		// large image
 		\dash\utility\image::thumb(900, 600);
 		\dash\utility\image::save($url_large);
@@ -27,9 +31,6 @@ class crop
 		\dash\utility\image::save($url_normal);
 
 
-		// thumb image
-		\dash\utility\image::thumb(150, 150);
-		\dash\utility\image::save($url_thumb);
 	}
 
 

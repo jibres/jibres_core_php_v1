@@ -48,6 +48,13 @@ class user
 			$detail['fullname'] = self::fullName($detail);
 			foreach ($detail as $key => $value)
 			{
+				if($key === 'avatar')
+				{
+					if($value)
+					{
+						$value = \lib\filepath::thumb_image($value);
+					}
+				}
 
 				if($value === null)
 				{
@@ -164,6 +171,13 @@ class user
 			$detail['fullname'] = self::fullName($detail);
 			foreach ($detail as $key => $value)
 			{
+				if($key === 'avatar')
+				{
+					if($value)
+					{
+						$value = \lib\filepath::thumb_image($value);
+					}
+				}
 
 				if($value === null)
 				{

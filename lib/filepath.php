@@ -104,5 +104,67 @@ class filepath
 		return $addr;
 	}
 
+
+	private static function extract_file($_url)
+	{
+		$thumb = $_url;
+		if(!$thumb)
+		{
+			return null;
+		}
+
+		$thumb = self::fix($thumb);
+
+		$file_addr = substr($thumb, 0, strrpos($thumb, '.'));
+		$ext       = str_replace($file_addr, '', $thumb);
+		$files =
+		[
+			'main'   => $thumb,
+			'large'  => $file_addr. '-large'. $ext,
+			'normal' => $file_addr. '-normal'. $ext,
+			'thumb'  => $file_addr. '-thumb'. $ext,
+		];
+
+		return $files;
+	}
+
+
+	public static function thumb_image($_image_url)
+	{
+		$files = self::extract_file($_image_url);
+
+		if(isset($files['thumb']))
+		{
+			return $files['thumb'];
+		}
+
+		return null;
+	}
+
+
+	public static function large_image($_image_url)
+	{
+		$files = self::extract_file($_image_url);
+
+		if(isset($files['large']))
+		{
+			return $files['large'];
+		}
+
+		return null;
+	}
+
+	public static function normal_image($_image_url)
+	{
+		$files = self::extract_file($_image_url);
+
+		if(isset($files['normal']))
+		{
+			return $files['normal'];
+		}
+
+		return null;
+	}
+
 }
 ?>
