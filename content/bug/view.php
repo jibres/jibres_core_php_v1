@@ -14,7 +14,7 @@ class view extends \content_support\ticket\contact_ticket\view
 
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-bug-1.jpg');
 
-		\dash\data::script_page('/js/page/matrix.js');
+		\dash\data::script_page('matrix.js');
 
 		self::codeurl();
 	}
