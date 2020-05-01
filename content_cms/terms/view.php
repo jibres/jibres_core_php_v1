@@ -52,15 +52,18 @@ class view
 
 		\dash\face::title($myTitle);
 
-		\dash\data::action_text(T_('Back to dashboard'));
+
+
+
+		\dash\data::back_text(T_('Dashboard'));
 
 		if(\dash\request::get('type') === 'support_tag')
 		{
-			\dash\data::action_link(\dash\url::kingdom(). '/support');
+			\dash\data::back_link(\dash\url::kingdom(). '/support');
 		}
 		else
 		{
-			\dash\data::action_link(\dash\url::here());
+			\dash\data::back_link(\dash\url::here());
 		}
 
 

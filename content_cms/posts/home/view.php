@@ -80,8 +80,8 @@ class view
 		\dash\face::title($myTitle);
 
 
-		\dash\data::badge2_text(T_('Back to dashboard'));
-		\dash\data::badge2_link(\dash\url::here());
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
 
 		$search_string = \dash\request::get('q');

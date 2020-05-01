@@ -26,6 +26,13 @@ class view
 		$myBadgeLink = \dash\url::this(). $moduleType;
 		$myBadgeText = T_('Back to list of posts');
 
+		// \dash\data::action_text($myBadgeText);
+		// \dash\data::action_link($myBadgeLink);
+
+		\dash\data::back_text(T_("Back"));
+		\dash\data::back_link($myBadgeLink);
+
+
 		$myType = \dash\data::myDataType();
 
 		if($myType)
@@ -36,7 +43,6 @@ class view
 					\dash\permission::access('cpPageEdit');
 
 					$myTitle = T_('Edit page');
-					$myBadgeText = T_('Back to list of pages');
 
 					$pageList = \dash\db\posts::get(['type' => 'page', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
 					$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
@@ -47,7 +53,7 @@ class view
 				case 'help':
 					\dash\permission::access('cpHelpCenterEdit');
 					$myTitle     = T_('Edit help');
-					$myBadgeText = T_('Back to list of helps');
+
 					\dash\data::listCats(\dash\app\term::cat_list('help'));
 					$pageList = \dash\db\posts::get(['type' => 'help', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
 					$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
@@ -64,7 +70,7 @@ class view
 					\dash\data::listSpecial(\dash\app\posts\special::list());
 
 					$myTitle = T_('Edit post');
-					$myBadgeText = T_('Back to list of posts');
+
 					break;
 			}
 		}
@@ -75,8 +81,6 @@ class view
 
 		\dash\face::title($myTitle);
 
-		\dash\data::action_text($myBadgeText);
-		\dash\data::action_link($myBadgeLink);
 
 
 		if(\dash\permission::check('cpChangePostCreator'))
