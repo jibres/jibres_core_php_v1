@@ -55,6 +55,15 @@ class url
 			return false;
 		}
 
+		$data = self::fix_domain_text($data, $_notif, $_element, $_field_title);
+
+		return $data;
+	}
+
+
+	private static function fix_domain_text($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = $_data;
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
 
@@ -69,8 +78,19 @@ class url
 
 		$data = str_replace('/', '', $data);
 
+		if(in_array(substr($data, 0, 1), ['.']))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Doamin can contain start by dot character"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+		}
+
+
 		return $data;
 	}
+
 
 	public static function domain_root($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
@@ -89,20 +109,7 @@ class url
 			return false;
 		}
 
-		// $data = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.])+', '', $data);
-		$data = urldecode($data);
-		$data = mb_strtolower($data);
-
-		$data = str_replace('http://', '', $data);
-		$data = str_replace('https://', '', $data);
-		$data = str_replace(':', '', $data);
-
-		if(strpos($data, '/') !== false)
-		{
-			$data = str_replace(substr($data, strpos($data, '/')), '', $data);
-		}
-
-		$data = str_replace('/', '', $data);
+		$data = self::fix_domain_text($data, $_notif, $_element, $_field_title);
 
 		return $data;
 	}
@@ -117,19 +124,12 @@ class url
 			return $data;
 		}
 
-		$data = urldecode($data);
-		$data = mb_strtolower($data);
+		$data = self::fix_domain_text($data, $_notif, $_element, $_field_title);
 
-		$data = str_replace('http://', '', $data);
-		$data = str_replace('https://', '', $data);
-		$data = str_replace(':', '', $data);
-
-		if(strpos($data, '/') !== false)
+		if($data === false || $data === null)
 		{
-			$data = str_replace(substr($data, strpos($data, '/')), '', $data);
+			return $data;
 		}
-
-		$data = str_replace('/', '', $data);
 
 		if(!preg_match("/\.(ir|ایران|ايران|id\.ir|gov\.ir|co\.ir|net\.ir|org\.ir|sch\.ir|ac\.ir)$/", $data))
 		{
