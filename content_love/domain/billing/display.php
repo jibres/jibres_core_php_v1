@@ -98,7 +98,7 @@ else
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
-                    <td><a href="<?php echo \dash\url::this(). '/log?q='. \dash\get::index($value, 'domain'); ?>"><?php echo \dash\get::index($value, 'domain'); ?></a></td>
+                    <td><a href="<?php echo \dash\url::this(). '/setting?id='. \dash\get::index($value, 'domain_id'); ?>"><?php echo \dash\get::index($value, 'domain'); ?></a></td>
                     <td><?php echo T_(ucfirst(\dash\get::index($value, 'action'))); ?></td>
                     <td><?php echo \dash\get::index($value, 'period_title'); ?></td>
                     <td><?php if(\dash\get::index($value, 'price')) {?><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?> <small><?php echo T_("Toman"); ?></small><?php }//endif ?></td>

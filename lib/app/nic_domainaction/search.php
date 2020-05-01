@@ -41,6 +41,7 @@ class search
 			'sort'      => ['enum' => ['id',]],
 			'domain_id' => 'code',
 			'user_id'   => 'id',
+			'is_admin'  => 'bit',
 		];
 
 		$require = [];
