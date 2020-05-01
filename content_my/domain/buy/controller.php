@@ -66,7 +66,7 @@ class controller
 				$info = \lib\app\nic_domain\check::multi_check($q);
 			}
 
-			if(\dash\request::get('q') && !$info)
+			if(\dash\request::get('q') && !$info && \dash\engine\process::status())
 			{
 				\dash\data::InvalidDomain(true);
 			}
