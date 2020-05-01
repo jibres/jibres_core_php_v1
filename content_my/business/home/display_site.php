@@ -2,14 +2,7 @@
 
 if($listStore_owner)
 {
-  if(count($listStore_owner) > 3)
-  {
-    myStoresOwner3Plus($listStore_owner);
-  }
-  else
-  {
-    myStoresOwner($listStore_owner);
-  }
+  myStoresOwner($listStore_owner);
 }
 else
 {
