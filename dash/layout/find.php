@@ -179,9 +179,9 @@ class find
 	public static function pageScript()
 	{
 		// page script
-		if(\dash\data::global_pageScript())
+		if(\dash\data::global_scriptPage())
 		{
-			echo "<div data-pagescript='". \dash\data::global_pageScript(). "'>";
+			echo "<div data-pagescript='". \dash\data::global_scriptPage(). "'>";
 		}
 
 
