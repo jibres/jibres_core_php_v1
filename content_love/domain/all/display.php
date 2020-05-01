@@ -72,7 +72,7 @@ else
 
             <tr>
                 <td>
-                    <a href="<?php echo \dash\url::that(); ?>/detail?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+                    <a href="<?php echo \dash\url::this(); ?>/setting?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
                 </td>
 
                 <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
