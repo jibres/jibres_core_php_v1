@@ -50,17 +50,20 @@ class get
 								{
 									if(in_array('irnicRegistrationApproved', $poll['detail'][$insert['domain']]['status']))
 									{
-										\dash\log::set('domain_irnicDomainApproved', $log_meta);
+										$log_meta['domainstatus'] = 'approved';
+									}
+									elseif(in_array('irnicRegistrationRejected', $poll['detail'][$insert['domain']]['status']))
+									{
+										$log_meta['domainstatus'] = 'rejected';
 									}
 									else
 									{
-										\dash\log::set('domain_irnicChangeStatus', $log_meta);
+										$log_meta['domainstatus'] = null;
 									}
 								}
-								else
-								{
-									\dash\log::set('domain_irnicChangeStatus', $log_meta);
-								}
+
+
+								\dash\log::set('domain_irnicChangeStatus', $log_meta);
 
 							}
 

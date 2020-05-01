@@ -26,7 +26,21 @@ class domain_irnicChangeStatus
 
 		$domain = isset($_args['data']['mydomain']) ? $_args['data']['mydomain'] : null;
 
-		$msg = T_("Status of Domain :domain was changed with IRNIC Registrar", ['domain' => $domain]);
+		$domainstatus = isset($_args['data']['domainstatus']) ? $_args['data']['domainstatus'] : null;
+
+		if($domainstatus === 'approved')
+		{
+			$msg = T_("Register Domain :domain was approved", ['domain' => $domain]);
+		}
+		elseif($domainstatus === 'rejected')
+		{
+			$msg = T_("Register Domain :domain was rejected!", ['domain' => $domain]);
+
+		}
+		else
+		{
+			$msg = T_("Status of Domain :domain was changed with IRNIC Registrar", ['domain' => $domain]);
+		}
 
 		return $msg;
 	}
@@ -57,6 +71,22 @@ class domain_irnicChangeStatus
 		return false;
 	}
 
+
+	public static function sms_text($_args, $_mobile)
+	{
+
+		$sms =
+		[
+			'mobile' => $_mobile,
+			'text'   => self::get_msg($_args),
+			'meta'   =>
+			[
+				'footer' => false
+			]
+		];
+
+		return json_encode($sms, JSON_UNESCAPED_UNICODE);
+	}
 
 
 	public static function telegram_text($_args, $_chat_id)
