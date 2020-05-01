@@ -6,7 +6,6 @@ class view
 	public static function config()
 	{
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_highcharts(true);
 
 		\dash\data::dir_right(\dash\language::dir() == 'rtl'? 'left':  'right');
 		\dash\data::dir_left(\dash\language::dir() == 'rtl'? 'right': 'left');

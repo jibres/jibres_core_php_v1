@@ -206,7 +206,6 @@ class view
 
 			\dash\data::userBadge_desc($txtDesc);
 		}
-		self::fixJsFiles();
 	}
 
 
@@ -243,32 +242,6 @@ class view
 		}
 
 		return $google_analytics;
-	}
-
-
-	private static function fixJsFiles()
-	{
-		$newJs = [];
-		if (\dash\data::include_highcharts())
-		{
-			$newJs[] =
-			[
-				"url" => \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'),
-				"fn"  => 'pageChart',
-			];
-		}
-		if (\dash\data::include_editor())
-		{
-			$newJs[] =
-			[
-				"url" => \dash\layout\func::staticmtime('js/medium-editor/medium-editor.min.js'),
-			];
-		}
-
-		if(count($newJs) > 0)
-		{
-			\dash\data::global_js($newJs);
-		}
 	}
 }
 ?>

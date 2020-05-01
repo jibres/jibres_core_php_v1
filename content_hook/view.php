@@ -7,7 +7,6 @@ class view
 	{
 
 		\dash\data::include_adminPanel(false);
-		\dash\data::include_highcharts(false);
 		\dash\data::include_editor(false);
 	}
 }

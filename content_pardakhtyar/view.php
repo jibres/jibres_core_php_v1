@@ -8,7 +8,6 @@ class view
 	{
 		\dash\data::include_adminPanel(true);
 
-		\dash\data::include_highcharts(true);
 		// set shortkey for all badges is this content
 		\dash\data::badge_shortkey(120);
 		\dash\data::badge2_shortkey(121);

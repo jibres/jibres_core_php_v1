@@ -117,11 +117,6 @@ echo " data-preload";
  <div class="js">
   <script src="<?php echo \dash\layout\func::staticmtime('js/siftal.min.js');?>"></script>
 <?php
-if (\dash\data::include_highcharts())
-{
-  echo "\n  ";
-  echo '<script src="'. \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'). '"></script>';
-}
 
 if (\dash\data::include_editor())
 {
