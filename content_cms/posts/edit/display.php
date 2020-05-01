@@ -42,7 +42,7 @@ $myFirstURL = '';
         </div>
 
       <div class="c12 pA5">
-        <a class="btn secondary block outline" href="<?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL. \dash\data::dataRow_url(); ?>" target="_blank"><?php echo T_("Preview"); ?></a>
+        <a class="btn secondary block outline" href="<?php echo \dash\data::dataRow_link(); ?>" target="_blank"><?php echo T_("Preview"); ?></a>
       </div>
 
   <?php }else{ ?>
@@ -51,7 +51,7 @@ $myFirstURL = '';
           <button class="btn primary block"><?php echo T_("Save as draft"); ?></button>
       </div>
       <div class="c6 pA5">
-        <a class="btn secondary block outline" href="<?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL. \dash\data::dataRow_url(); ?>" target="_blank"><?php echo T_("Preview"); ?></a>
+        <a class="btn secondary block outline" href="<?php echo \dash\data::dataRow_link(); ?>" target="_blank"><?php echo T_("Preview"); ?></a>
       </div>
   <?php } // endif ?>
 
@@ -62,7 +62,7 @@ $myFirstURL = '';
         <button class="btn primary block"><?php echo T_("Save"); ?></button>
       </div>
       <div class="c6 pA5">
-        <a class="btn secondary block outline" href="<?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL. \dash\data::dataRow_url(); ?>" target="_blank"><?php echo T_("Preview"); ?></a>
+        <a class="btn secondary block outline" href="<?php echo \dash\data::dataRow_link(); ?>" target="_blank"><?php echo T_("Preview"); ?></a>
       </div>
   <?php } //endif ?>
 
@@ -685,9 +685,9 @@ $myFirstURL = '';
 
   <section class="cbox">
     <div class="seoPreview">
-      <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL. \dash\data::dataRow_url(); ?>">
+      <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
         <h3><?php if(\dash\data::dataRow_seotitle()) { echo \dash\data::dataRow_seotitle(); } else { echo \dash\data::dataRow_title();} ?> | <?php echo \dash\face::site(); ?></h3>
-        <cite><span><?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL; ?></span><?php echo \dash\data::dataRow_url(); ?></cite>
+        <cite><span><?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL; ?></span><?php echo \dash\data::dataRow_slug(); ?></cite>
       </a>
       <div class="f">
         <div class="c s12">

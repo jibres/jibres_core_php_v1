@@ -1216,7 +1216,6 @@ class posts
 
 				case 'url':
 					$result[$key] = $value;
-					$result['link'] = \dash\url::kingdom(). '/'. $value;
 					break;
 
 				case 'thumb':
@@ -1232,6 +1231,23 @@ class posts
 					break;
 			}
 		}
+
+		if(isset($result['slug']))
+		{
+			$my_link = \dash\url::kingdom(). '/';
+			if(isset($result['type']) && $result['type'] === 'help')
+			{
+				$my_link .= 'support/';
+			}
+			$my_link .= $result['slug'];
+
+			$result['link'] = $my_link;
+		}
+		else
+		{
+			$result['link'] = null;
+		}
+
 
 		return $result;
 	}
