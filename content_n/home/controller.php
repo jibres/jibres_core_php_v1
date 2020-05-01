@@ -36,17 +36,16 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
-		if($load_post['type'] === 'help')
+		if(isset($load_post['link']))
 		{
-			$load_post['url'] = 'support/'. $load_post['url'];
+			\dash\log::set('newsCodeRedirect', ['code' => \dash\url::module(), 'link' => $load_post['link']]);
+
+			\dash\redirect::to($load_post['link']);
+
+			return;
 		}
 
-		$url = \dash\url::base().'/'. $load_post['language']. '/'. $load_post['url'];
-
-		\dash\log::set('newsCodeRedirect', ['code' => \dash\url::module(), 'link' => $url]);
-
-		\dash\redirect::to($url);
-
+		\dash\redirect::to(\dash\url::kingdom());
 	}
 }
 ?>
