@@ -155,17 +155,6 @@ if(\dash\data::googleAnalytics())
   echo "<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '$gAnalytics'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '$gAnalytics', {'page_path': pathname}); }</script>";
 }
 
-if(false)
-{
-  if(\dash\url::isLocal())
-  {
-    echo "\n  <div class='superAdmin public'></div>";
-  }
-  else
-  {
-    echo "\n  <div class='superAdmin'></div>";
-  }
-}
 ?>
 <?php \dash\layout\find::allNotifs(); ?>
 

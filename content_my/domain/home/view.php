@@ -24,7 +24,7 @@ class view
 		$dashboard_detail = \lib\app\nic_domain\dashboard::user();
 		\dash\data::dashboardDetail($dashboard_detail);
 
-		\dash\data::script_page('/js/chart/my/domainhomepage.js');
+		\dash\data::global_scriptChart('my/domainhomepage.js');
 
 
 		if(\dash\request::get('token'))

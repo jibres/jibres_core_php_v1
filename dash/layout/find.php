@@ -178,19 +178,27 @@ class find
 
 	public static function pageScript()
 	{
-  		echo "\n  ";
-		echo "<div data-xhr='pageScript'";
+		// page script
 		if(\dash\data::global_pageScript())
 		{
-			echo " data-pagescript='". \dash\data::global_pageScript(). "'";
+			echo "<div data-pagescript='". \dash\data::global_pageScript(). "'>";
 		}
-		echo ">";
-		// if(\dash\data::script_page() && is_string(\dash\data::script_page()))
-		// {
-		// 	echo "<script async";
-		// 	echo ' src="'. \dash\url::cdn(). \dash\data::script_page(). '"';
-  // 			echo "></script>";
-		// }
+
+
+		if(\dash\data::global_scriptChart())
+		{
+			echo "<div data-script-chart='". \dash\data::global_scriptChart(). "'>";
+		}
+
+		if (\dash\data::script_highcharts())
+		{
+			$newJs[] =
+			[
+				"url" => \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'),
+				"fn"  => 'pageChart',
+			];
+		}
+
   		echo "</div>";
 	}
 }
