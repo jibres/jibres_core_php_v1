@@ -23,6 +23,7 @@ class controller
 				$check_arg =
 				[
 					'type'   => 'help',
+					'language' => \dash\language::current(),
 					'slug'   => urldecode($directory),
 					'limit'  => 1
 				];
