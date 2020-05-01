@@ -1,8 +1,23 @@
+<?php if(\dash\data::groupByPrice() && is_array(\dash\data::groupByPrice())) {?>
+<div class="f">
+    <?php foreach (\dash\data::groupByPrice() as $key => $value): ?>
+        <div class="c pRa5">
+            <a class="stat x70" >
+                <h3><?php echo T_(ucfirst($key)); ?> <small><?php echo T_("Toman"); ?></small></h3>
+                <div class="val"><?php echo \dash\fit::number($value); ?></div>
+            </a>
+        </div>
+    <?php endforeach ?>
+</div>
+<?php } //endif ?>
+
+
+
 <?php if(\dash\data::groupByAction() && is_array(\dash\data::groupByAction())) {?>
 <div class="f">
     <?php foreach (\dash\data::groupByAction() as $key => $value): ?>
         <div class="c pRa5">
-            <a href="<?php echo \dash\url::that(). '?action='. $key ?>" class="stat x70 <?php if(\dash\request::get('action') == $key) { echo ' active';} ?>" >
+            <a href="<?php echo \dash\url::that(); if($key === 'All'){}else{echo '?action='. $key; } ?>" class="stat x70 <?php if($key==='All'){if(!\dash\request::get('action')) { echo ' active';}}else{ if(\dash\request::get('action') == $key) { echo ' active';}} ?>" >
                 <h3><?php echo T_(ucfirst($key)); ?></h3>
                 <div class="val"><?php echo \dash\fit::number($value); ?></div>
             </a>

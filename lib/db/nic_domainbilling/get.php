@@ -38,6 +38,24 @@ class get
 	}
 
 
+	public static function group_by_price()
+	{
+		$query  =
+		"
+			SELECT
+				SUM(domainbilling.price) AS `price`,
+				SUM(domainbilling.discount) AS `discount`,
+				SUM(domainbilling.finalprice) AS `finalprice`
+			FROM
+				domainbilling
+		";
+
+		$result = \dash\db::get($query, null, true, 'nic');
+
+		return $result;
+	}
+
+
 	public static function chart_my_pay_per_day($_user_id)
 	{
 		$query  =

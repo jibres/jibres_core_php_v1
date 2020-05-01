@@ -36,6 +36,10 @@ class view
 		\dash\data::groupByAction($group_by_action);
 
 
+		$price_group = \lib\app\nic_domainbilling\get::price_group();
+		\dash\data::groupByPrice($price_group);
+
+
 	}
 }
 ?>
