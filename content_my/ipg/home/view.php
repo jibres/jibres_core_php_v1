@@ -10,7 +10,7 @@ class view
 
 		\dash\face::title(T_('Internet Payment Gateway'));
 
-		\dash\data::loadScript('/js/chart/my/ipg_home.js');
+		\dash\data::script_page('/js/chart/my/ipg_home.js');
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));

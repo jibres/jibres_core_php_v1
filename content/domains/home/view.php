@@ -11,6 +11,8 @@ class view
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
+
+		\dash\data::script_page('/js/page/test2.js');
 	}
 }
 ?>
