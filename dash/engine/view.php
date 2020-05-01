@@ -206,7 +206,7 @@ class view
 
 			\dash\data::userBadge_desc($txtDesc);
 		}
-		self::appendJs();
+		self::fixJsFiles();
 	}
 
 
@@ -246,8 +246,13 @@ class view
 	}
 
 
-	private static function appendJs()
+	private static function fixJsFiles()
 	{
+		if(\dash\data::script_page())
+		{
+			\dash\data::global_pageScript(\dash\url::cdn(). \dash\data::script_page());
+		}
+
 		$newJs = [];
 		if (\dash\data::include_highcharts())
 		{

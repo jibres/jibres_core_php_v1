@@ -185,12 +185,12 @@ class find
 			echo " data-pagescript='". \dash\data::global_pageScript(). "'";
 		}
 		echo ">";
-		if(\dash\data::loadScript() && is_string(\dash\data::loadScript()))
-		{
-			echo "<script async";
-			echo ' src="'. \dash\url::cdn(). \dash\data::loadScript(). '"';
-  			echo "></script>";
-		}
+		// if(\dash\data::script_page() && is_string(\dash\data::script_page()))
+		// {
+		// 	echo "<script async";
+		// 	echo ' src="'. \dash\url::cdn(). \dash\data::script_page(). '"';
+  // 			echo "></script>";
+		// }
   		echo "</div>";
 	}
 }
