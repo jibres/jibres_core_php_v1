@@ -36,15 +36,37 @@ class get
 				domain
 			LEFT JOIN usersetting ON usersetting.user_id = domain.user_id
 			WHERE
+				domain.status != 'deleted' AND
 				domain.autorenew = 1 AND
+				domain.available = 0 AND
 				DATE(domain.dateexpire) < DATE('$_date') AND
-				HOUR(domain.dateexpire) = '$_hour'
-			ORDER BY
-				domain.id ASC
+				HOUR(domain.dateexpire) = '$_hour' AND
+				(
+					SELECT
+						domainstatus.status
+					FROM
+						domainstatus
+					WHERE
+						domainstatus.domain = domain.name AND
+						domainstatus.active = 1 AND
+						domainstatus.status IN
+						(
+							'serverRenewProhibited',
+							'pendingDelete',
+							'pendingRenew',
+							'irnicRegistrationRejected',
+							'irnicRegistrationPendingHolderCheck',
+							'irnicRegistrationPendingDomainCheck',
+							'irnicRegistrationDocRequired',
+							'irnicRenewalPendingHolderCheck'
+						)
+				) IS NULL
+			ORDER BY domain.dateexpire ASC
 		";
 		$result = \dash\db::get($query, null, false, 'nic');
 		return $result;
 	}
+
 
 	public static function user_list($_user_id)
 	{

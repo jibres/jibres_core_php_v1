@@ -140,8 +140,32 @@ class search
 			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[] = " domain.status != 'deleted' ";
-			$and[] = " domain.verify = 1 ";
+			// $and[] = " domain.verify = 1 ";
 			$and[] = " domain.autorenew = 1 ";
+			$and[] = " domain.available = 0 ";
+
+			$and[] =
+			"
+				(
+					SELECT
+						domainstatus.status
+					FROM
+						domainstatus
+					WHERE
+						domainstatus.domain = domain.name AND
+						domainstatus.active = 1 AND
+						domainstatus.status IN
+						(
+							'serverRenewProhibited',
+							'pendingDelete',
+							'pendingRenew',
+							'irnicRegistrationRejected',
+							'irnicRegistrationPendingHolderCheck',
+							'irnicRegistrationPendingDomainCheck',
+							'irnicRegistrationDocRequired',
+							'irnicRenewalPendingHolderCheck'
+						)
+				) IS NULL ";
 		}
 		else
 		{
