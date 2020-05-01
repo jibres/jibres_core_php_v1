@@ -179,7 +179,12 @@ class find
 	public static function pageScript()
 	{
   		echo "\n  ";
-		echo "<div data-xhr='pageScript'>";
+		echo "<div data-xhr='pageScript'";
+		if(\dash\data::global_pageScript())
+		{
+			echo " data-pagescript='". \dash\data::global_pageScript(). "'";
+		}
+		echo ">";
 		if(\dash\data::loadScript() && is_string(\dash\data::loadScript()))
 		{
 			echo "<script async";
