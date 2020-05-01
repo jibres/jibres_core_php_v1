@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_('Price change chart!'));
 
-		\dash\data::script_page('/js/chart/a/pricehistory.js');
+		\dash\data::global_scriptChart('a/pricehistory.js');
 
 		// back
 		\dash\data::back_text(T_('Dashboard'));

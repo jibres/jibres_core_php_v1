@@ -11,7 +11,7 @@ class view
 
 		\dash\data::dashboardData(\lib\app\cache\get::admin_dashboard());
 
-		\dash\data::script_page('/js/chart/a/homepage.js');
+		\dash\data::global_scriptChart('a/homepage.js');
 	}
 }
 ?>
