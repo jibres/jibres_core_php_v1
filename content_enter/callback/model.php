@@ -85,7 +85,7 @@ class model
 
 		$log_detail = ['from' => $user_id];
 
-		if(!$find_log || !is_array($find_log) || count($find_log) === 0)
+		if(!$find_log || !is_array($find_log))
 		{
 			\dash\log::set('enter:callback:sms:resieve:log:not:found', $log_detail);
 			\dash\notif::error(T_("Log not found"));
