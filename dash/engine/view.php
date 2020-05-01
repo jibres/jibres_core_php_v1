@@ -257,7 +257,7 @@ class view
 				"fn"  => 'pageChart',
 			];
 		}
-		if (\dash\data::include_editor() or 1)
+		if (\dash\data::include_editor())
 		{
 			$newJs[] =
 			[
