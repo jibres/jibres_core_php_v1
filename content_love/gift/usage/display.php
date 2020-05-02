@@ -79,7 +79,7 @@ else
                 <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
 
                 <td class="collapsing">
-                  <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f userPack">
+                  <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
                     <div class="c pRa10">
                       <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
                       <div class="name"><?php echo \dash\get::index($value, 'displayname'); ?></div>
