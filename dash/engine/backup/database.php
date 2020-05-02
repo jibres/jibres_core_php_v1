@@ -155,6 +155,12 @@ class database
 		$fuel      = \dash\engine\fuel::get('nic_log');
 		self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic_log');
 
+		$fuel      = \dash\engine\fuel::get('shaparak');
+		self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak');
+
+		$fuel      = \dash\engine\fuel::get('shaparak_log');
+		self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak_log');
+
 		foreach ($all_store as $key => $value)
 		{
 			$fuel      = \dash\engine\fuel::get($value['fuel']);
