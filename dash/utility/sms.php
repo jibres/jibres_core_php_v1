@@ -31,8 +31,8 @@ class sms
 		$_message = trim($_message);
 
 		// create complete message
-		$sms_header = T_('Jibres');
-		$sms_footer = T_('Sell and Enjoy'). "\n";
+		$sms_header = T_('Jibres') . ' | '. T_('Sell and Enjoy');
+		$sms_footer = "\n";
 		if(\dash\url::tld() === 'ir')
 		{
 			$sms_footer .= T_('Jibres.ir');
