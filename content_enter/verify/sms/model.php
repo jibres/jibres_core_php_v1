@@ -53,7 +53,7 @@ class model
 		];
 
 		// $msg = "code ". $code;
-		$msg = T_(":code is your Jibres verification code.", ['code'] => "code ". $code);
+		$msg = T_(":code is your Jibres verification code.", ['code' => "code ". $code);
 		// $msg = "Use above code to verify your account";
 
 		if(\dash\url::isLocal())
