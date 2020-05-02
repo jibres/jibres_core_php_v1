@@ -11,28 +11,28 @@ class ready
 		// disableDomainFetch set in admin panel of supervisor
 		// the supervisor load many domain and needless to fetch all domain
 
-		if($domain && !\dash\temp::get('disableDomainFetch'))
-		{
-			// only enable domain fetch & update result
-			if(isset($_data['status']) && ($_data['status'] === 'enable' || $_data['status'] === 'awaiting'))
-			{
-				if(isset($_data['lastfetch']) && $_data['lastfetch'])
-				{
-					// fetch every 1 hour
-					if(time() - strtotime($_data['lastfetch']) > (60*60*24*7))
-					{
-						\lib\app\nic_domain\get::update_fetch($domain, $_data);
-						$_data = \lib\db\nic_domain\get::by_id($_data['id']);
-					}
-				}
-				else
-				{
-					\lib\app\nic_domain\get::update_fetch($domain, $_data);
-					$_data = \lib\db\nic_domain\get::by_id($_data['id']);
-				}
-			}
+		// if($domain && !\dash\temp::get('disableDomainFetch'))
+		// {
+		// 	// only enable domain fetch & update result
+		// 	if(isset($_data['status']) && ($_data['status'] === 'enable' || $_data['status'] === 'awaiting'))
+		// 	{
+		// 		if(isset($_data['lastfetch']) && $_data['lastfetch'])
+		// 		{
+		// 			// fetch every 1 hour
+		// 			if(time() - strtotime($_data['lastfetch']) > (60*60*24*7))
+		// 			{
+		// 				\lib\app\nic_domain\get::update_fetch($domain, $_data);
+		// 				$_data = \lib\db\nic_domain\get::by_id($_data['id']);
+		// 			}
+		// 		}
+		// 		else
+		// 		{
+		// 			\lib\app\nic_domain\get::update_fetch($domain, $_data);
+		// 			$_data = \lib\db\nic_domain\get::by_id($_data['id']);
+		// 		}
+		// 	}
 
-		}
+		// }
 
 		$result = [];
 
