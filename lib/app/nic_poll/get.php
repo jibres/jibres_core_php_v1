@@ -36,6 +36,8 @@ class get
 
 							\lib\db\nic_domain\update::remove_lastfetch_domain($insert['domain']);
 
+							\lib\app\nic_domain\get::force_fetch($insert['domain']);
+
 							$get_domain = \lib\db\nic_domain\get::who_verify_enable_domain($insert['domain']);
 
 							if(isset($get_domain['user_id']))
