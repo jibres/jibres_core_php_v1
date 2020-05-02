@@ -11,7 +11,7 @@ class apilog
 		if($set)
 		{
 			$query = " INSERT IGNORE INTO `apilog` SET $set ";
-			return \dash\db::query($query);
+			return \dash\db::query($query, 'api_log');
 		}
 
 	}
@@ -20,14 +20,14 @@ class apilog
 	public static function get_count()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM apilog ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\db::get($query, 'count', true, 'api_log');
 		return $result;
 	}
 
 
 	public static function get($_where)
 	{
-		return \dash\db\config::public_get('apilog', $_where);
+		return \dash\db\config::public_get('apilog', $_where, ['db_name' => 'api_log']);
 	}
 
 
@@ -43,6 +43,8 @@ class apilog
 		}
 
 		$_args = array_merge($default, $_args);
+
+		$_args['db_name'] = 'api_log';
 
 		$result = \dash\db\config::public_search('apilog', $_string, $_args);
 		return $result;
