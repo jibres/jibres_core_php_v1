@@ -181,25 +181,13 @@ class find
 		// page script
 		if(\dash\data::global_scriptPage())
 		{
-			echo "<div data-pagescript='". \dash\data::global_scriptPage(). "'>";
+			echo "<div data-pagescript='". \dash\data::global_scriptPage(). "'></div>";
 		}
-
 
 		if(\dash\data::global_scriptChart())
 		{
-			echo "<div data-script-chart='". \dash\data::global_scriptChart(). "'>";
+			echo "<div data-script-chart='". \dash\data::global_scriptChart(). "'></div>";
 		}
-
-		if (\dash\data::script_highcharts())
-		{
-			$newJs[] =
-			[
-				"url" => \dash\layout\func::staticmtime('js/highcharts/highcharts-8.0.4.js'),
-				"fn"  => 'pageChart',
-			];
-		}
-
-  		echo "</div>";
 	}
 }
 ?>
