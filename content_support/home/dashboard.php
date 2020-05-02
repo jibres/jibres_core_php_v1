@@ -81,7 +81,9 @@
             <div class="msg">
               <span class="<?php if(isset($value['meta']['icon'])) { echo 'sf-'. $value['meta']['icon']; }else{ echo 'sf-info'; }?> mRa10"></span>
               <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value, 'slug'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
+<?php if(\dash\get::index($value, 'cat')) { ?>
               <a href="#" class="floatRa"><?php echo \dash\get::index($value, 'cat'); ?></a>
+<?php } ?>
             </div>
 
             <?php } //endfor ?>
