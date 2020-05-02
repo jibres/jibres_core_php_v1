@@ -46,6 +46,7 @@ class controller
 
 	private static function cronjob_run()
 	{
+		\dash\temp::set('run:by:system', true);
 
 		if(!\dash\engine\store::inStore())
 		{

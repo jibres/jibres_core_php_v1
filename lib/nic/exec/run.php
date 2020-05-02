@@ -17,6 +17,7 @@ class run
 
 		$xml = str_replace('JIBRES-TRACKING-NUMBER', $tracking_number, $xml);
 
+
 		$insert_log =
 		[
 			'type'          => $_type,
@@ -28,6 +29,7 @@ class run
 			'nic_id'        => $_nic_id,
 			'domain'        => $_domain,
 			'ip'            => \dash\server::ip(true),
+			'gateway'		=> \dash\temp::get('run:by:system') ? 'system' : 'user',
 		];
 
 		$allow_request = self::allow_request($_type);
