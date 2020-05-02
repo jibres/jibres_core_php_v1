@@ -59,18 +59,20 @@ class sms
 		}
 
 		// try to change big message into one message
-		if(mb_strlen($message) > self::is_rtl($message, true))
-		{
-			if($sms_header && $_options['header'])
-			{
-				$message = $sms_header. "\n". $_message;
-			}
+		// it must be optional
+		// fix it later
+		// if(mb_strlen($message) > self::is_rtl($message, true))
+		// {
+		// 	if($sms_header && $_options['header'])
+		// 	{
+		// 		$message = $sms_header. "\n". $_message;
+		// 	}
 
-			if(mb_strlen($message) > self::is_rtl($message, true))
-			{
-				$message = $_message;
-			}
-		}
+		// 	if(mb_strlen($message) > self::is_rtl($message, true))
+		// 	{
+		// 		$message = $_message;
+		// 	}
+		// }
 		return $message;
 	}
 
