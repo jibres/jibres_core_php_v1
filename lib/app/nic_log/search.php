@@ -190,7 +190,23 @@ class search
 			}
 			else
 			{
-				$list[$key]['user_detail'] = \dash\app::fix_avatar([]);
+				if(isset($value['gateway']) && $value['gateway'] === 'system')
+				{
+					$system_user_detail =
+					[
+						'avatar'        => \dash\url::cdn(). '/img/avatar/man5.png',
+						'gender'        => false,
+						'gender_string' => null,
+						'genderString'  => null,
+						'displayname'   => T_("Jibres"),
+					];
+
+					$list[$key]['user_detail'] = $system_user_detail;
+				}
+				else
+				{
+					$list[$key]['user_detail'] = \dash\app::fix_avatar([]);
+				}
 			}
 		}
 
