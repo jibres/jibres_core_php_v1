@@ -194,7 +194,7 @@ class search
 				{
 					$system_user_detail =
 					[
-						'avatar'        => \dash\url::cdn(). '/img/avatar/man5.png',
+						'avatar'        => \dash\url::icon(),
 						'gender'        => false,
 						'gender_string' => null,
 						'genderString'  => null,
