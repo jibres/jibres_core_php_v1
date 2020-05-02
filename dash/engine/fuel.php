@@ -82,13 +82,16 @@ class fuel
 		{
 			$target = 'local';
 		}
-		elseif(in_array($_requested_fuel, ['master', 'nic', 'nic_log']))
+		elseif(in_array($_requested_fuel, ['master', 'nic', 'nic_log', 'api_log', 'shaparak', 'shaparak_log']))
 		{
 			switch ($_requested_fuel)
 			{
 				case 'master':
 				case 'nic':
 				case 'nic_log':
+				case 'api_log':
+				case 'shaparak':
+				case 'shaparak_log':
 					$target = 'jibres101';
 					break;
 			}
