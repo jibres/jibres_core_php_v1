@@ -55,6 +55,7 @@ class dashboard
 		$result['my_domain']      = intval(\lib\db\nic_domain\get::my_active_count($user_id));
 
 		$count_autorenew = intval(\lib\db\nic_domain\get::my_autorenew_count($user_id));
+
 		$count_lock = intval(\lib\db\nic_domain\get::my_lock_count($user_id));
 
 		$my_all = $result['my_domain'];
@@ -69,7 +70,7 @@ class dashboard
 			$my_active_domain = 1;
 		}
 
-		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_all);
+		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_active_domain);
 		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
 		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_active_domain);
 		$result['user_budget']              = \dash\user::budget();
