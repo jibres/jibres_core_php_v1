@@ -313,7 +313,8 @@ class store
 	 */
 	public static function make_database_name($_store_id)
 	{
-		$db_name           = 'jibres_'. $_store_id;
+		// $db_name           = 'jibres_'. $_store_id;
+		$db_name           = 'store_'. $_store_id;
 
 		// if(\dash\url::isLocal())
 		// {
