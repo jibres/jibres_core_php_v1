@@ -140,5 +140,60 @@ class cms
 
 
 
+	public static function set_post_gallery_editor($_post_id)
+	{
+		if(!$_post_id)
+		{
+			\dash\notif::error(T_("Post not found"));
+			return false;
+		}
+
+		$meta =
+		[
+			'allow_size' => \dash\upload\size::cms_file_size(),
+			'ext' =>
+			[
+				'mp3','wav','ogg','wma','m4a','aac', 	// audio
+				'bmp','gif','jpeg','jpg','png',			// image
+				'mpeg','mpg','mp4','mov','avi',			// video
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('upload', $meta);
+
+		if(!$file_detail)
+		{
+			return false;
+		}
+
+		$fileusage =
+		[
+			'file_id'     => $file_detail['id'],
+			'user_id'     => \dash\user::id(),
+			'title'       => null,
+			'alt'         => null,
+			'desc'        => null,
+			'related'     => 'post_gallery',
+			'related_id'  => $_post_id,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$check_duplicate_usage = \dash\db\fileusage::duplicate_whit_file_id('post_gallery', $_post_id, $file_detail['id']);
+
+		if(isset($check_duplicate_usage['id']))
+		{
+			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
+		}
+		else
+		{
+			\dash\db\fileusage::insert($fileusage);
+		}
+
+		return $file_detail;
+	}
+
+
+
 }
 ?>

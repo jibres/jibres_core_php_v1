@@ -31,6 +31,37 @@ class model
 
 	}
 
+
+	public static function upload_editor()
+	{
+		if(\dash\request::files('upload'))
+		{
+			$uploaded_file = \dash\upload\cms::set_post_gallery_editor(\dash\coding::decode(\dash\request::get('id')));
+
+			if($uploaded_file)
+			{
+				// save uploaded file
+				\dash\app\posts::post_gallery(\dash\request::get('id'), $uploaded_file, 'add');
+			}
+
+			$result             = [];
+			$result['fineName'] = $uploaded_file['filename'];
+			$result['url']      = \lib\filepath::fix($uploaded_file['path']);
+			$result['uploaded'] = 1;
+
+			if(!\dash\engine\process::status())
+			{
+				// $result['uploaded'] = 0;
+			}
+
+			\dash\code::jsonBoom($result);
+
+			return true;
+		}
+		return false;
+
+	}
+
 	public static function remove_gallery()
 	{
 		$fileid = \dash\request::post('fileid');
@@ -66,7 +97,11 @@ class model
 
 	public static function getPost()
 	{
-		// check subdomain
+
+		if(self::upload_editor())
+		{
+			return false;
+		}
 
 		if(self::upload_gallery())
 		{
