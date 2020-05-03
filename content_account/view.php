@@ -7,8 +7,6 @@ class view
 	{
 		\dash\data::include_adminPanel(true);
 
-		\dash\data::include_editor(true);
-
 		// \dash\face::boxTitle(true);
 	}
 }

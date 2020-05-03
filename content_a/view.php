@@ -19,7 +19,6 @@ class view
 		}
 
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_editor(true);
 		// use old version of chart until new version is being stable
 
 		\dash\face::site(\lib\store::title());
