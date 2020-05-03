@@ -1,4 +1,7 @@
-<footer>
-  <div class="copyright"><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\get::index(\lib\store::detail(), 'store_data', 'title'); ?></a></div>
-  <?php \lib\app\website_menu\generate::menu('footer_menu_1'); ?>
-</footer>
+<div class="jFooter1 txtC">
+	<div class="fit">
+		<div class="f">
+			<div class="c">تمام حقوق برای سایت شما محفوظ است.. قدرت گرفته از <a href="<?php echo \dash\url::kingdom(); ?>" target="_blank">جیبرس</a></div>
+		</div>
+	</div>
+</div>

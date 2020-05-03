@@ -60,20 +60,11 @@ class store
 	}
 
 
-	// set slug of store in api and load it
-	public static function set_store_slug($_slug)
-	{
-		self::$store_slug = $_slug;
-	}
 
 	// in api no user can set subdomain
 	public static function store_slug()
 	{
-		if(self::$store_slug)
-		{
-			return self::$store_slug;
-		}
-		elseif(\dash\url::store())
+		if(\dash\url::store())
 		{
 			return \dash\url::store();
 		}
@@ -100,7 +91,6 @@ class store
 	 */
 	public static function init()
 	{
-
 		// no subdomain and no domains
 		if(!self::store_slug())
 		{
@@ -206,14 +196,22 @@ class store
 
 			if(is_array($getFile) && $getFile)
 			{
-				if(isset($getFile['update_time']) && time() - intval($getFile['update_time']) > 60)
+				if(isset($getFile['title']))
 				{
-					return self::store_detail_setting_record($_store_detail['id']);
+					if(isset($getFile['update_time']) && time() - intval($getFile['update_time']) > 60)
+					{
+						return self::store_detail_setting_record($_store_detail['id']);
+					}
+					else
+					{
+						return self::ready_setting($getFile);
+					}
 				}
 				else
 				{
-					return self::ready_setting($getFile);
+					return self::store_detail_setting_record($_store_detail['id']);
 				}
+
 			}
 			else
 			{

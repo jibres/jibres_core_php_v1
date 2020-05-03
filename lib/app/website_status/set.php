@@ -21,6 +21,9 @@ class set
 
 		if($save)
 		{
+
+			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+
 			\dash\notif::ok(T_("Your status was saved"));
 			return true;
 		}

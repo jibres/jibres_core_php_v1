@@ -8,6 +8,13 @@ class find
 
 	public static function allBlocks()
 	{
+		// load customer business website
+		if(\dash\engine\content::get() === 'content_subdomain')
+		{
+			// load detail of business website
+			\dash\layout\business::check_website();
+		}
+
 		self::sidebar();
 		self::header();
 		// self::nav();
@@ -49,6 +56,15 @@ class find
 			{
 				$myMain = root.'content_enter/home/layout/main.php';
 				// do nothing
+			}
+		}
+
+		if(\dash\layout\business::website())
+		{
+			$temp_myMain = \dash\layout\business::body_addr();
+			if($temp_myMain)
+			{
+				$myMain = $temp_myMain;
 			}
 		}
 
@@ -116,6 +132,16 @@ class find
 			}
 		}
 
+		if(\dash\layout\business::website())
+		{
+			$temp_myHeader = \dash\layout\business::header_addr();
+			if($temp_myHeader)
+			{
+				$myHeader = $temp_myHeader;
+			}
+		}
+
+
 		echo "\n <header id='pageHeader' data-xhr='pageHeader'";
 		if($headerScroll)
 		{
@@ -152,6 +178,15 @@ class find
 					// jibres homepage webiste
 					$myFooter = root.'content/home/layout/footer.php';
 				}
+			}
+		}
+
+		if(\dash\layout\business::website())
+		{
+			$temp_myFooter = \dash\layout\business::footer_addr();
+			if($temp_myFooter)
+			{
+				$myFooter = $temp_myFooter;
 			}
 		}
 
