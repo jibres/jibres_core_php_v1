@@ -1,7 +1,7 @@
-<div class="jHeader2 fit f align-center">
+<div class="jHeader3 circleEffect fit f align-center">
   <div class="cauto pRa10">
     <a class="logo" href="">
-      <img src="https://cdn.talambar.ir/logo/fa/svg/Jibres-Logo-fa.svg" alt="">
+      <img src="/logo/fa/svg/Jibres-Logo-fa.svg" alt="">
     </a>
   </div>
   <div class="c">
@@ -16,4 +16,3 @@
     <a class="enter" href="">ورود به حساب کاربری</a>
   </div>
 </div>
-

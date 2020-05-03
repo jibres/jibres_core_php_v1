@@ -19,6 +19,8 @@ class set
 
 		$save = \lib\db\setting\update::overwirte_platform_cat_key($data['header'], 'website', 'header', 'active');
 
+		\lib\app\website\generator::remove_catch();
+
 		if($save)
 		{
 			\dash\notif::ok(T_("Your header was saved"));
@@ -75,6 +77,7 @@ class set
 
 		if($have_change)
 		{
+			\lib\app\website\generator::remove_catch();
 			\dash\notif::ok(T_("Your header customized"));
 		}
 		else

@@ -21,6 +21,7 @@ class set
 
 		if($save)
 		{
+			\lib\app\website\generator::remove_catch();
 			\dash\notif::ok(T_("Your footer was saved"));
 			return true;
 		}
@@ -75,6 +76,7 @@ class set
 
 		if($have_change)
 		{
+			\lib\app\website\generator::remove_catch();
 			\dash\notif::ok(T_("Your footer customized"));
 		}
 		else

@@ -56,6 +56,7 @@ class template
 		$list             = [];
 		$list[] = self::header_1();
 		$list[] = self::header_2();
+		$list[] = self::header_3();
 
 		return $list;
 	}
@@ -91,6 +92,22 @@ class template
 		];
 
 		return $header_2;
+	}
+
+
+	private static function header_3()
+	{
+		$header_3 =
+		[
+			'key'          => 'header_3',
+			'title'        => T_("Header #3"),
+			'desc'         => T_("Description"),
+			'sample_image' => \dash\url::logo(),
+			'css_file'     => 'the css file location addr',
+			'contain'      => ['header_logo', 'header_menu_1', 'header_menu_3', ],
+		];
+
+		return $header_3;
 	}
 
 
