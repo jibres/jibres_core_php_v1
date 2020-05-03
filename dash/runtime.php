@@ -52,7 +52,7 @@ class runtime
 
 		self::set('engine', 'end', true);
 
-		if(\dash\permission::supervisor())
+		if(isset($_SESSION['auth']['permission']) && $_SESSION['auth']['permission'] === 'supervisor')
 		{
 			$runtime = self::$runtime;
 
