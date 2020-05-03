@@ -128,6 +128,10 @@ class extentions
 		// allow to upload
 		if($myResult['allow'])
 		{
+			if(!function_exists('mime_content_type'))
+			{
+				\dash\header::status(501);
+			}
 			$mime_content_type = mime_content_type($_file_addr);
 
 			// force changed the extentio of file
