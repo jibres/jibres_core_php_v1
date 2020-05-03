@@ -475,5 +475,18 @@ class store
 	{
 		return YARD. 'jibres_temp/stores/cache/';
 	}
+
+
+
+	/**
+	 * website folder addr
+	 * use \dash\layout\business
+	 *
+	 * @return     string
+	 */
+	public static function website_addr()
+	{
+		return YARD. 'jibres_temp/stores/website/';
+	}
 }
 ?>
