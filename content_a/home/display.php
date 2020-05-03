@@ -4,7 +4,7 @@
 <div class="f">
   <div class="c8 x9 s12 pRa10">
 <?php if(\dash\permission::check('staffAccess')) {?>
-   <div id="chartdiv" class="box chart x400"></div>
+   <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
 <?php } //endif ?>
   </div>
   <div class="c4 x3 s12">

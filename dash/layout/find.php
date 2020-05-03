@@ -183,11 +183,6 @@ class find
 		{
 			echo "<div data-pagescript='". \dash\data::global_scriptPage(). "'></div>";
 		}
-
-		if(\dash\data::global_scriptChart())
-		{
-			echo "<div data-script-chart='". \dash\data::global_scriptChart(). "'></div>";
-		}
 	}
 }
 ?>

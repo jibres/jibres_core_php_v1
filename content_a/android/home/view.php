@@ -37,11 +37,6 @@ class view
 
 		$stat = \lib\app\application\download::stat();
 		\dash\data::stat($stat);
-
-
-		\dash\data::global_scriptChart('a/androiddashboard.js');
-
-
 	}
 
 }

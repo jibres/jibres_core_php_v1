@@ -27,7 +27,7 @@
       </div>
     </section>
 
-    <div id="chartdiv" class="box chart x210" ></div>
+    <div id="chartdiv" class="box chart x210" data-abc='my/ipg_home'></div>
 
     <section class="f">
       <div class="c pRa10">

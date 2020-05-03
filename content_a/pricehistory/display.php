@@ -75,7 +75,7 @@
 
 <div class="f justify-center">
 	<div class="c11">
-		<div id="chartdiv" class="chart"></div>
+		<div id="chartdiv" class="chart" data-abc='a/pricehistory'></div>
 	</div>
 </div>
 

@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div id="chartdiv" class="box chart x240"></div>
+    <div id="chartdiv" class="box chart x240" data-abc='a/androiddashboard'></div>
   </div>
 
   <div class="c4 x3 s12">

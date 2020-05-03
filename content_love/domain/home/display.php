@@ -37,7 +37,7 @@ $myData = \dash\data::dashboardDetail();
 
 <section class="f">
   <div class="c9 s12 pRa10">
-    <div id="chartdivdomain" class="box chart x210" data-hint1='Domain buy & renew & transfer & whois & total buy in lasy 30 days'></div>
+    <div id="chartdivdomain" class="box chart x210" data-hint1='Domain buy & renew & transfer & whois & total buy in lasy 30 days' data-abc='management/domainhomepage'></div>
   </div>
   <div class="c3 s12">
     <a href="<?php echo \dash\url::this(). '/buyers'; ?>" class="stat">

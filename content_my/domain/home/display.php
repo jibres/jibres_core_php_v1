@@ -25,7 +25,7 @@
      </div>
     </section>
 
-    <div id="chartdiv" class="box chart x210" ></div>
+    <div id="chartdiv" class="box chart x210" data-abc='my/domainhomepage'></div>
 
 
 

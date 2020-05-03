@@ -48,10 +48,6 @@ class view
 		$dashboard_detail = \lib\app\nic_domain\dashboard::admin();
 
 		\dash\data::dashboardDetail($dashboard_detail);
-
-		\dash\data::global_scriptChart('management/domainhomepage.js');
-
-
 	}
 }
 ?>
