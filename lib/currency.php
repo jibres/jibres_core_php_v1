@@ -9,8 +9,8 @@ class currency {
 
 		$currency =
 		[
-			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => T_('Iranian Toman')],
-			'IRR' 	=> ['symbol' => 'IRR', 	'decimal_digits' => 0, 'code' => 'IRR', 'symbol_native' => '﷼',		 'name' => T_('Iranian Rial')],
+			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => T_('Toman')],
+			'IRR' 	=> ['symbol' => 'IRR', 	'decimal_digits' => 0, 'code' => 'IRR', 'symbol_native' => '﷼',		 'name' => T_('Rial')],
 			'USD' 	=> ['symbol' => '$', 	'decimal_digits' => 2, 'code' => 'USD', 'symbol_native' => '$',		 'name' => T_('US Dollar')],
 			'EUR' 	=> ['symbol' => '€', 	'decimal_digits' => 2, 'code' => 'EUR', 'symbol_native' => '€',		 'name' => T_('Euro')],
 			'GBP' 	=> ['symbol' => '£', 	'decimal_digits' => 2, 'code' => 'GBP', 'symbol_native' => '£',		 'name' => T_('British Pound Sterling')],
@@ -147,5 +147,37 @@ class currency {
 
 		return null;
 	}
+
+
+	public static function unit()
+	{
+		$toman = T_("Toman");
+		$hezarToman = T_("Hezar Toman");
+
+		if(\dash\user::id())
+		{
+			// @todo read from user unit
+			// until add $ always we use toman
+			return $toman;
+		}
+
+		if(\dash\url::tld() === 'ir')
+		{
+			return $toman;
+		}
+
+		if(\dash\language::current() === 'fa')
+		{
+			return $toman;
+		}
+
+		if(\dash\language::current() === 'en')
+		{
+			return '$';
+		}
+
+		return '$';
+	}
+
 }
 ?>
