@@ -15,10 +15,10 @@
               <?php if(\dash\data::dataRow_giftpercent()) {?>
                 <tr><td><?php echo T_("Gift percent"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_giftpercent()). ' '. T_("%"); ?></td></tr>
               <?php }else{ ?>
-                <tr><td><?php echo T_("Gift amount"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_giftamount()); ?> <small><?php echo T_("Toman") ?></small></td></tr>
+                <tr><td><?php echo T_("Gift amount"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_giftamount()); ?> <small><?php echo \lib\currency::unit() ?></small></td></tr>
               <?php }//endif ?>
-              <tr><td><?php echo T_("Price floor"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_pricefloor()); ?> <small><?php echo T_("Toman") ?></small></td></tr>
-              <tr><td><?php echo T_("Gift max"); ?></td><td class="txtL"><?php if(\dash\data::dataRow_giftmax()) { echo \dash\fit::number(\dash\data::dataRow_giftmax()); ?> <small><?php echo T_("Toman");}else{ echo '-';}?></small></td></tr>
+              <tr><td><?php echo T_("Price floor"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_pricefloor()); ?> <small><?php echo \lib\currency::unit() ?></small></td></tr>
+              <tr><td><?php echo T_("Gift max"); ?></td><td class="txtL"><?php if(\dash\data::dataRow_giftmax()) { echo \dash\fit::number(\dash\data::dataRow_giftmax()); ?> <small><?php echo \lib\currency::unit();}else{ echo '-';}?></small></td></tr>
 
               <tr><td><?php echo T_("Expire date"); ?></td><td class="txtL"><?php echo \dash\data::dataRow_dateexpire(); ?> </td></tr>
 

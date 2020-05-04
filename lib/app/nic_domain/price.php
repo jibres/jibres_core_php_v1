@@ -53,7 +53,7 @@ class price
 	public static function register_string($_period)
 	{
 		$string = \dash\fit::number(self::register($_period));
-		$string .= ' '. T_("Toman");
+		$string .= ' '. \lib\currency::unit();
 		return $string;
 	}
 
@@ -61,7 +61,7 @@ class price
 	public static function renew_string($_period)
 	{
 		$string = \dash\fit::number(self::renew($_period));
-		$string .= ' '. T_("Toman");
+		$string .= ' '. \lib\currency::unit();
 		return $string;
 	}
 

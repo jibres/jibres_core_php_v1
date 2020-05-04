@@ -140,7 +140,7 @@
   <div id="charttitle"><?php echo T_("Total pay per day"); ?></div>
   <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'categories'); ?></div>
   <div id="chartprice"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'price'); ?></div>
-  <div id="charttitleprice"><?php echo T_("Toman"); ?></div>
+  <div id="charttitleprice"><?php echo \lib\currency::unit(); ?></div>
   <div id="charttitlepayed"><?php echo T_("Payed"); ?></div>
 
 </div>

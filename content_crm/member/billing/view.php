@@ -12,7 +12,7 @@ class view
 		$user_id = \dash\coding::decode(\dash\request::get('id'));
 
 
-		\dash\data::userUnit(T_("Toman"));
+		\dash\data::userUnit(\lib\currency::unit());
 
 		$user_cash_all = \dash\db\transactions::budget($user_id, ['unit' => 'all']);
 

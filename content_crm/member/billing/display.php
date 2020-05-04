@@ -63,7 +63,7 @@
             ?>
 
           </td>
-          <td><?php echo \dash\fit::number(\dash\get::index($value, 'budget')); ?> <?php if(isset($value['budget']) && $value['budget']){ echo T_("Toman");  }?></td>
+          <td><?php echo \dash\fit::number(\dash\get::index($value, 'budget')); ?> <?php if(isset($value['budget']) && $value['budget']){ echo \lib\currency::unit();  }?></td>
 
           <?php if(\dash\permission::supervisor()) {?>
             <td title="<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?></td>

@@ -60,28 +60,28 @@
     <section class="f">
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
-       <h3><?php echo T_("Total Payments");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
+       <h3><?php echo T_("Total Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'total_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
-       <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
+       <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'last_year_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
       <a href="<?php echo \dash\url::kindgom() ?>/account/billing?from=domain" class="stat<?php if(\dash\get::index($myData, 'user_budget')>0) echo " green"; ?>">
-       <h3><?php echo T_("Your Current Balance");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
+       <h3><?php echo T_("Your Current Balance");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'user_budget'));?></div>
       </a>
      </div>
 
      <div class="c">
       <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
-       <h3><?php echo T_("Predict Late Payments");?> <small>(<?php echo T_("Toman"); ?>)</small></h3>
+       <h3><?php echo T_("Predict Late Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'predict_late_payment'));?></div>
       </a>
      </div>
@@ -189,7 +189,7 @@
   <div id="charttitle"><?php echo T_("Total pay per day"); ?></div>
   <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'categories'); ?></div>
   <div id="chartprice"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'price'); ?></div>
-  <div id="charttitleprice"><?php echo T_("Toman"); ?></div>
+  <div id="charttitleprice"><?php echo \lib\currency::unit(); ?></div>
   <div id="charttitlepayed"><?php echo T_("Payed"); ?></div>
 
 </div>

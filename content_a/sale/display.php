@@ -59,7 +59,7 @@
 
     <div class="priceBox hide">
       <h3><?php echo T_("Factor Price Detail"); ?></h3>
-      <div class="final" title='<?php echo T_("Total payable"); ?>'><span>0</span><abbr><?php echo T_("Toman"); ?></abbr></div>
+      <div class="final" title='<?php echo T_("Total payable"); ?>'><span>0</span><abbr><?php echo \lib\currency::unit(); ?></abbr></div>
       <div class="desc">-</div>
       <div class="detail item"><abbr><?php echo T_("Count of items"); ?></abbr> <span>-</span></div>
       <div class="detail count"><abbr><?php echo T_("Sum of counts"); ?></abbr> <span>-</span></div>

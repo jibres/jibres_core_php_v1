@@ -154,6 +154,8 @@ class currency {
 		$toman = T_("Toman");
 		$hezarToman = T_("Hezar Toman");
 
+		// if store is loaded, read from store settings
+
 		if(\dash\user::id())
 		{
 			// @todo read from user unit

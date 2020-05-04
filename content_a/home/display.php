@@ -118,5 +118,5 @@
   <div id="charttitle"><?php echo T_("Sum factor price and count of it group by hours"); ?></div>
   <div id="charttitlesum"><?php echo T_("Sum price"); ?></div>
   <div id="charttitlecount"><?php echo T_("Count"); ?></div>
-  <div id="charttitleunit"><?php echo T_("Toman"); ?></div>
+  <div id="charttitleunit"><?php echo \lib\currency::unit(); ?></div>
 </div>

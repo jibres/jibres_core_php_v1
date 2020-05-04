@@ -61,7 +61,7 @@ if(\dash\data::dataRow_banktoken())
 		<div class="c8">
 			<div class="payPriceBox">
 				<span class="price"><?php echo \dash\fit::number(\dash\data::dataRow_plus()); ?></span>
-				<abbr class="unit"><?php echo T_("Toman"); ?></abbr>
+				<abbr class="unit"><?php echo \lib\currency::unit(); ?></abbr>
 			</div>
 		</div>
 		<div class="cauto">

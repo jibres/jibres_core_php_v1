@@ -763,7 +763,7 @@ class view
 			"firstPrice" => 2000,
 			"discount"   => 300,
 			"price"      => 1700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -800,7 +800,7 @@ class view
 			"firstPrice" => 5000,
 			"discount"   => 300,
 			"price"      => 4700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -812,7 +812,7 @@ class view
 			"firstPrice" => 6000,
 			"discount"   => 300,
 			"price"      => 5700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -824,7 +824,7 @@ class view
 			"firstPrice" => 1000,
 			"discount"   => 300,
 			"price"      => 700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -836,7 +836,7 @@ class view
 			"firstPrice" => 2000,
 			"discount"   => 300,
 			"price"      => 1700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -873,7 +873,7 @@ class view
 			"firstPrice" => 5000,
 			"discount"   => 300,
 			"price"      => 4700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -885,7 +885,7 @@ class view
 			"firstPrice" => 6000,
 			"discount"   => 300,
 			"price"      => 5700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 
@@ -1020,7 +1020,7 @@ class view
 			"firstPrice" => 1000,
 			"discount"   => 300,
 			"price"      => 700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -1032,7 +1032,7 @@ class view
 			"firstPrice" => 2000,
 			"discount"   => 300,
 			"price"      => 1700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -1069,7 +1069,7 @@ class view
 			"firstPrice" => 5000,
 			"discount"   => 300,
 			"price"      => 4700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 		$data[] =
@@ -1081,7 +1081,7 @@ class view
 			"firstPrice" => 6000,
 			"discount"   => 300,
 			"price"      => 5700,
-			"unit"       => T_("Toman"),
+			"unit"       => \lib\currency::unit(),
 		];
 
 

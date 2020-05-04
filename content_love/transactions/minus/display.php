@@ -51,7 +51,7 @@
 				<label for="unit" ><?php echo T_("Unit"); ?></label>
 				<select name="unit"  id="unit" class="select">
 					<option value=""><?php echo T_("Please select one item"); ?></option>
-					<option value="toman" selected=""><?php echo T_("Toman"); ?></option>
+					<option value="toman" selected=""><?php echo \lib\currency::unit(); ?></option>
 					<option value="dollar"><?php echo T_("$"); ?></option>
 				</select>
 			</div>
@@ -66,7 +66,7 @@
 
 			<label for="amount"><?php echo T_("Price"); ?> <small class="fc-red">* <?php echo T_("Require"); ?></small></label>
 			<div class="input">
-			  <input type="number" name="amount" id="amount" placeholder='<?php echo T_("Price of transaction"); ?> | <?php echo T_("Toman"); ?> * ' autofocus  required max='999999999' min="0" pattern=".{1,150}" title='<?php echo T_("Enter a valid amount"); ?>' data-response-realtime>
+			  <input type="number" name="amount" id="amount" placeholder='<?php echo T_("Price of transaction"); ?> | <?php echo \lib\currency::unit(); ?> * ' autofocus  required max='999999999' min="0" pattern=".{1,150}" title='<?php echo T_("Enter a valid amount"); ?>' data-response-realtime>
 			</div>
 
 			<?php if(\dash\language::current() === 'fa') {?>

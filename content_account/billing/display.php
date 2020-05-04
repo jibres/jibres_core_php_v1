@@ -13,7 +13,7 @@
 
 
          <div class="input pA5">
-          <label class="addon" for="amount-number"><?php echo T_("Toman"); ?></label>
+          <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
           <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Amount"); ?>' required min=0 max="9999999999">
           <button class="addon btn primary"><?php echo T_("Checkout"); ?></button>
          </div>
@@ -32,7 +32,7 @@
           <i class="sf-credit-card"></i>
           <span><?php echo \dash\fit::number(\dash\data::userCash()); ?></span>
         </div>
-        <div class="label"><?php echo T_("Your credit"); ?> <small><?php echo T_("Toman"); ?></small></div>
+        <div class="label"><?php echo T_("Your credit"); ?> <small><?php echo \lib\currency::unit(); ?></small></div>
        </div>
       </div>
 
@@ -91,7 +91,7 @@
             ?>
 
           </td>
-          <td><?php echo \dash\fit::number(\dash\get::index($value, 'budget')); ?> <?php if(isset($value['budget']) && $value['budget']){ echo T_("Toman");  }?></td>
+          <td><?php echo \dash\fit::number(\dash\get::index($value, 'budget')); ?> <?php if(isset($value['budget']) && $value['budget']){ echo \lib\currency::unit();  }?></td>
 
           <?php if(\dash\permission::supervisor()) {?>
             <td title="<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?></td>

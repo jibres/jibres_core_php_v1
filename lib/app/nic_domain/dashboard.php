@@ -74,7 +74,7 @@ class dashboard
 		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
 		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_active_domain);
 		$result['user_budget']              = \dash\user::budget();
-		$result['user_unit']         = T_("Toman");
+		$result['user_unit']         = \lib\currency::unit();
 
 		$last_year = date("Y-m-d", strtotime("-365 days"));
 

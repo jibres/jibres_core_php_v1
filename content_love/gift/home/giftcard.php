@@ -30,7 +30,7 @@ if(!isset($gMaxGift))
 			<div class="cauto os pLa20 pTB10 meta">
 				<div class="f mB10">
 					<abbr class="c"><?php echo T_("Max Gift");?></abbr>
-					<span class="c5"><?php echo \dash\fit::number($gMaxGift). ' '. T_("Toman");?></span>
+					<span class="c5"><?php echo \dash\fit::number($gMaxGift). ' '. \lib\currency::unit();?></span>
 				</div>
 				<div class="f">
 					<abbr class="c"><?php echo T_("Expire Date");?></abbr>

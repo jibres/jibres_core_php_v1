@@ -163,7 +163,7 @@ else
 <?php } //endif ?>
    <tr class="msg info2 factorSum">
      <th class="txtRa fs08"><?php echo T_("Total payable"); ?></th>
-     <td class="collapsing txtLa"><?php echo \dash\fit::number(\dash\get::index($factorDetail, 'factor', 'total')); ?> <small class="fs05"><?php echo T_("Toman"); ?></small></td>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(\dash\get::index($factorDetail, 'factor', 'total')); ?> <small class="fs05"><?php echo \lib\currency::unit(); ?></small></td>
    </tr>
   </tbody>
 
