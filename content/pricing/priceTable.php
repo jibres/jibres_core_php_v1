@@ -34,13 +34,13 @@
         <div class="priceBox">
           <div class="f align-center monthly">
             <div class="c pRa10 txtLa period"><?php echo T_("Monthly"); ?></div>
-            <div class="cauto price"><?php echo \dash\fit::number('14'); ?></div>
-            <div class="cauto unit"><?php echo T_("Toman"); ?></div>
+            <div class="cauto price pRa5"><?php echo \dash\fit::number('14'); ?></div>
+            <div class="cauto unit"><?php echo \lib\currency::unit(); ?></div>
           </div>
           <div class="f align-center annually">
             <div class="c pRa10 txtLa period"><?php echo T_("Annually"); ?></div>
-            <div class="cauto price"><?php echo \dash\fit::number('140'); ?></div>
-            <div class="cauto unit"><?php echo T_("Toman"); ?></div>
+            <div class="cauto price pRa5"><?php echo \dash\fit::number('140'); ?></div>
+            <div class="cauto unit"><?php echo \lib\currency::unit(); ?></div>
           </div>
         </div>
       </div>
@@ -59,13 +59,13 @@
         <div class="priceBox">
           <div class="f align-center monthly">
             <div class="c pRa10 txtLa period"><?php echo T_("Monthly"); ?></div>
-            <div class="cauto price"><?php echo \dash\fit::number('30'); ?></div>
-            <div class="cauto unit"><?php echo T_("Toman"); ?></div>
+            <div class="cauto price pRa5"><?php echo \dash\fit::number('30'); ?></div>
+            <div class="cauto unit"><?php echo \lib\currency::unit(); ?></div>
           </div>
           <div class="f align-center annually">
             <div class="c pRa10 txtLa period"><?php echo T_("Annually"); ?></div>
-            <div class="cauto price"><?php echo \dash\fit::number('300'); ?></div>
-            <div class="cauto unit"><?php echo T_("Toman"); ?></div>
+            <div class="cauto price pRa5"><?php echo \dash\fit::number('300'); ?></div>
+            <div class="cauto unit"><?php echo \lib\currency::unit(); ?></div>
           </div>
         </div>
       </div>
@@ -85,13 +85,13 @@
         <div class="priceBox">
           <div class="f align-center monthly">
             <div class="c pRa10 txtLa period"><?php echo T_("Monthly"); ?></div>
-            <div class="cauto price"><?php echo \dash\fit::number('75'); ?></div>
-            <div class="cauto unit"><?php echo T_("Toman"); ?></div>
+            <div class="cauto price pRa5"><?php echo \dash\fit::number('75'); ?></div>
+            <div class="cauto unit"><?php echo \lib\currency::unit(); ?></div>
           </div>
           <div class="f align-center annually">
             <div class="c pRa10 txtLa period"><?php echo T_("Annually"); ?></div>
-            <div class="cauto price"><?php echo \dash\fit::number('750'); ?></div>
-            <div class="cauto unit"><?php echo T_("Toman"); ?></div>
+            <div class="cauto price pRa5"><?php echo \dash\fit::number('750'); ?></div>
+            <div class="cauto unit"><?php echo \lib\currency::unit(); ?></div>
           </div>
         </div>
         <a href="<?php echo \dash\url::kingdom(); ?>/enter/signup" class="trial"><?php echo T_("Start your free trial"); ?></a>

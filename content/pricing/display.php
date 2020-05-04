@@ -165,10 +165,10 @@ if(\dash\language::current() === 'fa')
 ?>
       <tr>
         <th><?php echo T_("Each SMS cost"); ?> <span class="badge lg"><?php echo T_("Optional"); ?></span></th>
-        <td class="txtB"><?php echo \dash\fit::number('100'); ?> <small><?php echo T_("Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('75'); ?> <small><?php echo T_("Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('40'); ?> <small><?php echo T_("Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('30'); ?> <small><?php echo T_("Toman"); ?></small></td>
+        <td class="txtB"><?php echo \dash\fit::number('100'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="txtB"><?php echo \dash\fit::number('75'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="txtB"><?php echo \dash\fit::number('40'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="txtB"><?php echo \dash\fit::number('30'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
       </tr>
 <?php
 } // endif
