@@ -182,14 +182,6 @@
 
 
 
-<section id='quote' data-bg='url("<?php echo \dash\url::cdn(); ?>/images/homepage/quote-supersaeed-sadeghi.jpg")'>
-  <div class="title">
-  <h4><?php echo T_('With Jibres we take less time of our customers and this means modern customer orientation'); ?></h4>
-  <h5><?php echo T_('Majid Sadeghi'); ?></h5>
-  <h5><?php echo T_('Sales Supervisor at SuperSaeed'); ?></h5>
- </div>
-</section>
-
 <?php if(\dash\data::quote()) { ?>
 <section id='jibresQuote'>
   <div class="cn">
