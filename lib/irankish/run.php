@@ -13,10 +13,10 @@ class run
         {
             \dash\log::set('payment:parsian:soapclient:not:install');
             \dash\notif::error(T_("Can not connect to parsian gateway. Install it!"));
-            return false;
+            // return false;
         }
 
-        try
+        // try
         {
             $soap_meta =
             [
@@ -26,12 +26,14 @@ class run
                 'exceptions'   => true,
             ];
 
-            $client = @new \SoapClient('https://pec.shaparak.ir/NewIPGServices/Sale/SaleService.asmx?WSDL',$soap_meta);
+            $client = @new \SoapClient('http://185.79.62.20/Services/DefineMerchant?wsdl',$soap_meta);
 
-            var_dump($client);exit();
 
-            $result = $client->SalePaymentRequest(["requestData" => $_args]);
+            // $result = $client->Login("RoozAndishKavirPeyma", "Aa@123456");
+            $result = $client->login(["username" => "RoozAndishKavirPeyma", "password" => "Aa@123456"]);
 
+
+            var_dump($result);exit();
             self::$payment_response = $result;
 
             $status = $result->SalePaymentRequestResult->Status;
@@ -50,12 +52,12 @@ class run
                 return false;
             }
         }
-        catch (\Exception $e)
-        {
-            \dash\log::set('payment:parsian:error:load:web:services');
-            \dash\notif::error(T_("Error in load web services"));
-            return false;
-        }
+        // catch (\Exception $e)
+        // {
+        //     \dash\log::set('payment:parsian:error:load:web:services');
+        //     \dash\notif::error(T_("Error in load web services"));
+        //     return false;
+        // }
     }
 
 
