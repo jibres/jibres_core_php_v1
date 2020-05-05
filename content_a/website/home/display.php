@@ -1,31 +1,4 @@
 
-<div class="msg info2 fs16"><?php echo T_("Please set general detail about your website."); ?></div>
-
-<div class="setupGuide">
- <header><?php echo T_("Website Setup Progress"); ?></header>
- <section>
-  <div class="f">
-   <div class="c"><a class="item <?php if(\dash\data::issetHeader()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/logo"><?php echo T_('Website Header');?></a></div>
-   <div class="c"><a class="item <?php if(\dash\data::setupGuide_splash()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/splash"><?php echo T_('Website Body');?></a></div>
-   <div class="c"><a class="item <?php if(\dash\data::issetFooter()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/title"><?php echo T_('Website Footer');?></a></div>
-   <div class="c"><a class="item <?php if(\dash\data::websiteStatus()) { echo 'complete'; } ?>" href="<?php echo \dash\url::this();?>/intro"><?php echo T_('Publish');?></a></div>
-  </div>
- </section>
-</div>
-
-<?php if(!\dash\data::issetHeader() && !\dash\data::issetFooter()) {?>
-<div class="welcome">
-  <p><?php echo T_("Easily Create your store website"); ?></p>
-  <h2><?php echo T_("Create a custom website for your store"); ?></h2>
-
-  <div class="buildBtn">
-    <a class="btn xl master" href="<?php echo \dash\url::this(); ?>/header?setup=wizard"><?php echo T_("Let's Go"); ?></a>
-  </div>
-</div>
-<?php }//endif ?>
-
-
-
 
 <div class="f">
 

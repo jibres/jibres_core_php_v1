@@ -1,6 +1,6 @@
 
 <div class="f justify-center">
-  <div class="c6 m8 s12 x5 hide">
+  <div class="c6 m8 s12 x5">
     <form method="post" class="box impact" autocomplete="off">
       <header><h2><?php echo T_("Add item to menu"). ' '. \dash\data::menuDetail_title(); ?></h2></header>
 
@@ -31,60 +31,40 @@
       </div>
 
       <footer class="txtRa">
-        <button class="btn primary"><?php echo T_("Add"); ?></button>
+        <button class="btn success"><?php echo T_("Add"); ?></button>
       </footer>
+    </form>
+
+    <form method="post" class="box impact" autocomplete="off">
+      <header data-kerkere='.showManageMentMenu'><h2><?php echo T_("Manage menu"). ' '. \dash\data::menuDetail_title(); ?></h2></header>
+      <div class="showManageMentMenu" data-kerkere-content='hide'>
+
+      <div class="body">
+
+
+          <label for="menutitle"><?php echo T_("Edit menu title"); ?></label>
+          <div class="input">
+            <input type="text" name="menutitle" id="menutitle" value="<?php echo \dash\data::menuDetail_title() ?>" maxlength="50" required>
+            <button class="addon btn primary"><?php echo T_("Edit"); ?></button>
+          </div>
+
+
+          <p class="mT20">
+            <?php echo T_("If not use this menu you can remove it") ?>
+            <span data-confirm data-data='{"itemkey": "<?php echo $key; ?>", "remove": "remove"}' class="link fc-red" ><?php echo T_("Remove"); ?></span>
+          </p>
+
+
+
+      </div>
+
+
+      </div>
     </form>
   </div>
 
   <div class="c6 x5 s12 pLa10">
-    <nav class="items">
-     <ul>
-       <li>
-        <a class="f"  data-kerkere='.addNewItem' data-kerkere-single>
-          <div class="key txtB"><?php echo T_("Add item to menu"). ' '. \dash\data::menuDetail_title(); ?></div>
-          <div class="go"></div>
-        </a>
 
-        <div class="addNewItem" data-kerkere-content='<?php if(\dash\data::menuDetailList()){echo 'hide';} ?>'>
-          <form method="post" class="box" autocomplete="off">
-            <div class="body">
-              <label for="title"><?php echo T_("Title"); ?></label>
-              <div class="input mB10">
-                <input type="text" name="title" id="title" maxlength="50" required>
-              </div>
-
-              <label for="url"><?php echo T_("Url"); ?></label>
-              <div class="input mB10">
-                <input type="url" name="url" id="url"  required>
-              </div>
-              <label for="sort"><?php echo T_("Sort"); ?></label>
-
-              <div class="input mB10">
-                <input type="number" name="sort" id="sort" min="0" max="9999">
-              </div>
-
-              <div class="check1 mB5">
-                <input type="checkbox" name="target" id="targetadd" >
-                <label for="targetadd"><?php echo T_("Open in New tab"); ?></label>
-              </div>
-
-            </div>
-            <footer class="f">
-              <div class="c">
-              </div>
-              <div class="cauto os">
-                <button class="btn success"><?php echo T_("Add"); ?></button>
-
-              </div>
-            </footer>
-
-          </form>
-
-        </div>
-
-       </li>
-        </ul>
-   </nav>
     <nav class="items">
      <ul>
 
@@ -94,7 +74,7 @@
           <div class="key"><?php echo \dash\get::index($value, 'title');?>
             <?php if(\dash\get::index($value, 'target')) {?><i class="sf-link fc-mute"></i> <?php }// endif ?>
           </div>
-          <div class="go"></div>
+          <div class="go"><i class="sf-edit fc-blue"></i></div>
         </a>
 
         <div class="showMenuItem_<?php echo $key; ?>" data-kerkere-content='hide'>
@@ -124,10 +104,10 @@
             </div>
             <footer class="f">
               <div class="c">
-                <button class="btn primary"><?php echo T_("Update"); ?></button>
+                <div data-confirm data-data='{"itemkey": "<?php echo $key; ?>", "remove": "remove"}' class="btn link fc-red" ><?php echo T_("Remove"); ?></div>
               </div>
               <div class="cauto os">
-                <div data-confirm data-data='{"itemkey": "<?php echo $key; ?>", "remove": "remove"}' class="btn danger" ><?php echo T_("Remove"); ?></div>
+                <button class="btn primary"><?php echo T_("Update"); ?></button>
               </div>
             </footer>
 

@@ -7,7 +7,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Menu setting'));
+		\dash\face::title(T_('Menu list'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
@@ -16,18 +16,10 @@ class view
 		$menu_list = \lib\app\website\menu\get::list_all_menu();
 		\dash\data::menuList($menu_list);
 
-		$haveChildID = [];
-
-		foreach ($menu_list as $key => $value)
+		if(!$menu_list)
 		{
-			if(isset($value['id']) && isset($value['list']) && $value['list'])
-			{
-				$haveChildID[] = $value['id'];
-			}
+			\dash\redirect::to(\dash\url::this(). '/menu/add');
 		}
-
-		$haveChildID = implode('|', $haveChildID);
-		\dash\data::haveChildID($haveChildID);
 	}
 }
 ?>
