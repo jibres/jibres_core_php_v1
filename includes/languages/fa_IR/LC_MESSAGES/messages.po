@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-05-05 22:21+0430\n"
-"PO-Revision-Date: 2020-05-05 22:37+0430\n"
+"POT-Creation-Date: 2020-05-05 22:41+0430\n"
+"PO-Revision-Date: 2020-05-05 22:42+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2704,10 +2704,8 @@ msgid "Hasan Salehi"
 msgstr "حسن صالحی"
 
 #: content/home/view.php:70
-#, fuzzy
-#| msgid "Developers"
 msgid "Software Developer"
-msgstr "توسعه‌دهندگان"
+msgstr "توسعه‌دهنده نرم‌افزار"
 
 #: content/home/view.php:72
 msgid ""
@@ -19894,7 +19892,7 @@ msgstr "دامنه حداکثر می‌توانید ۳ کاراکتر نقطه �
 
 #: dash/validate/url.php:85
 msgid "Domain can not start by dot character"
-msgstr ""
+msgstr "دامنه نمی‌تواند با نقطه شروع شود"
 
 #: dash/validate/url.php:138
 msgid "This is not an IR domain"
