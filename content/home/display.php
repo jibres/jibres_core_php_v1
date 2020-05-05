@@ -5,7 +5,7 @@
 <section class="jibresBanner" id='saleChannels'>
  <div class="fit">
   <div class="f">
-    <div class="c3 m6 s12">
+    <div class="c3 m6 s12 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step1-500.png" alt="<?php echo T_('Point of Sale Software'); ?>">
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="c3 m6 s12">
+    <div class="c3 m6 s12 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step2-500.png" alt='<?php echo T_('Online Store Website'); ?>'>
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="c3 m6 s12">
+    <div class="c3 m6 s12 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step3-500.png" alt='<?php echo T_('Mobile Online Store'); ?>'>
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="c3 m6 s12">
+    <div class="c3 m6 s12 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step4-500.png" alt='<?php echo T_('Social Marketing'); ?>'>
