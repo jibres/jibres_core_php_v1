@@ -170,7 +170,7 @@
      <ul>
       <li>
        <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">
-        <div class="key"><?php echo T_('Doamin API');?></div>
+        <div class="key"><?php echo T_('Domain API');?></div>
         <div class="go next"></div>
        </a>
       </li>

@@ -50,7 +50,7 @@ class url
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Doamin can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\notif::error(T_("Domain can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
 			}
 			return false;
 		}
@@ -82,7 +82,7 @@ class url
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Doamin can not start by dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\notif::error(T_("Domain can not start by dot character"), ['element' => $_element, 'code' => 1605]);
 			}
 			return false;
 		}
@@ -104,7 +104,7 @@ class url
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Doamin can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\notif::error(T_("Domain can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
 			}
 			return false;
 		}

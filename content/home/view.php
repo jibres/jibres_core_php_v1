@@ -56,19 +56,19 @@ class view
 			[
 				"name"     => T_("Majid Sadeghi"),
 				"position" => T_("Sales Supervisor at SuperSaeed"),
-				"avatar"   => T_("majid-sadeghi.jpg"),
+				"avatar"   => "majid-sadeghi.jpg",
 				"quote"    => T_("With Jibres we take less time of our customers and this means modern customer orientation"). '.',
 			],
 			[
 				"name"     => T_("Ahmad Karimi"),
 				"position" => T_("UX Designer"),
-				"avatar"   => T_("ahmad-karimi.jpg"),
+				"avatar"   => "ahmad-karimi.jpg",
 				"quote"    => T_("Who would have thought that one day an Iranian company could launch such a simple and attractive domain registration system? That one, despite something called IRNIC! Keep up the good work, Jibres!"),
 			],
 			[
 				"name"     => T_("Hasan Salehi"),
 				"position" => T_("Software Developer"),
-				"avatar"   => T_("hasan-salehi.jpg"),
+				"avatar"   => "hasan-salehi.jpg",
 				"quote"    => T_("It was one of the best and most convenient domain registration panels I've ever seen, especially the three-letter domain dictionary :))"),
 			],
 		];
