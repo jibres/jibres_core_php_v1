@@ -1,15 +1,23 @@
 <?php
-// body generator
-$lines = \lib\app\website\body\generator::lines();
-
-foreach ($lines as $key => $value)
+if(\dash\data::postIsLoaded())
 {
-	if(isset($value['type']))
+	require_once('body_load_post.php');
+}
+else
+{
+
+	// body generator
+	$lines = \lib\app\website\body\generator::lines();
+
+	foreach ($lines as $key => $value)
 	{
-		$addr = __DIR__. '/'. $value['type']. '.php';
-		if(is_file($addr))
+		if(isset($value['type']))
 		{
-			require($addr);
+			$addr = __DIR__. '/'. $value['type']. '.php';
+			if(is_file($addr))
+			{
+				require($addr);
+			}
 		}
 	}
 }

@@ -32,7 +32,8 @@ class controller
 				if($check)
 				{
 					\dash\data::postIsLoaded(true);
-					\dash\data::datarow($check);
+					\dash\data::mydatarow($check);
+
 					\dash\open::get();
 
 				}
