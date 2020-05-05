@@ -50,6 +50,31 @@ class view
 			\dash\data::action_text(T_('Dashboard'));
 			\dash\data::action_link(\dash\url::kingdom(). '/my');
 		}
+
+		$quote =
+		[
+			[
+				"name"     => T_("Majid Sadeghi"),
+				"position" => T_("Sales Supervisor at SuperSaeed"),
+				"avatar"   => T_("majid-sadeghi.jpg"),
+				"quote"    => T_("With Jibres we take less time of our customers and this means modern customer orientation"). '.',
+			],
+			[
+				"name"     => T_("Ahmad Karimi"),
+				"position" => T_("UX Designer"),
+				"avatar"   => T_("ahmad-karimi.jpg"),
+				"quote"    => T_("Who would have thought that one day an Iranian company could launch such a simple and attractive domain registration system? That one, despite something called IRNIC! Keep up the good work, Jibres!"),
+			],
+			[
+				"name"     => T_("Hasan Salehi"),
+				"position" => T_("Software Developer"),
+				"avatar"   => T_("hasan-salehi.jpg"),
+				"quote"    => T_("یکی از بهترین و راحت‌ترین پنل‌های ثبت دامنه‌ای بود که تا به حال دیده بودم، مخصوصا بخش دیکشنری دامنه‌های سه حرفی :))"),
+			],
+		];
+
+		shuffle($quote);
+		\dash\data::quote($quote);
 	}
 }
 ?>
