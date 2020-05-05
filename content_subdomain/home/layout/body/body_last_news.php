@@ -1,51 +1,34 @@
 
 <?php
-\dash\data::allPostList(\dash\app\posts::get_post_list(['pagenation' => true]));
+$postList = \dash\app\posts::get_post_list(['limit' => 5]);
 
-if(\dash\data::allPostList())
+if($postList && is_array($postList))
 {
 ?>
 
-<main>
 
+  <div class="jBlog1">
+      <div class="fit-sm">
 
-
-<?php
-foreach (\dash\data::allPostList() as $key => $post)
-{
-?>
+<?php foreach ($postList as $key => $post) { ?>
 
 
 <article>
   <header>
     <h2><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo \dash\get::index($post, 'title'); ?></a></h2>
-    <div class="meta">
-<?php if(\dash\get::index($post, 'subtitle')) {?>
-      <div class="fs09"><?php echo \dash\get::index($post, 'subtitle'); ?></div>
-<?php } //endif ?>
+    <div class="meta txtRa">
       <time datetime="<?php echo \dash\get::index($post, 'publishdate'); ?>"><?php echo \dash\fit::date_human(\dash\get::index($post, 'publishdate')); ?></time>
     </div>
   </header>
   <section>
-<?php if(\dash\get::index($post, 'meta', 'thumb')) {?>
-
-    <a href="<?php echo \dash\get::index($post, 'link'); ?>" class="thumb">
-      <img src="<?php echo \dash\get::index($post, 'meta', 'thumb'); ?>" alt="<?php echo \dash\get::index($post, 'title'); ?>">
-    </a>
-<?php } //endif ?>
     <p><?php echo \dash\get::index($post, 'excerpt'); ?></p>
-    <div class="more"><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo T_("Keep Reading"); ?> <span class="sf-angle-double-right"></span></a></div>
+    <div class="more"><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo T_("Keep Reading"); ?> <span class="sf-angle-double-left"></span></a></div>
   </section>
 </article>
 
-<?php
-} // end foreach
-?>
-</main>
+<?php } // end foreach ?>
 
+      </div>
+    </div>
+<?php } //endif ?>
 
-
-<?php
-} // end if
-\dash\utility\pagination::html();
-?>
