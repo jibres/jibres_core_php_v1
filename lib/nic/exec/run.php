@@ -220,7 +220,7 @@ class run
 			return true;
 		}
 
-		if($_type === 'poll')
+		if($_type === 'poll_request')
 		{
 			// in 12:00 - 7:00. No poll request need to send
 			// with cronjob and also for user
