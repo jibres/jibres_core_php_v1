@@ -69,7 +69,7 @@ class view
 				"name"     => T_("Hasan Salehi"),
 				"position" => T_("Software Developer"),
 				"avatar"   => T_("hasan-salehi.jpg"),
-				"quote"    => T_("یکی از بهترین و راحت‌ترین پنل‌های ثبت دامنه‌ای بود که تا به حال دیده بودم، مخصوصا بخش دیکشنری دامنه‌های سه حرفی :))"),
+				"quote"    => T_("It was one of the best and most convenient domain registration panels I've ever seen, especially the three-letter domain dictionary :))"),
 			],
 		];
 
