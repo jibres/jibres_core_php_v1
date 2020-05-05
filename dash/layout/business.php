@@ -56,6 +56,8 @@ class business
 
 		self::$website_setting = $load_website_setting;
 
+		\dash\data::website($load_website_setting);
+
 		return true;
 	}
 

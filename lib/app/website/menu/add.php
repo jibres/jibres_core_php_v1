@@ -57,6 +57,8 @@ class add
 
 		if($insert)
 		{
+			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+
 			\dash\notif::ok(T_("Your menu was saved"));
 			return true;
 		}
@@ -118,6 +120,8 @@ class add
 
 		if($delete)
 		{
+			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+
 			\dash\notif::ok(T_("Your menu was removed"));
 			return true;
 		}
@@ -250,6 +254,8 @@ class add
 
 		if($result)
 		{
+			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+
 			if($data['remove'])
 			{
 				\dash\notif::ok(T_("Your list removed from your menu"));
