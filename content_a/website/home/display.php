@@ -86,6 +86,16 @@
        </li>
      </ul>
    </nav>
+
+   <nav class="items">
+     <ul>
+       <li>
+        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain'));?>">
+          <div class="key"><?php echo T_('Show website');?></div>
+          <div class="go"></div></a>
+       </li>
+     </ul>
+   </nav>
   </div>
 </div>
 
