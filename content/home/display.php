@@ -167,20 +167,6 @@
 </section>
 
 
-
-<section id='roadmap'>
-  <div class="cn">
-    <div class="f align-center fix">
-      <div class="cauto s12"><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-vision.png" alt='<?php echo T_('Roadmap of Jibres'); ?>'></div>
-      <div class="c s12">
-        <h2><?php echo T_('Roadmap'); ?></h2>
-        <h3><?php echo T_('World #1 Financial Platform'); ?></h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <section id='jibresRoadmap'>
   <div class="cn">
     <h3><?php echo T_("Jibres Roadmap"); ?></h3>
