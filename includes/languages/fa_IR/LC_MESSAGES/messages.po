@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-05-05 22:41+0430\n"
-"PO-Revision-Date: 2020-05-05 22:42+0430\n"
+"POT-Creation-Date: 2020-05-05 23:39+0430\n"
+"PO-Revision-Date: 2020-05-05 23:39+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2358,19 +2358,15 @@ msgstr "فاکتور"
 msgid "Sold on Jibres"
 msgstr "فروخته شده با جیبرس"
 
-#: content/home/display.php:174
-msgid "Roadmap of Jibres"
+#: content/home/display.php:172
+msgid "Jibres Roadmap"
 msgstr "نقشه راه جیبرس"
 
-#: content/home/display.php:176
-msgid "Roadmap"
-msgstr "نقشه راه"
-
-#: content/home/display.php:177
+#: content/home/display.php:173
 msgid "World #1 Financial Platform"
 msgstr "پلتفرم مالی شماره یک جهان"
 
-#: content/home/display.php:188
+#: content/home/display.php:181
 msgid "Our Happy Friends!"
 msgstr "دوستان خوشحال ما!"
 
@@ -7322,10 +7318,8 @@ msgid "Menu"
 msgstr "منو"
 
 #: content_a/website/home/display.php:73
-#, fuzzy
-#| msgid "News website"
 msgid "Show website"
-msgstr "وب‌سایت خبری"
+msgstr "نمایش وب‌سایت"
 
 #: content_a/website/home/view.php:9 content_account/my/home/display.php:154
 #: content_account/my/social/display.php:12 content_cms/comments/edit/display.php:21
@@ -27701,6 +27695,12 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Roadmap of Jibres"
+#~ msgstr "نقشه راه جیبرس"
+
+#~ msgid "Roadmap"
+#~ msgstr "نقشه راه"
+
 #, fuzzy
 #~| msgid "Majid Sadeghi"
 #~ msgid "majid-sadeghi.jpg"
@@ -27767,9 +27767,6 @@ msgstr "یارد"
 
 #~ msgid "Jibres Free Pricing"
 #~ msgstr "پلن رایگان جیبرس"
-
-#~ msgid "Jibres roadmap"
-#~ msgstr "نقشه راه جیبرس"
 
 #~ msgid "Back to list of pages"
 #~ msgstr "بازگشت به لیست برگه‌ها"
