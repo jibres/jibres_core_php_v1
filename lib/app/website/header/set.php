@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_header;
+namespace lib\app\website\header;
 
 class set
 {
@@ -8,7 +8,7 @@ class set
 	{
 		$condition =
 		[
-			'header' => ['enum' => \lib\app\website_header\template::get_keys()],
+			'header' => ['enum' => \lib\app\website\header\template::get_keys()],
 		];
 
 		$require = ['header'];
@@ -36,7 +36,7 @@ class set
 
 	public static function customize_header($_args)
 	{
-		$menu = ['enum' => \lib\app\website_menu\get::list_all_menu_keys()];
+		$menu = ['enum' => \lib\app\website\menu\get::list_all_menu_keys()];
 		$condition =
 		[
 			'header_menu_1' => $menu,

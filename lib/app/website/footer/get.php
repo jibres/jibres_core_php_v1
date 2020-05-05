@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_footer;
+namespace lib\app\website\footer;
 
 class get
 {
@@ -28,7 +28,7 @@ class get
 			return false;
 		}
 
-		$active_footer_detail = \lib\app\website_footer\template::get($active_footer['value']);
+		$active_footer_detail = \lib\app\website\footer\template::get($active_footer['value']);
 		if(!$active_footer_detail)
 		{
 			return false;
@@ -44,7 +44,7 @@ class get
 			return false;
 		}
 
-		$contain = \lib\app\website_footer\template::get($active_footer['value'], 'contain');
+		$contain = \lib\app\website\footer\template::get($active_footer['value'], 'contain');
 		if(!is_array($contain))
 		{
 			$contain = [];

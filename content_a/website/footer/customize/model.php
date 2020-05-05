@@ -32,7 +32,7 @@ class model
 		}
 
 
-		$customize_footer = \lib\app\website_footer\set::customize_footer($post);
+		$customize_footer = \lib\app\website\footer\set::customize_footer($post);
 
 		if(\dash\engine\process::status())
 		{

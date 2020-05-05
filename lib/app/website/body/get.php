@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_body;
+namespace lib\app\website\body;
 
 class get
 {
@@ -21,7 +21,7 @@ class get
 				$value = [];
 			}
 
-			$line_detail = \lib\app\website_body\line::list();
+			$line_detail = \lib\app\website\body\line::list();
 			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
 
 

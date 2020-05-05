@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_header;
+namespace lib\app\website\header;
 
 class template
 {

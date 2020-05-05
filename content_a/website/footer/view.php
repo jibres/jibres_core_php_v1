@@ -12,12 +12,12 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$footer_template = \lib\app\website_footer\template::list();
+		$footer_template = \lib\app\website\footer\template::list();
 
 		\dash\data::footerTemplate($footer_template);
 
 
-		$isset_footer = \lib\app\website_footer\get::isset_footer(true);
+		$isset_footer = \lib\app\website\footer\get::isset_footer(true);
 		\dash\data::issetFooter($isset_footer);
 
 

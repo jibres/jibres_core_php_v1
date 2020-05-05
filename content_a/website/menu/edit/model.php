@@ -16,7 +16,7 @@ class model
 			'remove'  => \dash\request::post('remove'),
 		];
 
-		$theme_detail = \lib\app\website_menu\add::menu_item($post, \dash\request::get('id'));
+		$theme_detail = \lib\app\website\menu\add::menu_item($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

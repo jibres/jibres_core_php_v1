@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_status;
+namespace lib\app\website\status;
 
 class get
 {

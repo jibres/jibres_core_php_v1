@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_footer;
+namespace lib\app\website\footer;
 
 class template
 {

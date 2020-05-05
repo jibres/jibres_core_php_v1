@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_body;
+namespace lib\app\website\body;
 
 class config
 {
@@ -9,7 +9,7 @@ class config
 		$condition =
 		[
 			'config_line_key'      => 'md5',
-			'config_line_type'      => ['enum' => array_column(\lib\app\website_body\line::list(), 'key')],
+			'config_line_type'      => ['enum' => array_column(\lib\app\website\body\line::list(), 'key')],
 			'body_last_news_limit' => 'smallint',
 		];
 

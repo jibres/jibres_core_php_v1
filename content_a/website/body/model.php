@@ -14,7 +14,7 @@ class model
 				'body_last_news_limit' => \dash\request::post('body_last_news_limit'),
 			];
 
-			$theme_detail = \lib\app\website_body\config::line($post);
+			$theme_detail = \lib\app\website\body\config::line($post);
 		}
 		elseif(\dash\request::post('removeline') === 'removeline')
 		{
@@ -24,7 +24,7 @@ class model
 				'linetype'   => \dash\request::post('linetype'),
 			];
 
-			$theme_detail = \lib\app\website_body\set::remove_line($post);
+			$theme_detail = \lib\app\website\body\set::remove_line($post);
 		}
 		else
 		{
@@ -34,7 +34,7 @@ class model
 				'line'    => \dash\request::post('line'),
 			];
 
-			$theme_detail = \lib\app\website_body\set::add_line($post);
+			$theme_detail = \lib\app\website\body\set::add_line($post);
 		}
 
 		if(\dash\engine\process::status())

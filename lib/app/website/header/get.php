@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_header;
+namespace lib\app\website\header;
 
 class get
 {
@@ -28,7 +28,7 @@ class get
 			return false;
 		}
 
-		$active_header_detail = \lib\app\website_header\template::get($active_header['value']);
+		$active_header_detail = \lib\app\website\header\template::get($active_header['value']);
 		if(!$active_header_detail)
 		{
 			return false;
@@ -44,7 +44,7 @@ class get
 			return false;
 		}
 
-		$contain = \lib\app\website_header\template::get($active_header['value'], 'contain');
+		$contain = \lib\app\website\header\template::get($active_header['value'], 'contain');
 		if(!is_array($contain))
 		{
 			$contain = [];

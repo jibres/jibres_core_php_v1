@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_menu;
+namespace lib\app\website\menu;
 
 class get
 {

@@ -10,7 +10,7 @@ class model
 			'header'    => \dash\request::post('header'),
 		];
 
-		$theme_detail = \lib\app\website_header\set::set_header_template($post);
+		$theme_detail = \lib\app\website\header\set::set_header_template($post);
 
 		if(\dash\engine\process::status())
 		{

@@ -10,7 +10,7 @@ class model
 			'status'    => \dash\request::post('status'),
 		];
 
-		$theme_detail = \lib\app\website_status\set::status($post);
+		$theme_detail = \lib\app\website\status\set::status($post);
 
 		if(\dash\engine\process::status())
 		{

@@ -14,7 +14,7 @@ class view
 
 		if(true) // check need to load menu
 		{
-			$menu = \lib\app\website_menu\get::list_all_menu();
+			$menu = \lib\app\website\menu\get::list_all_menu();
 			\dash\data::allMenu($menu);
 		}
 

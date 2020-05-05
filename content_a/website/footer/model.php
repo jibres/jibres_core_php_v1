@@ -10,7 +10,7 @@ class model
 			'footer'    => \dash\request::post('footer'),
 		];
 
-		$theme_detail = \lib\app\website_footer\set::set_footer_template($post);
+		$theme_detail = \lib\app\website\footer\set::set_footer_template($post);
 
 		if(\dash\engine\process::status())
 		{

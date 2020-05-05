@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_body;
+namespace lib\app\website\body;
 
 class line
 {

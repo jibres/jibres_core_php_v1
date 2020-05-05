@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_body;
+namespace lib\app\website\body;
 
 class set
 {
@@ -8,7 +8,7 @@ class set
 	{
 		$condition =
 		[
-			'line' => ['enum' => array_column(\lib\app\website_body\line::list(), 'key')],
+			'line' => ['enum' => array_column(\lib\app\website\body\line::list(), 'key')],
 		];
 
 		$require   = ['line'];
@@ -68,7 +68,7 @@ class set
 		$condition =
 		[
 			'linekey'  => 'md5',
-			'linetype' => ['enum' => array_column(\lib\app\website_body\line::list(), 'key')],
+			'linetype' => ['enum' => array_column(\lib\app\website\body\line::list(), 'key')],
 		];
 
 		$require   = ['linekey', 'linetype'];

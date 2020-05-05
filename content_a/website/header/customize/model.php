@@ -32,7 +32,7 @@ class model
 		}
 
 
-		$customize_header = \lib\app\website_header\set::customize_header($post);
+		$customize_header = \lib\app\website\header\set::customize_header($post);
 
 		if(\dash\engine\process::status())
 		{

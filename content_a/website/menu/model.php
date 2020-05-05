@@ -15,7 +15,7 @@ class model
 				'removealllink' => \dash\request::post('removealllink'),
 			];
 
-			$theme_detail = \lib\app\website_menu\add::remove_menu($post);
+			$theme_detail = \lib\app\website\menu\add::remove_menu($post);
 		}
 		else
 		{
@@ -25,7 +25,7 @@ class model
 				'title'    => \dash\request::post('title'),
 			];
 
-			$theme_detail = \lib\app\website_menu\add::new_menu($post);
+			$theme_detail = \lib\app\website\menu\add::new_menu($post);
 
 		}
 

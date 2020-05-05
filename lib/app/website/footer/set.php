@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website_footer;
+namespace lib\app\website\footer;
 
 class set
 {
@@ -8,7 +8,7 @@ class set
 	{
 		$condition =
 		[
-			'footer' => ['enum' => \lib\app\website_footer\template::get_keys()],
+			'footer' => ['enum' => \lib\app\website\footer\template::get_keys()],
 		];
 
 		$require = ['footer'];
@@ -35,7 +35,7 @@ class set
 
 	public static function customize_footer($_args)
 	{
-		$menu = ['enum' => \lib\app\website_menu\get::list_all_menu_keys()];
+		$menu = ['enum' => \lib\app\website\menu\get::list_all_menu_keys()];
 		$condition =
 		[
 			'footer_menu_1' => $menu,
