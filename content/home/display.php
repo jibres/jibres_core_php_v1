@@ -181,7 +181,7 @@
     <h2><?php echo T_("Our Happy Friends!"); ?></h2>
     <div class="f">
 <?php foreach (\dash\data::quote() as $key => $value) {?>
-      <div class="c4 s12 pA15">
+      <div class="c4 m6 s12 pA15">
         <div class="item f f-column justify-between">
           <p class="flex-1"><?php echo $value['quote']; ?></p>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
