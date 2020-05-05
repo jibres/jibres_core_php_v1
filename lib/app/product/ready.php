@@ -188,5 +188,45 @@ class ready
 		return $result;
 	}
 
+
+	/**
+	 * Load product for website
+	 *
+	 * @param      <type>  $_data    The data
+	 * @param      array   $_option  The option
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function for_website($_data, $_option = [])
+	{
+		$_data = self::row($_data);
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		$store_unit = \lib\currency::name(\lib\store::detail('currency'));
+
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'creator':
+					break;
+
+				case 'price':
+					$result[$key] = $value;
+					$result['unit'] = $store_unit;
+					break;
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
+		return $result;
+	}
+
 }
 ?>

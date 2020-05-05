@@ -139,5 +139,23 @@ class get
 
 		return $prev;
 	}
+
+
+
+	public static function website_last_product()
+	{
+		$last_product = \lib\db\products\get::website_last_product(10);
+
+		if($last_product && is_array($last_product))
+		{
+			$last_product = array_map(['\\lib\\app\\product\\ready', 'for_website'], $last_product);
+		}
+		else
+		{
+			$last_product = [];
+		}
+
+		return $last_product;
+	}
 }
 ?>

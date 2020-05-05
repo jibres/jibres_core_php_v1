@@ -254,5 +254,31 @@ class get
 		return $result;
 	}
 
+
+
+
+	public static function website_last_product($_limit)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				products
+			WHERE
+				products.parent IS NULL AND
+				products.status != 'deleted'
+			ORDER BY products.id DESC
+			LIMIT $_limit
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
+
+
+
 }
 ?>

@@ -137,6 +137,17 @@ class currency {
 	}
 
 
+	public static function name($_key)
+	{
+		$detail = self::detail($_key);
+		if(isset($detail['name']))
+		{
+			return $detail['name'];
+		}
+		return null;
+	}
+
+
 	public static function detail($_key)
 	{
 		$list = self::list();
