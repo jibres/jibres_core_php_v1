@@ -197,33 +197,42 @@
     <div class="f">
       <div class="c4 s12 pA15">
         <div class="item f f-column justify-between">
-          <p class="flex-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-          <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
-          <footer class="f align-center from">
-            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/avatar/1.png" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
-            <div class="c pLa10"><?php echo T_("Majid Sadeghi"); ?></div>
-          </footer>
-        </div>
-      </div>
-
-      <div class="c4 s12 pA15">
-        <div class="item f f-column justify-between">
           <p class="flex-1">یکی از بهترین و راحت‌ترین پنل‌های ثبت دامنه‌ای بود که تا به حال دیده بودم، مخصوصا بخش دیکشنری دامنه‌های سه حرفی :))</p>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
           <footer class="f align-center from">
-            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/avatar/2.png" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
-            <div class="c pLa10"><?php echo T_("Hasan Salehi"); ?></div>
+            <div class="cauto"><img loading="lazy" width="50" height="50" src="<?php echo \dash\url::cdn(); ?>/img/quote/hasan-salehi.jpg" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
+            <div class="cauto pLa10">
+              <div class="name"><?php echo T_("Hasan Salehi"); ?></div>
+              <div class="position"><?php echo T_("Software Developer"); ?></div>
+            </div>
           </footer>
         </div>
       </div>
 
       <div class="c4 s12 pA15">
         <div class="item f f-column justify-between">
-          <p class="flex-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <p class="flex-1"><?php echo T_('With Jibres we take less time of our customers and this means modern customer orientation'); ?>.</p>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
           <footer class="f align-center from">
-            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/avatar/3.png" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
-            <div class="c pLa10"><?php echo T_("Saman Soltani"); ?></div>
+            <div class="cauto"><img loading="lazy" width="50" height="50" src="<?php echo \dash\url::cdn(); ?>/img/quote/majid-sadeghi.jpg" alt='<?php echo T_("Majid Sadeghi"); ?>'></div>
+            <div class="c pLa10">
+              <div class="name"><?php echo T_("Majid Sadeghi"); ?></div>
+              <div class="position"><?php echo T_('Sales Supervisor at SuperSaeed'); ?></div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="c4 s12 pA15">
+        <div class="item f f-column justify-between">
+          <p class="flex-1"><?php echo T_("Who would have thought that one day an Iranian company could launch such a simple and attractive domain registration system? That one, despite something called IRNIC! Keep up the good work, Jibres!"); ?></p>
+          <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
+          <footer class="f align-center from">
+            <div class="cauto"><img loading="lazy" width="50" height="50" src="<?php echo \dash\url::cdn(); ?>/img/quote/ahmad-karimi.jpg" alt='<?php echo T_("Ahmad Karimi"); ?>'></div>
+            <div class="c pLa10">
+              <div class="name"><?php echo T_("Ahmad Karimi"); ?></div>
+              <div class="position"><?php echo T_('UX Designer'); ?></div>
+            </div>
           </footer>
         </div>
       </div>
