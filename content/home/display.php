@@ -190,6 +190,49 @@
  </div>
 </section>
 
+<?php if (\dash\url::tld() === 'local') {?>
+<section id='jibresQuote'>
+  <div class="cn">
+    <h2><?php echo T_("Our Happy Friends!"); ?></h2>
+    <div class="f">
+      <div class="c4 s12 pA15">
+        <div class="item f f-column justify-between">
+          <p class="flex-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
+          <footer class="f align-center from">
+            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/avatar/1.png" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
+            <div class="c pLa10"><?php echo T_("Majid Sadeghi"); ?></div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="c4 s12 pA15">
+        <div class="item f f-column justify-between">
+          <p class="flex-1">یکی از بهترین و راحت‌ترین پنل‌های ثبت دامنه‌ای بود که تا به حال دیده بودم، مخصوصا بخش دیکشنری دامنه‌های سه حرفی :))</p>
+          <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
+          <footer class="f align-center from">
+            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/avatar/2.png" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
+            <div class="c pLa10"><?php echo T_("Hasan Salehi"); ?></div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="c4 s12 pA15">
+        <div class="item f f-column justify-between">
+          <p class="flex-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
+          <footer class="f align-center from">
+            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/avatar/3.png" alt='<?php echo T_("Hasan Salehi"); ?>'></div>
+            <div class="c pLa10"><?php echo T_("Saman Soltani"); ?></div>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<?php } ?>
+
 <div class="keywords hide">
   <span>[dfvs</span>
   <span>pdfvs</span>
