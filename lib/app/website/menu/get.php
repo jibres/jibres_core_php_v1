@@ -41,15 +41,39 @@ class get
 			\dash\header::status(404);
 		}
 
-		$load = \lib\db\setting\get::by_id($id);
+		return self::load_menu_by_id($id);
+
+	}
+
+
+	public static function load_menu_by_id($_id, $_ready = true)
+	{
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		$load = \lib\db\setting\get::by_id($_id);
 		if(!$load)
 		{
 			\dash\header::status(404, T_("Menu detail not found"));
 		}
 
-		$load = self::ready($load);
-		return $load;
+		// cehck only is menu to load
+		if(isset($load['cat']) && $load['cat'] === 'menu')
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\header::status(404, T_("Invalid menu id"));
+		}
 
+		if($_ready)
+		{
+			$load = self::ready($load);
+		}
+		return $load;
 	}
 
 

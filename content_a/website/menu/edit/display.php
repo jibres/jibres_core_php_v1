@@ -40,7 +40,7 @@
       <div class="showManageMentMenu" data-kerkere-content='hide'>
 
       <div class="body">
-
+          <input type="hidden" name="editmenu" value="editmenu">
 
           <label for="menutitle"><?php echo T_("Edit menu title"); ?></label>
           <div class="input">
@@ -51,7 +51,7 @@
 
           <p class="mT20">
             <?php echo T_("If not use this menu you can remove it") ?>
-            <span data-confirm data-data='{"itemkey": "<?php echo $key; ?>", "remove": "remove"}' class="link fc-red" ><?php echo T_("Remove"); ?></span>
+            <span data-confirm data-data='{"menuid": "<?php echo \dash\request::get('id'); ?>", "removemenu": "removemenu"}' class="link fc-red" ><?php echo T_("Remove"); ?></span>
           </p>
 
 
