@@ -52,12 +52,23 @@
 </section>
 
 
+<?php if(\dash\language::current() === 'fa') { ?>
 <section id="jibresDomain">
-  <div class="cn">
-    <h2><?php echo T_("Jibres Domain Center"); ?></h2>
-
+  <div class="fit-sm">
+   <h2><a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Jibres Domain Center"); ?></a></h2>
+   <div class="domainQuickBuy box">
+    <h3 class="mB10"><?php echo T_("Get your :val .IR domain", ["val" => "<span class='txtB'>". \dash\fit::number('5000'). ' '. \lib\currency::unit(). '</span>'] ); ?></h3>
+    <form method="get" action="<?php echo \dash\url::kingdom(); ?>/domains/search" autocomplete='off'>
+     <div class="input">
+      <input type="text" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Search for your dream domain') ?>'>
+      <button class="addon btn primary"><?php echo T_("Register Domain"); ?></button>
+     </div>
+    </form>
+   </div>
+   <p class="txtC fc-mute"><?php echo T_('Every website starts with a great domain name. Jibres offers cheap domain names with the most reliable service. Buy domain names with Jibres and see why we are cool!'); ?></p>
   </div>
 </section>
+<?php } ?>
 
 
 <section id='keepitsimple'>

@@ -54,7 +54,7 @@
 
  </div>
  <div class="fit">
-  <h3><?php echo T_("Jibres Domain Pricing"); ?></h3>
+  <h3><?php echo T_("Jibres Domain Pricing Comparison"); ?></h3>
   <table class="tbl1 v5">
     <thead>
       <tr>
