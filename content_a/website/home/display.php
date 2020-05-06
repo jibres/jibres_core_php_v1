@@ -75,6 +75,32 @@
        </li>
      </ul>
    </nav>
+
+   <nav class="items">
+     <ul>
+       <li>
+        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=comingsoon';?>">
+          <div class="key"><?php echo T_('Coming soon mode');?></div>
+          <div class="go"></div></a>
+       </li>
+       <li>
+        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=visitcard';?>">
+          <div class="key"><?php echo T_('Visitcard mode');?></div>
+          <div class="go"></div></a>
+       </li>
+       <li>
+        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=stat';?>">
+          <div class="key"><?php echo T_('Stat mode');?></div>
+          <div class="go"></div></a>
+       </li>
+       <li>
+        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=shop';?>">
+          <div class="key"><?php echo T_('Shop mode');?></div>
+          <div class="go"></div></a>
+       </li>
+     </ul>
+   </nav>
+
   </div>
 </div>
 

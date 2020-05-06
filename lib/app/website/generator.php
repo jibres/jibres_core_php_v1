@@ -20,10 +20,34 @@ class generator
 	public static function load_website_setting($_store_id)
 	{
 		// load by get
-		$get_website_type = \dash\validate::enum(\dash\request::get('websitemode'), false ,['enum' => ['visitcard', 'stat', 'comingsoon']]);
+		$get_website_type = \dash\validate::enum(\dash\request::get('websitemode'), false ,['enum' => ['visitcard', 'stat', 'comingsoon', 'shop']]);
+
 		if($get_website_type)
 		{
-			return self::website_setting_on_fly($get_website_type);
+			$setting = [];
+
+			switch ($get_website_type)
+			{
+				case 'stat':
+					$setting = self::website_stat_setting();
+					break;
+
+				case 'comingsoon':
+					$setting = self::website_comingsoon_setting();
+					break;
+
+				case 'shop':
+					$setting = self::website_shop_setting();
+					break;
+
+
+				case 'visitcard':
+				default:
+					$setting = self::website_visitcard_setting();
+					break;
+			}
+
+			return $setting;
 		}
 
 
@@ -77,28 +101,7 @@ class generator
 	}
 
 
-	private static function website_setting_on_fly($_type)
-	{
-		$setting = [];
 
-		switch ($_type)
-		{
-			case 'stat':
-				$setting = self::website_stat_setting();
-				break;
-
-			case 'comingsoon':
-				$setting = self::website_comingsoon_setting();
-				break;
-
-			case 'visitcard':
-			default:
-				$setting = self::website_visitcard_setting();
-				break;
-		}
-
-		return $setting;
-	}
 
 
 	private static function website_stat_setting()
@@ -114,6 +117,7 @@ class generator
 	}
 
 
+
 	private static function website_comingsoon_setting()
 	{
 		$setting =
@@ -127,6 +131,7 @@ class generator
 	}
 
 
+
 	private static function website_visitcard_setting()
 	{
 		$setting =
@@ -135,6 +140,29 @@ class generator
 			'header'   => ['active' => 'header_visitcard'],
 			'footer'   => ['active' => 'footer_visitcard'],
 			'body_raw' => 'visitcard',
+		];
+		return $setting;
+	}
+
+
+	private static function website_shop_setting()
+	{
+
+		$setting =
+		[
+			'template' => 'publish',
+			'header'   => ['active' => 'header_2'],
+			'footer'   => ['active' => 'footer_2'],
+			'lines' =>
+			[
+				'list' =>
+				[
+					[
+						'type' => 'body_last_product',
+						'limit' => 6,
+					]
+				]
+			],
 		];
 		return $setting;
 	}
