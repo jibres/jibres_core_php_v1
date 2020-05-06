@@ -61,7 +61,7 @@
     <form method="get" action="<?php echo \dash\url::kingdom(); ?>/domains/search" autocomplete='off'>
      <div class="input">
       <input type="text" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Search for your dream domain') ?>'>
-      <button class="addon btn primary"><?php echo T_("Register Domain"); ?></button>
+      <button class="addon btn primary"><span class="s0 mLa5"><?php echo T_("Register Domain"); ?></span><span class="sf-search"></span></button>
      </div>
     </form>
    </div>
