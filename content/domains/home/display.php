@@ -107,6 +107,15 @@
         <td>❌</td>
         <td>❌</td>
       </tr>
+      <tr>
+        <td>ایران هاست</td>
+        <td><?php echo \dash\fit::number("16000"); ?></td>
+        <td><?php echo \dash\fit::number("48000"); ?></td>
+        <td><?php echo \dash\fit::number("219000"); ?></td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+
     </tbody>
   </table>
  </div>
