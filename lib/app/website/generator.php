@@ -19,6 +19,14 @@ class generator
 	 */
 	public static function load_website_setting($_store_id)
 	{
+		// load by get
+		$get_website_type = \dash\validate::enum(\dash\request::get('websitemode'), false ,['enum' => ['visitcard', 'stat', 'comingsoon']]);
+		if($get_website_type)
+		{
+			return self::website_setting_on_fly($get_website_type);
+		}
+
+
 		$addr = \dash\engine\store::website_addr();
 
 		if(!is_dir($addr))
@@ -58,6 +66,7 @@ class generator
 
 		}
 
+		// var_dump($website_setting);exit();
 		if(isset($website_setting['template']))
 		{
 			return $website_setting;
@@ -66,5 +75,70 @@ class generator
 		return false;
 
 	}
+
+
+	private static function website_setting_on_fly($_type)
+	{
+		$setting = [];
+
+		switch ($_type)
+		{
+			case 'stat':
+				$setting = self::website_stat_setting();
+				break;
+
+			case 'comingsoon':
+				$setting = self::website_comingsoon_setting();
+				break;
+
+			case 'visitcard':
+			default:
+				$setting = self::website_visitcard_setting();
+				break;
+		}
+
+		return $setting;
+	}
+
+
+	private static function website_stat_setting()
+	{
+		$setting =
+		[
+			'template' => 'publish',
+			'header'   => ['active' => 'header_stat'],
+			'footer'   => ['active' => 'footer_stat'],
+			'body_raw' => 'stat',
+		];
+		return $setting;
+	}
+
+
+	private static function website_comingsoon_setting()
+	{
+		$setting =
+		[
+			'template' => 'publish',
+			'header'   => ['active' => 'header_comingsoon'],
+			'footer'   => ['active' => 'footer_comingsoon'],
+			'body_raw' => 'comingsoon',
+		];
+		return $setting;
+	}
+
+
+	private static function website_visitcard_setting()
+	{
+		$setting =
+		[
+			'template' => 'publish',
+			'header'   => ['active' => 'header_visitcard'],
+			'footer'   => ['active' => 'footer_visitcard'],
+			'body_raw' => 'visitcard',
+		];
+		return $setting;
+	}
+
+
 }
 ?>
