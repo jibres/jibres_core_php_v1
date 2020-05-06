@@ -11,13 +11,13 @@
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'my_domain'));?></div>
       </a>
      </div>
-     <div class="c s6 pRa10">
+     <div class="c s0 pRa10">
       <a href="<?php if(!\dash\get::index($myData, 'maybe_my_domain')){ echo \dash\url::this(). '/renew'; }else{ echo \dash\url::this(). '/search?list=renew'; } ?>" class="stat">
        <h3><?php echo T_("Renew Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'maybe_my_domain'));?></div>
       </a>
      </div>
-     <div class="c s6">
+     <div class="c s0">
       <a href="<?php if(!\dash\get::index($myData, 'available_domain')){ echo \dash\url::this(). '/buy'; }else{ echo \dash\url::this(). '/search?list=available'; } ?>" class="stat">
        <h3><?php echo T_("Available domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'available_domain'));?></div>
@@ -25,7 +25,7 @@
      </div>
     </section>
 
-    <div id="chartdiv" class="box chart x210" data-abc='my/domainhomepage'></div>
+    <div id="chartdiv" class="box chart x210 s0" data-abc='my/domainhomepage'></div>
 
 
 
@@ -65,7 +65,7 @@
       </a>
      </div>
 
-     <div class="c pRa10">
+     <div class="c pRa10 s0">
       <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
        <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'last_year_payment'));?></div>
@@ -79,7 +79,7 @@
       </a>
      </div>
 
-     <div class="c">
+     <div class="c s0">
       <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
        <h3><?php echo T_("Predict Late Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'predict_late_payment'));?></div>
@@ -166,7 +166,7 @@
      </ul>
     </nav>
 
-    <nav class="items">
+    <nav class="items s0">
      <ul>
       <li>
        <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">
