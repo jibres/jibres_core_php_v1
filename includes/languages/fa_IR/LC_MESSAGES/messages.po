@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-05-05 23:39+0430\n"
-"PO-Revision-Date: 2020-05-05 23:39+0430\n"
+"POT-Creation-Date: 2020-05-06 12:51+0430\n"
+"PO-Revision-Date: 2020-05-06 12:57+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -76,10 +76,10 @@ msgid "Home"
 msgstr "صفحه نخست"
 
 #: content/benefits/display.php:42 content/changelog/display.php:25
-#: content/help/display.php:4 content/press/display.php:8
-#: content/pricing/priceTable.php:28 content/pricing/priceTable.php:52
-#: content/pricing/priceTable.php:77 content_a/products/edit/display.php:654
-#: includes/languages/trans_static.php:533
+#: content/domains/home/display.php:74 content/help/display.php:4
+#: content/press/display.php:8 content/pricing/priceTable.php:28
+#: content/pricing/priceTable.php:52 content/pricing/priceTable.php:77
+#: content_a/products/edit/display.php:654 includes/languages/trans_static.php:533
 msgid "Soon"
 msgstr "بزودی"
 
@@ -138,14 +138,16 @@ msgstr ""
 #: content/brand/display.php:200 content/brand/section-standard.php:17
 #: content/brand/section-standard.php:23 content/brand/section-vertical.php:18
 #: content/brand/section-vertical.php:24 content/certificates/view.php:9
-#: content/contact/view.php:9 content/home/layout/header.php:15 content/press/view.php:9
-#: content/privacy/view.php:9 content/view.php:29 content_a/view.php:9
-#: content_developers/home/layout/header.php:15 content_developers/home/view.php:9
-#: content_developers/view.php:8 content_enter/home/layout/main.php:14
-#: content_enter/home/layout/main.php:19 content_enter/home/view.php:20
-#: content_love/gift/home/giftcard.php:24 content_love/gift/home/giftcard.php:27
-#: content_r10/android/intro/view.php:29 content_r10/android/splash/view.php:13
-#: content_r10/android/view.php:12 content_su/update/display.php:92
+#: content/contact/view.php:9 content/domains/home/display.php:71
+#: content/home/layout/header.php:15 content/press/view.php:9 content/privacy/view.php:9
+#: content/view.php:29 content_a/view.php:9 content_developers/home/layout/header.php:15
+#: content_developers/home/view.php:9 content_developers/view.php:8
+#: content_enter/home/layout/main.php:14 content_enter/home/layout/main.php:19
+#: content_enter/home/view.php:20 content_love/gift/home/giftcard.php:24
+#: content_love/gift/home/giftcard.php:27 content_r10/android/intro/view.php:29
+#: content_r10/android/splash/view.php:13 content_r10/android/view.php:12
+#: content_su/update/display.php:92 content_subdomain/home/layout/body/visitcard.php:11
+#: content_subdomain/home/layout/body/visitcard.php:14
 #: content_subdomain/home/layout/comingsoon.php:11
 #: content_subdomain/home/layout/comingsoon.php:14
 #: content_subdomain/home/layout/visitcard.php:11
@@ -407,7 +409,7 @@ msgstr ""
 "باگ یا اشکال نرم‌افزاری به مهاجمان این امکان را می‌دهد تا با نقض خط مشی امنیتی نسبت به "
 "نفوذ اقدام کنند. نقص در طراحی یا عدم رعایت بهترین شیوه‌های امنیتی ممکن است به‌عنوان "
 "آسیب‌پذیری شناخته شود. نقاط ضعف مورد استفاده توسط ویروس‌ها، کدهای مخرب و مهندسی اجتماعی، "
-"آسیب‌پذیری محسوب نمی‌شوند."
+"آسیب‌پذیری محسوب نمی‌شوند"
 
 #: content/bug/display.php:19
 msgid ""
@@ -1507,7 +1509,40 @@ msgstr ""
 "باشد. بنابراین شروع کنید و ایده‌های خود را برای نام دامنه بیان کنید و در جیبرس موجود "
 "بودن آن‌ها را چک کنید."
 
-#: content/domains/home/display.php:58
+#: content/domains/home/display.php:57
+#, fuzzy
+#| msgid "Jibres Free Pricing"
+msgid "Jibres Domain Pricing"
+msgstr "پلن رایگان جیبرس"
+
+#: content/domains/home/display.php:62
+#, fuzzy
+#| msgid "first_year"
+msgid ".ir 1 year"
+msgstr "سال اول"
+
+#: content/domains/home/display.php:63
+#, fuzzy
+#| msgid "5 Year"
+msgid ".ir 5 Year"
+msgstr "پنج ساله"
+
+#: content/domains/home/display.php:64
+#, fuzzy
+#| msgid "one year"
+msgid ".com 1 year"
+msgstr "یک سال"
+
+#: content/domains/home/display.php:65 content_love/domain/detail/display.php:84
+#: content_love/domain/setting/display.php:66 content_my/domain/setting/display.php:64
+msgid "Auto Renew"
+msgstr "تمدید خودکار"
+
+#: content/domains/home/display.php:66
+msgid "Beautiful Panel"
+msgstr ""
+
+#: content/domains/home/display.php:124
 msgid "Built By Developers, For Developers."
 msgstr "ساخته‌شده توسط توسعه‌دهندگان، برای توسعه‌دهندگان."
 
@@ -2408,7 +2443,7 @@ msgid "Developers API"
 msgstr "رابط برنامه‌نویسی توسعه‌دهندگان API"
 
 #: content/home/layout/footer.php:78 content_a/setting/domain/display.php:19
-#: content_my/home/display_pwa.php:7
+#: content_my/domain/home/view.php:9 content_my/home/display_pwa.php:7
 msgid "Domain Center"
 msgstr "مرکز دامنه"
 
@@ -2528,7 +2563,8 @@ msgstr "تمام حقوق محفوظ است."
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
-#: content/home/layout/header.php:27 content_subdomain/home/layout/comingsoon.php:46
+#: content/home/layout/header.php:27 content_subdomain/home/layout/body/visitcard.php:42
+#: content_subdomain/home/layout/comingsoon.php:46
 #: content_subdomain/home/layout/visitcard.php:42
 msgid "Store Panel"
 msgstr "پنل فروشگاه"
@@ -2570,7 +2606,8 @@ msgstr "داشبورد"
 #: content/home/layout/header.php:37 content/home/view.php:43
 #: content_crm/member/glance/display.php:45 content_crm/member/glance/display.php:71
 #: content_enter/pass/display.php:36 content_enter/pass/recovery/model.php:53
-#: content_enter/signup/view.php:21 content_subdomain/home/layout/comingsoon.php:51
+#: content_enter/signup/view.php:21 content_subdomain/home/layout/body/visitcard.php:47
+#: content_subdomain/home/layout/comingsoon.php:51
 #: content_subdomain/home/layout/visitcard.php:47 content_v2/app/view.php:144
 #: dash/app/log/caller/enter/enter_VerificationCode.php:16
 #: dash/app/log/caller/enter/enter_apiverificationcode.php:16
@@ -2648,6 +2685,7 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:25 content/home/view.php:29 content/view.php:32
 #: content_r10/android/intro/view.php:19 content_r10/android/splash/view.php:14
+#: content_subdomain/home/layout/body/visitcard.php:9
 #: content_subdomain/home/layout/comingsoon.php:9
 #: content_subdomain/home/layout/visitcard.php:9 content_v2/android/splash/view.php:21
 #: dash/utility/sms.php:34
@@ -4824,6 +4862,7 @@ msgid "Address"
 msgstr "آدرس"
 
 #: content_a/chap/size-receipt/receipt.php:75
+#: content_subdomain/home/layout/body/visitcard.php:33
 #: content_subdomain/home/layout/comingsoon.php:37
 #: content_subdomain/home/layout/visitcard.php:33
 msgid "Tel"
@@ -5409,7 +5448,7 @@ msgstr "به شرط"
 #: content_su/view.php:140 dash/app/sort.php:88
 #: includes/languages/trans_static_public.php:35
 msgid ", "
-msgstr "،"
+msgstr "، "
 
 #: content_a/filter.php:69
 msgid "Invalid"
@@ -7299,7 +7338,7 @@ msgstr "انتخاب سرصفحه"
 
 #: content_a/website/home/display.php:28
 msgid "Customize footer"
-msgstr "سفارشی سازی سرصفحه"
+msgstr "سفارشی سازی پابرگ"
 
 #: content_a/website/home/display.php:35
 msgid "Choose footer"
@@ -7320,6 +7359,22 @@ msgstr "منو"
 #: content_a/website/home/display.php:73
 msgid "Show website"
 msgstr "نمایش وب‌سایت"
+
+#: content_a/website/home/display.php:83
+msgid "Coming soon mode"
+msgstr "حالت «بزودی»"
+
+#: content_a/website/home/display.php:88
+msgid "Visitcard mode"
+msgstr "حالت کارت ویزیت"
+
+#: content_a/website/home/display.php:93
+msgid "Stat mode"
+msgstr "حالت آماری"
+
+#: content_a/website/home/display.php:98
+msgid "Shop mode"
+msgstr "حالت فروشگاهی"
 
 #: content_a/website/home/view.php:9 content_account/my/home/display.php:154
 #: content_account/my/social/display.php:12 content_cms/comments/edit/display.php:21
@@ -7350,20 +7405,16 @@ msgid "Menu title"
 msgstr "عنوان فهرست"
 
 #: content_a/website/menu/add/view.php:10 content_a/website/menu/view.php:16
-#, fuzzy
-#| msgid "Build new menu"
 msgid "Add new menu"
-msgstr "ساخت فهرست جدید"
+msgstr "افزودن فهرست جدید"
 
 #: content_a/website/menu/display.php:12 content_account/ref/display.php:30
 msgid "Link"
 msgstr "لینک"
 
 #: content_a/website/menu/display.php:24
-#, fuzzy
-#| msgid "Add New Record"
 msgid "Add New Meu"
-msgstr "افزودن رکورد جدید"
+msgstr "افزودن فهرست جدید"
 
 #: content_a/website/menu/edit/display.php:5
 msgid "Add item to menu"
@@ -7379,23 +7430,16 @@ msgid "Open in New tab"
 msgstr "باز کردن در صفحه جدید"
 
 #: content_a/website/menu/edit/display.php:39
-#, fuzzy
-#| msgid "Main menu"
 msgid "Manage menu"
-msgstr "منوی اصلی"
+msgstr "مدیریت فهرست"
 
 #: content_a/website/menu/edit/display.php:45
-#, fuzzy
-#| msgid "Edit menu items"
 msgid "Edit menu title"
-msgstr "ویرایش گزینه‌های فهرست"
+msgstr "ویرایش عنوان فهرست"
 
 #: content_a/website/menu/edit/display.php:53
-#, fuzzy
-#| msgid "Some product save by this category and you can not remove it"
 msgid "If not use this menu you can remove it"
-msgstr ""
-"تعدادی از محصولات با این دسته‌بندی ذخیره شده‌اند و شما نمی‌توانید این دسته بندی را حذف کنید"
+msgstr "اگر از این فهرست در جایی استفاده نکرده‌اید می‌توانید آن را حذف کنید"
 
 #: content_a/website/menu/edit/display.php:110 content_cms/comments/edit/display.php:64
 #: content_love/domain/detail/dns/display.php:67
@@ -7422,10 +7466,8 @@ msgid "Edit menu items"
 msgstr "ویرایش گزینه‌های فهرست"
 
 #: content_a/website/menu/view.php:10
-#, fuzzy
-#| msgid "Menu title"
 msgid "Menu list"
-msgstr "عنوان فهرست"
+msgstr "لیست فهرست‌ها"
 
 #: content_a/website/status/display.php:5
 msgid "Change website status"
@@ -13007,11 +13049,6 @@ msgstr "قفل شده"
 msgid "Unlocked"
 msgstr "باز شده"
 
-#: content_love/domain/detail/display.php:84 content_love/domain/setting/display.php:66
-#: content_my/domain/setting/display.php:64
-msgid "Auto Renew"
-msgstr "تمدید خودکار"
-
 #: content_love/domain/detail/display.php:87 content_love/domain/setting/display.php:69
 #: content_my/domain/setting/display.php:67
 msgid "Click to disable"
@@ -14300,10 +14337,6 @@ msgstr "جمع مبلغ قابل پرداخت‌شده به تفکیک روز"
 msgid "Payed"
 msgstr "پرداخت شده"
 
-#: content_my/domain/home/view.php:9
-msgid "Jibres Domain Center"
-msgstr "مرکز دامنه جیبرس"
-
 #: content_my/domain/home/view.php:16
 msgid "Buy your dream domain"
 msgstr "دامنه‌ی رویایی خودتان را بیابید"
@@ -14829,8 +14862,7 @@ msgstr "وضعیت حساب کاربری"
 #: content_my/home/display_site.php:111
 msgid ""
 "Badges are little bits of digital flair that you earn for your simple actions on Jibres"
-msgstr ""
-"با تکمیل پروفایل و استفاده از امکانات جیبرس، به‌سادگی سطح کاربری خود را ارتقا دهید."
+msgstr "با تکمیل پروفایل و استفاده از امکانات جیبرس، به‌سادگی سطح کاربری خود را ارتقا دهید"
 
 #: content_my/home/display_site.php:118
 msgid "Verify Mobile"
@@ -15023,10 +15055,8 @@ msgid "No Wallet was found"
 msgstr "هیچ کیف پولی یافت نشد"
 
 #: content_p/home/display.php:23
-#, fuzzy
-#| msgid "Product Compnay"
 msgid "Product Code"
-msgstr "شرکت سازنده محصولات"
+msgstr "شناسه محصولات"
 
 #: content_pardakhtyar/check/display.php:68
 msgid "Tracking Number"
@@ -21762,7 +21792,7 @@ msgstr "بدون موبایل"
 
 #: includes/languages/trans_static_public.php:34
 msgid " ,"
-msgstr "،"
+msgstr " ،"
 
 #: includes/languages/trans_static_public.php:40
 msgid "item"
@@ -25413,7 +25443,7 @@ msgstr "برای استفاده از این کد هدیه باید حداقل :v
 
 #: lib/app/gift/check.php:93
 msgid "This gift card not working here!"
-msgstr "این کارت هدیه برای این خرید تولید نشده است و کاربرد آن جای دیگری است"
+msgstr "این کارت هدیه برای این خرید تولید نشده است و کاربرد آن جای دیگری است!"
 
 #: lib/app/gift/check.php:113
 msgid "This gift card is not enable"
@@ -25523,7 +25553,7 @@ msgstr "دامنه :domain تا یک روز آینده منقضی خواهد ش�
 
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:45
 msgid ":count Domains will be expire in next day!"
-msgstr ":count دامنه از دامنه‌های شما تا یک روز دیگر منقضی خواهند شد"
+msgstr ":count دامنه از دامنه‌های شما تا یک روز دیگر منقضی خواهند شد!"
 
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:35
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:41
@@ -26771,10 +26801,8 @@ msgid "Header #2"
 msgstr "سرصفحه شماره ۲"
 
 #: lib/app/website/header/template.php:103
-#, fuzzy
-#| msgid "Header #1"
 msgid "Header #3"
-msgstr "سرصفحه شماره ۱"
+msgstr "سرصفحه شماره ۳"
 
 #: lib/app/website/menu/add.php:31
 msgid "This title was exists in your menu list. Try another"
@@ -26822,16 +26850,12 @@ msgid "Your item added to your menu"
 msgstr "گزینه به لیست شما اضافه شد"
 
 #: lib/app/website/menu/edit.php:38
-#, fuzzy
-#| msgid "Invalid detail"
 msgid "Invalid menu detail"
-msgstr "جزئیات اشتباه است"
+msgstr "جزئیات فهرست اشتباه است"
 
 #: lib/app/website/menu/edit.php:52
-#, fuzzy
-#| msgid "Menu item was updated"
 msgid "Menu was updated"
-msgstr "گزینه فهرست به‌روزرسانی شد"
+msgstr "فهرست به‌روزرسانی شد"
 
 #: lib/app/website/status/set.php:27
 msgid "Your status was saved"
@@ -27695,6 +27719,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Jibres Domain Center"
+#~ msgstr "مرکز دامنه جیبرس"
+
 #~ msgid "Roadmap of Jibres"
 #~ msgstr "نقشه راه جیبرس"
 
@@ -27764,9 +27791,6 @@ msgstr "یارد"
 
 #~ msgid "Domain can contain start by dot character"
 #~ msgstr "دامنه نمی‌تواند با نقطه شروع شود"
-
-#~ msgid "Jibres Free Pricing"
-#~ msgstr "پلن رایگان جیبرس"
 
 #~ msgid "Back to list of pages"
 #~ msgstr "بازگشت به لیست برگه‌ها"
