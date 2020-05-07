@@ -91,5 +91,14 @@ class get
 		return $result;
 	}
 
+
+
+	public static function search_value_by_platform($_value, $_platform)
+	{
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.value = '$_value' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 }
 ?>

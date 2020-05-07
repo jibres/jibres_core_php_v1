@@ -20,6 +20,49 @@ class get
 
 
 
+	public static function useage_list($_key)
+	{
+		$key = \dash\validate::string_100($_key, false);
+
+		$list = [];
+
+		if($key)
+		{
+			$list = \lib\db\setting\get::search_value_by_platform($key, 'website');
+			if(!$list || !is_array($list))
+			{
+				$list = [];
+			}
+		}
+
+		$new_list = [];
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['cat']))
+			{
+				switch ($value['cat'])
+				{
+					case 'header_customized':
+						$new_list[] = ['title' => T_("Header menu"), 'link' => '/header/customize'];
+						break;
+
+					case 'footer_customize':
+						$new_list[] = ['title' => T_("Header menu"), 'link' => '/footer/customize'];
+						break;
+
+					default:
+						$new_list[] = ['title' => $value['cat'], 'link' => '/'];
+						break;
+				}
+			}
+		}
+
+		return $new_list;
+
+	}
+
+
+
 	public static function list_all_menu()
 	{
 		$get = \lib\db\setting\get::platform_cat('website', 'menu');

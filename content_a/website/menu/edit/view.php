@@ -20,10 +20,10 @@ class view
 			$list = [];
 		}
 
-
 		\dash\data::menuDetailList($list);
 
-
+		$useageList = \lib\app\website\menu\get::useage_list(\dash\data::menuDetail_key());
+		\dash\data::useageList($useageList);
 	}
 }
 ?>

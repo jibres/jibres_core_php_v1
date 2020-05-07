@@ -95,6 +95,22 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		foreach ($list_all_menu as $key => $value)
+		{
+			if(isset($value['id']) && $value['id'] === $data['removemenu'])
+			{
+				if(isset($value['key']))
+				{
+					$useage = \lib\app\website\menu\get::useage_list($value['key']);
+					if($useage)
+					{
+						\dash\notif::error(T_("This menu is usage in somewhere and can not be remove"));
+						return false;
+					}
+				}
+			}
+		}
+
 		$id = \dash\coding::decode($_args['removemenu']);
 		if($id)
 		{

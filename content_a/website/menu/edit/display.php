@@ -48,11 +48,18 @@
             <button class="addon btn primary"><?php echo T_("Edit"); ?></button>
           </div>
 
+          <?php if(\dash\data::useageList()) {?>
+            <p><?php echo T_("Usage menu list") ?></p>
+            <?php foreach (\dash\data::useageList() as $key => $value) {?>
+              <a href="<?php echo \dash\url::this(). \dash\get::index($value, 'link'); ?>" class="badge pA20 fs11"><?php echo \dash\get::index($value, 'title') ?></a>
+            <?php } //endforeach ?>
+          <?php }else{ ?>
+            <p class="mT20">
+              <?php echo T_("This menu not use anywhere. You can remove it") ?>
+              <span data-confirm data-data='{"menuid": "<?php echo \dash\request::get('id'); ?>", "removemenu": "removemenu"}' class="link fc-red" ><?php echo T_("Remove"); ?></span>
+            </p>
+          <?php }//endif ?>
 
-          <p class="mT20">
-            <?php echo T_("If not use this menu you can remove it") ?>
-            <span data-confirm data-data='{"menuid": "<?php echo \dash\request::get('id'); ?>", "removemenu": "removemenu"}' class="link fc-red" ><?php echo T_("Remove"); ?></span>
-          </p>
 
 
 
