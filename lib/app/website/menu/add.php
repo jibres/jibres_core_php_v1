@@ -53,14 +53,14 @@ class add
 			'value'    => $new_menu_value,
 		];
 
-		$insert = \lib\db\setting\insert::new_record($insert);
+		$menu_id = \lib\db\setting\insert::new_record($insert);
 
-		if($insert)
+		if($menu_id)
 		{
 			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
 
 			\dash\notif::ok(T_("Your menu was saved"));
-			return true;
+			return ['id' => \dash\coding::encode($menu_id)];
 		}
 		else
 		{

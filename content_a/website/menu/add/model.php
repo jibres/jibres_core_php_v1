@@ -17,7 +17,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/menu');
+			if(isset($theme_detail['id']))
+			{
+				\dash\redirect::to(\dash\url::this(). '/menu/edit?id='. $theme_detail['id']);
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::this(). '/menu');
+			}
 		}
 	}
 }
