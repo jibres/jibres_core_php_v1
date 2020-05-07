@@ -1,10 +1,10 @@
 <div class="jibresBanner">
- <div class="avand-lg2 zero">
+ <div>
 
 <article class="logo">
 
   <section class="pTB5x">
-   <div class="avand">
+   <div class="avand-lg">
     <div class="f align-center mB10">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("MEET THE LOGO"); ?></h3>
@@ -28,7 +28,7 @@ require_once ('section-icon.php');
 
 
   <section class="pTB5x">
-   <div class="avand">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("SAFE SPACE"); ?></h3>
@@ -55,7 +55,7 @@ else
   </section>
 
   <section class="pTB4x">
-   <div class="avand">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("MINIMAL SIZE"); ?></h3>
@@ -81,7 +81,7 @@ else
   </section>
 
   <section class="pTB5x">
-   <div class="avand">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("JIBRES RED"); ?></h3>
@@ -95,7 +95,7 @@ else
   </section>
 
   <section class="pTB5x">
-   <div class="avand">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("USING GRAYSCALE"); ?></h3>
@@ -122,7 +122,7 @@ else
   </section>
 
   <section class="pTB5x">
-   <div class="avand">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("BACKGROUND COLOR"); ?></h3>
@@ -149,8 +149,8 @@ else
    </div>
   </section>
 
-  <section class="pTB5x">
-   <div class="avand">
+  <section class=" pTB5x">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("WORDMARK"); ?></h3>
@@ -180,8 +180,8 @@ else
    </div>
   </section>
 
-  <section class="pTB5x">
-   <div class="avand">
+  <section class=" pTB5x">
+   <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("LOGO DON'TS"); ?></h3>
