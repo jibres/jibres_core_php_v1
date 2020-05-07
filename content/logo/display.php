@@ -8,13 +8,13 @@
         <source type='video/mp4' src="<?php echo \dash\url::cdn(); ?>/video/bg-logo.mp4"/>
     </video>
   </div>
-
+ </div>
 
 
 
 
 <article class="logo">
-  <div class="cn pTB3x">
+  <div class="avand pTB3x">
     <h2><?php echo T_("Download Logo Pack"); ?></h2>
     <div class="msg mB0-f">
       <p><?php echo T_("All type of Jibres logos are available!"); ?> <a target="_blank" href="https://github.com/jibres/Jibres-logo/archive/master.zip"><?php echo T_("Download latest Jibres logo pack."); ?></a></p>
@@ -30,6 +30,4 @@ require_once ('section-vertical.php');
 
 </article>
 
-
- </div>
 </div>
