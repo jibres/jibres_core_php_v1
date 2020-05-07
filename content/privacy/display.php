@@ -1,5 +1,5 @@
 <section class="jibresBanner">
- <div class="fit zero">
+ <div class="avand-lg zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-1.jpg" alt='<?php echo T_("What is Privacy?"); ?>'>
  </div>
 
@@ -9,7 +9,7 @@
    <p><?php echo T_("privacy is so important for mental peace as well as a peaceful personality that some experts have considered invasion of privacy disrespectful to human dignity."); ?></p>
  </div>
 
- <div class="fit zero">
+ <div class="avand-lg zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-2.jpg" alt='<?php echo T_("Controversies over the Invasion of Privacy"); ?>'>
  </div>
 
@@ -18,7 +18,7 @@
    <p><?php echo T_("Within e-commerce, privacy has always been from among the most controversial topics and continues to be."); ?> <?php echo T_("Accordingly, formulating privacy policies is regarded as one of the crucial concerns of technology companies."); ?> <?php echo T_("Meanwhile, widespread controversies have been provoked over invasion of privacy in e-commerce so that, occasionally, the regulations have to be revised to eliminate the existing weaknesses."); ?></p>
  </div>
 
- <div class="fit zero">
+ <div class="avand-lg zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-3.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
@@ -32,7 +32,7 @@
    <p class="msg success txtC"><?php echo T_("As the final remark, we wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access."); ?></p>
  </div>
 
- <div class="fit zero">
+ <div class="avand-lg zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-4.jpg" alt='<?php echo T_("Privacy from Our Point of View"); ?>'>
  </div>
 

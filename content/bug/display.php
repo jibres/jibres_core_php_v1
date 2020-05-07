@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit zero love">
+ <div class="avand-md zero">
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-bug-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 

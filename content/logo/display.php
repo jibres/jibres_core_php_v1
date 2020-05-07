@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit zero">
+ <div class="avand-lg zero">
 
   <div class="logoEffect">
     <img alt="Shadow of Jibres logo" class="shadow" src="<?php echo \dash\url::cdn(); ?>/images/logo/bg-logo-shadow.png">

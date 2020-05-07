@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit zero">
+ <div class="avand-lg zero">
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-values-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
@@ -24,7 +24,7 @@
 
  </div>
 
- <div class="fit zero">
+ <div class="avand-lg zero">
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-values-2.jpg" alt='<?php echo T_("Jibres is a values driven organization.");?>'>
  </div>
 

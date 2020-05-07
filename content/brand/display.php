@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit zero">
+ <div class="avand-lg zero">
 
 <article class="logo">
 
