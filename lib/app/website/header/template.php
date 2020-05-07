@@ -72,7 +72,18 @@ class template
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
 			'tag'          => ['tag1'],
-			'contain'      => ['header_logo', 'header_menu_1',],
+			'contain'      =>
+			[
+				'header_logo' =>
+				[
+					"desc" => T_("Show on header")
+				],
+				'header_menu_1' =>
+				[
+					"title" => T_("Menu 1"),
+					"desc" => T_("Menu on your header"),
+				],
+			],
 		];
 
 		return $header_1;
@@ -90,7 +101,23 @@ class template
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
 			'tag'          => ['tag1'],
-			'contain'      => ['header_logo', 'header_menu_1', 'header_menu_2', ],
+			'contain'      =>
+			[
+				'header_logo' =>
+				[
+					"desc" => T_("Show on header")
+				],
+				'header_menu_1' =>
+				[
+					"title" => T_("Menu 1"),
+					"desc" => T_("Menu on your header"),
+				],
+				'header_menu_2' =>
+				[
+					"title" => T_("Menu 2"),
+					"desc" => T_("Menu on your header"),
+				],
+			],
 		];
 
 		return $header_2;
@@ -107,7 +134,18 @@ class template
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
 			'tag'          => ['tag1'],
-			'contain'      => ['header_logo', 'header_menu_1', 'header_menu_3', ],
+			'contain'      =>
+			[
+				'header_logo' =>
+				[
+					"desc" => T_("Show on header")
+				],
+				'header_menu_1' =>
+				[
+					"title" => T_("Menu 1"),
+					"desc" => T_("Menu on your header"),
+				],
+			],
 		];
 
 		return $header_3;
