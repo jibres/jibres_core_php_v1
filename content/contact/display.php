@@ -3,7 +3,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-1.jpg" alt='<?php echo T_("Contact Jibres")?>'>
  </div>
 
- <div class="avand">
+ <div class="avand impact">
   <div class="f">
     <div class="c5 s12 pRa10">
       <h2><?php echo T_("Thank you for choosing us.");?></h2>
@@ -54,7 +54,7 @@ if (\dash\language::current() === 'fa')
  </div>
 
 
- <div class="avand">
+ <div class="avand impact">
   <div class="f">
     <div class="c8 s12 pRa10">
      <address class="vcard2">

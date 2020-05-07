@@ -1,5 +1,5 @@
 
- <blockquote cite="https://www.namecheap.com/domains/domain-definition-what-is-a-domain-name/" class="avand mT20">
+ <blockquote class="avand impact mT20" cite="https://www.namecheap.com/domains/domain-definition-what-is-a-domain-name/">
   <section>
    <h2><?php echo T_('What is a domain?'); ?></h2>
    <p><?php echo T_('Everything you need to know about domains'); ?></p>

@@ -1,7 +1,7 @@
 <div class="jibresBanner">
 
 <?php if (\dash\language::current() === 'fa') { ?>
- <div class="avand">
+ <div class="avand impact">
 
 
   <p class="txtC txtB">ایرنیک — مرکز ثبت دامنه نقطه-آی‌آر (‎.ir) <br />متن توافقنامه ثبت دامنه تحت &lrm;.ir و .ایران.ir</p>

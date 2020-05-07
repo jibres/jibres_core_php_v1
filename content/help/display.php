@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="avand">
+ <div class="avand impact">
 <?php
 echo T_("Soon");
 ?>

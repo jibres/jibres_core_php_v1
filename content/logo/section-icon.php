@@ -2,7 +2,7 @@
 $myUrlStatic = \dash\url::cdn();
 ?>
   <section class="pTB4x">
-   <div class="avand">
+   <div class="avand impact">
 
     <div class="dl vertical msg minimal">
       <div class="f align-center" data-kerkere=".standardPNG-icon">

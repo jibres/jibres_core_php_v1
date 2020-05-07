@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="avand">
+ <div class="avand impact">
 
  <div class="f content">
   <div class="c6 s12">

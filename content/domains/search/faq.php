@@ -1,5 +1,5 @@
 
- <div class="avand">
+ <div class="avand impact">
   <section class="faq">
    <h3><?php echo T_('Frequently Asked Questions'); ?></h3>
 

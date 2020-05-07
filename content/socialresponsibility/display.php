@@ -4,7 +4,7 @@
  </div>
 
 
- <div class="avand">
+ <div class="avand impact">
 
   <p class="msg success txtC"><?php echo T_("Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production."); ?></p>
 

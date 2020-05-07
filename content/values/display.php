@@ -4,7 +4,7 @@
  </div>
 
 
- <div class="avand">
+ <div class="avand impact">
 
  	<p><?php echo T_("Jibres is a values driven organization. Here is what we believe in."); ?></p>
 

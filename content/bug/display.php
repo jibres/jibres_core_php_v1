@@ -4,7 +4,7 @@
  </div>
 
 
- <div class="avand">
+ <div class="avand impact">
  		<h2><?php echo T_("Vulnerability Disclosure Philosophy"); ?></h2>
  		<ul class="list">
  			<li><?php echo T_("<b>Respect privacy.</b> Make a good faith effort not to access or destroy another users data."); ?></li>
@@ -13,13 +13,13 @@
  		</ul>
  </div>
 
-<div class="avand">
+<div class="avand impact">
 	<p><?php echo T_("A software bug that would allow an attacker to perform an action in violation of an expressed security policy. A bug that enables escalated access or privilege is a vulnerability. Design flaws and failures to adhere to security best practices may qualify as vulnerabilities. Weaknesses exploited by viruses, malicious code, and social engineering are not considered vulnerabilities"); ?></p>
 
 	<p class="mB0"><?php echo T_("If you believe you have found a vulnerability, please submit a Report here. The Report should include a detailed description of your discovery with clear, concise reproducible steps or a working proof-of-concept. If you don't explain the vulnerability in detail, there may be significant delays in the disclosure process, which is undesirable for everyone. We are use CVSS v.3 calculator on Jibres."); ?> <a href="https://www.first.org/cvss/calculator/3.0"><?php echo T_("Learn more about CVSS v3 rating"); ?></a></p>
 </div>
 
-<div class="avand">
+<div class="avand impact">
 	<h3><?php echo T_("Before you start"); ?></h3>
 	<ul class="list">
 		<li><?php echo T_("Never attempt non-technical attacks such as social engineering, phishing, or physical attacks against our employees, users, or infrastructure!"); ?></li>
@@ -32,7 +32,7 @@
 	</ul>
 </div>
 
-<div class="avand">
+<div class="avand impact">
 	<h3><?php echo T_("Performing your research"); ?></h3>
 	<p><?php echo T_("Do not impact other users with your testing. If you are attempting to find an authorization bypass, you must use accounts you own."); ?></p>
 	<p><?php echo T_("The following are <b>never</b> allowed and are ineligible for reward. We may suspend your Jibres account and ban your IP address for"); ?></p>
@@ -51,7 +51,7 @@
 	</ul>
 </div>
 
-<div class="avand">
+<div class="avand impact">
 	<h2><?php echo T_("Severity Guidelines"); ?></h2>
 	<p><?php echo T_("All bounty submissions are rated by Jibres using a purposefully simple scale. Each vulnerability is unique but the following is a rough guideline we use internally for rating and rewarding submissions."); ?></p>
 
@@ -70,7 +70,7 @@
 
 
 
- <div class="avand">
+ <div class="avand impact">
  		<h2><?php echo T_("Submit Vulnerability Report"); ?></h2>
  		<p class="mB25"><?php echo T_("All technology contains bugs. If you've found a security vulnerability, we'd like to help out. By submitting a vulnerability to a program on Jibres. The proof of concept is the most important part of your report submission. Clear, reproducible steps will help us validate this issue as quickly as possible.") ?></p>
 
