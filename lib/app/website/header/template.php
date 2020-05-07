@@ -70,7 +70,8 @@ class template
 			'title'        => T_("Header #1"),
 			'desc'         => T_("Description"),
 			'sample_image' => \dash\url::logo(),
-			'css_file'     => 'the css file location addr',
+			'version'      => 1,
+			'tag'          => ['tag1'],
 			'contain'      => ['header_logo', 'header_menu_1',],
 		];
 
@@ -87,7 +88,8 @@ class template
 			'title'        => T_("Header #2"),
 			'desc'         => T_("Description"),
 			'sample_image' => \dash\url::logo(),
-			'css_file'     => 'the css file location addr',
+			'version'      => 1,
+			'tag'          => ['tag1'],
 			'contain'      => ['header_logo', 'header_menu_1', 'header_menu_2', ],
 		];
 
@@ -103,7 +105,8 @@ class template
 			'title'        => T_("Header #3"),
 			'desc'         => T_("Description"),
 			'sample_image' => \dash\url::logo(),
-			'css_file'     => 'the css file location addr',
+			'version'      => 1,
+			'tag'          => ['tag1'],
 			'contain'      => ['header_logo', 'header_menu_1', 'header_menu_3', ],
 		];
 
