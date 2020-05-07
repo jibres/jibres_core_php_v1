@@ -1,5 +1,5 @@
 
- <div class="fit mT20">
+ <div class="avand mT20">
   <section class="faq">
    <h3><?php echo T_('Frequently Asked Questions'); ?></h3>
 

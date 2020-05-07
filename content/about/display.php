@@ -3,7 +3,7 @@
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-about-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
- <div class="fit txtC">
+ <div class="avand txtC">
  	<div class="f">
  		<div class="c s12 pA5">
  			<a href="<?php echo \dash\url::kingdom();?>/values">

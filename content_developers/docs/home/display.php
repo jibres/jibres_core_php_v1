@@ -4,7 +4,7 @@
   </section>
 
 
-	<div class="fit pT50">
+	<div class="avand pT50">
 		<div class="f">
 
 			<div class="c6 s12 pA10">

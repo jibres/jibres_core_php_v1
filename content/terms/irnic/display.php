@@ -44,7 +44,7 @@
 </div>
 <?php } ?>
 
- <div class="fit ltr">
+ <div class="avand ltr">
 
   <p class="txtC txtB"> IRNIC - Dot-IR (.ir) ccTLD Registry<br/>Text of agreement for registering domains under .ir and &lrm;.ایران.ir </p>
   <p> By submitting this form the registrant agrees to the following</p>

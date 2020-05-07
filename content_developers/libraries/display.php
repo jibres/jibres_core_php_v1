@@ -5,7 +5,7 @@
   </section>
 
 
-	<div class="fit pT50">
+	<div class="avand pT50">
 		<div class="box">
 			<div class="body">
 				<p class="msg mB0"><?php echo T_("We will write it soon :)"); ?></p>

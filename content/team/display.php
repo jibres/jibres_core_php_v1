@@ -3,7 +3,7 @@
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-team-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
- <div class="fit txtC">
+ <div class="avand txtC">
  	<p><?php echo \dash\face::desc(); ?></p>
  	<h2 class="txtB"><?php echo T_('The best thing about Jibres is our people.'); ?></h2>
  	<hr>
@@ -14,7 +14,7 @@
  </div>
 </div>
 
- <div class="fit txtC">
+ <div class="avand txtC">
  	<h2><?php echo T_('Meet the people behind Jibres'); ?></h2>
  </div>
 <div class="browserBox" data-board='https://tejarak.com/ermile'><span></span>
