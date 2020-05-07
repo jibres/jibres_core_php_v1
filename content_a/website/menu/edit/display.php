@@ -1,7 +1,7 @@
 
 <div class="f justify-center">
   <div class="c6 m8 s12 x5">
-    <form method="post" class="box impact" autocomplete="off">
+    <form method="post" class="box" autocomplete="off">
       <header><h2><?php echo T_("Add item to menu"). ' '. \dash\data::menuDetail_title(); ?></h2></header>
 
       <div class="body">
@@ -35,7 +35,7 @@
       </footer>
     </form>
 
-    <form method="post" class="box impact" autocomplete="off">
+    <form method="post" class="box" autocomplete="off">
       <header data-kerkere='.showManageMentMenu'><h2><?php echo T_("Manage menu"). ' '. \dash\data::menuDetail_title(); ?></h2></header>
       <div class="showManageMentMenu" data-kerkere-content='hide'>
 
@@ -74,7 +74,7 @@
           <div class="key"><?php echo \dash\get::index($value, 'title');?>
             <?php if(\dash\get::index($value, 'target')) {?><i class="sf-link fc-mute"></i> <?php }// endif ?>
           </div>
-          <div class="go"><i class="sf-edit fc-blue"></i></div>
+          <div class="go"></div>
         </a>
 
         <div class="showMenuItem_<?php echo $key; ?>" data-kerkere-content='hide'>
