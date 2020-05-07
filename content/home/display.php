@@ -1,6 +1,6 @@
 
 <section class="jibresBanner" id='saleChannels'>
- <div class="fit">
+ <div class="avand">
   <div class="f">
     <div class="c3 m6 s12 pA10 mB10">
       <div class="item">
@@ -90,7 +90,7 @@
 
 
 <section id='pricingPlans'>
-  <div class="cn">
+  <div class="avand">
     <div class="headline">
       <h3><?php echo T_("Choose the plan that's right for you"); ?></h3>
       <p><?php echo T_('Plans to fit your budget'); ?></p>
@@ -170,7 +170,7 @@
 
 
 <section id='statistic'>
-  <div class="cn">
+  <div class="avand">
     <h2 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h2>
     <div class="f txtC">
       <div class="c s12 pA10">
@@ -191,7 +191,7 @@
 
 
 <section id='jibresRoadmap'>
-  <div class="cn">
+  <div class="avand">
     <h3><?php echo T_("Jibres Roadmap"); ?></h3>
     <h2><?php echo T_('World #1 Financial Platform'); ?></h2>
   </div>
@@ -200,7 +200,7 @@
 
 <?php if(\dash\data::quote()) { ?>
 <section id='jibresQuote'>
-  <div class="cn">
+  <div class="avand">
     <h2><?php echo T_("Our Happy Friends!"); ?></h2>
     <div class="f">
 <?php foreach (\dash\data::quote() as $key => $value) {?>
