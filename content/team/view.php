@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Jibres Team'));
-		\dash\face::desc("We are here to build something different. Something new from scratch, that's really cool.");
+		\dash\face::desc(T_("We are here to build something different. Something new from scratch, that's really cool."));
 
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-team-1.jpg');
 
