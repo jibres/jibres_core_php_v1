@@ -83,6 +83,31 @@ class edit
 	}
 
 
+	public static function social($_args)
+	{
+		$condition =
+		[
+			'instagram' => 'string_50',
+			'telegram'  => 'string_50',
+			'youtube'   => 'string_50',
+		];
+
+		$require = [];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		foreach ($data as $key => $value)
+		{
+			\lib\app\setting\tools::update('store_setting', $key, $value);
+		}
+
+		\dash\notif::ok(T_("Your social network was saved"));
+	}
+
+
 
 	public static function selfedit($_args)
 	{
