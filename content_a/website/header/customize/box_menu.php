@@ -10,6 +10,7 @@
     </div>
     <form class="c4 s12" method="post" data-patch>
       <div class="action">
+        <?php if(\dash\data::allMenu()) {?>
         <div>
           <label for="idmenu<?php echo \dash\get::index($boxValue, 'name'); ?>"><?php echo \dash\get::index($boxValue, 'title'); ?></label>
           <select name="<?php echo \dash\get::index($boxValue, 'name'); ?>" id="idmenu<?php echo \dash\get::index($boxValue, 'name'); ?>" class="select22">
@@ -23,6 +24,9 @@
             <?php } //endfor ?>
           </select>
         </div>
+      <?php }else{ ?>
+        <a class="btn primary" href="<?php echo \dash\url::this() ?>/menu/add"><?php echo T_("Add new menu") ?></a>
+      <?php } //endif ?>
       </div>
     </form>
   </section>
