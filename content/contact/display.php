@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="avand-lg zero">
+ <div class="avand-lg impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-1.jpg" alt='<?php echo T_("Contact Jibres")?>'>
  </div>
 
@@ -49,7 +49,7 @@ if (\dash\language::current() === 'fa')
 {
 ?>
 
- <div class="avand-lg zero">
+ <div class="avand-lg impact zero">
   <iframe class="block" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.187296917843!2d50.876835765574285!3d34.64997254344046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f93bb7231d4a105%3A0x8843ca95f5a8e4a1!2sJibres!5e0!3m2!1sen!2s!4v1584467269428!5m2!1sen!2s" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
  </div>
 
@@ -82,7 +82,7 @@ if (\dash\language::current() === 'fa')
   </div>
  </div>
 
- <div class="avand-lg zero">
+ <div class="avand-lg impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-2.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 

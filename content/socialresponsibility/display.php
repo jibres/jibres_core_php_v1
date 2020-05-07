@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="avand-lg zero">
+ <div class="avand-lg impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-socialresponsibility-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
@@ -28,7 +28,7 @@
 
  </div>
 
- <div class="avand-lg zero">
+ <div class="avand-lg impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-socialresponsibility-2.jpg" alt='<?php echo T_("We are building in Jibres")?>'>
  </div>
 

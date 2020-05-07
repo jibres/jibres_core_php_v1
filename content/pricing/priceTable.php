@@ -1,5 +1,5 @@
 <div class="pricingQuick jibresBanner txtC">
-  <div class="avand">
+  <div class="avand impact">
     <div class="f">
 
       <div class="c3 m6 s12 col1">
