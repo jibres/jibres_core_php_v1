@@ -3,7 +3,7 @@ $myUrlStatic = \dash\url::cdn();
 ?>
 
   <section class="pTB4x">
-   <div class="cn">
+   <div class="avand">
     <div class="f align-center mB10">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("VERTICAL LOCKUP"); ?></h3>
