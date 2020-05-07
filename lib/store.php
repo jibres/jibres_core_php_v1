@@ -389,6 +389,12 @@ class store
 	}
 
 
+	public static function code()
+	{
+		return \dash\store_coding::encode();
+	}
+
+
 
 	/**
 	 * get title of store
