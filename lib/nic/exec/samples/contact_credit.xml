@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+	<command>
+		<info>
+			<contact:info xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
+				<contact:id>JIBRES-CONACT-FOR-INFO</contact:id>
+				<contact:authInfo>
+					<contact:pw>JIBRES-TOKEN</contact:pw>
+				</contact:authInfo>
+			</contact:info>
+		</info>
+		<extension>
+			<creditLog op="req" startDate="JIBRES-START-DATE" endDate="JIBRES-END-DATE" />
+		</extension>
+		<clTRID>JIBRES-TRACKING-NUMBER</clTRID>
+	</command>
+</epp>

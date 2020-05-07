@@ -273,6 +273,16 @@ class get
 
 
 
+
+	public static function credit()
+	{
+		$result = \lib\nic\exec\contact_credit::credit();
+
+		return $result;
+	}
+
+
+
 	public static function by_id($_id)
 	{
 		if(!\dash\user::id())
