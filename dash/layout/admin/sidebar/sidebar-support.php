@@ -69,7 +69,7 @@
       ?>
           <li>
             <a href="<?php echo \dash\url::here(); ?>/ticket?tag=<?php echo \dash\get::index($value, 'slug'); ?><?php echo \dash\data::accessGetAnd(); ?>">
-            <span class="floatLa mRa10 badge dark fc-mute"> <?php echo \dash\fit::number(\dash\get::index($value, 'useage_count')); ?></span>
+            <span class="floatLa mRa10 badge dark fc-mute"> <?php echo \dash\fit::number(\dash\get::index($value, 'usage_count')); ?></span>
             <span class="mRa10 badge rounded <?php if(isset($value['meta']['color'])) {echo $value['meta']['color']; } ?>">&nbsp;</span><?php echo \dash\get::index($value, 'title'); ?></a>
           </li>
       <?php } // endif ?>

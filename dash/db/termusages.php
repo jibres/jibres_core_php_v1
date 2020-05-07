@@ -133,7 +133,7 @@ class termusages
 
 
 	/**
-	 * insert mutli tags (get id of tags) to teruseage
+	 * insert mutli tags (get id of tags) to terusage
 	 *
 	 * @param      <type>  $_args  The arguments
 	 *

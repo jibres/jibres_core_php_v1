@@ -71,7 +71,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
-		$query = "SELECT dns.*, (SELECT COUNT(*) FROM iban WHERE iban.dns = dns.id AND iban.status = 'enable') AS `count_useage` FROM dns $q[where] $q[order] $limit ";
+		$query = "SELECT dns.*, (SELECT COUNT(*) FROM iban WHERE iban.dns = dns.id AND iban.status = 'enable') AS `count_usage` FROM dns $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'nic');
 

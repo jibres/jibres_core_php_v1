@@ -12,7 +12,7 @@ class file
 		'filename',
 		'title',
 		'desc',
-		'useage',
+		'usage',
 		'type',
 		'mime',
 		'ext',

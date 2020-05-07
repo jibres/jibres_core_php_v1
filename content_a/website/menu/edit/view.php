@@ -22,8 +22,8 @@ class view
 
 		\dash\data::menuDetailList($list);
 
-		$useageList = \lib\app\website\menu\get::useage_list(\dash\data::menuDetail_key());
-		\dash\data::useageList($useageList);
+		$usageList = \lib\app\website\menu\get::usage_list(\dash\data::menuDetail_key());
+		\dash\data::usageList($usageList);
 	}
 }
 ?>

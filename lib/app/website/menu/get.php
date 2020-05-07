@@ -20,7 +20,7 @@ class get
 
 
 
-	public static function useage_list($_key)
+	public static function usage_list($_key)
 	{
 		$key = \dash\validate::string_100($_key, false);
 

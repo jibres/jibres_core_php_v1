@@ -353,7 +353,7 @@ class comments
 					terms.title,
 					terms.meta,
 					terms.status,
-					count(*) AS `useage_count`
+					count(*) AS `usage_count`
 				FROM
 					terms
 				INNER JOIN termusages ON termusages.term_id  = terms.id

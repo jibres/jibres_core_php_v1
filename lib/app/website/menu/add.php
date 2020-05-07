@@ -101,8 +101,8 @@ class add
 			{
 				if(isset($value['key']))
 				{
-					$useage = \lib\app\website\menu\get::useage_list($value['key']);
-					if($useage)
+					$usage = \lib\app\website\menu\get::usage_list($value['key']);
+					if($usage)
 					{
 						\dash\notif::error(T_("This menu is usage in somewhere and can not be remove"));
 						return false;
