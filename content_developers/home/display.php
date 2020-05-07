@@ -1,5 +1,5 @@
 
-	<div class="fit">
+	<div class="avand">
 		<div class="f txtC pT50 pB100">
 
 			<div class="c4 s12 pA10">

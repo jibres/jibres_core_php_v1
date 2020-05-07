@@ -1,6 +1,6 @@
 
   <div id="jibresHeader">
-   <div class="fit">
+   <div class="avand">
     <div class="f">
      <div class="cauto">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'><img <?php

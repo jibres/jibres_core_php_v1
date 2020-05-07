@@ -1,6 +1,6 @@
 
 <section class="appBox">
-  <div class="fit">
+  <div class="avand">
     <div class="f align-center">
       <div class="c8 s12">
         <div class="text">

@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit">
+ <div class="avand">
 
   <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
   <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>
@@ -53,7 +53,7 @@
   </section>
 
  </div>
- <div class="fit">
+ <div class="avand">
   <h3><?php echo T_("Jibres Domain Pricing Comparison"); ?></h3>
   <table class="tbl1 v5">
     <thead>

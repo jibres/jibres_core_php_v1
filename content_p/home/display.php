@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit">
+ <div class="avand">
 <?php $dataRow = \dash\data::dataRow(); ?>
 <div class="blogEx">
 

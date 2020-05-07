@@ -3,7 +3,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-1.jpg" alt='<?php echo T_("What is Privacy?"); ?>'>
  </div>
 
- <div class="fit">
+ <div class="avand">
    <h2><?php echo T_("What is Privacy?"); ?></h2>
    <p class="msg info2 txtC"><?php echo T_("Privacy means that any individual is entitled to choose the information related to them, and selectively, share it with others."); ?></p>
    <p><?php echo T_("privacy is so important for mental peace as well as a peaceful personality that some experts have considered invasion of privacy disrespectful to human dignity."); ?></p>
@@ -13,7 +13,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-2.jpg" alt='<?php echo T_("Controversies over the Invasion of Privacy"); ?>'>
  </div>
 
- <div class="fit">
+ <div class="avand">
   <h3><?php echo T_("Controversies over the Invasion of Privacy"); ?></h3>
    <p><?php echo T_("Within e-commerce, privacy has always been from among the most controversial topics and continues to be."); ?> <?php echo T_("Accordingly, formulating privacy policies is regarded as one of the crucial concerns of technology companies."); ?> <?php echo T_("Meanwhile, widespread controversies have been provoked over invasion of privacy in e-commerce so that, occasionally, the regulations have to be revised to eliminate the existing weaknesses."); ?></p>
  </div>
@@ -22,7 +22,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-3.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
- <div class="fit">
+ <div class="avand">
   <h2><?php echo T_("Privacy from Our Point of View"); ?></h2>
    <p class="msg warn txtC"><?php echo T_("Let us be straightforward! Cyberspace is not a safe location for personal information."); ?></p>
    <p><?php echo T_("For that reason, Jibres makes no request for important information of yours and allow to save some general information including age, gender, education, interests, etc is only for private use of your team or company."); ?> <?php echo T_("It is worth mentioning that recording the aforementioned points is totally voluntary."); ?></p>

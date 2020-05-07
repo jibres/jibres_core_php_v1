@@ -26,7 +26,7 @@
  	</div>
  </div>
 
- <div class="fit">
+ <div class="avand">
 
 
 <?php

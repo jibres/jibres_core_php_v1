@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit">
+ <div class="avand">
 
   <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>
    <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
@@ -13,7 +13,7 @@
 
 
  </div>
- <div class="fit">
+ <div class="avand">
 
  	<h2><?php echo T_('Buy a domain name and create your website today.'); ?></h2>
  	<p><?php echo T_('Welcome to the domain registrar that has everything you need to get the right domain name for your personal or business website.')?></p>

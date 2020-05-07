@@ -3,7 +3,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-press-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
- <div class="fit">
+ <div class="avand">
 <?php
 echo T_("Soon");
 ?>

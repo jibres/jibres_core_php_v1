@@ -4,7 +4,7 @@
  </div>
 
 
- <div class="fit">
+ <div class="avand">
 
  	<p><?php echo T_("Jibres is a values driven organization. Here is what we believe in."); ?></p>
 

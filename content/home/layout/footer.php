@@ -28,7 +28,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 </section>
 
 <div id="jibresFooter">
-  <div class="fit">
+  <div class="avand">
     <figure class="f align-center logo">
       <a class="cauto s12" href="/">
         <img src="<?php echo \dash\url::cdn();

@@ -1,5 +1,5 @@
 
- <div class="fit">
+ <div class="avand">
   <section class="faq">
    <h3><?php echo T_('Frequently Asked Questions'); ?></h3>
 

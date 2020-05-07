@@ -1,4 +1,4 @@
-<div class="fit">
+<div class="avand">
  <h2><?php echo T_('Jibres Progressive Web Application'); ?></h2>
  <p class="fs14"><?php echo T_('With PWA version, you can use Jibres like native app.'); ?></p>
  <ol class="fs14">

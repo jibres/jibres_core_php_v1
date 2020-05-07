@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit">
+ <div class="avand">
 
 <div class="blogEx">
 

@@ -5,7 +5,7 @@ if($productList && is_array($productList))
 {
 ?>
 
-  <div class="fit">
+  <div class="avand">
     <div class="f">
 
       <?php foreach ($productList as $key => $value) { ?>
