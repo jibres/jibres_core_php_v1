@@ -2,6 +2,7 @@
  <div class="avand-lg zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-certificates-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
+</div>
 
 <?php
 if(\dash\language::current() === 'fa')
@@ -66,4 +67,3 @@ if(\dash\language::current() === 'fa')
 </section>
 <?php } ?>
 
-</div>
