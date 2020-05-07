@@ -4,7 +4,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 {
 ?>
 <section id="jibresCertificates">
-  <div class="fit-md">
+  <div class="avand-md">
     <h2><a href="<?php echo \dash\url::kingdom() ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h2>
     <div class="f">
       <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://pub.daneshbonyan.ir/"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='دانش‌بنیان - جیبرس'></a></div>

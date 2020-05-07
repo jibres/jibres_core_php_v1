@@ -8,7 +8,7 @@ if(\dash\language::current() === 'fa')
 {
 ?>
 <section id="jibresCertificates">
-  <div class="fit-md">
+  <div class="avand-md">
    <h2><?php echo T_('Jibres Certificates'); ?></h2>
 
    <div class="f align-center mB20">

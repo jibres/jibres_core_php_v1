@@ -53,7 +53,7 @@
 
 
 <section id="jibresDomain">
-  <div class="fit-sm">
+  <div class="avand-md">
    <h2><a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Jibres Domain Center"); ?></a></h2>
    <div class="domainQuickBuy box">
     <h3 class="mB10"><?php echo T_("Get your :val .IR domain", ["val" => "<span class='txtB'>". \dash\fit::number('5000'). ' '. \lib\currency::unit(). '</span>'] ); ?></h3>
