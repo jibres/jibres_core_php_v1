@@ -105,21 +105,21 @@ class template
 		[
 			'key'          => 'header_1',
 			'title'        => T_("Header #1"),
-			'desc'         => T_("Description"),
+			'desc'         => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
-			'tag'          => ['tag1' => T_("Tag 1")],
+			'tag'          =>
+			[
+				'news'   => T_('#news'),
+				'modern' => T_('#modern'),
+				'menu'   => T_('#menu'),
+			],
 			'contain'      =>
 			[
-				'header_logo' =>
-				[
-					"title" => T_("Set logo"),
-					"desc" => T_("Show on header")
-				],
 				'header_menu_1' =>
 				[
-					"title" => T_("Menu 1"),
-					"desc" => T_("Menu on your header"),
+					"title" => T_("Header menu"),
+					"desc" => T_("Show top of menu")
 				],
 			],
 		];
