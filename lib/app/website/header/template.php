@@ -85,6 +85,7 @@ class template
 			[
 				'header_logo' =>
 				[
+					"title" => T_("Set logo"),
 					"desc" => T_("Show on header")
 				],
 				'header_menu_1' =>
@@ -114,6 +115,7 @@ class template
 			[
 				'header_logo' =>
 				[
+					"title" => T_("Set logo"),
 					"desc" => T_("Show on header")
 				],
 				'header_menu_1' =>
@@ -147,6 +149,7 @@ class template
 			[
 				'header_logo' =>
 				[
+					"title" => T_("Set logo"),
 					"desc" => T_("Show on header")
 				],
 				'header_menu_1' =>
