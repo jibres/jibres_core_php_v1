@@ -2,7 +2,7 @@
 <div class="jHeader2 fit f align-center">
   <div class="cauto pRa10">
     <a class="logo" href="">
-      <img src="https://cdn.talambar.ir/logo/fa/svg/Jibres-Logo-fa.svg" alt="">
+      <img src="<?php echo \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo')) ?>" alt="">
     </a>
   </div>
   <div class="c">
@@ -17,4 +17,3 @@
     <a class="enter" href="">ورود به حساب کاربری</a>
   </div>
 </div>
-

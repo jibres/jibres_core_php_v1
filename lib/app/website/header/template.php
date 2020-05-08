@@ -135,26 +135,24 @@ class template
 		[
 			'key'          => 'header_2',
 			'title'        => T_("Header #2"),
-			'desc'         => T_("Description"),
+			'desc'         => T_("A modern and beautiful store template to introduce products and offer them \n This header contain cart link and login link and your store logo was show on header"),
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
-			'tag'          => ['tag1' => T_("Tag 1")],
+			'tag'          =>
+			[
+				'store'  => T_('#Shop_mode'),
+				'modern' => T_('#modern'),
+				'cart'   => T_('#cart_manager'),
+				'search' => T_('#search_button'),
+				'login'  => T_('#login_link'),
+				'logo'   => T_('#logo'),
+			],
 			'contain'      =>
 			[
 				'header_logo' =>
 				[
-					"title" => T_("Set logo"),
+					"title" => T_("Website logo"),
 					"desc" => T_("Show on header")
-				],
-				'header_menu_1' =>
-				[
-					"title" => T_("Menu 1"),
-					"desc" => T_("Menu on your header"),
-				],
-				'header_menu_2' =>
-				[
-					"title" => T_("Menu 2"),
-					"desc" => T_("Menu on your header"),
 				],
 			],
 		];

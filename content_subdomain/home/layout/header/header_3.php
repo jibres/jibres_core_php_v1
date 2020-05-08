@@ -1,5 +1,4 @@
 <?php require_once('before_header.php'); ?>
-
 <div class="jHeader3 circleEffect fit f align-center">
   <div class="cauto pRa10">
     <a class="logo" href="">
