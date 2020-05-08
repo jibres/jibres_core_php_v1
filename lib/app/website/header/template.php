@@ -119,9 +119,15 @@ class template
 				'header_menu_1' =>
 				[
 					"title" => T_("Header menu"),
-					"desc" => T_("Show top of menu")
+					"desc"  => T_("Show top of menu")
+				],
+				'business_desc' =>
+				[
+					"title" => T_("Business Description"),
+					"desc"  => T_("Below is the title of the website"),
 				],
 			],
+
 		];
 
 		return $header_1;
