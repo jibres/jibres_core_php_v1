@@ -6,15 +6,18 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Domain info"));
+		\dash\face::title(T_("IRNIC Credit info"));
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
 
-		$info = \lib\app\nic_domain\get::credit();
-		\dash\data::DomainInfo($info);
+		$creditList = \lib\app\nic_credit\get::fetch();
+		\dash\data::DomainInfo($creditList);
+
+		$last = \lib\app\nic_credit\get::last();
+		\dash\data::lastCredit($last);
 
 
 		$log_id = \dash\temp::get('IRNIC-last-log-id');

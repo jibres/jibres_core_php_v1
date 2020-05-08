@@ -1,20 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
-	<command>
-		<info>
-			<contact:info xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
-				<contact:id>ji128-irnic</contact:id>
-				<contact:authInfo>
-					<contact:pw>6858391123200405</contact:pw>
-				</contact:authInfo>
-			</contact:info>
-		</info>
-		<extension>
-			<creditLog op="req" startDate="2020-01-01" endDate="2020-05-07" />
-		</extension>
-		<clTRID>JIBRES-LOCAL-2020-05-07-17:27:41-contact-info-gPEmg8</clTRID>
-	</command>
-</epp>
 <?xml version="1.0" encoding="UTF-8"?>
 <epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
   <response xmlns:contact="http://epp.nic.ir/ns/contact-1.0">

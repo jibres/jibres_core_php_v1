@@ -27,6 +27,9 @@ class contact_credit
 	{
 
 		$object_result = self::send_xml($_args);
+		// $object_result = file_get_contents('/home/reza/projects/jibres/lib/nic/exec/contact_credit_sample_response.xml');
+		// $object_result = @new \SimpleXMLElement($object_result);
+
 
 		if(!$object_result)
 		{
@@ -34,125 +37,86 @@ class contact_credit
 		}
 
 		$result = [];
-		if(!isset($object_result->response->resData))
+
+		if(!isset($object_result->response->extension))
 		{
 			return false;
 		}
 
-		if(!$object_result->response->resData->xpath('contact:infData'))
+		foreach ($object_result->response->extension as  $extension)
 		{
-			return false;
-		}
-
-		foreach ($object_result->response->resData->xpath('contact:infData') as  $contactinfData)
-		{
-			$temp  = [];
-			$myKey = null;
-
-			foreach ($contactinfData->xpath('contact:id') as $contactid)
+			foreach ($extension as  $creditLog)
 			{
-				$myKey = $contactid->__toString();
-				$temp[$myKey]['id']   = $myKey;
-			}
 
-
-			foreach ($contactinfData->xpath('contact:roid') as $contactroid)
-			{
-				$temp[$myKey]['roid']   = $contactroid->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:voice') as $contactvoice)
-			{
-				$temp[$myKey]['mobile']   = $contactvoice->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:signature') as $contactsignature)
-			{
-				$temp[$myKey]['signature']   = $contactsignature->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:email') as $contactemail)
-			{
-				$temp[$myKey]['email']   = $contactemail->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:crDate') as $contactcrDate)
-			{
-				$temp[$myKey]['datecreated']   = $contactcrDate->__toString();
-			}
-
-
-			foreach ($contactinfData->xpath('contact:status') as $contactstatus)
-			{
-				$attr             = $contactstatus->attributes();
-				$attr             = (array) $attr;
-
-				if(isset($attr['@attributes']))
+				foreach ($creditLog as  $credit)
 				{
-					$attr = $attr['@attributes'];
-				}
+					$attr             = $credit->attributes();
+					$attr             = (array) $attr;
+					$temp = [];
 
-				if(isset($attr['s']))
-				{
-					$temp[$myKey]['status'][]   = $attr['s'];
-				}
-
-			}
-
-			foreach ($contactinfData->xpath('contact:position') as $contactposition)
-			{
-				$attr             = $contactposition->attributes();
-				$attr             = (array) $attr;
-
-				if(isset($attr['@attributes']))
-				{
-					$attr = $attr['@attributes'];
-				}
-
-				if(isset($attr['type']) && isset($attr['allowed']))
-				{
-					$temp[$myKey][$attr['type']] = $attr['allowed'];
-				}
-			}
-
-			foreach ($contactinfData->xpath('contact:postalInfo') as $contactpostalInfo)
-			{
-
-				foreach ($contactpostalInfo->xpath('contact:org') as $contactorg)
-				{
-					$temp[$myKey]['company']   = $contactorg->__toString();
-				}
-
-				foreach ($contactpostalInfo->xpath('contact:addr') as $contactaddr)
-				{
-					foreach ($contactaddr->xpath('contact:street') as $contactstreet)
+					if(isset($attr['@attributes']))
 					{
-						$temp[$myKey]['address']   = $contactstreet->__toString();
+						$attr = $attr['@attributes'];
 					}
 
-					foreach ($contactaddr->xpath('contact:city') as $contactcity)
+					if(isset($attr['roid']))
 					{
-						$temp[$myKey]['city']   = $contactcity->__toString();
+						$temp['roid'] = $attr['roid'];
 					}
 
-					foreach ($contactaddr->xpath('contact:sp') as $contactsp)
+
+					if(isset($credit->date))
 					{
-						$temp[$myKey]['province']   = $contactsp->__toString();
+						$date = $credit->date->__toString();
+						if(strtotime($date) !== false)
+						{
+							$date = date("Y-m-d H:i:s", strtotime($date));
+						}
+						else
+						{
+							$date = null;
+						}
+						$temp['date'] = $date;
 					}
 
-					foreach ($contactaddr->xpath('contact:pc') as $contactpc)
+					if(isset($credit->description))
 					{
-						$temp[$myKey]['postalcode']   = $contactpc->__toString();
+						$temp['description'] = trim($credit->description->__toString());
 					}
 
-					foreach ($contactaddr->xpath('contact:cc') as $contactcc)
+					if(isset($credit->amount))
 					{
-						$temp[$myKey]['country']   = $contactcc->__toString();
+						$amount = $credit->amount->__toString();
+
+						if(is_numeric($amount))
+						{
+							$amount = floatval($amount) * 100;
+						}
+						else
+						{
+							$amount = null;
+						}
+
+						$temp['amount'] = $amount;
 					}
+
+					if(isset($credit->balance))
+					{
+						$balance = $credit->balance->__toString();
+						if(is_numeric($balance))
+						{
+							$balance = floatval($balance) * 100;
+						}
+						else
+						{
+							$balance = null;
+						}
+						$temp['balance'] = $balance;
+					}
+
+					$result[] = $temp;
 				}
 			}
-
-			$result = $temp;
 		}
 
 		return $result;
@@ -174,7 +138,7 @@ class contact_credit
 		$xml = str_replace('JIBRES-START-DATE', "2020-01-01", $xml);
 		$xml = str_replace('JIBRES-END-DATE', date("Y-m-d"), $xml);
 
-		$response = \lib\nic\exec\run::send($xml, 'contact_info', 1, null, $_contact);
+		$response = \lib\nic\exec\run::send($xml, 'contact_credit', 1, null, $_contact);
 
 		return $response;
 	}
