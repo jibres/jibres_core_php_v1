@@ -1,8 +1,9 @@
 <?php require_once('before_header.php'); ?>
+
 <div class="jHeader3 circleEffect fit f align-center">
   <div class="cauto pRa10">
     <a class="logo" href="">
-      <img src="/logo/fa/svg/Jibres-Logo-fa.svg" alt="">
+      <img src="<?php echo \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo')) ?>" alt="">
     </a>
   </div>
   <div class="c">
