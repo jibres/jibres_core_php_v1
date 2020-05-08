@@ -161,9 +161,13 @@ class extentions
 
 	public static function _mime_content_type($_addr)
 	{
-		$finfo  = finfo_open(FILEINFO_MIME_TYPE);
-		$result = finfo_file($finfo, $_addr);
-		finfo_close($finfo);
+		if(!function_exists('finfo_open'))
+		{
+			return null;
+		}
+		$finfo  = \finfo_open(FILEINFO_MIME_TYPE);
+		$result = \finfo_file($finfo, $_addr);
+		\finfo_close($finfo);
 		return $result;
 
 	}
