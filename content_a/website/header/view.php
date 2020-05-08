@@ -12,7 +12,12 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$header_template = \lib\app\website\header\template::list();
+		$args =
+		[
+			'tag' => \dash\request::get('tag'),
+		];
+
+		$header_template = \lib\app\website\header\template::list($args);
 
 		\dash\data::headerTemplate($header_template);
 

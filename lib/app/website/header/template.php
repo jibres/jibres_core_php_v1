@@ -60,12 +60,40 @@ class template
 
 
 
-	public static function list()
+	public static function list($_args)
 	{
+		$condition =
+		[
+			'tag'      => 'string_50',
+		];
+
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 		$list             = [];
 		$list[] = self::header_1();
 		$list[] = self::header_2();
 		$list[] = self::header_3();
+
+		if($data['tag'])
+		{
+			$new_list = [];
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['tag']) && is_array($value['tag']))
+				{
+					if(in_array($data['tag'], array_keys($value['tag'])))
+					{
+						$new_list[] = $value;
+					}
+				}
+			}
+
+			$list = $new_list;
+		}
 
 		return $list;
 	}
@@ -80,7 +108,7 @@ class template
 			'desc'         => T_("Description"),
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
-			'tag'          => ['tag1'],
+			'tag'          => ['tag1' => T_("Tag 1")],
 			'contain'      =>
 			[
 				'header_logo' =>
@@ -110,7 +138,7 @@ class template
 			'desc'         => T_("Description"),
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
-			'tag'          => ['tag1'],
+			'tag'          => ['tag1' => T_("Tag 1")],
 			'contain'      =>
 			[
 				'header_logo' =>
