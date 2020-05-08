@@ -130,6 +130,12 @@ class template
 					"title" => T_("Header menu"),
 					"desc" => T_("Show after line of header")
 				],
+
+				'header_menu_2' =>
+				[
+					"title" => T_("Header menu"),
+					"desc" => T_("Show left of website")
+				],
 			],
 		];
 
