@@ -130,9 +130,12 @@ class extentions
 		{
 			if(!function_exists('mime_content_type'))
 			{
-				\dash\header::status(501);
+				$mime_content_type = self::_mime_content_type($_file_addr);
 			}
-			$mime_content_type = mime_content_type($_file_addr);
+			else
+			{
+				$mime_content_type = mime_content_type($_file_addr);
+			}
 
 			// force changed the extentio of file
 			if(isset($myResult['mime']) && $myResult['mime'] !== $mime_content_type)
@@ -153,6 +156,16 @@ class extentions
 
 		// else return the
 		return $myResult;
+	}
+
+
+	public static function _mime_content_type($_addr)
+	{
+		$finfo  = finfo_open(FILEINFO_MIME_TYPE);
+		$result = finfo_file($finfo, $_addr);
+		finfo_close($finfo);
+		return $result;
+
 	}
 }
 ?>
