@@ -140,7 +140,7 @@ class add
 		$condition =
 		[
 			'title'   => 'string_50',
-			'url'     => 'url',
+			'url'     => 'string_200',
 			'target'  => 'bit',
 			'remove'  => 'bit',
 			'itemkey' => 'smallint',

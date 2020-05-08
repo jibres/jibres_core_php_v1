@@ -13,8 +13,8 @@
           </div>
 
           <label for="url"><?php echo T_("Url"); ?></label>
-          <div class="input">
-            <input type="url" name="url" id="url" value=""  required>
+          <div class="input ltr">
+            <input type="text" name="url" id="url" value=""  required>
           </div>
 
           <label for="sort"><?php echo T_("Sort"); ?></label>
@@ -94,8 +94,8 @@
               </div>
 
 
-              <div class="input mB10">
-                <input type="url" name="url" id="url" value="<?php echo \dash\get::index($value, 'url'); ?>"  required>
+              <div class="input mB10 ltr">
+                <input type="text" name="url" id="url" value="<?php echo \dash\get::index($value, 'url'); ?>"  required>
               </div>
 
 
