@@ -135,7 +135,7 @@ class contact_credit
 		}
 
 		$xml = str_replace('JIBRES-CONACT-FOR-INFO', $_contact, $xml);
-		$xml = str_replace('JIBRES-START-DATE', "2020-01-01", $xml);
+		$xml = str_replace('JIBRES-START-DATE', date("Y-m-d", strtotime("yesterday")), $xml);
 		$xml = str_replace('JIBRES-END-DATE', date("Y-m-d"), $xml);
 
 		$response = \lib\nic\exec\run::send($xml, 'contact_credit', 1, null, $_contact);
