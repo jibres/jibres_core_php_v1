@@ -155,7 +155,7 @@ class run
 			return false;
 		}
 
-		if(mb_strlen($response) > 10000)
+		if(mb_strlen($response) > 20000)
 		{
 			\dash\notif::error(T_("Response of IRNIC server is too large! Please contact to administrator"));
 			\dash\log::set('IRNIC:CurlResponseMaxLen', ['responselen' => mb_strlen($response)]);
