@@ -67,31 +67,31 @@ class get
 		}
 
 
-		$step         = [];
-		$step['menu'] = [];
-		$step['logo'] = [];
-		$step['desc'] = [];
+		// $step         = [];
+		// $step['menu'] = [];
+		// $step['logo'] = [];
+		// $step['desc'] = [];
 
-		if(in_array('header_logo', $contain))
-		{
-			$step['logo'][] = ['title' => T_("Set logo"), 'name' => 'logo'];
-		}
+		// if(in_array('header_logo', $contain))
+		// {
+		// 	$step['logo'][] = ['title' => T_("Set logo"), 'name' => 'logo'];
+		// }
 
-		if(in_array('header_menu_1', $contain))
-		{
-			$step['menu'][] = ['title' => T_("Set menu #1"), 'name' => 'header_menu_1'];
-		}
+		// if(in_array('header_menu_1', $contain))
+		// {
+		// 	$step['menu'][] = ['title' => T_("Set menu #1"), 'name' => 'header_menu_1'];
+		// }
 
-		if(in_array('header_menu_2', $contain))
-		{
-			$step['menu'][] = ['title' => T_("Set menu #2"), 'name' => 'header_menu_2'];
-		}
+		// if(in_array('header_menu_2', $contain))
+		// {
+		// 	$step['menu'][] = ['title' => T_("Set menu #2"), 'name' => 'header_menu_2'];
+		// }
 
-		if(in_array('header_description', $contain))
-		{
-			$step['desc'][] = ['title' => T_("Set Description"), 'name' => 'header_description'];
-		}
-		$active_header_detail['step'] = $step;
+		// if(in_array('header_description', $contain))
+		// {
+		// 	$step['desc'][] = ['title' => T_("Set Description"), 'name' => 'header_description'];
+		// }
+		// $active_header_detail['step'] = $step;
 		$active_header_detail['saved'] = $load_saved_detail;
 
 		return $active_header_detail;

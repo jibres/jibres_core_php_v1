@@ -11,13 +11,12 @@
     <div class="action">
       <div class="f">
         <div class="c12">
-          <label for="logo"><?php echo T_("Logo"); ?></label>
           <div class="input">
             <input type="file" name="logo" id="logo">
           </div>
         </div>
         <div class="c12 txtRa">
-          <button class="btn success "><?php echo T_("Upload") ?></button>
+          <button class="btn success mT10"><?php echo T_("Upload") ?></button>
         </div>
       </div>
     </div>

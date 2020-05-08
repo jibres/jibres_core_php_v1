@@ -19,6 +19,9 @@ class view
 		}
 
 
+		// var_dump(\dash\data::activeHeaderDetail());exit();
+
+
 
 	}
 }
