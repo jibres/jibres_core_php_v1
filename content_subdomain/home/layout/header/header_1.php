@@ -1,6 +1,21 @@
 <?php require_once('before_header.php'); ?>
-<div class="jHeader1">
-<h1><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\get::index(\lib\store::detail(), 'store_data', 'title'); ?></a></h1>
-<h2><?php echo \dash\get::index(\lib\store::detail(), 'store_data', 'desc'); ?></h2>
-  <?php \lib\app\website\menu\generate::menu('header_menu_1'); ?>
+<div class="jHeader3 circleEffect fit f align-center">
+  <div class="cauto pRa10">
+    <a class="logo" href="">
+      <img src="<?php echo \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo')) ?>" alt="">
+    </a>
+  </div>
+  <div class="c">
+  </div>
+  <div class="cauto pRa20">
+    <a class="search" href=""></a>
+  </div>
+  <div class="cauto pRa20">
+    <a class="cart" href="" data-count="۲">سبد خرید</a>
+  </div>
+  <div class="cauto">
+    <a class="enter" href="">ورود به حساب کاربری</a>
+  </div>
 </div>
+
+<?php \lib\app\website\menu\generate::menu('header_menu_1'); ?>

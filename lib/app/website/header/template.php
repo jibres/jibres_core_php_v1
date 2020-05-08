@@ -75,8 +75,7 @@ class template
 
 		$list             = [];
 		$list[] = self::header_1();
-		$list[] = self::header_2();
-		$list[] = self::header_3();
+
 
 		if($data['tag'])
 		{
@@ -101,96 +100,34 @@ class template
 
 	private static function header_1()
 	{
-		$header_1 =
+		$header_3 =
 		[
 			'key'          => 'header_1',
 			'title'        => T_("Header #1"),
-			'desc'         => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
+			'desc'         => T_("A modern and beautiful store template to introduce products and offer them \n This header contain cart link and login link and your store logo was show on header"),
 			'sample_image' => \dash\url::logo(),
 			'version'      => 1,
 			'tag'          =>
 			[
-				'news'   => T_('#news'),
+				'store'  => T_('#Shop_mode'),
 				'modern' => T_('#modern'),
-				'menu'   => T_('#menu'),
+				'cart'   => T_('#cart_manager'),
+				'search' => T_('#search_button'),
+				'login'  => T_('#login_link'),
+				'logo'   => T_('#logo'),
 			],
 			'contain'      =>
 			[
+				'header_logo' =>
+				[
+					"title" => T_("Website logo"),
+					"desc" => T_("Show on header")
+				],
+
 				'header_menu_1' =>
 				[
 					"title" => T_("Header menu"),
-					"desc"  => T_("Show top of menu")
-				],
-				'business_desc' =>
-				[
-					"title" => T_("Business Description"),
-					"desc"  => T_("Below is the title of the website"),
-				],
-			],
-
-		];
-
-		return $header_1;
-	}
-
-
-
-	private static function header_2()
-	{
-		$header_2 =
-		[
-			'key'          => 'header_2',
-			'title'        => T_("Header #2"),
-			'desc'         => T_("A modern and beautiful store template to introduce products and offer them \n This header contain cart link and login link and your store logo was show on header"),
-			'sample_image' => \dash\url::logo(),
-			'version'      => 1,
-			'tag'          =>
-			[
-				'store'  => T_('#Shop_mode'),
-				'modern' => T_('#modern'),
-				'cart'   => T_('#cart_manager'),
-				'search' => T_('#search_button'),
-				'login'  => T_('#login_link'),
-				'logo'   => T_('#logo'),
-			],
-			'contain'      =>
-			[
-				'header_logo' =>
-				[
-					"title" => T_("Website logo"),
-					"desc" => T_("Show on header")
-				],
-			],
-		];
-
-		return $header_2;
-	}
-
-
-	private static function header_3()
-	{
-		$header_3 =
-		[
-			'key'          => 'header_3',
-			'title'        => T_("Header #3"),
-			'desc'         => T_("A modern and beautiful store template to introduce products and offer them \n This header contain cart link and login link and your store logo was show on header"),
-			'sample_image' => \dash\url::logo(),
-			'version'      => 1,
-			'tag'          =>
-			[
-				'store'  => T_('#Shop_mode'),
-				'modern' => T_('#modern'),
-				'cart'   => T_('#cart_manager'),
-				'search' => T_('#search_button'),
-				'login'  => T_('#login_link'),
-				'logo'   => T_('#logo'),
-			],
-			'contain'      =>
-			[
-				'header_logo' =>
-				[
-					"title" => T_("Website logo"),
-					"desc" => T_("Show on header")
+					"desc" => T_("Show after line of header")
 				],
 			],
 		];
