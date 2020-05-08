@@ -19,34 +19,13 @@ class search
 		return self::$is_filtered;
 	}
 
-
-
 	public static function list($_query_string, $_args)
-	{
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
-		$_args['user_id'] = \dash\user::id();
-
-		return self::get_list($_query_string, $_args);
-	}
-
-
-	public static function get_list($_query_string, $_args)
 	{
 
 		$condition =
 		[
 			'order'   => 'order',
 			'sort'    => ['enum' => ['title', 'nicid', 'status']],
-			'holder'  => 'bit',
-			'admin'   => 'bit',
-			'tech'    => 'bit',
-			'bill'    => 'bit',
-			'user_id' => 'id',
 
 		];
 
@@ -73,41 +52,13 @@ class search
 		$order_sort  = null;
 
 
-		if($data['admin'])
-		{
-			$and[]                      = " credit.admin = 1 ";
-			self::$filter_args['admin'] = '*'. T_('Admin');
-			self::$is_filtered          = true;
-		}
-
-		if($data['holder'])
-		{
-			$and[]                      = " credit.holder = 1 ";
-			self::$filter_args['holder'] = '*'. T_('Holder');
-			self::$is_filtered          = true;
-		}
-
-		if($data['tech'])
-		{
-			$and[]                      = " credit.tech = 1 ";
-			self::$filter_args['tech'] = '*'. T_('Technical');
-			self::$is_filtered          = true;
-		}
-
-		if($data['bill'])
-		{
-			$and[]                      = " credit.bill = 1 ";
-			self::$filter_args['bill'] = '*'. T_('Billing');
-			self::$is_filtered          = true;
-		}
-
 		$query_string = \dash\validate::search($_query_string);
 
 
 		if($query_string)
 		{
-			$or[]        = " credit.title LIKE '%$query_string%'";
-			$or[]        = " credit.nic_id LIKE '$query_string%'";
+			$or[]        = " credit.roid LIKE '%$query_string%'";
+			$or[]        = " credit.description LIKE '$query_string%'";
 
 
 			self::$is_filtered = true;
@@ -135,12 +86,6 @@ class search
 			$order_sort = " ORDER BY credit.id DESC";
 		}
 
-		$and[] = " credit.status != 'deleted' ";
-
-		if($data['user_id'])
-		{
-			$and[] = " credit.user_id = ". $data['user_id'];
-		}
 
 		$list = \lib\db\nic_credit\search::list($and, $or, $order_sort, $meta);
 

@@ -20,6 +20,20 @@ class view
 		\dash\data::lastCredit($last);
 
 
+		$args =
+		[
+			'order'    => \dash\request::get('order'),
+			'sort'     => \dash\request::get('sort'),
+		];
+
+
+		$search_string = \dash\request::get('q');
+
+		$list = \lib\app\nic_credit\search::list($search_string, $args);
+
+		\dash\data::dataTable($list);
+
+
 		$log_id = \dash\temp::get('IRNIC-last-log-id');
 		if($log_id)
 		{
