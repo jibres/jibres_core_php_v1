@@ -12,6 +12,7 @@ class topline
 			'text'   => 'string_100',
 			'url'    => 'url',
 			'target' => 'bit',
+			'status' => 'bit',
 		];
 
 		$require = [];

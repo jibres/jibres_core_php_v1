@@ -10,6 +10,7 @@ class model
 			'text'   => \dash\request::post('text'),
 			'url'    => \dash\request::post('url'),
 			'target' => \dash\request::post('target'),
+			'status' => \dash\request::post('status'),
 		];
 
 		$customize_header = \lib\app\website\header\topline::set($post);
