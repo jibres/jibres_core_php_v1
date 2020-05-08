@@ -1,6 +1,6 @@
 <?php require_once('before_header.php'); ?>
 <div id='jHeader100' class="avand" data-circleEffect>
-  <div class="action f align-center">
+  <div class="actionBar f align-center">
     <div class="cauto pRa10">
       <a class="logo" href="">
         <img src="<?php echo \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo')) ?>" alt="">
@@ -19,6 +19,9 @@
     </div>
   </div>
 
-<?php \lib\app\website\menu\generate::menu('header_menu_1'); ?>
+  <div class="menuBar f">
+    <div class="c"><?php \lib\app\website\menu\generate::menu('header_menu_1'); ?></div>
+    <div class="cauto os"><?php \lib\app\website\menu\generate::menu('header_menu_2'); ?></div>
+  </div>
 
 </div>
