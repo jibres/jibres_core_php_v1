@@ -4,7 +4,7 @@ namespace lib\app\website\menu;
 class generate
 {
 
-	public static function menu($_key)
+	public static function menu($_key, $_class = null)
 	{
 		$customized_key = '';
 		if(in_array(substr($_key, 0, 6), ['header', 'footer']))
@@ -15,7 +15,12 @@ class generate
 		$website = \dash\data::website();
 		if(isset($website[$customized_key][$_key]) && isset($website['menu'][$website[$customized_key][$_key]]['list']) && is_array($website['menu'][$website[$customized_key][$_key]]['list']))
 		{
-  			echo '<nav>';
+  			echo '<nav';
+  			if($_class)
+  			{
+  				echo ' class="'. $_class. '"';
+  			}
+  			echo '>';
      		foreach ($website['menu'][$website[$customized_key][$_key]]['list'] as $menuValue)
      		{
       			echo '<a ';
