@@ -18,6 +18,22 @@
   </div>
 </section>
 
+<section class="f" data-option='website-change-top-line'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Top line");?></h3>
+      <div class="body">
+        <p><?php echo T_("Change header top line") ?> </p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/topline"><?php echo T_("Change Top line") ?></a>
+    </div>
+  </div>
+</section>
+
 
 <?php
 foreach (\dash\data::activeHeaderDetail_contain() as $box => $box_detail)
