@@ -79,7 +79,7 @@
        <li>
         <a class="f" href2="<?php echo \dash\get::index($value, 'url');?>" data-kerkere='.showMenuItem_<?php echo $key; ?>' data-kerkere-single>
           <div class="key"><?php echo \dash\get::index($value, 'title');?>
-            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-link fc-mute"></i> <?php }// endif ?>
+            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
           </div>
           <div class="go"></div>
         </a>
