@@ -13,6 +13,15 @@ class template
 	}
 
 
+	public static function get_contain($_key)
+	{
+		$result = self::get($_key, 'contain');
+		if($result && is_array($result))
+		{
+			return array_keys($result);
+		}
+		return [];
+	}
 
 	/**
 	 * Get one template detail

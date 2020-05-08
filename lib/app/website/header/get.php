@@ -44,7 +44,7 @@ class get
 			return false;
 		}
 
-		$contain = \lib\app\website\header\template::get($active_header['value'], 'contain');
+		$contain = \lib\app\website\header\template::get_contain($active_header['value']);
 		if(!is_array($contain))
 		{
 			$contain = [];
