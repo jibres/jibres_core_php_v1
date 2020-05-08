@@ -75,6 +75,7 @@ class template
 
 		$list             = [];
 		$list[] = self::header_1();
+		$list[] = self::header_2();
 
 
 		if($data['tag'])
@@ -133,6 +134,41 @@ class template
 		];
 
 		return $header_3;
+	}
+
+
+	private static function header_2()
+	{
+		$header_1 =
+		[
+			'key'          => 'header_2',
+			'title'        => T_("Header #2"),
+			'desc'         => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
+			'sample_image' => \dash\url::logo(),
+			'version'      => 1,
+			'tag'          =>
+			[
+				'news'   => T_('#news'),
+				'modern' => T_('#modern'),
+				'menu'   => T_('#menu'),
+			],
+			'contain'      =>
+			[
+				'header_menu_1' =>
+				[
+					"title" => T_("Header menu"),
+					"desc"  => T_("Show top of menu")
+				],
+				'business_desc' =>
+				[
+					"title" => T_("Business Description"),
+					"desc"  => T_("Below is the title of the website"),
+				],
+			],
+
+		];
+
+		return $header_1;
 	}
 
 
