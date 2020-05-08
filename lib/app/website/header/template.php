@@ -60,7 +60,7 @@ class template
 
 
 
-	public static function list($_args)
+	public static function list($_args = [])
 	{
 		$condition =
 		[
