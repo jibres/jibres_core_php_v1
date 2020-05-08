@@ -1,7 +1,7 @@
 <?php
 $header = \dash\data::website_header();
 
-if(\dash\get::index($header, 'topline', 'text'))
+if(\dash\get::index($header, 'topline', 'status') && \dash\get::index($header, 'topline', 'text'))
 {
 	echo '<div class="topLine">';
 	if(\dash\get::index($header, 'topline', 'url'))
