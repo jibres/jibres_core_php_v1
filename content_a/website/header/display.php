@@ -55,10 +55,9 @@ foreach (\dash\data::activeHeaderDetail_contain() as $box => $box_detail)
 <section class="f" data-option='website-header-upload-logo'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Your business title")?> <span class="fc-green"><?php echo \lib\store::detail('title');?></span></h3>
+      <h3><?php echo \lib\store::detail('title');?></h3>
 
       <div class="body">
-        <p><?php echo T_("Your business description");?></p>
         <p><?php echo \lib\store::detail('desc');?></p>
       </div>
     </div>

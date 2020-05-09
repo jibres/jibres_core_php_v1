@@ -37,4 +37,9 @@ else
     <?php } //endif ?>
     </div>
   </form>
+  <?php if(\dash\data::allMenu()) {?>
+  <footer class="txtRa">
+   <a href="<?php echo \dash\url::this() ?>/menu/add" class="btn link"><?php echo T_("Add new menu") ?></a>
+  </footer>
+    <?php } //endif ?>
 </section>
