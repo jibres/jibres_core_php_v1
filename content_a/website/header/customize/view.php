@@ -6,10 +6,10 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Customize Website Headers'));
+		\dash\face::title(T_('Customize Your Website Header'));
 
 		// back
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('Website Builder'));
 		\dash\data::back_link(\dash\url::this());
 
 		if(true) // check need to load menu

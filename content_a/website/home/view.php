@@ -6,10 +6,10 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Website'));
+		\dash\face::title(T_('Build Your Unique Online Website'));
 
 		// back
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
 		$isset_header = \lib\app\website\header\get::isset_header();

@@ -6,10 +6,10 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Website Headers'));
+		\dash\face::title(T_('Choose Header Template'));
 
 		// back
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('Header'));
 		\dash\data::back_link(\dash\url::this());
 
 		$args =
