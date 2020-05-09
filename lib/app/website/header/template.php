@@ -75,7 +75,7 @@ class template
 
 		$list             = [];
 		$list['header_100'] = self::header_100();
-		$list['header_2'] = self::header_2();
+		$list['header_300'] = self::header_300();
 
 
 		if($data['tag'])
@@ -140,15 +140,15 @@ class template
 	}
 
 
-	private static function header_2()
+	private static function header_300()
 	{
 		$myHeader =
 		[
-			'key'          => 'header_2',
+			'key'          => 'header_300',
 			'title'        => T_("Header #2"),
 			'desc'         => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
-			'sample_image' => \dash\url::logo(),
-			'version'      => 1,
+			'sample_image' => \dash\url::cdn(). '/img/template/header/header300.jpg',
+			'version'      => 2,
 			'tag'          =>
 			[
 				'news'   => T_('#news'),
@@ -160,10 +160,6 @@ class template
 				'header_menu_1' =>
 				[
 					"title" => T_("Header Primary Menu"),
-				],
-				'business_desc' =>
-				[
-					"title" => T_("Business Description"),
 				],
 			],
 
