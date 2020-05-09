@@ -7,7 +7,8 @@ class get
 	public static function line_list()
 	{
 
-		$load_line = \lib\db\setting\get::platform_cat_key('website', 'lines', 'list');
+		$load_line = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_list');
+
 
 		if(!isset($load_line['id']) || !isset($load_line['value']))
 		{
@@ -16,6 +17,7 @@ class get
 		else
 		{
 			$value = json_decode($load_line['value'], true);
+
 			if(!is_array($value))
 			{
 				$value = [];
@@ -38,6 +40,46 @@ class get
 			return $result;
 		}
 
+	}
+
+
+
+	public static function line_option($_line_key)
+	{
+		$line_key = \dash\validate::md5($_line_key);
+
+		if(!$line_key)
+		{
+			return false;
+		}
+
+		$line_type = null;
+
+		$line_list = self::line_list();
+
+		foreach ($line_list as $key => $value)
+		{
+			if(isset($value['line_key']) && isset($value['type']) && $value['line_key'] === $line_key)
+			{
+				$line_type = $value['type'];
+				break;
+			}
+		}
+
+		if(!$line_type)
+		{
+			return false;
+		}
+
+		$option = \lib\app\website\body\line::get($line_type);
+
+		if(!$option)
+		{
+			return false;
+		}
+
+
+		return $option;
 	}
 }
 ?>

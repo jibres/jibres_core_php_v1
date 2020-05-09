@@ -7,9 +7,9 @@ class generator
 	public static function lines()
 	{
 		$website = \dash\data::website();
-		if(isset($website['lines']['list']) && is_array($website['lines']['list']))
+		if(isset($website['body']['sort_list']) && is_array($website['body']['sort_list']))
 		{
-			return $website['lines']['list'];
+			return $website['body']['sort_list'];
 		}
 
 		return [];

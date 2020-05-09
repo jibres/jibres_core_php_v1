@@ -17,7 +17,7 @@ class set
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$load_line = \lib\db\setting\get::platform_cat_key('website', 'lines', 'list');
+		$load_line = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_list');
 
 		$line_rand_key = microtime();
 		$line_rand_key .= rand(1,9999);
@@ -28,8 +28,10 @@ class set
 		$new_value =
 		[
 			'type'     => $data['line'],
-			'line_key' => $line_rand_key
+			'line_key' => $line_rand_key,
+			'status'   => 'draft',
 		];
+
 
 		if(!isset($load_line['id']) || !isset($load_line['value']))
 		{
@@ -39,8 +41,8 @@ class set
 			$insert =
 			[
 				'platform' => 'website',
-				'cat'      => 'lines',
-				'key'      => 'list',
+				'cat'      => 'body',
+				'key'      => 'sort_list',
 				'value'    => $value,
 			];
 			\lib\db\setting\insert::new_record($insert);

@@ -49,6 +49,7 @@ class line
 		[
 			'key'   => 'body_last_news',
 			'title' => T_("Lates News"),
+			'desc'  => T_("Show last news"),
 		];
 
 		$list[] =
@@ -59,13 +60,27 @@ class line
 
 		$list[] =
 		[
-			'key'   => 'slider',
-			'title' => T_("Big Slider"),
+			'key'     => 'slider',
+			'title'   => T_("Big Slider"),
+			'version' => 1,
+			'contain' =>
+			[
+				'select_multi_product' =>
+				[
+					'max_capacity' => 20, // capacity of product
+					'title'        => T_('Choose multi'),
+					'desc'         => T_('Add some product to this slider'),
+				],
+			]
 		];
 
 
 		return $list;
 	}
+
+
+
+
 
 
 
