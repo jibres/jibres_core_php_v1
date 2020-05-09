@@ -3,16 +3,16 @@
   <form method="post" class="box" autocomplete="off">
     <div class="body">
 
-        <div class="switch1 mB5">
+        <div class="switch1 mB20">
           <input type="checkbox" name="status" id="status" <?php if(\dash\data::toplineSaved_status()) {echo 'checked';} ?>>
           <label for="status"></label>
-          <label for="status"><?php echo T_("Enable website topline"); ?><small></small></label>
+          <label for="status"><?php echo T_("Header Special Announcement"); ?><small></small></label>
         </div>
 
         <div data-response='status' data-response-effect='slide' <?php if(!\dash\data::toplineSaved_status()) {echo 'data-response-hide';} ?>>
 
 
-          <label for="text"><?php echo T_("Text"); ?></label>
+          <label for="text"><?php echo T_("Announcement Text"); ?></label>
           <div class="input">
             <input type="text" name="text" id="text" value="<?php echo \dash\data::toplineSaved_text() ?>" maxlength="100" required>
           </div>
@@ -25,7 +25,7 @@
           <div class="switch1 mB5">
             <input type="checkbox" name="target" id="target" <?php if(\dash\data::toplineSaved_target()) {echo 'checked';} ?>>
             <label for="target"></label>
-            <label for="target"><?php echo T_("Open in New tab"); ?><small></small></label>
+            <label for="target"><?php echo T_("Open link in new tab"); ?><small></small></label>
           </div>
         </div>
 
