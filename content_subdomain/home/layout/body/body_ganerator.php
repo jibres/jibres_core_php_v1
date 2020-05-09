@@ -21,13 +21,16 @@ else
 
 		foreach ($lines as $key => $line_detail)
 		{
-			if(isset($line_detail['type']))
+			if(isset($line_detail['publish']) && $line_detail['publish'])
 			{
-				$addr = __DIR__. '/'. $line_detail['type']. '.php';
-
-				if(is_file($addr))
+				if(isset($line_detail['type']))
 				{
-					require($addr);
+					$addr = __DIR__. '/'. $line_detail['type']. '.php';
+
+					if(is_file($addr))
+					{
+						require($addr);
+					}
 				}
 			}
 		}

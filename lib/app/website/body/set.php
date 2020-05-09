@@ -62,6 +62,9 @@ class set
 			\lib\db\setting\update::value($value, $load_line['id']);
 		}
 
+		\lib\app\website\generator::remove_catch();
+
+
 		\dash\notif::ok(T_("Your line was saved"));
 		return true;
 	}
@@ -120,6 +123,9 @@ class set
 			\lib\db\setting\update::value($new_value, $load_line['id']);
 		}
 
+		\lib\app\website\generator::remove_catch();
+
+
 		\dash\notif::ok(T_("Your line was removed"));
 		return true;
 	}
@@ -176,6 +182,9 @@ class set
 		\lib\db\setting\update::overwirte_platform_cat_key($new_linse, 'website', 'body', 'sort_list');
 
 		\dash\notif::ok(T_("Setting Saved"));
+
+		\lib\app\website\generator::remove_catch();
+
 	}
 }
 ?>

@@ -173,6 +173,8 @@ class slider
 
 		$save = \lib\db\setting\update::overwirte_platform_cat_key($saved_option, 'website', 'body_line_option', $_line_key);
 
+		\lib\app\website\generator::remove_catch();
+
 
 		return true;
 	}

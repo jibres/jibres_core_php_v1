@@ -5,6 +5,7 @@ $slider = [];
 if(isset($line_detail['line_key']))
 {
 	$slider = \lib\app\website\body\slider::get($line_detail['line_key']);
+
 }
 
 ?>
