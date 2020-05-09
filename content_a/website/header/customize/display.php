@@ -20,7 +20,7 @@
 <section class="f" data-option='website-change-top-line'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Top line");?></h3>
+      <h3><?php echo T_("Special Announcement");?></h3>
       <div class="body">
         <p><?php echo T_("You can show something on top of everything on your website. Special offer, some news or something else you want. This is a simple way to show something to everyone.") ?> </p>
       </div>
@@ -28,7 +28,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that();?>/topline"><?php echo T_("Change Top line") ?></a>
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/topline"><?php echo T_("Set Special Announcement") ?></a>
     </div>
   </div>
 </section>
