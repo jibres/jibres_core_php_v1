@@ -43,11 +43,13 @@ class line_option
 	}
 
 
-	public static function set($_args, $_line_key)
+	public static function slider($_args, $_line_key, $_slider_index = null, $_remove = false)
 	{
 		$condition =
 		[
 			'url'    => 'string_200',
+			'alt'    => 'string_200',
+			'sort'   => 'smallint',
 			'image'  => 'bit',
 			'target' => 'bit',
 		];
@@ -68,37 +70,29 @@ class line_option
 
 		$saved_option = self::get($_line_key, false);
 
-		switch ($line_option['key'])
-		{
-			case 'slider':
-				$saved_option = self::slider($data, $line_option, $saved_option);
-				break;
+		$edit_mode = false;
 
-			default:
-				# code...
-				break;
-		}
-
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
-
-		$save = \lib\db\setting\update::overwirte_platform_cat_key($saved_option, 'website', 'body_line_option', $_line_key);
-
-		return true;
-	}
-
-
-
-	private static function slider($data, $line_option, $saved_option)
-	{
 		$image_path = null;
+
 		if($data['image'])
 		{
 			$image_path = \dash\upload\website::upload_image('image');
+		}
+
+		if(is_numeric($_slider_index))
+		{
+			if(!array_key_exists($_slider_index, $saved_option))
+			{
+				\dash\notif::error(T_("Slider index not found"));
+				return false;
+			}
+
+			$edit_mode = true;
+
+			if(!$image_path)
+			{
+				$image_path = isset($saved_option[$_slider_index]['image']) ? $saved_option[$_slider_index]['image'] : null;
+			}
 		}
 
 		if(!$image_path)
@@ -107,22 +101,49 @@ class line_option
 			return false;
 		}
 
-		if(!$data['url'])
+		if(!$_remove)
 		{
-			\dash\notif::error(T_("Please set the link"), 'url');
-			return false;
+			if(!$data['url'])
+			{
+				\dash\notif::error(T_("Please set the link"), 'url');
+				return false;
+			}
 		}
 
-		$saved_option[] =
+		$ready_to_save =
 		[
 			'image'  => $image_path,
 			'url'    => $data['url'],
+			'alt'    => $data['alt'],
+			'sort'   => $data['sort'],
 			'target' => $data['target'],
 		];
 
-		\dash\notif::ok(T_("Slider page added"));
+		if($edit_mode)
+		{
+			if($_remove)
+			{
+				unset($saved_option[$_slider_index]);
+				\dash\notif::ok(T_("Page slider removed"));
+			}
+			else
+			{
+				$saved_option[$_slider_index] = $ready_to_save;
+				\dash\notif::ok(T_("Page slider edited"));
+			}
+		}
+		else
+		{
+			$saved_option[] = $ready_to_save;
+			\dash\notif::ok(T_("Slider page added"));
+		}
 
-		return $saved_option;
+		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
+
+		$save = \lib\db\setting\update::overwirte_platform_cat_key($saved_option, 'website', 'body_line_option', $_line_key);
+
+
+		return true;
 	}
 }
 ?>

@@ -60,18 +60,10 @@ class line
 
 		$list[] =
 		[
-			'key'     => 'slider',
-			'title'   => T_("Big Slider"),
-			'version' => 1,
-			'contain' =>
-			[
-				'image_url' =>
-				[
-					'max_capacity' => 20, // capacity of product
-					'title'        => T_('Choose multi'),
-					'desc'         => T_('Add some product to this slider'),
-				],
-			]
+			'key'          => 'slider',
+			'title'        => T_("Big Slider"),
+			'version'      => 1,
+			'max_capacity' => 20, // capacity of product
 		];
 
 
