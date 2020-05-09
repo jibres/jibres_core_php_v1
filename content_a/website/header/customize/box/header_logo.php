@@ -20,21 +20,14 @@ else
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action dropzone">
-      <div class="">
         <div class="input preview">
           <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
-          <label for="logo1">
-          <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
-            <img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>">
-          <?php } //endif ?>
-          </label>
+          <label for="logo1"><?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?><img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>"><?php } //endif ?></label>
         </div>
         <div class="progress shadow" data-percent='0'>
           <div class="bar"></div>
           <div class="detail"></div>
         </div>
-      </div>
-
       </div>
   </form>
 </section>
