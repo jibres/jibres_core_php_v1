@@ -59,16 +59,9 @@ class line
 
 		$list[] =
 		[
-			'key'   => 'body_3_column_pic',
-			'title' => T_("Picture in 3 column"),
+			'key'   => 'slider',
+			'title' => T_("Big Slider"),
 		];
-
-		$list[] =
-		[
-			'key'   => 'body_list_category',
-			'title' => T_("List of your category"),
-		];
-
 
 
 		return $list;

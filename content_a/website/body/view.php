@@ -12,8 +12,9 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$body_line = \lib\app\website\body\line::list();
-		\dash\data::bodyLine($body_line);
+				// back
+		\dash\data::action_text(T_('Add line'));
+		\dash\data::action_link(\dash\url::that(). '/add');
 
 
 		$body_line_list = \lib\app\website\body\get::line_list();

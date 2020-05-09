@@ -26,16 +26,7 @@ class model
 
 			$theme_detail = \lib\app\website\body\set::remove_line($post);
 		}
-		else
-		{
 
-			$post =
-			[
-				'line'    => \dash\request::post('line'),
-			];
-
-			$theme_detail = \lib\app\website\body\set::add_line($post);
-		}
 
 		if(\dash\engine\process::status())
 		{
