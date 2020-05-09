@@ -19,7 +19,7 @@ else
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <div class="action">
+    <div class="action" id='gallery'>
       <div class="dropzone">
         <div class="input preview">
           <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
@@ -33,7 +33,6 @@ else
           <div class="bar"></div>
           <div class="detail"></div>
         </div>
-        <button class="btn success mT10"><?php echo T_("Upload") ?></button>
       </div>
 
       </div>

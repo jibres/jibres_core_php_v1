@@ -36,7 +36,6 @@ class model
 		{
 			$post['header_logo'] = 'have_logo';
 			$notif_msg = T_("Your header logo was saved");
-
 		}
 
 
@@ -49,7 +48,7 @@ class model
 				\dash\notif::clean();
 				\dash\notif::ok($notif_msg);
 			}
-			\dash\redirect::pwd();
+			// \dash\redirect::pwd();
 		}
 	}
 }
