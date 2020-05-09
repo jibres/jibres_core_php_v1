@@ -95,14 +95,14 @@ class line_option
 			}
 		}
 
-		if(!$image_path)
-		{
-			\dash\notif::error(T_("Please upload an image file"), 'image');
-			return false;
-		}
-
 		if(!$_remove)
 		{
+			if(!$image_path)
+			{
+				\dash\notif::error(T_("Please upload an image file"), 'image');
+				return false;
+			}
+
 			if(!$data['url'])
 			{
 				\dash\notif::error(T_("Please set the link"), 'url');
@@ -137,6 +137,18 @@ class line_option
 			$saved_option[] = $ready_to_save;
 			\dash\notif::ok(T_("Slider page added"));
 		}
+
+		$sort_column = array_column($saved_option, 'sort');
+
+		if(count($sort_column) === count($saved_option))
+		{
+			$my_sorted_list = $saved_option;
+
+			array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+			$saved_option = $my_sorted_list;
+		}
+
 
 		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
 
