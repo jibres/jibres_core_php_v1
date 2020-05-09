@@ -67,7 +67,7 @@ class business
 		if(isset(self::$website_setting['header']['active']))
 		{
 			$header_name = self::$website_setting['header']['active'];
-			$addr = self::template_addr('header'). $header_name. '.php';
+			$addr = self::template_addr(). 'header.php';
 			if(is_file($addr))
 			{
 				return $addr;
@@ -82,7 +82,7 @@ class business
 		if(isset(self::$website_setting['footer']['active']))
 		{
 			$footer_name = self::$website_setting['footer']['active'];
-			$addr = self::template_addr('footer'). $footer_name. '.php';
+			$addr = self::template_addr(). 'footer.php';
 			if(is_file($addr))
 			{
 				return $addr;
@@ -96,7 +96,7 @@ class business
 	{
 		if(self::$website)
 		{
-			$addr = self::template_addr('body'). 'body_ganerator.php';
+			$addr = self::template_addr(). 'body.php';
 			if(is_file($addr))
 			{
 				return $addr;

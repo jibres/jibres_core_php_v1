@@ -25,7 +25,7 @@ else
 			{
 				if(isset($line_detail['type']))
 				{
-					$addr = __DIR__. '/'. $line_detail['type']. '.php';
+					$addr = __DIR__. '/body/'. $line_detail['type']. '.php';
 
 					if(is_file($addr))
 					{
