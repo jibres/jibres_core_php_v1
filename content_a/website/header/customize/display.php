@@ -4,10 +4,9 @@
 <section class="f" data-option='website-change-header'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Change header");?></h3>
+      <h3><?php echo T_("Your Current Header Template");?> <b class="fc-green"><?php echo \dash\data::activeHeaderDetail_title(); ?></b></h3>
       <div class="body">
-        <p><?php echo T_("Your current header choosed") ?> <b><?php echo \dash\data::activeHeaderDetail_title(); ?></b></p>
-        <p><?php echo T_("Your can change template of header.");?></p>
+        <p><?php echo T_("Your can change design of your header completely. We allow you full personalization. Design and build your own high-quality websites."); ?> </p>
       </div>
     </div>
   </div>
@@ -23,7 +22,7 @@
     <div class="data">
       <h3><?php echo T_("Top line");?></h3>
       <div class="body">
-        <p><?php echo T_("Change header top line") ?> </p>
+        <p><?php echo T_("You can show something on top of everything on your website. Special offer, some news or something else you want. This is a simple way to show something to everyone.") ?> </p>
       </div>
     </div>
   </div>
