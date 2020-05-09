@@ -75,14 +75,17 @@ class set
 			}
 		}
 
-		if($have_change)
+		if(\dash\engine\process::status())
 		{
-			\lib\app\website\generator::remove_catch();
-			\dash\notif::ok(T_("Your header customized"));
-		}
-		else
-		{
-			\dash\notif::info(T_("Your website header saved without change"));
+			if($have_change)
+			{
+				\lib\app\website\generator::remove_catch();
+				\dash\notif::ok(T_("Your header customized"));
+			}
+			else
+			{
+				\dash\notif::info(T_("Your website header saved without change"));
+			}
 		}
 
 		return true;

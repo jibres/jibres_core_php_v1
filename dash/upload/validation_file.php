@@ -61,6 +61,11 @@ class validation_file
 
 		$extCheck           = \dash\upload\extentions::check($tmp_name, $fileExt, $_meta);
 
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
 		$fileType  = isset($extCheck['type'])  ? $extCheck['type']  : null;
 		$fileMime  = isset($extCheck['mime'])  ? $extCheck['mime']  : null;
 		$fileAllow = isset($extCheck['allow']) ? $extCheck['allow'] : false;
