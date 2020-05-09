@@ -131,7 +131,7 @@ if (\dash\user::id())
 }
 // @todo Javad check browser and show live or dead
 // <div class="line warn fs20">YOU ARE DEAD!</div>
-if(\dash\data::googleAnalytics())
+if(!\dash\url::isLocal() && \dash\data::googleAnalytics())
 {
   $gAnalytics = \dash\data::googleAnalytics();
   echo "\n  ";
