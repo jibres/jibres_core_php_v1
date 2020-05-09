@@ -38,7 +38,7 @@
 
         <label for="sort"><?php echo T_("Sort"); ?></label>
         <div class="input">
-          <input type="text" name="sort" id="sort" value="<?php echo \dash\data::dataRow_sort() ?>"  >
+          <input type="number" name="sort" id="sort" value="<?php echo \dash\data::dataRow_sort() ?>"  >
         </div>
 
 

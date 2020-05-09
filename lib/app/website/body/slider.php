@@ -80,6 +80,11 @@ class slider
 		if($data['image'])
 		{
 			$image_path = \dash\upload\website::upload_image('image');
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
 		}
 
 		if(is_numeric($_slider_index))
@@ -137,7 +142,17 @@ class slider
 		}
 		else
 		{
+
 			$saved_option[] = $ready_to_save;
+
+			if(isset($line_option['max_capacity']) && is_numeric($line_option['max_capacity']))
+			{
+				if(count($saved_option) > intval($line_option['max_capacity']))
+				{
+					\dash\notif::error(T_("Maximum capacity of this slider is full"));
+					return false;
+				}
+			}
 			\dash\notif::ok(T_("Slider page added"));
 		}
 
