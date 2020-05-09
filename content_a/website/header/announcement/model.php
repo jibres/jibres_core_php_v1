@@ -1,5 +1,5 @@
 <?php
-namespace content_a\website\header\topline;
+namespace content_a\website\header\announcement;
 
 class model
 {

@@ -28,7 +28,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that();?>/topline"><?php echo T_("Set Special Announcement") ?></a>
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/announcement"><?php echo T_("Set Special Announcement") ?></a>
     </div>
   </div>
 </section>
@@ -41,7 +41,7 @@ foreach (\dash\data::activeHeaderDetail_contain() as $box => $box_detail)
 	{
 		if(is_array($box_detail))
 		{
-			$addr = root. 'content_a/website/header/customize/box/'. $box. '.php';
+			$addr = root. 'content_a/website/header/box/'. $box. '.php';
 			if(is_file($addr))
 			{
 				require_once($addr);
