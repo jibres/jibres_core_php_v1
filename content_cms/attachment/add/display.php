@@ -6,7 +6,7 @@
 <div class="dropzone">
   <h4><?php echo T_("Add file"); ?></h4>
   <label for='gallery' class="btn light"><?php echo T_("To add image gallery drop file here or"); ?></label>
-  <input id="gallery" type="file" name="gallery" multiple>
+  <input id="gallery" type="file" name="file" multiple>
   <div class="progress shadow" data-percent='30'>
     <div class="bar"></div>
     <div class="detail"></div>
