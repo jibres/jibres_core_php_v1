@@ -3,7 +3,17 @@
     <div class="data">
       <h3><?php echo \dash\get::index($box_detail, 'title');?></h3>
       <div class="body">
-        <p><?php echo \dash\get::index($box_detail, 'desc');?></p>
+        <p><?php
+$desc = \dash\get::index($box_detail, 'desc');
+if($desc)
+{
+  echo $desc;
+}
+else
+{
+  echo T_("A site menu is an essential part of your website. Every site should have one so that your site visitors can navigate between your pages or sections. If your menu is placed in the header or footer, it automatically shows on every page.");
+}
+?></p>
       </div>
     </div>
   </div>

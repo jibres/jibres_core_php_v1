@@ -121,19 +121,17 @@ class template
 			[
 				'header_logo' =>
 				[
-					// "desc" => T_("Show on header")
 				],
 
 				'header_menu_1' =>
 				[
-					"title" => T_("Header menu"),
-					"desc" => T_("Show after line of header")
+					"title" => T_("Header Primary Menu"),
 				],
 
 				'header_menu_2' =>
 				[
-					"title" => T_("Header menu"),
-					"desc" => T_("Show left of website")
+					"title" => T_("Header Secondary Menu"),
+					"desc"  => T_("This menu is shown on left side of header menu bar.")
 				],
 			],
 		];
@@ -161,13 +159,11 @@ class template
 			[
 				'header_menu_1' =>
 				[
-					"title" => T_("Header menu"),
-					"desc"  => T_("Show top of menu")
+					"title" => T_("Header Primary Menu"),
 				],
 				'business_desc' =>
 				[
 					"title" => T_("Business Description"),
-					"desc"  => T_("Below is the title of the website"),
 				],
 			],
 
