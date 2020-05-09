@@ -18,11 +18,7 @@ class view
 			\dash\data::allMenu($menu);
 		}
 
-
-		// var_dump(\dash\data::activeHeaderDetail());exit();
-
-
-
+		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
 	}
 }
 ?>

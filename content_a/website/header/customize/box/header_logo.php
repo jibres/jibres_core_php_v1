@@ -14,21 +14,28 @@ else
   echo T_("Work on your branding and add your logo. If you are not have logo don not worry, we are use your website title until you prepare your innovative logo. Manage and grow your business online with Jibres.");
 }
 ?></p>
+        <p class="meta"><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxUploadSize(); ?></b></p>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <div class="action dropzone">
-      <div class="input preview">
-        <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
-        <label for="logo1">
-        <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
-          <img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>" class='avatar fs20'>
-        <?php } //endif ?>
-        </label>
+    <div class="action">
+      <div class="dropzone">
+        <div class="input preview">
+          <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
+          <label for="logo1">
+          <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
+            <img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>">
+          <?php } //endif ?>
+          </label>
+        </div>
+        <div class="progress shadow" data-percent='0'>
+          <div class="bar"></div>
+          <div class="detail"></div>
+        </div>
+        <button class="btn success mT10"><?php echo T_("Upload") ?></button>
       </div>
 
-      <button class="btn success mT10"><?php echo T_("Upload") ?></button>
-    </div>
+      </div>
   </form>
 </section>
