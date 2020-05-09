@@ -61,6 +61,9 @@
       </footer>
 
     </form>
+
+    <?php require_once(root. 'content_a/website/body/edit_line.php'); ?>
+
   </div>
   <div class="c6 s12">
     <div class="mLa10">

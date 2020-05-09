@@ -4,7 +4,7 @@ namespace lib\app\website\body;
 class get
 {
 
-	public static function line_list()
+	public static function line_list($_raw = false)
 	{
 
 		$load_line = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_list');
@@ -21,6 +21,11 @@ class get
 			if(!is_array($value))
 			{
 				$value = [];
+			}
+
+			if($_raw)
+			{
+				return $value;
 			}
 
 			$line_detail = \lib\app\website\body\line::list();
@@ -57,10 +62,13 @@ class get
 
 		$line_list = self::line_list();
 
+		$saved_line_detail = [];
+
 		foreach ($line_list as $key => $value)
 		{
 			if(isset($value['line_key']) && isset($value['type']) && $value['line_key'] === $line_key)
 			{
+				$saved_line_detail = $value;
 				$line_type = $value['type'];
 				break;
 			}
@@ -78,6 +86,7 @@ class get
 			return false;
 		}
 
+		$option['saved_detail'] = $saved_line_detail;
 
 		return $option;
 	}

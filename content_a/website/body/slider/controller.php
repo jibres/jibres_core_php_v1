@@ -16,7 +16,6 @@ class controller
 
 		\dash\data::lineOption($load_line_detail);
 
-
 		if(\dash\data::lineOption_key() !== 'slider')
 		{
 			\dash\header::status(403, T_("This line is not a slider!"));
