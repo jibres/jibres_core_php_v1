@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\website\body;
 
-class line_option
+class slider
 {
 
 	public static function get($_line_key, $_pretty = true)
@@ -34,7 +34,10 @@ class line_option
 			{
 				if(isset($value['image']))
 				{
-					$saved_option[$key]['image'] = \lib\filepath::fix($value['image']);
+					$image = \lib\filepath::fix($value['image']);
+					$saved_option[$key]['large_image'] = \lib\filepath::large_image($image);
+					$saved_option[$key]['image'] = $image;
+
 				}
 			}
 		}
@@ -43,7 +46,7 @@ class line_option
 	}
 
 
-	public static function slider($_args, $_line_key, $_slider_index = null, $_remove = false)
+	public static function set($_args, $_line_key, $_slider_index = null, $_remove = false)
 	{
 		$condition =
 		[

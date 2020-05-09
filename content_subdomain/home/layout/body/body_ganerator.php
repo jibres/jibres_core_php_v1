@@ -19,11 +19,12 @@ else
 		// body generator
 		$lines = \lib\app\website\body\generator::lines();
 
-		foreach ($lines as $key => $value)
+		foreach ($lines as $key => $line_detail)
 		{
-			if(isset($value['type']))
+			if(isset($line_detail['type']))
 			{
-				$addr = __DIR__. '/'. $value['type']. '.php';
+				$addr = __DIR__. '/'. $line_detail['type']. '.php';
+
 				if(is_file($addr))
 				{
 					require($addr);

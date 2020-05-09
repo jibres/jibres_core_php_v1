@@ -25,7 +25,7 @@ class model
 			$remove = true;
 		}
 
-		$theme_detail = \lib\app\website\body\line_option::slider($post, \dash\request::get('key'), \dash\request::get('index'), $remove);
+		$theme_detail = \lib\app\website\body\slider::set($post, \dash\request::get('key'), \dash\request::get('index'), $remove);
 
 
 		if(\dash\engine\process::status())

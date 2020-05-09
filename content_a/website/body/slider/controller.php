@@ -26,7 +26,7 @@ class controller
 
 		if(is_numeric($index))
 		{
-			$saved_option = \lib\app\website\body\line_option::get(\dash\request::get('key'));
+			$saved_option = \lib\app\website\body\slider::get(\dash\request::get('key'));
 			\dash\data::savedOption($saved_option);
 
 			if(!array_key_exists($index, $saved_option))
