@@ -29,16 +29,17 @@ class get
 			}
 
 			$line_detail = \lib\app\website\body\line::list();
-			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
 
+			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
 
 			$result = [];
 			foreach ($value as $index => $saved_line_detail)
 			{
-				$result[$index] = $saved_line_detail;
 				if(isset($saved_line_detail['type']) && isset($line_detail[$saved_line_detail['type']]))
 				{
-					$result[$index] = array_merge($saved_line_detail, $line_detail[$saved_line_detail['type']]);
+
+					$result[$index] = \lib\app\website\body\line::get($saved_line_detail['type']);
+					$result[$index]['saved_detail'] = $saved_line_detail;
 				}
 			}
 
@@ -62,14 +63,11 @@ class get
 
 		$line_list = self::line_list();
 
-		$saved_line_detail = [];
-
 		foreach ($line_list as $key => $value)
 		{
-			if(isset($value['line_key']) && isset($value['type']) && $value['line_key'] === $line_key)
+			if(isset($value['saved_detail']['line_key']) && $value['saved_detail']['line_key'] === $line_key)
 			{
-				$saved_line_detail = $value;
-				$line_type = $value['type'];
+				$line_type = $value;
 				break;
 			}
 		}
@@ -79,16 +77,7 @@ class get
 			return false;
 		}
 
-		$option = \lib\app\website\body\line::get($line_type);
-
-		if(!$option)
-		{
-			return false;
-		}
-
-		$option['saved_detail'] = $saved_line_detail;
-
-		return $option;
+		return $line_type;
 	}
 }
 ?>
