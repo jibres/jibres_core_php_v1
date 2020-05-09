@@ -74,8 +74,8 @@ class template
 
 
 		$list             = [];
-		$list[] = self::header_1();
-		$list[] = self::header_2();
+		$list['header_100'] = self::header_100();
+		$list['header_2'] = self::header_2();
 
 
 		if($data['tag'])
@@ -99,15 +99,15 @@ class template
 	}
 
 
-	private static function header_1()
+	private static function header_100()
 	{
-		$header_3 =
+		$myHeader =
 		[
-			'key'          => 'header_1',
+			'key'          => 'header_100',
 			'title'        => T_("Header #1"),
-			'desc'         => T_("A modern and beautiful store template to introduce products and offer them \n This header contain cart link and login link and your store logo was show on header"),
-			'sample_image' => \dash\url::logo(),
-			'version'      => 1,
+			'desc'         => T_("A modern and beautiful header"),
+			'sample_image' => \dash\url::cdn(). '/img/template/header/header100.jpg',
+			'version'      => 3,
 			'tag'          =>
 			[
 				'store'  => T_('#Shop_mode'),
@@ -136,13 +136,13 @@ class template
 			],
 		];
 
-		return $header_3;
+		return $myHeader;
 	}
 
 
 	private static function header_2()
 	{
-		$header_1 =
+		$myHeader =
 		[
 			'key'          => 'header_2',
 			'title'        => T_("Header #2"),
@@ -169,7 +169,7 @@ class template
 
 		];
 
-		return $header_1;
+		return $myHeader;
 	}
 
 
