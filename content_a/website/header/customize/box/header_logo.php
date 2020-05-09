@@ -19,8 +19,8 @@ else
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <div class="action" id='gallery'>
-      <div class="dropzone">
+    <div class="action dropzone">
+      <div class="">
         <div class="input preview">
           <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
           <label for="logo1">
