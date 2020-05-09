@@ -6,7 +6,7 @@
     <div class="data">
       <h3><?php echo T_("Your Current Header Template");?> <b class="fc-green"><?php echo \dash\data::activeHeaderDetail_title(); ?></b></h3>
       <div class="body">
-        <p><?php echo T_("Your can change design of your header completely. We allow you full personalization. Design and build your own high-quality websites."); ?> </p>
+        <p><?php echo T_("You can change design of your header completely. We allow you full personalization. Design and build your own high-quality websites."); ?> </p>
       </div>
     </div>
   </div>
