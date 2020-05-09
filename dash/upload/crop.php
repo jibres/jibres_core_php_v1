@@ -15,19 +15,21 @@ class crop
 		$url_normal = $url_file.'-normal.'.$_ext;
 		$url_large  = $url_file.'-large.'.$_ext;
 
-		\dash\utility\image::load($_file_addr);
 
 		// thumb image
+		\dash\utility\image::load($_file_addr);
 		\dash\utility\image::thumb(150, 150);
 		\dash\utility\image::save($url_thumb);
 
 		// large image
-		\dash\utility\image::thumb(900, 600);
+		\dash\utility\image::load($_file_addr);
+		\dash\utility\image::resize(900, 600);
 		\dash\utility\image::save($url_large);
 
 
 		// normal image
-		\dash\utility\image::thumb(600, 400);
+		\dash\utility\image::load($_file_addr);
+		\dash\utility\image::resize(600, 400);
 		\dash\utility\image::save($url_normal);
 
 
