@@ -63,7 +63,7 @@ class line
 			'key'          => 'slider',
 			'title'        => T_("Big Slider"),
 			'version'      => 1,
-			'max_capacity' => 3, // capacity of product
+			'max_capacity' => 10, // capacity of product
 		];
 
 

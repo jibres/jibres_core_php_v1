@@ -60,6 +60,11 @@ class set
 			{
 				$logo = \dash\upload\store_logo::website_logo();
 
+				if(!\dash\engine\process::status())
+				{
+					return false;
+				}
+
 				if($logo)
 				{
 					$value = $logo;
