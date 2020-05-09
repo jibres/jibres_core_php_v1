@@ -149,6 +149,7 @@ class line_option
 			$saved_option = $my_sorted_list;
 		}
 
+		$saved_option = array_values($saved_option);
 
 		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
 
