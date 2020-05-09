@@ -8,7 +8,7 @@
      <ul>
        <?php if(\dash\data::issetHeader()) {?>
          <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/header/customize">
+          <a class="f" href="<?php echo \dash\url::this();?>/header">
             <div class="key"><?php echo T_('Customize header');?></div>
             <div class="go"></div>
           </a>
