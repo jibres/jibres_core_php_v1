@@ -121,8 +121,7 @@ class template
 			[
 				'header_logo' =>
 				[
-					"title" => T_("Website logo"),
-					"desc" => T_("Show on header")
+					// "desc" => T_("Show on header")
 				],
 
 				'header_menu_1' =>

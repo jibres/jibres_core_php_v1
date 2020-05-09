@@ -39,7 +39,7 @@ foreach (\dash\data::activeHeaderDetail_contain() as $box => $box_detail)
 {
 	if(is_string($box))
 	{
-		if($box_detail)
+		if(is_array($box_detail))
 		{
 			$addr = root. 'content_a/website/header/customize/box/'. $box. '.php';
 			if(is_file($addr))
