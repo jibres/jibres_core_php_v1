@@ -38,7 +38,7 @@ class image
 	 * Quality of the image in percentage (JPEG only)
 	 * @var int
 	 */
-	private static $quality = 95;
+	private static $quality = 100;
 
 
 	/**
