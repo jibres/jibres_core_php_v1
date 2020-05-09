@@ -209,7 +209,7 @@
           <p class="flex-1"><?php echo $value['quote']; ?></p>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
           <footer class="f align-center from">
-            <div class="cauto"><img loading="lazy" width="50" height="50" src="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>" alt='<?php echo $value['name']; ?>'></div>
+            <div class="cauto"><img loading="lazy" width="150" height="150" src="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>" alt='<?php echo $value['name']; ?>'></div>
             <div class="cauto pLa10">
               <div class="name"><?php echo $value['name']; ?></div>
               <div class="position"><?php echo $value['position']; ?></div>
