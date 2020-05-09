@@ -1,49 +1,52 @@
+<?php $header_detail = \dash\data::activeHeaderDetail(); ?>
 
-<div class="avand">
 
-  <div class="msg fs14 primary2 txtB f">
-    <div class="c">
-      <?php echo T_("Choose your header template"); ?>
-    </div>
-    <div class="c"></div>
-    <?php if(\dash\request::get()) {?>
-    <div class="cauto">
-      <a class="btn primary" href="<?php echo \dash\url::that() ?>"><?php echo T_("Clear filter") ?></a>
-    </div>
-
-    <?php } // endif ?>
-  </div>
-  <?php foreach (\dash\data::headerTemplate() as $key => $value) {?>
-    <div class="box">
-      <header><h2><?php echo \dash\get::index($value, 'title'); ?></h2></header>
+<section class="f" data-option='website-change-header'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Your Current Header Template");?> <b class="fc-green"><?php echo \dash\data::activeHeaderDetail_title(); ?></b></h3>
       <div class="body">
-        <div class="f">
-          <div class="c">
-            <div class="btn"><?php echo T_("Version"). ' '. \dash\fit::number(\dash\get::index($value, 'version')) ?></div>
-            <p>
-              <?php echo nl2br(\dash\get::index($value, 'desc')); ?>
-            </p>
-            <?php if(\dash\get::index($value, 'tag')) {?>
-              <p>
-              <?php foreach (\dash\get::index($value, 'tag') as $tag => $tag_string) {?>
-                <span class="badge light"><a class="fc-blue" href="<?php echo \dash\url::that(). '?tag='. $tag ?>"><?php echo $tag_string ?></a></span>
-              <?php } ?>
-              </p>
-            <?php } ?>
-
-          </div>
-          <div class="cauto os"><img class="avatar fs50" src="<?php echo \dash\get::index($value, 'sample_image'); ?>"></div>
-        </div>
+        <p><?php echo T_("Your can change design of your header completely. We allow you full personalization. Design and build your own high-quality websites."); ?> </p>
       </div>
-      <footer class="txtRa">
-        <?php if(\dash\get::index($value, 'key') === \dash\data::issetHeader()) {?>
-          <div class="btn secondary outline"><?php echo T_("Current Template"); ?></div>
-        <?php }else{ ?>
-          <div data-confirm data-data='{"header" : "<?php echo \dash\get::index($value, 'key'); ?>"}' class="btn success"><?php echo T_("Choose this header"); ?></div>
-        <?php } //endif ?>
-      </footer>
     </div>
-  <?php } // endfor ?>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/template"><?php echo T_("Change header") ?></a>
+    </div>
+  </div>
+</section>
+
+<section class="f" data-option='website-change-top-line'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Special Announcement");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can show something on top of everything on your website. Special offer, some news or something else you want. This is a simple way to show something to everyone.") ?> </p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/topline"><?php echo T_("Set Special Announcement") ?></a>
+    </div>
+  </div>
+</section>
 
 
-</div>
+<?php
+foreach (\dash\data::activeHeaderDetail_contain() as $box => $box_detail)
+{
+	if(is_string($box))
+	{
+		if(is_array($box_detail))
+		{
+			$addr = root. 'content_a/website/header/customize/box/'. $box. '.php';
+			if(is_file($addr))
+			{
+				require_once($addr);
+			}
+		}
+	}
+}
+?>

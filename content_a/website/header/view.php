@@ -6,26 +6,19 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Choose Header Template'));
+		\dash\face::title(T_('Customize Your Website Header'));
 
 		// back
-		\dash\data::back_text(T_('Header'));
+		\dash\data::back_text(T_('Website Builder'));
 		\dash\data::back_link(\dash\url::this());
 
-		$args =
-		[
-			'tag' => \dash\request::get('tag'),
-		];
+		if(true) // check need to load menu
+		{
+			$menu = \lib\app\website\menu\get::list_all_menu();
+			\dash\data::allMenu($menu);
+		}
 
-		$header_template = \lib\app\website\header\template::list($args);
-
-		\dash\data::headerTemplate($header_template);
-
-
-		$isset_header = \lib\app\website\header\get::isset_header(true);
-		\dash\data::issetHeader($isset_header);
-
-
+		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
 	}
 }
 ?>
