@@ -14,13 +14,13 @@
     <?php } // endif ?>
   </div>
   <?php foreach (\dash\data::headerTemplate() as $key => $value) {?>
-    <div class="box">
+    <div class="box mB25-f">
       <header class="f align-center">
         <div class="c">
           <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
-          <span><?php echo T_("version"). ' '. \dash\fit::number(\dash\get::index($value, 'version')) ?></span>
         </div>
-        <div class="cauto">
+        <small class="cauto"><?php echo T_("version"). ' '. \dash\fit::number(\dash\get::index($value, 'version')) ?></small>
+        <div class="cauto pLa10">
 <?php if(\dash\get::index($value, 'key') === \dash\data::issetHeader()) {?>
           <div class="btn success"><?php echo T_("Current Template"); ?></div>
 <?php }else{ ?>
@@ -28,28 +28,9 @@
 <?php } //endif ?>
         </div>
       </header>
-      <div class="body">
-        <div class="f">
-          <div class="c">
-            <div class="btn"></div>
-            <p>
-              <?php echo nl2br(\dash\get::index($value, 'desc')); ?>
-            </p>
-            <?php if(\dash\get::index($value, 'tag')) {?>
-              <p>
-              <?php foreach (\dash\get::index($value, 'tag') as $tag => $tag_string) {?>
-                <span class="badge light"><a class="fc-blue" href="<?php echo \dash\url::that(). '/template?tag='. $tag ?>"><?php echo $tag_string ?></a></span>
-              <?php } ?>
-              </p>
-            <?php } ?>
-
-          </div>
-          <div class="cauto os"><img class="avatar fs50" src="<?php echo \dash\get::index($value, 'sample_image'); ?>"></div>
-        </div>
+      <div class="body zeroPad">
+        <img class="block" src="<?php echo \dash\get::index($value, 'sample_image'); ?>" alt='<?php echo \dash\get::index($value, 'title'); ?>'>
       </div>
-      <footer class="txtRa">
-
-      </footer>
     </div>
   <?php } // endfor ?>
 
