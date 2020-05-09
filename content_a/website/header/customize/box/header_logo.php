@@ -14,24 +14,21 @@ else
   echo T_("Work on your branding and add your logo. If you are not have logo don not worry, we are use your website title until you prepare your innovative logo. Manage and grow your business online with Jibres.");
 }
 ?></p>
-        <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
-          <img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>" class='avatar fs20'>
-        <?php } //endif ?>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <div class="action">
-      <div class="f">
-        <div class="c12">
-          <div class="input">
-            <input type="file" name="logo" id="logo">
-          </div>
-        </div>
-        <div class="c12 txtRa">
-          <button class="btn success mT10"><?php echo T_("Upload") ?></button>
-        </div>
+    <div class="action dropzone">
+      <div class="input preview">
+        <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
+        <label for="logo1">
+        <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
+          <img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>" class='avatar fs20'>
+        <?php } //endif ?>
+        </label>
       </div>
+
+      <button class="btn success mT10"><?php echo T_("Upload") ?></button>
     </div>
   </form>
 </section>
