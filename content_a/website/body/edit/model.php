@@ -1,5 +1,5 @@
 <?php
-namespace content_a\website\body\add;
+namespace content_a\website\body\edit;
 
 class model
 {
@@ -7,14 +7,20 @@ class model
 	{
 		$post =
 		[
-			'line'    => \dash\request::post('line'),
+			'url'    => \dash\request::post('url'),
+			'target' => \dash\request::post('target'),
 		];
 
-		$theme_detail = \lib\app\website\body\set::add_line($post);
+		if(\dash\request::files('image'))
+		{
+			$post['image'] = 'image';
+		}
+
+		$theme_detail = \lib\app\website\body\line_option::set($post, \dash\request::get('key'));
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that());
+			\dash\redirect::pwd();
 		}
 	}
 }

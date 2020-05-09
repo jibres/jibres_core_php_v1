@@ -65,7 +65,7 @@ class line
 			'version' => 1,
 			'contain' =>
 			[
-				'select_multi_product' =>
+				'image_url' =>
 				[
 					'max_capacity' => 20, // capacity of product
 					'title'        => T_('Choose multi'),
