@@ -14,6 +14,9 @@ if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
      <h2><?php echo \dash\face::title(); ?></h2>
     </div>
     <nav class="cauto actions">
+<?php if(\dash\face::btnPreview()) { ?>
+     <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
+<?php } // endif ?>
 <?php if(\dash\face::btnImport()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
 <?php } // endif ?>
