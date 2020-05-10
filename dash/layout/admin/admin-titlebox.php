@@ -14,9 +14,6 @@ if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
      <h2><?php echo \dash\face::title(); ?></h2>
     </div>
     <nav class="cauto actions">
-<?php if(\dash\face::btnPreview()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
-<?php } // endif ?>
 <?php if(\dash\face::btnImport()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
 <?php } // endif ?>
@@ -25,6 +22,9 @@ if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
 <?php } // endif ?>
 <?php if(\dash\face::btnDuplicate()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
+<?php } // endif ?>
+<?php if(\dash\face::btnPreview()) { ?>
+     <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>" target="_blank"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnView()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnView(); ?>" target="_blank"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
