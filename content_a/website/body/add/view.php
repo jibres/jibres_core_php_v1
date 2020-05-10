@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add line to body'));
+		\dash\face::title(T_('Add new block'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
