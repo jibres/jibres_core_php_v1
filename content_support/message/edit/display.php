@@ -7,10 +7,9 @@
 
            <?php if(\dash\permission::check('supportTicketSignature')) {?>
 
-            <textarea class="txt mB10" data-editor id='icontent' name="content"  maxlength='100000' ><?php echo \dash\data::masterTicketDetail_content(); ?></textarea>
+            <textarea class="txt mB10" data-editor id='icontent' name="content"  maxlength='100000' ><?=  str_replace('&', '&amp;', \dash\data::masterTicketDetail_content()); ?></textarea>
 
           <?php }else{ ?>
-
             <textarea class="txt mB10" id='icontent' name="content" placeholder='' maxlength='1000' rows="5"><?php echo \dash\data::masterTicketDetail_content(); ?></textarea>
 
           <?php } //endif ?>
