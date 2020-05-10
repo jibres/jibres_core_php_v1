@@ -1,3 +1,5 @@
+<?php $currentMenuID = null; $currentMenuName = null; ?>
+
 <section class="f" data-option='website-header-menu-1'>
   <div class="c8 s12">
     <div class="data">
@@ -28,7 +30,7 @@ else
             <option></option>
           <?php } //endif ?>
           <?php foreach (\dash\data::allMenu() as $key => $value) {?>
-            <option value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if(\dash\get::index($header_detail, 'saved', $box) == \dash\get::index($value, 'key')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
+            <option value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if(\dash\get::index($header_detail, 'saved', $box) == \dash\get::index($value, 'key')) { echo 'selected'; $currentMenuID = \dash\get::index($value, 'id'); $currentMenuName = \dash\get::index($value, 'title');} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
           <?php } //endfor ?>
         </select>
 
@@ -39,6 +41,9 @@ else
   </form>
   <?php if(\dash\data::allMenu()) {?>
   <footer class="txtRa">
+    <?php if($currentMenuID) {?>
+      <a href="<?php echo \dash\url::this(). '/menu/edit?id='. $currentMenuID; ?>" class="btn link"><?php echo T_("Edit menu :val", ['val' => $currentMenuName]); ?></a>
+    <?php } //endif ?>
    <a href="<?php echo \dash\url::this() ?>/menu/add" class="btn link"><?php echo T_("Add new menu") ?></a>
   </footer>
     <?php } //endif ?>

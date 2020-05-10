@@ -5,31 +5,36 @@ class model
 {
 	public static function post()
 	{
-		$notif_msg = null;
+		$notif_msg     = null;
+		$need_redirect = false;
 
 		$post = [];
 		if(\dash\request::post('header_menu_1'))
 		{
 			$post['header_menu_1'] = \dash\request::post('header_menu_1');
 			$notif_msg = T_("Your header menu #1 was saved");
+			$need_redirect = true;
 		}
 
 		if(\dash\request::post('header_menu_1') === '0')
 		{
 			$post['header_menu_1'] = null;
 			$notif_msg = T_("Your header menu #1 was removed");
+			$need_redirect = true;
 		}
 
 		if(\dash\request::post('header_menu_2'))
 		{
 			$post['header_menu_2'] = \dash\request::post('header_menu_2');
 			$notif_msg = T_("Your header menu #2 was saved");
+			$need_redirect = true;
 		}
 
 		if(\dash\request::post('header_menu_2') === '0')
 		{
 			$post['header_menu_2'] = null;
 			$notif_msg = T_("Your header menu #2 was removed");
+			$need_redirect = true;
 		}
 
 		if(\dash\request::files('logo'))
@@ -48,7 +53,11 @@ class model
 				\dash\notif::clean();
 				\dash\notif::ok($notif_msg);
 			}
-			// \dash\redirect::pwd();
+
+			if($need_redirect)
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }
