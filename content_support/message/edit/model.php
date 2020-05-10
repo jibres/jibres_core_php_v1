@@ -38,11 +38,6 @@ class model
 
 		$data = \dash\cleanse::input($args, $condition, $require, $meta);
 
-		if(\dash\permission::supervisor())
-		{
-			\dash\notif::api($data);
-		}
-
 		\dash\permission::check('supportEditMessage');
 
 		if(\dash\permission::supervisor() && \dash\request::post('removeMessage'))
