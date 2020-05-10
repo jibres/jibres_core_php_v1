@@ -47,16 +47,11 @@ class line
 
 		$list[] =
 		[
-			'key'   => 'body_last_news',
-			'title' => T_("Lates News"),
-			'desc'  => T_("Show last news"),
+			'key'     => 'latestnews',
+			'title'   => T_("Last news"),
+			'version' => 1,
 		];
 
-		$list[] =
-		[
-			'key'   => 'body_last_product',
-			'title' => T_("Lates Product"),
-		];
 
 		$list[] =
 		[

@@ -18,8 +18,8 @@
           </div>
 
           <label for="url"><?php echo T_("Url"); ?></label>
-          <div class="input">
-            <input type="url" name="url" id="url" value="<?php echo \dash\data::toplineSaved_url() ?>"  >
+          <div class="input ltr">
+            <input type="text" name="url" id="url" value="<?php echo \dash\data::toplineSaved_url() ?>"  >
           </div>
 
           <div class="switch1 mB5">

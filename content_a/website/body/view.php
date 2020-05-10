@@ -20,6 +20,11 @@ class view
 		$body_line_list = \lib\app\website\body\get::line_list();
 		\dash\data::bodyLineList($body_line_list);
 
+		if(!$body_line_list)
+		{
+			\dash\redirect::to(\dash\url::that(). '/add');
+		}
+
 
 
 	}

@@ -1,7 +1,7 @@
 <?php
 if(\dash\data::website_template())
 {
-	$addr = root. 'content_subdomain/home/layout/'. \dash\data::website_template(). '.php';
+	$addr = root. 'content_subdomain/home/layout/template/'. \dash\data::website_template(). '.php';
 	if(is_file($addr))
 	{
 
@@ -9,11 +9,11 @@ if(\dash\data::website_template())
 	}
 	else
 	{
-		require_once ('layout/visitcard.php');
+		require_once ('layout/template/visitcard.php');
 	}
 }
 else
 {
-	require_once ('layout/visitcard.php');
+	require_once ('layout/template/visitcard.php');
 }
 ?>

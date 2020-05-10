@@ -3,11 +3,18 @@ namespace lib\app\website\body;
 
 class get
 {
+	private static $loaded = [];
 
 	public static function line_list($_raw = false)
 	{
+		$load_line = self::$loaded;
 
-		$load_line = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_list');
+		if(!$load_line)
+		{
+			$load_line = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_list');
+			self::$loaded = $load_line;
+		}
+
 
 
 		if(!isset($load_line['id']) || !isset($load_line['value']))

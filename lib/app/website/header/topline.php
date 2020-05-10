@@ -10,7 +10,7 @@ class topline
 		$condition =
 		[
 			'text'   => 'string_100',
-			'url'    => 'url',
+			'url'    => 'string_100',
 			'target' => 'bit',
 			'status' => 'bit',
 		];

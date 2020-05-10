@@ -14,6 +14,14 @@ class view
 
 		$body_line = \lib\app\website\body\line::list();
 		\dash\data::bodyLine($body_line);
+
+
+		$body_line_list = \lib\app\website\body\get::line_list();
+		if(!$body_line_list)
+		{
+			\dash\data::back_link(\dash\url::this());
+		}
+
 	}
 }
 ?>
