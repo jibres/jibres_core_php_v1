@@ -60,6 +60,10 @@ class model
 			'content' => $data['content'],
 		];
 
+		if(\dash\permission::supervisor())
+		{
+			\dash\notif::api($args);
+		}
 
 		\content_support\message\edit\view::config();
 
