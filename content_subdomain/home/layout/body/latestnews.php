@@ -1,5 +1,6 @@
 
 <?php
+
 $postList = \dash\app\posts::get_post_list(['limit' => 5]);
 
 if($postList && is_array($postList))
