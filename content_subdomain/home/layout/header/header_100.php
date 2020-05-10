@@ -3,7 +3,7 @@
   <div class="actionBar f align-center">
     <div class="cauto s12 pRa10">
       <a class="logo" href="<?php echo \dash\url::kingdom(); ?>"><?php
-$logo = \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo'));
+$logo = \lib\website::logo();
 if($logo)
 {
   echo '<img src="'. $logo. '" alt="'. \dash\face::site(). '">';
