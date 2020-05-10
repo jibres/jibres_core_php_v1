@@ -30,4 +30,10 @@ else
         </div>
       </div>
   </form>
+
+  <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?>
+    <footer class="txtRa">
+     <div data-confirm data-data='{"remove_header": "logo"}' class="btn link fc-red"><?php echo T_("Remove header logo") ?></div>
+    </footer>
+  <?php } //endif ?>
 </section>

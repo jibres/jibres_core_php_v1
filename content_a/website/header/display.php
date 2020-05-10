@@ -47,7 +47,11 @@ foreach (\dash\data::activeHeaderDetail_contain() as $box => $box_detail)
   </div>
   <div class="c4 s12">
     <div class="action">
+      <?php if(\dash\data::toplineSaved_status()) {?>
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/announcement"><?php echo T_("Change Special Announcement") ?></a>
+      <?php }else{ ?>
         <a class="btn primary" href="<?php echo \dash\url::that();?>/announcement"><?php echo T_("Set Special Announcement") ?></a>
+      <?php } //endif ?>
     </div>
   </div>
 </section>

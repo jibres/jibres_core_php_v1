@@ -20,6 +20,8 @@ class view
 			\dash\data::allMenu($menu);
 		}
 
+		\dash\data::toplineSaved(\lib\app\website\header\topline::get());
+
 
 		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
 	}

@@ -71,7 +71,15 @@ class set
 				}
 			}
 
-			$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', $key);
+			if($key === 'header_logo' && $value === 'remove_logo')
+			{
+				$query_result = \lib\db\setting\update::overwirte_platform_cat_key(null, 'website', 'header_customized', $key);
+			}
+			else
+			{
+				$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', $key);
+			}
+
 
 			// like true | false | any id
 			if($query_result !== null)
