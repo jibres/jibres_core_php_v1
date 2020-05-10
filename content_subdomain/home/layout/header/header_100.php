@@ -1,13 +1,21 @@
 <?php require_once('before_header.php'); ?>
 <div id='jHeader100' class="avand" data-circleEffect>
   <div class="actionBar f align-center">
-    <div class="cauto pRa10">
-      <a class="logo" href="<?php echo \dash\url::kingdom(); ?>">
-        <img src="<?php echo \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo')); ?>" alt="<?php echo \dash\face::site(); ?>">
-      </a>
+    <div class="cauto s12 pRa10">
+      <a class="logo" href="<?php echo \dash\url::kingdom(); ?>"><?php
+$logo = \lib\filepath::fix(\dash\get::index(\dash\data::website(), 'header_customized', 'header_logo'));
+if($logo)
+{
+  echo '<img src="'. $logo. '" alt="'. \dash\face::site(). '">';
+  echo '<h1 class="hide">'. \dash\face::site(). '</h1>';
+}
+else
+{
+  echo '<h1>'. \dash\face::site(). '</h1>';
+}
+?></a>
     </div>
-    <div class="c">
-    </div>
+    <div class="c s0"></div>
     <div class="cauto pRa20">
       <a class="search" href="<?php echo \dash\url::kingdom(); ?>/search"></a>
     </div>
