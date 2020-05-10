@@ -56,6 +56,12 @@ class controller
 				\lib\app\nic_domain\notif_expire::run();
 			}
 
+			// fetch credit of nic
+			if(self::at('10:00'))
+			{
+				\lib\app\nic_credit\get::fetch();
+			}
+
 			if(self::every_hour())
 			{
 				\lib\app\nic_domain\autorenew::run();
