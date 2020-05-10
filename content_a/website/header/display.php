@@ -12,7 +12,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that();?>/template"><?php echo T_("Change header") ?></a>
+        <a class="btn primary" href="<?php echo \dash\url::that();?>/template"><?php echo T_("Change Header Template") ?></a>
     </div>
   </div>
 </section>
