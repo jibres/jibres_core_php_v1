@@ -11,25 +11,25 @@ class model
 		if(\dash\request::post('header_menu_1'))
 		{
 			$post['header_menu_1'] = \dash\request::post('header_menu_1');
-			$notif_msg = T_("Your header menu #1 was saved");
+			$notif_msg = T_("Your header menu was saved");
 		}
 
 		if(\dash\request::post('header_menu_1') === '0')
 		{
 			$post['header_menu_1'] = null;
-			$notif_msg = T_("Your header menu #1 was removed");
+			$notif_msg = T_("Your header menu was removed");
 		}
 
 		if(\dash\request::post('header_menu_2'))
 		{
 			$post['header_menu_2'] = \dash\request::post('header_menu_2');
-			$notif_msg = T_("Your header menu #2 was saved");
+			$notif_msg = T_("Your header menu was saved");
 		}
 
 		if(\dash\request::post('header_menu_2') === '0')
 		{
 			$post['header_menu_2'] = null;
-			$notif_msg = T_("Your header menu #2 was removed");
+			$notif_msg = T_("Your header menu was removed");
 		}
 
 		if(\dash\request::files('logo'))

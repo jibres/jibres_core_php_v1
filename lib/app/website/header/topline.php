@@ -27,7 +27,7 @@ class topline
 
 		\lib\app\website\generator::remove_catch();
 
-		\dash\notif::ok(T_("Your website topline was saved"));
+		\dash\notif::ok(T_("Your website announcement was saved"));
 
 		return true;
 	}

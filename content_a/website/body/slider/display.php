@@ -6,7 +6,7 @@
       <?php if(\dash\data::dataRow()) {?>
         <header><h2><?php echo T_("Edit slider page") ?></h2></header>
       <?php }else{ ?>
-        <header><h2><?php echo T_("Add image and link to"). ' '. \dash\get::index(\dash\data::lineOption(), 'title') ?></h2></header>
+        <header><h2><?php echo T_("Add slider page"). ' - '. \dash\get::index(\dash\data::lineOption(), 'title') ?></h2></header>
       <?php } //endif ?>
 
 

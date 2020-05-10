@@ -19,7 +19,7 @@ class controller
 
 		if(\dash\data::lineOption_key() !== 'latestnews')
 		{
-			\dash\header::status(403, T_("This line is not a latestnews!"));
+			\dash\header::status(403, T_("This line is not a latest news!"));
 		}
 
 	}

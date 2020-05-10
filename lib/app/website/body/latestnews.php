@@ -59,7 +59,7 @@ class latestnews
 
 		if(!$data['limit'])
 		{
-			\dash\notif::error(T_("Please set show limit"), 'limit');
+			\dash\notif::error(T_("Please set latest news limit"), 'limit');
 			return false;
 		}
 
