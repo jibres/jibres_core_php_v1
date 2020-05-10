@@ -6,7 +6,7 @@ class nationalcode
 
 	public static function nationalcode($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = \dash\validate\number::number($_data, $_notif, $_element, $_field_title);
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title);
 
 		if($data === false || $data === null)
 		{
