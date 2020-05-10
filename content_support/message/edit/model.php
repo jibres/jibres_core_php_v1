@@ -38,6 +38,11 @@ class model
 
 		$data = \dash\cleanse::input($args, $condition, $require, $meta);
 
+		if(\dash\permission::supervisor())
+		{
+			\dash\notif::api($data);
+		}
+
 		\dash\permission::check('supportEditMessage');
 
 		if(\dash\permission::supervisor() && \dash\request::post('removeMessage'))
@@ -55,19 +60,15 @@ class model
 		}
 
 
-		$args =
+		$update_args =
 		[
 			'content' => $data['content'],
 		];
 
-		if(\dash\permission::supervisor())
-		{
-			\dash\notif::api($args);
-		}
 
 		\content_support\message\edit\view::config();
 
-		\dash\db\tickets::update($args, $data['id']);
+		\dash\db\tickets::update($update_args, $data['id']);
 
 		\dash\log::set('supportMessageEdit', ['code' => $data['id']]);
 
