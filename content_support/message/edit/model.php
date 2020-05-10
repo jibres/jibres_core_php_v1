@@ -21,7 +21,7 @@ class model
 		[
 			'parent'  => \dash\request::post('parent'),
 			'id'      => \dash\request::get('id'),
-			'content' => \dash\request::post('content'),
+			'content' => \dash\request::post('content') ? $_POST['content'] : null,
 
 		];
 
@@ -59,6 +59,7 @@ class model
 		[
 			'content' => $data['content'],
 		];
+
 
 		\content_support\message\edit\view::config();
 
