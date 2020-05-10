@@ -52,6 +52,13 @@ class line
 			'version' => 1,
 		];
 
+		$list[] =
+		[
+			'key'     => 'latestproduct',
+			'title'   => T_("Latest product"),
+			'version' => 1,
+		];
+
 
 		$list[] =
 		[
