@@ -40,6 +40,9 @@ class whois
 
     public function info()
     {
+        $error = null;
+        $errstr = null;
+
         if ($this->isValid())
         {
             $whois_server = $this->servers[$this->TLDs][0];
@@ -80,12 +83,15 @@ class whois
                 else
                 {
 
+
                     // Getting whois information
-                    $fp = @fsockopen($whois_server, 43);
+                    $fp = @fsockopen($whois_server, 43, $errno, $errstr, 10);
                     if (!$fp)
                     {
                         return T_("Connection error!");
                     }
+
+                    stream_set_timeout($fp, 5);
 
                     $dom = $this->subDomain . '.' . $this->TLDs;
                     fputs($fp, "$dom\r\n");
@@ -110,13 +116,16 @@ class whois
                             }
                         }
                         // Getting whois information
-                        $fp = @fsockopen($whois_server, 43);
+                        $fp = @fsockopen($whois_server, 43, $errno, $errstr, 10);
                         if (!$fp)
                         {
                             return T_("Connection error!");
                         }
 
+                        stream_set_timeout($fp, 5);
+
                         $dom = $this->subDomain . '.' . $this->TLDs;
+
                         fputs($fp, "$dom\r\n");
 
                         // Getting string
