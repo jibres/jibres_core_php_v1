@@ -5,6 +5,12 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('edit_line') === 'setting')
+		{
+			\content_a\website\body\edit\model::post();
+			return;
+		}
+
 		if(\dash\request::post('remove') === 'slider')
 		{
 			$slider = \lib\app\website\body\line\slider::remove(\dash\data::sliderID(), \dash\request::get('index'));

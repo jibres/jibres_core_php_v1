@@ -4,7 +4,7 @@ namespace lib\app\website\body;
 class edit
 {
 
-	public static function line($_args, $line_id)
+	public static function line($_args, $_line_id)
 	{
 		$condition =
 		[
@@ -19,22 +19,21 @@ class edit
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$line_list = \lib\app\website\body\get::line_list(true);
-
-		$founded_line   = null;
-		$foundedline_id = null;
-
-		if(is_array($line_list))
+		$line_id = \dash\validate::code($_line_id);
+		$line_id = \dash\coding::decode($line_id);
+		if(!$line_id)
 		{
-			foreach ($line_list as $key => $value)
-			{
-				if(isset($value['line_key']) && $value['line_key'] === $line_id)
-				{
-					$foundedline_id = $key;
-					$founded_line = $value;
-					break;
-				}
-			}
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$get_line = \lib\db\setting\get::platform_cat_id('website', 'homepage', $line_id);
+
+		$founded_line = [];
+
+		if(isset($get_line['value']))
+		{
+			$founded_line = json_decode($get_line['value'], true);
 		}
 
 		if(!$founded_line)
@@ -48,11 +47,9 @@ class edit
 		$edit['sort']    = $data['sort'];
 		$edit['publish'] = $data['publish'];
 
-		$line_list[$foundedline_id] = $edit;
+		$value = json_encode($edit, JSON_UNESCAPED_UNICODE);
 
-		$new_linse = json_encode($line_list, JSON_UNESCAPED_UNICODE);
-
-		\lib\db\setting\update::overwirte_platform_cat_key($new_linse, 'website', 'body', 'sort_list');
+		\lib\db\setting\update::value($value, $line_id);
 
 		\dash\notif::ok(T_("Setting Saved"));
 

@@ -1,14 +1,15 @@
-<form method="post" class="box" autocomplete="off" action="<?php echo \dash\url::that(). '/edit'; ?>">
+<form method="post" class="box" autocomplete="off" >
 
   <header data-kerkere='.showManageLine' data-kerkere-icon><h2><?php echo T_("Manage this line") ?></h2></header>
   <div class="showManageLine" data-kerkere-content='hide'>
 
-    <input type="hidden" name="key" value="<?php echo \dash\request::get('key'); ?>">
+    <input type="hidden" name="edit_line" value="setting">
+    <input type="hidden" name="id" value="<?php echo \dash\request::get('id'); ?>">
 
     <div class="body">
 
      <div class="switch1 mB5">
-        <input type="checkbox" name="publish" id="publish" <?php if(\dash\get::index(\dash\data::lineSetting(), 'saved_detail', 'publish')) {echo 'checked';} ?>>
+        <input type="checkbox" name="publish" id="publish" <?php if(\dash\get::index(\dash\data::lineSetting(), 'publish')) {echo 'checked';} ?>>
         <label for="publish"></label>
         <label for="publish"><?php echo T_("Publish on website?"); ?><small></small></label>
       </div>
@@ -16,12 +17,12 @@
 
       <label for="title"><?php echo T_("Line title"); ?></label>
       <div class="input">
-        <input type="text" name="title" id="title" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'saved_detail', 'title') ?>"  >
+        <input type="text" name="title" id="title" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'title') ?>"  >
       </div>
 
       <label for="sort"><?php echo T_("Sort"); ?></label>
       <div class="input">
-        <input type="text" name="sort" id="sort" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'saved_detail', 'sort') ?>"  >
+        <input type="text" name="sort" id="sort" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'sort') ?>"  >
       </div>
 
     </div>

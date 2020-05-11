@@ -17,10 +17,12 @@ class model
 		if(\dash\request::post('remove') === 'line')
 		{
 			$remove = true;
+			\lib\app\website\body\remove::line(\dash\request::post('id'));
 		}
-
-		$theme_detail = \lib\app\website\body\set::edit($post, \dash\request::post('key'));
-
+		else
+		{
+			\lib\app\website\body\edit::line($post, \dash\request::post('id'));
+		}
 	}
 }
 ?>
