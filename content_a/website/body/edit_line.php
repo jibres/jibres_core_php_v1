@@ -30,7 +30,7 @@
     <footer class="txtRa">
       <div class="f">
         <div class="cauto">
-          <div data-confirm data-data='{"remove": "line"}' class="btn danger"><?php echo T_("Remove"); ?></div>
+          <div data-confirm data-data='{"remove": "line", "edit_line" : "setting", "id": "<?php echo \dash\request::get('id'); ?>"}' class="btn danger"><?php echo T_("Remove"); ?></div>
         </div>
         <div class="c"></div>
         <div class="cauto">

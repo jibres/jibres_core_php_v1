@@ -8,8 +8,18 @@ class model
 		if(\dash\request::post('edit_line') === 'setting')
 		{
 			\content_a\website\body\edit\model::post();
+
+			if(\dash\engine\process::status())
+			{
+				if(\dash\request::post('remove') === 'line')
+				{
+					\dash\redirect::to(\dash\url::that());
+				}
+			}
+
 			return;
 		}
+
 
 		if(\dash\request::post('remove') === 'slider')
 		{

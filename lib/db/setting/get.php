@@ -77,6 +77,14 @@ class get
 	}
 
 
+	public static function platform_cat_key_like($_platform, $_cat, $_key)
+	{
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key LIKE '$_key' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function platform_cat_id($_platform, $_cat, $_id)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.id = '$_id' LIMIT 1";

@@ -7,62 +7,37 @@ class remove
 
 	public static function line($_line_id)
 	{
-		$condition =
-		[
-			'linekey'  => 'md5',
-			'linetype' => ['enum' => array_column(\lib\app\website\body\line::list(), 'key')],
-		];
-
-		$require   = ['linekey', 'linetype'];
-
-		$meta      = [];
-		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-
-		$load_line = \lib\db\setting\get::platform_cat_key('website', 'lines', 'list');
-
-		if(!isset($load_line['id']) || !isset($load_line['value']))
+		$line_id = \dash\validate::code($_line_id);
+		$line_id = \dash\coding::decode($line_id);
+		if(!$line_id)
 		{
-			\dash\notif::error(T_("No body line founded in your website!"));
+			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
-		else
+
+		$get_line = \lib\db\setting\get::platform_cat_id('website', 'homepage', $line_id);
+
+		$founded_line = [];
+
+		if(isset($get_line['value']))
 		{
-			$value = json_decode($load_line['value'], true);
-			if(!is_array($value))
-			{
-				$value = [];
-			}
-
-			$find = false;
-			foreach ($value as $my_key => $my_value)
-			{
-				if(isset($my_value['line_key']) && $my_value['line_key'] === $data['linekey'])
-				{
-					if(isset($my_value['type']) && $my_value['type'] === $data['linetype'])
-					{
-						unset($value[$my_key]);
-						$find = true;
-						break;
-					}
-				}
-			}
-
-			if(!$find)
-			{
-				\dash\notif::error(T_("Invalid line key and line type!"));
-				return false;
-			}
-
-			$new_value = json_encode($value, JSON_UNESCAPED_UNICODE);
-			\lib\db\setting\update::value($new_value, $load_line['id']);
+			$founded_line = json_decode($get_line['value'], true);
 		}
+
+		if(!$founded_line)
+		{
+			\dash\notif::error(T_("Invalid body line key"));
+			return false;
+		}
+
+
+		\lib\db\setting\delete::record($line_id);
+
+		\dash\notif::ok(T_("Body line removed"));
 
 		\lib\app\website\generator::remove_catch();
 
 
-		\dash\notif::ok(T_("Your line was removed"));
-		return true;
 	}
 
 

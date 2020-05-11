@@ -11,48 +11,33 @@ class get
 
 		if(!$load_line)
 		{
-			$load_line = \lib\db\setting\get::platform_cat_key('website', 'homepage', 'body_line_list');
+			$load_line = \lib\db\setting\get::platform_cat_key_like('website', 'homepage', 'body_line%');
 			self::$loaded = $load_line;
 		}
 
-
-
-		if(!isset($load_line['id']) || !isset($load_line['value']))
+		if(!$load_line || !is_array($load_line))
 		{
-			return [];
+			$load_line = [];
 		}
-		else
+
+		$result = [];
+
+		foreach ($load_line as $key => $value)
 		{
-			$value = json_decode($load_line['value'], true);
-
-			if(!is_array($value))
+			if(isset($value['value']))
 			{
-				$value = [];
-			}
-
-			if($_raw)
-			{
-				return $value;
-			}
-
-			$line_detail = \lib\app\website\body\template::list();
-
-			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
-
-			$result = [];
-			foreach ($value as $index => $saved_line_detail)
-			{
-				if(isset($saved_line_detail['type']) && isset($line_detail[$saved_line_detail['type']]))
+				$my_value = json_decode($value['value'], true);
+				if(isset($value['id']))
 				{
-
-					$result[$index] = \lib\app\website\body\template::get($saved_line_detail['type']);
-					$result[$index]['saved_detail'] = $saved_line_detail;
+					$my_value['id'] = \dash\coding::encode($value['id']);
 				}
-			}
 
-			return $result;
+				$result[] = $my_value;
+			}
 		}
 
+
+		return $result;
 	}
 
 
