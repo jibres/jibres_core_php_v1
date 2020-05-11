@@ -21,9 +21,6 @@ class model
 		}
 
 
-
-
-
 		$post =
 		[
 			'limit'    => \dash\request::post('limit'),
