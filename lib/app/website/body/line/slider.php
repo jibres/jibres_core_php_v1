@@ -71,7 +71,7 @@ class slider
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::platform_cat_id('website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{

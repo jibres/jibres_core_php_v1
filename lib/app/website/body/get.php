@@ -11,7 +11,7 @@ class get
 
 		if(!$load_line)
 		{
-			$load_line = \lib\db\setting\get::platform_cat_key_like('website', 'homepage', 'body_line%');
+			$load_line = \lib\db\setting\get::lang_platform_cat_key_like(\dash\language::current(), 'website', 'homepage', 'body_line%');
 			self::$loaded = $load_line;
 		}
 
@@ -62,7 +62,7 @@ class get
 
 		$id = \dash\coding::decode($id);
 
-		$setting = \lib\db\setting\get::platform_cat_id('website', 'homepage', $id);
+		$setting = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $id);
 
 		$result = [];
 
