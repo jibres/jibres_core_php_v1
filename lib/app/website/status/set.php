@@ -22,7 +22,7 @@ class set
 		if($save)
 		{
 
-			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+			\lib\app\website\generator::remove_catch();
 
 			\dash\notif::ok(T_("Your status was saved"));
 			return true;

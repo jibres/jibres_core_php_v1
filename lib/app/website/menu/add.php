@@ -47,6 +47,7 @@ class add
 
 		$insert =
 		[
+			'lang'     => \dash\language::current(),
 			'platform' => 'website',
 			'cat'      => 'menu',
 			'key'      => $key,
@@ -57,7 +58,7 @@ class add
 
 		if($menu_id)
 		{
-			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+			\lib\app\website\generator::remove_catch();
 
 			\dash\notif::ok(T_("Your menu was saved"));
 			return ['id' => \dash\coding::encode($menu_id)];
@@ -120,7 +121,7 @@ class add
 
 		if($delete)
 		{
-			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+			\lib\app\website\generator::remove_catch();
 
 			\dash\notif::ok(T_("Your menu was removed"));
 			return true;
@@ -254,7 +255,7 @@ class add
 
 		if($result)
 		{
-			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+			\lib\app\website\generator::remove_catch();
 
 			if($data['remove'])
 			{

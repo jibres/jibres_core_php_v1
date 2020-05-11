@@ -61,6 +61,14 @@ class get
 	}
 
 
+	public static function lang_platform_cat($_lang, $_platform, $_cat)
+	{
+		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function platform($_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform'  ";
@@ -128,6 +136,14 @@ class get
 	public static function search_value_by_platform($_value, $_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.value = '$_value' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function lang_search_value_by_platform($_lang, $_value, $_platform)
+	{
+		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.value = '$_value' ";
 		$result = \dash\db::get($query);
 		return $result;
 	}

@@ -6,7 +6,7 @@ class get
 
 	public static function list_all_menu_keys()
 	{
-		$get = \lib\db\setting\get::platform_cat('website', 'menu');
+		$get = \lib\db\setting\get::lang_platform_cat(\dash\language::current(), 'website', 'menu');
 
 		$keys = [];
 
@@ -28,7 +28,7 @@ class get
 
 		if($key)
 		{
-			$list = \lib\db\setting\get::search_value_by_platform($key, 'website');
+			$list = \lib\db\setting\get::search_value_by_platform(\dash\language::current(), $key, 'website');
 			if(!$list || !is_array($list))
 			{
 				$list = [];
@@ -65,7 +65,7 @@ class get
 
 	public static function list_all_menu()
 	{
-		$get = \lib\db\setting\get::platform_cat('website', 'menu');
+		$get = \lib\db\setting\get::lang_platform_cat(\dash\language::current(), 'website', 'menu');
 		if(is_array($get))
 		{
 			$get = array_map(['self', 'ready'], $get);

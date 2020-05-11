@@ -47,7 +47,7 @@ class edit
 
 		if($result)
 		{
-			\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+			\lib\app\website\generator::remove_catch();
 
 			\dash\notif::ok(T_("Menu was updated"));
 			return true;
