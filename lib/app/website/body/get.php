@@ -11,7 +11,7 @@ class get
 
 		if(!$load_line)
 		{
-			$load_line = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_list');
+			$load_line = \lib\db\setting\get::platform_cat_key('website', 'homepage', 'body_line_list');
 			self::$loaded = $load_line;
 		}
 
@@ -35,7 +35,7 @@ class get
 				return $value;
 			}
 
-			$line_detail = \lib\app\website\body\line::list();
+			$line_detail = \lib\app\website\body\template::list();
 
 			$line_detail = array_combine(array_column($line_detail, 'key'), $line_detail);
 
@@ -45,7 +45,7 @@ class get
 				if(isset($saved_line_detail['type']) && isset($line_detail[$saved_line_detail['type']]))
 				{
 
-					$result[$index] = \lib\app\website\body\line::get($saved_line_detail['type']);
+					$result[$index] = \lib\app\website\body\template::get($saved_line_detail['type']);
 					$result[$index]['saved_detail'] = $saved_line_detail;
 				}
 			}
@@ -57,34 +57,33 @@ class get
 
 
 
-	public static function line_option($_line_key)
+	public static function line_setting($_id)
 	{
-		$line_key = \dash\validate::md5($_line_key);
+		$id = \dash\validate::code($_id);
 
-		if(!$line_key)
+		if(!$id)
 		{
 			return false;
 		}
 
-		$line_type = null;
+		$id = \dash\coding::decode($id);
 
-		$line_list = self::line_list();
+		$setting = \lib\db\setting\get::platform_cat_id('website', 'homepage', $id);
 
-		foreach ($line_list as $key => $value)
+		$result = [];
+
+		if(isset($setting['value']))
 		{
-			if(isset($value['saved_detail']['line_key']) && $value['saved_detail']['line_key'] === $line_key)
-			{
-				$line_type = $value;
-				break;
-			}
+			$result = json_decode($setting['value'], true);
 		}
 
-		if(!$line_type)
+		if(!is_array($result))
 		{
-			return false;
+			$result = [];
 		}
 
-		return $line_type;
+
+		return $result;
 	}
 }
 ?>

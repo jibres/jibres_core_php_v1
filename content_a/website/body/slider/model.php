@@ -5,6 +5,18 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('remove') === 'slider')
+		{
+			$slider = \lib\app\website\body\line\slider::remove(\dash\data::sliderID());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
+
+			return;
+		}
+
+
 		$post =
 		[
 			'url'    => \dash\request::post('url'),
@@ -18,19 +30,33 @@ class model
 			$post['image'] = 'image';
 		}
 
-		$remove = false;
-
-		if(\dash\request::post('remove') === 'slider')
+		if(!\dash\data::sliderID())
 		{
-			$remove = true;
+			$slider = \lib\app\website\body\line\slider::add($post);
+
+			if(\dash\engine\process::status())
+			{
+				if(isset($slider['id']))
+				{
+					\dash\redirect::to(\dash\url::that(). '/slider?id='. $slider['id']);
+				}
+				else
+				{
+					// @BUG!
+					\dash\redirect::to(\dash\url::that());
+				}
+			}
+
+			return;
 		}
-
-		$theme_detail = \lib\app\website\body\slider::set($post, \dash\request::get('key'), \dash\request::get('index'), $remove);
-
-
-		if(\dash\engine\process::status())
+		else
 		{
-			\dash\redirect::to(\dash\url::that(). '/slider?key='. \dash\request::get('key'));
+			$slider = \lib\app\website\body\line\slider::edit($post, \dash\data::sliderID(), \dash\request::get('index'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that(). '/slider?id='. \dash\data::sliderID());
+			}
 		}
 	}
 }

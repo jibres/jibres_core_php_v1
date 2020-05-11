@@ -4,6 +4,7 @@ namespace lib\db\setting;
 
 class get
 {
+
 	public static function payment()
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = 'store_setting' AND setting.key LIKE 'payment_%' ";
@@ -59,6 +60,7 @@ class get
 		return $result;
 	}
 
+
 	public static function platform($_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform'  ";
@@ -66,12 +68,22 @@ class get
 		return $result;
 	}
 
+
 	public static function platform_cat_key($_platform, $_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+	public static function platform_cat_id($_platform, $_cat, $_id)
+	{
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.id = '$_id' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function platform_cat_multi_key($_platform, $_cat, $_keys)
 	{
@@ -82,15 +94,12 @@ class get
 	}
 
 
-
-
 	public static function application_dowload_page()
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = 'android' AND setting.cat = 'setting' AND setting.key IN ('googleplay','cafebazar','myket','downloadtitle','downloaddesc') ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
-
 
 
 	public static function search_value_by_platform($_value, $_platform)

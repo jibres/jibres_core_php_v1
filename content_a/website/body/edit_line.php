@@ -8,7 +8,7 @@
     <div class="body">
 
      <div class="switch1 mB5">
-        <input type="checkbox" name="publish" id="publish" <?php if(\dash\get::index(\dash\data::lineOption(), 'saved_detail', 'publish')) {echo 'checked';} ?>>
+        <input type="checkbox" name="publish" id="publish" <?php if(\dash\get::index(\dash\data::lineSetting(), 'saved_detail', 'publish')) {echo 'checked';} ?>>
         <label for="publish"></label>
         <label for="publish"><?php echo T_("Publish on website?"); ?><small></small></label>
       </div>
@@ -16,12 +16,12 @@
 
       <label for="title"><?php echo T_("Line title"); ?></label>
       <div class="input">
-        <input type="text" name="title" id="title" value="<?php echo \dash\get::index(\dash\data::lineOption(), 'saved_detail', 'title') ?>"  >
+        <input type="text" name="title" id="title" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'saved_detail', 'title') ?>"  >
       </div>
 
       <label for="sort"><?php echo T_("Sort"); ?></label>
       <div class="input">
-        <input type="text" name="sort" id="sort" value="<?php echo \dash\get::index(\dash\data::lineOption(), 'saved_detail', 'sort') ?>"  >
+        <input type="text" name="sort" id="sort" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'saved_detail', 'sort') ?>"  >
       </div>
 
     </div>

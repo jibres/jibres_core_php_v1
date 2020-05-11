@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/body');
 
-		$body_line = \lib\app\website\body\line::list();
+		$body_line = \lib\app\website\body\template::list();
 		\dash\data::bodyLine($body_line);
 
 

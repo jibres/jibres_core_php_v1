@@ -6,15 +6,16 @@ class controller
 {
 	public static function routing()
 	{
-		$key = \dash\request::post('key');
+		$id = \dash\request::post('id');
 
-		$load_line_detail = \lib\app\website\body\get::line_option($key);
+		$load_line_detail = \lib\app\website\body\get::line_setting($id);
+
 		if(!$load_line_detail)
 		{
-			\dash\header::status(404, T_("Line key is not valid!"));
+			\dash\header::status(404, T_("Line id is not valid!"));
 		}
 
-		\dash\data::lineOption($load_line_detail);
+		\dash\data::lineSetting($load_line_detail);
 	}
 }
 ?>

@@ -6,34 +6,37 @@ class controller
 {
 	public static function routing()
 	{
-		$key = \dash\request::get('key');
 
-		$load_line_detail = \lib\app\website\body\get::line_option($key);
-		if(!$load_line_detail)
+		$id = \dash\request::get('id');
+
+		if($id)
 		{
-			\dash\header::status(404, T_("Line key is not valid!"));
-		}
+			$load_line_detail = \lib\app\website\body\line\slider::get($id);
 
-		\dash\data::lineOption($load_line_detail);
-
-		if(\dash\data::lineOption_key() !== 'slider')
-		{
-			\dash\header::status(403, T_("This line is not a slider!"));
-		}
-
-		$index = \dash\request::get('index');
-
-		if(is_numeric($index))
-		{
-			$saved_option = \lib\app\website\body\slider::get(\dash\request::get('key'));
-			\dash\data::savedOption($saved_option);
-
-			if(!array_key_exists($index, $saved_option))
+			if(!$load_line_detail)
 			{
-				\dash\header::status(403, T_("Invalid index of slider!"));
+				\dash\header::status(404, T_("Line id is not valid!"));
 			}
 
-			\dash\data::dataRow($saved_option[$index]);
+			\dash\data::lineSetting($load_line_detail);
+
+			// use this id in model for edit
+			\dash\data::sliderID(\dash\request::get('id'));
+
+			$index = \dash\request::get('index');
+
+			if(is_numeric($index))
+			{
+				$saved_option = \lib\app\website\body\slider::get(\dash\request::get('id'));
+				\dash\data::savedOption($saved_option);
+
+				if(!array_key_exists($index, $saved_option))
+				{
+					\dash\header::status(403, T_("Invalid index of slider!"));
+				}
+
+				\dash\data::dataRow($saved_option[$index]);
+			}
 		}
 	}
 }

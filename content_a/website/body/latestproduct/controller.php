@@ -14,10 +14,10 @@ class controller
 			\dash\header::status(404, T_("Line key is not valid!"));
 		}
 
-		\dash\data::lineOption($load_line_detail);
+		\dash\data::lineSetting($load_line_detail);
 
 
-		if(\dash\data::lineOption_key() !== 'latestproduct')
+		if(\dash\data::lineSetting_key() !== 'latestproduct')
 		{
 			\dash\header::status(403, T_("This line is not a latest news!"));
 		}

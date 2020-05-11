@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\website\body;
 
-class line
+class template
 {
 
 	/**
@@ -40,6 +40,14 @@ class line
 	}
 
 
+	public static function get_keys()
+	{
+		$list = self::list();
+		$keys = array_column($list, 'key');
+		return $keys;
+	}
+
+
 
 	public static function list()
 	{
@@ -63,7 +71,7 @@ class line
 		$list[] =
 		[
 			'key'          => 'slider',
-			'title'        => T_("Big Slider"),
+			'title'        => T_("Slider"),
 			'version'      => 1,
 			'max_capacity' => 10, // capacity of product
 		];

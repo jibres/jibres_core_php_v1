@@ -5,17 +5,17 @@ class model
 {
 	public static function post()
 	{
-		$post =
-		[
-			'line'    => \dash\request::post('line'),
-		];
+		// $post =
+		// [
+		// 	'line'    => \dash\request::post('line'),
+		// ];
 
-		$theme_detail = \lib\app\website\body\set::add_line($post);
+		// $theme_detail = \lib\app\website\body\set::add_line($post);
 
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::to(\dash\url::that());
-		}
+		// if(\dash\engine\process::status())
+		// {
+		// 	\dash\redirect::to(\dash\url::that());
+		// }
 	}
 }
 ?>

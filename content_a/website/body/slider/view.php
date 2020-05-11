@@ -12,10 +12,13 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/body');
 
-		if(!\dash\data::savedOption())
+		if(\dash\request::get('key'))
 		{
-			$saved_option = \lib\app\website\body\slider::get(\dash\request::get('key'));
-			\dash\data::savedOption($saved_option);
+			if(!\dash\data::savedOption())
+			{
+				$saved_option = \lib\app\website\body\slider::get(\dash\request::get('key'));
+				\dash\data::savedOption($saved_option);
+			}
 		}
 
 	}

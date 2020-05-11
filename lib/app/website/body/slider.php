@@ -4,9 +4,9 @@ namespace lib\app\website\body;
 class slider
 {
 
-	public static function get($_line_key, $_pretty = true)
+	public static function get($_line_id, $_pretty = true)
 	{
-		$line_option = \lib\app\website\body\get::line_option($_line_key);
+		$line_option = \lib\app\website\body\get::line_option($_line_id);
 
 		if(!isset($line_option['key']))
 		{
@@ -14,7 +14,7 @@ class slider
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::platform_cat_key('website', 'body_line_option', $_line_key);
+		$saved_record = \lib\db\setting\get::platform_cat_key('website', 'body_line_option', $_line_id);
 
 		$saved_option = [];
 
@@ -46,7 +46,7 @@ class slider
 	}
 
 
-	public static function set($_args, $_line_key, $_slider_index = null, $_remove = false)
+	public static function set($_args, $_line_id, $_slider_index = null, $_remove = false)
 	{
 		$condition =
 		[
@@ -63,7 +63,15 @@ class slider
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$line_option = \lib\app\website\body\get::line_option($_line_key);
+		if(!$_line_id)
+		{
+			$line_id = \lib\app\website\body\add::line('slider');
+		}
+		else
+		{
+			$line_option = \lib\app\website\body\get::line_option($_line_id);
+		}
+
 
 		if(!isset($line_option['key']))
 		{
@@ -71,7 +79,7 @@ class slider
 			return false;
 		}
 
-		$saved_option = self::get($_line_key, false);
+		$saved_option = self::get($_line_id, false);
 
 		$edit_mode = false;
 
@@ -171,7 +179,7 @@ class slider
 
 		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
 
-		$save = \lib\db\setting\update::overwirte_platform_cat_key($saved_option, 'website', 'body_line_option', $_line_key);
+		$save = \lib\db\setting\update::overwirte_platform_cat_key($saved_option, 'website', 'body_line_option', $_line_id);
 
 		\lib\app\website\generator::remove_catch();
 
