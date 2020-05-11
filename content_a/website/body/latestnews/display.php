@@ -5,7 +5,7 @@
     <div class="body">
       <label for="limit"><?php echo T_("Count show news"); ?></label>
       <div class="input">
-        <input type="number" name="limit" id="limit" value="<?php echo \dash\data::savedOption_limit() ?>"  >
+        <input type="number" name="limit" id="limit" value="<?php echo \dash\get::index(\dash\data::lineSetting_latestnews(), 'limit') ?>"  >
       </div>
     </div>
     <footer class="txtRa">

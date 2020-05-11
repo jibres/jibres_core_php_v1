@@ -45,7 +45,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::that();?>/latestbews"><?php echo T_("Add Products Block") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::that();?>/latestnews"><?php echo T_("Add Products Block") ?></a>
     </div>
   </div>
 </section>
@@ -96,7 +96,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::that();?>/latestbews"><?php echo T_("Add Latest News Block") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::that();?>/latestnews"><?php echo T_("Add Latest News Block") ?></a>
     </div>
   </div>
 </section>

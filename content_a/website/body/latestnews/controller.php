@@ -6,23 +6,24 @@ class controller
 {
 	public static function routing()
 	{
+
 		$id = \dash\request::get('id');
 
-		$load_line_detail = \lib\app\website\body\get::line_setting($id);
-
-		if(!$load_line_detail)
+		if($id)
 		{
-			\dash\header::status(404, T_("Line id is not valid!"));
+			$load_line_detail = \lib\app\website\body\line\latestnews::get($id);
+
+			if(!$load_line_detail)
+			{
+				\dash\header::status(404, T_("Line id is not valid!"));
+			}
+
+			\dash\data::lineSetting($load_line_detail);
+
+			// use this id in model for edit
+			\dash\data::latestnewsID(\dash\request::get('id'));
+
 		}
-
-		\dash\data::lineSetting($load_line_detail);
-
-
-		if(\dash\data::lineSetting_id() !== 'latestnews')
-		{
-			\dash\header::status(403, T_("This line is not a latest news!"));
-		}
-
 	}
 }
 ?>

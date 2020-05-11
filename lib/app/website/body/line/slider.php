@@ -227,21 +227,12 @@ class slider
 
 	public static function edit($_args, $_line_id, $_slider_index = null)
 	{
+		$data      = self::check_validate($_args);
 
-		$condition =
-		[
-			'url'    => 'string_200',
-			'alt'    => 'string_200',
-			'sort'   => 'smallint',
-			'image'  => 'bit',
-			'target' => 'bit',
-		];
-
-		$require   = [];
-
-		$meta      = [];
-
-		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
+		if(!$data)
+		{
+			return false;
+		}
 
 		$line_option = \lib\app\website\body\template::get('slider');
 

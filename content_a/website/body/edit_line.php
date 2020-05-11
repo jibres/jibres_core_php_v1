@@ -1,3 +1,4 @@
+<?php if(\dash\request::get('id')) {?>
 <form method="post" class="box" autocomplete="off" >
 
   <header data-kerkere='.showManageLine' data-kerkere-icon><h2><?php echo T_("Manage this line") ?></h2></header>
@@ -40,3 +41,4 @@
     </footer>
   </div>
 </form>
+<?php } //endif ?>

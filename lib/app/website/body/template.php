@@ -55,25 +55,18 @@ class template
 
 		$list[] =
 		[
-			'key'     => 'latestnews',
-			'title'   => T_("Last news"),
-			'version' => 1,
-		];
-
-		$list[] =
-		[
-			'key'     => 'latestproduct',
-			'title'   => T_("Latest product"),
-			'version' => 1,
-		];
-
-
-		$list[] =
-		[
 			'key'          => 'slider',
 			'title'        => T_("Slider"),
 			'version'      => 1,
 			'max_capacity' => 10, // capacity of product
+		];
+
+
+		$list[] =
+		[
+			'key'          => 'latestnews',
+			'title'        => T_("Latest news"),
+			'version'      => 1,
 		];
 
 
