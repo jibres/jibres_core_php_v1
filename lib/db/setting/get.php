@@ -85,6 +85,14 @@ class get
 	}
 
 
+	public static function lang_platform_cat_key($_lang, $_platform, $_cat, $_key)
+	{
+		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function platform_cat_key_like($_platform, $_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key LIKE '$_key' ";
@@ -120,6 +128,15 @@ class get
 	{
 		$_keys = implode("','", $_keys);
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key IN ('$_keys')";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function lang_platform_cat_multi_key($_lang, $_platform, $_cat, $_keys)
+	{
+		$_keys = implode("','", $_keys);
+		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key IN ('$_keys')";
 		$result = \dash\db::get($query);
 		return $result;
 	}
