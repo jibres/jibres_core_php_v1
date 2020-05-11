@@ -12,15 +12,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/body');
 
-		if(\dash\request::get('key'))
-		{
-			if(!\dash\data::savedOption())
-			{
-				$saved_option = \lib\app\website\body\slider::get(\dash\request::get('key'));
-				\dash\data::savedOption($saved_option);
-			}
-		}
-
 	}
 }
 ?>

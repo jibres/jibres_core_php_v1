@@ -147,6 +147,53 @@ class slider
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
+	public static function remove($_line_id, $_slider_index)
+	{
+		$line_id = \dash\validate::code($_line_id);
+		$line_id = \dash\coding::decode($line_id);
+
+		if(!$line_id)
+		{
+			return false;
+		}
+		if(!is_numeric($_slider_index))
+		{
+			\dash\notif::error(T_("Slider index must be a number"));
+			return false;
+		}
+
+		$saved_value = self::inline_get($line_id);
+
+		if(!$saved_value || !isset($saved_value['slider']))
+		{
+			return false;
+		}
+
+		$saved_slider = $saved_value['slider'];
+
+
+		if(!array_key_exists($_slider_index, $saved_slider))
+		{
+			\dash\notif::error(T_("Invalid slider index"));
+			return false;
+		}
+
+		unset($saved_slider[$_slider_index]);
+
+		$saved_slider = array_values($saved_slider);
+
+		$saved_value['slider'] = $saved_slider;
+
+		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
+
+		$save = \lib\db\setting\update::value($saved_value, $line_id);
+
+		\lib\app\website\generator::remove_catch();
+
+		\dash\notif::ok(T_("Slider page was removed"));
+
+		return true;
+	}
 
 
 	public static function edit($_args, $_line_id, $_slider_index = null)

@@ -27,15 +27,16 @@ class controller
 
 			if(is_numeric($index))
 			{
-				$saved_option = \lib\app\website\body\slider::get(\dash\request::get('id'));
-				\dash\data::savedOption($saved_option);
-
-				if(!array_key_exists($index, $saved_option))
+				if(isset($load_line_detail['slider']) && is_array($load_line_detail['slider']) && array_key_exists($index, $load_line_detail['slider']))
+				{
+					// ok
+					\dash\data::dataRow($load_line_detail['slider'][$index]);
+				}
+				else
 				{
 					\dash\header::status(403, T_("Invalid index of slider!"));
 				}
 
-				\dash\data::dataRow($saved_option[$index]);
 			}
 		}
 	}

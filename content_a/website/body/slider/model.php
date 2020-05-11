@@ -7,10 +7,11 @@ class model
 	{
 		if(\dash\request::post('remove') === 'slider')
 		{
-			$slider = \lib\app\website\body\line\slider::remove(\dash\data::sliderID());
+			$slider = \lib\app\website\body\line\slider::remove(\dash\data::sliderID(), \dash\request::get('index'));
+
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::that());
+				\dash\redirect::to(\dash\url::that(). '/slider?id='. \dash\data::sliderID());
 			}
 
 			return;

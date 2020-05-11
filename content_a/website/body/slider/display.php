@@ -52,6 +52,7 @@
             </div>
             <div class="c"></div>
             <div class="cauto">
+              <a href="<?php echo \dash\url::that(). '/slider?id='. \dash\request::get('id'); ?>" class="btn secondary outline"><?php echo T_("Cancel"); ?></a>
               <button class="btn primary"><?php echo T_("Edit"); ?></button>
             </div>
           </div>
