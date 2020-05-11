@@ -5,7 +5,7 @@ class generator
 {
 	public static function remove_catch()
 	{
-		\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id());
+		\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id(). '_'. \dash\language::current());
 	}
 
 
@@ -58,7 +58,7 @@ class generator
 			\dash\file::makeDir($addr, null, true);
 		}
 
-		$addr .= $_store_id;
+		$addr .= $_store_id. '_'. \dash\language::current();
 
 		$website_setting = [];
 
@@ -76,7 +76,7 @@ class generator
 
 		if(empty($website_setting))
 		{
-			$load_query = \lib\app\website\template::get();
+			$load_query = self::get_template();
 			if(!is_array($load_query))
 			{
 				$load_query = [];
@@ -100,7 +100,56 @@ class generator
 
 	}
 
+	public static function get_template()
+	{
+		// check from file
+		// get from query
+		// save from file
 
+		$result = [];
+
+		$active_status = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'status', 'active');
+
+		if(!$active_status || !isset($active_status['value']))
+		{
+			$result['template'] = 'visitcard';
+		}
+		else
+		{
+			$result['template'] = $active_status['value'];
+		}
+
+		if($result['template'] === 'publish')
+		{
+			$load_all_website = \lib\db\setting\get::lang_platform(\dash\language::current(), 'website');
+			$setting           = [];
+
+
+			if(is_array($load_all_website))
+			{
+				foreach ($load_all_website as $key => $value)
+				{
+					if(!isset($setting[$value['cat']]))
+					{
+						$setting[$value['cat']] = [];
+					}
+
+					$myValue = $value['value'];
+					if(substr($myValue, 0, 1) === '{' || substr($myValue, 0, 1) === '[' )
+					{
+						$myValue = json_decode($myValue, true);
+					}
+
+					$setting[$value['cat']][$value['key']] = $myValue;
+				}
+			}
+
+			$result = array_merge($result, $setting);
+
+		}
+
+		return $result;
+	}
 
 
 

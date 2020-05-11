@@ -14,13 +14,6 @@ class view
 		\dash\face::desc(\lib\store::detail('desc'));
 		\dash\face::intro(\lib\store::detail('desc'));
 
-		if(\dash\url::isLocal())
-		{
-			$website = \lib\app\website\template::get();
-			\dash\data::website($website);
-		}
-
-
 	}
 }
 ?>

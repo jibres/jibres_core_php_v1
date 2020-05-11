@@ -17,21 +17,14 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$save = \lib\db\setting\update::overwirte_platform_cat_key($data['status'], 'website', 'status', 'active');
+		$save = \lib\db\setting\update::overwirte_platform_cat_key_lang($data['status'], 'website', 'status', 'active', \dash\language::current());
 
-		if($save)
-		{
+		\lib\app\website\generator::remove_catch();
 
-			\lib\app\website\generator::remove_catch();
+		\dash\notif::ok(T_("Your status was saved"));
 
-			\dash\notif::ok(T_("Your status was saved"));
-			return true;
-		}
-		else
-		{
-			\dash\log::oops('db');
-			return false;
-		}
+		return true;
+
 	}
 
 
