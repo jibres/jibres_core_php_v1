@@ -1,39 +1,28 @@
 <?php
 if(\dash\data::postIsLoaded())
 {
-	require_once('body_load_post.php');
+	require_once(__DIR__. '/body/body_load_post.php');
 }
 else
 {
-	$body_raw = \lib\app\website\body\generator::body_raw();
-	if($body_raw)
-	{
-		$addr = __DIR__. '/'. $body_raw. '.php';
-		if(is_file($addr))
-		{
-			require_once($addr);
-		}
-	}
-	else
-	{
-		// body generator
-		$lines = \lib\app\website\body\generator::lines();
+	// body generator
+	$lines = \lib\app\website\body\get::line_list();
 
-		foreach ($lines as $key => $line_detail)
+	foreach ($lines as $key => $line_detail)
+	{
+		if(isset($line_detail['publish']) && $line_detail['publish'])
 		{
-			if(isset($line_detail['publish']) && $line_detail['publish'])
+			if(isset($line_detail['type']))
 			{
-				if(isset($line_detail['type']))
-				{
-					$addr = __DIR__. '/body/'. $line_detail['type']. '.php';
+				$addr = __DIR__. '/body/'. $line_detail['type']. '.php';
 
-					if(is_file($addr))
-					{
-						require($addr);
-					}
+				if(is_file($addr))
+				{
+					require($addr);
 				}
 			}
 		}
 	}
+
 }
 ?>

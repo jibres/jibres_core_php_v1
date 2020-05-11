@@ -32,6 +32,15 @@ class get
 					$my_value['id'] = \dash\coding::encode($value['id']);
 				}
 
+				if(isset($my_value['type']) && isset($my_value[$my_value['type']]) && is_array($my_value[$my_value['type']]))
+				{
+					$fn = ['\\lib\\app\\website\\body\\line\\'. $my_value['type'], 'ready'];
+					if(is_callable($fn))
+					{
+						$my_value[$my_value['type']] = array_map($fn, $my_value[$my_value['type']]);
+					}
+				}
+
 				$result[] = $my_value;
 			}
 		}

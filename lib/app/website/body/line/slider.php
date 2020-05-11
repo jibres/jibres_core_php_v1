@@ -20,12 +20,41 @@ class slider
 
 		if(isset($result['slider']) && is_array($result['slider']))
 		{
-			foreach ($result['slider'] as $key => $value)
+			$result['slider'] = array_map(['self', 'ready'], $result['slider']);
+		}
+
+		return $result;
+	}
+
+
+	public static function ready($_data)
+	{
+		$result = [];
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		foreach ($_data as $key => $value)
+		{
+
+			switch ($key)
 			{
-				if(isset($value['image']))
-				{
-					$result['slider'][$key]['image'] = \lib\filepath::fix($value['image']);
-				}
+				case 'image':
+					if(isset($value))
+					{
+						$result[$key] = \lib\filepath::fix($value);
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
+
+				default:
+					$result[$key] = isset($value) ? (string) $value : null;
+					break;
 			}
 		}
 

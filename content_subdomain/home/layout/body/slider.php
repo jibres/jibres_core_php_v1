@@ -2,10 +2,9 @@
 
 $slider = [];
 
-if(isset($line_detail['line_key']))
+if(isset($line_detail['slider']) && is_array($line_detail['slider']))
 {
-	$slider = \lib\app\website\body\slider::get($line_detail['line_key']);
-
+	$slider = $line_detail['slider'];
 }
 
 ?>
