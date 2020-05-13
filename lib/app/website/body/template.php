@@ -84,6 +84,21 @@ class template
 			'version'      => 1,
 		];
 
+		$list[] =
+		[
+			'key'          => 'latestproduct',
+			'title'        => T_("Latest product"),
+			'version'      => 1,
+		];
+
+
+		$list[] =
+		[
+			'key'          => 'image',
+			'title'        => T_("Image box"),
+			'version'      => 1,
+		];
+
 
 		return $list;
 	}
