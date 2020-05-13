@@ -70,6 +70,14 @@ class template
 		];
 
 
+		$list[] =
+		[
+			'key'          => 'text',
+			'title'        => T_("Text"),
+			'version'      => 1,
+		];
+
+
 		return $list;
 	}
 
