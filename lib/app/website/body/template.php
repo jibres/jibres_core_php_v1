@@ -77,6 +77,13 @@ class template
 			'version'      => 1,
 		];
 
+		$list[] =
+		[
+			'key'          => 'quote',
+			'title'        => T_("Quote"),
+			'version'      => 1,
+		];
+
 
 		return $list;
 	}

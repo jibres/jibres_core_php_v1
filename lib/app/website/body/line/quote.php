@@ -1,14 +1,14 @@
 <?php
 namespace lib\app\website\body\line;
 
-class text
+class quote
 {
 
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);
 
-		if(isset($result['type']) && $result['type'] === 'text')
+		if(isset($result['type']) && $result['type'] === 'quote')
 		{
 			// ok
 		}
@@ -18,9 +18,9 @@ class text
 			return false;
 		}
 
-		if(isset($result['text']) && is_array($result['text']))
+		if(isset($result['quote']) && is_array($result['quote']))
 		{
-			$result['text'] = self::ready($result['text']);
+			$result['quote'] = self::ready($result['quote']);
 		}
 
 
@@ -89,7 +89,9 @@ class text
 	{
 		$condition =
 		[
-			'text'   => 'desc',
+			'quote'  => 'desc',
+			'url'   => 'string_100',
+			'title' => 'string_100',
 		];
 
 		$require   = [];
@@ -102,7 +104,7 @@ class text
 	}
 
 
-	// add new text
+	// add new quote
 	public static function add($_args)
 	{
 		$data = self::check_validate($_args);
@@ -112,20 +114,22 @@ class text
 			return false;
 		}
 
-		if(!$data['text'])
+		if(!$data['quote'])
 		{
-			\dash\notif::error(T_("Please set the text"), 'text');
+			\dash\notif::error(T_("Please set the quote"), 'quote');
 			return false;
 		}
 
 
-		$line_id = \lib\app\website\body\add::line('text');
+		$line_id = \lib\app\website\body\add::line('quote');
 
 		$saved_option = self::inline_get($line_id);
 
-		$saved_option['text'] =
+		$saved_option['quote'] =
 		[
-			'text'    => $data['text'],
+			'quote'  => $data['quote'],
+			'url'   => $data['url'],
+			'title' => $data['title'],
 		];
 
 
@@ -135,12 +139,12 @@ class text
 
 		\dash\notif::ok(T_("Latest news added"));
 
-		// retrun id to redirect to this text
+		// retrun id to redirect to this quote
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
 
-	public static function remove($_line_id, $_text_index)
+	public static function remove($_line_id, $_quote_index)
 	{
 		$line_id = \dash\validate::code($_line_id);
 		$line_id = \dash\coding::decode($line_id);
@@ -149,7 +153,7 @@ class text
 		{
 			return false;
 		}
-		if(!is_numeric($_text_index))
+		if(!is_numeric($_quote_index))
 		{
 			\dash\notif::error(T_("Latest news index must be a number"));
 			return false;
@@ -157,25 +161,25 @@ class text
 
 		$saved_value = self::inline_get($line_id);
 
-		if(!$saved_value || !isset($saved_value['text']))
+		if(!$saved_value || !isset($saved_value['quote']))
 		{
 			return false;
 		}
 
-		$saved_text = $saved_value['text'];
+		$saved_quote = $saved_value['quote'];
 
 
-		if(!array_key_exists($_text_index, $saved_text))
+		if(!array_key_exists($_quote_index, $saved_quote))
 		{
-			\dash\notif::error(T_("Invalid text index"));
+			\dash\notif::error(T_("Invalid quote index"));
 			return false;
 		}
 
-		unset($saved_text[$_text_index]);
+		unset($saved_quote[$_quote_index]);
 
-		$saved_text = array_values($saved_text);
+		$saved_quote = array_values($saved_quote);
 
-		$saved_value['text'] = $saved_text;
+		$saved_value['quote'] = $saved_quote;
 
 		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
 
@@ -189,7 +193,7 @@ class text
 	}
 
 
-	public static function edit($_args, $_line_id, $_text_index = null)
+	public static function edit($_args, $_line_id, $_quote_index = null)
 	{
 
 		$data      = self::check_validate($_args);
@@ -199,7 +203,7 @@ class text
 			return false;
 		}
 
-		$line_option = \lib\app\website\body\template::get('text');
+		$line_option = \lib\app\website\body\template::get('quote');
 
 		if(!isset($line_option['key']))
 		{
@@ -217,23 +221,25 @@ class text
 
 		$saved_value = self::inline_get($line_id);
 
-		if(!$saved_value || !isset($saved_value['text']))
+		if(!$saved_value || !isset($saved_value['quote']))
 		{
 			return false;
 		}
 
-		$saved_text = $saved_value['text'];
+		$saved_quote = $saved_value['quote'];
 
 
 		$ready_to_save =
 		[
-			'text'    => $data['text'],
+			'quote'  => $data['quote'],
+			'url'   => $data['url'],
+			'title' => $data['title'],
 		];
 
 
-		$saved_text = $ready_to_save;
+		$saved_quote = $ready_to_save;
 
-		$saved_value['text'] = $saved_text;
+		$saved_value['quote'] = $saved_quote;
 
 		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
 
