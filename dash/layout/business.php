@@ -35,7 +35,7 @@ class business
 			return false;
 		}
 
-		$load_website_setting = \lib\app\website\generator::load_website_setting($store_id);
+		$load_website_setting = \lib\app\website\generator::load_website_setting();
 
 		if(!$load_website_setting)
 		{

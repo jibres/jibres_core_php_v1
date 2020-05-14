@@ -17,7 +17,7 @@ class generator
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function load_website_setting($_store_id)
+	public static function load_website_setting()
 	{
 		// load by get
 		$get_website_type = \dash\validate::enum(\dash\request::get('websitemode'), false ,['enum' => ['visitcard', 'stat', 'comingsoon', 'shop']]);
@@ -58,7 +58,7 @@ class generator
 			\dash\file::makeDir($addr, null, true);
 		}
 
-		$addr .= $_store_id. '_'. \dash\language::current();
+		$addr .= \lib\store::id(). '_'. \dash\language::current();
 
 		$website_setting = [];
 
@@ -90,7 +90,6 @@ class generator
 
 		}
 
-		// var_dump($website_setting);exit();
 		if(isset($website_setting['template']))
 		{
 			return $website_setting;
@@ -106,7 +105,8 @@ class generator
 		// get from query
 		// save from file
 
-		$result = [];
+		$result  = [];
+		$setting = [];
 
 		$active_status = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'status', 'active');
 
@@ -122,33 +122,66 @@ class generator
 		if($result['template'] === 'publish')
 		{
 			$load_all_website = \lib\db\setting\get::lang_platform(\dash\language::current(), 'website');
-			$setting           = [];
 
-
-			if(is_array($load_all_website))
+			if(!is_array($load_all_website))
 			{
-				foreach ($load_all_website as $key => $value)
-				{
-					if(!isset($setting[$value['cat']]))
-					{
-						$setting[$value['cat']] = [];
-					}
-
-					$myValue = $value['value'];
-					if(substr($myValue, 0, 1) === '{' || substr($myValue, 0, 1) === '[' )
-					{
-						$myValue = json_decode($myValue, true);
-					}
-
-					$setting[$value['cat']][$value['key']] = $myValue;
-				}
+				$load_all_website = [];
 			}
 
-			$result = array_merge($result, $setting);
+			foreach ($load_all_website as $key => $value)
+			{
+
+				if(!isset($value['value']) || !isset($value['value']) || !isset($value['value']))
+				{
+					continue;
+				}
+
+				$myValue = $value['value'];
+
+				if(substr($myValue, 0, 1) === '{' || substr($myValue, 0, 1) === '[' )
+				{
+					$myValue = json_decode($myValue, true);
+				}
+
+				if($value['cat'] === 'header' || $value['cat'] === 'footer')
+				{
+					$setting['header'][$value['key']] = $myValue;
+				}
+
+				if($value['cat'] === 'homepage')
+				{
+					if(!isset($setting['body']))
+					{
+						$setting['body'] = [];
+					}
+
+					$setting['body'][] = ['cat' => $value['cat'], 'key' => $value['key'], 'value' => $myValue];
+				}
+
+			}
 
 		}
 
+		$result = array_merge($result, $setting);
+
 		return $result;
+	}
+
+
+	/**
+	 * Only get body setting
+	 *
+	 * @return     array  The body line.
+	 */
+	public static function get_body_line()
+	{
+		$setting = self::load_website_setting();
+
+		if(isset($setting['body']) && is_array($setting['body']))
+		{
+			return $setting['body'];
+		}
+		return [];
 	}
 
 
