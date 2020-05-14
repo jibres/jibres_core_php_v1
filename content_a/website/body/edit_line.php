@@ -26,6 +26,18 @@
         <input type="text" name="sort" id="sort" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'sort') ?>"  >
       </div>
 
+
+      <?php if(\dash\data::lineSetting_type() === 'slider') {?>
+        <label for="ratio"><?php echo T_("Ratio"); ?></label>
+        <div>
+          <select class="select22" name="ratio">
+            <option value="0"><?php echo T_("Please select one item") ?></option>
+            <option value="16:9" <?php if(\dash\data::lineSetting_ratio() === '16:9') {echo 'selected';} ?>><?php echo \dash\fit::text("16:9") ?></option>
+            <option value="4:3" <?php if(\dash\data::lineSetting_ratio() === '4:3') {echo 'selected';} ?>><?php echo \dash\fit::text("4:3") ?></option>
+          </select>
+        </div>
+      <?php } //endif ?>
+
     </div>
 
     <footer class="txtRa">

@@ -10,6 +10,7 @@ class model
 			'title'   => \dash\request::post('title'),
 			'sort'    => \dash\request::post('sort'),
 			'publish' => \dash\request::post('publish'),
+			'ratio'   => \dash\request::post('ratio') === '0' ? null : \dash\request::post('ratio'),
 		];
 
 		$remove = false;
