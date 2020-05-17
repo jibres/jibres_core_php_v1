@@ -109,3 +109,7 @@
   <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_result()); ?></samp>
 </div>
 <?php } //endif ?>
+
+<p class="hide">
+  <?php if(\dash\data::dataRow_response() && is_string(\dash\data::dataRow_response())) { echo md5(\dash\data::dataRow_response());} ?>
+</p>
