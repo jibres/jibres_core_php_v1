@@ -199,6 +199,15 @@ class run
 			return false;
 		}
 
+		// کارگزار موقتاً در دسترس نمی‌باشد
+		if($md5response === 'ceb73d896cef2d43e15073ae71ef7531')
+		{
+			\dash\notif::error(T_("Server is temporary unavailable. We are sorry, IRNIC portal is not accessible due maintenance. We will back up soon"));
+			return false;
+		}
+
+
+
 		// Arvan 504 Time-out
 		if($md5response === '5f9bebf23e3d629f2651b895846e155c')
 		{

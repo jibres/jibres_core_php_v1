@@ -110,6 +110,4 @@
 </div>
 <?php } //endif ?>
 
-<p class="hide">
-  <?php if(\dash\data::dataRow_response() && is_string(\dash\data::dataRow_response())) { echo md5(\dash\data::dataRow_response());} ?>
-</p>
+<p class="hide"><?php if(\dash\data::dataRow_response() && is_string(\dash\data::dataRow_response())) { echo md5(\dash\data::dataRow_response());} ?></p>
