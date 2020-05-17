@@ -19,6 +19,10 @@ class view
 		$last = \lib\app\nic_credit\get::last();
 		\dash\data::lastCredit($last);
 
+		if(!\dash\engine\process::status())
+		{
+			\dash\engine\process::continue();
+		}
 
 		$args =
 		[
