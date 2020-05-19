@@ -11,22 +11,11 @@
             <div class="meta"><span><?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link"></i><?php }// endif ?></span></div>
           </div>
           <div class="footer">
-            <a href="<?php echo \dash\url::that(). '/slider/edit?id='. \dash\request::get('id'). '&index='. $key; ?>" class="btn primary outline block"><?php echo T_("Edit") ?></a>
+            <a href="<?php echo \dash\get::index($value, 'edit_link'); ?>" class="btn primary outline block"><?php if(\dash\get::index($value, 'mod') === 'add') { echo T_("Add new page"); }else{ echo T_("Edit"); } ?></a>
           </div>
         </div>
       </div>
       <?php } // endfor ?>
     <?php } //endif ?>
-    <div class="c-3 c-xs-12">
-      <div class="vcard">
-        <img  src="<?php echo \dash\url::icon() ?>" alt="<?php echo T_("Add slider page") ?>" >
-        <div class="content">
-          <div class="header"><?php echo T_("Add new slider page"); ?></div>
-        </div>
-        <div class="footer">
-          <a href="<?php echo \dash\url::that(). '/slider/add?id='. \dash\request::get('id'); ?>" class="btn primary outline block"><?php echo T_("Add") ?></a>
-        </div>
-      </div>
-    </div>
 
   </div>
