@@ -2,6 +2,11 @@
 
 <div class="avand-sm">
 
+<div class="mB50" style="display: block;max-width: 100%;">
+  <img id="image" data-cropper src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
+</div>
+
+
     <form method="post" class="box" autocomplete="off" >
       <?php if(\dash\data::dataRow()) {?>
         <header><h2><?php echo T_("Edit slider page") ?></h2></header>
