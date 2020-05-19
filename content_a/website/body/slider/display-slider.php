@@ -13,7 +13,7 @@
             <div class="desc ltr font-10"><?php echo \dash\get::index($value, 'url'); ?> <span><?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link"></i><?php }// endif ?></span></div>
           </div>
           <footer class="zeroPad font-14">
-            <a href="<?php echo \dash\get::index($value, 'edit_link'); ?>" class="btn primary outline block"><?php if(\dash\get::index($value, 'mod') === 'add') { echo T_("Add new page"); }else{ echo T_("Edit"); } ?></a>
+            <a href="<?php echo \dash\get::index($value, 'edit_link'); ?>" class="btn  block"><?php if(\dash\get::index($value, 'mod') === 'add') { echo T_("Add new page"); }else{ echo T_("Edit"); } ?></a>
           </footer>
         </div>
       </div>
