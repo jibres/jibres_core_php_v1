@@ -3,9 +3,9 @@
     <?php if(\dash\data::lineSetting_slider() && is_array(\dash\data::lineSetting_slider())) {?>
       <?php foreach (\dash\data::lineSetting_slider() as $key => $value) {?>
       <div class="c-3 c-xs-12">
-        <div class="card" data-handle>
+        <div class="card">
           <input type="hidden" class="hide" name="slider[]" value="<?php echo $key; ?>">
-          <div class="img"><img src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>"></div>
+          <div class="img" data-handle><img src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>"></div>
           <div class="body">
             <header>
               <div class="mB10 font-12"><?php echo \dash\get::index($value, 'alt'); ?></div>

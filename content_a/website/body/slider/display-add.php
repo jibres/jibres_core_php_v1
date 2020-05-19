@@ -1,6 +1,6 @@
 
 
-<div class="avand">
+<div class="avand-sm">
 
     <form method="post" class="box" autocomplete="off" >
       <?php if(\dash\data::dataRow()) {?>
@@ -10,8 +10,9 @@
       <?php } //endif ?>
 
 
-      <div class="body">
+      <img src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
 
+      <div class="body">
         <div class="input ">
           <input type="file" name='image' accept="image/gif, image/jpeg, image/png" id="image1" >
           <label for="image1"></label>
@@ -36,23 +37,16 @@
         </div>
 
 
-        <label for="sort"><?php echo T_("Sort"); ?></label>
-        <div class="input">
-          <input type="number" name="sort" id="sort" value="<?php echo \dash\data::dataRow_sort() ?>"  >
-        </div>
-
-
       </div>
 
       <footer class="txtRa">
         <?php if(\dash\data::dataRow()) {?>
           <div class="f">
             <div class="cauto">
-              <div data-confirm data-data='{"remove": "slider"}' class="btn danger"><?php echo T_("Remove"); ?></div>
+              <div data-confirm data-data='{"remove": "slider"}' class="btn outline danger"><?php echo T_("Remove"); ?></div>
             </div>
             <div class="c"></div>
             <div class="cauto">
-              <a href="<?php echo \dash\url::that(). '/slider?id='. \dash\request::get('id'); ?>" class="btn secondary outline"><?php echo T_("Cancel"); ?></a>
               <button class="btn primary"><?php echo T_("Edit"); ?></button>
             </div>
           </div>
