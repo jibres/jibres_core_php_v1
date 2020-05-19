@@ -23,6 +23,9 @@ if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
 <?php if(\dash\face::btnDuplicate()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
 <?php } // endif ?>
+<?php if(\dash\face::btnSetting()) { ?>
+     <a class="btn light" href="<?php echo \dash\face::btnSetting(); ?>"><i class="pRa5 compact sf-gear"></i><span><?php echo T_("Setting"); ?></span></a>
+<?php } // endif ?>
 <?php if(\dash\face::btnPreview()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>" target="_blank"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
 <?php } // endif ?>
