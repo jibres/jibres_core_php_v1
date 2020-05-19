@@ -30,15 +30,15 @@ class view
 				$slider[$key]['edit_link'] = \dash\url::that(). '/slider/edit?id='. \dash\data::sliderID(). '&index='. $key;
 			}
 
-			$slider[] =
-			[
-				'image'  => \dash\url::icon(),
-				'edit_link'    => \dash\url::that(). '/slider/add?id='. \dash\data::sliderID(),
-				'alt'    => null,
-				'sort'   => null,
-				'target' => null,
-				'mod'    => 'add',
-			];
+			// $slider[] =
+			// [
+			// 	'image'  => \dash\url::icon(),
+			// 	'edit_link'    => \dash\url::that(). '/slider/add?id='. \dash\data::sliderID(),
+			// 	'alt'    => null,
+			// 	'sort'   => null,
+			// 	'target' => null,
+			// 	'mod'    => 'add',
+			// ];
 
 			\dash\data::lineSetting_slider($slider);
 		}
