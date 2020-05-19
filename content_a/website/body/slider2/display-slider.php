@@ -25,14 +25,5 @@
       </div>
     </div>
 
-    <div class="vcard mA10">
-      <img  src="<?php echo \dash\url::icon() ?>" alt="<?php echo T_("Jibres") ?>" >
-      <div class="content">
-        <div class="header"><?php echo T_("Edit setting"); ?></div>
-      </div>
-      <div class="footer">
-        <a href="<?php echo \dash\url::that(). '/slider2/set?id='. \dash\request::get('id'); ?>" class="btn primary outline block"><?php echo T_("Setting") ?></a>
-      </div>
-    </div>
   </div>
 </div>

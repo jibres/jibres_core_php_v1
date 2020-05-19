@@ -52,9 +52,9 @@ class controller
 		}
 		else
 		{
-			if(\dash\url::directory() !== 'website/body/slider2/set')
+			if(\dash\url::directory() !== 'website/body/slider2/add')
 			{
-				\dash\redirect::to(\dash\url::that(). '/slider2/set');
+				\dash\redirect::to(\dash\url::that(). '/slider2/add');
 			}
 		}
 	}
