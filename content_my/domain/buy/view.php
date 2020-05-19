@@ -20,8 +20,8 @@ class view
 				$sugest_domain = \lib\app\nic_domain\suggestion::get(\dash\data::getDomain());
 				\dash\data::domainSuggestion($sugest_domain);
 
-				$sugest_domain4 = \lib\app\nic_domain\suggestion::get4(\dash\data::getDomain());
-				\dash\data::domainSuggestion4($sugest_domain4);
+				// $sugest_domain4 = \lib\app\nic_domain\suggestion::get4(\dash\data::getDomain());
+				// \dash\data::domainSuggestion4($sugest_domain4);
 			}
 
 			$new_result = [];
