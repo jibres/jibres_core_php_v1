@@ -3,7 +3,7 @@
 if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
 {
 ?>
-  <div class="avand titleBox">
+  <div class="titleBox">
    <div class="f align-center">
 <?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
     <div class="cauto pRa10">
