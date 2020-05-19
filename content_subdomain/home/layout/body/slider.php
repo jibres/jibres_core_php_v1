@@ -2,9 +2,9 @@
 
 $slider = [];
 
-if(isset($line_detail['slider']) && is_array($line_detail['slider']))
+if(isset($line_detail['value']['slider']) && is_array($line_detail['value']['slider']))
 {
-	$slider = $line_detail['slider'];
+	$slider = $line_detail['value']['slider'];
 }
 
 ?>
@@ -14,7 +14,7 @@ if(isset($line_detail['slider']) && is_array($line_detail['slider']))
   <div class="jSlider1 mB10" data-slick>
 	<?php foreach ($slider as $key => $value) {?>
 		<a href="<?php echo \dash\get::index($value, 'url') ?>" <?php if(\dash\get::index($value, 'target')) { echo 'target="_blank"'; } ?>>
-    		<img src="<?php echo \dash\get::index($value, 'image'); ?>" alt="<?php echo \dash\get::index($value, 'alt'); ?>">
+    		<img src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'image')); ?>" alt="<?php echo \dash\get::index($value, 'alt'); ?>">
 		</a>
     <?php } //endif ?>
   </div>
