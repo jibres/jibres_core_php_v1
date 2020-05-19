@@ -6,9 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Jibres Dashboard'));
+		\dash\face::title(T_('Jibres Panel'));
 		\dash\face::specialTitle(true);
-		\dash\face::help(\dash\url::support().'/dashboard');
+		\dash\face::help(\dash\url::support().'/my');
 
 		if(!\dash\detect\device::detectPWA())
 		{
