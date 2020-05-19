@@ -5,7 +5,7 @@
       <div class="c-3 c-xs-12">
         <input type="hidden" name="slider[]" value="<?php echo $key; ?>">
         <div class="card">
-          <img class="handle" src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>" >
+          <img data-handle src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>" >
           <div class="body">
             <header>
               <div class="mB10 font-12"><?php echo \dash\get::index($value, 'alt'); ?></div>
