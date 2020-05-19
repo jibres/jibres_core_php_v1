@@ -268,6 +268,8 @@ class transfer
 
 			\dash\notif::ok(T_("Your domain was transfered"), ['alerty' => true]);
 
+			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_type' => 'transfer',  'my_finalprice' => $price]);
+
 			return true;
 
 		}

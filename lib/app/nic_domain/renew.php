@@ -476,6 +476,8 @@ class renew
 
 			\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
+			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period_month, 'my_type' => 'renew', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
+
 			// \dash\notif::ok(, ['alerty' => true]);
 
 
