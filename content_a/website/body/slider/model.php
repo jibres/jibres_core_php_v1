@@ -17,6 +17,12 @@ class model
 			return;
 		}
 
+		if(\dash\request::post('sort') === 'sort')
+		{
+			\lib\app\website\body\line\slider::set_sort(\dash\data::sliderID(), \dash\request::post('slider'));
+			return true;
+		}
+
 		if(\dash\url::dir(3) === 'set')
 		{
 			self::set();

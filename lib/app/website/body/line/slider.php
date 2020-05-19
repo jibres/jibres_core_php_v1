@@ -176,6 +176,7 @@ class slider
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
+
 	public static function remove($_line_id, $_slider_index)
 	{
 		$line_id = \dash\validate::code($_line_id);
@@ -222,6 +223,88 @@ class slider
 		\dash\notif::ok(T_("Slider page was removed"));
 
 		return true;
+	}
+
+
+	public static function set_sort($_line_id, $_slider_sort)
+	{
+		$line_id = \dash\validate::code($_line_id);
+		$line_id = \dash\coding::decode($line_id);
+
+		if(!$line_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		if(!$_slider_sort || !is_array($_slider_sort))
+		{
+			\dash\notif::error(T_("Invalid sort detail"));
+			return false;
+		}
+
+		$slider_sort = [];
+
+		foreach ($_slider_sort as $key => $value)
+		{
+			if(!is_numeric($value))
+			{
+				\dash\notif::error(T_("Invalid sort index"));
+				return false;
+			}
+
+			$slider_sort[] = intval($value);
+		}
+
+		$saved_value = self::inline_get($line_id);
+
+		if(!$saved_value || !isset($saved_value['slider']))
+		{
+			\dash\notif::error(T_("Slider detail not found"));
+			return false;
+		}
+
+		$saved_slider = $saved_value['slider'];
+
+		foreach ($slider_sort as $new_index => $old_index)
+		{
+			if(!array_key_exists($old_index, $saved_slider))
+			{
+				\dash\redirect::pwd();
+				return false;
+			}
+
+			$saved_slider[$old_index]['sort'] = $new_index;
+		}
+
+
+		$sort_column = array_column($saved_slider, 'sort');
+
+		if(count($sort_column) !== count($_slider_sort))
+		{
+			\dash\redirect::pwd();
+			return;
+		}
+
+		$my_sorted_list = $saved_slider;
+
+		array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+		$saved_slider = $my_sorted_list;
+
+		$saved_slider = array_values($saved_slider);
+
+		$saved_value['slider'] = $saved_slider;
+
+		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
+
+		$save = \lib\db\setting\update::value($saved_value, $line_id);
+
+		\lib\app\website\generator::remove_catch();
+
+		\dash\notif::ok(T_("Sorted"));
+		return true;
+
 	}
 
 
