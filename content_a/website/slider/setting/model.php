@@ -21,7 +21,7 @@ class model
 		[
 			'title'   => \dash\request::post('title'),
 			// 'sort'    => \dash\request::post('sort'),
-			// 'publish' => \dash\request::post('publish'),
+			'publish' => 1,
 			'ratio'   => \dash\request::post('ratio') === '0' ? null : \dash\request::post('ratio'),
 		];
 
@@ -44,7 +44,7 @@ class model
 			$code = \lib\app\website\body\add::line('slider', $post, true);
 		}
 
-		\dash\redirect::to(\dash\url::this(). '/slider?id='. $code);
+		\dash\redirect::pwd(\dash\url::this(). '/slider?id='. $code);
 
 	}
 }

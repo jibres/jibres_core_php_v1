@@ -27,6 +27,32 @@ class slider
 	}
 
 
+	public static function default_ratio($_needle = null)
+	{
+		$default =
+		[
+			'ratio' => '16:9',
+			'title' => T_("16:9 (Default)"),
+		];
+
+		if($_needle)
+		{
+			if(isset($default[$_needle]))
+			{
+				return $default[$_needle];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $default;
+		}
+	}
+
+
 	public static function ready($_data)
 	{
 		$result = [];

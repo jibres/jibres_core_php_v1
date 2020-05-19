@@ -20,6 +20,8 @@ class view
 			\dash\data::back_link(\dash\url::this());
 		}
 
+		\dash\data::defaultRatioSlider(\lib\app\website\body\line\slider::default_ratio('title'));
+
 
 		if(\dash\data::lineSetting_slider() && is_array(\dash\data::lineSetting_slider()))
 		{
