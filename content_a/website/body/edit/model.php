@@ -13,11 +13,9 @@ class model
 			'ratio'   => \dash\request::post('ratio') === '0' ? null : \dash\request::post('ratio'),
 		];
 
-		$remove = false;
 
 		if(\dash\request::post('remove') === 'line')
 		{
-			$remove = true;
 			\lib\app\website\body\remove::line(\dash\request::post('id'));
 		}
 		else

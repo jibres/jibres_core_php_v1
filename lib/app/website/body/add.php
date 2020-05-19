@@ -4,10 +4,16 @@ namespace lib\app\website\body;
 class add
 {
 
-	public static function line($_key)
+	public static function line($_key, $_args = [], $_encode = false)
 	{
+		$_args['line'] = $_key;
+
 		$condition =
 		[
+			'title'   => 'string_200',
+			'sort'    => 'smallint',
+			'publish' => 'bit',
+			'ratio'   => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
 			'line' => ['enum' => \lib\app\website\body\template::get_keys()],
 		];
 
@@ -15,14 +21,16 @@ class add
 
 		$meta      = [];
 
-		$data      = \dash\cleanse::input(['line' => $_key], $condition, $require, $meta);
+		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$value =
 		[
-			'title'   => \lib\app\website\body\template::get($_key, 'title'),
-			'type'    => $data['line'],
-			'sort'    => null,
-			'publish' => 1,
+			'title'       => $data['title'] ? $data['title'] : \lib\app\website\body\template::get($_key, 'title'),
+			'type'        => $data['line'],
+			'ratio'       => $data['ratio'],
+			'sort'        => null,
+			'publish'     => 1,
+			$data['line'] => [],
 		];
 
 		$value = json_encode($value, JSON_UNESCAPED_UNICODE);
@@ -40,7 +48,14 @@ class add
 
 		\lib\app\website\generator::remove_catch();
 
-		return $line_id;
+		if($_encode)
+		{
+			return \dash\coding::encode($line_id);
+		}
+		else
+		{
+			return $line_id;
+		}
 	}
 }
 ?>
