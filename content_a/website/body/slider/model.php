@@ -5,22 +5,6 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('edit_line') === 'setting')
-		{
-			\content_a\website\body\edit\model::post();
-
-			if(\dash\engine\process::status())
-			{
-				if(\dash\request::post('remove') === 'line')
-				{
-					\dash\redirect::to(\dash\url::that());
-				}
-			}
-
-			return;
-		}
-
-
 		if(\dash\request::post('remove') === 'slider')
 		{
 			$slider = \lib\app\website\body\line\slider::remove(\dash\data::sliderID(), \dash\request::get('index'));
@@ -32,6 +16,23 @@ class model
 
 			return;
 		}
+
+		if(\dash\url::dir(3) === 'set')
+		{
+			self::set();
+		}
+		elseif(\dash\url::dir(3) === 'add' || \dash\url::dir(3) === 'edit')
+		{
+			self::add();
+		}
+
+
+
+	}
+
+
+	private static function add()
+	{
 
 
 		$post =
@@ -75,6 +76,40 @@ class model
 				\dash\redirect::to(\dash\url::that(). '/slider?id='. \dash\data::sliderID());
 			}
 		}
+	}
+
+
+	private static function set()
+	{
+
+		$post =
+		[
+			'title'   => \dash\request::post('title'),
+			// 'sort'    => \dash\request::post('sort'),
+			// 'publish' => \dash\request::post('publish'),
+			'ratio'   => \dash\request::post('ratio') === '0' ? null : \dash\request::post('ratio'),
+		];
+
+		if(\dash\request::get('id'))
+		{
+
+			if(\dash\request::post('remove') === 'line')
+			{
+				\lib\app\website\body\remove::line(\dash\request::post('id'));
+				\dash\redirect::to(\dash\url::that());
+			}
+			else
+			{
+				\lib\app\website\body\edit::line($post, \dash\request::post('id'));
+				$code = \dash\request::get('id');
+			}
+		}
+		else
+		{
+			$code = \lib\app\website\body\add::line('slider', $post, true);
+		}
+
+		\dash\redirect::to(\dash\url::that(). '/slider?id='. $code);
 	}
 }
 ?>

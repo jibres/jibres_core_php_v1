@@ -10,7 +10,7 @@
             <div class="meta"><span><?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link"></i><?php }// endif ?></span></div>
           </div>
           <div class="footer">
-            <a href="<?php echo \dash\url::that(). '/slider2/edit?id='. \dash\request::get('id'). '&index='. $key; ?>" class="btn primary outline block"><?php echo T_("Edit") ?></a>
+            <a href="<?php echo \dash\url::that(). '/slider/edit?id='. \dash\request::get('id'). '&index='. $key; ?>" class="btn primary outline block"><?php echo T_("Edit") ?></a>
           </div>
         </div>
       <?php } // endfor ?>
@@ -21,7 +21,7 @@
         <div class="header"><?php echo T_("Add new slider page"); ?></div>
       </div>
       <div class="footer">
-        <a href="<?php echo \dash\url::that(). '/slider2/add?id='. \dash\request::get('id'); ?>" class="btn primary outline block"><?php echo T_("Add") ?></a>
+        <a href="<?php echo \dash\url::that(). '/slider/add?id='. \dash\request::get('id'); ?>" class="btn primary outline block"><?php echo T_("Add") ?></a>
       </div>
     </div>
 

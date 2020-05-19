@@ -1,12 +1,12 @@
 
 
-<div class="avand">
-
+<div class="f">
+  <div class="c6 s12">
     <form method="post" class="box" autocomplete="off" >
       <?php if(\dash\data::dataRow()) {?>
         <header><h2><?php echo T_("Edit slider page") ?></h2></header>
       <?php }else{ ?>
-        <header><h2><?php echo T_("Add slider page") ?></h2></header>
+        <header><h2><?php echo T_("Add slider page"). ' - '. \dash\get::index(\dash\data::lineSetting(), 'title') ?></h2></header>
       <?php } //endif ?>
 
 
@@ -52,7 +52,7 @@
             </div>
             <div class="c"></div>
             <div class="cauto">
-              <a href="<?php echo \dash\url::that(). '/slider2?id='. \dash\request::get('id'); ?>" class="btn secondary outline"><?php echo T_("Cancel"); ?></a>
+              <a href="<?php echo \dash\url::that(). '/slider?id='. \dash\request::get('id'); ?>" class="btn secondary outline"><?php echo T_("Cancel"); ?></a>
               <button class="btn primary"><?php echo T_("Edit"); ?></button>
             </div>
           </div>
@@ -63,5 +63,29 @@
 
     </form>
 
+    <?php require_once(root. 'content_a/website/body/edit_line.php'); ?>
 
+  </div>
+  <div class="c6 s12">
+    <div class="mLa10">
+
+      <?php if(\dash\data::lineSetting_slider() && is_array(\dash\data::lineSetting_slider())) {?>
+      <div class="large f">
+        <?php foreach (\dash\data::lineSetting_slider() as $key => $value) {?>
+        <div class="vcard mA10 <?php if(\dash\request::get('index') == $key) {echo 'active';} ?>">
+          <img  src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>" >
+          <div class="content">
+            <div class="header"><?php echo \dash\get::index($value, 'url'); ?></div>
+            <div class="meta"><span><?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link"></i><?php }// endif ?></span></div>
+          </div>
+          <div class="footer">
+            <a href="<?php echo \dash\url::that(). '/slider?id='. \dash\request::get('id'). '&index='. $key; ?>" class="btn primary outline block"><?php echo T_("Edit") ?></a>
+          </div>
+        </div>
+        <?php } // endfor ?>
+      </div>
+      <?php } //endif ?>
+
+    </div>
+  </div>
 </div>

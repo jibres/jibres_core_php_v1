@@ -1,22 +1,11 @@
 <?php
-namespace content_a\website\body\slider2;
+namespace content_a\website\body\slider;
 
 
 class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::directory() === 'website/body/slider2/add' || \dash\url::directory() === 'website/body/slider2/edit')
-		{
-			\dash\open::get();
-			\dash\open::post();
-		}
-
-		if(\dash\url::directory() === 'website/body/slider2/set')
-		{
-			\dash\open::get();
-			\dash\open::post();
-		}
 
 		$id = \dash\request::get('id');
 
@@ -48,13 +37,6 @@ class controller
 					\dash\header::status(403, T_("Invalid index of slider!"));
 				}
 
-			}
-		}
-		else
-		{
-			if(\dash\url::directory() !== 'website/body/slider2/add')
-			{
-				\dash\redirect::to(\dash\url::that(). '/slider2/add');
 			}
 		}
 	}
