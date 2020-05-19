@@ -34,6 +34,8 @@ class view
 				$domain = isset($get_msg['payment_response']['final_fn_args']['domain']) ? $get_msg['payment_response']['final_fn_args']['domain'] : null;
 				$period = isset($get_msg['payment_response']['final_fn_args']['period']) ? $get_msg['payment_response']['final_fn_args']['period'] : null;
 
+				// @TODO @reza @check
+				// check type of operation. register, renew or transfer and make custom notif!
 
 				if(isset($get_msg['condition']) && $get_msg['condition'] === 'ok' && isset($get_msg['plus']))
 				{
