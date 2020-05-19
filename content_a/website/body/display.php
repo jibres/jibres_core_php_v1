@@ -2,16 +2,15 @@
 
 <?php if(\dash\data::bodyLineList()) {?>
 <nav class="items">
-  <ul>
+  <ul class="sortable">
   <?php foreach (\dash\data::bodyLineList() as $key => $value) {?>
 
      <li>
         <a href="<?php echo \dash\url::that(). '/'. \dash\get::index($value,'type') .'?id='. \dash\get::index($value, 'id'); ?>" class="f">
           <div class="key">
             <div class="f">
-              <div class="c2">
-                <?php echo \dash\get::index($value, 'title')?>
-              </div>
+              <div class="c1 handle"><i class="sf-bag"></i></div>
+              <div class="c2"><?php echo \dash\get::index($value, 'title')?></div>
               <div class="c1">
                 <?php if(\dash\get::index($value, 'publish')) {?>
                   <i title="<?php echo T_("Published") ?>" class="sf-check fc-green"></i>
