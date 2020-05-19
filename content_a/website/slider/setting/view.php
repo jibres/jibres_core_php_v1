@@ -15,7 +15,6 @@ class view
 
 		if(\dash\data::sliderID())
 		{
-			\dash\face::btnSetting(\dash\url::this(). '/slider/set?id='. \dash\data::sliderID());
 			// action
 			\dash\data::action_text(T_('Add slider'));
 			\dash\data::action_link(\dash\url::this(). '/slider/add?id='. \dash\data::sliderID());

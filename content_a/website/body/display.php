@@ -6,7 +6,7 @@
   <?php foreach (\dash\data::bodyLineList() as $key => $value) {?>
 
      <li>
-        <a href="<?php echo \dash\url::that(). '/'. \dash\get::index($value,'type') .'?id='. \dash\get::index($value, 'id'); ?>" class="f">
+        <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value,'type') .'?id='. \dash\get::index($value, 'id'); ?>" class="f">
           <div class="key">
             <div class="f">
               <div class="c1 handle"><i class="sf-bag"></i></div>

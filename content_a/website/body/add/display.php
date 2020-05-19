@@ -12,7 +12,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::that();?>/slider"><?php echo T_("Add Slider Block") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/slider"><?php echo T_("Add Slider Block") ?></a>
     </div>
   </div>
 </section>
