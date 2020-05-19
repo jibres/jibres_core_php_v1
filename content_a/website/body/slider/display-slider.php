@@ -1,11 +1,11 @@
-<form method="post" autocomplete="off">
-  <div class="row" data-sortable>
+
+  <form class="row" data-sortable method="post">
     <?php if(\dash\data::lineSetting_slider() && is_array(\dash\data::lineSetting_slider())) {?>
       <?php foreach (\dash\data::lineSetting_slider() as $key => $value) {?>
       <div class="c-3 c-xs-12">
         <input type="hidden" name="slider[]" value="<?php echo $key; ?>">
         <div class="card">
-          <img  src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>" >
+          <img class="handle" src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>" >
           <div class="body">
             <header>
               <div class="mB10 font-12"><?php echo \dash\get::index($value, 'alt'); ?></div>
@@ -19,5 +19,4 @@
       </div>
       <?php } // endfor ?>
     <?php } //endif ?>
-  </div>
-</form>
+  </form>
