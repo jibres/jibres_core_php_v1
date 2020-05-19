@@ -1,5 +1,5 @@
 <?php
-namespace content_a\website\body\slider;
+namespace content_a\website\slider\setting;
 
 
 class view
@@ -8,16 +8,16 @@ class view
 	{
 		\dash\face::title(T_('Manage slider'));
 
-		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/body');
-
-
 		if(\dash\data::sliderID())
 		{
-			// action
-			\dash\data::action_text(T_('Add slider'));
-			\dash\data::action_link(\dash\url::this(). '/slider/add?id='. \dash\data::sliderID());
+			// back
+			\dash\data::back_text(T_('Slider list'));
+			\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::sliderID());
+		}
+		else
+		{
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
 		}
 
 
