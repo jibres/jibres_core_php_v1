@@ -8,18 +8,12 @@
 
 
     <form method="post" class="box" autocomplete="off" >
-      <?php if(\dash\data::dataRow()) {?>
-        <header><h2><?php echo T_("Edit slider page") ?></h2></header>
-      <?php }else{ ?>
-        <header><h2><?php echo T_("Add slider page") ?></h2></header>
-      <?php } //endif ?>
-
 
       <img src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
 
       <div class="body">
         <div class="input ">
-          <input type="file" name='image' accept="image/gif, image/jpeg, image/png" id="image1" >
+          <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1" >
           <label for="image1"></label>
         </div>
 
