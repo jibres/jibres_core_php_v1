@@ -32,6 +32,10 @@ class view
 
 			\dash\data::lineSetting_slider($slider);
 		}
+		else
+		{
+			\dash\redirect::to(\dash\url::this(). '/slider/add');
+		}
 	}
 }
 ?>

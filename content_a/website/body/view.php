@@ -16,6 +16,9 @@ class view
 		\dash\data::action_text(T_('Add line'));
 		\dash\data::action_link(\dash\url::that(). '/add');
 
+		// preview
+		\dash\face::btnPreview(\dash\url::set_subdomain(\lib\store::detail('subdomain')));
+
 
 		$body_line_list = \lib\app\website\body\get::line_list();
 		\dash\data::bodyLineList($body_line_list);

@@ -17,7 +17,7 @@ class view
 		else
 		{
 			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::this());
+			\dash\data::back_link(\dash\url::this(). '/body');
 		}
 
 		$ratio = \lib\app\website\body\line\slider::ratio(\dash\data::lineSetting());

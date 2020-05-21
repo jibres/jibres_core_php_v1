@@ -31,7 +31,7 @@ class model
 			if(\dash\request::post('remove') === 'line')
 			{
 				\lib\app\website\body\remove::line(\dash\request::post('id'));
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::to(\dash\url::this(). '/body');
 			}
 			else
 			{
