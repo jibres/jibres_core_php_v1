@@ -2,20 +2,17 @@
 
 <div class="avand-sm">
 
-<div class="mB50" style="display: block;max-width: 100%;">
-  <img id="image" data-cropper src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
-</div>
-
-
     <form method="post" class="box" autocomplete="off" >
+
+      <div data-uploader>
+        <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1">
+        <label for="image1">Drag &amp; Drop your files or <span class="txtB">Browse</span></label>
+      </div>
+
 
       <img src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
 
       <div class="body">
-        <div class="input ">
-          <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1" >
-          <label for="image1"></label>
-        </div>
 
         <label for="alt"><?php echo T_("Image Alt"); ?></label>
         <div class="input">
@@ -56,5 +53,10 @@
 
     </form>
 
+
+
+<div class="mB50" style="display: block;max-width: 100%;">
+  <img id="image" data-cropper src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
+</div>
 
 </div>
