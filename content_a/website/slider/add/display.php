@@ -11,7 +11,7 @@
 
     <div class="box">
 
-      <img src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
+      <img id='finalImage' src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
 
       <div class="body">
 
