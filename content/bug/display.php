@@ -75,7 +75,7 @@
  		<p class="mB25"><?php echo T_("All technology contains bugs. If you've found a security vulnerability, we'd like to help out. By submitting a vulnerability to a program on Jibres. The proof of concept is the most important part of your report submission. Clear, reproducible steps will help us validate this issue as quickly as possible.") ?></p>
 
 
-     <form method="post" data-clear autocomplete="off">
+     <form method="post" data-clear autocomplete="off" enctype="multipart/form-data">
 <?php \dash\utility\hive::html(); ?>
 
       <label for="iu1"><?php echo T_("Your nick name"); ?></label>
