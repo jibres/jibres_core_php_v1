@@ -1,14 +1,14 @@
 <?php
 namespace lib\app\website\body\line;
 
-class latestproduct
+class productline
 {
 
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);
 
-		if(isset($result['type']) && $result['type'] === 'latestproduct')
+		if(isset($result['type']) && $result['type'] === 'productline')
 		{
 			// ok
 		}
@@ -18,9 +18,9 @@ class latestproduct
 			return false;
 		}
 
-		if(isset($result['latestproduct']) && is_array($result['latestproduct']))
+		if(isset($result['productline']) && is_array($result['productline']))
 		{
-			$result['latestproduct'] = self::ready($result['latestproduct']);
+			$result['productline'] = self::ready($result['productline']);
 		}
 
 
@@ -102,7 +102,7 @@ class latestproduct
 	}
 
 
-	// add new latestproduct
+	// add new productline
 	public static function add($_args)
 	{
 		$data = self::check_validate($_args);
@@ -119,11 +119,11 @@ class latestproduct
 		}
 
 
-		$line_id = \lib\app\website\body\add::line('latestproduct');
+		$line_id = \lib\app\website\body\add::line('productline');
 
 		$saved_option = self::inline_get($line_id);
 
-		$saved_option['latestproduct'] =
+		$saved_option['productline'] =
 		[
 			'limit'    => $data['limit'],
 		];
@@ -135,11 +135,11 @@ class latestproduct
 
 		\dash\notif::ok(T_("Latest news added"));
 
-		// retrun id to redirect to this latestproduct
+		// retrun id to redirect to this productline
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
-	public static function remove($_line_id, $_latestproduct_index)
+	public static function remove($_line_id, $_productline_index)
 	{
 		$line_id = \dash\validate::code($_line_id);
 		$line_id = \dash\coding::decode($line_id);
@@ -148,7 +148,7 @@ class latestproduct
 		{
 			return false;
 		}
-		if(!is_numeric($_latestproduct_index))
+		if(!is_numeric($_productline_index))
 		{
 			\dash\notif::error(T_("Latest news index must be a number"));
 			return false;
@@ -156,25 +156,25 @@ class latestproduct
 
 		$saved_value = self::inline_get($line_id);
 
-		if(!$saved_value || !isset($saved_value['latestproduct']))
+		if(!$saved_value || !isset($saved_value['productline']))
 		{
 			return false;
 		}
 
-		$saved_latestproduct = $saved_value['latestproduct'];
+		$saved_productline = $saved_value['productline'];
 
 
-		if(!array_key_exists($_latestproduct_index, $saved_latestproduct))
+		if(!array_key_exists($_productline_index, $saved_productline))
 		{
-			\dash\notif::error(T_("Invalid latestproduct index"));
+			\dash\notif::error(T_("Invalid productline index"));
 			return false;
 		}
 
-		unset($saved_latestproduct[$_latestproduct_index]);
+		unset($saved_productline[$_productline_index]);
 
-		$saved_latestproduct = array_values($saved_latestproduct);
+		$saved_productline = array_values($saved_productline);
 
-		$saved_value['latestproduct'] = $saved_latestproduct;
+		$saved_value['productline'] = $saved_productline;
 
 		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
 
@@ -188,7 +188,7 @@ class latestproduct
 	}
 
 
-	public static function edit($_args, $_line_id, $_latestproduct_index = null)
+	public static function edit($_args, $_line_id, $_productline_index = null)
 	{
 
 		$data      = self::check_validate($_args);
@@ -198,7 +198,7 @@ class latestproduct
 			return false;
 		}
 
-		$line_option = \lib\app\website\body\template::get('latestproduct');
+		$line_option = \lib\app\website\body\template::get('productline');
 
 		if(!isset($line_option['key']))
 		{
@@ -216,12 +216,12 @@ class latestproduct
 
 		$saved_value = self::inline_get($line_id);
 
-		if(!$saved_value || !isset($saved_value['latestproduct']))
+		if(!$saved_value || !isset($saved_value['productline']))
 		{
 			return false;
 		}
 
-		$saved_latestproduct = $saved_value['latestproduct'];
+		$saved_productline = $saved_value['productline'];
 
 
 		$ready_to_save =
@@ -230,9 +230,9 @@ class latestproduct
 		];
 
 
-		$saved_latestproduct = $ready_to_save;
+		$saved_productline = $ready_to_save;
 
-		$saved_value['latestproduct'] = $saved_latestproduct;
+		$saved_value['productline'] = $saved_productline;
 
 		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
 

@@ -86,7 +86,7 @@ class template
 
 		$list[] =
 		[
-			'key'          => 'latestproduct',
+			'key'          => 'productline',
 			'title'        => T_("Latest product"),
 			'version'      => 1,
 		];
