@@ -152,11 +152,11 @@ class slider
 			return false;
 		}
 
-		if(!$data['url'])
-		{
-			\dash\notif::error(T_("Please set the link"), 'url');
-			return false;
-		}
+		// if(!$data['url'])
+		// {
+		// 	\dash\notif::error(T_("Please set the link"), 'url');
+		// 	return false;
+		// }
 
 		$image_path = null;
 
@@ -404,11 +404,11 @@ class slider
 			return false;
 		}
 
-		if(!$data['url'])
-		{
-			\dash\notif::error(T_("Please set the link"), 'url');
-			return false;
-		}
+		// if(!$data['url'])
+		// {
+		// 	\dash\notif::error(T_("Please set the link"), 'url');
+		// 	return false;
+		// }
 
 
 		$ready_to_save =
