@@ -133,63 +133,15 @@ class text
 
 		$save = \lib\db\setting\update::value($saved_option, $line_id);
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("Text added"));
 
 		// retrun id to redirect to this text
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
 
-	public static function remove($_line_id, $_text_index)
-	{
-		$line_id = \dash\validate::code($_line_id);
-		$line_id = \dash\coding::decode($line_id);
 
-		if(!$line_id)
-		{
-			return false;
-		}
-		if(!is_numeric($_text_index))
-		{
-			\dash\notif::error(T_("Latest news index must be a number"));
-			return false;
-		}
-
-		$saved_value = self::inline_get($line_id);
-
-		if(!$saved_value || !isset($saved_value['text']))
-		{
-			return false;
-		}
-
-		$saved_text = $saved_value['text'];
-
-
-		if(!array_key_exists($_text_index, $saved_text))
-		{
-			\dash\notif::error(T_("Invalid text index"));
-			return false;
-		}
-
-		unset($saved_text[$_text_index]);
-
-		$saved_text = array_values($saved_text);
-
-		$saved_value['text'] = $saved_text;
-
-		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
-
-		$save = \lib\db\setting\update::value($saved_value, $line_id);
-
-		\lib\app\website\generator::remove_catch();
-
-		\dash\notif::ok(T_("Latest news was removed"));
-
-		return true;
-	}
-
-
-	public static function edit($_args, $_line_id, $_text_index = null)
+	public static function edit($_args, $_line_id)
 	{
 
 		$data      = self::check_validate($_args);
@@ -241,7 +193,7 @@ class text
 
 		\lib\app\website\generator::remove_catch();
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("Text edited"));
 
 		return true;
 	}
