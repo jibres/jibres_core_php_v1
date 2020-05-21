@@ -26,6 +26,43 @@ class slider
 		return $result;
 	}
 
+	public static function ratio($_data)
+	{
+		if(isset($_data['ratio']))
+		{
+			$ratio = $_data['ratio'];
+		}
+		else
+		{
+			$ratio = self::default_ratio('ratio');
+		}
+
+		if(strpos($ratio, ':') === false)
+		{
+			$ratio = self::default_ratio('ratio');
+		}
+
+		$int_ratio = null;
+
+		$split = explode(':', $ratio);
+		if(isset($split[0]) && isset($split[1]) && is_numeric($split[0]) && is_numeric($split[1]))
+		{
+			$int_ratio = round(intval($split[0]) / intval($split[1]), 5);
+		}
+
+		$result                 = [];
+		$result['ratio_string']        = $ratio;
+		$result['ratio'] = $int_ratio;
+		$result['min_w'] = 800;
+		$result['min_h'] = 600;
+		$result['max_w'] = 1080;
+		$result['max_h'] = 1200;
+
+		return $result;
+
+	}
+
+
 
 	public static function default_ratio($_needle = null)
 	{
