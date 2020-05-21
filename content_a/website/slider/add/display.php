@@ -4,9 +4,9 @@
 
     <form method="post" class="box" autocomplete="off" >
 
-      <div data-uploader>
-        <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1">
-        <label for="image1">Drag &amp; Drop your files or <span class="txtB">Browse</span></label>
+      <div data-uploader class="min-y120">
+        <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1" data-max-files data-max-size=2 >
+        <label for="image1"><?php echo T_('Drag &amp; Drop your files or <span class="txtB">Browse</span>'); ?></label>
       </div>
 
 
