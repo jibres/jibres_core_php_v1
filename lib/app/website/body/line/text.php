@@ -89,7 +89,9 @@ class text
 	{
 		$condition =
 		[
-			'text'   => 'desc',
+			'text'    => 'desc',
+			'title'   => 'string_200',
+			'publish' => 'bit'
 		];
 
 		$require   = [];
@@ -119,7 +121,13 @@ class text
 		}
 
 
-		$line_id = \lib\app\website\body\add::line('text');
+		$line_id = \lib\app\website\body\add::line('text', ['title' => $data['title'], 'publish' => $data['publish']]);
+
+		if(!$line_id)
+		{
+			\dash\log::oops('error:line');
+			return false;
+		}
 
 		$saved_option = self::inline_get($line_id);
 
@@ -173,6 +181,9 @@ class text
 		{
 			return false;
 		}
+
+		$saved_value['title']   = $data['title'];
+		$saved_value['publish'] = $data['publish'];
 
 		$saved_text = $saved_value['text'];
 

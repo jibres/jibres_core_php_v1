@@ -1,21 +1,39 @@
-<div class="avand-sm">
 
-    <form method="post" class="box" autocomplete="off" >
+<div class="avand-lg">
 
-      <div class="body">
 
-        <textarea class="txt" rows="5" name="text" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::dataRow_text(); ?></textarea>
+  <form method="post" class="box" autocomplete="off" >
 
-      </div>
+    <div class="body">
 
-      <footer class="txtRa">
-        <?php if(\dash\data::dataRow()) {?>
-          <button class="btn primary"><?php echo T_("Save"); ?></button>
-        <?php }else{ ?>
-          <button class="btn success"><?php echo T_("Save"); ?></button>
-        <?php } //endif ?>
-      </footer>
 
-    </form>
+
+        <label for="title"><?php echo T_("Line title"); ?></label>
+        <div class="input">
+          <input type="text" name="title" id="title" value="<?php echo \dash\get::index(\dash\data::lineSetting(), 'title') ?>"  >
+        </div>
+
+
+      <textarea class="txt" rows="10" name="text" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::dataRow_text(); ?></textarea>
+
+    </div>
+
+    <footer class="txtRa">
+      <?php if (\dash\data::textID()) { ?>
+        <div class="f">
+          <div class="cauto">
+            <div data-confirm data-data='{"remove": "line", "edit_line" : "setting", "id": "<?php echo \dash\request::get('id'); ?>"}' class="btn outline danger"><?php echo T_("Remove"); ?></div>
+          </div>
+          <div class="c"></div>
+          <div class="cauto">
+            <button class="btn primary"><?php echo T_("Update"); ?></button>
+          </div>
+        </div>
+      <?php }else{ ?>
+        <button class="btn primary"><?php echo T_("Save"); ?></button>
+      <?php } //endif ?>
+    </footer>
+
+  </form>
 
 </div>
