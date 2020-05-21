@@ -89,7 +89,7 @@ class text
 	{
 		$condition =
 		[
-			'text'    => 'desc',
+			'text'    => 'html_basic',
 			'title'   => 'string_200',
 			'publish' => 'bit'
 		];

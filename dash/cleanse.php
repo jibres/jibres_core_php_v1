@@ -564,6 +564,10 @@ class cleanse
 				$data = \dash\validate\text::html($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'html_basic':
+				$data = \dash\validate\text::html_basic($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'desc':
 			case 'seodesc':
 				$meta['min'] = 0;

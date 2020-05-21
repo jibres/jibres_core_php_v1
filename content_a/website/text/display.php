@@ -14,7 +14,7 @@
         </div>
 
 
-      <textarea class="txt" rows="10" name="text" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::dataRow_text(); ?></textarea>
+      <textarea class="txt" data-editor rows="10" name="text" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::dataRow_text(); ?></textarea>
 
     </div>
 

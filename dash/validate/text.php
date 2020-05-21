@@ -331,6 +331,34 @@ class text
 	}
 
 
+	public static function html_basic($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		// Check if there is no invalid character in _data
+	    if(preg_match('/\;base64\,/', $_data))
+	    {
+	    	if($_notif)
+			{
+				\dash\notif::error(T_("Can not send base64 image in this field"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+	    }
+
+		// php 7.3
+		$allow_tag = '<b><strong><i><p><br><ul><ol><li><h1><h2><h3><h4>';
+
+		$data = strip_tags($data, $allow_tag);
+
+		return $data;
+	}
+
+
 	public static function search($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 100]);
