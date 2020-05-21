@@ -2,12 +2,12 @@
 
 <div class="avand-sm">
 
+    <div data-uploader class="box min-y120" <?php echo \dash\data::ratioHtml(); ?>>
+      <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1" data-max-files data-max-size=2 multiple data-multiple-caption="{count} files selected">
+      <label for="image1"><?php echo T_('Drag &amp; Drop your files or <span class="txtB">Browse</span>'); ?></label>
+    </div>
     <form method="post" class="box" autocomplete="off" >
 
-      <div data-uploader class="min-y120" <?php echo \dash\data::ratioHtml(); ?>>
-        <input type="file" data-cropper-file name='image' accept="image/gif, image/jpeg, image/png" id="image1" data-max-files data-max-size=2 multiple data-multiple-caption="{count} files selected">
-        <label for="image1"><?php echo T_('Drag &amp; Drop your files or <span class="txtB">Browse</span>'); ?></label>
-      </div>
 
 
       <img src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
@@ -52,11 +52,5 @@
       </footer>
 
     </form>
-
-
-
-<div class="mB50" style="display: block;max-width: 100%;">
-  <img id="image" data-cropper2 src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
-</div>
 
 </div>
