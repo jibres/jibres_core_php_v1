@@ -32,11 +32,17 @@
         <footer class="txtRa">
           <div class="f">
             <div class="cauto">
-              <div data-confirm data-data='{"remove": "line", "edit_line" : "setting", "id": "<?php echo \dash\request::get('id'); ?>"}' class="btn outline danger"><?php echo T_("Remove"); ?></div>
+              <?php if (\dash\request::get('id')) {?>
+                <div data-confirm data-data='{"remove": "line", "edit_line" : "setting", "id": "<?php echo \dash\request::get('id'); ?>"}' class="btn outline danger"><?php echo T_("Remove"); ?></div>
+              <?php } // endif ?>
             </div>
             <div class="c"></div>
             <div class="cauto">
-              <button class="btn primary"><?php echo T_("Update"); ?></button>
+              <?php if (\dash\request::get('id')) {?>
+                <button class="btn primary"><?php echo T_("Update"); ?></button>
+              <?php }else{ ?>
+                <button class="btn primary"><?php echo T_("Save"); ?></button>
+              <?php } // endif ?>
             </div>
           </div>
         </footer>

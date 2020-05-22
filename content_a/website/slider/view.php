@@ -34,7 +34,7 @@ class view
 		}
 		else
 		{
-			\dash\redirect::to(\dash\url::this(). '/slider/add');
+			\dash\redirect::to(\dash\url::this(). '/slider/add?id='. \dash\data::sliderID());
 		}
 	}
 }

@@ -8,16 +8,19 @@ class view
 	{
 		\dash\face::title(T_('Add slider page'));
 
+
 		if(\dash\data::sliderID())
 		{
 			// back
 			\dash\data::back_text(T_('Slider list'));
 			\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::sliderID());
+			\dash\face::btnSetting(\dash\url::this(). '/slider/setting?id='. \dash\data::sliderID());
 		}
 		else
 		{
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this(). '/body');
+			\dash\face::btnSetting(\dash\url::this(). '/slider/setting');
 		}
 
 		$ratio = \lib\app\website\body\line\slider::ratio(\dash\data::lineSetting());
