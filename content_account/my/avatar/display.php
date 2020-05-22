@@ -10,7 +10,7 @@
     </div>
   </form>
 
-  <div class="box">
-  	<img class="block" id='finalImage' src="<?php echo \dash\data::dataRow_avatar() ?>" alt='<?php echo T_("Your avatar") ?>'>
+  <div class="mTB25">
+  	<img class="circleAvatar" id='finalImage' src="<?php echo \dash\data::dataRow_avatar() ?>" alt='<?php echo T_("Your avatar") ?>'>
   </div>
 </div>
