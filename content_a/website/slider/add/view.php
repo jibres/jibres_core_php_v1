@@ -11,10 +11,22 @@ class view
 
 		if(\dash\data::sliderID())
 		{
-			// back
-			\dash\data::back_text(T_('Slider list'));
-			\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::sliderID());
 			\dash\face::btnSetting(\dash\url::this(). '/slider/setting?id='. \dash\data::sliderID());
+
+
+			if(\dash\data::lineSetting_slider() && is_array(\dash\data::lineSetting_slider()))
+			{
+				// back
+				\dash\data::back_text(T_('Slider list'));
+				\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::sliderID());
+
+			}
+			else
+			{
+				// back
+				\dash\data::back_text(T_('Website body'));
+				\dash\data::back_link(\dash\url::this(). '/body');
+			}
 		}
 		else
 		{
