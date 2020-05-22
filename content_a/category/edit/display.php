@@ -44,7 +44,7 @@
 
 
             <?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
-              <img src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
+              <img id="finalImage" src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
             <?php }//endif ?>
 
              </div>
@@ -53,11 +53,13 @@
           <?php }//endif ?>
 
 
-          <label for="file1" class="block"><?php echo T_("Category image"); ?></label>
-          <div class="input" title='<?php echo T_("Max 1Mb"); ?>'>
-           <input type="file" name="file" id="file1" data-max="1000">
-           </label>
-          </div>
+
+        <label for="file1" class="block"><?php echo T_("Category image"); ?></label>
+        <div class="box min-y120" data-uploader data-name='file' data-final='#finalImage' >
+          <input type="file" accept="image/jpeg, image/png" id="image1">
+          <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+        </div>
+
 
 
 
