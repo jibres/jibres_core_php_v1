@@ -25,10 +25,11 @@
               <input type="text" name="desc<?php echo $i; ?>" id="desc<?php echo $i; ?>" value="<?php echo \dash\get::index($introSaved, $i, 'desc'); ?>" maxlength="100">
             </div>
 
-            <label for="file<?php echo $i; ?>"><?php echo T_("Image"); ?></label>
-            <div class="input">
-              <input type="file" name="file<?php echo $i; ?>" id="file<?php echo $i; ?>">
+            <div class="box min-y120" data-uploader data-name="file<?php echo $i; ?>" data-ratio="1" data-final='#finalImage<?php echo $i; ?>'>
+              <input type="file" accept="image/jpeg, image/png" id="file<?php echo $i; ?>">
+              <label for="file<?php echo $i; ?>"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
             </div>
+
            </div>
         </div>
 
@@ -42,7 +43,7 @@
        <section class="mobileFrame" data-intro>
         <div class="screen">
           <div class="imgBox">
-            <img src="<?php echo \dash\get::index($introSaved, $i, 'image'); ?>" alt='<?php echo \dash\get::index($introSaved, $i, 'title'); ?>'>
+            <img id="finalImage<?php echo $i; ?>" src="<?php echo \dash\get::index($introSaved, $i, 'image'); ?>" alt='<?php echo \dash\get::index($introSaved, $i, 'title'); ?>'>
           </div>
           <h2><?php echo \dash\get::index($introSaved, $i, 'title'); ?></h2>
           <p><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></p>
