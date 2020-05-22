@@ -18,12 +18,17 @@ else
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
+  <form class="c4 s12" method="post" >
     <div class="action dropzone">
-        <div class="input preview">
-          <input type="file" name='logo' accept="image/gif, image/jpeg, image/png" id="logo1" data-preview>
-          <label for="logo1"><?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?><img src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>"><?php } //endif ?></label>
+
+        <?php if(\dash\get::index($header_detail, 'saved', 'header_logo')) {?><img class="w100 mB10-f"  id="finalImage" src="<?php echo \dash\get::index($header_detail, 'saved', 'header_logo') ?>"><?php } //endif ?></label>
+
+        <div class="box min-y120" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-autoSend>
+          <input type="file" accept="image/jpeg, image/png" id="image1">
+          <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
         </div>
+
+
         <div class="progress shadow" data-percent='0'>
           <div class="bar"></div>
           <div class="detail"></div>
