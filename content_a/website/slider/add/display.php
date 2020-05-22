@@ -4,8 +4,8 @@
 
   <form method="post" autocomplete="off" >
 
-    <div class="box min-y120" data-uploader data-name='image' <?php echo \dash\data::ratioHtml(); ?>>
-      <input type="file" data-cropper-file accept="image/gif, image/jpeg, image/png" id="image1" data-max-files data-max-size=2 multiple data-multiple-caption="{count} files selected">
+    <div class="box min-y120" data-uploader data-name='image' data-preview='#finalImage' <?php echo \dash\data::ratioHtml(); ?>>
+      <input type="file" data-cropper-file accept="image/gif, image/jpeg, image/png" id="image1" data-max-size=2>
       <label for="image1"><?php echo T_('Drag &amp; Drop your files or <span class="txtB">Browse</span>'); ?></label>
     </div>
 
