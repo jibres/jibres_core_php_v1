@@ -4,10 +4,12 @@
     <form method="post" autocomplete="off" class="box impact">
       <header><h2><?php echo T_("Set your application logo");?></h2></header>
       <div class="body">
-        <label for="logo"><?php echo T_("Logo"); ?> <small><?php echo T_("Use a square logo in png format"); ?></small></label>
-        <div class="input">
-          <input type="file" name="logo" id="logo">
+
+        <div class="box min-y120" data-uploader data-name='logo' data-ratio="1">
+          <input type="file" data-cropper-file accept="image/jpeg, image/png" id="image1" data-max-size=1 >
+          <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?> (<?php echo T_("Use a square logo"); ?>)</label>
         </div>
+
       </div>
       <footer class="f">
         <?php if(\dash\data::canUseStoreLogo()) {?>

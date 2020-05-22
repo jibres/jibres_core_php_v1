@@ -23,7 +23,7 @@ if(!$meta_color)
 
 <section class="mobileFrame" data-splash style="<?php echo $style; ?>">
   <div class="screen">
-    <img src="<?php echo \dash\data::appDetail_logo(); ?>" alt='<?php echo \dash\data::appDetail_title(); ?>'>
+    <img id='finalImage' src="<?php echo \dash\data::appDetail_logo(); ?>" alt='<?php echo \dash\data::appDetail_title(); ?>'>
     <h2 style="color: <?php echo $text_color; ?>"><?php echo \dash\data::appDetail_title(); ?></h2>
     <h3 style="color: <?php echo $meta_color; ?>"><?php echo \dash\data::appDetail_slogan(); ?></h3>
     <div class="desc" style="color: <?php echo $meta_color; ?>"><?php echo \dash\data::appDetail_desc(); ?></div>
