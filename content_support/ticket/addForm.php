@@ -26,8 +26,9 @@
 
     <label for="file1"><?php echo T_("Attachment"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-    <div class="input">
-     <input type="file" name="file" id="file1" data-max="5000">
+    <div class="box min-y120" data-uploader data-name='file'>
+      <input type="file"  id="file1">
+      <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
     </div>
 
     <?php if(\dash\permission::check('supportTicketAnswer') && \dash\url::child() !== 'add') {?>
