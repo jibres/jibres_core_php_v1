@@ -233,6 +233,19 @@ class add
 
 		\dash\notif::ok(T_("Your store successfully created"), ['alerty' => true]);
 
+		$log =
+		[
+			'my_name'      => $title,
+			'my_subdomain' => $subdomain,
+			'my_owner'     => $args['displayname'],
+			'my_mobile'    => $args['mobile'],
+			'my_gender'    => $args['gender'],
+			'my_avatar'    => $args['avatar'],
+
+		];
+
+		\dash\log::set('business_createNew', $log);
+
 		$result =
 		[
 			'store_id'  => $store_id,
