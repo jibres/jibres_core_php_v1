@@ -135,13 +135,13 @@ $myUrlStatic = \dash\url::cdn();
         </div>
       </div>
     </div>
-
+  </section>
 
 <?php
 if(\dash\language::current() === 'fa')
 {
 ?>
-    <hr>
+  <section class="avand-lg impact">
     <div class="dl vertical msg minimal">
       <div class="f align-center" data-kerkere=".standardFaPNG-vertical">
         <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
@@ -273,9 +273,6 @@ if(\dash\language::current() === 'fa')
         </div>
       </div>
     </div>
-<?php
-} // endif
-?>
-
-
   </section>
+<?php } // endif ?>
+
