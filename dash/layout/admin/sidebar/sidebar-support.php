@@ -10,11 +10,11 @@
 <?php } //endif ?>
 
 <?php if(\dash\data::sidebarDetail_awaiting()) {?>
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=awaitin<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_awaiting()); ?></span><?php echo T_("Awaiting answer"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=awaiting<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_awaiting()); ?></span><?php echo T_("Awaiting answer"); ?></a></li>
 <?php } //endif ?>
 
 <?php if(\dash\data::sidebarDetail_answered()) {?>
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=answere<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_answered()); ?></span><?php echo T_("Answered"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=answered<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_answered()); ?></span><?php echo T_("Answered"); ?></a></li>
 <?php } //endif ?>
 
 <?php if((\dash\data::sidebarDetail_all() || \dash\data::sidebarDetail_awaiting()) && ((\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_unsolved()) || \dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_solved())) {?>
@@ -24,13 +24,13 @@
 <?php if(\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_unsolved()) {?>
 <?php $haveBeforeLink = true; ?>
 
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=unsolve<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_unsolved()); ?></span><?php echo T_("Unsolved"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=unsolved<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_unsolved()); ?></span><?php echo T_("Unsolved"); ?></a></li>
 <?php } //endif ?>
 
 <?php if(\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_solved()) {?>
 <?php $haveBeforeLink = true; ?>
 
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=solve<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_solved()); ?></span><?php echo T_("Solved"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=solved<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_solved()); ?></span><?php echo T_("Solved"); ?></a></li>
 <?php } //endif ?>
 
 <?php if((isset($haveBeforeLink) && $haveBeforeLink) && (\dash\data::sidebarDetail_open() || \dash\data::sidebarDetail_archived())) {?>
@@ -39,16 +39,16 @@
 <?php } //endif ?>
 
 <?php if(\dash\data::sidebarDetail_open()) {?>
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=ope<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_open()); ?></span><?php echo T_("Open tickets"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=open<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_open()); ?></span><?php echo T_("Open tickets"); ?></a></li>
 <?php } //endif ?>
 
 <?php if(\dash\data::sidebarDetail_archived()) {?>
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=archive<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_archived()); ?></span><?php echo T_("Archived"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=archived<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_archived()); ?></span><?php echo T_("Archived"); ?></a></li>
 <?php } //endif ?>
 
 <?php if(\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_trash()) {?>
       <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=deleted<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_trash()); ?></span><?php echo T_("Trash"); ?></a></li>
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=spa<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_spam()); ?></span><?php echo T_("Spam"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=spam<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_spam()); ?></span><?php echo T_("Spam"); ?></a></li>
 <?php } //endif ?>
     </ul>
 </li>
