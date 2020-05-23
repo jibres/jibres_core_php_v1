@@ -265,8 +265,10 @@ class transfer
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
-
 			\dash\notif::ok(T_("Your domain was transfered"), ['alerty' => true]);
+
+			// fetch nic credit after transfer domain
+			\lib\app\nic_credit\get::fetch();
 
 			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_type' => 'transfer',  'my_finalprice' => $price]);
 

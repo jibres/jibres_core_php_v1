@@ -642,6 +642,9 @@ class create
 
 			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period_month, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
+			// fetch nic credit after register domain
+			\lib\app\nic_credit\get::fetch();
+
 			return true;
 
 		}

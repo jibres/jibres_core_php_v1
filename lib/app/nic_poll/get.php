@@ -12,6 +12,9 @@ class get
 		{
 			$count = intval($poll['count']);
 
+			// fetch nic credit after have a poll request
+			\lib\app\nic_credit\get::fetch();
+
 			for ($i=1; $i <= $count ; $i++)
 			{
 				if(isset($poll['id']))
