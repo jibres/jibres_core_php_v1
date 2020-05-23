@@ -106,8 +106,8 @@ else
             <tr>
                 <td class="collapsing"><a href="<?php echo \dash\url::that(). '/view?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-info-circle mRa10"></i><?php echo T_("Request"). ' '. \dash\fit::number(\dash\get::index($value, 'id')); ?></a></td>
 
-                <td class="collapsing ltr txtL"><code><?php echo \dash\get::index($value, 'domain'); ?></code></td>
-                <td class="collapsing ltr txtL"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
+                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?q='. \dash\get::index($value, 'domain'); ?>"><code><?php echo \dash\get::index($value, 'domain'); ?></code></a></td>
+                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?q='. \dash\get::index($value, 'nic_id'); ?>"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></a></td>
                 <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?type='.\dash\get::index($value, 'type'); ?>"><code><?php echo \dash\get::index($value, 'type'); ?></code></a></td>
 
                 <td class="collapsing"><a href="<?php echo \dash\url::that(). '?result_code='.\dash\get::index($value, 'result_code'); ?>"><code><?php echo \dash\get::index($value, 'result_code'); ?></code></a></td>
