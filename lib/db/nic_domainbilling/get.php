@@ -97,12 +97,19 @@ class get
 	}
 
 
-	public static function sale_count_date($_date = null)
+	public static function sale_count_date($_date = null, $_one_date = false)
 	{
 		$date = null;
 		if($_date)
 		{
-			$date = " AND DATE(domainbilling.date) >= DATE('$_date') ";
+			if($_one_date)
+			{
+				$date = " AND DATE(domainbilling.date) = DATE('$_date') ";
+			}
+			else
+			{
+				$date = " AND DATE(domainbilling.date) >= DATE('$_date') ";
+			}
 		}
 
 		$query  = "SELECT COUNT(*) AS `count` FROM domainbilling WHERE 1 $date";

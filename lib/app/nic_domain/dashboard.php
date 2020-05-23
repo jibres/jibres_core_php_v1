@@ -15,8 +15,8 @@ class dashboard
 
 
 		$result                          = [];
-		$result['sale_count_today']      = \lib\db\nic_domainbilling\get::sale_count_date($today);
-		$result['sale_count_yesterday']  = \lib\db\nic_domainbilling\get::sale_count_date($yesterday);
+		$result['sale_count_today']      = \lib\db\nic_domainbilling\get::sale_count_date($today, true);
+		$result['sale_count_yesterday']  = \lib\db\nic_domainbilling\get::sale_count_date($yesterday, true);
 		$result['sale_count_last_week']  = \lib\db\nic_domainbilling\get::sale_count_date($last_week);
 		$result['sale_count_last_month'] = \lib\db\nic_domainbilling\get::sale_count_date($last_month);
 		$result['sale_count_total']      = \lib\db\nic_domainbilling\get::sale_count_date();
