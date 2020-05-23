@@ -2,8 +2,7 @@
 $myUrlStatic = \dash\url::cdn();
 ?>
 
-  <section class="pTB4x">
-   <div class="avand impact">
+  <section class="avand-lg impact">
 
     <div class="dl msg minimal">
       <div class="f align-center" data-kerkere=".standardPNG">
@@ -269,5 +268,4 @@ if(\dash\language::current() === 'fa')
 ?>
 
 
-   </div>
   </section>

@@ -14,7 +14,7 @@
 
 
 <article class="logo">
-  <div class="avand pTB3x">
+  <div class="avand-lg impact">
     <h2><?php echo T_("Download Logo Pack"); ?></h2>
     <div class="msg mB0-f">
       <p><?php echo T_("All type of Jibres logos are available!"); ?> <a target="_blank" href="https://github.com/jibres/Jibres-logo/archive/master.zip"><?php echo T_("Download latest Jibres logo pack."); ?></a></p>
@@ -28,6 +28,6 @@ require_once ('section-standard.php');
 require_once ('section-vertical.php');
 ?>
 
-</article>
 
+</article>
 </div>

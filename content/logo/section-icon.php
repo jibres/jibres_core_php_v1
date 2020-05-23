@@ -1,8 +1,7 @@
 <?php
 $myUrlStatic = \dash\url::cdn();
 ?>
-  <section class="pTB4x">
-   <div class="avand impact">
+  <section class="avand-lg impact">
 
     <div class="dl vertical msg minimal">
       <div class="f align-center" data-kerkere=".standardPNG-icon">
@@ -141,7 +140,4 @@ $myUrlStatic = \dash\url::cdn();
       </div>
     </div>
 
-
-
-   </div>
   </section>
