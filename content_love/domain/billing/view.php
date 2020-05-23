@@ -17,7 +17,8 @@ class view
 			'order'    => \dash\request::get('order'),
 			'sort'     => \dash\request::get('sort'),
 			'action'   => \dash\request::get('action'),
-			'user'   => \dash\request::get('user'),
+			'user'     => \dash\request::get('user'),
+			'filter'   => \dash\request::get('filter'),
 			'is_admin' => true,
 		];
 

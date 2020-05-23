@@ -4,31 +4,31 @@ $myData = \dash\data::dashboardDetail();
 
 <section class="f">
   <div class="c pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/billing?filter=today'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Today");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_today'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/billing?filter=yesterday'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Yesterday");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_yesterday'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/billing?filter=week'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Last Week");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_last_week'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/billing?filter=month'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Last Month");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_last_month'));?></div>
     </a>
   </div>
   <div class="c3 s12">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/billing'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Total");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_total'));?></div>
     </a>

@@ -26,9 +26,10 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => ['enum' => ['id',]],
+			'filter'    => ['enum' => ['today', 'yesterday', 'week', 'month']],
 			'domain_id' => 'code',
 			'user_id'   => 'id',
-			'user'   => 'code',
+			'user'      => 'code',
 			'lastyear'  => 'bit',
 			'action'    => 'string_100',
 			'is_admin'  => 'bit',
@@ -78,6 +79,32 @@ class search
 		if($data['action'])
 		{
 			$and[]         = " domainbilling.action = '$data[action]' ";
+		}
+
+		if($data['filter'])
+		{
+			switch ($data['filter'])
+			{
+				case 'today':
+					$today = date("Y-m-d");
+					$and[] = " DATE(domainbilling.datecreated) = DATE('$today') ";
+					break;
+
+				case 'yesterday':
+					$yesterday  = date("Y-m-d", strtotime("yesterday"));
+					$and[] = " DATE(domainbilling.datecreated) = DATE('$yesterday') ";
+					break;
+
+				case 'week':
+					$last_week = date("Y-m-d", strtotime("-1 week"));
+					$and[]     = " DATE(domainbilling.datecreated) >= DATE('$last_week') ";
+					break;
+
+				case 'month':
+					$last_month = date("Y-m-d", strtotime("-1 month"));
+					$and[]     = " DATE(domainbilling.datecreated) >= DATE('$last_month') ";
+					break;
+			}
 		}
 
 
