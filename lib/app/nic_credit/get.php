@@ -33,6 +33,17 @@ class get
 			\lib\db\nic_credit\insert::multi_insert($must_insert);
 		}
 
+
+		$last = self::last();
+		if(isset($last['balance']) && is_numeric($last['balance']))
+		{
+			// nic credit have less than 50 unit
+			if(floatval($last['balance']) < 50)
+			{
+				\dash\log::set('domain_creditLow', ['my_balance' => $last['balance']]);
+			}
+		}
+
 		return $result;
 	}
 
