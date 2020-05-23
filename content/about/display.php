@@ -26,7 +26,7 @@
  	</div>
  </div>
 
- <div class="avand impact">
+ <div class="avand-lg impact">
 
 
 <?php
