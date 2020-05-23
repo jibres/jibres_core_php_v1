@@ -3,13 +3,14 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-1.jpg" alt='<?php echo T_("Contact Jibres")?>'>
  </div>
 
- <div class="avand impact">
+ <div class="avand-lg impact">
+  <h2><?php echo T_("Thank you for choosing us.");?></h2>
+  <p class="mB0-f"><?php echo T_("We do our best to improve jibres's quality. So, knowing your valuable comments about bugs and problems and more importantly your precious offers will help us in this way."); ?></p>
+ </div>
+
+ <div class="avand-lg impact">
   <div class="f">
-    <div class="c5 s12 pRa10">
-      <h2><?php echo T_("Thank you for choosing us.");?></h2>
-      <p class="mB0-f"><?php echo T_("We do our best to improve jibres's quality. So, knowing your valuable comments about bugs and problems and more importantly your precious offers will help us in this way."); ?></p>
-    </div>
-    <div class="c7 s12">
+    <div class="c12 s12">
      <form method="post" data-clear>
 <?php
       \dash\utility\hive::html();
