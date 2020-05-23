@@ -9,10 +9,11 @@ class generate
 		$customized_key = '';
 		if(in_array(substr($_key, 0, 6), ['header', 'footer']))
 		{
-			$customized_key = substr($_key, 0, 6) . '_customized';
+			$customized_key = substr($_key, 0, 6);
 		}
 
 		$website = \dash\data::website();
+
 		if(isset($website[$customized_key][$_key]) && isset($website['menu'][$website[$customized_key][$_key]]['list']) && is_array($website['menu'][$website[$customized_key][$_key]]['list']))
 		{
   			echo '<nav';

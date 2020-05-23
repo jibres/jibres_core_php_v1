@@ -15,5 +15,11 @@ class website
 		return null;
 	}
 
+
+	public static function menu($_key, $_class = null)
+	{
+		\lib\app\website\menu\generate::menu($_key, $_class);
+	}
+
 }
 ?>

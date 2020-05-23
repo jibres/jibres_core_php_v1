@@ -22,7 +22,7 @@
         <small class="cauto"><?php echo T_("version"). ' '. \dash\fit::number(\dash\get::index($value, 'version')) ?></small>
         <div class="cauto pLa10">
 <?php if(\dash\get::index($value, 'key') === \dash\data::issetHeader()) {?>
-          <div class="btn success"><?php echo T_("Current Template"); ?></div>
+          <a href="<?php echo \dash\url::that(); ?>" class="btn success"><?php echo T_("Current Template"); ?></a>
 <?php }else{ ?>
           <div data-confirm data-data='{"header" : "<?php echo \dash\get::index($value, 'key'); ?>"}' class="btn secondary outline"><?php echo T_("Choose this template"); ?></div>
 <?php } //endif ?>

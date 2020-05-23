@@ -28,8 +28,8 @@ else
   </div>
 
   <div class="menuBar f">
-    <div class="c"><?php \lib\app\website\menu\generate::menu('header_menu_1'); ?></div>
-    <div class="cauto os"><?php \lib\app\website\menu\generate::menu('header_menu_2', 'xs0'); ?></div>
+    <div class="c"><?php \lib\website::menu('header_menu_1'); ?></div>
+    <div class="cauto os"><?php \lib\website::menu('header_menu_2', 'xs0'); ?></div>
   </div>
 
 </div>

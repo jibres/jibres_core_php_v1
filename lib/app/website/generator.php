@@ -123,6 +123,7 @@ class generator
 		{
 			$load_all_website = \lib\db\setting\get::lang_platform(\dash\language::current(), 'website');
 
+
 			if(!is_array($load_all_website))
 			{
 				$load_all_website = [];
@@ -143,9 +144,20 @@ class generator
 					$myValue = json_decode($myValue, true);
 				}
 
-				if($value['cat'] === 'header' || $value['cat'] === 'footer')
+				if(strpos($value['cat'], 'header') !== false)
 				{
 					$setting['header'][$value['key']] = $myValue;
+				}
+
+
+				if(strpos($value['cat'], 'footer') !== false)
+				{
+					$setting['footer'][$value['key']] = $myValue;
+				}
+
+				if(strpos($value['cat'], 'menu') !== false)
+				{
+					$setting['menu'][$value['key']] = $myValue;
 				}
 
 				if($value['cat'] === 'homepage')
