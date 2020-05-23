@@ -4,7 +4,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-terms-1.jpg" alt='<?php echo \dash\face::title();?>'>
  </div>
 
- <div class="avand impact">
+ <div class="avand-lg impact">
 
    <p><?php echo T_("Utilizing Jibres's services means the acceptance of and commitment to observing all the tenors of this agreement."); ?></p>
 

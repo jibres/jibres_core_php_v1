@@ -1,7 +1,7 @@
 <div class="jibresBanner">
 
 <?php if (\dash\language::current() === 'fa') { ?>
- <div class="avand impact">
+ <div class="avand-lg impact">
 
 
   <p class="txtC txtB">ایرنیک — مرکز ثبت دامنه نقطه-آی‌آر (‎.ir) <br />متن توافقنامه ثبت دامنه تحت &lrm;.ir و .ایران.ir</p>
@@ -44,7 +44,7 @@
 </div>
 <?php } ?>
 
- <div class="avand ltr">
+ <div class="avand-lg impact ltr">
 
   <p class="txtC txtB"> IRNIC - Dot-IR (.ir) ccTLD Registry<br/>Text of agreement for registering domains under .ir and &lrm;.ایران.ir </p>
   <p> By submitting this form the registrant agrees to the following</p>
