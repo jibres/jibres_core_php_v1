@@ -9,7 +9,9 @@
       <label for="image1"><?php echo T_('Drag &amp; Drop your picture or Browse'); ?></label>
 
   	<?php if(\dash\data::dataRow_avatar()) {?>
-      <img id='finalImage' src="<?php echo \dash\data::dataRow_avatar() ?>" alt='<?php echo T_("Your avatar") ?>'>
+      <label for="image1">
+      	<img id='finalImage' src="<?php echo \dash\data::dataRow_avatar() ?>" alt='<?php echo T_("Your avatar") ?>'>
+      </label>
   	<?php }?>
     </div>
   </form>
