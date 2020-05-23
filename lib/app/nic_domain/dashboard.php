@@ -35,7 +35,6 @@ class dashboard
 		$result['domain_action_chart']   = self::domain_action_chart($last_month);
 		$result['domain_log_chart']      = self::domain_log_chart($last_month);
 
-
 		return $result;
 	}
 

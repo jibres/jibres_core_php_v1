@@ -44,7 +44,7 @@ $myData = \dash\data::dashboardDetail();
       <h3><?php echo T_("Total Buyers");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_buyers'));?></div>
     </a>
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/log'; ?>" class="stat">
       <h3><?php echo T_("Total Log");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_log'));?></div>
     </a>
@@ -74,7 +74,7 @@ $myData = \dash\data::dashboardDetail();
     </a>
   </div>
   <div class="c3 s6">
-    <a href="" class="stat">
+    <a href="<?php echo \dash\url::this(). '/fetch'; ?>" class="stat">
       <h3><?php echo T_("Total Whois");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_whois'));?></div>
     </a>
