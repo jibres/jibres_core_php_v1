@@ -22,6 +22,13 @@ class view
 			\dash\data::back_link(\dash\url::support());
 
 			self::help_center();
+
+			// if have permission show edit link
+			if(\dash\permission::check('cpHelpCenterEdit'))
+			{
+				\dash\face::btnSetting(\dash\url::kingdom(). '/cms/posts/edit?id='. \dash\data::datarow_id());
+			}
+
 		}
 		else
 		{
