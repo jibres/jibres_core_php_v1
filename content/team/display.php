@@ -14,8 +14,8 @@
  </div>
 </div>
 
- <div class="avand impact txtC">
- 	<h2><?php echo T_('Meet the people behind Jibres'); ?></h2>
+ <div class="avand txtC">
+ 	<h2 class="mB20"><?php echo T_('Meet the people behind Jibres'); ?></h2>
 	<div class="browserBox" data-board='https://tejarak.com/ermile'><span></span>
 	<iframe src="https://tejarak.com/fa/ermile?ex=1" frameborder="0" style="border:0"></iframe>
 	</div>
