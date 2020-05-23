@@ -102,7 +102,7 @@ class get
 		$date = null;
 		if($_date)
 		{
-			$date = " AND DATE(domainbilling.date) > DATE('$_date') ";
+			$date = " AND DATE(domainbilling.date) >= DATE('$_date') ";
 		}
 
 		$query  = "SELECT COUNT(*) AS `count` FROM domainbilling WHERE 1 $date";
