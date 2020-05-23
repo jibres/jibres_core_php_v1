@@ -106,7 +106,7 @@ else
                     <td><?php if(\dash\get::index($value, 'finalprice')) {?><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
                     <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
                     <td class="collapsing">
-                      <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+                      <a href="<?php echo \dash\url::this(). '/log?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
                         <div class="c pRa10">
                           <div class="mobile"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
                           <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
