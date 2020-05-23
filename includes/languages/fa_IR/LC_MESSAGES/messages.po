@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-05-22 15:55+0430\n"
-"PO-Revision-Date: 2020-05-22 16:04+0430\n"
+"POT-Creation-Date: 2020-05-23 17:51+0430\n"
+"PO-Revision-Date: 2020-05-23 17:53+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -667,6 +667,7 @@ msgid ""
 msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیری و میزان شدت آن."
 
 #: content/bug/display.php:102 content/changelog/display.php:12
+#: content_a/android/intro/display-test-multi-upload.php:23
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:36 content_a/category/edit/display.php:37
@@ -2499,6 +2500,7 @@ msgstr "جستجوی‌ دامنه"
 #: dash/app/log/caller/ticket/ticket_addNewTicket.php:13
 #: dash/app/log/caller/ticket/ticket_answerTicketAlert.php:14
 #: dash/app/log/caller/ticket/ticket_answerTicketAlertSend.php:14
+#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:19
 #: dash/app/log/caller/ticket/ticket_seeTicket.php:13
 msgid "Support"
 msgstr "پشتیبانی"
@@ -3816,7 +3818,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/website/menu/edit/view.php:13 content_a/website/menu/view.php:13
 #: content_a/website/productline/setting/view.php:19
 #: content_a/website/productline/view.php:12 content_a/website/slider/add/view.php:33
-#: content_a/website/slider/setting/view.php:19 content_a/website/slider/view.php:12
+#: content_a/website/slider/setting/view.php:20 content_a/website/slider/view.php:12
 #: content_a/website/status/view.php:12 content_a/website/text/view.php:12
 #: content_account/api/view.php:16 content_account/appkey/view.php:16
 #: content_account/billing/detail/view.php:12 content_account/billing/invoice/view.php:13
@@ -3836,7 +3838,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_pay/home/display.php:169 content_su/backup/display.php:9
 #: content_su/log/display.php:21 content_su/nano/display.php:5
 #: content_su/smsclient/edit/view.php:9 content_su/smsclient/home/view.php:9
-#: content_su/tempfile/display.php:21 content_support/home/view.php:67
+#: content_su/tempfile/display.php:21 content_support/home/view.php:74
 #: content_support/message/edit/view.php:19 content_support/message/view.php:38
 #: content_v2/app/view.php:142
 msgid "Back"
@@ -3970,7 +3972,7 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_my/domain/search/display-maybemydomain.php:8
 #: content_my/domain/search/display-mydomain.php:8
 #: content_my/domain/setting/display.php:11 content_my/domain/transfer/display.php:11
-#: content_my/domain/whois/display.php:6
+#: content_my/domain/whois/display.php:6 lib/app/log/caller/domain/domain_creditLow.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:15
 #: lib/app/log/caller/domain/domain_irnicChangeStatus.php:15
@@ -4114,13 +4116,13 @@ msgid "Myket"
 msgstr "مایکت"
 
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
-#: content_a/category/edit/display.php:116 content_a/products/edit/display.php:10
+#: content_a/category/edit/display.php:118 content_a/products/edit/display.php:10
 #: content_a/products/edit/display.php:334 content_a/products/edit/display.php:672
 #: content_a/products/variants/display.php:167 content_a/setting/domain/display.php:46
 #: content_a/setting/general/display.php:35
 #: content_a/setting/googleanalytics/display.php:19
 #: content_a/setting/social/display.php:40 content_a/setup/address/display.php:55
-#: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:22
+#: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:21
 #: content_a/setup/owner/display.php:41 content_a/setup/payment/display.php:43
 #: content_a/setup/pos/display.php:31 content_a/setup/shipping/display.php:93
 #: content_a/setup/units/display.php:66 content_a/setup/vat/display.php:50
@@ -4134,9 +4136,8 @@ msgstr "مایکت"
 #: content_a/website/productline/display.php:20
 #: content_a/website/slider/setting/display.php:44 content_a/website/status/display.php:25
 #: content_a/website/text/display.php:33 content_account/address.php:102
-#: content_account/my/avatar/display.php:29 content_account/my/email/display.php:15
-#: content_account/my/profile/display.php:48 content_account/my/social/display.php:50
-#: content_account/my/username/display.php:19
+#: content_account/my/email/display.php:15 content_account/my/profile/display.php:48
+#: content_account/my/social/display.php:50 content_account/my/username/display.php:19
 #: content_account/personalization/language/display.php:22
 #: content_account/personalization/sidebar/display.php:23
 #: content_account/personalization/theme/display.php:21
@@ -4251,14 +4252,17 @@ msgstr "وضعیت اپلیکیشن"
 msgid "Setup Your app"
 msgstr "اپلیکیشن خود را بسازید"
 
+#: content_a/android/intro/display-test-multi-upload.php:12
 #: content_a/android/intro/display.php:12
 msgid "App Intro detail"
 msgstr "جزئیات صفحه معرفی اپ"
 
+#: content_a/android/intro/display-test-multi-upload.php:12
 #: content_a/android/intro/display.php:12
 msgid "Page"
 msgstr "صفحه"
 
+#: content_a/android/intro/display-test-multi-upload.php:17
 #: content_a/android/intro/display.php:17 content_a/android/review/display.php:82
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
 #: content_a/category/add/display.php:6 content_a/category/edit/display.php:31
@@ -4290,17 +4294,24 @@ msgstr "صفحه"
 msgid "Title"
 msgstr "عنوان"
 
-#: content_a/android/intro/display.php:28 content_cms/posts/edit/display.php:400
-msgid "Image"
-msgstr "تصویر"
+#: content_a/android/intro/display-test-multi-upload.php:30
+#: content_a/android/logo/display.php:10 content_a/category/edit/display.php:60
+#: content_a/setup/logo/display.php:15 content_a/website/header/box/header_logo.php:28
+#: content_support/ticket/addForm.php:31
+msgid "Drag &amp; Drop your files or Browse"
+msgstr ""
 
+#: content_a/android/intro/display-test-multi-upload.php:52
+#: content_a/android/intro/display-test-multi-upload.php:56
 #: content_a/android/intro/display.php:51 content_a/android/intro/display.php:55
-#: content_a/setup/company/display.php:53 content_a/setup/logo/display.php:21
+#: content_a/setup/company/display.php:53 content_a/setup/logo/display.php:20
 #: content_my/business/ask/display.php:31 content_r10/android/intro/view.php:53
 #: content_v2/android/intro/view.php:29
 msgid "Skip"
 msgstr "رد شو"
 
+#: content_a/android/intro/display-test-multi-upload.php:54
+#: content_a/android/intro/display-test-multi-upload.php:58
 #: content_a/android/intro/display.php:53 content_a/android/intro/display.php:57
 #: content_my/business/ask/display.php:28 content_r10/android/intro/view.php:51
 #: content_v2/android/intro/view.php:27 content_v2/app/view.php:289
@@ -4308,9 +4319,14 @@ msgstr "رد شو"
 msgid "Next"
 msgstr "بعدی"
 
+#: content_a/android/intro/display-test-multi-upload.php:60
 #: content_a/android/intro/display.php:59
 msgid "Get Started"
 msgstr "بزن بریم"
+
+#: content_a/android/intro/display.php:28 content_cms/posts/edit/display.php:400
+msgid "Image"
+msgstr "تصویر"
 
 #: content_a/android/load.php:25 content_love/gift/create/code/display.php:21
 #: content_love/gift/create/message/display.php:25
@@ -4348,15 +4364,11 @@ msgstr "بررسی"
 msgid "Set your application logo"
 msgstr "تنظیم لوگوی برنامه"
 
-#: content_a/android/logo/display.php:7
-msgid "Logo"
-msgstr "لوگو"
+#: content_a/android/logo/display.php:10
+msgid "Use a square logo"
+msgstr "از لوگوی مربع استفاده کنید"
 
-#: content_a/android/logo/display.php:7
-msgid "Use a square logo in png format"
-msgstr "از لوگوی مربع با فرمت png استفاده کنید"
-
-#: content_a/android/logo/display.php:15
+#: content_a/android/logo/display.php:18
 msgid "Use from store logo"
 msgstr "استفاده از لوگوی فروشگاه"
 
@@ -4798,34 +4810,30 @@ msgstr "بدون دسته‌بندی"
 msgid "Delete file"
 msgstr "حذف فایل"
 
-#: content_a/category/edit/display.php:56
+#: content_a/category/edit/display.php:57
 msgid "Category image"
 msgstr "تصویر دسته‌بندی"
 
-#: content_a/category/edit/display.php:57
-msgid "Max 1Mb"
-msgstr "حداکثر یک مگابایت"
-
-#: content_a/category/edit/display.php:64 content_a/products/edit/display.php:214
+#: content_a/category/edit/display.php:66 content_a/products/edit/display.php:214
 #: content_cms/posts/edit/display.php:709
 msgid "Customize for SEO"
 msgstr "بهینه‌سازی برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:77 content_a/products/edit/display.php:227
+#: content_a/category/edit/display.php:79 content_a/products/edit/display.php:227
 #: content_cms/posts/edit/display.php:704
 msgid "Google"
 msgstr "گوگل"
 
-#: content_a/category/edit/display.php:85 content_a/products/edit/display.php:235
+#: content_a/category/edit/display.php:87 content_a/products/edit/display.php:235
 #: content_cms/posts/edit/display.php:715
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:85 content_a/products/edit/display.php:235
+#: content_a/category/edit/display.php:87 content_a/products/edit/display.php:235
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:94 content_a/category/home/display.php:84
+#: content_a/category/edit/display.php:96 content_a/category/home/display.php:84
 #: content_a/products/edit/display.php:244 content_a/products/edit/display.php:246
 #: content_a/products/tag/display.php:91 content_a/products/tag/display.php:158
 #: content_a/products/tag/display.php:160 content_cms/posts/edit/display.php:745
@@ -4836,38 +4844,38 @@ msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر با
 msgid "Slug"
 msgstr "نامک"
 
-#: content_a/category/edit/display.php:94
+#: content_a/category/edit/display.php:96
 msgid "End part of your category url."
 msgstr "آخرین قسمت آدرس دسته‌بندی شما."
 
-#: content_a/category/edit/display.php:96
+#: content_a/category/edit/display.php:98
 msgid "Category slug"
 msgstr "نامک دسته‌بندی"
 
-#: content_a/category/edit/display.php:101 content_a/products/edit/display.php:251
+#: content_a/category/edit/display.php:103 content_a/products/edit/display.php:251
 #: content_cms/posts/edit/display.php:752
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:101 content_a/products/edit/display.php:251
+#: content_a/category/edit/display.php:103 content_a/products/edit/display.php:251
 #: content_cms/posts/edit/display.php:752
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
-#: content_a/category/edit/display.php:102 content_a/products/edit/display.php:252
+#: content_a/category/edit/display.php:104 content_a/products/edit/display.php:252
 #: content_cms/posts/edit/display.php:753
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
 
-#: content_a/category/edit/display.php:111
+#: content_a/category/edit/display.php:113
 msgid "No product found by this category."
 msgstr "هیچ محصولی با این دسته‌بندی یافت نشد."
 
-#: content_a/category/edit/display.php:112
+#: content_a/category/edit/display.php:114
 msgid "Your can remove it"
 msgstr "شما می‌توانید این مورد را حذف کنید"
 
-#: content_a/category/edit/display.php:112
+#: content_a/category/edit/display.php:114
 msgid "Remove category"
 msgstr "حذف دسته‌بندی"
 
@@ -5011,11 +5019,11 @@ msgstr "شما می‌توانید هم اکنون این را حذف کنید!"
 #: content_a/website/productline/setting/display.php:20
 #: content_a/website/slider/add/display.php:43
 #: content_a/website/slider/setting/display.php:36 content_a/website/text/display.php:25
-#: content_account/api/display.php:22 content_account/my/avatar/display.php:24
-#: content_cms/posts/edit/display.php:142 content_cms/posts/edit/display.php:808
-#: content_cms/terms/display.php:172 content_crm/member/avatar/display.php:27
-#: content_crm/permission/delete/display.php:37 content_love/domain/detail/display.php:195
-#: content_my/domain/irnic/edit/display.php:24 content_my/domain/setting/display.php:219
+#: content_account/api/display.php:22 content_cms/posts/edit/display.php:142
+#: content_cms/posts/edit/display.php:808 content_cms/terms/display.php:172
+#: content_crm/member/avatar/display.php:27 content_crm/permission/delete/display.php:37
+#: content_love/domain/detail/display.php:195 content_my/domain/irnic/edit/display.php:24
+#: content_my/domain/setting/display.php:219
 #: content_pardakhtyar/customer/dashboard/shaba-detail.php:12 content_su/ip/display.php:72
 #: content_support/message/edit/display.php:21
 msgid "Remove"
@@ -6943,10 +6951,6 @@ msgstr ""
 msgid "So, it's better to set it now!"
 msgstr "بنابراین، بهتره همین الان تنظیمش کنید!"
 
-#: content_a/setup/logo/display.php:8
-msgid "Please use square logo!"
-msgstr "لطفا از لوگوی مربع استفاده کنید!"
-
 #: content_a/setup/owner/display.php:7
 msgid "Fill your name and public detail to save on your store."
 msgstr "نام و جزئیات عمومی خود را در فروشگاه‌تان وارد کنید."
@@ -7329,7 +7333,7 @@ msgid "Please choose type of new block."
 msgstr ""
 
 #: content_a/website/body/add/display.php:7 content_a/website/slider/view.php:9
-#: lib/app/website/body/template.php:59
+#: lib/app/website/body/line/slider.php:12 lib/app/website/body/template.php:59
 msgid "Slider"
 msgstr "اسلایدر"
 
@@ -7625,7 +7629,7 @@ msgid ""
 "business online with Jibres."
 msgstr ""
 
-#: content_a/website/header/box/header_logo.php:36
+#: content_a/website/header/box/header_logo.php:41
 msgid "Remove header logo"
 msgstr "حذف لوگو"
 
@@ -8338,12 +8342,11 @@ msgstr "آدرس با موفقیت اضافه شد"
 msgid "Addresses"
 msgstr "آدرس‌ها"
 
-#: content_account/my/avatar/display.php:9 content_account/my/home/display.php:89
-#: content_account/my/home/display.php:93 dash/layout/admin/sidebar/sidebar-account.php:7
-msgid "Avatar"
-msgstr "تصویر پروفایل"
+#: content_account/my/avatar/display.php:9
+msgid "Drag &amp; Drop your picture or Browse"
+msgstr ""
 
-#: content_account/my/avatar/display.php:24
+#: content_account/my/avatar/display.php:13
 msgid "Your avatar"
 msgstr "تصویر شما"
 
@@ -8394,6 +8397,11 @@ msgstr "سطح‌دسترسی"
 msgid "Some info may be visible to other people using our service."
 msgstr ""
 "برخی از اطلاعات ممکن است برای سایر اشخاصی که از سرویس ما استفاده می‌کنند قابل رویت باشد."
+
+#: content_account/my/home/display.php:89 content_account/my/home/display.php:93
+#: dash/layout/admin/sidebar/sidebar-account.php:7
+msgid "Avatar"
+msgstr "تصویر پروفایل"
 
 #: content_account/my/home/display.php:92
 msgid "A photo helps personalize your account"
@@ -8929,7 +8937,7 @@ msgstr "جستجوی :search"
 #: lib/app/pos/tools.php:13 lib/app/store/domain.php:24 lib/app/website/body/edit.php:27
 #: lib/app/website/body/line/image.php:60 lib/app/website/body/line/latestnews.php:60
 #: lib/app/website/body/line/productline.php:60 lib/app/website/body/line/quote.php:60
-#: lib/app/website/body/line/slider.php:133 lib/app/website/body/line/slider.php:299
+#: lib/app/website/body/line/slider.php:142 lib/app/website/body/line/slider.php:308
 #: lib/app/website/body/line/text.php:60 lib/app/website/body/remove.php:14
 msgid "Invalid id"
 msgstr "شناسه نامعتبر"
@@ -9528,7 +9536,7 @@ msgstr "مثل abc@example.com"
 msgid "Member contact"
 msgstr "اطلاعات تماس عضو"
 
-#: content_crm/member/description/display.php:15 content_support/ticket/addForm.php:71
+#: content_crm/member/description/display.php:15 content_support/ticket/addForm.php:72
 msgid "Add note"
 msgstr "افزودن یادداشت"
 
@@ -10015,7 +10023,7 @@ msgstr "نگاه اجمالی"
 #: content_crm/member/pageSteps.php:44 content_support/ticket/add/view.php:18
 #: content_support/ticket/report/view.php:16 content_support/ticket/show/view.php:26
 #: content_support/ticket/tags/view.php:52 content_support/view.php:54
-#: dash/app/ticket.php:175
+#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31 dash/app/ticket.php:187
 msgid "Ticket"
 msgstr "تیکت"
 
@@ -12980,7 +12988,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/nic_domainaction/action.php:44 lib/app/nic_domainaction/search.php:11
 #: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
 #: lib/app/nic_domainstatus/search.php:27 lib/app/nic_domainstatus/search.php:125
-#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:113 lib/app/nic_poll/get.php:126
+#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:116 lib/app/nic_poll/get.php:129
 #: lib/app/nic_poll/search.php:27 lib/app/nic_poll/search.php:119
 #: lib/app/nic_usersetting/get.php:12 lib/app/nic_usersetting/search.php:27
 #: lib/app/nic_usersetting/search.php:134 lib/app/product/tag.php:319
@@ -14468,7 +14476,7 @@ msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل ر
 
 #: content_my/business/error/display.php:16 lib/app/nic_domain/create.php:171
 #: lib/app/nic_domain/renew.php:175 lib/app/nic_domain/renew.php:211
-#: lib/app/nic_domain/renew.php:518
+#: lib/app/nic_domain/renew.php:521
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
@@ -15085,7 +15093,7 @@ msgid "We can not detect the reseller or billing contact of this account"
 msgstr "ما نتوانستیم اطلاعات مربوط به نماینده یا رابط مالی دامنه شما را شناسایی کنیم"
 
 #: content_my/domain/review/display.php:120 lib/app/nic_domain/renew.php:209
-#: lib/app/nic_domain/renew.php:505
+#: lib/app/nic_domain/renew.php:508
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
@@ -16402,7 +16410,7 @@ msgid ""
 "@channelusername)"
 msgstr "شناسه منحصربه‌فرد برای ارسال پیام به شخص یا کانال در فرمت @نام_کاربری"
 
-#: content_su/tg/sendmessage/display.php:11 dash/app/ticket.php:184
+#: content_su/tg/sendmessage/display.php:11 dash/app/ticket.php:196
 msgid "Message"
 msgstr "پیام"
 
@@ -16693,7 +16701,7 @@ msgstr "نمی‌توانید آنچه را به‌دنبالش هستید بی�
 msgid "Contact the legendary support team right now."
 msgstr "همین الان با تیم پشتیبانی افسانه‌ای ما تماس بگیرید."
 
-#: content_support/home/view.php:31 content_support/ticket/home/view.php:28
+#: content_support/home/view.php:38 content_support/ticket/home/view.php:28
 #: dash/layout/admin/sidebar/sidebar-support.php:7
 #: includes/languages/trans_static_public.php:1106
 msgid "New Ticket"
@@ -16793,23 +16801,23 @@ msgstr "لطفا پیام خود را بنویسید"
 msgid "Attachment"
 msgstr "ضمیمه"
 
-#: content_support/ticket/addForm.php:39
+#: content_support/ticket/addForm.php:40
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
 
-#: content_support/ticket/addForm.php:42
+#: content_support/ticket/addForm.php:43
 msgid "Via sms to"
 msgstr "با ارسال پیامک به"
 
-#: content_support/ticket/addForm.php:47
+#: content_support/ticket/addForm.php:48
 msgid "Via telegram"
 msgstr "با تلگرام"
 
-#: content_support/ticket/addForm.php:60
+#: content_support/ticket/addForm.php:61
 msgid "Submit a ticket"
 msgstr "ارسال تیکت"
 
-#: content_support/ticket/addForm.php:68 content_support/ticket/addForm.php:77
+#: content_support/ticket/addForm.php:69 content_support/ticket/addForm.php:78
 msgid "Send new message"
 msgstr "ارسال پیام جدید"
 
@@ -17456,11 +17464,11 @@ msgstr "شما دسترسی لازم برای حذف این آدرس را ندا
 msgid "Address removed"
 msgstr "آدرس حذف شد"
 
-#: dash/app/comment.php:118 dash/app/ticket.php:277
+#: dash/app/comment.php:118 dash/app/ticket.php:289
 msgid "This text is duplicate and you are sended something like this before!"
 msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
 
-#: dash/app/comment.php:130 dash/app/ticket.php:293
+#: dash/app/comment.php:130 dash/app/ticket.php:305
 msgid "No way to add new data"
 msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد"
 
@@ -17665,6 +17673,15 @@ msgstr "با احترام"
 msgid "Ticket :val answered"
 msgstr "تیکت :val پاسخ داده شد"
 
+#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:16
+#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:75
+msgid "Please reply the ticket"
+msgstr "لطفا به تیکت پاسخ دهید"
+
+#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31
+msgid "You have some unanswered message."
+msgstr "شما چند پیام دارید که به آنها پاسخ نداده‌اید."
+
 #: dash/app/log/caller/ticket/ticket_seeTicket.php:11
 msgid "See ticket"
 msgstr "مشاهده تیکت"
@@ -17865,23 +17882,23 @@ msgstr "هیچ راهی برای ثبت ترم وجود ندارد"
 msgid "Can not access to edit term"
 msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
 
-#: dash/app/ticket.php:173
+#: dash/app/ticket.php:185
 msgid "Count ticket"
 msgstr "تعداد تیکت"
 
-#: dash/app/ticket.php:182
+#: dash/app/ticket.php:194
 msgid "Count message"
 msgstr "تعداد پیام"
 
-#: dash/app/ticket.php:191
+#: dash/app/ticket.php:203
 msgid "Answer time"
 msgstr "زمان‌ پاسخ"
 
-#: dash/app/ticket.php:193
+#: dash/app/ticket.php:205
 msgid "Minutes"
 msgstr "دقیقه"
 
-#: dash/app/ticket.php:313
+#: dash/app/ticket.php:325
 msgid "Can not access to edit ticket"
 msgstr "دسترسی به ویرایش تیکت ندارید"
 
@@ -25536,8 +25553,8 @@ msgstr "نمی‌توانیم فایل اپلیکیشن را از سرویس ت�
 
 #: lib/app/application/queue_search.php:74 lib/app/domains/search.php:95
 #: lib/app/gift/search.php:75 lib/app/giftusage/search.php:75
-#: lib/app/nic_domain/search.php:95 lib/app/nic_domainbilling/search.php:86
-#: lib/app/nic_domainbilling/search.php:235 lib/app/nic_log/search.php:103
+#: lib/app/nic_domain/search.php:95 lib/app/nic_domainbilling/search.php:113
+#: lib/app/nic_domainbilling/search.php:262 lib/app/nic_log/search.php:103
 #: lib/app/store/search.php:50 lib/app/store/search.php:169
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
@@ -25609,7 +25626,7 @@ msgstr "محصول از سبد خرید شما حذف شد"
 
 #: lib/app/category/add.php:37 lib/app/nic_contact/add.php:157
 #: lib/app/nic_contact/add.php:323 lib/app/nic_domain/transfer.php:111
-#: lib/app/nic_domain/transfer.php:292 lib/app/product/comment.php:170
+#: lib/app/nic_domain/transfer.php:294 lib/app/product/comment.php:170
 #: lib/app/product/company.php:41 lib/app/product/company.php:90
 #: lib/app/product/unit.php:41 lib/app/product/unit.php:91
 msgid "No way to insert data"
@@ -25984,6 +26001,15 @@ msgstr "آدرس بیزینس"
 msgid "Business owner"
 msgstr "مالک بیزینس"
 
+#: lib/app/log/caller/domain/domain_creditLow.php:13
+#: lib/app/log/caller/domain/domain_creditLow.php:72
+msgid "Domain credit low!"
+msgstr "اعتبار دامنه‌ها کم است!"
+
+#: lib/app/log/caller/domain/domain_creditLow.php:28
+msgid "Less than :val credits remain"
+msgstr "کمتر از :val اعتبار باقی است"
+
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:13
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:13
 msgid "Alert domain expire"
@@ -26269,7 +26295,7 @@ msgstr "لینک پرداخت :val"
 msgid "Buy domian :val"
 msgstr "خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:670
+#: lib/app/nic_domain/create.php:673
 msgid "Can not register your domain"
 msgstr "نمی‌توانیم دامنه شما را ثبت کنیم"
 
@@ -26424,7 +26450,7 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از شش سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/nic_domain/renew.php:207 lib/app/nic_domain/renew.php:503
+#: lib/app/nic_domain/renew.php:207 lib/app/nic_domain/renew.php:506
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
@@ -26451,17 +26477,17 @@ msgstr "تمدید دامنه :domain انجام شد"
 msgid "Domain date expire:"
 msgstr "تاریخ انقضای دامنه:"
 
-#: lib/app/nic_domain/renew.php:507
+#: lib/app/nic_domain/renew.php:510
 msgid "After change this problem you can try again"
 msgstr "بعد از انجام اقدامات ذکر شده می‌توانید مجددا تلاش کنید"
 
-#: lib/app/nic_domain/renew.php:509
+#: lib/app/nic_domain/renew.php:512
 msgid "If you pay any amount, Your amount is saved in your account"
 msgstr ""
 "اگر مبلغی را پرداخت کرده باشید، آن مبلغ در حساب کاربری شما ذخیره شده است و می‌توانید از "
 "آن استفاده کنید"
 
-#: lib/app/nic_domain/renew.php:514
+#: lib/app/nic_domain/renew.php:517
 msgid "Don't worry! Your gift is ok and not used. You can use it again"
 msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
@@ -26495,15 +26521,15 @@ msgstr "انتقال دامنه :val"
 msgid "Transfer :domain"
 msgstr "انتقال دامنه :domain"
 
-#: lib/app/nic_domain/transfer.php:269
+#: lib/app/nic_domain/transfer.php:268
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
 
-#: lib/app/nic_domain/transfer.php:283
+#: lib/app/nic_domain/transfer.php:285
 msgid "Register failed :val"
 msgstr "خطا در ثبت :val"
 
-#: lib/app/nic_domain/transfer.php:309
+#: lib/app/nic_domain/transfer.php:311
 msgid "Can not transfer this domain"
 msgstr "نمی‌توان این دامنه را انتقال داد"
 
@@ -26571,7 +26597,7 @@ msgstr "تغییر دی‌ان‌اس پیشفرض"
 msgid "Pay :price toman fro :action domain :domain"
 msgstr "پرداخت :price تومان برای :action دامنه :domain"
 
-#: lib/app/nic_poll/get.php:146
+#: lib/app/nic_poll/get.php:149
 msgid "Your domain status was updated"
 msgstr "وضعیت دامنه شما به‌روز شده است"
 
@@ -27210,8 +27236,8 @@ msgstr "این شناسه متعلق به آخرین اخبار نیست"
 #: lib/app/website/body/line/latestnews.php:205
 #: lib/app/website/body/line/productline.php:68
 #: lib/app/website/body/line/productline.php:205 lib/app/website/body/line/quote.php:68
-#: lib/app/website/body/line/quote.php:210 lib/app/website/body/line/slider.php:141
-#: lib/app/website/body/line/slider.php:387 lib/app/website/body/line/text.php:68
+#: lib/app/website/body/line/quote.php:210 lib/app/website/body/line/slider.php:150
+#: lib/app/website/body/line/slider.php:396 lib/app/website/body/line/text.php:68
 #: lib/app/website/body/line/text.php:166
 msgid "Line detail not found"
 msgstr "جزئیات ردیف محتوای وب‌سایت یافت نشد"
@@ -27220,8 +27246,8 @@ msgstr "جزئیات ردیف محتوای وب‌سایت یافت نشد"
 msgid "Please set the link"
 msgstr "لطفا لینک را وارد کنید"
 
-#: lib/app/website/body/line/image.php:139 lib/app/website/body/line/slider.php:212
-#: lib/app/website/body/line/slider.php:440
+#: lib/app/website/body/line/image.php:139 lib/app/website/body/line/slider.php:221
+#: lib/app/website/body/line/slider.php:449
 msgid "Please upload an image file"
 msgstr "لطفا فایل تصویری مورد نظر را بارگذاری کنید"
 
@@ -27284,55 +27310,55 @@ msgstr "لطفا نقل قول را وارد کنید"
 msgid "Invalid quote index"
 msgstr "شناسه نقل قول اشتباه است"
 
-#: lib/app/website/body/line/slider.php:17
+#: lib/app/website/body/line/slider.php:26
 msgid "This is not a slider"
 msgstr "این شناسه متعلق به اسلایدر نیست"
 
-#: lib/app/website/body/line/slider.php:72
+#: lib/app/website/body/line/slider.php:81
 msgid "16:9 (Default)"
 msgstr "۱۶:۹ (پیش‌فرض)"
 
-#: lib/app/website/body/line/slider.php:236 lib/app/website/body/line/slider.php:479
+#: lib/app/website/body/line/slider.php:245 lib/app/website/body/line/slider.php:488
 msgid "Slider page added"
 msgstr "صفحه اسلایدر اضافه شد"
 
-#: lib/app/website/body/line/slider.php:254
+#: lib/app/website/body/line/slider.php:263
 msgid "Slider index must be a number"
 msgstr "شماره اسلایدر باید یک عدد باشد"
 
-#: lib/app/website/body/line/slider.php:270
+#: lib/app/website/body/line/slider.php:279
 msgid "Invalid slider index"
 msgstr "شناسه اسلایدر اشتباه است"
 
-#: lib/app/website/body/line/slider.php:286
+#: lib/app/website/body/line/slider.php:295
 msgid "Slider page was removed"
 msgstr "صفحه اسلایدر حذف شد"
 
-#: lib/app/website/body/line/slider.php:305
+#: lib/app/website/body/line/slider.php:314
 msgid "Invalid sort detail"
 msgstr "شماره مرتب‌سازی اشتباه است"
 
-#: lib/app/website/body/line/slider.php:315
+#: lib/app/website/body/line/slider.php:324
 msgid "Invalid sort index"
 msgstr "شماره مرتب‌سازی اشتباه است"
 
-#: lib/app/website/body/line/slider.php:326
+#: lib/app/website/body/line/slider.php:335
 msgid "Slider detail not found"
 msgstr "جزئیات اسلایدر یافت نشد"
 
-#: lib/app/website/body/line/slider.php:368
+#: lib/app/website/body/line/slider.php:377
 msgid "Sorted"
 msgstr "مرتب‌سازی انجام شد"
 
-#: lib/app/website/body/line/slider.php:426
+#: lib/app/website/body/line/slider.php:435
 msgid "Slider index not found"
 msgstr "شماره صفحه اسلایدر یافت نشد"
 
-#: lib/app/website/body/line/slider.php:463
+#: lib/app/website/body/line/slider.php:472
 msgid "Page slider edited"
 msgstr "صفحه اسلایدر ویرایش شد"
 
-#: lib/app/website/body/line/slider.php:474
+#: lib/app/website/body/line/slider.php:483
 msgid "Maximum capacity of this slider is full"
 msgstr "ظرفیت صفحات این اسلایدر تکمیل است"
 
@@ -28412,6 +28438,15 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Logo"
+#~ msgstr "لوگو"
+
+#~ msgid "Use a square logo in png format"
+#~ msgstr "از لوگوی مربع با فرمت png استفاده کنید"
+
+#~ msgid "Max 1Mb"
+#~ msgstr "حداکثر یک مگابایت"
 
 #~ msgid "Jibres Dashboard"
 #~ msgstr "داشبورد جیبرس"
