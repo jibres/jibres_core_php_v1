@@ -4,6 +4,15 @@ namespace lib\app\website\body\line;
 class slider
 {
 
+	public static function suggest_new_name()
+	{
+		$count_slider = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_slider');
+		$count_slider = intval($count_slider) + 1;
+
+		return T_("Slider"). ' '. \dash\fit::number($count_slider);
+	}
+
+
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);

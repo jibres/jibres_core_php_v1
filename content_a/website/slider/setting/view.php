@@ -16,11 +16,14 @@ class view
 		}
 		else
 		{
+
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this(). '?id='. \dash\data::sliderID());
 		}
 
 		\dash\data::defaultRatioSlider(\lib\app\website\body\line\slider::default_ratio('title'));
+
+		\dash\data::sliderNameSuggestion(\lib\app\website\body\line\slider::suggest_new_name());
 
 
 		if(\dash\data::lineSetting_slider() && is_array(\dash\data::lineSetting_slider()))

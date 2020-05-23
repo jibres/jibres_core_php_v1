@@ -100,6 +100,15 @@ class get
 		return $result;
 	}
 
+	public static function count_lang_platform_cat_key($_lang, $_platform, $_cat, $_key)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
 
 	public static function platform_cat_key_like($_platform, $_cat, $_key)
 	{
