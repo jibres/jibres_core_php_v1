@@ -67,6 +67,11 @@ class controller
 				\lib\app\nic_domain\autorenew::run();
 			}
 
+			if(self::every_30_min())
+			{
+				\dash\app\ticket::check_unanswer_ticket();
+			}
+
 			// get nic pull request every 5 min
 			if(self::every_5_min())
 			{

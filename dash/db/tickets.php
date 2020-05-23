@@ -147,6 +147,26 @@ class tickets
 	}
 
 
+	public static function count_unanswered_ticket()
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				tickets
+			WHERE
+				tickets.type  = 'ticket'  AND
+				tickets.parent  IS NULL AND
+				tickets.status = 'awaiting'
+		";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+
+	}
+
+
 	public static function search_full($_string = null, $_options = null)
 	{
 		$limit = null;
