@@ -85,8 +85,10 @@ class controller
 
 				\lib\app\statistics\homepage::refresh();
 
-				self::check_error_file();
 			}
+
+			self::check_error_file();
+
 		}
 
 		if(\dash\engine\store::inStore())
@@ -138,15 +140,34 @@ class controller
 	private static function check_error_file()
 	{
 		$sqlError = YARD. 'jibres_log/database/error.sql';
+
 		if(is_file($sqlError))
 		{
-			\dash\log::set('su_sqlError');
+			$filectime = filectime($sqlError);
+
+			if((time() - $filectime) < 60)
+			{
+				\dash\log::set('su_sqlError');
+			}
+			elseif(self::in_hour(['08', '13', '18'], 14))
+			{
+				\dash\log::set('su_sqlError');
+			}
 		}
 
 		$phpBug = YARD. 'jibres_log/php/exception.log';
 		if(is_file($phpBug))
 		{
-			\dash\log::set('su_phpBug');
+			$filectime = filectime($phpBug);
+
+			if((time() - $filectime) < 60)
+			{
+				\dash\log::set('su_phpBug');
+			}
+			elseif(self::in_hour(['08', '13', '18'], 15))
+			{
+				\dash\log::set('su_phpBug');
+			}
 		}
 	}
 
