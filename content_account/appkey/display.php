@@ -18,8 +18,7 @@
         </div>
       <?php } //endif ?>
 
-      <form method="post">
-        <input type="hidden" name="add" value="appkey">
+
         <div class="input">
           <label><?php echo T_("YOUR APPKEY"); ?></label>
           <input type="text" name="appkey" value="<?php echo \dash\data::appkey_auth(); ?>" readonly  class="txtC" placeholder='<?php echo T_("GENERATE YOUR APPKEY"); ?>'>
@@ -33,10 +32,10 @@
 
       <?php }else{ ?>
 
-        <button data-confirm data-data='{"add" : "appkey"}' class="btn primary mT5 block"><?php echo T_("Make appkey"); ?></button>
+        <button data-confirm data-data='{"add" : "appkey" <?php echo \dash\utility\hive::get_json(); ?>}' class="btn primary mT5 block"><?php echo T_("Make appkey"); ?></button>
       <?php } //endif ?>
 
-      </form>
+
 
     </div>
 
