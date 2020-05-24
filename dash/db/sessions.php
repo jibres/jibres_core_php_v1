@@ -196,7 +196,7 @@ class sessions
 	 */
 	public static function set_cookie($_code)
 	{
-		setcookie(self::cookie_name(), $_code, time() + (60*60*24*30), '/', self::cookie_domain());
+		setcookie(self::cookie_name(), $_code, time() + (60*60*24*30), '/', self::cookie_domain(), true);
 	}
 
 
