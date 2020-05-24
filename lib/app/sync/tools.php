@@ -17,6 +17,8 @@ class tools
 		{
 			return $run_first_time;
 		}
+		// @todo @reza
+		return false;
 
 		$add                = [];
 		$add['query']       = addslashes($_query);
