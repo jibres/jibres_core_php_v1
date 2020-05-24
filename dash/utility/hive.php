@@ -7,10 +7,10 @@ class hive
 	public static function set($_redirect = false)
 	{
 		// if the user is login not check and not set
-		if(\dash\user::id())
-		{
-			return true;
-		}
+		// if(\dash\user::id())
+		// {
+		// 	return true;
+		// }
 
 		$request = \dash\request::is();
 		$request = mb_strtolower($request);
@@ -53,6 +53,49 @@ class hive
 	}
 
 
+	public static function get_json()
+	{
+		$hive = \dash\data::hive();
+		if(!$hive)
+		{
+			return null;
+		}
+
+		$hive_string = [];
+
+		if($hive && is_array($hive))
+		{
+			foreach ($hive as $key => $value)
+			{
+				$myKey = null;
+				switch ($key)
+				{
+					case 'check1':
+						$myKey = 'hiveCheck1';
+						break;
+
+					case 'check2':
+						$myKey = 'hiveCheck2';
+						break;
+
+					case 'check3':
+						$myKey = 'hiveCheck3';
+						break;
+				}
+
+				$hive_string[] = '"'. $myKey. '":"'. $value. '"';
+			}
+		}
+
+		if(!empty($hive_string))
+		{
+			$hive_string = implode(",", $hive_string);
+		}
+
+		return ",". $hive_string;
+	}
+
+
 	private static function check()
 	{
 		$hive = \dash\session::get('hive_'. \dash\url::this());
@@ -60,17 +103,17 @@ class hive
 		$hiveCheck2 = \dash\request::post('hiveCheck2');
 		$hiveCheck3 = \dash\request::post('hiveCheck3');
 
-		if(!isset($hive['check1']) || (isset($hive['check1']) && $hiveCheck1 != $hive['check1']))
+		if(!array_key_exists('check1', $hive) || (array_key_exists('check1', $hive) && $hiveCheck1 != $hive['check1']))
 		{
 			return false;
 		}
 
-		if(!isset($hive['check2']) || (isset($hive['check2']) && $hiveCheck2 != $hive['check2']))
+		if(!array_key_exists('check2', $hive) || (array_key_exists('check2', $hive) && $hiveCheck2 != $hive['check2']))
 		{
 			return false;
 		}
 
-		if(!isset($hive['check3']) || (isset($hive['check3']) && $hiveCheck3 != $hive['check3']))
+		if(!array_key_exists('check3', $hive) || (array_key_exists('check3', $hive) && $hiveCheck3 != $hive['check3']))
 		{
 			return false;
 		}

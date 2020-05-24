@@ -19,11 +19,11 @@
 
       <?php if(\dash\data::apikey_auth()) {?>
 
-    		<button data-confirm data-data='{"remove" : "apikey"}' class="btn warn mT5 block"><?php echo T_("Remove"); ?></button>
+    		<button data-confirm data-data='{"remove" : "apikey" <?php echo \dash\utility\hive::get_json(); ?>}' class="btn warn mT5 block"><?php echo T_("Remove"); ?></button>
 
     	<?php }else{ ?>
 
-    		<button data-confirm data-data='{"add" : "apikey"}' class="btn primary mT5 block"><?php echo T_("Get new API KEY"); ?></button>
+    		<button data-confirm data-data='{"add" : "apikey" <?php echo \dash\utility\hive::get_json(); ?>}' class="btn primary mT5 block"><?php echo T_("Get new API KEY"); ?></button>
 
     	<?php } //endif ?>
 
