@@ -4,7 +4,7 @@
     <div class="cbox">
 
       <form method="post" autocomplete="off">
-
+          <?php \dash\utility\hive::html(); ?>
           <label for="email"><?php echo T_("Email"); ?></label>
           <div class="input">
             <input type="email" name="email" id="email" placeholder='<?php echo T_("like"); ?> abc@example.com' value="<?php echo \dash\data::dataRow_email(); ?>" maxlength='50'>

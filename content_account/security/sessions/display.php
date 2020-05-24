@@ -16,7 +16,7 @@
         <div class="msg f align-center fs08">
           <div class="c s12"><?php echo T_("Don't recognize a device?"); ?></div>
           <div class="cauto os">
-            <a class="btn danger outline" data-confirm  data-data='{"type": "terminateall" }' ><?php echo T_("Terminate all other sessions"); ?></a>
+            <a class="btn danger outline" data-confirm  data-data='{"type": "terminateall" <?php echo \dash\utility\hive::get_json(); ?>}' ><?php echo T_("Terminate all other sessions"); ?></a>
           </div>
         </div>
 
@@ -64,7 +64,7 @@
               <a target="_blank" href="https://ipgeolocation.io/ip-location/<?php echo \dash\get::index($row, 'ip'); ?>" title='<?php echo T_("Check ip address"); ?>'><?php echo \dash\get::index($row, 'ip'); ?></a>
             </div>
             <div>
-              <a class="badge danger" data-confirm data-data='{"id" : "<?php echo \dash\get::index($row, 'id'); ?>", "type": "terminate" }'><?php echo T_("Terminate"); ?></a>
+              <a class="badge danger" data-confirm data-data='{"id" : "<?php echo \dash\get::index($row, 'id'); ?>", "type": "terminate" <?php echo \dash\utility\hive::get_json(); ?>  }'><?php echo T_("Terminate"); ?></a>
             </div>
           </div>
 

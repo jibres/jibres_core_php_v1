@@ -4,7 +4,7 @@
   <div class="f justify-center">
     <div class="c6 m8 x5 s12">
 
-
+      <?php \dash\utility\hive::html(); ?>
       <div class="cbox">
         <h3 class="txtC mB20"><?php echo \dash\face::title(); ?></h3>
 
