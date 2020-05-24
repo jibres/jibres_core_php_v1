@@ -40,6 +40,21 @@ trait times
 	}
 
 
+	public static function in_hour($_hours, $_min = 19)
+	{
+		$hour_now    = date("H");
+		if((is_string($hour_now) && in_array($hour_now, $_hours)) || \dash\permission::supervisor())
+		{
+			$min_now    = date("i");
+			if((intval($min_now) === intval($_min)) || \dash\permission::supervisor())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+
 	public static function every_30_min()
 	{
 		$time_now    = date("i");

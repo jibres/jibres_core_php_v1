@@ -67,7 +67,7 @@ class controller
 				\lib\app\nic_domain\autorenew::run();
 			}
 
-			if(self::every_30_min())
+			if(self::in_hour(['07', '09', '11', '13', '15', '17', '19', '21', '23']))
 			{
 				\dash\app\ticket::check_unanswer_ticket();
 			}
