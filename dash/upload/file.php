@@ -117,10 +117,10 @@ class file
 		// }
 
 		// 7. save file in some quality if need. for example pictures need to crop and save all need size
-		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif']))
-		{
-			\dash\upload\crop::pic($directory['full'], $myFile['ext']);
-		}
+		// if(in_array($myFile['ext'], ['jpg','jpeg','png','gif']))
+		// {
+		// 	\dash\upload\crop::pic($directory['full'], $myFile['ext']);
+		// }
 
 
 		$insert_file_record =
@@ -135,6 +135,8 @@ class file
 			'folder'      => $directory['folder'],
 			'path'        => $directory['path'],
 
+			'ip'          => \dash\server::ip(true),
+			'domain'      => \dash\url::host(),
 			'creator'     => \dash\user::id(),
 			'status'      => 'publish',
 			'datecreated' => date("Y-m-d H:i:s"),

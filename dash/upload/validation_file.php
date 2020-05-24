@@ -96,6 +96,8 @@ class validation_file
 			return false;
 		}
 
+		$fileName = \dash\validate::string_200($fileName);
+
 		// file with long extension does not allowed in our system
 		if(mb_strlen($fileExt) > 10 || $fileAllow === false )
 		{
@@ -115,11 +117,11 @@ class validation_file
 
 		$result =
 		[
-			'filename' => $fileName,
-			'ext'      => $fileExt,
-			'type'     => $fileType,
-			'mime'     => $fileMime,
-			'size'     => $fileSize,
+			'filename' => \dash\validate::string_200($fileName, false),
+			'ext'      => \dash\validate::string_200($fileExt, false),
+			'type'     => \dash\validate::string_200($fileType, false),
+			'mime'     => \dash\validate::string_200($fileMime, false),
+			'size'     => \dash\validate::int($fileSize, false),
 			'md5'      => $fileMd5,
 			'tmp_name' => $tmp_name,
 		];
