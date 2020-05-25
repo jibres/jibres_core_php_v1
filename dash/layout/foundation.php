@@ -47,6 +47,17 @@ if(\dash\url::store())
  <meta content="<?php echo \dash\url::set_subdomain('api');?>/" name="jibres:api"/>
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
  <meta content="index, follow" name ="robots"/>
+<?php
+if(\dash\data::googleAnalytics())
+{
+  // if(!\dash\url::isLocal())
+  {
+    // disable on local
+    $gAnalytics = \dash\data::googleAnalytics();
+    echo " <meta content='". \dash\data::googleAnalytics(). "' name='gtag'/>\n";
+  }
+}
+?>
  <meta content="yes" name="mobile-web-app-capable"/>
  <meta content="yes" name="apple-touch-fullscreen"/>
  <meta content="yes" name="apple-mobile-web-app-capable"/>
