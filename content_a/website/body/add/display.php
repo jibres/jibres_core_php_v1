@@ -96,7 +96,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::this();?>/latestnews"><?php echo T_("Add Latest News Block") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/news"><?php echo T_("Add News Block") ?></a>
     </div>
   </div>
 </section>

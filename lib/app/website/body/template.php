@@ -83,6 +83,13 @@ class template
 			'version'      => 1,
 		];
 
+		$list[] =
+		[
+			'key'          => 'news',
+			'title'        => T_("News"),
+			'version'      => 1,
+		];
+
 
 		$list[] =
 		[

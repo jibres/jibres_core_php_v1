@@ -1,14 +1,23 @@
 <?php
 namespace lib\app\website\body\line;
 
-class latestnews
+class news
 {
+
+	public static function suggest_new_name()
+	{
+		$count_news = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_news');
+		$count_news = intval($count_news) + 1;
+
+		return T_("News"). ' '. \dash\fit::number($count_news);
+	}
+
 
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);
 
-		if(isset($result['type']) && $result['type'] === 'latestnews')
+		if(isset($result['type']) && $result['type'] === 'news')
 		{
 			// ok
 		}
@@ -18,9 +27,9 @@ class latestnews
 			return false;
 		}
 
-		if(isset($result['latestnews']) && is_array($result['latestnews']))
+		if(isset($result['news']) && is_array($result['news']))
 		{
-			$result['latestnews'] = self::ready($result['latestnews']);
+			$result['news'] = self::ready($result['news']);
 		}
 
 
@@ -89,7 +98,9 @@ class latestnews
 	{
 		$condition =
 		[
-			'limit'   => 'smallint',
+			'title'   => 'string_200',
+			'cat_id'  => 'code',
+			'publish' => 'bit'
 		];
 
 		$require   = [];
@@ -102,7 +113,7 @@ class latestnews
 	}
 
 
-	// add new latestnews
+	// add new news
 	public static function add($_args)
 	{
 		$data = self::check_validate($_args);
@@ -112,20 +123,20 @@ class latestnews
 			return false;
 		}
 
-		if(!$data['limit'])
+
+		$line_id = \lib\app\website\body\add::line('news', ['title' => $data['title'], 'publish' => $data['publish']]);
+
+		if(!$line_id)
 		{
-			\dash\notif::error(T_("Please set the limit"), 'limit');
+			\dash\log::oops('error:line');
 			return false;
 		}
 
-
-		$line_id = \lib\app\website\body\add::line('latestnews');
-
 		$saved_option = self::inline_get($line_id);
 
-		$saved_option['latestnews'] =
+		$saved_option['news'] =
 		[
-			'limit'    => $data['limit'],
+			'cat_id' => $data['cat_id'],
 		];
 
 
@@ -133,62 +144,15 @@ class latestnews
 
 		$save = \lib\db\setting\update::value($saved_option, $line_id);
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("News line added"));
 
-		// retrun id to redirect to this latestnews
+		// retrun id to redirect to this news
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
-	public static function remove($_line_id, $_latestnews_index)
-	{
-		$line_id = \dash\validate::code($_line_id);
-		$line_id = \dash\coding::decode($line_id);
-
-		if(!$line_id)
-		{
-			return false;
-		}
-		if(!is_numeric($_latestnews_index))
-		{
-			\dash\notif::error(T_("Latest news index must be a number"));
-			return false;
-		}
-
-		$saved_value = self::inline_get($line_id);
-
-		if(!$saved_value || !isset($saved_value['latestnews']))
-		{
-			return false;
-		}
-
-		$saved_latestnews = $saved_value['latestnews'];
 
 
-		if(!array_key_exists($_latestnews_index, $saved_latestnews))
-		{
-			\dash\notif::error(T_("Invalid latestnews index"));
-			return false;
-		}
-
-		unset($saved_latestnews[$_latestnews_index]);
-
-		$saved_latestnews = array_values($saved_latestnews);
-
-		$saved_value['latestnews'] = $saved_latestnews;
-
-		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
-
-		$save = \lib\db\setting\update::value($saved_value, $line_id);
-
-		\lib\app\website\generator::remove_catch();
-
-		\dash\notif::ok(T_("Latest news was removed"));
-
-		return true;
-	}
-
-
-	public static function edit($_args, $_line_id, $_latestnews_index = null)
+	public static function edit($_args, $_line_id)
 	{
 
 		$data      = self::check_validate($_args);
@@ -198,7 +162,8 @@ class latestnews
 			return false;
 		}
 
-		$line_option = \lib\app\website\body\template::get('latestnews');
+
+		$line_option = \lib\app\website\body\template::get('news');
 
 		if(!isset($line_option['key']))
 		{
@@ -216,23 +181,26 @@ class latestnews
 
 		$saved_value = self::inline_get($line_id);
 
-		if(!$saved_value || !isset($saved_value['latestnews']))
+		if(!$saved_value || !isset($saved_value['news']))
 		{
 			return false;
 		}
 
-		$saved_latestnews = $saved_value['latestnews'];
+		$saved_value['title']   = $data['title'];
+		$saved_value['publish'] = $data['publish'];
+
+		$saved_news = $saved_value['news'];
 
 
 		$ready_to_save =
 		[
-			'limit'    => $data['limit'],
+			'cat_id' => $data['cat_id'],
 		];
 
 
-		$saved_latestnews = $ready_to_save;
+		$saved_news = $ready_to_save;
 
-		$saved_value['latestnews'] = $saved_latestnews;
+		$saved_value['news'] = $saved_news;
 
 		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
 
@@ -240,7 +208,7 @@ class latestnews
 
 		\lib\app\website\generator::remove_catch();
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("News line edited"));
 
 		return true;
 	}
