@@ -15,7 +15,8 @@ class view
 		$myIp = '8.8.8.8';
 		\dash\data::ip(\dash\utility\ipLocation::get($myIp));
 
-		var_dump(\dash\data::ip());exit();
+		// var_dump(\dash\data::ip_flag());
+		// var_dump(\dash\data::ip());exit();
 	}
 }
 ?>
