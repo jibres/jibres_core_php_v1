@@ -434,6 +434,7 @@ class ticket
 					if($value)
 					{
 						$result['prettyip'] = \dash\fit::number(long2ip($value));
+						$result['ipRaw']    = long2ip($value);
 					}
 					$result[$key] = $value;
 					break;
