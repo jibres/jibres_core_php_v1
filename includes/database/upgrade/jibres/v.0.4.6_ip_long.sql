@@ -1,0 +1,8 @@
+ALTER TABLE jibres.logs CHANGE `ip` `ip` BIGINT(20) NULL DEFAULT NULL;
+ALTER TABLE jibres.sessions CHANGE `ip` `ip` BIGINT(20) NULL DEFAULT NULL;
+ALTER TABLE jibres.comments CHANGE `ip` `ip` BIGINT(20) NULL DEFAULT NULL;
+ALTER TABLE jibres.tickets CHANGE `ip` `ip` BIGINT(20) NULL DEFAULT NULL;
+ALTER TABLE jibres.visitors CHANGE `visitor_ip` `visitor_ip` BIGINT(20) NULL DEFAULT NULL;
+
+
+
