@@ -47,7 +47,7 @@ if (\dash\language::current() !== 'fa' && \dash\request::country() === 'IR') {?>
 <?php }?>
 
 <?php if (\dash\url::isLocal() && \dash\language::current() !== 'fa') {?>
-  <a id="jibresGoToFa" href="https://jibres.local/fa" target="_blank">سلام. برای استفاده از نسخه فارسی جیبرس کلیک کنید</a>
+  <a id="jibresGoToFa" href="<?php echo \dash\url::site() ?>/fa" target="_blank">سلام. برای استفاده از نسخه فارسی جیبرس کلیک کنید</a>
 <?php }?>
 
   <section id='jibresPageTitle'><div class="typing"><span class="typed"></span></div>
