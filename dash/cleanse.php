@@ -643,6 +643,14 @@ class cleanse
 				$data = \dash\validate\url::ip($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'ipv4':
+				$data = \dash\validate\url::ipv4($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'ipv6':
+				$data = \dash\validate\url::ipv6($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'dns':
 				$data = \dash\validate\url::dns($_data, $_notif, $element, $field_title, $meta);
 				break;

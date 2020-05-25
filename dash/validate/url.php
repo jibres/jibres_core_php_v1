@@ -168,6 +168,50 @@ class url
 	}
 
 
+
+	public static function ipv4($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!filter_var($data, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("IP is invalid"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+	public static function ipv6($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!filter_var($data, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("IP is invalid"), ['element' => $_element, 'code' => 1605]);
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 	public static function dns($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
