@@ -94,9 +94,10 @@ class template
 
 		$list[] =
 		[
-			'key'          => 'image',
+			'key'          => 'imageblock',
 			'title'        => T_("Image box"),
 			'version'      => 1,
+			'max_capacity' => 5, // capacity of product
 		];
 
 
