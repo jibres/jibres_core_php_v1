@@ -15,11 +15,11 @@
  		</tr>
  		<tr>
  			<th><?php echo T_("Province"); ?></th>
- 			<td><?php echo T_(\dash\data::ip_state()); ?></td>
+ 			<td><?php echo T_(ucwords(\dash\data::ip_state())); ?></td>
  		</tr>
  		<tr>
  			<th><?php echo T_("City"); ?></th>
- 			<td><?php echo T_(\dash\data::ip_city()); ?></td>
+ 			<td><?php echo T_(ucfirst(\dash\data::ip_city())); ?></td>
  		</tr>
  	</table>
  </div>
