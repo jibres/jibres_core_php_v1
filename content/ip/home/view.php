@@ -15,19 +15,17 @@ class view
 			$myIp = \dash\url::child();
 			if(\dash\validate::ip($myIp, false))
 			{
-
+				// ip is okay
 			}
 			else
 			{
+				// invalid ip
 				\dash\header::status(400);
 			}
-
 		}
 		\dash\data::ip(\dash\utility\ipLocation::get($myIp));
 
 		\dash\face::title(T_("IP"). " ". $myIp);
-		// var_dump(\dash\data::ip_flag());
-		// var_dump(\dash\data::ip());exit();
 	}
 }
 ?>
