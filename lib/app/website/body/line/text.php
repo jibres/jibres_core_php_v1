@@ -4,6 +4,15 @@ namespace lib\app\website\body\line;
 class text
 {
 
+	public static function suggest_new_name()
+	{
+		$count_text = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_text');
+		$count_text = intval($count_text) + 1;
+
+		return T_("Text"). ' '. \dash\fit::number($count_text);
+	}
+
+
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);
