@@ -713,6 +713,11 @@ class cleanse
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'star':
+				$meta['enum'] = ['1', '2', '3', '4', '5'];
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'tag':
 				$data = \dash\validate\dataarray::tag($_data, $_notif, $element, $field_title, $meta);
 				break;
