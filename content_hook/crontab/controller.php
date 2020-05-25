@@ -123,7 +123,7 @@ class controller
 
 			\dash\db\logs::expire_notif();
 			\dash\db\comments::close_solved_ticket();
-			\dash\utility\ip::check_is_block();
+			\dash\utility\ip::block_new_ip();
 			\dash\db\comments::spam_by_block_ip();
 		}
 

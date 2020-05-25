@@ -6,8 +6,6 @@ namespace dash\utility;
 */
 class ip
 {
-	private static $count_request_api = 0;
-
 
 	public static function check($_if_login_is_ok = false)
 	{
@@ -26,153 +24,40 @@ class ip
 			return true;
 		}
 
-		if(self::is_block($ip))
+		$ip_type = null;
+		if(\dash\validate::ipv4($ip, false))
+		{
+			$ip      = \dash\validate::ipv4($ip, false);
+			$load_ip = \dash\db\ip::get_ipv4($ip);
+			$ip_type = 'ipv4';
+		}
+		elseif(\dash\validate::ipv6($ip, false))
+		{
+			$ip      = \dash\validate::ipv6($ip, false);
+			$load_ip = \dash\db\ip::get_ipv6($ip);
+			$ip_type = 'ipv6';
+		}
+		else
+		{
+			\dash\log::set('InvalidIPNotV4ORV6', ['my_ip' => $ip]);
+			\dash\header::status(423, T_("Your ip is not valid!"). '. '. T_("Please contact to administrator"). '.');
+		}
+
+		if(isset($load_ip['block']) && $load_ip['block'] === 'block')
 		{
 			\dash\header::status(423, T_("Your ip is blocked"). '. '. T_("Please contact to administrator"). '.');
 		}
 
-		if(self::is_not_block($ip))
+		if(isset($load_ip['block']) && $load_ip['block'] === 'unblock')
 		{
 			return true;
 		}
 
-		self::new_ip($ip);
-	}
-
-
-	public static function list($_file, $_long = false)
-	{
-		$addr = self::files_addr();
-		$addr .= $_file;
-		if(!is_file($addr))
+		if(!isset($load_ip['id']))
 		{
-			return null;
+			self::new_ip($ip, $ip_type);
 		}
 
-		$get = \dash\file::read($addr);
-
-		switch ($_file)
-		{
-			case 'block':
-			case 'unblock':
-			case 'new':
-				$new = [];
-				$split = explode("\n", $get);
-
-				$split = array_filter($split);
-				$split = array_unique($split);
-
-				foreach ($split as $key => $value)
-				{
-					if(!$value)
-					{
-						continue;
-					}
-					if($_long)
-					{
-						$value = ip2long($value);
-					}
-					$new[] = $value;
-				}
-				return $new;
-				break;
-
-			default:
-				return $get;
-				break;
-		}
-	}
-
-
-	private static function files_addr()
-	{
-		$addr = root. 'public_html/files/ip/';
-		if(!file_exists($addr))
-		{
-			\dash\file::makeDir($addr, null, true);
-		}
-		return $addr;
-	}
-
-
-	private static function is_block($_ip)
-	{
-		$addr = self::files_addr();
-		$addr .= 'block';
-
-		if(!is_file($addr))
-		{
-			return false;
-		}
-
-		if(\dash\file::search($addr, $_ip))
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-
-	private static function is_not_block($_ip)
-	{
-		$addr = self::files_addr();
-		$addr .= 'unblock';
-
-		if(!is_file($addr))
-		{
-			return false;
-		}
-
-		if(\dash\file::search($addr, $_ip))
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-	private static function save_ip_url($_ip)
-	{
-		$addr = self::files_addr();
-		$addr .= 'url';
-
-		if(!is_file($addr))
-		{
-			\dash\file::write($addr, $_ip. "--". \dash\url::this(). "\n");
-			return false;
-		}
-
-		if(\dash\file::search($addr, $_ip))
-		{
-			return true;
-		}
-
-		\dash\file::append($addr, $_ip. "--". \dash\url::this(). "\n");
-		return true;
-	}
-
-
-	private static function new_ip($_ip)
-	{
-		$addr = self::files_addr();
-		$addr .= 'new';
-
-		if(!is_file($addr))
-		{
-			self::save_ip_url($_ip);
-			\dash\file::write($addr, $_ip. "\n");
-			return false;
-		}
-
-		if(\dash\file::search($addr, $_ip))
-		{
-			return true;
-		}
-
-		self::save_ip_url($_ip);
-		\dash\file::append($addr, $_ip. "\n");
-		return true;
 	}
 
 
@@ -186,40 +71,56 @@ class ip
 	}
 
 
-	// run this function from cronjob
-	public static function check_is_block()
+
+
+	private static function new_ip($_ip, $_type)
 	{
-		$addr = self::files_addr();
-		$addr .= 'new';
 
-		if(!is_file($addr))
+		$insert = [];
+
+		if($_type === 'ipv4')
 		{
-			return true;
+			$insert['ipv4']     = $_ip;
+			$insert['ipv4long'] = ip2long($_ip);
+		}
+		else
+		{
+			$insert['ipv6'] = $_ip;
 		}
 
-		$get = \dash\file::read($addr);
-		if(!trim($get))
+
+		$insert['block']        = 'new';
+		$insert['datecreated']  = date("Y-m-d H:i:s");
+
+		\dash\db\ip::insert($insert);
+
+		return true;
+	}
+
+
+
+
+	// run this function from cronjob
+	public static function block_new_ip()
+	{
+		$today_modified_count = \dash\db\ip::count_modified_date(date("Y-m-d"));
+
+		if(intval($today_modified_count) > 1000)
 		{
-			return true;
+			// every day can check 1000 block ip
+			return false;
 		}
 
-		$get = explode("\n", $get);
-		$get = array_filter($get);
-		$get = array_unique($get);
+		$new_list = \dash\db\ip::new_list();
 
-		// wrire file to not check exist file in foreach
-		$addr_result = self::files_addr();
-		$addr_result .= 'apiresult';
-		if(!is_file($addr_result))
+		if(!$new_list)
 		{
-			\dash\file::write($addr_result, '');
+			return null;
 		}
 
-		$is_block     = [];
-		$is_not_block = [];
 		$time         = time();
 
-		foreach ($get as $key => $value)
+		foreach ($new_list as $key => $value)
 		{
 			// try for 45 s
 			if((time() - $time) > 45)
@@ -227,167 +128,53 @@ class ip
 				break;
 			}
 
-			if(!$value)
+			$my_ip = null;
+			if(isset($value['ipv4']) && $value['ipv4'])
+			{
+				$my_ip = $value['ipv4'];
+			}
+			elseif(isset($value['ipv6']) && $value['ipv6'])
+			{
+				$my_ip = $value['ipv6'];
+			}
+
+			if(!$my_ip)
 			{
 				continue;
 			}
 
-			$check = self::get_from_server($value);
+
+			$check = self::get_from_server($my_ip);
 
 			if(isset($check[0]))
 			{
+				$count_block = null;
+				if(isset($check[2]) && is_numeric($check[2]))
+				{
+					$count_block = intval($check[2]);
+				}
+
 				if($check[0] == 'Y')
 				{
-					$is_block[] = $value;
+					\dash\db\ip::set_block($value['id'], $count_block);
 				}
 				elseif($check[0] == 'N')
 				{
-					$is_not_block[] = $value;
+					\dash\db\ip::set_unblock($value['id'], $count_block);
+				}
+				else
+				{
+					\dash\db\ip::set_unknown($value['id'], $count_block);
 				}
 			}
 		}
-
-		// get new file again
-		$addr = self::files_addr();
-
-		$get = \dash\file::read($addr. 'new');
-
-		if(!empty($is_block))
-		{
-			foreach ($is_block as $key => $value)
-			{
-				\dash\log::set('su_blockIPDetected', ['ip' => $value]);
-				$get = str_replace($value. "\n", "", $get);
-				\dash\file::append($addr. 'block', $value. "\n");
-			}
-		}
-
-		if(!empty($is_not_block))
-		{
-			foreach ($is_not_block as $key => $value)
-			{
-				$get = str_replace($value. "\n", "", $get);
-				\dash\file::append($addr. 'unblock', $value. "\n");
-			}
-		}
-
-		\dash\file::write($addr. 'new', $get);
-
-		self::count_request();
-
-
 
 		return true;
-	}
-
-	private static function count_request($_get_count = false)
-	{
-		$addr = self::files_addr();
-		$addr .= 'history';
-		if(!is_file($addr))
-		{
-			\dash\file::write($addr, '');
-		}
-
-		$get = \dash\file::read($addr);
-		if($_get_count)
-		{
-			if(!$get)
-			{
-				return self::$count_request_api;
-			}
-			else
-			{
-				$explode      = explode("\n", $get);
-
-				foreach ($explode as $key => $value)
-				{
-					if(substr($value, 0, 10) === date("Y-m-d"))
-					{
-						$old_value = explode("|", $value);
-						if(isset($old_value[1]))
-						{
-							$old_value = intval($old_value[1]);
-						}
-						else
-						{
-							$old_value = 0;
-						}
-						return self::$count_request_api + intval($old_value);
-					}
-				}
-				return self::$count_request_api;
-			}
-		}
-		else
-		{
-			if(!$get)
-			{
-				$new_get = date("Y-m-d"). "|". self::$count_request_api;
-			}
-			else
-			{
-				$explode      = explode("\n", $get);
-				$saved_before = false;
-				$old_value    = null;
-
-				foreach ($explode as $key => $value)
-				{
-					if(substr($value, 0, 10) === date("Y-m-d"))
-					{
-						$old_value    = $value;
-						$get          = str_replace($value. "\n", '', $get);
-						\dash\file::write($addr, $get);
-						$saved_before = true;
-						break;
-					}
-				}
-
-				if($saved_before)
-				{
-					$old_value = explode("|", $old_value);
-					if(isset($old_value[1]))
-					{
-						$old_value = intval($old_value[1]);
-					}
-					else
-					{
-						$old_value = 0;
-					}
-				}
-
-				if(!is_numeric($old_value))
-				{
-					$old_value = 0;
-				}
-
-				$new_get = date("Y-m-d"). "|".  (string) (self::$count_request_api + intval($old_value));
-			}
-			\dash\file::append($addr, $new_get. "\n");
-		}
 	}
 
 
 	private static function get_from_server($_ip)
 	{
-		// save result to file
-		$addr_result = self::files_addr();
-		$addr_result .= 'apiresult';
-
-		$search = \dash\file::search($addr_result, $_ip);
-		if($search && is_array($search))
-		{
-			foreach ($search as $key => $value)
-			{
-				$result = explode("=", $value);
-
-				if(isset($result[1]))
-				{
-					$explode = explode('|', $result[1]);
-					return $explode;
-				}
-			}
-		}
 
 		$apiKey = 'hIenwLNiGpPOoSk';
 
@@ -396,17 +183,8 @@ class ip
 			return false;
 		}
 
-		if(self::count_request(true) > 1000)
-		{
-			return false;
-		}
-
-		self::$count_request_api++;
-
 		$url    = "http://botscout.com/test/?ip=$_ip&key=$apiKey";
 		$data   = file_get_contents($url);
-
-		\dash\file::append($addr_result, $_ip. "=". $data. '---'. date("Y-m-d H:i:s"). "\n");
 
 		$explode = explode('|', $data);
 
