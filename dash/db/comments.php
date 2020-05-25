@@ -63,7 +63,11 @@ class comments
 
 	public static function spam_by_block_ip()
 	{
-		$block_ip = \dash\utility\ip::list('block', true);
+		// @todo @reza need to fix
+		return false;
+
+		$block_ip = null;
+
 		if(is_array($block_ip) && $block_ip)
 		{
 			$ips = implode(',', $block_ip);
