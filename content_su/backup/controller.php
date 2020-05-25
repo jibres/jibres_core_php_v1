@@ -17,7 +17,13 @@ class controller
 		$zipdownload = \dash\request::get('zipdownload');
 		if($zipdownload && is_dir(database. 'backup/file/'. $zipdownload))
 		{
-			$zip_addr  = __DIR__.'/Backup_database.me.zip';
+			$zip_dir = YARD . 'jibres_backup/download';
+			if(!is_dir($zip_dir))
+			{
+				\dash\file::makeDir($zip_dir, null, true);
+			}
+
+			$zip_addr  = $zip_dir. '/Backup_download_now.zip';
 
 			\dash\file::delete($zip_addr);
 			$zip       = \dash\utility\zip::folder($zip_addr, database. 'backup/file/'. $zipdownload. '/');
