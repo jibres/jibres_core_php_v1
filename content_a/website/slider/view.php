@@ -6,7 +6,14 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Slider'));
+		if(\dash\data::lineSetting_title() && !\dash\detect\device::detectPWA())
+		{
+			\dash\face::title(\dash\data::lineSetting_title());
+		}
+		else
+		{
+			\dash\face::title(T_('Slider'));
+		}
 
 		// back
 		\dash\data::back_text(T_('Back'));

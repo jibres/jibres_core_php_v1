@@ -17,13 +17,13 @@
 
         <label for="alt"><?php echo T_("Image Alt"); ?></label>
         <div class="input">
-          <input type="text" name="alt" id="alt" value="<?php echo \dash\data::dataRow_alt() ?>"  >
+          <input type="text" name="alt" id="alt" value="<?php echo \dash\data::dataRow_alt() ?>" maxlength="200"  >
         </div>
 
 
         <label for="url"><?php echo T_("Url"); ?></label>
         <div class="input ltr">
-          <input type="text" name="url" id="url" value="<?php echo \dash\data::dataRow_url() ?>"  >
+          <input type="text" name="url" id="url" value="<?php echo \dash\data::dataRow_url() ?>" maxlength="200" >
         </div>
 
 
