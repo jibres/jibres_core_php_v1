@@ -13,70 +13,130 @@
 <?php } //endif ?>
 
 
-<?php if(\dash\data::ipFiles()) {?>
 
-<div class="ltr">
-<table class="tbl1 v3">
-  <?php foreach (\dash\data::ipFiles() as $key => $value) {?>
-
-  <tr>
-    <td class="txtL">
-      <span class="sf-database fs15 mR10"></span>
-      <a href="<?php echo \dash\url::site(); ?>/files/ip/<?php echo \dash\get::index($value, 'name'); ?>" title='<?php echo T_("Click to download"); ?>'><?php echo \dash\get::index($value, 'name'); ?></a>
-    </td>
-    <td class="rtl s0"><?php echo \dash\get::index($value, 'ago'); ?></td>
-    <td class="rtl pR25-f"><?php echo \dash\fit::text(\dash\get::index($value, 'size')); ?> <?php echo T_("MB"); ?></td>
-
-  </tr>
-<?php } //endfor ?>
-</table>
-</div>
-
-<?php }else{ ?>
-
-<div class="msg danger fs16"><?php echo T_("No backup was found"); ?></div>
-<?php } //endif ?>
-
-
-
-
-<?php if(\dash\data::rawFile()) {?>
 
 <?php
-  $editable = ['new', 'block', 'unblock'];
+if(\dash\data::dataTable())
+{
+    if(\dash\data::isFiltered())
+    {
+        htmlSearchBox();
+        htmlTable();
+        htmlFilter();
+    }
+    else
+    {
+        htmlSearchBox();
+        htmlTable();
+    }
+
+}
+else
+{
+    if(\dash\data::isFiltered())
+    {
+        htmlSearchBox();
+
+        htmlFilter();
+    }
+    else
+    {
+        htmlStartAddNew();
+    }
+}
 ?>
 
-<div class="ltr">
-  <?php foreach (\dash\data::rawFile() as $key => $value) {?>
 
-    <div class="cbox">
 
-      <h3><?php echo $key; ?></h3>
-      <?php if(in_array($key, $editable)) {?>
 
-          <form method="post" autocomplete="off">
-            <div class="input ltr">
-              <label class="addon"><?php echo T_("Add data to this file"); ?></label>
-              <input type="text" name="ip">
-              <input type="hidden" name="file" value="<?php echo $key; ?>">
-              <input type="hidden" name="type" value="add">
-              <button type="submit" class="btn primary"><?php echo T_("Add"); ?></button>
-            </div>
-          </form>
-          <hr>
 
-        <?php }//endif ?>
-        <?php foreach ($value as $k => $v) {?>
-          <?php if($v) { echo $v; if(in_array($key, $editable))  {?>
 
-          <div href="<?php echo \dash\url::pwd(); ?>" class="badge danger" data-confirm data-data='{"type" : "remove_ip", "file" : "<?php echo $key; ?>", "ip" : "<?php echo trim($v); ?>"}' ><?php echo T_("Remove"); ?></div>
-        <?php } //endif ?>
-        <br>
-        <?php } //endif ?>
 
-      <?php } //endfor ?>
+<?php function htmlSearchBox() {?>
+    <form method="get" action="<?php echo \dash\url::that(); ?>">
+        <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
+            <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+        </div>
+    </form>
+
+<?php } //endfunction ?>
+
+
+<?php function htmlTable() {?>
+<div class="fs14 mT20">
+
+
+    <?php if(\dash\data::dataTable()) {?>
+
+    <div class="tblBox">
+        <table class="tbl1 v1">
+            <thead>
+                <th class="collapsing">#</th>
+                <th><?php echo T_("IP"); ?></th>
+                <th><?php echo T_("Block"); ?></th>
+                <th><?php echo T_("Date"); ?></th>
+                <th><?php echo T_("Count block"); ?></th>
+
+            </thead>
+            <tbody>
+              <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+                <tr>
+                  <td class="collapsing">
+                      <code><?php echo \dash\get::index($value, 'id'); ?></code>
+                  </td>
+                    <td class="fc-blue">
+                      <code><?php echo \dash\get::index($value, 'ipv4'); ?></code>
+                      <code><?php echo \dash\get::index($value, 'ipv6'); ?></code>
+                    </td>
+                    <td>
+                      <code><?php echo \dash\get::index($value, 'block'); ?></code>
+                    </td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>
+                      <?php echo \dash\fit::date_time(\dash\get::index($value, 'datemodified')); ?>
+                    </td>
+                    <td>
+                      <?php echo \dash\fit::number(\dash\get::index($value, 'countblock')); ?>
+                    </td>
+
+                </tr>
+              <?php }// endfor ?>
+            </tbody>
+        </table>
     </div>
-  <?php } //endfor ?>
+    <?php }else{ ?>
+
+      <div class="msg warn2"><?php echo T_("No ip founded"); ?></div>
+    <?php } //endif ?>
+
+<?php \dash\utility\pagination::html(); ?>
+
 </div>
-<?php } //endif ?>
+
+
+<?php } //endfunction ?>
+
+
+
+
+<?php function htmlFilter() {?>
+<p class="f fs14 msg warn2">
+  <span class="c"><?php echo \dash\data::filterBox(); ?></span>
+  <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
+</p>
+
+<?php } //endfunction ?>
+
+
+
+
+
+<?php function htmlStartAddNew() {?>
+
+<div class="fs14 msg info2 pTB20">
+  <p><?php echo T_("Hi!"); ?></p>
+
+</div>
+
+<?php } //endfunction ?>
 
