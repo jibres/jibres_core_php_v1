@@ -84,6 +84,24 @@ class code
 
 
 	/**
+	 * print_r data
+	 */
+	public static function jsonPretty($_data, $_pre = false)
+	{
+		if($_pre)
+		{
+			echo '<pre>';
+		}
+
+		echo (json_encode($_data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
+		if($_pre)
+		{
+			echo '</pre>';
+		}
+	}
+
+	/**
 	 * eval code
 	 */
 	public static function whooa($_string)
