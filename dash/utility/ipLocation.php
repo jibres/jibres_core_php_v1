@@ -10,12 +10,15 @@ class ipLocation
 	{
 		$result =
 		[
-			"ip"      => $_ip,
-			"country" => null,
-			"state"   => null,
-			"city"    => null,
-			"isp"     => null,
-			"flag"    => null,
+			"ip"        => $_ip,
+			"country"   => null,
+			"state"     => null,
+			"city"      => null,
+			"isp"       => null,
+			"flag"      => null,
+			"latitude"  => null,
+			"longitude" => null,
+
 		];
 		// get from dbip
 		$result['dbip']          = self::dbip($_ip);
@@ -40,7 +43,18 @@ class ipLocation
 		{
 			$result['city'] = strtolower($result['dbip']['city']);
 		}
-
+		if(isset($result['ipgeolocation']['latitude']))
+		{
+			$result['latitude'] = strtolower($result['ipgeolocation']['latitude']);
+		}
+		if(isset($result['ipgeolocation']['longitude']))
+		{
+			$result['longitude'] = strtolower($result['ipgeolocation']['longitude']);
+		}
+		if(isset($result['ipgeolocation']['isp']))
+		{
+			$result['isp'] = strtolower($result['ipgeolocation']['isp']);
+		}
 		return $result;
 	}
 
@@ -66,9 +80,7 @@ class ipLocation
 		// get content
 		$result = self::curl_get_contents($url);
 		// try to decode
-		var_dump($result);
 		$jsonResult = json_decode($result, true);
-		var_dump($jsonResult);
 		// remove flag url!
 		if(isset($jsonResult['country_flag']))
 		{

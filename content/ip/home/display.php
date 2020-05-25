@@ -21,6 +21,18 @@
  			<th><?php echo T_("City"); ?></th>
  			<td><?php echo T_(ucfirst(\dash\data::ip_city())); ?></td>
  		</tr>
+ 		<tr>
+ 			<th><?php echo T_("ISP"); ?></th>
+ 			<td class="ltr"><?php echo T_(ucfirst(\dash\data::ip_isp())); ?></td>
+ 		</tr>
+ 		<tr>
+ 			<th><?php echo T_("latitude"); ?></th>
+ 			<td class="ltr"><?php echo \dash\data::ip_latitude(); ?></td>
+ 		</tr>
+ 		<tr>
+ 			<th><?php echo T_("longitude"); ?></th>
+ 			<td class="ltr"><?php echo \dash\data::ip_longitude(); ?></td>
+ 		</tr>
  	</table>
  </div>
 
