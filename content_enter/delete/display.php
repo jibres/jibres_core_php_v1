@@ -1,4 +1,5 @@
 
+<?php \dash\utility\hive::html(); ?>
 <div class="f">
 	<label><?php echo T_("Why you want to delete your account!?"); ?></label>
 	<textarea  name="why" rows="2" maxlength="200"><?php echo \dash\data::getWhy(); ?></textarea>

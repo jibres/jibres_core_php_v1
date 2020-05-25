@@ -9,6 +9,8 @@ class controller
 		{
 			\dash\header::status(403, T_("Login error"));
 		}
+
+		\dash\utility\hive::set();
 	}
 }
 ?>
