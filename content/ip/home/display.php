@@ -1,7 +1,9 @@
 <div class="jibresBanner" data-back='475'>
+<?php if(\dash\data::ip_flag() && \dash\data::ip_flag() !== 'zz') { ?>
  <div class="avand-sm zero mB50">
 	<img class="block" src="<?php echo \dash\url::cdn(); ?>\img\flags\svg\<?php echo \dash\data::ip_flag(); ?>.svg" alt='<?php echo \dash\data::ip_country(); ?>'>
  </div>
+<?php } ?>
 
  <div class="avand-md impact zero txtC">
  	<table class="tbl1 v3 mB0">
