@@ -37,6 +37,10 @@
  </div>
 
  <div class="avand-md impact zero">
+ 	<iframe class="block" src="https://www.google.com/maps?q=<?php echo \dash\data::ip_latitude(); ?>,<?php echo \dash\data::ip_longitude(); ?>" width="100%" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+ </div>
+
+ <div class="avand-md impact zero">
  	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_dbip()) ?></pre>
  </div>
 
