@@ -10,39 +10,40 @@ class ipLocation
 	{
 		$result =
 		[
+			"ip"      => $_ip,
 			"country" => null,
 			"state"   => null,
 			"city"    => null,
 			"isp"     => null,
 			"flag"    => null,
 		];
-		// get from db_ip
-		$result['db_ip'] = self::db_ip($_ip);
+		// get from dbip
+		$result['dbip'] = self::dbip($_ip);
 
 
 		// fill data
-		if(isset($result['db_ip']['countryCode']))
+		if(isset($result['dbip']['countryCode']))
 		{
-			$result['flag'] = strtolower($result['db_ip']['countryCode']);
+			$result['flag'] = strtolower($result['dbip']['countryCode']);
 		}
-		if(isset($result['db_ip']['countryName']))
+		if(isset($result['dbip']['countryName']))
 		{
-			$result['country'] = strtolower($result['db_ip']['countryName']);
+			$result['country'] = strtolower($result['dbip']['countryName']);
 		}
-		if(isset($result['db_ip']['stateProv']))
+		if(isset($result['dbip']['stateProv']))
 		{
-			$result['state'] = strtolower($result['db_ip']['stateProv']);
+			$result['state'] = strtolower($result['dbip']['stateProv']);
 		}
-		if(isset($result['db_ip']['city']))
+		if(isset($result['dbip']['city']))
 		{
-			$result['city'] = strtolower($result['db_ip']['city']);
+			$result['city'] = strtolower($result['dbip']['city']);
 		}
 
 		return $result;
 	}
 
 
-	public static function db_ip($_ip)
+	public static function dbip($_ip)
 	{
 		// api url
 		$url = 'http://api.db-ip.com/v2/free/'. $_ip;
