@@ -4,6 +4,15 @@ namespace lib\app\website\body\line;
 class quote
 {
 
+	public static function suggest_new_name()
+	{
+		$count_quote = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_quote');
+		$count_quote = intval($count_quote) + 1;
+
+		return T_("Quote"). ' '. \dash\fit::number($count_quote);
+	}
+
+
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);
@@ -14,17 +23,113 @@ class quote
 		}
 		else
 		{
-			\dash\notif::error(T_("This is not a latest news"));
+			\dash\notif::error(T_("This is not a quote"));
 			return false;
 		}
 
 		if(isset($result['quote']) && is_array($result['quote']))
 		{
-			$result['quote'] = self::ready($result['quote']);
+			$result['quote'] = array_map(['self', 'ready'], $result['quote']);
 		}
+
+		$result['ratio_detail'] = self::ratio($result);
 
 
 		return $result;
+	}
+
+	public static function ratio($_data)
+	{
+		if(isset($_data['ratio']))
+		{
+			$ratio = $_data['ratio'];
+		}
+		else
+		{
+			$ratio = self::default_ratio('ratio');
+		}
+
+		if(strpos($ratio, ':') === false)
+		{
+			$ratio = self::default_ratio('ratio');
+		}
+
+		$int_ratio = null;
+
+		$split = explode(':', $ratio);
+		if(isset($split[0]) && isset($split[1]) && is_numeric($split[0]) && is_numeric($split[1]))
+		{
+			$int_ratio = round(intval($split[0]) / intval($split[1]), 5);
+		}
+
+		$result                 = [];
+		$result['ratio_string']        = $ratio;
+		$result['ratio'] = $int_ratio;
+		$result['min_w'] = 800;
+		$result['min_h'] = 600;
+		$result['max_w'] = 1080;
+		$result['max_h'] = 1200;
+
+		return $result;
+
+	}
+
+
+	private static function ratio_title($_ratio_float)
+	{
+		if(!$_ratio_float || !is_numeric($_ratio_float))
+		{
+			return null;
+		}
+
+		$ratio_title =
+		[
+			'1.78' => '16:9',
+			'1.6'  => '16:10',
+			'1.9'  => '19:10',
+			'3.56' => '32:9',
+			'2.37' => '64:27',
+			'1.67' => '5:3',
+		];
+
+		$ratio_float = round($_ratio_float, 2);
+
+		$ratio_float = (string) $ratio_float;
+
+		if(isset($ratio_title[$ratio_float]))
+		{
+			return $ratio_title[$ratio_float];
+		}
+
+		return null;
+
+	}
+
+
+
+	public static function default_ratio($_needle = null)
+	{
+		$default =
+		[
+			'ratio' => '16:9',
+			'title' => T_("16:9 (Default)"),
+		];
+
+		if($_needle)
+		{
+			if(isset($default[$_needle]))
+			{
+				return $default[$_needle];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $default;
+		}
 	}
 
 
@@ -42,6 +147,23 @@ class quote
 
 			switch ($key)
 			{
+				case 'image':
+					if(isset($value))
+					{
+
+						$image_file_addr = \lib\filepath::fix_real_path($value);
+						$ratio = \dash\utility\image::get_ratio($image_file_addr);
+						$result['image_ratio'] = $ratio;
+						$result['image_ratio_title'] = self::ratio_title($ratio);
+
+						$result[$key] = \lib\filepath::fix($value);
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
+
 				default:
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
@@ -89,9 +211,11 @@ class quote
 	{
 		$condition =
 		[
-			'quote'  => 'desc',
-			'url'   => 'string_100',
-			'title' => 'string_100',
+			'image'       => 'bit',
+			'displayname' => 'displayname',
+			'job'         => 'string_50',
+			'text'        => 'desc',
+			'star'        => 'star',
 		];
 
 		$require   = [];
@@ -99,6 +223,11 @@ class quote
 		$meta      = [];
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['star'])
+		{
+			$data['star'] = (5 - intval($data['star'])) + 1;
+		}
 
 		return $data;
 	}
@@ -114,22 +243,43 @@ class quote
 			return false;
 		}
 
-		if(!$data['quote'])
+		if(!$data['text'])
 		{
-			\dash\notif::error(T_("Please set the quote"), 'quote');
+			\dash\notif::error(T_("Please set the quote"), 'text');
 			return false;
 		}
 
+		$image_path = null;
+
+		if($data['image'])
+		{
+			$image_path = \dash\upload\website::upload_image('image');
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+
+		if(!$image_path)
+		{
+			\dash\notif::error(T_("Please upload an image file"), 'image');
+			return false;
+		}
 
 		$line_id = \lib\app\website\body\add::line('quote');
 
 		$saved_option = self::inline_get($line_id);
 
-		$saved_option['quote'] =
+		$saved_option['quote'] = [];
+
+		$saved_option['quote'][] =
 		[
-			'quote'  => $data['quote'],
-			'url'   => $data['url'],
-			'title' => $data['title'],
+			'image'       => $image_path,
+			'displayname' => $data['displayname'],
+			'text'        => $data['text'],
+			'star'        => $data['star'],
+			'job'         => $data['job'],
 		];
 
 
@@ -137,7 +287,7 @@ class quote
 
 		$save = \lib\db\setting\update::value($saved_option, $line_id);
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("Quote added"));
 
 		// retrun id to redirect to this quote
 		return ['id' => \dash\coding::encode($line_id)];
@@ -155,7 +305,7 @@ class quote
 		}
 		if(!is_numeric($_quote_index))
 		{
-			\dash\notif::error(T_("Latest news index must be a number"));
+			\dash\notif::error(T_("Quote index must be a number"));
 			return false;
 		}
 
@@ -187,15 +337,96 @@ class quote
 
 		\lib\app\website\generator::remove_catch();
 
-		\dash\notif::ok(T_("Latest news was removed"));
+		\dash\notif::ok(T_("Quote was removed"));
 
 		return true;
 	}
 
 
+	public static function set_sort($_line_id, $_quote_sort)
+	{
+		$line_id = \dash\validate::code($_line_id);
+		$line_id = \dash\coding::decode($line_id);
+
+		if(!$line_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		if(!$_quote_sort || !is_array($_quote_sort))
+		{
+			\dash\notif::error(T_("Invalid sort detail"));
+			return false;
+		}
+
+		$quote_sort = [];
+
+		foreach ($_quote_sort as $key => $value)
+		{
+			if(!is_numeric($value))
+			{
+				\dash\notif::error(T_("Invalid sort index"));
+				return false;
+			}
+
+			$quote_sort[] = intval($value);
+		}
+
+		$saved_value = self::inline_get($line_id);
+
+		if(!$saved_value || !isset($saved_value['quote']))
+		{
+			\dash\notif::error(T_("Quote detail not found"));
+			return false;
+		}
+
+		$saved_quote = $saved_value['quote'];
+
+		foreach ($quote_sort as $new_index => $old_index)
+		{
+			if(!array_key_exists($old_index, $saved_quote))
+			{
+				\dash\redirect::pwd();
+				return false;
+			}
+
+			$saved_quote[$old_index]['sort'] = $new_index;
+		}
+
+
+		$sort_column = array_column($saved_quote, 'sort');
+
+		if(count($sort_column) !== count($_quote_sort))
+		{
+			\dash\redirect::pwd();
+			return;
+		}
+
+		$my_sorted_list = $saved_quote;
+
+		array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+		$saved_quote = $my_sorted_list;
+
+		$saved_quote = array_values($saved_quote);
+
+		$saved_value['quote'] = $saved_quote;
+
+		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
+
+		$save = \lib\db\setting\update::value($saved_value, $line_id);
+
+		\lib\app\website\generator::remove_catch();
+
+		\dash\notif::ok(T_("Sorted"));
+		return true;
+
+	}
+
+
 	public static function edit($_args, $_line_id, $_quote_index = null)
 	{
-
 		$data      = self::check_validate($_args);
 
 		if(!$data)
@@ -228,16 +459,92 @@ class quote
 
 		$saved_quote = $saved_value['quote'];
 
+		$edit_index_mode = false;
+
+		$image_path = null;
+
+		if($data['image'])
+		{
+			$image_path = \dash\upload\website::upload_image('image');
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+
+		if(is_numeric($_quote_index))
+		{
+			if(!array_key_exists($_quote_index, $saved_quote))
+			{
+				\dash\notif::error(T_("Quote index not found"));
+				return false;
+			}
+
+			$edit_index_mode = true;
+
+			if(!$image_path)
+			{
+				$image_path = isset($saved_quote[$_quote_index]['image']) ? $saved_quote[$_quote_index]['image'] : null;
+			}
+		}
+
+		if(!$image_path)
+		{
+			\dash\notif::error(T_("Please upload an image file"), 'image');
+			return false;
+		}
+
+		if(!$data['text'])
+		{
+			\dash\notif::error(T_("Please set quote"), 'text');
+			return false;
+		}
+
 
 		$ready_to_save =
 		[
-			'quote'  => $data['quote'],
-			'url'   => $data['url'],
-			'title' => $data['title'],
+			'image'  => $image_path,
+				'displayname' => $data['displayname'],
+			'text'        => $data['text'],
+			'star'        => $data['star'],
+			'job'         => $data['job'],
 		];
 
+		if($edit_index_mode)
+		{
+			$saved_quote[$_quote_index] = $ready_to_save;
+			\dash\notif::ok(T_("Page quote edited"));
+		}
+		else
+		{
 
-		$saved_quote = $ready_to_save;
+			$saved_quote[] = $ready_to_save;
+
+			if(isset($line_option['max_capacity']) && is_numeric($line_option['max_capacity']))
+			{
+				if(count($saved_quote) > intval($line_option['max_capacity']))
+				{
+					\dash\notif::error(T_("Maximum capacity of this quote is full"));
+					return false;
+				}
+			}
+
+			\dash\notif::ok(T_("Quote added"));
+		}
+
+		$sort_column = array_column($saved_quote, 'sort');
+
+		if(count($sort_column) === count($saved_quote))
+		{
+			$my_sorted_list = $saved_quote;
+
+			array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+			$saved_quote = $my_sorted_list;
+		}
+
+		$saved_quote = array_values($saved_quote);
 
 		$saved_value['quote'] = $saved_quote;
 
@@ -246,8 +553,6 @@ class quote
 		$save = \lib\db\setting\update::value($saved_value, $line_id);
 
 		\lib\app\website\generator::remove_catch();
-
-		\dash\notif::ok(T_("Latest news added"));
 
 		return true;
 	}
