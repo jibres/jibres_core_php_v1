@@ -30,7 +30,7 @@
           <input type="text" name="job" id="job" value="<?php echo \dash\data::dataRow_job() ?>" maxlength="50"  >
         </div>
 
-        <textarea name="text" class="txt" rows="5" placeholder="<?php echo T_("Quote") ?>"><?php echo \dash\data::dataRow_text() ?></textarea>
+        <textarea name="text" class="txt" maxlength="300" rows="5" placeholder="<?php echo T_("Quote") ?>"><?php echo \dash\data::dataRow_text() ?></textarea>
 
         <label><?php echo T_("User star"); ?></label>
         <div class="radioRating togglable">

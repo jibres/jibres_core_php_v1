@@ -13,16 +13,12 @@
           </div>
 
 
-            <label for="ratio"><?php echo T_("Ratio"); ?></label>
+            <label for="style"><?php echo T_("Style mode"); ?></label>
             <div>
-            <select class="select22" name="ratio">
-              <option value="0"><?php echo \dash\data::defaultRatioSlider(); ?></option>
-              <option value="16:9" <?php if(\dash\data::lineSetting_ratio() === '16:9') {echo 'selected';} ?>><?php echo \dash\fit::text("16:9") ?></option>
-              <option value="16:10" <?php if(\dash\data::lineSetting_ratio() === '16:10') {echo 'selected';} ?>><?php echo \dash\fit::text("16:10") ?></option>
-              <option value="19:10" <?php if(\dash\data::lineSetting_ratio() === '19:10') {echo 'selected';} ?>><?php echo \dash\fit::text("19:10") ?></option>
-              <option value="32:9" <?php if(\dash\data::lineSetting_ratio() === '32:9') {echo 'selected';} ?>><?php echo \dash\fit::text("32:9") ?></option>
-              <option value="64:27" <?php if(\dash\data::lineSetting_ratio() === '64:27') {echo 'selected';} ?>><?php echo \dash\fit::text("64:27") ?></option>
-              <option value="5:3" <?php if(\dash\data::lineSetting_ratio() === '5:3') {echo 'selected';} ?>><?php echo \dash\fit::text("5:3") ?></option>
+            <select class="select22" name="style">
+              <option value="0"><?php echo \dash\data::defaultStyleQuote(); ?></option>
+              <option value="simple" <?php if(\dash\data::lineSetting_style() === 'simple') {echo 'selected';} ?>><?php echo T_("Simple") ?></option>
+              <option value="professional" <?php if(\dash\data::lineSetting_style() === 'professional') {echo 'selected';} ?>><?php echo T_("Professional") ?></option>
             </select>
             </div>
 

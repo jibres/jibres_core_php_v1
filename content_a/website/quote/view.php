@@ -12,7 +12,7 @@ class view
 		}
 		else
 		{
-			\dash\face::title(T_('Slider'));
+			\dash\face::title(T_('Quote'));
 		}
 
 		// back
