@@ -1,14 +1,14 @@
 <?php
-$productList = \lib\app\product\get::website_last_product();
+$productline = \lib\app\product\get::website_last_product();
 
-if($productList && is_array($productList))
+if($productline && is_array($productline))
 {
 ?>
 
   <div class="avand">
     <div class="f">
 
-      <?php foreach ($productList as $key => $value) { ?>
+      <?php foreach ($productline as $key => $value) { ?>
         <div class="c3 s12 pRa10">
           <a class="jProduct1" href="<?php echo \dash\get::index($value, 'url'); ?>">
             <img src="<?php echo \dash\get::index($value, 'thumb') ?>">
