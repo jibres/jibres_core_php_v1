@@ -28,12 +28,14 @@
         <li>Trafic received: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_received()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
         <li>Trafic send: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_sent()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
       </div>
-
+      <?php if(true) {?>
+        <!-- We have nginx time out for run backup in -->
       <form method="post" data-timeout=0>
         <input type="hidden" name="backup" value="now">
           <h6><?php echo T_("You can create backup now"); ?></h6>
           <button class="btn success block"><?php echo T_("Backup now"); ?></button>
       </form>
+    <?php } // endif ?>
       <?php echo \dash\data::databaseLog(); ?>
         <br>
         <?php echo T_("You have another database for logs"); ?> <a href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-data='{"backup" : "now_log"}' data-timeout=0 data-method='post'><small><?php echo T_("Click for create backup from log database"); ?></small></a>
