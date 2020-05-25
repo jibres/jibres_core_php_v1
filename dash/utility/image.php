@@ -363,5 +363,35 @@ class image
 			self::$type = $type;
 		}
 	}
+
+
+
+
+
+	public static function get_ratio($_addr)
+	{
+		if(!is_file($_addr))
+		{
+			return null;
+		}
+
+		list($width, $height) = @getimagesize($_addr);
+
+		if(!is_numeric($width) || !is_numeric($height))
+		{
+			return null;
+		}
+
+		if($height <= 0)
+		{
+			$height = 1;
+		}
+
+		$ratio = $width / $height;
+		$ratio = round($ratio, 5);
+
+		return $ratio;
+
+	}
 }
 ?>

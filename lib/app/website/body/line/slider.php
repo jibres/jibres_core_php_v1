@@ -32,6 +32,9 @@ class slider
 			$result['slider'] = array_map(['self', 'ready'], $result['slider']);
 		}
 
+		$result['ratio_detail'] = self::ratio($result);
+
+
 		return $result;
 	}
 
@@ -68,6 +71,37 @@ class slider
 		$result['max_h'] = 1200;
 
 		return $result;
+
+	}
+
+
+	private static function ratio_title($_ratio_float)
+	{
+		if(!$_ratio_float || !is_numeric($_ratio_float))
+		{
+			return null;
+		}
+
+		$ratio_title =
+		[
+			'1.78' => '16:9',
+			'1.6'  => '16:10',
+			'1.9'  => '19:10',
+			'3.56' => '32:9',
+			'2.37' => '64:27',
+			'1.67' => '5:3',
+		];
+
+		$ratio_float = round($_ratio_float, 2);
+
+		$ratio_float = (string) $ratio_float;
+
+		if(isset($ratio_title[$ratio_float]))
+		{
+			return $ratio_title[$ratio_float];
+		}
+
+		return null;
 
 	}
 
@@ -116,6 +150,12 @@ class slider
 				case 'image':
 					if(isset($value))
 					{
+
+						$image_file_addr = \lib\filepath::fix_real_path($value);
+						$ratio = \dash\utility\image::get_ratio($image_file_addr);
+						$result['image_ratio'] = $ratio;
+						$result['image_ratio_title'] = self::ratio_title($ratio);
+
 						$result[$key] = \lib\filepath::fix($value);
 					}
 					else

@@ -105,6 +105,30 @@ class filepath
 	}
 
 
+	/**
+	 * Get file paht and return real address
+	 *
+	 * @param      <type>  $_addr  The address
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function fix_real_path($_addr)
+	{
+		$addr = null;
+
+		if(\dash\engine\store::inStore())
+		{
+			$addr = YARD. 'talambar_cloud/'. $_addr;
+		}
+		else
+		{
+			$addr = YARD. 'talambar_dl/'. $_addr;
+		}
+
+		return $addr;
+	}
+
+
 	private static function extract_file($_url)
 	{
 		$thumb = $_url;
