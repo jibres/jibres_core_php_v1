@@ -4,6 +4,15 @@ namespace lib\app\website\body\line;
 class productline
 {
 
+	public static function suggest_new_name()
+	{
+		$count_productline = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_productline');
+		$count_productline = intval($count_productline) + 1;
+
+		return T_("Product"). ' '. \dash\fit::number($count_productline);
+	}
+
+
 	public static function get($_id)
 	{
 		$result = \lib\app\website\body\get::line_setting($_id);
@@ -89,7 +98,10 @@ class productline
 	{
 		$condition =
 		[
-			'limit'   => 'smallint',
+			'title'   => 'string_200',
+			'type'    => ['enum' => ['latestproduct','randomproduct','bestselling']],
+			'cat_id'  => 'id',
+			'publish' => 'bit'
 		];
 
 		$require   = [];
@@ -112,20 +124,21 @@ class productline
 			return false;
 		}
 
-		if(!$data['limit'])
+
+		$line_id = \lib\app\website\body\add::line('productline', ['title' => $data['title'], 'publish' => $data['publish']]);
+
+		if(!$line_id)
 		{
-			\dash\notif::error(T_("Please set the limit"), 'limit');
+			\dash\log::oops('error:line');
 			return false;
 		}
-
-
-		$line_id = \lib\app\website\body\add::line('productline');
 
 		$saved_option = self::inline_get($line_id);
 
 		$saved_option['productline'] =
 		[
-			'limit'    => $data['limit'],
+			'type'   => $data['type'],
+			'cat_id' => $data['cat_id'],
 		];
 
 
@@ -133,62 +146,15 @@ class productline
 
 		$save = \lib\db\setting\update::value($saved_option, $line_id);
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("Product line added"));
 
 		// retrun id to redirect to this productline
 		return ['id' => \dash\coding::encode($line_id)];
 	}
 
-	public static function remove($_line_id, $_productline_index)
-	{
-		$line_id = \dash\validate::code($_line_id);
-		$line_id = \dash\coding::decode($line_id);
-
-		if(!$line_id)
-		{
-			return false;
-		}
-		if(!is_numeric($_productline_index))
-		{
-			\dash\notif::error(T_("Latest news index must be a number"));
-			return false;
-		}
-
-		$saved_value = self::inline_get($line_id);
-
-		if(!$saved_value || !isset($saved_value['productline']))
-		{
-			return false;
-		}
-
-		$saved_productline = $saved_value['productline'];
 
 
-		if(!array_key_exists($_productline_index, $saved_productline))
-		{
-			\dash\notif::error(T_("Invalid productline index"));
-			return false;
-		}
-
-		unset($saved_productline[$_productline_index]);
-
-		$saved_productline = array_values($saved_productline);
-
-		$saved_value['productline'] = $saved_productline;
-
-		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
-
-		$save = \lib\db\setting\update::value($saved_value, $line_id);
-
-		\lib\app\website\generator::remove_catch();
-
-		\dash\notif::ok(T_("Latest news was removed"));
-
-		return true;
-	}
-
-
-	public static function edit($_args, $_line_id, $_productline_index = null)
+	public static function edit($_args, $_line_id)
 	{
 
 		$data      = self::check_validate($_args);
@@ -197,6 +163,7 @@ class productline
 		{
 			return false;
 		}
+
 
 		$line_option = \lib\app\website\body\template::get('productline');
 
@@ -221,12 +188,16 @@ class productline
 			return false;
 		}
 
+		$saved_value['title']   = $data['title'];
+		$saved_value['publish'] = $data['publish'];
+
 		$saved_productline = $saved_value['productline'];
 
 
 		$ready_to_save =
 		[
-			'limit'    => $data['limit'],
+			'type'   => $data['type'],
+			'cat_id' => $data['cat_id'],
 		];
 
 
@@ -240,7 +211,7 @@ class productline
 
 		\lib\app\website\generator::remove_catch();
 
-		\dash\notif::ok(T_("Latest news added"));
+		\dash\notif::ok(T_("Product line edited"));
 
 		return true;
 	}

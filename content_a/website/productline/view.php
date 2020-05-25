@@ -6,17 +6,26 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Productline'));
+		if(\dash\data::lineSetting_title() && !\dash\detect\device::detectPWA())
+		{
+			\dash\face::title(\dash\data::lineSetting_title());
+		}
+		else
+		{
+			\dash\face::title(T_('Products'));
+		}
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/body');
 
+		\dash\data::defaultProductLineType(T_("Latest product (Default)"));
 
-		if(\dash\data::productlineID())
-		{
-			\dash\face::btnSetting(\dash\url::this(). '/productline/setting?id='. \dash\data::productlineID());
-		}
+		\dash\data::productlineNameSuggestion(\lib\app\website\body\line\productline::suggest_new_name());
+
+		$category_list = \lib\app\category\search::list();
+		\dash\data::listCategory($category_list);
+
 	}
 }
 ?>

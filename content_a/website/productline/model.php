@@ -6,9 +6,13 @@ class model
 	public static function post()
 	{
 
+
 		$post =
 		[
-			'limit'    => \dash\request::post('limit'),
+			'title'   => \dash\request::post('title'),
+			'publish' => 1,
+			'type'    => \dash\request::post('type'),
+			'cat_id'  => \dash\request::post('cat_id'),
 		];
 
 
@@ -33,7 +37,17 @@ class model
 		}
 		else
 		{
-			$productline = \lib\app\website\body\line\productline::edit($post, \dash\data::productlineID());
+			if(\dash\request::post('remove') === 'line')
+			{
+				\lib\app\website\body\remove::line(\dash\request::get('id'));
+				\dash\redirect::to(\dash\url::this(). '/body');
+				return;
+			}
+			else
+			{
+				\lib\app\website\body\line\productline::edit($post, \dash\data::productlineID());
+			}
+
 
 			if(\dash\engine\process::status())
 			{
