@@ -11,6 +11,7 @@
 
         <form method="post" autocomplete="off">
 
+          <?php \dash\utility\hive::html(); ?>
 
          <div class="input pA5">
           <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
