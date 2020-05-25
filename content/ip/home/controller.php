@@ -7,7 +7,14 @@ class controller
 	{
 		if(\dash\url::child())
 		{
-			\dash\open::get();
+			if(\dash\url::subchild())
+			{
+				// do not open
+			}
+			else
+			{
+				\dash\open::get();
+			}
 		}
 	}
 }
