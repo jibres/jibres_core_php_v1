@@ -15,8 +15,8 @@
 
           <?php if(\dash\get::index($value, 'image_ratio') && $slider_ratio && round(\dash\get::index($value, 'image_ratio'), 2) != $slider_ratio) {?>
             <div class="fc-orange">
-              <i class="sf-exclamation-triangle fc-orange"></i> <?php echo T_("This image can not be show on website. because the ratio of it is not match by slider ratio!") ?>
-              <?php if(\dash\get::index($value, 'image_ratio_title')) { ?><span class="txtB"><?php echo T_("This image uploaded on ratio :val", ['val' => \dash\fit::text(\dash\get::index($value, 'image_ratio_title'))]); ?></span><?php } // endif ?>
+              <i class="sf-exclamation-triangle fc-orange"></i> <?php echo T_("This image ratio is not match by slider ratio!") ?>
+              <?php if(\dash\get::index($value, 'image_ratio_title')) { ?><span class="txtB"><?php echo T_("Image ratio :val", ['val' => \dash\fit::text(\dash\get::index($value, 'image_ratio_title'))]); ?></span><?php } // endif ?>
 
             </div>
           <?php } // endif ?>
