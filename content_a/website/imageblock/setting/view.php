@@ -6,12 +6,12 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Manage imageblock'));
+		\dash\face::title(T_('Manage image block'));
 
 		if(\dash\data::imageblockID())
 		{
 			// back
-			\dash\data::back_text(T_('Slider list'));
+			\dash\data::back_text(T_('Image list'));
 			\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::imageblockID());
 		}
 		else

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add imageblock page'));
+		\dash\face::title(T_('Add image'));
 
 
 		if(\dash\data::imageblockID())
@@ -17,7 +17,7 @@ class view
 			if(\dash\data::lineSetting_imageblock() && is_array(\dash\data::lineSetting_imageblock()))
 			{
 				// back
-				\dash\data::back_text(T_('Slider list'));
+				\dash\data::back_text(T_('Image list'));
 				\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::imageblockID());
 
 			}

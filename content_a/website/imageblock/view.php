@@ -12,7 +12,7 @@ class view
 		}
 		else
 		{
-			\dash\face::title(T_('Slider'));
+			\dash\face::title(T_('Image box'));
 		}
 
 		// back
@@ -24,7 +24,7 @@ class view
 		{
 			\dash\face::btnSetting(\dash\url::this(). '/imageblock/setting?id='. \dash\data::imageblockID());
 			// action
-			\dash\data::action_text(T_('Add imageblock'));
+			\dash\data::action_text(T_('Add image'));
 			\dash\data::action_link(\dash\url::this(). '/imageblock/add?id='. \dash\data::imageblockID());
 		}
 
