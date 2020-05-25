@@ -276,7 +276,7 @@ class upgrade
 					if(version_compare($current_version, $dbversion, '>'))
 					{
 						$temp_sql = \dash\file::read($file);
-						$temp_sql = str_replace('business_XXXXXXX', $database_name, $temp_sql);
+						$temp_sql = str_replace('jibres_XXXXXXX', $database_name, $temp_sql);
 						// $temp_sql .= ' -- '. $subdomain;
 						self::update_query_db_version($current_version, $store_id);
 						$this_store_sql[] = $temp_sql;
