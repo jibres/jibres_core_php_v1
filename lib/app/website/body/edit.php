@@ -12,6 +12,7 @@ class edit
 			'sort'    => 'smallint',
 			'publish' => 'bit',
 			'ratio'   => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
+			'style'   => ['enum' => ['simple','professional']],
 		];
 
 		$require   = [];
@@ -48,6 +49,7 @@ class edit
 		$edit['sort']    = $data['sort'];
 		$edit['publish'] = $data['publish'];
 		$edit['ratio']   = $data['ratio'];
+		$edit['style']   = $data['style'];
 
 		$value = json_encode($edit, JSON_UNESCAPED_UNICODE);
 

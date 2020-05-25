@@ -10,7 +10,7 @@ class model
 			'title'   => \dash\request::post('title'),
 			// 'sort'    => \dash\request::post('sort'),
 			'publish' => 1,
-			'ratio'   => \dash\request::post('ratio') === '0' ? null : \dash\request::post('ratio'),
+			'style'   => \dash\request::post('style') === '0' ? null : \dash\request::post('style'),
 		];
 
 		if(\dash\request::get('id'))
