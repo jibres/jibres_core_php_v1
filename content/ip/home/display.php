@@ -27,3 +27,8 @@
  <div class="avand-md impact zero">
  	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_dbip()) ?></pre>
  </div>
+
+
+ <div class="avand-md impact zero">
+ 	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_ipgeolocation()) ?></pre>
+ </div>

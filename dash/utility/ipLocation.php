@@ -18,7 +18,9 @@ class ipLocation
 			"flag"    => null,
 		];
 		// get from dbip
-		$result['dbip'] = self::dbip($_ip);
+		$result['dbip']          = self::dbip($_ip);
+		// get from ipgeolocation
+		$result['ipgeolocation'] = self::ipgeolocation($_ip);
 
 
 		// fill data
@@ -48,11 +50,27 @@ class ipLocation
 		// api url
 		$url = 'http://api.db-ip.com/v2/free/'. $_ip;
 		// get content
-		$result = file_get_contents($url);
+		$result = @file_get_contents($url);
 		// try to decode
 		$jsonResult = json_decode($result, true);
 		// return
 		return $jsonResult;
 	}
+
+
+	public static function ipgeolocation($_ip)
+	{
+		$apiKey = '0e1ef7d392f14429bad9ef9f95384570';
+		// api url
+		$url = 'https://api.ipgeolocation.io/ipgeo?apiKey='. $apiKey.'&ip='. $_ip;
+		// get content
+		$result = @file_get_contents($url);
+		// try to decode
+		$jsonResult = json_decode($result, true);
+		// return
+		return $jsonResult;
+	}
+
+
 }
 ?>
