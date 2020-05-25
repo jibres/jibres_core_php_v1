@@ -74,7 +74,7 @@ class guard
 		$csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_domain('cdn'). "; ";
 		// img-src
-		$csp .= "img-src ". self::csp_domain(). " https://www.google *.google-analytics.com *.doubleclick.net blob: data:; ";
+		$csp .= "img-src ". self::csp_domain(). " https: blob: data:; ";
 		// font-src
 		$csp .= "font-src ". self::csp_domain('cdn'). " data:; ";
 		// media-src
