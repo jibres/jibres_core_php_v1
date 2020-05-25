@@ -27,7 +27,7 @@
 
         <div class="f fc-mute mB20 fs09">
           <div class="c fs08"><?php echo T_("IP"); ?></div>
-          <div class="cauto os"><a target="_blank" href="<?php echo \dash\url\kingdom(); ?> /ip/<?php echo \dash\data::masterTicketDetail_ip(); ?>"><?php echo \dash\data::masterTicketDetail_prettyip(); ?></a></div>
+          <div class="cauto os"><a target="_blank" href="<?php echo \dash\url::kingdom(); ?> /ip/<?php echo \dash\data::masterTicketDetail_ip(); ?>"><?php echo \dash\data::masterTicketDetail_prettyip(); ?></a></div>
         </div>
         <?php } //endif ?>
 
