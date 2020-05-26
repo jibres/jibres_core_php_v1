@@ -6,7 +6,6 @@
  <title><?php echo \dash\face::headTitle(); ?></title>
  <meta content="<?php echo \dash\face::desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
- <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/<?php echo \dash\language::current(); ?>';</script><![endif]-->
  <meta content="<?php
 if (\dash\detect\device::detectPWA())
   echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
@@ -142,14 +141,6 @@ if (\dash\user::id())
 }
 // @todo Javad check browser and show live or dead
 // <div class="line warn fs20">YOU ARE DEAD!</div>
-if(!\dash\url::isLocal() && \dash\data::googleAnalytics() && false)
-{
-  $gAnalytics = \dash\data::googleAnalytics();
-  echo "\n  ";
-  echo "<script async id='gAnalyticsScript' data-id='$gAnalytics' src='https://www.googletagmanager.com/gtag/js?id=". $gAnalytics. "'></script>";
-  echo "\n  ";
-  echo "<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '$gAnalytics'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '$gAnalytics', {'page_path': pathname}); }</script>";
-}
 
 ?>
 <?php \dash\layout\find::allNotifs(); ?>
