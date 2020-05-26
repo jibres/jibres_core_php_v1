@@ -108,7 +108,9 @@ class error
 		$my_text .= trim($_text);
 		$my_text .= "\r\n";
 
-		@file_put_contents($file_addr, $my_text. PHP_EOL, FILE_APPEND);
+		\dash\log::append_file($file_addr, $my_text. PHP_EOL);
+
+		// @file_put_contents($file_addr, $my_text. PHP_EOL, FILE_APPEND);
 	}
 }
 ?>

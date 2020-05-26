@@ -639,14 +639,14 @@ class log
 	{
 		if(!$_file_name)
 		{
-			$_file_name = 'log.txt';
+			$_file_name = 'log.log';
 		}
 
 		$fileAddr = YARD.'jibres_log/';
 
 		if($_folder)
 		{
-			$fileAddr .= '/'. $_folder. '/';
+			$fileAddr .=  $_folder. '/';
 		}
 
 		if(!is_dir($fileAddr))
@@ -666,9 +666,46 @@ class log
 			$my_text .= "\r\n";
 		}
 
-		// error_log($my_text, 3, $fileAddr);
+		self::append_file($fileAddr, $my_text);
 
-		@file_put_contents($fileAddr, $my_text, FILE_APPEND);
+	}
+
+
+	public static function append_file($_addr, $_text)
+	{
+		@file_put_contents($_addr, $_text, FILE_APPEND);
+
+		// check size
+		$filesize = filesize($_addr);
+
+
+		// check on 1 MB
+		if(floatval($filesize) > (1 * 1024 * 1024))
+		{
+			$pathinfo  = pathinfo($_addr);
+
+			$extension = 'log';
+			if(isset($pathinfo['extension']))
+			{
+				$extension = $pathinfo['extension'];
+			}
+
+			if(isset($pathinfo['filename']))
+			{
+				$filename = $pathinfo['filename'];
+			}
+			else
+			{
+				$filename = str_replace('.'. $extension, '', basename($_addr));
+			}
+
+			$new_name = $filename. '_'. date("YmdHis"). '.'. $extension;
+
+			$new_name = str_replace(basename($_addr), $new_name, $_addr);
+
+			rename($_addr, $new_name);
+
+		}
 	}
 }
 ?>

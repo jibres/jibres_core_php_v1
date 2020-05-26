@@ -72,7 +72,9 @@ class log
 		$my_text .= $_text;
 		$my_text .= "\r";
 
-		@file_put_contents($fileAddr, $my_text, FILE_APPEND);
+		\dash\log::append_file($fileAddr, $my_text);
+
+		// @file_put_contents($fileAddr, $my_text, FILE_APPEND);
 
 		// add to start of file
 		// $fileContent = '';
