@@ -5,7 +5,7 @@
 		 <p><?php echo \dash\data::autoredirect_title(); ?></p>
 		</div>
 
-		<form method="<?php echo \dash\data::autoredirect_method(); ?>" data-action action="<?php echo \dash\data::autoredirect_url(); ?>" id='autoredirectform'>
+		<form method="<?php echo \dash\data::autoredirect_method(); ?>" data-action action="<?php echo \dash\data::autoredirect_url(); ?>" id='autosubmitform'>
 			<?php
 			if(is_array(\dash\data::autoredirect_args()))
 			{
@@ -25,7 +25,5 @@
 
 </div>
 
-<script>
-	document.getElementById('autoredirectform').submit();
-</script>
+<script src="<?php echo \dash\url::cdn(); ?>/js/page/submitform.js"></script>
 

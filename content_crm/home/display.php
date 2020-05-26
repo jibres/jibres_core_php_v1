@@ -123,11 +123,4 @@
 
 
 
-<script type="text/javascript">
-    <?php require_once(root. 'content_crm/home/solid-gauge.js'); ?>
-</script>
-<script type="text/javascript">
-    <?php require_once(root. 'content_crm/home/chart.js'); ?>
-</script>
-
 

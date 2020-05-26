@@ -140,7 +140,7 @@ class view
 		.hljs{padding:0;max-height:100%;height:100%;}';
 		$output .= ' </style>';
 
-		$output .= ' <script>$(document).ready(function() {$("pre").each(function(i, block) {hljs.highlightBlock(block);}); });</script>';
+
 		$output .= "</head><body>";
 		// $output .= '<a class="clear primary" href="'. \dash\url::this(). '?folder='.\dash\request::get('folder').'">Back!</a>';
 		$output .= '<a class="clear" href="'. \dash\url::this(). '?clear=1&folder='.\dash\request::get('folder').'&file='.\dash\request::get('file').'">Clear it!</a>';

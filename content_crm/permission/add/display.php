@@ -66,8 +66,8 @@ if(!is_array($permLoad))
 </form>
 
 
+<?php if(false) {?>
 
-<script>
 function pushStateFinal()
 {
   $('input[type=checkbox]').off('change');
@@ -87,5 +87,5 @@ function pushStateFinal()
       });
     }
   });
-}
-</script>
+
+<?php } //endif ?>

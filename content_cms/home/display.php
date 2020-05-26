@@ -182,12 +182,3 @@
 
   </div>
 
-
-<script type="text/javascript">
-  <?php require_once(root. 'content_cms/home/wordcloud.js'); ?>
-</script>
-
-<script type="text/javascript">
-    <?php require_once(root. 'content_cms/home/chart.js'); ?>
-</script>
-

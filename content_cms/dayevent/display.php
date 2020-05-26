@@ -6,7 +6,3 @@
 </div>
 
 
-
-<script>
-<?php require_once (root. 'content_cms/dayevent/chart.js'); ?>
-</script>

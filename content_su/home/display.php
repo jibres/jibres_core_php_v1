@@ -61,8 +61,4 @@
 
 
 
-<script>
-  <?php require_once (root. 'content_su/home/chart.js'); ?>
-</script>
-
 
