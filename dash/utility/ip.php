@@ -57,6 +57,34 @@ class ip
 		{
 			self::new_ip($ip, $ip_type);
 		}
+	}
+
+	public static function fetch($_ip)
+	{
+		$ip_type = null;
+		$load_ip = [];
+
+		$ip = $_ip;
+
+		if(\dash\validate::ipv4($ip, false))
+		{
+			$ip      = \dash\validate::ipv4($ip, false);
+			$load_ip = \dash\db\ip::get_ipv4($ip);
+			$ip_type = 'ipv4';
+		}
+		elseif(\dash\validate::ipv6($ip, false))
+		{
+			$ip      = \dash\validate::ipv6($ip, false);
+			$load_ip = \dash\db\ip::get_ipv6($ip);
+			$ip_type = 'ipv6';
+		}
+
+		if(!isset($load_ip['id']))
+		{
+			$load_ip = self::new_ip($ip, $ip_type);
+		}
+
+		return $load_ip;
 
 	}
 
@@ -94,7 +122,7 @@ class ip
 
 		\dash\db\ip::insert($insert);
 
-		return true;
+		return $insert;
 	}
 
 

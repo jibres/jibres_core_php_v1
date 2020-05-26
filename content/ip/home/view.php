@@ -26,6 +26,9 @@ class view
 		\dash\data::ip(\dash\utility\ipLocation::get($myIp));
 
 		\dash\face::title(T_("IP"). " ". $myIp);
+
+		\dash\data::ipDetail(\dash\utility\ip::fetch($myIp));
+
 	}
 }
 ?>

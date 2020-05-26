@@ -42,6 +42,21 @@
  	<iframe class="block" src="https://www.google.com/maps?q=<?php echo \dash\data::ip_latitude(); ?>,<?php echo \dash\data::ip_longitude(); ?>&hl=en;z=16&amp;output=embed" width="100%" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
  </div>
 
+ <div class="avand-md zero">
+ 	<div class="txtC">
+
+ 	<?php if(\dash\data::ipDetail_block() === 'block') {?>
+ 		<p class="msg danger">IP is blocked! <?php if(\dash\data::ipDetail_countblock()) {?> <span> (Count block: <?php echo \dash\data::ipDetail_countblock(); ?> ) </span><?php } //endif ?></p>
+ 	<?php }elseif(\dash\data::ipDetail_block() === 'unblock'){?>
+ 		<p class="msg success">IP is not blocked</p>
+ 	<?php }elseif(\dash\data::ipDetail_block() === 'unknown'){?>
+ 		<p class="msg secondary">Unknown ip status</p>
+ 	<?php }elseif(\dash\data::ipDetail_block() === 'new'){?>
+ 		<p class="msg primary">New ip</p>
+ 	<?php } //endif ?>
+ 	</div>
+ </div>
+
  <div class="avand-md impact zero">
  	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_dbip()) ?></pre>
  </div>
