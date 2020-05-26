@@ -148,7 +148,7 @@ class ip
 
 			if(isset($check[0]))
 			{
-				$count_block = null;
+				$count_block = 0;
 				if(isset($check[2]) && is_numeric($check[2]))
 				{
 					$count_block = intval($check[2]);
