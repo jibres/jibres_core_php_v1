@@ -17,6 +17,8 @@ class view
 		}
 
 		\dash\utility\enter::clean_session();
+
+		\dash\redirect::to(\dash\data::redirectUrl());
 	}
 }
 ?>
