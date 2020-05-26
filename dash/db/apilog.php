@@ -4,6 +4,17 @@ namespace dash\db;
 
 class apilog
 {
+	public static function remove_last_month()
+	{
+		$last_month  = date("Y-m-d", strtotime("-30 days"));
+		$count_query = "SELECT COUNT(*) AS `count` FROM apilog WHERE DATE(apilog.datesend) <= DATE('$last_month') ";
+		$count       = intval(\dash\db::get($count_query, 'count', true, 'api_log'));
+
+		$delete_query = "DELETE FROM apilog WHERE DATE(apilog.datesend) <= DATE('$last_month') ";
+		\dash\db::query($delete_query, 'api_log');
+
+		return $count;
+	}
 
 	public static function insert($_args)
 	{

@@ -54,6 +54,7 @@ else
       <?php } // endif ?>
 
       <button class="addon btn "><?php echo T_("Search"); ?></button>
+      <div class="addon btn warn" data-confirm data-data='{"remove":"lastmonth"}'><?php echo T_("Remove last month log"); ?></div>
     </div>
   </form>
 </div>
