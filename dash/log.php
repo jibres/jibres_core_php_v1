@@ -678,33 +678,67 @@ class log
 		// check size
 		$filesize = filesize($_addr);
 
-
 		// check on 1 MB
 		if(floatval($filesize) > (1 * 1024 * 1024))
 		{
-			$pathinfo  = pathinfo($_addr);
+			self::archive_log($_addr);
+		}
+	}
 
-			$extension = 'log';
-			if(isset($pathinfo['extension']))
+
+	private static function archive_log($_addr)
+	{
+		$pathinfo  = pathinfo($_addr);
+
+		$extension = 'log';
+
+		if(isset($pathinfo['extension']))
+		{
+			$extension = $pathinfo['extension'];
+		}
+
+		if(isset($pathinfo['filename']))
+		{
+			$filename = $pathinfo['filename'];
+		}
+		else
+		{
+			$filename = str_replace('.'. $extension, '', basename($_addr));
+		}
+
+		$new_name = $filename. '_'. date("YmdHis"). '.'. $extension;
+
+		$new_name = str_replace(basename($_addr), $new_name, $_addr);
+
+		// rename($_addr, $new_name);
+
+		$folder = str_replace(basename($_addr), '', $_addr);
+
+		$list = glob($folder. '*.log');
+
+		if(is_array($list) && $list)
+		{
+			$zip = [];
+
+			foreach ($list as $key => $value)
 			{
-				$extension = $pathinfo['extension'];
+				if(time() - filemtime($value) > (60*60*24*30))
+				{
+					$zip[] = $value;
+				}
 			}
 
-			if(isset($pathinfo['filename']))
+			if(!empty($zip))
 			{
-				$filename = $pathinfo['filename'];
+				$zip_addr = $folder. 'archive_'.date("YmdHis"). '.zip';
+
+				\dash\utility\zip::multi_file($zip_addr, $zip);
+
+				foreach ($zip as $value)
+				{
+					unlink($value);
+				}
 			}
-			else
-			{
-				$filename = str_replace('.'. $extension, '', basename($_addr));
-			}
-
-			$new_name = $filename. '_'. date("YmdHis"). '.'. $extension;
-
-			$new_name = str_replace(basename($_addr), $new_name, $_addr);
-
-			rename($_addr, $new_name);
-
 		}
 	}
 }
