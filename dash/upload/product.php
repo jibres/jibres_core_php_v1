@@ -83,5 +83,60 @@ class product
 
 
 
+	public static function set_product_gallery_editor($_product_id)
+	{
+		if(!$_product_id)
+		{
+			return null;
+		}
+
+		$meta =
+		[
+			'allow_size' => \dash\upload\size::MB(1),
+			'ext' =>
+			[
+				'mp3','wav','ogg','wma','m4a','aac', 	// audio
+				'bmp','gif','jpeg','jpg','png',			// image
+				'mpeg','mpg','mp4','mov','avi',			// video
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('upload', $meta);
+
+		if(!$file_detail)
+		{
+			return false;
+		}
+
+		$fileusage =
+		[
+			'file_id'     => $file_detail['id'],
+			'user_id'     => \dash\user::id(),
+			'title'       => null,
+			'alt'         => null,
+			'desc'        => null,
+			'related'     => 'product_gallery_editor',
+			'related_id'  => $_product_id,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$check_duplicate_usage = \dash\db\fileusage::duplicate_whit_file_id('product_gallery_editor', $_product_id, $file_detail['id']);
+
+		if(isset($check_duplicate_usage['id']))
+		{
+			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
+		}
+		else
+		{
+			\dash\db\fileusage::insert($fileusage);
+		}
+
+		return $file_detail;
+	}
+
+
+
+
 }
 ?>

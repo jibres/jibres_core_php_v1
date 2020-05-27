@@ -30,7 +30,7 @@ class model
 	{
 		$post                   = [];
 		$post['title']          = \dash\request::post('title');
-		$post['desc']           = \dash\request::post('desc') ? $_POST['desc'] : null;
+		$post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
 		$post['buyprice']       = \dash\request::post('buyprice');
 		$post['price']          = \dash\request::post('price');
 		// $post['compareatprice'] = \dash\request::post('CompareAtPrice');
@@ -76,6 +76,11 @@ class model
 	public static function post()
 	{
 		$id = \dash\request::get('id');
+
+		if(self::upload_editor($id))
+		{
+			return true;
+		}
 
 		if(self::delete_product($id))
 		{
@@ -136,6 +141,37 @@ class model
 		}
 		return false;
 	}
+
+
+	private static function upload_editor($_id)
+	{
+		if(\dash\request::files('upload'))
+		{
+			$uploaded_file = \dash\upload\product::set_product_gallery_editor($_id);
+
+			$result             = [];
+
+			if(isset($uploaded_file['filename']) && isset($uploaded_file['path']))
+			{
+				$result['fineName'] = $uploaded_file['filename'];
+				$result['url']      = \lib\filepath::fix($uploaded_file['path']);
+				$result['uploaded'] = 1;
+
+			}
+
+			if(!\dash\engine\process::status())
+			{
+				// $result['uploaded'] = 0;
+			}
+
+			\dash\code::jsonBoom($result);
+
+			return true;
+		}
+		return false;
+
+	}
+
 
 
 	/**

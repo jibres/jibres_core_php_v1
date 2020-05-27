@@ -307,23 +307,7 @@ class text
 		}
 
 		// php 7.3
-		$allow_tag = '<a><b><strong><i><p><br><ul><ol><li><h1><h2><h3><h4><table><thead><tbody><tr><td><th>';
-
-		$data = strip_tags($data, $allow_tag);
-
-		return $data;
-
-		// php 7.4 !!
-		$allow_tag =
-		[
-			'a',
-			'b', 'strong',
-			'i', 'p', 'br',
-			'ul', 'ol', 'li',
-			'h1','h2','h3','h4',
-			'table', 'thead', 'tbody', 'tr', 'td', 'th',
-		];
-
+		$allow_tag = '<a><b><strong><i><p><br><ul><ol><li><h1><h2><h3><h4><table><thead><tbody><tr><td><th><figure><img>';
 
 		$data = strip_tags($data, $allow_tag);
 
