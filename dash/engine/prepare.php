@@ -59,7 +59,7 @@ class prepare
 	private static function dash_shutdown_function()
 	{
 		// 	register_shutdown_function(['\dash\utility\visitor', 'save']);
-		register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
+		// register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
 		register_shutdown_function(['\dash\runtime', 'show']);
 	}
 
