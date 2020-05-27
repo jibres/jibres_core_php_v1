@@ -710,10 +710,10 @@ class log
 
 		$new_name = str_replace(basename($_addr), $new_name, $_addr);
 
-		rename($_addr, $new_name);
-
 		// archive old file
 		$folder = str_replace(basename($_addr), '', $_addr);
+
+		rename($_addr, $new_name);
 
 		$list = glob($folder. '*.{log,txt,sql}', GLOB_BRACE);
 
