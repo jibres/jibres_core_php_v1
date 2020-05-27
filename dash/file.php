@@ -95,11 +95,11 @@ class file
 	 * @param bool $_recursive	Creates the dir recursively
 	 * @return bool	True on success, false on failure
 	 */
-	public static function makeDir($_dirpath, $_mode = 0775, $_recursive = false )
+	public static function makeDir($_dirpath, $_mode = 0744, $_recursive = false )
 	{
 		if(!$_mode)
 		{
-			$_mode = 0775;
+			$_mode = 0744;
 		}
 		if(!file_exists($_dirpath))
 		{
