@@ -188,5 +188,12 @@ class fit{
 		$new_text = self::number($new_text);
 		return $new_text;
 	}
+
+
+
+	public static function file_size($_size)
+	{
+		return \dash\upload\size::readableSize($_size);
+	}
 }
 ?>

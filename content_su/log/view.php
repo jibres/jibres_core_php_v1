@@ -36,17 +36,46 @@ class view
 					$is_old = true;
 				}
 
+				$pathinfo = pathinfo($value);
+
+				$filesize = filesize($value);
+
+				$auto_rename = false;
+				if(preg_match("/(.*)_(\d{14})\./", $name))
+				{
+					if(strpos($name, 'archive_') === false)
+					{
+						$auto_rename = true;
+					}
+				}
+
+				$auto_archive = false;
+				if(preg_match("/archive_\d{14}\.zip/", $name))
+				{
+					$auto_archive = true;
+				}
+
+
 				$list[] =
 				[
-					'name'  => $name,
-					'mtime' => filemtime($value),
-					'size'  => round((filesize($value) / 1024) / 1024, 2),
-					'is_old' => $is_old,
+					'ext'         => \dash\get::index($pathinfo, 'extension'),
+					'size_raw'    => $filesize,
+					'name'        => $name,
+					'mtime'       => filemtime($value),
+					'size'        => round(($filesize / 1024) / 1024, 2),
+					'is_old'      => $is_old,
+					'auto_rename' => $auto_rename,
+					'auto_archive' => $auto_archive,
 				];
 			}
 
+			$sort_column = array_column($list, 'mtime');
+
+			array_multisort($list, SORT_DESC, SORT_NUMERIC, $sort_column);
+
 			$list = array_reverse($list);
 			\dash\data::logFileList($list);
+
 		}
 		else
 		{
