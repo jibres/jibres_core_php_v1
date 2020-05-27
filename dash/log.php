@@ -710,21 +710,22 @@ class log
 
 		$new_name = str_replace(basename($_addr), $new_name, $_addr);
 
-		// rename($_addr, $new_name);
+		rename($_addr, $new_name);
 
+		// archive old file
 		$folder = str_replace(basename($_addr), '', $_addr);
 
-		$list = glob($folder. '*.log');
+		$list = glob($folder. '*.{log,txt,sql}', GLOB_BRACE);
 
 		if(is_array($list) && $list)
 		{
 			$zip = [];
 
-			foreach ($list as $key => $value)
+			foreach ($list as $file)
 			{
-				if(time() - filemtime($value) > (60*60*24*30))
+				if(time() - filemtime($file) > (60*60*24*30))
 				{
-					$zip[] = $value;
+					$zip[] = $file;
 				}
 			}
 
@@ -734,9 +735,9 @@ class log
 
 				\dash\utility\zip::multi_file($zip_addr, $zip);
 
-				foreach ($zip as $value)
+				foreach ($zip as $file)
 				{
-					unlink($value);
+					unlink($file);
 				}
 			}
 		}
