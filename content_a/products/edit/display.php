@@ -4,7 +4,7 @@ $productDataRow = \dash\data::productDataRow();
 ?>
 
 
-<form class="jPage f" method="post" autocomplete="off">
+<form class="jPage f" method="post" autocomplete="off" data-refresh data-autoScroll="#productGallery">
 
 
    <button class="hide"  name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
@@ -290,8 +290,8 @@ $productDataRow = \dash\data::productDataRow();
           <div class="w150">
             <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
             <div>
-              <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
-              <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
+              <a data-ajaxify data-method='post' data-refresh data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
+              <a data-ajaxify data-method='post' data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
             </div>
           </div>
         </div>
@@ -308,7 +308,7 @@ $productDataRow = \dash\data::productDataRow();
 
   <?php }else{ ?>
 
-    <label for="file1"><?php echo T_("Add to gallery"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+    <label id="productGallery" for="file1"><?php echo T_("Add to gallery"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
     <div data-uploader data-name='gallery' data-ratio=1 data-autoSend>
       <input type="file"  id="file1">

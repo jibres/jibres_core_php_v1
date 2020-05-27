@@ -119,7 +119,7 @@ class model
 			\dash\redirect::to(\lib\backlink::products());
 		}
 
-		\dash\redirect::pwd();
+		// \dash\redirect::pwd();
 
 	}
 
@@ -161,7 +161,7 @@ class model
 			else
 			{
 				\dash\notif::ok(T_("File successfully uploaded"));
-				\dash\redirect::pwd();
+ 				// \dash\redirect::pwd();
 			}
 
 			return true;
@@ -175,7 +175,8 @@ class model
 	{
 		$fileid = \dash\request::post('fileid');
 		\lib\app\product\gallery::gallery($_id, $fileid, 'remove');
-		\dash\redirect::pwd();
+		\dash\notif::ok(T_("File removed"));
+		// \dash\redirect::pwd();
 	}
 
 
@@ -183,7 +184,8 @@ class model
 	{
 		$fileid = \dash\request::post('fileid');
 		\lib\app\product\gallery::setthumb($_id, $fileid);
-		\dash\redirect::pwd();
+		\dash\notif::ok(T_("Product thumb set"));
+	//	\dash\redirect::pwd();
 	}
 
 
