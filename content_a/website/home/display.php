@@ -24,7 +24,7 @@
 
          <?php if(\dash\data::issetFooter()) {?>
          <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/footer/customize">
+          <a class="f" href="<?php echo \dash\url::this();?>/footer">
             <div class="key"><?php echo T_('Customize footer');?></div>
             <div class="go"></div>
           </a>
