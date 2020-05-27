@@ -50,6 +50,16 @@ class controller
 
 		if(!\dash\engine\store::inStore())
 		{
+			// to not check every min all backup setting!
+			// the backup setting have special schedule
+			if(self::every_hour())
+			{
+				\dash\engine\backup\database::run();
+
+				\lib\app\statistics\homepage::refresh();
+
+			}
+
 			// set expire notif
 			if(self::at('09:00'))
 			{
@@ -77,15 +87,8 @@ class controller
 			{
 				\lib\app\nic_poll\get::cronjob_list();
 			}
-			// to not check every min all backup setting!
-			// the backup setting have special schedule
-			if(self::every_hour())
-			{
-				\dash\engine\backup\database::run();
 
-				\lib\app\statistics\homepage::refresh();
 
-			}
 
 			self::check_error_file();
 

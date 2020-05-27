@@ -143,7 +143,7 @@ class database
 
 		\dash\file::makeDir($backup_dir, null, true);
 
-		\dash\file::delete(YARD.'jibres_temp/backup/temp.exec');
+		\dash\file::delete(__DIR__.'/temp.me.exec');
 
 		// make jibres backup
 		$fuel      = \dash\engine\fuel::get('master');
@@ -171,9 +171,9 @@ class database
 			self::backup_dump_exec($backup_dir, $fuel, $db_name);
 		}
 
-		\dash\file::append(YARD.'jibres_temp/backup/temp.exec', ' echo end '. "\n");
+		\dash\file::append(__DIR__.'/temp.me.exec', ' echo end '. "\n");
 
-		$exec = exec('sh '. YARD.'jibres_temp/backup/temp.exec', $output, $return_var);
+		$exec = exec('sh '. __DIR__.'/temp.me.exec', $output, $return_var);
 
 	}
 
@@ -199,7 +199,7 @@ class database
 		// to import this file
 		// bunzip2 < filename.sql.bz2 | mysql -u root -p $project_name
 		//
-		\dash\file::append(YARD.'jibres_temp/backup/temp.exec', $cmd. "\n");
+		\dash\file::append(__DIR__.'/temp.me.exec', $cmd. "\n");
 
 	}
 
