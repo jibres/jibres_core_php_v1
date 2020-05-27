@@ -1,9 +1,17 @@
+
 <?php
 $productline = \lib\app\product\get::website_last_product();
+
 
 if($productline && is_array($productline))
 {
 ?>
+
+<?php if(isset($line_detail['value']['title'])) {?>
+<div class="fit">
+  <h2 class="jTitle1"><?php echo $line_detail['value']['title']; ?></h2>
+</div>
+<?php } //endif ?>
 
   <div class="avand">
     <div class="f">
