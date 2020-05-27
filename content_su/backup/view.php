@@ -31,16 +31,15 @@ class view
 		}
 
 		$addr = [];
-		$addr[] = 'file';
 		$addr[] = $folder;
 		$addr[] = $subfolder;
 		$addr[] = '*';
 		$addr = array_filter($addr);
 		$addr = implode('/', $addr);
 
-		$oldBackup = @glob(database .'backup/'. $addr);
+		$backup_addr = YARD. 'jibres_backup/database/';
 
-
+		$oldBackup = @glob($backup_addr. $addr);
 
 		$oldBackup_files = [];
 
@@ -67,7 +66,7 @@ class view
 					[
 						'name'      => basename($value),
 						'type'      => 'folder',
-						'addr'      => str_replace(database .'backup/file/', '', $value),
+						'addr'      => str_replace($backup_addr, '', $value),
 						'folder'    => $myFolder ? $myFolder : basename($value),
 						'subfolder' => $mySubfolder,
 					];
