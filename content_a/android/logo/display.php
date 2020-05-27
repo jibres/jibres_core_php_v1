@@ -5,7 +5,7 @@
       <header><h2><?php echo T_("Set your application logo");?></h2></header>
       <div class="body">
 
-        <div class="box min-y120" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-autoSend>
+        <div class="box" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-autoSend>
           <input type="file" accept="image/jpeg, image/png" id="image1">
           <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?> (<?php echo T_("Use a square logo"); ?>)</label>
         </div>

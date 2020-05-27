@@ -26,7 +26,7 @@
 
     <label for="file1"><?php echo T_("Attachment"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-    <div class="box min-y120" data-uploader data-name='file'>
+    <div class="box" data-uploader data-name='file'>
       <input type="file"  id="file1">
       <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
     </div>

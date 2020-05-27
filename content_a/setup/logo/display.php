@@ -10,7 +10,7 @@
 
         <img id="finalImage" src="<?php echo \dash\data::dataRow_logo(); ?>" class="mB20-f">
 
-        <div class="box min-y120" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage'>
+        <div class="box" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage'>
           <input type="file" accept="image/jpeg, image/png" id="image1">
           <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
         </div>

@@ -25,7 +25,7 @@
               <input type="text" name="desc<?php echo $i; ?>" id="desc<?php echo $i; ?>" value="<?php echo \dash\get::index($introSaved, $i, 'desc'); ?>" maxlength="100">
             </div>
 
-            <div class="box min-y120" data-uploader data-name="file<?php echo $i; ?>" data-ratio="1" data-final='#finalImage<?php echo $i; ?>'>
+            <div class="box" data-uploader data-name="file<?php echo $i; ?>" data-ratio="1" data-final='#finalImage<?php echo $i; ?>'>
               <input type="file" accept="image/jpeg, image/png" id="file<?php echo $i; ?>">
               <label for="file<?php echo $i; ?>"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
             </div>
