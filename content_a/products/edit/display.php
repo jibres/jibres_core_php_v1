@@ -310,7 +310,7 @@ $productDataRow = \dash\data::productDataRow();
 
     <label id="productGallery" for="file1"><?php echo T_("Add to gallery"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-    <div data-uploader data-name='gallery' data-ratio=1 data-autoSend>
+    <div data-uploader data-name='gallery' data-ratio=1 data-ratio-free data-autoSend>
       <input type="file"  id="file1">
       <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
     </div>
