@@ -690,6 +690,15 @@ class log
 	{
 		$pathinfo  = pathinfo($_addr);
 
+		if(isset($pathinfo['basename']))
+		{
+			$basename = $pathinfo['basename'];
+		}
+		else
+		{
+			$basename = basename($_addr);
+		}
+
 		$extension = 'log';
 
 		if(isset($pathinfo['extension']))
@@ -703,19 +712,27 @@ class log
 		}
 		else
 		{
-			$filename = str_replace('.'. $extension, '', basename($_addr));
+			$filename = str_replace('.'. $extension, '', $basename);
+		}
+
+		if(isset($pathinfo['dirname']))
+		{
+			$dirname = $pathinfo['dirname'];
+			$dirname .= DIRECTORY_SEPARATOR;
+		}
+		else
+		{
+			$dirname = str_replace($basename, '', $_addr);
 		}
 
 		$new_name = $filename. '_'. date("YmdHis"). '.'. $extension;
 
-		$new_name = str_replace(basename($_addr), $new_name, $_addr);
+		$new_name = str_replace($basename, $new_name, $_addr);
 
 		// archive old file
-		$folder = str_replace(basename($_addr), '', $_addr);
-
 		rename($_addr, $new_name);
 
-		$list = glob($folder. '*.{log,txt,sql}', GLOB_BRACE);
+		$list = glob($dirname. '*.{log,txt,sql}', GLOB_BRACE);
 
 		if(is_array($list) && $list)
 		{
@@ -731,7 +748,7 @@ class log
 
 			if(!empty($zip))
 			{
-				$zip_addr = $folder. 'archive_'.date("YmdHis"). '.zip';
+				$zip_addr = $dirname. 'archive_'.date("YmdHis"). '.zip';
 
 				\dash\utility\zip::multi_file($zip_addr, $zip);
 
