@@ -308,15 +308,11 @@ $productDataRow = \dash\data::productDataRow();
 
   <?php }else{ ?>
 
-    <div class="dropzone">
-      <h4><?php echo T_("Add to gallery"); ?></h4>
-      <label for='gallery' class="btn light"><?php echo T_("Choose or Drop file here"); ?></label>
-      <input id="gallery" type="file" name="file" multiple>
-      <div class="progress shadow" data-percent='30'>
-        <div class="bar"></div>
-        <div class="detail"></div>
-      </div>
-      <small><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxUploadSize(); ?></b></small>
+    <label for="file1"><?php echo T_("Add to gallery"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+
+    <div data-uploader data-name='gallery' data-ratio=1 data-autoSend>
+      <input type="file"  id="file1">
+      <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
     </div>
   <?php } //endif ?>
 

@@ -156,11 +156,12 @@ class model
 
 			if(!\dash\engine\process::status())
 			{
-				\dash\notif::error(T_("Can not upload file"));
+				// \dash\notif::error(T_("Can not upload file"));
 			}
 			else
 			{
 				\dash\notif::ok(T_("File successfully uploaded"));
+				\dash\redirect::pwd();
 			}
 
 			return true;
