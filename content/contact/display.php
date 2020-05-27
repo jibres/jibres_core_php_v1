@@ -11,7 +11,7 @@
  <div class="avand-lg impact">
   <div class="f">
     <div class="c12 s12">
-     <form method="post" data-clear>
+     <form method="post" data-clear data-refresh data-autoScroll='form'>
 <?php
       \dash\utility\hive::html();
       if(!\dash\user::login())
