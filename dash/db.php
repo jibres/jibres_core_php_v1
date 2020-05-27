@@ -48,12 +48,25 @@ class db
 			return null;
 		}
 
+		$have_error   = false;
+		$error_code   = null;
+		$error_string = null;
+
 		/**
 		 * send the query to mysql engine
 		 */
 		if($_options['multi_query'] === true)
 		{
 			$result = @mysqli_multi_query(\dash\db\mysql\tools\connection::link(), $_qry);
+
+			// check the mysql result
+			if(!is_a($result, 'mysqli_result') && !$result)
+			{
+				$have_error   = true;
+				$error_code   = @mysqli_errno(\dash\db\mysql\tools\connection::link());
+				$error_string = @mysqli_error(\dash\db\mysql\tools\connection::link());
+			}
+
 			if($result)
 			{
 				do
@@ -76,6 +89,14 @@ class db
 		else
 		{
 			$result = @mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
+
+			// check the mysql result
+			if(!is_a($result, 'mysqli_result') && !$result)
+			{
+				$have_error   = true;
+				$error_code   = @mysqli_errno(\dash\db\mysql\tools\connection::link());
+				$error_string = @mysqli_error(\dash\db\mysql\tools\connection::link());
+			}
 		}
 
 		// get diff of time after exec
@@ -102,16 +123,16 @@ class db
 			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-check.sql');
 		}
 
-
-		// check the mysql result
-		if(!is_a($result, 'mysqli_result') && !$result)
+		if($have_error)
 		{
 			// no result exist
 			// save mysql error
 			$temp_error = "#". date("Y-m-d H:i:s") ;
 			$temp_error .= "\n$_qry\n/* \tMYSQL ERROR\n";
-			$temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
-			$temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
+			$temp_error .= $error_code. ' - ';
+			$temp_error .= $error_string." */";
+			// $temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
+			// $temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 			\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
