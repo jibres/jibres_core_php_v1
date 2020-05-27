@@ -13,6 +13,15 @@ class template
 	}
 
 
+	public static function get_contain($_key)
+	{
+		$result = self::get($_key, 'contain');
+		if($result && is_array($result))
+		{
+			return array_keys($result);
+		}
+		return [];
+	}
 
 	/**
 	 * Get one template detail
@@ -51,46 +60,104 @@ class template
 
 
 
-	public static function list()
+	public static function list($_args = [])
 	{
+		$condition =
+		[
+			'tag'      => 'string_50',
+		];
+
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
 		$list             = [];
-		$list[] = self::footer_1();
-		$list[] = self::footer_2();
+		$list['footer_100'] = self::footer_100();
+		$list['footer_300'] = self::footer_300();
+
+
+		if($data['tag'])
+		{
+			$new_list = [];
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['tag']) && is_array($value['tag']))
+				{
+					if(in_array($data['tag'], array_keys($value['tag'])))
+					{
+						$new_list[] = $value;
+					}
+				}
+			}
+
+			$list = $new_list;
+		}
 
 		return $list;
 	}
 
 
-	private static function footer_1()
+	private static function footer_100()
 	{
-		$footer_1 =
+		$myFooter =
 		[
-			'key'          => 'footer_1',
+			'key'          => 'footer_100',
 			'title'        => T_("Footer #1"),
-			'desc'         => T_("Description"),
-			'sample_image' => \dash\url::logo(),
-			'css_file'     => 'the css file location addr',
-			'contain'      => ['footer_menu_1',],
+			'desc'         => T_("A modern and beautiful footer"),
+			'sample_image' => \dash\url::cdn(). '/img/template/footer/footer100.png',
+			'version'      => 3,
+			'tag'          =>
+			[
+				'modern' => T_('#modern'),
+			],
+			'contain'      =>
+			[
+
+				'footer_main_txt' =>
+				[
+					"title" => T_("Footer Text"),
+				],
+
+				'footer_phone' =>
+				[
+					"title" => T_("Footer Phone number"),
+				],
+			],
 		];
 
-		return $footer_1;
+		return $myFooter;
 	}
 
 
-
-	private static function footer_2()
+	private static function footer_300()
 	{
-		$footer_2 =
+		$myFooter =
 		[
-			'key'          => 'footer_2',
+			'key'          => 'footer_300',
 			'title'        => T_("Footer #2"),
-			'desc'         => T_("Description"),
-			'sample_image' => \dash\url::logo(),
-			'css_file'     => 'the css file location addr',
-			'contain'      => ['footer_menu_1', 'footer_menu_2', ],
+			'desc'         => T_("A modern and beautiful template to introduce your news \n This footer contain your store title and description and have one menu at top"),
+			'sample_image' => \dash\url::cdn(). '/img/template/footer/footer300.png',
+			'version'      => 2,
+			'tag'          =>
+			[
+				'news'   => T_('#news'),
+				'modern' => T_('#modern'),
+				'menu'   => T_('#menu'),
+			],
+			'contain'      =>
+			[
+
+				'footer_main_txt' =>
+				[
+					"title" => T_("Footer Text"),
+				],
+			],
+
 		];
 
-		return $footer_2;
+		return $myFooter;
 	}
 
 

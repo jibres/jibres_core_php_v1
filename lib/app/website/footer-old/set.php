@@ -17,12 +17,11 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$save = \lib\db\setting\update::overwirte_platform_cat_key_lang($data['footer'], 'website', 'footer', 'active', \dash\language::current());
-
-		\lib\app\website\generator::remove_catch();
+		$save = \lib\db\setting\update::overwirte_platform_cat_key($data['footer'], 'website', 'footer', 'active');
 
 		if($save)
 		{
+			\lib\app\website\generator::remove_catch();
 			\dash\notif::ok(T_("Your footer was saved"));
 			return true;
 		}
@@ -60,26 +59,13 @@ class set
 			{
 				$logo = \dash\upload\store_logo::website_logo();
 
-				if(!\dash\engine\process::status())
-				{
-					return false;
-				}
-
 				if($logo)
 				{
 					$value = $logo;
 				}
 			}
 
-			if($key === 'footer_logo' && $value === 'remove_logo')
-			{
-				$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang(null, 'website', 'footer_customized', $key, \dash\language::current());
-			}
-			else
-			{
-				$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang($value, 'website', 'footer_customized', $key, \dash\language::current());
-			}
-
+			$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'footer_customized', $key);
 
 			// like true | false | any id
 			if($query_result !== null)
@@ -88,17 +74,14 @@ class set
 			}
 		}
 
-		if(\dash\engine\process::status())
+		if($have_change)
 		{
-			if($have_change)
-			{
-				\lib\app\website\generator::remove_catch();
-				\dash\notif::ok(T_("Your footer customized"));
-			}
-			else
-			{
-				\dash\notif::info(T_("Your website footer saved without change"));
-			}
+			\lib\app\website\generator::remove_catch();
+			\dash\notif::ok(T_("Your footer customized"));
+		}
+		else
+		{
+			\dash\notif::info(T_("Your website footer saved without change"));
 		}
 
 		return true;

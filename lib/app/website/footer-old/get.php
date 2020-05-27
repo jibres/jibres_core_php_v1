@@ -5,7 +5,7 @@ class get
 {
 	public static function isset_footer($_only_name = false)
 	{
-		$active_footer = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'footer', 'active');
+		$active_footer = \lib\db\setting\get::platform_cat_key('website', 'footer', 'active');
 		if(!$active_footer || !isset($active_footer['value']))
 		{
 			return false;
@@ -44,7 +44,7 @@ class get
 			return false;
 		}
 
-		$contain = \lib\app\website\footer\template::get_contain($active_footer['value']);
+		$contain = \lib\app\website\footer\template::get($active_footer['value'], 'contain');
 		if(!is_array($contain))
 		{
 			$contain = [];
@@ -54,7 +54,7 @@ class get
 
 		if($contain)
 		{
-			$load_saved_detail = \lib\db\setting\get::lang_platform_cat_multi_key(\dash\language::current(), 'website', 'footer_customized', $contain);
+			$load_saved_detail = \lib\db\setting\get::platform_cat_multi_key('website', 'footer_customized', $contain);
 			if(is_array($load_saved_detail))
 			{
 				$load_saved_detail = array_column($load_saved_detail, 'value', 'key');
@@ -66,9 +66,38 @@ class get
 			$load_saved_detail['footer_logo'] = \lib\filepath::fix($load_saved_detail['footer_logo']);
 		}
 
+
+		$step         = [];
+		$step['menu'] = [];
+		$step['logo'] = [];
+		$step['desc'] = [];
+
+		if(in_array('footer_logo', $contain))
+		{
+			$step['logo'][] = ['title' => T_("Set logo"), 'name' => 'logo'];
+		}
+
+		if(in_array('footer_menu_1', $contain))
+		{
+			$step['menu'][] = ['title' => T_("Set menu #1"), 'name' => 'footer_menu_1'];
+		}
+
+		if(in_array('footer_menu_2', $contain))
+		{
+			$step['menu'][] = ['title' => T_("Set menu #2"), 'name' => 'footer_menu_2'];
+		}
+
+		if(in_array('footer_description', $contain))
+		{
+			$step['desc'][] = ['title' => T_("Set Description"), 'name' => 'footer_description'];
+		}
+		$active_footer_detail['step'] = $step;
 		$active_footer_detail['saved'] = $load_saved_detail;
 
 		return $active_footer_detail;
+
 	}
+
+
 }
 ?>
