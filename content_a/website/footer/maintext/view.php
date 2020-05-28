@@ -12,6 +12,8 @@ class view
 		\dash\data::back_text(T_('Footer'));
 		\dash\data::back_link(\dash\url::that());
 
+		\dash\data::maintextSaved(\lib\app\website\footer\maintext::get());
+
 	}
 }
 ?>

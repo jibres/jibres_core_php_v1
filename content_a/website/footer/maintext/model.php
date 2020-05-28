@@ -1,5 +1,5 @@
 <?php
-namespace content_a\website\header\maintext;
+namespace content_a\website\footer\maintext;
 
 class model
 {
@@ -7,13 +7,11 @@ class model
 	{
 		$post =
 		[
-			'text'   => \dash\request::post('text'),
-			'url'    => \dash\request::post('url'),
-			'target' => \dash\request::post('target'),
-			'status' => \dash\request::post('status'),
+			'text'   => isset($_POST['text']) ? $_POST['text'] : null,
+
 		];
 
-		$customize_header = \lib\app\website\header\topline::set($post);
+		$customize_footer = \lib\app\website\footer\maintext::set($post);
 
 		if(\dash\engine\process::status())
 		{
