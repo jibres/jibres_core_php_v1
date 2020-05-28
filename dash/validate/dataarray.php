@@ -92,7 +92,7 @@ class dataarray
 		foreach ($data as $tag)
 		{
 			$count++;
-			$temp = \dash\validate::string_30($tag);
+			$temp = \dash\validate::string_30($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
 			if(isset($temp))
 			{
 				$new_tag[] = $temp;

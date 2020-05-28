@@ -16,6 +16,34 @@ class view
 		{
 			\dash\face::title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
 		}
+
+		// $properties = \dash\data::dataRow_properties();
+
+		// if($properties && is_array($properties))
+		// {
+		// 	if(count($properties) === 0)
+		// 	{
+		// 		array_push($properties, []);
+		// 		array_push($properties, []);
+		// 		array_push($properties, []);
+		// 	}
+		// 	elseif(count($properties) === 1)
+		// 	{
+		// 		array_push($properties, []);
+		// 		array_push($properties, []);
+		// 	}
+		// 	elseif(count($properties) === 2)
+		// 	{
+		// 		array_push($properties, []);
+		// 	}
+
+		// 	// var_dump($properties);
+		// }
+		// else
+		// {
+		// 	\dash\data::dataRow_properties([[],[],[]]);
+		// }
+
 	}
 }
 ?>

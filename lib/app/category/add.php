@@ -26,6 +26,8 @@ class add
 			return false;
 		}
 
+		unset($args['properties']);
+
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$args['status']      = 'enable';
 		$args['language']    = \dash\language::current();

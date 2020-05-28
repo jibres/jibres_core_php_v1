@@ -6,7 +6,7 @@ class edit
 {
 
 
-	public static function edit($_args, $_id)
+	public static function edit($_args, $_id, $_properties = [])
 	{
 		if(!\lib\store::id())
 		{
@@ -25,7 +25,7 @@ class edit
 			return false;
 		}
 
-		$args = \lib\app\category\check::variable($_args, $_id);
+		$args = \lib\app\category\check::variable($_args, $_id, $_properties);
 
 		if(!$args)
 		{
@@ -47,6 +47,18 @@ class edit
 			}
 		}
 
+		// $properties = [];
+
+		// if(isset($get_category['properties']) && $get_category['properties'] && is_string($get_category['properties']))
+		// {
+		// 	$properties = json_decode($get_category['properties'], true);
+		// 	if(!is_array($properties))
+		// 	{
+		// 		$properties = [];
+		// 	}
+		// }
+
+		$properties = $args['properties'];
 
 		if(!array_key_exists('parent', $_args))
 		{
@@ -57,6 +69,11 @@ class edit
 		}
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
+
+		if($properties)
+		{
+			$args['properties'] = json_encode($properties, JSON_UNESCAPED_UNICODE);
+		}
 
 		if(!empty($args))
 		{

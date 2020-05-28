@@ -33,6 +33,10 @@ class ready
 					$result[$key] = json_decode($value, true);
 					break;
 
+				case 'properties':
+					$result[$key] = json_decode($value, true);
+					break;
+
 				case 'file':
 					$result[$key] = \lib\filepath::fix($value);;
 

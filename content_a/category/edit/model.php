@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+
 		$id = \dash\request::get('id');
 
 		if(\dash\request::post('delete') === 'delete')
@@ -31,13 +32,30 @@ class model
 			return;
 		}
 
-		$args             = [];
-		$args['title']    = \dash\request::post('title');
-		$args['slug']     = \dash\request::post('slug');
-		$args['parent']   = \dash\request::post('parent');
-		$args['desc']     = \dash\request::post('desc');
-		$args['seotitle'] = \dash\request::post('seotitle');
-		$args['seodesc']  = \dash\request::post('seodesc');
+		$args                   = [];
+		$args['title']          = \dash\request::post('title');
+		$args['slug']           = \dash\request::post('slug');
+		$args['parent']         = \dash\request::post('parent');
+		$args['desc']           = \dash\request::post('desc');
+		$args['seotitle']       = \dash\request::post('seotitle');
+		$args['seodesc']        = \dash\request::post('seodesc');
+		// $args['property_group'] = \dash\request::post('property_group');
+		// $args['property_key']   = \dash\request::post('property_key');
+
+		$property = [];
+
+		$post = \dash\request::post();
+		foreach ($post as $key => $value)
+		{
+			if(substr($key, 0, 15) === 'property_group_')
+			{
+				if(\dash\request::post('property_key_'. substr($key, 15)))
+				{
+					$property[$value] = \dash\request::post('property_key_'. substr($key, 15));
+				}
+			}
+		}
+
 
 		$file = \dash\upload\category::set($id);
 		if($file)
@@ -45,7 +63,7 @@ class model
 			$args['file'] = $file;
 		}
 
-		$result = \lib\app\category\edit::edit($args, $id);
+		$result = \lib\app\category\edit::edit($args, $id, $property);
 
 		if(\dash\engine\process::status())
 		{

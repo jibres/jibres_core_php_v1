@@ -5,22 +5,26 @@ namespace lib\app\category;
 class check
 {
 
-	public static function variable($_args, $_id = null)
+	public static function variable($_args, $_id = null, $_properties = [])
 	{
 		$condition =
 		[
-			'title'    => 'title',
-			'desc'     => 'desc',
-			'slug'     => 'slug',
-			'file'     => 'string',
-			'parent'   => 'id',
-			'seotitle' => 'seotitle',
-			'seodesc'  => 'seodesc',
+			'title'          => 'title',
+			'desc'           => 'desc',
+			'slug'           => 'slug',
+			'file'           => 'string',
+			'parent'         => 'id',
+			'seotitle'       => 'seotitle',
+			'seodesc'        => 'seodesc',
+
 		];
 
 		$require = ['title'];
 
-		$meta =	[];
+		$meta =
+		[
+			'field_title' => ['properties_key' => T_("Property key"), 'properties_group' => T_("Group properties")],
+		];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -28,7 +32,6 @@ class check
 		{
 			$data['slug'] = \dash\validate::slug($data['title'], false);
 		}
-
 
 		$parent1 = null;
 		$parent2 = null;
@@ -137,6 +140,35 @@ class check
 		$data['parent3']  = $parent3;
 
 		unset($data['parent']);
+
+		$properties = [];
+		if(isset($_properties) && is_array($_properties))
+		{
+			foreach ($_properties as $key => $value)
+			{
+				$my_key = \dash\validate::string_50($key, false);
+
+				if(!$my_key)
+				{
+					\dash\notif::error(T_("Property Group not set"));
+					return false;
+				}
+
+				$my_value = \dash\validate::tag($value, false);
+
+				if(!$my_value)
+				{
+					\dash\notif::error(T_("Property Key must be an array"));
+					return false;
+				}
+
+				$properties[$my_key] = array_unique(array_filter($my_value));
+
+			}
+		}
+
+
+		$data['properties'] = $properties;
 
 		return $data;
 
