@@ -21,7 +21,7 @@ else
   </div>
   <form class="c4 s12" method="post" >
     <div class="action">
-      <a href="<?php echo \dash\url::that(); ?>/phone" class="btn primary"><?php echo T_("Customize footer text") ?></a>
+      <a href="<?php echo \dash\url::here(). '/setting/general' ?>" class="btn primary txtC"><?php echo T_("Business Branding") ?></a>
     </div>
   </form>
 </section>
