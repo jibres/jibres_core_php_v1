@@ -162,7 +162,7 @@ class check
 					return false;
 				}
 
-				$properties[$my_key] = array_unique(array_filter($my_value));
+				$properties[] = ['group' => $my_key, 'key' => array_unique(array_filter($my_value))];
 
 			}
 		}
