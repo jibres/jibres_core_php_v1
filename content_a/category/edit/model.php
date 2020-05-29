@@ -39,8 +39,7 @@ class model
 		$args['desc']           = \dash\request::post('desc');
 		$args['seotitle']       = \dash\request::post('seotitle');
 		$args['seodesc']        = \dash\request::post('seodesc');
-		// $args['property_group'] = \dash\request::post('property_group');
-		// $args['property_key']   = \dash\request::post('property_key');
+
 
 		$property = [];
 

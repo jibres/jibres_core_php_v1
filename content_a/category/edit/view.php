@@ -17,32 +17,31 @@ class view
 			\dash\face::title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
 		}
 
-		// $properties = \dash\data::dataRow_properties();
+		$properties = \dash\data::dataRow_properties();
 
-		// if($properties && is_array($properties))
-		// {
-		// 	if(count($properties) === 0)
-		// 	{
-		// 		array_push($properties, []);
-		// 		array_push($properties, []);
-		// 		array_push($properties, []);
-		// 	}
-		// 	elseif(count($properties) === 1)
-		// 	{
-		// 		array_push($properties, []);
-		// 		array_push($properties, []);
-		// 	}
-		// 	elseif(count($properties) === 2)
-		// 	{
-		// 		array_push($properties, []);
-		// 	}
+		$count_free = 1;
 
-		// 	// var_dump($properties);
-		// }
-		// else
-		// {
-		// 	\dash\data::dataRow_properties([[],[],[]]);
-		// }
+		if($properties && is_array($properties))
+		{
+			if(count($properties) === 0)
+			{
+				$count_free = 3;
+			}
+			elseif(count($properties) === 1)
+			{
+				$count_free = 2;
+			}
+			elseif(count($properties) === 2)
+			{
+				$count_free = 2;
+			}
+		}
+		else
+		{
+			$count_free = 3;
+		}
+
+		\dash\data::countFree($count_free);
 
 	}
 }

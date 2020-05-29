@@ -109,43 +109,27 @@
 
               <p class="msg"><?php echo T_("Set group and title of product property of this category"); ?></p>
 
-              <?php if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties())) {?>
-                <?php foreach (\dash\data::dataRow_properties() as $key => $value) { $rand_key = rand(1, 999); ?>
+              <?php
+                if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
+                {
+                  foreach (\dash\data::dataRow_properties() as $key => $value)
+                  {
+                    $rand_key = rand(1, 999);
+                    htmlProperty($rand_key, $value);
+                  }
+                }
 
-                  <div class="f">
-                    <div class="cauto mB10">
-                      <div class="input">
-                      <input type="text" name="property_group_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Group"); ?>' value="<?php echo $key; ?>">
-                    </div>
-                    </div>
+                if(\dash\data::countFree() && is_numeric(\dash\data::countFree()))
+                {
+                  for ($i=1; $i <= \dash\data::countFree(); $i++)
+                  {
+                    $rand_key = rand(1, 999);
+                    htmlProperty($rand_key);
+                  }
+                }
+              ?>
 
-                    <div class="c pLa5 mB10">
-                      <div>
-                      <select name="property_key_<?php echo $rand_key ?>[]"  class="select22" data-model="tag" multiple="multiple">
-                        <?php if(is_array($value)) { foreach ($value as $tag) {?>
-                          <option value="<?php echo $tag; ?>" selected><?php echo $tag; ?></option>
-                        <?php } } //endfor //endif  ?>
-                      </select>
-                    </div>
-                    </div>
-                  </div>
-                <?php } //endfor ?>
-              <?php } // endif ?>
 
-              <div class="f">
-                <div class="cauto mB10">
-                  <div class="input">
-                  <input type="text" name="property_group_new" placeholder='<?php echo T_("Group"); ?>'>
-                </div>
-                </div>
-
-                <div class="c pLa5 mB10">
-                  <div>
-                  <select name="property_key_new[]" id="property_key" class="select22" data-model="tag" multiple="multiple"></select>
-                </div>
-                </div>
-
-              </div>
 
           <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
 
@@ -163,3 +147,26 @@
 </div>
 
 
+
+<?php function htmlProperty($key = null, $value = []) {?>
+
+  <div class="f">
+    <div class="cauto mB10">
+      <div class="input">
+      <input type="text" name="property_group_<?php echo $key; ?>" placeholder='<?php echo T_("Group"); ?>' value="<?php echo \dash\get::index($value, 'group'); ?>">
+    </div>
+    </div>
+
+    <div class="c pLa5 mB10">
+      <div>
+      <select name="property_key_<?php echo $key ?>[]"  class="select22" data-model="tag" multiple="multiple">
+        <?php if(is_array(\dash\get::index($value, 'key'))) { foreach (\dash\get::index($value, 'key') as $tag) {?>
+          <option value="<?php echo $tag; ?>" selected><?php echo $tag; ?></option>
+        <?php } } //endfor //endif  ?>
+      </select>
+    </div>
+    </div>
+  </div>
+
+
+<?php } //endif ?>
