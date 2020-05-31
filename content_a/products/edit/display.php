@@ -547,6 +547,15 @@ $productDataRow = \dash\data::productDataRow();
   <?php } //endif ?>
 
 
+
+    <section class="jbox">
+      <header data-kerkere='.propertyPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Property"); ?></h2></header>
+      <div class="pad propertyPanelLink" data-kerkere-content='hide'>
+          <a href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product properties"); ?></a>
+      </div>
+    </section>
+
+
   <?php if(\dash\data::productDataRow_variant_child() || \dash\data::productFamily()) {?>
 
 
