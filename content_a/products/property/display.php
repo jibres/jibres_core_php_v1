@@ -22,7 +22,7 @@ $propertyList = \dash\data::propertyList();
 
               <?php foreach ($propertyList as $value) {?>
                 <?php $rand_key = rand(1, 9999); ?>
-                <tr>
+                <tr <?php if(\dash\get::index($value, 'from_category')) {echo 'class="positive"';}?>>
                   <td>
                     <div class="input">
                       <input type="text" name="cat_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Group"); ?>' value="<?php echo \dash\get::index($value, 'cat'); ?>">

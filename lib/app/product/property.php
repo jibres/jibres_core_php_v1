@@ -54,7 +54,7 @@ class property
 				{
 					$my_key = md5($group). '_'. md5($key);
 
-					$result[$my_key] = ['cat' => $group, 'key' => $key, 'value' => null];
+					$result[$my_key] = ['cat' => $group, 'key' => $key, 'value' => null, 'from_category' => true];
 				}
 			}
 
@@ -83,6 +83,7 @@ class property
 		}
 
 		$result = array_values($result);
+
 
 		return $result;
 	}
@@ -123,6 +124,12 @@ class property
 				$have_duplicate = true;
 				continue;
 			}
+
+			if(!$value['cat'] && !$value['key'] && !$value['value'])
+			{
+				continue;
+			}
+
 
 			$new_property[$my_key] = $value;
 		}
@@ -178,7 +185,6 @@ class property
 				}
 			}
 		}
-
 
 		if(!empty($must_insert))
 		{
