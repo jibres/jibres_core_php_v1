@@ -40,6 +40,24 @@ $propertyList = \dash\data::propertyList();
                   </td>
                 </tr>
               <?php } //endfor ?>
+              <?php $rand_key = rand(1, 9999); ?>
+                <tr>
+                  <td>
+                    <div class="input">
+                      <input type="text" name="cat_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Group"); ?>'>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input">
+                      <input type="text" name="key_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Type"); ?>'>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input">
+                      <input type="text" name="value_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Value"); ?>'>
+                    </div>
+                  </td>
+                </tr>
               </table>
 
               <div class="txtRa">
