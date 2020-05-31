@@ -125,7 +125,7 @@ class property
 				continue;
 			}
 
-			if(!$value['cat'] && !$value['key'] && !$value['value'])
+			if(!$value['cat'] || !$value['key'] || !$value['value'])
 			{
 				continue;
 			}
@@ -200,10 +200,16 @@ class property
 		if(!empty($must_remove))
 		{
 			\lib\db\productproperties\delete::multi(implode(',', $must_remove));
-
 		}
 
-		\dash\notif::ok(T_("Product property saved"));
+		if(empty($must_remove) && empty($must_insert))
+		{
+			\dash\notif::info(T_("Product property saved without chnage"));
+		}
+		else
+		{
+			\dash\notif::ok(T_("Product property saved"));
+		}
 
 		return true;
 
