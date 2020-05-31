@@ -77,7 +77,7 @@ class property
 			}
 			else
 			{
-				$result[$my_key] = ['cat' => $value['cat'], 'key' => $value['key'], 'value' => $value['value']];
+				$result[] = ['cat' => $value['cat'], 'key' => $value['key'], 'value' => $value['value']];
 			}
 
 		}
