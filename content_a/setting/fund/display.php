@@ -3,7 +3,11 @@
 
     <div class="cbox">
       <form method="post" autocomplete="off">
-        <h2><?php echo T_("Add new fund"); ?></h2>
+        <?php if(\dash\data::editMode()) {?>
+          <h2><?php echo T_("Edit fund"); ?></h2>
+        <?php }else{ ?>
+          <h2><?php echo T_("Add new fund"); ?></h2>
+        <?php } //endif ?>
 
 
         <label for="title"><?php echo T_("Title"); ?></label>
@@ -17,13 +21,17 @@
         </div>
 
         <label for="pos"><?php echo T_("Pos"); ?></label>
+        <?php if(\dash\data::posDataTable() && is_array(\dash\data::posDataTable())) {?>
         <div>
           <select name="pos[]"  class="select22" data-model="tag" multiple="multiple">
-            <?php if(is_array(\dash\data::posDataTable())) { foreach (\dash\data::posDataTable() as $value) {?>
+            <?php foreach (\dash\data::posDataTable() as $value) {?>
               <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(is_array(\dash\data::dataRow_pos()) && in_array(\dash\get::index($value, 'id'), \dash\data::dataRow_pos())){echo 'selected';} ?>><?php echo T_(ucfirst(\dash\get::index($value, 'slug'))); ?> <?php if(\dash\get::index($value, 'title')) { echo ' - '. \dash\get::index($value, 'title');} ?></option>
-            <?php } } //endfor //endif  ?>
+            <?php } //endfor //endif  ?>
           </select>
         </div>
+      <?php }else{ ?>
+        <div class="msg warn2"><a href="<?php echo \dash\url::this(). '/pcpos'; ?>" class="link"><?php echo T_("Add new pos") ?></a></div>
+      <?php } //endif ?>
 
 
         <?php if(\dash\data::editMode()) {?>
