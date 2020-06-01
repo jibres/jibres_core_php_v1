@@ -117,7 +117,7 @@ function addNewComment()
 {
 ?>
 
-<form  method="post" data-clear autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
+<form  method="post"  autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
 
   <input type="hidden" name="id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
   <?php
