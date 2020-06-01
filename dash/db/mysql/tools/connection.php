@@ -14,6 +14,12 @@ class connection
 	}
 
 
+	public static function link_open()
+	{
+		return self::$link_open;
+	}
+
+
 	public static function close($_link = null)
 	{
 		// not close db connection

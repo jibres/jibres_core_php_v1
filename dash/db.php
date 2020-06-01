@@ -131,9 +131,29 @@ class db
 			$temp_error .= "\n$_qry\n/* \tMYSQL ERROR\n";
 			$temp_error .= $error_code. ' - ';
 			$temp_error .= $error_string." */";
+
+			$save_hard_log = null;
+
+			if(!$error_code && !$error_string)
+			{
+				$save_hard_log =
+				[
+					'link'      => \dash\db\mysql\tools\connection::link(),
+					'link_open' => \dash\db\mysql\tools\connection::link_open(),
+					'server'    => $_SERVER,
+					'session'   => $_SESSION,
+				];
+			}
+
 			// $temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
 			// $temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 			\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
+
+			if($save_hard_log)
+			{
+				$save_hard_log = json_encode($save_hard_log, JSON_UNESCAPED_UNICODE);
+				\dash\db\mysql\tools\log::log($save_hard_log, null, 'error_null.sql');
+			}
 
 			if(\dash\url::isLocal())
 			{
