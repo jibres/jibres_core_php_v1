@@ -15,7 +15,14 @@ class model
 
 		if(\dash\data::editMode())
 		{
-			$result = \lib\app\fund\edit::edit($post, \dash\request::get('id'));
+			if(\dash\request::post('remove') === 'remove')
+			{
+				$result = \lib\app\fund\remove::remove(\dash\request::get('id'));
+			}
+			else
+			{
+				$result = \lib\app\fund\edit::edit($post, \dash\request::get('id'));
+			}
 
 			if(\dash\engine\process::status())
 			{

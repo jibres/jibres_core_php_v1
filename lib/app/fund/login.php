@@ -29,7 +29,6 @@ class login
 				if(isset($fund_list[0]['id']))
 				{
 					\dash\session::set('fund_login_id', $fund_list[0]['id']);
-					\dash\redirect::to(\dash\url::here(). '/sale');
 					return;
 				}
 			}
