@@ -12,12 +12,25 @@ class model
 		$post['title'] = \dash\request::post('title');
 		$post['desc']  = \dash\request::post('desc');
 
-		$result = \lib\app\fund\add::add($post);
-
-		if($result)
+		if(\dash\data::editMode())
 		{
-			\dash\redirect::pwd();
+			$result = \lib\app\fund\edit::edit($post, \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
 		}
+		else
+		{
+			$result = \lib\app\fund\add::add($post);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
 
 	}
 }

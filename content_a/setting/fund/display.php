@@ -8,17 +8,20 @@
 
       <label for="title"><?php echo T_("Title"); ?></label>
       <div class="input">
-        <input type="text" name="title" id="title"  minlength="1" maxlength="100">
+        <input type="text" name="title" id="title"  minlength="1" value="<?php echo \dash\data::dataRow_title(); ?>" maxlength="100">
       </div>
 
       <label for="desc"><?php echo T_("Description"); ?></label>
       <div class="input">
-        <input type="text" name="desc" id="desc"  minlength="1" maxlength="100">
+        <input type="text" name="desc" id="desc"  minlength="1" value="<?php echo \dash\data::dataRow_desc(); ?>" maxlength="100">
       </div>
 
 
-
-      <button class="btn block primary mT10"><?php echo T_("Add fund"); ?></button>
+      <?php if(\dash\data::editMode()) {?>
+        <button class="btn block primary mT10"><?php echo T_("Edit"); ?></button>
+      <?php }else{ ?>
+        <button class="btn block success mT10"><?php echo T_("Add fund"); ?></button>
+      <?php } //endif ?>
      </form>
     </div>
 
