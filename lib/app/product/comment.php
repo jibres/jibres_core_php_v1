@@ -327,33 +327,123 @@ class comment
 		}
 	}
 
-	public static function list($_string = null, $_args = [])
+	private static $filter_message = null;
+	private static $filter_args    = [];
+	private static $is_filtered    = false;
+
+
+	public static function filter_message()
 	{
-		if(!\lib\store::id())
+		return self::$filter_message;
+	}
+
+
+	public static function is_filtered()
+	{
+		return self::$is_filtered;
+	}
+
+
+	public static function list($_query_string, $_args)
+	{
+		if(!\dash\user::id())
 		{
-			\dash\notif::error(T_("Store not found"));
+			\dash\notif::error(T_("Please login to continue"));
 			return false;
 		}
 
-		\dash\permission::access('productCommentListView');
+		$condition =
+		[
+			'order'  => 'order',
+			'sort'   => ['enum' => ['title', 'ns1', 'status']],
+			'product_id' => 'id'
+		];
 
-		$_string = \dash\validate::search($_string);
+		$require = [];
 
-		$result = \lib\db\productcomment\get::get_page_list($_string);
+		$meta =
+		[
+			'field_title' =>
+			[
 
-		$temp            = [];
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		foreach ($result as $key => $value)
+		$and         = [];
+		$meta        = [];
+		$or          = [];
+
+		$meta['limit'] = 20;
+
+		$order_sort  = null;
+
+		$query_string = \dash\validate::search($_query_string);
+
+		if($query_string)
 		{
-			$check = self::ready($value);
-			if($check)
+			$or[] = " productcomment.content LIKE '%$query_string%' ";
+		}
+
+
+		if($data['sort'] && !$order_sort)
+		{
+			if(in_array($data['sort'], ['title', 'ns1', 'status']))
 			{
-				$temp[] = $check;
+
+				$sort = mb_strtolower($data['sort']);
+				$order = null;
+				if($data['order'])
+				{
+					$order = mb_strtolower($data['order']);
+				}
+
+				$order_sort = " ORDER BY $sort $order";
 			}
 		}
 
-		return $temp;
+		if(!$order_sort)
+		{
+			$order_sort = " ORDER BY id DESC";
+		}
+
+		if($data['product_id'])
+		{
+			$and[] = "product_id = $data[product_id] ";
+		}
+
+
+		$list = \lib\db\productcomment\search::list($and, $or, $order_sort, $meta);
+
+
+		if(is_array($list))
+		{
+			// $list = array_map(['\\lib\\app\\nic_poll\\ready', 'row'], $list);
+		}
+		else
+		{
+			$list = [];
+		}
+
+		$filter_args_data = [];
+
+		foreach (self::$filter_args as $key => $value)
+		{
+			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
+			{
+				$filter_args_data[substr($value, 1)] = $list[0][$key];
+			}
+			else
+			{
+				$filter_args_data[$key] = $value;
+			}
+		}
+
+		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
+
+		return $list;
 	}
 
 
