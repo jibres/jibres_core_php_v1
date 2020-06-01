@@ -20,6 +20,14 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'pos':
+					if(is_string($value) && $value)
+					{
+						$value = json_decode($value, true);
+					}
+					$result[$key] = $value;
+					break;
+
 
 				default:
 					$result[$key] = $value;

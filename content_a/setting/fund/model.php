@@ -11,6 +11,7 @@ class model
 
 		$post['title'] = \dash\request::post('title');
 		$post['desc']  = \dash\request::post('desc');
+		$post['pos']   = \dash\request::post('pos');
 
 		if(\dash\data::editMode())
 		{

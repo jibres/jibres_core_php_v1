@@ -19,6 +19,16 @@ class get
 		return $result;
 	}
 
+
+	public static function multi_id($_ids)
+	{
+		$query = "SELECT * FROM pos WHERE id IN ($_ids)";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 	public static function default_pos()
 	{
 		$query = "SELECT * FROM pos WHERE pos.isdefault = 1 LIMIT 1";
