@@ -18,6 +18,7 @@ class view
 			\dash\data::back_link(\dash\url::here(). '/factor?type=sale');
 		}
 
+		\lib\app\fund\login::check();
 
 		\lib\app\pos\tools::pc_pos_btn();
 	}

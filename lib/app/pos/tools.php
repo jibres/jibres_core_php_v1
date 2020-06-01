@@ -29,7 +29,20 @@ class tools
 
 	public static function pc_pos_btn()
 	{
-		$pos_default = \lib\db\pos\get::default_pos();
+		$fund_login_id = \lib\app\fund\login::get();
+
+		if(!$fund_login_id)
+		{
+			$pos_default = \lib\db\pos\get::default_pos();
+		}
+		else
+		{
+			$load_fund = \lib\app\fund\get::get($fund_login_id);
+			if(isset($load_fund['pos'][0]) && is_numeric($load_fund['pos'][0]))
+			{
+				$pos_default = \lib\db\pos\get::by_id($load_fund['pos'][0]);
+			}
+		}
 
 		// no pos default founded
 		if(!isset($pos_default['id']) || !is_array($pos_default) || !array_key_exists('pcpos', $pos_default))
