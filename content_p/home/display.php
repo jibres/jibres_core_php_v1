@@ -46,7 +46,7 @@
 
 
 <?php
-if(\dash\data::dataRow_comment() === 'open')
+if(\dash\user::id())
 {
   addNewComment();
 }
@@ -117,9 +117,9 @@ function addNewComment()
 {
 ?>
 
-<form  method="post" data-clear autocomplete="off" action="<?php echo \dash\url::kingdom(); ?>/api/comment/add">
+<form  method="post" data-clear autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
 
-  <input type="hidden" name="post_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
+  <input type="hidden" name="id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
   <?php
   if(!\dash\user::id())
   {
