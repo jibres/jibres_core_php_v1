@@ -1,14 +1,13 @@
 <?php
-namespace content_a\comment\edit;
+namespace content_a\products\comment\edit;
 
 class view
 {
 	public static function config()
 	{
+		$id = \dash\request::get('cid');
 
-		$id = \dash\request::get('id');
-
-		$detail = \dash\app\comment::get($id);
+		$detail = \lib\app\product\comment::get($id);
 		if(!$detail)
 		{
 			\dash\header::status(404, T_("Invalid id"));
@@ -18,16 +17,10 @@ class view
 
 		\dash\face::title(T_("Edit comment"));
 
-		\dash\data::action_link(\dash\url::this());
-		\dash\data::action_text(T_('Back to list of comments'));
+		\dash\data::back_link(\dash\url::this(). '/comment?id='. \dash\request::get('id'));
+		\dash\data::back_text(T_('Back'));
 
 
-
-		if(\dash\data::dataRow_post_id())
-		{
-			$post_detail = \dash\app\posts::get(\dash\data::dataRow_post_id());
-			\dash\data::dataRowPost($post_detail);
-		}
 	}
 }
 ?>

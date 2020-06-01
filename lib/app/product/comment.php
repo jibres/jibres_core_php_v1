@@ -23,12 +23,26 @@ class comment
 
 		if(!$data['content'] && !$data['star'])
 		{
-			\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
-			return false;
+			if($_id)
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
+				return false;
+			}
 		}
 
+		if($_id)
+		{
+			$load_product = \lib\db\products\get::by_id($_id);
+		}
+		else
+		{
+			$load_product = \lib\db\products\get::by_id($data['product_id']);
+		}
 
-		$load_product = \lib\db\products\get::by_id($data['product_id']);
 		if(!isset($load_product['id']))
 		{
 			\dash\notif::error(T_("Product not found"));
@@ -236,7 +250,6 @@ class comment
 			return false;
 		}
 
-		\dash\permission::access('productCommentListView');
 
 		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);
@@ -281,6 +294,11 @@ class comment
 		}
 
 		$args = self::check($_args, $id);
+
+		if(!$args)
+		{
+			return false;
+		}
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
@@ -420,7 +438,7 @@ class comment
 
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_poll\\ready', 'row'], $list);
+			$list = array_map(['self', 'ready'], $list);
 		}
 		else
 		{

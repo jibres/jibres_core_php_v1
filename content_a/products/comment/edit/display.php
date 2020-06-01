@@ -4,24 +4,7 @@
     <div class="cbox">
       <textarea class="txt" rows="10" name="content"><?php echo \dash\data::dataRow_content(); ?></textarea>
     </div>
-    <div class="cbox">
-      <div class="input">
-        <label for="author"><?php echo T_("Author"); ?></label>
-        <input type="text" name="author" value="<?php echo \dash\data::dataRow_author(); ?>">
-      </div>
-      <div class="input">
-        <label for="mobile"><?php echo T_("Mobile"); ?></label>
-        <input type="tel" name="mobile" value="<?php echo \dash\data::dataRow_mobile(); ?>">
-      </div>
-      <div class="input">
-        <label for="email"><?php echo T_("Email"); ?></label>
-        <input type="text" name="email" value="<?php echo \dash\data::dataRow_email(); ?>">
-      </div>
-      <div class="input">
-        <label for="website"><?php echo T_("Website"); ?></label>
-        <input type="text" name="website" value="<?php echo \dash\data::dataRow_url(); ?>">
-      </div>
-    </div>
+
   </div>
   <div class="c4 s12">
 

@@ -147,7 +147,7 @@ if(!is_array($dataTable))
 
           <div class="rowAction floatRa">
             <a class="mRa5 fc-green" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"approved"}'><?php echo T_("Approve"); ?></a>
-            <a class="mRa5 fc-mute" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit"); ?></a>
+            <a class="mRa5 fc-mute" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\request::get('id'); ?>&cid=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit"); ?></a>
             <a class="mRa5 fc-black" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"unapproved"}'><?php echo T_("Unapprove"); ?></a>
             <a class="mRa5 fc-red" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"deleted"}'><?php echo T_("Trash"); ?></a>
             <a class="mRa5 fc-red" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"spam"}'><?php echo T_("Spam"); ?></a>

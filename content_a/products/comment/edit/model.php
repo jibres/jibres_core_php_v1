@@ -1,5 +1,5 @@
 <?php
-namespace content_a\comment\edit;
+namespace content_a\products\comment\edit;
 
 class model
 {
@@ -16,20 +16,18 @@ class model
 		$update =
 		[
 			'content' => \dash\request::post('content'),
-			'author'  => \dash\request::post('author'),
-			'email'   => \dash\request::post('email'),
+
 			'status'  => \dash\request::post('status'),
-			'mobile'  => \dash\request::post('mobile'),
-			'url'     => \dash\request::post('website'),
+
 		];
 
 
-		$post_detail = \dash\app\comment::edit($update, \dash\request::get('id'));
+		$post_detail = \lib\app\product\comment::edit($update, \dash\request::get('cid'));
 
 		if(\dash\engine\process::status())
 		{
-			\dash\log::set('commandEdit', ['code' => \dash\request::get('id')]);
-			\dash\notif::ok(T_("Comment successfully updated"));
+			\dash\log::set('commandEdit', ['code' => \dash\request::get('cid')]);
+
 			\dash\redirect::pwd();
 		}
 	}

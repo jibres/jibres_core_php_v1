@@ -1,14 +1,12 @@
 <?php
-namespace content_a\comment\edit;
+namespace content_a\products\comment\edit;
 
 class controller
 {
 
 	public static function routing()
 	{
-		\dash\permission::access('cpCommentsEdit');
-
-		$id = \dash\request::get('id');
+		$id = \dash\request::get('cid');
 
 		if(!$id || !\dash\coding::is($id))
 		{
