@@ -138,10 +138,12 @@ class db
 			{
 				$save_hard_log =
 				[
-					'link'      => \dash\db\mysql\tools\connection::link(),
-					'link_open' => \dash\db\mysql\tools\connection::link_open(),
-					'server'    => $_SERVER,
-					'session'   => $_SESSION,
+					'link'          => \dash\db\mysql\tools\connection::link(),
+					'link_open'     => \dash\db\mysql\tools\connection::link_open(),
+					'server'        => $_SERVER,
+					'session'       => $_SESSION,
+					'myDbFuel'      => $myDbFuel,
+					'func_get_args' => func_get_args(),
 				];
 			}
 
