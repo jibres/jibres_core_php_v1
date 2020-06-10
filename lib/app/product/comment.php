@@ -38,9 +38,14 @@ class comment
 		{
 			$load_product = \lib\db\products\get::by_id($_id);
 		}
-		else
+		elseif($data['product_id'])
 		{
 			$load_product = \lib\db\products\get::by_id($data['product_id']);
+		}
+		else
+		{
+			\dash\notif::error(T_("Product id not found"));
+			return false;
 		}
 
 		if(!isset($load_product['id']))
@@ -119,6 +124,11 @@ class comment
 		}
 
 		$args = self::check($_args);
+
+		if(!$args)
+		{
+			return false;
+		}
 
 		if(!isset($args['product_id']))
 		{
