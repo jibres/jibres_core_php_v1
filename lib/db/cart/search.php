@@ -73,7 +73,7 @@ class search
 			SELECT
 				COUNT(*) AS `item_count`,
 				SUM(cart.count) AS `product_count`,
-				MAX(cart.date) AS `date`,
+				MAX(cart.datecreated) AS `datecreated`,
 				cart.user_id,
 				users.displayname,
 				users.avatar
