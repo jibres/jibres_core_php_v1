@@ -9,10 +9,12 @@ class controller
 		\dash\permission::access('ProductEdit');
 
 		// check load product detail
-		if(!\lib\app\product\load::one())
+		// if have not product id, load all comment in all product
+		if(\dash\request::get('id'))
 		{
-			\dash\header::status(404);
+			\lib\app\product\load::one();
 		}
+
 	}
 }
 ?>

@@ -382,24 +382,17 @@ class comment
 
 		$condition =
 		[
-			'order'  => 'order',
-			'sort'   => ['enum' => ['title', 'ns1', 'status']],
-			'status'   => ['enum' => ['spam', 'deleted', 'unapproved', 'approved', 'awaiting']],
+			'order'      => 'order',
+			'sort'       => ['enum' => ['title', 'status']],
+			'status'     => ['enum' => ['spam', 'deleted', 'unapproved', 'approved', 'awaiting']],
 			'product_id' => 'id'
 		];
 
 		$require = [];
 
-		$meta =
-		[
-			'field_title' =>
-			[
-
-			],
-		];
+		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
 
 		$and         = [];
 		$meta        = [];
@@ -419,7 +412,7 @@ class comment
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['title', 'ns1', 'status']))
+			if(in_array($data['sort'], ['title', 'status']))
 			{
 
 				$sort = mb_strtolower($data['sort']);
