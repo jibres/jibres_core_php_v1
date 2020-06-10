@@ -193,7 +193,7 @@ if(!is_array($dataTable))
   <div class="f">
 
     <div class="c">
-    <a class="dcard <?php if(!\dash\request::get('status') ) { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>' data-shortkey="49ctrlshift" >
+    <a class="dcard <?php if(!\dash\request::get('status') ) { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>' data-shortkey="49ctrlshift" >
      <div class="statistic">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_all()); ?></div>
       <div class="label"><i class="sf-list"></i> <?php echo T_("All"); ?> </div>
@@ -202,7 +202,7 @@ if(!is_array($dataTable))
    </div>
 
    <div class="c">
-    <a class="dcard <?php if(\dash\request::get('status') === 'awaiting') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>?status=awaiting' data-shortkey="49ctrlshift" >
+    <a class="dcard <?php if(\dash\request::get('status') === 'awaiting') { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>&status=awaiting' data-shortkey="49ctrlshift" >
      <div class="statistic blue">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_awaiting()); ?></div>
       <div class="label"><i class="sf-load-a"></i> <?php echo T_("Awaiting"); ?> </div>
@@ -211,7 +211,7 @@ if(!is_array($dataTable))
    </div>
 
    <div class="c">
-    <a class="dcard <?php if(\dash\request::get('status') === 'approved') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>?status=approved' data-shortkey="50ctrlshift" >
+    <a class="dcard <?php if(\dash\request::get('status') === 'approved') { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>&status=approved' data-shortkey="50ctrlshift" >
      <div class="statistic green">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_approved()); ?></div>
       <div class="label"><i class="sf-check"></i> <?php echo T_("Approve"); ?></div>
@@ -220,7 +220,7 @@ if(!is_array($dataTable))
    </div>
 
    <div class="c">
-    <a class="dcard <?php if(\dash\request::get('status') === 'unapproved') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>?status=unapproved' data-shortkey="51ctrlshift" >
+    <a class="dcard <?php if(\dash\request::get('status') === 'unapproved') { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>&status=unapproved' data-shortkey="51ctrlshift" >
      <div class="statistic">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_unapproved()); ?></div>
       <div class="label"><i class="sf-times"></i> <?php echo T_("Unapprove"); ?></div>
@@ -229,7 +229,7 @@ if(!is_array($dataTable))
    </div>
 
     <div class="c">
-    <a class="dcard <?php if(\dash\request::get('status') === 'deleted') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>?status=deleted' data-shortkey="51ctrlshift" >
+    <a class="dcard <?php if(\dash\request::get('status') === 'deleted') { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>&status=deleted' data-shortkey="51ctrlshift" >
      <div class="statistic">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_deleted()); ?></div>
       <div class="label"><i class="sf-trash"></i> <?php echo T_("Deleted"); ?></div>
@@ -238,7 +238,7 @@ if(!is_array($dataTable))
    </div>
 
     <div class="c">
-    <a class="dcard <?php if(\dash\request::get('status') === 'spam') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>?status=spam' data-shortkey="51ctrlshift" >
+    <a class="dcard <?php if(\dash\request::get('status') === 'spam') { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>&status=spam' data-shortkey="51ctrlshift" >
      <div class="statistic red">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_spam()); ?></div>
       <div class="label"><i class="sf-bug"></i> <?php echo T_("Spam"); ?></div>

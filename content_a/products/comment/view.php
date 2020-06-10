@@ -28,6 +28,7 @@ class view
 		[
 			'sort'  => \dash\request::get('sort'),
 			'order' => \dash\request::get('order'),
+			'status' => \dash\request::get('status'),
 			'product_id' => $id,
 		];
 

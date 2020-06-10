@@ -374,6 +374,7 @@ class comment
 		[
 			'order'  => 'order',
 			'sort'   => ['enum' => ['title', 'ns1', 'status']],
+			'status'   => ['enum' => ['spam', 'deleted', 'unapproved', 'approved', 'awaiting']],
 			'product_id' => 'id'
 		];
 
@@ -432,6 +433,11 @@ class comment
 			$and[] = "product_id = $data[product_id] ";
 		}
 
+		if($data['status'])
+		{
+			$and[] = "status = '$data[status]' ";
+
+		}
 
 		$list = \lib\db\productcomment\search::list($and, $or, $order_sort, $meta);
 
