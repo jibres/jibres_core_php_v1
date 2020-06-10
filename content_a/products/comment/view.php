@@ -18,9 +18,19 @@ class view
 
 		$id = \dash\request::get('id');
 
-		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/edit?id='. $id);
+		if($id)
+		{
+			// back
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this(). '/edit?id='. $id);
+
+		}
+		else
+		{
+			// back
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
+		}
 
 		$search_string            = \dash\request::get('q');
 
