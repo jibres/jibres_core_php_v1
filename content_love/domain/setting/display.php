@@ -250,6 +250,20 @@ else
     <table class="tbl1 v4 mB0">
       <tr>
       <td>
+        <?php echo T_("Available"); ?>
+      </td>
+      <td class="txtRa ltr"><?php if(\dash\data::domainDetail_available()) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } ?></td>
+     </tr>
+
+      <tr>
+      <td>
+        <?php echo T_("Status"); ?>
+      </td>
+      <td class="txtRa ltr"><?php echo T_(\dash\data::domainDetail_status()); ?></td>
+     </tr>
+
+      <tr>
+      <td>
         <?php echo T_("Last fetch"); ?>
       </td>
       <td class="txtRa ltr"><?php echo \dash\fit::date_human(\dash\data::domainDetail_lastfetch()); ?></td>
