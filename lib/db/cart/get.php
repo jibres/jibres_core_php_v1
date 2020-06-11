@@ -20,6 +20,14 @@ class get
 	}
 
 
+	public static function multi_product_user($_product_ids, $_user_id)
+	{
+		$query  = "SELECT cart.product_id AS `product_id` FROM cart WHERE cart.product_id IN ($_product_ids) AND cart.user_id = $_user_id";
+		$result = \dash\db::get($query, 'product_id');
+		return $result;
+	}
+
+
 	public static function user_cart($_user_id)
 	{
 		$query  = "SELECT * FROM cart WHERE cart.user_id = $_user_id";

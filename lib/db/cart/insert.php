@@ -33,5 +33,10 @@ class insert
 			return false;
 		}
 	}
+
+	public static function multi_insert()
+	{
+		return \dash\db\config::public_multi_insert('cart', ...func_get_args());
+	}
 }
 ?>
