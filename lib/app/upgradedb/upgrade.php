@@ -203,7 +203,16 @@ class upgrade
 	{
 		$fuel    = \dash\engine\fuel::get($_fuel);
 		// --force on mysql command mean ignore error if happend and continue to other query
-		$exec    = "mysql --force -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
+		// $exec    = "mysql --force -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
+		$exec    = "mysql --force";
+		$exec    .= " -u'$fuel[user]'";
+		$exec    .= " -p'$fuel[pass]'";
+		if($fuel['host'] !== 'localhost')
+		{
+			$exec    .= " -h'$fuel[host]'";
+		}
+		$exec    .= " < $_file 2>&1";
+
 		$runExec = exec($exec, $return);
 
 
