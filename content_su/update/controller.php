@@ -72,11 +72,12 @@ class controller
 	{
 	    if($_url === null)
 	    {
-	    	$_url = 'https://ermile.com';
+	    	$_url = 'https://ermile.com/';
 	    }
 
 	    $ch = curl_init($_url);
 	    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    $data = curl_exec($ch);
