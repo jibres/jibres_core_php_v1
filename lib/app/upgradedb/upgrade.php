@@ -206,10 +206,17 @@ class upgrade
 		// $exec    = "mysql --force -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
 		$exec    = "mysql --force";
 		$exec    .= " -u'$fuel[user]'";
-		$exec    .= " -p'$fuel[pass]'";
+		if($fuel['pass'] === 'root' )
+		{
+			$exec .= " -proot";
+		}
+		else
+		{
+			$exec .= " -p'$fuel[pass]'";
+		}
 		if($fuel['host'] !== 'localhost')
 		{
-			$exec    .= " -h'$fuel[host]'";
+			$exec .= " -h'$fuel[host]'";
 		}
 		$exec    .= " < $_file 2>&1";
 
