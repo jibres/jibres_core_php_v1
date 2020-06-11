@@ -9,11 +9,19 @@ class model
 		$product = \dash\request::post('product');
 		$count   = \dash\request::post('count');
 
-		\lib\app\cart\add::new_cart($product, $count, $user);
-
-		if(\dash\engine\process::status())
+		if(\dash\request::post('type') === 'edit_count')
 		{
-			\dash\redirect::pwd();
+			\lib\app\cart\edit::update_cart($product, $count, $user);
+		}
+		else
+		{
+
+			\lib\app\cart\add::new_cart($product, $count, $user);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }

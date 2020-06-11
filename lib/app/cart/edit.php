@@ -7,7 +7,10 @@ namespace lib\app\cart;
 class edit
 {
 
-	public static function update_cart($_product_id, $_count)
+
+
+
+	public static function update_cart($_product_id, $_count, $_user_id = null)
 	{
 		if(!\dash\user::id())
 		{
@@ -23,40 +26,43 @@ class edit
 			return false;
 		}
 
-		// check count < stock of this product and count < 9999
-		if(!is_numeric($_count))
+		if(!$_user_id)
 		{
-			\dash\notif::error(T_("Please set count product as a number"));
-			return false;
+			$user_id = \dash\user::code();
+		}
+		else
+		{
+			$user_id = $_user_id;
 		}
 
-		if(!$_count)
-		{
-			\dash\notif::error(T_("Please set count product"));
-			return false;
-		}
+		$condition =
+		[
+			'user_id' => 'code',
+			'product' => 'id',
+			'count'   => 'smallint',
+		];
 
-		if(intval($_count) <= 0)
-		{
-			\dash\notif::error(T_("Please set count product"));
-			return false;
-		}
+		$args =
+		[
+			'user_id' => $user_id,
+			'product' => $_product_id,
+			'count'   => $_count,
+		];
 
-		if(\dash\number::is_larger($_count, 9999))
-		{
-			\dash\notif::error(T_("Data is out of range for column count"));
-			return false;
-		}
+		$require = ['product', 'count', 'user_id'];
+		$meta    =	[];
+		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
+		$user_id = \dash\coding::decode($data['user_id']);
 
-		$load_product = \lib\app\product\get::inline_get($_product_id);
+		$load_product = \lib\app\product\get::inline_get($data['product']);
 		if(!$load_product)
 		{
 			return false;
 		}
 
 
-		$check_exist_record = \lib\db\cart\get::product_user($_product_id, \dash\user::id());
+		$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
 
 		if(!isset($check_exist_record['count']))
 		{
@@ -65,14 +71,16 @@ class edit
 		}
 		else
 		{
+			$new_count = intval($data['count']);
 
-			$new_count = intval($_count) + intval($check_exist_record['count']);
-
-			\lib\db\cart\update::the_count($_product_id, \dash\user::id(), $new_count);
+			\lib\db\cart\update::the_count($_product_id, $user_id, $new_count);
 		}
+
 
 		\dash\notif::ok(T_("Your cart was updated"));
 		return true;
 	}
+
+
 }
 ?>
