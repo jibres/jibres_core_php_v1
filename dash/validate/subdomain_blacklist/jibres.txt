@@ -5,3 +5,9 @@ tejarak
 azvir
 iranpresidents
 deadbrowser
+core
+developers
+developer
+api
+business
+store
