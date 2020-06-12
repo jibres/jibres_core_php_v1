@@ -1,6 +1,6 @@
-<div class="box">
-	<header data-kerkere='#endpoints' data-kerkere-icon='open'><h2><?php echo T_("Endpoints"); ?></h2></header>
-	<div class="body" id="endpoints" data-kerkere-content='hide'>
+<div class="box mB50-f">
+	<header><h2><?php echo T_("Endpoints"); ?></h2></header>
+	<div class="body" id="endpoints">
 
 	    <p><?php echo T_("The API is accessed by making HTTPS requests to a specific version endpoint URL, in which GET, POST, PUT, PATCH,HEAD and DELETE methods dictate how your interact with the information available."); ?> <?php echo T_("Every endpoint is accessed only via the HTTPS protocol."); ?></p>
 

@@ -1,7 +1,7 @@
-<div class="box">
-  <header data-kerkere='#responses' data-kerkere-icon='close'><h2><?php echo T_("Responses"); ?></h2></header>
+<div class="box mB50-f">
+  <header><h2><?php echo T_("Responses"); ?></h2></header>
 
-  <div class="body" id="responses" data-kerkere-content='hide'>
+  <div class="body" id="responses">
 
       <p><?php echo T_("Each response is a JSON object."); ?></p>
       <ul class="list mB50-f">
@@ -51,7 +51,7 @@
       <h3><?php echo T_("HTTP response codes"); ?></h3>
       <p><?php echo T_("The status of a response can be determined from the HTTP status code."); ?></p>
       <div class="tblBox">
-        <table class="tbl1 v6">
+        <table class="tbl1 v6 mB0-f">
           <thead>
             <tr>
               <th><?php echo T_("Code"); ?></th>

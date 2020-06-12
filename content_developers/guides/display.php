@@ -5,10 +5,11 @@
 
 
 	<div class="avand pT50">
-		<div class="box">
-			<div class="body">
-				<p class="msg mB0"><?php echo T_("We will write it soon :)"); ?></p>
-			</div>
-		</div>
+<?php
+require_once(root. 'content_developers/docs/001-intro.php');
+require_once(root. 'content_developers/docs/002-endpoint.php');
+require_once(root. 'content_developers/docs/003-requests.php');
+require_once(root. 'content_developers/docs/004-responses.php');
+?>
 	</div>
 

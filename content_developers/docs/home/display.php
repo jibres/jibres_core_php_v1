@@ -7,12 +7,7 @@
 
 	<div class="avand pT50">
 
-<?php
-require_once(root. 'content_developers/docs/001-intro.php');
-require_once(root. 'content_developers/docs/002-endpoint.php');
-require_once(root. 'content_developers/docs/003-requests.php');
-require_once(root. 'content_developers/docs/004-responses.php');
-?>
+
 
 		<div class="f">
 
