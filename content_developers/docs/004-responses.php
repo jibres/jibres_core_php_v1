@@ -1,7 +1,7 @@
 <div class="box">
-  <header data-kerkere='#responses' data-kerkere-icon='open'><h2><?php echo T_("Responses"); ?></h2></header>
+  <header data-kerkere='#responses' data-kerkere-icon='close'><h2><?php echo T_("Responses"); ?></h2></header>
 
-  <div class="body" id="responses">
+  <div class="body" id="responses" data-kerkere-content='hide'>
 
       <p><?php echo T_("Each response is a JSON object."); ?></p>
       <ul class="list mB50-f">

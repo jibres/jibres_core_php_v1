@@ -1,7 +1,7 @@
 <div class="box">
-  <header data-kerkere='#intro' data-kerkere-icon='open'><h2><?php echo T_("Intro"); ?></h2></header>
+  <header data-kerkere='#intro' data-kerkere-icon='close'><h2><?php echo T_("Intro"); ?></h2></header>
 
-  <div class="body" id="intro">
+  <div class="body" id="intro" data-kerkere-content='hide'>
 
     <p><?php echo T_("With our API you can control the entire infrastructure via a standardized programmatic interface."); ?> <?php echo T_("You can using API do just about anything you can do via your dashboard."); ?></p>
 

@@ -4,7 +4,16 @@
   </section>
 
 
+
 	<div class="avand pT50">
+
+<?php
+require_once(root. 'content_developers/docs/001-intro.php');
+require_once(root. 'content_developers/docs/002-endpoint.php');
+require_once(root. 'content_developers/docs/003-requests.php');
+require_once(root. 'content_developers/docs/004-responses.php');
+?>
+
 		<div class="f">
 
 			<div class="c6 s12 pA10">
@@ -12,7 +21,7 @@
 					<header><h3><?php echo T_("API");?></h3></header>
 					<div class="body">
 						<p><?php echo T_("Programmatically manage all of your business data with Jibres RESTful API including user data, products, invoices."); ?></p>
-						<a class="btn2 blue" href="<?php echo \dash\url::kingdom() ?>/docs/api/v2"><?php echo T_("View API v2 Documentations"); ?></a>
+						<a class="btn2 blue" href="https://documenter.getpostman.com/view/1511811/SzzgBzNG" target="_blank" data-direct><?php echo T_("View API v2 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>
@@ -22,7 +31,7 @@
 					<header><h3><?php echo T_("Core");?></h3></header>
 					<div class="body">
 						<p><?php echo T_("Our RESTful API allows you to perform actions enabled by Jibres control panel programmatically."); ?></p>
-						<a class="btn2 red" href="<?php echo \dash\url::kingdom() ?>/docs/core/r10"><?php echo T_("View Core v10 Documentations"); ?></a>
+						<a class="btn2 red" href="https://documenter.getpostman.com/view/1511811/SzzgBzX7" target="_blank" data-direct><?php echo T_("View Core v10 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>
@@ -32,7 +41,7 @@
 					<header><h3><?php echo T_("Domains");?></h3></header>
 					<div class="body">
 						<p><?php echo T_("This is a simple and secure method for authenticating users and allowing third party access to Jibres domain center."); ?></p>
-						<a class="btn2 green" href="<?php echo \dash\url::kingdom() ?>/docs/irnic/r10"><?php echo T_("View Domain v10 Documentations"); ?></a>
+						<a class="btn2 green" href="https://documenter.getpostman.com/view/1511811/SzYgSFWt" target="_blank" data-direct><?php echo T_("View Domain v10 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>

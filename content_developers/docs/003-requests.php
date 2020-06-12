@@ -1,7 +1,7 @@
 <div class="box">
- <header data-kerkere='#requests' data-kerkere-icon='open'><h2><?php echo T_("Requests"); ?></h2></header>
+ <header data-kerkere='#requests' data-kerkere-icon='close'><h2><?php echo T_("Requests"); ?></h2></header>
 
- <div class="body" id="requests">
+ <div class="body" id="requests" data-kerkere-content='hide'>
 
    <p><?php echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI."); ?> <?php echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted."); ?> <?php echo T_("The interface responds to different methods depending on the action required."); ?></p>
 
