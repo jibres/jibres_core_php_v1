@@ -90,6 +90,12 @@ class store
 			if($subdomain === 'api' && \dash\url::content() === 'v2')
 			{
 				// no problem
+				// https://api.jibres.com/$jb2jr/v2/cart/add
+			}
+			elseif($subdomain === 'business' && \dash\url::content() === 'b1')
+			{
+				// no problem
+				// https://business.jibres.com/$jb2jr/b1/product/add
 			}
 			else
 			{

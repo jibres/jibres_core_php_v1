@@ -82,7 +82,7 @@ class content
 	 */
 	public static function api_content()
 	{
-		if(in_array(\dash\url::subdomain(), ['core', 'api']))
+		if(in_array(\dash\url::subdomain(), ['core', 'api', 'business']))
 		{
 			return true;
 		}
