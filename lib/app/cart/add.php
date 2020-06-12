@@ -152,12 +152,20 @@ class add
 
 		if(!$check_exist_record)
 		{
+			$price = null;
+			if(isset($load_product['finalprice']) && is_numeric($load_product['finalprice']))
+			{
+				$price = $load_product['finalprice'];
+			}
+
 			$new_record =
 			[
-				'user_id'     => $user_id,
-				'product_id'  => $data['product'],
-				'count'       => $data['count'],
-				'datecreated' => date("Y-m-d H:i:s"),
+				'user_id'         => $user_id,
+				'product_id'      => $data['product'],
+				'count'           => $data['count'],
+				'datecreated'     => date("Y-m-d H:i:s"),
+				'price'           => $price,
+				'productprice_id' => \lib\db\products\get::last_productprice_id($data['product']),
 			];
 
 			\lib\db\cart\insert::new_record($new_record);

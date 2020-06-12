@@ -1,4 +1,35 @@
+<?php $myData = \dash\data::myData(); ?>
+<section class="f">
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo T_("Cart count");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'count'));?></div>
+    </a>
+  </div>
 
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo T_("Total price");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'price'));?></div>
+    </a>
+  </div>
+
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo T_("Product count");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'product'));?></div>
+    </a>
+  </div>
+
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo T_("Item count");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'item'));?></div>
+    </a>
+  </div>
+
+
+</section>
 
 <?php
 if(\dash\data::dataTable())

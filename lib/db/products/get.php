@@ -4,6 +4,21 @@ namespace lib\db\products;
 class get
 {
 
+	public static function last_productprice_id($_products_id)
+	{
+		$query  = "SELECT productprices.id AS `id` FROM productprices WHERE productprices.product_id = $_products_id ORDER BY productprices.id DESC LIMIT 1";
+		$result = \dash\db::get($query, 'id', true);
+
+		if(!is_numeric($result))
+		{
+			return null;
+		}
+		else
+		{
+			return floatval($result);
+		}
+	}
+
 	public static function check_duplicate_title($_title, $_id)
 	{
 		$query  = "SELECT * FROM products WHERE products.status != 'deleted' AND products.title = '$_title' AND products.id != $_id LIMIT 1";

@@ -34,6 +34,8 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
+		\dash\data::myData(\lib\app\cart\dashboard::admin());
+
 	}
 }
 ?>

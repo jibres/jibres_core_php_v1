@@ -28,6 +28,35 @@ class get
 	}
 
 
+	public static function admin_dashboard()
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `item`,
+				SUM(cart.count) AS `product`,
+				SUM(cart.price) AS `price`
+			FROM
+				cart
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function count_cart()
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(DISTINCT cart.user_id) AS `count`
+			FROM
+				cart
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function user_cart($_user_id)
 	{
 		$query  = "SELECT * FROM cart WHERE cart.user_id = $_user_id";
