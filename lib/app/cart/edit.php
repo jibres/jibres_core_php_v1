@@ -73,7 +73,15 @@ class edit
 		{
 			$new_count = intval($data['count']);
 
-			\lib\db\cart\update::the_count($_product_id, $user_id, $new_count);
+			if($new_count === 0)
+			{
+				\lib\db\cart\delete::by_product_user($data['product'], $user_id);
+			}
+			else
+			{
+				\lib\db\cart\update::the_count($_product_id, $user_id, $new_count);
+			}
+
 		}
 
 

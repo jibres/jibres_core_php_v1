@@ -34,14 +34,15 @@
 
 
 <?php
-$sortLink = \dash\data::sortLink();
+$sortLink  = \dash\data::sortLink();
 $dataTable = \dash\data::dataTable();
 if(!is_array($dataTable))
 {
   $dataTable = [];
 }
-
 ?>
+
+<?php if($dataTable) {?>
 
    <table class="tbl1 v1 cbox fs12">
     <thead>
@@ -77,5 +78,8 @@ if(!is_array($dataTable))
     </tbody>
   </table>
 
+<?php }else{ ?>
+  <div class="msg info2 fs14 txtB"><?php echo T_("This cart is empty") ?></div>
+<?php } ?>
 
 </div>
