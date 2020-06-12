@@ -190,6 +190,15 @@ class get
 	}
 
 
+	public static function some_field_by_multi_id($_ids, $_fields)
+	{
+		$query  = " SELECT $_fields FROM products WHERE products.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 	public static function check_unique_sku($_sku)
 	{
 		$query = "SELECT `id`, `sku` FROM products WHERE products.sku = '$_sku' AND products.status  != 'deleted' LIMIT 1";

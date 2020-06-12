@@ -33,7 +33,23 @@ class get
 			return null;
 		}
 
-		$load_product_detail = \lib\app\product\get::multi_product($product_ids);
+		$some_field =
+		[
+			"products.id",
+            "products.title",
+            "products.finalprice",
+            "products.discountpercent",
+            "products.discount",
+            "products.price",
+            "products.gallery",
+        ];
+
+        $some_field = implode(',', $some_field);
+
+		$load_product_detail = \lib\db\products\get::some_field_by_multi_id(implode(',', $product_ids), $some_field);
+
+		$load_product_detail = array_map(['self', 'for_api'], $load_product_detail);
+
 		$load_product_detail = array_combine(array_column($load_product_detail, 'id'), $load_product_detail);
 
 		foreach ($user_cart as $key => $value)
@@ -46,5 +62,72 @@ class get
 		}
 		return $user_cart;
 	}
+
+
+	/**
+	 * ready record for export
+	 */
+	private static function for_api($_data, $_option = [])
+	{
+		$_data = \lib\app\product\ready::row($_data);
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case "vatprice":
+				case "buyprice":
+				case "seodesc":
+				case "desc":
+				case "barcode":
+				case "barcode2":
+				case "cat_id":
+				case "unit_id":
+				case "company_id":
+				case "sku":
+				case "salestep":
+				case "minstock":
+				case "maxstock":
+				case "minsale":
+				case "maxsale":
+				case "scalecode":
+				case "fileaddress":
+				case "status":
+				case "vat":
+				case "infinite":
+				case "oversale":
+				case "variant_child":
+				case "parent":
+
+				case 'datecreated':
+				case 'datemodified':
+				case 'creator':
+				// case 'gallery_array':
+				case 'saleonline':
+				case 'saletelegram':
+				case 'saleapp':
+				case 'saleonline':
+				case 'carton':
+				case 'variants':
+				case 'thumb':
+				case 'compareatprice':
+
+					// skipp show this fields
+					break;
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
+		return $result;
+	}
+
 }
 ?>
