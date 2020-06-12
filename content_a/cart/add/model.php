@@ -13,9 +13,17 @@ class model
 		{
 			\lib\app\cart\edit::update_cart($product, $count, $user);
 		}
+		elseif(\dash\request::post('type') === 'remove')
+		{
+			\lib\app\cart\remove::from_cart($product, $user);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
 		else
 		{
-
 			\lib\app\cart\add::new_cart($product, $count, $user);
 
 			if(\dash\engine\process::status())

@@ -59,7 +59,8 @@ class search
 		$meta        = [];
 		$or          = [];
 
-		$meta['limit'] = 20;
+		// $meta['limit'] = 20;
+		$meta['pagination'] = false;
 
 
 		$order_sort  = null;
@@ -179,17 +180,22 @@ class search
 			return false;
 		}
 
-		$_user_id = \dash\coding::decode($_user_id);
-		if(!$_user_id)
+		$user_id = \dash\coding::decode($_user_id);
+
+		if(!$user_id)
 		{
 			\dash\notif::error(T_("Invalid user"));
 			return false;
 		}
 
-		$and            = [];
-		$and['user_id'] = $_user_id;
+		$and                = [];
+		$and[]              = " cart.user_id = $user_id " ;
+		$or                 = null;
+		$order              = null;
+		$meta               = [];
+		$meta['pagination'] = false;
 
-		$user_cart = \lib\db\cart\search::detail($and);
+		$user_cart = \lib\db\cart\search::detail($and, $or, $order, $meta);
 
 		if(!$user_cart)
 		{

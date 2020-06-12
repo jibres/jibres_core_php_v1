@@ -46,9 +46,11 @@ if(!is_array($dataTable))
    <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr>
+        <th class="collapsing"></th>
         <th><?php echo T_("Product"); ?></th>
         <th><?php echo T_("Count"); ?></th>
         <th><?php echo T_("Date"); ?></th>
+        <th class="collapsing"><?php echo T_("Remove"); ?></th>
       </tr>
     </thead>
 
@@ -56,6 +58,7 @@ if(!is_array($dataTable))
       <?php foreach ($dataTable as $key => $value) {?>
 
       <tr class="">
+        <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
         <td><?php echo \dash\get::index($value, 'title'); ?></td>
         <td>
           <form method="post" autocomplete="off">
@@ -68,12 +71,11 @@ if(!is_array($dataTable))
           </form>
         </td>
         <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+        <td class="collapsing"><div class="btn xs danger" data-confirm data-data='{"type": "remove", "product": "<?php echo \dash\get::index($value, 'product_id'); ?>"}'><?php echo T_("Remove") ?></div></td>
       </tr>
       <?php } //endfor ?>
     </tbody>
   </table>
-
-<?php \dash\utility\pagination::html(); ?>
 
 
 </div>

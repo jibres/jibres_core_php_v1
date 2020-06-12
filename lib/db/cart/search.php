@@ -101,6 +101,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
+
 		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart $q[where]";
 
 		$limit = null;

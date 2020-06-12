@@ -7,7 +7,8 @@ namespace lib\app\cart;
 class remove
 {
 
-	public static function from_cart($_product_id)
+
+	public static function from_cart($_product_id, $_user_id = null)
 	{
 		if(!\dash\user::id())
 		{
@@ -23,15 +24,41 @@ class remove
 			return false;
 		}
 
+		if(!$_user_id)
+		{
+			$user_id = \dash\user::code();
+		}
+		else
+		{
+			$user_id = $_user_id;
+		}
 
-		$load_product = \lib\app\product\get::inline_get($_product_id);
+		$condition =
+		[
+			'user_id' => 'code',
+			'product' => 'id',
+		];
+
+		$args =
+		[
+			'user_id' => $user_id,
+			'product' => $_product_id,
+		];
+
+		$require = ['product', 'user_id'];
+		$meta    =	[];
+		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$user_id = \dash\coding::decode($data['user_id']);
+
+		$load_product = \lib\app\product\get::inline_get($data['product']);
 		if(!$load_product)
 		{
 			return false;
 		}
 
 
-		$check_exist_record = \lib\db\cart\get::product_user($_product_id, \dash\user::id());
+		$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
 
 		if(!isset($check_exist_record['count']))
 		{
@@ -40,12 +67,13 @@ class remove
 		}
 		else
 		{
-
-			\lib\db\cart\delete::by_product_user($_product_id, \dash\user::id());
+			\lib\db\cart\delete::by_product_user($data['product'], $user_id);
 		}
 
 		\dash\notif::ok(T_("The product was removed from your cart"));
 		return true;
 	}
+
+
 }
 ?>
