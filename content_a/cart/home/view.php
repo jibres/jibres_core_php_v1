@@ -17,7 +17,20 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
 
-		$dataTable = \lib\app\cart\search::list();
+		$args = [];
+		$q = \dash\request::get('q');
+
+		$dataTable = \lib\app\cart\search::list($q, $args);
+
+
+
+		$filterBox     = \lib\app\cart\search::filter_message();
+		$isFiltered    = \lib\app\cart\search::is_filtered();
+
+
+		\dash\data::filterBox($filterBox);
+		\dash\data::isFiltered($isFiltered);
+
 
 		\dash\data::dataTable($dataTable);
 

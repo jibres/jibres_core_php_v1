@@ -11,6 +11,8 @@ class ready
 			return false;
 		}
 
+		$_data = \dash\app::fix_avatar($_data);
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
@@ -19,6 +21,7 @@ class ready
 				case 'user_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
+
 
 
 				default:

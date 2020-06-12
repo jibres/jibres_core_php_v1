@@ -78,7 +78,9 @@ class search
 				MAX(cart.datecreated) AS `datecreated`,
 				cart.user_id,
 				users.displayname,
-				users.avatar
+				users.avatar,
+				users.mobile,
+				users.gender
 			FROM cart
 			LEFT JOIN users ON cart.user_id = users.id
 			$q[where]
@@ -102,7 +104,7 @@ class search
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 
-		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart $q[where]";
+		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart INNER JOIN users ON cart.user_id = users.id INNER JOIN products ON products.id = cart.product_id $q[where]";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -116,6 +118,7 @@ class search
 				cart.*,
 				users.displayname,
 				users.avatar,
+				users.mobile,
 				products.title
 			FROM cart
 			INNER JOIN users ON cart.user_id = users.id
