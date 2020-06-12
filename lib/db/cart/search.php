@@ -62,7 +62,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart $q[where] GROUP BY cart.user_id";
+		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart LEFT JOIN users ON cart.user_id = users.id $q[where] GROUP BY cart.user_id";
 
 		$limit = null;
 		if($q['pagination'] !== false)

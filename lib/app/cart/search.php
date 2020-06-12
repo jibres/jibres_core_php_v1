@@ -46,8 +46,8 @@ class search
 		$meta        = [];
 		$or          = [];
 
-		// $meta['limit'] = 20;
-		$meta['pagination'] = false;
+		$meta['limit'] = 20;
+		// $meta['pagination'] = false;
 
 
 		$order_sort  = null;
@@ -114,7 +114,7 @@ class search
 			$and[] = " cart.user_id = $data[user_id] ";
 		}
 
-		$list = \lib\db\cart\search::detail($and, $or, $order_sort, $meta);
+		$list = \lib\db\cart\search::list($and, $or, $order_sort, $meta);
 
 		if(is_array($list))
 		{
