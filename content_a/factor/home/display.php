@@ -191,7 +191,7 @@ $sortLink = \dash\data::sortLink();
           <td class="s0" ><a class="badge" href="<?php echo \dash\url::this(); ?>?type=<?php echo \dash\get::index($value, 'type'); ?>"><?php echo T_(ucfirst(\dash\get::index($value, 'type'))); ?></a></td>
           <?php } //endif ?>
           <td>
-            <a href="<?php echo \dash\url::here(); ?>/chap/receipt?id=<?php echo \dash\get::index($value, 'id'); ?>&size=receipt8" class="btn primary outline sm"><?php echo T_("View"); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/chap/receipt?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn primary outline sm"><?php echo T_("View"); ?></a>
           </td>
         </tr>
         <tr>
