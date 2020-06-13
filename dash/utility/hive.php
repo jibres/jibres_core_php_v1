@@ -38,6 +38,13 @@ class hive
 		}
 	}
 
+
+	private static function hive_session_key()
+	{
+		return 'hive_'. \dash\url::current();
+	}
+
+
 	private static function make()
 	{
 		$hive = [];
@@ -46,10 +53,11 @@ class hive
 
 		$hive['check'. $element[0]] = '';
 		$hive['check'. $element[1]] = md5((string) time(). (string) rand(). (string) rand());
-		$hive['check'. $element[2]] = \dash\url::this();
+		$hive['check'. $element[2]] = \dash\url::current();
 
 		\dash\data::hive($hive);
-		\dash\session::set('hive_'. \dash\url::this(), $hive);
+
+		\dash\session::set(self::hive_session_key(), $hive);
 	}
 
 
@@ -98,7 +106,7 @@ class hive
 
 	private static function check()
 	{
-		$hive = \dash\session::get('hive_'. \dash\url::this());
+		$hive = \dash\session::get(self::hive_session_key());
 		$hiveCheck1 = \dash\request::post('hiveCheck1');
 		$hiveCheck2 = \dash\request::post('hiveCheck2');
 		$hiveCheck3 = \dash\request::post('hiveCheck3');
