@@ -4,7 +4,7 @@ namespace content_b1;
 
 class tools
 {
-	public static $r10             = [];
+	public static $b1             = [];
 	private static $REQUEST       = [];
 	private static $request_check = false;
 
@@ -16,14 +16,14 @@ class tools
 		self::check_appkey();
 		self::check_apikey();
 
-		// never store init in r10
+		// never store init in b1
 		self::check_store_not_init();
 	}
 
 
 	public static function appkey_required()
 	{
-		if(isset(self::$r10['appkey_detail']) && self::$r10['appkey_detail'])
+		if(isset(self::$b1['appkey_detail']) && self::$b1['appkey_detail'])
 		{
 			return true;
 		}
@@ -83,9 +83,9 @@ class tools
 			self::stop(400, T_("Appkey not set"));
 		}
 
-		$appkey_is_ok              = \dash\app\user_auth::check_appkey($appkey);
+		$appkey_is_ok              = \dash\app\user_auth::jibres_check_appkey($appkey);
 
-		self::$r10['appkey_detail'] = $appkey_is_ok;
+		self::$b1['appkey_detail'] = $appkey_is_ok;
 
 		if($appkey_is_ok)
 		{

@@ -1,5 +1,5 @@
 <?php
-namespace content_v2\product\add;
+namespace content_b1\product\add;
 
 
 class model
