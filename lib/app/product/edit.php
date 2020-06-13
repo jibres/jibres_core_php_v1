@@ -54,6 +54,12 @@ class edit
 
 		$args = \lib\app\product\check::variable($_args, $id, $_option);
 
+		if(!$args || !\dash\engine\process::status())
+		{
+			return false;
+		}
+
+
 		if($args['price'] || $args['discount'] || $args['buyprice'] || $args['finalprice'])
 		{
 			// check archive of price if price or discount or buyprice sended

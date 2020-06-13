@@ -135,7 +135,7 @@ class tools
 			self::stop(401, T_("Invalid apikey"));
 		}
 
-		$session_id = \dash\url::root(). 'APICORE'. $get['id'];
+		$session_id = \dash\url::root(). 'APIBUSINESS'. $get['id'];
 
 		\dash\session::restart($session_id);
 

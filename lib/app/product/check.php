@@ -253,6 +253,8 @@ class check
 					{
 						$element = [];
 
+						$msg = T_("Duplicate barcode");
+
 						$product_title = '';
 						if(isset($check_exist[0]['title']))
 						{
@@ -279,8 +281,11 @@ class check
 
 						if($product_id)
 						{
-							$link = \dash\url::this(). '/edit?id='. $product_id;
-							$msg = "<a href='$link'>". $msg. '</a>';
+							if(!\dash\engine\content::api_content())
+							{
+								$link = \dash\url::this(). '/edit?id='. $product_id;
+								$msg = "<a href='$link'>". $msg. '</a>';
+							}
 						}
 
 						// \dash\log::set('app:product:barcode:is:duplicate');
