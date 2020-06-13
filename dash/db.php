@@ -138,8 +138,8 @@ class db
 			{
 				$save_hard_log =
 				[
-					'link'          => \dash\db\mysql\tools\connection::link(),
-					'link_open'     => \dash\db\mysql\tools\connection::link_open(),
+					'link'          => serialize(\dash\db\mysql\tools\connection::link()),
+					'link_open'     => serialize(\dash\db\mysql\tools\connection::link_open()),
 					'server'        => $_SERVER,
 					'session'       => $_SESSION,
 					'myDbFuel'      => $myDbFuel,
