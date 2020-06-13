@@ -6,18 +6,14 @@ class view
 {
 	public static function config()
 	{
-		// show dropdown of product list
-		\lib\app\product\site_list::dropdown();
+		\dash\face::title(T_('Orders'));
 
-		\dash\face::title(T_('Sale Order'));
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
 
-		if(\dash\permission::check('factorSaleList'))
-		{
-			\dash\data::back_text(T_('Orders'));
-			\dash\data::back_link(\dash\url::here(). '/factor?type=sale');
-		}
-
+		\dash\data::action_text(T_('Add order'));
+		\dash\data::action_link(\dash\url::this(). '/add');
 	}
 }
 ?>

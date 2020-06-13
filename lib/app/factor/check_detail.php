@@ -95,7 +95,7 @@ class check_detail
 			}
 
 			$trust_order_list[$key]['count']      = floatval($value['count']);
-			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? intval($value['discount']) : null;
+			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? floatval($value['discount']) : null;
 			$trust_order_list[$key]['product_id'] = $value['product'];
 
 			$allproduct_id[]              = $value['product'];

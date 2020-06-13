@@ -1,5 +1,5 @@
 <?php
-namespace content_a\order;
+namespace content_a\order\detail;
 
 
 class model
@@ -21,7 +21,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			$redirect_url = \dash\url::this();
+			$redirect_url = \dash\url::this(). '/detail';
 
 			if(isset($factor_detail['factor_id']))
 			{

@@ -28,6 +28,7 @@ class check
 		$condition =
 		[
 			'desc'        => 'desc',
+			'discount'    => 'price',
 			'type'        => ['enum' => ['buy','sale','prefactor','lending','backbuy','backfactor','waste']],
 			'customer'    => 'code',
 			'mobile'      => 'mobile',
@@ -96,6 +97,13 @@ class check
 		unset($data['mobile']);
 		unset($data['displayname']);
 		unset($data['gender']);
+
+		if($data['discount'])
+		{
+			$data['discount'] = \lib\price::up($data['discount']);
+			$data['discount'] = \lib\number::up($data['discount']);
+		}
+
 		return $data;
 	}
 }

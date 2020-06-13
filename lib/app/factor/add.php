@@ -55,14 +55,28 @@ class add
 			return false;
 		}
 
+
 		$factor['subprice']    = array_sum(array_column($factor_detail, 'sub_price_temp'));
 		$factor['subdiscount'] = array_sum(array_column($factor_detail, 'sub_discount_temp'));
 		$factor['subvat']      = array_sum(array_column($factor_detail, 'sub_vat_temp'));;
 		$factor['subtotal']    = array_sum(array_column($factor_detail, 'sum'));
 		$factor['qty']         = array_sum(array_column($factor_detail, 'count'));
 		$factor['item']        = count($factor_detail);
-		$factor['discount']    = null;
-		$factor['total']       = intval($factor['subtotal']) - intval($factor['discount']);
+		$factor['discount']    = $factor['discount'];
+
+		$factor_total = floatval($factor['subtotal']) - floatval($factor['discount']);
+
+		if($factor['discount'])
+		{
+			if(floatval($factor['discount']) > floatval($factor['subtotal']))
+			{
+				\dash\notif::error(T_("Discount is larger than order total"));
+				return false;
+			}
+		}
+
+		$factor['total']       = $factor_total;
+
 		$factor['status']      = 'draft';
 		$factor['seller']      = \dash\user::id();
 		$factor['date']        = date("Y-m-d H:i:s");
@@ -70,6 +84,7 @@ class add
 		$factor['pre']         = null;
 		$factor['transport']   = null;
 		$factor['pay']         = null;
+		$factor['desc']        = $factor['desc'];
 
 
 		// qty field in int(10)
