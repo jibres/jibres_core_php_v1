@@ -659,12 +659,18 @@ $productDataRow = \dash\data::productDataRow();
           <option value="soon" <?php if(\dash\data::productDataRow_status() == 'soon') {echo 'selected';} ?>><?php echo T_("Soon"); ?></option>
           <option value="unavailable" <?php if(\dash\data::productDataRow_status() == 'unavailable') {echo 'selected';} ?>><?php echo T_("Unavailable"); ?></option>
           <option value="discountinued" <?php if(\dash\data::productDataRow_status() == 'discountinued') {echo 'selected';} ?>><?php echo T_("Discountinued"); ?></option>
+          <?php if(\dash\data::productIsDeleted()) {?>
+          <option value="deleted" <?php if(\dash\data::productDataRow_status() == 'deleted') {echo 'selected';} ?>><?php echo T_("Deleted"); ?></option>
+          <?php } //endif ?>
         </select>
       </div>
+
+      <?php if(!\dash\data::productIsDeleted()) {?>
       <div class="txtRa">
 
         <div class="btn danger sm" data-confirm data-data='{"delete":"product"}'><?php echo T_("Remove product"); ?></div>
       </div>
+    <?php } //endif ?>
     </div>
   </section>
 

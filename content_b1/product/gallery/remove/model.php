@@ -10,9 +10,14 @@ class model
 
 		$fileid = \content_b1\tools::input_body('fileid');
 
-		if(!$fileid || !is_numeric($fileid))
+		if(!$fileid)
 		{
 			\content_b1\tools::stop(400, T_("File id is required"));
+		}
+
+		if(!\dash\validate::code($fileid, false))
+		{
+			\content_b1\tools::stop(400, T_("File id is not valid"));
 		}
 
 		$result = \lib\app\product\gallery::gallery($id, $fileid, 'remove');

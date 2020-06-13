@@ -86,6 +86,14 @@ class view
 		{
 			\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
+
+
+		if(\dash\data::productDataRow_status() === 'deleted')
+		{
+			\dash\data::productIsDeleted(true);
+			\dash\face::title($title. ' ('. T_("Deleted"). ')');
+
+		}
 	}
 }
 ?>
