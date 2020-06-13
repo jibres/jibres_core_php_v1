@@ -38,7 +38,7 @@ class view
 
 		\dash\data::dataTable($myCategoryList);
 
-		\dash\data::dataFilter(\content_a\filter::current(['title', 'count', 'slug'], \dash\url::this()));
+		\dash\data::dataFilter(\content_a\filter::createMsg($args));
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 	}
