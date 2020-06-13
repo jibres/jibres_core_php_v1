@@ -22,6 +22,12 @@ class gallery
 				{
 					$gallery_raw[$key]['path'] = \lib\filepath::fix($value['path']);
 				}
+
+				if(isset($value['id']))
+				{
+					$gallery_raw[$key]['id'] = \dash\coding::encode($value['id']);
+
+				}
 			}
 			return $gallery_raw;
 		}
@@ -77,7 +83,8 @@ class gallery
 
 	public static function setthumb($_product_id, $_file_id)
 	{
-		$file_id = $_file_id;
+		$file_id = \dash\validate::code($_file_id);
+		$file_id = \dash\coding::decode($file_id);
 
 		if(!$file_id)
 		{
@@ -192,6 +199,8 @@ class gallery
 		else
 		{
 			$fileid = $_file_detail; // the file id
+			$fileid = \dash\validate::code($fileid);
+			$fileid = \dash\coding::decode($fileid);
 
 			if(!$fileid)
 			{
