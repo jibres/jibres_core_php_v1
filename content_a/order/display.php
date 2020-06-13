@@ -79,7 +79,6 @@
 
       <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_nextContinue' data-shortkey='115'><?php echo T_("Save Factor & Continue"); ?> <kbd class="floatRa mT5">f4</kbd></button>
 
-      <button class="cauto btn secondary block factor_save_btn mT10" type="submit" name="save_btn" value="save_print" id='save_nextPrint' data-shortkey='119'><?php echo T_("Save & Print"); ?> <kbd class="floatRa mT5">f8</kbd></button>
     </div>
 
   </div>

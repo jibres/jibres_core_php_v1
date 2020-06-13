@@ -21,46 +21,12 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			// @new
-			// if(isset($factor_detail['factor_id']))
-			// {
-			// 	// $query_data['print'] = 'auto';
-			// 	// $query_data['size']  = 'receipt8';
-			// 	$query_data['id']    = $factor_detail['factor_id'];
-			// 	$redirect_url        = \dash\url::this(). '/opr';
-			// }
-			// else
-			// {
-			// 	$redirect_url = \dash\url::this();
-			// }
-
+			$redirect_url = \dash\url::this();
 
 			if(isset($factor_detail['factor_id']))
 			{
-
-				if(\dash\request::post('save_btn') === 'save_next')
-				{
-					$query_data['type']  = \dash\request::get('type');
-					$redirect_url        = \dash\url::this();
-
-				}
-				elseif(\dash\request::post('save_btn') === 'save_print')
-				{
-					$query_data['id']    = $factor_detail['factor_id'];
-					$query_data['print'] = 'auto';
-					// $redirect_url        = \dash\url::here(). '/chap/receipt';
-					$redirect_url        = \dash\url::here(). '/chap';
-
-				}
-				else
-				{
-					\dash\notif::error(T_("Dont!"));
-					return false;
-				}
-			}
-			else
-			{
-				$redirect_url = \dash\url::this();
+				$query_data['type']  = \dash\request::get('type');
+				$query_data['id'] = $factor_detail['factor_id'];
 			}
 
 			if(!empty($query_data))
