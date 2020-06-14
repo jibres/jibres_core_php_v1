@@ -4,6 +4,33 @@ namespace lib\app\factor;
 
 class edit
 {
+
+	public static function edit_factor($_args, $_id)
+	{
+		$load_factor = \lib\app\factor\get::one($_id);
+
+		if(!$load_factor)
+		{
+			return false;
+		}
+
+		$args = \lib\app\factor\check::factor($_args, ['factor_detail' => $load_factor]);
+
+		$args = \dash\cleanse::patch_mode($_args, $args);
+
+		if(empty($args))
+		{
+			\dash\notif::info(T_("Order save without change"));
+			return true;
+		}
+		else
+		{
+			\lib\db\factors\update::record($args, $load_factor['id']);
+			\dash\notif::ok(T_("Order updated"));
+			return true;
+		}
+	}
+
 	/**
 	 * edit a factor
 	 *

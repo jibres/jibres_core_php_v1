@@ -15,7 +15,8 @@ class check
 	{
 		$default_option =
 		[
-			'debug' => true,
+			'debug'         => true,
+			'factor_detail' => [],
 		];
 
 		if(!is_array($_option))
@@ -31,6 +32,7 @@ class check
 			'discount'    => 'price',
 			'type'        => ['enum' => ['buy','sale','prefactor','lending','backbuy','backfactor','waste']],
 			'customer'    => 'code',
+			'address_id'  => 'code',
 			'mobile'      => 'mobile',
 			'displayname' => 'displayname',
 			'gender'      => ['enum' => ['male', 'female']],
@@ -102,6 +104,35 @@ class check
 		{
 			$data['discount'] = \lib\price::up($data['discount']);
 			$data['discount'] = \lib\number::up($data['discount']);
+		}
+
+
+		if($data['address_id'])
+		{
+			$data['address_id'] = \dash\coding::decode($data['address_id']);
+
+			$customer_id = $data['customer'];
+
+			if(!$customer_id && isset($_option['factor_detail']['customer']) && $_option['factor_detail']['customer'])
+			{
+				$customer_id = \dash\coding::decode($_option['factor_detail']['customer']);
+			}
+
+			if(!$customer_id)
+			{
+				\dash\notif::error(T_("Order have not customer and you cannot add address to this"));
+				return false;
+			}
+
+			$data['customer'] = $customer_id;
+
+			$check_user_address = \dash\db\address::get_user_address_active($customer_id, $data['address_id']);
+
+			if(!$check_user_address)
+			{
+				\dash\notif::error(T_("Invalid user address"));
+				return false;
+			}
 		}
 
 		return $data;

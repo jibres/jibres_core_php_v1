@@ -18,6 +18,15 @@ class address
 		return $result;
 	}
 
+
+
+	public static function get_user_address_active($_user_id, $_id)
+	{
+		$query = "SELECT * FROM address WHERE address.id = $_id AND address.user_id = $_user_id AND address.status = 'enable' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function user_address_list($_user_id)
 	{
 		$query = "SELECT * FROM address WHERE address.user_id = $_user_id AND address.status = 'enable' ";

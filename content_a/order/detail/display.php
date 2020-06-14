@@ -11,10 +11,23 @@
               <label for="address_<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\get::index($value, 'address'); ?></label>
             </div>
           <?php } // endfor ?>
+
         <?php } // endif ?>
+        <a class="btn" href="<?php echo \dash\url::kingdom(). '/crm/member/address?id='. \dash\get::index($orderDetail, 'factor', 'customer') ?>"><?php echo T_("Add new address") ?></a>
       <?php }else{ ?>
         <div class="msg">Customer not set</div>
       <?php } // endif ?>
+
+      <div class="jSlider1 mB10" data-slick>
+        <?php foreach (\dash\get::index($orderDetail, 'factor_detail') as $key => $value) {?>
+          <a href=""><?php echo \dash\get::index($value, 'title'); ?></a>
+        <?php } //endfor ?>
+      </div>
+
+      <div class="txtRa">
+        <button class="btn success"><?php echo T_("Save order") ?></button>
+      </div>
+
     </form>
   </div>
 </div>
