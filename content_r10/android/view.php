@@ -14,9 +14,9 @@ class view
 			'slogan'    => \dash\face::slogan(),
 			'logo'      =>
 			[
-				'standard'      => \dash\url::logo(),
-				'vertical'      => \dash\url::logo(),
-				'icon'      => \dash\url::icon(),
+				'standard' => \dash\url::cdn(). '/logo/en/png/Jibres-Logo-en-safe-2048.png',
+				'vertical' => \dash\url::cdn(). '/logo/en-vertical/png/Jibres-Logo-en-vertical-2048.png',
+				'icon'     => \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-2048.png',
 			],
 			'version'   =>
 			[
