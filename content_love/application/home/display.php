@@ -81,7 +81,6 @@ else
                 <th><?php echo T_("Date queue"); ?></th>
                 <th><?php echo T_("Date done"); ?></th>
                 <th><?php echo T_("File"); ?></th>
-                <th><?php echo T_("Path"); ?></th>
 
             </tr>
         </thead>
@@ -113,7 +112,7 @@ else
                 <td class=" " title='<?php echo \dash\get::index($value, 'path'); ?>'><?php if(\dash\get::index($value, 'path')) { echo '<a href="https://app.talambar.ir/'. $value['path'].'" class="btn">'.T_("Download").'</a>'; }?></td>
             </tr>
             <tr>
-                <td class="ltr"><?php echo \dash\get::index($value, 'meta'); ?></td>
+                <td colspan="10" class="ltr txtL pTB5-f"><?php echo \dash\get::index($value, 'meta'); ?></td>
             </tr>
             <?php } //endfor ?>
         </tbody>
