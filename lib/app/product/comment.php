@@ -144,60 +144,72 @@ class comment
 			$args['status'] = 'awaiting';
 		}
 
-		// check duplicate
-		$check_duplicate = \lib\db\productcomment\get::check_duplicate(\dash\user::id(), $args['product_id']);
-		if(isset($check_duplicate['id']))
+		// // check duplicate
+		// $check_duplicate = \lib\db\productcomment\get::check_duplicate(\dash\user::id(), $args['product_id']);
+		// if(isset($check_duplicate['id']))
+		// {
+		// 	$id = $check_duplicate['id'];
+		// 	$update = [];
+		// 	if($check_duplicate['content'] != $args['content'])
+		// 	{
+		// 		$update['content'] = $args['content'];
+		// 	}
+
+		// 	if($check_duplicate['star'] != $args['star'])
+		// 	{
+		// 		$update['star'] = $args['star'];
+		// 	}
+
+		// 	if(empty($update))
+		// 	{
+		// 		\dash\notif::info(T_("No change in your product comment"));
+		// 	}
+		// 	else
+		// 	{
+		// 		$update = \lib\db\productcomment\update::update($update, $id);
+
+		// 		if($update)
+		// 		{
+		// 			\dash\log::set('productCommentUpdated', ['old' => $check_duplicate, 'change' => $args]);
+
+		// 			\dash\notif::ok(T_("The comment successfully updated"));
+
+		// 		}
+		// 		else
+		// 		{
+		// 			\dash\log::set('productcommentDbCannotUpdate');
+		// 			\dash\notif::error(T_("Can not update your product comment"));
+		// 			return false;
+		// 		}
+		// 	}
+
+		// }
+		// else
+		// {
+
+		// 	$id = \lib\db\productcomment\insert::new_record($args);
+		// 	if(!$id)
+		// 	{
+		// 		\dash\log::set('productCommentDbErrorInsert');
+		// 		\dash\notif::error(T_("No way to insert data"));
+		// 		return false;
+		// 	}
+
+		// 	\dash\notif::ok(T_("Comment successfully added"));
+
+		// }
+
+
+
+		$id = \lib\db\productcomment\insert::new_record($args);
+		if(!$id)
 		{
-			$id = $check_duplicate['id'];
-			$update = [];
-			if($check_duplicate['content'] != $args['content'])
-			{
-				$update['content'] = $args['content'];
-			}
-
-			if($check_duplicate['star'] != $args['star'])
-			{
-				$update['star'] = $args['star'];
-			}
-
-			if(empty($update))
-			{
-				\dash\notif::info(T_("No change in your product comment"));
-			}
-			else
-			{
-				$update = \lib\db\productcomment\update::update($update, $id);
-
-				if($update)
-				{
-					\dash\log::set('productCommentUpdated', ['old' => $check_duplicate, 'change' => $args]);
-
-					\dash\notif::ok(T_("The comment successfully updated"));
-
-				}
-				else
-				{
-					\dash\log::set('productcommentDbCannotUpdate');
-					\dash\notif::error(T_("Can not update your product comment"));
-					return false;
-				}
-			}
-
+			\dash\log::set('productCommentDbErrorInsert');
+			\dash\notif::error(T_("No way to insert data"));
+			return false;
 		}
-		else
-		{
 
-			$id = \lib\db\productcomment\insert::new_record($args);
-			if(!$id)
-			{
-				\dash\log::set('productCommentDbErrorInsert');
-				\dash\notif::error(T_("No way to insert data"));
-				return false;
-			}
-
-			\dash\notif::ok(T_("Comment successfully added"));
-
-		}
+		\dash\notif::ok(T_("Comment successfully added"));
 
 
 		$result       = [];
