@@ -25,12 +25,15 @@ class view
 		$result['log_errors']              = ini_get('log_errors');
 		$result['session.name']            = ini_get('session.name');
 
+		$w                       = stream_get_wrappers();
+		$result['openssl']       = extension_loaded ('openssl');
+		$result['http wrapper']  = in_array('http', $w);
+		$result['https wrapper'] = in_array('https', $w);
+		$result['wrappers']      = json_encode($w, JSON_PRETTY_PRINT);
+
 
 		\dash\log::set('loadServerInfo');
-
-
 		\dash\data::phpIniInfo($result);
-
 	}
 }
 ?>
