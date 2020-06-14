@@ -18,6 +18,13 @@ class address
 		return $result;
 	}
 
+	public static function user_address_list($_user_id)
+	{
+		$query = "SELECT * FROM address WHERE address.user_id = $_user_id AND address.status = 'enable' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 
 	public static function last_user_address($_user_id)
 	{

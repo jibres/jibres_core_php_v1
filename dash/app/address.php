@@ -26,6 +26,31 @@ class address
 	}
 
 
+	public static function user_address_list($_user_code)
+	{
+		$user_id = \dash\validate::code($_user_code);
+		$user_id = \dash\coding::decode($user_id);
+
+		if(!$user_id)
+		{
+			\dash\notif::error(T_("Invalid user id"));
+			return false;
+		}
+
+		$user_address_list = \dash\db\address::user_address_list($user_id);
+
+		if(!is_array($user_address_list))
+		{
+			$user_address_list = [];
+		}
+
+		$user_address_list = array_map(['self', 'ready'], $user_address_list);
+
+		return $user_address_list;
+	}
+
+
+
 	public static function get_last_user_address($_user_id)
 	{
 		if(!$_user_id || !is_numeric($_user_id))

@@ -124,7 +124,7 @@ class setup
 	}
 
 
-	public static function ready($_module)
+	public static function ready($_module, $_return = false)
 	{
 		if(in_array($_module, self::$levels))
 		{
@@ -139,7 +139,15 @@ class setup
 		}
 
 		$store_data = \lib\store::detail('store_data');
-		\dash\data::dataRow($store_data);
+
+		if($_return)
+		{
+			return $store_data;
+		}
+		else
+		{
+			\dash\data::dataRow($store_data);
+		}
 	}
 
 
