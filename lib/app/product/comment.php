@@ -136,8 +136,9 @@ class comment
 			return false;
 		}
 
-		$args['user_id'] = \dash\user::id();
-		$args['ip']      = \dash\server::ip(true);
+		$args['user_id']     = \dash\user::id();
+		$args['ip']          = \dash\server::ip(true);
+		$args['datecreated'] = date("Y-m-d H:i:s");
 
 		if(!$args['status'])
 		{
@@ -217,6 +218,78 @@ class comment
 		return $result;
 	}
 
+
+
+	public static function answer($_answer, $_id)
+	{
+		$load = self::inline_get($_id);
+
+		if(!isset($load['id']))
+		{
+			\dash\notif::error(T_("Invalid comment id"));
+			return false;
+		}
+
+		$answer = \dash\validate::desc($_answer, false);
+
+		if(!$answer)
+		{
+			\dash\notif::error(T_("Plese fill the answer box"));
+			return false;
+		}
+
+		if(array_key_exists('parent', $load) && is_null($load['parent']))
+		{
+			// no problem
+		}
+		else
+		{
+			// if need can answer in 3 level or 4 level change here code by check master parent
+			\dash\notif::error(T_("Can not answer to this comment. This comment is answer of another!"));
+			return false;
+		}
+
+		$insert_answer =
+		[
+			'product_id'  => $load['product_id'],
+			'user_id'     => \dash\user::id(),
+			'content'     => $answer,
+			'parent'      => $load['id'],
+			'ip'          => \dash\server::ip(true),
+			'datecreated' => date("Y-m-d H:i:s"),
+			'status'      => 'approved',
+		];
+
+		$id = \lib\db\productcomment\insert::new_record($insert_answer);
+
+		\dash\notif::ok(T_("Your answer was saved"));
+		return true;
+
+	}
+
+
+	public static function answer_list($_id)
+	{
+
+		$load = self::inline_get($_id);
+
+		if(!isset($load['id']))
+		{
+			\dash\notif::error(T_("Invalid comment id"));
+			return false;
+		}
+
+		$load_asnwer_list = \lib\db\productcomment\get::by_parent($load['id']);
+
+		if(!is_array($load_asnwer_list))
+		{
+			$load_asnwer_list = [];
+		}
+
+		$load_asnwer_list = array_map(['self', 'ready'], $load_asnwer_list);
+
+		return $load_asnwer_list;
+	}
 
 	public static function remove($_id)
 	{

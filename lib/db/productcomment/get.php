@@ -77,6 +77,14 @@ class get
 	}
 
 
+	public static function by_parent($_parent_id)
+	{
+		$query  = "SELECT * FROM productcomment WHERE  productcomment.parent = $_parent_id ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 
 
 
