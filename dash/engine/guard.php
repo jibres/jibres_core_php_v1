@@ -99,6 +99,10 @@ class guard
 			{
 				$csp .= "frame-ancestors https:; ";
 			}
+			else if(\dash\url::module() === 'app')
+			{
+				$csp .= "frame-ancestors ". self::csp_domain('*', 'jibres'). "; ";
+			}
 			else
 			{
 				$csp .= "frame-ancestors 'none'; ";
