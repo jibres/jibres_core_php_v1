@@ -161,17 +161,14 @@ class app
 					if($value === 'male')
 					{
 						$result['gender_string'] = T_("Mr");
-						$result['genderString']  = T_("Mr");
 					}
 					elseif($value === 'female')
 					{
 						$result['gender_string'] = T_("Mrs");
-						$result['genderString']  = T_("Mrs");
 					}
 					else
 					{
 						$result['gender_string'] = null;
-						$result['genderString']  = null;
 					}
 					break;
 
