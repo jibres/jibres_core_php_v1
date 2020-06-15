@@ -197,7 +197,6 @@ class search
 						'avatar'        => \dash\url::icon(),
 						'gender'        => false,
 						'gender_string' => null,
-						'genderString'  => null,
 						'displayname'   => T_("Jibres"),
 					];
 
