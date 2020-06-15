@@ -228,5 +228,52 @@ class ready
 		return $result;
 	}
 
+
+	public static function pricehistory($_data, $_option = [])
+	{
+
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		$store_unit = \lib\currency::name(\lib\store::detail('currency'));
+
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+
+				case 'creator':
+				case 'id':
+				case 'last':
+					break;
+
+				case 'price':
+				case 'buyprice':
+				case 'discount':
+				case 'discountpercent':
+				case 'compareatprice':
+				case 'finalprice':
+					if($value)
+					{
+						$result[$key] = \lib\price::down($value);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+					break;
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
+		return $result;
+	}
+
 }
 ?>

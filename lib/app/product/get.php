@@ -83,7 +83,7 @@ class get
 
 
 
-	public static function next($_id)
+	public static function next($_id, $_raw = false)
 	{
 		if(isset(self::$product_next[$_id]))
 		{
@@ -104,7 +104,10 @@ class get
 			$next = \lib\db\products\get::first_product_id();
 		}
 
-		$next = \dash\url::this(). '/edit?id='. $next;
+		if(!$_raw)
+		{
+			$next = \dash\url::this(). '/edit?id='. $next;
+		}
 
 		self::$product_next[$_id] = $next;
 
@@ -112,7 +115,7 @@ class get
 	}
 
 
-	public static function prev($_id)
+	public static function prev($_id, $_raw = false)
 	{
 		if(isset(self::$product_prev[$_id]))
 		{
@@ -133,7 +136,10 @@ class get
 			$prev = \lib\db\products\get::end_product_id();
 		}
 
-		$prev = \dash\url::this(). '/edit?id='. $prev;
+		if(!$_raw)
+		{
+			$prev = \dash\url::this(). '/edit?id='. $prev;
+		}
 
 		self::$product_prev[$_id] = $prev;
 

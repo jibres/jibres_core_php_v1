@@ -31,7 +31,7 @@ class updateprice
 
 
 
-	public static function chart($_id)
+	public static function chart($_id, $_raw_result = false)
 	{
 		$_id = \dash\validate::id($_id);
 
@@ -41,6 +41,18 @@ class updateprice
 		}
 
 		$chart = \lib\db\productprices\get::for_chart($_id);
+
+		if($_raw_result)
+		{
+			if(!is_array($chart))
+			{
+				$chart = [];
+			}
+
+			$chart = array_map(['\\lib\\app\\product\\ready', 'pricehistory'], $chart);
+
+			return $chart;
+		}
 
 
 		$data             = [];
