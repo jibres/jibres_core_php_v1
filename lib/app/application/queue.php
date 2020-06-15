@@ -406,13 +406,13 @@ class queue
 		// save log in file
 		\dash\log::file(json_encode(func_get_args()), 'transfer_file_apk', 'application');
 
-		if(!is_string($_status))
+		if($_status && !is_string($_status))
 		{
 			\dash\notif::error(T_("Please set the status"));
 			return false;
 		}
 
-		if(!is_string($_path))
+		if($_path  && !is_string($_path))
 		{
 			\dash\notif::error(T_("Please set the path"));
 			return false;
@@ -424,7 +424,7 @@ class queue
 			return false;
 		}
 
-		if(!in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
+		if($_status && !in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
 		{
 			\dash\notif::error(T_("Please set the status"));
 			return false;
