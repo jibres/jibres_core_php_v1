@@ -397,6 +397,12 @@ class comment
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
+		if(array_key_exists('status', $args) && !$args['status'])
+		{
+			\dash\notif::error(T_("Status of product comment cannot be null"));
+			return false;
+		}
+
 		if(!empty($args))
 		{
 			$get_comment = \lib\db\productcomment\get::by_id($id);

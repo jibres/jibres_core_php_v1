@@ -1,17 +1,17 @@
 <?php
-namespace content_b1\product\comment\add;
+namespace content_b1\product\comment\edit;
 
 
 class model
 {
-	public static function post()
+	public static function patch()
 	{
 		$id = \dash\request::get('id');
 
 		$update =
 		[
-			'content' => \dash\request::post('content'),
-			'status'  => \dash\request::post('status'),
+			'content' => \content_b1\tools::input_body('content'),
+			'status'  => \content_b1\tools::input_body('status'),
 		];
 
 		$result = \lib\app\product\comment::edit($update, $id);

@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\product\comment\add;
+namespace content_b1\product\comment\edit;
 
 
 class controller
