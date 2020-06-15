@@ -8,26 +8,7 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-		$detail =
-		[
-			[
-				'title'  => 'مشخصات فیزیکی',
-				'list' =>
-				[
-					'وزن'    => '۹ کیلو گرم',
-					'ابعاد' => '15*15*12',
-				]
-			],
-			[
-				'title'  => 'مشخصات فنی',
-				'list' =>
-				[
-					'cpu'    => '۹ هسته ای',
-					'garanty' => 'ایران جیبرس',
-				]
-			],
-
-		];
+		$detail = \lib\app\product\property::get($id);
 
 		\content_b1\tools::say($detail);
 	}
