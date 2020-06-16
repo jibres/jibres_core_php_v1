@@ -99,13 +99,20 @@ class subdomain
 			return false;
 		}
 
-		if(strpos($data, 'jibres') !== false)
+		if($data === 'jibres')
 		{
-			if($_notif)
+			// the jibres store
+		}
+		else
+		{
+			if(strpos($data, 'jibres') !== false)
 			{
-				\dash\notif::error(T_("Can not use subdomain by jibres keyword"), ['element' => $_element]);
+				if($_notif)
+				{
+					\dash\notif::error(T_("Can not use subdomain by jibres keyword"), ['element' => $_element]);
+				}
+				return false;
 			}
-			return false;
 		}
 
 		if(self::blacklist($data, 'badwords'))
