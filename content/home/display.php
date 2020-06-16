@@ -89,7 +89,7 @@
 
 
 
-<section id='pricingPlans'>
+<section id='pricingPlans' class="s0">
   <div class="avand">
     <div class="headline">
       <h3><?php echo T_("Choose the plan that's right for you"); ?></h3>
