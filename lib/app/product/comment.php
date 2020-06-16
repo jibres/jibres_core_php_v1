@@ -29,7 +29,7 @@ class comment
 			}
 			else
 			{
-				\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
+				\dash\notif::error(T_("Please fill the comment text or set your rate"), 'comment');
 				return false;
 			}
 		}
