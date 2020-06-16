@@ -28,6 +28,7 @@ class view
 
 		\content_a\android\load::detail();
 
+		\dash\data::global_scriptPage('a_app_queue.js');
 
 
 	}
