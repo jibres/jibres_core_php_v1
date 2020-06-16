@@ -1,0 +1,97 @@
+<?php
+namespace lib\onlinenic;
+
+
+class api
+{
+
+	private static $result_raw = [];
+
+
+	private static function run($_path, $_body = null)
+	{
+
+		$user     = 10578;
+		$password = 654123;
+		$apikey   = 'v}k5s(`ipc$G~koH';
+		$time     = time();
+
+		$token    = $user. md5($password). $time. $_path;
+		$token    = md5($token);
+
+		// $master_url = "https://ote.onlinenic.com";
+		$master_url = "https://ote.onlinenic.com/api4/domain/index.php?command=%s";
+
+		// set headers
+		$header   = [];
+
+
+		$url = sprintf($master_url, $_path);
+
+		$post_field              = [];
+		$post_field['user']      = $user;
+		$post_field['timestamp'] = $time;
+		$post_field['apikey']    = $apikey;
+		$post_field['token']     = $token;
+
+		if(is_array($_body))
+		{
+			$post_field = array_merge($post_field, $_body);
+		}
+
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($ch, CURLOPT_URL, $url);
+
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_field));
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+		$response = curl_exec($ch);
+		$CurlError = curl_error($ch);
+
+		curl_close ($ch);
+
+		if(!$response)
+		{
+			return false;
+		}
+
+		$result = json_decode($response, true);
+
+		if(!is_array($result))
+		{
+			return false;
+		}
+
+
+		return false;
+	}
+
+
+
+
+	// ---------------------------------------- DOMAIN ---------------------------------------- //
+
+	public static function check_domain($_domin, $_op = null)
+	{
+		$result = self::run('checkDomain', ['domain' => $_domin, 'op' => $_op]);
+		return $result;
+	}
+
+
+	public static function register_domain($_args)
+	{
+		$result = self::run('registerDomain', $_args);
+		return $result;
+	}
+
+
+
+}
+?>
