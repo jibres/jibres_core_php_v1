@@ -25,7 +25,7 @@ class controller
 		\dash\session::clean('myNewStoreSubdomain');
 		\dash\session::clean('myNewStoreID');
 
-		self::check_setup_page();
+		// self::check_setup_page();
 
 	}
 
