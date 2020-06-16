@@ -424,7 +424,7 @@ class queue
 			return false;
 		}
 
-		if($_status && !in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable']))
+		if($_status && !in_array($_status, ['queue','inprogress','done','failed', 'disable', 'expire', 'cancel', 'delete', 'enable', 'error', 'info']))
 		{
 			\dash\notif::error(T_("Please set the status"));
 			return false;
