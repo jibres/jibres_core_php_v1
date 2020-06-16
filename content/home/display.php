@@ -2,44 +2,44 @@
 <section class="jibresBanner" id='saleChannels'>
  <div class="avand impact">
   <div class="f">
-    <div class="c3 m6 s12 pA10 mB10">
+    <div class="c3 m6 s6 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step1-500.png" alt="<?php echo T_('Point of Sale Software'); ?>">
 <?php } ?>
-        <h3><?php echo T_('Point of Sale Software'); ?></h3>
-        <p><?php echo T_('Barcode reader'). T_(','). T_('Receipt printer'). T_(','). T_('PC POS'). T_(','). T_('Label Printing Scale'). T_(','). T_('Invoice Software'); ?></p>
+        <h3 class="s0"><?php echo T_('Point of Sale Software'); ?></h3>
+        <p class="s0"><?php echo T_('Barcode reader'). T_(','). T_('Receipt printer'). T_(','). T_('PC POS'). T_(','). T_('Label Printing Scale'). T_(','). T_('Invoice Software'); ?></p>
       </div>
     </div>
 
-    <div class="c3 m6 s12 pA10 mB10">
+    <div class="c3 m6 s6 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step2-500.png" alt='<?php echo T_('Online Store Website'); ?>'>
 <?php } ?>
-        <h3><?php echo T_('Online Store Website'); ?></h3>
-        <p><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></p>
+        <h3 class="s0"><?php echo T_('Online Store Website'); ?></h3>
+        <p class="s0"><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></p>
       </div>
     </div>
 
-    <div class="c3 m6 s12 pA10 mB10">
+    <div class="c3 m6 s6 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step3-500.png" alt='<?php echo T_('Mobile Online Store'); ?>'>
 <?php } ?>
-        <h3><?php echo T_('Mobile Online Store'); ?></h3>
-        <p><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(','). T_('Fully Customizable'); ?></p>
+        <h3 class="s0"><?php echo T_('Mobile Online Store'); ?></h3>
+        <p class="s0"><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(','). T_('Fully Customizable'); ?></p>
       </div>
     </div>
 
-    <div class="c3 m6 s12 pA10 mB10">
+    <div class="c3 m6 s6 pA10 mB10">
       <div class="item">
 <?php if(\dash\language::current() === 'fa') { ?>
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step4-500.png" alt='<?php echo T_('Social Marketing'); ?>'>
 <?php } ?>
 
-        <h3><?php echo T_('Social Marketing'); ?></h3>
-        <p><?php echo T_('Easily add ecommerce to any website and social networks by embedding a single buy button.'); ?></p>
+        <h3 class="s0"><?php echo T_('Social Marketing'); ?></h3>
+        <p class="s0"><?php echo T_('Easily add ecommerce to any website and social networks by embedding a single buy button.'); ?></p>
       </div>
     </div>
 
