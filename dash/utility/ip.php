@@ -40,12 +40,12 @@ class ip
 		else
 		{
 			\dash\log::set('InvalidIPNotV4ORV6', ['my_ip' => $ip]);
-			\dash\header::status(423, T_("Your ip is not valid!"). '. '. T_("Please contact to administrator"). '.');
+			\dash\header::status(423, T_("Your ip is not valid!"). '. '. T_("Please contact to administrator"). '. '. $ip);
 		}
 
 		if(isset($load_ip['block']) && $load_ip['block'] === 'block')
 		{
-			\dash\header::status(423, T_("Your ip is blocked"). '. '. T_("Please contact to administrator"). '.');
+			\dash\header::status(423, T_("Your ip is blocked"). '. '. T_("Please contact to administrator"). '. '. $ip);
 		}
 
 		if(isset($load_ip['block']) && $load_ip['block'] === 'unblock')
