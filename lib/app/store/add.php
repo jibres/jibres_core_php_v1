@@ -118,6 +118,7 @@ class add
 		}
 
 
+
 		$args                = [];
 		$args['owner']       = $user_id;
 		$args['creator']     = $user_id;
@@ -138,6 +139,8 @@ class add
 		$args['fuel']        = \dash\engine\fuel::priority(\dash\url::tld());
 
 		$fuel                = $args['fuel'];
+
+		\dash\log::set('StartMakeNewStore', ['my_detail' => $args]);
 
 		\dash\db::transaction();
 
