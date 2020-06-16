@@ -433,6 +433,13 @@ class queue
 
 		if(!$_store || !is_string($_store))
 		{
+			// only save log in api log to tracking
+			if($_status === 'info' || $_status === 'error')
+			{
+				\dash\notif::ok(T_("Ok"));
+				return true;
+			}
+
 			\dash\notif::error(T_("Please set the store code"));
 			return false;
 		}
