@@ -382,8 +382,18 @@ class enter
 			return;
 		}
 
+		$twostep = self::user_data('twostep');
 
-		if(self::user_data('twostep'))
+		if(!$twostep)
+		{
+			// force twostep verification for supervisor
+			if(self::user_data('permission') === 'supervisor')
+			{
+				$twostep = true;
+			}
+		}
+
+		if($twostep)
 		{
 			if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']) && self::user_data('mobile') )
 			{
