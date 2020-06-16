@@ -29,7 +29,7 @@ class model
 			}
 		}
 
-		if(intval(\dash\coding::decode(\dash\request::get('id'))) === \dash\user::id())
+		if(floatval(\dash\coding::decode(\dash\request::get('id'))) === \dash\user::id())
 		{
 			if(isset($post['permission']) && $post['permission'] !== 'admin' && \dash\user::detail('permission') === 'admin' )
 			{

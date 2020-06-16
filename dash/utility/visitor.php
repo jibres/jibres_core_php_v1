@@ -107,7 +107,7 @@ class visitor
 		$result = \dash\db\config::public_get('urls', ['urlmd5' => md5($_url), 'limit' => 1]);
 		if(isset($result['id']))
 		{
-			return intval($result['id']);
+			return floatval($result['id']);
 		}
 		else
 		{

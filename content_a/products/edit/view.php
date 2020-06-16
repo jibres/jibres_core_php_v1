@@ -72,7 +72,7 @@ class view
 			{
 				foreach ($family as $key => $value)
 				{
-					if(isset($value['id']) && intval($value['id']) !== intval($id))
+					if(isset($value['id']) && floatval($value['id']) !== floatval($id))
 					{
 						$haveOtherChild = true;
 						break;

@@ -44,7 +44,7 @@ class view
 			\dash\header::status(403, T_("Ticket not found"));
 		}
 
-		if(intval($ticket_user_id) === intval(\dash\user::id()) || \dash\permission::supervisor())
+		if(floatval($ticket_user_id) === floatval(\dash\user::id()) || \dash\permission::supervisor())
 		{
 			// no problem
 		}

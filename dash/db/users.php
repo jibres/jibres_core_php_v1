@@ -213,7 +213,7 @@ class users
 			$check_mobile = self::get_by_mobile($_args['mobile']);
 			if($check_mobile && isset($check_mobile['id']))
 			{
-				if(intval($check_mobile['id']) !== intval($_id))
+				if(floatval($check_mobile['id']) !== floatval($_id))
 				{
 					// this mobile exist for another person
 					\dash\log::set('TryDuplicateUserMobile');
@@ -228,7 +228,7 @@ class users
 			$check_email = self::get_by_email($_args['email']);
 			if($check_email && isset($check_email['id']))
 			{
-				if(intval($check_email['id']) !== intval($_id))
+				if(floatval($check_email['id']) !== floatval($_id))
 				{
 					// this email exist for another person
 					\dash\log::set('TryDuplicateUserEmail');
@@ -244,7 +244,7 @@ class users
 		// 	$check_chatid = self::get_by_chatid($_args['chatid']);
 		// 	if($check_chatid && isset($check_chatid['id']))
 		// 	{
-		// 		if(intval($check_chatid['id']) !== intval($_id))
+		// 		if(floatval($check_chatid['id']) !== floatval($_id))
 		// 		{
 		// 			// this chatid exist for another person
 		// 			\dash\log::set('TryDuplicateUserChatid');
@@ -259,7 +259,7 @@ class users
 			$check_username = self::get_by_username($_args['username']);
 			if($check_username && isset($check_username['id']))
 			{
-				if(intval($check_username['id']) !== intval($_id))
+				if(floatval($check_username['id']) !== floatval($_id))
 				{
 					// this username exist for another person
 					\dash\log::set('TryDuplicateUserUsername');

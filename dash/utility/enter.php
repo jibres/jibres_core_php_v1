@@ -236,7 +236,7 @@ class enter
 		// save ref in users table
 		if(isset($_SESSION['ref']) && !isset($_args['ref']))
 		{
-			$_args['ref'] = intval($_SESSION['ref']);
+			$_args['ref'] = floatval($_SESSION['ref']);
 			unset($_SESSION['ref']);
 		}
 
@@ -294,7 +294,7 @@ class enter
 		// save ref in users table
 		if(isset($_SESSION['ref']) && !isset($_args['ref']))
 		{
-			$_args['ref'] = intval($_SESSION['ref']);
+			$_args['ref'] = floatval($_SESSION['ref']);
 			unset($_SESSION['ref']);
 		}
 

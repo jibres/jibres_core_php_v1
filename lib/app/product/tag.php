@@ -295,7 +295,7 @@ class tag
 
 		if(isset($check_duplicate['id']))
 		{
-			if(intval($check_duplicate['id']) === intval($_id))
+			if(floatval($check_duplicate['id']) === floatval($_id))
 			{
 				// no problem to edit it
 			}

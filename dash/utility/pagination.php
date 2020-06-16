@@ -249,7 +249,7 @@ class pagination
 
 		$current    = intval(self::detail('page'));
 		$limit      = intval(self::detail('limit'));
-		$total_rows = intval(self::detail('total_rows'));
+		$total_rows = floatval(self::detail('total_rows'));
 		$limit      = $limit ? $limit : 1;
 		$first      = ($current - 1) >= 1  ? ($current - 1) : 1;
 		$total_page = intval(self::detail('total_page'));

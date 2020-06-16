@@ -309,7 +309,7 @@ class user
 
 		if(is_numeric($id))
 		{
-			return intval($id);
+			return floatval($id);
 		}
 
 		return $id;

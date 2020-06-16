@@ -139,7 +139,7 @@ class company
 		}
 
 		$count_product = \lib\db\productcompany\get::count_company($id);
-		$count_product = intval($count_product);
+		$count_product = floatval($count_product);
 
 		if($count_product > 0)
 		{
@@ -289,7 +289,7 @@ class company
 
 		if(isset($get_company['id']) && isset($get_company['title']) && $get_company['title'] == $args['title'])
 		{
-			if(intval($get_company['id']) === intval($id))
+			if(floatval($get_company['id']) === floatval($id))
 			{
 				// nothing
 			}

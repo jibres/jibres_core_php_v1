@@ -161,7 +161,7 @@ class check
 			$check_unique_sku = \lib\db\products\get::check_unique_sku($data['sku']);
 			if(isset($check_unique_sku['id']))
 			{
-				if(intval($check_unique_sku['id']) === intval($_id))
+				if(floatval($check_unique_sku['id']) === floatval($_id))
 				{
 					// nothing
 				}
@@ -182,9 +182,9 @@ class check
 		 */
 
 		$discountpercent = null;
-		if($data['discount'] && $data['price'] && intval($data['price']) !== 0)
+		if($data['discount'] && $data['price'] && floatval($data['price']) !== 0)
 		{
-			$discountpercent = round((intval($data['discount']) * 100) / intval($data['price']), 2);
+			$discountpercent = round((floatval($data['discount']) * 100) / floatval($data['price']), 2);
 		}
 
 		// if($data['price'] && !$data['compareatprice'])
@@ -244,7 +244,7 @@ class check
 			{
 				if(isset($check_exist[0]['id']))
 				{
-					if($_id && intval($_id) === intval($check_exist[0]['id']))
+					if($_id && floatval($_id) === floatval($check_exist[0]['id']))
 					{
 						// update product by old barcode
 						return true;

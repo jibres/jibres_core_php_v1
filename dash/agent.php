@@ -17,7 +17,7 @@ class agent
 
 			if(isset($check_exits_agent['id']))
 			{
-				return intval($check_exits_agent['id']);
+				return floatval($check_exits_agent['id']);
 			}
 
 			$is_bot       = self::isBot();

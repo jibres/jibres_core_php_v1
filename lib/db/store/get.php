@@ -48,7 +48,7 @@ class get
 	{
 		$query = "SELECT SUM(store_analytics.product) AS `product` FROM store_analytics ";
 		$result = \dash\db::get($query, 'product', true);
-		return intval($result);
+		return floatval($result);
 	}
 
 
@@ -56,7 +56,7 @@ class get
 	{
 		$query = "SELECT SUM(store_analytics.factor) AS `factor` FROM store_analytics ";
 		$result = \dash\db::get($query, 'factor', true);
-		return intval($result);
+		return floatval($result);
 	}
 
 
@@ -64,7 +64,7 @@ class get
 	{
 		$query = "SELECT SUM(store_analytics.sumfactor) AS `sumfactor` FROM store_analytics ";
 		$result = \dash\db::get($query, 'sumfactor', true);
-		return intval($result);
+		return floatval($result);
 	}
 
 

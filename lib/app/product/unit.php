@@ -140,7 +140,7 @@ class unit
 		}
 
 		$count_product = \lib\db\productunit\get::count_unit($id);
-		$count_product = intval($count_product);
+		$count_product = floatval($count_product);
 
 		if($count_product > 0)
 		{
@@ -291,7 +291,7 @@ class unit
 
 		if(isset($get_unit['id']) && isset($get_unit['title']) && $get_unit['title'] == $args['title'])
 		{
-			if(intval($get_unit['id']) === intval($id))
+			if(floatval($get_unit['id']) === floatval($id))
 			{
 				// nothing
 			}

@@ -47,7 +47,7 @@ class domain
 		}
 		else
 		{
-			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && intval($check_duplicate_domain['store_id']) === intval(\lib\store::id()))
+			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && floatval($check_duplicate_domain['store_id']) === floatval(\lib\store::id()))
 			{
 				// delete record
 				\lib\db\store_domain\delete::record($check_duplicate_domain['id']);
@@ -147,7 +147,7 @@ class domain
 		}
 		else
 		{
-			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && intval($check_duplicate_domain['store_id']) === intval(\lib\store::id()))
+			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && floatval($check_duplicate_domain['store_id']) === floatval(\lib\store::id()))
 			{
 				// needless to update domain
 				// exactly this domain exists for this store

@@ -356,7 +356,7 @@ class term
 
 		if(isset($check_duplicate['id']))
 		{
-			if(intval($check_duplicate['id']) === intval($_id))
+			if(floatval($check_duplicate['id']) === floatval($_id))
 			{
 				// no problem to edit it
 			}
@@ -387,7 +387,7 @@ class term
 					return false;
 				}
 
-				if(intval($get_parent['id']) === intval($_id))
+				if(floatval($get_parent['id']) === floatval($_id))
 				{
 					\dash\notif::error(T_("Can not set the parent as yourself"), 'parent');
 					return false;

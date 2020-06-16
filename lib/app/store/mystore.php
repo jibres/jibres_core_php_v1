@@ -24,7 +24,7 @@ class mystore
 		{
 			$value = \lib\app\store\ready::row($value);
 
-			if(isset($value['owner']) && intval(\dash\coding::decode($value['owner'])) === intval($user_id))
+			if(isset($value['owner']) && floatval(\dash\coding::decode($value['owner'])) === floatval($user_id))
 			{
 				$result['owner'][] = $value;
 				continue;

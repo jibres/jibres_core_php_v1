@@ -25,7 +25,7 @@ class edit
 
 		if(isset($get_fund['id']) && isset($get_fund['title']) && $get_fund['title'] == $args['title'])
 		{
-			if(intval($get_fund['id']) === intval($_id))
+			if(floatval($get_fund['id']) === floatval($_id))
 			{
 				// nothing
 			}

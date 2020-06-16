@@ -36,7 +36,7 @@ class edit
 
 		if(isset($get_category['id']) && isset($get_category['title']) && $get_category['title'] == $args['title'])
 		{
-			if(intval($get_category['id']) === intval($_id))
+			if(floatval($get_category['id']) === floatval($_id))
 			{
 				// nothing
 			}

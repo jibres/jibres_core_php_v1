@@ -97,7 +97,7 @@ trait get
 		}
 
 		$myPost = false;
-		if(intval($load['user_id']) === intval(\dash\user::id()))
+		if(floatval($load['user_id']) === floatval(\dash\user::id()))
 		{
 			$myPost = true;
 		}

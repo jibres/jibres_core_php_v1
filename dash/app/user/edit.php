@@ -141,7 +141,7 @@ trait edit
 		if($args['mobile'])
 		{
 			$check_mobile_exist = \dash\db\users::get_by_mobile($args['mobile']);
-			if(isset($check_mobile_exist['id']) && intval($check_mobile_exist['id']) !== intval($id))
+			if(isset($check_mobile_exist['id']) && floatval($check_mobile_exist['id']) !== floatval($id))
 			{
 				\dash\notif::error(T_("Duplicate mobile"), 'mobile');
 				return false;
@@ -151,7 +151,7 @@ trait edit
 		if($args['email'])
 		{
 			$check_email_exist = \dash\db\users::get(['email' => $args['email'], 'limit' => 1]);
-			if(isset($check_email_exist['id']) && intval($check_email_exist['id']) !== intval($id))
+			if(isset($check_email_exist['id']) && floatval($check_email_exist['id']) !== floatval($id))
 			{
 				\dash\notif::error(T_("Duplicate email"), 'email');
 				return false;
@@ -165,7 +165,7 @@ trait edit
 			{
 				$check_duplicate_nationalcode = self::check_duplicate($args['nationalcode'], $args['pasportcode']);
 
-				if(isset($check_duplicate_nationalcode['id']) && intval($check_duplicate_nationalcode['id']) === intval($id))
+				if(isset($check_duplicate_nationalcode['id']) && floatval($check_duplicate_nationalcode['id']) === floatval($id))
 				{
 					// no problem to edit yourself
 				}
@@ -198,7 +198,7 @@ trait edit
 
 		if(\dash\engine\process::status())
 		{
-			if(intval($id) === intval(\dash\user::id()))
+			if(floatval($id) === floatval(\dash\user::id()))
 			{
 				\dash\user::refresh();
 			}

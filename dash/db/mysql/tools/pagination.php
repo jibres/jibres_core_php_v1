@@ -20,7 +20,7 @@ class pagination
 	public static function pagination_query($_query, $_length = 10, $_fuel = null)
 	{
 		$total_rows = \dash\db::get($_query, 'count', true, $_fuel);
-		$total_rows = intval($total_rows);
+		$total_rows = floatval($total_rows);
 		$result     = self::pagnation($total_rows, $_length);
 
 		if($result)

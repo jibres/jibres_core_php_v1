@@ -99,19 +99,19 @@ class check
 				}
 			}
 
-			if($parent1 && intval($parent1) === intval($_id))
+			if($parent1 && floatval($parent1) === floatval($_id))
 			{
 				\dash\notif::error(T_("Cannot set option as self parent"), 'parent');
 				return false;
 			}
 
-			if($parent2 && intval($parent2) === intval($_id))
+			if($parent2 && floatval($parent2) === floatval($_id))
 			{
 				\dash\notif::error(T_("Cannot set option as self parent"), 'parent');
 				return false;
 			}
 
-			if($parent3 && intval($parent3) === intval($_id))
+			if($parent3 && floatval($parent3) === floatval($_id))
 			{
 				\dash\notif::error(T_("Cannot set option as self parent"), 'parent');
 				return false;
@@ -123,7 +123,7 @@ class check
 		$check_unique_slug = \lib\db\productcategory\get::check_unique_slug($data['slug'], $parent1, $parent2, $parent3);
 		if(isset($check_unique_slug['id']))
 		{
-			if(intval($check_unique_slug['id']) === intval($_id))
+			if(floatval($check_unique_slug['id']) === floatval($_id))
 			{
 				// nothing
 			}

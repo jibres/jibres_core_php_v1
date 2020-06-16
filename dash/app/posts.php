@@ -152,7 +152,7 @@ class posts
 		$result = [];
 		foreach ($myCount as $key => $value)
 		{
-			$result[] = ['name' => $key, 'weight' => intval($value)];
+			$result[] = ['name' => $key, 'weight' => floatval($value)];
 		}
 
 		$result = json_encode($result, JSON_UNESCAPED_UNICODE);
@@ -228,7 +228,7 @@ class posts
 
 			if(array_key_exists('count', $value))
 			{
-				$values[] = intval($value['count']);
+				$values[] = floatval($value['count']);
 			}
 		}
 
@@ -335,7 +335,7 @@ class posts
 				$remove_file_id = null;
 				foreach ($post_gallery_field['files'] as $key => $one_file)
 				{
-					if(isset($one_file['id']) && intval($one_file['id']) === intval($fileid))
+					if(isset($one_file['id']) && floatval($one_file['id']) === floatval($fileid))
 					{
 						$remove_file_id = $one_file['id'];
 						$find_in_gallery = true;
@@ -473,7 +473,7 @@ class posts
 			}
 
 
-			if(intval($current_post_detail['user_id']) !== intval(\dash\user::id()))
+			if(floatval($current_post_detail['user_id']) !== floatval(\dash\user::id()))
 			{
 				switch ($current_post_detail['type'])
 				{
@@ -518,7 +518,7 @@ class posts
 		$check_duplicate_slug = \dash\db\posts::get($check_duplicate_args);
 		if(isset($check_duplicate_slug['id']))
 		{
-			if(intval($check_duplicate_slug['id']) === intval($_id))
+			if(floatval($check_duplicate_slug['id']) === floatval($_id))
 			{
 				// no problem to edit it
 			}
@@ -582,7 +582,7 @@ class posts
 					break;
 			}
 
-			if(intval($current_post_detail['user_id']) !== intval(\dash\user::id()))
+			if(floatval($current_post_detail['user_id']) !== floatval(\dash\user::id()))
 			{
 				switch ($current_post_detail['type'])
 				{
@@ -632,13 +632,13 @@ class posts
 
 			if($_id)
 			{
-				if(intval($parent) === intval($_id))
+				if(floatval($parent) === floatval($_id))
 				{
 					\dash\notif::error(T_("Can not set page as parent of self!"), 'parent');
 					return false;
 				}
 
-				if(isset($current_post_detail['parent']) && intval($current_post_detail['parent']) !== intval($parent))
+				if(isset($current_post_detail['parent']) && floatval($current_post_detail['parent']) !== floatval($parent))
 				{
 					$current_post_parent_detail = \dash\db\posts::get(['id' => $current_post_detail['parent'], 'limit' => 1]);
 
@@ -759,7 +759,7 @@ class posts
 
 			if($creator && isset($current_post_detail['type']) && isset($current_post_detail['user_id']))
 			{
-				if(intval(\dash\coding::decode($creator)) !== intval($current_post_detail['user_id']))
+				if(floatval(\dash\coding::decode($creator)) !== floatval($current_post_detail['user_id']))
 				{
 					$can_change = self::get_user_can_write_post($current_post_detail['type']);
 					if(is_array($can_change))
@@ -879,7 +879,7 @@ class posts
 						unset($must_insert_tag[array_search($value, $must_insert_tag)]);
 					}
 
-					array_push($all_tags_id, intval($key));
+					array_push($all_tags_id, floatval($key));
 				}
 			}
 
@@ -948,7 +948,7 @@ class posts
 		else
 		{
 			$old_category_id = array_column($get_old_post_cat, 'id');
-			$old_category_id = array_map(function($_a){return intval($_a);}, $old_category_id);
+			$old_category_id = array_map(function($_a){return floatval($_a);}, $old_category_id);
 			$must_insert = array_diff($category_id, $old_category_id);
 			$must_remove = array_diff($old_category_id, $category_id);
 		}

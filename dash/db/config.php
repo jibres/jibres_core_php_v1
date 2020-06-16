@@ -112,7 +112,7 @@ class config
 		if($query)
 		{
 			$result = \dash\db::get($query, $field, $only_one_record, $_db_name);
-			return intval($result);
+			return floatval($result);
 		}
 		return 0;
 	}

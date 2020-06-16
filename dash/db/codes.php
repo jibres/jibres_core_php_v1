@@ -96,7 +96,7 @@ class codes
 		}
 		elseif(isset($check_exist_usage['term_id']) && isset($check_exist_usage['status']))
 		{
-			if(intval($check_exist_usage['term_id']) !== intval($term_id))
+			if(floatval($check_exist_usage['term_id']) !== floatval($term_id))
 			{
 				// term id is different
 				// need to disable old and insert new\

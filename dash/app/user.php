@@ -54,7 +54,7 @@ class user
 
 			if(is_array($value) && array_key_exists('count', $value))
 			{
-				$count = intval($value['count']);
+				$count = floatval($value['count']);
 			}
 			$newValue = ['name' => $name, 'y' => $count];
 			if(is_array($value) && array_key_exists('gender', $value) && !$value['gender'])
@@ -96,7 +96,7 @@ class user
 
 			if(array_key_exists('count', $value))
 			{
-				$count = intval($value['count']);
+				$count = floatval($value['count']);
 			}
 
 			$hi_chart[] = ['name' => $name, 'y' => $count];
@@ -126,7 +126,7 @@ class user
 		}
 
 		$all = \dash\db\users::get_count();
-		$all = intval($all);
+		$all = floatval($all);
 		if($all === 0)
 		{
 			$all = 1;
@@ -148,8 +148,8 @@ class user
 
 			if(array_key_exists('count', $value))
 			{
-				$temp = intval($value['count']);
-				$values[] = intval($temp);
+				$temp = floatval($value['count']);
+				$values[] = floatval($temp);
 			}
 
 			$raw[$type_raw] = round(($temp * 100) / $all, 1);

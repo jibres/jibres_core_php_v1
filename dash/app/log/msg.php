@@ -21,7 +21,7 @@ class msg
 
 	public static function is_me($_args)
 	{
-		if(isset($_args['to']) && isset($_args['from']) && \dash\user::id() && intval($_args['from']) === intval($_args['to']) && intval($_args['from']) === intval(\dash\user::id()))
+		if(isset($_args['to']) && isset($_args['from']) && \dash\user::id() && floatval($_args['from']) === floatval($_args['to']) && floatval($_args['from']) === floatval(\dash\user::id()))
 		{
 			return true;
 		}

@@ -151,7 +151,7 @@ class log
 		if($_user_id)
 		{
 			$detail = [];
-			if(intval($_user_id) === intval(\dash\user::id()))
+			if(floatval($_user_id) === floatval(\dash\user::id()))
 			{
 				$detail = \dash\user::detail();
 			}

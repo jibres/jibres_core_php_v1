@@ -25,7 +25,7 @@ class ready
 					break;
 
 				case 'count':
-					$result[$key] = intval($value);
+					$result[$key] = floatval($value);
 					$result['have_product'] = $value ? true : false;
 					break;
 
@@ -86,19 +86,19 @@ class ready
 
 		foreach ($parent_json as $key => $value)
 		{
-			if(isset($result['parent1']) && $result['parent1'] && isset($value['id']) && intval($value['id']) === intval($result['parent1']))
+			if(isset($result['parent1']) && $result['parent1'] && isset($value['id']) && floatval($value['id']) === floatval($result['parent1']))
 			{
 				$new_slug[0]  = $value['slug'];
 				$new_title[0] = $value['title'];
 			}
 
-			if(isset($result['parent2']) && $result['parent2'] && isset($value['id']) && intval($value['id']) === intval($result['parent2']))
+			if(isset($result['parent2']) && $result['parent2'] && isset($value['id']) && floatval($value['id']) === floatval($result['parent2']))
 			{
 				$new_slug[1]  = $value['slug'];
 				$new_title[1] = $value['title'];
 			}
 
-			if(isset($result['parent3']) && $result['parent3'] && isset($value['id']) && intval($value['id']) === intval($result['parent3']))
+			if(isset($result['parent3']) && $result['parent3'] && isset($value['id']) && floatval($value['id']) === floatval($result['parent3']))
 			{
 				$new_slug[2]  = $value['slug'];
 				$new_title[2] = $value['title'];

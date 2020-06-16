@@ -42,7 +42,7 @@ class checkout
 			return false;
 		}
 
-		if(isset($address_detail['user_id']) && intval(\dash\coding::decode($address_detail['user_id'])) === intval(\dash\user::id()))
+		if(isset($address_detail['user_id']) && floatval(\dash\coding::decode($address_detail['user_id'])) === floatval(\dash\user::id()))
 		{
 			// nothing
 		}

@@ -235,7 +235,7 @@ class acceptor
 		$check_duplicate = \lib\pardakhtyar\db\acceptor::check_duplicate($check_duplicate_args, $_id);
 		if(isset($check_duplicate['id']))
 		{
-			if(intval($check_duplicate['id']) === intval($_id))
+			if(floatval($check_duplicate['id']) === floatval($_id))
 			{
 				// no problem to edit record
 			}

@@ -26,14 +26,14 @@ class visitor
 	{
 		$_args = self::merge_args($_args);
 		$total_visit = \dash\db\visitors::total_visit($_args);
-		return intval($total_visit);
+		return floatval($total_visit);
 	}
 
 	public static function total_visitor($_args = [])
 	{
 		$_args = self::merge_args($_args);
 		$total_visitor = \dash\db\visitors::total_visitor($_args);
-		return intval($total_visitor);
+		return floatval($total_visitor);
 	}
 
 
@@ -41,7 +41,7 @@ class visitor
 	{
 		$_args = self::merge_args($_args);
 		$total_avgtime = \dash\db\visitors::total_avgtime($_args);
-		return intval($total_avgtime);
+		return floatval($total_avgtime);
 	}
 
 	public static function total_maxtrafictime($_args = [])
@@ -73,8 +73,8 @@ class visitor
 					$chart[] =
 					[
 						'date'    => $date,
-						'visit'   => intval($value),
-						'visitor' => intval($chart_visitorchart['visitor'][$key])
+						'visit'   => floatval($value),
+						'visitor' => floatval($chart_visitorchart['visitor'][$key])
 					];
 				}
 			}

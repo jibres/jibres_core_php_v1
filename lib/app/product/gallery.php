@@ -110,7 +110,7 @@ class gallery
 		{
 			foreach ($product_gallery_field['files'] as $key => $one_file)
 			{
-				if(isset($one_file['id']) && intval($one_file['id']) === intval($file_id) && isset($one_file['path']))
+				if(isset($one_file['id']) && floatval($one_file['id']) === floatval($file_id) && isset($one_file['path']))
 				{
 					$product_gallery_field['thumbid'] = $one_file['id'];
 					$product_gallery_field            = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
@@ -214,7 +214,7 @@ class gallery
 				$remove_file_id = null;
 				foreach ($product_gallery_field['files'] as $key => $one_file)
 				{
-					if(isset($one_file['id']) && intval($one_file['id']) === intval($fileid))
+					if(isset($one_file['id']) && floatval($one_file['id']) === floatval($fileid))
 					{
 						$remove_file_id = $one_file['id'];
 						$find_in_gallery = true;
@@ -233,7 +233,7 @@ class gallery
 					\dash\upload\product::remove_product_gallery($product_id, $remove_file_id);
 				}
 
-				if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && intval($product_gallery_field['thumbid']) === intval($fileid))
+				if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && floatval($product_gallery_field['thumbid']) === floatval($fileid))
 				{
 					$product_detail['thumb'] = null;
 				}

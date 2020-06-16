@@ -90,7 +90,7 @@ class view
 
 		if(!\dash\permission::check('supportTicketManage'))
 		{
-			if(intval($ticket_user_id) === intval(\dash\user::id()))
+			if(floatval($ticket_user_id) === floatval(\dash\user::id()))
 			{
 				// no problem
 			}
@@ -236,7 +236,7 @@ class view
 
 		$end_message['user_id'] = \dash\coding::decode($end_message['user_id']);
 
-		if(intval($end_message['user_id']) === intval(\dash\user::id()))
+		if(floatval($end_message['user_id']) === floatval(\dash\user::id()))
 		{
 			return;
 		}
@@ -287,7 +287,7 @@ class view
 		}
 
 		$is_my_ticket = false;
-		if($ticket_user_id && \dash\user::login() && intval($ticket_user_id) === intval(\dash\user::id()))
+		if($ticket_user_id && \dash\user::login() && floatval($ticket_user_id) === floatval(\dash\user::id()))
 		{
 			$is_my_ticket = true;
 		}
