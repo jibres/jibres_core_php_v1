@@ -55,5 +55,22 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+
+	public static function prev($_id)
+	{
+		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = (SELECT MAX(factors.id) FROM factors WHERE factors.status != 'deleted' AND factors.id < $_id) LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
+	public static function next($_id)
+	{
+		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = (SELECT MIN(factors.id) FROM factors WHERE factors.status != 'deleted' AND factors.id > $_id) LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
 }
 ?>

@@ -4,6 +4,77 @@ namespace lib\app\factor;
 
 class get
 {
+
+	private static $product_detail    = [];
+	private static $product_prev      = [];
+	private static $product_next      = [];
+
+
+	public static function next($_id, $_raw = false)
+	{
+		if(isset(self::$product_next[$_id]))
+		{
+			return self::$product_next[$_id];
+		}
+
+		$result = self::one($_id);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$next = \lib\db\factors\get::next($result['id']);
+
+		if(!$next)
+		{
+			$next = \lib\db\factors\get::first_product_id();
+		}
+
+		if(!$_raw)
+		{
+			$next = \dash\url::here(). '/chap/receipt?id='. $next;
+		}
+
+		self::$product_next[$_id] = $next;
+
+		return $next;
+	}
+
+
+	public static function prev($_id, $_raw = false)
+	{
+		if(isset(self::$product_prev[$_id]))
+		{
+			return self::$product_prev[$_id];
+		}
+
+		$result = self::one($_id);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$prev = \lib\db\factors\get::prev($result['id']);
+
+		if(!$prev)
+		{
+			$prev = \lib\db\factors\get::end_product_id();
+		}
+
+		if(!$_raw)
+		{
+			$prev = \dash\url::here(). '/chap/receipt?id='. $prev;
+		}
+
+		self::$product_prev[$_id] = $prev;
+
+		return $prev;
+	}
+
+
+
 	private static function fix_id($_id)
 	{
 		if(substr($_id, 0, 2) === 'JF')

@@ -59,16 +59,20 @@ class view
 		\dash\data::pageSize(\dash\request::get('size'));
 
 
+		\dash\face::btnNext(\dash\url::here(). '/factor/next/'. \dash\request::get('id'));
+		\dash\face::btnPrev(\dash\url::here(). '/factor/prev/'. \dash\request::get('id'));
+
+
 		if(isset($factorDetail['factor']['type']))
 		{
 			switch ($factorDetail['factor']['type'])
 			{
 				case 'buy':
-					\dash\data::action_text(T_('Back to last buy'));
-					\dash\data::action_link(\dash\url::here(). '/factor?type=buy');
+					\dash\data::back_text(T_('Back to last buy'));
+					\dash\data::back_link(\dash\url::here(). '/factor?type=buy');
 				case 'sale':
-					\dash\data::action_text(T_('Back to last sales'));
-					\dash\data::action_link(\dash\url::here(). '/factor?type=sale');
+					\dash\data::back_text(T_('Back to last sales'));
+					\dash\data::back_link(\dash\url::here(). '/factor?type=sale');
 					break;
 
 				default:
