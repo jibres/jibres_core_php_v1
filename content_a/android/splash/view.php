@@ -20,6 +20,23 @@ class view
 		$theme_color = \lib\app\application\splash::theme_color();
 		\dash\data::themeColor($theme_color);
 
+		$splashSaved = \dash\data::splashSaved();
+
+
+		if(!$splashSaved)
+		{
+			$splashSaved =
+			[
+				'start'      => '#5583EE',
+				'end'        => '#41D8DD',
+				'text_color' => '#ffffff',
+				'meta_color' => '#eeeeee',
+				'key'        => '#5583EE_#41D8DD_#ffffff_#eeeeee',
+			];
+
+			\dash\data::splashSaved($splashSaved);
+		}
+
 
 	}
 }
