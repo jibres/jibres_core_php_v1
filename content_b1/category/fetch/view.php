@@ -20,7 +20,7 @@ class view
 		}
 
 
-		$list = array_map(['self', 'ready'], $list);
+		// $list = array_map(['self', 'ready'], $list);
 
 		\content_b1\tools::say($list);
 

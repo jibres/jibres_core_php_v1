@@ -16,7 +16,7 @@ class view
 		}
 
 
-		$list = array_map(['\\content_b1\\category\\fetch\\view', 'ready'], $list);
+		// $list = array_map(['\\content_b1\\category\\fetch\\view', 'ready'], $list);
 
 		\content_b1\tools::say($list);
 
