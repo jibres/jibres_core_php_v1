@@ -85,7 +85,7 @@
        <div class="mLa5">
         <label for="ns2"><?php echo T_("DNS #2"); ?></label>
         <div class="input ltr">
-         <input type="text" name="ns2" id="ns2" maxlength="100" value="<?php echo \dash\data::userSetting_ns2(); ?>" placeholder="<?php echo \dash\data::defaultNDS1(); ?>" >
+         <input type="text" name="ns2" id="ns2" maxlength="100" value="<?php echo \dash\data::userSetting_ns2(); ?>" placeholder="<?php echo \dash\data::defaultNDS2(); ?>" >
         </div>
        </div>
       </div>
