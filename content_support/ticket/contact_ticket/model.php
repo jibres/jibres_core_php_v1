@@ -195,6 +195,7 @@ class model
 			{
 
 				$ticket_link = '<a href="'. \dash\url::site(). '/support/ticket/show?id='. $result['id'].'">'. T_("You can check your contacting answer here") .'</a>';
+				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link, ['target' => '.showContactNotif']);
 				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link);
 				// \dash\redirect::pwd();
 			}
@@ -211,6 +212,7 @@ class model
 			{
 				\dash\session::set('temp_ticket_codeurl', $result['codeurl']);
 				$ticket_link = '<a href="'. $result['codeurl'].'">'. T_("You can check your contacting answer here") .'</a>';
+				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link, ['target' => '.showContactNotif']);
 				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link);
 				// \dash\redirect::pwd();
 

@@ -11,6 +11,7 @@
  <div class="avand-lg impact">
   <div class="f">
     <div class="c12 s12">
+      <div class="showContactNotif"></div>
      <form method="post" data-clear data-refresh data-autoScroll='form'>
 <?php
       \dash\utility\hive::html();
