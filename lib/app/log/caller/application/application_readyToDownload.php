@@ -9,13 +9,6 @@ class application_readyToDownload
 	public static function site($_args = [])
 	{
 
-		$fileaddr = isset($_args['data']['fileaddr']) ? $_args['data']['fileaddr'] : null;
-		$myname = isset($_args['data']['myname']) ? $_args['data']['myname'] : null;
-
-		$msg = T_("Create export file completed");
-		$msg .= '<a href="'. $fileaddr. '" download > <b>'. T_("To download it click here"). '</b> </a>';
-		$msg .= '<br>'. T_("This file will be automatically deleted for a few minutes");
-
 		$result              = [];
 		$result['title']     = T_("Your Application is ready to download");
 		$result['icon']      = 'android-1';
