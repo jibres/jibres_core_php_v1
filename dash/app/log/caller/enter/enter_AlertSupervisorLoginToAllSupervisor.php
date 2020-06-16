@@ -30,18 +30,18 @@ class enter_AlertSupervisorLoginToAllSupervisor
 		$msg.= T_("Your are supervisor. This message only send to supervisors");
 		$msg .= "\n";
 
-		if(floatval($user_id) === floatval(\dash\user::id()))
-		{
-			$msg.= T_("Your login was notifed to all other supervisor in jibres");
-			$msg .= "\n";
-			$msg.= T_("Have a good day ;)");
-		}
-		else
-		{
+		// if(floatval($user_id) === floatval(\dash\user::id()))
+		// {
+		// 	$msg.= T_("Your login was notifed to all other supervisor in jibres");
+		// 	$msg .= "\n";
+		// 	$msg.= T_("Have a good day ;)");
+		// }
+		// else
+		// {
 			$msg.= $displayname;
 			$msg .= "\n";
 			$msg.= T_("Was login to jibres.");
-		}
+		// }
 
 		return $msg;
 	}
