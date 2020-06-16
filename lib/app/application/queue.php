@@ -446,6 +446,7 @@ class queue
 		}
 		else
 		{
+			\dash\log::set('AndroidAPPQueue:errorLastBusinessId', ['args' => func_get_args()]);
 			\dash\notif::error(T_("This id is not current application id"));
 			return false;
 		}
