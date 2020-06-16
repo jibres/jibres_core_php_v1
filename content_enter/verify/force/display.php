@@ -1,8 +1,8 @@
 
 
-<div class='flex fix' id='ecode'>
-    <label for='code'>Code</label>
-    <input id='code' name="code" type='password' placeholder='<?php echo T_("Verify Code"); ?>' autocomplete="off"  autofocus required>
+<div class='flex fix'>
+    <label for='codex'>Code</label>
+    <input id='codex' name="codex" type='password' placeholder='<?php echo T_("Verify Code"); ?>' autocomplete="off"  autofocus required>
    </div>
 
 

@@ -9,10 +9,12 @@ class model
 	{
 		if(\dash\utility\enter::get_session('verify_from') === 'ask_twostep' && \dash\setting\enter::force_enter_passcode())
 		{
-			$code = \dash\request::post('code');
+			$code = \dash\request::post('codex');
 
 			if($code === \dash\setting\enter::force_enter_passcode())
 			{
+				\dash\log::set('userLoginByVerifyForce');
+
 				// expire code
 				if(\dash\utility\enter::get_session('verification_code_id'))
 				{
