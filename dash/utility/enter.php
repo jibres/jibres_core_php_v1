@@ -490,8 +490,22 @@ class enter
 
 		$url = self::find_redirect_url($_url);
 
-		// clean session
+		$NewAccoutLogin =
+		[
+			'my_ip' => \dash\server::ip(true),
+			'to'    => $user_id,
+		];
+
+		\dash\log::set('enter_NewAccountLogin', $NewAccoutLogin);
+
+		if(self::user_data('permission') === 'supervisor')
+		{
+			\dash\log::set('enter_AlertSupervisorLoginToAllSupervisor', ['my_user_id' => $user_id, 'my_detail' => \dash\db\users::get_by_id($user_id)]);
+		}
+
+		// clean enter session
 		self::clean_session();
+
 
 		if($_auto_redirect)
 		{
