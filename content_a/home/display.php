@@ -89,6 +89,12 @@
       <ul>
         <li><a class="f" href="<?php echo \dash\url::here(); ?>/website"><div class="key"><?php echo T_("Website setting"); ?></div><div class="go"></div></a></li>
       </ul>
+      <ul>
+        <li><a class="f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
+      </ul>
+      <ul>
+        <li><a class="f" href="<?php echo \dash\url::here(); ?>/order"><div class="key"><?php echo T_("Orders"); ?></div><div class="go"></div></a></li>
+      </ul>
     </nav>
   <?php } //endif ?>
 
