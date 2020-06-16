@@ -101,7 +101,7 @@ else
       <tr>
         <td>
           <a class="badge danger" href="<?php echo \dash\url::this(); ?>/view?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail"); ?></a>
-          <a class="badge primary" target="_blank" href="<?php echo \dash\url::this(); ?>/download?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Download"); ?></a>
+          <a class="badge primary" download data-direct href="<?php echo \dash\url::this(); ?>/download?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Download"); ?></a>
 
         </td>
       <td>
