@@ -25,7 +25,7 @@ class view
 			}
 			else
 			{
-				$info = \lib\app\nic_domain\check::multi_check($q);
+				$info = \lib\app\domains\check::multi_check($q);
 			}
 
 			\dash\data::infoResult($info);

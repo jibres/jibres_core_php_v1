@@ -138,7 +138,7 @@ class text
 		}
 
 
-		if(!preg_match("/^[A-Za-z0-9\_\-\s\.]+$/", $data))
+		if(!preg_match("/^[A-Za-z0-9\_\-\s\.\,]+$/", $data))
 		{
 			if($_notif)
 			{

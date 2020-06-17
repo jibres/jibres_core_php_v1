@@ -92,7 +92,7 @@ class model
 		}
 		else
 		{
-			$result = \lib\app\nic_domain\create::new_domain($post);
+			$result = \lib\app\domains\create::new_domain($post);
 		}
 
 		if(\dash\engine\process::status())

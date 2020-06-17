@@ -3,7 +3,15 @@
 <?php
 if(\dash\data::myDomain())
 {
-  require_once ('display-settings.php');
+	if(\dash\validate::ir_domain(\dash\data::myDomain(), false))
+	{
+  		require_once ('display-settings.php');
+	}
+	else
+	{
+  		require_once ('display-settings-com.php');
+
+	}
 }
 else
 {

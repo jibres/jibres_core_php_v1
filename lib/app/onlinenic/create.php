@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\nic_domain;
+namespace lib\app\onlinenic;
 
 
 class create
@@ -8,15 +8,15 @@ class create
 	{
 		$condition =
 		[
-			'domain'               => 'ir_domain',
+			'domain'               => 'domain',
 			'nic_id'               => 'irnic_id',
-			'period'               => ['enum' => ['1year', '5year']],
+			'period'               => ['enum' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]],
 			'whoistype'            => ['enum' => ['jibreswhoisgard', 'customizedetail']],
-
 			'ns1'                  => 'dns',
 			'ns2'                  => 'dns',
 			'ns3'                  => 'dns',
 			'ns4'                  => 'dns',
+
 			'dnsid'                => 'string',
 			'irnic_admin'          => 'irnic_id',
 			'irnic_tech'           => 'irnic_id',
@@ -33,35 +33,40 @@ class create
 			'after_pay'            => 'bit',
 			'user_id'              => 'id',
 			'admin_register_force' => 'bit',
+			'nationalcode'         => 'bit',
 
 			// .com request // only set this parametr on validate to have not error in cleans
-			'fullname'             => 'bit',
-			'org'                  => 'bit',
-			'nationalcode'         => 'bit',
-			'country'              => 'bit',
-			'province'             => 'bit',
-			'city'                 => 'bit',
-			'address'              => 'bit',
-			'postcode'             => 'bit',
-			'phone'                => 'bit',
-			'email'                => 'bit',
-			'fax'                  => 'bit',
+			'fullname'             => 'enstring_60',
+			'org'                  => 'enstring_60',
+			'country'              => ['enum' => ['AU','AF','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','BT','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CK','CR','HR','CY','CZ','DK','DJ','DM','DO','TP','EC','EG','SV','GQ','EE','ET','FK','FO','FJ','FI','SU','FX','FR','TF','GA','GM','GE','DE','GH','GI','GB','GR','GL','GD','GP','GU','GT','GW','GN','GF','GY','HT','HM','HN','HK','HU','IS','IN','ID','IQ','IE','IL','IT','CI','JM','JP','JO','JF','KZ','KE','KG','KI','KR','KW','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','AN','NL','NC','NZ','NI','NE','NG','NU','NF','MP','NO','EM','OM','PK','PW','PA','PG','PY','PE','PH','PN','PL','PF','PT','ZN','PR','QA','RE','RO','RU','RW','GS','LC','WS','SM','SA','SN','SC','SL','SG','SK','SI','SB','SO','ZA','ES','LK','SH','PM','ST','KN','VC','RS','SR','SJ','SZ','SE','CH','TJ','TW','TZ','TH','TG','TK','TO','TT','TN','TR','TM','TC','TV','UM','UG','UA','AE','US','UY','UZ','VU','VA','VE','VN','VG','VI','WF','EH','YE','YU','ZM','ZW','ZR',]],
+			'province'             => 'enstring_60',
+			'city'                 => 'enstring_60',
+			'address'              => 'enstring_60',
+			'postcode'             => 'postcode',
+			'phone'                => 'mobile',
+			'email'                => 'email',
+			'fax'                  => 'phone',
 
 		];
 
 		$require = ['domain'];
 
-		$meta    = [];
+		if(isset($_args['whoistype']) && $_args['whoistype'] === 'customizedetail')
+		{
+			array_push($require, 'fullname');
+			array_push($require, 'org');
+			array_push($require, 'country');
+			array_push($require, 'province');
+			array_push($require, 'city');
+			array_push($require, 'address');
+			array_push($require, 'postcode');
+			array_push($require, 'phone');
+			array_push($require, 'email');
+			array_push($require, 'fax');
+		}
 
-		if(isset($_args['agree']) && $_args['agree'])
-		{
-			// nothing
-		}
-		else
-		{
-			\dash\notif::error(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
-		}
+
+		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -81,20 +86,18 @@ class create
 
 		if(!$data['period'])
 		{
-			\dash\notif::error(T_("Please indicate the duration of the domain purchase, 1 year or 5 year?"));
+			\dash\notif::error(T_("Please indicate the duration of the domain purchase?"));
 			return false;
 		}
 
 		$domain      = $data['domain'];
-		$nic_id      = $data['nic_id'];
+
 		$period      = $data['period'];
+
 		$ns1         = $data['ns1'];
 		$ns2         = $data['ns2'];
 		$ns3         = $data['ns3'];
 		$ns4         = $data['ns4'];
-		// $dnsid       = $data['dnsid'];
-
-		$jibres_nic_contact = 'ji128-irnic';
 
 
 		\lib\app\domains\detect::domain('register', $domain);
@@ -113,189 +116,20 @@ class create
 			$ns2 = \lib\app\nic_usersetting\defaultval::ns2();
 		}
 
-		$irnic_admin = $data['irnic_admin'];
-		$irnic_tech  = $data['irnic_tech'];
-		$irnic_bill  = $data['irnic_bill'];
-		$irnic_new   = $data['irnic_new'];
-
-		$ip1         = null;
-		$ip2         = null;
-		$ip3         = null;
-		$ip4         = null;
 
 		$transaction_id = null;
 
-		$period_month = 0;
+		$price        = \lib\app\onlinenic\price::get_price($domain, $period, 'register');
 
-		$price        = \lib\app\nic_domain\price::register($period);
-
-		if($period === '1year')
+		if(!$price)
 		{
-			$period_month = 12;
-		}
-		elseif($period === '5year')
-		{
-			$period_month = 5*12;
-		}
-
-		if(!$irnic_new && !$nic_id)
-		{
-			\dash\notif::error(T_("Please enter IRNIC handle"), 'irnicid-new');
+			// error in load price
 			return false;
 		}
-
-		$get_contac_nic = [];
-
-		if($irnic_new)
-		{
-			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
-			if(!$add_quick_contact)
-			{
-				return false;
-			}
-
-			$nic_id = $add_quick_contact;
-			$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
-		}
-		else
-		{
-			$check_nic_id = \lib\db\nic_contact\get::user_nic_id($user_id, $nic_id);
-			if(!isset($check_nic_id['nic_id']))
-			{
-				\dash\notif::error(T_("IRNIC handle not fount in your list"));
-				return false;
-			}
-
-			$nic_id = $check_nic_id['nic_id'];
-			$get_contac_nic[$nic_id] =  $check_nic_id;
-		}
-
-
-		if(isset($get_contac_nic[$nic_id]['holder']) && $get_contac_nic[$nic_id]['holder'] == '1')
-		{
-			// no proble
-		}
-		else
-		{
-			// can not use this contact as holder of domain
-			// need to make error
-			$msg = T_("We can not register domain by your IRNIC holder");
-			$msg .= '<br>';
-			$msg .= T_("Your must go to nic.ir and set change holder setting and allow to reseller to access to your account");
-			$msg .= '<br>';
-			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
-
-			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
-			return false;
-		}
-
-
-		if($irnic_admin)
-		{
-			$get_contac_nic_admin =  \lib\nic\exec\contact_check::check($irnic_admin);
-			if(!isset($get_contac_nic_admin[$irnic_admin]))
-			{
-				\dash\notif::error(T_("Can not find account detail of this domain"));
-				return false;
-			}
-
-			if(!isset($get_contac_nic_admin[$irnic_admin]))
-			{
-				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-				return false;
-			}
-
-			if(isset($get_contac_nic_admin[$irnic_admin]['admin']) && $get_contac_nic_admin[$irnic_admin]['admin'] == '1')
-			{
-				// no problem to register this domain by tihs contact
-			}
-			else
-			{
-				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
-				return false;
-			}
-		}
-		else
-		{
-			if(isset($get_contac_nic[$nic_id]['admin']) && $get_contac_nic[$nic_id]['admin'] == '1')
-			{
-				// no problem to register this domain by tihs contact
-			}
-			else
-			{
-				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
-				return false;
-			}
-		}
-
-
-		if($irnic_bill)
-		{
-			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
-			if(!isset($get_contac_nic_bill[$irnic_bill]))
-			{
-				// bug!!
-				\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-				return false;
-			}
-
-			if(!isset($get_contac_nic_bill[$irnic_bill]))
-			{
-				// bug!!
-				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-				return false;
-			}
-
-			if(isset($get_contac_nic_bill[$irnic_bill]['bill']) && $get_contac_nic_bill[$irnic_bill]['bill'] == '1')
-			{
-				// no problem to register this domain by tihs contact
-			}
-			else
-			{
-				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
-				return false;
-			}
-		}
-		else
-		{
-			$irnic_bill = $jibres_nic_contact;
-		}
-
-		if($irnic_tech)
-		{
-			$get_contac_nic_tech =  \lib\nic\exec\contact_check::check($irnic_tech);
-			if(!isset($get_contac_nic_tech[$irnic_tech]))
-			{
-				// bug!!
-				\dash\notif::error(T_("Can not find  technical account detail of this domain"));
-				return false;
-			}
-
-			if(!isset($get_contac_nic_tech[$irnic_tech]))
-			{
-				// bug!!
-				\dash\notif::error(T_("Can not find technical account detail of this domain"));
-				return false;
-			}
-
-			if(isset($get_contac_nic_tech[$irnic_tech]['tech']) && $get_contac_nic_tech[$irnic_tech]['tech'] == '1')
-			{
-				// no problem to register this domain by tihs contact
-			}
-			else
-			{
-				\dash\notif::error(T_("We can not register this domain because the technical holder of IRNIC can not access to register"));
-				return false;
-			}
-		}
-		else
-		{
-			$irnic_tech = $jibres_nic_contact;
-		}
-
 
 
 		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
+
 		if(isset($check_duplicate_domain['id']))
 		{
 			if(isset($check_duplicate_domain['status']))
@@ -325,13 +159,8 @@ class create
 
 			$update_domain_record =
 			[
-				'registrar'    => 'irnic',
+				'registrar'    => 'onlinenic',
 				'status'       => 'awaiting',
-
-				'holder'       => $nic_id,
-				'admin'        => $nic_id,
-				'tech'         => $irnic_tech,
-				'bill'         => $irnic_bill,
 
 				'autorenew'    => null,
 				'lock'         => null,
@@ -352,13 +181,8 @@ class create
 			[
 				'user_id'      => $user_id,
 				'name'         => $domain,
-				'registrar'    => 'irnic',
+				'registrar'    => 'onlinenic',
 				'status'       => 'awaiting',
-
-				'holder'       => $nic_id,
-				'admin'        => $nic_id,
-				'tech'         => $irnic_tech,
-				'bill'         => $irnic_bill,
 
 				'autorenew'    => null,
 				'lock'         => null,
@@ -386,17 +210,81 @@ class create
 		}
 
 
+		if(!isset($check_duplicate_domain['holder']))
+		{
+
+			$jibreswhoisgard =
+			[
+				'jibreswhoisgardTe1',
+				'jibreswhoisgardTe2',
+				'jibreswhoisgardTe3',
+				'jibreswhoisgardTe4',
+				'jibreswhoisgardTe5',
+			];
+
+			if($data['whoistype'] === 'jibreswhoisgard')
+			{
+				$contact_id = 'jibreswhoisgardTe5'; // get random
+			}
+			else
+			{
+				$split = explode('.', $domain);
+				$tld   = end($split);
+
+				$create_new_contact =
+				[
+					'ext'        => $tld,
+					'name'       => $data['fullname'],
+					'org'        => $data['org'],
+					'country'    => $data['country'],
+					'province'   => $data['province'],
+					'city'       => $data['city'],
+					'street'     => $data['address'],
+					'postalcode' => $data['postcode'],
+					'voice'      => '+1.4195764099',
+					'fax'        => '+1.'. $data['fax'],
+					'email'      => $data['email'],
+				];
+
+
+				$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
+
+				if(isset($contact_id['data']['contactid']))
+				{
+					$contact_id = $contact_id['data']['contactid'];
+				}
+				else
+				{
+					\dash\notif::error(T_("Some detail is wrong!. We can not create your whois detail"));
+					return false;
+				}
+
+				if(!$contact_id)
+				{
+					\dash\notif::error(T_("Can not save your whois detail at this time. Please try later"));
+					return false;
+				}
+			}
+
+			\lib\db\nic_domain\update::update(['holder' => $contact_id], $domain_id);
+		}
+		else
+		{
+			$contact_id = $check_duplicate_domain['holder'];
+		}
+
+
+
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
 
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
 		if(!$data['register_now'])
 		{
-
 			$domain_action_detail =
 			[
 				'domain_id' => $domain_id,
-				'period'    => $period_month,
+				'period'    => $period,
 			];
 
 			\lib\app\nic_domainaction\action::set('domain_buy_ready', $domain_action_detail);
@@ -479,14 +367,14 @@ class create
 				// go to bank
 				$meta =
 				[
-					'msg_go'        => T_("Buy :domain For :year year by IRNIC handle :nic_id", ['domain' => $domain, 'year' => \dash\fit::number(round($period_month / 12)), 'nic_id' => $nic_id]),
+					'msg_go'        => T_("Buy :domain For :year", ['domain' => $domain, 'year' => \dash\fit::number($period)]),
 					'auto_go'       => false,
 					'auto_back'     => false,
 					'final_msg'     => true,
 					'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
 					'user_id'       => $user_id,
 					'amount'        => abs($remain_amount),
-					'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
+					'final_fn'      => ['/lib/app/onlinenic/create', 'new_domain'],
 					'final_fn_args' => $temp_args,
 				];
 
@@ -499,7 +387,7 @@ class create
 					[
 						'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
 						'domain_id'      => $domain_id,
-						'period'    => $period_month,
+						'period'         => $period,
 						'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
 					];
 
@@ -533,22 +421,16 @@ class create
 
 		$ready =
 		[
-			'nic_id' => $nic_id,
-			'domain' => $domain,
-			'period' => $period_month,
-			'ns1'    => $ns1,
-			'ns2'    => $ns2,
-			'ns3'    => $ns3,
-			'ns4'    => $ns4,
+			'domain'     => $domain_id,
+			'period'     => $period,
+			'dns1'       => $ns1,
+			'dns2'       => $ns2,
+			// 'lang'       => 'ENG',
+			'registrant' => $contact_id,
+			'admin'      => $contact_id,
+			'tech'       => $contact_id,
+			'billing'    => $contact_id
 
-			'ip1'    => $ip1,
-			'ip2'    => $ip2,
-			'ip3'    => $ip3,
-			'ip4'    => $ip4,
-
-			'irnic_admin' => $irnic_admin,
-			'irnic_tech' => $irnic_tech,
-			'irnic_bill' => $irnic_bill,
 		];
 
 
@@ -556,14 +438,15 @@ class create
 		$gift_usage_id = null;
 
 		// run nic create domain exec
-		$result = \lib\nic\exec\domain_create::create($ready);
+		$result = \lib\onlinenic\api::register_domain($ready);
+
 
 		// $result                 = [];
 		// $result['name']         = $domain;
 		// $result['dateregister'] = null;
 		// $result['dateexpire']   = null;
 
-		if(isset($result['name']))
+		if(isset($result['data']['domain']) && isset($result['data']['regdate']) && isset($result['data']['expdate']))
 		{
 			$update =
 			[
@@ -574,8 +457,8 @@ class create
 				'lock'         => 1,
 				'available'    => 0,
 
-				'dateregister' => $result['dateregister'],
-				'dateexpire'   => $result['dateexpire'],
+				'dateregister' => $result['data']['regdate'],
+				'dateexpire'   => $result['data']['expdate'],
 				'datecreated'  => date("Y-m-d H:i:s"),
 			];
 
@@ -624,7 +507,7 @@ class create
 			[
 				'domain_id'      => $domain_id,
 				'price'          => $price,
-				'period'         => $period_month,
+				'period'         => $period,
 				'discount'       => $discount,
 				'finalprice'     => $finalprice,
 				'transaction_id' => $transaction_id,
@@ -640,7 +523,7 @@ class create
 				'action'         => 'register',
 				'status'         => 'enable',
 				'mode'           => 'manual',
-				'period'         => $period_month,
+				'period'         => $period,
 				'price'          => $price,
 				'discount'       => $discount,
 				'finalprice'     => $finalprice,
@@ -655,7 +538,7 @@ class create
 
 			\dash\notif::ok(T_("Domain :domain was registered in your name", ['domain' => $domain]), ['alerty' => true]);
 
-			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period_month, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
+			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
 			// fetch nic credit after register domain
 			\lib\app\nic_credit\get::fetch();
@@ -679,7 +562,7 @@ class create
 				// 'price'          => $price,
 				// 'finalprice'     => $finalprice,
 				// 'discount'       => $discount,
-				'period'         => $period_month,
+				'period'         => $period,
 				'transaction_id' => $transaction_id,
 			];
 

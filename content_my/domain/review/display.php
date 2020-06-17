@@ -1,3 +1,5 @@
+<div class="avand">
+
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 
 <?php $giftCode = 0; ?>
@@ -16,7 +18,7 @@
       <li>
        <div class="f item">
         <div class="key"><?php echo T_('Domain Period');?></div>
-        <div class="value ltr txtB"><?php if(\dash\data::myPeriod() == '1year') { echo T_("1 Year"); }elseif(\dash\data::myPeriod() == '5year'){echo T_("5 Year");}else{echo T_("Unknown");} ?></div>
+        <div class="value ltr txtB"><?php echo \dash\data::myPeriodTitle(); ?></div>
         <div class="go detail"></div>
        </div>
       </li>
@@ -24,6 +26,8 @@
     </nav>
 
 <?php if (\dash\request::get('type') === 'register'): ?>
+
+    <?php if(\dash\data::internationalDomain()) { /* nothing  */ }else{?>
 
     <nav class="items">
      <ul>
@@ -53,6 +57,7 @@
       </li>
      </ul>
     </nav>
+  <?php } //endif ?>
 
 
     <nav class="items">
@@ -244,4 +249,6 @@ $giftCode = \dash\data::giftDetail_discount();
 
 
   </div>
+</div>
+
 </div>

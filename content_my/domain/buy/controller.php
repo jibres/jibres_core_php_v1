@@ -42,7 +42,7 @@ class controller
 				}
 				else
 				{
-					$check = \lib\app\nic_domain\check::check($domain);
+					$check = \lib\app\domains\check::check($domain);
 				}
 
 				\dash\data::haveBuyDomain(true);
@@ -63,7 +63,7 @@ class controller
 			}
 			else
 			{
-				$info = \lib\app\nic_domain\check::multi_check($q);
+				$info = \lib\app\domains\check::multi_check($q);
 			}
 
 			if(\dash\request::get('q') && !$info && \dash\engine\process::status())

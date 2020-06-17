@@ -34,6 +34,20 @@ class api
 		$post_field['apikey']    = $apikey;
 		$post_field['token']     = $token;
 
+
+		// save log
+		$insert_log =
+		[
+			'type'          => $_path,
+			'user_id'       => \dash\user::id(),
+			'send'          => json_encode($_body, JSON_UNESCAPED_UNICODE),
+			'datesend'      => date("Y-m-d H:i:s"),
+			'domain'        => isset($_body['domain']) ? $_body['domain'] : null,
+			'ip'            => \dash\server::ip(true),
+			'gateway'		=> \dash\temp::get('run:by:system') ? 'system' : 'user',
+		];
+
+
 		if(is_array($_body))
 		{
 			$post_field = array_merge($post_field, $_body);
@@ -49,28 +63,59 @@ class api
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 
 		$response = curl_exec($ch);
 		$CurlError = curl_error($ch);
 
 		curl_close ($ch);
 
+		$insert_log['dateresponse'] = date("Y-m-d H:i:s");
+
 		if(!$response)
 		{
+			\dash\notif::error(T_("Can not connect to Domain server!"));
+
+			$insert_log['result'] = 'Jibres: Result curl is false!';
+
+			if($CurlError)
+			{
+				$insert_log['result'] .= ' CURL Error: '. $CurlError;
+			}
+
+			\lib\db\onlinenic_log\insert::new_record($insert_log);
 			return false;
 		}
+
+		if(!is_string($response))
+		{
+			$insert_log['result'] = 'Jibres: Result curl is not string!';
+			\lib\db\onlinenic_log\insert::new_record($insert_log);
+			return false;
+		}
+
+
+		$insert_log['response'] = addslashes($response);
 
 		$result = json_decode($response, true);
 
 		if(!is_array($result))
 		{
+			$insert_log['result'] = 'Jibres: Can not parse JSON!';
+			\lib\db\onlinenic_log\insert::new_record($insert_log);
 			return false;
 		}
 
+		if(isset($result['code']) && is_numeric($result['code']))
+		{
+			$insert_log['result_code'] = floatval($result['code']);
+		}
 
-		return false;
+		\lib\db\onlinenic_log\insert::new_record($insert_log);
+
+		return $result;
+
 	}
 
 
@@ -80,7 +125,24 @@ class api
 
 	public static function check_domain($_domin, $_op = null)
 	{
-		$result = self::run('checkDomain', ['domain' => $_domin, 'op' => $_op]);
+		$op = null;
+
+		switch ($_op)
+		{
+			case 'register':
+				$op = 1;
+				break;
+
+			case 'transfer':
+				$op = 2;
+				break;
+
+			case 'renew':
+				$op = 3;
+				break;
+		}
+
+		$result = self::run('checkDomain', ['domain' => $_domin, 'op' => $op]);
 		return $result;
 	}
 
@@ -88,6 +150,14 @@ class api
 	public static function register_domain($_args)
 	{
 		$result = self::run('registerDomain', $_args);
+		return $result;
+	}
+
+
+
+	public static function create_contact_id($_args)
+	{
+		$result = self::run('createContact', $_args);
 		return $result;
 	}
 

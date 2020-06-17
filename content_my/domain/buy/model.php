@@ -42,6 +42,22 @@ class model
 			'ns4'         => \dash\request::post('ns4'),
 			'dnsid'       => \dash\request::post('dnsid'),
 			'agree'       => \dash\request::post('agree'),
+
+
+			// .com request
+			'fullname'     => \dash\request::post('fullname'),
+			'org'          => \dash\request::post('org'),
+			'nationalcode' => \dash\request::post('nationalcode'),
+			'country'      => \dash\request::post('country'),
+			'province'     => \dash\request::post('province'),
+			'city'         => \dash\request::post('city'),
+			'address'      => \dash\request::post('address'),
+			'postcode'     => \dash\request::post('postcode'),
+			'phone'        => \dash\request::post('phone'),
+			'email'        => \dash\request::post('email'),
+			'fax'          => \dash\request::post('fax'),
+			'whoistype'    => \dash\request::post('whoistype'),
+
 		];
 
 
@@ -52,7 +68,7 @@ class model
 		}
 		else
 		{
-			$result = \lib\app\nic_domain\create::new_domain($post);
+			$result = \lib\app\domains\create::new_domain($post);
 		}
 
 		if(\dash\engine\process::status() && isset($result['domain_id']))

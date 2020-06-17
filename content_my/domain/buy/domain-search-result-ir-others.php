@@ -1,4 +1,5 @@
 <?php
+$available = true;
 echo '<div class="c pA5">';
     echo '<a class="stat x70';
         if(isset($value['available']))
@@ -9,14 +10,19 @@ echo '<div class="c pA5">';
             }
             else
             {
+                $available = false;
                 echo " unavailable";
             }
         }
         echo '"';
-        echo ' href="'. \dash\url::this(). '/buy/'. $key. '"';
-        if(isset($value['paperwork']))
+
+        if($available)
         {
-            echo ' title="'. $value['paperwork']. '"';
+            echo ' href="'. \dash\url::this(). '/buy/'. $key. '"';
+            if(isset($value['paperwork']))
+            {
+                echo ' title="'. $value['paperwork']. '"';
+            }
         }
         echo '>';
 
