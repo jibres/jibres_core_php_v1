@@ -119,7 +119,7 @@ class comment
 
 		if(!\dash\user::id())
 		{
-			\dash\notif::error(T_("Plese login to continue"));
+			\dash\notif::error(T_("Please login to continue"));
 			return false;
 		}
 
@@ -234,7 +234,7 @@ class comment
 
 		if(!$answer)
 		{
-			\dash\notif::error(T_("Plese fill the answer box"));
+			\dash\notif::error(T_("Please fill the answer box"));
 			return false;
 		}
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-06-16 15:10+0430\n"
-"PO-Revision-Date: 2020-06-16 15:10+0430\n"
+"POT-Creation-Date: 2020-06-18 15:46+0430\n"
+"PO-Revision-Date: 2020-06-18 15:47+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -694,7 +694,7 @@ msgstr "توضیح"
 msgid "What is the vulnerability? In clear steps, how do you reproduce it?"
 msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه آن را تولید می‌کنید؟"
 
-#: content/bug/display.php:106 content/contact/display.php:39
+#: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content/template/default.php:237
 #: content_p/home/display.php:169 content_su/tg/sendmessage/display.php:20
 #: content_su/tg/sendphoto/display.php:27
@@ -921,7 +921,7 @@ msgstr ""
 "تمام تلاش ما بر افزایش کیفیت جیبرس است. دانستن نظرات ارزشمند شما درباره‌ی مشکلات و نواقص "
 "و صدالبته پیشنهادات گرانبهایتان از طریق فرم زیر سبب کمک به ما برای این مهم خواهد شد."
 
-#: content/contact/display.php:21 content/subscribe/display.php:15
+#: content/contact/display.php:22 content/subscribe/display.php:15
 #: content/template/default.php:199 content_a/chap/size-receipt/receipt.php:102
 #: content_a/setting/fund/display.php:60 content_a/setting/general/display.php:27
 #: content_a/setting/general/display.php:29 content_a/setting/pcpos/display.php:124
@@ -934,14 +934,14 @@ msgstr ""
 msgid "Name"
 msgstr "نام"
 
-#: content/contact/display.php:22 content/subscribe/display.php:16
+#: content/contact/display.php:23 content/subscribe/display.php:16
 #: content/template/default.php:200 content_p/home/display.php:132
 #: content_subdomain/home/layout/body/body_load_post.php:200
 #: content_subdomain/template/default.php:200
 msgid "Full Name"
 msgstr "نام کامل"
 
-#: content/contact/display.php:25 content/subscribe/display.php:11
+#: content/contact/display.php:26 content/subscribe/display.php:11
 #: content/template/default.php:206 content/template/default.php:207
 #: content_a/cart/user/display.php:19 content_a/chap/size-receipt/receipt.php:79
 #: content_a/order/add/display.php:44 content_a/sale/display.php:44
@@ -972,14 +972,14 @@ msgstr "نام کامل"
 msgid "Mobile"
 msgstr "موبایل"
 
-#: content/contact/display.php:26 content/subscribe/display.php:12
+#: content/contact/display.php:27 content/subscribe/display.php:12
 #: content/template/default.php:207 content_p/home/display.php:139
 #: content_subdomain/home/layout/body/body_load_post.php:207
 #: content_subdomain/template/default.php:207
 msgid "Please enter valid mobile number. `:val` is incorrect"
 msgstr "لطفا شماره موبایل معتبری وارد کنید. :val اشتباه است"
 
-#: content/contact/display.php:29 content/subscribe/display.php:19
+#: content/contact/display.php:30 content/subscribe/display.php:19
 #: content_account/my/email/display.php:8 content_account/my/email/view.php:10
 #: content_account/my/home/display.php:52 content_cms/comments/edit/display.php:17
 #: content_crm/log/home/logTable.php:62 content_crm/member/contact/display.php:22
@@ -992,38 +992,38 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 msgid "Email"
 msgstr "رایانامه"
 
-#: content/contact/display.php:36
+#: content/contact/display.php:37
 msgid "Your Message"
 msgstr "پیام شما"
 
-#: content/contact/display.php:62
+#: content/contact/display.php:63
 msgid "jibres"
 msgstr "جیبرس"
 
-#: content/contact/display.php:64 includes/languages/trans_static_public.php:57
+#: content/contact/display.php:65 includes/languages/trans_static_public.php:57
 msgid "Iran"
 msgstr "ایران"
 
-#: content/contact/display.php:65 dash/social/telegram/commands/ermile.php:240
+#: content/contact/display.php:66 dash/social/telegram/commands/ermile.php:240
 #: dash/social/telegram/commands/ermileInline.php:111
 #: includes/languages/trans_static_public.php:59
 msgid "Qom"
 msgstr "قم"
 
-#: content/contact/display.php:66 dash/social/telegram/commands/ermile.php:240
+#: content/contact/display.php:67 dash/social/telegram/commands/ermile.php:240
 #: dash/social/telegram/commands/ermileInline.php:111
 msgid "1st alley, Haft-e-tir St"
 msgstr "خیابان هفت تیر، کوچه یکم"
 
-#: content/contact/display.php:67
+#: content/contact/display.php:68
 msgid "Floor2, Yas Building"
 msgstr "ساختمان یاس، طبقه دوم"
 
-#: content/contact/display.php:68
+#: content/contact/display.php:69
 msgid "Postal Code"
 msgstr "کد پستی"
 
-#: content/contact/display.php:79
+#: content/contact/display.php:80
 msgid "Our location on map"
 msgstr "موقعیت ما در نقشه"
 
@@ -2673,11 +2673,11 @@ msgstr "آی‌‌اس‌پی"
 
 #: content/ip/home/display.php:31
 msgid "latitude"
-msgstr ""
+msgstr "عرض جغرافیایی"
 
 #: content/ip/home/display.php:35
 msgid "longitude"
-msgstr ""
+msgstr "طول جغرافیایی"
 
 #: content/logo/display.php:6
 msgid "Jibres logo"
@@ -4781,11 +4781,11 @@ msgstr "چاپ فاکتور"
 msgid "Factors"
 msgstr "فاکتورها"
 
-#: content_a/chap/view.php:67
+#: content_a/chap/view.php:71
 msgid "Back to last buy"
 msgstr "بازگشت به آخرین خرید‌ها"
 
-#: content_a/chap/view.php:70
+#: content_a/chap/view.php:74
 msgid "Back to last sales"
 msgstr "بازگشت به آخرین فروش‌ها"
 
@@ -4994,7 +4994,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/application/queue.php:232 lib/app/category/add.php:12
 #: lib/app/category/edit.php:13 lib/app/category/get.php:34 lib/app/category/get.php:65
 #: lib/app/category/search.php:11 lib/app/category/search.php:89 lib/app/factor/add.php:34
-#: lib/app/factor/get.php:34 lib/app/product/add.php:76 lib/app/product/comment.php:116
+#: lib/app/factor/get.php:105 lib/app/product/add.php:76 lib/app/product/comment.php:116
 #: lib/app/product/comment.php:344 lib/app/product/comment.php:374
 #: lib/app/product/company.php:63 lib/app/product/company.php:228
 #: lib/app/product/company.php:260 lib/app/product/company.php:353
@@ -7411,7 +7411,7 @@ msgstr "سفارشی سازی متن پابرگ"
 #: content_a/website/footer/box/footer_phone.php:24
 #: content_a/website/header/display.php:71
 msgid "Business Branding"
-msgstr ""
+msgstr "نشان تجاری بیزینس"
 
 #: content_a/website/footer/display.php:7
 msgid "Your Current Footer Template"
@@ -11384,7 +11384,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/application/queue_search.php:27 lib/app/cart/add.php:105
 #: lib/app/cart/checkout.php:14 lib/app/cart/edit.php:19 lib/app/cart/get.php:14
 #: lib/app/cart/remove.php:17 lib/app/cart/search.php:158 lib/app/domains/search.php:27
-#: lib/app/factor/get.php:28 lib/app/gift/search.php:27 lib/app/giftusage/search.php:27
+#: lib/app/factor/get.php:99 lib/app/gift/search.php:27 lib/app/giftusage/search.php:27
 #: lib/app/nic_contact/add.php:11 lib/app/nic_contact/add.php:56
 #: lib/app/nic_contact/add.php:167 lib/app/nic_contact/edit.php:110
 #: lib/app/nic_contact/get.php:26 lib/app/nic_contact/search.php:28
@@ -11715,7 +11715,7 @@ msgstr "آدرس"
 msgid "Edit queue"
 msgstr "ویرایش صف"
 
-#: content_love/application/home/display.php:74 dash/layout/pwa/pwa_menu.php:49
+#: content_love/application/home/display.php:74
 msgid "Store"
 msgstr "فروشگاه"
 
@@ -12926,7 +12926,7 @@ msgstr "بیزینس من را بساز"
 
 #: content_my/business/home/display_pwa.php:59
 #: content_my/business/home/display_site.php:140
-#: lib/app/log/caller/application/application_readyToDownload.php:22
+#: lib/app/log/caller/application/application_readyToDownload.php:15
 msgid "Application"
 msgstr "برنامه"
 
@@ -13712,7 +13712,7 @@ msgstr "کیف پول الکترونیکی"
 msgid "Homepage"
 msgstr "صفحه نخست"
 
-#: content_my/home/display_site.php:9
+#: content_my/home/display_site.php:9 dash/layout/pwa/pwa_menu.php:49
 #: lib/app/log/caller/business/business_createNew.php:19
 msgid "Business"
 msgstr "بیزینس"
@@ -14324,6 +14324,10 @@ msgstr "بریم شروع کنیم"
 #: content_r10/android/language/view.php:9 content_v2/android/language/view.php:9
 msgid "Choose your language"
 msgstr "زبان خود را انتخاب کنید"
+
+#: content_r10/android/splash/view.php:15 content_v2/android/splash/view.php:22
+msgid "Powered by Jibres"
+msgstr "قدرت گرفته از جیبرس"
 
 #: content_r10/irnic/domain/model.php:30
 msgid "Please set lock status"
@@ -15286,17 +15290,19 @@ msgid "You try to add some html code!"
 msgstr "شما در تلاشید کد اچ‌تی‌ام‌ال ارسال کنید!"
 
 #: content_support/ticket/contact_ticket/model.php:197
-#: content_support/ticket/contact_ticket/model.php:213
+#: content_support/ticket/contact_ticket/model.php:214
 msgid "You can check your contacting answer here"
 msgstr "شما می‌توانید پاسخ تماس خود را در اینجا بررسی کنید"
 
 #: content_support/ticket/contact_ticket/model.php:198
-#: content_support/ticket/contact_ticket/model.php:214
+#: content_support/ticket/contact_ticket/model.php:199
+#: content_support/ticket/contact_ticket/model.php:215
+#: content_support/ticket/contact_ticket/model.php:216
 msgid "Thank You For contacting us"
 msgstr "از تماس شما متشکریم"
 
-#: content_support/ticket/contact_ticket/model.php:205
-#: content_support/ticket/contact_ticket/model.php:221
+#: content_support/ticket/contact_ticket/model.php:206
+#: content_support/ticket/contact_ticket/model.php:223
 msgid "We could'nt save the contact"
 msgstr "مشکلی در ذخیره‌سازی مخاطب پیش آمد"
 
@@ -15748,10 +15754,6 @@ msgstr "شناسه نشست ارسال نشده است یا نادرست است"
 msgid "No session founded"
 msgstr "هیچ نشست فعالی یافت نشد"
 
-#: content_v2/android/splash/view.php:22
-msgid "Powered by Jibres"
-msgstr "قدرت گرفته از جیبرس"
-
 #: content_v2/app/view.php:140
 msgid "Change language"
 msgstr "تغییر زبان"
@@ -15934,14 +15936,6 @@ msgstr "مدیر فنی وارد حساب کاربری خود شد"
 #: dash/app/log/caller/enter/enter_AlertSupervisorLoginToAllSupervisor.php:30
 msgid "Your are supervisor. This message only send to supervisors"
 msgstr "شما مدیر فنی هستید. این پیام فقط برای مدیران فنی قابل نمایش است"
-
-#: dash/app/log/caller/enter/enter_AlertSupervisorLoginToAllSupervisor.php:35
-msgid "Your login was notifed to all other supervisor in jibres"
-msgstr "ورود شما به حساب کاربری به سمع و نظر سایر مدیران فنی در جیبرس خواهد رسید"
-
-#: dash/app/log/caller/enter/enter_AlertSupervisorLoginToAllSupervisor.php:37
-msgid "Have a good day ;)"
-msgstr "روز خوبی داشته باشید؛)"
 
 #: dash/app/log/caller/enter/enter_AlertSupervisorLoginToAllSupervisor.php:43
 msgid "Was login to jibres."
@@ -18821,13 +18815,13 @@ msgstr "زیردامنه باید با حرف لاتین شروع شود"
 msgid "The subdomain must have one separator"
 msgstr "زیردامنه می‌بایست تنها یک جداکننده داشته باشد"
 
-#: dash/validate/subdomain.php:106
+#: dash/validate/subdomain.php:112
 msgid "Can not use subdomain by jibres keyword"
 msgstr "نمی‌توانید از کلمه جیبرس در زیردامنه استفاده کنید"
 
-#: dash/validate/subdomain.php:115 dash/validate/subdomain.php:124
-#: dash/validate/subdomain.php:133 dash/validate/subdomain.php:142
-#: dash/validate/subdomain.php:151
+#: dash/validate/subdomain.php:122 dash/validate/subdomain.php:131
+#: dash/validate/subdomain.php:140 dash/validate/subdomain.php:149
+#: dash/validate/subdomain.php:158
 msgid "You can not choose this subdomain"
 msgstr "شما نمی توانید زیردامنه را انتخاب کنید"
 
@@ -24383,15 +24377,15 @@ msgstr "سفارش بدون تغییر ذخیره شد"
 msgid "Order updated"
 msgstr "سفارش به‌روزرسانی شد"
 
-#: lib/app/factor/get.php:41
+#: lib/app/factor/get.php:112
 msgid "Factor id not set"
 msgstr "شناسه فاکتور تنظیم نشده است"
 
-#: lib/app/factor/get.php:49
+#: lib/app/factor/get.php:120
 msgid "Invalid factor id"
 msgstr "شناسه فاکتور اشتباه است"
 
-#: lib/app/factor/get.php:57 lib/app/factor/get.php:73
+#: lib/app/factor/get.php:128 lib/app/factor/get.php:144
 msgid "Factor not found"
 msgstr "فاکتور یافت نشد"
 
@@ -24582,35 +24576,20 @@ msgstr "ناتوان در خواندن فایل"
 msgid "Your file saved."
 msgstr "فایل شما ذخیره شد."
 
-#: lib/app/log/caller/application/application_readyToDownload.php:15
-#: lib/app/log/caller/export/export_ExportProduct.php:15
-#: lib/app/log/caller/export/export_ExportProduct.php:58 lib/app/untitled.php:17
-#: lib/app/untitled.php:60
-msgid "Create export file completed"
-msgstr "ساخت فایل خروجی تکمیل شد"
+#: lib/app/log/caller/application/application_readyToDownload.php:13
+msgid "Your Application is ready to download"
+msgstr "برنامه شما برای دانلود آماده است"
 
-#: lib/app/log/caller/application/application_readyToDownload.php:16
-#: lib/app/log/caller/application/application_readyToDownload.php:60
+#: lib/app/log/caller/application/application_readyToDownload.php:52
+msgid "Build application completed"
+msgstr "ساخت برنامه تکمیل شد"
+
+#: lib/app/log/caller/application/application_readyToDownload.php:53
 #: lib/app/log/caller/export/export_ExportProduct.php:16
 #: lib/app/log/caller/export/export_ExportProduct.php:59 lib/app/untitled.php:18
 #: lib/app/untitled.php:61
 msgid "To download it click here"
 msgstr "برای دانلود فایل کلیک کنید"
-
-#: lib/app/log/caller/application/application_readyToDownload.php:17
-#: lib/app/log/caller/export/export_ExportProduct.php:17
-#: lib/app/log/caller/export/export_ExportProduct.php:60 lib/app/untitled.php:19
-#: lib/app/untitled.php:62
-msgid "This file will be automatically deleted for a few minutes"
-msgstr "این فایل به صورت خودکار تا چند دقیقه دیگر حذف خواهد شد"
-
-#: lib/app/log/caller/application/application_readyToDownload.php:20
-msgid "Your Application is ready to download"
-msgstr "برنامه شما برای دانلود آماده است"
-
-#: lib/app/log/caller/application/application_readyToDownload.php:59
-msgid "Build application completed"
-msgstr "ساخت برنامه تکمیل شد"
 
 #: lib/app/log/caller/business/business_createNew.php:16
 #: lib/app/log/caller/business/business_createNew.php:83
@@ -24716,6 +24695,18 @@ msgstr "از کارت هدیه استفاده شده."
 #: lib/app/log/caller/domain/domain_newRegister.php:77
 msgid "Total payed :val "
 msgstr "مبلغ پرداختی :val "
+
+#: lib/app/log/caller/export/export_ExportProduct.php:15
+#: lib/app/log/caller/export/export_ExportProduct.php:58 lib/app/untitled.php:17
+#: lib/app/untitled.php:60
+msgid "Create export file completed"
+msgstr "ساخت فایل خروجی تکمیل شد"
+
+#: lib/app/log/caller/export/export_ExportProduct.php:17
+#: lib/app/log/caller/export/export_ExportProduct.php:60 lib/app/untitled.php:19
+#: lib/app/untitled.php:62
+msgid "This file will be automatically deleted for a few minutes"
+msgstr "این فایل به صورت خودکار تا چند دقیقه دیگر حذف خواهد شد"
 
 #: lib/app/nic_contact/add.php:19
 msgid "Invalid contact"
@@ -25750,16 +25741,16 @@ msgstr "اگر به فروشگاه‌های بیشتری نیاز دارید ب�
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً اشغال شده است"
 
-#: lib/app/store/add.php:153 lib/app/store/add.php:169 lib/app/store/add.php:185
-#: lib/app/store/add.php:201
+#: lib/app/store/add.php:156 lib/app/store/add.php:172 lib/app/store/add.php:188
+#: lib/app/store/add.php:204
 msgid "Can not add your store"
 msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
 
-#: lib/app/store/add.php:213
+#: lib/app/store/add.php:216
 msgid "We can not create your store!"
 msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
-#: lib/app/store/add.php:234
+#: lib/app/store/add.php:237
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
@@ -27137,6 +27128,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Your login was notifed to all other supervisor in jibres"
+#~ msgstr "ورود شما به حساب کاربری به سمع و نظر سایر مدیران فنی در جیبرس خواهد رسید"
+
+#~ msgid "Have a good day ;)"
+#~ msgstr "روز خوبی داشته باشید؛)"
 
 #~ msgid "Path"
 #~ msgstr "آدرس"
