@@ -34,7 +34,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 responsive mB0">
+      <table class="tbl1 v4 mB0">
         <tr>
           <th><?php echo T_("Password"); ?></th>
           <td></td>
@@ -73,14 +73,14 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 responsive mB0">
+      <table class="tbl1 v4 mB0">
         <tr>
-          <th><?php echo T_("Recovery email"); ?></th>
+          <th class="s0"><?php echo T_("Recovery email"); ?></th>
           <td><?php echo \dash\data::dataRow_email(); ?></td>
           <td class="collapsing txtRa"><a href="<?php echo \dash\url::here(); ?>/my/email" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
         <tr>
-          <th><?php echo T_("Recovery phone"); ?></th>
+          <th class="s0"><?php echo T_("Recovery phone"); ?></th>
           <td><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></td>
           <td></td>
         </tr>
