@@ -162,6 +162,13 @@ class api
 	}
 
 
+	public static function update_domain_dns($_args)
+	{
+		$result = self::run('updateDomainDns', $_args);
+		return $result;
+	}
+
+
 
 }
 ?>

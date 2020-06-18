@@ -9,14 +9,19 @@
 	</div>
 
 	<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_status() === 'enable') {?>
-	<div class="c s6">
-		<a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'holder') { echo ' active';} ?>" >
-		 <div class="statistic">
-		  <div class="value"><i class="sf-user-md"></i></div>
-		  <div class="label"><?php echo T_("IRNIC Holder setting"); ?></div>
-		 </div>
-		</a>
-	</div>
+
+		<?php if(\dash\data::internationalDomain()) {?>
+			<?php // nothing yet.  ?>
+		<?php }else{ ?>
+			<div class="c s6">
+				<a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'holder') { echo ' active';} ?>" >
+				 <div class="statistic">
+				  <div class="value"><i class="sf-user-md"></i></div>
+				  <div class="label"><?php echo T_("IRNIC Holder setting"); ?></div>
+				 </div>
+				</a>
+			</div>
+		<?php } // endif ?>
 
 	<div class="c s6">
 		<a href="<?php echo \dash\url::that(). '/dns?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'dns') { echo ' active';} ?>" >

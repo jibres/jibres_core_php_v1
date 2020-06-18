@@ -129,7 +129,7 @@ else
      <?php } //endif ?>
     </table>
   </div>
-
+<?php if(\dash\data::internationalDomain()) { /* nothing */ } else{?>
   <div class="panel mB10">
     <table class="tbl1 v4 mB0">
      <tr>
@@ -174,7 +174,7 @@ else
    <?php } //endif ?>
     </table>
   </div>
-
+<?php } // endif ?>
 
 <?php if(\dash\data::domainDetail_nicstatus_array()) {?>
 <div class="panel mB10">

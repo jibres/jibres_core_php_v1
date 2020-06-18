@@ -27,7 +27,8 @@ class model
 		}
 		else
 		{
-			$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
+			// $result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
+			$result = \lib\app\domains\edit::dns($post, \dash\data::domainDetail_id());
 		}
 
 

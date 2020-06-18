@@ -13,6 +13,11 @@ class controller
 		{
 			if(\dash\validate::domain($domain))
 			{
+				if(!\dash\validate::ir_domain($domain, false))
+				{
+					\dash\data::internationalDomain(true);
+				}
+
 				if(\lib\nic\mode::api())
 				{
 					$get_api     = new \lib\nic\api();
