@@ -21,7 +21,16 @@ class api
 		$token    = md5($token);
 
 		// $master_url = "https://ote.onlinenic.com";
-		$master_url = "https://ote.onlinenic.com/api4/domain/index.php?command=%s";
+		if(\dash\url::isLocal())
+		{
+			// test api
+			$master_url = "https://ote.onlinenic.com/api4/domain/index.php?command=%s";
+		}
+		else
+		{
+			// live api
+			$master_url = "https://api.onlinenic.com/api4/domain/index.php?command=%s";
+		}
 
 		// set headers
 		$header   = [];
