@@ -51,23 +51,23 @@ class check
 
 		\lib\app\domains\detect::domain_check_multi($result);
 
-		$check_tld =
-		[
-			'com',
-			'net',
-			'org',
-			'xyz',
-		];
+		// $check_tld =
+		// [
+		// 	'com',
+		// 	'net',
+		// 	'org',
+		// 	'xyz',
+		// ];
 
-		foreach ($check_tld as  $tld)
-		{
-			$temp_domain          = $myDomainName. '.'. $tld;
-			$check_result         = \lib\app\whois\who::is($temp_domain);
+		// foreach ($check_tld as  $tld)
+		// {
+		// 	$temp_domain          = $myDomainName. '.'. $tld;
+		// 	$check_result         = \lib\app\whois\who::is($temp_domain);
 
-			$check_result['name'] = $temp_domain;
-			$check_result['tld']  = $tld;
-			$result[$temp_domain] = $check_result;
-		}
+		// 	$check_result['name'] = $temp_domain;
+		// 	$check_result['tld']  = $tld;
+		// 	$result[$temp_domain] = $check_result;
+		// }
 
 		return $result;
 	}
