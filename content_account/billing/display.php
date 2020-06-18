@@ -18,19 +18,6 @@
           <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Amount"); ?>' required min=0 max="9999999999">
           <button class="addon btn primary"><?php echo T_("Checkout"); ?></button>
          </div>
-
-         <div style="background: #eee;line-height:20px;margin:5px">Test 20px</div>
-         <div style="background: #eee;line-height:22px;margin:5px">Test 22px</div>
-         <div style="background: #eee;line-height:25px;margin:5px">Test 25px</div>
-         <div style="background: #eee;line-height:27px;margin:5px">Test 27px</div>
-         <div style="background: #eee;line-height:30px;margin:5px">Test 30px</div>
-         <div style="background: #eee;line-height:32px;margin:5px">Test 32px</div>
-         <div style="background: #eee;line-height:34px;margin:5px">Test 34px</div>
-         <div style="background: #eee;line-height:35px;margin:5px">Test 35px</div>
-         <div style="background: #eee;line-height:36px;margin:5px">Test 36px</div>
-         <div style="background: #eee;line-height:37px;margin:5px">Test 37px</div>
-         <div style="background: #eee;line-height:40px;margin:5px">Test 40px</div>
-
         </form>
       </div>
 
