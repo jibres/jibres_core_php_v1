@@ -145,6 +145,13 @@ $myData = \dash\data::dashboardDetail();
           </a>
        </li>
 
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/onlineniclog">
+            <div class="key"><?php echo T_('Onlinenic log');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
       <li>
           <a class="f" href="<?php echo \dash\url::this();?>/nicdetail">
             <div class="key"><?php echo T_('IRNIC detail');?></div>
