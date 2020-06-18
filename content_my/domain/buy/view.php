@@ -63,6 +63,15 @@ class view
 		{
 			\dash\data::userSettingDataRow(\lib\app\nic_usersetting\get::get());
 
+			\dash\data::internationalPriceList([]);
+			$domain = \dash\data::myDomain();
+			if(!\dash\validate::ir_domain($domain, false))
+			{
+				$price_list = \lib\app\onlinenic\price::get_list($domain, 'register');
+				\dash\data::internationalPriceList($price_list);
+
+			}
+
 			\dash\data::defaultNDS1(\lib\app\nic_usersetting\defaultval::ns1(\dash\data::myDomain()));
 			\dash\data::defaultNDS2(\lib\app\nic_usersetting\defaultval::ns2(\dash\data::myDomain()));
 

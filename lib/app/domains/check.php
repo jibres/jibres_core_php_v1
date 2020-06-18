@@ -85,10 +85,8 @@ class check
 		}
 		else
 		{
-			return \lib\app\onlinenic\check::check($_domain);
+			return \lib\app\onlinenic\check::check($_domain, 'register');
 		}
-
-
 	}
 
 

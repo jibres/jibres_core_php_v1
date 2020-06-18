@@ -25,16 +25,10 @@
 
             <div>
               <select name="period" class="select22">
-                <option value="1" <?php if(\dash\data::userSetting_autorenewperiod() === '1year') { echo 'selected';} ?>><?php echo T_("1 Year") ?></option>
-                <option value="2" <?php if(\dash\data::userSetting_autorenewperiod() === '2year') { echo 'selected';} ?>><?php echo T_("2 Year") ?></option>
-                <option value="3" <?php if(\dash\data::userSetting_autorenewperiod() === '3year') { echo 'selected';} ?>><?php echo T_("3 Year") ?></option>
-                <option value="4" <?php if(\dash\data::userSetting_autorenewperiod() === '4year') { echo 'selected';} ?>><?php echo T_("4 Year") ?></option>
-                <option value="5" <?php if(\dash\data::userSetting_autorenewperiod() === '5year') { echo 'selected';} ?>><?php echo T_("5 Year") ?></option>
-                <option value="6" <?php if(\dash\data::userSetting_autorenewperiod() === '6year') { echo 'selected';} ?>><?php echo T_("6 Year") ?></option>
-                <option value="7" <?php if(\dash\data::userSetting_autorenewperiod() === '7year') { echo 'selected';} ?>><?php echo T_("7 Year") ?></option>
-                <option value="8" <?php if(\dash\data::userSetting_autorenewperiod() === '8year') { echo 'selected';} ?>><?php echo T_("8 Year") ?></option>
-                <option value="9" <?php if(\dash\data::userSetting_autorenewperiod() === '9year') { echo 'selected';} ?>><?php echo T_("9 Year") ?></option>
-                <option value="10" <?php if(\dash\data::userSetting_autorenewperiod() === '10year') { echo 'selected';} ?>><?php echo T_("10 Year") ?></option>
+                <?php foreach (\dash\data::internationalPriceList() as $key => $value) {?>
+                  <?php var_dump($value) ?>
+                  <option value="<?php echo \dash\get::index($value, 'period') ?>"><?php echo \dash\get::index($value, 'title'). ' ('. \dash\fit::number(\dash\get::index($value, 'price')). ' '. T_("Toman"). ')'; ?> </option>
+                <?php } //endfor ?>
               </select>
             </div>
 
