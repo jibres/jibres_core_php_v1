@@ -14,7 +14,7 @@ class pwa_menu
 					break;
 
 				case 'a':
-					return self::store();
+					return self::business();
 					break;
 
 				default:
@@ -42,11 +42,11 @@ class pwa_menu
 				'icon' => 'comments',
 				'title' => T_('Messages'),
 			],
-			'store' =>
+			'business' =>
 			[
-				'href' => \dash\url::kingdom(). '/my/store',
+				'href' => \dash\url::kingdom(). '/my/business',
 				'icon' => 'money',
-				'title' => T_('Store'),
+				'title' => T_('Business'),
 			],
 			'support' =>
 			[
@@ -81,9 +81,9 @@ class pwa_menu
 				break;
 
 			case 'my':
-				if(\dash\url::module() === 'store')
+				if(\dash\url::module() === 'business')
 				{
-					$myFooter['store']['selected'] = true;
+					$myFooter['business']['selected'] = true;
 				}
 				else
 				{
@@ -100,7 +100,7 @@ class pwa_menu
 	}
 
 
-	public static function store()
+	public static function business()
 	{
 		$myFooter =
 		[
