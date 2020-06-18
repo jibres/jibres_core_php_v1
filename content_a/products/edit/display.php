@@ -4,7 +4,7 @@ $productDataRow = \dash\data::productDataRow();
 ?>
 
 
-<form class="jPage f" method="post" autocomplete="off" data-refresh data-autoScroll="#productGallery">
+<form class="jPage f" method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
 
 
    <button class="hide"  name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
@@ -273,7 +273,7 @@ $productDataRow = \dash\data::productDataRow();
         <div class="w150">
           <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
           <div>
-            <a data-ajaxify data-method='post' data-refresh data-autoScroll=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
+            <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
           </div>
         </div>
       </div>
@@ -290,8 +290,8 @@ $productDataRow = \dash\data::productDataRow();
           <div class="w150">
             <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
             <div>
-              <a data-ajaxify data-method='post' data-refresh data-autoScroll=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
-              <a data-ajaxify data-method='post' data-refresh data-autoScroll=".jboxGallery" data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
+              <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
+              <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
             </div>
           </div>
         </div>
