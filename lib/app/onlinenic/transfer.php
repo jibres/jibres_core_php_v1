@@ -262,6 +262,7 @@ class transfer
 			$domain_action_detail =
 			[
 				'domain_id' => $domain_id,
+				'pin' => $data['pin'],
 			];
 
 			\lib\app\nic_domainaction\action::set('domain_transfer_ready', $domain_action_detail);
