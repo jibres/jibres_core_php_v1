@@ -12,7 +12,7 @@ class view
 			'theme' => 'Jibres',
 			'title' => T_('Jibres'),
 			'desc'  => T_('Sell and Enjoy'),
-			'meta'  => 'Powered by Ermile',
+			'meta'  => T_('Powered by Jibres'),
 			'sleep' => 3000,
 
 			'bg' =>
