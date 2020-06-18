@@ -75,8 +75,6 @@ class price
 
 		$my_pirce = $my_pirce * self::dollar();
 
-		$my_pirce = ceil($my_pirce);
-
 		$my_pirce = round($my_pirce, -3);
 
 		return $my_pirce;
