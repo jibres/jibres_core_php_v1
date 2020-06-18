@@ -193,6 +193,24 @@ class transfer
 
 				$create_new_contact =
 				[
+					'fullname' => $data['fullname'],
+					'company'  => $data['org'],
+					'country'  => $data['country'],
+					'province' => $data['province'],
+					'city'     => $data['city'],
+					'address'  => $data['address'],
+					'postcode' => $data['postcode'],
+					'phone'    => $data['phone'],
+					'phonecc'  => $data['phonecc'],
+					'fax'      => $data['fax'],
+					'faxcc'    => $data['faxcc'],
+					'email'    => $data['email'],
+				];
+
+				\lib\app\nic_usersetting\set::set($create_new_contact);
+
+				$create_new_contact =
+				[
 					'ext'        => $tld,
 					'name'       => $data['fullname'],
 					'org'        => $data['org'],
