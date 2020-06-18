@@ -126,3 +126,22 @@
   <?php } //endif ?>
 </section>
 
+
+
+
+<section class="f" data-option='default-com-handle'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Whois Default Detail");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can set your information Whois. Buy set default you can buy new domains faster.");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+          <a href="<?php echo \dash\url::this(). '/whoisdetail' ?>" class="btn primary w200"><?php echo T_("Manage Whois Detail"); ?></a>
+    </div>
+  </form>
+</section>
+

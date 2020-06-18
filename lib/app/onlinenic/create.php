@@ -43,9 +43,9 @@ class create
 			'city'                 => 'enstring_60',
 			'address'              => 'enstring_60',
 			'postcode'             => 'postcode',
-			'phone'                => 'mobile',
+			'phone'                => 'number',
+			'fax'                  => 'number',
 			'email'                => 'email',
-			'fax'                  => 'phone',
 
 		];
 
@@ -241,8 +241,8 @@ class create
 					'city'       => $data['city'],
 					'street'     => $data['address'],
 					'postalcode' => $data['postcode'],
-					'voice'      => '+1.4195764099',
-					'fax'        => '+1.'. $data['fax'],
+					'voice'      => '+'. $data['phone'],
+					'fax'        => '+'. $data['fax'],
 					'email'      => $data['email'],
 				];
 
@@ -421,7 +421,7 @@ class create
 
 		$ready =
 		[
-			'domain'     => $domain_id,
+			'domain'     => $domain,
 			'period'     => $period,
 			'dns1'       => $ns1,
 			'dns2'       => $ns2,

@@ -53,9 +53,11 @@ class model
 			'city'         => \dash\request::post('city'),
 			'address'      => \dash\request::post('address'),
 			'postcode'     => \dash\request::post('postcode'),
-			'phone'        => \dash\request::post('phone'),
+
+			'phone'        => \dash\request::post('phonecc') . '.'. \dash\request::post('phone'),
+			'fax'          => \dash\request::post('faxcc') . '.'. \dash\request::post('fax'),
+
 			'email'        => \dash\request::post('email'),
-			'fax'          => \dash\request::post('fax'),
 			'whoistype'    => \dash\request::post('whoistype'),
 
 		];

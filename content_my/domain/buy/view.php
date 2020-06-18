@@ -61,6 +61,7 @@ class view
 
 		if(\dash\data::haveBuyDomain())
 		{
+			\dash\data::userSettingDataRow(\lib\app\nic_usersetting\get::get());
 			\dash\data::defaultNDS1(\lib\app\nic_usersetting\defaultval::ns1());
 			\dash\data::defaultNDS2(\lib\app\nic_usersetting\defaultval::ns2());
 
