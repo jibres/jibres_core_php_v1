@@ -11,9 +11,10 @@ class api
 	private static function run($_path, $_body = null)
 	{
 
-		$user     = 10578;
-		$password = 654123;
-		$apikey   = 'v}k5s(`ipc$G~koH';
+		$user     = \dash\setting\onlinenic::user();
+		$password = \dash\setting\onlinenic::password();
+		$apikey   = \dash\setting\onlinenic::apikey();
+
 		$time     = time();
 
 		$token    = $user. md5($password). $time. $_path;
