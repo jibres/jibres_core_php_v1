@@ -36,20 +36,20 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 responsive mB0">
+      <table class="tbl1 v4 mB0">
         <tr>
-          <th><?php echo T_("Username"); ?></th>
+          <th class="s0"><?php echo T_("Username"); ?></th>
           <td><?php echo \dash\data::dataRow_username(); ?></td>
           <td class="collapsing txtRa"><a href="<?php echo \dash\url::this(); ?>/username" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
         <tr>
-          <th><?php echo T_("Mobile"); ?></th>
+          <th class="s0"><?php echo T_("Mobile"); ?></th>
           <td><?php echo \dash\fit::text(\dash\data::dataRow_mobile()); ?></td>
           <td></td>
         </tr>
 
          <tr>
-          <th><?php echo T_("Email"); ?></th>
+          <th class="s0"><?php echo T_("Email"); ?></th>
           <td><?php echo \dash\data::dataRow_email(); ?></td>
           <td class="collapsing txtRa"><a href="<?php echo \dash\url::this(); ?>/email" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
@@ -57,7 +57,7 @@ else
         <?php if(\dash\data::dataRow_permission()) {?>
 
         <tr>
-          <th><?php echo T_("Permission"); ?></th>
+          <th class="s0"><?php echo T_("Permission"); ?></th>
           <td><?php echo \dash\data::permName(); ?></td>
           <td class="collapsing txtRa"></td>
         </tr>
@@ -84,12 +84,12 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 responsive mB0">
+      <table class="tbl1 v4 mB0">
         <tr>
           <th><?php echo T_("Avatar"); ?></th>
           <td>
             <div class="f align-center">
-              <div class="c"><?php echo T_("A photo helps personalize your account"); ?></div>
+              <div class="c s0"><?php echo T_("A photo helps personalize your account"); ?></div>
               <div class="cauto"><img src="<?php echo \dash\data::dataRow_avatar(); ?>" alt='<?php echo T_("Avatar"); ?>' class="avatar fs25 floatRa"></div>
             </div>
           </td>
@@ -149,7 +149,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 responsive mB0">
+      <table class="tbl1 v4 mB0">
         <tr>
           <th><?php echo T_("Website"); ?></th>
           <td><?php echo \dash\data::dataRow_website(); ?></td>
