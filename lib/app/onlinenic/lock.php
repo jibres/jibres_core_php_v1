@@ -80,11 +80,10 @@ class lock
 			return true;
 		}
 
-		\dash\notif::error(T_("Not ready"));
-		return;
 
-		$result = \lib\nic\exec\domain_lock::lock($_domain);
-		if($result)
+		$result = \lib\onlinenic\api::lock($_domain);
+
+		if(isset($result['code']) && $result['code'] == 1000)
 		{
 			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 1], $load_domain['id']);
 
@@ -94,7 +93,6 @@ class lock
 			];
 
 			\lib\app\nic_domainaction\action::set('domain_lock', $domain_action_detail);
-
 
 			\dash\notif::ok(T_("Domain is locked"));
 			return true;
@@ -186,8 +184,10 @@ class lock
 			return true;
 		}
 
-		$result = \lib\nic\exec\domain_lock::unlock($_domain);
-		if($result)
+
+		$result = \lib\onlinenic\api::unlock($_domain);
+
+		if(isset($result['code']) && $result['code'] == 1000)
 		{
 			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 0], $load_domain['id']);
 
@@ -200,6 +200,19 @@ class lock
 
 
 			\dash\notif::ok(T_("Domain is unlocked"));
+
+
+			$result_auth_code = \lib\onlinenic\api::get_auth_code($_domain);
+			if(isset($result_auth_code['data']['Transfercode']))
+			{
+				\dash\notif::info("Transfercode: ". $result_auth_code['data']['Transfercode']);
+			}
+			else
+			{
+				\dash\notif::warn(T_("Can not get domain tranfer code"));
+			}
+
+
 			return true;
 
 		}

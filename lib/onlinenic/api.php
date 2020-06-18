@@ -168,6 +168,37 @@ class api
 		return $result;
 	}
 
+	public static function lock($_domain)
+	{
+		$args           = [];
+		$args['domain'] = $_domain;
+		$args['ctp']    = 'Y';
+		$result = self::run('updateDomainStatus', $args);
+		return $result;
+	}
+
+
+	public static function unlock($_domain)
+	{
+		$args           = [];
+		$args['domain'] = $_domain;
+		$args['ctp']    = 'N';
+		$result = self::run('updateDomainStatus', $args);
+		return $result;
+	}
+
+
+
+	public static function get_auth_code($_domain)
+	{
+		$args           = [];
+		$args['domain'] = $_domain;
+		$result = self::run('getAuthCode', $args);
+		return $result;
+	}
+
+
+
 
 
 }
