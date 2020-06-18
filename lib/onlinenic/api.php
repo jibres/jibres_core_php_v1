@@ -144,7 +144,7 @@ class api
 	private static function never_run_this_function_just_for_T_()
 	{
 		$msg = T_("Operation failed.The domain does not exist or does not belong to you.");
-
+		$msg = T_("Failed to update domain status.clientTransferProhibited status not found");
 	}
 
 

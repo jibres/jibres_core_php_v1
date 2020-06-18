@@ -56,6 +56,7 @@ class check
 			'com',
 			'net',
 			'org',
+			'xyz',
 		];
 
 		foreach ($check_tld as  $tld)
