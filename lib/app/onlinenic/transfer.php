@@ -344,7 +344,7 @@ class transfer
 				// go to bank
 				$meta =
 				[
-					'msg_go'        => T_("Transfer :domain For :year", ['domain' => $domain, 'year' => \dash\fit::number($period)]),
+					'msg_go'        => T_("Transfer :domain", ['domain' => $domain, 'year' => \dash\fit::number($period)]),
 					'auto_go'       => false,
 					'auto_back'     => false,
 					'final_msg'     => true,
