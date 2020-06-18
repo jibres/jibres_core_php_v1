@@ -16,10 +16,9 @@ class model
 			}
 			else
 			{
-				$result = \lib\app\nic_domain\lock::lock(\dash\data::myDomain());
+				$result = \lib\app\domains\lock::lock(\dash\data::myDomain());
 			}
 
-			$result = \lib\app\nic_domain\lock::lock(\dash\data::myDomain());
 
 			if(\dash\engine\process::status())
 			{
@@ -36,7 +35,7 @@ class model
 			}
 			else
 			{
-				$result = \lib\app\nic_domain\lock::unlock(\dash\data::myDomain());
+				$result = \lib\app\domains\lock::unlock(\dash\data::myDomain());
 			}
 
 
