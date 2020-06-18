@@ -206,6 +206,15 @@ class lock
 			if(isset($result_auth_code['data']['Transfercode']))
 			{
 				\dash\notif::info("Transfercode: ". $result_auth_code['data']['Transfercode']);
+
+				$domain_action_detail =
+				[
+					'domain_id' => $load_domain['id'],
+					'detail'    => $result_auth_code['data']['Transfercode'],
+				];
+
+				\lib\app\nic_domainaction\action::set('domain_unlock_transfer_code', $domain_action_detail);
+
 			}
 			else
 			{
