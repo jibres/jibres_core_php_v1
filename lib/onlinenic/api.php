@@ -124,10 +124,28 @@ class api
 
 		\lib\db\onlinenic_log\insert::new_record($insert_log);
 
+		if(isset($result['msg']) && isset($result['code']) && intval($result['code']) !== 1000)
+		{
+			self::make_error($result['code'], $result['msg']);
+		}
+
+
 		return $result;
 
 	}
 
+
+	private static function make_error($_code, $_msg)
+	{
+		\dash\notif::error(T_($_msg), ['code' => $_code]);
+	}
+
+
+	private static function never_run_this_function_just_for_T_()
+	{
+		$msg = T_("Operation failed.The domain does not exist or does not belong to you.");
+
+	}
 
 
 
@@ -178,9 +196,11 @@ class api
 	}
 
 
-	public static function info_domain($_args)
+	public static function info_domain($_domain)
 	{
-		$result = self::run('infoDomain', $_args);
+		$args           = [];
+		$args['domain'] = $_domain;
+		$result = self::run('infoDomain', $args);
 		return $result;
 	}
 

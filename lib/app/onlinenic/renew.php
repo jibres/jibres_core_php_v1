@@ -98,65 +98,45 @@ class renew
 			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
 		}
 
-		// $get_domain_info = \lib\app\nic_domain\check::info($domain);
+		$get_domain_info = \lib\onlinenic\api::info_domain($domain);
 
-		// if(!isset($get_domain_info['exDate']))
-		// {
-		// 	// \dash\notif::error(T_("Domain is not exists"));
-		// 	return false;
-		// }
+		if(!isset($get_domain_info['data']['expdate']))
+		{
+			// \dash\notif::error(T_("Domain is not exists"));
+			return false;
+		}
 
-		// if(isset($get_domain_info['status']) && is_array($get_domain_info['status']))
-		// {
-		// 	if(in_array('pendingRenew', $get_domain_info['status']))
-		// 	{
-		// 		$msg = T_("Domain is pending to renew");
-		// 		$msg .= '<br>';
-		// 		$msg .= T_("Can not renew again at this time!");
+		\lib\db\nic_domain\update::update(['available' => 0], $domain_id);
 
-		// 		\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
-		// 		return false;
-		// 	}
+		$current_expiredate = date("Y-m-d", strtotime($get_domain_info['data']['expdate']));
 
-		// 	if(in_array('serverRenewProhibited', $get_domain_info['status']))
-		// 	{
-		// 		$msg = T_("Can not renew again at this time!");
-		// 		\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
-		// 		return false;
-		// 	}
-		// }
+		$current_date_expire      = $get_domain_info['data']['expdate'];
 
-		// \lib\db\nic_domain\update::update(['available' => 0], $domain_id);
+		$current_date_expire_time = strtotime($current_date_expire);
 
-		// $current_expiredate = date("Y-m-d", strtotime($get_domain_info['exDate']));
+		$new_date_expire          = ($period * 365*24*60*60);
 
-		// $current_date_expire      = $get_domain_info['exDate'];
+		$new_date_expire          = $current_date_expire_time + $new_date_expire;
 
-		// $current_date_expire_time = strtotime($current_date_expire);
+		$expiredate               = date("Y-m-d", $new_date_expire);
 
-		// $new_date_expire          = ($period * 30*24*60*60);
+		$year_9 = time() + (60*60*24*365*9);
 
-		// $new_date_expire          = $current_date_expire_time + $new_date_expire;
+		if($new_date_expire >= $year_9)
+		{
+			$msg = T_("The domain expire time is :date", ['date' => \dash\fit::date($current_expiredate)]);
+			$msg .= '<br>';
+			$msg .= T_("You try to renew this domain for :val years", ['val' => \dash\fit::number($period)]);
+			$msg .= '<br>';
+			$msg .= T_("Because the maximum validity period of the domain is 9 years, and depending on the period you choose and the expiration date of the domain, your domain will be more than 9 years, and this is not possible.");
+			$msg .= '<br>';
+			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
 
-		// $expiredate               = date("Y-m-d", $new_date_expire);
-
-		// $year_6 = time() + (60*60*24*365*6);
-
-		// if($new_date_expire >= $year_6)
-		// {
-		// 	$msg = T_("The domain expire time is :date", ['date' => \dash\fit::date($current_expiredate)]);
-		// 	$msg .= '<br>';
-		// 	$msg .= T_("You try to renew this domain for :val years", ['val' => \dash\fit::number(substr($period, 0, 1))]);
-		// 	$msg .= '<br>';
-		// 	$msg .= T_("Because the maximum validity period of the domain is six years, and depending on the period you choose and the expiration date of the domain, your domain will be more than six years, and this is not possible.");
-		// 	$msg .= '<br>';
-		// 	$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
-
-		// 	\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 
-		// 	return false;
-		// }
+			return false;
+		}
 
 
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
