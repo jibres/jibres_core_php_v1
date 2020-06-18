@@ -37,7 +37,7 @@ class set
 			'company'         => 'string_100',
 			'category'        => 'string_100',
 			'email'           => 'email',
-			'country'         => 'enstring_20',
+			'country'         => ['enum' => ['AU','AF','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','BT','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CK','CR','HR','CY','CZ','DK','DJ','DM','DO','TP','EC','EG','SV','GQ','EE','ET','FK','FO','FJ','FI','SU','FX','FR','TF','GA','GM','GE','DE','GH','GI','GB','GR','GL','GD','GP','GU','GT','GW','GN','GF','GY','HT','HM','HN','HK','HU','IS','IN','ID','IQ','IE','IL','IT','CI','JM','JP','JO','JF','KZ','KE','KG','KI','KR','KW','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','AN','NL','NC','NZ','NI','NE','NG','NU','NF','MP','NO','EM','OM','PK','PW','PA','PG','PY','PE','PH','PN','PL','PF','PT','ZN','PR','QA','RE','RO','RU','RW','GS','LC','WS','SM','SA','SN','SC','SL','SG','SK','SI','SB','SO','ZA','ES','LK','SH','PM','ST','KN','VC','RS','SR','SJ','SZ','SE','CH','TJ','TW','TZ','TH','TG','TK','TO','TT','TN','TR','TM','TC','TV','UM','UG','UA','AE','US','UY','UZ','VU','VA','VE','VN','VG','VI','WF','EH','YE','YU','ZM','ZW','ZR',]],
 			'province'        => 'enstring_50',
 			'city'            => 'enstring_50',
 			'postcode'        => 'enstring_20',

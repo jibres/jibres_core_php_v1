@@ -17,15 +17,38 @@ class defaultval
 	}
 
 
-	public static function ns1()
+	public static function ns1($_domain = null)
 	{
-		return 'w.ns.arvancdn.com';
+		if($_domain && \dash\validate::ir_domain($_domain, false))
+		{
+			return 'w.ns.arvancdn.com';
+		}
+		elseif($_domain)
+		{
+			return 'mark.ns.cloudflare.com';
+		}
+		else
+		{
+			return 'w.ns.arvancdn.com';
+		}
+
 	}
 
 
-	public static function ns2()
+	public static function ns2($_domain = null)
 	{
-		return 'f.ns.arvancdn.com';
+		if($_domain && \dash\validate::ir_domain($_domain, false))
+		{
+			return 'f.ns.arvancdn.com';
+		}
+		elseif($_domain)
+		{
+			return 'wanda.ns.cloudflare.com';
+		}
+		else
+		{
+			return 'f.ns.arvancdn.com';
+		}
 	}
 
 

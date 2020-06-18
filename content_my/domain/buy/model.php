@@ -29,19 +29,19 @@ class model
 
 		$post =
 		[
-			'domain'      => \dash\data::myDomain(),
-			'nic_id'      => \dash\request::post('irnicid'),
-			'period'      => \dash\request::post('period'),
-			'irnic_new'   => \dash\request::post('irnicid-new'),
-			'irnic_admin' => \dash\request::post('irnic_admin'),
-			'irnic_tech'  => \dash\request::post('irnic_tech'),
-			'irnic_bill'  => \dash\request::post('irnic_bill'),
-			'ns1'         => \dash\request::post('ns1'),
-			'ns2'         => \dash\request::post('ns2'),
-			'ns3'         => \dash\request::post('ns3'),
-			'ns4'         => \dash\request::post('ns4'),
-			'dnsid'       => \dash\request::post('dnsid'),
-			'agree'       => \dash\request::post('agree'),
+			'domain'       => \dash\data::myDomain(),
+			'nic_id'       => \dash\request::post('irnicid'),
+			'period'       => \dash\request::post('period'),
+			'irnic_new'    => \dash\request::post('irnicid-new'),
+			'irnic_admin'  => \dash\request::post('irnic_admin'),
+			'irnic_tech'   => \dash\request::post('irnic_tech'),
+			'irnic_bill'   => \dash\request::post('irnic_bill'),
+			'ns1'          => \dash\request::post('ns1'),
+			'ns2'          => \dash\request::post('ns2'),
+			'ns3'          => \dash\request::post('ns3'),
+			'ns4'          => \dash\request::post('ns4'),
+			'dnsid'        => \dash\request::post('dnsid'),
+			'agree'        => \dash\request::post('agree'),
 
 
 			// .com request
@@ -54,8 +54,10 @@ class model
 			'address'      => \dash\request::post('address'),
 			'postcode'     => \dash\request::post('postcode'),
 
-			'phone'        => \dash\request::post('phonecc') . '.'. \dash\request::post('phone'),
-			'fax'          => \dash\request::post('faxcc') . '.'. \dash\request::post('fax'),
+			'phonecc'      => \dash\request::post('phonecc'),
+			'phone'        => \dash\request::post('phone'),
+			'faxcc'        => \dash\request::post('faxcc'),
+			'fax'          => \dash\request::post('fax'),
 
 			'email'        => \dash\request::post('email'),
 			'whoistype'    => \dash\request::post('whoistype'),

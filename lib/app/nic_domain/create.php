@@ -46,6 +46,8 @@ class create
 			'phone'                => 'bit',
 			'email'                => 'bit',
 			'fax'                  => 'bit',
+			'phonecc'              => 'bit',
+			'faxcc'                => 'bit',
 
 		];
 

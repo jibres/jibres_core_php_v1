@@ -46,6 +46,8 @@ class create
 			'phone'                => 'number',
 			'fax'                  => 'number',
 			'email'                => 'email',
+			'phonecc'              => 'intstring_3',
+			'faxcc'                => 'intstring_3',
 
 		];
 
@@ -63,6 +65,8 @@ class create
 			array_push($require, 'phone');
 			array_push($require, 'email');
 			array_push($require, 'fax');
+			array_push($require, 'phonecc');
+			array_push($require, 'faxcc');
 		}
 
 
@@ -108,12 +112,12 @@ class create
 
 		if(!$ns1)
 		{
-			$ns1 = \lib\app\nic_usersetting\defaultval::ns1();
+			$ns1 = \lib\app\nic_usersetting\defaultval::ns1($domain);
 		}
 
 		if(!$ns2)
 		{
-			$ns2 = \lib\app\nic_usersetting\defaultval::ns2();
+			$ns2 = \lib\app\nic_usersetting\defaultval::ns2($domain);
 		}
 
 
@@ -241,8 +245,8 @@ class create
 					'city'       => $data['city'],
 					'street'     => $data['address'],
 					'postalcode' => $data['postcode'],
-					'voice'      => '+'. $data['phone'],
-					'fax'        => '+'. $data['fax'],
+					'voice'      => '+'. $data['phonecc'] . '.'. $data['phone'],
+					'fax'        => '+'. $data['faxcc'] . '.'. $data['fax'],
 					'email'      => $data['email'],
 				];
 
@@ -540,8 +544,6 @@ class create
 
 			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
-			// fetch nic credit after register domain
-			\lib\app\nic_credit\get::fetch();
 
 			return true;
 
