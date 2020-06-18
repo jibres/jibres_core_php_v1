@@ -24,7 +24,7 @@
 <div class="mB10">
 	<label for='country'>Country</label>
 	<select class="select22 ltr" name="country" id="country" >
-		<option value="0"><?php echo T_("Choose your country"); ?></option>
+		<option value=""><?php echo T_("Choose your country"); ?></option>
 		<option value="AU"<?php if(\dash\data::userSettingDataRow_country() == 'AU') { echo ' selected '; } ?>>Australia</option>
 		<option value="AF"<?php if(\dash\data::userSettingDataRow_country() == 'AF') { echo ' selected '; } ?>>Afghanistan</option>
 		<option value="AL"<?php if(\dash\data::userSettingDataRow_country() == 'AL') { echo ' selected '; } ?>>Albania</option>
