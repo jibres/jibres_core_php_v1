@@ -13,15 +13,21 @@ class controller
 			\dash\header::status(404, T_("Invalid url"));
 		}
 
-		\dash\open::get();
-		\dash\open::post();
-
-		$domain = \dash\url::subchild();
+		$domain = \dash\request::get('domain');
 		$domain = urldecode($domain);
 		if($domain)
 		{
-			\dash\data::myDomain($domain);
+			if(\dash\validate::domain($domain))
+			{
+				if(!\dash\validate::ir_domain($domain, false))
+				{
+					\dash\data::internationalDomain(true);
+				}
+
+				\dash\data::myDomain($domain);
+			}
 		}
+
 	}
 }
 ?>

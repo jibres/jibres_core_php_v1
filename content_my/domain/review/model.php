@@ -45,7 +45,7 @@ class model
 		}
 		else
 		{
-			$result = \lib\app\nic_domain\renew::renew($post);
+			$result = \lib\app\domains\renew::renew($post);
 		}
 
 		if(\dash\engine\process::status())

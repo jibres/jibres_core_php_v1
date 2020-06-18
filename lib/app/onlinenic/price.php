@@ -43,7 +43,7 @@ class price
 		$split = explode('.', $_domain);
 		$tld   = end($split);
 
-		if($period === null)
+		if($_period === null)
 		{
 			var_dump($info);exit();
 		}
