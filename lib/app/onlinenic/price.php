@@ -45,17 +45,17 @@ class price
 
 		if($_period === null)
 		{
-			var_dump($info);exit();
+			$_period = 0;
 		}
-		else
+
+		if(!isset($info['prices'][$_period]))
 		{
-			if(!isset($info['prices'][$_period]))
-			{
-				\dash\notif::error(T_("This period of domain have not price!"));
-				return false;
-			}
-			$my_pirce = floatval($info['prices'][$_period]);
+			\dash\notif::error(T_("This period of domain have not price!"));
+			return false;
 		}
+
+		$my_pirce = floatval($info['prices'][$_period]);
+
 
 		return self::toman_price($my_pirce, $tld);
 	}

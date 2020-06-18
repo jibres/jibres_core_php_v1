@@ -11,6 +11,10 @@ class transfer
 			'domain'    => 'domain',
 			'whoistype' => ['enum' => ['jibreswhoisgard', 'customizedetail']],
 			'pin'       => 'string',
+			'nic_id' => 'bit',
+			'irnic_new' => 'bit',
+			'agree' => 'bit',
+			'nationalcode' => 'bit',
 			// .com request // only set this parametr on validate to have not error in cleans
 			'fullname'  => 'enstring_60',
 			'org'       => 'enstring_60',
@@ -24,6 +28,17 @@ class transfer
 			'email'     => 'email',
 			'phonecc'   => 'intstring_3',
 			'faxcc'     => 'intstring_3',
+
+			'register_now'      => 'bit',
+			'gift'              => 'string_100',
+			'usebudget'         => 'bit',
+			'discount'          => 'price',
+			'pay_amount_bank'   => 'price',
+			'pay_amount_budget' => 'price',
+			'minus_transaction' => 'price',
+			'after_pay'         => 'bit',
+			'user_id'           => 'id',
+
 
 		];
 
@@ -120,11 +135,6 @@ class transfer
 				'lock'         => null,
 				'available'    => 0,
 
-				'ns1'          => $ns1,
-				'ns2'          => $ns2,
-				'ns3'          => $ns3,
-				'ns4'          => $ns4,
-
 			];
 
 			\lib\db\nic_domain\update::update($update_domain_record, $domain_id);
@@ -142,10 +152,6 @@ class transfer
 				'lock'         => null,
 				'available'    => 0,
 
-				'ns1'          => $ns1,
-				'ns2'          => $ns2,
-				'ns3'          => $ns3,
-				'ns4'          => $ns4,
 				// 'dns'       => $dnsid,
 
 				'dateregister' => null,
@@ -238,7 +244,6 @@ class transfer
 			$domain_action_detail =
 			[
 				'domain_id' => $domain_id,
-				'period'    => $period,
 			];
 
 			\lib\app\nic_domainaction\action::set('domain_transfer_ready', $domain_action_detail);

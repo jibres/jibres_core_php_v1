@@ -41,6 +41,7 @@ class controller
 		{
 			\dash\data::MustSetReseller(true);
 		}
+
 		switch (\dash\request::get('type'))
 		{
 			case 'register':
@@ -56,6 +57,18 @@ class controller
 
 			case 'renew':
 				if(isset($load_last_activity['action']) && $load_last_activity['action'] === 'domain_renew_ready')
+				{
+					// no problem
+				}
+				else
+				{
+					self::have_error();
+				}
+
+				break;
+
+			case 'transfer':
+				if(isset($load_last_activity['action']) && $load_last_activity['action'] === 'domain_transfer_ready')
 				{
 					// no problem
 				}
@@ -143,6 +156,12 @@ class controller
 
 				\dash\data::myPrice($myPrice);
 				\dash\data::myPeriod($load_last_activity['period']);
+			}
+			else
+			{
+				$myPrice = \lib\app\onlinenic\price::get_price($domain, null, \dash\request::get('type'));
+
+				\dash\data::myPrice($myPrice);
 			}
 
 

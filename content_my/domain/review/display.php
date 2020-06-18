@@ -13,6 +13,7 @@
      <div class="val ltr"><?php echo \dash\data::dataRow_name(); ?></div>
     </div>
 
+    <?php if(\dash\data::myPeriodTitle()) {?>
     <nav class="items">
      <ul>
       <li>
@@ -24,6 +25,7 @@
       </li>
      </ul>
     </nav>
+  <?php } //endif ?>
 
 <?php if (\dash\request::get('type') === 'register'): ?>
 

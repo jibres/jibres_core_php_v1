@@ -47,6 +47,12 @@ class view
 				\dash\data::buttonTitle(T_("Renew domain"));
 				break;
 
+			case 'transfer':
+				\dash\data::myActionTitle(T_("Transfer domain"));
+				\dash\data::backUrl(\dash\url::this(). '/transfer?domain='. \dash\data::dataRow_name());
+				\dash\data::buttonTitle(T_("Transfer domain"));
+				break;
+
 			default:
 				# code...
 				break;

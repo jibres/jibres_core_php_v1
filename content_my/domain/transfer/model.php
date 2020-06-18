@@ -46,6 +46,11 @@ class model
 			$result = \lib\app\domains\transfer::transfer($post);
 		}
 
+		if(\dash\engine\process::status() && isset($result['domain_id']))
+		{
+			\dash\redirect::to(\dash\url::this(). '/review?type=transfer&id='. $result['domain_id']);
+		}
+
 
 
 		if(\dash\engine\process::status())
