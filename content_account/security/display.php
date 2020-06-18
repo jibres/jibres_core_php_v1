@@ -29,7 +29,7 @@ else
           <div class="c">
             <h3><?php echo T_("Signing in to"); ?> <?php echo \dash\face::site(); ?></h3>
           </div>
-          <div class="cauto os">
+          <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/security-signin.png" alt='<?php echo T_("Signing to account"); ?>'>
           </div>
         </div>
@@ -68,7 +68,7 @@ else
             <h3><?php echo T_("Ways we can verify it's you"); ?></h3>
             <p><?php echo T_("These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account"); ?></p>
           </div>
-          <div class="cauto os">
+          <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/security-recovery.png" alt='<?php echo T_("Recovery Account"); ?>'>
           </div>
         </div>
@@ -100,7 +100,7 @@ else
             <p><?php echo T_("All of your history about signing in to you account is here and you can check them."); ?> <?php echo T_("If there’s a device you don’t recognize, someone else may have your password."); ?> <?php echo T_("Change your password to protect your Account."); ?></p>
             <a href="<?php echo \dash\url::this(); ?>/sessions" class="btn primary outline"><?php echo T_("Check all active sessions"); ?> <span class="badge primary"><?php if(is_array(\dash\data::sessionsList())) {echo \dash\fit::number(count(\dash\data::sessionsList()));} ?></span></a>
           </div>
-          <div class="cauto os">
+          <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/privacy-checkup.png" alt='<?php echo T_("Sessions"); ?>'>
           </div>
         </div>
@@ -118,7 +118,7 @@ else
             <h3><?php echo T_("Recent security events"); ?></h3>
             <p><?php echo T_("No activity in the last month."); ?> <?php echo T_("You'll be notified if unusual security activity is detected, like a sign-in from a new device or if a sensitive setting is changed in your account."); ?></p>
           </div>
-          <div class="cauto os">
+          <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/security-event.svg" alt='<?php echo T_("Security Event"); ?>'>
           </div>
         </div>
@@ -139,7 +139,7 @@ else
             <a href="<?php echo \dash\url::here(); ?>/api" class="btn primary outline"><?php echo T_("API key"); ?></a>
             <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn primary outline"><?php echo T_("Application key"); ?></a>
           </div>
-          <div class="cauto os">
+          <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/data-collected.svg" alt='<?php echo T_("Sessions"); ?>'>
           </div>
         </div>

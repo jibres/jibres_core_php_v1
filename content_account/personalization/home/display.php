@@ -36,7 +36,7 @@ else
         </div>
       </div>
     </div>
-    <table class="tbl1 v4 responsive mB0">
+    <table class="tbl1 v4 mB0">
       <tr>
         <th><?php echo T_("Language"); ?></th>
         <td><?php echo \dash\data::LnagName(); ?></td>
