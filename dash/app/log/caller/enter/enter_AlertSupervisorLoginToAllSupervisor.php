@@ -27,8 +27,6 @@ class enter_AlertSupervisorLoginToAllSupervisor
 		$user_id         = isset($_args['data']['my_user_id']) ? $_args['data']['my_user_id'] : null;
 		$displayname         = isset($_args['data']['my_detail']['displayname']) ? $_args['data']['my_detail']['displayname'] : null;
 
-		$msg.= T_("Your are supervisor. This message only send to supervisors");
-		$msg .= "\n";
 
 		// if(floatval($user_id) === floatval(\dash\user::id()))
 		// {
