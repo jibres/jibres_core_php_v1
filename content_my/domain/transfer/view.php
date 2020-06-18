@@ -18,6 +18,8 @@ class view
 		$list = \lib\app\nic_contact\search::my_list();
 		\dash\data::myContactList($list);
 
+		\dash\data::userSettingDataRow(\lib\app\nic_usersetting\get::get());
+
 		\dash\data::myContactList($list);
 		foreach ($list as $key => $value)
 		{

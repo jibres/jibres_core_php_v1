@@ -8,22 +8,18 @@ class controller
 	{
 		\content_my\domain\controller::check_login();
 
-		$domain = \dash\request::get('q');
+		$domain = \dash\request::get('domain');
 		$domain = urldecode($domain);
 		if($domain)
 		{
 			if(\dash\validate::domain($domain))
 			{
-				$check = \lib\app\nic_domain\check::info($domain);
-				if($check)
+				if(!\dash\validate::ir_domain($domain, false))
 				{
-					\dash\data::myDomain($domain);
-					\dash\data::checkResult($check);
+					\dash\data::internationalDomain(true);
 				}
-			}
-			else
-			{
-				\dash\data::domainError(T_("Invalid error syntax"));
+
+				\dash\data::myDomain($domain);
 			}
 		}
 

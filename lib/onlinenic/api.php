@@ -154,6 +154,28 @@ class api
 	}
 
 
+	public static function renew_domain($_args)
+	{
+		$result = self::run('renewDomain', $_args);
+		return $result;
+	}
+
+
+	public static function transfer_domain($_args)
+	{
+		$result = self::run('transferDomain', $_args);
+		return $result;
+	}
+
+
+	public static function info_domain($_args)
+	{
+		$result = self::run('infoDomain', $_args);
+		return $result;
+	}
+
+
+
 
 	public static function create_contact_id($_args)
 	{
@@ -196,6 +218,7 @@ class api
 		$result = self::run('getAuthCode', $args);
 		return $result;
 	}
+
 
 
 

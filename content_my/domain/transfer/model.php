@@ -13,6 +13,27 @@ class model
 			'irnic_new' => \dash\request::post('irnicid-new'),
 			'pin'       => \dash\request::post('pin'),
 			'agree'     => \dash\request::post('agree'),
+
+
+
+			// .com request
+			'fullname'     => \dash\request::post('fullname'),
+			'org'          => \dash\request::post('org'),
+			'nationalcode' => \dash\request::post('nationalcode'),
+			'country'      => \dash\request::post('country'),
+			'province'     => \dash\request::post('province'),
+			'city'         => \dash\request::post('city'),
+			'address'      => \dash\request::post('address'),
+			'postcode'     => \dash\request::post('postcode'),
+
+			'phonecc'      => \dash\request::post('phonecc'),
+			'phone'        => \dash\request::post('phone'),
+			'faxcc'        => \dash\request::post('faxcc'),
+			'fax'          => \dash\request::post('fax'),
+
+			'email'        => \dash\request::post('email'),
+			'whoistype'    => \dash\request::post('whoistype'),
+
 		];
 
 		if(\lib\nic\mode::api())
@@ -22,7 +43,7 @@ class model
 		}
 		else
 		{
-			$result = \lib\app\nic_domain\transfer::transfer($post);
+			$result = \lib\app\domains\transfer::transfer($post);
 		}
 
 

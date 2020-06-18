@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\nic_domain;
+namespace lib\app\onlinenic;
 
 
 class transfer
@@ -8,32 +8,41 @@ class transfer
 	{
 		$condition =
 		[
-			'domain'       => 'ir_domain',
-			'nic_id'       => 'irnic_id',
-			'irnic_new'    => 'irnic_id',
-			'pin'          => 'string',
-			'agree'        => 'bit',
+			'domain'    => 'ir_domain',
+			'nic_id'    => 'bit',
+			'irnic_new' => 'bit',
+			'pin'       => 'string',
+			'agree'     => 'bit',
 
-			'fullname'     => 'bit',
-			'org'          => 'bit',
-			'nationalcode' => 'bit',
-			'country'      => 'bit',
-			'province'     => 'bit',
-			'city'         => 'bit',
-			'address'      => 'bit',
-			'postcode'     => 'bit',
-
-			'phonecc'      => 'bit',
-			'phone'        => 'bit',
-			'faxcc'        => 'bit',
-			'fax'          => 'bit',
-
-			'email'        => 'bit',
-			'whoistype'    => 'bit',
-
+			// .com request // only set this parametr on validate to have not error in cleans
+			'fullname'             => 'enstring_60',
+			'org'                  => 'enstring_60',
+			'country'              => ['enum' => ['AU','AF','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','BT','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CK','CR','HR','CY','CZ','DK','DJ','DM','DO','TP','EC','EG','SV','GQ','EE','ET','FK','FO','FJ','FI','SU','FX','FR','TF','GA','GM','GE','DE','GH','GI','GB','GR','GL','GD','GP','GU','GT','GW','GN','GF','GY','HT','HM','HN','HK','HU','IS','IN','ID','IQ','IE','IL','IT','CI','JM','JP','JO','JF','KZ','KE','KG','KI','KR','KW','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','AN','NL','NC','NZ','NI','NE','NG','NU','NF','MP','NO','EM','OM','PK','PW','PA','PG','PY','PE','PH','PN','PL','PF','PT','ZN','PR','QA','RE','RO','RU','RW','GS','LC','WS','SM','SA','SN','SC','SL','SG','SK','SI','SB','SO','ZA','ES','LK','SH','PM','ST','KN','VC','RS','SR','SJ','SZ','SE','CH','TJ','TW','TZ','TH','TG','TK','TO','TT','TN','TR','TM','TC','TV','UM','UG','UA','AE','US','UY','UZ','VU','VA','VE','VN','VG','VI','WF','EH','YE','YU','ZM','ZW','ZR',]],
+			'province'             => 'enstring_60',
+			'city'                 => 'enstring_60',
+			'address'              => 'enstring_60',
+			'postcode'             => 'postcode',
+			'phone'                => 'number',
+			'fax'                  => 'number',
+			'email'                => 'email',
+			'phonecc'              => 'intstring_3',
+			'faxcc'                => 'intstring_3',
 		];
 
 		$require = ['domain', 'pin'];
+
+		array_push($require, 'fullname');
+		array_push($require, 'org');
+		array_push($require, 'country');
+		array_push($require, 'province');
+		array_push($require, 'city');
+		array_push($require, 'address');
+		array_push($require, 'postcode');
+		array_push($require, 'phone');
+		array_push($require, 'email');
+		array_push($require, 'fax');
+		array_push($require, 'phonecc');
+		array_push($require, 'faxcc');
 
 		$meta =
 		[
@@ -43,22 +52,9 @@ class transfer
 			],
 		];
 
-
-		if(isset($_args['agree']) && $_args['agree'])
-		{
-			// nothing
-		}
-		else
-		{
-			\dash\notif::error(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
-		}
-
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$domain    = $data['domain'];
-		$nic_id    = $data['nic_id'];
-		$irnic_new = $data['irnic_new'];
 		$pin       = $data['pin'];
 
 		$transaction_id = null;
@@ -74,39 +70,81 @@ class transfer
 
 		$get_contac_nic = [];
 
-		if($irnic_new)
+		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+
+
+		if(!isset($check_duplicate_domain['holder']))
 		{
-			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
-			if(!$add_quick_contact)
+
+			$jibreswhoisgard =
+			[
+				'jibreswhoisgardTe1',
+				'jibreswhoisgardTe2',
+				'jibreswhoisgardTe3',
+				'jibreswhoisgardTe4',
+				'jibreswhoisgardTe5',
+			];
+
+			if($data['whoistype'] === 'jibreswhoisgard')
 			{
-				\dash\notif::error(T_("Can not add your IRNIC handle"));
-				return false;
+				$contact_id = 'jibreswhoisgardTe5'; // get random
+			}
+			else
+			{
+				$split = explode('.', $domain);
+				$tld   = end($split);
+
+				$create_new_contact =
+				[
+					'ext'        => $tld,
+					'name'       => $data['fullname'],
+					'org'        => $data['org'],
+					'country'    => $data['country'],
+					'province'   => $data['province'],
+					'city'       => $data['city'],
+					'street'     => $data['address'],
+					'postalcode' => $data['postcode'],
+					'voice'      => '+'. $data['phonecc'] . '.'. $data['phone'],
+					'fax'        => '+'. $data['faxcc'] . '.'. $data['fax'],
+					'email'      => $data['email'],
+				];
+
+
+				$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
+
+				if(isset($contact_id['data']['contactid']))
+				{
+					$contact_id = $contact_id['data']['contactid'];
+				}
+				else
+				{
+					\dash\notif::error(T_("Some detail is wrong!. We can not create your whois detail"));
+					return false;
+				}
+
+				if(!$contact_id)
+				{
+					\dash\notif::error(T_("Can not save your whois detail at this time. Please try later"));
+					return false;
+				}
 			}
 
-			$nic_id = $add_quick_contact;
-			$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
+			\lib\db\nic_domain\update::update(['holder' => $contact_id], $domain_id);
 		}
 		else
 		{
-			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
-			if(!isset($check_nic_id['nic_id']))
-			{
-				\dash\notif::error(T_("IRNIC handle not fount in your list"));
-				return false;
-			}
-
-			$nic_id = $check_nic_id['nic_id'];
-			$get_contac_nic[$nic_id] = $check_nic_id;
+			$contact_id = $check_duplicate_domain['holder'];
 		}
 
+		// // check domain exist and unlock doamin
+		// $get_domain_detail = \lib\onlinenic\api::info_domain($domain);
 
-		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
 
-		if(!isset($get_domain_detail['exDate']))
-		{
-			// \dash\notif::error(T_("Domain is not exists"));
-			return false;
-		}
+		// if(!isset($get_domain_detail['data']['expdate']))
+		// {
+		// 	\dash\notif::error(T_("Domain is not exists"));
+		// 	return false;
+		// }
 
 
 		$price = \lib\app\nic_domain\price::transfer();
@@ -145,7 +183,7 @@ class transfer
 				'turn_back'     => \dash\url::kingdom(). '/my/domain',
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
-				'final_fn'      => ['/lib/app/nic_domain/transfer', 'transfer'],
+				'final_fn'      => ['/lib/app/onlinenic/transfer', 'transfer'],
 				'final_fn_args' => $temp_args,
 			];
 
@@ -189,17 +227,17 @@ class transfer
 
 		$ready =
 		[
-			'nic_id' => $nic_id,
-			'domain' => $domain,
-			'pin'    => $pin,
+			'contactid' => $contact_id,
+			'domain'    => $domain,
+			'password'  => $pin,
 
 		];
 
-		$result = \lib\nic\exec\domain_transfer::transfer($ready);
+		$result = \lib\onlinenic\api::domain_transfer($ready);
 
-		if($result)
+		if(isset($result['code']) && $result['code'] == 1000)
 		{
-			$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+
 
 			\lib\app\domains\detect::domain('transfer', $domain);
 
@@ -332,5 +370,7 @@ class transfer
 		}
 
 	}
+
+
 }
 ?>

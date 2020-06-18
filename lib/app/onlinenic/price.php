@@ -40,17 +40,22 @@ class price
 			return false;
 		}
 
-		if(!isset($info['prices'][$_period]))
-		{
-			\dash\notif::error(T_("This period of domain have not price!"));
-			return false;
-		}
-
 		$split = explode('.', $_domain);
 		$tld   = end($split);
 
-
-		$my_pirce = floatval($info['prices'][$_period]);
+		if($period === null)
+		{
+			var_dump($info);exit();
+		}
+		else
+		{
+			if(!isset($info['prices'][$_period]))
+			{
+				\dash\notif::error(T_("This period of domain have not price!"));
+				return false;
+			}
+			$my_pirce = floatval($info['prices'][$_period]);
+		}
 
 		$my_pirce = $my_pirce + ((self::wage() * $my_pirce) / 100);
 
