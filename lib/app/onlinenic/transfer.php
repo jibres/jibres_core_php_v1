@@ -172,19 +172,9 @@ class transfer
 
 		if(!isset($check_duplicate_domain['holder']))
 		{
-
-			$jibreswhoisgard =
-			[
-				'jibreswhoisgardTe1',
-				'jibreswhoisgardTe2',
-				'jibreswhoisgardTe3',
-				'jibreswhoisgardTe4',
-				'jibreswhoisgardTe5',
-			];
-
 			if($data['whoistype'] === 'jibreswhoisgard')
 			{
-				$contact_id = 'jibreswhoisgardTe5'; // get random
+				$contact_id = \lib\app\onlinenic\gard::get(); // get random
 			}
 			else
 			{
