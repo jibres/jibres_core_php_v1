@@ -179,11 +179,10 @@ $giftCode = \dash\data::giftDetail_discount();
 <?php if($giftCode || \dash\data::userBudget()) {?>
            <tr data-price='<?php echo \dash\data::myPrice(); ?>'>
             <th><?php echo T_("Domain Price") ?></th>
-            <?php if(\dash\data::myPeriod()) {?>
-            <td class="txtRa"><?php echo \lib\app\nic_domain\price::register_string(\dash\data::myPeriod()); ?></td>
-            <?php } else { ?>
-            <td class="txtRa">-</td>
-            <?php } // endif ?>
+
+            <td class="txtRa"><?php echo \dash\fit::number(\dash\data::myPrice()); ?> <?php echo T_("Toman") ?></td>
+
+
            </tr>
 <?php } // endif ?>
 
