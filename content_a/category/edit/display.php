@@ -215,7 +215,7 @@
 
 <?php function htmlProperty($key = null, $value = []) {?>
 
-  <div class="row no-gutters">
+  <div class="row padLess">
     <div class="c-xs-12 c-sm-5 mB10">
       <div class="input">
         <input type="text" name="property_group_<?php echo $key; ?>" placeholder='<?php echo T_("Specification Group"); ?>' value="<?php echo \dash\get::index($value, 'group'); ?>">
