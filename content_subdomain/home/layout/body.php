@@ -3,6 +3,11 @@ if(\dash\data::postIsLoaded())
 {
 	require_once(__DIR__. '/body/body_load_post.php');
 }
+elseif(\dash\url::module() === 'category')
+{
+	// load category detail
+	require_once(root. 'content_subdomain/category/display.php');
+}
 else
 {
 	// body generator

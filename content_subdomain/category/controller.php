@@ -11,17 +11,21 @@ class controller
 		{
 			unset($dir[0]);
 		}
-		$url = implode('/', $dir);
 
-		$url = urldecode($url);
-
-		$load = \lib\app\category\get::by_url($url);
-		if(!$load)
+		if($dir)
 		{
-			\dash\header::status(404, T_("Invalid category url"));
+			$url = implode('/', $dir);
+
+			$url = urldecode($url);
+
+			$load = \lib\app\category\get::by_url($url);
+			if(!$load)
+			{
+				\dash\header::status(404, T_("Invalid category url"));
+			}
+			\dash\data::dataRow($load);
+			\dash\open::get();
 		}
-		\dash\data::dataRow($load);
-		\dash\open::get();
 	}
 }
 ?>
