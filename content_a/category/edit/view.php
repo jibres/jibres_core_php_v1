@@ -23,6 +23,12 @@ class view
 		$parentList = \lib\app\category\get::parent_list($id);
 		\dash\data::parentList($parentList);
 
+
+		$url = \dash\data::dataRow_full_slug();
+		$url = \dash\url::set_subdomain(\lib\store::detail('subdomain')). '/category/'. $url;
+		\dash\data::categoryUrl($url);
+		\dash\face::btnPreview($url);
+
 		$properties = \dash\data::dataRow_properties();
 
 		$count_free = 1;
