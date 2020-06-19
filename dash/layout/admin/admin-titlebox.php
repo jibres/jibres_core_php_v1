@@ -47,6 +47,11 @@ if(\dash\face::boxTitle() !== false && !\dash\detect\device::detectPWA())
      <a class="btn master" href="<?php echo \dash\data::action_link(); ?>" data-shortkey="120"><span><?php echo \dash\data::action_text(); ?></span> <kbd>F9</kbd></a>
     </nav>
 <?php } // endif ?>
+<?php if(\dash\face::btnSave()) { ?>
+    <nav class="cauto os pLa10">
+     <button class="btn master save" form='<?php echo \dash\face::btnSave(); ?>'><?php echo T_("Save"); ?></button>
+    </nav>
+<?php } // endif ?>
    </div>
 <?php if(\dash\face::breadcrumb() && false)  {?>
    <nav class="breadcrumb">

@@ -2,7 +2,7 @@
 
 
 
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" id='form1'>
   <div class="row">
     <div class="c-8 c-xs-12 c-sm-12 c-lg-8">
       <section class="box">
@@ -144,7 +144,6 @@
 
     <div class="c-4">
 
-      <button class="btn master block mB20" type="submit"><?php echo T_("Save"); ?></button>
 
       <section class="jbox">
         <header><h2><?php echo T_("Category image"); ?></h2> <?php if(\dash\data::dataRow_file()) {?> <span data-confirm data-data='{"deletefile" : 1}' class="btn link danger floatL"><?php echo T_("Delete file"); ?></span> <?php } // endif ?></header>

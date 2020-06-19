@@ -28,6 +28,7 @@ class view
 		$url = \dash\url::set_subdomain(\lib\store::detail('subdomain')). '/category/'. $url;
 		\dash\data::categoryUrl($url);
 		\dash\face::btnPreview($url);
+		\dash\face::btnSave('form1');
 
 		$properties = \dash\data::dataRow_properties();
 
