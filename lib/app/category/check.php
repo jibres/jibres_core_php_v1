@@ -10,7 +10,7 @@ class check
 		$condition =
 		[
 			'title'          => 'title',
-			'desc'           => 'desc',
+			'desc'           => 'html',
 			'slug'           => 'slug',
 			'file'           => 'string',
 			'parent'         => 'id',
