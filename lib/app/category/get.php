@@ -124,7 +124,11 @@ class get
 			return false;
 		}
 
-		$load = \lib\db\productcategory\get::by_url($url);
+
+		$split_url = explode('/', $url);
+		$end = end($split_url);
+
+		$load = \lib\db\productcategory\get::by_url($end);
 
 		if(!$load)
 		{
@@ -133,7 +137,14 @@ class get
 
 		$load = \lib\app\category\ready::row($load);
 
-		return $load;
+		if(isset($load['full_slug']) && $load['full_slug'] === $url)
+		{
+			return $load;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 

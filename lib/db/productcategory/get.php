@@ -284,7 +284,7 @@ class get
 					), NULL)
 				) AS `parent_json`
 			 FROM productcategory
-			 WHERE  productcategory.slug LIKE '%$_url' LIMIT 1
+			 WHERE  productcategory.slug = '$_url' LIMIT 1
 		";
 
 		$result = \dash\db::get($query, null, true);
