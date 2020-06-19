@@ -424,7 +424,8 @@ class text
 			return $data;
 		}
 
-		$rules   = true;
+		// $rules   = true; // old config
+		$rules   = 'persian';
 		$splitor = null;
 
 		if(array_key_exists('rules', $_meta))
