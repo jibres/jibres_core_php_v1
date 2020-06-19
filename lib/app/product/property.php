@@ -23,12 +23,25 @@ class property
 		if(isset($load['cat_id']) && $load['cat_id'])
 		{
 			$cat_id   = $load['cat_id'];
+			$load_parent_property = \lib\app\category\get::parent_property($cat_id);
+			if($load_parent_property && is_array($load_parent_property))
+			{
+				foreach ($load_parent_property as $key => $value)
+				{
+					if(isset($value['properties']) && is_array($value['properties']))
+					{
+						$category_property = array_merge($category_property, $value['properties']);
+					}
+				}
+			}
+
 			$load_cat = \lib\app\category\get::get($cat_id);
 
 			if(isset($load_cat['properties']) && $load_cat['properties'] && is_array($load_cat['properties']))
 			{
-				$category_property = $load_cat['properties'];
+				$category_property = array_merge($category_property, $load_cat['properties']);
 			}
+
 		}
 
 		$result = [];
@@ -83,7 +96,6 @@ class property
 		}
 
 		$result = array_values($result);
-
 
 		return $result;
 	}

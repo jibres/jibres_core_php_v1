@@ -105,9 +105,9 @@ class get
 			FROM
 				productcategory
 			WHERE
-				productcategory.id = (SELECT productcategory.parent1 FROM productcategory WHERE productcategory.id = $_id ) OR
+				productcategory.id = (SELECT productcategory.parent3 FROM productcategory WHERE productcategory.id = $_id ) OR
 				productcategory.id = (SELECT productcategory.parent2 FROM productcategory WHERE productcategory.id = $_id ) OR
-				productcategory.id = (SELECT productcategory.parent3 FROM productcategory WHERE productcategory.id = $_id )
+				productcategory.id = (SELECT productcategory.parent1 FROM productcategory WHERE productcategory.id = $_id )
 		";
 		$result = \dash\db::get($query);
 		return $result;
