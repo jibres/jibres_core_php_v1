@@ -12,10 +12,15 @@ class view
 			\dash\face::title(\dash\data::dataRow_title());
 		}
 
+		$id = \dash\request::get('id');
+
 		\dash\data::back_text(T_('Categories'));
 		\dash\data::back_link(\dash\url::this());
 
-		$parentList = \lib\app\category\get::parent_list(\dash\request::get('id'));
+		$parent_property = \lib\app\category\get::parent_property($id);
+		\dash\data::parentProperty($parent_property);
+
+		$parentList = \lib\app\category\get::parent_list($id);
 		\dash\data::parentList($parentList);
 
 		$properties = \dash\data::dataRow_properties();

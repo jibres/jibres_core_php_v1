@@ -94,6 +94,26 @@ class get
 	}
 
 
+	public static function parent_property($_id)
+	{
+		$query  =
+		"
+			SELECT
+				productcategory.id,
+				productcategory.properties,
+				productcategory.title
+			FROM
+				productcategory
+			WHERE
+				productcategory.id = (SELECT productcategory.parent1 FROM productcategory WHERE productcategory.id = $_id ) OR
+				productcategory.id = (SELECT productcategory.parent2 FROM productcategory WHERE productcategory.id = $_id ) OR
+				productcategory.id = (SELECT productcategory.parent3 FROM productcategory WHERE productcategory.id = $_id )
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function by_muliti_id($_ids)
 	{
 		$query  = "SELECT id, title FROM productcategory WHERE productcategory.id IN ($_ids)";

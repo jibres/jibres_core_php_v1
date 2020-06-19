@@ -67,6 +67,35 @@ class ready
 	}
 
 
+	public static function row_property($_data)
+	{
+		if(!is_array($_data))
+		{
+			return false;
+		}
+
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'properties':
+					$result[$key] = json_decode($value, true);
+					break;
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
+
+
+		return $result;
+	}
+
+
+
 	private static function fix_parent_detail(&$result)
 	{
 		if(!isset($result['parent_json']))
