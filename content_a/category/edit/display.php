@@ -2,9 +2,9 @@
 
 
 
-<form method="post" class="jPage f" autocomplete="off">
+<form method="post" class="jPage" autocomplete="off">
   <div class="row">
-    <div class="c-9">
+    <div class="c-8">
       <section class="jbox">
         <header class="hide"><h2><?php echo T_("Title"); ?></h2></header>
         <div class="pad">
@@ -128,7 +128,7 @@
 
     </div>
 
-    <div class="c-3">
+    <div class="c-4">
 
       <button class="btn master block mB20" type="submit"><?php echo T_("Save"); ?></button>
 
