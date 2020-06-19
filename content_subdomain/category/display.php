@@ -16,7 +16,9 @@
 <?php } //endif ?>
 
 <?php if(\dash\data::dataRow()) { /* load one category detail*/ ?>
-	<h3><?php echo \dash\data::dataRow_title(); ?></h3>
+	<div class="cbox">
+		<h3><?php echo \dash\data::dataRow_title(); ?></h3>
+	</div>
 	<?php echo \dash\data::dataRow_desc(); ?>
 	<img class="w300" src="<?php echo \dash\data::dataRow_file(); ?>">
 
