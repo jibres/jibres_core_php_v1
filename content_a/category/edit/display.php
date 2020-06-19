@@ -75,12 +75,12 @@
       </section>
 
 
+      <?php if(\dash\data::parentProperty() && is_array(\dash\data::parentProperty())) {?>
       <section class="box">
         <header><h2><?php echo T_("Category properties inherited from the parent category"); ?></h2></header>
         <div class="body">
 
 
-          <?php if(\dash\data::parentProperty() && is_array(\dash\data::parentProperty())) {?>
             <?php foreach (\dash\data::parentProperty() as $key => $value) {?>
 
                 <div class="msg info2">
@@ -116,11 +116,11 @@
                 </div>
 
             <?php } //endfor ?>
-          <?php } //endif ?>
 
         </div>
       </section>
 
+    <?php } //endif ?>
 
       <section class="box">
         <header data-kerkere='.seoData' data-kerkere-icon><h2><?php echo T_("Customize for SEO"); ?></h2></header>
