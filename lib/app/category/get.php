@@ -115,5 +115,27 @@ class get
 
 
 
+	public static function by_url($_url)
+	{
+		$url = \dash\validate::string_400($_url, false);
+
+		if(!$url)
+		{
+			return false;
+		}
+
+		$load = \lib\db\productcategory\get::by_url($url);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load = \lib\app\category\ready::row($load);
+
+		return $load;
+	}
+
+
 }
 ?>

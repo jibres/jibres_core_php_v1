@@ -265,6 +265,33 @@ class get
 	}
 
 
+
+	public static function by_url($_url)
+	{
+		$query  =
+		"
+			SELECT
+				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
+				productcategory.*,
+				(
+					IF(productcategory.parent1 IS NOT NULL,
+					(
+						SELECT
+							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
+						FROM
+							productcategory AS `myPcat`
+						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
+					), NULL)
+				) AS `parent_json`
+			 FROM productcategory
+			 WHERE  productcategory.slug LIKE '%$_url' LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	// get one unit by title to check is duplicate title or no
 	public static function by_title($_title)
 	{
