@@ -49,6 +49,24 @@
 
           <p class="msg"><?php echo T_("You can create a specification table for a product in this category. You can add group and title of product specification and we are showing them inside product in this category"); ?></p>
 
+          <?php if(\dash\data::parentProperty() && is_array(\dash\data::parentProperty())) {?>
+            <?php foreach (\dash\data::parentProperty() as $key => $value) {?>
+              <div class="msg">
+                <?php echo \dash\get::index($value, 'title'); ?>
+                <?php if(is_array(\dash\get::index($value, 'properties'))) {?>
+                  <?php foreach (\dash\get::index($value, 'properties') as $k => $v) {?>
+                    <span class="btn"><?php echo \dash\get::index($v, 'group'); ?></span>
+                    <?php if(is_array(\dash\get::index($v, 'key'))) {?>
+                      <?php foreach (\dash\get::index($v, 'key') as $kk => $vv) {?>
+                        <span class="badge"><?php echo $vv; ?></span>
+                      <?php } //endfor ?>
+                    <?php } //endif ?>
+                  <?php } //endfor ?>
+                <?php } //endif ?>
+              </div>
+            <?php } //endfor ?>
+          <?php } //endif ?>
+
           <?php
           if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
           {
