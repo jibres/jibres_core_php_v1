@@ -102,7 +102,7 @@ class search
 
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string = null, $_args = [])
 	{
 		$condition =
 		[
