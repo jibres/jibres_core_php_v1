@@ -49,23 +49,6 @@
 
           <p class="msg"><?php echo T_("You can create a specification table for a product in this category. You can add group and title of product specification and we are showing them inside product in this category"); ?></p>
 
-          <?php if(\dash\data::parentProperty() && is_array(\dash\data::parentProperty())) {?>
-            <?php foreach (\dash\data::parentProperty() as $key => $value) {?>
-              <div class="msg">
-                <?php echo \dash\get::index($value, 'title'); ?>
-                <?php if(is_array(\dash\get::index($value, 'properties'))) {?>
-                  <?php foreach (\dash\get::index($value, 'properties') as $k => $v) {?>
-                    <span class="btn"><?php echo \dash\get::index($v, 'group'); ?></span>
-                    <?php if(is_array(\dash\get::index($v, 'key'))) {?>
-                      <?php foreach (\dash\get::index($v, 'key') as $kk => $vv) {?>
-                        <span class="badge"><?php echo $vv; ?></span>
-                      <?php } //endfor ?>
-                    <?php } //endif ?>
-                  <?php } //endfor ?>
-                <?php } //endif ?>
-              </div>
-            <?php } //endfor ?>
-          <?php } //endif ?>
 
           <?php
           if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
@@ -87,6 +70,53 @@
           }
           ?>
 
+
+        </div>
+      </section>
+
+
+      <section class="box">
+        <header><h2><?php echo T_("category properties inherited from the parent category"); ?></h2></header>
+        <div class="body">
+
+
+          <?php if(\dash\data::parentProperty() && is_array(\dash\data::parentProperty())) {?>
+            <?php foreach (\dash\data::parentProperty() as $key => $value) {?>
+
+                <div class="msg info2">
+                  <div class="txtB"><?php echo \dash\get::index($value, 'title'); ?></div>
+                <?php if(is_array(\dash\get::index($value, 'properties'))) {?>
+                  <?php foreach (\dash\get::index($value, 'properties') as $k => $v) {?>
+
+                    <div class="row padLess">
+                      <div class="c-xs-12 c-sm-5 mB10">
+                        <div class="input">
+                          <input type="text" disabled  value="<?php echo \dash\get::index($v, 'group'); ?>" readonly>
+                        </div>
+                      </div>
+
+                      <div class="c-xs-12 c-sm-7 mB10">
+                        <div>
+
+                          <select  class="select22" disabled  multiple="multiple" readonly data-placeholder='<?php echo T_("Specification Title"); ?>'>
+                            <?php if(is_array(\dash\get::index($v, 'key'))) {?>
+                              <?php foreach (\dash\get::index($v, 'key') as $kk => $vv) {?>
+                                <option value="<?php echo $vv; ?>" selected><?php echo $vv; ?></option>
+                              <?php } //endfor ?>
+                            <?php } //endif ?>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  <?php } //endfor ?>
+                <?php } //endif ?>
+                </div>
+
+            <?php } //endfor ?>
+          <?php } //endif ?>
 
         </div>
       </section>
