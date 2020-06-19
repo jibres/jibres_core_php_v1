@@ -8,9 +8,29 @@ class view
 	{
 		\dash\face::title(T_("Category"));
 
-		$myCategoryList = \lib\app\category\search::list(null, []);
+		if(!\dash\data::dataRow())
+		{
+			$myCategoryList = \lib\app\category\search::list(null, []);
 
-		\dash\data::categoryDataTable($myCategoryList);
+			\dash\data::categoryDataTable($myCategoryList);
+		}
+		else
+		{
+			\dash\face::title(\dash\data::dataRow_seotitle());
+			\dash\face::desc(\dash\data::dataRow_seodesc());
+			\dash\face::cover(\dash\data::dataRow_file());
+
+			$args =
+			[
+				'order'        => \dash\request::get('order'),
+				'sort'         => \dash\request::get('sort'),
+				'cat_id'       => \dash\data::dataRow_id(),
+			];
+
+			$myProductList = \lib\app\product\search::variant_list(null, $args);
+
+			\dash\data::productList($myProductList);
+		}
 
 	}
 }
