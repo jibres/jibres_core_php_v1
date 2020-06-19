@@ -172,7 +172,7 @@
 
     </div>
 
-    <div class="c-4">
+    <div class="c-xs-12 c-sm-12 c-lg-4">
 
 
       <section class="box">
