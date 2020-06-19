@@ -44,10 +44,10 @@
 
       <section class="box">
         <header><h2><?php echo T_("Category property"); ?></h2></header>
-        <div class="pad">
+        <div class="body">
 
 
-          <p><?php echo T_("Set group and title of product property of this category"); ?></p>
+          <p class="msg"><?php echo T_("You can create a specification table for a product in this category. You can add group and title of product specification and we are showing them inside product in this category"); ?></p>
 
           <?php
           if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
@@ -74,9 +74,9 @@
       </section>
 
 
-      <section class="jbox">
+      <section class="box">
         <header><h2><?php echo T_("Customize for SEO"); ?></h2></header>
-        <div class="pad">
+        <div class="body">
 
           <div class="seoPreview">
             <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/category/<?php echo \dash\data::dataRow_full_slug(); ?>">
@@ -197,16 +197,16 @@
 
 <?php function htmlProperty($key = null, $value = []) {?>
 
-  <div class="f">
-    <div class="cauto mB10">
+  <div class="row no-gutters">
+    <div class="c-xs-12 c-sm-5 mB10">
       <div class="input">
-        <input type="text" name="property_group_<?php echo $key; ?>" placeholder='<?php echo T_("Group"); ?>' value="<?php echo \dash\get::index($value, 'group'); ?>">
+        <input type="text" name="property_group_<?php echo $key; ?>" placeholder='<?php echo T_("Specification Group"); ?>' value="<?php echo \dash\get::index($value, 'group'); ?>">
       </div>
     </div>
 
-    <div class="c pLa5 mB10">
+    <div class="c-xs-12 c-sm-7 mB10">
       <div>
-        <select name="property_key_<?php echo $key ?>[]"  class="select22" data-model="tag" multiple="multiple">
+        <select name="property_key_<?php echo $key ?>[]"  class="select22" data-model="tag" multiple="multiple" data-placeholder='<?php echo T_("Specification Title"); ?>'>
           <?php if(is_array(\dash\get::index($value, 'key'))) { foreach (\dash\get::index($value, 'key') as $tag) {?>
             <option value="<?php echo $tag; ?>" selected><?php echo $tag; ?></option>
           <?php } } //endfor //endif  ?>
