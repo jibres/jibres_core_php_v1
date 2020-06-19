@@ -130,7 +130,7 @@ class search
 
 		if($query_string)
 		{
-			$or[]        = " category.title LIKE '%$query_string%'";
+			$or[]        = " productcategory.title LIKE '%$query_string%'";
 
 			self::$is_filtered = true;
 		}

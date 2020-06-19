@@ -28,11 +28,6 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		if($search_string)
-		{
-			\dash\face::title(T_('Search'). ' '.  $search_string);
-		}
-
 		// work with category list
 		$myCategoryList = \lib\app\category\search::list($search_string, $args);
 
@@ -46,7 +41,7 @@ class view
 
 		if($isFiltered)
 		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
+			\dash\face::title(\dash\face::title() . ' | '. T_('Filtered'));
 		}
 
 	}
