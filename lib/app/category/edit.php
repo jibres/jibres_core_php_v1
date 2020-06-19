@@ -55,6 +55,16 @@ class edit
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
+		if(isset($args['title']) && array_key_exists('seotitle', $get_category) && !$get_category['seotitle'])
+		{
+			$args['seotitle'] = \dash\validate::seotitle($args['title'], false);
+		}
+
+		if(isset($args['desc']) && array_key_exists('seodesc', $get_category) && !$get_category['seodesc'])
+		{
+			$args['seodesc'] = \dash\validate::seodesc($args['desc'], false);
+		}
+
 		if($properties)
 		{
 			$args['properties'] = json_encode($properties, JSON_UNESCAPED_UNICODE);
@@ -64,7 +74,7 @@ class edit
 		{
 			foreach ($get_category as $field => $value)
 			{
-				if(array_key_exists($field, $args) && $args[$field] == $value)
+				if(array_key_exists($field, $args) && \dash\validate::is_equal($args[$field], $value))
 				{
 					unset($args[$field]);
 				}

@@ -117,7 +117,10 @@ class text
 
 		if(mb_strlen($data_before) !== mb_strlen($data))
 		{
-			\dash\notif::warn(T_("We have removed some unauthorized characters from your text"), ['element' => $_element, 'code' => 1700]);
+			if($_notif)
+			{
+				\dash\notif::warn(T_("We have removed some unauthorized characters from your text"), ['element' => $_element, 'code' => 1700]);
+			}
 		}
 
 		$data = addslashes($data);
