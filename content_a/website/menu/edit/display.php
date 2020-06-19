@@ -9,7 +9,7 @@
 
           <label for="title"><?php echo T_("Title"); ?></label>
           <div class="input">
-            <input type="text" name="title" id="title" value="" maxlength="50" required>
+            <input type="text" name="title" id="title" value="" maxlength="50" required <?php \dash\layout\autofocus::html() ?>>
           </div>
 
           <label for="url"><?php echo T_("Url"); ?></label>
