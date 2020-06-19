@@ -55,7 +55,6 @@ class model
 			}
 		}
 
-
 		$file = \dash\upload\category::set($id);
 		if($file)
 		{

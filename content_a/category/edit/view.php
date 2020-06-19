@@ -7,15 +7,16 @@ class view
 	{
 		\dash\face::title(T_('Edit category'));
 
-		\dash\data::back_text(T_('Category list'));
-		\dash\data::back_link(\dash\url::this());
-
-		\dash\data::parentList(\lib\app\category\get::parent_list(\dash\request::get('id')));
-
 		if(\dash\data::dataRow_title())
 		{
-			\dash\face::title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
+			\dash\face::title(\dash\data::dataRow_title());
 		}
+
+		\dash\data::back_text(T_('Categories'));
+		\dash\data::back_link(\dash\url::this());
+
+		$parentList = \lib\app\category\get::parent_list(\dash\request::get('id'));
+		\dash\data::parentList($parentList);
 
 		$properties = \dash\data::dataRow_properties();
 

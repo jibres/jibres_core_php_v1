@@ -47,26 +47,11 @@ class edit
 			}
 		}
 
-		// $properties = [];
-
-		// if(isset($get_category['properties']) && $get_category['properties'] && is_string($get_category['properties']))
-		// {
-		// 	$properties = json_decode($get_category['properties'], true);
-		// 	if(!is_array($properties))
-		// 	{
-		// 		$properties = [];
-		// 	}
-		// }
-
 		$properties = $args['properties'];
 
-		if(!array_key_exists('parent', $_args))
-		{
-			unset($args['parent1']);
-			unset($args['parent2']);
-			unset($args['parent3']);
-			unset($args['parent4']);
-		}
+		$_args['parent1'] = $args['parent1'];
+		$_args['parent2'] = $args['parent2'];
+		$_args['parent3'] = $args['parent3'];
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
