@@ -145,49 +145,36 @@
     <div class="c-4">
 
 
-      <section class="jbox">
-        <header><h2><?php echo T_("Category image"); ?></h2> <?php if(\dash\data::dataRow_file()) {?> <span data-confirm data-data='{"deletefile" : 1}' class="btn link danger floatL"><?php echo T_("Delete file"); ?></span> <?php } // endif ?></header>
-        <div class="pad">
+      <section class="box">
+        <header><h2><?php echo T_("Category image"); ?></h2></header>
+        <div class="body2">
 
-          <?php if(\dash\data::dataRow_file()) {?>
-
-            <div class="mediaBox mB20">
-              <?php $myExt = substr(\dash\data::dataRow_file(), -3); ?>
-
-
-              <?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
-                <img id="finalImage" src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
-              <?php }//endif ?>
-
-            </div>
-
-
-          <?php }//endif ?>
-
-
-
-          <div class="box" data-uploader data-name='file' data-final='#finalImage' >
+          <div data-uploader data-name='file' data-final='#finalImage' <?php if(\dash\data::dataRow_file()) { echo "data-fill";}?>>
             <input type="file" accept="image/jpeg, image/png" id="image1">
             <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+          <?php if(\dash\data::dataRow_file()) {?>
+              <?php $myExt = substr(\dash\data::dataRow_file(), -3); ?>
+              <?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
+                <label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+                <span class="imageDel" data-confirm data-data='{"deletefile" : 1}'></span>
+              <?php }//endif ?>
+          <?php } else {//endif ?>
+              <label for="image1"><img id="finalImage" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+          <?php }//endif ?>
           </div>
-
 
         </div>
       </section>
 
 
-
-
-
       <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
-        <section class="jbox">
+        <section class="box">
           <header><h2><?php echo T_("Remove category"); ?></h2></header>
-          <div class="pad">
+          <div class="body">
 
 
-            <p><?php echo T_("No product found by this category."); ?>
-            <?php echo T_("Your can remove this category"); ?> <span data-confirm data-data='{"delete" : "delete"}' class="btn danger block" ><?php echo T_("Remove category"); ?></span>
-          </p>
+            <p><?php echo T_("You can delete this category because we are not found any product in that."); ?></p>
+            <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn linkDel" ><?php echo T_("Remove category"); ?></span></div>
 
         </div>
       </section>
