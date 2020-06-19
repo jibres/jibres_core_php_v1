@@ -2,17 +2,21 @@
 
 
 
-<form method="post" class="jPage" autocomplete="off">
+<form method="post" autocomplete="off">
   <div class="row">
-    <div class="c-8">
-      <section class="jbox">
-        <header class="hide"><h2><?php echo T_("Title"); ?></h2></header>
-        <div class="pad">
+    <div class="c-8 c-xs-12 c-sm-12 c-lg-8">
+      <section class="box">
+        <div class="body">
+
+          <label for="icatname"><?php echo T_("Title"); ?></label>
+          <div class="input">
+            <input type="text" name="title" id="icatname" placeholder='<?php echo T_("Category name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" autofocus maxlength='50' minlength="1" required>
+          </div>
 
           <?php if(\dash\data::dataRow_parent1() || \dash\data::parentList()) {?>
 
             <div class="mB10">
-              <label for='parent'><?php echo T_("Parent"); ?>
+              <label for='parent'><?php echo T_("as child of"); ?>
               <?php if(\dash\data::dataRow_have_child()) {?> <small class="fc-mute"><?php echo T_("This category have some child and you can not change parent of it"); ?></small> <?php } //endif ?></label>
               <select name="parent" id="parent" class="select22" data-placeholder='<?php echo T_("Select category parent"); ?>' <?php if(\dash\data::dataRow_have_child()) {?> disabled <?php }//endif ?>>
                 <option></option>
@@ -28,25 +32,17 @@
 
               </select>
             </div>
-
           <?php } //endif ?>
 
-
-          <label for="icatname"><?php echo T_("Title"); ?></label>
-          <div class="input">
-            <input type="text" name="title" id="icatname" placeholder='<?php echo T_("Category name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" autofocus maxlength='50' minlength="1" required>
-          </div>
-
-
           <label for="desc"><?php echo T_("Description"); ?></label>
-          <textarea data-editor  class="txt mB10" id='desc' name="desc" placeholder='<?php echo T_("Description"); ?>' maxlength='5000' rows="5"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+          <textarea data-editor  class="txt mB10" id='desc' name="desc" placeholder='<?php echo T_("Description"); ?>' maxlength='5000' rows="2"><?php echo \dash\data::dataRow_desc(); ?></textarea>
 
         </div>
       </section>
 
 
 
-      <section class="jbox">
+      <section class="box">
         <header><h2><?php echo T_("Category property"); ?></h2></header>
         <div class="pad">
 
