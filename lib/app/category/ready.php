@@ -40,7 +40,10 @@ class ready
 				case 'file':
 					if(!$value)
 					{
-						$value = \dash\app::static_image_url();
+						if(\dash\url::content() !== 'a')
+						{
+							$value = \dash\app::static_image_url();
+						}
 					}
 					$result[$key] = \lib\filepath::fix($value);;
 
