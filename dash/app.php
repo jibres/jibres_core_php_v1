@@ -21,9 +21,17 @@ class app
 	/**
 	 * return the url of static logo file
 	 */
-	public static function static_image_url()
+	public static function static_image_url($_type = null)
 	{
-		$url = \dash\url::cdn(). '/img/default/image.png';
+		$image_type = null;
+		switch ($_type)
+		{
+			case 'wide':
+				$image_type = '-wide';
+				break;
+		}
+
+		$url = \dash\url::cdn(). '/img/default/image'. $image_type.'.png';
 		return $url;
 	}
 
