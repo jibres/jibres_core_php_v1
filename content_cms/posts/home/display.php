@@ -52,7 +52,7 @@ else
         <?php } ?>
         <label class="addon" data-kerkere='.showFilterSearch' data-kerkere-icon><?php echo T_("Advance search"); ?></label>
       <?php } ?>
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
 
       <?php if(\dash\request::get('type')) {?>
       <input type="hidden" name="type" value="<?php echo \dash\request::get('type'); ?>">

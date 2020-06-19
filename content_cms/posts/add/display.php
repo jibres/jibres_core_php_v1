@@ -4,7 +4,7 @@
   <div class="cbox mB10">
 
    <div class="input mB10">
-	  <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *'  autofocus required maxlength='200' minlength="1" pattern=".{1,200}">
+	  <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *'  <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
 
 	</div>
 

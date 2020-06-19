@@ -42,7 +42,7 @@
 	   <div class="c pRa5">
 			<label for="name"><?php echo T_("Name"); ?></label>
 			<div class="input">
-			  <input type="text" name="name" id="name" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\data::dataRowMember_firstname(); ?>" autofocus maxlength='40' minlength="1" pattern=".{1,40}" >
+			  <input type="text" name="name" id="name" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\data::dataRowMember_firstname(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='40' minlength="1" pattern=".{1,40}" >
 			</div>
 	   </div>
 	   <div class="c">

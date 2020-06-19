@@ -16,7 +16,7 @@
     <div class="addNewCustomer" data-kerkere-content='hide'>
       <div class="msg info2 mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
         <div class="input mTB5">
-          <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' autofocus  maxlength='30' data-response-realtime>
+          <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' <?php \dash\layout\autofocus::html() ?>  maxlength='30' data-response-realtime>
         </div>
 
         <select name="memberGender" id="memberGender" class="select22 mT5">

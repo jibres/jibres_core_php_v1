@@ -41,7 +41,7 @@
     <label for="icompanyname"><?php echo T_("Title"); ?></label>
     <div class="input">
       <input type="hidden" name="oldcompany" value="<?php echo \dash\data::dataRow_title(); ?>">
-      <input type="text" name="company" id="icompanyname" placeholder='<?php echo T_("Company name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" autofocus maxlength='50' minlength="1" required>
+      <input type="text" name="company" id="icompanyname" placeholder='<?php echo T_("Company name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
     </div>
 
     <?php if(\dash\data::editMode()) {?>

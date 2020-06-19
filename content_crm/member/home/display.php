@@ -54,7 +54,7 @@ else
 
     <div class="input">
       <label for="q" data-kerkere=".ShowFilterResult" data-kerkere-icon class="addon"><?php echo T_("Advance result"); ?></label>
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus  data-pass='submit' autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?>  data-pass='submit' autocomplete='off'>
       <button class="addon btn "><?php echo T_("Search"); ?></button>
     </div>
     <?php iKerkere(); ?>

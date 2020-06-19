@@ -10,7 +10,7 @@
 
           <form method="post" autocomplete="off">
             <div class="input">
-              <input type="text" name="bt" placeholder='<?php echo T_("Your business title"); ?>' autofocus required maxlength='50'>
+              <input type="text" name="bt" placeholder='<?php echo T_("Your business title"); ?>' <?php \dash\layout\autofocus::html() ?> required maxlength='50'>
             </div>
 
             <button class="btn success block"><?php echo T_("Let's go"); ?></button>

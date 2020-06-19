@@ -4,7 +4,7 @@
   <div class="c9 s12 pRa10">
 
     <div class="cbox p0" id="searchInProducts">
-      <select name="product" class="select22 barCode" id="productSearch" multiple='multiple' data-model='html' data-selection='clean' autofocus data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::that(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
+      <select name="product" class="select22 barCode" id="productSearch" multiple='multiple' data-model='html' data-selection='clean' <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::that(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
       </select>
     </div>
 
@@ -41,7 +41,7 @@
     <div class="addNewCustomer" data-kerkere-content='hide'>
       <div class="msg info2 mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
         <div class="input mTB5">
-          <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' autofocus  maxlength='30' data-response-realtime>
+          <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' <?php \dash\layout\autofocus::html() ?>  maxlength='30' data-response-realtime>
         </div>
 
         <select name="memberGender" id="memberGender" class="select22 mT5">

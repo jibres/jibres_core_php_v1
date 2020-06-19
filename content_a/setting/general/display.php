@@ -26,7 +26,7 @@ $storeData = \dash\data::store_store_data();
       <?php \dash\utility\hive::html(); ?>
       <label for="ititle"><?php echo T_("Name"); ?> <span class="fc-red">*</span></label>
       <div class="input">
-        <input type="text" name="title" id="ititle" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\get::index($storeData, 'title'); ?>" autofocus maxlength='50' minlength="1"  required>
+        <input type="text" name="title" id="ititle" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\get::index($storeData, 'title'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
       </div>
 
       <label for="desc"><?php echo T_("Description"); ?></label>

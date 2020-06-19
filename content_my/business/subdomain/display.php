@@ -8,7 +8,7 @@
 
           <form method="post" autocomplete="off">
             <div class="input fix mB10">
-              <input type="text" name="sd" id="sd" placeholder='<?php echo T_("Your subdomain"); ?>' maxlength="40" class="ltr" autofocus required>
+              <input type="text" name="sd" id="sd" placeholder='<?php echo T_("Your subdomain"); ?>' maxlength="40" class="ltr" <?php \dash\layout\autofocus::html() ?> required>
               <label class="addon ltr" for="sd">.Jibres.<?php echo \dash\url::tld(); ?></label>
             </div>
 

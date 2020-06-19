@@ -87,7 +87,7 @@ else
   <form method="get" action='<?php echo \dash\url::this(); ?>' >
     <div class="input">
     <label for="q" data-kerkere=".ShowFilterResult" data-kerkere-icon class="addon"><?php echo T_("Advance result"); ?></label>
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
 
       <?php if(\dash\request::get('type')) {?>
 
@@ -396,7 +396,7 @@ if(
 
 <?php function iFilterproduct() {?>
 <label for="productid"><?php echo T_("Choose product"); ?></label>
-    <select name="product" class="select22" id="productSearch"  data-model='html'  autofocus data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose product"); ?>'>
+    <select name="product" class="select22" id="productSearch"  data-model='html'  <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose product"); ?>'>
 </select>
 <?php } // endfunction ?>
 

@@ -45,7 +45,7 @@ else
 <div class="cbox fs12">
   <form method="get" action='<?php echo \dash\url::this(); ?>' >
     <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
 
       <?php if(\dash\request::get('type')) {?>
 

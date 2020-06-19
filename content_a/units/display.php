@@ -41,7 +41,7 @@
     <label for="iunitname"><?php echo T_("Title"); ?></label>
     <div class="input">
       <input type="hidden" name="oldunit" value="<?php echo \dash\data::dataRow_title(); ?>">
-      <input type="text" name="unit" id="iunitname" placeholder='<?php echo T_("Unit name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" autofocus maxlength='50' minlength="1" required>
+      <input type="text" name="unit" id="iunitname" placeholder='<?php echo T_("Unit name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
     </div>
 
 

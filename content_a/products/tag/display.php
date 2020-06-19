@@ -65,7 +65,7 @@
 <div class="cbox fs12">
   <form method="get" data-action>
     <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" autofocus  autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?>  autocomplete='off'>
       <button class="addon btn "><?php echo T_("Search"); ?></button>
     </div>
   </form>
@@ -149,7 +149,7 @@ if(!is_array($dataTable))
 <?php function iTitle() {?>
 <label for='ftitle'><?php echo T_("Title"); ?> <small class="fc-red">* <?php echo T_("Require"); ?></small></label>
 <div class="input">
- <input type="text" name="title" placeholder='<?php echo T_("Title"); ?> *' value="<?php echo \dash\data::datarow_title(); ?>" autofocus maxlength='100' minlength="1" pattern=".{1,100}" title='<?php echo T_("Title is used to show on website"); ?>' id='ftitle' required>
+ <input type="text" name="title" placeholder='<?php echo T_("Title"); ?> *' value="<?php echo \dash\data::datarow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='100' minlength="1" pattern=".{1,100}" title='<?php echo T_("Title is used to show on website"); ?>' id='ftitle' required>
 </div>
 <?php }// endfunction ?>
 

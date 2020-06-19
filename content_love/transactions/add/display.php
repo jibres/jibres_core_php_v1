@@ -66,7 +66,7 @@
 
 			<label for="amount"><?php echo T_("Price"); ?> <small class="fc-red">* <?php echo T_("Require"); ?></small></label>
 			<div class="input">
-			  <input type="number" name="amount" id="amount" placeholder='<?php echo T_("Price of transaction"); ?> | <?php echo \lib\currency::unit(); ?> * ' autofocus  required max='999999999' min="0" pattern=".{1,150}" title='<?php echo T_("Enter a valid amount"); ?>' data-response-realtime>
+			  <input type="number" name="amount" id="amount" placeholder='<?php echo T_("Price of transaction"); ?> | <?php echo \lib\currency::unit(); ?> * ' <?php \dash\layout\autofocus::html() ?>  required max='999999999' min="0" pattern=".{1,150}" title='<?php echo T_("Enter a valid amount"); ?>' data-response-realtime>
 			</div>
 
 			<?php if(\dash\language::current() === 'fa') {?>

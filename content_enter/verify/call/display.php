@@ -1,7 +1,7 @@
 
 <div class='flex fix' id='ecode'>
     <label for='code'>Code</label>
-    <input id='code' name="code" type='number' placeholder='<?php echo T_("Verify Code"); ?>' autocomplete="off" inputmode="numeric" min="10000" max="99999" pattern="\d*" autofocus required>
+    <input id='code' name="code" type='number' placeholder='<?php echo T_("Verify Code"); ?>' autocomplete="off" inputmode="numeric" min="10000" max="99999" pattern="\d*" <?php \dash\layout\autofocus::html() ?> required>
    </div>
 
 

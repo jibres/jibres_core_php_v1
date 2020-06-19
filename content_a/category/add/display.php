@@ -27,7 +27,7 @@
 
 				<label for="icatname"><?php echo T_("Title"); ?></label>
 				<div class="input">
-					<input type="text" name="cat" id="icatname" placeholder='<?php echo T_("Category name"); ?>'  autofocus maxlength='50' minlength="1" required>
+					<input type="text" name="cat" id="icatname" placeholder='<?php echo T_("Category name"); ?>'  <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
 				</div>
 			</div>
 			<footer class="txtRa">

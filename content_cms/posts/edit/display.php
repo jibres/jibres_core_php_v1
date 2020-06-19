@@ -100,7 +100,7 @@ $myFirstURL = '';
 
 <?php function iTitle() {?>
 <div class="input mB10">
-  <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" autofocus required maxlength='200' minlength="1" pattern=".{1,200}">
+  <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
   <?php if(\dash\data::dataRow_type() === 'post') {?>
 
   <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::dataRow_subtitle()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><?php echo T_("Add Subtitle"); ?></span>

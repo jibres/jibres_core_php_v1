@@ -2,7 +2,7 @@
 
 <div class='flex fix'>
     <label for='codex'>Code</label>
-    <input id='codex' name="codex" type='password' placeholder='<?php echo T_("Verify Code"); ?>' autocomplete="off"  autofocus required>
+    <input id='codex' name="codex" type='password' placeholder='<?php echo T_("Verify Code"); ?>' autocomplete="off"  <?php \dash\layout\autofocus::html() ?> required>
    </div>
 
 

@@ -38,7 +38,7 @@ $storeData = \dash\data::store_store_data();
           <?php }//endif ?>
             <label for="idomain"><?php echo T_("Domain"); ?> <span class="fc-red">*</span></label>
             <div class="input ltr">
-              <input type="text" name="domain" id="idomain" autofocus required maxlength='70' minlength="1"  >
+              <input type="text" name="domain" id="idomain" <?php \dash\layout\autofocus::html() ?> required maxlength='70' minlength="1"  >
             </div>
 
         </div>
