@@ -6,12 +6,12 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Product categories'));
-		\dash\face::desc(T_('You can manage your categories manually.'). ' '. T_("Don't worry! we are add categories automatically on add new product"));
 
 
 		if(\dash\permission::check('categoryAdd'))
 		{
 			\dash\data::action_text(T_('Add new category'));
+			\dash\data::action_icon('plus');
 			\dash\data::action_link(\dash\url::this(). '/add');
 		}
 
@@ -33,14 +33,22 @@ class view
 			\dash\face::title(T_('Search'). ' '.  $search_string);
 		}
 
-		// work with product list
+		// work with category list
 		$myCategoryList = \lib\app\category\search::list($search_string, $args);
 
 		\dash\data::dataTable($myCategoryList);
 
-		\dash\data::dataFilter(\content_a\filter::createMsg($args));
+		\dash\data::filterBox(\lib\app\category\search::filter_message());
 
-		\dash\data::filterBox(\content_a\filter::createMsg($args));
+		$isFiltered = \lib\app\category\search::is_filtered();
+
+		\dash\data::isFiltered($isFiltered);
+
+		if($isFiltered)
+		{
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
+		}
+
 	}
 }
 ?>

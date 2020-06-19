@@ -4,6 +4,23 @@ namespace lib\app\category;
 
 class search
 {
+	private static $filter_message = null;
+	private static $filter_args    = [];
+	private static $is_filtered    = false;
+
+
+	public static function filter_message()
+	{
+		return self::$filter_message;
+	}
+
+
+	public static function is_filtered()
+	{
+		return self::$is_filtered;
+	}
+
+
 	public static function list_child($_category_id, $_string = null, $_args = [])
 	{
 		if(!\lib\store::id())
@@ -82,43 +99,91 @@ class search
 	}
 
 
-	public static function list($_string = null, $_args = [])
+
+
+
+	public static function list($_query_string, $_args)
 	{
-		if(!\lib\store::id())
+		$condition =
+		[
+			'order'          => 'order',
+			'sort'           => ['enum' => ['title']],
+		];
+
+		$require = [];
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$and         = [];
+		$meta        = [];
+		$or          = [];
+
+		$meta['limit'] = 20;
+
+		$order_sort  = null;
+
+
+		$query_string = \dash\validate::search($_query_string);
+
+
+		if($query_string)
 		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
+			$or[]        = " category.title LIKE '%$query_string%'";
+
+			self::$is_filtered = true;
 		}
 
-		if($_string)
+
+		if($data['sort'] && !$order_sort)
 		{
-			$_string = \dash\safe::forQueryString($_string);
-			if(mb_strlen($_string) > 50)
+			$sort = mb_strtolower($data['sort']);
+			$order = null;
+			if($data['order'])
 			{
-				$_string = null;
+				$order = mb_strtolower($data['order']);
+			}
+
+			$order_sort = " ORDER BY $sort $order";
+		}
+
+		if(!$order_sort)
+		{
+			$order_sort = " ORDER BY productcategory.id DESC";
+		}
+
+		$and[] = " productcategory.status != 'deleted' ";
+
+		$list = \lib\db\productcategory\search::list($and, $or, $order_sort, $meta);
+
+
+		if(is_array($list))
+		{
+			$list = array_map(['\\lib\\app\\category\\ready', 'row'], $list);
+		}
+		else
+		{
+			$list = [];
+		}
+
+		$filter_args_data = [];
+
+		foreach (self::$filter_args as $key => $value)
+		{
+			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
+			{
+				$filter_args_data[substr($value, 1)] = $list[0][$key];
+			}
+			else
+			{
+				$filter_args_data[$key] = $value;
 			}
 		}
 
-		unset($_args['sort']);
-		unset($_args['order']);
+		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
-		$_string = \dash\validate::search($_string);
-
-		$result = \lib\db\productcategory\get::list($_string, $_args);
-
-		$temp            = [];
-
-
-		foreach ($result as $key => $value)
-		{
-			$check = \lib\app\category\ready::row($value);
-			if($check)
-			{
-				$temp[] = $check;
-			}
-		}
-		// j($temp);
-		return $temp;
+		return $list;
 	}
 
 
