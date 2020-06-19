@@ -45,6 +45,39 @@
       </section>
 
 
+
+      <section class="jbox">
+        <header><h2><?php echo T_("Category property"); ?></h2></header>
+        <div class="pad">
+
+
+          <p><?php echo T_("Set group and title of product property of this category"); ?></p>
+
+          <?php
+          if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
+          {
+            foreach (\dash\data::dataRow_properties() as $key => $value)
+            {
+              $rand_key = rand(1, 999);
+              htmlProperty($rand_key, $value);
+            }
+          }
+
+          if(\dash\data::countFree() && is_numeric(\dash\data::countFree()))
+          {
+            for ($i=1; $i <= \dash\data::countFree(); $i++)
+            {
+              $rand_key = rand(1, 999);
+              htmlProperty($rand_key);
+            }
+          }
+          ?>
+
+
+        </div>
+      </section>
+
+
       <section class="jbox">
         <header><h2><?php echo T_("Customize for SEO"); ?></h2></header>
         <div class="pad">
@@ -131,36 +164,6 @@
 
 
 
-      <section class="jbox">
-        <header><h2><?php echo T_("Category property"); ?></h2></header>
-        <div class="pad">
-
-
-          <p><?php echo T_("Set group and title of product property of this category"); ?></p>
-
-          <?php
-          if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
-          {
-            foreach (\dash\data::dataRow_properties() as $key => $value)
-            {
-              $rand_key = rand(1, 999);
-              htmlProperty($rand_key, $value);
-            }
-          }
-
-          if(\dash\data::countFree() && is_numeric(\dash\data::countFree()))
-          {
-            for ($i=1; $i <= \dash\data::countFree(); $i++)
-            {
-              $rand_key = rand(1, 999);
-              htmlProperty($rand_key);
-            }
-          }
-          ?>
-
-
-        </div>
-      </section>
 
 
       <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
