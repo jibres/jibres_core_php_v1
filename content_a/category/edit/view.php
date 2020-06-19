@@ -23,11 +23,7 @@ class view
 		$parentList = \lib\app\category\get::parent_list($id);
 		\dash\data::parentList($parentList);
 
-
-		$url = \dash\data::dataRow_full_slug();
-		$url = \dash\url::set_subdomain(\lib\store::detail('subdomain')). '/category/'. $url;
-		\dash\data::categoryUrl($url);
-		\dash\face::btnView($url);
+		\dash\face::btnView(\dash\data::dataRow_url());
 		\dash\face::btnSave('form1');
 
 		$properties = \dash\data::dataRow_properties();

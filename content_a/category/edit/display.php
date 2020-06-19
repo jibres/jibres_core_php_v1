@@ -127,8 +127,8 @@
         <div class="body">
 
           <div class="seoPreview">
-            <a target="_blank" href="<?php echo \dash\data::categoryUrl(); ?>">
-              <cite><span><?php echo \dash\url::kingdom(); ?>/category/</span><?php echo \dash\data::dataRow_full_slug(); ?></cite>
+            <a target="_blank" href="<?php echo \dash\data::dataRow_url(); ?>">
+              <cite><span><?php echo \dash\data::dataRow_url(); ?></cite>
             </a>
             <div class="f">
               <div class="c s12 pLa10">
