@@ -97,7 +97,7 @@
         <div class="body">
 
           <div class="seoPreview">
-            <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/category/<?php echo \dash\data::dataRow_full_slug(); ?>">
+            <a target="_blank" href="<?php echo \dash\data::categoryUrl(); ?>">
               <cite><span><?php echo \dash\url::kingdom(); ?>/category/</span><?php echo \dash\data::dataRow_full_slug(); ?></cite>
             </a>
             <div class="f">
