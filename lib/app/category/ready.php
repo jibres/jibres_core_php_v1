@@ -81,6 +81,7 @@ class ready
 			return false;
 		}
 
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
@@ -90,13 +91,18 @@ class ready
 					$result[$key] = json_decode($value, true);
 					break;
 
+
+				case 'parent_json':
+					$result[$key] = json_decode($value, true);
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
 			}
 		}
 
-
+		self::fix_parent_detail($result);
 
 		return $result;
 	}

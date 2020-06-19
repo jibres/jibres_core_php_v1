@@ -106,7 +106,6 @@ class get
 		}
 
 
-
 		$parent_property = array_map(['\\lib\\app\\category\\ready', 'row_property'], $parent_property);
 
 

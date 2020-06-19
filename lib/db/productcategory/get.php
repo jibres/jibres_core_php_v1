@@ -101,15 +101,31 @@ class get
 			SELECT
 				productcategory.id,
 				productcategory.properties,
-				productcategory.title
+				productcategory.title,
+				productcategory.slug,
+				productcategory.parent1,
+				productcategory.parent2,
+				productcategory.parent3,
+				(
+					IF(productcategory.parent1 IS NOT NULL ,
+					(
+						SELECT
+							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
+						FROM
+							productcategory AS `myPcat`
+						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
+					), NULL)
+				) AS `parent_json`
 			FROM
 				productcategory
 			WHERE
 				productcategory.id = (SELECT productcategory.parent3 FROM productcategory WHERE productcategory.id = $_id ) OR
 				productcategory.id = (SELECT productcategory.parent2 FROM productcategory WHERE productcategory.id = $_id ) OR
 				productcategory.id = (SELECT productcategory.parent1 FROM productcategory WHERE productcategory.id = $_id )
+			ORDER BY productcategory.parent1, productcategory.parent2, productcategory.parent3
 		";
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 

@@ -76,7 +76,7 @@
 
 
       <section class="box">
-        <header><h2><?php echo T_("category properties inherited from the parent category"); ?></h2></header>
+        <header><h2><?php echo T_("Category properties inherited from the parent category"); ?></h2></header>
         <div class="body">
 
 
@@ -84,7 +84,7 @@
             <?php foreach (\dash\data::parentProperty() as $key => $value) {?>
 
                 <div class="msg info2">
-                  <div class="txtB"><?php echo \dash\get::index($value, 'title'); ?></div>
+                  <div class="txtB"><?php echo \dash\get::index($value, 'full_title'); ?> <a class="btn link" href="<?php echo \dash\url::this(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></div>
                 <?php if(is_array(\dash\get::index($value, 'properties'))) {?>
                   <?php foreach (\dash\get::index($value, 'properties') as $k => $v) {?>
 
