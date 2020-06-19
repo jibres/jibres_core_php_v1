@@ -18,4 +18,8 @@ if(\dash\data::action_link() && \dash\data::action_text())
 		echo "<a href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
 	}
 }
+elseif(\dash\face::btnSave())
+{
+	echo "<button form='". \dash\face::btnSave(). "'>". T_("Save"). "</button>";
+}
 ?></div>
