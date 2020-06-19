@@ -75,7 +75,7 @@
 
 
       <section class="box">
-        <header><h2><?php echo T_("Customize for SEO"); ?></h2></header>
+        <header data-kerkere='.seoData' data-kerkere-icon><h2><?php echo T_("Customize for SEO"); ?></h2></header>
         <div class="body">
 
           <div class="seoPreview">
@@ -93,7 +93,7 @@
             </div>
           </div>
 
-          <div class="seoData" data-kerkere-content=''>
+          <div class="seoData" data-kerkere-content='hide'>
             <hr>
             <div>
               <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
