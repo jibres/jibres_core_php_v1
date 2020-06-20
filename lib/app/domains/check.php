@@ -47,10 +47,9 @@ class check
 			$domains[] = $myDomainName. '.'. $tld;
 		}
 
-		$result = \lib\nic\exec\domain_check::multi_check($domains);
+		$check_nic_domain = \lib\nic\exec\domain_check::multi_check($domains);
 
 
-		\lib\app\domains\detect::domain_check_multi($result);
 
 		$check_tld =
 		[
@@ -68,16 +67,20 @@ class check
 
 		$check_namecheap_domain = \lib\namecheap\api::check_domain($international_domain);
 
-		if(is_array($check_namecheap_domain))
+		if(!is_array($check_namecheap_domain))
 		{
-			if(!is_array($result))
-			{
-				$result = [];
-			}
-
-			$result = array_merge($result, $check_namecheap_domain);
+			$check_namecheap_domain = [];
 		}
 
+		if(!is_array($check_nic_domain))
+		{
+			$check_nic_domain = [];
+
+		}
+		$result = array_merge($check_namecheap_domain, $check_nic_domain);
+
+
+		\lib\app\domains\detect::domain_check_multi($result);
 
 		return $result;
 	}
