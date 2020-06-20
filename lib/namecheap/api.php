@@ -127,14 +127,34 @@ class api
 				$tld = end($split);
 			}
 
+			$available = isset($temp['Available']) ? $temp['Available'] : null;
+			if($available === 'false')
+			{
+				$available = false;
+			}
+			else
+			{
+				$available = true;
+			}
+
+			$domain_restricted = isset($temp['IsPremiumName'])				? $temp['IsPremiumName']				: null;
+			if($domain_restricted === 'false')
+			{
+				$domain_restricted = false;
+			}
+			else
+			{
+				$domain_restricted = true;
+			}
+
 			$domains[$domain_name] =
 			[
 				'name'                     => $domain_name,
 
-				'available'                => isset($temp['Available'])					? boolval($temp['Available']) 			: null,
+				'available'                => $available,
 				'ErrorNo'                  => isset($temp['ErrorNo'])					? $temp['ErrorNo']						: null,
 				'Description'              => isset($temp['Description'])				? $temp['Description']					: null,
-				'domain_restricted'        => isset($temp['IsPremiumName'])				? boolval($temp['IsPremiumName'])				: null,
+				'domain_restricted'        => $domain_restricted,
 				'PremiumRegistrationPrice' => isset($temp['PremiumRegistrationPrice'])	? $temp['PremiumRegistrationPrice']		: null,
 				'PremiumRenewalPrice'      => isset($temp['PremiumRenewalPrice'])		? $temp['PremiumRenewalPrice']			: null,
 				'PremiumRestorePrice'      => isset($temp['PremiumRestorePrice'])		? $temp['PremiumRestorePrice']			: null,
@@ -144,7 +164,7 @@ class api
 				'tld'                      => $tld,
 			];
 
-      // 'domain_name_valid' => boolean true
+      		// 'domain_name_valid' => boolean true
 
 		}
 
