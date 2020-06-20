@@ -9,7 +9,7 @@ class create
 		$condition =
 		[
 			'domain'               => 'domain',
-			'nic_id'               => 'irnic_id',
+			'nic_id'               => 'bit',
 			'period'               => ['enum' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]],
 			'whoistype'            => ['enum' => ['jibreswhoisgard', 'customizedetail']],
 			'ns1'                  => 'dns',
@@ -18,10 +18,10 @@ class create
 			'ns4'                  => 'dns',
 
 			'dnsid'                => 'string',
-			'irnic_admin'          => 'irnic_id',
-			'irnic_tech'           => 'irnic_id',
-			'irnic_bill'           => 'irnic_id',
-			'irnic_new'            => 'irnic_id',
+			'irnic_admin'          => 'bit',
+			'irnic_tech'           => 'bit',
+			'irnic_bill'           => 'bit',
+			'irnic_new'            => 'bit',
 			'agree'                => 'bit',
 			'register_now'         => 'bit',
 			'gift'                 => 'string_100',
@@ -450,17 +450,94 @@ class create
 		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
 
-		// run nic create domain exec
+
+		$update =
+		[
+			'status'       => 'pending',
+		];
+
+		\lib\db\nic_domain\update::update($update, $domain_id);
+
+		if($data['minus_transaction'])
+		{
+
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Buy domian :val", ['val' => $domain]),
+				'verify'  => 1,
+				'minus'   => floatval($data['minus_transaction']),
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+			if(!$transaction_id)
+			{
+				\dash\log::oops('transaction_db');
+				return false;
+			}
+		}
+
+
+		if($data['gift'])
+		{
+			$gift_meta =
+			[
+				'code'            => $data['gift'],
+				'transaction_id'  => $transaction_id,
+				'price'           => $price,
+				'discount'        => $discount,
+				'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
+				'finalprice'      => $finalprice,
+				'user_id'         => $user_id,
+			];
+
+			$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
+		}
+
+
+		$domain_action_detail =
+		[
+			'domain_id'      => $domain_id,
+			'price'          => $price,
+			'period'         => $period,
+			'discount'       => $discount,
+			'finalprice'     => $finalprice,
+			'transaction_id' => $transaction_id,
+			'giftusage_id'   => $gift_usage_id,
+		];
+
+		\lib\app\nic_domainaction\action::set('register', $domain_action_detail);
+
+		$insert_billing =
+		[
+			'domain_id'      => $domain_id,
+			'user_id'        => $user_id,
+			'action'         => 'register',
+			'status'         => 'enable',
+			'mode'           => 'manual',
+			'period'         => $period,
+			'price'          => $price,
+			'discount'       => $discount,
+			'finalprice'     => $finalprice,
+			'transaction_id' => $transaction_id,
+			'detail'         => null,
+			'date'           => date("Y-m-d H:i:s"),
+			'datecreated'    => date("Y-m-d H:i:s"),
+			'giftusage_id'   => $gift_usage_id,
+		];
+
+		$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
+
+
+			// run nic create domain exec
 		$result = \lib\onlinenic\api::register_domain($ready);
 
 
-		// $result                 = [];
-		// $result['name']         = $domain;
-		// $result['dateregister'] = null;
-		// $result['dateexpire']   = null;
-
 		if(isset($result['data']['domain']) && isset($result['data']['regdate']) && isset($result['data']['expdate']))
 		{
+
 			$update =
 			[
 				'status'       => 'enable',
@@ -476,86 +553,12 @@ class create
 			];
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
-
-			if($data['minus_transaction'])
-			{
-
-				$insert_transaction =
-				[
-					'user_id' => $user_id,
-					'title'   => T_("Buy domian :val", ['val' => $domain]),
-					'verify'  => 1,
-					'minus'   => floatval($data['minus_transaction']),
-					'type'    => 'money',
-				];
-
-				$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-				if(!$transaction_id)
-				{
-					\dash\log::oops('transaction_db');
-					return false;
-				}
-			}
-
-
-			if($data['gift'])
-			{
-				$gift_meta =
-				[
-					'code'            => $data['gift'],
-					'transaction_id'  => $transaction_id,
-					'price'           => $price,
-					'discount'        => $discount,
-					'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
-					'finalprice'      => $finalprice,
-					'user_id'         => $user_id,
-				];
-
-				$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
-			}
-
-
-			$domain_action_detail =
-			[
-				'domain_id'      => $domain_id,
-				'price'          => $price,
-				'period'         => $period,
-				'discount'       => $discount,
-				'finalprice'     => $finalprice,
-				'transaction_id' => $transaction_id,
-				'giftusage_id'   => $gift_usage_id,
-			];
-
-			\lib\app\nic_domainaction\action::set('register', $domain_action_detail);
-
-			$insert_billing =
-			[
-				'domain_id'      => $domain_id,
-				'user_id'        => $user_id,
-				'action'         => 'register',
-				'status'         => 'enable',
-				'mode'           => 'manual',
-				'period'         => $period,
-				'price'          => $price,
-				'discount'       => $discount,
-				'finalprice'     => $finalprice,
-				'transaction_id' => $transaction_id,
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
-				'datecreated'    => date("Y-m-d H:i:s"),
-				'giftusage_id'   => $gift_usage_id,
-			];
-
-			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
-
+			// commit ok
 			\dash\notif::ok(T_("Domain :domain was registered in your name", ['domain' => $domain]), ['alerty' => true]);
 
 			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
-
 			return true;
-
 		}
 		else
 		{
@@ -570,16 +573,19 @@ class create
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,
-				// 'price'          => $price,
-				// 'finalprice'     => $finalprice,
-				// 'discount'       => $discount,
+				'price'          => $price,
 				'period'         => $period,
+				'discount'       => $discount,
+				'finalprice'     => $finalprice,
 				'transaction_id' => $transaction_id,
+				'giftusage_id'   => $gift_usage_id,
 			];
 
 			\lib\app\nic_domainaction\action::set('register_failed', $domain_action_detail);
 
 			\dash\notif::warn(T_("Can not register your domain"));
+
+			\dash\log::set('domain_newRegisterError', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice, 'my_result' => $result]);
 		}
 	}
 }

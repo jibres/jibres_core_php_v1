@@ -13,6 +13,9 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
+		\dash\notif::clean();
+		\dash\engine\process::continue();
+
 		if(!\dash\data::haveBuyDomain())
 		{
 			if(\dash\data::getDomain())
@@ -61,6 +64,9 @@ class view
 
 		if(\dash\data::haveBuyDomain())
 		{
+			\dash\notif::clean();
+			\dash\engine\process::continue();
+
 			\dash\data::userSettingDataRow(\lib\app\nic_usersetting\get::get());
 
 			\dash\data::internationalPriceList([]);
@@ -71,6 +77,8 @@ class view
 				\dash\data::internationalPriceList($price_list);
 
 			}
+			\dash\notif::clean();
+			\dash\engine\process::continue();
 
 			\dash\data::defaultNDS1(\lib\app\nic_usersetting\defaultval::ns1(\dash\data::myDomain()));
 			\dash\data::defaultNDS2(\lib\app\nic_usersetting\defaultval::ns2(\dash\data::myDomain()));
@@ -97,6 +105,8 @@ class view
 			}
 			else
 			{
+				\dash\notif::clean();
+				\dash\engine\process::continue();
 				$list    = \lib\app\nic_contact\search::my_list();
 			}
 
