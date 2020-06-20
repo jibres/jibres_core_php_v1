@@ -92,6 +92,8 @@ class exec
 			\dash\log::set('tg:curl:failed');
 			return T_('Curl failed to initialize');
 		}
+		$customHeader = [];
+
 
 		// log send this request
 		log::sending($_method, $_data);
@@ -99,10 +101,13 @@ class exec
 		$apiURL = "https://api.telegram.org/bot".tg::$api_token."/$_method";
 		if($isTunnel)
 		{
-			$apiURL = "https://tunnel.ermile.com";
+			$apiURL         = "https://tunnel.jibres.com/tg-broker/";
+			$customHeader[] = "broker_token: ". \dash\setting\telegram::broker_token();
 			// $apiURL = "https://tunnel.ermile.ir";
 			$apiURL .= "?method=". $_method;
 		}
+
+
 
 		curl_setopt($ch, CURLOPT_URL, $apiURL);
 		// turn on some setting
@@ -117,7 +122,6 @@ class exec
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 7);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 7);
 
-		$customHeader = [];
 		// set token for tunner if exist
 		if($isTunnel)
 		{
