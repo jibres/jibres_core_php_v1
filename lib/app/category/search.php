@@ -108,6 +108,7 @@ class search
 		[
 			'order'          => 'order',
 			'sort'           => ['enum' => ['title']],
+			'pagination' => 'bit',
 		];
 
 		$require = [];
@@ -121,6 +122,10 @@ class search
 		$or          = [];
 
 		$meta['limit'] = 20;
+		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
+		{
+			$meta['pagination'] = false;
+		}
 
 		$order_sort  = null;
 
