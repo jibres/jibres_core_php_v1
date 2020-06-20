@@ -63,18 +63,22 @@ class api
 			$post_field = array_merge($post_field, $_body);
 		}
 
+		$post_field['broker_token'] = \dash\setting\onlinenic::broker_token();
+		$post_field['api_url']      = $url;
+
+
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_URL, "https://localhost/domain-broker.php");
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_field));
 
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 41);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 41);
 
 		$response = curl_exec($ch);
 		$CurlError = curl_error($ch);
