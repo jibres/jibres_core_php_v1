@@ -101,7 +101,7 @@ class exec
 		$apiURL = "https://api.telegram.org/bot".tg::$api_token."/$_method";
 		if($isTunnel)
 		{
-			$apiURL         = "https://tunnel.jibres.com/tg-broker/";
+			$apiURL         = "https://tunnel.jibres.com/telegram/";
 			array_push($customHeader, "BROKER_TOKEN: ". \dash\setting\telegram::broker_token());
 			// $apiURL = "https://tunnel.ermile.ir";
 			$apiURL .= "?method=". $_method;
