@@ -49,25 +49,35 @@ class check
 
 		$result = \lib\nic\exec\domain_check::multi_check($domains);
 
+
 		\lib\app\domains\detect::domain_check_multi($result);
 
-		// $check_tld =
-		// [
-		// 	'com',
-		// 	'net',
-		// 	'org',
-		// 	'xyz',
-		// ];
+		$check_tld =
+		[
+			'com',
+			'net',
+			'org',
+			'xyz',
+		];
 
-		// foreach ($check_tld as  $tld)
-		// {
-		// 	$temp_domain          = $myDomainName. '.'. $tld;
-		// 	$check_result         = \lib\app\whois\who::is($temp_domain);
+		$international_domain = [];
+		foreach ($check_tld as  $tld)
+		{
+			$international_domain[] = $myDomainName. '.'. $tld;
+		}
 
-		// 	$check_result['name'] = $temp_domain;
-		// 	$check_result['tld']  = $tld;
-		// 	$result[$temp_domain] = $check_result;
-		// }
+		$check_namecheap_domain = \lib\namecheap\api::check_domain($international_domain);
+
+		if(is_array($check_namecheap_domain))
+		{
+			if(!is_array($result))
+			{
+				$result = [];
+			}
+
+			$result = array_merge($result, $check_namecheap_domain);
+		}
+
 
 		return $result;
 	}
