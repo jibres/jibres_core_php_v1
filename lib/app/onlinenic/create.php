@@ -451,13 +451,6 @@ class create
 		$gift_usage_id = null;
 
 
-		$update =
-		[
-			'status'       => 'pending',
-		];
-
-		\lib\db\nic_domain\update::update($update, $domain_id);
-
 		if($data['minus_transaction'])
 		{
 

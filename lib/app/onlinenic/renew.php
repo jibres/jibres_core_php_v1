@@ -290,6 +290,84 @@ class renew
 		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
 
+
+
+		\lib\app\domains\detect::domain('renew', $domain);
+
+		if($data['minus_transaction'])
+		{
+
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Renew domian :val", ['val' => $domain]),
+				'verify'  => 1,
+				'minus'   => floatval($data['minus_transaction']),
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+			if(!$transaction_id)
+			{
+				\dash\log::oops('transaction_db');
+				return false;
+			}
+		}
+
+
+		if($data['gift'])
+		{
+			$gift_meta =
+			[
+				'code'            => $data['gift'],
+				'transaction_id'  => $transaction_id,
+				'price'           => $price,
+				'discount'        => $discount,
+				'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
+				'finalprice'      => $finalprice,
+				'user_id'         => $user_id,
+			];
+
+			$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
+		}
+
+
+		$domain_action_detail =
+		[
+			'domain_id'      => $domain_id,
+			'price'          => $price,
+			'period'         => $period,
+			'discount'       => $discount,
+			'finalprice'     => $finalprice,
+			'transaction_id' => $transaction_id,
+			'giftusage_id'   => $gift_usage_id,
+		];
+
+		\lib\app\nic_domainaction\action::set('renew', $domain_action_detail);
+
+		$insert_billing =
+		[
+			'domain_id'      => $domain_id,
+			'user_id'        => $user_id,
+			'action'         => 'renew',
+			'status'         => 'enable',
+			'mode'           => 'manual',
+			'period'         => $period,
+			'price'          => $price,
+			'discount'       => $discount,
+			'finalprice'     => $finalprice,
+			'transaction_id' => $transaction_id,
+			'detail'         => null,
+			'date'           => date("Y-m-d H:i:s"),
+			'datecreated'    => date("Y-m-d H:i:s"),
+			'giftusage_id'   => $gift_usage_id,
+		];
+
+		$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
+
+
+
 		$result = \lib\onlinenic\api::renew_domain($ready);
 
 		\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
@@ -297,8 +375,6 @@ class renew
 
 		if($result && $domain_id && isset($result['data']['expdate']))
 		{
-
-			\lib\app\domains\detect::domain('renew', $domain);
 
 			$update =
 			[
@@ -310,77 +386,6 @@ class renew
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
-			if($data['minus_transaction'])
-			{
-
-				$insert_transaction =
-				[
-					'user_id' => $user_id,
-					'title'   => T_("Renew domian :val", ['val' => $domain]),
-					'verify'  => 1,
-					'minus'   => floatval($data['minus_transaction']),
-					'type'    => 'money',
-				];
-
-				$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-				if(!$transaction_id)
-				{
-					\dash\log::oops('transaction_db');
-					return false;
-				}
-			}
-
-
-			if($data['gift'])
-			{
-				$gift_meta =
-				[
-					'code'            => $data['gift'],
-					'transaction_id'  => $transaction_id,
-					'price'           => $price,
-					'discount'        => $discount,
-					'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
-					'finalprice'      => $finalprice,
-					'user_id'         => $user_id,
-				];
-
-				$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
-			}
-
-
-			$domain_action_detail =
-			[
-				'domain_id'      => $domain_id,
-				'price'          => $price,
-				'period'         => $period,
-				'discount'       => $discount,
-				'finalprice'     => $finalprice,
-				'transaction_id' => $transaction_id,
-				'giftusage_id'   => $gift_usage_id,
-			];
-
-			\lib\app\nic_domainaction\action::set('renew', $domain_action_detail);
-
-			$insert_billing =
-			[
-				'domain_id'      => $domain_id,
-				'user_id'        => $user_id,
-				'action'         => 'renew',
-				'status'         => 'enable',
-				'mode'           => 'manual',
-				'period'         => $period,
-				'price'          => $price,
-				'discount'       => $discount,
-				'finalprice'     => $finalprice,
-				'transaction_id' => $transaction_id,
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
-				'datecreated'    => date("Y-m-d H:i:s"),
-				'giftusage_id'   => $gift_usage_id,
-			];
-
-			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
 
 			$msg = T_("Domain :domain was renewed", ['domain' => $domain]);
@@ -391,13 +396,15 @@ class renew
 
 			\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
-			// fetch nic credit after renew domain
-			\lib\app\nic_credit\get::fetch();
+			if(\dash\validate::ir_domain($domain, false))
+			{
+				// fetch nic credit after renew domain
+				\lib\app\nic_credit\get::fetch();
+			}
 
 			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'renew', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
 			// \dash\notif::ok(, ['alerty' => true]);
-
 
 			return true;
 

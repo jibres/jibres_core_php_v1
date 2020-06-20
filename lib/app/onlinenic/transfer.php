@@ -8,26 +8,26 @@ class transfer
 	{
 		$condition =
 		[
-			'domain'    => 'domain',
-			'whoistype' => ['enum' => ['jibreswhoisgard', 'customizedetail']],
-			'pin'       => 'string',
-			'nic_id' => 'bit',
-			'irnic_new' => 'bit',
-			'agree' => 'bit',
-			'nationalcode' => 'bit',
+			'domain'            => 'domain',
+			'whoistype'         => ['enum' => ['jibreswhoisgard', 'customizedetail']],
+			'pin'               => 'string',
+			'nic_id'            => 'bit',
+			'irnic_new'         => 'bit',
+			'agree'             => 'bit',
+			'nationalcode'      => 'bit',
 			// .com request // only set this parametr on validate to have not error in cleans
-			'fullname'  => 'enstring_60',
-			'org'       => 'enstring_60',
-			'country'   => ['enum' => ['AU','AF','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','BT','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CK','CR','HR','CY','CZ','DK','DJ','DM','DO','TP','EC','EG','SV','GQ','EE','ET','FK','FO','FJ','FI','SU','FX','FR','TF','GA','GM','GE','DE','GH','GI','GB','GR','GL','GD','GP','GU','GT','GW','GN','GF','GY','HT','HM','HN','HK','HU','IS','IN','ID','IQ','IE','IL','IT','CI','JM','JP','JO','JF','KZ','KE','KG','KI','KR','KW','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','AN','NL','NC','NZ','NI','NE','NG','NU','NF','MP','NO','EM','OM','PK','PW','PA','PG','PY','PE','PH','PN','PL','PF','PT','ZN','PR','QA','RE','RO','RU','RW','GS','LC','WS','SM','SA','SN','SC','SL','SG','SK','SI','SB','SO','ZA','ES','LK','SH','PM','ST','KN','VC','RS','SR','SJ','SZ','SE','CH','TJ','TW','TZ','TH','TG','TK','TO','TT','TN','TR','TM','TC','TV','UM','UG','UA','AE','US','UY','UZ','VU','VA','VE','VN','VG','VI','WF','EH','YE','YU','ZM','ZW','ZR',]],
-			'province'  => 'enstring_60',
-			'city'      => 'enstring_60',
-			'address'   => 'enstring_60',
-			'postcode'  => 'postcode',
-			'phone'     => 'number',
-			'fax'       => 'number',
-			'email'     => 'email',
-			'phonecc'   => 'intstring_3',
-			'faxcc'     => 'intstring_3',
+			'fullname'          => 'enstring_60',
+			'org'               => 'enstring_60',
+			'country'           => ['enum' => ['AU','AF','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','BT','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CK','CR','HR','CY','CZ','DK','DJ','DM','DO','TP','EC','EG','SV','GQ','EE','ET','FK','FO','FJ','FI','SU','FX','FR','TF','GA','GM','GE','DE','GH','GI','GB','GR','GL','GD','GP','GU','GT','GW','GN','GF','GY','HT','HM','HN','HK','HU','IS','IN','ID','IQ','IE','IL','IT','CI','JM','JP','JO','JF','KZ','KE','KG','KI','KR','KW','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','AN','NL','NC','NZ','NI','NE','NG','NU','NF','MP','NO','EM','OM','PK','PW','PA','PG','PY','PE','PH','PN','PL','PF','PT','ZN','PR','QA','RE','RO','RU','RW','GS','LC','WS','SM','SA','SN','SC','SL','SG','SK','SI','SB','SO','ZA','ES','LK','SH','PM','ST','KN','VC','RS','SR','SJ','SZ','SE','CH','TJ','TW','TZ','TH','TG','TK','TO','TT','TN','TR','TM','TC','TV','UM','UG','UA','AE','US','UY','UZ','VU','VA','VE','VN','VG','VI','WF','EH','YE','YU','ZM','ZW','ZR',]],
+			'province'          => 'enstring_60',
+			'city'              => 'enstring_60',
+			'address'           => 'enstring_60',
+			'postcode'          => 'postcode',
+			'phone'             => 'number',
+			'fax'               => 'number',
+			'email'             => 'email',
+			'phonecc'           => 'intstring_3',
+			'faxcc'             => 'intstring_3',
 
 			'register_now'      => 'bit',
 			'gift'              => 'string_100',
@@ -396,6 +396,77 @@ class transfer
 		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
 
+		if($data['minus_transaction'])
+		{
+
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Transfer domian :val", ['val' => $domain]),
+				'verify'  => 1,
+				'minus'   => floatval($data['minus_transaction']),
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+			if(!$transaction_id)
+			{
+				\dash\log::oops('transaction_db');
+				return false;
+			}
+		}
+
+
+		if($data['gift'])
+		{
+			$gift_meta =
+			[
+				'code'            => $data['gift'],
+				'transaction_id'  => $transaction_id,
+				'price'           => $price,
+				'discount'        => $discount,
+				'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
+				'finalprice'      => $finalprice,
+				'user_id'         => $user_id,
+			];
+
+			$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
+		}
+
+
+		$domain_action_detail =
+		[
+			'domain_id'      => $domain_id,
+			'price'          => $price,
+			'discount'       => $discount,
+			'finalprice'     => $finalprice,
+			'transaction_id' => $transaction_id,
+			'giftusage_id'   => $gift_usage_id,
+		];
+
+		\lib\app\nic_domainaction\action::set('transfer', $domain_action_detail);
+
+		$insert_billing =
+		[
+			'domain_id'      => $domain_id,
+			'user_id'        => $user_id,
+			'action'         => 'transfer',
+			'status'         => 'enable',
+			'mode'           => 'manual',
+			'price'          => $price,
+			'discount'       => $discount,
+			'finalprice'     => $finalprice,
+			'transaction_id' => $transaction_id,
+			'detail'         => null,
+			'date'           => date("Y-m-d H:i:s"),
+			'datecreated'    => date("Y-m-d H:i:s"),
+			'giftusage_id'   => $gift_usage_id,
+		];
+
+		$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
+
+
 		// run nic create domain exec
 		$result = \lib\onlinenic\api::transfer_domain($ready);
 
@@ -419,75 +490,7 @@ class transfer
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
-			if($data['minus_transaction'])
-			{
 
-				$insert_transaction =
-				[
-					'user_id' => $user_id,
-					'title'   => T_("Transfer domian :val", ['val' => $domain]),
-					'verify'  => 1,
-					'minus'   => floatval($data['minus_transaction']),
-					'type'    => 'money',
-				];
-
-				$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-				if(!$transaction_id)
-				{
-					\dash\log::oops('transaction_db');
-					return false;
-				}
-			}
-
-
-			if($data['gift'])
-			{
-				$gift_meta =
-				[
-					'code'            => $data['gift'],
-					'transaction_id'  => $transaction_id,
-					'price'           => $price,
-					'discount'        => $discount,
-					'discountpercent' => round((floatval($discount) * 100) / floatval($price)),
-					'finalprice'      => $finalprice,
-					'user_id'         => $user_id,
-				];
-
-				$gift_usage_id = \lib\app\gift\usage::set($gift_meta);
-			}
-
-
-			$domain_action_detail =
-			[
-				'domain_id'      => $domain_id,
-				'price'          => $price,
-				'discount'       => $discount,
-				'finalprice'     => $finalprice,
-				'transaction_id' => $transaction_id,
-				'giftusage_id'   => $gift_usage_id,
-			];
-
-			\lib\app\nic_domainaction\action::set('transfer', $domain_action_detail);
-
-			$insert_billing =
-			[
-				'domain_id'      => $domain_id,
-				'user_id'        => $user_id,
-				'action'         => 'transfer',
-				'status'         => 'enable',
-				'mode'           => 'manual',
-				'price'          => $price,
-				'discount'       => $discount,
-				'finalprice'     => $finalprice,
-				'transaction_id' => $transaction_id,
-				'detail'         => null,
-				'date'           => date("Y-m-d H:i:s"),
-				'datecreated'    => date("Y-m-d H:i:s"),
-				'giftusage_id'   => $gift_usage_id,
-			];
-
-			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
 			\dash\notif::ok(T_("Domain :domain was transfered in your name", ['domain' => $domain]), ['alerty' => true]);
 
