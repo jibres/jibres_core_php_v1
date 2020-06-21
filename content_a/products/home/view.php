@@ -74,6 +74,10 @@ class view
 		{
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
+
+
+		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
+
 	}
 }
 ?>
