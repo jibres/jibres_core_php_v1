@@ -55,13 +55,13 @@ class url
 			return false;
 		}
 
-		$data = self::fix_domain_text($data, $_notif, $_element, $_field_title);
+		$data = self::domain_clean($data, $_notif, $_element, $_field_title);
 
 		return $data;
 	}
 
 
-	private static function fix_domain_text($_data, $_notif = false, $_element = null, $_field_title = null)
+	public static function domain_clean($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = $_data;
 		$data = urldecode($data);
@@ -109,7 +109,7 @@ class url
 			return false;
 		}
 
-		$data = self::fix_domain_text($data, $_notif, $_element, $_field_title);
+		$data = self::domain_clean($data, $_notif, $_element, $_field_title);
 
 		return $data;
 	}
@@ -124,7 +124,7 @@ class url
 			return $data;
 		}
 
-		$data = self::fix_domain_text($data, $_notif, $_element, $_field_title);
+		$data = self::domain_clean($data, $_notif, $_element, $_field_title);
 
 		if($data === false || $data === null)
 		{

@@ -627,6 +627,10 @@ class cleanse
 				$data = \dash\validate\url::url($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'domain_clean':
+				$data = \dash\validate\url::domain_clean($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'domain':
 				$data = \dash\validate\url::domain($_data, $_notif, $element, $field_title, $meta);
 				break;

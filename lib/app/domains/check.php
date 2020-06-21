@@ -6,6 +6,39 @@ class check
 {
 	public static function multi_check($_domain)
 	{
+		$domain = \dash\validate::string_200($_domain);
+		$domain = \dash\validate::domain_clean($domain, false);
+
+		if(!$domain)
+		{
+			\dash\notif::error(T_("Please enter a valid domain for check"));
+			return false;
+		}
+
+		$tld = null;
+
+		$real_domain = \dash\validate::domain($domain, false);
+		$ir_domain   = \dash\validate::ir_domain($domain, false);
+
+		if($ir_domain)
+		{
+			// user search jibres.ir
+		}
+		elseif($real_domain)
+		{
+			// user search jibres.com
+
+			$explode = explode('.', $real_domain);
+			$tld = end($explode);
+
+		}
+		else
+		{
+			// user search jibres
+
+		}
+
+
 		$check_tld =
 		[
 			// person
@@ -22,23 +55,16 @@ class check
 			'ac.ir',
 		];
 
-		$_domain = \dash\validate::string_200($_domain);
 
-		if(!$_domain)
+		$domain = urldecode($domain);
+		$domain = mb_strtolower($domain);
+
+		$myDomainName = $domain;
+
+		if(strpos($domain, '.') !== false)
 		{
-			\dash\notif::error(T_("Please enter a valid domain for check"));
-			return false;
-		}
-
-		$_domain = urldecode($_domain);
-		$_domain = mb_strtolower($_domain);
-
-		$myDomainName = $_domain;
-
-		if(strpos($_domain, '.') !== false)
-		{
-			$domain_tld = substr($_domain, strpos($_domain, '.'));
-			$myDomainName = str_replace($domain_tld, '', $_domain);
+			$domain_tld = substr($domain, strpos($domain, '.'));
+			$myDomainName = str_replace($domain_tld, '', $domain);
 		}
 
 		$domains = [];
@@ -57,7 +83,20 @@ class check
 			'net',
 			'org',
 			'xyz',
+			'me',
+			'io',
+			'info',
+			'app',
+			'tv',
+			'club',
+			'dev',
 		];
+
+		// also check valid tld
+		if($tld && !in_array($tld, $check_tld))
+		{
+			array_push($check_tld, $tld);
+		}
 
 		$international_domain = [];
 		foreach ($check_tld as  $tld)
