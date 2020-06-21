@@ -1,45 +1,19 @@
-<?php
-$storeData = \dash\data::store_store_data();
-?>
 
+<div class="f justify-center">
+  <div class="c8 s12 m10 x6 pA20">
+    <nav class="items">
+      <ul>
 
-<div class="f">
- <div class="cauto s12 pA10">
-<div class="cbox normal">
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/general/title"><div class="key"><?php echo T_("Store title"); ?></div><div class="go"></div></a></li>
 
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/logo"><div class="key"><?php echo T_("Set logo of your store"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/googleanalytics"><div class="key"><?php echo T_("Google analytics setting"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/domain"><div class="key"><?php echo T_("Connect store to your domain"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/units"><div class="key"><?php echo T_("Store Units"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/social"><div class="key"><?php echo T_("Social Network"); ?></div><div class="go"></div></a></li>
 
-  <a class="vcard mA10 shadow" <?php if(\dash\permission::check('settingEditLogo'))  { ?>  href='<?php echo \dash\url::here(); ?>/setting/logo' <?php } //endif ?>>
-    <img src="<?php echo \dash\get::index($storeData, 'logo'); ?>" alt="<?php echo \dash\get::index($storeData, 'title'); ?>" class="pA10-f">
-    <div class="content">
-      <div class="header"><?php echo \dash\get::index($storeData, 'title'); ?></div>
+      </ul>
+    </nav>
 
-    </div>
-  </a>
-
-
-</div>
- </div>
- <div class="c s12 pA10">
-  <div class="cbox">
-   <form method="post" autocomplete="off">
-
-      <?php \dash\utility\hive::html(); ?>
-      <label for="ititle"><?php echo T_("Name"); ?> <span class="fc-red">*</span></label>
-      <div class="input">
-        <input type="text" name="title" id="ititle" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\get::index($storeData, 'title'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
-      </div>
-
-      <label for="desc"><?php echo T_("Description"); ?></label>
-      <textarea class="txt mB10" name="desc"  maxlength='2000' rows="3"><?php echo \dash\get::index($storeData, 'desc'); ?></textarea>
-
-      <div class="txtRa">
-        <button class="btn success"><?php echo T_("Save"); ?></button>
-      </div>
-   </form>
   </div>
-
-
- </div>
 </div>
-
-

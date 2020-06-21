@@ -1,13 +1,11 @@
 <?php
-namespace content_a\setting\general;
+namespace content_a\setting\home;
 
 class controller
 {
 	public static function routing()
 	{
-		\dash\utility\hive::set();
-
-		\dash\permission::access('settingEdit');
+		\dash\permission::access('settingView');
 
 	}
 }

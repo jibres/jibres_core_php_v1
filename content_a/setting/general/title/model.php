@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\general;
+namespace content_a\setting\general\title;
 
 
 class model

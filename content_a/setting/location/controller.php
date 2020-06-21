@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\payment;
+namespace content_a\setting\location;
 
 class controller
 {

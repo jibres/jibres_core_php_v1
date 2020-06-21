@@ -1,11 +1,11 @@
 <?php
-namespace content_a\setting\general;
+namespace content_a\setting\location;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('General setting'));
+		\dash\face::title(T_('Business location'));
 
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::this());

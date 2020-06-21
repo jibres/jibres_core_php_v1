@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\pos;
+namespace content_a\setting\pos\pos;
 
 
 class model
