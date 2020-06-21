@@ -21,6 +21,7 @@ class view
 		\dash\face::btnImport(\dash\url::this().'/import');
 		\dash\face::btnExport(\dash\url::this().'/export');
 		// \dash\face::help(\dash\url::support().'/products');
+		\dash\face::btnSetting(\dash\url::here().'/setting/product');
 
 		$args =
 		[

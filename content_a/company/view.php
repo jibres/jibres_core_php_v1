@@ -8,8 +8,8 @@ class view
 		\dash\face::title(T_('Company of products'));
 
 		// back
-		\dash\data::back_text(T_('Products'));
-		\dash\data::back_link(\lib\backlink::products());
+		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_link(\dash\url::here(). '/setting/product');
 
 
 		if(\dash\data::editMode())

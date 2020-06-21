@@ -9,8 +9,8 @@ class view
 		\dash\face::title(T_('Tags'));
 
 		// back
-		\dash\data::back_text(T_('Products'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_link(\dash\url::here(). '/setting/product');
 
 		$args =
 		[
