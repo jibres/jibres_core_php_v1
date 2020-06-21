@@ -7,7 +7,7 @@
 
 
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/pcpos"><div class="key"><?php echo T_("PC-POS setting"); ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::this(); ?>/pos"><div class="key"><?php echo T_("POS setting"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/pos/pos"><div class="key"><?php echo T_("POS setting"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/fund"><div class="key"><?php echo T_("Fund"); ?></div><div class="go"></div></a></li>
 
 

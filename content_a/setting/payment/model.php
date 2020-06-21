@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\payment\channels;
+namespace content_a\setting\payment;
 
 
 class model

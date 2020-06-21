@@ -9,8 +9,8 @@ class view
 
 
 		// back
-		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here(). '/website');
 
 
 		$domain_list = \lib\app\store\domain::get_domain_list();

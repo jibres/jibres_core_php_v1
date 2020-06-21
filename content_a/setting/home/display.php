@@ -33,7 +33,7 @@
 
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/location">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/address">
                     <div class="c-auto"><i class="sf-pin"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Locations"); ?></h2>
@@ -112,7 +112,7 @@
                 </a>
             </div>
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/legal">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/company">
                     <div class="c-auto"><i class="sf-file-1"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Legal"); ?></h2>
@@ -159,7 +159,7 @@
                 </a>
             </div>
 
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+            <div class="hide c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/social">
                     <div class="c-auto"><i class="sf-network"></i></div>
                     <div class="c">
