@@ -22,7 +22,7 @@
             <td class="ltr"><?php echo \dash\get::index($value, 'tld') ?></td>
             <td class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'price')) ?></td>
             <?php if(\dash\permission::supervisor()) {?>
-              <td class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'dollar')) ?></td>
+              <td class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'dollar')) ?></td>
             <?php } //endif ?>
 
           </tr>
