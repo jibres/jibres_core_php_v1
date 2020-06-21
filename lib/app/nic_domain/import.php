@@ -38,7 +38,7 @@ class import
 
 		foreach ($domains_explode as $key => $value)
 		{
-			$temp = \dash\validate::ir_domain($value, false);
+			$temp = \dash\validate::domain($value, false);
 
 			if($temp)
 			{

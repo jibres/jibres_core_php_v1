@@ -69,6 +69,12 @@ class get
 
 	public static function update_fetch($_domain, $_load_domain)
 	{
+		// only ir domain need to fetch
+		if(!\dash\validate::ir_domain($_domain, false))
+		{
+			return;
+		}
+
 		$fetch = self::info($_domain);
 
 		if(isset($fetch[$_domain]))
