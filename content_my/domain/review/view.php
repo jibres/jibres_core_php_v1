@@ -22,10 +22,12 @@ class view
 		{
 			$gift_args =
 			[
-				'code'    => $gift,
-				'price'   => \dash\data::myPrice(),
-				'user_id' => \dash\user::id(),
-				'usein'   => 'domain',
+				'code'          => $gift,
+				'price'         => \dash\data::myPrice(),
+				'user_id'       => \dash\user::id(),
+				'usein'         => 'domain',
+				'domain'        => \dash\data::dataRow_name(),
+				'domain_period' => \dash\data::myPeriod(),
 			];
 
 			$detail = \lib\app\gift\check::check($gift_args);

@@ -38,7 +38,7 @@ class edit
 			'dateexpire'    => 'datetime',
 			'status'        => ['enum' => ['draft', 'enable', 'disable', 'deleted', 'expire', 'blocked']],
 			'usagestatus'   => ['enum' => ['used', 'full']],
-			'forusein'      => ['enum' => ['any', 'domain', 'store', 'sms', 'ipg']],
+			'forusein'      => ['enum' => ['any', 'domain', 'store', 'sms', 'ipg', 'ir_domain','ir_domain_1','ir_domain_5']],
 			'emailto'       => 'desc',
 			'emailtemplate' => 'string_100',
 			'msgsuccess'    => 'desc',

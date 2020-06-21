@@ -162,7 +162,7 @@ $giftCode = \dash\data::giftDetail_discount();
   else
   {
     echo '<div class="msg danger2 f align-center">';
-      echo '<div class="c">';
+      echo '<div class="c" id="giftcardmessageerror">';
         echo T_("Invalid gift code"). ' 😔';
       echo '</div>';
     echo '</div>';

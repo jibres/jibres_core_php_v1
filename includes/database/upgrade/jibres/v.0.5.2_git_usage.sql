@@ -1,0 +1,1 @@
+ALTER TABLE jibres.gift CHANGE `forusein` `forusein` ENUM('any','domain','store','sms','ipg','ir_domain', 'ir_domain_1', 'ir_domain_5') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL;

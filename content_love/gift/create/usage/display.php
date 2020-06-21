@@ -28,6 +28,9 @@
             <option value="store" <?php if(\dash\data::dataRow_forusein() === 'store') {echo 'selected'; } ?>><?php echo T_("store") ?></option>
             <option value="sms" <?php if(\dash\data::dataRow_forusein() === 'sms') {echo 'selected'; } ?>><?php echo T_("sms") ?></option>
             <option value="ipg" <?php if(\dash\data::dataRow_forusein() === 'ipg') {echo 'selected'; } ?>><?php echo T_("ipg") ?></option>
+            <option value="ir_domain" <?php if(\dash\data::dataRow_forusein() === 'ir_domain') {echo 'selected'; } ?>><?php echo T_("Domain by tld .ir") ?></option>
+            <option value="ir_domain_1" <?php if(\dash\data::dataRow_forusein() === 'ir_domain_1') {echo 'selected'; } ?>><?php echo T_("Domain by tld .ir for 1 year") ?></option>
+            <option value="ir_domain_5" <?php if(\dash\data::dataRow_forusein() === 'ir_domain_5') {echo 'selected'; } ?>><?php echo T_("Domain by tld .ir for 5 year") ?></option>
 
           </select>
         </div>
