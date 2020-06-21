@@ -83,6 +83,35 @@
             </div>
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/checkout">
+                    <div class="c-auto"><i class="sf-shopping-cart"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Checkout"); ?></h2>
+                        <p><?php echo T_("Customize your online checkout process"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/notifications">
+                    <div class="c-auto"><i class="sf-bell"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Notifications"); ?></h2>
+                        <p><?php echo T_("Manage notification send to you and your cusotmers"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/billing">
+                    <div class="c-auto"><i class="sf-wallet-money"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Billing"); ?></h2>
+                        <p><?php echo T_("Your billing information and view your invoices"); ?></p>
+                    </div>
+                </a>
+            </div>
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/legal">
                     <div class="c-auto"><i class="sf-file-1"></i></div>
                     <div class="c">
