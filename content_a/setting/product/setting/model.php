@@ -8,7 +8,9 @@ class model
 	{
 		$post =
 		[
-			'default_pirce_list'    => \dash\request::post('defaultpricelist'),
+			'default_pirce_list' => \dash\request::post('defaultpricelist'),
+			'variant_product'    => \dash\request::post('variant_product'),
+
 		];
 
 		\lib\app\setting\set::product_setting($post);

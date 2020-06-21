@@ -9,7 +9,8 @@ class set
 
 		$condition =
 		[
-			'default_pirce_list'      => 'bit',
+			'default_pirce_list' => 'bit',
+			'variant_product'    => 'bit',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

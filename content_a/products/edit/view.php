@@ -94,6 +94,8 @@ class view
 			\dash\face::title($title. ' ('. T_("Deleted"). ')');
 
 		}
+
+		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
 	}
 }
 ?>

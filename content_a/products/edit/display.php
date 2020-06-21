@@ -534,17 +534,18 @@ $productDataRow = \dash\data::productDataRow();
     </div>
   </section>
 </div>
-  <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productFamily()) {?>
-
+<?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productFamily()) {?>
+  <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
     <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
       <section class="jbox">
         <header data-kerkere='.variantPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Variants"); ?></h2></header>
         <div class="pad variantPanelLink" data-kerkere-content='hide'>
-            <a href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
+          <a href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
         </div>
       </section>
-  </div>
+    </div>
   <?php } //endif ?>
+<?php } //endif ?>
 
 
 

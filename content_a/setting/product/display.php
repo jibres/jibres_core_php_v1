@@ -5,6 +5,7 @@
     <nav class="items">
       <ul>
         <?php if(\dash\permission::check('productAdd')) {?><li><a class="f" href="<?php echo $urlHere; ?>/products/add"><div class="key"><?php echo T_("Add new Product"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+        <li><a class="f" href="<?php echo $urlHere; ?>/products"><div class="key"><?php echo T_("Product list"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
     <nav class="items">
