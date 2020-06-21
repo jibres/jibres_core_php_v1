@@ -1,3 +1,29 @@
+<div class="box" data-settings>
+    <div class="body">
+        <div class="row">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/general">
+                    <div class="c-auto"><i class="sf-cog"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("General"); ?></h2>
+                        <p><?php echo T_("View and update your business details"); ?></p>
+                    </div>
+                </a>
+            </div>
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/product">
+                    <div class="c-auto"><i class="sf-box"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Products"); ?></h2>
+                        <p><?php echo T_("Manage how your store products organized"); ?></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="f justify-center">
   <div class="c8 s12 m10 x6 pA20">
     <nav class="items">
