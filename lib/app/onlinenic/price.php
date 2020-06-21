@@ -129,5 +129,69 @@ class price
 	}
 
 
+
+	public static function get_all()
+	{
+
+		$pricing = [];
+
+		$get_json = \dash\file::read(__DIR__. '/pricing.me.json');
+		if(!$get_json)
+		{
+			self::convert_csv_to_json();
+
+			$get_json = \dash\file::read(__DIR__. '/pricing.me.json');
+
+			if(!$get_json)
+			{
+				return false;
+			}
+
+		}
+
+		$pricing = json_decode($get_json, true);
+
+		if(!is_array($pricing))
+		{
+			$pricing = [];
+		}
+
+
+		return $pricing;
+	}
+
+
+	private static function convert_csv_to_json()
+	{
+		$dir = __DIR__. '/pricing.csv';
+		if(is_file($dir))
+		{
+			$list = \dash\utility\import::csv($dir);
+			if(!$list || !is_array($list))
+			{
+				return false;
+			}
+
+			$pricing = [];
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['domain']) && isset($value['type']))
+				{
+					if($value['type'] === 'domainregister')
+					{
+						if(isset($value['1 year']))
+						{
+							$pricing[] = ['tld' => $value['domain'], 'type' => $value['type'], 'price' => self::toman_price($value['1 year'], substr($value['domain'], 1))];
+						}
+					}
+				}
+			}
+
+			if(!empty($pricing))
+			{
+				\dash\file::write(__DIR__. '/pricing.me.json', json_encode($pricing, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+			}
+		}
+	}
 }
 ?>
