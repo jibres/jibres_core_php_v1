@@ -12,17 +12,137 @@
             </div>
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/product">
-                    <div class="c-auto"><i class="sf-box"></i></div>
+                    <div class="c-auto"><i class="sf-package"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Products"); ?></h2>
-                        <p><?php echo T_("Manage how your store products organized"); ?></p>
+                        <p><?php echo T_("Manage how your business products organized"); ?></p>
                     </div>
                 </a>
             </div>
+
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/channel">
+                    <div class="c-auto"><i class="sf-atom"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Sales Channels"); ?></h2>
+                        <p><?php echo T_("Manage the channels you use to sell your products"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/location">
+                    <div class="c-auto"><i class="sf-pin"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Locations"); ?></h2>
+                        <p><?php echo T_("Manage the place you stock inventory and sell products"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/tax">
+                    <div class="c-auto"><i class="sf-receipt-shopping-streamline"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Taxes"); ?></h2>
+                        <p><?php echo T_("Manage how your business charges taxes"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/payment">
+                    <div class="c-auto"><i class="sf-credit-card"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Payment Providers"); ?></h2>
+                        <p><?php echo T_("Enable and manage your business payment providers"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/account">
+                    <div class="c-auto"><i class="sf-user-close-security"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Account"); ?></h2>
+                        <p><?php echo T_("Manage your accounts and permissions"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/shipping">
+                    <div class="c-auto"><i class="sf-flight"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Shipping"); ?></h2>
+                        <p><?php echo T_("Manage how you ship orders to customers"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/legal">
+                    <div class="c-auto"><i class="sf-file-1"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Legal"); ?></h2>
+                        <p><?php echo T_("Manage your business legal pages"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+
         </div>
     </div>
 </div>
 
+<div class="box" data-settings>
+    <div class="body">
+        <div class="row">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/website">
+                    <div class="c-auto"><i class="sf-monitor"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Online Store Website"); ?></h2>
+                        <p><?php echo T_("Manage your business website settings"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/app">
+                    <div class="c-auto"><i class="sf-mobile"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Mobile Online Store"); ?></h2>
+                        <p><?php echo T_("Manage your business app settings"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/pos">
+                    <div class="c-auto"><i class="sf-tools"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Point of Sale Software"); ?></h2>
+                        <p><?php echo T_("Manage your business pos configuration"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/social">
+                    <div class="c-auto"><i class="sf-network"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Social Marketing"); ?></h2>
+                        <p><?php echo T_("Manage your business social marketing"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <div class="f justify-center">
   <div class="c8 s12 m10 x6 pA20">
