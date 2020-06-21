@@ -33,7 +33,7 @@ $storeData = \dash\data::store_store_data();
     <div class="data">
       <h3><?php echo T_("Variant of product");?></h3>
       <div class="body">
-        <p><?php echo T_("Enable bariant product");?></p>
+        <p><?php echo T_("Enable variant product");?></p>
       </div>
     </div>
   </div>
