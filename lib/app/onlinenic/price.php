@@ -133,23 +133,7 @@ class price
 	public static function get_all()
 	{
 
-		$pricing = [];
-
-		$get_json = \dash\file::read(__DIR__. '/pricing.me.json');
-		if(!$get_json)
-		{
-			self::convert_csv_to_json();
-
-			$get_json = \dash\file::read(__DIR__. '/pricing.me.json');
-
-			if(!$get_json)
-			{
-				return false;
-			}
-
-		}
-
-		$pricing = json_decode($get_json, true);
+		$pricing = self::convert_csv_to_json();
 
 		if(!is_array($pricing))
 		{
@@ -181,7 +165,7 @@ class price
 					{
 						if(isset($value['1 year']))
 						{
-							$pricing[] = ['tld' => $value['domain'], 'type' => $value['type'], 'price' => self::toman_price($value['1 year'], substr($value['domain'], 1))];
+							$pricing[] = ['tld' => $value['domain'], 'type' => $value['type'], 'dollar' => $value['1 year'], 'price' => self::toman_price($value['1 year'], substr($value['domain'], 1))];
 						}
 					}
 				}
@@ -189,7 +173,8 @@ class price
 
 			if(!empty($pricing))
 			{
-				\dash\file::write(__DIR__. '/pricing.me.json', json_encode($pricing, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+				return $pricing;
+				// \dash\file::write(__DIR__. '/pricing-v2.me.json', json_encode($pricing, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 			}
 		}
 	}

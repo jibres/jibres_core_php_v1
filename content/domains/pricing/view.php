@@ -1,5 +1,5 @@
 <?php
-namespace content\domains\price;
+namespace content\domains\pricing;
 
 
 class view
