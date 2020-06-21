@@ -83,6 +83,7 @@ $myData = \dash\data::dashboardDetail();
 
 
 <div id="chartdiv" class="box chart x200"></div>
+<div id="chartdivonlinenic" class="box chart x200"></div>
 
 <div class="f">
   <div class="c3 s12 pRa10">
@@ -215,6 +216,11 @@ $myData = \dash\data::dashboardDetail();
   <div id="chartlogcategory"><?php echo \dash\get::index($myData, 'domain_log_chart', 'categories'); ?></div>
   <div id="chartlogcount"><?php echo \dash\get::index($myData, 'domain_log_chart', 'count'); ?></div>
   <div id="charttitlelog"><?php echo T_("Log"); ?></div>
+
+
+  <div id="chartonlineniclogtitle"><?php echo T_("All API request in 60 last days By Onlinenic"); ?></div>
+  <div id="chartonlineniclogcategory"><?php echo \dash\get::index($myData, 'domain_onlinenic_log_chart', 'categories'); ?></div>
+  <div id="chartonlineniclogcount"><?php echo \dash\get::index($myData, 'domain_onlinenic_log_chart', 'count'); ?></div>
 
 
 </div>

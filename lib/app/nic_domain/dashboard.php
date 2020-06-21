@@ -34,6 +34,7 @@ class dashboard
 
 		$result['domain_action_chart']   = self::domain_action_chart($last_month);
 		$result['domain_log_chart']      = self::domain_log_chart($last_month);
+		$result['domain_onlinenic_log_chart']      = self::domain_onlinenic_log_chart($last_month);
 
 		return $result;
 	}
@@ -377,6 +378,34 @@ class dashboard
 	private static function domain_log_chart($_date)
 	{
 		$list = \lib\db\nic_log\get::chart_per_day($_date);
+
+
+		$hi_chart               = [];
+		$hi_chart['categories'] = [];
+		$hi_chart['count']      = [];
+
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['date']))
+			{
+				array_push($hi_chart['categories'], \dash\fit::date($value['date']));
+				array_push($hi_chart['count'], intval($value['count']));
+			}
+		}
+
+		$hi_chart['categories'] = json_encode($hi_chart['categories'], JSON_UNESCAPED_UNICODE);
+		$hi_chart['count'] = json_encode($hi_chart['count'], JSON_UNESCAPED_UNICODE);
+
+		return $hi_chart;
+
+	}
+
+
+
+	private static function domain_onlinenic_log_chart($_date)
+	{
+		$list = \lib\db\onlinenic_log\get::chart_per_day($_date);
 
 
 		$hi_chart               = [];
