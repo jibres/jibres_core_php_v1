@@ -20,7 +20,7 @@ else
       <a class="search" href="<?php echo \dash\url::kingdom(); ?>/search"></a>
     </div>
     <div class="cauto pRa20">
-      <a class="cart" href="<?php echo \dash\url::kingdom(); ?>/cart" data-count="۲"><?php echo T_("Cart"); ?></a>
+      <a class="cart" href="<?php echo \dash\url::kingdom(); ?>/cart" data-count="<?php echo \dash\fit::number(\lib\website::cart_count()); ?>"><?php echo T_("Cart"); ?></a>
     </div>
     <div class="cauto">
       <a class="enter" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Enter to account"); ?></a>

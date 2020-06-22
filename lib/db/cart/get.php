@@ -57,6 +57,13 @@ class get
 	}
 
 
+	public static function user_cart_count($_user_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.user_id = $_user_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 	public static function user_cart($_user_id)
 	{
 		$query  = "SELECT cart.product_id, cart.count, cart.datecreated FROM cart WHERE cart.user_id = $_user_id";

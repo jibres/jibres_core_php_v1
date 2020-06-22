@@ -4,6 +4,22 @@ namespace lib\app\cart;
 
 class get
 {
+	public static function my_cart_count()
+	{
+		if(!\dash\user::id())
+		{
+			// save in session
+			// in api we have the user id
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		$user_cart_count = \lib\db\cart\get::user_cart_count(\dash\user::id());
+
+		$user_cart_count = intval($user_cart_count);
+
+		return $user_cart_count;
+	}
 
 	public static function my_cart_list()
 	{
@@ -114,7 +130,7 @@ class get
 				case 'saleonline':
 				case 'carton':
 				case 'variants':
-				case 'thumb':
+				// case 'thumb':
 				case 'compareatprice':
 
 					// skipp show this fields

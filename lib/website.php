@@ -21,5 +21,10 @@ class website
 		\lib\app\website\menu\generate::menu($_key, $_class);
 	}
 
+
+	public static function cart_count()
+	{
+		return \lib\app\cart\get::my_cart_count();
+	}
 }
 ?>
