@@ -28,6 +28,7 @@ class check
 		$condition =
 		[
 			'title'          => 'title',
+			'title2'          => 'title',
 			'slug'           => 'slug',
 			'barcode'        => 'barcode',
 			'barcode2'       => 'barcode',
