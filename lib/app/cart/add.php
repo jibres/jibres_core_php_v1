@@ -70,8 +70,10 @@ class add
 		}
 		else
 		{
-			\dash\notif::info(T_("This product exists in you cart"));
-			return null;
+			$new_count = floatval($check_exist_record['count']) + 1;
+
+			\lib\db\cart\update::the_count($data['product'], $user_id, $new_count);
+
 		}
 
 		\dash\notif::ok(T_("Product added to your cart"));
@@ -157,8 +159,9 @@ class add
 		}
 		else
 		{
-			\dash\notif::info(T_("This product exists in you cart"));
-			return null;
+			$new_count = floatval($check_exist_record['count']) + 1;
+
+			\lib\db\cart\update::the_count($data['product'], $user_id, $new_count);
 		}
 
 		\dash\notif::ok(T_("Product added to your cart"));

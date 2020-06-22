@@ -34,5 +34,16 @@ class website
 	{
 		return \lib\app\cart\get::my_cart_count();
 	}
+
+
+	public static function my_address_list()
+	{
+		if(!\dash\user::id())
+		{
+			return [];
+		}
+
+		return \dash\app\address::user_address_list(\dash\user::code());
+	}
 }
 ?>

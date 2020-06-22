@@ -18,6 +18,11 @@ elseif(\dash\url::module() === 'cart')
 	// load cart detail
 	require_once(root. 'content_subdomain/cart/display.php');
 }
+elseif(\dash\url::module() === 'shiping')
+{
+	// load shiping detail
+	require_once(root. 'content_subdomain/shiping/display.php');
+}
 else
 {
 	// body generator
