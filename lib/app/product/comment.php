@@ -463,6 +463,12 @@ class comment
 	}
 
 
+	public static function get_public_list($_product_id)
+	{
+		return self::list(null, ['status' => 'approved', 'product_id' => $_product_id]);
+	}
+
+
 	public static function list($_query_string, $_args)
 	{
 		if(!\dash\user::id())

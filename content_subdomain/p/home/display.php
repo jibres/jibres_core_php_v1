@@ -101,134 +101,11 @@
   </div>
 <?php } ?>
 
-</div>
 
-
-
-
-
-<div class=" hide2 jibresBanner">
- <div class="avand">
-<?php $dataRow = \dash\data::dataRow(); ?>
-<div class="blogEx">
-
-
-<article>
-  <section>
-    <h2><?php echo \dash\get::index($dataRow, 'title'); ?></h2>
-
-  <a href="<?php echo \dash\data::dataRow_link(); ?>" class="thumb">
-      <img src="<?php echo \dash\get::index($dataRow, 'thumb'); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
-  </a>
-
-
-  <div><?php echo \dash\data::dataRow_desc(); ?></div>
-
-
-
-
-  <div class='msg simple f mT20'>
-    <div class="c"><time datetime="<?php echo \dash\data::dataRow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::dataRow_publishdate()); ?></time></div>
-    <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::dataRow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("Product Code"); ?> <span class="txtB"><?php echo \dash\data::dataRow_id(); ?></span></a></div>
-  </div>
-
-
-  <div class="tagBox msg simple">
-    <?php \dash\app\term::load_tag_html(['format' => 'html']); ?>
-  </div>
-
-    <div class="msg"><?php require_once ('shareBox.php');?></div>
-
-    <?php
-      $myPostSimilar = \dash\app\posts::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::dataRow_id()]);
-      if($myPostSimilar)
-      {
-        echo '<nav class="msg">';
-        echo '<h4 class="mB20-f">'. T_("Recommended for you"). '</h4>';
-        foreach ($myPostSimilar as $key => $value)
-        {
-          echo '<a class="block" href="'. \dash\url::kingdom().'/n/'. \dash\data::dataRow_id().'">'. $value['title']. '</a>';
-        }
-        echo '</nav>';
-      }
-    ?>
-
-
-<?php
-if(\dash\user::id())
-{
-  addNewComment();
-}
-  showCommentList();
-?>
-
-  </section>
-</article>
-
-
-
-
-
-
-
-<?php
-function loadTermsTemplate()
-{
-  if(\dash\data::dataRow_type() === 'cat')
-  {
-    $myPostByThisCat = \dash\app\posts::get_post_list(['cat' => \dash\data::dataRow_slug()]);
-  }
-  elseif(\dash\data::dataRow_type() === 'tag')
-  {
-    $myPostByThisCat = \dash\app\posts::get_post_list(['tag' => \dash\data::dataRow_slug()]);
-  }
-
-  if($myPostByThisCat)
-  {
-    echo "<article class='postListPreview'>";
-
-    foreach ($myPostByThisCat as $key => $value)
-    {
-      echo "<section class='f'>";
-      if(isset($value['meta']['thumb']))
-      {
-        echo "<div class='cauto s12 pRa10 txtC'><a href='$value[link]'><img src='". $value['meta']['thumb']. "' alt='$value[title]' width='100px'></a></div>";
-      }
-      echo "<div class='c s12'><h3><a href='$value[link]'>$value[title]</a></h3><p>$value[excerpt]</p></div>";
-
-      echo "</section>";
-    }
-    echo "</article>";
-  }
-} // end function
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-function addNewComment()
-{
-?>
 
 <form  method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
 
-  <input type="hidden" name="id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
+  <input type="hidden" name="product_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
   <?php
   if(!\dash\user::id())
   {
@@ -279,18 +156,12 @@ function addNewComment()
 </form>
 
 
-<?php
-} // end function
-?>
-
-
 
 
 
 <?php
-function showCommentList()
-{
-  $commentList = \dash\app\comment::get_post_comment();
+
+  $commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id());
   if($commentList)
   {
     foreach ($commentList as $key => $value)
@@ -330,8 +201,10 @@ function showCommentList()
 <?php
     } // end for
   } // end if
-} // endfunction
+
 ?>
 
 </div>
-</div>
+
+
+
