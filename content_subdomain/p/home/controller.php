@@ -17,6 +17,7 @@ class controller
 		\dash\data::dataRow($load_product);
 
 		\dash\open::get();
+		\dash\open::post();
 	}
 }
 ?>

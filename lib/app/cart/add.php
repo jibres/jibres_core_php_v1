@@ -6,92 +6,77 @@ namespace lib\app\cart;
  */
 class add
 {
-	// public static function admin_add($_product_detail, $_userdetail)
-	// {
-	// 	$cart_user = \lib\app\cart\check::cart_user($_userdetail);
 
-	// 	if(!$cart_user)
-	// 	{
-	// 		return false;
-	// 	}
+	public static function new_cart_website($_product_id, $_count)
+	{
+		if(\dash\user::id())
+		{
+			return self::new_cart($_product_id, $_count);
+		}
 
-	// 	$customer = $cart_user['customer'];
+		if(!\dash\user::id())
+		{
+			// save in session
+			// in api we have the user id
+			\dash\notif::error(T_("Please login to continue"). ' Nedd to fix');
+			return false;
+		}
 
-	// 	$condition =
-	// 	[
-	// 		'cart_list'    => ['product' => 'id', 'count' => 'smallint'],
-	// 	];
+		$condition =
+		[
+			'product' => 'id',
+			'count'   => 'smallint',
+		];
 
-	// 	$require = [];
+		$args =
+		[
+			'product' => $_product_id,
+			'count'   => $_count,
+		];
 
-	// 	$meta    =	[];
+		$require = ['product', 'count'];
+		$meta    = [];
+		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
-	// 	$data = \dash\cleanse::input(['cart_list' => $_product_detail], $condition, $require, $meta);
 
-	// 	$product_ids = [];
+		$load_product = \lib\app\product\get::inline_get($data['product']);
+		if(!$load_product)
+		{
+			return false;
+		}
 
-	// 	if(isset($data['cart_list']) && is_array($data['cart_list']))
-	// 	{
-	// 		$product_ids = array_column($data['cart_list'], 'product');
-	// 		$product_ids = array_filter($product_ids);
-	// 		$product_ids = array_unique($product_ids);
+		$check_exist_record = \dash\session::get('user_cart');
 
-	// 		if(!$product_ids)
-	// 		{
-	// 			\dash\notif::error(T_("No product found to be added to cart"));
-	// 			return false;
-	// 		}
 
-	// 		$check_true_product = \lib\db\products\get::by_multi_id(implode(',', $product_ids));
-	// 		if($check_true_product && is_array($check_true_product) && count($check_true_product) === count($product_ids))
-	// 		{
-	// 			// nothign. everything is ok
-	// 		}
-	// 		else
-	// 		{
-	// 			\dash\notif::error(T_("Some product id is not valid"));
-	// 			return false;
-	// 		}
-	// 	}
-	// 	else
-	// 	{
-	// 		\dash\notif::error(T_("Please choose some product for adding to cart"));
-	// 		return false;
-	// 	}
+		if(!$check_exist_record)
+		{
+			$price = null;
+			if(isset($load_product['finalprice']) && is_numeric($load_product['finalprice']))
+			{
+				$price = $load_product['finalprice'];
+			}
 
-	// 	$check_exist_record = \lib\db\cart\get::multi_product_user(implode(',', $product_ids), $customer);
+			$new_record =
+			[
+				'user_id'         => $user_id,
+				'product_id'      => $data['product'],
+				'count'           => $data['count'],
+				'datecreated'     => date("Y-m-d H:i:s"),
+				'price'           => $price,
+				'productprice_id' => \lib\db\products\get::last_productprice_id($data['product']),
+			];
 
-	// 	if(!is_array($check_exist_record))
-	// 	{
-	// 		$check_exist_record = [];
-	// 	}
+			\lib\db\cart\insert::new_record($new_record);
+		}
+		else
+		{
+			\dash\notif::info(T_("This product exists in you cart"));
+			return null;
+		}
 
-	// 	$insert_multi = [];
-	// 	foreach ($data['cart_list'] as $key => $value)
-	// 	{
-	// 		if(isset($value['product']) && in_array($value['product'], $check_exist_record))
-	// 		{
-	// 			// nothing
-	// 		}
-	// 		else
-	// 		{
-	// 			$insert_multi[] =
-	// 			[
-	// 				'user_id'     => $customer,
-	// 				'product_id'  => $value['product'],
-	// 				'count'       => $value['count'],
-	// 				'datecreated' => date("Y-m-d H:i:s"),
-	// 			];
-	// 		}
-	// 	}
-
-	// 	if(!empty($insert_multi))
-	// 	{
-	// 		\lib\db\cart\insert::multi_insert($insert_multi);
-	// 	}
-
-	// }
-
+		\dash\notif::ok(T_("Product added to your cart"));
+		return true;
+	}
 
 
 
