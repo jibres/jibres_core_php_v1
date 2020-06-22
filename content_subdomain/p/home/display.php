@@ -16,7 +16,6 @@
                   <span><?php echo T_("List Price"); ?></span>
                   <div class="priceShow">
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
-                    <span class="unit"><?php echo \lib\currency::unit(); ?></span>
                   </div>
                 </div>
 
@@ -32,7 +31,6 @@
                   <span><?php echo T_("You Save"); ?></span>
                   <div class="priceShow">
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
-                    <span class="unit"><?php echo \lib\currency::unit(); ?></span>
                   </div>
                 </div>
 
@@ -43,14 +41,15 @@
             </div>
           </div>
 
+<?php if(\dash\data::dataRow_bullet()) { ?>
           <div class="featureBullets ltr">
             <ul>
               <?php foreach (\dash\data::dataRow_bullet() as $key => $value) {?>
                 <li><?php echo \dash\get::index($value, 'text'); ?></li>
               <?php } // endif ?>
             </ul>
-
           </div>
+<?php } ?>
 
 
         </div>
@@ -101,6 +100,50 @@
   </div>
 <?php } ?>
 
+
+<div class="box productReview">
+  <h2><?php echo T_("Customer reviews"); ?></h2>
+  <div class="row">
+    <div class="c-auto">
+      <div class="ratingAvg">4.2</div>
+      <div class="ratingSummary">
+        <i class="sf-star"></i>
+        <i class="sf-star"></i>
+        <i class="sf-star"></i>
+        <i class="sf-star-half-o"></i>
+        <i class="sf-star-o"></i>
+        <span>2840</span>
+      </div>
+    </div>
+    <div class="c rating">
+      <div class="row padLess">
+        <div class="c-auto"><span class="sf-star">5</span></div>
+        <div class="c"><progress value="69" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal">69%</span></div>
+      </div>
+      <div class="row padLess">
+        <div class="c-auto"><span class="sf-star">4</span></div>
+        <div class="c"><progress value="13" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal">13%</span></div>
+      </div>
+      <div class="row padLess">
+        <div class="c-auto"><span class="sf-star">3</span></div>
+        <div class="c"><progress value="9" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal">9%</span></div>
+      </div>
+      <div class="row padLess">
+        <div class="c-auto"><span class="sf-star">2</span></div>
+        <div class="c"><progress value="2" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal">2%</span></div>
+      </div>
+      <div class="row padLess">
+        <div class="c-auto"><span class="sf-star">1</span></div>
+        <div class="c"><progress value="7" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal">7%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <form  method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
