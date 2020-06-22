@@ -1,5 +1,5 @@
 <?php
-namespace content_p\tag;
+namespace content_subdomain\p\tag;
 
 class view
 {

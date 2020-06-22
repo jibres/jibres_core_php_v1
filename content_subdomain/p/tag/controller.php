@@ -1,17 +1,17 @@
 <?php
-namespace content_p\tag;
+namespace content_subdomain\p\tag;
 
 class controller
 {
 	public static function routing()
 	{
-		$child = \dash\url::child();
-		if(!$child)
+		$subchild = \dash\url::subchild();
+		if(!$subchild)
 		{
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
-		$load_product = \lib\app\product\tag::load_product_by_tag($child);
+		$load_product = \lib\app\product\tag::load_product_by_tag($subchild);
 		if(!$load_product)
 		{
 			\dash\redirect::to(\dash\url::kingdom());

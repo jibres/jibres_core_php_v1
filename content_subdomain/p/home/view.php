@@ -1,5 +1,5 @@
 <?php
-namespace content_p\home;
+namespace content_subdomain\p\home;
 
 class view
 {

@@ -1,13 +1,14 @@
 <?php
-namespace content_p\home;
+namespace content_subdomain\p\home;
 
 class controller
 {
 	public static function routing()
 	{
-		$module = \dash\url::module();
+		$child = \dash\url::child();
 
-		$load_product = \lib\app\product\load::site($module);
+		$load_product = \lib\app\product\load::site($child);
+
 		if(!$load_product)
 		{
 			return false;

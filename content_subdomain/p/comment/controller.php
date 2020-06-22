@@ -1,5 +1,5 @@
 <?php
-namespace content_p\comment;
+namespace content_subdomain\p\comment;
 
 class controller
 {

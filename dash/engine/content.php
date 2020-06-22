@@ -24,7 +24,6 @@ class content
 			'love',
 			'my',
 			'n',
-			'p',
 			'pay',
 			'r10',
 			'su',
