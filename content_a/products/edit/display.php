@@ -224,6 +224,16 @@ $productDataRow = \dash\data::productDataRow();
       <a href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>" class="btn link"><?php echo T_("Edit Description") ?></a>
         <div class="productDescription" data-kerkere-content='open'>
       <div class="msg"><?php if(\dash\get::index($productDataRow,'desc')) { echo \dash\get::index($productDataRow,'desc'); }else{ echo '<i class="fc-mute">'. T_("Description is empty"). '</i>';} ?></div>
+      <?php if(\dash\data::productDataRow_bullet()) {?>
+      <div class="featureBullets ltr">
+          <a href="<?php echo \dash\url::this().'/bullet?id='. \dash\request::get('id'); ?>" class="btn link"><?php echo T_("Edit Bullet") ?></a>
+          <ul>
+            <?php foreach (\dash\data::productDataRow_bullet() as $key => $value) {?>
+              <li><?php echo \dash\get::index($value, 'text'); ?></li>
+            <?php } // endif ?>
+          </ul>
+      </div>
+    <?php } //endif ?>
     </div>
   </div>
 </section>
