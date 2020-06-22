@@ -1,34 +1,18 @@
-<?php
-if(\dash\data::postIsLoaded())
-{
-	require_once(__DIR__. '/body/body_load_post.php');
-}
-elseif(\dash\url::module() === 'category')
-{
-	// load category detail
-	require_once(root. 'content_subdomain/category/display.php');
-}
-else
-{
-	// body generator
-	$lines = \lib\app\website\generator::get_body_line();
+<div class="avand productPage">
+	<div class="box">
 
 
-	foreach ($lines as $key => $line_detail)
-	{
-		if(isset($line_detail['value']['publish']) && $line_detail['value']['publish'])
-		{
-			if(isset($line_detail['value']['type']))
-			{
-				$addr = __DIR__. '/body/'. $line_detail['value']['type']. '.php';
 
-				if(is_file($addr))
-				{
-					require($addr);
-				}
-			}
-		}
-	}
 
-}
-?>
+			<div class="row">
+				<div class="c-xs-12 c-5">
+					<img src="http://cloud.talambar.local/jb2jw/202006/28-31a008b2a1ad34af5e43232acd36e76a.jpg">
+				</div>
+				<div class="c-xs-12 c-7">
+					<h1>Xiaomi Redmi Note 8 6.3" 64GB 4GB RAM (GSM Only, No CDMA) Internationa Version - No Warranty (Space Black)</h1>
+
+				</div>
+
+			</div>
+	</div>
+</div>
