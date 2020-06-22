@@ -162,7 +162,15 @@ class check
 					return false;
 				}
 
-				$properties[] = ['group' => $my_key, 'key' => array_unique(array_filter($my_value))];
+				$my_value = array_unique(array_filter($my_value));
+
+				$new_value = [];
+				foreach ($my_value as $one_value)
+				{
+					$new_value[] = ['key' => $one_value];
+				}
+
+				$properties[] = ['group' => $my_key, 'key' => $new_value];
 
 			}
 		}

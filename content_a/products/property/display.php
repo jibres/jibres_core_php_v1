@@ -21,6 +21,7 @@ $propertyList = \dash\data::propertyList();
 
 
               <?php foreach ($propertyList as $value) {?>
+
                 <?php $rand_key = rand(1, 9999); ?>
                 <tr <?php if(\dash\get::index($value, 'from_category')) {echo 'class="positive"';}else{echo 'class="warning"';}?>>
                   <td>
@@ -30,7 +31,7 @@ $propertyList = \dash\data::propertyList();
                   </td>
                   <td>
                     <div class="input">
-                      <input type="text" name="key_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Type"); ?>' value="<?php echo \dash\get::index($value, 'key') ?>">
+                      <input type="text" name="key_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Type"); ?>' value="<?php echo \dash\get::index($value, 'key', 'key') ?>">
                     </div>
                   </td>
                   <td>

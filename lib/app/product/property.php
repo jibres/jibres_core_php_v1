@@ -104,9 +104,12 @@ class property
 			{
 				foreach ($value['key'] as $key)
 				{
-					$my_key = md5($group). '_'. md5($key);
+					if(isset($key['key']))
+					{
+						$my_key = md5($group). '_'. md5($key['key']);
 
-					$result[$my_key] = ['cat' => $group, 'key' => $key, 'value' => null, 'from_category' => true];
+						$result[$my_key] = ['cat' => $group, 'key' => $key, 'value' => null, 'from_category' => true];
+					}
 				}
 			}
 

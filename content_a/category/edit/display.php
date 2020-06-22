@@ -242,7 +242,7 @@
       <div>
         <select name="property_key_<?php echo $key ?>[]"  class="select22" data-model="tag" multiple="multiple" data-placeholder='<?php echo T_("Specification Title"); ?>'>
           <?php if(is_array(\dash\get::index($value, 'key'))) { foreach (\dash\get::index($value, 'key') as $tag) {?>
-            <option value="<?php echo $tag; ?>" selected><?php echo $tag; ?></option>
+            <option value="<?php echo \dash\get::index($tag, 'key'); ?>" selected><?php echo \dash\get::index($tag, 'key'); ?></option>
           <?php } } //endfor //endif  ?>
         </select>
       </div>
