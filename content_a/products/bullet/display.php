@@ -14,15 +14,20 @@ $propertyList = \dash\data::propertyList();
             </p>
             <form method="post" autocomplete="off">
               <div class="input">
-                <input type="text" name="bullet" placeholder="<?php echo T_("Enter your text here ...") ?>">
+                <input type="text" name="bullet" placeholder="<?php echo T_("Enter your text here ...") ?>" value="<?php echo \dash\data::dataRow_text(); ?>">
               </div>
               <div class="txtRa">
-                <button class="btn master mTB10 addon" ><?php echo T_("Add"); ?></button>
+                <button class="btn master mTB10 addon" ><?php if(\dash\data::editMode()) {echo T_("Edit"); }else{ echo T_("Add");} ?></button>
               </div>
             </form>
             <?php foreach (\dash\data::productDataRow_bullet() as $key => $value) {?>
-              <div class="msg">
-                <?php echo \dash\get::index($value, 'text') ?>
+              <div class="msg f">
+                <div class="c"><?php echo \dash\get::index($value, 'text') ?></div>
+                <div class="cauto">
+                  <a class="btn link" href="<?php echo \dash\url::this() . '/bullet?id='. \dash\request::get('id'). '&index='. $key; ?>"><?php echo T_("Edit"); ?></a>
+                  <span data-confirm data-data='{"type": "remove", "index": "<?php echo $key ?>"}' class="linkDel"><?php echo T_("Remove") ?></span>
+                </div>
+
               </div>
             <?php } //endfor ?>
           </div>

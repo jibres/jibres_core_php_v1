@@ -13,6 +13,19 @@ class controller
 		{
 			\dash\header::status(404);
 		}
+
+		$index = \dash\validate::smallint(\dash\request::get('index'), false);
+		if(is_numeric($index))
+		{
+			$bullet = \dash\data::productDataRow_bullet();
+			if(isset($bullet[$index]))
+			{
+				\dash\data::bulletIndex($index);
+				\dash\data::editMode(true);
+				\dash\data::dataRow($bullet[$index]);
+			}
+		}
+
 	}
 }
 ?>

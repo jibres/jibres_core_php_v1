@@ -4,14 +4,21 @@ namespace lib\app\product;
 
 class bullet
 {
-	public static function add($_args, $_id)
+	public static function set($_args, $_id, $_type, $_index = null)
 	{
 		$condition =
 		[
 			'bullet'          => 'string_300',
 		];
 
-		$require = ['bullet'];
+		if($_type === 'add' || $_type === 'edit')
+		{
+			$require = ['bullet'];
+		}
+		else
+		{
+			$require = [];
+		}
 
 		$meta =
 		[
@@ -44,8 +51,36 @@ class bullet
 			}
 		}
 
+		$new_bullet = ['text' => $data['bullet']];
 
-		$bullet[] = ['text' => $data['bullet']];
+		if($_type === 'add')
+		{
+			$bullet[] = $new_bullet;
+		}
+		else
+		{
+			if(!isset($bullet[$_index]))
+			{
+				\dash\notif::error(T_("Invalid bullet text index!"));
+				return false;
+			}
+
+			if($_type === 'edit')
+			{
+				$bullet[$_index] = $new_bullet;
+			}
+			elseif($_type === 'remove')
+			{
+				unset($bullet[$_index]);
+			}
+			else
+			{
+				\dash\notif::error(T_("Invalid type"));
+				return false;
+			}
+
+		}
+
 
 		$bullet = json_encode($bullet, JSON_UNESCAPED_UNICODE);
 
