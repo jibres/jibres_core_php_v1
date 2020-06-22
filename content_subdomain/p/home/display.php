@@ -23,10 +23,6 @@
           </div>
 
           <div class="featureBullets">
-            <div>
-              <?php echo \dash\data::dataRow_desc(); ?>
-            </div>
-
             <ul>
               <li>HSDPA 850 / 900 / 2100 - LTE B1 (2100) B2 (1900 PCS) B3 (1800 +) B4 (1700/2100 AWS 1) B5 (850) B7 (2600) B8 (900) B20 (800 DD) B28 (700 APT) B38 (TD 2600) B40 (TD 2300) Dual SIM (Nano-SIM, dual stand-by)> (ensure to check compatibility with your carrier before purchase)</li>
               <li>6. 3 inches 1080 x 2340 pixels, 19. 5: 9 ratio (~409 ppi density) - Fingerprint (rear-mounted)</li>
@@ -42,7 +38,12 @@
 
       </div>
   </div>
+
+  <div class="box">
+    <?php echo \dash\data::dataRow_desc(); ?>
+  </div>
 </div>
+
 
 
 
