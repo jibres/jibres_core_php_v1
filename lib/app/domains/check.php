@@ -88,8 +88,8 @@ class check
 			'info',
 			'app',
 			'tv',
-			'club',
-			'dev',
+			// 'club',
+			// 'dev',
 		];
 
 		// also check valid tld
