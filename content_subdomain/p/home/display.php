@@ -101,9 +101,10 @@
 <?php } ?>
 
 
-<div class="box productReview">
+<section class="box productReview">
   <h2><?php echo T_("Customer reviews"); ?></h2>
-  <div class="row">
+
+  <div class="row allReviewSummary">
     <div class="c-auto">
       <div class="ratingAvg">4.2</div>
       <div class="ratingSummary">
@@ -143,7 +144,45 @@
       </div>
     </div>
   </div>
-</div>
+
+
+<?php $commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id()); ?>
+<?php if($commentList) { ?>
+  <div class="commnetList">
+<?php foreach ($commentList as $key => $value){ ?>
+    <div class="msg">
+      <div class="row align-center">
+        <div class="c-auto c-xs-12">
+          <img class="customerImg" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
+
+        </div>
+        <div class="c c-xs-12">
+          <div class="msg minimal row">
+            <div class="c"><?php echo \dash\get::index($value, 'displayname'); ?></div>
+            <div class="c"><?php
+          if(isset($value['star']) && $value['star'])
+          {
+            for ($i=1; $i <= $value['star'] ; $i++)
+            {
+              echo '<i class="sf-star"></i>';
+            }
+          }
+          ?></div>
+            <div class="c-auto ltr txtRa"><?php echo \dash\fit::date($value['datecreated']); ?></div>
+          </div>
+
+          <p><?php echo $value['content']; ?></p>
+        </div>
+
+
+      </div>
+    </div>
+<?php   } // end for ?>
+  </div>
+<?php } // end if ?>
+
+
+</section>
 
 
 <form  method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
@@ -202,50 +241,7 @@
 
 
 
-<?php
 
-  $commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id());
-  if($commentList)
-  {
-    foreach ($commentList as $key => $value)
-    {
-
-
-?>
-
-  <div class="msg mT10">
-    <div class="f">
-      <div class="c s12">
-        <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" class="avatar">
-        <span class="badge"><?php echo \dash\get::index($value, 'displayname'); ?></span>
-        <?php
-        if(isset($value['star']) && $value['star'])
-        {
-          for ($i=1; $i <= $value['star'] ; $i++)
-          {
-            echo '<i class="sf-star fc-yellow"></i>';
-          }
-        }
-        ?>
-
-      </div>
-      <div class="c s12">
-        <p><?php echo $value['content']; ?></p>
-      </div>
-      <div class="c s12">
-        <span><?php echo \dash\fit::date($value['datecreated']); ?></span>
-      </div>
-    </div>
-  </div>
-
-
-
-
-<?php
-    } // end for
-  } // end if
-
-?>
 
 </div>
 
