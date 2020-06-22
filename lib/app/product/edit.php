@@ -86,46 +86,59 @@ class edit
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
-		if($args['unit'])
+		if(array_key_exists('unit', $args))
 		{
-			\lib\app\product\unit::$debug = false;
-			$add_unit                     = \lib\app\product\unit::check_add($args['unit']);
-			if(isset($add_unit['id']))
+			if($args['unit'])
 			{
-				$args['unit_id'] = $add_unit['id'];
+				\lib\app\product\unit::$debug = false;
+				$add_unit                     = \lib\app\product\unit::check_add($args['unit']);
+				if(isset($add_unit['id']))
+				{
+					$args['unit_id'] = $add_unit['id'];
+				}
 			}
 		}
 		unset($args['unit']);
 
-		if($args['company'])
+		if(array_key_exists('company', $args))
 		{
-			\lib\app\product\company::$debug = false;
-			$add_company                     = \lib\app\product\company::check_add($args['company']);
-			if(isset($add_company['id']))
+
+			if($args['company'])
 			{
-				$args['company_id'] = $add_company['id'];
+				\lib\app\product\company::$debug = false;
+				$add_company                     = \lib\app\product\company::check_add($args['company']);
+				if(isset($add_company['id']))
+				{
+					$args['company_id'] = $add_company['id'];
+				}
 			}
 		}
 		unset($args['company']);
 
-
-		if($args['cat_id'])
+		if(array_key_exists('cat_id', $args))
 		{
-			$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
-			if(!isset($load_cat['id']))
+			if($args['cat_id'])
 			{
-				\dash\notif::error(T_("Category not found"));
-				return false;
+				$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
+				if(!isset($load_cat['id']))
+				{
+					\dash\notif::error(T_("Category not found"));
+					return false;
+				}
 			}
 		}
 
-		if($args['tag'])
+		if(array_key_exists('tag', $args))
 		{
-			\lib\app\product\tag::add($args['tag'], $id);
-			if(!\dash\engine\process::status())
+			if($args['tag'])
 			{
-				return false;
+				\lib\app\product\tag::add($args['tag'], $id);
+				if(!\dash\engine\process::status())
+				{
+					return false;
+				}
 			}
+
 		}
 
 		unset($args['tag']);

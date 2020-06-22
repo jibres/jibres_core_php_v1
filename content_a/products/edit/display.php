@@ -26,8 +26,6 @@ $productDataRow = \dash\data::productDataRow();
         </div>
       </div>
 
-
-      <textarea name="desc" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Description"); ?>'><?php echo \dash\get::index($productDataRow,'desc'); ?></textarea>
     </section>
 
 
@@ -215,7 +213,22 @@ $productDataRow = \dash\data::productDataRow();
       </div>
     </section>
 
+
+
 <?php if(\dash\url::child() === 'edit') {?>
+
+
+<section class="jbox">
+  <header data-kerkere='.productDescription' data-kerkere-icon='open'><h2><?php echo T_("Description"); ?></h2></header>
+  <div class="pad">
+      <a href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>" class="btn link"><?php echo T_("Edit Description") ?></a>
+        <div class="productDescription" data-kerkere-content='open'>
+      <div class="msg"><?php if(\dash\get::index($productDataRow,'desc')) { echo \dash\get::index($productDataRow,'desc'); }else{ echo '<i class="fc-mute">'. T_("Description is empty"). '</i>';} ?></div>
+    </div>
+  </div>
+</section>
+
+
 
 
 <section class="jbox">
