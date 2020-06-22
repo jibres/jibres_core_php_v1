@@ -9,7 +9,7 @@
 
 
           <div class="priceLine">
-            <div class="row">
+            <div class="row align-center">
               <div class="c">
 
                 <div data-first>
@@ -59,6 +59,31 @@
   </div>
 
   <div class="box productDesc"><?php echo \dash\data::dataRow_desc();?></div>
+  <div class="box shareBox">
+    <nav class="row align-center">
+      <div class="c">
+        <a href="<?php echo \dash\url::base(). '/n/'. \dash\data::dataRow_id(); ?>"><?php echo T_("Product Code"); ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::dataRow_id()); ?></span></a>
+      </div>
+      <div class="c-auto share1">
+        <a target="_blank" title='<?php echo T_("facebook"); ?>' href="https://www.facebook.com/sharer/sharer.php?u=<?php echo \dash\url::pwd(); ?>" class="facebook">
+          <?php echo \dash\face::site(); ?> <?php echo T_("facebook"); ?>
+        </a>
+
+        <a target="_blank" title='<?php echo T_("twitter"); ?>' href="https://twitter.com/home?status=<?php echo \dash\url::pwd(); ?>" class="twitter">
+          <?php echo \dash\face::site(). ' '. T_("twitter"); ?>
+        </a>
+
+        <a target="_blank" title='<?php echo T_("linkedin"); ?>' href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo \dash\url::pwd(); ?>&title=<?php echo urlencode(\dash\face::title()); ?>&summary=<?php echo urlencode(\dash\face::desc()); ?>" class="linkedin">
+          <?php echo \dash\face::site(). ' '. T_("linkedin"); ?>
+        </a>
+
+        <a target="_blank" title='<?php echo T_("telegram"); ?>' href="https://t.me/share/url?url=<?php echo \dash\url::pwd(); ?>&text=<?php echo urlencode(\dash\face::title()); ?>" class="telegram">
+          <?php echo \dash\face::site(). ' '. T_("telegram"); ?>
+        </a>
+
+      </div>
+    </nav>
+  </div>
 
 <?php if(\dash\data::propertyList()) { ?>
   <div class="box productInfo">
@@ -82,7 +107,7 @@
 
 
 
-<div class=" hide jibresBanner">
+<div class=" hide2 jibresBanner">
  <div class="avand">
 <?php $dataRow = \dash\data::dataRow(); ?>
 <div class="blogEx">
