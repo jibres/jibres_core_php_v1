@@ -1,6 +1,11 @@
 <div class="avand">
 
 	<?php if(\dash\data::dataTable()) {?>
+
+		<div class="txtRa">
+			<a class="btn success xl w300 " href="<?php echo \dash\url::here() . '/shiping' ?>"><?php echo T_("Continue") ?></a>
+		</div>
+
 		<div class="row mT10">
 
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
@@ -30,6 +35,7 @@
 				</div>
 			<?php } //endfor ?>
 		</div>
-		<?php \dash\utility\pagination::html(); ?>
+	<?php }else{ // no product in cart ?>
+		<div class="msg warn2 txtC txtB fs14"><?php echo T_("No product in your cart") ?></div>
 	<?php } //endif ?>
 </div>
