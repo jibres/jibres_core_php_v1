@@ -43,15 +43,17 @@
 
 <?php if(\dash\data::propertyList()) { ?>
   <div class="box">
-    <table class="tbl1">
-<?php foreach (\dash\data::propertyList() as $key => $value) {?>
-    <tr>
-      <th><?php echo $value['cat']; ?></th>
-      <td><?php echo $value['key']; ?></td>
-      <td><?php echo $value['value']; ?></td>
-    </tr>
-<?php   } ?>
+<?php foreach (\dash\data::propertyList() as $property => $cat) {?>
+      <h3><?php echo $cat['title']; ?></h3>
+    <table class="tbl1 v5">
+<?php foreach ($cat['list'] as $key => $value) {?>
+      <tr>
+        <th><?php echo $value['key']; ?></th>
+        <td><?php echo $value['value']; ?></td>
+      </tr>
+<?php     } ?>
     </table>
+<?php   } ?>
   </div>
 <?php } ?>
 
