@@ -187,6 +187,22 @@
     <h3><?php echo T_("Review this product"); ?></h3>
     <input type="hidden" name="product_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
 
+    <div class="starRating">
+      <fieldset>
+        <input type="radio" name="rating" id="star5" value="5"/>
+        <label for="star5" title="<?php echo T_("Outstanding");?>">5 stars</label>
+        <input type="radio" name="rating" id="star4" value="4"/>
+        <label for="star4" title="<?php echo T_("Very Good");?>">4 stars</label>
+        <input type="radio" name="rating" id="star3" value="3"/>
+        <label for="star3" title="<?php echo T_("Good");?>">3 stars</label>
+        <input type="radio" name="rating" id="star2" value="2"/>
+        <label for="star2" title="<?php echo T_("Poor");?>">2 stars</label>
+        <input type="radio" name="rating" id="star1" value="1"/>
+        <label for="star1" title="<?php echo T_("Very Poor");?>">1 star</label>
+      </fieldset>
+    </div>
+
+
     <div class="radioRating togglable">
       <div class="rateBox">
         <input type="radio" name="star" id="star-1" value="1">
