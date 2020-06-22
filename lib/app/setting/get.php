@@ -85,5 +85,33 @@ class get
 		return $product_setting;
 
 	}
+
+
+	public static function bank_payment_setting()
+	{
+		$cat   = 'bank_payment_setting';
+
+		$result = \lib\db\setting\get::by_cat($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$bank_payment_setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$bank_payment_setting[$value['key']] = json_decode($value['value'], true);
+			}
+		}
+
+		return $bank_payment_setting;
+
+	}
+
+
+
 }
 ?>
