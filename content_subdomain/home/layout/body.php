@@ -13,6 +13,11 @@ elseif(\dash\url::module() === 'p')
 	// load product detail
 	require_once(root. 'content_subdomain/p/home/display.php');
 }
+elseif(\dash\url::module() === 'cart')
+{
+	// load cart detail
+	require_once(root. 'content_subdomain/cart/display.php');
+}
 else
 {
 	// body generator

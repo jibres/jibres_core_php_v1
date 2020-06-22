@@ -119,7 +119,8 @@ class search
 				users.displayname,
 				users.avatar,
 				users.mobile,
-				products.title
+				products.title,
+				products.thumb
 			FROM cart
 			INNER JOIN users ON cart.user_id = users.id
 			INNER JOIN products ON products.id = cart.product_id

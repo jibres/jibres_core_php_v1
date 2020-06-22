@@ -10,7 +10,7 @@ class edit
 
 
 
-	public static function update_cart($_product_id, $_count, $_user_id = null)
+	public static function update_cart($_product_id, $_count, $_user_id = null, $_type = null)
 	{
 		if(!\dash\user::id())
 		{
@@ -40,6 +40,7 @@ class edit
 			'user_id' => 'code',
 			'product' => 'id',
 			'count'   => 'smallint',
+			'type'    => ['enum' => ['plus_count', 'minus_count']],
 		];
 
 		$args =
@@ -47,6 +48,7 @@ class edit
 			'user_id' => $user_id,
 			'product' => $_product_id,
 			'count'   => $_count,
+			'type'    => $_type,
 		];
 
 		$require = ['product', 'count', 'user_id'];
@@ -73,7 +75,22 @@ class edit
 		{
 			$new_count = intval($data['count']);
 
-			if($new_count === 0)
+			if($data['type'] === 'plus_count')
+			{
+				$new_count = floatval($check_exist_record['count']) + $new_count;
+			}
+			elseif($data['type'] === 'minus_count')
+			{
+				$new_count = floatval($check_exist_record['count']) - $new_count;
+
+			}
+
+			if($new_count < 0)
+			{
+				$new_count = 0;
+			}
+
+			if($new_count === floatval(0))
 			{
 				\lib\db\cart\delete::by_product_user($data['product'], $user_id);
 			}

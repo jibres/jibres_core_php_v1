@@ -147,6 +147,14 @@ class search
 	}
 
 
+	public static function my_detail()
+	{
+		if(\dash\user::id())
+		{
+			return self::detail(\dash\user::code());
+		}
+	}
+
 
 
 	public static function detail($_user_id)
