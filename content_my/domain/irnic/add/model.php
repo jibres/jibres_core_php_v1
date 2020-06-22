@@ -31,6 +31,9 @@ class model
 			// 	return false;
 			// }
 
+			\dash\notif::warn(T_("Please go to nic.ir and create your account in that site"));
+			return false;
+
 			$post =
 			[
 				'title'        => \dash\request::post('title'),
