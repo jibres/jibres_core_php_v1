@@ -39,9 +39,22 @@
       </div>
   </div>
 
+  <div class="box productDesc"><?php echo \dash\data::dataRow_desc();?></div>
+
+<?php if(\dash\data::propertyList()) { ?>
   <div class="box">
-    <?php echo \dash\data::dataRow_desc(); ?>
+    <table class="tbl1">
+<?php foreach (\dash\data::propertyList() as $key => $value) {?>
+    <tr>
+      <th><?php echo $value['cat']; ?></th>
+      <td><?php echo $value['key']; ?></td>
+      <td><?php echo $value['value']; ?></td>
+    </tr>
+<?php   } ?>
+    </table>
   </div>
+<?php } ?>
+
 </div>
 
 
