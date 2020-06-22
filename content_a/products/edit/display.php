@@ -561,7 +561,7 @@ $productDataRow = \dash\data::productDataRow();
       <section class="jbox">
         <header data-kerkere='.variantPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Variants"); ?></h2></header>
         <div class="pad variantPanelLink" data-kerkere-content='hide'>
-          <a href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
+          <a class="btn link" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
         </div>
       </section>
     </div>
@@ -573,7 +573,8 @@ $productDataRow = \dash\data::productDataRow();
     <section class="jbox">
       <header data-kerkere='.propertyPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Property"); ?></h2></header>
       <div class="pad propertyPanelLink" data-kerkere-content='hide'>
-          <a href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product properties"); ?></a>
+          <a class="btn link" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product properties"); ?></a>
+          <a class="btn link" href="<?php echo \dash\url::this(); ?>/bullet?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product feature bullet"); ?></a>
       </div>
     </section>
 

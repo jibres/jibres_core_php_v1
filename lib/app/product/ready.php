@@ -81,6 +81,17 @@ class ready
 					}
 					break;
 
+				case 'bullet':
+					if($value)
+					{
+						$result[$key] = json_decode($value, true);
+					}
+					else
+					{
+						$result[$key] = [];
+					}
+					break;
+
 				case 'weight':
 					if($value)
 					{
