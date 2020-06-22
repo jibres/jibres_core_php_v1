@@ -108,7 +108,7 @@ if(!is_array($dataTable))
 
 
 <?php function htmlSearchBox() {?>
-  <form method="get" autocomplete="off">
+  <form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
     <div class="searchBox">
       <div class="f">
         <div class="c pRa10">
