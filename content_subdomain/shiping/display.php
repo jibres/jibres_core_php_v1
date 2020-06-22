@@ -7,19 +7,27 @@
 			<header><h2><?php echo T_("Choose your address") ?></h2></header>
 			<div class="body">
 				<?php if(\dash\data::addressDataTable()) {?>
-					<!-- foreache adddress radio -->
+
+					<?php foreach (\dash\data::addressDataTable() as $key => $value) {?>
+
+						<div class="radio3 mB10">
+							<input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo \dash\get::index($value, 'id'); ?>">
+							<label for="address<?php echo $key; ?>"><?php echo \dash\get::index($value, 'address'); ?></label>
+						</div>
+
+					<?php } //endfor ?>
+
 				<?php } // endif ?>
 
 			</div>
-		</div>
-		<div class="avand-md">
-			<h3 data-kerkere2='.addNewAddress' data-kerkere-icon><?php echo T_("Add new address") ?></h3>
-			<div class="addNewAddress" data-kerkere-content2='hide'>
-
+			<h3 data-kerkere='.addNewAddress' data-kerkere-icon><?php echo T_("Add new address") ?></h3>
+			<div class="addNewAddress fs08" <?php if(\dash\data::addressDataTable()) {?> data-kerkere-content='hide' <?php } // endif ?>>
 				<?php bAddressAdd(); ?>
 			</div>
 
+
 		</div>
+
 
 		<?php if(\dash\data::dataTable()) {?>
 
