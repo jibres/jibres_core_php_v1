@@ -34,5 +34,26 @@ class generate
   			echo '</nav>';
 		}
 	}
+
+
+
+  public static function have_header_menu()
+  {
+    $website = \dash\data::website();
+
+    if(isset($website['header']) && is_array($website['header']))
+    {
+      if(
+          (isset($website['header']['header_menu_1']) && $website['header']['header_menu_1']) ||
+          (isset($website['header']['header_menu_2']) && $website['header']['header_menu_2'])
+
+        )
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 ?>

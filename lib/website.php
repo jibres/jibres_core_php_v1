@@ -22,6 +22,14 @@ class website
 	}
 
 
+
+	public static function have_header_menu()
+	{
+		return \lib\app\website\menu\generate::have_header_menu();
+	}
+
+
+
 	public static function cart_count()
 	{
 		return \lib\app\cart\get::my_cart_count();
