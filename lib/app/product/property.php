@@ -4,7 +4,46 @@ namespace lib\app\product;
 
 class property
 {
+	public static function get_pretty($_id)
+	{
+		$id = \dash\validate::id($_id, false);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
 
+
+		$saved_property = \lib\db\productproperties\get::product_property_list($id);
+
+		if(!is_array($saved_property))
+		{
+			$saved_property = [];
+		}
+
+		$result = [];
+
+
+		foreach ($saved_property as $key => $value)
+		{
+			if(!isset($value['cat']) || !isset($value['key']) || !isset($value['value']))
+			{
+				continue;
+			}
+
+			if(!isset($result[$value['cat']]))
+			{
+				$result[$value['cat']] = ['title' => $value['cat'], 'list' => []];
+			}
+
+			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value']];
+
+		}
+
+
+		return $result;
+
+	}
 
 	public static function get($_id)
 	{
