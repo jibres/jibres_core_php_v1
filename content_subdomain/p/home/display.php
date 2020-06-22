@@ -7,19 +7,40 @@
         <div class="c-xs-12 c-7">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
 
+
           <div class="priceLine">
-          <div class="row">
-            <div class="c">
-              <span><?php echo T_("Price"); ?></span>
-              <div class="priceShow">
-                <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
-                <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+            <div class="row">
+              <div class="c">
+
+                <div data-first>
+                  <span><?php echo T_("List Price"); ?></span>
+                  <div class="priceShow">
+                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                    <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+                  </div>
+                </div>
+
+                <div data-final>
+                  <span><?php echo T_("Price"); ?></span>
+                  <div class="priceShow">
+                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                    <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+                  </div>
+                </div>
+
+                <div data-discount>
+                  <span><?php echo T_("You Save"); ?></span>
+                  <div class="priceShow">
+                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                    <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="c-auto">
+                <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Add to Cart"); ?></div>
               </div>
             </div>
-            <div class="c-auto">
-              <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Add to Cart"); ?></div>
-            </div>
-          </div>
           </div>
 
           <div class="featureBullets ltr">
