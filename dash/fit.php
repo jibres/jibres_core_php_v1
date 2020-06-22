@@ -61,6 +61,12 @@ class fit{
 		return $new_text;
 	}
 
+	public static function price($_price)
+	{
+		return self::number($_price);
+	}
+
+
 	public static function stats($_txt)
 	{
 		$number = $_txt;
