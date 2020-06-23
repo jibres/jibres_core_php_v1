@@ -7,7 +7,7 @@
 
 
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-	<div class="item">
+	<div class="cartItem">
 		<div class="row">
 			<div class="c-auto">
 				<img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
@@ -48,8 +48,18 @@
 			</div>
 		</div>
 		<div class="c-4">
-			<div class="box">
-			</div>
+
+			<div class="priceBox" style="">
+	      <h3>جزئیات قیمت فاکتور</h3>
+	      <div class="final" title="جمع مبلغ قابل پرداخت"><span data-val="6039000">۶,۰۳۹,۰۰۰</span><abbr>تومان</abbr></div>
+	      <div class="desc"> شش  میلیون  و  سی  و  نه  هزار  تومان</div>
+	      <div class="detail item"><abbr>تعداد اقلام</abbr> <span data-val="1">۱</span></div>
+	      <div class="detail count" style="display: block;"><abbr>جمع تعداد</abbr> <span data-val="1100">۱,۱۰۰</span></div>
+	      <div class="detail sum"><abbr>مبلغ فاکتور</abbr> <span data-val="6050000">۶,۰۵۰,۰۰۰</span></div>
+	      <div class="detail discountPercent" style="display: block;"><abbr>درصد تخفیف</abbr> <span data-val="0.18">۰.۱۸%</span></div>
+	      <div class="detail discount" title="دکمه f7 را بفشارید با برای تغییر وضعیت کلیک کنید" style="display: block;"><abbr>جمع تخفیف </abbr> <span data-val="11000">۱۱,۰۰۰</span></div>
+	    </div>
+
 		</div>
 
 	</div>
