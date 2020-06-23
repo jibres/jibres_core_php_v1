@@ -203,21 +203,6 @@
     </div>
 
 
-    <div class="radioRating togglable">
-      <div class="rateBox">
-        <input type="radio" name="star" id="star-1" value="1">
-        <label for="star-1"></label>
-        <input type="radio" name="star" id="star-2" value="2">
-        <label for="star-2"></label>
-        <input type="radio" name="star" id="star-3" value="3">
-        <label for="star-3"></label>
-        <input type="radio" name="star" id="star-4" value="4">
-        <label for="star-4"></label>
-        <input type="radio" name="star" id="star-5" value="5">
-        <label for="star-5"></label>
-      </div>
-    </div>
-
   <?php if(!\dash\user::id()) { ?>
         <div class="f">
           <div class="c pRa5 mB10">
@@ -239,7 +224,7 @@
         </div>
   <?php } // endif?>
     <div class="input">
-      <textarea name="content" class="txt" rows="5" placeholder='<?php echo T_("Write your comment..."); ?>'></textarea>
+      <textarea name="content" class="txt" rows="5" placeholder='<?php echo T_("Write your review about this product..."); ?>'></textarea>
     </div>
 
     <div class="row">
