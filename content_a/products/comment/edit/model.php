@@ -18,6 +18,7 @@ class model
 			'content' => \dash\request::post('content'),
 
 			'status'  => \dash\request::post('status'),
+			'title'  => \dash\request::post('title'),
 
 		];
 

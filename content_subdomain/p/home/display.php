@@ -154,7 +154,7 @@
   </div>
 
 
-<?php $commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id()); ?>
+<?php $commentList = \dash\data::commentList(); ?>
 <?php if($commentList) { ?>
   <div class="commnetList">
 <?php foreach ($commentList as $key => $value){ ?>
@@ -227,6 +227,9 @@
           <input type="text" name="username" class="hide" value="">
         </div>
   <?php } // endif?>
+    <div class="input mB10">
+     <input type="text" name="title" id="title" placeholder='<?php echo T_("How was it in one sentence?"); ?>' maxlength='40' >
+    </div>
     <div class="input">
       <textarea name="content" class="txt" rows="5" placeholder='<?php echo T_("Write your review about this product..."); ?>'></textarea>
     </div>

@@ -15,6 +15,9 @@ class view
 
 		$customer_review = \lib\app\product\comment::customer_review($id);
 		\dash\data::customerReview($customer_review);
+
+		$commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id());
+		\dash\data::commentList($commentList);
 	}
 }
 ?>

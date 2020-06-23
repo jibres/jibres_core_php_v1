@@ -63,6 +63,7 @@ class get
 			SELECT
 				productcomment.id,
 				productcomment.content,
+				productcomment.title,
 				productcomment.star,
 				productcomment.status,
 				productcomment.datecreated,

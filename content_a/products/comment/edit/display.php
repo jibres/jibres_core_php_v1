@@ -2,6 +2,10 @@
 <form class="f" method='post' autocomplete="off">
   <div class="c8 s12 pRa10">
     <div class="cbox">
+      <div class="input mB10">
+        <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
+      </div>
+
       <textarea class="txt" rows="10" name="content"><?php echo \dash\data::dataRow_content(); ?></textarea>
     </div>
 

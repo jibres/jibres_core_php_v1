@@ -80,6 +80,7 @@ if(!is_array($dataTable))
     <thead>
       <tr>
         <th data-sort="<?php echo \dash\get::index($sortLink, 'author', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'author', 'link') ; ?>"><?php echo T_("Author"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'content', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'content', 'link') ; ?>"><?php echo T_("Title"); ?></a></th>
         <th data-sort="<?php echo \dash\get::index($sortLink, 'content', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'content', 'link') ; ?>"><?php echo T_("Comment"); ?></a></th>
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'status', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'status', 'link') ; ?>"><?php echo T_("Status"); ?></a></th>
         <th class="m0 s0" data-sort="<?php echo \dash\get::index($sortLink, 'datecreated', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'datecreated', 'link') ; ?>"><?php echo T_("Date"); ?></a></th>
@@ -128,13 +129,8 @@ if(!is_array($dataTable))
 
         </td>
 
+        <td><?php echo \dash\get::index($value, 'title'); ?></td>
         <td>
-
-          <?php if(isset($value['post_title']) && $value['post_title']) {?>
-
-          <div class="badge light"><a href="<?php echo \dash\url::kingdom(); ?>/n/<?php echo \dash\get::index($value, 'post_id'); ?>"><?php echo $value['post_title']; ?></a></div>
-
-          <?php } //endfi ?>
 
           <p><?php echo \dash\get::index($value, 'content'); ?></p>
 

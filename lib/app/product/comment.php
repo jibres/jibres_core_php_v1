@@ -13,12 +13,23 @@ class comment
 			'star'       => ['enum' => ['1','2','3','4','5']],
 			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close','answered']],
 			'product_id' => 'id',
+			'name'       => 'displayname',
+			'mobile'     => 'mobile',
+			'title'      => 'string_200',
+			'username'   => 'bit',
 		];
 
 		$require = [];
 		$meta    =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if($data['username'])
+		{
+			\dash\header::status(404, T_("What are you doing?"));
+			return false;
+		}
 
 
 		if(!$data['content'] && !$data['star'])
@@ -187,7 +198,26 @@ class comment
 			return false;
 		}
 
-		$args['user_id']     = \dash\user::id();
+		if(\dash\user::id())
+		{
+			$args['user_id']     = \dash\user::id();
+		}
+		else
+		{
+			if($args['mobile'])
+			{
+				$user_id = \dash\app\user::add_quick(['mobile' => $args['mobile'], 'displayname' => $args['name']]);
+				if($user_id)
+				{
+					$args['user_id']     = $user_id;
+				}
+			}
+		}
+
+
+		unset($args['name']);
+		unset($args['mobile']);
+
 		$args['ip']          = \dash\server::ip(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
@@ -446,6 +476,11 @@ class comment
 			return false;
 		}
 
+
+		unset($args['name']);
+		unset($args['mobile']);
+
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(array_key_exists('status', $args) && !$args['status'])
@@ -472,6 +507,8 @@ class comment
 			}
 			else
 			{
+				$args['datemodified'] = date("Y-m-d H:i:s");
+
 				$update = \lib\db\productcomment\update::update($args, $id);
 
 				if($update)
