@@ -109,7 +109,7 @@
 
     <?php }else{ ?>
 
-      <button class="btn primary block mT20" cvalue="add"><?php echo T_("Add"); ?></button>
+      <button class="btn primary block mT20" name="save_address" value="new_address" cvalue="add"><?php echo T_("Add"); ?></button>
 
     <?php } //endif ?>
 

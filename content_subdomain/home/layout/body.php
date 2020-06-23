@@ -28,6 +28,11 @@ elseif(\dash\url::module() === 'shiping')
 	// load shiping detail
 	require_once(root. 'content_subdomain/shiping/display.php');
 }
+elseif(\dash\url::module() === 'payment')
+{
+	// load payment detail
+	require_once(root. 'content_subdomain/payment/display.php');
+}
 else
 {
 	// body generator
