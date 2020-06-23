@@ -67,7 +67,7 @@
       </div>
   </div>
 
-  <div class="box productDesc"><?php echo \dash\data::dataRow_desc();?></div>
+  <?php if(\dash\data::dataRow_desc()) {?><div class="box productDesc"><?php echo \dash\data::dataRow_desc();?></div><?php } //endif ?>
   <div class="box shareBox">
     <nav class="row align-center">
       <div class="c">
