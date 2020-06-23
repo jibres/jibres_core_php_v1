@@ -13,7 +13,14 @@
       </div>
       <div class="c">
        <div class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></div>
-       <div class="availability" data-type='stock'>In Stock</div>
+
+       <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
+       <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val left in stock - order soon.", ['val' => 7]); ?></div>
+       <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
+
+
+
+
 
        <div class="row productCountLine">
         <div class="c-auto">
