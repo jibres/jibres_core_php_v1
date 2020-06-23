@@ -156,6 +156,30 @@ class search
 	}
 
 
+	public static function my_detail_summary($_detail)
+	{
+		if(!is_array($_detail))
+		{
+			return false;
+		}
+		$subtotal = 0;
+		foreach ($_detail as $key => $value)
+		{
+			$subtotal += floatval($value['count']) * floatval($value['price']);
+		}
+
+		$result             = [];
+		$result['count']    = count($_detail);
+		$result['subtotal'] = $subtotal;
+		$result['shipping'] = 1000;
+		$result['discount'] = 1000;
+		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'];
+
+		return $result;
+
+	}
+
+
 
 	public static function detail($_user_id)
 	{

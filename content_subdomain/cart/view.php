@@ -12,6 +12,12 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
+		$cartSummary = \lib\app\cart\search::my_detail_summary($dataTable);
+
+		\dash\data::cartSummary($cartSummary);
+
+
+
 	}
 }
 ?>

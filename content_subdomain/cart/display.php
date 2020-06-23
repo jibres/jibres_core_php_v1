@@ -50,26 +50,27 @@
 
    </div>
   </div>
+  <?php if(\dash\data::cartSummary()) {?>
   <div class="c-4">
    <div class="box orderSummary">
     <h3><?php echo T_("Order Summary"); ?></h3>
     <div>
      <dl class="subtotal">
       <dt><?php echo T_("Subtotal"); ?></dt>
-      <dd>US $0.00</dd>
+      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_subtotal()); ?></dd>
      </dl>
      <dl class="discount">
       <dt><?php echo T_("Discount"); ?></dt>
-      <dd>US $0.00</dd>
+      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_discount()); ?></dd>
      </dl>
      <dl class="shipping">
       <dt><?php echo T_("Shipping"); ?></dt>
-      <dd>US $0.00</dd>
+      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_shipping()); ?></dd>
      </dl>
 
      <dl class="total">
       <dt><?php echo T_("Total"); ?></dt>
-      <dd>US $0.00</dd>
+      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_total()); ?></dd>
      </dl>
     </div>
 
@@ -77,6 +78,8 @@
    </div>
 
   </div>
+<?php } //endif ?>
+
  </div>
 
 <?php } else { // no product in cart ?>
