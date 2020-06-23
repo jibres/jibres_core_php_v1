@@ -6,6 +6,9 @@
         </div>
         <div class="c-xs-12 c-7">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
+<?php if(\dash\data::dataRow_title2()) { ?>
+          <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
+<?php } ?>
 
 
           <div class="priceLine">
