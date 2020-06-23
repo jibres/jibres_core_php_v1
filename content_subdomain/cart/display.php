@@ -1,6 +1,6 @@
 <section class="avand cartPage">
 <?php if(\dash\data::dataTable()) {?>
- <h1><?php echo T_("Shopping Cart"); ?></h1>
+ <h1><?php echo T_("Shopping Cart"). ' ('. count(\dash\data::dataTable()). ')' ?></h1>
  <div class="row">
   <div class="c-8">
    <div class="box">
@@ -44,16 +44,29 @@
    </div>
   </div>
   <div class="c-4">
+   <div class="box orderSummary">
+    <h3><?php echo T_("Order Summary"); ?></h3>
+    <div>
+     <dl class="subtotal">
+      <dt><?php echo T_("Subtotal"); ?></dt>
+      <dd>US $0.00</dd>
+     </dl>
+     <dl class="discount">
+      <dt><?php echo T_("Discount"); ?></dt>
+      <dd>US $0.00</dd>
+     </dl>
+     <dl class="shipping">
+      <dt><?php echo T_("Shipping"); ?></dt>
+      <dd>US $0.00</dd>
+     </dl>
 
-   <div class="priceBox" style="">
-    <h3>جزئیات قیمت فاکتور</h3>
-    <div class="final" title="جمع مبلغ قابل پرداخت"><span data-val="6039000">۶,۰۳۹,۰۰۰</span><abbr>تومان</abbr></div>
-    <div class="desc"> شش  میلیون  و  سی  و  نه  هزار  تومان</div>
-    <div class="detail item"><abbr>تعداد اقلام</abbr> <span data-val="1">۱</span></div>
-    <div class="detail count" style="display: block;"><abbr>جمع تعداد</abbr> <span data-val="1100">۱,۱۰۰</span></div>
-    <div class="detail sum"><abbr>مبلغ فاکتور</abbr> <span data-val="6050000">۶,۰۵۰,۰۰۰</span></div>
-    <div class="detail discountPercent" style="display: block;"><abbr>درصد تخفیف</abbr> <span data-val="0.18">۰.۱۸%</span></div>
-    <div class="detail discount" title="دکمه f7 را بفشارید با برای تغییر وضعیت کلیک کنید" style="display: block;"><abbr>جمع تخفیف </abbr> <span data-val="11000">۱۱,۰۰۰</span></div>
+     <dl class="total">
+      <dt><?php echo T_("Total"); ?></dt>
+      <dd>US $0.00</dd>
+     </dl>
+    </div>
+
+    <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shiping' ?>"><?php echo T_("BUY") ?></a>
    </div>
 
   </div>
