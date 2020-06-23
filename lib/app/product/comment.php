@@ -576,17 +576,17 @@ class comment
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY id DESC";
+			$order_sort = " ORDER BY productcomment.id DESC";
 		}
 
 		if($data['product_id'])
 		{
-			$and[] = "product_id = $data[product_id] ";
+			$and[] = "productcomment.product_id = $data[product_id] ";
 		}
 
 		if($data['status'])
 		{
-			$and[] = "status = '$data[status]' ";
+			$and[] = "productcomment.status = '$data[status]' ";
 
 		}
 

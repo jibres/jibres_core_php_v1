@@ -66,6 +66,7 @@ class get
 				productcomment.star,
 				productcomment.status,
 				productcomment.datecreated,
+				productcomment.datemodified,
 				productcomment.user_id,
 				users.avatar,
 				users.displayname,

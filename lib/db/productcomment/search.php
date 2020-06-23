@@ -70,7 +70,19 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
-		$query = "SELECT * FROM productcomment $q[where] $q[order] $limit ";
+		$query =
+		"
+			SELECT
+				productcomment.*,
+				users.displayname,
+				users.avatar,
+				users.gender,
+				users.mobile
+			FROM
+				productcomment
+			LEFT JOIN users ON users.id = productcomment.user_id
+			$q[where] $q[order] $limit
+		";
 
 		$result = \dash\db::get($query);
 
