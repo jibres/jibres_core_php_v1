@@ -22,24 +22,24 @@
             <div class="row align-center">
               <div class="c">
 
-                <div data-first>
+                <div>
                   <span><?php echo T_("List Price"); ?></span>
-                  <div class="priceShow">
+                  <div class="priceShow" data-first>
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
                   </div>
                 </div>
 
-                <div data-final>
+                <div>
                   <span><?php echo T_("Price"); ?></span>
-                  <div class="priceShow">
+                  <div class="priceShow" data-final>
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
                     <span class="unit"><?php echo \lib\currency::unit(); ?></span>
                   </div>
                 </div>
 
-                <div data-discount>
+                <div>
                   <span><?php echo T_("You Save"); ?></span>
-                  <div class="priceShow">
+                  <div class="priceShow" data-discount>
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
                   </div>
                 </div>
