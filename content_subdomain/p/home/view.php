@@ -18,6 +18,10 @@ class view
 
 		$commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id());
 		\dash\data::commentList($commentList);
+
+
+		$similar = \lib\app\product\search::get_similar_product(\dash\data::dataRow_id());
+		\dash\data::similarProduct($similar);
 	}
 }
 ?>

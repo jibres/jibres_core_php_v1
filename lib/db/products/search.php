@@ -174,5 +174,55 @@ class search
 
 
 
+
+	public static function get_similar_product($_id)
+	{
+		$query =
+		"
+			SELECT
+				producttagusage.producttag_id AS `producttag_id`
+			FROM producttagusage
+			WHERE
+				producttagusage.product_id = $_id
+		";
+
+		$ids = \dash\db::get($query, 'producttag_id');
+
+		if(!$ids || !is_array($ids))
+		{
+			return false;
+		}
+
+		$ids = array_filter($ids);
+		$ids = array_unique($ids);
+
+		if(!$ids)
+		{
+			return false;
+		}
+
+		$ids = implode(',', $ids);
+
+		$query =
+		"
+			SELECT
+				products.*
+			FROM products
+			INNER JOIN producttagusage ON producttagusage.product_id = products.id
+			WHERE
+				products.status = 'available' AND
+				products.id != $_id AND
+				producttagusage.producttag_id IN ($ids)
+			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			LIMIT 10
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+
+	}
+
+
 }
 ?>

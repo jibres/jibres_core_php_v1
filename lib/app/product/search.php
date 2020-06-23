@@ -451,6 +451,28 @@ class search
 	}
 
 
+	public static function get_similar_product($_product_id)
+	{
+		if(!$_product_id || !is_numeric($_product_id))
+		{
+			return [];
+		}
+
+		$list = \lib\db\products\search::get_similar_product($_product_id);
+
+
+		if(is_array($list))
+		{
+			$list = array_map(['\\lib\\app\\product\\ready', 'row'], $list);
+		}
+		else
+		{
+			$list = [];
+		}
+
+		return $list;
+
+	}
 
 }
 ?>
