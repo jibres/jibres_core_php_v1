@@ -9,7 +9,14 @@
 <?php if(\dash\data::dataRow_title2()) { ?>
           <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
 <?php } ?>
-
+          <div class="productReviewShort">
+            <div class="starRating compact" data-star='3.2' data-gold>
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div>3.2 out of 5</div>
+            <div>414 <?php echo T_("Reviews"); ?></div>
+            <div>850 <?php echo T_("Orders"); ?></div>
+          </div>
 
           <div class="priceLine">
             <div class="row align-center">
@@ -90,7 +97,7 @@
 <?php if(\dash\data::propertyList()) { ?>
   <div class="box productInfo">
 <?php foreach (\dash\data::propertyList() as $property => $cat) {?>
-      <h3><?php echo $cat['title']; ?></h3>
+      <h3 class="msg info2 mB0-f"><?php echo $cat['title']; ?></h3>
     <table class="tbl1 responsive v5">
 <?php foreach ($cat['list'] as $key => $value) {?>
       <tr>
@@ -104,7 +111,7 @@
 <?php } ?>
 
 
-<section class="box productReview">
+ <section class="box productReview">
   <h2><?php echo T_("Customer reviews"); ?></h2>
 
   <div class="row allReviewSummary">
@@ -176,9 +183,9 @@
 <?php   } // end for ?>
   </div>
 <?php } // end if ?>
-</section>
+ </section>
 
-<section class="box productAddReview">
+ <section class="box productAddReview">
   <form method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
     <h3><?php echo T_("Review this product"); ?></h3>
     <input type="hidden" name="product_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
@@ -232,16 +239,6 @@
   </form>
 
 
-</section>
-
-
-
-
-
-
-
-
+ </section>
 </div>
-
-
 
