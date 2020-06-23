@@ -2,7 +2,7 @@
   <div class="box">
       <div class="row">
         <div class="c-xs-12 c-5">
-          <img src="<?php echo \dash\data::dataRow_thumb(); ?>">
+          <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
         </div>
         <div class="c-xs-12 c-7">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
@@ -61,7 +61,7 @@
   <div class="box shareBox">
     <nav class="row align-center">
       <div class="c">
-        <a href="<?php echo \dash\url::base(). '/n/'. \dash\data::dataRow_id(); ?>"><?php echo T_("Product Code"); ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::dataRow_id()); ?></span></a>
+        <a href="<?php echo \dash\url::base(). '/p/'. \dash\data::dataRow_id(); ?>"><?php echo T_("Product Code"); ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::dataRow_id()); ?></span></a>
       </div>
       <div class="c-auto share1">
         <a target="_blank" title='<?php echo T_("facebook"); ?>' href="https://www.facebook.com/sharer/sharer.php?u=<?php echo \dash\url::pwd(); ?>" class="facebook">
@@ -151,8 +151,7 @@
     <div class="msg">
       <div class="row align-center">
         <div class="c-auto c-xs-12">
-          <img class="customerImg" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
-
+          <img class="customerImg" src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt='<?php echo \dash\get::index($value, 'displayname'); ?>'>
         </div>
         <div class="c c-xs-12">
           <div class="msg minimal row padLess">
