@@ -1,17 +1,16 @@
-<?php require_once(root. 'content_account/address.php'); ?>
 
 	<div class="avand">
 		<div class="box">
-			<header><h2><?php echo T_("Choose your address") ?></h2></header>
+			<header><h2><?php echo T_("Choose payment") ?></h2></header>
 			<div class="body">
 				<form method="post" autocomplete="off">
-					<?php if(\dash\data::addressDataTable()) {?>
+					<?php if(\dash\data::paymentWay()) {?>
 
-						<?php foreach (\dash\data::addressDataTable() as $key => $value) {?>
+						<?php foreach (\dash\data::paymentWay() as $key => $value) {?>
 
 							<div class="radio3 mB10">
-								<input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo \dash\get::index($value, 'id'); ?>">
-								<label for="address<?php echo $key; ?>"><?php echo \dash\get::index($value, 'address'); ?></label>
+								<input  id="payway<?php echo $key; ?>" type="radio" name="payway" value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if($key === 'online') { echo 'checked';} ?>>
+								<label for="payway<?php echo $key; ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
 							</div>
 
 						<?php } //endfor ?>
@@ -21,12 +20,7 @@
 				</form>
 
 			</div>
-			<h3 data-kerkere='.addNewAddress' data-kerkere-icon><?php echo T_("Add new address") ?></h3>
-			<div class="addNewAddress fs08" <?php if(\dash\data::addressDataTable()) {?> data-kerkere-content='hide' <?php } // endif ?>>
-				<form method="post" autocomplete="off">
-					<?php bAddressAdd(); ?>
-				</form>
-			</div>
+
 
 
 		</div>

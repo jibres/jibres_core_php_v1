@@ -12,8 +12,8 @@ class view
 		\dash\data::dataTable($dataTable);
 
 
-		$addressDataTable = \lib\website::my_address_list();
-		\dash\data::addressDataTable($addressDataTable);
+		$payment = \lib\app\setting\get::payment();
+		\dash\data::paymentWay($payment);
 
 
 	}

@@ -1,11 +1,13 @@
 <?php
-namespace content_subdomain\shiping;
+namespace content_subdomain\payment;
 
 
 class model
 {
 	public static function post()
 	{
+		\dash\notif::error(T_("Not ready!"));
+		return false;
 		if(\dash\request::post('button') === 'saveorder')
 		{
 			$address_id = \dash\request::post('address_id');
