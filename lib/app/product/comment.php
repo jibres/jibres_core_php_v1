@@ -83,6 +83,57 @@ class comment
 	}
 
 
+	public static function customer_review($_product_id)
+	{
+		$product_id = \dash\validate::id($_product_id);
+
+		if(!$product_id)
+		{
+			return false;
+		}
+
+		$product_detail = \lib\app\product\get::inline_get($product_id);
+		if(!$product_detail)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
+
+		$customer_review = \lib\db\productcomment\get::customer_review($product_id);
+		if(!is_array($customer_review))
+		{
+			$customer_review = [];
+		}
+
+		$result =
+		[
+			'count'  => null,
+			'avg'    => null,
+			'star_1' => null,
+			'star_2' => null,
+			'star_3' => null,
+			'star_4' => null,
+			'star_5' => null,
+		];
+
+		$result = array_merge($result, $customer_review);
+
+		$count = floatval($result['count']);
+		if(!$count)
+		{
+			$count = 1;
+		}
+		$result['avg'] = round($result['avg'], 1);
+		$result['star_1_percent'] = round((floatval($result['star_1']) * 100) / $count);
+		$result['star_2_percent'] = round((floatval($result['star_2']) * 100) / $count);
+		$result['star_3_percent'] = round((floatval($result['star_3']) * 100) / $count);
+		$result['star_4_percent'] = round((floatval($result['star_4']) * 100) / $count);
+		$result['star_5_percent'] = round((floatval($result['star_5']) * 100) / $count);
+
+		return $result;
+	}
+
+
 	public static function of_product($_product_id, $_string = null)
 	{
 		$_product_id = \dash\validate::id($_product_id);

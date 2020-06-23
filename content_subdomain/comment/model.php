@@ -7,7 +7,7 @@ class model
 	{
 		$post               = [];
 		$post['product_id'] = \dash\request::post('product_id');
-		$post['star']       = \dash\request::post('star');
+		$post['star']       = \dash\request::post('rating');
 		$post['content']    = \dash\request::post('content');
 
 		$result = \lib\app\product\comment::add($post);

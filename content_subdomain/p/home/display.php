@@ -116,39 +116,39 @@
 
   <div class="row allReviewSummary">
     <div class="c-auto">
-      <div class="ratingAvg">4.2</div>
+      <div class="ratingAvg"><?php echo \dash\fit::text(\dash\data::customerReview_avg()); ?></div>
       <div class="ratingSummary">
-        <div class="starRating compact" data-star='3.2' data-gold>
+        <div class="starRating compact" data-star='<?php echo \dash\data::customerReview_avg(); ?>' data-gold>
           <i></i><i></i><i></i><i></i><i></i>
         </div>
-        <span>2840</span>
+        <span><?php echo \dash\fit::number(\dash\data::customerReview_count()); ?></span>
       </div>
     </div>
     <div class="c rating">
       <div class="row padLess">
-        <div class="c-auto"><span class="sf-star">5</span></div>
-        <div class="c"><progress value="69" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal">69%</span></div>
+        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("5"); ?></span></div>
+        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_5_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_5_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row padLess">
-        <div class="c-auto"><span class="sf-star">4</span></div>
-        <div class="c"><progress value="13" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal">13%</span></div>
+        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("4"); ?></span></div>
+        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_4_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_4_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row padLess">
-        <div class="c-auto"><span class="sf-star">3</span></div>
-        <div class="c"><progress value="9" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal">9%</span></div>
+        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("3"); ?></span></div>
+        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_3_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_3_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row padLess">
-        <div class="c-auto"><span class="sf-star">2</span></div>
-        <div class="c"><progress value="2" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal">2%</span></div>
+        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("2"); ?></span></div>
+        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_2_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_2_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row padLess">
-        <div class="c-auto"><span class="sf-star">1</span></div>
-        <div class="c"><progress value="7" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal">7%</span></div>
+        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("1"); ?></span></div>
+        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_1_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_1_percent')). ' '. T_("%"); ?></span></div>
       </div>
     </div>
   </div>
