@@ -105,23 +105,13 @@ if(!is_array($dataTable))
 
           <?php echo \dash\get::index($value, 'title'); ?></a></td>
 
-
-
-            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/p/tag/<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
-
-
+            <td class="fs08"><a href="<?php echo \lib\store::subdomain_url(); ?>/tag/<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
 
           <td><?php echo \dash\get::index($value, 'desc'); ?></td>
-          <?php if(isset($value['type']) && $value['type'] === 'help_tag') {?>
 
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?type=help&term=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
 
-          <?php }elseif(isset($value['type']) && $value['type'] === 'support_tag') {?>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number($value['count']). ' '. T_("Product") ?></a><?php }else{ echo '-';} ?></td>
 
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
-          <?php }else{ ?>
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?term=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
-          <?php } //endif ?>
           <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
         </tr>
       <?php } //endfor ?>
@@ -139,8 +129,8 @@ if(!is_array($dataTable))
 
 <?php function iedit() {?>
 <button class="btn primary block mT25"><?php echo T_("Edit"); ?></button>
-<div class="ovh">
-  <a href="<?php echo \dash\url::pwd(); ?>" class="badge danger floatL mT5" data-confirm data-method='post' data-data='{"action": "remove"}'><?php echo T_("Remove"); ?></a>
+<div class="txtRa mT20">
+  <a href="<?php echo \dash\url::pwd(); ?>" class="linkDel mT5" data-confirm data-method='post' data-data='{"action": "remove"}'><?php echo T_("Remove"); ?></a>
 </div>
 
 <?php }// endfunction ?>
