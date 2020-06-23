@@ -108,11 +108,9 @@
     <div class="c-auto">
       <div class="ratingAvg">4.2</div>
       <div class="ratingSummary">
-        <i class="sf-star"></i>
-        <i class="sf-star"></i>
-        <i class="sf-star"></i>
-        <i class="sf-star-half-o"></i>
-        <i class="sf-star-o"></i>
+        <div class="starRating compact" data-star='3'>
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
         <span>2840</span>
       </div>
     </div>
@@ -157,17 +155,13 @@
 
         </div>
         <div class="c c-xs-12">
-          <div class="msg minimal row">
+          <div class="msg minimal row padLess">
+            <div class="c-auto">
+              <div class="starRating" data-star='<?php echo $value['star']; ?>'>
+                <i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </div>
             <div class="c"><?php echo \dash\get::index($value, 'displayname'); ?></div>
-            <div class="c"><?php
-          if(isset($value['star']) && $value['star'])
-          {
-            for ($i=1; $i <= $value['star'] ; $i++)
-            {
-              echo '<i class="sf-star"></i>';
-            }
-          }
-          ?></div>
             <div class="c-auto ltr txtRa"><?php echo \dash\fit::date($value['datecreated']); ?></div>
           </div>
 
