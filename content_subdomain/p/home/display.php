@@ -13,9 +13,9 @@
             <div class="starRating compact" data-star='3.2' data-gold>
               <i></i><i></i><i></i><i></i><i></i>
             </div>
-            <div>3.2 out of 5</div>
-            <div>414 <?php echo T_("Reviews"); ?></div>
-            <div>850 <?php echo T_("Orders"); ?></div>
+            <div><?php echo T_(":val out of 5", ['val' => '3.2']) ?></div>
+            <div><?php echo T_(":val Reviews", ['val' => '414']); ?></div>
+            <div><?php echo T_(":val Orders", ['val' => '850']); ?></div>
           </div>
 
           <div class="priceLine">
