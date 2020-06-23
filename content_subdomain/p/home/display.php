@@ -108,7 +108,7 @@
     <div class="c-auto">
       <div class="ratingAvg">4.2</div>
       <div class="ratingSummary">
-        <div class="starRating compact" data-star='3'>
+        <div class="starRating compact" data-star='3.2' data-gold>
           <i></i><i></i><i></i><i></i><i></i>
         </div>
         <span>2840</span>
