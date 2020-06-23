@@ -110,7 +110,7 @@
   </div>
 <?php } ?>
 
-
+<?php if(\dash\data::customerReview_count()) {?>
  <section class="box productReview">
   <h2><?php echo T_("Customer reviews"); ?></h2>
 
@@ -184,6 +184,7 @@
   </div>
 <?php } // end if ?>
  </section>
+<?php } //endif ?>
 
  <section class="box productAddReview">
   <form method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
