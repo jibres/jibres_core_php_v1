@@ -18,6 +18,7 @@ class add
 		[
 			'debug'     => true,
 			'factor_id' => null,
+			'from_cart' => false,
 		];
 
 		if(!is_array($_option))
@@ -35,8 +36,11 @@ class add
 			return false;
 		}
 
-		// check permission to add new factor
-		\dash\permission::access('factorAccess');
+		if(!$_option['from_cart'])
+		{
+			// check permission to add new factor
+			\dash\permission::access('factorAccess');
+		}
 
 		// check args
 		$factor          = \lib\app\factor\check::factor($_factor, $_option);
