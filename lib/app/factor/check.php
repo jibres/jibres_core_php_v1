@@ -32,6 +32,7 @@ class check
 			'discount'    => 'price',
 			'type'        => ['enum' => ['buy','sale','prefactor','lending','backbuy','backfactor','waste']],
 			'customer'    => 'code',
+			'guestid'     => 'md5',
 			'address_id'  => 'code',
 			'mobile'      => 'mobile',
 			'displayname' => 'displayname',

@@ -16,12 +16,53 @@ class cart
 	{
 		$condition =
 		[
+
+			'title'       => 'string_40',
+			'name'        => 'displayname',
+			'mobile'      => 'mobile',
+
+			'company'     => 'bit',
+			'country'     => 'country',
+			'province'    => 'province',
+			'city'        => 'city',
+			'address'     => 'address',
+			'address2'    => 'address',
+			'postcode'    => 'postcode',
+			'phone'       => 'phone',
+			'fax'         => 'phone',
+
+
+
 			'address_id' => 'code',
 			'payway'     => ['enum' => ['online']],
 		];
 
+		$user_id    = \dash\user::id();
+		$user_guest = null;
 
-		$require = ['payway', 'address_id'];
+		if(!$user_id)
+		{
+			$user_guest = \dash\user::get_user_guest();
+			if(!$user_guest)
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
+		}
+
+		$require = ['payway'];
+
+		if($user_id)
+		{
+			array_push($require, 'address_id');
+		}
+		else
+		{
+			array_push($require, 'address');
+			array_push($require, 'mobile');
+
+		}
+
 
 		$meta =
 		[
@@ -34,14 +75,15 @@ class cart
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if(!\dash\user::id())
+		if($user_id)
 		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
+			$user_cart = \lib\db\cart\get::user_cart($user_id);
+		}
+		else
+		{
+			$user_cart = \lib\db\cart\get::user_cart_guest($user_guest);
 		}
 
-
-		$user_cart = \lib\db\cart\get::user_cart(\dash\user::id());
 
 		if(!$user_cart)
 		{
@@ -50,7 +92,8 @@ class cart
 		}
 
 		$factor             = [];
-		$factor['customer'] = \dash\user::code();
+		$factor['customer'] = $user_id ? \dash\coding::encode($user_id): null;
+		$factor['guestid']  = $user_guest;
 		$factor['type']     = 'sale';
 		$factor['desc']     = null;
 		$factor['discount'] = null;

@@ -160,6 +160,9 @@
      <label for="company" ><?php echo T_("Is this a company's address?"); ?></label>
     </div>
 
+    <?php if(\dash\user::login()) {?>
+    	<button class="btn master mTB20" name="save_address" value="new_address"><?php echo T_("Save address"); ?></button>
+	<?php } //endif ?>
 
 
 <?php } //endfunction ?>
