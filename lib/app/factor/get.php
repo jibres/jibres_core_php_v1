@@ -75,7 +75,7 @@ class get
 
 
 
-	private static function fix_id($_id)
+	public static function fix_id($_id)
 	{
 		if(substr($_id, 0, 2) === 'JF')
 		{
