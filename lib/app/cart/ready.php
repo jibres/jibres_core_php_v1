@@ -11,8 +11,6 @@ class ready
 			return false;
 		}
 
-		$_data = \dash\app::fix_avatar($_data);
-
 		$result = [];
 		foreach ($_data as $key => $value)
 		{

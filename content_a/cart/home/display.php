@@ -127,15 +127,15 @@ if(!is_array($dataTable))
         </td>
         <td><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></td>
 
-      <td class="collapsing">
-          <a href="<?php echo \dash\url::that(). '/add?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
-            <div class="c pRa10">
-              <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
-              <div class="name"><?php echo \dash\get::index($value, 'displayname'); ?></div>
-            </div>
-            <img class="cauto" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
-          </a>
-        </td>
+        <td class="collapsing">
+            <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+              <div class="c pRa10">
+                <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
+                <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
+              </div>
+              <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
+            </a>
+          </td>
       </tr>
       <?php } //endif ?>
     </tbody>

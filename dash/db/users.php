@@ -10,6 +10,22 @@ class users
 	public static $user_id;
 
 
+	public static function get_by_ids($_ids)
+	{
+		$query = "SELECT * FROM users WHERE users.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function get_by_ids_summary($_ids)
+	{
+		$query = "SELECT users.id, users.displayname, users.avatar, users.gender FROM users WHERE users.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function all_user_mobile($_where = null)
 	{
 		$where = null;

@@ -73,11 +73,11 @@ class search
 
 			if($mobile)
 			{
-				$or[] = " users.mobile = '$mobile' ";
-			}
-			else
-			{
-				$or[] = " users.displayname LIKE '%$query_string%' ";
+				$search_user_id = \dash\db\users::get_by_mobile($mobile);
+				if(isset($search_user_id['id']))
+				{
+					$or[] = " cart.user_id = '$search_user_id[id]' ";
+				}
 			}
 
 			self::$is_filtered = true;
@@ -102,10 +102,8 @@ class search
 
 		if(!$order_sort)
 		{
-			// $order_sort = " ORDER BY cart.datecreated ASC";
+			$order_sort = " ORDER BY MAX(cart.datecreated) DESC";
 		}
-
-
 
 		if($data['user_id'])
 		{
@@ -116,16 +114,45 @@ class search
 
 		$list = \lib\db\cart\search::list($and, $or, $order_sort, $meta);
 
-		if(is_array($list))
-		{
-			$list = array_map(['\\lib\\app\\cart\\ready', 'row'], $list);
 
-		}
-		else
+		if(!is_array($list))
 		{
 			$list = [];
 		}
 
+
+		$user_ids = array_column($list, 'user_id');
+		$user_ids = array_filter($user_ids);
+		$user_ids = array_unique($user_ids);
+
+		$user_detail = [];
+
+		if(!empty($user_ids))
+		{
+			$user_detail = \dash\db\users::get_by_ids_summary(implode(',', $user_ids));
+			if(!is_array($user_detail))
+			{
+				$user_detail = [];
+			}
+
+			$user_detail = array_map(['\\dash\\app\\user', 'ready'], $user_detail);
+
+			$user_detail = array_combine(array_column($user_detail, 'id'), $user_detail);
+		}
+
+		$list = array_map(['\\lib\\app\\cart\\ready', 'row'], $list);
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['user_id']) && isset($user_detail[$value['user_id']]))
+			{
+				$list[$key]['user_detail'] = $user_detail[$value['user_id']];
+			}
+			else
+			{
+				$list[$key]['user_detail'] = \dash\app::fix_avatar([]);
+			}
+		}
 
 		$filter_args_data = [];
 

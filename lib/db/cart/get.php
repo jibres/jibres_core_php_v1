@@ -58,11 +58,12 @@ class get
 		$query  =
 		"
 			SELECT
-				COUNT(DISTINCT cart.user_id) AS `count`
+				COUNT(DISTINCT IFNULL(cart.user_id, cart.guestid)) AS `count`
 			FROM
 				cart
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\db::get($query, 'count', true);
+
 		return $result;
 	}
 

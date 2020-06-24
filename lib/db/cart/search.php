@@ -62,7 +62,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart LEFT JOIN users ON cart.user_id = users.id $q[where] GROUP BY cart.user_id";
+		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart $q[where] GROUP BY IFNULL(cart.user_id, cart.guestid)";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -76,15 +76,10 @@ class search
 				COUNT(*) AS `item_count`,
 				SUM(cart.count) AS `product_count`,
 				MAX(cart.datecreated) AS `datecreated`,
-				cart.user_id,
-				users.displayname,
-				users.avatar,
-				users.mobile,
-				users.gender
+				MAX(cart.user_id) AS `user_id`
 			FROM cart
-			LEFT JOIN users ON cart.user_id = users.id
 			$q[where]
-			GROUP by cart.user_id
+			GROUP by IFNULL(cart.user_id, cart.guestid)
 			$q[order]
 			$limit
 		";
