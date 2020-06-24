@@ -41,7 +41,7 @@ class edit
 
 		$condition =
 		[
-			'user_id' => 'code',
+			'user_id' => 'id',
 			'product' => 'id',
 			'count'   => 'smallint',
 			'type'    => ['enum' => ['plus_count', 'minus_count']],
