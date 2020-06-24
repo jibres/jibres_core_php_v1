@@ -145,6 +145,9 @@ class user
 	 */
 	public static function init($_user_id)
 	{
+		// check some function in login user
+		self::delete_user_guest();
+
 		// login on subdomain
 		if(self::inStore())
 		{
@@ -474,6 +477,60 @@ class user
 		return null;
 	}
 
+
+
+	// get user guest id if exists
+	public static function get_user_guest()
+	{
+		$user_guest_id = \dash\utility\cookie::read('user_guest_id');
+		if($user_guest_id && \dash\validate::md5($user_guest_id, false))
+		{
+			return $user_guest_id;
+		}
+		return null;
+	}
+
+
+	public static function delete_user_guest()
+	{
+		if(self::get_user_guest())
+		{
+			\dash\utility\cookie::delete('user_guest_id');
+		}
+	}
+
+
+	// set user guest id if not exists
+	private static function set_user_guest()
+	{
+		$user_guest_id = \dash\utility\cookie::read('user_guest_id');
+		if($user_guest_id)
+		{
+			if(!\dash\validate::md5($user_guest_id, false))
+			{
+				$user_guest_id = null;
+			}
+			else
+			{
+				// ok
+				return;
+			}
+		}
+
+		if($user_guest_id)
+		{
+			// ok;
+			return;
+		}
+
+		$new_guest_id = microtime(). '_'. time(). '_'. rand(1, 999). '_'. rand(1, 999). '_'. rand(1, 999);
+		$new_guest_id = md5($new_guest_id);
+
+		\dash\utility\cookie::write('user_guest_id', $new_guest_id, (60*60*24*7));
+	}
+
+
+
 	/**
 	* check is set remember of this user and login by this
 	*
@@ -486,9 +543,13 @@ class user
 			return;
 		}
 
+
 		// check if have cookie set login by remember
 		if(!\dash\user::login())
 		{
+			// set the user guest id in cookie
+			self::set_user_guest();
+
 			$cookie = \dash\db\sessions::get_cookie();
 			if(!$cookie)
 			{
