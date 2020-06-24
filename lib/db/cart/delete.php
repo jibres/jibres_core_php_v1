@@ -18,5 +18,22 @@ class delete
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+	public static function drop_cart($_user_id)
+	{
+		$query  = "DELETE FROM cart WHERE  cart.user_id = $_user_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+	public static function drop_cart_guest($_guest_id)
+	{
+		$query  = "DELETE FROM cart WHERE  cart.guestid = '$_guest_id' ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
 }
 ?>

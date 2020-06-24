@@ -176,6 +176,16 @@ class cart
 
 			\lib\db\factoraddress\insert::new_record($insert_factor_address);
 
+
+			if($user_id)
+			{
+				\lib\db\cart\delete::drop_cart($user_id);
+			}
+			else
+			{
+				\lib\db\cart\delete::drop_cart_guest($user_guest);
+			}
+
 			return $return;
 		}
 
