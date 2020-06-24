@@ -125,7 +125,7 @@ class search
 				products.discount,
 				products.price AS `product_price`
 			FROM cart
-			INNER JOIN users ON cart.user_id = users.id
+			LEFT JOIN users ON cart.user_id = users.id
 			INNER JOIN products ON products.id = cart.product_id
 			$q[where]
 			$q[order]

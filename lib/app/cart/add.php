@@ -11,92 +11,43 @@ class add
 	{
 		if(\dash\user::id())
 		{
-			return self::new_cart($_product_id, $_count);
-		}
-
-		if(!\dash\user::id())
-		{
-			// save in session
-			// in api we have the user id
-			\dash\notif::error(T_("Please login to continue"). ' Nedd to fix');
-			return false;
-		}
-
-		$condition =
-		[
-			'product' => 'id',
-			'count'   => 'smallint',
-		];
-
-		$args =
-		[
-			'product' => $_product_id,
-			'count'   => $_count,
-		];
-
-		$require = ['product', 'count'];
-		$meta    = [];
-		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
-
-
-		$load_product = \lib\app\product\get::inline_get($data['product']);
-		if(!$load_product)
-		{
-			return false;
-		}
-
-		$check_exist_record = \dash\session::get('user_cart');
-
-
-		if(!$check_exist_record)
-		{
-			$price = null;
-			if(isset($load_product['finalprice']) && is_numeric($load_product['finalprice']))
-			{
-				$price = $load_product['finalprice'];
-			}
-
-			$new_record =
-			[
-				'user_id'         => $user_id,
-				'product_id'      => $data['product'],
-				'count'           => $data['count'],
-				'datecreated'     => date("Y-m-d H:i:s"),
-				'price'           => $price,
-				'productprice_id' => \lib\db\products\get::last_productprice_id($data['product']),
-			];
-
-			\lib\db\cart\insert::new_record($new_record);
+			return self::new_cart($_product_id, $_count, \dash\user::id(), null, 'website');
 		}
 		else
 		{
-			$new_count = floatval($check_exist_record['count']) + 1;
-
-			\lib\db\cart\update::the_count($data['product'], $user_id, $new_count);
-
+			$user_guest = \dash\user::get_user_guest();
+			if($user_guest)
+			{
+				return self::new_cart($_product_id, $_count, null, $user_guest, 'website');
+			}
+			else
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 		}
-
-		\dash\notif::ok(T_("Product added to your cart"));
-		return true;
 	}
 
 
 
 
-	public static function new_cart($_product_id, $_count, $_user_id = null)
+	public static function new_cart($_product_id, $_count, $_user_id = null, $_user_guest = null, $_mode = null)
 	{
-		if(!\dash\user::id())
+		if($_mode !== 'website')
 		{
-			// save in session
-			// in api we have the user id
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
+			if(!\dash\user::id())
+			{
+				// save in session
+				// in api we have the user id
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
+			if(!\lib\store::in_store())
+			{
+				\dash\notif::error(T_("Your are not in this store!"));
+				return false;
+			}
 		}
 
 		if(!$_user_id)
@@ -108,9 +59,11 @@ class add
 			$user_id = $_user_id;
 		}
 
+
 		$condition =
 		[
 			'user_id' => 'code',
+			'guestid' => 'md5',
 			'product' => 'id',
 			'count'   => 'smallint',
 		];
@@ -118,15 +71,14 @@ class add
 		$args =
 		[
 			'user_id' => $user_id,
+			'guestid' => $_user_guest,
 			'product' => $_product_id,
 			'count'   => $_count,
 		];
 
-		$require = ['product', 'count', 'user_id'];
+		$require = ['product', 'count'];
 		$meta    =	[];
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
-
-		$user_id = \dash\coding::decode($data['user_id']);
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);
 		if(!$load_product)
@@ -135,7 +87,21 @@ class add
 		}
 
 
-		$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
+		if($data['user_id'])
+		{
+			$user_id = \dash\coding::decode($data['user_id']);
+			$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
+		}
+		elseif($data['guestid'])
+		{
+			$check_exist_record = \lib\db\cart\get::product_user_guest($data['product'], $data['guestid']);
+		}
+		else
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
 
 		if(!$check_exist_record)
 		{
@@ -148,6 +114,7 @@ class add
 			$new_record =
 			[
 				'user_id'         => $user_id,
+				'guestid'         => $data['guestid'],
 				'product_id'      => $data['product'],
 				'count'           => $data['count'],
 				'datecreated'     => date("Y-m-d H:i:s"),
@@ -161,7 +128,19 @@ class add
 		{
 			$new_count = floatval($check_exist_record['count']) + 1;
 
-			\lib\db\cart\update::the_count($data['product'], $user_id, $new_count);
+			if($data['user_id'])
+			{
+				\lib\db\cart\update::the_count($data['product'], $user_id, $new_count);
+			}
+			elseif($data['guestid'])
+			{
+				\lib\db\cart\update::the_count_guest($data['product'], $data['guestid'], $new_count);
+			}
+			else
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 		}
 
 		\dash\notif::ok(T_("Product added to your cart"));

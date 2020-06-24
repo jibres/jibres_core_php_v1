@@ -11,5 +11,15 @@ class update
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+
+	public static function the_count_guest($_product_id, $_guestid, $_count)
+	{
+		$query  = "UPDATE cart SET cart.count = $_count WHERE cart.product_id = $_product_id AND cart.guestid = '$_guestid' LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 }
 ?>

@@ -8,30 +8,49 @@ class get
 	{
 		if(!\dash\user::id())
 		{
-			// save in session
-			// in api we have the user id
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
+			if(!\dash\user::get_user_guest())
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 		}
 
-		$user_cart_count = \lib\db\cart\get::user_cart_count(\dash\user::id());
+		if(\dash\user::id())
+		{
+			$user_cart_count = \lib\db\cart\get::user_cart_count(\dash\user::id());
+		}
+		else
+		{
+			$user_cart_count = \lib\db\cart\get::user_cart_count_guest(\dash\user::get_user_guest());
+		}
+
 
 		$user_cart_count = intval($user_cart_count);
 
 		return $user_cart_count;
 	}
 
+
 	public static function my_cart_list()
 	{
 		if(!\dash\user::id())
 		{
-			// save in session
-			// in api we have the user id
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
+			if(!\dash\user::get_user_guest())
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 		}
 
-		$user_cart = \lib\db\cart\get::user_cart(\dash\user::id());
+		if(\dash\user::id())
+		{
+			$user_cart = \lib\db\cart\get::user_cart(\dash\user::id());
+		}
+		else
+		{
+			$user_cart = \lib\db\cart\get::user_cart_guest(\dash\user::get_user_guest());
+		}
+
 
 		if(!$user_cart)
 		{

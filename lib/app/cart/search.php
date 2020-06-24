@@ -149,9 +149,22 @@ class search
 
 	public static function my_detail()
 	{
+		if(!\dash\user::id())
+		{
+			if(!\dash\user::get_user_guest())
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
+		}
+
 		if(\dash\user::id())
 		{
 			return self::detail(\dash\user::code());
+		}
+		else
+		{
+			return self::detail(null, \dash\user::get_user_guest());
 		}
 	}
 
@@ -191,32 +204,35 @@ class search
 
 
 
-	public static function detail($_user_id)
+	public static function detail($_user_id = null, $_guestid = null)
 	{
-		if(!\dash\user::id())
-		{
-			// save in session
-			// in api we have the user id
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
-		$user_id = \dash\coding::decode($_user_id);
-
-		if(!$user_id)
-		{
-			\dash\notif::error(T_("Invalid user"));
-			return false;
-		}
 
 		$and                = [];
-		$and[]              = " cart.user_id = $user_id " ;
+		if($_user_id)
+		{
+			$user_id = \dash\coding::decode($_user_id);
+
+			if(!$user_id)
+			{
+				\dash\notif::error(T_("Invalid user"));
+				return false;
+			}
+			$and[]              = " cart.user_id = $user_id " ;
+		}
+		else
+		{
+			$and[]              = " cart.guestid = '$_guestid' " ;
+
+		}
+
 		$or                 = null;
 		$order              = null;
 		$meta               = [];
 		$meta['pagination'] = false;
 
+
 		$user_cart = \lib\db\cart\search::detail($and, $or, $order, $meta);
+
 
 		if(!$user_cart)
 		{

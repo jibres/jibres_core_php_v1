@@ -8,7 +8,32 @@ class validate
 
 	public static function __callStatic($_function, $_args)
 	{
-		return \dash\cleanse::data($_function, ...$_args);
+		$data  = null;
+		$notif = true;
+		$meta  = [];
+
+		if(array_key_exists(0, $_args))
+		{
+			$data = $_args[0];
+		}
+
+		if(array_key_exists(1, $_args))
+		{
+			$notif = $_args[1];
+		}
+
+		if(array_key_exists(2, $_args))
+		{
+			$meta = $_args[2];
+
+			$meta['continue_with_error'] = true;
+		}
+		else
+		{
+			$meta['continue_with_error'] = true;
+		}
+
+		return \dash\cleanse::data($_function, $data, $notif, $meta);
 	}
 
 
