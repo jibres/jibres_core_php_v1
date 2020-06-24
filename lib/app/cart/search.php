@@ -162,17 +162,20 @@ class search
 		{
 			return false;
 		}
+
 		$subtotal = 0;
+		$discount = 0;
 		foreach ($_detail as $key => $value)
 		{
 			$subtotal += floatval($value['count']) * floatval($value['price']);
+			$discount += floatval($value['count']) * floatval($value['discount']);
 		}
 
 		$result             = [];
 		$result['count']    = count($_detail);
 		$result['subtotal'] = $subtotal;
-		$result['shipping'] = 1000;
-		$result['discount'] = 1000;
+		$result['shipping'] = 0;
+		$result['discount'] = $discount;
 		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'];
 
 		return $result;

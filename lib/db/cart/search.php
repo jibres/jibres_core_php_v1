@@ -120,7 +120,10 @@ class search
 				users.avatar,
 				users.mobile,
 				products.title,
-				products.thumb
+				products.thumb,
+				products.finalprice,
+				products.discount,
+				products.price AS `product_price`
 			FROM cart
 			INNER JOIN users ON cart.user_id = users.id
 			INNER JOIN products ON products.id = cart.product_id

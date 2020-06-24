@@ -28,6 +28,22 @@ class ready
 					break;
 
 
+				case 'price':
+				case 'buyprice':
+				case 'discount':
+				case 'product_price':
+				case 'finalprice':
+					if($value)
+					{
+						$result[$key] = \lib\price::down($value);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+					break;
+
+
 				default:
 					$result[$key] = $value;
 					break;
