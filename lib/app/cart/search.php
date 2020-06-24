@@ -171,10 +171,17 @@ class search
 			$discount += floatval($value['count']) * floatval($value['discount']);
 		}
 
+		$shipping_value = 0;
+		$shipping = \lib\app\setting\setup::ready('shipping', true);
+		if(isset($shipping['shipping_current_country_value']))
+		{
+			$shipping_value = floatval($shipping['shipping_current_country_value']);
+		}
+
 		$result             = [];
 		$result['count']    = count($_detail);
 		$result['subtotal'] = $subtotal;
-		$result['shipping'] = 0;
+		$result['shipping'] = $shipping_value;
 		$result['discount'] = $discount;
 		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'];
 
