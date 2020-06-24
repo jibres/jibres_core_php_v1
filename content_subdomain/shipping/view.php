@@ -1,12 +1,12 @@
 <?php
-namespace content_subdomain\shiping;
+namespace content_subdomain\shipping;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Shiping"));
+		\dash\face::title(T_("Shipping"));
 
 		$dataTable = \lib\app\cart\search::my_detail();
 		\dash\data::dataTable($dataTable);
@@ -14,6 +14,11 @@ class view
 
 		$addressDataTable = \lib\website::my_address_list();
 		\dash\data::addressDataTable($addressDataTable);
+
+
+		$payment = \lib\app\setting\get::payment();
+		\dash\data::paymentWay($payment);
+
 
 
 		self::static_var();

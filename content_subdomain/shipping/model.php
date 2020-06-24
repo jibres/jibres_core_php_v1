@@ -1,13 +1,11 @@
 <?php
-namespace content_subdomain\payment;
+namespace content_subdomain\shipping;
 
 
 class model
 {
 	public static function post()
 	{
-		\dash\notif::error(T_("Not ready!"));
-		return false;
 		if(\dash\request::post('button') === 'saveorder')
 		{
 			$address_id = \dash\request::post('address_id');
@@ -17,7 +15,18 @@ class model
 				return false;
 			}
 
-			\dash\redirect::to(\dash\url::kingdom(). '/payment?address='. $address_id);
+			$post =
+			[
+				'address_id' => $address_id,
+				'payway'     => \dash\request::post('payway'),
+			];
+
+			$saveorder = \lib\app\factor\cart::to_factor($post);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/profile/orders');
+			}
 			return;
 		}
 

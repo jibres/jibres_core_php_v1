@@ -74,7 +74,7 @@
      </dl>
     </div>
 
-    <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shiping' ?>"><?php echo T_("BUY") ?></a>
+    <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY") ?></a>
    </div>
 
   </div>

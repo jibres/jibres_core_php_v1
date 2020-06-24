@@ -23,15 +23,10 @@ elseif(\dash\url::module() === 'tag')
 	// load tag detail
 	require_once(root. 'content_subdomain/tag/display.php');
 }
-elseif(\dash\url::module() === 'shiping')
+elseif(\dash\url::module() === 'shipping')
 {
-	// load shiping detail
-	require_once(root. 'content_subdomain/shiping/display.php');
-}
-elseif(\dash\url::module() === 'payment')
-{
-	// load payment detail
-	require_once(root. 'content_subdomain/payment/display.php');
+	// load shipping detail
+	require_once(root. 'content_subdomain/shipping/display.php');
 }
 else
 {

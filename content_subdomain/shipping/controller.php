@@ -1,5 +1,5 @@
 <?php
-namespace content_subdomain\shiping;
+namespace content_subdomain\shipping;
 
 
 class controller
