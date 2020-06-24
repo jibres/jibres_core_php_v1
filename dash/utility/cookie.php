@@ -17,7 +17,7 @@ class cookie
 
 	// @var bool
 	// If true, the cookie should only be transmitted over a secure HTTPS connection from the client
-	const SECURE	= false;
+	const SECURE	= true;
 
 	// @var bool		If true, the cookie will be made accessible only through the HTTP protocol
 	const HTTPONLY	= true;
