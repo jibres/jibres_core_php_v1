@@ -216,10 +216,10 @@ class setup
 		[
 			'shipping_status'                     => 'bit',
 			'shipping_current_country'            => 'bit',
-			'shipping_current_country_value'      => 'bit',
+			'shipping_current_country_value'      => 'price',
 			'shipping_current_country_value_type' => 'string',
 			'shipping_other_country'              => 'bit',
-			'shipping_other_country_value'        => 'bit',
+			'shipping_other_country_value'        => 'price',
 			'shipping_other_country_value_type'   => 'string',
 		];
 
