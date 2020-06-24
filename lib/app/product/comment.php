@@ -553,16 +553,32 @@ class comment
 
 	public static function get_public_list($_product_id)
 	{
-		return self::list(null, ['status' => 'approved', 'product_id' => $_product_id]);
+		return self::list(null, ['status' => 'approved', 'product_id' => $_product_id], ['check_login' => false]);
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_option = [])
 	{
-		if(!\dash\user::id())
+		$default_option =
+		[
+			'check_login' => true,
+		];
+
+		if(!is_array($_option))
 		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
+
+		if($_option['check_login'])
+		{
+			if(!\dash\user::id())
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 		}
 
 		$condition =

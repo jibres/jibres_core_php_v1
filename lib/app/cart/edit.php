@@ -12,27 +12,31 @@ class edit
 
 	public static function update_cart($_product_id, $_count, $_user_id = null, $_type = null)
 	{
+		$user_guest = null;
+
 		if(!\dash\user::id())
 		{
-			// save in session
-			// in api we have the user id
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
+			$user_guest = \dash\user::get_user_guest();
+			if(!$user_guest)
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
 		}
 
-		if(!\lib\store::in_store())
+		$user_id = null;
+		if(\dash\user::login())
 		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
+			if(!$_user_id)
+			{
+				$user_id = \dash\user::code();
+			}
+			else
+			{
+				$user_id = $_user_id;
+			}
 
-		if(!$_user_id)
-		{
-			$user_id = \dash\user::code();
-		}
-		else
-		{
-			$user_id = $_user_id;
+			$user_id = \dash\coding::decode($data['user_id']);
 		}
 
 		$condition =
@@ -51,11 +55,10 @@ class edit
 			'type'    => $_type,
 		];
 
-		$require = ['product', 'count', 'user_id'];
+		$require = ['product', 'count'];
 		$meta    =	[];
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
-		$user_id = \dash\coding::decode($data['user_id']);
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);
 		if(!$load_product)
@@ -63,8 +66,14 @@ class edit
 			return false;
 		}
 
-
-		$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
+		if($user_id)
+		{
+			$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
+		}
+		else
+		{
+			$check_exist_record = \lib\db\cart\get::product_user_guest($data['product'], $user_guest);
+		}
 
 		if(!isset($check_exist_record['count']))
 		{
@@ -92,11 +101,25 @@ class edit
 
 			if($new_count === floatval(0))
 			{
-				\lib\db\cart\delete::by_product_user($data['product'], $user_id);
+				if($user_id)
+				{
+					\lib\db\cart\delete::by_product_user($data['product'], $user_id);
+				}
+				else
+				{
+					\lib\db\cart\delete::by_product_user_guest($data['product'], $user_guest);
+				}
 			}
 			else
 			{
-				\lib\db\cart\update::the_count($_product_id, $user_id, $new_count);
+				if($user_id)
+				{
+					\lib\db\cart\update::the_count($_product_id, $user_id, $new_count);
+				}
+				else
+				{
+					\lib\db\cart\update::the_count_guest($_product_id, $user_guest, $new_count);
+				}
 			}
 
 		}
