@@ -175,7 +175,7 @@ class search
 
 
 
-	public static function get_similar_product($_id)
+	public static function get_similar_product($_id, $_limit)
 	{
 		$query =
 		"
@@ -214,11 +214,64 @@ class search
 				products.id != $_id AND
 				producttagusage.producttag_id IN ($ids)
 			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
-			LIMIT 10
+			LIMIT $_limit
 		";
 
 		$result = \dash\db::get($query);
 
+		return $result;
+
+	}
+
+
+	public static function get_similar_product_category_last($_id, $_limit, $_found_ids)
+	{
+		$found_ids = null;
+		if($_found_ids)
+		{
+			$found_ids = " products.id NOT IN (". implode(',', $_found_ids). ") AND";
+		}
+
+		$query =
+		"
+			SELECT
+				products.*
+			FROM products
+			WHERE
+				products.status = 'available' AND $found_ids
+				products.id != $_id AND
+				IF((SELECT products.cat_id FROM products WHERE products.id = $_id LIMIT 1) IS NULL , 1 = 1 , products.cat_id = (SELECT products.cat_id FROM products WHERE products.id = $_id LIMIT 1))
+			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			LIMIT $_limit
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
+
+	public static function get_similar_product_last($_id, $_limit, $_found_ids)
+	{
+		$found_ids = null;
+		if($_found_ids)
+		{
+			$found_ids = " products.id NOT IN (". implode(',', $_found_ids). ") AND";
+		}
+
+		$query =
+		"
+			SELECT
+				products.*
+			FROM products
+			WHERE
+				products.status = 'available' AND $found_ids
+				products.id != $_id
+			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			LIMIT $_limit
+		";
+
+		$result = \dash\db::get($query);
 		return $result;
 
 	}

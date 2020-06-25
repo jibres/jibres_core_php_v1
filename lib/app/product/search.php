@@ -458,8 +458,46 @@ class search
 			return [];
 		}
 
-		$list = \lib\db\products\search::get_similar_product($_product_id);
+		$limit = 4;
 
+		$list = \lib\db\products\search::get_similar_product($_product_id, $limit);
+
+		$found_ids = [];
+
+		if(!$list || !is_array($list))
+		{
+			$list = [];
+		}
+
+		$found_ids = array_column($list, 'id');
+		$found_ids = array_filter($found_ids);
+		$found_ids = array_unique($found_ids);
+
+		if(count($list) < $limit)
+		{
+			$list_2 = \lib\db\products\search::get_similar_product_category_last($_product_id, ($limit - count($list)), $found_ids);
+			if(!$list_2 || !is_array($list_2))
+			{
+				$list_2 = [];
+			}
+
+			$list = array_merge($list, $list_2);
+
+			$found_ids = array_column($list, 'id');
+			$found_ids = array_filter($found_ids);
+			$found_ids = array_unique($found_ids);
+		}
+
+		if(count($list) < $limit)
+		{
+			$list_3 = \lib\db\products\search::get_similar_product_last($_product_id, ($limit - count($list)), $found_ids);
+			if(!$list_3 || !is_array($list_3))
+			{
+				$list_3 = [];
+			}
+
+			$list = array_merge($list, $list_3);
+		}
 
 		if(is_array($list))
 		{
