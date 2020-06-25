@@ -17,12 +17,12 @@ $productDataRow = \dash\data::productDataRow();
 
       <div class="input mB10">
        <input type="text" name="title" id="title" placeholder='<?php echo T_("Product Title"); ?> *' value="<?php echo \dash\get::index($productDataRow,'title'); ?>" maxlength='200' <?php \dash\layout\autofocus::html() ?> <?php if(\dash\data::productDataRow_parent()) { echo 'disabled';} ?>>
-        <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><?php echo T_("Add Other title"); ?></span>
+        <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><?php echo T_("Technical title"); ?></span>
       </div>
 
       <div class="subTitle" data-kerkere-content='<?php if(\dash\data::productDataRow_title2()) {echo 'show'; }else{ echo 'hide'; } ?>'>
         <div class="input mB10">
-          <input type="text" name="title2" id="title2" placeholder='<?php echo T_("Enter here"); ?>' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
+          <input type="text" name="title2" id="title2" placeholder='<?php echo T_("Enter technical title here"); ?>' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
         </div>
       </div>
 
@@ -453,7 +453,21 @@ $productDataRow = \dash\data::productDataRow();
       <?php } //endif ?>
 
 
-      <div class="mB10">
+
+
+
+    </div>
+  </section>
+
+
+
+<section class="jbox">
+  <div data-response='type' data-response-where='product|file' <?php if(\dash\data::productDataRow_type() == 'service'){ echo 'data-response-hide';} ?>>
+  <header data-kerkere='.unitsgPanel' data-kerkere-icon='close'><h2><?php echo T_("General property"); ?></h2></header>
+  <div class="pad unitsgPanel hideIn">
+
+    <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() == 'product'){}else{ echo 'data-response-hide';} ?>>
+         <div class="mB10">
         <label for='company'><?php echo T_("Manufacturer"); ?></label>
         <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product manufacturer"); ?>'>
           <option></option>
@@ -473,18 +487,6 @@ $productDataRow = \dash\data::productDataRow();
         </select>
       </div>
 
-
-    </div>
-  </section>
-
-
-
-<section class="jbox">
-  <div data-response='type' data-response-where='product|file' <?php if(\dash\data::productDataRow_type() == 'service'){ echo 'data-response-hide';} ?>>
-  <header data-kerkere='.unitsgPanel' data-kerkere-icon='close'><h2><?php echo T_("Units"); ?></h2></header>
-  <div class="pad unitsgPanel hideIn">
-
-    <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() == 'product'){}else{ echo 'data-response-hide';} ?>>
         <div><?php echo T_("Dimensions"); ?> <span class="fc-mute"> <?php echo \dash\get::index($storData,'length_detail','name'); ?></span></div>
       <div class="f">
 
@@ -580,7 +582,7 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-    <section class="jbox">
+    <section class="jbox hide">
       <header data-kerkere='.propertyPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Property"); ?></h2></header>
       <div class="pad propertyPanelLink" data-kerkere-content='hide'>
           <a class="btn link" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product properties"); ?></a>
@@ -669,12 +671,12 @@ $productDataRow = \dash\data::productDataRow();
 
 <?php if(\dash\url::child() == 'edit') {?>
 
-  <section class="jbox">
+  <section class="jbox hide">
     <header data-kerkere='.reportproduct' data-kerkere-icon='close'><h2><?php echo T_("Reports"); ?></h2></header>
     <div class="pad reportproduct"  data-kerkere-content='hide'>
       <ul>
-        <li><a href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><?php echo T_("Price change chart"); ?></a></li>
-        <li><a href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><?php echo T_("Comments"); ?></a></li>
+        <li><a class="btn link" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><?php echo T_("Price change chart"); ?></a></li>
+        <li><a class="btn link" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><?php echo T_("Comments"); ?></a></li>
       </ul>
     </div>
   </section>
@@ -706,6 +708,25 @@ $productDataRow = \dash\data::productDataRow();
     <?php } //endif ?>
     </div>
   </section>
+
+  <nav class="items">
+     <ul>
+       <li>
+        <li><a class="f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Edit Description") ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><?php echo T_("Manage product properties"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/bullet?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><?php echo T_("Manage product feature bullet"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
+       </li>
+     </ul>
+   </nav>
+
+    <nav class="items">
+     <ul>
+       <li>
+        <li><a class="f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Price change chart"); ?></div><div class="go"></div></a></li>
+       </li>
+     </ul>
+   </nav>
 
 <?php } //endif ?>
 
