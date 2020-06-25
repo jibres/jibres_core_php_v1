@@ -11,11 +11,19 @@ class model
 
 		$property = self::get_property();
 
-		if(!$property)
+		$post           = [];
+		$post['weight'] = \dash\request::post('weight');
+		$post['length'] = \dash\request::post('length');
+		$post['width']  = \dash\request::post('width');
+		$post['height'] = \dash\request::post('height');
+
+		\lib\app\product\edit::edit($post, $id);
+
+		if(\dash\engine\process::status())
 		{
-			\dash\notif::error(T_("Please set stock and price of product"));
-			return false;
+			\dash\notif::clean();
 		}
+
 
 		\lib\app\product\property::set($property, $id);
 

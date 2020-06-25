@@ -132,12 +132,13 @@ class property
 			}
 			else
 			{
-				$result[] = ['cat' => $value['cat'], 'key' => $value['key'], 'value' => $value['value']];
+				$result[] = ['cat' => $value['cat'], 'key' => ['key' => $value['key']], 'value' => $value['value']];
 			}
 
 		}
 
 		$result = array_values($result);
+
 
 		return $result;
 	}

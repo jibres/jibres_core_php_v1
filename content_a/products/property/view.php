@@ -20,7 +20,7 @@ class view
 		\dash\face::btnNext(\dash\url::this(). '/next/'. \dash\request::get('id'));
 		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
 
-
+		\dash\face::btnSave('form1');
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
