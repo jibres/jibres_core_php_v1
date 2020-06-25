@@ -13,6 +13,11 @@ class property
 			return false;
 		}
 
+		$load = \lib\app\product\get::inline_get($id);
+		if(!$load)
+		{
+			return false;
+		}
 
 		$saved_property = \lib\db\productproperties\get::product_property_list($id);
 
@@ -22,6 +27,43 @@ class property
 		}
 
 		$result = [];
+
+		$length_name = \dash\get::index(\lib\store::detail('store_data') ,'length_detail','name');
+		$mass_name = \dash\get::index(\lib\store::detail('store_data') ,'mass_detail','name');
+
+
+		$result[T_("General property")] =
+		[
+			'title' => T_("General property"),
+			'list' =>
+			[
+
+			]
+		];
+
+		if(\dash\get::index($load, 'weight'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'weight')) . ' '. $mass_name]);
+		}
+
+		if(\dash\get::index($load, 'length'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'length')) . ' '. $length_name]);
+		}
+
+
+		if(\dash\get::index($load, 'width'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'width')) . ' '. $length_name]);
+		}
+
+
+		if(\dash\get::index($load, 'height'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'height')) . ' '. $length_name]);
+		}
+
+
 
 
 		foreach ($saved_property as $key => $value)
