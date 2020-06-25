@@ -23,7 +23,11 @@ else
       <a class="cart" href="<?php echo \dash\url::kingdom(); ?>/cart" data-count="<?php echo \dash\fit::number(\lib\website::cart_count()); ?>"><?php echo T_("Cart"); ?></a>
     </div>
     <div class="cauto">
-      <a class="enter" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Enter to account"); ?></a>
+      <?php if(\dash\user::login()) {?>
+        <a class="enter" href="<?php echo \dash\url::kingdom(); ?>/profile"><?php echo T_("Profile"); ?></a>
+      <?php }else{ ?>
+        <a class="enter" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Enter to account"); ?></a>
+      <?php } //endif ?>
     </div>
   </div>
 

@@ -11,7 +11,7 @@ class add
 	{
 		if(\dash\user::id())
 		{
-			return self::new_cart($_product_id, $_count, \dash\user::id(), null, 'website');
+			return self::new_cart($_product_id, $_count, \dash\user::code(), null, 'website');
 		}
 		else
 		{
@@ -78,6 +78,7 @@ class add
 
 		$require = ['product', 'count'];
 		$meta    =	[];
+
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);

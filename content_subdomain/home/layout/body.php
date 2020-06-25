@@ -1,32 +1,38 @@
 <?php
+
+$here = root. 'content_subdomain';
+
+$module_url =
+[
+	'category' => $here. '/category/display.php',
+	'p'        => $here. '/p/home/display.php',
+	'cart'     => $here. '/cart/display.php',
+	'tag'      => $here. '/tag/display.php',
+	'shipping' => $here. '/shipping/display.php',
+
+];
+
 if(\dash\data::postIsLoaded())
 {
+	// load the business post
 	require_once(__DIR__. '/body/body_load_post.php');
 }
-elseif(\dash\url::module() === 'category')
+elseif(array_key_exists(\dash\url::module(), $module_url))
 {
-	// load category detail
-	require_once(root. 'content_subdomain/category/display.php');
+	// load some static module url
+	require_once($module_url[\dash\url::module()]);
 }
-elseif(\dash\url::module() === 'p')
+elseif(\dash\url::module() === 'profile')
 {
-	// load product detail
-	require_once(root. 'content_subdomain/p/home/display.php');
-}
-elseif(\dash\url::module() === 'cart')
-{
-	// load cart detail
-	require_once(root. 'content_subdomain/cart/display.php');
-}
-elseif(\dash\url::module() === 'tag')
-{
-	// load tag detail
-	require_once(root. 'content_subdomain/tag/display.php');
-}
-elseif(\dash\url::module() === 'shipping')
-{
-	// load shipping detail
-	require_once(root. 'content_subdomain/shipping/display.php');
+	if(\dash\url::child() === 'notifications')
+	{
+
+		require_once(root. 'content_subdomain/profile/notifications/display.php');
+	}
+	else
+	{
+		require_once(root. 'content_subdomain/profile/home/display.php');
+	}
 }
 else
 {
