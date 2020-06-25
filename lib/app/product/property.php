@@ -41,6 +41,21 @@ class property
 			]
 		];
 
+		if(\dash\get::index($load, 'title2'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load, 'title2')]);
+		}
+
+
+		if(\dash\get::index($load, 'cat_id'))
+		{
+			$load_cat = \lib\app\category\get::get($load['cat_id']);
+			if(isset($load_cat['title']))
+			{
+				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $load_cat['title'], 'link' => $load_cat['url']]);
+			}
+		}
+
 		if(\dash\get::index($load, 'weight'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'weight')) . ' '. $mass_name]);
@@ -62,6 +77,7 @@ class property
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'height')) . ' '. $length_name]);
 		}
+
 
 
 

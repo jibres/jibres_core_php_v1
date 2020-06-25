@@ -102,7 +102,13 @@
 <?php foreach ($cat['list'] as $key => $value) {?>
       <tr>
         <th><?php echo $value['key']; ?></th>
-        <td><?php echo $value['value']; ?></td>
+        <td>
+          <?php if(\dash\get::index($value, 'link')) {?>
+            <a href="<?php echo \dash\get::index($value, 'link') ?>"><?php echo $value['value']; ?></a>
+          <?php }else{ ?>
+          <?php echo $value['value']; ?>
+          <?php } //endif ?>
+        </td>
       </tr>
 <?php     } ?>
     </table>
