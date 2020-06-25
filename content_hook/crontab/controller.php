@@ -152,7 +152,7 @@ class controller
 			{
 				\dash\log::set('su_sqlError');
 			}
-			elseif(self::in_hour(['08', '13', '18'], 14))
+			elseif(self::every_hour())
 			{
 				\dash\log::set('su_sqlError');
 			}
@@ -167,7 +167,7 @@ class controller
 			{
 				\dash\log::set('su_phpBug');
 			}
-			elseif(self::in_hour(['08', '13', '18'], 15))
+			elseif(self::every_hour())
 			{
 				\dash\log::set('su_phpBug');
 			}
