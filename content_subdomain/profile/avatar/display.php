@@ -1,6 +1,10 @@
+
 <div class="avand">
-	<div class="row justify-center">
-		<div class="c-xs-12 c-md-6">
+	<div class="row">
+		<div class="c-xs-12 c-md-4">
+			  <?php require_once(root. 'content_subdomain/profile/display-menu.php'); ?>
+		</div>
+		<div class="c-xs-12 c-md-8">
 			<div class="box">
 				<div class="body">
 					<form method="post" autocomplete="off" enctype="multipart/form-data">
@@ -22,4 +26,3 @@
 		</div>
 	</div>
 </div>
-
