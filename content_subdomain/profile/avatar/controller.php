@@ -1,5 +1,5 @@
 <?php
-namespace content_subdomain\profile\detail;
+namespace content_subdomain\profile\avatar;
 
 
 class controller

@@ -24,14 +24,23 @@ elseif(array_key_exists(\dash\url::module(), $module_url))
 }
 elseif(\dash\url::module() === 'profile')
 {
-	if(\dash\url::child() === 'notifications')
+	switch (\dash\url::child())
 	{
+		case 'notifications':
+			require_once(root. 'content_subdomain/profile/notifications/display.php');
+			break;
 
-		require_once(root. 'content_subdomain/profile/notifications/display.php');
-	}
-	else
-	{
-		require_once(root. 'content_subdomain/profile/home/display.php');
+		case 'detail':
+			require_once(root. 'content_subdomain/profile/detail/display.php');
+			break;
+
+		case 'avatar':
+			require_once(root. 'content_subdomain/profile/avatar/display.php');
+			break;
+
+		default:
+			require_once(root. 'content_subdomain/profile/home/display.php');
+			break;
 	}
 }
 else

@@ -14,6 +14,11 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 		\dash\data::isLtr(\dash\language::dir() === 'ltr' ? true : false);
+
+		if(\dash\language::current() === 'fa' && \dash\data::dataRow_birthday())
+		{
+			\dash\data::dataRow_birthday(\dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_birthday())));
+		}
 	}
 }
 ?>

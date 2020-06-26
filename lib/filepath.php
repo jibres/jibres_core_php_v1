@@ -51,6 +51,31 @@ class filepath
 	}
 
 
+	public static function fix_avatar($_path)
+	{
+		if($_path && is_string($_path))
+		{
+			if(substr($_path, 0, 7) === 'http://' || substr($_path, 0, 8) === 'https://' )
+			{
+				// no change
+			}
+			else
+			{
+				if(preg_match("/^\w{5}\/\d{6}\/.*/", $_path))
+				{
+					return self::force_cloud($_path);
+				}
+				else
+				{
+					return self::force_dl($_path);
+				}
+
+			}
+		}
+
+		return $_path;
+	}
+
 	// in jibres need to load file from cloud (force)
 	public static function force_cloud($_path)
 	{
