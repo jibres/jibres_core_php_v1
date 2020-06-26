@@ -10,7 +10,7 @@ class model
 		[
 			'firstname'   => \dash\request::post('firstname'),
 			'lastname'    => \dash\request::post('lastname'),
-			'bio'         => \dash\request::post('bio'),
+			// 'bio'         => \dash\request::post('bio'),
 			'displayname' => \dash\request::post('displayname'),
 			'birthday'    => \dash\request::post('birthday'),
 			'gender'      => \dash\request::post('gender'),

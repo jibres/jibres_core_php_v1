@@ -38,6 +38,10 @@ elseif(\dash\url::module() === 'profile')
 			require_once(root. 'content_subdomain/profile/avatar/display.php');
 			break;
 
+		case 'address':
+			require_once(root. 'content_subdomain/profile/address/display.php');
+			break;
+
 		default:
 			require_once(root. 'content_subdomain/profile/home/display.php');
 			break;

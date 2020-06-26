@@ -39,10 +39,8 @@
 							<option value="rather not say"  <?php if(\dash\data::dataRow_gender() == 'rather not say' ) { echo 'selected';} ?>><?php echo T_("Rather not say"); ?></option>
 						</select>
 
-						<label for="bio" class="mT10"><?php echo T_("Bio"); ?></label>
-						<textarea class="txt mB20 pB25" name="bio" id="bio" placeholder='<?php echo T_("Bio"); ?>' maxlength='300' rows="3"><?php echo \dash\data::dataRow_bio(); ?></textarea>
 
-						<div class="txtRa">
+						<div class="txtRa mT20">
 							<button class="btn success"><?php echo T_("Save"); ?></button>
 						</div>
 
