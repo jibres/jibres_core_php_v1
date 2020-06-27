@@ -27,7 +27,7 @@ class model
 
 				if(\dash\engine\process::status())
 				{
-					\dash\redirect::to(\dash\url::kingdom(). '/profile/orders');
+					\dash\redirect::to(\dash\url::kingdom(). '/orders');
 				}
 				return;
 			}
@@ -79,7 +79,7 @@ class model
 
 				if(\dash\engine\process::status())
 				{
-					\dash\redirect::to(\dash\url::kingdom(). '/profile/orders');
+					\dash\redirect::to(\dash\url::kingdom(). '/orders');
 				}
 				return;
 			}

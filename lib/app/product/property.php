@@ -49,9 +49,11 @@ class property
 
 		if(\dash\get::index($load, 'cat_id'))
 		{
-			$load_cat = \lib\app\category\get::get($load['cat_id']);
+			$load_cat = \lib\app\category\get::inline_get($load['cat_id']);
+
 			if(isset($load_cat['title']))
 			{
+				$load_cat = \lib\app\category\ready::row($load_cat);
 				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $load_cat['title'], 'link' => $load_cat['url']]);
 			}
 		}

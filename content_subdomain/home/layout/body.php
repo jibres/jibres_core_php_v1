@@ -5,6 +5,7 @@ $here = root. 'content_subdomain';
 $module_url =
 [
 	'category' => $here. '/category/display.php',
+	'orders'   => $here. '/orders/display.php',
 	'p'        => $here. '/p/home/display.php',
 	'cart'     => $here. '/cart/display.php',
 	'tag'      => $here. '/tag/display.php',

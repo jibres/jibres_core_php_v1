@@ -31,6 +31,7 @@ class search
 			'customer'          => 'string',
 			'type'              => ['enum' => ['sale', 'buy']],
 			'product'           => 'id',
+			'guestid'           => 'md5',
 
 			'startdate'         => 'date',
 			'enddate'           => 'date',
@@ -109,6 +110,14 @@ class search
 		{
 			$and[] = " factors.type = '$data[type]' ";
 			self::$filter_args['type'] = '*'. T_('Type');
+			self::$is_filtered             = true;
+		}
+
+
+		if($data['guestid'])
+		{
+			$and[] = " factors.guestid = '$data[guestid]' ";
+			self::$filter_args['guestid'] = T_('Guest');
 			self::$is_filtered             = true;
 		}
 
@@ -440,6 +449,34 @@ class search
 	private static function price_sum_down($_data)
 	{
 		return \lib\number::down(\lib\price::down($_data));
+	}
+
+
+
+
+	public static function my_orders()
+	{
+		if(!\dash\user::id())
+		{
+			if(!\dash\user::get_user_guest())
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
+		}
+
+		if(\dash\user::id())
+		{
+			$result = self::list(null, ['customer' => \dash\user::code()]);
+		}
+		else
+		{
+			$result = self::list(null, ['guestid' => \dash\user::get_user_guest()]);
+
+		}
+
+		return $result;
+
 	}
 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace content_subdomain\profile;
+namespace content_subdomain\orders;
 
 
 class model
