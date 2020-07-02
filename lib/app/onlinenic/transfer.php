@@ -93,6 +93,7 @@ class transfer
 		if(!$price)
 		{
 			// error in load price
+			\dash\notif::error(T_("Can not load domain price"));
 			return false;
 		}
 
@@ -252,7 +253,7 @@ class transfer
 			$domain_action_detail =
 			[
 				'domain_id' => $domain_id,
-				'pin' => $data['pin'],
+				'detail'    => json_encode(['pin' => $data['pin']], JSON_UNESCAPED_UNICODE),
 			];
 
 			\lib\app\nic_domainaction\action::set('domain_transfer_ready', $domain_action_detail);
