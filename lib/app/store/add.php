@@ -78,7 +78,7 @@ class add
 		[
 			'title'     => 'title',
 			'subdomain' => 'subdomain',
-			'answer'    => ['Q1' => 'smallint', 'Q2' => 'smallint', 'Q3' => 'smallint'],
+			'answer'    => 'bit', // needless to check answer. the answer was saved before
 		];
 
 		$require = ['title', 'subdomain'];
