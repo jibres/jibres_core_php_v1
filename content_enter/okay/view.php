@@ -10,6 +10,9 @@ class view
 
 		\dash\face::desc(T_('Live and learn'));
 
+		\dash\utility\cookie::write('login', 'yes', (86400 * 30));
+
+
 		\dash\data::redirectUrl(\dash\url::kingdom());
 		if(\dash\utility\enter::get_session('redirect_url'))
 		{

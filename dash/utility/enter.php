@@ -530,6 +530,7 @@ class enter
 	 */
 	public static function set_logout($_user_id, $_auto_redirect = true)
 	{
+		\dash\utility\cookie::delete('login');
 
 		if($_user_id && is_numeric($_user_id))
 		{
