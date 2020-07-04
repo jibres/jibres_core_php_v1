@@ -2,8 +2,8 @@
 $myUrlStatic = \dash\url::cdn();
 ?>
 
-  <section class="avand impact pTB4x">
-   <div class="avand-lg">
+  <section class="avand-xl impact pTB4x">
+   <div class="">
     <div class="f align-center mB10">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("VERTICAL LOCKUP"); ?></h3>
