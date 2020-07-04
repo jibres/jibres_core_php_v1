@@ -58,9 +58,16 @@ class cookie
 		}
 
 		if(!isset($_duration))	$_duration = self::DURATION;
-		if(!isset($_path))		$_path     = self::PATH;
-		if(!isset($_domain))	$_domain   = self::DOMAIN;
-		if(!isset($_secure))	$_secure   = self::SECURE;
+		if(!isset($_path))			$_path     = self::PATH;
+		if(!isset($_domain))		$_domain   = self::DOMAIN;
+		if(!isset($_secure))
+		{
+			$_secure = self::SECURE;
+			if(\dash\url::protocol() === 'http')
+			{
+				$_secure = false;
+			}
+		}
 		if(!isset($_httponly))	$_httponly = self::HTTPONLY;
 
 		// Expiration date from the life time in seconds
