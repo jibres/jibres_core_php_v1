@@ -45,7 +45,7 @@ if(\dash\language::current() === 'fa')
    </div>
 
    <div class="f align-center mB20">
-    <div class="c3 s12 pRa10"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='جیبرس دارای نماد ساماندهی' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=460, height=600, top=30")'></div>
+    <div class="c3 s12 pRa10"><img id="samandehiCert" src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='جیبرس دارای نماد ساماندهی' data-open="https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe"></div>
     <div class="c9 s12"><p>صلاحیت فعالیت جیبرس از تاریخ ۹ آذرماه ۱۳۹۸ توسط مرکز فناوری اطلاعات و رسانه‌های دیجیتال وزارت فرهنگ و ارشاد اسلامی ایران احراز شده است. این مجوز فعالیت با کد شامد 1-2-709257-65-0-6 برای جیبرس به ثبت رسیده است و بدین ترتیب لوگوی طلایی رسانه برخط به جیبرس اعطا شده است.</p></div>
    </div>
 
