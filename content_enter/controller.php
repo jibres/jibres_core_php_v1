@@ -10,21 +10,27 @@ class controller
 		self::check_login_as_referer();
 
 		// all subdomain must be login to jibres
-		// if(\dash\url::subdomain())
-		// {
-		// 	$query            = \dash\request::get();
+		if(\dash\url::store())
+		{
+			$query = \dash\request::get();
 
-		// 	if(!isset($query['referer']))
-		// 	{
-		// 		$query['referer'] = \dash\url::kingdom();
-		// 	}
+			// if(!isset($query['referer']))
+			// {
+			// 	$query['referer'] = \dash\url::kingdom();
+			// }
+			if($query)
+			{
+				$query = '?'. http_build_query($query);
+			}
+			else
+			{
+				$query = '';
+			}
 
-		// 	$query            = '?'. http_build_query($query);
+			$url = \dash\url::sitelang().'/enter'. $query;
 
-		// 	$url = \dash\url::sitelang().'/enter'. $query;
-
-		// 	\dash\redirect::to($url);
-		// }
+			\dash\redirect::to($url);
+		}
 
 
 		// self::check_block_cookie();
