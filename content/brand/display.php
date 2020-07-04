@@ -3,7 +3,7 @@
 
 <article class="logo">
 
-  <section class="pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center mB10">
       <div class="c4 m6 s12">
@@ -27,7 +27,7 @@ require_once ('section-icon.php');
 ?>
 
 
-  <section class="pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
@@ -54,7 +54,7 @@ else
    </div>
   </section>
 
-  <section class="pTB4x">
+  <section class="avand impact pTB4x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
@@ -80,7 +80,7 @@ else
    </div>
   </section>
 
-  <section class="pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
@@ -94,7 +94,7 @@ else
    </div>
   </section>
 
-  <section class="pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
@@ -121,7 +121,7 @@ else
    </div>
   </section>
 
-  <section class="pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
@@ -149,7 +149,7 @@ else
    </div>
   </section>
 
-  <section class=" pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">
@@ -180,7 +180,7 @@ else
    </div>
   </section>
 
-  <section class=" pTB5x">
+  <section class="avand impact pTB5x">
    <div class="avand-lg">
     <div class="f align-center">
       <div class="c4 m6 s12">

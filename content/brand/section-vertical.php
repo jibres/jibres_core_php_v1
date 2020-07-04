@@ -2,7 +2,7 @@
 $myUrlStatic = \dash\url::cdn();
 ?>
 
-  <section class="pTB4x">
+  <section class="avand impact pTB4x">
    <div class="avand-lg">
     <div class="f align-center mB10">
       <div class="c4 m6 s12">
