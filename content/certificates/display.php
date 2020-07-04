@@ -41,27 +41,27 @@ if(\dash\language::current() === 'fa')
    </div>
 
    <div class="f align-center mB20">
-    <!-- <div class="c3 s12 pRa10"><a tabindex='-1' target="_blank" rel='nofollow' href=""><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png" alt='جیبرس برند ثبت شده'></a></div> -->
-   </div>
-
-   <div class="f align-center mB20">
     <div class="c3 s12 pRa10"><img id="samandehiCert" src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='جیبرس دارای نماد ساماندهی' data-open="https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe"></div>
     <div class="c9 s12"><p>صلاحیت فعالیت جیبرس از تاریخ ۹ آذرماه ۱۳۹۸ توسط مرکز فناوری اطلاعات و رسانه‌های دیجیتال وزارت فرهنگ و ارشاد اسلامی ایران احراز شده است. این مجوز فعالیت با کد شامد 1-2-709257-65-0-6 برای جیبرس به ثبت رسیده است و بدین ترتیب لوگوی طلایی رسانه برخط به جیبرس اعطا شده است.</p></div>
    </div>
-
 
    <div class="f align-center mB20 fix">
     <div class="c3 s12 pRa10"><a tabindex='-1' target="_blank" rel='nofollow' href="https://www.nic.ir/List_of_Resellers"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-irnic.png" alt='جیبرس نماینده رسمی ایرنیک'></a></div>
     <div class="c9 s12"><p>جیبرس از تاریخ  ۱۷ فروردین ۱۳۹۹ پس  از عقد قرارداد رسمی به شماره دی۹۹۷ با مرکز ثبت دامنه کشوری ایران،  به  نماینده رسمی  این مرکز تبدیل شد. این مرکز زیر نظر  پژوهشگاه دانش‌های بنیادی فعالیت می‌کند. بدین ترتیب مرکز دامنه‌های جیرس راه‌اندازی شده و قابلیت  خرید دامنه  ایرانی برای عموم  از طریق جیبرس ممکن گشت. هدف ما کمک به بیزینس‌هاست  و  در این راستا تلاش داریم تا تمام نیازهای آن‌ها را مثل دامنه برطرف کنیم. بخش دامنه‌های جیبرس به‌صورت تمام  ای‌پی‌آی راه‌اندازی شده و قابلیت استفاده توسط سایر کسب و کارها را نیز داراست.</p></div>
    </div>
 
-
-
    <div class="f align-center mB20">
     <div class="c3 s12 pRa10"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-chambertrust.png" alt='جیبرس دارای کارت بازرگانی'></div>
     <div class="c9 s12"><p>شرکت روزاندیش کویرپیما با شماره ثبت ۱۳۵۵۲ از تاریخ ۲۴ فروردین ۱۳۹۹ به عضویت حقوقی اتاق  بازرکانی، صنایع، معادن و کشاورزی ایران درآمده است و دارای کارت بازرگانی  هوشمند می‌باشد. بدین ترتیب برخی از موانع پیش رو برای صادرات محصول به خارج از کشور  برای ما برطرف گردیده است.</p></div>
    </div>
 
+   <div class="f align-center mB20 fix">
+    <div class="c3 s12 pRa10"><a tabindex='-1' target="_blank" rel='nofollow' href="<?php echo \dash\url::kingdom(); ?>/brand"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png" alt='جیبرس برند ثبت شده'></a></div>
+    <div class="c9 s12">
+      <p>نشان تجاری آرم جیبرس در شماره اظهارنامه ثبت علامت 139850140001095346 مورخ 1398/08/27 و شماره ثبت علامت 356755 مورخ 1399/02/01 به ثبت رسیده است.</p>
+      <p>نشان تجاری نام جیبرس در شماره اظهارنامه ثبت علامت 139950140001010348  مورخ 1399/02/13 و شماره ثبت علامت 362402 مورخ 1399/03/25 به ثبت رسیده است.</p>
+    </div>
+   </div>
 
   </div>
 </section>
