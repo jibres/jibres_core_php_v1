@@ -564,6 +564,21 @@ class enter
 			session_destroy();
 		}
 
+		if(is_array($_COOKIE))
+		{
+			foreach($_COOKIE as $key => $value)
+			{
+				if(strpos($key, '_g') === 0)
+				{
+					// do nothing for google cookies
+				}
+				else
+				{
+					\dash\utility\cookie::delete($key);
+				}
+			}
+		}
+
 		if($_auto_redirect)
 		{
 
