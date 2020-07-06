@@ -148,7 +148,6 @@ class controller
 				$load_last_activity['period_title'] = $myPeriodTitle;
 				\dash\data::myPeriodTitle($myPeriodTitle);
 
-				\dash\data::dataRowAction($load_last_activity);
 
 				$myPrice = 0;
 
@@ -163,6 +162,8 @@ class controller
 
 				\dash\data::myPrice($myPrice);
 			}
+
+			\dash\data::dataRowAction($load_last_activity);
 
 
 		}

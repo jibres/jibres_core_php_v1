@@ -253,7 +253,7 @@ class transfer
 			$domain_action_detail =
 			[
 				'domain_id' => $domain_id,
-				'detail'    => json_encode(['pin' => $data['pin']], JSON_UNESCAPED_UNICODE),
+				'detail'    => json_encode($data, JSON_UNESCAPED_UNICODE),
 			];
 
 			\lib\app\nic_domainaction\action::set('domain_transfer_ready', $domain_action_detail);
@@ -336,7 +336,7 @@ class transfer
 				// go to bank
 				$meta =
 				[
-					'msg_go'        => T_("Transfer :domain", ['domain' => $domain, 'year' => \dash\fit::number($period)]),
+					'msg_go'        => T_("Transfer :domain", ['domain' => $domain]),
 					'auto_go'       => false,
 					'auto_back'     => false,
 					'final_msg'     => true,
@@ -383,7 +383,6 @@ class transfer
 				return ;
 			}
 		}
-
 		// -------------------------------------------------- Register now ---------------------------------------------- //
 
 
@@ -391,8 +390,9 @@ class transfer
 		[
 			'domain'    => $domain,
 			'password'  => $data['pin'],
-			'contactid' => $contactid,
+			'contactid' => $contact_id,
 		];
+
 
 		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
@@ -495,7 +495,7 @@ class transfer
 
 			\dash\notif::ok(T_("Domain :domain was transfered in your name", ['domain' => $domain]), ['alerty' => true]);
 
-			\dash\log::set('domain_newTransfer', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'transfer', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
+			\dash\log::set('domain_newTransfer', ['my_domain' => $domain, 'my_type' => 'transfer', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
 
 			return true;
@@ -517,7 +517,7 @@ class transfer
 				// 'price'          => $price,
 				// 'finalprice'     => $finalprice,
 				// 'discount'       => $discount,
-				'period'         => $period,
+				// 'period'         => $period,
 				'transaction_id' => $transaction_id,
 			];
 
