@@ -10,21 +10,6 @@ class domain_transfer
 	{
 		$transfer = self::analyze_domain_transfer($_args);
 
-		if(!$transfer || !is_array($transfer))
-		{
-			return false;
-		}
-
-		if(!isset($transfer['name']))
-		{
-			return false;
-		}
-
-		$result                 = [];
-		$result['name']         = $transfer['name'];
-		$result['dateregister'] = isset($transfer['crDate']) ? date("Y-m-d H:i:s", strtotime($transfer['crDate'])) : null;
-		$result['dateexpire']  = isset($transfer['exDate']) ? date("Y-m-d H:i:s", strtotime($transfer['exDate'])) : null;
-
 		return $result;
 	}
 
@@ -41,42 +26,16 @@ class domain_transfer
 			return false;
 		}
 
-		$result = [];
-		if(!isset($object_result->response->resData))
+
+		if(\lib\nic\exec\run::result_code($object_result) === '1000')
+		{
+			return true;
+		}
+		else
 		{
 			return false;
 		}
 
-		if(!$object_result->response->resData->xpath('domain:creData'))
-		{
-			return false;
-		}
-
-		foreach ($object_result->response->resData->xpath('domain:creData') as  $domaincreData)
-		{
-			$temp  = [];
-
-			foreach ($domaincreData->xpath('domain:name') as $domainname)
-			{
-				$myKey = $domainname->__toString();
-				$temp['name']   = $myKey;
-			}
-
-
-			foreach ($domaincreData->xpath('domain:crDate') as $domaincrDate)
-			{
-				$temp['crDate']   = $domaincrDate->__toString();
-			}
-
-			foreach ($domaincreData->xpath('domain:exDate') as $domainexDate)
-			{
-				$temp['exDate']   = $domainexDate->__toString();
-			}
-
-			$result = $temp;
-		}
-
-		return $result;
 	}
 
 
