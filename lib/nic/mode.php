@@ -18,7 +18,7 @@ class mode
 			return false;
 		}
 
-		if(gethostname() === 'reza-jibres')
+		if(in_array(gethostname(), ['reza-jibres', 'reza-home']))
 		{
 			return false;
 		}

@@ -155,6 +155,9 @@ class database
 		$fuel      = \dash\engine\fuel::get('nic_log');
 		self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic_log');
 
+		$fuel      = \dash\engine\fuel::get('onlinenic_log');
+		self::backup_dump_exec($backup_dir, $fuel, 'jibres_onlinenic_log');
+
 		$fuel      = \dash\engine\fuel::get('shaparak');
 		self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak');
 

@@ -51,6 +51,13 @@ class controller
 				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`jibres_nic_log\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
 				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot jibres_nic_log'. "\n");
 			}
+			elseif(preg_match("/(jibres_onlinenic_log_2020)/", $db_backup_file, $split))
+			{
+				$i++;
+				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "DROP DATABASE \`jibres_onlinenic_log\`"'. "\n");
+				\dash\file::append(__DIR__. '/exec.me.sql','mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`jibres_onlinenic_log\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"'. "\n");
+				\dash\file::append(__DIR__. '/exec.me.sql','bunzip2 < '.$db_backup_file.' | mysql -uroot -proot jibres_onlinenic_log'. "\n");
+			}
 			elseif(preg_match("/(jibres_shaparak_log_2020)/", $db_backup_file, $split))
 			{
 				$i++;
