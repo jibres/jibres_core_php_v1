@@ -390,8 +390,8 @@ class transfer
 					'available'       => 0,
 					// 'dns'          => $dnsid,
 					'status'       => 'enable',
-					'dateregister' => $result['dateregister'],
-					'dateexpire'   => $result['dateexpire'],
+					// 'dateregister' => $result['dateregister'],
+					// 'dateexpire'   => $result['dateexpire'],
 				];
 
 				\lib\db\nic_domain\update::update($update, $domain_id);
@@ -416,8 +416,8 @@ class transfer
 					'verify'       => 1,
 					'available'       => 0,
 					// 'dns'          => $dnsid,
-					'dateregister' => $result['dateregister'],
-					'dateexpire'   => $result['dateexpire'],
+					// 'dateregister' => $result['dateregister'],
+					// 'dateexpire'   => $result['dateexpire'],
 					'datecreated'  => date("Y-m-d H:i:s"),
 				];
 
