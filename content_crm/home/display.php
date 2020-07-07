@@ -53,7 +53,7 @@
 
 
 
-  <div class="f">
+  <div class="f hide">
     <div class="c6 s12 mB10 pRa5">
       <div class="chart x3" id="statuschart"></div>
     </div>
@@ -62,8 +62,8 @@
     </div>
   </div>
 
-  <div class="chart x2 mB10" id="UsersChart"></div>
-  <div class="chart x2 mB10" id="logChart"></div>
+  <div class="chart x2 mB10 hide" id="UsersChart"></div>
+  <div class="chart x2 mB10 hide" id="logChart"></div>
 
 
   <div class="f align-center">
@@ -86,12 +86,12 @@
 
 
     </div>
-    <div class="c s12 pRa10">
+    <div class="c s12 pRa10 hide">
       <div class="chart mB10" id="userGuage" style="max-width:300px;margin:0 auto 10px"></div>
     </div>
     <div class="c s12">
 
-
+      <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
       <div class="cbox fs11">
         <h2><?php echo T_("Latest logs"); ?></h2>
 
@@ -107,12 +107,13 @@
         <?php }//endfor ?>
 
       </div>
+    <?php } //endif ?>
 
 
     </div>
   </div>
 
-  <div class="chart x3 mB10" id="identifyChart"></div>
+  <div class="chart x3 mB10 hide" id="identifyChart"></div>
 
 
 

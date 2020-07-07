@@ -11,7 +11,7 @@
  	<table class="tbl1 v1 fs12">
  		<thead>
  			<tr>
- 				<th colspan="3"><?php echo T_("User ticket"); ?></th>
+ 				<th colspan="4"><?php echo T_("User ticket"); ?></th>
  			</tr>
  		</thead>
  		<tbody>

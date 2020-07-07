@@ -11,8 +11,8 @@ class view
 
 
 
-		\dash\data::action_text(T_('Back to tickets list'));
-		\dash\data::action_link(\dash\url::this().\dash\data::accessGet());
+		// \dash\data::action_text(T_('Back to tickets list'));
+		// \dash\data::action_link(\dash\url::this().\dash\data::accessGet());
 
 		\dash\data::tgBot('jibres');
 

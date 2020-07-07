@@ -11,9 +11,6 @@ class view
 
 		\dash\face::title(T_('User log'));
 
-		\dash\data::action_link(\dash\url::this());
-		\dash\data::action_text(T_('Back to dashbaord'));
-
 		self::login_list();
 	}
 

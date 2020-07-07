@@ -77,11 +77,11 @@
           <br>
           <?php echo \dash\get::index($value, 'content'); ?>
 
-          <pre>
 
-          <?php if(isset($value['data'])) { print_r($value['data']); }?>
 
-          </pre>
+          <?php if(isset($value['data']) && \dash\permission::supervisor()) { print_r($value['data']); }?>
+
+
 
 
 
