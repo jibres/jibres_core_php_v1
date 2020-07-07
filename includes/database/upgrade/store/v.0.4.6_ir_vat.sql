@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.ir_vat (
 `season` enum('1','2','3','4') DEFAULT NULL,
 
 `customer` INT(10) UNSIGNED NULL DEFAULT NULL,
-`buyer` INT(10) UNSIGNED NULL DEFAULT NULL,
+`seller` INT(10) UNSIGNED NULL DEFAULT NULL,
 `type` enum('income','cost') DEFAULT NULL,
 
 `total` bigint(20) NULL DEFAULT NULL,
