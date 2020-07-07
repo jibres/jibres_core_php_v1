@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.userlegal (
 `latitude` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `longitude` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `map` text CHARACTER SET utf8mb4,
-`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+`datecreated` timestamp NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
 PRIMARY KEY (`user_id`),
 CONSTRAINT `customerlegal_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
