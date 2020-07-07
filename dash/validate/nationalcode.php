@@ -17,6 +17,8 @@ class nationalcode
 
 		$data = (string) $data;
 
+		$data = \dash\number::clean($data);
+
 		if(mb_strlen($data) !== 10)
 		{
 			if($_notif)
