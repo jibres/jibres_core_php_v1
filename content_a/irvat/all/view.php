@@ -6,11 +6,15 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Gift cards"));
+		\dash\face::title(T_("Income-cost factor list"));
 
 		// btn
-		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
+
+		// btn
+		\dash\data::action_text(T_('Add new factor'));
+		\dash\data::action_link(\dash\url::this(). '/add');
 
 		$args =
 		[

@@ -71,7 +71,11 @@ else
 
             <tr>
                 <td>
-                    <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'code'); ?></code></a>
+                    <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link">
+
+                         <?php echo \dash\get::index($value, 'title'); ?>
+
+                    </a>
                 </td>
                 <td>
                     <?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?>

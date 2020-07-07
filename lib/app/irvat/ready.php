@@ -20,12 +20,20 @@ class ready
 					$result[$key] = $value;
 					break;
 
-				case 'pos':
-					if(is_string($value) && $value)
-					{
-						$value = json_decode($value, true);
-					}
+				case 'factordate':
 					$result[$key] = $value;
+					if($value)
+					{
+
+						if(\dash\language::current() === 'fa')
+						{
+							$result['factordate_raw'] = \dash\utility\convert::to_en_number(\dash\fit::date($value));
+						}
+						else
+						{
+							$result['factordate_raw'] = $value;
+						}
+					}
 					break;
 
 
@@ -34,7 +42,6 @@ class ready
 					break;
 			}
 		}
-
 		return $result;
 	}
 }

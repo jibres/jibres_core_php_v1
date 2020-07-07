@@ -8,7 +8,7 @@
       <div class="body">
 
         <label for="title"><?php echo T_("Title"); ?></label>
-        <div class="input ltr">
+        <div class="input">
           <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>" id="title" maxlength="100" >
         </div>
 
@@ -32,25 +32,25 @@
         <div class="f mB10">
           <div class="c pB10 pRa5">
             <div class="radio3">
-              <input type="radio" name="type" value="income" id="incom">
-              <label for="incom"><?php echo T_("Income"); ?></label>
+              <input type="radio" name="type" value="cost" id="cost"  <?php if(\dash\data::dataRow_type() === 'cost') { echo 'checked';} ?>>
+              <label for="cost"><?php echo T_("Cost"); ?></label>
             </div>
           </div>
           <div class="c pB10">
             <div class="radio3">
-              <input type="radio" name="type" value="cost" id="cost" >
-              <label for="cost"><?php echo T_("Cost"); ?></label>
+              <input type="radio" name="type" value="income" id="incom" <?php if(\dash\data::dataRow_type() === 'income') { echo 'checked';} ?>>
+              <label for="incom"><?php echo T_("Income"); ?></label>
             </div>
           </div>
         </div>
 
 
-        <div data-response='type' data-response-where='incom' data-response-hide>
+        <div data-response='type' data-response-where='incom' <?php if(\dash\data::dataRow_type() === 'income') {}else{ echo 'data-response-hide';} ?> >
           <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
           </select>
         </div>
 
-        <div data-response='type' data-response-where='cost' data-response-hide>
+        <div data-response='type' data-response-where='cost' <?php if(\dash\data::dataRow_type() === 'cost') {}else{ echo 'data-response-hide';} ?>>
           <select name="seller" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose seller"); ?>'>
           </select>
         </div>
@@ -105,7 +105,11 @@
       </div>
 
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Add"); ?></button>
+        <?php if(\dash\url::child() === 'edit') {?>
+          <button class="btn primary"><?php echo T_("Edit"); ?></button>
+        <?php }else{ ?>
+          <button class="btn success"><?php echo T_("Add"); ?></button>
+        <?php } //endif ?>
       </footer>
     </form>
   </div>
