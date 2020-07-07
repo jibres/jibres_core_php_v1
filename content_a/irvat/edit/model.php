@@ -9,25 +9,25 @@ class model
 
 		$post =
 		[
-			'code'         => \dash\request::post('code'),
-			'usagetotal'   => \dash\request::post('usagetotal'),
-			'usageperuser' => \dash\request::post('usageperuser'),
-			'desc'         => \dash\request::post('desc'),
-			'msgsuccess'   => \dash\request::post('msgsuccess'),
-			'giftpercent'  => \dash\request::post('giftpercent'),
-			'giftmax'      => \dash\request::post('giftmax'),
-			'giftamount'   => \dash\request::post('giftamount'),
-			'pricefloor'   => \dash\request::post('pricefloor'),
-			'dateexpire'   => \dash\request::post('dateexpire'),
-			'physical'     => \dash\request::post('physical'),
-			'chap'         => \dash\request::post('chap'),
-			'status'       => \dash\request::post('status'),
-			'forusein'     => \dash\request::post('forusein'),
-			'dedicated'   => \dash\request::post('dedicated'),
+			'title'             => \dash\request::post('title'),
+			'code'              => \dash\request::post('code'),
+			'serialnumber'      => \dash\request::post('serialnumber'),
+			'factordate'        => \dash\request::post('factordate'),
+			'type'              => \dash\request::post('type'),
+			'customer'          => \dash\request::post('customer'),
+			'seller'            => \dash\request::post('seller'),
+			'total'             => \dash\request::post('total'),
+			'subtotalitembyvat' => \dash\request::post('subtotalitembyvat'),
+			'sumvat'            => \dash\request::post('sumvat'),
+			'items'             => \dash\request::post('items'),
+			'itemsvat'          => \dash\request::post('itemsvat'),
+			'official'          => \dash\request::post('official'),
+			'vat'               => \dash\request::post('vat'),
+			'desc'              => \dash\request::post('desc'),
 
 		];
 
-		$edit = \lib\app\gift\edit::edit($post, \dash\request::get('id'));
+		$edit = \lib\app\irvat\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

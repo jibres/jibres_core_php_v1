@@ -20,17 +20,17 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\gift\search::list($search_string, $args);
+		$list = \lib\app\irvat\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['dateexpire', 'datecreated'], \dash\url::this());
+		$sortLink = \dash\app\sort::make_sortLink(['datecreated'], \dash\url::this());
 		\dash\data::sortLink($sortLink);
 
 
-		\dash\data::filterBox(\lib\app\gift\search::filter_message());
+		\dash\data::filterBox(\lib\app\irvat\search::filter_message());
 
-		$isFiltered = \lib\app\gift\search::is_filtered();
+		$isFiltered = \lib\app\irvat\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 

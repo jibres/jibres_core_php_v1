@@ -21,20 +21,7 @@ class edit
 			return false;
 		}
 
-		$get_irvat = \lib\db\irvats\get::one($_id);
-
-		if(isset($get_irvat['id']) && isset($get_irvat['title']) && $get_irvat['title'] == $args['title'])
-		{
-			if(floatval($get_irvat['id']) === floatval($_id))
-			{
-				// nothing
-			}
-			else
-			{
-				\dash\notif::error(T_("Duplicate irvat founded"), 'irvat');
-				return false;
-			}
-		}
+		$get_irvat = \lib\db\irvat\get::one($_id);
 
 
 		if(!empty($args))
@@ -54,18 +41,16 @@ class edit
 			}
 			else
 			{
-				$update = \lib\db\irvats\update::record($args, $_id);
+				$update = \lib\db\irvat\update::record($args, $_id);
 
 				if($update)
 				{
 
-					\dash\log::set('FundUpdated', ['old' => $get_irvat, 'change' => $args]);
 					\dash\notif::ok(T_("The irvat successfully updated"));
 					return true;
 				}
 				else
 				{
-					\dash\log::set('irvatsDbCannotUpdate');
 					\dash\notif::error(T_("Can not update your irvat"));
 					return false;
 				}

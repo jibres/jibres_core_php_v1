@@ -58,9 +58,10 @@ else
             <tr class="fs09">
 
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'code', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'code', 'link'); ?>"><?php echo T_("Code"); ?></a></th>
-
-                <th class="txtC"><?php echo T_("Status"); ?></th>
-                <th class="txtC"><?php echo T_("View"); ?></th>
+                <th data-sort="<?php echo \dash\get::index($sortLink, 'total', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'total', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
+                <th data-sort="<?php echo \dash\get::index($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
+                <th><?php echo T_("Date") ?></th>
+                <th><?php echo T_("Season") ?></th>
 
             </tr>
         </thead>
@@ -70,11 +71,17 @@ else
 
             <tr>
                 <td>
-                    <a href="<?php echo \dash\url::this(); ?>/view?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'code'); ?></code></a>
+                    <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'code'); ?></code></a>
                 </td>
+                <td>
+                    <?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?>
+                </td>
+                <td>
+                    <?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?>
+                </td>
+                <td><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'season')); ?></td>
 
-                <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
-                <td class="collapsing txtC"><a class="btn light" href="<?php echo \dash\url::this() .'?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show gitft card") ?></a></td>
 
 
             </tr>
