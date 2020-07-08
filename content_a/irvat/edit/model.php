@@ -6,6 +6,19 @@ class model
 {
 	public static function post()
 	{
+		$id = \dash\request::get('id');
+
+		if(self::upload_gallery($id))
+		{
+			return false;
+		}
+
+
+		if(\dash\request::post('fileaction') === 'remove')
+		{
+			self::remove_gallery($id);
+			return false;
+		}
 
 		$post =
 		[
@@ -27,12 +40,51 @@ class model
 
 		];
 
-		$edit = \lib\app\irvat\edit::edit($post, \dash\request::get('id'));
+		$edit = \lib\app\irvat\edit::edit($post, $id);
 
 		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}
+
+	}
+
+
+	public static function remove_gallery($_id)
+	{
+		$fileid = \dash\request::post('fileid');
+		\lib\app\irvat\gallery::gallery($_id, $fileid, 'remove');
+		\dash\notif::ok(T_("File removed"));
+		// \dash\redirect::pwd();
+	}
+
+
+
+	public static function upload_gallery($_id)
+	{
+		if(\dash\request::files('gallery'))
+		{
+			$uploaded_file = \dash\upload\irvat::set_irvat_gallery($_id);
+
+			if(isset($uploaded_file['id']))
+			{
+				// save uploaded file
+				\lib\app\irvat\gallery::gallery($_id, $uploaded_file, 'add');
+			}
+
+			if(!\dash\engine\process::status())
+			{
+				// \dash\notif::error(T_("Can not upload file"));
+			}
+			else
+			{
+				\dash\notif::ok(T_("File successfully uploaded"));
+ 				\dash\redirect::pwd();
+			}
+
+			return true;
+		}
+		return false;
 
 	}
 }

@@ -4,8 +4,20 @@ namespace lib\app\irvat;
 
 class ready
 {
-	public static function row($_data)
+	public static function row($_data, $_option = [])
 	{
+		$default_option =
+		[
+			'load_gallery' => true,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
 		if(!is_array($_data))
 		{
 			return false;
@@ -19,6 +31,23 @@ class ready
 				case 'id':
 					$result[$key] = $value;
 					break;
+
+
+				case 'file':
+					if($value)
+					{
+						$result['gallery_array'] = json_decode($value, true);
+						if($_option['load_gallery'] && is_array($result['gallery_array']) && $result['gallery_array'])
+						{
+							$result['gallery_array'] = \lib\app\product\gallery::load_detail($result['gallery_array']);
+						}
+					}
+					else
+					{
+						$result['gallery_array'] = null;
+					}
+					break;
+
 
 				case 'factordate':
 					$result[$key] = $value;

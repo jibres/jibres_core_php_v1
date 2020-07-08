@@ -16,7 +16,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\db\irvats\get::one($_id);
+		$load = \lib\db\irvat\get::one($_id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid irvat id"));

@@ -101,6 +101,38 @@
           <textarea id="desc" name="desc" class="txt" rows="5"><?php echo \dash\data::dataRow_desc(); ?></textarea>
         </div>
 
+        <?php if(\dash\url::child() === 'edit') {?>
+
+
+          <div class="pad jboxGallery">
+
+            <?php if(\dash\data::dataRow_gallery_array()) {?>
+
+              <div class="f">
+                <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
+                  <div class="cauto pA5 pB10">
+                    <div class="w150">
+                      <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
+                      <div>
+                        <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
+
+                      </div>
+                    </div>
+                  </div>
+                <?php } //endfor ?>
+              </div>
+            <?php } //endif ?>
+
+            <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+
+            <div data-uploader data-name='gallery' data-ratio=1 data-ratio-free data-autoSend>
+              <input type="file"  id="file1">
+              <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+            </div>
+
+          </div>
+        <?php } // endif ?>
+
 
       </div>
 
