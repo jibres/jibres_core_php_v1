@@ -272,6 +272,7 @@ class cart
 		{
 			$factor_id = $_args['factor_id'];
 			\lib\app\factor\edit::status('pending_verify', $factor_id);
+			\lib\app\factor\edit::type('sale', $factor_id);
 			\lib\app\factor\action::set('pay_successfull', $factor_id);
 		}
 		else
