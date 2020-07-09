@@ -4,7 +4,7 @@ ALTER TABLE jibres_XXXXXXX.factors CHANGE `status` `status` ENUM('enable','disab
 CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.factoraction (
 `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `factor_id` bigint(20) UNSIGNED NOT NULL,
-`action` enum('comment','order','expire','cancel','go_to_bank','pay_successfull','pay_error','pay_verified','pay_unverified','sending','pending_pay','pending_verify','pending_prepare','pending_send','deliver','reject','spam','deleted') DEFAULT NULL,
+`action` enum('comment','order','expire','cancel','go_to_bank','pay_successfull','pay_error','pay_cancel','pay_verified','pay_unverified','sending','pending_pay','pending_verify','pending_prepare','pending_send','deliver','reject','spam','deleted') DEFAULT NULL,
 `desc` text CHARACTER SET utf8mb4,
 `file` text CHARACTER SET utf8mb4,
 `user_id` INT(10) UNSIGNED NULL DEFAULT NULL,
