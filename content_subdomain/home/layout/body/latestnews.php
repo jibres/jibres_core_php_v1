@@ -9,7 +9,7 @@ if($postList && is_array($postList))
 
 
   <div class="jBlog1">
-      <div class="avand-sm">
+      <div class="avand">
 
 <?php foreach ($postList as $key => $post) { ?>
 
