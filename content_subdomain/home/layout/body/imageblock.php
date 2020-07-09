@@ -12,10 +12,10 @@ if(isset($line_detail['value']['imageblock']) && is_array($line_detail['value'][
 <?php if($imageblock) {?>
 
 
-<div class="fit mB10">
-  <div class="f">
+<div class="avand mB10">
+  <div class="row">
 	<?php foreach ($imageblock as $key => $value) {?>
-    	<div class="c pRa5">
+    	<div class="c">
 			 <a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
 				<img class="radius5px" src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'image')); ?>" alt="<?php echo \dash\get::index($value, 'alt'); ?>">
 			</a>

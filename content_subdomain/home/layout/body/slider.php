@@ -10,7 +10,7 @@ if(isset($line_detail['value']['slider']) && is_array($line_detail['value']['sli
 ?>
 
 <?php if($slider) {?>
-<div class="fit">
+<div class="avand">
   <div class="jSlider1 mB10" data-slick>
 	<?php foreach ($slider as $key => $value) {?>
 		 <a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
