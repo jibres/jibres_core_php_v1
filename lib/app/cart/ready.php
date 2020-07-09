@@ -11,7 +11,10 @@ class ready
 			return false;
 		}
 
+		$get_from_product = [];
+
 		$result = [];
+
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
@@ -20,6 +23,15 @@ class ready
 					$result[$key] = \dash\coding::encode($value);
 					break;
 
+				case 'product_id':
+					$result[$key] = $value;
+					$get_from_product['id'] = $value;
+					break;
+
+
+				case 'slug':
+					$get_from_product[$key] = $value;
+					break;
 
 				case 'thumb':
 					$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
@@ -47,6 +59,19 @@ class ready
 					break;
 			}
 		}
+
+		if(!empty($get_from_product))
+		{
+
+			$get_from_product = \lib\app\product\ready::row($get_from_product);
+			if(isset($get_from_product['url']))
+			{
+				$result['url'] = $get_from_product['url'];
+			}
+
+		}
+
+
 
 		return $result;
 	}

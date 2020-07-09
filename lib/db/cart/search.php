@@ -115,6 +115,7 @@ class search
 				users.avatar,
 				users.mobile,
 				products.title,
+				products.slug,
 				products.thumb,
 				products.finalprice,
 				products.discount,
