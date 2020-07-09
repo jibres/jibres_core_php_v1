@@ -17,6 +17,13 @@ if($productline && is_array($productline)) { ?>
             <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
             <footer>
               <div class="title"><?php echo \dash\get::index($value, 'title') ?></div>
+              <?php if(\dash\permission::supervisor()) {?>
+                <?php if(\dash\get::index($value, 'discount')) {?>
+                    <u><?php echo \dash\fit::price(\dash\get::index($value, 'price') + \dash\get::index($value, 'discount')); ?></u>
+                    <br>
+                    <i><?php echo \dash\fit::text(\dash\get::index($value, 'discountpercent')) . ' '. T_("%"); ?></i>
+                <?php } //endif ?>
+              <?php } //endif ?>
               <div class="price"><span><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span> <span class="unit"><?php echo \dash\get::index($value, 'unit'); ?></span></div>
             </footer>
           </a>

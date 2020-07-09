@@ -9,6 +9,7 @@
 <?php if(\dash\data::dataRow_title2()) { ?>
           <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
 <?php } ?>
+          <?php if(false) {?>
           <div class="productReviewShort">
             <div class="starRating compact" data-star='3.2' data-gold>
               <i></i><i></i><i></i><i></i><i></i>
@@ -17,17 +18,19 @@
             <div><?php echo T_(":val Reviews", ['val' => '414']); ?></div>
             <div><?php echo T_(":val Orders", ['val' => '850']); ?></div>
           </div>
+        <?php } //endif ?>
 
           <div class="priceLine">
             <div class="row align-center">
               <div class="c">
-
+                <?php if(\dash\data::dataRow_discount()) {?>
                 <div>
                   <span><?php echo T_("List Price"); ?></span>
                   <div class="priceShow" data-first>
-                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price() + \dash\data::dataRow_discount()); ?></span>
                   </div>
                 </div>
+                <?php } //endif ?>
 
                 <div>
                   <span><?php echo T_("Price"); ?></span>
@@ -37,12 +40,14 @@
                   </div>
                 </div>
 
+                <?php if(\dash\data::dataRow_discount()) {?>
                 <div>
                   <span><?php echo T_("You Save"); ?></span>
                   <div class="priceShow" data-discount>
-                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_discount()); ?></span>
                   </div>
                 </div>
+                <?php } //endif ?>
 
               </div>
               <div class="c-auto">
