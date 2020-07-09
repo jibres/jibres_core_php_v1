@@ -14,15 +14,6 @@ class view
 
 		$orderDetail = \dash\data::orderDetail();
 
-		if(\dash\get::index($orderDetail, 'factor', 'customer'))
-		{
-			$customer = \dash\get::index($orderDetail, 'factor', 'customer');
-
-			$user_address = \dash\app\address::user_address_list($customer);
-
-			\dash\data::customerAddress($user_address);
-		}
-
 		$payment_detail = \lib\app\setting\setup::ready('payment', true);
 
 		$myPaymentDetail = [];
