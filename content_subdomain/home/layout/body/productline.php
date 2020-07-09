@@ -17,7 +17,7 @@ if($productline && is_array($productline))
     <div class="row padLess">
 
       <?php foreach ($productline as $key => $value) { ?>
-        <div class="c-xs-12 c-sm-6 c-lg-4 c-xl-3">
+        <div class="c-xs-6 c-sm-4 c-md-4 c-lg-3 c-xl-2">
           <a class="jProduct1" href="<?php echo \dash\get::index($value, 'url'); ?>">
             <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
             <footer>
