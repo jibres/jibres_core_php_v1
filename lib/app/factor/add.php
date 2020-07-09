@@ -159,6 +159,8 @@ class add
 
 		$return['factor_id'] = 'JF'. $factor_id;
 
+		$return['price'] = \lib\price::total_down($factor_total);
+
 		foreach ($factor_detail as $key => $value)
 		{
 			$factor_detail[$key]['factor_id'] = $factor_id;

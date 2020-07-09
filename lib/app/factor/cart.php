@@ -186,10 +186,60 @@ class cart
 				\lib\db\cart\delete::drop_cart_guest($user_guest);
 			}
 
+			// if(online pay)
+			if(isset($result['price']) && $result['price'])
+			{
+				// go to bank for pay
+
+				// go to bank
+				$meta =
+				[
+					'msg_go'        => T_("Pay factor"),
+					'auto_go'       => false,
+					'auto_back'     => false,
+					'final_msg'     => true,
+					'turn_back'     => \dash\url::kingdom(). '/orders',
+					'user_id'       => \dash\user::id(),
+					'amount'        => abs($result['price']),
+					'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
+					'final_fn_args' => ['factor_id' => $result['factor_id']],
+				];
+
+
+				$result_pay = \dash\utility\pay\start::api($meta);
+
+				if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
+				{
+					if(\dash\engine\content::api_content())
+					{
+						$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
+						\dash\notif::meta($result_pay);
+						\dash\notif::ok($msg);
+						return;
+					}
+					else
+					{
+						\dash\redirect::to($result_pay['url']);
+					}
+				}
+				else
+				{
+					\dash\log::oops('generate_pay_error');
+					return false;
+				}
+			}
+
+
 			return $return;
 		}
 
 		return false;
+	}
+
+
+	public static function after_pay($_args)
+	{
+
 	}
 }
 ?>

@@ -15,5 +15,12 @@ class price
 	{
 		return floatval($_number) / self::$rate;
 	}
+
+
+
+	public static function total_down($_number)
+	{
+		return \lib\number::down(self::down($_number));
+	}
 }
 ?>
