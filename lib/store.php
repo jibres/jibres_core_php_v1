@@ -421,6 +421,13 @@ class store
 	}
 
 
+	public static function payment_detail()
+	{
+		$detail = \lib\app\setting\get::bank_payment_setting();
+		return $detail;
+	}
+
+
 	/**
 	 * get store detail
 	 */

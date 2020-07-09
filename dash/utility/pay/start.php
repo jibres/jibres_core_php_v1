@@ -275,6 +275,7 @@ class start
 
 		$url = \dash\url::kingdom(). '/pay/'. $token;
 
+
 		if($_args['get_token'])
 		{
 			$detail =
@@ -291,7 +292,7 @@ class start
 			{
 				if($_args['api_mode'])
 				{
-					$url = \dash\url::sitelang(). '/pay/'. $token;
+					$url = \dash\url::kingdom(). '/pay/'. $token;
 
 					$detail =
 					[

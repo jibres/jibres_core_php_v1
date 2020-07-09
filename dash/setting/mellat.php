@@ -32,7 +32,16 @@ class mellat
 	public static function get($_key = null)
 	{
 
-		self::load();
+		if(\dash\engine\store::inStore())
+		{
+			$temp_key = 'payment_setting_'. substr(strrchr(__CLASS__, "\\"), 1);
+			self::$load = \dash\temp::get($temp_key);
+		}
+		else
+		{
+			self::load();
+		}
+
 
 		if($_key === null)
 		{
