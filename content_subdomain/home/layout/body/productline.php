@@ -14,10 +14,10 @@ if($productline && is_array($productline))
 <?php } //endif ?>
 
   <div class="avand">
-    <div class="f">
+    <div class="row padLess">
 
       <?php foreach ($productline as $key => $value) { ?>
-        <div class="c3 s12 pRa10">
+        <div class="c-xs-12 c-sm-6 c-lg-4 c-xl-3">
           <a class="jProduct1" href="<?php echo \dash\get::index($value, 'url'); ?>">
             <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
             <footer>
