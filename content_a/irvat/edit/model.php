@@ -27,8 +27,6 @@ class model
 			'serialnumber'      => \dash\request::post('serialnumber'),
 			'factordate'        => \dash\request::post('factordate'),
 			'type'              => \dash\request::post('type'),
-			'customer'          => \dash\request::post('customer'),
-			'seller'            => \dash\request::post('seller'),
 			'total'             => \dash\request::post('total'),
 			'subtotalitembyvat' => \dash\request::post('subtotalitembyvat'),
 			'sumvat'            => \dash\request::post('sumvat'),
@@ -39,6 +37,17 @@ class model
 			'desc'              => \dash\request::post('desc'),
 
 		];
+
+		if(\dash\request::post('customer'))
+		{
+			$post['customer'] = \dash\request::post('customer');
+		}
+
+		if(\dash\request::post('seller'))
+		{
+			$post['seller'] = \dash\request::post('seller');
+		}
+
 
 		$edit = \lib\app\irvat\edit::edit($post, $id);
 

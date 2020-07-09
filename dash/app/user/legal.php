@@ -11,11 +11,17 @@ class legal
 		if($id)
 		{
 			$id  = \dash\coding::decode($id);
-			$get = \dash\db\userlegal\get::by_user_id($id);
-			return $get;
+			return self::get_inline($id);
 		}
 
 		return null;
+	}
+
+
+	public static function get_inline($_user_id)
+	{
+		$get = \dash\db\userlegal\get::by_user_id($_user_id);
+		return $get;
 	}
 
 

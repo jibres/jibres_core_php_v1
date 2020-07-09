@@ -45,12 +45,28 @@
         </div>
 
 
-        <div data-response='type' data-response-where='incom' <?php if(\dash\data::dataRow_type() === 'income') {}else{ echo 'data-response-hide';} ?> >
+        <div class="mB20" data-response='type' data-response-where='income' <?php if(\dash\data::dataRow_type() === 'income') {}else{ echo 'data-response-hide';} ?> >
+
+          <?php if(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user')) {?>
+            <div class="msg">
+              <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'avatar'); ?>" class="avatar">
+              <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'displayname'); ?>
+              <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'companyname'); ?>
+            </div>
+          <?php } //endif ?>
+
           <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
           </select>
         </div>
 
-        <div data-response='type' data-response-where='cost' <?php if(\dash\data::dataRow_type() === 'cost') {}else{ echo 'data-response-hide';} ?>>
+        <div class="mB20" data-response='type' data-response-where='cost' <?php if(\dash\data::dataRow_type() === 'cost') {}else{ echo 'data-response-hide';} ?>>
+          <?php if(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user')) {?>
+            <div class="msg">
+              <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
+              <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'displayname'); ?>
+              <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'companyname'); ?>
+            </div>
+          <?php } //endif ?>
           <select name="seller" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose seller"); ?>'>
           </select>
         </div>

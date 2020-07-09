@@ -21,6 +21,8 @@ class edit
 			return false;
 		}
 
+		$args = \dash\cleanse::patch_mode($_args, $args);
+
 		$get_irvat = \lib\db\irvat\get::one($_id);
 
 
