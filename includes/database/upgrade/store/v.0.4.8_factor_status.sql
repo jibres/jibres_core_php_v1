@@ -1,0 +1,2 @@
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `type` `type` ENUM('sale','buy','presell','lending','backbuy','backsell','waste','saleorder') CHARACTER SET utf8mb4 NOT NULL;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `status` `status` ENUM('enable','disable','draft','order','expire','cancel','pending_pay','pending_verifypay','pending_prepare','pending_send','sending','deliver','reject','spam','deleted') CHARACTER SET utf8mb4 NULL DEFAULT NULL;
