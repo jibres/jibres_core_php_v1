@@ -9,7 +9,7 @@
 foreach ($myGallery as $key => $item) { ?>
 <?php if($key < 5 && isset($item['path'])) { ?>
               <div class="c">
-                <div class="f justify-center align-center thumb">
+                <div class="f justify-center align-center thumb" data-fancybox="gallery">
                   <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
                 </div>
               </div>
