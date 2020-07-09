@@ -29,7 +29,7 @@ class search
 			'sort'              => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
 
 			'customer'          => 'string',
-			'type'              => ['enum' => ['sale', 'buy']],
+			'type'              => ['enum' => ['sale', 'buy', 'saleorder']],
 			'product'           => 'id',
 			'guestid'           => 'md5',
 
