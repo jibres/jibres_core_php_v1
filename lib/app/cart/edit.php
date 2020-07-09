@@ -36,12 +36,11 @@ class edit
 				$user_id = $_user_id;
 			}
 
-			$user_id = \dash\coding::decode($data['user_id']);
 		}
 
 		$condition =
 		[
-			'user_id' => 'id',
+			'user_id' => 'code',
 			'product' => 'id',
 			'count'   => 'smallint',
 			'type'    => ['enum' => ['plus_count', 'minus_count']],
@@ -59,6 +58,8 @@ class edit
 		$meta    =	[];
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
+
+		$user_id = \dash\coding::decode($data['user_id']);
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);
 		if(!$load_product)

@@ -81,7 +81,7 @@ class add
 
 		$factor['total']       = $factor_total;
 
-		$factor['status']      = 'draft';
+		$factor['status']      = $factor['status'] ? $factor['status'] : 'draft';
 		$factor['seller']      = \dash\user::id();
 		$factor['date']        = date("Y-m-d H:i:s");
 		$factor['title']       = null;

@@ -30,7 +30,46 @@ class check
 		[
 			'desc'        => 'desc',
 			'discount'    => 'price',
-			'type'        => ['enum' => ['buy','sale','prefactor','lending','backbuy','backfactor','waste']],
+			'type'        =>
+			[
+				'enum' =>
+				[
+					'buy',
+					'sale',
+					'prefactor',
+					'lending',
+					'backbuy',
+					'backfactor',
+					'waste',
+					'saleorder'
+				]
+			],
+
+			'status'      =>
+			[
+				'enum' =>
+				[
+					'comment',
+					'order',
+					'expire',
+					'cancel',
+					'go_to_bank',
+					'pay_successfull',
+					'pay_error',
+					'pay_verified',
+					'pay_unverified',
+					'sending',
+					'pending_pay',
+					'pending_verify',
+					'pending_prepare',
+					'pending_send',
+					'deliver',
+					'reject',
+					'spam',
+					'deleted'
+				]
+			],
+
 			'customer'    => 'code',
 			'guestid'     => 'md5',
 			'address_id'  => 'code',

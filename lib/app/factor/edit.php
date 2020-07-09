@@ -5,6 +5,25 @@ namespace lib\app\factor;
 class edit
 {
 
+	public static function status($_status, $_factor_id)
+	{
+		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
+
+		if(!$_status || !$factor_id)
+		{
+			return false;
+		}
+
+		$update =
+		[
+			'status'       => $_status,
+			'datemodified' => date("Y-m-d H:i:s")
+		];
+
+		return \lib\db\factors\update::record($update, $factor_id);
+	}
+
+
 	public static function edit_factor($_args, $_id)
 	{
 		$load_factor = \lib\app\factor\get::one($_id);

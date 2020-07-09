@@ -18,6 +18,7 @@
 
         <th><?php echo T_("Total") ?></th>
         <th><?php echo T_("Date") ?></th>
+        <th><?php echo T_("Status") ?></th>
 
 
       </tr>
@@ -38,6 +39,7 @@
               <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></div>
             </div>
           </td>
+          <td><?php echo T_(\dash\get::index($value, 'status')); ?></td>
         </tr>
       <?php } //endfor ?>
     </tbody>

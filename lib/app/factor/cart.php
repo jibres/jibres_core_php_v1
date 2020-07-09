@@ -98,7 +98,8 @@ class cart
 		$factor             = [];
 		$factor['customer'] = $user_id ? \dash\coding::encode($user_id): null;
 		$factor['guestid']  = $user_guest;
-		$factor['type']     = 'sale';
+		$factor['type']     = 'saleorder';
+		$factor['status']   = 'order';
 		$factor['desc']     = null;
 		$factor['discount'] = null;
 
@@ -120,6 +121,11 @@ class cart
 		if(isset($result['factor_id']))
 		{
 			$return['factor_id'] = $result['factor_id'];
+
+			$factor_id = $result['factor_id'];
+
+			// set action log
+			\lib\app\factor\action::set('order', $factor_id);
 
 			if($data['address_id'])
 			{
@@ -189,7 +195,8 @@ class cart
 			// if(online pay)
 			if(isset($result['price']) && $result['price'])
 			{
-				// go to bank for pay
+				// set status on pending_pay
+				\lib\app\factor\edit::status('pending_pay', $factor_id);
 
 				// go to bank
 				$meta =

@@ -69,6 +69,7 @@ class check_detail
 			switch ($_option['type'])
 			{
 				case 'sale':
+				case 'saleorder':
 					// nothing to save
 					break;
 
