@@ -28,7 +28,7 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
         <tr>
-          <th class="collapsing"><code class="btn link"><?php echo \dash\get::index($value, 'id_code') ?></code></th>
+          <th class="collapsing"><a href="<?php echo \dash\url::this(). '/view?id='. \dash\get::index($value, 'id_code'); ?>"><code class="btn link"><?php echo \dash\get::index($value, 'id_code') ?></code></a></th>
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?itemequal=<?php echo \dash\get::index($value, 'item'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'item')); ?></a></td>
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo \dash\get::index($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'qty')); ?></a></td>
 

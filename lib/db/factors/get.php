@@ -56,6 +56,13 @@ class get
 		return $result;
 	}
 
+	public static function by_id_user_id($_id, $_user_id)
+	{
+		$query = "SELECT * FROM factors WHERE factors.id = $_id AND factors.customer = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 
 	public static function prev($_id)

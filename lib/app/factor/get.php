@@ -135,6 +135,32 @@ class get
 	}
 
 
+	public static function user_factor($_id, $_user_id)
+	{
+		$_id = self::fix_id($_id);
+		if(!$_user_id || !$_id)
+		{
+			return false;
+		}
+
+		$_id      = \dash\validate::id($_id);
+		$_user_id = \dash\validate::id($_user_id);
+
+		$result = \lib\db\factors\get::by_id_user_id($_id, $_user_id);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$result = \lib\app\factor\ready::row($result);
+
+		return $result;
+
+
+
+	}
+
 	public static function full($_id)
 	{
 		// load factor

@@ -5,7 +5,6 @@ $here = root. 'content_subdomain';
 $module_url =
 [
 	'category' => $here. '/category/display.php',
-	'orders'   => $here. '/orders/display.php',
 	'p'        => $here. '/p/home/display.php',
 	'cart'     => $here. '/cart/display.php',
 	'tag'      => $here. '/tag/display.php',
@@ -45,6 +44,19 @@ elseif(\dash\url::module() === 'profile')
 
 		default:
 			require_once(root. 'content_subdomain/profile/home/display.php');
+			break;
+	}
+}
+elseif(\dash\url::module() === 'orders')
+{
+	switch (\dash\url::child())
+	{
+		case 'view':
+			require_once(root. 'content_subdomain/orders/view/display.php');
+			break;
+
+		default:
+			require_once(root. 'content_subdomain/orders/display.php');
 			break;
 	}
 }
