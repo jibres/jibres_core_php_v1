@@ -2,7 +2,23 @@
   <div class="box">
       <div class="row">
         <div class="c-xs-12 c-5">
-          <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
+          <div class="imgBlock">
+            <img class="featureImg" src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
+            <div class="row padLess thumbs">
+<?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
+foreach ($myGallery as $key => $item) { ?>
+<?php if($key < 5 && isset($item['path'])) { ?>
+              <div class="c">
+                <div class="f justify-center align-center thumb">
+                  <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
+                </div>
+              </div>
+<?php   } ?>
+<?php } ?>
+
+            </div>
+
+          </div>
         </div>
         <div class="c-xs-12 c-7">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
