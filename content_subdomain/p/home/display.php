@@ -6,6 +6,10 @@
             <img class="featureImg" src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
             <div class="row padLess thumbs">
 <?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
+if(!is_array($myGallery))
+{
+  $myGallery = [];
+}
 foreach ($myGallery as $key => $item) { ?>
 <?php if($key < 5 && isset($item['path'])) { ?>
               <div class="c">
