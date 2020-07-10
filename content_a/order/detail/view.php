@@ -6,13 +6,21 @@ class view
 {
 	public static function config()
 	{
+		$orderDetail = \dash\data::orderDetail();
 
-		\dash\face::title(T_('Order detail'));
+		$factor_id = null;
+
+		if(isset($orderDetail['factor']['id_code']))
+		{
+			$factor_id = $orderDetail['factor']['id_code'];
+		}
+
+		\dash\face::title(T_('Order detail'). ' '. $factor_id);
 
 		\dash\data::back_text(T_('Orders'));
 		\dash\data::back_link(\dash\url::this());
 
-		$orderDetail = \dash\data::orderDetail();
+
 
 		$payment_detail = \lib\app\setting\setup::ready('payment', true);
 

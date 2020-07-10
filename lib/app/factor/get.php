@@ -227,11 +227,13 @@ class get
 		}
 
 		// load address saved on this factor
-		// @reza
+		$factor_address = \lib\db\factoraddress\get::by_factor_id($_id);
 
 		$result                  = [];
 		$result['factor']        = $factor;
 		$result['factor_detail'] = $factor_detail;
+		$result['address']       = $factor_address;
+
 		return $result;
 	}
 }

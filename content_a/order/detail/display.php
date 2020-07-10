@@ -30,9 +30,53 @@
       <div class="msg"><?php echo T_("Total"); ?><span class="txtB"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'total')); ?></span></div>
       <div class="msg"><?php echo T_("Discount"); ?><span class="txtB"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'didscount')); ?></span></div>
       <?php if(\dash\get::index($orderDetail, 'factor', 'desc')) {?><div class="msg"><?php echo T_("Description"); ?><span class="txtB"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'desc')); ?></span></div><?php }// endif ?>
-      </div>
-
     </div>
+
+  </div>
+
+  <?php $address = \dash\get::index(\dash\data::orderDetail(), 'address'); ?>
+  <div class="box">
+    <header><h2><?php echo T_("Order Address") ?></h2></header>
+    <div class="body">
+
+      <?php if(isset($address['company']) && $address['company']) {?>
+        <i class="fs16 mRa5 sf-building"></i>
+      <?php }else{ ?>
+        <i class="fs16 mRa5 sf-pin"></i>
+      <?php } // endif ?>
+      <?php if(isset($address['country']) && $address['country']) {?><i class="flag <?php echo mb_strtolower($address['country']); ?>"></i><?php } //endif ?>
+
+      <span ><?php echo \dash\get::index($address, 'location_string'); ?></span>
+
+      <span><?php echo \dash\get::index($address, 'address'); ?></span>
+
+      <?php if(isset($address['postcode']) && $address['postcode']) {?>
+
+        <span title='<?php echo T_("Postal code"); ?>' class="compact"><?php echo \dash\fit::text($address['postcode']); ?><i class="sf-crosshairs mRL5"></i></span>
+
+      <?php }//endif ?>
+      <?php echo \dash\get::index($address, 'name'); ?></td>
+
+
+      <?php if(isset($address['phone']) && $address['phone']) {?>
+
+        <div title='<?php echo T_("Phone"); ?>'><i class="sf-phone"></i> <?php echo \dash\fit::text($address['phone']); ?></div>
+      <?php } //endif ?>
+
+      <?php if(isset($address['mobile']) && $address['mobile']) {?>
+
+        <div title='<?php echo T_("Mobile"); ?>' class="mT5"><i class="sf-mobile"></i> <?php echo \dash\fit::mobile($address['mobile']); ?></div>
+      <?php } //endif ?>
+    </div>
+    <footer>
+      <div class="txtRa">
+        <a class="btn link" href="<?php echo \dash\url::this(). '/editaddress?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit address") ?></a>
+      </div>
+    </footer>
+
+
+  </div>
+
 
 
   <div class="box">
@@ -64,6 +108,11 @@
       </table>
 
     </div>
+    <footer>
+      <div class="txtRa">
+        <a class="btn link" href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit items") ?></a>
+      </div>
+    </footer>
 
   </div>
 </div>
