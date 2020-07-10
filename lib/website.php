@@ -60,7 +60,7 @@ class website
 		{
 			echo " horizontalScroll nowrap";
 		}
-		echo '">';
+		echo '" data-slick=\'{"slidesToShow": 4, "slidesToScroll": 3}\'>';
 
 		foreach ($_productList as $key => $myProduct)
 		{
