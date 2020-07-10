@@ -22,22 +22,31 @@ class back
         }
 
 
-        $transId      = isset($_REQUEST['transId'])        ? (string) $_REQUEST['transId']         : null;
-        $status       = isset($_REQUEST['status'])         ? (string) $_REQUEST['status']          : null;
-        $description  = isset($_REQUEST['description'])    ? (string) $_REQUEST['description']     : null;
-        $factorNumber = isset($_REQUEST['factorNumber'])   ? (string) $_REQUEST['factorNumber']    : null;
-        $cardNumber   = isset($_REQUEST['cardNumber'])     ? (string) $_REQUEST['cardNumber']      : null;
-        $message      = isset($_REQUEST['message'])        ? (string) $_REQUEST['message']         : null;
+        $token  = isset($_REQUEST['token'])        ? (string) $_REQUEST['token']         : null;
+        $status = isset($_REQUEST['status'])       ? (string) $_REQUEST['status']        : null;
 
+        // old version
+        // $transId      = isset($_REQUEST['transId'])        ? (string) $_REQUEST['transId']         : null;
+        // $description  = isset($_REQUEST['description'])    ? (string) $_REQUEST['description']     : null;
+        // $factorNumber = isset($_REQUEST['factorNumber'])   ? (string) $_REQUEST['factorNumber']    : null;
+        // $cardNumber   = isset($_REQUEST['cardNumber'])     ? (string) $_REQUEST['cardNumber']      : null;
+        // $message      = isset($_REQUEST['message'])        ? (string) $_REQUEST['message']         : null;
 
-        if(!$transId)
+        // if(!$status)
+        // {
+        //     \dash\log::set('pay:payir:status:verify:not:found');
+        //     \dash\notif::error(T_("The payir payment status not set"));
+        //     return \dash\utility\pay\setting::turn_back();
+        // }
+
+        if(!$token)
         {
-            \dash\log::set('pay:payir:transId:verify:not:found');
-            \dash\notif::error(T_("The payir payment transId not set"));
+            \dash\log::set('pay:payir:token:verify:not:found');
+            \dash\notif::error(T_("The payir payment token not set"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        \dash\utility\pay\setting::load_banktoken($_token, $transId, 'payir');
+        \dash\utility\pay\setting::load_banktoken($_token, $token, 'payir');
 
         if(\dash\utility\pay\setting::get_id())
         {
@@ -50,9 +59,9 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $payir            = [];
-        $payir['api']     = \dash\setting\payir::get('api');
-        $payir['transId'] = $transId;
+        $payir          = [];
+        $payir['api']   = \dash\setting\payir::get('api');
+        $payir['token'] = $token;
 
         if(\dash\utility\pay\setting::get_plus())
         {
@@ -83,7 +92,7 @@ class back
 
             if(isset($is_ok['status']) && intval($is_ok['status']) === 1)
             {
-                if(isset($is_ok['amount']) && intval($is_ok['amount']) === intval($amount))
+                if(isset($is_ok['amount']) && floatval($is_ok['amount']) === floatval($amount) && isset($is_ok['factorNumber']) && floatval($is_ok['factorNumber']) === floatval($transaction_id))
                 {
 
                     \dash\utility\pay\verify::bank_ok($amount /10, $transaction_id);
