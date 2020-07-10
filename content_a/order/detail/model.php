@@ -11,7 +11,10 @@ class model
 		$post           = [];
 		$post['action'] = \dash\request::post('orderaction');
 		$post['desc']   = \dash\request::post('desc');
-		$post['file']   = \dash\upload\factor::factor_action(\lib\app\factor\get::fix_id(\dash\request::get('id')));
+		if(\dash\request::files('file'))
+		{
+			$post['file']   = \dash\upload\factor::factor_action(\lib\app\factor\get::fix_id(\dash\request::get('id')));
+		}
 
 
 		\lib\app\factor\action::add($post, \dash\request::get('id'));

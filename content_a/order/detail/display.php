@@ -113,11 +113,13 @@
       </table>
 
     </div>
+    <?php if(false) {?>
     <footer>
       <div class="txtRa">
         <a class="btn link" href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit items") ?></a>
       </div>
     </footer>
+  <?php } //endif ?>
 
   </div>
 
