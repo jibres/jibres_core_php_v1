@@ -75,7 +75,7 @@
     </div>
     <footer>
       <div class="txtRa">
-        <a class="btn link" href="<?php echo \dash\url::this(). '/editaddress?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit address") ?></a>
+        <a class="btn link" href="<?php echo \dash\url::this(). '/address?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit address") ?></a>
       </div>
     </footer>
 

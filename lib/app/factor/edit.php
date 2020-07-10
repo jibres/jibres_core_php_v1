@@ -68,6 +68,45 @@ class edit
 		}
 	}
 
+
+	public static function edit_address($_args, $_factor_id)
+	{
+		$load_factor = \lib\app\factor\get::one($_factor_id);
+
+		if(!$load_factor)
+		{
+			return false;
+		}
+
+		$condition =
+		[
+			'name'        => 'displayname',
+			'mobile'      => 'mobile',
+			'company'     => 'bit',
+			'country'     => 'country',
+			'province'    => 'province',
+			'city'        => 'city',
+			'address'     => 'address',
+			'address2'    => 'address',
+			'postcode'    => 'postcode',
+			'phone'       => 'phone',
+			'fax'         => 'phone',
+		];
+
+		$require = [];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		\lib\db\factoraddress\update::record($data, $load_factor['id']);
+
+		\dash\notif::ok(T_("Order address was updated"));
+
+		return true;
+	}
+
+
 	/**
 	 * edit a factor
 	 *
