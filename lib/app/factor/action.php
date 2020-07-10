@@ -67,6 +67,44 @@ class action
 
 		$result = \lib\db\factoraction\insert::new_record($insert);
 		\dash\notif::ok(T_("Action successfully added"));
+
+		// the status of factor : 'enable','disable','draft','order','expire','cancel','pending_pay','pending_verify','pending_prepare','pending_send','sending','deliver','reject','spam','deleted'
+
+		switch ($data['action'])
+		{
+			case 'pay_successfull':
+			case 'pay_verified':
+				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+				\lib\app\factor\edit::status('pending_prepare', $factor_id);
+				break;
+
+			case 'pay_error':
+			case 'pay_cancel':
+			case 'pay_unverified':
+				\lib\db\factors\update::record(['type' => 'saleorder', 'pay' => 0, 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+				\lib\app\factor\edit::status('reject', $factor_id);
+				break;
+
+			case 'expire':
+			case 'cancel':
+			case 'order':
+			case 'sending':
+			case 'pending_pay':
+			case 'pending_verify':
+			case 'pending_prepare':
+			case 'pending_send':
+			case 'deliver':
+			case 'reject':
+			case 'spam':
+				\lib\app\factor\edit::status($data['action'], $factor_id);
+				break;
+
+			case 'comment':
+			case 'go_to_bank':
+			default:
+				// nothing
+				break;
+		}
 		return true;
 	}
 }
