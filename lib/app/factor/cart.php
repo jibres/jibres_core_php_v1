@@ -270,10 +270,13 @@ class cart
 	{
 		if(isset($_args['factor_id']))
 		{
-			$factor_id = $_args['factor_id'];
-			\lib\app\factor\edit::status('pending_verify', $factor_id);
-			\lib\app\factor\edit::type('sale', $factor_id);
-			\lib\app\factor\action::set('pay_successfull', $factor_id);
+			$factor_id = \lib\app\factor\get::fix_id($_args['factor_id']);
+			if($factor_id)
+			{
+				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_verify', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+				\lib\app\factor\action::set('pay_successfull', $factor_id);
+			}
+
 		}
 		else
 		{
