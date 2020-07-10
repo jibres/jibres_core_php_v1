@@ -60,7 +60,13 @@ class website
 		{
 			echo " horizontalScroll nowrap";
 		}
-		echo '" data-slick=\'{"slidesToShow": 4, "slidesToScroll": 3}\'>';
+		echo '"';
+		if(!\dash\detect\device::detectPWA())
+		{
+			$opt = '{"slidesToShow": 4, "slidesToScroll": 3}';
+			echo " data-slick='". $opt. "'";
+		}
+		echo '>';
 
 		foreach ($_productList as $key => $myProduct)
 		{
