@@ -203,7 +203,7 @@ class get
 
 		if($last_product && is_array($last_product))
 		{
-			$last_product = array_map(['\\lib\\app\\product\\ready', 'for_website'], $last_product);
+			$last_product = array_map(['\\lib\\app\\product\\ready', 'row'], $last_product);
 		}
 		else
 		{

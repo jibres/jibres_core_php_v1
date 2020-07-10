@@ -26,6 +26,11 @@ class ready
 			return null;
 		}
 
+
+		$store_unit = \lib\currency::name(\lib\store::detail('currency'));
+
+
+
 		foreach ($_data as $key => $value)
 		{
 
@@ -109,6 +114,7 @@ class ready
 				case 'discountpercent':
 				case 'compareatprice':
 				case 'finalprice':
+					$result['unit'] = $store_unit;
 					if($value)
 					{
 						$result[$key] = \lib\price::down($value);
@@ -156,6 +162,11 @@ class ready
 			}
 		}
 
+		if(array_key_exists('price', $result) && array_key_exists('discount', $result))
+		{
+			$result['compareatprice'] = floatval($result['price']) + floatval($result['discount']);
+		}
+
 		return $result;
 	}
 
@@ -199,45 +210,6 @@ class ready
 		return $result;
 	}
 
-
-	/**
-	 * Load product for website
-	 *
-	 * @param      <type>  $_data    The data
-	 * @param      array   $_option  The option
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function for_website($_data, $_option = [])
-	{
-		$_data = self::row($_data);
-
-		if(!is_array($_data))
-		{
-			return null;
-		}
-
-		$store_unit = \lib\currency::name(\lib\store::detail('currency'));
-
-		foreach ($_data as $key => $value)
-		{
-			switch ($key)
-			{
-				case 'creator':
-					break;
-
-				case 'price':
-					$result[$key] = $value;
-					$result['unit'] = $store_unit;
-					break;
-				default:
-					$result[$key] = $value;
-					break;
-			}
-		}
-
-		return $result;
-	}
 
 
 	public static function pricehistory($_data, $_option = [])
