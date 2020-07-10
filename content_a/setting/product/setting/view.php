@@ -13,6 +13,8 @@ class view
 		\dash\data::back_link(\dash\url::that());
 
 		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
+
+		\dash\data::defaultRatioSlider(T_("Default"));
 	}
 }
 ?>

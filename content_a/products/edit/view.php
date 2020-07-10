@@ -95,7 +95,16 @@ class view
 
 		}
 
-		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
+		$productSettingSaved = \lib\app\setting\get::product_setting();
+		\dash\data::productSettingSaved($productSettingSaved);
+
+		$productImageRatioHtml = 'data-ratio=1 data-ratio-free';
+		if(isset($productSettingSaved['ratio_detail']['ratio']))
+		{
+			$productImageRatioHtml = 'data-ratio='. $productSettingSaved['ratio_detail']['ratio'];
+		}
+		\dash\data::productImageRatioHtml($productImageRatioHtml);
+
 	}
 }
 ?>

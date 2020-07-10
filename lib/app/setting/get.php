@@ -82,6 +82,13 @@ class get
 			}
 		}
 
+
+		if(isset($product_setting['ratio']))
+		{
+			$product_setting['ratio_detail'] = \lib\ratio::ratio($product_setting);
+		}
+
+
 		return $product_setting;
 
 	}

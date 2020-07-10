@@ -50,3 +50,38 @@ $storeData = \dash\data::store_store_data();
     </form>
   </form>
 </section>
+
+
+
+
+<section class="f" data-option='product-setting-image-ratio'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Image ratio");?></h3>
+      <div class="body">
+        <p><?php echo T_("Set default image ratio");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <form class="c4 s12" method="post" autocomplete="off">
+      <div class="action">
+
+
+        <select class="select22" name="ratio">
+          <option value="0"><?php echo \dash\data::defaultRatioSlider(); ?></option>
+          <option value="16:9" <?php if(\dash\data::productSettingSaved_ratio() === '16:9') {echo 'selected';} ?>><?php echo \dash\fit::text("16:9") ?></option>
+          <option value="16:10" <?php if(\dash\data::productSettingSaved_ratio() === '16:10') {echo 'selected';} ?>><?php echo \dash\fit::text("16:10") ?></option>
+          <option value="19:10" <?php if(\dash\data::productSettingSaved_ratio() === '19:10') {echo 'selected';} ?>><?php echo \dash\fit::text("19:10") ?></option>
+          <option value="32:9" <?php if(\dash\data::productSettingSaved_ratio() === '32:9') {echo 'selected';} ?>><?php echo \dash\fit::text("32:9") ?></option>
+          <option value="64:27" <?php if(\dash\data::productSettingSaved_ratio() === '64:27') {echo 'selected';} ?>><?php echo \dash\fit::text("64:27") ?></option>
+          <option value="5:3" <?php if(\dash\data::productSettingSaved_ratio() === '5:3') {echo 'selected';} ?>><?php echo \dash\fit::text("5:3") ?></option>
+        </select>
+
+
+
+      </div>
+
+    </form>
+  </form>
+</section>
