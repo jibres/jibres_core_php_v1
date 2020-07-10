@@ -77,30 +77,48 @@ class website
 
 	private static function product_element_create($_item)
 	{
+		$title           = \dash\get::index($_item, 'title');
+		$image           = \dash\get::index($_item, 'thumb');
+		$price           = \dash\get::index($_item, 'price');
+		$discount        = \dash\get::index($_item, 'discount');
+		$discountpercent = \dash\get::index($_item, 'discountpercent');
+		$unit            = \dash\get::index($_item, 'unit');
+
 		echo '<a class="jProduct1" href="'. \dash\get::index($_item, 'url'). '">';
 		{
-			echo '<img src="'. \dash\get::index($_item, 'thumb'). '" alt="'. \dash\get::index($_item, 'title'). '">';
-			if(\dash\get::index($_item, 'discountpercent'))
+			echo '<img src="'. $image. '" alt="'. $title. '">';
+			if($discountpercent)
 			{
 				echo '<span class="discount">';
-				echo '-7';
-				echo \dash\fit::price(\dash\get::index($_item, 'discountpercent'));
+				echo '-';
+				echo \dash\fit::price($discountpercent);
 				echo '%';
 				echo '</span>';
 			}
-			echo '<footer>';
+			// show title
 			{
-				echo '<div class="title">'. \dash\get::index($_item, 'title'). '</div>';
-				if(\dash\permission::supervisor())
+				echo '<div class="title">';
+				echo $title;
+				echo '</div>';
+			}
+			// show price line
+			echo '<footer class="f">';
+			{
+				echo '<span class="unit cauto">';
+				echo 'تومان';
+				echo $unit;
+				echo '</span>';
+
+				echo '<span class="price c">';
+				echo \dash\fit::number($price);
+				echo '</span>';
+
+				if($discount)
 				{
-					if(\dash\get::index($_item, 'discount'))
-					{
-						echo '<u>'. \dash\fit::price(\dash\get::index($_item, 'price') + \dash\get::index($_item, 'discount')). '</u>';
-						echo '<br>';
-						echo '<i>'. \dash\fit::text(\dash\get::index($_item, 'discountpercent')) . ' '. T_("%"). '</i>';
-					}
+					echo '<del class="compareAtPrice cauto os">';
+					echo \dash\fit::number($price + $discount);
+					echo '</del>';
 				}
-				echo '<div class="price"><span>'. \dash\fit::number(\dash\get::index($_item, 'price')). '</span> <span class="unit">'. \dash\get::index($_item, 'unit'). '</span></div>';
 			}
 			echo '</footer>';
 
