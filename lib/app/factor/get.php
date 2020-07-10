@@ -229,10 +229,14 @@ class get
 		// load address saved on this factor
 		$factor_address = \lib\db\factoraddress\get::by_factor_id($_id);
 
+		$factor_action = \lib\app\factor\action::get_by_factor_id($_id);
+
+
 		$result                  = [];
 		$result['factor']        = $factor;
 		$result['factor_detail'] = $factor_detail;
 		$result['address']       = $factor_address;
+		$result['action']        = $factor_action;
 
 		return $result;
 	}

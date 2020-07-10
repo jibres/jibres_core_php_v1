@@ -13,10 +13,23 @@ class get
 	}
 
 
-	public static function all()
+	public static function all_by_factor_id($_id)
 	{
-		$query = "SELECT * FROM factoraction";
-		$result = \dash\db::get($query	);
+		$query =
+		"
+			SELECT
+				factoraction.*,
+				users.displayname,
+				users.avatar,
+				users.gender,
+				users.mobile
+			FROM
+				factoraction
+			LEFT JOIN users ON users.id = factoraction.user_id
+			WHERE factoraction.factor_id = $_id
+			ORDER BY factoraction.id DESC
+		";
+		$result = \dash\db::get($query);
 		return $result;
 	}
 }

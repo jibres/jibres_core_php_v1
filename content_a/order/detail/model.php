@@ -7,12 +7,12 @@ class model
 
 	public static function post()
 	{
-		$post                = [];
-		$post['address_id']    = \dash\request::post('address');
 
-		$order_id = \dash\request::get('id');
+		$post           = [];
+		$post['action'] = \dash\request::post('orderaction');
+		$post['desc']   = \dash\request::post('desc');
 
-		\lib\app\factor\edit::edit_factor($post, $order_id);
+		\lib\app\factor\action::add($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
