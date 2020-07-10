@@ -403,6 +403,12 @@ class store
 		}
 
 		$customer_domain = self::customer_domain_addr(). $_domain;
+
+		if(!is_dir(self::customer_domain_addr()))
+		{
+			\dash\file::makeDir(self::customer_domain_addr(), null, true);
+		}
+
 		if(!is_file($customer_domain))
 		{
 			$check_db = \lib\db\store_domain\get::is_customer_domain($_domain);
