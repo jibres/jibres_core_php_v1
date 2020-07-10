@@ -33,6 +33,7 @@ class cart
 
 
 
+			'desc'        => 'desc',
 			'address_id' => 'code',
 			'payway'     => ['enum' => ['online', 'bank', 'on_deliver', 'check']],
 		];
@@ -100,7 +101,7 @@ class cart
 		$factor['guestid']  = $user_guest;
 		$factor['type']     = 'saleorder';
 		$factor['status']   = 'order';
-		$factor['desc']     = null;
+		$factor['desc']     = $data['desc'];
 		$factor['discount'] = null;
 
 		$factor_detail = [];

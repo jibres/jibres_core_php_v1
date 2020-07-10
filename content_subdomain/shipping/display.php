@@ -24,12 +24,22 @@
 				</div>
 				<?php bPaymentList(); ?>
 
+          <label for="desc"><?php echo T_("Order descripion"); ?></label>
+          <textarea class="txt mB10 pB25" name="desc"  maxlength='300' rows="2"></textarea>
+
+
 				<button class="btn master" type="submit" name="button" value="saveorder"><?php echo T_("Pay"); ?></button>
 
 			<?php }else{ //else ?>
 
 				<?php bAddressAdd(); ?>
 				<?php bPaymentList(); ?>
+
+
+        <label for="desc"><?php echo T_("Order descripion"); ?></label>
+        <textarea class="txt mB10 pB25" name="desc"  maxlength='300' rows="2"></textarea>
+
+
 				<button class="btn master" type="submit" name="button" value="saveorder"><?php echo T_("Pay"); ?></button>
 			<?php } // endif ?>
 
@@ -69,6 +79,9 @@
 
 	<?php } // endif ?>
 <?php } //endfunction ?>
+
+
+
 
 
 

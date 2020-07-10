@@ -45,6 +45,7 @@ class model
 				[
 					'address_id' => $address_id,
 					'payway'     => \dash\request::post('payway'),
+					'desc'       => \dash\request::post('desc'),
 				];
 
 				$saveorder = \lib\app\factor\cart::to_factor($post);
@@ -75,6 +76,7 @@ class model
 				$post['address2'] = \dash\request::post('address2');
 				$post['company']  = \dash\request::post('company');
 				$post['payway']   = \dash\request::post('payway');
+				$post['desc']     = \dash\request::post('desc');
 
 				$saveorder = \lib\app\factor\cart::to_factor($post);
 
