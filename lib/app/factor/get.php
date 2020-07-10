@@ -81,6 +81,9 @@ class get
 		{
 			$_id = substr($_id, 2);
 		}
+
+		$_id = \dash\validate::id($_id, false);
+
 		return $_id;
 	}
 

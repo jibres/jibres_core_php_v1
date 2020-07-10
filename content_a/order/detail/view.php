@@ -38,6 +38,9 @@ class view
 		}
 
 		\dash\data::paymentDetail($myPaymentDetail);
+
+		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));
+
 	}
 }
 ?>

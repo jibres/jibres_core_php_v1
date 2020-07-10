@@ -24,9 +24,9 @@
           <div class="btn mB10 info"><?php echo T_("Status"). ' '. \dash\get::index($orderDetail, 'factor', 'status'); ?></div>
           <div class="btn mB10"><?php echo T_("Last modified"). ' '. \dash\fit::date_human(\dash\get::index($orderDetail, 'factor', 'datemodified')); ?></div>
           <?php if (\dash\get::index($orderDetail, 'factor', 'pay')) {?>
-          <div class="btn mB10 success"><?php echo T_("Factor is payed") ?></div>
+            <div class="btn mB10 success"><?php echo T_("Factor is payed") ?></div>
           <?php }else{ ?>
-          <div class="btn mB10 warn"><?php echo T_("Factor is not payed") ?></div>
+            <div class="btn mB10 warn"><?php echo T_("Factor is not payed") ?></div>
           <?php } // endif ?>
         </div>
       </div>
@@ -127,27 +127,27 @@
       <div class="body">
         <div>
           <label for="orderaction"><?php echo T_("Add new action"); ?></label>
-             <select class="select22" name="orderaction">
-              <option value="comment"><?php echo T_("comment") ?></option>
-              <option value="pending_pay"><?php echo T_("Pending pay") ?></option>
-              <option value="pay_successfull"><?php echo T_("Pay successfull") ?></option>
-              <option value="pending_prepare"><?php echo T_("Pending prepare") ?></option>
-              <option value="pending_verify"><?php echo T_("Pending verify") ?></option>
-              <option value="pending_send"><?php echo T_("Pending send") ?></option>
-              <option value="sending"><?php echo T_("Sending") ?></option>
-              <option value="deliver"><?php echo T_("Deliver") ?></option>
-              <option value="pay_unverified"><?php echo T_("Pay unverified") ?></option>
-              <option value="reject"><?php echo T_("Reject") ?></option>
-              <option value="spam"><?php echo T_("Spam") ?></option>
-              <option value="expire"><?php echo T_("Expire") ?></option>
-              <?php if(false) {?>
-                <option value="go_to_bank"><?php echo T_("go_to_bank") ?></option>
-                <option value="pay_error"><?php echo T_("pay_error") ?></option>
-                <option value="pay_cancel"><?php echo T_("pay_cancel") ?></option>
-                <option value="pay_verified"><?php echo T_("pay_verified") ?></option>
-                <option value="cancel"><?php echo T_("cancel") ?></option>
-                <option value="order"><?php echo T_("order") ?></option>
-              <?php } //endif ?>
+          <select class="select22" name="orderaction">
+            <option value="comment"><?php echo T_("comment") ?></option>
+            <option value="pending_pay"><?php echo T_("Pending pay") ?></option>
+            <option value="pay_successfull"><?php echo T_("Pay successfull") ?></option>
+            <option value="pending_prepare"><?php echo T_("Pending prepare") ?></option>
+            <option value="pending_verify"><?php echo T_("Pending verify") ?></option>
+            <option value="pending_send"><?php echo T_("Pending send") ?></option>
+            <option value="sending"><?php echo T_("Sending") ?></option>
+            <option value="deliver"><?php echo T_("Deliver") ?></option>
+            <option value="pay_unverified"><?php echo T_("Pay unverified") ?></option>
+            <option value="reject"><?php echo T_("Reject") ?></option>
+            <option value="spam"><?php echo T_("Spam") ?></option>
+            <option value="expire"><?php echo T_("Expire") ?></option>
+            <?php if(false) {?>
+              <option value="go_to_bank"><?php echo T_("go_to_bank") ?></option>
+              <option value="pay_error"><?php echo T_("pay_error") ?></option>
+              <option value="pay_cancel"><?php echo T_("pay_cancel") ?></option>
+              <option value="pay_verified"><?php echo T_("pay_verified") ?></option>
+              <option value="cancel"><?php echo T_("cancel") ?></option>
+              <option value="order"><?php echo T_("order") ?></option>
+            <?php } //endif ?>
 
           </select>
         </div>
@@ -157,34 +157,12 @@
           <textarea id="desc" name="desc" class="txt" rows="5"><?php echo \dash\data::dataRow_desc(); ?></textarea>
         </div>
 
+        <label for="file1"><?php echo T_("Attachment"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-          <div class="pad jboxGallery">
-
-            <?php if(\dash\data::dataRow_gallery_array()) {?>
-
-              <div class="f">
-                <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
-                  <div class="cauto pA5 pB10">
-                    <div class="w150">
-                      <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
-                      <div>
-                        <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
-
-                      </div>
-                    </div>
-                  </div>
-                <?php } //endfor ?>
-              </div>
-            <?php } //endif ?>
-
-            <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
-
-            <div data-uploader data-name='gallery' data-ratio=1 data-ratio-free data-autoSend>
-              <input type="file"  id="file1">
-              <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-            </div>
-
-          </div>
+        <div class="box" data-uploader data-name='file'>
+          <input type="file"  id="file1">
+          <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+        </div>
 
       </div>
       <footer>
@@ -209,6 +187,7 @@
             <th><?php echo T_("Action"); ?></th>
             <th><?php echo T_("Date"); ?></th>
             <th><?php echo T_("Description"); ?></th>
+            <th><?php echo T_("Attachment"); ?></th>
             <th><?php echo T_("User"); ?></th>
           </tr>
         </thead>
@@ -220,16 +199,17 @@
               <td><?php echo \dash\get::index($value, 'action'); ?></td>
               <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
               <td><?php echo \dash\get::index($value, 'desc'); ?></td>
+              <td><?php if(\dash\get::index($value, 'file')) {?><img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo T_("Action image"). ' '. \dash\request::get('id'); ?>"><?php } //endif ?></td>
 
               <td class="collapsing">
-                  <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
-                    <div class="c pRa10">
-                      <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
-                      <div class="name"><?php echo \dash\get::index($value, 'displayname'); ?></div>
-                    </div>
-                    <img class="cauto" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
-                  </a>
-                </td>
+                <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+                  <div class="c pRa10">
+                    <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
+                    <div class="name"><?php echo \dash\get::index($value, 'displayname'); ?></div>
+                  </div>
+                  <img class="cauto" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
+                </a>
+              </td>
             </tr>
           <?php } //endfor ?>
         </tbody>

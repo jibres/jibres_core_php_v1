@@ -9,8 +9,37 @@ class action
 		$result = \lib\db\factoraction\get::all_by_factor_id($_id);
 		if($result && is_array($result))
 		{
-			$result = array_map(['\\dash\\app', 'fix_avatar'], $result);
+			$result = array_map(['self', 'ready'], $result);
 		}
+
+		return $result;
+	}
+
+
+	public static function ready($_data)
+	{
+		$_data = \dash\app::fix_avatar($_data);
+
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'file':
+					if($value)
+					{
+						$value = \lib\filepath::fix($value);
+					}
+					$result[$key] = $value;
+					break;
+
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
 		return $result;
 	}
 
@@ -41,6 +70,7 @@ class action
 		[
 			'action'     => ['enum' => ['comment','order','expire','cancel','go_to_bank','pay_successfull','pay_error','pay_cancel','pay_verified','pay_unverified','sending','pending_pay','pending_verify','pending_prepare','pending_send','deliver','reject','spam','deleted']],
 			'desc'       => 'desc',
+			'file'       => 'desc',
 		];
 
 		$require = [];
@@ -61,6 +91,7 @@ class action
 			'factor_id'   => $factor_id,
 			'action'      => $data['action'],
 			'desc'        => $data['desc'],
+			'file'        => $data['file'],
 			'user_id'     => \dash\user::id(),
 			'datecreated' => date("Y-m-d H:i:s")
 		];
