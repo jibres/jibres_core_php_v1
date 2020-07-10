@@ -83,10 +83,14 @@ class get
 		}
 
 
-		if(isset($product_setting['ratio']))
+		if(!isset($product_setting['ratio']))
 		{
-			$product_setting['ratio_detail'] = \lib\ratio::ratio($product_setting);
+			$product_setting['ratio'] = null;
+
 		}
+
+		$product_setting['ratio_detail'] = \lib\ratio::product_ratio($product_setting);
+
 
 
 		return $product_setting;

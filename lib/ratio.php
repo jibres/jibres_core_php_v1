@@ -4,7 +4,13 @@ namespace lib;
 
 class ratio
 {
-	public static function ratio($_data)
+	public static function product_ratio($_data)
+	{
+		return self::ratio($_data, 'product');
+	}
+
+
+	public static function ratio($_data, $_type = null)
 	{
 		if(isset($_data['ratio']))
 		{
@@ -12,12 +18,12 @@ class ratio
 		}
 		else
 		{
-			$ratio = self::default_ratio('ratio');
+			$ratio = self::default_ratio('ratio', $_type);
 		}
 
 		if(strpos($ratio, ':') === false)
 		{
-			$ratio = self::default_ratio('ratio');
+			$ratio = self::default_ratio('ratio', $_type);
 		}
 
 		$int_ratio = null;
@@ -73,13 +79,25 @@ class ratio
 
 
 
-	public static function default_ratio($_needle = null)
+	public static function default_ratio($_needle = null, $_type = null)
 	{
-		$default =
-		[
-			'ratio' => '16:9',
-			'title' => T_("16:9 (Default)"),
-		];
+		if($_type === 'product')
+		{
+			$default =
+			[
+				'ratio' => '1:1',
+				'title' => T_("1:1 (Default)"),
+			];
+		}
+		else
+		{
+
+			$default =
+			[
+				'ratio' => '16:9',
+				'title' => T_("16:9 (Default)"),
+			];
+		}
 
 		if($_needle)
 		{
