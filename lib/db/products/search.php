@@ -3,7 +3,7 @@ namespace lib\db\products;
 
 class search
 {
-	private static function ready_to_sql($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function ready_to_sql($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$where = null;
 		$q     = [];

@@ -281,28 +281,28 @@ class get
 
 
 
-	public static function website_last_product($_limit)
+
+
+
+	public static function website_last_product($_and, $_or, $_order, $_meta)
 	{
+		$q = \lib\db\products\search::ready_to_sql($_and, $_or, $_order, $_meta);
+
+
 		$query  =
 		"
 			SELECT
 				*
 			FROM
 				products
-			WHERE
-				products.parent IS NULL AND
-				products.status != 'deleted'
-			ORDER BY products.id DESC
-			LIMIT $_limit
+				$q[where]
+			ORDER BY $q[order]
+			LIMIT $q[limit]
 		";
 		$result = \dash\db::get($query);
 
 		return $result;
 	}
-
-
-
-
 
 }
 ?>

@@ -148,9 +148,58 @@ class get
 
 
 
-	public static function website_last_product()
+	public static function website_product_list($_option = null)
 	{
-		$last_product = \lib\db\products\get::website_last_product(10);
+		$type   = null;
+		$cat_id = null;
+
+		if(isset($_option['value']['productline']['type']))
+		{
+			$type = $_option['value']['productline']['type'];
+		}
+
+		if(isset($_option['value']['productline']['cat_id']))
+		{
+			$cat_id = $_option['value']['productline']['cat_id'];
+		}
+
+		$and   = [];
+		$or    = [];
+		$order = null;
+
+		$and[] = " products.status != 'deleted'";
+		$and[] = " products.parent IS NULL ";
+
+		if($cat_id && is_numeric($cat_id))
+		{
+			$and[] = ' products.cat_id = '. $cat_id;
+		}
+
+		if($type === 'latestproduct')
+		{
+			$order = " products.id DESC ";
+		}
+		elseif($type === 'randomproduct')
+		{
+			$order = " RAND() ";
+
+		}
+		elseif($type === 'bestselling')
+		{
+			$order = " products.id ASC ";
+		}
+		else
+		{
+			$order = " products.id DESC ";
+		}
+
+		$meta =
+		[
+			'limit' => 10,
+			'type' => $type
+		];
+
+		$last_product = \lib\db\products\get::website_last_product($and, $or, $order, $meta);
 
 		if($last_product && is_array($last_product))
 		{
@@ -163,5 +212,8 @@ class get
 
 		return $last_product;
 	}
+
+
+
 }
 ?>

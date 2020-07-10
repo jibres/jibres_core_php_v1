@@ -1,6 +1,7 @@
 
 <?php
-$productline = \lib\app\product\get::website_last_product();
+
+$productline = \lib\app\product\get::website_product_list($line_detail);
 
 
 if($productline && is_array($productline)) { ?>
