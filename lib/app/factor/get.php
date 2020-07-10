@@ -5,16 +5,16 @@ namespace lib\app\factor;
 class get
 {
 
-	private static $product_detail    = [];
-	private static $product_prev      = [];
-	private static $product_next      = [];
+	private static $factor_detail    = [];
+	private static $factor_prev      = [];
+	private static $factor_next      = [];
 
 
 	public static function next($_id, $_raw = false)
 	{
-		if(isset(self::$product_next[$_id]))
+		if(isset(self::$factor_next[$_id]))
 		{
-			return self::$product_next[$_id];
+			return self::$factor_next[$_id];
 		}
 
 		$result = self::one($_id);
@@ -28,7 +28,7 @@ class get
 
 		if(!$next)
 		{
-			$next = \lib\db\factors\get::first_product_id();
+			$next = \lib\db\factors\get::first_factor_id();
 		}
 
 		if(!$_raw)
@@ -36,7 +36,7 @@ class get
 			$next = \dash\url::here(). '/chap/receipt?id='. $next;
 		}
 
-		self::$product_next[$_id] = $next;
+		self::$factor_next[$_id] = $next;
 
 		return $next;
 	}
@@ -44,9 +44,9 @@ class get
 
 	public static function prev($_id, $_raw = false)
 	{
-		if(isset(self::$product_prev[$_id]))
+		if(isset(self::$factor_prev[$_id]))
 		{
-			return self::$product_prev[$_id];
+			return self::$factor_prev[$_id];
 		}
 
 		$result = self::one($_id);
@@ -60,7 +60,7 @@ class get
 
 		if(!$prev)
 		{
-			$prev = \lib\db\factors\get::end_product_id();
+			$prev = \lib\db\factors\get::end_factor_id();
 		}
 
 		if(!$_raw)
@@ -68,7 +68,7 @@ class get
 			$prev = \dash\url::here(). '/chap/receipt?id='. $prev;
 		}
 
-		self::$product_prev[$_id] = $prev;
+		self::$factor_prev[$_id] = $prev;
 
 		return $prev;
 	}

@@ -64,6 +64,22 @@ class get
 	}
 
 
+	public static function first_factor_id()
+	{
+		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.status != 'deleted' ORDER BY factors.id ASC LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
+
+	public static function end_factor_id()
+	{
+		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.status != 'deleted' ORDER BY factors.id DESC LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
+
 
 	public static function prev($_id)
 	{
