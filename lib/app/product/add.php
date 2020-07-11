@@ -186,6 +186,15 @@ class add
 
 		unset($args['tag']);
 
+		$stock = null;
+		if($args['stock'])
+		{
+			$stock = $args['stock'];
+		}
+
+		unset($args['stock']);
+
+
 		// --------------- add new product
 		$product_id = \lib\db\products\insert::new_record($args);
 
@@ -203,6 +212,12 @@ class add
 			}
 
 			return false;
+		}
+
+
+		if($stock)
+		{
+			\lib\app\product\inventory::initial($stock, $product_id);
 		}
 
 

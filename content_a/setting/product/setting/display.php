@@ -15,7 +15,7 @@ $storeData = \dash\data::store_store_data();
   <form class="c4 s12" method="post" data-patch>
     <form class="c4 s12" method="post" autocomplete="off">
       <div class="action">
-
+        <input type="hidden" name="runaction_defaultpricelist" value="1">
         <div class="switch1">
           <input type="checkbox" name="defaultpricelist" id="defaultpricelist" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list')) { echo 'checked'; } ?>>
           <label for="defaultpricelist" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
@@ -40,7 +40,7 @@ $storeData = \dash\data::store_store_data();
   <form class="c4 s12" method="post" data-patch>
     <form class="c4 s12" method="post" autocomplete="off">
       <div class="action">
-
+        <input type="hidden" name="runaction_variant_product" value="1">
         <div class="switch1">
           <input type="checkbox" name="variant_product" id="variant_product" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) { echo 'checked'; } ?>>
           <label for="variant_product" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
@@ -66,7 +66,7 @@ $storeData = \dash\data::store_store_data();
   <form class="c4 s12" method="post" data-patch>
     <form class="c4 s12" method="post" autocomplete="off">
       <div class="action">
-
+        <input type="hidden" name="runaction_ratio" value="1">
 
         <select class="select22" name="ratio">
           <option value="0"><?php echo \dash\data::defaultRatioSlider(); ?></option>

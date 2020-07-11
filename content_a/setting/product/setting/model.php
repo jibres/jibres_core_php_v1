@@ -6,17 +6,35 @@ class model
 {
 	public static function post()
 	{
+		$all_post  = \dash\request::post();
+
+		$post = [];
+
+
+
+
+		if(array_key_exists('runaction_defaultpricelist', $all_post))
+		{
+			$post['default_pirce_list'] = \dash\request::post('defaultpricelist');
+		}
+
+
+		if(array_key_exists('runaction_variant_product', $all_post))
+		{
+			$post['variant_product'] = \dash\request::post('variant_product');
+		}
+
+
 		$ratio = \dash\request::post('ratio') ? \dash\request::post('ratio') : null;
+		if(array_key_exists('runaction_ratio', $all_post))
+		{
+			$post['ratio'] = $ratio;
+		}
 
-		$post =
-		[
-			'default_pirce_list' => \dash\request::post('defaultpricelist'),
-			'variant_product'    => \dash\request::post('variant_product'),
-			'ratio'              => $ratio,
-
-		];
 
 		\lib\app\setting\set::product_setting($post);
+
+		// \dash\redirect::pwd();
 	}
 }
 ?>

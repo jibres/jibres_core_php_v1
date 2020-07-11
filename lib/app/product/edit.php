@@ -233,6 +233,23 @@ class edit
 		}
 
 
+
+		$stock = null;
+		if(array_key_exists('stock', $args))
+		{
+			if($args['stock'])
+			{
+				$stock = $args['stock'];
+			}
+			unset($args['stock']);
+		}
+
+
+		if($stock)
+		{
+			\lib\app\product\inventory::manual($stock, $id);
+		}
+
 		if(!empty($args))
 		{
 			foreach ($args as $key => $value)

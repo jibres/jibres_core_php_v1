@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `factor_id` `factor_id` bigint(20) UNSIGNED  NULL;

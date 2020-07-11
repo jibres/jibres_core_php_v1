@@ -50,7 +50,7 @@ class model
 		$post['seodesc']        = \dash\request::post('seodesc');
 		// $post['company']        = \dash\request::post('company');
 		$post['scalecode']      = \dash\request::post('scalecode');
-		$post['status']         = \dash\request::post('status');
+		// $post['status']         = \dash\request::post('status');
 		$post['minstock']       = \dash\request::post('minstock');
 		$post['maxstock']       = \dash\request::post('maxstock');
 		// $post['minsale']        = \dash\request::post('minsale');
@@ -61,6 +61,8 @@ class model
 		// $post['category']    = \dash\request::post('cat');
 		$post['cat_id']         = \dash\request::post('cat_id');
 		$post['tag']            = \dash\request::post('tag');
+
+		$post['stock']          = \dash\request::post('stock');
 
 
 		// $post['length']         = \dash\request::post('length');

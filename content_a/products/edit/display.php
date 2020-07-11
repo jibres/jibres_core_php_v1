@@ -184,6 +184,14 @@ $productDataRow = \dash\data::productDataRow();
         <p class="fs09 fc-mute"><?php echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."); ?></p>
 
         <div data-response='iinfinite' data-response-effect='slide' <?php if(\dash\data::productDataRow_infinite()){}else{ echo 'data-response-hide';} ?>  >
+
+         <div class="c s12 pRa10">
+            <label for='stock'><?php echo T_("Stock"). ' '. \dash\fit::number(\dash\data::productDataRow_stock()) ; ?></label>
+            <div class="input">
+             <input type="text" name="stock" id="stock" data-format='number' placeholder="<?php echo T_("If you want to change the stock enter current stock here") ?>" maxlength="7">
+            </div>
+          </div>
+
           <div class="switch1">
            <input type="checkbox" name="oversale" id="oversale"  <?php if(\dash\data::productDataRow_oversale()) {echo 'checked';}?> >
            <label for="oversale"></label>

@@ -33,9 +33,9 @@ class check
 			'barcode'           => 'barcode',
 			'barcode2'          => 'barcode',
 
+			'stock'             => 'int',
 			'minstock'          => 'int',
 			'maxstock'          => 'int',
-			'initial'          => 'int',
 			'weight'            => 'float',
 			'status'            => ['enum' => ['unset','available','unavailable','soon','discountinued', 'deleted']],
 			'type'              => ['enum' => ['product','file','service']],
