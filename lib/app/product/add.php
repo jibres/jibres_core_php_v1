@@ -186,6 +186,30 @@ class add
 
 		unset($args['tag']);
 
+		$stock_detail = [];
+
+		if($args['minstock'])
+		{
+			$stock_detail['minstock'] = $args['minstock'];
+		}
+
+		unset($args['minstock']);
+
+		if($args['maxstock'])
+		{
+			$stock_detail['maxstock'] = $args['maxstock'];
+		}
+
+		unset($args['maxstock']);
+
+		if($args['initial'])
+		{
+			$stock_detail['initial'] = $args['initial'];
+		}
+
+		unset($args['initial']);
+
+		// --------------- add new product
 		$product_id = \lib\db\products\insert::new_record($args);
 
 		if(!$product_id)
@@ -203,6 +227,12 @@ class add
 
 			return false;
 		}
+
+		if(!empty($stock_detail))
+		{
+			\lib\app\product\stock::add($product_id, $stock_detail);
+		}
+
 
 		if($args['buyprice'] ||	$args['price'] || $args['discount'])
 		{

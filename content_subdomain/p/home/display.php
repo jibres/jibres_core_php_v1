@@ -40,6 +40,8 @@ foreach ($myGallery as $key => $item) { ?>
           </div>
         <?php } //endif ?>
 
+        <?php //  echo \dash\fit::number(\dash\data::dataRow_stock()); ?>
+
           <div class="priceLine">
             <div class="row align-center">
               <div class="c">

@@ -48,5 +48,41 @@ class get
 	}
 
 
+	public static function product_sold($_product_id)
+	{
+		$query =
+		"
+			SELECT
+				SUM(factordetails.count) AS `count`
+			FROM
+				factordetails
+			WHERE
+				factordetails.product_id = $_product_id AND
+				factordetails.count > 0
+		";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function product_bougth($_product_id)
+	{
+		$query =
+		"
+			SELECT
+				(SUM(factordetails.count) * -1) AS `count`
+			FROM
+				factordetails
+			WHERE
+				factordetails.product_id = $_product_id AND
+				factordetails.count < 0
+		";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+
+	}
+
+
+
 }
 ?>

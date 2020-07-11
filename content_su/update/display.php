@@ -108,7 +108,7 @@ $needUpgrade = \dash\data::needUpgrade();
 
 <div class="msg fs14">
 <p><?php echo T_("Run all step by one click"); ?> <small><?php echo T_("For when you don't have heavy updates"); ?></small></p>
-<div class="btn danger txtC xl" data-confirm data-data='{"type" : "all"}'><?php echo T_("Run all"); ?></div>
+<div class="btn danger txtC xl" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Run all"); ?></div>
 </div>
 <div class="mB50">&nbsp;</div>
 

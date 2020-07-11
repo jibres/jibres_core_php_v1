@@ -98,6 +98,9 @@ class ready
 					break;
 
 				case 'weight':
+				case 'stock':
+				case 'sold':
+				case 'bought':
 					if($value)
 					{
 						$result[$key] = \lib\number::down($value);
