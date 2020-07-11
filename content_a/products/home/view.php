@@ -53,10 +53,19 @@ class view
 			\dash\data::barcodeScaned('?barcode='. $search_string);
 		}
 
+		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
+
 		// set back link
 		\lib\backlink::set_products();
 
-		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
+		if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
+		{
+			$myProductList = \lib\app\product\search::price_list($search_string, $args);
+		}
+		else
+		{
+			$myProductList = \lib\app\product\search::variant_list($search_string, $args);
+		}
 
 		\lib\app\product\load::barcode_is_scaned($myProductList, $search_string);
 
@@ -76,7 +85,6 @@ class view
 		}
 
 
-		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
 
 	}
 }
