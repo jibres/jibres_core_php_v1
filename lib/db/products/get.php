@@ -161,22 +161,7 @@ class get
 
 	public static function by_id($_id)
 	{
-		$query  =
-		"
-			SELECT
-				products.*,
-				productstock.initial,
-				productstock.sold,
-				productstock.stock,
-				productstock.bought,
-				productstock.minstock,
-				productstock.maxstock
-			FROM
-				products
-			LEFT JOIN productstock ON productstock.product_id = products.id
-			WHERE
-				products.id = $_id
-			LIMIT 1	";
+		$query  = "	SELECT * FROM products WHERE products.id = $_id LIMIT 1	";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

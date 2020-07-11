@@ -232,55 +232,6 @@ class edit
 			return false;
 		}
 
-		$stock_detail = [];
-
-		if(array_key_exists('minstock', $args))
-		{
-			$stock_detail['minstock'] = $args['minstock'];
-			unset($args['minstock']);
-		}
-
-		if(array_key_exists('maxstock', $args))
-		{
-			$stock_detail['maxstock'] = $args['maxstock'];
-			unset($args['maxstock']);
-		}
-
-		if(array_key_exists('initial', $args))
-		{
-			$stock_detail['initial'] = $args['initial'];
-			unset($args['initial']);
-		}
-
-
-		$have_update = true;
-
-		if($stock_detail)
-		{
-			$load_stock_detail = \lib\app\product\stock::get($id);
-			if(isset($load_stock_detail['product_id']))
-			{
-				foreach ($load_stock_detail as $key => $value)
-				{
-					if(array_key_exists($key, $stock_detail) && self::isEqual($stock_detail[$key], $value))
-					{
-						unset($stock_detail[$key]);
-					}
-				}
-
-				if(!empty($stock_detail))
-				{
-					\dash\temp::set('productHasChange', true);
-					\lib\app\product\stock::edit($id, $stock_detail);
-				}
-			}
-			else
-			{
-				\dash\temp::set('productHasChange', true);
-				\lib\app\product\stock::add($id, $stock_detail);
-			}
-		}
-
 
 		if(!empty($args))
 		{

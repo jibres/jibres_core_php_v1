@@ -177,10 +177,6 @@ class add
 			return false;
 		}
 
-		foreach ($factor_detail as $key => $value)
-		{
-			\lib\app\product\stock::calc($value['product_id']);
-		}
 
 		if(\dash\engine\process::status())
 		{
