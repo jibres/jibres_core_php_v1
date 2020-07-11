@@ -1,30 +1,42 @@
 <div class="avand productPage">
   <div class="box">
       <div class="row">
-        <div class="c-xs-12 c-5">
-          <div class="imgBlock">
-            <img class="featureImg" src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
-            <div class="row padLess thumbs">
+        <div class="c-auto">
+          <div class="thumbs">
 <?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
 if(!is_array($myGallery))
 {
   $myGallery = [];
 }
-foreach ($myGallery as $key => $item) { ?>
-<?php if($key < 5 && isset($item['path'])) { ?>
-              <div class="c">
-                <div class="f justify-center align-center thumb" data-fancybox="gallery">
-                  <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
-                </div>
-              </div>
-<?php   } ?>
-<?php } ?>
+foreach ($myGallery as $key => $item)
+{
 
-            </div>
-
+  if($key < 5 && isset($item['path']))
+  {
+?>
+              <a href='<?php echo $item['path']; ?>' data-fancybox="productGallery" class="f justify-center align-center thumb">
+                <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
+              </a>
+<?php
+  }
+  else
+  {
+?>
+              <a data-fancybox='productGallery' class="hide" href='<?php echo $item['path']; ?>'></a>
+<?php
+  }
+}
+?>
           </div>
         </div>
-        <div class="c-xs-12 c-7">
+        <div class="c-xs-12 c-4">
+          <div class="imgBlock">
+            <a data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
+              <img class="featureImg" src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
+            </a>
+          </div>
+        </div>
+        <div class="c-xs-12 c">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
 <?php if(\dash\data::dataRow_title2()) { ?>
           <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
