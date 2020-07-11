@@ -63,8 +63,8 @@ class website
 		echo '"';
 		if(!\dash\detect\device::detectPWA())
 		{
-			$opt = '{"slidesToShow": 4, "slidesToScroll": 3}';
-			echo " data-slick='". $opt. "'";
+			// $opt = '{"slidesToShow": 4, "slidesToScroll": 3}';
+			echo " data-slider='product'";
 		}
 		echo '>';
 

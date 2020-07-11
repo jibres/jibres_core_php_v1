@@ -5,7 +5,7 @@ $myUrlStatic = \dash\url::cdn();
 <section class="avand styleguideBox">
   <div class="">
     <h2 class="txtC fs15"><a target="_blank" href="<?php echo $myUrlStatic; ?>/logo/styleguide/Jibres-brand-styleguide-v4.pdf"><?php echo T_("Download Jibres Brand Styleguide"); ?></a></h2>
-    <div class="book" data-slick>
+    <div class="book" data-slider>
       <img src="<?php echo $myUrlStatic; ?>/logo/styleguide/png/jibres-logo-styleguide-1.png" alt="Jibres Logo Styleguide Page1">
       <img src="<?php echo $myUrlStatic; ?>/logo/styleguide/png/jibres-logo-styleguide-2.png" alt="Jibres Logo Styleguide Page2">
       <img src="<?php echo $myUrlStatic; ?>/logo/styleguide/png/jibres-logo-styleguide-3.png" alt="Jibres Logo Styleguide Page3">
@@ -32,7 +32,7 @@ if(\dash\language::current() === 'fa')
 <section class="avand styleguideBox">
   <div class="">
     <h2 class="txtC fs15 mT50"><a target="_blank" href="<?php echo $myUrlStatic; ?>/logo/styleguide-fa/Jibres-brand-styleguide-fa-v2.pdf"><?php echo T_("Download Jibres Persian Brand Styleguide"); ?></a></h2>
-    <div class="book" data-slick>
+    <div class="book" data-slider>
       <img src="<?php echo $myUrlStatic; ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-1.png" alt="Jibres Logo Styleguide Persian Page1">
       <img src="<?php echo $myUrlStatic; ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-2.png" alt="Jibres Logo Styleguide Persian Page2">
       <img src="<?php echo $myUrlStatic; ?>/logo/styleguide-fa/png/jibres-logo-styleguide-fa-3.png" alt="Jibres Logo Styleguide Persian Page3">
