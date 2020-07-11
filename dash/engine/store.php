@@ -118,7 +118,14 @@ class store
 			// not route any content in customer domain
 			if(\dash\url::content())
 			{
-				\dash\header::status(409, T_("Can not route this address from your domain!"));
+				if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+				{
+					// the user can login by custom domain
+				}
+				else
+				{
+					\dash\header::status(409, T_("Can not route this address from your domain!"));
+				}
 			}
 		}
 	}
@@ -428,7 +435,14 @@ class store
 		if($load_detail && is_numeric($load_detail))
 		{
 			self::init_by_id($load_detail);
-			\dash\engine\content::set('content_subdomain');
+			if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\engine\content::set('content_subdomain');
+			}
 			self::$inCustomerDomain = true;
 			return true;
 		}
