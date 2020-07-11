@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_('Set your store address'));
 
 		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/place');
 
 		self::static_var();
 	}
