@@ -43,6 +43,7 @@ if(\dash\url::store())
 }
 ?>
  <meta content="<?php echo \dash\url::sitelang();?>/" name="jibres:sitelang"/>
+ <meta content="<?php echo \dash\url::set_subdomain('core');?>/" name="jibres:core"/>
  <meta content="<?php echo \dash\url::set_subdomain('api');?>/" name="jibres:api"/>
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
  <meta content="index, follow" name ="robots"/>
