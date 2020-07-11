@@ -5,6 +5,7 @@ class apilog
 {
 	private static $apilog     = [];
 	private static $static_var = [];
+	private static $status     = false;
 
 	private static $save_detail = true;
 
@@ -22,8 +23,17 @@ class apilog
 	}
 
 
+	public static function stop()
+	{
+		self::$status = false;
+	}
+
+
 	public static function start()
 	{
+		self::$status = true;
+
+
 		self::$apilog['user_id']        = null;
 		self::$apilog['token']          = null; // 100
 		self::$apilog['apikey']         = null; // 100
@@ -48,11 +58,17 @@ class apilog
 		self::$apilog['version']        = substr(\dash\url::module(), 0, 100);
 		self::$apilog['subdomain']      = \dash\url::subdomain();
 		self::$apilog['urlmd5']         = md5(\dash\url::current());
+
 	}
 
 
 	public static function save($_result = null)
 	{
+		if(!self::$status)
+		{
+			return;
+		}
+
 		if((is_array($_result) || is_object($_result)))
 		{
 			$_result = self::jsonEncode($_result);
@@ -129,7 +145,7 @@ class apilog
 
 	private static function save_db()
 	{
-		if(self::$apilog)
+		if(self::$apilog && self::$status)
 		{
 			\dash\db\apilog::insert(self::$apilog);
 			self::$apilog = [];
