@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.productinventory (
 `count` bigint(20) NULL,
 `stock` bigint(20) NULL,
 `thisstock` bigint(20) NULL,
-`action` enum('initial','manual','move_to_inventory','move_from_inventory','warehouse_handling','sale','back_sale','buy','back_buy','presell','back_presell','lending','back_lending','backbuy','back_backbuy','backsell','back_backsell','waste','back_waste','saleorder''back_saleorder''reject_order','cancel_order') DEFAULT NULL,
+`action` enum('initial','manual','move_to_inventory','move_from_inventory','warehouse_handling','sale','edit_sale','buy','edit_buy','presell','edit_presell','lending','edit_lending','backbuy','edit_backbuy','backsell','edit_backsell','waste','edit_waste','saleorder''edit_saleorder''reject_order','cancel_order') DEFAULT NULL,
 `factor_id` bigint(20) UNSIGNED NOT NULL,
 `user_id` INT(10) UNSIGNED NULL DEFAULT NULL,
 `other_inventory_id` SMALLINT(5) UNSIGNED NULL,
