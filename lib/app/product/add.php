@@ -140,6 +140,16 @@ class add
 
 		unset($args['unit']);
 
+		if($args['unit_id'])
+		{
+			\lib\app\product\unit::$debug = false;
+			$check_unit                     = \lib\app\product\unit::inline_get($args['unit_id']);
+			if(isset($check_unit['id']))
+			{
+				$args['unit_id'] = $check_unit['id'];
+			}
+		}
+
 
 		if($args['company'])
 		{

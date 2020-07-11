@@ -98,7 +98,22 @@ class edit
 				}
 			}
 		}
+
 		unset($args['unit']);
+
+		if(array_key_exists('unit_id', $args))
+		{
+			if($args['unit_id'])
+			{
+				\lib\app\product\unit::$debug = false;
+				$check_unit                     = \lib\app\product\unit::inline_get($args['unit_id']);
+				if(isset($check_unit['id']))
+				{
+					$args['unit_id'] = $check_unit['id'];
+				}
+			}
+		}
+
 
 		if(array_key_exists('company', $args))
 		{
