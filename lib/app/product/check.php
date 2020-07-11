@@ -73,6 +73,7 @@ class check
 			'vat'               => 'bit',
 
 			'company'           => 'string_100',
+			'company_id'        => 'id',
 			'tag'               => 'tag',
 			'cat_id'            => 'int',
 			'unit'              => 'string_50', // in add manual user send the unit

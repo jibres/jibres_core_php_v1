@@ -97,6 +97,10 @@ class edit
 					$args['unit_id'] = $add_unit['id'];
 				}
 			}
+			else
+			{
+				$args['unit_id'] = null;
+			}
 		}
 
 		unset($args['unit']);
@@ -117,7 +121,6 @@ class edit
 
 		if(array_key_exists('company', $args))
 		{
-
 			if($args['company'])
 			{
 				\lib\app\product\company::$debug = false;
@@ -127,8 +130,26 @@ class edit
 					$args['company_id'] = $add_company['id'];
 				}
 			}
+			else
+			{
+				$args['company_id'] = null;
+			}
 		}
+
 		unset($args['company']);
+
+		if(array_key_exists('company_id', $args))
+		{
+			if($args['company_id'])
+			{
+				\lib\app\product\company::$debug = false;
+				$check_company                     = \lib\app\product\company::inline_get($args['company_id']);
+				if(isset($check_company['id']))
+				{
+					$args['company_id'] = $check_company['id'];
+				}
+			}
+		}
 
 		if(array_key_exists('cat_id', $args))
 		{
@@ -140,6 +161,10 @@ class edit
 					\dash\notif::error(T_("Category not found"));
 					return false;
 				}
+			}
+			else
+			{
+				$args['cat_id'] = null;
 			}
 		}
 

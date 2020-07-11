@@ -163,6 +163,16 @@ class add
 
 		unset($args['company']);
 
+		if($args['company_id'])
+		{
+			\lib\app\product\company::$debug = false;
+			$check_company                     = \lib\app\product\company::inline_get($args['company_id']);
+			if(isset($check_company['id']))
+			{
+				$args['company_id'] = $check_company['id'];
+			}
+		}
+
 
 		if($args['cat_id'])
 		{
@@ -296,21 +306,44 @@ class add
 		{
 			switch ($key)
 			{
-				case 'id':
-				case 'variants':
-				case 'barcode':
-				case 'barcode2':
-				case 'sku':
-				case 'datemodified':
-				case 'datecreated':
-				case 'slug':
-				case 'parent':
-				case 'thumb':
-				case 'gallery_array':
+
+				case 'title':
+				case 'title2':
+				case 'seotitle':
+				case 'discount':
+				case 'price':
+				case 'buyprice':
+				case 'seodesc':
+				case 'desc':
+				case 'cat_id':
+				case 'unit_id':
+				case 'company_id':
+				case 'salestep':
+				case 'minstock':
+				case 'maxstock':
+				case 'minsale':
+				case 'maxsale':
+				case 'carton':
+				case 'scalecode':
+				case 'weight':
+				case 'length':
+				case 'width':
+				case 'height':
+				case 'filesize':
+				case 'fileaddress':
+				case 'type':
+				case 'status':
+				case 'vat':
+				case 'infinite':
+				case 'oversale':
+				case 'saleonline':
+				case 'saletelegram':
+				case 'saleapp':
+					$copy_product[$key] = $value;
 					break;
 
 				default:
-					$copy_product[$key] = $value;
+					// skip othe field
 					break;
 			}
 		}

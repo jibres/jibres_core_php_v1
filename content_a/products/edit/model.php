@@ -57,8 +57,7 @@ class model
 		$post['maxsale']        = \dash\request::post('maxsale');
 		$post['salestep']       = \dash\request::post('salestep');
 		$post['oversale']       = \dash\request::post('oversale');
-		$post['company']        = \dash\request::post('company');
-		$post['unit']           = \dash\request::post('unit');
+		$post['unit']           = \dash\request::post('unit') ? \dash\request::post('unit') : null;
 		// $post['category']    = \dash\request::post('cat');
 		$post['cat_id']         = \dash\request::post('cat_id');
 		$post['tag']            = \dash\request::post('tag');
