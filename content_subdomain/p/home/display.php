@@ -31,8 +31,8 @@ foreach ($myGallery as $key => $item)
         </div>
         <div class="c-xs-12 c-4">
           <div class="imgBlock">
-            <a data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
-              <img class="featureImg" src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
+            <a class="featureImg" data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
+              <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
             </a>
           </div>
         </div>
