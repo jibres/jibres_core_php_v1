@@ -159,7 +159,7 @@ class check_detail
 				$count = 1;
 			}
 
-			$precount = $count;
+
 
 
 			if(array_key_exists('vat', $this_proudct) && $this_proudct['vat'] === 'yes')
@@ -180,7 +180,6 @@ class check_detail
 			$factor_detail_record['vat']               = $vat;
 			$factor_detail_record['finalprice']        = $finalprice;
 			$factor_detail_record['count']             = $count;
-			$factor_detail_record['precount']          = $precount;
 			$factor_detail_record['sum']               = $finalprice * $count;
 
 			$factor_detail_record['sub_vat_temp']      = $vat * $count;
