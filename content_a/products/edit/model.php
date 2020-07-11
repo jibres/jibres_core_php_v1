@@ -43,19 +43,19 @@ class model
 		$post['barcode2']       = \dash\request::post('barcode2');
 		$post['infinite']       = \dash\request::post('infinite');
 		// $post['gallery']        = \dash\request::post('gallery');
-		$post['weight']         = \dash\request::post('weight');
+		// $post['weight']         = \dash\request::post('weight');
 		$post['seotitle']       = \dash\request::post('seotitle');
 		$post['slug']           = \dash\request::post('slug');
 		$post['type']           = \dash\request::post('type');
 		$post['seodesc']        = \dash\request::post('seodesc');
-		$post['company']        = \dash\request::post('company');
+		// $post['company']        = \dash\request::post('company');
 		$post['scalecode']      = \dash\request::post('scalecode');
 		$post['status']         = \dash\request::post('status');
 		$post['minstock']       = \dash\request::post('minstock');
 		$post['maxstock']       = \dash\request::post('maxstock');
-		$post['minsale']        = \dash\request::post('minsale');
-		$post['maxsale']        = \dash\request::post('maxsale');
-		$post['salestep']       = \dash\request::post('salestep');
+		// $post['minsale']        = \dash\request::post('minsale');
+		// $post['maxsale']        = \dash\request::post('maxsale');
+		// $post['salestep']       = \dash\request::post('salestep');
 		$post['oversale']       = \dash\request::post('oversale');
 		$post['unit']           = \dash\request::post('unit') ? \dash\request::post('unit') : null;
 		// $post['category']    = \dash\request::post('cat');
@@ -63,11 +63,11 @@ class model
 		$post['tag']            = \dash\request::post('tag');
 
 
-		$post['length']         = \dash\request::post('length');
-		$post['width']          = \dash\request::post('width');
-		$post['height']         = \dash\request::post('height');
-		$post['filesize']       = \dash\request::post('filesize');
-		$post['fileaddress']    = \dash\request::post('fileaddress');
+		// $post['length']         = \dash\request::post('length');
+		// $post['width']          = \dash\request::post('width');
+		// $post['height']         = \dash\request::post('height');
+		// $post['filesize']       = \dash\request::post('filesize');
+		// $post['fileaddress']    = \dash\request::post('fileaddress');
 
 		return $post;
 	}

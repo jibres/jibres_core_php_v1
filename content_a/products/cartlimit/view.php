@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\property;
+namespace content_a\products\cartlimit;
 
 
 class view
@@ -15,26 +15,15 @@ class view
 			$title = T_("Without name");
 		}
 
-		\dash\face::title(T_("Property"). ' | '. $title);
+		\dash\face::title(T_("Cart limit"). ' | '. $title);
 
 		\dash\face::btnSave('form1');
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
-
-
-		if(\dash\data::productDataRow_url())
-		{
-			\dash\face::btnView(\dash\data::productDataRow_url());
-		}
-
-		\dash\face::help(\dash\url::support().'/property');
-
-
-		$property_list = \lib\app\product\property::get($id);
-		\dash\data::propertyList($property_list);
-
+		$company_list = \lib\app\product\company::list();
+		\dash\data::listCompanies($company_list);
 
 	}
 }

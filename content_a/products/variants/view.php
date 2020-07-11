@@ -17,9 +17,6 @@ class view
 
 		\dash\face::title(T_("Variants"). ' | '. $title);
 
-		\dash\face::btnNext(\dash\url::this(). '/next/'. \dash\request::get('id'));
-		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
-
 
 		// back
 		\dash\data::back_text(T_('Back'));

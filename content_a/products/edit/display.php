@@ -241,51 +241,6 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-<section class="jbox">
-  <header data-kerkere='.seoData' data-kerkere-icon='open'><h2><?php echo T_("Customize for SEO"); ?></h2></header>
-  <div class="pad">
-
-    <div class="seoPreview">
-      <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/p/<?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?>">
-        <cite><span><?php echo \dash\url::kingdom(); ?>/p/</span><?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?></cite>
-      </a>
-      <div class="f">
-        <div class="c s12 pLa10">
-          <h3><?php if(\dash\data::productDataRow_seotitle()) { echo \dash\data::productDataRow_seotitle(); }else{ echo \dash\data::productDataRow_title(); } ?> | <?php echo \dash\face::site(); ?></h3>
-          <p class="desc"><?php echo \dash\get::index($productDataRow,'seodesc'); ?></p>
-        </div>
-        <div class="cauto os s12">
-          <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
-        </div>
-      </div>
-    </div>
-
-    <div class="seoData" data-kerkere-content='hide'>
-        <hr>
-        <div>
-          <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
-          <div class="input">
-            <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::productDataRow_seotitle()) {echo \dash\data::productDataRow_title();} ?>' value="<?php echo \dash\get::index($productDataRow,'seotitle'); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
-            <label class="addon"> | <?php echo \dash\face::site(); ?></label>
-          </div>
-        </div>
-
-
-        <div>
-          <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your product url."); ?></small></label>
-          <div class="input ltr mB10">
-            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo \dash\get::index($productDataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
-          </div>
-        </div>
-
-        <div>
-          <label for='seoDesc'><?php echo T_("SEO Description"); ?> <small><?php echo T_("If leave it empty we are generate it automatically"); ?></small></label>
-          <textarea class="txt" name="seodesc" id="seoDesc" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo \dash\get::index($productDataRow,'seodesc'); ?></textarea>
-        </div>
-    </div>
-
-  </div>
-</section>
 
 
 <section class="jbox">
@@ -353,6 +308,55 @@ $productDataRow = \dash\data::productDataRow();
 
 
 <?php } //endif ?>
+
+
+
+<section class="jbox">
+  <header data-kerkere='.seoData' data-kerkere-icon='open'><h2><?php echo T_("Customize for SEO"); ?></h2></header>
+  <div class="pad">
+
+    <div class="seoPreview">
+      <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/p/<?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?>">
+        <cite><span><?php echo \dash\url::kingdom(); ?>/p/</span><?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?></cite>
+      </a>
+      <div class="f">
+        <div class="c s12 pLa10">
+          <h3><?php if(\dash\data::productDataRow_seotitle()) { echo \dash\data::productDataRow_seotitle(); }else{ echo \dash\data::productDataRow_title(); } ?> | <?php echo \dash\face::site(); ?></h3>
+          <p class="desc"><?php echo \dash\get::index($productDataRow,'seodesc'); ?></p>
+        </div>
+        <div class="cauto os s12">
+          <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
+        </div>
+      </div>
+    </div>
+
+    <div class="seoData" data-kerkere-content='hide'>
+        <hr>
+        <div>
+          <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
+          <div class="input">
+            <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::productDataRow_seotitle()) {echo \dash\data::productDataRow_title();} ?>' value="<?php echo \dash\get::index($productDataRow,'seotitle'); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
+            <label class="addon"> | <?php echo \dash\face::site(); ?></label>
+          </div>
+        </div>
+
+
+        <div>
+          <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your product url."); ?></small></label>
+          <div class="input ltr mB10">
+            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo \dash\get::index($productDataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
+          </div>
+        </div>
+
+        <div>
+          <label for='seoDesc'><?php echo T_("SEO Description"); ?> <small><?php echo T_("If leave it empty we are generate it automatically"); ?></small></label>
+          <textarea class="txt" name="seodesc" id="seoDesc" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo \dash\get::index($productDataRow,'seodesc'); ?></textarea>
+        </div>
+    </div>
+
+  </div>
+</section>
+
 
 
   </div>
@@ -461,272 +465,97 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-<section class="jbox">
-  <div data-response='type' data-response-where='product|file' <?php if(\dash\data::productDataRow_type() == 'service'){ echo 'data-response-hide';} ?>>
-  <header data-kerkere='.unitsgPanel' data-kerkere-icon='close'><h2><?php echo T_("General property"); ?></h2></header>
-  <div class="pad unitsgPanel hideIn">
 
-    <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() == 'product'){}else{ echo 'data-response-hide';} ?>>
-         <div class="mB10">
-        <label for='company'><?php echo T_("Manufacturer"); ?></label>
-        <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product manufacturer"); ?>'>
-          <option></option>
-
-          <?php if(\dash\data::productDataRow_company_id()) {?>
-
-            <option value="0"><?php echo T_("Without manufacturer"); ?></option>
-
-          <?php } //endif ?>
-
-          <?php foreach (\dash\data::listCompanies() as $key => $value) {?>
-
-            <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_company_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
-
-          <?php } //endfor ?>
-
-        </select>
-      </div>
-
-        <div><?php echo T_("Dimensions"); ?> <span class="fc-mute"> <?php echo \dash\get::index($storData,'length_detail','name'); ?></span></div>
-      <div class="f">
-
-        <div class="c">
-          <label for="iLength"><?php echo T_("Length"); ?></label>
-          <div class="input">
-           <input type="text" name="length" id="iLength" value="<?php echo \dash\get::index($productDataRow,'length'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
-          </div>
-        </div>
-
-
-
-        <div class="c mLa5">
-          <label for="iWidth"><?php echo T_("Width"); ?></label>
-          <div class="input">
-           <input type="text" name="width" id="iWidth" value="<?php echo \dash\get::index($productDataRow,'width'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
-          </div>
-        </div>
-
-
-
-        <div class="c mLa5">
-          <label for="iHeight"><?php echo T_("Height"); ?></label>
-          <div class="input">
-           <input type="text" name="height" id="iHeight" value="<?php echo \dash\get::index($productDataRow,'height'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
-          </div>
-        </div>
-
-
-      </div>
-
-      <label for="iweight"><?php echo T_("Weight"); ?></label>
-      <div class="input">
-       <input type="text" name="weight" id="iweight" value="<?php echo \dash\get::index($productDataRow,'weight'); ?>"  autocomplete="off" maxlength="7" data-format='number'>
-       <div class="addon"><?php echo \dash\get::index($storData,'mass_detail','name'); ?></div>
-      </div>
-
-    </div>
-
-    <div data-response='type' data-response-where='file' <?php if(\dash\data::productDataRow_type() == 'file'){}else{echo 'data-response-hide';} ?>>
-      <label for="iFileSize"><?php echo T_("File Size"); ?></label>
-      <div class="input">
-       <input type="text" name="filesize" id="iFileSize" value="<?php echo \dash\get::index($productDataRow,'filesize'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
-       <div class="addon"><?php echo T_("MB"); ?></div>
-      </div>
-      <label for="iFileAddress"><?php echo T_("File Address"); ?></label>
-      <div class="input">
-       <input type="url" name="fileaddress" id="iFileAddress" value="<?php echo \dash\get::index($productDataRow,'fileaddress'); ?>"   maxlength="500">
-      </div>
-    </div>
-
-  </div>
-  </div>
-</section>
-
-<div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
-    <section class="jbox">
-    <header data-kerkere='.salePanel' data-kerkere-icon='<?php if(\dash\data::productDataRow_minsale() || \dash\data::productDataRow_maxsale() || \dash\data::productDataRow_salestep()) {echo 'open';}else{echo 'close';} ?>'><h2><?php echo T_("Cart Limit"); ?></h2></header>
-    <div class="pad salePanel <?php if(\dash\data::productDataRow_minsale() || \dash\data::productDataRow_maxsale() || \dash\data::productDataRow_salestep()) {}else{echo 'hideIn';} ?>">
-      <div class="f">
-        <div class="c s12 pRa5">
-          <label for='minsale'><?php echo T_("Min quantity per order"); ?></label>
-          <div class="input">
-           <input type="text" name="minsale" id="minsale" data-format='number' value="<?php echo \dash\get::index($productDataRow,'minsale'); ?>" maxlength="7">
-          </div>
-        </div>
-        <div class="c s12">
-          <label for='maxsale'><?php echo T_("Max quantity per order"); ?></label>
-          <div class="input">
-           <input type="text" name="maxsale" id="maxsale" data-format='number' value="<?php echo \dash\get::index($productDataRow,'maxsale'); ?>" maxlength="7">
-          </div>
-        </div>
-      </div>
-      <label for='salestep'><?php echo T_("Step quantity"); ?></label>
-      <div class="input">
-       <input type="text" name="salestep" id="salestep" data-format='number' value="<?php echo \dash\get::index($productDataRow,'salestep'); ?>" maxlength="7">
-      </div>
-    </div>
-  </section>
-</div>
-<?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productFamily()) {?>
-  <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
-    <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
-      <section class="jbox">
-        <header data-kerkere='.variantPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Variants"); ?></h2></header>
-        <div class="pad variantPanelLink" data-kerkere-content='hide'>
-          <a class="btn link" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
-        </div>
-      </section>
-    </div>
-  <?php } //endif ?>
-<?php } //endif ?>
-
-
-
-    <section class="jbox hide">
-      <header data-kerkere='.propertyPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Property"); ?></h2></header>
-      <div class="pad propertyPanelLink" data-kerkere-content='hide'>
-          <a class="btn link" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product properties"); ?></a>
-          <a class="btn link" href="<?php echo \dash\url::this(); ?>/bullet?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("Manage product feature bullet"); ?></a>
-      </div>
-    </section>
-
-
-  <?php if(\dash\data::productDataRow_variant_child() || \dash\data::productFamily()) {?>
-
-
-    <section class="jbox">
-      <header data-kerkere='.variantPanel' data-kerkere-icon='open'><h2><?php echo T_("Variants"); ?></h2></header>
-      <div class="pad variantPanel">
-        <?php if(isset($productDataRow['parentDetail']['id']) && $productDataRow['parentDetail']['id'] != \dash\request::get('id') ) {?>
-
-    <div class="msg f primary outline">
-      <div class="cauto"><span class="mRa10 sf-atom"></span></div>
-      <div class="c">
-        <?php echo $productDataRow['parentDetail']['title']; ?>
-
-      </div>
-      <div class="cauto">
-        <a href="<?php echo \dash\url::that(); ?>?id=<?php echo $productDataRow['parentDetail']['id']; ?>" class="btn xs success"><?php echo T_("Edit"); ?></a>
-      </div>
-    </div>
-
-    <?php } //endif ?>
-
-    <?php if(\dash\data::productDataRow_variant_child()) {?>
-
-    <?php foreach (\dash\data::productDataRow_child() as $key => $value) {?>
-
-
-      <div class="msg f">
-        <div class="cauto"><span class="mRa10"><?php echo \dash\fit::number($key + 1); ?></span></div>
-        <div class="c">
-          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
-          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
-          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
-        </div>
-        <div class="cauto">
-          <a href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn xs outline primary"><?php echo T_("Edit"); ?></a>
-        </div>
-      </div>
-    <?php } //endfor ?>
-
-  <?php }elseif(\dash\data::productFamily()) {?>
-
-
-    <?php foreach (\dash\data::productFamily() as $key => $value) {?>
-
-
-      <div class="msg f <?php if(\dash\request::get('id') == $value['id']) { echo 'primary2';} ?>">
-        <div class="cauto"><span class="mRa10"><?php echo \dash\fit::number($key + 1); ?></span></div>
-        <div class="c">
-          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
-          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
-          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
-        </div>
-        <?php if(\dash\request::get('id') == $value['id']) {?>
-
-          <div class="cauto"><i class="sf-check"></i></div>
-
-        <?php }else{ ?>
-
-          <div class="cauto">
-            <a href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn xs outline primary"><?php echo T_("Edit"); ?></a>
-          </div>
-
-        <?php } //endif ?>
-
-      </div>
-
-    <?php }//endfor ?>
-
-
-
-    <?php }//endif ?>
-
-
-  </div>
-</section>
-<?php } //endif ?>
 
 
 <?php if(\dash\url::child() == 'edit') {?>
 
-  <section class="jbox hide">
-    <header data-kerkere='.reportproduct' data-kerkere-icon='close'><h2><?php echo T_("Reports"); ?></h2></header>
-    <div class="pad reportproduct"  data-kerkere-content='hide'>
-      <ul>
-        <li><a class="btn link" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><?php echo T_("Price change chart"); ?></a></li>
-        <li><a class="btn link" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><?php echo T_("Comments"); ?></a></li>
-      </ul>
-    </div>
-  </section>
-
-
-
-  <section class="jbox">
-    <header data-kerkere='.deleteproduct' data-kerkere-icon='close'><h2><?php echo T_("Status"); ?></h2></header>
-    <div class="pad deleteproduct" data-kerkere-content='hide'>
-
-      <div class="mB10">
-        <label for="status"><?php echo T_("Status"); ?></label>
-        <select name="status" id="status" class="select22">
-          <option value="available" <?php if(\dash\data::productDataRow_status() == 'available') {echo 'selected';} ?>><?php echo T_("Available"); ?></option>
-          <option value="soon" <?php if(\dash\data::productDataRow_status() == 'soon') {echo 'selected';} ?>><?php echo T_("Soon"); ?></option>
-          <option value="unavailable" <?php if(\dash\data::productDataRow_status() == 'unavailable') {echo 'selected';} ?>><?php echo T_("Unavailable"); ?></option>
-          <option value="discountinued" <?php if(\dash\data::productDataRow_status() == 'discountinued') {echo 'selected';} ?>><?php echo T_("Discountinued"); ?></option>
-          <?php if(\dash\data::productIsDeleted()) {?>
-          <option value="deleted" <?php if(\dash\data::productDataRow_status() == 'deleted') {echo 'selected';} ?>><?php echo T_("Deleted"); ?></option>
-          <?php } //endif ?>
-        </select>
-      </div>
-
-      <?php if(!\dash\data::productIsDeleted()) {?>
-      <div class="txtRa">
-
-        <div class="btn danger sm" data-confirm data-data='{"delete":"product"}'><?php echo T_("Remove product"); ?></div>
-      </div>
-    <?php } //endif ?>
-    </div>
-  </section>
-
-  <nav class="items">
+  <nav class="items long">
      <ul>
        <li>
-        <li><a class="f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Edit Description") ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><?php echo T_("Manage product properties"); ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::this(); ?>/bullet?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><?php echo T_("Manage product feature bullet"); ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>"><div class="key"><i class="sf-list mRa10"></i><?php echo T_("Edit Description") ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-grid-1 mRa10"></i><?php echo T_("Manage product properties"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/bullet?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-check mRa10"></i><?php echo T_("Manage product feature bullet"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-comment mRa10"></i><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/cartlimit?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-cart-plus mRa10"></i><?php echo T_("Cart Limit"); ?></div><div class="go"></div></a></li>
+        <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productFamily()) {?>
+        <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
+          <li><a class="f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo T_("Make product variants"); ?></div><div class="go"></div></a></li>
+        <?php } //endif ?>
+      <?php } //endif ?>
+
        </li>
      </ul>
    </nav>
 
-    <nav class="items">
+
+    <nav class="items long">
      <ul>
        <li>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Price change chart"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-chart-line mRa10"></i><?php echo T_("Price change chart"); ?></div><div class="go"></div></a></li>
        </li>
      </ul>
    </nav>
+
+   <nav class="items long">
+     <ul>
+       <li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/status?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Status"); ?></div><div class="go"><?php echo T_(\dash\data::productDataRow_status()); ?></div></a></li>
+       </li>
+     </ul>
+   </nav>
+
+
+
+  <?php if(\dash\data::productDataRow_variant_child() || \dash\data::productFamily()) {?>
+
+  <nav class="items long">
+    <ul>
+      <?php if(isset($productDataRow['parentDetail']['id']) && $productDataRow['parentDetail']['id'] != \dash\request::get('id') ) {?>
+        <li><a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo $productDataRow['parentDetail']['id']; ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo $productDataRow['parentDetail']['title']; ?></div><div class="go"></div></a></li>
+      <?php } //endif ?>
+      <?php if(\dash\data::productDataRow_variant_child()) {?>
+
+      <?php foreach (\dash\data::productDataRow_child() as $key => $value) {?>
+
+          <li>
+            <a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>">
+            <div class="key">
+              <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
+              <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
+              <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
+            </div>
+          <div class="go"></div></a></li>
+
+      <?php } //endfor ?>
+
+      <?php }elseif(\dash\data::productFamily()) {?>
+
+
+      <?php foreach (\dash\data::productFamily() as $key => $value) {?>
+
+        <li>
+            <a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>">
+            <div class="key">
+              <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
+              <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
+              <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
+            </div>
+          <div class="go"></div></a></li>
+
+          <?php if(\dash\request::get('id') == $value['id']) {?><?php }else{ ?><?php } //endif ?>
+
+      <?php }//endfor ?>
+
+
+
+      <?php }//endif ?>
+    </ul>
+  </nav>
+
+
+<?php } //endif ?>
+
 
 <?php } //endif ?>
 

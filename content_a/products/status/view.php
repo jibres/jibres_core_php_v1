@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\property;
+namespace content_a\products\status;
 
 
 class view
@@ -15,26 +15,19 @@ class view
 			$title = T_("Without name");
 		}
 
-		\dash\face::title(T_("Property"). ' | '. $title);
+		\dash\face::title(T_("Status"). ' | '. $title);
 
 		\dash\face::btnSave('form1');
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
-
-
-		if(\dash\data::productDataRow_url())
+		if(\dash\data::productDataRow_status() === 'deleted')
 		{
-			\dash\face::btnView(\dash\data::productDataRow_url());
+			\dash\data::productIsDeleted(true);
+			\dash\face::title($title. ' ('. T_("Deleted"). ')');
+
 		}
-
-		\dash\face::help(\dash\url::support().'/property');
-
-
-		$property_list = \lib\app\product\property::get($id);
-		\dash\data::propertyList($property_list);
-
 
 	}
 }
