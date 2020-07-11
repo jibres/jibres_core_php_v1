@@ -29,8 +29,8 @@ foreach ($myGallery as $key => $item)
 ?>
           </div>
         </div>
-        <div class="c-xs-12 c-4">
-          <div class="imgBlock">
+        <div class="c-xs-12 c-auto">
+          <div class="featureImgBlock">
             <a class="featureImg" data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
               <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
             </a>
