@@ -86,6 +86,19 @@ class store
 	}
 
 
+	public static function url()
+	{
+		if(\dash\engine\store::inCustomerDomain())
+		{
+			return \dash\url::kingdom();
+		}
+		else
+		{
+			return \dash\url::set_subdomain(\lib\store::detail('subdomain'));
+		}
+	}
+
+
 	/**
 	 * initial store detail
 	 */

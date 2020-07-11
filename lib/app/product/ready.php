@@ -38,7 +38,7 @@ class ready
 			{
 				case 'id':
 					$result[$key] = $value;
-					$result['url'] = \dash\url::set_subdomain(\lib\store::detail('subdomain')). '/p/'. $value;
+					$result['url'] = \lib\store::url(). '/p/'. $value;
 					break;
 
 				case 'cat_id':
