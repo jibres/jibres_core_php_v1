@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\location\country;
+namespace content_r10\location\city;
 
 
 class controller
