@@ -62,6 +62,7 @@ else
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
                 <th><?php echo T_("Thirdparty") ?></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'total', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'total', 'link'); ?>"><?php echo T_("Total pay"); ?></a></th>
+                <th data-sort="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'link'); ?>"><?php echo T_("Total item by vat"); ?></a></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
                 <th><?php echo T_("Season") ?></th>
 
@@ -90,16 +91,10 @@ else
                     <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
                   </a>
                 </td>
-                <td>
-                    <?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?>
-                </td>
-                <td>
-                    <?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?>
-                </td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>
+                <td><?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?></td>
                 <td><?php echo \dash\fit::number(\dash\get::index($value, 'season')); ?></td>
-
-
-
             </tr>
             <?php } //endfor ?>
         </tbody>
