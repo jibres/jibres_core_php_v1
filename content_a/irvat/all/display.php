@@ -82,14 +82,18 @@ else
                     </a>
                 </td>
 
-                   <td class="collapsing">
-                  <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+
+                <td class="collapsing">
+                  <div  class="f align-center userPack">
                     <div class="c pRa10">
-                      <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-                      <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
+                      <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail_legal', 'mobile'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'user_detail_legal', 'mobile')); ?></div>
+                      <div class="name"><?php echo \dash\get::index($value, 'user_detail_legal', 'companyname'); ?></div>
+                      <div class="name"><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
+                      <div class="name"><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companynationalid')); ?></div>
+                      <div class="name"><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyregisternumber')); ?></div>
                     </div>
                     <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
-                  </a>
+                  </div>
                 </td>
                 <td><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
                 <td><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>

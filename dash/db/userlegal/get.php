@@ -12,5 +12,14 @@ class get
 		return $result;
 	}
 
+
+	public static function by_multi_id($_ids)
+	{
+		$query  = "SELECT *  FROM userlegal WHERE userlegal.user_id IN ($_ids) ";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 }
 ?>

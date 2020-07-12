@@ -118,9 +118,73 @@ class search
 
 		$seller      = array_column($list, 'seller');
 		$customer    = array_column($list, 'customer');
-		$user_detail = array_merge($seller, $customer);
+		$users_id = array_merge($seller, $customer);
 
-		// var_dump($user_detail);exit();
+		$users_id = array_filter($users_id);
+		$users_id = array_unique($users_id);
+		$users_id = array_values($users_id);
+
+		$load_some_user = [];
+		$load_some_user_legal = [];
+
+		if($users_id)
+		{
+			$load_some_user = \dash\db\users\get::by_multi_id(implode(',', $users_id));
+
+			if(!is_array($load_some_user))
+			{
+				$load_some_user = [];
+			}
+
+			$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
+
+			$load_some_user_legal = \dash\db\userlegal\get::by_multi_id(implode(',', $users_id));
+
+			if(!is_array($load_some_user_legal))
+			{
+				$load_some_user_legal = [];
+			}
+
+			$load_some_user_legal = array_combine(array_column($load_some_user_legal, 'user_id'), $load_some_user_legal);
+		}
+
+		foreach ($list as $key => $value)
+		{
+
+			if(isset($value['seller']) && $value['seller'])
+			{
+				if(isset($load_some_user[$value['seller']]))
+				{
+					$user_detail = $load_some_user[$value['seller']];
+					$user_detail = \dash\app\user::ready($user_detail);
+					$list[$key]['user_detail'] = $user_detail;
+				}
+
+				if(isset($load_some_user_legal[$value['seller']]))
+				{
+					$list[$key]['user_detail_legal'] = $load_some_user_legal[$value['seller']];
+				}
+			}
+			elseif(isset($value['customer']) && $value['customer'])
+			{
+				if(isset($load_some_user[$value['customer']]))
+				{
+					$user_detail = $load_some_user[$value['customer']];
+					$user_detail = \dash\app\user::ready($user_detail);
+					$list[$key]['user_detail'] = $user_detail;
+				}
+
+				if(isset($load_some_user_legal[$value['customer']]))
+				{
+					$list[$key]['user_detail_legal'] = $load_some_user_legal[$value['customer']];
+				}
+			}
+			else
+			{
+
+				$list[$key]['user_detail'] = \dash\app::fix_avatar([]);
+			}
+		}
 
 		$list = array_map(['\\lib\\app\\irvat\\ready', 'row'], $list);
 
