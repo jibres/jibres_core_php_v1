@@ -230,7 +230,7 @@
                     default: break;
                   } ?>
                   <?php if($legal_title && $value) {?>
-                  <li><a class="f" ><div class="key"><?php echo T_($value); ?></div><div class="go"><?php echo T_($legal_title); ?></div></a></li>
+                  <li><a class="f" ><div class="key"><?php echo $legal_title; ?></div><div class=""><?php echo $value; ?></div></a></li>
                 <?php } //endif ?>
               <?php } //endfor ?>
                </ul>
