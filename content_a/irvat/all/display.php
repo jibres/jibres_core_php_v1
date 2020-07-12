@@ -112,7 +112,7 @@ else
 <?php $sortLink = \dash\data::sortLink(); ?>
 
 <div class="fs12">
-    <table class="tbl1 v1 responsive">
+    <table class="tbl1 v5 responsive">
         <thead>
             <tr class="fs09">
 
@@ -141,7 +141,7 @@ else
                 </td>
 
                 <td class="ltr txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
-                <td class="ltr txtL"><a href="<?php echo \dash\url::that(). '?year='. \dash\get::index($value, 'year'). '&season='. \dash\get::index($value, 'season'); ?>"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></a></td>
+                <td class="ltr txtL collapsing"><a href="<?php echo \dash\url::that(). '?year='. \dash\get::index($value, 'year'). '&season='. \dash\get::index($value, 'season'); ?>"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></a></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>
                 <td class="ltr txtL">
