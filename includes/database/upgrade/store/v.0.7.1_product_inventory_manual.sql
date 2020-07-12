@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.productinventory ADD `manualcount` bigint(20)  NULL AFTER `datecreated`;

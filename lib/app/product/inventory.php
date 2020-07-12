@@ -49,6 +49,7 @@ class inventory
 			'inventory_id'       => null,
 			'product_id'         => $_product_id,
 			'datecreated'        => date("Y-m-d H:i:s"),
+			'manualcount'        => $count,
 			'count'              => $diff,
 			'stock'              => $count,
 			'thisstock'          => $count,
