@@ -154,11 +154,20 @@
 
 
               <?php if(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user')) {?>
-                <div class="msg mTB10">
-                  <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'avatar'); ?>" class="avatar">
-                  <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'displayname'); ?>
-                  <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'companyname'); ?>
-                </div>
+                <nav class="items long mT10">
+               <ul>
+                <li>
+                    <a class="f" >
+                      <div class="key">
+                        <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'avatar'); ?>" class="avatar">
+                      </div>
+                    <div class="go">
+                      <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'displayname'); ?>
+                    </div>
+                  </a>
+                </li>
+                </ul>
+              </nav>
                 <?php \dash\data::dataRowLegal(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail')); \dash\data::dataRowLegalUserID(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'id')); ?>
 
               <?php } //endif ?>
@@ -175,11 +184,20 @@
               </div>
 
               <?php if(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user')) {?>
-                <div class="msg mTB10">
-                  <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
-                  <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'displayname'); ?>
-                  <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'companyname'); ?>
-                </div>
+              <nav class="items long mT10">
+               <ul>
+                <li>
+                    <a class="f" >
+                      <div class="key">
+                        <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
+                      </div>
+                    <div class="go">
+                      <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'displayname'); ?>
+                    </div>
+                  </a>
+                </li>
+                </ul>
+              </nav>
                 <?php \dash\data::dataRowLegal(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail')); \dash\data::dataRowLegalUserID(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'id')); ?>
 
 
