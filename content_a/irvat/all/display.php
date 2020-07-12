@@ -58,17 +58,17 @@ else
             <tr class="fs09">
 
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'factordate', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'factordate', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'total', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'total', 'link'); ?>"><?php echo T_("Total pay"); ?></a></th>
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'link'); ?>"><?php echo T_("Total item by vat"); ?></a></th>
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
-                <th><?php echo T_("Season") ?></th>
-                <th class="collapsing"><?php echo T_("Economic code") ?><br><?php echo T_("Company national id"); ?> </th>
-                <th class=""><?php echo T_("Thirdparty") ?></th>
+                <th class="txtL collapsing" data-sort="<?php echo \dash\get::index($sortLink, 'factordate', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'factordate', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
+                <th class="txtL collapsing"><?php echo T_("Season") ?></th>
+                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'total', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'total', 'link'); ?>"><?php echo T_("Total pay"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'link'); ?>"><?php echo T_("Total item by vat"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
+                <th class="txtL collapsing"><?php echo T_("Economic code") ?><br><?php echo T_("Company national id"); ?> </th>
+                <th class="txtC collapsing"><?php echo T_("Thirdparty") ?></th>
 
             </tr>
         </thead>
-        <tbody class="fs12">
+        <tbody class="">
 
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
@@ -82,10 +82,10 @@ else
                 </td>
 
                 <td class="ltr txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
+                <td class="ltr txtL"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?></td>
-                <td class="ltr txtL"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></td>
 
                 <td class="fs08 txtL ltr collapsing">
                   <div><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
