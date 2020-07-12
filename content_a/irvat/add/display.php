@@ -53,7 +53,7 @@
               <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\data::dataRow_factordate_raw(); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
             </div>
 
-            <label for="total"><?php echo T_("Total factor price"); ?></label>
+            <label for="total"><?php echo T_("Total pay"); ?></label>
             <div class="input ltr">
               <input type="text" name="total" value="<?php echo \dash\data::dataRow_total(); ?>" id="total" max="9999999" data-format='price'>
             </div>
@@ -77,7 +77,16 @@
 
               </div>
             </div>
-
+            <?php if(\dash\data::dataRow_sumvat() || \dash\data::dataRow_subtotalitembyvat()) {
+              $total = floatval(\dash\data::dataRow_sumvat()) + floatval(\dash\data::dataRow_subtotalitembyvat());
+              $class = 'success';
+              if(floatval($total) !== floatval(\dash\data::dataRow_total()))
+              {
+                $class = 'danger';
+              }
+              ?>
+              <div class="msg <?php echo $class ?>"><?php echo T_("Total"); ?> <b><?php echo \dash\fit::number($total); ?></b></div>
+            <?php } // endif ?>
 
             <div class="row">
               <div class="c-md-6">
@@ -354,14 +363,15 @@
                   <?php } //endfor ?>
                 </div>
               <?php } //endif ?>
-              <input type="file" name="gallery">
-
               <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+              <input type="file" id="file1" name="gallery">
+              <?php if(false) {?>
 
               <div data-uploader data-name='gallery1' data-ratio=1 data-ratio-free>
                 <input type="file"  id="file1">
                 <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
               </div>
+            <?php } //endif ?>
 
             </div>
           </div>

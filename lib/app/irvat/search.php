@@ -111,14 +111,18 @@ class search
 
 		$list = \lib\db\irvat\search::list($and, $or, $order_sort, $meta);
 
-		if(is_array($list))
-		{
-			$list = array_map(['\\lib\\app\\irvat\\ready', 'row'], $list);
-		}
-		else
+		if(!is_array($list))
 		{
 			$list = [];
 		}
+
+		$seller      = array_column($list, 'seller');
+		$customer    = array_column($list, 'customer');
+		$user_detail = array_merge($seller, $customer);
+
+		// var_dump($user_detail);exit();
+
+		$list = array_map(['\\lib\\app\\irvat\\ready', 'row'], $list);
 
 
 		$filter_args_data = [];
