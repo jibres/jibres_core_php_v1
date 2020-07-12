@@ -57,14 +57,14 @@ else
         <thead>
             <tr class="fs09">
 
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'factordate', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'factordate', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
-
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
-                <th><?php echo T_("Thirdparty") ?></th>
+                <th data-sort="<?php echo \dash\get::index($sortLink, 'factordate', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'factordate', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'total', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'total', 'link'); ?>"><?php echo T_("Total pay"); ?></a></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'subtotalitembyvat', 'link'); ?>"><?php echo T_("Total item by vat"); ?></a></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
                 <th><?php echo T_("Season") ?></th>
+                <th class="collapsing"><?php echo T_("Economic code") ?><br><?php echo T_("Company national id"); ?> </th>
+                <th class=""><?php echo T_("Thirdparty") ?></th>
 
             </tr>
         </thead>
@@ -73,7 +73,6 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
             <tr>
-                <td><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
                 <td>
                     <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link">
 
@@ -82,23 +81,26 @@ else
                     </a>
                 </td>
 
+                <td class="ltr txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
+                <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
+                <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>
+                <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?></td>
+                <td class="ltr txtL"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></td>
+
+                <td class="fs08 txtL ltr collapsing">
+                  <div><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
+                  <div><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companynationalid')); ?></div>
+                </td>
 
                 <td class="collapsing">
                   <div  class="f align-center userPack">
                     <div class="c pRa10">
                       <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail_legal', 'mobile'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'user_detail_legal', 'mobile')); ?></div>
                       <div class="name"><?php echo \dash\get::index($value, 'user_detail_legal', 'companyname'); ?></div>
-                      <div class="name"><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
-                      <div class="name"><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companynationalid')); ?></div>
-                      <div class="name"><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyregisternumber')); ?></div>
                     </div>
                     <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
                   </div>
                 </td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'season')); ?></td>
             </tr>
             <?php } //endfor ?>
         </tbody>
