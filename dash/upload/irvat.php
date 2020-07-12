@@ -43,7 +43,7 @@ class irvat
 			'allow_size' => \dash\upload\size::MB(1),
 			'ext' =>
 			[
-				'jpeg','jpg','png',			// image
+				'jpeg','jpg','png','pdf',			// image
 			],
 		];
 

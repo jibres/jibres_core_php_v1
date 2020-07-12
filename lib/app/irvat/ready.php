@@ -39,7 +39,7 @@ class ready
 						$result['gallery_array'] = json_decode($value, true);
 						if($_option['load_gallery'] && is_array($result['gallery_array']) && $result['gallery_array'])
 						{
-							$result['gallery_array'] = \lib\app\product\gallery::load_detail($result['gallery_array']);
+							$result['gallery_array'] = \lib\app\irvat\gallery::load_detail($result['gallery_array']);
 						}
 					}
 					else
@@ -71,6 +71,7 @@ class ready
 					break;
 			}
 		}
+
 		return $result;
 	}
 }

@@ -1,9 +1,21 @@
+<div class="avand">
+  <div class="row">
+    <div class="c-xs-12"></div>
+  </div>
+</div>
+
 
 <div class="f justify-center">
   <div class="c6 m8 s12">
 
-    <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Add new factor"); ?></h2></header>
+    <form method="post" autocomplete="off" class="box impact" enctype="multipart/form-data">
+      <?php if(\dash\request::get('type') === 'cost') {?>
+        <header><h2><?php echo T_("Add new cost"); ?></h2></header>
+      <?php }elseif(\dash\request::get('type') === 'income'){ ?>
+        <header><h2><?php echo T_("Add new income"); ?></h2></header>
+      <?php }else{ ?>
+        <header><h2><?php echo T_("Add new factor"); ?></h2></header>
+      <?php } ?>
 
       <div class="body">
 
@@ -138,10 +150,11 @@
                 <?php } //endfor ?>
               </div>
             <?php } //endif ?>
+            <input type="file" name="gallery">
 
             <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-            <div data-uploader data-name='gallery' data-ratio=1 data-ratio-free data-autoSend>
+            <div data-uploader data-name='gallery1' data-ratio=1 data-ratio-free data-autoSend>
               <input type="file"  id="file1">
               <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
             </div>
