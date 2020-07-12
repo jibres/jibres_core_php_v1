@@ -45,7 +45,7 @@ class search
 		$condition =
 		[
 			'order'     => 'order',
-			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
+			'sort'      => ['enum' => ['title', 'factordate', 'id']],
 			'domainlen' => 'smallint',
 			'available' => 'bit',
 			'tld'       => 'string_50',
@@ -92,18 +92,14 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['title', 'id']))
+			$sort = mb_strtolower($data['sort']);
+			$order = null;
+			if($data['order'])
 			{
-
-				$sort = mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = mb_strtolower($data['order']);
-				}
-
-				$order_sort = " ORDER BY $sort $order";
+				$order = mb_strtolower($data['order']);
 			}
+
+			$order_sort = " ORDER BY $sort $order";
 		}
 
 		if(!$order_sort)

@@ -28,7 +28,7 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['datecreated'], \dash\url::this());
+		$sortLink = \dash\app\sort::make_sortLink(['datecreated', 'factordate', 'title'], \dash\url::that());
 		\dash\data::sortLink($sortLink);
 
 

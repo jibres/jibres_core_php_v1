@@ -188,57 +188,19 @@
                   switch ($key)
                   {
 
-                    case 'companyname':
-                        $legal_title = T_("Company name");
-                       break;
-
-                    case'companyeconomiccode':
-                        $legal_title = T_("Economic code");
-                        break;
-
-                    case'companynationalid':
-                        $legal_title = T_("Company national id");
-                        break;
-
-                    case'companyregisternumber':
-                        $legal_title = T_("Company register number");
-                        break;
-
-                    case'ceonationalcode':
-                        $legal_title = T_("CEO nationalcode");
-                        break;
-
-                    case'province':
-                        $legal_title = T_("Province");
-                        break;
-
-                    case'city':
-                        $legal_title = T_("City");
-                        break;
-
-                    case'address':
-                        $legal_title = T_("Address");
-                        break;
-
-                    case'postcode':
-                        $legal_title = T_("Post code");
-                        break;
-
-                    case'phone':
-                        $legal_title = T_("Phone");
-                        break;
-
-                    case'mobile':
-                        $legal_title = T_("Mobile");
-                        break;
-
-                    case'fax':
-                        $legal_title = T_("Fax");
-                        break;
-
-                    default:
-
-                      break;
+                    case 'companyname': $legal_title = T_("Company name"); break;
+                    case'companyeconomiccode': $legal_title = T_("Economic code");  break;
+                    case'companynationalid': $legal_title = T_("Company national id");  break;
+                    case'companyregisternumber': $legal_title = T_("Company register number");  break;
+                    case'ceonationalcode': $legal_title = T_("CEO nationalcode");  break;
+                    case'province': $legal_title = T_("Province");  break;
+                    case'city': $legal_title = T_("City");  break;
+                    case'address': $legal_title = T_("Address");  break;
+                    case'postcode': $legal_title = T_("Post code");  break;
+                    case'phone': $legal_title = T_("Phone");  break;
+                    case'mobile': $legal_title = T_("Mobile");  break;
+                    case'fax': $legal_title = T_("Fax");  break;
+                    default: break;
                   } ?>
                   <?php if($legal_title && $value) {?>
                   <li><a class="f" ><div class="key"><?php echo T_($value); ?></div><div class="go"><?php echo T_($legal_title); ?></div></a></li>
@@ -375,16 +337,20 @@
               <?php if(\dash\data::dataRow_gallery_array()) {?>
 
                 <div class="f">
+
                   <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
+                    <?php if(\dash\get::index($value, 'path')){ ?>
                     <div class="cauto pA5 pB10">
+                        <?php if(in_array(substr(\dash\get::index($value, 'path'), -3), ['jpg', 'png'])) {?>
                       <div class="w150">
                         <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
-                        <div>
-                          <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
-
-                        </div>
                       </div>
+                      <?php }else{ ?>
+                        <a class="link btn" target="_blank" href="<?php echo \dash\get::index($value, 'path'); ?>"><?php echo substr(\dash\get::index($value, 'path'), -3) ?></a>
+                        <?php } // endif ?>
+                          <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
                     </div>
+                  <?php } //endif ?>
                   <?php } //endfor ?>
                 </div>
               <?php } //endif ?>
@@ -392,7 +358,7 @@
 
               <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-              <div data-uploader data-name='gallery1' data-ratio=1 data-ratio-free data-autoSend>
+              <div data-uploader data-name='gallery1' data-ratio=1 data-ratio-free>
                 <input type="file"  id="file1">
                 <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
               </div>

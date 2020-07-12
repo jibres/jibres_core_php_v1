@@ -57,10 +57,11 @@ else
         <thead>
             <tr class="fs09">
 
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'code', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'code', 'link'); ?>"><?php echo T_("Code"); ?></a></th>
+                <th data-sort="<?php echo \dash\get::index($sortLink, 'factordate', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'factordate', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
+
+                <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>"><?php echo T_("Thirdparty"); ?></a></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'total', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'total', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
-                <th><?php echo T_("Date") ?></th>
                 <th><?php echo T_("Season") ?></th>
 
             </tr>
@@ -70,6 +71,7 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
             <tr>
+                <td><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
                 <td>
                     <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link">
 
@@ -83,7 +85,6 @@ else
                 <td>
                     <?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?>
                 </td>
-                <td><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
                 <td><?php echo \dash\fit::number(\dash\get::index($value, 'season')); ?></td>
 
 
