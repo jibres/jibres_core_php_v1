@@ -153,12 +153,12 @@ else
                     <?php } //endif ?>
                 </td>
 
-                <td class="fs08 txtL ltr collapsing">
+                <td class="fs08 txtL ltr ">
                   <div><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
                   <div><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companynationalid')); ?></div>
                 </td>
 
-                <td class="collapsing">
+                <td class="">
                   <a href="<?php echo \dash\url::that(). '?seller='. \dash\get::index($value, 'user_detail', 'id');?>"  class="f align-center userPack">
                     <div class="c pRa10">
                       <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail_legal', 'mobile'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'user_detail_legal', 'mobile')); ?></div>
