@@ -20,9 +20,21 @@
       <div class="body">
 
         <label for="title"><?php echo T_("Title"); ?></label>
-        <div class="input">
-          <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>" id="title" maxlength="100" >
-        </div>
+        <?php if(!\dash\data::titleList()) {?>
+          <div class="input">
+            <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>" id="title" maxlength="100" >
+          </div>
+        <?php }else{ ?>
+          <select name="title" id="title" class="select22" data-model='tag' >
+            <option></option>
+
+            <?php foreach (\dash\data::titleList() as $key => $value) {?>
+
+              <option value="<?php echo $value; ?>" <?php if($value == \dash\data::dataRow_title()) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+
+            <?php } //endfor ?>
+          </select>
+        <?php } //endif ?>
 
 
         <label for="code"><?php echo T_("Internal code"); ?></label>

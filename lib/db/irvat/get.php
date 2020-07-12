@@ -12,6 +12,12 @@ class get
 		return $result;
 	}
 
+	public static function all_title()
+	{
+		$query = "SELECT DISTINCT ir_vat.title AS `title` FROM ir_vat";
+		$result = \dash\db::get($query, 'title');
+		return $result;
+	}
 
 	public static function all()
 	{

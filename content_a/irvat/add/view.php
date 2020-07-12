@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/all');
 
-
+		\dash\data::titleList(\lib\app\irvat\get::title_list());
 	}
 }
 ?>

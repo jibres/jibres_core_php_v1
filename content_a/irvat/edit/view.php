@@ -18,6 +18,8 @@ class view
 
 		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));
 
+		\dash\data::titleList(\lib\app\irvat\get::title_list());
+
 	}
 }
 ?>

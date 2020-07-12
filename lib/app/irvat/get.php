@@ -5,6 +5,11 @@ namespace lib\app\irvat;
 class get
 {
 
+	public static function title_list()
+	{
+		$get_title = \lib\db\irvat\get::all_title();
+		return $get_title;
+	}
 
 	public static function inline_get($_id)
 	{
