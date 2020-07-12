@@ -1,37 +1,37 @@
 <?php $myData = \dash\data::summaryDetail(); ?>
 <section class="f">
   <div class="c pRa10">
-    <a class="stat">
+    <a class="stat x70">
       <h3><?php echo T_("Count");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'count'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a class="stat">
+    <a class="stat x70">
       <h3><?php echo T_("Total pay");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'total'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a class="stat">
+    <a class="stat x70">
       <h3><?php echo \dash\fit::text("Sum item by vat");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'subtotalitembyvat'));?></div>
     </a>
   </div>
    <div class="c pRa10">
-    <a class="stat">
+    <a class="stat x70">
       <h3><?php echo \dash\fit::text("Sum vat");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a class="stat">
+    <a class="stat x70">
       <h3><?php echo \dash\fit::text("6%");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat6'));?></div>
     </a>
   </div>
   <div class="c pRa10">
-    <a class="stat">
+    <a class="stat x70">
       <h3><?php echo \dash\fit::text("3%");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat3'));?></div>
     </a>
@@ -122,10 +122,17 @@ else
                 </td>
 
                 <td class="ltr txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'factordate')); ?></td>
-                <td class="ltr txtL"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></td>
+                <td class="ltr txtL"><a href="<?php echo \dash\url::that(). '?year='. \dash\get::index($value, 'year'). '&season='. \dash\get::index($value, 'season'); ?>"><?php echo \dash\fit::text(\dash\get::index($value, 'year'). ' / '. \dash\get::index($value, 'season')); ?></a></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></td>
                 <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'subtotalitembyvat')); ?></td>
-                <td class="ltr txtL"><?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?></td>
+                <td class="ltr txtL">
+                    <?php echo \dash\fit::number(\dash\get::index($value, 'sumvat')); ?>
+
+
+                    <?php if(!\dash\get::index($value, 'vat_ok')) {?>
+                        <i title="<?php echo \dash\fit::number(\dash\get::index($value, 'vat_9_percent')); ?>" class="sf-info fc-red fs14"></i>
+                    <?php } //endif ?>
+                </td>
 
                 <td class="fs08 txtL ltr collapsing">
                   <div><?php echo \dash\fit::text(\dash\get::index($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
@@ -156,7 +163,7 @@ else
 <?php function htmlFilter() {?>
 <p class="f fs14 msg warn2">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
+  <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 
 <?php } //endfunction ?>

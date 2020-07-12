@@ -72,6 +72,19 @@ class ready
 			}
 		}
 
+		if(isset($result['subtotalitembyvat']) && isset($result['sumvat']))
+		{
+			$vat_ok = false;
+			$vat_9_percent = floatval($result['subtotalitembyvat']) * 0.09;
+			if(round($vat_9_percent) === round(floatval($result['sumvat'])))
+			{
+				$vat_ok = true;
+			}
+			$result['vat_9_percent'] = $vat_9_percent;
+
+			$result['vat_ok'] = $vat_ok;
+		}
+
 		return $result;
 	}
 }

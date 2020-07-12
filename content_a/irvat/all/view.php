@@ -18,8 +18,12 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
+			'order'    => \dash\request::get('order'),
+			'sort'     => \dash\request::get('sort'),
+			'season'   => \dash\request::get('season'),
+			'year'     => \dash\request::get('year'),
+			'seller'   => \dash\request::get('seller'),
+			'customer' => \dash\request::get('customer'),
 		];
 
 		$search_string = \dash\request::get('q');

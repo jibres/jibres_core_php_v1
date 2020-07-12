@@ -50,7 +50,10 @@ class search
 			'sort'      => ['enum' => ['title', 'factordate', 'id']],
 			'domainlen' => 'smallint',
 			'available' => 'bit',
-			'tld'       => 'string_50',
+			'season'    => 'smallint',
+			'year'      => 'int',
+			'seller'    => 'code',
+			'customer'  => 'code',
 		];
 
 		$require = [];
@@ -91,6 +94,31 @@ class search
 			self::$is_filtered = true;
 		}
 
+		if($data['season'])
+		{
+			$and[] = " ir_vat.season = $data[season] ";
+			self::$is_filtered = true;
+		}
+
+		if($data['year'])
+		{
+			$and[] = " ir_vat.year = $data[year] ";
+			self::$is_filtered = true;
+		}
+
+		if($data['seller'])
+		{
+			$data['seller'] = \dash\coding::decode($data['seller']);
+			$and[] = " ir_vat.seller = $data[seller] ";
+			self::$is_filtered = true;
+		}
+
+		if($data['customer'])
+		{
+			$data['customer'] = \dash\coding::decode($data['customer']);
+			$and[] = " ir_vat.customer = $data[customer] ";
+			self::$is_filtered = true;
+		}
 
 		if($data['sort'] && !$order_sort)
 		{
