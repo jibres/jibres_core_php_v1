@@ -93,7 +93,7 @@
 echo T_("Don't miss out on great deals! :start or :login to view products added.",
  [
   'start' => "<a href='". \dash\url::kingdom() ."'>". T_('Start shopping'). "</a>",
-  'login' => "<a href='". \dash\url::kingdom() ."/enter'>". T_('log in'). "</a>",
+  'login' => "<a href='". \dash\url::kingdom() ."/enter'>". T_('login'). "</a>",
  ]
 );
 ?></p>

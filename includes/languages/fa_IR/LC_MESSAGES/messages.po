@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-12 19:16+0430\n"
-"PO-Revision-Date: 2020-07-12 19:17+0430\n"
+"POT-Creation-Date: 2020-07-12 19:44+0430\n"
+"PO-Revision-Date: 2020-07-12 20:02+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -754,7 +754,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 
 #: content/changelog/display.php:11 content_a/cart/add/display.php:53
 #: content_a/cart/home/display.php:111 content_a/factor/home/display.php:476
-#: content_a/irvat/all/display.php:123 content_a/order/detail/display.php:190
+#: content_a/irvat/all/display.php:133 content_a/order/detail/display.php:190
 #: content_a/order/home/display.php:484 content_a/products/comment/display.php:86
 #: content_account/billing/display.php:53 content_account/billing/display.php:60
 #: content_cms/attachment/home/display.php:82 content_cms/comments/home/display.php:85
@@ -1272,18 +1272,19 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content/domains/home/display.php:9 content/domains/search/display.php:8
 #: content_a/cart/home/display.php:75 content_a/cart/home/display.php:83
 #: content_a/category/home/display.php:117 content_a/factor/home/display.php:90
-#: content_a/factor/home/display.php:98 content_a/irvat/all/display.php:104
-#: content_a/irvat/all/display.php:105 content_a/order/home/display.php:98
-#: content_a/order/home/display.php:106 content_a/products/comment/display.php:50
-#: content_a/products/comment/display.php:58 content_a/products/tag/display.php:68
-#: content_a/products/tag/display.php:69 content_cms/attachment/home/display.php:47
-#: content_cms/attachment/home/display.php:55 content_cms/comments/home/display.php:49
-#: content_cms/comments/home/display.php:57 content_cms/posts/home/display.php:55
-#: content_cms/posts/home/display.php:61 content_cms/terms/display.php:74
-#: content_cms/terms/display.php:75 content_cms/terms/view.php:109
-#: content_crm/log/home/display.php:50 content_crm/log/home/display.php:55
-#: content_crm/member/home/display.php:57 content_crm/member/home/display.php:58
-#: content_crm/transactions/display.php:46 content_love/application/home/display.php:58
+#: content_a/factor/home/display.php:98 content_a/irvat/all/display.php:86
+#: content_a/irvat/all/display.php:111 content_a/irvat/all/display.php:115
+#: content_a/order/home/display.php:98 content_a/order/home/display.php:106
+#: content_a/products/comment/display.php:50 content_a/products/comment/display.php:58
+#: content_a/products/tag/display.php:68 content_a/products/tag/display.php:69
+#: content_cms/attachment/home/display.php:47 content_cms/attachment/home/display.php:55
+#: content_cms/comments/home/display.php:49 content_cms/comments/home/display.php:57
+#: content_cms/posts/home/display.php:55 content_cms/posts/home/display.php:61
+#: content_cms/terms/display.php:74 content_cms/terms/display.php:75
+#: content_cms/terms/view.php:109 content_crm/log/home/display.php:50
+#: content_crm/log/home/display.php:55 content_crm/member/home/display.php:57
+#: content_crm/member/home/display.php:58 content_crm/transactions/display.php:46
+#: content_love/application/home/display.php:58
 #: content_love/application/home/display.php:59 content_love/domain/all/display.php:44
 #: content_love/domain/all/display.php:45 content_love/domain/billing/display.php:72
 #: content_love/domain/fetch/display.php:44 content_love/domain/fetch/display.php:45
@@ -4118,7 +4119,7 @@ msgstr "صفحه"
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
 #: content_a/category/add/display.php:28 content_a/category/edit/display.php:11
 #: content_a/category/home/display.php:67 content_a/company/display.php:41
-#: content_a/irvat/add/display.php:18 content_a/irvat/all/display.php:122
+#: content_a/irvat/add/display.php:18 content_a/irvat/all/display.php:132
 #: content_a/order/detail/display.php:95 content_a/products/comment/display.php:83
 #: content_a/products/edit/display.php:16 content_a/products/home/display.php:67
 #: content_a/products/home/display.php:119 content_a/products/tag/display.php:90
@@ -4508,7 +4509,7 @@ msgstr "گزینه"
 
 #: content_a/cart/home/display.php:170 content_a/cart/home/display.php:178
 #: content_a/category/home/display.php:157 content_a/factor/home/display.php:259
-#: content_a/factor/home/display.php:267 content_a/irvat/all/display.php:188
+#: content_a/factor/home/display.php:267 content_a/irvat/all/display.php:198
 #: content_a/order/home/display.php:267 content_a/order/home/display.php:275
 #: content_a/products/comment/display.php:161 content_a/products/comment/display.php:169
 #: content_a/products/filter.php:25 content_a/products/home/display.php:179
@@ -4847,7 +4848,7 @@ msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
 #: content_a/category/home/display.php:168 content_a/company/display.php:136
-#: content_a/factor/home/display.php:273 content_a/irvat/all/display.php:200
+#: content_a/factor/home/display.php:273 content_a/irvat/all/display.php:210
 #: content_a/order/home/display.php:281 content_a/products/home/display.php:190
 #: content_a/products/tag/display.php:224 content_a/units/display.php:149
 #: content_account/notification/display.php:68 content_cms/attachment/home/display.php:144
@@ -4910,7 +4911,7 @@ msgid "Setting"
 msgstr "تنظیمات"
 
 #: content_a/category/home/view.php:44 content_a/factor/home/view.php:63
-#: content_a/irvat/all/view.php:49 content_a/order/home/view.php:63
+#: content_a/irvat/all/view.php:51 content_a/order/home/view.php:63
 #: content_a/products/comment/view.php:58 content_a/products/home/view.php:84
 #: content_a/products/tag/display.php:176 content_cms/terms/display.php:229
 #: content_love/application/home/view.php:48 content_love/domain/all/view.php:41
@@ -5625,41 +5626,29 @@ msgid "Jibres Panel"
 msgstr "پنل جیبرس"
 
 #: content_a/irvat/add/display.php:9
-#, fuzzy
-#| msgid "Add new post"
 msgid "Add new cost"
-msgstr "افزودن نوشته جدید"
+msgstr "افزودن هزینه جدید"
 
 #: content_a/irvat/add/display.php:11
-#, fuzzy
-#| msgid "Add new note"
 msgid "Add new income"
-msgstr "افزودن یادداشت جدید"
+msgstr "افزودن درآمد جدید"
 
 #: content_a/irvat/add/display.php:13 content_a/irvat/all/view.php:16
 #: content_a/irvat/home/view.php:16
-#, fuzzy
-#| msgid "Add new store"
 msgid "Add new factor"
-msgstr "افزودن فروشگاه جدید"
+msgstr "افزودن فاکتور جدید"
 
 #: content_a/irvat/add/display.php:38
-#, fuzzy
-#| msgid "Invalid code"
 msgid "Internal code"
-msgstr "کد اشتباه است"
+msgstr "کد داخلی"
 
 #: content_a/irvat/add/display.php:44
-#, fuzzy
-#| msgid "Please set serial as a number"
 msgid "Factor serial number"
-msgstr "لطفا شماره سریال را به صورت عددی وارد کنید"
+msgstr "شماره سریال فاکتور"
 
 #: content_a/irvat/add/display.php:51
-#, fuzzy
-#| msgid "Factor id not set"
 msgid "Factor date"
-msgstr "شناسه فاکتور تنظیم نشده است"
+msgstr "تاریخ فاکتور"
 
 #: content_a/irvat/add/display.php:51 content_a/pricehistory/display.php:18
 #: content_a/setup/owner/display.php:32 content_love/gift/create/setting/display.php:13
@@ -5668,7 +5657,7 @@ msgid "yyyy/mm/dd"
 msgstr "سال \\ ماه \\ روز"
 
 #: content_a/irvat/add/display.php:56 content_a/irvat/all/display.php:12
-#: content_a/irvat/all/display.php:125
+#: content_a/irvat/all/display.php:135
 msgid "Total pay"
 msgstr "مجموع پرداختی"
 
@@ -5677,21 +5666,17 @@ msgid "Sub total item by vat"
 msgstr "مجموع مبلغ مشمول مالیات"
 
 #: content_a/irvat/add/display.php:73 content_a/irvat/all/display.php:24
-#: content_a/irvat/all/display.php:127
+#: content_a/irvat/all/display.php:137
 msgid "Sum vat"
 msgstr "مجموع مالیات"
 
 #: content_a/irvat/add/display.php:93
-#, fuzzy
-#| msgid "Item count"
 msgid "Items count"
 msgstr "تعداد آیتم‌ها"
 
 #: content_a/irvat/add/display.php:99
-#, fuzzy
-#| msgid "Item count"
 msgid "Item count by vat"
-msgstr "تعداد آیتم‌ها"
+msgstr "تعداد آیتم‌های مشمول مالیات"
 
 #: content_a/irvat/add/display.php:110 content_a/irvat/add/display.php:117
 #: content_love/gift/create/setting/display.php:20
@@ -5707,38 +5692,30 @@ msgstr "بله"
 msgid "NO"
 msgstr "نه"
 
-#: content_a/irvat/add/display.php:111
-#, fuzzy
-#| msgid "Quick factor"
+#: content_a/irvat/add/display.php:111 content_a/irvat/all/display.php:98
 msgid "Official factor?"
-msgstr "فاکتور سریع"
+msgstr "فاکتور رسمی است؟"
 
-#: content_a/irvat/add/display.php:118
-#, fuzzy
-#| msgid "Are you want to signup?"
+#: content_a/irvat/add/display.php:118 content_a/irvat/all/display.php:93
 msgid "Are you want to calculate in vat result?"
-msgstr "آیا می‌خواهید ثبت‌نام کنید؟"
+msgstr "آیا می‌خواهید در امور مالیاتی محاسبه شود؟"
 
 #: content_a/irvat/add/display.php:143
-#, fuzzy
-#| msgid "Customer Detail"
 msgid "Customer detail"
 msgstr "جزئیات مشتری"
 
 #: content_a/irvat/add/display.php:180
-#, fuzzy
-#| msgid "Choose user"
 msgid "Choose seller"
-msgstr "انتخاب مشتری"
+msgstr "انتخاب فروشنده"
 
 #: content_a/irvat/add/display.php:219 content_a/irvat/add/display.php:261
-#: content_a/irvat/all/display.php:128 content_a/setup/company/display.php:30
+#: content_a/irvat/all/display.php:138 content_a/setup/company/display.php:30
 #: content_crm/member/legal/display.php:34
 msgid "Economic code"
 msgstr "کد اقتصادی"
 
 #: content_a/irvat/add/display.php:220 content_a/irvat/add/display.php:256
-#: content_a/irvat/all/display.php:128 content_a/setup/company/display.php:25
+#: content_a/irvat/all/display.php:138 content_a/setup/company/display.php:25
 #: content_crm/member/legal/display.php:29 content_my/ipg/profile/display.php:117
 #: content_my/ipg/setup/profile/display.php:117
 msgid "Company national id"
@@ -5785,10 +5762,8 @@ msgid "Fax"
 msgstr "فکس"
 
 #: content_a/irvat/add/display.php:241
-#, fuzzy
-#| msgid "Store legal information"
 msgid "Edit legal information"
-msgstr "اطلاعات حقوقی فروشگاه"
+msgstr "ویرایش اطلاعات حقوقی"
 
 #: content_a/irvat/add/display.php:278 content_a/order/address/display.php:57
 #: content_a/setup/address/display.php:13 content_account/address.php:35
@@ -5814,22 +5789,16 @@ msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
 
 #: content_a/irvat/add/display.php:328
-#, fuzzy
-#| msgid "Edit user legal detail"
 msgid "Save legal detail"
-msgstr "ویرایش اطلاعات حقوقی مشتری"
+msgstr "ذخیره اطلاعات حقوقی"
 
 #: content_a/irvat/add/display.php:337
-#, fuzzy
-#| msgid "Quickly add customer"
 msgid "Quickly add seller"
-msgstr "افزودن سریع مشتری"
+msgstr "افزودن سریع فروشنده"
 
 #: content_a/irvat/add/display.php:359
-#, fuzzy
-#| msgid "Upload Document"
 msgid "Upload Documents"
-msgstr "ارسال مدارک"
+msgstr "آپلود اسناد"
 
 #: content_a/irvat/add/display.php:384 content_cms/attachment/add/display.php:7
 msgid "Add file"
@@ -5843,57 +5812,49 @@ msgid "Maximum file size"
 msgstr "حداکثر اندازه فایل"
 
 #: content_a/irvat/add/view.php:9
-#, fuzzy
-#| msgid "Add new cart"
 msgid "Add new facotr"
-msgstr "افزودن سبد خرید جدید"
+msgstr "افزودن فاکتور جدید"
 
 #: content_a/irvat/all/display.php:18
 msgid "Total by vat"
 msgstr "مجموع مبلغ مشمول مالیات"
 
-#: content_a/irvat/all/display.php:89 content_su/backup/display.php:159
+#: content_a/irvat/all/display.php:102 content_su/backup/display.php:159
 #: lib/app/nic_domainaction/ready.php:60 lib/app/nic_domainbilling/ready.php:59
 msgid "Year"
 msgstr "سال"
 
-#: content_a/irvat/all/display.php:94 content_a/irvat/all/display.php:124
+#: content_a/irvat/all/display.php:105 content_a/irvat/all/display.php:134
 msgid "Season"
 msgstr "فصل"
 
-#: content_a/irvat/all/display.php:99
+#: content_a/irvat/all/display.php:108
 msgid "Seller"
 msgstr "فروشنده"
 
-#: content_a/irvat/all/display.php:126
+#: content_a/irvat/all/display.php:136
 msgid "Total item by vat"
 msgstr "مجموع مبلغ مشمول مالیات"
 
-#: content_a/irvat/all/display.php:129 includes/languages/trans_static.php:73
+#: content_a/irvat/all/display.php:139 includes/languages/trans_static.php:73
 msgid "Thirdparty"
 msgstr "طرف‌حساب"
 
 #: content_a/irvat/all/view.php:9
 msgid "Income-cost factor list"
-msgstr ""
+msgstr "لیست فاکتور‌های درآمد و هزینه"
 
 #: content_a/irvat/choosetype/display.php:8 content_a/irvat/choosetype/view.php:9
-#, fuzzy
-#| msgid "Choose type"
 msgid "Choose factor type"
-msgstr "انتخاب نوع"
+msgstr "نوع فاکتور را انتخاب کنید"
 
 #: content_a/irvat/choosetype/display.php:18 content_a/irvat/home/display.php:9
-#, fuzzy
-#| msgid "Add pos"
 msgid "Add cost"
-msgstr "افزودن دستگاه کارتخوان"
+msgstr "افزودن هزینه"
 
 #: content_a/irvat/choosetype/display.php:26 content_a/irvat/home/display.php:18
-#, fuzzy
-#| msgid "Add line"
 msgid "Add income"
-msgstr "افزودن ردیف جدید"
+msgstr "افزودن درآمد"
 
 #: content_a/irvat/edit/controller.php:20 content_love/gift/create/controller.php:29
 #: content_love/gift/edit/controller.php:20 content_love/gift/view/controller.php:20
@@ -5911,20 +5872,16 @@ msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
 #: content_a/irvat/edit/view.php:9
-#, fuzzy
-#| msgid "Print factor"
 msgid "Edit factor"
-msgstr "چاپ فاکتور"
+msgstr "ویرایش فاکتور"
 
 #: content_a/irvat/home/display.php:27 content_love/gift/home/display.php:18
 msgid "List"
 msgstr "لیست"
 
 #: content_a/irvat/home/view.php:9
-#, fuzzy
-#| msgid "Jibres Management"
 msgid "Income-cost management"
-msgstr "مدیریت جیبرس"
+msgstr "مدیریت درآمد و هزینه"
 
 #: content_a/order/add/display.php:3 content_a/sale/display.php:3
 msgid "You can add new empty tab if current tab is filled!"
@@ -5977,10 +5934,8 @@ msgid "Invalid order id"
 msgstr "شناسه سفارش اشتباه است"
 
 #: content_a/order/address/display.php:12
-#, fuzzy
-#| msgid "Edit user address"
 msgid "Edit Order Address"
-msgstr "ویرایش آدرس کاربر"
+msgstr "ویرایش آدرس سفارش"
 
 #: content_a/order/address/display.php:29 content_a/order/detail/display.php:60
 #: content_account/address.php:160
@@ -6052,16 +6007,12 @@ msgid "Order detail"
 msgstr "جزئیات سفارش"
 
 #: content_a/order/detail/display.php:16
-#, fuzzy
-#| msgid "profile"
 msgid "View profile"
-msgstr "پروفایل"
+msgstr "نمایش پروفایل"
 
 #: content_a/order/detail/display.php:20
-#, fuzzy
-#| msgid "Try to start with add new customer!"
 msgid "This order not set to any customer"
-msgstr "با افزودن مشتری جدید تلاشی برای شروع داشته باشید!"
+msgstr "این سفارش به هیچ مشتری متصل نشده است"
 
 #: content_a/order/detail/display.php:25 content_su/log/display.php:25
 #: content_su/log/display.php:55 content_su/log/display.php:86
@@ -6070,46 +6021,32 @@ msgid "Last modified"
 msgstr "آخرین به‌روزرسانی"
 
 #: content_a/order/detail/display.php:27
-#, fuzzy
-#| msgid "Factors"
 msgid "Factor is payed"
-msgstr "فاکتورها"
+msgstr "سفارش پرداخت شده است"
 
 #: content_a/order/detail/display.php:29
-#, fuzzy
-#| msgid "Factor id not set"
 msgid "Factor is not payed"
-msgstr "شناسه فاکتور تنظیم نشده است"
+msgstr "سفارش پرداخت نشده است"
 
 #: content_a/order/detail/display.php:44
-#, fuzzy
-#| msgid "File Address"
 msgid "Order Address"
-msgstr "آدرس فایل"
+msgstr "آدرس سفارش"
 
 #: content_a/order/detail/display.php:88
-#, fuzzy
-#| msgid "Order Limit"
 msgid "Order items"
-msgstr "محدودیت سبد خرید"
+msgstr "گزینه‌های سفارش"
 
 #: content_a/order/detail/display.php:119
-#, fuzzy
-#| msgid "Edit menu items"
 msgid "Edit items"
-msgstr "ویرایش گزینه‌های فهرست"
+msgstr "ویرایش ردیف‌ها"
 
 #: content_a/order/detail/display.php:128
-#, fuzzy
-#| msgid "Operation"
 msgid "Order action"
-msgstr "عملیات"
+msgstr "عملیات سفارش"
 
 #: content_a/order/detail/display.php:131
-#, fuzzy
-#| msgid "Add new cart"
 msgid "Add new action"
-msgstr "افزودن سبد خرید جدید"
+msgstr "افزودن عملیات جدید"
 
 #: content_a/order/detail/display.php:133 includes/languages/trans_static.php:232
 #: includes/languages/trans_static.php:334
@@ -6117,40 +6054,28 @@ msgid "comment"
 msgstr "دیدگاه"
 
 #: content_a/order/detail/display.php:134
-#, fuzzy
-#| msgid "Pending"
 msgid "Pending pay"
-msgstr "در انتظار"
+msgstr "در انتظار پرداخت"
 
 #: content_a/order/detail/display.php:135
-#, fuzzy
-#| msgid "Payment successfull"
 msgid "Pay successfull"
 msgstr "پرداخت با موفقیت انجام شد"
 
 #: content_a/order/detail/display.php:136
-#, fuzzy
-#| msgid "Pending Approved"
 msgid "Pending prepare"
-msgstr "در انتظار تایید توسط واحد ثبت"
+msgstr "در انتظار آماده سازی"
 
 #: content_a/order/detail/display.php:137
-#, fuzzy
-#| msgid "Pending Approved"
 msgid "Pending verify"
-msgstr "در انتظار تایید توسط واحد ثبت"
+msgstr "در انتظار تایید"
 
 #: content_a/order/detail/display.php:138
-#, fuzzy
-#| msgid "Pending"
 msgid "Pending send"
-msgstr "در انتظار"
+msgstr "در انتظار ارسال"
 
 #: content_a/order/detail/display.php:139
-#, fuzzy
-#| msgid "lending"
 msgid "Sending"
-msgstr "امانی"
+msgstr "درحال ارسال"
 
 #: content_a/order/detail/display.php:140 includes/languages/trans_static.php:559
 msgid "Deliver"
@@ -6158,7 +6083,7 @@ msgstr "تحویل‌داده‌شده"
 
 #: content_a/order/detail/display.php:141
 msgid "Pay unverified"
-msgstr ""
+msgstr "پرداخت تایید نشده و نامعتبر است"
 
 #: content_a/order/detail/display.php:142 lib/app/nic_domain/ready.php:118
 msgid "Reject"
@@ -6182,25 +6107,19 @@ msgstr "منقضی شده"
 
 #: content_a/order/detail/display.php:146
 msgid "go_to_bank"
-msgstr ""
+msgstr "ارسال شده به بانک جهت پرداخت"
 
 #: content_a/order/detail/display.php:147
-#, fuzzy
-#| msgid "error"
 msgid "pay_error"
-msgstr "خطا"
+msgstr "خطا در پرداخت"
 
 #: content_a/order/detail/display.php:148
-#, fuzzy
-#| msgid "cancel"
 msgid "pay_cancel"
-msgstr "انصراف"
+msgstr "انصراف از پرداخت"
 
 #: content_a/order/detail/display.php:149
-#, fuzzy
-#| msgid "verify failed!"
 msgid "pay_verified"
-msgstr "اعتبارسنجی ناموفق بود!"
+msgstr "پراخت تایید شد"
 
 #: content_a/order/detail/display.php:150 dash/social/telegram/step.php:211
 #: includes/languages/trans_static.php:431 includes/languages/trans_static_public.php:893
@@ -6218,16 +6137,12 @@ msgid "Attachment"
 msgstr "ضمیمه"
 
 #: content_a/order/detail/display.php:182
-#, fuzzy
-#| msgid "Collection list"
 msgid "Order Action list"
-msgstr "لیست مجموعه‌ها"
+msgstr "لیست اتفاقات سفارش"
 
 #: content_a/order/detail/display.php:204
-#, fuzzy
-#| msgid "Action"
 msgid "Action image"
-msgstr "عملیات"
+msgstr "تصویر عملیات"
 
 #: content_a/order/home/display.php:19
 msgid "Order"
@@ -6357,8 +6272,6 @@ msgid "File Address"
 msgstr "آدرس فایل"
 
 #: content_a/products/cartlimit/view.php:18
-#, fuzzy
-#| msgid "Cart Limit"
 msgid "Cart limit"
 msgstr "محدودیت سبد خرید"
 
@@ -6627,11 +6540,9 @@ msgid "Stock"
 msgstr "موجودی"
 
 #: content_a/products/edit/display.php:191
-#, fuzzy
-#| msgid "If you want to change password enter it, else leave it blank"
 msgid "If you want to change the stock enter current stock here"
 msgstr ""
-"در صورت تمایل به تغییر گذرواژه آن را وارد کنید،‌ در غیر این ‌صورت این فیلد را خالی بگذارید"
+"در صورت تمایل به تغییر موجودی آن را وارد کنید،‌ در غیر این ‌صورت این فیلد را خالی بگذارید"
 
 #: content_a/products/edit/display.php:198
 msgid "Oversale"
@@ -7016,10 +6927,8 @@ msgid "Value"
 msgstr "مقدار"
 
 #: content_a/products/status/display.php:16
-#, fuzzy
-#| msgid "Product tag"
 msgid "Product status"
-msgstr "کلیدواژه محصولات"
+msgstr "وضعیت محصول"
 
 #: content_a/products/status/display.php:24 content_love/domain/setting/display.php:253
 #: content_my/domain/buy/domain-search-result-ir-others.php:34
@@ -7033,10 +6942,8 @@ msgid "Discountinued"
 msgstr "توقف تولید"
 
 #: content_a/products/status/display.php:35
-#, fuzzy
-#| msgid "Click to check list of this product"
 msgid "Click here to remove product"
-msgstr "برای مشاهده لیست این کالاها کلیک کنید"
+msgstr "برای حذف محصول کلیک کنید"
 
 #: content_a/products/status/display.php:38
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:87
@@ -7670,16 +7577,12 @@ msgid "Set as default"
 msgstr "تنظیم به عنوان پیشفرض"
 
 #: content_a/setting/place/display.php:8
-#, fuzzy
-#| msgid "Save address"
 msgid "Store address"
-msgstr "ذخیره آدرس"
+msgstr "آدرس‌ فروشگاه"
 
 #: content_a/setting/place/display.php:14
-#, fuzzy
-#| msgid "Manage slider"
 msgid "Manage inventory"
-msgstr "مدیریت اسلایدر"
+msgstr "مدیریت انبار"
 
 #: content_a/setting/place/inventory/display.php:5
 #: content_a/setting/place/inventory/view.php:20
@@ -7687,17 +7590,13 @@ msgid "Add new inventory"
 msgstr "افزودن انبار جدید"
 
 #: content_a/setting/place/inventory/display.php:29
-#, fuzzy
-#| msgid "Inventory"
 msgid "Central inventory"
-msgstr "انبار"
+msgstr "انبار مرکزی"
 
 #: content_a/setting/place/inventory/display.php:32
 #: content_a/setting/place/inventory/display.php:45
-#, fuzzy
-#| msgid "Product Title"
 msgid "Products items"
-msgstr "عنوان محصول"
+msgstr "تعداد محصولات"
 
 #: content_a/setting/place/inventory/display.php:33
 #: content_a/setting/place/inventory/display.php:46 content_su/home/display.php:53
@@ -7711,10 +7610,8 @@ msgid "Invalid type"
 msgstr "نوع نامعتبر"
 
 #: content_a/setting/place/view.php:9
-#, fuzzy
-#| msgid "Usage setting"
 msgid "Place setting"
-msgstr "تنظیمات میزان استفاده"
+msgstr "تنظیمات موقعیت‌ها"
 
 #: content_a/setting/pos/display.php:9
 msgid "PC-POS setting"
@@ -7779,16 +7676,12 @@ msgid "Enable variant product"
 msgstr "فعال سازی تنوع محصولات"
 
 #: content_a/setting/product/setting/display.php:60
-#, fuzzy
-#| msgid "Image ratio :val"
 msgid "Image ratio"
-msgstr "نسبت تصویر :val"
+msgstr "نسبت تصویر"
 
 #: content_a/setting/product/setting/display.php:62
-#, fuzzy
-#| msgid "Set default DNS record"
 msgid "Set default image ratio"
-msgstr "تنظیم رکورد دی‌ان‌اس پیشفرض"
+msgstr "تنظیم نسبت تصویر پیشفرض"
 
 #: content_a/setting/product/setting/view.php:8
 msgid "Product Setting"
@@ -16139,19 +16032,19 @@ msgstr "موجود"
 
 #: content_subdomain/cart/display.php:23
 msgid "Only :val left in stock - order soon."
-msgstr ""
+msgstr "فقط :val در انبار باقی است - سریع‌تر سفارش بده"
 
 #: content_subdomain/cart/display.php:25
 msgid "Temporarily out of stock."
-msgstr ""
+msgstr "موجودی این محصول به طور موقت به اتمام رسیده است."
 
 #: content_subdomain/cart/display.php:59
 msgid "Order Summary"
-msgstr ""
+msgstr "خلاصه سفارش"
 
 #: content_subdomain/cart/display.php:62
 msgid "Subtotal"
-msgstr ""
+msgstr "مجموع"
 
 #: content_subdomain/cart/display.php:80
 msgid "BUY"
@@ -16202,32 +16095,28 @@ msgid "My orders"
 msgstr "سفارشات من"
 
 #: content_subdomain/orders/view/controller.php:19
-#, fuzzy
-#| msgid "User not found"
 msgid "Order not found"
-msgstr "کاربر یافت نشد"
+msgstr "سفارش یافت نشد"
 
 #: content_subdomain/p/home/display.php:49
 msgid ":val out of 5"
-msgstr ""
+msgstr ":val از ۵"
 
 #: content_subdomain/p/home/display.php:50
 msgid ":val Reviews"
-msgstr ""
+msgstr ":val بازدید"
 
 #: content_subdomain/p/home/display.php:51
 msgid ":val Orders"
-msgstr ""
+msgstr ":val سفارش"
 
 #: content_subdomain/p/home/display.php:62
 msgid "List Price"
-msgstr ""
+msgstr "قیمت"
 
 #: content_subdomain/p/home/display.php:79
-#, fuzzy
-#| msgid "Save"
 msgid "You Save"
-msgstr "ذخیره"
+msgstr "سود شما"
 
 #: content_subdomain/p/home/display.php:88
 msgid "Add to Cart"
@@ -16239,11 +16128,11 @@ msgstr "شناسه محصول"
 
 #: content_subdomain/p/home/display.php:160
 msgid "Customer reviews"
-msgstr ""
+msgstr "دیدگا‌های مشتریان"
 
 #: content_subdomain/p/home/display.php:236
 msgid "Review this product"
-msgstr ""
+msgstr "بررسی این محصول"
 
 #: content_subdomain/p/home/display.php:242
 msgid "Outstanding"
@@ -16297,10 +16186,8 @@ msgid "Choose your address"
 msgstr "آدرس خود را انتخاب کنید"
 
 #: content_subdomain/shipping/display.php:27 content_subdomain/shipping/display.php:39
-#, fuzzy
-#| msgid "User description"
 msgid "Order descripion"
-msgstr "توضیحات‌ کاربر"
+msgstr "توضیحات‌ سفارش"
 
 #: content_subdomain/shipping/display.php:61
 msgid "No product in your cart"
@@ -19328,7 +19215,7 @@ msgstr "آی‌پی شما معتبر نیست!"
 
 #: dash/utility/ip.php:263 lib/app/application/queue_search.php:74
 #: lib/app/cart/search.php:58 lib/app/domains/search.php:95 lib/app/gift/search.php:75
-#: lib/app/giftusage/search.php:75 lib/app/irvat/search.php:84
+#: lib/app/giftusage/search.php:75 lib/app/irvat/search.php:86
 #: lib/app/nic_domain/search.php:95 lib/app/nic_domainbilling/search.php:113
 #: lib/app/nic_domainbilling/search.php:262 lib/app/nic_log/search.php:103
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:50
@@ -19654,10 +19541,8 @@ msgid "The payir payment api not set"
 msgstr "کلید اتصال به درگاه پرداخت یافت نشد"
 
 #: dash/utility/pay/api/payir/back.php:45
-#, fuzzy
-#| msgid "The irkish payment token not set"
 msgid "The payir payment token not set"
-msgstr "کد احراز هویت ایران کیش یافت نشد"
+msgstr "کد احراز هویت پی‌آی‌آر یافت نشد"
 
 #: dash/utility/pay/api/sep/back.php:13 dash/utility/pay/api/sep/go.php:13
 msgid "The sep payment on this service is locked"
@@ -25457,10 +25342,8 @@ msgid "This file will be automatically deleted tomorrow"
 msgstr "این فایل به صورت خودکار تا فردا حذف خواهد شد"
 
 #: lib/app/factor/action.php:100
-#, fuzzy
-#| msgid "Acceptor successfuly added"
 msgid "Action successfully added"
-msgstr "اکسپتور با موفقیت اضافه شد"
+msgstr "عملیات با موفقیت اضافه شد"
 
 #: lib/app/factor/add.php:77
 msgid "Discount is larger than order total"
@@ -25503,16 +25386,12 @@ msgid "Please choose yoru address"
 msgstr "لطفا آدرس خود را انتخاب کنید"
 
 #: lib/app/factor/cart.php:126
-#, fuzzy
-#| msgid "Can not add your store"
 msgid "Can not add your order."
-msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
+msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم"
 
 #: lib/app/factor/cart.php:212
-#, fuzzy
-#| msgid "My orders"
 msgid "Pay order"
-msgstr "سفارشات من"
+msgstr "پرداخت سفارش"
 
 #: lib/app/factor/cart.php:230 lib/app/nic_domain/create.php:512
 #: lib/app/nic_domain/renew.php:344 lib/app/nic_domain/transfer.php:261
@@ -25559,10 +25438,8 @@ msgid "Order updated"
 msgstr "سفارش به‌روزرسانی شد"
 
 #: lib/app/factor/edit.php:104
-#, fuzzy
-#| msgid "Record was updated"
 msgid "Order address was updated"
-msgstr "ردیف به‌روزرسانی شد"
+msgstr "آدرس سفارش به‌روزرسانی شد"
 
 #: lib/app/factor/get.php:115
 msgid "Factor id not set"
@@ -25772,18 +25649,12 @@ msgid "Your file saved."
 msgstr "فایل شما ذخیره شد."
 
 #: lib/app/inventory/add.php:21 lib/app/inventory/edit.php:35
-#, fuzzy
-#| msgid "Duplicate username"
 msgid "Duplicate inventory name"
-msgstr "نام کاربری تکراری است! لطفا یک نام کاربری دیگر انتخاب کنید"
+msgstr "نام انبار تکراری است"
 
 #: lib/app/inventory/add.php:28
-#, fuzzy
-#| msgid "You have used the maximum capacity of this discount code"
 msgid "You have used the maximum inventory capacity"
-msgstr ""
-"شما یک یا چند بار از این کد تخفیف استفاده کرده‌اید و امکان استفاده مجدد آن برای شما "
-"مقدور نیست"
+msgstr "شما از حداکثر ظرفیت ثبت انبار خود استفاده کرده‌اید"
 
 #: lib/app/inventory/add.php:44
 msgid "Inventory successfully added"
@@ -25795,53 +25666,37 @@ msgid "Invalid inventory id"
 msgstr "شناسه انبار اشتباه است"
 
 #: lib/app/inventory/edit.php:58
-#, fuzzy
-#| msgid "No change in your fund"
 msgid "No change in your inventory"
-msgstr "صندوق بدون تغییر ذخیره شد"
+msgstr "تغییری در انبار شما رخ نداد"
 
 #: lib/app/inventory/edit.php:68
-#, fuzzy
-#| msgid "The category successfully updated"
 msgid "The inventory successfully updated"
-msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
+msgstr "انبار با موفقیت به‌روزرسانی شد"
 
 #: lib/app/inventory/edit.php:73
-#, fuzzy
-#| msgid "Can not update your fund"
 msgid "Can not update your inventory"
-msgstr "نمی‌توانید صندوق خود را ویرایش کنید"
+msgstr "نمی‌توانید انبار خود را ویرایش کنید"
 
 #: lib/app/irvat/add.php:29
-#, fuzzy
-#| msgid "Factor successfuly added"
 msgid "Factor successfully added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
 #: lib/app/irvat/edit.php:13 lib/app/irvat/get.php:20 lib/app/irvat/get.php:27
 #: lib/app/irvat/get.php:42 lib/app/irvat/get.php:49
-#, fuzzy
-#| msgid "Invalid unit id"
 msgid "Invalid irvat id"
-msgstr "شناسه واحد اشتباه است"
+msgstr "شناسه فاکتور اشتباه است"
 
 #: lib/app/irvat/edit.php:51
-#, fuzzy
-#| msgid "No change in your fund"
 msgid "No change in your irvat"
-msgstr "صندوق بدون تغییر ذخیره شد"
+msgstr "هیچ تغییری در فاکتور شما رخ نداد"
 
 #: lib/app/irvat/edit.php:61
-#, fuzzy
-#| msgid "The unit successfully updated"
 msgid "The irvat successfully updated"
-msgstr "واحد با موفقیت به‌روز‌رسانی شد"
+msgstr "فاکتور به‌روزرسانی شد"
 
 #: lib/app/irvat/edit.php:66
-#, fuzzy
-#| msgid "Can not update your fund"
 msgid "Can not update your irvat"
-msgstr "نمی‌توانید صندوق خود را ویرایش کنید"
+msgstr "نمی‌توانید فاکتور خود را ویرایش کنید"
 
 #: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:48 lib/app/product/get.php:37
 msgid "Product detail not found"
@@ -25852,10 +25707,8 @@ msgid "Product gallery not found"
 msgstr "گالری محصول یافت نشد"
 
 #: lib/app/irvat/gallery.php:144
-#, fuzzy
-#| msgid "Maximum count of gallery file is 10"
 msgid "Maximum count of gallery file is 30"
-msgstr "حداکثر تعداد فایل در گالری ۱۰ فایل است"
+msgstr "حداکثر تعداد فایل در گالری ۳۰ فایل است"
 
 #: lib/app/log/caller/application/application_readyToDownload.php:13
 msgid "Your Application is ready to download"
@@ -28439,10 +28292,8 @@ msgid "Real"
 msgstr "حقیقی"
 
 #: lib/ratio.php:89
-#, fuzzy
-#| msgid "16:9 (Default)"
 msgid "1:1 (Default)"
-msgstr "۱۶:۹ (پیش‌فرض)"
+msgstr "۱:۱ (پیش‌فرض)"
 
 #: lib/shaparak/exec.php:61
 msgid "Result of SHAPARAK server is not valid!"
