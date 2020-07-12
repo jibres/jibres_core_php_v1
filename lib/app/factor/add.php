@@ -177,6 +177,10 @@ class add
 			return false;
 		}
 
+		foreach ($factor_detail as $key => $value)
+		{
+			\lib\app\product\inventory::set('sale', (floatval($value['count']) * -1), $value['product_id']);
+		}
 
 		if(\dash\engine\process::status())
 		{

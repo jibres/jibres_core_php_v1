@@ -6,8 +6,7 @@ class inventory
 
 	public static function initial($_count, $_product_id)
 	{
-		return;
-		$stock     = $_count;
+		$stock     = \lib\number::up($_count);
 		$thisstock = $stock;
 
 		$insert =
@@ -15,7 +14,7 @@ class inventory
 			'inventory_id'       => null,
 			'product_id'         => $_product_id,
 			'datecreated'        => date("Y-m-d H:i:s"),
-			'count'              => $_count,
+			'count'              => \lib\number::up($_count),
 			'stock'              => $stock,
 			'thisstock'          => $thisstock,
 			'action'             => 'initial',
@@ -30,11 +29,18 @@ class inventory
 
 	public static function manual($_count, $_product_id)
 	{
-		return;
+
 		$last_stock = \lib\db\productinventory\get::product_last_record($_product_id);
 
-		var_dump($last_stock);exit();
+		if(!$last_stock || !array_key_exists('stock', $last_stock))
+		{
+			return self::initial($_count, $_product_id);
+		}
 
+		$count = \lib\number::up(floatval($_count));
+
+		$stock = floatval($last_stock['stock']);
+		$diff  = floatval($count) - $stock;
 
 		$thisstock = $stock;
 
@@ -43,10 +49,10 @@ class inventory
 			'inventory_id'       => null,
 			'product_id'         => $_product_id,
 			'datecreated'        => date("Y-m-d H:i:s"),
-			'count'              => $_count,
-			'stock'              => $stock,
-			'thisstock'          => $thisstock,
-			'action'             => $_action,
+			'count'              => $diff,
+			'stock'              => $count,
+			'thisstock'          => $count,
+			'action'             => 'manual',
 			'factor_id'          => null,
 			'user_id'            => \dash\user::id(),
 			'other_inventory_id' => null,
@@ -55,19 +61,64 @@ class inventory
 		\lib\db\productinventory\insert::new_record($insert);
 	}
 
+
+
 	public static function set($_action, $_count, $_product_id)
 	{
-		// 'initial','manual','move_to_inventory','move_from_inventory','warehouse_handling','sale','edit_sale','buy','edit_buy','presell','edit_presell','lending','edit_lending','backbuy','edit_backbuy','backsell','edit_backsell','waste','edit_waste','saleorder''edit_saleorder''reject_order','cancel_order'
 
-		$stock = null;
-		if($_action === 'initial')
+		$stock = 0;
+
+		switch ($_action)
 		{
-			$stock = $_count;
+			case 'initial':
+			case 'manual':
+				// have special function
+				return null;
+				break;
+
+			case 'move_to_inventory':
+			case 'move_from_inventory':
+
+			case 'warehouse_handling':
+			case 'edit_sale':
+			case 'buy':
+			case 'edit_buy':
+			case 'presell':
+			case 'edit_presell':
+			case 'lending':
+			case 'edit_lending':
+			case 'backbuy':
+			case 'edit_backbuy':
+			case 'backsell':
+			case 'edit_backsell':
+			case 'waste':
+			case 'edit_waste':
+			case 'saleorder':
+			case 'edit_saleorder':
+			case 'reject_order':
+			case 'cancel_order':
+			case 'sale':
+
+				break;
+
+			default:
+				// invalid action
+				return false;
+				break;
 		}
-		elseif($_action === 'manual')
+
+		$last_stock = \lib\db\productinventory\get::product_last_record($_product_id);
+
+		if(!$last_stock || !array_key_exists('stock', $last_stock))
 		{
-			$stock = null;
+			$stock = 0;
 		}
+		else
+		{
+			$stock = floatval($last_stock['stock']);
+		}
+
+		$stock = $stock + floatval($_count);
 
 		$thisstock = $stock;
 

@@ -235,18 +235,18 @@ class edit
 
 
 		$stock = null;
-		if(array_key_exists('stock', $args))
+		if(isset($args['stock']))
 		{
-			if($args['stock'])
-			{
-				$stock = $args['stock'];
-			}
-			unset($args['stock']);
+			$stock = $args['stock'];
 		}
 
+		unset($args['stock']);
 
-		if($stock)
+
+		if($stock !== null)
 		{
+			\dash\temp::set('productHasChange', true);
+
 			\lib\app\product\inventory::manual($stock, $id);
 		}
 
