@@ -26,7 +26,7 @@ class model
 			'code'              => \dash\request::post('code'),
 			'serialnumber'      => \dash\request::post('serialnumber'),
 			'factordate'        => \dash\request::post('factordate'),
-			// 'type'              => \dash\request::post('type'),
+			'type'              => \dash\data::dataRow_type(),
 			'total'             => \dash\request::post('total'),
 			'subtotalitembyvat' => \dash\request::post('subtotalitembyvat'),
 			'sumvat'            => \dash\request::post('sumvat'),
@@ -35,6 +35,11 @@ class model
 			'official'          => \dash\request::post('official'),
 			'vat'               => \dash\request::post('vat'),
 			'desc'              => \dash\request::post('desc'),
+
+
+			'mobile'      => \dash\request::post('memberTl'),
+			'gender'      => \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null,
+			'displayname' => \dash\request::post('memberN'),
 
 		];
 

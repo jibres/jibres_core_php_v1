@@ -25,6 +25,10 @@ class model
 			'vat'               => \dash\request::post('vat'),
 			'desc'              => \dash\request::post('desc'),
 
+			'mobile'      => \dash\request::post('memberTl'),
+			'gender'      => \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null,
+			'displayname' => \dash\request::post('memberN'),
+
 		];
 
 		$add = \lib\app\irvat\add::add($post);

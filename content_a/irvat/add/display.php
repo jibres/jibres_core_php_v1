@@ -15,11 +15,15 @@
                   <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'companyname'); ?>
                 </div>
               <?php } //endif ?>
+               <div class="f">
+                <div class="c">
+                  <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
+                  </select>
+                </div>
+                <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5 pLR10"></i></div>
+              </div>
 
-              <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
-              </select>
             <?php } // endif ?>
-
 
             <?php if(\dash\data::dataRow_type() === 'cost' || \dash\request::get('type') === 'cost') {?>
 
@@ -30,11 +34,39 @@
                   <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'companyname'); ?>
                 </div>
               <?php } //endif ?>
-              <select name="seller" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose seller"); ?>'>
-              </select>
+               <div class="f">
+                <div class="c">
+                  <select name="seller" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose seller"); ?>'>
+                  </select>
+
+                </div>
+                <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5 pLR10"></i></div>
+              </div>
 
             <?php } // endif ?>
 
+
+          <div class="addNewCustomer" data-kerkere-content='hide'>
+            <?php if(\dash\data::dataRow_type() === 'income' || \dash\request::get('type') === 'income') {?>
+              <div class="msg info2 mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
+            <?php }elseif(\dash\data::dataRow_type() === 'cost' || \dash\request::get('type') === 'cost') {?>
+              <div class="msg info2 mT10 mB0 pTB5"><?php echo T_("Quickly add seller"); ?></div>
+            <?php } // endif ?>
+              <div class="input mTB5">
+                <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' <?php \dash\layout\autofocus::html() ?>  maxlength='30' data-response-realtime>
+              </div>
+
+              <select name="memberGender" id="memberGender" class="select22 mT5">
+                <option value="" disabled><?php echo T_("Gender"); ?></option>
+                <option value="0">-</option>
+                <option value="male"><?php echo T_("Mr"); ?></option>
+                <option value="female"><?php echo T_("Mrs"); ?></option>
+              </select>
+
+              <div class="input mT5">
+                <input type="text" name="memberN" id="memberN" placeholder='<?php echo T_("Name"); ?>'  maxlength='40' minlength="1">
+              </div>
+          </div>
 
           </div>
         </div>

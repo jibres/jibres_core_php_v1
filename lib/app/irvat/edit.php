@@ -21,6 +21,16 @@ class edit
 			return false;
 		}
 
+		if(isset($args['seller']) && $args['seller'] && !array_key_exists('seller', $_args))
+		{
+			$_args['seller'] = $args['seller'];
+		}
+
+		if(isset($args['customer']) && $args['customer'] && !array_key_exists('customer', $_args))
+		{
+			$_args['customer'] = $args['customer'];
+		}
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		$get_irvat = \lib\db\irvat\get::one($_id);
