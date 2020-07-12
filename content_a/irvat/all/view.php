@@ -35,8 +35,10 @@ class view
 		\dash\data::filterBox(\lib\app\irvat\search::filter_message());
 
 		$isFiltered = \lib\app\irvat\search::is_filtered();
-
 		\dash\data::isFiltered($isFiltered);
+
+		$summary = \lib\app\irvat\search::summary();
+		\dash\data::summaryDetail($summary);
 
 		if($isFiltered)
 		{

@@ -6,6 +6,8 @@ class search
 	private static $filter_message = null;
 	private static $filter_args    = [];
 	private static $is_filtered    = false;
+	private static $and = [];
+	private static $or = [];
 
 
 	public static function filter_message()
@@ -107,7 +109,8 @@ class search
 			$order_sort = " ORDER BY ir_vat.id DESC";
 		}
 
-
+		self::$and = $and;
+		self::$or = $or;
 
 		$list = \lib\db\irvat\search::list($and, $or, $order_sort, $meta);
 
@@ -206,6 +209,22 @@ class search
 		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
 		return $list;
+	}
+
+
+	public static function summary()
+	{
+		$summary = \lib\db\irvat\search::summary(self::$and, self::$or);
+
+		if(isset($summary['sumvat']))
+		{
+			$sumvat_raw = floatval($summary['sumvat']);
+			$summary['sumvat6'] = round($sumvat_raw * 0.6666666);
+			$summary['sumvat3'] = round($sumvat_raw * 0.3333333);
+		}
+
+		return $summary;
+
 	}
 
 

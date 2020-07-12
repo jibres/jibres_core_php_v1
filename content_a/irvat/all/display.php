@@ -1,3 +1,43 @@
+<?php $myData = \dash\data::summaryDetail(); ?>
+<section class="f">
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo T_("Count");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'count'));?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo T_("Total pay");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'total'));?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo \dash\fit::text("Sum item by vat");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'subtotalitembyvat'));?></div>
+    </a>
+  </div>
+   <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo \dash\fit::text("Sum vat");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat'));?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo \dash\fit::text("6%");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat6'));?></div>
+    </a>
+  </div>
+  <div class="c pRa10">
+    <a class="stat">
+      <h3><?php echo \dash\fit::text("3%");?></h3>
+      <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat3'));?></div>
+    </a>
+  </div>
+
+</section>
 
 
 <?php
