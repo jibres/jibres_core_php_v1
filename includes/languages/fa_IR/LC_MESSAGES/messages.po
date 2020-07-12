@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-12 19:44+0430\n"
-"PO-Revision-Date: 2020-07-12 20:02+0430\n"
+"POT-Creation-Date: 2020-07-12 20:04+0430\n"
+"PO-Revision-Date: 2020-07-12 20:06+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -9727,7 +9727,7 @@ msgstr "شناسه فایل الزامی است"
 #: content_b1/product/gallery/remove/model.php:20
 #: content_b1/product/gallery/thumb/model.php:20
 msgid "File id is not valid"
-msgstr "فایل معتبر نیست!"
+msgstr "فایل معتبر نیست"
 
 #: content_b1/product/gallery/remove/model.php:27
 msgid "File removed from gallery"
@@ -16024,7 +16024,7 @@ msgstr "دانلود برنامه"
 
 #: content_subdomain/cart/display.php:3
 msgid "Shopping Cart"
-msgstr ""
+msgstr "سبد خرید"
 
 #: content_subdomain/cart/display.php:21
 msgid "In Stock"
@@ -16032,7 +16032,7 @@ msgstr "موجود"
 
 #: content_subdomain/cart/display.php:23
 msgid "Only :val left in stock - order soon."
-msgstr "فقط :val در انبار باقی است - سریع‌تر سفارش بده"
+msgstr "فقط :val در انبار باقی است - سریع‌تر سفارش بده."
 
 #: content_subdomain/cart/display.php:25
 msgid "Temporarily out of stock."
@@ -16048,19 +16048,19 @@ msgstr "مجموع"
 
 #: content_subdomain/cart/display.php:80
 msgid "BUY"
-msgstr ""
+msgstr "خرید"
 
 #: content_subdomain/cart/display.php:91
 msgid "Your Shopping Cart is empty"
-msgstr ""
+msgstr "سبد خرید شما خالی است"
 
 #: content_subdomain/cart/display.php:95
 msgid "Start shopping"
-msgstr ""
+msgstr "خرید را شروع کنید"
 
 #: content_subdomain/cart/display.php:96
-msgid "log in"
-msgstr ""
+msgid "login"
+msgstr "ورود به سیستم"
 
 #: content_subdomain/cart/display.php:93
 msgid "Don't miss out on great deals! :start or :login to view products added."
@@ -25387,7 +25387,7 @@ msgstr "لطفا آدرس خود را انتخاب کنید"
 
 #: lib/app/factor/cart.php:126
 msgid "Can not add your order."
-msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم"
+msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 
 #: lib/app/factor/cart.php:212
 msgid "Pay order"
@@ -26356,7 +26356,7 @@ msgstr "تنظیمات ذخیره شد"
 
 #: lib/app/onlinenic/create.php:93
 msgid "Please indicate the duration of the domain purchase?"
-msgstr "لطفا مشخص کنید که دامنه را با چه مدت زمانی خریداری خواهید کرد"
+msgstr "لطفا مشخص کنید که دامنه را با چه مدت زمانی خریداری خواهید کرد؟"
 
 #: lib/app/onlinenic/create.php:271 lib/app/onlinenic/transfer.php:227
 msgid "Some detail is wrong!. We can not create your whois detail"
@@ -26402,7 +26402,7 @@ msgstr ""
 
 #: lib/app/onlinenic/renew.php:428
 msgid "We can not renew this domain."
-msgstr "نمی‌توانم این دامنه را تمدید کرد"
+msgstr "نمی‌توانم این دامنه را تمدید کرد."
 
 #: lib/app/onlinenic/transfer.php:96
 msgid "Can not load domain price"
@@ -26473,7 +26473,7 @@ msgstr "شناسه محصول اشتباه است"
 
 #: lib/app/product/bullet.php:64
 msgid "Invalid bullet text index!"
-msgstr "شناسه ویژگی اشتباه است"
+msgstr "شناسه ویژگی اشتباه است!"
 
 #: lib/app/product/bullet.php:91
 msgid "Product bullet saved"
