@@ -14,13 +14,16 @@
       <div class="c">
        <div class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></div>
 
-       <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
-       <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val left in stock - order soon.", ['val' => 7]); ?></div>
-       <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
 
+        <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
 
-
-
+        <?php if($stock >= 10) {?>
+          <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
+        <?php }elseif($stock > 0) {?>
+          <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val left in stock - order soon.", ['val' => \dash\fit::number($stock)]); ?></div>
+        <?php }elseif ($stock <= 0) {?>
+          <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
+        <?php } // endif ?>
 
        <div class="row productCountLine">
         <div class="c-auto">

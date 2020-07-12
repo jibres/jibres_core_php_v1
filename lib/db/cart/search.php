@@ -119,10 +119,12 @@ class search
 				products.thumb,
 				products.finalprice,
 				products.discount,
-				products.price AS `product_price`
+				products.price AS `product_price`,
+				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
 			FROM cart
 			LEFT JOIN users ON cart.user_id = users.id
 			INNER JOIN products ON products.id = cart.product_id
+
 			$q[where]
 			$q[order]
 			$limit

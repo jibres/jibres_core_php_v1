@@ -37,7 +37,16 @@ class ready
 					$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
 					break;
 
-
+				case 'stock':
+					if($value)
+					{
+						$result[$key] = \lib\number::down($value);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+					break;
 				case 'price':
 				case 'buyprice':
 				case 'discount':
