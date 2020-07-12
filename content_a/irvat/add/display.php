@@ -1,3 +1,5 @@
+
+
 <div class="avand">
   <div class="row">
     <div class="c-xs-12"></div>
@@ -53,23 +55,10 @@
         </div>
 
 
-        <div class="f mB10">
-          <div class="c pB10 pRa5">
-            <div class="radio3">
-              <input type="radio" name="type" value="cost" id="cost"  <?php if(\dash\data::dataRow_type() === 'cost') { echo 'checked';} ?>>
-              <label for="cost"><?php echo T_("Cost"); ?></label>
-            </div>
-          </div>
-          <div class="c pB10">
-            <div class="radio3">
-              <input type="radio" name="type" value="income" id="incom" <?php if(\dash\data::dataRow_type() === 'income') { echo 'checked';} ?>>
-              <label for="incom"><?php echo T_("Income"); ?></label>
-            </div>
-          </div>
-        </div>
 
 
-        <div class="mB20" data-response='type' data-response-where='income' <?php if(\dash\data::dataRow_type() === 'income') {}else{ echo 'data-response-hide';} ?> >
+
+        <?php if(\dash\data::dataRow_type() === 'income' || \dash\request::get('type') === 'income') {?>
 
           <?php if(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user')) {?>
             <div class="msg">
@@ -81,9 +70,11 @@
 
           <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
           </select>
-        </div>
+        <?php } // endif ?>
 
-        <div class="mB20" data-response='type' data-response-where='cost' <?php if(\dash\data::dataRow_type() === 'cost') {}else{ echo 'data-response-hide';} ?>>
+
+        <?php if(\dash\data::dataRow_type() === 'cost' || \dash\request::get('type') === 'cost') {?>
+
           <?php if(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user')) {?>
             <div class="msg">
               <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
@@ -93,7 +84,8 @@
           <?php } //endif ?>
           <select name="seller" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose seller"); ?>'>
           </select>
-        </div>
+
+        <?php } // endif ?>
 
 
         <label for="total"><?php echo T_("Total factor price"); ?></label>

@@ -13,7 +13,7 @@ class model
 			'code'              => \dash\request::post('code'),
 			'serialnumber'      => \dash\request::post('serialnumber'),
 			'factordate'        => \dash\request::post('factordate'),
-			'type'              => \dash\request::post('type'),
+			'type'              => \dash\request::get('type'),
 			'customer'          => \dash\request::post('customer'),
 			'seller'            => \dash\request::post('seller'),
 			'total'             => \dash\request::post('total'),

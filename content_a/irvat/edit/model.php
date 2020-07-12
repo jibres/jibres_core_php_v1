@@ -26,7 +26,7 @@ class model
 			'code'              => \dash\request::post('code'),
 			'serialnumber'      => \dash\request::post('serialnumber'),
 			'factordate'        => \dash\request::post('factordate'),
-			'type'              => \dash\request::post('type'),
+			// 'type'              => \dash\request::post('type'),
 			'total'             => \dash\request::post('total'),
 			'subtotalitembyvat' => \dash\request::post('subtotalitembyvat'),
 			'sumvat'            => \dash\request::post('sumvat'),
