@@ -1,3 +1,4 @@
+<?php function pageStat() {?>
 <?php $myData = \dash\data::summaryDetail(); ?>
 <section class="f">
   <div class="c pRa10">
@@ -38,7 +39,7 @@
   </div>
 
 </section>
-
+<?php } //endfunction ?>
 
 <?php
 if(\dash\data::dataTable())
@@ -46,12 +47,14 @@ if(\dash\data::dataTable())
     if(\dash\data::isFiltered())
     {
         htmlSearchBox();
+        pageStat();
         htmlTable();
         htmlFilter();
     }
     else
     {
         htmlSearchBox();
+        pageStat();
         htmlTable();
     }
 
