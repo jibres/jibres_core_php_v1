@@ -19,5 +19,12 @@ class get
 		$result = \dash\db::get($query	);
 		return $result;
 	}
+
+	public static function total_factor()
+	{
+		$query = "SELECT SUM(ir_vat.total) AS `total` FROM ir_vat";
+		$result = \dash\db::get($query, 'total', true);
+		return $result;
+	}
 }
 ?>
