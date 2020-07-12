@@ -15,13 +15,13 @@
   </div>
   <div class="c pRa10">
     <a class="stat x70">
-      <h3><?php echo \dash\fit::text("Sum item by vat");?></h3>
+      <h3><?php echo T_("Total by vat");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'subtotalitembyvat'));?></div>
     </a>
   </div>
    <div class="c pRa10">
     <a class="stat x70">
-      <h3><?php echo \dash\fit::text("Sum vat");?></h3>
+      <h3><?php echo T_("Sum vat");?></h3>
       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'sumvat'));?></div>
     </a>
   </div>
