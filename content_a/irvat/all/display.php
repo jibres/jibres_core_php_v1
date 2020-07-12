@@ -80,10 +80,29 @@ else
 <?php function htmlSearchBox() {?>
 <div class="fs12">
     <form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
-        <div class="input search">
-            <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
-            <button class="btn addon success"><?php echo T_("Search"); ?></button>
+      <div class="f">
+        <div class="c">
+          <div class="input pRa5">
+            <input type="text" name="year" placeholder='<?php echo T_("Year"); ?>' value="<?php echo \dash\request::get('year'); ?>">
+          </div>
         </div>
+        <div class="c">
+          <div class="input pRa5">
+            <input type="text" name="season" placeholder='<?php echo T_("Season"); ?>' value="<?php echo \dash\request::get('season'); ?>">
+          </div>
+        </div>
+        <div class="c">
+          <div class="input pRa5">
+            <input type="text" name="seller" placeholder='<?php echo T_("Seller"); ?>' value="<?php echo \dash\request::get('seller'); ?>">
+          </div>
+        </div>
+        <div class="c">
+          <div class="input search">
+              <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
+              <button class="btn addon success"><?php echo T_("Search"); ?></button>
+          </div>
+        </div>
+      </div>
     </form>
 </div>
 <?php } //endfunction ?>
@@ -140,13 +159,13 @@ else
                 </td>
 
                 <td class="collapsing">
-                  <div  class="f align-center userPack">
+                  <a href="<?php echo \dash\url::that(). '?seller='. \dash\get::index($value, 'user_detail', 'id');?>"  class="f align-center userPack">
                     <div class="c pRa10">
                       <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail_legal', 'mobile'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'user_detail_legal', 'mobile')); ?></div>
                       <div class="name"><?php echo \dash\get::index($value, 'user_detail_legal', 'companyname'); ?></div>
                     </div>
                     <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
-                  </div>
+                  </a>
                 </td>
             </tr>
             <?php } //endfor ?>
