@@ -81,33 +81,43 @@ else
 
 
 <?php function htmlSearchBox() {?>
-<div class="fs12">
-    <form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
-      <div class="f">
-        <div class="c">
-          <div class="input pRa5">
-            <input type="text" name="year" placeholder='<?php echo T_("Year"); ?>' value="<?php echo \dash\request::get('year'); ?>">
-          </div>
-        </div>
-        <div class="c">
-          <div class="input pRa5">
-            <input type="text" name="season" placeholder='<?php echo T_("Season"); ?>' value="<?php echo \dash\request::get('season'); ?>">
-          </div>
-        </div>
-        <div class="c">
-          <div class="input pRa5">
-            <input type="text" name="seller" placeholder='<?php echo T_("Seller"); ?>' value="<?php echo \dash\request::get('seller'); ?>">
-          </div>
-        </div>
-        <div class="c">
-          <div class="input search">
-              <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
-              <button class="btn addon success"><?php echo T_("Search"); ?></button>
-          </div>
-        </div>
+<form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
+  <div class="box">
+    <header data-kerkere='.showBoxSearch'><h2><?php echo T_("Search") ?></h2></header>
+    <div class="showBoxSearch"  data-kerkere-content='hide'>
+
+      <div class="body">
+
+            <div class="check1">
+              <input type="checkbox" name="vat" id="vat"  <?php if(\dash\request::get('vat')) { echo 'checked'; } ?> >
+              <label for="vat"><?php echo T_("Are you want to calculate in vat result?"); ?></label>
+            </div>
+
+            <div class="check1">
+              <input type="checkbox" name="official" id="official"  <?php if(\dash\request::get('official')) { echo 'checked'; } ?> >
+              <label for="official"><?php echo T_("Official factor?"); ?></label>
+            </div>
+
+            <div class="input mB10">
+              <input type="text" name="year" placeholder='<?php echo T_("Year"); ?>' value="<?php echo \dash\request::get('year'); ?>">
+            </div>
+            <div class="input mB10">
+              <input type="text" name="season" placeholder='<?php echo T_("Season"); ?>' value="<?php echo \dash\request::get('season'); ?>">
+            </div>
+            <div class="input mB10">
+              <input type="text" name="seller" placeholder='<?php echo T_("Seller"); ?>' value="<?php echo \dash\request::get('seller'); ?>">
+            </div>
+            <div class="input search">
+                <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
+            </div>
       </div>
-    </form>
-</div>
+      <footer class="txtRa">
+        <button class="btn success"><?php echo T_("Search"); ?></button>
+      </footer>
+    </div>
+  </div>
+  </form>
+
 <?php } //endfunction ?>
 
 

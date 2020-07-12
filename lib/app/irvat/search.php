@@ -54,6 +54,8 @@ class search
 			'year'      => 'int',
 			'seller'    => 'code',
 			'customer'  => 'code',
+			'vat'       => 'bit',
+			'official'  => 'bit',
 		];
 
 		$require = [];
@@ -112,6 +114,19 @@ class search
 			$and[] = " ir_vat.seller = $data[seller] ";
 			self::$is_filtered = true;
 		}
+
+		if($data['vat'])
+		{
+			$and[] = " ir_vat.vat = 1 ";
+			self::$is_filtered = true;
+		}
+
+		if($data['official'])
+		{
+			$and[] = " ir_vat.official = 1 ";
+			self::$is_filtered = true;
+		}
+
 
 		if($data['customer'])
 		{

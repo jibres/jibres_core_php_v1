@@ -24,6 +24,8 @@ class view
 			'year'     => \dash\request::get('year'),
 			'seller'   => \dash\request::get('seller'),
 			'customer' => \dash\request::get('customer'),
+			'vat' => \dash\request::get('vat'),
+			'official' => \dash\request::get('official'),
 		];
 
 		$search_string = \dash\request::get('q');
