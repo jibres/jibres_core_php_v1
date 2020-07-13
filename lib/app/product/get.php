@@ -170,6 +170,7 @@ class get
 	{
 		$type   = null;
 		$cat_id = null;
+		$tag_id = null;
 
 		if(isset($_option['value']['productline']['type']))
 		{
@@ -181,6 +182,13 @@ class get
 			$cat_id = $_option['value']['productline']['cat_id'];
 		}
 
+		$meta =
+		[
+			'limit' => 10,
+			'type' => $type,
+			'join' => [],
+		];
+
 		$and   = [];
 		$or    = [];
 		$order = null;
@@ -188,10 +196,19 @@ class get
 		$and[] = " products.status != 'deleted'";
 		$and[] = " products.parent IS NULL ";
 
-		if($cat_id && is_numeric($cat_id))
+
+		if($cat_id)
 		{
-			$and[] = ' products.cat_id = '. $cat_id;
+			$and[]  = " productcategoryusage.productcategory_id =  $cat_id ";
+			$meta['join'][] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 		}
+
+		if($tag_id)
+		{
+			$and[]  = " producttagusage.producttag_id =  $tag_id ";
+			$meta['join'][] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
+		}
+
 
 		if($type === 'latestproduct')
 		{
@@ -210,12 +227,6 @@ class get
 		{
 			$order = " products.id DESC ";
 		}
-
-		$meta =
-		[
-			'limit' => 10,
-			'type' => $type
-		];
 
 		$last_product = \lib\db\products\get::website_last_product($and, $or, $order, $meta);
 

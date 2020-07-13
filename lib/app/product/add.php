@@ -174,15 +174,15 @@ class add
 		}
 
 
-		if($args['cat_id'])
-		{
-			$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
-			if(!isset($load_cat['id']))
-			{
-				\dash\notif::error(T_("Category not found"));
-				return false;
-			}
-		}
+		// if($args['cat_id'])
+		// {
+		// 	$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
+		// 	if(!isset($load_cat['id']))
+		// 	{
+		// 		\dash\notif::error(T_("Category not found"));
+		// 		return false;
+		// 	}
+		// }
 
 		$my_cat = [];
 		if(array_key_exists('cat', $args))

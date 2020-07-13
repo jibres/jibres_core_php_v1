@@ -151,22 +151,22 @@ class edit
 			}
 		}
 
-		if(array_key_exists('cat_id', $args))
-		{
-			if($args['cat_id'])
-			{
-				$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
-				if(!isset($load_cat['id']))
-				{
-					\dash\notif::error(T_("Category not found"));
-					return false;
-				}
-			}
-			else
-			{
-				$args['cat_id'] = null;
-			}
-		}
+		// if(array_key_exists('cat_id', $args))
+		// {
+		// 	if($args['cat_id'])
+		// 	{
+		// 		$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
+		// 		if(!isset($load_cat['id']))
+		// 		{
+		// 			\dash\notif::error(T_("Category not found"));
+		// 			return false;
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		$args['cat_id'] = null;
+		// 	}
+		// }
 
 		if(array_key_exists('tag', $args))
 		{

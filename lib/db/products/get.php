@@ -299,16 +299,7 @@ class get
 		$q = \lib\db\products\search::ready_to_sql($_and, $_or, $_order, $_meta);
 
 
-		$query  =
-		"
-			SELECT
-				*
-			FROM
-				products
-				$q[where]
-			ORDER BY $q[order]
-			LIMIT $q[limit]
-		";
+		$query  = " SELECT products.* FROM products $q[join] $q[where] ORDER BY $q[order] LIMIT $q[limit]";
 		$result = \dash\db::get($query);
 
 		return $result;
