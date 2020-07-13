@@ -59,6 +59,7 @@ class get
 		}
 
 		$load['count'] = \lib\db\productcategory\get::get_count_product($_id);
+
 		$load = \lib\app\category\ready::row($load);
 		return $load;
 	}

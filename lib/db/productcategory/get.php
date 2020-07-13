@@ -82,7 +82,7 @@ class get
 
 	public static function get_count_product($_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE  products.cat_id = $_id ";
+		$query  = "SELECT COUNT(*) AS `count` FROM productcategoryusage WHERE  productcategoryusage.productcategory_id = $_id ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
@@ -158,8 +158,8 @@ class get
 		$query =
 		"
 			SELECT
-				productcategory.*,
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`
+				(SELECT COUNT(*) AS `count` FROM productcategoryusage WHERE  productcategoryusage.productcategory_id = productcategory.id) AS `count`,
+				productcategory.*
 			FROM
 				productcategory
 			WHERE
@@ -183,7 +183,7 @@ class get
 		$query  =
 		"
 			SELECT
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
+				(SELECT COUNT(*) AS `count` FROM productcategoryusage WHERE  productcategoryusage.productcategory_id = productcategory.id) AS `count`,
 				productcategory.*
 			 FROM productcategory
 			 WHERE  productcategory.id = $_id LIMIT 1
@@ -199,7 +199,7 @@ class get
 		$query  =
 		"
 			SELECT
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
+				(SELECT COUNT(*) AS `count` FROM productcategoryusage WHERE  productcategoryusage.productcategory_id = productcategory.id) AS `count`,
 				productcategory.*
 			 FROM productcategory
 			 WHERE  productcategory.slug = '$_url' LIMIT 1
