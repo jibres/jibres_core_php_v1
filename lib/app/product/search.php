@@ -58,10 +58,11 @@ class search
 			$_where = [];
 		}
 
-		$type        = $_type;
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$type = $_type;
+		$and  = [];
+		$meta = [];
+		$or   = [];
+		$join = [];
 
 		if(isset($data['limit']))
 		{
@@ -101,7 +102,10 @@ class search
 
 		if($data['cat_id'])
 		{
-			$and[]   = " products.cat_id = $data[cat_id] ";
+
+			$and[]   = " productcategoryusage.productcategory_id =  $data[cat_id] ";
+			$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
+			$type = 'catusage';
 			self::$filter_args['cat'] = '*'. T_('Category');
 			self::$is_filtered        = true;
 		}
@@ -109,7 +113,7 @@ class search
 		if($data['tag_id'])
 		{
 			$and[]   = " producttagusage.producttag_id =  $data[tag_id] ";
-			$type = 'tagusage';
+			$join[] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
 			self::$filter_args['tag'] = '*'. T_('Tag');
 			self::$is_filtered        = true;
 		}
@@ -271,20 +275,14 @@ class search
 
 		$and = array_merge($and, $_where);
 
+		$meta['join'] = $join;
+
 		switch ($type)
 		{
-			case 'price':
-			case 'factor_admin_list':
-				$list = \lib\db\products\search::list_join_price($and, $or, $order_sort, $meta);
-				break;
-
 			case 'price_factor_count':
 				$list = \lib\db\products\search::list_join_price_factor_count($and, $or, $order_sort, $meta);
 				break;
 
-			case 'tagusage':
-				$list = \lib\db\products\search::list_join_tag($and, $or, $order_sort, $meta);
-				break;
 
 			case 'no-duplicatetitle':
 				// no result found by duplicate  title

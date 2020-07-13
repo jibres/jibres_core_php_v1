@@ -75,7 +75,7 @@ class search
 		"
 			SELECT
 				productcategory.*,
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`
+				(SELECT COUNT(*) FROM productcategoryusage WHERE productcategoryusage.productcategory_id = productcategory.id) AS `count`
 			FROM
 				productcategory
 				$q[where]
