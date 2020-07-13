@@ -170,6 +170,8 @@ class ready
 			$result['compareatprice'] = floatval($result['price']) + floatval($result['discount']);
 		}
 
+		$result['category_list'] = [];
+
 		return $result;
 	}
 

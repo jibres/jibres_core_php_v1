@@ -45,6 +45,7 @@ class view
 		\dash\data::listUnits($unit_list);
 
 		$category_list = \lib\app\category\search::list(null, ['pagination' => false]);
+		$category_list = array_reverse($category_list);
 		\dash\data::listCategory($category_list);
 
 
@@ -55,6 +56,19 @@ class view
 			\dash\data::tagString($tagString);
 		}
 		\dash\data::listTag($tag_list);
+
+
+		$cat_list = \lib\app\category\get::product_cat($id);
+		if(is_array($cat_list) && $cat_list)
+		{
+			$cat_list = array_column($cat_list, 'title');
+		}
+		else
+		{
+			$cat_list = [];
+		}
+
+		\dash\data::listSavedCat($cat_list);
 
 
 		$productDataRow = \dash\data::productDataRow();

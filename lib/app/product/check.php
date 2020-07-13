@@ -76,6 +76,7 @@ class check
 			'company'           => 'string_100',
 			'company_id'        => 'id',
 			'tag'               => 'tag',
+			'cat'               => 'tag',
 			'cat_id'            => 'int',
 			'unit'              => 'string_50', // in add manual user send the unit
 			'unit_id'           => 'id', // in add by variant we have the unit id

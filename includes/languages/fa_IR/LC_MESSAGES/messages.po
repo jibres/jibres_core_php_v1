@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-13 12:46+0430\n"
-"PO-Revision-Date: 2020-07-13 12:47+0430\n"
+"POT-Creation-Date: 2020-07-13 17:10+0430\n"
+"PO-Revision-Date: 2020-07-13 17:11+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -665,7 +665,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/intro/display-test-multi-upload.php:23
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
-#: content_a/category/edit/display.php:37 content_a/category/edit/display.php:38
+#: content_a/category/edit/display.php:17 content_a/category/edit/display.php:18
 #: content_a/irvat/add/display.php:124 content_a/order/add/display.php:62
 #: content_a/order/detail/display.php:37 content_a/order/detail/display.php:158
 #: content_a/order/detail/display.php:191 content_a/products/desc/display.php:12
@@ -4117,7 +4117,7 @@ msgstr "صفحه"
 #: content_a/android/intro/display-test-multi-upload.php:17
 #: content_a/android/intro/display.php:17 content_a/android/review/display.php:82
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
-#: content_a/category/add/display.php:28 content_a/category/edit/display.php:11
+#: content_a/category/add/display.php:6 content_a/category/edit/display.php:11
 #: content_a/category/home/display.php:67 content_a/company/display.php:41
 #: content_a/irvat/add/display.php:18 content_a/irvat/all/display.php:132
 #: content_a/order/detail/display.php:95 content_a/products/comment/display.php:83
@@ -4149,7 +4149,7 @@ msgid "Title"
 msgstr "عنوان"
 
 #: content_a/android/intro/display-test-multi-upload.php:30
-#: content_a/android/logo/display.php:10 content_a/category/edit/display.php:184
+#: content_a/android/logo/display.php:10 content_a/category/edit/display.php:118
 #: content_a/irvat/add/display.php:390 content_a/order/detail/display.php:166
 #: content_a/products/edit/display.php:310 content_a/setup/logo/display.php:15
 #: content_a/website/header/box/header_logo.php:25 content_support/ticket/addForm.php:31
@@ -4396,7 +4396,7 @@ msgstr "جستجو در محصولات برای افزودن آن به سبد خ
 msgid "Search in list to add product"
 msgstr "جستجو در لیست برای افزودن کالا"
 
-#: content_a/cart/add/display.php:26 content_a/category/add/display.php:34
+#: content_a/cart/add/display.php:26 content_a/category/add/display.php:12
 #: content_a/company/display.php:73 content_a/irvat/add/display.php:133
 #: content_a/products/bullet/display.php:20 content_a/products/edit/display.php:409
 #: content_a/products/tag/display.php:127 content_a/setting/place/inventory/display.php:17
@@ -4661,26 +4661,7 @@ msgstr "برو"
 msgid "Choose user"
 msgstr "انتخاب مشتری"
 
-#: content_a/category/add/display.php:8 content_cms/posts/edit/display.php:726
-#: content_cms/posts/home/display.php:113
-msgid "Parent"
-msgstr "والد"
-
-#: content_a/category/add/display.php:9 content_a/category/edit/display.php:20
-#: lib/app/category/check.php:97
-msgid "This category have some child and you can not change parent of it"
-msgstr "این دسته‌بندی دارای زیرمجموعه است و شما ‌نمی‌توانید والد آن را تغییر دهید"
-
-#: content_a/category/add/display.php:10 content_a/category/edit/display.php:21
-msgid "Select category parent"
-msgstr "لطفا والد دسته‌بندی را انتخاب کنید"
-
-#: content_a/category/add/display.php:14 content_a/category/edit/display.php:25
-#: content_a/products/edit/display.php:415
-msgid "Without category"
-msgstr "بدون دسته‌بندی"
-
-#: content_a/category/add/display.php:30 content_a/category/edit/display.php:13
+#: content_a/category/add/display.php:8 content_a/category/edit/display.php:13
 msgid "Category name"
 msgstr "نام دسته‌بندی"
 
@@ -4702,70 +4683,37 @@ msgstr "دسته‌بندی‌ها"
 msgid "Invalid category id"
 msgstr "شناسه دسته‌بندی اشتباه است"
 
-#: content_a/category/edit/display.php:19
-msgid "as child of"
-msgstr "به‌عنوان زیرمجموعه‌ای از"
-
-#: content_a/category/edit/display.php:46 dash/layout/admin/sidebar/sidebar-api-v2.php:97
+#: content_a/category/edit/display.php:26 dash/layout/admin/sidebar/sidebar-api-v2.php:97
 msgid "Category property"
 msgstr "خصیصه برای دسته‌بندی"
 
-#: content_a/category/edit/display.php:50
+#: content_a/category/edit/display.php:30
 msgid ""
 "You can create a specification table for a product in this category. You can add group "
 "and title of product specification and we are showing them inside product in this "
 "category"
 msgstr ""
 
-#: content_a/category/edit/display.php:80
-msgid "Category properties inherited from the parent category"
-msgstr "خصوصیات به ارث رسیده از دسته بندی والد"
-
-#: content_a/category/edit/display.php:87 content_a/company/display.php:64
-#: content_a/company/display.php:121 content_a/irvat/add/display.php:131
-#: content_a/pricehistory/display.php:36 content_a/products/bullet/display.php:20
-#: content_a/products/bullet/display.php:27 content_a/products/comment/display.php:140
-#: content_a/products/tag/display.php:131 content_a/setting/fund/display.php:39
-#: content_a/setting/place/inventory/display.php:19
-#: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
-#: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
-#: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:48
-#: content_a/website/quote/add/display.php:61 content_a/website/quote/display.php:18
-#: content_a/website/slider/add/display.php:47 content_a/website/slider/display.php:25
-#: content_account/address.php:181 content_cms/comments/home/display.php:149
-#: content_cms/terms/display.php:170 content_crm/member/glance/display.php:9
-#: content_crm/member/home/display.php:141 content_crm/permission/display.php:23
-#: content_my/domain/irnic/edit/display.php:25
-#: content_support/ticket/show/chatList.php:130
-#: content_support/ticket/show/chatList.php:241 content_v2/app/view.php:152
-#: includes/languages/trans_static_public.php:144
-msgid "Edit"
-msgstr "ویرایش"
-
-#: content_a/category/edit/display.php:101 content_a/category/edit/display.php:243
-msgid "Specification Title"
-msgstr "عنوان مشخصات"
-
-#: content_a/category/edit/display.php:126 content_a/products/edit/display.php:324
+#: content_a/category/edit/display.php:60 content_a/products/edit/display.php:324
 #: content_cms/posts/edit/display.php:709
 msgid "Customize for SEO"
 msgstr "بهینه‌سازی برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:139 content_a/products/edit/display.php:337
+#: content_a/category/edit/display.php:73 content_a/products/edit/display.php:337
 #: content_cms/posts/edit/display.php:704
 msgid "Google"
 msgstr "گوگل"
 
-#: content_a/category/edit/display.php:147 content_a/products/edit/display.php:345
+#: content_a/category/edit/display.php:81 content_a/products/edit/display.php:345
 #: content_cms/posts/edit/display.php:715
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:147 content_a/products/edit/display.php:345
+#: content_a/category/edit/display.php:81 content_a/products/edit/display.php:345
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:156 content_a/category/home/display.php:68
+#: content_a/category/edit/display.php:90 content_a/category/home/display.php:68
 #: content_a/products/edit/display.php:354 content_a/products/edit/display.php:356
 #: content_a/products/tag/display.php:91 content_a/products/tag/display.php:148
 #: content_a/products/tag/display.php:150 content_cms/posts/edit/display.php:745
@@ -4776,44 +4724,48 @@ msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر با
 msgid "Slug"
 msgstr "نامک"
 
-#: content_a/category/edit/display.php:156
+#: content_a/category/edit/display.php:90
 msgid "End part of your category url."
 msgstr "آخرین قسمت آدرس دسته‌بندی شما."
 
-#: content_a/category/edit/display.php:158
+#: content_a/category/edit/display.php:92
 msgid "Category slug"
 msgstr "نامک دسته‌بندی"
 
-#: content_a/category/edit/display.php:163 content_a/products/edit/display.php:361
+#: content_a/category/edit/display.php:97 content_a/products/edit/display.php:361
 #: content_cms/posts/edit/display.php:752
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:163 content_a/products/edit/display.php:361
+#: content_a/category/edit/display.php:97 content_a/products/edit/display.php:361
 #: content_cms/posts/edit/display.php:752
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
-#: content_a/category/edit/display.php:164 content_a/products/edit/display.php:362
+#: content_a/category/edit/display.php:98 content_a/products/edit/display.php:362
 #: content_cms/posts/edit/display.php:753
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
 
-#: content_a/category/edit/display.php:179
+#: content_a/category/edit/display.php:113
 msgid "Category image"
 msgstr "تصویر دسته‌بندی"
 
-#: content_a/category/edit/display.php:202 content_a/category/edit/display.php:207
+#: content_a/category/edit/display.php:136 content_a/category/edit/display.php:141
 msgid "Remove category"
 msgstr "حذف دسته‌بندی"
 
-#: content_a/category/edit/display.php:206
+#: content_a/category/edit/display.php:140
 msgid "You can delete this category because we are not found any product in that."
 msgstr "هیچ محصولی با این دسته‌بندی یافت نشد. شما می‌توانید این دسته‌بندی را حذف کنید."
 
-#: content_a/category/edit/display.php:237
+#: content_a/category/edit/display.php:171
 msgid "Specification Group"
 msgstr "گروه‌بندی مشخصات"
+
+#: content_a/category/edit/display.php:177
+msgid "Specification Title"
+msgstr "عنوان مشخصات"
 
 #: content_a/category/edit/model.php:29 content_b1/category/photo/model.php:37
 msgid "Category file deleted"
@@ -5041,6 +4993,26 @@ msgstr "هیچ محصولی با این شرکت سازنده یافت نشد"
 msgid "You can delete it now!"
 msgstr "شما می‌توانید هم اکنون این را حذف کنید!"
 
+#: content_a/company/display.php:64 content_a/company/display.php:121
+#: content_a/irvat/add/display.php:131 content_a/pricehistory/display.php:36
+#: content_a/products/bullet/display.php:20 content_a/products/bullet/display.php:27
+#: content_a/products/comment/display.php:140 content_a/products/tag/display.php:131
+#: content_a/setting/fund/display.php:39 content_a/setting/place/inventory/display.php:19
+#: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
+#: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
+#: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:48
+#: content_a/website/quote/add/display.php:61 content_a/website/quote/display.php:18
+#: content_a/website/slider/add/display.php:47 content_a/website/slider/display.php:25
+#: content_account/address.php:181 content_cms/comments/home/display.php:149
+#: content_cms/terms/display.php:170 content_crm/member/glance/display.php:9
+#: content_crm/member/home/display.php:141 content_crm/permission/display.php:23
+#: content_my/domain/irnic/edit/display.php:25
+#: content_support/ticket/show/chatList.php:130
+#: content_support/ticket/show/chatList.php:241 content_v2/app/view.php:152
+#: includes/languages/trans_static_public.php:144
+msgid "Edit"
+msgstr "ویرایش"
+
 #: content_a/company/display.php:67 content_a/company/display.php:189
 #: content_a/company/display.php:244 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
@@ -5172,8 +5144,8 @@ msgstr "حذف شرکت سازنده محصول"
 #: content_v2/controller.php:19 dash/engine/store.php:154 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:232 lib/app/category/add.php:12
 #: lib/app/category/edit.php:13 lib/app/category/get.php:34 lib/app/category/get.php:65
-#: lib/app/category/get.php:91 lib/app/category/search.php:28 lib/app/factor/add.php:35
-#: lib/app/factor/get.php:108 lib/app/product/add.php:76 lib/app/product/comment.php:178
+#: lib/app/category/search.php:28 lib/app/factor/add.php:35 lib/app/factor/get.php:108
+#: lib/app/product/add.php:76 lib/app/product/comment.php:178
 #: lib/app/product/comment.php:425 lib/app/product/comment.php:455
 #: lib/app/product/company.php:63 lib/app/product/company.php:228
 #: lib/app/product/company.php:260 lib/app/product/company.php:353
@@ -6627,6 +6599,10 @@ msgstr "دسته‌بندی"
 msgid "Select or add new category"
 msgstr "دسته‌بندی جدید را انتخاب یا اضافه کنید"
 
+#: content_a/products/edit/display.php:415
+msgid "Without category"
+msgstr "بدون دسته‌بندی"
+
 #: content_a/products/edit/display.php:429 content_a/units/display.php:109
 #: content_crm/transactions/add/display.php:51
 #: content_crm/transactions/minus/display.php:51
@@ -6647,7 +6623,7 @@ msgstr "بدون واحد"
 #: content_support/ticket/show/display.php:231 includes/languages/trans_static.php:585
 #: lib/app/product/search.php:113
 msgid "Tag"
-msgstr "کلیدواژه"
+msgstr "تگ"
 
 #: content_a/products/edit/display.php:486
 msgid "Manage product properties"
@@ -10081,6 +10057,10 @@ msgid ""
 msgstr ""
 "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر بوده و شامل بخشی از مطالب موجود در خطوط ابتدایی "
 "نوشته باشد"
+
+#: content_cms/posts/edit/display.php:726 content_cms/posts/home/display.php:113
+msgid "Parent"
+msgstr "والد"
 
 #: content_cms/posts/edit/display.php:726
 msgid "Choose parent for this page to create related url as tree"
@@ -17426,7 +17406,7 @@ msgstr "نوشته بدون تغییر ذخیره شد"
 msgid "Duplicate term"
 msgstr "عبارات تکراری"
 
-#: dash/app/term.php:386 lib/app/category/check.php:46
+#: dash/app/term.php:386
 msgid "Parent not found"
 msgstr "والد یافت نشد"
 
@@ -21225,7 +21205,7 @@ msgstr "بازخورد"
 
 #: includes/languages/trans_static.php:456 includes/languages/trans_static_public.php:132
 msgid "tag"
-msgstr "کلیدواژه"
+msgstr "تگ"
 
 #: includes/languages/trans_static.php:457
 msgid "code"
@@ -25244,15 +25224,6 @@ msgstr "عنوان خصوصیت محصول"
 msgid "Group properties"
 msgstr "گروه مشخصات"
 
-#: lib/app/category/check.php:60
-msgid "Can not choose this category as parent of another category"
-msgstr "شما نمی‌توانید از این دسته‌بندی به عنوان والد دسته‌بندی دیگر استفاده کنید"
-
-#: lib/app/category/check.php:104 lib/app/category/check.php:110
-#: lib/app/category/check.php:116
-msgid "Cannot set option as self parent"
-msgstr "نمی‌توانید گزینه‌ای را به عنوان والد خودش انتخاب کنید"
-
 #: lib/app/category/check.php:132
 msgid "Duplicate slug founded"
 msgstr "نامک تکراری است"
@@ -25269,19 +25240,19 @@ msgstr "کلید‌های خصوصیات محصول باید آرایه باشد
 msgid "Duplicate category founded"
 msgstr "دسته‌بندی تکراری یافت شد"
 
-#: lib/app/category/edit.php:85
+#: lib/app/category/edit.php:81
 msgid "No change in your product category"
 msgstr "دسته‌بندی محصول شما تغییری نکرد"
 
-#: lib/app/category/edit.php:96
+#: lib/app/category/edit.php:92
 msgid "The category successfully updated"
 msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
 
-#: lib/app/category/edit.php:102
+#: lib/app/category/edit.php:98
 msgid "Can not update your product category"
 msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌روزرسانی کنیم"
 
-#: lib/app/category/edit.php:109
+#: lib/app/category/edit.php:105
 msgid "Category saved without chnage"
 msgstr "دسته‌بندی بدون تغییر ذخیره شد"
 
@@ -25384,7 +25355,7 @@ msgstr "اطلاعات وارد شده برای مقدار مجموع خارج �
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:188
+#: lib/app/factor/add.php:199
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
@@ -25432,7 +25403,7 @@ msgstr "کالای تکراری در یک فاکتور نمی‌تواند ثب�
 msgid "No valid products found in your list"
 msgstr "هیچ کالای معتبری در لیست این فاکتور پیدا نشد"
 
-#: lib/app/factor/check_detail.php:139 lib/app/factor/check_detail.php:145
+#: lib/app/factor/check_detail.php:142 lib/app/factor/check_detail.php:148
 msgid "Invalid proudct in factor :key"
 msgstr "خطا در کالای :key در فاکتور"
 
@@ -28349,6 +28320,24 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "This category have some child and you can not change parent of it"
+#~ msgstr "این دسته‌بندی دارای زیرمجموعه است و شما ‌نمی‌توانید والد آن را تغییر دهید"
+
+#~ msgid "Select category parent"
+#~ msgstr "لطفا والد دسته‌بندی را انتخاب کنید"
+
+#~ msgid "as child of"
+#~ msgstr "به‌عنوان زیرمجموعه‌ای از"
+
+#~ msgid "Category properties inherited from the parent category"
+#~ msgstr "خصوصیات به ارث رسیده از دسته بندی والد"
+
+#~ msgid "Can not choose this category as parent of another category"
+#~ msgstr "شما نمی‌توانید از این دسته‌بندی به عنوان والد دسته‌بندی دیگر استفاده کنید"
+
+#~ msgid "Cannot set option as self parent"
+#~ msgstr "نمی‌توانید گزینه‌ای را به عنوان والد خودش انتخاب کنید"
 
 #~ msgid "Customer address"
 #~ msgstr "آدرس مشتری"

@@ -181,7 +181,22 @@ class edit
 
 		}
 
+
+		if(array_key_exists('cat', $args))
+		{
+			if($args['cat'])
+			{
+				\lib\app\category\add::product_cat($args['cat'], $id);
+				if(!\dash\engine\process::status())
+				{
+					return false;
+				}
+			}
+
+		}
+
 		unset($args['tag']);
+		unset($args['cat']);
 
 		if(isset($args['type']))
 		{

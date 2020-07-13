@@ -4,7 +4,10 @@ namespace lib\db\productcategory;
 
 class insert
 {
-
+	public static function multi_insert()
+	{
+		return \dash\db\config::public_multi_insert('productcategory', ...func_get_args());
+	}
 
 	/**
 	 * Insert new record to product category table

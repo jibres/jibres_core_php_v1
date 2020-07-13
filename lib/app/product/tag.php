@@ -158,6 +158,7 @@ class tag
 
 		if(!empty($must_remove))
 		{
+			$have_term_to_save_log = true;
 			$must_remove = array_filter($must_remove);
 			$must_remove = array_unique($must_remove);
 

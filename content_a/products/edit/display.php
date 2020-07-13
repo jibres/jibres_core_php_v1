@@ -406,24 +406,17 @@ $productDataRow = \dash\data::productDataRow();
 
 
       <div class="mB10">
-      <label for='cat'><?php echo T_("Cat"); ?> <small><a href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Add"); ?></a></small></label>
-      <select name="cat_id" id="cat" class="select22"  data-placeholder='<?php echo T_("Select or add new category"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
-        <option></option>
+        <label for='cat'><?php echo T_("Category"); ?> <small><a href="<?php echo \dash\url::here(); ?>/category"><i class="sf-link-external"></i></a></small></label>
+        <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
 
-        <?php if(\dash\data::productDataRow_cat_id()) {?>
+          <?php foreach (\dash\data::listCategory() as $key => $value) {?>
 
-          <option value="0"><?php echo T_("Without category"); ?></option>
+            <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['title'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
 
-        <?php } //endif ?>
+          <?php } //endfor ?>
 
-        <?php foreach (\dash\data::listCategory() as $key => $value) {?>
-
-          <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\data::productDataRow_cat_id() == $value['id']) { echo 'selected'; } ?> ><?php echo \dash\get::index($value, 'full_title'); ?></option>
-
-        <?php } //endfor ?>
-
-      </select>
-    </div>
+        </select>
+      </div>
 
       <div class="mB10">
       <label for='unit'><?php echo T_("Unit"); ?></label>
@@ -447,10 +440,8 @@ $productDataRow = \dash\data::productDataRow();
 
       <?php if(\dash\url::child() === 'edit') {?>
 
-        <?php if(\dash\permission::check('productAssignTag')) {?>
-
         <div class="mB10">
-          <label for='tag'><?php echo T_("Tag"); ?></label>
+          <label for='tag'>#<?php echo T_("Tag"); ?></label>
           <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
 
             <?php foreach (\dash\data::listTag() as $key => $value) {?>
@@ -461,7 +452,6 @@ $productDataRow = \dash\data::productDataRow();
 
           </select>
         </div>
-        <?php } //endif ?>
 
       <?php } //endif ?>
 

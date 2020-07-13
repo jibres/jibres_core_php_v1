@@ -66,7 +66,6 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
         <th class="collapsing">&nbsp;</th>
         <th><?php echo T_("Title"); ?></th>
         <th><?php echo T_("Price"); ?></th>
-        <th><?php echo T_("Category"); ?></th>
         <th><?php echo T_("Variants"); ?></th>
       </tr>
     </thead>
@@ -79,7 +78,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
         <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar" alt="<?php echo \dash\get::index($value, 'title'); ?>"></td>
         <td><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></td>
         <td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'price_string')); ?></td>
-        <td class=""><?php echo \dash\get::index($value, 'category'); ?></td>
+
         <td>
           <?php if(isset($value['variants_detail']['stock'])) {?>
 

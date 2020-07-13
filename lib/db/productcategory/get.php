@@ -5,6 +5,27 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function mulit_title($_titles)
+	{
+		if(!is_array($_titles) || !$_titles)
+		{
+			return false;
+		}
+
+		$_titles = implode("','", $_titles);
+
+		$query =
+		"
+			SELECT *
+			FROM productcategory
+			WHERE
+				productcategory.title IN ('$_titles')
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 
 	public static function is_parent_not_changed($_id, $_parent1, $_parent2, $_parent3)
 	{

@@ -2,7 +2,7 @@
 namespace lib\db\producttagusage;
 
 
-class deleted
+class delete
 {
 
 

@@ -184,7 +184,18 @@ class add
 			}
 		}
 
+		$my_cat = [];
+		if(array_key_exists('cat', $args))
+		{
+			if($args['cat'])
+			{
+				$my_cat = $args['cat'];
+			}
+
+		}
+
 		unset($args['tag']);
+		unset($args['cat']);
 
 		$stock = null;
 		if($args['stock'])
@@ -215,9 +226,32 @@ class add
 		}
 
 
-		if($stock)
+		if($my_cat)
 		{
-			\lib\app\product\inventory::initial($stock, $product_id);
+			\lib\app\category\add::product_cat($my_cat, $product_id);
+
+			if(!\dash\engine\process::status())
+			{
+				if($_option['debug'])
+				{
+					\dash\notif::error(T_("No way to insert product price"));
+				}
+
+				if(!$_option['transaction'])
+				{
+					\dash\db::rollback();
+				}
+
+				return false;
+			}
+		}
+
+		if(isset($args['infinite']) && $args['infinite'] === 'no')
+		{
+			if($stock)
+			{
+				\lib\app\product\inventory::initial($stock, $product_id);
+			}
 		}
 
 
