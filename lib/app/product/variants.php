@@ -400,6 +400,8 @@ class variants
 		{
 			\lib\db\products\update::variant_child($_product_id);
 
+			\lib\db\productinventory\delete::by_product_id($_product_id);
+
 			\dash\notif::ok(T_("Your products was inserted"));
 			return true;
 		}
