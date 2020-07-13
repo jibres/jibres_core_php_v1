@@ -161,12 +161,23 @@ class add
 
 		$return['price'] = \lib\price::total_down($factor_total);
 
+
+		$product_need_track_stock = [];
+
 		foreach ($factor_detail as $key => $value)
 		{
 			$factor_detail[$key]['factor_id'] = $factor_id;
 			unset($factor_detail[$key]['sub_price_temp']);
 			unset($factor_detail[$key]['sub_discount_temp']);
 			unset($factor_detail[$key]['sub_vat_temp']);
+
+			if($value['track_stock_temp'])
+			{
+				$product_need_track_stock[] = $value;
+			}
+
+			unset($factor_detail[$key]['track_stock_temp']);
+
 		}
 
 		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
@@ -177,7 +188,7 @@ class add
 			return false;
 		}
 
-		foreach ($factor_detail as $key => $value)
+		foreach ($product_need_track_stock as $key => $value)
 		{
 			\lib\app\product\inventory::set('sale', (floatval($value['count']) * -1), $value['product_id']);
 		}

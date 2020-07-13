@@ -129,7 +129,10 @@ class check_detail
 				continue;
 			}
 
+
 			$this_proudct = $check_true_product[$value['product_id']];
+
+
 			if(!$this_proudct || !is_array($this_proudct))
 			{
 				continue;
@@ -159,7 +162,15 @@ class check_detail
 				$count = 1;
 			}
 
-
+			// check need track stock or no
+			if(isset($this_proudct['infinite']) && $this_proudct['infinite'] === 'no')
+			{
+				$factor_detail_record['track_stock_temp'] = true;
+			}
+			else
+			{
+				$factor_detail_record['track_stock_temp'] = false;
+			}
 
 
 			if(array_key_exists('vat', $this_proudct) && $this_proudct['vat'] === 'yes')
