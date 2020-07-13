@@ -13,26 +13,6 @@
             <input type="text" name="title" id="icatname" placeholder='<?php echo T_("Category name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
           </div>
 
-          <?php if(\dash\data::dataRow_parent1() || \dash\data::parentList()) {?>
-
-            <div class="mB10">
-              <label for='parent'><?php echo T_("as child of"); ?>
-              <?php if(\dash\data::dataRow_have_child()) {?> <small class="fc-mute"><?php echo T_("This category have some child and you can not change parent of it"); ?></small> <?php } //endif ?></label>
-              <select name="parent" id="parent" class="select22" data-placeholder='<?php echo T_("Select category parent"); ?>' <?php if(\dash\data::dataRow_have_child()) {?> disabled <?php }//endif ?>>
-                <option></option>
-
-                <?php if(\dash\data::dataRow_parent1()) {?>
-                  <option value="0"><?php echo T_("Without category"); ?></option>
-                <?php } //endif ?>
-
-                <?php foreach (\dash\data::parentList() as $key => $value) {?>
-
-                  <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(isset($value['id']) && $value['id'] == \dash\data::dataRow_last_parent()) { echo 'selected'; } ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
-                <?php }//endfor ?>
-
-              </select>
-            </div>
-          <?php } //endif ?>
 
           <label for="desc"><?php echo T_("Description"); ?></label>
           <textarea data-editor  class="txt mB10" id='desc' name="desc" placeholder='<?php echo T_("Description"); ?>' maxlength='5000' rows="2"><?php echo \dash\data::dataRow_desc(); ?></textarea>
@@ -75,52 +55,6 @@
       </section>
 
 
-      <?php if(\dash\data::parentProperty() && is_array(\dash\data::parentProperty())) {?>
-      <section class="box">
-        <header><h2><?php echo T_("Category properties inherited from the parent category"); ?></h2></header>
-        <div class="body">
-
-
-            <?php foreach (\dash\data::parentProperty() as $key => $value) {?>
-
-                <div class="msg info2">
-                  <div class="txtB"><?php echo \dash\get::index($value, 'full_title'); ?> <a class="btn link" href="<?php echo \dash\url::this(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></div>
-                <?php if(is_array(\dash\get::index($value, 'properties'))) {?>
-                  <?php foreach (\dash\get::index($value, 'properties') as $k => $v) {?>
-
-                    <div class="row padLess">
-                      <div class="c-xs-12 c-sm-5 mB10">
-                        <div class="input">
-                          <input type="text" disabled  value="<?php echo \dash\get::index($v, 'group'); ?>" readonly>
-                        </div>
-                      </div>
-
-                      <div class="c-xs-12 c-sm-7 mB10">
-                        <div>
-
-                          <select  class="select22" disabled  multiple="multiple" readonly data-placeholder='<?php echo T_("Specification Title"); ?>'>
-                            <?php if(is_array(\dash\get::index($v, 'key'))) {?>
-                              <?php foreach (\dash\get::index($v, 'key') as $kk => $vv) {?>
-                                <option value="<?php echo $vv; ?>" selected><?php echo $vv; ?></option>
-                              <?php } //endfor ?>
-                            <?php } //endif ?>
-
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-
-                  <?php } //endfor ?>
-                <?php } //endif ?>
-                </div>
-
-            <?php } //endfor ?>
-
-        </div>
-      </section>
-
-    <?php } //endif ?>
 
       <section class="box">
         <header data-kerkere='.seoData' data-kerkere-icon><h2><?php echo T_("Customize for SEO"); ?></h2></header>

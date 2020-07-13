@@ -49,10 +49,6 @@ class edit
 
 		$properties = $args['properties'];
 
-		$_args['parent1'] = $args['parent1'];
-		$_args['parent2'] = $args['parent2'];
-		$_args['parent3'] = $args['parent3'];
-
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(isset($args['title']) && array_key_exists('seotitle', $get_category) && !$get_category['seotitle'])

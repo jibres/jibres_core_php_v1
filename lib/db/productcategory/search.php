@@ -75,26 +75,7 @@ class search
 		"
 			SELECT
 				productcategory.*,
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
-				(
-					IF(productcategory.parent1 IS NOT NULL ,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`,
-				(
-					SELECT 1
-					FROM productcategory AS `myHchild`
-					WHERE myHchild.parent1 = productcategory.id
-					OR myHchild.parent2 = productcategory.id
-					OR myHchild.parent3 = productcategory.id
-					LIMIT 1
-				)
-				AS `have_child`
+				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`
 			FROM
 				productcategory
 				$q[where]

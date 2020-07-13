@@ -22,18 +22,9 @@ class get
 		return $result;
 	}
 
-	public static function check_unique_slug($_slug, $_parent1, $_parent2, $_parent3)
+	public static function check_unique_slug($_slug)
 	{
-		$where =
-		[
-			'slug'    => $_slug,
-			'parent1' => $_parent1,
-			'parent2' => $_parent2,
-			'parent3' => $_parent3,
-		];
-
-		$where  = \dash\db\config::make_where($where);
-		$query  = "SELECT * FROM productcategory WHERE $where LIMIT 1";
+		$query  = "SELECT * FROM productcategory WHERE productcategory.slug = '$_slug' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
@@ -56,25 +47,7 @@ class get
 		$query  =
 		"
 			SELECT
-				productcategory.*,
-				(
-					IF(productcategory.parent1 IS NOT NULL ,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`,
-				(
-					SELECT 1
-					FROM productcategory AS `myHchild`
-					WHERE myHchild.parent1 = productcategory.id
-					OR myHchild.parent2 = productcategory.id
-					OR myHchild.parent3 = productcategory.id
-					LIMIT 1)
-				AS `have_child`
+				productcategory.*
 			FROM
 				productcategory
 			WHERE
@@ -93,41 +66,6 @@ class get
 		return $result;
 	}
 
-
-	public static function parent_property($_id)
-	{
-		$query  =
-		"
-			SELECT
-				productcategory.id,
-				productcategory.properties,
-				productcategory.title,
-				productcategory.slug,
-				productcategory.parent1,
-				productcategory.parent2,
-				productcategory.parent3,
-				(
-					IF(productcategory.parent1 IS NOT NULL ,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`
-			FROM
-				productcategory
-			WHERE
-				productcategory.id = (SELECT productcategory.parent3 FROM productcategory WHERE productcategory.id = $_id ) OR
-				productcategory.id = (SELECT productcategory.parent2 FROM productcategory WHERE productcategory.id = $_id ) OR
-				productcategory.id = (SELECT productcategory.parent1 FROM productcategory WHERE productcategory.id = $_id )
-			ORDER BY productcategory.parent1, productcategory.parent2, productcategory.parent3
-		";
-		$result = \dash\db::get($query);
-
-		return $result;
-	}
 
 
 	public static function by_muliti_id($_ids)
@@ -163,26 +101,7 @@ class get
 		$query =
 		"
 			SELECT
-				productcategory.*,
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
-				(
-					IF(productcategory.parent1 IS NOT NULL ,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`,
-				(
-					SELECT 1
-					FROM productcategory AS `myHchild`
-					WHERE myHchild.parent1 = productcategory.id
-					OR myHchild.parent2 = productcategory.id
-					OR myHchild.parent3 = productcategory.id
-					LIMIT 1)
-				AS `have_child`
+				productcategory.*
 			FROM
 				productcategory
 				$where
@@ -219,25 +138,7 @@ class get
 		"
 			SELECT
 				productcategory.*,
-				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
-				(
-					IF(productcategory.parent1 IS NOT NULL ,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`,
-				(
-					SELECT 1
-					FROM productcategory AS `myHchild`
-					WHERE myHchild.parent1 = productcategory.id
-					OR myHchild.parent2 = productcategory.id
-					OR myHchild.parent3 = productcategory.id
-					LIMIT 1)
-				AS `have_child`
+				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`
 			FROM
 				productcategory
 			WHERE
@@ -262,17 +163,7 @@ class get
 		"
 			SELECT
 				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
-				productcategory.*,
-				(
-					IF(productcategory.parent1 IS NOT NULL,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`
+				productcategory.*
 			 FROM productcategory
 			 WHERE  productcategory.id = $_id LIMIT 1
 		";
@@ -288,17 +179,7 @@ class get
 		"
 			SELECT
 				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
-				productcategory.*,
-				(
-					IF(productcategory.parent1 IS NOT NULL,
-					(
-						SELECT
-							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
-						FROM
-							productcategory AS `myPcat`
-						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
-					), NULL)
-				) AS `parent_json`
+				productcategory.*
 			 FROM productcategory
 			 WHERE  productcategory.slug = '$_url' LIMIT 1
 		";

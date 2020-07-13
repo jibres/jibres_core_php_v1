@@ -84,35 +84,6 @@ class get
 	}
 
 
-	public static function parent_property($_id = null)
-	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
-
-		$_id = \dash\validate::id($_id);
-
-		if(!$_id)
-		{
-			$_id = null;
-		}
-
-		$parent_property = \lib\db\productcategory\get::parent_property($_id);
-		if(!is_array($parent_property))
-		{
-			$parent_property = [];
-		}
-
-
-		$parent_property = array_map(['\\lib\\app\\category\\ready', 'row_property'], $parent_property);
-
-
-		return $parent_property;
-	}
-
-
 
 	public static function by_url($_url)
 	{

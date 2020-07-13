@@ -35,7 +35,7 @@ class model
 		$args                   = [];
 		$args['title']          = \dash\request::post('title');
 		$args['slug']           = \dash\request::post('slug');
-		$args['parent']         = \dash\request::post('parent');
+		// $args['parent']         = \dash\request::post('parent');
 		$args['desc']           = \dash\request::post('desc') ? $_POST['desc'] : null;
 		$args['seotitle']       = \dash\request::post('seotitle');
 		$args['seodesc']        = \dash\request::post('seodesc');

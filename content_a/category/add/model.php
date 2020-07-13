@@ -8,7 +8,6 @@ class model
 	{
 		$args           = [];
 		$args['title']  = \dash\request::post('cat');
-		$args['parent'] = \dash\request::post('parent');
 
 		$result = \lib\app\category\add::add($args);
 
