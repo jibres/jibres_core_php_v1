@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-12 20:04+0430\n"
-"PO-Revision-Date: 2020-07-12 20:06+0430\n"
+"POT-Creation-Date: 2020-07-13 12:46+0430\n"
+"PO-Revision-Date: 2020-07-13 12:47+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -669,7 +669,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/irvat/add/display.php:124 content_a/order/add/display.php:62
 #: content_a/order/detail/display.php:37 content_a/order/detail/display.php:158
 #: content_a/order/detail/display.php:191 content_a/products/desc/display.php:12
-#: content_a/products/desc/display.php:18 content_a/products/edit/display.php:230
+#: content_a/products/desc/display.php:18 content_a/products/edit/display.php:231
 #: content_a/products/tag/display.php:94 content_a/products/tag/display.php:159
 #: content_a/products/tag/display.php:160 content_a/products/tag/display.php:201
 #: content_a/setting/fund/display.php:18 content_a/setting/fund/display.php:61
@@ -3883,7 +3883,7 @@ msgstr "زمان شروع قرارگیری در صف"
 
 #: content_a/android/apk/display.php:32 content_a/order/detail/display.php:24
 #: content_a/products/comment/display.php:85
-#: content_a/products/comment/edit/display.php:28 content_a/products/edit/display.php:511
+#: content_a/products/comment/edit/display.php:28 content_a/products/edit/display.php:512
 #: content_a/products/export/display.php:57 content_a/products/status/display.php:22
 #: content_a/products/status/view.php:18 content_a/products/tag/display.php:96
 #: content_a/products/tag/display.php:169 content_a/products/tag/display.php:186
@@ -3968,8 +3968,8 @@ msgstr "مایکت"
 
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
 #: content_a/order/detail/display.php:172 content_a/products/desc/display.php:22
-#: content_a/products/edit/display.php:10 content_a/products/edit/display.php:373
-#: content_a/products/edit/display.php:574 content_a/products/variants/display.php:167
+#: content_a/products/edit/display.php:10 content_a/products/edit/display.php:374
+#: content_a/products/edit/display.php:575 content_a/products/variants/display.php:167
 #: content_a/setting/domain/display.php:46 content_a/setting/general/title/display.php:20
 #: content_a/setting/googleanalytics/display.php:19
 #: content_a/setting/payment/bank/display.php:17 content_a/setting/social/display.php:39
@@ -4151,7 +4151,7 @@ msgstr "عنوان"
 #: content_a/android/intro/display-test-multi-upload.php:30
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:184
 #: content_a/irvat/add/display.php:390 content_a/order/detail/display.php:166
-#: content_a/products/edit/display.php:309 content_a/setup/logo/display.php:15
+#: content_a/products/edit/display.php:310 content_a/setup/logo/display.php:15
 #: content_a/website/header/box/header_logo.php:25 content_support/ticket/addForm.php:31
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل خود را بکشید و اینجا رها کنید یا انتخاب کنید"
@@ -4290,7 +4290,7 @@ msgid "Intro page #1"
 msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
-#: content_a/android/review/display.php:101 content_a/products/edit/display.php:400
+#: content_a/android/review/display.php:101 content_a/products/edit/display.php:401
 #: content_love/application/home/display.php:83 content_su/log/display.php:24
 #: content_su/log/display.php:54 content_su/log/display.php:85
 #: content_su/log/display.php:116 includes/languages/trans_static.php:528
@@ -4398,7 +4398,7 @@ msgstr "جستجو در لیست برای افزودن کالا"
 
 #: content_a/cart/add/display.php:26 content_a/category/add/display.php:34
 #: content_a/company/display.php:73 content_a/irvat/add/display.php:133
-#: content_a/products/bullet/display.php:20 content_a/products/edit/display.php:408
+#: content_a/products/bullet/display.php:20 content_a/products/edit/display.php:409
 #: content_a/products/tag/display.php:127 content_a/setting/place/inventory/display.php:17
 #: content_a/units/display.php:84 content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
@@ -4415,7 +4415,7 @@ msgstr "افزودن"
 
 #: content_a/cart/add/display.php:51 content_a/cart/home/display.php:123
 #: content_a/category/home/display.php:87 content_a/company/display.php:51
-#: content_a/order/add/display.php:16 content_a/products/edit/display.php:386
+#: content_a/order/add/display.php:16 content_a/products/edit/display.php:387
 #: content_a/products/tag/display.php:113 content_a/sale/display.php:16
 #: content_a/units/display.php:62 content_my/business/home/display_site.php:63
 #: includes/languages/trans_static.php:527 lib/app/factor/search.php:128
@@ -4676,7 +4676,7 @@ msgid "Select category parent"
 msgstr "لطفا والد دسته‌بندی را انتخاب کنید"
 
 #: content_a/category/add/display.php:14 content_a/category/edit/display.php:25
-#: content_a/products/edit/display.php:414
+#: content_a/products/edit/display.php:415
 msgid "Without category"
 msgstr "بدون دسته‌بندی"
 
@@ -4746,27 +4746,27 @@ msgstr "ویرایش"
 msgid "Specification Title"
 msgstr "عنوان مشخصات"
 
-#: content_a/category/edit/display.php:126 content_a/products/edit/display.php:323
+#: content_a/category/edit/display.php:126 content_a/products/edit/display.php:324
 #: content_cms/posts/edit/display.php:709
 msgid "Customize for SEO"
 msgstr "بهینه‌سازی برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:139 content_a/products/edit/display.php:336
+#: content_a/category/edit/display.php:139 content_a/products/edit/display.php:337
 #: content_cms/posts/edit/display.php:704
 msgid "Google"
 msgstr "گوگل"
 
-#: content_a/category/edit/display.php:147 content_a/products/edit/display.php:344
+#: content_a/category/edit/display.php:147 content_a/products/edit/display.php:345
 #: content_cms/posts/edit/display.php:715
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:147 content_a/products/edit/display.php:344
+#: content_a/category/edit/display.php:147 content_a/products/edit/display.php:345
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
 #: content_a/category/edit/display.php:156 content_a/category/home/display.php:68
-#: content_a/products/edit/display.php:353 content_a/products/edit/display.php:355
+#: content_a/products/edit/display.php:354 content_a/products/edit/display.php:356
 #: content_a/products/tag/display.php:91 content_a/products/tag/display.php:148
 #: content_a/products/tag/display.php:150 content_cms/posts/edit/display.php:745
 #: content_cms/posts/edit/display.php:747 content_cms/posts/home/display.php:96
@@ -4784,17 +4784,17 @@ msgstr "آخرین قسمت آدرس دسته‌بندی شما."
 msgid "Category slug"
 msgstr "نامک دسته‌بندی"
 
-#: content_a/category/edit/display.php:163 content_a/products/edit/display.php:360
+#: content_a/category/edit/display.php:163 content_a/products/edit/display.php:361
 #: content_cms/posts/edit/display.php:752
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:163 content_a/products/edit/display.php:360
+#: content_a/category/edit/display.php:163 content_a/products/edit/display.php:361
 #: content_cms/posts/edit/display.php:752
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
-#: content_a/category/edit/display.php:164 content_a/products/edit/display.php:361
+#: content_a/category/edit/display.php:164 content_a/products/edit/display.php:362
 #: content_cms/posts/edit/display.php:753
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
@@ -5177,7 +5177,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/product/comment.php:425 lib/app/product/comment.php:455
 #: lib/app/product/company.php:63 lib/app/product/company.php:228
 #: lib/app/product/company.php:260 lib/app/product/company.php:353
-#: lib/app/product/edit.php:31 lib/app/product/get.php:16 lib/app/product/unit.php:63
+#: lib/app/product/edit.php:31 lib/app/product/get.php:34 lib/app/product/unit.php:63
 #: lib/app/product/unit.php:229 lib/app/product/unit.php:261 lib/app/product/unit.php:355
 #: lib/app/store/edit.php:37 lib/app/store/edit.php:77
 msgid "Store not found"
@@ -5805,7 +5805,7 @@ msgid "Add file"
 msgstr "افزودن فایل"
 
 #: content_a/irvat/add/display.php:384 content_a/order/detail/display.php:162
-#: content_a/products/edit/display.php:305 content_a/website/header/box/header_logo.php:17
+#: content_a/products/edit/display.php:306 content_a/website/header/box/header_logo.php:17
 #: content_cms/attachment/add/display.php:14 content_cms/posts/edit/display.php:667
 #: content_support/ticket/addForm.php:27
 msgid "Maximum file size"
@@ -6419,7 +6419,7 @@ msgstr "ویرایش نظر"
 msgid "Invalid detail"
 msgstr "جزئیات اشتباه است"
 
-#: content_a/products/comment/view.php:17 content_a/products/edit/display.php:487
+#: content_a/products/comment/view.php:17 content_a/products/edit/display.php:488
 #: content_cms/comments/home/view.php:11 content_cms/posts/edit/display.php:345
 #: includes/languages/trans_static.php:602 includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
@@ -6544,91 +6544,90 @@ msgid "If you want to change the stock enter current stock here"
 msgstr ""
 "در صورت تمایل به تغییر موجودی آن را وارد کنید،‌ در غیر این ‌صورت این فیلد را خالی بگذارید"
 
-#: content_a/products/edit/display.php:198
+#: content_a/products/edit/display.php:199
 msgid "Oversale"
 msgstr "فروش با موجودی منفی"
 
-#: content_a/products/edit/display.php:200
+#: content_a/products/edit/display.php:201
 msgid "Allow to purchase when sold out of stock"
 msgstr "اجازه به فروش زمانی که موجودی انبار منفی شده است"
 
-#: content_a/products/edit/display.php:204
+#: content_a/products/edit/display.php:205
 msgid "Min stock"
 msgstr "حداقل موجودی"
 
-#: content_a/products/edit/display.php:210
+#: content_a/products/edit/display.php:211
 msgid "Max stock"
 msgstr "حداکثر موجودی"
 
-#: content_a/products/edit/display.php:216
+#: content_a/products/edit/display.php:217
 msgid "Optimize your inventory decisions."
 msgstr "تصمیمات انبار خود را بهینه کنید."
 
-#: content_a/products/edit/display.php:216
+#: content_a/products/edit/display.php:217
 msgid "Know which products are the most profitable and which you should re-order when."
 msgstr ""
 "دانستن اینکه کدام محصولات بیشتر سودآور هستند و اینکه چه زمانی کدامشان را باید دوباره "
 "سفارش دهید."
 
-#: content_a/products/edit/display.php:216
+#: content_a/products/edit/display.php:217
 msgid "Demand forecasting!"
 msgstr "پیش‌بینی تقاضا!"
 
-#: content_a/products/edit/display.php:216
+#: content_a/products/edit/display.php:217
 msgid "Receive recommendations on your products based on your rate of sales."
 msgstr "دریافت توصیه برای خرید محصولات بسته به نرخ فروش آن‌ها."
 
-#: content_a/products/edit/display.php:232 content_a/products/edit/display.php:484
+#: content_a/products/edit/display.php:233 content_a/products/edit/display.php:485
 msgid "Edit Description"
 msgstr "ویرایش توضیحات"
 
-#: content_a/products/edit/display.php:234
+#: content_a/products/edit/display.php:235
 msgid "Description is empty"
 msgstr "توضیحات خالی است"
 
-#: content_a/products/edit/display.php:237
+#: content_a/products/edit/display.php:238
 msgid "Edit Bullet"
 msgstr "ویرایش ویژگی‌های برجسته"
 
-#: content_a/products/edit/display.php:255
+#: content_a/products/edit/display.php:256
 msgid "Images Gallery"
 msgstr "گالری تصاویر"
 
-#: content_a/products/edit/display.php:288
+#: content_a/products/edit/display.php:289
 msgid "Set as cover"
 msgstr "تنظیم به عنوان تصویر شاخص"
 
-#: content_a/products/edit/display.php:301
+#: content_a/products/edit/display.php:302
 msgid "Product gallery is full!"
 msgstr "ظرفیت گالری محصول تکمیل است!"
 
-#: content_a/products/edit/display.php:305 content_cms/posts/edit/display.php:657
+#: content_a/products/edit/display.php:306 content_cms/posts/edit/display.php:657
 #: content_cms/posts/edit/display.php:660
 msgid "Add to gallery"
 msgstr "افزودن به گالری تصاویر"
 
-#: content_a/products/edit/display.php:353
+#: content_a/products/edit/display.php:354
 msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
-#: content_a/products/edit/display.php:377
-#: content_my/domain/whoisdetail/whoisDetailForm.php:15
-msgid "Organization"
-msgstr "سازمان"
+#: content_a/products/edit/display.php:378
+msgid "Organize"
+msgstr "سازماندهی"
 
-#: content_a/products/edit/display.php:393 includes/languages/trans_static.php:529
+#: content_a/products/edit/display.php:394 includes/languages/trans_static.php:529
 msgid "Service"
 msgstr "خدمت"
 
-#: content_a/products/edit/display.php:408 includes/languages/trans_static.php:584
+#: content_a/products/edit/display.php:409 includes/languages/trans_static.php:584
 msgid "Cat"
 msgstr "دسته‌بندی"
 
-#: content_a/products/edit/display.php:409 content_a/website/productline/display.php:30
+#: content_a/products/edit/display.php:410 content_a/website/productline/display.php:30
 msgid "Select or add new category"
 msgstr "دسته‌بندی جدید را انتخاب یا اضافه کنید"
 
-#: content_a/products/edit/display.php:428 content_a/units/display.php:109
+#: content_a/products/edit/display.php:429 content_a/units/display.php:109
 #: content_crm/transactions/add/display.php:51
 #: content_crm/transactions/minus/display.php:51
 #: content_love/transactions/add/display.php:51
@@ -6636,37 +6635,37 @@ msgstr "دسته‌بندی جدید را انتخاب یا اضافه کنید"
 msgid "Unit"
 msgstr "واحد"
 
-#: content_a/products/edit/display.php:429
+#: content_a/products/edit/display.php:430
 msgid "like Qty, kg, etc"
 msgstr "مثل عدد، کیلوگرم، تعداد"
 
-#: content_a/products/edit/display.php:434
+#: content_a/products/edit/display.php:435
 msgid "Without unit"
 msgstr "بدون واحد"
 
-#: content_a/products/edit/display.php:452 content_cms/posts/edit/display.php:319
+#: content_a/products/edit/display.php:453 content_cms/posts/edit/display.php:319
 #: content_support/ticket/show/display.php:231 includes/languages/trans_static.php:585
 #: lib/app/product/search.php:113
 msgid "Tag"
 msgstr "کلیدواژه"
 
-#: content_a/products/edit/display.php:485
+#: content_a/products/edit/display.php:486
 msgid "Manage product properties"
 msgstr "مدیریت مشخصات محصول"
 
-#: content_a/products/edit/display.php:486
+#: content_a/products/edit/display.php:487
 msgid "Manage product feature bullet"
 msgstr "مدیریت ویژگی‌های برجسته محصولات"
 
-#: content_a/products/edit/display.php:488
+#: content_a/products/edit/display.php:489
 msgid "Cart Limit"
 msgstr "محدودیت سبد خرید"
 
-#: content_a/products/edit/display.php:491 content_a/products/variants/display.php:81
+#: content_a/products/edit/display.php:492 content_a/products/variants/display.php:81
 msgid "Make product variants"
 msgstr "ساخت محصولات متنوع"
 
-#: content_a/products/edit/display.php:503
+#: content_a/products/edit/display.php:504
 msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
 
@@ -7107,6 +7106,10 @@ msgstr "این محصول دارای زیرمجموعه است و نمی‌تو�
 #: content_a/products/variants/display.php:184
 msgid "This is child of another product"
 msgstr "این محصول خود زیرمجموعه محصول دیگری است"
+
+#: content_a/products/variants/display.php:189 lib/app/product/variants.php:117
+msgid "Can not set variants after sale, buy or any factor type of this products"
+msgstr ""
 
 #: content_a/products/variants/model.php:133
 msgid "Please set stock and price of product"
@@ -8139,7 +8142,7 @@ msgstr "فروش یکپارچه و حسابداری آنلاین"
 
 #: content_a/website/body/add/display.php:2
 msgid "Please choose type of new block."
-msgstr ""
+msgstr "لطفا نوع بخش جدید را انتخاب کنید."
 
 #: content_a/website/body/add/display.php:7 content_a/website/slider/view.php:15
 #: lib/app/website/body/line/slider.php:12 lib/app/website/body/template.php:59
@@ -14649,6 +14652,10 @@ msgstr "اطلاعات کاربری دامنه"
 #: content_my/domain/whoisdetail/whoisDetailForm.php:9
 msgid "Full name"
 msgstr "نام کامل"
+
+#: content_my/domain/whoisdetail/whoisDetailForm.php:15
+msgid "Organization"
+msgstr "سازمان"
 
 #: content_my/home/display_pwa.php:1
 msgid "Jibres Services"
@@ -25164,7 +25171,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 #: lib/app/product/gallery.php:97 lib/app/product/gallery.php:135
 #: lib/app/product/remove.php:10 lib/app/product/unit.php:21
 #: lib/app/product/updateprice.php:154 lib/app/product/variants.php:84
-#: lib/app/product/variants.php:251 lib/app/product/variants.php:268
+#: lib/app/product/variants.php:258 lib/app/product/variants.php:275
 #: lib/app/setting/setup.php:93 lib/app/setting/setup.php:293 lib/app/store/edit.php:11
 #: lib/app/store/edit.php:54 lib/app/store/edit.php:116
 msgid "Your are not in this store!"
@@ -25698,7 +25705,7 @@ msgstr "فاکتور به‌روزرسانی شد"
 msgid "Can not update your irvat"
 msgstr "نمی‌توانید فاکتور خود را ویرایش کنید"
 
-#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:48 lib/app/product/get.php:37
+#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:48 lib/app/product/get.php:55
 msgid "Product detail not found"
 msgstr "جزئیات محصول یافت نشد"
 
@@ -26658,7 +26665,7 @@ msgstr "قیمت خرید نزولی"
 msgid "This barcode is scanned before"
 msgstr "این بارکد پیش از این اسکن شده است"
 
-#: lib/app/product/get.php:23
+#: lib/app/product/get.php:41
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
@@ -26788,7 +26795,7 @@ msgstr "نمی‌توانید واحد محصولات خود را ویرایش �
 msgid "Buyprice"
 msgstr "قیمت خرید"
 
-#: lib/app/product/variants.php:98 lib/app/product/variants.php:281
+#: lib/app/product/variants.php:98 lib/app/product/variants.php:288
 msgid "Variants not avalible on product by type :type"
 msgstr "تنوع محصول برای محصولات با نوع :type در دسترس نیست"
 
@@ -26800,52 +26807,52 @@ msgstr "این محصول زیرمجموعه محصول دیگری است و‌ 
 msgid "This product have some child and can not be set variants"
 msgstr "این محصول دارای زیرمجموعه است و نمی‌توانید برای آن تنوع محصول ایجاد کنید"
 
-#: lib/app/product/variants.php:127
+#: lib/app/product/variants.php:134
 msgid "Your variants was created"
 msgstr "محصولات متنوع شما ساخته شد"
 
-#: lib/app/product/variants.php:133
+#: lib/app/product/variants.php:140
 msgid "Sorry!, Cannot insert or update data"
 msgstr "متاسفیم! ما نمی‌توانیم اطلاعات را ثبت یا به‌روزرسانی کنیم"
 
-#: lib/app/product/variants.php:170 lib/app/product/variants.php:176
-#: lib/app/product/variants.php:182
+#: lib/app/product/variants.php:177 lib/app/product/variants.php:183
+#: lib/app/product/variants.php:189
 msgid "Duplicate option name"
 msgstr "عنوان تنوع تکراری است"
 
-#: lib/app/product/variants.php:221
+#: lib/app/product/variants.php:228
 msgid "Please fill variants detail"
 msgstr "لطفا جزئیات تنوع محصول را وارد کنید"
 
-#: lib/app/product/variants.php:235
+#: lib/app/product/variants.php:242
 msgid "You can set maximum 100 variants"
 msgstr "شما می‌توانید حداکثر ۱۰۰ محصول را در تنوع محصولات ایجاد کنید"
 
-#: lib/app/product/variants.php:289
+#: lib/app/product/variants.php:296
 msgid "This product not ready to set variants"
 msgstr "این محصول آمادگی لازم را برای تنوع محصول ندارد"
 
-#: lib/app/product/variants.php:295
+#: lib/app/product/variants.php:302
 msgid "This product have some child and can not set variants"
 msgstr "این محصول دارای تنوع بوده و امکان مجدد ثبت تنوع وجود ندارد"
 
-#: lib/app/product/variants.php:306
+#: lib/app/product/variants.php:313
 msgid "Variants of product not found"
 msgstr "تنوع محصولات یافت نشد"
 
-#: lib/app/product/variants.php:369
+#: lib/app/product/variants.php:376
 msgid "Zero price!"
 msgstr "مبلغ صفر است!"
 
-#: lib/app/product/variants.php:386
+#: lib/app/product/variants.php:393
 msgid "No avalible product to insert"
 msgstr "هیچ محصولی برای ثبت آماده نیست"
 
-#: lib/app/product/variants.php:396
+#: lib/app/product/variants.php:405
 msgid "Your products was inserted"
 msgstr "محصولات شما اضافه شد"
 
-#: lib/app/product/variants.php:401
+#: lib/app/product/variants.php:410
 msgid "Can not add product"
 msgstr "نمی‌توانیم هیچ محصولی را اضافه کنیم"
 

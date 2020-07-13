@@ -375,7 +375,7 @@ $productDataRow = \dash\data::productDataRow();
     <?php } //endif ?>
 
     <section class="jbox">
-    <header data-kerkere='.jboxOrganize' data-kerkere-icon='open'><h2><?php echo T_("Organization"); ?></h2></header>
+    <header data-kerkere='.jboxOrganize' data-kerkere-icon='open'><h2><?php echo T_("Organize"); ?></h2></header>
     <div class="pad jboxOrganize">
 
 
