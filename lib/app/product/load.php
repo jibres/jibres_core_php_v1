@@ -56,11 +56,15 @@ class load
 			}
 		}
 
+		$detail['first_sale'] = \lib\app\product\get::first_sale($id);
+
 		// sed dataRow to load detail in html
 		\dash\data::productDataRow($detail);
 
 		return $detail;
 	}
+
+
 
 
 

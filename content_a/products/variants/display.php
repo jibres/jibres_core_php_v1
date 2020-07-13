@@ -12,7 +12,7 @@ $variantsList = \dash\data::variantsList();
           <header><h2><?php echo T_("Variants"); ?></h2></header>
           <div class="pad jboxVariants">
 
-            <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent()) {?>
+            <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent() && !\dash\data::productDataRow_first_sale()) {?>
 
 
             <form method="post" autocomplete="off">
@@ -182,6 +182,11 @@ $variantsList = \dash\data::variantsList();
           <?php if(\dash\data::productDataRow_parent()) {?>
 
             <p class="msg warn"><?php echo T_("This is child of another product"); ?></p>
+          <?php }//endif ?>
+
+           <?php if(\dash\data::productDataRow_first_sale()) {?>
+
+            <p class="msg warn"><?php echo T_("Can not set variants after sale, buy or any factor type of this products"); ?></p>
           <?php }//endif ?>
 
         <?php }//endif ?>

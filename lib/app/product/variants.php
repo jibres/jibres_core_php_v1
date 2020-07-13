@@ -111,6 +111,13 @@ class variants
 			return false;
 		}
 
+
+		if(\lib\app\product\get::first_sale($_id))
+		{
+			\dash\notif::error(T_("Can not set variants after sale, buy or any factor type of this products"));
+			return false;
+		}
+
 		$variants = self::check_option_variable($_variants);
 		if(!$variants)
 		{

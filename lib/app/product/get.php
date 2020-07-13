@@ -9,6 +9,24 @@ class get
 	private static $product_next      = [];
 
 
+
+	public static function first_sale($_id)
+	{
+		if($_id && is_numeric($_id))
+		{
+			$result = \lib\db\factordetails\get::first_sale($_id);
+			if($result)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return null;
+	}
+
 	public static function inline_get($_id)
 	{
 		if(!\lib\store::id())
