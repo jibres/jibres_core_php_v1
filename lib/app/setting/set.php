@@ -38,7 +38,7 @@ class set
 		[
 			'apikey'  => 'string_100',
 			'channel' => 'string_100',
-			'text'    => 'desc',
+			'share_text'    => 'desc',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

@@ -7,7 +7,7 @@ class model
 	public static function post()
 	{
 		$post           = [];
-		$post['text'] = \dash\request::post('text');
+		$post['share_text'] = \dash\request::post('share_text');
 
 		\lib\app\setting\set::telegram_setting($post);
 

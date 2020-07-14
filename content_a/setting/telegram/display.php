@@ -50,7 +50,7 @@
   </div>
   <div class="c4 s12" >
       <div class="action">
-        <?php if(\dash\data::telegramSettingSaved_text()) {?>
+        <?php if(\dash\data::telegramSettingSaved_share_text()) {?>
           <a class="btn success" href="<?php echo \dash\url::that(). '/text' ?>"><?php echo T_("Change Telegram Text") ?></a>
         <?php }else{ ?>
           <a class="btn primary" href="<?php echo \dash\url::that(). '/text' ?>"><?php echo T_("Set Telegram Text") ?></a>

@@ -9,8 +9,8 @@
         <div class="c4 s12" method="post" autocomplete="off">
           <div class="action f">
             <div class="c12 mB5">
-              <label for="text"><?php echo T_("Text"); ?></label>
-              <textarea name="text" id="text" class="txt" rows="5"><?php echo \dash\data::telegramSettingSaved_text(); ?></textarea>
+              <label for="share_text"><?php echo T_("Text"); ?></label>
+              <textarea name="share_text" id="share_text" class="txt" rows="5"><?php echo \dash\data::telegramSettingSaved_share_text(); ?></textarea>
             </div>
           </div>
         </div>
