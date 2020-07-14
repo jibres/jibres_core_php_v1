@@ -93,17 +93,17 @@ class model
 
 
 
-		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
-		\dash\social\telegram\tg::$name      = $botname;
+		bot::$api_token = $telegram_setting['apikey'];
+		bot::$name      = $botname;
 		if(isset($msgData['photo']))
 		{
 			$msgData['caption'] = $txt;
-			$myResult = \dash\social\telegram\tg::sendPhoto($msgData);
+			$myResult = bot::sendPhoto($msgData);
 		}
 		else
 		{
 			$msgData['text'] = $txt;
-			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
+			$myResult = bot::sendMessage($msgData);
 
 		}
 
