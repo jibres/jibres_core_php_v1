@@ -25,6 +25,12 @@ class model
 		}
 
 
+		if(array_key_exists('runaction_defaulttracking', $all_post))
+		{
+			$post['defaulttracking'] = \dash\request::post('defaulttracking');
+		}
+
+
 		$ratio = \dash\request::post('ratio') ? \dash\request::post('ratio') : null;
 		if(array_key_exists('runaction_ratio', $all_post))
 		{

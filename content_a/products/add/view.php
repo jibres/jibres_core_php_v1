@@ -26,6 +26,10 @@ class view
 		\dash\data::listCategory($category_list);
 
 
+		$productSettingSaved = \lib\app\setting\get::product_setting();
+		\dash\data::productSettingSaved($productSettingSaved);
+
+
 	}
 }
 ?>

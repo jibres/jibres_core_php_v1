@@ -50,6 +50,30 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
+<section class="f" data-option='product-setting-default-tracking'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("The tracking option");?></h3>
+      <div class="body">
+        <p><?php echo T_("When add new product");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+
+      <div class="action">
+        <input type="hidden" name="runaction_defaulttracking" value="1">
+        <div class="switch1">
+          <input type="checkbox" name="defaulttracking" id="defaulttracking" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'defaulttracking')) { echo 'checked'; } ?>>
+          <label for="defaulttracking" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
+        </div>
+      </div>
+
+  </form>
+</section>
+
+
+
 
 
 <section class="f" data-option='product-setting-image-ratio'>
