@@ -504,6 +504,13 @@ $productDataRow = \dash\data::productDataRow();
      </ul>
    </nav>
 
+    <nav class="items long">
+     <ul>
+       <li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/share?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-paper-plane mRa10"></i><?php echo T_("Share with social network"); ?></div><div class="go"></div></a></li>
+       </li>
+     </ul>
+   </nav>
 
 
   <?php if(\dash\data::productDataRow_variant_child() || \dash\data::productFamily()) {?>
