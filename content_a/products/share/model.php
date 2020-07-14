@@ -35,6 +35,7 @@ class model
 
 
 		$myData   = ['chat_id' => $chatid, 'text' => $text];
+		\dash\social\telegram\tg::$api_token = $apikey;
 		$myResult = \dash\social\telegram\tg::json_sendMessage($myData);
 
 		$result = \lib\app\product\edit::edit($post, $id);
