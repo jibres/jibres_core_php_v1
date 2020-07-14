@@ -30,7 +30,7 @@ class model
 		// set photo of product
 		if(\dash\data::productDataRow_thumb())
 		{
-			$msgData['photo'] = \dash\data::productDataRow_thumb();
+			// $msgData['photo'] = \dash\data::productDataRow_thumb();
 		}
 
 		// title
@@ -40,7 +40,10 @@ class model
 			$txt .= \dash\data::productDataRow_title2(). "\n";
 		}
 		// price
-		$txt = '<code>'. \dash\data::productDataRow_finalprice(). '</code>'. "\n\n";
+		$txt .= T_("Price");
+		$txt .= ' <code>'. \dash\data::productDataRow_finalprice(). '</code> ';
+		$txt .= \lib\currency::unit(). "\n\n";
+
 		// product share text
 		if(\dash\data::productDataRow_sharetext())
 		{
@@ -56,7 +59,7 @@ class model
 
 		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
 		\dash\social\telegram\tg::$name      = $botname;
-
+var_dump($msgData);
 		if(isset($msgData['photo']))
 		{
 			$msgData['caption'] = $txt;
