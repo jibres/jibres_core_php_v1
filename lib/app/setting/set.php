@@ -66,6 +66,7 @@ class set
 		$condition =
 		[
 			'share_text' => 'desc',
+			'color' => ['enum' => ['red', 'green', 'blue', 'yellow']],
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

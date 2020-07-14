@@ -147,6 +147,34 @@ class get
 			}
 		}
 
+		if(isset($product_setting['color']))
+		{
+			$class = null;
+			switch ($product_setting['color'])
+			{
+				case 'red':
+					$class = 'danger2';
+					break;
+
+				case 'green':
+					$class = 'success2';
+					break;
+				case 'blue':
+					$class = 'primary2';
+					break;
+
+				case 'yellow':
+					$class = 'warn2';
+					break;
+
+				default:
+					# code...
+					break;
+			}
+
+			$product_setting['color_class'] = $class;
+		}
+
 
 		return $product_setting;
 
