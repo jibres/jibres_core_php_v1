@@ -36,7 +36,7 @@ class model
 		$text     .= $telegram_setting['share_text'];
 
 
-		$myData   = ['chat_id' => $chatid, 'text' => $text];
+		$myData   = ['chat_id' => $chatid, 'text' => $text, 'reply_markup' => false];
 		\dash\social\telegram\tg::$api_token = $apikey;
 		\dash\social\telegram\tg::$name = $botname;
 
