@@ -143,10 +143,10 @@ class log
 		// save log into database
 		\dash\db\telegrams::insert($myDetail);
 
-		if(\dash\url::isLocal() || $chatID === 46898544 || $chatID === 344542267 || $chatID === 33263188)
-		{
-			\dash\code::jsonBoom(self::$logData, true);
-		}
+		// if(\dash\url::isLocal() || $chatID === 46898544 || $chatID === 344542267 || $chatID === 33263188)
+		// {
+		// 	\dash\code::jsonBoom(self::$logData, true);
+		// }
 	}
 
 
