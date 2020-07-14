@@ -476,6 +476,7 @@ $productDataRow = \dash\data::productDataRow();
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/bullet?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-check mRa10"></i><?php echo T_("Manage product feature bullet"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-comment mRa10"></i><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/cartlimit?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-cart-plus mRa10"></i><?php echo T_("Cart Limit"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/sharetext?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-network mRa10"></i><?php echo T_("Set product share text"); ?></div><div class="go"></div></a></li>
         <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productFamily()) {?>
         <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
           <li><a class="f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo T_("Make product variants"); ?></div><div class="go"></div></a></li>

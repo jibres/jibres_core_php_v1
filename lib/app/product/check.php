@@ -55,6 +55,7 @@ class check
 			'sku'               => 'sku',
 			'seotitle'          => 'title',
 			'seodesc'           => 'desc',
+			'sharetext'         => 'desc',
 			'length'            => 'int',
 			'width'             => 'int',
 			'height'            => 'int',
