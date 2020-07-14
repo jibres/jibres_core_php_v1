@@ -3,9 +3,10 @@
 <div class="avand-md">
 
   <div  class="box impact mB25-f">
-    <header><h2><?php echo T_("Set Cart Text");?></h2></header>
+    <header><h2><?php echo T_("Set Cart page default text");?></h2></header>
       <div class="body">
-        <p><?php echo T_("Cart.me");?></p>
+        <p><?php echo T_("If you want to show a message to all customers on the shopping cart page, write it here. You can also adjust the color of this text. <br>
+After setting this text, you will see a sample of it at the bottom of this page");?></p>
         <div class="c4 s12" method="post" autocomplete="off">
           <div class="action f">
 

@@ -5,7 +5,7 @@
   <div  class="box impact mB25-f">
     <header><h2><?php echo T_("Set Cart Text");?></h2></header>
       <div class="body">
-        <p><?php echo T_("Cart.me");?></p>
+        <p><?php echo T_("You can set a maximum of one product in the every user cart. This number can be set individually in each product. If this number was not set in the product, the default value set on this page will be the criterion. <br> The minimum order quantity for each product is 1. <br> If you have a specific product that you want to set the minimum order, we will receive that number only in the product itself.");?></p>
         <div class="c4 s12" method="post" autocomplete="off">
           <div class="action f">
 

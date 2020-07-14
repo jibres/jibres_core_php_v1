@@ -1,4 +1,4 @@
-<?php $myHide = \dash\url::isLocal() ? null : 'hide'; ?>
+<?php $myHide = \dash\url::isLocal() ? 'hide' : 'hide'; ?>
 <div class="box" data-settings>
     <div class="body">
         <div class="row">
@@ -185,7 +185,7 @@
                     <div class="c-auto"><i class="sf-paper-plane"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Telegram settings"); ?></h2>
-                        <p><?php echo T_("Manage your business social marketing"); ?></p>
+                        <p><?php echo T_("Manage your telegram marketing"); ?></p>
                     </div>
                 </a>
             </div>

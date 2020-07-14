@@ -9,7 +9,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/shipping');
 
 		\dash\data::shippingSettingSaved(\lib\app\setting\get::shipping_setting());
 

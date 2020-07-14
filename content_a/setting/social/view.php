@@ -11,7 +11,7 @@ class view
 		// back
 
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/general');
+		\dash\data::back_link(\dash\url::this());
 	}
 }
 ?>

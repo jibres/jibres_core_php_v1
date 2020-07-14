@@ -4,7 +4,7 @@
     <div class="data">
       <h3><?php echo T_("Set Telegram Bot APIKEY");?></h3>
       <div class="body">
-        <p><?php echo T_("To connect your business to Telegram Bot you must set the Bot APIKEY");?></p>
+        <p><?php echo T_("It is possible to connect your business to your own custom Telegram robot. To do this, you must first create a telegram robot and provide the connection key to  Jibres");?></p>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
     <div class="data">
       <h3><?php echo T_("Set Telegram Channel");?></h3>
       <div class="body">
-        <p><?php echo T_("To connect your business to Telegram Channel you must set the Channel");?></p>
+        <p><?php echo T_("You can easily share products in your Telegram channel. To do this, introduce your Telegram channel ID to us.");?></p>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
     <div class="data">
       <h3><?php echo T_("Set Telegram Share Text");?></h3>
       <div class="body">
-        <p><?php echo T_("To connect your business to Telegram Channel you must set the Channel");?></p>
+        <p><?php echo T_("You can set a fixed text to be placed under the title and description of each product when you share it via telegram");?></p>
       </div>
     </div>
   </div>
