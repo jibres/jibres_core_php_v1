@@ -70,16 +70,16 @@ class model
 				],
 				[
 					[
-						'text' => T_("Instagram"),
-						'url'  => 'https://instagram.com/BittyStyle',
+						'text' => T_("Website"),
+						'url'  => 'https://bitty.ir/p/'. \dash\data::productDataRow_id(),
 					],
 					[
 						'text' => T_("Twitter"),
 						'url'  => 'https://twitter.com/BittyStyle',
 					],
 					[
-						'text' => T_("Website"),
-						'url'  => 'https://bitty.ir/p/'. \dash\data::productDataRow_id(),
+						'text' => T_("Instagram"),
+						'url'  => 'https://instagram.com/BittyStyle',
 					],
 				],
 				// [
