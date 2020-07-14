@@ -17,6 +17,7 @@ class model
 
 		if(isset($result['id']))
 		{
+			self::upload_gallery($result['id']);
 			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
 		}
 		else
@@ -198,8 +199,15 @@ class model
 			}
 			else
 			{
-				\dash\notif::ok(T_("File successfully uploaded"));
- 				// \dash\redirect::pwd();
+				if(\dash\url::child() === 'add')
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::ok(T_("File successfully uploaded"));
+	 				// \dash\redirect::pwd();
+				}
 			}
 
 			return true;

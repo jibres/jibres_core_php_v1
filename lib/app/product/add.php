@@ -194,6 +194,16 @@ class add
 
 		}
 
+		$my_tag = [];
+		if(array_key_exists('tag', $args))
+		{
+			if($args['tag'])
+			{
+				$my_tag = $args['tag'];
+			}
+
+		}
+
 		unset($args['tag']);
 		unset($args['cat']);
 
@@ -224,6 +234,17 @@ class add
 
 			return false;
 		}
+
+
+		if($my_tag)
+		{
+			\lib\app\product\tag::add($my_tag, $product_id);
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+
 
 
 		if($my_cat)

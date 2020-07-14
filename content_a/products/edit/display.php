@@ -224,8 +224,8 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-<?php if(\dash\url::child() === 'edit') {?>
 
+<?php if(\dash\url::child() === 'edit') {?>
 
 <section class="jbox">
   <header data-kerkere='.productDescription' data-kerkere-icon='open'><h2><?php echo T_("Description"); ?></h2></header>
@@ -249,7 +249,7 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-
+<?php } //endif ?>
 
 
 <section class="jbox">
@@ -305,7 +305,8 @@ $productDataRow = \dash\data::productDataRow();
 
     <label id="productGallery" for="file1"><?php echo T_("Add to gallery"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
-    <div data-uploader data-name='gallery' <?php echo \dash\data::productImageRatioHtml(); ?> data-autoSend>
+
+    <div data-uploader data-name='gallery' <?php echo \dash\data::productImageRatioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
       <input type="file"  id="file1">
       <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
     </div>
@@ -316,7 +317,7 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-<?php } //endif ?>
+
 
 
 
@@ -438,22 +439,20 @@ $productDataRow = \dash\data::productDataRow();
     </div>
 
 
-      <?php if(\dash\url::child() === 'edit') {?>
 
-        <div class="mB10">
-          <label for='tag'>#<?php echo T_("Tag"); ?></label>
-          <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
+    <div class="mB10">
+      <label for='tag'>#<?php echo T_("Tag"); ?></label>
+      <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
 
-            <?php foreach (\dash\data::listTag() as $key => $value) {?>
+        <?php foreach (\dash\data::listTag() as $key => $value) {?>
 
-              <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
+          <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
 
-            <?php } //endfor ?>
+        <?php } //endfor ?>
 
-          </select>
-        </div>
+      </select>
+    </div>
 
-      <?php } //endif ?>
 
 
 
