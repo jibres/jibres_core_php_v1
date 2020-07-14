@@ -52,7 +52,6 @@ class model
 			$txt     .= "\n". $telegram_setting['share_text'];
 		}
 
-		$msgData['text'] = $txt;
 		$msgData['reply_markup'] = false;
 
 		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
@@ -60,10 +59,12 @@ class model
 
 		if(isset($msgData['photo']))
 		{
+			$msgData['caption'] = $txt;
 			$myResult = \dash\social\telegram\tg::sendPhoto($msgData);
 		}
 		else
 		{
+			$msgData['text'] = $txt;
 			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
 
 		}
