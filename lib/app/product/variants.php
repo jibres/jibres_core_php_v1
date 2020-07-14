@@ -357,7 +357,8 @@ class variants
 				'optionvalue2' => array_key_exists('option2', $value) ? $value['option2'] : null,
 				'optionname3'  => $option3_name,
 				'optionvalue3' => array_key_exists('option3', $value) ? $value['option3'] : null,
-				// 'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
+				'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
+				'infinite'     => (isset($value['stock']) && $value['stock']) ? 'yes' : null,
 				'barcode'      => array_key_exists('barcode', $value) ? $value['barcode'] : null,
 				'price'        => array_key_exists('price', $value) ? $value['price'] : null,
 				'buyprice'     => array_key_exists('buyprice', $value) ? $value['buyprice'] : null,
@@ -371,11 +372,11 @@ class variants
 			// 	return false;
 			// }
 
-			if(!$temp['price'] || !is_numeric($temp['price']))
-			{
-				\dash\notif::error(T_("Zero price!"));
-				return false;
-			}
+			// if(!$temp['price'] || !is_numeric($temp['price']))
+			// {
+			// 	\dash\notif::error(T_("Zero price!"));
+			// 	return false;
+			// }
 
 			foreach ($parent_fields as $parent_field)
 			{
@@ -387,6 +388,7 @@ class variants
 
 			$multi_product[] = $temp;
 		}
+
 
 		if(empty($multi_product))
 		{

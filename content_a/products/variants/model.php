@@ -99,21 +99,20 @@ class model
 
 		foreach ($avalible as $key => $value)
 		{
-			if(isset($stock[$key]) && $stock[$key])
-			{
-				$final_list[] =
-				[
-					'option1'  => array_key_exists($key, $option1) ? $option1[$key] : null,
-					'option2'  => array_key_exists($key, $option2) ? $option2[$key] : null,
-					'option3'  => array_key_exists($key, $option3) ? $option3[$key] : null,
-					'stock'    => array_key_exists($key, $stock) ? $stock[$key] : null,
-					'price'    => array_key_exists($key, $price) ? $price[$key] : null,
-					'buyprice' => array_key_exists($key, $buyprice) ? $buyprice[$key] : null,
-					'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
-					'barcode'  => array_key_exists($key, $barcode) ? $barcode[$key] : null,
-					'sku'      => array_key_exists($key, $sku) ? $sku[$key] : null,
-				];
-			}
+
+			$final_list[] =
+			[
+				'option1'  => array_key_exists($key, $option1) ? $option1[$key] : null,
+				'option2'  => array_key_exists($key, $option2) ? $option2[$key] : null,
+				'option3'  => array_key_exists($key, $option3) ? $option3[$key] : null,
+				'stock'    => array_key_exists($key, $stock) ? $stock[$key] : null,
+				'price'    => array_key_exists($key, $price) ? $price[$key] : null,
+				'buyprice' => array_key_exists($key, $buyprice) ? $buyprice[$key] : null,
+				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
+				'barcode'  => array_key_exists($key, $barcode) ? $barcode[$key] : null,
+				'sku'      => array_key_exists($key, $sku) ? $sku[$key] : null,
+			];
+
 		}
 
 		return $final_list;
@@ -130,7 +129,7 @@ class model
 
 			if(!$variant)
 			{
-				\dash\notif::error(T_("Please set stock and price of product"));
+				\dash\notif::error(T_("Please specify the required products"));
 				return false;
 			}
 

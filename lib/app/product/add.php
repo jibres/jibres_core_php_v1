@@ -267,7 +267,7 @@ class add
 			}
 		}
 
-		if(isset($args['infinite']) && $args['infinite'] === 'no')
+		if(isset($args['infinite']) && $args['infinite'] === 'yes')
 		{
 			if($stock)
 			{

@@ -112,7 +112,7 @@ $variantsList = \dash\data::variantsList();
                       <tr>
                         <td class="collapsing">
                           <div class="check1">
-                                  <input type="checkbox" name="avalible_<?php echo $myCount; ?>" value="1" id="sChk<?php echo $myCount; ?>" checked>
+                                  <input type="checkbox" name="avalible_<?php echo $myCount; ?>" value="1" id="sChk<?php echo $myCount; ?>" >
                                   <label for="sChk<?php echo $myCount; ?>"><?php echo \dash\fit::number($myCount); ?></label>
                                 </div>
                         </td>
@@ -161,7 +161,7 @@ $variantsList = \dash\data::variantsList();
               </div>
 
                 <p>
-                  <?php echo T_("Only product by check the need box and set price and stock can add to your product list!"); ?>
+                  <?php echo T_("Only product by check the need box can add to your product list!"); ?>
                 </p>
                 <div class="txtRa">
                   <button class="btn success" name="submitall" value="savevariants"><?php echo T_("Save"); ?></button>
