@@ -36,8 +36,9 @@ class set
 
 		$condition =
 		[
-			'apikey' => 'string_100',
+			'apikey'  => 'string_100',
 			'channel' => 'string_100',
+			'text'    => 'desc',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
