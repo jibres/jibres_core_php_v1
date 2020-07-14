@@ -58,7 +58,7 @@ class model
 
 		$msgData['reply_markup'] = false;
 
-		$msgData['reply_markup']
+		$msgData['reply_markup'] =
 		[
 			'inline_keyboard' =>
 			[
