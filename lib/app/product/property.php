@@ -19,7 +19,15 @@ class property
 			return false;
 		}
 
-		$saved_property = \lib\db\productproperties\get::product_property_list($id);
+		$parent_id = null;
+
+		if(isset($load['parent']) && $load['parent'])
+		{
+			$parent_id = $load['parent'];
+		}
+
+
+		$saved_property = \lib\db\productproperties\get::product_property_list($id, $parent_id);
 
 		if(!is_array($saved_property))
 		{
@@ -117,6 +125,13 @@ class property
 
 		$load = \lib\app\product\get::inline_get($id);
 
+		$parent_id = null;
+
+		if(isset($load['parent']) && $load['parent'])
+		{
+			$parent_id = $load['parent'];
+		}
+
 		$category_property = [];
 
 		if(isset($load['cat_id']) && $load['cat_id'])
@@ -176,7 +191,7 @@ class property
 		}
 
 
-		$saved_property = \lib\db\productproperties\get::product_property_list($id);
+		$saved_property = \lib\db\productproperties\get::product_property_list($id, $parent_id);
 
 		if(!is_array($saved_property))
 		{
@@ -254,9 +269,24 @@ class property
 			\dash\notif::warn(T_("Some detail was duplicate. We remove duplicate items"));
 		}
 
+		$load = \lib\app\product\get::inline_get($data['id']);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$parent_id = null;
+
+		$save_on_id = $data['id'];
+		if(isset($load['parent']) && $load['parent'])
+		{
+			$parent_id  = $load['parent'];
+			$save_on_id = $parent_id;
+		}
 		// $new_property = array_values($new_property);
 
-		$saved_property = \lib\db\productproperties\get::product_property_list($data['id']);
+		$saved_property = \lib\db\productproperties\get::product_property_list($data['id'], $parent_id);
 
 		if(!is_array($saved_property))
 		{
@@ -305,7 +335,7 @@ class property
 		{
 			foreach ($must_insert as $key => $value)
 			{
-				$must_insert[$key]['product_id']  = $data['id'];
+				$must_insert[$key]['product_id']  = $save_on_id;
 				$must_insert[$key]['datecreated'] = date("Y-m-d H:i:s");
 			}
 
