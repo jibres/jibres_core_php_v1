@@ -41,7 +41,7 @@ class model
 		}
 		// price
 		$txt .= T_("Price");
-		$txt .= ' <code>'. \dash\fit::price(\dash\data::productDataRow_finalprice()). '</code> ';
+		$txt .= ' <code>'. \dash\fit::price(\dash\data::productDataRow_finalprice(), true). '</code> ';
 		$txt .= \lib\currency::unit(). "\n\n";
 
 		// product share text
