@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Telegram channel APIKEY'));
+		\dash\face::title(T_('Telegram channel'));
 
 		// back
 		\dash\data::back_text(T_('Telegram setting'));
