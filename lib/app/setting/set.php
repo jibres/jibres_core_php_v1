@@ -59,6 +59,32 @@ class set
 	}
 
 
+
+	public static function cart_setting($_args)
+	{
+
+		$condition =
+		[
+			'share_text' => 'desc',
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'cart_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		\dash\notif::ok(T_("Cart setting saved"));
+		return true;
+
+	}
+
+
 	public static function bank_payment_setting($_args)
 	{
 
