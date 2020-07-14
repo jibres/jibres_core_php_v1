@@ -33,7 +33,7 @@ class remove
 			{
 				$user_id = $_user_id;
 			}
-			$user_id = \dash\coding::decode($data['user_id']);
+			$user_id = \dash\coding::decode($user_id);
 		}
 
 
