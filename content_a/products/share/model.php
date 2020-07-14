@@ -40,7 +40,16 @@ class model
 		\dash\social\telegram\tg::$api_token = $apikey;
 		\dash\social\telegram\tg::$name = $botname;
 
-		$myResult = \dash\social\telegram\tg::sendMessage($myData);
+		if($photo)
+		{
+			$myData['photo'] = $photo;
+			$myResult = \dash\social\telegram\tg::sendPhoto($myData);
+		}
+		else
+		{
+			$myResult = \dash\social\telegram\tg::sendMessage($myData);
+
+		}
 
 		// if bot user is not exist in chat
 		// description: "Bad Request: chat not found"
@@ -53,6 +62,16 @@ class model
 		// error_code: 400
 		// ok: false
 
+		// error 3 - send photo without photo
+		// description: "Bad Request: there is no photo in the request"
+		// error_code: 400
+		// ok: false
+
+
+		// error 4 - photo with invalid url
+		// description: "Bad Request: wrong file identifier/HTTP URL specified"
+		// error_code: 400
+		// ok: false
 
 		var_dump($myResult);
 
