@@ -65,7 +65,7 @@ class set
 
 		$condition =
 		[
-			'share_text' => 'desc',
+			'page_text' => 'desc',
 			'color' => ['enum' => ['red', 'green', 'blue', 'yellow']],
 		];
 
@@ -90,7 +90,7 @@ class set
 
 		$condition =
 		[
-			'share_text' => 'desc',
+			'page_text' => 'desc',
 			'color' => ['enum' => ['red', 'green', 'blue', 'yellow']],
 		];
 

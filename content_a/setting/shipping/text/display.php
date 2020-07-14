@@ -25,8 +25,8 @@
             </div>
 
             <div class="c12 mB5">
-              <label for="share_text"><?php echo T_("Text"); ?></label>
-              <textarea name="share_text" id="share_text" class="txt" rows="5"><?php echo \dash\data::shippingSettingSaved_share_text(); ?></textarea>
+              <label for="page_text"><?php echo T_("Text"); ?></label>
+              <textarea name="page_text" id="page_text" class="txt" rows="5"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></textarea>
             </div>
 
 
@@ -37,9 +37,9 @@
         <button  class="btn success" ><?php echo T_("Save"); ?></button>
       </footer>
   </div>
-    <?php if(\dash\data::shippingSettingSaved_share_text()) {?>
+    <?php if(\dash\data::shippingSettingSaved_page_text()) {?>
       <div class="fs12">
-        <div class="msg <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo nl2br(\dash\data::shippingSettingSaved_share_text()) ?></div>
+        <div class="msg <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo nl2br(\dash\data::shippingSettingSaved_page_text()) ?></div>
       </div>
     <?php } //endif ?>
 </div>
