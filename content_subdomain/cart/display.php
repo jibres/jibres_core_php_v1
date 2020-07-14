@@ -12,21 +12,23 @@
        <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
       </div>
       <div class="c">
-       <div class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></div>
+       <div class="title mB10"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></div>
 
         <?php if(!\dash\get::index($value, 'view')) {?>
           <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
         <?php } // endif ?>
 
-        <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
+        <?php if(\dash\get::index($value, 'infinite')) {?>
 
-        <?php if($stock >= 10) {?>
-          <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
-        <?php }elseif($stock > 0) {?>
-          <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val left in stock - order soon.", ['val' => \dash\fit::number($stock)]); ?></div>
-        <?php }elseif ($stock <= 0) {?>
-          <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
-        <?php } // endif ?>
+        <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
+          <?php if($stock >= 10) {?>
+            <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
+          <?php }elseif($stock > 0) {?>
+            <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val :unit left in stock - order soon.", ['val' => \dash\fit::number($stock), 'unit' => \dash\get::index($value, 'unit')]); ?></div>
+          <?php }elseif ($stock <= 0) {?>
+            <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
+          <?php } // endif ?>
+        <?php } //endif ?>
 
        <div class="row productCountLine">
         <div class="c-auto">

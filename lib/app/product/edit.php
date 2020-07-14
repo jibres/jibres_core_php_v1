@@ -4,6 +4,11 @@ namespace lib\app\product;
 
 class edit
 {
+	public static function out_of_stock($_id)
+	{
+		$update = \lib\db\products\update::record(['status' => 'unavailable'], $_id);
+	}
+
 
 	public static function edit($_args, $_id, $_option = [])
 	{

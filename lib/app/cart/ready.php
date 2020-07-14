@@ -30,6 +30,7 @@ class ready
 
 
 				case 'slug':
+				case 'infinite':
 					$get_from_product[$key] = $value;
 					break;
 
@@ -78,9 +79,12 @@ class ready
 				$result['url'] = $get_from_product['url'];
 			}
 
+			if(array_key_exists('infinite', $get_from_product))
+			{
+				$result['infinite'] = $get_from_product['infinite'];
+			}
+
 		}
-
-
 
 		return $result;
 	}

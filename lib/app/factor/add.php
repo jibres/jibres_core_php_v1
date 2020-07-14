@@ -191,6 +191,14 @@ class add
 		foreach ($product_need_track_stock as $key => $value)
 		{
 			\lib\app\product\inventory::set('sale', (floatval($value['count']) * -1), $value['product_id']);
+			$get_stock = \lib\app\product\inventory::get($value['product_id']);
+			if(!is_null($get_stock))
+			{
+				if($get_stock <= 0)
+				{
+					\lib\app\product\edit::out_of_stock($value['product_id']);
+				}
+			}
 		}
 
 		if(\dash\engine\process::status())

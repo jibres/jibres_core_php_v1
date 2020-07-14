@@ -27,6 +27,20 @@ class inventory
 	}
 
 
+	public static function get($_product_id)
+	{
+		$last_stock = \lib\db\productinventory\get::product_last_record($_product_id);
+		if(isset($last_stock['stock']))
+		{
+			return floatval($last_stock['stock']);
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+
 	public static function manual($_count, $_product_id)
 	{
 
