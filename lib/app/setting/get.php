@@ -72,28 +72,28 @@ class get
 			$result = [];
 		}
 
-		$product_setting = [];
+		$setting = [];
 
 		foreach ($result as $key => $value)
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				$product_setting[$value['key']] = $value['value'];
+				$setting[$value['key']] = $value['value'];
 			}
 		}
 
 
-		if(!isset($product_setting['ratio']))
+		if(!isset($setting['ratio']))
 		{
-			$product_setting['ratio'] = null;
+			$setting['ratio'] = null;
 
 		}
 
-		$product_setting['ratio_detail'] = \lib\ratio::product_ratio($product_setting);
+		$setting['ratio_detail'] = \lib\ratio::product_ratio($setting);
 
 
 
-		return $product_setting;
+		return $setting;
 
 	}
 
@@ -110,18 +110,18 @@ class get
 			$result = [];
 		}
 
-		$product_setting = [];
+		$setting = [];
 
 		foreach ($result as $key => $value)
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				$product_setting[$value['key']] = $value['value'];
+				$setting[$value['key']] = $value['value'];
 			}
 		}
 
 
-		return $product_setting;
+		return $setting;
 
 	}
 
@@ -137,20 +137,20 @@ class get
 			$result = [];
 		}
 
-		$product_setting = [];
+		$setting = [];
 
 		foreach ($result as $key => $value)
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				$product_setting[$value['key']] = $value['value'];
+				$setting[$value['key']] = $value['value'];
 			}
 		}
 
-		if(isset($product_setting['color']))
+		if(isset($setting['color']))
 		{
 			$class = null;
-			switch ($product_setting['color'])
+			switch ($setting['color'])
 			{
 				case 'red':
 					$class = 'danger2';
@@ -172,11 +172,67 @@ class get
 					break;
 			}
 
-			$product_setting['color_class'] = $class;
+			$setting['color_class'] = $class;
 		}
 
 
-		return $product_setting;
+		return $setting;
+
+	}
+
+
+
+
+	public static function shipping_setting()
+	{
+		$cat   = 'shipping_setting';
+
+		$result = \lib\db\setting\get::by_cat($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$setting[$value['key']] = $value['value'];
+			}
+		}
+
+		if(isset($setting['color']))
+		{
+			$class = null;
+			switch ($setting['color'])
+			{
+				case 'red':
+					$class = 'danger2';
+					break;
+
+				case 'green':
+					$class = 'success2';
+					break;
+				case 'blue':
+					$class = 'primary2';
+					break;
+
+				case 'yellow':
+					$class = 'warn2';
+					break;
+
+				default:
+					# code...
+					break;
+			}
+
+			$setting['color_class'] = $class;
+		}
+
+
+		return $setting;
 
 	}
 

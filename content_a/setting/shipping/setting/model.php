@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\shipping;
+namespace content_a\setting\shipping\setting;
 
 
 class model

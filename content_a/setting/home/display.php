@@ -1,4 +1,4 @@
-<?php $myHide = \dash\permission::supervisor() ? null : 'hide'; ?>
+<?php $myHide = \dash\url::isLocal() ? null : 'hide'; ?>
 <div class="box" data-settings>
     <div class="body">
         <div class="row">

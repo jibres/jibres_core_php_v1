@@ -85,6 +85,31 @@ class set
 
 	}
 
+	public static function shipping_setting($_args)
+	{
+
+		$condition =
+		[
+			'share_text' => 'desc',
+			'color' => ['enum' => ['red', 'green', 'blue', 'yellow']],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'shipping_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		\dash\notif::ok(T_("Shipping setting saved"));
+		return true;
+
+	}
+
 
 	public static function bank_payment_setting($_args)
 	{
