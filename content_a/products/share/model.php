@@ -22,32 +22,49 @@ class model
 		// 'channel' => string 'channel id'
 		// 'share_text' => string 'default share text'
 
-		$apikey   = $telegram_setting['apikey'];
+		$msgData  = [];
+		$msgData['chat_id'] = '@'. $telegram_setting['channel'];
 		// $botname   = $telegram_setting['botUserName'];
 		$botname   = 'testbot';
-		$chatid   = '@'. $telegram_setting['channel'];
-		// $chatid   = 46898544;
 
-		$photo    = \dash\data::productDataRow_thumb();
-		$text     = '<b>'. \dash\data::productDataRow_title(). '</b>';
-		$text     .= "\n";
-		$text     .= \dash\data::productDataRow_sharetext();
-		$text     .= "\n\n";
-		$text     .= $telegram_setting['share_text'];
-
-
-		$myData   = ['chat_id' => $chatid, 'text' => $text, 'reply_markup' => false];
-		\dash\social\telegram\tg::$api_token = $apikey;
-		\dash\social\telegram\tg::$name = $botname;
-
-		if($photo)
+		// set photo of product
+		if(\dash\data::productDataRow_thumb())
 		{
-			$myData['photo'] = $photo;
-			$myResult = \dash\social\telegram\tg::sendPhoto($myData);
+			$msgData['photo'] = \dash\data::productDataRow_thumb();
+		}
+
+		// title
+		$txt = '<b>'. \dash\data::productDataRow_title(). '</b>'. "\n";
+		if(\dash\data::productDataRow_title2())
+		{
+			$txt .= \dash\data::productDataRow_title2(). "\n";
+		}
+		// price
+		$txt = '<code>'. \dash\data::productDataRow_finalprice(). '</code>'. "\n\n";
+		// product share text
+		if(\dash\data::productDataRow_sharetext())
+		{
+			$txt     .= \dash\data::productDataRow_sharetext(). "\n";
+		}
+		// bussiness tg text footer
+		if(isset($telegram_setting['share_text']))
+		{
+			$txt     .= "\n". $telegram_setting['share_text'];
+		}
+
+		$msgData['text'] = $txt;
+		$msgData['reply_markup'] = false;
+
+		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
+		\dash\social\telegram\tg::$name      = $botname;
+
+		if(isset($msgData['photo']))
+		{
+			$myResult = \dash\social\telegram\tg::sendPhoto($msgData);
 		}
 		else
 		{
-			$myResult = \dash\social\telegram\tg::sendMessage($myData);
+			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
 
 		}
 
@@ -74,9 +91,6 @@ class model
 		// ok: false
 
 		var_dump($myResult);
-
-
-		$result = \lib\app\product\edit::edit($post, $id);
 	}
 
 }
