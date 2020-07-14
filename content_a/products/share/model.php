@@ -30,7 +30,7 @@ class model
 		// set photo of product
 		if(\dash\data::productDataRow_thumb())
 		{
-			// $msgData['photo'] = \dash\data::productDataRow_thumb();
+			$msgData['photo'] = \dash\data::productDataRow_thumb();
 		}
 
 		// title
@@ -59,7 +59,6 @@ class model
 
 		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
 		\dash\social\telegram\tg::$name      = $botname;
-var_dump($msgData);
 		if(isset($msgData['photo']))
 		{
 			$msgData['caption'] = $txt;
