@@ -11,7 +11,8 @@ class set
 		[
 			'default_pirce_list' => 'bit',
 			'variant_product'    => 'bit',
-			'ratio' => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
+			'ratio'              => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
+			'share_text'         => 'desc',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
