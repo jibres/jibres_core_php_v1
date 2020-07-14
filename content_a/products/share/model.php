@@ -68,6 +68,20 @@ class model
 						'url'  => 'https://t.me/BittyAdmin',
 					],
 				],
+				[
+					[
+						'text' => T_("Instagram"),
+						'url'  => 'https://instagram.com/BittyStyle',
+					],
+					[
+						'text' => T_("Twitter"),
+						'url'  => 'https://twitter.com/BittyStyle',
+					],
+					[
+						'text' => T_("Website"),
+						'url'  => 'https://bitty.ir/p'. \dash\data::productDataRow_id(),
+					],
+				],
 				// [
 				// 	[
 				// 		'text'          => T_("Online Shopping"),
