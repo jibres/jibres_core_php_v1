@@ -79,7 +79,7 @@ class model
 					],
 					[
 						'text' => T_("Website"),
-						'url'  => 'https://bitty.ir/p'. \dash\data::productDataRow_id(),
+						'url'  => 'https://bitty.ir/p/'. \dash\data::productDataRow_id(),
 					],
 				],
 				// [
