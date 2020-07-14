@@ -2,14 +2,13 @@
 $propertyList = \dash\data::propertyList();
 ?>
 
-<div class="avand-xl">
+<div class="avand-sm">
 
-  <div class="jPage" >
+  <div class="jPage">
 
 
 
         <section class="jbox">
-          <header><h2><?php echo T_("Share with telegram"); ?></h2></header>
           <div class="pad jboxProperty">
 
             <?php if(!\dash\data::telegramSetting_apikey()) { // neet to set telegram setting first?>
@@ -18,16 +17,31 @@ $propertyList = \dash\data::propertyList();
                 <a class="btn link" href="<?php echo \dash\url::here(). '/setting/telegram' ?>"><?php echo T_("Click here to setup telegram setting") ?></a>
               </div>
             <?php }else{ ?>
-            <form method="post" autocomplete="off">
-              <img class="avatar fs40" src="<?php echo \dash\data::productDataRow_thumb() ?>">
-              <h2><?php echo \dash\data::productDataRow_title() ?></h2>
-              <h3><?php echo \dash\data::productDataRow_sharetext() ?></h3>
-              <h4><?php echo \dash\data::telegramSetting_share_text() ?></h4>
+            <form method="post" autocomplete="off" id='form1'>
+              <img class="" src="<?php echo \dash\data::productDataRow_thumb() ?>">
+              <div class="msg">
+                <p><?php echo \dash\data::productDataRow_title() ?></p>
+                <p><?php echo \dash\data::productDataRow_title2() ?></p>
 
-              <div class="txtRa">
+                <p><?php
+                  echo T_("Price");
+                  echo ' <code>'. \dash\fit::price(\dash\data::productDataRow_finalprice(), true). '</code> ';
+                  echo \lib\currency::unit();
 
-                <button class="btn master mT10" ><?php echo T_("Send"); ?></button>
+                ?></p>
+
+                <p><?php echo \dash\data::productDataRow_sharetext() ?></p>
+                <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
               </div>
+
+              <footer>
+                <a class="btn block mB5" href='https://t.me/BittyAdmin'><?php echo T_("Register a new order"); ?></a>
+               </footer>
+              <footer class="row padLess">
+                <div class="c"><a class="btn block mB5" href="https://instagram.com/BittyStyle"><?php echo T_("Instagram"); ?></a></div>
+                <div class="c"><a class="btn block mB5" href="https://twitter.com/BittyStyle"><?php echo T_("Twitter"); ?></a></div>
+                <div class="c"><a class="btn block mB5" href="https://bitty.ir/p/"><?php echo T_("Website"); ?></a></div>
+              </footer>
             </form>
           <?php } //endif ?>
           </div>
