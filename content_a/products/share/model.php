@@ -23,8 +23,10 @@ class model
 		// 'share_text' => string 'default share text'
 
 		$apikey   = $telegram_setting['apikey'];
-		$chatid   = $telegram_setting['channel'];
-		$chatid   = 46898544;
+		// $botname   = $telegram_setting['botUserName'];
+		$botname   = 'testbot';
+		$chatid   = '@'. $telegram_setting['channel'];
+		// $chatid   = 46898544;
 
 		$photo    = \dash\data::productDataRow_thumb();
 		$text     = '<b>'. \dash\data::productDataRow_title(). '</b>';
@@ -36,7 +38,24 @@ class model
 
 		$myData   = ['chat_id' => $chatid, 'text' => $text];
 		\dash\social\telegram\tg::$api_token = $apikey;
-		$myResult = \dash\social\telegram\tg::json_sendMessage($myData);
+		\dash\social\telegram\tg::$name = $botname;
+
+		$myResult = \dash\social\telegram\tg::sendMessage($myData);
+
+		// if bot user is not exist in chat
+		// description: "Bad Request: chat not found"
+		// error_code: 400
+		// ok: false
+
+
+		// error 2
+		// description: "Bad Request: inline keyboard expected"
+		// error_code: 400
+		// ok: false
+
+
+		var_dump($myResult);
+
 
 		$result = \lib\app\product\edit::edit($post, $id);
 	}
