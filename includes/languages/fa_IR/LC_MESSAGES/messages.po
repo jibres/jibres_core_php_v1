@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-14 17:24+0430\n"
-"PO-Revision-Date: 2020-07-14 17:31+0430\n"
+"POT-Creation-Date: 2020-07-14 20:02+0430\n"
+"PO-Revision-Date: 2020-07-14 20:03+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -699,7 +699,8 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content/template/default.php:237
-#: content_su/tg/sendmessage/display.php:20 content_su/tg/sendphoto/display.php:27
+#: content_a/products/share/display.php:29 content_su/tg/sendmessage/display.php:20
+#: content_su/tg/sendphoto/display.php:27
 #: content_subdomain/home/layout/body/body_load_post.php:237
 #: content_subdomain/p/home/display.php:284 content_subdomain/template/default.php:237
 msgid "Send"
@@ -3645,6 +3646,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/products/comment/edit/view.php:21 content_a/products/comment/view.php:24
 #: content_a/products/comment/view.php:31 content_a/products/desc/view.php:23
 #: content_a/products/duplicate/view.php:22 content_a/products/property/view.php:22
+#: content_a/products/share/view.php:22 content_a/products/sharetext/view.php:22
 #: content_a/products/status/view.php:22 content_a/products/variants/view.php:22
 #: content_a/setting/company/view.php:11 content_a/setting/domain/view.php:12
 #: content_a/setting/fund/view.php:16 content_a/setting/googleanalytics/view.php:13
@@ -3883,7 +3885,7 @@ msgstr "زمان شروع قرارگیری در صف"
 
 #: content_a/android/apk/display.php:32 content_a/order/detail/display.php:24
 #: content_a/products/comment/display.php:85
-#: content_a/products/comment/edit/display.php:28 content_a/products/edit/display.php:501
+#: content_a/products/comment/edit/display.php:28 content_a/products/edit/display.php:502
 #: content_a/products/export/display.php:57 content_a/products/status/display.php:22
 #: content_a/products/status/view.php:18 content_a/products/tag/display.php:96
 #: content_a/products/tag/display.php:169 content_a/products/tag/display.php:186
@@ -3969,13 +3971,14 @@ msgstr "مایکت"
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
 #: content_a/order/detail/display.php:172 content_a/products/desc/display.php:22
 #: content_a/products/edit/display.php:10 content_a/products/edit/display.php:375
-#: content_a/products/edit/display.php:564 content_a/products/variants/display.php:167
-#: content_a/setting/cart/limit/display.php:25 content_a/setting/cart/text/display.php:37
-#: content_a/setting/domain/display.php:46 content_a/setting/general/title/display.php:20
+#: content_a/products/edit/display.php:572 content_a/products/sharetext/display.php:22
+#: content_a/products/variants/display.php:167 content_a/setting/cart/limit/display.php:25
+#: content_a/setting/cart/text/display.php:38 content_a/setting/domain/display.php:46
+#: content_a/setting/general/title/display.php:20
 #: content_a/setting/googleanalytics/display.php:19
 #: content_a/setting/payment/bank/display.php:17
 #: content_a/setting/product/text/display.php:19
-#: content_a/setting/shipping/text/display.php:37 content_a/setting/social/display.php:36
+#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:36
 #: content_a/setting/telegram/bot/display.php:22
 #: content_a/setting/telegram/channel/display.php:21
 #: content_a/setting/telegram/text/display.php:19 content_a/setup/address/display.php:55
@@ -6185,7 +6188,8 @@ msgstr "متن خود را اینجا بنویسید ..."
 #: content_a/products/comment/display.php:119 content_a/products/comment/display.php:126
 #: content_a/products/comment/view.php:14 content_a/products/desc/view.php:15
 #: content_a/products/duplicate/view.php:15 content_a/products/edit/view.php:15
-#: content_a/products/property/view.php:15 content_a/products/status/view.php:15
+#: content_a/products/property/view.php:15 content_a/products/share/view.php:15
+#: content_a/products/sharetext/view.php:15 content_a/products/status/view.php:15
 #: content_a/products/variants/view.php:15 content_cms/comments/home/display.php:118
 #: content_cms/comments/home/display.php:125 content_support/ticket/show/display.php:178
 #: dash/app.php:88 dash/app.php:192 dash/user.php:402 lib/app/product/comment.php:726
@@ -6196,11 +6200,11 @@ msgstr "بدون نام"
 msgid "Product feature bullet"
 msgstr "ویژگی‌های برجسته محصول"
 
-#: content_a/products/cartlimit/display.php:16 lib/app/product/property.php:35
-#: lib/app/product/property.php:37 lib/app/product/property.php:46
-#: lib/app/product/property.php:57 lib/app/product/property.php:63
-#: lib/app/product/property.php:68 lib/app/product/property.php:74
-#: lib/app/product/property.php:80
+#: content_a/products/cartlimit/display.php:16 lib/app/product/property.php:43
+#: lib/app/product/property.php:45 lib/app/product/property.php:54
+#: lib/app/product/property.php:65 lib/app/product/property.php:71
+#: lib/app/product/property.php:76 lib/app/product/property.php:82
+#: lib/app/product/property.php:88
 msgid "General property"
 msgstr "خصیصه‌های عمومی"
 
@@ -6234,8 +6238,8 @@ msgid "Height"
 msgstr "ارتفاع"
 
 #: content_a/products/cartlimit/display.php:71 content_a/products/property/display.php:55
-#: lib/app/product/property.php:63 lib/app/product/property.php:68
-#: lib/app/product/property.php:74 lib/app/product/property.php:80
+#: lib/app/product/property.php:71 lib/app/product/property.php:76
+#: lib/app/product/property.php:82 lib/app/product/property.php:88
 msgid "Weight"
 msgstr "وزن"
 
@@ -6253,7 +6257,7 @@ msgstr "مگابایت"
 msgid "File Address"
 msgstr "آدرس فایل"
 
-#: content_a/products/cartlimit/view.php:18 content_a/setting/cart/display.php:5
+#: content_a/products/cartlimit/view.php:18
 msgid "Cart limit"
 msgstr "محدودیت سبد خرید"
 
@@ -6441,7 +6445,7 @@ msgstr "یک نسخه کپی از :val تهیه کنید"
 msgid "Product Title"
 msgstr "عنوان محصول"
 
-#: content_a/products/edit/display.php:20 lib/app/product/property.php:46
+#: content_a/products/edit/display.php:20 lib/app/product/property.php:54
 msgid "Technical title"
 msgstr "عنوان فنی"
 
@@ -6605,7 +6609,7 @@ msgstr "خدمت"
 #: content_cms/posts/edit/display.php:246 content_cms/posts/home/view.php:111
 #: content_subdomain/category/view.php:9 content_support/faq/display.php:12
 #: content_support/tag/display.php:12 content_support/tag/view.php:10
-#: lib/app/product/property.php:57 lib/app/product/search.php:109
+#: lib/app/product/property.php:65 lib/app/product/search.php:109
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -6643,13 +6647,21 @@ msgstr "مدیریت ویژگی‌های برجسته محصولات"
 msgid "Cart Limit"
 msgstr "محدودیت سبد خرید"
 
-#: content_a/products/edit/display.php:481 content_a/products/variants/display.php:81
+#: content_a/products/edit/display.php:479
+msgid "Set product share text"
+msgstr "تنظیم متن اشتراک گذاری در شبکه‌های اجتماعی"
+
+#: content_a/products/edit/display.php:482 content_a/products/variants/display.php:81
 msgid "Make product variants"
 msgstr "ساخت محصولات متنوع"
 
-#: content_a/products/edit/display.php:493
+#: content_a/products/edit/display.php:494
 msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
+
+#: content_a/products/edit/display.php:510
+msgid "Share with social network"
+msgstr "اشتراک گذاری از طریق شبکه‌های اجتماعی"
 
 #: content_a/products/edit/model.php:233 content_b1/product/gallery/thumb/model.php:26
 msgid "Product thumb set"
@@ -6899,6 +6911,26 @@ msgstr "گروه"
 msgid "Value"
 msgstr "مقدار"
 
+#: content_a/products/share/display.php:12
+msgid "Share with telegram"
+msgstr "اشتراک گذاری از طریق تلگرام"
+
+#: content_a/products/share/display.php:17
+msgid "You must set Telegram bot setting first"
+msgstr "شما ابتدا باید تنظیمات مربوط به اتصال فروشگاه به تلگرام را بررسی کنید"
+
+#: content_a/products/share/display.php:18
+msgid "Click here to setup telegram setting"
+msgstr "برای تنظیم اطلاعات تلگرام کلیک کنید"
+
+#: content_a/products/share/view.php:18 content_a/products/sharetext/view.php:18
+msgid "Product Share text"
+msgstr "متن اشتراک گذاری محصول در شبکه‌های اجتماعی"
+
+#: content_a/products/sharetext/display.php:12 content_a/products/sharetext/display.php:18
+msgid "Share text"
+msgstr "متن اشتراک گذاری"
+
 #: content_a/products/status/display.php:16
 msgid "Product status"
 msgstr "وضعیت محصول"
@@ -7043,8 +7075,8 @@ msgstr "تنوع محصول در بیزینس شما قفل شده است!"
 msgid "You can differentiate your product in terms of three features"
 msgstr "شما می توانید محصول خود را از نظر سه ویژگی متمایز کنید"
 
-#: content_a/products/variants/display.php:25 content_a/setting/cart/text/display.php:13
-#: content_a/setting/shipping/text/display.php:13
+#: content_a/products/variants/display.php:25 content_a/setting/cart/text/display.php:14
+#: content_a/setting/shipping/text/display.php:14
 msgid "Color"
 msgstr "رنگ"
 
@@ -7068,11 +7100,9 @@ msgid "SKU"
 msgstr "کد محصول"
 
 #: content_a/products/variants/display.php:164
-msgid ""
-"Only product by check the need box and set price and stock can add to your product list!"
+msgid "Only product by check the need box can add to your product list!"
 msgstr ""
-"تنها محصولاتی که قیمت و موجودی دارند و به عنوان مورد نیاز علامت گذاری شده‌اند به لیست "
-"محصولات اضافه خواهند شد!"
+"تنها محصولاتی که به عنوان مورد نیاز علامت گذاری شده‌اند به لیست محصولات اضافه خواهند شد!"
 
 #: content_a/products/variants/display.php:178
 msgid "This product have some child and can not make variant"
@@ -7086,9 +7116,9 @@ msgstr "این محصول خود زیرمجموعه محصول دیگری است
 msgid "Can not set variants after sale, buy or any factor type of this products"
 msgstr ""
 
-#: content_a/products/variants/model.php:133
-msgid "Please set stock and price of product"
-msgstr "لطفا موجودی و قیمت محصول را وارد کنید"
+#: content_a/products/variants/model.php:132
+msgid "Please specify the required products"
+msgstr "جهت ثبت تنوع لطفا لطفا محصولاتی که مورد نیاز شما می‌باشد را اعلام کنید"
 
 #: content_a/sale/display.php:82
 msgid "Save & Print"
@@ -7110,15 +7140,24 @@ msgid "Set your store address"
 msgstr "تنظیم آدرس فروشگاه شما"
 
 #: content_a/setting/cart/display.php:4
-msgid "Page Text"
-msgstr "متن ثابت درون صفحه"
+msgid "Set cart page default text"
+msgstr "تنظیم متن ثابت صفحه سبد خرید"
 
-#: content_a/setting/cart/limit/display.php:6 content_a/setting/cart/text/display.php:6
+#: content_a/setting/cart/display.php:5
+msgid "Set Cart limit"
+msgstr "تنظیم محدودیت سبد خرید"
+
+#: content_a/setting/cart/limit/display.php:6
 msgid "Set Cart Text"
 msgstr "تنظیم متن ثابت صفحه سبد خرید"
 
-#: content_a/setting/cart/limit/display.php:8 content_a/setting/cart/text/display.php:8
-msgid "Cart.me"
+#: content_a/setting/cart/limit/display.php:8
+msgid ""
+"You can set a maximum of one product in the every user cart. This number can be set "
+"individually in each product. If this number was not set in the product, the default "
+"value set on this page will be the criterion. <br> The minimum order quantity for each "
+"product is 1. <br> If you have a specific product that you want to set the minimum "
+"order, we will receive that number only in the product itself."
 msgstr ""
 
 #: content_a/setting/cart/limit/display.php:14
@@ -7131,36 +7170,47 @@ msgstr "حداکثر تعداد یک محصول در سبد خرید"
 msgid "Cart Setting"
 msgstr "تنظیمات سبد خرید"
 
-#: content_a/setting/cart/text/display.php:17 content_a/setting/pcpos/display.php:125
+#: content_a/setting/cart/text/display.php:6
+msgid "Set Cart page default text"
+msgstr "تنظیم متن ثابت صفحه سبد خرید"
+
+#: content_a/setting/cart/text/display.php:8
+msgid ""
+"If you want to show a message to all customers on the shopping cart page, write it "
+"here. You can also adjust the color of this text. <br>\n"
+"After setting this text, you will see a sample of it at the bottom of this page"
+msgstr ""
+
+#: content_a/setting/cart/text/display.php:18 content_a/setting/pcpos/display.php:125
 #: content_a/setting/product/setting/view.php:17
-#: content_a/setting/shipping/text/display.php:17 content_love/domain/irnic/display.php:58
+#: content_a/setting/shipping/text/display.php:18 content_love/domain/irnic/display.php:58
 #: content_my/domain/irnic/display.php:58
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/setting/cart/text/display.php:18
-#: content_a/setting/shipping/text/display.php:18
+#: content_a/setting/cart/text/display.php:19
+#: content_a/setting/shipping/text/display.php:19
 msgid "Red"
 msgstr "قرمز"
 
-#: content_a/setting/cart/text/display.php:19
-#: content_a/setting/shipping/text/display.php:19
+#: content_a/setting/cart/text/display.php:20
+#: content_a/setting/shipping/text/display.php:20
 msgid "Green"
 msgstr "سبز"
 
-#: content_a/setting/cart/text/display.php:20
-#: content_a/setting/shipping/text/display.php:20
+#: content_a/setting/cart/text/display.php:21
+#: content_a/setting/shipping/text/display.php:21
 msgid "Blue"
 msgstr "آبی"
 
-#: content_a/setting/cart/text/display.php:21
-#: content_a/setting/shipping/text/display.php:21
+#: content_a/setting/cart/text/display.php:22
+#: content_a/setting/shipping/text/display.php:22
 msgid "Yellow"
 msgstr "زرد"
 
-#: content_a/setting/cart/text/display.php:28
+#: content_a/setting/cart/text/display.php:29
 #: content_a/setting/product/text/display.php:12
-#: content_a/setting/shipping/text/display.php:28
+#: content_a/setting/shipping/text/display.php:29
 #: content_a/setting/telegram/text/display.php:12
 #: content_a/website/body/add/display.php:74 content_a/website/text/view.php:15
 #: lib/app/website/body/line/text.php:12 lib/app/website/body/template.php:68
@@ -7374,13 +7424,17 @@ msgstr ""
 msgid "Manage your business pos configuration"
 msgstr ""
 
-#: content_a/setting/home/display.php:178 content_a/setting/home/display.php:188
+#: content_a/setting/home/display.php:178
 msgid "Manage your business social marketing"
 msgstr ""
 
 #: content_a/setting/home/display.php:187
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
+
+#: content_a/setting/home/display.php:188
+msgid "Manage your telegram marketing"
+msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:120
 #: lib/app/store/edit.php:139
@@ -7720,7 +7774,7 @@ msgstr "فعال سازی تنوع محصولات"
 
 #: content_a/setting/product/setting/display.php:56
 msgid "The tracking option"
-msgstr ""
+msgstr "تنظیمات رهگیری محصول"
 
 #: content_a/setting/product/setting/display.php:58
 msgid "When add new product"
@@ -7743,8 +7797,10 @@ msgid "Set Product Text"
 msgstr "تنظیم متن ثابت اشتراک گذاری هر محصول"
 
 #: content_a/setting/product/text/display.php:8
-msgid "Product.me"
+msgid "You can set fixed text for when you post a product on social media"
 msgstr ""
+"هنگام ارسال یک محصول در شبکه‌های اجتماعی، می‌توانید متن ثابتی را در زیر همه محصولات قرار "
+"دهید"
 
 #: content_a/setting/product/text/view.php:8
 msgid "Product Share Text"
@@ -7755,8 +7811,8 @@ msgid "Shipping option"
 msgstr "تنظیمات ارسال سفارش"
 
 #: content_a/setting/shipping/display.php:8
-msgid "Shipping text"
-msgstr "متن ثابت صفحه سبد خرید"
+msgid "Shipping default page text"
+msgstr "متن ثابت صفحه ارسال سفارش"
 
 #: content_a/setting/shipping/setting/view.php:9 content_a/setting/shipping/view.php:9
 #: content_a/setup/shipping/view.php:9
@@ -7768,8 +7824,14 @@ msgid "Set Shipping Text"
 msgstr "تنظیم متن ثابت صفحه ارسال سفارش"
 
 #: content_a/setting/shipping/text/display.php:8
-msgid "Shipping.me"
+msgid ""
+"If you want to show a message to all customers on the shopping shipping page, write it "
+"here. You can also adjust the color of this text. <br>\n"
+"After setting this text, you will see a sample of it at the bottom of this page"
 msgstr ""
+"اگر می خواهید در صفحه ارسال سفارش پیامی را به همه مشتریان نشان دهید، آن را در اینجا "
+"بنویسید. همچنین می توانید رنگ این متن را تنظیم کنید. <br>\n"
+"پس از تنظیم این متن، نمونه‌ای از آن را در پایین همین صفحه مشاهده خواهید کرد"
 
 #: content_a/setting/shipping/text/view.php:8
 msgid "Shipping Text"
@@ -7809,11 +7871,13 @@ msgstr "شبکه اجتماعی"
 msgid "Set Telegram Bot APIKEY"
 msgstr "تنظیم کلید اتصال ربات تلگرام"
 
-#: content_a/setting/telegram/bot/display.php:8
-#: content_a/setting/telegram/channel/display.php:8
-#: content_a/setting/telegram/text/display.php:8
-msgid "Telegram.me"
+#: content_a/setting/telegram/bot/display.php:8 content_a/setting/telegram/display.php:7
+msgid ""
+"It is possible to connect your business to your own custom Telegram robot. To do this, "
+"you must first create a telegram robot and provide the connection key to Jibres"
 msgstr ""
+"می توانید کسب‌وکار خود را به ربات دلخواه تلگرام خود متصل کنید. برای این کار ابتدا باید "
+"یک ربات تلگرام بسازید و کلید اتصال را در اختیار جیبرس قرار دهید"
 
 #: content_a/setting/telegram/bot/display.php:12
 msgid "APIKEY"
@@ -7834,25 +7898,26 @@ msgstr "تنظیمات تلگرام"
 msgid "Set Telegram Channel"
 msgstr "تنظیم کانال تلگرام"
 
+#: content_a/setting/telegram/channel/display.php:8
+#: content_a/setting/telegram/display.php:27
+msgid ""
+"You can easily share products in your Telegram channel. To do this, introduce your "
+"Telegram channel ID to us."
+msgstr ""
+"به راحتی می توانید محصولات را در کانال تلگرام خود به اشتراک بگذارید. برای این کار شناسه "
+"کانال تلگرام خود را به ما معرفی کنید."
+
 #: content_a/setting/telegram/channel/display.php:12
 msgid "Channel"
 msgstr "کانال"
 
 #: content_a/setting/telegram/channel/view.php:8
-msgid "Telegram channel APIKEY"
-msgstr ""
-
-#: content_a/setting/telegram/display.php:7
-msgid "To connect your business to Telegram Bot you must set the Bot APIKEY"
-msgstr ""
+msgid "Telegram channel"
+msgstr "کانال تلگرام"
 
 #: content_a/setting/telegram/display.php:14
 msgid "Change Telegram Bot APIKEY"
 msgstr "تغییر کلید اتصال ربات تلگرام"
-
-#: content_a/setting/telegram/display.php:27 content_a/setting/telegram/display.php:47
-msgid "To connect your business to Telegram Channel you must set the Channel"
-msgstr ""
 
 #: content_a/setting/telegram/display.php:34
 msgid "Change Telegram Channel"
@@ -7861,6 +7926,14 @@ msgstr "ویرایش کانال تلگرام"
 #: content_a/setting/telegram/display.php:45
 msgid "Set Telegram Share Text"
 msgstr "تنظیم متن ثابت اشتراک گذاری در تلگرام"
+
+#: content_a/setting/telegram/display.php:47 content_a/setting/telegram/text/display.php:8
+msgid ""
+"You can set a fixed text to be placed under the title and description of each product "
+"when you share it via telegram"
+msgstr ""
+"وقتی می‌خواهید محصولی را از طریق تلگرام به اشتراک بگذارید می‌توانید متن ثابتی را در زیر "
+"عنوان و توضیح محصول قرار دهید"
 
 #: content_a/setting/telegram/display.php:54
 msgid "Change Telegram Text"
@@ -26635,7 +26708,7 @@ msgstr "لطفا نام محصول را برای تهیه نسخه کپی وار
 #: lib/app/product/bullet.php:40 lib/app/product/comment.php:77
 #: lib/app/product/comment.php:109 lib/app/product/comment.php:154
 #: lib/app/product/comment.php:197 lib/app/product/edit.php:44
-#: lib/app/product/property.php:12 lib/app/product/property.php:113
+#: lib/app/product/property.php:12 lib/app/product/property.php:121
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
@@ -26830,15 +26903,15 @@ msgstr "این بارکد پیش از این اسکن شده است"
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
-#: lib/app/product/property.php:254
+#: lib/app/product/property.php:269
 msgid "Some detail was duplicate. We remove duplicate items"
 msgstr "بعضی از مقادیر تکراری بودند. ما مقادیر تکراری را حذف کردیم"
 
-#: lib/app/product/property.php:322
+#: lib/app/product/property.php:352
 msgid "Product property saved without chnage"
 msgstr "خصیصه‌های محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/property.php:326
+#: lib/app/product/property.php:356
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
@@ -27001,19 +27074,15 @@ msgstr "این محصول دارای تنوع بوده و امکان مجدد ث
 msgid "Variants of product not found"
 msgstr "تنوع محصولات یافت نشد"
 
-#: lib/app/product/variants.php:376
-msgid "Zero price!"
-msgstr "مبلغ صفر است!"
-
-#: lib/app/product/variants.php:393
+#: lib/app/product/variants.php:395
 msgid "No avalible product to insert"
 msgstr "هیچ محصولی برای ثبت آماده نیست"
 
-#: lib/app/product/variants.php:405
+#: lib/app/product/variants.php:407
 msgid "Your products was inserted"
 msgstr "محصولات شما اضافه شد"
 
-#: lib/app/product/variants.php:410
+#: lib/app/product/variants.php:412
 msgid "Can not add product"
 msgstr "نمی‌توانیم هیچ محصولی را اضافه کنیم"
 
@@ -28523,6 +28592,15 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Please set stock and price of product"
+#~ msgstr "لطفا موجودی و قیمت محصول را وارد کنید"
+
+#~ msgid "Page Text"
+#~ msgstr "متن ثابت درون صفحه"
+
+#~ msgid "Zero price!"
+#~ msgstr "مبلغ صفر است!"
+
 #~ msgid "Without category"
 #~ msgstr "بدون دسته‌بندی"
 
@@ -29094,9 +29172,6 @@ msgstr "یارد"
 #~ msgid "Please set count product as a number"
 #~ msgstr "لطفا تعداد محصول را به صورت عددی وارد کنید"
 
-#~ msgid "Please set count product"
-#~ msgstr "لطفا تعداد محصول را وارد کنید"
-
 #~ msgid "Data is out of range for column count"
 #~ msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - count"
 
@@ -29126,9 +29201,6 @@ msgstr "یارد"
 
 #~ msgid "Simple quote"
 #~ msgstr "نقل قول ساده"
-
-#~ msgid "Simple text"
-#~ msgstr "متن ساده"
 
 #~ msgid "Choose this footer"
 #~ msgstr "انتخاب این پابرگ"
