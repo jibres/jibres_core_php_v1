@@ -1,6 +1,7 @@
 <?php
 namespace content_a\products\share;
-
+// use telegram class as bot
+use \dash\social\telegram\tg as bot;
 
 class model
 {
@@ -56,6 +57,27 @@ class model
 		}
 
 		$msgData['reply_markup'] = false;
+
+		$msgData['reply_markup']
+		[
+			'inline_keyboard' =>
+			[
+				[
+					[
+						'text' => T_("Register a new order"),
+						'url'  => 'https://t.me/BittyAdmin',
+					],
+				],
+				// [
+				// 	[
+				// 		'text'          => T_("Online Shopping"),
+				// 		'callback_data' => 'ticket',
+				// 	],
+				// ]
+			]
+		];
+
+
 
 		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
 		\dash\social\telegram\tg::$name      = $botname;
