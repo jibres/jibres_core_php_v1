@@ -21,5 +21,27 @@ class update
 	}
 
 
+
+
+	public static function set_view_user_id($_user_id)
+	{
+		$query  = "UPDATE cart SET cart.view = 1 WHERE cart.user_id = $_user_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+	public static function set_view_guestid($_guestid)
+	{
+		$query  = "UPDATE cart SET cart.view = 1 WHERE cart.guestid = '$_guestid' ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
+
+
+
 }
 ?>

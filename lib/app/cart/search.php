@@ -266,6 +266,17 @@ class search
 			return null;
 		}
 
+		if($_user_id)
+		{
+			\lib\db\cart\update::set_view_user_id($user_id);
+		}
+		elseif($_guestid)
+		{
+			\lib\db\cart\update::set_view_guestid($_guestid);
+
+		}
+
+
 		$user_cart = array_map(['\\lib\\app\\cart\\ready', 'row'], $user_cart);
 
 		return $user_cart;

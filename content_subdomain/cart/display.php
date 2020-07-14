@@ -14,6 +14,9 @@
       <div class="c">
        <div class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></div>
 
+        <?php if(!\dash\get::index($value, 'view')) {?>
+          <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
+        <?php } // endif ?>
 
         <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
 
