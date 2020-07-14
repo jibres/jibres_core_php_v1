@@ -13,7 +13,7 @@ $storeData = \dash\data::store_store_data();
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <form class="c4 s12" method="post" autocomplete="off">
+
       <div class="action">
         <input type="hidden" name="runaction_defaultpricelist" value="1">
         <div class="switch1">
@@ -22,7 +22,6 @@ $storeData = \dash\data::store_store_data();
         </div>
       </div>
 
-    </form>
   </form>
 </section>
 
@@ -38,7 +37,7 @@ $storeData = \dash\data::store_store_data();
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <form class="c4 s12" method="post" autocomplete="off">
+
       <div class="action">
         <input type="hidden" name="runaction_variant_product" value="1">
         <div class="switch1">
@@ -47,7 +46,6 @@ $storeData = \dash\data::store_store_data();
         </div>
       </div>
 
-    </form>
   </form>
 </section>
 
@@ -64,7 +62,7 @@ $storeData = \dash\data::store_store_data();
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <form class="c4 s12" method="post" autocomplete="off">
+
       <div class="action">
         <input type="hidden" name="runaction_ratio" value="1">
 
@@ -82,6 +80,5 @@ $storeData = \dash\data::store_store_data();
 
       </div>
 
-    </form>
   </form>
 </section>

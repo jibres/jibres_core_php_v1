@@ -31,6 +31,32 @@ class set
 	}
 
 
+	public static function telegram_setting($_args)
+	{
+
+		$condition =
+		[
+			'apikey' => 'string_100',
+			'channel' => 'string_100',
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'telegram_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		\dash\notif::ok(T_("Telegram setting saved"));
+		return true;
+
+	}
+
+
 	public static function bank_payment_setting($_args)
 	{
 

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\telegram\bot;
+namespace content_a\setting\telegram\channel;
 
 
 class model
@@ -7,7 +7,7 @@ class model
 	public static function post()
 	{
 		$post           = [];
-		$post['apikey'] = \dash\request::post('apikey');
+		$post['channel'] = \dash\request::post('channel');
 
 		\lib\app\setting\set::telegram_setting($post);
 

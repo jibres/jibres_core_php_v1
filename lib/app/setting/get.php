@@ -98,6 +98,34 @@ class get
 	}
 
 
+
+
+	public static function telegram_setting()
+	{
+		$cat   = 'telegram_setting';
+
+		$result = \lib\db\setting\get::by_cat($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$product_setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$product_setting[$value['key']] = $value['value'];
+			}
+		}
+
+
+		return $product_setting;
+
+	}
+
+
 	public static function bank_payment_setting()
 	{
 		$cat   = 'bank_payment_setting';

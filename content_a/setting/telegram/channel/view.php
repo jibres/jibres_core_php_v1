@@ -1,11 +1,11 @@
 <?php
-namespace content_a\setting\telegram\bot;
+namespace content_a\setting\telegram\channel;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Telegram bot APIKEY'));
+		\dash\face::title(T_('Telegram channel APIKEY'));
 
 		// back
 		\dash\data::back_text(T_('Telegram setting'));
