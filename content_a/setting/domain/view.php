@@ -15,6 +15,8 @@ class view
 
 		$domain_list = \lib\app\store\domain::get_domain_list();
 		\dash\data::domainList($domain_list);
+
+		// \lib\arvancloud\api::domain_list();
 	}
 }
 ?>
