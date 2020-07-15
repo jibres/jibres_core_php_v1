@@ -4,6 +4,9 @@
 	<div class="box">
 		<header><h2><?php echo T_("Choose your address") ?></h2></header>
 		<div class="body">
+
+      <?php if(\dash\data::shippingSettingSaved_page_text()) {?><p class="msg <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></p><?php } //endif ?>
+
 			<form method="post" autocomplete="off">
 			<?php if(\dash\user::login()) {?>
 				<?php if(\dash\data::addressDataTable()) {?>

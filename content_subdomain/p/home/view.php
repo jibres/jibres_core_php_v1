@@ -30,6 +30,9 @@ class view
 
 		$similar = \lib\app\product\search::get_similar_product(\dash\data::dataRow_id());
 		\dash\data::similarProduct($similar);
+
+		$product_setting = \lib\app\setting\get::product_setting();
+		\dash\data::productSettingSaved($product_setting);
 	}
 }
 ?>

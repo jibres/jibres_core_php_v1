@@ -89,7 +89,7 @@ foreach ($myGallery as $key => $item)
               </div>
             </div>
           </div>
-
+<?php if(\dash\data::productSettingSaved_view_text()) {?><p><?php echo \dash\data::productSettingSaved_view_text(); ?></p><?php } //endif ?>
 <?php if(\dash\data::dataRow_bullet()) { ?>
           <div class="featureBullets ltr">
             <ul>

@@ -56,7 +56,9 @@
     </div>
 <?php } //endfor ?>
 
+
    </div>
+<?php if(\dash\data::cartSettingSaved_page_text()) {?><p class="fs14 msg <?php echo \dash\data::cartSettingSaved_color_class() ?>"><?php echo \dash\data::cartSettingSaved_page_text(); ?></p><?php } //endif ?>
   </div>
   <?php if(\dash\data::cartSummary()) {?>
   <div class="c-4">

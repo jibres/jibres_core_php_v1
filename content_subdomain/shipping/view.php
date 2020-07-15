@@ -20,6 +20,10 @@ class view
 		\dash\data::paymentWay($payment);
 
 
+		$shipping_setting = \lib\app\setting\get::shipping_setting();
+		\dash\data::shippingSettingSaved($shipping_setting);
+
+
 
 		self::static_var();
 	}
