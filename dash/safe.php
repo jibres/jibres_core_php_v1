@@ -114,7 +114,7 @@ class safe
 
 	public static function remove_2nl($_string)
 	{
-		$_string = preg_replace("/[\r\n]{2,}/", "\n", $_string);
+		$_string = preg_replace("/(\r\n){3,}/", "$1\n$1", $_string);
 		return $_string;
 	}
 
