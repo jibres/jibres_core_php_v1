@@ -33,6 +33,8 @@
       <div class="statistic blue">
         <div class="value"><?php echo T_("Upgrade"); ?></div>
         <div class="label"><?php echo T_("Update database"); ?></div>
+        <div class="label mT5-f"><?php echo T_("Jibres"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_jibres()) ?></b></div>
+        <div class="label mT5-f"><?php echo T_("Store"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_store()) ?></b></div>
       </div>
     </div>
   </div>

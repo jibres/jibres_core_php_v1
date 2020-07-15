@@ -10,6 +10,8 @@ class view
 		$needUpgrade = \lib\app\upgradedb\upgrade::need_upgrade();
 		\dash\data::needUpgrade($needUpgrade);
 
+		\dash\data::lastDBVersion(['jibres' => \lib\app\upgradedb\upgrade::jibres_last_upgrade_version(), 'store' => \lib\app\upgradedb\upgrade::store_min_version()]);
+
 	}
 }
 ?>
