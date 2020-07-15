@@ -49,7 +49,7 @@ class check
 			'oversale'          => 'bit',
 			'saletelegram'      => 'bit',
 			'saleapp'           => 'bit',
-			'infinite'          => 'bit',
+			'trackquantity'          => 'bit',
 			'parent'            => 'id',
 			'scalecode'         => 'int',
 			'sku'               => 'sku',
@@ -146,7 +146,7 @@ class check
 		$data['oversale']     = $data['oversale'] 		? 'yes' : 'no';
 		$data['saletelegram'] = $data['saletelegram'] 	? 'yes' : 'no';
 		$data['saleapp']      = $data['saleapp'] 		? 'yes' : 'no';
-		$data['infinite']     = $data['infinite'] 		? 'yes' : 'no';
+		$data['trackquantity']     = $data['trackquantity'] 		? 'yes' : 'no';
 
 		if($data['parent'])
 		{

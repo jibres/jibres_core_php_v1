@@ -27,7 +27,7 @@ class model
 		if(\content_b1\tools::isset_input_body('sku')) 				$post['sku']          = \content_b1\tools::input_body('sku');
 		if(\content_b1\tools::isset_input_body('barcode')) 			$post['barcode']      = \content_b1\tools::input_body('barcode');
 		if(\content_b1\tools::isset_input_body('barcode2')) 		$post['barcode2']     = \content_b1\tools::input_body('barcode2');
-		if(\content_b1\tools::isset_input_body('infinite')) 		$post['infinite']     = \content_b1\tools::input_body('infinite');
+		if(\content_b1\tools::isset_input_body('trackquantity')) 		$post['trackquantity']     = \content_b1\tools::input_body('trackquantity');
 		if(\content_b1\tools::isset_input_body('weight')) 			$post['weight']       = \content_b1\tools::input_body('weight');
 		if(\content_b1\tools::isset_input_body('seotitle')) 		$post['seotitle']     = \content_b1\tools::input_body('seotitle');
 		if(\content_b1\tools::isset_input_body('slug')) 			$post['slug']         = \content_b1\tools::input_body('slug');

@@ -177,13 +177,13 @@ $productDataRow = \dash\data::productDataRow();
       <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
 
           <div class="switch1 mB5">
-          <input type="checkbox" name="infinite" id="iinfinite" <?php if(\dash\data::productDataRow_infinite() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())) { echo 'checked';} ?>>
-          <label for="iinfinite"></label>
-          <label for="iinfinite"><?php echo T_("Track quantity"); ?><small></small></label>
+          <input type="checkbox" name="trackquantity" id="itrackquantity" <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())) { echo 'checked';} ?>>
+          <label for="itrackquantity"></label>
+          <label for="itrackquantity"><?php echo T_("Track quantity"); ?><small></small></label>
         </div>
         <p class="fs09 fc-mute"><?php echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."); ?></p>
 
-        <div data-response='iinfinite' data-response-effect='slide' <?php if(\dash\data::productDataRow_infinite() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())){}else{ echo 'data-response-hide';} ?>  >
+        <div data-response='itrackquantity' data-response-effect='slide' <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())){}else{ echo 'data-response-hide';} ?>  >
           <?php if(!\dash\data::productDataRow_variant_child()) {?>
          <div class="c s12 pRa10">
             <label for='stock'><?php echo T_("Stock"). ' '. \dash\fit::number(\dash\data::productDataRow_stock()) ; ?></label>

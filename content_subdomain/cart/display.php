@@ -18,7 +18,7 @@
           <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
         <?php } // endif ?>
 
-        <?php if(\dash\get::index($value, 'infinite')) {?>
+        <?php if(\dash\get::index($value, 'trackquantity')) {?>
 
         <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
           <?php if($stock >= 10) {?>

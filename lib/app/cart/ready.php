@@ -30,7 +30,7 @@ class ready
 
 
 				case 'slug':
-				case 'infinite':
+				case 'trackquantity':
 					$get_from_product[$key] = $value;
 					break;
 
@@ -79,9 +79,9 @@ class ready
 				$result['url'] = $get_from_product['url'];
 			}
 
-			if(array_key_exists('infinite', $get_from_product))
+			if(array_key_exists('trackquantity', $get_from_product))
 			{
-				$result['infinite'] = $get_from_product['infinite'];
+				$result['trackquantity'] = $get_from_product['trackquantity'];
 			}
 
 		}

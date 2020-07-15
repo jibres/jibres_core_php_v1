@@ -134,7 +134,7 @@ class ready
 					break;
 
 				case 'vat':
-				case 'infinite':
+				case 'trackquantity':
 				case 'oversale':
 				case 'saleonline':
 				case 'saletelegram':

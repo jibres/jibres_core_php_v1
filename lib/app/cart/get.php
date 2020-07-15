@@ -134,7 +134,7 @@ class get
 				case "fileaddress":
 				case "status":
 				case "vat":
-				case "infinite":
+				case "trackquantity":
 				case "oversale":
 				case "variant_child":
 				case "parent":

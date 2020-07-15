@@ -163,7 +163,7 @@ class check_detail
 			}
 
 			// check need track stock or no
-			if(isset($this_proudct['infinite']) && $this_proudct['infinite'] === 'no')
+			if(isset($this_proudct['trackquantity']) && $this_proudct['trackquantity'] === 'yes')
 			{
 				$factor_detail_record['track_stock_temp'] = true;
 			}

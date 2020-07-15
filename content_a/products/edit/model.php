@@ -42,7 +42,7 @@ class model
 		// $post['code']           = \dash\request::post('code');
 		$post['barcode']           = \dash\request::post('barcode');
 		$post['barcode2']          = \dash\request::post('barcode2');
-		$post['infinite']          = \dash\request::post('infinite');
+		$post['trackquantity']          = \dash\request::post('trackquantity');
 		// $post['gallery']        = \dash\request::post('gallery');
 		// $post['weight']         = \dash\request::post('weight');
 		$post['seotitle']          = \dash\request::post('seotitle');
