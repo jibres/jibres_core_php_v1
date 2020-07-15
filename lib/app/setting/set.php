@@ -119,8 +119,20 @@ class set
 
 		$condition =
 		[
-			'page_text' => 'desc',
-			'color' => ['enum' => ['red', 'green', 'blue', 'yellow']],
+			'page_text'            => 'desc',
+			'color'                => ['enum' => ['red', 'green', 'blue', 'yellow']],
+			'deliverinstoreplace'  => 'bit',
+			'shipping_status'      => 'bit',
+			'sendbycourier'        => 'bit',
+			'sendbycourierprice'   => 'price',
+			'sendbypost'           => 'bit',
+			'sendbypostprice'      => 'price',
+			'sendoutcity'          => 'bit',
+			'sendoutcityprice'     => 'price',
+			'sendoutprovince'      => 'bit',
+			'sendoutprovinceprice' => 'price',
+			'sendoutcountry'       => 'bit',
+			'sendoutcountryprice'  => 'price',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

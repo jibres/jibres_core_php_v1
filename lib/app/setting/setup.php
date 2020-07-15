@@ -16,7 +16,6 @@ class setup
 		'units',
 		'pos',
 		'vat',
-		'shipping',
 		'payment',
 
 	];
@@ -207,76 +206,6 @@ class setup
 
 		return self::multi_save($data, 'vat');
 
-	}
-
-
-	public static function save_shipping($_args)
-	{
-		$condition =
-		[
-			'shipping_status'                     => 'bit',
-			'shipping_current_country'            => 'bit',
-			'shipping_current_country_value'      => 'price',
-			'shipping_current_country_value_type' => 'string',
-			'shipping_other_country'              => 'bit',
-			'shipping_other_country_value'        => 'price',
-			'shipping_other_country_value_type'   => 'string',
-		];
-
-		$require = [];
-
-		$meta =	[];
-
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-
-		if($data['shipping_current_country_value_type'] === 'free')
-		{
-			$data['shipping_current_country_value'] = 0;
-		}
-		else
-		{
-			if($data['shipping_current_country_value'] && !\dash\number::is($data['shipping_current_country_value']))
-			{
-				\dash\notif::error(T_("Invalid number data"), 'shipping_current_country_value');
-				return false;
-			}
-
-			if($data['shipping_current_country_value'])
-			{
-				$data['shipping_current_country_value'] = \dash\number::clean($data['shipping_current_country_value']);
-				if(\dash\number::is_larger($data['shipping_current_country_value'], 999999999999))
-				{
-					\dash\notif::error(T_("Data is out of range"), 'shipping_current_country_value');
-					return false;
-				}
-			}
-		}
-
-		if($data['shipping_other_country_value_type'] === 'free')
-		{
-			$data['shipping_other_country_value'] = 0;
-		}
-		else
-		{
-			if($data['shipping_other_country_value'] && !\dash\number::is($data['shipping_other_country_value']))
-			{
-				\dash\notif::error(T_("Invalid number data"), 'shipping_other_country_value');
-				return false;
-			}
-
-			if($data['shipping_other_country_value'])
-			{
-				$data['shipping_other_country_value'] = \dash\number::clean($data['shipping_other_country_value']);
-				if(\dash\number::is_larger($data['shipping_other_country_value'], 999999999999))
-				{
-					\dash\notif::error(T_("Data is out of range"), 'shipping_other_country_value');
-					return false;
-				}
-			}
-		}
-
-		return self::multi_save($data, 'shipping');
 	}
 
 
