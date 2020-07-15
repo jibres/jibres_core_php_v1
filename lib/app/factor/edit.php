@@ -4,6 +4,30 @@ namespace lib\app\factor;
 
 class edit
 {
+	public static function user_cancel($_id)
+	{
+		$load_factor = \lib\app\factor\get::one($_id);
+
+		if(!$load_factor)
+		{
+			return false;
+		}
+
+		if(array_key_exists('pay', $load_factor) && !$load_factor['pay'])
+		{
+			// no proble
+		}
+		else
+		{
+			\dash\notif::error(T_("This factor is payed. To cancel this order contact to administrator"));
+			return false;
+		}
+
+		\lib\app\factor\action::add(['action' => 'cancel'], $load_factor['id']);
+	}
+
+
+
 
 	public static function status($_status, $_factor_id)
 	{

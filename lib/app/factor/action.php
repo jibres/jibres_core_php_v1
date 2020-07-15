@@ -105,19 +105,20 @@ class action
 		{
 			case 'pay_successfull':
 			case 'pay_verified':
-				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-				\lib\app\factor\edit::status('pending_prepare', $factor_id);
+				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_prepare', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
 				break;
 
 			case 'pay_error':
 			case 'pay_cancel':
 			case 'pay_unverified':
-				\lib\db\factors\update::record(['type' => 'saleorder', 'pay' => 0, 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-				\lib\app\factor\edit::status('reject', $factor_id);
+				\lib\db\factors\update::record(['type' => 'saleorder', 'pay' => 0, 'status' => 'reject', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+				break;
+
+			case 'cancel':
+				\lib\db\factors\update::record(['type' => 'saleorder', 'status' => 'cancel', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
 				break;
 
 			case 'expire':
-			case 'cancel':
 			case 'order':
 			case 'sending':
 			case 'pending_pay':

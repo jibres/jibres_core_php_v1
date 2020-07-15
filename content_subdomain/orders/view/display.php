@@ -8,6 +8,10 @@
 			<div class="msg info2"><?php echo \dash\fit::price(\dash\data::dataRow_total()); ?></div>
 			<div class="msg info2"><?php echo \dash\fit::date_time(\dash\data::dataRow_date()); ?></div>
 			<div class="msg info2"><?php echo \dash\data::dataRow_status(); ?></div>
+			<?php if(!\dash\data::dataRow_pay() && \dash\data::dataRow_status() !== 'cancel') {?>
+				<div class="btn warn" data-confirm data-data='{"set_status": "cancel"}'><?php echo T_("Cancel order") ?></div>
+			<?php } //endif ?>
+
 
 		</div>
 	</div>
