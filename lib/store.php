@@ -420,6 +420,33 @@ class store
 	}
 
 
+	public static function currency($_need = 'name')
+	{
+		$result = self::detail('currency');
+		if($result)
+		{
+			$currency_detail = \lib\currency::detail($result);
+		}
+
+		if($_need)
+		{
+			if(isset($currency_detail[$_need]))
+			{
+				return $currency_detail[$_need];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $result;
+		}
+
+	}
+
+
 	public static function subdomain_url()
 	{
 		$url = \dash\url::set_subdomain(self::detail('subdomain'));

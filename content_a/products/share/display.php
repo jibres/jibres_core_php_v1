@@ -26,7 +26,7 @@ $propertyList = \dash\data::propertyList();
                 <p><?php
                   echo T_("Price");
                   echo ' <code>'. \dash\fit::price(\dash\data::productDataRow_finalprice(), true). '</code> ';
-                  echo \lib\currency::unit();
+                  echo \lib\store::currency();
 
                 ?></p>
 
