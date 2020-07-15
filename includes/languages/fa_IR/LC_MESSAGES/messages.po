@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-15 03:32+0430\n"
-"PO-Revision-Date: 2020-07-15 03:32+0430\n"
+"POT-Creation-Date: 2020-07-15 13:59+0430\n"
+"PO-Revision-Date: 2020-07-15 13:59+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -141,7 +141,8 @@ msgstr ""
 #: content_enter/home/view.php:20 content_love/gift/home/giftcard.php:24
 #: content_love/gift/home/giftcard.php:27 content_r10/android/intro/view.php:29
 #: content_r10/android/splash/view.php:13 content_r10/android/view.php:12
-#: content_su/update/display.php:92 content_subdomain/home/layout/body/visitcard.php:11
+#: content_su/update/display.php:36 content_su/update/display.php:94
+#: content_subdomain/home/layout/body/visitcard.php:11
 #: content_subdomain/home/layout/body/visitcard.php:14
 #: content_subdomain/home/layout/template/comingsoon.php:11
 #: content_subdomain/home/layout/template/comingsoon.php:14
@@ -699,8 +700,7 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content/template/default.php:237
-#: content_a/products/share/display.php:29 content_su/tg/sendmessage/display.php:20
-#: content_su/tg/sendphoto/display.php:27
+#: content_su/tg/sendmessage/display.php:20 content_su/tg/sendphoto/display.php:27
 #: content_subdomain/home/layout/body/body_load_post.php:237
 #: content_subdomain/p/home/display.php:284 content_subdomain/template/default.php:237
 msgid "Send"
@@ -1707,9 +1707,10 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_a/order/detail/display.php:97 content_a/order/home/display.php:134
 #: content_a/pricehistory/display.php:35 content_a/pricehistory/display.php:50
 #: content_a/pricehistory/display.php:85 content_a/products/home/display.php:68
-#: content_a/products/home/display.php:120 content_a/products/share/model.php:44
-#: content_a/products/variants/display.php:101 content_a/products/variants/display.php:142
-#: content_a/sale/display.php:18 content_crm/transactions/add/display.php:67
+#: content_a/products/home/display.php:120 content_a/products/share/display.php:27
+#: content_a/products/share/model.php:44 content_a/products/variants/display.php:101
+#: content_a/products/variants/display.php:142 content_a/sale/display.php:18
+#: content_crm/transactions/add/display.php:67
 #: content_crm/transactions/minus/display.php:67
 #: content_love/domain/billing/display.php:92
 #: content_love/domain/setting/action/display.php:44
@@ -2103,7 +2104,7 @@ msgid "Need HELP? Be patient..."
 msgstr "کمک نیاز دارید؟ صبور باشید..."
 
 #: content/home/display.php:8 content/home/display.php:10
-#: content_a/setting/home/display.php:167
+#: content_a/setting/home/display.php:177
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2134,7 +2135,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:18 content/home/display.php:20 content/home/view.php:11
-#: content/view.php:14 content_a/setting/home/display.php:147
+#: content/view.php:14 content_a/setting/home/display.php:157
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2144,7 +2145,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:28 content/home/display.php:30 content/home/view.php:12
-#: content/view.php:15 content_a/setting/home/display.php:157
+#: content/view.php:15 content_a/setting/home/display.php:167
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2163,7 +2164,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:38 content/home/display.php:41 content/home/view.php:13
-#: content/view.php:16 content_a/setting/home/display.php:177
+#: content/view.php:16 content_a/setting/home/display.php:187
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -3976,11 +3977,13 @@ msgstr "مایکت"
 #: content_a/setting/cart/text/display.php:38 content_a/setting/domain/display.php:46
 #: content_a/setting/general/title/display.php:20
 #: content_a/setting/googleanalytics/display.php:19
+#: content_a/setting/order/validity/display.php:36
 #: content_a/setting/payment/bank/display.php:17
 #: content_a/setting/product/text/display.php:19
-#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:36
+#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:37
 #: content_a/setting/telegram/bot/display.php:22
 #: content_a/setting/telegram/channel/display.php:21
+#: content_a/setting/telegram/starttext/display.php:19
 #: content_a/setting/telegram/text/display.php:19 content_a/setup/address/display.php:55
 #: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:21
 #: content_a/setup/owner/display.php:41 content_a/setup/payment/display.php:43
@@ -4861,15 +4864,16 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/fund/view.php:8 content_a/setting/general/title/view.php:8
 #: content_a/setting/general/title/view.php:12 content_a/setting/general/view.php:10
 #: content_a/setting/googleanalytics/view.php:8 content_a/setting/home/view.php:8
-#: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
-#: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
-#: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:8
-#: content_a/setting/telegram/view.php:10 content_a/units/view.php:11
-#: content_love/gift/create/stepGuide.php:93 content_my/domain/irnic/view.php:16
-#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
-#: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
-#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:135
+#: content_a/setting/order/view.php:11 content_a/setting/payment/view.php:11
+#: content_a/setting/pcpos/view.php:8 content_a/setting/place/inventory/view.php:8
+#: content_a/setting/place/view.php:11 content_a/setting/pos/view.php:8
+#: content_a/setting/product/view.php:10 content_a/setting/shipping/text/view.php:11
+#: content_a/setting/social/view.php:8 content_a/setting/telegram/view.php:10
+#: content_a/units/view.php:11 content_love/gift/create/stepGuide.php:93
+#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
+#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
+#: dash/layout/admin/admin-titlebox.php:27 dash/layout/admin/sidebar/sidebar-a.php:21
+#: dash/layout/pwa/pwa_menu.php:135
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -5160,7 +5164,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/product/comment.php:425 lib/app/product/comment.php:455
 #: lib/app/product/company.php:63 lib/app/product/company.php:228
 #: lib/app/product/company.php:260 lib/app/product/company.php:353
-#: lib/app/product/edit.php:36 lib/app/product/get.php:34 lib/app/product/unit.php:63
+#: lib/app/product/edit.php:41 lib/app/product/get.php:34 lib/app/product/unit.php:63
 #: lib/app/product/unit.php:229 lib/app/product/unit.php:261 lib/app/product/unit.php:355
 #: lib/app/store/edit.php:37 lib/app/store/edit.php:77
 msgid "Store not found"
@@ -6911,41 +6915,37 @@ msgstr "گروه"
 msgid "Value"
 msgstr "مقدار"
 
-#: content_a/products/share/display.php:12
-msgid "Share with telegram"
-msgstr "اشتراک گذاری از طریق تلگرام"
-
-#: content_a/products/share/display.php:17
+#: content_a/products/share/display.php:16
 msgid "You must set Telegram bot setting first"
 msgstr "شما ابتدا باید تنظیمات مربوط به اتصال فروشگاه به تلگرام را بررسی کنید"
 
-#: content_a/products/share/display.php:18
+#: content_a/products/share/display.php:17
 msgid "Click here to setup telegram setting"
 msgstr "برای تنظیم اطلاعات تلگرام کلیک کنید"
 
-#: content_a/products/share/model.php:67
+#: content_a/products/share/display.php:38 content_a/products/share/model.php:67
 msgid "Register a new order"
 msgstr "ثبت سفارش جدید"
 
-#: content_a/products/share/model.php:73 content_a/setting/social/display.php:15
-#: content_account/my/home/display.php:160 content_account/my/social/display.php:41
-#: content_account/my/social/display.php:44 content_crm/member/social/display.php:27
-#: content_crm/member/social/display.php:30
+#: content_a/products/share/display.php:41 content_a/products/share/model.php:81
+#: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
+#: content_account/my/social/display.php:41 content_account/my/social/display.php:44
+#: content_crm/member/social/display.php:27 content_crm/member/social/display.php:30
 msgid "Instagram"
 msgstr "اینستاگرام"
 
-#: content_a/products/share/model.php:77 content_account/my/home/display.php:170
-#: content_account/my/social/display.php:27 content_account/my/social/display.php:30
-#: content_crm/member/social/display.php:40 content_crm/member/social/display.php:43
-#: dash/engine/static_files.php:28 dash/engine/static_files.php:37
-#: dash/engine/static_files.php:47
+#: content_a/products/share/display.php:42 content_a/products/share/model.php:77
+#: content_account/my/home/display.php:170 content_account/my/social/display.php:27
+#: content_account/my/social/display.php:30 content_crm/member/social/display.php:40
+#: content_crm/member/social/display.php:43 dash/engine/static_files.php:28
+#: dash/engine/static_files.php:37 dash/engine/static_files.php:47
 msgid "Twitter"
 msgstr "تویتر"
 
-#: content_a/products/share/model.php:81 content_account/my/home/display.php:154
-#: content_account/my/social/display.php:12 content_cms/comments/edit/display.php:21
-#: content_crm/member/social/display.php:15 content_crm/member/social/display.php:17
-#: content_my/business/home/display_pwa.php:53
+#: content_a/products/share/display.php:43 content_a/products/share/model.php:73
+#: content_account/my/home/display.php:154 content_account/my/social/display.php:12
+#: content_cms/comments/edit/display.php:21 content_crm/member/social/display.php:15
+#: content_crm/member/social/display.php:17 content_my/business/home/display_pwa.php:53
 #: content_my/business/home/display_site.php:134 content_my/ipg/gateway/display.php:16
 #: content_my/ipg/setup/gateway/display.php:16 content_v2/app/view.php:230
 #: dash/engine/static_files.php:25 dash/engine/static_files.php:26
@@ -7248,6 +7248,7 @@ msgstr "زرد"
 #: content_a/setting/cart/text/display.php:29
 #: content_a/setting/product/text/display.php:12
 #: content_a/setting/shipping/text/display.php:29
+#: content_a/setting/telegram/starttext/display.php:12
 #: content_a/setting/telegram/text/display.php:12
 #: content_a/website/body/add/display.php:74 content_a/website/text/view.php:15
 #: lib/app/website/body/line/text.php:12 lib/app/website/body/template.php:68
@@ -7449,27 +7450,31 @@ msgstr ""
 msgid "Cart setting"
 msgstr "تنظیمات سبد خرید"
 
-#: content_a/setting/home/display.php:148
+#: content_a/setting/home/display.php:139 content_a/setting/home/display.php:140
+msgid "Order setting"
+msgstr "تنظیمات سفارش"
+
+#: content_a/setting/home/display.php:158
 msgid "Manage your business website settings"
 msgstr ""
 
-#: content_a/setting/home/display.php:158
+#: content_a/setting/home/display.php:168
 msgid "Manage your business app settings"
 msgstr ""
 
-#: content_a/setting/home/display.php:168
+#: content_a/setting/home/display.php:178
 msgid "Manage your business pos configuration"
 msgstr ""
 
-#: content_a/setting/home/display.php:178
+#: content_a/setting/home/display.php:188
 msgid "Manage your business social marketing"
 msgstr ""
 
-#: content_a/setting/home/display.php:187
+#: content_a/setting/home/display.php:197
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/setting/home/display.php:188
+#: content_a/setting/home/display.php:198
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -7477,6 +7482,70 @@ msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 #: lib/app/store/edit.php:139
 msgid "Your setting was saved"
 msgstr "تنظیمات شما ذخیره شد"
+
+#: content_a/setting/order/display.php:4
+msgid "Validity period of order"
+msgstr "مدت زمان اعتبار سفارش"
+
+#: content_a/setting/order/validity/display.php:6
+msgid "Set Order validity time"
+msgstr "تنظیم مدت زمان اعتبار سفارش"
+
+#: content_a/setting/order/validity/display.php:8
+msgid "After this time, any unpaid orders will expire"
+msgstr "بعد از این زمان،‌ تمامی سفارشات پرداخت نشده منقضی خواهند شد"
+
+#: content_a/setting/order/validity/display.php:14
+msgid "Order validity time"
+msgstr "زمان اعتبار سفارش"
+
+#: content_a/setting/order/validity/display.php:17
+msgid "Default (Never expire order)"
+msgstr "پیشفرض (هیچ گاه منقضی نخواهد شد)"
+
+#: content_a/setting/order/validity/display.php:18
+msgid "1 hour"
+msgstr "یک ساعت"
+
+#: content_a/setting/order/validity/display.php:19
+msgid "3 hour"
+msgstr "سه ساعت"
+
+#: content_a/setting/order/validity/display.php:20
+msgid "5 hour"
+msgstr "پنج ساعت"
+
+#: content_a/setting/order/validity/display.php:21
+msgid "10 hour"
+msgstr "ده ساعت"
+
+#: content_a/setting/order/validity/display.php:22
+msgid "1 Day"
+msgstr "یک روز"
+
+#: content_a/setting/order/validity/display.php:23 content_my/domain/option/display.php:42
+msgid "3 Day"
+msgstr "سه روز"
+
+#: content_a/setting/order/validity/display.php:24
+msgid "5 Day"
+msgstr "پنج روز"
+
+#: content_a/setting/order/validity/display.php:25
+msgid "10 Day"
+msgstr "ده روز"
+
+#: content_a/setting/order/validity/display.php:26
+msgid "30 Day"
+msgstr "یک ماه"
+
+#: content_a/setting/order/validity/view.php:8
+msgid "Order Validity"
+msgstr "اعتبار سفارش"
+
+#: content_a/setting/order/validity/view.php:11 content_a/setting/order/view.php:8
+msgid "Order Setting"
+msgstr "تنظیمات سفارش"
 
 #: content_a/setting/payment/bank/display.php:5
 msgid "Configuration bank payment setting"
@@ -7874,22 +7943,22 @@ msgstr ""
 msgid "Shipping Text"
 msgstr "تنظیم متن ثابت صفحه ارسال سفارش"
 
-#: content_a/setting/social/display.php:9
+#: content_a/setting/social/display.php:10
 msgid "Set the social network link"
 msgstr "تنظیم لینک شبکه‌های اجتماعی"
 
-#: content_a/setting/social/display.php:11
+#: content_a/setting/social/display.php:12
 msgid "This item use in your website."
 msgstr "این گزینه‌ها در وب‌سایت شما استفاده خواهند شد."
 
-#: content_a/setting/social/display.php:21 content_crm/log/home/logTable.php:60
+#: content_a/setting/social/display.php:22 content_crm/log/home/logTable.php:60
 #: content_crm/member/security/display.php:137 content_su/tg/home/view.php:8
 #: content_support/ticket/show/display.php:165 dash/layout/admin/sidebar/sidebar-su.php:27
 #: includes/languages/trans_static.php:626
 msgid "Telegram"
 msgstr "تلگرام"
 
-#: content_a/setting/social/display.php:27
+#: content_a/setting/social/display.php:28
 msgid "Youtube"
 msgstr "یوتیوب"
 
@@ -7914,12 +7983,25 @@ msgstr ""
 msgid "APIKEY"
 msgstr "کلید ای‌پی‌آی"
 
+#: content_a/setting/telegram/bot/model.php:22
+msgid "Please enter valid api token!"
+msgstr "لطفا کلید اتصال معتبری را وارد کنید!"
+
+#: content_a/setting/telegram/bot/model.php:55
+msgid "This token is invalid!"
+msgstr "این کلید دسترسی نامعتبر است!"
+
+#: content_a/setting/telegram/bot/model.php:64 content_a/setting/telegram/bot/model.php:69
+msgid "We have a problem with this token!"
+msgstr ""
+
 #: content_a/setting/telegram/bot/view.php:8
 msgid "Telegram bot APIKEY"
 msgstr "کلید اتصال ربات تلگرام"
 
 #: content_a/setting/telegram/bot/view.php:11
 #: content_a/setting/telegram/channel/view.php:11
+#: content_a/setting/telegram/starttext/view.php:11
 #: content_a/setting/telegram/text/view.php:11 content_a/setting/telegram/view.php:8
 msgid "Telegram setting"
 msgstr "تنظیمات تلگرام"
@@ -7970,9 +8052,33 @@ msgstr ""
 msgid "Change Telegram Text"
 msgstr "ویرایش متن پیشفرض تلگرام"
 
-#: content_a/setting/telegram/display.php:56 content_a/setting/telegram/text/display.php:6
+#: content_a/setting/telegram/display.php:56
+#: content_a/setting/telegram/starttext/display.php:6
+#: content_a/setting/telegram/text/display.php:6
 msgid "Set Telegram Text"
 msgstr "تنظیم متن ثابت اشتراک گذاری در تلگرام"
+
+#: content_a/setting/telegram/display.php:65
+msgid "Set Telegram Bot start Text"
+msgstr "تنظیم متن ثابت در هنگام شروع به کار ربات تلگرام"
+
+#: content_a/setting/telegram/display.php:67
+#: content_a/setting/telegram/starttext/display.php:8
+msgid "You can set a fixed text to be placed when user start your bot in Telegram"
+msgstr ""
+"می‌توانید متن ثابتی را برای زمانی که کاربر ربات شما را شروع به کار می‌کند نمایش دهید"
+
+#: content_a/setting/telegram/display.php:74
+msgid "Change Telegram start text"
+msgstr "ویرایش متن شروع ربات تلگرام"
+
+#: content_a/setting/telegram/display.php:76
+msgid "Set Telegram start text"
+msgstr "تنظیم متن شروع ربات تلگرام"
+
+#: content_a/setting/telegram/starttext/view.php:8
+msgid "Telegram Start Bot Text"
+msgstr "متن ثابت شروع ربات تلگرام"
 
 #: content_a/setting/telegram/text/view.php:8
 msgid "Telegram Share Text"
@@ -12775,7 +12881,7 @@ msgstr "آدرس"
 msgid "Edit queue"
 msgstr "ویرایش صف"
 
-#: content_love/application/home/display.php:74
+#: content_love/application/home/display.php:74 content_su/update/display.php:37
 msgid "Store"
 msgstr "فروشگاه"
 
@@ -13910,7 +14016,7 @@ msgid "Sum factors"
 msgstr "جمع فاکتور‌ها"
 
 #: content_love/store/analytics/view.php:9 content_love/store/view.php:9
-#: content_my/home/display_pwa.php:15 content_su/update/display.php:100
+#: content_my/home/display_pwa.php:15 content_su/update/display.php:102
 msgid "Stores"
 msgstr "فروشگاه‌ها"
 
@@ -14523,10 +14629,6 @@ msgstr ""
 "حداقل زمانی که دامنه شما برای تمدید خودکار توسط ما بررسی می‌شود. ما گزینه‌ی یک ماه را "
 "پیشنهاد می‌کنیم. یعنی یک ماه مانده به زمان انقضای دامنه شما، در صورت وجود شارژ حساب، "
 "جیبرس به‌صورت خودکار دامنه را تمدید خواهد کرد."
-
-#: content_my/domain/option/display.php:42
-msgid "3 Day"
-msgstr "سه روز"
 
 #: content_my/domain/option/display.php:43
 msgid "1 Week"
@@ -16176,56 +16278,56 @@ msgstr "ارتقا"
 msgid "Update database"
 msgstr "به‌روزرسانی دیتابیس"
 
-#: content_su/update/display.php:42
+#: content_su/update/display.php:44
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
-#: content_su/update/display.php:43
+#: content_su/update/display.php:45
 msgid "Unlock service"
 msgstr "بازکردن قفل سیستم"
 
-#: content_su/update/display.php:52
+#: content_su/update/display.php:54
 msgid "If you want to show git pull result click below link"
 msgstr ""
 "اگر می‌خواهید همزمان با دریافت اطلاعات از گیت نتیجه را هم ببینید روی لینک زیر کلیک کنید"
 
-#: content_su/update/display.php:53
+#: content_su/update/display.php:55
 msgid "Pull gir repository"
 msgstr "به‌روزرسانی مخازن گیت"
 
-#: content_su/update/display.php:59
+#: content_su/update/display.php:61
 msgid "Talambar CDN"
 msgstr "سی‌دی‌ان تلمبار"
 
-#: content_su/update/display.php:61
+#: content_su/update/display.php:63
 msgid "Pull CDN repository"
 msgstr "به‌روزرسانی مخازن گیت سی‌دی‌ان"
 
-#: content_su/update/display.php:72 content_su/update/display.php:73
+#: content_su/update/display.php:74 content_su/update/display.php:75
 msgid "Force unlock page"
 msgstr "صفحه بازکردن قفل به اجبار"
 
-#: content_su/update/display.php:87
+#: content_su/update/display.php:89
 msgid "Database need to upgrade"
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد"
 
-#: content_su/update/display.php:93 content_su/update/display.php:101
+#: content_su/update/display.php:95 content_su/update/display.php:103
 msgid "current version"
 msgstr "نسخه فعلی"
 
-#: content_su/update/display.php:94 content_su/update/display.php:102
+#: content_su/update/display.php:96 content_su/update/display.php:104
 msgid "new version"
 msgstr "نسخه جدید"
 
-#: content_su/update/display.php:110
+#: content_su/update/display.php:112
 msgid "Run all step by one click"
 msgstr "اجرای همه مراحل با یک دکمه"
 
-#: content_su/update/display.php:110
+#: content_su/update/display.php:112
 msgid "For when you don't have heavy updates"
 msgstr "برای زمانی که آپدیت سنگین ندارید"
 
-#: content_su/update/display.php:111
+#: content_su/update/display.php:113
 msgid "Run all"
 msgstr "اجرای همه"
 
@@ -16348,6 +16450,10 @@ msgstr "سفارشات من"
 #: content_subdomain/orders/view/controller.php:19
 msgid "Order not found"
 msgstr "سفارش یافت نشد"
+
+#: content_subdomain/orders/view/display.php:12
+msgid "Cancel order"
+msgstr "لغو سفارش"
 
 #: content_subdomain/p/home/display.php:49
 msgid ":val out of 5"
@@ -20151,80 +20257,80 @@ msgstr "مقدار :val  باید کوچکتر از :length حرف باشد"
 msgid "Field :val must be larger than :length character"
 msgstr "مقدار :val  باید بزرگتر از :length حرف باشد"
 
-#: dash/validate/text.php:122
+#: dash/validate/text.php:123
 msgid "We have removed some unauthorized characters from your text"
 msgstr "ما برخی از کاراکتر‌های غیر مجاز را از محتوای ارسالی شما حذف کردیم"
 
-#: dash/validate/text.php:148
+#: dash/validate/text.php:149
 msgid "Only English character can be enter in field :val"
 msgstr "تنها کاراکتر‌های لاتین می‌تواند در فیلد :val ارسال شود"
 
-#: dash/validate/text.php:178
+#: dash/validate/text.php:179
 msgid "Only Numeric character can be enter in field :val"
 msgstr "تنها کاراکتر‌های عددی می‌تواند در فیلد :val ارسال شود"
 
-#: dash/validate/text.php:214
+#: dash/validate/text.php:215
 msgid "Username should contain a valid Latin letter"
 msgstr "نام کاربری باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:221
+#: dash/validate/text.php:222
 msgid "We have removed _- characters from username"
 msgstr "ما کارکتر‌های ـ- را از نام کاربری شما حذف کردیم"
 
-#: dash/validate/text.php:229
+#: dash/validate/text.php:230
 msgid "Field username must be larger than 5 character"
 msgstr "نام کاربری باید بزرگتر از ۵ کاراکتر باشد"
 
-#: dash/validate/text.php:240
+#: dash/validate/text.php:241
 msgid "Only [A-Za-z0-9_-] can use in username"
 msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
 
-#: dash/validate/text.php:249
+#: dash/validate/text.php:250
 msgid "You must use a one character from [A-Za-z] in the username"
 msgstr "شما باید حتما از یک حرف لاتین در نام کاربری استفاده کنید"
 
-#: dash/validate/text.php:258
+#: dash/validate/text.php:259
 msgid "Username should contain a Latin letter"
 msgstr "نام کاربری باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:267
+#: dash/validate/text.php:268
 msgid "The username must begin with latin letters"
 msgstr "نام کاربری باید با حرف لاتین شروع شود"
 
-#: dash/validate/text.php:292
+#: dash/validate/text.php:293
 msgid "Email is invalid"
 msgstr "مقدار رایانامه اشتباه است"
 
-#: dash/validate/text.php:335
+#: dash/validate/text.php:336
 msgid "Can not send base64 image in this field"
 msgstr "نمی‌توانید متنی در قالب بیس۶۴ در این فیلد ارسال کنید"
 
-#: dash/validate/text.php:380
+#: dash/validate/text.php:381
 msgid "Field :val must be exactly 32 character"
 msgstr "فیلد :val باید دقیقا ۳۲ حرف باشد"
 
-#: dash/validate/text.php:389
+#: dash/validate/text.php:390
 msgid "Invalid md5"
 msgstr "مقدار کدگذاری شده اشتباه است"
 
-#: dash/validate/text.php:412
+#: dash/validate/text.php:413
 msgid "Invalid language"
 msgstr "مقدار رشته زبان اشتباه است"
 
-#: dash/validate/text.php:506
+#: dash/validate/text.php:507
 msgid "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی نمایید"
 
-#: dash/validate/text.php:529
+#: dash/validate/text.php:530
 msgid "Please set the sku less than 16 character"
 msgstr "لطفا کد محصول را کمتر از ۱۶ حرف وارد کنید"
 
-#: dash/validate/text.php:535
+#: dash/validate/text.php:536
 msgid "Only [A-Za-z0-9_-] can use in sku"
 msgstr "شما باید فقط از حروف و اعداد لاتین در کد محصول استفاده کنید"
 
-#: dash/validate/text.php:557 dash/validate/url.php:22
+#: dash/validate/text.php:558 dash/validate/url.php:22
 msgid "Url is invalid"
 msgstr "مقدار آدرس اینترنتی اشتباه است"
 
@@ -25687,15 +25793,19 @@ msgstr "هیچ کالای معتبری در لیست این فاکتور پید�
 msgid "Invalid proudct in factor :key"
 msgstr "خطا در کالای :key در فاکتور"
 
-#: lib/app/factor/edit.php:60
+#: lib/app/factor/edit.php:64
+msgid "This factor is payed. To cancel this order contact to administrator"
+msgstr "این فاکتور پرداخت شده است. جهت لغو سفارش با مدیر سیستم تماس بگیرید"
+
+#: lib/app/factor/edit.php:145
 msgid "Order save without change"
 msgstr "سفارش بدون تغییر ذخیره شد"
 
-#: lib/app/factor/edit.php:66
+#: lib/app/factor/edit.php:151
 msgid "Order updated"
 msgstr "سفارش به‌روزرسانی شد"
 
-#: lib/app/factor/edit.php:104
+#: lib/app/factor/edit.php:189
 msgid "Order address was updated"
 msgstr "آدرس سفارش به‌روزرسانی شد"
 
@@ -26196,7 +26306,7 @@ msgstr "مخاطب به‌روزرسانی شد"
 msgid "No way to update data"
 msgstr "هیچ راهی برای به‌روزرسانی اطلاعات وجود ندارد"
 
-#: lib/app/nic_domain/check.php:38 lib/app/nic_domain/edit.php:352
+#: lib/app/nic_domain/check.php:40 lib/app/nic_domain/edit.php:352
 #: lib/app/nic_domain/get.php:300 lib/app/nic_domain/get.php:327
 #: lib/app/nic_log/get.php:21 lib/app/onlinenic/log/get.php:21
 msgid "Domain not found"
@@ -26720,7 +26830,7 @@ msgstr "لطفا نام محصول را برای تهیه نسخه کپی وار
 
 #: lib/app/product/bullet.php:40 lib/app/product/comment.php:77
 #: lib/app/product/comment.php:109 lib/app/product/comment.php:154
-#: lib/app/product/comment.php:197 lib/app/product/edit.php:44
+#: lib/app/product/comment.php:197 lib/app/product/edit.php:49
 #: lib/app/product/property.php:12 lib/app/product/property.php:121
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
@@ -26868,23 +26978,23 @@ msgstr "شرکت سازنده با موفقیت ویرایش شد"
 msgid "Can not update your product company"
 msgstr "نمی‌توانید شرکت سازنده محصولات خود را ویرایش کنید"
 
-#: lib/app/product/edit.php:251
+#: lib/app/product/edit.php:256
 msgid "Title of product can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/edit.php:289
+#: lib/app/product/edit.php:294
 msgid "Can not update product"
 msgstr "نمی‌توانیم محصول را به‌روزرسانی کنیم"
 
-#: lib/app/product/edit.php:317 lib/app/product/edit.php:327
+#: lib/app/product/edit.php:322 lib/app/product/edit.php:332
 msgid "Your product successfully updated"
 msgstr "محصول با موفقیت به روز رسانی شد"
 
-#: lib/app/product/edit.php:336
+#: lib/app/product/edit.php:341
 msgid "Your product saved without change"
 msgstr "محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/edit.php:345
+#: lib/app/product/edit.php:350
 msgid "No value found for editing"
 msgstr "هیچ مقداری برای ویرایش وجود ندارد"
 
@@ -27119,23 +27229,23 @@ msgstr "تیپاکس"
 msgid "Product setting saved"
 msgstr "تنظیمات محصولات ذخیره شدند"
 
-#: lib/app/setting/set.php:57
+#: lib/app/setting/set.php:59 lib/app/setting/set.php:84
 msgid "Telegram setting saved"
 msgstr "تنظیمات تلگرام ذخیره شد"
 
-#: lib/app/setting/set.php:85
+#: lib/app/setting/set.php:112
 msgid "Cart setting saved"
 msgstr "تنظیمات سبد خرید ذخیره شد"
 
-#: lib/app/setting/set.php:110
+#: lib/app/setting/set.php:137
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:171
+#: lib/app/setting/set.php:198
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:191
+#: lib/app/setting/set.php:218
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
@@ -28605,6 +28715,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Share with telegram"
+#~ msgstr "اشتراک گذاری از طریق تلگرام"
+
 #~ msgid "Please set stock and price of product"
 #~ msgstr "لطفا موجودی و قیمت محصول را وارد کنید"
 
@@ -28640,9 +28753,6 @@ msgstr "یارد"
 
 #~ msgid "Customer address"
 #~ msgstr "آدرس مشتری"
-
-#~ msgid "Save order"
-#~ msgstr "ذخیره سفارش"
 
 #~ msgid "Min quantity per order"
 #~ msgstr "حداقل تعداد در هر سفارش"
@@ -30751,9 +30861,6 @@ msgstr "یارد"
 
 #~ msgid "Apply Code"
 #~ msgstr "اعمال کد"
-
-#~ msgid "Invalid promo code"
-#~ msgstr "کد اعتبار هدیه نامعتبر است"
 
 #~ msgid "You try to referral yourself!"
 #~ msgstr "شما نمی‌توانید معرف خودتان باشید!"

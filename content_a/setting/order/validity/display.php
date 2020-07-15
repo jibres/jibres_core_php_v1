@@ -3,7 +3,7 @@
 <div class="avand-md">
 
   <div  class="box impact mB25-f">
-    <header><h2><?php echo T_("Set Order Text");?></h2></header>
+    <header><h2><?php echo T_("Set Order validity time");?></h2></header>
       <div class="body">
         <p><?php echo T_("After this time, any unpaid orders will expire");?></p>
         <div class="c4 s12" method="post" autocomplete="off">
