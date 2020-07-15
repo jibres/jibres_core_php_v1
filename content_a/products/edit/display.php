@@ -504,6 +504,16 @@ $productDataRow = \dash\data::productDataRow();
      </ul>
    </nav>
 
+   <?php if(\dash\data::productDataRow_trackquantity()) {?>
+    <nav class="items long">
+     <ul>
+       <li>
+        <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } //endif ?><?php echo T_("Stock count"); ?></div><div class="go"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div></a></li>
+       </li>
+     </ul>
+   </nav>
+ <?php } // nedif ?>
+
     <nav class="items long">
      <ul>
        <li>

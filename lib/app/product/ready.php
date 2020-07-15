@@ -135,6 +135,7 @@ class ready
 
 				case 'vat':
 				case 'trackquantity':
+				case 'instock':
 				case 'oversale':
 				case 'saleonline':
 				case 'saletelegram':

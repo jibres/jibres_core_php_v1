@@ -24,6 +24,15 @@ class inventory
 		];
 
 		\lib\db\productinventory\insert::new_record($insert);
+
+		if($_count > 0)
+		{
+			\lib\app\product\edit::in_stock($_product_id);
+		}
+		else
+		{
+			\lib\app\product\edit::out_of_stock($_product_id);
+		}
 	}
 
 
@@ -74,6 +83,15 @@ class inventory
 		];
 
 		\lib\db\productinventory\insert::new_record($insert);
+
+		if($count > 0)
+		{
+			\lib\app\product\edit::in_stock($_product_id);
+		}
+		else
+		{
+			\lib\app\product\edit::out_of_stock($_product_id);
+		}
 	}
 
 

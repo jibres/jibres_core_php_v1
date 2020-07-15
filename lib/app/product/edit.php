@@ -6,12 +6,12 @@ class edit
 {
 	public static function out_of_stock($_id)
 	{
-		$update = \lib\db\products\update::record(['status' => 'unavailable'], $_id);
+		$update = \lib\db\products\update::record(['instock' => 'no'], $_id);
 	}
 
 	public static function in_stock($_id)
 	{
-		$update = \lib\db\products\update::record(['status' => 'available'], $_id);
+		$update = \lib\db\products\update::record(['instock' => 'yes'], $_id);
 	}
 
 
