@@ -72,8 +72,9 @@ class text
 		}
 
 
-		$data = preg_replace("/[\r\n]{3,}/", "\n", $data);
+		$data = preg_replace("/(\r\n){3,}/", "$1\n$1", $data);
 
+		// desc and seodesc need_new_line
 		if(isset($_meta['need_new_line']) && $_meta['need_new_line'])
 		{
 			// we dont remove \n because need new line
