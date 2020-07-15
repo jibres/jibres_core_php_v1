@@ -121,5 +121,26 @@ class search
 
 		return $result;
 	}
+
+
+	public static function auto_expire_order($_expire_date)
+	{
+		$query =
+		"
+			SELECT
+				factors.*
+			FROM
+				factors
+			WHERE
+				factors.status = 'pending_pay' AND
+				factors.type = 'saleorder' AND
+				(factors.pay IS NULL OR factors.pay = 0) AND
+				factors.datecreated <= '$_expire_date'
+			";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
 }
 ?>

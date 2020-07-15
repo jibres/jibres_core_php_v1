@@ -112,6 +112,7 @@ class inventory
 			case 'edit_saleorder':
 			case 'reject_order':
 			case 'cancel_order':
+			case 'expire_order':
 			case 'sale':
 
 				break;

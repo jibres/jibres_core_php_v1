@@ -14,7 +14,7 @@
               <label for="page_text"><?php echo T_("Order validity time"); ?></label>
               <div>
                 <select name="life_time" class="select22">
-                  <option value="0"><?php echo T_("Default"); ?></option>
+                  <option value="0"><?php echo T_("Default (Never expire order)"); ?></option>
                   <option value="<?php $time = (60*60*1); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("1 hour"); ?></option>
                   <option value="<?php $time = (60*60*3); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("3 hour"); ?></option>
                   <option value="<?php $time = (60*60*5); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("5 hour"); ?></option>

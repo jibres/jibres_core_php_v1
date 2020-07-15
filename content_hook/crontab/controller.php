@@ -96,6 +96,9 @@ class controller
 
 		if(\dash\engine\store::inStore())
 		{
+			// check and auto expire order
+			\lib\app\factor\edit::auto_expire_order();
+
 			if(self::every_5_min())
 			{
 				// run export if exists

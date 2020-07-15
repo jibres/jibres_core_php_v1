@@ -4,6 +4,48 @@ namespace lib\app\factor;
 
 class edit
 {
+	public static function auto_expire_order()
+	{
+		$order_setting = \lib\app\setting\get::order_setting();
+
+		if(isset($order_setting['life_time']) && is_numeric($order_setting['life_time']))
+		{
+			$life_time = floatval($order_setting['life_time']);
+			if($life_time > 0)
+			{
+				$expire_time = date("Y-m-d H:i:s", time() - $life_time);
+
+				$auto_expire_order_list = \lib\db\factors\search::auto_expire_order($expire_time);
+				if($auto_expire_order_list)
+				{
+					foreach ($auto_expire_order_list as $key => $value)
+					{
+						\lib\app\factor\action::add(['action' => 'expire'], $value['id']);
+
+						$check_have_stock_record = \lib\db\productinventory\get::by_factor_id($value['id']);
+
+						if($check_have_stock_record && is_array($check_have_stock_record))
+						{
+							foreach ($check_have_stock_record as $key => $value)
+							{
+								\lib\app\product\inventory::set('expire_order', (floatval($value['count']) * -1), $value['product_id'], null, $value['id']);
+								$get_stock = \lib\app\product\inventory::get($value['product_id']);
+								if(!is_null($get_stock))
+								{
+									if($get_stock > 0)
+									{
+										\lib\app\product\edit::in_stock($value['product_id']);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
 	public static function user_cancel($_id)
 	{
 		$load_factor = \lib\app\factor\get::one($_id);
@@ -22,6 +64,7 @@ class edit
 			\dash\notif::error(T_("This factor is payed. To cancel this order contact to administrator"));
 			return false;
 		}
+
 
 		\lib\app\factor\action::add(['action' => 'cancel'], $load_factor['id']);
 
