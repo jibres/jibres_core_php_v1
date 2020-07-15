@@ -127,6 +127,33 @@ class get
 
 
 
+	public static function order_setting()
+	{
+		$cat   = 'order_setting';
+
+		$result = \lib\db\setting\get::by_cat($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$setting[$value['key']] = $value['value'];
+			}
+		}
+
+
+		return $setting;
+
+	}
+
+
+
 	public static function cart_setting()
 	{
 		$cat   = 'cart_setting';
