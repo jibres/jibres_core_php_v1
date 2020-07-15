@@ -7,7 +7,8 @@ class check
 
 	public static function check($_domain)
 	{
-		if(!\dash\validate::domain($_domain))
+		$_domain = \dash\validate::domain($_domain);
+		if(!$_domain)
 		{
 			return false;
 		}
@@ -23,7 +24,8 @@ class check
 
 	public static function info($_domain)
 	{
-		if(!\dash\validate::domain($_domain))
+		$_domain = \dash\validate::domain($_domain);
+		if(!$_domain)
 		{
 			return false;
 		}
