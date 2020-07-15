@@ -7,6 +7,14 @@ class view
 	{
 		$id = \dash\data::dataRow_id();
 
+		// auto add product to cart and redirec to cart
+		if(array_key_exists('order', $_GET))
+		{
+			$result = \lib\app\cart\add::new_cart_website($id, 1);
+			\dash\redirect::to(\dash\url::kingdom(). '/cart');
+		}
+
+
 		\dash\face::title(\lib\store::title(). ' | '. \dash\data::dataRow_title());
 
 		$property_list = \lib\app\product\property::get_pretty($id);
