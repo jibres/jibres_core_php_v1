@@ -58,3 +58,23 @@
       </div>
   </div>
 </section>
+
+<section class="f" data-option='telegram-setting-start-text'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set Telegram Bot start Text");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can set a fixed text to be placed when user start your bot in Telegram");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12" >
+      <div class="action">
+        <?php if(\dash\data::telegramSettingSaved_start_text()) {?>
+          <a class="btn success" href="<?php echo \dash\url::that(). '/starttext' ?>"><?php echo T_("Change Telegram start text") ?></a>
+        <?php }else{ ?>
+          <a class="btn primary" href="<?php echo \dash\url::that(). '/starttext' ?>"><?php echo T_("Set Telegram start text") ?></a>
+        <?php } // endif ?>
+      </div>
+  </div>
+</section>
