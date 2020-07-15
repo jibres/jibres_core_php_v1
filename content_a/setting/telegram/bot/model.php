@@ -7,6 +7,15 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('status') === 'delete')
+		{
+			$post['apikey'] = null;
+			// try to save and redirect
+			\lib\app\setting\set::telegram_setting($post);
+			\dash\redirect::pwd();
+		}
+
+
 		$newApiKey = \dash\request::post('apikey');
 		if(strlen($newApiKey) < 30 || strlen($newApiKey) > 70)
 		{
