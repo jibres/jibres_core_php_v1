@@ -175,6 +175,27 @@ class search
 
 	public static function get_similar_product_category_last($_id, $_limit, $_found_ids)
 	{
+
+		$category_id_query = " SELECT productcategoryusage.productcategory_id AS `category_id` FROM productcategoryusage WHERE productcategoryusage.product_id IN ($_id , (SELECT products.parent FROM products WHERE products.id = $_id)) ";
+		$category_id = \dash\db::get($category_id_query, 'category_id');
+
+		if(!$category_id || !is_array($category_id))
+		{
+			return [];
+		}
+
+		$category_id = array_filter($category_id);
+		$category_id = array_unique($category_id);
+
+		if(!$category_id)
+		{
+			return [];
+		}
+
+		$category_id = implode(',', $category_id);
+
+
+
 		$found_ids = null;
 		if($_found_ids)
 		{
@@ -186,15 +207,17 @@ class search
 			SELECT
 				products.*
 			FROM products
+			INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id
 			WHERE
 				products.status = 'available' AND $found_ids
 				products.id != $_id AND
-				IF((SELECT products.cat_id FROM products WHERE products.id = $_id LIMIT 1) IS NULL , 1 = 1 , products.cat_id = (SELECT products.cat_id FROM products WHERE products.id = $_id LIMIT 1))
+				productcategoryusage.productcategory_id IN ($category_id)
 			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
 			LIMIT $_limit
 		";
 
 		$result = \dash\db::get($query);
+
 		return $result;
 
 	}
