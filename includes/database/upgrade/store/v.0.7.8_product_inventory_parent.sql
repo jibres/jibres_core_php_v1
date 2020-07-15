@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.productinventory ADD `parent` bigint(20) UNSIGNED NULL DEFAULT NULL;

@@ -24,6 +24,24 @@ class edit
 		}
 
 		\lib\app\factor\action::add(['action' => 'cancel'], $load_factor['id']);
+
+		$check_have_stock_record = \lib\db\productinventory\get::by_factor_id($load_factor['id']);
+
+		if($check_have_stock_record && is_array($check_have_stock_record))
+		{
+			foreach ($check_have_stock_record as $key => $value)
+			{
+				\lib\app\product\inventory::set('cancel_order', (floatval($value['count']) * -1), $value['product_id'], null, $value['id']);
+				$get_stock = \lib\app\product\inventory::get($value['product_id']);
+				if(!is_null($get_stock))
+				{
+					if($get_stock > 0)
+					{
+						\lib\app\product\edit::in_stock($value['product_id']);
+					}
+				}
+			}
+		}
 	}
 
 

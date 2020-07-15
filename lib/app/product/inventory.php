@@ -78,7 +78,7 @@ class inventory
 
 
 
-	public static function set($_action, $_count, $_product_id, $_factor_id = null)
+	public static function set($_action, $_count, $_product_id, $_factor_id = null, $_parent = null)
 	{
 
 		$stock = 0;
@@ -147,6 +147,7 @@ class inventory
 			'thisstock'          => $thisstock,
 			'action'             => $_action,
 			'factor_id'          => $_factor_id,
+			'parent'             => $_parent,
 			'user_id'            => \dash\user::id(),
 			'other_inventory_id' => null,
 		];

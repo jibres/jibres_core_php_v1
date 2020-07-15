@@ -9,6 +9,11 @@ class edit
 		$update = \lib\db\products\update::record(['status' => 'unavailable'], $_id);
 	}
 
+	public static function in_stock($_id)
+	{
+		$update = \lib\db\products\update::record(['status' => 'available'], $_id);
+	}
+
 
 	public static function edit($_args, $_id, $_option = [])
 	{
