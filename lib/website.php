@@ -70,7 +70,15 @@ class website
 
 		foreach ($_productList as $key => $myProduct)
 		{
-			echo '<div>';
+			if(\dash\detect\device::detectPWA())
+			{
+				echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
+			}
+			else
+			{
+				echo '<div>';
+			}
+
 			echo '<div class="productBox">';
 			{
 				self::product_element_create($myProduct);
