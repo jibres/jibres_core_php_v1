@@ -12,14 +12,14 @@ class model
 			{
 				$post             = [];
 				$post['title']    = \dash\request::post('title');
-				$post['name']     = \dash\request::post('name');
+				$post['name']     = \dash\request::post('xnm');
 				$post['country']  = \dash\request::post('country');
 				$post['city']     = \dash\request::post('city');
-				$post['postcode'] = \dash\request::post('postcode');
-				$post['phone']    = \dash\request::post('phone');
+				$post['postcode'] = \dash\request::post('xpc');
+				$post['phone']    = \dash\request::post('xph');
 				$post['province'] = null;
-				$post['mobile']   = \dash\request::post('mobile');
-				$post['address']  = \dash\request::post('address');
+				$post['mobile']   = \dash\request::post('xmd');
+				$post['address']  = \dash\request::post('xad');
 				$post['address2'] = \dash\request::post('address2');
 				$post['company']  = \dash\request::post('company');
 

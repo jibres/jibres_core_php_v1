@@ -1,4 +1,4 @@
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="new-password">
   <div class="avand">
     <div class="row">
       <div class="c-8">
@@ -13,6 +13,21 @@
                     <label for="address<?php echo $key; ?>"><?php echo \dash\get::index($value, 'address'); ?></label>
                   </div>
                 <?php } //endfor ?>
+
+                <?php foreach (\dash\data::addressDataTable() as $key => $value) {?>
+                  <div data-response='address_id' data-response-where='<?php echo \dash\get::index($value, 'id'); ?>' data-response-hide>
+                    <div class="msg">
+                      <ul>
+                        <?php if(\dash\get::index($value, 'name')) {?><li><?php echo T_("Name") ?> <b><?php echo \dash\get::index($value, 'name'); ?></b></li><?php } //endif ?>
+                        <?php if(\dash\get::index($value, 'address')) {?><li><?php echo T_("Address") ?> <b><?php echo \dash\get::index($value, 'address'); ?></b></li><?php } //endif ?>
+                        <?php if(\dash\get::index($value, 'mobile')) {?><li><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></b></li><?php } //endif ?>
+                        <?php if(\dash\get::index($value, 'postcode')) {?><li><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'postcode')); ?></b></li><?php } //endif ?>
+                        <?php if(\dash\get::index($value, 'phone')) {?><li><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'phone')); ?></b></li><?php } //endif ?>
+                      </ul>
+                    </div>
+                  </div>
+                <?php } //endfor ?>
+
               </div>
             </div>
           <?php } // endif ?>
@@ -24,16 +39,16 @@
 
               <div class="row">
                 <div class="c-6">
-                    <label for="name"><?php echo T_("Name"); ?></label>
+                    <label for="xnm"><?php echo T_("Name"); ?></label>
                     <div class="input">
-                      <input type="text" name="name" id="name" value="<?php if(\dash\data::dataRowAddress_name()) { echo \dash\data::dataRowAddress_name(); }elseif(\dash\data::dataRowMember()) { echo \dash\data::dataRowMember_displayname(); }elseif(!\dash\data::dataRowAddress()) { echo \dash\user::detail('displayname');}?>" maxlength='40' minlength="1" placeholder='<?php echo T_("Name of person in this address"); ?>'>
+                      <input type="text" name="xnm" id="xnm" value="<?php if(\dash\data::dataRowAddress_name()) { echo \dash\data::dataRowAddress_name(); }elseif(\dash\data::dataRowMember()) { echo \dash\data::dataRowMember_displayname(); }elseif(!\dash\data::dataRowAddress()) { echo \dash\user::detail('displayname');}?>" maxlength='40' minlength="1" placeholder='<?php echo T_("Name of person in this address"); ?>'>
                     </div>
                 </div>
 
                 <div class="c-6">
-                  <label for="iMobile"><?php echo T_("Mobile"); ?></label>
+                  <label for="xmd"><?php echo T_("Mobile"); ?></label>
                   <div class="input">
-                    <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" data-format="tel">
+                    <input type="tel" name="xmd" id="xmd" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" data-format="tel">
                   </div>
                 </div>
               </div>
@@ -85,21 +100,21 @@
                 </select>
               </div>
 
-              <label for="address"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
-              <textarea class="txt mB10 pB25" name="address"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
+              <label for="xad"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
+              <textarea class="txt mB10 pB25" name="xad"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
 
               <div class="row">
                 <div class="c-6">
-                  <label for="iphone"><?php echo T_("Phone"); ?></label>
+                  <label for="ixph"><?php echo T_("Phone"); ?></label>
                   <div class="input">
-                    <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
+                    <input type="text" name="xph" id="ixph" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
                   </div>
                 </div>
                 <div class="c-6">
-                   <label for="postcode"><?php echo T_("Post code"); ?></label>
+                   <label for="xpc"><?php echo T_("Post code"); ?></label>
                     <div class="input ltr">
-                      <input type="text" name="postcode" id="postcode" value="<?php echo \dash\data::dataRowAddress_postcode(); ?>" data-format="postalCode" >
+                      <input type="text" name="xpc" id="xpc" value="<?php echo \dash\data::dataRowAddress_postcode(); ?>" data-format="postalCode" >
                     </div>
                 </div>
               </div>
