@@ -441,7 +441,7 @@ class store
 			}
 			else
 			{
-				\dash\engine\content::set('content_subdomain');
+				\dash\engine\content::set('content_business');
 			}
 			self::$inCustomerDomain = true;
 			return true;

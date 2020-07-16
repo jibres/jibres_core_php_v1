@@ -154,10 +154,10 @@ class content
 		if(\dash\url::subdomain())
 		{
 			// if we are in subdomain without finded repository
-			// check if we have content_subDomain route in this folder
-			if(is_dir(root. 'content_subdomain'))
+			// check if we have content_business route in this folder
+			if(is_dir(root. 'content_business'))
 			{
-				return 'content_subdomain';
+				return 'content_business';
 			}
 			return false;
 		}

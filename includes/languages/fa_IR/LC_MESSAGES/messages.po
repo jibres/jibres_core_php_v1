@@ -69,7 +69,7 @@ msgstr "درباره جیبرس"
 #: content/socialresponsibility/view.php:15 content/status/view.php:12
 #: content/subscribe/view.php:13 content/team/view.php:15 content/terms/view.php:15
 #: content/whois/view.php:13 content_enter/home/view.php:27
-#: content_subdomain/app/view.php:15 content_v2/app/view.php:263
+#: content_business/app/view.php:15 content_v2/app/view.php:263
 #: dash/engine/twigFn.php:211 dash/layout/pwa/pwa_menu.php:111
 #: includes/languages/trans_static_public.php:70
 msgid "Home"
@@ -142,12 +142,12 @@ msgstr ""
 #: content_love/gift/home/giftcard.php:27 content_r10/android/intro/view.php:29
 #: content_r10/android/splash/view.php:13 content_r10/android/view.php:12
 #: content_su/update/display.php:36 content_su/update/display.php:94
-#: content_subdomain/home/layout/body/visitcard.php:11
-#: content_subdomain/home/layout/body/visitcard.php:14
-#: content_subdomain/home/layout/template/comingsoon.php:11
-#: content_subdomain/home/layout/template/comingsoon.php:14
-#: content_subdomain/home/layout/template/visitcard.php:11
-#: content_subdomain/home/layout/template/visitcard.php:14
+#: content_business/home/layout/body/visitcard.php:11
+#: content_business/home/layout/body/visitcard.php:14
+#: content_business/home/layout/template/comingsoon.php:11
+#: content_business/home/layout/template/comingsoon.php:14
+#: content_business/home/layout/template/visitcard.php:11
+#: content_business/home/layout/template/visitcard.php:14
 #: content_v2/android/splash/view.php:20 content_v2/android/view.php:26
 #: dash/engine/view.php:17 dash/layout/admin/admin-sidebar.php:24
 #: dash/layout/admin/admin-sidebar.php:25 dash/layout/schema.php:5 dash/utility/sms.php:34
@@ -701,8 +701,8 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content/template/default.php:237
 #: content_su/tg/sendmessage/display.php:20 content_su/tg/sendphoto/display.php:27
-#: content_subdomain/home/layout/body/body_load_post.php:237
-#: content_subdomain/p/home/display.php:284 content_subdomain/template/default.php:237
+#: content_business/home/layout/body/body_load_post.php:237
+#: content_business/p/home/display.php:284 content_business/template/default.php:237
 msgid "Send"
 msgstr "ارسال"
 
@@ -771,7 +771,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_my/domain/history/display.php:14 content_my/domain/payments/display.php:14
 #: content_my/domain/setting/action/display.php:17 content_my/ipg/iban/display.php:14
 #: content_my/ipg/wallet/display.php:12 content_pay/home/display.php:130
-#: content_su/ip/display.php:78 content_subdomain/orders/display.php:20
+#: content_su/ip/display.php:78 content_business/orders/display.php:20
 #: includes/languages/trans_static_public.php:195 lib/app/factor/search.php:158
 msgid "Date"
 msgstr "تاریخ"
@@ -936,17 +936,17 @@ msgstr ""
 #: content_a/setting/general/title/display.php:13 content_a/setting/pcpos/display.php:124
 #: content_account/address.php:26 content_crm/member/general/display.php:43
 #: content_crm/member/general/display.php:45 content_enter/signup/display.php:12
-#: content_subdomain/home/layout/body/body_load_post.php:199
-#: content_subdomain/p/home/display.php:260 content_subdomain/shipping/display.php:95
-#: content_subdomain/template/default.php:199
+#: content_business/home/layout/body/body_load_post.php:199
+#: content_business/p/home/display.php:260 content_business/shipping/display.php:95
+#: content_business/template/default.php:199
 #: content_support/ticket/contact_ticket/model.php:131
 msgid "Name"
 msgstr "نام"
 
 #: content/contact/display.php:23 content/subscribe/display.php:16
 #: content/template/default.php:200
-#: content_subdomain/home/layout/body/body_load_post.php:200
-#: content_subdomain/p/home/display.php:261 content_subdomain/template/default.php:200
+#: content_business/home/layout/body/body_load_post.php:200
+#: content_business/p/home/display.php:261 content_business/template/default.php:200
 msgid "Full Name"
 msgstr "نام کامل"
 
@@ -974,11 +974,11 @@ msgstr "نام کامل"
 #: content_love/transactions/minus/display.php:61
 #: content_love/transactions/minus/display.php:62 content_su/tg/log/display.php:98
 #: content_su/tg/system/display.php:24 content_su/tg/users/display.php:99
-#: content_subdomain/home/layout/body/body_load_post.php:206
-#: content_subdomain/home/layout/body/body_load_post.php:207
-#: content_subdomain/p/home/display.php:267 content_subdomain/p/home/display.php:268
-#: content_subdomain/shipping/display.php:152 content_subdomain/template/default.php:206
-#: content_subdomain/template/default.php:207
+#: content_business/home/layout/body/body_load_post.php:206
+#: content_business/home/layout/body/body_load_post.php:207
+#: content_business/p/home/display.php:267 content_business/p/home/display.php:268
+#: content_business/shipping/display.php:152 content_business/template/default.php:206
+#: content_business/template/default.php:207
 #: content_support/ticket/contact_ticket/model.php:121
 #: content_support/ticket/show/display.php:146
 #: includes/languages/trans_static_public.php:162
@@ -987,8 +987,8 @@ msgstr "موبایل"
 
 #: content/contact/display.php:27 content/subscribe/display.php:12
 #: content/template/default.php:207
-#: content_subdomain/home/layout/body/body_load_post.php:207
-#: content_subdomain/p/home/display.php:268 content_subdomain/template/default.php:207
+#: content_business/home/layout/body/body_load_post.php:207
+#: content_business/p/home/display.php:268 content_business/template/default.php:207
 msgid "Please enter valid mobile number. `:val` is incorrect"
 msgstr "لطفا شماره موبایل معتبری وارد کنید. :val اشتباه است"
 
@@ -1717,7 +1717,7 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_love/gift/usage/display.php:60 content_love/transactions/add/display.php:67
 #: content_love/transactions/minus/display.php:67
 #: content_my/domain/payments/display.php:11
-#: content_my/domain/setting/action/display.php:44 content_subdomain/p/home/display.php:70
+#: content_my/domain/setting/action/display.php:44 content_business/p/home/display.php:70
 #: lib/app/product/search.php:85 lib/app/product/site_list.php:275
 #: lib/app/product/updateprice.php:125
 msgid "Price"
@@ -1813,7 +1813,7 @@ msgstr ""
 #: content/domains/search/domainSearchResult.php:71
 #: content_a/website/status/display.php:15
 #: content_my/domain/buy/domain-search-result-ir.php:87
-#: content_subdomain/home/layout/template/comingsoon.php:28
+#: content_business/home/layout/template/comingsoon.php:28
 msgid "Coming Soon"
 msgstr "بزودی"
 
@@ -2515,9 +2515,9 @@ msgstr "تمام حقوق محفوظ است."
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
-#: content/home/layout/header.php:27 content_subdomain/home/layout/body/visitcard.php:42
-#: content_subdomain/home/layout/template/comingsoon.php:46
-#: content_subdomain/home/layout/template/visitcard.php:42
+#: content/home/layout/header.php:27 content_business/home/layout/body/visitcard.php:42
+#: content_business/home/layout/template/comingsoon.php:46
+#: content_business/home/layout/template/visitcard.php:42
 msgid "Store Panel"
 msgstr "پنل فروشگاه"
 
@@ -2561,9 +2561,9 @@ msgstr "داشبورد"
 #: content/home/layout/header.php:37 content/home/view.php:43
 #: content_crm/member/glance/display.php:45 content_crm/member/glance/display.php:71
 #: content_enter/pass/display.php:36 content_enter/pass/recovery/model.php:53
-#: content_enter/signup/view.php:21 content_subdomain/home/layout/body/visitcard.php:47
-#: content_subdomain/home/layout/template/comingsoon.php:51
-#: content_subdomain/home/layout/template/visitcard.php:47 content_v2/app/view.php:144
+#: content_enter/signup/view.php:21 content_business/home/layout/body/visitcard.php:47
+#: content_business/home/layout/template/comingsoon.php:51
+#: content_business/home/layout/template/visitcard.php:47 content_v2/app/view.php:144
 #: dash/app/log/caller/enter/enter_NewAccountLogin.php:18
 #: dash/app/log/caller/enter/enter_VerificationCode.php:16
 #: dash/app/log/caller/enter/enter_apiverificationcode.php:16
@@ -2641,9 +2641,9 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:25 content/home/view.php:29 content/view.php:32
 #: content_r10/android/intro/view.php:19 content_r10/android/splash/view.php:14
-#: content_subdomain/home/layout/body/visitcard.php:9
-#: content_subdomain/home/layout/template/comingsoon.php:9
-#: content_subdomain/home/layout/template/visitcard.php:9
+#: content_business/home/layout/body/visitcard.php:9
+#: content_business/home/layout/template/comingsoon.php:9
+#: content_business/home/layout/template/visitcard.php:9
 #: content_v2/android/splash/view.php:21 dash/utility/sms.php:34
 msgid "Sell and Enjoy"
 msgstr "بفروش و لذت ببر"
@@ -2718,14 +2718,14 @@ msgstr "آی‌پی"
 #: content_a/order/address/display.php:55 content_a/setup/address/display.php:11
 #: content_account/address.php:33 content_crm/member/general/display.php:78
 #: content_crm/member/legal/display.php:49 content_my/domain/irnic/add/display.php:55
-#: content_subdomain/shipping/display.php:102
+#: content_business/shipping/display.php:102
 msgid "Country"
 msgstr "کشور"
 
 #: content/ip/home/display.php:19 content_a/irvat/add/display.php:223
 #: content_a/irvat/add/display.php:289 content_a/order/address/display.php:68
 #: content_a/setup/address/display.php:24 content_account/address.php:46
-#: content_crm/member/legal/display.php:62 content_subdomain/shipping/display.php:115
+#: content_crm/member/legal/display.php:62 content_business/shipping/display.php:115
 msgid "Province"
 msgstr "استان"
 
@@ -2734,7 +2734,7 @@ msgstr "استان"
 #: content_a/setup/address/display.php:33 content_account/address.php:55
 #: content_crm/member/legal/display.php:71 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.php:280
-#: content_subdomain/shipping/display.php:124
+#: content_business/shipping/display.php:124
 msgid "City"
 msgstr "شهر"
 
@@ -3425,80 +3425,80 @@ msgstr ""
 #: content/template/default.php:71 content_a/android/apk/display.php:48
 #: content_a/products/export/display.php:64 content_cms/posts/edit/display.php:425
 #: content_love/application/home/display.php:112 content_su/apilog/home/display.php:104
-#: content_subdomain/home/layout/body/body_load_post.php:70
-#: content_subdomain/template/default.php:71
+#: content_business/home/layout/body/body_load_post.php:70
+#: content_business/template/default.php:71
 msgid "Download"
 msgstr "دانلود"
 
 #: content/template/default.php:71 content_cms/posts/edit/display.php:802
-#: content_subdomain/home/layout/body/body_load_post.php:70
-#: content_subdomain/template/default.php:71
+#: content_business/home/layout/body/body_load_post.php:70
+#: content_business/template/default.php:71
 msgid "PDF"
 msgstr "پی‌دی‌اف"
 
 #: content/template/default.php:85
-#: content_subdomain/home/layout/body/body_load_post.php:84
-#: content_subdomain/template/default.php:85 content_support/home/article.php:88
+#: content_business/home/layout/body/body_load_post.php:84
+#: content_business/template/default.php:85 content_support/home/article.php:88
 msgid "For share via social networks"
 msgstr "جهت انتشار در شبکه‌های اجتماعی"
 
 #: content/template/default.php:85
-#: content_subdomain/home/layout/body/body_load_post.php:84
-#: content_subdomain/template/default.php:85 content_support/home/article.php:88
+#: content_business/home/layout/body/body_load_post.php:84
+#: content_business/template/default.php:85 content_support/home/article.php:88
 msgid "News Code"
 msgstr "کد خبر"
 
 #: content/template/default.php:103
-#: content_subdomain/home/layout/body/body_load_post.php:102
-#: content_subdomain/template/default.php:103
+#: content_business/home/layout/body/body_load_post.php:102
+#: content_business/template/default.php:103
 msgid "Recommended for you"
 msgstr "توصیه شده برای شما"
 
 #: content/template/default.php:217
-#: content_subdomain/home/layout/body/body_load_post.php:217
-#: content_subdomain/template/default.php:217
+#: content_business/home/layout/body/body_load_post.php:217
+#: content_business/template/default.php:217
 msgid "Your rate"
 msgstr "امتیاز شما"
 
 #: content/template/default.php:234
-#: content_subdomain/home/layout/body/body_load_post.php:234
-#: content_subdomain/template/default.php:234
+#: content_business/home/layout/body/body_load_post.php:234
+#: content_business/template/default.php:234
 msgid "Write your comment..."
 msgstr "لطفا دیدگاه خود را بنویسید..."
 
-#: content/template/shareBox.php:2 content_subdomain/p/home/shareBox.php:2
-#: content_subdomain/template/shareBox.php:2
+#: content/template/shareBox.php:2 content_business/p/home/shareBox.php:2
+#: content_business/template/shareBox.php:2
 msgid "Share"
 msgstr "اشتراک‌گذاری"
 
-#: content/template/shareBox.php:4 content_subdomain/p/home/display.php:116
-#: content_subdomain/p/home/display.php:117 content_subdomain/p/home/shareBox.php:4
-#: content_subdomain/p/home/shareBox.php:5 content_subdomain/template/shareBox.php:4
-#: content_subdomain/template/shareBox.php:5
+#: content/template/shareBox.php:4 content_business/p/home/display.php:116
+#: content_business/p/home/display.php:117 content_business/p/home/shareBox.php:4
+#: content_business/p/home/shareBox.php:5 content_business/template/shareBox.php:4
+#: content_business/template/shareBox.php:5
 #: includes/languages/trans_static_public.php:422
 msgid "facebook"
 msgstr "فیسبوک"
 
-#: content/template/shareBox.php:5 content_subdomain/p/home/display.php:120
-#: content_subdomain/p/home/display.php:121 content_subdomain/p/home/shareBox.php:8
-#: content_subdomain/p/home/shareBox.php:9 content_subdomain/template/shareBox.php:8
-#: content_subdomain/template/shareBox.php:9
+#: content/template/shareBox.php:5 content_business/p/home/display.php:120
+#: content_business/p/home/display.php:121 content_business/p/home/shareBox.php:8
+#: content_business/p/home/shareBox.php:9 content_business/template/shareBox.php:8
+#: content_business/template/shareBox.php:9
 #: includes/languages/trans_static_public.php:423
 msgid "twitter"
 msgstr "توییتر"
 
-#: content/template/shareBox.php:6 content_subdomain/p/home/display.php:124
-#: content_subdomain/p/home/display.php:125 content_subdomain/p/home/shareBox.php:12
-#: content_subdomain/p/home/shareBox.php:13 content_subdomain/template/shareBox.php:12
-#: content_subdomain/template/shareBox.php:13
+#: content/template/shareBox.php:6 content_business/p/home/display.php:124
+#: content_business/p/home/display.php:125 content_business/p/home/shareBox.php:12
+#: content_business/p/home/shareBox.php:13 content_business/template/shareBox.php:12
+#: content_business/template/shareBox.php:13
 #: includes/languages/trans_static_public.php:425
 msgid "linkedin"
 msgstr "لینکدین"
 
-#: content/template/shareBox.php:7 content_subdomain/p/home/display.php:128
-#: content_subdomain/p/home/display.php:129 content_subdomain/p/home/shareBox.php:16
-#: content_subdomain/p/home/shareBox.php:17 content_subdomain/template/shareBox.php:16
-#: content_subdomain/template/shareBox.php:17 dash/app/log/support_tools.php:113
+#: content/template/shareBox.php:7 content_business/p/home/display.php:128
+#: content_business/p/home/display.php:129 content_business/p/home/shareBox.php:16
+#: content_business/p/home/shareBox.php:17 content_business/template/shareBox.php:16
+#: content_business/template/shareBox.php:17 dash/app/log/support_tools.php:113
 #: includes/languages/trans_static.php:497
 msgid "telegram"
 msgstr "تلگرام"
@@ -3900,7 +3900,7 @@ msgstr "زمان شروع قرارگیری در صف"
 #: content_love/gift/edit/display.php:74 content_love/gift/view/display.php:30
 #: content_my/domain/search/display-maybemydomain.php:9
 #: content_my/domain/search/display-mydomain.php:9
-#: content_su/smsclient/home/display.php:16 content_subdomain/orders/display.php:21
+#: content_su/smsclient/home/display.php:16 content_business/orders/display.php:21
 #: content_support/ticket/show/chatList.php:20
 msgid "Status"
 msgstr "وضعیت"
@@ -4010,7 +4010,7 @@ msgstr "مایکت"
 #: content_crm/member/social/display.php:58 content_crm/permission/add/display.php:65
 #: content_my/domain/option/display.php:92 content_su/backup/display.php:63
 #: content_su/cronjob/display.php:16 content_su/nano/display.php:12
-#: content_subdomain/profile/detail/display.php:44
+#: content_business/profile/detail/display.php:44
 #: content_support/message/edit/display.php:18 content_support/ticket/show/chatList.php:58
 #: dash/layout/admin/admin-titlebox.php:52 dash/layout/pwa/pwa-header.php:23
 msgid "Save"
@@ -4601,8 +4601,8 @@ msgid "No record exist!"
 msgstr "هیچ داده ای وجود ندارد!"
 
 #: content_a/cart/home/view.php:9 content_a/home/display.php:93
-#: content_a/setting/home/display.php:129 content_subdomain/cart/view.php:9
-#: content_subdomain/home/layout/header/header_100.php:23
+#: content_a/setting/home/display.php:129 content_business/cart/view.php:9
+#: content_business/home/layout/header/header_100.php:23
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -4636,7 +4636,7 @@ msgstr "مثل"
 #: content_a/order/add/display.php:48 content_a/sale/display.php:48
 #: content_a/setup/owner/display.php:10 content_account/my/home/display.php:109
 #: content_account/my/profile/display.php:34 content_crm/member/general/display.php:117
-#: content_subdomain/profile/detail/display.php:33
+#: content_business/profile/detail/display.php:33
 msgid "Gender"
 msgstr "جنسیت"
 
@@ -4832,7 +4832,7 @@ msgstr "افزودن محصول جدید"
 #: content_pardakhtyar/log/check/display.php:136
 #: content_pardakhtyar/log/request/display.php:118
 #: content_pardakhtyar/shop/home/display.php:160 content_su/dbtables/display.php:127
-#: content_su/ip/display.php:137 content_subdomain/orders/display.php:54
+#: content_su/ip/display.php:137 content_business/orders/display.php:54
 #: content_support/message/display.php:11
 msgid "Hi!"
 msgstr "سلام!"
@@ -4906,15 +4906,15 @@ msgstr "جزئیات مشتری"
 #: content_crm/member/legal/display.php:78 content_crm/member/pageSteps.php:71
 #: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.php:290
-#: content_subdomain/profile/display-menu.php:6 content_subdomain/shipping/display.php:131
+#: content_business/profile/display-menu.php:6 content_business/shipping/display.php:131
 #: dash/layout/admin/sidebar/sidebar-account.php:9
 msgid "Address"
 msgstr "آدرس"
 
 #: content_a/chap/size-receipt/receipt.php:75
-#: content_subdomain/home/layout/body/visitcard.php:33
-#: content_subdomain/home/layout/template/comingsoon.php:37
-#: content_subdomain/home/layout/template/visitcard.php:33
+#: content_business/home/layout/body/visitcard.php:33
+#: content_business/home/layout/template/comingsoon.php:37
+#: content_business/home/layout/template/visitcard.php:33
 msgid "Tel"
 msgstr "تلفن"
 
@@ -4923,7 +4923,7 @@ msgid "Sale Invoice"
 msgstr "فاکتور فروش"
 
 #: content_a/chap/size-receipt/receipt.php:103 content_a/factor/home/display.php:125
-#: content_a/order/home/display.php:133 content_subdomain/orders/display.php:17
+#: content_a/order/home/display.php:133 content_business/orders/display.php:17
 msgid "Qty"
 msgstr "تعداد"
 
@@ -5047,7 +5047,7 @@ msgid "Cancel"
 msgstr "انصراف"
 
 #: content_a/company/display.php:98 content_account/my/profile/display.php:39
-#: content_subdomain/profile/detail/display.php:38 includes/languages/trans_static.php:517
+#: content_business/profile/detail/display.php:38 includes/languages/trans_static.php:517
 #: lib/app/product/search.php:131
 msgid "Company"
 msgstr "شرکت"
@@ -5155,7 +5155,7 @@ msgstr "ویرایش شرکت سازنده"
 msgid "Remove product company"
 msgstr "حذف شرکت سازنده محصول"
 
-#: content_a/controller.php:16 content_b1/tools.php:56 content_subdomain/controller.php:17
+#: content_a/controller.php:16 content_b1/tools.php:56 content_business/controller.php:17
 #: content_v2/controller.php:19 dash/engine/store.php:154 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:232 lib/app/category/add.php:12
 #: lib/app/category/edit.php:13 lib/app/category/get.php:40 lib/app/category/get.php:72
@@ -5205,7 +5205,7 @@ msgid "Customer"
 msgstr "مشتری"
 
 #: content_a/factor/home/display.php:124 content_a/order/home/display.php:132
-#: content_subdomain/orders/display.php:16
+#: content_business/orders/display.php:16
 msgid "Items"
 msgstr "آیتم‌ها"
 
@@ -5216,7 +5216,7 @@ msgstr "آیتم‌ها"
 #: content_a/sale/display.php:19 content_love/domain/billing/display.php:93
 #: content_love/domain/setting/action/display.php:48
 #: content_love/gift/usage/display.php:61 content_my/domain/payments/display.php:12
-#: content_my/domain/setting/action/display.php:48 content_subdomain/cart/display.php:73
+#: content_my/domain/setting/action/display.php:48 content_business/cart/display.php:73
 #: lib/app/product/search.php:99 lib/app/product/updateprice.php:129
 msgid "Discount"
 msgstr "تخفیف"
@@ -5224,7 +5224,7 @@ msgstr "تخفیف"
 #: content_a/factor/home/display.php:129 content_a/irvat/add/display.php:88
 #: content_a/order/add/display.php:20 content_a/order/detail/display.php:35
 #: content_a/order/home/display.php:137 content_a/sale/display.php:20
-#: content_subdomain/cart/display.php:82 content_subdomain/orders/display.php:19
+#: content_business/cart/display.php:82 content_business/orders/display.php:19
 #: dash/utility/pagination.php:405
 msgid "Total"
 msgstr "مجموع"
@@ -5725,7 +5725,7 @@ msgstr "کدملی مدیرعامل"
 #: content_account/address.php:65 content_crm/member/legal/display.php:81
 #: content_my/domain/irnic/add/display.php:85
 #: content_my/domain/whoisdetail/whoisDetailForm.php:316
-#: content_subdomain/shipping/display.php:134
+#: content_business/shipping/display.php:134
 msgid "Post code"
 msgstr "کدپستی"
 
@@ -5738,7 +5738,7 @@ msgstr "کدپستی"
 #: content_my/domain/whoisdetail/whoisDetailForm.php:336
 #: content_my/ipg/gateway/display.php:26 content_my/ipg/profile/display.php:138
 #: content_my/ipg/setup/gateway/display.php:26
-#: content_my/ipg/setup/profile/display.php:138 content_subdomain/shipping/display.php:144
+#: content_my/ipg/setup/profile/display.php:138 content_business/shipping/display.php:144
 msgid "Phone"
 msgstr "شماره تلفن"
 
@@ -5757,21 +5757,21 @@ msgstr "ویرایش اطلاعات حقوقی"
 #: content_crm/member/general/display.php:80 content_crm/member/legal/display.php:51
 #: content_my/domain/irnic/add/display.php:57
 #: content_my/domain/whoisdetail/whoisDetailForm.php:27
-#: content_subdomain/shipping/display.php:104
+#: content_business/shipping/display.php:104
 msgid "Choose your country"
 msgstr "کشور خود را انتخاب کنید"
 
 #: content_a/irvat/add/display.php:291 content_a/order/address/display.php:70
 #: content_a/setup/address/display.php:26 content_account/address.php:48
 #: content_crm/member/legal/display.php:64 content_r10/location/country/view.php:22
-#: content_subdomain/shipping/display.php:117 content_v2/location/country/view.php:22
+#: content_business/shipping/display.php:117 content_v2/location/country/view.php:22
 msgid "Please choose country"
 msgstr "لطفا کشور را انتخاب کنید"
 
 #: content_a/irvat/add/display.php:300 content_a/order/address/display.php:79
 #: content_a/setup/address/display.php:35 content_account/address.php:57
 #: content_crm/member/legal/display.php:73 content_r10/location/province/view.php:28
-#: content_subdomain/shipping/display.php:126 content_v2/location/province/view.php:28
+#: content_business/shipping/display.php:126 content_v2/location/province/view.php:28
 msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
 
@@ -5930,7 +5930,7 @@ msgid "Postal code"
 msgstr "کد پستی"
 
 #: content_a/order/address/display.php:50 content_account/address.php:28
-#: content_subdomain/shipping/display.php:97
+#: content_business/shipping/display.php:97
 msgid "Name of person in this address"
 msgstr "نام شخصی که در این آدرس حضور دارد"
 
@@ -5944,7 +5944,7 @@ msgstr "نام شخصی که در این آدرس حضور دارد"
 #: content_crm/transactions/minus/display.php:67
 #: content_love/transactions/add/display.php:67
 #: content_love/transactions/minus/display.php:67
-#: content_subdomain/shipping/display.php:131 content_support/ticket/addForm.php:9
+#: content_business/shipping/display.php:131 content_support/ticket/addForm.php:9
 #: content_support/ticket/addForm.php:13
 msgid "Require"
 msgstr "الزامی"
@@ -5956,7 +5956,7 @@ msgstr "الزامی"
 #: content_love/gift/create/review/display.php:35
 #: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
 #: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
-#: content_subdomain/shipping/display.php:163
+#: content_business/shipping/display.php:163
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
@@ -5972,16 +5972,16 @@ msgstr "بلی"
 #: content_love/gift/create/review/display.php:35
 #: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
 #: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
-#: content_subdomain/shipping/display.php:163 includes/languages/trans_static.php:537
+#: content_business/shipping/display.php:163 includes/languages/trans_static.php:537
 msgid "No"
 msgstr "خیر"
 
 #: content_a/order/address/display.php:117 content_account/address.php:95
-#: content_subdomain/shipping/display.php:164
+#: content_business/shipping/display.php:164
 msgid "Is this a company's address?"
 msgstr "این آدرس شرکت است؟"
 
-#: content_a/order/address/display.php:124 content_subdomain/shipping/display.php:168
+#: content_a/order/address/display.php:124 content_business/shipping/display.php:168
 msgid "Save address"
 msgstr "ذخیره آدرس"
 
@@ -6611,7 +6611,7 @@ msgstr "خدمت"
 
 #: content_a/products/edit/display.php:410 content_cms/home/display.php:26
 #: content_cms/posts/edit/display.php:246 content_cms/posts/home/view.php:111
-#: content_subdomain/category/view.php:9 content_support/faq/display.php:12
+#: content_business/category/view.php:9 content_support/faq/display.php:12
 #: content_support/tag/display.php:12 content_support/tag/view.php:10
 #: lib/app/product/property.php:65 lib/app/product/search.php:109
 msgid "Category"
@@ -7094,7 +7094,7 @@ msgstr "زبان"
 #: content_pardakhtyar/shop/layout-input.php:86
 #: content_pardakhtyar/shop/layout-input.php:148
 #: content_pardakhtyar/shop/layout-input.php:162
-#: content_subdomain/profile/detail/display.php:35
+#: content_business/profile/detail/display.php:35
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -7407,8 +7407,8 @@ msgstr "حساب کاربری"
 msgid "Manage your accounts and permissions"
 msgstr ""
 
-#: content_a/setting/home/display.php:80 content_subdomain/cart/display.php:77
-#: content_subdomain/shipping/view.php:9
+#: content_a/setting/home/display.php:80 content_business/cart/display.php:77
+#: content_business/shipping/view.php:9
 msgid "Shipping"
 msgstr "حمل و نقل"
 
@@ -7426,7 +7426,7 @@ msgstr ""
 
 #: content_a/setting/home/display.php:100 content_account/home/display.php:88
 #: content_account/home/display.php:92 content_account/notification/view.php:9
-#: content_subdomain/profile/display-menu.php:7 dash/layout/admin/admin-header.php:9
+#: content_business/profile/display-menu.php:7 dash/layout/admin/admin-header.php:9
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
 
@@ -8205,14 +8205,14 @@ msgstr "نام و جزئیات عمومی خود را در فروشگاه‌تا
 
 #: content_a/setup/owner/display.php:17 content_account/my/profile/display.php:37
 #: content_crm/member/general/display.php:120
-#: content_subdomain/profile/detail/display.php:36 includes/languages/trans_static.php:515
+#: content_business/profile/detail/display.php:36 includes/languages/trans_static.php:515
 #: lib/pardakhtyar/type.php:104
 msgid "Male"
 msgstr "مرد"
 
 #: content_a/setup/owner/display.php:18 content_account/my/profile/display.php:38
 #: content_crm/member/general/display.php:121
-#: content_subdomain/profile/detail/display.php:37 includes/languages/trans_static.php:516
+#: content_business/profile/detail/display.php:37 includes/languages/trans_static.php:516
 #: lib/pardakhtyar/type.php:103
 msgid "Female"
 msgstr "زن"
@@ -8220,7 +8220,7 @@ msgstr "زن"
 #: content_a/setup/owner/display.php:22 content_account/my/home/display.php:99
 #: content_account/my/profile/display.php:8 content_my/ipg/profile/display.php:35
 #: content_my/ipg/setup/profile/display.php:35
-#: content_subdomain/profile/detail/display.php:13
+#: content_business/profile/detail/display.php:13
 #: content_support/ticket/show/display.php:174
 msgid "First name"
 msgstr "نام"
@@ -8229,14 +8229,14 @@ msgstr "نام"
 #: content_account/my/profile/display.php:15 content_crm/member/general/display.php:49
 #: content_crm/member/general/display.php:51 content_my/ipg/profile/display.php:50
 #: content_my/ipg/setup/profile/display.php:50
-#: content_subdomain/profile/detail/display.php:18
+#: content_business/profile/detail/display.php:18
 msgid "Last name"
 msgstr "نام‌خانوادگی"
 
 #: content_a/setup/owner/display.php:32 content_account/my/profile/display.php:21
 #: content_crm/member/general/display.php:64 content_my/ipg/profile/display.php:86
 #: content_my/ipg/setup/profile/display.php:86
-#: content_subdomain/profile/detail/display.php:23
+#: content_business/profile/detail/display.php:23
 msgid "Birthday"
 msgstr "تاریخ تولد"
 
@@ -9127,7 +9127,7 @@ msgid "Invalid index of quote!"
 msgstr "شناسه نقل قول اشتباه است!"
 
 #: content_a/website/quote/add/display.php:9 content_account/my/avatar/display.php:9
-#: content_subdomain/profile/avatar/display.php:15
+#: content_business/profile/avatar/display.php:15
 msgid "Drag &amp; Drop your picture or Browse"
 msgstr "تصویر خود را بکشید و اینجا رها کنید یا انتخاب کنید"
 
@@ -9234,7 +9234,7 @@ msgstr "شناسه صفحه متن اشتباه است!"
 msgid "Type here..."
 msgstr "اینجا تایپ کنید..."
 
-#: content_account/address.php:14 content_subdomain/shipping/display.php:24
+#: content_account/address.php:14 content_business/shipping/display.php:24
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:26
 msgid "Add new address"
 msgstr "افزودن آدرس جدید"
@@ -9244,7 +9244,7 @@ msgid "Title of address"
 msgstr "عنوان آدرس"
 
 #: content_account/address.php:106 content_crm/member/glance/display.php:225
-#: content_crm/member/security/display.php:111 content_subdomain/cart/display.php:42
+#: content_crm/member/security/display.php:111 content_business/cart/display.php:42
 #: includes/languages/trans_static.php:542 includes/languages/trans_static_public.php:88
 msgid "Delete"
 msgstr "حذف"
@@ -9446,8 +9446,8 @@ msgstr "حساب کاربری شما تایید نشده است! لطفا شما
 #: content_account/my/email/view.php:13 content_account/my/home/display.php:17
 #: content_account/my/home/view.php:10 content_account/my/profile/view.php:13
 #: content_account/my/social/view.php:12 content_account/my/username/view.php:13
-#: content_account/security/display.php:17 content_subdomain/profile/address/view.php:15
-#: content_subdomain/profile/address/view.php:19
+#: content_account/security/display.php:17 content_business/profile/address/view.php:15
+#: content_business/profile/address/view.php:19
 #: dash/layout/admin/sidebar/sidebar-account.php:5
 msgid "Personal info"
 msgstr "اطلاعات شخصی"
@@ -9578,19 +9578,19 @@ msgstr "شناسه کاربر یافت نشد"
 #: content_crm/member/address/controller.php:16
 #: content_crm/member/billing/controller.php:16
 #: content_crm/member/ticket/controller.php:16
-#: content_subdomain/profile/address/controller.php:17 lib/app/cart/checkout.php:41
+#: content_business/profile/address/controller.php:17 lib/app/cart/checkout.php:41
 msgid "Invalid address id"
 msgstr "شناسه آدرس نامعتبر است"
 
 #: content_account/my/address/model.php:38 content_b1/user/address.php:43
 #: content_crm/member/address/model.php:40 content_crm/member/billing/model.php:40
-#: content_subdomain/profile/address/model.php:37
+#: content_business/profile/address/model.php:37
 msgid "Address successfully edited"
 msgstr "آدرس با موفقیت به‌روزرسانی شد"
 
 #: content_account/my/address/model.php:47 content_b1/user/address.php:31
 #: content_crm/member/address/model.php:49 content_crm/member/billing/model.php:49
-#: content_subdomain/profile/address/model.php:46 content_subdomain/shipping/model.php:29
+#: content_business/profile/address/model.php:46 content_business/shipping/model.php:29
 msgid "Address successfully added"
 msgstr "آدرس با موفقیت اضافه شد"
 
@@ -9599,11 +9599,11 @@ msgid "Addresses"
 msgstr "آدرس‌ها"
 
 #: content_account/my/avatar/display.php:13
-#: content_subdomain/profile/avatar/display.php:19
+#: content_business/profile/avatar/display.php:19
 msgid "Your avatar"
 msgstr "تصویر شما"
 
-#: content_account/my/avatar/model.php:32 content_subdomain/profile/avatar/model.php:31
+#: content_account/my/avatar/model.php:32 content_business/profile/avatar/model.php:31
 msgid "No file was received"
 msgstr "فایلی دریافت نشد"
 
@@ -9628,8 +9628,8 @@ msgstr "شما می‌توانید با نام کاربری یا موبایل و
 #: content_account/my/profile/view.php:10 content_crm/member/pageSteps.php:26
 #: content_my/ipg/home/display.php:113 content_my/ipg/profile/view.php:9
 #: content_my/ipg/setup/profile/view.php:9
-#: content_subdomain/home/layout/header/header_100.php:27
-#: content_subdomain/profile/display-menu.php:4 dash/layout/pwa/pwa_menu.php:61
+#: content_business/home/layout/header/header_100.php:27
+#: content_business/profile/display-menu.php:4 dash/layout/pwa/pwa_menu.php:61
 #: includes/languages/trans_static_public.php:98
 #: includes/languages/trans_static_public.php:381
 msgid "Profile"
@@ -9654,7 +9654,7 @@ msgstr ""
 "برخی از اطلاعات ممکن است برای سایر اشخاصی که از سرویس ما استفاده می‌کنند قابل رویت باشد."
 
 #: content_account/my/home/display.php:89 content_account/my/home/display.php:93
-#: content_subdomain/profile/display-menu.php:5
+#: content_business/profile/display-menu.php:5
 #: dash/layout/admin/sidebar/sidebar-account.php:7
 msgid "Avatar"
 msgstr "تصویر پروفایل"
@@ -9669,8 +9669,8 @@ msgstr "تاریخ تولد"
 
 #: content_account/my/home/display.php:119 content_account/my/profile/display.php:27
 #: content_account/my/profile/display.php:29 content_crm/member/general/display.php:22
-#: content_subdomain/profile/detail/display.php:28
-#: content_subdomain/profile/detail/display.php:30
+#: content_business/profile/detail/display.php:28
+#: content_business/profile/detail/display.php:30
 msgid "Display name"
 msgstr "نام برای نمایش"
 
@@ -9709,23 +9709,23 @@ msgstr "لینکدین"
 #: content_my/ipg/profile/display.php:37 content_my/ipg/profile/display.php:105
 #: content_my/ipg/setup/profile/display.php:37
 #: content_my/ipg/setup/profile/display.php:105
-#: content_subdomain/profile/detail/display.php:15
+#: content_business/profile/detail/display.php:15
 msgid "Firstname"
 msgstr "نام"
 
 #: content_account/my/profile/display.php:17 content_my/domain/irnic/add/display.php:40
 #: content_my/ipg/profile/display.php:52 content_my/ipg/setup/profile/display.php:52
-#: content_subdomain/profile/detail/display.php:20
+#: content_business/profile/detail/display.php:20
 msgid "Lastname"
 msgstr "نام خانوادگی"
 
 #: content_account/my/profile/display.php:40
-#: content_subdomain/profile/detail/display.php:39
+#: content_business/profile/detail/display.php:39
 msgid "Rather not say"
 msgstr "تمایل به گفتن ندارم"
 
 #: content_account/my/profile/model.php:39 content_account/my/social/model.php:40
-#: content_subdomain/profile/detail/model.php:38
+#: content_business/profile/detail/model.php:38
 msgid "Your profile successfully updated"
 msgstr "پروفایل شما با موفقیت بروز شد"
 
@@ -12362,7 +12362,7 @@ msgid "Sign in instead"
 msgstr "یا وارد شوید"
 
 #: content_enter/home/display.php:61 content_enter/signup/display.php:63
-#: content_subdomain/profile/display-menu.php:32
+#: content_business/profile/display-menu.php:32
 #: includes/languages/trans_static_public.php:166
 msgid "Login"
 msgstr "ورود به سیستم"
@@ -12979,8 +12979,8 @@ msgstr "نمایش لاگ ای‌پی‌آی"
 #: content_my/domain/history/display.php:38
 #: content_my/domain/setting/action/display.php:37 content_my/domain/stepGuide.php:65
 #: content_pay/home/display.php:18 content_pay/home/display.php:156
-#: content_pay/home/view.php:10 content_subdomain/shipping/display.php:34
-#: content_subdomain/shipping/display.php:46
+#: content_pay/home/view.php:10 content_business/shipping/display.php:34
+#: content_business/shipping/display.php:46
 msgid "Pay"
 msgstr "پرداخت"
 
@@ -13814,9 +13814,9 @@ msgid "Review gift detail and publish"
 msgstr "بازبینی جزئیات کد هدیه و انتشار"
 
 #: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
-#: content_my/domain/review/display.php:198 content_subdomain/p/home/display.php:176
-#: content_subdomain/p/home/display.php:181 content_subdomain/p/home/display.php:186
-#: content_subdomain/p/home/display.php:191 content_subdomain/p/home/display.php:196
+#: content_my/domain/review/display.php:198 content_business/p/home/display.php:176
+#: content_business/p/home/display.php:181 content_business/p/home/display.php:186
+#: content_business/p/home/display.php:191 content_business/p/home/display.php:196
 msgid "%"
 msgstr "٪"
 
@@ -16416,206 +16416,206 @@ msgstr "به‌روزرسانی دیتابیس سیستم با موفقیت ان
 msgid "System unlock successfully"
 msgstr "بازکردن قفل سیستم با موفقیت انجام شد"
 
-#: content_subdomain/app/display.php:11
+#: content_business/app/display.php:11
 msgid "Download from Google Play"
 msgstr "دانلود از گوگل پلی"
 
-#: content_subdomain/app/display.php:15
+#: content_business/app/display.php:15
 msgid "Download from CafeBazar"
 msgstr "دانلود از کافه‌بازار"
 
-#: content_subdomain/app/display.php:19
+#: content_business/app/display.php:19
 msgid "Download from Myket"
 msgstr "دانلود از مایکت"
 
-#: content_subdomain/app/display.php:23
+#: content_business/app/display.php:23
 msgid "Direct download"
 msgstr "دانلود مستقیم"
 
-#: content_subdomain/app/view.php:9
+#: content_business/app/view.php:9
 msgid "Download App"
 msgstr "دانلود برنامه"
 
-#: content_subdomain/cart/display.php:3
+#: content_business/cart/display.php:3
 msgid "Shopping Cart"
 msgstr "سبد خرید"
 
-#: content_subdomain/cart/display.php:18
+#: content_business/cart/display.php:18
 msgid "This product addet to your cart"
 msgstr "این محصول به سبد خرید شما اضافه شد"
 
-#: content_subdomain/cart/display.php:25
+#: content_business/cart/display.php:25
 msgid "In Stock"
 msgstr "موجود"
 
-#: content_subdomain/cart/display.php:27
+#: content_business/cart/display.php:27
 msgid "Only :val :unit left in stock - order soon."
 msgstr "فقط :val :unit در انبار باقی است - سریع‌تر سفارش بده."
 
-#: content_subdomain/cart/display.php:29
+#: content_business/cart/display.php:29
 msgid "Temporarily out of stock."
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است."
 
-#: content_subdomain/cart/display.php:66
+#: content_business/cart/display.php:66
 msgid "Order Summary"
 msgstr "خلاصه سفارش"
 
-#: content_subdomain/cart/display.php:69
+#: content_business/cart/display.php:69
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_subdomain/cart/display.php:87
+#: content_business/cart/display.php:87
 msgid "BUY"
 msgstr "خرید"
 
-#: content_subdomain/cart/display.php:98
+#: content_business/cart/display.php:98
 msgid "Your Shopping Cart is empty"
 msgstr "سبد خرید شما خالی است"
 
-#: content_subdomain/cart/display.php:102
+#: content_business/cart/display.php:102
 msgid "Start shopping"
 msgstr "خرید را شروع کنید"
 
-#: content_subdomain/cart/display.php:103
+#: content_business/cart/display.php:103
 msgid "login"
 msgstr "ورود به سیستم"
 
-#: content_subdomain/cart/display.php:100
+#: content_business/cart/display.php:100
 msgid "Don't miss out on great deals! :start or :login to view products added."
 msgstr ""
 
-#: content_subdomain/cart/display.php:107
+#: content_business/cart/display.php:107
 msgid ""
 "The Cart is a temporary place to store a list of your items and reflects each item's "
 "most recent price."
 msgstr ""
 
-#: content_subdomain/category/controller.php:24
+#: content_business/category/controller.php:24
 msgid "Invalid category url"
 msgstr "آدرس دسته‌ اشتباه است"
 
-#: content_subdomain/home/layout/body/latestnews.php:26
+#: content_business/home/layout/body/latestnews.php:26
 msgid "Keep Reading"
 msgstr "بیشتر بخوانید"
 
-#: content_subdomain/home/layout/header/header_100.php:29
+#: content_business/home/layout/header/header_100.php:29
 msgid "Enter to account"
 msgstr "ورود به حساب‌کاربری"
 
-#: content_subdomain/orders/display.php:54
+#: content_business/orders/display.php:54
 msgid "No orders found"
 msgstr "هیچ سفارشی یافت نشد"
 
-#: content_subdomain/orders/view.php:9 content_subdomain/orders/view/view.php:9
-#: content_subdomain/profile/display-menu.php:8
-#: content_subdomain/profile/display-menu.php:25
+#: content_business/orders/view.php:9 content_business/orders/view/view.php:9
+#: content_business/profile/display-menu.php:8
+#: content_business/profile/display-menu.php:25
 msgid "My orders"
 msgstr "سفارشات من"
 
-#: content_subdomain/orders/view/controller.php:19
+#: content_business/orders/view/controller.php:19
 msgid "Order not found"
 msgstr "سفارش یافت نشد"
 
-#: content_subdomain/orders/view/display.php:12
+#: content_business/orders/view/display.php:12
 msgid "Cancel order"
 msgstr "لغو سفارش"
 
-#: content_subdomain/p/home/display.php:49
+#: content_business/p/home/display.php:49
 msgid ":val out of 5"
 msgstr ":val از ۵"
 
-#: content_subdomain/p/home/display.php:50
+#: content_business/p/home/display.php:50
 msgid ":val Reviews"
 msgstr ":val بازدید"
 
-#: content_subdomain/p/home/display.php:51
+#: content_business/p/home/display.php:51
 msgid ":val Orders"
 msgstr ":val سفارش"
 
-#: content_subdomain/p/home/display.php:62
+#: content_business/p/home/display.php:62
 msgid "List Price"
 msgstr "قیمت"
 
-#: content_subdomain/p/home/display.php:79
+#: content_business/p/home/display.php:79
 msgid "You Save"
 msgstr "سود شما"
 
-#: content_subdomain/p/home/display.php:88
+#: content_business/p/home/display.php:88
 msgid "Add to Cart"
 msgstr "افزودن به سبد خرید"
 
-#: content_subdomain/p/home/display.php:113
+#: content_business/p/home/display.php:113
 msgid "Product Code"
 msgstr "شناسه محصول"
 
-#: content_subdomain/p/home/display.php:160
+#: content_business/p/home/display.php:160
 msgid "Customer reviews"
 msgstr "نظرات مشتریان"
 
-#: content_subdomain/p/home/display.php:236
+#: content_business/p/home/display.php:236
 msgid "Review this product"
 msgstr "بررسی این محصول"
 
-#: content_subdomain/p/home/display.php:242
+#: content_business/p/home/display.php:242
 msgid "Outstanding"
 msgstr "ممتاز"
 
-#: content_subdomain/p/home/display.php:244
+#: content_business/p/home/display.php:244
 msgid "Very Good"
 msgstr "خیلی خوب"
 
-#: content_subdomain/p/home/display.php:246
+#: content_business/p/home/display.php:246
 msgid "Good"
 msgstr "خوب"
 
-#: content_subdomain/p/home/display.php:248
+#: content_business/p/home/display.php:248
 msgid "Poor"
 msgstr "ضعیف"
 
-#: content_subdomain/p/home/display.php:250
+#: content_business/p/home/display.php:250
 msgid "Very Poor"
 msgstr "خیلی ضعیف"
 
-#: content_subdomain/p/home/display.php:276
+#: content_business/p/home/display.php:276
 msgid "How was it in one sentence?"
 msgstr "در یک جمله،‌ چه‌طور بود؟"
 
-#: content_subdomain/p/home/display.php:279
+#: content_business/p/home/display.php:279
 msgid "Write your review about this product..."
 msgstr "نظر خودتون رو در مورد این محصول بنویسید ..."
 
-#: content_subdomain/profile/address/view.php:9
-#: content_subdomain/profile/avatar/view.php:9 content_subdomain/profile/detail/view.php:9
-#: content_subdomain/profile/home/view.php:9
+#: content_business/profile/address/view.php:9
+#: content_business/profile/avatar/view.php:9 content_business/profile/detail/view.php:9
+#: content_business/profile/home/view.php:9
 msgid "My profile"
 msgstr "پروفایل من"
 
-#: content_subdomain/profile/display-menu.php:15
-#: content_subdomain/profile/display-menu.php:24
+#: content_business/profile/display-menu.php:15
+#: content_business/profile/display-menu.php:24
 msgid "My cart"
 msgstr "سبد خرید من"
 
-#: content_subdomain/profile/display-menu.php:16
+#: content_business/profile/display-menu.php:16
 msgid "Change your password"
 msgstr "تغییر کلمه عبور"
 
-#: content_subdomain/profile/notifications/view.php:9
+#: content_business/profile/notifications/view.php:9
 msgid "My notifications"
 msgstr "پیام‌های من"
 
-#: content_subdomain/shipping/display.php:5
+#: content_business/shipping/display.php:5
 msgid "Choose your address"
 msgstr "آدرس خود را انتخاب کنید"
 
-#: content_subdomain/shipping/display.php:30 content_subdomain/shipping/display.php:42
+#: content_business/shipping/display.php:30 content_business/shipping/display.php:42
 msgid "Order descripion"
 msgstr "توضیحات‌ سفارش"
 
-#: content_subdomain/shipping/display.php:64
+#: content_business/shipping/display.php:64
 msgid "No product in your cart"
 msgstr "هیچ کالایی در سبد خرید شما یافت نشد"
 
-#: content_subdomain/shipping/model.php:40
+#: content_business/shipping/model.php:40
 msgid "Please choose any address"
 msgstr "لطفا یکی از آدرس‌ها را انتخاب کنید"
 

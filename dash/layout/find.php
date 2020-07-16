@@ -9,7 +9,7 @@ class find
 	public static function allBlocks()
 	{
 		// load customer business website
-		if(\dash\engine\content::get() === 'content_subdomain')
+		if(\dash\engine\content::get() === 'content_business')
 		{
 			// load detail of business website
 			\dash\layout\business::check_website();
@@ -103,10 +103,10 @@ class find
 			$myContent = \dash\engine\content::get();
 			if (\dash\detect\device::detectPWA())
 			{
-				if($myContent === 'content_subdomain')
+				if($myContent === 'content_business')
 				{
 					// subdomain of stores
-					$myHeader = root.'content_subdomain/home/layout/pwa/header.php';
+					$myHeader = root.'content_business/home/layout/pwa/header.php';
 				}
 				else
 				{
@@ -127,10 +127,10 @@ class find
 					// jibres homepage webiste
 					$myHeader = root.'content/home/layout/header.php';
 				}
-				elseif($myContent === 'content_subdomain')
+				elseif($myContent === 'content_business')
 				{
 					// subdomain of stores
-					$myHeader = root.'content_subdomain/home/layout/header.php';
+					$myHeader = root.'content_business/home/layout/header.php';
 				}
 				elseif($myContent === 'content_developers')
 				{

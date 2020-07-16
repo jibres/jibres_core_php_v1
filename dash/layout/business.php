@@ -108,7 +108,7 @@ class business
 
 	private static function template_addr($_folder = null)
 	{
-		$addr = root. 'content_subdomain/home/layout/';
+		$addr = root. 'content_business/home/layout/';
 		if($_folder)
 		{
 			$addr .= $_folder . '/';
