@@ -33,6 +33,21 @@ class view
 
 		$product_setting = \lib\app\setting\get::product_setting();
 		\dash\data::productSettingSaved($product_setting);
+
+
+		$myCart = \lib\app\cart\search::my_detail();
+
+		if($myCart && is_array($myCart))
+		{
+			foreach ($myCart as $key => $value)
+			{
+				if(isset($value['product_id']) && floatval($value['product_id']) === floatval($id))
+				{
+					\dash\data::productInCart(true);
+					\dash\data::productInCartCount($value['count']);
+				}
+			}
+		}
 	}
 }
 ?>

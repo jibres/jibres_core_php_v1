@@ -85,7 +85,19 @@ foreach ($myGallery as $key => $item)
 
               </div>
               <div class="c-auto">
+                <?php if(\dash\data::productInCart()) {?>
+                  <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Update cart"); ?>
+                  </div>
+
+                   <div class="input productCount mT10">
+                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>+</label>
+                      <input type="number" name="count" value="<?php echo \dash\data::productInCartCount(); ?>" readonly>
+                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
+                   </div>
+
+                <?php }else{ ?>
                 <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Add to Cart"); ?></div>
+                <?php } //endif ?>
               </div>
             </div>
           </div>
