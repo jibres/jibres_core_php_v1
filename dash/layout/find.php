@@ -146,10 +146,10 @@ class find
 			echo " data-scroll";
 		}
 		echo ">";
+
 		if($myHeader)
 		{
 			require_once $myHeader;
-			echo "\n  ";
 		}
 		echo "</header>";
 	}
