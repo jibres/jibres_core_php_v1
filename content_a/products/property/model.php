@@ -9,78 +9,18 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$property = self::get_property();
+		$post                = [];
+		$post['cat']         = \dash\request::post('cat');
+		$post['key']         = \dash\request::post('key');
+		$post['value']       = \dash\request::post('value');
+		$post['outstanding'] = \dash\request::post('outstanding');
 
-		$post           = [];
-		$post['weight'] = \dash\request::post('weight');
-		$post['length'] = \dash\request::post('length');
-		$post['width']  = \dash\request::post('width');
-		$post['height'] = \dash\request::post('height');
-
-		\lib\app\product\edit::edit($post, $id);
-
-		if(\dash\engine\process::status())
-		{
-			\dash\notif::clean();
-		}
-
-
-		\lib\app\product\property::set($property, $id);
-
+		\lib\app\product\property::add($post, $id);
 
 		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}
 	}
-
-
-
-	private static function get_property()
-	{
-		$post = \dash\request::post();
-
-		$avalible = [];
-		$cat      = [];
-		$key      = [];
-		$value    = [];
-
-
-		foreach ($post as $post_key => $post_value)
-		{
-			if(substr($post_key, 0, 4) === 'cat_' && is_numeric(substr($post_key, 4)))
-			{
-				$cat[substr($post_key, 4)] = $post_value;
-			}
-			elseif(substr($post_key, 0, 4) === 'key_' && is_numeric(substr($post_key, 4)))
-			{
-				$key[substr($post_key, 4)] = $post_value;
-			}
-			elseif(substr($post_key, 0, 6) === 'value_' && is_numeric(substr($post_key, 6)))
-			{
-				$value[substr($post_key, 6)] = $post_value;
-			}
-		}
-
-
-		$final_list = [];
-
-		foreach ($cat as $rand_key => $nothing)
-		{
-			$final_list[] =
-			[
-				'cat'   => array_key_exists($rand_key, $cat) ? $cat[$rand_key] : null,
-				'key'   => array_key_exists($rand_key, $key) ? $key[$rand_key] : null,
-				'value' => array_key_exists($rand_key, $value) ? $value[$rand_key] : null,
-			];
-
-		}
-
-		return $final_list;
-
-	}
-
-
-
 }
 ?>

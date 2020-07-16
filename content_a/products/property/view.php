@@ -17,7 +17,7 @@ class view
 
 		\dash\face::title(T_("Property"). ' | '. $title);
 
-		\dash\face::btnSave('form1');
+
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
@@ -32,9 +32,8 @@ class view
 		\dash\face::help(\dash\url::support().'/property');
 
 
-		$property_list = \lib\app\product\property::get($id);
+		$property_list = \lib\app\product\property::get_pretty($id);
 		\dash\data::propertyList($property_list);
-
 
 		$catList = \lib\app\product\property::all_cat_name();
 		\dash\data::catList($catList);

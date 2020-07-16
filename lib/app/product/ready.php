@@ -173,6 +173,14 @@ class ready
 
 		$result['category_list'] = [];
 
+		$result['allow_shop'] = false;
+		if(isset($result['status']) && $result['status'] === 'available')
+		{
+
+		}
+
+		// var_dump($result);exit();
+
 		return $result;
 	}
 

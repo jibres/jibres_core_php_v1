@@ -238,6 +238,56 @@ class property
 	}
 
 
+
+	public static function add($_args, $_id)
+	{
+		$condition =
+		[
+			'cat'         => 'string_100',
+			'key'         => 'string_100',
+			'value'       => 'string_1000',
+			'outstanding' => 'bit',
+		];
+
+		$require = ['cat', 'key', 'value'];
+		$meta    =	[];
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$id      = \dash\validate::id($_id);
+
+		$load_product = \lib\app\product\get::inline_get($id);
+		if(!$load_product)
+		{
+			return false;
+		}
+
+		$check_duplicate = \lib\db\productproperties\get::check_duplicate($data['cat'], $data['key'], $data['value'], $id);
+
+		if($check_duplicate)
+		{
+			\dash\notif::error(T_("Duplicate property founded"));
+			return false;
+		}
+
+		$insert =
+		[
+			'product_id' => $id,
+			'cat' => $data['cat'],
+			'key' => $data['key'],
+			'value' => $data['value'],
+			'datecreated' => date("Y-m-d H:i:s"),
+
+		];
+
+		\lib\db\productproperties\insert::new_record($insert);
+
+		\dash\notif::ok(T_("Property successfully added"));
+		return true;
+
+
+
+	}
+
+
 	public static function set($_property, $_id)
 	{
 		$condition =

@@ -25,6 +25,23 @@ class get
 		return $result;
 	}
 
+	public static function check_duplicate($_cat, $_key, $_value, $_product_id)
+	{
+		$query =
+		"
+			SELECT *
+			FROM productproperties
+			WHERE
+				productproperties.product_id = '$_product_id' AND
+				productproperties.cat = '$_cat' AND
+				productproperties.key = '$_key' AND
+				productproperties.value = '$_value'
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function product_property_list($_product_id, $_parent_id = null)
 	{
