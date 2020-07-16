@@ -4,7 +4,7 @@
 
 		<div class="row">
 			<?php foreach ($categoryDataTable as $key => $value) {?>
-				<div class="c-xs-12 c-sm-6 c-lg-4 c-xxl-3">
+				<div class="c-xs-6 c-sm-4 c-lg-4 c-xxl-3">
 					<a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
 					<img class="radius5px" src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
 					<div class="msg mB20 txtB"><?php echo \dash\get::index($value, 'title'); ?></div>

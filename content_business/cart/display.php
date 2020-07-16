@@ -2,7 +2,7 @@
 <?php if(\dash\data::dataTable()) {?>
  <h1><?php echo T_("Shopping Cart"). ' ('. count(\dash\data::dataTable()). ')' ?></h1>
  <div class="row">
-  <div class="c-8">
+  <div class="c-xs-12 c-sm-12 c-lg-8">
    <div class="box">
 
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
@@ -61,7 +61,7 @@
 <?php if(\dash\data::cartSettingSaved_page_text()) {?><p class="fs14 msg <?php echo \dash\data::cartSettingSaved_color_class() ?>"><?php echo \dash\data::cartSettingSaved_page_text(); ?></p><?php } //endif ?>
   </div>
   <?php if(\dash\data::cartSummary()) {?>
-  <div class="c-4">
+  <div class="c-xs-12 c-sm-12 c-lg-4">
    <div class="box orderSummary">
     <h3><?php echo T_("Order Summary"); ?></h3>
     <div>
