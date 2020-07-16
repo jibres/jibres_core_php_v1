@@ -8,10 +8,6 @@ class view
 	{
 		\dash\face::title(T_("Shipping"));
 
-		$dataTable = \lib\app\cart\search::my_detail();
-		\dash\data::dataTable($dataTable);
-
-
 		$addressDataTable = \lib\website::my_address_list();
 		\dash\data::addressDataTable($addressDataTable);
 
@@ -23,6 +19,17 @@ class view
 		$shipping_setting = \lib\app\setting\get::shipping_setting();
 		\dash\data::shippingSettingSaved($shipping_setting);
 
+
+		$myCart = \lib\app\cart\search::my_detail();
+
+		\dash\data::myCart($myCart);
+
+		$cartSummary = \lib\app\cart\search::my_detail_summary($myCart);
+
+		\dash\data::cartSummary($cartSummary);
+
+		$cart_setting = \lib\app\setting\get::cart_setting();
+		\dash\data::cartSettingSaved($cart_setting);
 
 
 		self::static_var();
