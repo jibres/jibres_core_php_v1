@@ -179,14 +179,6 @@ class find
 			}
 		}
 
-		if(\dash\layout\business::website())
-		{
-			$temp_myFooter = \dash\layout\business::footer_addr();
-			if($temp_myFooter)
-			{
-				$myFooter = $temp_myFooter;
-			}
-		}
 
 		echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
 		if($myFooter)
