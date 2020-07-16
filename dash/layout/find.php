@@ -158,6 +158,7 @@ class find
 	public static function footer()
 	{
 		$myFooter = \dash\layout\func::page_footer();
+		$myContent = \dash\engine\content::get();
 
 		// set header for some scenario
 		// if we dont have header
@@ -166,8 +167,16 @@ class find
 		{
 			if (\dash\detect\device::detectPWA())
 			{
-				// if is not set, on pwa force add
-				$myFooter = core.'layout/pwa/pwa-footer.php';
+				if($myContent === 'content_business')
+				{
+					// subdomain of stores
+					$myFooter = root.'content_business/home/layout/pwa/footer.php';
+				}
+				else
+				{
+					// if is not set, on pwa force add
+					$myFooter = core.'layout/pwa/pwa-footer.php';
+				}
 			}
 			else
 			{
