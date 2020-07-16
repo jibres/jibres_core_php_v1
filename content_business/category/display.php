@@ -2,7 +2,7 @@
 	<?php if(!\dash\data::dataRow()) {  /* load all category detail*/ ?>
 		<?php $categoryDataTable = \dash\data::categoryDataTable(); ?>
 
-		<div class="row">
+		<div class="row padLess">
 			<?php foreach ($categoryDataTable as $key => $value) {?>
 				<div class="c-xs-6 c-sm-4 c-lg-4 c-xxl-3">
 					<a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
