@@ -103,7 +103,7 @@ class website
 				echo '%';
 				echo '</span>';
 			}
-			echo '<div class="addToCart" >+</div>';
+			echo '<div class="addToCart" data-ajaxify data-method="post" data-action="'. \dash\url::kingdom() . '/p/1/card">+</div>';
 			// show title
 			{
 				echo '<div class="title">';
