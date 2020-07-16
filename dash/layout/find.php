@@ -167,16 +167,8 @@ class find
 		{
 			if (\dash\detect\device::detectPWA())
 			{
-				if($myContent === 'content_business')
-				{
-					// subdomain of stores
-					$myFooter = root.'content_business/home/layout/pwa/footer.php';
-				}
-				else
-				{
-					// if is not set, on pwa force add
-					$myFooter = core.'layout/pwa/pwa-footer.php';
-				}
+				// if is not set, on pwa force add
+				$myFooter = core.'layout/pwa/pwa-footer.php';
 			}
 			else
 			{

@@ -5,16 +5,21 @@ class pwa_menu
 {
 	public static function get()
 	{
-		if(\dash\url::content())
+		$myContent = \dash\engine\content::get_name();
+		if($myContent)
 		{
-			switch (\dash\url::content())
+			switch ($myContent)
 			{
 				case 'enter':
 					return null;
 					break;
 
 				case 'a':
-					return self::business();
+					return self::businessAdmin();
+					break;
+
+				case 'business':
+					return self::businessWebsite();
 					break;
 
 				default:
@@ -100,7 +105,7 @@ class pwa_menu
 	}
 
 
-	public static function business()
+	public static function businessAdmin()
 	{
 		$myFooter =
 		[
@@ -162,5 +167,66 @@ class pwa_menu
 
 		return $myFooter;
 	}
+
+
+
+
+	public static function businessWebsite()
+	{
+		$myFooter =
+		[
+			'home' =>
+			[
+				'href' => \dash\url::kingdom(),
+				'icon' => 'home',
+				'title' => T_('Home'),
+			],
+			'category' =>
+			[
+				'href' => \dash\url::kingdom(). '/category',
+				'icon' => 'th-large',
+				'title' => T_('Category'),
+			],
+			'cart' =>
+			[
+				'href' => \dash\url::kingdom(). '/cart',
+				'icon' => 'shopping-cart',
+				'title' => T_('Cart'),
+			],
+			'profile' =>
+			[
+				'href' => \dash\url::kingdom(). '/profile',
+				'icon' => 'user',
+				'title' => T_('Profile'),
+			],
+		];
+
+		// select module if user select them
+		switch (\dash\url::module())
+		{
+			case 'products':
+				$myFooter['products']['selected'] = true;
+				break;
+
+			case 'factor':
+				$myFooter['orders']['selected'] = true;
+				break;
+
+			case 'report':
+				$myFooter['reports']['selected'] = true;
+				break;
+
+			case 'setting':
+				$myFooter['setting']['selected'] = true;
+				break;
+
+			default:
+				$myFooter['home']['selected'] = true;
+				break;
+		}
+
+		return $myFooter;
+	}
+
 }
 ?>
