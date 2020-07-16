@@ -32,7 +32,12 @@ class model
 		$post                      = [];
 		$post['title']             = \dash\request::post('title');
 		$post['title2']            = \dash\request::post('title2');
-		// $post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
+
+		if(array_key_exists('desc', $_POST))
+		{
+			$post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
+		}
+
 		$post['buyprice']          = \dash\request::post('buyprice');
 		$post['price']             = \dash\request::post('price');
 		// $post['compareatprice'] = \dash\request::post('CompareAtPrice');
