@@ -103,6 +103,7 @@ class website
 				echo '%';
 				echo '</span>';
 			}
+			echo '<div class="addToCart" >+</div>';
 			// show title
 			{
 				echo '<div class="title">';
