@@ -4,6 +4,25 @@ namespace lib\app\product;
 
 class property
 {
+	public static function all_cat_name()
+	{
+		$list = \lib\db\productproperties\get::all_cat_name();
+		return $list;
+	}
+
+	public static function all_key_name()
+	{
+		$list = \lib\db\productproperties\get::all_key_name();
+		return $list;
+	}
+
+
+	public static function all_value_name()
+	{
+		$list = \lib\db\productproperties\get::all_value_name();
+		return $list;
+	}
+
 	public static function get_pretty($_id)
 	{
 		$id = \dash\validate::id($_id, false);

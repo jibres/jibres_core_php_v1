@@ -6,15 +6,15 @@ $productDataRow = \dash\data::productDataRow();
 ?>
 
 <form method="post" autocomplete="off" id="form1">
-<div class="avand-xl">
+  <div class="avand-xl">
 
-  <div class="jPage" >
+    <div class="jPage" >
 
 
 
-    <section class="jbox">
-      <header><h2><?php echo T_("Property"); ?></h2></header>
-      <div class="pad jboxProperty">
+      <section class="jbox">
+        <header><h2><?php echo T_("Property"); ?></h2></header>
+        <div class="pad jboxProperty">
 
 
 
@@ -70,52 +70,124 @@ $productDataRow = \dash\data::productDataRow();
 
           <tbody>
 
-          <?php foreach ($propertyList as $value) {?>
+            <?php foreach ($propertyList as $property_value) {?>
 
+              <?php $rand_key = rand(1, 9999); ?>
+              <tr>
+                <td>
+
+                  <?php if(!\dash\data::catList()) {?>
+                    <div class="input">
+                      <input type="text" name="cat_<?php echo $rand_key; ?>" placeholder="<?php echo T_("Group"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index($property_value, 'cat'); ?>">
+                    </div>
+                  <?php }else{ ?>
+                    <div>
+                      <select name="cat_<?php echo $rand_key; ?>" class="select22" data-model='tag' data-placeholder="<?php echo T_("Group"); ?>" >
+                        <option></option>
+                        <?php foreach (\dash\data::catList() as $key => $value) {?>
+                          <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index($property_value, 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                        <?php } //endfor ?>
+                      </select>
+                    </div>
+                  <?php } //endif ?>
+                </td>
+
+                <td>
+                  <?php if(!\dash\data::keyList()) {?>
+                    <div class="input">
+                      <input type="text" name="key_<?php echo $rand_key; ?>" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index($property_value, 'key', 'key'); ?>">
+                    </div>
+                  <?php }else{ ?>
+                    <div>
+                      <select name="key_<?php echo $rand_key; ?>" class="select22" data-model='tag' data-placeholder="<?php echo T_("Type"); ?>" >
+                        <option></option>
+                        <?php foreach (\dash\data::keyList() as $key => $value) {?>
+                          <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index($property_value, 'key', 'key')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                        <?php } //endfor ?>
+                      </select>
+                    </div>
+                  <?php } //endif ?>
+                </td>
+
+                <td>
+
+                  <?php if(!\dash\data::valueList()) {?>
+                    <div class="input">
+                      <input type="text" name="value_<?php echo $rand_key; ?>" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index($property_value, 'value'); ?>">
+                    </div>
+                  <?php }else{ ?>
+                    <div>
+                      <select name="value_<?php echo $rand_key; ?>" class="select22" data-model='tag' data-placeholder="<?php echo T_("Value"); ?>" >
+                        <option></option>
+                        <?php foreach (\dash\data::valueList() as $key => $value) {?>
+                          <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index($property_value, 'value')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                        <?php } //endfor ?>
+                      </select>
+                    </div>
+                  <?php } //endif ?>
+                </td>
+
+
+
+              </tr>
+            <?php } //endfor ?>
             <?php $rand_key = rand(1, 9999); ?>
-            <tr <?php if(\dash\get::index($value, 'from_category')) {echo 'class="positive"';}else{echo 'class="warning"';}?>>
+            <tr class="active">
               <td>
-                <div class="input">
-                  <input type="text" name="cat_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Group"); ?>' value="<?php echo \dash\get::index($value, 'cat'); ?>">
-                </div>
+                <?php if(!\dash\data::catList()) {?>
+                  <div class="input">
+                    <input type="text" name="cat_<?php echo $rand_key; ?>" placeholder="<?php echo T_("Group"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index($value, 'cat'); ?>">
+                  </div>
+                <?php }else{ ?>
+                  <div>
+                    <select name="cat_<?php echo $rand_key; ?>" class="select22" data-model='tag' data-placeholder="<?php echo T_("Group"); ?>" >
+                      <option></option>
+                      <?php foreach (\dash\data::catList() as $key => $value) {?>
+                        <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index($value, 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                      <?php } //endfor ?>
+                    </select>
+                  </div>
+                <?php } //endif ?>
               </td>
               <td>
-                <div class="input">
-                  <input type="text" name="key_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Type"); ?>' value="<?php echo \dash\get::index($value, 'key', 'key') ?>">
-                </div>
+                <?php if(!\dash\data::keyList()) {?>
+                  <div class="input">
+                    <input type="text" name="key_<?php echo $rand_key; ?>" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index($value, 'key'); ?>">
+                  </div>
+                <?php }else{ ?>
+                  <div>
+                    <select name="key_<?php echo $rand_key; ?>" class="select22" data-model='tag' data-placeholder="<?php echo T_("Type"); ?>" >
+                      <option></option>
+                      <?php foreach (\dash\data::keyList() as $key => $value) {?>
+                        <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index($value, 'key')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                      <?php } //endfor ?>
+                    </select>
+                  </div>
+                <?php } //endif ?>
               </td>
               <td>
-                <div class="input">
-                  <input type="text" name="value_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Value"); ?>' value="<?php echo \dash\get::index($value, 'value') ?>">
-                </div>
+                <?php if(!\dash\data::valueList()) {?>
+                  <div class="input">
+                    <input type="text" name="value_<?php echo $rand_key; ?>" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index($value, 'value'); ?>">
+                  </div>
+                <?php }else{ ?>
+                  <div>
+                    <select name="value_<?php echo $rand_key; ?>" class="select22" data-model='tag' data-placeholder="<?php echo T_("Value"); ?>" >
+                      <option></option>
+                      <?php foreach (\dash\data::valueList() as $key => $value) {?>
+                        <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index($value, 'value')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                      <?php } //endfor ?>
+                    </select>
+                  </div>
+                <?php } //endif ?>
               </td>
-            </tr>
-          <?php } //endfor ?>
-          <?php $rand_key = rand(1, 9999); ?>
-          <tr class="active">
-            <td>
-              <div class="input">
-                <input type="text" name="cat_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Group"); ?>'>
-              </div>
-            </td>
-            <td>
-              <div class="input">
-                <input type="text" name="key_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Type"); ?>'>
-              </div>
-            </td>
-            <td>
-              <div class="input">
-                <input type="text" name="value_<?php echo $rand_key; ?>" placeholder='<?php echo T_("Value"); ?>'>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+
+        </div>
+      </section>
 
     </div>
-  </section>
-
-</div>
-</div>
+  </div>
 
 </form>

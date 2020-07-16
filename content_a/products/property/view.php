@@ -36,6 +36,15 @@ class view
 		\dash\data::propertyList($property_list);
 
 
+		$catList = \lib\app\product\property::all_cat_name();
+		\dash\data::catList($catList);
+
+		$keyList = \lib\app\product\property::all_key_name();
+		\dash\data::keyList($keyList);
+
+		$valueList = \lib\app\product\property::all_value_name();
+		\dash\data::valueList($valueList);
+
 	}
 }
 ?>

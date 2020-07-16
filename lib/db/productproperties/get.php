@@ -3,6 +3,28 @@ namespace lib\db\productproperties;
 
 class get
 {
+	public static function all_cat_name()
+	{
+		$query = "SELECT DISTINCT productproperties.cat AS `cat` FROM productproperties";
+		$result = \dash\db::get($query, 'cat');
+		return $result;
+	}
+
+	public static function all_key_name()
+	{
+		$query = "SELECT DISTINCT productproperties.key AS `key` FROM productproperties";
+		$result = \dash\db::get($query, 'key');
+		return $result;
+	}
+
+
+	public static function all_value_name()
+	{
+		$query = "SELECT DISTINCT productproperties.value AS `value` FROM productproperties";
+		$result = \dash\db::get($query, 'value');
+		return $result;
+	}
+
 
 	public static function product_property_list($_product_id, $_parent_id = null)
 	{
