@@ -92,7 +92,7 @@ class website
 
 		echo '<a class="jProduct1" href="'. \dash\get::index($_item, 'url'). '">';
 		{
-			echo '<img src="'. $image. '" alt="'. $title. '">';
+			echo '<div class= "cover"><img src="'. $image. '" alt="'. $title. '"></div>';
 			if($discountpercent)
 			{
 				echo '<span class="discount">';
