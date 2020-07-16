@@ -100,15 +100,23 @@ class find
 		if($myHeader === null && !\dash\engine\content::api_content())
 		{
 			$headerScroll = true;
+			$myContent = \dash\engine\content::get();
 			if (\dash\detect\device::detectPWA())
 			{
-				// if is not set, on pwa force add
-				$myHeader = core.'layout/pwa/pwa-header.php';
-				$headerScroll = false;
+				if($myContent === 'content_subdomain')
+				{
+					// subdomain of stores
+					$myHeader = root.'content_subdomain/home/layout/pwa/header.php';
+				}
+				else
+				{
+					// if is not set, on pwa force add
+					$myHeader = core.'layout/pwa/pwa-header.php';
+					$headerScroll = false;
+				}
 			}
 			else
 			{
-				$myContent = \dash\engine\content::get();
 				if(\dash\data::include_adminPanel())
 				{
 					// admin panels
@@ -131,16 +139,6 @@ class find
 				}
 			}
 		}
-
-		if(\dash\layout\business::website())
-		{
-			$temp_myHeader = \dash\layout\business::header_addr();
-			if($temp_myHeader)
-			{
-				$myHeader = $temp_myHeader;
-			}
-		}
-
 
 		echo "\n <header id='pageHeader' data-xhr='pageHeader'";
 		if($headerScroll)
