@@ -92,14 +92,7 @@ if (\dash\url::subdomain())
 // set env as store code or Jibres or something else
 echo " data-env='". \dash\data::global_env(). "'";
 // content
-if(\dash\url::content() === null)
-{
-  echo " data-in='site'";
-}
-else
-{
-  echo " data-in='". \dash\url::content(). "'";
-}
+echo " data-in='". \dash\engine\content::get_name(). "'";
 // page
 echo " data-page='". \dash\data::global_page(). "'";
 if(\dash\data::include_adminPanel())

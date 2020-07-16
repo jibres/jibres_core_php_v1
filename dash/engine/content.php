@@ -109,6 +109,7 @@ class content
 		return self::$addr;
 	}
 
+
 	public static function get()
 	{
 		if(!self::$name)
@@ -117,6 +118,23 @@ class content
 		}
 		return self::$name;
 	}
+
+	public static function get_name()
+	{
+		$myName = self::get();
+
+		if($myName === 'content')
+		{
+			$myName = 'site';
+		}
+		else
+		{
+			$myName = str_replace('content_', '', $myName);
+		}
+
+		return $myName;
+	}
+
 
 	public static function get_addr()
 	{
