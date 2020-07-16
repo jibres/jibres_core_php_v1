@@ -9,6 +9,16 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('remove') === 'remove')
+		{
+			\lib\app\product\property::remove(\dash\request::post('pid'), $id);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 		$post                = [];
 		$post['cat']         = \dash\request::post('cat');
 		$post['key']         = \dash\request::post('key');

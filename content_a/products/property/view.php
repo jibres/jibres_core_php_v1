@@ -32,7 +32,7 @@ class view
 		\dash\face::help(\dash\url::support().'/property');
 
 
-		$property_list = \lib\app\product\property::get_pretty($id);
+		$property_list = \lib\app\product\property::get_pretty($id, true);
 		\dash\data::propertyList($property_list);
 
 		$catList = \lib\app\product\property::all_cat_name();

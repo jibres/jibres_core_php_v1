@@ -87,12 +87,9 @@ $productDataRow = \dash\data::productDataRow();
       <tr>
         <th><?php echo $value['key']; ?></th>
         <td>
-          <?php if(\dash\get::index($value, 'link')) {?>
-            <a href="<?php echo \dash\get::index($value, 'link') ?>"><?php echo $value['value']; ?></a>
-          <?php }else{ ?>
           <?php echo $value['value']; ?>
-          <?php } //endif ?>
         </td>
+        <td class="collapsin"><?php if(\dash\get::index($value, 'id')) {?><div class="btn linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
       </tr>
 <?php     } ?>
     </table>

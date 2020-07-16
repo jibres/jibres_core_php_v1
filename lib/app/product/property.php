@@ -23,7 +23,7 @@ class property
 		return $list;
 	}
 
-	public static function get_pretty($_id)
+	public static function get_pretty($_id, $_admin = false)
 	{
 		$id = \dash\validate::id($_id, false);
 		if(!$id)
@@ -123,7 +123,7 @@ class property
 				$result[$value['cat']] = ['title' => $value['cat'], 'list' => []];
 			}
 
-			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value']];
+			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value'], 'id' => $value['id']];
 
 		}
 
@@ -237,7 +237,16 @@ class property
 		return $result;
 	}
 
+	public static function remove($_property_id, $_product_id)
+	{
+		$product_id = \dash\validate::id($_product_id);
+		$property_id = \dash\validate::id($_property_id);
 
+		\lib\db\productproperties\delete::one($property_id, $product_id);
+
+		\dash\notif::ok(T_("Property removed"));
+		return true;
+	}
 
 	public static function add($_args, $_id)
 	{
