@@ -14,7 +14,7 @@ class view
 
 		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
 
-		\dash\data::defaultRatioSlider(T_("Default"));
+		\dash\data::defaultRatioSlider(T_("Default (1:1)"));
 	}
 }
 ?>

@@ -31,7 +31,7 @@ class ratio
 		$split = explode(':', $ratio);
 		if(isset($split[0]) && isset($split[1]) && is_numeric($split[0]) && is_numeric($split[1]))
 		{
-			$int_ratio = round(intval($split[0]) / intval($split[1]), 5);
+			$int_ratio = round(floatval($split[0]) / floatval($split[1]), 5);
 		}
 
 		$result                 = [];

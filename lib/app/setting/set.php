@@ -12,7 +12,7 @@ class set
 			'default_pirce_list' => 'bit',
 			'variant_product'    => 'bit',
 			'defaulttracking'    => 'bit',
-			'ratio'              => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
+			'ratio'              => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3', '4:3', '2.5:1']],
 			'share_text'         => 'desc',
 			'view_text'         => 'desc',
 		];
