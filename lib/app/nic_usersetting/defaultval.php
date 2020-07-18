@@ -21,15 +21,16 @@ class defaultval
 	{
 		if($_domain && \dash\validate::ir_domain($_domain, false))
 		{
-			return 'w.ns.arvancdn.com';
+			return 'p.ns.arvancdn.com';
 		}
 		elseif($_domain)
 		{
-			return 'mark.ns.cloudflare.com';
+			return 'p.ns.arvancdn.com';
+			// return 'mark.ns.cloudflare.com';
 		}
 		else
 		{
-			return 'w.ns.arvancdn.com';
+			return 'p.ns.arvancdn.com';
 		}
 
 	}
@@ -39,15 +40,16 @@ class defaultval
 	{
 		if($_domain && \dash\validate::ir_domain($_domain, false))
 		{
-			return 'f.ns.arvancdn.com';
+			return 'h.ns.arvancdn.com';
 		}
 		elseif($_domain)
 		{
-			return 'wanda.ns.cloudflare.com';
+			return 'h.ns.arvancdn.com';
+			// return 'wanda.ns.cloudflare.com';
 		}
 		else
 		{
-			return 'f.ns.arvancdn.com';
+			return 'h.ns.arvancdn.com';
 		}
 	}
 
