@@ -41,27 +41,13 @@ class model
 		$args['seodesc']        = \dash\request::post('seodesc');
 
 
-		$property = [];
-
-		$post = \dash\request::post();
-		foreach ($post as $key => $value)
-		{
-			if(substr($key, 0, 15) === 'property_group_')
-			{
-				if(\dash\request::post('property_key_'. substr($key, 15)))
-				{
-					$property[$value] = \dash\request::post('property_key_'. substr($key, 15));
-				}
-			}
-		}
-
 		$file = \dash\upload\category::set($id);
 		if($file)
 		{
 			$args['file'] = $file;
 		}
 
-		$result = \lib\app\category\edit::edit($args, $id, $property);
+		$result = \lib\app\category\edit::edit($args, $id);
 
 		if(\dash\engine\process::status())
 		{

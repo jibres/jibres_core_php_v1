@@ -9,11 +9,6 @@ class view
 
 		\dash\data::back_text(T_('Categories'));
 		\dash\data::back_link(\dash\url::this());
-
-		$parentList = \lib\app\category\get::parent_list();
-
-		\dash\data::parentList($parentList);
-
 	}
 }
 ?>
