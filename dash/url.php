@@ -445,8 +445,17 @@ class url
 		}
 
 		$talambarAddr .= '://';
+
 		$talambarAddr .= $_mode;
-		$talambarAddr .= '.talambar.';
+		// cdn read from jibres instead of talambar
+		if($_mode === 'cdn')
+		{
+			$talambarAddr .= '.jibres.';
+		}
+		else
+		{
+			$talambarAddr .= '.talambar.';
+		}
 
 		if(self::isLocal())
 		{
