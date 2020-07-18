@@ -100,6 +100,7 @@ class website
 		$discount        = \dash\get::index($_item, 'discount');
 		$discountpercent = \dash\get::index($_item, 'discountpercent');
 		$unit            = \dash\get::index($_item, 'unit');
+		$allow_shop      = \dash\get::index($_item, 'allow_shop');
 
 		echo '<a class="jProduct1" href="'. \dash\get::index($_item, 'url'). '">';
 		{
@@ -112,7 +113,15 @@ class website
 				echo '%';
 				echo '</span>';
 			}
-			echo '<div class="addToCart" data-ajaxify data-method="post" data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\' data-action="'. \dash\url::kingdom() . '/p/1/card">+</div>';
+
+			if($allow_shop)
+			{
+				echo '<div class="addToCart" data-ajaxify data-method="post" data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\'>+</div>';
+			}
+			else
+			{
+				echo '<div class="addToCart disabled">+</div>';
+			}
 			// show title
 			{
 				echo '<div class="title">';

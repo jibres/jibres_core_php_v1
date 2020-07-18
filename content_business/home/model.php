@@ -8,7 +8,10 @@ class model
 		if(\dash\request::post('cart') === 'add')
 		{
 			$result = \lib\app\cart\add::new_cart_website(\dash\request::post('product_id'), \dash\request::post('count'));
-			\dash\redirect::to(\dash\url::kingdom(). '/p/'. \dash\request::post('product_id'));
+			if($result)
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/p/'. \dash\request::post('product_id'));
+			}
 
 		}
 

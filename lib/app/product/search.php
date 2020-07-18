@@ -444,6 +444,7 @@ class search
 		$order = null;
 
 		$and[] = " products.status != 'deleted'";
+		// $and[] = " products.instock = 'yes'";
 		$and[] = " products.parent IS NULL ";
 
 
