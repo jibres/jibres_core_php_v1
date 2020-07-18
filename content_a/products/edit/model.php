@@ -54,7 +54,8 @@ class model
 		$post['slug']              = \dash\request::post('slug');
 		$post['type']              = \dash\request::post('type');
 		$post['seodesc']           = \dash\request::post('seodesc');
-		// $post['company']        = \dash\request::post('company');
+		$post['company']           = \dash\request::post('company');
+
 		$post['scalecode']         = \dash\request::post('scalecode');
 		// $post['status']         = \dash\request::post('status');
 		$post['minstock']          = \dash\request::post('minstock');

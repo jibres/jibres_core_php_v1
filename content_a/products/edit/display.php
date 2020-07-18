@@ -330,6 +330,28 @@ $productDataRow = \dash\data::productDataRow();
           <?php } //endfor ?>
         </select>
       </div>
+
+      <div class="mB10">
+        <label for='company'><?php echo T_("Brand"); ?></label>
+        <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
+          <option></option>
+
+          <?php if(\dash\data::productDataRow_company_id()) {?>
+
+            <option value="0"><?php echo T_("Without Brand"); ?></option>
+
+          <?php } //endif ?>
+
+          <?php foreach (\dash\data::listCompanies() as $key => $value) {?>
+
+            <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_company_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
+
+          <?php } //endfor ?>
+
+        </select>
+      </div>
+
+
       <label for="iweight"><?php echo T_("Weight"); ?></label>
       <div class="input">
         <input type="text" name="weight" id="iweight" value="<?php echo \dash\get::index($productDataRow,'weight'); ?>"  autocomplete="off" maxlength="7" data-format='number'>
