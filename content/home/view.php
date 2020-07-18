@@ -23,11 +23,10 @@ class view
 
 
 		\dash\face::seo(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
-		\dash\face::title(\dash\face::site());
-		if (!\dash\detect\device::detectPWA())
-		{
-			\dash\face::title(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
-		}
+
+		\dash\face::title(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
+		// set pwa title
+		\dash\face::titlePWA(\dash\face::site());
 
 		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
 

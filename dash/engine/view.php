@@ -45,11 +45,11 @@ class view
 			\dash\data::global_env('Jibres');
 		}
 
-
 		\dash\face::site(T_(\dash\face::siteTitle()));
 		\dash\face::intro(T_(\dash\face::siteDesc()));
 		\dash\face::slogan(T_(\dash\face::siteSlogan()));
 		\dash\face::logo(\dash\url::icon());
+
 		// set custom logo
 		// if(\dash\option::config('site', 'logo'))
 		// {
@@ -79,14 +79,13 @@ class view
 		{
 			// translate all title at last step
 			$page_title = T_($page_title);
+			// set pwa title
+			\dash\face::titlePWA($page_title);
+			// set desktop title
 			\dash\face::title($page_title);
 			if(\dash\url::content())
 			{
-				if(\dash\detect\device::detectPWA())
-				{
-					// dont add on pwa
-				}
-				elseif(\dash\face::specialTitle())
+				if(\dash\face::specialTitle())
 				{
 					// do nothing
 				}
@@ -212,6 +211,11 @@ class view
 			}
 
 			\dash\data::userBadge_desc($txtDesc);
+		}
+
+		if(!\dash\face::titlePWA())
+		{
+			\dash\face::titlePWA(\dash\face::title());
 		}
 	}
 
