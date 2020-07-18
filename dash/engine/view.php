@@ -16,7 +16,7 @@ class view
 		// define default value for global
 		\dash\data::global_title(T_("Jibres"));
 		\dash\data::global_subdomain(\dash\url::subdomain());
-		\dash\data::global_content(\dash\url::content());
+		\dash\data::global_content(\dash\engine\content::get_name());
 		if(\dash\data::global_content() === null)
 		{
 			\dash\data::global_content('site');
