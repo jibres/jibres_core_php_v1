@@ -93,6 +93,7 @@ class website
 
 	private static function product_element_create($_item)
 	{
+		$id              = \dash\get::index($_item, 'id');
 		$title           = \dash\get::index($_item, 'title');
 		$image           = \dash\get::index($_item, 'thumb');
 		$price           = \dash\get::index($_item, 'price');
@@ -111,7 +112,7 @@ class website
 				echo '%';
 				echo '</span>';
 			}
-			echo '<div class="addToCart" data-ajaxify data-method="post" data-action="'. \dash\url::kingdom() . '/p/1/card">+</div>';
+			echo '<div class="addToCart" data-ajaxify data-method="post" data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\' data-action="'. \dash\url::kingdom() . '/p/1/card">+</div>';
 			// show title
 			{
 				echo '<div class="title">';
