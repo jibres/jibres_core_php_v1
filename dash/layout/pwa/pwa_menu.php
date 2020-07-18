@@ -19,7 +19,15 @@ class pwa_menu
 					break;
 
 				case 'business':
-					return self::businessWebsite();
+					switch (\dash\url::module())
+					{
+						case 'p':
+						break;
+
+						default:
+						return self::businessWebsite();
+						break;
+					}
 					break;
 
 				default:
@@ -204,20 +212,16 @@ class pwa_menu
 		// select module if user select them
 		switch (\dash\url::module())
 		{
-			case 'products':
-				$myFooter['products']['selected'] = true;
+			case 'category':
+				$myFooter['category']['selected'] = true;
 				break;
 
-			case 'factor':
-				$myFooter['orders']['selected'] = true;
+			case 'cart':
+				$myFooter['cart']['selected'] = true;
 				break;
 
-			case 'report':
-				$myFooter['reports']['selected'] = true;
-				break;
-
-			case 'setting':
-				$myFooter['setting']['selected'] = true;
+			case 'profile':
+				$myFooter['profile']['selected'] = true;
 				break;
 
 			default:
