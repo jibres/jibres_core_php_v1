@@ -96,6 +96,7 @@ class edit
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
+
 		if(array_key_exists('unit', $args))
 		{
 			if($args['unit'])
@@ -273,6 +274,23 @@ class edit
 			\dash\temp::set('productHasChange', true);
 
 			\lib\app\product\inventory::manual($stock, $id);
+		}
+
+		if(isset($args['trackquantity']) && $args['trackquantity'] === 'yes')
+		{
+			if(\lib\app\product\inventory::get($id) > 0)
+			{
+				\lib\app\product\edit::in_stock($id);
+			}
+			else
+			{
+				\lib\app\product\edit::out_of_stock($id);
+			}
+		}
+
+		if(isset($args['trackquantity']) && $args['trackquantity'] === 'no')
+		{
+			\lib\app\product\edit::in_stock($id);
 		}
 
 		if(!empty($args))

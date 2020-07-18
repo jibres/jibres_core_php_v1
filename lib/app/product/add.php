@@ -272,6 +272,7 @@ class add
 			if($stock)
 			{
 				\lib\app\product\inventory::initial($stock, $product_id);
+				\lib\app\product\edit::in_stock($product_id);
 			}
 		}
 
