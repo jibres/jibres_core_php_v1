@@ -1,8 +1,8 @@
 
    <div class="back"><?php
-if(\dash\data::back_link() && \dash\data::back_text())
+if(\dash\data::back_link())
 {
-	echo "<a href='". \dash\data::back_link(). "'>". \dash\data::back_text(). "</a>";
+	echo "<a href='". \dash\data::back_link(). "'></a>";
 }
 ?></div>
    <div class="title"><?php echo \dash\face::titlePWA(); ?></div>
