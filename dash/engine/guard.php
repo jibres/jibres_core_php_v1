@@ -151,6 +151,7 @@ class guard
 		if(\dash\url::tld() === 'ir')
 		{
 			$url .= 'ir';
+			$url .= ' '. \dash\url::protocol(). '://cdn.jibres.com';
 		}
 		else
 		{
