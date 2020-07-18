@@ -10,9 +10,7 @@ class api
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
-
-		// $apikey   = \dash\setting\arvancloud::apikey();
-		$apikey = 'Apikey d4e34a14-d007-461e-8488-8eeac9119e1b';
+		$apikey = \dash\setting\dns_server::apikey();
 
 		$language = \dash\language::current() === 'fa' ? 'fa' : 'en';
 
@@ -20,11 +18,21 @@ class api
 
 		$url = sprintf($master_url, $_path);
 
+		$json = false;
+		if(isset($_option['json']) && $_option['json'])
+		{
+			$json = true;
+		}
 		// set headers
 		$header   = [];
-		$header[] = 'Content-Type:application/json';
+		$header[] = 'Accept: application/json';
 		$header[] = 'Authorization: '. $apikey;
 		$header[] = 'Accept-Language: '. $language;
+
+		if($json)
+		{
+			$header[] = 'Content-Type: application/json';
+		}
 
 
 		if($_param && is_array($_param))
@@ -40,38 +48,53 @@ class api
 
 		if($_body && is_array($_body))
 		{
-			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($_body, JSON_UNESCAPED_UNICODE));
+			if($json)
+			{
+				$_body = json_encode($_body, JSON_UNESCAPED_UNICODE);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $_body);
+			}
+			else
+			{
+				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($_body));
+			}
 		}
 
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 120);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 120);
 
-		$response = curl_exec($ch);
+		$response  = curl_exec($ch);
 		$CurlError = curl_error($ch);
-
+		$getInfo   = curl_getinfo($ch);
 		curl_close ($ch);
 
+		$log =
+		[
+			'url'           => $url,
+			'func_get_args' => func_get_args(),
+			'response'      => $response,
+			'CurlError'     => $CurlError,
+		];
+
+		\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
 		if(!$response)
 		{
 			\dash\notif::error(T_("Can not connect to Domain server!"));
 
-			$insert_log['result'] = 'Jibres: Result curl is false!';
-
 			if($CurlError)
 			{
-				$insert_log['result'] .= ' CURL Error: '. $CurlError;
+				\dash\notif::error(' CURL Error: '. $CurlError);
 			}
-
 			return false;
 		}
 
 		if(!is_string($response))
 		{
-			$insert_log['result'] = 'Jibres: Result curl is not string!';
+			\dash\notif::error('Jibres: Result curl is not string!');
 			return false;
 		}
 
@@ -79,11 +102,9 @@ class api
 
 		if(!is_array($result))
 		{
-			$insert_log['result'] = 'Jibres: Can not parse JSON!';
+			\dash\notif::error('Jibres: Can not parse JSON!');
 			return false;
 		}
-
-		var_dump($result);exit();
 
 		return $result;
 
@@ -101,6 +122,67 @@ class api
 	{
 		return self::run('', 'get');
 	}
+
+
+	public static function get_domain($_domain)
+	{
+		return self::run($_domain, 'get');
+	}
+
+
+	public static function add_domain($_domain)
+	{
+		return self::run('dns-service', 'post', null, ['domain' => $_domain]);
+	}
+
+
+	public static function get_ns_key($_domain)
+	{
+		return self::run($_domain. '/dns-service/ns-keys', 'get');
+	}
+
+
+	public static function get_dns_record($_domain)
+	{
+		return self::run($_domain. '/dns-records', 'get');
+	}
+
+
+	public static function check_dns_record($_domain)
+	{
+		return self::run($_domain. '/dns-service/check-ns', 'put', null, []);
+	}
+
+
+
+	public static function add_dns_record($_domain, $_args)
+	{
+		return self::run($_domain. '/dns-records', 'post', null, $_args);
+	}
+
+
+	public static function update_dns_record($_domain, $_args, $_id)
+	{
+		return self::run($_domain. '/dns-records/'. $_id, 'put', null, $_args);
+	}
+
+
+	public static function get_arvan_request($_domain)
+	{
+		return self::run($_domain. '/https', 'get');
+	}
+
+
+
+	public static function set_arvan_request($_domain, $_args)
+	{
+		return self::run($_domain. '/https/certificate/arvan/request', 'post', null, $_args);
+	}
+
+
+
+
+
 
 
 }

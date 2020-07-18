@@ -2,6 +2,14 @@
 $storeData = \dash\data::store_store_data();
 ?>
 
+<div class="hide">
+  <div id="urlthat"><?php echo \dash\url::that(); ?></div>
+  <div id="urlthis"><?php echo \dash\url::this(); ?></div>
+  <div id="worktype"><?php echo \dash\data::myWorkDomainType(); ?></div>
+  <div id="workondomain"><?php echo \dash\data::myWorkDomain(); ?></div>
+  <div id="urlpwd"><?php echo \dash\url::pwd() ?></div>
+</div>
+
 
 <div class="f justify-center">
  <div class="c6 s12 pA10">
@@ -11,8 +19,7 @@ $storeData = \dash\data::store_store_data();
         <div class="body">
           <p class="mB0-f">
             <?php echo T_("You can connect your store to special domain"); ?>
-            <br>
-            <?php echo T_("To route domain set your CNAME of your domain to alise.jibres.com"); ?>
+
             <?php if(\dash\url::tld() === 'ir' || \dash\url::isLocal()) {?>
               <div class="msg success2">
                 <?php echo T_("Your can buy new domain here"); ?>

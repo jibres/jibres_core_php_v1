@@ -56,6 +56,7 @@ class domain
 			{
 				// bug
 				\dash\log::oops('db');
+				return false;
 			}
 		}
 
@@ -67,6 +68,9 @@ class domain
 		{
 			\dash\file::delete($domain_addr. $data['domain']);
 		}
+
+		// to make ajax for remove domain
+		\dash\session::set('businessRemoveDomain', $data['domain']);
 
 
 		\dash\notif::ok(T_("Domain disconnected"));
@@ -151,8 +155,8 @@ class domain
 			{
 				// needless to update domain
 				// exactly this domain exists for this store
-				\dash\notif::info(T_("Your domain detail saved without change"));
-				return true;
+				\dash\notif::info(T_("This domain was added to your business"));
+				return null;
 			}
 			else
 			{
@@ -201,6 +205,10 @@ class domain
 			\dash\log::oops('db');
 			return false;
 		}
+
+		// set ajax
+		\dash\session::set('businessNewDomain', $domain);
+
 		\dash\notif::ok(T_("Your domain connected to your store"));
 		return true;
 
@@ -266,6 +274,241 @@ class domain
 		}
 
 		return $result;
+	}
+
+
+	public static function domain_action($_type, $_domain)
+	{
+		$_domain       = \dash\validate::domain($_domain);
+
+		$add_domain    = \dash\session::get('businessNewDomain');
+		$remove_domain = \dash\session::get('businessRemoveDomain');
+
+		\dash\session::set('businessNewDomain', null);
+		\dash\session::set('businessRemoveDomain', null);
+
+		if($_type === 'add')
+		{
+			if($add_domain !== $_domain)
+			{
+				\dash\notif::error(T_("Dont!"));
+				return false;
+			}
+			return self::add_domain_arvan($add_domain);
+		}
+		elseif($_type === 'remove')
+		{
+			if($remove_domain !== $_domain)
+			{
+				\dash\notif::error(T_("Dont!"));
+				return false;
+			}
+
+			return self::remove_domain_arvan($remove_domain);
+		}
+		else
+		{
+			\dash\log::oops('DomainActionInvalidTypeArvan');
+		}
+	}
+
+
+	public static function add_domain_arvan($_domain)
+	{
+		$jibres_ip = \dash\setting\dns_server::ip();
+
+		$check_exist_domain = \lib\arvancloud\api::get_domain($_domain);
+
+		if(!$check_exist_domain || !is_array($check_exist_domain))
+		{
+			self::send_to_supervisor('Can not connect to arvancloud API On domain: '. $_domain);
+			\dash\notif::error(T_("Sorry, Can not connect to CDN API to connect your domain. Please Try again"));
+			return false;
+		}
+
+		$must_add   = [];
+		$mus_update = [];
+		$nothing    = [];
+		$add_https  = false;
+		if(array_key_exists('status', $check_exist_domain) && !$check_exist_domain['status'])
+		{
+			// domain not found need to add to arvand
+			$add_domain = \lib\arvancloud\api::add_domain($_domain);
+
+			if(isset($add_domain['data']['id']))
+			{
+				// add a record
+				$must_add['@'] = [];
+				$must_add['*'] = [];
+
+				\lib\arvancloud\api::check_dns_record($_domain);
+
+				$check_exist_domain = \lib\arvancloud\api::get_domain($_domain);
+
+				if(isset($check_exist_domain['data']['services']['dns']) && $check_exist_domain['data']['services']['dns'] === 'active')
+				{
+					// add https
+					$add_https = true;
+				}
+
+			}
+			else
+			{
+				self::send_to_supervisor('Can not connect add domain to arvand panel. domain: '. $_domain);
+				\dash\notif::error(T_("Can not add domain to arvand panel"));
+				return false;
+			}
+		}
+		elseif(isset($check_exist_domain['data']['id']))
+		{
+			$get_dns_record = \lib\arvancloud\api::get_dns_record($_domain);
+			if(!$get_dns_record || !is_array($get_dns_record) || !isset($get_dns_record['data']) || (isset($get_dns_record['data']) && !is_array($get_dns_record['data'])))
+			{
+				self::send_to_supervisor('Can not connect get domain dns record from arvand panel. domain: '. $_domain);
+				\dash\notif::error(T_("Can not get domain dns record from arvand panel"));
+				return false;
+			}
+
+
+			if(isset($check_exist_domain['data']['services']['dns']) && $check_exist_domain['data']['services']['dns'] === 'active')
+			{
+				// add https
+				$add_https = true;
+			}
+
+
+			foreach ($get_dns_record['data'] as $key => $value)
+			{
+				if(isset($value['id']))
+				{
+					if(isset($value['type']) && $value['type'] === 'a')
+					{
+						if(isset($value['name']) && $value['name'] === '@' || $value['name'] === '*')
+						{
+							if(isset($value['value']) && is_array($value['value']))
+							{
+								if(count($value['value']) === 1)
+								{
+
+									if(isset($value['value'][0]['ip']))
+									{
+										if($value['value'][0]['ip'] === $jibres_ip)
+										{
+											$nothing[$value['name']] =
+											[
+												'id' => $value['id'],
+											];
+										}
+										else
+										{
+											$mus_update[$value['name']] =
+											[
+												'id' => $value['id'],
+											];
+										}
+									}
+								}
+								else
+								{
+									$mus_update[$value['name']] =
+									[
+										'id' => $value['id'],
+									];
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if(isset($mus_update['@']))
+		{
+			// notihg
+		}
+		elseif(!isset($nothing['@']))
+		{
+			$must_add['@'] = [];
+		}
+
+		if(isset($mus_update['*']))
+		{
+			// nothing
+		}
+		elseif(!isset($nothing['*']))
+		{
+			$must_add['*'] = [];
+		}
+
+		foreach ($must_add as $key => $value)
+		{
+			$add_dns =
+			[
+				"type"           =>  "a",
+				"name"           =>  $key,
+				"value"          =>  json_encode([["ip" => $jibres_ip, /*"port" => null, "weight" => null , "country" => null*/]]),
+				"ttl"            =>  120,
+				"cloud"          =>  true,
+				"upstream_https" =>  "default",
+				"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
+			];
+
+			$result_add = \lib\arvancloud\api::add_dns_record($_domain, $add_dns);
+		}
+
+
+		foreach ($mus_update as $key => $value)
+		{
+			$add_dns =
+			[
+				"type"           =>  "a",
+				"name"           =>  $key,
+				"value"          =>  json_encode([["ip" => $jibres_ip, /*"port" => null, "weight" => null , "country" => null*/]]),
+				"ttl"            =>  120,
+				"cloud"          =>  true,
+				"upstream_https" =>  "default",
+				"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
+			];
+			$result_update = \lib\arvancloud\api::update_dns_record($_domain, $add_dns, $value['id']);
+		}
+
+
+		if($add_https)
+		{
+			$get_https_setting = \lib\arvancloud\api::get_arvan_request($_domain);
+
+			if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
+			{
+				if(array_key_exists('ar_wildcard', $get_https_setting['data']) && !$get_https_setting['data']['ar_wildcard'])
+				{
+					$add_https_args =
+					[
+						// "ar_sub_domains": [],
+						"ar_wildcard" => true,
+					];
+
+					$set_https = \lib\arvancloud\api::set_arvan_request($_domain, $add_https_args);
+				}
+			}
+		}
+
+	}
+
+
+	private static function remove_domain_arvan($_domain)
+	{
+
+	}
+
+
+	private static function send_to_supervisor($_text)
+	{
+		$log =
+		[
+			'my_text' => $_text,
+		];
+
+		\dash\log::set('sendToSupervisor', $log);
 	}
 
 

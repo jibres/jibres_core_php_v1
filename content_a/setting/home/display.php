@@ -143,6 +143,17 @@
             </div>
 
 
+              <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/domain">
+                    <div class="c-auto"><i class="sf-earth"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Domains"); ?></h2>
+                        <p><?php echo T_("Connect business to your domain"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+
         </div>
     </div>
 </div>
