@@ -80,7 +80,10 @@ class view
 			// translate all title at last step
 			$page_title = T_($page_title);
 			// set pwa title
-			\dash\face::titlePWA($page_title);
+			if(!\dash\face::titlePWA())
+			{
+				\dash\face::titlePWA($page_title);
+			}
 			// set desktop title
 			\dash\face::title($page_title);
 			if(\dash\url::content())

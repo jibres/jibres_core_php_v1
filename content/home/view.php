@@ -36,19 +36,19 @@ class view
 			\dash\data::moneyUnit(T_('Hezar Toman'));
 		}
 
-		if(!\dash\user::id())
+		if(\dash\user::id())
+		{
+			// back
+			\dash\data::action_text(T_('Dashboard'));
+			\dash\data::action_link(\dash\url::kingdom(). '/my');
+		}
+		else
 		{
 			// btn
 			\dash\data::action_text(T_('Enter'));
 			\dash\data::action_link(\dash\url::this(). '/enter');
 		}
 
-		if(\dash\detect\device::detectPWA() && \dash\user::id())
-		{
-			// back
-			\dash\data::action_text(T_('Dashboard'));
-			\dash\data::action_link(\dash\url::kingdom(). '/my');
-		}
 
 		$quote =
 		[
