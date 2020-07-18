@@ -2,9 +2,14 @@
 if(\dash\layout\pwa\pwa_menu::get())
 {
   echo "\n   <nav class='f'>";
-  foreach (\dash\layout\pwa\pwa_menu::get() as $item)
+  foreach (\dash\layout\pwa\pwa_menu::get() as $key => $item)
   {
-    echo "\n    <div class='c'>";
+    $myClass = '';
+    if(isset($item['class']) && $item['class'])
+    {
+      $myClass = ' '. $item['class'];
+    }
+    echo "\n    <div class='c". $myClass. "' data-key='". $key. "'>";
     if(isset($item['href']))
     {
       echo "<a href='". $item['href']. "'";

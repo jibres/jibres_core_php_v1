@@ -13,7 +13,9 @@ class view
 			$result = \lib\app\cart\add::new_cart_website($id, 1);
 			\dash\redirect::to(\dash\url::kingdom(). '/cart');
 		}
-
+		// btn
+		\dash\data::back_text(T_('Home'));
+		\dash\data::back_link(\dash\url::kingdom());
 
 		\dash\face::title(\lib\store::title(). ' | '. \dash\data::dataRow_title());
 

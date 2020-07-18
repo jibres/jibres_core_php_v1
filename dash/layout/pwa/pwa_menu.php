@@ -22,6 +22,7 @@ class pwa_menu
 					switch (\dash\url::module())
 					{
 						case 'p':
+						return self::businessProductPage();
 						break;
 
 						default:
@@ -177,8 +178,6 @@ class pwa_menu
 	}
 
 
-
-
 	public static function businessWebsite()
 	{
 		$myFooter =
@@ -228,6 +227,28 @@ class pwa_menu
 				$myFooter['home']['selected'] = true;
 				break;
 		}
+
+		return $myFooter;
+	}
+
+
+	public static function businessProductPage()
+	{
+		$myFooter =
+		[
+			'cart' =>
+			[
+				'href' => \dash\url::that(). '/cart',
+				'title' => T_('Add to cart'),
+				'class' => 'pwafooterAddToCart',
+			],
+			'buy' =>
+			[
+				'href' => \dash\url::that(). '/buy',
+				'title' => T_('Buy Now'),
+				'class' => 'pwafooterBuy',
+			],
+		];
 
 		return $myFooter;
 	}
