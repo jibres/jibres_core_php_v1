@@ -30,19 +30,25 @@
           <?php } // endif ?>
         <?php } //endif ?>
 
-       <div class="row productCountLine">
-        <div class="c-auto">
-         <div class="input productCount">
-          <label class="addon btn" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>+</label>
-          <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly>
-          <label class="addon btn" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>-</label>
-         </div>
-        </div>
-        <div class="c">
-         <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'><?php echo T_("Delete") ?></div>
-        </div>
 
-       </div>
+        <?php if(!\dash\get::index($value, 'allow_shop')) {?>
+          <div class="availability" data-red data-type='view'><?php echo T_("This product was removed from your cart"); ?></div>
+        <?php }else{ ?>
+         <div class="row productCountLine">
+          <div class="c-auto">
+           <div class="input productCount">
+            <label class="addon btn" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>+</label>
+            <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly>
+            <label class="addon btn" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>-</label>
+           </div>
+          </div>
+          <div class="c">
+           <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'><?php echo T_("Delete") ?></div>
+          </div>
+
+         </div>
+        <?php } // endif ?>
+
       </div>
       <div class="c-auto">
         <div class="priceLine">

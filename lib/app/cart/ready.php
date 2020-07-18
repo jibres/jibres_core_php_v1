@@ -31,6 +31,8 @@ class ready
 
 				case 'slug':
 				case 'trackquantity':
+				case 'instock':
+				case 'status':
 					$get_from_product[$key] = $value;
 					break;
 
@@ -82,6 +84,21 @@ class ready
 			if(array_key_exists('trackquantity', $get_from_product))
 			{
 				$result['trackquantity'] = $get_from_product['trackquantity'];
+			}
+
+			if(array_key_exists('instock', $get_from_product))
+			{
+				$result['instock'] = $get_from_product['instock'];
+			}
+
+			if(array_key_exists('status', $get_from_product))
+			{
+				$result['status'] = $get_from_product['status'];
+			}
+
+			if(array_key_exists('allow_shop', $get_from_product))
+			{
+				$result['allow_shop'] = $get_from_product['allow_shop'];
 			}
 
 		}

@@ -205,10 +205,15 @@ class search
 
 		$subtotal = 0;
 		$discount = 0;
+		$count    = 0;
 		foreach ($_detail as $key => $value)
 		{
-			$subtotal += floatval($value['count']) * floatval($value['price']);
-			$discount += floatval($value['count']) * floatval($value['discount']);
+			if(isset($value['allow_shop']) && $value['allow_shop'])
+			{
+				$count++;
+				$subtotal += floatval($value['count']) * floatval($value['price']);
+				$discount += floatval($value['count']) * floatval($value['discount']);
+			}
 		}
 
 		$shipping_value = 0;
@@ -219,7 +224,7 @@ class search
 		}
 
 		$result             = [];
-		$result['count']    = count($_detail);
+		$result['count']    = $count;
 		$result['subtotal'] = $subtotal;
 		$result['shipping'] = $shipping_value;
 		$result['discount'] = $discount;
@@ -273,11 +278,36 @@ class search
 		elseif($_guestid)
 		{
 			\lib\db\cart\update::set_view_guestid($_guestid);
-
 		}
 
 
 		$user_cart = array_map(['\\lib\\app\\cart\\ready', 'row'], $user_cart);
+
+
+		$must_remove = [];
+		foreach ($user_cart as $key => $value)
+		{
+			if(isset($value['allow_shop']) && $value['allow_shop'])
+			{
+				// nothing
+			}
+			else
+			{
+				$must_remove[] = $value['product_id'];
+			}
+		}
+
+		if($must_remove)
+		{
+			if($_user_id)
+			{
+				\lib\db\cart\delete::autoremove_product_user_id(implode(',', $must_remove), $user_id);
+			}
+			elseif($_guestid)
+			{
+				\lib\db\cart\delete::autoremove_product_guestid(implode(',', $must_remove), $_guestid);
+			}
+		}
 
 		return $user_cart;
 	}
