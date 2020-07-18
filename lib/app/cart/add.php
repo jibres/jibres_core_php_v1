@@ -103,6 +103,16 @@ class add
 			return false;
 		}
 
+		$ready_product = \lib\app\product\ready::row($load_product);
+		if(isset($ready_product['allow_shop']) && $ready_product['allow_shop'])
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not add this product to your cart"));
+			return false;
+		}
 
 		if(!$check_exist_record)
 		{

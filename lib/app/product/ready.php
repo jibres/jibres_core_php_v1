@@ -173,13 +173,27 @@ class ready
 
 		$result['category_list'] = [];
 
-		$result['allow_shop'] = false;
+		$allow_shop = false;
+
 		if(isset($result['status']) && $result['status'] === 'available')
 		{
-
+			if(array_key_exists('trackquantity', $result))
+			{
+				if($result['trackquantity'])
+				{
+					if(isset($result['instock']) && $result['instock'])
+					{
+						$allow_shop = true;
+					}
+				}
+				else
+				{
+					$allow_shop = true;
+				}
+			}
 		}
 
-		// var_dump($result);exit();
+		$result['allow_shop'] = $allow_shop;
 
 		return $result;
 	}
