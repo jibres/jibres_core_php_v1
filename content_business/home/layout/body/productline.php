@@ -1,7 +1,7 @@
 
 <?php
 
-$productline = \lib\app\product\get::website_product_list($line_detail);
+$productline = \lib\app\product\search::website_product_list($line_detail);
 
 
 if($productline && is_array($productline)) { ?>

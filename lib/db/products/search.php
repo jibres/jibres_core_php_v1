@@ -162,7 +162,7 @@ class search
 				products.status = 'available' AND
 				products.id != $_id AND
 				producttagusage.producttag_id IN ($ids)
-			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			ORDER BY products.instock ASC, (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
 			LIMIT $_limit
 		";
 
@@ -212,7 +212,7 @@ class search
 				products.status = 'available' AND $found_ids
 				products.id != $_id AND
 				productcategoryusage.productcategory_id IN ($category_id)
-			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			ORDER BY products.instock ASC, (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
 			LIMIT $_limit
 		";
 
@@ -239,7 +239,7 @@ class search
 			WHERE
 				products.status = 'available' AND $found_ids
 				products.id != $_id
-			ORDER BY (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			ORDER BY products.instock ASC, (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
 			LIMIT $_limit
 		";
 
