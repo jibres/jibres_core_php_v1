@@ -68,17 +68,17 @@ class guard
 		// $csp .= "default-src 'self'; ";
 		$csp .= "default-src 'none'; ";
 		// script-src
-		// $csp .= "script-src ". self::csp_domain('cdn'). " www.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_domain('cdn'). " www.google-analytics.com www.googletagmanager.com static.cloudflareinsights.com http://localhost:9759/jibres/; ";
+		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
+		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com static.cloudflareinsights.com http://localhost:9759/jibres/; ";
 		// style-src
-		$csp .= "style-src ". self::csp_domain('cdn'). " 'unsafe-inline'; ";
-		// $csp .= "style-src ". self::csp_domain('cdn'). "; ";
+		$csp .= "style-src ". self::csp_cdn(). " 'unsafe-inline'; ";
+		// $csp .= "style-src ". self::csp_cdn(). "; ";
 		// img-src
-		$csp .= "img-src ". self::csp_domain(). " https: blob: data:; ";
+		$csp .= "img-src ". self::csp_cdn(). ' '. self::csp_domain(). " https: blob: data:; ";
 		// font-src
-		$csp .= "font-src ". self::csp_domain('cdn'). " data:; ";
+		$csp .= "font-src ". self::csp_cdn(). " data:; ";
 		// media-src
-		$csp .= "media-src ". self::csp_domain(). " data:; ";
+		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " data:; ";
 		// frame-src
 		$csp .= "frame-src 'self' https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/; ";
 		// base-uri
@@ -86,7 +86,7 @@ class guard
 		// manifest-src
 		$csp .= "manifest-src 'self'; ";
 		// connect-src
-		$csp .= "connect-src 'self' ". self::csp_domain('cdn'). ' '. self::csp_domain('cloud'). ' '. self::csp_domain('*', 'jibres'). " ". self::csp_domain(false, 'jibres'). "; ";
+		$csp .= "connect-src 'self' ". self::csp_cdn(). ' '. self::csp_domain('cloud'). ' '. self::csp_domain('*', 'jibres'). " ". self::csp_domain(false, 'jibres'). "; ";
 		// form-action
 		$csp .= "form-action 'self'; ";
 
@@ -142,6 +142,27 @@ class guard
 		{
 			// @header("Expect-CT : max-age=0;");
 		}
+	}
+
+	private static function csp_cdn()
+	{
+		$url = \dash\url::protocol(). '://cdn.jibres.';
+
+		if(\dash\url::tld() === 'ir')
+		{
+			$url .= 'ir';
+		}
+		else
+		{
+			$url .= 'com';
+		}
+
+		if(\dash\url::tld() === 'local')
+		{
+			$url .= ' '. \dash\url::protocol(). '://cdn.jibres.local';
+		}
+
+		return $url;
 	}
 
 
