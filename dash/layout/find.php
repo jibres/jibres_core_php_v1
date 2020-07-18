@@ -101,42 +101,26 @@ class find
 		{
 			$headerScroll = true;
 			$myContent = \dash\engine\content::get();
-			if (\dash\detect\device::detectPWA())
+
+			if(\dash\data::include_adminPanel())
 			{
-				if($myContent === 'content_business')
-				{
-					// subdomain of stores
-					$myHeader = root.'content_business/home/layout/pwa/header.php';
-				}
-				else
-				{
-					// if is not set, on pwa force add
-					$myHeader = core.'layout/pwa/pwa-header.php';
-					$headerScroll = false;
-				}
+				// admin panels
+				$myHeader = core.'layout/admin/admin-header.php';
 			}
-			else
+			elseif($myContent === 'content')
 			{
-				if(\dash\data::include_adminPanel())
-				{
-					// admin panels
-					$myHeader = core.'layout/admin/admin-header.php';
-				}
-				elseif($myContent === 'content')
-				{
-					// jibres homepage webiste
-					$myHeader = root.'content/home/layout/header.php';
-				}
-				elseif($myContent === 'content_business')
-				{
-					// subdomain of stores
-					$myHeader = root.'content_business/home/layout/header.php';
-				}
-				elseif($myContent === 'content_developers')
-				{
-					// subdomain of stores
-					$myHeader = root.'content_developers/home/layout/header.php';
-				}
+				// jibres homepage webiste
+				$myHeader = root.'content/home/layout/header.php';
+			}
+			elseif($myContent === 'content_business')
+			{
+				// subdomain of stores
+				$myHeader = root.'content_business/home/layout/header.php';
+			}
+			elseif($myContent === 'content_developers')
+			{
+				// subdomain of stores
+				$myHeader = root.'content_developers/home/layout/header.php';
 			}
 		}
 
@@ -147,10 +131,21 @@ class find
 		}
 		echo ">";
 
+		// add desktop header
 		if($myHeader)
 		{
+			echo "<div class='desktop'>";
 			require_once $myHeader;
+			echo "</div>";
 		}
+
+		// add pwa header
+		{
+			echo "<div class='pwa'>";
+			require_once core.'layout/pwa/pwa-header.php';
+			echo "</div>";
+		}
+
 		echo "</header>";
 	}
 
