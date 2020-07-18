@@ -79,6 +79,20 @@ foreach ($myGallery as $key => $item)
                 </div>
                 <?php } //endif ?>
 
+
+                <?php if(\dash\data::propertyList()) { ?>
+                  <div class="featureBullets">
+                  <ul>
+                  <?php foreach (\dash\data::propertyList() as $property => $property_detail) {?>
+                    <?php foreach ($property_detail['list'] as $cat) {?>
+                      <?php if(\dash\get::index($cat, 'outstanding')) {?>
+                        <li><?php echo \dash\get::index($cat, 'key') ?> <b><?php echo \dash\get::index($cat, 'value'); ?></b></li>
+                      <?php } //endif ?>
+                    <?php } // endfor ?>
+                  <?php } // endfor ?>
+                  </ul>
+                </div>
+                <?php } // endif ?>
               </div>
               <div class="c-auto">
                 <?php if(\dash\data::productInCart()) {?>
