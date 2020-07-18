@@ -24,13 +24,19 @@ elseif(\dash\face::btnSave())
 ?></div>
 <?php
 // add search btn
-if(\dash\data::search_link() or 1)
+if(\dash\data::search_link())
 {
 	echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
 }
+// add cart btn
+if(\dash\data::cart_link() !== null)
+{
+	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'></a>";
+}
 // add menu btn
-if(\dash\data::menu_link() or 1)
+if(\dash\data::menu_link())
 {
 	echo "<div class='square menu'></div>";
 }
+
 ?>
