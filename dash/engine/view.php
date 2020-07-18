@@ -21,7 +21,14 @@ class view
 		{
 			\dash\data::global_content('site');
 		}
-		\dash\data::global_page(implode('_', \dash\url::dir()));
+
+		$myPage = urldecode(\dash\url::directory());
+		// remove non en char
+		$myPage = preg_replace('/[^\00-\255]+/u', '', $myPage);
+		// remove multi dash
+		$myPage = preg_replace('/\-{2,}/', '', $myPage);
+
+		\dash\data::global_page($myPage);
 		if(!\dash\data::global_page() && \dash\url::module() === null)
 		{
 			\dash\data::global_page('home');
