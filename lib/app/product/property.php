@@ -7,6 +7,19 @@ class property
 	public static function all_cat_name()
 	{
 		$list = \lib\db\productproperties\get::all_cat_name();
+
+		if(is_array($list))
+		{
+			$list[] = T_("General property");
+		}
+		else
+		{
+			$list = [];
+		}
+
+		$list = array_filter($list);
+		$list = array_unique($list);
+
 		return $list;
 	}
 
@@ -58,15 +71,21 @@ class property
 		$length_name = \dash\get::index(\lib\store::detail('store_data') ,'length_detail','name');
 		$mass_name = \dash\get::index(\lib\store::detail('store_data') ,'mass_detail','name');
 
-
-		$result[T_("General property")] =
-		[
-			'title' => T_("General property"),
-			'list' =>
+		if($_admin)
+		{
+			$result = [];
+		}
+		else
+		{
+			$result[T_("General property")] =
 			[
+				'title' => T_("General property"),
+				'list' =>
+				[
 
-			]
-		];
+				]
+			];
+		}
 
 		if(\dash\get::index($load, 'title2'))
 		{
@@ -123,7 +142,7 @@ class property
 				$result[$value['cat']] = ['title' => $value['cat'], 'list' => []];
 			}
 
-			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value'], 'id' => $value['id']];
+			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value'], 'id' => $value['id'], 'outstanding' => $value['outstanding']];
 
 		}
 
@@ -246,6 +265,53 @@ class property
 
 		\dash\notif::ok(T_("Property removed"));
 		return true;
+	}
+
+
+	public static function outstanding($_property_id, $_product_id, $_type)
+	{
+		$product_id = \dash\validate::id($_product_id);
+		$property_id = \dash\validate::id($_property_id);
+
+		$result = \lib\db\productproperties\get::one($property_id, $product_id);
+
+		if(isset($result['id']))
+		{
+			if($_type === 'set')
+			{
+				if(isset($result['outstanding']) && $result['outstanding'])
+				{
+					\dash\notif::info(T_("This property already set as outstanding"));
+					return true;
+				}
+				else
+				{
+					\lib\db\productproperties\update::set_outstanding($property_id);
+					\dash\notif::ok(T_("Property set as outstanding"));
+					return true;
+				}
+			}
+			else
+			{
+				if(isset($result['outstanding']) && $result['outstanding'])
+				{
+					\lib\db\productproperties\update::unset_outstanding($property_id);
+					\dash\notif::ok(T_("Property set as outstanding"));
+					return true;
+				}
+				else
+				{
+					\dash\notif::info(T_("This property is not an outstanding property"));
+					return true;
+				}
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("Property not found"));
+			return false;
+		}
+
 	}
 
 	public static function add($_args, $_id)

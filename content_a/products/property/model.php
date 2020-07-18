@@ -19,6 +19,16 @@ class model
 			return;
 		}
 
+		if(\dash\request::post('outstanding') === 'outstanding')
+		{
+			\lib\app\product\property::outstanding(\dash\request::post('pid'), $id, \dash\request::post('type'));
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 		$post                = [];
 		$post['cat']         = \dash\request::post('cat');
 		$post['key']         = \dash\request::post('key');

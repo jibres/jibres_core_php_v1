@@ -43,6 +43,14 @@ class get
 	}
 
 
+	public static function one($_id, $_product_id)
+	{
+		$query  = "SELECT * FROM productproperties WHERE productproperties.id = $_id AND productproperties.product_id = $_product_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function product_property_list($_product_id, $_parent_id = null)
 	{
 		$parent = null;
