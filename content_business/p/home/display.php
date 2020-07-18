@@ -1,8 +1,7 @@
 <div class="avand productPage">
   <div class="box">
       <div class="row">
-        <div class="c-auto">
-          <div class="thumbs">
+        <div class="c-xs-12 c-sm-12 c-auto"><div class="thumbs">
 <?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
 if(!is_array($myGallery))
 {
@@ -10,7 +9,6 @@ if(!is_array($myGallery))
 }
 foreach ($myGallery as $key => $item)
 {
-
   if($key < 5 && isset($item['path']))
   {
 ?>
@@ -26,9 +24,7 @@ foreach ($myGallery as $key => $item)
 <?php
   }
 }
-?>
-          </div>
-        </div>
+?></div></div>
         <div class="c-xs-12 c-auto">
           <div class="featureImgBlock">
             <a class="featureImg" data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
