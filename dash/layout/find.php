@@ -160,18 +160,10 @@ class find
 		// and we are not in api content
 		if($myFooter === null && !\dash\engine\content::api_content())
 		{
-			if (\dash\detect\device::detectPWA())
+			if(\dash\engine\content::get() === 'content')
 			{
-				// if is not set, on pwa force add
-				$myFooter = core.'layout/pwa/pwa-footer.php';
-			}
-			else
-			{
-				if(\dash\engine\content::get() === 'content')
-				{
-					// jibres homepage webiste
-					$myFooter = root.'content/home/layout/footer.php';
-				}
+				// jibres homepage webiste
+				$myFooter = root.'content/home/layout/footer.php';
 			}
 		}
 
@@ -179,8 +171,18 @@ class find
 		echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
 		if($myFooter)
 		{
+			echo "<div class='desktop'>";
 			require_once $myFooter;
+			echo "</div>";
 		}
+
+		// add pwa footer
+		{
+			echo "<div class='pwa'>";
+			require_once core.'layout/pwa/pwa-footer.php';
+			echo "</div>";
+		}
+
 		echo "</footer>";
 	}
 
