@@ -382,6 +382,8 @@ class add
 
 				case 'title':
 				case 'title2':
+				case 'slug':
+				case 'unit':
 				case 'seotitle':
 				case 'discount':
 				case 'price':
@@ -412,6 +414,8 @@ class add
 				case 'saleonline':
 				case 'saletelegram':
 				case 'saleapp':
+  				case 'sharetext':
+				case 'trackquantity':
 					$copy_product[$key] = $value;
 					break;
 
@@ -421,7 +425,13 @@ class add
 			}
 		}
 
+
 		$result = \lib\app\product\add::add($copy_product);
+
+		if(isset($result['id']))
+		{
+			\lib\db\products\insert::make_duplicate($result['id'], $load['id']);
+		}
 
 		return $result;
 

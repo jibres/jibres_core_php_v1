@@ -49,7 +49,7 @@ class model
 		$post['barcode2']          = \dash\request::post('barcode2');
 		$post['trackquantity']          = \dash\request::post('trackquantity');
 		// $post['gallery']        = \dash\request::post('gallery');
-		// $post['weight']         = \dash\request::post('weight');
+		$post['weight']         = \dash\request::post('weight');
 		$post['seotitle']          = \dash\request::post('seotitle');
 		$post['slug']              = \dash\request::post('slug');
 		$post['type']              = \dash\request::post('type');

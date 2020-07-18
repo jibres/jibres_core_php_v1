@@ -71,21 +71,15 @@ class property
 		$length_name = \dash\get::index(\lib\store::detail('store_data') ,'length_detail','name');
 		$mass_name = \dash\get::index(\lib\store::detail('store_data') ,'mass_detail','name');
 
-		if($_admin)
-		{
-			$result = [];
-		}
-		else
-		{
-			$result[T_("General property")] =
-			[
-				'title' => T_("General property"),
-				'list' =>
-				[
 
-				]
-			];
-		}
+		$result[T_("General property")] =
+		[
+			'title' => T_("General property"),
+			'list' =>
+			[
+
+			]
+		];
 
 		if(\dash\get::index($load, 'title2'))
 		{
@@ -106,24 +100,24 @@ class property
 
 		if(\dash\get::index($load, 'weight'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'weight')) . ' '. $mass_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(\dash\get::index($load, 'weight'))) . ' '. $mass_name]);
 		}
 
 		if(\dash\get::index($load, 'length'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'length')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(\dash\get::index($load, 'length')) . ' '. $length_name]);
 		}
 
 
 		if(\dash\get::index($load, 'width'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'width')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(\dash\get::index($load, 'width')) . ' '. $length_name]);
 		}
 
 
 		if(\dash\get::index($load, 'height'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\dash\get::index($load, 'height')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load, 'height')) . ' '. $length_name]);
 		}
 
 

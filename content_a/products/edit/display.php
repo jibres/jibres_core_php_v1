@@ -311,12 +311,14 @@ $productDataRow = \dash\data::productDataRow();
             <label for="typeService"><?php echo T_("Service"); ?></label>
           </div>
         </div>
+        <?php if(false) {?>
         <div class="c">
           <div class="radio3">
             <input type="radio" name="type" value="file" id="typeFile" <?php if(\dash\data::productDataRow_type() == 'file') { echo 'checked'; } if(\dash\data::productDataRow_variant_child() || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>>
             <label for="typeFile"><?php echo T_("File"); ?></label>
           </div>
         </div>
+      <?php } //endif ?>
       </div>
       <div class="mB10">
         <label for='unit'><?php echo T_("Unit"); ?></label>

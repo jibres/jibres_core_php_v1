@@ -7,7 +7,7 @@ $productDataRow = \dash\data::productDataRow();
 
 
 <form method="post" autocomplete="off" id="form1">
-  <div class="avand-xl">
+  <div class="avand-md">
 
 
 
@@ -87,6 +87,27 @@ $productDataRow = \dash\data::productDataRow();
               <input type="url" name="fileaddress" id="iFileAddress" value="<?php echo \dash\get::index($productDataRow,'fileaddress'); ?>"   maxlength="500">
             </div>
           </div>
+
+
+          <div class="f">
+            <div class="c s12 pRa5">
+              <label for='minsale'><?php echo T_("Min quantity per order"); ?></label>
+              <div class="input">
+               <input type="text" name="minsale" id="minsale" data-format='number' value="<?php echo \dash\get::index($productDataRow,'minsale'); ?>" maxlength="7">
+              </div>
+            </div>
+            <div class="c s12">
+              <label for='maxsale'><?php echo T_("Max quantity per order"); ?></label>
+              <div class="input">
+               <input type="text" name="maxsale" id="maxsale" data-format='number' value="<?php echo \dash\get::index($productDataRow,'maxsale'); ?>" maxlength="7">
+              </div>
+            </div>
+          </div>
+          <label for='salestep'><?php echo T_("Step quantity"); ?></label>
+          <div class="input">
+           <input type="text" name="salestep" id="salestep" data-format='number' value="<?php echo \dash\get::index($productDataRow,'salestep'); ?>" maxlength="7">
+          </div>
+
 
         </div>
 

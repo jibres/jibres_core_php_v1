@@ -9,8 +9,6 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-
-
 		$post                = [];
 
 		$post['company']     = \dash\request::post('company');
@@ -20,6 +18,13 @@ class model
 		$post['weight']      = \dash\request::post('weight');
 		$post['filesize']    = \dash\request::post('filesize');
 		$post['fileaddress'] = \dash\request::post('fileaddress');
+
+		$post['minsale']     = \dash\request::post('minsale');
+		$post['maxsale']     = \dash\request::post('maxsale');
+		$post['salestep']    = \dash\request::post('salestep');
+
+
+
 
 
 		\lib\app\product\edit::edit($post, $id);
