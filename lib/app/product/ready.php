@@ -193,6 +193,11 @@ class ready
 			}
 		}
 
+		if(isset($result['variant_child']) && $result['variant_child'])
+		{
+			$allow_shop = false;
+		}
+
 		$result['allow_shop'] = $allow_shop;
 
 		return $result;
