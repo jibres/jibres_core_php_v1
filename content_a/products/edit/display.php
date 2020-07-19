@@ -401,7 +401,7 @@ $productDataRow = \dash\data::productDataRow();
     <nav class="items long">
       <ul>
         <li>
-          <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i> <?php } //endif ?><?php echo T_("Stock count"); ?></div><div class="go"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div></a></li>
+          <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green mRa10"></i><?php }else{ ?><i class="sf-times fc-red mRa10"></i> <?php } //endif ?><?php echo T_("Stock"); ?></div><div class="go"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div></a></li>
         </li>
       </ul>
     </nav>
@@ -437,6 +437,7 @@ $productDataRow = \dash\data::productDataRow();
               <li>
                 <a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>">
                   <div class="key">
+                    <?php if(\dash\get::index($value, 'id') === \dash\request::get('id')) {?><i class="sf-edit mRa5"></i><?php } //endif ?>
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
