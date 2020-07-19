@@ -130,8 +130,14 @@ class check_detail
 			}
 
 
+
 			$this_proudct = $check_true_product[$value['product_id']];
 
+			if(isset($this_proudct['variant_child']) && $this_proudct['variant_child'])
+			{
+				\dash\notif::error(T_("This product has different types. Please specify one of these types"));
+				return false;
+			}
 
 			if(!$this_proudct || !is_array($this_proudct))
 			{

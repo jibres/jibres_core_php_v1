@@ -87,6 +87,12 @@ class add
 			return false;
 		}
 
+		if(isset($load_product['variant_child']) && $load_product['variant_child'])
+		{
+			\dash\notif::error(T_("This product has different types. Please specify one of these types"));
+			return false;
+		}
+
 
 		if($data['user_id'])
 		{

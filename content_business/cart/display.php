@@ -103,12 +103,23 @@
  <img src="<?php echo \dash\url::cdn(); ?>/img/business/store/cart-empty-basket.png" alt="jibres empty basket">
  <h2><?php echo T_("Your Shopping Cart is empty"); ?></h2>
  <p><?php
-echo T_("Don't miss out on great deals! :start or :login to view products added.",
- [
-  'start' => "<a href='". \dash\url::kingdom() ."'>". T_('Start shopping'). "</a>",
-  'login' => "<a href='". \dash\url::kingdom() ."/enter'>". T_('login'). "</a>",
- ]
-);
+ if(\dash\user::login())
+ {
+    echo T_("Don't miss out on great deals! :start to view products added.",
+     [
+      'start' => "<a href='". \dash\url::kingdom() ."'>". T_('Start shopping'). "</a>",
+     ]
+    );
+ }
+ else
+ {
+    echo T_("Don't miss out on great deals! :start or :login to view products added.",
+     [
+      'start' => "<a href='". \dash\url::kingdom() ."'>". T_('Start shopping'). "</a>",
+      'login' => "<a href='". \dash\url::kingdom() ."/enter'>". T_('login'). "</a>",
+     ]
+    );
+ }
 ?></p>
  <div class="msg txtC"><?php echo T_("The Cart is a temporary place to store a list of your items and reflects each item's most recent price."); ?></div>
 </div>

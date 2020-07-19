@@ -141,9 +141,7 @@
             <textarea class="txt mB10 pB25" name="desc"  maxlength='300' rows="2"></textarea>
 
           </div>
-          <footer class="txtRa">
-            <button class="btn master" type="submit" name="button" value="saveorder"><?php echo T_("Pay"); ?></button>
-          </footer>
+
         </div>
         <?php if(\dash\data::shippingSettingSaved_page_text()) {?><p class="msg fs14 <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></p><?php } //endif ?>
       </div>
@@ -171,7 +169,7 @@
                   <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_total()); ?></dd>
                 </dl>
               </div>
-
+              <button class="btn danger lg block" type="submit" name="button" value="saveorder"><?php echo T_("Pay") ?></button>
             </div>
           </div>
           <?php if(\dash\data::myCart()) {?>
