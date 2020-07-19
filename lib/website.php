@@ -116,11 +116,11 @@ class website
 
 			if($allow_shop)
 			{
-				echo '<div class="addToCart" data-ajaxify data-method="post" data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\'>+</div>';
+				echo '<div class="btnAddCart" data-ajaxify data-method="post" data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\'>+</div>';
 			}
 			else
 			{
-				echo '<div class="addToCart disabled">+</div>';
+				echo '<div class="btnAddCart disabled">+</div>';
 			}
 			// show title
 			{
