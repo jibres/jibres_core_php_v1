@@ -13,8 +13,9 @@
 					html_block_paymentIrankhis($bank);
 				 ?>
 			</div>
-			<footer class="txtRa">
-				<button class="btn success"><?php echo T_("Save"); ?></button>
+			<footer class="f">
+				<div class="c"><a data-ajaxify data-data='{"test": "payment"}' data-method='post' class="btn link"><?php echo T_("Test payment"); ?></a></div>
+				<div class="cauto"><button class="btn success"><?php echo T_("Save"); ?></button></div>
 			</footer>
 		</div>
 	</form>

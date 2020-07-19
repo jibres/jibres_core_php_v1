@@ -108,6 +108,34 @@ class model
 
 	public static function post()
 	{
+		if(\dash\request::post('test') === 'payment')
+		{
+			$meta =
+			[
+				'msg_go'        => T_("Pay test"),
+				'auto_go'       => false,
+				'auto_back'     => false,
+				'final_msg'     => true,
+				'turn_back'     => \dash\url::pwd(),
+				'user_id'       => \dash\user::id(),
+				'amount'        => 1000,
+			];
+
+
+			$result_pay = \dash\utility\pay\start::api($meta);
+
+			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
+			{
+				\dash\redirect::to($result_pay['url']);
+			}
+			else
+			{
+				\dash\log::oops('generate_pay_error');
+				return false;
+			}
+			return false;
+		}
+
 		$post                       = self::getPost();
 
 		\lib\app\setting\set::bank_payment_setting($post);
