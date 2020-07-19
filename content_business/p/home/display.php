@@ -276,7 +276,7 @@ if(count($myGallery) > 1)
  </section>
 <?php } //endif ?>
 
- <section class="box productAddReview">
+ <section class="box" id='productAddReview'>
   <form method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
     <h3><?php echo T_("Review this product"); ?></h3>
     <input type="hidden" name="product_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
@@ -320,13 +320,13 @@ if(count($myGallery) > 1)
     <div class="input mB10">
      <input type="text" name="title" id="title" placeholder='<?php echo T_("How was it in one sentence?"); ?>' maxlength='40' >
     </div>
-    <div class="input">
+    <div class="mB10">
       <textarea name="content" class="txt" rows="5" placeholder='<?php echo T_("Write your review about this product..."); ?>'></textarea>
     </div>
 
-    <div class="row">
+    <div class="row ">
       <div class="c">
-        <button class="btn primary mT20"><?php echo T_("Send"); ?></button>
+        <button class="btn primary"><?php echo T_("Send"); ?></button>
       </div>
 
     </div>
