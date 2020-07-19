@@ -1,36 +1,40 @@
 <div class="avand productPage">
   <div class="box">
       <div class="row">
-        <div class="c-xs-12 c-sm-12 c-auto"><div class="thumbs">
-<?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
-if(!is_array($myGallery))
-{
-  $myGallery = [];
-}
-foreach ($myGallery as $key => $item)
-{
-  if($key < 5 && isset($item['path']))
-  {
-?>
-              <a href='<?php echo $item['path']; ?>' data-fancybox="productGallery" class="f justify-center align-center thumb">
-                <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
-              </a>
-<?php
-  }
-  else
-  {
-?>
-              <a data-fancybox='productGallery' class="hide" href='<?php echo $item['path']; ?>'></a>
-<?php
-  }
-}
-?></div></div>
         <div class="c-xs-12 c-auto">
           <div class="featureImgBlock">
             <a class="featureImg" data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
               <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
             </a>
           </div>
+<?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
+if(!is_array($myGallery))
+{
+  $myGallery = [];
+}
+if(count($myGallery) > 1)
+{
+  echo "<div class='thumbs'>";
+  foreach ($myGallery as $key => $item)
+  {
+    if($key < 5 && isset($item['path']))
+    {
+?>
+              <a href='<?php echo $item['path']; ?>' data-fancybox="productGallery" class="f justify-center align-center thumb">
+                <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
+              </a>
+<?php
+    }
+    else
+    {
+?>
+              <a data-fancybox='productGallery' class="hide" href='<?php echo $item['path']; ?>'></a>
+<?php
+    }
+  }
+  echo "</div>";
+}
+?>
         </div>
         <div class="c-xs-12 c">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
