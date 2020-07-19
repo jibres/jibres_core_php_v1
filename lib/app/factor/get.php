@@ -164,6 +164,38 @@ class get
 
 	}
 
+
+
+	public static function load_my_order($_id)
+	{
+		$_id = self::fix_id($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+		if(!\dash\user::id())
+		{
+			if(!\dash\user::get_user_guest())
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
+		}
+
+		if(\dash\user::id())
+		{
+			$result = \lib\db\factors\get::load_my_order_user_id($_id, \dash\user::id());
+		}
+		else
+		{
+			$result = \lib\db\factors\get::load_my_order_guestid($_id, \dash\user::get_user_guest());
+		}
+
+		return $result;
+
+	}
+
 	public static function full($_id)
 	{
 		// load factor

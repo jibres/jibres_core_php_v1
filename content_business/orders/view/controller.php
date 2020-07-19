@@ -13,7 +13,7 @@ class controller
 		}
 
 
-		$load = \lib\app\factor\get::user_factor($order_id, \dash\user::id());
+		$load = \lib\app\factor\get::load_my_order($order_id);
 		if(!$load)
 		{
 			\dash\header::status(404, T_("Order not found"));

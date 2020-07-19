@@ -34,19 +34,29 @@ class model
 
 			if(\dash\request::post('button') === 'saveorder')
 			{
+
+				$post = [];
+
 				$address_id = \dash\request::post('address_id');
+
 				if(!\dash\validate::code($address_id, false))
 				{
-					\dash\notif::error(T_("Please choose any address"));
-					return false;
+					$post['title']    = \dash\request::post('title');
+					$post['name']     = \dash\request::post('xnm');
+					$post['country']  = \dash\request::post('country');
+					$post['city']     = \dash\request::post('city');
+					$post['postcode'] = \dash\request::post('xpc');
+					$post['phone']    = \dash\request::post('xph');
+					$post['province'] = null;
+					$post['mobile']   = \dash\request::post('xmd');
+					$post['address']  = \dash\request::post('xad');
+					$post['address2'] = \dash\request::post('address2');
+
 				}
 
-				$post =
-				[
-					'address_id' => $address_id,
-					'payway'     => \dash\request::post('payway'),
-					'desc'       => \dash\request::post('desc'),
-				];
+				$post['address_id'] = $address_id;
+				$post['payway']     = \dash\request::post('payway');
+				$post['desc']       = \dash\request::post('desc');
 
 				$saveorder = \lib\app\factor\cart::to_factor($post);
 
@@ -65,18 +75,19 @@ class model
 			{
 				$post             = [];
 				$post['title']    = \dash\request::post('title');
-				$post['name']     = \dash\request::post('name');
+				$post['name']     = \dash\request::post('xnm');
 				$post['country']  = \dash\request::post('country');
 				$post['city']     = \dash\request::post('city');
-				$post['postcode'] = \dash\request::post('postcode');
-				$post['phone']    = \dash\request::post('phone');
+				$post['postcode'] = \dash\request::post('xpc');
+				$post['phone']    = \dash\request::post('xph');
 				$post['province'] = null;
-				$post['mobile']   = \dash\request::post('mobile');
-				$post['address']  = \dash\request::post('address');
+				$post['mobile']   = \dash\request::post('xmd');
+				$post['address']  = \dash\request::post('xad');
 				$post['address2'] = \dash\request::post('address2');
-				$post['company']  = \dash\request::post('company');
+
 				$post['payway']   = \dash\request::post('payway');
 				$post['desc']     = \dash\request::post('desc');
+
 
 				$saveorder = \lib\app\factor\cart::to_factor($post);
 

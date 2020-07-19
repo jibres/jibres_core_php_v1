@@ -95,5 +95,24 @@ class get
 		return $result;
 	}
 
+
+
+	public static function load_my_order_user_id($_id, $_user_id)
+	{
+		$query = "SELECT * FROM factors WHERE factors.id = $_id AND factors.customer = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function load_my_order_guestid($_id, $_guestid)
+	{
+		$query = "SELECT * FROM factors WHERE factors.id = $_id AND factors.guestid = '$_guestid' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 }
 ?>

@@ -214,7 +214,7 @@ class cart
 				'auto_back'     => false,
 				'final_msg'     => true,
 				'turn_back'     => \dash\url::kingdom(). '/orders',
-				'user_id'       => \dash\user::id(),
+				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
 				'amount'        => abs($result['price']),
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
 				'final_fn_args' => ['factor_id' => $result['factor_id']],
