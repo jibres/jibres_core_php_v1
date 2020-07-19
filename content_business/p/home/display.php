@@ -74,6 +74,29 @@ if(count($myGallery) > 1)
                 </div>
               </div>
 
+
+              <div>
+                <?php if(\dash\data::productInCart()) {?>
+                  <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy"><?php echo T_("Update cart"); ?>
+                  </div>
+
+                   <div class="input productCount mT10">
+                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>+</label>
+                      <input type="number" name="count" value="<?php echo \dash\data::productInCartCount(); ?>" readonly>
+                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
+                   </div>
+
+                <?php }else{ ?>
+                  <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
+                    <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "buy", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy"><?php echo T_("Buy now"); ?></div>
+                    <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy" data-card><?php echo T_("Add to Cart"); ?></div>
+                  <?php }else{ ?>
+                    <div class="btnBuy disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Buy now"); ?></div>
+                    <div class="btnBuy disabled" data-card title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Add to Cart"); ?></div>
+                  <?php } //endif ?>
+                <?php } //endif ?>
+              </div>
+
             </div>
 <?php if(\dash\data::propertyList()) { ?>
             <div class="c-auto c-xs-12">
@@ -91,27 +114,6 @@ if(count($myGallery) > 1)
           </div>
 
 
-          <div>
-            <?php if(\dash\data::productInCart()) {?>
-              <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Update cart"); ?>
-              </div>
-
-               <div class="input productCount mT10">
-                  <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>+</label>
-                  <input type="number" name="count" value="<?php echo \dash\data::productInCartCount(); ?>" readonly>
-                  <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
-               </div>
-
-            <?php }else{ ?>
-              <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
-                <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "buy", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Buy now"); ?></div>
-                <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Add to Cart"); ?></div>
-              <?php }else{ ?>
-                <div class="addToCart disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Buy now"); ?></div>
-                <div class="addToCart disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Add to Cart"); ?></div>
-              <?php } //endif ?>
-            <?php } //endif ?>
-          </div>
 
           <?php /* --------------- vARIANT CHILD --------------- */
             $child = \dash\data::dataRow_child();
@@ -124,7 +126,7 @@ if(count($myGallery) > 1)
 
 
 <?php if(\dash\data::productSettingSaved_view_text()) {?>
-          <p class="msg"><?php echo \dash\data::productSettingSaved_view_text(); ?></p>
+          <p class="msg globalMsg"><?php echo \dash\data::productSettingSaved_view_text(); ?></p>
 <?php } //endif ?>
 
         </div>
