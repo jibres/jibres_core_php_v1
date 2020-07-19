@@ -14,9 +14,13 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
     <a class='btn <?php if(\dash\request::get('duplicatetitle')) { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?duplicatetitle=1<?php echo $andQ; ?>"><?php echo T_("Duplicate title"); ?></a>
     <a class='btn <?php if(\dash\request::get('hbarcode')) { echo 'primary2'; }else{ echo 'light';} ?> mB5 ' href="<?php echo \dash\url::that(); ?>?hbarcode=1<?php echo $andQ; ?>"><?php echo T_("Have barcode"); ?></a>
     <a class='btn <?php if(\dash\request::get('hnotbarcode')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?hnotbarcode=1<?php echo $andQ; ?>"><?php echo T_("Have not barcode"); ?></a>
-    <a class='btn <?php if(\dash\request::get('wbuyprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wbuyprice=1<?php echo $andQ; ?>"><?php echo T_("Whithout buyprice"); ?></a>
-    <a class='btn <?php if(\dash\request::get('wprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wprice=1<?php echo $andQ; ?>"><?php echo T_("Whithout price"); ?></a>
-    <a class='btn <?php if(\dash\request::get('wdiscount')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wdiscount=1<?php echo $andQ; ?>"><?php echo T_("Whithout discount"); ?></a>
+    <a class='btn <?php if(\dash\request::get('wbuyprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wbuyprice=1<?php echo $andQ; ?>"><?php echo T_("Without buyprice"); ?></a>
+    <a class='btn <?php if(\dash\request::get('wprice')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wprice=1<?php echo $andQ; ?>"><?php echo T_("Without price"); ?></a>
+    <a class='btn <?php if(\dash\request::get('wdiscount')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wdiscount=1<?php echo $andQ; ?>"><?php echo T_("Without discount"); ?></a>
+    <a class='btn <?php if(\dash\request::get('instock')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?instock=1<?php echo $andQ; ?>"><?php echo T_("Product instock"); ?></a>
+    <a class='btn <?php if(\dash\request::get('outofstock')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?outofstock=1<?php echo $andQ; ?>"><?php echo T_("Product out of stock"); ?></a>
+    <a class='btn <?php if(\dash\request::get('withoutimage')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?withoutimage=1<?php echo $andQ; ?>"><?php echo T_("Without image"); ?></a>
+    <a class='btn <?php if(\dash\request::get('havevariants')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?havevariants=1<?php echo $andQ; ?>"><?php echo T_("Have variants"); ?></a>
   </div>
 </div>
 
@@ -79,9 +83,9 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
   <?php if(\dash\request::get('duplicatetitle')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Duplicate title"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
   <?php if(\dash\request::get('hbarcode')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Have barcode"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
   <?php if(\dash\request::get('hnotbarcode')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Have not barcode"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('wbuyprice')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Whithout buyprice"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('wprice')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Whithout price"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('wdiscount')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Whithout discount"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
+  <?php if(\dash\request::get('wbuyprice')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Without buyprice"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
+  <?php if(\dash\request::get('wprice')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Without price"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
+  <?php if(\dash\request::get('wdiscount')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Without discount"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
 
   <?php if(false) {?>
     <a class="btn primary outline sm mLa10 floatRa s0" href="<?php echo \dash\url::that(); ?>"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>

@@ -38,12 +38,16 @@ class view
 			'company_id'   => \dash\request::get('companyid'),
 		];
 
-		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle']   = true;
-		if(\dash\request::get('hbarcode')) 		 $args['hbarcode'] 		 = true;
-		if(\dash\request::get('hnotbarcode')) 	 $args['hnotbarcode'] 	 = true;
-		if(\dash\request::get('wbuyprice')) 	 $args['wbuyprice'] 	 	 = true;
-		if(\dash\request::get('wprice')) 		 $args['wprice'] 		 	 = true;
-		if(\dash\request::get('wdiscount')) 	 $args['wdiscount'] 	 	 = true;
+		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle'] = true;
+		if(\dash\request::get('hbarcode')) 		 $args['hbarcode']       = true;
+		if(\dash\request::get('hnotbarcode')) 	 $args['hnotbarcode']    = true;
+		if(\dash\request::get('wbuyprice')) 	 $args['wbuyprice']      = true;
+		if(\dash\request::get('wprice')) 		 $args['wprice']         = true;
+		if(\dash\request::get('wdiscount')) 	 $args['wdiscount']      = true;
+		if(\dash\request::get('instock')) 		 $args['instock']        = true;
+		if(\dash\request::get('outofstock')) 	 $args['outofstock']     = true;
+		if(\dash\request::get('withoutimage'))   $args['withoutimage']   = true;
+		if(\dash\request::get('havevariants')) 	 $args['havevariants']   = true;
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
 

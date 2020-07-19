@@ -44,6 +44,11 @@ class search
 			'wbuyprice'      => 'bit',
 			'wprice'         => 'bit',
 			'wdiscount'      => 'bit',
+			'instock'        => 'bit',
+			'outofstock'     => 'bit',
+
+			'withoutimage'   => 'bit',
+			'havevariants'   => 'bit',
 
 		];
 
@@ -153,6 +158,38 @@ class search
 			}
 
 		}
+
+		if(isset($data['instock']) && $data['instock'])
+		{
+			$and[] = "products.instock  = 1";
+			self::$filter_args['Instock']   = T_("Instock");
+			self::$is_filtered        = true;
+		}
+
+		if(isset($data['outofstock']) && $data['outofstock'])
+		{
+			$and[] = "( products.instock  = 0 OR products.instock  IS NULL )";
+			self::$filter_args['Instock']   = T_("Out of stock");
+			self::$is_filtered        = true;
+		}
+
+
+		if(isset($data['withoutimage']) && $data['withoutimage'])
+		{
+			$and[] = "products.thumb IS NULL";
+			self::$filter_args['Image']   = T_("Without image");
+			self::$is_filtered        = true;
+		}
+
+		if(isset($data['havevariants']) && $data['havevariants'])
+		{
+			$and[] = " products.variant_child  = 1 ";
+			self::$filter_args['Variants']   = T_("Have variants");
+			self::$is_filtered        = true;
+		}
+
+
+
 
 		if(isset($data['hbarcode']) && $data['hbarcode'])
 		{

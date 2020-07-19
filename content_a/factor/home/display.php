@@ -158,7 +158,7 @@ $sortLink = \dash\data::sortLink();
 
             <?php }else{ ?>
 
-              <small><?php echo T_("Whithout name"); ?></small>
+              <small><?php echo T_("Without name"); ?></small>
 
             <?php } // endif ?>
 
