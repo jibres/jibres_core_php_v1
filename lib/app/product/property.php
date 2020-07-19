@@ -51,13 +51,15 @@ class property
 			return false;
 		}
 
+
+		$load_parent = [];
 		$parent_id = null;
 
 		if(isset($load['parent']) && $load['parent'])
 		{
 			$parent_id = $load['parent'];
+			$load_parent = \lib\app\product\get::inline_get($parent_id);
 		}
-
 
 		$saved_property = \lib\db\productproperties\get::product_property_list($id, $parent_id);
 
@@ -85,6 +87,11 @@ class property
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load, 'title2')]);
 		}
+		elseif(\dash\get::index($load_parent, 'title2'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load_parent, 'title2')]);
+
+		}
 
 
 		if(\dash\get::index($load, 'cat_id'))
@@ -97,15 +104,34 @@ class property
 				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $load_cat['title'], 'link' => $load_cat['url']]);
 			}
 		}
+		elseif(\dash\get::index($load_parent, 'cat_id'))
+		{
+			$load_parent_cat = \lib\app\category\get::inline_get($load_parent['cat_id']);
+
+			if(isset($load_parent_cat['title']))
+			{
+				$load_parent_cat = \lib\app\category\ready::row($load_parent_cat);
+				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $load_parent_cat['title'], 'link' => $load_parent_cat['url']]);
+			}
+		}
 
 		if(\dash\get::index($load, 'weight'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(\dash\get::index($load, 'weight'))) . ' '. $mass_name]);
 		}
+		elseif(\dash\get::index($load_parent, 'weight'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(\dash\get::index($load_parent, 'weight'))) . ' '. $mass_name]);
+		}
+
 
 		if(\dash\get::index($load, 'length'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(\dash\get::index($load, 'length')) . ' '. $length_name]);
+		}
+		elseif(\dash\get::index($load_parent, 'length'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'length')) . ' '. $length_name]);
 		}
 
 
@@ -113,11 +139,19 @@ class property
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(\dash\get::index($load, 'width')) . ' '. $length_name]);
 		}
+		elseif(\dash\get::index($load_parent, 'width'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'width')) . ' '. $length_name]);
+		}
 
 
 		if(\dash\get::index($load, 'height'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load, 'height')) . ' '. $length_name]);
+		}
+		elseif(\dash\get::index($load_parent, 'height'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'height')) . ' '. $length_name]);
 		}
 
 
