@@ -350,20 +350,21 @@ class variants
 		{
 			$temp =
 			[
-				'parent'       => $load_product['id'],
-				'optionname1'  => $option1_name,
-				'optionvalue1' => array_key_exists('option1', $value) ? $value['option1'] : null,
-				'optionname2'  => $option2_name,
-				'optionvalue2' => array_key_exists('option2', $value) ? $value['option2'] : null,
-				'optionname3'  => $option3_name,
-				'optionvalue3' => array_key_exists('option3', $value) ? $value['option3'] : null,
-				'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
-				'trackquantity'     => (isset($value['stock']) && $value['stock']) ? 'yes' : null,
-				'barcode'      => array_key_exists('barcode', $value) ? $value['barcode'] : null,
-				'price'        => array_key_exists('price', $value) ? $value['price'] : null,
-				'buyprice'     => array_key_exists('buyprice', $value) ? $value['buyprice'] : null,
-				'discount'     => array_key_exists('discount', $value) ? $value['discount'] : null,
-				'sku'          => array_key_exists('sku', $value) ? $value['sku'] : null,
+				'parent'        => $load_product['id'],
+				'optionname1'   => $option1_name,
+				'optionvalue1'  => array_key_exists('option1', $value) ? $value['option1'] : null,
+				'optionname2'   => $option2_name,
+				'optionvalue2'  => array_key_exists('option2', $value) ? $value['option2'] : null,
+				'optionname3'   => $option3_name,
+				'optionvalue3'  => array_key_exists('option3', $value) ? $value['option3'] : null,
+				'stock'         => array_key_exists('stock', $value) ? $value['stock'] : null,
+				'trackquantity' => (isset($value['stock']) && $value['stock']) ? 'yes' : null,
+				'barcode'       => array_key_exists('barcode', $value) ? $value['barcode'] : null,
+				'price'         => array_key_exists('price', $value) ? $value['price'] : null,
+				'buyprice'      => array_key_exists('buyprice', $value) ? $value['buyprice'] : null,
+				'discount'      => array_key_exists('discount', $value) ? $value['discount'] : null,
+				'sku'           => array_key_exists('sku', $value) ? $value['sku'] : null,
+				'title2'        => isset($load_product['title2']) ? $load_product['title2'] : null,
 			];
 
 			// if(!$temp['stock'] || !is_numeric($temp['stock']))
