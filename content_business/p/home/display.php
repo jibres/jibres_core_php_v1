@@ -63,25 +63,17 @@ if(count($myGallery) > 1)
                   <div class="priceShow" data-first>
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price() + \dash\data::dataRow_discount()); ?></span>
                   </div>
+                  <div class="priceShow" data-discount title='<?php echo T_("You Save"); ?> <?php echo \dash\fit::price(round(\dash\data::dataRow_discount())); ?>'><?php echo \dash\fit::price(\dash\data::dataRow_discountpercent()); ?> %</div>
                 </div>
                 <?php } //endif ?>
 
                 <div>
-                  <span><?php echo T_("Price"); ?></span>
                   <div class="priceShow" data-final>
                     <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
                     <span class="unit"><?php echo \lib\currency::unit(); ?></span>
                   </div>
                 </div>
 
-                <?php if(\dash\data::dataRow_discount()) {?>
-                <div>
-                  <span><?php echo T_("You Save"); ?></span>
-                  <div class="priceShow" data-discount>
-                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_discount()); ?></span>
-                  </div>
-                </div>
-                <?php } //endif ?>
 
 
                 <?php if(\dash\data::propertyList()) { ?>
