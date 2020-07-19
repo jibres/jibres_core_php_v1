@@ -201,6 +201,8 @@ class cart
 			\lib\db\cart\delete::drop_cart_guest($user_guest);
 		}
 
+		\dash\log::set('order_adminNewOrder', ['my_id' => $result['factor_id']]);
+
 		if($data['payway'] === 'online')
 		{
 			// set status on pending_pay
@@ -217,7 +219,7 @@ class cart
 				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
 				'amount'        => abs($result['price']),
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
-				'final_fn_args' => ['factor_id' => $result['factor_id']],
+				'final_fn_args' => ['factor_id' => $result['factor_id'], 'user_id' => \dash\user::id()],
 			];
 
 
@@ -261,6 +263,10 @@ class cart
 
 		}
 
+		if(\dash\user::id())
+		{
+			\dash\log::set('order_customerNewOrder', ['to' => \dash\user::id(), 'my_id' => $result['factor_id']]);
+		}
 
 		return $return;
 
@@ -276,6 +282,10 @@ class cart
 			{
 				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_verify', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
 				\lib\app\factor\action::set('pay_successfull', $factor_id);
+				if(isset($_args['user_id']))
+				{
+					\dash\log::set('order_customerNewOrder', ['to' => $_args['user_id'], 'my_id' => $_args['factor_id']]);
+				}
 			}
 
 		}
