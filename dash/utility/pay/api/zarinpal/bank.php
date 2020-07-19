@@ -110,7 +110,7 @@ class bank
             case -2:   $msg = T_("IP or merchant code of the host is incorrect"); break;
             case -3:   $msg = T_("Due to Shaparak's limitations, It's impossible to pay the specified amount"); break;
             case -4:   $msg = T_("The host level is below silver level"); break;
-            case -11:  $msg = T_("Nothing found for the specified request"); break;
+            case -11:  $msg = T_("Your payment is not active. Nothing found for the specified request. Error -11"); break;
             case -12:  $msg = T_("It's impossible to edit the request"); break;
             case -21:  $msg = T_("No financial operation found for this transaction"); break;
             case -22:  $msg = T_("Transaction faild"); break;
