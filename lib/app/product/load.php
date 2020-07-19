@@ -79,17 +79,30 @@ class load
 			return false;
 		}
 
+		$load_child = [];
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
 			$load_child = \lib\db\products\get::variants_load_child($_id);
-			if($load_child)
+		}
+		elseif(isset($detail['parent']) && $detail['parent'])
+		{
+			$load_child = \lib\db\products\get::variants_load_family($_id, $detail['parent']);
+		}
+
+		if($load_child && is_array($load_child))
+		{
+			$detail['child'] = [];
+
+			foreach ($load_child as $key => $value)
 			{
-				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
+				$detail['child'][] = \lib\app\product\ready::row($value, ['load_gallery' => true]);
 			}
 		}
 
 		// sed dataRow to load detail in html
 		\dash\data::productDataRow($detail);
+
+		// var_dump($detail);exit();
 
 		return $detail;
 	}

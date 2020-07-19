@@ -154,5 +154,75 @@ class website
 	}
 
 
+	public static function product_child_list($_productList)
+	{
+		if(!$_productList || !is_array($_productList))
+		{
+			return;
+		}
+
+		echo '<div class="row padLess';
+		if(\dash\detect\device::detectPWA())
+		{
+			echo " horizontalScroll nowrap";
+		}
+		echo '"';
+		if(!\dash\detect\device::detectPWA())
+		{
+			// $opt = '{"slidesToShow": 4, "slidesToScroll": 3}';
+			echo " data-slider='product'";
+		}
+		echo '>';
+
+		foreach ($_productList as $key => $myProduct)
+		{
+			if(\dash\detect\device::detectPWA())
+			{
+				echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
+			}
+			else
+			{
+				echo '<div>';
+			}
+
+			echo '<div class="productBox">';
+			{
+				self::product_element_child_create($myProduct);
+			}
+			echo '</div>';
+			echo '</div>';
+		}
+
+		echo '</div>';
+	}
+
+
+	private static function product_element_child_create($_item)
+	{
+		$id              = \dash\get::index($_item, 'id');
+		$title           = \dash\get::index($_item, 'title');
+		$image           = \dash\get::index($_item, 'thumb');
+		$price           = \dash\get::index($_item, 'price');
+		$discount        = \dash\get::index($_item, 'discount');
+		$discountpercent = \dash\get::index($_item, 'discountpercent');
+		$unit            = \dash\get::index($_item, 'unit');
+		$allow_shop      = \dash\get::index($_item, 'allow_shop');
+
+		echo '<a class="jProduct1" href="'. \dash\get::index($_item, 'url'). '">';
+		{
+			echo '<div class=""><img src="'. $image. '" alt="'. $title. '"></div>';
+			// show title
+			{
+				echo '<div class="title">';
+				echo '<div><small class="fc-mute">'. \dash\get::index($_item, 'optionname1'). '</small> <b class="fc-red">'. \dash\get::index($_item, 'optionvalue1'). '</b></div>';
+                echo '<div><small class="fc-mute">'. \dash\get::index($_item, 'optionname2'). '</small> <b class="fc-green">'. \dash\get::index($_item, 'optionvalue2'). '</b></div>';
+                echo '<div><small class="fc-mute">'. \dash\get::index($_item, 'optionname3'). '</small> <b class="fc-blue">'. \dash\get::index($_item, 'optionvalue3'). '</b></div>';
+				echo '</div>';
+			}
+		}
+		echo '</a>';
+	}
+
+
 }
 ?>

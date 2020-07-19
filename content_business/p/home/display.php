@@ -112,6 +112,18 @@ foreach ($myGallery as $key => $item)
               </div>
             </div>
           </div>
+
+          <?php /* --------------- vARIANT CHILD --------------- */
+            $child = \dash\data::dataRow_child();
+            if($child && is_array($child)){}else{$child = [];}
+            if($child)
+            {
+              \lib\website::product_child_list($child);
+            }
+          ?>
+
+
+
 <?php if(\dash\data::productSettingSaved_view_text()) {?><p><?php echo \dash\data::productSettingSaved_view_text(); ?></p><?php } //endif ?>
 <?php if(\dash\data::dataRow_bullet()) { ?>
           <div class="featureBullets ltr">
@@ -122,6 +134,7 @@ foreach ($myGallery as $key => $item)
             </ul>
           </div>
 <?php } ?>
+
 
 
         </div>
