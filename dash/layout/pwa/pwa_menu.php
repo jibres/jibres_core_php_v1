@@ -238,13 +238,13 @@ class pwa_menu
 		[
 			'cart' =>
 			[
-				'href' => \dash\url::that(). '/cart',
+				'href' => \dash\url::that(). '?cart',
 				'title' => T_('Add to cart'),
 				'class' => 'pwafooterAddToCart',
 			],
 			'buy' =>
 			[
-				'href' => \dash\url::that(). '/buy',
+				'href' => \dash\url::that(). '?buy',
 				'title' => T_('Buy Now'),
 				'class' => 'pwafooterBuy',
 			],

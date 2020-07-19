@@ -20,6 +20,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be string", ['val' => $_field_title]), ['element' => $_element, 'code' => 1600]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -42,6 +43,7 @@ class text
 				if($_notif)
 				{
 					\dash\notif::error(T_("Field :val must be exactly :length character", ['val' => $_field_title, 'length' => \dash\fit::number($length)]), ['element' => $_element, 'code' => 1605]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -54,6 +56,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be less than :length character", ['val' => $_field_title, 'length' => \dash\fit::number($length)]), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -66,6 +69,7 @@ class text
 				if($_notif)
 				{
 					\dash\notif::error(T_("Field :val must be larger than :length character", ['val' => $_field_title, 'length' => \dash\fit::number($_meta['min'])]), ['element' => $_element, 'code' => 1607]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -147,6 +151,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Only English character can be enter in field :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -177,6 +182,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Only Numeric character can be enter in field :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -213,6 +219,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Username should contain a valid Latin letter"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -228,6 +235,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field username must be larger than 5 character"), ['element' => $_element, 'code' => 1607]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 
@@ -239,6 +247,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in username"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -248,6 +257,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("You must use a one character from [A-Za-z] in the username"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -257,6 +267,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Username should contain a Latin letter"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -266,6 +277,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("The username must begin with latin letters"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -291,6 +303,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Email is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -334,6 +347,7 @@ class text
 	    	if($_notif)
 			{
 				\dash\notif::error(T_("Can not send base64 image in this field"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 	    }
@@ -379,6 +393,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be exactly 32 character", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -388,6 +403,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid md5"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -411,6 +427,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid language"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -528,12 +545,14 @@ class text
 		if(mb_strlen($data) > 16)
 		{
 			\dash\notif::error(T_("Please set the sku less than 16 character"), 'sku');
+			\dash\cleanse::$status = false;
 			return false;
 		}
 
 		if(!preg_match("/^[A-Za-z0-9_\-]+$/", $data))
 		{
 			\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in sku"), 'sku');
+			\dash\cleanse::$status = false;
 			return false;
 		}
 
@@ -556,6 +575,7 @@ class text
 			if($_notif)
 			{
 				\dash\notif::error(T_("Url is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

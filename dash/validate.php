@@ -26,11 +26,11 @@ class validate
 		{
 			$meta = $_args[2];
 
-			$meta['continue_with_error'] = true;
+			// $meta['continue_with_error'] = true;
 		}
 		else
 		{
-			$meta['continue_with_error'] = true;
+			// $meta['continue_with_error'] = true;
 		}
 
 		return \dash\cleanse::data($_function, $data, $notif, $meta);

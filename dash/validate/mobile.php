@@ -28,6 +28,7 @@ class mobile
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be string", ['val' => $_field_title]), ['element' => $_element, 'code' => 1600]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -60,6 +61,7 @@ class mobile
 			if($_notif)
 			{
 				\dash\notif::error(T_("Mobile cannot be contained non digit character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -69,6 +71,7 @@ class mobile
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid mobile number!"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -79,6 +82,7 @@ class mobile
 			if($_notif)
 			{
 				\dash\notif::error(T_("Mobile must between 8 and 15 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -100,6 +104,7 @@ class mobile
 				if($_notif)
 				{
 					\dash\notif::error(T_("The IR mobile number must be contain exactly 12 character"), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -109,6 +114,7 @@ class mobile
 				if($_notif)
 				{
 					\dash\notif::error(T_("The IR mobile number must be start 989"), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}

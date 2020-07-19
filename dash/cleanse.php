@@ -100,29 +100,38 @@ namespace dash;
  */
 class cleanse
 {
+
+	public static $status = true;
+
 	public static function input($_args, $_condition, $_required = [], $_meta = [])
 	{
+		self::$status = true;
+
 		if(!is_array($_args))
 		{
 			\dash\notif::error(T_("First Arguments of input function is required!"));
+			self::$status = false;
 			self::bye();
 		}
 
 		if(!is_array($_condition))
 		{
 			\dash\notif::error(T_("Second Arguments of input function is required!"));
+			self::$status = false;
 			self::bye();
 		}
 
 		if(!is_array($_required))
 		{
 			\dash\notif::error(T_("Third Arguments of input function must be array!"));
+			self::$status = false;
 			self::bye();
 		}
 
 		if(!is_array($_meta))
 		{
 			\dash\notif::error(T_("Fourth Arguments of input function must be array!"));
+			self::$status = false;
 			self::bye();
 		}
 
@@ -136,6 +145,7 @@ class cleanse
 			if(!is_string($field))
 			{
 				\dash\notif::error(T_("Index of condition arguments must be string!"));
+				self::$status = false;
 				self::bye();
 			}
 
@@ -195,6 +205,7 @@ class cleanse
 					if(!is_array($my_data))
 					{
 						\dash\notif::error(T_("Field :val must be array", ['val' => $field_title]), ['element' => $field]);
+						self::$status = false;
 						continue;
 					}
 
@@ -212,12 +223,14 @@ class cleanse
 						if(!is_array($my_value))
 						{
 							\dash\notif::error(T_("Value of :val must be array", ['val' => $field]));
+							self::$status = false;
 							continue;
 						}
 
 						if(count($my_value) !== count($validate))
 						{
 							\dash\notif::error(T_("Value of :val must be array and contain exactly need parameter", ['val' => $field]));
+							self::$status = false;
 							continue;
 						}
 
@@ -228,6 +241,7 @@ class cleanse
 							if(!isset($validate[$my_field]))
 							{
 								\dash\notif::error(T_("This array key is not supported!"));
+								self::$status = false;
 								continue;
 							}
 
@@ -250,6 +264,7 @@ class cleanse
 							else
 							{
 								\dash\notif::error(T_("Validate array function must be string or array!"));
+								self::$status = false;
 								self::bye();
 							}
 						}
@@ -263,6 +278,7 @@ class cleanse
 			else
 			{
 				\dash\notif::error(T_("Validate function must be string or array!"));
+				self::$status = false;
 				self::bye();
 			}
 
@@ -286,6 +302,7 @@ class cleanse
 					$msg .= ' '. json_encode(array_keys($input));
 				}
 				\dash\notif::error($msg);
+				self::$status = false;
 				self::bye();
 			}
 		}
@@ -297,12 +314,14 @@ class cleanse
 				if(!is_string($required_field))
 				{
 					\dash\notif::error(T_("Arguments of required field must be string!"));
+					self::$status = false;
 					continue;
 				}
 
 				if($required_field === '')
 				{
 					\dash\notif::error(T_("Arguments of required field cannot be empty string!"));
+					self::$status = false;
 					continue;
 				}
 
@@ -310,6 +329,7 @@ class cleanse
 				if(!array_key_exists($required_field, $_condition))
 				{
 					\dash\notif::error(T_("Field :val is required but not set in condition args!", ['val' => $required_field]));
+					self::$status = false;
 					continue;
 				}
 
@@ -340,20 +360,21 @@ class cleanse
 
 					if(!$send_variable)
 					{
-						if($data[$required_field] === false && !\dash\engine\process::status())
+						if($data[$required_field] === false && !self::$status)
 						{
 							// we have an error in this field. needless to alert required
 						}
 						else
 						{
 							\dash\notif::error(T_("Field :val is required", ['val' => $field_title]), ['code' => 1500, 'element' => $required_field]);
+							self::$status = false;
 						}
 					}
 				}
 			}
 		}
 
-		if(!\dash\engine\process::status())
+		if(!self::$status)
 		{
 			// in import product we need to check all input
 			if(\dash\temp::get('clesnse_not_end_with_error'))
@@ -378,12 +399,14 @@ class cleanse
 		if(!is_array($_input))
 		{
 			\dash\notif::error(T_("First Arguments of patch mode function is required!"));
+			self::$status = false;
 			self::bye();
 		}
 
 		if(!is_array($_data))
 		{
 			\dash\notif::error(T_("Second Arguments of patch mode function is required!"));
+			self::$status = false;
 			self::bye();
 		}
 
@@ -404,6 +427,8 @@ class cleanse
 
 	public static function data($_cleans_function, $_data, $_notif = true, $_meta = [])
 	{
+		self::$status = true;
+
 		if(!$_cleans_function)
 		{
 			self::bye(T_("Validate function is required!"));
@@ -819,7 +844,7 @@ class cleanse
 		if(!$continue_with_error)
 		{
 			// everywhere call validate and have error in validate code must be ended
-			if(!\dash\engine\process::status())
+			if(!self::$status)
 			{
 				self::bye();
 			}

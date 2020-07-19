@@ -27,6 +27,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be a number", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -37,6 +38,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Number is infinite!"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -48,6 +50,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Number is out of range"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -60,7 +63,9 @@ class number
 				if($_notif)
 				{
 					// \dash\notif::error(T_("Field :val must be larger than :min", ['val' => $_field_title, 'min' => \dash\fit::number($_meta['min'])]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 					\dash\notif::error(T_("Field :val must be larger than :min character", ['val' => $_field_title, 'min' => \dash\fit::number(mb_strlen($_meta['min']))]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -74,7 +79,9 @@ class number
 				if($_notif)
 				{
 					// \dash\notif::error(T_("Field :val must be less than :max", ['val' => $_field_title, 'max' => \dash\fit::number($_meta['max'])]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 					\dash\notif::error(T_("Field :val must be less than :max character", ['val' => $_field_title, 'max' => \dash\fit::number(mb_strlen($_meta['max']))]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -87,6 +94,7 @@ class number
 				if($_notif)
 				{
 					// \dash\notif::error(T_("Cannot use decimal number in field :val", ['val' => $_field_title]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 			}
 		}
@@ -151,6 +159,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Post code must be larger than 6 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -161,6 +170,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Post code must be less than 10 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -184,6 +194,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Phone number must be larger than 8 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -194,6 +205,7 @@ class number
 			if($_notif)
 			{
 				\dash\notif::error(T_("Phone number must be less than 14 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

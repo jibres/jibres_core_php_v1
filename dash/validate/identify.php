@@ -49,6 +49,7 @@ class identify
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid code"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

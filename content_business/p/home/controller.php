@@ -41,6 +41,25 @@ class controller
 			\dash\open::post();
 		}
 
+
+		if(array_key_exists('buy', $_GET))
+		{
+			$result = \lib\app\cart\add::new_cart_website($child, 1);
+			if($result)
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/cart');
+			}
+		}
+		elseif(array_key_exists('cart', $_GET))
+		{
+			$result = \lib\app\cart\add::new_cart_website($child, 1);
+			if($result)
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
+
+		}
+
 	}
 }
 ?>

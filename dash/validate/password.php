@@ -87,6 +87,7 @@ class password
 			if($_notif)
 			{
 				\dash\notif::error(T_("Do not use space in your password"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 
 			return false;
@@ -97,6 +98,7 @@ class password
 			if($_notif)
 			{
 				\dash\notif::error(T_("Crazy password, Try another"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -107,6 +109,7 @@ class password
 			if($_notif)
 			{
 				\dash\notif::error(T_("Can not use 123456 in your password, Try another"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 
 			return false;
@@ -117,6 +120,7 @@ class password
 			if($_notif)
 			{
 				\dash\notif::error(T_("Please use more than 3 unique character in your password"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 
 			return false;

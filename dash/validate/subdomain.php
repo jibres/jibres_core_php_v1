@@ -24,6 +24,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("Please fill subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -41,6 +42,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("Slug must have at least 5 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -50,6 +52,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("Please set the subdomain less than 50 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -59,6 +62,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("Only [A-Za-z0-9-_] can use in subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -68,6 +72,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("Slug should contain a Latin letter"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -77,6 +82,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("The subdomain must begin with latin letters"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -86,6 +92,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("The subdomain must have one separator"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -95,6 +102,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("The subdomain must have one separator"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -110,6 +118,7 @@ class subdomain
 				if($_notif)
 				{
 					\dash\notif::error(T_("Can not use subdomain by jibres keyword"), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -120,6 +129,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -129,6 +139,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -138,6 +149,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -147,6 +159,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -156,6 +169,7 @@ class subdomain
 			if($_notif)
 			{
 				\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

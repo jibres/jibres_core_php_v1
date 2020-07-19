@@ -148,6 +148,7 @@ class iban
 			if($_notif)
 			{
 				\dash\notif::error(T_("IBAN number must be contain country code and have exactly 24 number"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -172,6 +173,7 @@ class iban
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid IBAN. Please enter a valid IBAN"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

@@ -20,6 +20,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("Url is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -42,6 +43,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("Domain must be contain one dot character."), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -51,6 +53,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("Domain can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -83,6 +86,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("Domain can not start by dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -105,6 +109,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("Domain can contain maximum 3 dot character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -136,6 +141,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("This is not an IR domain"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 
@@ -160,6 +166,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("IP is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -183,6 +190,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("IP is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -204,6 +212,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("IP is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -226,6 +235,7 @@ class url
 			if($_notif)
 			{
 				\dash\notif::error(T_("DNS is invalid"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

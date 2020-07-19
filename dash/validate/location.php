@@ -27,6 +27,7 @@ class location
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid country"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -58,6 +59,7 @@ class location
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid province"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

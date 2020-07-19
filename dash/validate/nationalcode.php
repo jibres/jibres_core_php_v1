@@ -24,6 +24,7 @@ class nationalcode
 			if($_notif)
 			{
 				\dash\notif::error(T_("National code must be exactly 10 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -33,6 +34,7 @@ class nationalcode
 			if($_notif)
 			{
 				\dash\notif::error(T_("National code must be a number"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -84,6 +86,7 @@ class nationalcode
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid national code"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

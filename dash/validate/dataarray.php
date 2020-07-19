@@ -20,6 +20,7 @@ class dataarray
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be string or number", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -51,6 +52,7 @@ class dataarray
 				if($_notif)
 				{
 					\dash\notif::error(T_("Your entered value is outside the approved list for field :val", ['val' => $_field_title]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
 				return false;
 			}
@@ -60,6 +62,7 @@ class dataarray
 			if($_notif)
 			{
 				\dash\notif::error(T_("Enum list must be array"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -83,6 +86,7 @@ class dataarray
 			if($_notif)
 			{
 				\dash\notif::error(T_("Field :val must be array", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}

@@ -21,6 +21,7 @@ class irnic
 			if($_notif)
 			{
 				\dash\notif::error(T_("Invalid IRNIC id"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
@@ -30,6 +31,7 @@ class irnic
 			if($_notif)
 			{
 				\dash\notif::error(T_("The IRNIC id must have one separator"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
