@@ -233,8 +233,8 @@ $productDataRow = \dash\data::productDataRow();
     <header data-kerkere='.seoData' data-kerkere-icon='open'><h2><?php echo T_("Customize for SEO"); ?></h2></header>
     <div class="pad">
       <div class="seoPreview">
-        <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/p/<?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?>">
-          <cite><span><?php echo \dash\url::kingdom(); ?>/p/</span><?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?></cite>
+        <a target="_blank" href="<?php echo \dash\data::productDataRow_url(); ?>">
+          <cite><span><?php echo \dash\data::productDataRow_url(); ?></cite>
         </a>
         <div class="f">
           <div class="c s12 pLa10">
