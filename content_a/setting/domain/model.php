@@ -25,7 +25,6 @@ class model
 			$post =
 			[
 				'domain' => \dash\request::post('domain'),
-				'id'     => \dash\request::post('id'),
 			];
 
 			$result = \lib\app\store\domain::remove($post);

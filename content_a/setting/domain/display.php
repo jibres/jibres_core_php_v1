@@ -33,9 +33,26 @@ $storeData = \dash\data::store_store_data();
             <h4><?php echo T_("Connected domain"); ?></h4>
             <div class="mB50">
             <?php foreach (\dash\data::domainList() as $key => $value) {?>
-              <div class="msg f primary2 align-center">
-                <div class="c txtB"><?php echo \dash\get::index($value, 'domain'); ?></div>
-                <div class="cauto"><span class="btn danger" data-confirm data-data='{"remove": "domain", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Remove"); ?></span></div>
+              <div class="msg primary2 align-center">
+                <div class="f">
+
+                  <div class="c txtB"><?php echo \dash\get::index($value, 'domain'); ?></div>
+                  <div class="cauto">
+                    <span class="btn danger" data-confirm data-data='{"remove": "domain", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Remove"); ?></span>
+
+                </div>
+                </div>
+                <div class="">
+                  <?php if(!\dash\get::index($value, 'status')) {?>
+                    <span><?php echo T_("Waiting to check domain"); ?></span>
+                  <?php }elseif(\dash\get::index($value, 'status') === 'ok') {?>
+                    <span><?php echo T_("Domain successfully connected"); ?></span>
+                  <?php }elseif(\dash\get::index($value, 'status') === 'failed') {?>
+                    <span><?php echo T_("Domain connection failed"); ?></span>
+                  <?php }elseif(\dash\get::index($value, 'status') === 'pending') {?>
+                    <span><?php echo T_("Pending connect domain"); ?></span>
+                  <?php } //endif ?>
+                </div>
               </div>
             <?php }// endfor ?>
             </div>

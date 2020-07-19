@@ -9,27 +9,39 @@ class domain
 		$condition =
 		[
 			'domain' => 'domain',
-			'id'     => 'code',
 		];
 
-		$require = ['domain', 'id'];
+		$require = ['domain'];
 
 		$meta =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$id = \dash\coding::decode($data['id']);
-		if(!is_numeric($id))
+		$domain_list = \lib\db\setting\get::by_cat_key_all('store_setting', 'domain');
+
+		$id = null;
+		foreach ($domain_list as $key => $value)
 		{
-			\dash\notif::error(T_("Invalid id"));
-			return false;
+			if(isset($value['value']) && $value['value'] === $data['domain'])
+			{
+				$id = $value['id'];
+				break;
+			}
 		}
 
-		$load_setting_record = \lib\db\setting\get::by_id($id);
-
-		if(isset($load_setting_record['value']) && $load_setting_record['value'] === $data['domain'])
+		if($id)
 		{
-			// no problem
+			$load_setting_record = \lib\db\setting\get::by_id($id);
+
+			if(isset($load_setting_record['value']) && $load_setting_record['value'] === $data['domain'])
+			{
+				// no problem
+			}
+			else
+			{
+				\dash\notif::error(T_("This domain not found in your domain list!"));
+				return false;
+			}
 		}
 		else
 		{
@@ -60,7 +72,7 @@ class domain
 			}
 		}
 
-		\lib\db\setting\delete::record($load_setting_record['id']);
+		\lib\db\setting\delete::record($id);
 
 		$domain_addr = \dash\engine\store::customer_domain_addr();
 
@@ -240,7 +252,8 @@ class domain
 
 	public static function get_domain_list()
 	{
-		$domain_list = \lib\db\setting\get::by_cat_key_all('store_setting', 'domain');
+		// $domain_list = \lib\db\setting\get::by_cat_key_all('store_setting', 'domain');
+		$domain_list = \lib\db\store_domain\get::by_store_id(\lib\store::id());
 		$domain_list = array_map(['self', 'ready'], $domain_list);
 		return $domain_list;
 	}
@@ -268,7 +281,7 @@ class domain
 					break;
 
 				default:
-					# code...
+					$result[$key] = $value;
 					break;
 			}
 		}
@@ -315,16 +328,30 @@ class domain
 
 	public static function add_domain_arvan($_domain)
 	{
+
+		$store_domain = \lib\db\store_domain\get::by_domain($_domain);
+		if(!isset($store_domain['id']))
+		{
+			\dash\notif::error(T_("Domain is not connected to your store"));
+			return false;
+		}
+
+		$store_domain_id = $store_domain['id'];
+
 		$jibres_ip = \dash\setting\dns_server::ip();
 
 		$check_exist_domain = \lib\arvancloud\api::get_domain($_domain);
 
 		if(!$check_exist_domain || !is_array($check_exist_domain))
 		{
+
+			\lib\db\store_domain\update::record(['status' => 'failed', 'message' => T_('Can not connect to arvancloud API'), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 			self::send_to_supervisor('Can not connect to arvancloud API On domain: '. $_domain);
 			\dash\notif::error(T_("Sorry, Can not connect to CDN API to connect your domain. Please Try again"));
 			return false;
 		}
+
+		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 
 		$must_add   = [];
 		$mus_update = [];
@@ -454,6 +481,8 @@ class domain
 			];
 
 			$result_add = \lib\arvancloud\api::add_dns_record($_domain, $add_dns);
+
+			\lib\db\store_domain\update::record(['dnsrecord' => 1, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 		}
 
 
@@ -470,6 +499,8 @@ class domain
 				"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
 			];
 			$result_update = \lib\arvancloud\api::update_dns_record($_domain, $add_dns, $value['id']);
+
+			\lib\db\store_domain\update::record(['dnsrecord' => 1, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 		}
 
 
@@ -488,6 +519,8 @@ class domain
 					];
 
 					$set_https = \lib\arvancloud\api::set_arvan_request($_domain, $add_https_args);
+
+					\lib\db\store_domain\update::record(['https' => 1, 'status' => 'ok', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
 			}
 		}
