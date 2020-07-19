@@ -7,6 +7,7 @@ class controller
 	{
 		$child = \dash\url::child();
 
+
 		$load_product = \lib\app\product\load::site($child);
 
 		if(!$load_product)
@@ -16,8 +17,30 @@ class controller
 
 		\dash\data::dataRow($load_product);
 
-		\dash\open::get();
-		\dash\open::post();
+		$allow = false;
+
+		if(!is_null(\dash\url::subchild()))
+		{
+			if(\dash\data::dataRow_url() === urldecode(\dash\url::current()))
+			{
+				$allow = true;
+			}
+			else
+			{
+				$allow = false;
+			}
+		}
+		else
+		{
+			$allow = true;
+		}
+
+		if($allow)
+		{
+			\dash\open::get();
+			\dash\open::post();
+		}
+
 	}
 }
 ?>
