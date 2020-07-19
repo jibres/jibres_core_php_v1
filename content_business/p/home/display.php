@@ -54,64 +54,63 @@ if(count($myGallery) > 1)
 
         <?php //  echo \dash\fit::number(\dash\data::dataRow_stock()); ?>
 
-          <div class="priceLine">
-            <div class="row align-center">
-              <div class="c">
-                <?php if(\dash\data::dataRow_discount()) {?>
-                <div>
-                  <span><?php echo T_("List Price"); ?></span>
-                  <div class="priceShow" data-first>
-                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price() + \dash\data::dataRow_discount()); ?></span>
-                  </div>
-                  <div class="priceShow" data-discount title='<?php echo T_("You Save"); ?> <?php echo \dash\fit::price(round(\dash\data::dataRow_discount())); ?>'><?php echo \dash\fit::price(\dash\data::dataRow_discountpercent()); ?> %</div>
+          <div class="row align-center">
+            <div class="c">
+              <?php if(\dash\data::dataRow_discount()) {?>
+              <div>
+                <span><?php echo T_("List Price"); ?></span>
+                <div class="priceShow" data-first>
+                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price() + \dash\data::dataRow_discount()); ?></span>
                 </div>
-                <?php } //endif ?>
-
-                <div>
-                  <div class="priceShow" data-final>
-                    <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
-                    <span class="unit"><?php echo \lib\currency::unit(); ?></span>
-                  </div>
-                </div>
-
-
-
-                <?php if(\dash\data::propertyList()) { ?>
-                  <div class="featureBullets">
-                  <ul>
-                  <?php foreach (\dash\data::propertyList() as $property => $property_detail) {?>
-                    <?php foreach ($property_detail['list'] as $cat) {?>
-                      <?php if(\dash\get::index($cat, 'outstanding')) {?>
-                        <li><?php echo \dash\get::index($cat, 'key') ?> <b><?php echo \dash\get::index($cat, 'value'); ?></b></li>
-                      <?php } //endif ?>
-                    <?php } // endfor ?>
-                  <?php } // endfor ?>
-                  </ul>
-                </div>
-                <?php } // endif ?>
+                <div class="priceShow ltr" data-discount title='<?php echo T_("You Save"); ?> <?php echo \dash\fit::price(round(\dash\data::dataRow_discount())); ?>'>- <?php echo \dash\fit::price(\dash\data::dataRow_discountpercent()); ?> %</div>
               </div>
-              <div class="c-auto">
-                <?php if(\dash\data::productInCart()) {?>
-                  <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Update cart"); ?>
-                  </div>
+              <?php } //endif ?>
 
-                   <div class="input productCount mT10">
-                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>+</label>
-                      <input type="number" name="count" value="<?php echo \dash\data::productInCartCount(); ?>" readonly>
-                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
-                   </div>
-
-                <?php }else{ ?>
-                  <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
-                    <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "buy", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Buy now"); ?></div>
-                    <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Add to Cart"); ?></div>
-                  <?php }else{ ?>
-                    <div class="addToCart disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Buy now"); ?></div>
-                    <div class="addToCart disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Add to Cart"); ?></div>
-                  <?php } //endif ?>
-                <?php } //endif ?>
+              <div>
+                <span><?php echo T_("Price"); ?></span>
+                <div class="priceShow" data-final>
+                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                  <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+                </div>
               </div>
+
             </div>
+<?php if(\dash\data::propertyList()) { ?>
+            <div class="c-auto c-xs-12">
+              <ul class="featureBullets">
+                <?php foreach (\dash\data::propertyList() as $property => $property_detail) {?>
+                  <?php foreach ($property_detail['list'] as $cat) {?>
+                    <?php if(\dash\get::index($cat, 'outstanding')) {?>
+                <li><span><?php echo \dash\get::index($cat, 'key') ?></span> <span class="txtB"><?php echo \dash\get::index($cat, 'value'); ?></span></li>
+                    <?php } //endif ?>
+                  <?php } // endfor ?>
+                <?php } // endfor ?>
+              </ul>
+            </div>
+<?php } // endif ?>
+          </div>
+
+
+          <div>
+            <?php if(\dash\data::productInCart()) {?>
+              <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Update cart"); ?>
+              </div>
+
+               <div class="input productCount mT10">
+                  <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>+</label>
+                  <input type="number" name="count" value="<?php echo \dash\data::productInCartCount(); ?>" readonly>
+                  <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
+               </div>
+
+            <?php }else{ ?>
+              <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
+                <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "buy", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Buy now"); ?></div>
+                <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="addToCart"><?php echo T_("Add to Cart"); ?></div>
+              <?php }else{ ?>
+                <div class="addToCart disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Buy now"); ?></div>
+                <div class="addToCart disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Add to Cart"); ?></div>
+              <?php } //endif ?>
+            <?php } //endif ?>
           </div>
 
           <?php /* --------------- vARIANT CHILD --------------- */
@@ -124,19 +123,9 @@ if(count($myGallery) > 1)
           ?>
 
 
-
-<?php if(\dash\data::productSettingSaved_view_text()) {?><p><?php echo \dash\data::productSettingSaved_view_text(); ?></p><?php } //endif ?>
-<?php if(\dash\data::dataRow_bullet()) { ?>
-          <div class="featureBullets ltr">
-            <ul>
-              <?php foreach (\dash\data::dataRow_bullet() as $key => $value) {?>
-                <li><?php echo \dash\get::index($value, 'text'); ?></li>
-              <?php } // endif ?>
-            </ul>
-          </div>
-<?php } ?>
-
-
+<?php if(\dash\data::productSettingSaved_view_text()) {?>
+          <p class="msg"><?php echo \dash\data::productSettingSaved_view_text(); ?></p>
+<?php } //endif ?>
 
         </div>
 
