@@ -234,21 +234,29 @@ class pwa_menu
 
 	public static function businessProductPage()
 	{
-		$myFooter =
-		[
-			'cart' =>
+		if(\dash\data::dataRow_allow_shop())
+		{
+			$myFooter =
 			[
-				'href' => \dash\url::that(). '?cart',
-				'title' => T_('Add to cart'),
-				'class' => 'pwafooterAddToCart',
-			],
-			'buy' =>
-			[
-				'href' => \dash\url::that(). '?buy',
-				'title' => T_('Buy Now'),
-				'class' => 'pwafooterBuy',
-			],
-		];
+				'cart' =>
+				[
+					'href' => \dash\url::that(). '?cart',
+					'title' => T_('Add to cart'),
+					'class' => 'pwafooterAddToCart',
+				],
+				'buy' =>
+				[
+					'href' => \dash\url::that(). '?buy',
+					'title' => T_('Buy Now'),
+					'class' => 'pwafooterBuy',
+				],
+			];
+
+		}
+		else
+		{
+			$myFooter =	[];
+		}
 
 		return $myFooter;
 	}
