@@ -7,11 +7,11 @@
     <div class="box" data-uploader data-name='image' data-final='#finalImage' <?php echo \dash\data::ratioHtml(); ?>>
       <input type="file" accept="image/gif, image/jpeg, image/png" id="image1">
       <label for="image1"><?php echo T_('Drag &amp; Drop your files or <span class="txtB">Browse</span>'); ?></label>
+      <img id='finalImage' src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
     </div>
 
     <div class="box">
 
-      <img id='finalImage' src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
 
       <div class="body">
 
