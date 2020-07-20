@@ -8,9 +8,9 @@ $module_url =
 	'app'      => $here. '/app/display.php',
 	'p'        => $here. '/p/home/display.php',
 	'cart'     => $here. '/cart/display.php',
+	'search'   => $here. '/search/display.php',
 	'tag'      => $here. '/tag/display.php',
 	'shipping' => $here. '/shipping/display.php',
-
 ];
 
 if(\dash\data::postIsLoaded())

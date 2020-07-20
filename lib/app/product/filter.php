@@ -57,8 +57,15 @@ class filter
 		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'price',		 'order' => 'desc'], 	'public' => true];
 		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'price',		 'order' => 'asc'], 	'public' => true];
 
-		$sort_list[] = ['title' => T_("Buy price ASC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'asc'], 	'public' => false];
-		$sort_list[] = ['title' => T_("Buy price DESC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'desc'], 	'public' => false];
+		if($_module === 'website')
+		{
+			// nothing
+		}
+		else
+		{
+			$sort_list[] = ['title' => T_("Buy price ASC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'asc'], 	'public' => false];
+			$sort_list[] = ['title' => T_("Buy price DESC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'desc'], 	'public' => false];
+		}
 
 
 		$current_string_query = \dash\request::get();

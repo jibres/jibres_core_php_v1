@@ -50,6 +50,8 @@ class search
 			'withoutimage'   => 'bit',
 			'havevariants'   => 'bit',
 
+			'websitemode' => 'bit',
+
 		];
 
 		$require = [];
@@ -238,6 +240,14 @@ class search
 			$type                          = 'price';
 
 			self::$is_filtered             = true;
+		}
+
+
+		if($data['websitemode'])
+		{
+			$and[] = " products.status != 'deleted'";
+			// $and[] = " products.instock = 'yes'";
+			$and[] = " products.parent IS NULL ";
 		}
 
 
