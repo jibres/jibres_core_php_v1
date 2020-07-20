@@ -165,7 +165,7 @@ class ready
 
 		$result['full_slug']  = $new_slug;
 		$result['full_title'] = $new_title;
-		$result['url'] = \dash\url::set_subdomain(\lib\store::detail('subdomain')). '/category/'. $new_slug;
+		$result['url'] = \lib\store::url(). '/category/'. $new_slug;
 	}
 }
 ?>
