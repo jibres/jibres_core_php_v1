@@ -25,6 +25,28 @@ class view
 		\dash\data::websiteStatus($website_status);
 
 
+		if($website_status === false)
+		{
+			\lib\app\website\init::status();
+
+			$body_line_list = \lib\app\website\body\get::line_list();
+
+			if(!$body_line_list)
+			{
+				\lib\app\website\init::body();
+			}
+		}
+
+		if($isset_header === false)
+		{
+			\lib\app\website\init::header();
+		}
+
+		if($isset_footer === false)
+		{
+			\lib\app\website\init::footer();
+		}
+
 	}
 }
 ?>
