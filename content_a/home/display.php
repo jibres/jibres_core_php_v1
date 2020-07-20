@@ -82,9 +82,6 @@
       <ul>
         <li><a class="f" href="<?php echo \dash\url::here(); ?>/android"><div class="key"><?php echo T_("Android app"); ?></div><div class="go"></div></a></li>
       </ul>
-    </nav>
-
-    <nav class="items">
       <ul>
         <li><a class="f" href="<?php echo \dash\url::here(); ?>/website"><div class="key"><?php echo T_("Website setting"); ?></div><div class="go"></div></a></li>
       </ul>
