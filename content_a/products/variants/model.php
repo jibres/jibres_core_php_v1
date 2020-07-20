@@ -110,7 +110,7 @@ class model
 				'buyprice' => array_key_exists($key, $buyprice) ? $buyprice[$key] : null,
 				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
 				'barcode'  => array_key_exists($key, $barcode) ? $barcode[$key] : null,
-				'sku'      => array_key_exists($key, $sku) ? $sku[$key] : null,
+				// 'sku'      => array_key_exists($key, $sku) ? $sku[$key] : null,
 			];
 
 		}

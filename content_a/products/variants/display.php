@@ -99,8 +99,8 @@ $variantsList = \dash\data::variantsList();
                       <?php if(isset($variantsList['variants']['option3']['value']) && $variantsList['variants']['option3']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option3', 'name'); ?></th><?php } //endif ?>
                       <th><?php echo T_("Stock"); ?></th>
                       <th><?php echo T_("Price"); ?></th>
-                      <th><?php echo T_("SKU"); ?></th>
-                      <th><?php echo T_("Barcode"); ?></th>
+                      <th><?php echo T_("Discount"); ?></th>
+
 
                     </tr>
                   </thead>
@@ -134,10 +134,7 @@ $variantsList = \dash\data::variantsList();
                         </td>
 
                         <td>
-
                           <input type="hidden" name="buyprice_<?php echo $myCount; ?>" value="<?php echo \dash\data::productDataRow_buyprice(); ?>">
-                          <input type="hidden" name="discount_<?php echo $myCount; ?>" value="<?php echo \dash\data::productDataRow_discount(); ?>">
-
                           <div class="input">
                             <input type="number" name="price_<?php echo $myCount; ?>" placeholder='<?php echo T_("Price"); ?>' value="<?php echo \dash\data::productDataRow_price(); ?>">
                           </div>
@@ -145,15 +142,10 @@ $variantsList = \dash\data::variantsList();
 
                         <td>
                           <div class="input">
-                            <input type="text" name="sku_<?php echo $myCount; ?>" placeholder='<?php echo T_("SKU"); ?>'>
+                            <input type="number" name="discount_<?php echo $myCount; ?>" placeholder='<?php echo T_("Price"); ?>' value="<?php echo \dash\data::productDataRow_discount(); ?>">
                           </div>
                         </td>
 
-                        <td>
-                          <div class="input">
-                            <input type="text" name="barcode_<?php echo $myCount; ?>" placeholder='<?php echo T_("Barcode"); ?>'>
-                          </div>
-                        </td>
                       </tr>
                     <?php } //endfor ?>
                   </tbody>

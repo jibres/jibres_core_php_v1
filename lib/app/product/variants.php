@@ -334,7 +334,7 @@ class variants
 				'price'    => 'price',
 				'buyprice' => 'price',
 				'discount' => 'price',
-				'sku'      => 'sku',
+				// 'sku'      => 'sku',
 			]
 		];
 
@@ -363,7 +363,7 @@ class variants
 				'price'         => array_key_exists('price', $value) ? $value['price'] : null,
 				'buyprice'      => array_key_exists('buyprice', $value) ? $value['buyprice'] : null,
 				'discount'      => array_key_exists('discount', $value) ? $value['discount'] : null,
-				'sku'           => array_key_exists('sku', $value) ? $value['sku'] : null,
+				// 'sku'           => array_key_exists('sku', $value) ? $value['sku'] : null,
 				'title2'        => isset($load_product['title2']) ? $load_product['title2'] : null,
 			];
 
