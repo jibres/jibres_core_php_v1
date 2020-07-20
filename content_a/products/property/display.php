@@ -44,20 +44,9 @@ $productDataRow = \dash\data::productDataRow();
             <?php } //endif ?>
           </div>
           <div class="c-4">
-            <?php if(!\dash\data::valueList()) {?>
-              <div class="input">
-                <input type="text" name="value" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'value'); ?>">
-              </div>
-            <?php }else{ ?>
-              <div>
-                <select name="value" class="select22" data-model='tag' data-placeholder="<?php echo T_("Value"); ?>" >
-                  <option></option>
-                  <?php foreach (\dash\data::valueList() as $key => $value) {?>
-                    <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index(\dash\data::dataRow(), 'value')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
-                  <?php } //endfor ?>
-                </select>
-              </div>
-            <?php } //endif ?>
+            <div class="input">
+              <input type="text" name="value" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'value'); ?>">
+            </div>
           </div>
         </div>
       </div>
@@ -69,6 +58,7 @@ $productDataRow = \dash\data::productDataRow();
       <div class="productInfo box">
         <div class="body">
           <?php foreach (\dash\data::propertyList() as $property => $cat) {?>
+            <?php if($cat['list']) {?>
             <div class="msg info2 mB0-f "><?php echo $cat['title']; ?></div>
             <table class="tbl1 responsive v5">
               <?php foreach ($cat['list'] as $key => $value) {?>
@@ -91,6 +81,7 @@ $productDataRow = \dash\data::productDataRow();
                 </tr>
               <?php     } ?>
             </table>
+          <?php } //endif ?>
           <?php   } ?>
         </div>
       </div>
