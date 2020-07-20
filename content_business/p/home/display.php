@@ -188,7 +188,7 @@ if(count($myGallery) > 1)
   <h2><?php echo T_("Customer reviews"); ?></h2>
 
   <div class="row allReviewSummary">
-    <div class="c-auto">
+    <div class="c-auto c-xs-0">
       <div class="ratingAvg"><?php echo \dash\fit::text(\dash\data::customerReview_avg()); ?></div>
       <div class="ratingSummary">
         <div class="starRating compact" data-star='<?php echo \dash\data::customerReview_avg(); ?>' data-gold>
@@ -197,7 +197,7 @@ if(count($myGallery) > 1)
         <span><?php echo \dash\fit::number(\dash\data::customerReview_count()); ?></span>
       </div>
     </div>
-    <div class="c rating">
+    <div class="c c-xs-12 rating">
       <div class="row padLess">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("5"); ?></span></div>
         <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_5_percent'); ?>" max="100"></progress></div>
