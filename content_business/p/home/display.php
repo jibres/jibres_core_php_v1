@@ -238,7 +238,7 @@ if(count($myGallery) > 1)
         </div>
         <div class="c c-xs-12">
           <div class="msg minimal row padLess">
-            <div class="c-auto">
+            <div class="c-auto c-xs-12">
               <div class="starRating" data-star='<?php echo $value['star']; ?>'>
                 <i></i><i></i><i></i><i></i><i></i>
               </div>
@@ -281,8 +281,8 @@ if(count($myGallery) > 1)
 
 
   <?php if(!\dash\user::id()) { ?>
-        <div class="f">
-          <div class="c pRa5 mB10">
+        <div class="row padLess">
+          <div class="c c-xs-12 mB10">
 
             <div class="input">
              <label class="addon" for="name"><?php echo T_("Name"); ?></label>
@@ -290,7 +290,7 @@ if(count($myGallery) > 1)
             </div>
 
           </div>
-          <div class="c mB10">
+          <div class="c c-xs-12 mB10">
             <div class="input">
              <label class="addon" for="mobile"><?php echo T_("Mobile"); ?></label>
              <input type="tel" name="mobile" id="mobile" placeholder='<?php echo T_("Mobile"); ?>' maxlength="13" autocomplete="off" data-validity='<?php echo T_("Please enter valid mobile number. `:val` is incorrect"); ?>' value="<?php echo \dash\user::detail('mobile'); ?>">
@@ -301,7 +301,7 @@ if(count($myGallery) > 1)
         </div>
   <?php } // endif?>
     <div class="input mB10">
-     <input type="text" name="title" id="title" placeholder='<?php echo T_("How was it in one sentence?"); ?>' maxlength='40' >
+     <input type="text" name="title" id="title" placeholder='<?php echo T_("Title"); ?>' maxlength='40' >
     </div>
     <div class="mB10">
       <textarea name="content" class="txt" rows="5" placeholder='<?php echo T_("Write your review about this product..."); ?>'></textarea>
