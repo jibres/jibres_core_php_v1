@@ -2,7 +2,15 @@
 $propertyList = \dash\data::propertyList();
 ?>
 
+
 <div class="avand-sm">
+   <nav class="items long">
+      <ul>
+         <li><a class="f" href="<?php echo \dash\url::this(); ?>/sharetext?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-network mRa10"></i><?php echo T_("Share text"); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+
+
 
   <div class="jPage">
 
