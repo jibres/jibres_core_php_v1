@@ -56,59 +56,36 @@
     </nav>
 
 
-  <nav class="items">
-    <ul>
-      <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/menu">
-          <div class="key"><?php echo T_('Menu');?></div>
-          <div class="go"></div></a>
-        </li>
-      </ul>
-    </nav>
-
-    <nav class="items">
-    <ul>
-      <li>
-        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain'));?>">
-          <div class="key"><?php echo T_('Show website');?></div>
-          <div class="go"></div></a>
-        </li>
-      </ul>
-    </nav>
-
     <nav class="items">
       <ul>
-     <li>
-      <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=comingsoon';?>">
-        <div class="key"><?php echo T_('Coming soon mode');?></div>
-        <div class="go"></div></a>
-      </li>
-      <li>
-        <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=visitcard';?>">
-          <div class="key"><?php echo T_('Visitcard mode');?></div>
-          <div class="go"></div></a>
-        </li>
         <li>
-          <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=stat';?>">
-            <div class="key"><?php echo T_('Stat mode');?></div>
+          <a class="f" href="<?php echo \dash\url::this();?>/menu">
+            <div class="key"><?php echo T_('Menu');?></div>
             <div class="go"></div></a>
           </li>
+        </ul>
+      </nav>
+
+      <nav class="items">
+        <ul>
           <li>
-            <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain')). '?websitemode=shop';?>">
-              <div class="key"><?php echo T_('Shop mode');?></div>
+            <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain'));?>">
+              <div class="key"><?php echo T_('Show website');?></div>
               <div class="go"></div></a>
             </li>
           </ul>
         </nav>
 
-    <nav class="items">
-      <ul>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/googleanalytics"><div class="key"><?php echo T_("Google analytics setting"); ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/domain"><div class="key"><?php echo T_("Connect store to your domain"); ?></div><div class="go"></div></a></li>
-      </ul>
-    </nav>
 
 
-  </div>
-</div>
+        <nav class="items">
+          <ul>
+            <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/googleanalytics"><div class="key"><?php echo T_("Google analytics setting"); ?></div><div class="go"></div></a></li>
+            <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/domain"><div class="key"><?php echo T_("Connect store to your domain"); ?></div><div class="go"></div></a></li>
+          </ul>
+        </nav>
+
+
+      </div>
+    </div>
 
