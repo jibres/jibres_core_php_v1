@@ -79,5 +79,20 @@ class get
 
 		return $result;
 	}
+
+
+
+	public static function have_any_slider()
+	{
+		$have_any_slider = \lib\db\setting\get::lang_platform_cat_multi_key(\dash\language::current(), 'website', 'homepage', ['body_line_specialslider','body_line_slider']);
+		if($have_any_slider)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 ?>

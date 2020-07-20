@@ -1,6 +1,24 @@
 <div class="avand">
 <div class="msg info2 fs14"><?php echo T_("Please choose type of new block."); ?></div>
 
+
+<section class="f" data-option='website-block-slider-special'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Special Slider");?></h3>
+      <div class="body">
+        <p><?php echo T_("Show multiple images in one place to change like a carousel. It's responsive and touchable for mobile users. The last carousel you'll ever need."); ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/specialslider"><?php echo T_("Add Special Slider Block") ?></a>
+    </div>
+  </div>
+</section>
+
+
 <section class="f" data-option='website-block-slider'>
   <div class="c8 s12">
     <div class="data">
