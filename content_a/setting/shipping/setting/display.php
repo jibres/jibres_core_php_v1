@@ -20,6 +20,9 @@
 				<div data-response='shipping_status'  <?php if(!\dash\data::shippingSettingSaved_shipping_status()) {echo 'data-response-hide'; }  ?>>
 
 					<br>
+					<?php if(!\dash\data::storeCurrency()) {?>
+						<div class="msg"><?php echo T_("To set your business currency") ?> <a class="btn link" href="<?php echo \dash\url::this(). '/units' ?>"><?php echo T_("Click here") ?></a></div>
+					<?php } //endif ?>
 
 					<div class="switch1 mT10">
 						<input type="checkbox" name="sendbycourier" id="sendbycourier" <?php if(\dash\data::shippingSettingSaved_sendbycourier()) { echo 'checked'; } ?>>
