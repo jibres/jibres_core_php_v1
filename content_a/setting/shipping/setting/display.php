@@ -71,7 +71,7 @@
 							<label for="sendoutprovinceprice" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
 						</div>
 					</div>
-
+					<?php if(false) {?>
 					<div class="switch1 mT10">
 						<input type="checkbox" name="sendoutcountry" id="sendoutcountry" <?php if(\dash\data::shippingSettingSaved_sendoutcountry()) { echo 'checked'; } ?>>
 						<label for="sendoutcountry"></label>
@@ -83,6 +83,7 @@
 							<label for="sendoutcountryprice" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
 						</div>
 					</div>
+				<?php } //endif ?>
 
 				</div>
 

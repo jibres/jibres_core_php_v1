@@ -10,21 +10,20 @@ After setting this text, you will see a sample of it at the bottom of this page"
         <div class="c4 s12" method="post" autocomplete="off">
           <div class="action f">
 
-            <div class="c12 mB5">
-              <label for="color"><?php echo T_("Color"); ?></label>
+             <div class="c12 mB5">
+              <label for="color"><?php echo T_("Message Type"); ?></label>
 
               <div>
                 <select class="select22" name="color">
                   <option value="0"><?php echo T_("Default"); ?></option>
-                  <option value="red" <?php if(\dash\data::cartSettingSaved_color() === 'red') {echo 'selected';} ?>><?php echo T_("Red") ?></option>
-                  <option value="green" <?php if(\dash\data::cartSettingSaved_color() === 'green') {echo 'selected';} ?>><?php echo T_("Green") ?></option>
-                  <option value="blue" <?php if(\dash\data::cartSettingSaved_color() === 'blue') {echo 'selected';} ?>><?php echo T_("Blue") ?></option>
-                  <option value="yellow" <?php if(\dash\data::cartSettingSaved_color() === 'yellow') {echo 'selected';} ?>><?php echo T_("Yellow") ?></option>
+                  <option value="red" <?php if(\dash\data::cartSettingSaved_color() === 'red') {echo 'selected';} ?>><?php echo T_("Red (For important warning message)") ?></option>
+                  <option value="green" <?php if(\dash\data::cartSettingSaved_color() === 'green') {echo 'selected';} ?>><?php echo T_("Green (For thank you message)") ?></option>
+                  <option value="blue" <?php if(\dash\data::cartSettingSaved_color() === 'blue') {echo 'selected';} ?>><?php echo T_("Blue (For information message)") ?></option>
+                  <option value="yellow" <?php if(\dash\data::cartSettingSaved_color() === 'yellow') {echo 'selected';} ?>><?php echo T_("Yellow (For warning message)") ?></option>
                 </select>
               </div>
 
             </div>
-
             <div class="c12 mB5">
               <label for="page_text"><?php echo T_("Text"); ?></label>
               <textarea name="page_text" id="page_text" class="txt" rows="5"><?php echo \dash\data::cartSettingSaved_page_text(); ?></textarea>
