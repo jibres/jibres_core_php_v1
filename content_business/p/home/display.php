@@ -319,8 +319,12 @@ if(count($myGallery) > 1)
  </section>
 
 <?php if(\dash\data::similarProduct()) {?>
+<h2 class="jTitle1"><?php echo T_("Related products") ?></h2>
   <?php \lib\website::product_list(\dash\data::similarProduct()); ?>
 <?php } //endif ?>
+
+
+</div>
 
 
 </div>
