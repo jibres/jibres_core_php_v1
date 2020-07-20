@@ -12,7 +12,7 @@ class view
 		}
 		else
 		{
-			\dash\face::title(T_('SpecialSlider'));
+			\dash\face::title(T_('Special Slider'));
 		}
 
 		// back
