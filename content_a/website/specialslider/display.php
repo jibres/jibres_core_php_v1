@@ -6,7 +6,7 @@
   <input type="hidden" name="sort" value="sort">
   <?php if(\dash\data::lineSetting_specialslider() && is_array(\dash\data::lineSetting_specialslider())) {?>
     <?php foreach (\dash\data::lineSetting_specialslider() as $key => $value) {?>
-    <div class="c-3 c-xs-12">
+    <div class="c-3 c-xs-12 mB20">
       <div class="card">
         <input type="hidden" class="hide" name="specialslider[]" value="<?php echo $key; ?>">
         <div class="img" data-handle><img src="<?php echo \dash\get::index($value, 'image') ?>" alt="<?php echo \dash\get::index($value, 'alt') ?>"></div>
