@@ -57,7 +57,7 @@ class init
 		if(\dash\language::current() === 'fa')
 		{
 			$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,];
-			$list_image = array_rand($list, 5);
+			$list_image = array_rand($list, 6);
 
 			foreach ($list_image as $key => $index)
 			{
@@ -75,7 +75,7 @@ class init
 		else
 		{
 			$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,];
-			$list_image = array_rand($list, 5);
+			$list_image = array_rand($list, 6);
 			foreach ($list_image as $key => $index)
 			{
 				$slider[] =
@@ -117,8 +117,10 @@ class init
 			'lang'     => $lang,
   		];
 
-  		\lib\db\setting\insert::new_record($insert);
-  		return;
+  		$id = \lib\db\setting\insert::new_record($insert);
+
+  		$id = \dash\coding::encode($id);
+  		return $id;
 
 	}
 }

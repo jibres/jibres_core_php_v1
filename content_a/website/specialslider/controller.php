@@ -9,6 +9,12 @@ class controller
 
 		$id = \dash\request::get('id');
 
+		if(!$id)
+		{
+			$id = \lib\app\website\init::slider();
+			\dash\redirect::to(\dash\url::this(). '/specialslider?id='. $id);
+		}
+
 		if($id)
 		{
 			$load_line_detail = \lib\app\website\body\line\specialslider::get($id);
