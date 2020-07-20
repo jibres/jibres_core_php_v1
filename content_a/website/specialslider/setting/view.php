@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Manage specialslider'));
+		\dash\face::title(T_('Manage special slider'));
 
 		if(\dash\data::specialsliderID())
 		{
