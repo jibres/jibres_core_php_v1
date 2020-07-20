@@ -54,40 +54,54 @@ class init
 	public static function slider()
 	{
 		$slider = [];
-		if(\dash\language::current() === 'fa')
+		// if(\dash\language::current() === 'fa')
+		// {
+		// 	$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,];
+		// 	$list_image = array_rand($list, 6);
+
+		// 	foreach ($list_image as $key => $index)
+		// 	{
+		// 		$slider[] =
+		// 		[
+		// 			"image"  => \dash\url::cdn(). "/images/slider-sample/iran/". $list[$index].".jpg",
+		// 			"url"    => null,
+		// 			"alt"    => null,
+		// 			"sort"   => null,
+		// 			"target" => null
+		// 		];
+		// 	}
+
+		// }
+		// else
+		// {
+		// 	$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,];
+		// 	$list_image = array_rand($list, 6);
+		// 	foreach ($list_image as $key => $index)
+		// 	{
+		// 		$slider[] =
+		// 		[
+		// 			"image"  => \dash\url::cdn(). "/images/slider-sample/international/". $list[$index].".jpg",
+		// 			"url"    => null,
+		// 			"alt"    => null,
+		// 			"sort"   => null,
+		// 			"target" => null
+		// 		];
+		// 	}
+
+		// }
+
+		$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40];
+		$list_image = array_rand($list, 6);
+		foreach ($list_image as $key => $index)
 		{
-			$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,];
-			$list_image = array_rand($list, 6);
-
-			foreach ($list_image as $key => $index)
-			{
-				$slider[] =
-				[
-					"image"  => \dash\url::cdn(). "/images/slider-sample/iran/". $list[$index].".jpg",
-					"url"    => null,
-					"alt"    => null,
-					"sort"   => null,
-					"target" => null
-				];
-			}
-
-		}
-		else
-		{
-			$list = [1,2,3,4,5,6,7,8,9,10,11,12,13,];
-			$list_image = array_rand($list, 6);
-			foreach ($list_image as $key => $index)
-			{
-				$slider[] =
-				[
-					"image"  => \dash\url::cdn(). "/images/slider-sample/international/". $list[$index].".jpg",
-					"url"    => null,
-					"alt"    => null,
-					"sort"   => null,
-					"target" => null
-				];
-			}
-
+			$slider[] =
+			[
+				"image"  => \dash\url::cdn(). "/images/slider-sample/food/". $list[$index].".jpg",
+				"url"    => null,
+				"alt"    => null,
+				"sort"   => null,
+				"target" => null
+			];
 		}
 
 		$value =
