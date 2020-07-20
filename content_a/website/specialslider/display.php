@@ -1,3 +1,6 @@
+<?php if(\dash\data::lineSetting_specialslider() && is_array(\dash\data::lineSetting_specialslider()) && count(\dash\data::lineSetting_specialslider()) >= 5) {/*nothing*/}else{?>
+  <div class="msg warn fs14 txtC"><?php echo T_("You must have at least 5 pages or more to display this slider") ?></div>
+<?php } //endif ?>
 <?php $specialslider_ratio = round(\dash\get::index(\dash\data::lineSetting(), 'ratio_detail', 'ratio'), 2); ?>
 <form class="row" data-sortable method="post">
   <input type="hidden" name="sort" value="sort">
