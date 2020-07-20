@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add specialslider page'));
+		\dash\face::title(T_('Add special slider page'));
 
 
 		if(\dash\data::specialsliderID())
@@ -17,7 +17,7 @@ class view
 			if(\dash\data::lineSetting_specialslider() && is_array(\dash\data::lineSetting_specialslider()))
 			{
 				// back
-				\dash\data::back_text(T_('SpecialSlider list'));
+				\dash\data::back_text(T_('Special Slider list'));
 				\dash\data::back_link(\dash\url::that(). '?id='. \dash\data::specialsliderID());
 
 			}

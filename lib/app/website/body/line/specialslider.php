@@ -316,7 +316,7 @@ class specialslider
 
 		if(!array_key_exists($_specialslider_index, $saved_specialslider))
 		{
-			\dash\notif::error(T_("Invalid specialslider index"));
+			\dash\notif::error(T_("Invalid special slider index"));
 			return false;
 		}
 
@@ -509,7 +509,7 @@ class specialslider
 		if($edit_index_mode)
 		{
 			$saved_specialslider[$_specialslider_index] = $ready_to_save;
-			\dash\notif::ok(T_("Page specialslider edited"));
+			\dash\notif::ok(T_("Page special slider edited"));
 		}
 		else
 		{
@@ -520,7 +520,7 @@ class specialslider
 			{
 				if(count($saved_specialslider) > intval($line_option['max_capacity']))
 				{
-					\dash\notif::error(T_("Maximum capacity of this specialslider is full"));
+					\dash\notif::error(T_("Maximum capacity of this special slider is full"));
 					return false;
 				}
 			}

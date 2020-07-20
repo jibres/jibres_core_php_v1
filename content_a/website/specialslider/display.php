@@ -15,7 +15,7 @@
 
           <?php if(\dash\get::index($value, 'image_ratio') && $specialslider_ratio && round(\dash\get::index($value, 'image_ratio'), 2) != $specialslider_ratio) {?>
             <div class="fc-orange">
-              <i class="sf-exclamation-triangle fc-orange"></i> <?php echo T_("This image ratio is not match by specialslider ratio!") ?>
+              <i class="sf-exclamation-triangle fc-orange"></i> <?php echo T_("This image ratio is not match by special slider ratio!") ?>
               <?php if(\dash\get::index($value, 'image_ratio_title')) { ?><span class="txtB"><?php echo T_("Image ratio :val", ['val' => \dash\fit::text(\dash\get::index($value, 'image_ratio_title'))]); ?></span><?php } // endif ?>
 
             </div>

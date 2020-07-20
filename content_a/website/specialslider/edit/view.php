@@ -8,7 +8,7 @@ class view extends \content_a\website\specialslider\add\view
 	{
 		parent::config();
 
-		\dash\face::title(T_('Edit specialslider page'));
+		\dash\face::title(T_('Edit special slider page'));
 
 	}
 }

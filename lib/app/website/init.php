@@ -93,7 +93,7 @@ class init
 		$value =
 		[
 
-			"title"         => T_("Specail Slider"),
+			"title"         => T_("Special Slider"),
 			"type"          => "specialslider",
 			"ratio"         => null,
 			"sort"          => null,
