@@ -179,11 +179,11 @@ class comment
 			return false;
 		}
 
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
+		// if(!\dash\user::id())
+		// {
+		// 	\dash\notif::error(T_("Please login to continue"));
+		// 	return false;
+		// }
 
 		$args = self::check($_args);
 
@@ -206,7 +206,7 @@ class comment
 		{
 			if($args['mobile'])
 			{
-				$user_id = \dash\app\user::add_quick(['mobile' => $args['mobile'], 'displayname' => $args['name']]);
+				$user_id = \dash\app\user::quick_add(['mobile' => $args['mobile'], 'displayname' => $args['name']]);
 				if($user_id)
 				{
 					$args['user_id']     = $user_id;
