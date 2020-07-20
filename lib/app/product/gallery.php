@@ -261,6 +261,11 @@ class gallery
 
 		}
 
+		if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
+		{
+			$product_gallery_field['files'] = array_values($product_gallery_field['files']);
+		}
+
 		$product_gallery_field = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
 
 		\lib\db\products\update::gallery($product_gallery_field, $product_id);

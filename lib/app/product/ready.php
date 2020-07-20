@@ -194,6 +194,7 @@ class ready
 
 		$result['allow_shop'] = $allow_shop;
 
+
 		return $result;
 	}
 
