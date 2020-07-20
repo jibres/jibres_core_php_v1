@@ -471,7 +471,7 @@ class search
 
 		$meta =
 		[
-			'limit' => 10,
+			'limit' => 16,
 			'type' => $type,
 			'join' => [],
 		];
