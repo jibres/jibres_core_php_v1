@@ -15,7 +15,7 @@
 
       <div class="body">
 
-        <label for="alt"><?php echo T_("Image Alt"); ?></label>
+        <label for="alt"><?php echo T_("Title"); ?></label>
         <div class="input">
           <input type="text" name="alt" id="alt" value="<?php echo \dash\data::dataRow_alt() ?>" maxlength="200"  >
         </div>
