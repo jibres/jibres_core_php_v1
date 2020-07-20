@@ -100,6 +100,16 @@ class template
 		];
 
 
+
+		$list[] =
+		[
+			'key'          => 'specialslider',
+			'title'        => T_("Special slider"),
+			'version'      => 1,
+			'max_capacity' => 10, // capacity of product
+		];
+
+
 		return $list;
 	}
 
