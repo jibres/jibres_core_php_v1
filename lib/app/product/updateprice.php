@@ -177,10 +177,6 @@ class updateprice
 				$changed = true;
 			}
 
-			// if((array_key_exists('compareatprice', $last_product_price) && array_key_exists('compareatprice', $_args) && floatval($_args['compareatprice']) !== floatval($last_product_price['compareatprice'])) || $changed)
-			// {
-			// 	$changed = true;
-			// }
 
 			if((array_key_exists('finalprice', $last_product_price) && array_key_exists('finalprice', $_args) && floatval($_args['finalprice']) !== floatval($last_product_price['finalprice'])) || $changed)
 			{
@@ -209,7 +205,6 @@ class updateprice
 			$new_record['price']           = array_key_exists('price', $_args) 				? $_args['price'] 			: null;
 			$new_record['discount']        = array_key_exists('discount', $_args) 			? $_args['discount'] 		: null;
 			$new_record['buyprice']        = array_key_exists('buyprice', $_args) 			? $_args['buyprice'] 		: null;
-			// $new_record['compareatprice']  = array_key_exists('compareatprice', $_args) 	? $_args['compareatprice'] 	: null;
 			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) 	? $_args['discountpercent'] : null;
 			$new_record['finalprice']      = array_key_exists('finalprice', $_args) 		? $_args['finalprice'] 		: null;
 			$new_record['vatprice']        = array_key_exists('vatprice', $_args) 			? $_args['vatprice'] 		: null;

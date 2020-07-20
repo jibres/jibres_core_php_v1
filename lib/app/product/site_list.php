@@ -179,11 +179,6 @@ class site_list
 			$datalist['price'] = null;
 		}
 
-		if(isset($_data['compareatprice']))
-		{
-			$datalist['compareatprice'] = floatval($_data['compareatprice']);
-		}
-
 		if(isset($_data['discount']))
 		{
 			$datalist['discount'] = $_data['discount'];
@@ -245,10 +240,6 @@ class site_list
 			$result['barcode2'] = $_data['barcode2'];
 		}
 
-		if(isset($_data['compareatprice']))
-		{
-			$result['compareatprice'] = $_data['compareatprice'];
-		}
 
 		if(isset($_data['price']))
 		{

@@ -7,7 +7,7 @@ class controller
 
 	public static function routing()
 	{
-		self::check_login_as_referer();
+		// self::check_login_as_referer();
 
 		// all subdomain must be login to jibres
 		if(\dash\url::store())

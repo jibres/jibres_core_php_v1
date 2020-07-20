@@ -77,7 +77,7 @@ class edit
 		}
 
 		// to not remove in patch_mode function
-		// $_args['compareatprice']  = $args['compareatprice'];
+
 		if($args['discountpercent'])
 		{
 			$_args['discountpercent'] = $args['discountpercent'];

@@ -40,7 +40,6 @@ class model
 
 		$post['buyprice']          = \dash\request::post('buyprice');
 		$post['price']             = \dash\request::post('price');
-		// $post['compareatprice'] = \dash\request::post('CompareAtPrice');
 		$post['discount']          = \dash\request::post('discount');
 		$post['vat']               = \dash\request::post('vat');
 		$post['sku']               = \dash\request::post('sku');

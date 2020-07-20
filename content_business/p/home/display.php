@@ -60,7 +60,7 @@ if(count($myGallery) > 1)
               <div>
                 <span><?php echo T_("List Price"); ?></span>
                 <div class="priceShow" data-first>
-                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price() + \dash\data::dataRow_discount()); ?></span>
+                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
                 </div>
                 <div class="priceShow ltr" data-discount title='<?php echo T_("You Save"); ?> <?php echo \dash\fit::price(round(\dash\data::dataRow_discount())); ?>'>- <?php echo \dash\fit::price(\dash\data::dataRow_discountpercent()); ?> %</div>
               </div>
@@ -69,7 +69,7 @@ if(count($myGallery) > 1)
               <div>
                 <span><?php echo T_("Price"); ?></span>
                 <div class="priceShow" data-final>
-                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_finalprice()); ?></span>
                   <span class="unit"><?php echo \lib\currency::unit(); ?></span>
                 </div>
               </div>

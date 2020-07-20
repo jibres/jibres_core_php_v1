@@ -192,6 +192,11 @@ class get
 			$result = \lib\db\factors\get::load_my_order_guestid($_id, \dash\user::get_user_guest());
 		}
 
+		if(is_array($result))
+		{
+			$result = \lib\app\factor\ready::row($result);
+		}
+
 		return $result;
 
 	}

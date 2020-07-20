@@ -70,7 +70,6 @@ class check
 
 			'buyprice'          => 'price',
 			'price'             => 'price',
-			// 'compareatprice' => 'price',
 			'discount'          => 'price',
 			'vat'               => 'bit',
 
@@ -192,10 +191,6 @@ class check
 			$discountpercent = round((floatval($data['discount']) * 100) / floatval($data['price']), 2);
 		}
 
-		// if($data['price'] && !$data['compareatprice'])
-		// {
-		// 	$data['compareatprice'] = $data['price'];
-		// }
 
 		$data['finalprice'] = floatval($data['price']) - floatval($data['discount']);
 
@@ -221,7 +216,6 @@ class check
 
 		$data['buyprice']        = \lib\price::up($data['buyprice']);
 		$data['price']           = \lib\price::up($data['price']);
-		// $data['compareatprice']  = \lib\price::up($data['compareatprice']);
 		$data['discount']        = \lib\price::up($data['discount']);
 		$data['discountpercent'] = \lib\price::up($discountpercent);
 		$data['finalprice']      = \lib\price::up($data['finalprice']);

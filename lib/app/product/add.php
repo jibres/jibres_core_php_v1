@@ -290,7 +290,6 @@ class add
 				'enddate'         => null,
 				'buyprice'        => $args['buyprice'],
 				'price'           => $args['price'],
-				// 'compareatprice'  => $args['compareatprice'],
 				'discount'        => $args['discount'],
 				'discountpercent' => $args['discountpercent'],
 				'finalprice'      => $args['finalprice'],

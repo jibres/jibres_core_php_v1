@@ -115,7 +115,6 @@ class ready
 				case 'buyprice':
 				case 'discount':
 				case 'discountpercent':
-				case 'compareatprice':
 				case 'finalprice':
 					$result['unit'] = $store_unit;
 					if($value)
@@ -164,11 +163,6 @@ class ready
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
 			}
-		}
-
-		if(array_key_exists('price', $result) && array_key_exists('discount', $result))
-		{
-			$result['compareatprice'] = floatval($result['price']) + floatval($result['discount']);
 		}
 
 		$result['category_list'] = [];
@@ -229,7 +223,6 @@ class ready
 				case 'carton':
 				case 'variants':
 				case 'thumb':
-				case 'compareatprice':
 
 					// skipp show this fields
 					break;
@@ -270,7 +263,6 @@ class ready
 				case 'buyprice':
 				case 'discount':
 				case 'discountpercent':
-				case 'compareatprice':
 				case 'finalprice':
 					if($value)
 					{
