@@ -119,4 +119,22 @@
   </div>
 </section>
 
+
+
+<section class="f" data-option='website-block-titleline'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Title");?></h3>
+      <div class="body">
+        <p><?php echo T_("A block to show a title."); ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/titleline"><?php echo T_("Add News Title") ?></a>
+    </div>
+  </div>
+</section>
+
 </div>
