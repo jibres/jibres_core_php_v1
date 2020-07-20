@@ -29,10 +29,15 @@ class website
 	}
 
 
-
+	private static $cart_count = null;
 	public static function cart_count()
 	{
-		return \lib\app\cart\get::my_cart_count();
+		if(self::$cart_count === null)
+		{
+			self::$cart_count = \lib\app\cart\get::my_cart_count();
+		}
+
+		return self::$cart_count;
 	}
 
 

@@ -1,6 +1,6 @@
 <section class="avand cartPage">
 <?php if(\dash\data::dataTable()) {?>
- <h1><?php echo T_("Shopping Cart"). ' ('. count(\dash\data::dataTable()). ')' ?></h1>
+ <h1><?php echo T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')' ?></h1>
  <div class="row">
   <div class="c-xs-12 c-sm-12 c-lg-8">
    <div class="box">
@@ -54,7 +54,7 @@
         <div class="priceLine">
          <div class="priceShow" data-cart>
           <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
-          <span class="unit"><?php echo \dash\get::index($value, 'unit'); ?><?php echo \lib\currency::unit(); ?></span>
+          <span class="unit"><?php echo \lib\currency::unit(); ?></span>
          </div>
         </div>
       </div>
