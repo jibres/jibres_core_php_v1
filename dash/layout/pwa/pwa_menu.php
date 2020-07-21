@@ -254,7 +254,7 @@ class pwa_menu
 				'cart' =>
 				[
 					'href' => \dash\url::kingdom(). '/cart',
-					'title' => T_('In your cart'),
+					'title' => T_('In cart'),
 					'class' => 'pwafooterGoToCart',
 				],
 			];
