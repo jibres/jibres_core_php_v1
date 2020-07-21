@@ -25,6 +25,10 @@ class pwa_menu
 						return self::businessProductPage();
 						break;
 
+						case 'cart':
+						return self::businessCartPage();
+						break;
+
 						default:
 						return self::businessWebsite();
 						break;
@@ -260,6 +264,31 @@ class pwa_menu
 				],
 			];
 		}
+
+		return $myFooter;
+	}
+
+
+
+	public static function businessCartPage()
+	{
+		$myFooter =
+		[
+			'cart' =>
+			[
+				'href' => \dash\url::that(). '?shipping',
+				'title' => T_('Buy'). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )',
+				'class' => 'pwafooterAddToCart',
+			],
+
+			'total' =>
+			[
+				'href' => \dash\url::that(). '?shipping',
+				'title' => T_('Total'). ' '. \dash\fit::number(\lib\website::cart_total(true)),
+				'class' => 'pwafooterAddToCart',
+			],
+		];
+
 
 		return $myFooter;
 	}

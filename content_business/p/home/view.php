@@ -38,7 +38,7 @@ class view
 		\dash\data::productSettingSaved($product_setting);
 
 
-		$myCart = \lib\app\cart\search::my_detail();
+		$myCart = \lib\website::cart_detail();
 
 		if($myCart && is_array($myCart))
 		{

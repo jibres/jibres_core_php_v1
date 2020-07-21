@@ -41,6 +41,57 @@ class website
 	}
 
 
+	private static $cart_detail = null;
+	private static $cart_summary = null;
+	public static function cart_detail()
+	{
+		if(self::$cart_detail === null)
+		{
+			self::$cart_detail = \lib\app\cart\search::my_detail();
+			self::$cart_summary = \lib\app\cart\search::my_detail_summary(self::$cart_detail);
+		}
+
+		return self::$cart_detail;
+	}
+
+
+	public static function cart_summary()
+	{
+		if(self::$cart_detail === null)
+		{
+			self::cart_detail();
+		}
+
+		return self::$cart_summary;
+	}
+
+
+	public static function cart_total($_full = false)
+	{
+		if(self::$cart_detail === null)
+		{
+			self::cart_detail();
+		}
+
+		if(isset(self::$cart_summary['total']))
+		{
+			if($_full)
+			{
+				return self::$cart_summary['total']. ' '. \lib\store::currency();
+			}
+			else
+			{
+				return self::$cart_summary['total'];
+			}
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+
+
 	public static function my_address_list()
 	{
 		if(!\dash\user::id())

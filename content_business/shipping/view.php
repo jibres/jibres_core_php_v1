@@ -20,12 +20,10 @@ class view
 		\dash\data::shippingSettingSaved($shipping_setting);
 
 
-		$myCart = \lib\app\cart\search::my_detail();
-
+		$myCart = \lib\website::cart_detail();
 		\dash\data::myCart($myCart);
 
-		$cartSummary = \lib\app\cart\search::my_detail_summary($myCart);
-
+		$cartSummary = \lib\website::cart_summary();
 		\dash\data::cartSummary($cartSummary);
 
 		$cart_setting = \lib\app\setting\get::cart_setting();

@@ -9,12 +9,10 @@ class view
 		\dash\face::title(T_("Cart"));
 		\dash\face::titlePWA(T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')');
 
-		$dataTable = \lib\app\cart\search::my_detail();
-
+		$dataTable = \lib\website::cart_detail();
 		\dash\data::dataTable($dataTable);
 
-		$cartSummary = \lib\app\cart\search::my_detail_summary($dataTable);
-
+		$cartSummary = \lib\website::cart_summary();
 		\dash\data::cartSummary($cartSummary);
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
