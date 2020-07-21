@@ -24,6 +24,34 @@
 						<div class="msg"><?php echo T_("To set your business currency") ?> <a class="btn link" href="<?php echo \dash\url::this(). '/units' ?>"><?php echo T_("Click here") ?></a></div>
 					<?php } //endif ?>
 
+
+					<div class="switch1 mT10">
+						<input type="checkbox" name="sendbypost" id="sendbypost" <?php if(\dash\data::shippingSettingSaved_sendbypost()) { echo 'checked'; } ?>>
+						<label for="sendbypost"></label>
+						<label for="sendbypost"><?php echo T_("Send by post?"); ?></label>
+					</div>
+					<div data-response='sendbypost' <?php if(!\dash\data::shippingSettingSaved_sendbypost()) {echo 'data-response-hide'; }  ?> >
+						<div class="input">
+							<input type="text" name="sendbypostprice" id="sendbypostprice" placeholder="<?php echo T_("Shipping cost") ?>" value="<?php echo \dash\data::shippingSettingSaved_sendbypostprice(); ?>" data-format="price" maxlength="12">
+							<label for="sendbypostprice" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
+						</div>
+
+						<div class="switch1 mT10">
+							<input type="checkbox" name="freeshipping" id="freeshipping" <?php if(\dash\data::shippingSettingSaved_freeshipping()) { echo 'checked'; } ?>>
+							<label for="freeshipping"></label>
+							<label for="freeshipping"><?php echo T_("Have free shipping?"); ?></label>
+						</div>
+						<div data-response='freeshipping' <?php if(!\dash\data::shippingSettingSaved_freeshipping()) {echo 'data-response-hide'; }  ?> >
+							<div class="input">
+								<input type="text" name="freeshippingprice" id="freeshippingprice" placeholder="<?php echo T_("Shipping larger than this value is free") ?>" value="<?php echo \dash\data::shippingSettingSaved_freeshippingprice(); ?>" data-format="price" maxlength="12">
+								<label for="sendbypostprice" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
+							</div>
+						</div>
+					</div>
+
+
+					<?php if(false) {?>
+
 					<div class="switch1 mT10">
 						<input type="checkbox" name="sendbycourier" id="sendbycourier" <?php if(\dash\data::shippingSettingSaved_sendbycourier()) { echo 'checked'; } ?>>
 						<label for="sendbycourier"></label>
@@ -36,21 +64,6 @@
 							<label for="iShippingCurrentCountryValue" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
 						</div>
 					</div>
-
-
-					<div class="switch1 mT10">
-						<input type="checkbox" name="sendbypost" id="sendbypost" <?php if(\dash\data::shippingSettingSaved_sendbypost()) { echo 'checked'; } ?>>
-						<label for="sendbypost"></label>
-						<label for="sendbypost"><?php echo T_("Send by post?"); ?></label>
-					</div>
-					<div data-response='sendbypost' <?php if(!\dash\data::shippingSettingSaved_sendbypost()) {echo 'data-response-hide'; }  ?> >
-						<div class="input">
-							<input type="text" name="sendbypostprice" id="sendbypostprice" placeholder="<?php echo T_("Shipping cost") ?>" value="<?php echo \dash\data::shippingSettingSaved_sendbypostprice(); ?>" data-format="price" maxlength="12">
-							<label for="sendbypostprice" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
-						</div>
-					</div>
-
-
 					<div class="switch1 mT10">
 						<input type="checkbox" name="sendoutcity" id="sendoutcity" <?php if(\dash\data::shippingSettingSaved_sendoutcity()) { echo 'checked'; } ?>>
 						<label for="sendoutcity"></label>
@@ -74,7 +87,6 @@
 							<label for="sendoutprovinceprice" class="addon"><?php echo \dash\data::storeCurrency(); ?></label>
 						</div>
 					</div>
-					<?php if(false) {?>
 					<div class="switch1 mT10">
 						<input type="checkbox" name="sendoutcountry" id="sendoutcountry" <?php if(\dash\data::shippingSettingSaved_sendoutcountry()) { echo 'checked'; } ?>>
 						<label for="sendoutcountry"></label>

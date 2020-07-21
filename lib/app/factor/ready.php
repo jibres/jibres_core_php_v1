@@ -41,6 +41,7 @@ class ready
 
 
 				case 'price':
+				case 'shipping':
 				case 'finalprice':
 				case 'discount':
 					$value = \lib\price::down($value);

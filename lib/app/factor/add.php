@@ -79,6 +79,41 @@ class add
 			}
 		}
 
+		if($_option['from_cart'])
+		{
+			$shipping_value = 0;
+			$shipping = \lib\app\setting\get::shipping_setting();
+
+			if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
+			{
+				if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
+				{
+					if(\lib\price::total_down($factor_total) >= floatval($shipping['freeshippingprice']))
+					{
+						$shipping_value = 0;
+					}
+					else
+					{
+						$shipping_value = floatval($shipping['sendbypostprice']);
+					}
+				}
+				else
+				{
+					$shipping_value = floatval($shipping['sendbypostprice']);
+				}
+			}
+
+			if($shipping_value)
+			{
+				$shipping_value = \lib\price::up($shipping_value);
+				$factor['shipping'] = $shipping_value;
+
+				$shipping_value = \lib\number::up($shipping_value);
+				$factor_total = floatval($factor_total) + $shipping_value;
+			}
+
+		}
+
 		$factor['total']       = $factor_total;
 
 		$factor['status']      = $factor['status'] ? $factor['status'] : 'draft';
@@ -133,6 +168,7 @@ class add
 			\dash\notif::error(T_("Data is out of range for column total"), 'total');
 			return false;
 		}
+
 
 		// start transaction of db
 		\dash\db::transaction();

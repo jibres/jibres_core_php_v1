@@ -217,10 +217,25 @@ class search
 		}
 
 		$shipping_value = 0;
-		$shipping = \lib\app\setting\setup::ready('shipping', true);
-		if(isset($shipping['shipping_current_country_value']))
+		$shipping = \lib\app\setting\get::shipping_setting();
+
+		if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
 		{
-			$shipping_value = floatval($shipping['shipping_current_country_value']);
+			if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
+			{
+				if(floatval($subtotal) >= floatval($shipping['freeshippingprice']))
+				{
+					$shipping_value = 0;
+				}
+				else
+				{
+					$shipping_value = floatval($shipping['sendbypostprice']);
+				}
+			}
+			else
+			{
+				$shipping_value = floatval($shipping['sendbypostprice']);
+			}
 		}
 
 		$result             = [];

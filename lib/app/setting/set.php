@@ -134,6 +134,8 @@ class set
 			'sendoutprovinceprice' => 'price',
 			'sendoutcountry'       => 'bit',
 			'sendoutcountryprice'  => 'price',
+			'freeshipping'         => 'bit',
+			'freeshippingprice'    => 'price',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
