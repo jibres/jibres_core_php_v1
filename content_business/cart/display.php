@@ -7,12 +7,12 @@
 
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
     <div class="cartItem">
-     <div class="row">
+     <div class="row padLess">
       <div class="c-auto">
        <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
       </div>
       <div class="c">
-       <div class="title mB10"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></div>
+       <h3 class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
 
         <?php if(!\dash\get::index($value, 'view')) {?>
           <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
@@ -30,33 +30,27 @@
           <?php } // endif ?>
         <?php } //endif ?>
 
-
+         <div class="priceShow" data-cart>
+          <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
+          <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+         </div>
+      </div>
+      <div class="c-auto">
         <?php if(!\dash\get::index($value, 'allow_shop')) {?>
           <div class="availability" data-red data-type='view'><?php echo T_("This product was removed from your cart"); ?></div>
         <?php }else{ ?>
-         <div class="row productCountLine">
-          <div class="c-auto">
+         <div class="productCountLine">
            <div class="input productCount">
             <label class="addon btn" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>+</label>
             <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly>
             <label class="addon btn" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>-</label>
            </div>
-          </div>
-          <div class="c">
-           <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'><?php echo T_("Delete") ?></div>
-          </div>
+
+           <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
 
          </div>
         <?php } // endif ?>
 
-      </div>
-      <div class="c-auto">
-        <div class="priceLine">
-         <div class="priceShow" data-cart>
-          <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
-          <span class="unit"><?php echo \lib\currency::unit(); ?></span>
-         </div>
-        </div>
       </div>
      </div>
     </div>
