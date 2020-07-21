@@ -1,8 +1,20 @@
+<?php
+  if(\dash\engine\store::inStore())
+  {
+    $masterUrl  = \lib\store::url();
+    $targetLink = ' target="_blank"';
+  }
+  else
+  {
+    $masterUrl  = \dash\url::kingdom();
+    $targetLink = '';
+  }
+?>
 
   <div class="f">
    <div class="sidenavHandler c0 sauto mauto"><i class="sf-ellipsis-v"></i></div>
-   <a class="cauto logo" href="<?php echo \dash\url::kingdom(); ?>" ><img src="<?php echo \dash\face::logo(); ?>" alt='<?php echo \dash\face::site(); ?>'></a>
-   <h1 class='c'><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\face::site(); ?></a></h1>
+   <a class="cauto logo" <?php echo $targetLink; ?> href="<?php echo $masterUrl ?>" ><img src="<?php echo \dash\face::logo(); ?>" alt='<?php echo \dash\face::site(); ?>'></a>
+   <h1 class='c'><a <?php echo $targetLink; ?> href="<?php echo $masterUrl ?>"><?php echo \dash\face::site(); ?></a></h1>
    <div class='hm right flex cauto os'>
     <a href="<?php echo \dash\url::sitelang(); ?>/support" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
 <?php if(\dash\user::id()) { ?>
