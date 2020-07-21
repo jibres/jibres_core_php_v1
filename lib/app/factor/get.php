@@ -183,19 +183,59 @@ class get
 			}
 		}
 
+		$factor         = [];
+		$products       = [];
+		$factor_address = [];
+		$factor_action  = [];
+
 		if(\dash\user::id())
 		{
-			$result = \lib\db\factors\get::load_my_order_user_id($_id, \dash\user::id());
+			$factor = \lib\db\factors\get::load_my_order_user_id($_id, \dash\user::id());
 		}
 		else
 		{
-			$result = \lib\db\factors\get::load_my_order_guestid($_id, \dash\user::get_user_guest());
+			$factor = \lib\db\factors\get::load_my_order_guestid($_id, \dash\user::get_user_guest());
 		}
 
-		if(is_array($result))
+		if(isset($factor['id']))
 		{
-			$result = \lib\app\factor\ready::row($result);
+			$products = \lib\db\factordetails\get::get_product_by_factor_id($factor['id']);
+			if(is_array($products))
+			{
+				foreach ($products as $key => $value)
+				{
+					if(isset($value['count']))
+					{
+						$value['count'] = \lib\number::down($value['count']);
+					}
+					if(isset($value['sum']))
+					{
+						$value['sum'] = \lib\number::down($value['sum']);
+						$value['sum'] = \lib\price::down($value['sum']);
+					}
+
+					$products[$key] = \lib\app\product\ready::row($value);
+				}
+			}
+
+			// load address saved on this factor
+			$factor_address = \lib\db\factoraddress\get::by_factor_id($factor['id']);
+			$factor_address = \dash\app\address::ready($factor_address);
+
+			$factor_action = \lib\app\factor\action::get_by_factor_id_public($factor['id']);
 		}
+
+		if(is_array($factor))
+		{
+			$factor = \lib\app\factor\ready::row($factor);
+		}
+
+
+		$result             = [];
+		$result['order']    = $factor;
+		$result['products'] = $products;
+		$result['address']  = $factor_address;
+		$result['action']   = $factor_action;
 
 		return $result;
 

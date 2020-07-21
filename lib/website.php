@@ -52,6 +52,38 @@ class website
 	}
 
 
+	public static function product_list_raw($_productList)
+	{
+		if(!$_productList || !is_array($_productList))
+		{
+			return;
+		}
+
+		echo '<div class="row padLess>';
+
+		foreach ($_productList as $key => $myProduct)
+		{
+			if(\dash\detect\device::detectPWA())
+			{
+				echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
+			}
+			else
+			{
+				echo '<div>';
+			}
+
+			echo '<div class="productBox">';
+			{
+				self::product_element_create($myProduct);
+			}
+			echo '</div>';
+			echo '</div>';
+		}
+
+		echo '</div>';
+	}
+
+
 
 	public static function product_list($_productList)
 	{

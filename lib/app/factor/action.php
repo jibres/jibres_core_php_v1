@@ -4,6 +4,20 @@ namespace lib\app\factor;
 
 class action
 {
+
+
+	public static function get_by_factor_id_public($_id)
+	{
+		$result = \lib\db\factoraction\get::all_by_factor_id_public($_id);
+		if($result && is_array($result))
+		{
+			$result = array_map(['self', 'ready'], $result);
+		}
+
+		return $result;
+	}
+
+
 	public static function get_by_factor_id($_id)
 	{
 		$result = \lib\db\factoraction\get::all_by_factor_id($_id);

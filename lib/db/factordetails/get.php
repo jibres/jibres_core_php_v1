@@ -34,6 +34,39 @@ class get
 		return $result;
 	}
 
+
+	public static function get_product_by_factor_id($_factor_id)
+	{
+		$query =
+		"
+			SELECT
+				factordetails.product_id as `id`,
+				factordetails.price AS `price`,
+				factordetails.discount AS `discount`,
+				factordetails.finalprice AS `finalprice`,
+				factordetails.vat AS `vat`,
+				factordetails.count AS `count`,
+				factordetails.sum AS `sum`,
+				products.title,
+				products.slug,
+				products.thumb,
+				products.trackquantity,
+				products.instock,
+				products.status,
+				productunit.title AS `unit`
+			FROM
+				factordetails
+			INNER JOIN products ON products.id = factordetails.product_id
+			LEFT JOIN productunit ON productunit.id = products.unit_id
+
+			WHERE
+				factordetails.factor_id = $_factor_id
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function by_factor_id_join_product($_id)
 	{
 		$query =
