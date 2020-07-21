@@ -68,7 +68,7 @@
                     <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>">
                       <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title');?>">
                       <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-                      <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></div>
+                      <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')). \dash\get::index($value, 'unit'); ?></div>
                     </a>
                    </li>
                  <?php } //endfor ?>
