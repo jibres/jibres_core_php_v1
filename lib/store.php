@@ -461,7 +461,12 @@ class store
 		if(isset($store_detail['store_data']['domain'][0]['domain']) && $store_detail['store_data']['domain'][0]['domain'])
 		{
 			$store_domain = $store_detail['store_data']['domain'][0]['domain'];
-			$store_domain = \dash\url::protocol(). '://'. $store_domain;
+			$lang = null;
+			if(\dash\language::current() !== \dash\language::primary())
+			{
+				$lang = '/'. \dash\language::current();
+			}
+			$store_domain = \dash\url::protocol(). '://'. $store_domain .$lang;
 		}
 		else
 		{

@@ -1,11 +1,18 @@
 <?php
-$website = \dash\data::website();
-if(isset($website['footer']['active']))
+if(\dash\url::module() === 'app')
 {
-  $addr = root. 'content_business/home/layout/footer/'. $website['footer']['active']. '.php';
-  if(is_file($addr))
-  {
-    require_once($addr);
-  }
+	// nothing
+}
+else
+{
+	$website = \dash\data::website();
+	if(isset($website['footer']['active']))
+	{
+	  $addr = root. 'content_business/home/layout/footer/'. $website['footer']['active']. '.php';
+	  if(is_file($addr))
+	  {
+	    require_once($addr);
+	  }
+	}
 }
 ?>
