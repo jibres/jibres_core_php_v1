@@ -1,7 +1,7 @@
 <form method="post" autocomplete="new-password">
   <div class="avand shippingPage">
     <div class="row">
-      <div class="c-8 c-xs-12">
+      <div class="c-xs-12 c-sm-12 c-lg-8">
         <?php if(\dash\user::login()) {?>
           <?php if(\dash\data::addressDataTable()) {?>
             <div class="box">
@@ -39,8 +39,6 @@
         <?php } //endif ?>
 
         <div class="box">
-          <header><h2><?php echo T_("Payment") ?></h2></header>
-          <div class="body">
             <?php if(\dash\data::paymentWay()) {?>
               <?php foreach (\dash\data::paymentWay() as $key => $value) {?>
                 <div class="radio3 mB10">
@@ -50,15 +48,12 @@
               <?php } //endfor ?>
             <?php } // endif ?>
             <label for="desc"><?php echo T_("Order descripion"); ?></label>
-            <textarea class="txt mB10 pB25" name="desc"  maxlength='300' rows="2"></textarea>
-
-          </div>
-
+            <textarea class="txt" name="desc" maxlength='300' rows="2" placeholder="<?php echo T_("If you have note about this order enter it here") ?>"></textarea>
         </div>
         <?php if(\dash\data::shippingSettingSaved_page_text()) {?><p class="msg fs14 <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></p><?php } //endif ?>
       </div>
       <?php if(\dash\data::cartSummary()) {?>
-        <div class="c-4 c-xs-12">
+        <div class="c-xs-12 c-sm-12 c-lg-4">
           <?php require_once(root. '/content_business/cart/cartSummary.php') ?>
           <?php if(\dash\data::myCart()) {?>
                <nav class="items long">
@@ -68,7 +63,7 @@
                     <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>">
                       <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title');?>">
                       <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-                      <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')). \dash\get::index($value, 'unit'); ?></div>
+                      <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')). ' '. \dash\get::index($value, 'unit'); ?></div>
                     </a>
                    </li>
                  <?php } //endfor ?>
@@ -93,19 +88,16 @@
   <div data-response='address_id' data-response-hide data-response-where='new_address' data-response-effect='slide'>
 <?php } //endif ?>
 <div class="box">
-  <div class="fs08">
-    <div class="body">
-
-      <div class="row">
-        <div class="c-6">
+      <div class="row padLess">
+        <div class="c-6 c-xs-12">
             <label for="xnm"><?php echo T_("Name"); ?></label>
             <div class="input">
               <input type="text" name="xnm" id="xnm" value="<?php if(\dash\data::dataRowAddress_name()) { echo \dash\data::dataRowAddress_name(); }elseif(\dash\data::dataRowMember()) { echo \dash\data::dataRowMember_displayname(); }elseif(!\dash\data::dataRowAddress()) { echo \dash\user::detail('displayname');}?>" maxlength='40' minlength="1" placeholder='<?php echo T_("Name of person in this address"); ?>'>
             </div>
         </div>
 
-        <div class="c-6">
-          <label for="xmd"><?php echo T_("Mobile"); ?></label>
+        <div class="c-6 c-xs-12">
+          <label for="xmd"><?php echo T_("Mobile"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
           <div class="input">
             <input type="tel" name="xmd" id="xmd" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" data-format="tel">
           </div>
@@ -143,23 +135,21 @@
       <textarea class="txt mB10 pB25" name="xad"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
 
-      <div class="row">
-        <div class="c-6">
-          <label for="ixph"><?php echo T_("Phone"); ?></label>
-          <div class="input">
-            <input type="text" name="xph" id="ixph" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
-          </div>
-        </div>
-        <div class="c-6">
+      <div class="row padLess">
+        <div class="c-6 c-xs-12">
            <label for="xpc"><?php echo T_("Post code"); ?></label>
             <div class="input ltr">
               <input type="text" name="xpc" id="xpc" value="<?php echo \dash\data::dataRowAddress_postcode(); ?>" data-format="postalCode" >
             </div>
         </div>
+        <div class="c-6 c-xs-12">
+          <label for="ixph"><?php echo T_("Phone"); ?></label>
+          <div class="input">
+            <input type="text" name="xph" id="ixph" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
+          </div>
+        </div>
       </div>
-    </div>
 
-  </div>
 </div>
 <?php if(\dash\user::login()) {?>
   </div>
