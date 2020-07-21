@@ -28,7 +28,7 @@
      </dl>
     </div>
     <?php if(\dash\url::module() === 'shipping') {?>
-      <button type="submit" class="btn danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )'; ?></button>
+      <button type="submit" class="btn danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(\lib\website::cart_total(true)). ' )'; ?></button>
     <?php }else{ ?>
       <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )'; ?></a>
     <?php } //endif ?>

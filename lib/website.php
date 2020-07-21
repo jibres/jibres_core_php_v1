@@ -77,7 +77,7 @@ class website
 		{
 			if($_full)
 			{
-				return self::$cart_summary['total']. ' '. \lib\store::currency();
+				return \dash\fit::number(self::$cart_summary['total']). ' '. \lib\store::currency();
 			}
 			else
 			{
