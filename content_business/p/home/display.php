@@ -42,7 +42,7 @@ if(count($myGallery) > 1)
           <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
 <?php } ?>
 <?php if(false) { ?>
-          <div><span><?php echo T_("Arrives"); ?></span> Thursday, July 30</div>
+          <div><span><?php echo T_("Estimated Delivery on"); ?></span> 09/28</div>
 <?php } ?>
 
           <?php if(false) {?>

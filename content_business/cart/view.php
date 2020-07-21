@@ -20,7 +20,8 @@ class view
 		$cart_setting = \lib\app\setting\get::cart_setting();
 		\dash\data::cartSettingSaved($cart_setting);
 
-
+		// btn
+		\dash\data::back_link(\dash\url::kingdom());
 
 	}
 }
