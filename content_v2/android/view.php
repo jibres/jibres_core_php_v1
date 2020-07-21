@@ -9,7 +9,7 @@ class view
 		$load_app_detail = \lib\app\application\detail::get_android();
 
 		$subdomain       = \lib\store::detail('subdomain');
-		$homepage        = \dash\url::set_subdomain($subdomain);
+		$homepage        = \lib\store::url();
 
 		$queue = \lib\app\application\queue::detail();
 

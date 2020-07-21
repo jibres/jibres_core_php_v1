@@ -69,7 +69,7 @@
       <nav class="items">
         <ul>
           <li>
-            <a class="f" target="_blank" href="<?php echo \dash\url::set_subdomain(\lib\store::detail('subdomain'));?>">
+            <a class="f" target="_blank" href="<?php echo \lib\store::url();?>">
               <div class="key"><?php echo T_('Show website');?></div>
               <div class="go"></div></a>
             </li>

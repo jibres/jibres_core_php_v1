@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Website Builder'));
 		\dash\data::back_link(\dash\url::this());
 		// preview
-		\dash\face::btnPreview(\dash\url::set_subdomain(\lib\store::detail('subdomain')));
+		\dash\face::btnPreview(\lib\store::url());
 
 		// if(true) // check need to load menu
 		// {

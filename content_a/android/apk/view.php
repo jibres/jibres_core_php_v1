@@ -19,7 +19,7 @@ class view
 		{
 			if(isset($app_queue['status']) && $app_queue['status'] === 'done')
 			{
-				$downoadAPK = \dash\url::set_subdomain(\lib\store::detail('subdomain'));
+				$downoadAPK = \lib\store::url();
 				\dash\data::downoadAPK($downoadAPK. '/app');
 			}
 
