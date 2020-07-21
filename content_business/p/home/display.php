@@ -78,6 +78,31 @@ if(count($myGallery) > 1)
                 </div>
               </div>
 
+               <?php /* --------------- vARIANT CHILD --------------- */
+            $child = \dash\data::dataRow_child();
+            if($child && is_array($child)){}else{$child = [];}
+            if($child)
+            {
+              foreach ($child as $key => $value)
+              {
+                echo '<a class="btn light mA5" href="'.\dash\get::index($value, 'url'). '">';
+                if(!\dash\get::index($value, 'parent'))
+                {
+                  echo \dash\get::index($value, 'title');
+                }
+                else
+                {
+                  if(\dash\get::index($value, 'optionname1')){echo " <span class='fc-green'>". \dash\get::index($value, 'optionname1'). "</span> <span class='txtB'>". \dash\get::index($value, 'optionvalue1'). "</span>"; }
+                  if(\dash\get::index($value, 'optionname2')){echo " <span class='fc-red'>". \dash\get::index($value, 'optionname2'). "</span> <span class='txtB'>". \dash\get::index($value, 'optionvalue2'). "</span>"; }
+                  if(\dash\get::index($value, 'optionname3')){echo " <span class='fc-blue'>". \dash\get::index($value, 'optionname3'). "</span> <span class='txtB'>". \dash\get::index($value, 'optionvalue3'). "</span>"; }
+                }
+
+                echo '</a>';
+              }
+            }
+          ?>
+
+
 
               <div>
                 <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
@@ -118,7 +143,7 @@ if(count($myGallery) > 1)
                   </form>
                   <?php if(\dash\data::productInCart()) {?></div><?php } //data-option div ?>
                   <?php }else{ // can not shop?>
-                      <div class="msg msg danger txtB mTB10"><?php echo \dash\get::index(\dash\data::dataRow(), 'shop_message'); ?></div>
+                      <div class="txtB mTB10"><?php echo \dash\get::index(\dash\data::dataRow(), 'shop_message'); ?></div>
                   <?php } //endif ?>
               </div>
 
@@ -140,14 +165,6 @@ if(count($myGallery) > 1)
 
 
 
-          <?php /* --------------- vARIANT CHILD --------------- */
-            $child = \dash\data::dataRow_child();
-            if($child && is_array($child)){}else{$child = [];}
-            if($child)
-            {
-              \lib\website::product_child_list($child);
-            }
-          ?>
 
 
 <?php if(\dash\data::productSettingSaved_view_text()) {?>
