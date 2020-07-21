@@ -78,55 +78,41 @@ if(count($myGallery) > 1)
 
 
               <div>
-                <?php if(\dash\data::productInCart()) {?>
-                  <div class="productQty">
-                    <select class="select22" data-model="productItem">
-                      <option><?php echo \dash\fit::number(1); ?></option>
-                      <option><?php echo \dash\fit::number(2); ?></option>
-                      <option><?php echo \dash\fit::number(3); ?></option>
-                      <option><?php echo \dash\fit::number(4); ?></option>
-                      <option><?php echo \dash\fit::number(5); ?></option>
-                      <option><?php echo \dash\fit::number(6); ?></option>
-                      <option><?php echo \dash\fit::number(7); ?></option>
-                      <option><?php echo \dash\fit::number(8); ?></option>
-                      <option><?php echo \dash\fit::number(9); ?></option>
-                      <option><?php echo \dash\fit::number(10); ?></option>
-                    </select>
-                  </div>
+                <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
 
-                  <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy"><?php echo T_("Update cart"); ?>
-                  </div>
-
-                   <div class="input productCount mT10">
-                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>+</label>
-                      <input type="number" name="count" value="<?php echo \dash\data::productInCartCount(); ?>" readonly>
-                      <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
-                   </div>
-
-
-                <?php }else{ ?>
-                  <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
-                    <p>To buy, select Size</p>
+                  <?php if(!\dash\data::productInCart()) {?><p>To buy, select Size</p><?php } //endif ?>
+                  <form method="post" autocomplete="off">
+                    <input type="hidden" name="product_id" value="<?php echo \dash\data::dataRow_id() ?>">
                     <div class="productQty">
-                      <select class="select22" data-model="productItem">
-                        <option><?php echo \dash\fit::number(1); ?></option>
-                        <option><?php echo \dash\fit::number(2); ?></option>
-                        <option><?php echo \dash\fit::number(3); ?></option>
-                        <option><?php echo \dash\fit::number(4); ?></option>
-                        <option><?php echo \dash\fit::number(5); ?></option>
-                        <option><?php echo \dash\fit::number(6); ?></option>
-                        <option><?php echo \dash\fit::number(7); ?></option>
-                        <option><?php echo \dash\fit::number(8); ?></option>
-                        <option><?php echo \dash\fit::number(9); ?></option>
-                        <option><?php echo \dash\fit::number(10); ?></option>
+                      <select class="select22" name="count" data-model="productItem">
+                        <?php if(\dash\data::productInCart()) {?>
+                          <option value="0" <?php if(\dash\data::productInCartCount() == '0') {echo 'selected';} ?>><?php echo T_("Remove"); ?></option>
+                        <?php } //endif ?>
+                        <option value="1" <?php if(\dash\data::productInCartCount() == '1') {echo 'selected';} ?>><?php echo \dash\fit::number(1); ?></option>
+                        <option value="2" <?php if(\dash\data::productInCartCount() == '2') {echo 'selected';} ?>><?php echo \dash\fit::number(2); ?></option>
+                        <option value="3" <?php if(\dash\data::productInCartCount() == '3') {echo 'selected';} ?>><?php echo \dash\fit::number(3); ?></option>
+                        <option value="4" <?php if(\dash\data::productInCartCount() == '4') {echo 'selected';} ?>><?php echo \dash\fit::number(4); ?></option>
+                        <option value="5" <?php if(\dash\data::productInCartCount() == '5') {echo 'selected';} ?>><?php echo \dash\fit::number(5); ?></option>
+                        <option value="6" <?php if(\dash\data::productInCartCount() == '6') {echo 'selected';} ?>><?php echo \dash\fit::number(6); ?></option>
+                        <option value="7" <?php if(\dash\data::productInCartCount() == '7') {echo 'selected';} ?>><?php echo \dash\fit::number(7); ?></option>
+                        <option value="8" <?php if(\dash\data::productInCartCount() == '8') {echo 'selected';} ?>><?php echo \dash\fit::number(8); ?></option>
+                        <option value="9" <?php if(\dash\data::productInCartCount() == '9') {echo 'selected';} ?>><?php echo \dash\fit::number(9); ?></option>
+                        <option value="10" <?php if(\dash\data::productInCartCount() == '10') {echo 'selected';} ?>><?php echo \dash\fit::number(10); ?></option>
                       </select>
                     </div>
-                    <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "buy", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy"><?php echo T_("Buy now"); ?></div>
-                    <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy" data-card><?php echo T_("Add to Cart"); ?></div>
-                  <?php }else{ ?>
-                    <div class="msg msg danger txtB mTB10"><?php echo T_("Temporary out of stock"); ?></div>
+
+                  <?php if(\dash\data::productInCart()) {?>
+                      <button type="submit" class="btnBuy" data-update><?php echo T_("Update cart"); ?></button>
+                      <input type="hidden" name="type" value="update_cart">
+                   <?php }else{ ?>
+                      <input type="hidden" name="cart" value="add">
+                      <button type="submit" class="btnBuy" ><?php echo T_("Add to cart"); ?></button>
+                    <?php } // endif ?>
+
+                  </form>
+                  <?php }else{ // can not shop?>
+                      <div class="msg msg danger txtB mTB10"><?php echo T_("Temporary out of stock"); ?></div>
                   <?php } //endif ?>
-                <?php } //endif ?>
               </div>
 
             </div>

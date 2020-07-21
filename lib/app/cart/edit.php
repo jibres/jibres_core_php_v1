@@ -43,7 +43,7 @@ class edit
 			'user_id' => 'code',
 			'product' => 'id',
 			'count'   => 'smallint',
-			'type'    => ['enum' => ['plus_count', 'minus_count']],
+			'type'    => ['enum' => ['plus_count', 'minus_count', 'update_count']],
 		];
 
 		$args =
@@ -92,7 +92,10 @@ class edit
 			elseif($data['type'] === 'minus_count')
 			{
 				$new_count = floatval($check_exist_record['count']) - $new_count;
-
+			}
+			elseif($data['type'] === 'update_count')
+			{
+				$new_count = floatval($new_count);
 			}
 
 			if($new_count < 0)

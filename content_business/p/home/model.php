@@ -41,6 +41,14 @@ class model
 				\dash\redirect::pwd();
 			}
 		}
+		elseif(\dash\request::post('type') === 'update_cart')
+		{
+			$result = \lib\app\cart\edit::update_cart($product_id, \dash\request::post('count'), null, 'update_count');
+			if($result)
+			{
+				\dash\redirect::pwd();
+			}
+		}
 		elseif(\dash\request::post('type') === 'remove')
 		{
 			$result = \lib\app\cart\remove::from_cart($product_id);
