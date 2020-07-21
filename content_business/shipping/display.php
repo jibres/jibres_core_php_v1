@@ -1,7 +1,7 @@
 <form method="post" autocomplete="new-password">
   <div class="avand shippingPage">
     <div class="row">
-      <div class="c-8">
+      <div class="c-8 c-xs-12">
         <?php if(\dash\user::login()) {?>
           <?php if(\dash\data::addressDataTable()) {?>
             <div class="box">
@@ -58,17 +58,17 @@
         <?php if(\dash\data::shippingSettingSaved_page_text()) {?><p class="msg fs14 <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></p><?php } //endif ?>
       </div>
       <?php if(\dash\data::cartSummary()) {?>
-        <div class="c-4">
+        <div class="c-4 c-xs-12">
           <?php require_once(root. '/content_business/cart/cartSummary.php') ?>
           <?php if(\dash\data::myCart()) {?>
-               <nav class="items">
+               <nav class="items long">
                  <ul>
                   <?php foreach (\dash\data::myCart() as $key => $value) {?>
                    <li>
                     <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>">
                       <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title');?>">
                       <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-                      <div class="go"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></div>
+                      <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></div>
                     </a>
                    </li>
                  <?php } //endfor ?>

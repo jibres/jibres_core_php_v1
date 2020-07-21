@@ -6,7 +6,12 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Shipping"));
+		$title = T_("Shipping"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')';
+		\dash\face::titlePWA($title);
+		\dash\face::title($title . ' '. \dash\face::site());
+
+		// btn
+		\dash\data::back_link(\dash\url::kingdom().'/cart');
 
 		$addressDataTable = \lib\website::my_address_list();
 		\dash\data::addressDataTable($addressDataTable);
