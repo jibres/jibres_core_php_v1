@@ -11,6 +11,9 @@ class pwa_menu
 			switch ($myContent)
 			{
 				case 'enter':
+				case 'pay':
+				case 'hook':
+				case 'su':
 					return null;
 					break;
 
