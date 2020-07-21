@@ -181,9 +181,11 @@ if(count($myGallery) > 1)
 
 <?php if(\dash\data::propertyList()) { ?>
   <div class="box productInfo">
-<?php foreach (\dash\data::propertyList() as $property => $cat) {?>
-      <h3 class="msg info2 mB0-f"><?php echo $cat['title']; ?></h3>
     <table class="tbl1 responsive v5">
+<?php foreach (\dash\data::propertyList() as $property => $cat) {?>
+      <tr class="group">
+        <th colspan="2"><?php echo $cat['title']; ?></th>
+      </tr>
 <?php foreach ($cat['list'] as $key => $value) {?>
       <tr>
         <th><?php echo $value['key']; ?></th>
@@ -196,8 +198,8 @@ if(count($myGallery) > 1)
         </td>
       </tr>
 <?php     } ?>
-    </table>
 <?php   } ?>
+    </table>
   </div>
 <?php } ?>
 
