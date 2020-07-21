@@ -272,6 +272,11 @@ class pwa_menu
 
 	public static function businessCartPage()
 	{
+		if(!\lib\website::cart_count())
+		{
+			return	self::businessWebsite();
+		}
+
 		$myFooter =
 		[
 			'cart' =>
