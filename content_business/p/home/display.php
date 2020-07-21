@@ -85,6 +85,7 @@ if(count($myGallery) > 1)
             {
                 echo '<div>';
                  echo '<select class="select22 " data-link>';
+                 echo '<option>'. T_("To buy select variants"). '</option>';
               foreach ($child as $key => $value)
               {
 
