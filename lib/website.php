@@ -220,7 +220,6 @@ class website
 			echo '<footer class="f">';
 			{
 				echo '<span class="unit cauto">';
-				echo 'تومان';
 				echo $unit;
 				echo '</span>';
 
