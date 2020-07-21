@@ -104,7 +104,7 @@ if(count($myGallery) > 1)
                     </div>
 
                   <?php if(\dash\data::productInCart()) {?>
-                      <button type="submit" class="btnBuy" data-update><?php echo T_("Update cart"); ?></button>
+                      <a href="<?php echo \dash\url::kingdom();?>/cart" class="link"><?php echo T_("In your cart"); ?></a>
                       <input type="hidden" name="type" value="update_cart">
                    <?php }else{ ?>
                       <input type="hidden" name="cart" value="add">
