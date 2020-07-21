@@ -234,6 +234,7 @@ class pwa_menu
 
 	public static function businessProductPage()
 	{
+		$myFooter =	[];
 		if(\dash\data::dataRow_allow_shop())
 		{
 			$myFooter =
@@ -245,11 +246,18 @@ class pwa_menu
 					'class' => 'pwafooterAddToCart',
 				],
 			];
-
 		}
-		else
+		if(\dash\data::productInCart())
 		{
-			$myFooter =	[];
+			$myFooter =
+			[
+				'cart' =>
+				[
+					'href' => \dash\url::kingdom(). '/cart',
+					'title' => T_('In your cart'),
+					'class' => 'pwafooterGoToCart',
+				],
+			];
 		}
 
 		return $myFooter;
