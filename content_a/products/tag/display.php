@@ -105,7 +105,7 @@ if(!is_array($dataTable))
 
           <?php echo \dash\get::index($value, 'title'); ?></a></td>
 
-            <td class="fs08"><a href="<?php echo \lib\store::subdomain_url(); ?>/tag/<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
+            <td class="fs08"><a href="<?php echo \lib\store::url(); ?>/tag/<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
 
           <td><?php echo \dash\get::index($value, 'desc'); ?></td>
 

@@ -86,18 +86,6 @@ class store
 	}
 
 
-	public static function url()
-	{
-		if(\dash\engine\store::inCustomerDomain())
-		{
-			return \dash\url::kingdom();
-		}
-		else
-		{
-			return \dash\url::set_subdomain(\lib\store::detail('subdomain'));
-		}
-	}
-
 
 	/**
 	 * initial store detail
@@ -247,34 +235,51 @@ class store
 
 		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');
 
-		if(is_array($store_detail_setting_record))
+		if(!is_array($store_detail_setting_record))
 		{
-			$store_detail_setting_record = array_column($store_detail_setting_record, 'value', 'key');
+			$store_detail_setting_record = [];
 		}
 
-		if(is_array($store_detail_setting_record))
+		$result = [];
+
+		foreach ($store_detail_setting_record as $key => $value)
 		{
-			if(array_key_exists('logo', $store_detail_setting_record) && !$store_detail_setting_record['logo'])
+			if(array_key_exists('key', $value) && array_key_exists('value', $value))
 			{
-				$store_detail_setting_record['logo'] = \dash\app::static_logo_url();
+				if($value['key'] === 'domain')
+				{
+					if(!isset($result['domain']))
+					{
+						$result['domain'] = [];
+					}
+
+					$result['domain'][] = ['domain' => $value['value']];
+				}
+				else
+				{
+					$result[$value['key']] = $value['value'];
+				}
 			}
 		}
 
-		if(is_array($store_detail_setting_record))
+
+		if(array_key_exists('logo', $result) && !$result['logo'])
 		{
-
-			$addr = \dash\engine\store::setting_addr();
-			if(!is_dir($addr))
-			{
-				\dash\file::makeDir($addr, null, true);
-			}
-			$addr .= $_store_id;
-
-			$store_detail_setting_record['update_time'] = time();
-			\dash\file::write($addr, json_encode($store_detail_setting_record, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+			$result['logo'] = \dash\app::static_logo_url();
 		}
 
-		return self::ready_setting($store_detail_setting_record);
+
+		$addr = \dash\engine\store::setting_addr();
+		if(!is_dir($addr))
+		{
+			\dash\file::makeDir($addr, null, true);
+		}
+		$addr .= $_store_id;
+
+		$result['update_time'] = time();
+		\dash\file::write($addr, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+
+		return self::ready_setting($result);
 	}
 
 
@@ -447,10 +452,31 @@ class store
 	}
 
 
-	public static function subdomain_url()
+	public static function url()
 	{
-		$url = \dash\url::set_subdomain(self::detail('subdomain'));
-		return $url;
+		$store_domain = null;
+
+		$store_detail = self::detail();
+
+		if(isset($store_detail['store_data']['domain'][0]['domain']) && $store_detail['store_data']['domain'][0]['domain'])
+		{
+			$store_domain = $store_detail['store_data']['domain'][0]['domain'];
+			$store_domain = \dash\url::protocol(). '://'. $store_domain;
+		}
+		else
+		{
+			if(\dash\engine\store::inCustomerDomain())
+			{
+				$store_domain = \dash\url::kingdom();
+			}
+			else
+			{
+				$store_domain = \dash\url::set_subdomain(\lib\store::detail('subdomain'));
+			}
+
+		}
+
+		return $store_domain;
 	}
 
 

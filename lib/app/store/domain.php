@@ -81,6 +81,8 @@ class domain
 			\dash\file::delete($domain_addr. $data['domain']);
 		}
 
+		\lib\store::clean();
+
 		// to make ajax for remove domain
 		\dash\session::set('businessRemoveDomain', $data['domain']);
 
@@ -217,6 +219,8 @@ class domain
 			\dash\log::oops('db');
 			return false;
 		}
+
+		\lib\store::clean();
 
 		// set ajax
 		\dash\session::set('businessNewDomain', $domain);

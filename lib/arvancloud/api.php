@@ -10,6 +10,11 @@ class api
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
+		if(\dash\url::isLocal())
+		{
+			return false;
+		}
+
 		$apikey = \dash\setting\dns_server::apikey();
 
 		$language = \dash\language::current() === 'fa' ? 'fa' : 'en';
