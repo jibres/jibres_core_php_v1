@@ -110,6 +110,21 @@ class property
 			array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(\dash\get::index($load, 'discount')). ' '. $store_currency]);
 		}
 
+		if(\dash\get::index($load, 'optionvalue1') && \dash\get::index($load, 'optionname1'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => \dash\get::index($load, 'optionname1'), 'value' => \dash\fit::number(\dash\get::index($load, 'optionvalue1'))]);
+		}
+
+		if(\dash\get::index($load, 'optionvalue2') && \dash\get::index($load, 'optionname2'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => \dash\get::index($load, 'optionname2'), 'value' => \dash\fit::number(\dash\get::index($load, 'optionvalue2'))]);
+		}
+
+		if(\dash\get::index($load, 'optionvalue3') && \dash\get::index($load, 'optionname3'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => \dash\get::index($load, 'optionname3'), 'value' => \dash\fit::number(\dash\get::index($load, 'optionvalue3'))]);
+		}
+
 
 		if(\dash\get::index($load, 'cat_id'))
 		{
