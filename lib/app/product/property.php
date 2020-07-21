@@ -45,7 +45,7 @@ class property
 			return false;
 		}
 
-		$load = \lib\app\product\get::inline_get($id);
+		$load = \lib\app\product\get::get($id);
 		if(!$load)
 		{
 			return false;
@@ -72,6 +72,8 @@ class property
 
 		$length_name = \dash\get::index(\lib\store::detail('store_data') ,'length_detail','name');
 		$mass_name = \dash\get::index(\lib\store::detail('store_data') ,'mass_detail','name');
+		$store_currency = \lib\store::currency();
+
 
 
 		$result[T_("General property")] =
@@ -83,6 +85,12 @@ class property
 			]
 		];
 
+		if(\dash\get::index($load, 'title'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Title"), 'value' => \dash\get::index($load, 'title')]);
+		}
+
+
 		if(\dash\get::index($load, 'title2'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load, 'title2')]);
@@ -90,7 +98,16 @@ class property
 		elseif(\dash\get::index($load_parent, 'title2'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load_parent, 'title2')]);
+		}
 
+		if(\dash\get::index($load, 'finalprice'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'finalprice')). ' '. $store_currency]);
+		}
+
+		if(\dash\get::index($load, 'discount'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(\dash\get::index($load, 'discount')). ' '. $store_currency]);
 		}
 
 

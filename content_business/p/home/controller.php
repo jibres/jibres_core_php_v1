@@ -21,7 +21,7 @@ class controller
 
 		if(!is_null(\dash\url::subchild()))
 		{
-			if(\dash\data::dataRow_url() === urldecode(\dash\url::current()))
+			if(\dash\data::dataRow_slug() === urldecode(\dash\url::subchild()))
 			{
 				$allow = true;
 			}
@@ -33,6 +33,11 @@ class controller
 		else
 		{
 			$allow = true;
+		}
+
+		if(\dash\url::dir(3))
+		{
+			$allow = false;
 		}
 
 		if($allow)
