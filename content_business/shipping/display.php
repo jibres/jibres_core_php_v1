@@ -9,7 +9,7 @@
                 <div class="row padLess">
 
                 <?php foreach (\dash\data::addressDataTable() as $key => $value) {?>
-                 <div class="c-4">
+                 <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
                   <div class="radio4">
                     <input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(count(\dash\data::addressDataTable()) === 1) {echo 'checked';} ?>>
                     <label for="address<?php echo $key; ?>">
@@ -30,7 +30,7 @@
                   </div>
                  </div>
                 <?php } //endfor ?>
-                 <div class="c-4">
+                 <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
                   <div class="radio4">
                     <input  id="address_new" type="radio" name="address_id" value="new_address" >
                     <label for="address_new"><?php echo T_("Add new address"); ?></label>
