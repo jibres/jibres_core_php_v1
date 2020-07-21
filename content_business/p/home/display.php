@@ -118,7 +118,7 @@ if(count($myGallery) > 1)
                   </form>
                   <?php if(\dash\data::productInCart()) {?></div><?php } //data-option div ?>
                   <?php }else{ // can not shop?>
-                      <div class="msg msg danger txtB mTB10"><?php echo T_("Temporary out of stock"); ?></div>
+                      <div class="msg msg danger txtB mTB10"><?php echo \dash\get::index(\dash\data::dataRow(), 'shop_message'); ?></div>
                   <?php } //endif ?>
               </div>
 

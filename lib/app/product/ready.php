@@ -168,21 +168,67 @@ class ready
 		$result['category_list'] = [];
 
 		$allow_shop = false;
+		$shop_message = T_("Product is not available for shop");
 
-		if(isset($result['status']) && $result['status'] === 'available')
+		if(isset($result['status']))
 		{
-			if(array_key_exists('trackquantity', $result))
+			if($result['status'] === 'available')
 			{
-				if($result['trackquantity'])
+				if(array_key_exists('trackquantity', $result))
 				{
-					if(isset($result['instock']) && $result['instock'])
+					if($result['trackquantity'])
+					{
+						if(isset($result['instock']) && $result['instock'])
+						{
+							$allow_shop = true;
+							$shop_message = T_("Buy now");
+						}
+						else
+						{
+							$allow_shop = false;
+							$shop_message = T_("Temporary out of stock");
+						}
+					}
+					else
 					{
 						$allow_shop = true;
+						$shop_message = T_("Buy now");
 					}
 				}
 				else
 				{
 					$allow_shop = true;
+					$shop_message = T_("Buy now");
+				}
+			}
+			else
+			{
+				$allow_shop = false;
+				switch ($result['status'])
+				{
+					case 'unset':
+						$shop_message = T_("Product is not available");
+						break;
+
+					case 'unavailable':
+						$shop_message = T_("Product is not available");
+						break;
+
+					case 'soon':
+						$shop_message = T_("Will be available soon");
+						break;
+
+					case 'discountinued':
+						$shop_message = T_("Product is discountinued");
+						break;
+
+					case 'deleted':
+						$shop_message = T_("Product was deleted");
+						break;
+
+					default:
+						$shop_message = T_("Product is not available");
+						break;
 				}
 			}
 		}
@@ -190,10 +236,11 @@ class ready
 		if(isset($result['variant_child']) && $result['variant_child'])
 		{
 			$allow_shop = false;
+			$shop_message = T_("Please choose a variants of this product to buy");
 		}
 
 		$result['allow_shop'] = $allow_shop;
-
+		$result['shop_message'] = $shop_message;
 
 		return $result;
 	}
