@@ -41,6 +41,8 @@ if(count($myGallery) > 1)
 <?php if(\dash\data::dataRow_title2()) { ?>
           <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
 <?php } ?>
+          <p>Arrives: Thursday, July 30</p>
+
           <?php if(false) {?>
           <div class="productReviewShort">
             <div class="starRating compact" data-star='3.2' data-gold>
@@ -77,6 +79,21 @@ if(count($myGallery) > 1)
 
               <div>
                 <?php if(\dash\data::productInCart()) {?>
+                  <div class="productQty">
+                    <select class="select22" data-model="productItem">
+                      <option><?php echo \dash\fit::number(1); ?></option>
+                      <option><?php echo \dash\fit::number(2); ?></option>
+                      <option><?php echo \dash\fit::number(3); ?></option>
+                      <option><?php echo \dash\fit::number(4); ?></option>
+                      <option><?php echo \dash\fit::number(5); ?></option>
+                      <option><?php echo \dash\fit::number(6); ?></option>
+                      <option><?php echo \dash\fit::number(7); ?></option>
+                      <option><?php echo \dash\fit::number(8); ?></option>
+                      <option><?php echo \dash\fit::number(9); ?></option>
+                      <option><?php echo \dash\fit::number(10); ?></option>
+                    </select>
+                  </div>
+
                   <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy"><?php echo T_("Update cart"); ?>
                   </div>
 
@@ -86,13 +103,28 @@ if(count($myGallery) > 1)
                       <label class="addon btn" data-ajaxify data-method="post" data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\data::dataRow_id() ?>"}'>-</label>
                    </div>
 
+
                 <?php }else{ ?>
                   <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
+                    <p>To buy, select Size</p>
+                    <div class="productQty">
+                      <select class="select22" data-model="productItem">
+                        <option><?php echo \dash\fit::number(1); ?></option>
+                        <option><?php echo \dash\fit::number(2); ?></option>
+                        <option><?php echo \dash\fit::number(3); ?></option>
+                        <option><?php echo \dash\fit::number(4); ?></option>
+                        <option><?php echo \dash\fit::number(5); ?></option>
+                        <option><?php echo \dash\fit::number(6); ?></option>
+                        <option><?php echo \dash\fit::number(7); ?></option>
+                        <option><?php echo \dash\fit::number(8); ?></option>
+                        <option><?php echo \dash\fit::number(9); ?></option>
+                        <option><?php echo \dash\fit::number(10); ?></option>
+                      </select>
+                    </div>
                     <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "buy", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy"><?php echo T_("Buy now"); ?></div>
                     <div data-ajaxify data-method='post' data-action='<?php echo \dash\url::here(). '/cart'; ?>'  data-data='{"cart": "add", "product_id" : "<?php echo \dash\data::dataRow_id() ?>", "count": 1}' class="btnBuy" data-card><?php echo T_("Add to Cart"); ?></div>
                   <?php }else{ ?>
-                    <div class="btnBuy disabled" title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Buy now"); ?></div>
-                    <div class="btnBuy disabled" data-card title="<?php echo T_("Please choose a variant of product") ?>"><?php echo T_("Add to Cart"); ?></div>
+                    <div class="msg msg danger txtB mTB10"><?php echo T_("Temporary out of stock"); ?></div>
                   <?php } //endif ?>
                 <?php } //endif ?>
               </div>
