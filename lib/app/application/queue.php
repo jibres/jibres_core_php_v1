@@ -500,6 +500,10 @@ class queue
 
 			\dash\log::set('application_readyToDownload', $log);
 		}
+		else
+		{
+			\lib\db\store_app\update::record(['status' => 'error', 'meta' => 'copy not complete'], $result['id']);
+		}
 
 
 		\dash\notif::ok(T_("Queue status updated"));
