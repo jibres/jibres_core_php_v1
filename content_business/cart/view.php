@@ -7,6 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_("Cart"));
+		\dash\face::titlePWA(T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')');
 
 		$dataTable = \lib\app\cart\search::my_detail();
 

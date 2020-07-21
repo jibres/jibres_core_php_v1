@@ -1,6 +1,6 @@
 <section class="avand cartPage">
 <?php if(\dash\data::dataTable()) {?>
- <h1><?php echo T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')' ?></h1>
+ <h1><?php echo \dash\face::titlePWA() ?></h1>
  <div class="row">
   <div class="c-xs-12 c-sm-12 c-lg-8">
    <div class="box">
