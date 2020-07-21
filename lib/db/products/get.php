@@ -269,7 +269,7 @@ class get
 
 	public static function variants_load_family($_id, $_parent_id)
 	{
-		$query  = "SELECT * FROM products WHERE ((products.parent = $_parent_id AND products.id != $_id) OR products.id = $_parent_id) AND products.status != 'deleted' ORDER BY products.id ASC ";
+		$query  = "SELECT * FROM products WHERE ((products.parent = $_parent_id) OR products.id = $_parent_id) AND products.status != 'deleted' ORDER BY products.id ASC ";
 		$result = \dash\db::get($query);
 		return $result;
 	}

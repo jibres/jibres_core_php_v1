@@ -83,22 +83,33 @@ if(count($myGallery) > 1)
             if($child && is_array($child)){}else{$child = [];}
             if($child)
             {
+                echo '<div>';
+                 echo '<select class="select22 " data-link>';
               foreach ($child as $key => $value)
               {
-                echo '<a class="btn light mA5" href="'.\dash\get::index($value, 'url'). '">';
+
                 if(!\dash\get::index($value, 'parent'))
                 {
-                  echo \dash\get::index($value, 'title');
+                  echo '<option value="'. \dash\get::index($value, 'url').'" >';
+                  echo '<span>'. \dash\get::index($value, 'title').'</span></option>';
                 }
                 else
                 {
-                  if(\dash\get::index($value, 'optionname1')){echo " <span class='fc-green'>". \dash\get::index($value, 'optionname1'). "</span> <span class='txtB'>". \dash\get::index($value, 'optionvalue1'). "</span>"; }
-                  if(\dash\get::index($value, 'optionname2')){echo " <span class='fc-red'>". \dash\get::index($value, 'optionname2'). "</span> <span class='txtB'>". \dash\get::index($value, 'optionvalue2'). "</span>"; }
-                  if(\dash\get::index($value, 'optionname3')){echo " <span class='fc-blue'>". \dash\get::index($value, 'optionname3'). "</span> <span class='txtB'>". \dash\get::index($value, 'optionvalue3'). "</span>"; }
+                  echo '<option value="'. \dash\get::index($value, 'url').'" ';
+                  if(\dash\data::dataRow_id() == \dash\get::index($value, 'id'))
+                  {
+                    echo ' selected ';
+                  }
+                  echo '>';
+                  if(\dash\get::index($value, 'optionname1')){echo  ' '. \dash\get::index($value, 'optionname1'). " ". \dash\get::index($value, 'optionvalue1'); }
+                  if(\dash\get::index($value, 'optionname2')){echo  ' '. \dash\get::index($value, 'optionname2'). " ". \dash\get::index($value, 'optionvalue2'); }
+                  if(\dash\get::index($value, 'optionname3')){echo  ' '. \dash\get::index($value, 'optionname3'). " ". \dash\get::index($value, 'optionvalue3'); }
+                  echo '</option>';
                 }
 
-                echo '</a>';
               }
+                echo '</select>';
+                echo '</div>';
             }
           ?>
 
@@ -106,8 +117,6 @@ if(count($myGallery) > 1)
 
               <div>
                 <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
-
-                  <?php if(!\dash\data::productInCart()) {?><p>To buy, select Size</p><?php } //endif ?>
 
                   <?php if(\dash\data::productInCart()) {?><div data-option='product-update-cart'><?php } //endif ?>
 
