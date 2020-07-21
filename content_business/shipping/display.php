@@ -14,16 +14,16 @@
                     <input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(count(\dash\data::addressDataTable()) === 1) {echo 'checked';} ?>>
                     <label for="address<?php echo $key; ?>">
                       <address>
-                        <div class="txtB"><?php echo \dash\get::index($value, 'name'); ?></div>
-                        <span class="addr"><?php echo \dash\get::index($value, 'address'); ?></span>
+                        <div class="title"><?php echo \dash\get::index($value, 'name'); ?></div>
                         <?php if(\dash\get::index($value, 'mobile')) {?>
-                          <div><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></b></div>
+                          <div class="mobile"><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></b></div>
                         <?php } //endif ?>
+                        <div class="addr"><?php echo \dash\get::index($value, 'address'); ?></div>
                         <?php if(\dash\get::index($value, 'postcode')) {?>
-                          <div><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'postcode')); ?></b></div>
+                          <div class="postalcode"><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'postcode')); ?></b></div>
                         <?php } //endif ?>
                         <?php if(\dash\get::index($value, 'phone')) {?>
-                          <div><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'phone')); ?></b></div>
+                          <div class="phone"><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'phone')); ?></b></div>
                         <?php } //endif ?>
                       </address>
                     </label>
