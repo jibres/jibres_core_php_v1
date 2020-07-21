@@ -244,12 +244,6 @@ class pwa_menu
 					'title' => T_('Add to cart'),
 					'class' => 'pwafooterAddToCart',
 				],
-				'buy' =>
-				[
-					'href' => \dash\url::that(). '?buy',
-					'title' => T_('Buy Now'),
-					'class' => 'pwafooterBuy',
-				],
 			];
 
 		}
