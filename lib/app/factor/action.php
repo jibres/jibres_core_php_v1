@@ -111,7 +111,7 @@ class action
 		];
 
 		$result = \lib\db\factoraction\insert::new_record($insert);
-		\dash\notif::ok(T_("Action successfully added"));
+		\dash\notif::ok(T_("Operation accomplished"));
 
 		// the status of factor : 'enable','disable','draft','order','expire','cancel','pending_pay','pending_verify','pending_prepare','pending_send','sending','deliver','reject','spam','deleted'
 

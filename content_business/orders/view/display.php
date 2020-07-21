@@ -17,7 +17,7 @@
 					</div>
 
 				</div>
-					<?php if(!\dash\get::index(\dash\data::dataRow_order(), 'pay') && \dash\get::index(\dash\data::dataRow_factor(), 'status') !== 'cancel') {?>
+					<?php if(!\dash\get::index(\dash\data::dataRow_order(), 'pay') && \dash\get::index(\dash\data::dataRow_order(), 'status') !== 'cancel') {?>
 						<footer class="txtRa">
 							<div class="btn warn" data-confirm data-data='{"set_status": "cancel"}'><?php echo T_("Cancel order") ?></div>
 						</footer>
