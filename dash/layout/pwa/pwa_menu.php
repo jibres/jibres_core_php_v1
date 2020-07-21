@@ -199,6 +199,7 @@ class pwa_menu
 				'href' => \dash\url::kingdom(). '/cart',
 				'icon' => 'shopping-cart',
 				'title' => T_('Cart'),
+				'cartItem' => '3',
 			],
 			'profile' =>
 			[
