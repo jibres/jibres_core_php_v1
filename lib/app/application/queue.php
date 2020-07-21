@@ -503,6 +503,7 @@ class queue
 		else
 		{
 			\lib\db\store_app\update::record(['status' => 'error', 'meta' => 'copy not complete'], $result['id']);
+			self::remove_store_catch_detail($save_in_store_detail);
 		}
 
 
