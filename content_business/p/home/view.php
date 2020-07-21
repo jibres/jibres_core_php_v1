@@ -18,6 +18,7 @@ class view
 		\dash\data::back_link(\dash\url::kingdom());
 
 		\dash\face::title(\lib\store::title(). ' | '. \dash\data::dataRow_title());
+		\dash\face::titlePWA(\lib\store::title());
 
 		$property_list = \lib\app\product\property::get_pretty($id);
 		\dash\data::propertyList($property_list);
