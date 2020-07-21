@@ -317,6 +317,7 @@ class url
 		return $my_path;
 	}
 
+
 	public static function set_subdomain($_subdomain = null, $_full = null)
 	{
 		$url = null;
@@ -342,6 +343,35 @@ class url
 				$url .= '/'. self::$url['directory'];
 			}
 		}
+
+		return $url;
+	}
+
+
+	public static function jibres_subdomain($_subdomain)
+	{
+		$url = '';
+
+		if(self::isLocal())
+		{
+			$url = self::protocol(). '://';
+			$url .= $_subdomain. '.jibres.';
+			$url .= 'local';
+		}
+		else
+		{
+			$url = 'https://';
+			$url .= $_subdomain. '.jibres.';
+			if(self::tld() === 'ir')
+			{
+				$url .= 'ir';
+			}
+			else
+			{
+				$url .= 'com';
+			}
+		}
+		$url .= '/';
 
 		return $url;
 	}
