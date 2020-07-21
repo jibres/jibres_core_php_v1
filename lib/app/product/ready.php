@@ -10,6 +10,7 @@ class ready
 		$default_option =
 		[
 			'load_gallery' => false,
+			'parent_thumb' => null,
 		];
 
 		if(!is_array($_option))
@@ -67,7 +68,21 @@ class ready
 					break;
 
 				case 'thumb':
-					$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
+					if(!$value)
+					{
+						if(isset($_option['parent_thumb']) && $_option['parent_thumb'])
+						{
+							$result[$key] = $_option['parent_thumb'];
+						}
+						else
+						{
+							$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
+						}
+					}
+					else
+					{
+						$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
+					}
 					break;
 
 

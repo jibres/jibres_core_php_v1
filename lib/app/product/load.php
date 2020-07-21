@@ -79,14 +79,32 @@ class load
 			return false;
 		}
 
+
+		$parent_thumb = null;
+
+
 		$load_child = [];
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
+			if(isset($detail['thumb']))
+			{
+				$parent_thumb = $detail['thumb'];
+			}
 			$load_child = \lib\db\products\get::variants_load_child($_id);
 		}
 		elseif(isset($detail['parent']) && $detail['parent'])
 		{
 			$load_child = \lib\db\products\get::variants_load_family($_id, $detail['parent']);
+			$load_parent = \lib\app\product\get::get($detail['parent']);
+			if(isset($load_parent['thumb']))
+			{
+				$parent_thumb = $load_parent['thumb'];
+			}
+			if($parent_thumb && !\dash\get::index($detail['thumb']))
+			{
+				$detail['thumb'] = $parent_thumb;
+			}
+
 		}
 
 		if($load_child && is_array($load_child))
@@ -95,14 +113,12 @@ class load
 
 			foreach ($load_child as $key => $value)
 			{
-				$detail['child'][] = \lib\app\product\ready::row($value, ['load_gallery' => true]);
+				$detail['child'][] = \lib\app\product\ready::row($value, ['load_gallery' => true, 'parent_thumb' => $parent_thumb]);
 			}
 		}
 
 		// sed dataRow to load detail in html
 		\dash\data::productDataRow($detail);
-
-		// var_dump($detail);exit();
 
 		return $detail;
 	}

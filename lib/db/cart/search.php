@@ -116,7 +116,7 @@ class search
 				users.mobile,
 				products.title,
 				products.slug,
-				products.thumb,
+				(IF(products.thumb IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.thumb FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.thumb)) AS `thumb`,
 				products.finalprice,
 				products.discount,
 				products.trackquantity,
