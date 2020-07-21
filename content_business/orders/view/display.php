@@ -4,20 +4,25 @@
 			  <?php require_once(root. 'content_business/profile/display-menu.php'); ?>
 		</div>
 		<div class="c-xs-12 c-md-8">
+      <?php if(\dash\data::paymentVerifyMsg()) {?>
+      <div class="msg fs14 <?php if(\dash\data::paymentVerifyMsgTrue()) { echo 'success';}else{echo 'danger';} ?>">
+        <?php echo \dash\data::paymentVerifyMsg(); ?>
+      </div>
+    <?php } //endif ?>
 			<div class="box">
 				<div class="body">
 					<div class="row">
 						<div class="c-auto">
-							<div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order number") ?> <code class="btn link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 'id_code'); ?></code></div>
+							<div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order number") ?> <code class="link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 'id_code'); ?></code></div>
 						</div>
 						<div class="c-auto">
-							<div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order status") ?> <code class="btn link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 'status'); ?></code></div>
+							<div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order status") ?> <span class="link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 't_status'); ?></span></div>
 						</div>
 
 					</div>
 
           <div class="msg">
-
+            <span class=" link"><?php echo T_("Address") ?></span>
           <?php $address = \dash\get::index(\dash\data::dataRow(), 'address'); ?>
           <?php if(isset($address['country']) && $address['country']) {?><i class="flag <?php echo mb_strtolower($address['country']); ?>"></i><?php } //endif ?>
           <span ><?php echo \dash\get::index($address, 'location_string'); ?></span>
