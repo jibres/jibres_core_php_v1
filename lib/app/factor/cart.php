@@ -55,7 +55,15 @@ class cart
 
 		if($user_id)
 		{
-			array_push($require, 'address_id');
+			if(isset($_args['address_id']) && $_args['address_id'])
+			{
+				array_push($require, 'address_id');
+			}
+			else
+			{
+				array_push($require, 'address');
+				array_push($require, 'mobile');
+			}
 		}
 		else
 		{
@@ -77,11 +85,11 @@ class cart
 		if($user_id)
 		{
 			$user_cart = \lib\db\cart\get::user_cart($user_id);
-			if(!$data['address_id'])
-			{
-				\dash\notif::error(T_("Please choose yoru address"));
-				return false;
-			}
+			// if(!$data['address_id'])
+			// {
+			// 	\dash\notif::error(T_("Please choose yoru address"));
+			// 	return false;
+			// }
 		}
 		else
 		{
@@ -215,7 +223,7 @@ class cart
 				'auto_go'       => false,
 				'auto_back'     => false,
 				'final_msg'     => true,
-				'turn_back'     => \dash\url::kingdom(). '/orders',
+				'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
 				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
 				'amount'        => abs($result['price']),
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
