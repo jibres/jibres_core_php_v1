@@ -98,7 +98,7 @@ class init
 			[
 				"image"  => \dash\url::cdn(). "/images/slider-sample/food/". $list[$index].".jpg",
 				"url"    => null,
-				"alt"    => null,
+				"alt"    => T_("Image :val", ['val' => \dash\fit::number($key + 1)]),
 				"sort"   => null,
 				"target" => null
 			];
