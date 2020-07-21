@@ -59,31 +59,7 @@
       </div>
       <?php if(\dash\data::cartSummary()) {?>
         <div class="c-4">
-          <div class="cartPage">
-            <div class="box orderSummary">
-              <h3><?php echo T_("Order Summary"); ?></h3>
-              <div>
-                <dl class="subtotal">
-                  <dt><?php echo T_("Subtotal"); ?></dt>
-                  <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_subtotal()); ?></dd>
-                </dl>
-                <dl class="discount">
-                  <dt><?php echo T_("Discount"); ?></dt>
-                  <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_discount()); ?></dd>
-                </dl>
-                <dl class="shipping">
-                  <dt><?php echo T_("Shipping"); ?></dt>
-                  <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_shipping()); ?></dd>
-                </dl>
-
-                <dl class="total">
-                  <dt><?php echo T_("Total"); ?></dt>
-                  <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_total()); ?></dd>
-                </dl>
-              </div>
-              <button class="btn danger lg block" type="submit" name="button" value="saveorder"><?php echo T_("Pay") ?></button>
-            </div>
-          </div>
+          <?php require_once(root. '/content_business/cart/cartSummary.php') ?>
           <?php if(\dash\data::myCart()) {?>
                <nav class="items">
                  <ul>

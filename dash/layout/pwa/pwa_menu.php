@@ -276,15 +276,15 @@ class pwa_menu
 		[
 			'cart' =>
 			[
-				'href' => \dash\url::that(). '?shipping',
+				'href' => \dash\url::kingdom(). '/shipping',
 				'title' => T_('Buy'). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )',
 				'class' => 'pwafooterAddToCart',
 			],
 
 			'total' =>
 			[
-				'href' => \dash\url::that(). '?shipping',
-				'title' => T_('Total'). ' '. \dash\fit::number(\lib\website::cart_total(true)),
+				'href' => \dash\url::kingdom(). '/shipping',
+				'title' => \dash\fit::number(\lib\website::cart_total(true)),
 				'class' => 'pwafooterAddToCart',
 			],
 		];

@@ -6,8 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Cart"));
-		\dash\face::titlePWA(T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')');
+		$title = T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')';
+		\dash\face::titlePWA($title);
+		\dash\face::title($title . ' '. \dash\face::site());
 
 		$dataTable = \lib\website::cart_detail();
 		\dash\data::dataTable($dataTable);

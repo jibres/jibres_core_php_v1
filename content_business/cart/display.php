@@ -7,7 +7,7 @@
 
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
     <div class="cartItem">
-     <div class="row padLess">
+     <div class="row padLess align-center">
       <div class="c-auto">
        <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
       </div>
@@ -65,30 +65,7 @@
   </div>
   <?php if(\dash\data::cartSummary()) {?>
   <div class="c-xs-12 c-sm-12 c-lg-4">
-   <div class="box orderSummary">
-    <h3><?php echo T_("Order Summary"); ?></h3>
-    <div>
-     <dl class="subtotal">
-      <dt><?php echo T_("Subtotal"); ?></dt>
-      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_subtotal()); ?></dd>
-     </dl>
-     <dl class="discount">
-      <dt><?php echo T_("Discount"); ?></dt>
-      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_discount()); ?></dd>
-     </dl>
-     <dl class="shipping">
-      <dt><?php echo T_("Shipping"); ?></dt>
-      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_shipping()); ?></dd>
-     </dl>
-
-     <dl class="total">
-      <dt><?php echo T_("Total"); ?></dt>
-      <dd><?php echo \lib\currency::unit(); ?> <?php echo \dash\fit::number(\dash\data::cartSummary_total()); ?></dd>
-     </dl>
-    </div>
-
-    <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY") ?></a>
-   </div>
+    <?php require_once('cartSummary.php'); ?>
 
   </div>
 <?php } //endif ?>
