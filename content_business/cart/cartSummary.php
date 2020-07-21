@@ -27,6 +27,9 @@
       <dd><?php echo \dash\fit::number(\dash\data::cartSummary_total()); ?> <?php echo \lib\currency::unit(); ?> </dd>
      </dl>
     </div>
-
-    <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )'; ?></a>
+    <?php if(\dash\url::module() === 'shipping') {?>
+      <button type="submit" class="btn danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )'; ?></button>
+    <?php }else{ ?>
+      <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )'; ?></a>
+    <?php } //endif ?>
    </div>

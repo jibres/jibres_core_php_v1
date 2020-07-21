@@ -1,5 +1,5 @@
 <form method="post" autocomplete="new-password">
-  <div class="avand">
+  <div class="avand shippingPage">
     <div class="row">
       <div class="c-8">
         <?php if(\dash\user::login()) {?>
