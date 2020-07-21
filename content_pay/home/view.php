@@ -18,6 +18,9 @@ class view
 		\dash\data::myPayment_mellat(\dash\setting\mellat::get());
 		\dash\data::myPayment_sep(\dash\setting\sep::get());
 
+		\dash\data::userToggleSidebar(false);
+
+
 		$result = \dash\data::dataRow();
 		if(isset($result['payment_response']))
 		{
