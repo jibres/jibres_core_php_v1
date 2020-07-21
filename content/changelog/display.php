@@ -28,6 +28,12 @@
     </tr>
 
     <tr>
+     <td><?php echo \dash\fit::date("2020-07-21"); ?></td>
+     <td><?php echo T_("The first online sale was registered on our first online store website.");?></td>
+     <td>🎉❤️</td>
+    </tr>
+
+    <tr>
      <td><?php echo \dash\fit::date("2020-04-05"); ?></td>
      <td><?php echo T_("Now Jibres is official reseller of :val. You can buy iranian national domain .ir via Jibres.", ['val' => '<a target="_blank" href="http://irnic.ir/List_of_Resellers">'. T_("IRNIC"). '</a>']);?></td>
      <td></td>
