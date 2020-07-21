@@ -9,9 +9,10 @@ class model
 
 		$post =
 		[
-			'title'   => \dash\request::post('title'),
-			'publish' => 1,
-			'cat_id'  => \dash\request::post('cat_id'),
+			'title'    => \dash\request::post('title'),
+			'template' => \dash\request::post('template') ? \dash\request::post('template') : null,
+			'publish'  => 1,
+			'cat_id'   => \dash\request::post('cat_id'),
 		];
 
 

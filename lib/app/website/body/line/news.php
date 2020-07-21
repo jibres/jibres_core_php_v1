@@ -99,6 +99,7 @@ class news
 		$condition =
 		[
 			'title'   => 'string_200',
+			'template'   => ['enum' => ['simple', 'special']],
 			'cat_id'  => 'code',
 			'publish' => 'bit'
 		];
@@ -136,7 +137,8 @@ class news
 
 		$saved_option['news'] =
 		[
-			'cat_id' => $data['cat_id'],
+			'cat_id'   => $data['cat_id'],
+			'template' => $data['template'],
 		];
 
 
@@ -194,7 +196,8 @@ class news
 
 		$ready_to_save =
 		[
-			'cat_id' => $data['cat_id'],
+			'cat_id'   => $data['cat_id'],
+			'template' => $data['template'],
 		];
 
 

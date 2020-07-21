@@ -1,4 +1,7 @@
 
+<div class="avand-md">
+
+
 <div class="blogEx">
 <?php
 
@@ -11,6 +14,8 @@ else
   loadTermsTemplate();
 }
 ?>
+</div>
+
 </div>
 
 

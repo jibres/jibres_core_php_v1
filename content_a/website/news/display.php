@@ -29,6 +29,15 @@
         </select>
       </div>
 
+      <div class="mB10">
+        <label for='template'><?php echo T_("Template view"); ?></label>
+        <select name="template" class="select22" id="template">
+          <option value="0"><?php echo T_("Default") ?></option>
+          <option value="simple" <?php if(\dash\get::index(\dash\data::lineSetting(), 'news', 'template') == 'simple') { echo 'selected'; } ?> ><?php echo T_("Simple") ?></option>
+          <option value="special" <?php if(\dash\get::index(\dash\data::lineSetting(), 'news', 'template') == 'special') { echo 'selected'; } ?> ><?php echo T_("Special") ?></option>
+        </select>
+      </div>
+
     </div>
 
     <footer class="txtRa">
