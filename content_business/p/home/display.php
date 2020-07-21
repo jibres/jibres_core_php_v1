@@ -83,7 +83,11 @@ if(count($myGallery) > 1)
                 <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
 
                   <?php if(!\dash\data::productInCart()) {?><p>To buy, select Size</p><?php } //endif ?>
-                  <form method="post" autocomplete="off">
+
+                  <?php if(\dash\data::productInCart()) {?><div data-option='product-update-cart'><?php } //endif ?>
+
+                  <form method="post" autocomplete="off" id="formaddcart" <?php if(\dash\data::productInCart()){ echo 'data-patch'; } ?> >
+
                     <input type="hidden" name="product_id" value="<?php echo \dash\data::dataRow_id() ?>">
                     <div class="productQty">
                       <select class="select22" name="count" data-model="productItem">
@@ -112,6 +116,7 @@ if(count($myGallery) > 1)
                     <?php } // endif ?>
 
                   </form>
+                  <?php if(\dash\data::productInCart()) {?></div><?php } //data-option div ?>
                   <?php }else{ // can not shop?>
                       <div class="msg msg danger txtB mTB10"><?php echo T_("Temporary out of stock"); ?></div>
                   <?php } //endif ?>
