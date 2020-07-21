@@ -29,6 +29,10 @@ class pwa_menu
 						return self::businessCartPage();
 						break;
 
+						case 'shipping':
+						return self::businessShippingPage();
+						break;
+
 						default:
 						return self::businessWebsite();
 						break;
@@ -283,14 +287,14 @@ class pwa_menu
 			[
 				'href' => \dash\url::kingdom(). '/shipping',
 				'title' => T_('Buy'). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )',
-				'class' => 'pwafooterAddToCart',
+				'class' => 'pwafooterGoShipping',
 			],
 
 			'total' =>
 			[
 				'href' => \dash\url::kingdom(). '/shipping',
 				'title' => \dash\fit::number(\lib\website::cart_total(true)),
-				'class' => 'pwafooterAddToCart',
+				'class' => 'pwafooterGoShipping',
 			],
 		];
 
@@ -298,5 +302,27 @@ class pwa_menu
 		return $myFooter;
 	}
 
+
+
+	public static function businessShippingPage()
+	{
+		if(!\lib\website::cart_count())
+		{
+			return	self::businessWebsite();
+		}
+
+		$myFooter =
+		[
+			'cart' =>
+			[
+				'form' => 'shippingForm',
+				'title' => T_('Pay'). ' '. \dash\fit::number(\lib\website::cart_total(true)),
+				'class' => 'pwafooterPay',
+			],
+		];
+
+
+		return $myFooter;
+	}
 }
 ?>

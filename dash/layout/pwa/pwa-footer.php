@@ -38,6 +38,15 @@ if(\dash\layout\pwa\pwa_menu::get())
       }
       echo "</a>";
     }
+    if(isset($item['form']))
+    {
+      echo "<button form='". $item['form']. "'>";
+      if(isset($item['title']) && $item['title'])
+      {
+        echo $item['title'];
+      }
+      echo "</button>";
+    }
     echo "</div>";
   }
   echo "\n  </nav>\n ";

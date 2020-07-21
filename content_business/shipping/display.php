@@ -1,4 +1,4 @@
-<form method="post" autocomplete="new-password">
+<form method="post" id='shippingForm' autocomplete="new-password">
   <div class="avand shippingPage">
     <div class="row">
       <div class="c-xs-12 c-sm-12 c-lg-8">
