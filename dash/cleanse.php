@@ -596,7 +596,7 @@ class cleanse
 			case 'desc':
 			case 'seodesc':
 				$meta['min'] = 0;
-				$meta['max'] = 1000;
+				$meta['max'] = 2000;
 				$meta['need_new_line'] = true;
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
