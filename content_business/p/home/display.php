@@ -78,7 +78,7 @@ if(count($myGallery) > 1)
                 <span><?php echo T_("Price"); ?></span>
                 <div class="priceShow" data-final>
                   <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_finalprice()); ?></span>
-                  <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+                  <span class="unit"><?php echo \lib\store::currency(); ?></span>
                 </div>
               </div>
 

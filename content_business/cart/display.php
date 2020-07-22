@@ -32,7 +32,7 @@
 
          <div class="priceShow" data-cart>
           <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
-          <span class="unit"><?php echo \lib\currency::unit(); ?></span>
+          <span class="unit"><?php echo \lib\store::currency(); ?></span>
          </div>
       </div>
       <div class="c-auto c-xs-12">
