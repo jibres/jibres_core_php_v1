@@ -360,7 +360,7 @@ class edit
 	}
 
 
-	public static function edit($_args, $_id)
+	public static function edit($_args, $_id, $_admin_edit = false)
 	{
 		$_id = \dash\validate::code($_id);
 		if(!$_id)
@@ -370,16 +370,30 @@ class edit
 
 		$_id = \dash\coding::decode($_id);
 
-		$load_domain = \lib\app\nic_domain\get::by_id($_id);
-		if(!$load_domain || !isset($load_domain['id']))
+		if($_admin_edit === true)
 		{
-			return false;
+			$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+
+			if(!$load_domain || !isset($load_domain['id']))
+			{
+				return false;
+			}
+		}
+		else
+		{
+			$load_domain = \lib\app\nic_domain\get::by_id($_id);
+
+			if(!$load_domain || !isset($load_domain['id']))
+			{
+				return false;
+			}
 		}
 
 
 		$condition =
 		[
 			'autorenew' => 'bit',
+			'verify'    => 'bit',
 			'status'    => ['enum' => ['awaiting','failed','pending','enable','disable','deleted','expire']],
 		];
 

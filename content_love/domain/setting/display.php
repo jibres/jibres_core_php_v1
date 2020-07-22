@@ -84,6 +84,32 @@ else
 }
 ?></td>
      </tr>
+
+
+     <tr class="negative">
+      <th><?php echo T_('Verify for this user');
+if(\dash\data::domainDetail_verify())
+{
+ echo "<span class='linkDel mLa5' data-confirm data-data='{\"myaction\" : \"verify\", \"op\" :\"unset\"}'>". T_('Click to disable'). "</span>";
+}
+else
+{
+ echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"verify\", \"op\" :\"set\"}'>". T_('Click to enable'). "</span>";
+}
+      ?></th>
+      <td class="txtRa collapsing"><?php
+if(\dash\data::domainDetail_verify())
+{
+ echo "<div class='ibtn wide fc-green'><span>". T_('Yes'). "</span><i class='sf-check'></i></div>";
+}
+else
+{
+ echo "<div class='ibtn wide fc-red'><span>". T_('No'). "</span><i class='sf-times'></i></div>";
+}
+?></td>
+     </tr>
+
+
     </table>
   </div>
  </div>
