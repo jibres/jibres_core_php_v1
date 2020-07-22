@@ -50,6 +50,20 @@
           </div>
         </div>
       </section>
+
+
+      <section class="box">
+        <header><h2><?php echo T_("General property"); ?></h2></header>
+        <div class="body">
+          <p>
+            <?php echo T_("If the products in this category have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
+          </p>
+
+        </div>
+        <footer class="txtRa">
+          <a class="btn master" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
+        </footer>
+      </section>
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-4">
       <section class="box">

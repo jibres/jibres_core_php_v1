@@ -5,6 +5,188 @@ namespace lib\app\category;
 class add
 {
 
+
+	public static function property($_args, $_id)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		if(!\dash\permission::check('productCategoryListEdit'))
+		{
+			return false;
+		}
+
+		$_id = \dash\validate::id($_id);
+		if(!$_id || !is_numeric($_id))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		$condition =
+		[
+			'cat' => 'string_50',
+			'key' => 'string_50',
+
+		];
+
+		$require = ['cat', 'key'];
+
+		$meta =
+		[
+			'field_title' => ['cat' => T_("Group"), 'key' => T_("Type")],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$get_category = \lib\db\productcategory\get::one($_id);
+
+		if(!isset($get_category['id']))
+		{
+			\dash\notif::error(T_("Invalid category id"), 'category');
+			return false;
+		}
+
+		$properties = [];
+		if(isset($get_category['properties']))
+		{
+			if($get_category['properties'])
+			{
+				if(is_array($get_category['properties']))
+				{
+					$properties = $get_category['properties'];
+				}
+				elseif(is_string($get_category['properties']))
+				{
+					$properties = json_decode($get_category['properties'], true);
+
+					if(!is_array($properties))
+					{
+						$properties = [];
+					}
+				}
+			}
+		}
+
+		$new_property = [];
+
+		foreach ($properties as $value)
+		{
+			$key   = null;
+			$group = null;
+
+			if(isset($value['group']))
+			{
+				$group = $value['group'];
+			}
+
+			if(isset($value['key']))
+			{
+				$key = $value['key'];
+			}
+
+			$new_property[md5($group. $key)] = ['group' => $group, 'key' => $key];
+		}
+
+		if(isset($new_property[md5($data['cat']. $data['key'])]))
+		{
+			\dash\notif::error(T_("Duplicate item founded"));
+			return false;
+		}
+		else
+		{
+			$new_property[md5($data['cat']. $data['key'])] = ['group' => $data['cat'], 'key' => $data['key']];
+		}
+
+
+		$new_property = array_values($new_property);
+		$new_property = json_encode($new_property, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\productcategory\update::record(['properties' => $new_property], $_id);
+
+		\dash\notif::ok(T_("General property saved"));
+		return true;
+	}
+
+
+	public static function remove_property($_index, $_id)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		if(!\dash\permission::check('productCategoryListEdit'))
+		{
+			return false;
+		}
+
+		$_id = \dash\validate::id($_id);
+		if(!$_id || !is_numeric($_id))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		$_index = \dash\validate::smallint($_index);
+
+
+		$get_category = \lib\db\productcategory\get::one($_id);
+
+		if(!isset($get_category['id']))
+		{
+			\dash\notif::error(T_("Invalid category id"), 'category');
+			return false;
+		}
+
+		$properties = [];
+		if(isset($get_category['properties']))
+		{
+			if($get_category['properties'])
+			{
+				if(is_array($get_category['properties']))
+				{
+					$properties = $get_category['properties'];
+				}
+				elseif(is_string($get_category['properties']))
+				{
+					$properties = json_decode($get_category['properties'], true);
+
+					if(!is_array($properties))
+					{
+						$properties = [];
+					}
+				}
+			}
+		}
+
+		if(!isset($properties[$_index]))
+		{
+			\dash\notif::error(T_("Property not found"));
+			return false;
+		}
+		else
+		{
+			unset($properties[$_index]);
+		}
+
+
+		$properties = array_values($properties);
+		$properties = json_encode($properties, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\productcategory\update::record(['properties' => $properties], $_id);
+
+		\dash\notif::ok(T_("General property removed"));
+		return true;
+	}
+
+
+
+
 	public static function add($_args)
 	{
 		if(!\lib\store::id())

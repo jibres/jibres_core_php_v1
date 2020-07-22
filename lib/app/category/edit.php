@@ -47,7 +47,7 @@ class edit
 			}
 		}
 
-		$properties = $args['properties'];
+
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
@@ -59,11 +59,6 @@ class edit
 		if(isset($args['desc']) && array_key_exists('seodesc', $get_category) && !$get_category['seodesc'])
 		{
 			$args['seodesc'] = \dash\validate::seodesc($args['desc'], false);
-		}
-
-		if($properties)
-		{
-			$args['properties'] = json_encode($properties, JSON_UNESCAPED_UNICODE);
 		}
 
 		if(!empty($args))

@@ -6,6 +6,19 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('save_default_property') === 'save_default_property')
+		{
+			$post        = [];
+			$post['cat'] = \dash\request::post('cat');
+			$post['key'] = \dash\request::post('key');
+			\lib\app\category\add::property($post, \dash\request::get('id'));
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 
 		$id = \dash\request::get('id');
 
