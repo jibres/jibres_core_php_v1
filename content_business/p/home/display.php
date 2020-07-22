@@ -45,16 +45,20 @@ if(count($myGallery) > 1)
           <div><span><?php echo T_("Estimated Delivery on"); ?></span> 09/28</div>
 <?php } ?>
 
-          <?php if(false) {?>
+
           <div class="productReviewShort">
-            <div class="starRating compact" data-star='3.2' data-gold>
+            <?php if(\dash\data::customerReview_count()) {?>
+            <div class="starRating compact" data-star='<?php echo \dash\data::customerReview_avg(); ?>' data-gold>
               <i></i><i></i><i></i><i></i><i></i>
             </div>
-            <div><?php echo T_(":val out of 5", ['val' => '3.2']) ?></div>
-            <div><?php echo T_(":val Reviews", ['val' => '414']); ?></div>
-            <div><?php echo T_(":val Orders", ['val' => '850']); ?></div>
+            <div><?php echo T_(":val out of 5", ['val' => \dash\fit::number(\dash\data::customerReview_avg())]) ?></div>
+            <div><?php echo T_(":val Reviews", ['val' => \dash\fit::number(\dash\data::customerReview_count())]); ?></div>
+            <?php } //endif ?>
+            <?php if(\dash\data::dataRow_stock()) {?>
+            <div><?php echo T_(":val Stock", ['val' => \dash\fit::number(\dash\data::dataRow_stock())]); ?></div>
+          <?php } //endif ?>
           </div>
-        <?php } //endif ?>
+
 
         <?php //  echo \dash\fit::number(\dash\data::dataRow_stock()); ?>
 
