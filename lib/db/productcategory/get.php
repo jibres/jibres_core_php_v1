@@ -13,6 +13,13 @@ class get
 		return $result;
 	}
 
+	public static function multi_properties($_ids)
+	{
+		$query  = "SELECT productcategory.properties FROM productcategory WHERE productcategory.id IN ($_ids) AND productcategory.properties IS NOT NULL ";
+		$result = \dash\db::get($query, 'properties');
+		return $result;
+	}
+
 	public static function mulit_title($_titles)
 	{
 		if(!is_array($_titles) || !$_titles)

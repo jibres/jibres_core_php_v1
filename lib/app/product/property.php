@@ -168,6 +168,49 @@ class property
 					array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $category['title'], 'link' => $category['url']]);
 				}
 			}
+
+
+			$productcategory_ids = array_column($cat_list, 'productcategory_id');
+			$productcategory_ids = array_filter($productcategory_ids);
+			$productcategory_ids = array_unique($productcategory_ids);
+			if($productcategory_ids)
+			{
+				$load_multi_category_property = \lib\db\productcategory\get::multi_properties(implode(',', $productcategory_ids));
+				if($load_multi_category_property)
+				{
+					$all_category_property = [];
+					foreach ($load_multi_category_property as $value)
+					{
+						$category_property = json_decode($value, true);
+						if(is_array($category_property))
+						{
+							$all_category_property = array_merge($all_category_property, $category_property);
+						}
+					}
+
+					$all_category_property_new = [];
+					foreach ($all_category_property as $key => $value)
+					{
+						if(isset($value['group']) && isset($value['key']))
+						{
+							$all_category_property_new[md5($value['group']. $value['key'])] = $value;
+						}
+					}
+
+					$all_category_property = array_values($all_category_property_new);
+					foreach ($all_category_property as $key => $value)
+					{
+						if(isset($value['group']) && isset($value['key']))
+						{
+							if(!isset($result[$value['group']]))
+							{
+								$result[$value['group']] = ['title' => $value['group'], 'list' => []];
+							}
+							array_push($result[$value['group']]['list'], ['key' => $value['key'], 'value' => null, 'input' => true]);
+						}
+					}
+				}
+			}
 		}
 
 
