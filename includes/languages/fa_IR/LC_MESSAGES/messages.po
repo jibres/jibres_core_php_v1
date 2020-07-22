@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-21 20:28+0430\n"
-"PO-Revision-Date: 2020-07-21 20:53+0430\n"
+"POT-Creation-Date: 2020-07-22 10:27+0430\n"
+"PO-Revision-Date: 2020-07-22 10:27+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -785,12 +785,16 @@ msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 msgid "Version 1 of Jibres will be released."
 msgstr "نسخه اول جیبرس به امید خدا منتشر خواهد شد."
 
-#: content/changelog/display.php:32 content_love/domain/irnic/view.php:9
+#: content/changelog/display.php:32
+msgid "The first online sale was registered on our first online store website."
+msgstr "اولین فروش آنلاین در اولین وب‌سایت فروشگاه آنلاین ما ثبت شد."
+
+#: content/changelog/display.php:38 content_love/domain/irnic/view.php:9
 #: content_love/domain/nicdetail/display.php:11
 msgid "IRNIC"
 msgstr "ایرنیک"
 
-#: content/changelog/display.php:32
+#: content/changelog/display.php:38
 msgid ""
 "Now Jibres is official reseller of :val. You can buy iranian national domain .ir via "
 "Jibres."
@@ -798,7 +802,7 @@ msgstr ""
 "اکنون جیبرس نماینده رسمی فروش :val است. شما می‌توانید دامنه ملی دات آی آر را از طریق "
 "جیبرس بخرید."
 
-#: content/changelog/display.php:38
+#: content/changelog/display.php:44
 msgid ""
 "Our app generator is finished. Now we have a factory to create android application for "
 "our business."
@@ -806,78 +810,78 @@ msgstr ""
 "کارهای اپلیکیشین ساز ما تمام شد. الان ما یک کارخانه مجهز برای ساخت سریع اپلیکیشن "
 "اندروید بیزینس‌هامون داریم."
 
-#: content/changelog/display.php:44
+#: content/changelog/display.php:50
 msgid "happy Nowruz"
 msgstr "نوروز مبارک"
 
-#: content/changelog/display.php:50
+#: content/changelog/display.php:56
 msgid ""
 "COVID-19 is come and we are release our 60 percent of our employees! GOD bless us..."
 msgstr ""
 "کرونا ویروس یا کووید۱۹ اومده و ما ۶۰ درصد از کارمندان خودمون رو مرخص کردیم! خدا همه ما "
 "را حفظ کند..."
 
-#: content/changelog/display.php:56
+#: content/changelog/display.php:62
 msgid "Jibres catalog"
 msgstr "کاتالوگ جیبرس"
 
-#: content/changelog/display.php:56
+#: content/changelog/display.php:62
 msgid ":val is ready."
 msgstr ":val آماده است."
 
-#: content/changelog/display.php:62
+#: content/changelog/display.php:68
 msgid "happy New Year"
 msgstr "سال نو مبارک"
 
-#: content/changelog/display.php:68
+#: content/changelog/display.php:74
 msgid ""
 "Jibres presend features at Advertising & Marketing 2019 Tehran, Iran. 17 - 20 Dec 2019."
 msgstr ""
 "جیبرس به معرفی امکانات خود در شانزدهمین نمایشگاه بین‌المللی تبلیغات و بازاریابی تهران "
 "پرداخت. ۲۶ تا ۲۹ آذرماه ۱۳۸."
 
-#: content/changelog/display.php:74
+#: content/changelog/display.php:80
 msgid "Jibres brand is reborn."
 msgstr "برند جیبرس دوباره متولد شد."
 
-#: content/changelog/display.php:80
+#: content/changelog/display.php:86
 msgid "add support of digital scale barcode and get weight of product automatically."
 msgstr ""
 "قابلیت پشتیبانی از بارکد ترازوهای دیجیتالی و افزودن خودکار وزن آن به فاکتور اضافه شد."
 
-#: content/changelog/display.php:86
+#: content/changelog/display.php:92
 msgid "We reach 1B+ Toman sold on Jibres."
 msgstr "رکورد بیش از یک میلیارد تومان فروش در جیبرس ثبت شد."
 
-#: content/changelog/display.php:92
+#: content/changelog/display.php:98
 msgid "We reach 100M+ Toman sold on Jibres."
 msgstr "رکورد بیش از ۱۰۰ میلیون تومان فروش توسط جیبرس ثبت شد."
 
-#: content/changelog/display.php:98
+#: content/changelog/display.php:104
 msgid "We reach 10000 factor records."
 msgstr "ما به رکورد ۱۰۰۰ فاکتور ثبت شده رسیدیم."
 
-#: content/changelog/display.php:104
+#: content/changelog/display.php:110
 msgid "First factor of first store is generated."
 msgstr "اولین فاکتور اولین فروشگاه صادر شد."
 
-#: content/changelog/display.php:110
+#: content/changelog/display.php:116
 msgid "Our first store on web is created and start add product to store."
 msgstr "اولین فروشگاه ما بر روی وب ساخته شد و شروع به ثبت کالا کرد."
 
-#: content/changelog/display.php:116
+#: content/changelog/display.php:122
 msgid "Beta version is released."
 msgstr "نسخه بتا منتشر شد."
 
-#: content/changelog/display.php:122
+#: content/changelog/display.php:128
 msgid "Alfa version is released."
 msgstr "نسخه آلفای جیبرس منتشر شد."
 
-#: content/changelog/display.php:128
+#: content/changelog/display.php:134
 msgid "We restart plans to run Jibres at Ermile."
 msgstr "برنامه‌ریزی جدیدی برای ارائه جیبرس توسط ارمایل داشتیم."
 
-#: content/changelog/display.php:134
+#: content/changelog/display.php:140
 msgid ""
 "The name of project selected as Jibres and <a href='https://Jibres.ir' "
 "target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains "
@@ -886,27 +890,27 @@ msgstr ""
 "جیبرس به‌عنوان نام این پروژه انتخاب و دامنه‌های <a href='https://Jibres.ir' "
 "target='_blank'>Jibres.ir</a> و <a href='https://Jibres.com'>Jibres.com</a> ثبت شدند."
 
-#: content/changelog/display.php:140
+#: content/changelog/display.php:146
 msgid "Create git repository and first commit is pushed."
 msgstr "ساخت مخزن گیت و شروع به کار."
 
-#: content/changelog/display.php:146
+#: content/changelog/display.php:152
 msgid "Database is completely designed and implementated."
 msgstr "طراحی و پیاده‌سازی دیتابیس به‌صورت کامل انجام شد."
 
-#: content/changelog/display.php:151
+#: content/changelog/display.php:157
 msgid "02:00 AM"
 msgstr "۰۲:۰۰ صبح"
 
-#: content/changelog/display.php:152
+#: content/changelog/display.php:158
 msgid "Start database analysis of Jibres."
 msgstr "شروع تجزیه و تحلیل دیتابیس جیبرس."
 
-#: content/changelog/display.php:158 content/changelog/view.php:10
+#: content/changelog/display.php:164 content/changelog/view.php:10
 msgid "We were born to do Best!"
 msgstr "ما برای انجام بهترین‌ها متولد شدیم!"
 
-#: content/changelog/display.php:167
+#: content/changelog/display.php:173
 msgid "We are preparing to create something amazing in Jibres."
 msgstr "ما در حال آماده‌سازی برای ایجاد اتفاقات شگفت انگیز در جیبرس هستیم."
 
@@ -1395,7 +1399,7 @@ msgstr ""
 "گرفته‌اید."
 
 #: content/domains/home/display.php:49
-msgid "How to find a good domain name"
+msgid "How to find a good domain name?"
 msgstr "چطور نام دامنه مناسب انتخاب کنیم؟"
 
 #: content/domains/home/display.php:50
@@ -6196,8 +6200,8 @@ msgid "The main features are those that are very prominent and affect the user's
 msgstr "ویژگی‌های اصلی بسیار برجسته بوده و بر انتخاب کاربر تاثیر می‌گذارند"
 
 #: content_a/products/bullet/display.php:13
-msgid "You can add alot of this feacher"
-msgstr ""
+msgid "You can add a lot of this feature"
+msgstr "شما می‌توانید مقدار زیادی از این ویژگی را اضافه کنید"
 
 #: content_a/products/bullet/display.php:17
 msgid "Enter your text here ..."
@@ -7245,6 +7249,9 @@ msgid ""
 "here. You can also adjust the color of this text. <br>\n"
 "After setting this text, you will see a sample of it at the bottom of this page"
 msgstr ""
+"اگر می‌خواهید در صفحه سبد خرید پیامی به همه مشتریان نشان دهید ، آن را در اینجا بنویسید. "
+"همچنین می توانید رنگ این متن را تنظیم کنید. ...\n"
+"پس از تنظیم این متن، نمونه‌ای از آن را در پایین همین صفحه مشاهده خواهید کرد"
 
 #: content_a/setting/cart/text/display.php:14
 #: content_a/setting/shipping/text/display.php:14
@@ -10420,7 +10427,7 @@ msgid ""
 "most recent price."
 msgstr ""
 "سبد خرید یک محل موقت برای ذخیره لیست محصولات مورد علاقه شماست تا بتوانید در نگاه آخر "
-"آن‌ها را بررسی کرده و بخرید"
+"آن‌ها را بررسی کرده و بخرید."
 
 #: content_business/cart/view.php:9
 msgid "Shopping Cart"
@@ -10594,7 +10601,7 @@ msgstr "توضیحات‌ سفارش"
 #: content_business/shipping/display.php:61
 msgid "If you have note about this order enter it here"
 msgstr ""
-"اگر مایل به ثبت یادداشتی درباره این سفارش برای ما هستید، آن را در این بخش وارد کنید."
+"اگر مایل به ثبت یادداشتی درباره این سفارش برای ما هستید، آن را در این بخش وارد کنید"
 
 #: content_business/shipping/display.php:83
 msgid "No product in your cart"
@@ -13180,7 +13187,7 @@ msgstr "اگر شما درخواست کد را نداده‌اید،‌ این �
 
 #: content_enter/verify/view.php:37
 msgid "Please verify yourself."
-msgstr "برای تایید هویت شما چیکار کنیم؟"
+msgstr "لطفا هویت خود را تایید کنید."
 
 #: content_enter/verify/view.php:43
 msgid "We've sent the code via Telegram. Please enter the code below."
@@ -15428,8 +15435,8 @@ msgstr "این دامنه از لیست دامنه‌های شما حذف شده
 msgid "Domain is Available for buy"
 msgstr "دامنه برای خرید موجود است"
 
-#: content_my/domain/setting/display.php:265 lib/app/product/ready.php:184
-#: lib/app/product/ready.php:195 lib/app/product/ready.php:201
+#: content_my/domain/setting/display.php:265 lib/app/product/ready.php:199
+#: lib/app/product/ready.php:210 lib/app/product/ready.php:216
 msgid "Buy now"
 msgstr "همین الان بخر"
 
@@ -26507,7 +26514,7 @@ msgstr "سفارش جدید ثبت شد"
 
 #: lib/app/log/caller/order/order_adminNewOrder.php:30
 msgid "New order registered by code :val."
-msgstr "سفارش جدید ثبت شد کد سفارش :val"
+msgstr "سفارش جدید ثبت شد کد سفارش :val."
 
 #: lib/app/log/caller/order/order_customerNewOrder.php:13
 msgid "Your order was registered"
@@ -26515,7 +26522,7 @@ msgstr "سفارش شما ثبت شد"
 
 #: lib/app/log/caller/order/order_customerNewOrder.php:30
 msgid "Your order was registered by code :val."
-msgstr "سفارش شما ثبت شد کد سفارش :val"
+msgstr "سفارش شما ثبت شد کد سفارش :val."
 
 #: lib/app/nic_contact/add.php:19
 msgid "Invalid contact"
@@ -27373,32 +27380,32 @@ msgstr "خصیصه‌های محصول شما بدون تغییر ذخیره ش�
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
-#: lib/app/product/ready.php:171
+#: lib/app/product/ready.php:186
 msgid "Product is not available for shop"
 msgstr "محصول برای فروش موجود نیست"
 
-#: lib/app/product/ready.php:189
+#: lib/app/product/ready.php:204
 msgid "Temporary out of stock"
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است"
 
-#: lib/app/product/ready.php:210 lib/app/product/ready.php:214
-#: lib/app/product/ready.php:230
+#: lib/app/product/ready.php:225 lib/app/product/ready.php:229
+#: lib/app/product/ready.php:245
 msgid "Product is not available"
 msgstr "محصول موجود نیست"
 
-#: lib/app/product/ready.php:218
+#: lib/app/product/ready.php:233
 msgid "Will be available soon"
 msgstr "به زودی موجود خواهد شد"
 
-#: lib/app/product/ready.php:222
+#: lib/app/product/ready.php:237
 msgid "Product is discountinued"
 msgstr "تولید این محصول متوقف شده است"
 
-#: lib/app/product/ready.php:226
+#: lib/app/product/ready.php:241
 msgid "Product was deleted"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/ready.php:239
+#: lib/app/product/ready.php:254
 msgid "Please choose a variants of this product to buy"
 msgstr "لطفا یکی از انواع این محصول را برای خرید انتخاب کنید"
 

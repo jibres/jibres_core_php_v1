@@ -10,7 +10,7 @@ $propertyList = \dash\data::propertyList();
             <p>
               <?php echo T_("The main features are those that are very prominent and affect the user's choice") ?>
               <br>
-              <?php echo T_("You can add alot of this feacher") ?>
+              <?php echo T_("You can add a lot of this feature") ?>
             </p>
             <form method="post" autocomplete="off">
               <div class="input">

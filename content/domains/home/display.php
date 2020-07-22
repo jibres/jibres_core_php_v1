@@ -46,7 +46,7 @@
 
     </div>
     <div class="c6 s12">
-     <h3><?php echo T_('How to find a good domain name'); ?></h3>
+     <h3><?php echo T_('How to find a good domain name?'); ?></h3>
      <p><?php echo T_('A domain name represents your business or personal brand on the web, which means choosing the right one is important. Brainstorming is a great place to start, so grab your pen and jot down some words related to your idea.'); ?></p>
     </div>
    </div>
