@@ -17,7 +17,7 @@ class delete
 	}
 
 
-	public static function hard_delete_all_product_category($_product_id)
+	public static function hard_delete_all_product_cat($_product_id)
 	{
 		$query = "DELETE FROM productcategoryusage WHERE productcategoryusage.product_id = $_product_id ";
 		return \dash\db::query($query);

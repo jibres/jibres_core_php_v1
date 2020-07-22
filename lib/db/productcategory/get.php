@@ -5,6 +5,14 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function all_category()
+	{
+
+		$query  = "SELECT productcategory.id, productcategory.title FROM productcategory ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function mulit_title($_titles)
 	{
 		if(!is_array($_titles) || !$_titles)

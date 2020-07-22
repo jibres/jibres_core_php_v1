@@ -5,6 +5,12 @@ namespace lib\app\category;
 class get
 {
 
+	public static function all_category()
+	{
+		$result = \lib\db\productcategory\get::all_category();
+		return $result;
+	}
+
 	public static function product_cat($_product_id)
 	{
 		$get_usage = \lib\db\productcategoryusage\get::usage($_product_id);

@@ -4,6 +4,13 @@ namespace lib\db\producttag;
 
 class get
 {
+	public static function all_tag()
+	{
+
+		$query  = "SELECT producttag.id, producttag.title FROM producttag ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 
 	public static function mulit_title($_titles)
 	{

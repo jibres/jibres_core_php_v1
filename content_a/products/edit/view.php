@@ -44,18 +44,20 @@ class view
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 
-		$category_list = \lib\app\category\search::list(null, ['pagination' => false]);
+		$category_list = \lib\app\category\get::all_category();
 		$category_list = array_reverse($category_list);
 		\dash\data::listCategory($category_list);
 
+		$all_tag = \lib\app\product\tag::all_tag();
+		\dash\data::allTagList($all_tag);
 
 		$tag_list = \lib\app\product\tag::get($id);
-		if(is_array($tag_list) && $tag_list)
+		if(!is_array($tag_list))
 		{
-			$tagString = implode(',', array_column($tag_list, 'title'));
-			\dash\data::tagString($tagString);
+			$tag_list = [];
 		}
-		\dash\data::listTag($tag_list);
+		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
+
 
 
 		$cat_list = \lib\app\category\get::product_cat($id);

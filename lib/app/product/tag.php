@@ -4,6 +4,12 @@ namespace lib\app\product;
 class tag
 {
 
+	public static function all_tag()
+	{
+		$result = \lib\db\producttag\get::all_tag();
+		return $result;
+	}
+
 	public static function add($_tag, $_product_id)
 	{
 		if(!\dash\permission::check('productAssignTag'))

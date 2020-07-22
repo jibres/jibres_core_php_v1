@@ -181,28 +181,23 @@ class edit
 
 		if(array_key_exists('tag', $args))
 		{
-			if($args['tag'])
+			\lib\app\product\tag::add($args['tag'], $id);
+			if(!\dash\engine\process::status())
 			{
-				\lib\app\product\tag::add($args['tag'], $id);
-				if(!\dash\engine\process::status())
-				{
-					return false;
-				}
+				return false;
 			}
-
 		}
 
 
 		if(array_key_exists('cat', $args))
 		{
-			if($args['cat'])
+
+			\lib\app\category\add::product_cat($args['cat'], $id);
+			if(!\dash\engine\process::status())
 			{
-				\lib\app\category\add::product_cat($args['cat'], $id);
-				if(!\dash\engine\process::status())
-				{
-					return false;
-				}
+				return false;
 			}
+
 
 		}
 

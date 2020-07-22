@@ -297,8 +297,8 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <div class="mB10">
         <label for='tag'>#<?php echo T_("Tag"); ?></label>
         <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
-          <?php foreach (\dash\data::listTag() as $key => $value) {?>
-            <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
+          <?php foreach (\dash\data::allTagList() as $key => $value) {?>
+            <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::tagsSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
           <?php } //endfor ?>
         </select>
       </div>
