@@ -10,9 +10,6 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$post         = [];
-		$post['sharetext'] = isset($_POST['sharetext']) ? $_POST['sharetext'] : null;
-
 
 		$telegram_setting = \lib\app\setting\get::telegram_setting();
 		\dash\data::telegramSetting($telegram_setting);
@@ -23,6 +20,17 @@ class model
 		// 'channel' => string 'channel id'
 		// 'share_text' => string 'default share text'
 
+		if(!\dash\data::telegramSetting_apikey())
+		{
+			\dash\notif::error(T_("You must set your telegram apikey first in bussiness setting"));
+			return false;
+		}
+
+		if(!\dash\data::telegramSetting_channel())
+		{
+			\dash\notif::error(T_("You must set your telegram channel first in bussiness setting"));
+			return false;
+		}
 		$msgData  = [];
 		$msgData['chat_id'] = '@'. $telegram_setting['channel'];
 		// $botname   = $telegram_setting['botUserName'];
@@ -128,8 +136,9 @@ class model
 		// description: "Bad Request: wrong file identifier/HTTP URL specified"
 		// error_code: 400
 		// ok: false
+		\dash\notif::ok(T_("Post successfully on telegram"));
+		return true;
 
-		var_dump($myResult);
 	}
 
 }
