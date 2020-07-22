@@ -47,7 +47,7 @@ class model
 			}
 			else
 			{
-				\dash\redirect::pwd();
+				// \dash\redirect::pwd();
 			}
 		}
 	}

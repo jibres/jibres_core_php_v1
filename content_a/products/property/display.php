@@ -4,9 +4,9 @@ $storData       = \dash\data::store_store_data();
 $productDataRow = \dash\data::productDataRow();
 
 ?>
-<form method="post" autocomplete="off" id="form1">
   <div class="avand-xl">
     <section class="box">
+      <form method="post" autocomplete="off" id="form1">
       <header><h2><?php echo T_("Property"); ?></h2></header>
       <div class="body">
         <p class="msg"><?php echo T_("Set product property"); ?></p>
@@ -62,6 +62,7 @@ $productDataRow = \dash\data::productDataRow();
           <button class="master btn"><?php echo T_("Add") ?></button>
         <?php } //endif ?>
       </footer>
+    </form>
     </section>
 
 
@@ -71,7 +72,7 @@ $productDataRow = \dash\data::productDataRow();
     <table class="tbl1 responsive v5">
 <?php foreach (\dash\data::propertyList() as $property => $cat) {?>
       <tr class="group">
-        <th colspan="5"><?php echo $cat['title']; ?></th>
+        <th colspan="6"><?php echo $cat['title']; ?></th>
       </tr>
 <?php foreach ($cat['list'] as $key => $value) {?>
       <tr>
@@ -95,6 +96,18 @@ $productDataRow = \dash\data::productDataRow();
             <?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. \dash\get::index($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
           <?php } //endif ?>
         </td>
+        <td>
+          <?php if(\dash\get::index($value, 'input')) {?>
+            <form method="post" autocomplete="off">
+              <input type="hidden" name="cat" value="<?php echo \dash\get::index($cat, 'title') ?>">
+              <input type="hidden" name="key" value="<?php echo \dash\get::index($value, 'key') ?>">
+            <div class="input">
+              <input type="text" name="value" >
+              <button type="submit" class="btn"><?php echo T_("Save") ?></button>
+            </div>
+            </form>
+          <?php } //endif ?>
+        </td>
          <td class="collapsing"><?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
       </tr>
 <?php     } ?>
@@ -109,4 +122,4 @@ $productDataRow = \dash\data::productDataRow();
   </div>
 <?php } ?>
   </div>
-</form>
+
