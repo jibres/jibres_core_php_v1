@@ -33,6 +33,14 @@ class ready
 				case 'trackquantity':
 				case 'instock':
 				case 'status':
+				case 'title':
+				case 'optionname1':
+				case 'optionvalue1':
+				case 'optionname2':
+				case 'optionvalue2':
+				case 'optionname3':
+				case 'optionvalue3':
+
 					$get_from_product[$key] = $value;
 					break;
 
@@ -55,6 +63,7 @@ class ready
 				case 'discount':
 				case 'product_price':
 				case 'finalprice':
+				case 'shipping':
 					if($value)
 					{
 						$result[$key] = \lib\price::down($value);
@@ -63,6 +72,24 @@ class ready
 					{
 						$result[$key] = $value;
 					}
+					break;
+
+
+				case 'qty':
+				case 'count':
+					$value = \lib\number::down($value);
+					$result[$key] = $value;
+					break;
+
+				case 'subvat':
+				case 'subdiscount':
+				case 'subprice':
+				case 'subtotal':
+				case 'total':
+				case 'sum':
+					$value = \lib\price::down($value);
+					$value = \lib\number::down($value);
+					$result[$key] = $value;
 					break;
 
 
@@ -89,6 +116,11 @@ class ready
 			if(array_key_exists('instock', $get_from_product))
 			{
 				$result['instock'] = $get_from_product['instock'];
+			}
+
+			if(array_key_exists('title', $get_from_product))
+			{
+				$result['title'] = $get_from_product['title'];
 			}
 
 			if(array_key_exists('status', $get_from_product))

@@ -324,6 +324,7 @@ class search
 			}
 		}
 
+
 		return $user_cart;
 	}
 }
