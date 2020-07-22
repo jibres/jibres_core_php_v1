@@ -19,6 +19,10 @@
 							<div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order status") ?> <span class="link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 't_status'); ?></span></div>
 						</div>
 
+            <div class="c-auto">
+              <div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order date") ?> <span class="link"><?php echo \dash\fit::date_time(\dash\get::index(\dash\data::dataRow_order(), 'date')); ?></span></div>
+            </div>
+
 					</div>
 
           <div class="msg">
