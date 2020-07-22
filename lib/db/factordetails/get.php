@@ -21,7 +21,7 @@ class get
 
 	public static function first_sale($_product_id)
 	{
-		$query = "SELECT * FROM factordetails WHERE factordetails.product_id = $_product_id LIMIT 1";
+		$query = "SELECT * FROM factordetails INNER JOIN factors ON factors.id = factordetails.factor_id WHERE factordetails.product_id = $_product_id AND factors.status != 'deleted' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

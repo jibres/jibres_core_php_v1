@@ -84,6 +84,9 @@ class search
 		$order_sort         = null;
 
 
+		$and[] = " factors.status != 'deleted' ";
+
+
 		if($data['customer'])
 		{
 			if($data['customer'] === '-quick')
