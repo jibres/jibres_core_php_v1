@@ -28,7 +28,7 @@ class ready
 		}
 
 
-		$store_unit = \lib\currency::name(\lib\store::detail('currency'));
+		$currency = \lib\currency::name(\lib\store::detail('currency'));
 
 
 
@@ -131,7 +131,7 @@ class ready
 				case 'discount':
 				case 'discountpercent':
 				case 'finalprice':
-					$result['unit'] = $store_unit;
+					$result['currency'] = $currency;
 					if($value)
 					{
 						$result[$key] = \lib\price::down($value);
@@ -310,7 +310,7 @@ class ready
 			return null;
 		}
 
-		$store_unit = \lib\currency::name(\lib\store::detail('currency'));
+		$currency = \lib\currency::name(\lib\store::detail('currency'));
 
 		foreach ($_data as $key => $value)
 		{
