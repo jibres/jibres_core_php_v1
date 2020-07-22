@@ -28,6 +28,7 @@
           <?php }else{ ?>
             <div class="btn mB10 warn"><?php echo T_("Factor is not payed") ?></div>
           <?php } // endif ?>
+          <div data-confirm data-data='{"removeorder": "removeorder"}' class="btn danger"><?php echo T_("Remove order"); ?></div>
         </div>
       </div>
 

@@ -88,6 +88,12 @@ class get
 	}
 
 
+	public static function by_id($_id)
+	{
+		return self::one($_id);
+	}
+
+
 	/**
 	 * Gets the factor.
 	 *
