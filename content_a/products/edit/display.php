@@ -77,10 +77,10 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           </div>
         <?php } //endif ?>
         <div>
-          <div class="msg mT10">
-            <div class="f">
+          <div class="msg mT10 mB0 minimal">
+            <div class="f align-center">
               <div class="cauto"><?php echo T_("Final Price"); ?></div>
-              <div class="c ltr txtL pLR5" id="finalPrice"><?php echo \dash\get::index($productDataRow,'finalprice'); ?></div>
+              <div class="c ltr txtRa pLR5 fs16" id="finalPrice"><?php echo \dash\get::index($productDataRow,'finalprice'); ?></div>
               <div class="cauto" id="moneyUnit"><?php echo \dash\get::index($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
