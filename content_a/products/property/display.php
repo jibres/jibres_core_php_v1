@@ -51,40 +51,62 @@ $productDataRow = \dash\data::productDataRow();
         </div>
       </div>
       <footer class="txtRa">
-        <button class="master btn"><?php echo T_("Add") ?></button>
+        <?php if(\dash\data::editMode()) {?>
+          <div class="f">
+            <div class="cauto"><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id') ?>" class="secondary outline btn"><?php echo T_("Cancel") ?></a></div>
+            <div class="c"></div>
+            <div class="cauto"><button class="master btn"><?php echo T_("Edit") ?></button></div>
+          </div>
+
+        <?php }else{ ?>
+          <button class="master btn"><?php echo T_("Add") ?></button>
+        <?php } //endif ?>
       </footer>
     </section>
-    <?php if(\dash\data::propertyList()) { ?>
-      <div class="productInfo box">
-        <div class="body">
-          <?php foreach (\dash\data::propertyList() as $property => $cat) {?>
-            <?php if($cat['list']) {?>
-            <div class="msg info2 mB0-f "><?php echo $cat['title']; ?></div>
-            <table class="tbl1 responsive v5">
-              <?php foreach ($cat['list'] as $key => $value) {?>
-                <tr>
-                  <th>
-                    <?php if(\dash\get::index($value, 'id') && \dash\get::index($value, 'outstanding')) {?>
-                      <i class="sf-check-circle fc-green fs12 mRa5"></i>
-                    <?php } // endif ?>
-                    <?php echo $value['key']; ?></th>
-                  <td>
-                    <?php echo $value['value']; ?>
-                  </td>
-                  <td class="collapsing">
-                    <?php if(\dash\get::index($value, 'id') && !\dash\get::index($value, 'outstanding')) {?><div class="link btn" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "set", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as outstanding property") ?></div><?php } //endif ?>
 
-                    <?php if(\dash\get::index($value, 'id') && \dash\get::index($value, 'outstanding')) {?><div class="linkDel btn" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "unset", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Unset from outstanding property") ?></div><?php } //endif ?>
-                  </td>
-                  <td></td>
-                  <td class="collapsing"><?php if(\dash\get::index($value, 'id')) {?><div class="btn linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
-                </tr>
-              <?php     } ?>
-            </table>
+
+
+<?php if(\dash\data::propertyList()) { $have_any_id = false; ?>
+  <div class="box productInfo">
+    <table class="tbl1 responsive v5">
+<?php foreach (\dash\data::propertyList() as $property => $cat) {?>
+      <tr class="group">
+        <th colspan="5"><?php echo $cat['title']; ?></th>
+      </tr>
+<?php foreach ($cat['list'] as $key => $value) {?>
+      <tr>
+         <td class="collapsing">
+          <?php if(\dash\get::index($value, 'id') && !\dash\get::index($value, 'outstanding')) {?><div class="" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "set", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i title="<?php echo T_("Set as outstanding property") ?>" class="sf-check-circle fc-mute fs12"></i></div><?php } //endif ?>
+
+          <?php if(\dash\get::index($value, 'id') && \dash\get::index($value, 'outstanding')) {?><div class="lin" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "unset", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i title="<?php echo T_("Unset from outstanding property") ?>" class="sf-check-circle fc-green fs12"></i></div><?php } //endif ?>
+        </td>
+        <th><?php echo $value['key']; ?></th>
+        <td>
+          <?php if(\dash\get::index($value, 'link')) {?>
+            <a href="<?php echo \dash\get::index($value, 'link') ?>"><?php echo $value['value']; ?></a>
+          <?php }else{ ?>
+          <?php echo $value['value']; ?>
           <?php } //endif ?>
-          <?php   } ?>
-        </div>
-      </div>
-    <?php } ?>
+        </td>
+         <td class="collapsing">
+          <?php if(\dash\get::index($value, 'id') && \dash\request::get('pid') && \dash\request::get('pid') == \dash\get::index($value, 'id')) {?>
+            <small class="fc-mute"><?php echo T_("Please fill the top input and click on Edit to save it") ?></small>
+          <?php }else{ ?>
+            <?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. \dash\get::index($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
+          <?php } //endif ?>
+        </td>
+         <td class="collapsing"><?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
+      </tr>
+<?php     } ?>
+<?php   } ?>
+    </table>
+    <?php if($have_any_id) {?>
+      <p class="mA10-f">
+        <?php echo T_("By click on ") ?><i class="sf-check-circle fc-mute fs12"></i>
+        <?php echo T_("You can set one property as outstanding property or unset it") ?>
+      </p>
+    <?php } //endif ?>
+  </div>
+<?php } ?>
   </div>
 </form>

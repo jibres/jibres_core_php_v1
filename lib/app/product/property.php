@@ -356,7 +356,7 @@ class property
 				if(isset($result['outstanding']) && $result['outstanding'])
 				{
 					\lib\db\productproperties\update::unset_outstanding($property_id);
-					\dash\notif::ok(T_("Property set as outstanding"));
+					\dash\notif::ok(T_("Property remove from outstanding"));
 					return true;
 				}
 				else
@@ -374,7 +374,7 @@ class property
 
 	}
 
-	public static function add($_args, $_id)
+	public static function add($_args, $_id, $_edit_id = null)
 	{
 		$condition =
 		[
@@ -383,6 +383,8 @@ class property
 			'value'       => 'string_1000',
 			'outstanding' => 'bit',
 		];
+
+		$_edit_id = \dash\validate::id($_edit_id, false);
 
 		$require = ['cat', 'key', 'value'];
 		$meta    =	[];
@@ -399,23 +401,55 @@ class property
 
 		if($check_duplicate)
 		{
-			\dash\notif::error(T_("Duplicate property founded"));
-			return false;
+			if($_edit_id && isset($check_duplicate['id']) && floatval($_edit_id) === floatval($check_duplicate['id']))
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate property founded"));
+				return false;
+			}
 		}
 
-		$insert =
-		[
-			'product_id' => $id,
-			'cat' => $data['cat'],
-			'key' => $data['key'],
-			'value' => $data['value'],
-			'datecreated' => date("Y-m-d H:i:s"),
+		if($_edit_id)
+		{
+			$check_ok = \lib\db\productproperties\get::one($_edit_id, $id);
+			if(!isset($check_ok['id']))
+			{
+				\dash\notif::error(T_("Invalid property id"));
+				return false;
+			}
 
-		];
+			$update =
+			[
+				'cat' => $data['cat'],
+				'key' => $data['key'],
+				'value' => $data['value'],
+				'datemodified' => date("Y-m-d H:i:s"),
 
-		\lib\db\productproperties\insert::new_record($insert);
+			];
+			\lib\db\productproperties\update::record($update, $_edit_id);
+			\dash\notif::ok(T_("Property successfully edited"));
 
-		\dash\notif::ok(T_("Property successfully added"));
+		}
+		else
+		{
+
+			$insert =
+			[
+				'product_id' => $id,
+				'cat' => $data['cat'],
+				'key' => $data['key'],
+				'value' => $data['value'],
+				'datecreated' => date("Y-m-d H:i:s"),
+
+			];
+			\lib\db\productproperties\insert::new_record($insert);
+			\dash\notif::ok(T_("Property successfully added"));
+		}
+
+
 		return true;
 
 

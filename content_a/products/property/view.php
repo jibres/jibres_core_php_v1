@@ -42,6 +42,30 @@ class view
 		$keyList = \lib\app\product\property::all_key_name();
 		\dash\data::keyList($keyList);
 
+
+		$pid = \dash\request::get('pid');
+		if($pid && is_array($property_list))
+		{
+			foreach ($property_list as $key => $value)
+			{
+				if(isset($value['list']) && is_array($value['list']))
+				{
+					foreach ($value['list'] as $k => $v)
+					{
+						if(isset($v['id']) && $v['id'] == $pid)
+						{
+							if(isset($value['title']))
+							{
+								$v['cat'] = $value['title'];
+							}
+							\dash\data::dataRow($v);
+							\dash\data::editMode(true);
+							break;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 ?>
