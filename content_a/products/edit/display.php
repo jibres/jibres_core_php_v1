@@ -1,6 +1,7 @@
 <?php
-$storData = \dash\data::store_store_data();
-$productDataRow = \dash\data::productDataRow();
+$storData           = \dash\data::store_store_data();
+$productDataRow     = \dash\data::productDataRow();
+$have_variant_child =\dash\data::productDataRow_variant_child();
 ?>
 
 
@@ -19,6 +20,9 @@ $productDataRow = \dash\data::productDataRow();
         </div>
       </div>
     </section>
+    <?php if($have_variant_child) {?>
+      <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
+    <?php }else{ ?>
     <section class="jbox">
       <header class="hide" data-kerkere='.jboxPrice' data-kerkere-icon='open'><h2><?php echo T_("Pricing Model"); ?></h2></header>
       <div class="pad jboxPrice">
@@ -86,6 +90,7 @@ $productDataRow = \dash\data::productDataRow();
         </div>
       </div>
     </section>
+  <?php } //endif ?>
     <?php if(!\dash\detect\device::detectPWA()) {?>
     <section class="jbox">
       <div class="pad">
@@ -138,6 +143,9 @@ $productDataRow = \dash\data::productDataRow();
         <?php } //endif ?>
       </div>
     </section>
+    <?php if($have_variant_child) {?>
+      <?php /*  --------------- All detail for inventroy hide when the product is parent of other product*/ ?>
+    <?php }else{ ?>
 
     <section class="jbox">
       <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Inventory"); ?></h2></header>
@@ -193,7 +201,7 @@ $productDataRow = \dash\data::productDataRow();
           </div>
           <p class="fs09 fc-mute"><?php echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."); ?></p>
           <div data-response='itrackquantity' data-response-effect='slide' <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())){}else{ echo 'data-response-hide';} ?>  >
-            <?php if(!\dash\data::productDataRow_variant_child()) {?>
+            <?php if(!$have_variant_child) {?>
               <div class="c s12 pRa10">
                 <label for='stock'><?php echo T_("Stock"). ' '. \dash\fit::number(\dash\data::productDataRow_stock()) ; ?></label>
                 <div class="input">
@@ -228,6 +236,7 @@ $productDataRow = \dash\data::productDataRow();
       </div>
     </div>
   </section>
+<?php } //endif ?>
 
   <section class="jbox">
     <header data-kerkere='.seoData' data-kerkere-icon='open'><h2><?php echo T_("Customize for SEO"); ?></h2></header>
@@ -298,28 +307,31 @@ $productDataRow = \dash\data::productDataRow();
 
   <section class="jbox">
     <div class="pad">
+      <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
       <div class="f mB10">
         <div class="c pRa5">
           <div class="radio3">
-            <input type="radio" name="type" value="product" id="typeProduct" <?php if(!\dash\data::productDataRow() || \dash\data::productDataRow_type() === 'product') {echo 'checked';} if(\dash\data::productDataRow_parent() || \dash\data::productDataRow_variant_child()) { echo ' disabled ';} ?> >
+            <input type="radio" name="type" value="product" id="typeProduct" <?php if(!\dash\data::productDataRow() || \dash\data::productDataRow_type() === 'product') {echo 'checked';} ?> >
             <label for="typeProduct"><?php echo T_("Product"); ?></label>
           </div>
         </div>
         <div class="c">
           <div class="radio3">
-            <input type="radio" name="type" value="service" id="typeService" <?php if(\dash\data::productDataRow_type() == 'service') { echo 'checked'; } if(\dash\data::productDataRow_variant_child() || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>  >
+            <input type="radio" name="type" value="service" id="typeService" <?php if(\dash\data::productDataRow_type() == 'service') { echo 'checked'; } if($have_variant_child || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>  >
             <label for="typeService"><?php echo T_("Service"); ?></label>
           </div>
         </div>
+
         <?php if(false) {?>
         <div class="c">
           <div class="radio3">
-            <input type="radio" name="type" value="file" id="typeFile" <?php if(\dash\data::productDataRow_type() == 'file') { echo 'checked'; } if(\dash\data::productDataRow_variant_child() || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>>
+            <input type="radio" name="type" value="file" id="typeFile" <?php if(\dash\data::productDataRow_type() == 'file') { echo 'checked'; } if($have_variant_child || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>>
             <label for="typeFile"><?php echo T_("File"); ?></label>
           </div>
         </div>
       <?php } //endif ?>
       </div>
+    <?php } //endif ?>
       <div class="mB10">
         <label for='unit'><?php echo T_("Unit"); ?></label>
         <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
@@ -373,8 +385,10 @@ $productDataRow = \dash\data::productDataRow();
           <?php } //endif ?>
           <li><a class="f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-grid-1 mRa10"></i><?php echo T_("Manage product properties"); ?></div><div class="go"></div></a></li>
           <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-comment mRa10"></i><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
+          <?php if(!$have_variant_child) {?>
           <li><a class="f" href="<?php echo \dash\url::this(); ?>/cartlimit?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-cart-plus mRa10"></i><?php echo T_("Cart Limit"); ?></div><div class="go"></div></a></li>
-          <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productFamily()) {?>
+        <?php } //endif ?>
+          <?php if(!$have_variant_child && !\dash\data::productFamily()) {?>
             <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
               <li><a class="f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo T_("Make product variants"); ?></div><div class="go"></div></a></li>
             <?php } //endif ?>
@@ -397,13 +411,16 @@ $productDataRow = \dash\data::productDataRow();
       </ul>
     </nav>
 
-    <nav class="items long">
-      <ul>
-        <li>
-          <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green mRa10"></i><?php }else{ ?><i class="sf-times fc-red mRa10"></i> <?php } //endif ?><?php echo T_("Stock"); ?></div><div class="go"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div></a></li>
-        </li>
-      </ul>
-    </nav>
+    <?php if(!$have_variant_child) {?>
+      <nav class="items long">
+        <ul>
+          <li>
+            <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green mRa10"></i><?php }else{ ?><i class="sf-times fc-red mRa10"></i> <?php } //endif ?><?php echo T_("Stock"); ?></div><div class="go"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div></a></li>
+          </li>
+        </ul>
+      </nav>
+    <?php } ?>
+
 
     <nav class="items long">
       <ul>
@@ -412,13 +429,13 @@ $productDataRow = \dash\data::productDataRow();
         </li>
       </ul>
     </nav>
-    <?php if(\dash\data::productDataRow_variant_child() || \dash\data::productFamily()) {?>
+    <?php if($have_variant_child || \dash\data::productFamily()) {?>
       <nav class="items long">
         <ul>
           <?php if(isset($productDataRow['parentDetail']['id']) && $productDataRow['parentDetail']['id'] != \dash\request::get('id') ) {?>
             <li><a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo $productDataRow['parentDetail']['id']; ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo $productDataRow['parentDetail']['title']; ?></div><div class="go"></div></a></li>
           <?php } //endif ?>
-          <?php if(\dash\data::productDataRow_variant_child()) {?>
+          <?php if($have_variant_child) {?>
             <?php foreach (\dash\data::productDataRow_child() as $key => $value) {?>
               <li>
                 <a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>">
@@ -427,7 +444,7 @@ $productDataRow = \dash\data::productDataRow();
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
                   </div>
-                  <div class="go"></div>
+                  <div class="go"><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></div>
                 </a>
               </li>
             <?php } //endfor ?>
@@ -441,7 +458,7 @@ $productDataRow = \dash\data::productDataRow();
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
                     <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
                   </div>
-                  <div class="go"></div>
+                  <div class="go"><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></div>
                 </a>
               </li>
               <?php if(\dash\request::get('id') == $value['id']) {?><?php }else{ ?><?php } //endif ?>
