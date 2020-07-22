@@ -126,26 +126,50 @@ class property
 		}
 
 
-		if(\dash\get::index($load, 'cat_id'))
-		{
-			$load_cat = \lib\app\category\get::inline_get($load['cat_id']);
 
-			if(isset($load_cat['title']))
+		$cat_list = \lib\app\category\get::product_cat($id);
+
+		if(is_array($cat_list) && $cat_list)
+		{
+			// ok
+		}
+		else
+		{
+			if(\dash\get::index($load_parent, 'id'))
 			{
-				$load_cat = \lib\app\category\ready::row($load_cat);
-				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $load_cat['title'], 'link' => $load_cat['url']]);
+				$cat_list = \lib\app\category\get::product_cat($load_parent['id']);
+				if(is_array($cat_list) && $cat_list)
+				{
+					// ok
+				}
+				else
+				{
+					$cat_list = [];
+				}
+			}
+			else
+			{
+				$cat_list = [];
 			}
 		}
-		elseif(\dash\get::index($load_parent, 'cat_id'))
-		{
-			$load_parent_cat = \lib\app\category\get::inline_get($load_parent['cat_id']);
 
-			if(isset($load_parent_cat['title']))
+		if($cat_list)
+		{
+			$cat_list = array_map(['\\lib\\app\\category\\ready', 'row'], $cat_list);
+
+			foreach ($cat_list as $category)
 			{
-				$load_parent_cat = \lib\app\category\ready::row($load_parent_cat);
-				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $load_parent_cat['title'], 'link' => $load_parent_cat['url']]);
+				if(\dash\url::content() === 'a')
+				{
+					array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $category['title'], 'link' => \dash\url::here(). '/category/edit?id='. \dash\get::index($category, 'productcategory_id')]);
+				}
+				else
+				{
+					array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $category['title'], 'link' => $category['url']]);
+				}
 			}
 		}
+
 
 		if(\dash\get::index($load, 'weight'))
 		{
