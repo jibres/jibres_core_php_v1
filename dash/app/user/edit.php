@@ -11,24 +11,26 @@ trait edit
 
 		\dash\db\sessions::change_password($_user_id);
 
-		if(\dash\engine\store::inStore())
-		{
-			$load_user_detail = \dash\db\users::get_by_id($_user_id);
-			if(isset($load_user_detail['jibres_user_id']))
-			{
-				// update password to jibres
-				\dash\db\users\update::jibres_password($_password_hash, $load_user_detail['jibres_user_id']);
+		//--------------- Every store is free
 
-				// update password to other session
-				\dash\db\users\update::jibres_password_in_other_store($_password_hash, $load_user_detail['jibres_user_id'], \lib\store::id());
-			}
-		}
-		else
-		{
-			// in jibres
-			// update password in all store
-			\dash\db\users\update::jibres_password_in_all_store($_password_hash, $_user_id);
-		}
+		// if(\dash\engine\store::inStore())
+		// {
+		// 	$load_user_detail = \dash\db\users::get_by_id($_user_id);
+		// 	if(isset($load_user_detail['jibres_user_id']))
+		// 	{
+		// 		// update password to jibres
+		// 		\dash\db\users\update::jibres_password($_password_hash, $load_user_detail['jibres_user_id']);
+
+		// 		// update password to other session
+		// 		\dash\db\users\update::jibres_password_in_other_store($_password_hash, $load_user_detail['jibres_user_id'], \lib\store::id());
+		// 	}
+		// }
+		// else
+		// {
+		// 	// in jibres
+		// 	// update password in all store
+		// 	\dash\db\users\update::jibres_password_in_all_store($_password_hash, $_user_id);
+		// }
 
 
 
@@ -47,7 +49,7 @@ trait edit
 				$mobile = \dash\validate::mobile($_args['mobile'], false);
 				if($mobile)
 				{
-					$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
+					$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id(['mobile' => $mobile]);
 				}
 			}
 

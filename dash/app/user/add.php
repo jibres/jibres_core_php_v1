@@ -12,7 +12,9 @@ trait add
 			$mobile = \dash\validate::mobile($_args['mobile']);
 			if($mobile)
 			{
-				$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
+				$jibres_user_add           = [];
+				$jibres_user_add['mobile'] = $mobile;
+				$_args['jibres_user_id']   = \lib\app\sync\user::jibres_user_id($jibres_user_add);
 			}
 		}
 
