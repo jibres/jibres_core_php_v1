@@ -217,7 +217,7 @@ class ready
 						}
 						else
 						{
-							$preparationdatestring = \dash\fit::date($preparationdate);
+							$preparationdatestring = \dash\datetime::fit($preparationdate, 'l j F Y', 'date');
 						}
 
 					}

@@ -11,13 +11,13 @@ class model
 
 		$post                    = [];
 
-		$post['company']         = \dash\request::post('company');
-		$post['length']          = \dash\request::post('length');
-		$post['width']           = \dash\request::post('width');
-		$post['height']          = \dash\request::post('height');
-		$post['weight']          = \dash\request::post('weight');
-		$post['filesize']        = \dash\request::post('filesize');
-		$post['fileaddress']     = \dash\request::post('fileaddress');
+		// $post['company']         = \dash\request::post('company');
+		// $post['length']          = \dash\request::post('length');
+		// $post['width']           = \dash\request::post('width');
+		// $post['height']          = \dash\request::post('height');
+		// $post['weight']          = \dash\request::post('weight');
+		// $post['filesize']        = \dash\request::post('filesize');
+		// $post['fileaddress']     = \dash\request::post('fileaddress');
 
 		$post['minsale']         = \dash\request::post('minsale');
 		$post['maxsale']         = \dash\request::post('maxsale');

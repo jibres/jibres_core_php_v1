@@ -210,9 +210,10 @@ class add
 
 		unset($args['properties']);
 
-		$args['datecreated'] = date("Y-m-d H:i:s");
-		$args['status']      = 'enable';
-		$args['language']    = \dash\language::current();
+		$args['datecreated']   = date("Y-m-d H:i:s");
+		$args['status']        = 'enable';
+		$args['language']      = \dash\language::current();
+		$args['showonwebsite'] = 1;
 
 		$id = \lib\db\productcategory\insert::new_record($args);
 		if(!$id)

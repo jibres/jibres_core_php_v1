@@ -109,6 +109,7 @@ class search
 			'order'          => 'order',
 			'sort'           => ['enum' => ['title']],
 			'pagination' => 'bit',
+			'showonwebsite' => 'bit',
 		];
 
 		$require = [];
@@ -132,6 +133,11 @@ class search
 
 		$query_string = \dash\validate::search($_query_string);
 
+
+		if($data['showonwebsite'])
+		{
+			$and[] = " productcategory.showonwebsite IS NOT NULL ";
+		}
 
 		if($query_string)
 		{
