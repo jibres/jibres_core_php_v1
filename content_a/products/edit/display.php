@@ -5,9 +5,9 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 ?>
 
 
-<form class="jPage f aProductData" method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
-  <button class="hide"  name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
-  <div class="c8 x9 s12 pRa10">
+<form class="jPage row padLess" id='aProductData' method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
+  <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
+  <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
     <section class="jbox pad">
       <header class="hide" data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Title"); ?></h2></header>
       <div class="input">
@@ -15,8 +15,8 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
         <span class="addon small" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon='close' <?php }//endif ?>><?php echo T_("Technical title"); ?></span>
       </div>
       <div class="subTitle" data-kerkere-content='<?php if(\dash\data::productDataRow_title2()) {echo 'show'; }else{ echo 'hide'; } ?>'>
-        <div class="input mT10">
-          <input type="text" name="title2" id="title2" placeholder='<?php echo T_("Enter technical title here"); ?>' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
+        <div class="input mT10 ltr">
+          <input type="text" name="title2" id="title2" placeholder='Technical Title' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
         </div>
       </div>
     </section>
@@ -94,7 +94,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
     <?php if(!\dash\detect\device::detectPWA()) {?>
     <section class="jbox">
       <div class="pad">
-        <textarea name="desc" data-editor class="txt" rows="3" maxlength="2000" placeholder='<?php echo T_("Description"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'desc'); ?></textarea>
+        <textarea name="desc" data-editor class="txt" rows="3" maxlength="2000" placeholder='<?php echo T_("Description about product"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'desc'); ?></textarea>
       </div>
     </section>
     <?php  } //endif ?>
@@ -277,7 +277,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 </div>
 
 
-<div class="c4 x3 s12 mB10">
+<div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
   <?php if(!\dash\detect\device::detectPWA()) {?>
     <button class="btn block master mB10" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <?php } //endif ?>

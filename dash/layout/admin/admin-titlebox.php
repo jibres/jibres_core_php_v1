@@ -49,7 +49,26 @@ if(\dash\face::boxTitle() !== false)
 <?php } // endif ?>
 <?php if(\dash\face::btnSave()) { ?>
     <nav class="cauto os pLa10">
-     <button class="btn master save" form='<?php echo \dash\face::btnSave(); ?>'><?php echo T_("Save"); ?></button>
+<?php
+  echo '<button class="btn master save" form="';
+  echo \dash\face::btnSave();
+  echo '"';
+  if(\dash\face::btnSaveValue())
+  {
+    echo "name='submitall' value='". \dash\face::btnSaveValue(). "'";
+  }
+  echo '>';
+  if(\dash\face::btnSaveText())
+  {
+    echo \dash\face::btnSaveText();
+  }
+  else
+  {
+    echo T_("Save");
+  }
+  echo "</button>";
+ ?>
+
     </nav>
 <?php } // endif ?>
    </div>

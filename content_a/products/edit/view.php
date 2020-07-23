@@ -19,6 +19,9 @@ class view
 
 		\dash\face::btnNext(\dash\url::this(). '/next/'. \dash\request::get('id'));
 		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
+		\dash\face::btnSave('aProductData');
+		\dash\face::btnSaveValue('master');
+		// \dash\face::btnSaveText('123');
 
 
 		// back
