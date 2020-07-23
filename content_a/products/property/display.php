@@ -89,13 +89,6 @@ $productDataRow = \dash\data::productDataRow();
           <?php echo $value['value']; ?>
           <?php } //endif ?>
         </td>
-         <td class="collapsing">
-          <?php if(\dash\get::index($value, 'id') && \dash\request::get('pid') && \dash\request::get('pid') == \dash\get::index($value, 'id')) {?>
-            <small class="fc-mute"><?php echo T_("Please fill the top input and click on Edit to save it") ?></small>
-          <?php }else{ ?>
-            <?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. \dash\get::index($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
-          <?php } //endif ?>
-        </td>
         <td>
           <?php if(\dash\get::index($value, 'input')) {?>
             <form method="post" autocomplete="off">
@@ -106,6 +99,13 @@ $productDataRow = \dash\data::productDataRow();
               <button type="submit" class="btn"><?php echo T_("Save") ?></button>
             </div>
             </form>
+          <?php } //endif ?>
+        </td>
+         <td class="collapsing">
+          <?php if(\dash\get::index($value, 'id') && \dash\request::get('pid') && \dash\request::get('pid') == \dash\get::index($value, 'id')) {?>
+            <small class="fc-mute"><?php echo T_("Please fill the top input and click on Edit to save it") ?></small>
+          <?php }else{ ?>
+            <?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. \dash\get::index($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
           <?php } //endif ?>
         </td>
          <td class="collapsing"><?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
