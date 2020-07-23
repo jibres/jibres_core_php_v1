@@ -3,38 +3,44 @@ namespace lib\app\log\caller\order;
 
 
 
-class order_customerNewOrder
+class order_adminNewOrderAfterPay
 {
 
 	public static function site($_args = [])
 	{
 		$result              = [];
 
-		$result['title']     = T_("Your order was registered");
+		$result['title']     = T_("Hooray :)");
 
 		$result['icon']      = 'buy';
 		$result['cat']       = T_("Order");
 		$result['iconClass'] = 'fc-green';
-		$result['txt']       = self::get_msg($_args);
+		$result['txt']       = self::get_msg($_args, false);
 
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
-
+		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::admin_url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
+		$result['txt'] .= ' <br> '. T_("Jibres; Sell and enjoy");
 		return $result;
 
 	}
 
 
 
-	public static function get_msg($_args = [])
+	public static function get_msg($_args = [], $_link = true)
 	{
 		$msg         = '';
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$my_amount   = isset($_args['data']['my_amount']) ? \dash\fit::number($_args['data']['my_amount']) : null;
 		$my_currency = isset($_args['data']['my_currency']) ? $_args['data']['my_currency'] : null;
 
-		$msg .= "❤️ ". T_("Your order in the amount of :amount :currency was registered in :business and we are preparing your order with the speed of light", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
 
+		$msg .= "💰  ". T_("A final order and the amount of :amount :currency was paid in :business :)", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
+		if($_link)
+		{
+			$msg .= "\n";
+			$msg .= \lib\store::admin_url(). '/:'. $my_id;
+			$msg .= ' '. T_("Jibres; Sell and enjoy");
+		}
 		return $msg;
 	}
 
@@ -52,6 +58,13 @@ class order_customerNewOrder
 	}
 
 
+	public static function send_to()
+	{
+		return ['admin'];
+	}
+
+
+
 	public static function telegram()
 	{
 		return true;
@@ -65,10 +78,7 @@ class order_customerNewOrder
 
 	public static function sms_text($_args, $_mobile)
 	{
-		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$title = self::get_msg($_args);
-		$title .= "\n";
-		$title .= \lib\store::url(). '/:'. $my_id;
 
 		$sms =
 		[
@@ -93,13 +103,6 @@ class order_customerNewOrder
 		$tg_msg .= " 🛒 \n";
 
 		$tg_msg .= self::get_msg($_args);
-
-		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-
-		$tg_msg .= "\n";
-		$tg_msg .= \lib\store::url(). '/:'. $my_id;
-
-		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];
 		$tg['chat_id']      = $_chat_id;

@@ -194,6 +194,7 @@ class add
 		$return = [];
 
 		$return['factor_id'] = 'JF'. $factor_id;
+		$return['factor_id'] = $factor_id;
 
 		$return['price'] = \lib\price::total_down($factor_total);
 

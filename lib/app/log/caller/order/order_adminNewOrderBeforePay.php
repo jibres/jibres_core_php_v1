@@ -3,7 +3,7 @@ namespace lib\app\log\caller\order;
 
 
 
-class order_customerNewOrder
+class order_adminNewOrderBeforePay
 {
 
 	public static function site($_args = [])
@@ -18,7 +18,7 @@ class order_customerNewOrder
 		$result['txt']       = self::get_msg($_args);
 
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
+		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::admin_url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
 
 		return $result;
 
@@ -33,7 +33,8 @@ class order_customerNewOrder
 		$my_amount   = isset($_args['data']['my_amount']) ? \dash\fit::number($_args['data']['my_amount']) : null;
 		$my_currency = isset($_args['data']['my_currency']) ? $_args['data']['my_currency'] : null;
 
-		$msg .= "❤️ ". T_("Your order in the amount of :amount :currency was registered in :business and we are preparing your order with the speed of light", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
+
+		$msg .= "🛍  ". T_("A new order in the amount of :amount :currency was registered in :business. We, like you, are waiting to inform you after completing the payment", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
 
 		return $msg;
 	}
@@ -52,6 +53,13 @@ class order_customerNewOrder
 	}
 
 
+	public static function send_to()
+	{
+		return ['admin'];
+	}
+
+
+
 	public static function telegram()
 	{
 		return true;
@@ -60,7 +68,7 @@ class order_customerNewOrder
 
 	public static function sms()
 	{
-		return true;
+		return false;
 	}
 
 	public static function sms_text($_args, $_mobile)
@@ -68,7 +76,7 @@ class order_customerNewOrder
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$title = self::get_msg($_args);
 		$title .= "\n";
-		$title .= \lib\store::url(). '/:'. $my_id;
+		$title .= \lib\store::admin_url(). '/:'. $my_id;
 
 		$sms =
 		[
@@ -97,7 +105,7 @@ class order_customerNewOrder
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 
 		$tg_msg .= "\n";
-		$tg_msg .= \lib\store::url(). '/:'. $my_id;
+		$tg_msg .= \lib\store::admin_url(). '/:'. $my_id;
 
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 

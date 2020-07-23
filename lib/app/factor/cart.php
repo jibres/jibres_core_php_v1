@@ -209,10 +209,12 @@ class cart
 			\lib\db\cart\delete::drop_cart_guest($user_guest);
 		}
 
-		\dash\log::set('order_adminNewOrder', ['my_id' => $result['factor_id']]);
+
+
 
 		if($data['payway'] === 'online')
 		{
+			\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 			// set status on pending_pay
 			\lib\app\factor\edit::status('pending_pay', $factor_id);
 
@@ -227,7 +229,12 @@ class cart
 				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
 				'amount'        => abs($result['price']),
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
-				'final_fn_args' => ['factor_id' => $result['factor_id'], 'user_id' => \dash\user::id()],
+				'final_fn_args' =>
+				[
+					'factor_id' => $result['factor_id'],
+					'user_id'   => \dash\user::id(),
+					'amount'    => abs($result['price']),
+				],
 			];
 
 
@@ -271,9 +278,11 @@ class cart
 
 		}
 
+		// \dash\log::set('order_adminNewOrder', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
+
 		if(\dash\user::id())
 		{
-			\dash\log::set('order_customerNewOrder', ['to' => \dash\user::id(), 'my_id' => $result['factor_id']]);
+			\dash\log::set('order_customerNewOrder', ['to' => \dash\user::id(), 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 		}
 
 		return $return;
@@ -292,8 +301,10 @@ class cart
 				\lib\app\factor\action::set('pay_successfull', $factor_id);
 				if(isset($_args['user_id']))
 				{
-					\dash\log::set('order_customerNewOrder', ['to' => $_args['user_id'], 'my_id' => $_args['factor_id']]);
+					\dash\log::set('order_customerNewOrder', ['to' => $_args['user_id'], 'my_id' => $_args['factor_id'], 'my_amount' => $_args['amount'], 'my_currency' => \lib\store::currency()]);
 				}
+
+				\dash\log::set('order_adminNewOrderAfterPay', ['my_id' => $_args['factor_id'], 'my_amount' => $_args['amount'], 'my_currency' => \lib\store::currency()]);
 			}
 
 		}

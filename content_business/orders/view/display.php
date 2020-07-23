@@ -9,7 +9,7 @@
         <div class="body">
           <div class="row">
             <div class="c-auto">
-              <div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order number") ?> <code class="link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 'id_code'); ?></code></div>
+              <div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order number") ?> <code class="link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 'id'); ?></code></div>
             </div>
             <div class="c-auto">
               <div class="badge pA10-f mB10 fs09 light"><?php echo T_("Order status") ?> <span class="link"><?php echo \dash\get::index(\dash\data::dataRow_order(), 't_status'); ?></span></div>

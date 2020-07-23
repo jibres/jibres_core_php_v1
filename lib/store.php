@@ -451,6 +451,15 @@ class store
 
 	}
 
+	public static function admin_url()
+	{
+		$tld = \dash\url::tld() === 'ir' ? 'ir' : 'com';
+		if(\dash\url::isLocal())
+		{
+			$tld = 'local';
+		}
+		return \dash\url::protocol(). '://jibres.'.$tld. '/'. self::code();
+	}
 
 	public static function url()
 	{
