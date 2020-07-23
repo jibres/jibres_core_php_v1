@@ -286,7 +286,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <div class="mB10">
         <div class="row align-center">
           <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
-          <div class="c-auto os"><a class="font-12" href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
           <?php foreach (\dash\data::listCategory() as $key => $value) {?>
@@ -297,7 +297,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <div>
         <div class="row align-center">
           <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-          <div class="c-auto os"><a class="font-12" href="<?php echo \dash\url::here(); ?>/products/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/products/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
           <?php foreach (\dash\data::allTagList() as $key => $value) {?>
@@ -338,7 +338,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <div class="mB10">
         <div class="row align-center">
           <div class="c"><label for='unit'><?php echo T_("Unit"); ?></label></div>
-          <div class="c-auto os"><a class="font-12" href="<?php echo \dash\url::here(); ?>/units"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/units"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
           <option></option>
@@ -354,7 +354,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <div class="mB10">
         <div class="row align-center">
           <div class="c"><label for='company'><?php echo T_("Brand"); ?></label></div>
-          <div class="c-auto os"><a class="font-12" href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
           <option></option>
