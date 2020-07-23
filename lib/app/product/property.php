@@ -327,7 +327,7 @@ class property
 					$all_category_property_new = [];
 					foreach ($all_category_property as $key => $value)
 					{
-						if(isset($value['group']) && isset($value['key']))
+						if(isset($value['group']) && is_string($value['group']) && isset($value['key']) && is_string($value['key']))
 						{
 							$all_category_property_new[md5($value['group']. $value['key'])] = $value;
 						}
