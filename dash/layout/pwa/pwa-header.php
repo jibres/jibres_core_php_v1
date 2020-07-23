@@ -19,7 +19,23 @@ if(\dash\data::action_link() && \dash\data::action_text())
 }
 elseif(\dash\face::btnSave())
 {
-	echo "<button form='". \dash\face::btnSave(). "'>". T_("Save"). "</button>";
+  echo '<button form="';
+  echo \dash\face::btnSave();
+  echo '"';
+  if(\dash\face::btnSaveValue())
+  {
+    echo "name='submitall' value='". \dash\face::btnSaveValue(). "'";
+  }
+  echo '>';
+  if(\dash\face::btnSaveText())
+  {
+    echo \dash\face::btnSaveText();
+  }
+  else
+  {
+    echo T_("Save");
+  }
+  echo "</button>";
 }
 ?></div>
 <?php

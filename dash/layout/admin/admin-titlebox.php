@@ -48,8 +48,7 @@ if(\dash\face::boxTitle() !== false)
     </nav>
 <?php } // endif ?>
 <?php if(\dash\face::btnSave()) { ?>
-    <nav class="cauto os pLa10">
-<?php
+    <nav class="cauto os btnSave"><?php
   echo '<button class="btn master save" form="';
   echo \dash\face::btnSave();
   echo '"';
@@ -67,9 +66,7 @@ if(\dash\face::boxTitle() !== false)
     echo T_("Save");
   }
   echo "</button>";
- ?>
-
-    </nav>
+ ?></nav>
 <?php } // endif ?>
    </div>
 <?php if(\dash\face::breadcrumb() && false)  {?>
