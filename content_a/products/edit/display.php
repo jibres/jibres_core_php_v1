@@ -278,9 +278,6 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 
 
 <div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
-  <?php if(!\dash\detect\device::detectPWA()) {?>
-    <button class="btn block master mB10" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
-  <?php } //endif ?>
   <section class="jbox">
     <div class="pad">
       <div class="mB10">
@@ -466,7 +463,4 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
     <?php } //endif ?>
   <?php } //endif ?>
 </div>
-<?php if(\dash\detect\device::detectPWA()) {?>
-  <button class="btn block master mTB10" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
-<?php } //endif ?>
 </form>
