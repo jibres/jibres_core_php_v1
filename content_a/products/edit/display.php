@@ -388,61 +388,53 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
   <?php if(\dash\url::child() == 'edit') {?>
     <nav class="items long">
       <ul>
-        <li>
-          <?php if(\dash\detect\device::detectPWA()) {?>
-            <li><a class="f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>"><div class="key"><i class="sf-list mRa10"></i><?php echo T_("Edit Description") ?></div><div class="go"></div></a></li>
-          <?php } //endif ?>
-          <li><a class="f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-grid-1 mRa10"></i><?php echo T_("Manage product properties"); ?></div><div class="go"></div></a></li>
-          <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-comment mRa10"></i><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
-          <?php if(!$have_variant_child) {?>
-          <li><a class="f" href="<?php echo \dash\url::this(); ?>/cartlimit?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-cart-plus mRa10"></i><?php echo T_("Cart Limit"); ?></div><div class="go"></div></a></li>
+        <?php if(\dash\detect\device::detectPWA()) {?>
+          <li><a class="item f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>"><div class="key"><i class="sf-list"></i><?php echo T_("Edit Description") ?></div><div class="go"></div></a></li>
         <?php } //endif ?>
-          <?php if(!$have_variant_child && !\dash\data::productFamily()) {?>
-            <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
-              <li><a class="f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo T_("Make product variants"); ?></div><div class="go"></div></a></li>
-            <?php } //endif ?>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-database"></i><?php echo T_("Product Properties"); ?></div><div class="go"></div></a></li>
+        <?php if(!$have_variant_child && !\dash\data::productFamily()) {?>
+          <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
+            <li><a class="f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-picture"></i><?php echo T_("Make product variants"); ?></div><div class="go"></div></a></li>
           <?php } //endif ?>
-        </li>
+        <?php } //endif ?>
+        <?php if(!$have_variant_child) {?>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/cartlimit?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-hand-stop"></i><?php echo T_("Cart Limit"); ?></div><div class="go"></div></a></li>
+        <?php } //endif ?>
+        <?php if(!$have_variant_child) {?>
+          <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i> <?php } //endif ?><?php echo T_("Stock Count"); ?></div><div class="value"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div><div class="go"></div></a></li>
+        <?php } ?>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/status?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-plug"></i><?php echo T_("Status"); ?></div><div class="value"><?php echo T_(\dash\data::productDataRow_status()); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+
+    <nav class="items long">
+      <ul>
+        <li><a class="f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-chat-alt-fill"></i><?php echo T_("Comments"); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+
+    <nav class="items long">
+      <ul>
+          <li><a class="f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-chart-line"></i><?php echo T_("Price change chart"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
     <nav class="items long">
       <ul>
-        <li>
-          <li><a class="f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-chart-line mRa10"></i><?php echo T_("Price change chart"); ?></div><div class="go"></div></a></li>
-        </li>
-      </ul>
-    </nav>
-    <nav class="items long">
-      <ul>
-        <li>
-          <li><a class="f" href="<?php echo \dash\url::this(); ?>/status?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Status"); ?></div><div class="go"><?php echo T_(\dash\data::productDataRow_status()); ?></div></a></li>
-        </li>
       </ul>
     </nav>
 
-    <?php if(!$have_variant_child) {?>
-      <nav class="items long">
-        <ul>
-          <li>
-            <li><a class="f"><div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check fc-green mRa10"></i><?php }else{ ?><i class="sf-times fc-red mRa10"></i> <?php } //endif ?><?php echo T_("Stock"); ?></div><div class="go"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div></a></li>
-          </li>
-        </ul>
-      </nav>
-    <?php } ?>
 
 
     <nav class="items long">
       <ul>
-        <li>
-          <li><a class="f" href="<?php echo \dash\url::this(); ?>/share?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-paper-plane mRa10"></i><?php echo T_("Share with social network"); ?></div><div class="go"></div></a></li>
-        </li>
+          <li><a class="f" href="<?php echo \dash\url::this(); ?>/share?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><i class="sf-paper-plane"></i><?php echo T_("Share with social network"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
     <?php if($have_variant_child || \dash\data::productFamily()) {?>
       <nav class="items long">
         <ul>
           <?php if(isset($productDataRow['parentDetail']['id']) && $productDataRow['parentDetail']['id'] != \dash\request::get('id') ) {?>
-            <li><a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo $productDataRow['parentDetail']['id']; ?>"><div class="key"><i class="sf-atom mRa10"></i><?php echo $productDataRow['parentDetail']['title']; ?></div><div class="go"></div></a></li>
+            <li><a class="f" href="<?php echo \dash\url::that(); ?>?id=<?php echo $productDataRow['parentDetail']['id']; ?>"><div class="key"><i class="sf-atom"></i><?php echo $productDataRow['parentDetail']['title']; ?></div><div class="go"></div></a></li>
           <?php } //endif ?>
           <?php if($have_variant_child) {?>
             <?php foreach (\dash\data::productDataRow_child() as $key => $value) {?>
