@@ -132,9 +132,17 @@ class db
 			$temp_error .= $error_code. ' - ';
 			$temp_error .= $error_string." */";
 
-			// $temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
-			// $temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
-			\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
+			if(!$error_code && !$error_string && \dash\url::content() === 'hook')
+			{
+				// @Reza @Javad Need to fix Cronjob error null sql
+				// At this time I disable the log of null sql error to check other error
+			}
+			else
+			{
+				// $temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
+				// $temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
+				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
+			}
 
 			if(\dash\url::isLocal())
 			{
