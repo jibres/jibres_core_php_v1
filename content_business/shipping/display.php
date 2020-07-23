@@ -38,11 +38,9 @@
                  </div>
                 </div>
             </div>
-            <?php addNewAddress(); ?>
           <?php } // endif ?>
-        <?php }else{ // user not login ?>
-          <?php addNewAddress(); ?>
         <?php } //endif ?>
+        <?php addNewAddress(\dash\data::addressDataTable()); ?>
 
         <div class="box">
           <input type="hidden" name="payway" value="online">
@@ -93,8 +91,8 @@
 
 
 
-<?php function addNewAddress() {?>
-<?php if(\dash\user::login()) {?>
+<?php function addNewAddress($_have_old_address) {?>
+<?php if($_have_old_address) {?>
   <div data-response='address_id' data-response-hide data-response-where='new_address' data-response-effect='slide'>
 <?php } //endif ?>
 <div class="box">
@@ -161,7 +159,7 @@
       </div>
 
 </div>
-<?php if(\dash\user::login()) {?>
+<?php if($_have_old_address) {?>
   </div>
 <?php } //endif ?>
 <?php } //endif ?>
