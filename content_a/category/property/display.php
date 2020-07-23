@@ -5,6 +5,9 @@
       <div class="body">
         <p>
           <?php echo T_("If the products in this category have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
+          <br>
+          <?php echo T_("Here you just enter the group name and key of property. And you can set value of this property on product property edit page for each product contain this category."); ?>
+
         </p>
 
         <div class="row">
