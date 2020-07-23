@@ -88,6 +88,91 @@ class model
 		$check_mobile = \dash\db\users::get_by_mobile($mobile);
 		if($check_mobile)
 		{
+			\dash\utility\enter::set_session('usernameormobile', $mobile);
+
+			if(isset($check_mobile['password']) && $check_mobile['password'])
+			{
+				if(\dash\utility::hasher($ramz, $check_mobile['password']))
+				{
+
+					if(isset($check_mobile['verifymobile']) && $check_mobile['verifymobile'])
+					{
+						\dash\log::set('SignupOldByPassword');
+						// login
+						// the browser was saved the password
+						\dash\utility\enter::enter_set_login(null, true);
+						return;
+
+					}
+					else
+					{
+						$signup =
+						[
+							'mobile'      => $mobile,
+							'displayname' => $displayname,
+							'status'      => 'awaiting'
+						];
+
+						\dash\utility\enter::set_session('verify_from', 'set');
+						\dash\utility\enter::set_session('temp_ramz_hash', \dash\utility::hasher($ramz));
+						\dash\utility\enter::set_session('usernameormobile', $mobile);
+						\dash\utility\enter::set_session('signup_detail', $signup);
+						\dash\utility\enter::go_to_verify();
+					}
+				}
+				else
+				{
+					\dash\code::sleep(3);
+					// redirect to enter password to login
+					// lock all step and set just this page to load
+					\dash\utility\enter::next_step('pass');
+					// open lock pass/recovery
+					\dash\utility\enter::open_lock('pass/recovery');
+					// go to pass to check password
+					\dash\utility\enter::go_to('pass');
+					return;
+				}
+			}
+			else
+			{
+
+				$temp_ramz = $ramz;
+
+				// check min and max of password and make error
+				if(!\dash\utility\enter::check_pass_syntax($temp_ramz, $mobile))
+				{
+					return false;
+				}
+
+				// hesh ramz to find is this ramz is easy or no
+				// creazy password !
+				$temp_ramz_hash = \dash\utility::hasher($temp_ramz);
+				// if debug status continue
+				if(\dash\engine\process::status())
+				{
+					\dash\utility\enter::set_session('temp_ramz', $temp_ramz);
+					\dash\utility\enter::set_session('temp_ramz_hash', $temp_ramz_hash);
+				}
+				else
+				{
+					\dash\log::set('creazyPassword');
+
+					// creazy password
+					return false;
+				}
+
+
+				\dash\log::set('setPasswordRequestOnSignup');
+
+				// set session verify_from set
+				\dash\utility\enter::set_session('verify_from', 'set');
+
+				// send code way
+				\dash\utility\enter::go_to_verify();
+				return;
+
+			}
+
 			\dash\log::set('mobileExistTryToSignup');
 			$msg = T_("This mobile is already signuped. You can login by this mobile");
 			$msg .= ' <br><a href="'. \dash\url::kingdom().'/enter">'. T_("Click to login"). '</a>';

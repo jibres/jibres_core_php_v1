@@ -107,6 +107,10 @@ class hive
 	private static function check()
 	{
 		$hive = \dash\session::get(self::hive_session_key());
+		if(!$hive || !is_array($hive))
+		{
+			return false;
+		}
 		$hiveCheck1 = \dash\request::post('hiveCheck1');
 		$hiveCheck2 = \dash\request::post('hiveCheck2');
 		$hiveCheck3 = \dash\request::post('hiveCheck3');

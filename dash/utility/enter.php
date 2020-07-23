@@ -458,6 +458,8 @@ class enter
 			}
 		}
 
+		$alert_notif_login = true;
+
 		if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']))
 		{
 			if(isset($_SESSION['auth']['mobile']) && $_SESSION['auth']['mobile'] === $_SESSION['main_mobile'])
@@ -467,6 +469,7 @@ class enter
 			}
 			else
 			{
+				$alert_notif_login = false;
 				// not save session for other people never
 				$set_session = false;
 			}
@@ -490,13 +493,17 @@ class enter
 
 		$url = self::find_redirect_url($_url);
 
-		$NewAccoutLogin =
-		[
-			'my_ip' => \dash\server::ip(true),
-			'to'    => $user_id,
-		];
+		// login by supervisor not set
+		if($alert_notif_login)
+		{
+			$NewAccoutLogin =
+			[
+				'my_ip' => \dash\server::ip(true),
+				'to'    => $user_id,
+			];
 
-		\dash\log::set('enter_NewAccountLogin', $NewAccoutLogin);
+			\dash\log::set('enter_NewAccountLogin', $NewAccoutLogin);
+		}
 
 		if(self::user_data('permission') === 'supervisor')
 		{
