@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-23 16:00+0430\n"
-"PO-Revision-Date: 2020-07-23 16:02+0430\n"
+"POT-Creation-Date: 2020-07-23 16:11+0430\n"
+"PO-Revision-Date: 2020-07-23 16:11+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -28602,12 +28602,12 @@ msgid "Iraqi Dinar"
 msgstr "دینار عراقی"
 
 #: lib/currency.php:66
-msgid "Iranian Thousand Toman"
-msgstr "هزار تومان ایران"
+msgid "Thousand Toman"
+msgstr "هزار تومان"
 
 #: lib/currency.php:67
-msgid "Iranian Thousand Rial"
-msgstr "هزار ریال ایران"
+msgid "Thousand Rial"
+msgstr "هزار ریال"
 
 #: lib/currency.php:68
 msgid "Icelandic Króna"
