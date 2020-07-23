@@ -189,6 +189,7 @@ class website
 		$discountpercent = \dash\get::index($_item, 'discountpercent');
 		$unit            = \dash\get::index($_item, 'unit');
 		$allow_shop      = \dash\get::index($_item, 'allow_shop');
+		$currency        = \lib\store::currency();
 
 		echo '<a class="jProduct1" href="'. \dash\get::index($_item, 'url'). '">';
 		{
@@ -220,7 +221,7 @@ class website
 			echo '<footer class="f">';
 			{
 				echo '<span class="unit cauto">';
-				echo $unit;
+				echo $currency;
 				echo '</span>';
 
 				echo '<span class="price c">';
