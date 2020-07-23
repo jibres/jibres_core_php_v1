@@ -173,12 +173,6 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           </div>
         <?php } //endif ?>
         <div class="f">
-          <div class="c s12 pRa5">
-            <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
-            <div class="input">
-              <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
-            </div>
-          </div>
           <?php if(isset($storData['barcode']) && $storData['barcode'] && isset($storData['scale']) && $storData['scale']) {?>
             <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
               <div class="c6 s12">
@@ -279,7 +273,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 
 
 <div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
-  <section class="jbox">
+  <section class="box">
     <div class="pad">
       <div class="mB10">
         <label for='cat'><?php echo T_("Category"); ?> <small><a href="<?php echo \dash\url::here(); ?>/category"><i class="sf-link-external"></i></a></small></label>
@@ -297,14 +291,20 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           <?php } //endfor ?>
         </select>
       </div>
+      <div>
+        <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
+        <div class="input">
+          <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="jbox">
+  <section class="box">
     <div class="pad">
       <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
-      <div class="f mB10">
-        <div class="c pRa5">
+      <div class="row padLess mB5">
+        <div class="c">
           <div class="radio3">
             <input type="radio" name="type" value="product" id="typeProduct" <?php if(!\dash\data::productDataRow() || \dash\data::productDataRow_type() === 'product') {echo 'checked';} ?> >
             <label for="typeProduct"><?php echo T_("Product"); ?></label>
