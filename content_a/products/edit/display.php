@@ -8,8 +8,9 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 <form class="jPage row" id='aProductData' method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
   <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
-    <section class="jbox pad">
-      <header class="hide" data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Title"); ?></h2></header>
+    <section class="box">
+     <div class="pad">
+
       <div class="input">
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Product Title"); ?> *' value="<?php echo \dash\get::index($productDataRow,'title'); ?>" maxlength='200' <?php \dash\layout\autofocus::html() ?> <?php if(\dash\data::productDataRow_parent()) { echo 'disabled';} ?>>
         <span class="addon small" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon='close' <?php }//endif ?>><?php echo T_("Technical title"); ?></span>
@@ -19,12 +20,12 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           <input type="text" name="title2" id="title2" placeholder='Technical Title' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
         </div>
       </div>
+     </div>
     </section>
     <?php if($have_variant_child) {?>
       <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
     <?php }else{ ?>
-    <section class="jbox">
-      <header class="hide" data-kerkere='.jboxPrice' data-kerkere-icon='open'><h2><?php echo T_("Pricing Model"); ?></h2></header>
+    <section class="box">
       <div class="pad jboxPrice">
         <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >
           <div class="c s12 pRa5">
@@ -92,14 +93,14 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
     </section>
   <?php } //endif ?>
     <?php if(!\dash\detect\device::detectPWA()) {?>
-    <section class="jbox">
+    <section class="box">
       <div class="pad">
         <textarea name="desc" data-editor class="txt" rows="3" maxlength="2000" placeholder='<?php echo T_("Description about product"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'desc'); ?></textarea>
       </div>
     </section>
     <?php  } //endif ?>
 
-    <section class="jbox">
+    <section class="box">
       <div class="pad1">
         <?php if(is_array(\dash\data::productDataRow_gallery_array()) && count(\dash\data::productDataRow_gallery_array()) > 10) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Product gallery is full!"); ?></div>
@@ -144,7 +145,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <?php /*  --------------- All detail for inventroy hide when the product is parent of other product*/ ?>
     <?php }else{ ?>
 
-    <section class="jbox">
+    <section class="box">
       <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Inventory"); ?></h2></header>
       <div class="pad jboxCodes">
         <?php if(isset($storData['barcode']) && $storData['barcode']) {?>
@@ -235,8 +236,8 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
   </section>
 <?php } //endif ?>
 
-  <section class="jbox">
-    <header data-kerkere='.seoData' data-kerkere-icon='open'><h2><?php echo T_("Customize for SEO"); ?></h2></header>
+  <section class="box">
+    <header data-kerkere='.seoData' data-kerkere-icon='close' data-kerkere-status="close"><h2><?php echo T_("Customize for SEO"); ?></h2></header>
     <div class="pad">
       <div class="seoPreview">
         <a target="_blank" href="<?php echo \dash\data::productDataRow_url(); ?>">
@@ -258,7 +259,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
           <div class="input">
             <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::productDataRow_seotitle()) {echo \dash\data::productDataRow_title();} ?>' value="<?php echo \dash\get::index($productDataRow,'seotitle'); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
-            <label class="addon"> | <?php echo \dash\face::site(); ?></label>
+            <label class="addon small"> | <?php echo \dash\face::site(); ?></label>
           </div>
         </div>
         <div>
