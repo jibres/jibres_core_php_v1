@@ -90,6 +90,13 @@
           <a class="btn link" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
         </footer>
       </section>
+      <nav class="items long">
+      <ul>
+        <li>
+          <li><a class="f" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><div class="key"><i class="sf-list mRa10"></i><?php echo T_("Show products by this category"); ?></div><div class="go"></div></a></li>
+        </li>
+      </ul>
+    </nav>
       <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
         <section class="box">
           <header><h2><?php echo T_("Remove category"); ?></h2></header>
