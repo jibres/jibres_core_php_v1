@@ -31,7 +31,6 @@ class ready
 		$currency = \lib\currency::name(\lib\store::detail('currency'));
 
 
-
 		foreach ($_data as $key => $value)
 		{
 
@@ -183,6 +182,49 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'preparationtime':
+					$result[$key]          = $value;
+					$preparationdate       = null;
+					$preparationdatestring = null;
+					if($value && is_numeric($value))
+					{
+						$value = floatval($value);
+
+						$product_setting = \lib\app\setting\get::product_setting();
+						if(isset($product_setting['preparationtime']) && is_numeric($product_setting['preparationtime']))
+						{
+							$value = floatval($product_setting['preparationtime']) + floatval($value);
+						}
+
+						$value = $value * 60 * 60;
+
+						$preparationdate = date("Y-m-d", time() + $value);
+
+						if($value < (60*60*24))
+						{
+							if(date("H") > 12)
+							{
+								$preparationdatestring = T_("Tomorrow");
+							}
+							else
+							{
+								$preparationdatestring = T_("Today");
+							}
+						}
+						elseif($value < (60*60*24*2))
+						{
+							$preparationdatestring = T_("Tomorrow");
+						}
+						else
+						{
+							$preparationdatestring = \dash\fit::date($preparationdate);
+						}
+
+					}
+					$result['preparationdate'] = $preparationdate;
+					$result['preparationdatestring'] = $preparationdatestring;
+					break;
+
 				case 'country':
 				case 'city':
 				case 'province':
@@ -192,7 +234,7 @@ class ready
 				case 'alias':
 				case 'status':
 				default:
-					$result[$key] = isset($value) ? (string) $value : null;
+					$result[$key] = $value;
 					break;
 			}
 		}

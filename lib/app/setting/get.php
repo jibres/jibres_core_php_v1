@@ -4,6 +4,21 @@ namespace lib\app\setting;
 
 class get
 {
+	private static $load_setting_once = [];
+	private static function load_setting_once($_cat)
+	{
+		if(isset(self::$load_setting_once[$_cat]))
+		{
+			return self::$load_setting_once[$_cat];
+		}
+		else
+		{
+			$result = \lib\db\setting\get::by_cat($_cat);
+			self::$load_setting_once[$_cat] = $result;
+			return $result;
+		}
+	}
+
 	public static function payment()
 	{
 		$payment = \lib\db\setting\get::payment();
@@ -66,7 +81,7 @@ class get
 	{
 		$cat   = 'product_setting';
 
-		$result = \lib\db\setting\get::by_cat($cat);
+		$result = self::load_setting_once($cat);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -104,7 +119,7 @@ class get
 	{
 		$cat   = 'telegram_setting';
 
-		$result = \lib\db\setting\get::by_cat($cat);
+		$result = self::load_setting_once($cat);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -131,7 +146,7 @@ class get
 	{
 		$cat   = 'order_setting';
 
-		$result = \lib\db\setting\get::by_cat($cat);
+		$result = self::load_setting_once($cat);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -158,7 +173,7 @@ class get
 	{
 		$cat   = 'cart_setting';
 
-		$result = \lib\db\setting\get::by_cat($cat);
+		$result = self::load_setting_once($cat);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -214,7 +229,7 @@ class get
 	{
 		$cat   = 'shipping_setting';
 
-		$result = \lib\db\setting\get::by_cat($cat);
+		$result = self::load_setting_once($cat);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -268,7 +283,7 @@ class get
 	{
 		$cat   = 'bank_payment_setting';
 
-		$result = \lib\db\setting\get::by_cat($cat);
+		$result = self::load_setting_once($cat);
 		if(!is_array($result))
 		{
 			$result = [];

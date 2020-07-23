@@ -86,10 +86,8 @@ $storeData = \dash\data::store_store_data();
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-
       <div class="action">
         <input type="hidden" name="runaction_ratio" value="1">
-
         <select class="select22" name="ratio">
           <option value="0"><?php echo \dash\data::defaultRatioSlider(); ?></option>
           <option value="2.5:1" <?php if(\dash\data::productSettingSaved_ratio() === '2.5:1') {echo 'selected';} ?>><?php echo \dash\fit::text("2.5:1") ?></option>
@@ -101,10 +99,27 @@ $storeData = \dash\data::store_store_data();
           <option value="32:9" <?php if(\dash\data::productSettingSaved_ratio() === '32:9') {echo 'selected';} ?>><?php echo \dash\fit::text("32:9") ?></option>
           <option value="64:27" <?php if(\dash\data::productSettingSaved_ratio() === '64:27') {echo 'selected';} ?>><?php echo \dash\fit::text("64:27") ?></option>
         </select>
-
-
-
       </div>
-
   </form>
 </section>
+
+
+
+<section class="f" data-option='product-setting-image-ratio'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set Preparation time");?></h3>
+      <div class="body">
+        <p><?php echo T_("If it takes time for your product to be ready and can be sent to the customer, enter the time in this field. Of course, each product has a separate preparation time, which in the order of the time entered here is added to the product preparation time.");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <a class="btn primary" href="<?php echo \dash\url::that(). '/preparationtime' ?>"><?php echo T_("Set Preparation time");?></a>
+    </div>
+  </form>
+</section>
+
+
+

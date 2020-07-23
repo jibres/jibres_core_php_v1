@@ -57,6 +57,7 @@ class check
 			'seodesc'           => 'desc',
 			'sharetext'         => 'desc',
 			'length'            => 'int',
+			'preparationtime'   => 'smallint',
 			'width'             => 'int',
 			'height'            => 'int',
 			'filesize'          => 'int',

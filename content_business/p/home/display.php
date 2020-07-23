@@ -41,8 +41,8 @@ if(count($myGallery) > 1)
 <?php if(\dash\data::dataRow_title2()) { ?>
           <h2 class="ltr"><?php echo \dash\data::dataRow_title2(); ?></h2>
 <?php } ?>
-<?php if(false) { ?>
-          <div><span><?php echo T_("Estimated Delivery on"); ?></span> 09/28</div>
+<?php if(\dash\data::dataRow_preparationdatestring()) { ?>
+          <div title="<?php echo \dash\fit::date(\dash\data::dataRow_preparationdate()); ?>"><span><?php echo T_("Estimated Delivery on"); ?></span> <?php echo \dash\data::dataRow_preparationdatestring(); ?></div>
 <?php } ?>
 
 
