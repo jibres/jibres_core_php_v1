@@ -12,7 +12,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <header class="hide" data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Title"); ?></h2></header>
       <div class="input">
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Product Title"); ?> *' value="<?php echo \dash\get::index($productDataRow,'title'); ?>" maxlength='200' <?php \dash\layout\autofocus::html() ?> <?php if(\dash\data::productDataRow_parent()) { echo 'disabled';} ?>>
-        <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><?php echo T_("Technical title"); ?></span>
+        <span class="addon small" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon='close' <?php }//endif ?>><?php echo T_("Technical title"); ?></span>
       </div>
       <div class="subTitle" data-kerkere-content='<?php if(\dash\data::productDataRow_title2()) {echo 'show'; }else{ echo 'hide'; } ?>'>
         <div class="input mT10">
@@ -196,7 +196,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
             <label for="itrackquantity"></label>
             <label for="itrackquantity"><?php echo T_("Track quantity"); ?><small></small></label>
           </div>
-          <p class="fs09 fc-mute"><?php echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."); ?></p>
+          <p class="fs09 fc-mute mB0-f"><?php echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."); ?></p>
           <div data-response='itrackquantity' data-response-effect='slide' <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())){}else{ echo 'data-response-hide';} ?>  >
             <?php if(!$have_variant_child) {?>
               <div class="c s12 pRa10">
@@ -227,7 +227,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
                 </div>
               </div>
             </div>
-            <p class="fs09 fc-mute"><?php echo T_("Optimize your inventory decisions."); ?> <?php echo T_("Know which products are the most profitable and which you should re-order when."); ?> <b><?php echo T_("Demand forecasting!"); ?></b> <?php echo T_("Receive recommendations on your products based on your rate of sales."); ?>
+            <p class="fs09 fc-mute mB0-f"><?php echo T_("Optimize your inventory decisions."); ?> <?php echo T_("Know which products are the most profitable and which you should re-order when."); ?> <b><?php echo T_("Demand forecasting!"); ?></b> <?php echo T_("Receive recommendations on your products based on your rate of sales."); ?>
           </p>
         </div>
       </div>
@@ -291,7 +291,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           <?php } //endfor ?>
         </select>
       </div>
-      <div class="mB10">
+      <div>
         <label for='tag'>#<?php echo T_("Tag"); ?></label>
         <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
           <?php foreach (\dash\data::allTagList() as $key => $value) {?>
@@ -364,7 +364,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 
 
       <label for="iweight"><?php echo T_("Weight"); ?></label>
-      <div class="input">
+      <div class="input mB0-f">
         <input type="text" name="weight" id="iweight" value="<?php echo \dash\get::index($productDataRow,'weight'); ?>"  autocomplete="off" maxlength="7" data-format='number'>
         <div class="addon"><?php echo \dash\get::index($storData,'mass_detail','name'); ?></div>
       </div>

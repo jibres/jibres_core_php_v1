@@ -1,7 +1,7 @@
 <?php require_once('before_header.php'); ?>
 <div id='jHeader100' class="avand" data-circleEffect>
   <div class="actionBar row align-center">
-    <div class="c-auto c-xs-0 pRa10">
+    <div class="c-auto c-xs-0">
       <a class="logo" href="<?php echo \dash\url::kingdom(); ?>"><?php
 $logo = \lib\website::logo();
 if($logo)
@@ -16,10 +16,10 @@ else
 ?></a>
     </div>
     <div class="c s0"></div>
-    <div class="c-auto pRa20">
+    <div class="c-auto">
       <a class="search" href="<?php echo \dash\url::kingdom(); ?>/search"></a>
     </div>
-    <div class="c-auto pRa20">
+    <div class="c-auto">
       <a class="cart" href="<?php echo \dash\url::kingdom(); ?>/cart" data-count="<?php echo \dash\fit::number(\lib\website::cart_count()); ?>"><span class="d-xs-none"><?php echo T_("Cart"); ?></span></a>
     </div>
     <div class="c-auto">
