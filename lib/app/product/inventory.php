@@ -47,7 +47,6 @@ class inventory
 		{
 			return null;
 		}
-
 	}
 
 	public static function manual($_count, $_product_id)
@@ -131,6 +130,7 @@ class inventory
 			case 'reject_order':
 			case 'cancel_order':
 			case 'expire_order':
+			case 'deleted_order':
 			case 'sale':
 
 				break;

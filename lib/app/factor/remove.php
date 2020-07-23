@@ -19,7 +19,45 @@ class remove
 		}
 		else
 		{
-			\lib\db\factors\update::record(['status' => 'deleted'], $load_detail['id']);
+			\dash\db::transaction();
+
+			$deleted = \lib\db\factors\update::record(['status' => 'deleted'], $load_detail['id']);
+			if($deleted)
+			{
+				$update_record = \lib\db\factordetails\delete::by_factor_id($load_detail['id']);
+
+				if($update_record)
+				{
+					$have_inventory = \lib\db\productinventory\get::by_factor_id($load_detail['id']);
+
+					if($have_inventory && is_array($have_inventory))
+					{
+						foreach ($have_inventory as $key => $value)
+						{
+							if(isset($value['product_id']) && isset($value['count']))
+							{
+								\lib\app\product\inventory::set('deleted_order', (floatval($value['count']) * -1), $value['product_id'], $load_detail['id']);
+							}
+						}
+					}
+
+					\dash\db::commit();
+				}
+				else
+				{
+					\dash\db::rollback();
+					\dash\notif::ok(T_("Error in delete order. Please contact to administrator"));
+					return false;
+				}
+			}
+			else
+			{
+				\dash\db::rollback();
+				\dash\notif::ok(T_("Error in delete order. Please contact to administrator"));
+				return false;
+			}
+
+
 			\dash\notif::ok(T_("Order was deleted"));
 			return true;
 		}
