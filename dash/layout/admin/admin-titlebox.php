@@ -4,16 +4,16 @@ if(\dash\face::boxTitle() !== false)
 {
 ?>
   <div class="titleBox">
-   <div class="f align-center">
+   <div class="row padLess align-center">
 <?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
-    <div class="cauto pRa10">
+    <div class="c-auto">
      <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>
     </div>
     <?php } // ?>
-    <div class="c s10 pRa10 pageTitle">
+    <div class="c pageTitle">
      <h2><?php echo \dash\face::title(); ?></h2>
     </div>
-    <nav class="cauto actions">
+    <nav class="c-auto actions">
 <?php if(\dash\face::btnImport()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
 <?php } // endif ?>
@@ -37,18 +37,18 @@ if(\dash\face::boxTitle() !== false)
 <?php } // endif ?>
     </nav>
 <?php if(\dash\face::btnPrev() || \dash\face::btnNext()) { ?>
-    <nav class="cauto os pLa10 nav">
+    <nav class="c-auto os nav">
      <a class="btn <?php if(\dash\face::btnPrev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnPrev() !== 'disabled') { echo 'href="'. \dash\face::btnPrev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
      <a class="btn <?php if(\dash\face::btnNext() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnNext() !== 'disabled') { echo 'href="'. \dash\face::btnNext().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
     </nav>
 <?php } // endif ?>
 <?php if(\dash\data::action_text() && \dash\data::action_link()) { ?>
-    <nav class="cauto os pLa10">
+    <nav class="c-auto os">
      <a class="btn master" href="<?php echo \dash\data::action_link(); ?>" data-shortkey="120"><span><?php echo \dash\data::action_text(); ?></span> <kbd>F9</kbd></a>
     </nav>
 <?php } // endif ?>
 <?php if(\dash\face::btnSave()) { ?>
-    <nav class="cauto os btnSave"><?php
+    <nav class="c-auto os btnSave"><?php
   echo '<button class="btn master save" form="';
   echo \dash\face::btnSave();
   echo '"';

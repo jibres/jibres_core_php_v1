@@ -5,7 +5,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 ?>
 
 
-<form class="jPage row padLess" id='aProductData' method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
+<form class="jPage row" id='aProductData' method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
   <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
     <section class="jbox pad">
