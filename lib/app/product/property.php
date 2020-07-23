@@ -157,16 +157,26 @@ class property
 		{
 			$cat_list = array_map(['\\lib\\app\\category\\ready', 'row'], $cat_list);
 
+			$cat_url = null;
+			$cat_html = [];
 			foreach ($cat_list as $category)
 			{
 				if(\dash\url::content() === 'a')
 				{
-					array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $category['title'], 'link' => \dash\url::here(). '/category/edit?id='. \dash\get::index($category, 'productcategory_id')]);
+					$cat_url = \dash\url::here(). '/category/edit?id='. \dash\get::index($category, 'productcategory_id');
 				}
 				else
 				{
-					array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => $category['title'], 'link' => $category['url']]);
+					$cat_url = $category['url'];
 				}
+
+				$cat_html[] = '<a href="'.$cat_url .'">'. $category['title']. '</a>';
+
+			}
+
+			if($cat_html)
+			{
+				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => implode(T_(","). ' ' , $cat_html)]);
 			}
 		}
 
@@ -210,7 +220,7 @@ class property
 			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'height')) . ' '. $length_name]);
 		}
 
-			$tag_list = \lib\app\product\tag::get($id);
+		$tag_list = \lib\app\product\tag::get($id);
 
 		if(!is_array($tag_list))
 		{
