@@ -192,6 +192,7 @@ class check_detail
 
 			$factor_detail_record['product_id']        = $value['product_id'];
 
+			$factor_detail_record['status']            = 'enable';
 			$factor_detail_record['price']             = $price;
 			$factor_detail_record['discount']          = $discount;
 			$factor_detail_record['vat']               = $vat;
