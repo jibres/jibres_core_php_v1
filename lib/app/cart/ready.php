@@ -75,17 +75,17 @@ class ready
 					break;
 
 
-				case 'qty':
-				case 'count':
-					$value = \lib\number::down($value);
-					$result[$key] = $value;
-					break;
+				// case 'qty':
+				// case 'count':
+				// 	$value = \lib\number::down($value);
+				// 	$result[$key] = $value;
+				// 	break;
 
-				case 'subvat':
-				case 'subdiscount':
-				case 'subprice':
-				case 'subtotal':
-				case 'total':
+				// case 'subvat':
+				// case 'subdiscount':
+				// case 'subprice':
+				// case 'subtotal':
+				// case 'total':
 				case 'sum':
 					$value = \lib\price::down($value);
 					$value = \lib\number::down($value);
@@ -135,6 +135,7 @@ class ready
 
 		}
 
+		// var_dump($result);exit();
 		return $result;
 	}
 
