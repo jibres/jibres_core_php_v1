@@ -210,6 +210,54 @@ class property
 			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'height')) . ' '. $length_name]);
 		}
 
+			$tag_list = \lib\app\product\tag::get($id);
+
+		if(!is_array($tag_list))
+		{
+			$tag_list = [];
+		}
+
+		if($tag_list && $parent_id)
+		{
+			$tag_list = \lib\app\product\tag::get($parent_id);
+			if(!is_array($tag_list))
+			{
+				$tag_list = [];
+			}
+		}
+
+		if($tag_list)
+		{
+			$tag_html = [];
+			$tag_url = null;
+			foreach ($tag_list as $key => $value)
+			{
+
+				if(isset($value['slug']))
+				{
+					if(\dash\url::content() === 'a')
+					{
+						if(isset($value['producttag_id']))
+						{
+							$tag_url = \dash\url::here(). '/products/tag?edit='. $value['producttag_id'];
+						}
+					}
+					else
+					{
+						$tag_url = \dash\url::kingdom(). '/tag/'. $value['slug'];
+					}
+
+					$tag_html[] = '<a href="'.$tag_url .'">#'. $value['slug']. '</a>';
+				}
+			}
+			if($tag_html)
+			{
+				$tag_html = implode(' ', $tag_html);
+				array_push($result[T_("General property")]['list'], ['key' => T_("Tag"), 'value' => $tag_html]);
+			}
+		}
+
+
 
 
 
