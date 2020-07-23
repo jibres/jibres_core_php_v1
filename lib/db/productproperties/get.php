@@ -18,12 +18,7 @@ class get
 	}
 
 
-	public static function all_value_name()
-	{
-		$query = "SELECT DISTINCT productproperties.value AS `value` FROM productproperties";
-		$result = \dash\db::get($query, 'value');
-		return $result;
-	}
+
 
 	public static function check_duplicate($_cat, $_key, $_value, $_product_id)
 	{

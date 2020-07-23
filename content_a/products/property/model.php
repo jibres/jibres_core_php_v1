@@ -47,7 +47,10 @@ class model
 			}
 			else
 			{
-				// \dash\redirect::pwd();
+				if(\dash\request::post('addmode'))
+				{
+					\dash\redirect::pwd();
+				}
 			}
 		}
 	}

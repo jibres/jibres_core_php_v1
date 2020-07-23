@@ -26,15 +26,20 @@ class property
 	public static function all_key_name()
 	{
 		$list = \lib\db\productproperties\get::all_key_name();
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list[] = T_("Length");
+		$list[] = T_("Width");
+		$list[] = T_("Height");
+		$list   = array_unique($list);
+
 		return $list;
 	}
 
 
-	public static function all_value_name()
-	{
-		$list = \lib\db\productproperties\get::all_value_name();
-		return $list;
-	}
 
 	public static function get_pretty($_id, $_admin = false)
 	{
@@ -534,7 +539,7 @@ class property
 		$_edit_id = \dash\validate::id($_edit_id, false);
 
 		$require = ['cat', 'key', 'value'];
-		$meta    =	[];
+		$meta    =	['field_title' => ['cat' => T_("Property group")]];
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 		$id      = \dash\validate::id($_id);
 
