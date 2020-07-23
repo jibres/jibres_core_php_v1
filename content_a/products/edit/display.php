@@ -10,12 +10,12 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
   <div class="c8 x9 s12 pRa10">
     <section class="jbox pad">
       <header class="hide" data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Title"); ?></h2></header>
-      <div class="input mB10">
+      <div class="input">
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Product Title"); ?> *' value="<?php echo \dash\get::index($productDataRow,'title'); ?>" maxlength='200' <?php \dash\layout\autofocus::html() ?> <?php if(\dash\data::productDataRow_parent()) { echo 'disabled';} ?>>
         <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::productDataRow_title2()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><?php echo T_("Technical title"); ?></span>
       </div>
       <div class="subTitle" data-kerkere-content='<?php if(\dash\data::productDataRow_title2()) {echo 'show'; }else{ echo 'hide'; } ?>'>
-        <div class="input mB10">
+        <div class="input mT10">
           <input type="text" name="title2" id="title2" placeholder='<?php echo T_("Enter technical title here"); ?>' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
         </div>
       </div>
@@ -100,32 +100,35 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
     <?php  } //endif ?>
 
     <section class="jbox">
-      <div class="pad">
+      <div class="pad1">
+        <?php if(is_array(\dash\data::productDataRow_gallery_array()) && count(\dash\data::productDataRow_gallery_array()) > 10) {?>
+          <div class="msg minimal mB0 warn2"><?php echo T_("Product gallery is full!"); ?></div>
+        <?php }else{ ?>
+          <div data-uploader data-name='gallery' <?php echo \dash\data::productImageRatioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
+            <input type="file" id="file1">
+            <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+
         <?php if(\dash\data::productDataRow_gallery_array()) {?>
-          <div class="f">
+          <div class="previewList">
             <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
 
               <?php if(isset($value['path']) && $value['path'] == \dash\data::productDataRow_thumb()) {?>
 
-                <div class="cauto pA5 pB10">
-                  <div class="w150">
-                    <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
-                    <div>
-                      <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
-                    </div>
+                <div class="fileItem">
+                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
+                  <div>
+                    <a class="imageDel" data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></a>
                   </div>
                 </div>
               <?php } //endif ?>
             <?php } //endfor ?>
             <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
               <?php if(isset($value['path']) && $value['path'] != \dash\data::productDataRow_thumb()) {?>
-                <div class="cauto pA5 pB10">
-                  <div class="w150">
-                    <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
-                    <div>
-                      <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
-                      <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
-                    </div>
+                <div class="fileItem">
+                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
+                  <div>
+                    <a class="imageDel" data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></a>
+                    <a class='setFeatureImg' data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></a>
                   </div>
                 </div>
               <?php } //endif ?>
@@ -133,12 +136,6 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
             <?php } //endfor ?>
           </div>
         <?php } //endif ?>
-        <?php if(is_array(\dash\data::productDataRow_gallery_array()) && count(\dash\data::productDataRow_gallery_array()) > 10) {?>
-          <div class="msg minimal mB0 warn2"><?php echo T_("Product gallery is full!"); ?></div>
-        <?php }else{ ?>
-          <div data-uploader data-name='gallery' <?php echo \dash\data::productImageRatioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
-            <input type="file"  id="file1">
-            <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
           </div>
         <?php } //endif ?>
       </div>
