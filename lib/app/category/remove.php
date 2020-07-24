@@ -44,13 +44,6 @@ class remove
 		}
 
 
-		$have_child = \lib\db\productcategory\get::have_child($_id);
-		if($have_child)
-		{
-			\dash\notif::error(T_("This category have some child and your can not remove it"));
-			return false;
-		}
-
 		\lib\db\productcategory\delete::record($_id);
 
 		\dash\notif::ok(T_("Category successfully removed"));
