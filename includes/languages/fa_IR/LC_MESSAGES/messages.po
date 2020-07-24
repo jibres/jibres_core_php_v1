@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-23 19:59+0430\n"
-"PO-Revision-Date: 2020-07-23 20:04+0430\n"
+"POT-Creation-Date: 2020-07-24 18:42+0430\n"
+"PO-Revision-Date: 2020-07-24 18:46+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -669,16 +669,17 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
 #: content_a/irvat/add/display.php:124 content_a/order/add/display.php:62
-#: content_a/order/detail/display.php:38 content_a/order/detail/display.php:159
-#: content_a/order/detail/display.php:192 content_a/products/desc/display.php:12
-#: content_a/products/desc/display.php:18 content_a/products/tag/display.php:94
-#: content_a/products/tag/display.php:159 content_a/products/tag/display.php:160
-#: content_a/products/tag/display.php:201 content_a/setting/fund/display.php:18
-#: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:16
-#: content_cms/terms/display.php:105 content_cms/terms/display.php:212
-#: content_cms/terms/display.php:213 content_cms/terms/display.php:254
-#: content_crm/log/home/logTable.php:10 content_crm/member/pageSteps.php:80
-#: content_crm/transactions/add/display.php:78 content_crm/transactions/add/display.php:79
+#: content_a/order/detail/display.old.php:38 content_a/order/detail/display.old.php:159
+#: content_a/order/detail/display.old.php:192 content_a/order/detail/display.php:48
+#: content_a/products/desc/display.php:12 content_a/products/desc/display.php:18
+#: content_a/products/tag/display.php:94 content_a/products/tag/display.php:159
+#: content_a/products/tag/display.php:160 content_a/products/tag/display.php:201
+#: content_a/setting/fund/display.php:18 content_a/setting/fund/display.php:61
+#: content_a/setting/general/title/display.php:16 content_cms/terms/display.php:105
+#: content_cms/terms/display.php:212 content_cms/terms/display.php:213
+#: content_cms/terms/display.php:254 content_crm/log/home/logTable.php:10
+#: content_crm/member/pageSteps.php:80 content_crm/transactions/add/display.php:78
+#: content_crm/transactions/add/display.php:79
 #: content_crm/transactions/minus/display.php:78
 #: content_crm/transactions/minus/display.php:79
 #: content_developers/docs/004-responses.php:59 content_love/domain/credit/display.php:31
@@ -701,7 +702,7 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content/template/default.php:237
 #: content_business/home/layout/body/body_load_post.php:242
-#: content_business/p/home/display.php:370 content_business/template/default.php:237
+#: content_business/p/home/display.php:376 content_business/template/default.php:237
 #: content_su/tg/sendmessage/display.php:20 content_su/tg/sendphoto/display.php:27
 msgid "Send"
 msgstr "ارسال"
@@ -755,7 +756,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 
 #: content/changelog/display.php:11 content_a/cart/add/display.php:53
 #: content_a/cart/home/display.php:111 content_a/factor/home/display.php:476
-#: content_a/irvat/all/display.php:133 content_a/order/detail/display.php:191
+#: content_a/irvat/all/display.php:133 content_a/order/detail/display.old.php:191
 #: content_a/order/home/display.php:486 content_a/products/comment/display.php:86
 #: content_account/billing/display.php:53 content_account/billing/display.php:60
 #: content_business/orders/display.php:20 content_cms/attachment/home/display.php:82
@@ -939,7 +940,7 @@ msgstr ""
 #: content_a/setting/fund/display.php:60 content_a/setting/general/title/display.php:11
 #: content_a/setting/general/title/display.php:13 content_a/setting/pcpos/display.php:124
 #: content_account/address.php:26 content_business/home/layout/body/body_load_post.php:204
-#: content_business/p/home/display.php:346 content_business/shipping/display.php:101
+#: content_business/p/home/display.php:352 content_business/shipping/display.php:101
 #: content_business/template/default.php:199 content_crm/member/general/display.php:43
 #: content_crm/member/general/display.php:45 content_enter/signup/display.php:12
 #: content_support/ticket/contact_ticket/model.php:131
@@ -949,7 +950,7 @@ msgstr "نام"
 #: content/contact/display.php:23 content/subscribe/display.php:16
 #: content/template/default.php:200
 #: content_business/home/layout/body/body_load_post.php:205
-#: content_business/p/home/display.php:347 content_business/template/default.php:200
+#: content_business/p/home/display.php:353 content_business/template/default.php:200
 msgid "Full Name"
 msgstr "نام کامل"
 
@@ -958,13 +959,14 @@ msgstr "نام کامل"
 #: content_a/cart/user/display.php:19 content_a/chap/size-receipt/receipt.php:79
 #: content_a/irvat/add/display.php:228 content_a/irvat/add/display.php:340
 #: content_a/order/add/display.php:44 content_a/order/address/display.php:42
-#: content_a/order/address/display.php:105 content_a/order/detail/display.php:74
-#: content_a/sale/display.php:44 content_account/address.php:83
-#: content_account/address.php:176 content_account/my/home/display.php:46
+#: content_a/order/address/display.php:105 content_a/order/detail/display.old.php:74
+#: content_a/order/detail/display.php:60 content_a/sale/display.php:44
+#: content_account/address.php:83 content_account/address.php:176
+#: content_account/my/home/display.php:46
 #: content_business/home/layout/body/body_load_post.php:211
 #: content_business/home/layout/body/body_load_post.php:212
-#: content_business/orders/view/display.php:39 content_business/p/home/display.php:353
-#: content_business/p/home/display.php:354 content_business/shipping/display.php:19
+#: content_business/orders/view/display.php:39 content_business/p/home/display.php:359
+#: content_business/p/home/display.php:360 content_business/shipping/display.php:19
 #: content_business/shipping/display.php:108 content_business/template/default.php:206
 #: content_business/template/default.php:207 content_cms/comments/edit/display.php:13
 #: content_crm/log/home/logTable.php:30 content_crm/member/add/display.php:7
@@ -991,7 +993,7 @@ msgstr "موبایل"
 #: content/contact/display.php:27 content/subscribe/display.php:12
 #: content/template/default.php:207
 #: content_business/home/layout/body/body_load_post.php:212
-#: content_business/p/home/display.php:354 content_business/template/default.php:207
+#: content_business/p/home/display.php:360 content_business/template/default.php:207
 msgid "Please enter valid mobile number. `:val` is incorrect"
 msgstr "لطفا شماره موبایل معتبری وارد کنید. :val اشتباه است"
 
@@ -1707,13 +1709,13 @@ msgstr "تی‌ال‌دی دامنه"
 #: content/pricing/display.php:46 content/pricing/display.php:69
 #: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:104
 #: content_a/factor/home/display.php:126 content_a/order/add/display.php:18
-#: content_a/order/detail/display.php:98 content_a/order/home/display.php:134
+#: content_a/order/detail/display.old.php:98 content_a/order/home/display.php:134
 #: content_a/pricehistory/display.php:35 content_a/pricehistory/display.php:50
-#: content_a/pricehistory/display.php:85 content_a/products/home/display.php:68
-#: content_a/products/home/display.php:120 content_a/products/share/display.php:35
+#: content_a/pricehistory/display.php:85 content_a/products/home/display.php:95
+#: content_a/products/home/display.php:147 content_a/products/share/display.php:35
 #: content_a/products/share/model.php:52 content_a/products/variants/display.php:101
 #: content_a/products/variants/display.php:139 content_a/products/variants/display.php:145
-#: content_a/sale/display.php:18 content_business/p/home/display.php:78
+#: content_a/sale/display.php:18 content_business/p/home/display.php:77
 #: content_crm/transactions/add/display.php:67
 #: content_crm/transactions/minus/display.php:67
 #: content_love/domain/billing/display.php:92
@@ -1721,7 +1723,7 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_love/gift/usage/display.php:60 content_love/transactions/add/display.php:67
 #: content_love/transactions/minus/display.php:67
 #: content_my/domain/payments/display.php:11
-#: content_my/domain/setting/action/display.php:44 lib/app/product/property.php:110
+#: content_my/domain/setting/action/display.php:44 lib/app/product/property.php:153
 #: lib/app/product/search.php:92 lib/app/product/site_list.php:266
 #: lib/app/product/updateprice.php:125
 msgid "Price"
@@ -2118,7 +2120,7 @@ msgstr "بارکدخوان"
 
 #: content/home/display.php:11 content/home/display.php:31
 #: content_account/home/display.php:14 dash/app/address.php:220
-#: includes/languages/trans_static_public.php:33 lib/app/product/property.php:184
+#: includes/languages/trans_static_public.php:33 lib/app/product/property.php:223
 msgid ","
 msgstr "،"
 
@@ -3891,9 +3893,9 @@ msgstr "سری ساخت"
 msgid "Queue start time"
 msgstr "زمان شروع قرارگیری در صف"
 
-#: content_a/android/apk/display.php:32 content_a/order/detail/display.php:24
-#: content_a/products/comment/display.php:85
-#: content_a/products/comment/edit/display.php:28 content_a/products/edit/display.php:406
+#: content_a/android/apk/display.php:32 content_a/order/detail/display.old.php:24
+#: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
+#: content_a/products/comment/edit/display.php:28 content_a/products/edit/display.php:399
 #: content_a/products/export/display.php:57 content_a/products/status/display.php:22
 #: content_a/products/status/view.php:18 content_a/products/tag/display.php:96
 #: content_a/products/tag/display.php:169 content_a/products/tag/display.php:186
@@ -3977,7 +3979,7 @@ msgid "Myket"
 msgstr "مایکت"
 
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
-#: content_a/order/detail/display.php:173 content_a/products/desc/display.php:22
+#: content_a/order/detail/display.old.php:173 content_a/products/desc/display.php:22
 #: content_a/products/edit/display.php:9 content_a/products/property/display.php:100
 #: content_a/products/sharetext/display.php:22 content_a/products/variants/display.php:159
 #: content_a/setting/cart/limit/display.php:25 content_a/setting/cart/text/display.php:37
@@ -4022,7 +4024,7 @@ msgstr "مایکت"
 #: content_my/domain/option/display.php:92 content_su/backup/display.php:63
 #: content_su/cronjob/display.php:16 content_su/nano/display.php:12
 #: content_support/message/edit/display.php:18 content_support/ticket/show/chatList.php:58
-#: dash/layout/admin/admin-titlebox.php:66 dash/layout/pwa/pwa-header.php:36
+#: dash/layout/admin/admin-titlebox.php:67 dash/layout/pwa/pwa-header.php:36
 msgid "Save"
 msgstr "ذخیره"
 
@@ -4103,7 +4105,7 @@ msgstr "تعداد دفعات دانلود برنامه در هر روز"
 #: content_a/android/home/display.php:117 content_a/cart/add/display.php:22
 #: content_a/cart/add/display.php:52 content_a/home/display.php:139
 #: content_a/irvat/all/display.php:6 content_a/order/add/display.php:17
-#: content_a/order/detail/display.php:97 content_a/sale/display.php:17
+#: content_a/order/detail/display.old.php:97 content_a/sale/display.php:17
 #: content_crm/member/home/display.php:73 content_love/domain/home/display.php:213
 #: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
 #: includes/languages/trans_static_public.php:899
@@ -4142,15 +4144,15 @@ msgstr "صفحه"
 #: content_a/category/add/display.php:6 content_a/category/edit/display.php:6
 #: content_a/category/home/display.php:67 content_a/company/display.php:41
 #: content_a/irvat/add/display.php:18 content_a/irvat/all/display.php:132
-#: content_a/order/detail/display.php:96 content_a/products/comment/display.php:83
-#: content_a/products/home/display.php:67 content_a/products/home/display.php:118
+#: content_a/order/detail/display.old.php:96 content_a/products/comment/display.php:83
+#: content_a/products/home/display.php:94 content_a/products/home/display.php:145
 #: content_a/products/tag/display.php:90 content_a/products/tag/display.php:140
 #: content_a/products/tag/display.php:142 content_a/setting/fund/display.php:13
 #: content_a/setting/pcpos/display.php:46 content_a/setting/pcpos/display.php:48
 #: content_a/setting/place/inventory/display.php:8 content_a/units/display.php:41
 #: content_a/website/body/add/display.php:127 content_a/website/menu/edit/display.php:10
 #: content_a/website/specialslider/add/display.php:18
-#: content_account/billing/display.php:52 content_business/p/home/display.php:362
+#: content_account/billing/display.php:52 content_business/p/home/display.php:368
 #: content_cms/posts/home/display.php:95 content_cms/terms/display.php:96
 #: content_cms/terms/display.php:179 content_cms/terms/display.php:181
 #: content_crm/member/billing/display.php:23 content_crm/permission/add/display.php:27
@@ -4169,15 +4171,16 @@ msgstr "صفحه"
 #: content_my/ipg/iban/add/display.php:8 content_my/ipg/iban/display.php:10
 #: content_my/ipg/setup/gateway/display.php:11 content_my/ipg/wallet/add/display.php:8
 #: content_my/ipg/wallet/display.php:10 includes/languages/trans_static_public.php:194
-#: lib/app/product/property.php:95 lib/app/website/body/line/titleline.php:12
+#: lib/app/product/property.php:125 lib/app/website/body/line/titleline.php:12
 msgid "Title"
 msgstr "عنوان"
 
 #: content_a/android/intro/display-test-multi-upload.php:30
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:67
-#: content_a/irvat/add/display.php:390 content_a/order/detail/display.php:167
-#: content_a/products/edit/display.php:110 content_a/setup/logo/display.php:15
-#: content_a/website/header/box/header_logo.php:25 content_support/ticket/addForm.php:31
+#: content_a/irvat/add/display.php:390 content_a/order/detail/display.old.php:167
+#: content_a/order/detail/display.php:153 content_a/products/edit/display.php:110
+#: content_a/setup/logo/display.php:15 content_a/website/header/box/header_logo.php:25
+#: content_support/ticket/addForm.php:31
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل خود را بکشید و اینجا رها کنید یا انتخاب کنید"
 
@@ -4315,7 +4318,7 @@ msgid "Intro page #1"
 msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
-#: content_a/android/review/display.php:101 content_a/products/edit/display.php:332
+#: content_a/android/review/display.php:101 content_a/products/edit/display.php:320
 #: content_love/application/home/display.php:83 content_su/log/display.php:24
 #: content_su/log/display.php:54 content_su/log/display.php:85
 #: content_su/log/display.php:116 includes/languages/trans_static.php:528
@@ -4422,11 +4425,11 @@ msgid "Search in list to add product"
 msgstr "جستجو در لیست برای افزودن کالا"
 
 #: content_a/cart/add/display.php:26 content_a/category/add/display.php:12
-#: content_a/category/property/display.php:27 content_a/company/display.php:73
-#: content_a/irvat/add/display.php:133 content_a/products/bullet/display.php:20
-#: content_a/products/property/display.php:63 content_a/products/tag/display.php:127
-#: content_a/setting/place/inventory/display.php:17 content_a/units/display.php:84
-#: content_a/website/imageblock/add/display.php:51
+#: content_a/category/property/display.php:47 content_a/company/display.php:73
+#: content_a/irvat/add/display.php:133 content_a/products/add/view.php:19
+#: content_a/products/bullet/display.php:20 content_a/products/property/display.php:63
+#: content_a/products/tag/display.php:127 content_a/setting/place/inventory/display.php:17
+#: content_a/units/display.php:84 content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/slider/add/display.php:51
@@ -4442,7 +4445,7 @@ msgstr "افزودن"
 
 #: content_a/cart/add/display.php:51 content_a/cart/home/display.php:123
 #: content_a/category/home/display.php:87 content_a/company/display.php:51
-#: content_a/order/add/display.php:16 content_a/products/edit/display.php:318
+#: content_a/order/add/display.php:16 content_a/products/edit/display.php:306
 #: content_a/products/tag/display.php:113 content_a/sale/display.php:16
 #: content_a/units/display.php:62 content_my/business/home/display_site.php:63
 #: includes/languages/trans_static.php:527 lib/app/factor/search.php:131
@@ -4509,7 +4512,7 @@ msgstr "تعداد آیتم‌ها"
 msgid "View"
 msgstr "نمایش"
 
-#: content_a/cart/home/display.php:112 content_a/order/detail/display.php:194
+#: content_a/cart/home/display.php:112 content_a/order/detail/display.old.php:194
 #: content_crm/log/home/logTable.php:8 content_crm/permission/display.php:43
 #: content_crm/permission/display.php:102 content_crm/transactions/display.php:63
 #: content_love/application/home/display.php:75 content_love/domain/action/display.php:15
@@ -4543,7 +4546,7 @@ msgstr "گزینه"
 #: content_a/factor/home/display.php:267 content_a/irvat/all/display.php:198
 #: content_a/order/home/display.php:269 content_a/order/home/display.php:277
 #: content_a/products/comment/display.php:161 content_a/products/comment/display.php:169
-#: content_a/products/filter.php:29 content_a/products/home/display.php:178
+#: content_a/products/filter.php:29 content_a/products/home/display.php:205
 #: content_a/products/tag/display.php:210 content_a/products/tag/display.php:218
 #: content_business/search/display.php:46 content_cms/attachment/home/display.php:130
 #: content_cms/attachment/home/display.php:138 content_cms/comments/home/display.php:170
@@ -4716,6 +4719,34 @@ msgstr "دسته‌بندی‌ها"
 msgid "Invalid category id"
 msgstr "شناسه دسته‌بندی اشتباه است"
 
+#: content_a/category/edit/display.php:14 content_a/order/address/display.php:116
+#: content_a/setting/product/setting/display.php:21
+#: content_a/setting/product/setting/display.php:45
+#: content_a/setting/product/setting/display.php:68 content_account/address.php:94
+#: content_love/domain/setting/display.php:103
+#: content_love/gift/create/review/display.php:35
+#: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
+#: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
+#: dash/social/telegram/commands/step_ticketAnswer.php:82
+#: dash/social/telegram/commands/step_ticketAnswer.php:108
+#: dash/social/telegram/commands/step_ticketCreate.php:85
+#: dash/social/telegram/commands/step_ticketCreate.php:111
+#: includes/languages/trans_static.php:536
+msgid "Yes"
+msgstr "بلی"
+
+#: content_a/category/edit/display.php:14 content_a/order/address/display.php:116
+#: content_a/setting/product/setting/display.php:21
+#: content_a/setting/product/setting/display.php:45
+#: content_a/setting/product/setting/display.php:68 content_account/address.php:94
+#: content_love/domain/setting/display.php:107
+#: content_love/gift/create/review/display.php:35
+#: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
+#: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
+#: includes/languages/trans_static.php:537
+msgid "No"
+msgstr "خیر"
+
 #: content_a/category/edit/display.php:15
 msgid "Is displayed on the site categories screen"
 msgstr "آیا در صفحه لیست دسته‌بندی‌های سایت نمایش داده شود؟"
@@ -4724,27 +4755,27 @@ msgstr "آیا در صفحه لیست دسته‌بندی‌های سایت نم
 msgid "Show category page"
 msgstr "نمایش صفحه دسته‌بندی‌ها"
 
-#: content_a/category/edit/display.php:20 content_a/products/edit/display.php:236
+#: content_a/category/edit/display.php:20 content_a/products/edit/display.php:224
 #: content_cms/posts/edit/display.php:709
 msgid "Customize for SEO"
 msgstr "بهینه‌سازی برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:32 content_a/products/edit/display.php:248
+#: content_a/category/edit/display.php:32 content_a/products/edit/display.php:236
 #: content_cms/posts/edit/display.php:704
 msgid "Google"
 msgstr "گوگل"
 
-#: content_a/category/edit/display.php:39 content_a/products/edit/display.php:255
+#: content_a/category/edit/display.php:39 content_a/products/edit/display.php:243
 #: content_cms/posts/edit/display.php:715
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:39 content_a/products/edit/display.php:255
+#: content_a/category/edit/display.php:39 content_a/products/edit/display.php:243
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
 #: content_a/category/edit/display.php:46 content_a/category/home/display.php:68
-#: content_a/products/edit/display.php:262 content_a/products/edit/display.php:264
+#: content_a/products/edit/display.php:250 content_a/products/edit/display.php:252
 #: content_a/products/tag/display.php:91 content_a/products/tag/display.php:148
 #: content_a/products/tag/display.php:150 content_cms/posts/edit/display.php:745
 #: content_cms/posts/edit/display.php:747 content_cms/posts/home/display.php:96
@@ -4762,17 +4793,17 @@ msgstr "آخرین قسمت آدرس دسته‌بندی شما."
 msgid "Category slug"
 msgstr "نامک دسته‌بندی"
 
-#: content_a/category/edit/display.php:52 content_a/products/edit/display.php:268
+#: content_a/category/edit/display.php:52 content_a/products/edit/display.php:256
 #: content_cms/posts/edit/display.php:752
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:52 content_a/products/edit/display.php:268
+#: content_a/category/edit/display.php:52 content_a/products/edit/display.php:256
 #: content_cms/posts/edit/display.php:752
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
-#: content_a/category/edit/display.php:53 content_a/products/edit/display.php:269
+#: content_a/category/edit/display.php:53 content_a/products/edit/display.php:257
 #: content_cms/posts/edit/display.php:753
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
@@ -4783,17 +4814,17 @@ msgstr "تصویر دسته‌بندی"
 
 #: content_a/category/edit/display.php:82 content_a/category/property/display.php:4
 #: content_a/category/property/view.php:8 content_a/products/cartlimit/display.php:16
-#: lib/app/product/property.php:13 lib/app/product/property.php:84
-#: lib/app/product/property.php:86 lib/app/product/property.php:95
-#: lib/app/product/property.php:101 lib/app/product/property.php:105
-#: lib/app/product/property.php:110 lib/app/product/property.php:115
-#: lib/app/product/property.php:120 lib/app/product/property.php:125
-#: lib/app/product/property.php:130 lib/app/product/property.php:184
-#: lib/app/product/property.php:191 lib/app/product/property.php:195
-#: lib/app/product/property.php:201 lib/app/product/property.php:205
-#: lib/app/product/property.php:211 lib/app/product/property.php:215
-#: lib/app/product/property.php:221 lib/app/product/property.php:225
-#: lib/app/product/property.php:271
+#: lib/app/product/property.php:43 lib/app/product/property.php:114
+#: lib/app/product/property.php:116 lib/app/product/property.php:125
+#: lib/app/product/property.php:131 lib/app/product/property.php:135
+#: lib/app/product/property.php:142 lib/app/product/property.php:147
+#: lib/app/product/property.php:153 lib/app/product/property.php:159
+#: lib/app/product/property.php:164 lib/app/product/property.php:169
+#: lib/app/product/property.php:223 lib/app/product/property.php:230
+#: lib/app/product/property.php:234 lib/app/product/property.php:240
+#: lib/app/product/property.php:244 lib/app/product/property.php:250
+#: lib/app/product/property.php:254 lib/app/product/property.php:260
+#: lib/app/product/property.php:264 lib/app/product/property.php:310
 msgid "General property"
 msgstr "خصیصه‌های عمومی"
 
@@ -4850,14 +4881,14 @@ msgid "Sort by Title DESC"
 msgstr "عنوان نزولی"
 
 #: content_a/category/home/display.php:153 content_a/products/add/view.php:10
-#: content_a/products/export/display.php:19 content_a/products/home/display.php:174
+#: content_a/products/export/display.php:19 content_a/products/home/display.php:201
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:74
 msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
 #: content_a/category/home/display.php:168 content_a/company/display.php:136
 #: content_a/factor/home/display.php:273 content_a/irvat/all/display.php:210
-#: content_a/order/home/display.php:283 content_a/products/home/display.php:189
+#: content_a/order/home/display.php:283 content_a/products/home/display.php:216
 #: content_a/products/tag/display.php:224 content_a/units/display.php:149
 #: content_account/notification/display.php:68 content_business/orders/display.php:54
 #: content_cms/attachment/home/display.php:144 content_cms/posts/home/display.php:157
@@ -4879,19 +4910,19 @@ msgstr "افزودن محصول جدید"
 msgid "Hi!"
 msgstr "سلام!"
 
-#: content_a/category/home/display.php:169 content_a/products/home/display.php:190
+#: content_a/category/home/display.php:169 content_a/products/home/display.php:217
 msgid "First step to set up your online store is add products."
 msgstr "مرحله اول برای تنظیم فروشگاه افزودن کالاهاست."
 
-#: content_a/category/home/display.php:169 content_a/products/home/display.php:190
+#: content_a/category/home/display.php:169 content_a/products/home/display.php:217
 msgid "After add products, you can sell them to your customers."
 msgstr "پس از افزودن محصولات، شما می‌توانید آن‌ها را به مشتریان خود بفروشید."
 
-#: content_a/category/home/display.php:170 content_a/products/home/display.php:191
+#: content_a/category/home/display.php:170 content_a/products/home/display.php:218
 msgid "Try to start with add new product!"
 msgstr "با افزودن محصول جدید تلاشی برای شروع داشته باشید!"
 
-#: content_a/category/home/display.php:174 content_a/products/home/display.php:195
+#: content_a/category/home/display.php:174 content_a/products/home/display.php:222
 msgid "add new product"
 msgstr "افزودن محصول جدید"
 
@@ -4942,13 +4973,13 @@ msgstr ""
 "در اینجا فقط نام گروه و کلید ویژگی محصول را وارد می‌کنید. می‌توانید مقدار این ویژگی را در "
 "صفحه ویرایش مشخصات محصول برای هر محصولی که شامل این دسته بندی‌ است تنظیم کنید"
 
-#: content_a/category/property/display.php:16 content_a/category/property/display.php:34
+#: content_a/category/property/display.php:15 content_a/category/property/display.php:19
 #: content_a/products/property/display.php:18 content_a/products/property/display.php:22
 #: lib/app/category/add.php:40
 msgid "Group"
 msgstr "گروه"
 
-#: content_a/category/property/display.php:21 content_a/category/property/display.php:35
+#: content_a/category/property/display.php:31 content_a/category/property/display.php:35
 #: content_a/factor/home/display.php:133 content_a/order/home/display.php:142
 #: content_a/products/property/display.php:34 content_a/products/property/display.php:38
 #: content_a/website/productline/display.php:18 content_cms/attachment/home/display.php:80
@@ -4972,11 +5003,11 @@ msgstr "جزئیات مشتری"
 
 #: content_a/chap/size-receipt/receipt.php:60 content_a/irvat/add/display.php:225
 #: content_a/irvat/add/display.php:305 content_a/order/address/display.php:84
-#: content_a/setup/address/display.php:39 content_account/address.php:62
-#: content_business/orders/view/display.php:26 content_business/profile/display-menu.php:6
-#: content_business/shipping/display.php:142 content_crm/member/legal/display.php:78
-#: content_crm/member/pageSteps.php:71 content_love/domain/nicdetail/display.php:14
-#: content_my/domain/irnic/add/display.php:82
+#: content_a/order/detail/display.php:54 content_a/setup/address/display.php:39
+#: content_account/address.php:62 content_business/orders/view/display.php:26
+#: content_business/profile/display-menu.php:6 content_business/shipping/display.php:142
+#: content_crm/member/legal/display.php:78 content_crm/member/pageSteps.php:71
+#: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.php:290
 #: dash/layout/admin/sidebar/sidebar-account.php:9
 msgid "Address"
@@ -5002,7 +5033,7 @@ msgstr "تعداد"
 msgid "For you"
 msgstr "برای شما"
 
-#: content_a/chap/size-receipt/receipt.php:105 content_a/order/detail/display.php:99
+#: content_a/chap/size-receipt/receipt.php:105 content_a/order/detail/display.old.php:99
 msgid "Sum"
 msgstr "جمع"
 
@@ -5127,7 +5158,7 @@ msgstr "انصراف"
 msgid "Company"
 msgstr "شرکت"
 
-#: content_a/company/display.php:101 content_a/order/detail/display.php:190
+#: content_a/company/display.php:101 content_a/order/detail/display.old.php:190
 #: content_a/setting/pcpos/display.php:126 content_a/units/display.php:113
 #: content_love/domain/billing/display.php:90 content_pardakhtyar/check/display.php:67
 #: content_su/smsclient/home/display.php:19
@@ -5240,8 +5271,9 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/product/comment.php:455 lib/app/product/company.php:63
 #: lib/app/product/company.php:228 lib/app/product/company.php:260
 #: lib/app/product/company.php:353 lib/app/product/edit.php:41 lib/app/product/get.php:34
-#: lib/app/product/unit.php:63 lib/app/product/unit.php:229 lib/app/product/unit.php:261
-#: lib/app/product/unit.php:355 lib/app/store/edit.php:37 lib/app/store/edit.php:77
+#: lib/app/product/get.php:84 lib/app/product/unit.php:63 lib/app/product/unit.php:229
+#: lib/app/product/unit.php:261 lib/app/product/unit.php:355 lib/app/store/edit.php:37
+#: lib/app/store/edit.php:77
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
 
@@ -5273,10 +5305,10 @@ msgid "Advance result"
 msgstr "نتایج پیشرفته"
 
 #: content_a/factor/home/display.php:123 content_a/filter.php:71 content_a/filter.php:140
-#: content_a/home/display.php:63 content_a/order/home/display.php:131
-#: content_my/business/home/display_site.php:64 content_su/smsclient/home/display.php:14
-#: includes/languages/trans_static.php:61 lib/app/factor/search.php:95
-#: lib/app/factor/search.php:104
+#: content_a/home/display.php:63 content_a/order/detail/display.php:9
+#: content_a/order/home/display.php:131 content_my/business/home/display_site.php:64
+#: content_su/smsclient/home/display.php:14 includes/languages/trans_static.php:61
+#: lib/app/factor/search.php:95 lib/app/factor/search.php:104
 msgid "Customer"
 msgstr "مشتری"
 
@@ -5286,23 +5318,24 @@ msgid "Items"
 msgstr "آیتم‌ها"
 
 #: content_a/factor/home/display.php:127 content_a/order/add/display.php:19
-#: content_a/order/add/display.php:60 content_a/order/detail/display.php:37
-#: content_a/order/home/display.php:135 content_a/pricehistory/display.php:51
-#: content_a/products/edit/display.php:57 content_a/products/home/display.php:121
-#: content_a/products/variants/display.php:102 content_a/sale/display.php:19
-#: content_business/cart/cartSummary.php:11 content_love/domain/billing/display.php:93
+#: content_a/order/add/display.php:60 content_a/order/detail/display.old.php:37
+#: content_a/order/detail/display.php:31 content_a/order/home/display.php:135
+#: content_a/pricehistory/display.php:51 content_a/products/edit/display.php:57
+#: content_a/products/home/display.php:148 content_a/products/variants/display.php:102
+#: content_a/sale/display.php:19 content_business/cart/cartSummary.php:11
+#: content_love/domain/billing/display.php:93
 #: content_love/domain/setting/action/display.php:48
 #: content_love/gift/usage/display.php:61 content_my/domain/payments/display.php:12
-#: content_my/domain/setting/action/display.php:48 lib/app/product/property.php:115
+#: content_my/domain/setting/action/display.php:48 lib/app/product/property.php:147
 #: lib/app/product/search.php:106 lib/app/product/updateprice.php:129
 msgid "Discount"
 msgstr "تخفیف"
 
 #: content_a/factor/home/display.php:129 content_a/irvat/add/display.php:88
-#: content_a/order/add/display.php:20 content_a/order/detail/display.php:36
-#: content_a/order/home/display.php:138 content_a/sale/display.php:20
-#: content_business/cart/cartSummary.php:26 content_business/orders/display.php:19
-#: dash/utility/pagination.php:405
+#: content_a/order/add/display.php:20 content_a/order/detail/display.old.php:36
+#: content_a/order/detail/display.php:43 content_a/order/home/display.php:138
+#: content_a/sale/display.php:20 content_business/cart/cartSummary.php:26
+#: content_business/orders/display.php:19 dash/utility/pagination.php:405
 msgid "Total"
 msgstr "مجموع"
 
@@ -5804,11 +5837,12 @@ msgstr "کدپستی"
 
 #: content_a/irvat/add/display.php:227 content_a/irvat/add/display.php:316
 #: content_a/order/address/display.php:37 content_a/order/address/display.php:97
-#: content_a/order/detail/display.php:69 content_a/setup/address/display.php:47
-#: content_account/address.php:75 content_account/address.php:171
-#: content_business/orders/view/display.php:36 content_business/shipping/display.php:26
-#: content_business/shipping/display.php:154 content_crm/member/contact/display.php:17
-#: content_crm/member/legal/display.php:89 content_love/domain/nicdetail/display.php:16
+#: content_a/order/detail/display.old.php:69 content_a/order/detail/display.php:67
+#: content_a/setup/address/display.php:47 content_account/address.php:75
+#: content_account/address.php:171 content_business/orders/view/display.php:36
+#: content_business/shipping/display.php:26 content_business/shipping/display.php:154
+#: content_crm/member/contact/display.php:17 content_crm/member/legal/display.php:89
+#: content_love/domain/nicdetail/display.php:16
 #: content_my/domain/whoisdetail/whoisDetailForm.php:336
 #: content_my/ipg/gateway/display.php:26 content_my/ipg/profile/display.php:138
 #: content_my/ipg/setup/gateway/display.php:26
@@ -5864,7 +5898,7 @@ msgstr "آپلود اسناد"
 msgid "Add file"
 msgstr "افزودن فایل"
 
-#: content_a/irvat/add/display.php:384 content_a/order/detail/display.php:163
+#: content_a/irvat/add/display.php:384 content_a/order/detail/display.old.php:163
 #: content_a/products/edit/display.php:110 content_a/website/header/box/header_logo.php:17
 #: content_cms/attachment/add/display.php:14 content_cms/posts/edit/display.php:667
 #: content_support/ticket/addForm.php:27
@@ -5963,7 +5997,7 @@ msgstr "تعداد اقلام"
 msgid "Sum of counts"
 msgstr "جمع تعداد"
 
-#: content_a/order/add/display.php:72 content_a/products/home/display.php:122
+#: content_a/order/add/display.php:72 content_a/products/home/display.php:149
 #: content_a/sale/display.php:67
 msgid "Discount percent"
 msgstr "درصد تخفیف"
@@ -5997,7 +6031,7 @@ msgstr "شناسه سفارش اشتباه است"
 msgid "Edit Order Address"
 msgstr "ویرایش آدرس سفارش"
 
-#: content_a/order/address/display.php:29 content_a/order/detail/display.php:61
+#: content_a/order/address/display.php:29 content_a/order/detail/display.old.php:61
 #: content_account/address.php:160 content_business/orders/view/display.php:32
 msgid "Postal code"
 msgstr "کد پستی"
@@ -6021,34 +6055,6 @@ msgstr "نام شخصی که در این آدرس حضور دارد"
 msgid "Require"
 msgstr "الزامی"
 
-#: content_a/order/address/display.php:116
-#: content_a/setting/product/setting/display.php:21
-#: content_a/setting/product/setting/display.php:45
-#: content_a/setting/product/setting/display.php:68 content_account/address.php:94
-#: content_love/domain/setting/display.php:103
-#: content_love/gift/create/review/display.php:35
-#: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
-#: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
-#: dash/social/telegram/commands/step_ticketAnswer.php:82
-#: dash/social/telegram/commands/step_ticketAnswer.php:108
-#: dash/social/telegram/commands/step_ticketCreate.php:85
-#: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_static.php:536
-msgid "Yes"
-msgstr "بلی"
-
-#: content_a/order/address/display.php:116
-#: content_a/setting/product/setting/display.php:21
-#: content_a/setting/product/setting/display.php:45
-#: content_a/setting/product/setting/display.php:68 content_account/address.php:94
-#: content_love/domain/setting/display.php:107
-#: content_love/gift/create/review/display.php:35
-#: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
-#: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
-#: includes/languages/trans_static.php:537
-msgid "No"
-msgstr "خیر"
-
 #: content_a/order/address/display.php:117 content_account/address.php:95
 msgid "Is this a company's address?"
 msgstr "این آدرس شرکت است؟"
@@ -6057,106 +6063,106 @@ msgstr "این آدرس شرکت است؟"
 msgid "Save address"
 msgstr "ذخیره آدرس"
 
-#: content_a/order/address/view.php:18 content_a/order/detail/display.php:79
+#: content_a/order/address/view.php:18 content_a/order/detail/display.old.php:79
 #: content_account/address.php:9 dash/layout/admin/sidebar/sidebar-api-v2.php:28
 msgid "Edit address"
 msgstr "ویرایش آدرس"
 
-#: content_a/order/address/view.php:20 content_a/order/detail/display.php:5
+#: content_a/order/address/view.php:20 content_a/order/detail/display.old.php:5
 #: content_a/order/detail/view.php:18
 msgid "Order detail"
 msgstr "جزئیات سفارش"
 
-#: content_a/order/detail/display.php:16
+#: content_a/order/detail/display.old.php:16 content_a/order/detail/display.php:14
 msgid "View profile"
 msgstr "نمایش پروفایل"
 
-#: content_a/order/detail/display.php:20
+#: content_a/order/detail/display.old.php:20
 msgid "This order not set to any customer"
 msgstr "این سفارش به هیچ مشتری متصل نشده است"
 
-#: content_a/order/detail/display.php:25 content_su/log/display.php:25
+#: content_a/order/detail/display.old.php:25 content_su/log/display.php:25
 #: content_su/log/display.php:55 content_su/log/display.php:86
 #: content_su/log/display.php:117
 msgid "Last modified"
 msgstr "آخرین به‌روزرسانی"
 
-#: content_a/order/detail/display.php:27
+#: content_a/order/detail/display.old.php:27 content_a/order/detail/display.php:76
 msgid "Factor is payed"
 msgstr "سفارش پرداخت شده است"
 
-#: content_a/order/detail/display.php:29
+#: content_a/order/detail/display.old.php:29 content_a/order/detail/display.php:78
 msgid "Factor is not payed"
 msgstr "سفارش پرداخت نشده است"
 
-#: content_a/order/detail/display.php:31
+#: content_a/order/detail/display.old.php:31 content_a/order/detail/display.php:85
 msgid "Remove order"
 msgstr "حذف سفارش"
 
-#: content_a/order/detail/display.php:45
+#: content_a/order/detail/display.old.php:45
 msgid "Order Address"
 msgstr "آدرس سفارش"
 
-#: content_a/order/detail/display.php:89
+#: content_a/order/detail/display.old.php:89
 msgid "Order items"
 msgstr "گزینه‌های سفارش"
 
-#: content_a/order/detail/display.php:120
+#: content_a/order/detail/display.old.php:120
 msgid "Edit items"
 msgstr "ویرایش ردیف‌ها"
 
-#: content_a/order/detail/display.php:129
+#: content_a/order/detail/display.old.php:129
 msgid "Order action"
 msgstr "عملیات سفارش"
 
-#: content_a/order/detail/display.php:132
+#: content_a/order/detail/display.old.php:132
 msgid "Add new action"
 msgstr "افزودن عملیات جدید"
 
-#: content_a/order/detail/display.php:134 includes/languages/trans_static.php:232
+#: content_a/order/detail/display.old.php:134 includes/languages/trans_static.php:232
 #: includes/languages/trans_static.php:334
 msgid "comment"
 msgstr "دیدگاه"
 
-#: content_a/order/detail/display.php:135 lib/app/factor/ready.php:72
+#: content_a/order/detail/display.old.php:135 lib/app/factor/ready.php:72
 msgid "Pending pay"
 msgstr "در انتظار پرداخت"
 
-#: content_a/order/detail/display.php:136
+#: content_a/order/detail/display.old.php:136
 msgid "Pay successfull"
 msgstr "پرداخت با موفقیت انجام شد"
 
-#: content_a/order/detail/display.php:137 lib/app/factor/ready.php:74
+#: content_a/order/detail/display.old.php:137 lib/app/factor/ready.php:74
 msgid "Pending prepare"
 msgstr "در انتظار آماده سازی"
 
-#: content_a/order/detail/display.php:138 lib/app/factor/ready.php:73
+#: content_a/order/detail/display.old.php:138 lib/app/factor/ready.php:73
 msgid "Pending verify"
 msgstr "در انتظار تایید"
 
-#: content_a/order/detail/display.php:139 lib/app/factor/ready.php:75
+#: content_a/order/detail/display.old.php:139 lib/app/factor/ready.php:75
 msgid "Pending send"
 msgstr "در انتظار ارسال"
 
-#: content_a/order/detail/display.php:140 lib/app/factor/ready.php:76
+#: content_a/order/detail/display.old.php:140 lib/app/factor/ready.php:76
 msgid "Sending"
 msgstr "درحال ارسال"
 
-#: content_a/order/detail/display.php:141 includes/languages/trans_static.php:559
+#: content_a/order/detail/display.old.php:141 includes/languages/trans_static.php:559
 #: lib/app/factor/ready.php:77
 msgid "Deliver"
 msgstr "تحویل‌داده‌شده"
 
-#: content_a/order/detail/display.php:142
+#: content_a/order/detail/display.old.php:142
 msgid "Pay unverified"
 msgstr "پرداخت تایید نشده و نامعتبر است"
 
-#: content_a/order/detail/display.php:143 lib/app/factor/ready.php:78
+#: content_a/order/detail/display.old.php:143 lib/app/factor/ready.php:78
 #: lib/app/nic_domain/ready.php:118
 msgid "Reject"
 msgstr "رد شده"
 
-#: content_a/order/detail/display.php:144 content_a/products/comment/display.php:143
+#: content_a/order/detail/display.old.php:144 content_a/products/comment/display.php:143
 #: content_a/products/comment/display.php:234
 #: content_a/products/comment/edit/display.php:47 content_a/products/tag/display.php:178
 #: content_cms/comments/edit/display.php:60 content_cms/comments/home/display.php:152
@@ -6168,49 +6174,124 @@ msgstr "رد شده"
 msgid "Spam"
 msgstr "هرزنامه"
 
-#: content_a/order/detail/display.php:145 includes/languages/trans_static.php:550
+#: content_a/order/detail/display.old.php:145 includes/languages/trans_static.php:550
 #: lib/app/factor/ready.php:70
 msgid "Expire"
 msgstr "منقضی شده"
 
-#: content_a/order/detail/display.php:147
+#: content_a/order/detail/display.old.php:147
 msgid "go_to_bank"
 msgstr "ارسال شده به بانک جهت پرداخت"
 
-#: content_a/order/detail/display.php:148
+#: content_a/order/detail/display.old.php:148
 msgid "pay_error"
 msgstr "خطا در پرداخت"
 
-#: content_a/order/detail/display.php:149
+#: content_a/order/detail/display.old.php:149
 msgid "pay_cancel"
 msgstr "انصراف از پرداخت"
 
-#: content_a/order/detail/display.php:150
+#: content_a/order/detail/display.old.php:150
 msgid "pay_verified"
 msgstr "پراخت تایید شد"
 
-#: content_a/order/detail/display.php:151 dash/social/telegram/step.php:211
+#: content_a/order/detail/display.old.php:151 dash/social/telegram/step.php:211
 #: includes/languages/trans_static.php:431 includes/languages/trans_static_public.php:893
 msgid "cancel"
 msgstr "انصراف"
 
-#: content_a/order/detail/display.php:152 includes/languages/trans_static.php:336
+#: content_a/order/detail/display.old.php:152 includes/languages/trans_static.php:336
 #: includes/languages/trans_static.php:364
 msgid "order"
 msgstr "سفارش"
 
-#: content_a/order/detail/display.php:163 content_a/order/detail/display.php:193
+#: content_a/order/detail/display.old.php:163 content_a/order/detail/display.old.php:193
 #: content_support/ticket/addForm.php:27
 msgid "Attachment"
 msgstr "ضمیمه"
 
-#: content_a/order/detail/display.php:183
+#: content_a/order/detail/display.old.php:183 content_a/order/detail/display.php:166
 msgid "Order Action list"
 msgstr "لیست اتفاقات سفارش"
 
-#: content_a/order/detail/display.php:205
+#: content_a/order/detail/display.old.php:205
 msgid "Action image"
 msgstr "تصویر عملیات"
+
+#: content_a/order/detail/display.php:16
+msgid "The user is not logged in to save their details!"
+msgstr "اطلاعات کاربر را نداریم چون کاربر وارد سیستم نشده است!"
+
+#: content_a/order/detail/display.php:25 content_business/orders/view/display.php:19
+msgid "Order date"
+msgstr "زمان سفارش"
+
+#: content_a/order/detail/display.php:37 content_a/order/home/display.php:137
+#: content_a/setting/home/display.php:80 content_business/cart/cartSummary.php:17
+msgid "Shipping"
+msgstr "حمل و نقل"
+
+#: content_a/order/detail/display.php:64 content_business/shipping/display.php:23
+msgid "Postalcode"
+msgstr "کد پستی"
+
+#: content_a/order/detail/display.php:73
+msgid "Pay status"
+msgstr "وضعیت پرداخت"
+
+#: content_a/order/detail/display.php:79
+msgid "If you get the amount of this factor Set order as paid by click below link"
+msgstr ""
+"اگر مبلغ این سفارش را دریافت کرده‌اید می‌توانید با کلیک روی لینک زیر این سفارش را به "
+"عنوان سفارش پرداخت شده تنظیم کنید"
+
+#: content_a/order/detail/display.php:80
+msgid "Amount received"
+msgstr "مبلغ دریافت شد"
+
+#: content_a/order/detail/display.php:96
+msgid "Order products"
+msgstr "محصولات این سفارش"
+
+#: content_a/order/detail/display.php:117
+msgid "Ready to send to customer?"
+msgstr "آیا آماده ارسال به مشتری است؟"
+
+#: content_a/order/detail/display.php:119
+msgid "Set as pending send"
+msgstr "در انتظار ارسال است"
+
+#: content_a/order/detail/display.php:123
+msgid "Set Deliver to customer"
+msgstr "تحویل مشتری داده شد"
+
+#: content_a/order/detail/display.php:125
+msgid "Set as deliver"
+msgstr "تحویل داده شد"
+
+#: content_a/order/detail/display.php:129
+msgid "Reject Order?"
+msgstr "سفارش لغو شود؟"
+
+#: content_a/order/detail/display.php:131
+msgid "Set as reject"
+msgstr "لغو سفارش"
+
+#: content_a/order/detail/display.php:142
+msgid "Add comment to this order"
+msgstr "افزودن یادداشت به این سفارش"
+
+#: content_a/order/detail/display.php:146
+msgid "Only admin can see the comments"
+msgstr "تنها مدیر فروشگاه می‌تواند این یادداشت را مشاهده کند"
+
+#: content_a/order/detail/display.php:160
+msgid "Add comment"
+msgstr "افزودن یادداشت"
+
+#: content_a/order/detail/model.php:78
+msgid "Please choose an action"
+msgstr "لطفا یک عملیات را انتخاب کنید"
 
 #: content_a/order/home/display.php:19 lib/app/factor/ready.php:69
 #: lib/app/log/caller/order/order_adminNewOrder.php:16
@@ -6219,11 +6300,6 @@ msgstr "تصویر عملیات"
 #: lib/app/log/caller/order/order_customerNewOrder.php:16
 msgid "Order"
 msgstr "سفارش"
-
-#: content_a/order/home/display.php:137 content_a/setting/home/display.php:80
-#: content_business/cart/cartSummary.php:17
-msgid "Shipping"
-msgstr "حمل و نقل"
 
 #: content_a/order/view.php:15
 msgid "Add order"
@@ -6241,12 +6317,12 @@ msgstr "نمایش آمار"
 msgid "Show change price in special date"
 msgstr "نمایش تغییر قیمت در تاریخ خاص"
 
-#: content_a/pricehistory/display.php:49 content_a/products/home/display.php:119
+#: content_a/pricehistory/display.php:49 content_a/products/home/display.php:146
 #: lib/app/product/search.php:98
 msgid "Buy price"
 msgstr "قیمت خرید"
 
-#: content_a/pricehistory/display.php:52 content_a/products/home/display.php:123
+#: content_a/pricehistory/display.php:52 content_a/products/home/display.php:150
 #: content_love/domain/billing/display.php:94 content_love/gift/usage/display.php:63
 #: content_my/domain/payments/display.php:13 lib/app/product/updateprice.php:133
 msgid "Final price"
@@ -6466,7 +6542,7 @@ msgstr "ویرایش نظر"
 msgid "Invalid detail"
 msgstr "جزئیات اشتباه است"
 
-#: content_a/products/comment/view.php:17 content_a/products/edit/display.php:412
+#: content_a/products/comment/view.php:17 content_a/products/edit/display.php:405
 #: content_cms/comments/home/view.php:11 content_cms/posts/edit/display.php:345
 #: includes/languages/trans_static.php:602 includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
@@ -6489,10 +6565,6 @@ msgstr "یک نسخه کپی از این محصول ایجاد کنید"
 msgid "New Title"
 msgstr "عنوان جدید"
 
-#: content_a/products/duplicate/display.php:9
-msgid "Copy of"
-msgstr "کپی از"
-
 #: content_a/products/duplicate/display.php:12
 #: includes/languages/trans_static_public.php:107
 msgid "Copy"
@@ -6506,8 +6578,8 @@ msgstr "یک نسخه کپی از :val تهیه کنید"
 msgid "Product Title"
 msgstr "عنوان محصول"
 
-#: content_a/products/edit/display.php:16 lib/app/product/property.php:101
-#: lib/app/product/property.php:105
+#: content_a/products/edit/display.php:16 lib/app/product/property.php:131
+#: lib/app/product/property.php:135
 msgid "Technical title"
 msgstr "عنوان فنی"
 
@@ -6539,40 +6611,40 @@ msgstr "توضیحاتی در مورد این محصول"
 msgid "Product gallery is full!"
 msgstr "ظرفیت گالری محصول تکمیل است!"
 
-#: content_a/products/edit/display.php:132
+#: content_a/products/edit/display.php:121
 msgid "Set as cover"
 msgstr "تنظیم به عنوان تصویر شاخص"
 
-#: content_a/products/edit/display.php:149 content_a/setting/place/inventory/view.php:8
+#: content_a/products/edit/display.php:137 content_a/setting/place/inventory/view.php:8
 msgid "Inventory"
 msgstr "انبار"
 
-#: content_a/products/edit/display.php:154 lib/app/product/search.php:85
+#: content_a/products/edit/display.php:142 lib/app/product/search.php:85
 #: lib/app/product/site_list.php:143
 msgid "Barcode"
 msgstr "بارکد"
 
-#: content_a/products/edit/display.php:156
+#: content_a/products/edit/display.php:144
 msgid "Scan Barcode here..."
 msgstr "بارکد را اسکن کنید..."
 
-#: content_a/products/edit/display.php:164 includes/languages/trans_static.php:606
+#: content_a/products/edit/display.php:152 includes/languages/trans_static.php:606
 msgid "Barcode2"
 msgstr "ایران بارکد"
 
-#: content_a/products/edit/display.php:166
+#: content_a/products/edit/display.php:154
 msgid "Scan Barcode2 here..."
 msgstr "ایران بارکد را اسکن کنید..."
 
-#: content_a/products/edit/display.php:179
+#: content_a/products/edit/display.php:167
 msgid "Code on scale"
 msgstr "کد تعریف شده روی ترازو"
 
-#: content_a/products/edit/display.php:192
+#: content_a/products/edit/display.php:180
 msgid "Track quantity"
 msgstr "رهگیری موجودی"
 
-#: content_a/products/edit/display.php:195
+#: content_a/products/edit/display.php:183
 msgid ""
 "Inventory tracking can help you avoid selling products that have run out of stock, or "
 "let you know when you need to order or make more of your product."
@@ -6581,84 +6653,84 @@ msgstr ""
 "است جلوگیری کند؛ هم‌چنین زمانی که نیاز به خرید محصولی داشته باشید می‌تواند به شما کمک کند "
 "تا با بررسی موجودی خرید هوشمندانه داشته باشید."
 
-#: content_a/products/edit/display.php:200
+#: content_a/products/edit/display.php:188
 msgid "Oversale"
 msgstr "فروش با موجودی منفی"
 
-#: content_a/products/edit/display.php:202
+#: content_a/products/edit/display.php:190
 msgid "Allow to purchase when sold out of stock"
 msgstr "اجازه به فروش زمانی که موجودی انبار منفی شده است"
 
-#: content_a/products/edit/display.php:205 content_a/products/edit/display.php:208
+#: content_a/products/edit/display.php:193 content_a/products/edit/display.php:196
 msgid "Current Stock Count"
 msgstr "تعداد موجودی فعلی"
 
-#: content_a/products/edit/display.php:210
+#: content_a/products/edit/display.php:198
 msgid "If you want to change the stock enter current stock here"
 msgstr ""
 "در صورت تمایل به تغییر موجودی آن را وارد کنید،‌ در غیر این ‌صورت این فیلد را خالی بگذارید"
 
-#: content_a/products/edit/display.php:215
+#: content_a/products/edit/display.php:203
 msgid "Min stock"
 msgstr "حداقل موجودی"
 
-#: content_a/products/edit/display.php:221
+#: content_a/products/edit/display.php:209
 msgid "Max stock"
 msgstr "حداکثر موجودی"
 
-#: content_a/products/edit/display.php:227
+#: content_a/products/edit/display.php:215
 msgid "Optimize your inventory decisions."
 msgstr "تصمیمات انبار خود را بهینه کنید."
 
-#: content_a/products/edit/display.php:227
+#: content_a/products/edit/display.php:215
 msgid "Know which products are the most profitable and which you should re-order when."
 msgstr ""
 "دانستن اینکه کدام محصولات بیشتر سودآور هستند و اینکه چه زمانی کدامشان را باید دوباره "
 "سفارش دهید."
 
-#: content_a/products/edit/display.php:227
+#: content_a/products/edit/display.php:215
 msgid "Demand forecasting!"
 msgstr "پیش‌بینی تقاضا!"
 
-#: content_a/products/edit/display.php:227
+#: content_a/products/edit/display.php:215
 msgid "Receive recommendations on your products based on your rate of sales."
 msgstr "دریافت توصیه برای خرید محصولات بسته به نرخ فروش آن‌ها."
 
-#: content_a/products/edit/display.php:262
+#: content_a/products/edit/display.php:250
 msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
-#: content_a/products/edit/display.php:281
+#: content_a/products/edit/display.php:269
 msgid "Stock keeping unit - SKU"
 msgstr "واحد نگهداری انبار - کد کالا"
 
-#: content_a/products/edit/display.php:288 content_business/category/view.php:9
+#: content_a/products/edit/display.php:276 content_business/category/view.php:9
 #: content_cms/home/display.php:26 content_cms/posts/edit/display.php:246
 #: content_cms/posts/home/view.php:111 content_support/faq/display.php:12
 #: content_support/tag/display.php:12 content_support/tag/view.php:10
-#: dash/layout/pwa/pwa_menu.php:206 lib/app/product/property.php:184
+#: dash/layout/pwa/pwa_menu.php:206 lib/app/product/property.php:223
 #: lib/app/product/search.php:116
 msgid "Category"
 msgstr "دسته بندی"
 
-#: content_a/products/edit/display.php:289 content_a/products/edit/display.php:300
-#: content_a/products/edit/display.php:341 content_a/products/edit/display.php:357
+#: content_a/products/edit/display.php:277 content_a/products/edit/display.php:288
+#: content_a/products/edit/display.php:329 content_a/products/edit/display.php:345
 #: content_love/domain/detail/display.php:72 content_love/domain/setting/display.php:47
 #: content_my/domain/setting/display.php:45
 msgid "Manage"
 msgstr "مدیریت"
 
-#: content_a/products/edit/display.php:299 content_cms/posts/edit/display.php:319
+#: content_a/products/edit/display.php:287 content_cms/posts/edit/display.php:319
 #: content_support/ticket/show/display.php:231 includes/languages/trans_static.php:585
-#: lib/app/product/property.php:271 lib/app/product/search.php:124
+#: lib/app/product/property.php:310 lib/app/product/search.php:124
 msgid "Tag"
 msgstr "تگ"
 
-#: content_a/products/edit/display.php:324 includes/languages/trans_static.php:529
+#: content_a/products/edit/display.php:312 includes/languages/trans_static.php:529
 msgid "Service"
 msgstr "خدمت"
 
-#: content_a/products/edit/display.php:340 content_a/units/display.php:109
+#: content_a/products/edit/display.php:328 content_a/units/display.php:109
 #: content_crm/transactions/add/display.php:51
 #: content_crm/transactions/minus/display.php:51
 #: content_love/transactions/add/display.php:51
@@ -6666,58 +6738,58 @@ msgstr "خدمت"
 msgid "Unit"
 msgstr "واحد"
 
-#: content_a/products/edit/display.php:343
+#: content_a/products/edit/display.php:331
 msgid "like Qty, kg, etc"
 msgstr "مثل عدد، کیلوگرم، تعداد"
 
-#: content_a/products/edit/display.php:346
+#: content_a/products/edit/display.php:334
 msgid "Without unit"
 msgstr "بدون واحد"
 
-#: content_a/products/edit/display.php:356
+#: content_a/products/edit/display.php:344
 msgid "Brand"
 msgstr "برند"
 
-#: content_a/products/edit/display.php:359
+#: content_a/products/edit/display.php:347
 msgid "Product Brand"
 msgstr "برند محصول"
 
-#: content_a/products/edit/display.php:364
+#: content_a/products/edit/display.php:352
 msgid "Without Brand"
 msgstr "بدون برند"
 
-#: content_a/products/edit/display.php:378 lib/app/product/property.php:191
-#: lib/app/product/property.php:195
+#: content_a/products/edit/display.php:366 lib/app/product/property.php:230
+#: lib/app/product/property.php:234
 msgid "Weight"
 msgstr "وزن"
 
-#: content_a/products/edit/display.php:392
-msgid "Edit Description"
-msgstr "ویرایش توضیحات"
-
-#: content_a/products/edit/display.php:394
-msgid "Product Properties"
-msgstr "مشخصات محصول"
-
-#: content_a/products/edit/display.php:397 content_a/products/variants/display.php:81
+#: content_a/products/edit/display.php:381 content_a/products/variants/display.php:81
 msgid "Make product variants"
 msgstr "ثبت تنوع محصول"
 
-#: content_a/products/edit/display.php:401
+#: content_a/products/edit/display.php:390
+msgid "Edit Description"
+msgstr "ویرایش توضیحات"
+
+#: content_a/products/edit/display.php:392
+msgid "Product Properties"
+msgstr "مشخصات محصول"
+
+#: content_a/products/edit/display.php:394
 msgid "Cart Limit"
 msgstr "محدودیت سبد خرید"
 
-#: content_a/products/edit/display.php:404
+#: content_a/products/edit/display.php:397
 msgid "Stock Count"
 msgstr "تعداد موجودی"
 
-#: content_a/products/edit/display.php:418
+#: content_a/products/edit/display.php:406
 msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
 
-#: content_a/products/edit/display.php:430
-msgid "Share with social network"
-msgstr "اشتراک گذاری از طریق شبکه‌های اجتماعی"
+#: content_a/products/edit/display.php:415
+msgid "Smart Share"
+msgstr "اشتراک‌گذاری هوشمند"
 
 #: content_a/products/edit/model.php:238 content_b1/product/gallery/thumb/model.php:26
 msgid "Product thumb set"
@@ -6834,21 +6906,21 @@ msgstr "فیلتر"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_a/products/home/display.php:69 content_a/products/variants/display.php:12
-#: content_a/products/variants/view.php:18
-msgid "Variants"
-msgstr "تنوع محصول"
-
-#: content_a/products/home/display.php:85
+#: content_a/products/home/display.php:72 content_a/products/home/display.php:112
 msgid "in stock"
 msgstr "در انبار موجود است"
 
-#: content_a/products/home/display.php:91
+#: content_a/products/home/display.php:76 content_a/products/home/display.php:118
 msgid "For"
 msgstr "از"
 
-#: content_a/products/home/display.php:91
+#: content_a/products/home/display.php:76 content_a/products/home/display.php:118
 msgid "variants"
+msgstr "تنوع محصول"
+
+#: content_a/products/home/display.php:96 content_a/products/variants/display.php:12
+#: content_a/products/variants/view.php:18
+msgid "Variants"
 msgstr "تنوع محصول"
 
 #: content_a/products/home/view.php:17
@@ -10561,10 +10633,6 @@ msgstr "شماره سفارش"
 msgid "Order status"
 msgstr "وضعیت سفارش"
 
-#: content_business/orders/view/display.php:19
-msgid "Order date"
-msgstr "زمان سفارش"
-
 #: content_business/orders/view/display.php:48
 msgid "Cancel order"
 msgstr "لغو سفارش"
@@ -10593,7 +10661,7 @@ msgstr ":val بازدید"
 msgid ":val Stock"
 msgstr ":val موجودی انبار"
 
-#: content_business/p/home/display.php:69
+#: content_business/p/home/display.php:69 lib/app/product/property.php:142
 msgid "List Price"
 msgstr "قیمت مصرف کننده"
 
@@ -10618,46 +10686,46 @@ msgstr "افزودن به سبد خرید"
 msgid "Product Code"
 msgstr "شناسه محصول"
 
-#: content_business/p/home/display.php:246
+#: content_business/p/home/display.php:252
 msgid "Customer reviews"
 msgstr "نظرات مشتریان"
 
-#: content_business/p/home/display.php:262 content_business/p/home/display.php:267
-#: content_business/p/home/display.php:272 content_business/p/home/display.php:277
-#: content_business/p/home/display.php:282 content_love/gift/create/review/display.php:16
+#: content_business/p/home/display.php:268 content_business/p/home/display.php:273
+#: content_business/p/home/display.php:278 content_business/p/home/display.php:283
+#: content_business/p/home/display.php:288 content_love/gift/create/review/display.php:16
 #: content_love/gift/view/display.php:13 content_my/domain/review/display.php:198
 msgid "%"
 msgstr "٪"
 
-#: content_business/p/home/display.php:322
+#: content_business/p/home/display.php:328
 msgid "Review this product"
 msgstr "بررسی این محصول"
 
-#: content_business/p/home/display.php:328
+#: content_business/p/home/display.php:334
 msgid "Outstanding"
 msgstr "ممتاز"
 
-#: content_business/p/home/display.php:330
+#: content_business/p/home/display.php:336
 msgid "Very Good"
 msgstr "خیلی خوب"
 
-#: content_business/p/home/display.php:332
+#: content_business/p/home/display.php:338
 msgid "Good"
 msgstr "خوب"
 
-#: content_business/p/home/display.php:334
+#: content_business/p/home/display.php:340
 msgid "Poor"
 msgstr "ضعیف"
 
-#: content_business/p/home/display.php:336
+#: content_business/p/home/display.php:342
 msgid "Very Poor"
 msgstr "خیلی ضعیف"
 
-#: content_business/p/home/display.php:365
+#: content_business/p/home/display.php:371
 msgid "Write your review about this product..."
 msgstr "نظر خودتون رو در مورد این محصول بنویسید ..."
 
-#: content_business/p/home/display.php:380
+#: content_business/p/home/display.php:386
 msgid "Related products"
 msgstr "محصولات مرتبط"
 
@@ -10687,10 +10755,6 @@ msgstr "پیام‌های من"
 #: content_business/shipping/display.php:8
 msgid "Please choose your address"
 msgstr "لطفا آدرس خود را انتخاب کنید"
-
-#: content_business/shipping/display.php:23
-msgid "Postalcode"
-msgstr "کد پستی"
 
 #: content_business/shipping/display.php:58
 msgid "Order descripion"
@@ -18033,25 +18097,25 @@ msgstr "ارتباط با مدیریت"
 msgid "application"
 msgstr "برنامه"
 
-#: dash/app/posts.php:286 lib/app/irvat/gallery.php:113 lib/app/product/gallery.php:158
+#: dash/app/posts.php:286 lib/app/irvat/gallery.php:113 lib/app/product/gallery.php:181
 msgid "File detail not found"
 msgstr "جزئیات فایل یافت نشد"
 
-#: dash/app/posts.php:298 lib/app/irvat/gallery.php:125 lib/app/product/gallery.php:170
+#: dash/app/posts.php:298 lib/app/irvat/gallery.php:125 lib/app/product/gallery.php:193
 msgid "Duplicate file in this gallery"
 msgstr "این فایل در گالری تصاویر فعلی موجود است"
 
-#: dash/app/posts.php:317 lib/app/product/gallery.php:194
+#: dash/app/posts.php:317 lib/app/product/gallery.php:217
 msgid "Maximum count of gallery file is 10"
 msgstr "حداکثر تعداد فایل در گالری ۱۰ فایل است"
 
 #: dash/app/posts.php:328 lib/app/irvat/gallery.php:157 lib/app/product/gallery.php:91
-#: lib/app/product/gallery.php:207
+#: lib/app/product/gallery.php:230
 msgid "Invalid file id"
 msgstr "شناسه فایل اشتباه است"
 
-#: dash/app/posts.php:348 lib/app/irvat/gallery.php:177 lib/app/product/gallery.php:126
-#: lib/app/product/gallery.php:227
+#: dash/app/posts.php:348 lib/app/irvat/gallery.php:177 lib/app/product/gallery.php:149
+#: lib/app/product/gallery.php:250
 msgid "Invalid gallery id"
 msgstr "شناسه گالری تصاویر اشتباه است"
 
@@ -25917,7 +25981,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 
 #: lib/app/cart/add.php:48 lib/app/cart/checkout.php:20 lib/app/category/remove.php:28
 #: lib/app/irvat/gallery.php:90 lib/app/product/company.php:21
-#: lib/app/product/gallery.php:97 lib/app/product/gallery.php:135
+#: lib/app/product/gallery.php:97 lib/app/product/gallery.php:158
 #: lib/app/product/remove.php:10 lib/app/product/unit.php:21
 #: lib/app/product/updateprice.php:154 lib/app/product/variants.php:84
 #: lib/app/product/variants.php:258 lib/app/product/variants.php:275
@@ -25989,7 +26053,7 @@ msgstr "این آیتم تکراری است"
 msgid "General property saved"
 msgstr "خصیصه‌های عمومی ذخیره شد"
 
-#: lib/app/category/add.php:169 lib/app/product/property.php:523
+#: lib/app/category/add.php:169 lib/app/product/property.php:558
 msgid "Property not found"
 msgstr "خصیصه یافت نشد"
 
@@ -26029,15 +26093,15 @@ msgstr "عنوان خصوصیت محصول"
 msgid "Group properties"
 msgstr "گروه مشخصات"
 
-#: lib/app/category/check.php:133
+#: lib/app/category/check.php:52
 msgid "Duplicate slug founded"
 msgstr "نامک تکراری است"
 
-#: lib/app/category/check.php:154
+#: lib/app/category/check.php:73
 msgid "Property Group not set"
 msgstr "گروه مشخصات محصول تنظیم نشده است"
 
-#: lib/app/category/check.php:162
+#: lib/app/category/check.php:81
 msgid "Property Key must be an array"
 msgstr "کلید‌های خصوصیات محصول باید آرایه باشد"
 
@@ -26066,11 +26130,7 @@ msgid "Some product save by this category and you can not remove it"
 msgstr ""
 "تعدادی از محصولات با این دسته‌بندی ذخیره شده‌اند و شما نمی‌توانید این دسته بندی را حذف کنید"
 
-#: lib/app/category/remove.php:50
-msgid "This category have some child and your can not remove it"
-msgstr "این دسته‌بندی دارای تعدادی زیرمجموعه است و امکان حذف آن وجود ندارد"
-
-#: lib/app/category/remove.php:56
+#: lib/app/category/remove.php:49
 msgid "Category successfully removed"
 msgstr "دسته‌بندی با موفقیت حذف شد"
 
@@ -26494,6 +26554,7 @@ msgid "Can not update your irvat"
 msgstr "نمی‌توانید فاکتور خود را ویرایش کنید"
 
 #: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:48 lib/app/product/get.php:55
+#: lib/app/product/get.php:105
 msgid "Product detail not found"
 msgstr "جزئیات محصول یافت نشد"
 
@@ -27306,7 +27367,7 @@ msgstr "لطفا نام محصول را برای تهیه نسخه کپی وار
 #: lib/app/product/bullet.php:40 lib/app/product/comment.php:77
 #: lib/app/product/comment.php:109 lib/app/product/comment.php:154
 #: lib/app/product/comment.php:197 lib/app/product/edit.php:49
-#: lib/app/product/property.php:49 lib/app/product/property.php:371
+#: lib/app/product/property.php:79 lib/app/product/property.php:406
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
@@ -27331,8 +27392,8 @@ msgid "Duplicate sku code"
 msgstr "کد محصول تکراری است"
 
 #: lib/app/product/check.php:200
-msgid "Final price is out of range"
-msgstr "قیمت خارج از محدوده مجاز است"
+msgid "Final price is out of range and less than zero!"
+msgstr "قیمت خارج از محدوده مجاز بوده و زیر صفر است"
 
 #: lib/app/product/check.php:256 lib/app/product/check.php:293
 msgid "Duplicate barcode"
@@ -27497,74 +27558,74 @@ msgstr "قیمت خرید نزولی"
 msgid "This barcode is scanned before"
 msgstr "این بارکد پیش از این اسکن شده است"
 
-#: lib/app/product/get.php:41
+#: lib/app/product/get.php:41 lib/app/product/get.php:91
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
-#: lib/app/product/property.php:34 lib/app/product/property.php:201
-#: lib/app/product/property.php:205
+#: lib/app/product/property.php:64 lib/app/product/property.php:240
+#: lib/app/product/property.php:244
 msgid "Length"
 msgstr "طول"
 
-#: lib/app/product/property.php:35 lib/app/product/property.php:211
-#: lib/app/product/property.php:215
+#: lib/app/product/property.php:65 lib/app/product/property.php:250
+#: lib/app/product/property.php:254
 msgid "Width"
 msgstr "عرض"
 
-#: lib/app/product/property.php:36 lib/app/product/property.php:221
-#: lib/app/product/property.php:225
+#: lib/app/product/property.php:66 lib/app/product/property.php:260
+#: lib/app/product/property.php:264
 msgid "Height"
 msgstr "ارتفاع"
 
-#: lib/app/product/property.php:478
+#: lib/app/product/property.php:513
 msgid "Property removed"
 msgstr "مشخصه حذف شد"
 
-#: lib/app/product/property.php:496
+#: lib/app/product/property.php:531
 msgid "This property already set as outstanding"
 msgstr "این خصیصه قبلا به عنوان مشخصه برجسته انتخاب شده است"
 
-#: lib/app/product/property.php:502
+#: lib/app/product/property.php:537
 msgid "Property set as outstanding"
 msgstr "خصیصه به عنوان مشخصه برجسته انتخاب شد"
 
-#: lib/app/product/property.php:511
+#: lib/app/product/property.php:546
 msgid "Property remove from outstanding"
 msgstr "خصیصه از خصوصیات برجسته حذف شد"
 
-#: lib/app/product/property.php:516
+#: lib/app/product/property.php:551
 msgid "This property is not an outstanding property"
 msgstr "این خصیصه از خصوصیات برجسته نیست"
 
-#: lib/app/product/property.php:542
+#: lib/app/product/property.php:577
 msgid "Property group"
 msgstr "گروه مشخصات"
 
-#: lib/app/product/property.php:562
+#: lib/app/product/property.php:597
 msgid "Duplicate property founded"
 msgstr "این خصیصه تکراری است"
 
-#: lib/app/product/property.php:572
+#: lib/app/product/property.php:607
 msgid "Invalid property id"
 msgstr "شناسه خصیصه‌ اشتباه است"
 
-#: lib/app/product/property.php:585
+#: lib/app/product/property.php:620
 msgid "Property successfully edited"
 msgstr "خصیصه با موفقیت ویرایش شد"
 
-#: lib/app/product/property.php:601
+#: lib/app/product/property.php:636
 msgid "Property successfully added"
 msgstr "خصیصه با موفقیت اضافه شد"
 
-#: lib/app/product/property.php:659
+#: lib/app/product/property.php:694
 msgid "Some detail was duplicate. We remove duplicate items"
 msgstr "بعضی از مقادیر تکراری بودند. ما مقادیر تکراری را حذف کردیم"
 
-#: lib/app/product/property.php:742
+#: lib/app/product/property.php:777
 msgid "Product property saved without chnage"
 msgstr "خصیصه‌های محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/property.php:746
+#: lib/app/product/property.php:781
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
@@ -29352,6 +29413,15 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Copy of"
+#~ msgstr "کپی از"
+
+#~ msgid "Share with social network"
+#~ msgstr "اشتراک گذاری از طریق شبکه‌های اجتماعی"
+
+#~ msgid "This category have some child and your can not remove it"
+#~ msgstr "این دسته‌بندی دارای تعدادی زیرمجموعه است و امکان حذف آن وجود ندارد"
+
 #~ msgid "Manage product properties"
 #~ msgstr "مدیریت مشخصات محصول"
 
@@ -29855,9 +29925,6 @@ msgstr "یارد"
 
 #~ msgid "Delete Product"
 #~ msgstr "حذف محصول"
-
-#~ msgid "Add new comment to product"
-#~ msgstr "افزودن دیدگاه‌ جدید به محصول"
 
 #~ msgid "Get product comment"
 #~ msgstr "دریافت دیدگاه‌های محصول"
