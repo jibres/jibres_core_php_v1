@@ -31,6 +31,12 @@ class model
 		}
 
 
+		if(array_key_exists('runaction_comment', $all_post))
+		{
+			$post['comment'] = \dash\request::post('comment');
+		}
+
+
 		$ratio = \dash\request::post('ratio') ? \dash\request::post('ratio') : null;
 		if(array_key_exists('runaction_ratio', $all_post))
 		{

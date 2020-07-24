@@ -247,6 +247,8 @@ if(count($myGallery) > 1)
   </div>
 <?php } ?>
 
+<?php if(\dash\data::productSettingSaved_comment()) {?>
+
 <?php if(\dash\data::customerReview_count()) {?>
  <section class="box productReview">
   <h2><?php echo T_("Customer reviews"); ?></h2>
@@ -381,6 +383,7 @@ if(count($myGallery) > 1)
 
 
  </section>
+<?php } //endif comment is closed  ?>
 
 <?php if(\dash\data::similarProduct()) {?>
 <h2 class="jTitle1"><?php echo T_("Related products") ?></h2>
