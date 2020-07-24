@@ -19,10 +19,10 @@ class view
 
 		\dash\face::btnView(\dash\data::dataRow_url());
 
-		$catList = \lib\app\product\property::all_cat_name();
+		$catList = \lib\app\product\property::property_cat_name($id, \dash\data::dataRow_properties());
 		\dash\data::catList($catList);
 
-		$keyList = \lib\app\product\property::all_key_name();
+		$keyList = \lib\app\product\property::property_key_name($id, \dash\data::dataRow_properties());
 		\dash\data::keyList($keyList);
 
 	}

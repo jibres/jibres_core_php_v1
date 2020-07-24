@@ -18,6 +18,39 @@ class get
 	}
 
 
+	public static function property_cat_name($_category_id)
+	{
+		$query =
+		"
+			SELECT DISTINCT
+				productproperties.cat AS `cat`
+			FROM
+				productproperties
+			INNER JOIN productcategoryusage ON productcategoryusage.product_id = productproperties.product_id
+			WHERE
+				productcategoryusage.productcategory_id = $_category_id
+		";
+		$result = \dash\db::get($query, 'cat');
+		return $result;
+	}
+
+
+	public static function property_key_name($_category_id)
+	{
+		$query =
+		"
+			SELECT DISTINCT
+				productproperties.key AS `key`
+			FROM
+				productproperties
+			INNER JOIN productcategoryusage ON productcategoryusage.product_id = productproperties.product_id
+			WHERE
+				productcategoryusage.productcategory_id = $_category_id
+		";
+		$result = \dash\db::get($query, 'key');
+		return $result;
+	}
+
 
 
 	public static function check_duplicate($_cat, $_key, $_value, $_product_id)

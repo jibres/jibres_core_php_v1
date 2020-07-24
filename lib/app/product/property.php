@@ -4,6 +4,36 @@ namespace lib\app\product;
 
 class property
 {
+	public static function property_cat_name($_category_id, $_saved_category = [])
+	{
+		if(!is_array($_saved_category))
+		{
+			$_saved_category = [];
+		}
+
+		$old  = array_column($_saved_category, 'group');
+		$list = \lib\db\productproperties\get::all_cat_name();
+		$list = array_diff($list, $old);
+
+		return $list;
+	}
+
+
+	public static function property_key_name($_category_id, $_saved_category = [])
+	{
+		if(!is_array($_saved_category))
+		{
+			$_saved_category = [];
+		}
+
+		$old  = array_column($_saved_category, 'key');
+		$list = \lib\db\productproperties\get::all_key_name();
+		$list = array_diff($list, $old);
+
+		return $list;
+	}
+
+
 	public static function all_cat_name()
 	{
 		$list = \lib\db\productproperties\get::all_cat_name();
