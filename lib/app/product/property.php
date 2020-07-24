@@ -303,10 +303,6 @@ class property
 		}
 
 
-
-
-
-
 		foreach ($saved_property as $key => $value)
 		{
 			if(!isset($value['cat']) || !isset($value['key']) || !isset($value['value']))
@@ -323,7 +319,7 @@ class property
 
 		}
 
-		if($cat_list)
+		if($cat_list && $_admin)
 		{
 			$check_duplicate_result = [];
 			foreach ($result as $key => $value)
