@@ -86,7 +86,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
 
 
 
-<div class="tblBox">
+<div class="tblBox hide">
   <table class="tbl1 v1 fs12">
     <thead>
       <tr class="fs08">
