@@ -77,15 +77,14 @@
                 <?php }else{ ?>
                   <i class="sf-times-circle fc-red mRa10 fs14"></i><?php echo T_("Factor is not payed") ?>
                   <p><?php echo T_("If you get the amount of this factor Set order as paid by click below link") ?></p>
-                  <div class="link btn" data-confirm data-data='{"paid": "paid"}' ><?php echo T_("Amount received") ?></div>
+                  <div class="link btn" data-confirm data-data='{"setaction": "pay_successfull"}' ><?php echo T_("Amount received") ?></div>
                 <?php } //endif ?>
               </td>
             </tr>
-            <tr>
+            <tr class="disabled">
               <td><?php echo T_("Remove order") ?></td>
               <td>
-                <p><?php echo T_("If you think this order is spam") ?></p>
-                <div data-confirm data-data='{"removeorder": "removeorder"}' class="linkDel"><?php echo T_("Remove now"); ?></div>
+                <div data-confirm data-data='{"removeorder": "removeorder"}' class=""><i class="sf-trash fc-red fs12"></i></div>
               </td>
             </tr>
 
@@ -117,19 +116,19 @@
             <tr class="active">
               <td><?php echo T_("Ready to send to customer?") ?></td>
               <td>
-                <div data-confirm data-data='{"setasready": "setasready"}' class="link"><?php echo T_("Set as ready"); ?></div>
+                <div data-confirm data-data='{"setaction": "pending_send"}' class="link"><?php echo T_("Set as pending send"); ?></div>
               </td>
             </tr>
             <tr class="positive">
               <td><?php echo T_("Set Deliver to customer") ?></td>
               <td>
-                <div data-confirm data-data='{"setdeliver": "setdeliver"}' class="link"><?php echo T_("Set as deliver"); ?></div>
+                <div data-confirm data-data='{"setaction": "deliver"}' class="link"><?php echo T_("Set as deliver"); ?></div>
               </td>
             </tr>
-            <tr class="disable">
-              <td><?php echo T_("Cancel order") ?></td>
+            <tr class="disabled">
+              <td><?php echo T_("Reject Order?") ?></td>
               <td>
-                <div data-confirm data-data='{"setascancel": "setascancel"}' class="link"><?php echo T_("Cancel"); ?></div>
+                <div data-confirm data-data='{"setaction": "reject"}' class="link"><?php echo T_("Set as reject"); ?></div>
               </td>
             </tr>
 

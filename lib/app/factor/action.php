@@ -87,7 +87,7 @@ class action
 			'file'       => 'desc',
 		];
 
-		$require = [];
+		$require = ['action'];
 
 		$meta =	[];
 
