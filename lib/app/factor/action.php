@@ -48,6 +48,30 @@ class action
 					break;
 
 
+				case 'action':
+					$result[$key] = $value;
+					switch ($value)
+					{
+						case 'enable': 				$t_status = T_("Enable");				break;
+						case 'disable': 			$t_status = T_("Disable");				break;
+						case 'draft': 				$t_status = T_("Draft");				break;
+						case 'order': 				$t_status = T_("Order");				break;
+						case 'expire': 				$t_status = T_("Expire");				break;
+						case 'cancel': 				$t_status = T_("Cancel");				break;
+						case 'pending_pay': 		$t_status = T_("Pending pay");			break;
+						case 'pending_verify': 		$t_status = T_("Pending verify");		break;
+						case 'pending_prepare': 	$t_status = T_("Pending prepare");		break;
+						case 'pending_send': 		$t_status = T_("Pending send");			break;
+						case 'sending': 			$t_status = T_("Sending");				break;
+						case 'deliver': 			$t_status = T_("Deliver");				break;
+						case 'reject': 				$t_status = T_("Reject");				break;
+						case 'spam': 				$t_status = T_("Spam");					break;
+						case 'deleted': 			$t_status = T_("Deleted");				break;
+						default:					$t_status = T_("Unknown");				break;
+					}
+					$result['t_action'] = $t_status;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

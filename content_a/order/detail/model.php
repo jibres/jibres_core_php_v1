@@ -59,13 +59,17 @@ class model
 					break;
 
 				default:
-					$post['action'] = \dash\request::post('orderaction');
-					$post['desc']   = \dash\request::post('desc');
-					if(\dash\request::files('file'))
-					{
-						$post['file']   = \dash\upload\factor::factor_action(\lib\app\factor\get::fix_id(\dash\request::get('id')));
-					}
+
 					break;
+			}
+		}
+		else
+		{
+			$post['action'] = \dash\request::post('orderaction');
+			$post['desc']   = \dash\request::post('desc');
+			if(\dash\request::files('file'))
+			{
+				$post['file']   = \dash\upload\factor::factor_action(\lib\app\factor\get::fix_id(\dash\request::get('id')));
 			}
 		}
 
