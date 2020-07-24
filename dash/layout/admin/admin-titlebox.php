@@ -52,9 +52,10 @@ if(\dash\face::boxTitle() !== false)
   echo '<button class="btn master save" form="';
   echo \dash\face::btnSave();
   echo '"';
+  echo " name='submitall'";
   if(\dash\face::btnSaveValue())
   {
-    echo "name='submitall' value='". \dash\face::btnSaveValue(). "'";
+    echo " value='". \dash\face::btnSaveValue(). "'";
   }
   echo '>';
   if(\dash\face::btnSaveText())
