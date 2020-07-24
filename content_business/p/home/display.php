@@ -231,7 +231,13 @@ if(count($myGallery) > 1)
           <?php if(\dash\get::index($value, 'link')) {?>
             <a href="<?php echo \dash\get::index($value, 'link') ?>"><?php echo $value['value']; ?></a>
           <?php }else{ ?>
-          <?php echo $value['value']; ?>
+            <?php if(\dash\get::index($value, 'bold')) {?>
+              <div class="txtB">
+            <?php } //endif ?>
+              <?php echo $value['value']; ?>
+            <?php if(\dash\get::index($value, 'bold')) {?>
+              </div>
+            <?php } //endif ?>
           <?php } //endif ?>
         </td>
       </tr>

@@ -150,7 +150,7 @@ class property
 
 		if(\dash\get::index($load, 'finalprice'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'finalprice')). ' '. $store_currency]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'finalprice')). ' '. $store_currency, 'bold' => true]);
 		}
 
 
