@@ -82,6 +82,22 @@ class load
 
 		$parent_thumb = null;
 
+		if(isset($detail['variant_child']) && $detail['variant_child'])
+		{
+			$variant_price = \lib\app\product\price::variant_price($_id);
+			if(isset($variant_price['min_price']) && isset($variant_price['max_price']))
+			{
+				$detail['variant_price'] = \dash\fit::number($variant_price['min_price']) . ' ... '. \dash\fit::number($variant_price['max_price']);
+				$detail['price']      = 0;
+				$detail['discount']   = 0;
+				$detail['finalprice'] = 0;
+			}
+			else
+			{
+				$detail['variant_price'] = null;
+			}
+		}
+
 
 		$load_child = [];
 		if(isset($detail['variant_child']) && $detail['variant_child'])
@@ -116,6 +132,8 @@ class load
 				$detail['child'][] = \lib\app\product\ready::row($value, ['load_gallery' => true, 'parent_thumb' => $parent_thumb]);
 			}
 		}
+
+
 
 		// sed dataRow to load detail in html
 		\dash\data::productDataRow($detail);

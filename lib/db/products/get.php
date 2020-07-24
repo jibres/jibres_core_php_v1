@@ -19,6 +19,15 @@ class get
 		}
 	}
 
+
+
+	public static function variant_min_max_price($_id)
+	{
+		$query  = "SELECT MIN(products.finalprice) AS `min_price`, MAX(products.finalprice) AS `max_price` FROM products WHERE products.status != 'deleted' AND products.parent = $_id ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function check_duplicate_title($_title, $_id)
 	{
 		$query  = "SELECT * FROM products WHERE products.status != 'deleted' AND products.title = '$_title' AND products.id != $_id LIMIT 1";
