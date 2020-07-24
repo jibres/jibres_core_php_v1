@@ -59,6 +59,33 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
 }
 ?>
 
+
+<nav class="items">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
+        <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+        <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+
+            <?php if(isset($value['variants_detail']['stock'])) {?>
+              <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
+            <?php } //endif ?>
+
+            <?php if(isset($value['variants_detail']['count'])) {?>
+              <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
+            <?php } //endif ?>
+
+        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'price_string')); ?></div>
+        <div class="go"></div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
+
+
+
 <div class="tblBox">
   <table class="tbl1 v1 fs12">
     <thead>
