@@ -135,15 +135,24 @@ class property
 			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load_parent, 'title2')]);
 		}
 
+		if(\dash\get::index($load, 'price') && \dash\get::index($load, 'discount'))
+		{
+			if(\dash\get::index($load, 'price'))
+			{
+				array_push($result[T_("General property")]['list'], ['key' => T_("List Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'price')). ' '. $store_currency]);
+			}
+
+			if(\dash\get::index($load, 'discount'))
+			{
+				array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(\dash\get::index($load, 'discount')). ' '. $store_currency]);
+			}
+		}
+
 		if(\dash\get::index($load, 'finalprice'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'finalprice')). ' '. $store_currency]);
 		}
 
-		if(\dash\get::index($load, 'discount'))
-		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(\dash\get::index($load, 'discount')). ' '. $store_currency]);
-		}
 
 		if(\dash\get::index($load, 'optionvalue1') && \dash\get::index($load, 'optionname1'))
 		{
