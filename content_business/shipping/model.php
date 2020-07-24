@@ -14,7 +14,7 @@ class model
 
 			$address_id = \dash\request::post('address_id');
 
-			if(!\dash\validate::code($address_id, false) && $address_id == 'new_address')
+			if(!\dash\validate::code($address_id, false) || $address_id == 'new_address')
 			{
 				$address_id = null;
 				$post['title']    = \dash\request::post('title');
