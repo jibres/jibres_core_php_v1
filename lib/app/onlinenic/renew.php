@@ -294,26 +294,24 @@ class renew
 
 		\lib\app\domains\detect::domain('renew', $domain);
 
-		if($data['minus_transaction'])
+
+		$insert_transaction =
+		[
+			'user_id' => $user_id,
+			'title'   => T_("Renew domian :val", ['val' => $domain]),
+			'verify'  => 1,
+			'minus'   => floatval($data['minus_transaction']),
+			'type'    => 'money',
+		];
+
+		$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+		if(!$transaction_id)
 		{
-
-			$insert_transaction =
-			[
-				'user_id' => $user_id,
-				'title'   => T_("Renew domian :val", ['val' => $domain]),
-				'verify'  => 1,
-				'minus'   => floatval($data['minus_transaction']),
-				'type'    => 'money',
-			];
-
-			$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-			if(!$transaction_id)
-			{
-				\dash\log::oops('transaction_db');
-				return false;
-			}
+			\dash\log::oops('transaction_db');
+			return false;
 		}
+
 
 
 		if($data['gift'])
