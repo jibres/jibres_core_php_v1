@@ -52,6 +52,18 @@ class view
 			}
 		}
 
+		if(\dash\data::dataRow_child() && is_array(\dash\data::dataRow_child()) && count(\dash\data::dataRow_child()) === 1)
+		{
+			$child = \dash\data::dataRow_child();
+			if(isset($child[0]))
+			{
+				$child = $child[0];
+				if(isset($child['id']) && \dash\data::dataRow_id() != $child['id'])
+				{
+					\dash\redirect::to($child['url']);
+				}
+			}
+		}
 		// pwa header
 		// \dash\data::menu_link(true);
 		\dash\data::cart_link(\dash\fit::number(\lib\website::cart_count()));

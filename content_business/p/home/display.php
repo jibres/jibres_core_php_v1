@@ -84,7 +84,8 @@ if(count($myGallery) > 1)
                <?php /* --------------- vARIANT CHILD --------------- */
             $child = \dash\data::dataRow_child();
             if($child && is_array($child)){}else{$child = [];}
-            if($child)
+            $count_child = 0;foreach ($child as $key => $value) {if(\dash\get::index($value, 'parent')) {$count_child++;}}
+            if($child && $count_child > 1)
             {
                 echo '<div>';
                  echo '<select class="select22 " data-link>';
