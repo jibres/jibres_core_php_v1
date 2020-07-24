@@ -42,8 +42,8 @@ class model
 		{
 			switch (\dash\request::post('setaction'))
 			{
-				case 'pending_send':
-					$post['action'] = 'pending_send';
+				case 'sending':
+					$post['action'] = 'sending';
 					break;
 
 				case 'deliver':

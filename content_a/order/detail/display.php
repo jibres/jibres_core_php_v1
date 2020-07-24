@@ -114,21 +114,21 @@
         <table class="tbl1 v4">
           <tbody>
             <tr class="active">
-              <td><?php echo T_("Ready to send to customer?") ?></td>
+              <td><?php echo T_("Has the order been sent?") ?></td>
               <td>
-                <div data-confirm data-data='{"setaction": "pending_send"}' class="link"><?php echo T_("Set as pending send"); ?></div>
+                <div data-confirm data-data='{"setaction": "sending"}' class="link"><?php echo T_("Set as sent"); ?></div>
               </td>
             </tr>
             <tr class="positive">
               <td><?php echo T_("Set Deliver to customer") ?></td>
               <td>
-                <div data-confirm data-data='{"setaction": "deliver"}' class="link"><?php echo T_("Set as deliver"); ?></div>
+                <div data-confirm data-data='{"setaction": "deliver"}' class="link"><?php echo T_("Set as delivered"); ?></div>
               </td>
             </tr>
             <tr class="disabled">
               <td><?php echo T_("Reject Order?") ?></td>
               <td>
-                <div data-confirm data-data='{"setaction": "reject"}' class="link"><?php echo T_("Set as reject"); ?></div>
+                <div data-confirm data-data='{"setaction": "reject"}' class="link"><?php echo T_("Set as rejected"); ?></div>
               </td>
             </tr>
 

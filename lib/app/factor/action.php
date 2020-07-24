@@ -156,9 +156,18 @@ class action
 				\lib\db\factors\update::record(['type' => 'saleorder', 'status' => 'cancel', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
 				break;
 
+			case 'sending':
+				$load_factor = \lib\app\factor\get::inline_get((string) $factor_id);
+				if(isset($load_factor['customer']))
+				{
+					\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
+				}
+
+				\lib\app\factor\edit::status($data['action'], $factor_id);
+				break;
+
 			case 'expire':
 			case 'order':
-			case 'sending':
 			case 'pending_pay':
 			case 'pending_verify':
 			case 'pending_prepare':

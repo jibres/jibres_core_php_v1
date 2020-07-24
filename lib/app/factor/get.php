@@ -94,6 +94,34 @@ class get
 	}
 
 
+	public static function inline_get($_id)
+	{
+		$_id = \dash\validate::string_50($_id);
+		if(!$_id)
+		{
+			\dash\notif::error(T_("Factor id not set"));
+			return false;
+		}
+
+		$_id = self::fix_id($_id);
+
+		if(!\dash\validate::id($_id))
+		{
+			\dash\notif::error(T_("Invalid factor id"));
+			return false;
+		}
+
+		$result = \lib\db\factors\get::by_id($_id);
+
+		if(!$result)
+		{
+			\dash\notif::error(T_("Factor not found"));
+			return false;
+		}
+
+		return $result;
+	}
+
 	/**
 	 * Gets the factor.
 	 *
