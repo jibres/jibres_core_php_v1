@@ -106,21 +106,44 @@ class gallery
 
 		$product_gallery_field    = $load_gallery['gallery'];
 		$product_id = $load_gallery['id'];
+
 		if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
 		{
+			$thumb_path = null;
+
 			foreach ($product_gallery_field['files'] as $key => $one_file)
 			{
 				if(isset($one_file['id']) && floatval($one_file['id']) === floatval($file_id) && isset($one_file['path']))
 				{
 					$product_gallery_field['thumbid'] = $one_file['id'];
-					$product_gallery_field            = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
-
-					\lib\db\products\update::gallery($product_gallery_field, $product_id);
-					\lib\db\products\update::thumb($one_file['path'], $product_id);
-
-					return true;
+					$thumb_path                       = $one_file['path'];
 				}
 			}
+
+			$new_gallery_field = [];
+			foreach ($product_gallery_field['files'] as $key => $value)
+			{
+				if(isset($value['id']) && $value['id'] == $product_gallery_field['thumbid'])
+				{
+					$new_gallery_field[] = $value;
+				}
+			}
+
+			foreach ($product_gallery_field['files'] as $key => $value)
+			{
+				if(isset($value['id']) && $value['id'] != $product_gallery_field['thumbid'])
+				{
+					$new_gallery_field[] = $value;
+				}
+			}
+
+			$product_gallery_field['files'] = $new_gallery_field;
+			$product_gallery_field          = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
+
+			\lib\db\products\update::gallery($product_gallery_field, $product_id);
+			\lib\db\products\update::thumb($thumb_path, $product_id);
+
+			return true;
 		}
 
 		\dash\notif::error(T_("Invalid gallery id"));
@@ -264,11 +287,22 @@ class gallery
 		if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
 		{
 			$product_gallery_field['files'] = array_values($product_gallery_field['files']);
+			if(empty($product_gallery_field['files']))
+			{
+				$product_gallery_field = null;
+			}
 		}
 
-		$product_gallery_field = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
+		if($product_gallery_field)
+		{
+			$product_gallery_field = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
 
-		\lib\db\products\update::gallery($product_gallery_field, $product_id);
+			\lib\db\products\update::gallery($product_gallery_field, $product_id);
+		}
+		else
+		{
+			\lib\db\products\update::gallery_set_null($product_id);
+		}
 
 		return true;
 

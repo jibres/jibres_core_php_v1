@@ -111,6 +111,13 @@ class update
 		return $result;
 	}
 
+	public static function gallery_set_null($_id)
+	{
+		$query  = "UPDATE products SET products.gallery = NULL WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 
 
 	public static function status($_status, $_id)

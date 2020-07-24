@@ -112,28 +112,16 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
         <?php if(\dash\data::productDataRow_gallery_array()) {?>
           <div class="previewList">
             <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
-
-              <?php if(isset($value['path']) && $value['path'] == \dash\data::productDataRow_thumb()) {?>
-
                 <div class="fileItem">
                   <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
                   <div>
                     <a class="imageDel" data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></a>
+                    <?php if($key === 0) {?>
+                    <?php }else{ ?>
+                      <a class='setFeatureImg' data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></a>
+                    <?php }// endid ?>
                   </div>
                 </div>
-              <?php } //endif ?>
-            <?php } //endfor ?>
-            <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
-              <?php if(isset($value['path']) && $value['path'] != \dash\data::productDataRow_thumb()) {?>
-                <div class="fileItem">
-                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
-                  <div>
-                    <a class="imageDel" data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></a>
-                    <a class='setFeatureImg' data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></a>
-                  </div>
-                </div>
-              <?php } //endif ?>
-
             <?php } //endfor ?>
           </div>
         <?php } //endif ?>
