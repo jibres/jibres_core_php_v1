@@ -241,6 +241,83 @@ class ready
 
 		$result['category_list'] = [];
 
+		self::allow_shop($result);
+
+		self::cart_limit($result);
+
+
+
+
+
+		return $result;
+	}
+
+
+	private static function cart_limit(&$result)
+	{
+		$max_cart_limit = 100;
+		$minsale        = 1;
+		$maxsale        = $max_cart_limit;
+		$salestep       = 1;
+
+		$cart_setting = \lib\app\setting\get::cart_setting();
+		if(isset($cart_setting['maxproductincart']))
+		{
+			$max_cart_limit = floatval($cart_setting['maxproductincart']);
+		}
+
+		if(isset($result['minsale']))
+		{
+			$minsale = floatval($result['minsale']);
+		}
+
+		if(isset($result['maxsale']))
+		{
+			$maxsale = floatval($result['maxsale']);
+		}
+		else
+		{
+			$maxsale = $max_cart_limit;
+		}
+
+		if(isset($result['salestep']))
+		{
+			$salestep = floatval($result['salestep']);
+		}
+
+		if(isset($result['stock']) && $result['stock'] && isset($result['trackquantity']) && $result['trackquantity'])
+		{
+			$maxsale = floatval($result['stock']);
+		}
+
+		$result['cart_limit']                   = [];
+		$result['cart_limit']['min_sale']       = $minsale;
+		$result['cart_limit']['max_sale']       = $maxsale;
+		$result['cart_limit']['sale_step_list'] = [];
+		if($maxsale <= 100)
+		{
+			for ($i = $minsale; $i <= $maxsale ; $i = $i + $salestep)
+			{
+				$result['cart_limit']['sale_step_list'][] = $i;
+			}
+		}
+		else
+		{
+			$result['cart_limit']['sale_step_input'] = true;
+		}
+
+
+		// var_dump($cart_setting);
+		// var_dump($result);exit();
+	}
+
+	/**
+	 * Check allow shop product
+	 *
+	 * @param      <type>  $result  The result
+	 */
+	private static function allow_shop(&$result)
+	{
 		$allow_shop = false;
 		$shop_message = T_("Product is not available for shop");
 
@@ -315,8 +392,6 @@ class ready
 
 		$result['allow_shop'] = $allow_shop;
 		$result['shop_message'] = $shop_message;
-
-		return $result;
 	}
 
 

@@ -129,21 +129,23 @@ if(count($myGallery) > 1)
 
                     <input type="hidden" name="product_id" value="<?php echo \dash\data::dataRow_id() ?>">
                     <div class="productQty">
+                        <?php if(\dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_list')) {?>
                       <select class="select22" name="count" data-model="productItem">
-                        <?php if(\dash\data::productInCart()) {?>
+                        <?php if(\dash\data::productInCart()) { ?>
+                          <?php if(!in_array(\dash\data::productInCartCount(), \dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_list'))) {?>
+                            <option value="<?php echo \dash\data::productInCartCount() ?>" selected><?php echo \dash\fit::number(\dash\data::productInCartCount()); ?></option>
+                          <?php } //endif ?>
                           <option value="0" <?php if(\dash\data::productInCartCount() == '0') {echo 'selected';} ?>><?php echo T_("Remove"); ?></option>
                         <?php } //endif ?>
-                        <option value="1" <?php if(\dash\data::productInCartCount() == '1') {echo 'selected';} ?>><?php echo \dash\fit::number(1); ?></option>
-                        <option value="2" <?php if(\dash\data::productInCartCount() == '2') {echo 'selected';} ?>><?php echo \dash\fit::number(2); ?></option>
-                        <option value="3" <?php if(\dash\data::productInCartCount() == '3') {echo 'selected';} ?>><?php echo \dash\fit::number(3); ?></option>
-                        <option value="4" <?php if(\dash\data::productInCartCount() == '4') {echo 'selected';} ?>><?php echo \dash\fit::number(4); ?></option>
-                        <option value="5" <?php if(\dash\data::productInCartCount() == '5') {echo 'selected';} ?>><?php echo \dash\fit::number(5); ?></option>
-                        <option value="6" <?php if(\dash\data::productInCartCount() == '6') {echo 'selected';} ?>><?php echo \dash\fit::number(6); ?></option>
-                        <option value="7" <?php if(\dash\data::productInCartCount() == '7') {echo 'selected';} ?>><?php echo \dash\fit::number(7); ?></option>
-                        <option value="8" <?php if(\dash\data::productInCartCount() == '8') {echo 'selected';} ?>><?php echo \dash\fit::number(8); ?></option>
-                        <option value="9" <?php if(\dash\data::productInCartCount() == '9') {echo 'selected';} ?>><?php echo \dash\fit::number(9); ?></option>
-                        <option value="10" <?php if(\dash\data::productInCartCount() == '10') {echo 'selected';} ?>><?php echo \dash\fit::number(10); ?></option>
+                          <?php foreach (\dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_list') as $item_count) {?>
+                            <option value="<?php echo $item_count ?>" <?php if(\dash\data::productInCartCount() == $item_count) {echo 'selected';} ?>><?php echo \dash\fit::number($item_count); ?></option>
+                        <?php } //endfor ?>
                       </select>
+                        <?php }elseif(\dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_input')){ ?>
+                          <div class="input">
+                            <input type="text" name="count" value="<?php echo \dash\data::productInCartCount() ?>" placeholder="<?php echo T_("Qty") ?>" minlength="0" maxlength="4" data-format='pirce'>
+                          </div>
+                        <?php } //endif ?>
                     </div>
 
                   <?php if(\dash\data::productInCart()) {?>
