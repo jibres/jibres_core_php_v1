@@ -50,7 +50,7 @@ if(\dash\url::store())
 <?php
 if(\dash\data::googleAnalytics())
 {
-  // if(!\dash\url::isLocal())
+  if(!\dash\url::isLocal())
   {
     // disable on local
     $gAnalytics = \dash\data::googleAnalytics();
