@@ -72,15 +72,13 @@ class load
 	public static function site($_id)
 	{
 		// load detail
-		$detail = \lib\app\product\get::get($_id, ['load_gallery' => true]);
+		$detail = \lib\app\product\get::site($_id, ['load_gallery' => true]);
 		if(!$detail)
 		{
 			// access denied or invalid id
 			return false;
 		}
 
-
-		$parent_thumb = null;
 
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
@@ -109,25 +107,11 @@ class load
 		$load_child = [];
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
-			if(isset($detail['thumb']))
-			{
-				$parent_thumb = $detail['thumb'];
-			}
 			$load_child = \lib\db\products\get::variants_load_child($_id);
 		}
 		elseif(isset($detail['parent']) && $detail['parent'])
 		{
 			$load_child = \lib\db\products\get::variants_load_family($_id, $detail['parent']);
-			$load_parent = \lib\app\product\get::get($detail['parent']);
-			if(isset($load_parent['thumb']))
-			{
-				$parent_thumb = $load_parent['thumb'];
-			}
-			if($parent_thumb && !\dash\get::index($detail['thumb']))
-			{
-				$detail['thumb'] = $parent_thumb;
-			}
-
 		}
 
 		if($load_child && is_array($load_child))
@@ -136,7 +120,7 @@ class load
 
 			foreach ($load_child as $key => $value)
 			{
-				$detail['child'][] = \lib\app\product\ready::row($value, ['load_gallery' => true, 'parent_thumb' => $parent_thumb]);
+				$detail['child'][] = \lib\app\product\ready::row($value, ['load_gallery' => true]);
 			}
 		}
 

@@ -168,6 +168,27 @@ class get
 
 
 
+
+	public static function by_id_for_site($_id)
+	{
+		$query  =
+		"
+			SELECT
+				products.*,
+				(IF(products.thumb IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.thumb FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.thumb)) AS `thumb`,
+				(IF(products.gallery IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.gallery FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.gallery)) AS `gallery`,
+				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
+  			FROM
+				products
+			WHERE
+				products.id = $_id
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function by_id($_id)
 	{
 		$query  =

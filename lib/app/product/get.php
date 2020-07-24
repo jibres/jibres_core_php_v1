@@ -77,6 +77,44 @@ class get
 	}
 
 
+	public static function site($_id, $_options = [])
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
+		{
+			\dash\notif::error(T_("Product id not set"));
+			return false;
+		}
+
+		if(isset(self::$product_detail[$_id]))
+		{
+			$result = self::$product_detail[$_id];
+		}
+		else
+		{
+			$result = \lib\db\products\get::by_id_for_site($_id);
+
+			if(!$result)
+			{
+				\dash\notif::error(T_("Product detail not found"));
+				return false;
+			}
+
+			$result = \lib\app\product\ready::row($result, $_options);
+
+			self::$product_detail[$_id] = $result;
+		}
+
+		return $result;
+	}
+
+
 	/**
 	 * Get some prodcut
 	 *
