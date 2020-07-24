@@ -197,7 +197,7 @@ class check
 
 		if($data['finalprice'] < 0)
 		{
-			\dash\notif::error(T_("Final price is out of range"), ['element' => ['discount', 'price']]);
+			\dash\notif::error(T_("Final price is out of range and less than zero!"), ['element' => ['discount', 'price']]);
 			return false;
 		}
 
