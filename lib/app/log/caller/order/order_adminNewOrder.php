@@ -73,7 +73,8 @@ class order_adminNewOrder
 			'text'   => $title,
 			'meta'   =>
 			[
-				'footer' => false
+				'header' => false,
+				'footer' => false,
 			]
 		];
 
