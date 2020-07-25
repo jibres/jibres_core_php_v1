@@ -106,26 +106,26 @@ class search
 		}
 
 
-		if($data['sort'] && !$order_sort)
-		{
-			if(in_array($data['sort'], ['domain', 'tld']))
-			{
+		// if($data['sort'] && !$order_sort)
+		// {
+		// 	if(in_array($data['sort'], ['domain', 'tld']))
+		// 	{
 
-				$sort = mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = mb_strtolower($data['order']);
-				}
+		// 		$sort = mb_strtolower($data['sort']);
+		// 		$order = null;
+		// 		if($data['order'])
+		// 		{
+		// 			$order = mb_strtolower($data['order']);
+		// 		}
 
-				$order_sort = " ORDER BY $sort $order";
-			}
-		}
+		// 		$order_sort = " ORDER BY $sort $order";
+		// 	}
+		// }
 
-		if(!$order_sort)
-		{
-			$order_sort = " ORDER BY domains.id DESC";
-		}
+		// if(!$order_sort)
+		// {
+		// 	$order_sort = " ORDER BY domains.id DESC";
+		// }
 
 
 
