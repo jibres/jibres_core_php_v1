@@ -142,7 +142,7 @@ class model
 			return;
 		}
 
-		if(\dash\request::post('submitall') === 'makevariants')
+		if(\dash\request::post('submitall') === 'makevariants' || \dash\request::post('submitall') === 'makevariantsagain')
 		{
 			$request         = self::getPostVariant();
 

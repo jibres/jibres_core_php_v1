@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-25 11:37+0430\n"
-"PO-Revision-Date: 2020-07-25 11:40+0430\n"
+"POT-Creation-Date: 2020-07-25 12:07+0430\n"
+"PO-Revision-Date: 2020-07-25 12:08+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4422,7 +4422,7 @@ msgstr "جستجو در لیست برای افزودن کالا"
 #: content_a/irvat/add/display.php:133 content_a/products/add/view.php:19
 #: content_a/products/bullet/display.php:20 content_a/products/property/display.php:63
 #: content_a/products/tag/display.php:127
-#: content_a/products/variants/display-add-new-child.php:13
+#: content_a/products/variants/display-add-new-child.php:63
 #: content_a/setting/place/inventory/display.php:17 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
@@ -7170,6 +7170,11 @@ msgid ""
 msgstr ""
 "شما قبلا به این محصول تنوع اضافه کرده‌اید. اکنون می‌توانید یک نوع خاص به ویژگی‌‌های ثبت شده "
 "قبلی اضافه کنید"
+
+#: content_a/products/variants/display-add-new-child.php:12
+#: content_a/products/variants/display-add-new-child.php:37
+msgid "Property #:val"
+msgstr "ویژگی شماره :val"
 
 #: content_a/products/variants/display-add-product.php:8
 msgid "You have :val different models of this product"
