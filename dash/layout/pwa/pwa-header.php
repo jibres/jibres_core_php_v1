@@ -39,6 +39,17 @@ elseif(\dash\face::btnSave())
 }
 ?></div>
 <?php
+if(\dash\face::help())
+{
+  echo "<a class='square help' href='". \dash\face::help(). "'></a>";
+}
+
+if(\dash\face::btnSetting())
+{
+  echo "<a class='square setting' href='". \dash\face::btnSetting(). "'></a>";
+}
+?>
+<?php
 // add search btn
 if(\dash\data::search_link())
 {
