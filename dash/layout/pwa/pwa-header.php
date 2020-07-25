@@ -5,6 +5,38 @@ if(\dash\data::back_link())
 }
 ?>
 <div class="title"><?php echo \dash\face::titlePWA(); ?></div>
+<?php
+// add help btn
+if(\dash\face::help())
+{
+  echo "<a class='square help' href='". \dash\face::help(). "'></a>";
+}
+// add search btn
+if(\dash\data::search_link())
+{
+	echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
+}
+// add duplicate btn
+if(\dash\face::btnDuplicate())
+{
+  echo "<a class='square duplicate' href='". \dash\face::btnDuplicate(). "'></a>";
+}
+// add cart btn
+if(\dash\data::cart_link() !== null)
+{
+	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'></a>";
+}
+// add setting
+if(\dash\face::btnSetting())
+{
+  echo "<a class='square setting' href='". \dash\face::btnSetting(). "'></a>";
+}
+// add menu btn
+if(\dash\data::menu_link())
+{
+	echo "<div class='square menu'></div>";
+}
+?>
 <div class="action"><?php
 if(\dash\data::action_link() && \dash\data::action_text())
 {
@@ -38,32 +70,3 @@ elseif(\dash\face::btnSave())
   echo "</button>";
 }
 ?></div>
-<?php
-if(\dash\face::help())
-{
-  echo "<a class='square help' href='". \dash\face::help(). "'></a>";
-}
-
-if(\dash\face::btnSetting())
-{
-  echo "<a class='square setting' href='". \dash\face::btnSetting(). "'></a>";
-}
-?>
-<?php
-// add search btn
-if(\dash\data::search_link())
-{
-	echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
-}
-// add cart btn
-if(\dash\data::cart_link() !== null)
-{
-	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'></a>";
-}
-// add menu btn
-if(\dash\data::menu_link())
-{
-	echo "<div class='square menu'></div>";
-}
-
-?>
