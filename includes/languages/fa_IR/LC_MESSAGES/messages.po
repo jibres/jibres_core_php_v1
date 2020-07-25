@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-25 08:13+0430\n"
-"PO-Revision-Date: 2020-07-25 08:16+0430\n"
+"POT-Creation-Date: 2020-07-25 11:37+0430\n"
+"PO-Revision-Date: 2020-07-25 11:40+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1710,8 +1710,9 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_a/pricehistory/display.php:50 content_a/pricehistory/display.php:85
 #: content_a/products/home/display.php:95 content_a/products/home/display.php:147
 #: content_a/products/share/display.php:35 content_a/products/share/model.php:52
-#: content_a/products/variants/display.php:101 content_a/products/variants/display.php:139
-#: content_a/products/variants/display.php:145 content_a/sale/display.php:18
+#: content_a/products/variants/display-add-product.php:26
+#: content_a/products/variants/display-add-product.php:64
+#: content_a/products/variants/display-add-product.php:70 content_a/sale/display.php:18
 #: content_business/p/home/display.php:77 content_crm/transactions/add/display.php:67
 #: content_crm/transactions/minus/display.php:67
 #: content_love/domain/billing/display.php:92
@@ -3976,9 +3977,8 @@ msgstr "مایکت"
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
 #: content_a/products/desc/display.php:22 content_a/products/edit/display.php:9
 #: content_a/products/property/display.php:100 content_a/products/sharetext/display.php:22
-#: content_a/products/variants/display.php:159 content_a/setting/cart/limit/display.php:25
-#: content_a/setting/cart/text/display.php:37 content_a/setting/domain/display.php:70
-#: content_a/setting/general/title/display.php:20
+#: content_a/setting/cart/limit/display.php:25 content_a/setting/cart/text/display.php:37
+#: content_a/setting/domain/display.php:70 content_a/setting/general/title/display.php:20
 #: content_a/setting/googleanalytics/display.php:19
 #: content_a/setting/order/validity/display.php:36
 #: content_a/setting/payment/bank/display.php:18
@@ -4421,8 +4421,10 @@ msgstr "جستجو در لیست برای افزودن کالا"
 #: content_a/category/property/display.php:47 content_a/company/display.php:73
 #: content_a/irvat/add/display.php:133 content_a/products/add/view.php:19
 #: content_a/products/bullet/display.php:20 content_a/products/property/display.php:63
-#: content_a/products/tag/display.php:127 content_a/setting/place/inventory/display.php:17
-#: content_a/units/display.php:84 content_a/website/imageblock/add/display.php:51
+#: content_a/products/tag/display.php:127
+#: content_a/products/variants/display-add-new-child.php:13
+#: content_a/setting/place/inventory/display.php:17 content_a/units/display.php:84
+#: content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/slider/add/display.php:51
@@ -5313,7 +5315,7 @@ msgstr "آیتم‌ها"
 #: content_a/order/add/display.php:60 content_a/order/detail/display.php:31
 #: content_a/order/home/display.php:135 content_a/pricehistory/display.php:51
 #: content_a/products/edit/display.php:57 content_a/products/home/display.php:148
-#: content_a/products/variants/display.php:102 content_a/sale/display.php:19
+#: content_a/products/variants/display-add-product.php:27 content_a/sale/display.php:19
 #: content_business/cart/cartSummary.php:11 content_love/domain/billing/display.php:93
 #: content_love/domain/setting/action/display.php:48
 #: content_love/gift/usage/display.php:61 content_my/domain/payments/display.php:12
@@ -6641,7 +6643,8 @@ msgstr "بدون برند"
 msgid "Weight"
 msgstr "وزن"
 
-#: content_a/products/edit/display.php:381 content_a/products/variants/display.php:81
+#: content_a/products/edit/display.php:381
+#: content_a/products/variants/display-add-variants.php:73
 msgid "Make product variants"
 msgstr "ثبت تنوع محصول"
 
@@ -6804,8 +6807,7 @@ msgstr "از"
 msgid "variants"
 msgstr "تنوع محصول"
 
-#: content_a/products/home/display.php:96 content_a/products/variants/display.php:12
-#: content_a/products/variants/view.php:18
+#: content_a/products/home/display.php:96 content_a/products/variants/view.php:18
 msgid "Variants"
 msgstr "تنوع محصول"
 
@@ -7161,54 +7163,84 @@ msgstr "کلیدواژه‌ها"
 msgid "The variants of your business is locked!"
 msgstr "تنوع محصول در بیزینس شما قفل شده است!"
 
-#: content_a/products/variants/display.php:20
-msgid "You can differentiate your product in terms of three features"
-msgstr "شما می توانید محصول خود را از نظر سه ویژگی متمایز کنید"
+#: content_a/products/variants/display-add-new-child.php:6
+msgid ""
+"You have already added variants to this product. You can now add a specific type to one "
+"of the added variants types"
+msgstr ""
+"شما قبلا به این محصول تنوع اضافه کرده‌اید. اکنون می‌توانید یک نوع خاص به ویژگی‌‌های ثبت شده "
+"قبلی اضافه کنید"
 
-#: content_a/products/variants/display.php:25
-msgid "Color"
-msgstr "رنگ"
+#: content_a/products/variants/display-add-product.php:8
+msgid "You have :val different models of this product"
+msgstr "شما :val مدل مختلف از این محصول ایجاد کرده‌اید"
 
-#: content_a/products/variants/display.php:44 content_cms/attachment/home/display.php:81
-#: content_su/log/display.php:26 content_su/log/display.php:56
-#: content_su/log/display.php:87 content_su/log/display.php:118
-#: includes/languages/trans_static_public.php:196
-msgid "Size"
-msgstr "اندازه"
-
-#: content_a/products/variants/display.php:63
-msgid "Material"
-msgstr "جنس"
-
-#: content_a/products/variants/display.php:96
-msgid "Avalible?"
-msgstr "آیا موجود است؟"
-
-#: content_a/products/variants/display.php:100 content_a/products/variants/display.php:132
-msgid "Stock"
-msgstr "موجودی انبار"
-
-#: content_a/products/variants/display.php:156
+#: content_a/products/variants/display-add-product.php:10
 msgid "Only product by check the need box can add to your product list!"
 msgstr ""
 "تنها محصولاتی که به عنوان مورد نیاز علامت گذاری شده‌اند به لیست محصولات اضافه خواهند شد!"
 
-#: content_a/products/variants/display.php:170
-msgid "This product have some child and can not make variant"
-msgstr "این محصول دارای زیرمجموعه است و نمی‌توانید نوع خاصی را به آن اضافه کنید"
+#: content_a/products/variants/display-add-product.php:21
+msgid "Avalible?"
+msgstr "آیا موجود است؟"
 
-#: content_a/products/variants/display.php:176
-msgid "This is child of another product"
-msgstr "این محصول خود زیرمجموعه محصول دیگری است"
+#: content_a/products/variants/display-add-product.php:25
+#: content_a/products/variants/display-add-product.php:57
+msgid "Stock"
+msgstr "موجودی انبار"
 
-#: content_a/products/variants/display.php:182 lib/app/product/variants.php:117
+#: content_a/products/variants/display-add-product.php:87
+msgid "Change variants model"
+msgstr "تغییر انواع تنوع"
+
+#: content_a/products/variants/display-add-product.php:89
+msgid "Add variants products"
+msgstr "افزودن تنوع محصول"
+
+#: content_a/products/variants/display-add-variants.php:6
+msgid "You can differentiate your product in terms of three features"
+msgstr "شما می توانید محصول خود را از نظر سه ویژگی متمایز کنید"
+
+#: content_a/products/variants/display-add-variants.php:10
+msgid "Property #1"
+msgstr "ویژگی شماره ۱"
+
+#: content_a/products/variants/display-add-variants.php:10
+msgid "For example: Color"
+msgstr "برای مثال:‌ رنگ"
+
+#: content_a/products/variants/display-add-variants.php:31
+msgid "Property #2"
+msgstr "ویژگی شماره ۲"
+
+#: content_a/products/variants/display-add-variants.php:31
+msgid "For example: Size"
+msgstr "برای مثال: اندازه"
+
+#: content_a/products/variants/display-add-variants.php:52
+msgid "Property #3"
+msgstr "ویژگی شماره ۳"
+
+#: content_a/products/variants/display-add-variants.php:52
+msgid "For example: Material"
+msgstr "برای مثال: جنس"
+
+#: content_a/products/variants/display-firstsale.php:5 lib/app/product/variants.php:117
 msgid "Can not set variants after sale, buy or any factor type of this products"
 msgstr ""
 "زمانی که از محصول حتی یک مورد به فروش می‌رسد دیگر امکان ثبت تنوع برای آن وجود ندارد"
 
-#: content_a/products/variants/display.php:184
+#: content_a/products/variants/display-firstsale.php:9
 msgid "Show list of order contain this product"
 msgstr "نمایش لیست سفارشاتی که این محصول در آن‌ها وجود دارد"
+
+#: content_a/products/variants/display.php:29
+msgid "This is child of another product"
+msgstr "این محصول خود زیرمجموعه محصول دیگری است"
+
+#: content_a/products/variants/display.php:33
+msgid "Can not add variants to this product!"
+msgstr "نمی‌توانیم هیچ مدل متنوعی را به این محصول اضافه کنیم"
 
 #: content_a/products/variants/model.php:132
 msgid "Please specify the required products"
@@ -10698,6 +10730,12 @@ msgstr "بازگشت به لیست فایل‌ها"
 #: content_cms/attachment/home/display.php:79
 msgid "File Name"
 msgstr "نام فایل"
+
+#: content_cms/attachment/home/display.php:81 content_su/log/display.php:26
+#: content_su/log/display.php:56 content_su/log/display.php:87
+#: content_su/log/display.php:118 includes/languages/trans_static_public.php:196
+msgid "Size"
+msgstr "اندازه"
 
 #: content_cms/attachment/home/display.php:144 content_cms/posts/home/display.php:157
 #: content_crm/log/home/logTable.php:138
@@ -29369,6 +29407,15 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Color"
+#~ msgstr "رنگ"
+
+#~ msgid "Material"
+#~ msgstr "جنس"
+
+#~ msgid "This product have some child and can not make variant"
+#~ msgstr "این محصول دارای زیرمجموعه است و نمی‌توانید نوع خاصی را به آن اضافه کنید"
+
 #~ msgid "When add new product"
 #~ msgstr "زمانی که محصول جدیدی اضافه می‌کنید"
 
@@ -29990,9 +30037,6 @@ msgstr "یارد"
 
 #~ msgid "Query Params"
 #~ msgstr "پارامترهای کوئری"
-
-#~ msgid "For example"
-#~ msgstr "برای مثال"
 
 #~ msgid "Load domain available"
 #~ msgstr "بررسی موجود بودن دامنه"
