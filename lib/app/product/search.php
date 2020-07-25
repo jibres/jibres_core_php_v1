@@ -46,6 +46,8 @@ class search
 			'wdiscount'      => 'bit',
 			'instock'        => 'bit',
 			'outofstock'     => 'bit',
+			'negativeinventory'     => 'bit',
+
 
 			'withoutimage'   => 'bit',
 			'havevariants'   => 'bit',
@@ -164,14 +166,21 @@ class search
 		if(isset($data['instock']) && $data['instock'])
 		{
 			$and[] = "products.instock  = 1";
-			self::$filter_args['Instock']   = T_("Instock");
+			self::$filter_args['Stock']   = T_("Instock");
 			self::$is_filtered        = true;
 		}
 
 		if(isset($data['outofstock']) && $data['outofstock'])
 		{
 			$and[] = "( products.instock  = 0 OR products.instock  IS NULL )";
-			self::$filter_args['Instock']   = T_("Out of stock");
+			self::$filter_args['Stock']   = T_("Out of stock");
+			self::$is_filtered        = true;
+		}
+
+		if(isset($data['negativeinventory']) && $data['negativeinventory'])
+		{
+			$and[] = " (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) < 0 ";
+			self::$filter_args['Stock']   = T_("Out of stock");
 			self::$is_filtered        = true;
 		}
 

@@ -19,6 +19,7 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
     <a class='btn <?php if(\dash\request::get('wdiscount')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?wdiscount=1<?php echo $andQ; ?>"><?php echo T_("Without discount"); ?></a>
     <a class='btn <?php if(\dash\request::get('instock')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?instock=1<?php echo $andQ; ?>"><?php echo T_("Product instock"); ?></a>
     <a class='btn <?php if(\dash\request::get('outofstock')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?outofstock=1<?php echo $andQ; ?>"><?php echo T_("Product out of stock"); ?></a>
+    <a class='btn <?php if(\dash\request::get('negativeinventory')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?negativeinventory=1<?php echo $andQ; ?>"><?php echo T_("Negative Inventory"); ?></a>
     <a class='btn <?php if(\dash\request::get('withoutimage')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?withoutimage=1<?php echo $andQ; ?>"><?php echo T_("Without image"); ?></a>
     <a class='btn <?php if(\dash\request::get('havevariants')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?havevariants=1<?php echo $andQ; ?>"><?php echo T_("Have variants"); ?></a>
   </div>
