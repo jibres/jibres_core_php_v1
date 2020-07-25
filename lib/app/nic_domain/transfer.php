@@ -190,7 +190,6 @@ class transfer
 		// this code just run before pay
 		if(!$data['after_pay'])
 		{
-			$minus_transaction = 0;
 			$pay_amount_bank   = 0;
 			$pay_amount_budget = 0;
 
@@ -206,7 +205,7 @@ class transfer
 				{
 					$pay_amount_budget = $remain_amount;
 
-					$minus_transaction = $remain_amount;
+					$data['minus_transaction'] = $remain_amount;
 
 					$remain_amount = floatval($remain_amount) - floatval($user_budget);
 
@@ -281,82 +280,6 @@ class transfer
 		// -------------------------------------------------- Transfer now ---------------------------------------------- //
 
 
-
-		// $user_budget = \dash\user::budget();
-
-		// if($user_budget >= $price)
-		// {
-		// 	$insert_transaction =
-		// 	[
-		// 		'user_id' => \dash\user::id(),
-		// 		'title'   => T_("Transfer domian :val", ['val' => $domain]),
-		// 		'verify'  => 1,
-		// 		'minus'   => $price,
-		// 		'type'    => 'money',
-		// 	];
-
-		// 	$transaction_id = \dash\db\transactions::set($insert_transaction);
-		// 	if(!$transaction_id)
-		// 	{
-		// 		\dash\notif::error(T_("No way to insert data"));
-		// 		return false;
-		// 	}
-
-		// 	// insert price domain log table
-		// }
-		// else
-		// {
-		// 	$temp_args = $_args;
-
-		// 	// go to bank
-		// 	$meta =
-		// 	[
-		// 		'msg_go'        => T_("Transfer :domain", ['domain' => $domain]),
-		// 		'auto_go'       => false,
-		// 		'auto_back'     => false,
-		// 		'turn_back'     => \dash\url::kingdom(). '/my/domain',
-		// 		'user_id'       => \dash\user::id(),
-		// 		'amount'        => abs($price),
-		// 		'final_fn'      => ['/lib/app/nic_domain/transfer', 'transfer'],
-		// 		'final_fn_args' => $temp_args,
-		// 	];
-
-
-		// 	$result_pay = \dash\utility\pay\start::api($meta);
-
-		// 	if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
-		// 	{
-		// 		$domain_action_detail =
-		// 		[
-		// 			'transaction_id' => \dash\coding::decode($result_pay['transaction_id']),
-		// 			'domain_id'      => $domain_id,
-		// 			'detail'         => json_encode(['pay_link' => $result_pay['url']], JSON_UNESCAPED_UNICODE),
-		// 		];
-
-		// 		\lib\app\nic_domainaction\action::set('domain_tranfer_pay_link', $domain_action_detail);
-
-		// 		if(\dash\engine\content::api_content())
-		// 		{
-		// 			$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
-		// 			\dash\notif::meta($result_pay);
-		// 			\dash\notif::ok($msg);
-		// 			return;
-		// 		}
-		// 		else
-		// 		{
-		// 			\dash\redirect::to($result_pay['url']);
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		\dash\log::oops('generate_pay_error');
-		// 		return false;
-		// 	}
-
-		// 	// redirect to bank payment
-		// 	return ;
-
-		// }
 
 
 		$ready =
@@ -452,6 +375,26 @@ class transfer
 				'date'           => date("Y-m-d H:i:s"),
 				'datecreated'    => date("Y-m-d H:i:s"),
 			];
+
+			if($data['minus_transaction'])
+			{
+				$insert_transaction =
+				[
+					'user_id' => $user_id,
+					'title'   => T_("Transfer domian :val", ['val' => $domain]),
+					'verify'  => 1,
+					'minus'   => floatval($data['minus_transaction']),
+					'type'    => 'money',
+				];
+
+				$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+				if(!$transaction_id)
+				{
+					\dash\log::oops('transaction_db');
+					return false;
+				}
+			}
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 

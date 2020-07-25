@@ -440,7 +440,6 @@ class create
 		// this code just run before pay
 		if(!$data['after_pay'])
 		{
-			$minus_transaction = 0;
 			$pay_amount_bank   = 0;
 			$pay_amount_budget = 0;
 
@@ -456,7 +455,7 @@ class create
 				{
 					$pay_amount_budget = $remain_amount;
 
-					$minus_transaction = $remain_amount;
+					$data['minus_transaction'] = $remain_amount;
 
 					$remain_amount = floatval($remain_amount) - floatval($user_budget);
 
