@@ -298,7 +298,14 @@ class ready
 		{
 			for ($i = $minsale; $i <= $maxsale ; $i = $i + $salestep)
 			{
-				$result['cart_limit']['sale_step_list'][] = $i;
+				if($i <= 0)
+				{
+					// nothing
+				}
+				else
+				{
+					$result['cart_limit']['sale_step_list'][] = $i;
+				}
 			}
 		}
 		else
