@@ -136,6 +136,12 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
     <section class="box">
       <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Inventory"); ?></h2></header>
       <div class="pad jboxCodes">
+      <div>
+        <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
+        <div class="input">
+          <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
+        </div>
+      </div>
         <?php if(isset($storData['barcode']) && $storData['barcode']) {?>
           <div class="f">
             <div class="c s12 pRa5">
@@ -265,12 +271,6 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 <div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
   <section class="box">
     <div class="pad">
-      <div>
-        <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
-        <div class="input">
-          <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
-        </div>
-      </div>
       <div class="mB10">
         <div class="row align-center">
           <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
