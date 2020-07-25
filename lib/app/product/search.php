@@ -27,32 +27,33 @@ class search
 
 		$condition =
 		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['title','price','buyprice']],
-			'limit'          => 'int',
-			'barcode'        => 'barcode',
-			'price'          => 'price',
-			'buyprice'       => 'price',
-			'discount'       => 'price',
-			'cat_id'         => 'id',
-			'tag_id'         => 'id',
-			'unit_id'        => 'id',
-			'company_id'     => 'id',
-			'duplicatetitle' => 'bit',
-			'hbarcode'       => 'bit',
-			'hnotbarcode'    => 'bit',
-			'wbuyprice'      => 'bit',
-			'wprice'         => 'bit',
-			'wdiscount'      => 'bit',
-			'instock'        => 'bit',
-			'outofstock'     => 'bit',
-			'negativeinventory'     => 'bit',
+			'order'             => 'order',
+			'sort'              => ['enum' => ['title','price','buyprice']],
+			'limit'             => 'int',
+			'barcode'           => 'barcode',
+			'price'             => 'price',
+			'buyprice'          => 'price',
+			'discount'          => 'price',
+			'cat_id'            => 'id',
+			'tag_id'            => 'id',
+			'unit_id'           => 'id',
+			'company_id'        => 'id',
+			'duplicatetitle'    => 'bit',
+			'hbarcode'          => 'bit',
+			'hnotbarcode'       => 'bit',
+			'wbuyprice'         => 'bit',
+			'wprice'            => 'bit',
+			'wdiscount'         => 'bit',
+			'instock'           => 'bit',
+			'outofstock'        => 'bit',
+			'negativeinventory' => 'bit',
+			'notsold'           => 'bit',
 
 
-			'withoutimage'   => 'bit',
-			'havevariants'   => 'bit',
+			'withoutimage'      => 'bit',
+			'havevariants'      => 'bit',
 
-			'websitemode' => 'bit',
+			'websitemode'       => 'bit',
 
 		];
 
@@ -180,7 +181,15 @@ class search
 		if(isset($data['negativeinventory']) && $data['negativeinventory'])
 		{
 			$and[] = " (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) < 0 ";
-			self::$filter_args['Stock']   = T_("Out of stock");
+			self::$filter_args['Stock']   = T_("Negative");
+			self::$is_filtered        = true;
+		}
+
+
+		if(isset($data['notsold']) && $data['notsold'])
+		{
+			$and[] = " (SELECT factordetails.product_id FROM factordetails WHERE factordetails.product_id = products.id AND factordetails.status = 'enable' LIMIT 1) IS NULL ";
+			self::$filter_args['']   = T_("Not sold");
 			self::$is_filtered        = true;
 		}
 

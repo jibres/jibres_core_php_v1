@@ -22,6 +22,7 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
     <a class='btn <?php if(\dash\request::get('negativeinventory')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?negativeinventory=1<?php echo $andQ; ?>"><?php echo T_("Negative Inventory"); ?></a>
     <a class='btn <?php if(\dash\request::get('withoutimage')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?withoutimage=1<?php echo $andQ; ?>"><?php echo T_("Without image"); ?></a>
     <a class='btn <?php if(\dash\request::get('havevariants')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?havevariants=1<?php echo $andQ; ?>"><?php echo T_("Have variants"); ?></a>
+    <a class='btn <?php if(\dash\request::get('notsold')) { echo 'primary2'; }else{ echo 'light';} ?> mB5' href="<?php echo \dash\url::that(); ?>?notsold=1<?php echo $andQ; ?>"><?php echo T_("Not sold"); ?></a>
   </div>
 </div>
 

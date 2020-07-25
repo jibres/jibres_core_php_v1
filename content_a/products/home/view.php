@@ -49,6 +49,7 @@ class view
 		if(\dash\request::get('withoutimage'))   $args['withoutimage']   = true;
 		if(\dash\request::get('havevariants')) 	 $args['havevariants']   = true;
 		if(\dash\request::get('negativeinventory')) 	 $args['negativeinventory']   = true;
+		if(\dash\request::get('notsold')) 	 $args['notsold']   = true;
 
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
