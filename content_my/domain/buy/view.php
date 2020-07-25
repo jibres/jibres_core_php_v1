@@ -111,13 +111,16 @@ class view
 			}
 
 			\dash\data::myContactList($list);
-			foreach ($list as $key => $value)
+			if(is_array($list))
 			{
-				if(isset($value['nic_id']))
+				foreach ($list as $key => $value)
 				{
-					if((isset($value['isdefault']) && $value['isdefault'] ) || count($list) === 1)
+					if(isset($value['nic_id']))
 					{
-						\dash\data::myContactListDefault($value['nic_id']);
+						if((isset($value['isdefault']) && $value['isdefault'] ) || count($list) === 1)
+						{
+							\dash\data::myContactListDefault($value['nic_id']);
+						}
 					}
 				}
 			}
