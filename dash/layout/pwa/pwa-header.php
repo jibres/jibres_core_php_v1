@@ -16,6 +16,16 @@ if(\dash\data::search_link())
 {
 	echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
 }
+// add preview btn
+if(\dash\face::btnPreview())
+{
+  echo "<a class='square preview' href='". \dash\face::btnPreview(). "'></a>";
+}
+// add view btn
+if(\dash\face::btnView())
+{
+  echo "<a class='square view' href='". \dash\face::btnView(). "'></a>";
+}
 // add duplicate btn
 if(\dash\face::btnDuplicate())
 {
@@ -36,6 +46,19 @@ if(\dash\data::menu_link())
 {
 	echo "<div class='square menu'></div>";
 }
+// add save btn
+if(\dash\face::btnSave())
+{
+  echo '<button class="square save" form="';
+  echo \dash\face::btnSave();
+  echo '"';
+  if(\dash\face::btnSaveValue())
+  {
+    echo "name='submitall' value='". \dash\face::btnSaveValue(). "'";
+  }
+  echo '>';
+  echo "</button>";
+}
 ?>
 <div class="action"><?php
 if(\dash\data::action_link() && \dash\data::action_text())
@@ -48,25 +71,5 @@ if(\dash\data::action_link() && \dash\data::action_text())
 	{
 		echo "<a href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
 	}
-}
-elseif(\dash\face::btnSave())
-{
-  echo '<button form="';
-  echo \dash\face::btnSave();
-  echo '"';
-  if(\dash\face::btnSaveValue())
-  {
-    echo "name='submitall' value='". \dash\face::btnSaveValue(). "'";
-  }
-  echo '>';
-  if(\dash\face::btnSaveText())
-  {
-    echo \dash\face::btnSaveText();
-  }
-  else
-  {
-    echo T_("Save");
-  }
-  echo "</button>";
 }
 ?></div>
