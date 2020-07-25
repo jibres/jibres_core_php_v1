@@ -376,7 +376,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
   <?php if(\dash\url::child() == 'edit') {?>
     <nav class="items long mT20">
       <ul>
-        <?php if(!$have_variant_child && !\dash\data::productFamily()) {?>
+        <?php if(!\dash\data::productFamily()) {?>
           <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
             <li><a class="f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><div class="key"><i class="sf-picture"></i><?php echo T_("Make product variants"); ?></div><div class="go"></div></a></li>
           <?php } //endif ?>
