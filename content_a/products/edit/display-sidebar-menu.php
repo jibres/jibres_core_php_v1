@@ -38,13 +38,20 @@
             <div class="go"></div>
           </a>
         </li>
+        <?php if(!$have_variant_child) {?>
         <li>
           <a class="f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
-            <div class="key"><i class="sf-exchange"></i><?php echo T_("Inventory"); ?></div>
+            <?php if(\dash\data::productDataRow_instock()) {?>
+            <div class="key"><i class="sf-exchange fc-green"></i><?php echo T_("Inventory"); ?></div>
+            <div class="value"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div>
+            <?php }else{ ?>
+            <div class="key"><i class="sf-exchange fc-red"></i><?php echo T_("Inventory"); ?></div>
             <div class="value"><?php echo T_("Not tracking"); ?></div>
+            <?php } //endif ?>
             <div class="go"></div>
           </a>
         </li>
+        <?php } ?>
         <li>
           <a class="f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <div class="key"><i class="sf-package"></i><?php echo T_("Organization"); ?></div>
@@ -59,15 +66,6 @@
           </a>
         </li>
         <?php } //endif ?>
-        <?php if(!$have_variant_child) {?>
-          <li>
-            <a class="f">
-              <div class="key"><?php if(\dash\data::productDataRow_instock()) {?><i class="sf-check-circle fc-green"></i><?php }else{ ?><i class="sf-times-circle fc-red"></i> <?php } //endif ?><?php echo T_("Stock Count"); ?></div>
-              <div class="value"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div>
-              <div class="go"></div>
-            </a>
-          </li>
-        <?php } ?>
         <li>
           <a class="f" href="<?php echo \dash\url::this(); ?>/status?id=<?php echo \dash\request::get('id'); ?>">
             <div class="key"><i class="sf-plug"></i><?php echo T_("Status"); ?></div>
