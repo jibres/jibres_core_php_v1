@@ -92,9 +92,7 @@
       </section>
       <nav class="items long">
       <ul>
-        <li>
-          <li><a class="f" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><div class="key"><i class="sf-list mRa10"></i><?php echo T_("Show products by this category"); ?></div><div class="go"></div></a></li>
-        </li>
+          <li><a class="f" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><div class="key"><?php echo T_("Show products by this category"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
       <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
