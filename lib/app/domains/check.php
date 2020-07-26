@@ -120,15 +120,26 @@ class check
 
 		if($ir_domain)
 		{
-			$result['ir_master'] = (isset($check_nic_domain[$domain])) ? $check_nic_domain[$domain] : null;
+			$my_domain_master = (isset($check_nic_domain[$domain])) ? $check_nic_domain[$domain] : null;
+			$result['ir_master'] = $my_domain_master;
+			if(isset($my_domain_master['tld']) && isset($my_domain_master['name']))
+			{
+				$result['ir_master']['full'] = $my_domain_master['name']. '.'. $my_domain_master['tld'];
+			}
 		}
 		elseif($real_domain)
 		{
-			$result['com_master'] = (isset($check_namecheap_domain[$domain])) ? $check_namecheap_domain[$domain] : null;
+			$my_domain_master = (isset($check_namecheap_domain[$domain])) ? $check_namecheap_domain[$domain] : null;
+			$result['com_master'] = $my_domain_master;
+			if(isset($my_domain_master['tld']) && isset($my_domain_master['name']))
+			{
+				$result['com_master']['full'] = $my_domain_master['name']. '.'. $my_domain_master['tld'];
+			}
 		}
 		else
 		{
 			$my_domain_master = (isset($check_nic_domain[$domain. '.ir'])) ? $check_nic_domain[$domain. '.ir'] : null;
+
 
 			if(!\dash\get::index($my_domain_master, 'domain_name_valid'))
 			{
@@ -137,6 +148,10 @@ class check
 			else
 			{
 				$result['ir_master'] = $my_domain_master;
+				if(isset($my_domain_master['tld']) && isset($my_domain_master['name']))
+				{
+					$result['ir_master']['full'] = $my_domain_master['name']. '.'. $my_domain_master['tld'];
+				}
 			}
 		}
 

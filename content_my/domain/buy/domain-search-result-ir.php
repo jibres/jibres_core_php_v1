@@ -1,4 +1,6 @@
 <?php
+$master_domain = \dash\get::index($master, 'full');
+
     echo '<div class="box result ltr mB25-f mLR5-f">';
     echo '<div class="msg fs12 mB0';
     if(isset($master['available']))

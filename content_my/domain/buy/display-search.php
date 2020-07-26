@@ -23,7 +23,6 @@
 <?php
 $result = \dash\data::infoResult();
 // var_dump($result);
-$master_domain = \dash\data::getDomain();
 
 if(isset($result['ir_master']))
 {
