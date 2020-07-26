@@ -41,9 +41,9 @@
         <?php if(!$have_variant_child) {?>
         <li>
           <a class="f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
-            <?php if(\dash\data::productDataRow_instock()) {?>
+            <?php if(\dash\data::productDataRow_trackquantity()) {?>
             <div class="key"><i class="sf-exchange fc-green"></i><?php echo T_("Inventory"); ?></div>
-            <div class="value"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></div>
+            <div class="value"><?php echo \dash\fit::number(floatval(\dash\data::productDataRow_stock())); ?></div>
             <?php }else{ ?>
             <div class="key"><i class="sf-exchange fc-red"></i><?php echo T_("Inventory"); ?></div>
             <div class="value"><?php echo T_("Not tracking"); ?></div>

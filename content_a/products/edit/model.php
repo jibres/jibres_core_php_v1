@@ -46,7 +46,7 @@ class model
 		// $post['code']           = \dash\request::post('code');
 		$post['barcode']           = \dash\request::post('barcode');
 		$post['barcode2']          = \dash\request::post('barcode2');
-		$post['trackquantity']          = \dash\request::post('trackquantity');
+		// $post['trackquantity']          = \dash\request::post('trackquantity');
 		// $post['gallery']        = \dash\request::post('gallery');
 		$post['weight']         = \dash\request::post('weight');
 		$post['seotitle']          = \dash\request::post('seotitle');
@@ -57,18 +57,18 @@ class model
 
 		$post['scalecode']         = \dash\request::post('scalecode');
 		// $post['status']         = \dash\request::post('status');
-		$post['minstock']          = \dash\request::post('minstock');
-		$post['maxstock']          = \dash\request::post('maxstock');
+		// $post['minstock']          = \dash\request::post('minstock');
+		// $post['maxstock']          = \dash\request::post('maxstock');
 		// $post['minsale']        = \dash\request::post('minsale');
 		// $post['maxsale']        = \dash\request::post('maxsale');
 		// $post['salestep']       = \dash\request::post('salestep');
-		$post['oversale']          = \dash\request::post('oversale');
+		// $post['oversale']          = \dash\request::post('oversale');
 		$post['unit']              = \dash\request::post('unit') ? \dash\request::post('unit') : null;
 		// $post['category']       = \dash\request::post('cat');
 		$post['cat']               = \dash\request::post('cat');
 		$post['tag']               = \dash\request::post('tag');
 
-		$post['stock']             = \dash\request::post('stock');
+		// $post['stocks']             = \dash\request::post('stock');
 
 
 		// $post['length']         = \dash\request::post('length');
