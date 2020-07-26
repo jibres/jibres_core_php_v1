@@ -10,7 +10,7 @@ class domain_transfer
 	{
 		$transfer = self::analyze_domain_transfer($_args);
 
-		return $result;
+		return $transfer;
 	}
 
 
@@ -25,7 +25,6 @@ class domain_transfer
 		{
 			return false;
 		}
-
 
 		if(\lib\nic\exec\run::result_code($object_result) === '1000')
 		{
