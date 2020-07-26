@@ -119,7 +119,7 @@ class model
 		[
 			'domain'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'domain'),
 			'nic_id'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'irnicid'),
-			'irnic_new' => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'irnicid-new'),
+			'irnic_new' => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'irnic_new'),
 			'pin'       => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'pin'),
 
 

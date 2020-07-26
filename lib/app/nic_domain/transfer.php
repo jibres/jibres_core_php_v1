@@ -72,7 +72,6 @@ class transfer
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
 		// after pay get user id from args
 		$user_id = $data['user_id'];
 
@@ -141,6 +140,67 @@ class transfer
 
 
 		$price = \lib\app\nic_domain\price::transfer();
+
+		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+
+		\lib\app\domains\detect::domain('transfer', $domain);
+
+		if(isset($check_duplicate_domain['id']))
+		{
+
+			$domain_id = $check_duplicate_domain['id'];
+
+			$update =
+			[
+				'holder'       => $nic_id,
+				'admin'        => $nic_id,
+				'tech'         => $nic_id,
+				'bill'         => $nic_id,
+				'verify'       => 0,
+				'available'       => 0,
+				// 'dns'          => $dnsid,
+				'status'       => 'awaiting',
+				// 'dateregister' => $result['dateregister'],
+				// 'dateexpire'   => $result['dateexpire'],
+			];
+
+			\lib\db\nic_domain\update::update($update, $domain_id);
+
+
+
+		}
+		else
+		{
+			$insert =
+			[
+				'user_id'      => \dash\user::id(),
+				'name'         => $domain,
+				'registrar'    => 'irnic',
+				'status'       => 'awaiting',
+				'holder'       => $nic_id,
+				'admin'        => $nic_id,
+				'tech'         => $nic_id,
+				'bill'         => $nic_id,
+				'autorenew'    => null,
+				'lock'         => 1,
+				'verify'       => 0,
+				'available'       => 0,
+				// 'dns'          => $dnsid,
+				// 'dateregister' => $result['dateregister'],
+				// 'dateexpire'   => $result['dateexpire'],
+				'datecreated'  => date("Y-m-d H:i:s"),
+			];
+
+			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
+			if(!$domain_id)
+			{
+				// must be roolback money
+				\dash\notif::error(T_("Error"));
+				return false;
+			}
+		}
+
+		$domain_code = \dash\coding::encode($domain_id);
 
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
 		if(!$data['register_now'])
@@ -294,64 +354,16 @@ class transfer
 
 		if($result)
 		{
-			$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
 
-			\lib\app\domains\detect::domain('transfer', $domain);
+			$update =
+			[
+				'verify'    => 1,
+				'available' => 0,
+				'status'    => 'enable',
+			];
 
-			if(isset($check_duplicate_domain['id']))
-			{
+			\lib\db\nic_domain\update::update($update, $domain_id);
 
-				$domain_id = $check_duplicate_domain['id'];
-
-				$update =
-				[
-					'holder'       => $nic_id,
-					'admin'        => $nic_id,
-					'tech'         => $nic_id,
-					'bill'         => $nic_id,
-					'verify'       => 1,
-					'available'       => 0,
-					// 'dns'          => $dnsid,
-					'status'       => 'enable',
-					// 'dateregister' => $result['dateregister'],
-					// 'dateexpire'   => $result['dateexpire'],
-				];
-
-				\lib\db\nic_domain\update::update($update, $domain_id);
-
-
-
-			}
-			else
-			{
-				$insert =
-				[
-					'user_id'      => \dash\user::id(),
-					'name'         => $domain,
-					'registrar'    => 'irnic',
-					'status'       => 'enable',
-					'holder'       => $nic_id,
-					'admin'        => $nic_id,
-					'tech'         => $nic_id,
-					'bill'         => $nic_id,
-					'autorenew'    => null,
-					'lock'         => 1,
-					'verify'       => 1,
-					'available'       => 0,
-					// 'dns'          => $dnsid,
-					// 'dateregister' => $result['dateregister'],
-					// 'dateexpire'   => $result['dateexpire'],
-					'datecreated'  => date("Y-m-d H:i:s"),
-				];
-
-				$domain_id = \lib\db\nic_domain\insert::new_record($insert);
-				if(!$domain_id)
-				{
-					// must be roolback money
-					\dash\notif::error(T_("Error"));
-					return false;
-				}
-			}
 
 			$domain_action_detail =
 			[
@@ -410,23 +422,23 @@ class transfer
 		}
 		else
 		{
-			// have error
-			// need to back money
-			$insert_transaction =
-			[
-				'user_id' => \dash\user::id(),
-				'title'   => T_("Transfer failed :val", ['val' => $domain]),
-				'verify'  => 1,
-				'plus'    => $price,
-				'type'    => 'money',
-			];
+			// // have error
+			// // need to back money
+			// $insert_transaction =
+			// [
+			// 	'user_id' => \dash\user::id(),
+			// 	'title'   => T_("Transfer failed :val", ['val' => $domain]),
+			// 	'verify'  => 1,
+			// 	'plus'    => $price,
+			// 	'type'    => 'money',
+			// ];
 
-			$transaction_id = \dash\db\transactions::set($insert_transaction);
-			if(!$transaction_id)
-			{
-				\dash\notif::error(T_("No way to insert data"));
-				return false;
-			}
+			// $transaction_id = \dash\db\transactions::set($insert_transaction);
+			// if(!$transaction_id)
+			// {
+			// 	\dash\notif::error(T_("No way to insert data"));
+			// 	return false;
+			// }
 
 
 			$domain_action_detail =

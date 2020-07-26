@@ -84,7 +84,6 @@ class controller
 				break;
 		}
 
-
 		\dash\data::dataRow($detail);
 		$domain = \dash\data::dataRow_name();
 
@@ -94,6 +93,7 @@ class controller
 			\dash\data::dataRowAction($load_last_activity);
 
 			$period = null;
+			$periodTitle = null;
 
 	        if(\dash\data::dataRowAction_period() == '12')
 	        {
