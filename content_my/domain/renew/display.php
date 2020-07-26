@@ -12,7 +12,7 @@
           </div>
 
           <div class="txtRa mT10">
-            <button class="btn success"><?php echo T_("Transfer Domain"); ?></button>
+            <button class="btn success"><?php echo T_("Renew Domain"); ?></button>
           </div>
 
         </form>
