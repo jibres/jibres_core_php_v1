@@ -24,18 +24,20 @@
 $result = \dash\data::infoResult();
 // var_dump($result);
 ?>
-<div class="row">
+<div class="row ltr">
   <div class="c-xs-12 c-sm-6 c-md-4">
   <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
       <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
-       <div class="key"><span class="fc-mute"><?php echo \dash\get::index($value, 'name'); ?></span> <span class="txtB">.<?php echo \dash\get::index($value, 'tld'); ?></span></div>
+       <div class="key">
+        <span class="compact fc-mute"><?php echo \dash\get::index($value, 'name'); ?></span>
+        <span class="compact txtB">.<?php echo \dash\get::index($value, 'tld'); ?></span></div>
        <?php if(\dash\get::index($value, 'available')) {?>
         <div class="value">
-          <span><?php echo \dash\fit::number(\dash\get::index($value, 'price_1year'));?></span>
-          <span class="font-10"><?php echo \dash\get::index($value, 'unit');?></span>
+          <span class="compact font-10"><?php echo \dash\get::index($value, 'unit');?></span>
+          <span class="compact"><?php echo \dash\fit::number(\dash\get::index($value, 'price_1year'));?></span>
         </div>
        <?php }else{ ?>
        <div class="value"><?php echo T_("Unavailable") ?></div>
