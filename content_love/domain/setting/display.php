@@ -107,12 +107,37 @@ else
  echo "<div class='ibtn wide fc-red'><span>". T_('No'). "</span><i class='sf-times'></i></div>";
 }
 ?></td>
-     </tr>
-
 
     </table>
   </div>
+
+  <form method="post" autocomplete="off">
+    <div class="box">
+      <header><h2><?php echo T_("Change status force!") ?></h2></header>
+      <div class="body">
+        <input type="hidden" name="myaction" value="status">
+        <div>
+          <label for="status"><?php echo T_("Status"); ?></label>
+          <select class="select22" name="status">
+            <option value="awaiting" <?php if(\dash\data::domainDetail_status() === 'awaiting') {echo 'selected'; } ?>><?php echo T_("Awaiting"). ' - '. 'awaiting'; ?> </option>
+            <option value="failed" <?php if(\dash\data::domainDetail_status() === 'failed') {echo 'selected'; } ?>><?php echo T_("Failed"). ' - '. 'failed'; ?> </option>
+            <option value="pending" <?php if(\dash\data::domainDetail_status() === 'pending') {echo 'selected'; } ?>><?php echo T_("Pending"). ' - '. 'pending'; ?> </option>
+            <option value="enable" <?php if(\dash\data::domainDetail_status() === 'enable') {echo 'selected'; } ?>><?php echo T_("Enable"). ' - '. 'enable'; ?> </option>
+            <option value="disable" <?php if(\dash\data::domainDetail_status() === 'disable') {echo 'selected'; } ?>><?php echo T_("Disable"). ' - '. 'disable'; ?> </option>
+            <option value="deleted" <?php if(\dash\data::domainDetail_status() === 'deleted') {echo 'selected'; } ?>><?php echo T_("Deleted"). ' - '. 'deleted'; ?> </option>
+            <option value="expire" <?php if(\dash\data::domainDetail_status() === 'expire') {echo 'selected'; } ?>><?php echo T_("Expire"). ' - '. 'expire'; ?> </option>
+          </select>
+        </div>
+
+      </div>
+      <footer class="txtRa">
+        <button class="btn warn"><?php echo T_("Change status") ?></button>
+      </footer>
+    </div>
+  </form>
  </div>
+
+
 
 
 

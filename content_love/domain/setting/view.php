@@ -17,6 +17,7 @@ class view
 			'domain' => \dash\data::domainDetail_name(),
 		];
 		$load_status = \lib\app\nic_domainstatus\search::list(null, $args);
+
 		\dash\data::NICdomainStatus($load_status);
 
 	}

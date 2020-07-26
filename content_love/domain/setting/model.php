@@ -37,6 +37,17 @@ class model
 			return;
 		}
 
+		if(\dash\request::post('myaction') == 'status')
+		{
+			$status = \dash\request::post('status');
+			$result = \lib\app\nic_domain\edit::edit(['status' => $status], \dash\data::domainDetail_id(), true);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 		\dash\notif::warn("This action needs to work!");
 		return;
 		// if(\dash\request::post('status') == 'remove')
