@@ -118,7 +118,27 @@ class check
 		$result['ir_list'] = $check_nic_domain;
 		$result['com_list'] = $check_namecheap_domain;
 
+		if($ir_domain)
+		{
+			$result['ir_master'] = (isset($check_nic_domain[$domain])) ? $check_nic_domain[$domain] : null;
+		}
+		elseif($real_domain)
+		{
+			$result['com_master'] = (isset($check_namecheap_domain[$domain])) ? $check_namecheap_domain[$domain] : null;
+		}
+		else
+		{
+			$my_domain_master = (isset($check_nic_domain[$domain. '.ir'])) ? $check_nic_domain[$domain. '.ir'] : null;
 
+			if(!\dash\get::index($my_domain_master, 'domain_name_valid'))
+			{
+				// domain is not valid
+			}
+			else
+			{
+				$result['ir_master'] = $my_domain_master;
+			}
+		}
 
 		\lib\app\domains\detect::domain_check_multi($result);
 

@@ -1,9 +1,9 @@
 <?php
     echo '<div class="box result ltr mB25-f mLR5-f">';
     echo '<div class="msg fs12 mB0';
-    if(isset($value['available']))
+    if(isset($master['available']))
     {
-        if($value['available'])
+        if($master['available'])
         {
             echo "";
         }
@@ -19,60 +19,60 @@
 
             // cell1
             echo '<div class="c s12 pA5 pR10-f">';
-            if(isset($value['name']) && isset($value['tld']))
+            if(isset($master['name']) && isset($master['tld']))
             {
-                echo '<span class="name txtB fs20">'. $value['name']. '</span>';
-                echo '<span class="tld mL5 fs14">.'. $value['tld']. '</span>';
+                echo '<span class="name txtB fs20">'. $master['name']. '</span>';
+                echo '<span class="tld mL5 fs14">.'. $master['tld']. '</span>';
             }
             else
             {
-                echo $key;
+                echo $master_domain;
             }
 
-            if(isset($value['available']) && !$value['available'] && array_key_exists('domain_restricted', $value) && !$value['domain_restricted'] && array_key_exists('domain_name_valid', $value) && $value['domain_name_valid'] !== false)
+            if(isset($master['available']) && !$master['available'] && array_key_exists('domain_restricted', $master) && !$master['domain_restricted'] && array_key_exists('domain_name_valid', $master) && $master['domain_name_valid'] !== false)
             {
-                echo '<a class="btn hauto link mLR10 fs08"  href="'. \dash\url::this(). '/renew?domain='. urlencode($key).'">'. T_("If is your domain you can renew it"). '</a>' ;
+                echo '<a class="btn hauto link mLR10 fs08"  href="'. \dash\url::this(). '/renew?domain='. urlencode($master_domain).'">'. T_("If is your domain you can renew it"). '</a>' ;
             }
 
-            if(isset($value['paperwork']))
+            if(isset($master['paperwork']))
             {
-                echo '<span class="badge light mL10">'. $value['paperwork']. '</span>';
+                echo '<span class="badge light mL10">'. $master['paperwork']. '</span>';
             }
             echo '</div>';
 
-            if(isset($value['available']) && $value['available'])
+            if(isset($master['available']) && $master['available'])
             {
 
                 // cell2
                 echo '<div class="cauto pA5 pR20-f txtR">';
                     echo '<div>';
-                        if(isset($value['price_1year']))
+                        if(isset($master['price_1year']))
                         {
-                            if(isset($value['unit']))
+                            if(isset($master['unit']))
                             {
-                                echo '<span class="compact unit">'. $value['unit']. '</span>';
+                                echo '<span class="compact unit">'. $master['unit']. '</span>';
                             }
-                            echo ' <span class="compact price">'. \dash\fit::number($value['price_1year']). '</span>';
+                            echo ' <span class="compact price">'. \dash\fit::number($master['price_1year']). '</span>';
                         }
-                        if(isset($value['compareAtPrice_1year']))
+                        if(isset($master['compareAtPrice_1year']))
                         {
-                            echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice_1year']). '</del>';
+                            echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($master['compareAtPrice_1year']). '</del>';
                         }
                         echo '<span class="compact period pLR10">'. T_("1 Year"). '</span>';
                     echo '</div>';
 
                     echo '<div>';
-                        if(isset($value['price_5year']))
+                        if(isset($master['price_5year']))
                         {
-                            if(isset($value['unit']))
+                            if(isset($master['unit']))
                             {
-                                echo '<span class="compact unit">'. $value['unit']. '</span>';
+                                echo '<span class="compact unit">'. $master['unit']. '</span>';
                             }
-                            echo ' <span class="compact price">'. \dash\fit::number($value['price_5year']). '</span>';
+                            echo ' <span class="compact price">'. \dash\fit::number($master['price_5year']). '</span>';
                         }
-                        if(isset($value['compareAtPrice_5year']))
+                        if(isset($master['compareAtPrice_5year']))
                         {
-                            echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice_5year']). '</del>';
+                            echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($master['compareAtPrice_5year']). '</del>';
                         }
                         echo '<span class="compact period pLR10">'. T_("5 Year"). '</span>';
                     echo '</div>';
@@ -82,31 +82,31 @@
 
             // cell3
             echo '<div class="cauto pA5">';
-            if(isset($value['soon']) && $value['soon'])
+            if(isset($master['soon']) && $master['soon'])
             {
                 echo T_("Coming Soon");
             }
             else
             {
-                if(isset($value['available']))
+                if(isset($master['available']))
                 {
-                    if($value['available'])
+                    if($master['available'])
                     {
-                        echo '<a class="btn success lg" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $key.'">'. T_("Let's Buy"). '</a>' ;
+                        echo '<a class="btn success lg" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $master_domain.'">'. T_("Let's Buy"). '</a>' ;
                     }
                     else
                     {
-                        if(array_key_exists('domain_restricted', $value) && $value['domain_restricted'])
+                        if(array_key_exists('domain_restricted', $master) && $master['domain_restricted'])
                         {
                             echo '<div class="btn light">'. T_("Domain restricted for register"). '</div>' ;
                         }
-                        elseif(array_key_exists('domain_name_valid', $value) && $value['domain_name_valid'] === false)
+                        elseif(array_key_exists('domain_name_valid', $master) && $master['domain_name_valid'] === false)
                         {
                             echo '<div class="btn light">'. T_("Domain name is not valid"). '</div>' ;
                         }
                         else
                         {
-                            echo '<a class="btn light" target="_blank" href="'. \dash\url::kingdom(). '/whois/'. urlencode($key).'">'. T_("Whois taken?"). '</a>' ;
+                            echo '<a class="btn light" target="_blank" href="'. \dash\url::kingdom(). '/whois/'. urlencode($master_domain).'">'. T_("Whois taken?"). '</a>' ;
                         }
                     }
                 }

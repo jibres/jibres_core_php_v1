@@ -155,6 +155,7 @@ class api
 
 
 			$price_1year = \lib\app\onlinenic\price::one_year($tld);
+			$price_5year = \lib\app\onlinenic\price::five_year($tld);
 			$currency = T_("Toman");
 
 			$domains[$domain_name] =
@@ -173,6 +174,7 @@ class api
 				'EapFee'                   => isset($temp['EapFee'])					? $temp['EapFee']						: null,
 				'tld'                      => $tld,
 				'price_1year'              => $price_1year,
+				'price_5year'              => $price_5year,
 				'unit'                     => $currency,
 			];
 

@@ -50,6 +50,25 @@ class price
 	}
 
 
+	public static function five_year($_tld)
+	{
+		$tld = \dash\validate::string_50($_tld, false);
+		if(!$tld)
+		{
+			return null;
+		}
+
+		$get_all = self::get_all();
+
+		if(isset($get_all['.'. $tld]['price5']))
+		{
+			return $get_all['.'. $tld]['price5'];
+		}
+		return null;
+
+	}
+
+
 	public static function price_com_1_year()
 	{
 		$dollar = 8.89;
@@ -191,9 +210,16 @@ class price
 					{
 						if($value['type'] === 'domainregister')
 						{
-							if(isset($value['1 year']))
+							if(isset($value['1 year']) && isset($value['5 years']))
 							{
-								$pricing[$value['domain']] = ['tld' => $value['domain'], 'type' => $value['type'], 'dollar' => $value['1 year'], 'price' => self::toman_price($value['1 year'], substr($value['domain'], 1))];
+								$pricing[$value['domain']] =
+								[
+									'tld'    => $value['domain'],
+									'type'   => $value['type'],
+									'dollar' => $value['1 year'],
+									'price'  => self::toman_price($value['1 year'], substr($value['domain'], 1)),
+									'price5' => self::toman_price($value['5 years'], substr($value['domain'], 1))
+								];
 							}
 						}
 					}

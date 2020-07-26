@@ -23,7 +23,22 @@
 <?php
 $result = \dash\data::infoResult();
 // var_dump($result);
+$master_domain = \dash\data::getDomain();
+
+if(isset($result['ir_master']))
+{
+  $master = $result['ir_master'];
+  require('domain-search-result-ir.php');
+}
+
+if(isset($result['com_master']))
+{
+  $master = $result['com_master'];
+  require('domain-search-result-ir.php');
+}
 ?>
+
+
 <div class="row ltr">
   <div class="c-xs-12 c-sm-6 c-md-4">
   <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
@@ -31,7 +46,7 @@ $result = \dash\data::infoResult();
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
-      <a href="<?php if(\dash\get::index($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f">
+      <a href="<?php if(\dash\get::index($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(\dash\get::index($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f">
        <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
        <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available')) {?>
