@@ -178,7 +178,10 @@ class view
 		// if we dont have page image, use site image
 		if(\dash\face::cover())
 		{
-			\dash\face::twitterCard('summary_large_image');
+			if(!\dash\face::twitterCard())
+			{
+				\dash\face::twitterCard('summary_large_image');
+			}
 		}
 		elseif(\dash\face::video())
 		{

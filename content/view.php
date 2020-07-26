@@ -33,12 +33,7 @@ class view
 
 
 
-		// add page cover to all pages
-		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-3.jpg');
-		if(\dash\url::tld() === 'ir')
-		{
-			\dash\face::cover(\dash\url::cdn(). '/img/cover/ir/Jibres-cover-fa-3.jpg');
-		}
+
 
 
 		// if(\dash\url::content() === null)
