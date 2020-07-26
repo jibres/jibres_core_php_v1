@@ -51,7 +51,15 @@
             <div class="go"></div>
           </a>
         </li>
-        <?php } ?>
+        <?php }else{ ?>
+          <li>
+          <a class="f">
+            <div class="key"><i class="sf-exchange fc-mute"></i><?php echo T_("Inventory"); ?></div>
+            <div class="value"><?php echo \dash\fit::number(floatval(\dash\data::productDataRow_stockallchild())); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+        <?php } //endif ?>
         <li>
           <a class="f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <div class="key"><i class="sf-package"></i><?php echo T_("Organization"); ?></div>

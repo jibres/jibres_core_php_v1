@@ -53,6 +53,16 @@ class load
 			if($load_child)
 			{
 				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
+
+				$stockallchild = 0;
+				foreach ($detail['child'] as $key => $value)
+				{
+					if(isset($value['trackquantity']) && $value['trackquantity'] && array_key_exists('stock', $value))
+					{
+						$stockallchild += floatval($value['stock']);
+					}
+				}
+				$detail['stockallchild'] = $stockallchild;
 			}
 		}
 
