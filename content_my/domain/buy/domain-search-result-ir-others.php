@@ -52,7 +52,7 @@ echo '<li>';
         }
         else
         {
-            echo '<div class="go info nok">';
+            echo '<div class="go detail nok">';
         }
         echo '</div>';
     echo '</a>';
