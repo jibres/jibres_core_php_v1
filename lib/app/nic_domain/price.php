@@ -13,7 +13,7 @@ class price
 		}
 		else
 		{
-			return 5000;
+			return 4000;
 		}
 	}
 
@@ -26,14 +26,14 @@ class price
 		}
 		else
 		{
-			return 5000;
+			return 4000;
 		}
 	}
 
 
 	public static function transfer()
 	{
-		return 5000;
+		return 4000;
 	}
 
 
