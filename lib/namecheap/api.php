@@ -65,6 +65,7 @@ class api
 
 		try
 		{
+			// var_dump($response);exit();
 			$object = @new \SimpleXMLElement($response);
 			return $object;
 		}
@@ -152,14 +153,18 @@ class api
 				$domain_restricted = true;
 			}
 
+
+			$price_1year = \lib\app\onlinenic\price::one_year($tld);
+			$currency = T_("Toman");
+
 			$domains[$domain_name] =
 			[
 				'name'                     => $domain_only_name,
-
 				'available'                => $available,
 				'ErrorNo'                  => isset($temp['ErrorNo'])					? $temp['ErrorNo']						: null,
 				'Description'              => isset($temp['Description'])				? $temp['Description']					: null,
-				'domain_restricted'        => $domain_restricted,
+				'domain_premium'           => $domain_restricted,
+				'IsPremiumName'            => isset($temp['IsPremiumName'])	? $temp['IsPremiumName']		: null,
 				'PremiumRegistrationPrice' => isset($temp['PremiumRegistrationPrice'])	? $temp['PremiumRegistrationPrice']		: null,
 				'PremiumRenewalPrice'      => isset($temp['PremiumRenewalPrice'])		? $temp['PremiumRenewalPrice']			: null,
 				'PremiumRestorePrice'      => isset($temp['PremiumRestorePrice'])		? $temp['PremiumRestorePrice']			: null,
@@ -167,6 +172,8 @@ class api
 				'IcannFee'                 => isset($temp['IcannFee'])					? $temp['IcannFee']						: null,
 				'EapFee'                   => isset($temp['EapFee'])					? $temp['EapFee']						: null,
 				'tld'                      => $tld,
+				'price_1year'              => $price_1year,
+				'unit'                     => $currency,
 			];
 
       		// 'domain_name_valid' => boolean true

@@ -16,6 +16,9 @@ class view
 		\dash\notif::clean();
 		\dash\engine\process::continue();
 
+
+		\dash\data::irOneYearPrice(\lib\app\nic_domain\price::register('1year'));
+
 		if(!\dash\data::haveBuyDomain())
 		{
 			if(\dash\data::getDomain())

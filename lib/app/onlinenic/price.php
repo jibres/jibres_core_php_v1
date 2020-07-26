@@ -30,6 +30,26 @@ class price
 	}
 
 
+
+	public static function one_year($_tld)
+	{
+		$tld = \dash\validate::string_50($_tld, false);
+		if(!$tld)
+		{
+			return null;
+		}
+
+		$get_all = self::get_all();
+
+		if(isset($get_all['.'. $tld]['price']))
+		{
+			return $get_all['.'. $tld]['price'];
+		}
+		return null;
+
+	}
+
+
 	public static function price_com_1_year()
 	{
 		$dollar = 8.89;
@@ -150,39 +170,43 @@ class price
 		return $pricing;
 	}
 
-
+	private static $price_list = [];
 	private static function convert_csv_to_json()
 	{
-		$dir = __DIR__. '/pricing.csv';
-		if(is_file($dir))
+		if(!self::$price_list)
 		{
-			$list = \dash\utility\import::csv($dir);
-			if(!$list || !is_array($list))
+			$dir = __DIR__. '/pricing.csv';
+			if(is_file($dir))
 			{
-				return false;
-			}
-
-			$pricing = [];
-			foreach ($list as $key => $value)
-			{
-				if(isset($value['domain']) && isset($value['type']))
+				$list = \dash\utility\import::csv($dir);
+				if(!$list || !is_array($list))
 				{
-					if($value['type'] === 'domainregister')
+					return false;
+				}
+
+				$pricing = [];
+				foreach ($list as $key => $value)
+				{
+					if(isset($value['domain']) && isset($value['type']))
 					{
-						if(isset($value['1 year']))
+						if($value['type'] === 'domainregister')
 						{
-							$pricing[] = ['tld' => $value['domain'], 'type' => $value['type'], 'dollar' => $value['1 year'], 'price' => self::toman_price($value['1 year'], substr($value['domain'], 1))];
+							if(isset($value['1 year']))
+							{
+								$pricing[$value['domain']] = ['tld' => $value['domain'], 'type' => $value['type'], 'dollar' => $value['1 year'], 'price' => self::toman_price($value['1 year'], substr($value['domain'], 1))];
+							}
 						}
 					}
 				}
-			}
 
-			if(!empty($pricing))
-			{
-				return $pricing;
-				// \dash\file::write(__DIR__. '/pricing-v2.me.json', json_encode($pricing, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+				if(!empty($pricing))
+				{
+					self::$price_list = $pricing;
+					// \dash\file::write(__DIR__. '/pricing-v2.me.json', json_encode($pricing, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+				}
 			}
 		}
+		return self::$price_list;
 	}
 }
 ?>

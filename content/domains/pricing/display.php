@@ -16,9 +16,9 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+        <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
-            <td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
+            <td class="collapsing"><?php echo \dash\fit::number($count); ?></td>
             <td class="ltr"><?php echo \dash\get::index($value, 'tld') ?></td>
             <td class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'price')) ?></td>
             <?php if(\dash\permission::supervisor()) {?>

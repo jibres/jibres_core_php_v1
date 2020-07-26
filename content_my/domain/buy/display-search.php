@@ -31,7 +31,7 @@ $result = \dash\data::infoResult();
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
-      <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
+      <a href="<?php if(\dash\get::index($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f">
        <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
        <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available')) {?>
@@ -40,12 +40,24 @@ $result = \dash\data::infoResult();
           <span class="compact"><?php echo \dash\fit::number(\dash\get::index($value, 'price_1year'));?></span>
         </div>
        <?php }else{ ?>
-       <div class="value"><?php echo T_("Unavailable") ?></div>
+        <?php if(\dash\get::index($value,'domain_restricted')) {?>
+          <div class="value"><?php echo T_("Domain is restricted") ?></div>
+        <?php }elseif(!\dash\get::index($value,'domain_name_valid')) {?>
+          <div class="value"><?php echo T_("Invalid") ?></div>
+        <?php }else{ ?>
+          <div class="value"><?php echo T_("Taken") ?></div>
+        <?php } //endif ?>
        <?php } //endif ?>
        <?php if(\dash\get::index($value, 'available')) {?>
         <div class="go ok"></div>
         <?php }else{ ?>
-        <div class="go detail nok"></div>
+          <?php if(\dash\get::index($value,'domain_restricted')) {?>
+            <div class="go ban nok"></div>
+          <?php }elseif(!\dash\get::index($value,'domain_name_valid')) {?>
+            <div class="go invalid fc-red"></div>
+          <?php }else{ ?>
+            <div class="go detail nok"></div>
+          <?php } //endif ?>
         <?php } //endif ?>
       </a>
      </li>
@@ -59,21 +71,29 @@ $result = \dash\data::infoResult();
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li class="f">
-      <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
+      <a href="<?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f">
        <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
        <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
-       <?php if(\dash\get::index($value, 'available')) {?>
+       <?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) {?>
         <div class="value">
           <span class="compact font-10"><?php echo \dash\get::index($value, 'unit');?></span>
           <span class="compact"><?php echo \dash\fit::number(\dash\get::index($value, 'price_1year'));?></span>
         </div>
        <?php }else{ ?>
-       <div class="value"><?php echo T_("Unavailable") ?></div>
+        <?php if(\dash\get::index($value, 'domain_premium')) {?>
+          <div class="value"><?php echo T_("Premium") ?></div>
+        <?php }else{ ?>
+          <div class="value"><?php echo T_("Taken") ?></div>
+        <?php } //endif ?>
        <?php } //endif ?>
-       <?php if(\dash\get::index($value, 'available')) {?>
+       <?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) {?>
         <div class="go ok"></div>
         <?php }else{ ?>
-        <div class="go detail nok"></div>
+         <?php if(\dash\get::index($value,'domain_premium')) {?>
+            <div class="go premium fc-blue"></div>
+          <?php }else{ ?>
+            <div class="go detail nok"></div>
+          <?php } //endif ?>
         <?php } //endif ?>
       </a>
      </li>
@@ -87,12 +107,13 @@ $result = \dash\data::infoResult();
     <ul class="items">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
      <li class="f">
-      <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
+      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain') ?>" class="f">
        <div class="key txtB"><?php echo \dash\get::index($value, 'root'); ?></div>
        <div class="key fc-mute">.<?php echo \dash\get::index($value, 'tld'); ?></div>
 
-        <div class="value">
-          <span class="compact font-10"><?php echo T_("Buy") ?></span>
+         <div class="value">
+          <span class="compact font-10"><?php echo \lib\currency::unit();?></span>
+          <span class="compact"><?php echo \dash\fit::number(\dash\data::irOneYearPrice());?></span>
         </div>
         <div class="go ok"></div>
       </a>
