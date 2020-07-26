@@ -48,6 +48,21 @@ if(\dash\data::getDomain())
   }
 }
 ?>
+
+<?php if(\dash\data::domainSuggestion()) {?>
+  <ul class="items">
+    <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
+     <li class="f">
+      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="f">
+       <div class="key"><?php echo T_("Suggestion for you");?></div>
+       <div class="value"><?php echo \dash\get::index($value, 'domain'); ?></div>
+      </a>
+     </li>
+   <?php }//endfor ?>
+  </ul>
+<?php } // endif ?>
+
+
 <?php if(\dash\data::domainSuggestion()) {?>
   <section class="f">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
