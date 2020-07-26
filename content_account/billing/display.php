@@ -76,7 +76,7 @@
          <tr>
           <td class="s0"><?php echo \dash\get::index($value, 'title'); ?></td>
 
-  <td title='<?php echo \dash\fit::date(\dash\get::index($value, 'date')); ?>'><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></td>
+  <td title='<?php echo \dash\fit::text(\dash\get::index($value, 'datecreated')); ?>'><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
 
 
           <td>
