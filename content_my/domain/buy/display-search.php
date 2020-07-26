@@ -23,19 +23,6 @@
 <?php
 if(\dash\data::getDomain())
 {
-  if(\dash\data::domain_ir_stat())
-  {
-    echo '<div class="f result ltr" data-ir-others>';
-    foreach (\dash\data::domain_ir_stat() as $key => $value)
-    {
-      if(isset($value['tld']))
-      {
-        require('domain-search-result-ir-others.php');
-      }
-    }
-    echo '</div>';
-  }
-
   if(\dash\data::domain_ir())
   {
     foreach (\dash\data::domain_ir() as $key => $value)
@@ -45,6 +32,18 @@ if(\dash\data::getDomain())
         require('domain-search-result-ir.php');
       }
     }
+  }
+  if(\dash\data::domain_ir_stat())
+  {
+    echo '<ul class="items" data-ir-others>';
+    foreach (\dash\data::domain_ir_stat() as $key => $value)
+    {
+      if(isset($value['tld']))
+      {
+        require('domain-search-result-ir-others.php');
+      }
+    }
+    echo '</ul>';
   }
 }
 ?>

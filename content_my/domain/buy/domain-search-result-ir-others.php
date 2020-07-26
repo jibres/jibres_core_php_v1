@@ -1,7 +1,7 @@
 <?php
 $available = true;
-echo '<div class="c pA5">';
-    echo '<a class="stat x70';
+echo '<li>';
+    echo '<a class="f';
         if(isset($value['available']))
         {
             if($value['available'])
@@ -27,8 +27,16 @@ echo '<div class="c pA5">';
         echo '>';
 
 
+
+        echo '<div class="key">';
+        if(isset($value['tld']))
+        {
+            echo '.'. $value['tld'];
+        }
+        echo '</div>';
+
         // f
-        echo '<h3>';
+        echo '<div class="value">';
         if($value['available'])
         {
             echo T_("Available");
@@ -37,14 +45,14 @@ echo '<div class="c pA5">';
         {
             echo T_('Unavailable');
         }
-        echo '</h3>';
-
-        echo '<div class="val">';
-        if(isset($value['tld']))
+        echo '</div>';
+        echo '<div class="go';
+        if($available)
         {
-            echo '.'. $value['tld'];
+            echo "";
         }
+        echo '">';
         echo '</div>';
     echo '</a>';
-echo '</div>';
+echo '</li>';
 ?>
