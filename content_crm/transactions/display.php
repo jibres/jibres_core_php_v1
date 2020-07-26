@@ -95,8 +95,8 @@ $sortLink = \dash\data::sortLink();
 
 		<td><a href="<?php echo \dash\url::here(); ?>/transactions?condition=<?php echo \dash\get::index($value, 'condition'); ?>"><?php echo T_(\dash\get::index($value, 'condition')); ?></a></td>
 		<td><?php if(isset($value['verify']) && $value['verify']) {?><i class="sf-check-1 fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php }//endif ?></td>
-		<td >
-			<?php echo \dash\fit::date($value['datecreated']); ?>
+		<td title="<?php echo $value['datecreated']; ?>">
+			<?php echo \dash\fit::date_time($value['datecreated']); ?>
 
 		</td>
     <?php if(\dash\permission::supervisor()) {?>
