@@ -21,69 +21,74 @@
   </div>
 
 <?php
-if(\dash\data::getDomain())
-{
-  if(\dash\data::domain_ir())
-  {
-    foreach (\dash\data::domain_ir() as $key => $value)
-    {
-      if(isset($value['tld']) && $value['tld'] === 'ir')
-      {
-        require('domain-search-result-ir.php');
-      }
-    }
-  }
-  if(\dash\data::domain_ir_stat())
-  {
-    echo '<ul class="items" data-ir-others>';
-    foreach (\dash\data::domain_ir_stat() as $key => $value)
-    {
-      if(isset($value['tld']))
-      {
-        require('domain-search-result-ir-others.php');
-      }
-    }
-    echo '</ul>';
-  }
-}
+$result = \dash\data::infoResult();
+// var_dump($result);
 ?>
-
-<?php if(\dash\data::domainSuggestion()) {?>
-  <ul class="items">
-    <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
+<div class="row">
+  <div class="c-xs-12 c-sm-6 c-md-4">
+  <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
+    <ul class="items">
+    <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
-      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="f">
-       <div class="key"><?php echo T_("Suggestion for you");?></div>
-       <div class="value"><?php echo \dash\get::index($value, 'domain'); ?></div>
+      <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
+       <div class="key"><span class="fc-mute"><?php echo \dash\get::index($value, 'name'); ?></span> <span class="txtB">.<?php echo \dash\get::index($value, 'tld'); ?></span></div>
+       <?php if(\dash\get::index($value, 'available')) {?>
+        <div class="value">
+          <span><?php echo \dash\fit::number(\dash\get::index($value, 'price_1year'));?></span>
+          <span class="font-10"><?php echo \dash\get::index($value, 'unit');?></span>
+        </div>
+       <?php }else{ ?>
+       <div class="value"><?php echo T_("Unavailable") ?></div>
+       <?php } //endif ?>
+       <?php if(\dash\get::index($value, 'available')) {?>
+        <div class="go ok"></div>
+        <?php }else{ ?>
+        <div class="go detail nok"></div>
+        <?php } //endif ?>
       </a>
      </li>
-   <?php }//endfor ?>
+    <?php } //endfor ?>
   </ul>
-<?php } // endif ?>
-
-
-<?php if(\dash\data::domainSuggestion()) {?>
-  <section class="f">
-    <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat x70">
-       <h3><?php echo T_("Suggestion for you");?></h3>
-       <div class="val"><?php echo \dash\get::index($value, 'domain'); ?></div>
+  <?php } //endif ?>
+  </div>
+  <div class="c-xs-12 c-sm-6 c-md-4">
+    <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
+    <ul class="items">
+    <?php foreach ($result['com_list'] as $key => $value) {?>
+     <li class="f">
+      <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
+       <div class="key"><span class=""><?php echo \dash\get::index($value, 'name'); ?></span> <span><?php echo \dash\get::index($value, 'tld'); ?></span></div>
+       <div class="value"><?php if(\dash\get::index($value, 'available')) { echo T_("Available");}else{ echo T_("Not Available");} ?></div>
+       <?php if(\dash\get::index($value, 'available')) {?>
+        <div class="go ok"></div>
+        <?php }else{ ?>
+        <div class="go detail nok"></div>
+        <?php } //endif ?>
       </a>
-     </div>
-   <?php }//endfor ?>
-    </section>
-<?php } // endif ?>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+  <?php } //endif ?>
 
-<?php if(\dash\data::domainSuggestion4()) {?>
-  <section class="f">
-    <?php foreach (\dash\data::domainSuggestion4() as $key => $value) {?>
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="stat x50">
-       <h3><?php echo T_("Suggestion for you");?></h3>
-       <div class="val"><?php echo \dash\get::index($value, 'domain'); ?></div>
-      </a>
-     </div>
-   <?php }//endfor ?>
-    </section>
-<?php } // endif ?>
+  </div>
+  <div class="c-xs-12 c-sm-6 c-md-4">
+
+  <?php if(\dash\data::domainSuggestion()) {?>
+    <ul class="items">
+      <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
+       <li class="f">
+        <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="f">
+         <div class="key"><?php echo T_("Suggestion for you");?></div>
+         <div class="value"><?php echo \dash\get::index($value, 'domain'); ?></div>
+
+        </a>
+       </li>
+     <?php }//endfor ?>
+    </ul>
+  <?php } // endif ?>
+  </div>
+</div>
+
+
+
+
