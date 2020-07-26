@@ -47,7 +47,7 @@ if(isset($result['com_master']))
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
       <a href="<?php if(\dash\get::index($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(\dash\get::index($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f">
-       <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
+       <div class="key fc-mute"><?php echo substr(\dash\get::index($value, 'name'), 0, 15); ?></div>
        <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available')) {?>
         <div class="value">
@@ -87,7 +87,7 @@ if(isset($result['com_master']))
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li class="f">
       <a href="<?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f">
-       <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
+       <div class="key fc-mute"><?php echo substr(\dash\get::index($value, 'name'), 0, 15); ?></div>
        <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) {?>
         <div class="value">
