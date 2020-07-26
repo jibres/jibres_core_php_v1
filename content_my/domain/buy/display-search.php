@@ -27,13 +27,13 @@ $result = \dash\data::infoResult();
 <div class="row ltr">
   <div class="c-xs-12 c-sm-6 c-md-4">
   <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
+    <h5 class="txtB mT20"><?php echo T_("Dot IR TLD"); ?></h5>
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
       <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
-       <div class="key">
-        <span class="compact fc-mute"><?php echo \dash\get::index($value, 'name'); ?></span>
-        <span class="compact txtB">.<?php echo \dash\get::index($value, 'tld'); ?></span></div>
+       <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
+       <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available')) {?>
         <div class="value">
           <span class="compact font-10"><?php echo \dash\get::index($value, 'unit');?></span>
@@ -55,6 +55,7 @@ $result = \dash\data::infoResult();
   </div>
   <div class="c-xs-12 c-sm-6 c-md-4">
     <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
+    <h5 class="txtB mT20"><?php echo T_("International TLD"); ?></h5>
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li class="f">
@@ -76,6 +77,7 @@ $result = \dash\data::infoResult();
   <div class="c-xs-12 c-sm-6 c-md-4">
 
   <?php if(\dash\data::domainSuggestion()) {?>
+    <h5 class="txtB mT20"><?php echo T_("Our short suggestion"); ?></h5>
     <ul class="items">
       <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
        <li class="f">
