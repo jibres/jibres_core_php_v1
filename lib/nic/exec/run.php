@@ -49,9 +49,9 @@ class run
 		// {
 			if(\dash\url::isLocal())
 			{
-				\lib\db\nic_log\insert::new_record($insert_log);
-				\dash\notif::warn("Can not send NICIR Request in local mode!");
-				return false;
+				// \lib\db\nic_log\insert::new_record($insert_log);
+				// \dash\notif::warn("Can not send NICIR Request in local mode!");
+				// return false;
 			}
 		// }
 

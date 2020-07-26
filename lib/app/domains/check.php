@@ -34,10 +34,8 @@ class check
 		}
 		else
 		{
-			// user search jibres
-
+			// user search one string. for example 'jibres' not jibres.ir or jibres.cloud or ...
 		}
-
 
 		$check_tld =
 		[
@@ -45,14 +43,12 @@ class check
 			'ir',
 			// 'ایران', // Not enable!
 			'id.ir',
-			// gov
-			'gov.ir',
 			'co.ir',
+			'ac.ir',
+			'sch.ir',
 			'net.ir',
 			'org.ir',
-			// edu
-			'sch.ir',
-			'ac.ir',
+			'gov.ir',
 		];
 
 
@@ -67,20 +63,18 @@ class check
 			$myDomainName = str_replace($domain_tld, '', $domain);
 		}
 
-		$domains = [];
-		foreach ($check_tld as $tld)
+		$ir_domains = [];
+		foreach ($check_tld as $myTld)
 		{
-			$domains[] = $myDomainName. '.'. $tld;
+			$ir_domains[] = $myDomainName. '.'. $myTld;
 		}
 
-		$check_nic_domain = json_decode('{
-    "adsaasdfsdf.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "ir",        "paperwork": null    },    "adsaasdfsdf.id.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "id.ir",        "paperwork": "نیازمند شناسه ایرنیک شخص حقیقی"    },    "adsaasdfsdf.gov.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "gov.ir",        "paperwork": "نیازمند شناسه ایرنیک وزارتخانه، سازمان یا شرکت دولتی"    },    "adsaasdfsdf.co.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "co.ir",        "paperwork": "نیازمند شناسه ایرنیک شرکت، موسسه یا نهاد غیردولتی"    },    "adsaasdfsdf.net.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "net.ir",        "paperwork": "نیازمند شناسه ایرنیک شرکت، موسسه یا نهاد غیردولتی"    },    "adsaasdfsdf.org.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "org.ir",        "paperwork": "نیازمند شناسه ایرنیک شرکت یا مرکز آموزشی"    },    "adsaasdfsdf.sch.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "sch.ir",        "paperwork": "نیازمند شناسه ایرنیک مرکز آموزشی و پژوهشی"    },    "adsaasdfsdf.ac.ir": {        "name": "adsaasdfsdf",        "available": true,        "domain_restricted": false,        "domain_name_valid": true,        "price_1year": 4000,        "compareAtPrice_1year": 16000,        "price_5year": 14000,        "compareAtPrice_5year": 48000,        "unit": "تومان",        "tld": "ac.ir",        "paperwork": "نیازمند شناسه ایرنیک مرکز آموزشی و پژوهشی"    }
-}', true);
-		$check_nic_domain = \lib\nic\exec\domain_check::multi_check($domains);
 
 
+		$check_nic_domain = \lib\nic\exec\domain_check::multi_check($ir_domains);
 
-		$check_tld =
+
+		$check_tld_international =
 		[
 			'com',
 			'net',
@@ -95,20 +89,20 @@ class check
 			// 'dev',
 		];
 
-		// also check valid tld
-		if($tld && !in_array($tld, $check_tld))
+		if($tld && !in_array($tld, $check_tld_international))
 		{
-			array_push($check_tld, $tld);
+			array_unshift($check_tld_international, $tld);
+			unset($check_tld_international[array_search('app', $check_tld_international)]);
 		}
 
-		$international_domain = [];
-		foreach ($check_tld as  $tld)
+
+		$international_domains = [];
+		foreach ($check_tld_international as  $myTld)
 		{
-			$international_domain[] = $myDomainName. '.'. $tld;
+			$international_domains[] = $myDomainName. '.'. $myTld;
 		}
 
-		$check_namecheap_domain = json_decode('{"adsaasdfsdf.com":{"name":"adsaasdfsdf.com","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"com"},"adsaasdfsdf.net":{"name":"adsaasdfsdf.net","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"net"},"adsaasdfsdf.org":{"name":"adsaasdfsdf.org","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"org"},"adsaasdfsdf.xyz":{"name":"adsaasdfsdf.xyz","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"xyz"},"adsaasdfsdf.me":{"name":"adsaasdfsdf.me","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"me"},"adsaasdfsdf.io":{"name":"adsaasdfsdf.io","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"io"},"adsaasdfsdf.info":{"name":"adsaasdfsdf.info","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"info"},"adsaasdfsdf.app":{"name":"adsaasdfsdf.app","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"app"},"adsaasdfsdf.tv":{"name":"adsaasdfsdf.tv","available":true,"ErrorNo":"0","Description":"","domain_restricted":false,"PremiumRegistrationPrice":"0","PremiumRenewalPrice":"0","PremiumRestorePrice":"0","PremiumTransferPrice":"0","IcannFee":"0","EapFee":"0.0","tld":"tv"}}', true);
-		$check_namecheap_domain = \lib\namecheap\api::check_domain($international_domain);
+		$check_namecheap_domain = \lib\namecheap\api::check_domain($international_domains);
 
 
 		if(!is_array($check_namecheap_domain))
@@ -121,8 +115,6 @@ class check
 			$check_nic_domain = [];
 		}
 
-		$result = array_merge($check_namecheap_domain, $check_nic_domain);
-
 		$result['ir_list'] = $check_nic_domain;
 		$result['com_list'] = $check_namecheap_domain;
 
@@ -130,7 +122,7 @@ class check
 
 		\lib\app\domains\detect::domain_check_multi($result);
 
-		// var_dump($result);exit();/
+		// var_dump($result);exit();
 		return $result;
 	}
 

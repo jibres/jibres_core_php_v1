@@ -120,11 +120,16 @@ class api
 			}
 
 			$domain_name = isset($temp['Domain']) ? $temp['Domain']	: null;
+			$domain_only_name = $domain_name;
+
 			$tld = null;
 			if($domain_name)
 			{
-				$split = explode('.', $domain_name);
-				$tld = end($split);
+				$split       = explode('.', $domain_name);
+
+				$tld         = end($split);
+				array_pop($split);
+				$domain_only_name = implode('.', $split);
 			}
 
 			$available = isset($temp['Available']) ? $temp['Available'] : null;
@@ -149,7 +154,7 @@ class api
 
 			$domains[$domain_name] =
 			[
-				'name'                     => $domain_name,
+				'name'                     => $domain_only_name,
 
 				'available'                => $available,
 				'ErrorNo'                  => isset($temp['ErrorNo'])					? $temp['ErrorNo']						: null,

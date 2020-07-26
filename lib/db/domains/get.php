@@ -37,7 +37,7 @@ class get
 				(SELECT domainactivity.available FROM domainactivity WHERE domainactivity.domain_id = domains.id ORDER BY domainactivity.id DESC LIMIT 1) = 1
 
 			ORDER BY RAND()
-			LIMIT 5
+			LIMIT 8
 		";
 
 		$result = \dash\db::get($query, null, false, 'nic_log');

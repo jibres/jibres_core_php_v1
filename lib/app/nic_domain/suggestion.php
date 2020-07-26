@@ -6,7 +6,9 @@ class suggestion
 {
 	public static function get($_domain)
 	{
+		$_domain = str_replace('.', '', $_domain);
 		$count_chars = count_chars($_domain, 1);
+
 
 		arsort($count_chars);
 
