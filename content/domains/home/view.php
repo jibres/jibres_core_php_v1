@@ -11,6 +11,19 @@ class view
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
+
+
+
+
+
+		$domainPrice =
+		[
+			'ir1year' => \lib\app\nic_domain\price::register('1year'),
+			'ir5year' => \lib\app\nic_domain\price::register('5year'),
+			'com1year' => \lib\app\onlinenic\price::price_com_1_year(),
+		];
+
+		\dash\data::domainPrice($domainPrice);
 	}
 }
 ?>

@@ -9,7 +9,7 @@ class price
 	{
 		if($_period === '5year')
 		{
-			return 15000;
+			return 14000;
 		}
 		else
 		{
@@ -22,7 +22,7 @@ class price
 	{
 		if($_period === '5year')
 		{
-			return 15000;
+			return 14000;
 		}
 		else
 		{

@@ -22,13 +22,19 @@ class price
 		switch ($_tld)
 		{
 			case 'com':
-				$profit = 5;
+				$profit = 4;
 				break;
 		}
 
 		return $profit;
 	}
 
+
+	public static function price_com_1_year()
+	{
+		$dollar = 8.89;
+		return self::toman_price($dollar, 'com');
+	}
 
 
 	public static function get_price($_domain, $_period, $_type)

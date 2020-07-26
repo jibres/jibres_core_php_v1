@@ -69,9 +69,9 @@
     <tbody>
       <tr>
         <td><?php echo T_("Jibres"); ?></td>
-        <td><?php echo \dash\fit::number("5000"); ?></td>
-        <td><?php echo \dash\fit::number("15000"); ?></td>
-        <td><?php echo T_("Soon"); ?></td>
+        <td><?php echo \dash\fit::number(\dash\data::domainPrice_ir1year()); ?></td>
+        <td><?php echo \dash\fit::number(\dash\data::domainPrice_ir5year()); ?></td>
+        <td><?php echo \dash\fit::number(\dash\data::domainPrice_com1year()); ?></td>
         <td>✔️</td>
         <td>✔️</td>
       </tr>
@@ -79,7 +79,7 @@
         <td>ایران سرور</td>
         <td><?php echo \dash\fit::number("6000"); ?></td>
         <td><?php echo \dash\fit::number("15000"); ?></td>
-        <td><?php echo \dash\fit::number("149000"); ?></td>
+        <td>-</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -87,7 +87,7 @@
         <td>پارس پک</td>
         <td><?php echo \dash\fit::number("7000"); ?></td>
         <td><?php echo \dash\fit::number("20000"); ?></td>
-        <td><?php echo \dash\fit::number("159000"); ?></td>
+        <td>-</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -95,7 +95,7 @@
         <td>آذر آنلاین</td>
         <td><?php echo \dash\fit::number("7900"); ?></td>
         <td><?php echo \dash\fit::number("29000"); ?></td>
-        <td><?php echo \dash\fit::number("140000"); ?></td>
+        <td>-</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -103,7 +103,7 @@
         <td>هاست ایران</td>
         <td><?php echo \dash\fit::number("12000"); ?></td>
         <td><?php echo \dash\fit::number("36000"); ?></td>
-        <td><?php echo \dash\fit::number("198000"); ?></td>
+        <td>-</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -111,7 +111,7 @@
         <td>ایران هاست</td>
         <td><?php echo \dash\fit::number("16000"); ?></td>
         <td><?php echo \dash\fit::number("48000"); ?></td>
-        <td><?php echo \dash\fit::number("219000"); ?></td>
+        <td>-</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
