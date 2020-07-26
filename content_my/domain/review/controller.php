@@ -120,6 +120,10 @@ class controller
 	        {
 	        	$price = \lib\app\nic_domain\price::renew(\dash\data::myPeriod());
 	        }
+	        elseif(\dash\request::get('type') === 'transfer')
+	        {
+	        	$price = \lib\app\nic_domain\price::transfer();
+	        }
 
 	        \dash\data::myPrice($price);
 
