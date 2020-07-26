@@ -61,6 +61,7 @@ if(\dash\data::googleAnalytics())
  <meta content="yes" name="mobile-web-app-capable"/>
  <meta content="yes" name="apple-touch-fullscreen"/>
  <meta content="yes" name="apple-mobile-web-app-capable"/>
+ <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
  <meta content="#c80a5a" name="theme-color"/>
  <meta content="#c80a5a" name="msapplication-TileColor">
  <meta content="<?php echo \dash\face::site(); ?>" name="application-name"/>
