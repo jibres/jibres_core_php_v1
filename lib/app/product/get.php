@@ -42,21 +42,12 @@ class get
 			return false;
 		}
 
-		if(isset(self::$product_detail[$_id]))
-		{
-			$result = self::$product_detail[$_id];
-		}
-		else
-		{
-			$result = \lib\db\products\get::by_id($_id);
+		$result = \lib\db\products\get::by_id($_id);
 
-			if(!$result)
-			{
-				\dash\notif::error(T_("Product detail not found"));
-				return false;
-			}
-
-			self::$product_detail[$_id] = $result;
+		if(!$result)
+		{
+			\dash\notif::error(T_("Product detail not found"));
+			return false;
 		}
 
 		return $result;
