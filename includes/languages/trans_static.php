@@ -695,6 +695,10 @@ class TransStatic
 	echo T_('Queue');
 	echo T_("Inprogress");
 	echo T_("inprogress");
+	echo T_("postcode");
+	echo T_("Postcode");
+	echo T_("Fullname");
+	echo T_("fullname");
 
 	echo T_('Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.');
 	echo T_('Sell & Enjoy');

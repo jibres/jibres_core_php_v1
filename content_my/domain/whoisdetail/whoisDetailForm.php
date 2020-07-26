@@ -1,6 +1,10 @@
 
 <?php if(\dash\language::current() == 'fa') {?>
-	<div class="msg danger2 rtl"><?php echo T_("Enter in Latin characters"); ?></div>
+	<div class="msg danger2 rtl">
+		<li>حتما تمامی اطلاعات را با کاراکتر‌های لاتین وارد کنید.</li>
+		<li>حتما از یک ایمیل معتبر برای ثبت دامنه استفاده کنید. بعد از فرایند ثبت دامنه شما باید از طریق ایمیلی که به شما ارسال شده است فرایند را تایید کنید.</li>
+		<li>با توجه به تحریم بودن ایران امکان انتخاب این کشور در لیست وجود ندارد. لذا از نام‌های معروف ایرانی برای نام شهر و استان استفاده نکنید.</li>
+	</div>
 <?php } //endif ?>
 <div class="f">
 	<div class="c6 s12 pLa5">
@@ -285,10 +289,24 @@
 
 
 
-<label for="address">Address</label>
+
+
+
+<div class="f">
+	<div class="c6 s12 pLa5">
+		<label for="address">Address</label>
 <div class="input ltr">
 	<input type="text" placeholder2="<?php echo T_("Address"); ?>" name="address" value="<?php echo \dash\data::userSettingDataRow_address(); ?>" id="address" maxlength='60'>
 </div>
+	</div>
+	<div class="c6 s12">
+		<label for="postcode">Post code</label>
+		<div class="input">
+			<input type="text" placeholder2="<?php echo T_("Post code"); ?>" name="postcode" value="<?php echo \dash\data::userSettingDataRow_postcode(); ?>" id="postcode" data-format="postalCode">
+		</div>
+	</div>
+</div>
+
 
 
 
@@ -311,19 +329,6 @@
 
 	</div>
 	<div class="c6 s12 pLa5">
-		<label for="postcode">Post code</label>
-		<div class="input">
-			<input type="text" placeholder2="<?php echo T_("Post code"); ?>" name="postcode" value="<?php echo \dash\data::userSettingDataRow_postcode(); ?>" id="postcode" data-format="postalCode">
-		</div>
-	</div>
-</div>
-
-
-
-
-
-<div class="f">
-	<div class="c6 s12 pLa5">
 		<label for="iphonecc">Phone number</label>
 		<div class="f">
 			<div class="cauto">
@@ -337,11 +342,17 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="c6 s12 pLa5">
-		<label for="iemail">Email</label>
-		<div class="input ltr">
-			<input type="email" name="email" value="<?php echo \dash\data::userSettingDataRow_email(); ?>" placeholder2="<?php echo T_("Email"); ?>" id="iemail" maxlength="60">
-		</div>
+
 	</div>
 </div>
+
+
+
+<div class="msg danger2 mT20">
+	<p><?php echo T_("Please enter the email you have access to. After registering any international domain, you must confirm the domain registration process by this image. Please be careful") ?></p>
+	<label for="iemail">Email</label>
+	<div class="input ltr">
+		<input type="email" name="email" value="<?php echo \dash\data::userSettingDataRow_email(); ?>" placeholder2="<?php echo T_("Email"); ?>" id="iemail" maxlength="60">
+	</div>
+
+	</div>

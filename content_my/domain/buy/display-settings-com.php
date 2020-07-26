@@ -32,24 +32,10 @@
               </select>
             </div>
 
+            <h4 data-kerkere='.showWhoisDetail' data-kerkere-icon><?php echo T_("Whois detail"); ?></h4>
 
-            <div class="f mB10">
-            <div class="c pB10 pRa5">
-             <div class="radio3">
-              <input type="radio" name="whoistype" value="jibreswhoisgard" id="jibresWhoisGard" checked>
-              <label for="jibresWhoisGard"><?php echo T_("Use Jibres whois gard"); ?></label>
-             </div>
-            </div>
-            <div class="c pB10">
-             <div class="radio3">
-              <input type="radio" name="whoistype" value="customizedetail" id="customizedetail" >
-              <label for="customizedetail"><?php echo T_("I want to enter whois detail"); ?></label>
-             </div>
-            </div>
-           </div>
-
-            <div data-response='whoistype' data-response-where='customizedetail' data-response-hide>
-              <div class="example ltr">
+            <div class="showWhoisDetail" <?php if(\dash\data::userSettingDataRow_email()) {echo "data-kerkere-content='hide'"; }?>  >
+              <div class="ltr">
 
                 <?php require_once(root. 'content_my/domain/whoisdetail/whoisDetailForm.php'); ?>
 

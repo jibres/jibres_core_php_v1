@@ -53,8 +53,9 @@ class create
 
 		$require = ['domain'];
 
-		if(isset($_args['whoistype']) && $_args['whoistype'] === 'customizedetail')
+		// if(isset($_args['whoistype']) && $_args['whoistype'] === 'customizedetail')
 		{
+			// all is required
 			array_push($require, 'fullname');
 			array_push($require, 'org');
 			array_push($require, 'country');
@@ -70,7 +71,14 @@ class create
 		}
 
 
-		$meta    = [];
+		$meta    =
+		[
+			'field_title' =>
+			[
+				'faxcc' => T_("Code"),
+				'phonecc' => T_("Code"),
+			],
+		];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 

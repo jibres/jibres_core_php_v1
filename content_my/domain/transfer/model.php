@@ -32,7 +32,7 @@ class model
 			'fax'          => \dash\request::post('fax'),
 
 			'email'        => \dash\request::post('email'),
-			'whoistype'    => \dash\request::post('whoistype'),
+			// 'whoistype'    => \dash\request::post('whoistype'),
 
 		];
 
