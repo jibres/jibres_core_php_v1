@@ -190,7 +190,7 @@ class view
 		else
 		{
 
-			\dash\face::cover(\dash\face::logo());
+			\dash\face::cover(\dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-500.png');
 			\dash\face::twitterCard('summary');
 		}
 	}
