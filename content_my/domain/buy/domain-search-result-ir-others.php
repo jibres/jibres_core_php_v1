@@ -46,12 +46,14 @@ echo '<li>';
             echo T_('Unavailable');
         }
         echo '</div>';
-        echo '<div class="go';
         if($available)
         {
-            echo "";
+            echo '<div class="go ok">';
         }
-        echo '">';
+        else
+        {
+            echo '<div class="go info nok"'>;
+        }
         echo '</div>';
     echo '</a>';
 echo '</li>';
