@@ -26,7 +26,7 @@ class check
 		$code = $data['code'];
 		if(!$code)
 		{
-			\dash\notif::error(T_("Invalid gift code"), 'gift');
+			self::error(T_("Invalid gift code"), 'gift');
 			return false;
 		}
 
@@ -34,7 +34,7 @@ class check
 
 		if(!$load || !isset($load['id']))
 		{
-			\dash\notif::error(T_("Invalid gift code"), 'gift');
+			self::error(T_("Invalid gift code"), 'gift');
 			return false;
 		}
 
@@ -65,14 +65,14 @@ class check
 		{
 			if(!in_array(\dash\user::detail('mobile'), $dedicated))
 			{
-				\dash\notif::error(T_("This gift card is not enable for you"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+				self::error(T_("This gift card is not enable for you"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
 		}
 
 		if(floatval($data['price']) < floatval($pricefloor))
 		{
-			\dash\notif::error(T_("For use this gift code your cart amount must be larget than :val", ['val' => \dash\fit::number($pricefloor)]), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+			self::error(T_("For use this gift code your cart amount must be larget than :val", ['val' => \dash\fit::number($pricefloor)]), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 			return false;
 		}
 
@@ -111,7 +111,7 @@ class check
 								}
 								else
 								{
-									\dash\notif::error(T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+									self::error(T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 									return false;
 								}
 								break;
@@ -125,13 +125,13 @@ class check
 									}
 									else
 									{
-										\dash\notif::error(T_("This gift card only work on .ir domain by domain period 1 year"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+										self::error(T_("This gift card only work on .ir domain by domain period 1 year"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 										return false;
 									}
 								}
 								else
 								{
-									\dash\notif::error(T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+									self::error(T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 									return false;
 								}
 								break;
@@ -145,13 +145,13 @@ class check
 									}
 									else
 									{
-										\dash\notif::error(T_("This gift card only work on .ir domain by domain period 5 year"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+										self::error(T_("This gift card only work on .ir domain by domain period 5 year"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 										return false;
 									}
 								}
 								else
 								{
-									\dash\notif::error(T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+									self::error(T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 									return false;
 								}
 								break;
@@ -160,7 +160,7 @@ class check
 					}
 					else
 					{
-						\dash\notif::error(T_("This gift card not working here!"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+						self::error(T_("This gift card not working here!"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 						return false;
 					}
 
@@ -184,7 +184,7 @@ class check
 		}
 		else
 		{
-			\dash\notif::error(T_("This gift card is not enable"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+			self::error(T_("This gift card is not enable"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 			return false;
 		}
 
@@ -197,7 +197,7 @@ class check
 
 			if($left_time <= 0)
 			{
-				\dash\notif::error(T_("This gift card is expired"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+				self::error(T_("This gift card is expired"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
 		}
@@ -212,7 +212,7 @@ class check
 			{
 				// update status
 				// set date finish
-				\dash\notif::error(T_("Capacity of this gift card is full"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+				self::error(T_("Capacity of this gift card is full"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
 		}
@@ -224,7 +224,7 @@ class check
 			$get_usageperuser = \lib\db\gift\get::count_usaget_gift_id_user_id($gift_id, $data['user_id']);
 			if(floatval($get_usageperuser) >= floatval($load['usageperuser']))
 			{
-				\dash\notif::error(T_("You have used the maximum capacity of this discount code"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+				self::error(T_("You have used the maximum capacity of this discount code"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
 		}
@@ -240,6 +240,13 @@ class check
 		$result['msgsuccess'] = (isset($load['msgsuccess']) && $load['msgsuccess']) 	? $load['msgsuccess'] 	: null;
 
 		return $result;
+	}
+
+	private static function error($_msg)
+	{
+		\dash\data::gitfErrorMessage($_msg);
+		\dash\notif::error(...func_get_args());
+
 	}
 }
 ?>
