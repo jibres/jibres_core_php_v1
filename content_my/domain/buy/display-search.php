@@ -53,15 +53,23 @@ $result = \dash\data::infoResult();
   </ul>
   <?php } //endif ?>
   </div>
-  <div class="c-xs-12 c-sm-6 c-md-4">
-    <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
+   <div class="c-xs-12 c-sm-6 c-md-4">
+  <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
     <h5 class="txtB mT20"><?php echo T_("International TLD"); ?></h5>
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li class="f">
       <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
-       <div class="key"><span class=""><?php echo \dash\get::index($value, 'name'); ?></span> <span><?php echo \dash\get::index($value, 'tld'); ?></span></div>
-       <div class="value"><?php if(\dash\get::index($value, 'available')) { echo T_("Available");}else{ echo T_("Not Available");} ?></div>
+       <div class="key fc-mute"><?php echo \dash\get::index($value, 'name'); ?></div>
+       <div class="key txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
+       <?php if(\dash\get::index($value, 'available')) {?>
+        <div class="value">
+          <span class="compact font-10"><?php echo \dash\get::index($value, 'unit');?></span>
+          <span class="compact"><?php echo \dash\fit::number(\dash\get::index($value, 'price_1year'));?></span>
+        </div>
+       <?php }else{ ?>
+       <div class="value"><?php echo T_("Unavailable") ?></div>
+       <?php } //endif ?>
        <?php if(\dash\get::index($value, 'available')) {?>
         <div class="go ok"></div>
         <?php }else{ ?>
@@ -72,24 +80,26 @@ $result = \dash\data::infoResult();
     <?php } //endfor ?>
   </ul>
   <?php } //endif ?>
-
   </div>
-  <div class="c-xs-12 c-sm-6 c-md-4">
-
+   <div class="c-xs-12 c-sm-6 c-md-4">
   <?php if(\dash\data::domainSuggestion()) {?>
     <h5 class="txtB mT20"><?php echo T_("Our short suggestion"); ?></h5>
     <ul class="items">
-      <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
-       <li class="f">
-        <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain'); ?>" class="f">
-         <div class="key"><?php echo T_("Suggestion for you");?></div>
-         <div class="value"><?php echo \dash\get::index($value, 'domain'); ?></div>
+    <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
+     <li class="f">
+      <a href="<?php echo \dash\url::this(). '/buy/'. $key ?>" class="f">
+       <div class="key txtB"><?php echo \dash\get::index($value, 'root'); ?></div>
+       <div class="key fc-mute">.<?php echo \dash\get::index($value, 'tld'); ?></div>
 
-        </a>
-       </li>
-     <?php }//endfor ?>
-    </ul>
-  <?php } // endif ?>
+        <div class="value">
+          <span class="compact font-10"><?php echo T_("Buy") ?></span>
+        </div>
+        <div class="go ok"></div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+  <?php } //endif ?>
   </div>
 </div>
 
