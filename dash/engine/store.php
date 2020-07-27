@@ -425,26 +425,51 @@ class store
 			}
 			else
 			{
-				\dash\file::write($customer_domain, $check_db['store_id']);
+				\dash\file::write($customer_domain, json_encode($check_db, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 			}
 		}
 
 		$load_detail = \dash\file::read($customer_domain);
-		$load_detail = trim($load_detail);
+		$load_detail = json_decode($load_detail, true);
 
-		if($load_detail && is_numeric($load_detail))
+		if($load_detail && isset($load_detail['store_id']))
 		{
-			self::init_by_id($load_detail);
-			if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+			if(isset($load_detail['master']) && $load_detail['master'])
 			{
-				// nothing
+				self::init_by_id($load_detail['store_id']);
+
+				if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\engine\content::set('content_business');
+				}
+				self::$inCustomerDomain = true;
+				return true;
+
 			}
 			else
 			{
-				\dash\engine\content::set('content_business');
+				// must redirect to master
+				$master_domain = \lib\db\store_domain\get::master_domain($load_detail['store_id']);
+				if(isset($master_domain['domain']))
+				{
+					$new_url = \dash\url::protocol(). '://';
+					$new_url .= $master_domain['domain'];
+					$new_url .= \dash\url::path();
+					if($new_url !== \dash\url::pwd())
+					{
+						\dash\redirect::to($new_url);
+					}
+				}
 			}
-			self::$inCustomerDomain = true;
-			return true;
+		}
+		else
+		{
+			// remove old file
+			\dash\file::delete($customer_domain);
 		}
 	}
 
