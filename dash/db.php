@@ -136,6 +136,7 @@ class db
 			{
 				// @Reza @Javad Need to fix Cronjob error null sql
 				// At this time I disable the log of null sql error to check other error
+				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error_cronjob.sql');
 			}
 			else
 			{
