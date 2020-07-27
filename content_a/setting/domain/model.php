@@ -29,6 +29,15 @@ class model
 
 			$result = \lib\app\store\domain::remove($post);
 		}
+		elseif(\dash\request::post('master') === 'master')
+		{
+			$post =
+			[
+				'domain' => \dash\request::post('domain'),
+			];
+
+			$result = \lib\app\store\domain::set_master($post);
+		}
 		else
 		{
 			$post =

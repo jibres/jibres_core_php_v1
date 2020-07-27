@@ -10,9 +10,8 @@ $storeData = \dash\data::store_store_data();
   <div id="urlpwd"><?php echo \dash\url::pwd() ?></div>
 </div>
 
+<div class="avand"></div>
 
-<div class="f justify-center">
- <div class="c6 s12 pA10">
   <form method="post" autocomplete="off">
     <div  class="box impact mB25-f">
       <header><h2><?php echo T_("Connect store to your domain");?></h2></header>
@@ -39,6 +38,15 @@ $storeData = \dash\data::store_store_data();
                   <div class="c txtB"><?php echo \dash\get::index($value, 'domain'); ?></div>
                   <div class="cauto">
                     <span class="btn danger" data-confirm data-data='{"remove": "domain", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Remove"); ?></span>
+
+                </div>
+
+                <div class="cauto">
+                  <?php if(\dash\get::index($value, 'master')) {?>
+                    <span class="btn success"><?php echo T_("Primary domain") ?></span>
+                  <?php }else{ ?>
+                    <span class="btn primary mLa5" data-confirm data-data='{"master": "master", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Set as primary"); ?></span>
+                  <?php } //endif ?>
 
                 </div>
                 </div>
@@ -71,7 +79,6 @@ $storeData = \dash\data::store_store_data();
         </footer>
     </div>
   </form>
- </div>
 </div>
 
 

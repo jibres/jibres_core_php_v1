@@ -4,6 +4,59 @@ namespace lib\app\store;
 
 class domain
 {
+	public static function set_master($_args)
+	{
+		$condition =
+		[
+			'domain' => 'domain',
+		];
+
+		$require = ['domain'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$domain_list = \lib\db\setting\get::by_cat_key_all('store_setting', 'domain');
+
+		$id = null;
+		foreach ($domain_list as $key => $value)
+		{
+			if(isset($value['value']) && $value['value'] === $data['domain'])
+			{
+				$id = $value['id'];
+				break;
+			}
+		}
+
+		if($id)
+		{
+			$load_setting_record = \lib\db\setting\get::by_id($id);
+
+			if(isset($load_setting_record['value']) && $load_setting_record['value'] === $data['domain'])
+			{
+				// no problem
+			}
+			else
+			{
+				\dash\notif::error(T_("This domain not found in your domain list!"));
+				return false;
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("This domain not found in your domain list!"));
+			return false;
+		}
+
+		\lib\app\setting\tools::update('store_setting', 'domain_master', $data['domain']);
+		\lib\db\store_domain\update::change_master(\lib\store::id(), $data['domain']);
+
+		\dash\notif::ok(T_("Primary domain saved"));
+		return true;
+	}
+
+
 	public static function remove($_args)
 	{
 		$condition =
