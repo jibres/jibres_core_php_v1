@@ -68,12 +68,17 @@ $productDataRow = \dash\data::productDataRow();
 
 
 
-<?php if(\dash\data::propertyList()) { $have_any_id = false; ?>
+<?php
+
+if(\dash\data::propertyList_saved())
+{
+   $have_any_id = false;
+?>
   <div class="box productInfo">
     <table class="tbl1 responsive v5">
-<?php foreach (\dash\data::propertyList() as $property => $cat) {?>
+<?php foreach (\dash\data::propertyList_saved() as $property => $cat) { ?>
       <tr class="group">
-        <th colspan="6"><?php echo $cat['title']; ?></th>
+        <th colspan="5"><?php echo $cat['title']; ?></th>
       </tr>
 <?php foreach ($cat['list'] as $key => $value) {?>
       <tr>
@@ -90,18 +95,7 @@ $productDataRow = \dash\data::productDataRow();
           <?php echo $value['value']; ?>
           <?php } //endif ?>
         </td>
-        <td>
-          <?php if(\dash\get::index($value, 'input')) {?>
-            <form method="post" autocomplete="off">
-              <input type="hidden" name="cat" value="<?php echo \dash\get::index($cat, 'title') ?>">
-              <input type="hidden" name="key" value="<?php echo \dash\get::index($value, 'key') ?>">
-            <div class="input">
-              <input type="text" name="value" >
-              <button type="submit" class="btn"><?php echo T_("Save") ?></button>
-            </div>
-            </form>
-          <?php } //endif ?>
-        </td>
+
          <td class="collapsing">
           <?php if(\dash\get::index($value, 'id') && \dash\request::get('pid') && \dash\request::get('pid') == \dash\get::index($value, 'id')) {?>
             <small class="fc-mute"><?php echo T_("Please fill the top input and click on Edit to save it") ?></small>
@@ -111,9 +105,10 @@ $productDataRow = \dash\data::productDataRow();
         </td>
          <td class="collapsing"><?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
       </tr>
-<?php     } ?>
-<?php   } ?>
+  <?php  } // endfor ?>
+<?php  } // end for category ?>
     </table>
+
     <?php if($have_any_id) {?>
       <p class="mA10-f">
         <?php echo T_("By click on ") ?><i class="sf-check-circle fc-mute fs12"></i>
@@ -121,6 +116,51 @@ $productDataRow = \dash\data::productDataRow();
       </p>
     <?php } //endif ?>
   </div>
+
+  <?php if(\dash\data::propertyList_category()) {?>
+    <form method="post" autocomplete="off">
+      <input type="hidden" name="multiproperty" value="multiproperty">
+      <div class="box">
+        <header><h2><?php echo T_("Property of Category") ?></h2></header>
+        <div class="body">
+          <table class="tbl1 v5 responsive">
+            <thead>
+              <tr>
+                <th class="collapsing"><?php echo T_("Group") ?></th>
+                <th class="collapsing"><?php echo T_("Type") ?></th>
+                <th><?php echo T_("Value") ?></th>
+              </tr>
+            </thead>
+            <tbody>
+
+          <?php foreach (\dash\data::propertyList_category() as $cat) {?>
+            <?php foreach ($cat['list'] as $key => $value) { $randKey = rand(1, 99999); ?>
+            <tr>
+              <td class="collapsing">
+                  <input type="hidden" name="cat_<?php echo $randKey; ?>" value="<?php echo \dash\get::index($cat, 'title') ?>">
+                  <?php echo \dash\get::index($cat, 'title') ?>
+              </td>
+              <td class="collapsing">
+                <input type="hidden" name="key_<?php echo $randKey; ?>" value="<?php echo \dash\get::index($value, 'key') ?>">
+                <?php echo \dash\get::index($value, 'key') ?>
+              </td>
+              <td>
+                <div class="input">
+                  <input type="text" name="value_<?php echo $randKey; ?>" >
+                </div>
+              </td>
+            </tr>
+            <?php } // endfor ?>
+          <?php } // endfor ?>
+            </tbody>
+          </table>
+        </div>
+        <footer class="txtRa">
+          <button type="submit" class="btn primary"><?php echo T_("Save") ?></button>
+        </footer>
+      </div>
+   </form>
+  <?php } //endif ?>
 <?php } ?>
   </div>
 

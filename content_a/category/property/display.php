@@ -27,11 +27,11 @@
           </div>
           <div class="c-md-6 c-xs-12 c-sm-12">
             <?php if(!\dash\data::keyList()) {?>
-              <div class="input mT10">
+              <div class="input ">
                 <input type="text" name="key" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'key'); ?>">
               </div>
             <?php }else{ ?>
-              <div class="mT10">
+              <div class="">
                 <select name="key" class="select22" data-model='tag' data-placeholder="<?php echo T_("Type"); ?>" >
                   <option></option>
                   <?php foreach (\dash\data::keyList() as $key => $value) {?>

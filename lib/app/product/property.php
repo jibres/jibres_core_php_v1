@@ -400,8 +400,53 @@ class property
 			}
 		}
 
+		$input_result = [];
+		$real_result  = [];
 
-		return $result;
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['list']) && is_array($value['list']))
+			{
+
+				foreach ($value['list'] as $k => $v)
+				{
+					if(\dash\get::index($v, 'input'))
+					{
+						if(!isset($input_result[$key]['list']))
+						{
+							$input_result[$key]['title'] = $value['title'];
+							$input_result[$key]['list']  = [];
+						}
+
+						$input_result[$key]['list'][]  = $v;
+					}
+					else
+					{
+						if(!isset($real_result[$key]['list']))
+						{
+							$real_result[$key]['title'] = $value['title'];
+							$real_result[$key]['list']  = [];
+						}
+
+						$real_result[$key]['list'][]  = $v;
+					}
+				}
+			}
+		}
+
+		if($_admin)
+		{
+			return
+			[
+				'saved'    => $real_result,
+				'category' => $input_result,
+			];
+		}
+		else
+		{
+			return $real_result;
+		}
+
 
 	}
 
@@ -566,6 +611,17 @@ class property
 			return false;
 		}
 
+	}
+
+
+	public static function add_multi($_args, $_id)
+	{
+		foreach ($_args as $key => $value)
+		{
+			\dash\notif::clean();
+			self::add($value, $_id);
+
+		}
 	}
 
 	public static function add($_args, $_id, $_edit_id = null)
