@@ -84,13 +84,14 @@ class controller
 				break;
 		}
 
+
 		\dash\data::dataRow($detail);
 		$domain = \dash\data::dataRow_name();
+		\dash\data::dataRowAction($load_last_activity);
 
 		if(\dash\validate::ir_domain($domain, false))
 		{
 
-			\dash\data::dataRowAction($load_last_activity);
 
 			$period = null;
 			$periodTitle = null;
@@ -166,17 +167,7 @@ class controller
 
 				\dash\data::myPrice($myPrice);
 			}
-
-			\dash\data::dataRowAction($load_last_activity);
-
-
 		}
-
-
-
-
-
-
 	}
 
 

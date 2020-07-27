@@ -37,23 +37,5 @@ class action
 
 	}
 
-	public static function ready_buy_domain($_domain)
-	{
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
-		// unique every domain every day
-
-		$load_old_action = \lib\db\nic_domainaction\get::caller_domain_user_id_date('domain_buy_ready', $_domain, \dash\user::id(), date("Y-m-d"));
-		if(isset($load_old_action['id']))
-		{
-			return false;
-		}
-
-		return self::set('domain_buy_ready', ['domain' => $_domain]);
-	}
 }
 ?>

@@ -86,6 +86,23 @@ class model
 			'agree'        => true,
 			'gift'         => \dash\request::get('gift'),
 			'usebudget'    => \dash\request::post('usebudget'),
+
+				// .com request
+			'fullname'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fullname'),
+			'org'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'org'),
+			'nationalcode' => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'nationalcode'),
+			'country'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'country'),
+			'province'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'province'),
+			'city'         => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'city'),
+			'address'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'address'),
+			'postcode'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'postcode'),
+
+			'phonecc'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'phonecc'),
+			'phone'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'phone'),
+			'faxcc'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'faxcc'),
+			'fax'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fax'),
+
+			'email'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'email'),
 		];
 
 
@@ -144,10 +161,11 @@ class model
 			'fax'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fax'),
 
 			'email'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'email'),
-			'whoistype'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'whoistype'),
+			// 'whoistype'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'whoistype'),
 
 
 		];
+
 
 
 		if(\lib\nic\mode::api())

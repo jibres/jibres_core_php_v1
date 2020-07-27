@@ -147,8 +147,8 @@ class renew
 			[
 				'domain_id' => $domain_id,
 				'period'    => $period,
+				'detail'    => json_encode($data, JSON_UNESCAPED_UNICODE),
 			];
-
 
 			\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
 
