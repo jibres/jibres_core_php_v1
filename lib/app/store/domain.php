@@ -123,6 +123,14 @@ class domain
 				// delete record
 				\lib\db\store_domain\delete::record($check_duplicate_domain['id']);
 
+				// remove catch file
+				$customer_domain_addr = \dash\engine\store::customer_domain_addr();
+				$customer_domain_addr .= $data['domain'];
+				if(is_file($customer_domain_addr))
+				{
+					\dash\file::delete($customer_domain_addr);
+				}
+
 				if($is_master)
 				{
 					$load_all_store_domain = \lib\db\store_domain\get::by_store_id(\lib\store::id());

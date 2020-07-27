@@ -23,7 +23,7 @@ class get
 
 	public static function by_store_id($_store_id)
 	{
-		$query  = "SELECT * FROM store_domain WHERE store_domain.store_id = $_store_id";
+		$query  = "SELECT * FROM store_domain WHERE store_domain.store_id = $_store_id ORDER BY store_domain.master desc";
 		$result = \dash\db::get($query, null, false, 'master');
 		return $result;
 	}
