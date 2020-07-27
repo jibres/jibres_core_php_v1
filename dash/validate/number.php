@@ -154,11 +154,11 @@ class number
 
 		$data = (string) $data;
 
-		if(mb_strlen($data) < 6)
+		if(mb_strlen($data) < 3)
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Post code must be larger than 6 character"), ['element' => $_element]);
+				\dash\notif::error(T_("Post code must be larger than 3 character"), ['element' => $_element]);
 				\dash\cleanse::$status = false;
 			}
 			return false;
