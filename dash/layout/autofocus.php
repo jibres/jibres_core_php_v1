@@ -8,7 +8,17 @@ class autofocus
 	{
 		if(!\dash\detect\device::detectPWA())
 		{
-			echo 'autofocus';
+			if(in_array('add', [\dash\url::module(), \dash\url::child(), \dash\url::subchild()]))
+			{
+				echo 'autofocus';
+			}
+			else
+			{
+				if(\dash\server::referer() !== \dash\url::pwd())
+				{
+					echo 'autofocus';
+				}
+			}
 		}
 
 	}
