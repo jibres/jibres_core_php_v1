@@ -144,20 +144,36 @@ class get
 		{
 			$update_domain['ns1'] = \dash\validate::string($fetch['ns'][0], false);
 		}
+		else
+		{
+			$update_domain['ns1'] = null;
+		}
 
 		if(isset($fetch['ns'][1]))
 		{
 			$update_domain['ns2'] = \dash\validate::string($fetch['ns'][1], false);
+		}
+		else
+		{
+			$update_domain['ns2'] = null;
 		}
 
 		if(isset($fetch['ns'][2]))
 		{
 			$update_domain['ns3'] = \dash\validate::string($fetch['ns'][2], false);
 		}
+		else
+		{
+			$update_domain['ns3'] = null;
+		}
 
 		if(isset($fetch['ns'][3]))
 		{
 			$update_domain['ns4'] = \dash\validate::string($fetch['ns'][3], false);
+		}
+		else
+		{
+			$update_domain['ns4'] = null;
 		}
 
 		self::update_domain_status($_domain, $_load_domain, $fetch);
