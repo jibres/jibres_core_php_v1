@@ -344,6 +344,19 @@ class get
 			return false;
 		}
 
+		if(isset($load['lastfetch']) && $load['lastfetch'])
+		{
+			// fetch every 1 hour
+			if(time() - strtotime($load['lastfetch']) > (60*60))
+			{
+				self::update_fetch($load['name'], $load);
+			}
+		}
+		else
+		{
+			self::update_fetch($load['name'], $load);
+		}
+
 		return $load;
 
 	}
