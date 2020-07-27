@@ -60,6 +60,49 @@ class store
 	}
 
 
+	public static function reset_catch()
+	{
+		$id = self::id();
+		$subdomain = self::detail('subdomain');
+
+		$addr = \dash\engine\store::subdomain_addr(). $subdomain;
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
+		$addr = \dash\engine\store::detail_addr(). $id;
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
+		$addr = \dash\engine\store::cache_addr(). $id;
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
+		$domain_list = \lib\db\store_domain\get::by_store_id($id);
+		if($domain_list && is_array($domain_list))
+		{
+			foreach ($domain_list as $key => $value)
+			{
+				if(isset($value['domain']))
+				{
+					$addr = \dash\engine\store::customer_domain_addr(). $value['domain'];
+					if(is_file($addr))
+					{
+						\dash\file::delete($addr);
+					}
+				}
+			}
+		}
+
+		self::clean();
+
+	}
+
 
 	// in api no user can set subdomain
 	public static function store_slug()

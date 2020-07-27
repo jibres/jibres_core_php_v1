@@ -52,6 +52,8 @@ class domain
 		\lib\app\setting\tools::update('store_setting', 'domain_master', $data['domain']);
 		\lib\db\store_domain\update::change_master(\lib\store::id(), $data['domain']);
 
+		\lib\store::reset_catch();
+
 		\dash\notif::ok(T_("Primary domain saved"));
 		return true;
 	}
@@ -167,6 +169,7 @@ class domain
 		// to make ajax for remove domain
 		\dash\session::set('businessRemoveDomain', $data['domain']);
 
+		\lib\store::reset_catch();
 
 		\dash\notif::ok(T_("Domain disconnected"));
 		return true;
@@ -332,6 +335,8 @@ class domain
 
 		// set ajax
 		\dash\session::set('businessNewDomain', $domain);
+
+		\lib\store::reset_catch();
 
 		\dash\notif::ok(T_("Your domain connected to your store"));
 		return true;
