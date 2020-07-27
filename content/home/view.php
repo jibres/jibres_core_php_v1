@@ -82,6 +82,14 @@ class view
 
 		shuffle($quote);
 		\dash\data::quote($quote);
+
+
+		$domainPrice =
+		[
+			'ir1year' => \lib\app\nic_domain\price::register('1year'),
+		];
+
+		\dash\data::domainPrice($domainPrice);
 	}
 }
 ?>

@@ -56,7 +56,7 @@
   <div class="avand-md">
    <h2><a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Jibres Domain Center"); ?></a></h2>
    <div class="domainQuickBuy box">
-    <h3 class="mB10"><?php echo T_("Get your :val .IR domain", ["val" => "<span class='txtB'>". \dash\fit::number('5000'). ' '. \lib\currency::unit(). '</span>'] ); ?></h3>
+    <h3 class="mB10"><?php echo T_("Get your :val .IR domain", ["val" => "<span class='txtB'>". \dash\fit::number(\dash\data::domainPrice_ir1year()). ' '. \lib\currency::unit(). '</span>'] ); ?></h3>
     <form method="get" action="<?php echo \dash\url::kingdom(); ?>/domains/search" autocomplete='off'>
      <div class="input">
       <input type="text" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Search for your dream domain') ?>'>
