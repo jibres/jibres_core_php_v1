@@ -114,8 +114,28 @@ class domain
 		{
 			if(isset($check_duplicate_domain['store_id']) && $check_duplicate_domain['store_id'] && floatval($check_duplicate_domain['store_id']) === floatval(\lib\store::id()))
 			{
+				$is_master = false;
+				if(isset($check_duplicate_domain['master']) && $check_duplicate_domain['master'])
+				{
+					// try to remove the master. we need to set master on other domain if exists
+					$is_master = true;
+				}
 				// delete record
 				\lib\db\store_domain\delete::record($check_duplicate_domain['id']);
+
+				if($is_master)
+				{
+					$load_all_store_domain = \lib\db\store_domain\get::by_store_id(\lib\store::id());
+
+					if(isset($load_all_store_domain[0]['domain']))
+					{
+						self::set_master(['domain' =>$load_all_store_domain[0]['domain']]);
+					}
+					else
+					{
+						\lib\db\setting\delete::by_cat_key('store_setting', 'domain_master');
+					}
+				}
 			}
 			else
 			{
@@ -239,6 +259,27 @@ class domain
 			return false;
 		}
 
+		$master = null;
+		$load_all_store_domain = \lib\db\store_domain\get::by_store_id(\lib\store::id());
+		if(!$load_all_store_domain)
+		{
+			$master = 1;
+		}
+		else
+		{
+			if(is_array($load_all_store_domain))
+			{
+				$master = 1;
+				foreach ($load_all_store_domain as $key => $value)
+				{
+					if(isset($value['master']) && $value['master'])
+					{
+						$master = null;
+					}
+				}
+			}
+		}
+
 		$insert =
 		[
 			'store_id'    => \lib\store::id(),
@@ -247,6 +288,7 @@ class domain
 			'subdomain'   => $subdomain,
 			'root'        => $root,
 			'tld'         => $tld,
+			'master'      => $master,
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
@@ -271,6 +313,11 @@ class domain
 		{
 			\dash\log::oops('db');
 			return false;
+		}
+
+		if($master)
+		{
+			\lib\app\setting\tools::update('store_setting', 'domain_master', $domain);
 		}
 
 		\lib\store::clean();

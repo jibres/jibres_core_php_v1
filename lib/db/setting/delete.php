@@ -12,5 +12,12 @@ class delete
 		return $result;
 	}
 
+	public static function by_cat_key($_cat, $_key)
+	{
+		$query = "DELETE FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 }
 ?>

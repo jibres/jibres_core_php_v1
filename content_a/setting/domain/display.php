@@ -10,46 +10,55 @@ $storeData = \dash\data::store_store_data();
   <div id="urlpwd"><?php echo \dash\url::pwd() ?></div>
 </div>
 
-<div class="avand"></div>
 
-  <form method="post" autocomplete="off">
-    <div  class="box impact mB25-f">
-      <header><h2><?php echo T_("Connect store to your domain");?></h2></header>
-        <div class="body">
-          <p class="mB0-f">
-            <?php echo T_("You can connect your store to special domain"); ?>
-
+<div class="avand">
+  <div class="row">
+    <div class="c-xs-12 c-sm-6 c-md-6">
+      <form method="post" autocomplete="off">
+        <div  class="box">
+          <header><h2><?php echo T_("Connect store to your domain");?></h2></header>
+          <div class="body">
+            <p>
+              <?php echo T_("You can connect one or more domains to your business. After connecting the domains, select one of them as the primary domain.") ?>
+            </p>
             <?php if(\dash\url::tld() === 'ir' || \dash\url::isLocal()) {?>
-              <div class="msg success2">
-                <?php echo T_("Your can buy new domain here"); ?>
+              <p>
+                <?php echo T_("If you want to register new domain, Come here"); ?>
                 <a href="<?php echo \dash\url::sitelang(). '/my/domain'; ?>" data-direct target="_blank"><?php echo T_("Domain Center"); ?></a>
-              </div>
+              </p>
             <?php } // endif ?>
 
-          </p>
-          <?php if(\dash\data::domainList()) {?>
 
-            <h4><?php echo T_("Connected domain"); ?></h4>
-            <div class="mB50">
+
+            <label for="idomain"><?php echo T_("Connect new domain"); ?> <span class="fc-red">*</span></label>
+            <div class="input ltr">
+              <input type="text" name="domain" id="idomain" <?php \dash\layout\autofocus::html() ?> required maxlength='70' minlength="1"  >
+            </div>
+
+          </div>
+          <footer class="txtRa">
+            <button  class="btn master" ><?php echo T_("Connect"); ?></button>
+            </footer>
+          </div>
+        </form>
+      </div>
+
+      <div class="c-xs-12 c-sm-6 c-md-6">
+
+        <?php if(\dash\data::domainList()) {?>
+
+          <h4><?php echo T_("Connected domain"); ?></h4>
             <?php foreach (\dash\data::domainList() as $key => $value) {?>
-              <div class="msg primary2 align-center">
-                <div class="f">
+              <div class="box">
+                <div class="body">
+                  <p class="txtB fs14 ltr">
+                    <?php if(\dash\get::index($value, 'master')) {?>
+                      <i class="sf-check-circle fc-green"></i>
+                    <?php } //endif ?>
+                    <?php echo \dash\get::index($value, 'domain'); ?>
+                  </p>
 
-                  <div class="c txtB"><?php echo \dash\get::index($value, 'domain'); ?></div>
-                  <div class="cauto">
-                    <span class="btn danger" data-confirm data-data='{"remove": "domain", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Remove"); ?></span>
 
-                </div>
-
-                <div class="cauto">
-                  <?php if(\dash\get::index($value, 'master')) {?>
-                    <span class="btn success"><?php echo T_("Primary domain") ?></span>
-                  <?php }else{ ?>
-                    <span class="btn primary mLa5" data-confirm data-data='{"master": "master", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Set as primary"); ?></span>
-                  <?php } //endif ?>
-
-                </div>
-                </div>
                 <div class="">
                   <?php if(!\dash\get::index($value, 'status')) {?>
                     <span><?php echo T_("Waiting to check domain"); ?></span>
@@ -61,24 +70,27 @@ $storeData = \dash\data::store_store_data();
                     <span><?php echo T_("Pending connect domain"); ?></span>
                   <?php } //endif ?>
                 </div>
+
+                </div>
+                <footer class="f">
+                  <div class="cauto">
+                    <span class="btn linkDel" data-confirm data-data='{"remove": "domain", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Remove"); ?></span>
+                  </div>
+                  <div class="c"></div>
+                  <div class="cauto">
+                    <?php if(\dash\get::index($value, 'master')) {?>
+                      <span class="txtB btn link fc-green"><?php echo T_("Primary domain") ?></span>
+                    <?php }else{ ?>
+                      <span class="btn link" data-confirm data-data='{"master": "master", "id": "<?php echo \dash\get::index($value, 'id'); ?>", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Set as primary"); ?></span>
+
+                  </div>
+                    <?php } //endif ?>
+                </footer>
               </div>
             <?php }// endfor ?>
-            </div>
-          <?php } // endif ?>
-          <?php if(\dash\data::domainList()) {?>
-            <h6><?php echo T_("Connect new domain"); ?></h6>
-          <?php }//endif ?>
-            <label for="idomain"><?php echo T_("Domain"); ?> <span class="fc-red">*</span></label>
-            <div class="input ltr">
-              <input type="text" name="domain" id="idomain" <?php \dash\layout\autofocus::html() ?> required maxlength='70' minlength="1"  >
-            </div>
-
-        </div>
-        <footer class="txtRa">
-          <button  class="btn success" ><?php echo T_("Save"); ?></div>
-        </footer>
+          </div>
+        <?php } // endif ?>
+      </div>
     </div>
-  </form>
+  </div>
 </div>
-
-
