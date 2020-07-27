@@ -77,8 +77,8 @@ class api
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 41);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 41);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 90);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 90);
 
 		$response = curl_exec($ch);
 		$CurlError = curl_error($ch);
