@@ -48,7 +48,6 @@ class model
 			[
 				'mobile'  => $my_mobile,
 				'code'    => $code,
-				'session' => $_SESSION,
 			]
 		];
 

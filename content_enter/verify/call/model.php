@@ -48,7 +48,7 @@ class model
 			'data' => $code,
 			'meta' =>
 			[
-				'session' => $_SESSION,
+
 			]
 		];
 
