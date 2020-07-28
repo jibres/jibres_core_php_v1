@@ -50,9 +50,10 @@ class view
 
 	private static function is_not_login()
 	{
-		if(isset($_SESSION['guest_ticket']) && is_array($_SESSION['guest_ticket']))
+		$guest_ticket = \dash\session::get('guest_ticket');
+		if($guest_ticket && is_array($guest_ticket))
 		{
-			$guest_ticket_id = array_column($_SESSION['guest_ticket'], 'id');
+			$guest_ticket_id = array_column($guest_ticket, 'id');
 			if($guest_ticket_id && is_array($guest_ticket_id))
 			{
 				$guest_ticket_id = implode(',', $guest_ticket_id);

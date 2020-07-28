@@ -101,12 +101,16 @@ class model
 
 			if(!\dash\user::login())
 			{
-				if(!isset($_SESSION['guest_ticket']) || (isset($_SESSION['guest_ticket']) && !is_array($_SESSION['guest_ticket'])))
+				$guest_ticket = \dash\session::get('guest_ticket');
+
+				if(!$guest_ticket || !is_array($guest_ticket))
 				{
-					$_SESSION['guest_ticket'] = [];
+					$guest_ticket = [];
 				}
 
-				array_push($_SESSION['guest_ticket'], $result);
+				array_push($guest_ticket, $result);
+
+				\dash\session::set('guest_ticket', $guest_ticket);
 
 				if(isset($result['code']))
 				{

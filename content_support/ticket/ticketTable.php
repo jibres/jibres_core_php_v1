@@ -42,8 +42,7 @@ foreach ($dataTable as $key => $value)
         </a>
 
         <?php }else{ ?>
-
-        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id');  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'id');} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></span> <?php echo substr(\dash\get::index($value, 'content'), 0, 60); if(mb_strlen(\dash\get::index($value, 'content')) > 60) { echo '...' ;} ?></a>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id');  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'code');} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></span> <?php echo substr(\dash\get::index($value, 'content'), 0, 60); if(mb_strlen(\dash\get::index($value, 'content')) > 60) { echo '...' ;} ?></a>
         <?php } // endif ?>
 
         <?php if(isset($value['tag']) && $value['tag'] && is_array($value['tag'])) {?>

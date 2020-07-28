@@ -6,7 +6,10 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::session($_SESSION);
+		if(isset($_SESSION))
+		{
+			\dash\data::session($_SESSION);
+		}
 	}
 }
 ?>
