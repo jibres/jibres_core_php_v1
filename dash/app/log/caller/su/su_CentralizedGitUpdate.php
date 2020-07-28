@@ -11,9 +11,9 @@ class su_CentralizedGitUpdate
 
 		$result              = [];
 		$result['title']     = T_("Git update");
-		$result['icon']      = 'bug';
+		$result['icon']      = 'campfire';
 		$result['cat']       = T_("System");
-		$result['iconClass'] = 'fc-black';
+		$result['iconClass'] = 'fc-hot';
 		$result['excerpt']   = $excerpt;
 		return $result;
 	}
