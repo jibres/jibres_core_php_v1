@@ -163,7 +163,15 @@ class session
 				}
 			}
 		}
-		return null;
+
+		if(isset($_SESSION))
+		{
+			return $_SESSION;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 
