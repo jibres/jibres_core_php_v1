@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-07-27 18:55+0430\n"
-"PO-Revision-Date: 2020-07-27 18:59+0430\n"
+"POT-Creation-Date: 2020-07-28 13:26+0430\n"
+"PO-Revision-Date: 2020-07-28 13:26+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -70,7 +70,7 @@ msgstr "درباره جیبرس"
 #: content/subscribe/view.php:13 content/team/view.php:15 content/terms/view.php:15
 #: content/whois/view.php:13 content_business/app/view.php:15
 #: content_business/p/home/view.php:17 content_enter/home/view.php:27
-#: content_v2/app/view.php:263 dash/engine/twigFn.php:211 dash/layout/pwa/pwa_menu.php:136
+#: content_v2/app/view.php:263 dash/layout/pwa/pwa_menu.php:136
 #: dash/layout/pwa/pwa_menu.php:200 includes/languages/trans_static_public.php:70
 msgid "Home"
 msgstr "صفحه نخست"
@@ -4886,7 +4886,7 @@ msgstr "افزودن محصول جدید"
 #: content_a/factor/home/display.php:273 content_a/irvat/all/display.php:210
 #: content_a/order/home/display.php:283 content_a/products/home/display.php:216
 #: content_a/products/tag/display.php:224 content_a/units/display.php:149
-#: content_account/notification/display.php:68 content_business/orders/display.php:54
+#: content_account/notification/display.php:55 content_business/orders/display.php:54
 #: content_cms/attachment/home/display.php:144 content_cms/posts/home/display.php:157
 #: content_cms/terms/display.php:277 content_crm/log/home/logTable.php:138
 #: content_crm/member/home/display.php:235 content_crm/transactions/display.php:132
@@ -5134,12 +5134,11 @@ msgstr "ویرایش"
 #: content_a/company/display.php:244 content_a/products/property/display.php:57
 #: content_a/units/display.php:78 content_a/units/display.php:202
 #: content_a/units/display.php:257 content_account/address.php:10
-#: content_enter/loginas/display.php:29 content_my/business/ask/display.php:45
-#: content_my/business/ask/view.php:21 content_my/business/start/display.php:50
-#: content_my/business/start/view.php:19 content_my/business/subdomain/display.php:22
-#: content_my/business/subdomain/view.php:18 content_my/domain/review/display.php:247
-#: content_pay/home/display.php:42 content_pay/home/display.php:160
-#: dash/social/telegram/commands/step_ticketAnswer.php:42
+#: content_my/business/ask/display.php:45 content_my/business/ask/view.php:21
+#: content_my/business/start/display.php:50 content_my/business/start/view.php:19
+#: content_my/business/subdomain/display.php:22 content_my/business/subdomain/view.php:18
+#: content_my/domain/review/display.php:247 content_pay/home/display.php:42
+#: content_pay/home/display.php:160 dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketCreate.php:44
 #: dash/social/telegram/commands/step_ticketCreate.php:85
@@ -7281,8 +7280,8 @@ msgstr "ذخیره و چاپ"
 #: content_a/sale/model.php:57 content_pardakhtyar/customer/dashboard/model.php:43
 #: content_pardakhtyar/customer/dashboard/model.php:87 content_su/backup/model.php:47
 #: content_su/smsclient/edit/model.php:47 content_su/smsclient/home/model.php:47
-#: dash/utility/pay/verify.php:40 lib/app/store/domain.php:419
-#: lib/app/store/domain.php:428
+#: dash/utility/pay/verify.php:40 lib/app/store/domain.php:424
+#: lib/app/store/domain.php:433
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
@@ -9839,21 +9838,20 @@ msgstr "بررسی"
 msgid "Logout from your account!"
 msgstr "خروج از حساب کاربری!"
 
-#: content_account/home/display.php:158 content_enter/app/display.php:20
-#: content_enter/loginas/display.php:36 includes/languages/trans_static.php:566
-#: includes/languages/trans_static_public.php:100
+#: content_account/home/display.php:157 content_enter/app/display.php:20
+#: includes/languages/trans_static.php:566 includes/languages/trans_static_public.php:100
 msgid "Logout"
 msgstr "خروج از سیستم"
 
-#: content_account/home/display.php:167
+#: content_account/home/display.php:166
 msgid "Only you can see your settings."
 msgstr "تنها شما می‌توانید تنظیمات خود را ببینید."
 
-#: content_account/home/display.php:167
+#: content_account/home/display.php:166
 msgid "We are committed to protecting your privacy and security."
 msgstr "ما متعهد به محافظت از حریم خصوصی و امنیت شما هستیم."
 
-#: content_account/home/display.php:167 content_account/my/home/display.php:83
+#: content_account/home/display.php:166 content_account/my/home/display.php:83
 msgid "Learn more"
 msgstr "بیشتر بدانید"
 
@@ -10049,19 +10047,19 @@ msgstr "حداقل طول ۵ کاراکتر است."
 msgid "Your username was changed"
 msgstr "نام کاربری شما تغییر یافت"
 
-#: content_account/notification/display.php:20
+#: content_account/notification/display.php:14
 msgid "New"
 msgstr "جدید"
 
-#: content_account/notification/display.php:45
+#: content_account/notification/display.php:38
 msgid "Sended via SMS"
 msgstr "از طریق پیامک  هم ارسال شده"
 
-#: content_account/notification/display.php:48
+#: content_account/notification/display.php:41
 msgid "Sended via Telegram"
 msgstr "از طریق تلگرام هم ارسال شده"
 
-#: content_account/notification/display.php:68
+#: content_account/notification/display.php:55
 msgid "No notifications found"
 msgstr "هیچ پیامی یافت نشد"
 
@@ -11989,7 +11987,7 @@ msgstr "شبکه‌های اجتماعی کاربر"
 msgid "User ticket"
 msgstr "تیکت‌های کاربر"
 
-#: content_crm/member/ticket/display.php:25 content_support/ticket/ticketTable.php:81
+#: content_crm/member/ticket/display.php:25 content_support/ticket/ticketTable.php:80
 #: dash/layout/admin/sidebar/sidebar-support.php:33
 #: includes/languages/trans_static_public.php:1110
 msgid "Solved"
@@ -12924,12 +12922,12 @@ msgstr "ثبت نام شما کامل شد"
 msgid "User signup by sms"
 msgstr "کاربر با ارسال پیامک ثبت نام شد"
 
-#: content_enter/controller.php:58 content_support/ticket/add/model.php:54
+#: content_enter/controller.php:57 content_support/ticket/add/model.php:54
 #: content_support/ticket/contact_ticket/model.php:55
 msgid "Your cookies may have been blocked"
 msgstr "احتمالا کوکی‌های شما بلاک شده است"
 
-#: content_enter/controller.php:58 content_support/ticket/add/model.php:54
+#: content_enter/controller.php:57 content_support/ticket/add/model.php:54
 #: content_support/ticket/contact_ticket/model.php:55
 msgid "You need to enable cookie for usign this service"
 msgstr "برای استفاده از این سرویس شما به کوکی نیاز دارید"
@@ -12982,18 +12980,6 @@ msgstr "آیا می‌خواهید ثبت‌نام کنید؟"
 #: content_enter/home/model.php:232
 msgid "Click to signup"
 msgstr "برای ثبت‌نام کلیک کنید"
-
-#: content_enter/loginas/display.php:21
-msgid "You are currently logged in to your account"
-msgstr "شما هم‌اکنون با اکانت خود وارد سیستم هستید"
-
-#: content_enter/loginas/display.php:21
-msgid "Do you want to enter this store with the same account?"
-msgstr "آیا می‌خواهید با همین حساب وارد این فروشگاه شوید؟"
-
-#: content_enter/loginas/display.php:26 includes/languages/trans_static_public.php:539
-msgid "Continue"
-msgstr "ادامه"
 
 #: content_enter/okay/display.php:3
 msgid "You are logined ;)"
@@ -13324,7 +13310,7 @@ msgstr "کد را به این شماره ارسال کنید!"
 msgid "Go and check it"
 msgstr "برو و چک کن"
 
-#: content_enter/verify/sms/model.php:56
+#: content_enter/verify/sms/model.php:55
 msgid ":code is your Jibres verification code."
 msgstr ""
 ":code\n"
@@ -14791,7 +14777,7 @@ msgstr "ربات تلگرام"
 msgid "From"
 msgstr "از"
 
-#: content_my/business/home/display_site.php:69 content_support/ticket/ticketTable.php:85
+#: content_my/business/home/display_site.php:69 content_support/ticket/ticketTable.php:84
 msgid "Created on"
 msgstr "ساخته شده در"
 
@@ -15669,8 +15655,7 @@ msgstr "سرویس‌های جیبرس"
 msgid "Electronic Wallet"
 msgstr "کیف پول الکترونیکی"
 
-#: content_my/home/display_pwa.php:59 dash/engine/twigFn.php:196
-#: includes/languages/trans_static_public.php:72
+#: content_my/home/display_pwa.php:59 includes/languages/trans_static_public.php:72
 msgid "Homepage"
 msgstr "صفحه نخست"
 
@@ -17271,40 +17256,40 @@ msgstr "تیکت جدید"
 msgid "Back to support panel"
 msgstr "بازگشت به پنل پشتیبانی"
 
-#: content_support/ticket/home/view.php:110
+#: content_support/ticket/home/view.php:111
 #: dash/layout/admin/sidebar/sidebar-support.php:42
 msgid "Open tickets"
 msgstr "تیکت‌های باز"
 
-#: content_support/ticket/home/view.php:115
+#: content_support/ticket/home/view.php:116
 msgid "Tickets waiting for the answer"
 msgstr "تیکت‌های در انتظار پاسخ"
 
-#: content_support/ticket/home/view.php:120
+#: content_support/ticket/home/view.php:121
 msgid "Un solved ticket"
 msgstr "تیکت‌های حل نشده"
 
-#: content_support/ticket/home/view.php:126 content_support/ticket/show/display.php:133
+#: content_support/ticket/home/view.php:127 content_support/ticket/show/display.php:133
 msgid "Solved ticket"
 msgstr "ثبت به عنوان حل شده"
 
-#: content_support/ticket/home/view.php:132
+#: content_support/ticket/home/view.php:133
 msgid "Answered tickets"
 msgstr "تیکت‌های پاسخ داده شده"
 
-#: content_support/ticket/home/view.php:137
+#: content_support/ticket/home/view.php:138
 msgid "Spam tickets"
 msgstr "تیکت‌های جفنگ"
 
-#: content_support/ticket/home/view.php:143
+#: content_support/ticket/home/view.php:144
 msgid "Archived tickets"
 msgstr "تیکت‌های بایگانی شده"
 
-#: content_support/ticket/home/view.php:148
+#: content_support/ticket/home/view.php:149
 msgid "Deleted tickets"
 msgstr "تیکت‌های حذف شده"
 
-#: content_support/ticket/home/view.php:153
+#: content_support/ticket/home/view.php:154
 msgid "All tickets"
 msgstr "همه تیکت‌ها"
 
@@ -17521,11 +17506,11 @@ msgstr "آخرین تیکت‌های فعال"
 msgid "All Tickets"
 msgstr "همه تیکت‌ها"
 
-#: content_support/ticket/ticketTable.php:85
+#: content_support/ticket/ticketTable.php:84
 msgid "Last modified on"
 msgstr "آخرین به‌روزرسانی در"
 
-#: content_support/ticket/ticketTable.php:100
+#: content_support/ticket/ticketTable.php:99
 msgid "Active in this ticket"
 msgstr "فعال در این تیکت"
 
@@ -19169,11 +19154,11 @@ msgstr "بایگانی شده"
 msgid "Ticket Topics"
 msgstr "موضوعات تیکت"
 
-#: dash/layout/foundation.php:134
+#: dash/layout/foundation.php:132
 msgid "JavaScript is required to use our service."
 msgstr "جاوا اسکریپت برای استفاده از سرویس ما ضروری است."
 
-#: dash/layout/foundation.php:136
+#: dash/layout/foundation.php:134
 msgid "Enable JavaScript in your browser or use one which supports it."
 msgstr ""
 "جاوا اسکریپت را در مرورگر خود فعال کنید یا از مرورگری استفاده کنید که  آن پشتیبانی "
@@ -23917,6 +23902,10 @@ msgstr "همدان"
 msgid "yazd"
 msgstr "یزد"
 
+#: includes/languages/trans_static_public.php:539
+msgid "Continue"
+msgstr "ادامه"
+
 #: includes/languages/trans_static_public.php:540
 msgid "Switching Protocols"
 msgstr "جابجایی پروتکل"
@@ -28042,32 +28031,32 @@ msgstr "فروشگاه شما با موفقیت ساخته شد"
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
-#: lib/app/store/domain.php:42 lib/app/store/domain.php:48 lib/app/store/domain.php:95
-#: lib/app/store/domain.php:101
+#: lib/app/store/domain.php:42 lib/app/store/domain.php:48 lib/app/store/domain.php:97
+#: lib/app/store/domain.php:103
 msgid "This domain not found in your domain list!"
 msgstr "این دامنه در لیست دامنه‌های متصل شما یافت نشد!"
 
-#: lib/app/store/domain.php:55
+#: lib/app/store/domain.php:57
 msgid "Primary domain saved"
 msgstr "دامنه به عنوان دامنه اصلی ذخیره شد"
 
-#: lib/app/store/domain.php:171
+#: lib/app/store/domain.php:174
 msgid "Domain disconnected"
 msgstr "اتصال دامنه اختصاصی شما به فروشگاه قطع شد"
 
-#: lib/app/store/domain.php:236
+#: lib/app/store/domain.php:239
 msgid "Domain is not valid"
 msgstr "دامنه معتبر نیست"
 
-#: lib/app/store/domain.php:253
+#: lib/app/store/domain.php:256
 msgid "This domain was added to your business"
 msgstr "این دامنه به فروشگاه شما متصل شده است"
 
-#: lib/app/store/domain.php:258
+#: lib/app/store/domain.php:261
 msgid "This domain is reserved. Can not choose it"
 msgstr "این دامنه قبلا رزرو شده است و امکان ثبت آن نیست"
 
-#: lib/app/store/domain.php:266
+#: lib/app/store/domain.php:269
 msgid ""
 "You have used the maximum capacity of connection to the store. Can not connect new "
 "domain!"
@@ -28075,31 +28064,31 @@ msgstr ""
 "شما از حداکثر ظرفیت اتصال دامنه به بیزینس خود استفاده کرده‌اید. امکان اتصال دامنه جدید "
 "وجود ندارد!"
 
-#: lib/app/store/domain.php:336
+#: lib/app/store/domain.php:341
 msgid "Your domain connected to your store"
 msgstr "دامنه اختصاصی شما به فروشگاه متصل شد"
 
-#: lib/app/store/domain.php:356
+#: lib/app/store/domain.php:361
 msgid "This domain is not a valid domain"
 msgstr "این دامنه جزء دامنه‌های مجاز به ثبت نیست"
 
-#: lib/app/store/domain.php:447
+#: lib/app/store/domain.php:452
 msgid "Domain is not connected to your store"
 msgstr "دامنه به فروشگاه شما متصل نشده است"
 
-#: lib/app/store/domain.php:460
+#: lib/app/store/domain.php:465
 msgid "Can not connect to arvancloud API"
 msgstr "نمی‌توانیم به ای‌پی‌آی آروان متصل شویم"
 
-#: lib/app/store/domain.php:462
+#: lib/app/store/domain.php:467
 msgid "Sorry, Can not connect to CDN API to connect your domain. Please Try again"
 msgstr "متاسفیم. نمی‌توانیم به ای‌پی‌آی آروان متصل شویم. لطفا مجددا تلاش کنید"
 
-#: lib/app/store/domain.php:497
+#: lib/app/store/domain.php:502
 msgid "Can not add domain to arvand panel"
 msgstr "نمی‌توانیم دامنه را در پنل آروان ثبت کنیم"
 
-#: lib/app/store/domain.php:507
+#: lib/app/store/domain.php:512
 msgid "Can not get domain dns record from arvand panel"
 msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل آروان دریافت کنیم"
 
@@ -29500,6 +29489,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "You are currently logged in to your account"
+#~ msgstr "شما هم‌اکنون با اکانت خود وارد سیستم هستید"
+
+#~ msgid "Do you want to enter this store with the same account?"
+#~ msgstr "آیا می‌خواهید با همین حساب وارد این فروشگاه شوید؟"
 
 #~ msgid "You can connect your store to special domain"
 #~ msgstr "شما می‌توانید بیزینس خود را به دامنه اختصاصی خود متصل کنید"
