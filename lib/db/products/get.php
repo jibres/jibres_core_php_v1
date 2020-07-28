@@ -19,6 +19,66 @@ class get
 		}
 	}
 
+	public static function expensive()
+	{
+		$query   = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.finalprice DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function average_finalprice()
+	{
+		$query   = "SELECT AVG(products.finalprice) AS `finalprice` FROM products WHERE products.status != 'deleted' ";
+		$result = \dash\db::get($query, 'finalprice', true);
+		return $result;
+	}
+
+
+
+	public static function expensive_list($_limit)
+	{
+		$query   =
+		"
+			SELECT
+				products.*
+			FROM
+				products
+			WHERE
+				products.status != 'deleted'
+			ORDER BY products.finalprice DESC
+			LIMIT $_limit
+		";
+		$result = \dash\db::get($query, null);
+		return $result;
+	}
+
+	public static function inexpensive_list($_limit)
+	{
+		$query   =
+		"
+			SELECT
+				products.*
+			FROM
+				products
+			WHERE
+				products.status != 'deleted' AND
+				products.finalprice != 0 AND
+				products.finalprice IS NOT NULL
+			ORDER BY products.finalprice ASC
+			LIMIT $_limit
+		";
+		$result = \dash\db::get($query, null);
+		return $result;
+	}
+
+
+	public static function inexpensive()
+	{
+		$query   = "SELECT * FROM products WHERE products.status != 'deleted' AND products.finalprice != 0 AND products.finalprice IS NOT NULL ORDER BY products.finalprice ASC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 
 	public static function variant_min_max_price($_id)
