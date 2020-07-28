@@ -7,7 +7,6 @@ class controller
 
 	public static function routing()
 	{
-		// self::check_login_as_referer();
 
 		// all subdomain must be login to jibres
 		if(\dash\url::store())
@@ -181,109 +180,5 @@ class controller
 	}
 
 
-	/**
-	 * Login as a user to another store
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	private static function check_login_as_referer()
-	{
-		// this code only work on subdomain
-		if(!\dash\url::subdomain())
-		{
-			return false;
-		}
-
-		// have referer
-		if(!isset($_SERVER['HTTP_REFERER']))
-		{
-			return false;
-		}
-		// user must be login on master jibres domain
-		if(!\dash\user::jibres_user())
-		{
-			return false;
-		}
-
-		// user must be not login on this subdomain
-		if(\dash\user::id())
-		{
-			return false;
-		}
-
-		// we need host
-		if(!isset($_SERVER['HTTP_HOST']))
-		{
-			return false;
-		}
-
-		$host = $_SERVER['HTTP_HOST'];
-
-
-		$host_explode = explode('.', $host);
-
-		// host must have subdomian.domain.tld
-		if(count($host_explode) !== 3)
-		{
-			return false;
-		}
-		// domain must equal to host domain
-		// need check when user connect her domain to jibres
-		if($host_explode[1] !== \dash\url::root())
-		{
-			return false;
-		}
-		// tld must equal to host tld
-		// need check when user connect her domain to jibres
-		if($host_explode[2] !== \dash\url::tld())
-		{
-			return false;
-		}
-
-		// the referer subdomain
-		$referer_subdomain = $host_explode[0];
-
-		// @reza @check need to make validate subdomain function
-		// $referer_subdomain = \dash\validate::subdomain($referer_subdomain);
-
-		$referer = \dash\validate::url($_SERVER['HTTP_REFERER']);
-
-		// the referer must compare the referer subdomain. for trust referer
-		if(strpos($referer, $referer_subdomain) === false)
-		{
-			return false;
-		}
-
-		$keyMd5 = microtime(). '_'. \dash\user::jibres_user(). '_'. rand(). $referer_subdomain;
-		$keyMd5 = md5($keyMd5);
-
-		if(!isset($_SESSION['login_as']))
-		{
-			$_SESSION['login_as'] = [];
-		}
-
-		$_SESSION['login_as'][$referer_subdomain] =
-		[
-			'key'       => $keyMd5,
-			'subdomain' => $referer_subdomain,
-			'referer'   => $referer,
-		];
-
-		// all subdomain must be login to jibres
-
-		$query            = \dash\request::get();
-
-		if(!isset($query['referer']))
-		{
-			$query['referer'] = \dash\url::kingdom();
-		}
-
-		$query            = '?'. http_build_query($query);
-
-		$url = \dash\url::sitelang().'/enter/loginas/'.$keyMd5. $query;
-
-		\dash\redirect::to($url);
-
-	}
 }
 ?>
