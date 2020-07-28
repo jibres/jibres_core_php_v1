@@ -68,5 +68,55 @@ class get
 		return $result;
 	}
 
+
+
+
+	public static function maxsale()
+	{
+		$result = \lib\db\products\get::maxsale();
+		$result = \lib\app\product\ready::row($result);
+		return $result;
+	}
+
+
+
+
+	public static function maxsale_list()
+	{
+		$result = \lib\db\products\get::maxsale_list(5);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = array_map(['\\lib\\app\\product\\ready', 'row'], $result);
+		return $result;
+	}
+
+
+
+
+	public static function maxsaleprice()
+	{
+		$result = \lib\db\products\get::maxsaleprice();
+		$result = \lib\app\product\ready::row($result);
+		return $result;
+	}
+
+
+
+
+	public static function maxsaleprice_list()
+	{
+		$result = \lib\db\products\get::maxsaleprice_list(5);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = array_map(['\\lib\\app\\product\\ready', 'row'], $result);
+		return $result;
+	}
+
 }
 ?>

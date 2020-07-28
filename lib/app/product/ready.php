@@ -129,6 +129,19 @@ class ready
 					}
 					break;
 
+				case 'sold_price':
+					if($value)
+					{
+						$result[$key] = \lib\price::total_down($value);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+
+					break;
+
+				case 'sold_count': // get from report
 				case 'weight':
 				case 'stock':
 				case 'sold':

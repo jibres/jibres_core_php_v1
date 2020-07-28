@@ -26,6 +26,37 @@ class get
 		return $result;
 	}
 
+
+	public static function maxsaleprice()
+	{
+		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function maxsaleprice_list($_limit)
+	{
+		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT $_limit";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function maxsale()
+	{
+		$query   = "SELECT products.*, (SELECT SUM(factordetails.count) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_count` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_count`  DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function maxsale_list($_limit)
+	{
+		$query   = "SELECT products.*, (SELECT SUM(factordetails.count) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_count` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_count`  DESC LIMIT $_limit";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function average_finalprice()
 	{
 		$query   = "SELECT AVG(products.finalprice) AS `finalprice` FROM products WHERE products.status != 'deleted' ";
