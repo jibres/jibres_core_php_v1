@@ -3,7 +3,7 @@ if(\dash\data::dataTable())
 {
 ?>
 
-  <ul class="items">
+  <ul class="items long">
     <?php foreach (\dash\data::dataTable() as $key => $value)
     {
     ?>
