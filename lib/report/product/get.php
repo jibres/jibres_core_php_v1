@@ -43,9 +43,18 @@ class get
 	}
 
 
-	public static function expensive_list()
+	public static function expensive_list($_limit = null)
 	{
-		$result = \lib\db\products\get::expensive_list(5);
+		$limit = 5;
+		$_limit = \dash\validate::smallint($_limit, false);
+		if($_limit)
+		{
+			if(floatval(abs($_limit)) < 50)
+			{
+				$limit = abs($_limit);
+			}
+		}
+		$result = \lib\db\products\get::expensive_list($limit);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -56,9 +65,18 @@ class get
 	}
 
 
-	public static function inexpensive_list()
+	public static function inexpensive_list($_limit = null)
 	{
-		$result = \lib\db\products\get::inexpensive_list(5);
+		$limit = 5;
+		$_limit = \dash\validate::smallint($_limit, false);
+		if($_limit)
+		{
+			if(floatval(abs($_limit)) < 50)
+			{
+				$limit = abs($_limit);
+			}
+		}
+		$result = \lib\db\products\get::inexpensive_list($limit);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -81,9 +99,18 @@ class get
 
 
 
-	public static function maxsale_list()
+	public static function maxsale_list($_limit = null)
 	{
-		$result = \lib\db\products\get::maxsale_list(5);
+		$limit = 5;
+		$_limit = \dash\validate::smallint($_limit, false);
+		if($_limit)
+		{
+			if(floatval(abs($_limit)) < 50)
+			{
+				$limit = abs($_limit);
+			}
+		}
+		$result = \lib\db\products\get::maxsale_list($limit);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -106,9 +133,18 @@ class get
 
 
 
-	public static function maxsaleprice_list()
+	public static function maxsaleprice_list($_limit = null)
 	{
-		$result = \lib\db\products\get::maxsaleprice_list(5);
+		$limit = 5;
+		$_limit = \dash\validate::smallint($_limit, false);
+		if($_limit)
+		{
+			if(floatval(abs($_limit)) < 50)
+			{
+				$limit = abs($_limit);
+			}
+		}
+		$result = \lib\db\products\get::maxsaleprice_list($limit);
 		if(!is_array($result))
 		{
 			$result = [];
