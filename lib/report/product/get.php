@@ -25,6 +25,22 @@ class get
 		return 0;
 	}
 
+	public static function total_fund()
+	{
+		$result = \lib\db\products\get::total_fund();
+
+		if($result && is_array($result))
+		{
+			foreach ($result as $key => $value)
+			{
+				$result[$key] = \lib\price::total_down($value);
+			}
+			return $result;
+		}
+		return [];
+	}
+
+
 
 	public static function average_finalprice()
 	{

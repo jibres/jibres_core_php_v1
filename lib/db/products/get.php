@@ -4,6 +4,30 @@ namespace lib\db\products;
 class get
 {
 
+	public static function total_fund()
+	{
+		$query   =
+		"
+			SELECT SUM(myTable.my_finalprice) AS `total_finalprice`, SUM(myTable.my_price) AS `total_price`, SUM(myTable.my_profit) AS `total_profit`
+			FROM
+			(
+				SELECT
+					@stock := (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1),
+					@stock := IF(@stock < 0 OR @stock IS NULL, 0, @stock),
+					(products.finalprice * @stock) AS `my_finalprice`,
+					(products.price * @stock) AS `my_price`,
+					((products.price * @stock) - (products.finalprice * @stock)) AS `my_profit`
+				FROM
+					products
+				WHERE
+					products.status != 'deleted'
+			) AS `myTable`
+		";
+		$result = \dash\db::get($query, null, true);
+
+		return $result;
+	}
+
 	public static function last_productprice_id($_products_id)
 	{
 		$query  = "SELECT productprices.id AS `id` FROM productprices WHERE productprices.product_id = $_products_id ORDER BY productprices.id DESC LIMIT 1";

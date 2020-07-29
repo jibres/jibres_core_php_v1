@@ -43,6 +43,16 @@
 
 
 
+      <?php $total_fund = \lib\report\product\get::total_fund(); if($total_fund) { ?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products'; ?>"><div class="key"><?php echo T_("Total finalprice of all products");?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($total_fund, 'total_finalprice'));?></div><div class="go"></div></a></li>
+
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products'; ?>"><div class="key"><?php echo T_("Total price of all products");?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($total_fund, 'total_price'));?></div><div class="go"></div></a></li>
+
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products'; ?>"><div class="key"><?php echo T_("Total profit of all products");?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($total_fund, 'total_profit'));?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
+
+
 
 
 
