@@ -78,10 +78,11 @@ class api
 
 		$log =
 		[
-			'url'           => $url,
-			'func_get_args' => func_get_args(),
-			'response'      => $response,
-			'CurlError'     => $CurlError,
+			'url'             => $url,
+			'func_get_args'   => func_get_args(),
+			'response'        => $response,
+			'response_decode' => json_decode($response, true),
+			'CurlError'       => $CurlError,
 		];
 
 		\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
