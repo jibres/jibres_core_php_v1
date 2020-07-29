@@ -54,6 +54,15 @@
 		</a>
 	</div>
 
+	<div class="c4 s12">
+		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/store/domain'>
+			<div class="statistic blue">
+				<div class="value"><i class="sf-earth"></i></div>
+				<div class="label"><?php echo T_("Store domains"); ?></div>
+			</div>
+		</a>
+	</div>
+
 
 </div>
 
