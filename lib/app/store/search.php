@@ -357,7 +357,9 @@ class search
 				}
 			}
 		}
+
 		$list = array_map(['\\lib\\app\\store\\ready', 'row'], $list);
+		$list = array_map(['\\lib\\app\\store\\domain', 'ready'], $list);
 
 		$filter_args_data = [];
 

@@ -351,7 +351,7 @@ class domain
 	}
 
 
-	private static function ready($_data)
+	public static function ready($_data)
 	{
 		if(!is_array($_data))
 		{
