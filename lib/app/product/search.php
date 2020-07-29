@@ -48,7 +48,7 @@ class search
 			'outofstock'        => 'bit',
 			'negativeinventory' => 'bit',
 			'notsold'           => 'bit',
-
+			'notweight'         => 'bit',
 
 			'withoutimage'      => 'bit',
 			'havevariants'      => 'bit',
@@ -259,6 +259,19 @@ class search
 
 			self::$is_filtered             = true;
 		}
+
+		if(isset($data['notweight']) && $data['notweight'])
+		{
+			$and[] = "(products.weight IS NULL OR products.weight = 0 )";
+			self::$filter_args['weightt']       = T_("without weight");
+
+			$type                          = 'price';
+
+			self::$is_filtered             = true;
+		}
+
+
+
 
 
 		if($data['websitemode'])
