@@ -50,6 +50,14 @@ class get
 	}
 
 
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM producttag ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function check_duplicate($_slug, $_language)
 	{
 		$query  = "SELECT * FROM producttag WHERE producttag.slug = '$_slug' AND producttag.language = '$_language' LIMIT 1";

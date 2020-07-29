@@ -5,6 +5,13 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM productcategory ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 	public static function all_category()
 	{
 

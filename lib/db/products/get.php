@@ -81,6 +81,7 @@ class get
 		return $result;
 	}
 
+
 	public static function maxstock()
 	{
 		$query   =

@@ -43,6 +43,32 @@
 
 
 
+
+
+
+
+    </ul>
+  </nav>
+
+   <nav class="items">
+    <ul>
+
+      <?php $tag_count = \lib\report\product\get::tag_count(); if($tag_count) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products/tag'; ?>"><div class="key"><?php echo T_("Product tag");?></div><div class="value"><?php echo \dash\fit::number($tag_count);?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
+       <?php $category_count = \lib\report\product\get::category_count(); if($category_count) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/category'; ?>"><div class="key"><?php echo T_("Product category");?></div><div class="value"><?php echo \dash\fit::number($category_count);?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
+       <?php $brand_count = \lib\report\product\get::brand_count(); if($brand_count) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/company'; ?>"><div class="key"><?php echo T_("Product company");?></div><div class="value"><?php echo \dash\fit::number($brand_count);?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
+      <?php $unit_count = \lib\report\product\get::unit_count(); if($unit_count) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/units'; ?>"><div class="key"><?php echo T_("Product units");?></div><div class="value"><?php echo \dash\fit::number($unit_count);?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
     </ul>
   </nav>
 

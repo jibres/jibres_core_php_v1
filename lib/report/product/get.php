@@ -37,6 +37,48 @@ class get
 	}
 
 
+	public static function tag_count()
+	{
+		$result = \lib\db\producttag\get::count_all();
+		if($result && is_numeric($result))
+		{
+			return $result;
+		}
+		return 0;
+	}
+
+
+	public static function category_count()
+	{
+		$result = \lib\db\productcategory\get::count_all();
+		if($result && is_numeric($result))
+		{
+			return $result;
+		}
+		return 0;
+	}
+
+	public static function brand_count()
+	{
+		$result = \lib\db\productcompany\get::count_all();
+		if($result && is_numeric($result))
+		{
+			return $result;
+		}
+		return 0;
+	}
+
+
+	public static function unit_count()
+	{
+		$result = \lib\db\productunit\get::count_all();
+		if($result && is_numeric($result))
+		{
+			return $result;
+		}
+		return 0;
+	}
+
 	public static function max_price_change_count()
 	{
 		$result = \lib\db\products\get::max_price_change_count();

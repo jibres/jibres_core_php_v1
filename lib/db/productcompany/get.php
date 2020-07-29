@@ -5,6 +5,14 @@ namespace lib\db\productcompany;
 class get
 {
 
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM productcompany ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function list()
 	{
 		$query =
