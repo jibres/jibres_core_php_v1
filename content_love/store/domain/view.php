@@ -15,6 +15,10 @@ class view
 
 		];
 
+			// btn
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
+
 		$search_string = \dash\request::get('q');
 
 		$list = \lib\app\store\search::list_domain($search_string, $args);

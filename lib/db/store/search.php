@@ -140,7 +140,7 @@ class search
 		"
 			SELECT
 				store_domain.*,
-				store_data.*
+				store_data.title
 			FROM
 				store_domain
 			INNER JOIN store_data ON store_data.id = store_domain.store_id

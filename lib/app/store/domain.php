@@ -541,6 +541,8 @@ class domain
 				$msg = 'dns record not found';
 			}
 
+			\dash\notif::error(T_($msg));
+
 			\lib\db\store_domain\update::record(['status' => 'failed', 'message' => $msg, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 			return false;
 		}
