@@ -37,6 +37,12 @@ class get
 	}
 
 
+	public static function max_price_change_count()
+	{
+		$result = \lib\db\products\get::max_price_change_count();
+		$result = \lib\app\product\ready::row($result);
+		return $result;
+	}
 
 
 	public static function expensive()

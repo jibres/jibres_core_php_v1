@@ -27,6 +27,45 @@ class get
 	}
 
 
+	public static function max_price_change_count()
+	{
+		$query =
+		"
+			SELECT
+				productprices.product_id AS `product_id`,
+				COUNT(*) AS `count`
+			FROM
+				productprices
+			GROUP BY productprices.product_id
+			ORDER BY `count` DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+
+
+		if($result)
+		{
+			$query =
+			"
+				SELECT
+					products.*,
+					$result[count] AS `count`
+				FROM
+					products
+				WHERE
+					products.id  = $result[product_id]
+				LIMIT 1
+			";
+			$result = \dash\db::get($query, null, true);
+			return $result;
+		}
+
+		return null;
+
+	}
+
+
 	public static function maxsaleprice()
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT 1";
