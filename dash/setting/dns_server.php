@@ -43,9 +43,18 @@ class dns_server
 	public static function apikey()
 	{
 		self::load();
-		if(isset(self::$load['apikey']))
+		if(\dash\url::isLocal())
 		{
-			return self::$load['apikey'];
+			$key = 'reza-apikey';
+		}
+		else
+		{
+			$key = 'apikey';
+		}
+
+		if(isset(self::$load[$key]))
+		{
+			return self::$load[$key];
 		}
 
 		return null;
