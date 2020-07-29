@@ -1,84 +1,49 @@
 <?php $urlHere = \dash\url::here(); ?>
-
 <div class="avand">
+    <nav class="items">
+      <ul>
+        <li><a class="f" href="<?php echo $urlHere; ?>/products"><div class="key"><?php echo T_("Total products"); ?></div><div class="value"><?php echo \dash\fit::stats(\lib\report\product\get::count_all());?></div><div class="go"></div></a></li>
+         <li><a class="f" href="<?php echo $urlHere; ?>/products"><div class="key"><?php echo T_("Average price"); ?></div><div class="value"><?php echo \dash\fit::number(\lib\report\product\get::average_finalprice());?></div><div class="go"></div></a></li>
 
 
-  <section class="f">
-    <div class="c6 s12 pRa10">
-      <a href="<?php echo \dash\url::here(). '/products' ?>" class="stat">
-        <h3><?php echo T_("Total products");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\lib\report\product\get::count_all());?></div>
-      </a>
-    </div>
-
-    <div class="c6 s12 pRa10">
-      <a href="<?php echo \dash\url::here(). '/products' ?>" class="stat">
-        <h3><?php echo T_("Average price");?></h3>
-        <div class="val"><?php echo \dash\fit::number(\lib\report\product\get::average_finalprice());?></div>
-      </a>
-    </div>
+        <?php $expensive = \lib\report\product\get::expensive(); if($expensive) {?>
+          <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($expensive, 'id') ?>"><div class="key"><?php echo T_("Expensive product");?> :: <?php echo \dash\get::index($expensive, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($expensive, 'finalprice'));?></div><div class="go"></div></a></li>
+        <?php } // endif ?>
 
 
-    <?php $expensive = \lib\report\product\get::expensive(); if($expensive) {?>
-      <div class="c6 s12 pRa10">
-        <a href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($expensive, 'id') ?>" class="stat">
-          <h3><?php echo T_("Expensive product");?> <?php echo \dash\get::index($expensive, 'title'); ?></h3>
-          <div class="val"><?php echo \dash\fit::number(\dash\get::index($expensive, 'finalprice'));?></div>
-        </a>
-      </div>
-    <?php } // endif ?>
 
-    <?php $inexpensive = \lib\report\product\get::inexpensive(); if($inexpensive) {?>
-      <div class="c6 s12 pRa10">
-        <a href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($inexpensive, 'id') ?>" class="stat">
-          <h3><?php echo T_("Inexpensive product");?> <?php echo \dash\get::index($inexpensive, 'title'); ?></h3>
-          <div class="val"><?php echo \dash\fit::number(\dash\get::index($inexpensive, 'finalprice'));?></div>
-        </a>
-      </div>
-    <?php } // endif ?>
+        <?php $inexpensive = \lib\report\product\get::inexpensive(); if($inexpensive) {?>
+            <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($inexpensive, 'id') ?>"><div class="key"><?php echo T_("Inexpensive product");?> :: <?php echo \dash\get::index($inexpensive, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($inexpensive, 'finalprice'));?></div><div class="go"></div></a></li>
+        <?php } // endif ?>
 
 
     <?php $maxsale = \lib\report\product\get::maxsale(); if($maxsale) {?>
-      <div class="c6 s12 pRa10">
-        <a href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxsale, 'id') ?>" class="stat">
-          <h3><?php echo T_("Max sale count");?> <?php echo \dash\get::index($maxsale, 'title'); ?></h3>
-          <div class="val"><?php echo \dash\fit::number(\dash\get::index($maxsale, 'sold_count'));?> <small><?php echo T_("Item") ?></small></div>
-        </a>
-      </div>
+      <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxsale, 'id') ?>"><div class="key"><?php echo T_("Max sale count");?> :: <?php echo \dash\get::index($maxsale, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($maxsale, 'sold_count'));?> <small><?php echo T_("Item") ?></small></div><div class="go"></div></a></li>
     <?php } // endif ?>
+
 
     <?php $maxsaleprice = \lib\report\product\get::maxsaleprice(); if($maxsaleprice) { ?>
-      <div class="c6 s12 pRa10">
-        <a href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxsaleprice, 'id') ?>" class="stat">
-          <h3><?php echo T_("Max sale price");?> <?php echo \dash\get::index($maxsaleprice, 'title'); ?></h3>
-          <div class="val"><?php echo \dash\fit::number(\dash\get::index($maxsaleprice, 'sold_price'));?> <small><?php echo \lib\store::currency(); ?></small></div>
-        </a>
-      </div>
+      <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxsaleprice, 'id') ?>"><div class="key"><?php echo T_("Max sale price");?> :: <?php echo \dash\get::index($maxsaleprice, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($maxsaleprice, 'sold_price'));?> <small><?php echo \lib\store::currency(); ?></small></div><div class="go"></div></a></li>
     <?php } // endif ?>
+
+
 
     <?php $maxstock = \lib\report\product\get::maxstock(); if($maxstock) { ?>
-      <div class="c6 s12 pRa10">
-        <a href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxstock, 'id') ?>" class="stat">
-          <h3><?php echo T_("Max stock");?> <?php echo \dash\get::index($maxstock, 'title'); ?></h3>
-          <div class="val"><?php echo \dash\fit::number(\dash\get::index($maxstock, 'stock'));?></div>
-        </a>
-      </div>
+      <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxstock, 'id') ?>"><div class="key"><?php echo T_("Max stock");?> :: <?php echo \dash\get::index($maxstock, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($maxstock, 'stock'));?></div><div class="go"></div></a></li>
     <?php } // endif ?>
-
 
     <?php $count_have_variants = \lib\report\product\get::count_have_variants(); if($count_have_variants) { ?>
-      <div class="c6 s12 pRa10">
-        <a href="<?php echo \dash\url::here(). '/products?havevariants=1'; ?>" class="stat">
-          <h3><?php echo T_("Product have variants");?></h3>
-          <div class="val"><?php echo \dash\fit::number($count_have_variants);?></div>
-        </a>
-      </div>
+      <li><a class="f" href="<?php echo \dash\url::here(). '/products?havevariants=1'; ?>"><div class="key"><?php echo T_("Product have variants");?></div><div class="value"><?php echo \dash\fit::number($count_have_variants);?></div><div class="go"></div></a></li>
     <?php } // endif ?>
 
 
+      </ul>
+    </nav>
 
+</div>
 
-  </section>
+<div class="avand">
+
 
   <div class="row">
     <?php $expensive_list = \lib\report\product\get::expensive_list(10); if($expensive_list) {?>
