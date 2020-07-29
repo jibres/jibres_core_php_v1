@@ -59,16 +59,21 @@ $storeData = \dash\data::store_store_data();
                   </p>
 
 
-                <div class="">
+                <div class="msg">
                   <?php if(!\dash\get::index($value, 'status')) {?>
-                    <span><?php echo T_("Waiting to check domain"); ?></span>
+                    <span> <i class="sf-question fc-mute fs14"></i> <?php echo T_("Waiting to check domain"); ?></span>
                   <?php }elseif(\dash\get::index($value, 'status') === 'ok') {?>
-                    <span><?php echo T_("Domain successfully connected"); ?></span>
+                    <span> <i class="sf-check fc-green fs14"></i> <?php echo T_("Domain successfully connected"); ?></span>
                   <?php }elseif(\dash\get::index($value, 'status') === 'failed') {?>
-                    <span><?php echo T_("Domain connection failed"); ?></span>
+                    <span> <i class="sf-times fc-red fs14"></i> <?php echo T_("Domain connection failed"); ?></span>
                   <?php }elseif(\dash\get::index($value, 'status') === 'pending') {?>
-                    <span><?php echo T_("Pending connect domain"); ?></span>
+                    <span> <i class="sf-refresh fc-blue fs14"></i> <?php echo T_("Pending connect domain"); ?></span>
                   <?php } //endif ?>
+                  <p class="txtB"><?php echo \dash\get::index($value, 'message'); ?>
+                    <?php if(\dash\get::index($value, 'helplink')) {?>
+                      <a target="_blank" class="btn link" href="<?php echo $value['helplink']; ?>"><?php echo T_("Read more") ?></a>
+                    <?php } //endif ?>
+                  </p>
                 </div>
 
                 </div>
