@@ -296,7 +296,22 @@ class store
 						$result['domain'] = [];
 					}
 
-					$result['domain'][] = ['domain' => $value['value']];
+					$domain_status = null;
+					$domain_master = null;
+
+					// load domain status from jibres database
+					$load_store_domain_record = \lib\db\store_domain\get::by_domain($value['value']);
+					if(isset($load_store_domain_record['status']))
+					{
+						$domain_status = $load_store_domain_record['status'];
+					}
+
+					if(isset($load_store_domain_record['master']))
+					{
+						$domain_master = $load_store_domain_record['master'];
+					}
+
+					$result['domain'][] = ['domain' => $value['value'], 'status' => $domain_status, 'master' => $domain_master];
 				}
 				else
 				{
@@ -510,15 +525,27 @@ class store
 
 		$store_detail = self::detail();
 
-		if(isset($store_detail['store_data']['domain'][0]['domain']) && $store_detail['store_data']['domain'][0]['domain'])
+		if(isset($store_detail['store_data']['domain']) && is_array($store_detail['store_data']['domain']))
 		{
-			$store_domain = $store_detail['store_data']['domain'][0]['domain'];
-			$lang = null;
-			if(\dash\language::current() !== \dash\language::primary())
+			foreach ($store_detail['store_data']['domain'] as $key => $value)
 			{
-				$lang = '/'. \dash\language::current();
+				if(isset($value['domain']) && $value['domain'] && isset($value['status']) && $value['status'] === 'ok' && isset($value['master']) && $value['master'])
+				{
+					$store_domain = $value['domain'];
+					$lang = null;
+					if(\dash\language::current() !== \dash\language::primary())
+					{
+						$lang = '/'. \dash\language::current();
+					}
+					$store_domain = \dash\url::protocol(). '://'. $store_domain .$lang;
+				}
 			}
-			$store_domain = \dash\url::protocol(). '://'. $store_domain .$lang;
+
+		}
+
+		if($store_domain)
+		{
+			// nothing
 		}
 		else
 		{

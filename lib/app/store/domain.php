@@ -190,9 +190,6 @@ class domain
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
-		$data['domain'] = self::clean_domain($data['domain']);
-
 		// have error in domain file
 		if(!\dash\engine\process::status())
 		{
@@ -344,28 +341,6 @@ class domain
 	}
 
 
-	private static function clean_domain($_domain)
-	{
-		$_domain = str_replace('http://', '', $_domain);
-		$_domain = str_replace('https://', '', $_domain);
-
-		if(strpos($_domain, '/') !== false)
-		{
-			$_domain = str_replace(substr($_domain, strpos($_domain, '/')), '', $_domain);
-		}
-
-		$_domain = str_replace('/', '', $_domain);
-
-		if(!\dash\validate::domain($_domain, false))
-		{
-			\dash\notif::error(T_("This domain is not a valid domain"), 'domain');
-			return null;
-		}
-
-		return $_domain;
-	}
-
-
 
 	public static function get_domain_list()
 	{
@@ -395,6 +370,26 @@ class domain
 
 				case 'value':
 					$result['domain'] = $value;
+					break;
+
+				case 'message':
+					switch ($value)
+					{
+						case 'Can not get dns record':
+							$result[$key] = T_("We can not get your domain DNS record");
+							$result['helplink'] = \dash\url::sitelang(). '/support/dnsrecord';
+							break;
+						case 'DNS record not set on our dns':
+						case 'dns record not found':
+						case 'Can not connect to CDN Service':
+						case 'This domain is already is use in CDN panel':
+						case 'Can not add domain to CND Service':
+						case 'Can not connect get domain a record':
+						case 'request of https was sended':
+						default:
+							$result['message'] = T_($value);
+							break;
+					}
 					break;
 
 				default:
@@ -443,41 +438,138 @@ class domain
 	}
 
 
-	public static function add_domain_arvan($_domain)
+	private static function check_dns($_domain)
 	{
 
-		$store_domain = \lib\db\store_domain\get::by_domain($_domain);
+		$dns_record = [];
+
+		try
+		{
+			$dns_record = @dns_get_record($_domain, DNS_NS);
+			if($dns_record === false)
+			{
+				// can not get dns record
+				return null;
+			}
+		}
+		catch (\Exception $e)
+		{
+			\dash\notif::error(T_("Can not get DNS record"));
+			return null;
+		}
+
+		if(!is_array($dns_record))
+		{
+			$dns_record = [];
+		}
+
+		$dns = array_column($dns_record, 'target');
+
+		$arvan_ns1 = \lib\app\nic_usersetting\defaultval::ns1();
+		$arvan_ns2 = \lib\app\nic_usersetting\defaultval::ns2();
+
+		if(in_array($arvan_ns1, $dns) && in_array($arvan_ns2, $dns))
+		{
+			// dns is ok
+			return $dns;
+		}
+		else
+		{
+			\dash\notif::error(T_("DNS not set on our dns record"));
+			return false;
+		}
+	}
+
+
+
+
+	public static function add_domain_arvan($_domain)
+	{
+		$domain = \dash\validate::domain($_domain, false);
+		if(!$domain)
+		{
+			\dash\notif::error(T_("Invalid domain"));
+			return false;
+		}
+
+		$store_domain = \lib\db\store_domain\get::by_domain($domain);
 		if(!isset($store_domain['id']))
 		{
 			\dash\notif::error(T_("Domain is not connected to your store"));
 			return false;
 		}
 
+		if(isset($store_domain['status']) && $store_domain['status'] === 'ok')
+		{
+			\dash\notif::error(T_("This domain is already connected to your business successfully"));
+			return false;
+		}
+
 		$store_domain_id = $store_domain['id'];
+
+		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+
+		$check_dns = self::check_dns($domain);
+
+		if($check_dns)
+		{
+			$update                 = [];
+			$update['message']      = 'dns record ok';
+			$update['datemodified'] = date("Y-m-d H:i:s");
+
+			if(is_array($check_dns) && isset($check_dns[0]) && isset($check_dns[1]))
+			{
+				$update['dns1'] = $check_dns[0];
+				$update['dns2'] = $check_dns[1];
+			}
+
+			\lib\db\store_domain\update::record($update, $store_domain_id);
+
+		}
+		else
+		{
+			if($check_dns === null)
+			{
+				$msg = 'Can not get dns record';
+			}
+			elseif($check_dns === false)
+			{
+				$msg = 'DNS record not set on our dns';
+			}
+			else
+			{
+				$msg = 'dns record not found';
+			}
+
+			\lib\db\store_domain\update::record(['status' => 'failed', 'message' => $msg, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+			return false;
+		}
+
 
 		$jibres_ip = \dash\setting\dns_server::ip();
 
-		$check_exist_domain = \lib\arvancloud\api::get_domain($_domain);
+		$check_exist_domain = \lib\arvancloud\api::get_domain($domain);
+
 
 		if(!$check_exist_domain || !is_array($check_exist_domain))
 		{
-
-			\lib\db\store_domain\update::record(['status' => 'failed', 'message' => T_('Can not connect to arvancloud API'), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-			self::send_to_supervisor('Can not connect to arvancloud API On domain: '. $_domain);
+			\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not connect to CDN Service', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+			self::send_to_supervisor('Can not connect to arvancloud API On domain: '. $domain);
 			\dash\notif::error(T_("Sorry, Can not connect to CDN API to connect your domain. Please Try again"));
 			return false;
 		}
 
-		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 
 		$must_add   = [];
 		$mus_update = [];
 		$nothing    = [];
 		$add_https  = false;
+
 		if(array_key_exists('status', $check_exist_domain) && !$check_exist_domain['status'])
 		{
 			// domain not found need to add to arvand
-			$add_domain = \lib\arvancloud\api::add_domain($_domain);
+			$add_domain = \lib\arvancloud\api::add_domain($domain);
+
 
 			if(isset($add_domain['data']['id']))
 			{
@@ -485,9 +577,9 @@ class domain
 				$must_add['@'] = [];
 				$must_add['*'] = [];
 
-				\lib\arvancloud\api::check_dns_record($_domain);
+				\lib\arvancloud\api::check_dns_record($domain);
 
-				$check_exist_domain = \lib\arvancloud\api::get_domain($_domain);
+				$check_exist_domain = \lib\arvancloud\api::get_domain($domain);
 
 				if(isset($check_exist_domain['data']['services']['dns']) && $check_exist_domain['data']['services']['dns'] === 'active')
 				{
@@ -496,20 +588,31 @@ class domain
 				}
 
 			}
+			elseif(isset($add_domain['message']) && $add_domain['message'] === 'The given data was invalid.')
+			{
+				// this domain is already added to arvand cdn
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'This domain is already is use in CDN panel', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Domain is alreay added to arvand panel. domain: '. $domain);
+				\dash\notif::error(T_("This domain is already in use in CDN panel"));
+				return false;
+			}
 			else
 			{
-				self::send_to_supervisor('Can not connect add domain to arvand panel. domain: '. $_domain);
-				\dash\notif::error(T_("Can not add domain to arvand panel"));
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not add domain to CND Service', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Can not connect add domain to arvand panel. domain: '. $domain);
+				\dash\notif::error(T_("Can not add domain to CND Service"));
 				return false;
 			}
 		}
-		elseif(isset($check_exist_domain['data']['id']))
+
+		if(isset($check_exist_domain['data']['id']))
 		{
-			$get_dns_record = \lib\arvancloud\api::get_dns_record($_domain);
+			$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
 			if(!$get_dns_record || !is_array($get_dns_record) || !isset($get_dns_record['data']) || (isset($get_dns_record['data']) && !is_array($get_dns_record['data'])))
 			{
-				self::send_to_supervisor('Can not connect get domain dns record from arvand panel. domain: '. $_domain);
-				\dash\notif::error(T_("Can not get domain dns record from arvand panel"));
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not connect get domain a record', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Can not connect get domain dns record from arvand panel. domain: '. $domain);
+				\dash\notif::error(T_("Can not get domain dns record from CDN panel"));
 				return false;
 			}
 
@@ -597,7 +700,7 @@ class domain
 				"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
 			];
 
-			$result_add = \lib\arvancloud\api::add_dns_record($_domain, $add_dns);
+			$result_add = \lib\arvancloud\api::add_dns_record($domain, $add_dns);
 
 			\lib\db\store_domain\update::record(['dnsrecord' => 1, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 		}
@@ -615,7 +718,7 @@ class domain
 				"upstream_https" =>  "default",
 				"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
 			];
-			$result_update = \lib\arvancloud\api::update_dns_record($_domain, $add_dns, $value['id']);
+			$result_update = \lib\arvancloud\api::update_dns_record($domain, $add_dns, $value['id']);
 
 			\lib\db\store_domain\update::record(['dnsrecord' => 1, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 		}
@@ -623,7 +726,7 @@ class domain
 
 		if($add_https)
 		{
-			$get_https_setting = \lib\arvancloud\api::get_arvan_request($_domain);
+			$get_https_setting = \lib\arvancloud\api::get_arvan_request($domain);
 
 			if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
 			{
@@ -635,9 +738,9 @@ class domain
 						"ar_wildcard" => true,
 					];
 
-					$set_https = \lib\arvancloud\api::set_arvan_request($_domain, $add_https_args);
+					$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
 
-					\lib\db\store_domain\update::record(['https' => 1, 'status' => 'ok', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+					\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
 			}
 		}
