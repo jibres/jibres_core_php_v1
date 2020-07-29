@@ -377,15 +377,37 @@ class domain
 					{
 						case 'Can not get dns record':
 							$result[$key] = T_("We can not get your domain DNS record");
-							$result['helplink'] = \dash\url::sitelang(). '/support/dnsrecord';
+							// $result['helplink'] = \dash\url::sitelang(). '/support/dnsrecord';
 							break;
+
 						case 'DNS record not set on our dns':
+							$result[$key] = T_("DNS record not set on our dns");
+							break;
+
 						case 'dns record not found':
+							$result[$key] = T_("dns record not found");
+							break;
+
 						case 'Can not connect to CDN Service':
+							$result[$key] = T_("Can not connect to CDN Service");
+							break;
+
 						case 'This domain is already is use in CDN panel':
+							$result[$key] = T_("This domain is already is use in CDN panel");
+							break;
+
 						case 'Can not add domain to CND Service':
+							$result[$key] = T_("Can not add domain to CND Service");
+							break;
+
 						case 'Can not connect get domain a record':
+							$result[$key] = T_("Can not connect get domain a record");
+							break;
+
 						case 'request of https was sended':
+							$result[$key] = T_("request of https was sended");
+							break;
+
 						default:
 							$result['message'] = T_($value);
 							break;
