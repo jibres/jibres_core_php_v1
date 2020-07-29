@@ -56,6 +56,25 @@
       </div>
     <?php } // endif ?>
 
+    <?php $maxstock = \lib\report\product\get::maxstock(); if($maxstock) { ?>
+      <div class="c6 s12 pRa10">
+        <a href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($maxstock, 'id') ?>" class="stat">
+          <h3><?php echo T_("Max stock");?> <?php echo \dash\get::index($maxstock, 'title'); ?></h3>
+          <div class="val"><?php echo \dash\fit::number(\dash\get::index($maxstock, 'stock'));?></div>
+        </a>
+      </div>
+    <?php } // endif ?>
+
+
+    <?php $count_have_variants = \lib\report\product\get::count_have_variants(); if($count_have_variants) { ?>
+      <div class="c6 s12 pRa10">
+        <a href="<?php echo \dash\url::here(). '/products?havevariants=1'; ?>" class="stat">
+          <h3><?php echo T_("Product have variants");?></h3>
+          <div class="val"><?php echo \dash\fit::number($count_have_variants);?></div>
+        </a>
+      </div>
+    <?php } // endif ?>
+
 
 
 
@@ -132,6 +151,27 @@
                 <a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($value, 'id'); ?>">
                   <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
                   <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'sold_price')); ?></div>
+                  <div class="go"></div>
+                </a>
+              </li>
+            <?php } //endfor ?>
+          </ul>
+        </nav>
+      </div>
+    <?php } //endif ?>
+
+
+
+    <?php $maxstock_list = \lib\report\product\get::maxstock_list(10); if($maxstock_list) {?>
+      <div class="c-xs-12 s-sm-12 c-md-6">
+        <h4><?php echo T_("Max sold price") ?></h4>
+        <nav class="items">
+          <ul>
+            <?php foreach ($maxstock_list as $key => $value) {?>
+              <li>
+                <a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($value, 'id'); ?>">
+                  <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+                  <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></div>
                   <div class="go"></div>
                 </a>
               </li>

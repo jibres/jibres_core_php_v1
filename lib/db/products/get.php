@@ -35,6 +35,49 @@ class get
 	}
 
 
+	public static function count_have_variants()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM	products WHERE products.variant_child = 1 AND products.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function maxstock()
+	{
+		$query   =
+		"
+			SELECT
+				products.*,
+				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
+			FROM
+				products
+			WHERE
+				products.status != 'deleted'
+			ORDER BY `stock`  DESC LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function maxstock_list($_limit)
+	{
+		$query   =
+		"
+			SELECT
+				products.*,
+				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
+			FROM
+				products
+			WHERE
+				products.status != 'deleted'
+			ORDER BY `stock`  DESC LIMIT $_limit
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function maxsaleprice_list($_limit)
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT $_limit";
