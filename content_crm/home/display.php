@@ -37,18 +37,7 @@
 
 
   </div>
-  <div class="c s6">
 
-
-    <a class="dcard" href="<?php echo \dash\url::here(); ?>/log">
-     <div class="statistic sm">
-      <div class="label mB10"><i class="fs20 mRa5 sf-crosshairs"></i> <?php echo T_("Logs"); ?></div>
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_logs()); ?></div>
-     </div>
-    </a>
-
-
-  </div>
 </div>
 
 
@@ -98,7 +87,7 @@
 
           <?php foreach (\dash\data::dashboardDetail_latestLogs() as $key => $value) {?>
 
-          <a class="msg f" href="<?php echo \dash\url::this(); ?>/log">
+          <a class="msg f">
             <div><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Unknown");} ?></div>
             <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; }else{ echo \dash\get::index($value, 'caller');} ?></div>
             <div class="cauto"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>

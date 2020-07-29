@@ -11,11 +11,8 @@
 	 </div>
 
 	 <div class="c s12 pA5">
-		<?php require_once(root. 'content_crm/log/home/logTable.php'); ?>
 
-		<?php
-		htmlTable();
-		?>
+
 
 	 </div>
 

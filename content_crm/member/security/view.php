@@ -36,10 +36,10 @@ class view
 
 	private static function login_list()
 	{
-		$args = [];
-		$args['caller'] = ["IN", "('userLogin', 'userLoginByRemember')"];
-		$args['from'] = \dash\coding::decode(\dash\request::get('id'));
-		\content_crm\log\home\view::search_log($args);
+		// $args = [];
+		// $args['caller'] = ["IN", "('userLogin', 'userLoginByRemember')"];
+		// $args['from'] = \dash\coding::decode(\dash\request::get('id'));
+		// \content_crm\log\home\view::search_log($args);
 
 	}
 
