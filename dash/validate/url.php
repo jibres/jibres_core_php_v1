@@ -69,9 +69,12 @@ class url
 		$data = $_data;
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
+		$data = \dash\utility\convert::to_en_number($data);
 
 		$data = str_replace('http://', '', $data);
 		$data = str_replace('https://', '', $data);
+		$data = preg_replace("/^(.*)\:\/\//", '', $data);
+		$data = preg_replace("/\:\d+/", '', $data);
 		$data = str_replace(':', '', $data);
 
 		if(strpos($data, '/') !== false)
