@@ -1,6 +1,6 @@
 
   <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' >
+  <form method="get" action='<?php echo \dash\url::current(); ?>' >
 
     <div class="input">
       <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
