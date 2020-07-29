@@ -39,10 +39,10 @@ class sendToSupervisor
 	}
 
 
-	// public static function send_to()
-	// {
-	// 	return ['supervisor'];
-	// }
+	public static function send_to()
+	{
+		return ['supervisor'];
+	}
 
 
 	public static function expire()
