@@ -37,7 +37,7 @@
                       <tr>
                         <td class="collapsing">
                           <div class="check1">
-                                  <input type="checkbox" name="avalible_<?php echo $myCount; ?>" value="1" id="sChk<?php echo $myCount; ?>" >
+                                  <input type="checkbox" name="avalible_<?php echo $myCount; ?>" value="1" id="sChk<?php echo $myCount; ?>"  checked>
                                   <label for="sChk<?php echo $myCount; ?>"><?php echo \dash\fit::number($myCount); ?></label>
                                 </div>
                         </td>

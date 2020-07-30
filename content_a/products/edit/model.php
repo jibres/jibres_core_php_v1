@@ -30,52 +30,60 @@ class model
 	public static function get_post()
 	{
 		$post                      = [];
-		$post['title']             = \dash\request::post('title');
-		$post['title2']            = \dash\request::post('title2');
 
-		if(array_key_exists('desc', $_POST))
+
+		if(\dash\request::post('editchild') === 'editchild')
 		{
-			$post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
+			$post['optionvalue1'] = \dash\request::post('optionvalue1');
+			$post['optionvalue2'] = \dash\request::post('optionvalue2');
+			$post['optionvalue3'] = \dash\request::post('optionvalue3');
+		}
+		else
+		{
+			$post['title']             = \dash\request::post('title');
+			$post['title2']            = \dash\request::post('title2');
+
+			if(array_key_exists('desc', $_POST))
+			{
+				$post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
+			}
+			$post['company'] = \dash\request::post('company');
+			$post['unit']    = \dash\request::post('unit') ? \dash\request::post('unit') : null;
+			$post['cat']     = \dash\request::post('cat');
+			$post['tag']     = \dash\request::post('tag');
+			$post['weight']  = \dash\request::post('weight');
+			$post['type']    = \dash\request::post('type');
 		}
 
-		$post['buyprice']          = \dash\request::post('buyprice');
-		$post['price']             = \dash\request::post('price');
-		$post['discount']          = \dash\request::post('discount');
-		$post['vat']               = \dash\request::post('vat');
-		// $post['sku']               = \dash\request::post('sku');
-		// $post['code']           = \dash\request::post('code');
-		$post['barcode']           = \dash\request::post('barcode');
-		$post['barcode2']          = \dash\request::post('barcode2');
-		// $post['trackquantity']          = \dash\request::post('trackquantity');
-		// $post['gallery']        = \dash\request::post('gallery');
-		$post['weight']         = \dash\request::post('weight');
-		$post['seotitle']          = \dash\request::post('seotitle');
-		$post['slug']              = \dash\request::post('slug');
-		$post['type']              = \dash\request::post('type');
-		$post['seodesc']           = \dash\request::post('seodesc');
-		$post['company']           = \dash\request::post('company');
+		$post['buyprice']  = \dash\request::post('buyprice');
+		$post['price']     = \dash\request::post('price');
+		$post['discount']  = \dash\request::post('discount');
+		$post['vat']       = \dash\request::post('vat');
+		$post['barcode']   = \dash\request::post('barcode');
+		$post['barcode2']  = \dash\request::post('barcode2');
+		$post['seotitle']  = \dash\request::post('seotitle');
+		$post['slug']      = \dash\request::post('slug');
+		$post['seodesc']   = \dash\request::post('seodesc');
+		$post['scalecode'] = \dash\request::post('scalecode');
 
-		$post['scalecode']         = \dash\request::post('scalecode');
-		// $post['status']         = \dash\request::post('status');
-		// $post['minstock']          = \dash\request::post('minstock');
-		// $post['maxstock']          = \dash\request::post('maxstock');
-		// $post['minsale']        = \dash\request::post('minsale');
-		// $post['maxsale']        = \dash\request::post('maxsale');
-		// $post['salestep']       = \dash\request::post('salestep');
-		// $post['oversale']          = \dash\request::post('oversale');
-		$post['unit']              = \dash\request::post('unit') ? \dash\request::post('unit') : null;
-		// $post['category']       = \dash\request::post('cat');
-		$post['cat']               = \dash\request::post('cat');
-		$post['tag']               = \dash\request::post('tag');
-
-		// $post['stocks']             = \dash\request::post('stock');
-
-
-		// $post['length']         = \dash\request::post('length');
-		// $post['width']          = \dash\request::post('width');
-		// $post['height']         = \dash\request::post('height');
-		// $post['filesize']       = \dash\request::post('filesize');
-		// $post['fileaddress']    = \dash\request::post('fileaddress');
+		// $post['category']      = \dash\request::post('cat');
+		// $post['sku']           = \dash\request::post('sku');
+		// $post['code']          = \dash\request::post('code');
+		// $post['trackquantity'] = \dash\request::post('trackquantity');
+		// $post['gallery']       = \dash\request::post('gallery');
+		// $post['status']        = \dash\request::post('status');
+		// $post['minstock']      = \dash\request::post('minstock');
+		// $post['maxstock']      = \dash\request::post('maxstock');
+		// $post['minsale']       = \dash\request::post('minsale');
+		// $post['maxsale']       = \dash\request::post('maxsale');
+		// $post['salestep']      = \dash\request::post('salestep');
+		// $post['oversale']      = \dash\request::post('oversale');
+		// $post['stocks']        = \dash\request::post('stock');
+		// $post['length']        = \dash\request::post('length');
+		// $post['width']         = \dash\request::post('width');
+		// $post['height']        = \dash\request::post('height');
+		// $post['filesize']      = \dash\request::post('filesize');
+		// $post['fileaddress']   = \dash\request::post('fileaddress');
 
 		return $post;
 	}
