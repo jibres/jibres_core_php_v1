@@ -521,13 +521,20 @@ class domain
 			return false;
 		}
 
+		$store_domain_id = $store_domain['id'];
+
 		if(isset($store_domain['status']) && $store_domain['status'] === 'ok')
 		{
 			\dash\notif::error(T_("This domain is already connected to your business successfully"));
 			return false;
 		}
 
-		$store_domain_id = $store_domain['id'];
+		if(isset($store_domain['subdomain']) && $store_domain['subdomain'])
+		{
+			\lib\db\store_domain\update::record(['status' => 'ok', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+			return false;
+		}
+
 
 		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 

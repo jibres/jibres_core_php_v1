@@ -298,6 +298,7 @@ class store
 
 					$domain_status = null;
 					$domain_master = null;
+					$domain_subdomain = null;
 
 					// load domain status from jibres database
 					$load_store_domain_record = \lib\db\store_domain\get::by_domain($value['value']);
@@ -311,7 +312,12 @@ class store
 						$domain_master = $load_store_domain_record['master'];
 					}
 
-					$result['domain'][] = ['domain' => $value['value'], 'status' => $domain_status, 'master' => $domain_master];
+					if(isset($load_store_domain_record['subdomain']))
+					{
+						$domain_subdomain = $load_store_domain_record['subdomain'];
+					}
+
+					$result['domain'][] = ['domain' => $value['value'], 'status' => $domain_status, 'master' => $domain_master, 'subdomain' => $domain_subdomain];
 				}
 				else
 				{
@@ -529,8 +535,9 @@ class store
 		{
 			foreach ($store_detail['store_data']['domain'] as $key => $value)
 			{
-				if(isset($value['domain']) && $value['domain'] && isset($value['status']) && $value['status'] === 'ok' && isset($value['master']) && $value['master'])
+				if(isset($value['domain']) && $value['domain'] && isset($value['master']) && $value['master'] && (isset($value['status']) && $value['status'] === 'ok' || isset($value['subdomain']) && $value['subdomain']))
 				{
+
 					$store_domain = $value['domain'];
 					$lang = null;
 					if(\dash\language::current() !== \dash\language::primary())
