@@ -31,7 +31,6 @@ class model
 	{
 		$post                      = [];
 
-
 		if(\dash\request::post('editchild') === 'editchild')
 		{
 			$post['optionvalue1'] = \dash\request::post('optionvalue1');
@@ -122,6 +121,11 @@ class model
 
 		$result = null;
 
+		if(!self::whole_edit_child($id))
+		{
+			return false;
+		}
+
 		if(\dash\request::post('submitall') === 'master')
 		{
 			$post = self::get_post();
@@ -143,6 +147,55 @@ class model
 		// \dash\redirect::pwd();
 
 	}
+
+
+	private static function whole_edit_child($_id)
+	{
+		if(\dash\request::post('wholeeditchild') !== 'wholeeditchild')
+		{
+			return true;
+		}
+
+		$post = \dash\request::post();
+
+		$whole_edit = [];
+		foreach ($post as $key => $value)
+		{
+			if(preg_match("/^whole_(price|discount|stock)_(\d+)$/", $key, $split))
+			{
+				$type = $split[1];
+				$my_id = $split[2];
+
+				if(!isset($whole_edit[$my_id]))
+				{
+					$whole_edit[$my_id] = [];
+				}
+
+				if($type === 'stock')
+				{
+					if(is_numeric($value))
+					{
+						$whole_edit[$my_id][$type] = $value;
+					}
+				}
+				else
+				{
+					$whole_edit[$my_id][$type] = $value;
+				}
+
+			}
+		}
+
+		if($whole_edit)
+		{
+			return \lib\app\product\edit::whole_edit($whole_edit, $_id);
+		}
+
+		return true;
+
+	}
+
+
 
 	private static function delete_product($_id)
 	{

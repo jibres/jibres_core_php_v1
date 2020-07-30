@@ -67,7 +67,7 @@
 
                         <td>
                           <div class="input">
-                            <input type="number" name="discount_<?php echo $myCount; ?>" placeholder='<?php echo T_("Price"); ?>' value="<?php echo \dash\data::productDataRow_discount(); ?>">
+                            <input type="number" name="discount_<?php echo $myCount; ?>" placeholder='<?php echo T_("Discount"); ?>' value="<?php echo \dash\data::productDataRow_discount(); ?>">
                           </div>
                         </td>
 

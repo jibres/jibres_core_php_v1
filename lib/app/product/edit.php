@@ -15,6 +15,54 @@ class edit
 	}
 
 
+
+	public static function whole_edit($_args, $_id)
+	{
+		$id = \dash\validate::id($_id);
+
+
+		$ids = array_keys($_args);
+		$ids = array_filter($ids);
+		$ids = array_unique($ids);
+		if(!$ids)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$check_all_is_child = \lib\db\products\get::check_all_is_child($id, implode(',', $ids));
+		if(!$check_all_is_child)
+		{
+			\dash\notif::error(T_("Some detail is wrong!"));
+			return false;
+		}
+
+		if($check_all_is_child && is_numeric($check_all_is_child) && floatval($check_all_is_child) != count($ids))
+		{
+			\dash\notif::error(T_("Some detail is wrong! 2"));
+			return false;
+		}
+
+		foreach ($_args as $key => $value)
+		{
+			self::edit($value, $key);
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+			else
+			{
+				\dash\notif::clean();
+			}
+		}
+
+		\dash\temp::set('productHasChange', true);
+		\dash\temp::set('productNoChangeNotRedirect', false);
+		return true;
+
+	}
+
 	public static function edit($_args, $_id, $_option = [])
 	{
 		\dash\permission::access('productEdit');

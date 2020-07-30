@@ -18,6 +18,7 @@
      </div>
     </section>
     <?php if($have_variant_child) {?>
+      <?php require_once('block/price-child.php'); ?>
       <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
     <?php }else{ ?>
       <?php require_once('block/price.php'); ?>

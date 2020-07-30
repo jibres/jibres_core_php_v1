@@ -3,6 +3,12 @@ namespace lib\db\products;
 
 class get
 {
+	public static function check_all_is_child($_id, $_childs)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.parent = $_id AND products.id IN ($_childs)";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 
 	public static function total_fund()
 	{
