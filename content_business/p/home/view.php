@@ -93,12 +93,12 @@ class view
 
 		if(\dash\data::dataRow_price())
 		{
-			$seo_desc[] = T_("List Price"). ' '. \dash\fit::number(\dash\data::dataRow_price()). ' '. $currency;
+			$seo_desc[] = T_("List Price"). ' '. \dash\fit::number(\dash\data::dataRow_price());
 		}
 
-		if(\dash\data::dataRow_discount())
+		if(\dash\data::dataRow_discountpercent())
 		{
-			$seo_desc[] = T_("Discount"). ' '. \dash\fit::number(\dash\data::dataRow_discount()). ' '. $currency;
+			$seo_desc[] = T_("Discount"). ' '. \dash\fit::number(\dash\data::dataRow_discountpercent()). T_("%");
 		}
 
 		if(\dash\data::dataRow_finalprice())
