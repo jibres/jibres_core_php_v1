@@ -45,6 +45,7 @@ class ready
 					break;
 
 				case 'thumb':
+					$result['thumbraw'] = $value;
 					$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
 					break;
 

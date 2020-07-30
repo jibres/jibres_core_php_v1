@@ -17,7 +17,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-		\dash\face::title(\lib\store::title(). ' | '. \dash\data::dataRow_title());
+		\dash\face::title(\dash\data::dataRow_title() . ' | '. \lib\store::title());
 		\dash\face::titlePWA(\lib\store::title());
 
 		$property_list = \lib\app\product\property::get_pretty($id);
@@ -69,9 +69,14 @@ class view
 		\dash\data::cart_link(\dash\fit::number(\lib\website::cart_count()));
 		\dash\data::search_link(\dash\url::kingdom().'/search');
 
-		if(\dash\data::dataRow_thumb())
+		if(\dash\data::dataRow_thumbraw())
 		{
 			\dash\face::cover(\dash\data::dataRow_thumb());
+		}
+
+		if(\dash\data::dataRow_seodesc())
+		{
+			\dash\face::desc(\dash\data::dataRow_seodesc());
 		}
 	}
 }
