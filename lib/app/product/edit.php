@@ -39,7 +39,7 @@ class edit
 
 		if($check_all_is_child && is_numeric($check_all_is_child) && floatval($check_all_is_child) != count($ids))
 		{
-			\dash\notif::error(T_("Some detail is wrong! 2"));
+			\dash\notif::error(T_("Some detail is wrong!"));
 			return false;
 		}
 
