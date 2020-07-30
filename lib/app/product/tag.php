@@ -102,6 +102,7 @@ class tag
 				}
 
 				$slug = \dash\validate::slug($value, false);
+				$slug = str_replace('-', '_', $slug);
 
 				$multi_insert_tag[] =
 				[
@@ -295,6 +296,7 @@ class tag
 			$data['slug'] = \dash\validate::slug($data['title'], false);
 		}
 
+		$data['slug'] = str_replace('-', '_', $data['slug']);
 
 		// check duplicate
 		// lang+slug
