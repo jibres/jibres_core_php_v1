@@ -96,7 +96,10 @@ class view
 				}
 			}
 
-			\dash\face::headTitle($page_title);
+			if(!\dash\face::headTitle())
+			{
+				\dash\face::headTitle($page_title);
+			}
 			// fill page title into seo title
 			if(!\dash\face::seo())
 			{
