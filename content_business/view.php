@@ -14,6 +14,8 @@ class view
 		\dash\face::desc(\lib\store::detail('desc'));
 		\dash\face::intro(\lib\store::detail('desc'));
 
+		\dash\face::cover(\lib\store::logo());
+
 	}
 }
 ?>

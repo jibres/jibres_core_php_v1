@@ -68,6 +68,11 @@ class view
 		// \dash\data::menu_link(true);
 		\dash\data::cart_link(\dash\fit::number(\lib\website::cart_count()));
 		\dash\data::search_link(\dash\url::kingdom().'/search');
+
+		if(\dash\data::dataRow_thumb())
+		{
+			\dash\face::cover(\dash\data::dataRow_thumb());
+		}
 	}
 }
 ?>
