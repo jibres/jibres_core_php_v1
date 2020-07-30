@@ -14,7 +14,12 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 
       <header><h2><?php echo T_("Inventory"); ?></h2></header>
       <div class="body">
-
+         <div>
+        <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
+        <div class="input">
+          <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
+        </div>
+      </div>
 
         <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
           <div class="switch1 mB5">

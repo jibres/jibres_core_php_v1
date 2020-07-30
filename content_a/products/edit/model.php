@@ -42,7 +42,7 @@ class model
 		$post['price']             = \dash\request::post('price');
 		$post['discount']          = \dash\request::post('discount');
 		$post['vat']               = \dash\request::post('vat');
-		$post['sku']               = \dash\request::post('sku');
+		// $post['sku']               = \dash\request::post('sku');
 		// $post['code']           = \dash\request::post('code');
 		$post['barcode']           = \dash\request::post('barcode');
 		$post['barcode2']          = \dash\request::post('barcode2');

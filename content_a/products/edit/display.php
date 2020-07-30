@@ -134,15 +134,11 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
       <?php /*  --------------- All detail for inventroy hide when the product is parent of other product*/ ?>
     <?php }else{ ?>
 
+          <?php if((isset($storData['barcode']) && $storData['barcode']) || (isset($storData['scale']) && $storData['scale'])) {?>
     <section class="box">
-      <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Inventory"); ?></h2></header>
+
       <div class="pad jboxCodes">
-      <div>
-        <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
-        <div class="input">
-          <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
-        </div>
-      </div>
+
         <?php if(isset($storData['barcode']) && $storData['barcode']) {?>
           <div class="f">
             <div class="c s12 pRa5">
@@ -181,6 +177,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
         </div>
     </div>
   </section>
+          <?php } //endif ?>
 <?php } //endif ?>
 
   <section class="box">
