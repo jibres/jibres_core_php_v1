@@ -22,11 +22,11 @@ class view
 			\dash\face::intro($store_desc);
 		}
 
-		// $store_logo = \lib\store::logo();
-		// if($store_logo)
-		// {
-		// 	\dash\face::cover($store_logo);
-		// }
+		$store_logo = \lib\store::logo();
+		if($store_logo)
+		{
+			\dash\face::logo($store_logo);
+		}
 
 	}
 }

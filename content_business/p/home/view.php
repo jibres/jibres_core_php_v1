@@ -80,7 +80,7 @@ class view
 		\dash\face::title(\dash\data::dataRow_title() . ' | '. \lib\store::title());
 		\dash\face::titlePWA(\lib\store::title());
 
-		if(\dash\data::dataRow_thumbraw())
+		if(\dash\data::dataRow_thumb())
 		{
 			\dash\face::cover(\dash\data::dataRow_thumb());
 		}
