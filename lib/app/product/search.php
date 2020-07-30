@@ -413,11 +413,11 @@ class search
 			$list[$key]['variants_detail'] = [];
 			if(isset($value['finalprice']))
 			{
-				$list[$key]['price_string']    = \dash\fit::number($value['finalprice']);
+				$list[$key]['variant_price']    = \dash\fit::number($value['finalprice']);
 			}
 			else
 			{
-				$list[$key]['price_string']    = '';
+				$list[$key]['variant_price']    = '';
 			}
 		}
 
@@ -455,7 +455,7 @@ class search
 							$min_price = \dash\fit::number($min_price);
 							$max_price = \dash\fit::number($max_price);
 
-							$list[$key]['price_string'] = $min_price . ' ... '. $max_price;
+							$list[$key]['variant_price'] = $min_price . ' ... '. $max_price;
 						}
 					}
 				}

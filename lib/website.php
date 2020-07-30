@@ -110,19 +110,11 @@ class website
 			return;
 		}
 
-		echo '<div class="row padLess>';
+		echo '<div class="row padLess">';
 
 		foreach ($_productList as $key => $myProduct)
 		{
-			if(\dash\detect\device::detectPWA())
-			{
-				echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
-			}
-			else
-			{
-				echo '<div>';
-			}
-
+			echo '<div class="c-xs-6 c-sm-4 c-md-2 ">';
 			echo '<div class="productBox">';
 			{
 				self::product_element_create($myProduct);
@@ -184,9 +176,25 @@ class website
 		$id              = \dash\get::index($_item, 'id');
 		$title           = \dash\get::index($_item, 'title');
 		$image           = \dash\get::index($_item, 'thumb');
-		$price           = \dash\get::index($_item, 'price');
-		$discount        = \dash\get::index($_item, 'discount');
-		$discountpercent = \dash\get::index($_item, 'discountpercent');
+
+		if(\dash\get::index($_item, 'variant_price') && \dash\get::index($_item, 'variant_child'))
+		{
+			$price           =  \dash\get::index($_item, 'variant_price');
+			$discount        = null;
+			$discountpercent = null;
+			$compareAtPrice  = null;
+			$compareAtPrice  = null;
+		}
+		else
+		{
+			$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
+			$discount        = \dash\get::index($_item, 'discount');
+			$discountpercent = \dash\get::index($_item, 'discountpercent');
+			$compareAtPrice = floatval(\dash\get::index($_item, 'price') + floatval(\dash\get::index($_item, 'discount')));
+			$compareAtPrice = \dash\fit::number($compareAtPrice);
+		}
+
+
 		$unit            = \dash\get::index($_item, 'unit');
 		$allow_shop      = \dash\get::index($_item, 'allow_shop');
 		$currency        = \lib\store::currency();
@@ -225,13 +233,13 @@ class website
 				echo '</span>';
 
 				echo '<span class="price c">';
-				echo \dash\fit::number($price);
+				echo $price;
 				echo '</span>';
 
 				if($discount)
 				{
 					echo '<del class="compareAtPrice cauto os">';
-					echo \dash\fit::number($price + $discount);
+					echo $compareAtPrice;
 					echo '</del>';
 				}
 			}

@@ -76,7 +76,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
               <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
             <?php } //endif ?>
 
-        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'price_string')); ?></div>
+        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'variant_price')); ?></div>
         <div class="go"></div>
       </a>
      </li>
@@ -104,7 +104,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
       <tr>
         <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar" alt="<?php echo \dash\get::index($value, 'title'); ?>"></td>
         <td><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></td>
-        <td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'price_string')); ?></td>
+        <td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'variant_price')); ?></td>
 
         <td>
           <?php if(isset($value['variants_detail']['stock'])) {?>
