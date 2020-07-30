@@ -66,6 +66,13 @@ if(\dash\data::googleAnalytics())
  <meta content="#c80a5a" name="msapplication-TileColor">
  <meta content="<?php echo \dash\face::site(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\face::site(); ?>" name="apple-mobile-web-app-title"/>
+<?php if(\dash\engine\store::inStore()) {?>
+ <link href="<?php echo \lib\store::logo();?>" type="image/png" rel="icon"/>
+ <link href="<?php echo \lib\store::logo();?>" rel="shortcut icon"/>
+ <link href="<?php echo \lib\store::logo();?>" rel="apple-touch-startup-image"/>
+ <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
+
+<?php } else {?>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>
@@ -73,8 +80,9 @@ if(\dash\data::googleAnalytics())
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png?v=1" sizes="16x16" type="image/png" rel="icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon.ico?v=1" rel="shortcut icon"/>
- <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
  <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
+ <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
+<?php }?>
 <?php
 if (\dash\url::canonical())
 echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
