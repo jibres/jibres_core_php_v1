@@ -609,7 +609,7 @@ class prepare
 	public static function check_domain()
 	{
 
-		$domain = \dash\url::domain();
+		$domain = \dash\url::host();
 		switch ($domain)
 		{
 			case 'jibres.com':

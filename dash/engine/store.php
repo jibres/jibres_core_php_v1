@@ -25,6 +25,7 @@ class store
 	 * @var        boolean
 	 */
 	private static $inCustomerDomain = false;
+	private static $customerDomainDetail = [];
 
 
 	/**
@@ -107,7 +108,15 @@ class store
 		{
 			if($subdomain)
 			{
-				\dash\header::status(409, T_("Can not route subdomain in your domain!"));
+				if(isset(self::$customerDomainDetail['subdomain']) && self::$customerDomainDetail['subdomain'] === $subdomain)
+				{
+					// no problem.
+					// the user poin shop.example.com to jibres
+				}
+				else
+				{
+					\dash\header::status(409, T_("Can not route subdomain in your domain!"));
+				}
 			}
 
 			if($store)
@@ -431,6 +440,8 @@ class store
 
 		$load_detail = \dash\file::read($customer_domain);
 		$load_detail = json_decode($load_detail, true);
+
+		self::$customerDomainDetail = $load_detail;
 
 		if($load_detail && isset($load_detail['store_id']))
 		{
