@@ -49,6 +49,39 @@ class pwa
 		];
 
 
+		if(\dash\engine\store::inStore())
+		{
+			$manifest['icons'] = self::logo_business();
+		}
+		elseif(self::logo_jibres())
+		{
+			$manifest['icons'] = self::logo_jibres();
+		}
+
+		// show result of manifest
+		\dash\code::jsonBoom($manifest, false, 'manifest');
+	}
+
+
+	private static function logo_business()
+	{
+		// set icons if exist
+		$iconsArr = [];
+
+		// check icon32
+		$iconsArr[] =
+		[
+			'type'  => 'image/png',
+			'sizes' => '32x32',
+			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-32.min.png',
+		];
+
+		return $iconsArr;
+	}
+
+
+	private static function logo_jibres()
+	{
 		// set icons if exist
 		$iconsArr = [];
 
@@ -164,12 +197,7 @@ class pwa
 			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-1024.min.png',
 		];
 
-		if($iconsArr)
-		{
-			$manifest['icons'] = $iconsArr;
-		}
-
-		\dash\code::jsonBoom($manifest, false, 'manifest');
+		return $iconsArr;
 	}
 
 
