@@ -514,7 +514,7 @@ class search
 	}
 
 
-	private static function detect_min_variant_price(&$list)
+	public static function detect_min_variant_price(&$list)
 	{
 		$have_variant = [];
 

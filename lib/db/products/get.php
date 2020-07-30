@@ -535,6 +535,7 @@ class get
 				products
 			WHERE
 				products.status != 'deleted' AND
+				products.instock = 1 AND
 				products.parent IN ($_ids) AND
 				products.finalprice = (SELECT MIN(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent)
 			GROUP BY products.parent

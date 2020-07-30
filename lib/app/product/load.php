@@ -92,25 +92,10 @@ class load
 
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
-			$variant_price = \lib\app\product\price::variant_price($_id);
-			if(isset($variant_price['min_price']) && isset($variant_price['max_price']))
-			{
-				if($variant_price['min_price'] === $variant_price['max_price'])
-				{
-					$detail['variant_price'] = \dash\fit::number($variant_price['min_price']);
-				}
-				else
-				{
-					$detail['variant_price'] = \dash\fit::number($variant_price['min_price']) . ' ... '. \dash\fit::number($variant_price['max_price']);
-				}
-				$detail['price']      = 0;
-				$detail['discount']   = 0;
-				$detail['finalprice'] = 0;
-			}
-			else
-			{
-				$detail['variant_price'] = null;
-			}
+			$detect_min_variant_price = [$detail];
+			\lib\app\product\search::detect_min_variant_price($detect_min_variant_price);
+			$detect_min_variant_price = $detect_min_variant_price[0];
+			$detail                   = $detect_min_variant_price;
 		}
 
 
