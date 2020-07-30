@@ -86,7 +86,7 @@ class view
 			\dash\face::twitterCard('summary_large_image');
 		}
 
-		\dash\face::headTitle(\dash\data::dataRow_title());
+		\dash\face::seo(\dash\data::dataRow_title());
 
 		$currency = \lib\store::currency();
 		$seo_desc = [];
