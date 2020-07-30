@@ -1,18 +1,3 @@
-    <?php if(!\dash\data::productFamily()) {?>
-    <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
-        <nav class="items long">
-          <ul>
-            <li>
-              <a class="item f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
-                <i class="sf-picture"></i>
-                <div class="key"><?php echo T_("Make product variants"); ?></div>
-                <div class="go"></div>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      <?php } //endif ?>
-    <?php } //endif ?>
 
     <?php if($have_variant_child || \dash\data::productFamily()) {?>
       <nav class="items long">
@@ -58,3 +43,5 @@
         </ul>
       </nav>
     <?php } //endif ?>
+
+    <?php require_once('sidebar-menu.php'); ?>

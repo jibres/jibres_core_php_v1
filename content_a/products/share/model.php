@@ -10,6 +10,12 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		$post         = [];
+		$post['sharetext'] = isset($_POST['sharetext']) ? $_POST['sharetext'] : null;
+
+		\lib\app\product\edit::edit($post, $id);
+		\dash\notif::clean();
+
 
 		$telegram_setting = \lib\app\setting\get::telegram_setting();
 		\dash\data::telegramSetting($telegram_setting);

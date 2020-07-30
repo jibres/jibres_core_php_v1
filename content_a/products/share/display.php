@@ -4,11 +4,6 @@ $propertyList = \dash\data::propertyList();
 
 
 <div class="avand-sm">
-   <nav class="items long">
-      <ul>
-         <li><a class="f" href="<?php echo \dash\url::this(); ?>/sharetext?id=<?php echo \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Share text"); ?></div><div class="go"></div></a></li>
-      </ul>
-    </nav>
 
 
 
@@ -38,7 +33,8 @@ $propertyList = \dash\data::propertyList();
 
                 ?></p>
 
-                <p><?php echo \dash\data::productDataRow_sharetext() ?></p>
+                 <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'sharetext'); ?></textarea>
+
                 <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
               </div>
 
