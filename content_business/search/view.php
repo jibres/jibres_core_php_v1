@@ -23,7 +23,7 @@ class view
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
 
-		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
+		$myProductList = \lib\app\product\search::website_product_search($search_string, $args);
 
 		\dash\data::dataTable($myProductList);
 

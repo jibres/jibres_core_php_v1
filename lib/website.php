@@ -177,22 +177,11 @@ class website
 		$title           = \dash\get::index($_item, 'title');
 		$image           = \dash\get::index($_item, 'thumb');
 
-		if(\dash\get::index($_item, 'variant_price') && \dash\get::index($_item, 'variant_child'))
-		{
-			$price           =  \dash\get::index($_item, 'variant_price');
-			$discount        = null;
-			$discountpercent = null;
-			$compareAtPrice  = null;
-			$compareAtPrice  = null;
-		}
-		else
-		{
-			$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
-			$discount        = \dash\get::index($_item, 'discount');
-			$discountpercent = \dash\get::index($_item, 'discountpercent');
-			$compareAtPrice = floatval(\dash\get::index($_item, 'price') + floatval(\dash\get::index($_item, 'discount')));
-			$compareAtPrice = \dash\fit::number($compareAtPrice);
-		}
+		$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
+		$discount        = \dash\get::index($_item, 'discount');
+		$discountpercent = \dash\get::index($_item, 'discountpercent');
+		$compareAtPrice = floatval(\dash\get::index($_item, 'price') + floatval(\dash\get::index($_item, 'discount')));
+		$compareAtPrice = \dash\fit::number($compareAtPrice);
 
 
 		$unit            = \dash\get::index($_item, 'unit');

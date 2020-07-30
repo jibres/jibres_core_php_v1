@@ -519,6 +519,32 @@ class get
 	}
 
 
+	public static function variants_load_min_value($_ids)
+	{
+		$query  =
+		"
+			SELECT
+				MIN(products.id) AS `id`,
+				products.parent,
+				MIN(products.slug) AS `slug`,
+				MIN(products.price) AS `price`,
+				MIN(products.finalprice) AS `finalprice`,
+				MIN(products.discount) AS `discount`,
+				MIN(products.discountpercent) AS `discountpercent`
+			FROM
+				products
+			WHERE
+				products.status != 'deleted' AND
+				products.parent IN ($_ids) AND
+				products.finalprice = (SELECT MIN(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent)
+			GROUP BY products.parent
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function variants_load_child_count($_products_ids)
 	{
 		$query  =

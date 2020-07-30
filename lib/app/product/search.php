@@ -408,6 +408,56 @@ class search
 
 		$list = self::products_list('variants', $_query_string, $_args, $and);
 
+		self::load_variants($list);
+
+
+		return $list;
+	}
+
+
+
+	public static function website_product_search($_query_string, $_args)
+	{
+		$and   = [];
+		$and[] = "products.parent IS NULL ";
+
+		$list = self::products_list('variants', $_query_string, $_args, $and);
+
+		self::detect_min_variant_price($list);
+
+
+		return $list;
+	}
+
+
+
+
+	public static function list_in_sale($_query_string, $_args)
+	{
+		$_args['limit'] = 25;
+		$list        = self::products_list('price_factor_count', $_query_string, $_args);
+		return $list;
+	}
+
+	public static function price_list($_query_string, $_args)
+	{
+		$list        = self::products_list('price', $_query_string, $_args);
+		return $list;
+	}
+
+
+	public static function factor_admin_list($_query_string, $_args)
+	{
+		$and   = [];
+		$and[] = " products.variant_child IS  NULL ";
+
+		$list        = self::products_list('factor_admin_list', $_query_string, $_args, $and);
+		return $list;
+	}
+
+
+	private static function load_variants(&$list)
+	{
 		foreach ($list as $key => $value)
 		{
 			$list[$key]['variants_detail'] = [];
@@ -461,36 +511,69 @@ class search
 				}
 			}
 		}
-
-		return $list;
 	}
 
 
-
-
-	public static function list_in_sale($_query_string, $_args)
+	private static function detect_min_variant_price(&$list)
 	{
-		$_args['limit'] = 25;
-		$list        = self::products_list('price_factor_count', $_query_string, $_args);
-		return $list;
+		$have_variant = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['variant_child']) && $value['variant_child'] && isset($value['id']))
+			{
+				$have_variant[] = $value['id'];
+			}
+		}
+
+		$have_variant = array_filter($have_variant);
+		$have_variant = array_unique($have_variant);
+
+		if(empty($have_variant))
+		{
+			return;
+		}
+
+		$load_min_value = \lib\db\products\get::variants_load_min_value(implode(',', $have_variant));
+
+		if(empty($load_min_value) || !is_array($load_min_value))
+		{
+			return;
+		}
+
+		$load_min_value = array_combine(array_column($load_min_value, 'parent'), $load_min_value);
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['id']) && isset($load_min_value[$value['id']]))
+			{
+				$min_price = $load_min_value[$value['id']];
+
+
+				if(isset($min_price['finalprice']))
+				{
+					$list[$key]['finalprice'] = \lib\price::down($min_price['finalprice']);
+				}
+
+				if(isset($min_price['price']))
+				{
+					$list[$key]['price'] = \lib\price::down($min_price['price']);
+				}
+
+				if(isset($min_price['discount']))
+				{
+					$list[$key]['discount'] = \lib\price::down($min_price['discount']);
+				}
+
+				if(isset($min_price['discountpercent']))
+				{
+					$list[$key]['discountpercent'] = \lib\price::down($min_price['discountpercent']);
+				}
+			}
+		}
+
+
 	}
-
-	public static function price_list($_query_string, $_args)
-	{
-		$list        = self::products_list('price', $_query_string, $_args);
-		return $list;
-	}
-
-
-	public static function factor_admin_list($_query_string, $_args)
-	{
-		$and   = [];
-		$and[] = " products.variant_child IS  NULL ";
-
-		$list        = self::products_list('factor_admin_list', $_query_string, $_args, $and);
-		return $list;
-	}
-
 
 
 
@@ -568,6 +651,9 @@ class search
 			$last_product = [];
 		}
 
+		self::detect_min_variant_price($last_product);
+
+		// var_dump($last_product);exit();
 		return $last_product;
 	}
 
