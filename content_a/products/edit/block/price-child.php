@@ -5,7 +5,7 @@
   	    	<input type="hidden" name="wholeeditchild" value="wholeeditchild">
 
               <div class="tblBox mT10">
-                <table class="tbl1 v4 fs09">
+                <table class="tbl1 v4 fs09 responsive">
                   <thead>
                     <tr>
                       <th class="collapsing"><?php echo T_("Variants") ?></th>
