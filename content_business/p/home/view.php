@@ -17,8 +17,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-		\dash\face::title(\dash\data::dataRow_title() . ' | '. \lib\store::title());
-		\dash\face::titlePWA(\lib\store::title());
+
 
 		$property_list = \lib\app\product\property::get_pretty($id);
 		\dash\data::propertyList($property_list);
@@ -69,14 +68,50 @@ class view
 		\dash\data::cart_link(\dash\fit::number(\lib\website::cart_count()));
 		\dash\data::search_link(\dash\url::kingdom().'/search');
 
+
+
+		self::set_product_title_page();
+	}
+
+
+	private static function set_product_title_page()
+	{
+
+		\dash\face::title(\dash\data::dataRow_title() . ' | '. \lib\store::title());
+		\dash\face::titlePWA(\lib\store::title());
+
 		if(\dash\data::dataRow_thumbraw())
 		{
 			\dash\face::cover(\dash\data::dataRow_thumb());
 		}
 
+		$currency = \lib\store::currency();
+		$seo_desc = [];
+
+		if(\dash\data::dataRow_price())
+		{
+			$seo_desc[] = T_("List Price"). ' '. \dash\fit::number(\dash\data::dataRow_price()). ' '. $currency;
+		}
+
+		if(\dash\data::dataRow_discount())
+		{
+			$seo_desc[] = T_("Discount"). ' '. \dash\fit::number(\dash\data::dataRow_discount()). ' '. $currency;
+		}
+
+		if(\dash\data::dataRow_finalprice())
+		{
+			$seo_desc[] = T_("Price"). ' '. \dash\fit::number(\dash\data::dataRow_finalprice()). ' '. $currency;
+		}
+
 		if(\dash\data::dataRow_seodesc())
 		{
-			\dash\face::desc(\dash\data::dataRow_seodesc());
+			$seo_desc[] = \dash\data::dataRow_seodesc();
+		}
+
+		if(!empty($seo_desc))
+		{
+			$seo_desc = implode(' | ' , $seo_desc);
+			\dash\face::desc($seo_desc);
 		}
 	}
 }
