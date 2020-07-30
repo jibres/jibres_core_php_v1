@@ -8,13 +8,25 @@ class view
 	{
 		\dash\data::store(\lib\store::detail());
 
-		\dash\face::site(\lib\store::detail('title'));
-		\dash\face::title(\lib\store::detail('title'));
+		$store_title = \lib\store::detail('title');
+		if($store_title)
+		{
+			\dash\face::site($store_title);
+			\dash\face::title($store_title);
+		}
 
-		\dash\face::desc(\lib\store::detail('desc'));
-		\dash\face::intro(\lib\store::detail('desc'));
+		$store_desc = \lib\store::detail('desc');
+		if($store_desc)
+		{
+			\dash\face::desc($store_desc);
+			\dash\face::intro($store_desc);
+		}
 
-		\dash\face::cover(\lib\store::logo());
+		$store_logo = \lib\store::logo();
+		if($store_logo)
+		{
+			\dash\face::cover($store_logo);
+		}
 
 	}
 }
