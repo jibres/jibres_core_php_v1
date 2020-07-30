@@ -80,7 +80,7 @@ class guard
 		// media-src
 		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " data:; ";
 		// frame-src
-		$csp .= "frame-src 'self' https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/; ";
+		$csp .= "frame-src 'self' https://bitty.ir http://ermile.jibres.local/ https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/; ";
 		// base-uri
 		$csp .= "base-uri 'self'; ";
 		// manifest-src
@@ -101,7 +101,7 @@ class guard
 			}
 			else
 			{
-				$csp .= "frame-ancestors self ". self::csp_domain('*', 'jibres'). " ". \dash\url::site(). "; ";
+				$csp .= "frame-ancestors self http://jibres.local ". self::csp_domain('*', 'jibres'). " ". \dash\url::site(). "; ";
 				// $csp .= "frame-ancestors 'none'; ";
 			}
 		}

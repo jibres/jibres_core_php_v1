@@ -112,7 +112,7 @@ if(\dash\data::include_adminPanel())
 // set iframe
 if(\dash\request::get('iframe'))
 {
-  echo " data-iframe";
+  echo " data-iframe2";
 }
 echo " data-preload";
 ?>><?php
