@@ -29,6 +29,15 @@ class get
 	}
 
 
+	public static function count_product($_product_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM productcomment WHERE productcomment.product_id = $_product_id  ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
 	public static function get()
 	{
 		return \dash\db\config::public_get('productcomment', ...func_get_args());

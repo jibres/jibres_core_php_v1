@@ -70,6 +70,23 @@ class property
 	}
 
 
+	public static function get_count($_id)
+	{
+		$id = \dash\validate::id($_id, false);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
+
+		$load_count = \lib\db\productproperties\get::count_product($id);
+		if(!is_numeric($load_count))
+		{
+			$load_count = 0;
+		}
+
+		return floatval($load_count);
+	}
 
 	public static function get_pretty($_id, $_admin = false)
 	{

@@ -62,6 +62,11 @@ class view
 		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
 
 
+		$property_list = \lib\app\product\property::get_count($id);
+		\dash\data::propertyCount($property_list);
+
+		$comment_list = \lib\app\product\comment::get_count($id);
+		\dash\data::commentCount($comment_list);
 
 		$cat_list = \lib\app\category\get::product_cat($id);
 		if(is_array($cat_list) && $cat_list)

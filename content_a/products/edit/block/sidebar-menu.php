@@ -15,6 +15,7 @@
           <a class="item f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <i class="sf-database"></i>
             <div class="key"><?php echo T_("Product Properties"); ?></div>
+            <div class="value"><?php echo \dash\fit::number(\dash\data::propertyCount()); ?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -85,6 +86,7 @@
           <a class="item f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>">
             <i class="sf-chat-alt-fill"></i>
             <div class="key"><?php echo T_("Comments"); ?></div>
+            <div class="value"><?php echo \dash\fit::number(\dash\data::commentCount()); ?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -121,6 +123,7 @@
               <a class="item f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
                 <i class="sf-picture"></i>
                 <div class="key"><?php echo T_("Make product variants"); ?></div>
+                <div class="value"><?php echo \dash\fit::number(count($child_list)); ?></div>
                 <div class="go"></div>
               </a>
             </li>

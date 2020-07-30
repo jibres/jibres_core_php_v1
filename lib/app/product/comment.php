@@ -145,6 +145,26 @@ class comment
 	}
 
 
+	public static function get_count($_product_id)
+	{
+		$product_id = \dash\validate::id($_product_id);
+
+		if(!$product_id)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
+
+		$load_count = \lib\db\productcomment\get::count_product($product_id);
+		if(!is_numeric($load_count))
+		{
+			$load_count = 0;
+		}
+
+		return floatval($load_count);
+	}
+
+
 	public static function of_product($_product_id, $_string = null)
 	{
 		$_product_id = \dash\validate::id($_product_id);

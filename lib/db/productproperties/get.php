@@ -18,6 +18,16 @@ class get
 	}
 
 
+
+
+	public static function count_product($_product_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM productproperties WHERE productproperties.product_id = $_product_id  ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function property_cat_name($_category_id)
 	{
 		$query =
