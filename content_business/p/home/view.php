@@ -83,6 +83,7 @@ class view
 		if(\dash\data::dataRow_thumb())
 		{
 			\dash\face::cover(\dash\data::dataRow_thumb());
+			\dash\face::twitterCard('summary_large_image');
 		}
 
 		$currency = \lib\store::currency();

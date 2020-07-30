@@ -25,6 +25,8 @@ class view
 		$store_logo = \lib\store::logo();
 		if($store_logo)
 		{
+			\dash\face::cover($store_logo);
+			\dash\face::twitterCard('summary');
 			\dash\face::logo($store_logo);
 		}
 
