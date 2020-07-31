@@ -12,6 +12,9 @@ class view
 		// back
 		\dash\data::back_text(T_('Personal info'));
 		\dash\data::back_link(\dash\url::this());
+
+		$my_email_list = \dash\app\user\email::get_my_list();
+		\dash\data::dataTable($my_email_list);
 	}
 }
 ?>

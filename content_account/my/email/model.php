@@ -6,39 +6,48 @@ class model
 {
 
 
-	public static function getPost()
-	{
-		$post =
-		[
-			'email'    => \dash\request::post('email'),
-		];
-
-		return $post;
-	}
-
-
 	/**
 	 * Posts a user add.
 	 */
 	public static function post()
 	{
-
-		$request = self::getPost();
-
-		// ready request
-		$id = \dash\coding::encode(\dash\user::id());
-
-		$result = \dash\app\user::edit($request, $id);
-
-		if(\dash\engine\process::status())
+		$email = \dash\request::post('email');
+		if(\dash\request::post('remove') === 'remove')
 		{
-			\dash\notif::clean();
-			\dash\notif::ok(T_("Your email was changed"));
-			\dash\log::set('editProfileEmail', ['newemail' => \dash\request::post('email'), 'code' => \dash\user::id()]);
-			\dash\user::refresh();
-			// \dash\notif::direct();
-			\dash\redirect::pwd();
+			$result = \dash\app\user\email::remove($email, \dash\user::id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 		}
+		elseif(\dash\request::post('primary') === 'primary')
+		{
+			$result = \dash\app\user\email::primary($email, \dash\user::id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+		elseif(\dash\request::post('verify') === 'verify')
+		{
+
+		}
+		else
+		{
+			// ready request
+			$result = \dash\app\user\email::add($email, \dash\user::id());
+
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::clean();
+				\dash\notif::ok(T_("Email successfully added"));
+				\dash\log::set('editProfileEmail', ['newemail' => \dash\request::post('email'), 'code' => \dash\user::id()]);
+				\dash\user::refresh();
+				// \dash\notif::direct();
+				\dash\redirect::pwd();
+			}
+		}
+
 	}
 }
 ?>
