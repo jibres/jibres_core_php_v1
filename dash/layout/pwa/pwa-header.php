@@ -1,11 +1,16 @@
 <?php
+echo "<div class='pwa'>";
 if(\dash\data::back_link())
 {
 	echo "<a class='square back' href='". \dash\data::back_link(). "'></a>";
 }
-?>
-<div class="title"><?php echo \dash\face::titlePWA(); ?></div>
-<?php
+
+{
+  echo "<div class='title'>";
+  echo \dash\face::titlePWA();
+  echo "</div>";
+}
+
 // add help btn
 if(\dash\face::help())
 {
@@ -59,10 +64,9 @@ if(\dash\face::btnSave())
   echo '>';
   echo "</button>";
 }
-?>
-<div class="action"><?php
 if(\dash\data::action_link() && \dash\data::action_text())
 {
+  echo "<div class='action'>";
 	if(\dash\data::action_icon())
 	{
 		echo "<a href='". \dash\data::action_link(). "'><i class='sf-". \dash\data::action_icon(). "'></i></a>";
@@ -71,5 +75,8 @@ if(\dash\data::action_link() && \dash\data::action_text())
 	{
 		echo "<a href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
 	}
+  echo "</div>";
 }
-?></div>
+
+echo "</div>";
+?>

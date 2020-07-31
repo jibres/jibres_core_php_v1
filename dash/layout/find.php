@@ -141,9 +141,7 @@ class find
 
 		// add pwa header
 		{
-			echo "<div class='pwa'>";
 			require_once core.'layout/pwa/pwa-header.php';
-			echo "</div>";
 		}
 
 		echo "</header>";
