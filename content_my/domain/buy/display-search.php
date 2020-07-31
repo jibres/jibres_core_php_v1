@@ -45,8 +45,8 @@ if(isset($result['com_master']))
     <?php if($result['ir_list']) {?>
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
-     <li class="f">
-      <a href="<?php if(\dash\get::index($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(\dash\get::index($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f">
+     <li>
+      <a href="<?php if(\dash\get::index($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(\dash\get::index($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f item">
        <div class="key fit fc-mute"><?php echo substr(\dash\get::index($value, 'name'), 0, 15); ?></div>
        <div class="key grow txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available')) {?>
@@ -88,8 +88,8 @@ if(isset($result['com_master']))
     <h5 class="txtB mT20"><?php echo T_("International TLD"); ?></h5>
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
-     <li class="f">
-      <a href="<?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f">
+     <li>
+      <a href="<?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f item">
        <div class="key fit fc-mute"><?php echo substr(\dash\get::index($value, 'name'), 0, 15); ?></div>
        <div class="key grow txtB">.<?php echo \dash\get::index($value, 'tld'); ?></div>
        <?php if(\dash\get::index($value, 'available') && !\dash\get::index($value, 'domain_premium')) {?>
@@ -124,8 +124,8 @@ if(isset($result['com_master']))
     <h5 class="txtB mT20"><?php echo T_("Our short suggestion"); ?></h5>
     <ul class="items">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
-     <li class="f">
-      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain') ?>" class="f">
+     <li>
+      <a href="<?php echo \dash\url::this(). '/buy/'. \dash\get::index($value, 'domain') ?>" class="f item">
        <div class="key fit txtB"><?php echo \dash\get::index($value, 'root'); ?></div>
        <div class="key grow fc-mute">.<?php echo \dash\get::index($value, 'tld'); ?></div>
 
