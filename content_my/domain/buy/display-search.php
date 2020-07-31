@@ -40,8 +40,9 @@ if(isset($result['com_master']))
 
 <div class="row ltr">
   <div class="c-xs-12 c-sm-6 c-md-4">
+  <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
     <h5 class="txtB mT20"><?php echo T_("Dot IR TLD"); ?></h5>
-  <?php if(isset($result['ir_list']) && is_array($result['ir_list']) && $result['ir_list']){?>
+    <?php if($result['ir_list']) {?>
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li class="f">
@@ -77,8 +78,9 @@ if(isset($result['com_master']))
      </li>
     <?php } //endfor ?>
   </ul>
-  <?php }else{ ?>
-    <div class="msg fs14"><?php echo T_("The IRNIC server not respond at this time!") ?></div>
+    <?php }else{ ?>
+      <div class="msg fs14"><?php echo T_("The IRNIC server not respond at this time!") ?></div>
+    <?php } //endif ?>
   <?php } //endif ?>
   </div>
    <div class="c-xs-12 c-sm-6 c-md-4">
