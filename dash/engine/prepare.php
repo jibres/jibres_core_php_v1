@@ -372,12 +372,12 @@ class prepare
 				// icu and xyz is exception
 				$target_host .= '.'.\dash\url::tld();
 			}
-			elseif(\dash\language::current() === 'fa')
+			elseif(\dash\language::current() === 'fa' && \dash\url::root() === 'jibres')
 			{
 				// disallow open fa in another tld
 				$target_host .= '.ir';
 			}
-			elseif(\dash\language::current() === 'en')
+			elseif(\dash\language::current() === 'en' && \dash\url::root() === 'jibres')
 			{
 				// disallow open en in another tld
 				$target_host .= '.com';
