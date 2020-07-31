@@ -1,1 +1,0 @@
-<link rel="stylesheet"       href="<?php echo \dash\url::cdn(). '/css/subdomain.css'; ?>"/>

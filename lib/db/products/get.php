@@ -393,6 +393,7 @@ class get
 	}
 
 
+	private static $catch_load_one_product = [];
 	public static function by_id($_id)
 	{
 		$query  =
@@ -406,7 +407,16 @@ class get
 				products.id = $_id
 			LIMIT 1
 		";
+
+		if(isset(self::$catch_load_one_product[$_id]))
+		{
+			return self::$catch_load_one_product[$_id];
+		}
+
 		$result = \dash\db::get($query, null, true);
+
+		self::$catch_load_one_product[$_id] = $result;
+
 		return $result;
 	}
 

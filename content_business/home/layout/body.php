@@ -1,4 +1,19 @@
 <?php
+$template = \dash\data::website_template();
+
+if(!$template)
+{
+	$template = 'visitcard';
+}
+
+if($template === 'comingsoon' || $template === 'visitcard')
+{
+	require_once('template/'. $template. '.php');
+	// not generate display line in visitcard and comingsoon page
+	return;
+}
+// if $template == 'publish' generate display
+
 
 $here = root. 'content_business';
 

@@ -42,7 +42,7 @@ class business
 			return false;
 		}
 
-		if(isset($load_website_setting['template']) && $load_website_setting['template'] === 'publish')
+		if(isset($load_website_setting['template']))
 		{
 			// nothing
 		}

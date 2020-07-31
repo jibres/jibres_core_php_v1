@@ -1,17 +1,14 @@
 
  <link rel="stylesheet"       href="<?php echo \dash\url::cdn(). '/css/subdomain.css'; ?>"/>
 
-<?php
-if (!\dash\data::externalShop())
-{
-?>
+
 <div class="cn">
   <a href="<?php echo \dash\url::sitelang(); ?>" id='ermileBadge' class="f" target="_blank" title='<?php echo T_("Sell and Enjoy"); ?>' data-tippy-inertia="true" data-tippy-animation="perspective" data-tippy-duration="[600, 300]">
    <div class="cauto pRa10">
     <img src="<?php echo \dash\url::icon(); ?>" alt='<?php echo T_('Jibres'); ?>' class="cauto">
    </div>
    <div class="c">
-    <h2><?php echo T_('Jibres'); ?></h2>
+    <h2><?php echo T_('Jibres'); ?> comingsoon</h2>
     <h3><?php echo \dash\data::service_slogan(); ?></h3>
    </div>
   </a>
@@ -19,15 +16,15 @@ if (!\dash\data::externalShop())
 
 <?php
 $store = \dash\data::store();
+if(\dash\permission::supervisor())
+{
+  var_dump($store);
+}
 
 ?>
 
   <div class="cbox txtC">
-   <h1><a href="<?php echo \dash\url::here(); ?>"><?php echo \dash\get::index($store, 'store_data', 'title'); ?></a>
-    <br>
-    <?php echo T_("Coming Soon"); ?>
-   </h1>
-
+   <h1><a href="<?php echo \dash\url::here(); ?>"><?php echo \dash\get::index($store, 'store_data', 'title'); ?></a></h1>
    <h2><?php echo \dash\get::index($store, 'store_data', 'desc'); ?></h2>
 
    <?php if(isset($store['store_data']['address']) && $store['store_data']['address']) {?>
@@ -52,9 +49,7 @@ $store = \dash\data::store();
 <?php } //endif ?>
   </div>
 </div>
-<?php
-}
-?>
+
  <div id="nodes"></div>
 
 

@@ -65,7 +65,7 @@ class edit
 		}
 
 		\dash\temp::set('productHasChange', $productHasChange);
-		\dash\temp::set('productNoChangeNotRedirect', $productHasChange);
+		\dash\temp::set('productNoChangeNotRedirect', false);
 		return true;
 
 	}
@@ -125,7 +125,7 @@ class edit
 		}
 
 
-		if($args['price'] || $args['discount'] || $args['buyprice'] || $args['finalprice'])
+		if(is_numeric($args['price']) || is_numeric($args['discount']) || is_numeric($args['buyprice']) || is_numeric($args['finalprice']))
 		{
 			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args);
@@ -217,22 +217,6 @@ class edit
 			}
 		}
 
-		// if(array_key_exists('cat_id', $args))
-		// {
-		// 	if($args['cat_id'])
-		// 	{
-		// 		$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
-		// 		if(!isset($load_cat['id']))
-		// 		{
-		// 			\dash\notif::error(T_("Category not found"));
-		// 			return false;
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		$args['cat_id'] = null;
-		// 	}
-		// }
 
 		if(array_key_exists('tag', $args))
 		{
@@ -286,9 +270,11 @@ class edit
 			}
 		}
 
+		// the parent
 		// if the product have child the type of product locked!
 		if(isset($product_detail['variant_child']) && $product_detail['variant_child'])
 		{
+			// unset($args['desc']);
 			unset($args['type']);
 		}
 
