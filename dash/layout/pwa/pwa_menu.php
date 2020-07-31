@@ -10,6 +10,7 @@ class pwa_menu
 		{
 			switch ($myContent)
 			{
+				case 'site':
 				case 'enter':
 				case 'pay':
 				case 'hook':
@@ -17,40 +18,51 @@ class pwa_menu
 					return null;
 					break;
 
+				case 'my':
+					return self::primary();
+					break;
+
 				case 'a':
 					return self::businessAdmin();
 					break;
 
 				case 'business':
-					switch (\dash\url::module())
-					{
-						case 'p':
-						return self::businessProductPage();
-						break;
-
-						case 'cart':
-						return self::businessCartPage();
-						break;
-
-						case 'shipping':
-						return self::businessShippingPage();
-						break;
-
-						case 'app':
-						return null;
-						break;
-
-						default:
-						return self::businessWebsite();
-						break;
-					}
+					return self::businessWebsiteMenu();
 					break;
 
+
 				default:
-					return self::primary();
 					break;
 			}
 		}
+	}
+
+	public static function businessWebsiteMenu()
+	{
+		switch (\dash\url::module())
+		{
+			case 'p':
+			return self::businessProductPage();
+			break;
+
+			case 'cart':
+			return self::businessCartPage();
+			break;
+
+			case 'shipping':
+			return self::businessShippingPage();
+			break;
+
+			case null:
+			return self::businessWebsite();
+			break;
+
+			case 'app':
+			default:
+			return null;
+			break;
+		}
+
 	}
 
 
