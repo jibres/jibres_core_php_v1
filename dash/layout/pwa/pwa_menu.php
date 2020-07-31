@@ -36,6 +36,10 @@ class pwa_menu
 						return self::businessShippingPage();
 						break;
 
+						case 'app':
+						return null;
+						break;
+
 						default:
 						return self::businessWebsite();
 						break;
