@@ -22,13 +22,20 @@ class language
 
 	public static function primary()
 	{
-		// for ir domain default lang is fa
-		if(\dash\url::tld() === 'ir')
+		if(\dash\url::root() === 'jibres')
+		{
+			// for ir domain default lang is fa
+			if(\dash\url::tld() === 'ir')
+			{
+				return 'fa';
+			}
+
+			return 'en';
+		}
+		else
 		{
 			return 'fa';
 		}
-
-		return 'en';
 	}
 
 
