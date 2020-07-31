@@ -39,29 +39,45 @@ class pwa_menu
 
 	public static function businessWebsiteMenu()
 	{
-		switch (\dash\url::module())
+		\dash\layout\business::check_website();
+
+		switch (\dash\data::website_template())
 		{
-			case 'p':
-			return self::businessProductPage();
-			break;
+			case 'comingsoon':
+				return null;
+				break;
 
-			case 'cart':
-			return self::businessCartPage();
-			break;
+			case 'visitcard':
+				return null;
+				break;
 
-			case 'shipping':
-			return self::businessShippingPage();
-			break;
-
-			case null:
-			return self::businessWebsite();
-			break;
-
-			case 'app':
 			default:
-			return null;
-			break;
+				switch (\dash\url::module())
+				{
+					case 'p':
+					return self::businessProductPage();
+					break;
+
+					case 'cart':
+					return self::businessCartPage();
+					break;
+
+					case 'shipping':
+					return self::businessShippingPage();
+					break;
+
+					case null:
+					return self::businessWebsite();
+					break;
+
+					case 'app':
+					default:
+					return null;
+					break;
+				}
+				break;
 		}
+
 
 	}
 
