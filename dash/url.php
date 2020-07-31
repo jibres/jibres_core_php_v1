@@ -487,21 +487,37 @@ class url
 			$talambarAddr .= '.talambar.';
 		}
 
-		if(self::isLocal())
+		if(self::$url['root'] === 'jibres')
 		{
-			$talambarAddr .= 'local';
-		}
-		else
-		{
-			if(self::tld() === 'ir')
+			if(self::isLocal())
 			{
-				$talambarAddr .= 'ir';
+				$talambarAddr .= 'local';
 			}
 			else
 			{
-				$talambarAddr .= 'com';
+				if(self::tld() === 'ir')
+				{
+					$talambarAddr .= 'ir';
+				}
+				else
+				{
+					$talambarAddr .= 'com';
+				}
 			}
 		}
+		else
+		{
+			if(self::isLocal())
+			// for business
+			{
+				$talambarAddr .= 'local';
+			}
+			else
+			{
+				$talambarAddr .= 'ir';
+			}
+		}
+
 
 		return $talambarAddr;
 	}
