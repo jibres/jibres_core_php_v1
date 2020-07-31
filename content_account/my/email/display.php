@@ -20,8 +20,9 @@
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
     <div class="box">
       <div class="body">
-        <div class="txtL ltr txtB fs14"><?php echo \dash\get::index($value, 'email') ?></div>
+        <div class="txtL ltr txtB fs14"><?php echo \dash\get::index($value, 'email') ?> <?php if(\dash\get::index($value, 'verify')) {?><i class="sf-check fc-green"></i><?php }// endif ?></div>
         <?php if(!\dash\get::index($value, 'verify')) {?>
+
           <div class="btn link" data-confirm data-data='{"verify":"verify","email":"<?php echo \dash\get::index($value, 'email') ?>" }'><?php echo T_("Send verify email") ?></div>
 
       <?php } //endif ?>

@@ -19,6 +19,13 @@ class useremail
 	}
 
 
+	public static function set_verify($_id, $_email)
+	{
+		$query = "UPDATE useremail SET useremail.verify = 1 WHERE useremail.id = $_id AND useremail.email = '$_email' LIMIT 1 ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 
 
 	public static function check_is_verify_for_other($_email)

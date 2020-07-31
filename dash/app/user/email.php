@@ -151,10 +151,29 @@ class email
 		$log =
 		[
 			'to'   => $user_id,
-			'code' => $code
+			'code' => $code,
+			'email' => json_encode(
+			[
+				'useremail_id' => $check_duplicate_email['id'],
+				'email'        => $email,
+			], JSON_UNESCAPED_UNICODE),
 		];
 
 		\dash\log::set('verifyEmail', $log);
+
+		$url = \dash\url::kingdom(). '/enter/verifyemail/'. $code;
+		$body = '';
+		$body = '<a href="'.$url.'" target="_blank">'. T_("Click to verify"). '</a>';
+
+		$email =
+		[
+			'to'       => $email,
+			'body'     => $body,
+			'template' => 'html',
+			'subject'  => T_("Verify your mail"),
+		];
+
+		$send = \lib\email\send::send($email);
 
 		\dash\notif::ok(T_("A verification email was send to your email"));
 		return true;
