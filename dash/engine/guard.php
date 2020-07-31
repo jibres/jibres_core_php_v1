@@ -148,15 +148,21 @@ class guard
 	{
 		$url = \dash\url::protocol(). '://cdn.jibres.';
 
-		if(\dash\url::tld() === 'ir')
-		{
-			$url .= 'ir';
-			$url .= ' '. \dash\url::protocol(). '://cdn.jibres.com';
-		}
-		else
-		{
-			$url .= 'com';
-		}
+
+		// todo @Reza fix after load store
+		$url .= 'ir';
+		$url .= ' '. \dash\url::protocol(). '://cdn.jibres.com';
+
+		// todo @Reza fix after load store
+		// if(\dash\url::tld() === 'ir')
+		// {
+		// 	$url .= 'ir';
+		// 	$url .= ' '. \dash\url::protocol(). '://cdn.jibres.com';
+		// }
+		// else
+		// {
+		// 	$url .= 'com';
+		// }
 
 		if(\dash\url::tld() === 'local')
 		{
