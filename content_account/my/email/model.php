@@ -30,7 +30,11 @@ class model
 		}
 		elseif(\dash\request::post('verify') === 'verify')
 		{
-
+			$result = \dash\app\user\email::verify($email, \dash\user::id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 		}
 		else
 		{

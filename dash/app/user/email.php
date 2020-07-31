@@ -73,6 +73,93 @@ class email
 
 	}
 
+	public static function verify($_email)
+	{
+		$email = \dash\validate::email($_email);
+		if(!$email)
+		{
+			\dash\notif::error(T_("Please enter email"));
+			return false;
+		}
+
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		$user_id = \dash\user::id();
+
+		$check_duplicate_email = \dash\db\useremail::check_duplicate_email($email, $user_id);
+
+		if(isset($check_duplicate_email['id']))
+		{
+			 // nothing
+		}
+		else
+		{
+			\dash\notif::error(T_("Email not found"));
+			return false;
+		}
+
+		if(isset($check_duplicate_email['verify']) && $check_duplicate_email['verify'])
+		{
+			\dash\notif::info(T_("This email is already verified"));
+			return true;
+			// ok. the email is verified
+		}
+
+
+		$check_any_verify_it = \dash\db\useremail::check_is_verify_for_other($email);
+		if(isset($check_any_verify_it['user_id']))
+		{
+			if(floatval($check_any_verify_it['user_id']) === floatval($user_id))
+			{
+				\dash\notif::error(T_("You already verified this email"));
+			}
+			else
+			{
+				\dash\notif::error(T_("This email is already verified for another user"));
+			}
+
+			return false;
+		}
+
+		$code1 = '';
+		$code1 .= time();
+		$code1 .= '()';
+		$code1 .= $user_id;
+		$code1 .= rand();
+		$code1 .= '%%';
+		$code1 .= microtime();
+		$code1 = md5($code1);
+
+		$code2 = '';
+		$code2 .= $user_id;
+		$code2 .= '&^';
+		$code2 .= time();
+		$code2 .= rand();
+		$code2 .= '**';
+		$code2 .= rand();
+		$code2 .= '_-';
+		$code2 .= \dash\url::pwd();
+		$code2 = md5($code2);
+
+		$code = $code1.$code2;
+
+
+		$log =
+		[
+			'to'   => $user_id,
+			'code' => $code
+		];
+
+		\dash\log::set('verifyEmail', $log);
+
+		\dash\notif::ok(T_("A verification email was send to your email"));
+		return true;
+
+	}
 
 	public static function primary($_email)
 	{

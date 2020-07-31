@@ -22,10 +22,11 @@
       <div class="body">
         <div class="txtL ltr txtB fs14"><?php echo \dash\get::index($value, 'email') ?></div>
         <?php if(!\dash\get::index($value, 'verify')) {?>
-            <div class="btn link"><?php echo T_("Send verify email") ?></div>
+          <div class="btn link" data-confirm data-data='{"verify":"verify","email":"<?php echo \dash\get::index($value, 'email') ?>" }'><?php echo T_("Send verify email") ?></div>
+
       <?php } //endif ?>
         <?php if(!\dash\get::index($value, 'primary')) {?>
-          <div class="cauto"><div class="btn link" data-confirm data-data='{"primary":"primary","email":"<?php echo \dash\get::index($value, 'email') ?>" }'><?php echo T_("Set as primary email") ?></div></div>
+          <div class="btn link" data-confirm data-data='{"primary":"primary","email":"<?php echo \dash\get::index($value, 'email') ?>" }'><?php echo T_("Set as primary email") ?></div>
       <?php }else{ ?>
         <div class="badge success"><?php echo T_("Primary email") ?></div>
       <?php } //endif ?>
