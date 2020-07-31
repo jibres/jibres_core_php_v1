@@ -2,7 +2,7 @@
     <div class="c-xs-12 c-sm-12 c-lg-auto">
       <img class="avatarImg" src="<?php echo \lib\store::logo() ?>" alt="<?php echo \lib\store::title(); ?>">
     </div>
-    <div class="c-xs-12 c-sm-12 c-lg-auto">
+    <div class="c-xs-12 c-sm-12 c-lg">
       <div class="info">
         <h1><?php echo \lib\store::title(); ?></h1>
         <h2><?php echo \lib\store::desc(); ?></h2>
