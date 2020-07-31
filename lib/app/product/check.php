@@ -187,7 +187,7 @@ class check
 		 */
 
 		$discountpercent = null;
-		if($data['discount'] && $data['price'] && floatval($data['price']) !== 0)
+		if(is_numeric($data['discount']) && is_numeric($data['price']) && floatval($data['price']) != 0)
 		{
 			$discountpercent = round((floatval($data['discount']) * 100) / floatval($data['price']), 2);
 		}

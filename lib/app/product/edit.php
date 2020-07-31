@@ -133,17 +133,17 @@ class edit
 
 		// to not remove in patch_mode function
 
-		if($args['discountpercent'])
+		if(is_numeric($args['discountpercent']))
 		{
 			$_args['discountpercent'] = $args['discountpercent'];
 		}
 
-		if($args['finalprice'])
+		if(is_numeric($args['finalprice']))
 		{
 			$_args['finalprice']      = $args['finalprice'];
 		}
 
-		if($args['vatprice'])
+		if(is_numeric($args['vatprice']))
 		{
 			$_args['vatprice']        = $args['vatprice'];
 		}
