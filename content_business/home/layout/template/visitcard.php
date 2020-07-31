@@ -1,12 +1,12 @@
   <div class="visitBox row no-gutters">
-    <div class="c-auto">
+    <div class="c-xs-12 c-sm-12 c-lg-auto">
       <img class="avatarImg" src="<?php echo \lib\store::logo() ?>" alt="<?php echo \lib\store::title(); ?>">
     </div>
-    <div class="c">
+    <div class="c-xs-12 c-sm-12 c-lg-auto">
       <div class="info">
-        <h1><?php echo \lib\store::title(); ?></h1>
+        <h1><?php echo \lib\store::title(); ?><?php echo \lib\store::title(); ?><?php echo \lib\store::title(); ?><?php echo \lib\store::title(); ?><?php echo \lib\store::title(); ?></h1>
         <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
         <div class="social">
           <a href="">
