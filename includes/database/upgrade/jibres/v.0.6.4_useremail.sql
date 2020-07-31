@@ -5,7 +5,7 @@ CREATE TABLE jibres.useremail (
 `status` enum('enable','disable','filter','spam','delete') NULL DEFAULT 'enable',
 `verify` bit(1) NULL,
 `primary` bit(1) NULL,
-`datecreated` timestamp DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
 `datemodified` timestamp NULL DEFAULT NULL,
 KEY `useremail_index_search_email` (`email`),
 KEY `useremail_index_search_primary` (`primary`),
