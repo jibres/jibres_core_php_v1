@@ -1,7 +1,8 @@
 <?php
 if(\dash\layout\pwa\pwa_menu::get())
 {
-  echo "\n   <nav class='f'>";
+  echo "\n <div class='pwa'>";
+  echo "\n  <nav class='f'>";
   foreach (\dash\layout\pwa\pwa_menu::get() as $key => $item)
   {
     $myClass = '';
@@ -50,5 +51,6 @@ if(\dash\layout\pwa\pwa_menu::get())
     echo "</div>";
   }
   echo "\n  </nav>\n ";
+  echo "\n </div>\n ";
 }
 ?>

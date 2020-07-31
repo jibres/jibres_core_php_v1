@@ -178,9 +178,7 @@ class find
 
 		// add pwa footer
 		{
-			echo "<div class='pwa'>";
 			require_once core.'layout/pwa/pwa-footer.php';
-			echo "</div>";
 		}
 
 		echo "</footer>";
