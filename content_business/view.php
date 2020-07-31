@@ -36,9 +36,11 @@ class view
 		switch (\dash\data::website_template())
 		{
 			case 'comingsoon':
+				\dash\face::disablePWA_Header(true);
 				break;
 
 			case 'visitcard':
+				\dash\face::disablePWA_Header(true);
 				\dash\face::css('business/visitcard-1/visitcard-1.css');
 				break;
 
