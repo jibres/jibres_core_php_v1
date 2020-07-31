@@ -27,8 +27,15 @@
 	</form>
 </div>
 
+
 <?php if(\dash\data::productDataRow()) {?>
 
+<?php if(\dash\data::productDataRow_datecreated()) {?>
+	<div class="row">
+		<div class="c-md-6"><div title="<?php echo \dash\data::productDataRow_datecreated(); ?>" class="msg fs14"><?php echo T_("Date created") ?>: <span class="txtL ltr compact"><?php echo \dash\fit::date_time(\dash\data::productDataRow_datecreated()); ?></span></div></div>
+		<div class="c-md-6"><div title="<?php echo \dash\data::productDataRow_datemodified(); ?>" class="msg fs14"><?php echo T_("Date modified") ?>: <span class="txtL ltr compact"><?php echo \dash\fit::date_time(\dash\data::productDataRow_datemodified()); ?></span></div></div>
+	</div>
+<?php }//endif ?>
 <div class="msg fs14">
 	<div class="f">
 		<div class="c s12"><?php echo \dash\data::productDataRow_title(); ?></div>
@@ -73,11 +80,9 @@
 <?php } //endif ?>
 
 
-<div class="f justify-center">
-	<div class="c11">
-		<div id="chartdiv" class="chart" data-abc='a/pricehistory'></div>
-	</div>
-</div>
+
+<div id="chartdiv" class="chart" data-abc='a/pricehistory'></div>
+
 
 <div class="hide">
 	<div id="charttitle"><?php echo T_("Price change in time line"); ?></div>

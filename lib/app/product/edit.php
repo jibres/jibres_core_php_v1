@@ -43,9 +43,16 @@ class edit
 			return false;
 		}
 
+		$productHasChange = false;
+
 		foreach ($_args as $key => $value)
 		{
 			self::edit($value, $key);
+
+			if(\dash\temp::get('productHasChange'))
+			{
+				$productHasChange = true;
+			}
 
 			if(!\dash\engine\process::status())
 			{
@@ -57,8 +64,8 @@ class edit
 			}
 		}
 
-		\dash\temp::set('productHasChange', true);
-		\dash\temp::set('productNoChangeNotRedirect', false);
+		\dash\temp::set('productHasChange', $productHasChange);
+		\dash\temp::set('productNoChangeNotRedirect', $productHasChange);
 		return true;
 
 	}
