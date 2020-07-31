@@ -26,8 +26,8 @@ class sendgrid
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-		// curl_setopt($ch, CURLOPT_URL, "https://tunnel.jibres.com/sendgrid/");
-		curl_setopt($ch, CURLOPT_URL, "https://broker.local/email/sendgrid/");
+		curl_setopt($ch, CURLOPT_URL, "https://tunnel.jibres.com/email/sendgrid/");
+		// curl_setopt($ch, CURLOPT_URL, "https://broker.local/email/sendgrid/");
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_field));
 
