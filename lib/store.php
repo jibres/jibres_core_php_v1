@@ -489,6 +489,55 @@ class store
 	}
 
 
+	public static function desc()
+	{
+		return self::detail('desc');
+	}
+
+
+	public static function social()
+	{
+		$detail = self::detail();
+		if(isset($detail['store_data']))
+		{
+			$detail = $detail['store_data'];
+		}
+
+		if(!is_array($detail))
+		{
+			$detail = [];
+		}
+
+		$social = [];
+
+
+		foreach ($detail as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'instagram':
+					$social['instagram'] = ['user' => $value, 'link' => 'https://instagram.com/'. $value];
+					break;
+
+				case 'telegram':
+					$social['telegram'] = ['user' => $value, 'link' => 'https://t.me/'. $value];
+					break;
+
+				case 'youtube':
+					$social['youtube'] = ['user' => $value, 'link' => 'https://youtube.com/'. $value];
+					break;
+
+				default:
+					# code...
+					break;
+			}
+
+		}
+		return $social;
+	}
+
+
+
 	public static function currency($_need = 'name')
 	{
 		$result = self::detail('currency');

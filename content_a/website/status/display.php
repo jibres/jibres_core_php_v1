@@ -7,18 +7,19 @@
             <p><?php echo T_("Choose your website status"); ?></p>
             <div class="radio3">
               <input type="radio" name="status" value="publish" id="typepublish" <?php if(\dash\data::websiteStatus() === 'publish') {echo 'checked';} ?>>
-              <label for="typepublish"><?php echo T_("Publish"); ?></label>
-            </div>
-
-            <div class="radio3">
-              <input type="radio" name="status" value="comingsoon" id="typecomingsoon" <?php if(\dash\data::websiteStatus() === 'comingsoon') {echo 'checked';} ?>>
-              <label for="typecomingsoon"><?php echo T_("Coming Soon"); ?></label>
+              <label for="typepublish"><?php echo T_("Shoping website"); ?></label>
             </div>
 
             <div class="radio3">
               <input type="radio" name="status" value="visitcard" id="typevisitcard" <?php if(\dash\data::websiteStatus() === 'visitcard') {echo 'checked';} ?>>
-              <label for="typevisitcard"><?php echo T_("Visit Card"); ?></label>
+              <label for="typevisitcard"><?php echo T_("Visit Card website"); ?></label>
             </div>
+
+            <div class="radio3">
+              <input type="radio" name="status" value="comingsoon" id="typecomingsoon" <?php if(\dash\data::websiteStatus() === 'comingsoon') {echo 'checked';} ?>>
+              <label for="typecomingsoon"><?php echo T_("Coming Soon page"); ?></label>
+            </div>
+
 
           </div>
           <footer class="txtRa">
