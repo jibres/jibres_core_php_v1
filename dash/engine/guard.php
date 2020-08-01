@@ -71,12 +71,12 @@ class guard
 		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
 		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com static.cloudflareinsights.com http://localhost:9759/jibres/; ";
 		// style-src
-		$csp .= "style-src ". self::csp_cdn(). " 'unsafe-inline'; ";
+		$csp .= "style-src ". self::csp_cdn(). " https: 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_cdn(). "; ";
 		// img-src
 		$csp .= "img-src ". self::csp_cdn(). ' '. self::csp_domain(). " https: blob: data:; ";
 		// font-src
-		$csp .= "font-src ". self::csp_cdn(). " data:; ";
+		$csp .= "font-src ". self::csp_cdn(). " https: data:; ";
 		// media-src
 		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " data:; ";
 		// frame-src

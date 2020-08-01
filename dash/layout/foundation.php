@@ -96,7 +96,14 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
     foreach (\dash\face::css() as $key => $value)
     {
       echo " <link href='";
-      echo \dash\layout\func::staticmtime($value);
+      if(strpos($value, 'http') === 0)
+      {
+        echo $value;
+      }
+      else
+      {
+        echo \dash\layout\func::staticmtime($value);
+      }
       echo "' rel='stylesheet'/>\n";
     }
   }

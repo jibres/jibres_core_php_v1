@@ -41,7 +41,12 @@ class view
 
 			case 'visitcard':
 				\dash\face::disablePWA_Header(true);
-				\dash\face::css(["business/visitcard-1/visitcard-1.css"]);
+				\dash\face::css(
+					[
+						"business/visitcard-1/visitcard-1.css",
+						"https://fonts.googleapis.com/css?family=Quicksand:300,400"
+					]
+				);
 				break;
 
 			default:
