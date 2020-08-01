@@ -15,7 +15,7 @@ class process
 
 	public static function stop()
 	{
-		\dash\header::set(417);
+		\dash\header::set(412);
 		self::$status = false;
 	}
 
