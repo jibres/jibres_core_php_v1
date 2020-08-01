@@ -30,19 +30,19 @@
 
                         <td>
                           <div class="input">
-                            <input type="number" name="whole_price_<?php echo $myId; ?>" placeholder='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'price'); ?>">
+                            <input  type="text" name="whole_price_<?php echo $myId; ?>" placeholder='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'price'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
-                            <input type="number" name="whole_discount_<?php echo $myId; ?>" placeholder='<?php echo T_("Discount"); ?>' value="<?php echo \dash\get::index($value, 'discount'); ?>">
+                            <input  type="text" name="whole_discount_<?php echo $myId; ?>" placeholder='<?php echo T_("Discount"); ?>' value="<?php echo \dash\get::index($value, 'discount'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
-                            <input type="number" name="whole_stock_<?php echo $myId; ?>" placeholder='<?php echo T_("Stock"). ' '. \dash\fit::number(\dash\get::index($value, 'stock')); ?>'>
+                            <input  type="text" name="whole_stock_<?php echo $myId; ?>" placeholder='<?php echo T_("Stock"). ' '. \dash\fit::number(\dash\get::index($value, 'stock')); ?>' data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
