@@ -180,7 +180,7 @@ class website
 		$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
 		$discount        = \dash\get::index($_item, 'discount');
 		$discountpercent = \dash\get::index($_item, 'discountpercent');
-		$compareAtPrice = floatval(\dash\get::index($_item, 'price') + floatval(\dash\get::index($_item, 'discount')));
+		$compareAtPrice = \dash\get::index($_item, 'price');
 		$compareAtPrice = \dash\fit::number($compareAtPrice);
 
 
