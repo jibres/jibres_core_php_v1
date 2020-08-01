@@ -342,10 +342,19 @@ class baby
 			self::$level = 18;
 			return true;
 		}
+
+
   		if(preg_match('/(?>[\x00-\x1F]|\xC2[\x80-\x9F]|\xE2[\x80-\x8F]{2}|\xE2\x80[\xA4-\xA8]|\xE2\x81[\x9F-\xAF])/', $_txt))
 		{
-			self::$level = 20;
-			return true;
+			if(preg_match('/(\xE2[\x80-\x8F]{2})/', $_txt))
+			{
+				// the half space character
+			}
+			else
+			{
+				self::$level = 20;
+				return true;
+			}
 		}
 		$badchar = [
 			// control characters
