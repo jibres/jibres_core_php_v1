@@ -48,29 +48,20 @@
     </footer>
   </section>
 
-  <?php if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties())) {?>
-    <nav class="items long">
-      <ul>
-        <?php foreach (\dash\data::dataRow_properties() as $key => $value) {?>
-
-        <li>
-          <a class="f">
-            <div class="key">
-              <div class="row">
-                <div class="c-6 c-xs-12">
-                  <?php echo \dash\get::index($value, 'group');?>
-                </div>
-                <div class="c-6 c-xs-12">
-                  <?php echo \dash\get::index($value, 'key');?>
-                </div>
-              </div>
-            </div>
-            <div class="value"><i data-confirm data-data='{"remove":"remove", "index": "<?php echo $key; ?>"}' class="sf-trash fc-red fs14"></i></div>
-          </a>
-        </li>
+  <?php if(\dash\data::propertyGroup() && is_array(\dash\data::propertyGroup())) {?>
+    <div class="box">
+      <div class="body">
+        <?php foreach (\dash\data::propertyGroup() as $key => $value) {?>
+          <div class="msg">
+            <div class="txtB fs12"><?php echo $key ?></div>
+            <?php foreach ($value as $k => $v) {?>
+              <div class="ibtn mA5"><?php echo $v ?> <i data-confirm data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}' class="sf-trash fc-red fs14"></i></div>
+            <?php } //endif ?>
+          </div>
         <?php } // endfor ?>
-      </ul>
-    </nav>
+      </div>
+    </div>
+
   <?php } //endif ?>
 </div>
 </form>

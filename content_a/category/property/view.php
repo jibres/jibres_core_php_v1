@@ -19,11 +19,32 @@ class view
 
 		\dash\face::btnView(\dash\data::dataRow_url());
 
-		$catList = \lib\app\product\property::property_cat_name($id, \dash\data::dataRow_properties());
+		$catList = \lib\app\product\property::property_cat_name($id);
 		\dash\data::catList($catList);
 
-		$keyList = \lib\app\product\property::property_key_name($id, \dash\data::dataRow_properties());
+		$keyList = \lib\app\product\property::property_key_name($id);
 		\dash\data::keyList($keyList);
+
+
+		if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
+		{
+			$property = \dash\data::dataRow_properties();
+			$list = [];
+			foreach ($property as $key => $value)
+			{
+				if(isset($value['group']) && isset($value['key']))
+				{
+					if(!isset($list[$value['group']]))
+					{
+						$list[$value['group']] = [];
+					}
+
+					$list[$value['group']][$key] = $value['key'];
+				}
+			}
+
+			\dash\data::propertyGroup($list);
+		}
 
 	}
 }
