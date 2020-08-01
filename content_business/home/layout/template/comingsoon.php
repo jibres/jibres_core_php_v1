@@ -1,7 +1,4 @@
-   <div class="wedbox">
-    <div class="wed-title"><?php echo \lib\store::title(); ?></div>
-    <div class="wed-date"><?php echo T_("Coming soon ..."); ?></div>
-   </div>
-
-  <div id="maximage" class="mc-cycle"><div class="bg"></div></div>
-  <div class="mesh"></div>
+ <div class="infoBox">
+  <h1><?php echo \lib\store::title(); ?></h1>
+  <h2 ><?php echo T_("Coming soon ..."); ?></h2>
+ </div>
