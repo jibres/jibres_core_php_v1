@@ -410,7 +410,6 @@ class search
 
 		self::load_variants($list);
 
-
 		return $list;
 	}
 
@@ -506,6 +505,10 @@ class search
 							$max_price = \dash\fit::number($max_price);
 
 							$list[$key]['variant_price'] = $min_price . ' ... '. $max_price;
+						}
+						else
+						{
+							$list[$key]['variant_price'] = \dash\fit::number($min_price);
 						}
 					}
 				}

@@ -76,7 +76,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
               <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
             <?php } //endif ?>
 
-        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'variant_price')); ?></div>
+        <div class="value"><?php echo \dash\get::index($value, 'variant_price'); ?></div>
         <div class="go"></div>
       </a>
      </li>
