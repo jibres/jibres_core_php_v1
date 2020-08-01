@@ -37,6 +37,7 @@ class view
 		{
 			case 'comingsoon':
 				\dash\face::disablePWA_Header(true);
+				\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
 				break;
 
 			case 'visitcard':
