@@ -91,11 +91,14 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
 <?php // @todo add rel alternative ?>
  <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
 <?php
-  if(\dash\face::css())
+  if(\dash\face::css() && is_array(\dash\face::css()))
   {
-    echo " <link href='";
-    echo \dash\layout\func::staticmtime(\dash\face::css());
-    echo "' rel='stylesheet'/>\n";
+    foreach (\dash\face::css() as $key => $value)
+    {
+      echo " <link href='";
+      echo \dash\layout\func::staticmtime($value);
+      echo "' rel='stylesheet'/>\n";
+    }
   }
 ?>
 </head>
