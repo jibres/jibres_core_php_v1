@@ -39,22 +39,26 @@ class model
 			$multiproperty = [];
 			foreach ($post as $key => $value)
 			{
-				if(substr($key, 0, 4) === 'cat_' || substr($key, 0, 4) === 'key_' || substr($key, 0, 6) === 'value_')
+				if($value)
 				{
-					$myKey = substr($key, 4);
-					$myIndex = substr($key, 0, 3);
-					if(substr($key, 0, 6) === 'value_')
+					if(substr($key, 0, 4) === 'cat_' || substr($key, 0, 4) === 'key_' || substr($key, 0, 6) === 'value_')
 					{
-						$myKey = substr($key, 6);
-						$myIndex = substr($key, 0, 5);
+						$myKey = substr($key, 4);
+						$myIndex = substr($key, 0, 3);
+						if(substr($key, 0, 6) === 'value_')
+						{
+							$myKey = substr($key, 6);
+							$myIndex = substr($key, 0, 5);
+						}
+
+						if(!isset($multiproperty[$myKey]))
+						{
+							$multiproperty[$myKey] = [];
+						}
+
+						$multiproperty[$myKey][$myIndex] = $value;
 					}
 
-					if(!isset($multiproperty[$myKey]))
-					{
-						$multiproperty[$myKey] = [];
-					}
-
-					$multiproperty[$myKey][$myIndex] = $value;
 				}
 			}
 
