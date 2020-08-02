@@ -70,12 +70,13 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
           <div class="line1"><?php echo \dash\get::index($value, 'title'); ?></div>
           <div class="line2 f">
           <?php if(isset($value['variants_detail']['stock'])) {?>
-            <div class="c stockCount"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
+            <div class="cauto stockCount"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
           <?php } //endif ?>
 
           <?php if(isset($value['variants_detail']['count'])) {?>
-            <div class="cauto os variantCount fc-mute"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
+            <div class="c variantCount"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
           <?php } //endif ?>
+          <div class="cauto os"><?php echo \dash\get::index($value, 'variant_price'); ?></div>
           </div>
         </div>
       </a>
