@@ -76,7 +76,9 @@ class view
 		if($page_title = \dash\face::title())
 		{
 			// translate all title at last step
-			$page_title = T_($page_title);
+			// don't need because on some special modules
+			// $page_title = $page_title;
+
 			// set pwa title
 			if(!\dash\face::titlePWA())
 			{
