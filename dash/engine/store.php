@@ -26,6 +26,7 @@ class store
 	 */
 	private static $inCustomerDomain = false;
 	private static $customerDomainDetail = [];
+	private static $customerDomainStore_id = null;
 
 
 	/**
@@ -77,6 +78,10 @@ class store
 		elseif($subdomain)
 		{
 			self::config_by_subdomain();
+		}
+		elseif(self::inCustomerDomain() && self::$customerDomainStore_id)
+		{
+			self::init_by_id(self::$customerDomainStore_id);
 		}
 	}
 
@@ -360,7 +365,7 @@ class store
 			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
 			$detail['fuel']      = isset($_store_detail['fuel']) ? $_store_detail['fuel'] : null;
 
-			@header('x-lockStoreDetail: '. json_encode($detail, JSON_UNESCAPED_UNICODE));
+			// @header('x-lockStoreDetail: '. json_encode($detail, JSON_UNESCAPED_UNICODE));
 
 			self::$store_loaded_detail = $detail;
 
@@ -460,6 +465,7 @@ class store
 					\dash\engine\content::set('content_business');
 				}
 				self::$inCustomerDomain = true;
+				self::$customerDomainStore_id = $load_detail['store_id'];
 				return true;
 
 			}
@@ -476,6 +482,7 @@ class store
 					{
 						\dash\redirect::to($new_url);
 					}
+
 				}
 			}
 		}
