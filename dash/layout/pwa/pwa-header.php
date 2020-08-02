@@ -44,6 +44,18 @@ if(!\dash\face::disablePWA_Header())
   {
   	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'></a>";
   }
+  // add btn
+  if(\dash\data::action_link() && (\dash\data::action_icon() || \dash\data::action_text()))
+  {
+    if(\dash\data::action_icon())
+    {
+      echo "<a class='square ". \dash\data::action_icon()."' href='". \dash\data::action_link(). "'></a>";
+    }
+    else
+    {
+      echo "<a class='action' href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
+    }
+  }
   // setting
   if(\dash\face::btnSetting())
   {
@@ -95,19 +107,6 @@ if(!\dash\face::disablePWA_Header())
       echo T_("Add");
     }
     echo "</button>";
-  }
-  if(\dash\data::action_link() && \dash\data::action_text())
-  {
-    echo "<div class='action'>";
-  	if(\dash\data::action_icon())
-  	{
-  		echo "<a href='". \dash\data::action_link(). "'><i class='sf-". \dash\data::action_icon(). "'></i></a>";
-  	}
-  	else
-  	{
-  		echo "<a href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
-  	}
-    echo "</div>";
   }
 
   echo "</div>";
