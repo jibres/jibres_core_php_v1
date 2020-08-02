@@ -78,7 +78,7 @@ if(!\dash\face::disablePWA_Header())
   // add add btn
   if(\dash\face::btnAdd())
   {
-    echo '<button class="square add" form="';
+    echo '<button class="add" form="';
     echo \dash\face::btnAdd();
     echo '"';
     if(\dash\face::btnAddValue())
