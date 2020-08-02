@@ -59,7 +59,31 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
 }
 ?>
 
+<?php if (\dash\detect\device::detectPWA()) { ?>
+<nav class="items pwaMultiLine">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
+        <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+        <div class="key">
+          <div class="line1"><?php echo \dash\get::index($value, 'title'); ?></div>
+          <div class="line2 f">
+          <?php if(isset($value['variants_detail']['stock'])) {?>
+            <div class="c stockCount"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
+          <?php } //endif ?>
 
+          <?php if(isset($value['variants_detail']['count'])) {?>
+            <div class="cauto os variantCount fc-mute"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
+          <?php } //endif ?>
+          </div>
+        </div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
+<?php } else { ?>
 <nav class="items">
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
@@ -83,6 +107,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
     <?php } //endfor ?>
   </ul>
 </nav>
+<?php } ?>
 
 
 
