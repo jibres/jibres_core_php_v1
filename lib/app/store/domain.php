@@ -424,6 +424,23 @@ class domain
 	}
 
 
+
+	public static function multi_check_business_domain()
+	{
+		$one_domain = \lib\db\store_domain\get::cronjob_list();
+		if(!isset($one_domain['id']))
+		{
+			return false;
+		}
+
+		$store_domain_id = $one_domain['id'];
+
+		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+
+		self::add_domain_arvan($one_domain['domain']);
+	}
+
+
 	public static function domain_action($_type, $_domain)
 	{
 		return;

@@ -50,6 +50,8 @@ class controller
 
 		if(!\dash\engine\store::inStore())
 		{
+			\lib\app\store\domain::multi_check_business_domain();
+
 			// to not check every min all backup setting!
 			// the backup setting have special schedule
 			if(self::every_hour())

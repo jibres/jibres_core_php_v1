@@ -5,6 +5,13 @@ namespace lib\db\store_domain;
 class get
 {
 
+	public static function cronjob_list()
+	{
+		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' ORDER BY store_domain.datemodified ASC LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
 	public static function check_duplicate($_domain)
 	{
 		$query  = "SELECT * FROM store_domain WHERE store_domain.domain = '$_domain' LIMIT 1";
