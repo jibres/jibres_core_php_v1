@@ -170,13 +170,13 @@ class pwa_menu
 			'products' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/products',
-				'icon' => 'box',
+				'icon' => 'tags',
 				'title' => T_('products'),
 			],
 			'orders' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/factor',
-				'icon' => 'print',
+				'icon' => 'caddie-shopping-streamline',
 				'title' => T_('Orders'),
 			],
 			// 'report' =>
