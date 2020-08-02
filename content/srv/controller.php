@@ -1,5 +1,5 @@
 <?php
-namespace content_hook\address;
+namespace content\srv;
 
 class controller
 {
