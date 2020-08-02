@@ -53,6 +53,14 @@ class get
 	}
 
 
+	public static function by_id($_id)
+	{
+		$query  = "SELECT * FROM store_domain WHERE store_domain.id = $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
+
 	public static function master_domain($_store_id)
 	{
 		$query  = "SELECT * FROM store_domain WHERE store_domain.store_id = $_store_id AND store_domain.master = 1 LIMIT 1";

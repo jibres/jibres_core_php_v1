@@ -424,6 +424,30 @@ class domain
 	}
 
 
+	public static function get_detail($_id)
+	{
+		$id = \dash\validate::code($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$id = \dash\coding::decode($id);
+
+		$load = \lib\db\store_domain\get::by_id($id);
+
+		if(!is_array($load))
+		{
+			$load = [];
+		}
+
+		$load = self::ready($load);
+
+		return $load;
+	}
+
+
 
 	public static function multi_check_business_domain($_type)
 	{

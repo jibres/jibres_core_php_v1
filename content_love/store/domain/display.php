@@ -23,7 +23,7 @@
       <th><?php echo T_("Status"); ?></th>
       <th><?php echo T_("Message"); ?></th>
       <th><?php echo T_("Date modified"); ?></th>
-      <th><?php echo T_("Action"); ?></th>
+      <th><?php echo T_("Detail"); ?></th>
 
 
 
@@ -40,7 +40,7 @@
       <td><?php echo \dash\get::index($value, 't_status'); ?></td>
       <td><?php echo \dash\get::index($value, 'message'); ?></td>
       <td><?php echo \dash\fit::date_human(\dash\get::index($value, 'datemodified')); ?></td>
-      <td><div class="btn primary" data-confirm data-data='{"send": "again", "domain" : "<?php echo \dash\get::index($value, 'domain'); ?>"}'><?php echo T_("Send request again") ?></div></td>
+      <td><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
     </tr>
 <?php } //endfor ?>
   </tbody>
