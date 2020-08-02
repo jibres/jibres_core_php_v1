@@ -14,47 +14,47 @@ if(!\dash\face::disablePWA_Header())
     echo "</div>";
   }
 
-  // add help btn
+  // help btn
   if(\dash\face::help())
   {
     echo "<a class='square help' href='". \dash\face::help(). "'></a>";
   }
-  // add search btn
+  // search btn
   if(\dash\data::search_link())
   {
   	echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
   }
-  // add preview btn
+  // preview btn
   if(\dash\face::btnPreview())
   {
     echo "<a class='square preview' href='". \dash\face::btnPreview(). "'></a>";
   }
-  // add view btn
+  // view btn
   if(\dash\face::btnView())
   {
     echo "<a class='square view' href='". \dash\face::btnView(). "'></a>";
   }
-  // add duplicate btn
+  // duplicate btn
   if(\dash\face::btnDuplicate())
   {
     echo "<a class='square duplicate' href='". \dash\face::btnDuplicate(). "'></a>";
   }
-  // add cart btn
+  // cart btn
   if(\dash\data::cart_link() !== null)
   {
   	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'></a>";
   }
-  // add setting
+  // setting
   if(\dash\face::btnSetting())
   {
     echo "<a class='square setting' href='". \dash\face::btnSetting(). "'></a>";
   }
-  // add menu btn
+  // menu btn
   if(\dash\data::menu_link())
   {
   	echo "<div class='square menu'></div>";
   }
-  // add save btn
+  // save btn
   if(\dash\face::btnSave())
   {
     echo '<button class="save" form="';
@@ -75,20 +75,20 @@ if(!\dash\face::disablePWA_Header())
     }
     echo "</button>";
   }
-  // add add btn
-  if(\dash\face::btnAdd())
+  // insert btn
+  if(\dash\face::btnInsert())
   {
-    echo '<button class="add" form="';
-    echo \dash\face::btnAdd();
+    echo '<button class="insert" form="';
+    echo \dash\face::btnInsert();
     echo '"';
-    if(\dash\face::btnAddValue())
+    if(\dash\face::btnInsertValue())
     {
-      echo " name='submitall' value='". \dash\face::btnAddValue(). "'";
+      echo " name='submitall' value='". \dash\face::btnInsertValue(). "'";
     }
     echo '>';
-    if(\dash\face::btnAddText())
+    if(\dash\face::btnInsertText())
     {
-      echo \dash\face::btnAddText();
+      echo \dash\face::btnInsertText();
     }
     else
     {

@@ -69,20 +69,20 @@ if(\dash\face::boxTitle() !== false)
   echo "</button>";
  ?></nav>
 <?php } // endif ?>
-<?php if(\dash\face::btnAdd()) { ?>
-    <nav class="c-auto os btnAdd"><?php
-  echo '<button class="btn master add" form="';
-  echo \dash\face::btnAdd();
+<?php if(\dash\face::btnInsert()) { ?>
+    <nav class="c-auto os btnInsert"><?php
+  echo '<button class="btn master insert" form="';
+  echo \dash\face::btnInsert();
   echo '"';
   echo " name='submitall'";
-  if(\dash\face::btnAddValue())
+  if(\dash\face::btnInsertValue())
   {
-    echo " value='". \dash\face::btnAddValue(). "'";
+    echo " value='". \dash\face::btnInsertValue(). "'";
   }
   echo '>';
-  if(\dash\face::btnAddText())
+  if(\dash\face::btnInsertText())
   {
-    echo \dash\face::btnAddText();
+    echo \dash\face::btnInsertText();
   }
   else
   {
