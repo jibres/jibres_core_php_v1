@@ -538,43 +538,43 @@ class domain
 
 		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 
-		$check_dns = self::check_dns($domain);
+		// $check_dns = self::check_dns($domain);
 
-		if($check_dns)
-		{
-			$update                 = [];
-			$update['message']      = 'dns record ok';
-			$update['datemodified'] = date("Y-m-d H:i:s");
+		// if($check_dns)
+		// {
+		// 	$update                 = [];
+		// 	$update['message']      = 'dns record ok';
+		// 	$update['datemodified'] = date("Y-m-d H:i:s");
 
-			if(is_array($check_dns) && isset($check_dns[0]) && isset($check_dns[1]))
-			{
-				$update['dns1'] = $check_dns[0];
-				$update['dns2'] = $check_dns[1];
-			}
+		// 	if(is_array($check_dns) && isset($check_dns[0]) && isset($check_dns[1]))
+		// 	{
+		// 		$update['dns1'] = $check_dns[0];
+		// 		$update['dns2'] = $check_dns[1];
+		// 	}
 
-			\lib\db\store_domain\update::record($update, $store_domain_id);
+		// 	\lib\db\store_domain\update::record($update, $store_domain_id);
 
-		}
-		else
-		{
-			if($check_dns === null)
-			{
-				$msg = 'Can not get dns record';
-			}
-			elseif($check_dns === false)
-			{
-				$msg = 'DNS record not set on our dns';
-			}
-			else
-			{
-				$msg = 'dns record not found';
-			}
+		// }
+		// else
+		// {
+		// 	if($check_dns === null)
+		// 	{
+		// 		$msg = 'Can not get dns record';
+		// 	}
+		// 	elseif($check_dns === false)
+		// 	{
+		// 		$msg = 'DNS record not set on our dns';
+		// 	}
+		// 	else
+		// 	{
+		// 		$msg = 'dns record not found';
+		// 	}
 
-			\dash\notif::error(T_($msg));
+		// 	\dash\notif::error(T_($msg));
 
-			\lib\db\store_domain\update::record(['status' => 'failed', 'message' => $msg, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-			return false;
-		}
+		// 	\lib\db\store_domain\update::record(['status' => 'failed', 'message' => $msg, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+		// 	return false;
+		// }
 
 
 		$jibres_ip = \dash\setting\dns_server::ip();
@@ -753,6 +753,9 @@ class domain
 
 			\lib\db\store_domain\update::record(['dnsrecord' => 1, 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 		}
+
+		\lib\arvancloud\api::set_caching($domain, ['cache_status' => 'query_string']);
+		\lib\arvancloud\api::https_upstram($domain);
 
 
 		if($add_https)

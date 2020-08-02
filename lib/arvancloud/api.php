@@ -187,6 +187,18 @@ class api
 
 
 
+	public static function set_caching($_domain, $_args)
+	{
+		return self::run($_domain .'/caching', 'patch', null, $_args);
+	}
+
+
+
+	public static function https_upstram($_domain)
+	{
+		return self::run($_domain .'/origin-server/https-upstream', 'patch', null, ['f_ssl_https_upstram' => 'https']);
+	}
+
 
 
 
