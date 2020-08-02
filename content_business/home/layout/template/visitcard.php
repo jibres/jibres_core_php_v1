@@ -1,5 +1,5 @@
   <div class="visitBox row no-gutters<?php
-    if (strlen(\lib\store::title()) > 25)
+    if (strlen(\lib\store::title()) > 20)
     {
       echo " wide";
     }
