@@ -425,10 +425,29 @@ class domain
 
 
 
-	public static function multi_check_business_domain()
+	public static function multi_check_business_domain($_type)
 	{
-		return;
-		$one_domain = \lib\db\store_domain\get::cronjob_list();
+		// cronjobstatus
+		// cronjobdate
+		// sslrequestdate
+		$ssl_mode   = false;
+		$one_domain = null;
+
+		if($_type === 'new')
+		{
+			$one_domain = \lib\db\store_domain\get::cronjob_list_new();
+		}
+		elseif($_type === 'ssl')
+		{
+			$ssl_mode = true;
+			$date = date("Y-m-d H:i:s", time() - (60*10));
+			$one_domain = \lib\db\store_domain\get::cronjob_list_ssl($date);
+		}
+		else
+		{
+			// $one_domain = \lib\db\store_domain\get::cronjob_list_other();
+		}
+
 		if(!isset($one_domain['id']))
 		{
 			return false;
@@ -436,9 +455,9 @@ class domain
 
 		$store_domain_id = $one_domain['id'];
 
-		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s"), 'cronjobdate' => date("Y-m-d H:i:s"),], $store_domain_id);
 
-		self::add_domain_arvan($one_domain['domain']);
+		self::add_domain_arvan($one_domain['domain'], $ssl_mode);
 	}
 
 
@@ -524,7 +543,7 @@ class domain
 
 
 
-	public static function add_domain_arvan($_domain)
+	public static function add_domain_arvan($_domain, $_ssl_mode = false)
 	{
 		$domain = \dash\validate::domain($_domain, false);
 		if(!$domain)
@@ -785,15 +804,26 @@ class domain
 			{
 				if(array_key_exists('ar_wildcard', $get_https_setting['data']) && !$get_https_setting['data']['ar_wildcard'])
 				{
-					$add_https_args =
-					[
-						// "ar_sub_domains": [],
-						"ar_wildcard" => true,
-					];
+					if(!$_ssl_mode)
+					{
+						$add_https_args =
+						[
+							// "ar_sub_domains": [],
+							"ar_wildcard" => true,
+						];
 
-					$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+						$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
 
-					\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+						\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+					}
+					else
+					{
+						\lib\db\store_domain\update::record(['message' => 'ssl failed', 'sslfailed' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+					}
+				}
+				elseif(array_key_exists('ar_wildcard', $get_https_setting['data']) && $get_https_setting['data']['ar_wildcard'])
+				{
+					\lib\db\store_domain\update::record(['status' => 'ok', 'message' => 'domain successfully connected', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
 			}
 		}
