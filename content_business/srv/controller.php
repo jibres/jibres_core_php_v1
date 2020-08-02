@@ -1,5 +1,5 @@
 <?php
-namespace content\srv;
+namespace content_business\srv;
 
 class controller
 {
