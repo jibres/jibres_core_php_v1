@@ -38,6 +38,11 @@ class view
 		{
 			\dash\data::global_env(\dash\url::store());
 		}
+		elseif(\dash\engine\store::inStore())
+		{
+			\dash\data::global_env(\lib\store::code_raw());
+
+		}
 		else
 		{
 			\dash\data::global_env('Jibres');

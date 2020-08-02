@@ -301,6 +301,7 @@ class store
 					$domain_subdomain = null;
 
 					// load domain status from jibres database
+					//@check @reza
 					$load_store_domain_record = \lib\db\store_domain\get::by_domain($value['value']);
 					if(isset($load_store_domain_record['status']))
 					{
@@ -474,6 +475,11 @@ class store
 	public static function code()
 	{
 		return \dash\store_coding::encode();
+	}
+
+	public static function code_raw()
+	{
+		return \dash\store_coding::encode_raw();
 	}
 
 
