@@ -8,9 +8,16 @@ class model
 	{
 		$post =
 		[
-			'instagram'    => \dash\request::post('instagram'),
-			'telegram'    => \dash\request::post('telegram'),
-			'youtube'    => \dash\request::post('youtube'),
+			'instagram' => \dash\request::post('instagram'),
+			'telegram'  => \dash\request::post('telegram'),
+			'youtube'   => \dash\request::post('youtube'),
+			'twitter'   => \dash\request::post('twitter'),
+			'linkedin'  => \dash\request::post('linkedin'),
+			'github'    => \dash\request::post('github'),
+			'facebook'  => \dash\request::post('facebook'),
+			'email'     => \dash\request::post('email'),
+			'aparat'    => \dash\request::post('aparat'),
+			'eitaa'     => \dash\request::post('eitaa'),
 		];
 
 
