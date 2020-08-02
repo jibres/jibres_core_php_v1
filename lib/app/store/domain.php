@@ -427,6 +427,7 @@ class domain
 
 	public static function multi_check_business_domain()
 	{
+		return;
 		$one_domain = \lib\db\store_domain\get::cronjob_list();
 		if(!isset($one_domain['id']))
 		{
