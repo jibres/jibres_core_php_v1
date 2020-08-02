@@ -445,13 +445,15 @@ class domain
 		}
 		else
 		{
-			// $one_domain = \lib\db\store_domain\get::cronjob_list_other();
+			$one_domain = \lib\db\store_domain\get::cronjob_list_other();
 		}
 
 		if(!isset($one_domain['id']))
 		{
 			return false;
 		}
+
+
 
 		$store_domain_id = $one_domain['id'];
 
