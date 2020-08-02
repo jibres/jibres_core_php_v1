@@ -57,7 +57,7 @@ if(!\dash\face::disablePWA_Header())
   // add save btn
   if(\dash\face::btnSave())
   {
-    echo '<button class="square save" form="';
+    echo '<button class="save" form="';
     echo \dash\face::btnSave();
     echo '"';
     if(\dash\face::btnSaveValue())
@@ -65,6 +65,7 @@ if(!\dash\face::disablePWA_Header())
       echo " name='submitall' value='". \dash\face::btnSaveValue(). "'";
     }
     echo '>';
+    echo T_("Save");
     echo "</button>";
   }
   if(\dash\data::action_link() && \dash\data::action_text())
