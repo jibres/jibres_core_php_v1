@@ -426,6 +426,7 @@ class domain
 
 	public static function domain_action($_type, $_domain)
 	{
+		return;
 		$_domain       = \dash\validate::domain($_domain);
 
 		$add_domain    = \dash\session::get('businessNewDomain');
