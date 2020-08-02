@@ -4,6 +4,8 @@ namespace dash;
 class header
 {
 	private static $HEADER;
+	private static $status_code = null;
+
 
 	/**
 	* get header
@@ -151,8 +153,12 @@ class header
 			return false;
 		}
 
-		$status_header = "HTTP/1.1 $_code $desc";
-		@header($status_header, true, $_code);
+		if(!self::$status_code)
+		{
+			self::$status_code = $_code;
+			$status_header = "HTTP/1.1 $_code $desc";
+			@header($status_header, true, $_code);
+		}
 
 		\dash\log::file($status_header. ' -- '. $_text, "$_code.log", 'header');
 
@@ -208,10 +214,14 @@ class header
 
 	public static function set($_code)
 	{
-		$desc          = self::desc($_code);
-		$status_header = trim("HTTP/1.1 $_code $desc");
-		// set header
-		@header($status_header, true, $_code);
+		if(!self::$status_code)
+		{
+			self::$status_code = $_code;
+			$desc          = self::desc($_code);
+			$status_header = trim("HTTP/1.1 $_code $desc");
+			// set header
+			@header($status_header, true, $_code);
+		}
 	}
 }
 ?>
