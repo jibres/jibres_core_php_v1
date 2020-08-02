@@ -65,7 +65,35 @@ if(!\dash\face::disablePWA_Header())
       echo " name='submitall' value='". \dash\face::btnSaveValue(). "'";
     }
     echo '>';
-    echo T_("Save");
+    if(\dash\face::btnSaveText())
+    {
+      echo \dash\face::btnSaveText();
+    }
+    else
+    {
+      echo T_("Save");
+    }
+    echo "</button>";
+  }
+  // add add btn
+  if(\dash\face::btnAdd())
+  {
+    echo '<button class="square add" form="';
+    echo \dash\face::btnAdd();
+    echo '"';
+    if(\dash\face::btnAddValue())
+    {
+      echo " name='submitall' value='". \dash\face::btnAddValue(). "'";
+    }
+    echo '>';
+    if(\dash\face::btnAddText())
+    {
+      echo \dash\face::btnAddText();
+    }
+    else
+    {
+      echo T_("Add");
+    }
     echo "</button>";
   }
   if(\dash\data::action_link() && \dash\data::action_text())

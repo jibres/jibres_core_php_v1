@@ -14,9 +14,9 @@ class view
 		\dash\data::back_text(T_('Products'));
 		\dash\data::back_link(\lib\backlink::products());
 
-		\dash\face::btnSave('aProductData');
-		\dash\face::btnSaveValue('master');
-		\dash\face::btnSaveText(T_("Add"));
+		\dash\face::btnAdd('aProductData');
+		\dash\face::btnAddValue('master');
+		\dash\face::btnAddText(T_("Add"));
 		//
 		// \dash\face::help(\dash\url::support().'/product');
 

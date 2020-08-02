@@ -69,6 +69,28 @@ if(\dash\face::boxTitle() !== false)
   echo "</button>";
  ?></nav>
 <?php } // endif ?>
+<?php if(\dash\face::btnAdd()) { ?>
+    <nav class="c-auto os btnAdd"><?php
+  echo '<button class="btn master add" form="';
+  echo \dash\face::btnAdd();
+  echo '"';
+  echo " name='submitall'";
+  if(\dash\face::btnAddValue())
+  {
+    echo " value='". \dash\face::btnAddValue(). "'";
+  }
+  echo '>';
+  if(\dash\face::btnAddText())
+  {
+    echo \dash\face::btnAddText();
+  }
+  else
+  {
+    echo T_("Add");
+  }
+  echo "</button>";
+ ?></nav>
+<?php } // endif ?>
    </div>
 <?php if(\dash\face::breadcrumb() && false)  {?>
    <nav class="breadcrumb">
