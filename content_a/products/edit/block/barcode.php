@@ -1,6 +1,6 @@
 
           <?php if((isset($storData['barcode']) && $storData['barcode']) || (isset($storData['scale']) && $storData['scale'])) {?>
-    <section class="box">
+    <div class="box">
 
       <div class="pad jboxCodes">
 
@@ -41,5 +41,5 @@
           <?php } //endif ?>
         </div>
     </div>
-  </section>
+  </div>
           <?php } //endif ?>

@@ -1,4 +1,4 @@
-<section class="box">
+<div class="box">
   <div class="pad jboxPrice">
 
   	    <?php if(\dash\data::productDataRow_child()) {?>
@@ -57,4 +57,4 @@
 
           <?php } //endif ?>
   </div>
-</section>
+</div>

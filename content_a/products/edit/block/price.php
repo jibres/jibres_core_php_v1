@@ -1,4 +1,4 @@
- <section class="box">
+ <div class="box">
       <div class="pad jboxPrice">
         <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >
           <div class="c s12 pRa5">
@@ -63,4 +63,4 @@
           <?php } //endif ?>
         </div>
       </div>
-    </section>
+    </div>

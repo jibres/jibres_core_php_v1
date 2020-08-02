@@ -4,7 +4,7 @@
   <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <input type="hidden" name="editchild" value="editchild">
   <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
-    <section class="box">
+    <div class="box">
       <header><h2><?php echo \dash\data::productDataRow_title() ?></h2></header>
      <div class="pad">
 
@@ -29,7 +29,7 @@
     <?php } //endif ?>
 
 
-    </section>
+    </div>
 
 
 <?php

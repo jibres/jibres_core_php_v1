@@ -3,7 +3,7 @@
  <div class="row">
   <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
-    <section class="box">
+    <div class="box">
      <div class="pad">
 
       <div class="input">
@@ -16,7 +16,7 @@
         </div>
       </div>
      </div>
-    </section>
+    </div>
     <?php if($have_variant_child) {?>
       <?php require_once('block/price-child.php'); ?>
       <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
@@ -24,11 +24,11 @@
       <?php require_once('block/price.php'); ?>
   <?php } //endif ?>
     <?php if(!\dash\detect\device::detectPWA()) {?>
-    <section class="box">
+    <div class="box">
       <div class="pad">
         <textarea name="desc" data-editor class="txt" rows="3" maxlength="2000" placeholder='<?php echo T_("Description about product"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'desc'); ?></textarea>
       </div>
-    </section>
+    </div>
     <?php  } //endif ?>
 
       <?php require_once('block/gallery.php'); ?>
@@ -45,7 +45,7 @@
 
 
 <div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
-  <section class="box">
+  <div class="box">
     <div class="pad">
       <div class="mB10">
         <div class="row align-center">
@@ -70,9 +70,9 @@
         </select>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="box">
+  <div class="box">
     <div class="pad">
       <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
       <div class="row padLess mB5">
@@ -105,13 +105,13 @@
           <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/units"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
-          <option></option>
+            <option value=""><?php echo T_("like Qty, kg, etc"); ?></option>
           <?php if(\dash\data::productDataRow_unit_id()) {?>
             <option value="0"><?php echo T_("Without unit"); ?></option>
           <?php } //endif ?>
-          <?php foreach (\dash\data::listUnits() as $key => $value) {?>
+<?php foreach (\dash\data::listUnits() as $key => $value) {?>
             <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_unit_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
-          <?php } //endfor ?>
+<?php } //endfor ?>
         </select>
       </div>
 
@@ -121,19 +121,13 @@
           <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
-          <option></option>
-
+          <option value=""><?php echo T_("Product Brand"); ?></option>
           <?php if(\dash\data::productDataRow_company_id()) {?>
-
             <option value="0"><?php echo T_("Without Brand"); ?></option>
-
           <?php } //endif ?>
-
-          <?php foreach (\dash\data::listCompanies() as $key => $value) {?>
-
+<?php foreach (\dash\data::listCompanies() as $key => $value) {?>
             <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_company_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
-
-          <?php } //endfor ?>
+<?php } //endfor ?>
 
         </select>
       </div>
@@ -145,7 +139,7 @@
         <div class="addon small"><?php echo \dash\get::index($storData,'mass_detail','name'); ?></div>
       </div>
     </div>
-  </section>
+  </div>
 
 
 

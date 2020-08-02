@@ -62,7 +62,7 @@ if(!\dash\face::disablePWA_Header())
     echo '"';
     if(\dash\face::btnSaveValue())
     {
-      echo "name='submitall' value='". \dash\face::btnSaveValue(). "'";
+      echo " name='submitall' value='". \dash\face::btnSaveValue(). "'";
     }
     echo '>';
     echo "</button>";

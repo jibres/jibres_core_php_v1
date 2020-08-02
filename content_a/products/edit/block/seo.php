@@ -1,9 +1,9 @@
-  <section class="box">
+  <div class="box">
     <header data-kerkere='.seoData' data-kerkere-icon='close' data-kerkere-status="close"><h2><?php echo T_("Customize for SEO"); ?></h2></header>
     <div class="pad">
       <div class="seoPreview">
         <a target="_blank" href="<?php echo \dash\data::productDataRow_url(); ?>">
-          <cite><span><?php echo \dash\data::productDataRow_url(); ?></cite>
+          <cite><?php echo \dash\data::productDataRow_url(); ?></cite>
         </a>
         <div class="f">
           <div class="c s12 pLa10">
@@ -36,4 +36,4 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
