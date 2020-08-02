@@ -27,19 +27,19 @@ class store
 
 	public static function clean_session($_slug)
 	{
-		$key = 'store_slug_checker';
-		$old_session_key = \dash\session::get($key);
+		// $key = 'store_slug_checker';
+		// $old_session_key = \dash\session::get($key);
 
-		if($old_session_key !== $_slug)
-		{
-			\dash\session::clean('store_detail_'. $old_session_key);
-			\dash\session::clean('staff_list_'. $old_session_key);
-			\dash\session::clean_cat('jibres_store');
+		// if($old_session_key !== $_slug)
+		// {
+		// 	\dash\session::clean('store_detail_'. $old_session_key);
+		// 	\dash\session::clean('staff_list_'. $old_session_key);
+		// 	\dash\session::clean_cat('jibres_store');
 
-			self::$store        = [];
+		// 	self::$store        = [];
 
-			\dash\session::set($key, $_slug);
-		}
+		// 	\dash\session::set($key, $_slug);
+		// }
 	}
 
 	/**
@@ -54,7 +54,7 @@ class store
 			\dash\file::delete($addr);
 		}
 
-		\dash\session::set('store_detail_'. self::store_slug(), null);
+		// \dash\session::set('store_detail_'. self::store_slug(), null);
 
 		self::$store = [];
 	}
