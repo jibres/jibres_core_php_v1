@@ -4,7 +4,7 @@ $storeData = \dash\data::store_store_data();
 ?>
 
 <div class="avand-md">
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" data-refresh data-autoScroll>
 
   <div  class="box impact mB25-f">
     <header><h2><?php echo T_("Set the social network link");?></h2></header>

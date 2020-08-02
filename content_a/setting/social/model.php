@@ -26,10 +26,7 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\lib\store::refresh();
-			\dash\redirect::pwd();
 		}
 	}
-
-
 }
 ?>
