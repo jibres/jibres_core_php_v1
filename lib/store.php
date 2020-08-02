@@ -146,16 +146,16 @@ class store
 			return;
 		}
 
-		$store_session_key = 'store_detail_'. self::store_slug();
+		// $store_session_key = 'store_detail_'. self::store_slug();
 
-		if(\dash\session::get($store_session_key))
-		{
-			self::$store = \dash\session::get($store_session_key);
-			self::$store['store_data'] = self::file_store_data(self::$store);
-			return;
-		}
+		// if(\dash\session::get($store_session_key))
+		// {
+		// 	self::$store = \dash\session::get($store_session_key);
+		// 	self::$store['store_data'] = self::file_store_data(self::$store);
+		// 	return;
+		// }
 
-		self::clean_session(self::store_slug());
+		// self::clean_session(self::store_slug());
 
 		$store_detail_file = [];
 
@@ -175,7 +175,7 @@ class store
 
 		self::$store = $store_detail;
 
-		\dash\session::set($store_session_key, $store_detail);
+		// \dash\session::set($store_session_key, $store_detail);
 
 		self::$store['store_data'] = self::file_store_data(self::$store);
 	}
