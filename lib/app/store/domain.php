@@ -833,7 +833,7 @@ class domain
 			{
 				if(array_key_exists('ar_wildcard', $get_https_setting['data']) && !$get_https_setting['data']['ar_wildcard'])
 				{
-					if(!$_ssl_mode)
+					if($_ssl_mode)
 					{
 						$add_https_args =
 						[
@@ -841,7 +841,7 @@ class domain
 							"ar_wildcard" => true,
 						];
 
-						// $set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+						$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
 
 						\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 					}
