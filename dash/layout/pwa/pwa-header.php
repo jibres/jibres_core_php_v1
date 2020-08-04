@@ -8,6 +8,10 @@ if(!\dash\face::disablePWA_Header())
   	echo "<a class='square back' href='". \dash\data::back_link(). "'></a>";
   }
 
+  if(\dash\face::logoPWA())
+  {
+    echo '<img class="logo" alt="'. \dash\face::titlePWA(). '" src="'. \dash\face::logoPWA(). '">';
+  }
   {
     echo "<div class='title'>";
     echo \dash\face::titlePWA();

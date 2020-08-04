@@ -27,6 +27,7 @@ class view
 		\dash\face::title(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
 		// set pwa title
 		\dash\face::titlePWA(\dash\face::site());
+		\dash\face::logoPWA(\dash\url::icon());
 
 		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
 
