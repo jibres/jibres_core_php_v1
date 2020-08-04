@@ -33,6 +33,8 @@ class view
 			\dash\data::productList($myProductList);
 		}
 
+		// btn
+		\dash\data::back_link(\dash\url::kingdom());
 	}
 }
 ?>
