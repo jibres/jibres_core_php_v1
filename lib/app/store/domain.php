@@ -478,7 +478,7 @@ class domain
 			{
 				return false;
 			}
-			self::add_domain_arvan($one_domain['domain']);
+			self::check_ssl($one_domain['domain'], $one_domain['id'], true);
 		}
 		else
 		{
@@ -836,6 +836,10 @@ class domain
 		if($add_https)
 		{
 			self::check_ssl($domain, $store_domain_id, $_ssl_mode);
+		}
+		else
+		{
+			\lib\db\store_domain\update::record(['message' => 'loop', 'cronjobstatus' => 'loop',  'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 		}
 
 	}
