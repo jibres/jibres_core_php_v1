@@ -481,9 +481,9 @@ class domain
 
 		$store_domain_id = $one_domain['id'];
 
-		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s"), 'cronjobdate' => date("Y-m-d H:i:s"),], $store_domain_id);
-
 		\lib\db\store_domain\get::reset_cronjob_list();
+
+		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s"), 'cronjobdate' => date("Y-m-d H:i:s"),], $store_domain_id);
 
 		self::add_domain_arvan($one_domain['domain'], $ssl_mode);
 	}
