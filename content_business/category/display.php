@@ -2,16 +2,17 @@
 	<?php if(!\dash\data::dataRow()) {  /* load all category detail*/ ?>
 		<?php $categoryDataTable = \dash\data::categoryDataTable(); ?>
 
-			<div class="row padLess roundedBox category">
+			<div class="row padLess category">
 				<?php foreach ($categoryDataTable as $key => $value) {?>
     		<div class="c-xs-6 c-sm-4 c-lg-4 c-xl-3 c-xxl-2">
+    			<div class="roundedBox">
 						<a class="overlay"<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
             	<figure>
 			  				<img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-
 	            	<figcaption><h2><?php echo \dash\get::index($value, 'title'); ?></h2></figcaption>
             	</figure>
           	</a>
+    			</div>
       	</div>
 				<?php } //endif ?>
     	</div>
