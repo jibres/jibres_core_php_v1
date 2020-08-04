@@ -744,6 +744,12 @@ class domain
 			}
 		}
 
+		if(isset($check_exist_domain['data']['services']['dns']) && $check_exist_domain['data']['services']['dns'] === 'active')
+		{
+			// add https
+			$add_https = true;
+		}
+
 		if(isset($check_exist_domain['data']['id']))
 		{
 			$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
