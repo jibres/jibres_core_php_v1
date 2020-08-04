@@ -448,6 +448,39 @@ class domain
 	}
 
 
+	public static function edit_record($_args, $_id)
+	{
+		$id = \dash\validate::code($_id);
+
+		$condition =
+		[
+			'domain'         => 'domain',
+			'status'         => ['enum' => ['ok', 'failed', 'pending']],
+			'cronjobdate'    => 'datetime',
+			'cronjobstatus'  => 'string_50',
+			'sslrequestdate' => 'datetime',
+			'message'        => 'string',
+		];
+
+		$require = [];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$id = \dash\coding::decode($id);
+		if(!empty($args))
+		{
+			\lib\db\store_domain\update::record($args, $id);
+			\dash\notif::ok(T_("Update successfully"));
+			return true;
+		}
+
+
+	}
+
 
 	public static function multi_check_business_domain($_type)
 	{

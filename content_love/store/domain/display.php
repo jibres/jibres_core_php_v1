@@ -44,9 +44,9 @@
       <td class="collapsing">
         <div class="ltr">cronjobdate: <?php echo \dash\fit::date_time(\dash\get::index($value, 'cronjobdate')) ?></div>
         <div class="ltr">sslrequestdate: <?php echo \dash\fit::date_time(\dash\get::index($value, 'sslrequestdate')) ?></div>
-        <div class="ltr">sslfailed: <?php echo \dash\fit::date_time(\dash\get::index($value, 'sslfailed')) ?></div>
         <div class="ltr">cronjobstatus: <?php echo \dash\get::index($value, 'cronjobstatus') ?></div>
       </td>
+
       <td><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
     </tr>
 <?php } //endfor ?>
