@@ -1,8 +1,8 @@
-<div class="avand">
+<div class="avand category">
 	<?php if(!\dash\data::dataRow()) {  /* load all category detail*/ ?>
 		<?php $categoryDataTable = \dash\data::categoryDataTable(); ?>
 
-			<div class="row padLess category">
+			<div class="row padLess">
 				<?php foreach ($categoryDataTable as $key => $value) {?>
     		<div class="c-xs-6 c-sm-4 c-lg-4 c-xl-3 c-xxl-2">
     			<div class="roundedBox">

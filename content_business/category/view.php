@@ -34,7 +34,14 @@ class view
 		}
 
 		// btn
-		\dash\data::back_link(\dash\url::kingdom());
+		if(\dash\url::child())
+		{
+			\dash\data::back_link(\dash\url::this());
+		}
+		else
+		{
+			\dash\data::back_link(\dash\url::kingdom());
+		}
 	}
 }
 ?>
