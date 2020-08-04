@@ -861,6 +861,10 @@ class domain
 
 					\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'cronjobstatus' => 'ssl_check', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
+				else
+				{
+					\lib\db\store_domain\update::record(['message' => 'ssl failed', 'cronjobstatus' => 'ssl_failed', 'sslfailed' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				}
 			}
 			elseif(array_key_exists('ar_wildcard', $get_https_setting['data']) && $get_https_setting['data']['ar_wildcard'])
 			{
