@@ -20,6 +20,20 @@
 <?php } //endif ?>
 
 <?php if(\dash\data::dataRow()) { /* load one category detail*/ ?>
+
+<?php if(\dash\detect\device::detectPWA()) {?>
+	<div class="roundedBox mB25">
+		<div class="overlay">
+    	<figure>
+				<img src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
+      	<figcaption><h2><?php echo \dash\data::dataRow_title(); ?></h2></figcaption>
+    	</figure>
+  	</div>
+<?php if(\dash\data::dataRow_desc()) { ?>
+		<div><?php echo \dash\data::dataRow_desc(); ?></div>
+<?php } ?>
+	</div>
+<?php } else { ?>
 	<div class="box mB25-f">
 		<div class="body">
 			<div class="row">
@@ -33,6 +47,8 @@
 			</div>
 		</div>
 	</div>
+<?php } ?>
+
 
 
 	<?php if(\dash\data::productList()) {?>
