@@ -472,6 +472,7 @@ class domain
 			$one_domain = \lib\db\store_domain\get::cronjob_list_other();
 		}
 
+		\lib\db\store_domain\get::reset_cronjob_list();
 		if(!isset($one_domain['id']))
 		{
 			return false;
@@ -481,7 +482,6 @@ class domain
 
 		$store_domain_id = $one_domain['id'];
 
-		\lib\db\store_domain\get::reset_cronjob_list();
 
 		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s"), 'cronjobdate' => date("Y-m-d H:i:s"),], $store_domain_id);
 
