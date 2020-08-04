@@ -23,6 +23,7 @@
       <th><?php echo T_("Status"); ?></th>
       <th><?php echo T_("Message"); ?></th>
       <th><?php echo T_("Date modified"); ?></th>
+      <th><?php echo T_("Cronjob"); ?></th>
       <th><?php echo T_("Detail"); ?></th>
 
 
@@ -40,6 +41,11 @@
       <td><?php echo \dash\get::index($value, 't_status'); ?></td>
       <td><?php echo \dash\get::index($value, 'message'); ?></td>
       <td><?php echo \dash\fit::date_human(\dash\get::index($value, 'datemodified')); ?></td>
+      <td class="collapsing">
+        <div class="ltr">cronjobdate: <?php echo \dash\fit::date_time(\dash\get::index($value, 'cronjobdate')) ?></div>
+        <div class="ltr">sslrequestdate: <?php echo \dash\fit::date_time(\dash\get::index($value, 'sslrequestdate')) ?></div>
+        <div class="ltr">sslfailed: <?php echo \dash\fit::date_time(\dash\get::index($value, 'sslfailed')) ?></div>
+      </td>
       <td><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
     </tr>
 <?php } //endfor ?>
