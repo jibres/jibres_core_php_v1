@@ -13,7 +13,7 @@ class get
 		$query  = "SELECT COUNT(*) AS `count` FROM store_domain WHERE store_domain.status != 'ok' ";
 		$result_all = \dash\db::get($query, 'count', true, 'master');
 
-		if($result_is_not_null === $result_all || true)
+		// if($result_is_not_null === $result_all)
 		{
 			$query  = "UPDATE store_domain SET store_domain.cronjobdate = NULL WHERE store_domain.status != 'ok' AND store_domain.cronjobdate IS NOT NULL ";
 			$result = \dash\db::query($query, 'master');
