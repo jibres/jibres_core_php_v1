@@ -55,25 +55,27 @@ class pwa_menu
 				switch (\dash\url::module())
 				{
 					case 'p':
-					return self::businessProductPage();
-					break;
+						return self::businessProductPage();
+						break;
 
 					case 'cart':
-					return self::businessCartPage();
-					break;
+						return self::businessCartPage();
+						break;
 
 					case 'shipping':
-					return self::businessShippingPage();
-					break;
-
-					case null:
-					return self::businessWebsite();
-					break;
+						return self::businessShippingPage();
+						break;
 
 					case 'app':
-					default:
-					return null;
+						// don't show menu on app page
+						return null;
 					break;
+
+					default:
+					case null:
+						return self::businessWebsite();
+						break;
+
 				}
 				break;
 		}
