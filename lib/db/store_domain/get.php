@@ -10,21 +10,21 @@ class get
 	public static function cronjob_list_new()
 	{
 
-		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' AND store_domain.cronjobdate IS NULL ORDER BY store_domain.datemodified ASC, store_domain.id ASC LIMIT 1";
+		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' AND store_domain.cronjobdate IS NULL ORDER BY store_domain.datemodified DESC, store_domain.id ASC LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}
 
 	public static function cronjob_list_ssl($_date)
 	{
-		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' AND store_domain.sslfailed IS NULL AND store_domain.sslrequestdate IS NOT NULL AND store_domain.sslrequestdate < '$_date' ORDER BY store_domain.cronjobdate ASC LIMIT 1";
+		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' AND store_domain.sslfailed IS NULL AND store_domain.sslrequestdate IS NOT NULL AND store_domain.sslrequestdate < '$_date' ORDER BY store_domain.cronjobdate DESC LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}
 
 	public static function cronjob_list_other()
 	{
-		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' AND store_domain.sslrequestdate IS NULL ORDER BY store_domain.datemodified ASC LIMIT 1";
+		$query  = "SELECT * FROM store_domain WHERE store_domain.status != 'ok' AND store_domain.sslrequestdate IS NULL ORDER BY store_domain.datemodified DESC LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}
