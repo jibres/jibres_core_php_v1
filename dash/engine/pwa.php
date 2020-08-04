@@ -52,6 +52,7 @@ class pwa
 		if(\dash\engine\store::inStore())
 		{
 			$manifest['icons'] = self::logo_business();
+			$manifest['start_url'] = \dash\url::kingdom(). '?utm_source=pwa';
 		}
 		elseif(self::logo_jibres())
 		{
