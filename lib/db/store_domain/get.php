@@ -24,15 +24,14 @@ class get
 
 	public static function cronjob_list_new()
 	{
-
-		$query  = "SELECT * FROM store_domain WHERE (store_domain.status != 'ok' OR store_domain.status IS NULL ) AND store_domain.cronjobdate IS NULL ORDER BY store_domain.datemodified DESC, store_domain.id ASC LIMIT 1";
+		$query  = "SELECT * FROM store_domain WHERE (store_domain.status != 'ok' OR store_domain.status IS NULL ) AND ( store_domain.cronjobstatus IS NULL OR store_domain.cronjobstatus = 'new') ORDER BY store_domain.id ASC LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}
 
 	public static function cronjob_list_ssl($_date)
 	{
-		$query  = "SELECT * FROM store_domain WHERE (store_domain.status != 'ok' OR store_domain.status IS NULL ) AND store_domain.sslfailed IS NULL AND store_domain.sslrequestdate IS NOT NULL AND store_domain.sslrequestdate < '$_date' ORDER BY store_domain.cronjobdate DESC LIMIT 1";
+		$query  = "SELECT * FROM store_domain WHERE (store_domain.status != 'ok' OR store_domain.status IS NULL ) AND store_domain.cronjobstatus = 'ssl_check' AND store_domain.sslrequestdate IS NOT NULL AND store_domain.sslrequestdate < '$_date' ORDER BY store_domain.cronjobdate DESC, store_domain.id ASC LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}

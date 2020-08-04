@@ -460,33 +460,37 @@ class domain
 		if($_type === 'new')
 		{
 			$one_domain = \lib\db\store_domain\get::cronjob_list_new();
+
+			if(!isset($one_domain['id']) || !isset($one_domain['domain']))
+			{
+				return false;
+			}
+
+			self::add_domain_arvan($one_domain['domain'], true);
 		}
 		elseif($_type === 'ssl')
 		{
 			$ssl_mode = true;
 			$date = date("Y-m-d H:i:s", time() - (60*10));
 			$one_domain = \lib\db\store_domain\get::cronjob_list_ssl($date);
+
+			if(!isset($one_domain['id']) || !isset($one_domain['domain']))
+			{
+				return false;
+			}
+			self::add_domain_arvan($one_domain['domain'], true);
 		}
 		else
 		{
+			// dns change
 			$one_domain = \lib\db\store_domain\get::cronjob_list_other();
+			if(!isset($one_domain['id']) || !isset($one_domain['domain']))
+			{
+				return false;
+			}
+			self::add_domain_arvan($one_domain['domain']);
 		}
 
-		\lib\db\store_domain\get::reset_cronjob_list();
-
-		if(!isset($one_domain['id']))
-		{
-			return false;
-		}
-
-
-
-		$store_domain_id = $one_domain['id'];
-
-
-		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s"), 'cronjobdate' => date("Y-m-d H:i:s"),], $store_domain_id);
-
-		self::add_domain_arvan($one_domain['domain'], $ssl_mode);
 	}
 
 
@@ -590,6 +594,7 @@ class domain
 
 		$store_domain_id = $store_domain['id'];
 
+
 		if(isset($store_domain['status']) && $store_domain['status'] === 'ok')
 		{
 			\dash\notif::error(T_("This domain is already connected to your business successfully"));
@@ -602,8 +607,7 @@ class domain
 			return false;
 		}
 
-
-		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+		\lib\db\store_domain\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s"), 'cronjobdate' => date("Y-m-d H:i:s"),], $store_domain_id);
 
 		// $check_dns = self::check_dns($domain);
 
@@ -665,7 +669,7 @@ class domain
 
 		if(array_key_exists('status', $check_exist_domain) && !$check_exist_domain['status'])
 		{
-			// domain not found need to add to arvand
+			// domain not found need to add to arvan
 			$add_domain = \lib\arvancloud\api::add_domain($domain);
 
 
@@ -684,20 +688,24 @@ class domain
 					// add https
 					$add_https = true;
 				}
+				else
+				{
+					\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'DNS is not active on out CDN panel', 'cronjobstatus' => 'dns_check', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				}
 
 			}
 			elseif(isset($add_domain['message']) && $add_domain['message'] === 'The given data was invalid.')
 			{
-				// this domain is already added to arvand cdn
-				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'This domain is already is use in CDN panel', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-				self::send_to_supervisor('Domain is alreay added to arvand panel. domain: '. $domain);
+				// this domain is already added to arvan cdn
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'This domain is already is use in CDN panel', 'cronjobstatus' => 'duplicate', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Domain is alreay added to arvan panel. domain: '. $domain);
 				\dash\notif::error(T_("This domain is already in use in CDN panel"));
 				return false;
 			}
 			else
 			{
-				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not add domain to CND Service', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-				self::send_to_supervisor('Can not connect add domain to arvand panel. domain: '. $domain);
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not add domain to CND Service', 'cronjobstatus' => 'error', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Can not connect add domain to arvan panel. domain: '. $domain);
 				\dash\notif::error(T_("Can not add domain to CND Service"));
 				return false;
 			}
@@ -708,8 +716,8 @@ class domain
 			$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
 			if(!$get_dns_record || !is_array($get_dns_record) || !isset($get_dns_record['data']) || (isset($get_dns_record['data']) && !is_array($get_dns_record['data'])))
 			{
-				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not connect get domain a record', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-				self::send_to_supervisor('Can not connect get domain dns record from arvand panel. domain: '. $domain);
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not connect get domain a record','cronjobstatus' => 'error_dns', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Can not connect get domain dns record from arvan panel. domain: '. $domain);
 				\dash\notif::error(T_("Can not get domain dns record from CDN panel"));
 				return false;
 			}
@@ -827,36 +835,38 @@ class domain
 
 		if($add_https)
 		{
-			$get_https_setting = \lib\arvancloud\api::get_arvan_request($domain);
-
-			if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
-			{
-				if(array_key_exists('ar_wildcard', $get_https_setting['data']) && !$get_https_setting['data']['ar_wildcard'])
-				{
-					if($_ssl_mode)
-					{
-						$add_https_args =
-						[
-							// "ar_sub_domains": [],
-							"ar_wildcard" => true,
-						];
-
-						// $set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
-
-						\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-					}
-					else
-					{
-						\lib\db\store_domain\update::record(['message' => 'ssl failed', 'sslfailed' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-					}
-				}
-				elseif(array_key_exists('ar_wildcard', $get_https_setting['data']) && $get_https_setting['data']['ar_wildcard'])
-				{
-					\lib\db\store_domain\update::record(['status' => 'ok', 'message' => 'domain successfully connected', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-				}
-			}
+			self::check_ssl($domain, $store_domain_id, $_ssl_mode);
 		}
 
+	}
+
+
+	private static function check_ssl($domain, $store_domain_id, $_ssl_mode)
+	{
+		$get_https_setting = \lib\arvancloud\api::get_arvan_request($domain);
+
+		if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
+		{
+			if(array_key_exists('ar_wildcard', $get_https_setting['data']) && !$get_https_setting['data']['ar_wildcard'])
+			{
+				if($_ssl_mode)
+				{
+					$add_https_args =
+					[
+						// "ar_sub_domains": [],
+						"ar_wildcard" => true,
+					];
+
+					$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+
+					\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'cronjobstatus' => 'ssl_check', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				}
+			}
+			elseif(array_key_exists('ar_wildcard', $get_https_setting['data']) && $get_https_setting['data']['ar_wildcard'])
+			{
+				\lib\db\store_domain\update::record(['status' => 'ok', 'message' => 'domain successfully connected', 'cronjobstatus' => 'finish', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+			}
+		}
 	}
 
 
