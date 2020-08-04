@@ -473,6 +473,7 @@ class domain
 		}
 
 		\lib\db\store_domain\get::reset_cronjob_list();
+
 		if(!isset($one_domain['id']))
 		{
 			return false;
