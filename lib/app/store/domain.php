@@ -478,7 +478,7 @@ class domain
 			{
 				return false;
 			}
-			self::add_domain_arvan($one_domain['domain'], true);
+			self::add_domain_arvan($one_domain['domain']);
 		}
 		else
 		{
