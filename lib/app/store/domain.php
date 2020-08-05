@@ -901,6 +901,14 @@ class domain
 
 					$set_https = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
 
+
+					$add_https_args =
+					[
+						"ar_wildcard" => true,
+					];
+
+					$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+
 					\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'cronjobstatus' => 'ssl_check', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
 				else
