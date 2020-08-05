@@ -918,7 +918,7 @@ class domain
 			}
 			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
 			{
-				\lib\db\store_domain\update::record(['status' => 'ok', 'message' => 'domain successfully connected', 'cronjobstatus' => 'finish', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				\lib\db\store_domain\update::record(['status' => 'ok', 'https' => 1, 'message' => 'domain successfully connected', 'cronjobstatus' => 'finish', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 			}
 		}
 	}
