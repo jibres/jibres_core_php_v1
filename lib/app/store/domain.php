@@ -255,7 +255,7 @@ class domain
 			}
 			else
 			{
-				\dash\notif::error(T_("This domain is reserved. Can not choose it"));
+				\dash\notif::error(T_("This domain is reserved in another account. Can not choose it"));
 				return false;
 			}
 		}

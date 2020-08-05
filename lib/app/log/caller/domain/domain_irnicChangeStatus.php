@@ -30,11 +30,11 @@ class domain_irnicChangeStatus
 
 		if($domainstatus === 'approved')
 		{
-			$msg = T_("Register Domain :domain was approved", ['domain' => $domain]);
+			$msg = T_("Register Domain :domain was approved By IRNIC", ['domain' => $domain]);
 		}
 		elseif($domainstatus === 'rejected')
 		{
-			$msg = T_("Register Domain :domain was rejected!", ['domain' => $domain]);
+			$msg = T_("Register Domain :domain was rejected By IRNIC!", ['domain' => $domain]);
 
 		}
 		else
