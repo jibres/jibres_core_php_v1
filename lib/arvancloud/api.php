@@ -179,6 +179,12 @@ class api
 	}
 
 
+	public static function set_arvan_request_https($_domain, $_args)
+	{
+		return self::run($_domain. '/https', 'patch', null, $_args);
+	}
+
+
 
 	public static function set_arvan_request($_domain, $_args)
 	{

@@ -54,7 +54,15 @@
           <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'sslrequestdate')); ?></td>
         </tr>
 
-
+        <tr>
+          <td><?php echo T_("Raw request") ?></td>
+          <td>
+            <a class="btn link" href="<?php echo \dash\url::current(). '?rawrequest=https&domain='. \dash\get::index($value, 'domain') ?>">Get https</a>
+            <a class="btn link" href="<?php echo \dash\url::current(). '?rawrequest=get_domain&domain='. \dash\get::index($value, 'domain') ?>">Get get_domain</a>
+            <a class="btn link" href="<?php echo \dash\url::current(). '?rawrequest=get_ns_key&domain='. \dash\get::index($value, 'domain') ?>">Get get_ns_key</a>
+            <a class="btn link" href="<?php echo \dash\url::current(). '?rawrequest=get_dns_record&domain='. \dash\get::index($value, 'domain') ?>">Get get_dns_record</a>
+          </td>
+        </tr>
 
 
       </tbody>

@@ -896,11 +896,10 @@ class domain
 				{
 					$add_https_args =
 					[
-						// "ar_sub_domains": [],
 						"f_ssl_type" => "arvan",
 					];
 
-					$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+					$set_https = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
 
 					\lib\db\store_domain\update::record(['message' => 'request of https was sended', 'cronjobstatus' => 'ssl_check', 'sslrequestdate' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
