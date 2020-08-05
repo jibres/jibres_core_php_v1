@@ -3,6 +3,8 @@
  <div class="row">
   <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <input type="hidden" name="editchild" value="editchild">
+  <input type="hidden" name="havevariantchild" value="<?php if($have_variant_child){echo 1;}else{echo 0;};  ?>">
+
   <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
     <div class="box">
       <header><h2><?php echo \dash\data::productDataRow_title() ?></h2></header>

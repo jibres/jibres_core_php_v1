@@ -186,41 +186,44 @@ class check
 		 * ------------------------------------------------------------------------------
 		 */
 
-		$discountpercent = null;
-		if(is_numeric($data['discount']) && is_numeric($data['price']) && floatval($data['price']) != 0)
+		if(isset($data['price']) || isset($data['buyprice']) || isset($data['discount']))
 		{
-			$discountpercent = round((floatval($data['discount']) * 100) / floatval($data['price']), 2);
-		}
-
-
-		$data['finalprice'] = floatval($data['price']) - floatval($data['discount']);
-
-		if($data['finalprice'] < 0)
-		{
-			\dash\notif::error(T_("Final price is out of range and less than zero!"), ['element' => ['discount', 'price']]);
-			return false;
-		}
-
-		$data['vatprice'] = 0;
-
-		if($data['vat'] === 'yes')
-		{
-			$vatprice_percent = 9; // 9% in iran. need to get from setting
-			if($vatprice_percent)
+			$discountpercent = null;
+			if(is_numeric($data['discount']) && is_numeric($data['price']) && floatval($data['price']) != 0)
 			{
-				$new_finalprice = $data['finalprice'] + (($data['finalprice'] * $vatprice_percent) / 100);
-				$data['vatprice']       = $new_finalprice - $data['finalprice'];
-				$data['finalprice']     = $new_finalprice;
+				$discountpercent = round((floatval($data['discount']) * 100) / floatval($data['price']), 2);
 			}
+
+
+			$data['finalprice'] = floatval($data['price']) - floatval($data['discount']);
+
+			if($data['finalprice'] < 0)
+			{
+				\dash\notif::error(T_("Final price is out of range and less than zero!"), ['element' => ['discount', 'price']]);
+				return false;
+			}
+
+			$data['vatprice'] = 0;
+
+			if($data['vat'] === 'yes')
+			{
+				$vatprice_percent = 9; // 9% in iran. need to get from setting
+				if($vatprice_percent)
+				{
+					$new_finalprice = $data['finalprice'] + (($data['finalprice'] * $vatprice_percent) / 100);
+					$data['vatprice']       = $new_finalprice - $data['finalprice'];
+					$data['finalprice']     = $new_finalprice;
+				}
+			}
+
+
+			$data['buyprice']        = \lib\price::up($data['buyprice']);
+			$data['price']           = \lib\price::up($data['price']);
+			$data['discount']        = \lib\price::up($data['discount']);
+			$data['discountpercent'] = \lib\price::up($discountpercent);
+			$data['finalprice']      = \lib\price::up($data['finalprice']);
+			$data['vatprice']        = \lib\price::up($data['vatprice']);
 		}
-
-
-		$data['buyprice']        = \lib\price::up($data['buyprice']);
-		$data['price']           = \lib\price::up($data['price']);
-		$data['discount']        = \lib\price::up($data['discount']);
-		$data['discountpercent'] = \lib\price::up($discountpercent);
-		$data['finalprice']      = \lib\price::up($data['finalprice']);
-		$data['vatprice']        = \lib\price::up($data['vatprice']);
 
 		return $data;
 	}

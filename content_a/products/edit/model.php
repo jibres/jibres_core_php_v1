@@ -54,10 +54,19 @@ class model
 			$post['type']    = \dash\request::post('type');
 		}
 
-		$post['buyprice']  = \dash\request::post('buyprice');
-		$post['price']     = \dash\request::post('price');
-		$post['discount']  = \dash\request::post('discount');
-		$post['vat']       = \dash\request::post('vat');
+		if(\dash\request::post('havevariantchild'))
+		{
+			// no change
+		}
+		else
+		{
+			$post['buyprice']  = \dash\request::post('buyprice');
+			$post['price']     = \dash\request::post('price');
+			$post['discount']  = \dash\request::post('discount');
+			$post['vat']       = \dash\request::post('vat');
+		}
+
+
 		$post['barcode']   = \dash\request::post('barcode');
 		$post['barcode2']  = \dash\request::post('barcode2');
 		$post['seotitle']  = \dash\request::post('seotitle');

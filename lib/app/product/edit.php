@@ -47,7 +47,7 @@ class edit
 
 		foreach ($_args as $key => $value)
 		{
-			self::edit($value, $key);
+			self::edit($value, $key, ['multi_edit' => true]);
 
 			if(\dash\temp::get('productHasChange'))
 			{
@@ -79,6 +79,7 @@ class edit
 			'debug'       => true,
 			'multi_add'   => false,
 			'transaction' => false,
+			'multi_edit'  => false,
 		];
 
 		if(!is_array($_option))
@@ -125,26 +126,14 @@ class edit
 		}
 
 
-		if(is_numeric($args['price']) || is_numeric($args['discount']) || is_numeric($args['buyprice']) || is_numeric($args['finalprice']))
+		if(is_numeric($args['price']) || is_numeric($args['discount']) || is_numeric($args['buyprice']))
 		{
 			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args);
-		}
 
-		// to not remove in patch_mode function
-
-		if(is_numeric($args['discountpercent']))
-		{
+			// to not remove in patch_mode function
 			$_args['discountpercent'] = $args['discountpercent'];
-		}
-
-		if(is_numeric($args['finalprice']))
-		{
 			$_args['finalprice']      = $args['finalprice'];
-		}
-
-		if(is_numeric($args['vatprice']))
-		{
 			$_args['vatprice']        = $args['vatprice'];
 		}
 
