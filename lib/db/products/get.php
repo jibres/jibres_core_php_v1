@@ -544,14 +544,13 @@ class get
 			FROM
 				products
 			WHERE
-				products.status != 'deleted' AND
-				products.instock = 1 AND
 				products.parent IN ($_ids) AND
-				products.finalprice = (SELECT MIN(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent)
+				products.finalprice = (SELECT MIN(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent AND min_products.status != 'deleted' AND min_products.instock = 1)
 			GROUP BY products.parent
 		";
 
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 
