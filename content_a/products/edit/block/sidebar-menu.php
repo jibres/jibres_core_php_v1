@@ -27,13 +27,13 @@
             <div class="go"></div>
           </a>
         </li>
-        <?php if(!$have_variant_child) {?>
+
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <?php if(\dash\data::productDataRow_trackquantity()) {?>
             <i class="sf-exchange fc-green"></i>
             <div class="key"><?php echo T_("Inventory"); ?></div>
-            <div class="value"><?php echo \dash\fit::number(floatval(\dash\data::productDataRow_stock())); ?></div>
+            <div class="value"><?php if($have_variant_child){ echo \dash\fit::number(floatval(\dash\data::productDataRow_stockallchild()));}else{ echo \dash\fit::number(floatval(\dash\data::productDataRow_stock()));} ?></div>
             <?php }else{ ?>
             <i class="sf-exchange fc-red"></i>
             <div class="key"><?php echo T_("Inventory"); ?></div>
@@ -42,16 +42,7 @@
             <div class="go"></div>
           </a>
         </li>
-        <?php }else{ ?>
-          <li>
-          <a class="item f">
-            <i class="sf-exchange fc-mute"></i>
-            <div class="key"><?php echo T_("Inventory"); ?></div>
-            <div class="value"><?php echo \dash\fit::number(floatval(\dash\data::productDataRow_stockallchild())); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-        <?php } //endif ?>
+
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <i class="sf-package"></i>

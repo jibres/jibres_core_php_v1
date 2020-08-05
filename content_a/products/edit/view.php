@@ -115,6 +115,7 @@ class view
 		if(\dash\data::productDataRow_status() === 'deleted')
 		{
 			\dash\data::productIsDeleted(true);
+			$title = \dash\data::productDataRow_title();
 			\dash\face::title($title. ' ('. T_("Deleted"). ')');
 
 		}
