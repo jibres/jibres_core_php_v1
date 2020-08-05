@@ -890,14 +890,14 @@ class domain
 
 		if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
 		{
-			if(array_key_exists('ar_wildcard', $get_https_setting['data']) && !$get_https_setting['data']['ar_wildcard'])
+			if(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'off')
 			{
 				if($_ssl_mode)
 				{
 					$add_https_args =
 					[
 						// "ar_sub_domains": [],
-						"ar_wildcard" => true,
+						"f_ssl_type" => "arvan",
 					];
 
 					$set_https = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
@@ -909,7 +909,7 @@ class domain
 					\lib\db\store_domain\update::record(['message' => 'ssl failed', 'cronjobstatus' => 'ssl_failed', 'sslfailed' => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 				}
 			}
-			elseif(array_key_exists('ar_wildcard', $get_https_setting['data']) && $get_https_setting['data']['ar_wildcard'])
+			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
 			{
 				\lib\db\store_domain\update::record(['status' => 'ok', 'message' => 'domain successfully connected', 'cronjobstatus' => 'finish', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
 			}
