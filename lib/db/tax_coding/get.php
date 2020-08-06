@@ -13,12 +13,30 @@ class get
 	}
 
 
-	public static function parent_list()
+	public static function parent_list_details()
 	{
-		$query = "SELECT * FROM tax_coding WHERE tax_coding.parent3 IS NULL";
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'assistant'";
 		$result = \dash\db::get($query);
 		return $result;
 	}
+
+
+	public static function parent_list_total()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'group'";
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
+	public static function parent_list_assistant()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'total'";
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
 
 }
 ?>

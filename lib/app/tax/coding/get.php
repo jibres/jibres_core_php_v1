@@ -4,9 +4,28 @@ namespace lib\app\tax\coding;
 
 class get
 {
-	public static function parent_list()
+	public static function parent_list($_type)
 	{
-		$list = \lib\db\tax_coding\get::parent_list();
+		switch ($_type)
+		{
+			case 'group':
+				$list = [];
+				break;
+
+			case 'total':
+				$list = \lib\db\tax_coding\get::parent_list_total();
+				break;
+
+			case 'assistant':
+				$list = \lib\db\tax_coding\get::parent_list_assistant();
+				break;
+
+			case 'details':
+			default:
+				$list = \lib\db\tax_coding\get::parent_list_details($_type);
+				break;
+		}
+
 		if(!is_array($list))
 		{
 			$list = [];
