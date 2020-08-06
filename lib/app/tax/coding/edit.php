@@ -29,8 +29,8 @@ class edit
 		}
 		else
 		{
-			$args['datemodified'] = date("Y-m-d H:i:s");
-			\lib\db\tax_coding\update::update($args, $load['id']);
+			$data['datemodified'] = date("Y-m-d H:i:s");
+			\lib\db\tax_coding\update::update($data, $load['id']);
 			\dash\notif::ok(T_("Accounting coding successfully updated"));
 		}
 

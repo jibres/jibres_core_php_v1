@@ -26,15 +26,22 @@ class get
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'group'";
 		$result = \dash\db::get($query);
 		return $result;
-
 	}
+
 
 	public static function parent_list_assistant()
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'total'";
 		$result = \dash\db::get($query);
 		return $result;
+	}
 
+
+	public static function check_parent_not_use($_id)
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.parent1 = $_id OR tax_coding.parent2 = $_id OR tax_coding.parent3 = $_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
 	}
 
 

@@ -22,7 +22,7 @@
 
         <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         <div class="input">
-          <input type="number" min="10" max="99" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>">
+          <input type="number" min="10" max="99" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
         </div>
 
 

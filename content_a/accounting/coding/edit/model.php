@@ -14,13 +14,12 @@ class model
 			{
 				\dash\redirect::to(\dash\url::that());
 			}
+			return;
 		}
 
 		$post =
 		[
-			'parent' => \dash\request::post('parent'),
 			'title'  => \dash\request::post('title'),
-			'code'   => \dash\request::post('code'),
 		];
 
 		$result = \lib\app\tax\coding\edit::edit($post, \dash\request::get('id'));

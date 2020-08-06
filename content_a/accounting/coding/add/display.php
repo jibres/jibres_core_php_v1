@@ -1,5 +1,5 @@
 <?php
-if(\dash\data::myType())
+if(\dash\data::myType() || \dash\data::editMode())
 {
   require_once('display-add.php');
 }
