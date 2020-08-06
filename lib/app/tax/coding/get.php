@@ -36,6 +36,32 @@ class get
 	}
 
 
+	public static function list_of($_type)
+	{
+		switch ($_type)
+		{
+
+
+			case 'assistant':
+				$list = \lib\db\tax_coding\get::list_assistant();
+				break;
+
+			case 'details':
+			default:
+				$list = \lib\db\tax_coding\get::list_details($_type);
+				break;
+		}
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\lib\\app\\tax\\coding\\ready', 'row'], $list);
+		return $list;
+	}
+
+
 	public static function get($_id)
 	{
 		$id = \dash\validate::id($_id);

@@ -37,6 +37,23 @@ class get
 	}
 
 
+
+	public static function list_assistant()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'assistant'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function list_details()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'details'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function check_parent_not_use($_id)
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.parent1 = $_id OR tax_coding.parent2 = $_id OR tax_coding.parent3 = $_id LIMIT 1 ";

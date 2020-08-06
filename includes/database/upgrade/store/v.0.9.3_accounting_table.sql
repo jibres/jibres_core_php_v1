@@ -23,7 +23,7 @@ KEY `tax_coding_search_index_title` (`title`)
 
 CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.tax_document (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-`number` int(10) NULL,
+`number` bigint(20) NULL,
 `date` date NULL,
 `desc` varchar(300) NULL,
 `status` enum('lock','temp') DEFAULT NULL,
@@ -39,16 +39,18 @@ KEY `tax_document_search_index_date` (`date`)
 
 CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.tax_docdetail (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-`assistant_id` int(10) NULL,
-`details_id` int(10) NULL,
+`tax_document_id` int(10) UNSIGNED NULL,
+`assistant_id` int(10) UNSIGNED NULL,
+`details_id` int(10) UNSIGNED NULL,
 `desc` varchar(300) NULL,
 `debtor` bigint(20) NULL,
 `creditor` bigint(20) NULL,
 `datecreated` timestamp NULL ,
 `datemodified` timestamp NULL ,
 PRIMARY KEY (`id`),
-KEY `tax_docdetail_search_index_assistant_id` (`assistant_id`),
-KEY `tax_docdetail_search_index_details_id` (`details_id`),
+CONSTRAINT `tax_docdetail_tax_document_id` FOREIGN KEY (`tax_document_id`) REFERENCES `tax_document` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `tax_docdetail_details_id` FOREIGN KEY (`details_id`) REFERENCES `tax_coding` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `tax_docdetail_assistant_id` FOREIGN KEY (`assistant_id`) REFERENCES `tax_coding` (`id`) ON UPDATE CASCADE,
 KEY `tax_docdetail_search_index_debtor` (`debtor`),
 KEY `tax_docdetail_search_index_creditor` (`creditor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
