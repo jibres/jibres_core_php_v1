@@ -2,14 +2,6 @@
 <?php require_once (root. 'content_a/products/filter.php'); ?>
 
 
-<?php if (\dash\permission::supervisor()) { ?>
-<div id='loadMore' data-xhr='loadMore'></div>
-<div>
-  <a class="btn primary" href="<?php echo \dash\url::this(); ?>?loadMore=ajax">More</a>
-</div>
-<?php } ?>
-
-
 <?php
 if(\dash\data::dataTable())
 {
