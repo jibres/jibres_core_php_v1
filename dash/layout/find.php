@@ -22,13 +22,14 @@ class find
 		self::footer();
 	}
 
-	public static function loadMore($_xhrName)
+
+	public static function loadMore($_xhrName = null)
 	{
 		$moreAddr = \dash\layout\func::more_addr();
 
 		if (is_file($moreAddr))
 		{
-			echo "\n <div class='loadMore' data-xhr='". $_xhrName. "'>";
+			echo "\n <div class='loadMore' data-xhr='loadMore'>";
 			require_once $moreAddr;
 			echo "\n </div>";
 		}

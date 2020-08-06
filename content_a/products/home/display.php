@@ -3,10 +3,10 @@
 
 
 <?php if (\dash\permission::supervisor()) { ?>
+<div id='loadMore' data-xhr='loadMore'></div>
 <div>
-  <a class="btn primary" href="<?php echo \dash\url::this(); ?>?more=loadMore1">More</a>
+  <a class="btn primary" href="<?php echo \dash\url::this(); ?>?loadMore=ajax">More</a>
 </div>
-<div id='loadMore' data-xhr='loadMore1'>
 <?php } ?>
 
 

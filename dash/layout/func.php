@@ -41,9 +41,9 @@ class func
 				echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
 				// create all blocks
 
-				if(\dash\request::get('more'))
+				if(\dash\request::get('loadMore'))
 				{
-					\dash\layout\find::loadMore(\dash\request::get('more'));
+					\dash\layout\find::loadMore(\dash\request::get('loadMore'));
 				}
 				else
 				{
