@@ -44,6 +44,7 @@ class product
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
+				'gif', 'mp4',
 			],
 		];
 
@@ -96,6 +97,7 @@ class product
 			'ext' =>
 			[
 				'gif','jpeg','jpg','png',			// image
+				'gif', 'mp4',
 			],
 		];
 
