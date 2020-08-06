@@ -153,14 +153,16 @@ class header
 			return false;
 		}
 
+		$status_header = "HTTP/1.1 $_code $desc";
+
 		if(!self::$status_code)
 		{
 			self::$status_code = $_code;
-			$status_header = "HTTP/1.1 $_code $desc";
 			@header($status_header, true, $_code);
 		}
 
 		\dash\log::file($status_header. ' -- '. $_text, "$_code.log", 'header');
+
 
 		// translate desc of header if in this level T_ fn is defined!
 		$translatedDesc = $desc;
