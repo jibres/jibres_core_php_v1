@@ -2,9 +2,15 @@
 <?php require_once (root. 'content_a/products/filter.php'); ?>
 
 
+<?php if (\dash\permission::supervisor()) { ?>
+<div>
+  <a class="btn primary" href="<?php echo \dash\url::this(); ?>?more=loadMore1">More</a>
+</div>
+<div id='loadMore' data-xhr='loadMore1'>
+<?php } ?>
+
+
 <?php
-
-
 if(\dash\data::dataTable())
 {
   if(\dash\data::isFiltered())
@@ -109,7 +115,6 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
   </ul>
 </nav>
 <?php } ?>
-
 
 
 <div class="tblBox hide">

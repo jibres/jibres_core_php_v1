@@ -40,7 +40,15 @@ class func
 				// send global on line1 of xhr
 				echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
 				// create all blocks
-				\dash\layout\find::allBlocks();
+
+				if(\dash\request::get('more'))
+				{
+					\dash\layout\find::loadMore(\dash\request::get('more'));
+				}
+				else
+				{
+					\dash\layout\find::allBlocks();
+				}
 				\dash\layout\find::pageScript();
 			}
 			else
@@ -95,6 +103,12 @@ class func
 	public static function script_addr()
 	{
 		return str_replace('display.php', 'script.js', self::$DISPLAY);
+	}
+
+
+	public static function more_addr()
+	{
+		return str_replace('display.php', 'display-more.php', self::$DISPLAY);
 	}
 
 

@@ -20,7 +20,18 @@ class find
 		// self::nav();
 		self::main();
 		self::footer();
+	}
 
+	public static function loadMore($_xhrName)
+	{
+		$moreAddr = \dash\layout\func::more_addr();
+
+		if (is_file($moreAddr))
+		{
+			echo "\n <div class='loadMore' data-xhr='". $_xhrName. "'>";
+			require_once $moreAddr;
+			echo "\n </div>";
+		}
 	}
 
 
