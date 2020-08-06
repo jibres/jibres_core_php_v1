@@ -50,8 +50,82 @@ class check
 					\dash\notif::error(T_("Invalid parent"));
 					return false;
 				}
+
+				if(isset($load_parent['type']) && $load_parent['type'] === 'group')
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not set this item as parent"));
+					return false;
+				}
+
+				$data['parent1'] = $data['parent'];
 				break;
 
+			case 'assistant':
+				if(!$data['parent'])
+				{
+					\dash\notif::error(T_("Please choose the parent"));
+					return false;
+				}
+
+				$load_parent = \lib\db\tax_coding\get::by_id($data['parent']);
+				if(!isset($load_parent['id']) || !isset($load_parent['parent1']))
+				{
+					\dash\notif::error(T_("Invalid parent"));
+					return false;
+				}
+
+				if(isset($load_parent['type']) && $load_parent['type'] === 'total')
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not set this item as parent"));
+					return false;
+				}
+
+				$data['parent1'] = $load_parent['parent1'];
+				$data['parent2'] = $data['parent'];
+				break;
+
+			case 'details':
+				if(!$data['parent'])
+				{
+					\dash\notif::error(T_("Please choose the parent"));
+					return false;
+				}
+
+				$load_parent = \lib\db\tax_coding\get::by_id($data['parent']);
+				if(!isset($load_parent['id']) || !isset($load_parent['parent1']) || !isset($load_parent['parent2']))
+				{
+					\dash\notif::error(T_("Invalid parent"));
+					return false;
+				}
+
+				if(isset($load_parent['type']) && $load_parent['type'] === 'assistant')
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not set this item as parent"));
+					return false;
+				}
+
+				$data['parent1'] = $load_parent['parent1'];
+				$data['parent2'] = $load_parent['parent2'];
+				$data['parent3'] = $data['parent'];
+				break;
+
+		}
+
+		if(isset($load_parent['code']) && $data['code'])
+		{
+			$data['code'] = $load_parent['code']. $data['code'];
 		}
 
 		unset($data['parent']);
