@@ -12,5 +12,13 @@ class get
 		return $result;
 	}
 
+
+	public static function parent_list()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.parent3 IS NULL";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 }
 ?>

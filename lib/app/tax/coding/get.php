@@ -4,6 +4,18 @@ namespace lib\app\tax\coding;
 
 class get
 {
+	public static function parent_list()
+	{
+		$list = \lib\db\tax_coding\get::parent_list();
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\lib\\app\\tax\\coding\\ready', 'row'], $list);
+		return $list;
+	}
+
 
 	public static function get($_id)
 	{

@@ -20,7 +20,7 @@ class check
 			'type'       => ['enum' => ['group','total','assistant','details']],
 		];
 
-		$require = [];
+		$require = ['title', 'code'];
 
 		$meta = [];
 
