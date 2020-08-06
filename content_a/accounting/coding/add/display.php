@@ -6,7 +6,7 @@
 
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         <div class="input">
-          <input type="text" name="title" id="title" required>
+          <input type="text" name="title" id="title" required value="<?php echo \dash\data::dataRow_title(); ?>">
         </div>
 
 
