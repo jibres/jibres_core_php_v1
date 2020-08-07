@@ -58,41 +58,31 @@ if(!is_array($dataTable))
 }
 ?>
 
+<nav class="items">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+      <a class="f" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
+        <img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+        <div class="key" title='<?php echo \dash\get::index($value, 'full_slug'); ?>'><?php echo \dash\get::index($value, 'title'); ?></div>
 
-<div class="tblBox">
- <table class="tbl1 v1 cbox fs12">
-    <thead>
-      <tr class="fs08">
-        <th class="collapsing">&nbsp;</th>
-        <th><?php echo T_("Title"); ?></th>
-        <th class="s0"><?php echo T_("Slug"); ?></th>
-        <th class="collapsing txtC"><?php echo T_("Count product"); ?></th>
+            <?php if(isset($value['variants_detail']['stock'])) {?>
+              <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
+            <?php } //endif ?>
 
-      </tr>
-    </thead>
+            <?php if(isset($value['variants_detail']['count'])) {?>
+              <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
+            <?php } //endif ?>
 
-    <tbody>
-      <?php foreach ($dataTable as $key => $value) {?>
+        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small><?php echo T_("Product"); ?></small></div>
+        <div class="go"></div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
 
-      <tr>
-        <td class="collapsing">
-          <?php if(isset($value['file']) && $value['file']) {?><img src="<?php echo \dash\get::index($value, 'file'); ?>" class="avatar"><?php } //endif ?>
-        </td>
-        <td ><a class="txtB" href="<?php echo \dash\url::here(); ?>/category/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a>
-          <br>
-          <span class="fc-mute fs09"><?php echo \dash\get::index($value, 'parent_title'); ?></span>
-        </td>
-        <td class="s0 ltr txtL"><?php echo \dash\get::index($value, 'full_slug'); ?></td>
-        <td class="collapsing txtC">
-          <a href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small class="fc-mute"><?php echo T_("Product"); ?></small></a>
-        </td>
 
-      </tr>
-      <?php } //endfor ?>
-    </tbody>
-  </table>
-
-</div>
 
 <?php \dash\utility\pagination::html(); ?>
 
@@ -122,11 +112,9 @@ if(!is_array($dataTable))
 
         <div class="cauto">
           <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
-            <option value="<?php echo \dash\url::this(); if(\dash\request::get('q')){ echo '?q='. \dash\request::get('q');} ?>"><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
-              <option value="<?php echo \dash\url::this(). '?sort=title&order=asc'; if(\dash\request::get('q')){ echo '&q='. \dash\request::get('q');} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'asc') { echo 'selected'; } ?>><?php echo T_("Sort by Title ASC") ?></option>
-              <option value="<?php echo \dash\url::this(). '?sort=title&order=desc'; if(\dash\request::get('q')){ echo '&q='. \dash\request::get('q');} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'desc') { echo 'selected'; } ?>><?php echo T_("Sort by Title DESC") ?></option>
-
-
+            <option value="<?php echo \dash\url::this(); if(\dash\request::get('q')){ echo '?q='. \dash\request::get('q');} ?>"><?php echo T_("Sort"); ?></option>
+            <option value="<?php echo \dash\url::this(). '?sort=title&order=asc'; if(\dash\request::get('q')){ echo '&q='. \dash\request::get('q');} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'asc') { echo 'selected'; } ?>><?php echo T_("Sort by Title ASC") ?></option>
+            <option value="<?php echo \dash\url::this(). '?sort=title&order=desc'; if(\dash\request::get('q')){ echo '&q='. \dash\request::get('q');} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'desc') { echo 'selected'; } ?>><?php echo T_("Sort by Title DESC") ?></option>
             </select>
           </div>
         </div>
