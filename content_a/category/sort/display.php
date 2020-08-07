@@ -6,7 +6,7 @@ if(!is_array($dataTable))
 }
 ?>
 
-<div data-sortable data-ratio='16x9' data-willy class="ltr">
+<form method="post" data-sortable data-ratio='16x9' data-willy class="ltr">
 <?php foreach ($dataTable as $key => $value) {?>
 <?php $loopTitle = \dash\get::index($value, 'title'); ?>
 
@@ -17,4 +17,4 @@ if(!is_array($dataTable))
     </figure>
   </div>
 <?php } //endfor ?>
-</div>
+</form>
