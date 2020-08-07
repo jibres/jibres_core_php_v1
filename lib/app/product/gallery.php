@@ -23,15 +23,22 @@ class gallery
 					$gallery_raw[$key]['path'] = \lib\filepath::fix($value['path']);
 					$ext = substr(strrchr($value['path'], '.'), 1);
 					$gallery_raw[$key]['ext'] = $ext;
-
+					if(in_array($ext, ['jpg', 'png', 'gif']))
+					{
+						$gallery_raw[$key]['media_type'] = 'image';
+					}
+					elseif($ext === 'mp4')
+					{
+						$gallery_raw[$key]['media_type'] = 'video';
+					}
 				}
 
 				if(isset($value['id']))
 				{
 					$gallery_raw[$key]['id'] = \dash\coding::encode($value['id']);
-
 				}
 			}
+
 			return $gallery_raw;
 		}
 		else
