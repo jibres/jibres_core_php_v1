@@ -305,8 +305,11 @@ class model
 	{
 		$fileid = \dash\request::post('fileid');
 		\lib\app\product\gallery::setthumb($_id, $fileid);
-		\dash\notif::ok(T_("Product thumb set"));
-	//	\dash\redirect::pwd();
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("Product thumb set"));
+		}
+
 	}
 
 

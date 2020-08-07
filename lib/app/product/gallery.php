@@ -131,6 +131,20 @@ class gallery
 				{
 					$product_gallery_field['thumbid'] = $one_file['id'];
 					$thumb_path                       = $one_file['path'];
+
+					$ext = substr(strrchr($thumb_path, '.'), 1);
+
+					$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+					if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+					{
+						// ok
+					}
+					else
+					{
+						\dash\notif::error(T_("Only image file can be set on product thumb"));
+						return false;
+					}
+
 				}
 			}
 
@@ -219,8 +233,14 @@ class gallery
 
 			if(!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb']))
 			{
-				\lib\db\products\update::thumb($file_path, $product_id);
-				$product_gallery_field['thumbid'] = $fileid;
+				$ext = substr(strrchr($file_path, '.'), 1);
+				$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+				if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+				{
+					\lib\db\products\update::thumb($file_path, $product_id);
+					$product_gallery_field['thumbid'] = $fileid;
+					// ok
+				}
 			}
 
 			// check max gallery image
