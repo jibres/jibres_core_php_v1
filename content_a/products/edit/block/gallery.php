@@ -16,7 +16,7 @@
                   <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($productDataRow, 'title'); ?>">
                   <?php } else { ?>
                     <video controls>
-                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="">
+                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="<?php echo \dash\get::index($value, 'mime'); ?>">
                     </video>
                   <?php } ?>
                   <div>
