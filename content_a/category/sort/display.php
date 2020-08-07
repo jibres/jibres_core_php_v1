@@ -6,7 +6,7 @@ if(!is_array($dataTable))
 }
 ?>
 
-<div data-sortable data-ratio='16x9' class="ltr">
+<div data-sortable data-ratio='16x9' data-willy class="ltr">
 <?php foreach ($dataTable as $key => $value) {?>
 <?php $loopTitle = \dash\get::index($value, 'title'); ?>
 
