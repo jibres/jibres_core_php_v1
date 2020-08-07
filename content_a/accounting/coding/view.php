@@ -17,7 +17,22 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 
-		$dataTable = \lib\app\tax\coding\search::list(null, []);
+		$args = [];
+		$q = \dash\request::get('q');
+
+		$dataTable = \lib\app\tax\coding\search::list($q, $args);
+
+
+
+
+		$filterBox     = \lib\app\tax\coding\search::filter_message();
+		$isFiltered    = \lib\app\tax\coding\search::is_filtered();
+
+
+		\dash\data::filterBox($filterBox);
+		\dash\data::isFiltered($isFiltered);
+
+
 		\dash\data::dataTable($dataTable);
 
 	}
