@@ -21,7 +21,11 @@ if(count($myGallery) > 1)
     {
 ?>
               <a href='<?php echo $item['path']; ?>' data-fancybox="productGallery" class="f justify-center align-center thumb">
+               <?php if ($item['type'] === 'video') { ?>
+                <video><source src="<?php echo $item['path']; ?>" type="<?php echo $item['mime']; ?>"></video>
+               <?php } else { ?>
                 <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
+               <?php } ?>
               </a>
 <?php
     }
