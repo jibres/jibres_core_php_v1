@@ -63,7 +63,7 @@ if(!is_array($dataTable))
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
       <a class="f" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
-        <img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+        <img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>" data-size='16x9'>
         <div class="key" title='<?php echo \dash\get::index($value, 'full_slug'); ?>'><?php echo \dash\get::index($value, 'title'); ?></div>
 
             <?php if(isset($value['variants_detail']['stock'])) {?>
