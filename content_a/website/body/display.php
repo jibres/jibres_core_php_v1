@@ -1,9 +1,9 @@
 
 
 <?php if(\dash\data::bodyLineList()) {?>
-<form data-sortable method="post">
+<form method="post">
 <nav class="items">
-  <ul class="sortable">
+  <ul class="sortable" data-sortable>
   <?php foreach (\dash\data::bodyLineList() as $key => $value) {?>
 
      <li>
