@@ -37,7 +37,7 @@ class check
 
 		if(is_numeric($data['details_id']))
 		{
-			$load_assistant = \lib\db\tax_coding\get::by_id($data['assistant_id']);
+			$load_assistant = \lib\db\tax_coding\get::by_id($data['details_id']);
 			if(isset($load_assistant['type']) && $load_assistant['type'] === 'details')
 			{
 				// ok
@@ -69,6 +69,13 @@ class check
 		if(!$data['details_id'])
 		{
 			\dash\notif::error(T_("Please choose the details"));
+			return false;
+		}
+
+
+		if(!$data['debtor'] && !$data['creditor'])
+		{
+			\dash\notif::error(T_("Please set deptor or creditor"), ['element' => ['debtor', 'creditor']]);
 			return false;
 		}
 

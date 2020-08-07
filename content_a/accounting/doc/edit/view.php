@@ -21,6 +21,14 @@ class view
 		$detail = \lib\app\tax\docdetail\get::list(\dash\request::get('id'));
 		\dash\data::docDetail($detail);
 
+		if($detail && is_array($detail))
+		{
+			$summary = [];
+			$summary['debtor'] = array_sum(array_column($detail, 'debtor'));
+			$summary['creditor'] = array_sum(array_column($detail, 'creditor'));
+			\dash\data::summary($summary);
+		}
+
 	}
 }
 ?>

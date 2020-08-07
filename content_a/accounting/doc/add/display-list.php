@@ -27,6 +27,13 @@
 
        </table>
     </div>
+    <footer>
+      <div class="f">
+        <div class="cauto"><?php echo T_("Debtor") ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::summary_debtor()); ?></span></div>
+        <div class="c"></div>
+        <div class="cauto"><?php echo T_("Creditor") ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::summary_creditor()); ?></span></div>
+      </div>
+    </footer>
   </div>
 <?php } //endif ?>
 
