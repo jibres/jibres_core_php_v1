@@ -10,6 +10,7 @@
              <th><?php echo T_("Description") ?></th>
              <th><?php echo T_("Debtor") ?></th>
              <th><?php echo T_("Creditor") ?></th>
+             <th class="collapsing"></th>
            </tr>
          </thead>
          <tbody>
@@ -21,6 +22,7 @@
               <td><?php echo \dash\get::index($value, 'desc') ?></td>
               <td><?php echo \dash\fit::number(\dash\get::index($value, 'debtor')) ?></td>
               <td><?php echo \dash\fit::number(\dash\get::index($value, 'creditor')) ?></td>
+              <td class="collapsing"><div data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></div></td>
             </tr>
            <?php } //endfor ?>
          </tbody>

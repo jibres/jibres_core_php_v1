@@ -6,13 +6,13 @@ class model
 	public static function post()
 	{
 
-		if(\dash\request::post('remove') === 'remove')
+		if(\dash\request::post('remove') === 'removedetail')
 		{
-			\lib\app\tax\doc\remove::remove(\dash\request::get('id'));
+			\lib\app\tax\docdetail\remove::remove(\dash\request::post('docdetailid'));
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::that());
+				\dash\redirect::pwd();
 			}
 			return;
 		}
