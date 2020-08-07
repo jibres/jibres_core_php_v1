@@ -52,10 +52,8 @@
 
 
 	<?php if(\dash\data::productList()) {?>
-		<div class="row mT10">
 			<?php \lib\website::product_list(\dash\data::productList(), 2); ?>
 
-		</div>
 		<?php \dash\utility\pagination::html(); ?>
 	<?php } //endif ?>
 

@@ -25,7 +25,7 @@ class view
 				'order'        => \dash\request::get('order'),
 				'sort'         => \dash\request::get('sort'),
 				'cat_id'       => \dash\data::dataRow_id(),
-
+				'limit'        => 50,
 			];
 
 			$myProductList = \lib\app\product\search::variant_list(null, $args);

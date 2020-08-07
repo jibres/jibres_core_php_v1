@@ -16,7 +16,7 @@ class product_type2
 
 		foreach ($_productList as $key => $myProduct)
 		{
-			echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
+			echo '<div class="c-xs-6 c-sm-4 c-md-3 c-lg-3 c-xl-2">';
 			self::create_element_product_2($myProduct);
 			echo '</div>';
 		}
