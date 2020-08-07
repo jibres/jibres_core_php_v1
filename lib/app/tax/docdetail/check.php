@@ -55,7 +55,7 @@ class check
 				'title'  => $data['details_id'],
 				'parent' => $load_assistant['id'],
 				'type'   => 'details',
-				'code'   => (string) rand(11, 99),
+				'code'   => \lib\app\tax\coding\get::generate_code_details($data['assistant_id']),
 			];
 
 			$id = \lib\app\tax\coding\add::add($add);

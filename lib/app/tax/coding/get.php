@@ -4,6 +4,22 @@ namespace lib\app\tax\coding;
 
 class get
 {
+	public static function generate_code_details($_assistant_id)
+	{
+		$last_code = \lib\db\tax_coding\get::last_code_assistant($_assistant_id);
+		if(!$last_code)
+		{
+			return '10'; // first detail item in thsi assistant
+		}
+		else
+		{
+			$code = substr($last_code, -2);
+			$code = intval($code) + 1;
+			return (string) $code;
+		}
+
+	}
+
 	public static function parent_list($_type)
 	{
 		switch ($_type)
