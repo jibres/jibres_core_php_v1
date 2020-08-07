@@ -84,7 +84,7 @@ $productDataRow = \dash\data::productDataRow();
 
       <?php if(!\dash\data::productIsDeleted()) {?>
         <footer class="txtRa">
-          <div class="btn danger"  data-confirm data-data='{"delete":"product"}'><?php echo T_("Remove product"); ?></div>
+          <div class="btn linkDel"  data-confirm data-data='{"delete":"product"}'><?php echo T_("Remove product"); ?></div>
         </footer>
      <?php } //endif ?>
       </section>
