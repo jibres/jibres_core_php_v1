@@ -21,6 +21,9 @@ class gallery
 				if(isset($value['path']))
 				{
 					$gallery_raw[$key]['path'] = \lib\filepath::fix($value['path']);
+					$ext = substr(strrchr($value['path'], '.'), 1);
+					$gallery_raw[$key]['ext'] = $ext;
+
 				}
 
 				if(isset($value['id']))
