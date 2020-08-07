@@ -101,7 +101,7 @@ class guard
 			}
 			else
 			{
-				$csp .= "frame-ancestors self ". self::csp_domain('*', 'jibres'). " ". \dash\url::set_subdomain('*'). "; ";
+				$csp .= "frame-ancestors self ". self::csp_domain('*', 'jibres'). " ". \dash\url::site(). " ". \dash\url::set_subdomain('*'). "; ";
 				// $csp .= "frame-ancestors 'none'; ";
 			}
 		}
