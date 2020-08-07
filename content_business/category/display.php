@@ -42,7 +42,7 @@
 					<div><?php echo \dash\data::dataRow_desc(); ?></div>
 				</div>
 				<div class="c-3 c-xs-12">
-					<img class="w300" src="<?php echo \dash\data::dataRow_file(); ?>">
+					<img class="w300" src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
 				</div>
 			</div>
 		</div>
