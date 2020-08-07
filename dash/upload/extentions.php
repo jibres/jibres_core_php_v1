@@ -3,15 +3,7 @@ namespace dash\upload;
 
 class extentions
 {
-
-	/**
-	 * Get the MIME and type of file extension.
-	 * @param string $_ext File extension
-	 * @access public
-	 * @return string MIME type of file.
-	 * @static
-	 */
-	public static function check($_file_addr, $_ext = null, $_meta = [])
+	private static function mime()
 	{
 		$mimes =
 		[
@@ -90,6 +82,19 @@ class extentions
 			'csv'      => [ 'allow' => true,	'type' => 'file',       'mime' => 'text/csv'],
 
 		];
+
+		return $mimes;
+	}
+	/**
+	 * Get the MIME and type of file extension.
+	 * @param string $_ext File extension
+	 * @access public
+	 * @return string MIME type of file.
+	 * @static
+	 */
+	public static function check($_file_addr, $_ext = null, $_meta = [])
+	{
+		$mimes = self::mime();
 
 
 		// only accept valid files
@@ -170,6 +175,17 @@ class extentions
 		\finfo_close($finfo);
 		return $result;
 
+	}
+
+
+	public static function get_mime_ext($_ext)
+	{
+		$mime = self::mime();
+		if(isset($mime[$_ext]))
+		{
+			return $mime[$_ext];
+		}
+		return false;
 	}
 }
 ?>

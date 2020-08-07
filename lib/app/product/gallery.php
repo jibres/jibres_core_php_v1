@@ -23,13 +23,17 @@ class gallery
 					$gallery_raw[$key]['path'] = \lib\filepath::fix($value['path']);
 					$ext = substr(strrchr($value['path'], '.'), 1);
 					$gallery_raw[$key]['ext'] = $ext;
-					if(in_array($ext, ['jpg', 'png', 'gif']))
+
+
+					$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+					if(isset($mime_detail['type']))
 					{
-						$gallery_raw[$key]['media_type'] = 'image';
+						$gallery_raw[$key]['type'] = $mime_detail['type'];
 					}
-					elseif($ext === 'mp4')
+
+					if(isset($mime_detail['mime']))
 					{
-						$gallery_raw[$key]['media_type'] = 'video';
+						$gallery_raw[$key]['mime'] = $mime_detail['mime'];
 					}
 				}
 
