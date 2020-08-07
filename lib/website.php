@@ -204,10 +204,6 @@ class website
 			{
 				echo '<div class="btnAddCart" data-action="'. \dash\url::kingdom(). '/cart" data-ajaxify data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\'>+</div>';
 			}
-			else
-			{
-				echo '<div class="btnAddCart disabled">+</div>';
-			}
 			// show title
 			{
 				echo '<div class="title">';
@@ -278,33 +274,36 @@ class website
 			{
 				echo '<div class="btnAddCart" data-action="'. \dash\url::kingdom(). '/cart" data-ajaxify data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\'>+</div>';
 			}
-			else
-			{
-				echo '<div class="btnAddCart disabled">+</div>';
-			}
-			// show title
-			{
-				echo '<div class="title">';
-				echo $title;
-				echo '</div>';
-			}
+
 			// show price line
-			echo '<footer class="f">';
+			echo '<footer>';
 			{
-				echo '<span class="unit cauto">';
-				echo $currency;
-				echo '</span>';
-
-				echo '<span class="price c">';
-				echo $price;
-				echo '</span>';
-
-				if($discount)
+				// show title
 				{
-					echo '<del class="compareAtPrice cauto os">';
-					echo $compareAtPrice;
-					echo '</del>';
+					echo '<figcaption>';
+					echo $title;
+					echo '</figcaption>';
 				}
+
+				echo '<div class="f align-center">';
+				{
+					echo '<span class="unit cauto">';
+					echo $currency;
+					echo '</span>';
+
+					echo '<span class="price c">';
+					echo $price;
+					echo '</span>';
+
+					if($discount)
+					{
+						echo '<del class="compareAtPrice cauto os">';
+						echo $compareAtPrice;
+						echo '</del>';
+					}
+				}
+				echo '</div>';
+
 			}
 			echo '</footer>';
 
