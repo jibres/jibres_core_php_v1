@@ -18,6 +18,9 @@ class view
 		\dash\data::assistantList(\lib\app\tax\coding\get::list_of('assistant'));
 		\dash\data::detailsList(\lib\app\tax\coding\get::list_of('details'));
 
+		$detail = \lib\app\tax\docdetail\get::list(\dash\request::get('id'));
+		\dash\data::docDetail($detail);
+
 	}
 }
 ?>

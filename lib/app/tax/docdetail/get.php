@@ -7,7 +7,7 @@ class get
 
 
 
-	public static function get($_id)
+	public static function list($_id)
 	{
 		$id = \dash\validate::id($_id);
 
@@ -16,15 +16,16 @@ class get
 			return false;
 		}
 
-		$result = \lib\db\tax_docdetail\get::by_id($id);
+		$result = \lib\db\tax_docdetail\get::by_doc_id($id);
 
-		if(!$result)
+		if(!is_array($result))
 		{
-			\dash\notif::error(T_("Invalid id"));
-			return false;
+			$result = [];
 		}
 
-		$result = \lib\app\tax\docdetail\ready::row($result);
+		$result = array_map(['\\lib\\app\\tax\\docdetail\\ready', 'row'], $result);
+
+
 		return $result;
 	}
 
