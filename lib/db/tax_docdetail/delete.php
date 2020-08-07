@@ -13,5 +13,14 @@ class delete
 
 	}
 
+
+	public static function by_doc_id($_id)
+	{
+		$query  = "DELETE FROM tax_docdetail WHERE tax_docdetail.tax_document_id = $_id ";
+		$result = \dash\db::query($query);
+		return $result;
+
+	}
+
 }
 ?>

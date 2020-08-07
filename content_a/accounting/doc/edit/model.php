@@ -5,6 +5,16 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('remove') === 'remove')
+		{
+			\lib\app\tax\doc\remove::remove(\dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
+			return;
+		}
 
 		if(\dash\request::post('remove') === 'removedetail')
 		{
