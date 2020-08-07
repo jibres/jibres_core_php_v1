@@ -11,7 +11,7 @@
 			<tbody>
 				<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 					<tr>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'code') ?></td>
+						<td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
 						<td><?php echo \dash\get::index($value, 'title') ?></td>
 						<td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
 					</tr>

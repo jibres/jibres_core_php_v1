@@ -128,6 +128,16 @@ class check
 			$data['code'] = $load_parent['code']. $data['code'];
 		}
 
+		if($data['code'])
+		{
+			$check_duplicate = \lib\db\tax_coding\get::by_code($data['code']);
+			if(isset($check_duplicate['id']))
+			{
+				\dash\notif::error(T_("Duplicate code. Try another code"));
+				return false;
+			}
+		}
+
 		unset($data['parent']);
 
 		return $data;
