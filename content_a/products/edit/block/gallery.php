@@ -12,12 +12,12 @@
           <div class="previewList">
             <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
                 <div class="fileItem" data-removeElement data-type='<?php echo \dash\get::index($value, 'type'); ?>'>
-                  <?php if(\dash\get::index($value, 'type') === 'image') {?>
-                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($productDataRow, 'title'); ?>">
-                  <?php } else { ?>
+                  <?php if(\dash\get::index($value, 'type') === 'video') {?>
                     <video controls>
                       <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="<?php echo \dash\get::index($value, 'mime'); ?>">
                     </video>
+                  <?php } else { ?>
+                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($productDataRow, 'title'); ?>">
                   <?php } ?>
                   <div>
                     <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>

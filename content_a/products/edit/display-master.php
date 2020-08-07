@@ -26,7 +26,7 @@
   <?php } //endif ?>
     <?php if(!\dash\detect\device::detectPWA()) {?>
     <div class="box">
-      <div class="pad">
+      <div class="pad ovv">
         <textarea name="desc" data-editor class="txt" rows="3" maxlength="2000" placeholder='<?php echo T_("Description about product"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'desc'); ?></textarea>
       </div>
     </div>
