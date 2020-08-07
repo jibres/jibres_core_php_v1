@@ -18,6 +18,8 @@ class extentions
 			'mp3'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/mpeg'],
 			'wav'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/x-wav'],
 			'ogg'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/ogg'],
+
+
 			'wma'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/x-ms-wma'],
 			'm4a'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/x-m4a'],
 			'aac'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/aac'],
@@ -32,6 +34,9 @@ class extentions
 			// pdf
 			'pdf'      => [ 'allow' => true,	'type' => 'pdf',        'mime' => 'application/pdf'],
 			// video
+
+			'ogv'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'audio/ogg'],
+			'webm'     => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/webm'],
 			'mpeg'     => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],
 			'mpg'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],
 			'mp4'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mp4'],
