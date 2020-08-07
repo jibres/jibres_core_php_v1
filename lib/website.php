@@ -128,7 +128,7 @@ class website
 
 
 
-	public static function product_list($_productList)
+	public static function product_list($_productList, $_type = 1)
 	{
 		if(!$_productList || !is_array($_productList))
 		{
@@ -161,7 +161,18 @@ class website
 
 			echo '<div class="productBox">';
 			{
-				self::create_element_product_2($myProduct);
+				if($_type === 1)
+				{
+					self::create_element_product_1($myProduct);
+				}
+				elseif($_type === 2)
+				{
+					self::create_element_product_2($myProduct);
+				}
+				else
+				{
+					self::create_element_product_1($myProduct);
+				}
 			}
 			echo '</div>';
 			echo '</div>';
