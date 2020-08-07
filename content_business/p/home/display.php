@@ -58,7 +58,7 @@ if(count($myGallery) > 1)
             <div><?php echo T_(":val out of 5", ['val' => \dash\fit::number(\dash\data::customerReview_avg())]) ?></div>
             <div><?php echo T_(":val Reviews", ['val' => \dash\fit::number(\dash\data::customerReview_count())]); ?></div>
             <?php } //endif ?>
-            <?php if(\dash\data::dataRow_stock()) {?>
+            <?php if(\dash\data::dataRow_stock() > 0) {?>
             <div><?php echo T_(":val Stock", ['val' => \dash\fit::number(\dash\data::dataRow_stock())]); ?></div>
           <?php } //endif ?>
           </div>
