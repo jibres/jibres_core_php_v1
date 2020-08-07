@@ -12,35 +12,12 @@ class product_type2
 			return;
 		}
 
-		echo '<div class="row padLess';
-		if(\dash\detect\device::detectPWA())
-		{
-			echo " horizontalScroll nowrap";
-		}
-		echo '"';
-		if(!\dash\detect\device::detectPWA())
-		{
-			// $opt = '{"slidesToShow": 4, "slidesToScroll": 3}';
-			echo " data-slider='product'";
-		}
-		echo '>';
+		echo '<div class="row padLess">';
 
 		foreach ($_productList as $key => $myProduct)
 		{
-			if(\dash\detect\device::detectPWA())
-			{
-				echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
-			}
-			else
-			{
-				echo '<div>';
-			}
-
-			echo '<div class="productBox">';
-			{
-				self::create_element_product_2($myProduct);
-			}
-			echo '</div>';
+			echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">';
+			self::create_element_product_2($myProduct);
 			echo '</div>';
 		}
 
