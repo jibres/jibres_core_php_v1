@@ -40,7 +40,7 @@ class ready
 				case 'file':
 					if(!$value)
 					{
-						if(\dash\url::content() !== 'a')
+						// if(\dash\url::content() !== 'a')
 						{
 							$value = \dash\app::static_image_url('wide');
 						}
