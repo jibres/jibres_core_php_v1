@@ -11,8 +11,14 @@
         <?php if(\dash\data::productDataRow_gallery_array()) {?>
           <div class="previewList">
             <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
-                <div class="fileItem" data-removeElement>
-                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
+                <div class="fileItem" data-removeElement data-type='<?php echo \dash\get::index($value, 'type'); ?>'>
+                  <?php if(\dash\get::index($value, 'type') === 'image') {?>
+                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($productDataRow, 'title'); ?>">
+                  <?php } else { ?>
+                    <video controls>
+                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="">
+                    </video>
+                  <?php } ?>
                   <div>
                     <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
                     <?php if($key === 0) {?>
