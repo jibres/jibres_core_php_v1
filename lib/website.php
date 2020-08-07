@@ -117,7 +117,7 @@ class website
 			echo '<div class="c-xs-6 c-sm-4 c-md-2 ">';
 			echo '<div class="productBox">';
 			{
-				self::product_element_create($myProduct);
+				self::create_element_product_1($myProduct);
 			}
 			echo '</div>';
 			echo '</div>';
@@ -161,7 +161,7 @@ class website
 
 			echo '<div class="productBox">';
 			{
-				self::product_element_create($myProduct);
+				self::create_element_product_2($myProduct);
 			}
 			echo '</div>';
 			echo '</div>';
@@ -171,7 +171,7 @@ class website
 	}
 
 
-	private static function product_element_create($_item)
+	private static function create_element_product_1($_item)
 	{
 		$id              = \dash\get::index($_item, 'id');
 		$title           = \dash\get::index($_item, 'title');
@@ -237,5 +237,81 @@ class website
 		}
 		echo '</a>';
 	}
+
+
+
+
+	private static function create_element_product_2($_item)
+	{
+		$id              = \dash\get::index($_item, 'id');
+		$title           = \dash\get::index($_item, 'title');
+		$image           = \dash\get::index($_item, 'thumb');
+
+		$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
+		$discount        = \dash\get::index($_item, 'discount');
+		$discountpercent = \dash\get::index($_item, 'discountpercent');
+		$compareAtPrice = \dash\get::index($_item, 'price');
+		$compareAtPrice = \dash\fit::number($compareAtPrice);
+
+
+		$unit            = \dash\get::index($_item, 'unit');
+		$allow_shop      = \dash\get::index($_item, 'allow_shop');
+		$currency        = \lib\store::currency();
+
+		echo '<a class="jProduct2" href="'. \dash\get::index($_item, 'url'). '">';
+		{
+			echo '<figure class="overlay">';
+			{
+				echo '<img src="'. $image. '" alt="'. $title. '">';
+
+			}
+			if($discountpercent)
+			{
+				echo '<span class="discount">';
+				echo '-';
+				echo \dash\fit::price($discountpercent);
+				echo '%';
+				echo '</span>';
+			}
+
+			if($allow_shop)
+			{
+				echo '<div class="btnAddCart" data-action="'. \dash\url::kingdom(). '/cart" data-ajaxify data-data=\'{"cart": "add", "count": 1, "product_id": "'. $id. '"}\'>+</div>';
+			}
+			else
+			{
+				echo '<div class="btnAddCart disabled">+</div>';
+			}
+			// show title
+			{
+				echo '<div class="title">';
+				echo $title;
+				echo '</div>';
+			}
+			// show price line
+			echo '<footer class="f">';
+			{
+				echo '<span class="unit cauto">';
+				echo $currency;
+				echo '</span>';
+
+				echo '<span class="price c">';
+				echo $price;
+				echo '</span>';
+
+				if($discount)
+				{
+					echo '<del class="compareAtPrice cauto os">';
+					echo $compareAtPrice;
+					echo '</del>';
+				}
+			}
+			echo '</footer>';
+
+			echo '</figure>';
+		}
+		echo '</a>';
+	}
+
 }
 ?>
