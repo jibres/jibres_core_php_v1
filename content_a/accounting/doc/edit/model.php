@@ -24,7 +24,7 @@ class model
 			[
 				'tax_document_id' => \dash\request::get('id'),
 				'debtor'          => \dash\request::post('debtor'),
-				'desc'          => \dash\request::post('desc'),
+				'desc'            => \dash\request::post('desc'),
 				'creditor'        => \dash\request::post('creditor'),
 				'assistant_id'    => \dash\request::post('assistant_id'),
 				'details_id'      => \dash\request::post('details_id'),

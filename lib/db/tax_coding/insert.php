@@ -21,7 +21,7 @@ class insert
 			$query = " INSERT INTO `tax_coding` SET $set ";
 			if(\dash\db::query($query))
 			{
-				return true;
+				return \dash\db::insert_id();
 			}
 			else
 			{

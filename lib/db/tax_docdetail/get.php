@@ -15,8 +15,23 @@ class get
 
 	public static function by_doc_id($_id)
 	{
-		$query = "SELECT * FROM tax_docdetail WHERE tax_docdetail.tax_document_id = $_id ";
+		$query =
+		"
+			SELECT
+				tax_docdetail.*,
+				assistant.title AS `assistant_title`,
+				assistant.code AS `assistant_code`,
+				details.title AS `details_title`,
+				details.code AS `details_code`
+			FROM
+				tax_docdetail
+			LEFT JOIN tax_coding AS `assistant` ON assistant.id = tax_docdetail.assistant_id
+			LEFT JOIN tax_coding AS `details` ON details.id = tax_docdetail.details_id
+			WHERE
+				tax_docdetail.tax_document_id = $_id
+		";
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 

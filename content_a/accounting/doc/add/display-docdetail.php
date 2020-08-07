@@ -18,7 +18,7 @@
 
         <?php if(\dash\data::detailsList()) {?>
           <label for="details_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-          <select class="select22" name="details_id">
+          <select class="select22" data-model='tag' name="details_id">
             <option value=""><?php echo T_("Please choose details_id") ?></option>
             <?php foreach (\dash\data::detailsList() as $key => $value) {?>
               <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
@@ -26,7 +26,7 @@
           </select>
         <?php } // endif ?>
 
-      	<label for="desc"><?php echo T_("Descrtiption") ?></label>
+      	<label for="desc"><?php echo T_("Description") ?></label>
       	<div class="input">
       		<input type="text" name="desc">
       	</div>
