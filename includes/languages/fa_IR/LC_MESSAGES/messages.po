@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-07 11:44+0430\n"
-"PO-Revision-Date: 2020-08-07 11:52+0430\n"
+"POT-Creation-Date: 2020-08-07 13:14+0430\n"
+"PO-Revision-Date: 2020-08-07 13:15+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3645,17 +3645,18 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/accounting/coding/edit/view.php:12 content_a/accounting/coding/view.php:12
 #: content_a/accounting/doc/add/view.php:12 content_a/accounting/doc/edit/view.php:12
 #: content_a/accounting/doc/view.php:12 content_a/accounting/home/view.php:12
-#: content_a/android/apk/view.php:12 content_a/android/download/view.php:12
-#: content_a/android/home/view.php:12 content_a/android/intro/view.php:12
-#: content_a/android/logo/view.php:12 content_a/android/review/view.php:12
-#: content_a/android/splash/view.php:12 content_a/android/title/view.php:12
-#: content_a/cart/add/view.php:18 content_a/cart/home/view.php:12
-#: content_a/cart/user/view.php:13 content_a/category/property/view.php:17
-#: content_a/company/view.php:30 content_a/company/view.php:37
-#: content_a/irvat/add/view.php:12 content_a/irvat/all/view.php:12
-#: content_a/irvat/choosetype/view.php:12 content_a/irvat/edit/view.php:12
-#: content_a/irvat/home/view.php:12 content_a/products/bullet/view.php:23
-#: content_a/products/cartlimit/view.php:22 content_a/products/comment/answer/view.php:21
+#: content_a/accounting/report/detail/view.php:12 content_a/android/apk/view.php:12
+#: content_a/android/download/view.php:12 content_a/android/home/view.php:12
+#: content_a/android/intro/view.php:12 content_a/android/logo/view.php:12
+#: content_a/android/review/view.php:12 content_a/android/splash/view.php:12
+#: content_a/android/title/view.php:12 content_a/cart/add/view.php:18
+#: content_a/cart/home/view.php:12 content_a/cart/user/view.php:13
+#: content_a/category/property/view.php:17 content_a/company/view.php:30
+#: content_a/company/view.php:37 content_a/irvat/add/view.php:12
+#: content_a/irvat/all/view.php:12 content_a/irvat/choosetype/view.php:12
+#: content_a/irvat/edit/view.php:12 content_a/irvat/home/view.php:12
+#: content_a/products/bullet/view.php:23 content_a/products/cartlimit/view.php:22
+#: content_a/products/comment/answer/view.php:21
 #: content_a/products/comment/edit/view.php:21 content_a/products/comment/view.php:24
 #: content_a/products/comment/view.php:31 content_a/products/desc/view.php:23
 #: content_a/products/duplicate/view.php:22 content_a/products/inventory/view.php:22
@@ -4030,18 +4031,22 @@ msgid "Add"
 msgstr "افزودن"
 
 #: content_a/accounting/coding/add/display-choose.php:8
+#: content_a/accounting/report/detail/display.php:10
 msgid "Accounting Group"
 msgstr "گروه"
 
 #: content_a/accounting/coding/add/display-choose.php:17
+#: content_a/accounting/report/detail/display.php:11
 msgid "Accounting total"
 msgstr "کل"
 
 #: content_a/accounting/coding/add/display-choose.php:26
+#: content_a/accounting/report/detail/display.php:12
 msgid "Accounting assistant"
 msgstr "معین"
 
 #: content_a/accounting/coding/add/display-choose.php:35
+#: content_a/accounting/report/detail/display.php:13
 msgid "Accounting details"
 msgstr "تفصیل"
 
@@ -4208,12 +4213,14 @@ msgstr "لطفا کد تفصیل را وارد کنید"
 #: content_a/accounting/doc/add/display-docdetail.php:35
 #: content_a/accounting/doc/add/display-list.php:11
 #: content_a/accounting/doc/add/display-list.php:34
+#: content_a/accounting/report/detail/display.php:14
 msgid "Debtor"
 msgstr "بدهکار"
 
 #: content_a/accounting/doc/add/display-docdetail.php:41
 #: content_a/accounting/doc/add/display-list.php:12
 #: content_a/accounting/doc/add/display-list.php:36
+#: content_a/accounting/report/detail/display.php:15
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -4255,9 +4262,29 @@ msgstr "سند حسابداری"
 msgid "Add Accounting Document"
 msgstr "افزودن سند حسابداری"
 
+#: content_a/accounting/home/display.php:36
+msgid "Report on detail level"
+msgstr "گزارش در سطح تفصیل"
+
 #: content_a/accounting/home/view.php:9
 msgid "Accounting"
 msgstr "حسابداری"
+
+#: content_a/accounting/report/detail/display.php:3
+msgid "No detail was founded"
+msgstr "هیچ جزئياتی یافت نشد"
+
+#: content_a/accounting/report/detail/display.php:16
+msgid "Remain Debtor"
+msgstr "مانده بدهکار"
+
+#: content_a/accounting/report/detail/display.php:17
+msgid "Remain Creditor"
+msgstr "مانده بستانکار"
+
+#: content_a/accounting/report/detail/view.php:9
+msgid "Accounting report detail"
+msgstr "گزارش تفصیل"
 
 #: content_a/android/apk/display.php:8
 msgid "Your Store Android Application Status"
@@ -18534,25 +18561,25 @@ msgstr "ارتباط با مدیریت"
 msgid "application"
 msgstr "برنامه"
 
-#: dash/app/posts.php:286 lib/app/irvat/gallery.php:113 lib/app/product/gallery.php:181
+#: dash/app/posts.php:286 lib/app/irvat/gallery.php:113 lib/app/product/gallery.php:195
 msgid "File detail not found"
 msgstr "جزئیات فایل یافت نشد"
 
-#: dash/app/posts.php:298 lib/app/irvat/gallery.php:125 lib/app/product/gallery.php:193
+#: dash/app/posts.php:298 lib/app/irvat/gallery.php:125 lib/app/product/gallery.php:207
 msgid "Duplicate file in this gallery"
 msgstr "این فایل در گالری تصاویر فعلی موجود است"
 
-#: dash/app/posts.php:317 lib/app/product/gallery.php:217
+#: dash/app/posts.php:317 lib/app/product/gallery.php:231
 msgid "Maximum count of gallery file is 10"
 msgstr "حداکثر تعداد فایل در گالری ۱۰ فایل است"
 
-#: dash/app/posts.php:328 lib/app/irvat/gallery.php:157 lib/app/product/gallery.php:91
-#: lib/app/product/gallery.php:230
+#: dash/app/posts.php:328 lib/app/irvat/gallery.php:157 lib/app/product/gallery.php:105
+#: lib/app/product/gallery.php:244
 msgid "Invalid file id"
 msgstr "شناسه فایل اشتباه است"
 
-#: dash/app/posts.php:348 lib/app/irvat/gallery.php:177 lib/app/product/gallery.php:149
-#: lib/app/product/gallery.php:250
+#: dash/app/posts.php:348 lib/app/irvat/gallery.php:177 lib/app/product/gallery.php:163
+#: lib/app/product/gallery.php:264
 msgid "Invalid gallery id"
 msgstr "شناسه گالری تصاویر اشتباه است"
 
@@ -20311,7 +20338,7 @@ msgstr "جزئیات بیشتر"
 msgid "Category id not set"
 msgstr "شناسه دسته‌بندی تنظیم نشده"
 
-#: dash/upload/extentions.php:150
+#: dash/upload/extentions.php:155
 msgid "Content type of this file is different by extension of file"
 msgstr "نوع محتوای فایل بارگذاری شده با پسوند فایل همخوانی ندارد"
 
@@ -26495,7 +26522,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 
 #: lib/app/cart/add.php:48 lib/app/cart/checkout.php:20 lib/app/category/remove.php:28
 #: lib/app/irvat/gallery.php:90 lib/app/product/company.php:21
-#: lib/app/product/gallery.php:97 lib/app/product/gallery.php:158
+#: lib/app/product/gallery.php:111 lib/app/product/gallery.php:172
 #: lib/app/product/remove.php:10 lib/app/product/unit.php:21
 #: lib/app/product/updateprice.php:154 lib/app/product/variants.php:84
 #: lib/app/product/variants.php:258 lib/app/product/variants.php:275
@@ -27092,12 +27119,12 @@ msgstr "فاکتور به‌روزرسانی شد"
 msgid "Can not update your irvat"
 msgstr "نمی‌توانید فاکتور خود را ویرایش کنید"
 
-#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:48 lib/app/product/get.php:49
+#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:62 lib/app/product/get.php:49
 #: lib/app/product/get.php:96
 msgid "Product detail not found"
 msgstr "جزئیات محصول یافت نشد"
 
-#: lib/app/irvat/gallery.php:54 lib/app/product/gallery.php:54
+#: lib/app/irvat/gallery.php:54 lib/app/product/gallery.php:68
 msgid "Product gallery not found"
 msgstr "گالری محصول یافت نشد"
 
