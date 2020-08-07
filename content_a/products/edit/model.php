@@ -231,7 +231,7 @@ class model
 
 			if(isset($uploaded_file['filename']) && isset($uploaded_file['path']))
 			{
-				$result['fineName'] = $uploaded_file['filename'];
+				$result['fileName'] = $uploaded_file['filename'];
 				$result['url']      = \lib\filepath::fix($uploaded_file['path']);
 				$result['uploaded'] = 1;
 
