@@ -18,13 +18,13 @@
                     </video>
                   <?php } else { ?>
                   <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($productDataRow, 'title'); ?>">
-                  <?php } ?>
-                  <div>
-                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
                     <?php if($key === 0) {?>
                     <?php }else{ ?>
                       <div class='setFeatureImg' data-ajaxify data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></div>
                     <?php }// endid ?>
+                  <?php } ?>
+                  <div>
+                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
                   </div>
                 </div>
             <?php } //endfor ?>
