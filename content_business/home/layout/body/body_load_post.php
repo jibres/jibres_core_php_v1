@@ -1,8 +1,8 @@
 
-<div class="avand-md">
+<div class="avand">
 
 
-<div class="blogEx">
+<div class="blogEx box">
 <?php
 
 if(\dash\data::mydatarow_type() === 'post' || \dash\data::mydatarow_type() === 'page')
