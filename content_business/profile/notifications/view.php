@@ -36,6 +36,7 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
+		\dash\data::back_link(\dash\url::this());
 	}
 }
 ?>

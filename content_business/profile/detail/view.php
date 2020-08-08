@@ -15,6 +15,7 @@ class view
 			\dash\data::dataRow_birthday(\dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_birthday())));
 		}
 
+		\dash\data::back_link(\dash\url::this());
 	}
 }
 ?>

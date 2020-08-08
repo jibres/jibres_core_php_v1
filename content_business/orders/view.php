@@ -10,6 +10,8 @@ class view
 
 		$my_orders = \lib\app\factor\search::my_orders();
 		\dash\data::dataTable($my_orders);
+
+		\dash\data::back_link(\dash\url::kingdom());
 	}
 }
 ?>
