@@ -72,11 +72,11 @@ if(\dash\data::googleAnalytics())
  <meta content="<?php echo \dash\face::site(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\face::site(); ?>" name="apple-mobile-web-app-title"/>
 <?php if(\dash\engine\store::inStore()) {?>
- <link href="<?php echo \lib\store::logo();?>" type="image/png" rel="icon"/>
- <link href="<?php echo \lib\store::logo();?>" rel="shortcut icon"/>
- <link href="<?php echo \lib\store::logo();?>" rel="apple-touch-startup-image"/>
+ <link href="<?php echo \lib\store::logo();?>?v=1" type="image/png" rel="icon"/>
+ <link href="<?php echo \lib\store::logo();?>?v=1" rel="shortcut icon"/>
+ <link href="<?php echo \lib\store::logo();?>?v=1" rel="apple-touch-startup-image"/>
+ <link href="<?php echo \lib\store::logo();?>?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
-
 <?php } else {?>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
