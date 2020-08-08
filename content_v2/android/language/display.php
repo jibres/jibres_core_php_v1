@@ -1,6 +1,6 @@
 
 <style>
- body{background-color: #f9e7e0;}
+ body[data-page="android_language"]{background-color: #f9e7e0!important;}
  #android_chooseLang.cn{width:82%!important;max-width: 400px!important;min-width: 260px!important;}
  #android_chooseLang header{padding: 20vh 0 30px;}
  #android_chooseLang h1 {font-weight: 900;color:#000;font-size:20px;}
