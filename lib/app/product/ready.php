@@ -93,12 +93,28 @@ class ready
 						}
 						else
 						{
-							$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
+							if(isset($value))
+							{
+								$result[$key] = \lib\filepath::fix($value);
+							}
+							else
+							{
+								$result[$key] = \dash\app::static_image_url();
+								$result['thumb_default'] = true;
+							}
 						}
 					}
 					else
 					{
-						$result[$key] = isset($value) ? \lib\filepath::fix($value) : \dash\app::static_image_url();
+						if(isset($value))
+						{
+							$result[$key] = \lib\filepath::fix($value);
+						}
+						else
+						{
+							$result[$key] = \dash\app::static_image_url();
+							$result['thumb_default'] = true;
+						}
 					}
 					break;
 

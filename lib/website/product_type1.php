@@ -53,6 +53,7 @@ class product_type1
 		$id              = \dash\get::index($_item, 'id');
 		$title           = \dash\get::index($_item, 'title');
 		$image           = \dash\get::index($_item, 'thumb');
+		$imageIsDefault  = \dash\get::index($_item, 'thumb_default');
 
 		$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
 		$discount        = \dash\get::index($_item, 'discount');
@@ -67,7 +68,15 @@ class product_type1
 
 		echo '<a class="jProduct1" href="'. \dash\get::index($_item, 'url'). '">';
 		{
-			echo '<div class= "cover"><img src="'. $image. '" alt="'. $title. '"></div>';
+			echo '<div class= "cover"';
+			if($imageIsDefault)
+			{
+				echo ' data-gr="'.rand(1, 60).'"';
+			}
+			echo ">";
+			echo '<img src="'. $image. '" alt="'. $title. '">';
+			echo '</div>';
+
 			if($discountpercent)
 			{
 				echo '<span class="discount">';
