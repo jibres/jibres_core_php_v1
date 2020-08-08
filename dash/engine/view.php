@@ -25,6 +25,8 @@ class view
 		$myPage = preg_replace('/[^\00-\255]+/u', '', $myPage);
 		// remove multi dash
 		$myPage = preg_replace('/\-{2,}/', '', $myPage);
+		// change slash to underscore
+		$myPage = str_replace('/', '_', $myPage);
 
 		\dash\data::global_page($myPage);
 		if(!\dash\data::global_page() && \dash\url::module() === null)
