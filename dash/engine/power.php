@@ -22,11 +22,11 @@ class power
 		// detect language and if need set the new language
 		\dash\language::detect_language();
 
-		// find store detail and set to connect to true store
-		\dash\engine\store::config();
 
 		\dash\engine\prepare::basics();
 
+		// find store detail and set to connect to true store
+		\dash\engine\store::config();
 
 		// check origin
 		\dash\engine\guard::origin();
