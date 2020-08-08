@@ -62,7 +62,8 @@ class validation_file
 		}
 
 		// force convert jpeg to png
-		if(isset($_meta['force_png']) && $tmp_name)
+
+		if($fileExt !== 'png' && isset($_meta['force_png']) && $tmp_name)
 		{
 			imagepng(imagecreatefromstring(file_get_contents($tmp_name)), $tmp_name);
 			$fileExt = 'png';
