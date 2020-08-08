@@ -117,7 +117,7 @@ class website
 			echo '<div class="c-xs-6 c-sm-4 c-md-2 ">';
 			echo '<div class="productBox">';
 			{
-				self::create_element_product_1($myProduct);
+				self::product_list($myProduct, 2);
 			}
 			echo '</div>';
 			echo '</div>';
