@@ -48,6 +48,7 @@ class view
 						"https://fonts.googleapis.com/css?family=Quicksand:300,400"
 					]
 				);
+				\dash\face::twitterCard('summary_large_image');
 				break;
 
 			default:
