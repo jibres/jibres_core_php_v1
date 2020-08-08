@@ -688,13 +688,20 @@ class url
 	private static function _protocol()
 	{
 		$protocol = 'http';
-		if((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || self::server('SERVER_PORT') == 443)
+		if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']))
+		{
+			if($_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+			{
+				$protocol = 'https';
+			}
+			else
+			{
+				$protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+			}
+		}
+		elseif((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || self::server('SERVER_PORT') == 443)
 		{
 			$protocol = 'https';
-		}
-		elseif(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
-		{
-			$protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 		}
 
 		return $protocol;
