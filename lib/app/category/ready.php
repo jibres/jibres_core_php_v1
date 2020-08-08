@@ -43,6 +43,7 @@ class ready
 						// if(\dash\url::content() !== 'a')
 						{
 							$value = \dash\app::static_image_url('wide');
+							$result['file_default'] = true;
 						}
 					}
 					$result[$key] = \lib\filepath::fix($value);;

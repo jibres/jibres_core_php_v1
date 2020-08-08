@@ -5,7 +5,7 @@
 			<div class="row padLess">
 				<?php foreach ($categoryDataTable as $key => $value) {?>
     		<div class="c-xs-6 c-sm-6 c-md-4 c-lg-4 c-xl-3 c-xxl-2">
-    			<div class="roundedBox">
+    			<div class="roundedBox"<?php if(\dash\get::index($value, 'file_default') === true) { echo ' data-gr="'.rand(1, 60).'"';} ?>>
 						<a class="overlay"<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
             	<figure>
 			  				<img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
