@@ -71,7 +71,7 @@ class product_type1
 			echo '<div class= "cover"';
 			if($imageIsDefault)
 			{
-				echo ' data-gr="'.rand(1, 60).'"';
+				echo ' data-gr="'.rand(1, 20).'"';
 			}
 			echo ">";
 			echo '<img src="'. $image. '" alt="'. $title. '">';
