@@ -51,7 +51,7 @@
       </div>
 
 
-      <?php \lib\website::product_list_raw(\dash\data::dataRow_products()); ?>
+      <?php \lib\website::product_list(\dash\data::dataRow_products(), 2); ?>
     </div>
   </div>
 </div>

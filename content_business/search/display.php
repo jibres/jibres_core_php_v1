@@ -35,7 +35,7 @@
 <?php
 if(\dash\data::dataTable())
 {
- \lib\website::product_list_raw(\dash\data::dataTable());
+ \lib\website::product_list(\dash\data::dataTable(), 2);
 }
 ?>
 <?php \dash\utility\pagination::html(); ?>

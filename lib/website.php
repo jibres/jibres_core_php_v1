@@ -91,7 +91,6 @@ class website
 	}
 
 
-
 	public static function my_address_list()
 	{
 		if(!\dash\user::id())
@@ -101,31 +100,6 @@ class website
 
 		return \dash\app\address::user_address_list(\dash\user::code());
 	}
-
-
-	public static function product_list_raw($_productList)
-	{
-		if(!$_productList || !is_array($_productList))
-		{
-			return;
-		}
-
-		echo '<div class="row padLess">';
-
-		foreach ($_productList as $key => $myProduct)
-		{
-			echo '<div class="c-xs-6 c-sm-4 c-md-2 ">';
-			echo '<div class="productBox">';
-			{
-				self::product_list($myProduct, 2);
-			}
-			echo '</div>';
-			echo '</div>';
-		}
-
-		echo '</div>';
-	}
-
 
 
 	public static function product_list($_productList, $_type = 1)
