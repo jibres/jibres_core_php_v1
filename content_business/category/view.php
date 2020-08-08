@@ -13,6 +13,7 @@ class view
 			$myCategoryList = \lib\app\category\search::list(null, ['showonwebsite' => 1]);
 
 			\dash\data::categoryDataTable($myCategoryList);
+			\dash\data::search_link(\dash\url::kingdom().'/search');
 		}
 		else
 		{

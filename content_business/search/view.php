@@ -18,6 +18,7 @@ class view
 			'tag_id'      => \dash\request::get('tagid'),
 			'company_id'  => \dash\request::get('companyid'),
 			'websitemode' => true,
+			'limit'       => 30,
 		];
 
 
@@ -38,6 +39,7 @@ class view
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
+		\dash\data::back_link(\dash\url::kingdom());
 
 	}
 }
