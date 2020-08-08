@@ -30,6 +30,8 @@ class product_type2
 		$id              = \dash\get::index($_item, 'id');
 		$title           = \dash\get::index($_item, 'title');
 		$image           = \dash\get::index($_item, 'thumb');
+		$imageIsDefault  = \dash\get::index($_item, 'thumb_default');
+
 
 		$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
 		$discount        = \dash\get::index($_item, 'discount');
@@ -44,7 +46,12 @@ class product_type2
 
 		echo '<a class="jProduct2" href="'. \dash\get::index($_item, 'url'). '">';
 		{
-			echo '<figure class="overlay">';
+			echo '<figure class="overlay"';
+			if($imageIsDefault)
+			{
+				echo ' data-gr="'.rand(1, 20).'"';
+			}
+			echo ">";
 			{
 				echo '<img src="'. $image. '" alt="'. $title. '">';
 
