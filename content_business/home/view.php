@@ -8,6 +8,8 @@ class view
 	{
 		// set business logo for homepage
 		\dash\face::logoPWA(\lib\store::logo());
+
+		\dash\data::search_link(\dash\url::kingdom().'/search');
 	}
 }
 ?>
