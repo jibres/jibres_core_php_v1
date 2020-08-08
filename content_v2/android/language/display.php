@@ -28,7 +28,6 @@
   <div class="c6 pRa5">
    <a href="jibres://language/en" class="ltr langItem<?php if(\dash\request::get('device') === 'en') echo ' device'; ?>">
     <p class="hello">Hello!</p>
-    <p  class="iam">I'm Jibres</p>
     <div class="lang">English</div>
    </a>
   </div>
@@ -38,7 +37,6 @@
   <div class="c6 pLa5">
    <a href="jibres://language/fa" class="rtl langItem<?php if(\dash\request::get('device') === 'fa') echo ' device'; ?>">
     <p class="hello">سلام!</p>
-    <p class="iam">من جیبرس هستم</p>
     <div class="lang">فارسی</div>
    </a>
   </div>
