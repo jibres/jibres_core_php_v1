@@ -105,6 +105,7 @@ class find
 	public static function header()
 	{
 		$myHeader = \dash\layout\func::page_header();
+		$headerScroll = null;
 
 		// set header for some scenario
 		// if we dont have header
