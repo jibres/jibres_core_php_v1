@@ -51,6 +51,8 @@ class pwa
 
 		if(\dash\engine\store::inStore())
 		{
+			$manifest['name'] = \lib\store::title();
+			$manifest['short_name'] = \lib\store::title();
 			$manifest['icons'] = self::logo_business();
 			$manifest['start_url'] = \dash\url::kingdom(). '?utm_source=pwa';
 		}
@@ -73,8 +75,8 @@ class pwa
 		$iconsArr[] =
 		[
 			'type'  => 'image/png',
-			'sizes' => '32x32',
-			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-32.min.png',
+			// 'sizes' => '32x32',
+			'src'   => \lib\store::logo(),
 		];
 
 		return $iconsArr;
