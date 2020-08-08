@@ -53,6 +53,7 @@ class pwa
 		{
 			$manifest['name'] = \lib\store::title();
 			$manifest['short_name'] = \lib\store::title();
+			$manifest['description'] = \lib\store::desc();
 			$manifest['icons'] = self::logo_business();
 			$manifest['start_url'] = \dash\url::kingdom(). '?utm_source=pwa';
 		}
