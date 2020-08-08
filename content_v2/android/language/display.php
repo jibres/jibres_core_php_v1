@@ -23,6 +23,8 @@
  </header>
 
  <div class="f">
+<?php //todo @reza change coniditon with allowed language ?>
+<?php if(\dash\language::current() === 'en') {?>
   <div class="c6 pRa5">
    <a href="jibres://language/en" class="ltr langItem<?php if(\dash\request::get('device') === 'en') echo ' device'; ?>">
     <p class="hello">Hello!</p>
@@ -31,6 +33,8 @@
    </a>
   </div>
 
+<?php } ?>
+<?php if(\dash\language::current() === 'fa') {?>
   <div class="c6 pLa5">
    <a href="jibres://language/fa" class="rtl langItem<?php if(\dash\request::get('device') === 'fa') echo ' device'; ?>">
     <p class="hello">سلام!</p>
@@ -38,5 +42,6 @@
     <div class="lang">فارسی</div>
    </a>
   </div>
+<?php } ?>
  </div>
 </div>
