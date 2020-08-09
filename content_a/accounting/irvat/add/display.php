@@ -140,6 +140,42 @@
 
       <div class="c-xs-12 c-sm-6 c-md-4">
         <div class="box">
+          <header><h2><?php echo T_("Smart accounting") ?></h2></header>
+          <div class="body">
+
+             <div class="check1">
+              <input type="checkbox" name="smartaccoutning" id="smartaccoutning"  checked>
+              <label for="smartaccoutning"><?php echo T_("Auto set accounting documents?"); ?></label>
+            </div>
+
+            <div data-response='smartaccoutning'>
+              <div class="msg success2"><?php echo \dash\data::accountingDetailsId_full_title() ?></div>
+
+                <?php if(\dash\data::assistantList()) {?>
+              <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+              <select class="select22" name="assistant_id">
+                <option value=""><?php echo T_("Please choose assistant_id") ?></option>
+                <?php foreach (\dash\data::assistantList() as $key => $value) {?>
+                  <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
+                <?php } // endfor ?>
+              </select>
+            <?php } // endif ?>
+
+              <?php if(\dash\data::assistantList()) {?>
+              <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+              <select class="select22" name="assistant_id">
+                <option value=""><?php echo T_("Please choose assistant_id") ?></option>
+                <?php foreach (\dash\data::assistantList() as $key => $value) {?>
+                  <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
+                <?php } // endfor ?>
+              </select>
+            <?php } // endif ?>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="box">
           <header><h2><?php echo T_("Customer detail"); ?></h2></header>
           <div class="body">
 
@@ -157,7 +193,7 @@
                 <nav class="items long mT10">
                <ul>
                 <li>
-                    <a class="f" >
+                    <a class="f" href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'id') ?>">
                       <div class="key">
                         <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'avatar'); ?>" class="avatar">
                       </div>
@@ -187,7 +223,7 @@
               <nav class="items long mT10">
                <ul>
                 <li>
-                    <a class="f" >
+                    <a class="f" href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'id') ?>">
                       <div class="key">
                         <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
                       </div>

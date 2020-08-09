@@ -19,6 +19,8 @@ class view
 
 		\content_crm\member\main\view::static_var();
 
+
+		\content_a\accounting\irvat\add\view::static_var();
 	}
 }
 ?>

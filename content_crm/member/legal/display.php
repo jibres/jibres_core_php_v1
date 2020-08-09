@@ -50,8 +50,12 @@
 				<div class="body">
 					<div class="msg success2"><?php echo \dash\data::accountingDetailsId_full_title() ?></div>
 				</div>
-				<footer class="txtRa">
-					<a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/accounting/coding?q='. \dash\data::accountingDetailsId_title(); ?>"><?php echo T_("Maname accounting coding") ?></a>
+
+				<footer class="f">
+					<div class="cauto"><div data-confirm data-data='{"accounting" : "accounting", "removeassistant" : "removeassistant"}' class="btn linkDel"><?php echo T_("Disconnect") ?></div></div>
+					<div class="c"></div>
+					<div class="cauto"><a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/accounting/coding?q='. \dash\data::accountingDetailsId_title(); ?>"><?php echo T_("Maname accounting coding") ?></a></div>
+
 				</footer>
 			</div>
 
