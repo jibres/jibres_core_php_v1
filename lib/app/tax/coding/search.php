@@ -22,6 +22,100 @@ class search
 	}
 
 
+
+	public static function list_tree()
+	{
+		$list_tree = \lib\db\tax_coding\get::list_tree();
+		if(!is_array($list_tree))
+		{
+			$list_tree = [];
+		}
+
+		$group = [];
+		$total = [];
+		$assistant = [];
+		$details = [];
+
+
+		foreach ($list_tree as $key => $value)
+		{
+			if(!\dash\get::index($value, 'parent1') && !\dash\get::index($value, 'parent2') && !\dash\get::index($value, 'parent3'))
+			{
+				if(!isset($group[$value['id']]))
+				{
+					$group[$value['id']] = $value;
+				}
+			}
+
+			if(\dash\get::index($value, 'parent1') && !\dash\get::index($value, 'parent2') && !\dash\get::index($value, 'parent3'))
+			{
+				if(!isset($total[$value['parent1']. '_'. $value['id']]))
+				{
+					$total[$value['parent1']. '_'. $value['id']] = $value;
+				}
+			}
+
+			if(\dash\get::index($value, 'parent1') && \dash\get::index($value, 'parent2') && !\dash\get::index($value, 'parent3'))
+			{
+				if(!isset($assistant[$value['parent1']. '_'. $value['parent2']. '_'. $value['id']]))
+				{
+					$assistant[$value['parent1']. '_'. $value['parent2']. '_'. $value['id']] = $value;
+				}
+			}
+
+			if(\dash\get::index($value, 'parent1') && \dash\get::index($value, 'parent2') && \dash\get::index($value, 'parent3'))
+			{
+				if(!isset($details[$value['parent1']. '_'. $value['parent2']. '_'. $value['parent3']. '_'. $value['id']]))
+				{
+					$details[$value['parent1']. '_'. $value['parent2']. '_'. $value['parent3']. '_'. $value['id']] = $value;
+				}
+			}
+		}
+
+
+		$result = [];
+		$html = '<div data-jstree>';
+		foreach ($group as $group_key => $group_value)
+		{
+			$html .= '<ul>';
+			$html .= '<li>'. $group_value['title'];
+
+			$result[$group_key] = ['detail' => $group_value, 'list' => []];
+
+			foreach ($total as $total_key => $total_value)
+			{
+				$html .= '<ul>';
+				$html .= '<li>'. $total_value['title'];
+				$result[$group_key]['list'][$total_key] = ['detail' => $total_value, 'list' => []];
+				foreach ($assistant as $assistant_key => $assistant_value)
+				{
+					$html .= '<ul>';
+					$html .= '<li>'. $assistant_value['title'];
+					$result[$group_key]['list'][$total_key]['list'][$assistant_key] = ['detail' => $assistant_value, 'list' => []];
+					foreach ($details as $details_key => $details_value)
+					{
+						$html .= '<ul>';
+						$html .= '<li>'. $details_value['title'];
+						$result[$group_key]['list'][$total_key]['list'][$assistant_key]['list'][$details_key] = ['detail' => $details_value];
+						$html .= '</li>';
+						$html .= '</ul>';
+					}
+					$html .= '</li>';
+					$html .= '</ul>';
+				}
+				$html .= '</li>';
+				$html .= '</ul>';
+			}
+
+			$html .= '</li>';
+			$html .= '</ul>';
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
+
 	public static function list($_query_string, $_args)
 	{
 

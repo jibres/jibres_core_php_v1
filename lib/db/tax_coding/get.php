@@ -18,6 +18,13 @@ class get
 		return $result;
 	}
 
+	public static function list_tree()
+	{
+		$query = "SELECT * FROM tax_coding WHERE 1";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 
 	public static function last_code_assistant($_assistant_id)
 	{

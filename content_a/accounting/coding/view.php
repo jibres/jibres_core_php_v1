@@ -27,7 +27,8 @@ class view
 		$q = \dash\request::get('q');
 
 		$dataTable = \lib\app\tax\coding\search::list($q, $args);
-
+		$dataTableAll = \lib\app\tax\coding\search::list_tree();
+		\dash\data::dataTableAll($dataTableAll);
 
 
 
