@@ -1,6 +1,27 @@
 
 <div class="avand">
   <h2><?php echo T_("Accounting") ?></h2>
+
+  <div data-jstree>
+    <ul>
+      <li>Root node
+        <ul>
+          <li>Child node 1</li>
+          <li>Child node 2</li>
+        </ul>
+      </li>
+      <li>Root node 1</li>
+      <li>Root node 2
+        <ul>
+          <li>node 22</li>
+        </ul>
+      </li>
+
+
+    </ul>
+  </div>
+
+
   <div class="f">
 
     <div class="c4 s12">
