@@ -8,7 +8,7 @@ class model
 		$post =
 		[
 			'title'   => \dash\request::post('title'),
-			// 'sort'    => \dash\request::post('sort'),
+			'model'    => \dash\request::post('model'),
 			'publish' => 1,
 			'ratio'   => \dash\request::post('ratio') === '0' ? null : \dash\request::post('ratio'),
 		];

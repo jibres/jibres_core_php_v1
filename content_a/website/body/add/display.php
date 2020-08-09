@@ -19,22 +19,6 @@
 </section>
 
 
-<section class="f" data-option='website-block-slider'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Slider");?></h3>
-      <div class="body">
-        <p><?php echo T_("Show multiple images in one place to change like a carousel. It's responsive and touchable for mobile users. The last carousel you'll ever need."); ?></p>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::this();?>/slider"><?php echo T_("Add Slider Block") ?></a>
-    </div>
-  </div>
-</section>
-
 
 <section class="f" data-option='website-block-image'>
   <div class="c8 s12">

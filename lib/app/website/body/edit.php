@@ -13,6 +13,8 @@ class edit
 			'publish' => 'bit',
 			'ratio'   => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
 			'style'   => ['enum' => ['simple','professional']],
+			'model'   => ['enum' => ['simple','special']],
+
 		];
 
 		$require   = [];
@@ -20,6 +22,7 @@ class edit
 		$meta      = [];
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$line_id = \dash\validate::code($_line_id);
 		$line_id = \dash\coding::decode($line_id);
@@ -50,6 +53,7 @@ class edit
 		$edit['publish'] = $data['publish'];
 		$edit['ratio']   = $data['ratio'];
 		$edit['style']   = $data['style'];
+		$edit['model']   = $data['model'];
 
 		$value = json_encode($edit, JSON_UNESCAPED_UNICODE);
 

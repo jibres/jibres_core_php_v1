@@ -27,6 +27,15 @@
             </div>
 
 
+            <label for="model"><?php echo T_("Model"); ?></label>
+            <div>
+            <select class="select22" name="model">
+              <option value="special" <?php if(\dash\data::lineSetting_model() === 'special') {echo 'selected';} ?>><?php echo T_("Special slider") ?></option>
+              <option value="simple" <?php if(\dash\data::lineSetting_model() === 'simple') {echo 'selected';} ?>><?php echo T_("Simple slider") ?></option>
+
+            </select>
+            </div>
+
         </div>
 
         <footer class="txtRa">

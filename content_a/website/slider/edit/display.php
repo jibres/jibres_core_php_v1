@@ -1,1 +1,0 @@
-<?php require_once(root. 'content_a/website/slider/add/display.php'); ?>
