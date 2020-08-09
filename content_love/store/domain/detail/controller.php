@@ -40,6 +40,26 @@ class controller
 						// set_arvan_request_https
 					break;
 
+				case 'send_https':
+					$send_https = [];
+					$add_https_args =
+					[
+						"f_ssl_type" => "arvan",
+					];
+
+					$set_https[] = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+
+
+					$add_https_args =
+					[
+						"ar_wildcard" => true,
+					];
+
+					$set_https[] = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+
+					$result = $set_https;
+					break;
+
 				default:
 					# code...
 					break;

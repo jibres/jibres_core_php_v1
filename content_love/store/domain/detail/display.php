@@ -61,6 +61,7 @@
             <a class="btn link" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id').'&rawrequest=get_domain&domain='. \dash\get::index($value, 'domain') ?>">Get get_domain</a>
             <a class="btn link" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id').'&rawrequest=get_ns_key&domain='. \dash\get::index($value, 'domain') ?>">Get get_ns_key</a>
             <a class="btn link" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id').'&rawrequest=get_dns_record&domain='. \dash\get::index($value, 'domain') ?>">Get get_dns_record</a>
+            <a class="btn link" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id').'&rawrequest=send_https&domain='. \dash\get::index($value, 'domain') ?>">Send https request</a>
           </td>
         </tr>
 
