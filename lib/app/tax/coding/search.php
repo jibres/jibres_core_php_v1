@@ -73,6 +73,9 @@ class search
 		}
 
 
+		// var_dump($group, $total, $assistant, $details);exit();
+
+
 		$result = [];
 		$html = '<div data-jstree>';
 		foreach ($group as $group_key => $group_value)
@@ -84,27 +87,40 @@ class search
 
 			foreach ($total as $total_key => $total_value)
 			{
-				$html .= '<ul>';
-				$html .= '<li>'. $total_value['title'];
-				$result[$group_key]['list'][$total_key] = ['detail' => $total_value, 'list' => []];
-				foreach ($assistant as $assistant_key => $assistant_value)
+				$check_total_key = $group_key . '_'. $total_value['id'];
+				if($check_total_key === $total_key)
 				{
 					$html .= '<ul>';
-					$html .= '<li>'. $assistant_value['title'];
-					$result[$group_key]['list'][$total_key]['list'][$assistant_key] = ['detail' => $assistant_value, 'list' => []];
-					foreach ($details as $details_key => $details_value)
+					$html .= '<li>'. $total_value['title'];
+					$result[$group_key]['list'][$total_key] = ['detail' => $total_value, 'list' => []];
+					foreach ($assistant as $assistant_key => $assistant_value)
 					{
-						$html .= '<ul>';
-						$html .= '<li>'. $details_value['title'];
-						$result[$group_key]['list'][$total_key]['list'][$assistant_key]['list'][$details_key] = ['detail' => $details_value];
-						$html .= '</li>';
-						$html .= '</ul>';
+						$check_assistant_key = $group_key . '_'. $total_value['id']. '_'. $assistant_value['id'];
+
+						if($check_assistant_key === $assistant_key)
+						{
+							$html .= '<ul>';
+							$html .= '<li>'. $assistant_value['title'];
+							$result[$group_key]['list'][$total_key]['list'][$assistant_key] = ['detail' => $assistant_value, 'list' => []];
+							foreach ($details as $details_key => $details_value)
+							{
+								$check_details_key = $group_key . '_'. $total_value['id']. '_'. $assistant_value['id']. '_'. $details_value['id'];
+								if($check_details_key === $details_key)
+								{
+									$html .= '<ul>';
+									$html .= '<li>'. $details_value['title'];
+									$result[$group_key]['list'][$total_key]['list'][$assistant_key]['list'][$details_key] = ['detail' => $details_value];
+									$html .= '</li>';
+									$html .= '</ul>';
+								}
+							}
+							$html .= '</li>';
+							$html .= '</ul>';
+						}
 					}
 					$html .= '</li>';
 					$html .= '</ul>';
 				}
-				$html .= '</li>';
-				$html .= '</ul>';
 			}
 
 			$html .= '</li>';
@@ -112,6 +128,7 @@ class search
 		}
 		$html .= '</div>';
 
+		// var_dump($result);exit();
 		return $html;
 	}
 
