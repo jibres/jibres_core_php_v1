@@ -29,6 +29,7 @@ class search
 		[
 			'order'   => 'order',
 			'sort'    => ['enum' => ['title', 'code']],
+			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
 			'user_id' => 'code',
 		];
 
@@ -59,6 +60,12 @@ class search
 		if($query_string)
 		{
 			$or[] = " tax_coding.title LIKE '%$query_string%' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['type'])
+		{
+			$and[] = " tax_coding.type = '$data[type]' ";
 			self::$is_filtered = true;
 		}
 

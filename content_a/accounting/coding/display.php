@@ -1,4 +1,44 @@
 <div class="avand">
+
+<?php $myData = \dash\data::myDataCount(); ?>
+
+   <section class="row">
+    <div class="c">
+      <a href="<?php echo \dash\url::current(); ?>" class="stat <?php if(!\dash\request::get('type')) { echo 'active';} ?>">
+       <h3><?php echo T_("All");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'all'));?></div>
+      </a>
+     </div>
+
+     <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=group'; ?>" class="stat <?php if(\dash\request::get('type') === 'group') { echo 'active';} ?>">
+       <h3><?php echo T_("Group");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'group'));?></div>
+      </a>
+     </div>
+     <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=total'; ?>" class="stat <?php if(\dash\request::get('type') === 'total') { echo 'active';} ?>">
+       <h3><?php echo T_("Accounting total");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total'));?></div>
+      </a>
+     </div>
+     <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=assistant'; ?>" class="stat <?php if(\dash\request::get('type') === 'assistant') { echo 'active';} ?>">
+       <h3><?php echo T_("Accounting assistant");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'assistant'));?></div>
+      </a>
+     </div>
+
+     <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=details'; ?>" class="stat <?php if(\dash\request::get('type') === 'details') { echo 'active';} ?>">
+       <h3><?php echo T_("Accounting details");?></h3>
+       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'details'));?></div>
+      </a>
+     </div>
+    </section>
+
+
+
 <?php
 if(\dash\data::dataTable())
 {

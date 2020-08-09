@@ -26,6 +26,20 @@ class get
 
 	}
 
+
+
+	public static function get_count_group()
+	{
+		$result = \lib\db\tax_coding\get::get_count_group();
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result['all'] = array_sum($result);
+		return $result;
+	}
+
 	public static function parent_list($_type)
 	{
 		switch ($_type)

@@ -18,6 +18,12 @@ class view
 
 
 		$args = [];
+
+		if(\dash\request::get('type'))
+		{
+			$args['type'] = \dash\request::get('type');
+		}
+
 		$q = \dash\request::get('q');
 
 		$dataTable = \lib\app\tax\coding\search::list($q, $args);
@@ -34,6 +40,8 @@ class view
 
 
 		\dash\data::dataTable($dataTable);
+
+		\dash\data::myDataCount(\lib\app\tax\coding\get::get_count_group());
 
 	}
 }
