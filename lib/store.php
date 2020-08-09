@@ -221,7 +221,7 @@ class store
 	}
 
 
-	private static function file_store_data($_store_detail)
+	public static function file_store_data($_store_detail)
 	{
 		if(!isset($_store_detail['id']))
 		{
@@ -273,7 +273,7 @@ class store
 	/**
 	 * get store setting from database
 	 */
-	private static function store_detail_setting_record($_store_id)
+	public static function store_detail_setting_record($_store_id)
 	{
 
 		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');

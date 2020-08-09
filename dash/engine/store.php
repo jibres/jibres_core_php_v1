@@ -371,10 +371,24 @@ class store
 
 			self::$IN_SOTE = true;
 
+			$store_data = self::store_data($_store_id);
+
+			if(isset($store_data['lang']) && $store_data['lang'] && mb_strlen($store_data['lang']) === 2)
+			{
+				\dash\language::set_language($store_data['lang']);
+			}
+
 			return $detail;
 		}
 
 		return null;
+	}
+
+
+	private static function store_data($_store_id)
+	{
+		$result = \lib\store::file_store_data(['id' => $_store_id]);
+		return $result;
 	}
 
 
