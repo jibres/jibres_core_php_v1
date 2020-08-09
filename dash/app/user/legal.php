@@ -81,6 +81,7 @@ class legal
 			'postcode'              => 'postcode',
 			'phone'                 => 'phone',
 			'fax'                   => 'phone',
+			'accounting_details_id' => 'id',
 		];
 
 

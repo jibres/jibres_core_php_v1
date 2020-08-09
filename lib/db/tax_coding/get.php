@@ -5,6 +5,15 @@ namespace lib\db\tax_coding;
 class get
 {
 
+	public static function check_duplicate_title($_where)
+	{
+		$make_where = \dash\db\config::make_where($_where);
+		$query = "SELECT * FROM tax_coding WHERE $make_where LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function last_code_assistant($_assistant_id)
 	{
 		$query = "SELECT MAX(tax_coding.code) AS `code` FROM tax_coding WHERE tax_coding.type = 'details' AND tax_coding.parent3 = $_assistant_id";

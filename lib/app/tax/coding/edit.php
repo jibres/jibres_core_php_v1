@@ -23,6 +23,48 @@ class edit
 
 		$data = \dash\cleanse::patch_mode($_args, $args);
 
+
+
+		if(isset($data['title']) && $data['title'])
+		{
+			$check_duplicate = [];
+			$check_duplicate['title'] = $data['title'];
+			$check_duplicate['parent1'] = null;
+			$check_duplicate['parent2'] = null;
+			$check_duplicate['parent3'] = null;
+
+			if(isset($load['parent1']) && $load['parent1'])
+			{
+				$check_duplicate['parent1'] = $load['parent1'];
+			}
+
+
+			if(isset($load['parent2']) && $load['parent2'])
+			{
+				$check_duplicate['parent2'] = $load['parent2'];
+			}
+
+			if(isset($load['parent3']) && $load['parent3'])
+			{
+				$check_duplicate['parent3'] = $load['parent3'];
+			}
+
+			$check_duplicate_title = \lib\db\tax_coding\get::check_duplicate_title($check_duplicate);
+			if(isset($check_duplicate_title['id']))
+			{
+				if(floatval($check_duplicate_title['id']) === floatval($load['id']))
+				{
+					// ok. nothing
+				}
+				else
+				{
+					\dash\notif::error(T_("Duplicate title"));
+					return false;
+				}
+			}
+		}
+
+
 		if(empty($data))
 		{
 			\dash\notif::info(T_("No change in your data"));

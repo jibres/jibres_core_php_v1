@@ -25,7 +25,7 @@ class ready
 					break;
 
 				case 'code':
-					$full_title[] = $value;
+					$full_title[] = \dash\fit::text($value);
 					$result[$key] = $value;
 					break;
 

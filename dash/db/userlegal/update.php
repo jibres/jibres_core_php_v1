@@ -13,5 +13,13 @@ class update
 		return $result;
 	}
 
+
+	public static function set_null_accounting($_accounting_id)
+	{
+		$query  = "UPDATE userlegal SET userlegal.accounting_details_id = NULL WHERE userlegal.accounting_details_id = $_accounting_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 }
 ?>

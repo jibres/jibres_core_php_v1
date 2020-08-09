@@ -15,6 +15,16 @@ class insert
 	 */
 	public static function new_record($_args)
 	{
+		if(isset($_args['code']))
+		{
+			$query = "SELECT * FROM tax_coding WHERE tax_coding.code = '$_args[code]' LIMIT 1";
+			$result = \dash\db::get($query, null, true);
+			if(isset($result['id']))
+			{
+				\dash\notif::error(T_("Duplicate code"));
+				return false;
+			}
+		}
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{

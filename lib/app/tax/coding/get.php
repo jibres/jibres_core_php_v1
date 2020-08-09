@@ -13,8 +13,14 @@ class get
 		}
 		else
 		{
-			$code = substr($last_code, -2);
+			$code = substr($last_code, 6);
 			$code = intval($code) + 1;
+
+			if($code < 10)
+			{
+				$code = '0'. $code;
+			}
+
 			return (string) $code;
 		}
 

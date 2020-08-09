@@ -22,6 +22,8 @@ class remove
 			return false;
 		}
 
+		\dash\db\userlegal\update::set_null_accounting($load['id']);
+
 		\lib\db\tax_coding\delete::by_id($load['id']);
 
 		\dash\notif::ok(T_("Data removed"));
