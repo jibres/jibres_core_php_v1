@@ -99,7 +99,7 @@ else
 					<th class="collapsing"><?php echo T_("ID") ?></th>
 					<th class="collapsing"><?php echo T_("code") ?></th>
           <th><?php echo T_("Title") ?></th>
-          <th><?php echo T_("Natue") ?></th>
+          <th><?php echo T_("Natuer") ?></th>
 					<th><?php echo T_("Detailable") ?></th>
 					<th class="collapsing"><?php echo T_("Edit") ?></th>
 				</tr>
