@@ -19,7 +19,9 @@ class model
 
 		$post =
 		[
-			'title'  => \dash\request::post('title'),
+			'title'      => \dash\request::post('title'),
+			'nature'     => \dash\request::post('nature'),
+			'detailable' => \dash\request::post('detailable'),
 		];
 
 		$result = \lib\app\tax\coding\edit::edit($post, \dash\request::get('id'));

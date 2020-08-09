@@ -58,7 +58,9 @@ else
 				<tr>
 					<th class="collapsing"><?php echo T_("ID") ?></th>
 					<th class="collapsing"><?php echo T_("code") ?></th>
-					<th><?php echo T_("title") ?></th>
+          <th><?php echo T_("Title") ?></th>
+          <th><?php echo T_("Natue") ?></th>
+					<th><?php echo T_("Detailable") ?></th>
 					<th class="collapsing"><?php echo T_("Edit") ?></th>
 				</tr>
 			</thead>
@@ -68,7 +70,9 @@ else
 						<td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(\dash\get::index($value, 'id')) ?></span></td>
 
 						<td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
-						<td><?php echo \dash\get::index($value, 'title') ?></td>
+            <td><?php echo \dash\get::index($value, 'title') ?></td>
+            <td><?php echo \dash\get::index($value, 'nature') ?></td>
+						<td><?php if(\dash\get::index($value, 'detailable')){?><i class="sf-check fc-green"></i><?php }// endif ?></td>
 						<td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
 					</tr>
 				<?php } //endif ?>

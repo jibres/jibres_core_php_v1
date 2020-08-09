@@ -35,6 +35,12 @@ class check
 					\dash\notif::error(T_("Can not set parent of group accounting coding"));
 					return false;
 				}
+
+				if(!in_array($data['nature'], ['balance sheet','disciplinary','harmful profit']))
+				{
+					\dash\notif::error(T_("Invalid nature of coding"));
+					return false;
+				}
 				break;
 
 			case 'total':
@@ -58,6 +64,12 @@ class check
 				else
 				{
 					\dash\notif::error(T_("Can not set this item as parent"));
+					return false;
+				}
+
+				if(!in_array($data['nature'], ['debtor','creditor','debtor-creditor']))
+				{
+					\dash\notif::error(T_("Invalid nature of coding"));
 					return false;
 				}
 
@@ -88,6 +100,12 @@ class check
 					return false;
 				}
 
+				if(!in_array($data['nature'], ['debtor','creditor','debtor-creditor']))
+				{
+					\dash\notif::error(T_("Invalid nature of coding"));
+					return false;
+				}
+
 				$data['parent1'] = $load_parent['parent1'];
 				$data['parent2'] = $data['parent'];
 				break;
@@ -115,6 +133,9 @@ class check
 					\dash\notif::error(T_("Can not set this item as parent"));
 					return false;
 				}
+
+				$data['nature'] = null;
+				$data['detailable'] = null;
 
 				$data['parent1'] = $load_parent['parent1'];
 				$data['parent2'] = $load_parent['parent2'];
