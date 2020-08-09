@@ -1,5 +1,5 @@
 <?php
-namespace content_a\irvat\all;
+namespace content_a\accounting\irvat\all;
 
 
 class view
@@ -14,7 +14,7 @@ class view
 
 		// btn
 		\dash\data::action_text(T_('Add new factor'));
-		\dash\data::action_link(\dash\url::this(). '/add');
+		\dash\data::action_link(\dash\url::that(). '/add');
 
 		$args =
 		[
@@ -34,7 +34,7 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['datecreated', 'factordate', 'title'], \dash\url::that());
+		$sortLink = \dash\app\sort::make_sortLink(['datecreated', 'factordate', 'title'], \dash\url::current());
 		\dash\data::sortLink($sortLink);
 
 

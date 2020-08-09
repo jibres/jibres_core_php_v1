@@ -1,5 +1,5 @@
 <?php
-namespace content_a\irvat\add;
+namespace content_a\accounting\irvat\add;
 
 
 class model
@@ -37,11 +37,11 @@ class model
 		{
 			if(isset($add['id']))
 			{
-				\dash\redirect::to(\dash\url::this(). '/edit?id='. $add['id']);
+				\dash\redirect::to(\dash\url::that(). '/edit?id='. $add['id']);
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::to(\dash\url::that());
 			}
 		}
 

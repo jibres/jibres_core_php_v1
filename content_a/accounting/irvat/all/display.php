@@ -81,7 +81,7 @@ else
 
 
 <?php function htmlSearchBox() {?>
-<form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
+<form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::current(); ?>">
   <div class="box">
     <header data-kerkere='.showBoxSearch'><h2><?php echo T_("Search") ?></h2></header>
     <div class="showBoxSearch"  data-kerkere-content='hide'>
@@ -146,7 +146,7 @@ else
 
             <tr>
                 <td>
-                    <a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link">
+                    <a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link">
 
                          <?php echo \dash\get::index($value, 'title'); ?>
 
@@ -195,7 +195,7 @@ else
 <?php function htmlFilter() {?>
 <p class="f fs14 msg warn2">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
+  <a class="cauto" href="<?php echo \dash\url::current(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 
 <?php } //endfunction ?>

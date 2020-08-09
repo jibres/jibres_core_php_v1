@@ -1,5 +1,5 @@
 <?php
-namespace content_a\irvat\edit;
+namespace content_a\accounting\irvat\edit;
 
 
 class view
@@ -10,7 +10,7 @@ class view
 
 		// btn
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/all');
+		\dash\data::back_link(\dash\url::that(). '/all');
 
 
 		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));

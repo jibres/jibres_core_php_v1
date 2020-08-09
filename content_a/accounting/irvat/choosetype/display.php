@@ -13,7 +13,7 @@
         <div class="f mB10">
 
           <div class="c s6">
-            <a href="<?php echo \dash\url::this(); ?>/add?type=cost" class="stat">
+            <a href="<?php echo \dash\url::that(); ?>/add?type=cost" class="stat">
               <h3>&nbsp;</h3>
               <div class="val"><?php echo T_("Add cost"); ?></div>
             </a>
@@ -21,7 +21,7 @@
 
 
           <div class="c s6 mLa10">
-            <a href="<?php echo \dash\url::this(); ?>/add?type=income" class="stat">
+            <a href="<?php echo \dash\url::that(); ?>/add?type=income" class="stat">
               <h3>&nbsp;</h3>
               <div class="val"><?php echo T_("Add income"); ?></div>
             </a>

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\irvat\add;
+namespace content_a\accounting\irvat\add;
 
 
 class controller
@@ -8,7 +8,7 @@ class controller
 	{
 		if(!\dash\request::get('type'))
 		{
-			\dash\redirect::to(\dash\url::this(). '/choosetype');
+			\dash\redirect::to(\dash\url::that(). '/choosetype');
 		}
 	}
 }
