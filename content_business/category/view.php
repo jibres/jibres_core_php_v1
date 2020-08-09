@@ -29,7 +29,7 @@ class view
 				'limit'        => 50,
 			];
 
-			$myProductList = \lib\app\product\search::variant_list(null, $args);
+			$myProductList = \lib\app\product\search::website_product_search(null, $args);
 
 			\dash\data::productList($myProductList);
 		}
