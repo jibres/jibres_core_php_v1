@@ -5,7 +5,10 @@ require(core."utility/kavenegar_api.php");
 /** Sms management class **/
 class sms
 {
-	private static $kavenegar_auth = '5263694C4C426651434C6635686E463550333747363578636361446539383141';
+	private static function kavenegar_auth()
+	{
+		return \dash\setting\kavenegar::apikey();
+	}
 	/**
 	 * Makes a message.
 	 *
@@ -126,7 +129,7 @@ class sms
 		\dash\log::set('smsSend');
 
 		// send sms
-		$myApiData = new \dash\utility\kavenegar_api(self::$kavenegar_auth, $_options['line']);
+		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
 		$result    = $myApiData->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
 
 		// success result
@@ -216,7 +219,7 @@ class sms
 
 		$result    = [];
 		$message   = self::make_message($_message, $_options);
-		$myApiData = new \dash\utility\kavenegar_api(self::$kavenegar_auth, $_options['line']);
+		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
 		\dash\log::set('smsSendArray', ['count_send' => count($accepted_mobile)]);
 		$chunk   = array_chunk($accepted_mobile, 200);
 		foreach ($chunk as $key => $last_200_mobile)
@@ -230,7 +233,7 @@ class sms
 
 	public static function info()
 	{
-		$myApiData = new \dash\utility\kavenegar_api(self::$kavenegar_auth);
+		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth());
 		$result    = $myApiData->account_info();
 		return $result;
 	}
