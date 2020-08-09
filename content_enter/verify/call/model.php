@@ -63,7 +63,7 @@ class model
 
 			if(\dash\language::current() === 'fa')
 			{
-				$message = "با تشکر از همراهیتان با ارمایل؛ کد فعال‌سازی شما $code";
+				$message = "درود کدِ فعالسازی شما $code با جیبْرِسْ بِفْروش و لِذّت بِبَر";
 			}
 			else
 			{
