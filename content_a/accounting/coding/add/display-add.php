@@ -1,6 +1,8 @@
 <form method="post" autocomplete="off">
-  <div class="avand-lg">
-    <div class="box">
+  <div class="avand">
+    <div class="row">
+      <div class="c-xs-12 c-sm-12 c-md-6">
+            <div class="box">
       <header><h2><?php echo T_("Add new accounting coding") ?></h2></header>
       <div class="body">
 
@@ -13,6 +15,13 @@
             <?php } // endfor ?>
           </select>
         <?php } // endif ?>
+
+<?php
+$buttonTitle = T_("Next");
+if(\dash\data::myType() === 'group' || \dash\request::get('parent'))
+{
+  $buttonTitle = \dash\data::editMode() ? T_("Edit") : T_("Add");
+?>
 
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         <div class="input">
@@ -51,27 +60,44 @@
 
         <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         <div class="input">
-          <input type="number" min="10" max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
+          <input type="number"  max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
         </div>
+
+<?php
+  }
+?>
 
 
       </div>
-      <?php if(\dash\data::editMode()) {?>
       <footer class="f">
+      <?php if(\dash\data::editMode()) {?>
         <div class="cauto">
           <div data-confirm data-data='{"remove": "remove"}' class="btn danger"><?php echo T_("Remove") ?></div>
         </div>
+        <?php }else{ ?>
         <div class="c"></div>
         <div class="cauto">
-          <button class="btn success"><?php echo T_("Edit") ?></button>
+          <button class="btn success"><?php echo $buttonTitle; ?></button>
         </div>
-
-      </footer>
-        <?php }else{ ?>
-      <footer class="txtRa">
-          <button class="btn master"><?php echo T_("Add") ?></button>
       </footer>
       <?php } //endif ?>
+
     </div>
+      </div>
+
+      <div class="c-xs-12 c-sm-12 c-md-6">
+        <?php if(\dash\data::otherList()) {?>
+          <h2><?php echo T_("Current list") ?></h2>
+          <nav class="items">
+            <ul>
+            <?php foreach (\dash\data::otherList() as $key => $value) {?>
+              <li><a class="f" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><div class="key"><?php echo \dash\get::index($value, 'full_title'); ?></div><div class="go"></div></a></li>
+            <?php } //endfor ?>
+            </ul>
+        </nav>
+        <?php } //endif ?>
+      </div>
+    </div>
+
   </div>
 </form>

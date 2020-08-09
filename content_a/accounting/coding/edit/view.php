@@ -15,6 +15,8 @@ class view
 		\dash\data::myType(\dash\data::dataRow_type());
 		\dash\data::editMode(true);
 
+		\content_a\accounting\coding\add\view::static_var();
+
 	}
 }
 ?>

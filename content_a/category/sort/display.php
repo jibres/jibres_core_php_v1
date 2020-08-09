@@ -10,9 +10,9 @@ if(!is_array($dataTable))
 <?php foreach ($dataTable as $key => $value) {?>
 <?php $loopTitle = \dash\get::index($value, 'title'); ?>
 
-  <div class="roundedBox" data-handle>
-    <figure class="overlay">
-      <img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo $loopTitle; ?>">
+  <div class="roundedBox" data-handle data-gr="1">
+    <figure class="overlay" >
+      <img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo $loopTitle; ?>" data-gr="3">
       <figcaption><h2><?php echo $loopTitle; ?></h2></figcaption>
     </figure>
   </div>

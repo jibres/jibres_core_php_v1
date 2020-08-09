@@ -5,6 +5,13 @@ class model
 {
 	public static function post()
 	{
+		if(!\dash\request::get('parent') && \dash\request::post('parent'))
+		{
+			\dash\redirect::to(\dash\url::current(). '?type='. \dash\data::myType(). '&parent='. \dash\request::post('parent'));
+			return;
+		}
+
+
 		$post =
 		[
 			'parent'     => \dash\request::post('parent'),

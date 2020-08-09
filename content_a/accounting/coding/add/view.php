@@ -16,6 +16,28 @@ class view
 		\dash\data::parentList(\lib\app\tax\coding\get::parent_list($type));
 
 
+		self::static_var();
+
+	}
+
+
+	public static function static_var()
+	{
+
+		$otherList = [];
+		switch (\dash\data::myType())
+		{
+			case 'group':
+				$otherList = \lib\app\tax\coding\get::list_of('group');
+				break;
+
+			default:
+				# code...
+				break;
+		}
+
+		\dash\data::otherList($otherList);
+
 	}
 }
 ?>

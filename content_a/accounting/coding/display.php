@@ -93,7 +93,7 @@ else
 
 
 <?php function htmlTable() {?>
-<table class="tbl1 v1">
+<table class="tbl1 v1 fs14">
 			<thead>
 				<tr>
 					<th class="collapsing"><?php echo T_("ID") ?></th>

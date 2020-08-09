@@ -67,6 +67,21 @@ class get
 
 
 
+	public static function list_group()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'group'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+	public static function list_total()
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'total'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function list_assistant()
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'assistant'";
