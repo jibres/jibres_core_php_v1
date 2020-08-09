@@ -235,7 +235,7 @@ class setup
 
 		if($file)
 		{
-			\lib\app\store\edit::logo($file);
+			\lib\app\store\edit::selfedit(['logo' => $file]);
 		}
 		return true;
 	}

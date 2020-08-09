@@ -4,84 +4,6 @@ namespace lib\app\store;
 
 class edit
 {
-	public static function title($_title)
-	{
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		if(!$_title)
-		{
-			\dash\notif::error(T_("Title of your store is required"), 'title');
-			return false;
-		}
-
-		if(!is_string($_title))
-		{
-			\dash\notif::error(T_("Please set title as string!"), 'title');
-			return false;
-		}
-
-		if(mb_strlen($_title) > 100)
-		{
-			\dash\notif::error(T_("Store title must be less than 100 character"), 'title');
-			return false;
-		}
-
-		$store_id = \lib\store::id();
-
-		if(!$store_id)
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
-
-
-		\lib\app\setting\tools::update('store_setting', 'title', $_title);
-		\lib\app\sync\store::title($_title, $store_id);
-
-
-	}
-
-
-
-	public static function logo($_logo)
-	{
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
-		if(!$_logo)
-		{
-			return false;
-		}
-
-		if(!is_string($_logo))
-		{
-			return false;
-		}
-
-		if(mb_strlen($_logo) > 100)
-		{
-			return false;
-		}
-
-		$store_id = \lib\store::id();
-
-		if(!$store_id)
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
-
-		\lib\app\setting\tools::update('store_setting', 'logo', $_logo);
-		\lib\app\sync\store::logo($_logo, $store_id);
-	}
-
 
 	public static function social($_args)
 	{
@@ -140,6 +62,32 @@ class edit
 			foreach ($args as $key => $value)
 			{
 				\lib\app\setting\tools::update('store_setting', $key, $value);
+			}
+		}
+
+		$store_id = \lib\store::id();
+
+		if($store_id)
+		{
+			if(array_key_exists('logo', $args))
+			{
+				\lib\db\store\update::store_data('logo', $args['logo'], $store_id);
+			}
+
+			if(array_key_exists('title', $args))
+			{
+				\lib\db\store\update::store_data('title', $args['title'], $store_id);
+			}
+
+			if(array_key_exists('desc', $args))
+			{
+				\lib\db\store\update::store_data('description', $args['desc'], $store_id);
+			}
+
+
+			if(array_key_exists('lang', $args))
+			{
+				\lib\db\store\update::store_data('lang', $args['lang'], $store_id);
 			}
 		}
 

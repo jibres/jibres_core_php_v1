@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\general\title;
+namespace content_a\setting\general\lang;
 
 
 class model
@@ -8,8 +8,7 @@ class model
 	{
 		$post =
 		[
-			'desc'    => \dash\request::post('desc'),
-			'title'    => \dash\request::post('title'),
+			'lang'    => \dash\request::post('lang'),
 		];
 
 		\lib\app\store\edit::selfedit($post);

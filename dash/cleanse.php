@@ -623,6 +623,7 @@ class cleanse
 				break;
 
 			case 'language':
+			case 'lang':
 				$data = \dash\validate\text::language($_data, $_notif, $element, $field_title, $meta);
 				break;
 
