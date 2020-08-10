@@ -64,6 +64,43 @@ class store
 	}
 
 
+	/**
+	 * Need load customer header in html
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function needCustomerHeader()
+	{
+		if(self::inStore())
+		{
+			if(self::inCustomerDomain())
+			{
+				return true;
+			}
+			else
+			{
+				if(\dash\url::store())
+				{
+					return false;
+				}
+				elseif(\dash\url::subdomain())
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
 	public static function config()
 	{
 		self::privacy_domain_check();
