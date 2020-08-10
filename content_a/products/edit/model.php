@@ -46,12 +46,12 @@ class model
 			{
 				$post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
 			}
-			$post['company'] = \dash\request::post('company');
-			$post['unit']    = \dash\request::post('unit') ? \dash\request::post('unit') : null;
+			// $post['company'] = \dash\request::post('company');
+			// $post['unit']    = \dash\request::post('unit') ? \dash\request::post('unit') : null;
+			// $post['type']    = \dash\request::post('type');
 			$post['cat']     = \dash\request::post('cat');
 			$post['tag']     = \dash\request::post('tag');
-			$post['weight']  = \dash\request::post('weight');
-			$post['type']    = \dash\request::post('type');
+			// $post['weight']  = \dash\request::post('weight');
 		}
 
 		if(\dash\request::post('havevariantchild'))

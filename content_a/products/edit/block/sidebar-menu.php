@@ -23,7 +23,7 @@
           <a class="item f" href="<?php echo \dash\url::this(); ?>/shipping?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <i class="sf-flight"></i>
             <div class="key"><?php echo T_("Shipping"); ?></div>
-            <div class="value"><?php echo \dash\get::index($productDataRow,'weight'); ?> <?php echo \dash\get::index($storData,'mass_detail','name'); ?></div>
+            <div class="value"><?php if(\dash\get::index($productDataRow,'weight')) { echo \dash\fit::number(\dash\get::index($productDataRow,'weight')). ' '. \dash\get::index($storData,'mass_detail','name'); }?></div>
             <div class="go"></div>
           </a>
         </li>

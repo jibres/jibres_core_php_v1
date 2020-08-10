@@ -1,0 +1,81 @@
+<?php
+$propertyList       = \dash\data::propertyList();
+$storData           = \dash\data::store_store_data();
+$productDataRow     = \dash\data::productDataRow();
+$have_variant_child = \dash\data::productDataRow_variant_child();
+$child_list         = \dash\data::productDataRow_child();
+
+?>
+
+
+<form method="post" autocomplete="off" id="form1">
+  <div class="avand-md">
+
+
+  <div class="box">
+    <header><h2><?php echo T_("Organization") ?></h2></header>
+    <div class="pad">
+      <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
+      <div class="row padLess mB5">
+        <div class="c">
+          <div class="radio3">
+            <input type="radio" name="type" value="product" id="typeProduct" <?php if(!\dash\data::productDataRow() || \dash\data::productDataRow_type() === 'product') {echo 'checked';} ?> >
+            <label for="typeProduct"><?php echo T_("Product"); ?></label>
+          </div>
+        </div>
+        <div class="c">
+          <div class="radio3">
+            <input type="radio" name="type" value="service" id="typeService" <?php if(\dash\data::productDataRow_type() == 'service') { echo 'checked'; } if($have_variant_child || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>  >
+            <label for="typeService"><?php echo T_("Service"); ?></label>
+          </div>
+        </div>
+
+        <?php if(false) {?>
+        <div class="c">
+          <div class="radio3">
+            <input type="radio" name="type" value="file" id="typeFile" <?php if(\dash\data::productDataRow_type() == 'file') { echo 'checked'; } if($have_variant_child || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>>
+            <label for="typeFile"><?php echo T_("File"); ?></label>
+          </div>
+        </div>
+      <?php } //endif ?>
+      </div>
+    <?php } //endif ?>
+      <div class="mB10">
+        <div class="row align-center">
+          <div class="c"><label for='unit'><?php echo T_("Unit"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/units"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
+        <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
+            <option value=""><?php echo T_("like Qty, kg, etc"); ?></option>
+          <?php if(\dash\data::productDataRow_unit_id()) {?>
+            <option value="0"><?php echo T_("Without unit"); ?></option>
+          <?php } //endif ?>
+<?php foreach (\dash\data::listUnits() as $key => $value) {?>
+            <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_unit_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
+<?php } //endfor ?>
+        </select>
+      </div>
+
+      <div class="mB10">
+        <div class="row align-center">
+          <div class="c"><label for='company'><?php echo T_("Brand"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
+        <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
+          <option value=""><?php echo T_("Product Brand"); ?></option>
+          <?php if(\dash\data::productDataRow_company_id()) {?>
+            <option value="0"><?php echo T_("Without Brand"); ?></option>
+          <?php } //endif ?>
+<?php foreach (\dash\data::listCompanies() as $key => $value) {?>
+            <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_company_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
+<?php } //endfor ?>
+
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+
+</form>
