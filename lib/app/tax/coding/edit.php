@@ -73,6 +73,17 @@ class edit
 		{
 			$data['datemodified'] = date("Y-m-d H:i:s");
 			\lib\db\tax_coding\update::update($data, $load['id']);
+
+			if(isset($data['class']))
+			{
+				\lib\db\tax_coding\update::update_class($data['class'], $load['id']);
+			}
+
+			if(isset($data['topic']))
+			{
+				\lib\db\tax_coding\update::update_topic($data['topic'], $load['id']);
+			}
+
 			\dash\notif::ok(T_("Accounting coding successfully updated"));
 		}
 

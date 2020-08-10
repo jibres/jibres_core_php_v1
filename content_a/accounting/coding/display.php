@@ -23,6 +23,17 @@
 								<td><?php echo \dash\data::loadDetail_code(); ?></td>
 							</tr>
 
+
+							<tr>
+								<td class="collapsing"><?php echo T_("Class") ?></td>
+								<td><?php echo T_(\dash\data::loadDetail_class()); ?></td>
+							</tr>
+
+							<tr>
+								<td class="collapsing"><?php echo T_("Topic") ?></td>
+								<td><?php echo T_(\dash\data::loadDetail_topic()); ?></td>
+							</tr>
+
 						</table>
 
 					</div>
