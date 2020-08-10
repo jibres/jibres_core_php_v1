@@ -699,6 +699,11 @@ class TransStatic
 	echo T_("Postcode");
 	echo T_("Fullname");
 	echo T_("fullname");
+	echo T_("Debtor-creditor");
+	echo T_("Balance sheet");
+	echo T_("Harmful profit");
+	echo T_("Details");
+	echo T_("Detail");
 
 	echo T_('Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.');
 	echo T_('Sell & Enjoy');
