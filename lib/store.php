@@ -27,19 +27,7 @@ class store
 
 	public static function clean_session($_slug)
 	{
-		// $key = 'store_slug_checker';
-		// $old_session_key = \dash\session::get($key);
-
-		// if($old_session_key !== $_slug)
-		// {
-		// 	\dash\session::clean('store_detail_'. $old_session_key);
-		// 	\dash\session::clean('staff_list_'. $old_session_key);
-		// 	\dash\session::clean_cat('jibres_store');
-
-		// 	self::$store        = [];
-
-		// 	\dash\session::set($key, $_slug);
-		// }
+		// need to remove
 	}
 
 	/**
@@ -54,30 +42,35 @@ class store
 			\dash\file::delete($addr);
 		}
 
-		// \dash\session::set('store_detail_'. self::store_slug(), null);
-
 		self::$store = [];
 	}
 
 
-	public static function reset_catch()
+	public static function reset_cache()
 	{
 		$id = self::id();
 		$subdomain = self::detail('subdomain');
 
-		$addr = \dash\engine\store::subdomain_addr(). $subdomain;
+		$addr = \dash\engine\store::subdomain_addr(). $subdomain. \dash\engine\store::$ext;
 		if(is_file($addr))
 		{
 			\dash\file::delete($addr);
 		}
 
-		$addr = \dash\engine\store::detail_addr(). $id;
+		$addr = \dash\engine\store::detail_addr(). $id. \dash\engine\store::$ext;
 		if(is_file($addr))
 		{
 			\dash\file::delete($addr);
 		}
 
-		$addr = \dash\engine\store::cache_addr(). $id;
+		$addr = \dash\engine\store::cache_addr(). $id. \dash\engine\store::$ext;
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
+
+		$addr = \dash\engine\store::setting_addr(). $id. \dash\engine\store::$ext;
 		if(is_file($addr))
 		{
 			\dash\file::delete($addr);
@@ -90,7 +83,7 @@ class store
 			{
 				if(isset($value['domain']))
 				{
-					$addr = \dash\engine\store::customer_domain_addr(). $value['domain'];
+					$addr = \dash\engine\store::customer_domain_addr(). $value['domain']. \dash\engine\store::$ext;
 					if(is_file($addr))
 					{
 						\dash\file::delete($addr);
@@ -146,16 +139,6 @@ class store
 			return;
 		}
 
-		// $store_session_key = 'store_detail_'. self::store_slug();
-
-		// if(\dash\session::get($store_session_key))
-		// {
-		// 	self::$store = \dash\session::get($store_session_key);
-		// 	self::$store['store_data'] = self::file_store_data(self::$store);
-		// 	return;
-		// }
-
-		// self::clean_session(self::store_slug());
 
 		$store_detail_file = [];
 
@@ -174,8 +157,6 @@ class store
  		$store_detail = $store_detail_file['store'];
 
 		self::$store = $store_detail;
-
-		// \dash\session::set($store_session_key, $store_detail);
 
 		self::$store['store_data'] = self::file_store_data(self::$store);
 	}
@@ -200,7 +181,7 @@ class store
 
 	public static function get_last_update()
 	{
-		$addr = \dash\engine\store::setting_addr(). self::id();
+		$addr = \dash\engine\store::setting_addr(). self::id(). \dash\engine\store::$ext;
 
 		if(is_file($addr))
 		{
@@ -228,7 +209,7 @@ class store
 			return false;
 		}
 
-		$addr = \dash\engine\store::setting_addr(). $_store_detail['id'];
+		$addr = \dash\engine\store::setting_addr(). $_store_detail['id']. \dash\engine\store::$ext;
 
 		if(is_file($addr))
 		{
@@ -339,7 +320,7 @@ class store
 		{
 			\dash\file::makeDir($addr, null, true);
 		}
-		$addr .= $_store_id;
+		$addr .= $_store_id. \dash\engine\store::$ext;
 
 		$result['update_time'] = time();
 		\dash\file::write($addr, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));

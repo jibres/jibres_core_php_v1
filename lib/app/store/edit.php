@@ -91,6 +91,8 @@ class edit
 			}
 		}
 
+		\lib\store::reset_cache();
+
 		\dash\notif::ok(T_("Your setting was saved"));
 		return true;
 	}

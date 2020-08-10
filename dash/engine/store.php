@@ -5,6 +5,13 @@ namespace dash\engine;
 class store
 {
 	/**
+	 * Config file extention
+	 *
+	 * @var        string
+	 */
+	public static $ext = '.conf';
+
+	/**
 	 * save store loaded detail to get from fuel
 	 *
 	 * @var        array
@@ -279,7 +286,7 @@ class store
 	 */
 	public static function init_by_id($_store_id)
 	{
-		$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id);
+		$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id. self::$ext);
 
 		if(!$get_store_detail)
 		{
@@ -318,7 +325,7 @@ class store
 	 */
 	public static function init_subdomain($_subdomain = null)
 	{
-		$subdomain_addr   = self::subdomain_addr(). $_subdomain;
+		$subdomain_addr   = self::subdomain_addr(). $_subdomain. self::$ext;
 		$detail_addr      = self::detail_addr();
 
 		$get_store_id     = null;
@@ -330,7 +337,7 @@ class store
 			$get_store_id = trim($get_store_id);
 			if(is_numeric($get_store_id))
 			{
-				$detail_addr .= $get_store_id;
+				$detail_addr .= $get_store_id. self::$ext;
 				if(file_exists($detail_addr))
 				{
 					$get_store_detail = \dash\file::read($detail_addr);
@@ -377,14 +384,7 @@ class store
 	 */
 	public static function make_database_name($_store_id)
 	{
-		// $db_name           = 'jibres_'. $_store_id;
 		$db_name           = 'business_'. $_store_id;
-
-		// if(\dash\url::isLocal())
-		// {
-		// 	$db_name           = 'jibresLocal_'. $_store_id;
-		// }
-
 		return $db_name;
 	}
 
@@ -408,11 +408,14 @@ class store
 
 			self::$IN_SOTE = true;
 
-			$store_data = self::store_data($_store_id);
-
-			if(isset($store_data['lang']) && $store_data['lang'] && mb_strlen($store_data['lang']) === 2)
+			if(!\dash\url::store())
 			{
-				\dash\language::set_language($store_data['lang']);
+				$store_data = self::store_data($_store_id);
+
+				if(isset($store_data['lang']) && $store_data['lang'] && mb_strlen($store_data['lang']) === 2)
+				{
+					\dash\language::set_language($store_data['lang']);
+				}
 			}
 
 			return $detail;
@@ -462,8 +465,8 @@ class store
 				\dash\file::makeDir(self::detail_addr(), null, true);
 			}
 
-			\dash\file::write(self::subdomain_addr(). $store_detail['subdomain'], $store_detail['id']);
-			\dash\file::write(self::detail_addr(). $store_detail['id'], json_encode($store_detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+			\dash\file::write(self::subdomain_addr(). $store_detail['subdomain']. self::$ext, $store_detail['id']);
+			\dash\file::write(self::detail_addr(). $store_detail['id']. self::$ext, json_encode($store_detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 			return $store_detail;
 		}
 	}
@@ -476,7 +479,7 @@ class store
 			return true;
 		}
 
-		$customer_domain = self::customer_domain_addr(). $_domain;
+		$customer_domain = self::customer_domain_addr(). $_domain. self::$ext;
 
 		if(!is_dir(self::customer_domain_addr()))
 		{

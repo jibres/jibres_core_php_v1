@@ -5,7 +5,7 @@ class generator
 {
 	public static function remove_catch()
 	{
-		\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id(). '_'. \dash\language::current());
+		\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id(). '_'. \dash\language::current(). \dash\engine\store::$ext);
 	}
 
 
@@ -58,7 +58,7 @@ class generator
 			\dash\file::makeDir($addr, null, true);
 		}
 
-		$addr .= \lib\store::id(). '_'. \dash\language::current();
+		$addr .= \lib\store::id(). '_'. \dash\language::current(). \dash\engine\store::$ext;
 
 		$website_setting = [];
 

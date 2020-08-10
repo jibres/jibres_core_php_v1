@@ -6,6 +6,7 @@ class init
 	public static function status()
 	{
 		\lib\app\website\status\set::status(['status' => 'publish']);
+		\lib\app\website\generator::remove_catch();
 		\dash\notif::clean();
 	}
 
@@ -13,6 +14,7 @@ class init
 	public static function header()
 	{
 		\lib\app\website\header\set::set_header_template(['header' => 'header_100']);
+		\lib\app\website\generator::remove_catch();
 		\dash\notif::clean();
 	}
 
@@ -20,6 +22,7 @@ class init
 	public static function footer()
 	{
 		\lib\app\website\footer\set::set_footer_template(['footer' => 'footer_100']);
+		\lib\app\website\generator::remove_catch();
 		\dash\notif::clean();
 	}
 
@@ -46,6 +49,7 @@ class init
 
 		$productline = \lib\app\website\body\line\productline::add($post);
 
+		\lib\app\website\generator::remove_catch();
 
 		\dash\notif::clean();
 	}
@@ -132,6 +136,8 @@ class init
   		];
 
   		$id = \lib\db\setting\insert::new_record($insert);
+
+  		\lib\app\website\generator::remove_catch();
 
   		$id = \dash\coding::encode($id);
   		return $id;

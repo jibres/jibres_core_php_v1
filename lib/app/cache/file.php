@@ -42,7 +42,7 @@ class file
 			\dash\file::makeDir($addr, null, true);
 		}
 
-		$addr .= \lib\store::id();
+		$addr .= \lib\store::id(). \dash\engine\store::$ext;
 		return $addr;
 	}
 
