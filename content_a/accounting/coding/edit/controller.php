@@ -16,6 +16,8 @@ class controller
 
 		\dash\data::dataRow($load);
 
+		\dash\data::myType(\dash\data::dataRow_type());
+
 	}
 }
 ?>

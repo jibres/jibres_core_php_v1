@@ -9,16 +9,24 @@ class check
 	{
 		$condition =
 		[
-			'title'      => 'string_200',
-			'detailable' => 'bit',
-			'code'       => 'intstring_4_2',
-			'parent1'    => 'int',
-			'parent2'    => 'int',
-			'parent3'    => 'int',
-			'status'     => ['enum' => ['enable','disable', 'deleted']],
-			'nature'     => ['enum' => ['debtor','creditor','debtor-creditor','balance sheet','disciplinary','harmful profit']],
-			'type'       => ['enum' => ['group','total','assistant','details']],
-			'parent'     => 'id',
+			'title'         => 'string_200',
+			'detailable'    => 'bit',
+			'code'          => 'intstring_4_2',
+			'parent1'       => 'int',
+			'parent2'       => 'int',
+			'parent3'       => 'int',
+			'status'        => 'bit',
+			// 'status'     => ['enum' => ['enable','disable', 'deleted']],
+			'nature'        => ['enum' => ['debtor','creditor','debtor-creditor','balance sheet','disciplinary','harmful profit']],
+			'type'          => ['enum' => ['group','total','assistant','details']],
+			'parent'        => 'id',
+
+			'class'         => 'string_200',
+			'topic'         => 'string_200',
+			'naturecontrol' => 'bit',
+			'exchangeable'  => 'bit',
+			'followup'      => 'bit',
+			'currency'      => 'bit',
 		];
 
 		$require = ['title', 'code', 'type'];
@@ -160,6 +168,8 @@ class check
 		}
 
 		unset($data['parent']);
+
+		$data['status'] = $data['status'] ? 'enable' : "disable";
 
 		return $data;
 

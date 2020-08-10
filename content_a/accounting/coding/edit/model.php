@@ -17,12 +17,9 @@ class model
 			return;
 		}
 
-		$post =
-		[
-			'title'      => \dash\request::post('title'),
-			'nature'     => \dash\request::post('nature'),
-			'detailable' => \dash\request::post('detailable'),
-		];
+		$post = \content_a\accounting\coding\add\model::getPost();
+		unset($post['code']);
+
 
 		$result = \lib\app\tax\coding\edit::edit($post, \dash\request::get('id'));
 
