@@ -16,12 +16,6 @@
           </select>
         <?php } // endif ?>
 
-<?php
-$buttonTitle = T_("Next");
-if(\dash\data::myType() === 'group' || \dash\request::get('parent'))
-{
-  $buttonTitle = \dash\data::editMode() ? T_("Edit") : T_("Add");
-?>
 
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         <div class="input">
@@ -63,14 +57,11 @@ if(\dash\data::myType() === 'group' || \dash\request::get('parent'))
           <input type="number"  max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
         </div>
 
-<?php
-  }
-?>
 
 
       </div>
       <footer class="f">
-      <?php if(\dash\data::editMode()) {?>
+      <?php $buttonTitle = T_("Add"); if(\dash\data::editMode()) { $buttonTitle = T_("Edit"); ?>
         <div class="cauto">
           <div data-confirm data-data='{"remove": "remove"}' class="btn danger"><?php echo T_("Remove") ?></div>
         </div>
@@ -86,16 +77,7 @@ if(\dash\data::myType() === 'group' || \dash\request::get('parent'))
       </div>
 
       <div class="c-xs-12 c-sm-12 c-md-6">
-        <?php if(\dash\data::otherList()) {?>
-          <h2><?php echo T_("Current list") ?></h2>
-          <nav class="items">
-            <ul>
-            <?php foreach (\dash\data::otherList() as $key => $value) {?>
-              <li><a class="f" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><div class="key"><?php echo \dash\get::index($value, 'full_title'); ?></div><div class="go"></div></a></li>
-            <?php } //endfor ?>
-            </ul>
-        </nav>
-        <?php } //endif ?>
+        <?php echo \dash\data::dataTableAll(); ?>
       </div>
     </div>
 

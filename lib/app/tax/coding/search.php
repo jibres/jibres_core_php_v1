@@ -23,7 +23,7 @@ class search
 
 
 
-	public static function list_tree()
+	public static function list_tree($_option = [])
 	{
 		$list_tree = \lib\db\tax_coding\get::list_tree();
 		if(!is_array($list_tree))
@@ -74,14 +74,18 @@ class search
 
 
 		// var_dump($group, $total, $assistant, $details);exit();
-
+		$open_all = null;
+		if(isset($_option['open_all']) && $_option['open_all'])
+		{
+			$open_all = ' class="jstree-open"';
+		}
 
 		$result = [];
-		$html = '<div data-jstree>';
+		$html = '<div data-jstree class="font-12">';
 		foreach ($group as $group_key => $group_value)
 		{
 			$html .= '<ul>';
-			$html .= '<li>'. $group_value['title'];
+			$html .= '<li class="jstree-open">'. $group_value['title'];
 
 			$result[$group_key] = ['detail' => $group_value, 'list' => []];
 
@@ -91,7 +95,7 @@ class search
 				if($check_total_key === $total_key)
 				{
 					$html .= '<ul>';
-					$html .= '<li>'. $total_value['title'];
+					$html .= '<li'. $open_all. '>'. $total_value['title'];
 					$result[$group_key]['list'][$total_key] = ['detail' => $total_value, 'list' => []];
 					foreach ($assistant as $assistant_key => $assistant_value)
 					{
@@ -100,7 +104,7 @@ class search
 						if($check_assistant_key === $assistant_key)
 						{
 							$html .= '<ul>';
-							$html .= '<li>'. $assistant_value['title'];
+							$html .= '<li'. $open_all.'>'. $assistant_value['title'];
 							$result[$group_key]['list'][$total_key]['list'][$assistant_key] = ['detail' => $assistant_value, 'list' => []];
 							foreach ($details as $details_key => $details_value)
 							{
@@ -108,7 +112,7 @@ class search
 								if($check_details_key === $details_key)
 								{
 									$html .= '<ul>';
-									$html .= '<li>'. $details_value['title'];
+									$html .= '<li'. $open_all.'>'. $details_value['title'];
 									$result[$group_key]['list'][$total_key]['list'][$assistant_key]['list'][$details_key] = ['detail' => $details_value];
 									$html .= '</li>';
 									$html .= '</ul>';

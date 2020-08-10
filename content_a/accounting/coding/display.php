@@ -1,8 +1,12 @@
 <div class="avand">
+<div class="row">
+  <div class="c-xs-12 c-sm-4">
+      <?php echo \dash\data::dataTableAll(); ?>
+  </div>
+  <div class="c-xs-12 c">
+    <?php $myData = \dash\data::myDataCount(); ?>
 
-  <?php $myData = \dash\data::myDataCount(); ?>
-
-  <section class="row">
+  <section class="f">
     <div class="c">
       <a href="<?php echo \dash\url::current(); ?>" class="stat <?php if(!\dash\request::get('type')) { echo 'active';} ?>">
         <h3><?php echo T_("All");?></h3>
@@ -70,6 +74,9 @@
   }
   ?>
 
+  </div>
+</div>
+
 </div>
 
 
@@ -93,41 +100,36 @@
 
 
 <?php function htmlTable() {?>
-  <div class="row">
-    <div class="c-sm-6">
 
-      <table class="tbl1 v1 fs14">
-        <thead>
-          <tr>
-            <th class="collapsing"><?php echo T_("ID") ?></th>
-            <th class="collapsing"><?php echo T_("code") ?></th>
-            <th><?php echo T_("Title") ?></th>
-            <th><?php echo T_("Natuer") ?></th>
-            <th><?php echo T_("Detailable") ?></th>
-            <th class="collapsing"><?php echo T_("Edit") ?></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-            <tr>
-              <td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(\dash\get::index($value, 'id')) ?></span></td>
+  <table class="tbl1 v1 fs14">
+    <thead>
+      <tr>
+        <th class="collapsing"><?php echo T_("ID") ?></th>
+        <th class="collapsing"><?php echo T_("code") ?></th>
+        <th><?php echo T_("Title") ?></th>
+        <th><?php echo T_("Natuer") ?></th>
+        <th><?php echo T_("Detailable") ?></th>
+        <th class="collapsing"><?php echo T_("Edit") ?></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+        <tr>
+          <td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(\dash\get::index($value, 'id')) ?></span></td>
 
-              <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
-              <td><?php echo \dash\get::index($value, 'title') ?></td>
-              <td><?php echo \dash\get::index($value, 'nature') ?></td>
-              <td><?php if(\dash\get::index($value, 'detailable')){?><i class="sf-check fc-green"></i><?php }// endif ?></td>
-              <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
-            </tr>
-          <?php } //endif ?>
-        </tbody>
-      </table>
-    </div>
-    <div class="c-sm-6">
+          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
+          <td><?php echo \dash\get::index($value, 'title') ?></td>
+          <td><?php echo \dash\get::index($value, 'nature') ?></td>
+          <td><?php if(\dash\get::index($value, 'detailable')){?><i class="sf-check fc-green"></i><?php }// endif ?></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
+        </tr>
+      <?php } //endif ?>
+    </tbody>
+  </table>
 
-      <?php echo \dash\data::dataTableAll();6 ?>
 
-    </div>
-  </div>
+
+
   <?php \dash\utility\pagination::html(); ?>
 
 <?php } //endif ?>

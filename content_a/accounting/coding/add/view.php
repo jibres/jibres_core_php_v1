@@ -24,6 +24,9 @@ class view
 	public static function static_var()
 	{
 
+		$dataTableAll = \lib\app\tax\coding\search::list_tree(['open_all' => true]);
+		\dash\data::dataTableAll($dataTableAll);
+
 		$otherList = [];
 		switch (\dash\data::myType())
 		{
