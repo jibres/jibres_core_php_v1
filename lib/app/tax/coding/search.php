@@ -142,7 +142,7 @@ class search
 	private static function htmltTitleJsTree($_data)
 	{
 		$html = '';
-		$html .= '<code>'. $_data['code']. '</code> - '. $_data['title'];
+		$html .= '<code>'. $_data['code']. '</code> '. $_data['title'];
 
 		if(isset($_data['nature']))
 		{
