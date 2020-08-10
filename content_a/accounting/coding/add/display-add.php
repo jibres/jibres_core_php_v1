@@ -6,7 +6,7 @@
       </div>
       <div class="c-xs-12 c-sm-12 c-md-6">
         <div class="box">
-          <header><h2><?php if(\dash\data::editMode()){ echo T_("Edit accounting coding"); }else{ echo T_("Add new accounting coding"); }  ?></h2></header>
+          <header><h2><?php if(\dash\data::editMode()){ echo T_("Edit accounting coding"); }else{ echo T_("Add new accounting coding"); }  ?> - <?php echo T_(ucfirst(\dash\data::myType())); ?></h2></header>
           <div class="body">
 
             <?php if(\dash\data::parentList()) {?>
@@ -97,11 +97,8 @@
               </div>
             <?php } // endif ?>
 
-            <div class="switch1 mT10">
-              <input type="checkbox" name="status" id="status"  <?php if(\dash\data::dataRow_status() === 'enable') {echo 'checked';}?> >
-              <label for="status" data-on="<?php echo T_("Enable") ?>" data-off="<?php echo T_("Disable") ?>"></label>
-              <label for="status"><?php echo T_("Status"); ?></label>
-            </div>
+
+            <?php if(\dash\data::myType() === 'assistant' ) {?>
 
             <div class="check1 mT10">
               <input type="checkbox" name="naturecontrol" id="naturecontrol"  <?php if(\dash\data::dataRow_naturecontrol()) {echo 'checked';}?> >
@@ -120,15 +117,20 @@
 
             <div class="check1 mT10">
               <input type="checkbox" name="currency" id="currency"  <?php if(\dash\data::dataRow_currency()) {echo 'checked';}?> >
-              <label for="currency"><?php echo T_("currency"); ?></label>
+              <label for="currency"><?php echo T_("Accounting currency"); ?></label>
             </div>
-
+          <?php } //endif ?>
 
             <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
             <div class="input">
               <input type="number"  max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
             </div>
 
+            <div class="switch1 mT10">
+              <input type="checkbox" name="status" id="status"  <?php if(\dash\data::dataRow_status() === 'enable') {echo 'checked';}?> >
+              <label for="status" data-on="<?php echo T_("Enable") ?>" data-off="<?php echo T_("Disable") ?>"></label>
+              <label for="status"><?php echo T_("Status"); ?></label>
+            </div>
 
 
           </div>
