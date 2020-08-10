@@ -87,7 +87,7 @@ class search
 		foreach ($group as $group_key => $group_value)
 		{
 			$html .= '<ul>';
-			$html .= '<li class="jstree-open">'. $group_value['full_title'];
+			$html .= '<li class="jstree-open">'. '<code>'. $group_value['code']. '</code> '. $group_value['title'];
 
 			$result[$group_key] = ['detail' => $group_value, 'list' => []];
 
@@ -97,7 +97,7 @@ class search
 				if($check_total_key === $total_key)
 				{
 					$html .= '<ul>';
-					$html .= '<li'. $open_all. '>'. $total_value['full_title'];
+					$html .= '<li'. $open_all. '>'. '<code>'. $total_value['code']. '</code> '. $total_value['title'];
 					$result[$group_key]['list'][$total_key] = ['detail' => $total_value, 'list' => []];
 					foreach ($assistant as $assistant_key => $assistant_value)
 					{
@@ -106,7 +106,7 @@ class search
 						if($check_assistant_key === $assistant_key)
 						{
 							$html .= '<ul>';
-							$html .= '<li'. $open_all.'>'. $assistant_value['full_title'];
+							$html .= '<li'. $open_all.'>'. '<code>'. $assistant_value['code']. '</code> '. $assistant_value['title'];
 							$result[$group_key]['list'][$total_key]['list'][$assistant_key] = ['detail' => $assistant_value, 'list' => []];
 							foreach ($details as $details_key => $details_value)
 							{
@@ -114,7 +114,7 @@ class search
 								if($check_details_key === $details_key)
 								{
 									$html .= '<ul>';
-									$html .= '<li'. $open_all.'>'. $details_value['full_title'];
+									$html .= '<li'. $open_all.'>'. '<code>'. $details_value['code']. '</code> '. $details_value['title'];
 									$result[$group_key]['list'][$total_key]['list'][$assistant_key]['list'][$details_key] = ['detail' => $details_value];
 									$html .= '</li>';
 									$html .= '</ul>';
