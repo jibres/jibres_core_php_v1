@@ -27,9 +27,17 @@
             <?php if(\dash\data::myType() === 'group') {?>
 
               <label for="class"><?php echo T_("Class") ?> </label>
-              <select class="select22" name="class" data-model='tag'>
+
+                <select class="select22" name="class" data-model='tag'>
+
                 <option value=""><?php echo T_("Please choose class") ?></option>
-                <option value="<?php echo \dash\data::dataRow_class(); ?>" selected><?php echo \dash\data::dataRow_class(); ?></option>
+                <option value="current liabilities" <?php if(\dash\data::dataRow_class() === 'current liabilities') { echo 'selected';} ?>><?php echo T_("current liabilities") ?></option>
+                <option value="non-current liabilities" <?php if(\dash\data::dataRow_class() === 'non-current liabilities') { echo 'selected';} ?>><?php echo T_("non-current liabilities") ?></option>
+                <option value="current assets" <?php if(\dash\data::dataRow_class() === 'current assets') { echo 'selected';} ?>><?php echo T_("current assets") ?></option>
+                <option value="non-current assets" <?php if(\dash\data::dataRow_class() === 'non-current assets') { echo 'selected';} ?>><?php echo T_("non-current assets") ?></option>
+                <option value="profit and loss" <?php if(\dash\data::dataRow_class() === 'profit and loss') { echo 'selected';} ?>><?php echo T_("profit and loss") ?></option>
+                <option value="shareholders rights" <?php if(\dash\data::dataRow_class() === 'shareholders rights') { echo 'selected';} ?>><?php echo T_("shareholders rights") ?></option>
+
               </select>
 
             <?php } //endif ?>
@@ -39,7 +47,24 @@
               <label for="topic"><?php echo T_("Topic") ?> </label>
               <select class="select22" name="topic" data-model='tag'>
                 <option value=""><?php echo T_("Please choose topic") ?></option>
-                <option value="<?php echo \dash\data::dataRow_topic(); ?>" selected><?php echo \dash\data::dataRow_topic(); ?></option>
+              <option value="net sales" <?php if(\dash\data::dataRow_topic() === 'net sales') { echo 'selected';} ?>><?php echo T_("net sales") ?></option>
+              <option value="accumulated profit" <?php if(\dash\data::dataRow_topic() === 'accumulated profit') { echo 'selected';} ?>><?php echo T_("accumulated profit") ?></option>
+              <option value="orders and prepayments" <?php if(\dash\data::dataRow_topic() === 'orders and prepayments') { echo 'selected';} ?>><?php echo T_("orders and prepayments") ?></option>
+              <option value="short term investments" <?php if(\dash\data::dataRow_topic() === 'short term investments') { echo 'selected';} ?>><?php echo T_("short term investments") ?></option>
+              <option value="wealth" <?php if(\dash\data::dataRow_topic() === 'wealth') { echo 'selected';} ?>><?php echo T_("wealth") ?></option>
+              <option value="other non-operating expenses" <?php if(\dash\data::dataRow_topic() === 'other non-operating expenses') { echo 'selected';} ?>><?php echo T_("other non-operating expenses") ?></option>
+              <option value="other operating costs" <?php if(\dash\data::dataRow_topic() === 'other operating costs') { echo 'selected';} ?>><?php echo T_("other operating costs") ?></option>
+              <option value="other operating income" <?php if(\dash\data::dataRow_topic() === 'other operating income') { echo 'selected';} ?>><?php echo T_("other operating income") ?></option>
+              <option value="other accounts and documents receivable" <?php if(\dash\data::dataRow_topic() === 'other accounts and documents receivable') { echo 'selected';} ?>><?php echo T_("other accounts and documents receivable") ?></option>
+              <option value="other accounts and documents payable" <?php if(\dash\data::dataRow_topic() === 'other accounts and documents payable') { echo 'selected';} ?>><?php echo T_("other accounts and documents payable") ?></option>
+              <option value="save employee end-of-service benefits" <?php if(\dash\data::dataRow_topic() === 'save employee end-of-service benefits') { echo 'selected';} ?>><?php echo T_("save employee end-of-service benefits") ?></option>
+              <option value="save taxes" <?php if(\dash\data::dataRow_topic() === 'save taxes') { echo 'selected';} ?>><?php echo T_("save taxes") ?></option>
+              <option value="tangible fixed assets" <?php if(\dash\data::dataRow_topic() === 'tangible fixed assets') { echo 'selected';} ?>><?php echo T_("tangible fixed assets") ?></option>
+              <option value="accounts receivable and commercial documents" <?php if(\dash\data::dataRow_topic() === 'accounts receivable and commercial documents') { echo 'selected';} ?>><?php echo T_("accounts receivable and commercial documents") ?></option>
+              <option value="business accounts and documents payable" <?php if(\dash\data::dataRow_topic() === 'business accounts and documents payable') { echo 'selected';} ?>><?php echo T_("business accounts and documents payable") ?></option>
+              <option value="receivables" <?php if(\dash\data::dataRow_topic() === 'receivables') { echo 'selected';} ?>><?php echo T_("receivables") ?></option>
+              <option value="prepayments" <?php if(\dash\data::dataRow_topic() === 'prepayments') { echo 'selected';} ?>><?php echo T_("prepayments") ?></option>
+              <option value="long-term accounts and documents" <?php if(\dash\data::dataRow_topic() === 'long-term accounts and documents') { echo 'selected';} ?>><?php echo T_("long-term accounts and documents") ?></option>
               </select>
 
             <?php } //endif ?>

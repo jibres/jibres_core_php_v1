@@ -20,9 +20,8 @@ class check
 			'nature'        => ['enum' => ['debtor','creditor','debtor-creditor','balance sheet','disciplinary','harmful profit']],
 			'type'          => ['enum' => ['group','total','assistant','details']],
 			'parent'        => 'id',
-
-			'class'         => 'string_200',
-			'topic'         => 'string_200',
+			'class'         => ['enum' => ['current liabilities','non-current liabilities','current assets','non-current assets','profit and loss','shareholders rights']],
+			'topic'         => ['enum' => ['net sales','accumulated profit','orders and prepayments','short term investments','wealth','other non-operating expenses','other operating costs','other operating income','other accounts and documents receivable','other accounts and documents payable','save employee end-of-service benefits','save taxes','tangible fixed assets','accounts receivable and commercial documents','business accounts and documents payable','receivables','prepayments','long-term accounts and documents']],
 			'naturecontrol' => 'bit',
 			'exchangeable'  => 'bit',
 			'followup'      => 'bit',
