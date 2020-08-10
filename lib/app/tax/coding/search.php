@@ -142,6 +142,7 @@ class search
 	private static function htmltTitleJsTree($_data)
 	{
 		$html = '';
+		$html .= '<a href="'. \dash\url::that(). '?view='. $_data['id']. '">';
 		$html .= '<code>'. $_data['code']. '</code> '. $_data['title'];
 
 		if(isset($_data['nature']))
@@ -152,6 +153,8 @@ class search
 		{
 			$html .= ' ('.T_("Detailable").') ';
 		}
+
+		$html .= '</a>';
 
 		return $html;
 	}

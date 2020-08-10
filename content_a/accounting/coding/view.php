@@ -44,6 +44,12 @@ class view
 
 		\dash\data::myDataCount(\lib\app\tax\coding\get::get_count_group());
 
+		if(\dash\request::get('view'))
+		{
+			$load_detail = \lib\app\tax\coding\get::get(\dash\request::get('view'));
+			\dash\data::loadDetail($load_detail);
+		}
+
 	}
 }
 ?>
