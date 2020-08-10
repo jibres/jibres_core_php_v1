@@ -61,7 +61,7 @@
         </li>
         <?php } //endif ?>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/status?id=<?php echo \dash\request::get('id'); ?>">
+          <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
             <i class="sf-plug"></i>
             <div class="key"><?php echo T_("Status"); ?></div>
             <div class="value"><?php echo T_(\dash\data::productDataRow_status()); ?></div>

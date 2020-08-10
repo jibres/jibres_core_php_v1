@@ -9,6 +9,32 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('delete') === 'product')
+		{
+			$result = \lib\app\product\remove::product($id);
+			if($result)
+			{
+				\dash\redirect::to(\lib\backlink::products());
+			}
+			return true;
+		}
+
+		if(\dash\request::post('setstatus') === 'setstatus')
+		{
+			$post                = [];
+
+			$post['status']     = \dash\request::post('status');
+
+			\lib\app\product\edit::edit($post, $id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+
+			return;
+		}
+
 		$post                  = [];
 
 		$post['trackquantity'] = \dash\request::post('trackquantity');
