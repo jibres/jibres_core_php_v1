@@ -51,15 +51,7 @@
             <div class="go"></div>
           </a>
         </li>
-        <?php if(!$have_variant_child) {?>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/cartlimit?id=<?php echo \dash\request::get('id'); ?>">
-            <i class="sf-hand-stop"></i>
-            <div class="key"><?php echo T_("Cart Limit"); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-        <?php } //endif ?>
+
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
             <i class="sf-plug"></i>
