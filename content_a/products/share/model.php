@@ -16,6 +16,10 @@ class model
 		\lib\app\product\edit::edit($post, $id);
 		\dash\notif::clean();
 
+		\lib\db\products\get::$catch_load_one_product = [];
+		\lib\app\product\load::one($id);
+
+
 
 		$telegram_setting = \lib\app\setting\get::telegram_setting();
 		\dash\data::telegramSetting($telegram_setting);
@@ -69,6 +73,7 @@ class model
 		{
 			$txt     .= "\n". $telegram_setting['share_text'];
 		}
+
 
 		$msgData['reply_markup'] = false;
 

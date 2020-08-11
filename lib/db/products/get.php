@@ -393,7 +393,7 @@ class get
 	}
 
 
-	private static $catch_load_one_product = [];
+	public static $catch_load_one_product = [];
 	public static function by_id($_id)
 	{
 		$query  =

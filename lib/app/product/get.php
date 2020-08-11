@@ -4,7 +4,6 @@ namespace lib\app\product;
 
 class get
 {
-	private static $product_detail    = [];
 	private static $product_prev      = [];
 	private static $product_next      = [];
 
@@ -83,24 +82,16 @@ class get
 			return false;
 		}
 
-		if(isset(self::$product_detail[$_id]))
+		$result = \lib\db\products\get::by_id_for_site($_id);
+
+		if(!$result)
 		{
-			$result = self::$product_detail[$_id];
+			\dash\notif::error(T_("Product detail not found"));
+			return false;
 		}
-		else
-		{
-			$result = \lib\db\products\get::by_id_for_site($_id);
 
-			if(!$result)
-			{
-				\dash\notif::error(T_("Product detail not found"));
-				return false;
-			}
+		$result = \lib\app\product\ready::row($result, $_options);
 
-			$result = \lib\app\product\ready::row($result, $_options);
-
-			self::$product_detail[$_id] = $result;
-		}
 
 		return $result;
 	}
