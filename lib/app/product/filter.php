@@ -54,8 +54,8 @@ class filter
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
 
-		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'price',		 'order' => 'desc'], 	'public' => true];
-		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'price',		 'order' => 'asc'], 	'public' => true];
+		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'finalprice',		 'order' => 'desc'], 	'public' => true];
+		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'finalprice',		 'order' => 'asc'], 	'public' => true];
 
 		if($_module === 'website')
 		{

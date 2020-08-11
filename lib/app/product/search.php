@@ -28,7 +28,7 @@ class search
 		$condition =
 		[
 			'order'             => 'order',
-			'sort'              => ['enum' => ['title','price','buyprice']],
+			'sort'              => ['enum' => ['title','price','buyprice', 'finalprice']],
 			'limit'             => 'int',
 			'barcode'           => 'barcode',
 			'price'             => 'price',
@@ -341,7 +341,22 @@ class search
 					$order = mb_strtolower($data['order']);
 				}
 
-				$order_sort = " ORDER BY $sort $order";
+				if($sort === 'finalprice' || $sort === 'price' || $sort === 'buyprice')
+				{
+					if($order === 'asc')
+					{
+						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MIN(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status != 'deleted' AND sProducts.parent = products.id) ,products.$sort) $order";
+					}
+					else
+					{
+						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status != 'deleted' AND sProducts.parent = products.id) ,products.$sort) $order";
+					}
+				}
+				else
+				{
+					$order_sort = " ORDER BY $sort $order";
+				}
+
 			}
 		}
 
