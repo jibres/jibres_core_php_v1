@@ -131,6 +131,11 @@ class get
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
+				if($value['key'] === 'telegrambtn' && $value['value'] && is_string($value['value']))
+				{
+					$value['value'] = json_decode($value['value'], true);
+				}
+
 				$setting[$value['key']] = $value['value'];
 			}
 		}

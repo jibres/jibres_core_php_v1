@@ -502,16 +502,16 @@ class store
 		{
 			switch ($key)
 			{
-				case 'instagram': 	$social['instagram'] = ['user' => $value, 'link' => 'https://instagram.com/'. $value];  break;
-				case 'telegram': 	$social['telegram']  = ['user' => $value, 'link' => 'https://t.me/'. $value];			break;
-				case 'youtube':		$social['youtube']   = ['user' => $value, 'link' => 'https://youtube.com/'. $value];	break;
-				case 'twitter':		$social['twitter']   = ['user' => $value, 'link' => 'https://twitter.com/'. $value];	break;
-				case 'linkedin':	$social['linkedin']  = ['user' => $value, 'link' => 'https://linkedin.com/'. $value];	break;
-				case 'github':		$social['github']    = ['user' => $value, 'link' => 'https://github.com/'. $value];		break;
-				case 'facebook':	$social['facebook']  = ['user' => $value, 'link' => 'https://facebook.com/'. $value];	break;
-				case 'email':		$social['email']     = ['user' => $value, 'link' => 'mailto:'. $value];					break;
-				case 'aparat':		$social['aparat']    = ['user' => $value, 'link' => 'https://aparat.com/'. $value];		break;
-				case 'eitaa':		$social['eitaa']     = ['user' => $value, 'link' => 'https://eitaa.com/'. $value];		break;
+				case 'instagram': 	$social['instagram'] = ['user' => $value, 'title' => T_("Instagram"), 'link' => 'https://instagram.com/'. $value];  break;
+				case 'telegram': 	$social['telegram']  = ['user' => $value, 'title' => T_("Telegram"), 'link' => 'https://t.me/'. $value];			break;
+				case 'youtube':		$social['youtube']   = ['user' => $value, 'title' => T_("Youtube"), 'link' => 'https://youtube.com/'. $value];	break;
+				case 'twitter':		$social['twitter']   = ['user' => $value, 'title' => T_("Twitter"), 'link' => 'https://twitter.com/'. $value];	break;
+				case 'linkedin':	$social['linkedin']  = ['user' => $value, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/'. $value];	break;
+				case 'github':		$social['github']    = ['user' => $value, 'title' => T_("Github"), 'link' => 'https://github.com/'. $value];		break;
+				case 'facebook':	$social['facebook']  = ['user' => $value, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'. $value];	break;
+				case 'email':		$social['email']     = ['user' => $value, 'title' => T_("Email"), 'link' => 'mailto:'. $value];					break;
+				case 'aparat':		$social['aparat']    = ['user' => $value, 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'. $value];		break;
+				case 'eitaa':		$social['eitaa']     = ['user' => $value, 'title' => T_("Eitaa"), 'link' => 'https://eitaa.com/'. $value];		break;
 				default:
 					# code...
 					break;

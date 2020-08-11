@@ -47,7 +47,20 @@ class set
 			'channel'       => 'string_100',
 			'share_text'    => 'desc',
 			'start_text'    => 'desc',
+			'telegrambtn'   =>
+			[
+				'instagram' => 'bit',
+				'telegram'  => 'bit',
+				'youtube'   => 'bit',
+				'twitter'   => 'bit',
+				'linkedin'  => 'bit',
+				'github'    => 'bit',
+				'facebook'  => 'bit',
+				'aparat'    => 'bit',
+				'eitaa'     => 'bit',
+			],
 		];
+
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
 
@@ -57,6 +70,11 @@ class set
 
 		foreach ($args as $key => $value)
 		{
+			if($key === 'telegrambtn')
+			{
+				$value = $value[0];
+				$value = json_encode($value, JSON_UNESCAPED_UNICODE);
+			}
 			\lib\app\setting\tools::update($cat, $key, $value);
 		}
 

@@ -99,3 +99,22 @@
       </div>
   </div>
 </section>
+
+
+
+<section class="f" data-option='telegram-setting-start-text'>
+  <div class="c8 s12">
+    <div class="data">
+
+      <h3><?php echo T_("Set Telegram post button");?></h3>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12" >
+      <div class="action">
+          <a class="btn master" href="<?php echo \dash\url::that(). '/telegrambtn' ?>"><?php echo T_("Set") ?></a>
+      </div>
+  </div>
+</section>
