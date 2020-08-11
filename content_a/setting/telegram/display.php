@@ -45,7 +45,7 @@
     <div class="data">
       <h3><?php echo T_("Set Telegram Admin username");?></h3>
       <div class="body">
-        <p><?php echo T_("Set your Telegram username");?></p>
+        <p><?php echo T_("Enter the username of your Telegram network manager here so that your customers will be redirected to this ID if they need to contact the channel manager");?></p>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@
 
       <h3><?php echo T_("Set Telegram post button");?></h3>
       <div class="body">
-
+        <p><?php echo T_("When posting on the Telegram channel, you can put a few buttons below it, each of which is connected to one of your social networks.") ?></p>
       </div>
     </div>
   </div>

@@ -87,22 +87,26 @@ class model
 			],
 		];
 
-		if(\dash\get::index($social, 'twitter'))
-		{
-			$reply_markup[] =
-			[
-				'text' => T_("Twitter"),
-				'url'  => \dash\get::index($social, 'twitter', 'link'),
-			];
-		}
 
-		if(\dash\get::index($social, 'instagram'))
+		$telegrambtn = \dash\get::index(\dash\data::telegramSetting(), 'telegrambtn');
+
+		if(empty($social) || !$telegrambtn)
 		{
-			$reply_markup[] =
-			[
-				'text' => T_("Instagram"),
-				'url'  => \dash\get::index($social, 'instagram', 'link'),
-			];
+		// nothing
+		}
+		else
+		{
+			foreach ($social as $key => $value)
+			{
+				if(\dash\get::index($social, $key) && \dash\get::index($telegrambtn, $key))
+				{
+					$reply_markup[] =
+					[
+						'text' => \dash\get::index($value, 'title'),
+						'url'  => \dash\get::index($social, $key, 'link'),
+					];
+				}
+			}
 		}
 
 

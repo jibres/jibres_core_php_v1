@@ -5,7 +5,7 @@
   <div  class="box impact mB25-f">
     <header><h2><?php echo T_("Set Telegram Channel");?></h2></header>
       <div class="body">
-        <p><?php echo T_("Set your admin username in Telegram");?></p>
+        <p><?php echo T_("Enter the username of your Telegram network manager here so that your customers will be redirected to this ID if they need to contact the channel manager");?></p>
         <div class="c4 s12" method="post" autocomplete="off">
           <div class="action f">
             <div class="c12 mB5">

@@ -5,9 +5,9 @@
   <div  class="box impact mB25-f">
     <header><h2><?php echo T_("Set share telegrma Button");?></h2></header>
       <div class="body">
-        <p><?php echo T_("Set your admin username in Telegram");?></p>
+        <p><?php echo T_("SWhen posting on the Telegram channel, you can put a few buttons below it, each of which is connected to one of your social networks. Here you can set which buttons you want to be under your Telegram post.");?></p>
 
-        <a class="btn link" href="<?php echo \dash\url::this() ?>/social"><?php echo T_("Config Social networks id") ?></a>
+        <a class="btn link mB20" href="<?php echo \dash\url::this() ?>/social"><?php echo T_("Config Social networks id") ?></a>
 
           <div class="action f">
           <?php $social = \lib\store::social(); if(!is_array($social)) { $social = []; } ?>
