@@ -9,21 +9,21 @@
           <header><h2><?php if(\dash\data::editMode()){ echo T_("Edit accounting coding"); }else{ echo T_("Add new accounting coding"); }  ?> - <?php echo T_(ucfirst(\dash\data::myType())); ?></h2></header>
           <div class="body">
 
-            <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-            <div class="input">
-              <input type="number"  max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
-            </div>
 
             <?php if(\dash\data::parentList()) {?>
               <label for="parent"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
               <select class="select22" name="parent">
                 <option value=""><?php echo T_("Please choose parent") ?></option>
                 <?php foreach (\dash\data::parentList() as $key => $value) {?>
-                  <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
+                  <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('parent')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             <?php } // endif ?>
 
+            <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+            <div class="input">
+              <input type="number"  max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode()) { echo 'disabled'; }?> >
+            </div>
 
             <label for="title"><?php echo T_("Title") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
             <div class="input">

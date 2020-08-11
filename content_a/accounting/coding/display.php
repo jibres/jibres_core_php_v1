@@ -55,7 +55,9 @@
 
 					</div>
 					<footer class="f">
-						<div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\url::that(). '/edit?id='. \dash\data::loadDetail_id() ?>"><?php echo T_("Add child"); ?></a></div>
+						<?php if(\dash\get::index(\dash\data::loadDetail(), 'add_child_link')) {?>
+							<div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo T_("Add child"); ?></a></div>
+						<?php } //endif ?>
 						<div class="c"></div>
 						<div class="cauto"><a class="btn primary" href="<?php echo \dash\url::that(). '/edit?id='. \dash\data::loadDetail_id() ?>"><?php echo T_("Edit"); ?></a></div>
 

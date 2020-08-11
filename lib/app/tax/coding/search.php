@@ -189,90 +189,95 @@ class search
 
 	private static function checkOpen($open_all, $_data, $view_id_detail, $type)
 	{
-
+		$jsTree = [];
 
 		if($open_all)
 		{
-			return ' data-jstree=\'{ "opened" : true }\' ';
+			$jsTree["opened"] = true;
 		}
-		else
+
+		if($type === 'group')
 		{
-			if($type === 'group')
+			if(isset($view_id_detail['group']))
 			{
-				if(isset($view_id_detail['group']))
+				if(intval($_data['id']) === intval($view_id_detail['group']) && \dash\get::index($view_id_detail, 'type') === $type)
 				{
-					if(intval($_data['id']) === intval($view_id_detail['group']) && \dash\get::index($view_id_detail, 'type') === $type)
-					{
-						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
-					}
-				}
-			}
-
-			if($type === 'total')
-			{
-				if(isset($view_id_detail['group']) && isset($view_id_detail['total']))
-				{
-					if(intval($_data['id']) === intval($view_id_detail['group']))
-					{
-						return ' data-jstree=\'{ "opened" : true }\' ';
-					}
-
-					if(intval($_data['id']) === intval($view_id_detail['total'])  && \dash\get::index($view_id_detail, 'type') === $type)
-					{
-						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
-					}
-				}
-			}
-
-			if($type === 'assistant')
-			{
-				if(isset($view_id_detail['group']) && isset($view_id_detail['total']) && isset($view_id_detail['assistant']))
-				{
-					if(intval($_data['id']) === intval($view_id_detail['group']))
-					{
-						return ' data-jstree=\'{ "opened" : true }\' ';
-					}
-
-					if(intval($_data['id']) === intval($view_id_detail['total']))
-					{
-						return ' data-jstree=\'{ "opened" : true }\' ';
-					}
-
-					if(intval($_data['id']) === intval($view_id_detail['assistant']) && \dash\get::index($view_id_detail, 'type') === $type)
-					{
-						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
-					}
-				}
-			}
-
-			if($type === 'details')
-			{
-				if(isset($view_id_detail['group']) && isset($view_id_detail['total']) && isset($view_id_detail['assistant']) && isset($view_id_detail['details']))
-				{
-					if(intval($_data['id']) === intval($view_id_detail['group']))
-					{
-						return ' data-jstree=\'{ "opened" : true }\' ';
-					}
-
-					if(intval($_data['id']) === intval($view_id_detail['total']))
-					{
-						return ' data-jstree=\'{ "opened" : true }\' ';
-					}
-
-					if(intval($_data['id']) === intval($view_id_detail['assistant']))
-					{
-						return ' data-jstree=\'{ "opened" : true }\' ';
-					}
-
-					if(intval($_data['id']) === intval($view_id_detail['details']))
-					{
-						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
-					}
+					$jsTree['selected'] = true;
+					$jsTree['opened'] = true;
 				}
 			}
 		}
 
-		return null;
+		if($type === 'total')
+		{
+			if(isset($view_id_detail['group']) && isset($view_id_detail['total']))
+			{
+				if(intval($_data['id']) === intval($view_id_detail['group']))
+				{
+					$jsTree["opened"] = true;
+				}
+
+				if(intval($_data['id']) === intval($view_id_detail['total'])  && \dash\get::index($view_id_detail, 'type') === $type)
+				{
+					$jsTree['selected'] = true;
+					$jsTree['opened'] = true;
+				}
+			}
+		}
+
+		if($type === 'assistant')
+		{
+			if(isset($view_id_detail['group']) && isset($view_id_detail['total']) && isset($view_id_detail['assistant']))
+			{
+				if(intval($_data['id']) === intval($view_id_detail['group']))
+				{
+					$jsTree["opened"] = true;
+				}
+
+				if(intval($_data['id']) === intval($view_id_detail['total']))
+				{
+					$jsTree["opened"] = true;
+				}
+
+				if(intval($_data['id']) === intval($view_id_detail['assistant']) && \dash\get::index($view_id_detail, 'type') === $type)
+				{
+					$jsTree['selected'] = true;
+					$jsTree['opened'] = true;
+				}
+			}
+		}
+
+		if($type === 'details')
+		{
+			if(isset($view_id_detail['group']) && isset($view_id_detail['total']) && isset($view_id_detail['assistant']) && isset($view_id_detail['details']))
+			{
+				if(intval($_data['id']) === intval($view_id_detail['group']))
+				{
+					$jsTree["opened"] = true;
+				}
+
+				if(intval($_data['id']) === intval($view_id_detail['total']))
+				{
+					$jsTree["opened"] = true;
+				}
+
+				if(intval($_data['id']) === intval($view_id_detail['assistant']))
+				{
+					$jsTree["opened"] = true;
+				}
+
+				if(intval($_data['id']) === intval($view_id_detail['details']))
+				{
+					$jsTree['selected'] = true;
+					$jsTree['opened'] = true;
+				}
+			}
+		}
+
+
+		$result = " data-jstree='". json_encode($jsTree). "' ";
+		return $result;
+
 	}
 
 

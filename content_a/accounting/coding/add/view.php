@@ -23,8 +23,15 @@ class view
 
 	public static function static_var()
 	{
+		$view_id = null;
+		if(\dash\request::get('view'))
+		{
+			$view_id = \dash\request::get('view');
+			$load_detail = \lib\app\tax\coding\get::get($view_id);
+			\dash\data::loadDetail($load_detail);
+		}
 
-		$dataTableAll = \lib\app\tax\coding\search::list_tree(['open_all' => true]);
+		$dataTableAll = \lib\app\tax\coding\search::list_tree(['open_all' => false, 'view_id' => $view_id]);
 		\dash\data::dataTableAll($dataTableAll);
 
 		$otherList = [];
