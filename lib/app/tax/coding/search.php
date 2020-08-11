@@ -33,10 +33,20 @@ class search
 
 		$list_tree = array_map(['\\lib\\app\\tax\\coding\\ready', 'row'], $list_tree);
 
-		$group = [];
-		$total = [];
+		$group     = [];
+		$total     = [];
 		$assistant = [];
-		$details = [];
+		$details   = [];
+
+
+
+
+
+		$view_id = null;
+		if(isset($_option['view_id']) && $_option['view_id'])
+		{
+			$view_id = $_option['view_id'];
+		}
 
 
 		foreach ($list_tree as $key => $value)
@@ -74,20 +84,57 @@ class search
 			}
 		}
 
+		$view_id_detail              = [];
+		$view_id_detail['group']     = null;
+		$view_id_detail['total']     = null;
+		$view_id_detail['assistant'] = null;
+		$view_id_detail['details']   = null;
 
-		// var_dump($group, $total, $assistant, $details);exit();
 		$open_all = null;
 		if(isset($_option['open_all']) && $_option['open_all'])
 		{
 			$open_all = ' class="jstree-open"';
 		}
 
+		if($view_id)
+		{
+			$load = \lib\app\tax\coding\get::get($view_id);
+
+			if(\dash\get::index($load, 'parent1') && \dash\get::index($load, 'parent2') && \dash\get::index($load, 'parent3'))
+			{
+				$view_id_detail['group']     = $load['parent1'];
+				$view_id_detail['total']     = $load['parent2'];
+				$view_id_detail['assistant'] = $load['parent3'];
+				$view_id_detail['details']   = $load['id'];
+			}
+			elseif(\dash\get::index($load, 'parent1') && \dash\get::index($load, 'parent2') && !\dash\get::index($load, 'parent3'))
+			{
+				$view_id_detail['group']     = $load['parent1'];
+				$view_id_detail['total']     = $load['parent2'];
+				$view_id_detail['assistant'] = $load['id'];
+			}
+			elseif(\dash\get::index($load, 'parent1') && !\dash\get::index($load, 'parent2') && !\dash\get::index($load, 'parent3'))
+			{
+				$view_id_detail['group']     = $load['parent1'];
+				$view_id_detail['total']     = $load['id'];
+			}
+			elseif(!\dash\get::index($load, 'parent1') && !\dash\get::index($load, 'parent2') && !\dash\get::index($load, 'parent3'))
+			{
+				$view_id_detail['group']     = $load['id'];
+			}
+
+			$view_id_detail['type'] = $load['type'];
+
+		}
+
+
+
 		$result = [];
 		$html = '<div data-jstree class="font-12">';
 		foreach ($group as $group_key => $group_value)
 		{
 			$html .= '<ul>';
-			$html .= '<li class="jstree-open">'. self::htmltTitleJsTree($group_value);
+			$html .= '<li '. self::checkOpen($open_all, $group_value, $view_id_detail, 'group') .'">'. self::htmltTitleJsTree($group_value);
 
 			$result[$group_key] = ['detail' => $group_value, 'list' => []];
 
@@ -97,7 +144,7 @@ class search
 				if($check_total_key === $total_key)
 				{
 					$html .= '<ul>';
-					$html .= '<li'. $open_all. '>'. self::htmltTitleJsTree($total_value);
+					$html .= '<li'. self::checkOpen($open_all, $total_value, $view_id_detail, 'total') . '>'. self::htmltTitleJsTree($total_value);
 					$result[$group_key]['list'][$total_key] = ['detail' => $total_value, 'list' => []];
 					foreach ($assistant as $assistant_key => $assistant_value)
 					{
@@ -106,7 +153,7 @@ class search
 						if($check_assistant_key === $assistant_key)
 						{
 							$html .= '<ul>';
-							$html .= '<li'. $open_all.'>'. self::htmltTitleJsTree($assistant_value);
+							$html .= '<li'. self::checkOpen($open_all, $assistant_value, $view_id_detail, 'assistant') .'>'. self::htmltTitleJsTree($assistant_value);
 							$result[$group_key]['list'][$total_key]['list'][$assistant_key] = ['detail' => $assistant_value, 'list' => []];
 							foreach ($details as $details_key => $details_value)
 							{
@@ -114,28 +161,118 @@ class search
 								if($check_details_key === $details_key)
 								{
 									$html .= '<ul>';
-									$html .= '<li'. $open_all.'>'. self::htmltTitleJsTree($details_value);
+									$html .= '<li'. self::checkOpen($open_all, $details_value, $view_id_detail, 'details') .'>'. self::htmltTitleJsTree($details_value);
 									$result[$group_key]['list'][$total_key]['list'][$assistant_key]['list'][$details_key] = ['detail' => $details_value];
-									$html .= '</li>';
+									$html .= '</li>'. "\n";
 									$html .= '</ul>';
 								}
 							}
-							$html .= '</li>';
+							$html .= '</li>'. "\n";
 							$html .= '</ul>';
 						}
 					}
-					$html .= '</li>';
+					$html .= '</li>'. "\n";
 					$html .= '</ul>';
 				}
 			}
 
-			$html .= '</li>';
+			$html .= '</li>'. "\n";
 			$html .= '</ul>';
 		}
 		$html .= '</div>';
 
+		// var_dump($html);exit();
 		// var_dump($result);exit();
 		return $html;
+	}
+
+
+	private static function checkOpen($open_all, $_data, $view_id_detail, $type)
+	{
+
+
+		if($open_all)
+		{
+			return ' data-jstree=\'{ "opened" : true }\' ';
+		}
+		else
+		{
+			if($type === 'group')
+			{
+				if(isset($view_id_detail['group']))
+				{
+					if(intval($_data['id']) === intval($view_id_detail['group']) && \dash\get::index($view_id_detail, 'type') === $type)
+					{
+						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
+					}
+				}
+			}
+
+			if($type === 'total')
+			{
+				if(isset($view_id_detail['group']) && isset($view_id_detail['total']))
+				{
+					if(intval($_data['id']) === intval($view_id_detail['group']))
+					{
+						return ' data-jstree=\'{ "opened" : true }\' ';
+					}
+
+					if(intval($_data['id']) === intval($view_id_detail['total'])  && \dash\get::index($view_id_detail, 'type') === $type)
+					{
+						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
+					}
+				}
+			}
+
+			if($type === 'assistant')
+			{
+				if(isset($view_id_detail['group']) && isset($view_id_detail['total']) && isset($view_id_detail['assistant']))
+				{
+					if(intval($_data['id']) === intval($view_id_detail['group']))
+					{
+						return ' data-jstree=\'{ "opened" : true }\' ';
+					}
+
+					if(intval($_data['id']) === intval($view_id_detail['total']))
+					{
+						return ' data-jstree=\'{ "opened" : true }\' ';
+					}
+
+					if(intval($_data['id']) === intval($view_id_detail['assistant']) && \dash\get::index($view_id_detail, 'type') === $type)
+					{
+						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
+					}
+				}
+			}
+
+			if($type === 'details')
+			{
+				if(isset($view_id_detail['group']) && isset($view_id_detail['total']) && isset($view_id_detail['assistant']) && isset($view_id_detail['details']))
+				{
+					if(intval($_data['id']) === intval($view_id_detail['group']))
+					{
+						return ' data-jstree=\'{ "opened" : true }\' ';
+					}
+
+					if(intval($_data['id']) === intval($view_id_detail['total']))
+					{
+						return ' data-jstree=\'{ "opened" : true }\' ';
+					}
+
+					if(intval($_data['id']) === intval($view_id_detail['assistant']))
+					{
+						return ' data-jstree=\'{ "opened" : true }\' ';
+					}
+
+					if(intval($_data['id']) === intval($view_id_detail['details']))
+					{
+						return ' data-jstree=\'{ "selected" : true, "opened" : true }\' ';
+					}
+				}
+			}
+		}
+
+		return null;
 	}
 
 

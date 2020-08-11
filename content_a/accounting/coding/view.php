@@ -27,8 +27,6 @@ class view
 		$q = \dash\request::get('q');
 
 		$dataTable = \lib\app\tax\coding\search::list($q, $args);
-		$dataTableAll = \lib\app\tax\coding\search::list_tree();
-		\dash\data::dataTableAll($dataTableAll);
 
 
 
@@ -44,11 +42,15 @@ class view
 
 		\dash\data::myDataCount(\lib\app\tax\coding\get::get_count_group());
 
+		$view_id = null;
 		if(\dash\request::get('view'))
 		{
-			$load_detail = \lib\app\tax\coding\get::get(\dash\request::get('view'));
+			$view_id = \dash\request::get('view');
+			$load_detail = \lib\app\tax\coding\get::get($view_id);
 			\dash\data::loadDetail($load_detail);
 		}
+		$dataTableAll = \lib\app\tax\coding\search::list_tree(['view_id' => $view_id]);
+		\dash\data::dataTableAll($dataTableAll);
 
 	}
 }
