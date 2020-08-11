@@ -10,7 +10,7 @@ else
 
 ?>
 
-
+<?php if(!\dash\data::productDataRow_parent()) {?>
 <form method="post" autocomplete="off" id="form1" data-patch>
 	<input type="hidden" name="setstatus" value="setstatus">
   <div class="avand-md">
@@ -100,3 +100,4 @@ else
   </div>
 
 </form>
+<?php } //endif ?>

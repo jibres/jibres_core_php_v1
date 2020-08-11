@@ -52,7 +52,7 @@
           </a>
         </li>
 
-        <?php if(\dash\data::productDataRow_status() !== 'available') {?>
+        <?php if(!\dash\data::productDataRow_parent() && \dash\data::productDataRow_status() !== 'available') {?>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
             <i class="sf-plug"></i>

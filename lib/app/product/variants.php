@@ -8,7 +8,7 @@ class variants
 	// this field must be copy to child and update it whene the parent was updated
 	public static function parent_field()
 	{
-		return ['title', 'slug', 'cat_id', 'unit_id', 'type', 'trackquantity', 'oversale'];
+		return ['title', 'slug', 'cat_id', 'unit_id', 'type', 'trackquantity', 'oversale', 'status'];
 	}
 
 
