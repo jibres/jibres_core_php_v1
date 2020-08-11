@@ -121,7 +121,7 @@ class generator
 
 		if($result['template'] === 'publish')
 		{
-			$load_all_website = \lib\db\setting\get::lang_platform(\dash\language::current(), 'website');
+			$load_all_website = \lib\app\website\body\get::get_sort_body_line(true);
 
 
 			if(!is_array($load_all_website))

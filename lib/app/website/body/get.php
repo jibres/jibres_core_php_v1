@@ -5,32 +5,50 @@ class get
 {
 	private static $loaded = [];
 
+
+	public static function get_sort_body_line($_all = false)
+	{
+		$sort = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'body', 'sort_line');
+
+		if(isset($sort['value']))
+		{
+			$sort = json_decode($sort['value'], true);
+		}
+		else
+		{
+			$sort = [];
+		}
+
+		if(!is_array($sort))
+		{
+			$sort = [];
+		}
+
+		$sort = array_map('floatval', $sort);
+		$sort = array_filter($sort);
+		$sort = array_unique($sort);
+
+		if($_all)
+		{
+			$load_line = \lib\db\setting\get::get_website_all(\dash\language::current(), $sort);
+		}
+		else
+		{
+			$load_line = \lib\db\setting\get::get_body_line(\dash\language::current(), $sort);
+		}
+
+		return $load_line;
+
+	}
+
+
 	public static function line_list($_raw = false)
 	{
 		$load_line = self::$loaded;
 
 		if(!$load_line)
 		{
-			$sort = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'body', 'sort_line');
-			if(isset($sort['value']))
-			{
-				$sort = json_decode($sort['value'], true);
-			}
-			else
-			{
-				$sort = [];
-			}
-
-			if(!is_array($sort))
-			{
-				$sort = [];
-			}
-
-			$sort = array_map('floatval', $sort);
-			$sort = array_filter($sort);
-			$sort = array_unique($sort);
-
-			$load_line = \lib\db\setting\get::get_body_line(\dash\language::current(), $sort);
+			$load_line = self::get_sort_body_line();
 			self::$loaded = $load_line;
 		}
 

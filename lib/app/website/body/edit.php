@@ -90,6 +90,8 @@ class edit
 
 		\lib\db\setting\update::overwirte_platform_cat_key_lang($sort, 'website', 'body', 'sort_line', \dash\language::current());
 
+		\lib\app\website\generator::remove_catch();
+
 		\dash\notif::ok(T_("Sort saved"));
 		return true;
 
