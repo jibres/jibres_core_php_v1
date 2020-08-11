@@ -72,32 +72,21 @@ class store
 
 
 	/**
-	 * Need load customer header in html
+	 * Like jibres.com/$jb2js
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function needCustomerHeader()
+	public static function inBusinessAdmin()
 	{
 		if(self::inStore())
 		{
-			if(self::inCustomerDomain())
+			if(\dash\url::store())
 			{
 				return true;
 			}
 			else
 			{
-				if(\dash\url::store())
-				{
-					return false;
-				}
-				elseif(\dash\url::subdomain())
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				return false;
 			}
 
 		}
@@ -106,6 +95,60 @@ class store
 			return false;
 		}
 	}
+
+
+	/**
+	 * Like bitty.jibres.ir/
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function inBusinessSubdomain()
+	{
+		if(self::inStore())
+		{
+			if(\dash\url::subdomain())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+	/**
+	 * Like bitty.ir
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function inBusinessDomain()
+	{
+		return self::inCustomerDomain();
+	}
+
+	/**
+	 * Return true if butty.ir or bitty.jibres.ir
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function inBusinessWebsite()
+	{
+		if(self::inBusinessDomain() || self::inBusinessSubdomain())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
 
 
 	public static function config()

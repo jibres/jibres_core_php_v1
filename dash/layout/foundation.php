@@ -71,7 +71,7 @@ if(\dash\data::googleAnalytics())
 <?php }?>
  <meta content="<?php echo \dash\face::site(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\face::site(); ?>" name="apple-mobile-web-app-title"/>
-<?php if(\dash\engine\store::needCustomerHeader()) {?>
+<?php if(\dash\engine\store::inBusinessWebsite()) {?>
  <link href="<?php echo \lib\store::logo();?>?v=1" type="image/png" rel="icon"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="shortcut icon"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="apple-touch-startup-image"/>
