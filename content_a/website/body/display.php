@@ -31,5 +31,8 @@
   </ul>
 </nav>
 </form>
+  <?php if(is_array(\dash\data::bodyLineList()) && count(\dash\data::bodyLineList()) > 2) {?>
+    <div class="msg fs12"><?php echo T_("Change the position of the rows with the help of the handle") ?> <kbd><i class="sf-sort"></i></kbd></div>
+  <?php } //endif ?>
 <?php } //endif ?>
 
