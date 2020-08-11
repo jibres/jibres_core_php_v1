@@ -64,5 +64,35 @@ class edit
 		\lib\app\website\generator::remove_catch();
 
 	}
+
+
+	public static function set_sort($_sort_detail)
+	{
+		if(!is_array($_sort_detail))
+		{
+			$_sort_detail = [];
+		}
+
+		$sort = [];
+
+		foreach ($_sort_detail as $key => $value)
+		{
+			if(!\dash\coding::is($value))
+			{
+				\dash\notif::error(T_("Invalid id"));
+				return false;
+			}
+
+			$sort[] = \dash\coding::decode($value);
+		}
+
+		$sort = json_encode($sort, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\setting\update::overwirte_platform_cat_key_lang($sort, 'website', 'body', 'sort_line', \dash\language::current());
+
+		\dash\notif::ok(T_("Sort saved"));
+		return true;
+
+	}
 }
 ?>

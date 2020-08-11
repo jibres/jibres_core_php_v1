@@ -108,6 +108,34 @@ class get
 	}
 
 
+	public static function get_body_line($_lang, $_sort = [])
+	{
+		$sort = null;
+
+		if($_sort)
+		{
+			$sort = " ORDER BY  FIELD(setting.id, " . implode(',', $_sort).") ";
+		}
+
+		$query =
+		"
+			SELECT
+				*
+			FROM
+				setting
+			WHERE
+				setting.lang = '$_lang' AND
+				setting.platform = 'website' AND
+				setting.cat = 'homepage' AND
+				setting.key LIKE 'body_line%'
+			$sort
+
+			";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 
 
 	public static function platform_cat_key_like($_platform, $_cat, $_key)

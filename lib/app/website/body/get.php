@@ -11,7 +11,26 @@ class get
 
 		if(!$load_line)
 		{
-			$load_line = \lib\db\setting\get::lang_platform_cat_key_like(\dash\language::current(), 'website', 'homepage', 'body_line%');
+			$sort = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'body', 'sort_line');
+			if(isset($sort['value']))
+			{
+				$sort = json_decode($sort['value'], true);
+			}
+			else
+			{
+				$sort = [];
+			}
+
+			if(!is_array($sort))
+			{
+				$sort = [];
+			}
+
+			$sort = array_map('floatval', $sort);
+			$sort = array_filter($sort);
+			$sort = array_unique($sort);
+
+			$load_line = \lib\db\setting\get::get_body_line(\dash\language::current(), $sort);
 			self::$loaded = $load_line;
 		}
 

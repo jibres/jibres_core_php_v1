@@ -8,7 +8,7 @@
 
      <li>
         <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value,'type') .'?id='. \dash\get::index($value, 'id'); ?>" class="f">
-        <input type="hidden" class="hide" name="bodyline[]" value="<?php echo $key; ?>">
+        <input type="hidden" class="hide" name="bodyline[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
           <div class="key">
             <div class="f">
               <div data-handle class="c1 handle"><i class="sf-sort"></i></div>
