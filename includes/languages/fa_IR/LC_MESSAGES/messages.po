@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-10 16:33+0430\n"
-"PO-Revision-Date: 2020-08-10 16:33+0430\n"
+"POT-Creation-Date: 2020-08-11 17:34+0430\n"
+"PO-Revision-Date: 2020-08-11 17:36+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1011,7 +1011,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_my/ipg/gateway/display.php:21 content_my/ipg/setup/gateway/display.php:21
 #: content_support/ticket/contact_ticket/model.php:126
 #: includes/languages/trans_static_public.php:941
-#: includes/languages/trans_static_public.php:983
+#: includes/languages/trans_static_public.php:983 lib/store.php:512
 msgid "Email"
 msgstr "رایانامه"
 
@@ -1280,6 +1280,8 @@ msgid "Every website starts with a great domain name"
 msgstr "داستان هر وب‌سایت با یک دامنه فوق العاده شروع می‌شود"
 
 #: content/domains/home/display.php:9 content/domains/search/display.php:8
+#: content_a/accounting/coding/all/display.php:84
+#: content_a/accounting/coding/all/display.php:85
 #: content_a/accounting/coding/display-list.php:91
 #: content_a/accounting/coding/display-list.php:92
 #: content_a/accounting/irvat/all/display.php:86
@@ -1722,7 +1724,7 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_a/products/edit/block/price-child.php:12
 #: content_a/products/edit/block/price-child.php:33
 #: content_a/products/home/display.php:118 content_a/products/home/display.php:170
-#: content_a/products/share/display.php:30 content_a/products/share/model.php:58
+#: content_a/products/share/display.php:30 content_a/products/share/model.php:62
 #: content_a/products/variants/display-add-product.php:26
 #: content_a/products/variants/display-add-product.php:64 content_a/sale/display.php:18
 #: content_business/p/home/display.php:81 content_business/p/home/view.php:106
@@ -3640,7 +3642,8 @@ msgstr "توافقنامه ایرنیک - مرکز ثبت دامنه نقطه-آ
 msgid "Text of agreement for registering domains under .ir and .ایران.ir "
 msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 
-#: content/terms/irnic/view.php:13 content_a/accounting/coding/add/view.php:12
+#: content/terms/irnic/view.php:13 content_a/accounting/coding/add/view.php:10
+#: content_a/accounting/coding/all/view.php:12
 #: content_a/accounting/coding/edit/view.php:12 content_a/accounting/coding/view.php:12
 #: content_a/accounting/doc/add/view.php:12 content_a/accounting/doc/edit/view.php:12
 #: content_a/accounting/doc/view.php:12 content_a/accounting/home/view.php:12
@@ -3872,16 +3875,7 @@ msgstr "ثبت دامنه"
 msgid "Whois answer"
 msgstr "پاسخ کیه"
 
-#: content_a/accounting/coding/add/display-add.php:9
-#: content_a/accounting/coding/edit/view.php:9
-msgid "Edit accounting coding"
-msgstr "ویرایش سرفصل حسابداری"
-
-#: content_a/accounting/coding/add/display-add.php:9
-msgid "Add new accounting coding"
-msgstr "افزودن سرفصل حسابداری جدید"
-
-#: content_a/accounting/coding/add/display-add.php:13
+#: content_a/accounting/coding/add/display-add.php:14
 #: content_a/accounting/doc/add/display-docdetail.php:10
 #: content_a/accounting/doc/add/display-docdetail.php:20
 #: content_a/accounting/irvat/add/display.php:155
@@ -3890,10 +3884,10 @@ msgstr "افزودن سرفصل حسابداری جدید"
 msgid "Parent"
 msgstr "والد"
 
-#: content_a/accounting/coding/add/display-add.php:13
+#: content_a/accounting/coding/add/display-add.php:14
 #: content_a/accounting/coding/add/display-add.php:23
-#: content_a/accounting/coding/add/display-add.php:73
-#: content_a/accounting/coding/add/display-add.php:124
+#: content_a/accounting/coding/add/display-add.php:28
+#: content_a/accounting/coding/add/display-add.php:78
 #: content_a/accounting/doc/add/display-docdetail.php:10
 #: content_a/accounting/doc/add/display-docdetail.php:20
 #: content_a/accounting/irvat/add/display.php:155
@@ -3906,11 +3900,24 @@ msgstr "والد"
 msgid "Required"
 msgstr "الزامی"
 
-#: content_a/accounting/coding/add/display-add.php:15
+#: content_a/accounting/coding/add/display-add.php:16
 msgid "Please choose parent"
 msgstr "لطفا والد را انتخاب کنید"
 
 #: content_a/accounting/coding/add/display-add.php:23
+#: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
+#: content_love/gift/all/display.php:60
+#: content_my/domain/whoisdetail/whoisDetailForm.php:320
+#: content_my/domain/whoisdetail/whoisDetailForm.php:336
+#: includes/languages/trans_static.php:586 lib/app/onlinenic/create.php:78
+#: lib/app/onlinenic/create.php:79 lib/app/onlinenic/transfer.php:70
+#: lib/app/onlinenic/transfer.php:71 lib/app/product/site_list.php:154
+#: lib/app/product/site_list.php:155 lib/app/product/site_list.php:261
+msgid "Code"
+msgstr "کد"
+
+#: content_a/accounting/coding/add/display-add.php:28
+#: content_a/accounting/coding/all/display.php:102
 #: content_a/accounting/coding/display-list.php:109
 #: content_a/accounting/irvat/add/display.php:18
 #: content_a/accounting/irvat/all/display.php:132
@@ -3949,130 +3956,130 @@ msgstr "لطفا والد را انتخاب کنید"
 msgid "Title"
 msgstr "عنوان"
 
-#: content_a/accounting/coding/add/display-add.php:29
+#: content_a/accounting/coding/add/display-add.php:34
 #: content_a/accounting/coding/display.php:20
 msgid "Class"
 msgstr "طبقه"
 
-#: content_a/accounting/coding/add/display-add.php:33
+#: content_a/accounting/coding/add/display-add.php:38
 msgid "Please choose class"
 msgstr "لطفا طبقه را انتخاب کنید"
 
-#: content_a/accounting/coding/add/display-add.php:34
+#: content_a/accounting/coding/add/display-add.php:39
 msgid "current liabilities"
 msgstr "بدهی‌های جاری"
 
-#: content_a/accounting/coding/add/display-add.php:35
+#: content_a/accounting/coding/add/display-add.php:40
 msgid "non-current liabilities"
 msgstr "بدهی‌های غیر جاری"
 
-#: content_a/accounting/coding/add/display-add.php:36
+#: content_a/accounting/coding/add/display-add.php:41
 msgid "current assets"
 msgstr "دارایی‌های جاری"
 
-#: content_a/accounting/coding/add/display-add.php:37
+#: content_a/accounting/coding/add/display-add.php:42
 msgid "non-current assets"
 msgstr "دارایی‌های غیر جاری"
 
-#: content_a/accounting/coding/add/display-add.php:38
+#: content_a/accounting/coding/add/display-add.php:43
 msgid "profit and loss"
 msgstr "سود و زیانی"
 
-#: content_a/accounting/coding/add/display-add.php:39
+#: content_a/accounting/coding/add/display-add.php:44
 msgid "shareholders rights"
 msgstr "حقوق صاحبان سهام"
 
-#: content_a/accounting/coding/add/display-add.php:47
+#: content_a/accounting/coding/add/display-add.php:52
 #: content_a/accounting/coding/display.php:25
 msgid "Topic"
 msgstr "سرفصل"
 
-#: content_a/accounting/coding/add/display-add.php:49
+#: content_a/accounting/coding/add/display-add.php:54
 msgid "Please choose topic"
 msgstr "لطفا سرفصل را انتخاب کنید"
 
-#: content_a/accounting/coding/add/display-add.php:50
+#: content_a/accounting/coding/add/display-add.php:55
 msgid "net sales"
 msgstr "فروش خالص"
 
-#: content_a/accounting/coding/add/display-add.php:51
+#: content_a/accounting/coding/add/display-add.php:56
 msgid "accumulated profit"
 msgstr "سود انباشته"
 
-#: content_a/accounting/coding/add/display-add.php:52
+#: content_a/accounting/coding/add/display-add.php:57
 msgid "orders and prepayments"
 msgstr "سفارشات و پیش پرداخت‌ها"
 
-#: content_a/accounting/coding/add/display-add.php:53
+#: content_a/accounting/coding/add/display-add.php:58
 msgid "short term investments"
 msgstr "سرمایه گذاری‌های کوتاه مدت"
 
-#: content_a/accounting/coding/add/display-add.php:54
+#: content_a/accounting/coding/add/display-add.php:59
 msgid "wealth"
 msgstr "سرمایه"
 
-#: content_a/accounting/coding/add/display-add.php:55
+#: content_a/accounting/coding/add/display-add.php:60
 msgid "other non-operating expenses"
 msgstr "سایر هزینه‌های غیرعملیاتی"
 
-#: content_a/accounting/coding/add/display-add.php:56
+#: content_a/accounting/coding/add/display-add.php:61
 msgid "other operating costs"
 msgstr "سایر هزینه‌های عملیاتی"
 
-#: content_a/accounting/coding/add/display-add.php:57
+#: content_a/accounting/coding/add/display-add.php:62
 msgid "other operating income"
 msgstr "سایر درآمد‌های عملیاتی"
 
-#: content_a/accounting/coding/add/display-add.php:58
+#: content_a/accounting/coding/add/display-add.php:63
 msgid "other accounts and documents receivable"
 msgstr "سایر حساب‌ها و اسناد دریافتنی"
 
-#: content_a/accounting/coding/add/display-add.php:59
+#: content_a/accounting/coding/add/display-add.php:64
 msgid "other accounts and documents payable"
 msgstr "سایر حساب‌ها و اسناد پرداختنی"
 
-#: content_a/accounting/coding/add/display-add.php:60
+#: content_a/accounting/coding/add/display-add.php:65
 msgid "save employee end-of-service benefits"
 msgstr "ذخیره مزایای پایان خدمت کارکنان"
 
-#: content_a/accounting/coding/add/display-add.php:61
+#: content_a/accounting/coding/add/display-add.php:66
 msgid "save taxes"
 msgstr "ذخیره مالیات"
 
-#: content_a/accounting/coding/add/display-add.php:62
+#: content_a/accounting/coding/add/display-add.php:67
 msgid "tangible fixed assets"
 msgstr "دارایی‌های ثابت مشهود"
 
-#: content_a/accounting/coding/add/display-add.php:63
+#: content_a/accounting/coding/add/display-add.php:68
 msgid "accounts receivable and commercial documents"
 msgstr "حساب‌ها و اسناد دریافتنی تجاری"
 
-#: content_a/accounting/coding/add/display-add.php:64
+#: content_a/accounting/coding/add/display-add.php:69
 msgid "business accounts and documents payable"
 msgstr "حساب‌های و اسناد پرداختنی تجاری"
 
-#: content_a/accounting/coding/add/display-add.php:65
+#: content_a/accounting/coding/add/display-add.php:70
 msgid "receivables"
 msgstr "پیش دریافتنی‌ها"
 
-#: content_a/accounting/coding/add/display-add.php:66
+#: content_a/accounting/coding/add/display-add.php:71
 msgid "prepayments"
 msgstr "پیش دریافت‌ها"
 
-#: content_a/accounting/coding/add/display-add.php:67
+#: content_a/accounting/coding/add/display-add.php:72
 msgid "long-term accounts and documents"
 msgstr "حساب‌ها و اسناد بلند مدت"
 
-#: content_a/accounting/coding/add/display-add.php:73
+#: content_a/accounting/coding/add/display-add.php:78
 #: content_a/accounting/coding/display.php:35
 msgid "Nature"
 msgstr "ماهیت"
 
-#: content_a/accounting/coding/add/display-add.php:75
+#: content_a/accounting/coding/add/display-add.php:80
 msgid "Please choose nature"
 msgstr "لطفا ماهیت را انتخاب کنید"
 
-#: content_a/accounting/coding/add/display-add.php:78
+#: content_a/accounting/coding/add/display-add.php:83
 #: content_a/accounting/doc/add/display-docdetail.php:35
 #: content_a/accounting/doc/add/display-list.php:11
 #: content_a/accounting/doc/add/display-list.php:34
@@ -4080,7 +4087,7 @@ msgstr "لطفا ماهیت را انتخاب کنید"
 msgid "Debtor"
 msgstr "بدهکار"
 
-#: content_a/accounting/coding/add/display-add.php:79
+#: content_a/accounting/coding/add/display-add.php:84
 #: content_a/accounting/doc/add/display-docdetail.php:41
 #: content_a/accounting/doc/add/display-list.php:12
 #: content_a/accounting/doc/add/display-list.php:36
@@ -4088,23 +4095,23 @@ msgstr "بدهکار"
 msgid "Creditor"
 msgstr "بستانکار"
 
-#: content_a/accounting/coding/add/display-add.php:80
+#: content_a/accounting/coding/add/display-add.php:85
 msgid "Debtor-Creditor"
 msgstr "بدهکار - بستانکار"
 
-#: content_a/accounting/coding/add/display-add.php:84
+#: content_a/accounting/coding/add/display-add.php:89
 msgid "Balance Sheet"
 msgstr "ترازنامه‌ای"
 
-#: content_a/accounting/coding/add/display-add.php:85
+#: content_a/accounting/coding/add/display-add.php:90
 msgid "Disciplinary"
 msgstr "انتظامی"
 
-#: content_a/accounting/coding/add/display-add.php:86
+#: content_a/accounting/coding/add/display-add.php:91
 msgid "Harmful-Profit"
 msgstr "سود - زیانی"
 
-#: content_a/accounting/coding/add/display-add.php:95
+#: content_a/accounting/coding/add/display-add.php:100
 #: content_a/category/edit/display.php:14 content_a/order/address/display.php:116
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
@@ -4121,7 +4128,7 @@ msgstr "سود - زیانی"
 msgid "Yes"
 msgstr "بله"
 
-#: content_a/accounting/coding/add/display-add.php:95
+#: content_a/accounting/coding/add/display-add.php:100
 #: content_a/category/edit/display.php:14 content_a/order/address/display.php:116
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
@@ -4134,43 +4141,35 @@ msgstr "بله"
 msgid "No"
 msgstr "خیر"
 
-#: content_a/accounting/coding/add/display-add.php:96
+#: content_a/accounting/coding/add/display-add.php:101
 msgid "Detailable?"
 msgstr "آیا تفصیل‌پذیر است؟"
 
-#: content_a/accounting/coding/add/display-add.php:105
+#: content_a/accounting/coding/add/display-add.php:110
+#: content_a/accounting/coding/all/display.php:117
 #: content_a/accounting/coding/display.php:41
 msgid "naturecontrol"
 msgstr "کنترل ماهیت طی دوره"
 
-#: content_a/accounting/coding/add/display-add.php:110
+#: content_a/accounting/coding/add/display-add.php:115
+#: content_a/accounting/coding/all/display.php:118
 #: content_a/accounting/coding/display.php:42
 msgid "exchangeable"
 msgstr "تسعیر پذیر"
 
-#: content_a/accounting/coding/add/display-add.php:115
+#: content_a/accounting/coding/add/display-add.php:120
+#: content_a/accounting/coding/all/display.php:119
 #: content_a/accounting/coding/display.php:43
 msgid "followup"
 msgstr "پیگیری"
 
-#: content_a/accounting/coding/add/display-add.php:120
+#: content_a/accounting/coding/add/display-add.php:125
+#: content_a/accounting/coding/all/display.php:120
 #: content_a/accounting/coding/display.php:44
 msgid "Accounting currency"
 msgstr "ارزی"
 
-#: content_a/accounting/coding/add/display-add.php:124
-#: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
-#: content_love/gift/all/display.php:60
-#: content_my/domain/whoisdetail/whoisDetailForm.php:320
-#: content_my/domain/whoisdetail/whoisDetailForm.php:336
-#: includes/languages/trans_static.php:586 lib/app/onlinenic/create.php:78
-#: lib/app/onlinenic/create.php:79 lib/app/onlinenic/transfer.php:70
-#: lib/app/onlinenic/transfer.php:71 lib/app/product/site_list.php:154
-#: lib/app/product/site_list.php:155 lib/app/product/site_list.php:261
-msgid "Code"
-msgstr "کد"
-
-#: content_a/accounting/coding/add/display-add.php:131
+#: content_a/accounting/coding/add/display-add.php:132
 #: content_a/products/tag/display.php:172 content_a/products/tag/display.php:189
 #: content_cms/terms/display.php:225 content_cms/terms/display.php:242
 #: content_love/domain/detail/display.php:25 content_love/domain/setting/display.php:125
@@ -4180,7 +4179,7 @@ msgstr "کد"
 msgid "Enable"
 msgstr "فعال"
 
-#: content_a/accounting/coding/add/display-add.php:131
+#: content_a/accounting/coding/add/display-add.php:132
 #: content_a/products/tag/display.php:173 content_a/products/tag/display.php:190
 #: content_cms/terms/display.php:226 content_cms/terms/display.php:243
 #: content_love/domain/setting/display.php:126 includes/languages/trans_static.php:539
@@ -4188,7 +4187,7 @@ msgstr "فعال"
 msgid "Disable"
 msgstr "غیرفعال"
 
-#: content_a/accounting/coding/add/display-add.php:132
+#: content_a/accounting/coding/add/display-add.php:133
 #: content_a/accounting/coding/display.php:30 content_a/android/apk/display.php:32
 #: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
@@ -4213,7 +4212,7 @@ msgstr "غیرفعال"
 msgid "Status"
 msgstr "وضعیت"
 
-#: content_a/accounting/coding/add/display-add.php:138
+#: content_a/accounting/coding/add/display-add.php:139
 #: content_a/accounting/doc/add/display-docdetail.php:47
 #: content_a/accounting/doc/add/display.php:48
 #: content_a/accounting/irvat/add/display.php:133 content_a/cart/add/display.php:26
@@ -4236,10 +4235,12 @@ msgstr "وضعیت"
 msgid "Add"
 msgstr "افزودن"
 
-#: content_a/accounting/coding/add/display-add.php:138
+#: content_a/accounting/coding/add/display-add.php:139
+#: content_a/accounting/coding/all/display.php:105
+#: content_a/accounting/coding/all/display.php:123
 #: content_a/accounting/coding/display-list.php:112
 #: content_a/accounting/coding/display-list.php:124
-#: content_a/accounting/coding/display.php:60 content_a/accounting/doc/add/display.php:42
+#: content_a/accounting/coding/display.php:62 content_a/accounting/doc/add/display.php:42
 #: content_a/accounting/doc/display.php:9 content_a/accounting/doc/display.php:18
 #: content_a/accounting/irvat/add/display.php:131 content_a/company/display.php:64
 #: content_a/company/display.php:121 content_a/pricehistory/display.php:43
@@ -4262,7 +4263,7 @@ msgstr "افزودن"
 msgid "Edit"
 msgstr "ویرایش"
 
-#: content_a/accounting/coding/add/display-add.php:140
+#: content_a/accounting/coding/add/display-add.php:141
 #: content_a/accounting/doc/add/display.php:38 content_a/cart/add/display.php:54
 #: content_a/cart/add/display.php:75 content_a/company/display.php:57
 #: content_a/company/display.php:122 content_a/products/bullet/display.php:28
@@ -4295,27 +4296,35 @@ msgid "Accounting Group"
 msgstr "گروه"
 
 #: content_a/accounting/coding/add/display-choose.php:17
+#: content_a/accounting/coding/all/display.php:21
 #: content_a/accounting/coding/display-list.php:25
 #: content_a/accounting/report/detail/display.php:11
 msgid "Accounting total"
 msgstr "کل"
 
 #: content_a/accounting/coding/add/display-choose.php:26
+#: content_a/accounting/coding/all/display.php:27
 #: content_a/accounting/coding/display-list.php:31
 #: content_a/accounting/report/detail/display.php:12
 msgid "Accounting assistant"
 msgstr "معین"
 
 #: content_a/accounting/coding/add/display-choose.php:35
+#: content_a/accounting/coding/all/display.php:34
 #: content_a/accounting/coding/display-list.php:38
 #: content_a/accounting/report/detail/display.php:13
 msgid "Accounting details"
 msgstr "تفصیل"
 
-#: content_a/accounting/coding/add/view.php:9
-msgid "Add accounting coding"
-msgstr "افزودن سرفصل حسابداری"
+#: content_a/accounting/coding/add/view.php:28 content_a/accounting/coding/edit/view.php:9
+msgid "Edit accounting coding"
+msgstr "ویرایش سرفصل حسابداری"
 
+#: content_a/accounting/coding/add/view.php:32
+msgid "Add new accounting coding"
+msgstr "افزودن سرفصل حسابداری جدید"
+
+#: content_a/accounting/coding/all/display.php:8
 #: content_a/accounting/coding/display-list.php:12 content_a/factor/home/display.php:9
 #: content_a/order/home/display.php:9 content_a/products/comment/display.php:189
 #: content_cms/comments/home/display.php:198 content_cms/posts/home/display.php:171
@@ -4326,6 +4335,7 @@ msgstr "افزودن سرفصل حسابداری"
 msgid "All"
 msgstr "همه"
 
+#: content_a/accounting/coding/all/display.php:15
 #: content_a/accounting/coding/display-list.php:19
 #: content_a/category/property/display.php:15 content_a/category/property/display.php:19
 #: content_a/products/property/display.php:18 content_a/products/property/display.php:22
@@ -4333,25 +4343,39 @@ msgstr "همه"
 msgid "Group"
 msgstr "گروه"
 
-#: content_a/accounting/coding/display-list.php:107 content_su/tg/log/display.php:86
-#: content_su/tg/log/display.php:175
-msgid "ID"
-msgstr "شناسه"
-
+#: content_a/accounting/coding/all/display.php:101
 #: content_a/accounting/coding/display-list.php:108
 #: includes/languages/trans_static.php:457
 msgid "code"
 msgstr "کد"
 
+#: content_a/accounting/coding/all/display.php:103
 #: content_a/accounting/coding/display-list.php:110
 msgid "Natuer"
 msgstr "ماهیت"
 
+#: content_a/accounting/coding/all/display.php:104
+#: content_a/accounting/coding/display.php:9
+#: content_a/accounting/doc/add/display-docdetail.php:6
+#: content_a/accounting/doc/add/display-list.php:9 content_a/cart/home/display.php:120
+#: content_account/billing/display.php:62 content_account/billing/display.php:100
+#: content_cms/comments/home/display.php:82 content_crm/--log/home/logTable.php:9
+#: content_crm/member/billing/display.php:33 content_crm/member/billing/display.php:71
+#: content_crm/member/home/display.php:83 content_crm/transactions/display.php:72
+#: content_crm/transactions/display.php:103 content_love/store/domain/display.php:27
+#: content_pay/home/display.php:271 content_su/apilog/home/display.php:103
+#: content_su/smsclient/home/display.php:52 includes/languages/trans_static.php:706
+msgid "Detail"
+msgstr "جزئیات"
+
+#: content_a/accounting/coding/all/display.php:121
 #: content_a/accounting/coding/display-list.php:111
-#: content_a/accounting/coding/display.php:45 lib/app/tax/coding/search.php:154
+#: content_a/accounting/coding/display.php:45 lib/app/tax/coding/search.php:296
 msgid "Detailable"
 msgstr "تفصیل‌پذیر"
 
+#: content_a/accounting/coding/all/display.php:158
+#: content_a/accounting/coding/all/display.php:166
 #: content_a/accounting/coding/display-list.php:159
 #: content_a/accounting/coding/display-list.php:167
 #: content_a/accounting/irvat/all/display.php:198 content_a/cart/home/display.php:170
@@ -4394,6 +4418,7 @@ msgstr "تفصیل‌پذیر"
 msgid "Clear filters"
 msgstr "پاک‌سازی فیلترها"
 
+#: content_a/accounting/coding/all/display.php:165
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:177
 #: content_a/factor/home/display.php:266 content_a/order/home/display.php:276
 #: content_a/products/comment/display.php:168 content_a/products/tag/display.php:217
@@ -4412,6 +4437,7 @@ msgstr "پاک‌سازی فیلترها"
 msgid "Result not found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
+#: content_a/accounting/coding/all/display.php:165
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:177
 #: content_a/factor/home/display.php:266 content_a/order/home/display.php:276
 #: content_a/products/comment/display.php:168 content_a/products/tag/display.php:217
@@ -4430,6 +4456,7 @@ msgstr "نتیجه‌ای یافت نشد!"
 msgid "Search with new keywords."
 msgstr "کلمه ای جدید جستجو کنید."
 
+#: content_a/accounting/coding/all/display.php:172
 #: content_a/accounting/coding/display-list.php:173
 #: content_a/accounting/doc/display.php:24 content_a/accounting/irvat/all/display.php:210
 #: content_a/category/home/display.php:156 content_a/company/display.php:136
@@ -4456,36 +4483,25 @@ msgstr "کلمه ای جدید جستجو کنید."
 msgid "Hi!"
 msgstr "سلام!"
 
+#: content_a/accounting/coding/all/display.php:172
 #: content_a/accounting/coding/display-list.php:173
 #: content_a/accounting/doc/display.php:24
 msgid "Add new"
 msgstr "افزودن جدید"
 
-#: content_a/accounting/coding/display.php:9
-#: content_a/accounting/doc/add/display-docdetail.php:6
-#: content_a/accounting/doc/add/display-list.php:9 content_a/cart/home/display.php:120
-#: content_account/billing/display.php:62 content_account/billing/display.php:100
-#: content_cms/comments/home/display.php:82 content_crm/--log/home/logTable.php:9
-#: content_crm/member/billing/display.php:33 content_crm/member/billing/display.php:71
-#: content_crm/member/home/display.php:83 content_crm/transactions/display.php:72
-#: content_crm/transactions/display.php:103 content_love/store/domain/display.php:27
-#: content_pay/home/display.php:271 content_su/apilog/home/display.php:103
-#: content_su/smsclient/home/display.php:52 includes/languages/trans_static.php:706
-msgid "Detail"
-msgstr "جزئیات"
-
-#: content_a/accounting/coding/display.php:58
-msgid "Add child"
-msgstr "افزودن زیرمجموعه"
-
-#: content_a/accounting/coding/view.php:9 content_a/accounting/doc/view.php:9
-#: content_a/accounting/home/display.php:14
+#: content_a/accounting/coding/all/view.php:9 content_a/accounting/coding/view.php:9
+#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:14
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
-#: content_a/accounting/coding/view.php:16
+#: content_a/accounting/coding/all/view.php:16 content_a/accounting/coding/view.php:16
 msgid "Add coding"
 msgstr "افزودن سرفصل حسابداری"
+
+#: content_a/accounting/coding/display-list.php:107 content_su/tg/log/display.php:86
+#: content_su/tg/log/display.php:175
+msgid "ID"
+msgstr "شناسه"
 
 #: content_a/accounting/doc/add/display-docdetail.php:12
 #: content_a/accounting/irvat/add/display.php:157
@@ -4533,33 +4549,37 @@ msgstr "افزودن سند"
 msgid "Accounting"
 msgstr "حسابداری"
 
-#: content_a/accounting/home/display.php:23
+#: content_a/accounting/home/display.php:24
+msgid "Accounting Coding list"
+msgstr "لیست سرفصل‌های حسابداری"
+
+#: content_a/accounting/home/display.php:33
 msgid "Accounting Document"
 msgstr "سند حسابداری"
 
-#: content_a/accounting/home/display.php:32
+#: content_a/accounting/home/display.php:42
 msgid "Add Accounting Document"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/home/display.php:41
+#: content_a/accounting/home/display.php:51
 msgid "Report on detail level"
 msgstr "گزارش در سطح تفصیل"
 
-#: content_a/accounting/home/display.php:47
+#: content_a/accounting/home/display.php:57
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:53
+#: content_a/accounting/home/display.php:63
 #: content_a/accounting/irvat/choosetype/display.php:18
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
-#: content_a/accounting/home/display.php:62
+#: content_a/accounting/home/display.php:72
 #: content_a/accounting/irvat/choosetype/display.php:26
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/home/display.php:71 content_love/gift/home/display.php:18
+#: content_a/accounting/home/display.php:81 content_love/gift/home/display.php:18
 msgid "List"
 msgstr "لیست"
 
@@ -5049,9 +5069,11 @@ msgstr "مایکت"
 #: content_a/setting/product/viewtext/display.php:19
 #: content_a/setting/shipping/setting/display.php:108
 #: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:93
+#: content_a/setting/telegram/adminusername/display.php:21
 #: content_a/setting/telegram/bot/display.php:22
 #: content_a/setting/telegram/channel/display.php:21
 #: content_a/setting/telegram/starttext/display.php:19
+#: content_a/setting/telegram/telegrambtn/display.php:35
 #: content_a/setting/telegram/text/display.php:19 content_a/setup/address/display.php:55
 #: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:26
 #: content_a/setup/owner/display.php:41 content_a/setup/payment/display.php:43
@@ -5996,8 +6018,8 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/product/comment.php:198 lib/app/product/comment.php:445
 #: lib/app/product/comment.php:475 lib/app/product/company.php:63
 #: lib/app/product/company.php:228 lib/app/product/company.php:260
-#: lib/app/product/company.php:353 lib/app/product/edit.php:97 lib/app/product/get.php:34
-#: lib/app/product/get.php:75 lib/app/product/unit.php:63 lib/app/product/unit.php:229
+#: lib/app/product/company.php:353 lib/app/product/edit.php:97 lib/app/product/get.php:33
+#: lib/app/product/get.php:74 lib/app/product/unit.php:63 lib/app/product/unit.php:229
 #: lib/app/product/unit.php:261 lib/app/product/unit.php:355
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
@@ -7535,27 +7557,15 @@ msgstr "برای تنظیم اطلاعات تلگرام کلیک کنید"
 msgid "Share text"
 msgstr "متن اشتراک گذاری"
 
-#: content_a/products/share/display.php:42 content_a/products/share/model.php:81
+#: content_a/products/share/display.php:44 content_a/products/share/model.php:119
 msgid "Register a new order"
 msgstr "ثبت سفارش جدید"
 
-#: content_a/products/share/display.php:45 content_a/products/share/model.php:95
-#: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
-#: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: content_crm/member/social/display.php:27 content_crm/member/social/display.php:30
-msgid "Instagram"
-msgstr "اینستاگرام"
+#: content_a/products/share/display.php:52
+msgid "Manage your social network"
+msgstr "مدیریت شبکه‌های اجتماعی"
 
-#: content_a/products/share/display.php:46 content_a/products/share/model.php:91
-#: content_a/setting/social/display.php:35 content_account/my/home/display.php:170
-#: content_account/my/social/display.php:27 content_account/my/social/display.php:30
-#: content_crm/member/social/display.php:40 content_crm/member/social/display.php:43
-#: dash/engine/static_files.php:28 dash/engine/static_files.php:37
-#: dash/engine/static_files.php:47
-msgid "Twitter"
-msgstr "توییتر"
-
-#: content_a/products/share/display.php:47 content_a/products/share/model.php:87
+#: content_a/products/share/display.php:62 content_a/products/share/model.php:85
 #: content_account/my/home/display.php:154 content_account/my/social/display.php:12
 #: content_cms/comments/edit/display.php:21 content_crm/member/social/display.php:15
 #: content_crm/member/social/display.php:17 content_my/business/home/display_pwa.php:53
@@ -7567,15 +7577,15 @@ msgstr "توییتر"
 msgid "Website"
 msgstr "وب‌سایت"
 
-#: content_a/products/share/model.php:31
+#: content_a/products/share/model.php:35
 msgid "You must set your telegram apikey first in bussiness setting"
 msgstr "شما ابتدا باید تنظیمات مربوط به اتصال فروشگاه به تلگرام را بررسی کنید"
 
-#: content_a/products/share/model.php:37
+#: content_a/products/share/model.php:41
 msgid "You must set your telegram channel first in bussiness setting"
 msgstr "شما ابتدا باید تنظیمات مربوط به اتصال فروشگاه به کانال تلگرامی را بررسی کنید"
 
-#: content_a/products/share/model.php:145
+#: content_a/products/share/model.php:173
 msgid "Post successfully on telegram"
 msgstr "پست با موفقیت به تلگرام ارسال شد"
 
@@ -8233,7 +8243,7 @@ msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
-#: lib/app/store/edit.php:96
+#: lib/app/store/edit.php:98
 msgid "Your setting was saved"
 msgstr "تنظیمات شما ذخیره شد"
 
@@ -8831,46 +8841,95 @@ msgstr "تنظیم لینک شبکه‌های اجتماعی"
 msgid "This item use in your website."
 msgstr "این گزینه‌ها در وب‌سایت شما استفاده خواهند شد."
 
+#: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
+#: content_account/my/social/display.php:41 content_account/my/social/display.php:44
+#: content_crm/member/social/display.php:27 content_crm/member/social/display.php:30
+#: lib/store.php:505
+msgid "Instagram"
+msgstr "اینستاگرام"
+
 #: content_a/setting/social/display.php:22 content_crm/--log/home/logTable.php:60
 #: content_crm/member/security/display.php:137 content_su/tg/home/view.php:8
 #: content_support/ticket/show/display.php:165 dash/layout/admin/sidebar/sidebar-su.php:27
-#: includes/languages/trans_static.php:626
+#: includes/languages/trans_static.php:626 lib/store.php:506
 msgid "Telegram"
 msgstr "تلگرام"
 
-#: content_a/setting/social/display.php:28
+#: content_a/setting/social/display.php:28 lib/store.php:507
 msgid "Youtube"
 msgstr "یوتیوب"
+
+#: content_a/setting/social/display.php:35 content_account/my/home/display.php:170
+#: content_account/my/social/display.php:27 content_account/my/social/display.php:30
+#: content_crm/member/social/display.php:40 content_crm/member/social/display.php:43
+#: dash/engine/static_files.php:28 dash/engine/static_files.php:37
+#: dash/engine/static_files.php:47 lib/store.php:508
+msgid "Twitter"
+msgstr "توییتر"
 
 #: content_a/setting/social/display.php:42 content_account/my/home/display.php:175
 #: content_account/my/social/display.php:34 content_account/my/social/display.php:37
 #: content_crm/member/social/display.php:46 content_crm/member/social/display.php:49
-#: includes/languages/trans_static_public.php:251
+#: includes/languages/trans_static_public.php:251 lib/store.php:509
 msgid "Linkedin"
 msgstr "لینکدین"
 
 #: content_a/setting/social/display.php:49 dash/engine/static_files.php:29
-#: includes/languages/trans_static_public.php:250
+#: includes/languages/trans_static_public.php:250 lib/store.php:510
 msgid "Github"
 msgstr "گیت‌هاب"
 
 #: content_a/setting/social/display.php:56 content_account/my/home/display.php:165
 #: content_account/my/social/display.php:20 content_account/my/social/display.php:23
 #: content_crm/member/social/display.php:34 content_crm/member/social/display.php:37
+#: lib/store.php:511
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
 #: content_a/setting/social/display.php:71 includes/languages/trans_static_public.php:252
+#: lib/store.php:513
 msgid "Aparat"
 msgstr "آپارات"
 
-#: content_a/setting/social/display.php:78
+#: content_a/setting/social/display.php:78 lib/store.php:514
 msgid "Eitaa"
 msgstr "ایتا"
 
 #: content_a/setting/social/view.php:8
 msgid "Social Network"
 msgstr "شبکه اجتماعی"
+
+#: content_a/setting/telegram/adminusername/display.php:6
+#: content_a/setting/telegram/channel/display.php:6
+#: content_a/setting/telegram/display.php:25 content_a/setting/telegram/display.php:36
+msgid "Set Telegram Channel"
+msgstr "تنظیم کانال تلگرام"
+
+#: content_a/setting/telegram/adminusername/display.php:8
+#: content_a/setting/telegram/display.php:48
+msgid ""
+"Enter the username of your Telegram network manager here so that your customers will be "
+"redirected to this ID if they need to contact the channel manager"
+msgstr ""
+"نام کاربری مدیر کانال تلگرامی خود را در اینجا وارد کنید تا در صورتی نیاز به تماس با "
+"مدیر کانال، مشتریان شما به این شناسه هدایت شوند"
+
+#: content_a/setting/telegram/adminusername/display.php:12
+msgid "Admin username"
+msgstr "یوزر ادمین"
+
+#: content_a/setting/telegram/adminusername/view.php:8
+msgid "Telegram Admin username"
+msgstr "نام کاربری ادمین کانال تلگرام"
+
+#: content_a/setting/telegram/adminusername/view.php:11
+#: content_a/setting/telegram/bot/view.php:11
+#: content_a/setting/telegram/channel/view.php:11
+#: content_a/setting/telegram/starttext/view.php:11
+#: content_a/setting/telegram/telegrambtn/view.php:11
+#: content_a/setting/telegram/text/view.php:11 content_a/setting/telegram/view.php:8
+msgid "Telegram setting"
+msgstr "تنظیمات تلگرام"
 
 #: content_a/setting/telegram/bot/display.php:6 content_a/setting/telegram/display.php:5
 #: content_a/setting/telegram/display.php:16
@@ -8905,18 +8964,6 @@ msgstr "ما با این توکن مشکل داریم!"
 msgid "Telegram bot APIKEY"
 msgstr "کلید اتصال ربات تلگرام"
 
-#: content_a/setting/telegram/bot/view.php:11
-#: content_a/setting/telegram/channel/view.php:11
-#: content_a/setting/telegram/starttext/view.php:11
-#: content_a/setting/telegram/text/view.php:11 content_a/setting/telegram/view.php:8
-msgid "Telegram setting"
-msgstr "تنظیمات تلگرام"
-
-#: content_a/setting/telegram/channel/display.php:6
-#: content_a/setting/telegram/display.php:25 content_a/setting/telegram/display.php:36
-msgid "Set Telegram Channel"
-msgstr "تنظیم کانال تلگرام"
-
 #: content_a/setting/telegram/channel/display.php:8
 #: content_a/setting/telegram/display.php:27
 msgid ""
@@ -8942,11 +8989,19 @@ msgstr "تغییر کلید اتصال ربات تلگرام"
 msgid "Change Telegram Channel"
 msgstr "ویرایش کانال تلگرام"
 
-#: content_a/setting/telegram/display.php:45
+#: content_a/setting/telegram/display.php:46 content_a/setting/telegram/display.php:57
+msgid "Set Telegram Admin username"
+msgstr "تنظیم یوزر ادمین تلگرام"
+
+#: content_a/setting/telegram/display.php:55
+msgid "Change Telegram Admin username"
+msgstr "ویرایش یوزر ادمین تلگرام"
+
+#: content_a/setting/telegram/display.php:66
 msgid "Set Telegram Share Text"
 msgstr "تنظیم متن ثابت اشتراک گذاری در تلگرام"
 
-#: content_a/setting/telegram/display.php:47 content_a/setting/telegram/text/display.php:8
+#: content_a/setting/telegram/display.php:68 content_a/setting/telegram/text/display.php:8
 msgid ""
 "You can set a fixed text to be placed under the title and description of each product "
 "when you share it via telegram"
@@ -8954,37 +9009,79 @@ msgstr ""
 "وقتی می‌خواهید محصولی را از طریق تلگرام به اشتراک بگذارید می‌توانید متن ثابتی را در زیر "
 "عنوان و توضیح محصول قرار دهید"
 
-#: content_a/setting/telegram/display.php:54
+#: content_a/setting/telegram/display.php:75
 msgid "Change Telegram Text"
 msgstr "ویرایش متن پیشفرض تلگرام"
 
-#: content_a/setting/telegram/display.php:56
+#: content_a/setting/telegram/display.php:77
 #: content_a/setting/telegram/starttext/display.php:6
 #: content_a/setting/telegram/text/display.php:6
 msgid "Set Telegram Text"
 msgstr "تنظیم متن ثابت اشتراک گذاری در تلگرام"
 
-#: content_a/setting/telegram/display.php:65
+#: content_a/setting/telegram/display.php:86
 msgid "Set Telegram Bot start Text"
 msgstr "تنظیم متن ثابت در هنگام شروع به کار ربات تلگرام"
 
-#: content_a/setting/telegram/display.php:67
+#: content_a/setting/telegram/display.php:88
 #: content_a/setting/telegram/starttext/display.php:8
 msgid "You can set a fixed text to be placed when user start your bot in Telegram"
 msgstr ""
 "می‌توانید متن ثابتی را برای زمانی که کاربر ربات شما را شروع به کار می‌کند نمایش دهید"
 
-#: content_a/setting/telegram/display.php:74
+#: content_a/setting/telegram/display.php:95
 msgid "Change Telegram start text"
 msgstr "ویرایش متن شروع ربات تلگرام"
 
-#: content_a/setting/telegram/display.php:76
+#: content_a/setting/telegram/display.php:97
 msgid "Set Telegram start text"
 msgstr "تنظیم متن شروع ربات تلگرام"
+
+#: content_a/setting/telegram/display.php:109
+msgid "Set Telegram post button"
+msgstr "تنظیم دکمه‌های پست‌های تلگرام"
+
+#: content_a/setting/telegram/display.php:111
+msgid ""
+"When posting on the Telegram channel, you can put a few buttons below it, each of which "
+"is connected to one of your social networks."
+msgstr ""
+"هنگام ارسال پست در کانال تلگرام می‌توانید چند دکمه زیر پست خود قرار دهید که هر کدام به "
+"یکی از شبکه‌های اجتماعی شما متصل شده‌اند."
+
+#: content_a/setting/telegram/display.php:117 includes/languages/trans_static.php:638
+msgid "Set"
+msgstr "تنظیم"
 
 #: content_a/setting/telegram/starttext/view.php:8
 msgid "Telegram Start Bot Text"
 msgstr "متن ثابت شروع ربات تلگرام"
+
+#: content_a/setting/telegram/telegrambtn/display.php:6
+msgid "Set share telegrma Button"
+msgstr "تنظیم دکمه‌های پست‌های تلگرام"
+
+#: content_a/setting/telegram/telegrambtn/display.php:8
+msgid ""
+"When posting on the Telegram channel, you can put a few buttons below it, each of which "
+"is connected to one of your social networks. Here you can set which buttons you want to "
+"be under your Telegram post."
+msgstr ""
+"هنگام ارسال پست در کانال تلگرام می‌توانید چند دکمه زیر پست خود قرار دهید که هر کدام به "
+"یکی از شبکه‌های اجتماعی شما متصل شده‌اند. در اینجا می‌توانید تنظیم کنید که کدام دکمه‌ها زیر "
+"پست تلگرامی شما قرار داشته باشند."
+
+#: content_a/setting/telegram/telegrambtn/display.php:10
+msgid "Config Social networks id"
+msgstr "تنظیم شناسه شبکه‌های اجتماعی"
+
+#: content_a/setting/telegram/telegrambtn/display.php:15
+msgid "Please set your social network id"
+msgstr "لطفا شبکه‌های اجتماعی خود را تنظیم کنید"
+
+#: content_a/setting/telegram/telegrambtn/view.php:8
+msgid "Telegram Button"
+msgstr "دکمه‌های تلگرام"
 
 #: content_a/setting/telegram/text/view.php:8
 msgid "Telegram Share Text"
@@ -20790,7 +20887,7 @@ msgstr "آی‌پی شما معتبر نیست!"
 #: lib/app/nic_domainbilling/search.php:262 lib/app/nic_log/search.php:103
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:50
 #: lib/app/store/search.php:169 lib/app/store/search.php:289
-#: lib/app/tax/coding/search.php:192 lib/app/tax/doc/search.php:52
+#: lib/app/tax/coding/search.php:334 lib/app/tax/doc/search.php:52
 #: lib/app/tax/docdetail/search.php:52
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
@@ -23125,10 +23222,6 @@ msgstr "تمدید"
 #: includes/languages/trans_static.php:637
 msgid "Downgrade"
 msgstr "پایین آوردن"
-
-#: includes/languages/trans_static.php:638
-msgid "Set"
-msgstr "تنظیم"
 
 #: includes/languages/trans_static.php:639
 msgid "Auto"
@@ -26782,7 +26875,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 #: lib/app/product/remove.php:10 lib/app/product/unit.php:21
 #: lib/app/product/updateprice.php:154 lib/app/product/variants.php:84
 #: lib/app/product/variants.php:258 lib/app/product/variants.php:275
-#: lib/app/setting/setup.php:92 lib/app/setting/setup.php:222 lib/app/store/edit.php:45
+#: lib/app/setting/setup.php:92 lib/app/setting/setup.php:222 lib/app/store/edit.php:47
 msgid "Your are not in this store!"
 msgstr "شما در این فروشگاه نیستید!"
 
@@ -27374,8 +27467,8 @@ msgstr "فاکتور به‌روزرسانی شد"
 msgid "Can not update your irvat"
 msgstr "نمی‌توانید فاکتور خود را ویرایش کنید"
 
-#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:62 lib/app/product/get.php:49
-#: lib/app/product/get.php:96
+#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:62 lib/app/product/get.php:48
+#: lib/app/product/get.php:89
 msgid "Product detail not found"
 msgstr "جزئیات محصول یافت نشد"
 
@@ -28390,7 +28483,7 @@ msgstr "این بارکد پیش از این اسکن شده است"
 msgid "Only image file can be set on product thumb"
 msgstr "تنها فایل تصویری می‌تواند به عنوان تصویر شاخص محصول ثبت شود"
 
-#: lib/app/product/get.php:41 lib/app/product/get.php:82
+#: lib/app/product/get.php:40 lib/app/product/get.php:81
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
@@ -28705,23 +28798,23 @@ msgstr "تیپاکس"
 msgid "Product setting saved"
 msgstr "تنظیمات محصولات ذخیره شدند"
 
-#: lib/app/setting/set.php:62 lib/app/setting/set.php:87
+#: lib/app/setting/set.php:81 lib/app/setting/set.php:106
 msgid "Telegram setting saved"
 msgstr "تنظیمات تلگرام ذخیره شد"
 
-#: lib/app/setting/set.php:115
+#: lib/app/setting/set.php:134
 msgid "Cart setting saved"
 msgstr "تنظیمات سبد خرید ذخیره شد"
 
-#: lib/app/setting/set.php:154
+#: lib/app/setting/set.php:173
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:215
+#: lib/app/setting/set.php:234
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:235
+#: lib/app/setting/set.php:254
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
@@ -28900,7 +28993,7 @@ msgstr "این دامنه در پنل سی‌دی‌ان درحال استفاد
 msgid "Can not get domain dns record from CDN panel"
 msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
 
-#: lib/app/store/edit.php:36
+#: lib/app/store/edit.php:38
 msgid "Your social network was saved"
 msgstr "شبکه‌های اجتماعی شما ذخیره شد"
 
@@ -28999,6 +29092,18 @@ msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 #: lib/app/tax/coding/edit.php:87
 msgid "Accounting coding successfully updated"
 msgstr "سرفصل حسابداری با موفقیت ویرایش شد"
+
+#: lib/app/tax/coding/ready.php:45
+msgid "Add new accounting total"
+msgstr "افزودن کل جدید"
+
+#: lib/app/tax/coding/ready.php:50
+msgid "Add new accounting assistant"
+msgstr "افزودن معین جدید"
+
+#: lib/app/tax/coding/ready.php:55
+msgid "Add new accounting details"
+msgstr "افزودن تفصیل جدید"
 
 #: lib/app/tax/coding/remove.php:21
 msgid "This record is parent of some other record and cannot be remove"
@@ -30367,6 +30472,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Add accounting coding"
+#~ msgstr "افزودن سرفصل حسابداری"
+
+#~ msgid "Add child"
+#~ msgstr "افزودن زیرمجموعه"
 
 #~ msgid "currency"
 #~ msgstr "واحد مالی"
