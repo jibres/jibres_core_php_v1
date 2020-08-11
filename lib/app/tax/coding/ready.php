@@ -42,14 +42,17 @@ class ready
 			switch ($result['type'])
 			{
 				case 'group':
+					$result['add_child_text'] = T_("Add new accounting total");
 					$child_type = 'total';
 					break;
 
 				case 'total':
+					$result['add_child_text'] = T_("Add new accounting assistant");
 					$child_type = 'assistant';
 					break;
 
 				case 'assistant':
+					$result['add_child_text'] = T_("Add new accounting details");
 					$child_type = 'details';
 					break;
 

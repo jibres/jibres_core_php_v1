@@ -6,8 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add accounting coding'));
-
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());
@@ -23,6 +21,21 @@ class view
 
 	public static function static_var()
 	{
+		$title = '';
+
+		if(\dash\data::editMode())
+		{
+			$title .= ' - '.  T_("Edit accounting coding");
+		}
+		else
+		{
+			$title .= ' - '.  T_("Add new accounting coding");
+		}
+
+		$title .= ' - '.  T_(ucfirst(\dash\data::myType()));
+
+		\dash\face::title($title);
+
 		$view_id = null;
 		if(\dash\request::get('view'))
 		{

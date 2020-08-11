@@ -6,7 +6,7 @@
       </div>
       <div class="c-xs-12 c-sm-12 c-md-6">
         <div class="box">
-          <header><h2><?php if(\dash\data::editMode()){ echo T_("Edit accounting coding"); }else{ echo T_("Add new accounting coding"); }  ?> - <?php echo T_(ucfirst(\dash\data::myType())); ?></h2></header>
+
           <div class="body">
 
 

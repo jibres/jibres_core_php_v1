@@ -397,5 +397,58 @@ class search
 		return $list;
 	}
 
+
+	public static function list_sort()
+	{
+		$list = self::list(...func_get_args());
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		foreach ($list as $key => $value)
+		{
+			$sort_key = '';
+			if(\dash\get::index($value, 'parent1'))
+			{
+				$sort_key .= \dash\get::index($value, 'parent1'). '_';
+			}
+
+			if(\dash\get::index($value, 'parent2'))
+			{
+				$sort_key .= \dash\get::index($value, 'parent2'). '_';
+			}
+
+			if(\dash\get::index($value, 'parent3'))
+			{
+				$sort_key .= \dash\get::index($value, 'parent3'). '_';
+			}
+
+			if(\dash\get::index($value, 'id'))
+			{
+				$sort_key .= \dash\get::index($value, 'id');
+			}
+
+
+			$list[$key]['sort_key'] = $sort_key;
+		}
+
+		$sort_column = array_column($list, 'sort_key');
+
+
+		// if(count($sort_column) === count($list))
+		// {
+		// 	$my_sorted_list = $list;
+
+		// 	array_multisort($my_sorted_list, SORT_DESC, $sort_column);
+
+		// 	$list = $my_sorted_list;
+		// }
+
+		return $list;
+
+	}
+
 }
 ?>
