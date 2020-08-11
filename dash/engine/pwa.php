@@ -49,7 +49,7 @@ class pwa
 		];
 
 
-		if(\dash\engine\store::inStore())
+		if(\dash\engine\store::inBusinessWebsite())
 		{
 			$manifest['name'] = \lib\store::title();
 			$manifest['short_name'] = \lib\store::title();
