@@ -56,6 +56,7 @@ class filter
 
 		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'finalprice',		 'order' => 'desc'], 	'public' => true];
 		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'finalprice',		 'order' => 'asc'], 	'public' => true];
+		$sort_list[] = ['title' => T_("Maximum discount"), 		'query' => ['sort' => 'discount',		 'order' => 'desc'], 	'public' => true];
 
 		if($_module === 'website')
 		{

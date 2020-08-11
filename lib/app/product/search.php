@@ -28,7 +28,7 @@ class search
 		$condition =
 		[
 			'order'             => 'order',
-			'sort'              => ['enum' => ['title','price','buyprice', 'finalprice']],
+			'sort'              => ['enum' => ['title','price','buyprice', 'finalprice', 'discount']],
 			'limit'             => 'int',
 			'barcode'           => 'barcode',
 			'price'             => 'price',
@@ -341,7 +341,7 @@ class search
 					$order = mb_strtolower($data['order']);
 				}
 
-				if($sort === 'finalprice' || $sort === 'price' || $sort === 'buyprice')
+				if($sort === 'finalprice' || $sort === 'price' || $sort === 'buyprice' || $sort === 'discount')
 				{
 					if($order === 'asc')
 					{
