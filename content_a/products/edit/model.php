@@ -69,7 +69,7 @@ class model
 
 		$post['barcode']   = \dash\request::post('barcode');
 		$post['barcode2']  = \dash\request::post('barcode2');
-		$post['seotitle']  = \dash\request::post('seotitle');
+		// $post['seotitle']  = \dash\request::post('seotitle');
 		$post['slug']      = \dash\request::post('slug');
 		$post['seodesc']   = \dash\request::post('seodesc');
 		$post['scalecode'] = \dash\request::post('scalecode');
