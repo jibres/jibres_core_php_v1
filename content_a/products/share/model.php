@@ -72,6 +72,35 @@ class model
 
 		$msgData['reply_markup'] = false;
 
+		$social = \lib\store::social();
+
+		$reply_markup =
+		[
+			[
+				'text' => T_("Website"),
+				'url'  => \lib\store::url(). '/p/'. \dash\data::productDataRow_id(),
+			],
+		];
+
+		if(\dash\get::index($social, 'twitter'))
+		{
+			$reply_markup[] =
+			[
+				'text' => T_("Twitter"),
+				'url'  => \dash\get::index($social, 'twitter', 'link'),
+			];
+		}
+
+		if(\dash\get::index($social, 'instagram'))
+		{
+			$reply_markup[] =
+			[
+				'text' => T_("Instagram"),
+				'url'  => \dash\get::index($social, 'instagram', 'link'),
+			];
+		}
+
+
 		$msgData['reply_markup'] =
 		[
 			'inline_keyboard' =>
@@ -79,31 +108,21 @@ class model
 				[
 					[
 						'text' => T_("Register a new order"),
-						'url'  => 'https://t.me/BittyAdmin',
+						'url'  => \lib\store::url(),
 					],
 				],
-				[
-					[
-						'text' => T_("Website"),
-						'url'  => 'https://bitty.ir/p/'. \dash\data::productDataRow_id(),
-					],
-					[
-						'text' => T_("Twitter"),
-						'url'  => 'https://twitter.com/BittyStyle',
-					],
-					[
-						'text' => T_("Instagram"),
-						'url'  => 'https://instagram.com/BittyStyle',
-					],
-				],
+
+				$reply_markup,
+
 				// [
 				// 	[
 				// 		'text'          => T_("Online Shopping"),
 				// 		'callback_data' => 'ticket',
 				// 	],
 				// ]
-			]
+			],
 		];
+
 
 
 

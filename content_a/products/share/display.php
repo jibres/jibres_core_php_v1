@@ -38,13 +38,20 @@ $propertyList = \dash\data::propertyList();
                 <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
               </div>
 
+                <?php $social = \lib\store::social(); ?>
+              <?php if(\dash\get::index($social, 'telegram')) {?>
               <footer>
-                <a class="btn block mB5" href='https://t.me/BittyAdmin'><?php echo T_("Register a new order"); ?></a>
+                <a class="btn block mB5" target="_blank" href='<?php echo \dash\get::index($social, 'telegram', 'link'); ?>'><?php echo T_("Register a new order"); ?></a>
                </footer>
+             <?php } //endif ?>
               <footer class="row padLess">
-                <div class="c"><a class="btn block mB5" href="https://instagram.com/BittyStyle"><?php echo T_("Instagram"); ?></a></div>
-                <div class="c"><a class="btn block mB5" href="https://twitter.com/BittyStyle"><?php echo T_("Twitter"); ?></a></div>
-                <div class="c"><a class="btn block mB5" href="https://bitty.ir/p/"><?php echo T_("Website"); ?></a></div>
+                <?php if(\dash\get::index($social, 'instagram')) {?>
+                  <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo \dash\get::index($social, 'instagram', 'link'); ?>"><?php echo T_("Instagram"); ?></a></div>
+                <?php } //endif ?>
+                <?php if(\dash\get::index($social, 'twitter')) {?>
+                  <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo \dash\get::index($social, 'twitter', 'link'); ?>"><?php echo T_("Twitter"); ?></a></div>
+                <?php } //endif ?>
+                <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo \lib\store::url(); ?>"><?php echo T_("Website"); ?></a></div>
               </footer>
             </form>
           <?php } //endif ?>

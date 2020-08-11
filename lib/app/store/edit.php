@@ -33,6 +33,8 @@ class edit
 			\lib\app\setting\tools::update('store_setting', $key, $value);
 		}
 
+		\lib\store::reset_cache();
+
 		\dash\notif::ok(T_("Your social network was saved"));
 	}
 
