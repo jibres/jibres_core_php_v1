@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-11 17:34+0430\n"
-"PO-Revision-Date: 2020-08-11 17:36+0430\n"
+"POT-Creation-Date: 2020-08-11 20:07+0430\n"
+"PO-Revision-Date: 2020-08-11 20:13+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4191,7 +4191,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/coding/display.php:30 content_a/android/apk/display.php:32
 #: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
-#: content_a/products/edit/block/sidebar-menu.php:58
+#: content_a/products/edit/block/sidebar-menu.php:59
 #: content_a/products/export/display.php:57 content_a/products/status/view.php:18
 #: content_a/products/tag/display.php:96 content_a/products/tag/display.php:169
 #: content_a/products/tag/display.php:186 content_business/orders/display.php:21
@@ -4905,7 +4905,7 @@ msgstr "طرف‌حساب"
 msgid "Income-cost factor list"
 msgstr "لیست فاکتور‌های درآمد و هزینه"
 
-#: content_a/accounting/irvat/all/view.php:51 content_a/category/home/view.php:44
+#: content_a/accounting/irvat/all/view.php:51 content_a/category/home/view.php:45
 #: content_a/factor/home/view.php:63 content_a/order/home/view.php:63
 #: content_a/products/comment/view.php:58 content_a/products/home/view.php:92
 #: content_a/products/tag/display.php:176 content_business/search/view.php:39
@@ -5557,7 +5557,7 @@ msgstr "دسته‌بندی‌ها"
 
 #: content_a/category/edit/controller.php:15 content_a/category/property/controller.php:15
 #: lib/app/category/add.php:25 lib/app/category/add.php:49 lib/app/category/add.php:131
-#: lib/app/category/add.php:142 lib/app/category/edit.php:24 lib/app/category/get.php:27
+#: lib/app/category/add.php:142 lib/app/category/edit.php:50 lib/app/category/get.php:27
 #: lib/app/category/get.php:34 lib/app/category/get.php:56 lib/app/category/get.php:63
 #: lib/app/category/remove.php:36 lib/app/category/search.php:44
 msgid "Invalid category id"
@@ -5581,17 +5581,16 @@ msgstr "بهینه‌سازی برای موتورهای جستجو"
 msgid "Google"
 msgstr "گوگل"
 
-#: content_a/category/edit/display.php:39 content_a/products/edit/block/seo.php:21
-#: content_cms/posts/edit/display.php:715
+#: content_a/category/edit/display.php:39 content_cms/posts/edit/display.php:715
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:39 content_a/products/edit/block/seo.php:21
+#: content_a/category/edit/display.php:39
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:46 content_a/products/edit/block/seo.php:28
-#: content_a/products/edit/block/seo.php:30 content_a/products/tag/display.php:91
+#: content_a/category/edit/display.php:46 content_a/products/edit/block/seo.php:22
+#: content_a/products/edit/block/seo.php:24 content_a/products/tag/display.php:91
 #: content_a/products/tag/display.php:148 content_a/products/tag/display.php:150
 #: content_cms/posts/edit/display.php:745 content_cms/posts/edit/display.php:747
 #: content_cms/posts/home/display.php:96 content_cms/terms/display.php:97
@@ -5608,17 +5607,17 @@ msgstr "آخرین قسمت آدرس دسته‌بندی شما."
 msgid "Category slug"
 msgstr "نامک دسته‌بندی"
 
-#: content_a/category/edit/display.php:52 content_a/products/edit/block/seo.php:34
+#: content_a/category/edit/display.php:52 content_a/products/edit/block/seo.php:28
 #: content_cms/posts/edit/display.php:752
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
-#: content_a/category/edit/display.php:52 content_a/products/edit/block/seo.php:34
+#: content_a/category/edit/display.php:52 content_a/products/edit/block/seo.php:28
 #: content_cms/posts/edit/display.php:752
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
-#: content_a/category/edit/display.php:53 content_a/products/edit/block/seo.php:35
+#: content_a/category/edit/display.php:53 content_a/products/edit/block/seo.php:29
 #: content_cms/posts/edit/display.php:753
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
@@ -5775,6 +5774,19 @@ msgstr ""
 #: lib/app/onlinenic/log/search.php:69
 msgid "Type"
 msgstr "نوع"
+
+#: content_a/category/sort/display.php:8
+msgid "Select any of the categories you want and move them to sort"
+msgstr ""
+"یک دسته‌بندی را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
+
+#: content_a/category/sort/model.php:13 content_a/website/body/model.php:15
+msgid "Sort saved"
+msgstr "مرتب‌سازی ذخیره شد"
+
+#: content_a/category/sort/model.php:18 content_a/website/body/model.php:20
+msgid "No sort data received"
+msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 
 #: content_a/category/sort/view.php:8
 msgid "Sort Product categories"
@@ -6012,7 +6024,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: content_a/controller.php:16 content_b1/tools.php:56 content_business/controller.php:17
 #: content_v2/controller.php:19 dash/engine/store.php:212 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:232 lib/app/category/add.php:13
-#: lib/app/category/add.php:119 lib/app/category/add.php:194 lib/app/category/edit.php:13
+#: lib/app/category/add.php:119 lib/app/category/add.php:194 lib/app/category/edit.php:39
 #: lib/app/category/get.php:46 lib/app/category/get.php:78 lib/app/category/search.php:28
 #: lib/app/factor/add.php:35 lib/app/factor/get.php:142 lib/app/product/add.php:76
 #: lib/app/product/comment.php:198 lib/app/product/comment.php:445
@@ -6781,13 +6793,14 @@ msgstr "محدودیت سبد خرید"
 #: content_cms/posts/edit/controller.php:14 content_my/domain/irnic/edit/controller.php:23
 #: content_support/message/edit/view.php:26 content_support/ticket/show/model.php:13
 #: content_support/ticket/show/view.php:44 dash/app/file.php:60 dash/app/posts.php:446
-#: lib/app/export/download.php:23 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
-#: lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:308
+#: lib/app/category/edit.php:16 lib/app/export/download.php:23 lib/app/gift/edit.php:13
+#: lib/app/gift/get.php:13 lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:308
 #: lib/app/nic_domain/get.php:335 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
 #: lib/app/product/edit.php:29 lib/app/store/domain.php:432 lib/app/tax/coding/get.php:120
 #: lib/app/tax/doc/get.php:23 lib/app/tax/docdetail/remove.php:13
-#: lib/app/website/body/edit.php:31 lib/app/website/body/line/imageblock.php:182
+#: lib/app/website/body/edit.php:31 lib/app/website/body/edit.php:111
+#: lib/app/website/body/line/imageblock.php:182
 #: lib/app/website/body/line/imageblock.php:347 lib/app/website/body/line/news.php:69
 #: lib/app/website/body/line/productline.php:69 lib/app/website/body/line/quote.php:110
 #: lib/app/website/body/line/quote.php:281 lib/app/website/body/line/slider.php:182
@@ -6937,7 +6950,7 @@ msgid "Invalid detail"
 msgstr "جزئیات اشتباه است"
 
 #: content_a/products/comment/view.php:17
-#: content_a/products/edit/block/sidebar-menu.php:71 content_cms/comments/home/view.php:11
+#: content_a/products/edit/block/sidebar-menu.php:73 content_cms/comments/home/view.php:11
 #: content_cms/posts/edit/display.php:345 includes/languages/trans_static.php:602
 #: includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
@@ -7030,7 +7043,7 @@ msgstr "شامل مالیات"
 msgid "Final Price"
 msgstr "قیمت نهایی"
 
-#: content_a/products/edit/block/seo.php:28
+#: content_a/products/edit/block/seo.php:22
 msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
@@ -7065,15 +7078,15 @@ msgstr "سازمان"
 msgid "Type, vendor, tags"
 msgstr "نوع، سازنده، تگ‌ها"
 
-#: content_a/products/edit/block/sidebar-menu.php:79
+#: content_a/products/edit/block/sidebar-menu.php:81
 msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:94
+#: content_a/products/edit/block/sidebar-menu.php:96
 msgid "Smart Share"
 msgstr "اشتراک‌گذاری هوشمند"
 
-#: content_a/products/edit/block/sidebar-menu.php:108
+#: content_a/products/edit/block/sidebar-menu.php:110
 #: content_a/products/variants/display-add-variants.php:73
 msgid "Make product variants"
 msgstr "ثبت تنوع محصول"
@@ -9594,6 +9607,10 @@ msgstr "منتشر شده"
 #: lib/app/factor/action.php:57 lib/app/factor/ready.php:68
 msgid "Draft"
 msgstr "پیش‌نویس"
+
+#: content_a/website/body/display.php:35
+msgid "Change the position of the rows with the help of the handle"
+msgstr "برای ذخیره ترتیب دلخواه، با استفاده از دستگیره محل قرارگیری ردیف‌ها را جابجا کنید"
 
 #: content_a/website/body/view.php:9
 msgid "Website body content"
@@ -26994,23 +27011,27 @@ msgstr "گروه مشخصات محصول تنظیم نشده است"
 msgid "Property Key must be an array"
 msgstr "کلید‌های خصوصیات محصول باید آرایه باشد"
 
-#: lib/app/category/edit.php:45
+#: lib/app/category/edit.php:25
+msgid "No data to sort"
+msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
+
+#: lib/app/category/edit.php:71
 msgid "Duplicate category founded"
 msgstr "دسته‌بندی تکراری یافت شد"
 
-#: lib/app/category/edit.php:76
+#: lib/app/category/edit.php:102
 msgid "No change in your product category"
 msgstr "دسته‌بندی محصول شما تغییری نکرد"
 
-#: lib/app/category/edit.php:87
+#: lib/app/category/edit.php:113
 msgid "The category successfully updated"
 msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
 
-#: lib/app/category/edit.php:93
+#: lib/app/category/edit.php:119
 msgid "Can not update your product category"
 msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌روزرسانی کنیم"
 
-#: lib/app/category/edit.php:100
+#: lib/app/category/edit.php:126
 msgid "Category saved without chnage"
 msgstr "دسته‌بندی بدون تغییر ذخیره شد"
 
@@ -28467,11 +28488,15 @@ msgstr "عنوان، صعودی"
 msgid "Title DESC"
 msgstr "عنوان نزولی"
 
-#: lib/app/product/filter.php:66
+#: lib/app/product/filter.php:59
+msgid "Maximum discount"
+msgstr "بیشترین تخفیف"
+
+#: lib/app/product/filter.php:67
 msgid "Buy price ASC"
 msgstr "قیمت خرید، صعودی"
 
-#: lib/app/product/filter.php:67
+#: lib/app/product/filter.php:68
 msgid "Buy price DESC"
 msgstr "قیمت خرید نزولی"
 
