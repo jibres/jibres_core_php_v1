@@ -4,6 +4,32 @@ namespace lib\app\category;
 
 class edit
 {
+	public static function set_sort($_sort)
+	{
+		$sort = [];
+
+		foreach ($_sort as $key => $value)
+		{
+			$value = \dash\validate::id($value);
+			if(!$value)
+			{
+				\dash\notif::error(T_("Invalid id"));
+				return false;
+			}
+
+			$sort[] = $value;
+		}
+
+		if(!$sort)
+		{
+			\dash\notif::info(T_("No data to sort"));
+			return;
+		}
+
+		\lib\db\productcategory\update::set_sort($sort);
+
+		return true;
+	}
 
 
 	public static function edit($_args, $_id, $_properties = [])

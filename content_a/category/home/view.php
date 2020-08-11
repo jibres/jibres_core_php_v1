@@ -17,6 +17,7 @@ class view
 
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::here(). '/setting/product');
+		\dash\face::btnSetting(\dash\url::this().'/sort');
 
 
 		$args =
