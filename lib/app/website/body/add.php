@@ -46,6 +46,11 @@ class add
 
 		$line_id = \lib\db\setting\insert::new_record($insert);
 
+		if($line_id && is_numeric($line_id))
+		{
+			\lib\app\website\body\edit::set_sort_add_new_line(floatval($line_id));
+		}
+
 		\lib\app\website\generator::remove_catch();
 
 		if($_encode)

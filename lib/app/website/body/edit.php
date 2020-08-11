@@ -65,6 +65,35 @@ class edit
 
 	}
 
+	public static function set_sort_add_new_line($_id)
+	{
+		$sort = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'body', 'sort_line');
+
+		if(isset($sort['value']))
+		{
+			$sort = json_decode($sort['value'], true);
+		}
+		else
+		{
+			$sort = [];
+		}
+
+		if(!is_array($sort))
+		{
+			$sort = [];
+		}
+
+		$sort = array_map('floatval', $sort);
+		$sort = array_filter($sort);
+		$sort = array_unique($sort);
+
+		$sort[] = $_id;
+
+		$sort = array_map(['\\dash\\coding', 'encode'], $sort);
+
+		self::set_sort($sort);
+	}
+
 
 	public static function set_sort($_sort_detail)
 	{
@@ -92,7 +121,7 @@ class edit
 
 		\lib\app\website\generator::remove_catch();
 
-		\dash\notif::ok(T_("Sort saved"));
+
 		return true;
 
 	}

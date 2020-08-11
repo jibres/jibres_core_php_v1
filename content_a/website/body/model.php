@@ -12,6 +12,8 @@ class model
 		if($bodyline && is_array($bodyline))
 		{
 			\lib\app\website\body\edit::set_sort($bodyline);
+			\dash\notif::ok(T_("Sort saved"));
+			return true;
 		}
 		else
 		{
