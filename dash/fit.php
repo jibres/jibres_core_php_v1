@@ -71,6 +71,40 @@ class fit{
 	}
 
 
+	public static function number_decimal($_number)
+	{
+		if(!$_number)
+		{
+			return null;
+		}
+
+		if(!is_numeric($_number))
+		{
+			return $_number;
+		}
+
+		$new_number = (string) $_number;
+
+		if(strpos($new_number, '.') !== false)
+		{
+			$number  = substr($new_number, 0, strpos($new_number, '.') - 1);
+			$decimal = substr($new_number, strpos($new_number, '.') + 1 );
+			$fit = self::number($number);
+
+			if(preg_match("/[1-9]/", $decimal))
+			{
+				$decimal = preg_replace("/0+$/", '', $decimal);
+				$fit .= '.'. self::text($decimal);
+			}
+			return $fit;
+		}
+		else
+		{
+			return self::number($_number);
+		}
+
+	}
+
 	public static function stats($_txt)
 	{
 		$number = $_txt;
