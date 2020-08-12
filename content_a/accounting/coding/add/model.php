@@ -38,21 +38,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			if(\dash\request::get('parent'))
+
+			if(isset($result['id']))
 			{
-				\dash\redirect::to(\dash\url::that(). '?view='. \dash\request::get('parent'));
+				\dash\redirect::to(\dash\url::that(). '/edit?id='. $result['id']. '&parent='. \dash\request::post('parent'));
 			}
 			else
 			{
-				if(isset($result['id']))
-				{
-					\dash\redirect::to(\dash\url::that(). '?view='. $result['id']);
-				}
-				else
-				{
-					\dash\redirect::to(\dash\url::that());
-				}
-
+				\dash\redirect::to(\dash\url::that());
 			}
 		}
 	}

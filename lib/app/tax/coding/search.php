@@ -198,7 +198,7 @@ class search
 
 		if($type === 'group')
 		{
-			$jsTree['icon'] = "sf-asterisk fc-red";
+			$jsTree['icon'] = "sf-database fs14 fc-red";
 		}
 
 		if($type === 'total')
@@ -320,16 +320,17 @@ class search
 
 		if(isset($_data['nature']))
 		{
-			$html .= ' ('.T_(ucfirst($_data['nature'])).') ';
+			$html .= ' <span class="fc-mute"> ('.T_(ucfirst($_data['nature'])).') </span> ';
 		}
 		if(isset($_data['detailable']))
 		{
-			$html .= ' ('.T_("Detailable").') ';
+			// $jsTree['icon'] = "sf-asterisk fc-red";
+			$html .= ' <span title="'. T_("Detailable"). '" class="sf-asterisk"></span> ';
 		}
 
 		if(isset($_data['status']) && $_data['status'] === 'disable')
 		{
-			$html .= ' ('.T_("Disable").') ';
+			$html .= ' <span class="fc-mute"> ('.T_("Disable").') </span> ';
 		}
 
 		$html .= '</a>';
