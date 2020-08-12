@@ -284,7 +284,26 @@ class search
 	private static function htmltTitleJsTree($_data)
 	{
 		$html = '';
-		$html .= '<a href="'. \dash\url::that(). '?view='. $_data['id']. '">';
+		$parent = null;
+		if(isset($_data['parent3']) && $_data['parent3'])
+		{
+			$parent = $_data['parent3'];
+		}
+		elseif(isset($_data['parent2']) && $_data['parent2'])
+		{
+			$parent = $_data['parent2'];
+		}
+		elseif(isset($_data['parent1']) && $_data['parent1'])
+		{
+			$parent = $_data['parent1'];
+		}
+
+		if($parent)
+		{
+			$parent = '&parent='. $parent;
+		}
+
+		$html .= '<a href="'. \dash\url::that(). '/edit?id='. $_data['id']. $parent. '">';
 		$html .= '<code>'. $_data['code']. '</code> '. $_data['title'];
 
 		if(isset($_data['nature']))

@@ -141,14 +141,6 @@
 
             <?php } //endif ?>
 
-            <?php if(\dash\data::myType() === 'assistant' ) {?>
-
-              <div class="switch1 mT10">
-                <input type="checkbox" name="detailable" id="detailable"  <?php if(\dash\data::dataRow_detailable()) {echo 'checked';}?> >
-                <label for="detailable" data-on="<?php echo T_("Yes") ?>" data-off="<?php echo T_("No") ?>"></label>
-                <label for="detailable"><?php echo T_("Detailable?"); ?></label>
-              </div>
-            <?php } // endif ?>
 
 
             <?php if(\dash\data::myType() === 'assistant' ) {?>
@@ -159,19 +151,27 @@
             </div>
 
             <div class="check1 mT10">
+              <input type="checkbox" name="currency" id="currency"  <?php if(\dash\data::dataRow_currency()) {echo 'checked';}?> >
+              <label for="currency"><?php echo T_("Accounting currency"); ?></label>
+            </div>
+
+            <div class="check1 mT10">
               <input type="checkbox" name="exchangeable" id="exchangeable"  <?php if(\dash\data::dataRow_exchangeable()) {echo 'checked';}?> >
               <label for="exchangeable"><?php echo T_("exchangeable"); ?></label>
             </div>
+
+            <?php if(\dash\data::myType() === 'assistant' ) {?>
+              <div class="check1 mT10">
+                <input type="checkbox" name="detailable" id="detailable"  <?php if(\dash\data::dataRow_detailable()) {echo 'checked';}?> >
+                <label for="detailable"><?php echo T_("Detailable?"); ?></label>
+              </div>
+            <?php } // endif ?>
 
             <div class="check1 mT10">
               <input type="checkbox" name="followup" id="followup"  <?php if(\dash\data::dataRow_followup()) {echo 'checked';}?> >
               <label for="followup"><?php echo T_("followup"); ?></label>
             </div>
 
-            <div class="check1 mT10">
-              <input type="checkbox" name="currency" id="currency"  <?php if(\dash\data::dataRow_currency()) {echo 'checked';}?> >
-              <label for="currency"><?php echo T_("Accounting currency"); ?></label>
-            </div>
           <?php } //endif ?>
 
 
