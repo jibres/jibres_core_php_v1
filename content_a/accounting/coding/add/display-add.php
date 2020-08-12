@@ -60,14 +60,14 @@
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="debtor" id="idebtor" <?php if(\dash\data::dataRow_nature() === 'debtor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled';} ?> >
+                    <input type="radio" name="nature" value="debtor" id="idebtor" <?php if(\dash\data::dataRow_nature() === 'debtor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled2';} ?> >
                     <label for="idebtor"><?php echo T_("Debtor"); ?></label>
                   </div>
                 </div>
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="creditor" id="icreditor" <?php if(\dash\data::dataRow_nature() === 'creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled';} ?> >
+                    <input type="radio" name="nature" value="creditor" id="icreditor" <?php if(\dash\data::dataRow_nature() === 'creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled2';} ?> >
                     <label for="icreditor"><?php echo T_("Creditor"); ?></label>
                   </div>
                 </div>
@@ -75,16 +75,14 @@
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="debtor-creditor" id="idebtor-creditor" <?php if(\dash\data::dataRow_nature() === 'debtor-creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor-creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled';} ?> >
+                    <input type="radio" name="nature" value="debtor-creditor" id="idebtor-creditor" <?php if(\dash\data::dataRow_nature() === 'debtor-creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor-creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled2';} ?> >
                     <label for="idebtor-creditor"><?php echo T_("Debtor-Creditor"); ?></label>
                   </div>
                 </div>
 
               </div>
 
-                <?php if(\dash\data::parentDetail_nature()) {?>
-                  <input type="hidden" name="nature" value="<?php echo \dash\data::parentDetail_nature(); ?>">
-                <?php } //endif ?>
+
 
                 <?php } // endif ?>
 
@@ -186,9 +184,12 @@
           <footer class="f">
             <?php $buttonTitle = T_("Add"); if(\dash\data::editMode()) { $buttonTitle = T_("Edit"); ?>
             <div class="cauto">
-              <div data-confirm data-data='{"remove": "remove"}' class="btn danger"><?php echo T_("Remove") ?></div>
+              <div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
             </div>
           <?php } //endif ?>
+          <?php if(\dash\get::index(\dash\data::loadDetail(), 'add_child_link')) {?>
+              <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
+            <?php } //endif ?>
           <div class="c"></div>
           <div class="cauto">
             <button class="btn success"><?php echo $buttonTitle; ?></button>
