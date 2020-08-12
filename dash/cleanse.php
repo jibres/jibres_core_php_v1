@@ -374,6 +374,7 @@ class cleanse
 			}
 		}
 
+
 		if(!self::$status)
 		{
 			// in import product we need to check all input
@@ -427,7 +428,15 @@ class cleanse
 
 	public static function data($_cleans_function, $_data, $_notif = true, $_meta = [])
 	{
-		self::$status = true;
+		if(self::$status === false)
+		{
+			// no change in status if have erro
+		}
+		else
+		{
+			self::$status = true;
+		}
+
 
 		if(!$_cleans_function)
 		{
@@ -541,29 +550,66 @@ class cleanse
 			$meta['min'] = $min;
 		}
 
+		$fn_args = [$_data, $_notif, $element, $field_title, $meta];
+
 		switch ($function)
 		{
-			// *************** mobile validate
-			case 'mobile':
-				$data = \dash\validate\mobile::mobile($_data, $_notif, $element, $field_title, $meta);
-				break;
 
-			case 'ir_mobile':
-				$data = \dash\validate\mobile::ir_mobile($_data, $_notif, $element, $field_title, $meta);
-				break;
+			case 'mobile': 				$data = \dash\validate\mobile::mobile(...$fn_args); 				break;
+			case 'ir_mobile': 			$data = \dash\validate\mobile::ir_mobile(...$fn_args); 				break;
+			case 'string': 				$data = \dash\validate\text::string(...$fn_args); 					break;
+			case 'enstring': 			$data = \dash\validate\text::enstring(...$fn_args); 				break;
+			case 'intstring': 			$data = \dash\validate\text::intstring(...$fn_args); 				break;
+			case 'html': 				$data = \dash\validate\text::html(...$fn_args); 					break;
+			case 'html_basic': 			$data = \dash\validate\text::html_basic(...$fn_args); 				break;
+			case 'username': 			$data = \dash\validate\text::username(...$fn_args); 				break;
+			case 'slug': 				$data = \dash\validate\text::slug(...$fn_args); 					break;
+			case 'barcode': 			$data = \dash\validate\text::barcode(...$fn_args); 					break;
+			case 'sku': 				$data = \dash\validate\text::sku(...$fn_args); 						break;
+			case 'search': 				$data = \dash\validate\text::search(...$fn_args); 					break;
+			case 'email': 				$data = \dash\validate\text::email(...$fn_args); 					break;
+			case 'md5': 				$data = \dash\validate\text::md5(...$fn_args); 						break;
+			case 'subdomain': 			$data = \dash\validate\subdomain::subdomain(...$fn_args); 			break;
+			case 'iban': 				$data = \dash\validate\iban::check(...$fn_args); 					break;
+			case 'iban_detail': 		$data = \dash\validate\iban::detail(...$fn_args); 					break;
+			case 'url': 				$data = \dash\validate\url::url(...$fn_args); 						break;
+			case 'domain_clean': 		$data = \dash\validate\url::domain_clean(...$fn_args); 				break;
+			case 'domain': 				$data = \dash\validate\url::domain(...$fn_args); 					break;
+			case 'domain_root': 		$data = \dash\validate\url::domain_root(...$fn_args); 				break;
+			case 'ir_domain': 			$data = \dash\validate\url::ir_domain(...$fn_args); 				break;
+			case 'ip': 					$data = \dash\validate\url::ip(...$fn_args); 						break;
+			case 'ipv4': 				$data = \dash\validate\url::ipv4(...$fn_args); 						break;
+			case 'ipv6': 				$data = \dash\validate\url::ipv6(...$fn_args); 						break;
+			case 'dns': 				$data = \dash\validate\url::dns(...$fn_args); 						break;
+			case 'birthdate': 			$data = \dash\validate\datetime::birthdate(...$fn_args); 			break;
+			case 'date': 				$data = \dash\validate\datetime::date(...$fn_args); 				break;
+			case 'datetime': 			$data = \dash\validate\datetime::datetime(...$fn_args); 			break;
+			case 'time': 				$data = \dash\validate\datetime::time(...$fn_args); 				break;
+			case 'country': 			$data = \dash\validate\location::country(...$fn_args); 				break;
+			case 'province': 			$data = \dash\validate\location::province(...$fn_args); 			break;
+			case 'city': 				$data = \dash\validate\location::city(...$fn_args); 				break;
+			case 'password': 			$data = \dash\validate\password::password(...$fn_args); 			break;
+			case 'id': 					$data = \dash\validate\identify::id(...$fn_args); 					break;
+			case 'code': 				$data = \dash\validate\identify::code(...$fn_args); 				break;
+			case 'id_code': 			$data = \dash\validate\identify::id_code(...$fn_args); 				break;
+			case 'enum': 				$data = \dash\validate\dataarray::enum(...$fn_args); 				break;
+			case 'tag': 				$data = \dash\validate\dataarray::tag(...$fn_args); 				break;
+			case 'nationalcode': 		$data = \dash\validate\nationalcode::nationalcode(...$fn_args); 	break;
+			case 'number': 				$data = \dash\validate\number::number(...$fn_args); 				break;
+			case 'int': 				$data = \dash\validate\number::int(...$fn_args); 					break;
+			case 'float': 				$data = \dash\validate\number::float(...$fn_args); 					break;
+			case 'number_negative': 	$data = \dash\validate\number::number_negative(...$fn_args); 		break;
+			case 'postcode': 			$data = \dash\validate\number::postcode(...$fn_args); 				break;
+			case 'phone': 				$data = \dash\validate\number::phone(...$fn_args); 					break;
+			case 'percent': 			$data = \dash\validate\number::number_percent(...$fn_args); 		break;
+			case 'price': 				$data = \dash\validate\number::price(...$fn_args); 					break;
+			case 'irnic_id': 			$data = \dash\validate\irnic::irnic_id(...$fn_args); 				break;
+			case 'bool': 				$data = boolval($_data); 											break;
+			case 'bit': 				$data = $_data ? 1 : null; 											break;
 
-
-			// *************** string validate
-			case 'string':
-				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'enstring':
-				$data = \dash\validate\text::enstring($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'intstring':
-				$data = \dash\validate\text::intstring($_data, $_notif, $element, $field_title, $meta);
+			case 'language':
+			case 'lang':
+				$data = \dash\validate\text::language(...$fn_args);
 				break;
 
 			case 'address':
@@ -585,13 +631,6 @@ class cleanse
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
-			case 'html':
-				$data = \dash\validate\text::html($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'html_basic':
-				$data = \dash\validate\text::html_basic($_data, $_notif, $element, $field_title, $meta);
-				break;
 
 			case 'desc':
 			case 'seodesc':
@@ -599,146 +638,6 @@ class cleanse
 				$meta['max'] = 2000;
 				$meta['need_new_line'] = true;
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'username':
-				$data = \dash\validate\text::username($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'slug':
-				$data = \dash\validate\text::slug($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'barcode':
-				$data = \dash\validate\text::barcode($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'sku':
-				$data = \dash\validate\text::sku($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-
-			case 'search':
-				$data = \dash\validate\text::search($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'language':
-			case 'lang':
-				$data = \dash\validate\text::language($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'email':
-				$data = \dash\validate\text::email($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'md5':
-				$data = \dash\validate\text::md5($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'subdomain':
-				$data = \dash\validate\subdomain::subdomain($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			// *************** IBAN validate
-			case 'iban':
-				$data = \dash\validate\iban::check($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'iban_detail':
-				$data = \dash\validate\iban::detail($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			// *************** url validate
-			case 'url':
-				$data = \dash\validate\url::url($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'domain_clean':
-				$data = \dash\validate\url::domain_clean($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'domain':
-				$data = \dash\validate\url::domain($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'domain_root':
-				$data = \dash\validate\url::domain_root($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'ir_domain':
-				$data = \dash\validate\url::ir_domain($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'ip':
-				$data = \dash\validate\url::ip($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'ipv4':
-				$data = \dash\validate\url::ipv4($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'ipv6':
-				$data = \dash\validate\url::ipv6($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'dns':
-				$data = \dash\validate\url::dns($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			// *************** date validate
-			case 'birthdate':
-				$data = \dash\validate\datetime::birthdate($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'date':
-				$data = \dash\validate\datetime::date($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'datetime':
-				$data = \dash\validate\datetime::datetime($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'time':
-				$data = \dash\validate\datetime::time($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			// *************** location validate
-			case 'country':
-				$data = \dash\validate\location::country($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'province':
-				$data = \dash\validate\location::province($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'city':
-				$data = \dash\validate\location::city($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-
-			// *************** password validate
-			case 'password':
-				$data = \dash\validate\password::password($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-
-			// *************** identify validate
-			case 'id':
-				$data = \dash\validate\identify::id($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'code':
-				$data = \dash\validate\identify::code($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'id_code':
-				$data = \dash\validate\identify::id_code($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-
-			// *************** array validate
-			case 'enum':
-				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'order':
@@ -754,32 +653,6 @@ class cleanse
 			case 'star':
 				$meta['enum'] = ['1', '2', '3', '4', '5'];
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'tag':
-				$data = \dash\validate\dataarray::tag($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			// *************** nationalcode validate
-			case 'nationalcode':
-				$data = \dash\validate\nationalcode::nationalcode($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			// *************** number validate
-			case 'number':
-				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'int':
-				$data = \dash\validate\number::int($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'float':
-				$data = \dash\validate\number::float($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'number_negative':
-				$data = \dash\validate\number::number_negative($_data, $_notif, $element, $field_title, $meta);
 				break;
 
 			case 'bigint':
@@ -802,38 +675,6 @@ class cleanse
 				$meta['round'] = true;
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
-
-			case 'postcode':
-				$data = \dash\validate\number::postcode($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'phone':
-				$data = \dash\validate\number::phone($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'percent':
-				$data = \dash\validate\number::number_percent($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-			case 'price':
-				$data = \dash\validate\number::price($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-
-			case 'irnic_id':
-				$data = \dash\validate\irnic::irnic_id($_data, $_notif, $element, $field_title, $meta);
-				break;
-
-
-			// *************** bool/bit validate
-			case 'bool':
-				$data = boolval($_data);
-				break;
-
-			case 'bit':
-				$data = $_data ? 1 : null;
-				break;
-
 
 			default:
 				self::bye(T_("Invalid vaidate function".' '. $function));
