@@ -21,9 +21,26 @@ class edit
 			return false;
 		}
 
+
 		$data = \dash\cleanse::patch_mode($_args, $args);
 
+		if(isset($load['type']) && $load['type'] === 'group')
+		{
 
+		}
+		else
+		{
+			unset($data['class']);
+		}
+
+		if(isset($load['type']) && $load['type'] === 'total')
+		{
+
+		}
+		else
+		{
+			unset($data['topic']);
+		}
 
 		if(isset($data['title']) && $data['title'])
 		{

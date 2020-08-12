@@ -8,7 +8,10 @@
         <div class="box">
 
           <div class="body">
-
+            <div class="msg"><span><?php echo T_("Class") ?></span> <span class="txtB"><?php echo T_(\dash\data::loadDetail_class()); ?></span></div>
+            <?php if(\dash\data::myType() !== 'group') {?>
+              <div class="msg"><span><?php echo T_("Topic") ?></span>  <span class="txtB"><?php echo T_(\dash\data::loadDetail_topic()); ?></span></div>
+            <?php } //endif ?>
 
             <?php if(\dash\data::parentList()) {?>
               <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-red"><?php echo T_("Required") ?></small><?php } //endif ?></label>
@@ -45,10 +48,6 @@
                   <option value="<?php echo $value ?>" <?php if(\dash\data::dataRow_topic() === $value) { echo 'selected';} ?>><?php echo T_($value); ?></option>
                 <?php } //endif ?>
               </select>
-
-            <?php }elseif(\dash\data::myType() != 'group'){ ?>
-
-              <div class="msg"><span><?php echo T_("Class") ?></span> <span class="txtB"><?php echo T_(\dash\data::loadDetail_class()); ?></span></div>
 
               <?php } //endif ?>
 
@@ -141,8 +140,6 @@
 
               </select>
 
-            <?php }else{ ?>
-                <div class="msg"><span><?php echo T_("Topic") ?></span>  <span class="txtB"><?php echo T_(\dash\data::loadDetail_topic()); ?></span></div>
             <?php } //endif ?>
 
 
