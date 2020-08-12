@@ -428,6 +428,8 @@ class cleanse
 
 	public static function data($_cleans_function, $_data, $_notif = true, $_meta = [])
 	{
+		self::$status = true;
+
 		if(self::$status === false)
 		{
 			// no change in status if have erro
