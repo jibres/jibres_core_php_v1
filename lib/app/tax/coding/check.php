@@ -166,6 +166,16 @@ class check
 			}
 		}
 
+		if(isset($load_parent['nature']) && $data['nature'] && in_array($data['type'], ['assistant', 'details']))
+		{
+			if($load_parent['nature'] !== $data['nature'])
+			{
+				$data['nature'] = $load_parent['nature'];
+				// \dash\notif::error(T_("The parent nature is :val, You only can add this nature as child of this parent", ['val' => $load_parent['nature']]));
+				// return false;
+			}
+		}
+
 		unset($data['parent']);
 
 		$data['status'] = $data['status'] ? 'enable' : "disable";

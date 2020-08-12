@@ -25,11 +25,11 @@ class view
 
 		if(\dash\data::editMode())
 		{
-			$title .= ' - '.  T_("Edit accounting coding");
+			$title .=  T_("Edit accounting coding");
 		}
 		else
 		{
-			$title .= ' - '.  T_("Add new accounting coding");
+			$title .=  T_("Add new accounting coding");
 		}
 
 		$title .= ' - '.  T_(ucfirst(\dash\data::myType()));
@@ -40,8 +40,23 @@ class view
 		if(\dash\request::get('view'))
 		{
 			$view_id = \dash\request::get('view');
+		}
+		elseif(\dash\request::get('id'))
+		{
+			$view_id = \dash\request::get('id');
+		}
+
+		if($view_id)
+		{
 			$load_detail = \lib\app\tax\coding\get::get($view_id);
 			\dash\data::loadDetail($load_detail);
+		}
+
+		if(\dash\request::get('parent'))
+		{
+			$parent_id = \dash\request::get('parent');
+			$load_parent = \lib\app\tax\coding\get::get($parent_id);
+			\dash\data::parentDetail($load_parent);
 		}
 
 		$dataTableAll = \lib\app\tax\coding\search::list_tree(['open_all' => false, 'view_id' => $view_id]);

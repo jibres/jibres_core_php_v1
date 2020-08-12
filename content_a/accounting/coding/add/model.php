@@ -35,9 +35,25 @@ class model
 		$post = self::getPost();
 		$result = \lib\app\tax\coding\add::add($post);
 
+
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that());
+			if(\dash\request::get('parent'))
+			{
+				\dash\redirect::to(\dash\url::that(). '?view='. \dash\request::get('parent'));
+			}
+			else
+			{
+				if(isset($result['id']))
+				{
+					\dash\redirect::to(\dash\url::that(). '?view='. $result['id']);
+				}
+				else
+				{
+					\dash\redirect::to(\dash\url::that());
+				}
+
+			}
 		}
 	}
 }

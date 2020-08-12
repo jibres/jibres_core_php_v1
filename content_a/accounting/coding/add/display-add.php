@@ -11,14 +11,17 @@
 
 
             <?php if(\dash\data::parentList()) {?>
-              <label for="parent"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-              <select class="select22" name="parent">
+              <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-red"><?php echo T_("Required") ?></small><?php } //endif ?></label>
+              <select class="select22" name="parent" <?php if(\dash\request::get('parent')) {echo 'disabled';} ?>>
                 <option value=""><?php echo T_("Please choose parent") ?></option>
                 <?php foreach (\dash\data::parentList() as $key => $value) {?>
                   <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('parent')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             <?php } // endif ?>
+            <?php if(\dash\request::get('parent')) {?>
+              <input type="hidden" name="parent" value="<?php echo \dash\request::get('parent') ?>">
+            <?php } ?>
 
             <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
             <div class="input">
@@ -29,23 +32,7 @@
             <div class="input">
               <input type="text" name="title" id="title" required value="<?php echo \dash\data::dataRow_title(); ?>">
             </div>
-            <?php if(\dash\data::myType() === 'group') {?>
 
-              <label for="class"><?php echo T_("Class") ?> </label>
-
-                <select class="select22" name="class" data-model='tag'>
-
-                <option value=""><?php echo T_("Please choose class") ?></option>
-                <option value="current liabilities" <?php if(\dash\data::dataRow_class() === 'current liabilities') { echo 'selected';} ?>><?php echo T_("current liabilities") ?></option>
-                <option value="non-current liabilities" <?php if(\dash\data::dataRow_class() === 'non-current liabilities') { echo 'selected';} ?>><?php echo T_("non-current liabilities") ?></option>
-                <option value="current assets" <?php if(\dash\data::dataRow_class() === 'current assets') { echo 'selected';} ?>><?php echo T_("current assets") ?></option>
-                <option value="non-current assets" <?php if(\dash\data::dataRow_class() === 'non-current assets') { echo 'selected';} ?>><?php echo T_("non-current assets") ?></option>
-                <option value="profit and loss" <?php if(\dash\data::dataRow_class() === 'profit and loss') { echo 'selected';} ?>><?php echo T_("profit and loss") ?></option>
-                <option value="shareholders rights" <?php if(\dash\data::dataRow_class() === 'shareholders rights') { echo 'selected';} ?>><?php echo T_("shareholders rights") ?></option>
-
-              </select>
-
-            <?php } //endif ?>
 
             <?php if(\dash\data::myType() === 'total') {?>
 
@@ -75,23 +62,97 @@
             <?php } //endif ?>
 
             <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total' || \dash\data::myType() === 'group') {?>
-              <label for="nature"><?php echo T_("Nature") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-              <select class="select22" name="nature">
-                <option value=""><?php echo T_("Please choose nature") ?></option>
 
-                <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total') {?>
-                  <option value="debtor" <?php if(\dash\data::dataRow_nature() === 'debtor') {echo 'selected';} ?>><?php echo T_("Debtor") ?></option>
-                  <option value="creditor" <?php if(\dash\data::dataRow_nature() === 'creditor') {echo 'selected';} ?>><?php echo T_("Creditor") ?></option>
-                  <option value="debtor-creditor" <?php if(\dash\data::dataRow_nature() === 'debtor-creditor') {echo 'selected';} ?>><?php echo T_("Debtor-Creditor") ?></option>
+              <label for="nature"><?php echo T_("Nature") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+
+              <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total') {?>
+
+
+
+              <div class="f">
+
+                <div class="c mLa5">
+                  <div class="radio3 mB5">
+                    <input type="radio" name="nature" value="debtor" id="idebtor" <?php if(\dash\data::dataRow_nature() === 'debtor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled';} ?> >
+                    <label for="idebtor"><?php echo T_("Debtor"); ?></label>
+                  </div>
+                </div>
+
+                <div class="c mLa5">
+                  <div class="radio3 mB5">
+                    <input type="radio" name="nature" value="creditor" id="icreditor" <?php if(\dash\data::dataRow_nature() === 'creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled';} ?> >
+                    <label for="icreditor"><?php echo T_("Creditor"); ?></label>
+                  </div>
+                </div>
+
+
+                <div class="c mLa5">
+                  <div class="radio3 mB5">
+                    <input type="radio" name="nature" value="debtor-creditor" id="idebtor-creditor" <?php if(\dash\data::dataRow_nature() === 'debtor-creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor-creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled';} ?> >
+                    <label for="idebtor-creditor"><?php echo T_("Debtor-Creditor"); ?></label>
+                  </div>
+                </div>
+
+              </div>
+
+                <?php if(\dash\data::parentDetail_nature()) {?>
+                  <input type="hidden" name="nature" value="<?php echo \dash\data::parentDetail_nature(); ?>">
+                <?php } //endif ?>
+
                 <?php } // endif ?>
 
                 <?php if(\dash\data::myType() === 'group') {?>
-                  <option value="balance sheet" <?php if(\dash\data::dataRow_nature() === 'balance sheet') {echo 'selected';} ?>><?php echo T_("Balance Sheet") ?></option>
-                  <option value="disciplinary" <?php if(\dash\data::dataRow_nature() === 'disciplinary') {echo 'selected';} ?>><?php echo T_("Disciplinary") ?></option>
-                  <option value="harmful profit" <?php if(\dash\data::dataRow_nature() === 'harmful profit') {echo 'selected';} ?>><?php echo T_("Harmful-Profit") ?></option>
+
+
+                  <div class="f">
+
+                <div class="c mLa5">
+                  <div class="radio3 mB5">
+                    <input type="radio" name="nature" value="balance sheet" id="ibalance-sheet" <?php if(\dash\data::dataRow_nature() === 'balance sheet') {echo 'checked';} ?>  >
+                    <label for="ibalance-sheet"><?php echo T_("Balance sheet"); ?></label>
+                  </div>
+                </div>
+
+                <div class="c mLa5">
+                  <div class="radio3 mB5">
+                    <input type="radio" name="nature" value="disciplinary" id="idisciplinary" <?php if(\dash\data::dataRow_nature() === 'disciplinary') {echo 'checked';} ?>  >
+                    <label for="idisciplinary"><?php echo T_("Disciplinary"); ?></label>
+                  </div>
+                </div>
+
+
+                <div class="c mLa5">
+                  <div class="radio3 mB5">
+                    <input type="radio" name="nature" value="harmful profit" id="iharmful-profit" <?php if(\dash\data::dataRow_nature() === 'harmful profit') {echo 'checked';} ?>  >
+                    <label for="iharmful-profit"><?php echo T_("Harmful-Profit"); ?></label>
+                  </div>
+                </div>
+
+              </div>
+
                 <?php } // endif ?>
               </select>
             <?php } // endif ?>
+
+
+
+                <?php if(\dash\data::myType() === 'group') {?>
+
+              <label for="class"><?php echo T_("Class") ?> </label>
+
+                <select class="select22" name="class" data-model='tag'>
+
+                <option value=""><?php echo T_("Please choose class") ?></option>
+                <option value="current liabilities" <?php if(\dash\data::dataRow_class() === 'current liabilities') { echo 'selected';} ?>><?php echo T_("current liabilities") ?></option>
+                <option value="non-current liabilities" <?php if(\dash\data::dataRow_class() === 'non-current liabilities') { echo 'selected';} ?>><?php echo T_("non-current liabilities") ?></option>
+                <option value="current assets" <?php if(\dash\data::dataRow_class() === 'current assets') { echo 'selected';} ?>><?php echo T_("current assets") ?></option>
+                <option value="non-current assets" <?php if(\dash\data::dataRow_class() === 'non-current assets') { echo 'selected';} ?>><?php echo T_("non-current assets") ?></option>
+                <option value="profit and loss" <?php if(\dash\data::dataRow_class() === 'profit and loss') { echo 'selected';} ?>><?php echo T_("profit and loss") ?></option>
+                <option value="shareholders rights" <?php if(\dash\data::dataRow_class() === 'shareholders rights') { echo 'selected';} ?>><?php echo T_("shareholders rights") ?></option>
+
+              </select>
+
+            <?php } //endif ?>
 
             <?php if(\dash\data::myType() === 'assistant' ) {?>
 
@@ -128,7 +189,7 @@
 
 
             <div class="switch1 mT10">
-              <input type="checkbox" name="status" id="status"  <?php if(\dash\data::dataRow_status() === 'enable') {echo 'checked';}?> >
+              <input type="checkbox" name="status" id="status"  <?php if(\dash\data::dataRow_status() === 'enable' || !\dash\data::dataRow()) {echo 'checked';}?> >
               <label for="status" data-on="<?php echo T_("Enable") ?>" data-off="<?php echo T_("Disable") ?>"></label>
               <label for="status"><?php echo T_("Status"); ?></label>
             </div>

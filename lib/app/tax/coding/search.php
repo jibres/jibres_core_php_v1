@@ -296,6 +296,11 @@ class search
 			$html .= ' ('.T_("Detailable").') ';
 		}
 
+		if(isset($_data['status']) && $_data['status'] === 'disable')
+		{
+			$html .= ' ('.T_("Disable").') ';
+		}
+
 		$html .= '</a>';
 
 		return $html;
