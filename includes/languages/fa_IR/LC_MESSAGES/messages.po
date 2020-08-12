@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-12 11:47+0430\n"
-"PO-Revision-Date: 2020-08-12 11:49+0430\n"
+"POT-Creation-Date: 2020-08-12 13:37+0430\n"
+"PO-Revision-Date: 2020-08-12 13:38+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3887,7 +3887,7 @@ msgstr "والد"
 #: content_a/accounting/coding/add/display-add.php:14
 #: content_a/accounting/coding/add/display-add.php:26
 #: content_a/accounting/coding/add/display-add.php:31
-#: content_a/accounting/coding/add/display-add.php:66
+#: content_a/accounting/coding/add/display-add.php:53
 #: content_a/accounting/doc/add/display-docdetail.php:10
 #: content_a/accounting/doc/add/display-docdetail.php:20
 #: content_a/accounting/irvat/add/display.php:155
@@ -3965,84 +3965,12 @@ msgstr "سرفصل"
 msgid "Please choose topic"
 msgstr "لطفا سرفصل را انتخاب کنید"
 
-#: content_a/accounting/coding/add/display-add.php:42
-msgid "net sales"
-msgstr "فروش خالص"
-
-#: content_a/accounting/coding/add/display-add.php:43
-msgid "accumulated profit"
-msgstr "سود انباشته"
-
-#: content_a/accounting/coding/add/display-add.php:44
-msgid "orders and prepayments"
-msgstr "سفارشات و پیش پرداخت‌ها"
-
-#: content_a/accounting/coding/add/display-add.php:45
-msgid "short term investments"
-msgstr "سرمایه گذاری‌های کوتاه مدت"
-
-#: content_a/accounting/coding/add/display-add.php:46
-msgid "wealth"
-msgstr "سرمایه"
-
-#: content_a/accounting/coding/add/display-add.php:47
-msgid "other non-operating expenses"
-msgstr "سایر هزینه‌های غیرعملیاتی"
-
-#: content_a/accounting/coding/add/display-add.php:48
-msgid "other operating costs"
-msgstr "سایر هزینه‌های عملیاتی"
-
-#: content_a/accounting/coding/add/display-add.php:49
-msgid "other operating income"
-msgstr "سایر درآمد‌های عملیاتی"
-
-#: content_a/accounting/coding/add/display-add.php:50
-msgid "other accounts and documents receivable"
-msgstr "سایر حساب‌ها و اسناد دریافتنی"
-
-#: content_a/accounting/coding/add/display-add.php:51
-msgid "other accounts and documents payable"
-msgstr "سایر حساب‌ها و اسناد پرداختنی"
-
-#: content_a/accounting/coding/add/display-add.php:52
-msgid "save employee end-of-service benefits"
-msgstr "ذخیره مزایای پایان خدمت کارکنان"
-
 #: content_a/accounting/coding/add/display-add.php:53
-msgid "save taxes"
-msgstr "ذخیره مالیات"
-
-#: content_a/accounting/coding/add/display-add.php:54
-msgid "tangible fixed assets"
-msgstr "دارایی‌های ثابت مشهود"
-
-#: content_a/accounting/coding/add/display-add.php:55
-msgid "accounts receivable and commercial documents"
-msgstr "حساب‌ها و اسناد دریافتنی تجاری"
-
-#: content_a/accounting/coding/add/display-add.php:56
-msgid "business accounts and documents payable"
-msgstr "حساب‌های و اسناد پرداختنی تجاری"
-
-#: content_a/accounting/coding/add/display-add.php:57
-msgid "receivables"
-msgstr "پیش دریافتنی‌ها"
-
-#: content_a/accounting/coding/add/display-add.php:58
-msgid "prepayments"
-msgstr "پیش دریافت‌ها"
-
-#: content_a/accounting/coding/add/display-add.php:59
-msgid "long-term accounts and documents"
-msgstr "حساب‌ها و اسناد پرداختنی بلند مدت"
-
-#: content_a/accounting/coding/add/display-add.php:66
 #: content_a/accounting/coding/display.php:35
 msgid "Nature"
 msgstr "ماهیت"
 
-#: content_a/accounting/coding/add/display-add.php:77
+#: content_a/accounting/coding/add/display-add.php:64
 #: content_a/accounting/doc/add/display-docdetail.php:40
 #: content_a/accounting/doc/add/display-list.php:11
 #: content_a/accounting/doc/add/display-list.php:34
@@ -4050,7 +3978,7 @@ msgstr "ماهیت"
 msgid "Debtor"
 msgstr "بدهکار"
 
-#: content_a/accounting/coding/add/display-add.php:84
+#: content_a/accounting/coding/add/display-add.php:71
 #: content_a/accounting/doc/add/display-docdetail.php:46
 #: content_a/accounting/doc/add/display-list.php:12
 #: content_a/accounting/doc/add/display-list.php:36
@@ -4058,57 +3986,57 @@ msgstr "بدهکار"
 msgid "Creditor"
 msgstr "بستانکار"
 
-#: content_a/accounting/coding/add/display-add.php:92
+#: content_a/accounting/coding/add/display-add.php:79
 msgid "Debtor-Creditor"
 msgstr "بدهکار - بستانکار"
 
-#: content_a/accounting/coding/add/display-add.php:112
+#: content_a/accounting/coding/add/display-add.php:99
 #: includes/languages/trans_static.php:703
 msgid "Balance sheet"
 msgstr "ترازنامه‌ای"
 
-#: content_a/accounting/coding/add/display-add.php:119
+#: content_a/accounting/coding/add/display-add.php:106
 msgid "Disciplinary"
 msgstr "انتظامی"
 
-#: content_a/accounting/coding/add/display-add.php:127
+#: content_a/accounting/coding/add/display-add.php:114
 msgid "Harmful-Profit"
 msgstr "سود - زیانی"
 
-#: content_a/accounting/coding/add/display-add.php:141
+#: content_a/accounting/coding/add/display-add.php:128
 #: content_a/accounting/coding/display.php:20
 msgid "Class"
 msgstr "طبقه"
 
-#: content_a/accounting/coding/add/display-add.php:145
+#: content_a/accounting/coding/add/display-add.php:132
 msgid "Please choose class"
 msgstr "لطفا طبقه را انتخاب کنید"
 
-#: content_a/accounting/coding/add/display-add.php:146
+#: content_a/accounting/coding/add/display-add.php:133
 msgid "current liabilities"
 msgstr "بدهی‌های جاری"
 
-#: content_a/accounting/coding/add/display-add.php:147
+#: content_a/accounting/coding/add/display-add.php:134
 msgid "non-current liabilities"
 msgstr "بدهی‌های غیر جاری"
 
-#: content_a/accounting/coding/add/display-add.php:148
+#: content_a/accounting/coding/add/display-add.php:135
 msgid "current assets"
 msgstr "دارایی‌های جاری"
 
-#: content_a/accounting/coding/add/display-add.php:149
+#: content_a/accounting/coding/add/display-add.php:136
 msgid "non-current assets"
 msgstr "دارایی‌های غیر جاری"
 
-#: content_a/accounting/coding/add/display-add.php:150
+#: content_a/accounting/coding/add/display-add.php:137
 msgid "profit and loss"
 msgstr "سود و زیانی"
 
-#: content_a/accounting/coding/add/display-add.php:151
+#: content_a/accounting/coding/add/display-add.php:138
 msgid "shareholders rights"
 msgstr "حقوق صاحبان سهام"
 
-#: content_a/accounting/coding/add/display-add.php:161
+#: content_a/accounting/coding/add/display-add.php:148
 #: content_a/category/edit/display.php:14 content_a/order/address/display.php:116
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
@@ -4125,7 +4053,7 @@ msgstr "حقوق صاحبان سهام"
 msgid "Yes"
 msgstr "بله"
 
-#: content_a/accounting/coding/add/display-add.php:161
+#: content_a/accounting/coding/add/display-add.php:148
 #: content_a/category/edit/display.php:14 content_a/order/address/display.php:116
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
@@ -4138,35 +4066,35 @@ msgstr "بله"
 msgid "No"
 msgstr "خیر"
 
-#: content_a/accounting/coding/add/display-add.php:162
+#: content_a/accounting/coding/add/display-add.php:149
 msgid "Detailable?"
 msgstr "آیا تفصیل‌پذیر است؟"
 
-#: content_a/accounting/coding/add/display-add.php:171
+#: content_a/accounting/coding/add/display-add.php:158
 #: content_a/accounting/coding/all/display.php:117
 #: content_a/accounting/coding/display.php:41
 msgid "naturecontrol"
 msgstr "کنترل ماهیت طی دوره"
 
-#: content_a/accounting/coding/add/display-add.php:176
+#: content_a/accounting/coding/add/display-add.php:163
 #: content_a/accounting/coding/all/display.php:118
 #: content_a/accounting/coding/display.php:42
 msgid "exchangeable"
 msgstr "تسعیر پذیر"
 
-#: content_a/accounting/coding/add/display-add.php:181
+#: content_a/accounting/coding/add/display-add.php:168
 #: content_a/accounting/coding/all/display.php:119
 #: content_a/accounting/coding/display.php:43
 msgid "followup"
 msgstr "پیگیری"
 
-#: content_a/accounting/coding/add/display-add.php:186
+#: content_a/accounting/coding/add/display-add.php:173
 #: content_a/accounting/coding/all/display.php:120
 #: content_a/accounting/coding/display.php:44
 msgid "Accounting currency"
 msgstr "ارزی"
 
-#: content_a/accounting/coding/add/display-add.php:193
+#: content_a/accounting/coding/add/display-add.php:180
 #: content_a/products/tag/display.php:172 content_a/products/tag/display.php:189
 #: content_cms/terms/display.php:225 content_cms/terms/display.php:242
 #: content_love/domain/detail/display.php:25 content_love/domain/setting/display.php:125
@@ -4176,7 +4104,7 @@ msgstr "ارزی"
 msgid "Enable"
 msgstr "فعال"
 
-#: content_a/accounting/coding/add/display-add.php:193
+#: content_a/accounting/coding/add/display-add.php:180
 #: content_a/products/tag/display.php:173 content_a/products/tag/display.php:190
 #: content_cms/terms/display.php:226 content_cms/terms/display.php:243
 #: content_love/domain/setting/display.php:126 includes/languages/trans_static.php:539
@@ -4185,7 +4113,7 @@ msgstr "فعال"
 msgid "Disable"
 msgstr "غیرفعال"
 
-#: content_a/accounting/coding/add/display-add.php:194
+#: content_a/accounting/coding/add/display-add.php:181
 #: content_a/accounting/coding/display.php:30 content_a/android/apk/display.php:32
 #: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
@@ -4210,7 +4138,7 @@ msgstr "غیرفعال"
 msgid "Status"
 msgstr "وضعیت"
 
-#: content_a/accounting/coding/add/display-add.php:200
+#: content_a/accounting/coding/add/display-add.php:187
 #: content_a/accounting/doc/add/display-docdetail.php:52
 #: content_a/accounting/doc/add/display.php:48
 #: content_a/accounting/irvat/add/display.php:133 content_a/cart/add/display.php:26
@@ -4233,7 +4161,7 @@ msgstr "وضعیت"
 msgid "Add"
 msgstr "افزودن"
 
-#: content_a/accounting/coding/add/display-add.php:200
+#: content_a/accounting/coding/add/display-add.php:187
 #: content_a/accounting/coding/all/display.php:105
 #: content_a/accounting/coding/all/display.php:123
 #: content_a/accounting/coding/display-list.php:112
@@ -4261,7 +4189,7 @@ msgstr "افزودن"
 msgid "Edit"
 msgstr "ویرایش"
 
-#: content_a/accounting/coding/add/display-add.php:202
+#: content_a/accounting/coding/add/display-add.php:189
 #: content_a/accounting/doc/add/display.php:38 content_a/cart/add/display.php:54
 #: content_a/cart/add/display.php:75 content_a/company/display.php:57
 #: content_a/company/display.php:122 content_a/products/bullet/display.php:28
@@ -15286,7 +15214,7 @@ msgid "Create new gift"
 msgstr "افزودن کارت هدیه جدید"
 
 #: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:25
-#: includes/languages/trans_static.php:716
+#: includes/languages/trans_static.php:770
 msgid "Sell & Enjoy"
 msgstr "بفروش و لذت ببر"
 
@@ -19289,43 +19217,43 @@ msgstr "فیلد :val  الزامی است اما در لیست شروط تعر�
 msgid "Field :val is required"
 msgstr ":val الزامی است"
 
-#: dash/cleanse.php:401
+#: dash/cleanse.php:402
 msgid "First Arguments of patch mode function is required!"
 msgstr "آرگومان اول برای تابع پچ مود الزامیه!"
 
-#: dash/cleanse.php:408
+#: dash/cleanse.php:409
 msgid "Second Arguments of patch mode function is required!"
 msgstr "آرگومان دوم برای تابع پچ مود الزامیه!"
 
-#: dash/cleanse.php:434
+#: dash/cleanse.php:443
 msgid "Validate function is required!"
 msgstr "چه تابعی رو برای اعتبار سنجی صدا کردی!"
 
-#: dash/cleanse.php:439
+#: dash/cleanse.php:448
 msgid "Validate function must be string!"
 msgstr "این تابعی که برای اعتبار سنجی صدا کردی متنی نیست!"
 
-#: dash/cleanse.php:444
+#: dash/cleanse.php:453
 msgid "Validate function is too long!"
 msgstr "این تابعی که برای اعتبار سنجی صدا کردی خیلی طولش زیاده!"
 
-#: dash/cleanse.php:449
+#: dash/cleanse.php:458
 msgid "Fourth arguments of function data must be array!"
 msgstr "آرگومان چهارم برای تابع اعتبارسنجی باید آرایه باشد!"
 
-#: dash/cleanse.php:504 dash/cleanse.php:519
+#: dash/cleanse.php:513 dash/cleanse.php:528
 msgid "Second part of string function must be a number!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید عدد باشد!"
 
-#: dash/cleanse.php:509 dash/cleanse.php:524
+#: dash/cleanse.php:518 dash/cleanse.php:533
 msgid "Second part of string function must be less than 10 character!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید کوچک‌تر از ۱۰ حرف باشد!"
 
-#: dash/cleanse.php:514 dash/cleanse.php:529
+#: dash/cleanse.php:523 dash/cleanse.php:538
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:839
+#: dash/cleanse.php:680
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -23470,27 +23398,207 @@ msgstr "سود - زیانی"
 msgid "Details"
 msgstr "تفصیل"
 
-#: includes/languages/trans_static.php:709
+#: includes/languages/trans_static.php:709 includes/languages/trans_static.php:737
 msgid "sales costs"
 msgstr "هزینه‌های فروش"
 
-#: includes/languages/trans_static.php:710
+#: includes/languages/trans_static.php:710 includes/languages/trans_static.php:738
 msgid "financial costs"
 msgstr "هزینه‌های مالی"
 
-#: includes/languages/trans_static.php:711
+#: includes/languages/trans_static.php:711 includes/languages/trans_static.php:736
 msgid "administrative costs"
 msgstr "هزینه‌های اداری"
 
-#: includes/languages/trans_static.php:712
+#: includes/languages/trans_static.php:712 includes/languages/trans_static.php:739
 msgid "general expenses"
 msgstr "هزینه‌های عمومی"
 
-#: includes/languages/trans_static.php:713
+#: includes/languages/trans_static.php:713 includes/languages/trans_static.php:740
 msgid "intangible fixed assets"
 msgstr "دارایی‌های ثابت نامشهود"
 
-#: includes/languages/trans_static.php:715
+#: includes/languages/trans_static.php:716
+msgid "net sales"
+msgstr "فروش خالص"
+
+#: includes/languages/trans_static.php:717
+msgid "accumulated profit"
+msgstr "سود انباشته"
+
+#: includes/languages/trans_static.php:718
+msgid "orders and prepayments"
+msgstr "سفارشات و پیش پرداخت‌ها"
+
+#: includes/languages/trans_static.php:719
+msgid "short term investments"
+msgstr "سرمایه گذاری‌های کوتاه مدت"
+
+#: includes/languages/trans_static.php:720
+msgid "wealth"
+msgstr "سرمایه"
+
+#: includes/languages/trans_static.php:721
+msgid "other non-operating expenses"
+msgstr "سایر هزینه‌های غیرعملیاتی"
+
+#: includes/languages/trans_static.php:722
+msgid "other operating costs"
+msgstr "سایر هزینه‌های عملیاتی"
+
+#: includes/languages/trans_static.php:723
+msgid "other operating income"
+msgstr "سایر درآمد‌های عملیاتی"
+
+#: includes/languages/trans_static.php:724
+msgid "other accounts and documents receivable"
+msgstr "سایر حساب‌ها و اسناد دریافتنی"
+
+#: includes/languages/trans_static.php:725
+msgid "other accounts and documents payable"
+msgstr "سایر حساب‌ها و اسناد پرداختنی"
+
+#: includes/languages/trans_static.php:726
+msgid "save employee end-of-service benefits"
+msgstr "ذخیره مزایای پایان خدمت کارکنان"
+
+#: includes/languages/trans_static.php:727
+msgid "save taxes"
+msgstr "ذخیره مالیات"
+
+#: includes/languages/trans_static.php:728
+msgid "tangible fixed assets"
+msgstr "دارایی‌های ثابت مشهود"
+
+#: includes/languages/trans_static.php:729
+msgid "accounts receivable and commercial documents"
+msgstr "حساب‌ها و اسناد دریافتنی تجاری"
+
+#: includes/languages/trans_static.php:730
+msgid "business accounts and documents payable"
+msgstr "حساب‌های و اسناد پرداختنی تجاری"
+
+#: includes/languages/trans_static.php:731
+msgid "receivables"
+msgstr "پیش دریافتنی‌ها"
+
+#: includes/languages/trans_static.php:732
+msgid "prepayments"
+msgstr "پیش دریافت‌ها"
+
+#: includes/languages/trans_static.php:733
+msgid "long-term accounts and documents"
+msgstr "حساب‌ها و اسناد پرداختنی بلند مدت"
+
+#: includes/languages/trans_static.php:734
+msgid "cash balance"
+msgstr "موجودی نقد"
+
+#: includes/languages/trans_static.php:735
+msgid "received financial facilities"
+msgstr "تسهیلات مالی دریافتی"
+
+#: includes/languages/trans_static.php:743
+msgid "Net sales"
+msgstr "فروش خالص"
+
+#: includes/languages/trans_static.php:744
+msgid "Accumulated profit"
+msgstr "سود انباشته"
+
+#: includes/languages/trans_static.php:745
+msgid "Orders and prepayments"
+msgstr "سفارشات و پیش پرداخت‌ها"
+
+#: includes/languages/trans_static.php:746
+msgid "Short term investments"
+msgstr "سرمایه گذاری‌های کوتاه مدت"
+
+#: includes/languages/trans_static.php:747
+msgid "Wealth"
+msgstr "سرمایه"
+
+#: includes/languages/trans_static.php:748
+msgid "Other non-operating expenses"
+msgstr "سایر هزینه‌های غیرعملیاتی"
+
+#: includes/languages/trans_static.php:749
+msgid "Other operating costs"
+msgstr "سایر هزینه‌های عملیاتی"
+
+#: includes/languages/trans_static.php:750
+msgid "Other operating income"
+msgstr "سایر درآمد‌های عملیاتی"
+
+#: includes/languages/trans_static.php:751
+msgid "Other accounts and documents receivable"
+msgstr "سایر حساب‌ها و اسناد دریافتنی"
+
+#: includes/languages/trans_static.php:752
+msgid "Other accounts and documents payable"
+msgstr "سایر حساب‌ها و اسناد پرداختنی"
+
+#: includes/languages/trans_static.php:753
+msgid "Save employee end-of-service benefits"
+msgstr "ذخیره مزایای پایان خدمت کارکنان"
+
+#: includes/languages/trans_static.php:754
+msgid "Save taxes"
+msgstr "ذخیره مالیات"
+
+#: includes/languages/trans_static.php:755
+msgid "Tangible fixed assets"
+msgstr "دارایی‌های ثابت مشهود"
+
+#: includes/languages/trans_static.php:756
+msgid "Accounts receivable and commercial documents"
+msgstr "حساب‌ها و اسناد دریافتنی تجاری"
+
+#: includes/languages/trans_static.php:757
+msgid "Business accounts and documents payable"
+msgstr "حساب‌های و اسناد پرداختنی تجاری"
+
+#: includes/languages/trans_static.php:758
+msgid "Rceivables"
+msgstr "دریافتنی"
+
+#: includes/languages/trans_static.php:759
+msgid "Prepayments"
+msgstr "پیش دریافت‌ها"
+
+#: includes/languages/trans_static.php:760
+msgid "Long-term accounts and documents"
+msgstr "حساب‌ها و اسناد پرداختنی بلند مدت"
+
+#: includes/languages/trans_static.php:761
+msgid "Cash balance"
+msgstr "موجودی نقد"
+
+#: includes/languages/trans_static.php:762
+msgid "Received financial facilities"
+msgstr "تسهیلات مالی دریافتی"
+
+#: includes/languages/trans_static.php:763
+msgid "Administrative costs"
+msgstr "هزینه‌های اداری"
+
+#: includes/languages/trans_static.php:764
+msgid "Sales costs"
+msgstr "هزینه‌های فروش"
+
+#: includes/languages/trans_static.php:765
+msgid "Financial costs"
+msgstr "هزینه‌های مالی"
+
+#: includes/languages/trans_static.php:766
+msgid "General expenses"
+msgstr "هزینه‌های عمومی"
+
+#: includes/languages/trans_static.php:767
+msgid "Intangible fixed assets"
+msgstr "دارایی‌های ثابت نامشهود"
+
+#: includes/languages/trans_static.php:769
 msgid ""
 "Jibres is not just an online accounting software; We try to create the best financial "
 "platform that has everything you need to sale and manage your financial life."
@@ -29100,31 +29208,31 @@ msgstr "خیر؛ من در حال ایجاد فروشگاه برای مشتری 
 msgid "Accounting coding successfully added"
 msgstr "سرفصل حسابداری با موفقیت ثبت شد"
 
-#: lib/app/tax/coding/check.php:42
+#: lib/app/tax/coding/check.php:44
 msgid "Can not set parent of group accounting coding"
 msgstr "گروه نمی‌تواند والد داشته باشد"
 
-#: lib/app/tax/coding/check.php:48 lib/app/tax/coding/check.php:79
-#: lib/app/tax/coding/check.php:112
+#: lib/app/tax/coding/check.php:50 lib/app/tax/coding/check.php:81
+#: lib/app/tax/coding/check.php:114
 msgid "Invalid nature of coding"
 msgstr "ماهیت سرفصل اشتباه است"
 
-#: lib/app/tax/coding/check.php:56 lib/app/tax/coding/check.php:89
-#: lib/app/tax/coding/check.php:123
+#: lib/app/tax/coding/check.php:58 lib/app/tax/coding/check.php:91
+#: lib/app/tax/coding/check.php:125
 msgid "Please choose the parent"
 msgstr "لطفا والد را انتخاب کنید"
 
-#: lib/app/tax/coding/check.php:63 lib/app/tax/coding/check.php:96
-#: lib/app/tax/coding/check.php:130
+#: lib/app/tax/coding/check.php:65 lib/app/tax/coding/check.php:98
+#: lib/app/tax/coding/check.php:132
 msgid "Invalid parent"
 msgstr "شناسه والد اشتباه است"
 
-#: lib/app/tax/coding/check.php:73 lib/app/tax/coding/check.php:106
-#: lib/app/tax/coding/check.php:140
+#: lib/app/tax/coding/check.php:75 lib/app/tax/coding/check.php:108
+#: lib/app/tax/coding/check.php:142
 msgid "Can not set this item as parent"
 msgstr "نمی‌توانید این گزینه‌ را به عنوان والد انتخاب کنید"
 
-#: lib/app/tax/coding/check.php:164
+#: lib/app/tax/coding/check.php:166
 msgid "Duplicate code. Try another code"
 msgstr "این کد تکرای است. لطفا کد دیگری را وارد کنید"
 

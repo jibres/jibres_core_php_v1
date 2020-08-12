@@ -726,7 +726,7 @@ class TransStatic
 	echo T_("save employee end-of-service benefits");
 	echo T_("save taxes");
 	echo T_("tangible fixed assets");
-	echo T_("accounts rreceivable and commercial documents");
+	echo T_("accounts receivable and commercial documents");
 	echo T_("business accounts and documents payable");
 	echo T_("receivables");
 	echo T_("prepayments");
@@ -753,9 +753,9 @@ class TransStatic
 	echo T_("Save employee end-of-service benefits");
 	echo T_("Save taxes");
 	echo T_("Tangible fixed assets");
-	echo T_("Accounts rreceivable and commercial documents");
+	echo T_("Accounts receivable and commercial documents");
 	echo T_("Business accounts and documents payable");
-	echo T_("Eceivables");
+	echo T_("Rceivables");
 	echo T_("Prepayments");
 	echo T_("Long-term accounts and documents");
 	echo T_("Cash balance");
