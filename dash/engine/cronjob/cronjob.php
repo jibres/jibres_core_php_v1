@@ -51,7 +51,7 @@ class cronjob
 		$store_exec          = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
 		$exec[]              = $store_exec;
 		// load other store name
-		$list_stores = glob($list_stores_addr. '*');
+		$list_stores = glob($list_stores_addr. '*.conf');
 
 		if(empty($list_stores))
 		{
