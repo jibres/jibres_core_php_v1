@@ -62,6 +62,7 @@ class cronjob
 			foreach ($list_stores as $key => $value)
 			{
 				$subdomain           = str_replace($list_stores_addr, '', $value);
+				$subdomain           = str_replace('.conf', '', $subdomain);
 				$HTTP_HOST           = $subdomain. '.'. $SERVER_NAME;
 				$server['HTTP_HOST'] = $HTTP_HOST;
 				$store_exec = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
