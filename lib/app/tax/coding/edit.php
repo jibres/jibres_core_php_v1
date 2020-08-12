@@ -33,7 +33,7 @@ class edit
 			unset($data['class']);
 		}
 
-		if(isset($load['type']) && $load['type'] === 'total')
+		if(isset($load['type']) && $load['type'] === 'assistant')
 		{
 
 		}
@@ -96,10 +96,10 @@ class edit
 				\lib\db\tax_coding\update::update_class($data['class'], $load['id']);
 			}
 
-			if(isset($data['topic']))
-			{
-				\lib\db\tax_coding\update::update_topic($data['topic'], $load['id']);
-			}
+			// if(isset($data['topic']))
+			// {
+			// 	\lib\db\tax_coding\update::update_topic($data['topic'], $load['id']);
+			// }
 
 			\dash\notif::ok(T_("Accounting coding successfully updated"));
 		}

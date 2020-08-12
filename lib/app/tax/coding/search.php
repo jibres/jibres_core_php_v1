@@ -320,7 +320,15 @@ class search
 
 		if(isset($_data['nature']))
 		{
-			$html .= ' <span class="fc-mute"> ('.T_(ucfirst($_data['nature'])).') </span> ';
+			if($_data['type'] === 'group')
+			{
+				$html .= ' <span class="fc-green"> '.T_(ucfirst($_data['nature'])).'  </span> ';
+
+			}
+			else
+			{
+				$html .= ' <span class="fc-mute"> ('.T_(ucfirst($_data['nature'])).') </span> ';
+			}
 		}
 		if(isset($_data['detailable']))
 		{

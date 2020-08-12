@@ -37,7 +37,7 @@
             </div>
 
 
-            <?php if(\dash\data::myType() === 'total') {?>
+            <?php if(\dash\data::myType() === 'assistant') {?>
 
               <label for="topic"><?php echo T_("Topic") ?> </label>
               <select class="select22" name="topic" >
@@ -45,7 +45,7 @@
                 <?php $topic = ['net sales','accumulated profit','orders and prepayments','short term investments','wealth','other non-operating expenses','other operating costs','other operating income','other accounts and documents receivable','other accounts and documents payable','save employee end-of-service benefits','save taxes','tangible fixed assets','accounts receivable and commercial documents','business accounts and documents payable','receivables','prepayments','long-term accounts and documents','cash balance','received financial facilities','administrative costs','sales costs','financial costs','general expenses','intangible fixed assets']; ?>
 
                 <?php foreach ($topic as $key => $value) {?>
-                  <option value="<?php echo $value ?>" <?php if(\dash\data::dataRow_topic() === $value) { echo 'selected';} ?>><?php echo T_($value); ?></option>
+                  <option value="<?php echo $value ?>" <?php if(\dash\data::dataRow_topic() === $value || \dash\data::parentDetail_topic() === $value) { echo 'selected';} ?>><?php echo T_($value); ?></option>
                 <?php } //endif ?>
               </select>
 
