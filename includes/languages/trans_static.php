@@ -712,6 +712,60 @@ class TransStatic
 	echo T_("general expenses");
 	echo T_("intangible fixed assets");
 
+
+	echo T_("net sales");
+	echo T_("accumulated profit");
+	echo T_("orders and prepayments");
+	echo T_("short term investments");
+	echo T_("wealth");
+	echo T_("other non-operating expenses");
+	echo T_("other operating costs");
+	echo T_("other operating income");
+	echo T_("other accounts and documents receivable");
+	echo T_("other accounts and documents payable");
+	echo T_("save employee end-of-service benefits");
+	echo T_("save taxes");
+	echo T_("tangible fixed assets");
+	echo T_("accounts rreceivable and commercial documents");
+	echo T_("business accounts and documents payable");
+	echo T_("receivables");
+	echo T_("prepayments");
+	echo T_("long-term accounts and documents");
+	echo T_("cash balance");
+	echo T_("received financial facilities");
+	echo T_("administrative costs");
+	echo T_("sales costs");
+	echo T_("financial costs");
+	echo T_("general expenses");
+	echo T_("intangible fixed assets");
+
+
+	echo T_("Net sales");
+	echo T_("Accumulated profit");
+	echo T_("Orders and prepayments");
+	echo T_("Short term investments");
+	echo T_("Wealth");
+	echo T_("Other non-operating expenses");
+	echo T_("Other operating costs");
+	echo T_("Other operating income");
+	echo T_("Other accounts and documents receivable");
+	echo T_("Other accounts and documents payable");
+	echo T_("Save employee end-of-service benefits");
+	echo T_("Save taxes");
+	echo T_("Tangible fixed assets");
+	echo T_("Accounts rreceivable and commercial documents");
+	echo T_("Business accounts and documents payable");
+	echo T_("Eceivables");
+	echo T_("Prepayments");
+	echo T_("Long-term accounts and documents");
+	echo T_("Cash balance");
+	echo T_("Received financial facilities");
+	echo T_("Administrative costs");
+	echo T_("Sales costs");
+	echo T_("Financial costs");
+	echo T_("General expenses");
+	echo T_("Intangible fixed assets");
+
 	echo T_('Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.');
 	echo T_('Sell & Enjoy');
  }

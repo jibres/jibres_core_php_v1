@@ -21,7 +21,7 @@ class check
 			'type'          => ['enum' => ['group','total','assistant','details']],
 			'parent'        => 'id',
 			'class'         => ['enum' => ['current liabilities','non-current liabilities','current assets','non-current assets','profit and loss','shareholders rights']],
-			'topic'         => ['enum' => ['net sales','accumulated profit','orders and prepayments','short term investments','wealth','other non-operating expenses','other operating costs','other operating income','other accounts and documents receivable','other accounts and documents payable','save employee end-of-service benefits','save taxes','tangible fixed assets','accounts receivable and commercial documents','business accounts and documents payable','receivables','prepayments','long-term accounts and documents']],
+			'topic'         => ['enum' => ['net sales','accumulated profit','orders and prepayments','short term investments','wealth','other non-operating expenses','other operating costs','other operating income','other accounts and documents receivable','other accounts and documents payable','save employee end-of-service benefits','save taxes','tangible fixed assets','accounts receivable and commercial documents','business accounts and documents payable','receivables','prepayments','long-term accounts and documents', 'cash balance','received financial facilities','administrative costs','sales costs','financial costs','general expenses','intangible fixed assets',]],
 			'naturecontrol' => 'bit',
 			'exchangeable'  => 'bit',
 			'followup'      => 'bit',
@@ -33,6 +33,8 @@ class check
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		// var_dump($data);exit();
 
 		switch ($data['type'])
 		{
