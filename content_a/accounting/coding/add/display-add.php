@@ -46,7 +46,11 @@
                 <?php } //endif ?>
               </select>
 
-            <?php } //endif ?>
+            <?php }elseif(\dash\data::myType() != 'group'){ ?>
+
+              <div class="msg"><span><?php echo T_("Class") ?></span> <span class="txtB"><?php echo T_(\dash\data::loadDetail_class()); ?></span></div>
+
+              <?php } //endif ?>
 
             <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total' || \dash\data::myType() === 'group') {?>
 
@@ -137,6 +141,8 @@
 
               </select>
 
+            <?php }else{ ?>
+                <div class="msg"><span><?php echo T_("Topic") ?></span>  <span class="txtB"><?php echo T_(\dash\data::loadDetail_topic()); ?></span></div>
             <?php } //endif ?>
 
 
