@@ -112,6 +112,11 @@ class users
 		return \dash\db::get($query, null, true);
 	}
 
+	public static function jibres_get_by_id($_id)
+	{
+		$query = "SELECT * FROM users WHERE users.id = $_id  LIMIT 1";
+		return \dash\db::get($query, null, true, 'master');
+	}
 
 	public static function jibres_get_by_mobile($_mobile)
 	{
