@@ -24,6 +24,11 @@
               <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
             <?php } // endfor ?>
           </select>
+        <?php }else{ ?>
+          <label for="details_id"><?php echo T_("Accounting detail") ?></label>
+          <div class="input">
+            <input type="text" name="details_id">
+          </div>
         <?php } // endif ?>
 
       	<label for="desc"><?php echo T_("Description") ?></label>

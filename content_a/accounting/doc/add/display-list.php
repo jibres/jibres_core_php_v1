@@ -20,8 +20,8 @@
               <td><?php echo \dash\get::index($value, 'assistant_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'assistant_code')) ?></td>
               <td><?php echo \dash\get::index($value, 'details_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'details_code')) ?></td>
               <td><?php echo \dash\get::index($value, 'desc') ?></td>
-              <td><?php echo \dash\fit::number(\dash\get::index($value, 'debtor')) ?></td>
-              <td><?php echo \dash\fit::number(\dash\get::index($value, 'creditor')) ?></td>
+              <td><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor')) ?></td>
+              <td><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor')) ?></td>
               <td class="collapsing"><div data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></div></td>
             </tr>
            <?php } //endfor ?>

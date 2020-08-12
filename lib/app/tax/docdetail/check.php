@@ -13,8 +13,8 @@ class check
 			'assistant_id'    => 'int',
 			'details_id'      => 'string_300',
 			'desc'            => 'string_300',
-			'debtor'          => 'bigint',
-			'creditor'        => 'bigint',
+			'debtor'          => 'float',
+			'creditor'        => 'float',
 		];
 
 		$require = ['tax_document_id', 'assistant_id'];
