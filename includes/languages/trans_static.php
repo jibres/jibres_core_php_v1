@@ -705,6 +705,13 @@ class TransStatic
 	echo T_("Details");
 	echo T_("Detail");
 
+
+	echo T_("sales costs");
+	echo T_("financial costs");
+	echo T_("administrative costs");
+	echo T_("general expenses");
+	echo T_("intangible fixed assets");
+
 	echo T_('Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.');
 	echo T_('Sell & Enjoy');
  }
