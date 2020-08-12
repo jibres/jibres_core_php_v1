@@ -198,6 +198,18 @@ class search
 
 		if($type === 'group')
 		{
+			$jsTree['icon'] = "sf-asterisk fc-red";
+		}
+
+		if($type === 'total')
+		{
+			$jsTree['icon'] = "sf-thumbnails fs14 fc-blue";
+		}
+
+
+
+		if($type === 'group')
+		{
 			if(isset($view_id_detail['group']))
 			{
 				if(intval($_data['id']) === intval($view_id_detail['group']) && \dash\get::index($view_id_detail, 'type') === $type)
