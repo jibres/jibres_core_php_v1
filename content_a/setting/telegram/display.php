@@ -40,6 +40,7 @@
 </section>
 
 
+
 <section class="f" data-option='telegram-setting-channel-apikey'>
   <div class="c8 s12">
     <div class="data">
@@ -52,13 +53,14 @@
   <div class="c4 s12" >
       <div class="action">
         <?php if(\dash\data::telegramSettingSaved_adminusername()) {?>
-          <a class="btn master" href="<?php echo \dash\url::that(). '/adminusername' ?>"><?php echo T_("Change Telegram Admin username") ?></a>
+          <a class="btn master" href="<?php echo \dash\url::this(). '/social' ?>"><?php echo T_("Change Telegram Admin username") ?></a>
         <?php }else{ ?>
-          <a class="btn master" href="<?php echo \dash\url::that(). '/adminusername' ?>"><?php echo T_("Set Telegram Admin username") ?></a>
+          <a class="btn master" href="<?php echo \dash\url::this(). '/social' ?>"><?php echo T_("Set Telegram Admin username") ?></a>
         <?php } // endif ?>
       </div>
   </div>
 </section>
+
 
 <section class="f" data-option='telegram-setting-text-apikey'>
   <div class="c8 s12">
