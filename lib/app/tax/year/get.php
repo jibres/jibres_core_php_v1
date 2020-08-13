@@ -5,6 +5,38 @@ namespace lib\app\tax\year;
 class get
 {
 
+	private static $default_year = [];
+
+	public static function defult_year($_need = null)
+	{
+		if(!self::$default_year)
+		{
+			$load = \lib\db\tax_year\get::default_year();
+			self::$default_year = $load;
+		}
+
+		$load = self::$default_year;
+
+		if(isset($load['id']))
+		{
+			if($_need)
+			{
+				if(array_key_exists($_need, $load))
+				{
+					return $load[$_need];
+				}
+				else
+				{
+					return null;
+				}
+			}
+			else
+			{
+				return $load;
+			}
+		}
+		return null;
+	}
 
 
 	public static function get($_id)

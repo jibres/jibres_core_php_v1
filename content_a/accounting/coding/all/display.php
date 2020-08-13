@@ -100,7 +100,8 @@
 
         <th class="collapsing"><?php echo T_("code") ?></th>
         <th class="collapsing"><?php echo T_("Title") ?></th>
-        <th class="collapsing"><?php echo T_("Natuer") ?></th>
+        <th class="collapsing"><?php echo T_("Natuer group") ?></th>
+        <th class="collapsing"><?php echo T_("Balance type") ?></th>
         <th><?php echo T_("Detail") ?></th>
         <th class="collapsing"><?php echo T_("Edit") ?></th>
       </tr>
@@ -112,7 +113,8 @@
 
           <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
           <td class="collapsing"><?php echo \dash\get::index($value, 'title') ?></td>
-          <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'nature'))) ?></td>
+          <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'naturegroup'))); ?></td>
+          <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'balancetype'))); ?></td>
           <td class="fs08">
               <div class="ibtn mT5"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
                       <div class="ibtn mT5"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>

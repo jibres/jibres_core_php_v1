@@ -12,7 +12,8 @@ class model
 			'title'         => \dash\request::post('title'),
 			'code'          => \dash\request::post('code'),
 			'type'          => \dash\data::myType(),
-			'nature'        => \dash\request::post('nature'),
+			'naturegroup'   => \dash\request::post('naturegroup'),
+			'balancetype'   => \dash\request::post('balancetype'),
 			'detailable'    => \dash\request::post('detailable'),
 			'status'        => \dash\request::post('status'),
 

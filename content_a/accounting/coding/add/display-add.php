@@ -49,28 +49,24 @@
                 <?php } //endif ?>
               </select>
 
-              <?php } //endif ?>
+            <?php } //endif ?>
 
-            <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total' || \dash\data::myType() === 'group') {?>
+            <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total') {?>
 
-              <label for="nature"><?php echo T_("Nature") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-
-              <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total') {?>
-
-
+              <label for="balancetype"><?php echo T_("Balance type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
 
               <div class="f">
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="debtor" id="idebtor" <?php if(\dash\data::dataRow_nature() === 'debtor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled2';} ?> >
+                    <input type="radio" name="balancetype" value="debtor" id="idebtor" <?php if(\dash\data::dataRow_balancetype() === 'debtor' || (!\dash\data::dataRow_balancetype() && \dash\data::parentDetail_balancetype() === 'debtor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_balancetype()) {echo 'disabled2';} ?> >
                     <label for="idebtor"><?php echo T_("Debtor"); ?></label>
                   </div>
                 </div>
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="creditor" id="icreditor" <?php if(\dash\data::dataRow_nature() === 'creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled2';} ?> >
+                    <input type="radio" name="balancetype" value="creditor" id="icreditor" <?php if(\dash\data::dataRow_balancetype() === 'creditor' || (!\dash\data::dataRow_balancetype() && \dash\data::parentDetail_balancetype() === 'creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_balancetype()) {echo 'disabled2';} ?> >
                     <label for="icreditor"><?php echo T_("Creditor"); ?></label>
                   </div>
                 </div>
@@ -78,32 +74,31 @@
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="debtor-creditor" id="idebtor-creditor" <?php if(\dash\data::dataRow_nature() === 'debtor-creditor' || (!\dash\data::dataRow_nature() && \dash\data::parentDetail_nature() === 'debtor-creditor')) {echo 'checked';} ?> <?php if(\dash\data::parentDetail_nature()) {echo 'disabled2';} ?> >
+                    <input type="radio" name="balancetype" value="debtor-creditor" id="idebtor-creditor" <?php if(\dash\data::dataRow_balancetype() === 'debtor-creditor' || (!\dash\data::dataRow_balancetype() && \dash\data::parentDetail_balancetype() === 'debtor-creditor')) {echo 'checked';} ?>  >
                     <label for="idebtor-creditor"><?php echo T_("Debtor-Creditor"); ?></label>
                   </div>
                 </div>
 
               </div>
 
+            <?php } // endif ?>
 
+            <?php if(\dash\data::myType() === 'group') {?>
 
-                <?php } // endif ?>
+              <label for="naturegroup"><?php echo T_("Nature") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
 
-                <?php if(\dash\data::myType() === 'group') {?>
-
-
-                  <div class="f">
+              <div class="f">
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="balance sheet" id="ibalance-sheet" <?php if(\dash\data::dataRow_nature() === 'balance sheet') {echo 'checked';} ?>  >
+                    <input type="radio" name="naturegroup" value="balance sheet" id="ibalance-sheet" <?php if(\dash\data::dataRow_naturegroup() === 'balance sheet') {echo 'checked';} ?>  >
                     <label for="ibalance-sheet"><?php echo T_("Balance sheet"); ?></label>
                   </div>
                 </div>
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="disciplinary" id="idisciplinary" <?php if(\dash\data::dataRow_nature() === 'disciplinary') {echo 'checked';} ?>  >
+                    <input type="radio" name="naturegroup" value="disciplinary" id="idisciplinary" <?php if(\dash\data::dataRow_naturegroup() === 'disciplinary') {echo 'checked';} ?>  >
                     <label for="idisciplinary"><?php echo T_("Disciplinary"); ?></label>
                   </div>
                 </div>
@@ -111,24 +106,21 @@
 
                 <div class="c mLa5">
                   <div class="radio3 mB5">
-                    <input type="radio" name="nature" value="harmful profit" id="iharmful-profit" <?php if(\dash\data::dataRow_nature() === 'harmful profit') {echo 'checked';} ?>  >
+                    <input type="radio" name="naturegroup" value="harmful profit" id="iharmful-profit" <?php if(\dash\data::dataRow_naturegroup() === 'harmful profit') {echo 'checked';} ?>  >
                     <label for="iharmful-profit"><?php echo T_("Harmful-Profit"); ?></label>
                   </div>
                 </div>
 
               </div>
 
-                <?php } // endif ?>
-              </select>
             <?php } // endif ?>
 
 
-
-                <?php if(\dash\data::myType() === 'group') {?>
+            <?php if(\dash\data::myType() === 'group') {?>
 
               <label for="class"><?php echo T_("Class") ?> </label>
 
-                <select class="select22" name="class" >
+              <select class="select22" name="class" >
 
                 <option value=""><?php echo T_("Please choose class") ?></option>
                 <option value="current liabilities" <?php if(\dash\data::dataRow_class() === 'current liabilities') { echo 'selected';} ?>><?php echo T_("current liabilities") ?></option>
@@ -146,34 +138,34 @@
 
             <?php if(\dash\data::myType() === 'assistant' ) {?>
 
-            <div class="check1 mT10">
-              <input type="checkbox" name="naturecontrol" id="naturecontrol"  <?php if(\dash\data::dataRow_naturecontrol()) {echo 'checked';}?> >
-              <label for="naturecontrol"><?php echo T_("naturecontrol"); ?></label>
-            </div>
-
-            <div class="check1 mT10">
-              <input type="checkbox" name="currency" id="currency"  <?php if(\dash\data::dataRow_currency()) {echo 'checked';}?> >
-              <label for="currency"><?php echo T_("Accounting currency"); ?></label>
-            </div>
-
-            <div class="check1 mT10">
-              <input type="checkbox" name="exchangeable" id="exchangeable"  <?php if(\dash\data::dataRow_exchangeable()) {echo 'checked';}?> >
-              <label for="exchangeable"><?php echo T_("exchangeable"); ?></label>
-            </div>
-
-            <?php if(\dash\data::myType() === 'assistant' ) {?>
               <div class="check1 mT10">
-                <input type="checkbox" name="detailable" id="detailable"  <?php if(\dash\data::dataRow_detailable()) {echo 'checked';}?> >
-                <label for="detailable"><?php echo T_("Detailable?"); ?></label>
+                <input type="checkbox" name="naturecontrol" id="naturecontrol"  <?php if(\dash\data::dataRow_naturecontrol()) {echo 'checked';}?> >
+                <label for="naturecontrol"><?php echo T_("naturecontrol"); ?></label>
               </div>
-            <?php } // endif ?>
 
-            <div class="check1 mT10">
-              <input type="checkbox" name="followup" id="followup"  <?php if(\dash\data::dataRow_followup()) {echo 'checked';}?> >
-              <label for="followup"><?php echo T_("followup"); ?></label>
-            </div>
+              <div class="check1 mT10">
+                <input type="checkbox" name="currency" id="currency"  <?php if(\dash\data::dataRow_currency()) {echo 'checked';}?> >
+                <label for="currency"><?php echo T_("Accounting currency"); ?></label>
+              </div>
 
-          <?php } //endif ?>
+              <div class="check1 mT10">
+                <input type="checkbox" name="exchangeable" id="exchangeable"  <?php if(\dash\data::dataRow_exchangeable()) {echo 'checked';}?> >
+                <label for="exchangeable"><?php echo T_("exchangeable"); ?></label>
+              </div>
+
+              <?php if(\dash\data::myType() === 'assistant' ) {?>
+                <div class="check1 mT10">
+                  <input type="checkbox" name="detailable" id="detailable"  <?php if(\dash\data::dataRow_detailable()) {echo 'checked';}?> >
+                  <label for="detailable"><?php echo T_("Detailable?"); ?></label>
+                </div>
+              <?php } // endif ?>
+
+              <div class="check1 mT10">
+                <input type="checkbox" name="followup" id="followup"  <?php if(\dash\data::dataRow_followup()) {echo 'checked';}?> >
+                <label for="followup"><?php echo T_("followup"); ?></label>
+              </div>
+
+            <?php } //endif ?>
 
 
             <div class="switch1 mT10">
@@ -191,8 +183,8 @@
             </div>
           <?php } //endif ?>
           <?php if(\dash\get::index(\dash\data::loadDetail(), 'add_child_link')) {?>
-              <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
-            <?php } //endif ?>
+            <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
+          <?php } //endif ?>
           <div class="c"></div>
           <div class="cauto">
             <button class="btn success"><?php echo $buttonTitle; ?></button>

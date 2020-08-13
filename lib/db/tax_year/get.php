@@ -12,6 +12,14 @@ class get
 	}
 
 
+	public static function default_year()
+	{
+		$query = "SELECT * FROM tax_year WHERE tax_year.isdefault = 1 LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function check_duplicate_title($_title)
 	{
 		$query = "SELECT * FROM tax_year WHERE tax_year.title = '$_title' LIMIT 1";

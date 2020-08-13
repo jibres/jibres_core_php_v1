@@ -32,5 +32,16 @@ class update
 	}
 
 
+	public static function set_default($_id)
+	{
+		$query = "UPDATE tax_year SET tax_year.isdefault = NULL WHERE 1";
+		$result = \dash\db::query($query);
+
+		$query = "UPDATE tax_year SET tax_year.isdefault = 1 WHERE tax_year.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 }
 ?>

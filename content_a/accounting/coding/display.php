@@ -32,8 +32,13 @@
 								</tr>
 
 								<tr>
-									<td class="collapsing"><?php echo T_("Nature") ?></td>
-									<td class="txtB"><?php echo T_(ucfirst(\dash\data::loadDetail_nature())); ?></td>
+									<td class="collapsing"><?php echo T_("Nature group") ?></td>
+									<td class="txtB"><?php echo T_(ucfirst(\dash\data::loadDetail_naturegroup())); ?></td>
+								</tr>
+
+								<tr>
+									<td class="collapsing"><?php echo T_("Balance type") ?></td>
+									<td class="txtB"><?php echo T_(ucfirst(\dash\data::loadDetail_balancetype())); ?></td>
 								</tr>
 								<?php if(\dash\data::loadDetail_type() === 'assistant' ) {?>
 									<tr>

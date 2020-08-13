@@ -7,6 +7,8 @@
       <header><h2><?php echo T_("Add new accounting doc") ?></h2></header>
       <div class="body">
 
+
+
         <div class="row">
           <div class="c-sm-6">
             <label for="number"><?php echo T_("Number") ?></label>

@@ -17,7 +17,8 @@ class check
 			'parent3'       => 'int',
 			'status'        => 'bit',
 			// 'status'     => ['enum' => ['enable','disable', 'deleted']],
-			'nature'        => ['enum' => ['debtor','creditor','debtor-creditor','balance sheet','disciplinary','harmful profit']],
+			'naturegroup'   => ['enum' => ['balance sheet','disciplinary','harmful profit']],
+			'balancetype'   => ['enum' => ['debtor','creditor','debtor-creditor']],
 			'type'          => ['enum' => ['group','total','assistant','details']],
 			'parent'        => 'id',
 			'class'         => ['enum' => ['current liabilities','non-current liabilities','current assets','non-current assets','profit and loss','shareholders rights']],
@@ -45,7 +46,7 @@ class check
 					return false;
 				}
 
-				if(!in_array($data['nature'], ['balance sheet','disciplinary','harmful profit']))
+				if(!in_array($data['naturegroup'], ['balance sheet','disciplinary','harmful profit']))
 				{
 					\dash\notif::error(T_("Invalid nature of coding"));
 					return false;
@@ -76,12 +77,13 @@ class check
 					return false;
 				}
 
-				if(!in_array($data['nature'], ['debtor','creditor','debtor-creditor']))
+				if(!in_array($data['balancetype'], ['debtor','creditor','debtor-creditor']))
 				{
 					\dash\notif::error(T_("Invalid nature of coding"));
 					return false;
 				}
 
+				$data['naturegroup'] = null;
 				$data['parent1'] = $data['parent'];
 				break;
 
@@ -109,12 +111,12 @@ class check
 					return false;
 				}
 
-				if(!in_array($data['nature'], ['debtor','creditor','debtor-creditor']))
+				if(!in_array($data['balancetype'], ['debtor','creditor','debtor-creditor']))
 				{
 					\dash\notif::error(T_("Invalid nature of coding"));
 					return false;
 				}
-
+				$data['naturegroup'] = null;
 				$data['parent1'] = $load_parent['parent1'];
 				$data['parent2'] = $data['parent'];
 				break;
@@ -143,7 +145,8 @@ class check
 					return false;
 				}
 
-				$data['nature'] = null;
+				$data['naturegroup'] = null;
+				$data['balancetype'] = null;
 				$data['detailable'] = null;
 
 				$data['parent1'] = $load_parent['parent1'];
@@ -168,15 +171,15 @@ class check
 			}
 		}
 
-		if(isset($load_parent['nature']) && $data['nature'] && in_array($data['type'], ['assistant', 'details']))
-		{
-			if($load_parent['nature'] !== $data['nature'])
-			{
-				$data['nature'] = $load_parent['nature'];
-				// \dash\notif::error(T_("The parent nature is :val, You only can add this nature as child of this parent", ['val' => $load_parent['nature']]));
-				// return false;
-			}
-		}
+		// if(isset($load_parent['nature']) && $data['nature'] && in_array($data['type'], ['assistant', 'details']))
+		// {
+		// 	if($load_parent['nature'] !== $data['nature'])
+		// 	{
+		// 		$data['nature'] = $load_parent['nature'];
+		// 		// \dash\notif::error(T_("The parent nature is :val, You only can add this nature as child of this parent", ['val' => $load_parent['nature']]));
+		// 		// return false;
+		// 	}
+		// }
 
 		unset($data['parent']);
 
