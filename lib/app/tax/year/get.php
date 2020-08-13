@@ -29,16 +29,31 @@ class get
 	}
 
 
+	private static $startdate = null;
 	public static function startdate()
 	{
-		$get_last_end_date = \lib\db\tax_year\get::last_end_date();
-		if($get_last_end_date)
+		if(!self::$startdate)
 		{
-			$startdate = date("Y-m-d", strtotime($get_last_end_date) + (60*60*24));
+			$get_last_end_date = \lib\db\tax_year\get::last_end_date();
+			if($get_last_end_date)
+			{
+				$startdate = date("Y-m-d", strtotime($get_last_end_date) + (60*60*24));
+				self::$startdate = $startdate;
+			}
 		}
 
-		return null;
+		return self::$startdate;
+	}
 
+	public static function enddate()
+	{
+		$startdate = self::startdate();
+		if($startdate)
+		{
+			$enddate = date("Y-m-d", strtotime($startdate) + (60*60*24*365));
+			return $enddate;
+		}
+		return null;
 	}
 
 }

@@ -45,7 +45,7 @@ class check
 
 				if(isset($diff->days))
 				{
-					if(floatval($diff->days) === floatval(365) || floatval($diff->days) === floatval(366))
+					if(floatval($diff->days) === floatval(364) || floatval($diff->days) === floatval(365) || floatval($diff->days) === floatval(366))
 					{
 						// ok
 					}

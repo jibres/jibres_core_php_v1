@@ -20,6 +20,12 @@ class get
 	}
 
 
+	public static function not_use_in_docdetail($_year_id)
+	{
+		$query = "SELECT * FROM tax_docdetail WHERE tax_docdetail.year_id = '$_year_id' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 
 	public static function by_id($_id)

@@ -16,8 +16,11 @@
           <div class="c-sm-6">
             <label for="date" ><?php echo T_("Start Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
             <div class="input">
-              <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="startdate" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_startdate())); ?>" autocomplete='off' <?php if(\dash\data::editMode())  {echo 'disabled';}else{echo 'required';}?>>
+              <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="startdate" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_startdate())); ?>" autocomplete='off' <?php if(\dash\data::editMode() || \dash\data::dataRow_startdate())  {echo 'disabled';}else{echo 'required';}?>>
             </div>
+            <?php if(\dash\data::dataRow_startdate() && !\dash\data::editMode()) {?>
+              <input type="hidden" name="startdate" value="<?php echo \dash\data::dataRow_startdate() ?>">
+            <?php } //endif ?>
           </div>
           <div class="c-sm-6">
             <label for="date" ><?php echo T_("End Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>

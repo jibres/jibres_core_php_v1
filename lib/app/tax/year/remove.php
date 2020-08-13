@@ -14,12 +14,13 @@ class remove
 			return false;
 		}
 
-		// check not use in any doc detail
-		\dash\notif::error('not ready');
-		return false;
+		$check = \lib\db\tax_year\get::not_use_in_docdetail($load['id']);
+		if(isset($check['id']))
+		{
+			\dash\notif::error(T_("Can not remove this year. This accounting year already in use"));
+			return false;
+		}
 
-
-		\lib\db\tax_yeardetail\delete::by_year_id($load['id']);
 		\lib\db\tax_year\delete::by_id($load['id']);
 
 		\dash\notif::ok(T_("Data removed"));
