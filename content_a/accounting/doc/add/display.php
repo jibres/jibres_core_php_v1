@@ -9,17 +9,21 @@
 
 
 
-
+        <?php $defaultYear = null; ?>
 
         <?php if(\dash\data::accountingYear()) {?>
           <label for="parent"><?php echo T_("Accounting year") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-          <select class="select22" name="year_id" <?php foreach (\dash\data::accountingYear() as $key => $value) { if((!\dash\data::dataRow() && \dash\get::index($value, 'isdefault')) || (\dash\get::index($value, 'id') === \dash\data::dataRow_year_id())) { echo 'disabled';} }?>>
+          <select class="select22" name="year_id" <?php foreach (\dash\data::accountingYear() as $key => $value) { if((!\dash\data::dataRow() && \dash\get::index($value, 'isdefault')) || (\dash\get::index($value, 'id') === \dash\data::dataRow_year_id())) { $defaultYear = \dash\get::index($value, 'id'); echo 'disabled';} }?>>
             <option value=""><?php echo T_("Please choose year") ?></option>
             <?php foreach (\dash\data::accountingYear() as $key => $value) {?>
               <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if((!\dash\data::dataRow() && \dash\get::index($value, 'isdefault')) || (\dash\get::index($value, 'id') === \dash\data::dataRow_year_id())) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
             <?php } // endfor ?>
           </select>
         <?php } // endif ?>
+
+        <?php if($defaultYear) {?>
+          <input type="hidden" name="year_id" value="<?php echo $defaultYear; ?>">
+        <?php } //endif ?>
 
         <div class="row">
           <div class="c-sm-6">
