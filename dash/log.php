@@ -21,6 +21,17 @@ class log
 	}
 
 
+	public static function to_supervisor($_text)
+	{
+		$log =
+		[
+			'my_text' => $_text,
+		];
+
+		\dash\log::set('sendToSupervisor', $log);
+	}
+
+
 
 	public static function temp_set($_caller, $_args)
 	{

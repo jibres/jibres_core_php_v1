@@ -62,7 +62,7 @@ class create
 		else
 		{
 			\dash\notif::error(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
+			\dash\log::to_supervisor(__LINE__); return false;
 		}
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
@@ -78,13 +78,13 @@ class create
 		if(!$user_id)
 		{
 			\dash\notif::error(T_("Please login to continue"));
-			return false;
+			\dash\log::to_supervisor(__LINE__); return false;
 		}
 
 		if(!$data['period'])
 		{
 			\dash\notif::error(T_("Please indicate the duration of the domain purchase, 1 year or 5 year?"));
-			return false;
+			\dash\log::to_supervisor(__LINE__); return false;
 		}
 
 		$domain      = $data['domain'];
@@ -143,7 +143,7 @@ class create
 		if(!$irnic_new && !$nic_id)
 		{
 			\dash\notif::error(T_("Please enter IRNIC handle"), 'irnicid-new');
-			return false;
+			\dash\log::to_supervisor(__LINE__); return false;
 		}
 
 		$get_contac_nic = [];
@@ -153,7 +153,7 @@ class create
 			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
 			if(!$add_quick_contact)
 			{
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			$nic_id = $add_quick_contact;
@@ -165,7 +165,7 @@ class create
 			if(!isset($check_nic_id['nic_id']))
 			{
 				\dash\notif::error(T_("IRNIC handle not fount in your list"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			$nic_id = $check_nic_id['nic_id'];
@@ -188,7 +188,7 @@ class create
 			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
 
 			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
-			return false;
+			\dash\log::to_supervisor(__LINE__); return false;
 		}
 
 
@@ -198,13 +198,13 @@ class create
 			if(!isset($get_contac_nic_admin[$irnic_admin]))
 			{
 				\dash\notif::error(T_("Can not find account detail of this domain"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			if(!isset($get_contac_nic_admin[$irnic_admin]))
 			{
 				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			if(isset($get_contac_nic_admin[$irnic_admin]['admin']) && $get_contac_nic_admin[$irnic_admin]['admin'] == '1')
@@ -214,7 +214,7 @@ class create
 			else
 			{
 				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 		}
 		else
@@ -226,7 +226,7 @@ class create
 			else
 			{
 				\dash\notif::error(T_("We can not register this domain because the admin holder of IRNIC can not access to register"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 		}
 
@@ -238,14 +238,14 @@ class create
 			{
 				// bug!!
 				\dash\notif::error(T_("Can not find  billing account detail of this domain"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			if(!isset($get_contac_nic_bill[$irnic_bill]))
 			{
 				// bug!!
 				\dash\notif::error(T_("Can not find  admin account detail of this domain"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			if(isset($get_contac_nic_bill[$irnic_bill]['bill']) && $get_contac_nic_bill[$irnic_bill]['bill'] == '1')
@@ -255,7 +255,7 @@ class create
 			else
 			{
 				\dash\notif::error(T_("We can not register this domain because the bill holder of IRNIC can not access to register"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 		}
 		else
@@ -270,14 +270,14 @@ class create
 			{
 				// bug!!
 				\dash\notif::error(T_("Can not find  technical account detail of this domain"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			if(!isset($get_contac_nic_tech[$irnic_tech]))
 			{
 				// bug!!
 				\dash\notif::error(T_("Can not find technical account detail of this domain"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			if(isset($get_contac_nic_tech[$irnic_tech]['tech']) && $get_contac_nic_tech[$irnic_tech]['tech'] == '1')
@@ -287,7 +287,7 @@ class create
 			else
 			{
 				\dash\notif::error(T_("We can not register this domain because the technical holder of IRNIC can not access to register"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 		}
 		else
@@ -307,7 +307,7 @@ class create
 				{
 					case 'enable':
 						\dash\notif::error(T_("This domain is already in your list"));
-						return false;
+						\dash\log::to_supervisor(__LINE__); return false;
 						break;
 
 					case 'expire':
@@ -384,7 +384,7 @@ class create
 			{
 				// must be roolback money
 				\dash\notif::error(T_("Error! Can not create your domain data"));
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 		}
 
@@ -409,7 +409,7 @@ class create
 			$result['domain_id'] = $domain_code;
 
 			\dash\notif::ok(T_("Domain ready to register"));
-			return $result;
+			\dash\log::to_supervisor(__LINE__); return $result;
 		}
 
 		// check gift card
@@ -430,7 +430,7 @@ class create
 
 			if(!\dash\engine\process::status())
 			{
-				return false;
+				\dash\log::to_supervisor(__LINE__); return false;
 			}
 
 			$discount      = $gift_detail['discount'];
@@ -515,7 +515,7 @@ class create
 						$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
 						\dash\notif::meta($result_pay);
 						\dash\notif::ok($msg);
-						return;
+						\dash\log::to_supervisor(__LINE__); return;
 					}
 					else
 					{
@@ -525,11 +525,11 @@ class create
 				else
 				{
 					\dash\log::oops('generate_pay_error');
-					return false;
+					\dash\log::to_supervisor(__LINE__); return false;
 				}
 
 				// redirect to bank payment
-				return ;
+				\dash\log::to_supervisor(__LINE__); return ;
 			}
 		}
 
@@ -603,7 +603,7 @@ class create
 				if(!$transaction_id)
 				{
 					\dash\log::oops('transaction_db');
-					return false;
+					\dash\log::to_supervisor(__LINE__); return false;
 				}
 			}
 
@@ -665,7 +665,7 @@ class create
 			// fetch nic credit after register domain
 			\lib\app\nic_credit\get::fetch();
 
-			return true;
+			\dash\log::to_supervisor(__LINE__); return true;
 
 		}
 		else
