@@ -150,7 +150,7 @@ class create
 
 		if($irnic_new)
 		{
-			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
+			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new, $user_id);
 			if(!$add_quick_contact)
 			{
 				\dash\log::to_supervisor(__LINE__); return false;

@@ -4,9 +4,19 @@ namespace lib\app\nic_contact;
 
 class add
 {
-	public static function quick($_nic_id)
+	public static function quick($_nic_id, $_user_id = null)
 	{
-		if(!\dash\user::id())
+		$user_id = null;
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		elseif(\dash\user::id())
+		{
+			$user_id = \dash\user::id();
+		}
+
+		if(!$user_id)
 		{
 			\dash\notif::error(T_("Please login to continue"));
 			return false;
@@ -21,7 +31,7 @@ class add
 		}
 
 
-		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_nic_id);
+		$check_duplicate = \lib\db\nic_contact\get::check_duplicate($user_id, $_nic_id);
 		if($check_duplicate)
 		{
 			return $_nic_id;
@@ -31,7 +41,7 @@ class add
 
 		if(isset($result[$_nic_id]['avail']) && $result[$_nic_id]['avail'] == '1')
 		{
-			$result = self::add_account($result[$_nic_id]);
+			$result = self::add_account($result[$_nic_id], null, $user_id);
 			if($result)
 			{
 				return $_nic_id;
@@ -100,8 +110,19 @@ class add
 	}
 
 
-	private static function add_account($_detail, $_title = null)
+	private static function add_account($_detail, $_title = null, $_user_id = null)
 	{
+
+		$user_id = null;
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		elseif(\dash\user::id())
+		{
+			$user_id = \dash\user::id();
+		}
+
 
 		$id     = isset($_detail['id']) ? \dash\validate::string($_detail['id']) : null;
 		$roid   = isset($_detail['roid']) ? \dash\validate::string($_detail['roid']) : null;
@@ -127,7 +148,7 @@ class add
 		$insert =
 		[
 			'title'       => $_title,
-			'user_id'     => \dash\user::id(),
+			'user_id'     => $user_id,
 			'nic_id'      => $id,
 			'roid'        => $id,
 			'holder'      => $holder,
@@ -140,7 +161,7 @@ class add
 			'status'      => 'enable',
 		];
 
-		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $id);
+		$check_duplicate = \lib\db\nic_contact\get::check_duplicate($user_id, $id);
 		if($check_duplicate)
 		{
 			\dash\notif::error(T_("This IRNIC Handle already added to your IRNIC Handle list"));
