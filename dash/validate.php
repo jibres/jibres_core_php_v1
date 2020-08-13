@@ -12,6 +12,7 @@ class validate
 		$notif = true;
 		$meta  = [];
 
+
 		if(array_key_exists(0, $_args))
 		{
 			$data = $_args[0];
@@ -33,6 +34,7 @@ class validate
 			// $meta['continue_with_error'] = true;
 		}
 
+		\dash\cleanse::$status = true;
 		return \dash\cleanse::data($_function, $data, $notif, $meta);
 	}
 

@@ -93,8 +93,9 @@ class number
 			{
 				if($_notif)
 				{
+
 					// \dash\notif::error(T_("Cannot use decimal number in field :val", ['val' => $_field_title]), ['element' => $_element]);
-					\dash\cleanse::$status = false;
+					// \dash\cleanse::$status = false;
 				}
 			}
 		}

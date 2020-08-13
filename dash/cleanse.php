@@ -428,7 +428,7 @@ class cleanse
 
 	public static function data($_cleans_function, $_data, $_notif = true, $_meta = [])
 	{
-		self::$status = true;
+		// self::$status = true;
 
 		if(self::$status === false)
 		{
