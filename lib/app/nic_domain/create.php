@@ -297,6 +297,7 @@ class create
 
 
 
+
 		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
 		if(isset($check_duplicate_domain['id']))
 		{
@@ -391,6 +392,7 @@ class create
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
 
+
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
 		if(!$data['register_now'])
 		{
@@ -473,7 +475,8 @@ class create
 				$temp_args['pay_amount_bank']   = $pay_amount_bank;
 				$temp_args['pay_amount_budget'] = $pay_amount_budget;
 				$temp_args['after_pay']         = true;
-				$temp_args['agree']         = true;
+				$temp_args['agree']             = true;
+				$temp_args['register_now']      = true;
 				// $temp_args['discount']          = $discount;
 				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
 				$temp_args['user_id']           = $user_id;
@@ -562,8 +565,8 @@ class create
 
 		// $result                 = [];
 		// $result['name']         = $domain;
-		// $result['dateregister'] = null;
-		// $result['dateexpire']   = null;
+		// $result['dateregister'] = date("Y-m-d");
+		// $result['dateexpire']   = date("Y-m-d");
 
 		if(isset($result['name']))
 		{
