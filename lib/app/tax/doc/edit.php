@@ -14,7 +14,8 @@ class edit
 			return false;
 		}
 
-		$args = \lib\app\tax\doc\check::variable($_args);
+
+		$args = \lib\app\tax\doc\check::variable($_args, $load);
 
 		if(!$args)
 		{

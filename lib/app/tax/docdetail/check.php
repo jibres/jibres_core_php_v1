@@ -79,6 +79,16 @@ class check
 			return false;
 		}
 
+
+		$load_doc = \lib\app\tax\doc\get::get($data['tax_document_id']);
+		if(!isset($load_doc['id']))
+		{
+			\dash\notif::error(T_("Invalid accounting document id"));
+			return false;
+		}
+
+		$data['year_id'] = \dash\get::index($load_doc, 'year_id');
+
 		return $data;
 
 	}

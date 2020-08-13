@@ -4,6 +4,17 @@ namespace lib\app\tax\year;
 
 class get
 {
+	public static function list()
+	{
+		$list = \lib\db\tax_year\get::all();
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\lib\\app\\tax\\year\\ready', 'row'], $list);
+		return $list;
+	}
 
 	private static $default_year = [];
 

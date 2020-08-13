@@ -7,9 +7,10 @@ class model
 	{
 		$post =
 		[
-			'number' => \dash\request::post('number'),
-			'desc'   => \dash\request::post('desc'),
-			'date'   => \dash\request::post('date'),
+			'number'  => \dash\request::post('number'),
+			'year_id' => \dash\request::post('year_id'),
+			'desc'    => \dash\request::post('desc'),
+			'date'    => \dash\request::post('date'),
 		];
 
 		$result = \lib\app\tax\doc\add::add($post);

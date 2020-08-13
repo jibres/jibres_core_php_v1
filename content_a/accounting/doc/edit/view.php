@@ -21,6 +21,8 @@ class view
 		$detail = \lib\app\tax\docdetail\get::list(\dash\request::get('id'));
 		\dash\data::docDetail($detail);
 
+		\dash\data::accountingYear(\lib\app\tax\year\get::list());
+
 		if($detail && is_array($detail))
 		{
 			$summary = [];

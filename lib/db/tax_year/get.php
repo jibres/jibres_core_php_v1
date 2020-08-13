@@ -44,6 +44,12 @@ class get
 	}
 
 
+	public static function all()
+	{
+		$query = "SELECT * FROM tax_year WHERE 1";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 
 
 
