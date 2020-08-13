@@ -304,6 +304,7 @@ class renew
 				$temp_args['pay_amount_bank']   = $pay_amount_bank;
 				$temp_args['pay_amount_budget'] = $pay_amount_budget;
 				$temp_args['after_pay']         = true;
+				$temp_args['agree']         = true;
 				// $temp_args['discount']          = $discount;
 				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
 				$temp_args['user_id']           = $user_id;
