@@ -15,7 +15,7 @@
   <div class="c s12">
     <div class="dcard x2 mB10" data-confirm data-data='{"type" : "lock"}'>
       <div class="statistic red">
-        <div class="value"><?php echo T_("Lock"); ?></div>
+        <div class="value mB20"><?php echo T_("Lock"); ?></div>
         <div class="label"><?php echo T_("Lock service"); ?></div>
       </div>
     </div>
@@ -23,7 +23,7 @@
   <div class="c s12">
     <div class="dcard x2 mB10" data-confirm data-data='{"type" : "pull"}'>
       <div class="statistic yellow">
-        <div class="value"><?php echo T_("Pull"); ?></div>
+        <div class="value mB20"><?php echo T_("Pull"); ?></div>
         <div class="label"><?php echo T_("Pull service"); ?> </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
   <div class="c s12">
     <div class="dcard x2 mB10" data-confirm data-data='{"type" : "upgrade"}'>
       <div class="statistic blue">
-        <div class="value"><?php echo T_("Upgrade"); ?></div>
+        <div class="value mB20"><?php echo T_("Upgrade"); ?></div>
         <div class="label"><?php echo T_("Update database"); ?></div>
         <div class="label mT5-f"><?php echo T_("Jibres"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_jibres()) ?></b></div>
         <div class="label mT5-f"><?php echo T_("Store"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_store()) ?></b></div>
@@ -41,7 +41,7 @@
   <div class="c s12">
     <div class="dcard x2 mB10" data-confirm data-data='{"type" : "unlock"}'>
       <div class="statistic green">
-        <div class="value"><?php echo T_("Unlock"); ?></div>
+        <div class="value mB20"><?php echo T_("Unlock"); ?></div>
         <div class="label"><?php echo T_("Unlock service"); ?></div>
       </div>
     </div>
