@@ -5,7 +5,7 @@ namespace lib\app\tax\doc;
 class check
 {
 
-	public static function variable($_args, $_option = [])
+	public static function variable($_args, $_option = [], $_id = null)
 	{
 		$condition =
 		[
@@ -43,6 +43,23 @@ class check
 				return false;
 			}
 
+		}
+
+		if($data['number'])
+		{
+			$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number']);
+			if(isset($check_duplicate_number['id']))
+			{
+				if(floatval($check_duplicate_number['id']) === floatval($_id))
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::error(T_("Duplicate accounting document number"), 'number');
+					return false;
+				}
+			}
 		}
 
 		return $data;

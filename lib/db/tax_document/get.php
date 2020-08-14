@@ -20,6 +20,14 @@ class get
 	}
 
 
+	public static function check_duplicate_number($_number)
+	{
+		$query = "SELECT * FROM tax_document WHERE tax_document.number = $_number LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 
 	public static function detail_report()
 	{
