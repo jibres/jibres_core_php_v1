@@ -83,7 +83,15 @@ class get
 
 	public static function list_total()
 	{
-		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'total'";
+		$query =
+		"
+			SELECT
+				tax_coding.*,
+				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent1 LIMIT 1) AS `group_title`
+			FROM
+				tax_coding
+			WHERE tax_coding.type = 'total'
+		";
 		$result = \dash\db::get($query);
 		return $result;
 	}
@@ -91,8 +99,18 @@ class get
 
 	public static function list_assistant()
 	{
-		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'assistant'";
+		$query =
+		"
+			SELECT
+				tax_coding.*,
+				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent1 LIMIT 1) AS `group_title`,
+				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent2 LIMIT 1) AS `total_title`
+			FROM
+				tax_coding
+			WHERE tax_coding.type = 'assistant'
+		";
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 

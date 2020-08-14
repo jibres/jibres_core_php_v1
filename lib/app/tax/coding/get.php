@@ -77,11 +77,11 @@ class get
 		switch ($_type)
 		{
 			case 'group':
-				$list = \lib\db\tax_coding\get::list_group($_type);
+				$list = \lib\db\tax_coding\get::list_group();
 				break;
 
 			case 'total':
-				$list = \lib\db\tax_coding\get::list_total($_type);
+				$list = \lib\db\tax_coding\get::list_total();
 				break;
 
 			case 'assistant':
@@ -90,7 +90,7 @@ class get
 
 			case 'details':
 			default:
-				$list = \lib\db\tax_coding\get::list_details($_type);
+				$list = \lib\db\tax_coding\get::list_details();
 				return $list;
 				break;
 		}

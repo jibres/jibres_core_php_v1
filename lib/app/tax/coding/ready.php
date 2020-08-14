@@ -15,6 +15,16 @@ class ready
 		$result     = [];
 		$full_title = [];
 
+		if(isset($_data['group_title']) && $_data['group_title'])
+		{
+			$full_title[] = $_data['group_title'];
+		}
+
+		if(isset($_data['total_title']) && $_data['total_title'])
+		{
+			$full_title[] = $_data['total_title'];
+		}
+
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
