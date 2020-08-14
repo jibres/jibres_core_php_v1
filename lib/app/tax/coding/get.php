@@ -91,6 +91,7 @@ class get
 			case 'details':
 			default:
 				$list = \lib\db\tax_coding\get::list_details($_type);
+				return $list;
 				break;
 		}
 

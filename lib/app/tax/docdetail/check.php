@@ -12,15 +12,16 @@ class check
 			'tax_document_id' => 'int',
 			'assistant_id'    => 'int',
 			'details_id'      => 'string_300',
+			'details_title'   => 'string_300',
 			'desc'            => 'string_300',
-			// 'debtor'          => 'float',
-			// 'creditor'        => 'float',
+			// 'debtor'       => 'float',
+			// 'creditor'     => 'float',
 			'type'            => ['enum' => ['debtor', 'creditor']],
-			'value'          => 'float',
+			'value'           => 'float',
 
 		];
 
-		$require = ['tax_document_id', 'assistant_id', 'type', 'value'];
+		$require = ['tax_document_id','type', 'value'];
 
 		$meta = [];
 
@@ -38,42 +39,57 @@ class check
 			return false;
 		}
 
-		if(is_numeric($data['details_id']))
+		if($data['details_title'])
 		{
-			$load_assistant = \lib\db\tax_coding\get::by_id($data['details_id']);
-			if(isset($load_assistant['type']) && $load_assistant['type'] === 'details')
+
+			$load_details = \lib\db\tax_coding\get::by_title_assistant_id($data['details_title'], $load_assistant['parent1'], $load_assistant['parent2'], $load_assistant['id']);
+
+			if(isset($load_details['id']))
 			{
-				// ok
+				$data['details_id'] = $load_details['id'];
 			}
 			else
 			{
-				\dash\notif::error(T_("Invalid details id"));
+
+				$add =
+				[
+					'title'  => $data['details_title'],
+					'parent' => $load_assistant['id'],
+					'type'   => 'details',
+					'code'   => \lib\app\tax\coding\get::generate_code_details($load_assistant['id']),
+				];
+
+				$id = \lib\app\tax\coding\add::add($add);
+				// \dash\notif::clean();
+
+				if(isset($id['id']))
+				{
+					$data['details_id'] = $id['id'];
+				}
+			}
+
+
+			if(!$data['details_id'])
+			{
+				\dash\notif::error(T_("Please choose the details"));
 				return false;
 			}
 		}
 		else
 		{
-			$add =
-			[
-				'title'  => $data['details_id'],
-				'parent' => $load_assistant['id'],
-				'type'   => 'details',
-				'code'   => \lib\app\tax\coding\get::generate_code_details($data['assistant_id']),
-			];
-
-			$id = \lib\app\tax\coding\add::add($add);
-
-			if(isset($id['id']))
+			if(isset($load_assistant['detailable']) && $load_assistant['detailable'])
 			{
-				$data['details_id'] = $id['id'];
+				\dash\notif::error(T_("Please choose the detail"));
+				return false;
 			}
+			else
+			{
+				// the parent is detailable
+				$data['details_id'] = null;
+			}
+
 		}
 
-		if(!$data['details_id'])
-		{
-			\dash\notif::error(T_("Please choose the details"));
-			return false;
-		}
 
 		if($data['type'] === 'debtor')
 		{
@@ -91,6 +107,7 @@ class check
 
 		unset($data['value']);
 		unset($data['type']);
+		unset($data['details_title']);
 
 
 		$load_doc = \lib\app\tax\doc\get::get($data['tax_document_id']);

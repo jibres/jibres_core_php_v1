@@ -40,7 +40,7 @@ class model
 
 				'desc'            => \dash\request::post('desc'),
 				'assistant_id'    => \dash\request::post('assistant_id'),
-				'details_id'      => \dash\request::post('details_id'),
+				'details_title'      => \dash\request::post('details_title'),
 			];
 
 			$result = \lib\app\tax\docdetail\add::add($post);

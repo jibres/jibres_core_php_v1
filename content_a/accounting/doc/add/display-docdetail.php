@@ -7,7 +7,7 @@
       <div class="body">
 
       	  <?php if(\dash\data::assistantList()) {?>
-          <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+          <label for="assistant_id"><?php echo T_("Accounting assistant") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
           <select class="select22" name="assistant_id">
             <option value=""><?php echo T_("Please choose assistant_id") ?></option>
             <?php foreach (\dash\data::assistantList() as $key => $value) {?>
@@ -17,17 +17,17 @@
         <?php } // endif ?>
 
         <?php if(\dash\data::detailsList()) {?>
-          <label for="details_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-          <select class="select22" data-model='tag' name="details_id">
-            <option value=""><?php echo T_("Please choose details_id") ?></option>
+          <label for="details_title"><?php echo T_("Accounting details") ?></label>
+          <select class="select22" data-model='tag' name="details_title">
+            <option value=""><?php echo T_("Please choose details") ?></option>
             <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-              <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
+              <option value="<?php echo $value ?>"><?php echo $value; ?></option>
             <?php } // endfor ?>
           </select>
         <?php }else{ ?>
-          <label for="details_id"><?php echo T_("Accounting detail") ?></label>
+          <label for="details_title"><?php echo T_("Accounting detail") ?></label>
           <div class="input">
-            <input type="text" name="details_id">
+            <input type="text" name="details_title">
           </div>
         <?php } // endif ?>
 
