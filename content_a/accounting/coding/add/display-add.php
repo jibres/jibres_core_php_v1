@@ -8,10 +8,6 @@
         <div class="box">
 
           <div class="body">
-            <div class="msg"><span><?php echo T_("Class") ?></span> <span class="txtB"><?php echo T_(\dash\data::loadDetail_class()); ?></span></div>
-            <?php if(\dash\data::myType() !== 'group') {?>
-              <div class="msg"><span><?php echo T_("Topic") ?></span>  <span class="txtB"><?php echo T_(\dash\data::loadDetail_topic()); ?></span></div>
-            <?php } //endif ?>
 
             <?php if(\dash\data::parentList()) {?>
               <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-red"><?php echo T_("Required") ?></small><?php } //endif ?></label>
@@ -37,19 +33,6 @@
             </div>
 
 
-            <?php if(\dash\data::myType() === 'assistant') {?>
-
-              <label for="topic"><?php echo T_("Topic") ?> </label>
-              <select class="select22" name="topic" >
-                <option value=""><?php echo T_("Please choose topic") ?></option>
-                <?php $topic = ['net sales','accumulated profit','orders and prepayments','short term investments','wealth','other non-operating expenses','other operating costs','other operating income','other accounts and documents receivable','other accounts and documents payable','save employee end-of-service benefits','save taxes','tangible fixed assets','accounts receivable and commercial documents','business accounts and documents payable','receivables','prepayments','long-term accounts and documents','cash balance','received financial facilities','administrative costs','sales costs','financial costs','general expenses','intangible fixed assets']; ?>
-
-                <?php foreach ($topic as $key => $value) {?>
-                  <option value="<?php echo $value ?>" <?php if(\dash\data::dataRow_topic() === $value || \dash\data::parentDetail_topic() === $value) { echo 'selected';} ?>><?php echo T_($value); ?></option>
-                <?php } //endif ?>
-              </select>
-
-            <?php } //endif ?>
 
             <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total') {?>
 
@@ -116,23 +99,6 @@
             <?php } // endif ?>
 
 
-            <?php if(\dash\data::myType() === 'group') {?>
-
-              <label for="class"><?php echo T_("Class") ?> </label>
-
-              <select class="select22" name="class" >
-
-                <option value=""><?php echo T_("Please choose class") ?></option>
-                <option value="current liabilities" <?php if(\dash\data::dataRow_class() === 'current liabilities') { echo 'selected';} ?>><?php echo T_("current liabilities") ?></option>
-                <option value="non-current liabilities" <?php if(\dash\data::dataRow_class() === 'non-current liabilities') { echo 'selected';} ?>><?php echo T_("non-current liabilities") ?></option>
-                <option value="current assets" <?php if(\dash\data::dataRow_class() === 'current assets') { echo 'selected';} ?>><?php echo T_("current assets") ?></option>
-                <option value="non-current assets" <?php if(\dash\data::dataRow_class() === 'non-current assets') { echo 'selected';} ?>><?php echo T_("non-current assets") ?></option>
-                <option value="profit and loss" <?php if(\dash\data::dataRow_class() === 'profit and loss') { echo 'selected';} ?>><?php echo T_("profit and loss") ?></option>
-                <option value="shareholders rights" <?php if(\dash\data::dataRow_class() === 'shareholders rights') { echo 'selected';} ?>><?php echo T_("shareholders rights") ?></option>
-
-              </select>
-
-            <?php } //endif ?>
 
 
 
