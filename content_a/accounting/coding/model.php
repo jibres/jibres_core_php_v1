@@ -16,7 +16,7 @@ class model
 				return false;
 			}
 
-			$data = \dash\utility\import::csv('/home/reza/projects/jibres/content_a/accounting/coding/accounting-coding-import.csv');
+			$data = \dash\utility\import::csv(__DIR__.'/accounting-coding-import.csv');
 
 			$insert = [];
 			foreach ($data as $key => $value)
