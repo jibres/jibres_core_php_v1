@@ -28,6 +28,11 @@ class view
 
 		$dataTable = \lib\app\tax\coding\search::list($q, $args);
 
+		if(!$dataTable)
+		{
+			\dash\data::firstInit(true);
+		}
+
 
 
 		$filterBox     = \lib\app\tax\coding\search::filter_message();
