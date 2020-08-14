@@ -18,10 +18,13 @@ class model
 		}
 
 		$post = \content_a\accounting\coding\add\model::getPost();
-		unset($post['code']);
+
+		if(\dash\data::myType() !== 'details')
+		{
+			unset($post['code']);
+		}
 		unset($post['parent']);
 		unset($post['type']);
-
 
 		$result = \lib\app\tax\coding\edit::edit($post, \dash\request::get('id'));
 

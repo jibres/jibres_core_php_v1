@@ -11,7 +11,7 @@ class check
 		[
 			'title'         => 'string_200',
 			'detailable'    => 'bit',
-			'code'          => 'smallint',
+			'code'          => 'int',
 			'parent1'       => 'int',
 			'parent2'       => 'int',
 			'parent3'       => 'int',
