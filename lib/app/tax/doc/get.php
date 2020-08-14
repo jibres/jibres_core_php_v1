@@ -4,7 +4,18 @@ namespace lib\app\tax\doc;
 
 class get
 {
-
+	public static function new_doc_number()
+	{
+		$get_last = \lib\db\tax_document\get::last_number();
+		if(!$get_last || !is_numeric($get_last))
+		{
+			return 1;
+		}
+		else
+		{
+			return floatval($get_last) + 1;
+		}
+	}
 
 
 	public static function get($_id)

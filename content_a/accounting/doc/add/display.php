@@ -19,6 +19,8 @@
               <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if((!\dash\data::dataRow() && \dash\get::index($value, 'isdefault')) || (\dash\get::index($value, 'id') === \dash\data::dataRow_year_id())) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
             <?php } // endfor ?>
           </select>
+        <?php }else{ ?>
+          <div class="msg warn2"><a class="btn link" href="<?php echo \dash\url::this(). '/year/add' ?>"><?php echo T_("Add new accounting year") ?></a></div>
         <?php } // endif ?>
 
         <?php if($defaultYear) {?>

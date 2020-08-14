@@ -5,6 +5,13 @@ namespace lib\db\tax_document;
 class get
 {
 
+	public static function last_number()
+	{
+		$query = "SELECT MAX(tax_document.number) as `number` FROM tax_document ";
+		$result = \dash\db::get($query, 'number', true);
+		return $result;
+	}
+
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM tax_document WHERE tax_document.id = $_id LIMIT 1";

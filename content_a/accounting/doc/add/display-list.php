@@ -1,4 +1,9 @@
 <?php if(\dash\data::editMode() && \dash\data::docDetail()) {?>
+  <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
+    <div class="msg success txtB txtC fs14"><?php echo T_("Document balance!") ?></div>
+  <?php }else{ ?>
+    <div class="msg danger txtB txtC fs14"><?php echo T_("Accounting document is not balance!") ?></div>
+  <?php }//endif ?>
   <div class="box">
     <div class="body">
        <table class="tbl1 v4">

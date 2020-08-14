@@ -33,9 +33,12 @@ class model
 			$post =
 			[
 				'tax_document_id' => \dash\request::get('id'),
-				'debtor'          => \dash\request::post('debtor'),
+				// 'debtor'          => \dash\request::post('debtor'),
+				// 'creditor'        => \dash\request::post('creditor'),
+				'type'            => \dash\request::post('type'),
+				'value'            => \dash\request::post('value'),
+
 				'desc'            => \dash\request::post('desc'),
-				'creditor'        => \dash\request::post('creditor'),
 				'assistant_id'    => \dash\request::post('assistant_id'),
 				'details_id'      => \dash\request::post('details_id'),
 			];

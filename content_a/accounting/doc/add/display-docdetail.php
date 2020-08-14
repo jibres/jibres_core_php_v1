@@ -37,16 +37,27 @@
       	</div>
 
 
-      	<label for="debtor"><?php echo T_("Debtor") ?></label>
-      	<div class="input">
-      		<input type="text" minlength="0" maxlength="18"  name="debtor" data-format='price'>
-      	</div>
+        <div class="f">
+          <div class="c mLa5">
+            <div class="radio3 mB5">
+              <input type="radio" name="type" value="debtor" id="debtor" <?php if(\dash\data::dataRow_type() === 'debtor') {echo 'checked';} ?>  >
+              <label for="debtor"><?php echo T_("Debtor"); ?></label>
+            </div>
+          </div>
+          <div class="c mLa5">
+            <div class="radio3 mB5">
+              <input type="radio" name="type" value="creditor" id="creditor" <?php if(\dash\data::dataRow_type() === 'creditor') {echo 'checked';} ?>  >
+              <label for="creditor"><?php echo T_("Creditor"); ?></label>
+            </div>
+          </div>
+        </div>
 
 
-      	<label for="creditor"><?php echo T_("Creditor") ?></label>
+      	<label for="value"><?php echo T_("Value") ?></label>
       	<div class="input">
-      		<input type="text" minlength="0" maxlength="18"  name="creditor" data-format='price'>
+      		<input type="text" minlength="0" maxlength="18"  name="value" data-format='price'>
       	</div>
+
       </div>
       <footer class="txtRa">
       	<button class="btn master"><?php echo T_("Add") ?></button>

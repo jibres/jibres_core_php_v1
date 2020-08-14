@@ -13,11 +13,14 @@ class check
 			'assistant_id'    => 'int',
 			'details_id'      => 'string_300',
 			'desc'            => 'string_300',
-			'debtor'          => 'float',
-			'creditor'        => 'float',
+			// 'debtor'          => 'float',
+			// 'creditor'        => 'float',
+			'type'            => ['enum' => ['debtor', 'creditor']],
+			'value'          => 'float',
+
 		];
 
-		$require = ['tax_document_id', 'assistant_id'];
+		$require = ['tax_document_id', 'assistant_id', 'type', 'value'];
 
 		$meta = [];
 
@@ -72,12 +75,22 @@ class check
 			return false;
 		}
 
-
-		if(!$data['debtor'] && !$data['creditor'])
+		if($data['type'] === 'debtor')
 		{
-			\dash\notif::error(T_("Please set deptor or creditor"), ['element' => ['debtor', 'creditor']]);
+			$data['debtor'] = $data['value'];
+		}
+		elseif($data['type'] === 'creditor')
+		{
+			$data['creditor'] = $data['value'];
+		}
+		else
+		{
+			\dash\notif::error(T_("Please set debtor or creditor"), ['element' => ['debtor', 'creditor']]);
 			return false;
 		}
+
+		unset($data['value']);
+		unset($data['type']);
 
 
 		$load_doc = \lib\app\tax\doc\get::get($data['tax_document_id']);
