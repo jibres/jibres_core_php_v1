@@ -16,6 +16,24 @@ class controller
 
 		\dash\data::dataRow($load);
 
+
+		$did = \dash\request::get('did');
+		if($did)
+		{
+			$load_detail = \lib\app\tax\docdetail\get::get($did);
+			if($did && !$load_detail)
+			{
+				\dash\header::status(404);
+			}
+
+			\dash\data::editModeDetail(true);
+
+			\dash\data::dataRowDetail($load_detail);
+		}
+
+
+
+
 	}
 }
 ?>

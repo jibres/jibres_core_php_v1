@@ -94,10 +94,12 @@ class check
 		if($data['type'] === 'debtor')
 		{
 			$data['debtor'] = $data['value'];
+			$data['creditor'] = null;
 		}
 		elseif($data['type'] === 'creditor')
 		{
 			$data['creditor'] = $data['value'];
+			$data['debtor'] = null;
 		}
 		else
 		{

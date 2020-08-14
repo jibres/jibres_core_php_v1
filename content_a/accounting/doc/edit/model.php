@@ -42,8 +42,14 @@ class model
 				'assistant_id'    => \dash\request::post('assistant_id'),
 				'details_title'      => \dash\request::post('details_title'),
 			];
-
-			$result = \lib\app\tax\docdetail\add::add($post);
+			if(\dash\data::editModeDetail())
+			{
+				$result = \lib\app\tax\docdetail\edit::edit($post, \dash\request::get('did'));
+			}
+			else
+			{
+				$result = \lib\app\tax\docdetail\add::add($post);
+			}
 		}
 		else
 		{
@@ -59,7 +65,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::pwd();
+			if(\dash\data::editModeDetail())
+			{
+				\dash\redirect::to(\dash\url::current(). '?id='. \dash\request::get('id'));
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }

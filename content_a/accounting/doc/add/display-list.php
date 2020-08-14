@@ -9,7 +9,7 @@
        <table class="tbl1 v4">
          <thead>
            <tr>
-             <th class="collapsing">#</th>
+             <th class="collapsing"></th>
              <th><?php echo T_("Assistant") ?></th>
              <th><?php echo T_("Detail") ?></th>
              <th><?php echo T_("Description") ?></th>
@@ -22,12 +22,15 @@
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
             <tr>
               <td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
-              <td><?php echo \dash\get::index($value, 'assistant_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'assistant_code')) ?></td>
-              <td><?php echo \dash\get::index($value, 'details_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'details_code')) ?></td>
+              <td><a href="<?php echo \dash\url::this(). '/coding?view='. \dash\get::index($value, 'assistant_id') ?>"><?php echo \dash\get::index($value, 'assistant_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'assistant_code')) ?></a></td>
+              <td><a href="<?php echo \dash\url::this(). '/coding?view='. \dash\get::index($value, 'details_id') ?>"><?php echo \dash\get::index($value, 'details_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'details_code')) ?></a></td>
               <td><?php echo \dash\get::index($value, 'desc') ?></td>
               <td><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor')) ?></td>
               <td><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor')) ?></td>
-              <td class="collapsing"><div data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></div></td>
+              <td class="collapsing">
+                <a class="btn link mRa20" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
+                <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
+              </td>
             </tr>
            <?php } //endfor ?>
          </tbody>

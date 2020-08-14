@@ -25,6 +25,19 @@ class ready
 		}
 
 
+		if(isset($result['debtor']) && $result['debtor'] && !\dash\get::index($result, 'creditor'))
+		{
+			$result['type'] = 'debtor';
+			$result['value'] = $result['debtor'];
+		}
+
+		if(isset($result['creditor']) && $result['creditor'] && !\dash\get::index($result, 'debtor'))
+		{
+			$result['type'] = 'creditor';
+			$result['value'] = $result['creditor'];
+		}
+
+
 		return $result;
 	}
 
