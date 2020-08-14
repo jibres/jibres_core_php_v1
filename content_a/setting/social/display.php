@@ -19,9 +19,19 @@ $storeData = \dash\data::store_store_data();
               </div>
             </div>
             <div class="c12 mB5">
-              <label for="telegram"><?php echo T_("Telegram"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="telegram" id="telegram" maxlength="50" value="<?php echo \dash\get::index($storeData, 'telegram'); ?>">
+              <div class="row">
+                <div class="c-xs-12 c-sm-6">
+                  <label for="channel"><?php echo T_("Channel"); ?></label>
+                  <div class="input ltr">
+                    <input type="text" name="channel" id="channel" maxlength="50" value="<?php echo \dash\data::telegramSettingSaved_channel(); ?>">
+                  </div>
+                </div>
+                <div class="c-xs-12 c-sm-6">
+                  <label for="telegram"><?php echo T_("Telegram Admin user"); ?></label>
+                  <div class="input ltr">
+                    <input type="text" name="telegram" id="telegram" maxlength="50" value="<?php echo \dash\get::index($storeData, 'telegram'); ?>">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="c12 mB5">

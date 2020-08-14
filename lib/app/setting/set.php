@@ -43,8 +43,8 @@ class set
 		[
 			'adminusername' => 'string_100',
 			'apikey'        => 'string_100',
-			'username'      => 'string_100',
-			'channel'       => 'string_100',
+			'username'      => 'username',
+			'channel'       => 'username',
 			'share_text'    => 'desc',
 			'start_text'    => 'desc',
 			'telegrambtn'   =>
