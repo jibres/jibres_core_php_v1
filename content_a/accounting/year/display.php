@@ -1,4 +1,3 @@
-<div class="avand">
 	<?php if(\dash\data::dataTable()) {?>
 		<table class="tbl1 v1 fs14">
 			<thead>
@@ -31,6 +30,11 @@
 			</tbody>
 		</table>
 	<?php }else{ ?>
-		<div class="msg fs14 success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
+
+		<div class="emptyState">
+			<h2><?php echo T_("There was nothing here. Add new one"); ?></h2>
+			<video autoplay>
+				<source src="<?php echo \dash\url::cdn(); ?>/video/empty-state.mp4" type="video/mp4">
+			</video>
+		</div>
 	<?php } //endif ?>
-</div>
