@@ -1,8 +1,8 @@
 <?php if(\dash\data::editMode() && \dash\data::docDetail()) {?>
   <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
-    <div class="msg success txtB txtC fs14"><?php echo T_("Document balance") ?></div>
+    <div class="msg success txtB txtC fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. T_(\dash\data::dataRow_status()); ?></span></div>
   <?php }else{ ?>
-    <div class="msg danger txtB txtC fs14"><?php echo T_("Accounting document is not balance!") ?></div>
+    <div class="msg danger txtB txtC fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. T_(\dash\data::dataRow_status()); ?></span></div>
   <?php }//endif ?>
   <div class="box">
     <div class="body">

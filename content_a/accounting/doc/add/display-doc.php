@@ -51,11 +51,11 @@
       <?php if(\dash\data::editMode()) {?>
       <footer class="f">
         <div class="cauto">
-          <div data-confirm data-data='{"remove": "remove"}' class="btn danger"><?php echo T_("Remove") ?></div>
+          <div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
         </div>
         <div class="c"></div>
         <div class="cauto">
-          <button class="btn success"><?php echo T_("Edit") ?></button>
+          <button class="btn secondary outline"><?php echo T_("Edit") ?></button>
         </div>
 
       </footer>

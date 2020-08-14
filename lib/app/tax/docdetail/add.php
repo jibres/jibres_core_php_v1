@@ -20,6 +20,12 @@ class add
 		// $args['status']      = 'temp';
 		$id = \lib\db\tax_docdetail\insert::new_record($args);
 
+
+		if(isset($args['tax_document_id']))
+		{
+			\lib\app\tax\doc\balance::set($args['tax_document_id']);
+		}
+
 		\dash\notif::ok(T_("Accounting docdetail successfully added"));
 
 		return ['id' => $id];
