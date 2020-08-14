@@ -31,10 +31,25 @@
 		</table>
 	<?php }else{ ?>
 
-		<div class="emptyState">
-			<h2><?php echo T_("There was nothing here. Add new one"); ?></h2>
-			<video autoplay>
-				<source src="<?php echo \dash\url::cdn(); ?>/video/empty-state.mp4" type="video/mp4">
-			</video>
-		</div>
+		<section class="box">
+			<div class="row">
+				<div class="c-8">
+					<video class="infoVideo" controls autoplay preload="auto">
+						<source src="<?php echo \dash\url::cdn(); ?>/video/domino.mp4" type="video/mp4">
+					</video>
+				</div>
+				<aside class="c-4 body">
+					<div class="f align-center justify-center">
+						<h2><?php echo \dash\face::title(); ?></h2>
+						<p><?php echo T_("There is nothing here."); ?></p>
+						<?php if(\dash\data::action_text() && \dash\data::action_link() && false) { ?>
+							<a class="btn master" href="<?php echo \dash\data::action_link(); ?>"><?php echo \dash\data::action_text(); ?></a>
+						<?php } ?>
+					</div>
+				</aside>
+			</div>
+		</section>
+		<?php if(\dash\face::help()) {?>
+		<div class="txtRa font-16 fc-mute"><?php echo T_("Learn more about :val", ['val' => '<a class="link" href="'. \dash\face::help(). '">'. \dash\face::title(). '</a>'] ); ?><i class="compact sf-question-circle mLa5"></i></div>
+		<?php }?>
 	<?php } //endif ?>
