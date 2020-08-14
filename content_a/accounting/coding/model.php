@@ -16,14 +16,15 @@ class model
 				return false;
 			}
 
-			$data = \dash\utility\import::csv(__DIR__.'/accounting-coding-import.csv');
+			$file_addr = __DIR__.'/accounting-coding-import.csv';
+			$data = \dash\utility\import::csv($file_addr);
 
 			$insert = [];
 			foreach ($data as $key => $value)
 			{
 				$temp =
 				[
-					'id'            => \dash\get::index($value, 'id'),
+					'id'            => \dash\get::index($value, '﻿id'),
 					'code'          => \dash\get::index($value, 'code'),
 					'title'         => \dash\get::index($value, 'title'),
 					'parent1'       => \dash\get::index($value, 'parent1'),
@@ -45,6 +46,9 @@ class model
 			}
 
 			$sql = implode("; \n", $insert);
+
+			// \dash\file::write(__DIR__. '/coding.sql', $sql);
+
 			\dash\db::query($sql, null, ['multi_query' => true]);
 
 			\dash\notif::ok(T_("Accounting coding imported"));
