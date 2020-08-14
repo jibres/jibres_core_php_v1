@@ -36,6 +36,32 @@ class set
 	}
 
 
+	public static function accounting_setting($_args)
+	{
+
+		$condition =
+		[
+			'currency'            => 'string_100',
+
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'accounting_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		\dash\notif::ok(T_("Accounting setting saved"));
+		return true;
+
+	}
+
+
 	public static function telegram_setting($_args)
 	{
 
