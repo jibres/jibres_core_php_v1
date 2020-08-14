@@ -32,6 +32,7 @@ class model
 			// we have an error in upload avatar
 			if($file_url === false)
 			{
+				\dash\notif::warn(T_("To change user avatar choose a new avatar"));
 				return false;
 			}
 
