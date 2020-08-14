@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-13 12:48+0430\n"
-"PO-Revision-Date: 2020-08-13 12:54+0430\n"
+"POT-Creation-Date: 2020-08-14 13:43+0430\n"
+"PO-Revision-Date: 2020-08-14 13:44+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -667,8 +667,8 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 
 #: content/bug/display.php:102 content/changelog/display.php:12
 #: content_a/accounting/doc/add/display-docdetail.php:34
-#: content_a/accounting/doc/add/display-list.php:10
-#: content_a/accounting/doc/add/display.php:41 content_a/accounting/doc/display.php:8
+#: content_a/accounting/doc/add/display-list.php:15
+#: content_a/accounting/doc/add/display.php:47 content_a/accounting/doc/display.php:8
 #: content_a/accounting/irvat/add/display.php:124
 #: content_a/android/intro/display-test-multi-upload.php:23
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
@@ -758,7 +758,7 @@ msgstr "گواهی‌نامه‌ها"
 msgid "We are get all of certificates!"
 msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را گرفته‌ایم!"
 
-#: content/changelog/display.php:11 content_a/accounting/doc/add/display.php:32
+#: content/changelog/display.php:11 content_a/accounting/doc/add/display.php:38
 #: content_a/accounting/doc/display.php:6 content_a/accounting/irvat/all/display.php:133
 #: content_a/cart/add/display.php:53 content_a/cart/home/display.php:111
 #: content_a/factor/home/display.php:476 content_a/order/home/display.php:486
@@ -2120,7 +2120,7 @@ msgid "Need HELP? Be patient..."
 msgstr "کمک نیاز دارید؟ صبور باشید..."
 
 #: content/home/display.php:8 content/home/display.php:10
-#: content_a/setting/home/display.php:188
+#: content_a/setting/home/display.php:200
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2151,7 +2151,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:18 content/home/display.php:20 content/home/view.php:11
-#: content/view.php:14 content_a/setting/home/display.php:168
+#: content/view.php:14 content_a/setting/home/display.php:180
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2161,7 +2161,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:28 content/home/display.php:30 content/home/view.php:12
-#: content/view.php:15 content_a/setting/home/display.php:178
+#: content/view.php:15 content_a/setting/home/display.php:190
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2180,7 +2180,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:38 content/home/display.php:41 content/home/view.php:13
-#: content/view.php:16 content_a/setting/home/display.php:198
+#: content/view.php:16 content_a/setting/home/display.php:210
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -3877,34 +3877,19 @@ msgstr "ثبت دامنه"
 msgid "Whois answer"
 msgstr "پاسخ کیه"
 
-#: content_a/accounting/coding/add/display-add.php:11
-#: content_a/accounting/coding/add/display-add.php:121
-#: content_a/accounting/coding/display.php:20
-msgid "Class"
-msgstr "طبقه"
-
 #: content_a/accounting/coding/add/display-add.php:13
-#: content_a/accounting/coding/add/display-add.php:42
-#: content_a/accounting/coding/display.php:25
-msgid "Topic"
-msgstr "سرفصل"
-
-#: content_a/accounting/coding/add/display-add.php:17
-#: content_a/accounting/doc/add/display-docdetail.php:10
-#: content_a/accounting/doc/add/display-docdetail.php:20
 #: content_a/accounting/irvat/add/display.php:155
 #: content_a/accounting/irvat/add/display.php:165 content_cms/posts/edit/display.php:726
 #: content_cms/posts/home/display.php:113 content_crm/member/legal/display.php:25
 msgid "Parent"
 msgstr "والد"
 
-#: content_a/accounting/coding/add/display-add.php:17
-#: content_a/accounting/coding/add/display-add.php:29
-#: content_a/accounting/coding/add/display-add.php:34
-#: content_a/accounting/coding/add/display-add.php:56
-#: content_a/accounting/coding/add/display-add.php:88
+#: content_a/accounting/coding/add/display-add.php:13
+#: content_a/accounting/coding/add/display-add.php:25
+#: content_a/accounting/coding/add/display-add.php:30
+#: content_a/accounting/coding/add/display-add.php:39
+#: content_a/accounting/coding/add/display-add.php:71
 #: content_a/accounting/doc/add/display-docdetail.php:10
-#: content_a/accounting/doc/add/display-docdetail.php:20
 #: content_a/accounting/doc/add/display.php:15
 #: content_a/accounting/irvat/add/display.php:155
 #: content_a/accounting/irvat/add/display.php:165 content_a/android/title/display.php:8
@@ -3916,11 +3901,11 @@ msgstr "والد"
 msgid "Required"
 msgstr "الزامی"
 
-#: content_a/accounting/coding/add/display-add.php:19
+#: content_a/accounting/coding/add/display-add.php:15
 msgid "Please choose parent"
 msgstr "لطفا والد را انتخاب کنید"
 
-#: content_a/accounting/coding/add/display-add.php:29
+#: content_a/accounting/coding/add/display-add.php:25
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
 #: content_love/gift/all/display.php:60
 #: content_my/domain/whoisdetail/whoisDetailForm.php:320
@@ -3932,12 +3917,12 @@ msgstr "لطفا والد را انتخاب کنید"
 msgid "Code"
 msgstr "کد"
 
-#: content_a/accounting/coding/add/display-add.php:34
+#: content_a/accounting/coding/add/display-add.php:30
 #: content_a/accounting/coding/all/display.php:102
 #: content_a/accounting/coding/display-list.php:109
 #: content_a/accounting/irvat/add/display.php:18
 #: content_a/accounting/irvat/all/display.php:132
-#: content_a/accounting/year/add/display.php:10 content_a/accounting/year/display.php:6
+#: content_a/accounting/year/add/display.php:10 content_a/accounting/year/display.php:5
 #: content_a/android/intro/display-test-multi-upload.php:17
 #: content_a/android/intro/display.php:17 content_a/android/review/display.php:82
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
@@ -3973,110 +3958,78 @@ msgstr "کد"
 msgid "Title"
 msgstr "عنوان"
 
-#: content_a/accounting/coding/add/display-add.php:44
-msgid "Please choose topic"
-msgstr "لطفا سرفصل را انتخاب کنید"
-
-#: content_a/accounting/coding/add/display-add.php:56
+#: content_a/accounting/coding/add/display-add.php:39
 #: content_a/accounting/coding/all/display.php:104
-#: content_a/accounting/coding/display.php:40
+#: content_a/accounting/coding/display.php:51
 msgid "Balance type"
 msgstr "نوع بالانس"
 
-#: content_a/accounting/coding/add/display-add.php:63
-#: content_a/accounting/doc/add/display-docdetail.php:40
-#: content_a/accounting/doc/add/display-list.php:11
-#: content_a/accounting/doc/add/display-list.php:34
+#: content_a/accounting/coding/add/display-add.php:46
+#: content_a/accounting/doc/add/display-docdetail.php:44
+#: content_a/accounting/doc/add/display-list.php:16
+#: content_a/accounting/doc/add/display-list.php:39
 #: content_a/accounting/report/detail/display.php:14
 msgid "Debtor"
 msgstr "بدهکار"
 
-#: content_a/accounting/coding/add/display-add.php:70
-#: content_a/accounting/doc/add/display-docdetail.php:46
-#: content_a/accounting/doc/add/display-list.php:12
-#: content_a/accounting/doc/add/display-list.php:36
+#: content_a/accounting/coding/add/display-add.php:53
+#: content_a/accounting/doc/add/display-docdetail.php:50
+#: content_a/accounting/doc/add/display-list.php:17
+#: content_a/accounting/doc/add/display-list.php:41
 #: content_a/accounting/report/detail/display.php:15
 msgid "Creditor"
 msgstr "بستانکار"
 
-#: content_a/accounting/coding/add/display-add.php:78
+#: content_a/accounting/coding/add/display-add.php:61
 msgid "Debtor-Creditor"
 msgstr "بدهکار - بستانکار"
 
-#: content_a/accounting/coding/add/display-add.php:88
+#: content_a/accounting/coding/add/display-add.php:71
 msgid "Nature"
 msgstr "ماهیت"
 
-#: content_a/accounting/coding/add/display-add.php:95
+#: content_a/accounting/coding/add/display-add.php:78
 #: includes/languages/trans_static.php:703
 msgid "Balance sheet"
 msgstr "ترازنامه‌ای"
 
-#: content_a/accounting/coding/add/display-add.php:102
+#: content_a/accounting/coding/add/display-add.php:85
 msgid "Disciplinary"
 msgstr "انتظامی"
 
-#: content_a/accounting/coding/add/display-add.php:110
+#: content_a/accounting/coding/add/display-add.php:93
 msgid "Harmful-Profit"
 msgstr "سود - زیانی"
 
-#: content_a/accounting/coding/add/display-add.php:125
-msgid "Please choose class"
-msgstr "لطفا طبقه را انتخاب کنید"
-
-#: content_a/accounting/coding/add/display-add.php:126
-msgid "current liabilities"
-msgstr "بدهی‌های جاری"
-
-#: content_a/accounting/coding/add/display-add.php:127
-msgid "non-current liabilities"
-msgstr "بدهی‌های غیر جاری"
-
-#: content_a/accounting/coding/add/display-add.php:128
-msgid "current assets"
-msgstr "دارایی‌های جاری"
-
-#: content_a/accounting/coding/add/display-add.php:129
-msgid "non-current assets"
-msgstr "دارایی‌های غیر جاری"
-
-#: content_a/accounting/coding/add/display-add.php:130
-msgid "profit and loss"
-msgstr "سود و زیانی"
-
-#: content_a/accounting/coding/add/display-add.php:131
-msgid "shareholders rights"
-msgstr "حقوق صاحبان سهام"
-
-#: content_a/accounting/coding/add/display-add.php:143
+#: content_a/accounting/coding/add/display-add.php:109
 #: content_a/accounting/coding/all/display.php:119
-#: content_a/accounting/coding/display.php:46
+#: content_a/accounting/coding/display.php:57
 msgid "naturecontrol"
 msgstr "کنترل ماهیت طی دوره"
 
-#: content_a/accounting/coding/add/display-add.php:148
+#: content_a/accounting/coding/add/display-add.php:114
 #: content_a/accounting/coding/all/display.php:122
-#: content_a/accounting/coding/display.php:49
+#: content_a/accounting/coding/display.php:60
 msgid "Accounting currency"
 msgstr "ارزی"
 
-#: content_a/accounting/coding/add/display-add.php:153
+#: content_a/accounting/coding/add/display-add.php:119
 #: content_a/accounting/coding/all/display.php:120
-#: content_a/accounting/coding/display.php:47
+#: content_a/accounting/coding/display.php:58
 msgid "exchangeable"
 msgstr "تسعیر پذیر"
 
-#: content_a/accounting/coding/add/display-add.php:159
+#: content_a/accounting/coding/add/display-add.php:125
 msgid "Detailable?"
 msgstr "آیا تفصیل‌پذیر است؟"
 
-#: content_a/accounting/coding/add/display-add.php:165
+#: content_a/accounting/coding/add/display-add.php:131
 #: content_a/accounting/coding/all/display.php:121
-#: content_a/accounting/coding/display.php:48
+#: content_a/accounting/coding/display.php:59
 msgid "followup"
 msgstr "پیگیری"
 
-#: content_a/accounting/coding/add/display-add.php:173
+#: content_a/accounting/coding/add/display-add.php:139
 #: content_a/products/tag/display.php:172 content_a/products/tag/display.php:189
 #: content_cms/terms/display.php:225 content_cms/terms/display.php:242
 #: content_love/domain/detail/display.php:25 content_love/domain/setting/display.php:125
@@ -4086,7 +4039,7 @@ msgstr "پیگیری"
 msgid "Enable"
 msgstr "فعال"
 
-#: content_a/accounting/coding/add/display-add.php:173
+#: content_a/accounting/coding/add/display-add.php:139
 #: content_a/products/tag/display.php:173 content_a/products/tag/display.php:190
 #: content_cms/terms/display.php:226 content_cms/terms/display.php:243
 #: content_love/domain/setting/display.php:126 includes/languages/trans_static.php:539
@@ -4095,8 +4048,8 @@ msgstr "فعال"
 msgid "Disable"
 msgstr "غیرفعال"
 
-#: content_a/accounting/coding/add/display-add.php:174
-#: content_a/accounting/coding/display.php:30 content_a/accounting/year/display.php:9
+#: content_a/accounting/coding/add/display-add.php:140
+#: content_a/accounting/coding/display.php:41 content_a/accounting/year/display.php:8
 #: content_a/android/apk/display.php:32 content_a/order/detail/display.php:21
 #: content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
@@ -4121,9 +4074,9 @@ msgstr "غیرفعال"
 msgid "Status"
 msgstr "وضعیت"
 
-#: content_a/accounting/coding/add/display-add.php:180
-#: content_a/accounting/doc/add/display-docdetail.php:52
-#: content_a/accounting/doc/add/display.php:62
+#: content_a/accounting/coding/add/display-add.php:146
+#: content_a/accounting/doc/add/display-docdetail.php:63
+#: content_a/accounting/doc/add/display.php:68
 #: content_a/accounting/irvat/add/display.php:133
 #: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:26
 #: content_a/category/add/display.php:12 content_a/category/property/display.php:47
@@ -4145,16 +4098,16 @@ msgstr "وضعیت"
 msgid "Add"
 msgstr "افزودن"
 
-#: content_a/accounting/coding/add/display-add.php:180
+#: content_a/accounting/coding/add/display-add.php:146
 #: content_a/accounting/coding/all/display.php:106
 #: content_a/accounting/coding/all/display.php:125
 #: content_a/accounting/coding/display-list.php:112
 #: content_a/accounting/coding/display-list.php:124
-#: content_a/accounting/coding/display.php:67 content_a/accounting/doc/add/display.php:56
+#: content_a/accounting/coding/display.php:78 content_a/accounting/doc/add/display.php:62
 #: content_a/accounting/doc/display.php:9 content_a/accounting/doc/display.php:18
 #: content_a/accounting/irvat/add/display.php:131
-#: content_a/accounting/year/add/display.php:43 content_a/accounting/year/display.php:11
-#: content_a/accounting/year/display.php:28 content_a/company/display.php:64
+#: content_a/accounting/year/add/display.php:43 content_a/accounting/year/display.php:10
+#: content_a/accounting/year/display.php:27 content_a/company/display.php:64
 #: content_a/company/display.php:121 content_a/pricehistory/display.php:43
 #: content_a/products/bullet/display.php:20 content_a/products/bullet/display.php:27
 #: content_a/products/comment/display.php:140 content_a/products/property/display.php:59
@@ -4175,8 +4128,8 @@ msgstr "افزودن"
 msgid "Edit"
 msgstr "ویرایش"
 
-#: content_a/accounting/coding/add/display-add.php:182
-#: content_a/accounting/doc/add/display.php:52
+#: content_a/accounting/coding/add/display-add.php:148
+#: content_a/accounting/doc/add/display.php:58
 #: content_a/accounting/year/add/display.php:39 content_a/cart/add/display.php:54
 #: content_a/cart/add/display.php:75 content_a/company/display.php:57
 #: content_a/company/display.php:122 content_a/products/bullet/display.php:28
@@ -4218,6 +4171,7 @@ msgstr "کل"
 #: content_a/accounting/coding/add/display-choose.php:26
 #: content_a/accounting/coding/all/display.php:27
 #: content_a/accounting/coding/display-list.php:31
+#: content_a/accounting/doc/add/display-docdetail.php:10
 #: content_a/accounting/report/detail/display.php:12
 msgid "Accounting assistant"
 msgstr "معین"
@@ -4225,6 +4179,7 @@ msgstr "معین"
 #: content_a/accounting/coding/add/display-choose.php:35
 #: content_a/accounting/coding/all/display.php:34
 #: content_a/accounting/coding/display-list.php:38
+#: content_a/accounting/doc/add/display-docdetail.php:20
 #: content_a/accounting/report/detail/display.php:13
 msgid "Accounting details"
 msgstr "تفصیل"
@@ -4267,9 +4222,9 @@ msgid "Natuer group"
 msgstr "ماهیت گروه"
 
 #: content_a/accounting/coding/all/display.php:105
-#: content_a/accounting/coding/display.php:9
+#: content_a/accounting/coding/display.php:20
 #: content_a/accounting/doc/add/display-docdetail.php:6
-#: content_a/accounting/doc/add/display-list.php:9 content_a/cart/home/display.php:120
+#: content_a/accounting/doc/add/display-list.php:14 content_a/cart/home/display.php:120
 #: content_account/billing/display.php:62 content_account/billing/display.php:100
 #: content_cms/comments/home/display.php:82 content_crm/--log/home/logTable.php:9
 #: content_crm/member/billing/display.php:33 content_crm/member/billing/display.php:71
@@ -4282,7 +4237,7 @@ msgstr "جزئیات"
 
 #: content_a/accounting/coding/all/display.php:123
 #: content_a/accounting/coding/display-list.php:111
-#: content_a/accounting/coding/display.php:50 lib/app/tax/coding/search.php:336
+#: content_a/accounting/coding/display.php:61 lib/app/tax/coding/search.php:336
 msgid "Detailable"
 msgstr "تفصیل‌پذیر"
 
@@ -4371,17 +4326,17 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/coding/all/display.php:174
 #: content_a/accounting/coding/display-list.php:173
 #: content_a/accounting/doc/display.php:24 content_a/accounting/irvat/all/display.php:210
-#: content_a/accounting/year/display.php:34 content_a/category/home/display.php:156
-#: content_a/company/display.php:136 content_a/factor/home/display.php:273
-#: content_a/order/home/display.php:283 content_a/products/home/display.php:239
-#: content_a/products/tag/display.php:224 content_a/units/display.php:149
-#: content_account/notification/display.php:55 content_business/orders/display.php:54
-#: content_cms/attachment/home/display.php:144 content_cms/posts/home/display.php:157
-#: content_cms/terms/display.php:277 content_crm/--log/home/logTable.php:138
-#: content_crm/member/home/display.php:235 content_crm/transactions/display.php:132
-#: content_love/application/home/display.php:143 content_love/domain/all/display.php:120
-#: content_love/domain/billing/display.php:152 content_love/domain/fetch/display.php:114
-#: content_love/domain/irnic/display.php:102 content_love/domain/log/display.php:161
+#: content_a/category/home/display.php:156 content_a/company/display.php:136
+#: content_a/factor/home/display.php:273 content_a/order/home/display.php:283
+#: content_a/products/home/display.php:239 content_a/products/tag/display.php:224
+#: content_a/units/display.php:149 content_account/notification/display.php:55
+#: content_business/orders/display.php:54 content_cms/attachment/home/display.php:144
+#: content_cms/posts/home/display.php:157 content_cms/terms/display.php:277
+#: content_crm/--log/home/logTable.php:138 content_crm/member/home/display.php:235
+#: content_crm/transactions/display.php:132 content_love/application/home/display.php:143
+#: content_love/domain/all/display.php:120 content_love/domain/billing/display.php:152
+#: content_love/domain/fetch/display.php:114 content_love/domain/irnic/display.php:102
+#: content_love/domain/log/display.php:161
 #: content_love/domain/onlineniclog/display.php:161 content_love/gift/all/display.php:107
 #: content_love/gift/usage/display.php:118 content_love/transactions/display.php:126
 #: content_my/domain/irnic/display.php:102 content_my/domain/predict/display.php:138
@@ -4397,7 +4352,7 @@ msgstr "سلام!"
 
 #: content_a/accounting/coding/all/display.php:174
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:24 content_a/accounting/year/display.php:34
+#: content_a/accounting/doc/display.php:24
 msgid "Add new"
 msgstr "افزودن جدید"
 
@@ -4419,9 +4374,37 @@ msgstr "شناسه"
 msgid "Natuer"
 msgstr "ماهیت"
 
-#: content_a/accounting/coding/display.php:35
+#: content_a/accounting/coding/display.php:5
+msgid "We make all coding list for you"
+msgstr "ما لیست سرفصل‌های حسابداری را برای شما آماده کرده‌ایم"
+
+#: content_a/accounting/coding/display.php:6
+msgid "Easily Import accounting coding"
+msgstr "به آسانی سرفصل‌های حسابداری را در اختیار داشته باشید"
+
+#: content_a/accounting/coding/display.php:9
+msgid "Import it now"
+msgstr "همین الان وارد کن"
+
+#: content_a/accounting/coding/display.php:31
+msgid "Class"
+msgstr "طبقه"
+
+#: content_a/accounting/coding/display.php:36
+msgid "Topic"
+msgstr "سرفصل"
+
+#: content_a/accounting/coding/display.php:46
 msgid "Nature group"
 msgstr "ماهیت گروه"
+
+#: content_a/accounting/coding/model.php:15
+msgid "Your have some coding and can not import coding again"
+msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید. امکان ثبت گروهی وجود ندارد"
+
+#: content_a/accounting/coding/model.php:54
+msgid "Accounting coding imported"
+msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
 #: content_a/accounting/doc/add/display-docdetail.php:12
 #: content_a/accounting/irvat/add/display.php:157
@@ -4430,14 +4413,29 @@ msgid "Please choose assistant_id"
 msgstr "لطفا کد معین را انتخاب کنید"
 
 #: content_a/accounting/doc/add/display-docdetail.php:22
-msgid "Please choose details_id"
-msgstr "لطفا کد تفصیل را وارد کنید"
+msgid "Please choose details"
+msgstr "لطفا تفصیل را وارد کنید"
 
 #: content_a/accounting/doc/add/display-docdetail.php:28
 msgid "Accounting detail"
 msgstr "تفصیل"
 
-#: content_a/accounting/doc/add/display-list.php:8
+#: content_a/accounting/doc/add/display-docdetail.php:56
+#: content_a/products/property/display.php:49 content_a/products/property/display.php:131
+#: content_account/billing/display.php:54 content_crm/member/billing/display.php:25
+#: content_crm/member/glance/display.php:27 includes/languages/trans_static_public.php:112
+msgid "Value"
+msgstr "مقدار"
+
+#: content_a/accounting/doc/add/display-list.php:3
+msgid "Document balance"
+msgstr "سند در تعادل است"
+
+#: content_a/accounting/doc/add/display-list.php:5
+msgid "Accounting document is not balance!"
+msgstr "سند در تعادل نیست!"
+
+#: content_a/accounting/doc/add/display-list.php:13
 msgid "Assistant"
 msgstr "معین"
 
@@ -4453,11 +4451,15 @@ msgstr "سال مالی"
 msgid "Please choose year"
 msgstr "لطفا سال مالی را انتخاب کنید"
 
-#: content_a/accounting/doc/add/display.php:26 content_a/accounting/doc/display.php:7
+#: content_a/accounting/doc/add/display.php:23
+msgid "Add new accounting year"
+msgstr "افزودن سال مالی جدید"
+
+#: content_a/accounting/doc/add/display.php:32 content_a/accounting/doc/display.php:7
 msgid "Number"
 msgstr "شماره"
 
-#: content_a/accounting/doc/add/display.php:32
+#: content_a/accounting/doc/add/display.php:38
 #: content_a/accounting/irvat/add/display.php:51
 #: content_a/accounting/year/add/display.php:17
 #: content_a/accounting/year/add/display.php:26 content_a/pricehistory/display.php:18
@@ -4479,7 +4481,8 @@ msgid "Add doc"
 msgstr "افزودن سند"
 
 #: content_a/accounting/home/display.php:3 content_a/accounting/home/view.php:9
-#: content_crm/member/legal/display.php:18 content_crm/member/legal/display.php:49
+#: content_a/setting/home/display.php:162 content_crm/member/legal/display.php:18
+#: content_crm/member/legal/display.php:49
 msgid "Accounting"
 msgstr "حسابداری"
 
@@ -4912,23 +4915,31 @@ msgstr "تاریخ پایان"
 msgid "Add accounting year"
 msgstr "افزودن سال مالی"
 
-#: content_a/accounting/year/display.php:7 content_a/factor/home/display.php:494
+#: content_a/accounting/year/display.php:6 content_a/factor/home/display.php:494
 #: content_a/order/home/display.php:504 content_a/pricehistory/display.php:60
 msgid "Start date"
 msgstr "تاریخ شروع"
 
-#: content_a/accounting/year/display.php:8 content_a/factor/home/display.php:500
+#: content_a/accounting/year/display.php:7 content_a/factor/home/display.php:500
 #: content_a/order/home/display.php:510 content_a/pricehistory/display.php:61
 msgid "End date"
 msgstr "تاریخ پایان"
 
-#: content_a/accounting/year/display.php:23
+#: content_a/accounting/year/display.php:22
 msgid "Current accounting year"
 msgstr "سال مالی جاری"
 
-#: content_a/accounting/year/display.php:25
+#: content_a/accounting/year/display.php:24
 msgid "Set as default year"
 msgstr "تنظیم به عنوان سال مالی جاری"
+
+#: content_a/accounting/year/display.php:44
+msgid "There is nothing here."
+msgstr "اینجا چیزی نیست."
+
+#: content_a/accounting/year/display.php:53
+msgid "Learn more about :val"
+msgstr "درباره :val بیشتر بدانید"
 
 #: content_a/accounting/year/edit/view.php:9
 msgid "Edit accounting year"
@@ -6791,8 +6802,8 @@ msgstr "محدودیت سبد خرید"
 #: lib/app/gift/get.php:13 lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:308
 #: lib/app/nic_domain/get.php:335 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
-#: lib/app/product/edit.php:29 lib/app/store/domain.php:432 lib/app/tax/coding/get.php:120
-#: lib/app/tax/doc/get.php:23 lib/app/tax/docdetail/remove.php:13
+#: lib/app/product/edit.php:29 lib/app/store/domain.php:432 lib/app/tax/coding/get.php:121
+#: lib/app/tax/doc/get.php:34 lib/app/tax/docdetail/remove.php:13
 #: lib/app/tax/year/get.php:66 lib/app/website/body/edit.php:31
 #: lib/app/website/body/edit.php:111 lib/app/website/body/line/imageblock.php:182
 #: lib/app/website/body/line/imageblock.php:347 lib/app/website/body/line/news.php:69
@@ -7519,12 +7530,6 @@ msgstr "خصوصیات"
 msgid "Set product property"
 msgstr "تنظیم مشخصات محصول"
 
-#: content_a/products/property/display.php:49 content_a/products/property/display.php:131
-#: content_account/billing/display.php:54 content_crm/member/billing/display.php:25
-#: content_crm/member/glance/display.php:27 includes/languages/trans_static_public.php:112
-msgid "Value"
-msgstr "مقدار"
-
 #: content_a/products/property/display.php:86
 msgid "Set as outstanding property"
 msgstr "تنظیم به عنوان خصوصیت برجسته"
@@ -8225,27 +8230,31 @@ msgstr "تنظیمات سفارش"
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:169
+#: content_a/setting/home/display.php:163
+msgid "Manage your business accounting"
+msgstr "مدیریت حسابداری بیزینس شما"
+
+#: content_a/setting/home/display.php:181
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/setting/home/display.php:179
+#: content_a/setting/home/display.php:191
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/setting/home/display.php:189
+#: content_a/setting/home/display.php:201
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/setting/home/display.php:199
+#: content_a/setting/home/display.php:211
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/setting/home/display.php:208
+#: content_a/setting/home/display.php:220
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/setting/home/display.php:209
+#: content_a/setting/home/display.php:221
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -13891,8 +13900,8 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/cart/search.php:183 lib/app/domains/search.php:27 lib/app/factor/cart.php:49
 #: lib/app/factor/get.php:136 lib/app/factor/get.php:215 lib/app/factor/search.php:466
 #: lib/app/gift/search.php:27 lib/app/giftusage/search.php:27 lib/app/irvat/search.php:29
-#: lib/app/nic_contact/add.php:11 lib/app/nic_contact/add.php:56
-#: lib/app/nic_contact/add.php:167 lib/app/nic_contact/edit.php:110
+#: lib/app/nic_contact/add.php:21 lib/app/nic_contact/add.php:66
+#: lib/app/nic_contact/add.php:188 lib/app/nic_contact/edit.php:110
 #: lib/app/nic_contact/get.php:26 lib/app/nic_contact/search.php:28
 #: lib/app/nic_contact/search.php:183 lib/app/nic_contactdetail/search.php:28
 #: lib/app/nic_contactdetail/search.php:148 lib/app/nic_credit/search.php:128
@@ -15559,7 +15568,7 @@ msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل ر
 
 #: content_my/business/error/display.php:16 lib/app/nic_domain/create.php:188
 #: lib/app/nic_domain/renew.php:175 lib/app/nic_domain/renew.php:211
-#: lib/app/nic_domain/renew.php:520 lib/app/onlinenic/renew.php:133
+#: lib/app/nic_domain/renew.php:522 lib/app/onlinenic/renew.php:133
 #: lib/app/onlinenic/renew.php:435
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
@@ -15905,7 +15914,7 @@ msgstr "پرداخت شده"
 msgid "Buy your dream domain"
 msgstr "دامنه‌ی رویایی خودتان را بیابید"
 
-#: content_my/domain/home/view.php:44 lib/app/nic_domain/create.php:657
+#: content_my/domain/home/view.php:44 lib/app/nic_domain/create.php:661
 #: lib/app/onlinenic/create.php:556
 msgid "Domain :domain was registered in your name"
 msgstr "دامنه :domain با موفقیت ثبت شد"
@@ -16282,7 +16291,7 @@ msgid "We can not detect the reseller or billing contact of this account"
 msgstr "ما نتوانستیم اطلاعات مربوط به نماینده یا رابط مالی دامنه شما را شناسایی کنیم"
 
 #: content_my/domain/review/display.php:127 lib/app/nic_domain/renew.php:209
-#: lib/app/nic_domain/renew.php:507
+#: lib/app/nic_domain/renew.php:509
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
@@ -21489,27 +21498,27 @@ msgstr "عدد وارد شده بسیار بزرگ است!"
 msgid "Number is out of range"
 msgstr "عدد وارد شده خارج از محدوده اعداد مجاز است"
 
-#: dash/validate/number.php:67
+#: dash/validate/number.php:65
 msgid "Field :val must be larger than :min character"
 msgstr "مقدار :val  باید بزرگتر از :min  باشد"
 
-#: dash/validate/number.php:83
+#: dash/validate/number.php:79
 msgid "Field :val must be less than :max character"
 msgstr "فیلد :val باید کمتر از :max حرف باشد"
 
-#: dash/validate/number.php:161
+#: dash/validate/number.php:158
 msgid "Post code must be larger than 3 character"
 msgstr "کد پستی باید بیش از ۳ کاراکتر باشد"
 
-#: dash/validate/number.php:172
+#: dash/validate/number.php:169
 msgid "Post code must be less than 10 character"
 msgstr "کد پستی باید کمتر از ۱۰ کاراکتر باشد"
 
-#: dash/validate/number.php:196
+#: dash/validate/number.php:193
 msgid "Phone number must be larger than 8 character"
 msgstr "شماره تلفن باید بزرگتر از ۸ کاراکتر باشد"
 
-#: dash/validate/number.php:207
+#: dash/validate/number.php:204
 msgid "Phone number must be less than 14 character"
 msgstr "شماره تلفن باید کمتر از ۱۴ کاراکتر باشد"
 
@@ -27159,8 +27168,8 @@ msgid "General property removed"
 msgstr "خصیصه‌های عمومی حذف شد"
 
 #: lib/app/category/add.php:222 lib/app/fund/add.php:27 lib/app/inventory/add.php:40
-#: lib/app/irvat/add.php:25 lib/app/nic_contact/add.php:157
-#: lib/app/nic_contact/add.php:323 lib/app/product/comment.php:310
+#: lib/app/irvat/add.php:25 lib/app/nic_contact/add.php:178
+#: lib/app/nic_contact/add.php:344 lib/app/product/comment.php:310
 #: lib/app/product/company.php:41 lib/app/product/company.php:90
 #: lib/app/product/unit.php:41 lib/app/product/unit.php:91
 msgid "No way to insert data"
@@ -27358,8 +27367,8 @@ msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 msgid "Pay order"
 msgstr "پرداخت سفارش"
 
-#: lib/app/factor/cart.php:247 lib/app/nic_domain/create.php:511
-#: lib/app/nic_domain/renew.php:343 lib/app/nic_domain/transfer.php:320
+#: lib/app/factor/cart.php:247 lib/app/nic_domain/create.php:515
+#: lib/app/nic_domain/renew.php:345 lib/app/nic_domain/transfer.php:322
 #: lib/app/onlinenic/create.php:420 lib/app/onlinenic/renew.php:261
 #: lib/app/onlinenic/transfer.php:374
 msgid "Pay link :val"
@@ -27878,67 +27887,67 @@ msgstr ""
 msgid "We have sent your order by post and it will be delivered to you soon."
 msgstr "سفارش شما رو از طریق پست ارسال کردیم و بزودی به‌دست شما خواهد رسید."
 
-#: lib/app/nic_contact/add.php:19
+#: lib/app/nic_contact/add.php:29
 msgid "Invalid contact"
 msgstr "مخاطب اشتباه است"
 
-#: lib/app/nic_contact/add.php:41
+#: lib/app/nic_contact/add.php:51
 msgid "Can not add your contact"
 msgstr "نمی‌توانیم مخاطب مورد نظر شما را اضافه کنیم"
 
-#: lib/app/nic_contact/add.php:65
+#: lib/app/nic_contact/add.php:75
 msgid "Invalid IRNIC Handle"
 msgstr "شناسه ایرنیک نامعتبر است"
 
-#: lib/app/nic_contact/add.php:72
+#: lib/app/nic_contact/add.php:82
 msgid "You already added this one to your IRNIC handle list"
 msgstr "شما قبلا این مورد را به لیست شناسه‌های ایرنیک خود اضافه کرده‌اید"
 
-#: lib/app/nic_contact/add.php:84
+#: lib/app/nic_contact/add.php:94
 msgid "IRNIC handle added successfully"
 msgstr "شناسه ایرنیک با موفقیت اضافه شد"
 
-#: lib/app/nic_contact/add.php:90
+#: lib/app/nic_contact/add.php:100
 msgid "This IRNIC handle is not available!"
 msgstr "این شناسه ایرنیک موجود نیست!"
 
-#: lib/app/nic_contact/add.php:96
+#: lib/app/nic_contact/add.php:106
 msgid "Can not add your IRNIC Handle"
 msgstr "نمی‌توانیم شناسه ایرنیک شما را ایجاد کنیم"
 
-#: lib/app/nic_contact/add.php:123
+#: lib/app/nic_contact/add.php:144
 msgid "Title is out of range"
 msgstr "عنوان خارج از محدوده مجاز است"
 
-#: lib/app/nic_contact/add.php:146
+#: lib/app/nic_contact/add.php:167
 msgid "This IRNIC Handle already added to your IRNIC Handle list"
 msgstr "این شناسه ایرنیک قبلا به لیست شناسه‌‌های شما اضافه شده است"
 
-#: lib/app/nic_contact/add.php:213
+#: lib/app/nic_contact/add.php:234
 msgid "Please set your firstname in latin characters"
 msgstr "لطفا نام خود را با حروف لاتین وارد کنید"
 
-#: lib/app/nic_contact/add.php:219
+#: lib/app/nic_contact/add.php:240
 msgid "Please set your lastname in latin characters"
 msgstr "لطفا نام خانوادگی خود را با حروف لاتین وارد کنید"
 
-#: lib/app/nic_contact/add.php:226
+#: lib/app/nic_contact/add.php:247
 msgid "Please set your province in latin characters"
 msgstr "لطفا استان را به انگلیسی وارد کنید"
 
-#: lib/app/nic_contact/add.php:232
+#: lib/app/nic_contact/add.php:253
 msgid "Please set your city in latin characters"
 msgstr "لطفا شهر را به انگلیسی وارد کنید"
 
-#: lib/app/nic_contact/add.php:238
+#: lib/app/nic_contact/add.php:259
 msgid "Please set your address in latin characters"
 msgstr "لطفا آدرس خود را با حروف لاتین وارد کنید"
 
-#: lib/app/nic_contact/add.php:311
+#: lib/app/nic_contact/add.php:332
 msgid "This contact already added to your contact list"
 msgstr "این مخاطب قبلا به لیست مخاطبان شما اضافه شده است"
 
-#: lib/app/nic_contact/add.php:318
+#: lib/app/nic_contact/add.php:339
 msgid "Contact created"
 msgstr "مخاطب ساخته شد"
 
@@ -28055,29 +28064,29 @@ msgstr ""
 "اجازه دسترسی نمی‌دهد. لازم است تا به وب‌سایت ایرنیک مراجعه کرده و جیبرس را به عنوان "
 "نماینده خودتون ثبت کنید"
 
-#: lib/app/nic_domain/create.php:308 lib/app/onlinenic/create.php:152
+#: lib/app/nic_domain/create.php:309 lib/app/onlinenic/create.php:152
 #: lib/app/onlinenic/transfer.php:119
 msgid "This domain is already in your list"
 msgstr "این دامنه در حال حاضر در لیست شما وجود دارد"
 
-#: lib/app/nic_domain/create.php:385 lib/app/onlinenic/create.php:219
+#: lib/app/nic_domain/create.php:386 lib/app/onlinenic/create.php:219
 #: lib/app/onlinenic/transfer.php:177
 msgid "Error! Can not create your domain data"
 msgstr "خطا! نمی‌توانیم داده وب‌سایت را بسازیم"
 
-#: lib/app/nic_domain/create.php:409 lib/app/onlinenic/create.php:317
+#: lib/app/nic_domain/create.php:411 lib/app/onlinenic/create.php:317
 msgid "Domain ready to register"
 msgstr "دامنه آماده ثبت است"
 
-#: lib/app/nic_domain/create.php:483
+#: lib/app/nic_domain/create.php:487
 msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
-#: lib/app/nic_domain/create.php:591 lib/app/onlinenic/create.php:466
+#: lib/app/nic_domain/create.php:595 lib/app/onlinenic/create.php:466
 msgid "Buy domian :val"
 msgstr "خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:689 lib/app/onlinenic/create.php:585
+#: lib/app/nic_domain/create.php:693 lib/app/onlinenic/create.php:585
 msgid "Can not register your domain"
 msgstr "نمی‌توانیم دامنه شما را ثبت کنیم"
 
@@ -28235,7 +28244,7 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از شش سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/nic_domain/renew.php:207 lib/app/nic_domain/renew.php:505
+#: lib/app/nic_domain/renew.php:207 lib/app/nic_domain/renew.php:507
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
@@ -28246,33 +28255,33 @@ msgstr ""
 msgid "Domain ready to renew"
 msgstr "دامنه آماده انتقال است"
 
-#: lib/app/nic_domain/renew.php:315 lib/app/onlinenic/renew.php:233
+#: lib/app/nic_domain/renew.php:317 lib/app/onlinenic/renew.php:233
 msgid "Renew :domain For :year year"
 msgstr "تمدید دامنه :domain برای :year سال"
 
-#: lib/app/nic_domain/renew.php:403 lib/app/onlinenic/renew.php:300
+#: lib/app/nic_domain/renew.php:405 lib/app/onlinenic/renew.php:300
 msgid "Renew domian :val"
 msgstr "تمدید دامنه :val"
 
-#: lib/app/nic_domain/renew.php:470 lib/app/onlinenic/renew.php:388
+#: lib/app/nic_domain/renew.php:472 lib/app/onlinenic/renew.php:388
 msgid "Domain :domain was renewed"
 msgstr "تمدید دامنه :domain انجام شد"
 
-#: lib/app/nic_domain/renew.php:472 lib/app/onlinenic/renew.php:390
+#: lib/app/nic_domain/renew.php:474 lib/app/onlinenic/renew.php:390
 msgid "Domain date expire:"
 msgstr "تاریخ انقضای دامنه:"
 
-#: lib/app/nic_domain/renew.php:509
+#: lib/app/nic_domain/renew.php:511
 msgid "After change this problem you can try again"
 msgstr "بعد از انجام اقدامات ذکر شده می‌توانید مجددا تلاش کنید"
 
-#: lib/app/nic_domain/renew.php:511 lib/app/onlinenic/renew.php:426
+#: lib/app/nic_domain/renew.php:513 lib/app/onlinenic/renew.php:426
 msgid "If you pay any amount, Your amount is saved in your account"
 msgstr ""
 "اگر مبلغی را پرداخت کرده باشید، آن مبلغ در حساب کاربری شما ذخیره شده است و می‌توانید از "
 "آن استفاده کنید"
 
-#: lib/app/nic_domain/renew.php:516 lib/app/onlinenic/renew.php:431
+#: lib/app/nic_domain/renew.php:518 lib/app/onlinenic/renew.php:431
 msgid "Don't worry! Your gift is ok and not used. You can use it again"
 msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
@@ -28302,19 +28311,19 @@ msgstr "نمی‌توانیم شناسه ایرنیک شما را اضافه ک�
 msgid "Domain ready to transfer"
 msgstr "دامنه برای انتقال آماده است"
 
-#: lib/app/nic_domain/transfer.php:293 lib/app/onlinenic/transfer.php:347
+#: lib/app/nic_domain/transfer.php:295 lib/app/onlinenic/transfer.php:347
 msgid "Transfer :domain"
 msgstr "انتقال دامنه :domain"
 
-#: lib/app/nic_domain/transfer.php:396 lib/app/onlinenic/transfer.php:412
+#: lib/app/nic_domain/transfer.php:398 lib/app/onlinenic/transfer.php:412
 msgid "Transfer domian :val"
 msgstr "انتقال دامنه :val"
 
-#: lib/app/nic_domain/transfer.php:413
+#: lib/app/nic_domain/transfer.php:415
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
 
-#: lib/app/nic_domain/transfer.php:456
+#: lib/app/nic_domain/transfer.php:458
 msgid "Can not transfer this domain"
 msgstr "نمی‌توان این دامنه را انتقال داد"
 
@@ -29342,6 +29351,10 @@ msgstr "سال اشتباه است"
 msgid "Accounting document date is not in Accounting year date!"
 msgstr "تاریخ سند با تاریخ شروع و پایان سال مالی مطابقت ندارد!"
 
+#: lib/app/tax/doc/check.php:59
+msgid "Duplicate accounting document number"
+msgstr "شناسه سند حسابداری تکراری است"
+
 #: lib/app/tax/doc/edit.php:35
 msgid "Accounting doc successfully updated"
 msgstr "سند حسابداری با موفقیت ویرایش شد"
@@ -29350,23 +29363,23 @@ msgstr "سند حسابداری با موفقیت ویرایش شد"
 msgid "Accounting docdetail successfully added"
 msgstr "سند حسابداری با موفقیت ثبت شد"
 
-#: lib/app/tax/docdetail/check.php:34
+#: lib/app/tax/docdetail/check.php:38
 msgid "Invalid assistant id"
 msgstr "شناسه معین اشتباه است"
 
-#: lib/app/tax/docdetail/check.php:47
-msgid "Invalid details id"
-msgstr "شناسه تفصیل اشتباه است"
-
-#: lib/app/tax/docdetail/check.php:71
+#: lib/app/tax/docdetail/check.php:74
 msgid "Please choose the details"
 msgstr "لطفا تفصیل را انتخاب کنید"
 
-#: lib/app/tax/docdetail/check.php:78
-msgid "Please set deptor or creditor"
+#: lib/app/tax/docdetail/check.php:82
+msgid "Please choose the detail"
+msgstr "لطفا تفصیل را انتخاب کنید"
+
+#: lib/app/tax/docdetail/check.php:104
+msgid "Please set debtor or creditor"
 msgstr "لطفا بدهکار یا بستانکار را ثبت کنید"
 
-#: lib/app/tax/docdetail/check.php:86
+#: lib/app/tax/docdetail/check.php:116
 msgid "Invalid accounting document id"
 msgstr "شناسه سند حسابداری اشتباه است"
 
@@ -30724,6 +30737,33 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Please choose topic"
+#~ msgstr "لطفا سرفصل را انتخاب کنید"
+
+#~ msgid "Please choose class"
+#~ msgstr "لطفا طبقه را انتخاب کنید"
+
+#~ msgid "current liabilities"
+#~ msgstr "بدهی‌های جاری"
+
+#~ msgid "non-current liabilities"
+#~ msgstr "بدهی‌های غیر جاری"
+
+#~ msgid "current assets"
+#~ msgstr "دارایی‌های جاری"
+
+#~ msgid "non-current assets"
+#~ msgstr "دارایی‌های غیر جاری"
+
+#~ msgid "profit and loss"
+#~ msgstr "سود و زیانی"
+
+#~ msgid "shareholders rights"
+#~ msgstr "حقوق صاحبان سهام"
+
+#~ msgid "Invalid details id"
+#~ msgstr "شناسه تفصیل اشتباه است"
 
 #~ msgid "Please choose nature"
 #~ msgstr "لطفا ماهیت را انتخاب کنید"
