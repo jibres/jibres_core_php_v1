@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-14 13:43+0430\n"
-"PO-Revision-Date: 2020-08-14 13:44+0430\n"
+"POT-Creation-Date: 2020-08-14 16:39+0430\n"
+"PO-Revision-Date: 2020-08-14 16:41+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -666,9 +666,9 @@ msgid ""
 msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیری و میزان شدت آن."
 
 #: content/bug/display.php:102 content/changelog/display.php:12
+#: content_a/accounting/doc/add/display-doc.php:43
 #: content_a/accounting/doc/add/display-docdetail.php:34
-#: content_a/accounting/doc/add/display-list.php:15
-#: content_a/accounting/doc/add/display.php:47 content_a/accounting/doc/display.php:8
+#: content_a/accounting/doc/add/display-list.php:15 content_a/accounting/doc/display.php:8
 #: content_a/accounting/irvat/add/display.php:124
 #: content_a/android/intro/display-test-multi-upload.php:23
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
@@ -706,7 +706,7 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content/template/default.php:237
 #: content_business/home/layout/body/body_load_post.php:242
-#: content_business/p/home/display.php:384 content_su/tg/sendmessage/display.php:20
+#: content_business/p/home/display.php:386 content_su/tg/sendmessage/display.php:20
 #: content_su/tg/sendphoto/display.php:27
 msgid "Send"
 msgstr "ارسال"
@@ -758,7 +758,7 @@ msgstr "گواهی‌نامه‌ها"
 msgid "We are get all of certificates!"
 msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را گرفته‌ایم!"
 
-#: content/changelog/display.php:11 content_a/accounting/doc/add/display.php:38
+#: content/changelog/display.php:11 content_a/accounting/doc/add/display-doc.php:34
 #: content_a/accounting/doc/display.php:6 content_a/accounting/irvat/all/display.php:133
 #: content_a/cart/add/display.php:53 content_a/cart/home/display.php:111
 #: content_a/factor/home/display.php:476 content_a/order/home/display.php:486
@@ -945,7 +945,7 @@ msgstr ""
 #: content_a/setting/fund/display.php:60 content_a/setting/general/title/display.php:11
 #: content_a/setting/general/title/display.php:13 content_a/setting/pcpos/display.php:124
 #: content_account/address.php:26 content_business/home/layout/body/body_load_post.php:204
-#: content_business/p/home/display.php:360 content_business/shipping/display.php:101
+#: content_business/p/home/display.php:362 content_business/shipping/display.php:101
 #: content_crm/member/general/display.php:43 content_crm/member/general/display.php:45
 #: content_enter/signup/display.php:12 content_support/ticket/contact_ticket/model.php:131
 msgid "Name"
@@ -954,7 +954,7 @@ msgstr "نام"
 #: content/contact/display.php:23 content/subscribe/display.php:16
 #: content/template/default.php:200
 #: content_business/home/layout/body/body_load_post.php:205
-#: content_business/p/home/display.php:361
+#: content_business/p/home/display.php:363
 msgid "Full Name"
 msgstr "نام کامل"
 
@@ -969,8 +969,8 @@ msgstr "نام کامل"
 #: content_account/my/home/display.php:46
 #: content_business/home/layout/body/body_load_post.php:211
 #: content_business/home/layout/body/body_load_post.php:212
-#: content_business/orders/view/display.php:39 content_business/p/home/display.php:367
-#: content_business/p/home/display.php:368 content_business/shipping/display.php:19
+#: content_business/orders/view/display.php:39 content_business/p/home/display.php:369
+#: content_business/p/home/display.php:370 content_business/shipping/display.php:19
 #: content_business/shipping/display.php:108 content_cms/comments/edit/display.php:13
 #: content_crm/--log/home/logTable.php:30 content_crm/member/add/display.php:7
 #: content_crm/member/general/display.php:71 content_crm/member/home/display.php:120
@@ -996,12 +996,12 @@ msgstr "موبایل"
 #: content/contact/display.php:27 content/subscribe/display.php:12
 #: content/template/default.php:207
 #: content_business/home/layout/body/body_load_post.php:212
-#: content_business/p/home/display.php:368
+#: content_business/p/home/display.php:370
 msgid "Please enter valid mobile number. `:val` is incorrect"
 msgstr "لطفا شماره موبایل معتبری وارد کنید. :val اشتباه است"
 
 #: content/contact/display.php:30 content/subscribe/display.php:19
-#: content_a/setting/social/display.php:63 content_account/my/email/display.php:7
+#: content_a/setting/social/display.php:73 content_account/my/email/display.php:7
 #: content_account/my/email/view.php:10 content_account/my/home/display.php:52
 #: content_business/home/layout/template/visitcard.php:40
 #: content_cms/comments/edit/display.php:17 content_crm/--log/home/logTable.php:62
@@ -1727,7 +1727,7 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_a/products/share/display.php:30 content_a/products/share/model.php:62
 #: content_a/products/variants/display-add-product.php:26
 #: content_a/products/variants/display-add-product.php:64 content_a/sale/display.php:18
-#: content_business/p/home/display.php:81 content_business/p/home/view.php:106
+#: content_business/p/home/display.php:82 content_business/p/home/view.php:106
 #: content_crm/transactions/add/display.php:67
 #: content_crm/transactions/minus/display.php:67
 #: content_love/domain/billing/display.php:92
@@ -3482,7 +3482,7 @@ msgid "Share"
 msgstr "اشتراک‌گذاری"
 
 #: content/template/shareBox.php:4 content_business/home/layout/template/visitcard.php:30
-#: content_business/p/home/display.php:206 content_business/p/home/display.php:207
+#: content_business/p/home/display.php:208 content_business/p/home/display.php:209
 #: content_business/p/home/shareBox.php:4 content_business/p/home/shareBox.php:5
 #: content_business/template/shareBox.php:4 content_business/template/shareBox.php:5
 #: includes/languages/trans_static_public.php:422
@@ -3490,7 +3490,7 @@ msgid "facebook"
 msgstr "فیسبوک"
 
 #: content/template/shareBox.php:5 content_business/home/layout/template/visitcard.php:35
-#: content_business/p/home/display.php:210 content_business/p/home/display.php:211
+#: content_business/p/home/display.php:212 content_business/p/home/display.php:213
 #: content_business/p/home/shareBox.php:8 content_business/p/home/shareBox.php:9
 #: content_business/template/shareBox.php:8 content_business/template/shareBox.php:9
 #: includes/languages/trans_static_public.php:423
@@ -3498,7 +3498,7 @@ msgid "twitter"
 msgstr "توییتر"
 
 #: content/template/shareBox.php:6 content_business/home/layout/template/visitcard.php:20
-#: content_business/p/home/display.php:214 content_business/p/home/display.php:215
+#: content_business/p/home/display.php:216 content_business/p/home/display.php:217
 #: content_business/p/home/shareBox.php:12 content_business/p/home/shareBox.php:13
 #: content_business/template/shareBox.php:12 content_business/template/shareBox.php:13
 #: includes/languages/trans_static_public.php:425
@@ -3506,7 +3506,7 @@ msgid "linkedin"
 msgstr "لینکدین"
 
 #: content/template/shareBox.php:7 content_business/home/layout/template/visitcard.php:50
-#: content_business/p/home/display.php:218 content_business/p/home/display.php:219
+#: content_business/p/home/display.php:220 content_business/p/home/display.php:221
 #: content_business/p/home/shareBox.php:16 content_business/p/home/shareBox.php:17
 #: content_business/template/shareBox.php:16 content_business/template/shareBox.php:17
 #: dash/app/log/support_tools.php:113 includes/languages/trans_static.php:497
@@ -3675,7 +3675,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/pos/pos/view.php:11
 #: content_a/setting/product/preparationtime/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
-#: content_a/setting/social/view.php:13 content_a/setting/units/view.php:16
+#: content_a/setting/social/view.php:14 content_a/setting/units/view.php:16
 #: content_a/setting/vat/view.php:13 content_a/units/view.php:29
 #: content_a/units/view.php:36 content_a/website/body/add/view.php:12
 #: content_a/website/body/view.php:12 content_a/website/imageblock/add/view.php:33
@@ -3889,8 +3889,8 @@ msgstr "والد"
 #: content_a/accounting/coding/add/display-add.php:30
 #: content_a/accounting/coding/add/display-add.php:39
 #: content_a/accounting/coding/add/display-add.php:71
+#: content_a/accounting/doc/add/display-doc.php:11
 #: content_a/accounting/doc/add/display-docdetail.php:10
-#: content_a/accounting/doc/add/display.php:15
 #: content_a/accounting/irvat/add/display.php:155
 #: content_a/accounting/irvat/add/display.php:165 content_a/android/title/display.php:8
 #: content_crm/member/legal/display.php:25 content_my/ipg/profile/display.php:41
@@ -3935,7 +3935,7 @@ msgstr "کد"
 #: content_a/setting/place/inventory/display.php:8 content_a/units/display.php:41
 #: content_a/website/body/add/display.php:111 content_a/website/menu/edit/display.php:10
 #: content_a/website/specialslider/add/display.php:18
-#: content_account/billing/display.php:52 content_business/p/home/display.php:376
+#: content_account/billing/display.php:52 content_business/p/home/display.php:378
 #: content_cms/posts/home/display.php:95 content_cms/terms/display.php:96
 #: content_cms/terms/display.php:179 content_cms/terms/display.php:181
 #: content_crm/member/billing/display.php:23 content_crm/permission/add/display.php:27
@@ -4075,8 +4075,8 @@ msgid "Status"
 msgstr "وضعیت"
 
 #: content_a/accounting/coding/add/display-add.php:146
+#: content_a/accounting/doc/add/display-doc.php:64
 #: content_a/accounting/doc/add/display-docdetail.php:63
-#: content_a/accounting/doc/add/display.php:68
 #: content_a/accounting/irvat/add/display.php:133
 #: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:26
 #: content_a/category/add/display.php:12 content_a/category/property/display.php:47
@@ -4103,9 +4103,9 @@ msgstr "افزودن"
 #: content_a/accounting/coding/all/display.php:125
 #: content_a/accounting/coding/display-list.php:112
 #: content_a/accounting/coding/display-list.php:124
-#: content_a/accounting/coding/display.php:78 content_a/accounting/doc/add/display.php:62
-#: content_a/accounting/doc/display.php:9 content_a/accounting/doc/display.php:18
-#: content_a/accounting/irvat/add/display.php:131
+#: content_a/accounting/coding/display.php:78
+#: content_a/accounting/doc/add/display-doc.php:58 content_a/accounting/doc/display.php:9
+#: content_a/accounting/doc/display.php:18 content_a/accounting/irvat/add/display.php:131
 #: content_a/accounting/year/add/display.php:43 content_a/accounting/year/display.php:10
 #: content_a/accounting/year/display.php:27 content_a/company/display.php:64
 #: content_a/company/display.php:121 content_a/pricehistory/display.php:43
@@ -4129,7 +4129,7 @@ msgid "Edit"
 msgstr "ویرایش"
 
 #: content_a/accounting/coding/add/display-add.php:148
-#: content_a/accounting/doc/add/display.php:58
+#: content_a/accounting/doc/add/display-doc.php:54
 #: content_a/accounting/year/add/display.php:39 content_a/cart/add/display.php:54
 #: content_a/cart/add/display.php:75 content_a/company/display.php:57
 #: content_a/company/display.php:122 content_a/products/bullet/display.php:28
@@ -4146,7 +4146,7 @@ msgstr "ویرایش"
 #: content_a/website/specialslider/add/display.php:43
 #: content_a/website/specialslider/setting/display.php:45
 #: content_a/website/text/display.php:25 content_a/website/titleline/display.php:25
-#: content_account/api/display.php:22 content_business/p/home/display.php:142
+#: content_account/api/display.php:22 content_business/p/home/display.php:144
 #: content_cms/posts/edit/display.php:142 content_cms/posts/edit/display.php:808
 #: content_cms/terms/display.php:172 content_crm/member/avatar/display.php:27
 #: content_crm/permission/delete/display.php:37 content_love/domain/detail/display.php:195
@@ -4406,6 +4406,35 @@ msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید
 msgid "Accounting coding imported"
 msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
+#: content_a/accounting/doc/add/display-doc.php:5
+msgid "Add new accounting doc"
+msgstr "افزودن سند حسابداری جدید"
+
+#: content_a/accounting/doc/add/display-doc.php:11
+msgid "Accounting year"
+msgstr "سال مالی"
+
+#: content_a/accounting/doc/add/display-doc.php:13
+msgid "Please choose year"
+msgstr "لطفا سال مالی را انتخاب کنید"
+
+#: content_a/accounting/doc/add/display-doc.php:19
+msgid "Add new accounting year"
+msgstr "افزودن سال مالی جدید"
+
+#: content_a/accounting/doc/add/display-doc.php:28 content_a/accounting/doc/display.php:7
+msgid "Number"
+msgstr "شماره"
+
+#: content_a/accounting/doc/add/display-doc.php:34
+#: content_a/accounting/irvat/add/display.php:51
+#: content_a/accounting/year/add/display.php:17
+#: content_a/accounting/year/add/display.php:26 content_a/pricehistory/display.php:18
+#: content_a/setup/owner/display.php:32 content_love/gift/create/setting/display.php:13
+#: content_love/gift/edit/display.php:85
+msgid "yyyy/mm/dd"
+msgstr "سال \\ ماه \\ روز"
+
 #: content_a/accounting/doc/add/display-docdetail.php:12
 #: content_a/accounting/irvat/add/display.php:157
 #: content_a/accounting/irvat/add/display.php:167 content_crm/member/legal/display.php:27
@@ -4438,35 +4467,6 @@ msgstr "سند در تعادل نیست!"
 #: content_a/accounting/doc/add/display-list.php:13
 msgid "Assistant"
 msgstr "معین"
-
-#: content_a/accounting/doc/add/display.php:7
-msgid "Add new accounting doc"
-msgstr "افزودن سند حسابداری جدید"
-
-#: content_a/accounting/doc/add/display.php:15
-msgid "Accounting year"
-msgstr "سال مالی"
-
-#: content_a/accounting/doc/add/display.php:17
-msgid "Please choose year"
-msgstr "لطفا سال مالی را انتخاب کنید"
-
-#: content_a/accounting/doc/add/display.php:23
-msgid "Add new accounting year"
-msgstr "افزودن سال مالی جدید"
-
-#: content_a/accounting/doc/add/display.php:32 content_a/accounting/doc/display.php:7
-msgid "Number"
-msgstr "شماره"
-
-#: content_a/accounting/doc/add/display.php:38
-#: content_a/accounting/irvat/add/display.php:51
-#: content_a/accounting/year/add/display.php:17
-#: content_a/accounting/year/add/display.php:26 content_a/pricehistory/display.php:18
-#: content_a/setup/owner/display.php:32 content_love/gift/create/setting/display.php:13
-#: content_love/gift/edit/display.php:85
-msgid "yyyy/mm/dd"
-msgstr "سال \\ ماه \\ روز"
 
 #: content_a/accounting/doc/add/view.php:9
 msgid "Add accounting doc"
@@ -5045,6 +5045,7 @@ msgstr "مایکت"
 #: content_a/products/desc/display.php:22 content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:4
 #: content_a/products/property/display.php:159 content_a/products/sharetext/display.php:22
+#: content_a/setting/accounting/currency/display.php:21
 #: content_a/setting/cart/limit/display.php:25 content_a/setting/cart/text/display.php:37
 #: content_a/setting/general/lang/display.php:24
 #: content_a/setting/general/title/display.php:20
@@ -5055,7 +5056,7 @@ msgstr "مایکت"
 #: content_a/setting/product/text/display.php:19
 #: content_a/setting/product/viewtext/display.php:19
 #: content_a/setting/shipping/setting/display.php:108
-#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:93
+#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:102
 #: content_a/setting/telegram/adminusername/display.php:21
 #: content_a/setting/telegram/bot/display.php:22
 #: content_a/setting/telegram/channel/display.php:21
@@ -5748,18 +5749,18 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/category/home/view.php:18 content_a/company/view.php:11
 #: content_a/home/display.php:103 content_a/pricehistory/view.php:12
 #: content_a/products/tag/view.php:12 content_a/report/products/view.php:10
-#: content_a/setting/address/view.php:11 content_a/setting/cart/view.php:11
-#: content_a/setting/domain/view.php:8 content_a/setting/fund/view.php:8
-#: content_a/setting/general/lang/view.php:8 content_a/setting/general/lang/view.php:12
-#: content_a/setting/general/title/view.php:8 content_a/setting/general/title/view.php:12
-#: content_a/setting/general/view.php:10 content_a/setting/googleanalytics/view.php:8
-#: content_a/setting/home/view.php:8 content_a/setting/order/view.php:11
-#: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
-#: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
-#: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:8
-#: content_a/setting/telegram/view.php:10 content_a/units/view.php:11
-#: content_love/gift/create/stepGuide.php:93
+#: content_a/setting/accounting/view.php:10 content_a/setting/address/view.php:11
+#: content_a/setting/cart/view.php:11 content_a/setting/domain/view.php:8
+#: content_a/setting/fund/view.php:8 content_a/setting/general/lang/view.php:8
+#: content_a/setting/general/lang/view.php:12 content_a/setting/general/title/view.php:8
+#: content_a/setting/general/title/view.php:12 content_a/setting/general/view.php:10
+#: content_a/setting/googleanalytics/view.php:8 content_a/setting/home/view.php:8
+#: content_a/setting/order/view.php:11 content_a/setting/payment/view.php:11
+#: content_a/setting/pcpos/view.php:8 content_a/setting/place/inventory/view.php:8
+#: content_a/setting/place/view.php:11 content_a/setting/pos/view.php:8
+#: content_a/setting/product/view.php:10 content_a/setting/shipping/text/view.php:11
+#: content_a/setting/social/view.php:8 content_a/setting/telegram/view.php:10
+#: content_a/units/view.php:11 content_love/gift/create/stepGuide.php:93
 #: content_love/store/domain/detail/display.php:29 content_my/domain/irnic/view.php:16
 #: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
 #: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
@@ -5827,7 +5828,7 @@ msgstr "فاکتور فروش"
 
 #: content_a/chap/size-receipt/receipt.php:103 content_a/factor/home/display.php:125
 #: content_a/order/home/display.php:133 content_business/orders/display.php:17
-#: content_business/p/home/display.php:150
+#: content_business/p/home/display.php:152
 msgid "Qty"
 msgstr "تعداد"
 
@@ -7896,6 +7897,35 @@ msgstr "نکن عزیزم!"
 msgid "Sale invoicing"
 msgstr "صدور فاکتور فروش"
 
+#: content_a/setting/accounting/currency/display.php:6
+msgid "Set Accounting currency"
+msgstr "تنظیم واحد مالی سیستم حسابداری"
+
+#: content_a/setting/accounting/currency/display.php:12
+msgid "Currency"
+msgstr "واحد مالی"
+
+#: content_a/setting/accounting/currency/view.php:8
+msgid "Accounting currency setting"
+msgstr "تنظیمات واحد مالی سیستم حسابداری"
+
+#: content_a/setting/accounting/currency/view.php:11
+#: content_a/setting/accounting/view.php:8
+msgid "Accounting setting"
+msgstr "تنظیمات حسابداری"
+
+#: content_a/setting/accounting/display.php:5
+msgid "Set Accounting Currency"
+msgstr "تنظیم واحد مالی سیستم حسابداری"
+
+#: content_a/setting/accounting/display.php:7
+msgid "Set your accounting Currency"
+msgstr "تنظیم واحد مالی سیستم حسابداری"
+
+#: content_a/setting/accounting/display.php:13
+msgid "Set Currency"
+msgstr "تنظیم واحد مالی"
+
 #: content_a/setting/address/view.php:9 content_a/setup/address/view.php:9
 msgid "Set your store address"
 msgstr "تنظیم آدرس فروشگاه شما"
@@ -8864,18 +8894,20 @@ msgstr "این گزینه‌ها در وب‌سایت شما استفاده خو
 msgid "Instagram"
 msgstr "اینستاگرام"
 
-#: content_a/setting/social/display.php:22 content_crm/--log/home/logTable.php:60
-#: content_crm/member/security/display.php:137 content_su/tg/home/view.php:8
-#: content_support/ticket/show/display.php:165 dash/layout/admin/sidebar/sidebar-su.php:27
-#: includes/languages/trans_static.php:626 lib/store.php:506
-msgid "Telegram"
-msgstr "تلگرام"
+#: content_a/setting/social/display.php:24
+#: content_a/setting/telegram/channel/display.php:12
+msgid "Channel"
+msgstr "کانال"
 
-#: content_a/setting/social/display.php:28 lib/store.php:507
+#: content_a/setting/social/display.php:30
+msgid "Telegram Admin user"
+msgstr "نام کاربری ادمین تلگرام"
+
+#: content_a/setting/social/display.php:38 lib/store.php:507
 msgid "Youtube"
 msgstr "یوتیوب"
 
-#: content_a/setting/social/display.php:35 content_account/my/home/display.php:170
+#: content_a/setting/social/display.php:45 content_account/my/home/display.php:170
 #: content_account/my/social/display.php:27 content_account/my/social/display.php:30
 #: content_crm/member/social/display.php:40 content_crm/member/social/display.php:43
 #: dash/engine/static_files.php:28 dash/engine/static_files.php:37
@@ -8883,31 +8915,31 @@ msgstr "یوتیوب"
 msgid "Twitter"
 msgstr "توییتر"
 
-#: content_a/setting/social/display.php:42 content_account/my/home/display.php:175
+#: content_a/setting/social/display.php:52 content_account/my/home/display.php:175
 #: content_account/my/social/display.php:34 content_account/my/social/display.php:37
 #: content_crm/member/social/display.php:46 content_crm/member/social/display.php:49
 #: includes/languages/trans_static_public.php:251 lib/store.php:509
 msgid "Linkedin"
 msgstr "لینکدین"
 
-#: content_a/setting/social/display.php:49 dash/engine/static_files.php:29
+#: content_a/setting/social/display.php:59 dash/engine/static_files.php:29
 #: includes/languages/trans_static_public.php:250 lib/store.php:510
 msgid "Github"
 msgstr "گیت‌هاب"
 
-#: content_a/setting/social/display.php:56 content_account/my/home/display.php:165
+#: content_a/setting/social/display.php:66 content_account/my/home/display.php:165
 #: content_account/my/social/display.php:20 content_account/my/social/display.php:23
 #: content_crm/member/social/display.php:34 content_crm/member/social/display.php:37
 #: lib/store.php:511
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
-#: content_a/setting/social/display.php:71 includes/languages/trans_static_public.php:252
+#: content_a/setting/social/display.php:80 includes/languages/trans_static_public.php:252
 #: lib/store.php:513
 msgid "Aparat"
 msgstr "آپارات"
 
-#: content_a/setting/social/display.php:78 lib/store.php:514
+#: content_a/setting/social/display.php:87 lib/store.php:514
 msgid "Eitaa"
 msgstr "ایتا"
 
@@ -8988,10 +9020,6 @@ msgid ""
 msgstr ""
 "به راحتی می توانید محصولات را در کانال تلگرام خود به اشتراک بگذارید. برای این کار شناسه "
 "کانال تلگرام خود را به ما معرفی کنید."
-
-#: content_a/setting/telegram/channel/display.php:12
-msgid "Channel"
-msgstr "کانال"
 
 #: content_a/setting/telegram/channel/view.php:8
 msgid "Telegram channel"
@@ -11365,64 +11393,64 @@ msgstr "قیمت مصرف کننده"
 msgid "You Save"
 msgstr "سود شما"
 
-#: content_business/p/home/display.php:96
+#: content_business/p/home/display.php:98
 msgid "To buy select variants"
 msgstr "برای خرید تنوع را انتخاب کنید"
 
-#: content_business/p/home/display.php:156 dash/layout/pwa/pwa_menu.php:303
+#: content_business/p/home/display.php:158 dash/layout/pwa/pwa_menu.php:303
 msgid "In cart"
 msgstr "در سبد خرید"
 
-#: content_business/p/home/display.php:160
+#: content_business/p/home/display.php:162
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:104 dash/layout/pwa/pwa_menu.php:291
 msgid "Add to cart"
 msgstr "افزودن به سبد خرید"
 
-#: content_business/p/home/display.php:203
+#: content_business/p/home/display.php:205
 msgid "Product Code"
 msgstr "شناسه محصول"
 
-#: content_business/p/home/display.php:260
+#: content_business/p/home/display.php:262
 msgid "Customer reviews"
 msgstr "نظرات مشتریان"
 
-#: content_business/p/home/display.php:276 content_business/p/home/display.php:281
-#: content_business/p/home/display.php:286 content_business/p/home/display.php:291
-#: content_business/p/home/display.php:296 content_business/p/home/view.php:101
+#: content_business/p/home/display.php:278 content_business/p/home/display.php:283
+#: content_business/p/home/display.php:288 content_business/p/home/display.php:293
+#: content_business/p/home/display.php:298 content_business/p/home/view.php:101
 #: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
 #: content_my/domain/review/display.php:205
 msgid "%"
 msgstr "٪"
 
-#: content_business/p/home/display.php:336
+#: content_business/p/home/display.php:338
 msgid "Review this product"
 msgstr "بررسی این محصول"
 
-#: content_business/p/home/display.php:342
+#: content_business/p/home/display.php:344
 msgid "Outstanding"
 msgstr "ممتاز"
 
-#: content_business/p/home/display.php:344
+#: content_business/p/home/display.php:346
 msgid "Very Good"
 msgstr "خیلی خوب"
 
-#: content_business/p/home/display.php:346
+#: content_business/p/home/display.php:348
 msgid "Good"
 msgstr "خوب"
 
-#: content_business/p/home/display.php:348
+#: content_business/p/home/display.php:350
 msgid "Poor"
 msgstr "ضعیف"
 
-#: content_business/p/home/display.php:350
+#: content_business/p/home/display.php:352
 msgid "Very Poor"
 msgstr "خیلی ضعیف"
 
-#: content_business/p/home/display.php:379
+#: content_business/p/home/display.php:381
 msgid "Write your review about this product..."
 msgstr "نظر خودتون رو در مورد این محصول بنویسید ..."
 
-#: content_business/p/home/display.php:395
+#: content_business/p/home/display.php:397
 msgid "Related products"
 msgstr "محصولات مرتبط"
 
@@ -11974,6 +12002,13 @@ msgstr "میهمان"
 msgid "Notification"
 msgstr "پیام"
 
+#: content_crm/--log/home/logTable.php:60 content_crm/member/security/display.php:137
+#: content_su/tg/home/view.php:8 content_support/ticket/show/display.php:165
+#: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:626
+#: lib/store.php:506
+msgid "Telegram"
+msgstr "تلگرام"
+
 #: content_crm/--log/home/logTable.php:61 includes/languages/trans_static_public.php:940
 #: includes/languages/trans_static_public.php:982
 msgid "SMS"
@@ -12043,7 +12078,11 @@ msgstr "آدرس عضو"
 msgid "Set your avatar"
 msgstr "تصویر پروفایل خود را تنظیم کنید"
 
-#: content_crm/member/avatar/model.php:45 dash/app/user/edit.php:208
+#: content_crm/member/avatar/model.php:35
+msgid "To change user avatar choose a new avatar"
+msgstr "برای تغییر آواتار کاربر، فایلی را آپلود کنید"
+
+#: content_crm/member/avatar/model.php:46 dash/app/user/edit.php:208
 #: dash/app/user/legal.php:113
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
@@ -29023,23 +29062,27 @@ msgstr "تیپاکس"
 msgid "Product setting saved"
 msgstr "تنظیمات محصولات ذخیره شدند"
 
-#: lib/app/setting/set.php:81 lib/app/setting/set.php:106
+#: lib/app/setting/set.php:59
+msgid "Accounting setting saved"
+msgstr "تنظیمات حسابداری ذخیره شدند"
+
+#: lib/app/setting/set.php:107 lib/app/setting/set.php:132
 msgid "Telegram setting saved"
 msgstr "تنظیمات تلگرام ذخیره شد"
 
-#: lib/app/setting/set.php:134
+#: lib/app/setting/set.php:160
 msgid "Cart setting saved"
 msgstr "تنظیمات سبد خرید ذخیره شد"
 
-#: lib/app/setting/set.php:173
+#: lib/app/setting/set.php:199
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:234
+#: lib/app/setting/set.php:260
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:254
+#: lib/app/setting/set.php:280
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
@@ -29318,15 +29361,15 @@ msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 msgid "Accounting coding successfully updated"
 msgstr "سرفصل حسابداری با موفقیت ویرایش شد"
 
-#: lib/app/tax/coding/ready.php:45
+#: lib/app/tax/coding/ready.php:55
 msgid "Add new accounting total"
 msgstr "افزودن کل جدید"
 
-#: lib/app/tax/coding/ready.php:50
+#: lib/app/tax/coding/ready.php:60
 msgid "Add new accounting assistant"
 msgstr "افزودن معین جدید"
 
-#: lib/app/tax/coding/ready.php:55
+#: lib/app/tax/coding/ready.php:65
 msgid "Add new accounting details"
 msgstr "افزودن تفصیل جدید"
 
@@ -30777,9 +30820,6 @@ msgstr "یارد"
 #~ msgid "Add child"
 #~ msgstr "افزودن زیرمجموعه"
 
-#~ msgid "currency"
-#~ msgstr "واحد مالی"
-
 #~ msgid "Cart Limit"
 #~ msgstr "محدودیت سبد خرید"
 
@@ -31281,9 +31321,6 @@ msgstr "یارد"
 
 #~ msgid "User account username in"
 #~ msgstr "نام کاربری مخاطب در"
-
-#~ msgid "Upload user avatar to change it"
-#~ msgstr "برای تغییر آواتار کاربر، آن را آپلود کنید"
 
 #~ msgid "Get user address list"
 #~ msgstr "دریافت لیست آدرس‌های کاربر"
