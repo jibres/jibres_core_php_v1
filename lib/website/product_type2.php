@@ -82,13 +82,16 @@ class product_type2
 
 				echo '<div class="f align-center">';
 				{
-					echo '<span class="unit cauto">';
-					echo $currency;
-					echo '</span>';
+					if($price)
+					{
+						echo '<span class="unit cauto">';
+						echo $currency;
+						echo '</span>';
 
-					echo '<span class="price c">';
-					echo $price;
-					echo '</span>';
+						echo '<span class="price c">';
+						echo $price;
+						echo '</span>';
+					}
 
 					if($discount)
 					{

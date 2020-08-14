@@ -99,13 +99,18 @@ class product_type1
 			// show price line
 			echo '<footer class="f">';
 			{
-				echo '<span class="unit cauto">';
-				echo $currency;
-				echo '</span>';
+					echo '<span class="unit cauto">';
 
-				echo '<span class="price c">';
-				echo $price;
-				echo '</span>';
+					if($price)
+					{
+						echo $currency;
+					}
+
+					echo '</span>';
+
+					echo '<span class="price c">';
+					echo $price;
+					echo '</span>';
 
 				if($discount)
 				{
