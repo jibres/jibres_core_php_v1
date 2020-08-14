@@ -87,7 +87,7 @@ class fit{
 
 		if(strpos($new_number, '.') !== false)
 		{
-			$number  = substr($new_number, 0, strpos($new_number, '.') - 1);
+			$number  = substr($new_number, 0, strpos($new_number, '.'));
 			$decimal = substr($new_number, strpos($new_number, '.') + 1 );
 			$fit = self::number($number);
 
