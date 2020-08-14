@@ -29,6 +29,7 @@ class get
 			LEFT JOIN tax_coding AS `details` ON details.id = tax_docdetail.details_id
 			WHERE
 				tax_docdetail.tax_document_id = $_id
+			ORDER BY tax_docdetail.sort ASC
 		";
 		$result = \dash\db::get($query);
 

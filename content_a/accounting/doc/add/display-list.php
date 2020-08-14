@@ -4,9 +4,11 @@
   <?php }else{ ?>
     <div class="msg danger txtB txtC fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. T_(\dash\data::dataRow_status()); ?></span></div>
   <?php }//endif ?>
+  <form method="post">
+    <input type="hidden" name="sortable" value="sortable">
   <div class="box">
     <div class="body">
-       <table class="tbl1 v4">
+       <table class="tbl1 v4 " >
          <thead>
            <tr>
              <th class="collapsing"></th>
@@ -18,10 +20,12 @@
              <th class="collapsing"></th>
            </tr>
          </thead>
-         <tbody>
+         <tbody class="sortable" data-sortable>
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
             <tr>
-              <td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
+              <td class="collapsing"><div data-handle class="c1 handle"><?php echo \dash\fit::number($key + 1); ?> <i class="sf-sort"></i></div>
+                <input type="hidden" class="hide" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
+              </td>
               <td><a href="<?php echo \dash\url::this(). '/coding?view='. \dash\get::index($value, 'assistant_id') ?>"><?php echo \dash\get::index($value, 'assistant_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'assistant_code')) ?></a></td>
               <td><a href="<?php echo \dash\url::this(). '/coding?view='. \dash\get::index($value, 'details_id') ?>"><?php echo \dash\get::index($value, 'details_title') . ' - '. \dash\fit::text(\dash\get::index($value, 'details_code')) ?></a></td>
               <td><?php echo \dash\get::index($value, 'desc') ?></td>
@@ -45,5 +49,11 @@
       </div>
     </footer>
   </div>
+  </form>
 <?php } //endif ?>
+
+
+
+
+
 

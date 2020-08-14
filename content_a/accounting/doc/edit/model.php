@@ -5,6 +5,7 @@ class model
 {
 	public static function post()
 	{
+
 		if(\dash\request::post('remove') === 'remove')
 		{
 			\lib\app\tax\doc\remove::remove(\dash\request::get('id'));
@@ -28,7 +29,11 @@ class model
 		}
 
 
-		if(\dash\request::post('row') === 'row')
+		if(\dash\request::post('sortable') === 'sortable')
+		{
+			\lib\app\tax\docdetail\edit::sort(\dash\request::post('sort'));
+		}
+		elseif(\dash\request::post('row') === 'row')
 		{
 			$post =
 			[
