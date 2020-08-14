@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-14 16:39+0430\n"
-"PO-Revision-Date: 2020-08-14 16:41+0430\n"
+"POT-Creation-Date: 2020-08-14 17:52+0430\n"
+"PO-Revision-Date: 2020-08-14 17:53+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3967,7 +3967,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/coding/add/display-add.php:46
 #: content_a/accounting/doc/add/display-docdetail.php:44
 #: content_a/accounting/doc/add/display-list.php:16
-#: content_a/accounting/doc/add/display-list.php:39
+#: content_a/accounting/doc/add/display-list.php:42
 #: content_a/accounting/report/detail/display.php:14
 msgid "Debtor"
 msgstr "بدهکار"
@@ -3975,7 +3975,7 @@ msgstr "بدهکار"
 #: content_a/accounting/coding/add/display-add.php:53
 #: content_a/accounting/doc/add/display-docdetail.php:50
 #: content_a/accounting/doc/add/display-list.php:17
-#: content_a/accounting/doc/add/display-list.php:41
+#: content_a/accounting/doc/add/display-list.php:44
 #: content_a/accounting/report/detail/display.php:15
 msgid "Creditor"
 msgstr "بستانکار"
@@ -4049,7 +4049,9 @@ msgid "Disable"
 msgstr "غیرفعال"
 
 #: content_a/accounting/coding/add/display-add.php:140
-#: content_a/accounting/coding/display.php:41 content_a/accounting/year/display.php:8
+#: content_a/accounting/coding/display.php:41
+#: content_a/accounting/doc/add/display-list.php:3
+#: content_a/accounting/doc/add/display-list.php:5 content_a/accounting/year/display.php:8
 #: content_a/android/apk/display.php:32 content_a/order/detail/display.php:21
 #: content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
@@ -4076,7 +4078,7 @@ msgstr "وضعیت"
 
 #: content_a/accounting/coding/add/display-add.php:146
 #: content_a/accounting/doc/add/display-doc.php:64
-#: content_a/accounting/doc/add/display-docdetail.php:63
+#: content_a/accounting/doc/add/display-docdetail.php:66
 #: content_a/accounting/irvat/add/display.php:133
 #: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:26
 #: content_a/category/add/display.php:12 content_a/category/property/display.php:47
@@ -4104,7 +4106,9 @@ msgstr "افزودن"
 #: content_a/accounting/coding/display-list.php:112
 #: content_a/accounting/coding/display-list.php:124
 #: content_a/accounting/coding/display.php:78
-#: content_a/accounting/doc/add/display-doc.php:58 content_a/accounting/doc/display.php:9
+#: content_a/accounting/doc/add/display-doc.php:58
+#: content_a/accounting/doc/add/display-docdetail.php:64
+#: content_a/accounting/doc/add/display-list.php:31 content_a/accounting/doc/display.php:9
 #: content_a/accounting/doc/display.php:18 content_a/accounting/irvat/add/display.php:131
 #: content_a/accounting/year/add/display.php:43 content_a/accounting/year/display.php:10
 #: content_a/accounting/year/display.php:27 content_a/company/display.php:64
@@ -6804,7 +6808,8 @@ msgstr "محدودیت سبد خرید"
 #: lib/app/nic_domain/get.php:335 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
 #: lib/app/product/edit.php:29 lib/app/store/domain.php:432 lib/app/tax/coding/get.php:121
-#: lib/app/tax/doc/get.php:34 lib/app/tax/docdetail/remove.php:13
+#: lib/app/tax/doc/get.php:34 lib/app/tax/docdetail/get.php:22
+#: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
 #: lib/app/tax/year/get.php:66 lib/app/website/body/edit.php:31
 #: lib/app/website/body/edit.php:111 lib/app/website/body/line/imageblock.php:182
 #: lib/app/website/body/line/imageblock.php:347 lib/app/website/body/line/news.php:69
@@ -15326,7 +15331,7 @@ msgid "Create new gift"
 msgstr "افزودن کارت هدیه جدید"
 
 #: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:25
-#: includes/languages/trans_static.php:770
+#: includes/languages/trans_static.php:773
 msgid "Sell & Enjoy"
 msgstr "بفروش و لذت ببر"
 
@@ -23712,6 +23717,14 @@ msgid "Intangible fixed assets"
 msgstr "دارایی‌های ثابت نامشهود"
 
 #: includes/languages/trans_static.php:769
+msgid "temp"
+msgstr "موقت"
+
+#: includes/languages/trans_static.php:770
+msgid "Temp"
+msgstr "موقت"
+
+#: includes/languages/trans_static.php:772
 msgid ""
 "Jibres is not just an online accounting software; We try to create the best financial "
 "platform that has everything you need to sale and manage your financial life."
@@ -29353,7 +29366,8 @@ msgstr "نمی‌توانید این گزینه‌ را به عنوان والد
 msgid "Duplicate code. Try another code"
 msgstr "این کد تکرای است. لطفا کد دیگری را وارد کنید"
 
-#: lib/app/tax/coding/edit.php:87 lib/app/tax/doc/edit.php:29 lib/app/tax/year/edit.php:47
+#: lib/app/tax/coding/edit.php:87 lib/app/tax/doc/edit.php:29
+#: lib/app/tax/docdetail/edit.php:33 lib/app/tax/year/edit.php:47
 msgid "No change in your data"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 
@@ -29378,7 +29392,7 @@ msgid "This record is parent of some other record and cannot be remove"
 msgstr "این گزینه والد برای گزینه‌های دیگر است و امکان حذف آن وجود ندارد"
 
 #: lib/app/tax/coding/remove.php:29 lib/app/tax/doc/remove.php:22
-#: lib/app/tax/docdetail/remove.php:19 lib/app/tax/year/remove.php:26
+#: lib/app/tax/docdetail/remove.php:33 lib/app/tax/year/remove.php:26
 msgid "Data removed"
 msgstr "اطلاعات با موفقیت حذف شد"
 
@@ -29402,7 +29416,7 @@ msgstr "شناسه سند حسابداری تکراری است"
 msgid "Accounting doc successfully updated"
 msgstr "سند حسابداری با موفقیت ویرایش شد"
 
-#: lib/app/tax/docdetail/add.php:23
+#: lib/app/tax/docdetail/add.php:29
 msgid "Accounting docdetail successfully added"
 msgstr "سند حسابداری با موفقیت ثبت شد"
 
@@ -29418,13 +29432,17 @@ msgstr "لطفا تفصیل را انتخاب کنید"
 msgid "Please choose the detail"
 msgstr "لطفا تفصیل را انتخاب کنید"
 
-#: lib/app/tax/docdetail/check.php:104
+#: lib/app/tax/docdetail/check.php:106
 msgid "Please set debtor or creditor"
 msgstr "لطفا بدهکار یا بستانکار را ثبت کنید"
 
-#: lib/app/tax/docdetail/check.php:116
+#: lib/app/tax/docdetail/check.php:118
 msgid "Invalid accounting document id"
 msgstr "شناسه سند حسابداری اشتباه است"
+
+#: lib/app/tax/docdetail/edit.php:45
+msgid "Accounting docdetail successfully updated"
+msgstr "سند حسابداری با موفقیت ویرایش شد"
 
 #: lib/app/tax/year/add.php:24
 msgid "Accounting year successfully added"
