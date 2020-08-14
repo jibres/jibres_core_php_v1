@@ -14,7 +14,7 @@
 13,14,سرمایه‌گذاریهای بلند مدت,1,,enable,balance sheet,debtor,,total,,,,
 14,15,دریافتنی‌های بلند مدت,1,,enable,balance sheet,debtor,,total,,,,
 15,16,سایر دارایی‌ها,1,,enable,balance sheet,debtor,,total,,,,
-16,19,تراز افتتاحیه و اختتامیه,,,enable,balance sheet,debtor-creditor,,total,,,,
+16,19,تراز افتتاحیه و اختتامیه,1,,enable,balance sheet,debtor-creditor,,total,,,,
 17,21,سفارشات و پیش پرداخت‌ها,2,,enable,balance sheet,debtor,,total,,,,
 18,22,موجودی مواد و کالا,2,,enable,balance sheet,debtor,,total,,,,
 19,23,دریافتنی‌های تجاری,2,,enable,balance sheet,debtor,,total,,,,

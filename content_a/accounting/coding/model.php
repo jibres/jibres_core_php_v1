@@ -34,10 +34,10 @@ class model
 					'balancetype'   => \dash\get::index($value, 'balancetype'),
 					'detailable'    => \dash\get::index($value, 'detailable') ? 1 : null,
 					'type'          => \dash\get::index($value, 'type'),
-					'naturecontrol' => \dash\get::index($value, 'naturecontrol'),
-					'exchangeable'  => \dash\get::index($value, 'exchangeable'),
-					'followup'      => \dash\get::index($value, 'followup'),
-					'currency'      => \dash\get::index($value, 'currency'),
+					'naturecontrol' => \dash\get::index($value, 'naturecontrol') ? 1 : null,
+					'exchangeable'  => \dash\get::index($value, 'exchangeable') ? 1 : null,
+					'followup'      => \dash\get::index($value, 'followup') ? 1 : null,
+					'currency'      => \dash\get::index($value, 'currency') ? 1 : null,
 				];
 
 				$set = \dash\db\config::make_set($temp, ['type' => 'insert']);
