@@ -66,7 +66,6 @@ $storeData = \dash\data::store_store_data();
               </div>
             </div>
 
-            <?php if(false) {?>
             <div class="c12 mB5">
               <label for="aparat"><?php echo T_("Aparat"); ?></label>
               <div class="input ltr">
@@ -80,7 +79,7 @@ $storeData = \dash\data::store_store_data();
                 <input type="text" name="eitaa" id="eitaa" maxlength="50" value="<?php echo \dash\get::index($storeData, 'eitaa'); ?>">
               </div>
             </div>
-          <?php } // endif ?>
+
 
 
 
