@@ -56,19 +56,36 @@ else
     {
       foreach ($mySidebar as $key => $item)
       {
-        echo "<li>";
         echo "<a";
         if(isset($item['link']))
         {
           echo ' href="'. $item['link']. '"';
         }
+        // add class
+        $class = null;
+        if(isset($item['icon']))
+        {
+          $class = 'sf-'. $item['icon'];
+        }
         if(isset($item['class']))
         {
-          echo ' class="'. $item['class']. '"';
+          $class .= ' '.$item['class'];
         }
+        if($class)
+        {
+          echo ' class="'. $class. '"';
+        }
+
         if(isset($item['active']))
         {
-          echo ' data-active';
+          if($item['active'] === true)
+          {
+            echo ' data-active';
+          }
+          elseif($item['active'])
+          {
+            echo ' data-active="'. $item['active']. '"';
+          }
         }
         echo ">";
         if(isset($item['title']))
@@ -76,7 +93,6 @@ else
           echo $item['title'];
         }
         echo "</a>";
-        echo "</li>";
       }
     }
   }

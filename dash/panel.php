@@ -27,13 +27,13 @@ class panel
 			[
 				'title'  => T_("Jibres Panel"),
 				'link'   => \dash\url::sitelang(). '/my',
-				'icon'   => 'atom',
-				'active' => (\dash\url::content() === 'my'? true :false)
+				'icon'   => 'diamond',
+				'active' => (\dash\url::content()==='my'? 1 :false)
 			],
 			[
 				'title'  => T_("Domain Center"),
 				'link'   => \dash\url::sitelang(). '/my/domain',
-				'icon'   => 'flag',
+				'icon'   => 'terminal',
 				'active' => (\dash\url::content()==='my'&& \dash\url::module()==='domain'? true :false)
 			],
 			[
