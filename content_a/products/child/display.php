@@ -121,7 +121,7 @@ $option = array_filter($option);
 
   <?php }else{ ?>
 
-    <div class="msg"><?php echo T_("") ?></div>
+    <div class="msg warn fs14 txtB txtC"><?php echo T_("This product have not variants") ?></div>
 
   <?php } //endif ?>
 
