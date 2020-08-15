@@ -287,5 +287,30 @@ class get
 		return $result;
 	}
 
+
+
+	public static function last_product_in_cart($_limit = null)
+	{
+		$limit = 5;
+		$_limit = \dash\validate::smallint($_limit, false);
+		if($_limit)
+		{
+			if(floatval(abs($_limit)) < 50)
+			{
+				$limit = abs($_limit);
+			}
+		}
+		$result = \lib\db\products\get::last_product_in_cart($limit);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = array_map(['\\lib\\app\\product\\ready', 'row'], $result);
+		return $result;
+	}
+
+
+
 }
 ?>

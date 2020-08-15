@@ -77,6 +77,41 @@ class get
 
 	}
 
+	public static function last_product_in_cart($_limit)
+	{
+
+		$query =
+		"
+			SELECT
+				cart.product_id AS `product_id`
+			FROM
+				cart
+			GROUP BY cart.product_id
+			ORDER BY MAX(cart.datecreated) DESC
+			LIMIT $_limit
+		";
+
+		$result = \dash\db::get($query, 'product_id');
+
+
+		if($result)
+		{
+			$ids = implode(',', $result);
+			$query =
+			"
+				SELECT
+					products.*
+				FROM
+					products
+				WHERE
+					products.id IN ($ids)
+			";
+			$result = \dash\db::get($query);
+			return $result;
+		}
+
+		return null;
+	}
 
 
 	public static function most_product_in_cart()

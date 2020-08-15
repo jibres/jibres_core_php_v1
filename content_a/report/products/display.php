@@ -191,9 +191,9 @@
 
 
 
-    <?php $maxstock_list = \lib\report\product\get::maxstock_list(10); if($maxstock_list) {?>
+    <?php $maxstock_list = \lib\report\product\get::maxstock_list(10); if($maxstock_list) { ?>
       <div class="c-xs-12 s-sm-12 c-md-6">
-        <h4><?php echo T_("Max sold price") ?></h4>
+        <h4><?php echo T_("Max stock") ?></h4>
         <nav class="items">
           <ul>
             <?php foreach ($maxstock_list as $key => $value) {?>
@@ -201,6 +201,26 @@
                 <a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($value, 'id'); ?>">
                   <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
                   <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></div>
+                  <div class="go"></div>
+                </a>
+              </li>
+            <?php } //endfor ?>
+          </ul>
+        </nav>
+      </div>
+    <?php } //endif ?>
+
+
+
+    <?php $last_product_in_cart = \lib\report\product\get::last_product_in_cart(10); if($last_product_in_cart) { ?>
+      <div class="c-xs-12 s-sm-12 c-md-6">
+        <h4><?php echo T_("Last product in cart") ?></h4>
+        <nav class="items">
+          <ul>
+            <?php foreach ($last_product_in_cart as $key => $value) {?>
+              <li>
+                <a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($value, 'id'); ?>">
+                  <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
                   <div class="go"></div>
                 </a>
               </li>
