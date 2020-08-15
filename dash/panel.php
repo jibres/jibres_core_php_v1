@@ -20,6 +20,10 @@ class panel
 			{
 				return self::sidebar_jibres_crm();
 			}
+			if(\dash\url::content() === 'support')
+			{
+				return self::sidebar_jibres_support();
+			}
 
 			// show jibres menu
 			return self::sidebar_jibres_primary();
@@ -281,6 +285,39 @@ class panel
 		return $menu;
 	}
 
+
+	private static function sidebar_jibres_support()
+	{
+		$menu = self::jibresPanelLink();
+
+		$menu[] =
+		[
+			'title'  => T_("Help Center"),
+			'link'   => \dash\url::here(),
+			'icon'   => 'life-ring',
+			'active' => 1,
+		];
+
+		$menu[] =
+		[
+			'title'  => T_("Tickets"),
+			'link'   => \dash\url::here().'/ticket',
+			'icon'   => 'question-circle',
+			'active' => (\dash\url::module()==='ticket'? true :false)
+		];
+
+		$menu[] =
+		[
+			'title'  => T_("New ticket"),
+			'link'   => \dash\url::here().'/ticket/add',
+			'icon'   => 'plus',
+			'active' => (\dash\url::module()==='ticket'&& \dash\url::child()==='add'? true :false)
+
+		];
+
+
+		return $menu;
+	}
 
 	private static function sidebar_businsess()
 	{
