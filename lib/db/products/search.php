@@ -79,7 +79,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
-		$query = "SELECT products.* FROM products $q[join] $q[where] $q[order] $limit ";
+		$query = "SELECT products.*, (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock` FROM products $q[join] $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query);
 

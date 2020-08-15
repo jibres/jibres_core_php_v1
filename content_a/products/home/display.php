@@ -93,6 +93,8 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
 
             <?php if(isset($value['variants_detail']['stock'])) {?>
               <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
+            <?php }elseif(\dash\get::index($value, 'stock')){ ?>
+              <div class="key"><b><?php echo \dash\fit::number($value['stock']); ?></b> <?php echo T_("in stock"); ?></div>
             <?php } //endif ?>
 
             <?php if(isset($value['variants_detail']['count'])) {?>
@@ -165,12 +167,13 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
     <thead>
       <tr class="fs08">
         <th class="collapsing"></th>
-        <th><?php echo T_("Title"); ?></th>
-        <th><?php echo T_("Buy price"); ?></th>
+        <th class="collapsing"><?php echo T_("Title"); ?></th>
+      <th><?php echo T_("Buy price"); ?></th>
         <th><?php echo T_("Price"); ?></th>
         <th><?php echo T_("Discount"); ?></th>
         <th><?php echo T_("Discount percent"); ?></th>
         <th><?php echo T_("Final price"); ?></th>
+        <th><?php echo T_("Stock"); ?></th>
       </tr>
     </thead>
 
@@ -180,7 +183,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
 
       <tr>
         <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar fs14"></td>
-        <td>
+        <td class="collapsing">
           <div><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></div>
           <?php if(isset($value['optionvalue1']) && $value['optionvalue1']) {?>
             <div><?php echo \dash\get::index($value, 'optionname1'); ?> <b><?php echo \dash\get::index($value, 'optionvalue1'); ?></b></div>
@@ -200,6 +203,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
         <td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
         <td><?php echo \dash\fit::number(\dash\get::index($value, 'discountpercent')); ?></td>
         <td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></td>
 
       </tr>
       <?php } //endfor ?>
