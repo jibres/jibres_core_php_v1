@@ -654,7 +654,14 @@ class comment
 
 		if($data['product_id'])
 		{
-			$and[] = "( productcomment.product_id = $data[product_id] OR  productcomment.product_id IN (SELECT products.id FROM products WHERE products.parent = $data[product_id]))";
+			$and[] =
+			"
+				(
+					productcomment.product_id = $data[product_id] OR
+					productcomment.product_id IN (SELECT products.id FROM products WHERE products.parent = $data[product_id]) OR
+					productcomment.product_id IN (SELECT products.id FROM products WHERE products.parent = (SELECT products.parent FROM products WHERE products.id = $data[product_id]))
+				)
+			";
 		}
 
 		if($data['status'])
@@ -664,7 +671,6 @@ class comment
 		}
 
 		$list = \lib\db\productcomment\search::list($and, $or, $order_sort, $meta);
-
 
 		if(is_array($list))
 		{

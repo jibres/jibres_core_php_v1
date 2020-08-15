@@ -21,7 +21,12 @@ class get
 				productcomment
 			WHERE
 				productcomment.status     = 'approved' AND
-				productcomment.product_id = $_product_id
+				(
+					productcomment.product_id = $_product_id OR
+					productcomment.product_id IN (SELECT products.id FROM products WHERE products.parent = $_product_id) OR
+					productcomment.product_id IN (SELECT products.id FROM products WHERE products.parent = (SELECT products.parent FROM products WHERE products.id = $_product_id))
+				)
+
 		";
 		$result = \dash\db::get($query, null, true);
 
