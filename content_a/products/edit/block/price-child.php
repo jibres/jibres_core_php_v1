@@ -13,6 +13,7 @@ $option = array_filter($option);
 ?>
 <?php if($myChildList) {?>
 <div class="box">
+        <header><h2><?php echo T_("List of product variants"); ?></h2></header>
   <div class="pad jboxPrice">
 
   	    	<input type="hidden" name="wholeeditchild" value="wholeeditchild">
