@@ -15,15 +15,11 @@ class ready
 		$result     = [];
 		$full_title = [];
 
-		if(isset($_data['group_title']) && $_data['group_title'])
-		{
-			$full_title[] = $_data['group_title'];
-		}
+		// if(isset($_data['group_title']) && $_data['group_title'])
+		// {
+		// 	$full_title[] = $_data['group_title'];
+		// }
 
-		if(isset($_data['total_title']) && $_data['total_title'])
-		{
-			$full_title[] = $_data['total_title'];
-		}
 
 		foreach ($_data as $key => $value)
 		{
@@ -35,7 +31,7 @@ class ready
 					break;
 
 				case 'code':
-					$full_title[] = \dash\fit::text($value);
+					$full_title[] = $value;
 					$result[$key] = $value;
 					break;
 
@@ -82,6 +78,12 @@ class ready
 			}
 
 			$result['add_child_link'] = $add_child_link;
+		}
+
+
+		if(isset($_data['total_title']) && $_data['total_title'])
+		{
+			$full_title[] = $_data['total_title'];
 		}
 
 		$result['full_title'] = implode(' - ', $full_title);
