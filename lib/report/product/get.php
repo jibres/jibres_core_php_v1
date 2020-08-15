@@ -15,6 +15,17 @@ class get
 	}
 
 
+	public static function total_pricechange()
+	{
+		$result = \lib\db\productprices\get::count_all();
+		if($result && is_numeric($result))
+		{
+			return floatval($result);
+		}
+		return 0;
+	}
+
+
 	public static function count_have_variants()
 	{
 		$result = \lib\db\products\get::count_have_variants();

@@ -54,6 +54,9 @@
 
 
 
+      <?php $total_pricechange = \lib\report\product\get::total_pricechange(); if($total_pricechange) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products' ?>"><div class="key"><?php echo T_("Total price change");?></div><div class="value"><?php echo \dash\fit::number($total_pricechange);?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
 
 
 

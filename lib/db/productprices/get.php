@@ -3,6 +3,18 @@ namespace lib\db\productprices;
 
 class get
 {
+
+
+
+
+	public static function count_all()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM productprices ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function last_active($_product_id)
 	{
 		// $query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `last` = 'yes' AND `enddate` IS NULL ORDER BY `id` DESC LIMIT 1";
