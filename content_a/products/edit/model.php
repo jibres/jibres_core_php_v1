@@ -170,7 +170,7 @@ class model
 		$whole_edit = [];
 		foreach ($post as $key => $value)
 		{
-			if(preg_match("/^whole_(price|discount|stock|optionvalue1|optionvalue2|optionvalue3)_(\d+)$/", $key, $split))
+			if(preg_match("/^whole_(price|buyprice|discount|stock|optionvalue1|optionvalue2|optionvalue3)_(\d+)$/", $key, $split))
 			{
 				$type = $split[1];
 				$my_id = $split[2];

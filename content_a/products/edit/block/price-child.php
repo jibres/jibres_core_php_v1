@@ -20,28 +20,17 @@ $option = array_filter($option);
 
               <div class="tblBox mT10">
                 <table class="tbl1 v5 fs09 responsive">
-                  <thead class="s0">
-                    <tr>
-                      <th class="collapsing"></th>
-                      <?php foreach ($option as $key => $value) {?>
-                      <th><?php echo $value ?></th>
-                      <?php } //endfor ?>
-                      <th><?php echo T_("Price"); ?></th>
-                      <th><?php echo T_("Discount"); ?></th>
-                      <th><?php echo T_("Stock"); ?></th>
-                    </tr>
-                  </thead>
                   <tbody>
                     <?php foreach ($myChildList as $key => $value) {?>
 
                     <?php $myId = \dash\get::index($value, 'id'); ?>
 
                       <tr>
-                        <th class="collapsing"><?php echo \dash\fit::number($key + 1); ?></th>
+                        <td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
                         <?php if(\dash\get::index($value, 'optionname1')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon" for="whole_optionvalue1_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname1'); ?></label>
+                            <label class="addon small" for="whole_optionvalue1_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname1'); ?></label>
                             <input  type="text" name="whole_optionvalue1_<?php echo $myId; ?>" id="whole_optionvalue1_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'optionvalue1'); ?>" >
                           </div>
 
@@ -51,7 +40,7 @@ $option = array_filter($option);
                         <?php if(\dash\get::index($value, 'optionname2')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon" for="whole_optionvalue2_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname2'); ?></label>
+                            <label class="addon small" for="whole_optionvalue2_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname2'); ?></label>
                             <input  type="text" name="whole_optionvalue2_<?php echo $myId; ?>" id="whole_optionvalue2_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'optionvalue2'); ?>" >
                           </div>
 
@@ -62,7 +51,7 @@ $option = array_filter($option);
                         <?php if(\dash\get::index($value, 'optionname3')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon" for="whole_optionvalue3_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname3'); ?></label>
+                            <label class="addon small" for="whole_optionvalue3_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname3'); ?></label>
                             <input  type="text" name="whole_optionvalue3_<?php echo $myId; ?>" id="whole_optionvalue3_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'optionvalue3'); ?>" >
                           </div>
 
@@ -71,22 +60,29 @@ $option = array_filter($option);
 
                         <td>
                           <div class="input">
+                            <label class="addon small" for="whole_buyprice_<?php echo $myId; ?>"><?php echo T_("Buy price"); ?></label>
+                            <input  type="text" name="whole_buyprice_<?php echo $myId; ?>" id="whole_buyprice_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'buyprice'); ?>" data-format='price' minlength="0" maxlength="15">
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="input">
+                            <label class="addon small" for="whole_price_<?php echo $myId; ?>"><?php echo T_("Price"); ?></label>
                             <input  type="text" name="whole_price_<?php echo $myId; ?>" id="whole_price_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'price'); ?>" data-format='price' minlength="0" maxlength="15">
-                            <label class="addon" for="whole_price_<?php echo $myId; ?>"><?php echo T_("Price"); ?></label>
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
+                            <label class="addon small" for="whole_discount_<?php echo $myId; ?>"><?php echo T_("Discount"); ?></label>
                             <input  type="text" name="whole_discount_<?php echo $myId; ?>" id="whole_discount_<?php echo $myId; ?>" placeholder2='<?php echo T_("Discount"); ?>' value="<?php echo \dash\get::index($value, 'discount'); ?>" data-format='price' minlength="0" maxlength="15">
-                            <label class="addon" for="whole_discount_<?php echo $myId; ?>"><?php echo T_("Discount"); ?></label>
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
+                          <label class="addon small" for="whole_stock_<?php echo $myId; ?>"><?php echo T_("Stock"); ?></label>
                             <input  type="text" name="whole_stock_<?php echo $myId; ?>" id="whole_stock_<?php echo $myId; ?>" placeholder='<?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?>' data-format='price' minlength="0" maxlength="15">
-                          <label class="addon" for="whole_stock_<?php echo $myId; ?>"><?php echo T_("Stock"); ?></label>
                           </div>
                         </td>
 
