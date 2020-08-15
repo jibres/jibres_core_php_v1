@@ -445,9 +445,18 @@ class ready
 
 		foreach ($_data as $key => $value)
 		{
+			if(is_array($value))
+			{
+				$value = null;
+			}
+
 			switch ($key)
 			{
 				case 'creator':
+				case 'preparationdatestring':
+				case 'category_list':
+				case 'allow_shop':
+				case 'shop_message':
 				case 'gallery_array':
 				case 'saleonline':
 				case 'saletelegram':
@@ -455,7 +464,10 @@ class ready
 				case 'saleonline':
 				case 'carton':
 				case 'variants':
+				case 'cart_limit':
+				case 'preparationdate':
 				case 'thumb':
+				case 'cat_id':
 
 					// skipp show this fields
 					break;
@@ -464,6 +476,7 @@ class ready
 					$result[$key] = $value;
 					break;
 			}
+
 		}
 
 		return $result;
