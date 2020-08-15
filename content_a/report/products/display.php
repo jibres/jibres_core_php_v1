@@ -58,6 +58,25 @@
         <li><a class="f" href="<?php echo \dash\url::here(). '/products' ?>"><div class="key"><?php echo T_("Total price change");?></div><div class="value"><?php echo \dash\fit::number($total_pricechange);?></div><div class="go"></div></a></li>
       <?php } // endif ?>
 
+      <?php $bestselling = \lib\report\product\get::bestselling(); if($bestselling) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($bestselling, 'id') ?>"><div class="key"><?php echo T_("Bestselling product");?> :: <?php echo \dash\get::index($bestselling, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($bestselling, 'sold_count'));?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
+
+
+
+    </ul>
+  </nav>
+
+
+
+
+   <nav class="items">
+    <ul>
+      <?php $most_product_in_cart = \lib\report\product\get::most_product_in_cart(); if($most_product_in_cart) {?>
+        <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. \dash\get::index($most_product_in_cart, 'id') ?>"><div class="key"><?php echo T_("Most items in the cart");?> :: <?php echo \dash\get::index($most_product_in_cart, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($most_product_in_cart, 'count'));?></div><div class="go"></div></a></li>
+      <?php } // endif ?>
+
 
 
     </ul>

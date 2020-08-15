@@ -106,6 +106,22 @@ class get
 		return 0;
 	}
 
+
+	public static function most_product_in_cart()
+	{
+		$result = \lib\db\products\get::most_product_in_cart();
+		$result = \lib\app\product\ready::row($result);
+		return $result;
+	}
+
+
+	public static function bestselling()
+	{
+		$result = \lib\db\products\get::bestselling();
+		$result = \lib\app\product\ready::row($result);
+		return $result;
+	}
+
 	public static function max_price_change_count()
 	{
 		$result = \lib\db\products\get::max_price_change_count();

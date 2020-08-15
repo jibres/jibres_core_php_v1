@@ -57,6 +57,67 @@ class get
 	}
 
 
+	public static function bestselling()
+	{
+		$query   =
+		"
+			SELECT
+				products.*,
+				(SELECT SUM(factordetails.count) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_count`
+			FROM
+				products
+			WHERE
+				products.status != 'deleted'
+			ORDER BY `sold_count`  DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+		return $result;
+
+	}
+
+
+
+	public static function most_product_in_cart()
+	{
+		$query =
+		"
+			SELECT
+				cart.product_id AS `product_id`,
+				COUNT(*) AS `count`
+			FROM
+				cart
+			GROUP BY cart.product_id
+			ORDER BY `count` DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+
+
+		if($result)
+		{
+			$query =
+			"
+				SELECT
+					products.*,
+					$result[count] AS `count`
+				FROM
+					products
+				WHERE
+					products.id  = $result[product_id]
+				LIMIT 1
+			";
+			$result = \dash\db::get($query, null, true);
+			return $result;
+		}
+
+		return null;
+
+	}
+
+
 	public static function max_price_change_count()
 	{
 		$query =
