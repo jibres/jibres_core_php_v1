@@ -123,10 +123,62 @@ class panel
 				'link'   => \dash\url::here(). '/posts?type=page',
 				'icon'   => 'pinboard',
 				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='posts'&& \dash\request::get('type')==='page'? true :false)
-
 			];
 		}
 
+
+		if(\dash\permission::check('cpHelpCenterView'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Help Center Articles"),
+				'link'   => \dash\url::here(). '/posts?type=help',
+				'icon'   => 'clone',
+				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='posts'&& \dash\request::get('type')==='help'? true :false)
+			];
+		}
+
+		if(\dash\permission::check('cpTagHelpAdd') || \dash\permission::check('cpTagHelpEdit'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Help Center Keywords"),
+				'link'   => \dash\url::here(). '/terms?type=help_tag',
+				'icon'   => 'tags',
+				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='terms'&& \dash\request::get('type')==='help_tag'? true :false)
+			];
+		}
+
+
+		if(\dash\permission::check('cpCommentsView'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("All Comments"),
+				'link'   => \dash\url::here(). '/comments',
+				'icon'   => 'comments',
+				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='comments'? true :false)
+			];
+		}
+
+
+		if(\dash\permission::check('cpPostsView'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Files Library"),
+				'link'   => \dash\url::here(). '/attachment',
+				'icon'   => 'file-o',
+				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='attachment'? true :false)
+			];
+			$menu[] =
+			[
+				'title'  => T_("Add new file"),
+				'link'   => \dash\url::here(). '/attachment/add',
+				'icon'   => 'plus',
+				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='attachment'? true :false)
+			];
+		}
 
 		return $menu;
 	}
