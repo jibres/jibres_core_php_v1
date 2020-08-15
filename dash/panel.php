@@ -4,7 +4,23 @@ namespace dash;
 
 class panel
 {
-	public static function sidebar_jibres_primary()
+	public static function sidebar()
+	{
+		if(\dash\url::store())
+		{
+			// show store menu
+		}
+		else
+		{
+			// show jibres menu
+			return self::sidebar_jibres_primary();
+		}
+
+		return [];
+	}
+
+
+	private static function sidebar_jibres_primary()
 	{
 		$menu =
 		[
@@ -28,10 +44,31 @@ class panel
 			],
 		];
 
+		// user account
+		if(\dash\user::id())
+		{
+			$menu[] =
+			[
+				'title'  => T_("My Account"),
+				'link'   => \dash\url::sitelang(). '/account',
+				'icon'   => 'user',
+				'active' => (\dash\url::content() === 'account'? true :false)
+			];
+		}
+		// help center
+		$menu[] =
+		[
+			'title'  => T_("Help Center"),
+			'link'   => \dash\url::sitelang(). '/support',
+			'icon'   => 'life-ring',
+			'active' => (\dash\url::content() === 'support'? true :false)
+		];
+
+
 		return $menu;
 	}
 
-	public static function sidebar_businsess()
+	private static function sidebar_businsess()
 	{
 
 	}
