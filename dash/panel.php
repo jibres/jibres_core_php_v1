@@ -16,7 +16,10 @@ class panel
 			{
 				return self::sidebar_jibres_cms();
 			}
-
+			if(\dash\url::content() === 'crm')
+			{
+				return self::sidebar_jibres_crm();
+			}
 
 			// show jibres menu
 			return self::sidebar_jibres_primary();
@@ -95,16 +98,13 @@ class panel
 	{
 		$menu = self::jibresPanelLink();
 
-		if(\dash\permission::check('contentCp'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("CMS Dashboard"),
-				'link'   => \dash\url::here(),
-				'icon'   => 'align-left',
-				'active' => (\dash\url::content()==='cms'? 1 :false)
-			];
-		}
+		$menu[] =
+		[
+			'title'  => T_("Content Management System"),
+			'link'   => \dash\url::here(),
+			'icon'   => 'file-text',
+			'active' => 1,
+		];
 
 		if(\dash\permission::check('cpPostsView'))
 		{
@@ -113,7 +113,7 @@ class panel
 				'title'  => T_("News"),
 				'link'   => \dash\url::here(). '/posts',
 				'icon'   => 'pinboard',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='posts'&& !\dash\request::get('type')? true :false)
+				'active' => (\dash\url::module()==='posts'&& !\dash\request::get('type')? true :false)
 			];
 		}
 		if(\dash\permission::check('cpCategoryView'))
@@ -123,7 +123,7 @@ class panel
 				'title'  => T_("Categories"),
 				'link'   => \dash\url::here(). '/terms?type=cat',
 				'icon'   => 'grid',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='terms'&& \dash\request::get('type')==='cat'? true :false)
+				'active' => (\dash\url::module()==='terms'&& \dash\request::get('type')==='cat'? true :false)
 			];
 		}
 		if(\dash\permission::check('cpTagView'))
@@ -133,7 +133,7 @@ class panel
 				'title'  => T_("Keywords"),
 				'link'   => \dash\url::here(). '/terms?type=tag',
 				'icon'   => 'tags',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='terms'&& \dash\request::get('type')==='tag'? true :false)
+				'active' => (\dash\url::module()==='terms'&& \dash\request::get('type')==='tag'? true :false)
 			];
 		}
 		if(\dash\permission::check('cpPageView'))
@@ -143,10 +143,9 @@ class panel
 				'title'  => T_("Static Pages"),
 				'link'   => \dash\url::here(). '/posts?type=page',
 				'icon'   => 'pinboard',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='posts'&& \dash\request::get('type')==='page'? true :false)
+				'active' => (\dash\url::module()==='posts'&& \dash\request::get('type')==='page'? true :false)
 			];
 		}
-
 
 		if(\dash\permission::check('cpHelpCenterView'))
 		{
@@ -155,7 +154,7 @@ class panel
 				'title'  => T_("Help Center Articles"),
 				'link'   => \dash\url::here(). '/posts?type=help',
 				'icon'   => 'clone',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='posts'&& \dash\request::get('type')==='help'? true :false)
+				'active' => (\dash\url::module()==='posts'&& \dash\request::get('type')==='help'? true :false)
 			];
 		}
 
@@ -166,10 +165,9 @@ class panel
 				'title'  => T_("Help Center Keywords"),
 				'link'   => \dash\url::here(). '/terms?type=help_tag',
 				'icon'   => 'tags',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='terms'&& \dash\request::get('type')==='help_tag'? true :false)
+				'active' => (\dash\url::module()==='terms'&& \dash\request::get('type')==='help_tag'? true :false)
 			];
 		}
-
 
 		if(\dash\permission::check('cpCommentsView'))
 		{
@@ -178,10 +176,9 @@ class panel
 				'title'  => T_("All Comments"),
 				'link'   => \dash\url::here(). '/comments',
 				'icon'   => 'comments',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='comments'? true :false)
+				'active' => (\dash\url::module()==='comments'? true :false)
 			];
 		}
-
 
 		if(\dash\permission::check('cpPostsView'))
 		{
@@ -190,14 +187,94 @@ class panel
 				'title'  => T_("Files Library"),
 				'link'   => \dash\url::here(). '/attachment',
 				'icon'   => 'file-o',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='attachment'? true :false)
+				'active' => (\dash\url::module()==='attachment'? true :false)
 			];
 			$menu[] =
 			[
 				'title'  => T_("Add new file"),
 				'link'   => \dash\url::here(). '/attachment/add',
 				'icon'   => 'plus',
-				'active' => (\dash\url::content()==='cms'&& \dash\url::module()==='attachment'? true :false)
+				'active' => (\dash\url::module()==='attachment'? true :false)
+			];
+		}
+
+		return $menu;
+	}
+
+
+	private static function sidebar_jibres_crm()
+	{
+		$menu = self::jibresPanelLink();
+
+		$menu[] =
+		[
+			'title'  => T_("Customer Relationship Management"),
+			'link'   => \dash\url::here(),
+			'icon'   => 'atom',
+			'class'  => 'font-11',
+			'active' => 1,
+		];
+
+		if(\dash\permission::check('cpUsersView'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Users"),
+				'link'   => \dash\url::here(). '/member',
+				'icon'   => 'users',
+				'active' => (\dash\url::module()==='attachment'? true :false)
+			];
+		}
+
+		if(\dash\permission::check('cpUsersAdd'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Add new user"),
+				'link'   => \dash\url::here(). '/member/add',
+				'icon'   => 'user-plus',
+				'active' => (\dash\url::module()==='member'&& \dash\url::child()==='add'? true :false)
+			];
+		}
+
+		if(\dash\permission::check('cpPermissionView'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Permissions"),
+				'link'   => \dash\url::here(). '/permission',
+				'icon'   => 'lock',
+				'active' => (\dash\url::module()==='permission'? true :false)
+			];
+		}
+
+
+		if(\dash\permission::check('cpTransaction'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Transactions"),
+				'link'   => \dash\url::here(). '/transactions',
+				'icon'   => 'card',
+				'active' => (\dash\url::module()==='transactions'? true :false)
+			];
+		}
+		if(\dash\permission::check('cpTransactionAdd'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Plus charge account"),
+				'link'   => \dash\url::here(). '/transactions/add',
+				'icon'   => 'plus-circle',
+				'active' => (\dash\url::module()==='transactions'&& \dash\url::child()==='add'? true :false)
+			];
+
+			$menu[] =
+			[
+				'title'  => T_("Minus charge account"),
+				'link'   => \dash\url::here(). '/transactions/minus',
+				'icon'   => 'minus-circle',
+				'active' => (\dash\url::module()==='transactions'&& \dash\url::child()==='minus'? true :false)
 			];
 		}
 
