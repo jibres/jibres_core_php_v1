@@ -19,7 +19,7 @@ class model
 		$post['minsale']         = \dash\request::post('minsale');
 		$post['maxsale']         = \dash\request::post('maxsale');
 		$post['salestep']        = \dash\request::post('salestep');
-		$post['preparationtime'] = \dash\request::post('preparationtime');
+		// $post['preparationtime'] = \dash\request::post('preparationtime');
 
 
 		\lib\app\product\edit::edit($post, $id);

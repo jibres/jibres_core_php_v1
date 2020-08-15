@@ -39,11 +39,7 @@
           <div class="input">
             <input type="text" name="salestep" id="salestep" data-format='number' value="<?php echo \dash\get::index($productDataRow,'salestep'); ?>" maxlength="7">
           </div>
-          <label for="ipreparationtime"><?php echo T_("Preparation time"); ?></label>
-          <div class="input">
-            <input type="text" name="preparationtime" id="ipreparationtime" value="<?php echo \dash\get::index($productDataRow,'preparationtime'); ?>"  autocomplete="off" maxlength="3" data-format='number'>
-            <div class="addon"><?php echo T_("Hour"); ?></div>
-          </div>
+
         </div>
       </section>
     </div>

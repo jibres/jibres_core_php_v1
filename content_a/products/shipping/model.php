@@ -12,6 +12,7 @@ class model
 		$post                = [];
 
 		$post['weight'] = \dash\request::post('weight');
+		$post['preparationtime'] = \dash\request::post('preparationtime');
 
 		\lib\app\product\edit::edit($post, $id);
 
