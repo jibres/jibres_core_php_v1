@@ -1,14 +1,14 @@
 <?php $dashboardData = \dash\data::dashboardData(); ?>
 
 
-<div class="f">
-  <div class="c8 x9 s12 pRa10">
+<div class="row padLess">
+  <div class="c-9 xs-12">
 <?php if(\dash\permission::check('staffAccess')) {?>
    <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
 <?php } //endif ?>
   </div>
-  <div class="c4 x3 s12">
-   <nav class="items">
+  <div class="c-3 xs-12">
+   <nav class="items long">
      <ul>
 <?php if(\dash\permission::check('productList')) {?>
        <li>
@@ -29,7 +29,7 @@
 <?php } //endif ?>
      </ul>
    </nav>
-   <nav class="items">
+   <nav class="items long">
      <ul>
        <li>
         <a class="f" href="<?php echo \dash\url::here();?>/factor">
@@ -55,7 +55,7 @@
 <?php } //endif ?>
      </ul>
    </nav>
-   <nav class="items">
+   <nav class="items long">
      <ul>
 <?php if(\dash\permission::check('customerAccess')) {?>
        <li>
@@ -78,35 +78,20 @@
      </ul>
    </nav>
 
-    <nav class="items">
-      <ul>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/android"><div class="key"><?php echo T_("Android app"); ?></div><div class="go"></div></a></li>
-      </ul>
+    <nav class="items long">
       <ul>
         <li><a class="f" href="<?php echo \dash\url::here(); ?>/website"><div class="key"><?php echo T_("Website setting"); ?></div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::here(); ?>/android"><div class="key"><?php echo T_("Android app"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
 
 
-      <nav class="items">
+    <nav class="items long">
       <ul>
         <li><a class="f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
         <li><a class="f" href="<?php echo \dash\url::here(); ?>/order"><div class="key"><?php echo T_("Orders"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
-
-
-   <nav class="items">
-     <ul>
-       <li>
-        <a class="f" href="<?php echo \dash\url::here();?>/setting">
-          <div class="key"><?php echo T_('Setting');?></div>
-          <div class="go"></div>
-        </a>
-       </li>
-     </ul>
-   </nav>
-  </div>
 
 </div>
 
