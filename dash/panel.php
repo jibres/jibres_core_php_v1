@@ -25,23 +25,33 @@ class panel
 		return [];
 	}
 
-	private static function jibresPanelLink()
+	private static function jibresPanelLink($_onlyMenu = null)
 	{
-		return
+		$menu =
 		[
-				'title'  => T_("Jibres Panel"),
-				'link'   => \dash\url::sitelang(). '/my',
-				// 'icon'   => 'diamond',
-				// 'img'    => \dash\url::icon(),
-				'img'    => \dash\url::cdn().'/logo/icon-white/svg/Jibres-Logo-icon-white.svg',
-				'active' => (\dash\url::content()==='my'? 1 :false)
-			];
+			[
+					'title'  => T_("Jibres Panel"),
+					'link'   => \dash\url::sitelang(). '/my',
+					// 'icon'   => 'diamond',
+					// 'img'    => \dash\url::icon(),
+					'img'    => \dash\url::cdn().'/logo/icon-white/svg/Jibres-Logo-icon-white.svg',
+					'active' => (\dash\url::content()==='my'? 1 :false)
+			]
+		];
+
+		if($_onlyMenu)
+		{
+			return $menu;
+		}
+		// add seperator
+		$menu[] = [ 'seperator' => true];
+		return $menu;
 	}
 
 
 	private static function sidebar_jibres_primary()
 	{
-		$menu = [ self::jibresPanelLink() ];
+		$menu = self::jibresPanelLink();
 		$menu[] =
 		[
 			'title'  => T_("Domain Center"),
@@ -83,7 +93,18 @@ class panel
 
 	private static function sidebar_jibres_cms()
 	{
-		$menu = [ self::jibresPanelLink() ];
+		$menu = self::jibresPanelLink();
+
+		if(\dash\permission::check('contentCp'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("CMS Dashboard"),
+				'link'   => \dash\url::here(),
+				'icon'   => 'align-left',
+				'active' => (\dash\url::content()==='cms'? 1 :false)
+			];
+		}
 
 		if(\dash\permission::check('cpPostsView'))
 		{

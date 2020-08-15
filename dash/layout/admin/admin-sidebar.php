@@ -56,47 +56,54 @@ else
     {
       foreach ($mySidebar as $key => $item)
       {
-        echo "<a";
-        if(isset($item['link']))
+        if(isset($item['seperator']))
         {
-          echo ' href="'. $item['link']. '"';
+          echo "<hr>";
         }
-        // add class
-        $class = null;
-        if(isset($item['icon']))
+        else
         {
-          $class = 'sf-'. $item['icon'];
-        }
-        if(isset($item['class']))
-        {
-          $class .= ' '.$item['class'];
-        }
-        if($class)
-        {
-          echo ' class="'. $class. '"';
-        }
+          echo "<a";
+          if(isset($item['link']))
+          {
+            echo ' href="'. $item['link']. '"';
+          }
+          // add class
+          $class = null;
+          if(isset($item['icon']))
+          {
+            $class = 'sf-'. $item['icon'];
+          }
+          if(isset($item['class']))
+          {
+            $class .= ' '.$item['class'];
+          }
+          if($class)
+          {
+            echo ' class="'. $class. '"';
+          }
 
-        if(isset($item['active']))
-        {
-          if($item['active'] === true)
+          if(isset($item['active']))
           {
-            echo ' data-active';
+            if($item['active'] === true)
+            {
+              echo ' data-active';
+            }
+            elseif($item['active'])
+            {
+              echo ' data-active="'. $item['active']. '"';
+            }
           }
-          elseif($item['active'])
+          echo ">";
+          if(isset($item['img']))
           {
-            echo ' data-active="'. $item['active']. '"';
+            echo '<img src="'. $item['img']. '" alt="'. $item['title']. '">';
           }
+          if(isset($item['title']))
+          {
+            echo $item['title'];
+          }
+          echo "</a>";
         }
-        echo ">";
-        if(isset($item['img']))
-        {
-          echo '<img src="'. $item['img']. '" alt="'. $item['title']. '">';
-        }
-        if(isset($item['title']))
-        {
-          echo $item['title'];
-        }
-        echo "</a>";
       }
     }
   }
