@@ -48,7 +48,20 @@ class panel
 			return $menu;
 		}
 		// add seperator
-		$menu[] = [ 'seperator' => true];
+		$menu[] = ['seperator' => true];
+		return $menu;
+	}
+
+
+	private static function businessDashboardLink()
+	{
+		$menu =
+		[
+				'title'  => T_("Business Dashboard"),
+				'link'   => \dash\url::kingdom().'/a',
+				'icon'   => 'gauge',
+				'active' => (\dash\url::content()==='a'? 1 :false)
+		];
 		return $menu;
 	}
 
@@ -97,7 +110,16 @@ class panel
 
 	private static function sidebar_jibres_cms()
 	{
-		$menu = self::jibresPanelLink();
+		if(\dash\engine\store::inStore())
+		{
+			$menu = self::jibresPanelLink(true);
+			$menu[] = self::businessDashboardLink();
+			$menu[] = ['seperator' => true];
+		}
+		else
+		{
+			$menu = self::jibresPanelLink();
+		}
 
 		$menu[] =
 		[
@@ -205,7 +227,16 @@ class panel
 
 	private static function sidebar_jibres_crm()
 	{
-		$menu = self::jibresPanelLink();
+		if(\dash\engine\store::inStore())
+		{
+			$menu = self::jibresPanelLink(true);
+			$menu[] = self::businessDashboardLink();
+			$menu[] = ['seperator' => true];
+		}
+		else
+		{
+			$menu = self::jibresPanelLink();
+		}
 
 		$menu[] =
 		[
