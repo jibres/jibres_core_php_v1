@@ -6,30 +6,27 @@ class panel
 {
 	public static function sidebar()
 	{
-		if(\dash\url::store())
-		{
-			// show store menu
-		}
-		else
-		{
-			if(\dash\url::content() === 'cms')
-			{
-				return self::sidebar_jibres_cms();
-			}
-			if(\dash\url::content() === 'crm')
-			{
-				return self::sidebar_jibres_crm();
-			}
-			if(\dash\url::content() === 'support')
-			{
-				return self::sidebar_jibres_support();
-			}
 
-			// show jibres menu
-			return self::sidebar_jibres_primary();
+		if(\dash\url::content() === 'a')
+		{
+			return self::sidebar_businsess();
+		}
+		if(\dash\url::content() === 'cms')
+		{
+			return self::sidebar_jibres_cms();
+		}
+		if(\dash\url::content() === 'crm')
+		{
+			return self::sidebar_jibres_crm();
+		}
+		if(\dash\url::content() === 'support')
+		{
+			return self::sidebar_jibres_support();
 		}
 
-		return [];
+		// show jibres menu
+		return self::sidebar_jibres_primary();
+		// return [];
 	}
 
 	private static function jibresPanelLink($_onlyMenu = null)
@@ -226,7 +223,7 @@ class panel
 				'title'  => T_("Users"),
 				'link'   => \dash\url::here(). '/member',
 				'icon'   => 'users',
-				'active' => (\dash\url::module()==='attachment'? true :false)
+				'active' => (\dash\url::module()==='member'? true :false)
 			];
 		}
 
@@ -260,7 +257,7 @@ class panel
 				'title'  => T_("Transactions"),
 				'link'   => \dash\url::here(). '/transactions',
 				'icon'   => 'card',
-				'active' => (\dash\url::module()==='transactions'? true :false)
+				'active' => (\dash\url::module()==='transactions'&& !\dash\url::child()? true :false)
 			];
 		}
 		if(\dash\permission::check('cpTransactionAdd'))
@@ -317,9 +314,51 @@ class panel
 		return $menu;
 	}
 
+
 	private static function sidebar_businsess()
 	{
+		$menu = self::jibresPanelLink();
 
+		$menu[] =
+		[
+			'title'  => T_("Business Dashboard"),
+			'link'   => \dash\url::here(),
+			'icon'   => 'gauge',
+			'active' => 1,
+		];
+
+		$menu[] =
+		[
+			'title'  => T_("Products"),
+			'link'   => \dash\url::here().'/products',
+			'icon'   => 'box',
+			'active' => (\dash\url::module()==='products'? true :false)
+		];
+
+		if(\dash\permission::check('factorAccess'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Factor"),
+				'link'   => \dash\url::here().'/factor',
+				'icon'   => 'print',
+				'active' => (\dash\url::module()==='factor'? true :false)
+			];
+		}
+
+		if(\dash\permission::check('settingView'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Setting"),
+				'link'   => \dash\url::here().'/setting',
+				'icon'   => 'cogs',
+				'active' => (\dash\url::module()==='setting'? true :false)
+			];
+		}
+
+		return $menu;
 	}
+
 }
 ?>
