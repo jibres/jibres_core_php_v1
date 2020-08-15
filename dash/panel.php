@@ -331,7 +331,7 @@ class panel
 		[
 			'title'  => T_("Products"),
 			'link'   => \dash\url::here().'/products',
-			'icon'   => 'box',
+			'icon'   => 'tags',
 			'active' => (\dash\url::module()==='products'? true :false)
 		];
 
@@ -339,10 +339,40 @@ class panel
 		{
 			$menu[] =
 			[
-				'title'  => T_("Factor"),
+				'title'  => T_("Orders"),
 				'link'   => \dash\url::here().'/factor',
-				'icon'   => 'print',
+				'icon'   => 'caddie-shopping-streamline',
 				'active' => (\dash\url::module()==='factor'? true :false)
+			];
+		}
+
+		{
+			$menu[] =
+			[
+				'title'  => T_("Customers - CRM"),
+				'link'   => \dash\url::kingdom().'/crm',
+				'icon'   => 'atom',
+				'active' => (\dash\url::content()==='crm'? true :false)
+			];
+		}
+
+		{
+			$menu[] =
+			[
+				'title'  => T_("Content Management"),
+				'link'   => \dash\url::kingdom().'/cms',
+				'icon'   => 'file-text',
+				'active' => (\dash\url::content()==='cms'? true :false)
+			];
+		}
+
+		{
+			$menu[] =
+			[
+				'title'  => T_("Reports"),
+				'link'   => \dash\url::here().'/report',
+				'icon'   => 'receipt-shopping-streamline',
+				'active' => (\dash\url::module()==='report'? true :false)
 			];
 		}
 
@@ -350,7 +380,7 @@ class panel
 		{
 			$menu[] =
 			[
-				'title'  => T_("Setting"),
+				'title'  => T_("Settings"),
 				'link'   => \dash\url::here().'/setting',
 				'icon'   => 'cogs',
 				'active' => (\dash\url::module()==='setting'? true :false)
