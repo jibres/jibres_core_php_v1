@@ -108,18 +108,6 @@ else
     }
   }
   echo '</nav>';
-  echo '<hr>';
-
-
-  echo '<div class="menu">';
-  {
-    echo '<ul class="sidenav">';
-    {
-      require_once ('admin-sidebar-frame.php');
-    }
-    echo '</ul>';
-  }
-  echo '</div>';
 }
 ?>
   </div>
