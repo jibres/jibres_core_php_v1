@@ -27,7 +27,9 @@ class panel
 			[
 				'title'  => T_("Jibres Panel"),
 				'link'   => \dash\url::sitelang(). '/my',
-				'icon'   => 'diamond',
+				// 'icon'   => 'diamond',
+				// 'img'    => \dash\url::icon(),
+				'img'    => \dash\url::cdn().'/logo/icon-white/svg/Jibres-Logo-icon-white.svg',
 				'active' => (\dash\url::content()==='my'? 1 :false)
 			],
 			[

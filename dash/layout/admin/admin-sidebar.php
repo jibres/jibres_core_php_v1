@@ -88,6 +88,10 @@ else
           }
         }
         echo ">";
+        if(isset($item['img']))
+        {
+          echo '<img src="'. $item['img']. '" alt="'. $item['title']. '">';
+        }
         if(isset($item['title']))
         {
           echo $item['title'];
