@@ -34,15 +34,12 @@ else
 ?></figure>
    <div class="menu">
     <ul class="sidenav">
-<?php if(\dash\url::store()) {?>
-     <li><a href="<?php echo \dash\url::kingdom(); ?>/a" <?php if(\dash\url::content() === 'a') {?> class="activeContent"<?php }//endif ?>><i class='sf-align-left'></i> <?php echo T_("Store admin panel"); ?></a></li>
 <?php
- if(\dash\url::content() === 'a')
- {
-  require_once ('sidebar/sidebar-a.php');
- }
-?>
-<?php }//endif ?>
+if(\dash\url::store() && \dash\url::content() === 'a')
+{
+require_once ('sidebar/sidebar-a.php');
+}
+//endif ?>
 
 
      <li><a href="<?php echo \dash\url::sitelang(); ?>/my" <?php if(\dash\url::content() === 'my') {?> class="activeContent"<?php }//endif ?>><i class='sf-atom'></i> <?php echo T_("Jibres Panel"); ?></a></li>

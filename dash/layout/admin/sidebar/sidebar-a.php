@@ -1,7 +1,7 @@
 <?php
 $urlHere = \dash\url::here();
 ?>
-  <li><a href="<?php echo $urlHere; ?>"><i class='sf-gauge'></i> <span><?php echo T_("Dashboard"); ?></span></a></li>
+  <li><a href="<?php echo $urlHere; ?>" <?php if(\dash\url::content() === 'a') {?> class="activeContent"<?php }//endif ?>><i class='sf-gauge'></i> <span><?php echo T_("Dashboard"); ?></span></a></li>
   <li>
   <?php if(\dash\permission::check('productList')) {?><a href="<?php echo $urlHere; ?>/products"><i class="sf-box"></i><?php echo T_("Products"); ?></a><?php } //endif ?>
 
