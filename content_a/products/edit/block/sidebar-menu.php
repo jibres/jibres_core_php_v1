@@ -118,7 +118,7 @@
     <?php } //endif ?>
 
 
-    <?php require_once('sidebar-variant.php'); ?>
+    <?php // require_once('sidebar-variant.php'); ?>
 
 
   <?php } //endif ?>

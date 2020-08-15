@@ -33,8 +33,10 @@ class load
 	{
 		$id = $_id;
 
+		$redirect_to_parent = false;
 		if(!$id)
 		{
+			$redirect_to_parent = true;
 			// get id from url
 			$id = \dash\request::get('id');
 		}
@@ -45,6 +47,15 @@ class load
 		{
 			// access denied or invalid id
 			return false;
+		}
+
+		// redirect child to parent
+		if($redirect_to_parent && isset($detail['parent']) && $detail['parent'])
+		{
+			$get = \dash\request::get();
+			$get['id'] = $detail['parent'];
+			$url = \dash\url::current(). '?'. http_build_query($get);
+			\dash\redirect::to($url);
 		}
 
 		if(isset($detail['variant_child']) && $detail['variant_child'])

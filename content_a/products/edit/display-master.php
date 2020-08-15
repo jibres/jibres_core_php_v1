@@ -19,8 +19,6 @@
      </div>
     </div>
     <?php if($have_variant_child) {?>
-      <?php require_once('block/price-child.php'); ?>
-      <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
     <?php }else{ ?>
       <?php require_once('block/price.php'); ?>
   <?php } //endif ?>
@@ -40,6 +38,11 @@
 
 <?php } //endif ?>
       <?php require_once('block/seo.php'); ?>
+
+      <?php if($have_variant_child) {?>
+      <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
+        <?php require_once('block/price-child.php'); ?>
+      <?php } //endif ?>
 
 
 </div>
@@ -80,5 +83,8 @@
 <?php require_once ('block/sidebar-menu.php'); ?>
 
   </div>
+ </div>
+ <div>
+
  </div>
 </form>

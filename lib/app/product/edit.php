@@ -344,6 +344,7 @@ class edit
 
 			if(!empty($args))
 			{
+				\dash\temp::set('productHasChange', true);
 				$update = \lib\db\products\update::record($args, $id);
 				if(!$update)
 				{

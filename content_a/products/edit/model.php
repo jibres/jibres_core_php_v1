@@ -170,7 +170,7 @@ class model
 		$whole_edit = [];
 		foreach ($post as $key => $value)
 		{
-			if(preg_match("/^whole_(price|discount|stock)_(\d+)$/", $key, $split))
+			if(preg_match("/^whole_(price|discount|stock|optionvalue1|optionvalue2|optionvalue3)_(\d+)$/", $key, $split))
 			{
 				$type = $split[1];
 				$my_id = $split[2];
@@ -214,6 +214,17 @@ class model
 			if($result)
 			{
 				\dash\redirect::to(\lib\backlink::products());
+			}
+			return true;
+		}
+
+
+		if(\dash\request::post('remove') === 'remove')
+		{
+			$result = \lib\app\product\remove::product(\dash\request::post('id'));
+			if($result)
+			{
+				\dash\redirect::pwd();
 			}
 			return true;
 		}
