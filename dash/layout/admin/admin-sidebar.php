@@ -101,6 +101,7 @@ else
     }
   }
   echo '</nav>';
+  echo '<hr>';
 
 
   echo '<div class="menu">';
