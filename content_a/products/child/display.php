@@ -13,25 +13,32 @@ if(!is_array($child_list))
 ?>
 <form method="post" autocomplete="off" id="form1" >
 
-  <?php if($have_variant_child) {?>
+<?php
 
-    <?php
-$myChildList = \dash\data::productDataRow_child();
-if(!is_array($myChildList))
+if($have_variant_child)
 {
-  $myChildList = [];
-}
-$option = [];
-$option = array_merge($option, array_filter(array_unique(array_column($myChildList, 'optionname1'))));
-$option = array_merge($option, array_filter(array_unique(array_column($myChildList, 'optionname2'))));
-$option = array_merge($option, array_filter(array_unique(array_column($myChildList, 'optionname3'))));
-$option = array_filter($option);
+  $myChildList = \dash\data::productDataRow_child();
+  if(!is_array($myChildList))
+  {
+    $myChildList = [];
+  }
+  $option = [];
+  $option = array_merge($option, array_filter(array_unique(array_column($myChildList, 'optionname1'))));
+  $option = array_merge($option, array_filter(array_unique(array_column($myChildList, 'optionname2'))));
+  $option = array_merge($option, array_filter(array_unique(array_column($myChildList, 'optionname3'))));
+  $option = array_filter($option);
+
+if($myChildList)
+{
 
 ?>
-<?php if($myChildList) {?>
 <div class="box">
-        <header><h2><?php echo T_("List of product variants"); ?></h2></header>
   <div class="pad jboxPrice">
+        <div class="f">
+          <div class="cauto"><p><?php echo T_("Manage each variant product independently"); ?></p></div>
+          <div class="c"></div>
+          <div class="cauto"><a class="btn link" href="<?php echo \dash\url::this(). '/variants?id='. \dash\request::get('id'); ?>"><?php echo T_("Manage variants items") ?></a></div>
+        </div>
 
           <input type="hidden" name="wholeeditchild" value="wholeeditchild">
 

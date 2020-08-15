@@ -85,9 +85,6 @@
       </ul>
     </nav>
 
-
-
-
     <nav class="items long">
       <ul>
           <li>
@@ -101,7 +98,7 @@
     </nav>
 
         <?php if(!\dash\data::productFamily()) {?>
-    <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) {?>
+    <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product') && !$have_variant_child) {?>
         <nav class="items long">
           <ul>
             <li>
@@ -115,11 +112,21 @@
           </ul>
         </nav>
       <?php } //endif ?>
+        <?php if($have_variant_child) {?>
+          <nav class="items long">
+          <ul>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::this(); ?>/child?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+                <i class="sf-picture"></i>
+                <div class="key"><?php echo T_("Manage variants"); ?></div>
+                <div class="value"><?php echo \dash\fit::number(count($child_list)); ?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <?php } //endif ?>
+
     <?php } //endif ?>
 
-
-    <?php // require_once('sidebar-variant.php'); ?>
-
-
   <?php } //endif ?>
-
