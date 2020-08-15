@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-15 19:05+0430\n"
-"PO-Revision-Date: 2020-08-15 19:09+0430\n"
+"POT-Creation-Date: 2020-08-15 19:12+0430\n"
+"PO-Revision-Date: 2020-08-15 19:12+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -148,7 +148,7 @@ msgstr ""
 #: content_r10/android/view.php:12 content_su/update/display.php:36
 #: content_su/update/display.php:94 content_v2/android/splash/view.php:20
 #: content_v2/android/view.php:26 dash/engine/view.php:15
-#: dash/layout/admin/admin-sidebar.php:135 dash/layout/admin/admin-sidebar.php:136
+#: dash/layout/admin/admin-sidebar.php:123 dash/layout/admin/admin-sidebar.php:124
 #: dash/layout/schema.php:5 dash/utility/sms.php:37 includes/languages/trans_static.php:7
 #: includes/languages/trans_static_domain.php:6 lib/app/nic_log/search.php:200
 #: lib/app/onlinenic/log/search.php:200
@@ -2112,7 +2112,7 @@ msgstr "احتمالا سوالات اولیه و ساده‌ی شما از جی
 #: content_cms/posts/home/view.php:42 dash/layout/admin/admin-header.php:19
 #: dash/layout/admin/admin-sidebar-frame.php:47
 #: dash/layout/admin/sidebar/sidebar-cms.php:29 dash/layout/pwa/pwa_menu.php:114
-#: dash/panel.php:91 dash/panel.php:295
+#: dash/panel.php:88 dash/panel.php:292
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
@@ -2349,13 +2349,14 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/setting/place/inventory/display.php:31
 #: content_a/setting/place/inventory/display.php:44 content_a/website/news/view.php:15
 #: content_a/website/productline/view.php:15 content_love/store/analytics/display.php:23
-#: dash/layout/admin/sidebar/sidebar-a.php:6 includes/languages/trans_static.php:599
-#: lib/app/export/product.php:39 lib/app/website/body/template.php:91
+#: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:332
+#: includes/languages/trans_static.php:599 lib/app/export/product.php:39
+#: lib/app/website/body/template.php:91
 msgid "Products"
 msgstr "محصولات"
 
 #: content/home/display.php:182 content_my/business/home/display_site.php:65
-#: dash/layout/admin/sidebar/sidebar-a.php:10
+#: dash/layout/admin/sidebar/sidebar-a.php:10 dash/panel.php:342
 msgid "Factor"
 msgstr "فاکتور"
 
@@ -2413,7 +2414,7 @@ msgid "Developers API"
 msgstr "رابط برنامه‌نویسی توسعه‌دهندگان API"
 
 #: content/home/layout/footer.php:79 content_a/setting/domain/display.php:27
-#: content_my/domain/home/view.php:9 content_my/home/display_pwa.php:7 dash/panel.php:64
+#: content_my/domain/home/view.php:9 content_my/home/display_pwa.php:7 dash/panel.php:61
 msgid "Domain Center"
 msgstr "مرکز دامنه"
 
@@ -5539,7 +5540,7 @@ msgstr "افزودن دسته‌بندی جدید"
 
 #: content_a/category/add/view.php:10 content_a/category/edit/view.php:17
 #: content_a/category/sort/view.php:10 content_cms/terms/view.php:21
-#: dash/layout/admin/sidebar/sidebar-cms.php:9 dash/panel.php:127
+#: dash/layout/admin/sidebar/sidebar-cms.php:9 dash/panel.php:124
 #: includes/languages/trans_static_public.php:974
 msgid "Categories"
 msgstr "دسته‌بندی‌ها"
@@ -5767,6 +5768,7 @@ msgstr "دسته‌بندی محصولات"
 #: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
 #: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
 #: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:194
+#: dash/panel.php:353
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -6469,7 +6471,7 @@ msgid "Have a good day;)"
 msgstr "روز خوبی داشته باشید؛)"
 
 #: content_a/home/view.php:16 content_my/home/view.php:9
-#: dash/layout/admin/admin-sidebar-frame.php:10 dash/panel.php:40
+#: dash/layout/admin/admin-sidebar-frame.php:10 dash/panel.php:37
 msgid "Jibres Panel"
 msgstr "پنل جیبرس"
 
@@ -11564,7 +11566,7 @@ msgid "Day event chart!"
 msgstr "نمودار رویدار روز!"
 
 #: content_cms/home/display.php:12 dash/layout/admin/sidebar/sidebar-cms.php:6
-#: dash/panel.php:117 dash/social/telegram/commands/news.php:16
+#: dash/panel.php:114 dash/social/telegram/commands/news.php:16
 #: lib/app/website/body/line/news.php:12 lib/app/website/body/template.php:98
 msgid "News"
 msgstr "اخبار"
@@ -11598,7 +11600,7 @@ msgstr "کلیدواژه‌های پشتیبانی"
 #: content_support/home/view.php:13 content_support/message/view.php:35
 #: content_support/tag/view.php:14 content_support/ticket/home/display.php:99
 #: content_support/ticket/home/view.php:11 dash/layout/admin/sidebar/sidebar-support.php:4
-#: dash/panel.php:303 includes/languages/trans_static.php:604
+#: dash/panel.php:300 includes/languages/trans_static.php:604
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
@@ -11714,7 +11716,7 @@ msgstr ""
 "می‌گردد."
 
 #: content_cms/posts/edit/display.php:312 dash/layout/admin/sidebar/sidebar-cms.php:12
-#: dash/panel.php:137
+#: dash/panel.php:134
 msgid "Keywords"
 msgstr "کلیدواژه‌ها"
 
@@ -12063,7 +12065,7 @@ msgid "Active Users"
 msgstr "کاربران فعال"
 
 #: content_crm/home/display.php:33 content_crm/permission/view.php:11
-#: dash/layout/admin/sidebar/sidebar-crm.php:16 dash/panel.php:248
+#: dash/layout/admin/sidebar/sidebar-crm.php:16 dash/panel.php:245
 #: includes/languages/trans_static_public.php:205
 #: includes/languages/trans_static_public.php:981
 msgid "Permissions"
@@ -12098,7 +12100,7 @@ msgstr "مثل 09120123456"
 
 #: content_crm/member/add/view.php:10 content_crm/member/home/view.php:29
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:34
-#: dash/layout/admin/sidebar/sidebar-crm.php:10 dash/panel.php:237
+#: dash/layout/admin/sidebar/sidebar-crm.php:10 dash/panel.php:234
 msgid "Add new user"
 msgstr "اضافه‌کردن کاربر جدید"
 
@@ -12895,7 +12897,7 @@ msgstr "داشبورد پیامک"
 #: content_love/transactions/add/display.php:27 content_love/transactions/add/view.php:8
 #: content_love/transactions/minus/display.php:8
 #: content_love/transactions/minus/display.php:27
-#: dash/layout/admin/sidebar/sidebar-crm.php:28 dash/panel.php:270
+#: dash/layout/admin/sidebar/sidebar-crm.php:28 dash/panel.php:267
 msgid "Plus charge account"
 msgstr "افزایش شارژ حساب کاربری"
 
@@ -12904,7 +12906,7 @@ msgstr "افزایش شارژ حساب کاربری"
 #: content_love/transactions/add/display.php:17
 #: content_love/transactions/minus/display.php:17
 #: content_love/transactions/minus/view.php:8 dash/layout/admin/sidebar/sidebar-crm.php:29
-#: dash/panel.php:278
+#: dash/panel.php:275
 msgid "Minus charge account"
 msgstr "کاهش شارژ حساب کاربری"
 
@@ -15363,7 +15365,7 @@ msgstr "مسدودشده"
 msgid "Create new gift"
 msgstr "افزودن کارت هدیه جدید"
 
-#: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:136
+#: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:124
 #: includes/languages/trans_static.php:773
 msgid "Sell & Enjoy"
 msgstr "بفروش و لذت ببر"
@@ -17641,7 +17643,7 @@ msgid "Unavailable list"
 msgstr "لیست در دسترس نیست"
 
 #: content_su/tg/home/display.php:10 dash/layout/admin/sidebar/sidebar-crm.php:6
-#: dash/panel.php:226 includes/languages/trans_static.php:603
+#: dash/panel.php:223 includes/languages/trans_static.php:603
 #: includes/languages/trans_static_public.php:96
 #: includes/languages/trans_static_public.php:980
 msgid "Users"
@@ -18160,7 +18162,7 @@ msgid "See list of your tickets!"
 msgstr "مشاهده لیست تمام تیکت‌های شما!"
 
 #: content_support/ticket/home/view.php:16
-#: dash/app/log/caller/ticket/ticket_addNewTicket.php:11 dash/panel.php:311
+#: dash/app/log/caller/ticket/ticket_addNewTicket.php:11 dash/panel.php:308
 msgid "New ticket"
 msgstr "تیکت جدید"
 
@@ -19678,7 +19680,7 @@ msgstr "وارد شوید تا تجربه بهتری داشته باشید"
 msgid "Jibres Domains"
 msgstr "دامنه‌های جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:12 dash/panel.php:71
+#: dash/layout/admin/admin-sidebar-frame.php:12 dash/panel.php:68
 msgid "My Business"
 msgstr "بیزینس‌های من"
 
@@ -19694,7 +19696,7 @@ msgstr "پنل مدیریت ارتباط با مشتریان"
 msgid "Jibres Managment"
 msgstr "مدیریت جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:45 dash/panel.php:82
+#: dash/layout/admin/admin-sidebar-frame.php:45 dash/panel.php:79
 msgid "My Account"
 msgstr "حساب من"
 
@@ -19710,7 +19712,7 @@ msgstr "سلام "
 msgid "dear GUEST!"
 msgstr "میهمان عزیز!"
 
-#: dash/layout/admin/admin-sidebar.php:126
+#: dash/layout/admin/admin-sidebar.php:114
 msgid "Click to toggle sidebar status"
 msgstr "برای تغییر وضعیت منوی کناری کلیک کنید"
 
@@ -20080,15 +20082,15 @@ msgstr "ویرایش سبد خرید"
 msgid "Checkout cart"
 msgstr "بررسی سبد خرید"
 
-#: dash/layout/admin/sidebar/sidebar-cms.php:15 dash/panel.php:147
+#: dash/layout/admin/sidebar/sidebar-cms.php:15 dash/panel.php:144
 msgid "Static Pages"
 msgstr "صفحات ثابت"
 
-#: dash/layout/admin/sidebar/sidebar-cms.php:35 dash/panel.php:169
+#: dash/layout/admin/sidebar/sidebar-cms.php:35 dash/panel.php:166
 msgid "Help Center Keywords"
 msgstr "کلید‌واژه‌های مرکز راهنمایی"
 
-#: dash/layout/admin/sidebar/sidebar-cms.php:48 dash/panel.php:180
+#: dash/layout/admin/sidebar/sidebar-cms.php:48 dash/panel.php:177
 msgid "All Comments"
 msgstr "دیدگاه‌ها"
 
@@ -20096,11 +20098,11 @@ msgstr "دیدگاه‌ها"
 msgid "Library"
 msgstr "کتابخانه"
 
-#: dash/layout/admin/sidebar/sidebar-cms.php:65 dash/panel.php:198
+#: dash/layout/admin/sidebar/sidebar-cms.php:65 dash/panel.php:195
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
 
-#: dash/layout/admin/sidebar/sidebar-crm.php:24 dash/panel.php:260
+#: dash/layout/admin/sidebar/sidebar-crm.php:24 dash/panel.php:257
 msgid "Transactions"
 msgstr "تراکنش‌ها"
 
@@ -20127,21 +20129,25 @@ msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کن
 msgid "Mailer Error :error"
 msgstr "خطا در ارسال‌کننده ایمیل :error"
 
-#: dash/panel.php:107
+#: dash/panel.php:104
 msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
-#: dash/panel.php:158
+#: dash/panel.php:155
 msgid "Help Center Articles"
 msgstr "مقالات مرکز راهنمایی"
 
-#: dash/panel.php:191
+#: dash/panel.php:188
 msgid "Files Library"
 msgstr "کتابخانه فایل"
 
-#: dash/panel.php:215
+#: dash/panel.php:212
 msgid "Customer Relationship Management"
 msgstr "مدیریت ارتباط با مشتریان"
+
+#: dash/panel.php:324
+msgid "Business Dashboard"
+msgstr "داشبورد بیزینس"
 
 #: dash/permission.php:111
 msgid "Someone have this permission!"
@@ -31750,9 +31756,6 @@ msgstr "یارد"
 
 #~ msgid "Max 1Mb"
 #~ msgstr "حداکثر یک مگابایت"
-
-#~ msgid "Jibres Dashboard"
-#~ msgstr "داشبورد جیبرس"
 
 #~ msgid "Invalid latestproduct index"
 #~ msgstr "شناسه محصول اشتباه است"
