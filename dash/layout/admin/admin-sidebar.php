@@ -15,7 +15,50 @@ if(\dash\url::subdomain() === 'developers')
 }
 else
 {
-  require_once ('admin-sidebar-frame.php');
+  echo "<figure>";
+  if(\dash\user::id())
+  {
+   $avatarLink = \dash\data::avatarLink();
+   if(!$avatarLink)
+   {
+    $avatarLink = \dash\url::kingdom(). '/account';
+   }
+
+   echo "<a href='$avatarLink' title='". T_('Edit your profile'). "' class='avatar'>";
+   if(\dash\user::detail('avatar'))
+   {
+    echo '<img src="'. \dash\user::detail('avatar'). '" alt="'. T_("Avatar of you"). ' '. \dash\user::detail('displayname') .'">';
+   }
+   elseif(\dash\user::id())
+   {
+     echo '<img src="'. \dash\url::siftal().'/images/default/avatar.png" alt='. T_("Default Avatar").'>';
+   }
+   else
+   {
+
+   }
+   echo '</a>';
+   echo '<figcaption>'. T_("Hello").' <b>'. \dash\user::detail('displayname'). '</b></figcaption>';
+  }
+  else
+  {
+   echo "<a href='". \dash\url::kingdom(). "/enter?referer=". \dash\url::current(). "' class='avatar'>";
+   echo '<img src="'. \dash\url::cdn().'/img/avatar/guest.png" alt="'. T_("Default Avatar").'">';
+   echo "</a>";
+   echo '<figcaption> '. T_("Hello ").  ' <b> '. T_("dear GUEST!"). '</b></figcaption>';
+  }
+  echo "</figure>";
+
+  echo '<div class="menu">';
+  {
+    echo '<ul class="sidenav">';
+    {
+      echo "<hr>";
+      require_once ('admin-sidebar-frame.php');
+    }
+    echo '</ul>';
+  }
+  echo '</div>';
 }
 ?>
   </div>
