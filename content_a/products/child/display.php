@@ -1,4 +1,21 @@
 <?php
+
+$storData           = \dash\data::store_store_data();
+$productDataRow     = \dash\data::productDataRow();
+$have_variant_child =\dash\data::productDataRow_variant_child();
+$child_list         = \dash\data::productDataRow_child();
+
+if(!is_array($child_list))
+{
+  $child_list = [];
+}
+
+?>
+<form method="post" autocomplete="off" id="form1" >
+
+  <?php if($have_variant_child) {?>
+
+    <?php
 $myChildList = \dash\data::productDataRow_child();
 if(!is_array($myChildList))
 {
@@ -16,7 +33,7 @@ $option = array_filter($option);
         <header><h2><?php echo T_("List of product variants"); ?></h2></header>
   <div class="pad jboxPrice">
 
-  	    	<input type="hidden" name="wholeeditchild" value="wholeeditchild">
+          <input type="hidden" name="wholeeditchild" value="wholeeditchild">
 
               <div class="tblBox mT10">
                 <table class="tbl1 v5 fs09 responsive">
@@ -97,10 +114,15 @@ $option = array_filter($option);
                   </tbody>
                 </table>
               </div>
-
-
-
-
   </div>
 </div>
           <?php } //endif ?>
+
+
+  <?php }else{ ?>
+
+    <div class="msg"><?php echo T_("") ?></div>
+
+  <?php } //endif ?>
+
+</form>

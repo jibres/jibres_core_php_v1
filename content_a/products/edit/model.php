@@ -31,67 +31,27 @@ class model
 	{
 		$post                      = [];
 
-		if(\dash\request::post('editchild') === 'editchild')
-		{
-			$post['optionvalue1'] = \dash\request::post('optionvalue1');
-			$post['optionvalue2'] = \dash\request::post('optionvalue2');
-			$post['optionvalue3'] = \dash\request::post('optionvalue3');
-		}
-		else
-		{
-			$post['title']             = \dash\request::post('title');
-			$post['title2']            = \dash\request::post('title2');
+		$post['title']     = \dash\request::post('title');
+		$post['title2']    = \dash\request::post('title2');
 
-			if(array_key_exists('desc', $_POST))
-			{
-				$post['desc']           = isset($_POST['desc']) ? $_POST['desc'] : null;
-			}
-			// $post['company'] = \dash\request::post('company');
-			// $post['unit']    = \dash\request::post('unit') ? \dash\request::post('unit') : null;
-			// $post['type']    = \dash\request::post('type');
-			$post['cat']     = \dash\request::post('cat');
-			$post['tag']     = \dash\request::post('tag');
-			// $post['weight']  = \dash\request::post('weight');
+		if(array_key_exists('desc', $_POST))
+		{
+			$post['desc']      = isset($_POST['desc']) ? $_POST['desc'] : null;
 		}
 
-		if(\dash\request::post('havevariantchild'))
-		{
-			// no change
-		}
-		else
-		{
-			$post['buyprice']  = \dash\request::post('buyprice');
-			$post['price']     = \dash\request::post('price');
-			$post['discount']  = \dash\request::post('discount');
-			$post['vat']       = \dash\request::post('vat');
-		}
-
-
+		$post['cat']       = \dash\request::post('cat');
+		$post['tag']       = \dash\request::post('tag');
+		$post['buyprice']  = \dash\request::post('buyprice');
+		$post['price']     = \dash\request::post('price');
+		$post['discount']  = \dash\request::post('discount');
+		$post['vat']       = \dash\request::post('vat');
 		$post['barcode']   = \dash\request::post('barcode');
 		$post['barcode2']  = \dash\request::post('barcode2');
-		// $post['seotitle']  = \dash\request::post('seotitle');
+
 		$post['slug']      = \dash\request::post('slug');
 		$post['seodesc']   = \dash\request::post('seodesc');
 		$post['scalecode'] = \dash\request::post('scalecode');
 
-		// $post['category']      = \dash\request::post('cat');
-		// $post['sku']           = \dash\request::post('sku');
-		// $post['code']          = \dash\request::post('code');
-		// $post['trackquantity'] = \dash\request::post('trackquantity');
-		// $post['gallery']       = \dash\request::post('gallery');
-		// $post['status']        = \dash\request::post('status');
-		// $post['minstock']      = \dash\request::post('minstock');
-		// $post['maxstock']      = \dash\request::post('maxstock');
-		// $post['minsale']       = \dash\request::post('minsale');
-		// $post['maxsale']       = \dash\request::post('maxsale');
-		// $post['salestep']      = \dash\request::post('salestep');
-		// $post['oversale']      = \dash\request::post('oversale');
-		// $post['stocks']        = \dash\request::post('stock');
-		// $post['length']        = \dash\request::post('length');
-		// $post['width']         = \dash\request::post('width');
-		// $post['height']        = \dash\request::post('height');
-		// $post['filesize']      = \dash\request::post('filesize');
-		// $post['fileaddress']   = \dash\request::post('fileaddress');
 
 		return $post;
 	}
@@ -130,10 +90,12 @@ class model
 
 		$result = null;
 
-		if(!self::whole_edit_child($id))
+
+		if(\dash\request::post('wholeeditequalprice'))
 		{
-			return false;
+			self::whole_edit_price($id);
 		}
+
 
 		if(\dash\request::post('submitall') === 'master')
 		{
@@ -158,51 +120,36 @@ class model
 	}
 
 
-	private static function whole_edit_child($_id)
+	private static function whole_edit_price($_id)
 	{
-		if(\dash\request::post('wholeeditchild') !== 'wholeeditchild')
+		$child = \dash\data::productDataRow_child();
+		if(!is_array($child))
 		{
-			return true;
+			$child = [];
 		}
 
-		$post = \dash\request::post();
-
 		$whole_edit = [];
-		foreach ($post as $key => $value)
+
+		foreach ($child as $key => $value)
 		{
-			if(preg_match("/^whole_(price|buyprice|discount|stock|optionvalue1|optionvalue2|optionvalue3)_(\d+)$/", $key, $split))
+			if(isset($value['id']))
 			{
-				$type = $split[1];
-				$my_id = $split[2];
-
-				if(!isset($whole_edit[$my_id]))
-				{
-					$whole_edit[$my_id] = [];
-				}
-
-				if($type === 'stock')
-				{
-					if(is_numeric($value))
-					{
-						$whole_edit[$my_id][$type] = $value;
-					}
-				}
-				else
-				{
-					$whole_edit[$my_id][$type] = $value;
-				}
-
+				$whole_edit[$value['id']] =
+				[
+					'price'    => \dash\request::post('price'),
+					'discount' => \dash\request::post('discount'),
+					'buyprice' => \dash\request::post('buyprice'),
+				];
 			}
 		}
 
-		if($whole_edit)
+		if(!empty($whole_edit))
 		{
-			return \lib\app\product\edit::whole_edit($whole_edit, $_id);
+			\lib\app\product\edit::whole_edit($whole_edit, $_id);
+			\dash\notif::clean();
 		}
-
-		return true;
-
 	}
+
 
 
 

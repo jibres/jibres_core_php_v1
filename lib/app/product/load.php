@@ -65,6 +65,48 @@ class load
 			{
 				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
 
+				$all_child_buyprice = array_column($detail['child'], 'buyprice');
+				$all_child_buyprice = array_unique($all_child_buyprice);
+				$all_child_buyprice = array_values($all_child_buyprice);
+
+				$all_child_price    = array_column($detail['child'], 'price');
+				$all_child_price    = array_unique($all_child_price);
+				$all_child_price    = array_values($all_child_price);
+
+				$all_child_discount = array_column($detail['child'], 'discount');
+				$all_child_discount = array_unique($all_child_discount);
+				$all_child_discount = array_values($all_child_discount);
+
+				if(
+					(count($all_child_buyprice) === 1  || count($all_child_buyprice) === 0 ) &&
+					(count($all_child_discount) === 1  || count($all_child_discount) === 0 ) &&
+					(count($all_child_price) === 1  || count($all_child_price) === 0 )
+				  )
+				{
+
+					$detail['allPriceIsEqual'] = true;
+				}
+				else
+				{
+					$detail['allPriceIsEqual'] = false;
+				}
+
+				if(count($all_child_buyprice) === 1)
+				{
+					$detail['buyprice'] = $all_child_buyprice[0];
+				}
+
+				if(count($all_child_price) === 1)
+				{
+					$detail['price'] = $all_child_price[0];
+				}
+
+
+				if(count($all_child_discount) === 1)
+				{
+					$detail['discount'] = $all_child_discount[0];
+				}
+
 				$stockallchild = 0;
 				foreach ($detail['child'] as $key => $value)
 				{

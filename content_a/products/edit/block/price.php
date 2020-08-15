@@ -1,5 +1,29 @@
+<?php $showPriceWholeEdit = true; ?>
+<?php if($have_variant_child) {?>
+<div class="box">
+  <div class="pad">
+
+      <div class="f">
+        <div class="cauto">
+          <div class="check1">
+            <input type="checkbox" name="wholeeditequalprice" id="wholeeditequalprice" <?php if(\dash\get::index(\dash\data::productDataRow(), 'allPriceIsEqual')) { echo 'checked'; }else{$showPriceWholeEdit = false; } ?>>
+            <label for="wholeeditequalprice"><?php echo T_("Change all child price") ?></label>
+          </div>
+        </div>
+        <div class="c"></div>
+        <div class="cauto">
+          <a class="link btn" href="<?php echo \dash\url::this(). '/child?id='. \dash\request::get('id') ?>"><?php echo T_("Manage each independently"); ?> </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php } //endif ?>
+<div data-response='wholeeditequalprice' data-response-effect='slide' <?php if($showPriceWholeEdit) {/*nothing*/}else{echo 'data-response-hide'; } //endif ?>>
+
  <div class="box">
       <div class="pad jboxPrice">
+
+
         <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >
           <div class="c s12 pRa5">
             <label for='buyprice'><?php echo T_("Buy cost"); ?></label>
@@ -64,3 +88,4 @@
         </div>
       </div>
     </div>
+</div>

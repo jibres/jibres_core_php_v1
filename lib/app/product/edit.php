@@ -20,6 +20,12 @@ class edit
 	{
 		$id = \dash\validate::id($_id);
 
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
 
 		$ids = array_keys($_args);
 		$ids = array_filter($ids);
@@ -47,13 +53,6 @@ class edit
 
 		foreach ($_args as $key => $value)
 		{
-			self::edit($value, $key, ['multi_edit' => true]);
-
-			if(\dash\temp::get('productHasChange'))
-			{
-				$productHasChange = true;
-			}
-
 			if(!\dash\engine\process::status())
 			{
 				return false;
@@ -62,6 +61,14 @@ class edit
 			{
 				\dash\notif::clean();
 			}
+
+			self::edit($value, $key, ['multi_edit' => true]);
+
+			if(\dash\temp::get('productHasChange'))
+			{
+				$productHasChange = true;
+			}
+
 		}
 
 		\dash\temp::set('productHasChange', $productHasChange);

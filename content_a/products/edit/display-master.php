@@ -18,10 +18,7 @@
       </div>
      </div>
     </div>
-    <?php if($have_variant_child) {?>
-    <?php }else{ ?>
       <?php require_once('block/price.php'); ?>
-  <?php } //endif ?>
     <?php if(!\dash\detect\device::detectPWA()) {?>
     <div class="box">
       <div class="pad ovv">
@@ -80,13 +77,5 @@
 <?php require_once ('block/sidebar-menu.php'); ?>
 
   </div>
- </div>
- <div>
-
-   <?php if($have_variant_child) {?>
-      <?php /*  --------------- All detail for price hide when the product is parent of other product*/ ?>
-        <?php require_once('block/price-child.php'); ?>
-      <?php } //endif ?>
-
  </div>
 </form>

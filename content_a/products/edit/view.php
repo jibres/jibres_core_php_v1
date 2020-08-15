@@ -8,12 +8,7 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-		// set page title from product title
-		// $title = \dash\data::productDataRow_title();
-		// if(!isset($title))
-		// {
-		// 	$title = T_("Without name");
-		// }
+
 
 		\dash\face::title(T_("Edit Product"));
 
@@ -21,7 +16,6 @@ class view
 		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
 		\dash\face::btnSave('aProductData');
 		\dash\face::btnSaveValue('master');
-		// \dash\face::btnSaveText('123');
 
 
 		// back
