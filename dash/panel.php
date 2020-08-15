@@ -312,9 +312,7 @@ class panel
 			'link'   => \dash\url::here().'/ticket/add',
 			'icon'   => 'plus',
 			'active' => (\dash\url::module()==='ticket'&& \dash\url::child()==='add'? true :false)
-
 		];
-
 
 		return $menu;
 	}
