@@ -336,6 +336,11 @@ class tag
 			return false;
 		}
 
+		if(!\dash\get::index($args, 'status'))
+		{
+			$args['status'] = 'enable';
+		}
+
 		$tag_id = \lib\db\producttag\insert::new_record($args);
 
 		if(!$tag_id)
@@ -367,10 +372,17 @@ class tag
 			return false;
 		}
 
+
+
 		$args = self::check($_args, $_id);
 		if(!$args)
 		{
 			return false;
+		}
+
+		if(!\dash\get::index($args, 'status'))
+		{
+			$args['status'] = 'enable';
 		}
 
 		\lib\db\producttag\update::update($args, $_id);

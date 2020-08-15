@@ -14,17 +14,11 @@ class view
 
 		$args =
 		[
-			'order' => \dash\request::get('order'),
-			'sort'  => \dash\request::get('sort'),
+			'order' => 'desc',
+			'sort'  => 'id',
 
 		];
 
-		if(!$args['order'])
-		{
-			$args['order'] = 'DESC';
-		}
-
-		$args['language'] = \dash\language::current();
 		$search_string = \dash\request::get('q');
 
 		$dataTable = \lib\app\product\tag::list($search_string, $args);

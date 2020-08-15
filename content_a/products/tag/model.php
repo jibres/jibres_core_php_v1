@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('action') === 'remove' && \dash\request::get('edit'))
+		if(\dash\request::post('remove') === 'remove' && \dash\request::get('edit'))
 		{
 			$remove = \lib\app\product\tag::remove(\dash\request::get('edit'));
 			if($remove)
@@ -20,9 +20,9 @@ class model
 		$post             = [];
 		$post['title']    = \dash\request::post('title');
 		$post['desc']     = \dash\request::post('desc');
-		$post['language'] = \dash\request::post('language');;
+		$post['language'] = \dash\language::current();
 		$post['slug']     = \dash\request::post('slug');
-		$post['status']   = \dash\request::post('status');
+		// $post['status']   = \dash\request::post('status');
 
 		if(\dash\request::get('edit'))
 		{
