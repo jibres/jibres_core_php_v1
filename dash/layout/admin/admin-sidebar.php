@@ -49,40 +49,44 @@ else
   }
   echo "</figure>";
 
+  echo '<nav>';
+  {
+    $mySidebar = \dash\panel::sidebar();
+    if($mySidebar && is_array($mySidebar))
+    {
+      foreach ($mySidebar as $key => $item)
+      {
+        echo "<li>";
+        echo "<a";
+        if(isset($item['link']))
+        {
+          echo ' href="'. $item['link']. '"';
+        }
+        if(isset($item['class']))
+        {
+          echo ' class="'. $item['class']. '"';
+        }
+        if(isset($item['active']))
+        {
+          echo ' data-active';
+        }
+        echo ">";
+        if(isset($item['title']))
+        {
+          echo $item['title'];
+        }
+        echo "</a>";
+        echo "</li>";
+      }
+    }
+  }
+  echo '</nav>';
+
+
   echo '<div class="menu">';
   {
     echo '<ul class="sidenav">';
     {
-      $mySidebar = \dash\panel::sidebar();
-      if($mySidebar && is_array($mySidebar))
-      {
-        foreach ($mySidebar as $key => $item)
-        {
-          echo "<li>";
-          echo "<a";
-          if(isset($item['link']))
-          {
-            echo ' href="'. $item['link']. '"';
-          }
-          if(isset($item['class']))
-          {
-            echo ' class="'. $item['class']. '"';
-          }
-          if(isset($item['active']))
-          {
-            echo ' data-active';
-          }
-          echo ">";
-          if(isset($item['title']))
-          {
-            echo $item['title'];
-          }
-          echo "</a>";
-          echo "</li>";
-        }
-      }
-
-      echo "<hr>";
       require_once ('admin-sidebar-frame.php');
     }
     echo '</ul>';
