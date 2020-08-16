@@ -1,3 +1,17 @@
+<?php
+$currentVariants = \dash\data::currentVariants();
+if(!is_array($currentVariants))
+{
+  $currentVariants = [];
+}
+
+$remain_count = \dash\data::remainCount();
+if(!is_numeric($remain_count))
+{
+  $remain_count = 0;
+}
+
+?>
 <form method="post" autocomplete="off">
   <div class="avand-md">
     <div class="box">
@@ -5,60 +19,40 @@
         <p>
           <?php echo T_("You have already added variants to this product. You can now add a specific type to one of the added variants types"); ?>
         </p>
-        <?php for ($i=1; $i <= 3 ; $i++) {?>
-        <?php if(\dash\get::index($variantsList, 'variants', 'option'. $i, 'name')) {?>
-        <div class="f">
-          <div class="cauto mB10">
-            <label><?php echo T_("Property #:val", ['val' => \dash\fit::number($i)]); ?></label>
-            <div class="input">
-              <input disabled type="text" name="optionname<?php echo $i; ?>" value="<?php echo \dash\get::index($variantsList, 'variants', 'option'. $i, 'name'); ?>">
-            </div>
+
+        <?php foreach ($currentVariants as $key => $value) {?>
+          <div class="example">
+            <div class="mA5"><?php echo $key ?></div>
+            <?php foreach ($value as $v) {?>
+            <div class="ibtn" data-removeElement ><i data-ajaxify  class="sf-times fc-red"></i> <span><?php echo $v; ?></span></div>
+            <?php } //endif ?>
           </div>
-
-          <div class="c pLa5 mB10">
-            <div>
-              <label>&nbsp;</label>
-              <select name="optionvalue<?php echo $i; ?>[]" id="optionvalue<?php echo $i; ?>" class="select22" data-model="tag" multiple="multiple">
-                <?php if(isset($variantsList['variants']['option'. $i]['value']) && is_array($variantsList['variants']['option'. $i]['value'])) { foreach ($variantsList['variants']['option'. $i]['value'] as $key => $value) {?>
-                  <option value="<?php echo $value; ?>" selected ><?php echo $value; ?></option>
-                <?php } } //endfor //endif  ?>
-              </select>
-            </div>
-          </div>
-
-        </div>
-        <?php } //endif ?>
-        <?php } //endfor ?>
-
-        <?php for ($i=1; $i <= 3 ; $i++) {?>
-        <?php if(!\dash\get::index($variantsList, 'variants', 'option'. $i, 'name')) {?>
-        <div class="f">
-          <div class="cauto mB10">
-            <label><?php echo T_("Property #:val", ['val' => \dash\fit::number($i)]); ?></label>
-            <div class="input">
-              <input type="text" name="optionname<?php echo $i; ?>" value="<?php echo \dash\get::index($variantsList, 'variants', 'option'. $i, 'name'); ?>">
-            </div>
-          </div>
-
-          <div class="c pLa5 mB10">
-            <div>
-              <label>&nbsp;</label>
-              <select name="optionvalue<?php echo $i; ?>[]" id="optionvalue<?php echo $i; ?>" class="select22" data-model="tag" multiple="multiple">
-                <?php if(isset($variantsList['variants']['option'. $i]['value']) && is_array($variantsList['variants']['option'. $i]['value'])) { foreach ($variantsList['variants']['option'. $i]['value'] as $key => $value) {?>
-                  <option value="<?php echo $value; ?>" selected><?php echo $value; ?></option>
-                <?php } } //endfor //endif  ?>
-              </select>
-            </div>
-          </div>
-
-        </div>
-        <?php } //endif ?>
         <?php } //endfor ?>
 
 
+        <?php for ($i = 1; $i <= $remain_count ; $i++) { $myI = $remain_count + 1 - $i;?>
+          <div class="f">
+          <div class="cauto mLa5">
+            <label><?php echo T_("New Property"); ?></label>
+            <div class="input">
+              <input type="text" name="optionname<?php echo $myI; ?>">
+            </div>
+          </div>
+
+           <div class="c mLa5">
+            <label><?php echo T_("Value"); ?></label>
+            <div class="input">
+              <input type="text" name="optionvalue<?php echo $myI; ?>">
+            </div>
+          </div>
+
+          </div>
 
 
-      </div>
+      <?php } //endfor ?>
+
+        </div>
+
       <footer class="txtRa">
         <button class="btn master" name="submitall" value="makevariantsagain"><?php echo T_("Add"); ?></button>
       </footer>

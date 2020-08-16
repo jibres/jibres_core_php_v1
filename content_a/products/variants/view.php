@@ -66,6 +66,62 @@ class view
 		{
 			// \dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
+
+
+		if(\dash\data::productDataRow_child() && is_array(\dash\data::productDataRow_child()))
+		{
+			$currentVariants = [];
+
+			foreach (\dash\data::productDataRow_child() as $key => $value)
+			{
+				if(\dash\get::index($value, 'optionname1') && !isset($currentVariants[\dash\get::index($value, 'optionname1')]))
+				{
+					$currentVariants[\dash\get::index($value, 'optionname1')]  = [];
+				}
+
+				if(\dash\get::index($value, 'optionvalue1'))
+				{
+					$currentVariants[\dash\get::index($value, 'optionname1')][]  = \dash\get::index($value, 'optionvalue1');
+				}
+
+				if(\dash\get::index($value, 'optionname2') && !isset($currentVariants[\dash\get::index($value, 'optionname2')]))
+				{
+					$currentVariants[\dash\get::index($value, 'optionname2')]  = [];
+				}
+
+				if(\dash\get::index($value, 'optionvalue2'))
+				{
+					$currentVariants[\dash\get::index($value, 'optionname2')][]  = \dash\get::index($value, 'optionvalue2');
+				}
+
+				if(\dash\get::index($value, 'optionname3') && !isset($currentVariants[\dash\get::index($value, 'optionname3')]))
+				{
+					$currentVariants[\dash\get::index($value, 'optionname3')]  = [];
+				}
+
+				if(\dash\get::index($value, 'optionvalue3'))
+				{
+					$currentVariants[\dash\get::index($value, 'optionname3')][]  = \dash\get::index($value, 'optionvalue3');
+				}
+
+			}
+
+			$currentVariants = array_map('array_unique', $currentVariants);
+
+			$remain_count = 0;
+			if(count($currentVariants) === 2)
+			{
+				$remain_count = 1;
+			}
+
+			if(count($currentVariants) === 1)
+			{
+				$remain_count = 2;
+			}
+			\dash\data::remainCount($remain_count);
+
+			\dash\data::currentVariants($currentVariants);
+		}
 	}
 }
 ?>
