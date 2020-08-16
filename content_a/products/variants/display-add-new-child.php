@@ -19,15 +19,15 @@ if(!is_numeric($remain_count))
       <div class="body">
         <p>
           <?php echo T_("You have already added variants to this product. You can now add a specific type to one of the added variants types"); ?>
-          <br>
           <?php echo T_("Or delete a specific type of product variant"); ?>
+
           <div class="fc-red"><?php echo T_("Note that if you delete one type of variant, all products that have that type of variant will be removed!") ?></div>
         </p>
         <?php foreach ($currentVariants as $key => $value) {?>
           <div class="example">
             <div class="mA5"><?php echo $key ?></div>
             <?php foreach ($value as $v) {?>
-              <div class="ibtn"><i class="sf-trash fc-red fs14" data-confirm data2-title2 data-msg='<?php echo T_("Remove all variants by :val :color ", ['val' => $key, 'color' => $v]) ?>'></i> <span><?php echo $v; ?></span></div>
+              <div class="ibtn"><i class="sf-trash fc-red fs14" data-confirm data2-title2 data-msg='<?php echo T_("Remove all variants by :val :color?", ['val' => $key, 'color' => $v]) ?>'></i> <span><?php echo $v; ?></span></div>
             <?php } //endif ?>
           </div>
         <?php } //endfor ?>

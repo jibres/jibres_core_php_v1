@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-16 11:55+0430\n"
-"PO-Revision-Date: 2020-08-16 11:58+0430\n"
+"POT-Creation-Date: 2020-08-16 12:30+0430\n"
+"PO-Revision-Date: 2020-08-16 12:31+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7724,7 +7724,7 @@ msgstr ""
 "شما قبلا به این محصول تنوع اضافه کرده‌اید. اکنون می‌توانید یک نوع خاص به ویژگی‌‌های ثبت شده "
 "قبلی اضافه کنید"
 
-#: content_a/products/variants/display-add-new-child.php:23
+#: content_a/products/variants/display-add-new-child.php:22
 msgid "Or delete a specific type of product variant"
 msgstr "یا یک نوع خاص از تنوع را حذف کنید"
 
@@ -7737,8 +7737,8 @@ msgstr ""
 "خواهند شد!"
 
 #: content_a/products/variants/display-add-new-child.php:30
-msgid "Remove all variants by :val :color "
-msgstr "آیا همه محصولات :val :color حذف شوند؟"
+msgid "Remove all variants by :val :color?"
+msgstr "آیا همه محصولات با :val :color حذف شوند؟"
 
 #: content_a/products/variants/display-add-new-child.php:39
 msgid "New Property"
