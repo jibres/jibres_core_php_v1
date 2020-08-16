@@ -2,12 +2,12 @@
 
 
 <div class="row padLess">
-  <div class="c-9 xs-12">
+  <div class="c-9 c-xs-12">
 <?php if(\dash\permission::check('staffAccess')) {?>
    <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
 <?php } //endif ?>
   </div>
-  <div class="c-3 xs-12">
+  <div class="c-3 c-xs-12">
    <nav class="items long">
      <ul>
 <?php if(\dash\permission::check('productList')) {?>
