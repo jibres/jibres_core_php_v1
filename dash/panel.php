@@ -402,7 +402,7 @@ class panel
 			[
 				'title'  => T_("Reports"),
 				'link'   => \dash\url::here().'/report',
-				'icon'   => 'receipt-shopping-streamline',
+				'icon'   => 'bar-chart',
 				'active' => (\dash\url::module()==='report'? true :false)
 			];
 		}
@@ -412,7 +412,7 @@ class panel
 			[
 				'title'  => T_("Sales Channels"),
 				'link'   => \dash\url::here().'/channels',
-				'icon'   => 'network',
+				'icon'   => 'line-chart',
 				'active' => (\dash\url::module()==='channels'? true :false)
 			];
 		}
