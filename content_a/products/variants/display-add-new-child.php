@@ -24,7 +24,7 @@ if(!is_numeric($remain_count))
           <div class="example">
             <div class="mA5"><?php echo $key ?></div>
             <?php foreach ($value as $v) {?>
-            <div class="ibtn" data-removeElement ><i data-ajaxify  class="sf-times fc-red"></i> <span><?php echo $v; ?></span></div>
+            <div class="ibtn" data-removeElement ><i data-confirm  class="sf-times fc-red"></i> <span><?php echo $v; ?></span></div>
             <?php } //endif ?>
           </div>
         <?php } //endfor ?>

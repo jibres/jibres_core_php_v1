@@ -49,7 +49,7 @@ if($myChildList)
 
                     <?php $myId = \dash\get::index($value, 'id'); ?>
 
-                      <tr>
+                      <tr data-removeElement>
                         <td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
                         <?php if(\dash\get::index($value, 'optionname1')) {?>
                           <td>

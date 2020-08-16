@@ -6,9 +6,7 @@
          <?php if(isset($variantsList['temp_product']) && is_array($variantsList['temp_product'])) {?>
 
                 <p><?php echo T_("You have :val different models of this product", ['val' => \dash\fit::number(count($variantsList['temp_product']))]) ?></p>
-                <p>
-                  <?php echo T_("Only product by check the need box can add to your product list!"); ?>
-                </p>
+
 
               <?php $myCount = 0; ?>
 
@@ -18,13 +16,14 @@
                 <table class="tbl1 v4 fs09">
                   <thead>
                     <tr>
-                      <th class="collapsing"><?php echo T_("Avalible?"); ?></th>
+                      <th class="collapsing"></th>
                       <th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option1', 'name'); ?></th>
                       <?php if(isset($variantsList['variants']['option2']['value']) && $variantsList['variants']['option2']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option2', 'name'); ?></th><?php } //endif ?>
                       <?php if(isset($variantsList['variants']['option3']['value']) && $variantsList['variants']['option3']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option3', 'name'); ?></th><?php } //endif ?>
                       <th><?php echo T_("Stock"); ?></th>
                       <th><?php echo T_("Price"); ?></th>
                       <th><?php echo T_("Discount"); ?></th>
+                      <th class="collapsing"></th>
 
 
                     </tr>
@@ -34,13 +33,13 @@
 
                     <?php $myCount++; ?>
 
-                      <tr>
-                        <td class="collapsing">
-                          <div class="check1">
-                                  <input type="checkbox" name="avalible_<?php echo $myCount; ?>" value="1" id="sChk<?php echo $myCount; ?>"  checked>
-                                  <label for="sChk<?php echo $myCount; ?>"><?php echo \dash\fit::number($myCount); ?></label>
-                                </div>
+                      <tr data-removeElement>
+                        <td class="collapsing"><?php echo \dash\fit::number($myCount); ?>
+                            <div class="hide">
+                              <input type="hidden" name="avalible_<?php echo $myCount; ?>" value="1">
+                            </div>
                         </td>
+
                         <?php $myOptionKey = 0; ?>
 
                         <?php foreach ($value as $k => $v) {?>
@@ -69,6 +68,10 @@
                           <div class="input">
                             <input type="number" name="discount_<?php echo $myCount; ?>" placeholder='<?php echo T_("Discount"); ?>' value="<?php echo \dash\data::productDataRow_discount(); ?>">
                           </div>
+                        </td>
+
+                        <td class="collapsing">
+                          <div><i data-removeElTrigger class="sf-trash fc-red fs14"></i></div>
                         </td>
 
                       </tr>

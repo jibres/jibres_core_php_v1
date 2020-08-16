@@ -9,6 +9,14 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+
+		if(\dash\request::post('remove') === 'remove')
+		{
+			$result = \lib\app\product\remove::product(\dash\request::post('id'));
+			return true;
+		}
+
+
 		$post = \dash\request::post();
 
 		$whole_edit = [];
