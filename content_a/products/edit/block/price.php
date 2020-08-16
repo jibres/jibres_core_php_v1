@@ -28,7 +28,7 @@
           <div class="c s12 pRa5">
             <label for='buyprice'><?php echo T_("Buy cost"); ?></label>
             <div class="input fix ltr">
-              <input type="text" name="buyprice" id="buyprice" data-format='price' value="<?php echo \dash\get::index($productDataRow,'buyprice'); ?>" maxlength="15" data-run-input='calcProductMargin'>
+              <input type="tel" name="buyprice" id="buyprice" data-format='price' value="<?php echo \dash\get::index($productDataRow,'buyprice'); ?>" maxlength="15" data-run-input='calcProductMargin'>
             </div>
           </div>
           <div class="c s12">
@@ -47,13 +47,13 @@
           <div class="c s12 pRa5">
             <label for='price'><?php echo T_("Sale Price"); ?></label>
             <div class="input fix ltr mB5-f">
-              <input type="text" name="price" id="price" data-format='price' value="<?php echo \dash\get::index($productDataRow,'price'); ?>" maxlength="15" data-run-input='calcProductMargin'>
+              <input type="tel" name="price" id="price" data-format='price' value="<?php echo \dash\get::index($productDataRow,'price'); ?>" maxlength="15" data-run-input='calcProductMargin'>
             </div>
           </div>
           <div class="c s12">
             <label for='discount'><?php echo T_("Discount"); ?></label>
             <div class="input fix ltr mB5-f">
-              <input type="text" name="discount" id="discount" data-format='price' value="<?php echo \dash\get::index($productDataRow,'discount'); ?>" maxlength="15" data-run-input='calcProductMargin'>
+              <input type="tel" name="discount" id="discount" data-format='price' value="<?php echo \dash\get::index($productDataRow,'discount'); ?>" maxlength="15" data-run-input='calcProductMargin'>
               <div class="addon fs09" id='discountRate'></div>
             </div>
           </div>
