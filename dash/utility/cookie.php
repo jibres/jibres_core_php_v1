@@ -10,8 +10,7 @@ class cookie
 	const DURATION	= 0;
 
 	// @var string		Path in which the cookie will be available
-	// const PATH		= '/';
-	const PATH		= '/; samesite=strict';
+	const PATH		= '/';
 
 	// @var string		Domain that the cookie is available
 	const DOMAIN	= null;
@@ -85,7 +84,26 @@ class cookie
 		$_value = (string) $_value;
 
 		// Writes the cookie
-		setcookie($_name, $_value, $expire, $_path, $_domain, $_secure, $_httponly);
+		if(PHP_VERSION_ID < 70300)
+		{
+			$_path .= '; samesite=strict';
+			setcookie($_name, $_value, $expire, $_path, $_domain, $_secure, $_httponly);
+		}
+		else
+		{
+			$opt =
+			[
+				'expires'  => $expire,
+				'path'     => $_path,
+				'domain'   => $_domain,
+				'secure'   => $_secure,
+				'httponly' => $_httponly,
+				'samesite' => 'strict'
+				// None || Lax || Strict
+			];
+			setcookie($_name, $_value, $opt);
+
+		}
 		$_COOKIE[$_name] = $_value;
 	}
 
