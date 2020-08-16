@@ -196,7 +196,10 @@ class sessions
 	 */
 	public static function set_cookie($_code)
 	{
-		setcookie(self::cookie_name(), $_code, time() + (60*60*24*30), '/', self::cookie_domain(), true);
+		// setcookie(self::cookie_name(), $_code, time() + (60*60*24*30), '/', self::cookie_domain(), true, true);
+		// \dash\utility\cookie::write(self::cookie_name(), $_code, time() + (60*60*24*30), '/', self::cookie_domain(), true);
+		\dash\utility\cookie::write(self::cookie_name(), $_code);
+		// \dash\utility\cookie::write(self::cookie_name(), $_code, (60*60*24*30), '/', self::cookie_domain(), true, true);
 	}
 
 

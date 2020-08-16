@@ -125,7 +125,7 @@ class prepare
 
 			if(array_key_exists($redirect_lang, \dash\language::all()))
 			{
-				\dash\utility\cookie::write('language', $redirect_lang, (60*60*1), '.'. \dash\url::domain());
+				\dash\utility\cookie::write('language', $redirect_lang, (60*60*1));
 
 				$my_url = \dash\url::base();
 
@@ -452,7 +452,7 @@ class prepare
 			}
 
 			// set cookie of language to fix false detection after redirect
-			\dash\utility\cookie::write('language', \dash\url::lang(), (60*60*1), '.'. \dash\url::domain());
+			\dash\utility\cookie::write('language', \dash\url::lang(), (60*60*1));
 		}
 		else
 		{
