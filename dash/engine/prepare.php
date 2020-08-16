@@ -167,7 +167,7 @@ class prepare
 		}
 
 		$cookie_secure   = true;
-		$cookie_samesite = 'lax';
+		$cookie_samesite = 'Strict';
 		if(\dash\url::isLocal() && \dash\url::protocol() === 'http')
 		{
 			$cookie_secure = false;
