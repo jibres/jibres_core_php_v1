@@ -10,7 +10,8 @@ class cookie
 	const DURATION	= 0;
 
 	// @var string		Path in which the cookie will be available
-	const PATH		= '/';
+	// const PATH		= '/';
+	const PATH		= '/; samesite=strict';
 
 	// @var string		Domain that the cookie is available
 	const DOMAIN	= null;

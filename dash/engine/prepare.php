@@ -189,7 +189,7 @@ class prepare
 				'secure'   => $cookie_secure,
 				'httponly' => true,
 				'samesite' => $cookie_samesite
-       ]);
+			]);
 		}
 
 		// start sessions
