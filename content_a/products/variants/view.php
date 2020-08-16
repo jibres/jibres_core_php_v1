@@ -67,10 +67,12 @@ class view
 			// \dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
 
+		\dash\data::countChild(0);
 
 		if(\dash\data::productDataRow_child() && is_array(\dash\data::productDataRow_child()))
 		{
 			$currentVariants = [];
+			\dash\data::countChild(count(\dash\data::productDataRow_child()));
 
 			foreach (\dash\data::productDataRow_child() as $key => $value)
 			{

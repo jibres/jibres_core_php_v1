@@ -44,5 +44,36 @@ class remove
 	}
 
 
+	public static function remove_variant_option($_optionname, $_optionvalue, $_id, $_i)
+	{
+		$_optionname  = \dash\validate::string_300($_optionname);
+		$_optionvalue = \dash\validate::string_300($_optionvalue);
+		$_id          = \dash\validate::id($_id);
+		$_i          = \dash\validate::smallint($_i);
+		$i = intval($_i);
+		if($i === 1 || $i === 2 || $i === 3)
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Invalid option index!"));
+			return false;
+		}
+
+		if($_optionname && $_optionvalue && $_id)
+		{
+			\lib\db\products\update::set_status_deleted_variant_option($_optionname, $_optionvalue, $_id, $i);
+			\lib\db\products\update::variant_child_calc($_id);
+			\dash\notif::ok(T_("All product by :val :col removed", ['val' => $_optionname, 'col' => $_optionvalue]));
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("No data to remove!"));
+			return false;
+		}
+	}
+
 }
 ?>

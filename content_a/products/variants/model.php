@@ -9,6 +9,15 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('remove') === 'option')
+		{
+			$optionname  = \dash\request::post('optionname');
+			$optionvalue = \dash\request::post('optionvalue');
+			$index       = \dash\request::post('index');
+			\lib\app\product\remove::remove_variant_option($optionname, $optionvalue, $id, $index);
+
+		}
+
 		if(\dash\request::post('editoption') === 'editoption')
 		{
 			$variant = self::get_variant();

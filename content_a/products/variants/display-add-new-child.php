@@ -23,11 +23,12 @@ if(!is_numeric($remain_count))
 
           <div class="fc-red"><?php echo T_("Note that if you delete one type of variant, all products that have that type of variant will be removed!") ?></div>
         </p>
-        <?php foreach ($currentVariants as $key => $value) {?>
+        <div class="msg"><?php echo T_("Count product child"); ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::countChild()); ?></span></div>
+        <?php $i = 0; foreach ($currentVariants as $key => $value) { $i++;?>
           <div class="example">
             <div class="mA5"><?php echo $key ?></div>
             <?php foreach ($value as $v) {?>
-              <div class="ibtn"><i class="sf-trash fc-red fs14" data-confirm data2-title2 data-msg='<?php echo T_("Remove all variants by :val :color?", ['val' => $key, 'color' => $v]) ?>'></i> <span><?php echo $v; ?></span></div>
+              <div class="ibtn"><i class="sf-trash fc-red fs14" data-confirm data-data='{"remove":"option", "optionname": "<?php echo $key ?>", "optionvalue": "<?php echo $v; ?>", "index": "<?php echo $i ?>"}' data2-title2 data-msg='<?php echo T_("Remove all variants by :val :color?", ['val' => $key, 'color' => $v]) ?>'></i> <span><?php echo $v; ?></span></div>
             <?php } //endif ?>
           </div>
         <?php } //endfor ?>

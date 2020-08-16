@@ -20,6 +20,12 @@ class update
 		return $result;
 	}
 
+	public static function set_status_deleted_variant_option($_optionname, $_optionvalue, $_parent, $_i)
+	{
+		$query  = "UPDATE products SET products.status = 'deleted' WHERE products.parent = $_parent AND products.optionname$_i = '$_optionname' AND products.optionvalue$_i = '$_optionvalue' ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 
 	public static function variant_child_calc($_id)
 	{
