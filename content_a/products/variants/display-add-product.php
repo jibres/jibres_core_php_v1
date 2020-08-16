@@ -5,7 +5,13 @@
 
          <?php if(isset($variantsList['temp_product']) && is_array($variantsList['temp_product'])) {?>
 
-                <p><?php echo T_("You have :val different models of this product", ['val' => \dash\fit::number(count($variantsList['temp_product']))]) ?></p>
+                <p>
+                    <?php echo T_("You have :val different models of this product", ['val' => \dash\fit::number(count($variantsList['temp_product']))]) ?>
+                    <br>
+                    <?php echo T_("Remove any products you do not need"); ?>
+                    <br>
+                    <?php echo T_("Please enter the price and inventory of each product and then click the save button"); ?>
+                  </p>
 
 
               <?php $myCount = 0; ?>
@@ -87,9 +93,9 @@
 
       </div>
       <footer class="f">
-        <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\url::that(). '?id='. \dash\data::productDataRow_id(). '&makevariants=1'; ?>"><?php echo T_("Change variants model") ?></a></div>
+        <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\url::that(). '?id='. \dash\data::productDataRow_id(). '&makevariants=1'; ?>"><?php echo T_("Edit options") ?></a></div>
         <div class="c"></div>
-        <div class="cauto"><button class="btn master" name="submitall" value="savevariants"><?php echo T_("Add variants products"); ?></button></div>
+        <div class="cauto"><button class="btn master" name="submitall" value="savevariants"><?php echo T_("Save"); ?></button></div>
 
 
       </footer>

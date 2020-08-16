@@ -37,7 +37,7 @@ if($myChildList)
         <div class="f">
           <div class="cauto"><p><?php echo T_("Manage each variant product independently"); ?></p></div>
           <div class="c"></div>
-          <div class="cauto"><a class="btn link" href="<?php echo \dash\url::this(). '/variants?id='. \dash\request::get('id'); ?>"><?php echo T_("Manage variants items") ?></a></div>
+          <div class="cauto"><a class="btn link" href="<?php echo \dash\url::this(). '/variants?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit options") ?></a></div>
         </div>
 
           <input type="hidden" name="wholeeditchild" value="wholeeditchild">
@@ -127,8 +127,16 @@ if($myChildList)
 
 
   <?php }else{ ?>
+    <div class="box">
+      <div class="body">
+        <div class="f">
+          <div class="cauto"><p><?php echo T_("This product have not variants"); ?></p></div>
+          <div class="c"></div>
+          <div class="cauto"><a class="btn link" href="<?php echo \dash\url::this(). '/variants?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit options") ?></a></div>
+        </div>
+      </div>
+    </div>
 
-    <div class="msg warn fs14 txtB txtC"><?php echo T_("This product have not variants") ?></div>
 
   <?php } //endif ?>
 

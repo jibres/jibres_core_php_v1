@@ -70,7 +70,7 @@
 
       </div>
       <footer class="txtRa">
-        <button class="btn master" name="submitall" value="makevariants"><?php echo T_("Make product variants"); ?></button>
+        <button class="btn master" name="submitall" value="makevariants"><?php echo T_("Next"); ?></button>
       </footer>
     </div>
   </div>

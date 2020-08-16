@@ -9,7 +9,59 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		self::set_variant($id);
+		if(\dash\request::post('editoption') === 'editoption')
+		{
+			$variant = self::get_variant();
+
+			if(!$variant)
+			{
+				\dash\notif::error(T_("Please specify the required products"));
+				return false;
+			}
+
+			\lib\app\product\variants::edit_option($variant, $id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+			}
+			return;
+		}
+
+
+		if(\dash\request::post('submitall') === 'savevariants')
+		{
+			$variant = self::get_variant();
+
+			if(!$variant)
+			{
+				\dash\notif::error(T_("Please specify the required products"));
+				return false;
+			}
+
+			\lib\app\product\variants::set_product($variant, $id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+			}
+			return;
+		}
+
+
+		if(\dash\request::post('submitall') === 'makevariants' || \dash\request::post('submitall') === 'makevariantsagain')
+		{
+			$request         = self::getPostVariant();
+
+			\lib\app\product\variants::set($request, $id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
+			}
+			return;
+		}
+
 
 		if(\dash\engine\process::status())
 		{
@@ -120,40 +172,6 @@ class model
 	}
 
 
-	private static function set_variant($_id)
-	{
 
-		if(\dash\request::post('submitall') === 'savevariants')
-		{
-			$variant = self::get_variant();
-
-			if(!$variant)
-			{
-				\dash\notif::error(T_("Please specify the required products"));
-				return false;
-			}
-
-			\lib\app\product\variants::set_product($variant, $_id);
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
-			}
-			return;
-		}
-
-		if(\dash\request::post('submitall') === 'makevariants' || \dash\request::post('submitall') === 'makevariantsagain')
-		{
-			$request         = self::getPostVariant();
-
-			\lib\app\product\variants::set($request, $_id);
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
-			}
-			return;
-		}
-	}
 }
 ?>

@@ -107,6 +107,14 @@ class view
 			}
 
 			$currentVariants = array_map('array_unique', $currentVariants);
+			foreach ($currentVariants as $key => $value)
+			{
+				if(empty($value))
+				{
+					unset($currentVariants[$key]);
+				}
+			}
+
 
 			$remain_count = 0;
 			if(count($currentVariants) === 2)
