@@ -166,14 +166,30 @@ class prepare
 			session_name(\dash\url::root());
 		}
 
-		// set session cookie params
+		$cookie_secure   = true;
+		$cookie_samesite = 'lax';
 		if(\dash\url::isLocal() && \dash\url::protocol() === 'http')
 		{
-			session_set_cookie_params(0, '/', '.'.\dash\url::domain(), false, true);
+			$cookie_secure = false;
+		}
+
+		// set session cookie params
+		if(PHP_VERSION_ID < 70300)
+		{
+			// session_set_cookie_params(0, '/', '.'.\dash\url::domain(), $cookie_secure, true);
+			session_set_cookie_params(0, '/; samesite='.$cookie_samesite, '.'.\dash\url::domain(), $cookie_secure, true);
 		}
 		else
 		{
-			session_set_cookie_params(0, '/', '.'.\dash\url::domain(), true, true);
+			session_set_cookie_params(
+			[
+				'lifetime' => 0,
+				'path'     => '/',
+				'domain'   => '.'.\dash\url::domain(),
+				'secure'   => $cookie_secure,
+				'httponly' => true,
+				'samesite' => $cookie_samesite
+       ]);
 		}
 
 		// start sessions
