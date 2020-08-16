@@ -59,7 +59,7 @@ class cookie
 
 		if(!isset($_duration))	$_duration = self::DURATION;
 		if(!isset($_path))			$_path     = self::PATH;
-		if(!isset($_domain))		$_domain   = self::DOMAIN;
+		if(!isset($_domain))		$_domain   = '.'. \dash\url::domain();
 		if(!isset($_secure))
 		{
 			$_secure = self::SECURE;
