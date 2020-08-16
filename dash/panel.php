@@ -407,6 +407,16 @@ class panel
 			];
 		}
 
+		{
+			$menu[] =
+			[
+				'title'  => T_("Sales Channels"),
+				'link'   => \dash\url::here().'/channels',
+				'icon'   => 'network',
+				'active' => (\dash\url::module()==='channels'? true :false)
+			];
+		}
+
 		if(\dash\permission::check('settingView'))
 		{
 			$menu[] =

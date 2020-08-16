@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\home;
+namespace content_a\channels\home;
 
 class view
 {
