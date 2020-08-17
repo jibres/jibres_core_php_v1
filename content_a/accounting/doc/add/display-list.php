@@ -8,7 +8,7 @@
            <tr class="font-12">
              <th class="collapsing"></th>
              <th><?php echo T_("Assistant"); ?> - <?php echo T_("Document Detail") ?></th>
-             <th><?php echo T_("Explanation"); ?></th>
+             <th class="collapsing"><?php echo T_("Explanation"); ?></th>
              <th class="collapsing"><?php echo T_("Debtor") ?></th>
              <th class="collapsing"><?php echo T_("Creditor") ?></th>
              <th class="collapsing"></th>
@@ -30,7 +30,7 @@
               </td>
 
 
-              <td><?php echo \dash\get::index($value, 'desc') ?></td>
+              <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
               <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></code></td>
               <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
               <td class="">
