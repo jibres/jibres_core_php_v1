@@ -434,6 +434,130 @@ class variants
 	}
 
 
+	public static function add_child($_args, $_id)
+	{
+		$condition =
+		[
+			'optionvalue1' => 'string_30',
+			'optionvalue2' => 'string_30',
+			'optionvalue3' => 'string_30',
+			'price'        => 'price',
+			'buyprice'     => 'price',
+			'discount'     => 'price',
+			'stock'        => 'int',
+		];
+
+
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$product_detail = \lib\app\product\load::one($_id);
+
+		if(!$product_detail || !isset($product_detail['type']))
+		{
+			return false;
+		}
+
+		if($product_detail['type'] !== 'product')
+		{
+			\dash\notif::error(T_("Variants not avalible on product by type :type", ['type' => T_(ucfirst($product_detail['type']))]));
+			return false;
+		}
+
+		if(isset($product_detail['parent']) && $product_detail['parent'])
+		{
+			\dash\notif::error(T_("This product was child of another product and can not set variantable"));
+			return false;
+		}
+
+		if(!\dash\get::index($product_detail, 'variant_child'))
+		{
+			\dash\notif::error(T_("This product have not child!"));
+			return false;
+		}
+
+
+		$child = \dash\get::index($product_detail, 'child');
+		if(!is_array($child))
+		{
+			$child = [];
+		}
+
+		if(empty($child))
+		{
+			\dash\notif::error(T_("This product have not child!"));
+			return false;
+		}
+
+		$current_optionname1 = array_column($child, 'optionname1');
+		$current_optionname1 = array_filter($current_optionname1);
+		$current_optionname1 = array_unique($current_optionname1);
+		$current_optionname1 = isset($current_optionname1[0]) ? $current_optionname1[0]: null;
+
+		$current_optionname2 = array_column($child, 'optionname2');
+		$current_optionname2 = array_filter($current_optionname2);
+		$current_optionname2 = array_unique($current_optionname2);
+		$current_optionname2 = isset($current_optionname2[0]) ? $current_optionname2[0]: null;
+
+		$current_optionname3 = array_column($child, 'optionname3');
+		$current_optionname3 = array_filter($current_optionname3);
+		$current_optionname3 = array_unique($current_optionname3);
+		$current_optionname3 = isset($current_optionname3[0]) ? $current_optionname3[0]: null;
+
+		if(isset($current_optionname1) && !$data['optionvalue1'])
+		{
+			\dash\notif::error(T_("Please fill the variants option"));
+			return false;
+		}
+
+		if(isset($current_optionname2) && !$data['optionvalue2'])
+		{
+			\dash\notif::error(T_("Please fill the variants option"));
+			return false;
+		}
+
+		if(isset($current_optionname3) && !$data['optionvalue3'])
+		{
+			\dash\notif::error(T_("Please fill the variants option"));
+			return false;
+		}
+
+		$add_new_product =
+		[
+			'optionname1'   => $current_optionname1,
+			'optionname2'   => $current_optionname2,
+			'optionname3'   => $current_optionname3,
+
+			'optionvalue1'  => $data['optionvalue1'],
+			'optionvalue2'  => $data['optionvalue2'],
+			'optionvalue3'  => $data['optionvalue3'],
+			'parent'        => $product_detail['id'],
+		];
+
+		$check_duplicate = \lib\db\products\get::check_duplicate_variants_add($add_new_product);
+
+		if(isset($check_duplicate['id']))
+		{
+			\dash\notif::error(T_("This variant option already exist in your product list"));
+			return false;
+		}
+
+
+		$add_new_product = array_merge($add_new_product,
+		[
+			'price'         => $data['price'],
+			'buyprice'      => $data['buyprice'],
+			'discount'      => $data['discount'],
+			'stock'         => $data['stock'],
+			'title'         => $product_detail['title'],
+
+		]);
+
+		return \lib\app\product\add::add($add_new_product, ['add_variants' => true]);
+	}
+
 
 
 	public static function edit_option($_args, $_id)

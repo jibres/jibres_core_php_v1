@@ -20,6 +20,7 @@ class model
 		$post = \dash\request::post();
 
 		$whole_edit = [];
+		$new_variants = [];
 		foreach ($post as $key => $value)
 		{
 			if(preg_match("/^whole_(price|buyprice|discount|stock|optionvalue1|optionvalue2|optionvalue3)_(\d+)$/", $key, $split))
@@ -45,13 +46,42 @@ class model
 				}
 
 			}
+
+			if(preg_match("/^new_(price|buyprice|discount|stock|optionvalue1|optionvalue2|optionvalue3)$/", $key, $split))
+			{
+				$type = $split[1];
+
+				if($type === 'stock')
+				{
+					if(is_numeric($value))
+					{
+						$new_variants[$type] = $value;
+					}
+				}
+				else
+				{
+					$new_variants[$type] = isset($value) ? $value : null;
+				}
+
+			}
 		}
 
+		$ok = false;
 		if($whole_edit)
 		{
+			$ok = true;
 			\lib\app\product\edit::whole_edit($whole_edit, $id);
 		}
-		else
+
+		$new_variants = array_filter($new_variants);
+
+		if($new_variants)
+		{
+			$ok = true;
+			\lib\app\product\variants::add_child($new_variants, $id);
+		}
+
+		if(!$ok)
 		{
 			\dash\notif::error(T_("No data founded to edit!"));
 			return false;

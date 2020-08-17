@@ -83,6 +83,7 @@ class add
 			'debug'       => true,
 			'multi_add'   => false,
 			'transaction' => false,
+			'add_variants' => false,
 		];
 
 		if(!is_array($_option))
@@ -267,7 +268,7 @@ class add
 			}
 		}
 
-		if(isset($args['trackquantity']) && $args['trackquantity'] === 'yes')
+		if((isset($args['trackquantity']) && $args['trackquantity'] === 'yes') || $_option['add_variants'])
 		{
 			if($stock)
 			{

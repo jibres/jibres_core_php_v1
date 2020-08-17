@@ -55,7 +55,7 @@ if($myChildList)
                           <td>
                           <div class="input">
                             <label class="addon small" for="whole_optionvalue1_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname1'); ?></label>
-                            <input type="text" name="whole_optionvalue1_<?php echo $myId; ?>" id="whole_optionvalue1_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'optionvalue1'); ?>" >
+                            <input type="text" name="whole_optionvalue1_<?php echo $myId; ?>" id="whole_optionvalue1_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'optionvalue1'); ?>" >
                           </div>
 
                           </td>
@@ -65,7 +65,7 @@ if($myChildList)
                           <td>
                           <div class="input">
                             <label class="addon small" for="whole_optionvalue2_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname2'); ?></label>
-                            <input type="text" name="whole_optionvalue2_<?php echo $myId; ?>" id="whole_optionvalue2_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'optionvalue2'); ?>" >
+                            <input type="text" name="whole_optionvalue2_<?php echo $myId; ?>" id="whole_optionvalue2_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'optionvalue2'); ?>" >
                           </div>
 
                           </td>
@@ -76,7 +76,7 @@ if($myChildList)
                           <td>
                           <div class="input">
                             <label class="addon small" for="whole_optionvalue3_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname3'); ?></label>
-                            <input type="text" name="whole_optionvalue3_<?php echo $myId; ?>" id="whole_optionvalue3_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'optionvalue3'); ?>" >
+                            <input type="text" name="whole_optionvalue3_<?php echo $myId; ?>" id="whole_optionvalue3_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'optionvalue3'); ?>" >
                           </div>
 
                           </td>
@@ -85,21 +85,21 @@ if($myChildList)
                         <td>
                           <div class="input">
                             <label class="addon small" for="whole_buyprice_<?php echo $myId; ?>"><?php echo T_("Buy price"); ?></label>
-                            <input type="tel" name="whole_buyprice_<?php echo $myId; ?>" id="whole_buyprice_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'buyprice'); ?>" data-format='price' minlength="0" maxlength="15">
+                            <input type="tel" name="whole_buyprice_<?php echo $myId; ?>" id="whole_buyprice_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'buyprice'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
                             <label class="addon small" for="whole_price_<?php echo $myId; ?>"><?php echo T_("Price"); ?></label>
-                            <input type="tel" name="whole_price_<?php echo $myId; ?>" id="whole_price_<?php echo $myId; ?>" placeholder2='<?php echo T_("Price"); ?>' value="<?php echo \dash\get::index($value, 'price'); ?>" data-format='price' minlength="0" maxlength="15">
+                            <input type="tel" name="whole_price_<?php echo $myId; ?>" id="whole_price_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'price'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
                             <label class="addon small" for="whole_discount_<?php echo $myId; ?>"><?php echo T_("Discount"); ?></label>
-                            <input type="tel" name="whole_discount_<?php echo $myId; ?>" id="whole_discount_<?php echo $myId; ?>" placeholder2='<?php echo T_("Discount"); ?>' value="<?php echo \dash\get::index($value, 'discount'); ?>" data-format='price' minlength="0" maxlength="15">
+                            <input type="tel" name="whole_discount_<?php echo $myId; ?>" id="whole_discount_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'discount'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
@@ -118,9 +118,77 @@ if($myChildList)
 
 
                     <?php } //endfor ?>
+
+                     <tr class="addNewLine" data-kerkere-content='hide'>
+                        <td class="collapsing"><i class="sf-asterisk fc-red"></i></td>
+                        <?php if(\dash\get::index($value, 'optionname1')) {?>
+                          <td>
+                          <div class="input">
+                            <label class="addon small" for="new_optionvalue1"><?php echo \dash\get::index($value, 'optionname1'); ?></label>
+                            <input type="text" name="new_optionvalue1" id="new_optionvalue1"   >
+                          </div>
+
+                          </td>
+                        <?php } //endif ?>
+
+                        <?php if(\dash\get::index($value, 'optionname2')) {?>
+                          <td>
+                          <div class="input">
+                            <label class="addon small" for="new_optionvalue2"><?php echo \dash\get::index($value, 'optionname2'); ?></label>
+                            <input type="text" name="new_optionvalue2" id="new_optionvalue2"   >
+                          </div>
+
+                          </td>
+
+                        <?php } //endif ?>
+
+                        <?php if(\dash\get::index($value, 'optionname3')) {?>
+                          <td>
+                          <div class="input">
+                            <label class="addon small" for="new_optionvalue3"><?php echo \dash\get::index($value, 'optionname3'); ?></label>
+                            <input type="text" name="new_optionvalue3" id="new_optionvalue3"   >
+                          </div>
+
+                          </td>
+                        <?php } //endif ?>
+
+                        <td>
+                          <div class="input">
+                            <label class="addon small" for="new_buyprice"><?php echo T_("Buy price"); ?></label>
+                            <input type="tel" name="new_buyprice" id="new_buyprice"   data-format='price' minlength="0" maxlength="15">
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="input">
+                            <label class="addon small" for="new_price"><?php echo T_("Price"); ?></label>
+                            <input type="tel" name="new_price" id="new_price"   data-format='price' minlength="0" maxlength="15">
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="input">
+                            <label class="addon small" for="new_discount"><?php echo T_("Discount"); ?></label>
+                            <input type="tel" name="new_discount" id="new_discount"   data-format='price' minlength="0" maxlength="15">
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="input">
+                          <label class="addon small" for="new_stock"><?php echo T_("Stock"); ?></label>
+                            <input type="tel" name="new_stock" id="whole_stock" data-format minlength="0" maxlength="15">
+                          </div>
+                        </td>
+
+                        <td>
+                        </td>
+
+                      </tr>
+
                   </tbody>
                 </table>
               </div>
+              <div class="link btn" data-kerkere='.addNewLine'><?php echo T_("Add new variants") ?></div>
   </div>
 </div>
 <?php }else{ /*have variant child but no child is founded. this is a bug!*/ ?>

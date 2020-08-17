@@ -3,6 +3,15 @@ namespace lib\db\products;
 
 class get
 {
+	public static function check_duplicate_variants_add($_args)
+	{
+		$where = \dash\db\config::make_where($_args);
+		$query  = "SELECT * FROM products WHERE $where LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function load_family_group_name($_parent_id, $_index)
 	{
 		$query  =

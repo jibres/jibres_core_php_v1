@@ -53,9 +53,11 @@ if(!is_numeric($remain_count))
           </div>
         <?php } //endif ?>
       </div>
+      <?php if($remain_count) {?>
       <footer class="txtRa">
         <button class="btn master" name="submitall" value="makevariantsagain"><?php echo T_("Add"); ?></button>
       </footer>
+    <?php } //endif ?>
     </div>
   </div>
 </form>
