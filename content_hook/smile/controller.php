@@ -62,6 +62,7 @@ class controller
 
 		// set result into notif
 		\dash\notif::result($myResult);
+		\dash\header::set(202);
 		// get result of notif and send it
 		$notifResult = \dash\notif::get();
 		\dash\code::jsonBoom($notifResult);
