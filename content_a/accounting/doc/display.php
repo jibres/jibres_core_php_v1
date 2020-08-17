@@ -20,7 +20,7 @@
 						<td class="collapsing"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 						<td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'number')) ?></td>
 
-						<td><?php echo \dash\get::index($value, 'title') ?></td>
+						<td><?php echo \dash\get::index($value, 'desc') ?></td>
 						<td class="collapsing"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'sum_debtor'), 'en') ?></span></td>
 						<td class="collapsing"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'sum_creditor'), 'en') ?></span></td>
 						<td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')) ?></td>
