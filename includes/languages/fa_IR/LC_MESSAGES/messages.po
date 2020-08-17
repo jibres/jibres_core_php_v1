@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-17 17:42+0430\n"
-"PO-Revision-Date: 2020-08-17 17:43+0430\n"
+"POT-Creation-Date: 2020-08-17 18:34+0430\n"
+"PO-Revision-Date: 2020-08-17 18:35+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1718,9 +1718,7 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_a/factor/home/display.php:126 content_a/order/add/display.php:18
 #: content_a/order/home/display.php:134 content_a/pricehistory/display.php:42
 #: content_a/pricehistory/display.php:57 content_a/pricehistory/display.php:90
-#: content_a/products/child/display.php:58 content_a/products/child/display.php:68
-#: content_a/products/child/display.php:79 content_a/products/child/display.php:88
-#: content_a/products/child/display.php:94 content_a/products/child/display.php:95
+#: content_a/products/child/display.php:94 content_a/products/child/display.php:164
 #: content_a/products/home/display.php:120 content_a/products/home/display.php:172
 #: content_a/products/share/display.php:30 content_a/products/share/model.php:62
 #: content_a/products/variants/display-add-product.php:30
@@ -4089,7 +4087,7 @@ msgstr "وضعیت"
 #: content_a/company/display.php:73 content_a/products/add/view.php:19
 #: content_a/products/bullet/display.php:20 content_a/products/property/display.php:63
 #: content_a/products/tag/display.php:30
-#: content_a/products/variants/display-add-new-child.php:57
+#: content_a/products/variants/display-add-new-child.php:58
 #: content_a/setting/place/inventory/display.php:17 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
@@ -6163,7 +6161,7 @@ msgstr "آیتم‌ها"
 #: content_a/factor/home/display.php:127 content_a/order/add/display.php:19
 #: content_a/order/add/display.php:60 content_a/order/detail/display.php:31
 #: content_a/order/home/display.php:135 content_a/pricehistory/display.php:58
-#: content_a/products/child/display.php:101 content_a/products/child/display.php:102
+#: content_a/products/child/display.php:101 content_a/products/child/display.php:171
 #: content_a/products/edit/block/price.php:54 content_a/products/home/display.php:173
 #: content_a/products/variants/display-add-product.php:31
 #: content_a/products/variants/display-add-product.php:75 content_a/sale/display.php:19
@@ -6784,7 +6782,8 @@ msgid "Show change price in special date"
 msgstr "نمایش تغییر قیمت در تاریخ خاص"
 
 #: content_a/pricehistory/display.php:56 content_a/products/child/display.php:87
-#: content_a/products/home/display.php:171 lib/app/product/search.php:101
+#: content_a/products/child/display.php:157 content_a/products/home/display.php:171
+#: lib/app/product/search.php:101
 msgid "Buy price"
 msgstr "قیمت خرید"
 
@@ -6862,23 +6861,28 @@ msgstr "محدودیت سبد خرید"
 msgid "Manage each variant product independently"
 msgstr "هر کدام از تنوع‌های محصول را به صورت مستقل مدیریت کنید"
 
-#: content_a/products/child/display.php:40 content_a/products/child/display.php:133
-#: content_a/products/child/display.php:147
+#: content_a/products/child/display.php:40 content_a/products/child/display.php:201
+#: content_a/products/child/display.php:215
 #: content_a/products/variants/display-add-product.php:96
 msgid "Edit options"
 msgstr "ویرایش گزینه‌ها"
 
-#: content_a/products/child/display.php:108 content_a/products/home/display.php:176
+#: content_a/products/child/display.php:108 content_a/products/child/display.php:178
+#: content_a/products/home/display.php:176
 #: content_a/products/variants/display-add-product.php:29
 #: content_a/products/variants/display-add-product.php:62
 msgid "Stock"
 msgstr "موجودی انبار"
 
-#: content_a/products/child/display.php:131 content_a/products/child/display.php:145
+#: content_a/products/child/display.php:191
+msgid "Add new variants"
+msgstr "افزودن تنوع جدید"
+
+#: content_a/products/child/display.php:199 content_a/products/child/display.php:213
 msgid "This product have not variants"
 msgstr "این محصول دارای تنوع نیست"
 
-#: content_a/products/child/model.php:56
+#: content_a/products/child/model.php:86
 msgid "No data founded to edit!"
 msgstr "هیچ مقداری برای ویرایش یافت نشد!"
 
@@ -28665,27 +28669,27 @@ msgstr "دستگاه کارتخوان حذف شد"
 msgid "Pos detail not found"
 msgstr "جزئیات دستگاه پوز یافت نشد"
 
-#: lib/app/product/add.php:117
+#: lib/app/product/add.php:118
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/add.php:227
+#: lib/app/product/add.php:228
 msgid "No way to insert product"
 msgstr "هیچ راهی برای ثبت محصول نیست"
 
-#: lib/app/product/add.php:258 lib/app/product/add.php:306
+#: lib/app/product/add.php:259 lib/app/product/add.php:307
 msgid "No way to insert product price"
 msgstr "هیچ راهی برای ثبت مبلغ محصول وجود ندارد"
 
-#: lib/app/product/add.php:325
+#: lib/app/product/add.php:326
 msgid "Product successfuly added"
 msgstr "محصول با موفقیت اضافه شد"
 
-#: lib/app/product/add.php:362
+#: lib/app/product/add.php:363
 msgid "Please set product title"
 msgstr "لطفا عنوان محصول را وارد کنید"
 
-#: lib/app/product/add.php:372
+#: lib/app/product/add.php:373
 msgid "Please change the product name to copy"
 msgstr "لطفا نام محصول را برای تهیه نسخه کپی وارد کنید"
 
@@ -29147,11 +29151,12 @@ msgid "Buyprice"
 msgstr "قیمت خرید"
 
 #: lib/app/product/variants.php:98 lib/app/product/variants.php:288
-#: lib/app/product/variants.php:467
+#: lib/app/product/variants.php:465 lib/app/product/variants.php:591
 msgid "Variants not avalible on product by type :type"
 msgstr "تنوع محصول برای محصولات با نوع :type در دسترس نیست"
 
-#: lib/app/product/variants.php:104 lib/app/product/variants.php:473
+#: lib/app/product/variants.php:104 lib/app/product/variants.php:471
+#: lib/app/product/variants.php:597
 msgid "This product was child of another product and can not set variantable"
 msgstr "این محصول زیرمجموعه محصول دیگری است و‌ نمی‌توانید برای این تنوع محصول ایجاد کنید"
 
@@ -29168,7 +29173,7 @@ msgid "Sorry!, Cannot insert or update data"
 msgstr "متاسفیم! ما نمی‌توانیم اطلاعات را ثبت یا به‌روزرسانی کنیم"
 
 #: lib/app/product/variants.php:177 lib/app/product/variants.php:183
-#: lib/app/product/variants.php:189 lib/app/product/variants.php:748
+#: lib/app/product/variants.php:189 lib/app/product/variants.php:872
 msgid "Duplicate option name"
 msgstr "عنوان تنوع تکراری است"
 
@@ -29204,27 +29209,37 @@ msgstr "محصولات شما اضافه شد"
 msgid "Can not add product"
 msgstr "نمی‌توانیم هیچ محصولی را اضافه کنیم"
 
-#: lib/app/product/variants.php:479 lib/app/product/variants.php:492
+#: lib/app/product/variants.php:477 lib/app/product/variants.php:490
+#: lib/app/product/variants.php:603 lib/app/product/variants.php:616
 msgid "This product have not child!"
 msgstr "این محصول دارای زیرمجموعه نیست!"
 
-#: lib/app/product/variants.php:539
+#: lib/app/product/variants.php:511 lib/app/product/variants.php:517
+#: lib/app/product/variants.php:523
+msgid "Please fill the variants option"
+msgstr "لطفا گزینه‌های مربوط به تنوع محصول را وارد کنید"
+
+#: lib/app/product/variants.php:543
+msgid "This variant option already exist in your product list"
+msgstr "این مدل تنوع قبلا به لیست محصولات شما اضافه شده است"
+
+#: lib/app/product/variants.php:663
 msgid "Variants option of this product is full"
 msgstr "حالت‌های تنوع این محصول کامل است"
 
-#: lib/app/product/variants.php:601
+#: lib/app/product/variants.php:725
 msgid "Variants option is empty. Please contact to administrator"
 msgstr "خطا در تنوع محصول. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/product/variants.php:728
+#: lib/app/product/variants.php:852
 msgid "Please add the new option"
 msgstr "لطفا گزینه جدید را وارد کنید"
 
-#: lib/app/product/variants.php:740
+#: lib/app/product/variants.php:864
 msgid "This option is exist. Try another option"
 msgstr "این گزینه وجود دارد. لطفا گزینه‌ دیگری را امتحان کنید"
 
-#: lib/app/product/variants.php:754
+#: lib/app/product/variants.php:878
 msgid "Product variants option updated"
 msgstr "تنوع محصول به‌روزرسانی شد"
 
