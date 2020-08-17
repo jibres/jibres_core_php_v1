@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-17 14:11+0430\n"
-"PO-Revision-Date: 2020-08-17 14:11+0430\n"
+"POT-Creation-Date: 2020-08-17 15:13+0430\n"
+"PO-Revision-Date: 2020-08-17 15:15+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -4426,16 +4426,12 @@ msgid "Add new accounting year"
 msgstr "افزودن سال مالی جدید"
 
 #: content_a/accounting/doc/add/display-doc.php:26
-#, fuzzy
-#| msgid "Document balance"
 msgid "Document Number"
-msgstr "سند در تعادل است"
+msgstr "شماره سند"
 
 #: content_a/accounting/doc/add/display-doc.php:38
-#, fuzzy
-#| msgid "Documentation"
 msgid "Document Description"
-msgstr "مستندات"
+msgstr "توضیح سند"
 
 #: content_a/accounting/doc/add/display-docdetail.php:9
 #: content_a/accounting/doc/add/display-docdetail.php:10
@@ -4446,8 +4442,6 @@ msgstr "لطفا کد معین را انتخاب کنید"
 
 #: content_a/accounting/doc/add/display-docdetail.php:21
 #: content_a/accounting/doc/add/display-docdetail.php:22
-#, fuzzy
-#| msgid "Please choose the details"
 msgid "Please choose document details"
 msgstr "لطفا تفصیل را انتخاب کنید"
 
@@ -4465,16 +4459,12 @@ msgid "Assistant"
 msgstr "معین"
 
 #: content_a/accounting/doc/add/display-list.php:9
-#, fuzzy
-#| msgid "Documentation"
 msgid "Document Detail"
-msgstr "مستندات"
+msgstr "تفصیل سند"
 
 #: content_a/accounting/doc/add/display-list.php:10
-#, fuzzy
-#| msgid "Application"
 msgid "Explanation"
-msgstr "برنامه"
+msgstr "شرح"
 
 #: content_a/accounting/doc/add/display-list.php:47
 #: content_a/accounting/doc/add/display-list.php:49
@@ -4508,28 +4498,20 @@ msgid "Item count"
 msgstr "تعداد آیتم‌ها"
 
 #: content_a/accounting/doc/display.php:9
-#, fuzzy
-#| msgid "Total Users"
 msgid "Total debtor"
-msgstr "همه‌ کاربران"
+msgstr "جمع بدهکار"
 
 #: content_a/accounting/doc/display.php:10
-#, fuzzy
-#| msgid "Total discount"
 msgid "Total creditor"
-msgstr "جمع تخفیف"
+msgstr "جمع بستانکار"
 
 #: content_a/accounting/doc/duplicate/display.php:6
-#, fuzzy
-#| msgid "Make a copy of this product"
 msgid "Make a copy of this accounting document"
-msgstr "یک نسخه کپی از این محصول ایجاد کنید"
+msgstr "یک نسخه کپی از این سند ایجاد کنید"
 
 #: content_a/accounting/doc/duplicate/display.php:7
-#, fuzzy
-#| msgid "Duplicate accounting document number"
 msgid "New Accounting document number"
-msgstr "شناسه سند حسابداری تکراری است"
+msgstr "شماره سند حسابداری جدید"
 
 #: content_a/accounting/doc/duplicate/display.php:12
 #: content_a/products/duplicate/display.php:12
@@ -4538,10 +4520,8 @@ msgid "Copy"
 msgstr "کپی"
 
 #: content_a/accounting/doc/duplicate/view.php:9
-#, fuzzy
-#| msgid "Auto set accounting documents?"
 msgid "Make copy from accounting document"
-msgstr "ثبت خودکار سند حسابداری انجام شود؟"
+msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
 #: content_a/accounting/doc/edit/view.php:9
 msgid "Edit accounting doc"
@@ -6928,7 +6908,7 @@ msgstr "حذف شده"
 #: lib/app/nic_domain/get.php:335 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
 #: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/store/domain.php:432
-#: lib/app/tax/coding/get.php:122 lib/app/tax/doc/get.php:34
+#: lib/app/tax/coding/get.php:121 lib/app/tax/doc/get.php:34
 #: lib/app/tax/docdetail/edit.php:16 lib/app/tax/docdetail/get.php:22
 #: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
 #: lib/app/tax/year/get.php:66 lib/app/website/body/edit.php:31
@@ -7798,10 +7778,8 @@ msgstr ""
 "هستند حذف خواهند شد!"
 
 #: content_a/products/variants/display-add-new-child.php:26
-#, fuzzy
-#| msgid "Count product"
 msgid "Count product child"
-msgstr "تعداد محصولات"
+msgstr "تعداد محصولات زیرمجموعه"
 
 #: content_a/products/variants/display-add-new-child.php:31
 msgid "Remove all variants by :val :color?"
@@ -8044,7 +8022,7 @@ msgid ""
 "order, we will receive that number only in the product itself."
 msgstr ""
 "می‌توانید حداکثر یک محصول را در هر سبد خرید تنظیم کنید. این تعداد می‌تواند به صورت "
-"جداگانه در هر محصول تنظیم شود. اگر این شماره در محصول تنظیم نشده باشد، مقدار پیش فرض "
+"جداگانه در هر محصول تنظیم شود. اگر این شماره در محصول تنظیم نشده باشد، مقدار پیش‌فرض "
 "تنظیم شده در این صفحه ملاک خواهد بود. <br> حداقل مقدار سفارش برای هر محصول یک است: اگر "
 "محصول خاصی دارید که می‌خواهید حداقل سفارش را تعیین کنید، ما این تعداد را فقط در خود "
 "محصول دریافت می‌کنیم."
@@ -17871,7 +17849,7 @@ msgstr "حداکثر اتصالات"
 
 #: content_su/tg/webhook/display.php:15
 msgid "Defaults to 40"
-msgstr "پیش فرض ۴۰ است"
+msgstr "پیش‌فرض ۴۰ است"
 
 #: content_su/tg/webhook/display.php:18
 msgid "Set Webhook"
@@ -24640,7 +24618,7 @@ msgstr "بعد از لاگین انتقال به"
 
 #: includes/languages/trans_static_public.php:294
 msgid "Default permission"
-msgstr "سطح‌دسترسی پیش فرض"
+msgstr "سطح‌دسترسی پیش‌فرض"
 
 #: includes/languages/trans_static_public.php:296
 msgid "Access with pass phrase"
@@ -29041,10 +29019,8 @@ msgid "All product by :val :col removed"
 msgstr ""
 
 #: lib/app/product/remove.php:73
-#, fuzzy
-#| msgid "No data received!"
 msgid "No data to remove!"
-msgstr "هیچ اطلاعاتی دریافت نشد!"
+msgstr "داده‌ای برای حذف وجود ندارد!"
 
 #: lib/app/product/search.php:170
 msgid "Instock"
