@@ -16,7 +16,7 @@
 						<td class="font-14">
 							<a class="link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
 						</td>
-						<td class=""><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
+						<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 						<td class=""><?php echo T_(\dash\get::index($value, 'status')) ?></td>
 						<td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')) ?></td>
 
