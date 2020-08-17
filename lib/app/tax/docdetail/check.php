@@ -21,7 +21,7 @@ class check
 
 		];
 
-		$require = ['tax_document_id','type', 'value'];
+		$require = ['tax_document_id','type', 'value', 'assistant_id'];
 
 		$meta = [];
 
@@ -35,7 +35,7 @@ class check
 		}
 		else
 		{
-			\dash\notif::error(T_("Invalid assistant id"));
+			\dash\notif::error(T_("Invalid assistant id"), 'assistant_id');
 			return false;
 		}
 
