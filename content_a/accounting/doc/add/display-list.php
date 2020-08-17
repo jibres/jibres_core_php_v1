@@ -9,8 +9,8 @@
              <th class="collapsing"></th>
              <th><?php echo T_("Assistant"); ?> - <?php echo T_("Document Detail") ?></th>
              <th><?php echo T_("Explanation"); ?></th>
-             <th class="collapsing"><?php echo T_("Debtor") ?></th>
-             <th class="collapsing"><?php echo T_("Creditor") ?></th>
+             <th class="collapsing txtRa"><?php echo T_("Debtor") ?></th>
+             <th class="collapsing txtRa"><?php echo T_("Creditor") ?></th>
              <th class="collapsing"></th>
            </tr>
          </thead>
@@ -31,8 +31,8 @@
 
 
               <td><?php echo \dash\get::index($value, 'desc') ?></td>
-              <td class="fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor')) ?></td>
-              <td class="fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor')) ?></td>
+              <td class="ltr txtRa fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor')) ?></td>
+              <td class="ltr txtRa fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor')) ?></td>
               <td class="">
                 <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
