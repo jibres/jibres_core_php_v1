@@ -1,4 +1,3 @@
-<div class="avand">
   <?php if(!\dash\data::reportDetail()) {?>
     <div class="msg"><?php echo T_("No detail was founded") ?></div>
   <?php }else{ ?>
@@ -32,4 +31,3 @@
       </tbody>
     </table>
   <?php } //endif ?>
-</div>
