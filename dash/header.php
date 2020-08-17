@@ -96,7 +96,7 @@ class header
 			403 => 'Forbidden', // ------------------------- @Permission -> \dash\permission::access()
 			404 => 'Not Found',
 			405 => 'Method Not Allowed',
-			406 => 'Not Acceptable', // -------------------- @MVC -> Model function is not callable
+			406 => 'Not Acceptable', // -------------------- @process -> need stop process
 			407 => 'Proxy Authentication Required',
 			408 => 'Request Timeout',
 			409 => 'Conflict',
@@ -112,7 +112,7 @@ class header
 			421 => 'Misdirected Request', // --------------- @Baby -> Found dbl // in url
 			422 => 'Unprocessable Entity', //--------------- @Ticket add. Its very fast, try to send html content, Have 2 link in content
 			423 => 'Locked', // ---------------------------- @Cleanse -> Check input and validate args. \dash\clense::data()
-			424 => 'Failed Dependency',
+			424 => 'Failed Dependency', // ----------------- @MVC -> Model function is not callable
 			426 => 'Upgrade Required',
 			428 => 'Precondition Required',
 			429 => 'Too Many Requests',

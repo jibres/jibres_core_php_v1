@@ -322,7 +322,7 @@ class mvc
 			else
 			{
 				// model does not exist in this folder, show not acceptable message
-				\dash\header::status(406);
+				\dash\header::status(424);
 			}
 
 			// add header febore echo anything
