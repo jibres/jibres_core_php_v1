@@ -28,6 +28,23 @@ class view
 			$summary = [];
 			$summary['debtor'] = array_sum(array_column($detail, 'debtor'));
 			$summary['creditor'] = array_sum(array_column($detail, 'creditor'));
+
+			if(floatval($summary['debtor']) === floatval($summary['creditor']))
+			{
+				\dash\data::equalICON('<i class="sf-check-circle fc-green fs12"></i>');
+
+			}
+			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
+			{
+				\dash\data::deptorICON('<i class="sf-chevron-up fc-red"></i>');
+				\dash\data::creditorICON('<i class="sf-chevron-down fc-blue"></i>');
+			}
+			elseif(floatval($summary['debtor']) < floatval($summary['creditor']))
+			{
+				\dash\data::creditorICON('<i class="sf-chevron-up fc-red"></i>');
+				\dash\data::deptorICON('<i class="sf-chevron-down fc-blue></i>');
+			}
+
 			\dash\data::summary($summary);
 		}
 

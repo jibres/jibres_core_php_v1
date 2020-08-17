@@ -71,7 +71,7 @@ class fit{
 	}
 
 
-	public static function number_decimal($_number)
+	public static function number_decimal($_number, $_lang = null)
 	{
 		if(!$_number)
 		{
@@ -89,18 +89,18 @@ class fit{
 		{
 			$number  = substr($new_number, 0, strpos($new_number, '.'));
 			$decimal = substr($new_number, strpos($new_number, '.') + 1 );
-			$fit = self::number($number);
+			$fit = self::number($number, true, $_lang);
 
 			if(preg_match("/[1-9]/", $decimal))
 			{
 				$decimal = preg_replace("/0+$/", '', $decimal);
-				$fit .= '.'. self::text($decimal);
+				$fit .= '.'. self::text($decimal, $_lang);
 			}
 			return $fit;
 		}
 		else
 		{
-			return self::number($_number);
+			return self::number($_number, true, $_lang);
 		}
 
 	}
@@ -143,9 +143,9 @@ class fit{
 	}
 
 
-	public static function text($_txt)
+	public static function text($_txt, $_lang = null)
 	{
-		return self::number($_txt, false);
+		return self::number($_txt, false, $_lang);
 	}
 
 

@@ -37,6 +37,10 @@ class ready
 			$result['value'] = $result['creditor'];
 		}
 
+		if(round($result['value']) == $result['value'])
+		{
+			$result['value'] = round($result['value']);
+		}
 
 		return $result;
 	}
