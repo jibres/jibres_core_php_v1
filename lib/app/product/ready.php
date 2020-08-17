@@ -468,6 +468,7 @@ class ready
 				case 'preparationdate':
 				case 'thumb':
 				case 'cat_id':
+				case 'thumb_default':
 
 					// skipp show this fields
 					break;

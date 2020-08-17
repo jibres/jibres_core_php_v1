@@ -10,6 +10,8 @@ class add
 
 		foreach ($_args as $key => $value)
 		{
+			unset($value['company_id']);
+			unset($value['unit_id']);
 			if(isset($value['id']) && is_numeric($value['id']))
 			{
 				if(in_array(intval($value['id']), $_overwrite))
