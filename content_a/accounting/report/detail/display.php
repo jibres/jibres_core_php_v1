@@ -10,10 +10,10 @@
           <th><?php echo T_("Accounting total") ?></th>
           <th><?php echo T_("Accounting assistant") ?></th>
           <th><?php echo T_("Accounting details") ?></th>
-          <th class="txtRa"><?php echo T_("Debtor") ?></th>
-          <th class="txtRa"><?php echo T_("Creditor") ?></th>
-          <th class="txtRa"><?php echo T_("Remain Debtor") ?></th>
-          <th class="txtRa"><?php echo T_("Remain Creditor") ?></th>
+          <th><?php echo T_("Debtor") ?></th>
+          <th><?php echo T_("Creditor") ?></th>
+          <th><?php echo T_("Remain Debtor") ?></th>
+          <th><?php echo T_("Remain Creditor") ?></th>
         </tr>
       </thead>
       <tbody>
@@ -23,10 +23,10 @@
             <td><?php echo \dash\get::index($value, 'total_title') ?></td>
             <td><?php echo \dash\get::index($value, 'assistant_title') ?></td>
             <td><?php echo \dash\get::index($value, 'details_title') ?></td>
-          <td class="font-12 txtRa ltr fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'debtor'), true, 'en') ?></code></td>
-          <td class="font-12 txtRa ltr fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'creditor'), true, 'en') ?></code></td>
-          <td class="font-12 txtRa ltr fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_debtor'), true, 'en') ?></code></td>
-          <td class="font-12 txtRa ltr fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_creditor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'debtor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'creditor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_debtor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_creditor'), true, 'en') ?></code></td>
           </tr>
         <?php } //endif ?>
       </tbody>
