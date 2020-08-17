@@ -31,18 +31,18 @@ class view
 
 			if(floatval($summary['debtor']) === floatval($summary['creditor']))
 			{
-				\dash\data::equalICON('<i class="sf-check-circle fc-green fs12"></i>');
+				\dash\data::equalICON('<i class="mLR5 sf-check-circle fc-green fs12"></i>');
 
 			}
 			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
 			{
-				\dash\data::deptorICON('<i class="sf-chevron-up fc-red"></i>');
-				\dash\data::creditorICON('<i class="sf-chevron-down"></i>');
+				\dash\data::deptorICON('<i class="mLR5 sf-chevron-up fc-red"></i>');
+				\dash\data::creditorICON('<i class="mLR5 sf-chevron-down"></i>');
 			}
 			elseif(floatval($summary['debtor']) < floatval($summary['creditor']))
 			{
-				\dash\data::creditorICON('<i class="sf-chevron-up fc-red"></i>');
-				\dash\data::deptorICON('<i class="sf-chevron-down></i>');
+				\dash\data::creditorICON('<i class="mLR5 sf-chevron-up fc-red"></i>');
+				\dash\data::deptorICON('<i class="mLR5 sf-chevron-down"></i>');
 			}
 
 			\dash\data::summary($summary);

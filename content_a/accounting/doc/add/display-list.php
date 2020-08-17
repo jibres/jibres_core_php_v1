@@ -45,15 +45,9 @@
     </div>
     <footer>
       <div class="f">
-        <div class="cauto"><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span><?php echo \dash\data::deptorICON(); ?></div>
-        <div class="c">
-          <div class="f justify-center">
-            <div class="cauto"><?php echo \dash\data::equalICON(); ?></div>
-          </div>
-
-
-          </div>
-        <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
+        <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="txtB fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
+        <div class="c txtC"><?php echo \dash\data::equalICON(); ?></div>
+        <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="txtB fc-green"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
       </div>
     </footer>
   </div>
