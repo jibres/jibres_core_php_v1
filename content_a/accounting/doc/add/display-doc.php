@@ -2,7 +2,7 @@
  <form method="post" autocomplete="off" class="box">
   <div class="pad">
     <div class="row padLess align-end">
-      <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-2">
+      <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-2 c-print-12">
         <?php $defaultYear = null; ?>
 
         <?php if(\dash\data::accountingYear()) {?>
@@ -34,7 +34,7 @@
     		<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="date" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" autocomplete='off' required>
     		</div>
       </div>
-      <div class="c-xs-12 c-sm-6 c-md-12 c-lg-3 c-xl">
+      <div class="c-xs-12 c-sm-6 c-md-12 c-lg-3 c-xl c-print-12">
         <label for="desc"><?php echo T_("Document Description") ?></label>
         <div class="input mB0-f">
           <input type="text" name="desc" id="desc" value="<?php echo \dash\data::dataRow_desc() ?>">
