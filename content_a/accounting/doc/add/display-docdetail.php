@@ -7,7 +7,7 @@
           <div class="c-xs-12 c-sm-12 c-md-8">
           	<?php if(\dash\data::assistantList()) {?>
               <label for="assistant_id"><?php echo T_("Accounting assistant") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
-              <select class="select22" name="assistant_id">
+              <select class="select22" name="assistant_id" data-placeholder='<?php echo T_("Please choose assistant_id") ?>'>
                 <option value=""><?php echo T_("Please choose assistant_id") ?></option>
                 <?php foreach (\dash\data::assistantList() as $key => $value) {?>
                   <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\data::dataRowDetail_assistant_id() === \dash\get::index($value, 'id')) {echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
@@ -19,8 +19,8 @@
           <div class="c-xs-12 c-sm-12 c-md-4">
             <?php if(\dash\data::detailsList()) {?>
               <label for="details_title"><?php echo T_("Accounting details") ?></label>
-              <select class="select22" data-model='tag' name="details_title">
-                <option value=""><?php echo T_("Please choose details") ?></option>
+              <select class="select22" data-model='tag' name="details_title" data-placeholder='<?php echo T_("Please choose document details") ?>'>
+                <option value=""><?php echo T_("Please choose document details") ?></option>
                 <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                   <option value="<?php echo $value ?>" <?php if(\dash\data::dataRowDetail_details_title() === $value) {echo 'selected';} ?>><?php echo $value; ?></option>
                 <?php } // endfor ?>
@@ -63,9 +63,9 @@
           </div>
           <div class="c-auto">
             <?php if(\dash\data::editModeDetail()) {?>
-          	 <button class="btn mT10 secondary"><?php echo T_("Edit") ?></button>
+          	 <button class="btn mT10 master save"><?php echo T_("Edit") ?></button>
             <?php }else{ ?>
-             <button class="btn mT10 master"><?php echo T_("Add") ?></button>
+             <button class="btn mT10 master add"><?php echo T_("Add") ?></button>
             <?php } //endif ?>
           </div>
         </div>

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Edit accounting doc'));
+		\dash\face::title(T_('Edit accounting doc'). ' - '. T_("Status"). ' '. T_(\dash\data::dataRow_status()));
 
 		// back
 		\dash\data::back_text(T_('Back'));
