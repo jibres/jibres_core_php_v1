@@ -20,19 +20,13 @@ class model
 
 		if(\dash\request::post('editoption') === 'editoption')
 		{
-			$variant = self::get_variant();
+			$editoption = self::getPostVariant();
 
-			if(!$variant)
-			{
-				\dash\notif::error(T_("Please specify the required products"));
-				return false;
-			}
-
-			\lib\app\product\variants::edit_option($variant, $id);
+			\lib\app\product\variants::edit_option($editoption, $id);
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+				\dash\redirect::pwd();
 			}
 			return;
 		}
@@ -77,6 +71,8 @@ class model
 			\dash\redirect::pwd();
 		}
 	}
+
+
 
 
 

@@ -433,5 +433,327 @@ class variants
 		return $load_child;
 	}
 
+
+
+
+	public static function edit_option($_args, $_id)
+	{
+
+		$condition =
+		[
+			'optionname1'  => 'string_20',
+			'optionname2'  => 'string_20',
+			'optionname3'  => 'string_20',
+			'optionvalue1' => 'string_30',
+			'optionvalue2' => 'string_30',
+			'optionvalue3' => 'string_30',
+		];
+
+
+		$require = [];
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$product_detail = \lib\app\product\load::one($_id);
+
+		if(!$product_detail || !isset($product_detail['type']))
+		{
+			return false;
+		}
+
+		if($product_detail['type'] !== 'product')
+		{
+			\dash\notif::error(T_("Variants not avalible on product by type :type", ['type' => T_(ucfirst($product_detail['type']))]));
+			return false;
+		}
+
+		if(isset($product_detail['parent']) && $product_detail['parent'])
+		{
+			\dash\notif::error(T_("This product was child of another product and can not set variantable"));
+			return false;
+		}
+
+		if(!\dash\get::index($product_detail, 'variant_child'))
+		{
+			\dash\notif::error(T_("This product have not child!"));
+			return false;
+		}
+
+
+		$child = \dash\get::index($product_detail, 'child');
+		if(!is_array($child))
+		{
+			$child = [];
+		}
+
+		if(empty($child))
+		{
+			\dash\notif::error(T_("This product have not child!"));
+			return false;
+		}
+
+		$all_optionname = [];
+
+		$current_optionname1  = array_column($child, 'optionname1');
+		$current_optionname1  = array_filter($current_optionname1);
+		$current_optionname1  = array_unique($current_optionname1);
+		if($current_optionname1 && isset($current_optionname1[0]))
+		{
+			$all_optionname[] = $current_optionname1[0];
+		}
+
+		$current_optionname2  = array_column($child, 'optionname2');
+		$current_optionname2  = array_filter($current_optionname2);
+		$current_optionname2  = array_unique($current_optionname2);
+		if($current_optionname2 && isset($current_optionname2[0]))
+		{
+			$all_optionname[] = $current_optionname2[0];
+		}
+
+		$current_optionname3  = array_column($child, 'optionname3');
+		$current_optionname3  = array_filter($current_optionname3);
+		$current_optionname3  = array_unique($current_optionname3);
+		if($current_optionname3 && isset($current_optionname3[0]))
+		{
+			$all_optionname[] = $current_optionname3[0];
+		}
+
+		$current_optionvalue1 = array_column($child, 'optionvalue1');
+		$current_optionvalue1 = array_filter($current_optionvalue1);
+		$current_optionvalue1 = array_unique($current_optionvalue1);
+
+		$current_optionvalue2 = array_column($child, 'optionvalue2');
+		$current_optionvalue2 = array_filter($current_optionvalue2);
+		$current_optionvalue2 = array_unique($current_optionvalue2);
+
+		$current_optionvalue3 = array_column($child, 'optionvalue3');
+		$current_optionvalue3 = array_filter($current_optionvalue3);
+		$current_optionvalue3 = array_unique($current_optionvalue3);
+
+		$count_empty = 0;
+		$update      = [];
+
+		if(($current_optionname1 && $current_optionvalue1) && ($current_optionname2 && $current_optionvalue2) && ($current_optionname3 && $current_optionvalue3))
+		{
+			\dash\notif::error(T_("Variants option of this product is full"));
+			return false;
+		}
+		elseif(($current_optionname1 && $current_optionvalue1) && ($current_optionname2 && $current_optionvalue2) && (!$current_optionname3 && !$current_optionvalue3))
+		{
+
+			if($data['optionname1'] && $data['optionvalue1'])
+			{
+				$update['optionname3']  = $data['optionname1'];
+				$update['optionvalue3'] = $data['optionvalue1'];
+			}
+			elseif($data['optionname2'] && $data['optionvalue2'])
+			{
+				$update['optionname3']  = $data['optionname2'];
+				$update['optionvalue3'] = $data['optionvalue2'];
+			}
+			elseif($data['optionname3'] && $data['optionvalue3'])
+			{
+				$update['optionname3']  = $data['optionname3'];
+				$update['optionvalue3'] = $data['optionvalue3'];
+			}
+		}
+		elseif(($current_optionname1 && $current_optionvalue1) && (!$current_optionname2 && !$current_optionvalue2) && (!$current_optionname3 && !$current_optionvalue3))
+		{
+			if($data['optionname1'] && $data['optionvalue1'])
+			{
+				$update['optionname2']  = $data['optionname1'];
+				$update['optionvalue2'] = $data['optionvalue1'];
+			}
+
+			if($data['optionname2'] && $data['optionvalue2'])
+			{
+				if(isset($update['optionname2']))
+				{
+					$update['optionname3']  = $data['optionname2'];
+					$update['optionvalue3'] = $data['optionvalue2'];
+				}
+				else
+				{
+					$update['optionname2']  = $data['optionname2'];
+					$update['optionvalue2'] = $data['optionvalue2'];
+				}
+			}
+
+			if($data['optionname3'] && $data['optionvalue3'])
+			{
+				if(isset($update['optionname2']))
+				{
+					$update['optionname3']  = $data['optionname3'];
+					$update['optionvalue3'] = $data['optionvalue3'];
+				}
+				else
+				{
+					$update['optionname2']  = $data['optionname3'];
+					$update['optionvalue2'] = $data['optionvalue3'];
+				}
+			}
+
+
+		}
+		elseif((!$current_optionname1 && !$current_optionvalue1) && (!$current_optionname2 && !$current_optionvalue2) && (!$current_optionname3 && !$current_optionvalue3))
+		{
+			\dash\notif::error(T_("Variants option is empty. Please contact to administrator"));
+			return false;
+		}
+		elseif((!$current_optionname1 && !$current_optionvalue1) && ($current_optionname2 && $current_optionvalue2) && ($current_optionname3 && $current_optionvalue3))
+		{
+
+			if($data['optionname1'] && $data['optionvalue1'])
+			{
+				$update['optionname1']  = $data['optionname1'];
+				$update['optionvalue1'] = $data['optionvalue1'];
+			}
+			elseif($data['optionname2'] && $data['optionvalue2'])
+			{
+				$update['optionname1']  = $data['optionname2'];
+				$update['optionvalue1'] = $data['optionvalue2'];
+			}
+			elseif($data['optionname3'] && $data['optionvalue3'])
+			{
+				$update['optionname1']  = $data['optionname3'];
+				$update['optionvalue1'] = $data['optionvalue3'];
+			}
+		}
+		elseif((!$current_optionname1 && !$current_optionvalue1) && (!$current_optionname2 && !$current_optionvalue2) && ($current_optionname3 && $current_optionvalue3))
+		{
+
+			if($data['optionname1'] && $data['optionvalue1'])
+			{
+				$update['optionname1']  = $data['optionname1'];
+				$update['optionvalue1'] = $data['optionvalue1'];
+			}
+
+			if($data['optionname2'] && $data['optionvalue2'])
+			{
+				if(isset($update['optionname1']))
+				{
+					$update['optionname2']  = $data['optionname2'];
+					$update['optionvalue2'] = $data['optionvalue2'];
+				}
+				else
+				{
+					$update['optionname1']  = $data['optionname2'];
+					$update['optionvalue1'] = $data['optionvalue2'];
+				}
+			}
+
+			if($data['optionname3'] && $data['optionvalue3'])
+			{
+				if(isset($update['optionname1']))
+				{
+					$update['optionname2']  = $data['optionname3'];
+					$update['optionvalue2'] = $data['optionvalue3'];
+				}
+				else
+				{
+					$update['optionname1']  = $data['optionname3'];
+					$update['optionvalue1'] = $data['optionvalue3'];
+				}
+			}
+
+		}
+		elseif(($current_optionname1 && $current_optionvalue1) && (!$current_optionname2 && !$current_optionvalue2) && ($current_optionname3 && $current_optionvalue3))
+		{
+
+			if($data['optionname1'] && $data['optionvalue1'])
+			{
+				$update['optionname2']  = $data['optionname1'];
+				$update['optionvalue2'] = $data['optionvalue1'];
+			}
+			elseif($data['optionname2'] && $data['optionvalue2'])
+			{
+				$update['optionname2']  = $data['optionname2'];
+				$update['optionvalue2'] = $data['optionvalue2'];
+			}
+			elseif($data['optionname3'] && $data['optionvalue3'])
+			{
+				$update['optionname2']  = $data['optionname3'];
+				$update['optionvalue2'] = $data['optionvalue3'];
+			}
+		}
+		elseif((!$current_optionname1 && !$current_optionvalue1) && ($current_optionname2 && $current_optionvalue2) && (!$current_optionname3 && !$current_optionvalue3))
+		{
+			if($data['optionname1'] && $data['optionvalue1'])
+			{
+				$update['optionname1']  = $data['optionname1'];
+				$update['optionvalue1'] = $data['optionvalue1'];
+			}
+
+			if($data['optionname2'] && $data['optionvalue2'])
+			{
+				if(isset($update['optionname1']))
+				{
+					$update['optionname3']  = $data['optionname2'];
+					$update['optionvalue3'] = $data['optionvalue2'];
+				}
+				else
+				{
+					$update['optionname1']  = $data['optionname2'];
+					$update['optionvalue1'] = $data['optionvalue2'];
+				}
+			}
+
+			if($data['optionname3'] && $data['optionvalue3'])
+			{
+				if(isset($update['optionname1']))
+				{
+					$update['optionname3']  = $data['optionname3'];
+					$update['optionvalue3'] = $data['optionvalue3'];
+				}
+				else
+				{
+					$update['optionname1']  = $data['optionname3'];
+					$update['optionvalue1'] = $data['optionvalue3'];
+				}
+			}
+
+		}
+		else
+		{
+			\dash\log::oops('variantsChild');
+			return false;
+		}
+
+
+
+		// check not duplocate in other option
+		if(empty($update))
+		{
+			\dash\notif::error(T_("Please add the new option"));
+			return false;
+		}
+
+		$check_duplicate = [];
+		foreach ($update as $key => $value)
+		{
+			if(substr($key, 0, 10) === 'optionname')
+			{
+				$check_duplicate[] = $value;
+				if(in_array($value, $all_optionname))
+				{
+					\dash\notif::error(T_("This option is exist. Try another option"), ['element' => ['optionname1', 'optionname2', 'optionname3']]);
+					return false;
+				}
+			}
+		}
+
+		if(count($check_duplicate) !== count(array_unique($check_duplicate)))
+		{
+			\dash\notif::error(T_("Duplicate option name"), ['element' => ['optionname1', 'optionname2', 'optionname3']]);
+			return false;
+		}
+
+
+		\lib\db\products\update::edit_option($update, $product_detail['id']);
+		\dash\notif::ok(T_("Product variants option updated"));
+		return true;
+	}
+
 }
 ?>

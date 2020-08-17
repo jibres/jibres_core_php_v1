@@ -63,7 +63,69 @@ class remove
 
 		if($_optionname && $_optionvalue && $_id)
 		{
-			\lib\db\products\update::set_status_deleted_variant_option($_optionname, $_optionvalue, $_id, $i);
+			$load_family_group = \lib\db\products\get::load_family_group_name($_id, $i);
+
+			if(!is_array($load_family_group))
+			{
+				$load_family_group = [];
+			}
+
+			$current_optionname1  = array_column($load_family_group, 'optionname1');
+			$current_optionname1  = array_filter($current_optionname1);
+			$current_optionname1  = array_unique($current_optionname1);
+
+			$current_optionname2  = array_column($load_family_group, 'optionname2');
+			$current_optionname2  = array_filter($current_optionname2);
+			$current_optionname2  = array_unique($current_optionname2);
+
+			$current_optionname3  = array_column($load_family_group, 'optionname3');
+			$current_optionname3  = array_filter($current_optionname3);
+			$current_optionname3  = array_unique($current_optionname3);
+
+			$current_optionvalue1 = array_column($load_family_group, 'optionvalue1');
+			$current_optionvalue1 = array_filter($current_optionvalue1);
+			$current_optionvalue1 = array_unique($current_optionvalue1);
+
+			$current_optionvalue2 = array_column($load_family_group, 'optionvalue2');
+			$current_optionvalue2 = array_filter($current_optionvalue2);
+			$current_optionvalue2 = array_unique($current_optionvalue2);
+
+			$current_optionvalue3 = array_column($load_family_group, 'optionvalue3');
+			$current_optionvalue3 = array_filter($current_optionvalue3);
+			$current_optionvalue3 = array_unique($current_optionvalue3);
+
+			if($_optionname === \dash\get::index($current_optionname1, 0))
+			{
+				$i = 1;
+				$value = $current_optionvalue1;
+			}
+			elseif($_optionname === \dash\get::index($current_optionname2, 0))
+			{
+				$i = 2;
+				$value = $current_optionvalue2;
+			}
+			elseif($_optionname === \dash\get::index($current_optionname3, 0))
+			{
+				$i = 3;
+				$value = $current_optionvalue3;
+			}
+			else
+			{
+				\dash\log::oops('invalidVariantI');
+				return false;
+			}
+
+			if(count($value) === 1)
+			{
+				// set null otion name
+				\lib\db\products\update::set_null_variant_option($_optionname, $_optionvalue, $_id, $i);
+				\lib\db\products\update::check_empty_variant_option($_id);
+			}
+			else
+			{
+				\lib\db\products\update::set_status_deleted_variant_option($_optionname, $_optionvalue, $_id, $i);
+			}
+
 			\lib\db\products\update::variant_child_calc($_id);
 			\dash\notif::ok(T_("All product by :val :col removed", ['val' => $_optionname, 'col' => $_optionvalue]));
 			return true;

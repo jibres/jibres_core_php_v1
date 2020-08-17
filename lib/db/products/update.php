@@ -13,6 +13,23 @@ class update
 	}
 
 
+	public static function edit_option($_set, $_parent)
+	{
+		$set = \dash\db\config::make_set($_set, ['type' => 'update']);
+		if($set)
+		{
+			$query = " UPDATE `products` SET $set WHERE products.parent = $_parent";
+			$result = \dash\db::query($query);
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+
 	public static function variant_child($_id)
 	{
 		$query  = "UPDATE products SET products.variant_child = 1 WHERE products.id = $_id LIMIT 1";
@@ -22,10 +39,53 @@ class update
 
 	public static function set_status_deleted_variant_option($_optionname, $_optionvalue, $_parent, $_i)
 	{
-		$query  = "UPDATE products SET products.status = 'deleted' WHERE products.parent = $_parent AND products.optionname$_i = '$_optionname' AND products.optionvalue$_i = '$_optionvalue' ";
+		$query  =
+		"
+			UPDATE products
+			SET products.status = 'deleted'
+			WHERE products.parent = $_parent AND
+			(
+				(products.optionname1 = '$_optionname' AND products.optionvalue1 = '$_optionvalue') OR
+				(products.optionname2 = '$_optionname' AND products.optionvalue2 = '$_optionvalue') OR
+				(products.optionname3 = '$_optionname' AND products.optionvalue3 = '$_optionvalue')
+			)
+		";
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+	public static function set_null_variant_option($_optionname, $_optionvalue, $_parent, $_i)
+	{
+		$query  =
+		"
+			UPDATE products SET products.optionname1 = NULL, products.optionvalue1 = NULL WHERE products.parent = $_parent  AND products.optionname1 = '$_optionname' AND products.optionvalue1 = '$_optionvalue' ;
+			UPDATE products SET products.optionname2 = NULL, products.optionvalue2 = NULL WHERE products.parent = $_parent  AND products.optionname2 = '$_optionname' AND products.optionvalue2 = '$_optionvalue' ;
+			UPDATE products SET products.optionname3 = NULL, products.optionvalue3 = NULL WHERE products.parent = $_parent  AND products.optionname3 = '$_optionname' AND products.optionvalue3 = '$_optionvalue' ;
+		";
+		$result = \dash\db::query($query, null, ['multi_query' => true]);
+		return $result;
+	}
+
+	public static function check_empty_variant_option($_parent)
+	{
+		$query  =
+		"
+			UPDATE products
+			SET products.status = 'deleted'
+			WHERE
+				products.parent = $_parent AND
+				products.optionname1 IS NULL AND
+				products.optionname2 IS NULL AND
+				products.optionname3 IS NULL AND
+
+				products.optionvalue1 IS NULL AND
+				products.optionvalue2 IS NULL AND
+				products.optionvalue3 IS NULL
+		";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 
 	public static function variant_child_calc($_id)
 	{

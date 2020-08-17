@@ -123,7 +123,19 @@ if($myChildList)
               </div>
   </div>
 </div>
-          <?php } //endif ?>
+<?php }else{ /*have variant child but no child is founded. this is a bug!*/ ?>
+
+      <div class="box">
+      <div class="body">
+        <div class="f">
+          <div class="cauto"><p><?php echo T_("This product have not variants"); ?></p></div>
+          <div class="c"></div>
+          <div class="cauto"><a class="btn link" href="<?php echo \dash\url::this(). '/variants?id='. \dash\request::get('id'); ?>"><?php echo T_("Edit options") ?></a></div>
+        </div>
+      </div>
+    </div>
+
+<?php } //endif ?>
 
 
   <?php }else{ ?>

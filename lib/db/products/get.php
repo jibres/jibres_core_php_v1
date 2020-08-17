@@ -3,6 +3,28 @@ namespace lib\db\products;
 
 class get
 {
+	public static function load_family_group_name($_parent_id, $_index)
+	{
+		$query  =
+		"
+			SELECT
+				products.optionname1,
+				products.optionname2,
+				products.optionname3,
+				products.optionvalue1,
+				products.optionvalue2,
+				products.optionvalue3
+			FROM
+				products
+			WHERE
+				products.parent = $_parent_id AND
+				products.status != 'deleted'
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function check_all_is_child($_id, $_childs)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.parent = $_id AND products.id IN ($_childs)";

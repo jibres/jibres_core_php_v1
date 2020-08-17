@@ -34,18 +34,18 @@ if(!is_numeric($remain_count))
         <?php } //endfor ?>
         <?php if($remain_count) {?>
           <div class="example">
-            <?php for ($i = 1; $i <= $remain_count ; $i++) { $myI = $remain_count + 1 - $i;?>
+            <?php for ($i = 1; $i <= $remain_count ; $i++) {?>
               <div class="f">
                 <div class="cauto mLa5">
                   <label><?php echo T_("New Property"); ?></label>
                   <div class="input">
-                    <input type="text" name="optionname<?php echo $myI; ?>">
+                    <input type="text" name="optionname<?php echo $i; ?>">
                   </div>
                 </div>
                 <div class="c mLa5">
-                  <label><?php echo T_("Value"); ?></label>
+                  <label><?php echo T_("Default value"); ?></label>
                   <div class="input">
-                    <input type="text" name="optionvalue<?php echo $myI; ?>">
+                    <input type="text" name="optionvalue<?php echo $i; ?>">
                   </div>
                 </div>
               </div>
