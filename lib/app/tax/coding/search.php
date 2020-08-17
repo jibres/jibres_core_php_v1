@@ -130,7 +130,7 @@ class search
 
 
 		$result = [];
-		$html = '<div data-jstree class="font-12">';
+		$html = '<div data-jstree data-preloading class="font-12">';
 		foreach ($group as $group_key => $group_value)
 		{
 			$html .= '<ul>';
