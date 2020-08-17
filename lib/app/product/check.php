@@ -153,7 +153,7 @@ class check
 			$parent_detail = \lib\app\product\get::inline_get($data['parent']);
 			if(!$parent_detail || !isset($parent_detail['id']))
 			{
-				\dash\notif::error(T_("Ivalid parent id"));
+				\dash\notif::error(T_("Invalid parent id"));
 				return  false;
 			}
 
