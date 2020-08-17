@@ -73,7 +73,10 @@ class search
 		$query =
 		"
 			SELECT
-				*
+				tax_document.*,
+				(SELECT SUM(tax_docdetail.debtor) FROM tax_docdetail WHERE tax_docdetail.tax_document_id = tax_document.id) AS `sum_debtor`,
+				(SELECT SUM(tax_docdetail.creditor) FROM tax_docdetail WHERE tax_docdetail.tax_document_id = tax_document.id) AS `sum_creditor`,
+				(SELECT COUNT(*) FROM tax_docdetail WHERE tax_docdetail.tax_document_id = tax_document.id) AS `item_count`
 			FROM tax_document
 			$q[where]
 			$q[order]

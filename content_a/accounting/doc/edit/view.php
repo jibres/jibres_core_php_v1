@@ -37,12 +37,12 @@ class view
 			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
 			{
 				\dash\data::deptorICON('<i class="sf-chevron-up fc-red"></i>');
-				\dash\data::creditorICON('<i class="sf-chevron-down fc-blue"></i>');
+				\dash\data::creditorICON('<i class="sf-chevron-down"></i>');
 			}
 			elseif(floatval($summary['debtor']) < floatval($summary['creditor']))
 			{
 				\dash\data::creditorICON('<i class="sf-chevron-up fc-red"></i>');
-				\dash\data::deptorICON('<i class="sf-chevron-down fc-blue></i>');
+				\dash\data::deptorICON('<i class="sf-chevron-down></i>');
 			}
 
 			\dash\data::summary($summary);
