@@ -28,7 +28,7 @@ class get
 
 	public static function last_code_assistant($_assistant_id)
 	{
-		$query = "SELECT MAX(tax_coding.code) AS `code` FROM tax_coding WHERE tax_coding.type = 'details' AND tax_coding.parent3 = $_assistant_id";
+		$query = "SELECT MAX(tax_coding.code) AS `code` FROM tax_coding WHERE 1 -- tax_coding.type = 'details' AND tax_coding.parent3 = $_assistant_id";
 		$result = \dash\db::get($query, 'code', true);
 		return $result;
 	}
