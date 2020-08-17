@@ -31,8 +31,8 @@
 
 
               <td><?php echo \dash\get::index($value, 'desc') ?></td>
-              <td class="ltr txtRa fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor')) ?></td>
-              <td class="ltr txtRa fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor')) ?></td>
+              <td class="ltr txtRa fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'debtor'), true, 'en') ?></code></td>
+              <td class="ltr txtRa fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'creditor'), true, 'en') ?></code></td>
               <td class="">
                 <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
