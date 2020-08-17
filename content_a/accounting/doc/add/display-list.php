@@ -1,7 +1,6 @@
 <?php if(\dash\data::editMode() && \dash\data::docDetail()) {?>
-  <form method="post">
+  <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
-  <div class="box">
     <div class="pad2">
        <table class="tbl1 v6 minimal mB0">
          <thead>
@@ -11,14 +10,14 @@
              <th class="collapsing"><?php echo T_("Explanation"); ?></th>
              <th class="collapsing"><?php echo T_("Debtor") ?></th>
              <th class="collapsing"><?php echo T_("Creditor") ?></th>
-             <th class="collapsing"></th>
+             <th class="collapsing p0"></th>
            </tr>
          </thead>
          <tbody class="sortable" data-sortable>
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
             <tr title="<?php echo ($key + 1); ?>">
               <td>
-                <i data-handle class="sf-sort"></i>
+                <i data-handle class="sf-sort p0"></i>
                 <input type="hidden" class="hide" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
               </div>
               <td>
@@ -33,7 +32,7 @@
               <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
               <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></code></td>
               <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
-              <td class="">
+              <td class="p0">
                 <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
               </td>
@@ -50,7 +49,6 @@
         <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="txtB fc-green"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
       </div>
     </footer>
-  </div>
   </form>
 
 
