@@ -18,6 +18,8 @@ class view
 		\dash\data::assistantList(\lib\app\tax\coding\get::list_of('assistant'));
 		\dash\data::detailsList(\lib\app\tax\coding\get::list_of('details'));
 
+		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?id='. \dash\request::get('id'));
+
 		$detail = \lib\app\tax\docdetail\get::list(\dash\request::get('id'));
 		\dash\data::docDetail($detail);
 

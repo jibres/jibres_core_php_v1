@@ -5,6 +5,32 @@ namespace lib\app\tax\doc;
 class add
 {
 
+	public static function duplicate($_id, $_args)
+	{
+		$load = \lib\app\tax\doc\get::get($_id);
+		if(!isset($load['id']))
+		{
+			return false;
+		}
+
+		$add =
+		[
+			'number'  => \dash\get::index($_args, 'number'),
+			'desc'    => \dash\get::index($load, 'desc'),
+			'date'    => \dash\get::index($load, 'date'),
+			'year_id' => \dash\get::index($load, 'year_id'),
+		];
+
+		$new_doc = self::add($add);
+		if(isset($new_doc['id']))
+		{
+			\lib\db\tax_docdetail\insert::duplicate($_id, $new_doc['id']);
+		}
+
+		return $new_doc;
+
+	}
+
 	public static function add($_args)
 	{
 
