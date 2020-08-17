@@ -3,7 +3,7 @@
     <input type="hidden" name="sortable" value="sortable">
   <div class="box">
     <div class="pad2">
-       <table class="tbl1 v6 mB0">
+       <table class="tbl1 v6 minimal mB0">
          <thead>
            <tr class="font-12">
              <th class="collapsing"></th>
