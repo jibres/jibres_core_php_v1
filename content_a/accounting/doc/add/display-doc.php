@@ -24,7 +24,7 @@
           </div>
 
           <div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2">
-            <label for="number"><?php echo T_("Number") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+            <label for="number"><?php echo T_("Document Number") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
             <div class="input mB0-f">
               <input type="number" min="1" max="9999999999" name="number" id="number" required value="<?php echo \dash\data::dataRow_number() ?>" data-format=int>
             </div>
@@ -36,7 +36,7 @@
         		</div>
           </div>
           <div class="c-xs-12 c-sm-6 c-md-12 c-lg-3 c-xl">
-            <label for="desc"><?php echo T_("Description") ?></label>
+            <label for="desc"><?php echo T_("Document Description") ?></label>
             <div class="input mB0-f">
               <input type="text" name="desc" id="desc" value="<?php echo \dash\data::dataRow_desc() ?>">
             </div>
