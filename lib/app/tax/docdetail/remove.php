@@ -23,6 +23,12 @@ class remove
 
 		$tax_document_id = \dash\get::index($load, 'tax_document_id');
 
+		$check_doc_status = \lib\app\tax\doc\check::check_doc_status($tax_document_id);
+		if(!$check_doc_status)
+		{
+			return false;
+		}
+
 		\lib\db\tax_docdetail\delete::by_id($id);
 
 		if(isset($tax_document_id))

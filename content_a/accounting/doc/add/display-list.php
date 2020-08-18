@@ -1,4 +1,10 @@
 <?php if(\dash\data::editMode() && \dash\data::docDetail()) {?>
+
+  <?php if(\dash\data::dataRow_status() === 'temp' || \dash\data::dataRow_status() === 'lock') {?>
+    <form method="post" id="formlock1">
+      <input type="hidden" name="newlockstatus" value="<?php if(\dash\data::dataRow_status() === 'temp') { echo 'lock'; }elseif(\dash\data::dataRow_status() === 'lock'){ echo 'temp';} ?>">
+    </form>
+  <?php } //endif ?>
   <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
     <div class="pad2">
@@ -10,7 +16,9 @@
              <th class="collapsing"><?php echo T_("Explanation"); ?></th>
              <th class="collapsing txtR"><?php echo T_("Debtor") ?></th>
              <th class="collapsing txtR"><?php echo T_("Creditor") ?></th>
+             <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
              <th class="collapsing p0"></th>
+           <?php } //endif ?>
            </tr>
          </thead>
          <tbody class="sortable" data-sortable>
@@ -32,10 +40,12 @@
               <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
               <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></code></td>
               <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
+                <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
               <td class="p0">
                 <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
               </td>
+              <?php } //endif ?>
             </tr>
            <?php } //endfor ?>
          </tbody>

@@ -40,13 +40,16 @@
           <input type="text" name="desc" id="desc" value="<?php echo \dash\data::dataRow_desc() ?>">
         </div>
       </div>
+
       <?php if(\dash\data::editMode()) {?>
+        <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
       <div class="c-xs c-auto p0">
         <div class="btn mT10 linkDel outline" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
       </div>
       <div class="c-xs-auto c-auto p0">
         <button class="btn mT10 secondary outline"><?php echo T_("Edit") ?></button>
       </div>
+        <?php } //endif ?>
       <?php }else{ ?>
       <div class="c-xs-12 c-auto p0">
         <button class="btn mT10 master"><?php echo T_("Add") ?></button>

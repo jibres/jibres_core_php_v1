@@ -6,11 +6,30 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Edit accounting doc'). ' #'. \dash\data::dataRow_number(). ' - '. T_("Status"). ' '. T_(\dash\data::dataRow_status()));
+		\dash\face::title(T_('Accounting document'). ' #'. \dash\data::dataRow_number(). ' - '. T_("Status"). ' '. T_(\dash\data::dataRow_status()));
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());
+
+
+
+		if(\dash\data::dataRow_status() === 'temp')
+		{
+			\dash\face::btnSave('formlock1');
+			\dash\face::btnSaveValue('lock');
+			\dash\face::btnSaveText(T_("Lock"));
+		}
+		elseif(\dash\data::dataRow_status() === 'lock')
+		{
+			\dash\face::btnInsert('formlock1');
+			\dash\face::btnInsertValue('unlock');
+			\dash\face::btnInsertText(T_("Unlock"));
+		}
+
+
+
+
 
 		\dash\data::myType(\dash\data::dataRow_type());
 		\dash\data::editMode(true);

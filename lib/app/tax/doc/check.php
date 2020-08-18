@@ -5,6 +5,27 @@ namespace lib\app\tax\doc;
 class check
 {
 
+	public static function check_doc_status($_doc_id)
+	{
+		$load = \lib\app\tax\doc\get::get($_doc_id);
+
+		if(!$load || !isset($load['id']))
+		{
+			return false;
+		}
+
+		if(isset($load['status']) && $load['status'] === 'lock')
+		{
+			\dash\notif::error(T_("This document is locked"));
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+
 	public static function variable($_args, $_option = [], $_id = null)
 	{
 		$condition =
@@ -13,6 +34,7 @@ class check
 			'desc'    => 'string_300',
 			'date'    => 'date',
 			'year_id' => 'id',
+			'status'  => ['enum' => ['draft', 'temp', 'lock']],
 		];
 
 		$require = ['number', 'date', 'year_id'];
@@ -20,6 +42,17 @@ class check
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		if($_id)
+		{
+			$check_doc_status = self::check_doc_status($_id);
+			if(!$check_doc_status)
+			{
+				return false;
+			}
+
+		}
 
 		if(($data['year_id'] && $data['date']) || (isset($_option['year_id']) && $data['date']))
 		{

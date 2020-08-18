@@ -39,6 +39,12 @@ class check
 			return false;
 		}
 
+		$check_doc_status = \lib\app\tax\doc\check::check_doc_status($data['tax_document_id']);
+		if(!$check_doc_status)
+		{
+			return false;
+		}
+
 		if($data['details_title'])
 		{
 
@@ -120,6 +126,8 @@ class check
 		}
 
 		$data['year_id'] = \dash\get::index($load_doc, 'year_id');
+
+
 
 		return $data;
 
