@@ -8,12 +8,26 @@
 
         <div class="c4 s12" method="post" autocomplete="off">
           <div class="action f">
-            <div class="c12 mB5">
-              <label for="currency"><?php echo T_("Currency"); ?></label>
-              <div class="input ">
-                <input type="text" name="currency" id="currency" maxlength="50" value="<?php echo \dash\data::accountingSettingSaved_currency(); ?>">
-              </div>
-            </div>
+
+    <div class="mB10">
+          <label for='currency'><?php echo T_("Accounting Currency"); ?></label>
+          <select class="select22" name="currency" id="currency">
+            <?php if(!\dash\data::dataRow_currency()) {?>
+
+            <option disabled selected></option>
+
+            <?php } //endif ?>
+
+            <?php foreach (\dash\data::currencyList() as $key => $value) {?>
+
+
+                <option value="<?php echo $key; ?>" <?php if(\dash\data::accountingSettingSaved_currency() == $key) { echo 'selected';}elseif(\dash\data::dataRow_country() == 'IR' && $key == 'IRT' && !\dash\data::dataRow_currency()) {echo 'selected';} ?> ><?php echo \dash\get::index($value, 'name'); ?> - <?php echo \dash\get::index($value, 'symbol_native'); ?></option>
+
+              <?php } //endfor ?>
+          </select>
+        </div>
+
+
           </div>
         </div>
       </div>

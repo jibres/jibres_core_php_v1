@@ -13,6 +13,8 @@ class view
 
 		\dash\data::accountingSettingSaved(\lib\app\setting\get::accounting_setting());
 
+			\dash\data::currencyList(\lib\currency::list());
+
 	}
 }
 ?>

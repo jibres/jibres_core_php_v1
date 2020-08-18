@@ -54,6 +54,15 @@ class view
 		}
 
 
+		$accountingSettingSaved = \lib\app\setting\get::accounting_setting();
+		\dash\data::accountingSettingSaved($accountingSettingSaved);
+
+		if(isset($accountingSettingSaved['currency']) && $accountingSettingSaved['currency'])
+		{
+			\dash\data::currentCurrency(\lib\currency::name($accountingSettingSaved['currency']));
+		}
+
+
 		\dash\data::accountingYear(\lib\app\tax\year\get::list());
 
 		if($detail && is_array($detail))
