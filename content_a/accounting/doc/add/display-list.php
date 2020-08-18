@@ -11,23 +11,27 @@
        <table class="tbl1 v6 minimal mB0">
          <thead>
            <tr class="font-12">
-             <th class="collapsing"></th>
+             <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+              <th class="collapsing"></th>
+             <?php } //endif ?>
              <th><?php echo T_("Assistant"); ?> - <?php echo T_("Document Detail") ?></th>
              <th class="collapsing"><?php echo T_("Explanation"); ?></th>
              <th class="collapsing txtR"><?php echo T_("Debtor") ?></th>
              <th class="collapsing txtR"><?php echo T_("Creditor") ?></th>
              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
              <th class="collapsing p0"></th>
-           <?php } //endif ?>
+             <?php } //endif ?>
            </tr>
          </thead>
          <tbody class="sortable" data-sortable>
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
             <tr title="<?php echo ($key + 1); ?>">
+             <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
               <td>
                 <i data-handle class="sf-sort p0"></i>
                 <input type="hidden" class="hide" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
-              </div>
+              </td>
+                <?php }// endif ?>
               <td>
                 <div class="font-12">
                   <a href="<?php echo \dash\url::this(). '/coding?view='. \dash\get::index($value, 'assistant_id') ?>"><code><?php echo \dash\get::index($value, 'assistant_code'); ?></code></a>

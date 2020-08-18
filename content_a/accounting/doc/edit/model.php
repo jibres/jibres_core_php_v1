@@ -42,7 +42,8 @@ class model
 
 		if(\dash\request::post('sortable') === 'sortable')
 		{
-			\lib\app\tax\docdetail\edit::sort(\dash\request::post('sort'));
+			\lib\app\tax\docdetail\edit::sort(\dash\request::post('sort'), \dash\request::get('id'));
+			return;
 		}
 		elseif(\dash\request::post('row') === 'row')
 		{

@@ -4,7 +4,7 @@ namespace lib\app\tax\docdetail;
 
 class edit
 {
-	public static function sort($_sort)
+	public static function sort($_sort, $_id)
 	{
 		$sort = [];
 
@@ -26,7 +26,14 @@ class edit
 			return;
 		}
 
+		$check_doc_status = \lib\app\tax\doc\check::check_doc_status($_id);
+		if(!$check_doc_status)
+		{
+			return false;
+		}
+
 		\lib\db\tax_docdetail\update::set_sort($sort);
+		\dash\notif::ok(T_("Data sorted"));
 
 		return true;
 	}
