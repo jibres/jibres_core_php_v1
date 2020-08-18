@@ -37,8 +37,13 @@ class get
 
 
 
-	public static function detail_report()
+	public static function detail_report($_year_id)
 	{
+		$year = null;
+		if($_year_id)
+		{
+			$year = " AND tax_docdetail.year_id = $_year_id ";
+		}
 
 		$query =
 		"
@@ -59,6 +64,8 @@ class get
 			LEFT JOIN tax_coding AS `assistant` ON assistant.id = tax_docdetail.assistant_id
 			LEFT JOIN tax_coding AS `total` ON total.id = details.parent2
 			LEFT JOIN tax_coding AS `group` ON group.id = details.parent1
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			WHERE tax_document.status != 'draft' $year
 			GROUP BY tax_docdetail.details_id
 
 		";
