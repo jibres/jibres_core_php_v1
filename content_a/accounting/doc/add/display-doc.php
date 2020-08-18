@@ -1,5 +1,16 @@
+ <div class="box hide d-print-block">
+  <div class="pad">
+    <div class="row align-center">
+      <div class="c"><h3><?php echo \lib\store::title(); ?></h3></div>
+      <div class="c-auto"><?php echo T_(\dash\data::dataRow_status()) ?></div>
+      <div class="c-auto"><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></div>
+      <div class="c-auto"><?php echo T_("Date"); ?> <b><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></b></div>
+    </div>
+    <div class="msg"><b><?php echo T_("Document Description") ?></b> <?php echo \dash\data::dataRow_desc() ?></div>
+  </div>
+ </div>
 
- <form method="post" autocomplete="off" class="box">
+ <form method="post" autocomplete="off" class="box p0">
   <div class="pad">
     <div class="row padLess align-end">
       <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-2 p0">
