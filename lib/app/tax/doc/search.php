@@ -29,6 +29,7 @@ class search
 		[
 			'order'   => 'order',
 			'sort'    => ['enum' => ['number', 'date']],
+			'year_id' => 'id',
 		];
 
 		$require = [];
@@ -51,6 +52,11 @@ class search
 		{
 			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
 			return false;
+		}
+
+		if($data['year_id'])
+		{
+			$and[] = " tax_document.year_id = $data[year_id] ";
 		}
 
 		$query_string = \dash\validate::search($_query_string);

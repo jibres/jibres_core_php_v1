@@ -17,7 +17,33 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 
-		$dataTable = \lib\app\tax\doc\search::list(null, []);
+
+
+		$year = \lib\app\tax\year\get::list();
+		\dash\data::accountingYear($year);
+
+		$args = [];
+
+		$year_id = \dash\request::get('year_id');
+		if(!$year_id)
+		{
+			foreach ($year as $key => $value)
+			{
+				if(isset($value['isdefault']) && $value['isdefault'])
+				{
+					$year_id = $value['id'];
+					break;
+				}
+			}
+		}
+
+		if($year_id)
+		{
+			$args['year_id'] = $year_id;
+		}
+
+
+		$dataTable = \lib\app\tax\doc\search::list(null, $args);
 		\dash\data::dataTable($dataTable);
 
 	}
