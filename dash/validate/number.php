@@ -129,7 +129,7 @@ class number
 
 	public static function float($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 2000000000]);
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0]);
 		if($data === false || $data === null)
 		{
 			return $data;
