@@ -97,3 +97,43 @@
   <?php }//endif ?>
 
 <?php } //endif ?>
+
+<?php if(\dash\data::editMode()) {?>
+<form method="post" class="p0">
+  <input type="hidden" name="uploaddoc" value="uploaddoc">
+    <div class="box">
+      <div class="pad1">
+        <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
+          <div class="msg minimal mB0 warn2"><?php echo T_("Document gallery is full!"); ?></div>
+        <?php }else{ ?>
+          <div data-uploader data-max-w="1000" data-max-h="1000" data-name='gallery' data-autoSend>
+            <input type="file" id="file1">
+            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+
+        <?php if(\dash\data::dataRow_gallery_array()) {?>
+          <div class="previewList">
+            <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
+                <div class="fileItem" data-removeElement data-type='<?php echo \dash\get::index($value, 'type'); ?>'>
+                  <?php if(\dash\get::index($value, 'type') === 'video') {?>
+                    <video controls>
+                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="<?php echo \dash\get::index($value, 'mime'); ?>">
+                    </video>
+                  <?php }elseif(\dash\get::index($value, 'type') === 'image') {?>
+                    <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index(\dash\data::dataRow(), 'title'); ?>">
+                  <?php } else { ?>
+                    <a target="_blank" class="btn xl" href="<?php echo \dash\get::index($value, 'path'); ?>" ><?php echo \dash\get::index($value, 'ext'); ?></a>
+                  <?php } ?>
+                  <div>
+                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
+                  </div>
+                </div>
+            <?php } //endfor ?>
+          </div>
+        <?php } //endif ?>
+          </div>
+        <?php } //endif ?>
+      </div>
+    </div>
+</form>
+
+<?php } //endif ?>

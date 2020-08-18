@@ -18,6 +18,20 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'gallery':
+					$result[$key] = $value;
+					if($value)
+					{
+						$result['gallery_array'] = json_decode($value, true);
+						$result['gallery_array'] = \lib\app\tax\doc\gallery::load_detail($result['gallery_array']);
+
+					}
+					else
+					{
+						$result['gallery_array'] = null;
+					}
+					break;
+
 				case 'status':
 					$tvalue = null;
 					switch ($value)

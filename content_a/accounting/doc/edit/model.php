@@ -5,6 +5,21 @@ class model
 {
 	public static function post()
 	{
+
+		$id = \dash\request::get('id');
+
+		if(\dash\request::post('uploaddoc') === 'uploaddoc')
+		{
+			self::upload_gallery($id);
+			return;
+		}
+
+		if(\dash\request::post('fileaction') === 'remove')
+		{
+			self::remove_gallery($id);
+			return false;
+		}
+
 		if(\dash\request::post('newlockstatus'))
 		{
 			$post =
@@ -91,6 +106,56 @@ class model
 				\dash\redirect::pwd();
 			}
 		}
+	}
+
+
+
+	/**
+	 * Uploads a gallery.
+	 * Use this function in api
+	 */
+	public static function upload_gallery($_id)
+	{
+		if(\dash\request::files('gallery'))
+		{
+			$uploaded_file = \dash\upload\tax_document::set_tax_document_gallery($_id);
+
+			if(isset($uploaded_file['id']))
+			{
+				// save uploaded file
+				\lib\app\tax\doc\gallery::gallery($_id, $uploaded_file, 'add');
+			}
+
+			if(!\dash\engine\process::status())
+			{
+				// \dash\notif::error(T_("Can not upload file"));
+			}
+			else
+			{
+				if(\dash\url::child() === 'add')
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::ok(T_("File successfully uploaded"));
+	 				\dash\redirect::pwd();
+				}
+			}
+
+			return true;
+		}
+		return false;
+
+	}
+
+
+	public static function remove_gallery($_id)
+	{
+		$fileid = \dash\request::post('fileid');
+		\lib\app\tax\doc\gallery::gallery($_id, $fileid, 'remove');
+		\dash\notif::ok(T_("File removed"));
+		// \dash\redirect::pwd();
 	}
 }
 ?>

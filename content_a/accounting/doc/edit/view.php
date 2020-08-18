@@ -27,9 +27,7 @@ class view
 			\dash\face::btnInsertText(T_("Unlock"));
 		}
 
-
-
-
+		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));
 
 		\dash\data::myType(\dash\data::dataRow_type());
 		\dash\data::editMode(true);

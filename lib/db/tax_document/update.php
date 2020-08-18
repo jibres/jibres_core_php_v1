@@ -4,6 +4,22 @@ namespace lib\db\tax_document;
 
 class update
 {
+
+
+	public static function gallery($_gallery, $_id)
+	{
+		$query  = "UPDATE tax_document SET tax_document.gallery = '$_gallery' WHERE tax_document.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+	public static function gallery_set_null($_id)
+	{
+		$query  = "UPDATE tax_document SET tax_document.gallery = NULL WHERE tax_document.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 	public static function reset_number($_data)
 	{
 		$query = [];
