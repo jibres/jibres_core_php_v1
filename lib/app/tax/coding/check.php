@@ -156,6 +156,24 @@ class check
 
 		}
 
+		if($_id)
+		{
+			$load_detail = \lib\app\tax\coding\get::get($_id);
+			if(isset($load_detail['type']) && $load_detail['type'] === 'details')
+			{
+				if($data['code'] && mb_strlen($data['code']) > 4)
+				{
+					$data['code'] = substr($data['code'], 4);
+				}
+
+				if(isset($load_detail['parent3']) && $load_detail['parent3'])
+				{
+					$load_parent = \lib\app\tax\coding\get::get($load_detail['parent3']);
+				}
+			}
+
+		}
+
 		if(isset($load_parent['code']) && $data['code'])
 		{
 			$data['code'] = $load_parent['code']. $data['code'];
