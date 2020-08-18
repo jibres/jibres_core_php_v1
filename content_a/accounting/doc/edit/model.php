@@ -51,7 +51,11 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::pwd();
+				$get = \dash\request::get();
+				unset($get['value']);
+				unset($get['did']);
+				$url = \dash\url::current(). '?'. http_build_query($get);
+				\dash\redirect::to($url);
 			}
 			return;
 		}
@@ -105,7 +109,10 @@ class model
 			}
 			else
 			{
-				\dash\redirect::pwd();
+				$get = \dash\request::get();
+				unset($get['value']);
+				$url = \dash\url::current(). '?'. http_build_query($get);
+				\dash\redirect::to($url);
 			}
 		}
 	}
@@ -134,15 +141,9 @@ class model
 			}
 			else
 			{
-				if(\dash\url::child() === 'add')
-				{
-					// nothing
-				}
-				else
-				{
-					\dash\notif::ok(T_("File successfully uploaded"));
-	 				\dash\redirect::pwd();
-				}
+				\dash\notif::ok(T_("File successfully uploaded"));
+ 				\dash\redirect::pwd();
+
 			}
 
 			return true;
@@ -156,7 +157,11 @@ class model
 	{
 		$fileid = \dash\request::post('fileid');
 		\lib\app\tax\doc\gallery::gallery($_id, $fileid, 'remove');
-		\dash\notif::ok(T_("File removed"));
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("File removed"));
+		}
 		// \dash\redirect::pwd();
 	}
 }

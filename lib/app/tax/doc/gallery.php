@@ -103,6 +103,12 @@ class gallery
 			return false;
 		}
 
+		$check_doc_status = \lib\app\tax\doc\check::check_doc_status($_tax_document_id);
+		if(!$check_doc_status)
+		{
+			return false;
+		}
+
 		$load_gallery = self::get_gallery_field($_tax_document_id);
 		if(!$load_gallery)
 		{
