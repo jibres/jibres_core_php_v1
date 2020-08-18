@@ -18,6 +18,28 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'status':
+					switch ($value)
+					{
+						case 'draft':
+							$tvalue = T_("Draft");
+							break;
+
+						case 'lock':
+							$tvalue = T_("Permanent");
+							break;
+
+						case 'temp':
+							$tvalue = T_("Temp");
+							break;
+
+						default:
+							# code...
+							break;
+					}
+					$result['tstatus'] = $tvalue;
+					$result[$key] = $value;
+					break;
 				default:
 					$result[$key] = $value;
 					break;

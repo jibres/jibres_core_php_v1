@@ -2,7 +2,7 @@
   <div class="pad">
     <div class="row align-center mB10">
       <div class="c txtB"><?php echo \lib\store::title(); ?></div>
-      <div class="c-auto"><?php echo T_(\dash\data::dataRow_status()) ?></div>
+      <div class="c-auto"><?php echo \dash\data::dataRow_tstatus() ?></div>
       <div class="c-auto"><?php echo T_("Date"); ?> <b><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></b></div>
     </div>
     <div class="msg"><b><?php echo T_("Document Description") ?></b> <?php echo \dash\data::dataRow_desc() ?></div>
