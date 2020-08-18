@@ -15,7 +15,9 @@
               <th class="collapsing"></th>
              <?php } //endif ?>
              <th><?php echo T_("Assistant"); ?> - <?php echo T_("Document Detail") ?></th>
-             <th class="collapsing"><?php echo T_("Explanation"); ?></th>
+             <?php if(!\dash\data::descEmpty()) {?>
+               <th class="collapsing"><?php echo T_("Explanation"); ?></th>
+             <?php } //endif ?>
              <th class="collapsing txtR"><?php echo T_("Debtor") ?></th>
              <th class="collapsing txtR"><?php echo T_("Creditor") ?></th>
              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
@@ -40,8 +42,9 @@
                 <div class="font-11 pLa10"><?php echo \dash\get::index($value, 'details_title'); ?></div>
               </td>
 
-
-              <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
+               <?php if(!\dash\data::descEmpty()) {?>
+                  <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
+               <?php } //endif ?>
               <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></code></td>
               <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
@@ -59,8 +62,12 @@
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
                 <td></td>
               <?php } //endif ?>
-              <td><?php echo "Total"; ?></td>
+
+             <?php if(!\dash\data::descEmpty()) {?>
               <td></td>
+            <?php } //endif ?>
+
+              <td><?php echo "Total"; ?></td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>

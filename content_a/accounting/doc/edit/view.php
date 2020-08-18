@@ -44,7 +44,17 @@ class view
 		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?id='. \dash\request::get('id'));
 
 		$detail = \lib\app\tax\docdetail\get::list(\dash\request::get('id'));
+		if(!is_array($detail))
+		{
+			$detail = [];
+		}
 		\dash\data::docDetail($detail);
+		$desc = array_column($detail, 'desc');
+		if(!array_filter($desc))
+		{
+			\dash\data::descEmpty(true);
+		}
+
 
 		\dash\data::accountingYear(\lib\app\tax\year\get::list());
 
