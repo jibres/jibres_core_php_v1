@@ -44,7 +44,7 @@
               <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
               <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></code></td>
               <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
-                <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
               <td class="p0">
                 <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
@@ -53,10 +53,25 @@
             </tr>
            <?php } //endfor ?>
          </tbody>
+         <tfoot class="">
+
+           <tr>
+              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+                <td></td>
+              <?php } //endif ?>
+              <td></td>
+              <td></td>
+             <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
+             <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
+              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+                <td></td>
+              <?php } //endif ?>
+           </tr>
+         </tfoot>
 
        </table>
     </div>
-    <footer>
+    <footer class="hide">
       <div class="f">
         <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="txtB fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
         <div class="c txtC"><?php echo \dash\data::equalICON(); ?></div>
