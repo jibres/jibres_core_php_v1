@@ -1,49 +1,6 @@
 <?php if(\dash\data::editMode()) {?>
 
-<form method="get" class="p0 ShowCalcVat"  autocomplete="off" <?php if(\dash\request::get('calcvat')){}else{?> data-kerkere-content='hide' <?php } //endif ?>>
-    <div class="box">
-      <div class="body">
 
-
-        <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
-        <input type="hidden" name="did" value="<?php echo \dash\request::get('did') ?>">
-
-        <div class="row">
-          <div class="c-xs-12 c-sm-4">
-            <label for="calcvat"><small><?php echo T_("Calculate Vat price") ?></small></label>
-            <div class="input">
-              <input type="tel" id="calcvat" name="calcvat" data-format='price' value="<?php echo \dash\request::get('calcvat') ?>">
-              <button class="btn primary2"><?php echo T_("Calculate vat") ?></button>
-            </div>
-
-          </div>
-          <div class="c-xs-12 c-sm-4">
-
-            <?php if(\dash\data::vatCalc()) {?>
-               <label for="vat"><small><?php echo T_("Vat price") ?></small></label>
-            <div class="input">
-              <input type="tel" id="vat"  data-format='price' value="<?php echo \dash\data::vatValue(); ?>">
-              <a href="<?php echo \dash\data::vatCalc() ?>" class="btn addon" ><i class="sf-download"></i></a>
-            </div>
-
-            <?php } //endif ?>
-          </div>
-          <div class="c-xs-12 c-sm-4">
-
-             <?php if(\dash\data::taxCalc()) {?>
-               <label for="tax"><small><?php echo T_("Tax price") ?></small></label>
-            <div class="input">
-              <input type="tel" id="tax"  data-format='price' value="<?php echo \dash\data::taxValue(); ?>">
-              <a href="<?php echo \dash\data::taxCalc() ?>" class="btn addon" ><i class="sf-download"></i></a>
-            </div>
-
-            <?php } //endif ?>
-          </div>
-        </div>
-
-      </div>
-  </div>
-</form>
 
   <form method="post" autocomplete="off" class="box p0">
 	 <input type="hidden" name="row" value="row">
@@ -158,5 +115,50 @@ foreach (\dash\data::assistantList() as $key => $value)
     </div>
 
   </form>
+
+  <form method="get" class="p0 ShowCalcVat" action="<?php echo \dash\url::current(); ?>"  autocomplete="off" <?php if(\dash\request::get('calcvat')){}else{?> data-kerkere-content='hide' <?php } //endif ?>>
+    <div class="box">
+      <div class="body">
+
+
+        <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
+        <input type="hidden" name="did" value="<?php echo \dash\request::get('did') ?>">
+
+        <div class="row">
+          <div class="c-xs-12 c-sm-4">
+            <label for="calcvat"><small><?php echo T_("Calculate Vat price") ?></small></label>
+            <div class="input">
+              <input type="tel" id="calcvat" name="calcvat" data-format='price' value="<?php echo \dash\request::get('calcvat') ?>">
+              <button class="btn primary2"><?php echo T_("Calculate vat") ?></button>
+            </div>
+
+          </div>
+          <div class="c-xs-12 c-sm-4">
+
+            <?php if(\dash\data::vatCalc()) {?>
+               <label for="vat"><small><?php echo T_("Vat price") ?></small></label>
+            <div class="input">
+              <input type="tel" id="vat"  data-format='price' value="<?php echo \dash\data::vatValue(); ?>">
+              <a href="<?php echo \dash\data::vatCalc() ?>" class="btn addon" ><i class="sf-upload"></i></a>
+            </div>
+
+            <?php } //endif ?>
+          </div>
+          <div class="c-xs-12 c-sm-4">
+
+             <?php if(\dash\data::taxCalc()) {?>
+               <label for="tax"><small><?php echo T_("Tax price") ?></small></label>
+            <div class="input">
+              <input type="tel" id="tax"  data-format='price' value="<?php echo \dash\data::taxValue(); ?>">
+              <a href="<?php echo \dash\data::taxCalc() ?>" class="btn addon" ><i class="sf-upload"></i></a>
+            </div>
+
+            <?php } //endif ?>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</form>
 <?php } //endif ?>
 
