@@ -9,10 +9,10 @@
           <th><?php echo T_("Accounting total") ?></th>
           <th><?php echo T_("Accounting assistant") ?></th>
           <th><?php echo T_("Accounting details") ?></th>
-          <th><?php echo T_("Debtor") ?></th>
-          <th><?php echo T_("Creditor") ?></th>
-          <th><?php echo T_("Remain Debtor") ?></th>
-          <th><?php echo T_("Remain Creditor") ?></th>
+          <th class="txtR"><?php echo T_("Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Creditor") ?></th>
+          <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Remain Creditor") ?></th>
         </tr>
       </thead>
       <tbody>

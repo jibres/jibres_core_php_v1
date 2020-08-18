@@ -8,8 +8,8 @@
              <th class="collapsing"></th>
              <th><?php echo T_("Assistant"); ?> - <?php echo T_("Document Detail") ?></th>
              <th class="collapsing"><?php echo T_("Explanation"); ?></th>
-             <th class="collapsing"><?php echo T_("Debtor") ?></th>
-             <th class="collapsing"><?php echo T_("Creditor") ?></th>
+             <th class="collapsing txtR"><?php echo T_("Debtor") ?></th>
+             <th class="collapsing txtR"><?php echo T_("Creditor") ?></th>
              <th class="collapsing p0"></th>
            </tr>
          </thead>
