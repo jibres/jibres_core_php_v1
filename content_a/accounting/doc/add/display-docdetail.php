@@ -91,7 +91,7 @@ foreach (\dash\data::assistantList() as $key => $value)
             <label for="creditor"><?php echo T_("Creditor"); ?></label>
           </div>
         </div>
-        <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-2">
+        <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-3">
         	<label for="value"><?php echo T_("Amount") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         	<div class="input mB0-f">
         		<input type="tel" minlength="0" maxlength="18"  name="value" data-format='price' value="<?php if(\dash\data::dataRowDetail_value()) {echo \dash\data::dataRowDetail_value();}else{echo \dash\request::get('value');} ?>" required>

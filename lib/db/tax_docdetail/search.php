@@ -46,12 +46,22 @@ class search
 			$limit = $_meta['limit'];
 		}
 
+		if(isset($_meta['join']) && is_array($_meta['join']) && $_meta['join'])
+		{
+			$join = implode(' ', $_meta['join']);
+		}
+		else
+		{
+			$join = null;
+		}
+
 		return
 		[
 			'where'      => $where,
 			'order'      => $order,
 			'pagination' => $pagination,
 			'limit'      => $limit,
+			'join'      => $join,
 		];
 	}
 
@@ -62,7 +72,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM tax_docdetail $q[where] ";
+		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM tax_docdetail $q[join] $q[where] ";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -73,8 +83,17 @@ class search
 		$query =
 		"
 			SELECT
-				*
+				tax_docdetail.*,
+				tax_document.number,
+				tax_document.date,
+				tax_document.status,
+				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = tax_docdetail.details_id LIMIT 1) AS `details_title`,
+				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) AS `assistant_title`,
+				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent2 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `total_title`,
+				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent1 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `group_title`
 			FROM tax_docdetail
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			$q[join]
 			$q[where]
 			$q[order]
 			$limit

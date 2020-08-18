@@ -29,6 +29,9 @@ class search
 		[
 			'order'   => 'order',
 			'sort'    => ['enum' => ['number', 'date']],
+			'year_id' => 'id',
+			'contain' => 'id',
+
 		];
 
 		$require = [];
@@ -37,11 +40,12 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$or           = [];
+		$meta['join'] = [];
 
-		$meta['limit'] = 20;
+		$meta['limit'] = 10;
 		// $meta['pagination'] = false;
 
 		$order_sort  = null;
@@ -51,6 +55,30 @@ class search
 		{
 			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
 			return false;
+		}
+
+		if($data['year_id'])
+		{
+			$and[] = " tax_docdetail.year_id = $data[year_id] ";
+		}
+
+		if($data['contain'])
+		{
+			$load_all_child = \lib\db\tax_coding\get::all_child_id($data['contain']);
+			if($load_all_child)
+			{
+				$load_all_child = array_map('floatval', $load_all_child);
+				$load_all_child = array_filter($load_all_child);
+				$load_all_child = array_unique($load_all_child);
+
+				if($load_all_child)
+				{
+					$load_all_child = implode(',', $load_all_child);
+					$meta['join'][] = " INNER JOIN tax_docdetail ON tax_docdetail.tax_docdetail_id = tax_docdetail.id ";
+					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child) OR tax_docdetail.details_id IN ($load_all_child) ) ";
+
+				}
+			}
 		}
 
 		$query_string = \dash\validate::search($_query_string);
@@ -79,7 +107,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY tax_docdetail.date ASC";
+			$order_sort = " ORDER BY tax_docdetail.id ASC";
 		}
 
 		$list = \lib\db\tax_docdetail\search::list($and, $or, $order_sort, $meta);
