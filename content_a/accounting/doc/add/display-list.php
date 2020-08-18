@@ -71,7 +71,7 @@
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
-                <td></td>
+                <td class="p0"></td>
               <?php } //endif ?>
            </tr>
          </tfoot>
