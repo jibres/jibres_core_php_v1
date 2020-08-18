@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-17 18:34+0430\n"
-"PO-Revision-Date: 2020-08-17 18:35+0430\n"
+"POT-Creation-Date: 2020-08-18 13:23+0430\n"
+"PO-Revision-Date: 2020-08-18 13:26+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -666,7 +666,7 @@ msgid ""
 msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیری و میزان شدت آن."
 
 #: content/bug/display.php:102 content/changelog/display.php:12
-#: content_a/accounting/doc/add/display-docdetail.php:58
+#: content_a/accounting/doc/add/display-docdetail.php:97
 #: content_a/accounting/irvat/add/display.php:124
 #: content_a/android/intro/display-test-multi-upload.php:23
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
@@ -2349,7 +2349,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/setting/place/inventory/display.php:44 content_a/website/news/view.php:15
 #: content_a/website/productline/view.php:15 content_love/store/analytics/display.php:23
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:363
-#: includes/languages/trans_static.php:599 lib/app/export/product.php:39
+#: includes/languages/trans_static.php:599 lib/app/export/product.php:42
 #: lib/app/website/body/template.php:91
 msgid "Products"
 msgstr "محصولات"
@@ -3896,7 +3896,7 @@ msgstr "والد"
 #: content_a/accounting/doc/add/display-doc.php:26
 #: content_a/accounting/doc/add/display-doc.php:32
 #: content_a/accounting/doc/add/display-docdetail.php:8
-#: content_a/accounting/doc/add/display-docdetail.php:52
+#: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/irvat/add/display.php:155
 #: content_a/accounting/irvat/add/display.php:165 content_a/android/title/display.php:8
 #: content_crm/member/legal/display.php:25 content_my/ipg/profile/display.php:41
@@ -3971,17 +3971,17 @@ msgid "Balance type"
 msgstr "نوع بالانس"
 
 #: content_a/accounting/coding/add/display-add.php:46
-#: content_a/accounting/doc/add/display-docdetail.php:42
-#: content_a/accounting/doc/add/display-list.php:11
-#: content_a/accounting/doc/add/display-list.php:47
+#: content_a/accounting/doc/add/display-docdetail.php:81
+#: content_a/accounting/doc/add/display-list.php:17
+#: content_a/accounting/doc/add/display-list.php:57
 #: content_a/accounting/report/detail/display.php:12
 msgid "Debtor"
 msgstr "بدهکار"
 
 #: content_a/accounting/coding/add/display-add.php:53
-#: content_a/accounting/doc/add/display-docdetail.php:48
-#: content_a/accounting/doc/add/display-list.php:12
-#: content_a/accounting/doc/add/display-list.php:49
+#: content_a/accounting/doc/add/display-docdetail.php:87
+#: content_a/accounting/doc/add/display-list.php:18
+#: content_a/accounting/doc/add/display-list.php:59
 #: content_a/accounting/report/detail/display.php:13
 msgid "Creditor"
 msgstr "بستانکار"
@@ -4052,11 +4052,10 @@ msgstr "غیرفعال"
 
 #: content_a/accounting/coding/add/display-add.php:140
 #: content_a/accounting/coding/display.php:41
-#: content_a/accounting/doc/add/display-list.php:56
-#: content_a/accounting/doc/add/display-list.php:58 content_a/accounting/doc/display.php:7
-#: content_a/accounting/doc/edit/view.php:9 content_a/accounting/year/display.php:8
-#: content_a/android/apk/display.php:32 content_a/order/detail/display.php:21
-#: content_a/products/comment/display.php:85
+#: content_a/accounting/doc/add/display-list.php:66
+#: content_a/accounting/doc/add/display-list.php:68 content_a/accounting/doc/display.php:7
+#: content_a/accounting/year/display.php:8 content_a/android/apk/display.php:32
+#: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
 #: content_a/products/edit/block/sidebar-menu.php:59
 #: content_a/products/export/display.php:57 content_a/products/status/view.php:18
@@ -4079,8 +4078,8 @@ msgid "Status"
 msgstr "وضعیت"
 
 #: content_a/accounting/coding/add/display-add.php:146
-#: content_a/accounting/doc/add/display-doc.php:52
-#: content_a/accounting/doc/add/display-docdetail.php:67
+#: content_a/accounting/doc/add/display-doc.php:55
+#: content_a/accounting/doc/add/display-docdetail.php:106
 #: content_a/accounting/irvat/add/display.php:133
 #: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:26
 #: content_a/category/add/display.php:12 content_a/category/property/display.php:47
@@ -4108,9 +4107,9 @@ msgstr "افزودن"
 #: content_a/accounting/coding/display-list.php:112
 #: content_a/accounting/coding/display-list.php:124
 #: content_a/accounting/coding/display.php:78
-#: content_a/accounting/doc/add/display-doc.php:48
-#: content_a/accounting/doc/add/display-docdetail.php:65
-#: content_a/accounting/doc/add/display-list.php:36
+#: content_a/accounting/doc/add/display-doc.php:50
+#: content_a/accounting/doc/add/display-docdetail.php:104
+#: content_a/accounting/doc/add/display-list.php:45
 #: content_a/accounting/irvat/add/display.php:131
 #: content_a/accounting/year/add/display.php:43 content_a/accounting/year/display.php:10
 #: content_a/accounting/year/display.php:27 content_a/company/display.php:64
@@ -4135,7 +4134,7 @@ msgid "Edit"
 msgstr "ویرایش"
 
 #: content_a/accounting/coding/add/display-add.php:148
-#: content_a/accounting/doc/add/display-doc.php:45
+#: content_a/accounting/doc/add/display-doc.php:47
 #: content_a/accounting/year/add/display.php:39 content_a/cart/add/display.php:54
 #: content_a/cart/add/display.php:75 content_a/company/display.php:57
 #: content_a/company/display.php:122 content_a/products/bullet/display.php:28
@@ -4185,7 +4184,7 @@ msgstr "معین"
 #: content_a/accounting/coding/add/display-choose.php:35
 #: content_a/accounting/coding/all/display.php:34
 #: content_a/accounting/coding/display-list.php:38
-#: content_a/accounting/doc/add/display-docdetail.php:20
+#: content_a/accounting/doc/add/display-docdetail.php:59
 #: content_a/accounting/report/detail/display.php:11
 msgid "Accounting details"
 msgstr "تفصیل"
@@ -4438,34 +4437,34 @@ msgstr "توضیح سند"
 msgid "Please choose assistant_id"
 msgstr "لطفا کد معین را انتخاب کنید"
 
-#: content_a/accounting/doc/add/display-docdetail.php:21
-#: content_a/accounting/doc/add/display-docdetail.php:22
+#: content_a/accounting/doc/add/display-docdetail.php:60
+#: content_a/accounting/doc/add/display-docdetail.php:61
 msgid "Please choose document details"
 msgstr "لطفا تفصیل را انتخاب کنید"
 
-#: content_a/accounting/doc/add/display-docdetail.php:28
+#: content_a/accounting/doc/add/display-docdetail.php:67
 msgid "Accounting detail"
 msgstr "تفصیل"
 
-#: content_a/accounting/doc/add/display-docdetail.php:52
+#: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_account/billing/display.php:18 content_love/domain/credit/display.php:30
 msgid "Amount"
 msgstr "مقدار"
 
-#: content_a/accounting/doc/add/display-list.php:9
+#: content_a/accounting/doc/add/display-list.php:15
 msgid "Assistant"
 msgstr "معین"
 
-#: content_a/accounting/doc/add/display-list.php:9
+#: content_a/accounting/doc/add/display-list.php:15
 msgid "Document Detail"
 msgstr "تفصیل سند"
 
-#: content_a/accounting/doc/add/display-list.php:10
+#: content_a/accounting/doc/add/display-list.php:16
 msgid "Explanation"
 msgstr "شرح"
 
-#: content_a/accounting/doc/add/display-list.php:47
-#: content_a/accounting/doc/add/display-list.php:49
+#: content_a/accounting/doc/add/display-list.php:57
+#: content_a/accounting/doc/add/display-list.php:59
 #: content_a/accounting/irvat/add/display.php:88 content_a/factor/home/display.php:129
 #: content_a/order/add/display.php:20 content_a/order/detail/display.php:43
 #: content_a/order/home/display.php:138 content_a/sale/display.php:20
@@ -4474,11 +4473,11 @@ msgstr "شرح"
 msgid "Total"
 msgstr "مجموع"
 
-#: content_a/accounting/doc/add/display-list.php:56
+#: content_a/accounting/doc/add/display-list.php:66
 msgid "Document balance"
 msgstr "سند در تعادل است"
 
-#: content_a/accounting/doc/add/display-list.php:58
+#: content_a/accounting/doc/add/display-list.php:68
 msgid "Accounting document is not balance!"
 msgstr "سند در تعادل نیست!"
 
@@ -4522,8 +4521,21 @@ msgid "Make copy from accounting document"
 msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
 #: content_a/accounting/doc/edit/view.php:9
-msgid "Edit accounting doc"
-msgstr "ویرایش سند حسابداری"
+msgid "Accounting document"
+msgstr "سند حسابداری"
+
+#: content_a/accounting/doc/edit/view.php:21
+#: content_a/setting/product/setting/display.php:91
+#: content_my/domain/predict/display.php:95
+#: content_my/domain/search/display-mydomain.php:28 content_su/update/display.php:18
+#: includes/languages/trans_static.php:633 lib/app/nic_domain/search.php:190
+#: lib/app/nic_domain/search.php:196 lib/app/nic_domain/search.php:202
+msgid "Lock"
+msgstr "قفل"
+
+#: content_a/accounting/doc/edit/view.php:27 content_su/update/display.php:44
+msgid "Unlock"
+msgstr "بازکردن قفل"
 
 #: content_a/accounting/doc/view.php:16
 msgid "Add doc"
@@ -6118,7 +6130,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/application/queue.php:232 lib/app/category/add.php:13
 #: lib/app/category/add.php:119 lib/app/category/add.php:194 lib/app/category/edit.php:39
 #: lib/app/category/get.php:46 lib/app/category/get.php:78 lib/app/category/search.php:28
-#: lib/app/factor/add.php:35 lib/app/factor/get.php:142 lib/app/product/add.php:76
+#: lib/app/factor/add.php:35 lib/app/factor/get.php:142 lib/app/product/add.php:78
 #: lib/app/product/comment.php:198 lib/app/product/comment.php:445
 #: lib/app/product/comment.php:475 lib/app/product/company.php:63
 #: lib/app/product/company.php:228 lib/app/product/company.php:260
@@ -6913,7 +6925,7 @@ msgstr "حذف شده"
 #: lib/app/nic_domain/get.php:335 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
 #: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/store/domain.php:432
-#: lib/app/tax/coding/get.php:121 lib/app/tax/doc/get.php:34
+#: lib/app/tax/coding/get.php:115 lib/app/tax/doc/get.php:34
 #: lib/app/tax/docdetail/edit.php:16 lib/app/tax/docdetail/get.php:22
 #: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
 #: lib/app/tax/year/get.php:66 lib/app/website/body/edit.php:31
@@ -8822,14 +8834,6 @@ msgstr ""
 #: includes/languages/trans_static.php:581
 msgid "Open"
 msgstr "باز"
-
-#: content_a/setting/product/setting/display.php:91
-#: content_my/domain/predict/display.php:95
-#: content_my/domain/search/display-mydomain.php:28 content_su/update/display.php:18
-#: includes/languages/trans_static.php:633 lib/app/nic_domain/search.php:190
-#: lib/app/nic_domain/search.php:196 lib/app/nic_domain/search.php:202
-msgid "Lock"
-msgstr "قفل"
 
 #: content_a/setting/product/setting/display.php:105
 msgid "Image ratio"
@@ -17918,10 +17922,6 @@ msgstr "ارتقا"
 #: content_su/update/display.php:35
 msgid "Update database"
 msgstr "به‌روزرسانی دیتابیس"
-
-#: content_su/update/display.php:44
-msgid "Unlock"
-msgstr "بازکردن قفل"
 
 #: content_su/update/display.php:45
 msgid "Unlock service"
@@ -27478,11 +27478,11 @@ msgstr "فایل آمادگی دانلود را ندارد"
 msgid "File not found"
 msgstr "فایل یافت نشد"
 
-#: lib/app/export/product.php:36
+#: lib/app/export/product.php:39
 msgid "Create export products completed"
 msgstr "ساخت فایل خروجی از محصولات تکمیل شد"
 
-#: lib/app/export/product.php:37
+#: lib/app/export/product.php:40
 msgid "This file will be automatically deleted tomorrow"
 msgstr "این فایل به صورت خودکار تا فردا حذف خواهد شد"
 
@@ -28669,27 +28669,27 @@ msgstr "دستگاه کارتخوان حذف شد"
 msgid "Pos detail not found"
 msgstr "جزئیات دستگاه پوز یافت نشد"
 
-#: lib/app/product/add.php:118
+#: lib/app/product/add.php:120
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/add.php:228
+#: lib/app/product/add.php:230
 msgid "No way to insert product"
 msgstr "هیچ راهی برای ثبت محصول نیست"
 
-#: lib/app/product/add.php:259 lib/app/product/add.php:307
+#: lib/app/product/add.php:261 lib/app/product/add.php:309
 msgid "No way to insert product price"
 msgstr "هیچ راهی برای ثبت مبلغ محصول وجود ندارد"
 
-#: lib/app/product/add.php:326
+#: lib/app/product/add.php:328
 msgid "Product successfuly added"
 msgstr "محصول با موفقیت اضافه شد"
 
-#: lib/app/product/add.php:363
+#: lib/app/product/add.php:365
 msgid "Please set product title"
 msgstr "لطفا عنوان محصول را وارد کنید"
 
-#: lib/app/product/add.php:373
+#: lib/app/product/add.php:375
 msgid "Please change the product name to copy"
 msgstr "لطفا نام محصول را برای تهیه نسخه کپی وارد کنید"
 
@@ -28714,8 +28714,8 @@ msgid "Duplicate barcode in one product"
 msgstr "بارکد تکراری در یک محصول"
 
 #: lib/app/product/check.php:156
-msgid "Ivalid parent id"
-msgstr "شناسه والد اشتباه است"
+msgid "Invalid parent id"
+msgstr ""
 
 #: lib/app/product/check.php:175
 msgid "Duplicate sku code"
@@ -29522,7 +29522,7 @@ msgstr "بله؛ من صاحب بیزینس خودم هستم"
 msgid "No, I'm developing a store for a client"
 msgstr "خیر؛ من در حال ایجاد فروشگاه برای مشتری خودم هستم"
 
-#: lib/app/tax/coding/add.php:52
+#: lib/app/tax/coding/add.php:53
 msgid "Accounting coding successfully added"
 msgstr "سرفصل حسابداری با موفقیت ثبت شد"
 
@@ -29554,7 +29554,7 @@ msgstr "نمی‌توانید این گزینه‌ را به عنوان والد
 msgid "Duplicate code. Try another code"
 msgstr "این کد تکراری است. لطفا کد دیگری را وارد کنید"
 
-#: lib/app/tax/coding/edit.php:87 lib/app/tax/doc/edit.php:29
+#: lib/app/tax/coding/edit.php:87 lib/app/tax/doc/edit.php:88
 #: lib/app/tax/docdetail/edit.php:59 lib/app/tax/year/edit.php:47
 msgid "No change in your data"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -29579,8 +29579,8 @@ msgstr "افزودن تفصیل جدید"
 msgid "This record is parent of some other record and cannot be remove"
 msgstr "این گزینه والد برای گزینه‌های دیگر است و امکان حذف آن وجود ندارد"
 
-#: lib/app/tax/coding/remove.php:29 lib/app/tax/doc/remove.php:22
-#: lib/app/tax/docdetail/remove.php:33 lib/app/tax/year/remove.php:26
+#: lib/app/tax/coding/remove.php:29 lib/app/tax/doc/remove.php:29
+#: lib/app/tax/docdetail/remove.php:39 lib/app/tax/year/remove.php:26
 msgid "Data removed"
 msgstr "اطلاعات با موفقیت حذف شد"
 
@@ -29588,19 +29588,43 @@ msgstr "اطلاعات با موفقیت حذف شد"
 msgid "Accounting doc successfully added"
 msgstr "سند حسابداری با موفقیت ثبت شد"
 
-#: lib/app/tax/doc/check.php:31
+#: lib/app/tax/doc/check.php:19
+msgid "This document is locked"
+msgstr "این سند قفل شده است"
+
+#: lib/app/tax/doc/check.php:64
 msgid "Invalid year"
 msgstr "سال اشتباه است"
 
-#: lib/app/tax/doc/check.php:42
+#: lib/app/tax/doc/check.php:75
 msgid "Accounting document date is not in Accounting year date!"
 msgstr "تاریخ سند با تاریخ شروع و پایان سال مالی مطابقت ندارد!"
 
-#: lib/app/tax/doc/check.php:59
+#: lib/app/tax/doc/check.php:92
 msgid "Duplicate accounting document number"
 msgstr "شناسه سند حسابداری تکراری است"
 
-#: lib/app/tax/doc/edit.php:35
+#: lib/app/tax/doc/edit.php:34
+msgid "Can not set document status"
+msgstr "نمی‌توانید وضعیت سند را تنظیم کنید"
+
+#: lib/app/tax/doc/edit.php:41
+msgid "This accounting document is not balance!"
+msgstr "این سند حسابداری بالانس نیست!"
+
+#: lib/app/tax/doc/edit.php:47
+msgid "This status already set on this document"
+msgstr ""
+
+#: lib/app/tax/doc/edit.php:57
+msgid "Accounting document locked"
+msgstr "سند حسابداری قفل شد"
+
+#: lib/app/tax/doc/edit.php:61
+msgid "Accounting document Unlocked"
+msgstr "سند حسابداری باز شد"
+
+#: lib/app/tax/doc/edit.php:94
 msgid "Accounting doc successfully updated"
 msgstr "سند حسابداری با موفقیت ویرایش شد"
 
@@ -29612,19 +29636,19 @@ msgstr "سند حسابداری با موفقیت ثبت شد"
 msgid "Invalid assistant id"
 msgstr "شناسه معین اشتباه است"
 
-#: lib/app/tax/docdetail/check.php:74
+#: lib/app/tax/docdetail/check.php:80
 msgid "Please choose the details"
 msgstr "لطفا تفصیل را انتخاب کنید"
 
-#: lib/app/tax/docdetail/check.php:82
+#: lib/app/tax/docdetail/check.php:88
 msgid "Please choose the detail"
 msgstr "لطفا تفصیل را انتخاب کنید"
 
-#: lib/app/tax/docdetail/check.php:106
+#: lib/app/tax/docdetail/check.php:112
 msgid "Please set debtor or creditor"
 msgstr "لطفا بدهکار یا بستانکار را ثبت کنید"
 
-#: lib/app/tax/docdetail/check.php:118
+#: lib/app/tax/docdetail/check.php:124
 msgid "Invalid accounting document id"
 msgstr "شناسه سند حسابداری اشتباه است"
 
@@ -30986,6 +31010,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Edit accounting doc"
+#~ msgstr "ویرایش سند حسابداری"
+
+#~ msgid "Ivalid parent id"
+#~ msgstr "شناسه والد اشتباه است"
 
 #~ msgid "Add new accounting doc"
 #~ msgstr "افزودن سند حسابداری جدید"
