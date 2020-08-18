@@ -106,7 +106,7 @@
         <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Document gallery is full!"); ?></div>
         <?php }else{ ?>
-          <div data-uploader data-max-w="1000" data-max-h="1000" data-name='gallery' data-autoSend>
+          <div data-uploader data-ratio-free data-name='gallery' data-autoSend>
             <input type="file" id="file1">
             <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
@@ -134,6 +134,24 @@
         <?php } //endif ?>
       </div>
     </div>
+</form>
+
+
+<form method="post" class="p0" autocomplete="off">
+  <input type="hidden" name="calc" value="calc">
+  <div class="avand-sm">
+    <div class="box">
+      <header><h2><?php echo T_("Calculate Vat price") ?></h2></header>
+      <div class="body">
+
+        <div id="shomessage"></div>
+        <div class="input">
+          <input type="tel" name="calcvat" data-format='price'>
+          <button class="btn master"><?php echo T_("Calculate vat") ?></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 
 <?php } //endif ?>
