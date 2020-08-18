@@ -1,7 +1,7 @@
  <div class="box hide d-print-block">
   <div class="pad">
-    <div class="row align-center">
-      <div class="c"><h3><?php echo \lib\store::title(); ?></h3></div>
+    <div class="row align-center mB10">
+      <div class="c txtB"><?php echo \lib\store::title(); ?></div>
       <div class="c-auto"><?php echo T_(\dash\data::dataRow_status()) ?></div>
       <div class="c-auto"><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></div>
       <div class="c-auto"><?php echo T_("Date"); ?> <b><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></b></div>
