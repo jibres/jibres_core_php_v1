@@ -9,18 +9,12 @@ class get
 		$last_code = \lib\db\tax_coding\get::last_code_assistant($_assistant_id);
 		if(!$last_code)
 		{
-			return '10'; // first detail item in thsi assistant
+			return '1'; // first detail item in thsi assistant
 		}
 		else
 		{
-			// $code = substr($last_code, 6);
-			$code = intval($last_code) + 1;
-
-			if($code < 10)
-			{
-				$code = '0'. $code;
-			}
-
+			$code = substr($last_code, 4);
+			$code = intval($code) + 1;
 			return (string) $code;
 		}
 

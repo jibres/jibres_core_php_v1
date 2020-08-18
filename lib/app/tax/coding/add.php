@@ -47,6 +47,7 @@ class add
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$args['status']      = 'enable';
+
 		$id = \lib\db\tax_coding\insert::new_record($args);
 
 		\dash\notif::ok(T_("Accounting coding successfully added"));
