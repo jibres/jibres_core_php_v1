@@ -9,37 +9,6 @@ class model
 
 		$id = \dash\request::get('id');
 
-		if(\dash\request::post('calc') === 'calc')
-		{
-			$number = \dash\request::post('calcvat');
-			$number = \dash\validate::price($number);
-			$number = floatval($number);
-			if(!$number)
-			{
-				\dash\notif::error(T_("Please enter the number"));
-				return false;
-			}
-
-			$vat = ($number * 6) / 9;
-
-			$tax = $vat / 2;
-
-			$get = \dash\request::get();
-
-			$vat_notif = T_("Vat"). ' ' . \dash\fit::number_decimal($vat);
-			$get['value'] = $vat;
-			$vat_notif = '<a href="'. \dash\url::current(). '?'. http_build_query($get). '">'. $vat_notif . '</a>';
-
-
-			$tax_notif = T_("Tax"). ' ' . \dash\fit::number_decimal($tax);
-			$get['value'] = $tax;
-			$tax_notif = '<a href="'. \dash\url::current(). '?'. http_build_query($get). '">'. $tax_notif . '</a>';
-
-			\dash\notif::info($tax_notif, ['target' => '#shomessage', 'timeout' => 0]);
-			\dash\notif::info($vat_notif, ['target' => '#shomessage', 'timeout' => 0]);
-			return;
-		}
-
 
 		if(\dash\request::post('uploaddoc') === 'uploaddoc')
 		{

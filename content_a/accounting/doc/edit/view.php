@@ -80,6 +80,44 @@ class view
 			\dash\data::summary($summary);
 		}
 
+
+
+		if(\dash\request::get('calcvat'))
+		{
+			$number = \dash\request::get('calcvat');
+			$number = \dash\validate::price($number);
+			$number = floatval($number);
+			if($number)
+			{
+
+				$vat = ($number * 6) / 9;
+
+				$tax = $vat / 2;
+
+				$vat = round($vat);
+				$tax = round($tax);
+
+				$get = \dash\request::get();
+				unset($get['calcvat']);
+
+				$vat_notif = T_("Vat"). ' ' . \dash\fit::number_decimal($vat);
+				$get['value'] = $vat;
+				$vat_notif = \dash\url::current(). '?'. http_build_query($get);
+				\dash\data::vatCalc($vat_notif);
+				\dash\data::vatValue($vat);
+
+
+				$tax_notif = T_("Tax"). ' ' . \dash\fit::number_decimal($tax);
+				$get['value'] = $tax;
+				$tax_notif = \dash\url::current(). '?'. http_build_query($get);
+				\dash\data::taxCalc($tax_notif);
+				\dash\data::taxValue($tax);
+
+			}
+
+
+		}
+
 	}
 }
 ?>

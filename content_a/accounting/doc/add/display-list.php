@@ -136,22 +136,4 @@
     </div>
 </form>
 
-
-<form method="post" class="p0" autocomplete="off">
-  <input type="hidden" name="calc" value="calc">
-  <div class="avand-sm">
-    <div class="box">
-      <header><h2><?php echo T_("Calculate Vat price") ?></h2></header>
-      <div class="body">
-
-        <div id="shomessage"></div>
-        <div class="input">
-          <input type="tel" name="calcvat" data-format='price'>
-          <button class="btn master"><?php echo T_("Calculate vat") ?></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-
 <?php } //endif ?>
