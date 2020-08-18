@@ -21,7 +21,7 @@
 					<div class="body">
 						<nav class="items long">
 			              <ul>
-			                <li><a class="f" href="<?php echo \dash\url::this(). '/doc?contain='. \dash\data::loadDetail_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
+			                <li><a class="f" href="<?php echo \dash\url::this(). '/docdetail?contain='. \dash\data::loadDetail_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
 			              </ul>
 			            </nav>
 						<table class="tbl1 v4">

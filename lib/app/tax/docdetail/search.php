@@ -74,7 +74,6 @@ class search
 				if($load_all_child)
 				{
 					$load_all_child = implode(',', $load_all_child);
-					$meta['join'][] = " INNER JOIN tax_docdetail ON tax_docdetail.tax_docdetail_id = tax_docdetail.id ";
 					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child) OR tax_docdetail.details_id IN ($load_all_child) ) ";
 
 				}
