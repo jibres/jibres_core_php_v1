@@ -59,10 +59,10 @@
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
                 <td></td>
               <?php } //endif ?>
+              <td><?php echo "Total"; ?></td>
               <td></td>
-              <td></td>
-             <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
-             <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
+             <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
+             <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
                 <td></td>
               <?php } //endif ?>
