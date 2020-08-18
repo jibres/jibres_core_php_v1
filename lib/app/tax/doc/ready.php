@@ -19,6 +19,7 @@ class ready
 			switch ($key)
 			{
 				case 'status':
+					$tvalue = null;
 					switch ($value)
 					{
 						case 'draft':

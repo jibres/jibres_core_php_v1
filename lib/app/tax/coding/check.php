@@ -5,7 +5,7 @@ namespace lib\app\tax\coding;
 class check
 {
 
-	public static function variable($_args)
+	public static function variable($_args, $_id = null)
 	{
 		$condition =
 		[
@@ -166,20 +166,17 @@ class check
 			$check_duplicate = \lib\db\tax_coding\get::by_code($data['code']);
 			if(isset($check_duplicate['id']))
 			{
-				\dash\notif::error(T_("Duplicate code. Try another code"));
-				return false;
+				if(floatval($check_duplicate['id']) === floatval($_id))
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::error(T_("Duplicate code. Try another code"));
+					return false;
+				}
 			}
 		}
-
-		// if(isset($load_parent['nature']) && $data['nature'] && in_array($data['type'], ['assistant', 'details']))
-		// {
-		// 	if($load_parent['nature'] !== $data['nature'])
-		// 	{
-		// 		$data['nature'] = $load_parent['nature'];
-		// 		// \dash\notif::error(T_("The parent nature is :val, You only can add this nature as child of this parent", ['val' => $load_parent['nature']]));
-		// 		// return false;
-		// 	}
-		// }
 
 		unset($data['parent']);
 

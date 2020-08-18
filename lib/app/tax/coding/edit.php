@@ -14,7 +14,7 @@ class edit
 			return false;
 		}
 
-		$args = \lib\app\tax\coding\check::variable($_args);
+		$args = \lib\app\tax\coding\check::variable($_args, $_id);
 
 		if(!$args)
 		{
