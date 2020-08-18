@@ -39,7 +39,7 @@
 					<tr class="font-12">
 					<td><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>
 						<td class="font-14">
-							<a class="link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
+							<a class="link" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\get::index($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
 						</td>
 
 						<td><?php echo \dash\get::index($value, 'group_title'); ?></td>
