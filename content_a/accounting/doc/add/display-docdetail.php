@@ -118,7 +118,7 @@ foreach (\dash\data::assistantList() as $key => $value)
 
   <form method="get" class="p0 ShowCalcVat" action="<?php echo \dash\url::current(); ?>"  autocomplete="off" <?php if(\dash\request::get('calcvat')){}else{?> data-kerkere-content='hide' <?php } //endif ?>>
     <div class="box">
-      <div class="body">
+      <div class="pad">
 
 
         <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
