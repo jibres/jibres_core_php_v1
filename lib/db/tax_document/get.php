@@ -70,6 +70,69 @@ class get
 
 		";
 		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
+	public static function total_report($_year_id)
+	{
+		$year = null;
+		if($_year_id)
+		{
+			$year = " AND tax_docdetail.year_id = $_year_id ";
+		}
+
+		$query =
+		"
+			SELECT
+				SUM(tax_docdetail.debtor) AS `debtor`,
+				SUM(tax_docdetail.creditor) AS `creditor`,
+				MAX(group.title) AS `group_title`,
+				MAX(group.code) AS `group_code`,
+				MAX(total.title) AS `total_title`,
+				MAX(total.code) AS `total_code`
+			FROM
+				tax_docdetail
+
+			LEFT JOIN tax_coding AS `total` ON total.id = tax_docdetail.assistant_id
+			LEFT JOIN tax_coding AS `group` ON group.id = total.parent1
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			WHERE tax_document.status != 'draft' $year
+			GROUP BY total.parent2
+
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
+	public static function group_report($_year_id)
+	{
+		$year = null;
+		if($_year_id)
+		{
+			$year = " AND tax_docdetail.year_id = $_year_id ";
+		}
+
+		$query =
+		"
+			SELECT
+				SUM(tax_docdetail.debtor) AS `debtor`,
+				SUM(tax_docdetail.creditor) AS `creditor`,
+				MAX(group.title) AS `group_title`,
+				MAX(group.code) AS `group_code`
+			FROM
+				tax_docdetail
+
+			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			WHERE tax_document.status != 'draft' $year
+			GROUP BY group.parent1
+
+		";
+		$result = \dash\db::get($query);
 
 		return $result;
 	}

@@ -63,6 +63,30 @@
         </div>
       </a>
     </div>
+
+
+
+    <div class="c4 s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/total'; ?>'>
+        <div class="statistic">
+          <div class="value"><i class="sf-chart"></i></div>
+          <div class="label"><?php echo T_("Report on total level"); ?></div>
+        </div>
+      </a>
+    </div>
+
+
+
+    <div class="c4 s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/group'; ?>'>
+        <div class="statistic">
+          <div class="value"><i class="sf-chart"></i></div>
+          <div class="label"><?php echo T_("Report on group level"); ?></div>
+        </div>
+      </a>
+    </div>
+
+
   </div>
 
   <h2 class="mTB20"><?php echo T_("Income-cost management") ?></h2>
