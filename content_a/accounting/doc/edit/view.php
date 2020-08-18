@@ -15,7 +15,11 @@ class view
 		\dash\data::myType(\dash\data::dataRow_type());
 		\dash\data::editMode(true);
 
+		$totalList = \lib\app\tax\coding\get::list_of('total');
+		$totalList = array_column($totalList, 'title');
+		\dash\data::totalList($totalList);
 		\dash\data::assistantList(\lib\app\tax\coding\get::list_of('assistant'));
+
 		\dash\data::detailsList(\lib\app\tax\coding\get::list_of('details'));
 
 		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?id='. \dash\request::get('id'));

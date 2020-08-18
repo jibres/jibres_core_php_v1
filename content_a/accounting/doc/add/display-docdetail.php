@@ -8,10 +8,49 @@
             <label for="assistant_id"><?php echo T_("Accounting assistant") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
             <select class="select22" name="assistant_id" data-placeholder='<?php echo T_("Please choose assistant_id") ?>'>
               <option value=""><?php echo T_("Please choose assistant_id") ?></option>
-              <?php foreach (\dash\data::assistantList() as $key => $value) {?>
-                <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\data::dataRowDetail_assistant_id() === \dash\get::index($value, 'id')) {echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
-              <?php } // endfor ?>
-            </select>
+<?php
+$lastCat = null;
+$showCat = null;
+foreach (\dash\data::assistantList() as $key => $value)
+{
+  if($lastCat !== \dash\get::index($value, 'total_title'))
+  {
+    $showCat = true;
+  }
+  else
+  {
+    $showCat = false;
+  }
+  // set lastCat for next loop
+  $lastCat = \dash\get::index($value, 'total_title');
+
+  if($showCat)
+  {
+    echo '<optgroup label="';
+    echo \dash\get::index($value, 'total_title');
+    echo '">';
+  }
+  {
+    echo '<option value="';
+    echo \dash\get::index($value, 'id');
+    echo '"';
+    if(\dash\data::dataRowDetail_assistant_id() === \dash\get::index($value, 'id'))
+    {
+      echo ' selected';
+    }
+    echo '>';
+    echo \dash\get::index($value, 'code');
+    echo ' - ';
+    echo \dash\get::index($value, 'title');
+    echo '</option>';
+  }
+  if($showCat)
+  {
+    echo "</optgroup>";
+  }
+}
+?>
+          </select>
           <?php } // endif ?>
 
         </div>
