@@ -4,6 +4,14 @@ namespace lib\db\tax_coding;
 
 class get
 {
+
+	public static function all_child_id($_id)
+	{
+		$query = "SELECT tax_coding.id AS `id` FROM tax_coding WHERE tax_coding.id = $_id OR tax_coding.parent1 = $_id OR tax_coding.parent2 = $_id OR tax_coding.parent3 = $_id ";
+		$result = \dash\db::get($query, 'id');
+		return $result;
+	}
+
 	public static function get_count_group()
 	{
 		$query = "SELECT COUNT(*) AS `count`, tax_coding.type FROM tax_coding GROUP BY tax_coding.type";

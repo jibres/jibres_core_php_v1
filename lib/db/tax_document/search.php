@@ -46,12 +46,22 @@ class search
 			$limit = $_meta['limit'];
 		}
 
+		if(isset($_meta['join']) && is_array($_meta['join']) && $_meta['join'])
+		{
+			$join = implode(' ', $_meta['join']);
+		}
+		else
+		{
+			$join = null;
+		}
+
 		return
 		[
 			'where'      => $where,
 			'order'      => $order,
 			'pagination' => $pagination,
 			'limit'      => $limit,
+			'join'      => $join,
 		];
 	}
 
@@ -62,7 +72,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM tax_document $q[where] ";
+		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM tax_document $q[join] $q[where] ";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -78,6 +88,7 @@ class search
 				(SELECT SUM(tax_docdetail.creditor) FROM tax_docdetail WHERE tax_docdetail.tax_document_id = tax_document.id) AS `sum_creditor`,
 				(SELECT COUNT(*) FROM tax_docdetail WHERE tax_docdetail.tax_document_id = tax_document.id) AS `item_count`
 			FROM tax_document
+			$q[join]
 			$q[where]
 			$q[order]
 			$limit

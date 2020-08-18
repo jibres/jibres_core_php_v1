@@ -19,6 +19,11 @@
 				<div class="box">
 					<header><h2><?php echo T_("Detail") ?> <?php echo T_(ucfirst(\dash\data::loadDetail_type())); ?></h2></header>
 					<div class="body">
+						<nav class="items long">
+			              <ul>
+			                <li><a class="f" href="<?php echo \dash\url::this(). '/doc?contain='. \dash\data::loadDetail_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
+			              </ul>
+			            </nav>
 						<table class="tbl1 v4">
 							<tbody>
 
@@ -27,15 +32,6 @@
 									<td class="txtB"><?php echo \dash\data::loadDetail_title(); ?></td>
 								</tr>
 
-								<tr>
-									<td class="collapsing"><?php echo T_("Class") ?></td>
-									<td class="txtB"><?php echo T_(\dash\data::loadDetail_class()); ?></td>
-								</tr>
-
-								<tr>
-									<td class="collapsing"><?php echo T_("Topic") ?></td>
-									<td class="txtB"><?php echo T_(\dash\data::loadDetail_topic()); ?></td>
-								</tr>
 
 								<tr>
 									<td class="collapsing"><?php echo T_("Status") ?></td>

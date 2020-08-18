@@ -9,6 +9,12 @@
 
           <div class="body">
 
+            <nav class="items long">
+              <ul>
+                <li><a class="f" href="<?php echo \dash\url::this(). '/doc?contain='. \dash\data::dataRow_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
+              </ul>
+            </nav>
+
             <?php if(\dash\data::parentList()) {?>
               <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-red"><?php echo T_("Required") ?></small><?php } //endif ?></label>
               <select class="select22" name="parent" <?php if(\dash\request::get('parent')) {echo 'disabled';} ?>>

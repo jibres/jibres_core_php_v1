@@ -30,6 +30,8 @@ class search
 			'order'   => 'order',
 			'sort'    => ['enum' => ['number', 'date']],
 			'year_id' => 'id',
+			'contain' => 'id',
+
 		];
 
 		$require = [];
@@ -38,9 +40,10 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$or           = [];
+		$meta['join'] = [];
 
 		$meta['limit'] = 10;
 		// $meta['pagination'] = false;
@@ -57,6 +60,25 @@ class search
 		if($data['year_id'])
 		{
 			$and[] = " tax_document.year_id = $data[year_id] ";
+		}
+
+		if($data['contain'])
+		{
+			$load_all_child = \lib\db\tax_coding\get::all_child_id($data['contain']);
+			if($load_all_child)
+			{
+				$load_all_child = array_map('floatval', $load_all_child);
+				$load_all_child = array_filter($load_all_child);
+				$load_all_child = array_unique($load_all_child);
+
+				if($load_all_child)
+				{
+					$load_all_child = implode(',', $load_all_child);
+					$meta['join'][] = " INNER JOIN tax_docdetail ON tax_docdetail.tax_document_id = tax_document.id ";
+					$and[] = " tax_docdetail.id IN ($load_all_child) ";
+
+				}
+			}
 		}
 
 		$query_string = \dash\validate::search($_query_string);

@@ -42,6 +42,8 @@ class view
 			$args['year_id'] = $year_id;
 		}
 
+		$args['contain'] = \dash\request::get('contain');
+
 
 		$dataTable = \lib\app\tax\doc\search::list(null, $args);
 		\dash\data::dataTable($dataTable);
