@@ -5,6 +5,14 @@ namespace lib\db\tax_document;
 class get
 {
 
+	public static function list_reset_number($_year_id)
+	{
+		$query = "SELECT tax_document.id, tax_document.number FROM tax_document WHERE tax_document.year_id = $_year_id ORDER BY tax_document.date ASC, tax_document.id ASC ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function last_number()
 	{
 		$query = "SELECT MAX(tax_document.number) as `number` FROM tax_document ";

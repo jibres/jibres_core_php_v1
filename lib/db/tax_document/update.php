@@ -4,6 +4,22 @@ namespace lib\db\tax_document;
 
 class update
 {
+	public static function reset_number($_data)
+	{
+		$query = [];
+		$new_number = 0;
+		foreach ($_data as $key => $value)
+		{
+			$new_number++;
+			$query[] = "UPDATE tax_document SET tax_document.number = $new_number WHERE tax_document.id = $value[id] LIMIT 1 ";
+		}
+
+		$query = implode(";", $query);
+
+		$result = \dash\db::query($query, null, ['multi_query' => true]);
+		return $result;
+	}
+
 
 	public static function update($_args, $_id)
 	{

@@ -4,6 +4,45 @@ namespace lib\app\tax\doc;
 
 class edit
 {
+	public static function reset_number($_args)
+	{
+		$condition =
+		[
+			'year_id'  => 'id',
+		];
+
+		$require = ['year_id'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$load_year = \lib\app\tax\year\get::get($data['year_id']);
+		if(!isset($load_year['id']))
+		{
+			\dash\notif::error(T_("Invalid year"));
+			return false;
+		}
+
+		$doc_list = \lib\db\tax_document\get::list_reset_number($data['year_id']);
+
+		if(!is_array($doc_list))
+		{
+			$doc_list = [];
+		}
+
+		if(!$doc_list)
+		{
+			\dash\notif::warn(T_("This accounting year is empty!"));
+			return false;
+		}
+
+		$update = \lib\db\tax_document\update::reset_number($doc_list);
+		\dash\notif::ok(T_("The number was reset"));
+		return true;
+
+	}
+
 	public static function edit_status($_args, $_id)
 	{
 		$condition =
