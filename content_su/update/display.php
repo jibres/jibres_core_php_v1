@@ -1,5 +1,5 @@
 
-<p class="msg danger2 fs16 txtC"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
+<p class="msg danger2 font-30 txtC"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
 
 <?php if(\dash\data::isLockService()) {?>
   <p class="msg danger fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
