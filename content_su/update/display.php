@@ -48,15 +48,12 @@
 <div class="f">
   <div class="c s6">
     <div class="msg fs14">
-    <p><?php echo T_("If you want to show git pull result click below link"); ?></p>
     <a class="btn warn" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull git repository"); ?></a>
     </div>
   </div>
 
   <div class="c s6">
     <div class="msg fs14">
-    <p><?php echo T_("Talambar CDN"); ?></p>
-
     <a class="btn success" target="_blank" href="https://cdn.talambar.<?php if(\dash\url::tld() === 'ir') {echo 'ir';}else{echo 'com';} ?>/tmp/update/?hey=CDN"><?php echo T_("Pull CDN repository"); ?></a>
     </div>
   </div>
