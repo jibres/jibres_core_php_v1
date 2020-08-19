@@ -90,8 +90,7 @@ class get
 				SUM(tax_docdetail.creditor) AS `creditor`,
 				MAX(group.title) AS `group_title`,
 				MAX(group.code) AS `group_code`,
-				MAX(total.title) AS `total_title`,
-				MAX(total.code) AS `total_code`
+				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = total.parent2) as `total_title`
 			FROM
 				tax_docdetail
 
@@ -121,8 +120,7 @@ class get
 			SELECT
 				SUM(tax_docdetail.debtor) AS `debtor`,
 				SUM(tax_docdetail.creditor) AS `creditor`,
-				MAX(group.title) AS `group_title`,
-				MAX(group.code) AS `group_code`
+				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = group.parent1) as `group_title`
 			FROM
 				tax_docdetail
 
