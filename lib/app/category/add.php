@@ -323,9 +323,10 @@ class add
 
 				$multi_insert_cat[] =
 				[
-					'title'  => $value,
-					'slug'   => $slug,
-					'status' => 'enable',
+					'title'         => $value,
+					'slug'          => $slug,
+					'status'        => 'enable',
+					'showonwebsite' => 1,
 					// 'creator'  => \dash\user::id(),
 					// 'language' => \dash\language::current(),
 				];
