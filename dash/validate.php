@@ -33,7 +33,6 @@ class validate
 		{
 			// $meta['continue_with_error'] = true;
 		}
-
 		\dash\cleanse::$status = true;
 		return \dash\cleanse::data($_function, $data, $notif, $meta);
 	}

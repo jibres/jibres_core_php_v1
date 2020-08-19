@@ -37,12 +37,24 @@ class get
 
 
 
-	public static function detail_report($_year_id)
+	public static function detail_report($_args)
 	{
 		$year = null;
-		if($_year_id)
+		if(isset($_args['year_id']) && $_args['year_id'])
 		{
-			$year = " AND tax_docdetail.year_id = $_year_id ";
+			$year = " AND tax_docdetail.year_id = $_args[year_id] ";
+		}
+
+		$startdate = null;
+		if(isset($_args['startdate']) && $_args['startdate'])
+		{
+			$startdate = " AND tax_document.date >= '$_args[startdate]' ";
+		}
+
+		$enddate = null;
+		if(isset($_args['enddate']) && $_args['enddate'])
+		{
+			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
 		}
 
 		$query =
@@ -65,7 +77,7 @@ class get
 			LEFT JOIN tax_coding AS `total` ON total.id = details.parent2
 			LEFT JOIN tax_coding AS `group` ON group.id = details.parent1
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' $year
+			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY tax_docdetail.details_id
 
 		";
@@ -75,13 +87,26 @@ class get
 
 
 
-	public static function total_report($_year_id)
+	public static function total_report($_args)
 	{
 		$year = null;
-		if($_year_id)
+		if(isset($_args['year_id']) && $_args['year_id'])
 		{
-			$year = " AND tax_docdetail.year_id = $_year_id ";
+			$year = " AND tax_docdetail.year_id = $_args[year_id] ";
 		}
+
+		$startdate = null;
+		if(isset($_args['startdate']) && $_args['startdate'])
+		{
+			$startdate = " AND tax_document.date >= '$_args[startdate]' ";
+		}
+
+		$enddate = null;
+		if(isset($_args['enddate']) && $_args['enddate'])
+		{
+			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
+		}
+
 
 		$query =
 		"
@@ -97,7 +122,7 @@ class get
 			LEFT JOIN tax_coding AS `total` ON total.id = tax_docdetail.assistant_id
 			LEFT JOIN tax_coding AS `group` ON group.id = total.parent1
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' $year
+			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY total.parent2
 
 		";
@@ -107,13 +132,26 @@ class get
 	}
 
 
-	public static function group_report($_year_id)
+	public static function group_report($_args)
 	{
 		$year = null;
-		if($_year_id)
+		if(isset($_args['year_id']) && $_args['year_id'])
 		{
-			$year = " AND tax_docdetail.year_id = $_year_id ";
+			$year = " AND tax_docdetail.year_id = $_args[year_id] ";
 		}
+
+		$startdate = null;
+		if(isset($_args['startdate']) && $_args['startdate'])
+		{
+			$startdate = " AND tax_document.date >= '$_args[startdate]' ";
+		}
+
+		$enddate = null;
+		if(isset($_args['enddate']) && $_args['enddate'])
+		{
+			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
+		}
+
 
 		$query =
 		"
@@ -126,7 +164,7 @@ class get
 
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' $year
+			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY group.parent1
 
 		";

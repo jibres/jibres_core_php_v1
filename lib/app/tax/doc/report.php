@@ -4,21 +4,42 @@ namespace lib\app\tax\doc;
 
 class report
 {
-
-	public static function detail_report($_year_id)
+	private static function analyze_args($_args)
 	{
+		$condition =
+		[
+			'year_id'   => 'id',
+			'startdate' => 'date',
+			'enddate'   => 'date',
+		];
 
-		$year_id = \dash\validate::id($_year_id);
+		$require = [];
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$year_id = $data['year_id'];
+
 		if($year_id)
 		{
 			$load_year = \lib\app\tax\year\get::get($year_id);
 			if(!isset($load_year['id']))
 			{
-				$year_id = null;
+				$data['year_id'] = null;
 			}
 		}
 
-		$result = \lib\db\tax_document\get::detail_report($year_id);
+		return $data;
+
+	}
+
+
+	public static function detail_report($_args)
+	{
+		$data = self::analyze_args($_args);
+
+
+		$result = \lib\db\tax_document\get::detail_report($data);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -31,20 +52,12 @@ class report
 	}
 
 
-	public static function total_report($_year_id)
+	public static function total_report($_args)
 	{
 
-		$year_id = \dash\validate::id($_year_id);
-		if($year_id)
-		{
-			$load_year = \lib\app\tax\year\get::get($year_id);
-			if(!isset($load_year['id']))
-			{
-				$year_id = null;
-			}
-		}
+		$data = self::analyze_args($_args);
 
-		$result = \lib\db\tax_document\get::total_report($year_id);
+		$result = \lib\db\tax_document\get::total_report($data);
 		if(!is_array($result))
 		{
 			$result = [];
@@ -57,20 +70,11 @@ class report
 	}
 
 
-	public static function group_report($_year_id)
+	public static function group_report($_args)
 	{
+		$data = self::analyze_args($_args);
+		$result = \lib\db\tax_document\get::group_report($data);
 
-		$year_id = \dash\validate::id($_year_id);
-		if($year_id)
-		{
-			$load_year = \lib\app\tax\year\get::get($year_id);
-			if(!isset($load_year['id']))
-			{
-				$year_id = null;
-			}
-		}
-
-		$result = \lib\db\tax_document\get::group_report($year_id);
 		if(!is_array($result))
 		{
 			$result = [];

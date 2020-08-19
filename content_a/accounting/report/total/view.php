@@ -29,7 +29,18 @@ class view
 			}
 		}
 
-		$report = \lib\app\tax\doc\report::total_report($year_id);
+		$startdate = \dash\request::get('startdate');
+		$startdate = \dash\validate::date($startdate, false);
+		$enddate = \dash\request::get('enddate');
+		$enddate = \dash\validate::date($enddate, false);
+
+		$args              = [];
+		$args['year_id']   = $year_id;
+		$args['startdate'] = $startdate ? $startdate : null;
+		$args['enddate']   = $enddate ? $enddate : null;
+
+
+		$report = \lib\app\tax\doc\report::total_report($args);
 		\dash\data::reportDetail($report);
 
 	}
