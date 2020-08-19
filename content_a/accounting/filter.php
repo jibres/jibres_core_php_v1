@@ -1,6 +1,24 @@
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>">
   <div class="box">
     <div class="pad">
+      <?php if(\dash\url::child() === 'doc') {?>
+        <div class="row">
+          <div class="c-xs-12 c-sm-6">
+        <div class="input">
+        <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
+      </div>
+          </div>
+          <div class="c-xs-12 c-sm-6">
+            <select class="select22" name="month">
+              <option value=""><?php echo T_("Choose month") ?></option>
+              <?php for ($i=1; $i <= 12 ; $i++) {?>
+                <option value="<?php echo $i ?>" <?php if(\dash\request::get('month') == $i) {echo 'selected';} ?>><?php echo \dash\fit::number($i); ?></option>
+              <?php } // endfor ?>
+            </select>
+          </div>
+
+        </div>
+      <?php } //endif ?>
       <div class="row">
         <?php if(\dash\data::accountingYear()) {?>
           <div class="c-xs-12 c-sm-4">
@@ -28,6 +46,9 @@
       </div>
     </div>
     <footer class="txtRa">
+      <?php if(\dash\request::get()) {?>
+        <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Clear filter") ?></a>
+      <?php } //endif ?>
       <button class="btn master"><?php echo T_("Apply") ?></button>
     </footer>
   </div>

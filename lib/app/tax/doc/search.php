@@ -27,11 +27,13 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['number', 'date']],
-			'year_id' => 'id',
-			'contain' => 'id',
-
+			'order'     => 'order',
+			'sort'      => ['enum' => ['number', 'date']],
+			'year_id'   => 'id',
+			'contain'   => 'id',
+			'startdate' => 'date',
+			'enddate'   => 'date',
+			'month'     => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
 		];
 
 		$require = [];
@@ -80,6 +82,43 @@ class search
 				}
 			}
 		}
+
+		if($data['month'])
+		{
+			if(\dash\language::current() === 'fa')
+			{
+				$year = date("Y");
+				if($data['year_id'])
+				{
+					$load_year = \lib\app\tax\year\get::get($data['year_id']);
+					if(isset($load_year['startdate']))
+					{
+						$year = \dash\fit::date($load_year['startdate']);
+						$year = \dash\utility\convert::to_en_number($year);
+						$year = date("Y", strtotime($year));
+						list($startdate, $enddate) = \dash\utility\jdate::jalali_month($year, $data['month']);
+						$and[] = " tax_document.date >= '$startdate' AND tax_document.date <= '$enddate' ";
+					}
+				}
+			}
+			else
+			{
+				$and[] = " MONTH(tax_document.date) = $data[month] ";
+			}
+		}
+
+		if($data['startdate'])
+		{
+			$and[] = " tax_document.date >= '$data[startdate]' ";
+		}
+
+		if($data['enddate'])
+		{
+			$and[] = " tax_document.date <= '$data[enddate]' ";
+		}
+
+
+
 
 		$query_string = \dash\validate::search($_query_string);
 

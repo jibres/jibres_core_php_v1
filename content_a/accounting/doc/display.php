@@ -1,20 +1,4 @@
-<div class="box">
-  <div class="pad">
-    <form method="get" autocomplete="off" data-patch action="<?php echo \dash\url::current() ?>">
-      <?php if(\dash\data::accountingYear()) {?>
-        <label for="parent"><?php echo T_("Accounting year") ?></label>
-        <select class="select22" name="year_id">
-          <option value=""><?php echo T_("Please choose year") ?></option>
-          <?php foreach (\dash\data::accountingYear() as $key => $value) {?>
-            <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if((!\dash\request::get('year_id') && \dash\get::index($value, 'isdefault')) || (\dash\get::index($value, 'id') === \dash\request::get('year_id'))) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
-          <?php } // endfor ?>
-        </select>
-      <?php }else{ ?>
-        <div class="msg warn2"><a class="btn link" href="<?php echo \dash\url::here(). '/accounting/year/add' ?>"><?php echo T_("Add new accounting year") ?></a></div>
-      <?php } // endif ?>
-    </form>
-  </div>
-</div>
+<?php require_once(root. 'content_a/accounting/filter.php'); ?>
 
 	<?php if(\dash\data::dataTable()) {?>
 		<table class="tbl1 v6  minimal font-12">

@@ -37,15 +37,22 @@ class view
 			}
 		}
 
-		if($year_id)
-		{
-			$args['year_id'] = $year_id;
-		}
 
-		$args['contain'] = \dash\request::get('contain');
+		$args['contain']   = \dash\request::get('contain');
+
+		$startdate         = \dash\request::get('startdate');
+		$startdate         = \dash\validate::date($startdate, false);
+		$enddate           = \dash\request::get('enddate');
+		$enddate           = \dash\validate::date($enddate, false);
+
+		$args['year_id']   = $year_id;
+		$args['startdate'] = $startdate ? $startdate : null;
+		$args['enddate']   = $enddate ? $enddate : null;
+		$args['month']     = \dash\request::get('month');
 
 
-		$dataTable = \lib\app\tax\doc\search::list(null, $args);
+
+		$dataTable = \lib\app\tax\doc\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
 	}
