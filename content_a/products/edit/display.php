@@ -10,13 +10,5 @@ if(!is_array($child_list))
 	$child_list = [];
 }
 
-// if(\dash\data::productDataRow_parent())
-// {
-//   require_once('display-child.php');
-// }
-// else
-{
-  require_once('display-master.php');
-
-}
+require_once('display-master.php');
 ?>

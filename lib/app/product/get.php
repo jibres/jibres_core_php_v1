@@ -183,9 +183,5 @@ class get
 
 		return $prev;
 	}
-
-
-
-
 }
 ?>
