@@ -42,11 +42,11 @@ class view
 		$keyList = \lib\app\product\property::all_key_name();
 		\dash\data::keyList($keyList);
 
-
+		// var_dump($property_list);exit();
 		$pid = \dash\request::get('pid');
-		if($pid && is_array($property_list))
+		if($pid && isset($property_list['saved']) && is_array($property_list['saved']))
 		{
-			foreach ($property_list as $key => $value)
+			foreach ($property_list['saved'] as $key => $value)
 			{
 				if(isset($value['list']) && is_array($value['list']))
 				{

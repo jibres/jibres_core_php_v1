@@ -6,9 +6,9 @@ $productDataRow = \dash\data::productDataRow();
 ?>
   <div class="avand-xl">
     <section class="box">
+      <header><h2><?php echo T_("Property"); ?></h2></header>
       <form method="post" autocomplete="off" id="form1">
         <input type="hidden" name="addmode" value="1">
-      <header><h2><?php echo T_("Property"); ?></h2></header>
       <div class="body">
         <p class="msg"><?php echo T_("Set product property"); ?></p>
         <div class="row">
