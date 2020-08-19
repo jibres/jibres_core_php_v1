@@ -49,7 +49,7 @@
   <div class="c s6">
     <div class="msg fs14">
     <p><?php echo T_("If you want to show git pull result click below link"); ?></p>
-    <a class="btn warn" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull gir repository"); ?></a>
+    <a class="btn warn" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull git repository"); ?></a>
     </div>
   </div>
 
@@ -108,7 +108,7 @@ $needUpgrade = \dash\data::needUpgrade();
 <div class="msg font-20 row align-center">
   <div class="c"><?php echo T_("Run all step by one click"); ?> <small><?php echo T_("For when you don't have heavy updates"); ?></small></div>
   <div class="c-auto os">
-    <div class="btn danger txtC xl" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Update & Upgrade all"); ?></div>
+    <div class="btn danger txtC" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Update & Upgrade all"); ?></div>
   </div>
 </div>
 <div class="mB50">&nbsp;</div>
