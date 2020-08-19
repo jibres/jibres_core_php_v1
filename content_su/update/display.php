@@ -2,46 +2,43 @@
 <p class="msg danger2 fs16 txtC"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
 
 <?php if(\dash\data::isLockService()) {?>
-
-  <p class="msg danger  fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
-
+  <p class="msg danger fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
 <?php }else{ ?>
-
-  <p class="msg success fs20 txtB txtC"><?php echo T_("Service is Running!"); ?></p>
-
+  <p class="msg success2 fs20 txtB txtC"><?php echo T_("Service is Running!"); ?></p>
 <?php } //endif ?>
 
 <div class="f">
   <div class="c s12">
-    <div class="dcard x2 mB10" data-confirm data-data='{"type" : "lock"}'>
+    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "lock"}'>
       <div class="statistic red">
-        <div class="value mB20"><?php echo T_("Lock"); ?></div>
+        <div class="value font-30 mB10"><?php echo T_("Lock"); ?></div>
         <div class="label"><?php echo T_("Lock service"); ?></div>
       </div>
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x2 mB10" data-confirm data-data='{"type" : "pull"}'>
+    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "pull"}'>
       <div class="statistic yellow">
-        <div class="value mB20"><?php echo T_("Pull"); ?></div>
+        <div class="value font-30 mB10"><?php echo T_("Pull"); ?></div>
         <div class="label"><?php echo T_("Pull service"); ?> </div>
       </div>
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x2 mB10" data-confirm data-data='{"type" : "upgrade"}'>
+    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "upgrade"}'>
       <div class="statistic blue">
-        <div class="value mB20"><?php echo T_("Upgrade"); ?></div>
-        <div class="label"><?php echo T_("Update database"); ?></div>
-        <div class="label mT5-f"><?php echo T_("Jibres"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_jibres()) ?></b></div>
-        <div class="label mT5-f"><?php echo T_("Store"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_store()) ?></b></div>
+        <div class="value font-30 mB10"><?php echo T_("Upgrade"); ?></div>
+        <div class="label mT5-f">
+          <span><?php echo T_("Jibres"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_jibres()) ?></b></span> /
+          <span><?php echo T_("Business"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_store()) ?></b></span>
+        </div>
       </div>
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x2 mB10" data-confirm data-data='{"type" : "unlock"}'>
+    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "unlock"}'>
       <div class="statistic green">
-        <div class="value mB20"><?php echo T_("Unlock"); ?></div>
+        <div class="value font-30 mB10"><?php echo T_("Unlock"); ?></div>
         <div class="label"><?php echo T_("Unlock service"); ?></div>
       </div>
     </div>
@@ -92,25 +89,27 @@ $needUpgrade = \dash\data::needUpgrade();
     <?php if(isset($needUpgrade['jibres']) && $needUpgrade['jibres']) {?>
       <div class="c">
         <span class="txtB"><?php echo T_("Jibres"); ?></span>
-         <div><?php echo T_("current version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'jibres', 'current'); ?></b></div>
-         <div><?php echo T_("new version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'jibres', 'upgrade'); ?></b></div>
+         <span><?php echo T_("current version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'jibres', 'current'); ?></b></span> >>>
+         <span><?php echo T_("new version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'jibres', 'upgrade'); ?></b></span>
       </div>
     <?php } //endif ?>
 
     <?php if(isset($needUpgrade['store']) && $needUpgrade['store']) {?>
       <div class="c">
-        <span class="txtB"><?php echo T_("Stores"); ?></span>
-         <div><?php echo T_("current version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'store', 'current'); ?></b></div>
-         <div><?php echo T_("new version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'store', 'upgrade'); ?></b></div>
+        <span class="txtB"><?php echo T_("Business"); ?></span>
+         <span><?php echo T_("current version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'store', 'current'); ?></b></span> >>>
+         <span><?php echo T_("new version"); ?> <b><?php echo \dash\get::index($needUpgrade, 'store', 'upgrade'); ?></b></span>
       </div>
     <?php } //endif ?>
    </div>
   </div>
 <?php } //endif ?>
 
-<div class="msg fs14">
-<p><?php echo T_("Run all step by one click"); ?> <small><?php echo T_("For when you don't have heavy updates"); ?></small></p>
-<div class="btn danger txtC xl" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Run all"); ?></div>
+<div class="msg font-20 row align-center">
+  <div class="c"><?php echo T_("Run all step by one click"); ?> <small><?php echo T_("For when you don't have heavy updates"); ?></small></div>
+  <div class="c-auto os">
+    <div class="btn danger txtC xl" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Update & Upgrade all"); ?></div>
+  </div>
 </div>
 <div class="mB50">&nbsp;</div>
 
