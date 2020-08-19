@@ -27,6 +27,9 @@ class add
 			\lib\db\tax_docdetail\insert::duplicate($_id, $new_doc['id']);
 		}
 
+		\lib\app\tax\doc\balance::set($new_doc['id']);
+
+
 		return $new_doc;
 
 	}
