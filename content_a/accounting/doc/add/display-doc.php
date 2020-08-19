@@ -38,6 +38,13 @@
           <input type="number" min="1" max="9999999999" name="number" id="number" required value="<?php echo \dash\data::dataRow_number() ?>" data-format=int>
         </div>
       </div>
+      <div class="c-xs-6 c-sm-6 c-md-2 c-lg-2 c-xl-1 p0">
+        <label for="subnumber"><?php echo T_("Sub-Number") ?></label>
+        <div class="input mB0-f">
+          <input type="number" min="1" max="9999999999" name="subnumber" id="subnumber" required value="<?php echo \dash\data::dataRow_subnumber() ?>" data-format=int>
+        </div>
+      </div>
+
       <div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2 c-print-2">
         <label for="date" ><?php echo T_("Date"); ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
     		<div class="input mB0-f">

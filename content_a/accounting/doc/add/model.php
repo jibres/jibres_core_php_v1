@@ -8,6 +8,7 @@ class model
 		$post =
 		[
 			'number'  => \dash\request::post('number'),
+			'subnumber'  => \dash\request::post('subnumber'),
 			'year_id' => \dash\request::post('year_id'),
 			'desc'    => \dash\request::post('desc'),
 			'date'    => \dash\request::post('date'),

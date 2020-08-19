@@ -31,6 +31,7 @@ class check
 		$condition =
 		[
 			'number'  => 'bigint',
+			'subnumber'  => 'int',
 			'desc'    => 'string_300',
 			'date'    => 'date',
 			'year_id' => 'id',
