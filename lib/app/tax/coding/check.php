@@ -119,6 +119,11 @@ class check
 				$data['naturegroup'] = null;
 				$data['parent1'] = $load_parent['parent1'];
 				$data['parent2'] = $data['parent'];
+
+				if($data['code'] && intval($data['code']) < 10)
+				{
+					$data['code'] = '0'. $data['code'];
+				}
 				break;
 
 			case 'details':
