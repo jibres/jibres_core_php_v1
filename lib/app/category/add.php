@@ -387,8 +387,7 @@ class add
 			$must_remove = array_unique($must_remove);
 
 			$must_remove = implode(',', $must_remove);
-
-			\lib\db\productcategoryusage\delete::hard_delete(['productcategory_id' => ["IN", "($must_remove)"]]);
+			\lib\db\productcategoryusage\delete::hard_delete_product_category($must_remove, $_product_id);
 		}
 
 
