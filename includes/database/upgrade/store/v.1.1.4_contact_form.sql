@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED NULL,
   `title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `slug` varchar(200) DEFAULT NULL,
   `lang` char(2) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
   `privacy` enum('public','private') NULL DEFAULT NULL,
@@ -20,7 +21,6 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form (
 CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form_item (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `form_id` int(10) UNSIGNED NOT NULL,
-  `slug` varchar(200) DEFAULT NULL,
   `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `require` bit(1) DEFAULT NULL,
