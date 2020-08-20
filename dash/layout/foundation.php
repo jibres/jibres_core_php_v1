@@ -101,7 +101,7 @@ if(\dash\data::googleAnalytics())
 if (\dash\url::canonical())
 echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
 ?>
- <link href="<?php echo \dash\url::kingdom();?>/humans.txt" rel="author"/>
+ <link href="<?php echo \dash\url::kingdom();?>/team" rel="author"/>
 <?php // @todo add rel alternative ?>
  <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
 <?php
