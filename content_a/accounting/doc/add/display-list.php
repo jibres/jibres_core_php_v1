@@ -27,7 +27,7 @@
          </thead>
          <tbody class="sortable" data-sortable>
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
-            <tr title="<?php echo ($key + 1); ?>">
+            <tr title="<?php echo ($key + 1); ?>" <?php if(\dash\request::get('did') == \dash\get::index($value, 'id')) { echo " class='negative' ";} ?>>
               <td class="collapsing">
              <?php if(\dash\data::dataRow_status() === 'lock') {?>
                 <span><?php echo \dash\fit::number($key + 1) ?></span>
@@ -51,8 +51,12 @@
               <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
               <td class="p0">
+                <?php if(\dash\request::get('did') == \dash\get::index($value, 'id')) {?>
+                  <span class="fc-mute"><i><?php echo T_("Editing") ?></i></span>
+                <?php }else{ ?>
                 <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
+              <?php } //endif ?>
               </td>
               <?php } //endif ?>
             </tr>
