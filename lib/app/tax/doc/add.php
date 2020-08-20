@@ -17,7 +17,7 @@ class add
 		[
 			'number'  => \dash\get::index($_args, 'number'),
 			'desc'    => \dash\get::index($load, 'desc'),
-			'date'    => \dash\get::index($load, 'date'),
+			'date'    => \dash\get::index($_args, 'date'),
 			'year_id' => \dash\get::index($load, 'year_id'),
 		];
 

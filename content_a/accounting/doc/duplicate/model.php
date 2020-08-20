@@ -11,6 +11,7 @@ class model
 		$post =
 		[
 			'number' => $number,
+			'date'   => \dash\request::post('date'),
 		];
 
 		$result = \lib\app\tax\doc\add::duplicate(\dash\request::get('id'), $post);
