@@ -72,6 +72,8 @@
 
 							<?php } //endif ?>
 						<?php }// endif ?>
+					</tbody>
+					<tbody>
 						<tr>
 							<td class="collapsing"><i class="sf-asterisk fc-red"></i></td>
 							<td>
