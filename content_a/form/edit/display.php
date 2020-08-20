@@ -17,7 +17,7 @@
 
 
 
-
+			<?php if(\dash\data::editMode()) {?>
 
 				<div class="tblBox">
 				<table class="tbl1 v5">
@@ -113,6 +113,7 @@
 					</tbody>
 				</table>
 			</div>
+		<?php } //endif edit mode ?>
 
 		</div>
 		<footer class="txtRa">

@@ -16,7 +16,7 @@ class get
 
 	public static function by_form_id($_form_id)
 	{
-		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id ORDER BY form_item.sort ASC, form_item.id ASC";
+		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id ORDER BY IFNULL(form_item.sort, form_item.id) ASC ";
 		$result = \dash\db::get($query);
 		return $result;
 	}

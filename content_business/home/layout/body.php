@@ -19,6 +19,7 @@ $here = root. 'content_business';
 
 $module_url =
 [
+	'f'        => $here. '/f/home/display.php',
 	'category' => $here. '/category/display.php',
 	'app'      => $here. '/app/display.php',
 	'p'        => $here. '/p/home/display.php',

@@ -14,6 +14,10 @@ class view
 
 		$form_id = \dash\request::get('id');
 
+		// preview
+		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
+
+
 		$items = \lib\app\form\item\get::items($form_id);
 
 		\dash\data::formItems($items);

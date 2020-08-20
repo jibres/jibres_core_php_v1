@@ -12,6 +12,10 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+				// back
+		\dash\data::action_text(T_('Add new form'));
+		\dash\data::action_link(\dash\url::this(). '/add');
+
 
 
 		$args = [];
