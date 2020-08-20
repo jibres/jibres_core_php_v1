@@ -27,12 +27,35 @@ class model
 			'require' => \dash\request::post('new_required'),
 		];
 
-		if(!empty(array_filter($new_item)))
+
+		if($new_item['title'])
 		{
 			\lib\app\form\item\add::add($new_item, $form_id);
 		}
 
+		$all_post = \dash\request::post();
 
+		$whole_edit = [];
+		foreach ($all_post as $key => $value)
+		{
+			if(preg_match("/^item_(title|type|require)_(\d+)$/", $key, $split))
+			{
+				if(!isset($whole_edit[$split[2]]))
+				{
+					$whole_edit[$split[2]] = [];
+				}
+
+				$whole_edit[$split[2]][$split[1]] = $value;
+			}
+		}
+
+		if(!empty($whole_edit))
+		{
+			foreach ($whole_edit as $key => $value)
+			{
+				\lib\app\form\item\edit::edit($value, $key, $form_id);
+			}
+		}
 
 		\dash\redirect::pwd();
 	}

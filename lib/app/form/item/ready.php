@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\form\form;
+namespace lib\app\form\item;
 
 
 class ready

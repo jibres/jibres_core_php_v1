@@ -1,19 +1,36 @@
 <?php
-namespace lib\app\form\form;
+namespace lib\app\form\item;
 
 
 class edit
 {
-	public static function edit($_args, $_id)
+	private static $form_detail = [];
+
+	public static function edit($_args, $_id, $_form_id)
 	{
-		$load = \lib\app\form\form\get::get($_id);
+
+		if(isset(self::$form_detail[$_form_id]))
+		{
+			$load_form = self::$form_detail[$_form_id];
+		}
+		else
+		{
+			$load_form = \lib\app\form\form\get::get($_form_id);
+			if(!$load_form)
+			{
+				return false;
+			}
+			self::$form_detail[$_form_id] = $load_form;
+		}
+
+
+		$load = \lib\app\form\item\get::get($_id);
 		if(!$load)
 		{
 			return false;
 		}
 
-
-		$args = \lib\app\form\form\check::variable($_args);
+		$args = \lib\app\form\item\check::variable($_args);
 
 		if(!$args)
 		{
@@ -30,9 +47,7 @@ class edit
 
 		$args['datemodified'] = date("Y-m-d H:i:s");
 
-		\lib\db\form\update::update($args, $_id);
-
-		\dash\notif::ok(T_("Contact form successfully updated"));
+		\lib\db\form_item\update::update($args, $_id);
 
 		return true;
 	}
