@@ -242,7 +242,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
               </li>
               <li>
                 <a class="f" href="<?php echo $kingdom; ?>/brand">
-                <div class="key"><?php echo T_('Brand Styleguide'); ?></div>
+                <div class="key"><?php echo T_('Brand Style Guide'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
