@@ -26,7 +26,7 @@
 						<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'sum_creditor'), 'en') ?></span></td>
 					</tr>
 					<tr>
-						<td class="pTB5-f" colspan="7"><?php if(\dash\get::index($value, 'file')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo \dash\get::index($value, 'desc') ?></td>
+						<td class="pTB5-f" colspan="7"><?php if(\dash\get::index($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo \dash\get::index($value, 'desc') ?></td>
 					</tr>
 				<?php } //endif ?>
 			</tbody>
