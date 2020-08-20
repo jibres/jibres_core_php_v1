@@ -12,7 +12,7 @@
  <form method="post" autocomplete="off" class="box p0">
   <div class="pad">
     <div class="row padLess align-end">
-      <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-2 p0">
+      <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 p0">
         <?php $defaultYear = null; ?>
 
         <?php if(\dash\data::accountingYear()) {?>
@@ -32,26 +32,26 @@
         <?php } //endif ?>
       </div>
 
-      <div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2 p0">
+      <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-2 p0">
         <label for="number"><?php echo T_("Document Number") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div class="input mB0-f">
           <input type="number" min="1" max="9999999999" name="number" id="number" required value="<?php echo \dash\data::dataRow_number() ?>" data-format=int>
         </div>
       </div>
-      <div class="c-xs-6 c-sm-6 c-md-2 c-lg-3 c-xl-1 p0">
+      <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-1 p0">
         <label for="subnumber"><?php echo T_("Sub-Number") ?></label>
         <div class="input mB0-f">
           <input type="number" min="1" max="9999999999" name="subnumber" id="subnumber" value="<?php echo \dash\data::dataRow_subnumber() ?>" data-format=int>
         </div>
       </div>
 
-      <div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xl-2 c-print-2">
+      <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 c-print-2">
         <label for="date" ><?php echo T_("Date"); ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
     		<div class="input mB0-f">
     		<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="date" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" autocomplete='off' required>
     		</div>
       </div>
-      <div class="c-xs-12 c-sm-6 c-md-12 c-lg c-xl c-print-10">
+      <div class="c-xs-12 c-sm c-md c-lg c-xl c-print-10">
         <label for="desc"><?php echo T_("Document Description") ?></label>
         <div class="input mB0-f">
           <input type="text" name="desc" id="desc" value="<?php echo \dash\data::dataRow_desc() ?>">
