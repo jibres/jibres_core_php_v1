@@ -23,7 +23,7 @@
      </li>
      <li>
       <h4><?php echo T_("Do I need a web host?"); ?></h4>
-      <p><?php echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith."); ?></p>
+      <p><?php echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwidth."); ?></p>
      </li>
     </ul>
 

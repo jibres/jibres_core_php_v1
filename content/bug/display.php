@@ -78,7 +78,7 @@
      <form method="post" data-clear autocomplete="off" enctype="multipart/form-data">
 <?php \dash\utility\hive::html(); ?>
 
-      <label for="iu1"><?php echo T_("Your nick name"); ?></label>
+      <label for="iu1"><?php echo T_("Your Nickname"); ?></label>
       <div class="input">
        <input type="text" name="iu1" id="iu1" placeholder='<?php echo T_("Whatever you want"); ?>' maxlength='40'>
       </div>
