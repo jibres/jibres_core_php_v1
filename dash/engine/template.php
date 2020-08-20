@@ -243,7 +243,7 @@ class template
 			'@'        => 'twitter',
 			'~'        => 'github',
 			'+'        => 'googleplus',
-			'f'        => 'facebook',
+			// 'f'        => 'facebook',
 			'fb'       => 'facebook',
 			'in'       => 'linkedin',
 			'tg'       => 'telegram',
