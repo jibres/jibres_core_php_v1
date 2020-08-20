@@ -50,12 +50,20 @@ class model
 			}
 		}
 
+		$sort = \dash\request::post('sort');
+		if(!is_array($sort))
+		{
+			$sort = [];
+		}
+
+
 		$all_post = \dash\request::post();
 
 		$whole_edit = [];
+
 		foreach ($all_post as $key => $value)
 		{
-			if(preg_match("/^item_(title|type|require)_(\d+)$/", $key, $split))
+			if(preg_match("/^item_(title|type|require|maxlen)_(\d+)$/", $key, $split))
 			{
 				if(!isset($whole_edit[$split[2]]))
 				{
@@ -70,6 +78,7 @@ class model
 		{
 			foreach ($whole_edit as $key => $value)
 			{
+				$value['sort'] = array_search($key, $sort);
 				\lib\app\form\item\edit::edit($value, $key, $form_id);
 			}
 		}

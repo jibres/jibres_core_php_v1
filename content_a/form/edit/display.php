@@ -16,14 +16,21 @@
 			</div>
 
 
+
+
+
 				<div class="tblBox">
 				<table class="tbl1 v5">
-					<tbody>
+			  		<tbody class="sortable" data-sortable>
 						<?php if(\dash\data::formItems()) {?>
 							<?php foreach (\dash\data::formItems() as $key => $value) { $myKey = \dash\get::index($value, 'id'); ?>
 
 							<tr data-removeElement>
-								<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
+								<td class="collapsing">
+									<?php echo \dash\fit::number($key + 1); ?>
+									<i data-handle class="sf-sort p0"></i>
+  									<input type="hidden" class="hide" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
+								</td>
 								<td>
 
 									<div class="input">
@@ -59,7 +66,7 @@
 							</tr>
 							<tr data-kerkere-content='hide' class="showOptionItem<?php echo $myKey; ?>">
 								<td colspan="6">
-									<?php echo 'salam'; ?>
+									<?php settingRecord($value); ?>
 								</td>
 							</tr>
 
@@ -113,3 +120,42 @@
 
 
 </form>
+
+
+
+<?php
+
+function settingRecord($value)
+{
+	if(!isset($value['type']))
+	{
+		return;
+	}
+
+	switch ($value['type'])
+	{
+		case 'text':
+			settingText($value);
+			break;
+
+		default:
+			# code...
+			break;
+	}
+
+}
+?>
+
+
+<?php function settingText($value) {?>
+<label for="maxlen"><?php echo T_("Maximum len") ?></label>
+<div class="input">
+	<input type="text" name="item_maxlen_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'maxlen'); ?>">
+</div>
+
+<?php } //endif ?>
+
+
+
+
+

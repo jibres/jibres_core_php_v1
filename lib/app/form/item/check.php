@@ -14,6 +14,7 @@ class check
 			'status'  => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
 			'require' => 'bit',
 			'maxlen'  => 'smallint',
+			'sort'    => 'int',
 
 		];
 
