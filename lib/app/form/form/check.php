@@ -13,7 +13,7 @@ class check
 			'lang'      => 'lang',
 			'password'  => 'string_100',
 			'privacy'   => ['enum' => ['public', 'private']],
-			'privacy'   => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
+			'status'   => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
 			'redirect'  => 'string_1000',
 			'desc'      => 'desc',
 			'starttime' => 'datetime',
