@@ -22,7 +22,7 @@
 						<?php if(\dash\data::formItems()) {?>
 							<?php foreach (\dash\data::formItems() as $key => $value) { $myKey = \dash\get::index($value, 'id'); ?>
 
-							<tr>
+							<tr data-removeElement>
 								<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
 								<td>
 
@@ -55,7 +55,7 @@
 									</div>
 								</td>
 								<td class="collapsing"><div data-kerkere='.showOptionItem<?php echo $myKey; ?>'><i class="sf-cogs fc-blue fs14"></i></div></td>
-								<td class="collapsing"><div><i class="sf-trash fc-red fs12"></i></div></td>
+								<td class="collapsing"><div data-confirm data-data='{"removeitem": "removeitem", "id" : "<?php echo $myKey; ?>"}'><i class="sf-trash fc-red fs12"></i></div></td>
 							</tr>
 							<tr data-kerkere-content='hide' class="showOptionItem<?php echo $myKey; ?>">
 								<td colspan="6">
@@ -97,14 +97,10 @@
 									<label for="check1"><?php echo T_("Required"); ?></label>
 								</div>
 							</td>
-							<td class="collapsing"><div data-kerkere='.showOptionItem'><i class="sf-cogs fc-blue fs14"></i></div></td>
-							<td class="collapsing"><div><i class="sf-trash fc-red fs12"></i></div></td>
+							<td class="collapsing"></td>
+							<td class="collapsing"></td>
 						</tr>
-						<tr data-kerkere-content='hide' class="showOptionItem">
-							<td colspan="6">
-								<?php echo 'salam'; ?>
-							</td>
-						</tr>
+
 					</tbody>
 				</table>
 			</div>

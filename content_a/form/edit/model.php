@@ -5,6 +5,19 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('removeitem') === 'removeitem')
+		{
+			\lib\app\form\item\remove::remove(\dash\request::post('id'));
+
+			if(\dash\engine\process::status())
+			{
+				// \dash\redirect::pwd();
+			}
+			return;
+		}
+
+
+
 		$post =
 		[
 			'title' => \dash\request::post('title'),
@@ -31,6 +44,10 @@ class model
 		if($new_item['title'])
 		{
 			\lib\app\form\item\add::add($new_item, $form_id);
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::clean();
+			}
 		}
 
 		$all_post = \dash\request::post();
@@ -56,6 +73,7 @@ class model
 				\lib\app\form\item\edit::edit($value, $key, $form_id);
 			}
 		}
+		\dash\notif::ok(T_("Form items successfully edited"));
 
 		\dash\redirect::pwd();
 	}
