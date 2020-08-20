@@ -79,6 +79,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY tax_docdetail.details_id
+			ORDER BY details.parent1 ASC, details.parent2 ASC, details.parent3 ASC, details.id ASC
 
 		";
 		$result = \dash\db::get($query);
@@ -124,9 +125,11 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY total.parent2
+			ORDER BY total.parent2 ASC
 
 		";
 		$result = \dash\db::get($query);
+
 
 		return $result;
 	}
@@ -166,6 +169,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY group.parent1
+			ORDER BY group.parent1 ASC
 
 		";
 		$result = \dash\db::get($query);
