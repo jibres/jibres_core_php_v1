@@ -10,7 +10,22 @@ class check
 		[
 			'title'   => 'title',
 			'desc'    => 'desc',
-			'type'    => ['enum' => ['text', 'textarea']],
+			'type'    =>
+				[
+					'enum' =>
+					[
+						'text',
+						'textarea',
+						'checkbox',
+						'dropdown',
+						'radio',
+						'mobile',
+						'tel',
+						'email',
+						'url',
+						'password',
+					]
+				],
 			'status'  => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
 			'require' => 'bit',
 			'maxlen'  => 'smallint',
