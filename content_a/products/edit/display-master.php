@@ -1,5 +1,5 @@
 
-<form class="jPage" id='aProductData' method="post" autocomplete="off" data-refresh data-autoScroll2="#productGallery">
+<form class="jPage" id='aProductData' method="post" autocomplete="off" data-autoScroll2="#productGallery">
  <div class="row">
   <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
   <input type="hidden" name="havevariantchild" value="<?php if($have_variant_child){echo 1;}else{echo 0;};  ?>">
