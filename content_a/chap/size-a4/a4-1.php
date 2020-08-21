@@ -10,7 +10,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <div class="printArea" data-size='A4.landscape'>
   <div class="invoice" data-theme="1">
-    <div class="row align-center">
+    <header class="row align-center">
       <div class="c-3">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
         <div class="logo">
@@ -32,13 +32,74 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
           <span class="printEmptyBox size150"><?php echo \dash\fit::date('now'); ?></span>
         </div>
       </div>
+    </header>
+
+    <div id="sellerDetails" class="oneSide">
+      <h2 class="txtC"><?php echo "Seller Details"; ?></h2>
+      <div class="row">
+        <div class="c-6 title"><?php echo \dash\get::index($storeData,'title'); ?></div>
+      </div>
+
+      <div class="row">
+        <div class="c-6"><?php
+$country = \dash\get::index($storeData,'country_detail', 'name');
+if($country)
+{
+  echo '<span>';
+  echo \dash\get::index($storeData,'country_detail', 'name');
+  echo '</span>';
+}
+
+$province = \dash\get::index($storeData,'province_detail', 'name');
+if($province)
+{
+  echo T_(', ');
+  echo '<span>';
+  echo T_("Province"). ' ';
+  echo \dash\get::index($storeData,'province_detail', 'name');
+  echo '</span>';
+}
+
+$city = \dash\get::index($storeData,'city_detail', 'name');
+if($city)
+{
+  echo T_(', ');
+  echo '<span>';
+  echo T_("City"). ' ';
+  echo \dash\get::index($storeData,'city_detail', 'name');
+  echo '</span>';
+}
+?></div>
+      </div>
+
+      <div class="row">
+        <div class="c-6"><?php
+$address = \dash\get::index($storeData,'address');
+if($address)
+{
+  echo '<span>'. T_('Address'). '</span>'. ' ';
+  echo '<span>';
+  echo \dash\get::index($storeData,'address');
+  echo '</span>';
+}
+?></div>
+      </div>
+
+
+
+
     </div>
+
+
+
 
   </div>
 
 
 <hr>
 
+    <h2><?php echo "Buyer Details"; ?></h2>
+    <h2><?php echo "Details of the goods or services being traded"; ?></h2>
 
 
 
