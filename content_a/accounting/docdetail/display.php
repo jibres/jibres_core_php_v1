@@ -89,7 +89,6 @@
 					<th><?php echo T_("Status") ?></th>
 					<th><?php echo T_("Debtor") ?></th>
 					<th><?php echo T_("Creditor") ?></th>
-					<th><?php echo T_("Remain") ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -110,7 +109,6 @@
 
 						<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>
 						<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></span></td>
-						<td class="font-14"><span class="txtR txtB <?php if(\dash\get::index($value, 'remain') < 0) {echo 'fc-green';}else{echo 'fc-red'; } ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'remain'), 'en') ?></span></td>
 					</tr>
 					<tr>
 						<td class="pTB5-f" colspan="11"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
