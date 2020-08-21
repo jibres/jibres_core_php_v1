@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-21 11:58+0430\n"
-"PO-Revision-Date: 2020-08-21 12:01+0430\n"
+"POT-Creation-Date: 2020-08-21 13:57+0430\n"
+"PO-Revision-Date: 2020-08-21 13:58+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -667,7 +667,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 
 #: content/bug/display.php:102 content/changelog/display.php:12
 #: content_a/accounting/doc/add/display-docdetail.php:102
-#: content_a/accounting/docdetail/display.php:32
+#: content_a/accounting/docdetail/display.php:90
 #: content_a/accounting/irvat/add/display.php:124
 #: content_a/android/intro/display-test-multi-upload.php:23
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
@@ -759,9 +759,9 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content/changelog/display.php:11 content_a/accounting/doc/add/display-doc.php:6
 #: content_a/accounting/doc/add/display-doc.php:49 content_a/accounting/doc/display.php:8
 #: content_a/accounting/doc/duplicate/display.php:7
-#: content_a/accounting/docdetail/display.php:30
+#: content_a/accounting/docdetail/display.php:88
 #: content_a/accounting/irvat/all/display.php:133 content_a/cart/add/display.php:53
-#: content_a/cart/home/display.php:111 content_a/chap/size-a4/a4-1.php:35
+#: content_a/cart/home/display.php:111 content_a/chap/size-a4/a4-1.php:31
 #: content_a/factor/home/display.php:476 content_a/order/home/display.php:486
 #: content_a/products/comment/display.php:86 content_account/billing/display.php:53
 #: content_account/billing/display.php:60 content_business/orders/display.php:20
@@ -942,7 +942,7 @@ msgstr ""
 
 #: content/contact/display.php:22 content/subscribe/display.php:15
 #: content/template/default.php:199 content_a/accounting/irvat/add/display.php:387
-#: content_a/chap/size-a4/a4-1.php:131 content_a/chap/size-receipt/receipt.php:102
+#: content_a/chap/size-a4/a4-1.php:132 content_a/chap/size-receipt/receipt.php:102
 #: content_a/order/address/display.php:48 content_a/setting/fund/display.php:60
 #: content_a/setting/general/title/display.php:11
 #: content_a/setting/general/title/display.php:13 content_a/setting/pcpos/display.php:124
@@ -964,7 +964,7 @@ msgstr "نام کامل"
 #: content/template/default.php:206 content/template/default.php:207
 #: content_a/accounting/irvat/add/display.php:264
 #: content_a/accounting/irvat/add/display.php:376 content_a/cart/user/display.php:19
-#: content_a/chap/size-a4/a4-1.php:108 content_a/chap/size-receipt/receipt.php:79
+#: content_a/chap/size-a4/a4-1.php:109 content_a/chap/size-receipt/receipt.php:79
 #: content_a/order/add/display.php:44 content_a/order/address/display.php:42
 #: content_a/order/address/display.php:105 content_a/order/detail/display.php:60
 #: content_a/sale/display.php:44 content_account/address.php:83
@@ -1044,7 +1044,8 @@ msgstr "خیابان هفت تیر، کوچه یکم"
 msgid "Floor2, Yas Building"
 msgstr "ساختمان یاس، طبقه دوم"
 
-#: content/contact/display.php:69
+#: content/contact/display.php:69 content_a/chap/size-a4/oneSide-buyer.php:48
+#: content_a/chap/size-a4/oneSide-seller.php:48
 msgid "Postal Code"
 msgstr "کد پستی"
 
@@ -1720,7 +1721,7 @@ msgstr "تی‌ال‌دی دامنه"
 
 #: content/domains/pricing/display.php:12 content/domains/pricing/display.php:14
 #: content/pricing/display.php:46 content/pricing/display.php:69
-#: content/pricing/display.php:98 content_a/chap/size-a4/a4-1.php:133
+#: content/pricing/display.php:98 content_a/chap/size-a4/a4-1.php:134
 #: content_a/chap/size-receipt/receipt.php:104 content_a/factor/home/display.php:126
 #: content_a/order/add/display.php:18 content_a/order/home/display.php:134
 #: content_a/pricehistory/display.php:42 content_a/pricehistory/display.php:57
@@ -2751,7 +2752,9 @@ msgstr "کشور"
 
 #: content/ip/home/display.php:19 content/ip/home/view.php:27
 #: content_a/accounting/irvat/add/display.php:259
-#: content_a/accounting/irvat/add/display.php:325 content_a/order/address/display.php:68
+#: content_a/accounting/irvat/add/display.php:325
+#: content_a/chap/size-a4/oneSide-buyer.php:32
+#: content_a/chap/size-a4/oneSide-seller.php:32 content_a/order/address/display.php:68
 #: content_a/setup/address/display.php:24 content_account/address.php:46
 #: content_business/shipping/display.php:128 content_crm/member/legal/display.php:112
 msgid "Province"
@@ -2759,7 +2762,9 @@ msgstr "استان"
 
 #: content/ip/home/display.php:23 content/ip/home/view.php:28
 #: content_a/accounting/irvat/add/display.php:260
-#: content_a/accounting/irvat/add/display.php:334 content_a/order/address/display.php:77
+#: content_a/accounting/irvat/add/display.php:334
+#: content_a/chap/size-a4/oneSide-buyer.php:42
+#: content_a/chap/size-a4/oneSide-seller.php:42 content_a/order/address/display.php:77
 #: content_a/setup/address/display.php:33 content_account/address.php:55
 #: content_business/shipping/display.php:136 content_crm/member/legal/display.php:121
 #: content_my/domain/irnic/add/display.php:72
@@ -4000,7 +4005,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/doc/add/display-docdetail.php:85
 #: content_a/accounting/doc/add/display-list.php:21
 #: content_a/accounting/doc/add/display-list.php:89
-#: content_a/accounting/docdetail/display.php:33
+#: content_a/accounting/docdetail/display.php:91
 #: content_a/accounting/report/assistant/display.php:14
 #: content_a/accounting/report/detail/display.php:15
 #: content_a/accounting/report/group/display.php:13
@@ -4012,7 +4017,7 @@ msgstr "بدهکار"
 #: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/doc/add/display-list.php:22
 #: content_a/accounting/doc/add/display-list.php:91
-#: content_a/accounting/docdetail/display.php:34
+#: content_a/accounting/docdetail/display.php:92
 #: content_a/accounting/report/assistant/display.php:15
 #: content_a/accounting/report/detail/display.php:16
 #: content_a/accounting/report/group/display.php:14
@@ -4088,7 +4093,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/coding/display.php:37
 #: content_a/accounting/doc/add/display-list.php:98
 #: content_a/accounting/doc/add/display-list.php:100
-#: content_a/accounting/doc/display.php:9 content_a/accounting/docdetail/display.php:31
+#: content_a/accounting/doc/display.php:9 content_a/accounting/docdetail/display.php:89
 #: content_a/accounting/year/display.php:8 content_a/android/apk/display.php:32
 #: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
@@ -4208,7 +4213,8 @@ msgstr "گروه"
 #: content_a/accounting/coding/add/display-choose.php:17
 #: content_a/accounting/coding/all/display.php:21
 #: content_a/accounting/coding/display-list.php:25
-#: content_a/accounting/docdetail/display.php:26
+#: content_a/accounting/docdetail/display.php:32
+#: content_a/accounting/docdetail/display.php:84
 #: content_a/accounting/report/assistant/display.php:12
 #: content_a/accounting/report/detail/display.php:12
 #: content_a/accounting/report/total/display.php:12
@@ -4219,7 +4225,8 @@ msgstr "کل"
 #: content_a/accounting/coding/all/display.php:27
 #: content_a/accounting/coding/display-list.php:31
 #: content_a/accounting/doc/add/display-docdetail.php:11
-#: content_a/accounting/docdetail/display.php:27
+#: content_a/accounting/docdetail/display.php:44
+#: content_a/accounting/docdetail/display.php:85
 #: content_a/accounting/report/assistant/display.php:13
 #: content_a/accounting/report/detail/display.php:13
 msgid "Accounting assistant"
@@ -4229,7 +4236,8 @@ msgstr "معین"
 #: content_a/accounting/coding/all/display.php:34
 #: content_a/accounting/coding/display-list.php:38
 #: content_a/accounting/doc/add/display-docdetail.php:63
-#: content_a/accounting/docdetail/display.php:28
+#: content_a/accounting/docdetail/display.php:55
+#: content_a/accounting/docdetail/display.php:86
 #: content_a/accounting/report/detail/display.php:14
 msgid "Accounting details"
 msgstr "تفصیل"
@@ -4256,7 +4264,8 @@ msgstr "همه"
 
 #: content_a/accounting/coding/all/display.php:15
 #: content_a/accounting/coding/display-list.php:19
-#: content_a/accounting/docdetail/display.php:25
+#: content_a/accounting/docdetail/display.php:19
+#: content_a/accounting/docdetail/display.php:83
 #: content_a/category/property/display.php:15 content_a/category/property/display.php:19
 #: content_a/products/property/display.php:18 content_a/products/property/display.php:22
 #: content_a/products/property/display.php:129 lib/app/category/add.php:40
@@ -4376,7 +4385,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 
 #: content_a/accounting/coding/all/display.php:174
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:36 content_a/accounting/docdetail/display.php:65
+#: content_a/accounting/doc/display.php:36 content_a/accounting/docdetail/display.php:123
 #: content_a/accounting/irvat/all/display.php:210 content_a/category/home/display.php:156
 #: content_a/company/display.php:136 content_a/factor/home/display.php:273
 #: content_a/form/home/display.php:143 content_a/order/home/display.php:283
@@ -4409,7 +4418,7 @@ msgid "Add new"
 msgstr "افزودن جدید"
 
 #: content_a/accounting/coding/all/view.php:9 content_a/accounting/coding/view.php:9
-#: content_a/accounting/home/display.php:14
+#: content_a/accounting/home/display.php:15
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
@@ -4456,19 +4465,18 @@ msgid "Document Description"
 msgstr "توضیح سند"
 
 #: content_a/accounting/doc/add/display-doc.php:19
-#: content_a/accounting/docdetail/display.php:5 content_a/accounting/filter.php:25
+#: content_a/accounting/docdetail/display.php:7 content_a/accounting/filter.php:25
 #: content_a/setting/accounting/resetnumber/display.php:14
 msgid "Accounting year"
 msgstr "سال مالی"
 
 #: content_a/accounting/doc/add/display-doc.php:21
-#: content_a/accounting/docdetail/display.php:7 content_a/accounting/filter.php:27
+#: content_a/accounting/docdetail/display.php:9 content_a/accounting/filter.php:27
 #: content_a/setting/accounting/resetnumber/display.php:16
 msgid "Please choose year"
 msgstr "لطفا سال مالی را انتخاب کنید"
 
 #: content_a/accounting/doc/add/display-doc.php:27
-#: content_a/accounting/docdetail/display.php:13
 #: content_a/setting/accounting/resetnumber/display.php:22
 msgid "Add new accounting year"
 msgstr "افزودن سال مالی جدید"
@@ -4580,7 +4588,7 @@ msgstr "حداکثر اندازه فایل"
 msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/doc/display.php:7 content_a/accounting/docdetail/display.php:24
+#: content_a/accounting/doc/display.php:7 content_a/accounting/docdetail/display.php:82
 msgid "Number"
 msgstr "شماره"
 
@@ -4660,6 +4668,22 @@ msgstr "سند حسابداری"
 msgid "Add doc"
 msgstr "افزودن سند"
 
+#: content_a/accounting/docdetail/display.php:21
+msgid "Please choose group"
+msgstr "لطفا گروه را انتخاب کنید"
+
+#: content_a/accounting/docdetail/display.php:34
+msgid "Please choose total"
+msgstr "لطفا کل را انتخاب کنید"
+
+#: content_a/accounting/docdetail/display.php:46
+msgid "Please choose assistant"
+msgstr "لطفا معین را انتخاب کنید"
+
+#: content_a/accounting/docdetail/display.php:57
+msgid "Please choose details"
+msgstr "لطفا تفصیل را وارد کنید"
+
 #: content_a/accounting/docdetail/view.php:9
 msgid "Accounting Documents detail"
 msgstr "جزئیات سند حسابداری"
@@ -4703,57 +4727,61 @@ msgstr "اعمال‌کردن"
 msgid "Accounting"
 msgstr "حسابداری"
 
-#: content_a/accounting/home/display.php:24
+#: content_a/accounting/home/display.php:25
 msgid "Accounting Coding list"
 msgstr "لیست سرفصل‌های حسابداری"
 
-#: content_a/accounting/home/display.php:34
+#: content_a/accounting/home/display.php:35
 msgid "Accounting Year"
 msgstr "سال مالی"
 
-#: content_a/accounting/home/display.php:44
+#: content_a/accounting/home/display.php:45
 msgid "Accounting Document"
 msgstr "سند حسابداری"
 
-#: content_a/accounting/home/display.php:53
+#: content_a/accounting/home/display.php:54
 msgid "Add Accounting Document"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/home/display.php:62
-msgid "Report on detail level"
-msgstr "گزارش در سطح تفصیل"
-
-#: content_a/accounting/home/display.php:73
-msgid "Report on total level"
-msgstr "گزارش در سطح کل"
-
-#: content_a/accounting/home/display.php:84
-msgid "Report on group level"
-msgstr "گزارش در سطح گروه"
-
-#: content_a/accounting/home/display.php:95
-msgid "Report on assistant level"
-msgstr ""
-
-#: content_a/accounting/home/display.php:106
+#: content_a/accounting/home/display.php:67
 msgid "Accounting Document detail"
 msgstr "جزئیات سند حسابداری"
 
-#: content_a/accounting/home/display.php:114
+#: content_a/accounting/home/display.php:75
+msgid "Accounting Reports"
+msgstr "گزارشات حسابداری"
+
+#: content_a/accounting/home/display.php:83
+msgid "Report on group level"
+msgstr "گزارش در سطح گروه"
+
+#: content_a/accounting/home/display.php:93
+msgid "Report on total level"
+msgstr "گزارش در سطح کل"
+
+#: content_a/accounting/home/display.php:103
+msgid "Report on assistant level"
+msgstr "گزارش در سطح معین"
+
+#: content_a/accounting/home/display.php:112
+msgid "Report on detail level"
+msgstr "گزارش در سطح تفصیل"
+
+#: content_a/accounting/home/display.php:121
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:120
+#: content_a/accounting/home/display.php:127
 #: content_a/accounting/irvat/choosetype/display.php:18
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
-#: content_a/accounting/home/display.php:129
+#: content_a/accounting/home/display.php:136
 #: content_a/accounting/irvat/choosetype/display.php:26
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/home/display.php:138 content_love/gift/home/display.php:18
+#: content_a/accounting/home/display.php:145 content_love/gift/home/display.php:18
 msgid "List"
 msgstr "لیست"
 
@@ -4899,13 +4927,15 @@ msgid "CEO nationalcode"
 msgstr "کدملی مدیرعامل"
 
 #: content_a/accounting/irvat/add/display.php:261
-#: content_a/accounting/irvat/add/display.php:341 content_a/chap/size-a4/a4-1.php:89
-#: content_a/chap/size-receipt/receipt.php:60 content_a/order/address/display.php:84
-#: content_a/order/detail/display.php:54 content_a/setup/address/display.php:39
-#: content_account/address.php:62 content_business/orders/view/display.php:26
-#: content_business/profile/display-menu.php:6 content_business/shipping/display.php:142
-#: content_crm/member/legal/display.php:128 content_crm/member/pageSteps.php:71
-#: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
+#: content_a/accounting/irvat/add/display.php:341 content_a/chap/size-a4/a4-1.php:90
+#: content_a/chap/size-a4/oneSide-buyer.php:62
+#: content_a/chap/size-a4/oneSide-seller.php:62 content_a/chap/size-receipt/receipt.php:60
+#: content_a/order/address/display.php:84 content_a/order/detail/display.php:54
+#: content_a/setup/address/display.php:39 content_account/address.php:62
+#: content_business/orders/view/display.php:26 content_business/profile/display-menu.php:6
+#: content_business/shipping/display.php:142 content_crm/member/legal/display.php:128
+#: content_crm/member/pageSteps.php:71 content_love/domain/nicdetail/display.php:14
+#: content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.php:299
 #: dash/layout/admin/sidebar/sidebar-account.php:9
 msgid "Address"
@@ -4921,7 +4951,9 @@ msgid "Post code"
 msgstr "کدپستی"
 
 #: content_a/accounting/irvat/add/display.php:263
-#: content_a/accounting/irvat/add/display.php:352 content_a/order/address/display.php:37
+#: content_a/accounting/irvat/add/display.php:352
+#: content_a/chap/size-a4/oneSide-buyer.php:72
+#: content_a/chap/size-a4/oneSide-seller.php:72 content_a/order/address/display.php:37
 #: content_a/order/address/display.php:97 content_a/order/detail/display.php:67
 #: content_a/setup/address/display.php:47 content_account/address.php:75
 #: content_account/address.php:171 content_business/orders/view/display.php:36
@@ -4936,7 +4968,9 @@ msgid "Phone"
 msgstr "شماره تلفن"
 
 #: content_a/accounting/irvat/add/display.php:265
-#: content_a/accounting/irvat/add/display.php:357 content_crm/member/legal/display.php:144
+#: content_a/accounting/irvat/add/display.php:357
+#: content_a/chap/size-a4/oneSide-buyer.php:80
+#: content_a/chap/size-a4/oneSide-seller.php:80 content_crm/member/legal/display.php:144
 #: content_my/domain/whoisdetail/whoisDetailForm.php:325
 msgid "Fax"
 msgstr "فکس"
@@ -5115,7 +5149,7 @@ msgstr "مانده بستانکار"
 
 #: content_a/accounting/report/assistant/view.php:9
 msgid "Accounting report assistant"
-msgstr ""
+msgstr "گزارش حسابداری در سطح معین"
 
 #: content_a/accounting/report/detail/view.php:9
 msgid "Accounting report detail"
@@ -6058,65 +6092,91 @@ msgstr "کانال‌های فروش"
 msgid "Please choose one format to print factor"
 msgstr "لطفا یک فرمت را برای چاپ انتخاب کنید"
 
-#: content_a/chap/size-a4/a4-1.php:24
-msgid "Invoice "
-msgstr "صورت‌حساب"
-
-#: content_a/chap/size-a4/a4-1.php:26
+#: content_a/chap/size-a4/a4-1.php:23
 msgid "Invoice"
 msgstr "صورت‌حساب"
 
-#: content_a/chap/size-a4/a4-1.php:31
+#: content_a/chap/size-a4/a4-1.php:27
 msgid "Serial Number"
 msgstr "شماره سریال"
 
-#: content_a/chap/size-a4/a4-1.php:82 content_a/chap/size-receipt/receipt.php:53
+#: content_a/chap/size-a4/a4-1.php:83 content_a/chap/size-receipt/receipt.php:53
 msgid "Customer Detail"
 msgstr "جزئیات مشتری"
 
-#: content_a/chap/size-a4/a4-1.php:104 content_a/chap/size-receipt/receipt.php:75
+#: content_a/chap/size-a4/a4-1.php:105 content_a/chap/size-receipt/receipt.php:75
 #: content_business/home/layout/template/comingsoon-bak.php:34
 #: content_business/home/layout/template/visitcard-bak.php:34
 msgid "Tel"
 msgstr "تلفن"
 
-#: content_a/chap/size-a4/a4-1.php:121 content_a/chap/size-receipt/receipt.php:92
+#: content_a/chap/size-a4/a4-1.php:122 content_a/chap/size-receipt/receipt.php:92
 msgid "Sale Invoice"
 msgstr "فاکتور فروش"
 
-#: content_a/chap/size-a4/a4-1.php:132 content_a/chap/size-receipt/receipt.php:103
+#: content_a/chap/size-a4/a4-1.php:133 content_a/chap/size-receipt/receipt.php:103
 #: content_a/factor/home/display.php:125 content_a/order/home/display.php:133
 #: content_business/orders/display.php:17 content_business/p/home/display.php:152
 msgid "Qty"
 msgstr "تعداد"
 
-#: content_a/chap/size-a4/a4-1.php:133 content_a/chap/size-receipt/receipt.php:104
+#: content_a/chap/size-a4/a4-1.php:134 content_a/chap/size-receipt/receipt.php:104
 msgid "For you"
 msgstr "برای شما"
 
-#: content_a/chap/size-a4/a4-1.php:134 content_a/chap/size-receipt/receipt.php:105
+#: content_a/chap/size-a4/a4-1.php:135 content_a/chap/size-receipt/receipt.php:105
 msgid "Sum"
 msgstr "جمع"
 
-#: content_a/chap/size-a4/a4-1.php:173 content_a/chap/size-receipt/receipt.php:144
+#: content_a/chap/size-a4/a4-1.php:174 content_a/chap/size-receipt/receipt.php:144
 #: content_a/order/add/display.php:71 content_a/sale/display.php:66
 msgid "Invoice amount"
 msgstr "مبلغ فاکتور"
 
-#: content_a/chap/size-a4/a4-1.php:179 content_a/chap/size-receipt/receipt.php:150
+#: content_a/chap/size-a4/a4-1.php:180 content_a/chap/size-receipt/receipt.php:150
 msgid "Your total discount and profits"
 msgstr "کل تخفیف و سود شما"
 
-#: content_a/chap/size-a4/a4-1.php:187 content_a/chap/size-receipt/receipt.php:158
+#: content_a/chap/size-a4/a4-1.php:188 content_a/chap/size-receipt/receipt.php:158
 #: content_a/factor/home/display.php:128 content_a/order/home/display.php:136
 #: content_a/products/edit/block/price.php:71
 msgid "VAT"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/chap/size-a4/a4-1.php:194 content_a/chap/size-receipt/receipt.php:165
+#: content_a/chap/size-a4/a4-1.php:195 content_a/chap/size-receipt/receipt.php:165
 #: content_a/order/add/display.php:67 content_a/sale/display.php:62
 msgid "Total payable"
 msgstr "جمع مبلغ قابل پرداخت"
+
+#: content_a/chap/size-a4/oneSide-buyer.php:4
+msgid "Buyer Details"
+msgstr "جزئیات خریدار"
+
+#: content_a/chap/size-a4/oneSide-buyer.php:9 content_a/chap/size-a4/oneSide-seller.php:9
+msgid "VAT Number"
+msgstr "کد اقتصادی"
+
+#: content_a/chap/size-a4/oneSide-buyer.php:13
+#: content_a/chap/size-a4/oneSide-seller.php:13
+msgid "Company ID Number"
+msgstr "شناسه ملی"
+
+#: content_a/chap/size-a4/oneSide-buyer.php:30 content_a/chap/size-a4/oneSide-buyer.php:40
+#: content_a/chap/size-a4/oneSide-seller.php:30
+#: content_a/chap/size-a4/oneSide-seller.php:40 content_a/filter.php:27
+#: content_cms/view.php:94 content_crm/view.php:94 content_su/view.php:140
+#: dash/app/sort.php:88 includes/languages/trans_static_public.php:35
+msgid ", "
+msgstr "، "
+
+#: content_a/chap/size-a4/oneSide-buyer.php:52
+#: content_a/chap/size-a4/oneSide-seller.php:52
+msgid "Company Registration Number"
+msgstr "شماره ثبت"
+
+#: content_a/chap/size-a4/oneSide-seller.php:4
+msgid "Seller Details"
+msgstr "جزئیات فروشنده"
 
 #: content_a/chap/view.php:9
 msgid "Print factor"
@@ -6590,12 +6650,6 @@ msgstr "جستجو با کلیدواژه‌ی :search"
 #: content_su/view.php:134 dash/app/sort.php:82
 msgid "with condition"
 msgstr "به شرط"
-
-#: content_a/filter.php:27 content_cms/view.php:94 content_crm/view.php:94
-#: content_su/view.php:140 dash/app/sort.php:88
-#: includes/languages/trans_static_public.php:35
-msgid ", "
-msgstr "، "
 
 #: content_a/filter.php:69 content_my/domain/buy/display-search.php:61
 msgid "Invalid"
@@ -7183,7 +7237,7 @@ msgstr "حذف شده"
 #: lib/app/nic_domain/get.php:308 lib/app/nic_domain/get.php:335
 #: lib/app/nic_log/get.php:13 lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13
 #: lib/app/pos/tools.php:13 lib/app/product/edit.php:25 lib/app/product/edit.php:35
-#: lib/app/store/domain.php:432 lib/app/tax/coding/get.php:115 lib/app/tax/doc/get.php:34
+#: lib/app/store/domain.php:432 lib/app/tax/coding/get.php:154 lib/app/tax/doc/get.php:34
 #: lib/app/tax/docdetail/edit.php:16 lib/app/tax/docdetail/get.php:22
 #: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
 #: lib/app/tax/year/get.php:66 lib/app/website/body/edit.php:31
@@ -21347,7 +21401,7 @@ msgstr "آی‌پی شما معتبر نیست!"
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:50
 #: lib/app/store/search.php:169 lib/app/store/search.php:289
 #: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:58
-#: lib/app/tax/docdetail/search.php:56 lib/app/tax/year/search.php:52
+#: lib/app/tax/docdetail/search.php:59 lib/app/tax/year/search.php:52
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
 
@@ -31292,6 +31346,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Invoice "
+#~ msgstr "صورت‌حساب"
+
 #~ msgid "Download Jibres Brand Styleguide"
 #~ msgstr "دانلود راهنمای نشان تجاری جیبرس"
 
@@ -31343,9 +31400,6 @@ msgstr "یارد"
 
 #~ msgid "Add new accounting doc"
 #~ msgstr "افزودن سند حسابداری جدید"
-
-#~ msgid "Please choose details"
-#~ msgstr "لطفا تفصیل را وارد کنید"
 
 #~ msgid "Manage variants items"
 #~ msgstr "مدیریت آیتم‌های تنوع محصول"
