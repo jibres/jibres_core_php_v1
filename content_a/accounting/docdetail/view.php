@@ -38,11 +38,19 @@ class view
 			$args['year_id'] = $year_id;
 		}
 
-		$args['contain'] = \dash\request::get('contain');
+		$args['contain']   = \dash\request::get('contain');
+		$args['group']     = \dash\request::get('group');
+		$args['total']     = \dash\request::get('total');
+		$args['assistant'] = \dash\request::get('assistant');
+		$args['details']   = \dash\request::get('details');
 
-
-		$dataTable = \lib\app\tax\docdetail\search::list(null, $args);
+		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
+
+		\dash\data::groupList(\lib\app\tax\coding\get::current_list_of('group'));
+		\dash\data::totalList(\lib\app\tax\coding\get::current_list_of('total', \dash\request::get('group')));
+		\dash\data::assistantList(\lib\app\tax\coding\get::current_list_of('assistant', \dash\request::get('group'), \dash\request::get('total')));
+		// \dash\data::detailsList(\lib\app\tax\coding\get::current_list_of('details', \dash\request::get('group'), \dash\request::get('total'), \dash\request::get('assistant')));
 
 	}
 }

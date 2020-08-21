@@ -90,7 +90,9 @@ class search
 				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = tax_docdetail.details_id LIMIT 1) AS `details_title`,
 				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) AS `assistant_title`,
 				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent2 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `total_title`,
-				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent1 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `group_title`
+				(SELECT tax_coding.id FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent2 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `total_id`,
+				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent1 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `group_title`,
+				(SELECT tax_coding.id FROM tax_coding WHERE tax_coding.id = (SELECT tax_coding.parent1 FROM tax_coding WHERE tax_coding.id = tax_docdetail.assistant_id LIMIT 1) LIMIT 1) AS `group_id`
 			FROM tax_docdetail
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			$q[join]

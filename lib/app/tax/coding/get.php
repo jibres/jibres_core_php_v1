@@ -99,6 +99,45 @@ class get
 	}
 
 
+
+	public static function current_list_of($_type, $_group_id = null, $_total_id = null, $_assistant_id = null)
+	{
+		$_group_id     = \dash\validate::id($_group_id);
+		$_total_id     = \dash\validate::id($_total_id);
+		$_assistant_id = \dash\validate::id($_assistant_id);
+
+		switch ($_type)
+		{
+			case 'group':
+				$list = \lib\db\tax_coding\get::list_group();
+				break;
+
+			case 'total':
+				$list = \lib\db\tax_coding\get::list_total_raw($_group_id);
+				break;
+
+			case 'assistant':
+				$list = \lib\db\tax_coding\get::list_assistant_raw($_group_id, $_total_id);
+				break;
+
+			case 'details':
+			default:
+				$list = \lib\db\tax_coding\get::list_details_raw($_group_id, $_total_id, $_assistant_id);
+				return $list;
+				break;
+		}
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\lib\\app\\tax\\coding\\ready', 'row'], $list);
+
+		return $list;
+	}
+
+
 	public static function get($_id)
 	{
 		$id = \dash\validate::id($_id);

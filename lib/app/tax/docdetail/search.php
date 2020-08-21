@@ -27,11 +27,14 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['number', 'date']],
-			'year_id' => 'id',
-			'contain' => 'id',
-
+			'order'     => 'order',
+			'sort'      => ['enum' => ['number', 'date']],
+			'year_id'   => 'id',
+			'contain'   => 'id',
+			'group'     => 'id',
+			'total'     => 'id',
+			'assistant' => 'id',
+			'details'   => 'id',
 		];
 
 		$require = [];
@@ -80,11 +83,60 @@ class search
 			}
 		}
 
+
+		if($data['group'])
+		{
+			$load_all_child_group = \lib\db\tax_coding\get::all_child_id_group($data['group']);
+			if($load_all_child_group)
+			{
+				$load_all_child_group = array_map('floatval', $load_all_child_group);
+				$load_all_child_group = array_filter($load_all_child_group);
+				$load_all_child_group = array_unique($load_all_child_group);
+
+				if($load_all_child_group)
+				{
+					$load_all_child_group = implode(',', $load_all_child_group);
+					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child_group) OR tax_docdetail.details_id IN ($load_all_child_group) ) ";
+				}
+			}
+		}
+
+
+
+		if($data['total'])
+		{
+			$load_all_child_total = \lib\db\tax_coding\get::all_child_id_total($data['total'], $data['group']);
+			if($load_all_child_total)
+			{
+				$load_all_child_total = array_map('floatval', $load_all_child_total);
+				$load_all_child_total = array_filter($load_all_child_total);
+				$load_all_child_total = array_unique($load_all_child_total);
+
+				if($load_all_child_total)
+				{
+					$load_all_child_total = implode(',', $load_all_child_total);
+					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child_total) OR tax_docdetail.details_id IN ($load_all_child_total) ) ";
+				}
+			}
+		}
+
+
+		if($data['assistant'])
+		{
+			$and[] = " tax_docdetail.assistant_id = $data[assistant] ";
+		}
+
+		// if($data['details'])
+		// {
+		// 	$and[] = " tax_docdetail.assistant_id = $data[details] ";
+		// }
+
+
+
 		$query_string = \dash\validate::search($_query_string);
 
 		if($query_string)
 		{
-			$or[] = " tax_docdetail.number LIKE '%$query_string%' ";
 			$or[] = " tax_docdetail.desc LIKE '%$query_string%' ";
 			self::$is_filtered = true;
 		}

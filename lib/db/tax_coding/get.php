@@ -12,6 +12,29 @@ class get
 		return $result;
 	}
 
+
+	public static function all_child_id_group($_id)
+	{
+		$query = "SELECT tax_coding.id AS `id` FROM tax_coding WHERE tax_coding.id = $_id OR tax_coding.parent1 = $_id ";
+		$result = \dash\db::get($query, 'id');
+		return $result;
+	}
+
+	public static function all_child_id_total($_id, $_group_id)
+	{
+		$group = null;
+		if($_group_id)
+		{
+			$group = " AND tax_coding.parent1 = $_group_id ";
+		}
+
+		$query = "SELECT tax_coding.id AS `id` FROM tax_coding WHERE (tax_coding.id = $_id OR tax_coding.parent2 = $_id ) $group ";
+		$result = \dash\db::get($query, 'id');
+		return $result;
+	}
+
+
+
 	public static function get_count_group()
 	{
 		$query = "SELECT COUNT(*) AS `count`, tax_coding.type FROM tax_coding GROUP BY tax_coding.type";
@@ -105,6 +128,29 @@ class get
 	}
 
 
+	public static function list_total_raw($_group_id = null)
+	{
+		$group = null;
+		if($_group_id)
+		{
+			$group = " AND tax_coding.parent1 = $_group_id ";
+		}
+		$query =
+		"
+			SELECT
+				tax_coding.*
+
+			FROM
+				tax_coding
+			WHERE tax_coding.type = 'total' $group
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
+
 	public static function list_assistant()
 	{
 		$query =
@@ -122,8 +168,42 @@ class get
 		return $result;
 	}
 
+	public static function list_assistant_raw($_group_id = null, $_total_id = null)
+	{
+		$group = null;
+		if($_group_id)
+		{
+			$group = " AND tax_coding.parent1 = $_group_id ";
+		}
+
+		$total = null;
+		if($_total_id)
+		{
+			$total = " AND tax_coding.parent2 = $_total_id ";
+		}
+
+		$query =
+		"
+			SELECT
+				tax_coding.*
+			FROM
+				tax_coding
+			WHERE tax_coding.type = 'assistant' $group $total
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 
 	public static function list_details()
+	{
+		$query = "SELECT DISTINCT tax_coding.title FROM tax_coding WHERE tax_coding.type = 'details'";
+		$result = \dash\db::get($query, 'title');
+		return $result;
+	}
+
+	public static function list_details_raw()
 	{
 		$query = "SELECT DISTINCT tax_coding.title FROM tax_coding WHERE tax_coding.type = 'details'";
 		$result = \dash\db::get($query, 'title');
