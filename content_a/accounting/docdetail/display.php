@@ -108,9 +108,9 @@
 						<td class=""><?php echo \dash\get::index($value, 'tstatus') ?></td>
 
 
-						<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>
-						<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></span></td>
-						<td class="font-14"><span class="txtR txtB <?php if(\dash\get::index($value, 'remain') < 0) {echo 'fc-red';}else{echo 'fc-green'; } ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'remain'), 'en') ?></span></td>
+						<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>
+						<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></span></td>
+						<td class="font-14"><span class="txtR txtB <?php if(\dash\get::index($value, 'remain') < 0) {echo 'fc-green';}else{echo 'fc-red'; } ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'remain'), 'en') ?></span></td>
 					</tr>
 					<tr>
 						<td class="pTB5-f" colspan="11"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>

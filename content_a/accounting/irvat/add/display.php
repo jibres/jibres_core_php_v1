@@ -152,7 +152,7 @@
               <div class="msg success2"><?php echo \dash\data::accountingDetailsId_full_title() ?></div>
 
                 <?php if(\dash\data::assistantList()) {?>
-              <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+              <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
               <select class="select22" name="assistant_id">
                 <option value=""><?php echo T_("Please choose assistant_id") ?></option>
                 <?php foreach (\dash\data::assistantList() as $key => $value) {?>
@@ -162,7 +162,7 @@
             <?php } // endif ?>
 
               <?php if(\dash\data::assistantList()) {?>
-              <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+              <label for="assistant_id"><?php echo T_("Parent") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
               <select class="select22" name="assistant_id">
                 <option value=""><?php echo T_("Please choose assistant_id") ?></option>
                 <?php foreach (\dash\data::assistantList() as $key => $value) {?>
@@ -411,7 +411,7 @@
                       <?php }else{ ?>
                         <a class="link btn" target="_blank" href="<?php echo \dash\get::index($value, 'path'); ?>"><?php echo substr(\dash\get::index($value, 'path'), -3) ?></a>
                         <?php } // endif ?>
-                          <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
+                          <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-green"></i></a>
                     </div>
                   <?php } //endif ?>
                   <?php } //endfor ?>

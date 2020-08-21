@@ -120,7 +120,7 @@
           <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
           <td><?php echo \dash\get::index($value, 'title') ?></td>
           <td><?php echo \dash\get::index($value, 'nature') ?></td>
-          <td><?php if(\dash\get::index($value, 'detailable')){?><i class="sf-check fc-green"></i><?php }// endif ?></td>
+          <td><?php if(\dash\get::index($value, 'detailable')){?><i class="sf-check fc-red"></i><?php }// endif ?></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
         </tr>
       <?php } //endif ?>

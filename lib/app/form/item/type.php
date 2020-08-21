@@ -307,6 +307,17 @@ class type
 		];
 
 
+		$type['message'] =
+		[
+			'key'          => 'message',
+			'title'        => T_('Message'),
+			'default_load' =>
+			[
+
+			],
+		];
+
+
 
 
 		return $type;

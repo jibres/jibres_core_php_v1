@@ -116,11 +116,11 @@
           <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'naturegroup'))); ?></td>
           <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'balancetype'))); ?></td>
           <td class="fs08">
-              <div class="ibtn mT5"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
-                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
-                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
-                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
-                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
+              <div class="ibtn mT5"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times fc-green"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
+                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times fc-green"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
+                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times fc-green"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
+                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times fc-green"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
+                      <div class="ibtn mT5"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times fc-green"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
           </td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
         </tr>

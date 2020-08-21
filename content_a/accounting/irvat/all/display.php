@@ -162,7 +162,7 @@ else
 
 
                     <?php if(!\dash\get::index($value, 'vat_ok')) {?>
-                        <i title="<?php echo \dash\fit::number(\dash\get::index($value, 'vat_9_percent')); ?>" class="sf-info fc-red fs14"></i>
+                        <i title="<?php echo \dash\fit::number(\dash\get::index($value, 'vat_9_percent')); ?>" class="sf-info fc-green fs14"></i>
                     <?php } //endif ?>
                 </td>
 
