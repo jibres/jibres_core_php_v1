@@ -8,7 +8,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 }
 ?>
 
-<div class="factor printArea" data-size='receipt8'>
+<div class="invoice printArea" data-size='receipt8'>
 
 
   <?php if(isset($storeData['logo']) && $storeData['logo']) {?>

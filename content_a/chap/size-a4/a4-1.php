@@ -8,18 +8,20 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 }
 ?>
 
-<div class="factor printArea" data-size='A4.landscape'>
+<div class="factor printArea theme1" data-size='A4.landscape'>
 
-<div class="row">
-  <div class="c4">
-
-  </div>
-  <div class="c4">
+<div class="f">
+  <div class="c4">1
 
   </div>
-  <div class="c4">
+  <div class="c4">2
+
+  </div>
+  <div class="c3">
     <div><?php echo T_("Serial Number"); ?></div>
     <div><?php echo T_("Date"); ?></div>
+  </div>
+  <div class="c1">3
   </div>
 </div>
 
