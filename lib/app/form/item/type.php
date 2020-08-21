@@ -90,17 +90,26 @@ class type
 		];
 
 
+		$type['yes_no'] =
+		[
+			'key'          => 'yes_no',
+			'title'        => T_('Yes-no'),
+			'default_load' =>
+			[
+			],
+		];
+
 
 		$type['single_choice'] =
 		[
 			'key'          => 'single_choice',
 			'title'        => T_('Single choice'),
 			'choice'       => true,
-			'choiceinline' => true,
+			// 'choiceinline' => true,
 			'random'       => true,
 			'default_load' =>
 			[
-				'choiceinline' => true,
+				// 'choiceinline' => true,
 			],
 		];
 

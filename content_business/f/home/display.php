@@ -47,6 +47,7 @@ foreach ($formItems as $key => $value)
 		case 'email': html_input_email($value); break;
 		case 'website': html_input_website($value); break;
 		case 'password': html_input_password($value); break;
+		case 'yes_no': html_input_yes_no($value); break;
 
 		default:
 			# code...
@@ -168,11 +169,11 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 <?php function html_input_single_choice($value) {?>
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="row">
-	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $key => $value) { ?>
-		<div class="c-xs-12 c-sm-3">
+	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+		<div class="c-xs-12 c-sm-12">
 			<div class="radio3">
-				<input type="radio" name="<?php echo myName($value); ?>" id="<?php echo myID($value); echo $key; ?>">
-				<label for="<?php echo myID($value); echo $key; ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
+				<input type="radio" name="<?php myName($value); ?>" id="<?php myID($value); echo $k; ?>">
+				<label for="<?php myID($value); echo $k; ?>"><?php echo \dash\get::index($v, 'title'); ?></label>
 			</div>
 		</div>
 	<?php } /*endfor*/ } /*endif*/ ?>
@@ -182,7 +183,18 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_multiple_choice($value) {?>
-multiple_choice <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="row">
+	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+		<div class="c-xs-12 c-sm-12">
+			<div class="check1">
+				<input type="checkbox" name="<?php myName($value); ?>[]" id="<?php myID($value); echo $k; ?>" value="<?php echo \dash\get::index($v, 'title') ?>">
+				<label for="<?php myID($value); echo $k; ?>"><?php echo \dash\get::index($v, 'title'); ?></label>
+			</div>
+		</div>
+	<?php } /*endfor*/ } /*endif*/ ?>
+</div>
+
 <?php } //endfunction ?>
 
 
@@ -192,8 +204,8 @@ multiple_choice <br>
 <div>
 	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
 		<option value=""><?php echo T_("Please select one item") ?></option>
-		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $key => $value) { ?>
-			<option value="<?php echo \dash\get::index($value, 'title') ?>"><?php echo \dash\get::index($value, 'title'); ?></option>
+		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+			<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
 		<?php } /*endfor*/ } /*endif*/ ?>
 	</select>
 </div>
@@ -315,3 +327,21 @@ multiple_choice <br>
 <?php } //endfunction ?>
 
 
+<?php function html_input_yes_no($value) {?>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="row">
+	<div class="c-xs-12 c-sm-6">
+		<div class="radio3">
+			<input type="radio" name="<?php myName($value); ?>" value="1" id="<?php myID($value); echo 'yes'; ?>">
+			<label for="<?php myID($value); echo 'yes'; ?>"><?php echo T_("Yes"); ?></label>
+		</div>
+	</div>
+	<div class="c-xs-12 c-sm-6">
+		<div class="radio3">
+			<input type="radio" name="<?php myName($value); ?>" value="0" id="<?php myID($value); echo 'no'; ?>">
+			<label for="<?php myID($value); echo 'no'; ?>"><?php echo T_("No"); ?></label>
+		</div>
+	</div>
+</div>
+
+<?php } //endfunction ?>

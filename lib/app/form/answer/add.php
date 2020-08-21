@@ -21,6 +21,8 @@ class add
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
+		$multiple_choice_answer = [];
+
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
 		{
@@ -115,8 +117,16 @@ class add
 					break;
 
 				case 'multiple_choice':
-					$my_answer         = \dash\validate::string_100($my_answer);
-					$answer[$item_id] = $my_answer;
+					if(!is_array($my_answer))
+					{
+						$my_answer = [];
+					}
+
+					foreach ($my_answer as $k => $v)
+					{
+						$multiple_choice_answer[] = \dash\validate::string($v);
+					}
+					$answer[$item_id] = $multiple_choice_answer;
 					break;
 
 				case 'dropdown':
@@ -194,6 +204,15 @@ class add
 					$answer[$item_id] = $my_answer;
 					break;
 
+				case 'yes_no':
+					$my_answer = \dash\validate::bit($my_answer);
+					if(!$my_answer)
+					{
+						$my_answer = 0;
+					}
+					$answer[$item_id] = $my_answer;
+					break;
+
 				default:
 					\dash\notif::error(T_("Invalid item type"));
 					return false;
@@ -224,15 +243,33 @@ class add
 		{
 			if(isset($my_answer))
 			{
-				$insert_answerdetail[] =
-				[
-					'form_id'     => $data['form_id'],
-					'user_id'     => $data['user_id'],
-					'answer_id'   => $add_answer,
-					'item_id'     => $item_id,
-					'answer'      => $my_answer,
-					'datecreated' => date("Y-m-d H:i:s"),
-				];
+				if(is_array($my_answer))
+				{
+					foreach ($my_answer as $my_answer_one)
+					{
+						$insert_answerdetail[] =
+						[
+							'form_id'     => $data['form_id'],
+							'user_id'     => $data['user_id'],
+							'answer_id'   => $add_answer,
+							'item_id'     => $item_id,
+							'answer'      => $my_answer_one,
+							'datecreated' => date("Y-m-d H:i:s"),
+						];
+					}
+				}
+				else
+				{
+					$insert_answerdetail[] =
+					[
+						'form_id'     => $data['form_id'],
+						'user_id'     => $data['user_id'],
+						'answer_id'   => $add_answer,
+						'item_id'     => $item_id,
+						'answer'      => $my_answer,
+						'datecreated' => date("Y-m-d H:i:s"),
+					];
+				}
 			}
 		}
 

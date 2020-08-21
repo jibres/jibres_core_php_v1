@@ -47,7 +47,7 @@ class edit
 			$_args['choice'] = $args['choice'];
 		}
 
-		$args = \dash\cleanse::patch_mode($_args, $args);
+		// $args = \dash\cleanse::patch_mode($_args, $args);
 
 		foreach ($args as $key => $value)
 		{
