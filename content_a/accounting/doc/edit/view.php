@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Accounting document'). ' #'. \dash\data::dataRow_number());
+		\dash\face::title(T_('Accounting Document Number'). ' '. \dash\data::dataRow_number());
 
 		// back
 		\dash\data::back_text(T_('Back'));

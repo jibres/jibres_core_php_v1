@@ -45,6 +45,7 @@ class view
 
 			case 'a4':
 				\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4-1.php');
+				\dash\data::userToggleSidebar(false);
 				break;
 
 			case 'a5':

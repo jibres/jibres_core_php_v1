@@ -8,7 +8,24 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 }
 ?>
 
-<div class="factor printArea" data-size='receipt8'>
+<div class="factor printArea" data-size='A4.landscape'>
+
+<div class="row padLess">
+  <div class="c4">
+
+  </div>
+  <div class="c4">
+
+  </div>
+  <div class="c4">
+    <div><?php echo T_("Serial Number"); ?></div>
+    <div><?php echo T_("Date"); ?></div>
+  </div>
+</div>
+
+<hr>
+
+
 
 
   <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
