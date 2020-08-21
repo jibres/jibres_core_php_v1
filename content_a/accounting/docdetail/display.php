@@ -87,9 +87,9 @@
 
 					<th><?php echo T_("Date") ?></th>
 					<th><?php echo T_("Status") ?></th>
-					<th><?php echo T_("Description") ?></th>
 					<th><?php echo T_("Debtor") ?></th>
 					<th><?php echo T_("Creditor") ?></th>
+					<th><?php echo T_("Remain") ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -106,14 +106,14 @@
 						<td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a></td>
 						<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 						<td class=""><?php echo \dash\get::index($value, 'tstatus') ?></td>
-						<td class=""><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
 
 
 						<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>
 						<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></span></td>
+						<td class="font-14"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'remain'), 'en') ?></span></td>
 					</tr>
 					<tr>
-						<td class="pTB5-f" colspan="11"><?php echo \dash\get::index($value, 'desc') ?></td>
+						<td class="pTB5-f" colspan="11"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
 					</tr>
 				<?php } //endif ?>
 			</tbody>
