@@ -76,7 +76,7 @@
 
   <div class="f">
 
-    <div class="c4 s12">
+    <div class="c3 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/group'; ?>'>
         <div class="statistic">
           <div class="value"><i class="sf-chart"></i></div>
@@ -86,7 +86,7 @@
     </div>
 
 
-    <div class="c4 s12">
+    <div class="c3 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/total'; ?>'>
         <div class="statistic">
           <div class="value"><i class="sf-chart"></i></div>
@@ -96,7 +96,7 @@
     </div>
 
 
-    <div class="c4 s12">
+    <div class="c3 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/assistant'; ?>'>
         <div class="statistic">
           <div class="value"><i class="sf-chart"></i></div>
@@ -105,7 +105,7 @@
       </a>
     </div>
 
-     <div class="c4 s12">
+     <div class="c3 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/detail'; ?>'>
         <div class="statistic">
           <div class="value"><i class="sf-chart"></i></div>
