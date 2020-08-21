@@ -229,13 +229,6 @@ class add
 			'enddate'     => date("Y-m-d H:i:s"),
 		];
 
-		$add_answer = \lib\db\form_answer\insert::new_record($add_answer_args);
-
-		if(!$add_answer)
-		{
-			\dash\log::oops('formAddAnswer');
-			return false;
-		}
 
 		$insert_answerdetail = [];
 
@@ -251,7 +244,7 @@ class add
 						[
 							'form_id'     => $data['form_id'],
 							'user_id'     => $data['user_id'],
-							'answer_id'   => $add_answer,
+							'answer_id'   => null,
 							'item_id'     => $item_id,
 							'answer'      => $my_answer_one,
 							'datecreated' => date("Y-m-d H:i:s"),
@@ -264,7 +257,7 @@ class add
 					[
 						'form_id'     => $data['form_id'],
 						'user_id'     => $data['user_id'],
-						'answer_id'   => $add_answer,
+						'answer_id'   => null,
 						'item_id'     => $item_id,
 						'answer'      => $my_answer,
 						'datecreated' => date("Y-m-d H:i:s"),
@@ -275,10 +268,29 @@ class add
 
 		if($insert_answerdetail)
 		{
+			$add_answer = \lib\db\form_answer\insert::new_record($add_answer_args);
+
+			if(!$add_answer)
+			{
+				\dash\log::oops('formAddAnswer');
+				return false;
+			}
+
+			foreach ($insert_answerdetail as $key => $value)
+			{
+				$insert_answerdetail[$key]['answer_id'] = $add_answer;
+			}
+
 			$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
+
+			\dash\notif::ok(T_("Your answer was saved"));
+		}
+		else
+		{
+			\dash\notif::info(T_("Your form is empty"));
 		}
 
-		\dash\notif::ok(T_("Your answer was saved"));
+
 		return true;
 	}
 }
