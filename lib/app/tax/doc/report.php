@@ -52,6 +52,24 @@ class report
 	}
 
 
+	public static function assistant_report($_args)
+	{
+		$data = self::analyze_args($_args);
+
+
+		$result = \lib\db\tax_document\get::assistant_report($data);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $result);
+		return $result;
+
+
+	}
+
+
 	public static function total_report($_args)
 	{
 

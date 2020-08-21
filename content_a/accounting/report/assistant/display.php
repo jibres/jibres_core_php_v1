@@ -10,6 +10,7 @@
           <th class="collapsing"></th>
           <th><?php echo T_("Accounting Group") ?></th>
           <th><?php echo T_("Accounting total") ?></th>
+          <th><?php echo T_("Accounting assistant") ?></th>
           <th class="txtR"><?php echo T_("Debtor") ?></th>
           <th class="txtR"><?php echo T_("Creditor") ?></th>
           <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
@@ -22,7 +23,7 @@
             <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
             <td><?php echo \dash\get::index($value, 'group_title') ?></td>
             <td><?php echo \dash\get::index($value, 'total_title') ?></td>
-
+            <td><?php echo \dash\get::index($value, 'assistant_title') ?></td>
           <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'debtor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'creditor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_debtor'), true, 'en') ?></code></td>

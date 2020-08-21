@@ -7,6 +7,7 @@
     <table class="tbl1 v1 font-10">
       <thead>
         <tr class="font-10">
+          <th class="collapsing"></th>
           <th><?php echo T_("Accounting Group") ?></th>
           <th><?php echo T_("Accounting total") ?></th>
           <th><?php echo T_("Accounting assistant") ?></th>
@@ -20,6 +21,7 @@
       <tbody>
         <?php foreach (\dash\data::reportDetail() as $key => $value) {?>
           <tr>
+            <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
             <td><?php echo \dash\get::index($value, 'group_title') ?></td>
             <td><?php echo \dash\get::index($value, 'total_title') ?></td>
             <td><?php echo \dash\get::index($value, 'assistant_title') ?></td>
