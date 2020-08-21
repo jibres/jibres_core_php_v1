@@ -65,16 +65,9 @@
 								<td>
 
 									<select name="item_type_<?php echo $myKey ?>" class="select22">
-										<option value="text" <?php if(\dash\get::index($value, 'type') === 'text') {echo 'selected';} ?>><?php echo T_("Text") ?></option>
-										<option value="textarea" <?php if(\dash\get::index($value, 'type') === 'textarea') {echo 'selected';} ?>><?php echo T_("Textarea") ?></option>
-										<option value="checkbox" <?php if(\dash\get::index($value, 'type') === 'checkbox') {echo 'selected';} ?>><?php echo T_("checkbox") ?></option>
-										<option value="dropdown" <?php if(\dash\get::index($value, 'type') === 'dropdown') {echo 'selected';} ?>><?php echo T_("dropdown") ?></option>
-										<option value="radio" <?php if(\dash\get::index($value, 'type') === 'radio') {echo 'selected';} ?>><?php echo T_("radio") ?></option>
-										<option value="mobile" <?php if(\dash\get::index($value, 'type') === 'mobile') {echo 'selected';} ?>><?php echo T_("mobile") ?></option>
-										<option value="tel" <?php if(\dash\get::index($value, 'type') === 'tel') {echo 'selected';} ?>><?php echo T_("tel") ?></option>
-										<option value="email" <?php if(\dash\get::index($value, 'type') === 'email') {echo 'selected';} ?>><?php echo T_("email") ?></option>
-										<option value="url" <?php if(\dash\get::index($value, 'type') === 'url') {echo 'selected';} ?>><?php echo T_("url") ?></option>
-										<option value="password" <?php if(\dash\get::index($value, 'type') === 'password') {echo 'selected';} ?>><?php echo T_("password") ?></option>
+										<?php foreach (\dash\data::itemType() as $type_key => $type_value) {?>
+											<option value="<?php echo $type_key ?>" <?php if(\dash\get::index($value, 'type') === $type_key) {echo 'selected';} ?>><?php echo $type_value['title']; ?></option>
+										<?php } //endif ?>
 									</select>
 								</td>
 
@@ -110,16 +103,10 @@
 							<td>
 
 								<select name="new_type" class="select22">
-									<option value="text"><?php echo T_("Text") ?></option>
-									<option value="textarea"><?php echo T_("Textarea") ?></option>
-									<option value="checkbox"><?php echo T_("checkbox") ?></option>
-									<option value="dropdown"><?php echo T_("dropdown") ?></option>
-									<option value="radio"><?php echo T_("radio") ?></option>
-									<option value="mobile"><?php echo T_("mobile") ?></option>
-									<option value="tel"><?php echo T_("tel") ?></option>
-									<option value="email"><?php echo T_("email") ?></option>
-									<option value="url"><?php echo T_("url") ?></option>
-									<option value="password"><?php echo T_("password") ?></option>
+									<?php foreach (\dash\data::itemType() as $key => $value) {?>
+										<option value="<?php echo $key ?>"><?php echo $value['title']; ?></option>
+									<?php } //endif ?>
+
 								</select>
 							</td>
 
@@ -152,37 +139,159 @@
 
 <?php
 
+
+
 function settingRecord($value)
 {
-	if(!isset($value['type']))
+	if(!isset($value['type_detail']))
 	{
 		return;
 	}
 
-	switch ($value['type'])
-	{
-		case 'text':
-			settingText($value);
-			break;
+	echo "<div class='row'>";
 
-		default:
-			# code...
-			break;
+	if(isset($value['type_detail']['placeholder']) && $value['type_detail']['placeholder'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingPlaceHolder($value);
+		echo "</div>";
 	}
+
+
+	if(isset($value['type_detail']['maxlen']) && $value['type_detail']['maxlen'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingMaxLen($value);
+		echo "</div>";
+	}
+
+	if(isset($value['type_detail']['min']) && $value['type_detail']['min'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingMin($value);
+		echo "</div>";
+	}
+
+	if(isset($value['type_detail']['max']) && $value['type_detail']['max'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingMax($value);
+		echo "</div>";
+	}
+
+
+	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-12'>";
+		settingChoice($value);
+		echo "</div>";
+	}
+
+
+	if(isset($value['type_detail']['choiceinline']) && $value['type_detail']['choiceinline'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingChoiceInline($value);
+		echo "</div>";
+	}
+
+
+	if(isset($value['type_detail']['random']) && $value['type_detail']['random'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingRandom($value);
+		echo "</div>";
+	}
+
+
+	if(isset($value['type_detail']['check_unique']) && $value['type_detail']['check_unique'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingCheckUnique($value);
+		echo "</div>";
+	}
+
+	echo "</div>";
 
 }
 ?>
 
 
-<?php function settingText($value) {?>
-<label for="maxlen"><?php echo T_("Maximum len") ?></label>
+<?php function settingMaxLen($value) {?>
+<label for="item_maxlen_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Maximum len") ?></label>
 <div class="input">
-	<input type="text" name="item_maxlen_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'maxlen'); ?>">
+	<input type="text" name="item_maxlen_<?php echo \dash\get::index($value, 'id') ?>" id="item_maxlen_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'maxlen'); ?>">
 </div>
-
 <?php } //endif ?>
 
 
+
+
+<?php function settingMin($value) {?>
+<label for="item_min_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Min") ?></label>
+<div class="input">
+	<input type="text" name="item_min_<?php echo \dash\get::index($value, 'id') ?>" id="item_min_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'min'); ?>">
+</div>
+<?php } //endif ?>
+
+
+<?php function settingMax($value) {?>
+<label for="item_max_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Min") ?></label>
+<div class="input">
+	<input type="text" name="item_max_<?php echo \dash\get::index($value, 'id') ?>" id="item_max_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'max'); ?>">
+</div>
+<?php } //endif ?>
+
+
+
+
+
+<?php function settingPlaceHolder($value) {?>
+<label for="item_placeholder_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Placeholder") ?></label>
+<div class="input">
+	<input type="text" name="item_placeholder_<?php echo \dash\get::index($value, 'id') ?>" id="item_placeholder_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'placeholder'); ?>">
+</div>
+<?php } //endif ?>
+
+
+
+
+
+<?php function settingChoice($value) {?>
+<label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
+<select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
+  <?php foreach (\dash\data::allTagList() as $key => $value) {?>
+    <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::choicesSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
+  <?php } //endfor ?>
+</select>
+<?php } // endfunction ?>
+
+
+
+<?php function settingChoiceInline($value) {?>
+<div class="check1">
+	<input type="checkbox" name="item_choiceinline_<?php echo \dash\get::index($value, 'id') ?>" id="checkinline<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'choiceinline')) { echo 'checked';} ?>>
+	<label for="checkinline<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Put every choice in one line"); ?></label>
+</div>
+<?php } // endfunction ?>
+
+
+
+<?php function settingRandom($value) {?>
+<div class="check1">
+	<input type="checkbox" name="item_random_<?php echo \dash\get::index($value, 'id') ?>" id="checkrandom<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'random')) { echo 'checked';} ?>>
+	<label for="checkrandom<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Random choice"); ?></label>
+</div>
+<?php } // endfunction ?>
+
+
+
+<?php function settingCheckUnique($value) {?>
+<div class="check1">
+	<input type="checkbox" name="item_check_unique_<?php echo \dash\get::index($value, 'id') ?>" id="checkunique<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'check_unique')) { echo 'checked';} ?>>
+	<label for="checkunique<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Check unique"); ?></label>
+</div>
+<?php } // endfunction ?>
 
 
 

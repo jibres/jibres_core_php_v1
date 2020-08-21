@@ -53,6 +53,11 @@ class validate
 			return true;
 		}
 
+		if(is_array($_a) || is_array($_b))
+		{
+			return false;
+		}
+
 		if((string) $_a == (string) $_b)
 		{
 			return true;

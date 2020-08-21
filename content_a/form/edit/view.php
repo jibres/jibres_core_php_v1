@@ -21,6 +21,8 @@ class view
 		$items = \lib\app\form\item\get::items($form_id);
 
 		\dash\data::formItems($items);
+
+		\dash\data::itemType(\lib\app\form\item\type::list());
 	}
 }
 ?>

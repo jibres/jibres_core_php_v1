@@ -18,12 +18,31 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'type':
+					$result[$key] = $value;
+					$result['type_detail'] = \lib\app\form\item\type::get($value);
+					break;
+
+				case 'setting':
+					if($value && is_string($value))
+					{
+						$value = json_decode($value, true);
+					}
+
+					if(!is_array($value))
+					{
+						$value = [];
+					}
+
+					$result[$key] = $value;
+
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
 			}
 		}
-
 
 		return $result;
 	}

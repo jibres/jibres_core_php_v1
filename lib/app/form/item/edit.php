@@ -30,11 +30,21 @@ class edit
 			return false;
 		}
 
-		$args = \lib\app\form\item\check::variable($_args);
+		$args = \lib\app\form\item\check::variable($_args, $_id, $load);
 
 		if(!$args)
 		{
 			return false;
+		}
+
+		if(isset($args['setting']))
+		{
+			$_args['setting'] = $args['setting'];
+		}
+
+		if(isset($args['choice']))
+		{
+			$_args['choice'] = $args['choice'];
 		}
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
