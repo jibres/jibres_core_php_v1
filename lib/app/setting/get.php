@@ -63,6 +63,32 @@ class get
 	}
 
 
+	public static function nosale_setting()
+	{
+
+		$cat   = 'nosale_setting';
+
+		$result = self::load_setting_once($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$setting[$value['key']] = $value['value'];
+			}
+		}
+
+		return $setting;
+
+	}
+
+
 
 	public static function shipping_way()
 	{

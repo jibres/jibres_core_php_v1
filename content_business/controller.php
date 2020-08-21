@@ -16,6 +16,13 @@ class controller
 			{
 				\dash\header::status(404, T_("Store not found"));
 			}
+
+			$nosale = \lib\app\setting\get::nosale_setting();
+
+			if(isset($nosale['nosale']) && $nosale['nosale'])
+			{
+				\dash\data::nosale(true);
+			}
 		}
 	}
 }

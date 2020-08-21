@@ -41,6 +41,11 @@ class pwa_menu
 	{
 		\dash\layout\business::check_website();
 
+		if(\dash\data::nosale())
+		{
+			return null;
+		}
+
 		switch (\dash\data::website_template())
 		{
 			case 'comingsoon':

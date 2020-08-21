@@ -26,7 +26,10 @@ if(!\dash\face::disablePWA_Header())
   // search btn
   if(\dash\data::search_link())
   {
-  	echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
+    if(!\dash\data::nosale())
+    {
+  	 echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
+    }
   }
   // preview btn
   if(\dash\face::btnPreview())

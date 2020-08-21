@@ -15,6 +15,7 @@ else
 }
 ?></a>
     </div>
+    <?php if(!\dash\data::nosale()) {?>
     <div class="c s0"></div>
     <div class="c-auto">
       <a class="search" href="<?php echo \dash\url::kingdom(); ?>/search"></a>
@@ -29,6 +30,7 @@ else
         <a class="enter" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Enter to account"); ?></a>
       <?php } //endif ?>
     </div>
+  <?php } //end nosale ?>
   </div>
 
   <?php if(\lib\website::have_header_menu()) {?>
