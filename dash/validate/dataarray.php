@@ -113,5 +113,48 @@ class dataarray
 
 		return $new_tag;
 	}
+
+
+	public static function tag_long($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = $_data;
+
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
+		if(!is_array($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be array", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		$new_tag = [];
+		$count = 0;
+		foreach ($data as $tag)
+		{
+			$count++;
+			$temp = \dash\validate::string_300($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
+			if(isset($temp))
+			{
+				$new_tag[] = $temp;
+			}
+
+			if($count > 100)
+			{
+				break;
+			}
+		}
+
+		$new_tag = array_unique($new_tag);
+		$new_tag = array_filter($new_tag);
+
+		return $new_tag;
+	}
 }
 ?>

@@ -17,7 +17,7 @@ class check
 			'maxlen2'      => 'smallint',
 			'sort'         => 'int',
 			'placeholder'  => 'string_100',
-			'choice'       => 'tag',
+			'choice'       => 'tag_long',
 			'choiceinline' => 'bit',
 			'random'       => 'bit',
 			'check_unique' => 'bit',
