@@ -24,6 +24,7 @@ class ready
 					break;
 
 				case 'setting':
+				case 'choice':
 					if($value && is_string($value))
 					{
 						$value = json_decode($value, true);

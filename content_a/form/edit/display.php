@@ -260,9 +260,11 @@ function settingRecord($value)
 <?php function settingChoice($value) {?>
 <label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
 <select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
-  <?php foreach (\dash\data::allTagList() as $key => $value) {?>
-    <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::choicesSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
+	<?php if(isset($value['choice']) && is_array($value['choice'])) {?>
+  <?php foreach ($value['choice'] as $key => $value) {?>
+    <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
   <?php } //endfor ?>
+  <?php } //endif ?>
 </select>
 <?php } // endfunction ?>
 

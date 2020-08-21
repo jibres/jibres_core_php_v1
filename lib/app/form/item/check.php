@@ -78,6 +78,16 @@ class check
 		if(\dash\get::index($_current_detail, 'type_detail', 'choice'))
 		{
 			$choice = [];
+			if($data['choice'])
+			{
+				foreach ($data['choice'] as $key => $value)
+				{
+					$choice[] =
+					[
+						'title' => $value,
+					];
+				}
+			}
 		}
 
 		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);
@@ -88,7 +98,7 @@ class check
 
 
 		unset($data['placeholder']);
-		unset($data['choice']);
+
 		unset($data['choiceinline']);
 		unset($data['random']);
 		unset($data['check_unique']);
