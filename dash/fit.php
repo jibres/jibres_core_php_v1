@@ -64,7 +64,7 @@ class fit{
 
 	public static function price($_price)
 	{
-		return self::number($_price, true, 'en');
+		return self::number_decimal($_price, 'en');
 	}
 
 
