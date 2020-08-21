@@ -111,6 +111,9 @@ class get
 		$query =
 		"
 			SELECT
+				MAX(assistant.parent1) AS `group_id`,
+				MAX(assistant.parent2) AS `total_id`,
+				tax_docdetail.assistant_id AS `assistant_id`,
 				SUM(tax_docdetail.debtor) AS `debtor`,
 				SUM(tax_docdetail.creditor) AS `creditor`,
 				MAX(group.title) AS `group_title`,
@@ -164,7 +167,9 @@ class get
 				SUM(tax_docdetail.creditor) AS `creditor`,
 				MAX(group.title) AS `group_title`,
 				MAX(group.code) AS `group_code`,
-				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = total.parent2) as `total_title`
+				MAX(group.parent1) AS `group_id`,
+				MAX(total.parent2) AS `total_id`,
+				(SELECT MAX(tax_coding.title) from tax_coding WHERE tax_coding.id = total.parent2) as `total_title`
 			FROM
 				tax_docdetail
 
@@ -207,6 +212,7 @@ class get
 		$query =
 		"
 			SELECT
+				group.parent1 AS `group_id`,
 				SUM(tax_docdetail.debtor) AS `debtor`,
 				SUM(tax_docdetail.creditor) AS `creditor`,
 				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = group.parent1) as `group_title`

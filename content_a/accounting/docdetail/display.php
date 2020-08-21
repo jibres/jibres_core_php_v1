@@ -106,7 +106,7 @@
 						<td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a></td>
 						<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 						<td class=""><?php echo \dash\get::index($value, 'tstatus') ?></td>
-						<td class=""><?php echo \dash\get::index($value, 'desc') ?></td>
+						<td class=""><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
 
 
 						<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>

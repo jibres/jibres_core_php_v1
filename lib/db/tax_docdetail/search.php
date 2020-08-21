@@ -85,6 +85,7 @@ class search
 			SELECT
 				tax_docdetail.*,
 				tax_document.number,
+				tax_document.desc AS `doc_desc`,
 				tax_document.date,
 				tax_document.status,
 				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = tax_docdetail.details_id LIMIT 1) AS `details_title`,
