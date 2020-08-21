@@ -65,7 +65,8 @@ class ready
 			$result['value'] = round($result['value']);
 		}
 
-		$result['remain'] = floatval(\dash\get::index($result['debtor'])) - floatval(\dash\get::index($result['creditor']));
+
+		$result['remain'] = floatval(\dash\get::index($result, 'debtor')) - floatval(\dash\get::index($result, 'creditor'));
 
 		return $result;
 	}
