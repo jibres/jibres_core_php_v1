@@ -22,7 +22,6 @@ class view
 				\dash\data::ipDetail(\dash\utility\ip::fetch($myIp));
 
 				\dash\face::cover(\dash\url::cdn(). '/img/flags/png100px/'. \dash\data::ip_flag(). '.png');
-				\dash\face::cover(\dash\url::cdn(). '/img/flags/svg/'. \dash\data::ip_flag(). '.svg');
 
 				$desc = T_(\dash\data::ip_country());
 				$desc .= ' / '.  T_("Province"). ' '. T_(ucwords(\dash\data::ip_state()));
