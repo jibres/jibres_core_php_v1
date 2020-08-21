@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2020-08-21 15:10+0430\n"
-"PO-Revision-Date: 2020-08-21 15:10+0430\n"
+"PO-Revision-Date: 2020-08-21 16:50+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6170,11 +6170,11 @@ msgstr "شماره ثبت"
 
 #: content_a/chap/size-a4/oneSide-seller.php:4
 msgid "Seller Details"
-msgstr "جزئیات فروشنده"
+msgstr "مشخصات فروشنده"
 
 #: content_a/chap/size-receipt/receipt.php:53
 msgid "Customer Detail"
-msgstr "جزئیات مشتری"
+msgstr "مشخصات مشتری"
 
 #: content_a/chap/size-receipt/receipt.php:75
 #: content_business/home/layout/template/comingsoon-bak.php:34
