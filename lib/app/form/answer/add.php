@@ -88,8 +88,109 @@ class add
 
 			switch ($item_detail['type'])
 			{
-				case 'text':
-					$my_answer = \dash\validate::string_200($my_answer);
+
+				case 'short_answer':
+					$my_answer         = \dash\validate::string_200($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'descriptive_answer':
+					$my_answer         = \dash\validate::desc($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				// case 'descriptive_after_short_answer':
+				// 	$my_answer         = \dash\validate::string_100($my_answer);
+				// 	$answer[$item_id] = $my_answer;
+				// 	break;
+
+				case 'numeric':
+					$my_answer         = \dash\validate::number($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'single_choice':
+					$my_answer         = \dash\validate::string_100($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'multiple_choice':
+					$my_answer         = \dash\validate::string_100($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'dropdown':
+					$my_answer = \dash\validate::string_100($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'date':
+					$my_answer = \dash\validate::date($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'birthdate':
+					$my_answer = \dash\validate::birthdate($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'country':
+					$my_answer = \dash\validate::country($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'province':
+					$my_answer = \dash\validate::province($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'city':
+					$my_answer = \dash\validate::city($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'gender':
+					$my_answer = \dash\validate::enum($my_answer, true, ['enum' => ['male', 'female']]);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'time':
+					$my_answer = \dash\validate::time($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'tel':
+					$my_answer = \dash\validate::phone($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'file':
+					$my_answer = \dash\validate::string_100($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'nationalcode':
+					$my_answer = \dash\validate::nationalcode($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'mobile':
+					$my_answer = \dash\validate::mobile($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'email':
+					$my_answer = \dash\validate::email($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'website':
+					$my_answer = \dash\validate::url($my_answer);
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'password':
+					$my_answer = \dash\validate::string_100($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -121,19 +222,24 @@ class add
 
 		foreach ($answer as $item_id => $my_answer)
 		{
-			$insert_answerdetail[] =
-			[
-				'form_id'     => $data['form_id'],
-				'user_id'     => $data['user_id'],
-				'answer_id'   => $add_answer,
-				'item_id'     => $item_id,
-				'answer'      => $my_answer,
-				'datecreated' => date("Y-m-d H:i:s"),
-			];
+			if(isset($my_answer))
+			{
+				$insert_answerdetail[] =
+				[
+					'form_id'     => $data['form_id'],
+					'user_id'     => $data['user_id'],
+					'answer_id'   => $add_answer,
+					'item_id'     => $item_id,
+					'answer'      => $my_answer,
+					'datecreated' => date("Y-m-d H:i:s"),
+				];
+			}
 		}
 
-
-		$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
+		if($insert_answerdetail)
+		{
+			$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
+		}
 
 		\dash\notif::ok(T_("Your answer was saved"));
 		return true;

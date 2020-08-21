@@ -59,7 +59,6 @@ foreach ($formItems as $key => $value)
 
 	</div>
 </form>
-
 <?php
 function isRequired($value, $_html = false)
 {
@@ -121,8 +120,6 @@ function HtmlMaxLen($value)
 ?>
 
 
-
-
 <?php function html_input_short_answer($value) {?>
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="input">
@@ -151,7 +148,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_descriptive_after_short_answer($value) {?>
-	<div class="msg">Comming...</div>
+<!-- comming soon -->
 <?php } //endfunction ?>
 
 
@@ -166,7 +163,17 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_single_choice($value) {?>
-single_choice <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="row">
+	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $key => $value) { ?>
+		<div class="c-xs-12 c-sm-3">
+			<div class="radio3">
+				<input type="radio" name="<?php echo myName($value); ?>" id="<?php echo myID($value); echo $key; ?>">
+				<label for="<?php echo myID($value); echo $key; ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
+			</div>
+		</div>
+	<?php } /*endfor*/ } /*endif*/ ?>
+</div>
 <?php } //endfunction ?>
 
 
@@ -178,13 +185,24 @@ multiple_choice <br>
 
 
 <?php function html_input_dropdown($value) {?>
-dropdown <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div>
+	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
+		<option value=""><?php echo T_("Please select one item") ?></option>
+		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $key => $value) { ?>
+			<option value="<?php echo \dash\get::index($value, 'title') ?>"><?php echo \dash\get::index($value, 'title'); ?></option>
+		<?php } /*endfor*/ } /*endif*/ ?>
+	</select>
+</div>
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_date($value) {?>
-date <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="input">
+	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+</div>
 <?php } //endfunction ?>
 
 
@@ -192,38 +210,45 @@ date <br>
 <?php function html_input_birthdate($value) {?>
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="input">
-	<input type="date" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_country($value) {?>
-country <br>
+<!-- comming soon -->
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_province($value) {?>
-province <br>
+<!-- comming soon -->
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_city($value) {?>
-city <br>
+<!-- comming soon -->
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_gender($value) {?>
-gender <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div>
+	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
+		<option value=""><?php echo T_("Please select one item") ?></option>
+		<option value="male"><?php echo T_("Male") ?></option>
+		<option value="fmale"><?php echo T_("Female") ?></option>
+	</select>
+</div>
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_time($value) {?>
-time <br>
+<!-- comming soon -->
 <?php } //endfunction ?>
 
 
@@ -238,7 +263,7 @@ time <br>
 
 
 <?php function html_input_file($value) {?>
-file <br>
+<!-- comming soon -->
 <?php } //endfunction ?>
 
 
@@ -253,25 +278,37 @@ file <br>
 
 
 <?php function html_input_mobile($value) {?>
-mobile <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="input">
+	<input type="tel" maxlength="15" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='mobile-enter' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+</div>
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_email($value) {?>
-email <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="input">
+	<input type="email" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
+</div>
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_website($value) {?>
-website <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="input">
+	<input type="url" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
+</div>
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_password($value) {?>
-password <br>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="input">
+	<input type="password" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
+</div>
 <?php } //endfunction ?>
 
 
