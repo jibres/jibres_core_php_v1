@@ -22,13 +22,14 @@ class view
 				\dash\data::ipDetail(\dash\utility\ip::fetch($myIp));
 
 				\dash\face::cover(\dash\url::cdn(). '/img/flags/png100px/'. \dash\data::ip_flag(). '.png');
+				\dash\face::cover(\dash\url::cdn(). '/img/flags/svg/'. \dash\data::ip_flag(). '.svg');
 
-				$desc = \dash\data::ip_country();
+				$desc = T_(\dash\data::ip_country());
 				$desc .= ' / '.  T_("Province"). ' '. T_(ucwords(\dash\data::ip_state()));
 				$desc .= ' / '.  T_("City"). ' '. T_(ucwords(\dash\data::ip_city()));
-				$desc .= ' | '.  T_("ISP"). ' '. T_(ucwords(\dash\data::ip_isp()));
-				$desc .= ' | '.  T_("latitude"). ' '. T_(ucwords(\dash\data::ip_latitude()));
-				$desc .= ' '.  T_("longitude"). ' '. T_(ucwords(\dash\data::ip_longitude()));
+				$desc .= ' / '.  T_("ISP"). ' '. T_(ucwords(\dash\data::ip_isp()));
+				$desc .= ' / '.  T_(ucwords(\dash\data::ip_latitude()));
+				$desc .= '-'. T_(ucwords(\dash\data::ip_longitude()));
 
 				$desc .= ' ';
 				\dash\face::desc($desc);
