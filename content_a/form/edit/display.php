@@ -113,7 +113,7 @@
 							<td>
 
 								<div class="check1">
-									<input type="checkbox" name="new_require" id="check1" value="<?php echo \dash\data::dataRowd_title(); ?>">
+									<input type="checkbox" name="new_require" id="check1">
 									<label for="check1"><?php echo T_("Required"); ?></label>
 								</div>
 							</td>

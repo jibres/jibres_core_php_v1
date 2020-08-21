@@ -30,7 +30,7 @@ class search
 			'order'   => 'order',
 			'sort'    => ['enum' => ['title', 'id']],
 			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'user_id' => 'code',
+			'answer_id' => 'id',
 		];
 
 		$require = [];
@@ -48,6 +48,10 @@ class search
 
 		$order_sort  = null;
 
+		if($data['answer_id'])
+		{
+			$and[] = " form_answerdetail.answer_id = $data[answer_id] ";
+		}
 
 		if(mb_strlen($_query_string) > 50)
 		{

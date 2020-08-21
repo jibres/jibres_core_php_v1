@@ -39,9 +39,9 @@ class model
 
 		$new_item =
 		[
-			'title'    => \dash\request::post('new_title'),
-			'type'     => \dash\request::post('new_type'),
-			'require' => \dash\request::post('new_required'),
+			'title'   => \dash\request::post('new_title'),
+			'type'    => \dash\request::post('new_type'),
+			'require' => \dash\request::post('new_require'),
 		];
 
 

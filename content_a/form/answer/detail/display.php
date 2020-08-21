@@ -1,18 +1,3 @@
-<?php if(!\dash\data::dataTable()) {?>
-
-  <h2><?php echo T_("Contact form") ?></h2>
-
-  <div class="welcome">
-    <p><?php echo T_("We give you the opportunity to measure your customers' satisfaction with a variety of questions. In addition, you can get any other information from your audience"); ?></p>
-    <h2><?php echo T_("Survey your customers with Form Maker"); ?></h2>
-
-    <div class="buildBtn">
-      <a class="btn xl master" href="<?php echo \dash\url::this(). '/add'; ?>" ><?php echo T_("Add contact form now!"); ?></a>
-    </div>
-  </div>
-
-
- <?php }else{ ?>
 
 
 
@@ -46,16 +31,6 @@
     }
   }
   ?>
-
-
-
-
-
-
-
- <?php } //endif ?>
-
-
 
 
 
@@ -141,5 +116,5 @@
 
 
 <?php function htmlStartAddNew() {?>
-  <div class="msg fs14 success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
+  <div class="msg fs14 success2"><?php echo T_("Hi!") ?></div>
 <?php } //endif ?>
