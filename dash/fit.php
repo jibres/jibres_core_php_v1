@@ -61,7 +61,14 @@ class fit{
 		return $new_text;
 	}
 
-	public static function price($_price, $_forceEn = false)
+
+	public static function price($_price)
+	{
+		return self::number($_price, true, 'en');
+	}
+
+
+	public static function price_old($_price, $_forceEn = false)
 	{
 		if($_forceEn)
 		{

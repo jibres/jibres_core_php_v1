@@ -72,16 +72,16 @@ if(count($myGallery) > 1)
               <div>
                 <span><?php echo T_("List Price"); ?></span>
                 <div class="priceShow" data-first>
-                  <span class="price"><?php echo \dash\fit::price(\dash\data::dataRow_price()); ?></span>
+                  <span class="price"><?php echo \dash\fit::price_old(\dash\data::dataRow_price()); ?></span>
                 </div>
-                <div class="priceShow ltr" data-discount title='<?php echo T_("You Save"); ?> <?php echo \dash\fit::price(round(\dash\data::dataRow_discount())); ?>'>- <?php echo \dash\fit::price(\dash\data::dataRow_discountpercent()); ?> %</div>
+                <div class="priceShow ltr" data-discount title='<?php echo T_("You Save"); ?> <?php echo \dash\fit::price_old(round(\dash\data::dataRow_discount())); ?>'>- <?php echo \dash\fit::price_old(\dash\data::dataRow_discountpercent()); ?> %</div>
               </div>
               <?php } //endif ?>
               <div>
                 <?php if(\dash\data::dataRow_finalprice()) {?>
                 <span><?php echo T_("Price"); ?></span>
                 <div class="priceShow" data-final>
-                  <span class="price"><?php  echo \dash\fit::price(\dash\data::dataRow_finalprice()); ?></span>
+                  <span class="price"><?php  echo \dash\fit::price_old(\dash\data::dataRow_finalprice()); ?></span>
                   <span class="unit"><?php echo \lib\store::currency(); ?></span>
                 </div>
               <?php } //endif ?>

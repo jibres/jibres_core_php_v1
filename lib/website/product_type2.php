@@ -60,7 +60,7 @@ class product_type2
 			{
 				echo '<span class="discount">';
 				echo '-';
-				echo \dash\fit::price($discountpercent);
+				echo \dash\fit::price_old($discountpercent);
 				echo '%';
 				echo '</span>';
 			}
