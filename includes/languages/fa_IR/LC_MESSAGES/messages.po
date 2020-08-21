@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-21 14:35+0430\n"
-"PO-Revision-Date: 2020-08-21 14:54+0430\n"
+"POT-Creation-Date: 2020-08-21 15:10+0430\n"
+"PO-Revision-Date: 2020-08-21 15:10+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -963,11 +963,11 @@ msgstr "نام کامل"
 #: content/template/default.php:206 content/template/default.php:207
 #: content_a/accounting/irvat/add/display.php:264
 #: content_a/accounting/irvat/add/display.php:376 content_a/cart/user/display.php:19
-#: content_a/chap/size-a4/a4-1.php:135 content_a/chap/size-receipt/receipt.php:79
-#: content_a/order/add/display.php:44 content_a/order/address/display.php:42
-#: content_a/order/address/display.php:105 content_a/order/detail/display.php:60
-#: content_a/sale/display.php:44 content_account/address.php:83
-#: content_account/address.php:176 content_account/my/home/display.php:46
+#: content_a/chap/size-receipt/receipt.php:79 content_a/order/add/display.php:44
+#: content_a/order/address/display.php:42 content_a/order/address/display.php:105
+#: content_a/order/detail/display.php:60 content_a/sale/display.php:44
+#: content_account/address.php:83 content_account/address.php:176
+#: content_account/my/home/display.php:46
 #: content_business/home/layout/body/body_load_post.php:211
 #: content_business/home/layout/body/body_load_post.php:212
 #: content_business/orders/view/display.php:39 content_business/p/home/display.php:369
@@ -4544,7 +4544,7 @@ msgstr "معین"
 msgid "Document Detail"
 msgstr "تفصیل سند"
 
-#: content_a/accounting/doc/add/display-list.php:19 content_a/chap/size-a4/a4-1.php:45
+#: content_a/accounting/doc/add/display-list.php:19 content_a/chap/size-a4/a4-1.php:44
 msgid "Explanation"
 msgstr "شرح"
 
@@ -4937,7 +4937,7 @@ msgid "CEO nationalcode"
 msgstr "کدملی مدیرعامل"
 
 #: content_a/accounting/irvat/add/display.php:261
-#: content_a/accounting/irvat/add/display.php:341 content_a/chap/size-a4/a4-1.php:116
+#: content_a/accounting/irvat/add/display.php:341
 #: content_a/chap/size-a4/oneSide-buyer.php:62
 #: content_a/chap/size-a4/oneSide-seller.php:62 content_a/chap/size-receipt/receipt.php:60
 #: content_a/order/address/display.php:84 content_a/order/detail/display.php:54
@@ -5712,7 +5712,7 @@ msgstr "افزودن به سبد خرید"
 msgid "Cart count"
 msgstr "تعداد سبد‌های خرید"
 
-#: content_a/cart/home/display.php:12 content_a/chap/size-a4/a4-1.php:48
+#: content_a/cart/home/display.php:12 content_a/chap/size-a4/a4-1.php:47
 msgid "Total price"
 msgstr "مبلغ کل"
 
@@ -6111,78 +6111,36 @@ msgstr "صورت‌حساب"
 msgid "Serial Number"
 msgstr "شماره سریال"
 
-#: content_a/chap/size-a4/a4-1.php:46 content_a/chap/size-receipt/receipt.php:103
+#: content_a/chap/size-a4/a4-1.php:45 content_a/chap/size-receipt/receipt.php:103
 #: content_a/factor/home/display.php:125 content_a/order/home/display.php:133
 #: content_business/orders/display.php:17 content_business/p/home/display.php:152
 msgid "Qty"
 msgstr "تعداد"
 
-#: content_a/chap/size-a4/a4-1.php:47
+#: content_a/chap/size-a4/a4-1.php:46
 msgid "Unit price"
 msgstr "مبلغ واحد"
 
-#: content_a/chap/size-a4/a4-1.php:49 content_a/factor/home/display.php:127
-#: content_a/order/add/display.php:19 content_a/order/add/display.php:60
-#: content_a/order/detail/display.php:31 content_a/order/home/display.php:135
-#: content_a/pricehistory/display.php:58 content_a/products/child/display.php:101
-#: content_a/products/child/display.php:171 content_a/products/edit/block/price.php:54
-#: content_a/products/home/display.php:173
-#: content_a/products/variants/display-add-product.php:31
-#: content_a/products/variants/display-add-product.php:75 content_a/sale/display.php:19
-#: content_business/cart/cartSummary.php:11 content_business/p/home/view.php:101
-#: content_love/domain/billing/display.php:93
-#: content_love/domain/setting/action/display.php:48
-#: content_love/gift/usage/display.php:61 content_my/domain/payments/display.php:12
-#: content_my/domain/setting/action/display.php:48 lib/app/product/property.php:170
-#: lib/app/product/search.php:109 lib/app/product/updateprice.php:129
-msgid "Discount"
-msgstr "تخفیف"
+#: content_a/chap/size-a4/a4-1.php:48 content_a/order/add/display.php:73
+#: content_a/sale/display.php:68
+msgid "Total discount"
+msgstr "جمع تخفیف"
 
-#: content_a/chap/size-a4/a4-1.php:50
+#: content_a/chap/size-a4/a4-1.php:49
 msgid "Total price after discount"
 msgstr "مبلغ کل پس از تخفیف"
 
-#: content_a/chap/size-a4/a4-1.php:51
+#: content_a/chap/size-a4/a4-1.php:50
 msgid "Total VAT"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/chap/size-a4/a4-1.php:52 content_a/products/edit/block/price.php:80
+#: content_a/chap/size-a4/a4-1.php:51 content_a/products/edit/block/price.php:80
 msgid "Final Price"
 msgstr "قیمت نهایی"
 
-#: content_a/chap/size-a4/a4-1.php:109 content_a/chap/size-receipt/receipt.php:53
-msgid "Customer Detail"
-msgstr "جزئیات مشتری"
-
-#: content_a/chap/size-a4/a4-1.php:131 content_a/chap/size-receipt/receipt.php:75
-#: content_business/home/layout/template/comingsoon-bak.php:34
-#: content_business/home/layout/template/visitcard-bak.php:34
-msgid "Tel"
-msgstr "تلفن"
-
-#: content_a/chap/size-a4/a4-1.php:148 content_a/chap/size-receipt/receipt.php:92
-msgid "Sale Invoice"
-msgstr "فاکتور فروش"
-
-#: content_a/chap/size-a4/a4-1.php:165 content_a/chap/size-receipt/receipt.php:144
-#: content_a/order/add/display.php:71 content_a/sale/display.php:66
-msgid "Invoice amount"
-msgstr "مبلغ فاکتور"
-
-#: content_a/chap/size-a4/a4-1.php:171 content_a/chap/size-receipt/receipt.php:150
-msgid "Your total discount and profits"
-msgstr "کل تخفیف و سود شما"
-
-#: content_a/chap/size-a4/a4-1.php:179 content_a/chap/size-receipt/receipt.php:158
-#: content_a/factor/home/display.php:128 content_a/order/home/display.php:136
-#: content_a/products/edit/block/price.php:71
-msgid "VAT"
-msgstr "مالیات بر ارزش افزوده"
-
-#: content_a/chap/size-a4/a4-1.php:186 content_a/chap/size-receipt/receipt.php:165
-#: content_a/order/add/display.php:67 content_a/sale/display.php:62
-msgid "Total payable"
-msgstr "جمع مبلغ قابل پرداخت"
+#: content_a/chap/size-a4/a4-1.php:93
+msgid "Sum Total"
+msgstr "جمع کل"
 
 #: content_a/chap/size-a4/oneSide-buyer.php:4
 msgid "Buyer Details"
@@ -6214,6 +6172,20 @@ msgstr "شماره ثبت"
 msgid "Seller Details"
 msgstr "جزئیات فروشنده"
 
+#: content_a/chap/size-receipt/receipt.php:53
+msgid "Customer Detail"
+msgstr "جزئیات مشتری"
+
+#: content_a/chap/size-receipt/receipt.php:75
+#: content_business/home/layout/template/comingsoon-bak.php:34
+#: content_business/home/layout/template/visitcard-bak.php:34
+msgid "Tel"
+msgstr "تلفن"
+
+#: content_a/chap/size-receipt/receipt.php:92
+msgid "Sale Invoice"
+msgstr "فاکتور فروش"
+
 #: content_a/chap/size-receipt/receipt.php:104
 msgid "For you"
 msgstr "برای شما"
@@ -6221,6 +6193,25 @@ msgstr "برای شما"
 #: content_a/chap/size-receipt/receipt.php:105
 msgid "Sum"
 msgstr "جمع"
+
+#: content_a/chap/size-receipt/receipt.php:144 content_a/order/add/display.php:71
+#: content_a/sale/display.php:66
+msgid "Invoice amount"
+msgstr "مبلغ فاکتور"
+
+#: content_a/chap/size-receipt/receipt.php:150
+msgid "Your total discount and profits"
+msgstr "کل تخفیف و سود شما"
+
+#: content_a/chap/size-receipt/receipt.php:158 content_a/factor/home/display.php:128
+#: content_a/order/home/display.php:136 content_a/products/edit/block/price.php:71
+msgid "VAT"
+msgstr "مالیات بر ارزش افزوده"
+
+#: content_a/chap/size-receipt/receipt.php:165 content_a/order/add/display.php:67
+#: content_a/sale/display.php:62
+msgid "Total payable"
+msgstr "جمع مبلغ قابل پرداخت"
 
 #: content_a/chap/view.php:9
 msgid "Print factor"
@@ -6444,6 +6435,22 @@ msgstr "مشتری"
 #: content_business/orders/display.php:16
 msgid "Items"
 msgstr "آیتم‌ها"
+
+#: content_a/factor/home/display.php:127 content_a/order/add/display.php:19
+#: content_a/order/add/display.php:60 content_a/order/detail/display.php:31
+#: content_a/order/home/display.php:135 content_a/pricehistory/display.php:58
+#: content_a/products/child/display.php:101 content_a/products/child/display.php:171
+#: content_a/products/edit/block/price.php:54 content_a/products/home/display.php:173
+#: content_a/products/variants/display-add-product.php:31
+#: content_a/products/variants/display-add-product.php:75 content_a/sale/display.php:19
+#: content_business/cart/cartSummary.php:11 content_business/p/home/view.php:101
+#: content_love/domain/billing/display.php:93
+#: content_love/domain/setting/action/display.php:48
+#: content_love/gift/usage/display.php:61 content_my/domain/payments/display.php:12
+#: content_my/domain/setting/action/display.php:48 lib/app/product/property.php:170
+#: lib/app/product/search.php:109 lib/app/product/updateprice.php:129
+msgid "Discount"
+msgstr "تخفیف"
 
 #: content_a/factor/home/display.php:130 content_a/order/home/display.php:139
 msgid "Invoice Date"
@@ -6948,10 +6955,6 @@ msgstr "درصد تخفیف"
 #: content_a/order/add/display.php:73 content_a/sale/display.php:68
 msgid "Press f7 or click to toggle discount"
 msgstr "دکمه f7 را بفشارید با برای تغییر وضعیت کلیک کنید"
-
-#: content_a/order/add/display.php:73 content_a/sale/display.php:68
-msgid "Total discount"
-msgstr "جمع تخفیف"
 
 #: content_a/order/add/display.php:78 content_a/sale/display.php:80
 msgid "Save Factor & Continue"
