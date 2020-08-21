@@ -42,25 +42,6 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <hr>
 
-    <h2><?php echo "Buyer Details"; ?></h2>
-    <h2><?php echo "Details of the goods or services being traded"; ?></h2>
-
-
-
-
- <div class="f storeDetail fs12 txtC">
-  <div class="c">
-   <h1><?php echo \dash\get::index($storeData,'title'); ?></h1>
-   <address>
-    <div class="address"><?php echo \dash\get::index($storeData,'address'); ?></div>
-    <div class="f">
-     <div class="phone"><?php echo \dash\fit::text(\dash\get::index($storeData,'phone')); ?></div>
-     <div class="website"><?php echo \dash\get::index($storeData,'website'); ?></div>
-    </div>
-   </address>
-   <div class="desc mB5"><?php echo \dash\get::index($storeData,'desc'); ?></div>
-  </div>
- </div>
 
 
 
