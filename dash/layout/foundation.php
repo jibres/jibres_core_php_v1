@@ -24,13 +24,13 @@ if (!\dash\data::pageWithLogin())
  <meta content="@jibres_com" name="twitter:site"/>
  <meta content="@jibres_com" name="twitter:creator"/>
  <meta content="<?php echo \dash\url::current();?>" name="twitter:url"/>
- <meta content="website" property ="og:type"/>
- <meta content="<?php echo \dash\face::seo(); ?>" property ="og:title"/>
- <meta content="<?php echo \dash\face::desc(); ?>" property ="og:description"/>
- <meta content="<?php echo \dash\face::cover(); ?>?v=2" property ="og:image"/>
- <meta content="<?php echo \dash\url::current();?>" property ="og:url"/>
- <meta content="<?php echo \dash\face::site(); ?>" property ="og:site_name"/>
- <meta content='<?php echo \dash\language::current(); ?>' property ='og:locale'/>
+ <meta content="website" property="og:type"/>
+ <meta content="<?php echo \dash\face::seo(); ?>" property="og:title"/>
+ <meta content="<?php echo \dash\face::desc(); ?>" property="og:description"/>
+ <meta content="<?php echo \dash\face::cover(); ?>?v=2" property="og:image"/>
+ <meta content="<?php echo \dash\url::current();?>" property="og:url"/>
+ <meta content="<?php echo \dash\face::site(); ?>" property="og:site_name"/>
+ <meta content='<?php echo \dash\language::current(); ?>' property='og:locale'/>
 <?php
 }
 if(\dash\user::id())
@@ -46,7 +46,7 @@ if(\dash\url::store())
  <meta content="<?php echo \dash\url::jibres_subdomain('core');?>" name="jibres:core"/>
  <meta content="<?php echo \dash\url::jibres_subdomain('api');?>" name="jibres:api"/>
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
- <meta content="index, follow" name ="robots"/>
+ <meta content="index, follow" name="robots"/>
 <?php
 if(\dash\data::googleAnalytics())
 {
@@ -99,7 +99,7 @@ if(\dash\data::googleAnalytics())
 <?php }?>
 <?php
 if (\dash\url::canonical())
-echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
+echo '<link rel="canonical" href="'. \dash\url::canonical(). '"/>';
 ?>
  <link href="<?php echo \dash\url::kingdom();?>/team" rel="author"/>
 <?php // @todo add rel alternative ?>
