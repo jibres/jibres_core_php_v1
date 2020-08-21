@@ -43,6 +43,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
        <th class="collapsing">#</th>
        <th><?php echo T_("Explanation"); ?></th>
        <th class="collapsing"><?php echo T_("Qty"); ?></th>
+       <th class="collapsing"><?php echo T_("Unit"); ?></th>
        <th><?php echo T_("Unit price"); ?></th>
        <th><?php echo T_("Total price"); ?></th>
        <th><?php echo T_("Total discount"); ?></th>
@@ -78,7 +79,8 @@ $tableTotal['FinalPrice'] += $FinalPrice;
       <tr>
        <td><?php echo \dash\fit::number($key + 1); ?></td>
        <td class="txtLa productTitle"><?php echo \dash\get::index($datarow, 'title');?></td>
-       <td><?php echo \dash\fit::text(\dash\get::index($datarow, 'count')); ?> <small><?php echo \dash\get::index($datarow, 'unit'); ?></small></td>
+       <td><?php echo \dash\fit::text(\dash\get::index($datarow, 'count')); ?></td>
+       <td><?php echo \dash\get::index($datarow, 'unit'); ?></td>
        <td><?php echo \dash\fit::number(\dash\get::index($datarow, 'price')); ?></td>
        <td><?php echo \dash\fit::number($totalPrice); ?></td>
        <td><?php echo \dash\fit::number($totalDiscount); ?></td>
@@ -91,6 +93,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
      <tfoot>
       <tr>
        <td colspan="2" class="txtLa"><?php echo T_("Sum Total"); ?></td>
+       <td></td>
        <td></td>
        <td></td>
        <td><?php echo $tableTotal['totalPrice']; ?></td>
