@@ -16,7 +16,7 @@ $productDataRow = \dash\data::productDataRow();
       <header><h2><?php echo T_("Product status"); ?></h2></header>
       <div class="body">
 
-        <div class="row padLess">
+        <div class="row">
 
           <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
             <div class="radio4">

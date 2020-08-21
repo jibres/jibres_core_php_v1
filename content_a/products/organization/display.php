@@ -16,7 +16,7 @@ $child_list         = \dash\data::productDataRow_child();
     <header><h2><?php echo T_("Organization") ?></h2></header>
     <div class="pad">
       <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
-      <div class="row padLess mB5">
+      <div class="row mB5">
         <div class="c">
           <div class="radio3">
             <input type="radio" name="type" value="product" id="typeProduct" <?php if(!\dash\data::productDataRow() || \dash\data::productDataRow_type() === 'product') {echo 'checked';} ?> >

@@ -2,7 +2,7 @@
 	<?php if(!\dash\data::dataRow()) {  /* load all category detail*/ ?>
 		<?php $categoryDataTable = \dash\data::categoryDataTable(); ?>
 
-			<div class="row padLess">
+			<div class="row">
 				<?php foreach ($categoryDataTable as $key => $value) {?>
     		<div class="c-xs-6 c-sm-6 c-md-4 c-lg-4 c-xl-3 c-xxl-2">
     			<div class="roundedBox"<?php if(\dash\get::index($value, 'file_default') === true) { echo ' data-gr="'.rand(1, 20).'"';} ?>>

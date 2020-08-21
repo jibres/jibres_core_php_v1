@@ -6,7 +6,7 @@
           <?php if(\dash\data::addressDataTable()) {?>
             <div class="box">
                 <h2><?php echo T_("Please choose your address"); ?></h2>
-                <div class="row padLess">
+                <div class="row">
 
                 <?php foreach (\dash\data::addressDataTable() as $key => $value) {?>
                  <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
@@ -96,7 +96,7 @@
   <div data-response='address_id' data-response-hide data-response-where='new_address' data-response-effect='slide'>
 <?php } //endif ?>
 <div class="box">
-      <div class="row padLess">
+      <div class="row">
         <div class="c-6 c-xs-12">
             <label for="xnm"><?php echo T_("Name"); ?></label>
             <div class="input">
@@ -143,7 +143,7 @@
       <textarea class="txt mB10 pB25" name="xad"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
 
-      <div class="row padLess">
+      <div class="row">
         <div class="c-6 c-xs-12">
            <label for="xpc"><?php echo T_("Post code"); ?></label>
             <div class="input ltr">

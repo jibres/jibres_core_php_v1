@@ -12,7 +12,7 @@ class product_type2
 			return;
 		}
 
-		echo '<div class="row padLess">';
+		echo '<div class="row">';
 
 		foreach ($_productList as $key => $myProduct)
 		{

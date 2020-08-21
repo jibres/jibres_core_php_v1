@@ -48,9 +48,9 @@ if($postList && is_array($postList))
 <?php }else{?>
 
 <div class="avand">
-  <div class="row padLess roundedBox">
+  <div class="row roundedBox">
         <?php foreach ($postList as $key => $value) {?>
-          <div class="row padLess">
+          <div class="row">
               <div class="c-3">
                 <a class="overlay"<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
                   <figure>

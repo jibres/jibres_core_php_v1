@@ -1,7 +1,7 @@
 <?php $dashboardData = \dash\data::dashboardData(); ?>
 
 
-<div class="row padLess">
+<div class="row">
   <div class="c-9 c-xs-12">
 <?php if(\dash\permission::check('staffAccess')) {?>
    <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>

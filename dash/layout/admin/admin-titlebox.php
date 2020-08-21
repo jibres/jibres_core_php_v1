@@ -4,7 +4,7 @@ if(\dash\face::boxTitle() !== false)
 {
 ?>
   <div class="titleBox">
-   <div class="row padLess align-center">
+   <div class="row align-center">
 <?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
     <div class="c-auto">
      <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>

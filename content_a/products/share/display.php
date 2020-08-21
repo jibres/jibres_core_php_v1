@@ -44,7 +44,7 @@ $propertyList = \dash\data::propertyList();
                 <a class="btn block mB5" target="_blank" href='<?php echo \dash\get::index($social, 'telegram', 'link'); ?>'><?php echo T_("Register a new order"); ?></a>
               </footer>
             <?php } //endif ?>
-            <footer class="row padLess">
+            <footer class="row">
 
               <?php $telegrambtn = \dash\get::index(\dash\data::telegramSetting(), 'telegrambtn'); ?>
 

@@ -2,7 +2,7 @@
   <div class="box">
     <div class="pad">
       <?php if(\dash\url::child() === 'doc') {?>
-        <div class="row padLess">
+        <div class="row">
           <div class="c-xs-12 c-sm-6">
         <div class="input">
         <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
@@ -19,7 +19,7 @@
 
         </div>
       <?php } //endif ?>
-      <div class="row padLess">
+      <div class="row">
         <?php if(\dash\data::accountingYear()) {?>
           <div class="c-xs-12 c-sm">
             <label for="parent"><?php echo T_("Accounting year") ?></label>

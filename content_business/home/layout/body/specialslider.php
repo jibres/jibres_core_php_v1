@@ -39,7 +39,7 @@ if(isset($line_detail['value']['model']))
 <?php if($specialslider && count($specialslider) >= 5) {?>
 <div class="avand">
 
-  <div class="row padLess">
+  <div class="row">
     <div class="c-xs-12 c-sm-12 c-lg-6">
     	<?php if(count($specialslider) === 5) {?>
 			<a class="roundedBox"<?php if(\dash\get::index($specialslider, 0, 'url')) { echo ' href="'.  \dash\get::index($specialslider, 0, 'url'). '"'; if(\dash\get::index($specialslider, 0, 'target')) { echo ' target="_blank"'; }} ?>>
@@ -67,7 +67,7 @@ if(isset($line_detail['value']['model']))
 
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-6 ">
-      <div class="row padLess">
+      <div class="row">
         <?php foreach ($specialslider as $key => $value) {?>
 	        <div class="c-6">
 	          <a class="roundedBox"<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>

@@ -5,7 +5,7 @@
   <form method="post" autocomplete="off" class="box p0">
 	 <input type="hidden" name="row" value="row">
     <div class="pad">
-      <div class="row padLess">
+      <div class="row">
         <div class="c-xs-12 c-sm-12 c-md-8">
         	<?php if(\dash\data::assistantList()) {?>
             <label for="assistant_id"><?php echo T_("Accounting assistant") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
@@ -78,7 +78,7 @@ foreach (\dash\data::assistantList() as $key => $value)
       </div>
 
 
-      <div class="row padLess align-end">
+      <div class="row align-end">
         <div class="c-xs-6 c-sm-3 c-md-2">
           <div class="radio3 mT10">
             <input type="radio" name="type" value="debtor" id="debtor" <?php if(\dash\data::dataRowDetail_type() === 'debtor') {echo 'checked';} ?>  >

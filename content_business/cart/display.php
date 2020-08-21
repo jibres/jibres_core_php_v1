@@ -7,7 +7,7 @@
 
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
     <div class="cartItem">
-     <div class="row padLess align-center">
+     <div class="row align-center">
       <div class="c-auto">
        <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
       </div>

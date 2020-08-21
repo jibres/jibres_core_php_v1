@@ -272,27 +272,27 @@ if(count($myGallery) > 1)
       </div>
     </div>
     <div class="c c-xs-12 rating">
-      <div class="row padLess">
+      <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("5"); ?></span></div>
         <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_5_percent'); ?>" max="100"></progress></div>
         <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_5_percent')). ' '. T_("%"); ?></span></div>
       </div>
-      <div class="row padLess">
+      <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("4"); ?></span></div>
         <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_4_percent'); ?>" max="100"></progress></div>
         <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_4_percent')). ' '. T_("%"); ?></span></div>
       </div>
-      <div class="row padLess">
+      <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("3"); ?></span></div>
         <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_3_percent'); ?>" max="100"></progress></div>
         <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_3_percent')). ' '. T_("%"); ?></span></div>
       </div>
-      <div class="row padLess">
+      <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("2"); ?></span></div>
         <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_2_percent'); ?>" max="100"></progress></div>
         <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_2_percent')). ' '. T_("%"); ?></span></div>
       </div>
-      <div class="row padLess">
+      <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("1"); ?></span></div>
         <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_1_percent'); ?>" max="100"></progress></div>
         <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_1_percent')). ' '. T_("%"); ?></span></div>
@@ -311,7 +311,7 @@ if(count($myGallery) > 1)
           <img class="customerImg" src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt='<?php echo \dash\get::index($value, 'displayname'); ?>'>
         </div>
         <div class="c c-xs-12">
-          <div class="msg minimal row padLess">
+          <div class="msg minimal row">
             <div class="c-auto c-xs-12">
               <div class="starRating" data-star='<?php echo $value['star']; ?>'>
                 <i></i><i></i><i></i><i></i><i></i>
@@ -355,7 +355,7 @@ if(count($myGallery) > 1)
 
 
   <?php if(!\dash\user::id()) { ?>
-        <div class="row padLess">
+        <div class="row">
           <div class="c c-xs-12 mB10">
 
             <div class="input">

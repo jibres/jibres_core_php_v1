@@ -10,7 +10,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <div class="factor printArea" data-size='A4.landscape'>
 
-<div class="row padLess">
+<div class="row">
   <div class="c4">
 
   </div>

@@ -13,7 +13,7 @@ if(isset($line_detail['value']['imageblock']) && is_array($line_detail['value'][
 
 
 <div class="avand imgLine">
-  <div class="row padLess">
+  <div class="row">
 	<?php foreach ($imageblock as $key => $value) {?>
     	<div class="c">
 			 <a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>

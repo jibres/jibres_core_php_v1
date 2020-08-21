@@ -12,7 +12,7 @@ class product_type1
 			return;
 		}
 
-		echo '<div class="row padLess';
+		echo '<div class="row';
 		if(\dash\detect\device::detectPWA())
 		{
 			echo " horizontalScroll nowrap";
