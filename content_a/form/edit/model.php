@@ -20,8 +20,12 @@ class model
 
 		$post =
 		[
-			'title' => \dash\request::post('title'),
-			'slug' => \dash\request::post('slug'),
+			'title'    => \dash\request::post('title'),
+			'slug'     => \dash\request::post('slug'),
+			'status'   => \dash\request::post('status'),
+			'desc'     => \dash\request::post('desc'),
+			'redirect' => \dash\request::post('redirect'),
+
 		];
 
 		$result = \lib\app\form\form\edit::edit($post, \dash\request::get('id'));

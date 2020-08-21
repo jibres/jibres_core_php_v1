@@ -9,9 +9,33 @@
 			</div>
 
 			<div class="showAdvanceOption" data-kerkere-content='hide'>
-				<label for="slug"><?php echo T_("Slug") ?></label>
-				<div class="input">
-					<input type="text" name="slug" value="<?php echo \dash\data::dataRow_slug(); ?>">
+				<div class="row">
+					<div class="c-xs-12 c-sm-4">
+						<label for="slug"><?php echo T_("Slug") ?></label>
+						<div class="input">
+							<input type="text" name="slug" value="<?php echo \dash\data::dataRow_slug(); ?>">
+						</div>
+					</div>
+					<div class="c-xs-12 c-sm-4">
+						<label for="redirect"><?php echo T_("Redirect after submit") ?></label>
+						<div class="input">
+							<input type="url" name="redirect" value="<?php echo \dash\data::dataRow_redirect(); ?>">
+						</div>
+					</div>
+					<div class="c-xs-12 c-sm-4">
+						<label for="status"><?php echo T_("Status") ?></label>
+						<select class="select22" name="status">
+							<option value=""><?php echo T_("Please select on item") ?></option>
+							<option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') { echo 'selected';} ?>><?php echo T_("draft") ?></option>
+							<option value="publish" <?php if(\dash\data::dataRow_status() === 'publish') { echo 'selected';} ?>><?php echo T_("publish") ?></option>
+							<option value="expire" <?php if(\dash\data::dataRow_status() === 'expire') { echo 'selected';} ?>><?php echo T_("expire") ?></option>
+							<option value="lock" <?php if(\dash\data::dataRow_status() === 'lock') { echo 'selected';} ?>><?php echo T_("lock") ?></option>
+						</select>
+					</div>
+					<div class="c-xs-12 c-sm-12">
+						<label for="desc"><?php echo T_("Description") ?></label>
+						<textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Description") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+					</div>
 				</div>
 			</div>
 

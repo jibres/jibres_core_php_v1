@@ -39,9 +39,17 @@ class edit
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
+		foreach ($args as $key => $value)
+		{
+			if(\dash\validate::is_equal(\dash\get::index($load, $key), $value))
+			{
+				unset($args[$key]);
+			}
+		}
+
 		if(empty($args))
 		{
-			\dash\notif::info(T_("No data to change"));
+			// \dash\notif::info(T_("No data to change"));
 			return false;
 		}
 
