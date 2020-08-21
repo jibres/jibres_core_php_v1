@@ -23,6 +23,15 @@ class view
 
 				\dash\face::cover(\dash\url::cdn(). '/img/flags/png100px/'. \dash\data::ip_flag(). '.png');
 
+				$desc = \dash\data::ip_country();
+				$desc .= ' / '.  T_("Province"). ' '. T_(ucwords(\dash\data::ip_state()));
+				$desc .= ' / '.  T_("City"). ' '. T_(ucwords(\dash\data::ip_city()));
+				$desc .= ' | '.  T_("ISP"). ' '. T_(ucwords(\dash\data::ip_isp()));
+				$desc .= ' | '.  T_("latitude"). ' '. T_(ucwords(\dash\data::ip_latitude()));
+				$desc .= ' '.  T_("longitude"). ' '. T_(ucwords(\dash\data::ip_longitude()));
+
+				$desc .= ' ';
+				\dash\face::desc($desc);
 				// ip is okay
 			}
 			else
