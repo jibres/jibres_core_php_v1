@@ -5,10 +5,27 @@ class model
 {
 	public static function post()
 	{
-		\dash\notif::ok(T_("Not ready"));
-		return;
 		$post = \dash\request::post();
-		var_dump($post);exit();
+
+		$answer            = [];
+		$answer['form_id'] = \dash\data::formId();
+		$answer['user_id'] = \dash\user::id();
+
+		$answer['answer'] = [];
+		foreach ($post as $key => $value)
+		{
+			if(preg_match("/^answer_(\d+)$/", $key, $split))
+			{
+				$answer['answer'][$split[1]] = $value;
+			}
+		}
+
+		\lib\app\form\answer\add::new_answer($answer);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
 	}
 }
 ?>

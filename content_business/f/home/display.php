@@ -47,10 +47,11 @@ foreach ($formItems as $key => $value)
 
 
 <?php function html_input_text($value) {?>
-	<?php $myName = 'text_'. \dash\get::index($value, 'id'); ?>
-<label for="<?php echo $myName ?>"><?php echo \dash\get::index($value, 'title') ?></label>
+
+<?php $myName = 'answer_'. \dash\get::index($value, 'id'); ?>
+<label for="<?php echo $myName ?>"><?php echo \dash\get::index($value, 'title') ?> <?php if(\dash\get::index($value, 'require')) {?> <small class="fc-red"><?php echo T_("Required"); ?></small><?php } // endif ?></label>
 <div class="input">
-	<input type="text" name="<?php echo $myName; ?>" id="<?php echo $myName ?>">
+	<input type="text" name="<?php echo $myName; ?>" id="<?php echo $myName ?>" <?php if(\dash\get::index($value, 'require')) {echo 'required';} ?>>
 </div>
 
 

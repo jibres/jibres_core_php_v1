@@ -17,6 +17,7 @@ class controller
 
 		$load_items = \lib\app\form\item\get::items($form_id);
 
+		\dash\data::formId($form_id);
 		\dash\data::formDetail($load_form);
 		\dash\data::formItems($load_items);
 

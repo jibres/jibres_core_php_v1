@@ -1,18 +1,3 @@
-<?php if(!\dash\data::dataTable()) {?>
-
-  <h2><?php echo T_("Contact form") ?></h2>
-
-  <div class="welcome">
-    <p><?php echo T_("We give you the opportunity to measure your customers' satisfaction with a variety of questions. In addition, you can get any other information from your audience"); ?></p>
-    <h2><?php echo T_("Survey your customers with Form Maker"); ?></h2>
-
-    <div class="buildBtn">
-      <a class="btn xl master" href="<?php echo \dash\url::this(). '/add'; ?>" ><?php echo T_("Add contact form now!"); ?></a>
-    </div>
-  </div>
-
-
- <?php }else{ ?>
 
 
 
@@ -52,13 +37,6 @@
 
 
 
-
- <?php } //endif ?>
-
-
-
-
-
 <?php function htmlSearchBox() {?>
   <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
@@ -80,9 +58,10 @@
     <thead>
       <tr>
 
-        <th class="collapsing"><?php echo T_("Title") ?></th>
-        <th class="collapsing"><?php echo T_("Edit") ?></th>
-        <th class="collapsing"><?php echo T_("Answers") ?></th>
+        <th class="collapsing"><?php echo T_("User") ?></th>
+        <th class="collapsing"><?php echo T_("Start date") ?></th>
+        <th class="collapsing"><?php echo T_("End date") ?></th>
+        <th class="collapsing"><?php echo T_("Detail") ?></th>
       </tr>
     </thead>
     <tbody>
@@ -90,10 +69,11 @@
         <tr>
 
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\get::index($value, 'title') ?></span></td>
+          <td class="collapsing"><span class="txtB"><?php if(\dash\get::index($value, 'user_id')) { echo T_("User"); }else{ echo T_("Unknown"); } ?></span></td>
+          <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'startdate')); ?></td>
+          <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'enddate')); ?></td>
 
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Answers") ?></a></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

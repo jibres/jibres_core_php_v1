@@ -80,9 +80,9 @@
     <thead>
       <tr>
 
-        <th class="collapsing"><?php echo T_("Title") ?></th>
-        <th class="collapsing"><?php echo T_("Edit") ?></th>
-        <th class="collapsing"><?php echo T_("Answers") ?></th>
+
+        <th class="collapsing"><?php echo T_("Answer") ?></th>
+
       </tr>
     </thead>
     <tbody>
@@ -90,10 +90,9 @@
         <tr>
 
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\get::index($value, 'title') ?></span></td>
 
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Answers") ?></a></td>
+          <td class="collapsing"><?php echo \dash\get::index($value, 'answer'); ?></td>
+
         </tr>
       <?php } //endif ?>
     </tbody>
