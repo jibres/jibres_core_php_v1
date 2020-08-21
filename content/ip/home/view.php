@@ -15,6 +15,14 @@ class view
 			$myIp = \dash\url::child();
 			if(\dash\validate::ip($myIp, false))
 			{
+				// get ip data
+				\dash\data::ip(\dash\utility\ipLocation::get($myIp));
+				\dash\face::title(T_("IP"). " ". $myIp);
+
+				\dash\data::ipDetail(\dash\utility\ip::fetch($myIp));
+
+				\dash\face::cover(\dash\url::cdn(). '/img/flags/png100px/'. \dash\data::ip_flag(). '.png');
+
 				// ip is okay
 			}
 			else
@@ -23,11 +31,7 @@ class view
 				\dash\header::status(400);
 			}
 		}
-		\dash\data::ip(\dash\utility\ipLocation::get($myIp));
 
-		\dash\face::title(T_("IP"). " ". $myIp);
-
-		\dash\data::ipDetail(\dash\utility\ip::fetch($myIp));
 
 	}
 }
