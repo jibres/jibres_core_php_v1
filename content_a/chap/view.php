@@ -44,11 +44,11 @@ class view
 				break;
 
 			case 'a4':
-				\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4.php');
+				\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4-1.php');
 				break;
 
 			case 'a5':
-				\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4.php');
+				\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4-1.php');
 				break;
 
 			default:
