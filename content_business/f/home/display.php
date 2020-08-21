@@ -12,6 +12,9 @@ if(!is_array($formItems))
 	<div class="avand-md">
 		<div class="box">
 			<div class="body">
+				<?php if(\dash\data::formDetail_desc()) {?>
+					<p><?php echo \dash\data::formDetail_desc() ?></p>
+				<?php } // endif ?>
 <?php
 foreach ($formItems as $key => $value)
 {

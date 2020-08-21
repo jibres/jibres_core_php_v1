@@ -1,5 +1,5 @@
 
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" id="form1">
 	<div class="box">
 		<div class="pad">
 			<label for="title"><?php echo T_("Title") ?></label>
@@ -128,7 +128,7 @@
 
 		</div>
 		<footer class="txtRa">
-			<button class="btn master"><?php if(\dash\data::editMode()) {echo T_("Save"); }else{ echo T_("Add");} ?></button>
+			<button class="btn master save"><?php if(\dash\data::editMode()) {echo T_("Save"); }else{ echo T_("Add");} ?></button>
 		</footer>
 	</div>
 

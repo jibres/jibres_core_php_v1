@@ -18,6 +18,8 @@ class view
 		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
 
 
+		\dash\face::btnSave('form1');
+
 		$items = \lib\app\form\item\get::items($form_id);
 
 		\dash\data::formItems($items);
