@@ -24,11 +24,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       </div>
       <div class="c-3 txtL">
         <div>
-          <span class="compact"><?php echo T_("Serial Number"); ?></span>
+          <span class="compact pRa5"><?php echo T_("Serial Number"); ?></span>
           <span class="printEmptyBox"></span>
         </div>
         <div>
-          <span class="compact"><?php echo T_("Date"); ?></span>
+          <span class="compact pRa5"><?php echo T_("Date"); ?></span>
           <span class="printEmptyBox"><?php echo \dash\fit::date('now'); ?></span>
         </div>
       </div>
