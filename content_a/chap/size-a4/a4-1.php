@@ -105,6 +105,8 @@ $tableTotal['FinalPrice'] += $FinalPrice;
      </tfoot>
     </table>
 
+    <div class="msg priceTxt"></div>
+
 
   </div>
 
