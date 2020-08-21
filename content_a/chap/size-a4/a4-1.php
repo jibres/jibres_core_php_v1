@@ -8,34 +8,40 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 }
 ?>
 
-<div class="factor printArea theme1" data-size='A4.landscape'>
+<div class="printArea" data-size='A4.landscape'>
+  <div class="invoice" data-theme="1">
+    <div class="row align-center">
+      <div class="c-3">
+<?php if(isset($storeData['logo']) && $storeData['logo']) {?>
+        <div class="logo">
+         <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo \dash\get::index($storeData,'title'); ?>">
+        </div>
+<?php } //endif ?>
 
-<div class="f">
-  <div class="c4">1
+      </div>
+      <div class="c-6 txtC">
+        <h1><?php echo T_("Invoice "); ?></h1>
+      </div>
+      <div class="c-3 txtL">
+        <div>
+          <span class="compact"><?php echo T_("Serial Number"); ?></span>
+          <span class="printEmptyBox size150"></span>
+        </div>
+        <div>
+          <span class="compact"><?php echo T_("Date"); ?></span>
+          <span class="printEmptyBox size150"><?php echo \dash\fit::date('now'); ?></span>
+        </div>
+      </div>
+    </div>
 
   </div>
-  <div class="c4">2
 
-  </div>
-  <div class="c3">
-    <div><?php echo T_("Serial Number"); ?></div>
-    <div><?php echo T_("Date"); ?></div>
-  </div>
-  <div class="c1">3
-  </div>
-</div>
 
 <hr>
 
 
 
 
-  <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
-
-  <div class="logo txtC midSize">
-   <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo \dash\get::index($storeData,'title'); ?>">
-  </div>
-<?php } //endif ?>
 
  <div class="f storeDetail fs12 txtC">
   <div class="c">
