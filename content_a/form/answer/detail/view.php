@@ -10,14 +10,14 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::that());
+		\dash\data::back_link(\dash\url::that() . '?id='. \dash\request::get('id'));
 
 
 
 
 		$args = [];
 
-		$args['answer_id'] = \dash\request::get('id');
+		$args['answer_id'] = \dash\request::get('aid');
 
 		$q = \dash\request::get('q');
 

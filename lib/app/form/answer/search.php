@@ -30,7 +30,7 @@ class search
 			'order'   => 'order',
 			'sort'    => ['enum' => ['title', 'id']],
 			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'user_id' => 'code',
+			'form_id' => 'id',
 		];
 
 		$require = [];
@@ -59,8 +59,13 @@ class search
 
 		if($query_string)
 		{
-			$or[] = " form_answer.answer LIKE '%$query_string%' ";
+			$or[] = " form_answer.id LIKE '%$query_string%' ";
 			self::$is_filtered = true;
+		}
+
+		if($data['form_id'])
+		{
+			$and[] = " form_answer.form_id = $data[form_id] ";
 		}
 
 

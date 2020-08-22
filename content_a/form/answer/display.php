@@ -73,7 +73,7 @@
           <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'startdate')); ?></td>
           <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'enddate')); ?></td>
 
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

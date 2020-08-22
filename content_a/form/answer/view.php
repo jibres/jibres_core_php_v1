@@ -16,7 +16,7 @@ class view
 
 
 		$args = [];
-
+		$args['form_id'] = \dash\request::get('id');
 		$q = \dash\request::get('q');
 
 		$dataTable = \lib\app\form\answer\search::list($q, $args);
