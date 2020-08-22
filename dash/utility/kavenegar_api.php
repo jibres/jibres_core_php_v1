@@ -39,8 +39,8 @@ class kavenegar_api
 {
 	// declare variable
 	// you can replace null with your api code or your default linenumber
-	protected $apikey  = '__YOUR API KEY__';
-	public $linenumber = '__YOUR LINE NUMBER__';
+	protected $apikey  = null;
+	public $linenumber = null;
 	public $status     = null;
 	public $msg        = null;
 	const apipath      = "https://api.kavenegar.com/v1/%s/%s/%s.json";
@@ -53,8 +53,8 @@ class kavenegar_api
 	 */
 	public function __construct($_apikey = null, $_linenumber = null)
 	{
-		$this->apikey     = (is_null($_apikey))? $this->apikey: $_apikey;
-		$this->linenumber = (is_null($_linenumber))? $this->linenumber: $_linenumber;
+		$this->apikey     = $_apikey;
+		$this->linenumber = $_linenumber;
 	}
 
 
