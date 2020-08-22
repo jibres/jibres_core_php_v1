@@ -21,6 +21,18 @@ class log
 	}
 
 
+	public static function send_sms($_user_id, $_text)
+	{
+		$log =
+		[
+			'to' => $_user_id,
+			'my_text' => $_text,
+		];
+
+		\dash\log::set('sendNotifBySms', $log);
+	}
+
+
 	public static function to_supervisor($_text)
 	{
 		$log =

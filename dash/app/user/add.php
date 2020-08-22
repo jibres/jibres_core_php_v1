@@ -4,17 +4,20 @@ namespace dash\app\user;
 
 trait add
 {
-	public static function quick_add($_args = [])
+	public static function quick_add($_args = [], $_non_jibres_user = false)
 	{
-		// in stroe whene user signuped we need to set jibres_user_id
-		if(\dash\engine\store::inStore() && isset($_args['mobile']))
+		if(!$_non_jibres_user)
 		{
-			$mobile = \dash\validate::mobile($_args['mobile']);
-			if($mobile)
+			// in stroe whene user signuped we need to set jibres_user_id
+			if(\dash\engine\store::inStore() && isset($_args['mobile']))
 			{
-				$jibres_user_add           = [];
-				$jibres_user_add['mobile'] = $mobile;
-				$_args['jibres_user_id']   = \lib\app\sync\user::jibres_user_id($jibres_user_add);
+				$mobile = \dash\validate::mobile($_args['mobile']);
+				if($mobile)
+				{
+					$jibres_user_add           = [];
+					$jibres_user_add['mobile'] = $mobile;
+					$_args['jibres_user_id']   = \lib\app\sync\user::jibres_user_id($jibres_user_add);
+				}
 			}
 		}
 
@@ -24,6 +27,12 @@ trait add
 		}
 
 		return \dash\db\users\insert::signup($_args);
+	}
+
+
+	public static function quick_add_raw($_args = [])
+	{
+		return self::add($_args, ['non-jibres-user' => true, 'debug' => false]);
 	}
 
 
@@ -38,7 +47,8 @@ trait add
 	{
 		$default_option =
 		[
-			'debug'          => true,
+			'debug'           => true,
+			'non-jibres-user' => false
 		];
 
 		if(!is_array($_option))
@@ -73,7 +83,7 @@ trait add
 		$check_mobile_exist = \dash\db\users::get_by_mobile($args['mobile']);
 		if(isset($check_mobile_exist['id']))
 		{
-			\dash\notif::error(T_("Duplicate mobile"), 'mobile');
+			if($_option['debug']) \dash\notif::error(T_("Duplicate mobile"), 'mobile');
 			return null;
 		}
 
@@ -102,7 +112,14 @@ trait add
 			}
 		}
 
-		$user_id = \dash\app\user::quick_add($args);
+		if(isset($_option['non-jibres-user']) && $_option['non-jibres-user'])
+		{
+			$user_id = \dash\app\user::quick_add($args, true);
+		}
+		else
+		{
+			$user_id = \dash\app\user::quick_add($args);
+		}
 
 		if(!$user_id)
 		{

@@ -23,6 +23,11 @@ class add
 
 		$multiple_choice_answer = [];
 
+		$signup_user_args = [];
+		$signup_user      = false;
+		$send_sms         = false;
+		$sms_text         = null;
+
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
 		{
@@ -103,7 +108,11 @@ class add
 
 			switch ($type)
 			{
-
+				case 'displayname':
+					$my_answer                       = \dash\validate::displayname($my_answer);
+					$answer[$item_id]                = $my_answer;
+					$signup_user_args['displayname'] = $my_answer;
+					break;
 				case 'short_answer':
 					if(!$maxlen)
 					{
@@ -125,7 +134,7 @@ class add
 						$fn = 'string_'. $maxlen;
 					}
 
-					$my_answer         = \dash\validate::$fn($my_answer);
+					$my_answer        = \dash\validate::$fn($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -135,12 +144,12 @@ class add
 				// 	break;
 
 				case 'numeric':
-					$my_answer         = \dash\validate::number($my_answer, true, ['min' => $min, 'max' => $max]);
+					$my_answer        = \dash\validate::number($my_answer, true, ['min' => $min, 'max' => $max]);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'single_choice':
-					$my_answer         = \dash\validate::string_100($my_answer);
+					$my_answer        = \dash\validate::string_100($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -177,48 +186,50 @@ class add
 					break;
 
 				case 'dropdown':
-					$my_answer = \dash\validate::string_200($my_answer);
+					$my_answer        = \dash\validate::string_200($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'date':
-					$my_answer = \dash\validate::date($my_answer);
+					$my_answer        = \dash\validate::date($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'birthdate':
-					$my_answer = \dash\validate::birthdate($my_answer);
-					$answer[$item_id] = $my_answer;
+					$my_answer                    = \dash\validate::birthdate($my_answer);
+					$answer[$item_id]             = $my_answer;
+					$signup_user_args['birthday'] = $my_answer;
 					break;
 
 				case 'country':
-					$my_answer = \dash\validate::country($my_answer);
+					$my_answer        = \dash\validate::country($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'province':
-					$my_answer = \dash\validate::province($my_answer);
+					$my_answer        = \dash\validate::province($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'city':
 				case 'province_city':
-					$my_answer = \dash\validate::city($my_answer);
+					$my_answer        = \dash\validate::city($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'gender':
-					$my_answer = \dash\validate::enum($my_answer, true, ['enum' => ['male', 'female']]);
-					$answer[$item_id] = $my_answer;
+					$my_answer                  = \dash\validate::enum($my_answer, true, ['enum' => ['male', 'female']]);
+					$answer[$item_id]           = $my_answer;
+					$signup_user_args['gender'] = $my_answer;
 					break;
 
 				case 'time':
-					$my_answer = \dash\validate::time($my_answer);
+					$my_answer        = \dash\validate::time($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'tel':
-					$my_answer = \dash\validate::phone($my_answer);
+					$my_answer        = \dash\validate::phone($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -236,14 +247,14 @@ class add
 						{
 							return false;
 						}
-						$my_answer = $path;
+						$my_answer        = $path;
 						$answer[$item_id] = $my_answer;
 					}
 
 					break;
 
 				case 'nationalcode':
-					$my_answer = \dash\validate::nationalcode($my_answer);
+					$my_answer        = \dash\validate::nationalcode($my_answer);
 					$answer[$item_id] = $my_answer;
 
 					if($check_unique)
@@ -253,9 +264,26 @@ class add
 					break;
 
 				case 'mobile':
-					$my_answer = \dash\validate::mobile($my_answer);
+					$my_answer                  = \dash\validate::mobile($my_answer);
 
-					$answer[$item_id] = $my_answer;
+					$answer[$item_id]           = $my_answer;
+
+					$signup_user_args['mobile'] = $my_answer;
+
+					if(isset($item_detail['setting']['mobile']['signup']) && $item_detail['setting']['mobile']['signup'])
+					{
+						$signup_user = true;
+					}
+
+					if(isset($item_detail['setting']['mobile']['send_sms']) && $item_detail['setting']['mobile']['send_sms'])
+					{
+						$send_sms = true;
+					}
+
+					if(isset($item_detail['setting']['mobile']['sms_text']) && $item_detail['setting']['mobile']['sms_text'])
+					{
+						$sms_text = $item_detail['setting']['mobile']['sms_text'];
+					}
 
 					if($check_unique)
 					{
@@ -264,17 +292,18 @@ class add
 					break;
 
 				case 'email':
-					$my_answer = \dash\validate::email($my_answer);
-					$answer[$item_id] = $my_answer;
+					$my_answer                  = \dash\validate::email($my_answer);
+					$answer[$item_id]           = $my_answer;
+					$signup_user_args['mobile'] = $my_answer;
 					break;
 
 				case 'website':
-					$my_answer = \dash\validate::url($my_answer);
+					$my_answer        = \dash\validate::url($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'password':
-					$my_answer = \dash\validate::string_100($my_answer);
+					$my_answer        = \dash\validate::string_100($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -309,6 +338,24 @@ class add
 					\dash\notif::warn(T_("You are answer to this form before"));
 					return false;
 				}
+			}
+		}
+
+		if($signup_user && !empty($signup_user_args))
+		{
+			$user_id = \dash\app\user::quick_add_raw($signup_user_args);
+			if(isset($user_id['id']))
+			{
+				$user_id = \dash\coding::decode($user_id['id']);
+			}
+			else
+			{
+				$user_id = null;
+			}
+
+			if($send_sms && $sms_text && $user_id)
+			{
+				\dash\log::send_sms($user_id, $sms_text);
 			}
 		}
 
