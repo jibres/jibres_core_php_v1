@@ -30,11 +30,6 @@ trait add
 	}
 
 
-	public static function quick_add_raw($_args = [])
-	{
-		return self::add($_args, ['non-jibres-user' => true, 'debug' => false]);
-	}
-
 
 	/**
 	 * add new user

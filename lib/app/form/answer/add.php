@@ -344,15 +344,7 @@ class add
 
 		if($signup_user && !empty($signup_user_args))
 		{
-			$user_id = \dash\app\user::quick_add_raw($signup_user_args);
-			if(isset($user_id['id']))
-			{
-				$user_id = \dash\coding::decode($user_id['id']);
-			}
-			else
-			{
-				$user_id = null;
-			}
+			$user_id = \dash\db\users\insert::signup($_args);
 
 			if($send_sms && $sms_text && $user_id)
 			{
