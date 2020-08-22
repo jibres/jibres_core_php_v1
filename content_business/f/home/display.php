@@ -97,11 +97,32 @@ function myID($value)
 	echo 'id_answer_'. \dash\get::index($value, 'id');
 }
 
-function HtmlPlaceholder($value)
+function HtmlPlaceholder($value, $_select_mode = false, $_special = null)
 {
 	if(isset($value['type']) && isset($value['setting'][$value['type']]['placeholder']) && $value['setting'][$value['type']]['placeholder'] && is_string($value['setting'][$value['type']]['placeholder']))
 	{
-		echo ' placeholder="'. $value['setting'][$value['type']]['placeholder']. '" ';
+		if($_select_mode)
+		{
+			echo $value['setting'][$value['type']]['placeholder'];
+		}
+		else
+		{
+			echo ' placeholder="'. $value['setting'][$value['type']]['placeholder']. '" ';
+		}
+	}
+	else
+	{
+		if($_select_mode)
+		{
+			if($_special)
+			{
+				echo $_special;
+			}
+			else
+			{
+				echo T_("Please select one item");
+			}
+		}
 	}
 }
 
@@ -211,7 +232,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div>
 	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
-		<option value=""><?php echo T_("Please select one item") ?></option>
+		<option value=""><?php HtmlPlaceholder($value, true); ?></option>
 		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
 			<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
 		<?php } /*endfor*/ } /*endif*/ ?>
@@ -240,31 +261,63 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_country($value) {?>
-<!-- comming soon -->
+
+<div class="mB10">
+<label for='<?php myID($value) ?>'><?php echo T_("Country"); ?></label>
+<select class="select22" name="<?php myName($value) ?>" id="<?php myID($value) ?>" data-model='country' data-next='#province' data-next-default='IR'>
+  <option value=""><?php HtmlPlaceholder($value, true, T_("Choose your country")) ?></option>
+  <?php foreach (\dash\data::countryList() as $key => $value) {?>
+    <option value="<?php echo $key; ?>"><?php echo ucfirst($value['name']); if(\dash\language::current() != 'en') { echo ' - '. T_(ucfirst($value['name']));} ?></option>
+  <?php } //endif ?>
+</select>
+</div>
+
+
+
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_province($value) {?>
-<!-- comming soon -->
+  <div class="mB10 <?php if(\dash\data::shippingSettingSaved_sendoutprovince()) {}else{ echo 'hide';}?>" data-status='<?php if(\dash\data::shippingSettingSaved_sendoutcountry()) {echo 'hide';}?>'>
+    <label for='province'><?php echo T_("Province"); ?></label>
+    <select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRowAddress_city(); ?>'>
+      <option value="0"><?php echo T_("Please choose country"); ?></option>
+      <option value="<?php echo \dash\data::dataRowAddress_province(); ?>" selected><?php echo \dash\data::dataRowAddress_province(); ?></option>
+    </select>
+  </div>
+
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_city($value) {?>
-<!-- comming soon -->
+      <div class="mB10 <?php if(\dash\data::shippingSettingSaved_sendoutcity()) {}else{ echo 'hide';}?>" data-status='<?php if(\dash\data::shippingSettingSaved_sendoutprovince()) {echo 'hide';}?>'>
+        <label for='city'><?php echo T_("City"); ?></label>
+        <select name="city" id="city" class="select22">
+          <option value=""><?php echo T_("Please choose province"); ?></option>
+        </select>
+      </div>
+
 <?php } //endfunction ?>
 
 
 
 <?php function html_input_gender($value) {?>
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
-<div>
-	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
-		<option value=""><?php echo T_("Please select one item") ?></option>
-		<option value="male"><?php echo T_("Male") ?></option>
-		<option value="fmale"><?php echo T_("Female") ?></option>
-	</select>
+<div class="row">
+	<div class="c-xs-12 c-sm-6">
+		<div class="radio3">
+			<input type="radio" name="<?php myName($value); ?>" value="male" id="<?php myID($value); echo 'male'; ?>">
+			<label for="<?php myID($value); echo 'male'; ?>"><?php echo T_("I'm Male"); ?></label>
+		</div>
+	</div>
+	<div class="c-xs-12 c-sm-6">
+		<div class="radio3">
+			<input type="radio" name="<?php myName($value); ?>" value="female" id="<?php myID($value); echo 'female'; ?>">
+			<label for="<?php myID($value); echo 'female'; ?>"><?php echo T_("I'm Female"); ?></label>
+		</div>
+	</div>
 </div>
 <?php } //endfunction ?>
 
