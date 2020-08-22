@@ -53,6 +53,7 @@ class model
 		];
 
 
+
 		if(\dash\url::isLocal())
 		{
 			$kavenegar_send_result = true;
@@ -63,7 +64,9 @@ class model
 
 			if(\dash\language::current() === 'fa')
 			{
-				$message = "درود. کدِ فعالسازی شما $code. با جیبْرِسْ بِفْروش و لِذّت بِبَر";
+				$code_split = str_split($code);
+				$code_split = implode('-', $code_split);
+				$message = "درود. کدِ فعالسازی شما $code_split. با جیبْرِسْ بِفْروش و لِذّت بِبَر";
 			}
 			else
 			{
