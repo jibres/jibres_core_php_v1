@@ -57,6 +57,20 @@ class check
 			$setting[$data['type']]['max'] = $data['max'];
 		}
 
+		if(isset($setting[$data['type']]['min']) && isset($setting[$data['type']]['max']))
+		{
+			$min = floatval($setting[$data['type']]['min']);
+			$max = floatval($setting[$data['type']]['max']);
+			if($min || $max)
+			{
+				if($min > $max)
+				{
+					\dash\notif::error(T_("Minimum is larger than Maximum!"));
+					return false;
+				}
+			}
+		}
+
 
 		if(\dash\get::index($_current_detail, 'type_detail', 'choiceinline'))
 		{

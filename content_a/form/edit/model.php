@@ -86,7 +86,11 @@ class model
 				\lib\app\form\item\edit::edit($value, $key, $form_id);
 			}
 		}
-		\dash\notif::ok(T_("Form items successfully edited"));
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("Form items successfully edited"));
+		}
 
 		\dash\redirect::pwd();
 	}
