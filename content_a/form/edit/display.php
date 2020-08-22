@@ -62,7 +62,11 @@
 
 									<select name="item_type_<?php echo $myKey ?>" class="select22">
 										<?php foreach (\dash\data::itemType() as $type_key => $type_value) {?>
-											<option value="<?php echo $type_key ?>" <?php if(\dash\get::index($value, 'type') === $type_key) {echo 'selected';} ?>><?php echo $type_value['title']; ?></option>
+										<optgroup label="<?php echo \dash\get::index($type_value, 'title'); ?>">
+											<?php if(isset($type_value['list']) && is_array($type_value['list'])) { foreach ($type_value['list'] as $k => $v) {?>
+												<option value="<?php echo $v['key'] ?>" <?php if(\dash\get::index($value, 'type') === $v['key']) {echo 'selected';} ?>><?php echo $v['title']; ?></option>
+											<?php } /*endfor*/  } //endif?>
+										</optgroup>
 										<?php } //endif ?>
 									</select>
 								</td>
@@ -99,8 +103,12 @@
 							<td>
 
 								<select name="new_type" class="select22">
-									<?php foreach (\dash\data::itemType() as $key => $value) {?>
-										<option value="<?php echo $key ?>"><?php echo $value['title']; ?></option>
+									<?php foreach (\dash\data::itemType() as $type_key => $type_value) {?>
+										<optgroup label="<?php echo \dash\get::index($type_value, 'title'); ?>">
+											<?php if(isset($type_value['list']) && is_array($type_value['list'])) { foreach ($type_value['list'] as $k => $v) {?>
+												<option value="<?php echo $v['key'] ?>"><?php echo $v['title']; ?></option>
+											<?php } /*endfor*/  } //endif?>
+										</optgroup>
 									<?php } //endif ?>
 
 								</select>

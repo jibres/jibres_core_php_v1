@@ -24,6 +24,27 @@ class type
 	}
 
 
+	public static function get_group()
+	{
+		$list = self::list();
+		$new_list = [];
+		foreach ($list as $key => $value)
+		{
+			if(array_key_exists('group', $value))
+			{
+				if(!isset($new_list[$value['group']]))
+				{
+					$new_list[$value['group']] = ['title' => $value['group'], 'list' => []];
+				}
+
+				$new_list[$value['group']]['list'][] = $value;
+			}
+		}
+
+		return $new_list;
+	}
+
+
 	public static function list()
 	{
 
@@ -33,6 +54,7 @@ class type
 		[
 			'key'         => 'short_answer',
 			'title'       => T_("Short answer"),
+			'group'       => T_("Text"),
 			'placeholder' => true,
 			'maxlen'      => true,
 			'default_load' =>
@@ -47,6 +69,7 @@ class type
 		[
 			'key'         => 'descriptive_answer',
 			'title'       => T_('Descriptive answer'),
+			'group'       => T_('Text'),
 			'placeholder' => true,
 			'maxlen'      => true,
 			'default_load' =>
@@ -61,6 +84,7 @@ class type
 		[
 			'key'          => 'numeric',
 			'title'        => T_('Numberic'),
+			'group'        => T_('Numberic'),
 			'placeholder'  => true,
 			'min'          => true,
 			'max'          => true,
@@ -76,6 +100,7 @@ class type
 		[
 			'key'          => 'yes_no',
 			'title'        => T_('Yes-no'),
+			'group'        => T_('Boolean'),
 			'default_load' =>
 			[
 			],
@@ -86,6 +111,7 @@ class type
 		[
 			'key'          => 'single_choice',
 			'title'        => T_('Single choice'),
+			'group'        => T_('Optional choice'),
 			'choice'       => true,
 			'random'       => true,
 			'default_load' =>
@@ -98,6 +124,7 @@ class type
 		[
 			'key'          => 'multiple_choice',
 			'title'        => T_('Multiple choice'),
+			'group'        => T_('Optional choice'),
 			'choice'       => true,
 			'random'       => true,
 			'min'          => true,
@@ -114,6 +141,7 @@ class type
 		[
 			'key'          => 'dropdown',
 			'title'        => T_('Dropdown list'),
+			'group'        => T_('Optional choice'),
 			'placeholder'  => true,
 			'choice'       => true,
 			'random'       => true,
@@ -129,6 +157,7 @@ class type
 			'key'          => 'date',
 			'placeholder'  => true,
 			'title'        => T_('Date'),
+			'group'        => T_('Date & time'),
 			'default_load' =>
 			[
 
@@ -140,9 +169,23 @@ class type
 			'key'          => 'birthdate',
 			'placeholder'  => true,
 			'title'        => T_('Birthdate'),
+			'group'        => T_('Date & time'),
 			'default_load' =>
 			[
 
+			],
+		];
+
+
+		$type['time'] =
+		[
+			'key'          => 'time',
+			'placeholder'  => true,
+			'title'        => T_('Time'),
+			'group'        => T_('Date & time'),
+			'default_load' =>
+			[
+				'placeholder' => T_("Choose time"),
 			],
 		];
 
@@ -153,6 +196,7 @@ class type
 			'key'          => 'country',
 			'placeholder'  => true,
 			'title'        => T_('Country'),
+			'group'        => T_('Location'),
 			'default_load' =>
 			[
 
@@ -164,6 +208,7 @@ class type
 			'key'          => 'province',
 			'placeholder'  => true,
 			'title'        => T_('Province'),
+			'group'        => T_('Location'),
 			'default_load' =>
 			[
 
@@ -175,6 +220,7 @@ class type
 			'key'          => 'city',
 			'placeholder'  => true,
 			'title'        => T_('City'),
+			'group'        => T_('Location'),
 			'default_load' =>
 			[
 
@@ -188,6 +234,7 @@ class type
 				'key'          => 'province_city',
 				'placeholder'  => true,
 				'title'        => T_('Province-City'),
+				'group'        => T_('Location'),
 				'default_load' =>
 				[
 
@@ -200,25 +247,13 @@ class type
 		[
 			'key'          => 'gender',
 			'title'        => T_('Gender'),
+			'group'        => T_('Signup form'),
 			'default_load' =>
 			[
 
 			],
 		];
 
-
-
-
-		$type['time'] =
-		[
-			'key'          => 'time',
-			'placeholder'  => true,
-			'title'        => T_('Time'),
-			'default_load' =>
-			[
-				'placeholder' => T_("Choose time"),
-			],
-		];
 
 
 		$type['tel'] =
@@ -226,6 +261,7 @@ class type
 			'key'          => 'tel',
 			'placeholder'  => true,
 			'title'        => T_('Phone'),
+			'group'        => T_('Numberic'),
 			'default_load' =>
 			[
 				'placeholder' => T_("Phone number"),
@@ -239,6 +275,7 @@ class type
 			'key'          => 'file',
 			'placeholder'  => true,
 			'title'        => T_('Upload'),
+			'group'        => T_('Other'),
 			'maxlen'       => true,
 			'filetype'     => true,
 			'default_load' =>
@@ -253,6 +290,7 @@ class type
 			'placeholder'  => true,
 			'check_unique' => true,
 			'title'        => T_('Nationalcode'),
+			'group'        => T_('Numberic'),
 			'default_load' =>
 			[
 				'placeholder' => T_("Enter nationalcode"),
@@ -264,6 +302,7 @@ class type
 		[
 			'key'          => 'mobile',
 			'title'        => T_('Mobile'),
+			'group'        => T_('Signup form'),
 			'placeholder'  => true,
 			'check_unique'  => true,
 			'default_load' =>
@@ -278,6 +317,7 @@ class type
 			'key'          => 'email',
 			'placeholder'  => true,
 			'title'        => T_('Email'),
+			'group'        => T_('Signup form'),
 			'check_unique'  => true,
 			'default_load' =>
 			[
@@ -291,6 +331,7 @@ class type
 			'key'          => 'website',
 			'placeholder'  => true,
 			'title'        => T_('Website'),
+			'group'        => T_('Text'),
 			'default_load' =>
 			[
 				'placeholder' => T_("http://"),
@@ -301,6 +342,7 @@ class type
 		[
 			'key'          => 'password',
 			'title'        => T_('Password'),
+			'group'        => T_('Text'),
 			'placeholder'  => true,
 			'default_load' =>
 			[
@@ -313,6 +355,7 @@ class type
 		[
 			'key'          => 'message',
 			'title'        => T_('Message'),
+			'group'        => T_("Other"),
 			'color'        => true,
 			'default_load' =>
 			[
@@ -326,6 +369,7 @@ class type
 		[
 			'key'          => 'agree',
 			'title'        => T_('Agree'),
+			'group'        => T_('Boolean'),
 			'color'        => true,
 			'default_load' =>
 			[
