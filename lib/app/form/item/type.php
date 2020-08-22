@@ -122,7 +122,6 @@ class type
 			'random'       => true,
 			'min'          => true,
 			'max'          => true,
-			'placeholder'  => true,
 			'default_load' =>
 			[
 				'min'        => 1,

@@ -271,7 +271,7 @@ function settingRecord($value)
 
 
 <?php function settingChoiceInline($value) {?>
-<div class="check1">
+<div class="check1 mT25">
 	<input type="checkbox" name="item_choiceinline_<?php echo \dash\get::index($value, 'id') ?>" id="checkinline<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'choiceinline')) { echo 'checked';} ?>>
 	<label for="checkinline<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Put every choice in one line"); ?></label>
 </div>
@@ -280,7 +280,7 @@ function settingRecord($value)
 
 
 <?php function settingRandom($value) {?>
-<div class="check1">
+<div class="check1 mT25">
 	<input type="checkbox" name="item_random_<?php echo \dash\get::index($value, 'id') ?>" id="checkrandom<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'random')) { echo 'checked';} ?>>
 	<label for="checkrandom<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Random choice"); ?></label>
 </div>
@@ -289,7 +289,7 @@ function settingRecord($value)
 
 
 <?php function settingCheckUnique($value) {?>
-<div class="check1">
+<div class="check1 mT25">
 	<input type="checkbox" name="item_check_unique_<?php echo \dash\get::index($value, 'id') ?>" id="checkunique<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'check_unique')) { echo 'checked';} ?>>
 	<label for="checkunique<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Check unique"); ?></label>
 </div>

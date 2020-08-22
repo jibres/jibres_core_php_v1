@@ -51,7 +51,7 @@ class add
 			return false;
 		}
 
-		$check_true_item = \lib\db\form_item\get::item_id_form_id(implode(',', $item_ids), $data['form_id']);
+		$check_true_item = \lib\db\form_item\get::by_form_id($data['form_id']);
 
 		if(!$check_true_item || !is_array($check_true_item))
 		{
@@ -61,28 +61,15 @@ class add
 
 		$check_true_item = array_map(['\\lib\\app\\form\\item\\ready', 'row'], $check_true_item);
 
-		if(count($check_true_item) === count($item_ids))
-		{
-			// ok nothing
-		}
-		else
-		{
-
-			\dash\notif::error(T_("Some detail was wrong!"));
-			return false;
-		}
-
 		$items = array_combine(array_column($check_true_item, 'id'), $check_true_item);
 
-		foreach ($answer as $item_id => $my_answer)
+		foreach ($items as $item_id => $item_detail)
 		{
-			if(!isset($items[$item_id]))
+			$my_answer = null;
+			if(isset($answer[$item_id]))
 			{
-				\dash\notif::error(T_("Invalid item id"));
-				return false;
+				$my_answer = $answer[$item_id];
 			}
-
-			$item_detail = $items[$item_id];
 
 			if(!isset($item_detail['type']))
 			{
@@ -120,14 +107,14 @@ class add
 			}
 
 
-
 			if(isset($item_detail['require']) && $item_detail['require'])
 			{
-				if(!$my_answer && $my_answer !== '0')
+				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)))
 				{
 					\dash\notif::error(T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]));
 					return false;
 				}
+
 			}
 
 			switch ($type)
