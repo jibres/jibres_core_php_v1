@@ -28,34 +28,6 @@ class view
 
 		$dataTable          = \dash\app\address::list(null, $args);
 		\dash\data::dataTable($dataTable);
-
-		self::static_var();
-
-	}
-
-	private static function static_var()
-	{
-		$cityList    = \dash\utility\location\cites::$data;
-		$proviceList = \dash\utility\location\provinces::key_list('localname');
-
-		$new = [];
-		foreach ($cityList as $key => $value)
-		{
-			$temp = '';
-
-			if(isset($value['province']) && isset($proviceList[$value['province']]))
-			{
-				$temp .= $proviceList[$value['province']]. ' - ';
-			}
-			if(isset($value['localname']))
-			{
-				$temp .= $value['localname'];
-			}
-			$new[$key] = $temp;
-		}
-		asort($new);
-
-		\dash\data::cityList($new);
 	}
 }
 ?>
