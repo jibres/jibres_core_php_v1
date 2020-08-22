@@ -171,6 +171,24 @@ class add
 						$multiple_choice_answer[] = \dash\validate::string_200($v);
 					}
 
+					if($min)
+					{
+						if(count($multiple_choice_answer) < $min)
+						{
+							\dash\notif::error(T_("You must select at least :min options", ['min' => \dash\fit::number($min)]), ['title' => \dash\get::index($item_detail, 'title')]);
+							return false;
+						}
+					}
+
+					if($max)
+					{
+						if(count($multiple_choice_answer) > $max)
+						{
+							\dash\notif::error(T_("You can choose up to :max options", ['max' => \dash\fit::number($max)]), ['title' => \dash\get::index($item_detail, 'title')]);
+							return false;
+						}
+					}
+
 					$answer[$item_id] = $multiple_choice_answer;
 					break;
 
