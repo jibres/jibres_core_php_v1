@@ -4,10 +4,18 @@ namespace dash\utility;
 // create select for locations
 class location
 {
+	public static function pack($_country = null, $_province = null, $_city = null)
+	{
+		self::countrySelector($_country, $_province);
+		self::provinceSelector($_province, $_city);
+		self::citySelector($_city);
+	}
+
+
 	public static function countrySelector($_country = null, $_province = null)
 	{
 		$placeholder = T_("Choose your country");
-		echo '<div class="countrySelector">';
+		echo '<div class="countrySelector mB5">';
 		echo '<label for="country">';
 		echo T_("Country");
 		echo '</label>';
@@ -54,7 +62,7 @@ class location
 	public static function provinceSelector($_province = null, $_city = null)
 	{
 		$placeholder = ("Please choose province");
-		echo '<div class="provinceSelector">';
+		echo '<div class="provinceSelector mB5" data-status2="hide">';
 		echo '<label for="province">';
 		echo T_("Province");
 		echo '</label>';
@@ -69,7 +77,7 @@ class location
 		echo '>';
 
 		{
-			$myProvinceList = \dash\utility\location\countres::$data;
+			$myProvinceList = [];
 			echo '<option value="">'. $placeholder. '</option>';
 
 			if(is_array($myProvinceList) && $myProvinceList)
@@ -85,10 +93,6 @@ class location
 					}
 					echo ">";
 					echo ucfirst($value["name"]);
-					if(\dash\language::current() != 'en')
-					{
-						echo ' - '. T_(ucfirst($value['name']));
-					}
 					echo '</option>';
 				}
 			}
@@ -99,5 +103,42 @@ class location
 	}
 
 
+	public static function citySelector($_city = null)
+	{
+		$placeholder = ("Please choose city");
+		echo '<div class="citySelector mB5" data-status2="hide">';
+		echo '<label for="city">';
+		echo T_("City");
+		echo '</label>';
+
+		echo '<select class="select22" name="city" id="city"';
+		echo ' data-placeholder="'. $placeholder. '"';
+		echo '>';
+
+		{
+			$myCityList = [];
+			echo '<option value="">'. $placeholder. '</option>';
+
+			if(is_array($myCityList) && $myCityList)
+			{
+				foreach ($myCityList as $key => $value)
+				{
+					echo '<option value="';
+					echo $key;
+					echo '"';
+					if($_city == $key)
+					{
+						echo 'selected';
+					}
+					echo ">";
+					echo ucfirst($value["name"]);
+					echo '</option>';
+				}
+			}
+		}
+		echo '</select>';
+
+    echo '</div>';
+	}
 }
 ?>

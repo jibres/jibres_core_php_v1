@@ -28,18 +28,7 @@
         <input type="text" name="name" id="name" value="<?php if(\dash\data::dataRowAddress_name()) { echo \dash\data::dataRowAddress_name(); }elseif(\dash\data::dataRowMember()) { echo \dash\data::dataRowMember_displayname(); }elseif(!\dash\data::dataRowAddress()) { echo \dash\user::detail('displayname');}?>" maxlength='40' minlength="1" placeholder='<?php echo T_("Name of person in this address"); ?>'>
       </div>
 
-
-      <div class="mB10"><?php \dash\utility\location::countrySelector(\dash\data::dataRowAddress_country(), \dash\data::dataRowAddress_province()); ?></div>
-
-      <div class="mB10" data-status='hide'><?php \dash\utility\location::provinceSelector(\dash\data::dataRowAddress_province(), \dash\data::dataRowAddress_city()); ?></div>
-
-
-        <div class="mB10" data-status='hide'>
-          <label for='city'><?php echo T_("City"); ?></label>
-          <select name="city" id="city" class="select22">
-            <option value=""><?php echo T_("Please choose province 123"); ?></option>
-          </select>
-        </div>
+      <?php \dash\utility\location::pack(\dash\data::dataRowAddress_country(), \dash\data::dataRowAddress_province(), \dash\data::dataRowAddress_city()); ?>
 
 
       <label for="address"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
