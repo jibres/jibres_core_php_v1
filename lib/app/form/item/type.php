@@ -159,27 +159,27 @@ class type
 			],
 		];
 
-		// $type['province'] =
-		// [
-		// 	'key'          => 'province',
-		// 	'placeholder'  => true,
-		// 	'title'        => T_('Province'),
-		// 	'default_load' =>
-		// 	[
+		$type['province'] =
+		[
+			'key'          => 'province',
+			'placeholder'  => true,
+			'title'        => T_('Province'),
+			'default_load' =>
+			[
 
-		// 	],
-		// ];
+			],
+		];
 
-		// $type['city'] =
-		// [
-		// 	'key'          => 'city',
-		// 	'placeholder'  => true,
-		// 	'title'        => T_('City'),
-		// 	'default_load' =>
-		// 	[
+		$type['city'] =
+		[
+			'key'          => 'city',
+			'placeholder'  => true,
+			'title'        => T_('City'),
+			'default_load' =>
+			[
 
-		// 	],
-		// ];
+			],
+		];
 
 		if(\dash\language::current() === 'fa')
 		{
