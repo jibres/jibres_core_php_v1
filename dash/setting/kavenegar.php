@@ -27,7 +27,7 @@ class kavenegar
 			if(\dash\engine\store::inStore())
 			{
 				$sms_setting = \lib\app\setting\get::sms_setting();
-				if(isset($sms_setting['kavenegar_apikey']))
+				if(isset($sms_setting['kavenegar_apikey']) && $sms_setting['kavenegar_apikey'])
 				{
 					$json['apikey'] = $sms_setting['kavenegar_apikey'];
 				}
