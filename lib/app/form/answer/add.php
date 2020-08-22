@@ -278,6 +278,7 @@ class add
 					$answer[$item_id] = $my_answer;
 					break;
 
+				case 'agree':
 				case 'yes_no':
 					$my_answer = \dash\validate::bit($my_answer);
 					if(!$my_answer)

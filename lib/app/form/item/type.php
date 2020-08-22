@@ -322,6 +322,18 @@ class type
 
 
 
+		$type['agree'] =
+		[
+			'key'          => 'agree',
+			'title'        => T_('Agree'),
+			'color'        => true,
+			'default_load' =>
+			[
+			],
+		];
+
+
+
 
 		return $type;
 	}

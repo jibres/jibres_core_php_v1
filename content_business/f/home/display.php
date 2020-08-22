@@ -49,6 +49,7 @@ foreach ($formItems as $key => $value)
 		case 'password': html_input_password($value); break;
 		case 'yes_no': html_input_yes_no($value); break;
 		case 'message': html_input_message($value); break;
+		case 'agree': html_input_agree($value); break;
 
 		default:
 			# code...
@@ -409,25 +410,11 @@ function html_input_message($value)
 			$class = null;
 			switch ($value['setting']['message']['color'])
 			{
-				case 'red':
-					$class = 'danger2';
-					break;
-
-				case 'green':
-					$class = 'success2';
-					break;
-
-				case 'blue':
-					$class = 'primary2';
-					break;
-
-				case 'yellow':
-					$class = 'warn2';
-					break;
-
-				default:
-					# code...
-					break;
+				case 'red':		$class = 'danger2'; break;
+				case 'green':	$class = 'success2'; break;
+				case 'blue':	$class = 'primary2'; break;
+				case 'yellow':	$class = 'warn2'; break;
+				default: break;
 			}
 		}
 		echo '<div class="msg '. $class .'">'. $value['title'];
@@ -439,6 +426,36 @@ function html_input_message($value)
 	}
 } //endfunction
 
+
+
+function html_input_agree($value)
+{
+	if(isset($value['title']))
+	{
+		if(isset($value['setting']['agree']['color']) && $value['setting']['agree']['color'])
+		{
+			$class = null;
+			switch ($value['setting']['agree']['color'])
+			{
+				case 'red':		$class = 'danger2'; break;
+				case 'green':	$class = 'success2'; break;
+				case 'blue':	$class = 'primary2'; break;
+				case 'yellow':	$class = 'warn2'; break;
+				default: break;
+			}
+		}
+		echo '<div class="msg '. $class .'">';
+			if(isset($value['desc']))
+			{
+				echo '<p>'. $value['desc'] .'</p>';
+			}
+			echo '<div class="check1">';
+				echo '<input type="checkbox" name="'; myName($value); echo '" id="'; myID($value); echo '" value="1">';
+				echo '<label for="'; myID($value); echo '">'. $value['title'].'</label>';
+			echo '</div>';
+		echo '</div>';
+	}
+} //endfunction
 
 
 function html_input_yes_no($value) {?>
