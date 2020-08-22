@@ -75,10 +75,6 @@ class location
 	{
 		$placeholder = ("Please choose province");
 		echo '<div class="provinceSelector mB5"';
-		if($_country !== 'IR')
-		{
-			// echo ' data-status="hide"';
-		}
 		echo ' data-status="hide"';
 		echo '>';
 		echo '<label for="province">';
@@ -132,10 +128,7 @@ class location
 	{
 		$placeholder = ("Please choose city");
 		echo '<div class="citySelector mB5"';
-		if(!$_province)
-		{
-			echo ' data-status="hide"';
-		}
+		echo ' data-status="hide"';
 		echo '>';
 		echo '<label for="city">';
 		echo T_("City");
