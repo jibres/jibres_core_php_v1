@@ -223,8 +223,23 @@ class add
 					break;
 
 				case 'file':
-					$my_answer = \dash\validate::string_100($my_answer);
-					$answer[$item_id] = $my_answer;
+					if(\dash\request::files('answer_'. $item_id))
+					{
+						$ext = null;
+						if(isset($item_detail['setting']['file']['filetype']))
+						{
+							$ext = $item_detail['setting']['file']['filetype'];
+						}
+
+						$path = \dash\upload\form::upload('answer_'. $item_id, 1, $ext);
+						if(!\dash\engine\process::status())
+						{
+							return false;
+						}
+						$my_answer = $path;
+						$answer[$item_id] = $my_answer;
+					}
+
 					break;
 
 				case 'nationalcode':

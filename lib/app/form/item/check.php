@@ -12,7 +12,7 @@ class check
 			'desc'         => 'desc',
 			'type'         => ['enum' =>	\lib\app\form\item\type::get_keys()],
 			'status'       => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
-			'color'       => ['enum' => ['red','green','blue','yellow',]],
+			'color'        => ['enum' => ['red','green','blue','yellow',]],
 			'require'      => 'bit',
 			'maxlen'       => 'smallint',
 			'maxlen2'      => 'smallint',
@@ -24,6 +24,7 @@ class check
 			'check_unique' => 'bit',
 			'min'          => 'number',
 			'max'          => 'number',
+			'filetype'     => 'tag',
 		];
 
 		$require = ['title', 'type'];
@@ -93,6 +94,27 @@ class check
 			$setting[$data['type']]['color'] = $data['color'];
 		}
 
+		if(\dash\get::index($_current_detail, 'type_detail', 'filetype'))
+		{
+			$filetype = \dash\upload\extentions::get_all_allow_ext();
+			$filetype = array_keys($filetype);
+
+			if($data['filetype'])
+			{
+				foreach ($data['filetype'] as $ext)
+				{
+					if(!in_array($ext, $filetype))
+					{
+						\dash\notif::error(T_("Invalid extentions"));
+						return false;
+					}
+				}
+			}
+
+			$setting[$data['type']]['filetype'] = $data['filetype'];
+		}
+
+
 
 		$choice = null;
 		if(\dash\get::index($_current_detail, 'type_detail', 'choice'))
@@ -125,6 +147,7 @@ class check
 		unset($data['min']);
 		unset($data['max']);
 		unset($data['color']);
+		unset($data['filetype']);
 
 		return $data;
 	}

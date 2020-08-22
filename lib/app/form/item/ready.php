@@ -62,6 +62,14 @@ class ready
 			shuffle($result['choice']);
 		}
 
+		if(isset($result['setting']['file']['filetype']) && is_array($result['setting']['file']['filetype']) && $result['setting']['file']['filetype'])
+		{
+			$filetype = $result['setting']['file']['filetype'];
+
+			$accept = '*.'. implode(' *.', $filetype);
+			$result['setting']['file']['accept'] = $accept;
+		}
+
 		return $result;
 	}
 

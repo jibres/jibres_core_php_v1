@@ -334,8 +334,22 @@ function html_input_tel($value) {?>
 
 
 
-function html_input_file($value) {?>
+function html_input_file($value) {
+if(isset($value['setting']['file']['accept']))
+{
+	$accept = $value['setting']['file']['accept'];
+}
+else
+{
+	$accept = "*";
+}
 
+?>
+<div data-uploader data-name='<?php myName($value) ?>' data-final='#finalImage<?php myID($value) ?>'>
+	<input type="file" accept="<?php echo $accept; ?>" id="<?php myID($value) ?>">
+	<label for="<?php myID($value) ?>"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+	<label for="<?php myID($value) ?>"><img id="finalImage<?php myID($value) ?>" alt="<?php echo T_("File") ?>"></label>
+</div>
 
 <?php } //endfunction
 

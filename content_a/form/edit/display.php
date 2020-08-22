@@ -323,16 +323,22 @@ function settingRecord($value)
 
 
 
-<?php function settingFileType($value) {?>
-	filetype
-<label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
-<select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
-	<?php if(isset($value['choice']) && is_array($value['choice'])) {?>
-  <?php foreach ($value['choice'] as $key => $value) {?>
-    <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
+<?php function settingFileType($value) {
+$saved_filetype = \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'filetype');
+if(!is_array($saved_filetype))
+{
+	$saved_filetype = [];
+}
+?>
+<label for="item_filetype_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Allow extention file"); ?></label>
+<div>
+<select class="select22" name="item_filetype_<?php echo \dash\get::index($value, 'id') ?>[]" multiple="multiple">
+  <option value=""><?php echo T_("Any file"); ?></option>
+  <?php foreach (\dash\data::allAllowFileExt() as $key => $value) {?>
+  	<option value="<?php echo $key ?>" <?php if(in_array($key, $saved_filetype)) { echo 'selected';} ?>><?php echo $key; ?></option>
   <?php } //endfor ?>
-  <?php } //endif ?>
 </select>
+</div>
 <?php } // endfunction ?>
 
 

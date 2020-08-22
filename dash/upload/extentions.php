@@ -192,5 +192,23 @@ class extentions
 		}
 		return false;
 	}
+
+
+
+	public static function get_all_allow_ext()
+	{
+		$list = self::mime();
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['allow']) && $value['allow'])
+			{
+				$new_list[$key] = $value;
+			}
+		}
+
+		return $new_list;
+	}
 }
 ?>

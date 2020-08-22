@@ -25,6 +25,8 @@ class view
 		\dash\data::formItems($items);
 
 		\dash\data::itemType(\lib\app\form\item\type::list());
+
+		\dash\data::allAllowFileExt(\dash\upload\extentions::get_all_allow_ext());
 	}
 }
 ?>
