@@ -25,6 +25,9 @@ class check
 			'min'          => 'number',
 			'max'          => 'number',
 			'filetype'     => 'tag',
+			'send_sms'     => 'bit',
+			'sms_text'     => 'string_100',
+			'signup'       => 'bit',
 		];
 
 		$require = ['title', 'type'];
@@ -94,6 +97,17 @@ class check
 			$setting[$data['type']]['color'] = $data['color'];
 		}
 
+		if(\dash\get::index($_current_detail, 'type_detail', 'send_sms'))
+		{
+			$setting[$data['type']]['send_sms'] = $data['send_sms'];
+			$setting[$data['type']]['sms_text'] = $data['sms_text'];
+		}
+
+		if(\dash\get::index($_current_detail, 'type_detail', 'signup'))
+		{
+			$setting[$data['type']]['signup'] = $data['signup'];
+		}
+
 		if(\dash\get::index($_current_detail, 'type_detail', 'filetype'))
 		{
 			$filetype = \dash\upload\extentions::get_all_allow_ext();
@@ -148,7 +162,9 @@ class check
 		unset($data['max']);
 		unset($data['color']);
 		unset($data['filetype']);
-
+		unset($data['send_sms']);
+		unset($data['sms_text']);
+		unset($data['signup']);
 		return $data;
 	}
 }

@@ -233,6 +233,24 @@ function settingRecord($value)
 		echo "</div>";
 	}
 
+	if(isset($value['type_detail']['send_sms']) && $value['type_detail']['send_sms'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingSendSms($value);
+		echo "</div>";
+	}
+
+
+	if(isset($value['type_detail']['signup']) && $value['type_detail']['signup'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingSignup($value);
+		echo "</div>";
+	}
+
+
+
+
 
 
 
@@ -344,6 +362,29 @@ if(!is_array($saved_filetype))
 </select>
 </div>
 <?php } // endfunction ?>
+
+
+
+<?php function settingSendSms($value) {?>
+<div class="check1 mT25">
+	<input type="checkbox" name="item_send_sms_<?php echo \dash\get::index($value, 'id') ?>" id="send_sms<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'send_sms')) { echo 'checked';} ?>>
+	<label for="send_sms<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Send sms after complete form?"); ?></label>
+</div>
+<div data-response="item_send_sms_<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'send_sms')) {}else{ echo 'data-response-hide';} ?>>
+<label for="item_sms_text_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Sms text") ?></label>
+<textarea class="txt" rows="2" name="item_sms_text_<?php echo \dash\get::index($value, 'id') ?>" id="item_sms_text_<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'sms_text'); ?></textarea>
+</div>
+<?php } // endfunction ?>
+
+
+<?php function settingSignup($value) {?>
+<div class="check1 mT25">
+	<input type="checkbox" name="item_signup_<?php echo \dash\get::index($value, 'id') ?>" id="signup<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'signup')) { echo 'checked';} ?>>
+	<label for="signup<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Signup user by this item?"); ?></label>
+</div>
+<?php } // endfunction ?>
+
+
 
 
 <?php function settingColor($value) {?>

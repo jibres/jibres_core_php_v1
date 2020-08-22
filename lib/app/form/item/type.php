@@ -52,11 +52,11 @@ class type
 
 		$type['short_answer'] =
 		[
-			'key'         => 'short_answer',
-			'title'       => T_("Short answer"),
-			'group'       => T_("Text"),
-			'placeholder' => true,
-			'maxlen'      => true,
+			'key'          => 'short_answer',
+			'title'        => T_("Short answer"),
+			'group'        => T_("Text"),
+			'placeholder'  => true,
+			'maxlen'       => true,
 			'default_load' =>
 			[
 				'placeholder' => T_("Type here ..."),
@@ -67,11 +67,11 @@ class type
 
 		$type['descriptive_answer'] =
 		[
-			'key'         => 'descriptive_answer',
-			'title'       => T_('Descriptive answer'),
-			'group'       => T_('Text'),
-			'placeholder' => true,
-			'maxlen'      => true,
+			'key'          => 'descriptive_answer',
+			'title'        => T_('Descriptive answer'),
+			'group'        => T_('Text'),
+			'placeholder'  => true,
+			'maxlen'       => true,
 			'default_load' =>
 			[
 				'maxlen'     => 10000,
@@ -164,6 +164,7 @@ class type
 			],
 		];
 
+
 		$type['birthdate'] =
 		[
 			'key'          => 'birthdate',
@@ -203,6 +204,7 @@ class type
 			],
 		];
 
+
 		$type['province'] =
 		[
 			'key'          => 'province',
@@ -215,6 +217,7 @@ class type
 			],
 		];
 
+
 		$type['city'] =
 		[
 			'key'          => 'city',
@@ -226,6 +229,7 @@ class type
 
 			],
 		];
+
 
 		if(\dash\language::current() === 'fa')
 		{
@@ -243,16 +247,6 @@ class type
 		}
 
 
-		$type['gender'] =
-		[
-			'key'          => 'gender',
-			'title'        => T_('Gender'),
-			'group'        => T_('Signup form'),
-			'default_load' =>
-			[
-
-			],
-		];
 
 
 
@@ -304,12 +298,15 @@ class type
 			'title'        => T_('Mobile'),
 			'group'        => T_('Signup form'),
 			'placeholder'  => true,
-			'check_unique'  => true,
+			'check_unique' => true,
+			'send_sms'     => true,
+			'signup'       => true,
 			'default_load' =>
 			[
 				'placeholder' => T_("Enter mobile"),
 			],
 		];
+
 
 
 		$type['email'] =
@@ -318,10 +315,35 @@ class type
 			'placeholder'  => true,
 			'title'        => T_('Email'),
 			'group'        => T_('Signup form'),
-			'check_unique'  => true,
+			'check_unique' => true,
 			'default_load' =>
 			[
 				'placeholder' => T_("abc@youdomain.com"),
+			],
+		];
+
+
+		$type['displayname'] =
+		[
+			'key'          => 'displayname',
+			'title'        => T_('Full name'),
+			'group'        => T_('Signup form'),
+			'placeholder'  => true,
+			'default_load' =>
+			[
+				'placeholder' => T_("Your name"),
+			],
+		];
+
+
+		$type['gender'] =
+		[
+			'key'          => 'gender',
+			'title'        => T_('Gender'),
+			'group'        => T_('Signup form'),
+			'default_load' =>
+			[
+
 			],
 		];
 
@@ -337,6 +359,8 @@ class type
 				'placeholder' => T_("http://"),
 			],
 		];
+
+
 
 		$type['password'] =
 		[
