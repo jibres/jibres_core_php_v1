@@ -29,17 +29,7 @@
       </div>
 
 
-      <div class="mB10">
-          <label for='country'><?php echo T_("Country"); ?></label>
-          <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRowAddress_province(); ?>'>
-            <option value=""><?php echo T_("Choose your country"); ?></option>
-            <?php foreach (\dash\data::countryList() as $key => $value) {?>
-
-              <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowAddress_country() == $key) { echo 'selected';} ?>><?php echo ucfirst($value['name']); if(\dash\language::current() != 'en') { echo ' - '. T_(ucfirst($value['name']));} ?></option>
-
-            <?php } //endif ?>
-          </select>
-        </div>
+      <div class="mB10"><?php \dash\utility\location::countrySelector(\dash\data::dataRowAddress_country(), \dash\data::dataRowAddress_province()); ?></div>
 
 
         <div class="mB10" data-status='hide'>
