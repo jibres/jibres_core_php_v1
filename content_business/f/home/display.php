@@ -10,9 +10,10 @@ if(!is_array($formItems))
 <form method="post" autocomplete="new-password">
 	<div class="avand-md">
 		<div class="box">
+			<header><h2><?php echo \dash\data::formDetail_title(); ?></h2></header>
 			<div class="body">
 				<?php if(\dash\data::formDetail_desc()) {?>
-					<p><?php echo nl2br(\dash\data::formDetail_desc()) ?></p>
+					<div class="pA20"><?php echo \dash\data::formDetail_desc() ?></div>
 				<?php } // endif ?>
 <?php
 foreach ($formItems as $key => $value)

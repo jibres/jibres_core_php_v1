@@ -15,7 +15,7 @@ class check
 			'privacy'   => ['enum' => ['public', 'private']],
 			'status'   => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
 			'redirect'  => 'string_1000',
-			'desc'      => 'desc',
+			'desc'      => 'html',
 			'starttime' => 'datetime',
 			'endtime'   => 'datetime',
 
