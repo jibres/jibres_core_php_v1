@@ -31,6 +31,7 @@ class location
 
 		{
 			echo '<option value="">'. $placeholder. '</option>';
+
 			$myCountryList = \dash\utility\location\countres::$data;
 			if(is_array($myCountryList) && $myCountryList)
 			{
@@ -77,9 +78,9 @@ class location
 		echo '>';
 
 		{
-			$myProvinceList = [];
 			echo '<option value="">'. $placeholder. '</option>';
 
+			$myProvinceList = \dash\utility\location\provinces::key_list('localname');
 			if(is_array($myProvinceList) && $myProvinceList)
 			{
 				foreach ($myProvinceList as $key => $value)
@@ -116,12 +117,32 @@ class location
 		echo '>';
 
 		{
-			$myCityList = [];
 			echo '<option value="">'. $placeholder. '</option>';
 
-			if(is_array($myCityList) && $myCityList)
+			// get city list
+			$myCityList = \dash\utility\location\cites::$data;
+			$newCityList = [];
+			foreach ($myCityList as $key => $value)
 			{
-				foreach ($myCityList as $key => $value)
+				$temp = '';
+
+				if(isset($value['province']) && isset($proviceList[$value['province']]))
+				{
+					$temp .= $proviceList[$value['province']]. ' - ';
+				}
+				if(isset($value['localname']))
+				{
+					$temp .= $value['localname'];
+				}
+				$newCityList[$key] = $temp;
+			}
+			asort($newCityList);
+
+
+
+			if(is_array($newCityList) && $newCityList)
+			{
+				foreach ($newCityList as $key => $value)
 				{
 					echo '<option value="';
 					echo $key;
