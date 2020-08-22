@@ -80,7 +80,8 @@
     <thead>
       <tr>
 
-        <th class="collapsing"><?php echo T_("Title") ?></th>
+        <th><?php echo T_("Title") ?></th>
+        <th><?php echo T_("Status") ?></th>
         <th class="collapsing"><?php echo T_("Edit") ?></th>
         <th class="collapsing"><?php echo T_("Answers") ?></th>
       </tr>
@@ -90,10 +91,11 @@
         <tr>
 
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\get::index($value, 'title') ?></span></td>
+          <td><span class="txtB"><?php echo \dash\get::index($value, 'title') ?></span></td>
+          <td><span class="txtB"><?php echo T_(\dash\get::index($value, 'status')) ?></span></td>
 
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Answers") ?></a></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-edit"></i> <?php echo T_("Edit") ?></a></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-list"></i> <?php echo T_("Answers") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

@@ -18,6 +18,11 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'id':
+					$result[$key] = $value;
+					$result['url'] = \lib\store::url(). '/f/'. $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

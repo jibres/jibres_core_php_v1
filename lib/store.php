@@ -556,7 +556,13 @@ class store
 		{
 			$tld = 'local';
 		}
-		return \dash\url::protocol(). '://jibres.'.$tld. '/'. self::code();
+
+		$lang = null;
+		if(\dash\url::lang())
+		{
+			$lang = '/'. \dash\url::lang();
+		}
+		return \dash\url::protocol(). '://jibres.'.$tld. $lang. '/'. self::code();
 	}
 
 	public static function url()

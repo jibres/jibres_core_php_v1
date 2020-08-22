@@ -17,6 +17,22 @@ class controller
 
 			$form_id = $load_form['id'];
 
+			if((isset($load_form['status']) && $load_form['status'] === 'publish'))
+			{
+				// ok
+			}
+			else
+			{
+				if(\dash\permission::check('showAllContactForm'))
+				{
+					// nothing to admin
+				}
+				else
+				{
+					\dash\header::status(403, T_("This form is not publish"));
+				}
+			}
+
 			$load_items = \lib\app\form\item\get::items($form_id);
 
 			\dash\data::formId($form_id);
