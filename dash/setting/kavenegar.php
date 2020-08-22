@@ -30,6 +30,7 @@ class kavenegar
 				if(isset($sms_setting['kavenegar_apikey']) && $sms_setting['kavenegar_apikey'])
 				{
 					$json['apikey'] = $sms_setting['kavenegar_apikey'];
+					$json['line']   = null;
 				}
 			}
 
@@ -46,6 +47,18 @@ class kavenegar
 		if(isset(self::$load['apikey']))
 		{
 			return self::$load['apikey'];
+		}
+
+		return null;
+	}
+
+
+	public static function line()
+	{
+		self::load();
+		if(isset(self::$load['line']))
+		{
+			return self::$load['line'];
 		}
 
 		return null;

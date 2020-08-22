@@ -5,8 +5,15 @@ require(core."utility/kavenegar_api.php");
 /** call management class **/
 class call
 {
-	private static $kavenegar_auth = '5263694C4C426651434C6635686E463550333747363578636361446539383141';
+	private static function kavenegar_auth()
+	{
+		return \dash\setting\kavenegar::apikey();
+	}
 
+	private static function line()
+	{
+		return \dash\setting\kavenegar::line();
+	}
 
 	/**
 	 * call mobile
@@ -27,7 +34,7 @@ class call
 
 		$default_option =
 		[
-			'line'   => 100020009,
+			'line'   => self::line(),
 			'token2' => null,
 			'token3' => null,
 			'type'   => 'call',
@@ -47,7 +54,7 @@ class call
 		}
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_template = null, $_type = 'sms')
-		$api    = new \dash\utility\kavenegar_api(self::$kavenegar_auth, $_options['line']);
+		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
 		$result = $api->verify($mobile, $_token, $_options['token2'], $_options['token3'], $_template, $_options['type']);
 		return $result;
 	}
@@ -69,7 +76,7 @@ class call
 
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_text = null, $_type = 'sms')
-		$api    = new \dash\utility\kavenegar_api(self::$kavenegar_auth, 100020009);
+		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth(), self::line());
 		$result = $api->tts($mobile, $_message);
 		return $result;
 	}

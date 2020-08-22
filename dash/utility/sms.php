@@ -9,6 +9,12 @@ class sms
 	{
 		return \dash\setting\kavenegar::apikey();
 	}
+
+	private static function line()
+	{
+		return \dash\setting\kavenegar::line();
+	}
+
 	/**
 	 * Makes a message.
 	 *
@@ -103,7 +109,7 @@ class sms
 
 		$default_option =
 		[
-			'line'           => 100020009,
+			'line'           => self::line(),
 			'type'           => 1,
 			'date'           => 0,
 			'LocalMessageid' => null,
@@ -184,7 +190,7 @@ class sms
 
 		$default_option =
 		[
-			'line'   => 100020009,
+			'line'   => self::line(),
 			'type'   => 1,
 			'date'   => 0,
 			'header' => true,
