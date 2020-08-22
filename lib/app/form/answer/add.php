@@ -422,7 +422,14 @@ class add
 
 			$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
 
-			\dash\notif::ok(T_("Your answer was saved"));
+			if(isset($load_form['endmessage']) && $load_form['endmessage'])
+			{
+				\dash\notif::ok($load_form['endmessage'], ['alerty' => true]);
+			}
+			else
+			{
+				\dash\notif::ok(T_("Your answer was saved"), ['alerty' => true]);
+			}
 		}
 
 

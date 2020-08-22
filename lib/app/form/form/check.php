@@ -8,16 +8,17 @@ class check
 	{
 		$condition =
 		[
-			'title'     => 'title',
-			'slug'      => 'slug',
-			'lang'      => 'lang',
-			'password'  => 'string_100',
-			'privacy'   => ['enum' => ['public', 'private']],
-			'status'   => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
-			'redirect'  => 'string_1000',
-			'desc'      => 'html',
-			'starttime' => 'datetime',
-			'endtime'   => 'datetime',
+			'title'      => 'title',
+			'slug'       => 'slug',
+			'lang'       => 'lang',
+			'password'   => 'string_100',
+			'privacy'    => ['enum' => ['public', 'private']],
+			'status'     => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
+			'redirect'   => 'string_1000',
+			'desc'       => 'html',
+			'endmessage' => 'desc',
+			'starttime'  => 'datetime',
+			'endtime'    => 'datetime',
 
 		];
 

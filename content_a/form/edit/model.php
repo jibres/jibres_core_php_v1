@@ -20,11 +20,12 @@ class model
 
 		$post =
 		[
-			'title'    => \dash\request::post('title'),
-			'slug'     => \dash\request::post('slug'),
-			'status'   => \dash\request::post('status'),
-			'desc'     => \dash\request::post('desc') ? $_POST['desc'] : null,
-			'redirect' => \dash\request::post('redirect'),
+			'title'      => \dash\request::post('title'),
+			'slug'       => \dash\request::post('slug'),
+			'status'     => \dash\request::post('status'),
+			'desc'       => \dash\request::post('desc') ? $_POST['desc'] : null,
+			'endmessage' => \dash\request::post('endmessage'),
+			'redirect'   => \dash\request::post('redirect'),
 
 		];
 
