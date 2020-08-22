@@ -66,7 +66,7 @@ class model
 			{
 				$code_split = str_split($code);
 				$code_split = implode('،', $code_split);
-				$message = "درود. کدِ فعالسازی شما $code_split. با جیبْرِسْ بِفْروش و لِذّت بِبَر";
+				$message = "درود. کدِ فعالسازی شما $code_split. با جیبْرِسْ، بِفْروش و لِذّت بِبَر";
 			}
 			else
 			{
