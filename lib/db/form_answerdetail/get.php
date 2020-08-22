@@ -30,6 +30,14 @@ class get
 
 	}
 
+	public static function get_where($_where)
+	{
+		$where = \dash\db\config::make_where($_where);
+		$query = "SELECT * FROM form_answerdetail WHERE $where LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 }
 ?>

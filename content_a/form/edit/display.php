@@ -150,6 +150,13 @@ function settingRecord($value)
 
 	echo "<div class='row'>";
 
+	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-12'>";
+		settingChoice($value);
+		echo "</div>";
+	}
+
 	if(isset($value['type_detail']['placeholder']) && $value['type_detail']['placeholder'])
 	{
 		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
@@ -167,25 +174,18 @@ function settingRecord($value)
 
 	if(isset($value['type_detail']['min']) && $value['type_detail']['min'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		echo "<div class='c-xs-12 c-sm-12 c-md-2'>";
 		settingMin($value);
 		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['max']) && $value['type_detail']['max'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		echo "<div class='c-xs-12 c-sm-12 c-md-2'>";
 		settingMax($value);
 		echo "</div>";
 	}
 
-
-	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
-	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-12'>";
-		settingChoice($value);
-		echo "</div>";
-	}
 
 
 	if(isset($value['type_detail']['choiceinline']) && $value['type_detail']['choiceinline'])
@@ -228,7 +228,7 @@ function settingRecord($value)
 
 
 <?php function settingMin($value) {?>
-<label for="item_min_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Min") ?></label>
+<label for="item_min_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Minimum") ?></label>
 <div class="input">
 	<input type="text" name="item_min_<?php echo \dash\get::index($value, 'id') ?>" id="item_min_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'min'); ?>">
 </div>
@@ -236,7 +236,7 @@ function settingRecord($value)
 
 
 <?php function settingMax($value) {?>
-<label for="item_max_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Min") ?></label>
+<label for="item_max_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Maximum") ?></label>
 <div class="input">
 	<input type="text" name="item_max_<?php echo \dash\get::index($value, 'id') ?>" id="item_max_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'max'); ?>">
 </div>

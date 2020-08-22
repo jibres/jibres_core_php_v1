@@ -59,6 +59,8 @@ class add
 			return false;
 		}
 
+		$check_true_item = array_map(['\\lib\\app\\form\\item\\ready', 'row'], $check_true_item);
+
 		if(count($check_true_item) === count($item_ids))
 		{
 			// ok nothing
@@ -88,16 +90,71 @@ class add
 				return false;
 			}
 
-			switch ($item_detail['type'])
+
+			$type              = $item_detail['type'];
+			$check_unique_args = [];
+			$maxlen            = null;
+			$min               = 0;
+			$max               = 99999999999999;
+
+			if(isset($item_detail['maxlen']) && is_numeric($item_detail['maxlen']) && floatval($item_detail['maxlen']) < 200)
+			{
+				$maxlen = floatval($item_detail['maxlen']);
+			}
+
+			if(isset($item_detail['setting'][$type]['min']) && is_numeric($item_detail['setting'][$type]['min']))
+			{
+				$min = floatval($item_detail['setting'][$type]['min']);
+			}
+
+			if(isset($item_detail['setting'][$type]['max']) && is_numeric($item_detail['setting'][$type]['max']) && floatval($item_detail['setting'][$type]['max']) < $max)
+			{
+				$max = floatval($item_detail['setting'][$type]['max']);
+			}
+
+
+			$check_unique = false;
+			if(isset($item_detail['setting'][$type]['check_unique']) && $item_detail['setting'][$type]['check_unique'])
+			{
+				$check_unique = true;
+			}
+
+
+
+			if(isset($item_detail['require']) && $item_detail['require'])
+			{
+				if(!$my_answer && $my_answer !== '0')
+				{
+					\dash\notif::error(T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]));
+					return false;
+				}
+			}
+
+			switch ($type)
 			{
 
 				case 'short_answer':
-					$my_answer         = \dash\validate::string_200($my_answer);
+					if(!$maxlen)
+					{
+						$maxlen = 200;
+					}
+
+					$fn               = 'string_'. $maxlen;
+					$my_answer        = \dash\validate::$fn($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'descriptive_answer':
-					$my_answer         = \dash\validate::desc($my_answer);
+					if(!$maxlen)
+					{
+						$fn = 'desc';
+					}
+					else
+					{
+						$fn = 'string_'. $maxlen;
+					}
+
+					$my_answer         = \dash\validate::$fn($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -107,7 +164,7 @@ class add
 				// 	break;
 
 				case 'numeric':
-					$my_answer         = \dash\validate::number($my_answer);
+					$my_answer         = \dash\validate::number($my_answer, true, ['min' => $min, 'max' => $max]);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -124,13 +181,14 @@ class add
 
 					foreach ($my_answer as $k => $v)
 					{
-						$multiple_choice_answer[] = \dash\validate::string($v);
+						$multiple_choice_answer[] = \dash\validate::string_200($v);
 					}
+
 					$answer[$item_id] = $multiple_choice_answer;
 					break;
 
 				case 'dropdown':
-					$my_answer = \dash\validate::string_100($my_answer);
+					$my_answer = \dash\validate::string_200($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -182,11 +240,22 @@ class add
 				case 'nationalcode':
 					$my_answer = \dash\validate::nationalcode($my_answer);
 					$answer[$item_id] = $my_answer;
+
+					if($check_unique)
+					{
+						$check_unique_args['answer'] = $my_answer;
+					}
 					break;
 
 				case 'mobile':
 					$my_answer = \dash\validate::mobile($my_answer);
 					$answer[$item_id] = $my_answer;
+
+					if($check_unique)
+					{
+						$check_unique_args['answer'] = $my_answer;
+					}
+
 					break;
 
 				case 'email':
@@ -217,6 +286,19 @@ class add
 					\dash\notif::error(T_("Invalid item type"));
 					return false;
 					break;
+			}
+
+
+			if($check_unique && !empty($check_unique_args))
+			{
+				$check_unique_args['item_id'] = $item_id;
+				$check_unique_args['form_id'] = $data['form_id'];
+				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args);
+				if(isset($is_answer_befor['id']))
+				{
+					\dash\notif::warn(T_("You are answer to this form before"));
+					return false;
+				}
 			}
 		}
 
