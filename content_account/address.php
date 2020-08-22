@@ -31,20 +31,13 @@
 
       <div class="mB10"><?php \dash\utility\location::countrySelector(\dash\data::dataRowAddress_country(), \dash\data::dataRowAddress_province()); ?></div>
 
-
-        <div class="mB10" data-status='hide'>
-          <label for='province'><?php echo T_("Province"); ?></label>
-          <select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRowAddress_city(); ?>'>
-            <option value="0"><?php echo T_("Please choose country"); ?></option>
-            <option value="<?php echo \dash\data::dataRowAddress_province(); ?>" selected><?php echo \dash\data::dataRowAddress_province(); ?></option>
-          </select>
-        </div>
+      <div class="mB10" data-status='hide'><?php \dash\utility\location::provinceSelector(\dash\data::dataRowAddress_province(), \dash\data::dataRowAddress_city()); ?></div>
 
 
         <div class="mB10" data-status='hide'>
           <label for='city'><?php echo T_("City"); ?></label>
           <select name="city" id="city" class="select22">
-            <option value=""><?php echo T_("Please choose province"); ?></option>
+            <option value=""><?php echo T_("Please choose province 123"); ?></option>
           </select>
         </div>
 

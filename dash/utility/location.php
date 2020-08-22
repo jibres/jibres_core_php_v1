@@ -53,7 +53,7 @@ class location
 
 	public static function provinceSelector($_province = null, $_city = null)
 	{
-		$placeholder = T_("Choose your country");
+		$placeholder = ("Please choose province");
 		echo '<div class="provinceSelector">';
 		echo '<label for="province">';
 		echo T_("Province");
