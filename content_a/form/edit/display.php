@@ -337,14 +337,16 @@ function settingRecord($value)
 
 
 <?php function settingColor($value) {?>
-	color
-<label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
-<select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
-	<?php if(isset($value['choice']) && is_array($value['choice'])) {?>
-  <?php foreach ($value['choice'] as $key => $value) {?>
-    <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
-  <?php } //endfor ?>
-  <?php } //endif ?>
+<label for="item_color_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Message Type"); ?></label>
+<div>
+<select class="select22" name="item_color_<?php echo \dash\get::index($value, 'id') ?>">
+  <option value=""><?php echo T_("Default"); ?></option>
+  <option value="red" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'color') === 'red') { echo 'selected';} ?>><?php echo T_("Red (For important warning message)") ?></option>
+  <option value="green" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'color') === 'green') { echo 'selected';} ?>><?php echo T_("Green (For thank you message)") ?></option>
+  <option value="blue" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'color') === 'blue') { echo 'selected';} ?>><?php echo T_("Blue (For information message)") ?></option>
+  <option value="yellow" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'color') === 'yellow') { echo 'selected';} ?>><?php echo T_("Yellow (For warning message)") ?></option>
 </select>
+</div>
+
 <?php } // endfunction ?>
 

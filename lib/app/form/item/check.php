@@ -12,6 +12,7 @@ class check
 			'desc'         => 'desc',
 			'type'         => ['enum' =>	\lib\app\form\item\type::get_keys()],
 			'status'       => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
+			'color'       => ['enum' => ['red','green','blue','yellow',]],
 			'require'      => 'bit',
 			'maxlen'       => 'smallint',
 			'maxlen2'      => 'smallint',
@@ -87,6 +88,11 @@ class check
 			$setting[$data['type']]['check_unique'] = $data['check_unique'];
 		}
 
+		if(\dash\get::index($_current_detail, 'type_detail', 'color'))
+		{
+			$setting[$data['type']]['color'] = $data['color'];
+		}
+
 
 		$choice = null;
 		if(\dash\get::index($_current_detail, 'type_detail', 'choice'))
@@ -118,6 +124,7 @@ class check
 		unset($data['check_unique']);
 		unset($data['min']);
 		unset($data['max']);
+		unset($data['color']);
 
 		return $data;
 	}

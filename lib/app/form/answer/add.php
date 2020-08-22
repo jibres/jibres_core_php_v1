@@ -29,22 +29,6 @@ class add
 			$answer = [];
 		}
 
-		if(empty($answer))
-		{
-			\dash\notif::error(T_("Invalid answer"));
-			return false;
-		}
-
-		$item_ids = array_keys($answer);
-		$item_ids = array_map('floatval', $item_ids);
-		$item_ids = array_filter($item_ids);
-		$item_ids = array_unique($item_ids);
-		if(!$item_ids)
-		{
-			\dash\notif::error(T_("Invalid item id"));
-			return false;
-		}
-
 		$load_form = \lib\app\form\form\get::get($data['form_id']);
 		if(!$load_form)
 		{
@@ -218,6 +202,7 @@ class add
 					break;
 
 				case 'city':
+				case 'province_city':
 					$my_answer = \dash\validate::city($my_answer);
 					$answer[$item_id] = $my_answer;
 					break;
@@ -254,13 +239,13 @@ class add
 
 				case 'mobile':
 					$my_answer = \dash\validate::mobile($my_answer);
+
 					$answer[$item_id] = $my_answer;
 
 					if($check_unique)
 					{
 						$check_unique_args['answer'] = $my_answer;
 					}
-
 					break;
 
 				case 'email':
@@ -375,17 +360,13 @@ class add
 			$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
 
 			\dash\notif::ok(T_("Your answer was saved"));
-
-			if(isset($load_form['redirect']) && $load_form['redirect'])
-			{
-				\dash\redirect::to($load_form['redirect']);
-			}
 		}
-		else
+
+
+		if(isset($load_form['redirect']) && $load_form['redirect'])
 		{
-			\dash\notif::info(T_("Your form is empty"));
+			\dash\redirect::to($load_form['redirect']);
 		}
-
 
 		return true;
 	}

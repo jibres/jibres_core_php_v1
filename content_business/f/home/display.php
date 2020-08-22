@@ -12,7 +12,7 @@ if(!is_array($formItems))
 		<div class="box">
 			<div class="body">
 				<?php if(\dash\data::formDetail_desc()) {?>
-					<p><?php echo \dash\data::formDetail_desc() ?></p>
+					<p><?php echo nl2br(\dash\data::formDetail_desc()) ?></p>
 				<?php } // endif ?>
 <?php
 foreach ($formItems as $key => $value)
@@ -48,6 +48,7 @@ foreach ($formItems as $key => $value)
 		case 'website': html_input_website($value); break;
 		case 'password': html_input_password($value); break;
 		case 'yes_no': html_input_yes_no($value); break;
+		case 'message': html_input_message($value); break;
 
 		default:
 			# code...
@@ -185,7 +186,7 @@ function html_input_descriptive_after_short_answer($value) {?>
 function html_input_numeric($value) {?>
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
-	<input type="number" name="<?php myName($value); ?>" id="<?php myID($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); HtmlMin($value); HtmlMax($value) ?> >
+	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='price' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); HtmlMin($value); HtmlMax($value) ?> >
 </div>
 <?php } //endfunction
 
@@ -316,7 +317,10 @@ function html_input_gender($value) {?>
 
 
 function html_input_time($value) {?>
-<!-- comming soon -->
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
+<div class="input">
+	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='time' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+</div>
 <?php } //endfunction
 
 
@@ -379,6 +383,47 @@ function html_input_password($value) {?>
 	<input type="password" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
 <?php } //endfunction
+
+
+
+function html_input_message($value)
+{
+	if(isset($value['title']))
+	{
+		if(isset($value['setting']['message']['color']) && $value['setting']['message']['color'])
+		{
+			$class = null;
+			switch ($value['setting']['message']['color'])
+			{
+				case 'red':
+					$class = 'danger2';
+					break;
+
+				case 'green':
+					$class = 'success2';
+					break;
+
+				case 'blue':
+					$class = 'primary2';
+					break;
+
+				case 'yellow':
+					$class = 'warn2';
+					break;
+
+				default:
+					# code...
+					break;
+			}
+		}
+		echo '<div class="msg '. $class .'">'. $value['title'];
+		if(isset($value['desc']))
+		{
+			echo '<p>'. $value['desc'] .'</p>';
+		}
+		echo '</div>';
+	}
+} //endfunction
 
 
 
