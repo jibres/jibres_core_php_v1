@@ -63,6 +63,30 @@ class set
 
 
 
+	public static function sms_setting($_args)
+	{
+		$condition =
+		[
+			'kavenegar_apikey'            => 'string_100',
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'sms_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		\dash\notif::ok(T_("SMS setting saved"));
+		return true;
+	}
+
+
+
 	public static function nosale_setting($_args)
 	{
 

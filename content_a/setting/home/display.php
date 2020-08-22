@@ -143,7 +143,7 @@
             </div>
 
 
-              <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/domain">
                     <div class="c-auto"><i class="sf-earth"></i></div>
                     <div class="c">
@@ -155,7 +155,7 @@
 
 
 
-              <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/accounting">
                     <div class="c-auto"><i class="sf-book"></i></div>
                     <div class="c">
@@ -168,12 +168,22 @@
 
 
 
-              <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/form">
                     <div class="c-auto"><i class="sf-file-text-o"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Contact form"); ?></h2>
                         <p><?php echo T_("Build contact form"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/sms">
+                    <div class="c-auto"><i class="sf-envelope"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("SMS"); ?></h2>
+                        <p><?php echo T_("SMS setting"); ?></p>
                     </div>
                 </a>
             </div>
