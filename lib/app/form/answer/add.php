@@ -344,7 +344,7 @@ class add
 
 		if($signup_user && !empty($signup_user_args))
 		{
-			$user_id = \dash\db\users\insert::signup($_args);
+			$user_id = \dash\db\users\insert::signup($signup_user_args);
 
 			if($send_sms && $sms_text && $user_id)
 			{
