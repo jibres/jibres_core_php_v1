@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-22 09:12+0430\n"
-"PO-Revision-Date: 2020-08-22 09:17+0430\n"
+"POT-Creation-Date: 2020-08-22 10:43+0430\n"
+"PO-Revision-Date: 2020-08-22 11:01+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -672,8 +672,8 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
-#: content_a/form/edit/display.php:36 content_a/form/edit/display.php:37
-#: content_a/form/edit/display.php:241 content_a/order/add/display.php:62
+#: content_a/form/edit/display.php:31 content_a/form/edit/display.php:32
+#: content_a/form/edit/display.php:237 content_a/order/add/display.php:62
 #: content_a/order/detail/display.php:48 content_a/products/desc/display.php:12
 #: content_a/products/desc/display.php:18 content_a/products/tag/display.php:20
 #: content_a/products/tag/display.php:21 content_a/products/tag/display.php:116
@@ -967,7 +967,7 @@ msgstr "نام کامل"
 #: content_a/chap/size-receipt/receipt.php:79 content_a/order/add/display.php:44
 #: content_a/order/address/display.php:42 content_a/order/address/display.php:105
 #: content_a/order/detail/display.php:60 content_a/sale/display.php:44
-#: content_account/address.php:73 content_account/address.php:166
+#: content_account/address.php:55 content_account/address.php:148
 #: content_account/my/home/display.php:46
 #: content_business/home/layout/body/body_load_post.php:211
 #: content_business/home/layout/body/body_load_post.php:212
@@ -1026,7 +1026,8 @@ msgstr "پیام شما"
 msgid "jibres"
 msgstr "جیبرس"
 
-#: content/contact/display.php:65 includes/languages/trans_static_public.php:57
+#: content/contact/display.php:65 includes/languages/trans_static.php:776
+#: includes/languages/trans_static_public.php:57
 msgid "Iran"
 msgstr "ایران"
 
@@ -2746,9 +2747,9 @@ msgstr "آی‌پی"
 
 #: content/ip/home/display.php:15 content_a/accounting/irvat/add/display.php:312
 #: content_a/order/address/display.php:55 content_a/setup/address/display.php:11
-#: content_business/f/home/display.php:262 content_business/shipping/display.php:117
+#: content_business/f/home/display.php:264 content_business/shipping/display.php:117
 #: content_crm/member/general/display.php:78 content_crm/member/legal/display.php:99
-#: content_my/domain/irnic/add/display.php:55 dash/utility/location.php:12
+#: content_my/domain/irnic/add/display.php:55 dash/utility/location.php:20
 #: lib/app/form/item/type.php:155
 msgid "Country"
 msgstr "کشور"
@@ -2758,8 +2759,8 @@ msgstr "کشور"
 #: content_a/accounting/irvat/add/display.php:325
 #: content_a/chap/size-a4/oneSide-buyer.php:32
 #: content_a/chap/size-a4/oneSide-seller.php:32 content_a/order/address/display.php:68
-#: content_a/setup/address/display.php:24 content_account/address.php:36
-#: content_business/shipping/display.php:128 content_crm/member/legal/display.php:112
+#: content_a/setup/address/display.php:24 content_business/shipping/display.php:128
+#: content_crm/member/legal/display.php:112 dash/utility/location.php:71
 #: lib/app/form/item/type.php:166
 msgid "Province"
 msgstr "استان"
@@ -2769,10 +2770,11 @@ msgstr "استان"
 #: content_a/accounting/irvat/add/display.php:334
 #: content_a/chap/size-a4/oneSide-buyer.php:42
 #: content_a/chap/size-a4/oneSide-seller.php:42 content_a/order/address/display.php:77
-#: content_a/setup/address/display.php:33 content_account/address.php:45
-#: content_business/f/home/display.php:287 content_business/shipping/display.php:136
-#: content_crm/member/legal/display.php:121 content_my/domain/irnic/add/display.php:72
-#: content_my/domain/whoisdetail/whoisDetailForm.php:284 lib/app/form/item/type.php:177
+#: content_a/setup/address/display.php:33 content_business/f/home/display.php:289
+#: content_business/shipping/display.php:136 content_crm/member/legal/display.php:121
+#: content_my/domain/irnic/add/display.php:72
+#: content_my/domain/whoisdetail/whoisDetailForm.php:284 dash/utility/location.php:118
+#: lib/app/form/item/type.php:177
 msgid "City"
 msgstr "شهر"
 
@@ -3932,8 +3934,8 @@ msgstr "والد"
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/irvat/add/display.php:155
 #: content_a/accounting/irvat/add/display.php:165 content_a/android/title/display.php:8
-#: content_a/form/edit/display.php:78 content_a/form/edit/display.php:117
-#: content_business/f/home/display.php:74 content_crm/member/legal/display.php:25
+#: content_a/form/edit/display.php:74 content_a/form/edit/display.php:113
+#: content_business/f/home/display.php:76 content_crm/member/legal/display.php:25
 #: content_my/ipg/profile/display.php:41 content_my/ipg/profile/display.php:56
 #: content_my/ipg/profile/display.php:71 content_my/ipg/profile/display.php:109
 #: content_my/ipg/setup/profile/display.php:41 content_my/ipg/setup/profile/display.php:56
@@ -3969,7 +3971,7 @@ msgstr "کد"
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
 #: content_a/category/add/display.php:6 content_a/category/edit/display.php:6
 #: content_a/company/display.php:41 content_a/form/edit/display.php:5
-#: content_a/form/edit/display.php:61 content_a/form/edit/display.php:99
+#: content_a/form/edit/display.php:57 content_a/form/edit/display.php:95
 #: content_a/form/home/display.php:83 content_a/products/comment/display.php:83
 #: content_a/products/home/display.php:119 content_a/products/home/display.php:170
 #: content_a/products/tag/display.php:9 content_a/products/tag/display.php:11
@@ -4101,7 +4103,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/add/display-list.php:100
 #: content_a/accounting/doc/display.php:9 content_a/accounting/docdetail/display.php:89
 #: content_a/accounting/year/display.php:8 content_a/android/apk/display.php:32
-#: content_a/form/edit/display.php:26 content_a/order/detail/display.php:21
+#: content_a/form/edit/display.php:21 content_a/order/detail/display.php:21
 #: content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
 #: content_a/products/edit/block/sidebar-menu.php:59
@@ -4130,7 +4132,7 @@ msgstr "وضعیت"
 #: content_a/accounting/irvat/add/display.php:133
 #: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:26
 #: content_a/category/add/display.php:12 content_a/category/property/display.php:47
-#: content_a/company/display.php:73 content_a/form/edit/display.php:131
+#: content_a/company/display.php:73 content_a/form/edit/display.php:127
 #: content_a/products/add/view.php:19 content_a/products/bullet/display.php:20
 #: content_a/products/property/display.php:63 content_a/products/tag/display.php:30
 #: content_a/products/variants/display-add-new-child.php:58
@@ -4138,7 +4140,7 @@ msgstr "وضعیت"
 #: content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
-#: content_a/website/specialslider/add/display.php:51 content_account/address.php:102
+#: content_a/website/specialslider/add/display.php:51 content_account/address.php:84
 #: content_cms/terms/display.php:166 content_crm/member/add/display.php:12
 #: content_crm/member/security/display.php:139 content_my/ipg/iban/add/display.php:21
 #: content_my/ipg/wallet/add/display.php:17 content_pardakhtyar/customer/add/display.php:9
@@ -4171,7 +4173,7 @@ msgstr "افزودن"
 #: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:48
 #: content_a/website/quote/add/display.php:61 content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
-#: content_a/website/specialslider/display.php:28 content_account/address.php:171
+#: content_a/website/specialslider/display.php:28 content_account/address.php:153
 #: content_cms/comments/home/display.php:149 content_cms/terms/display.php:170
 #: content_crm/member/glance/display.php:9 content_crm/member/home/display.php:141
 #: content_crm/permission/display.php:23 content_my/domain/irnic/edit/display.php:25
@@ -4586,7 +4588,7 @@ msgstr "ظرفیت گالری تکمیل است!"
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:67
 #: content_a/order/detail/display.php:153 content_a/products/edit/block/gallery.php:9
 #: content_a/setup/logo/display.php:14 content_a/website/header/box/header_logo.php:25
-#: content_business/f/home/display.php:350 content_support/ticket/addForm.php:31
+#: content_business/f/home/display.php:352 content_support/ticket/addForm.php:31
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل خود را بکشید و اینجا رها کنید یا انتخاب کنید"
 
@@ -4721,7 +4723,7 @@ msgstr "تاریخ پایان"
 
 #: content_a/accounting/filter.php:49
 msgid "Reset document number?"
-msgstr "شماره‌گذاری مجدد اسناد حسابداری"
+msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 
 #: content_a/accounting/filter.php:52 content_a/factor/home/display.php:386
 #: content_a/order/home/display.php:396 content_a/website/footer/template/display.php:11
@@ -4946,7 +4948,7 @@ msgstr "کدملی مدیرعامل"
 #: content_a/chap/size-a4/oneSide-buyer.php:62
 #: content_a/chap/size-a4/oneSide-seller.php:62 content_a/chap/size-receipt/receipt.php:60
 #: content_a/order/address/display.php:84 content_a/order/detail/display.php:54
-#: content_a/setup/address/display.php:39 content_account/address.php:52
+#: content_a/setup/address/display.php:39 content_account/address.php:34
 #: content_business/orders/view/display.php:26 content_business/profile/display-menu.php:6
 #: content_business/shipping/display.php:142 content_crm/member/legal/display.php:128
 #: content_crm/member/pageSteps.php:71 content_love/domain/nicdetail/display.php:14
@@ -4958,7 +4960,7 @@ msgstr "آدرس"
 
 #: content_a/accounting/irvat/add/display.php:262
 #: content_a/accounting/irvat/add/display.php:344 content_a/order/address/display.php:87
-#: content_a/setup/address/display.php:42 content_account/address.php:55
+#: content_a/setup/address/display.php:42 content_account/address.php:37
 #: content_business/shipping/display.php:148 content_crm/member/legal/display.php:131
 #: content_my/domain/irnic/add/display.php:85
 #: content_my/domain/whoisdetail/whoisDetailForm.php:305
@@ -4970,8 +4972,8 @@ msgstr "کدپستی"
 #: content_a/chap/size-a4/oneSide-buyer.php:72
 #: content_a/chap/size-a4/oneSide-seller.php:72 content_a/order/address/display.php:37
 #: content_a/order/address/display.php:97 content_a/order/detail/display.php:67
-#: content_a/setup/address/display.php:47 content_account/address.php:65
-#: content_account/address.php:161 content_business/orders/view/display.php:36
+#: content_a/setup/address/display.php:47 content_account/address.php:47
+#: content_account/address.php:143 content_business/orders/view/display.php:36
 #: content_business/shipping/display.php:26 content_business/shipping/display.php:154
 #: content_crm/member/contact/display.php:17 content_crm/member/legal/display.php:139
 #: content_love/domain/nicdetail/display.php:16
@@ -4995,24 +4997,24 @@ msgid "Edit legal information"
 msgstr "ویرایش اطلاعات حقوقی"
 
 #: content_a/accounting/irvat/add/display.php:314 content_a/order/address/display.php:57
-#: content_a/setup/address/display.php:13 content_business/f/home/display.php:264
+#: content_a/setup/address/display.php:13 content_business/f/home/display.php:266
 #: content_business/shipping/display.php:119 content_crm/member/general/display.php:80
 #: content_crm/member/legal/display.php:101 content_my/domain/irnic/add/display.php:57
-#: content_my/domain/whoisdetail/whoisDetailForm.php:31 dash/utility/location.php:9
+#: content_my/domain/whoisdetail/whoisDetailForm.php:31 dash/utility/location.php:17
 msgid "Choose your country"
 msgstr "کشور خود را انتخاب کنید"
 
 #: content_a/accounting/irvat/add/display.php:327 content_a/order/address/display.php:70
-#: content_a/setup/address/display.php:26 content_account/address.php:38
-#: content_business/shipping/display.php:130 content_crm/member/legal/display.php:114
-#: content_r10/location/country/view.php:22 content_v2/location/country/view.php:22
+#: content_a/setup/address/display.php:26 content_business/shipping/display.php:130
+#: content_crm/member/legal/display.php:114 content_r10/location/country/view.php:22
+#: content_v2/location/country/view.php:22
 msgid "Please choose country"
 msgstr "لطفا کشور را انتخاب کنید"
 
 #: content_a/accounting/irvat/add/display.php:336 content_a/order/address/display.php:79
-#: content_a/setup/address/display.php:35 content_account/address.php:47
-#: content_business/shipping/display.php:138 content_crm/member/legal/display.php:123
-#: content_r10/location/province/view.php:28 content_v2/location/province/view.php:28
+#: content_a/setup/address/display.php:35 content_business/shipping/display.php:138
+#: content_crm/member/legal/display.php:123 content_r10/location/province/view.php:28
+#: content_v2/location/province/view.php:28
 msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
 
@@ -5307,7 +5309,7 @@ msgid "Myket"
 msgstr "مایکت"
 
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
-#: content_a/form/edit/display.php:131 content_a/products/desc/display.php:22
+#: content_a/form/edit/display.php:127 content_a/products/desc/display.php:22
 #: content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:4
 #: content_a/products/property/display.php:159 content_a/products/sharetext/display.php:22
@@ -5341,7 +5343,7 @@ msgstr "مایکت"
 #: content_a/website/quote/setting/display.php:40
 #: content_a/website/specialslider/setting/display.php:53
 #: content_a/website/status/display.php:27 content_a/website/text/display.php:33
-#: content_a/website/titleline/display.php:33 content_account/address.php:92
+#: content_a/website/titleline/display.php:33 content_account/address.php:74
 #: content_account/my/email/display.php:14 content_account/my/profile/display.php:48
 #: content_account/my/social/display.php:50 content_account/my/username/display.php:19
 #: content_account/personalization/language/display.php:22
@@ -5599,7 +5601,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/products/organization/display.php:37
-#: content_business/f/home/display.php:351 content_love/application/home/display.php:83
+#: content_business/f/home/display.php:353 content_love/application/home/display.php:83
 #: content_su/log/display.php:24 content_su/log/display.php:54
 #: content_su/log/display.php:85 content_su/log/display.php:116
 #: includes/languages/trans_static.php:528
@@ -5822,8 +5824,8 @@ msgstr "شناسه دسته‌بندی اشتباه است"
 #: content_a/setting/general/nosale/display.php:15
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
-#: content_a/setting/product/setting/display.php:68 content_account/address.php:84
-#: content_business/f/home/display.php:450 content_love/domain/setting/display.php:103
+#: content_a/setting/product/setting/display.php:68 content_account/address.php:66
+#: content_business/f/home/display.php:468 content_love/domain/setting/display.php:103
 #: content_love/gift/create/review/display.php:35
 #: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
 #: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
@@ -5839,8 +5841,8 @@ msgstr "بله"
 #: content_a/setting/general/nosale/display.php:15
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
-#: content_a/setting/product/setting/display.php:68 content_account/address.php:84
-#: content_business/f/home/display.php:456 content_love/domain/setting/display.php:107
+#: content_a/setting/product/setting/display.php:68 content_account/address.php:66
+#: content_business/f/home/display.php:474 content_love/domain/setting/display.php:107
 #: content_love/gift/create/review/display.php:35
 #: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
 #: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
@@ -5874,14 +5876,13 @@ msgstr "عنوان برای موتورهای جستجو"
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:46 content_a/form/edit/display.php:14
-#: content_a/products/edit/block/seo.php:22 content_a/products/edit/block/seo.php:24
-#: content_a/products/tag/display.php:14 content_a/products/tag/display.php:16
-#: content_a/products/tag/display.php:115 content_cms/posts/edit/display.php:745
-#: content_cms/posts/edit/display.php:747 content_cms/posts/home/display.php:96
-#: content_cms/terms/display.php:97 content_cms/terms/display.php:187
-#: content_cms/terms/display.php:189 content_crm/permission/add/display.php:23
-#: content_crm/permission/delete/display.php:26
+#: content_a/category/edit/display.php:46 content_a/products/edit/block/seo.php:22
+#: content_a/products/edit/block/seo.php:24 content_a/products/tag/display.php:14
+#: content_a/products/tag/display.php:16 content_a/products/tag/display.php:115
+#: content_cms/posts/edit/display.php:745 content_cms/posts/edit/display.php:747
+#: content_cms/posts/home/display.php:96 content_cms/terms/display.php:97
+#: content_cms/terms/display.php:187 content_cms/terms/display.php:189
+#: content_crm/permission/add/display.php:23 content_crm/permission/delete/display.php:26
 msgid "Slug"
 msgstr "نامک"
 
@@ -6791,109 +6792,109 @@ msgstr "فرم تماس"
 msgid "Unknown"
 msgstr "ناشناس"
 
-#: content_a/form/edit/display.php:20
+#: content_a/form/edit/display.php:15
 msgid "Redirect after submit"
 msgstr "انتقال بعد از تکمیل فرم"
 
-#: content_a/form/edit/display.php:28
+#: content_a/form/edit/display.php:23
 msgid "Please select on item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
-#: content_a/form/edit/display.php:29 content_love/gift/edit/display.php:76
+#: content_a/form/edit/display.php:24 content_love/gift/edit/display.php:76
 #: includes/languages/trans_static.php:325 includes/languages/trans_static.php:422
 #: includes/languages/trans_static_public.php:912
 msgid "draft"
 msgstr "پیش نویس"
 
-#: content_a/form/edit/display.php:30 includes/languages/trans_static.php:324
+#: content_a/form/edit/display.php:25 includes/languages/trans_static.php:324
 #: includes/languages/trans_static.php:428
 msgid "publish"
 msgstr "منتشر شده"
 
-#: content_a/form/edit/display.php:31 content_love/gift/edit/display.php:80
+#: content_a/form/edit/display.php:26 content_love/gift/edit/display.php:80
 #: includes/languages/trans_static.php:290 includes/languages/trans_static.php:421
 #: includes/languages/trans_static_public.php:854
 msgid "expire"
 msgstr "منقضی شده"
 
-#: content_a/form/edit/display.php:32 includes/languages/trans_static.php:504
+#: content_a/form/edit/display.php:27 includes/languages/trans_static.php:504
 #: includes/languages/trans_static_public.php:207
 #: includes/languages/trans_static_public.php:856
 msgid "lock"
 msgstr "قفل سیستم"
 
-#: content_a/form/edit/display.php:247
+#: content_a/form/edit/display.php:243
 msgid "Maximum len"
 msgstr "حداکثر طول"
 
-#: content_a/form/edit/display.php:257
+#: content_a/form/edit/display.php:253
 msgid "Minimum"
 msgstr "حداقل"
 
-#: content_a/form/edit/display.php:265
+#: content_a/form/edit/display.php:261
 msgid "Maximum"
 msgstr "حداکثر"
 
-#: content_a/form/edit/display.php:276
+#: content_a/form/edit/display.php:272
 msgid "Placeholder"
 msgstr "متن راهنمایی"
 
-#: content_a/form/edit/display.php:287
+#: content_a/form/edit/display.php:283
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/edit/display.php:287
+#: content_a/form/edit/display.php:283
 msgid "Type choice and press Enter"
 msgstr "گزینه‌ها را تایپ کنید و کلید اینتر را بزنید"
 
-#: content_a/form/edit/display.php:302
+#: content_a/form/edit/display.php:298
 msgid "Put every choice in one line"
 msgstr "قرار دادن هر گزینه در یک خط"
 
-#: content_a/form/edit/display.php:311
+#: content_a/form/edit/display.php:307
 msgid "Random choice"
 msgstr "قرارگیری تصادفی گزینه‌ها"
 
-#: content_a/form/edit/display.php:320
+#: content_a/form/edit/display.php:316
 msgid "Check unique"
 msgstr "بررسی تکراری نبودن"
 
-#: content_a/form/edit/display.php:333
+#: content_a/form/edit/display.php:329
 msgid "Allow extention file"
 msgstr "فایل‌های مجاز به ارسال"
 
-#: content_a/form/edit/display.php:336
+#: content_a/form/edit/display.php:332
 msgid "Any file"
 msgstr "هرفایلی"
 
-#: content_a/form/edit/display.php:346 content_a/setting/cart/text/display.php:14
+#: content_a/form/edit/display.php:342 content_a/setting/cart/text/display.php:14
 #: content_a/setting/shipping/text/display.php:14
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/edit/display.php:349 content_a/setting/cart/text/display.php:18
+#: content_a/form/edit/display.php:345 content_a/setting/cart/text/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:18
 #: content_a/website/news/display.php:35 content_love/domain/irnic/display.php:58
 #: content_my/domain/irnic/display.php:58
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/edit/display.php:350 content_a/setting/cart/text/display.php:19
+#: content_a/form/edit/display.php:346 content_a/setting/cart/text/display.php:19
 #: content_a/setting/shipping/text/display.php:19
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/edit/display.php:351 content_a/setting/cart/text/display.php:20
+#: content_a/form/edit/display.php:347 content_a/setting/cart/text/display.php:20
 #: content_a/setting/shipping/text/display.php:20
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/edit/display.php:352 content_a/setting/cart/text/display.php:21
+#: content_a/form/edit/display.php:348 content_a/setting/cart/text/display.php:21
 #: content_a/setting/shipping/text/display.php:21
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/edit/display.php:353 content_a/setting/cart/text/display.php:22
+#: content_a/form/edit/display.php:349 content_a/setting/cart/text/display.php:22
 #: content_a/setting/shipping/text/display.php:22
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
@@ -6920,7 +6921,7 @@ msgstr "با فرم تماس از مشتریان خود نظرسنجی کنید"
 
 #: content_a/form/home/display.php:10
 msgid "Add contact form now!"
-msgstr "همین الان یک فرم تماس ایجاد کنید"
+msgstr "همین الان یک فرم تماس ایجاد کنید!"
 
 #: content_a/form/home/display.php:85 content_a/form/home/display.php:96
 msgid "Answers"
@@ -7040,7 +7041,7 @@ msgstr "شناسه سفارش اشتباه است"
 msgid "Edit Order Address"
 msgstr "ویرایش آدرس سفارش"
 
-#: content_a/order/address/display.php:29 content_account/address.php:150
+#: content_a/order/address/display.php:29 content_account/address.php:132
 #: content_business/orders/view/display.php:32
 msgid "Postal code"
 msgstr "کد پستی"
@@ -7050,7 +7051,7 @@ msgid "Name of person in this address"
 msgstr "نام شخصی که در این آدرس حضور دارد"
 
 #: content_a/order/address/display.php:84 content_a/products/tag/display.php:9
-#: content_account/address.php:52 content_business/shipping/display.php:108
+#: content_account/address.php:34 content_business/shipping/display.php:108
 #: content_business/shipping/display.php:142 content_cms/terms/display.php:179
 #: content_crm/member/general/display.php:101 content_crm/member/general/display.php:107
 #: content_crm/permission/add/display.php:23 content_crm/permission/add/display.php:27
@@ -7064,7 +7065,7 @@ msgstr "نام شخصی که در این آدرس حضور دارد"
 msgid "Require"
 msgstr "الزامی"
 
-#: content_a/order/address/display.php:117 content_account/address.php:85
+#: content_a/order/address/display.php:117 content_account/address.php:67
 msgid "Is this a company's address?"
 msgstr "این آدرس شرکت است؟"
 
@@ -8621,7 +8622,7 @@ msgid "Please choose your business default language"
 msgstr "لطفا زبان پیشفرض بیزینس خود را انتخاب کنید"
 
 #: content_a/setting/general/lang/display.php:16 content_account/my/profile/display.php:36
-#: content_business/f/home/display.php:124 content_business/profile/detail/display.php:35
+#: content_business/f/home/display.php:126 content_business/profile/detail/display.php:35
 #: content_cms/posts/edit/display.php:172 content_cms/posts/edit/display.php:639
 #: content_cms/posts/home/display.php:69 content_cms/terms/display.php:285
 #: content_crm/transactions/add/display.php:41 content_crm/transactions/add/display.php:53
@@ -10775,13 +10776,13 @@ msgstr "افزودن آدرس جدید"
 msgid "Title of address"
 msgstr "عنوان آدرس"
 
-#: content_account/address.php:96 content_business/cart/display.php:52
+#: content_account/address.php:78 content_business/cart/display.php:52
 #: content_crm/member/glance/display.php:225 content_crm/member/security/display.php:111
 #: includes/languages/trans_static.php:542 includes/languages/trans_static_public.php:88
 msgid "Delete"
 msgstr "حذف"
 
-#: content_account/address.php:118
+#: content_account/address.php:100
 msgid "Saved address"
 msgstr "آدرس‌های ذخیره شده"
 
@@ -11812,19 +11813,19 @@ msgstr "سبد خرید"
 msgid "Invalid category url"
 msgstr "آدرس دسته‌ اشتباه است"
 
-#: content_business/f/home/display.php:61
+#: content_business/f/home/display.php:63
 msgid "Submit"
 msgstr "تایید"
 
-#: content_business/f/home/display.php:289
+#: content_business/f/home/display.php:291
 msgid "Choose your city"
 msgstr "شهر خود را انتخاب کنید"
 
-#: content_business/f/home/display.php:305
+#: content_business/f/home/display.php:307
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: content_business/f/home/display.php:311
+#: content_business/f/home/display.php:313
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
@@ -18848,7 +18849,7 @@ msgstr "پیام شما ذخیره شد"
 msgid "Your message has been added"
 msgstr "پیام شما اضافه شد"
 
-#: content_support/ticket/show/model.php:426 lib/app/form/answer/add.php:377
+#: content_support/ticket/show/model.php:426 lib/app/form/answer/add.php:378
 #: lib/app/product/comment.php:366
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
@@ -24271,6 +24272,998 @@ msgstr ""
 "جیبرس تنها یک نرم‌افزار حسابداری آنلاین نیست. ما در تلاش برای خلق برترین پلتفرم مالی "
 "جهان هستیم تا تمام نیازهای مالی دنیای شما را برطرف کنیم."
 
+#: includes/languages/trans_static.php:777
+msgid "Afghanistan"
+msgstr "افغانستان"
+
+#: includes/languages/trans_static.php:778
+msgid "Åland"
+msgstr "ایلند"
+
+#: includes/languages/trans_static.php:779
+msgid "Albania"
+msgstr "آلبانی"
+
+#: includes/languages/trans_static.php:780
+msgid "Algeria"
+msgstr "الجزیره"
+
+#: includes/languages/trans_static.php:781
+msgid "American Samoa"
+msgstr "ساموآی آمریکا"
+
+#: includes/languages/trans_static.php:782
+msgid "Andorra"
+msgstr "آندورا"
+
+#: includes/languages/trans_static.php:783
+msgid "Angola"
+msgstr "آنگولا"
+
+#: includes/languages/trans_static.php:784
+msgid "Anguilla"
+msgstr "آنگویلا"
+
+#: includes/languages/trans_static.php:785
+msgid "Antarctica"
+msgstr "قطب جنوب"
+
+#: includes/languages/trans_static.php:786
+msgid "Antigua And Barbuda"
+msgstr "آنتیگوآ و باربودا"
+
+#: includes/languages/trans_static.php:787
+msgid "Argentina"
+msgstr "آرژانتین"
+
+#: includes/languages/trans_static.php:788
+msgid "Armenia"
+msgstr "آرمانیا"
+
+#: includes/languages/trans_static.php:789
+msgid "Aruba"
+msgstr "آرابا"
+
+#: includes/languages/trans_static.php:790
+msgid "Australia"
+msgstr "استرالیا"
+
+#: includes/languages/trans_static.php:791
+msgid "Austria"
+msgstr "اتریش"
+
+#: includes/languages/trans_static.php:792
+msgid "Azerbaijan"
+msgstr "آذربایجان"
+
+#: includes/languages/trans_static.php:793
+msgid "Bahamas"
+msgstr "باهاما"
+
+#: includes/languages/trans_static.php:794
+msgid "Bahrain"
+msgstr "بحرین"
+
+#: includes/languages/trans_static.php:795
+msgid "Bangladesh"
+msgstr "بنگلادش"
+
+#: includes/languages/trans_static.php:796
+msgid "Barbados"
+msgstr "باربادوس"
+
+#: includes/languages/trans_static.php:797
+msgid "Belarus"
+msgstr "بلاروس"
+
+#: includes/languages/trans_static.php:798
+msgid "Belgium"
+msgstr "بلژیک"
+
+#: includes/languages/trans_static.php:799
+msgid "Belize"
+msgstr "بیگانه"
+
+#: includes/languages/trans_static.php:800
+msgid "Benin"
+msgstr "بنین"
+
+#: includes/languages/trans_static.php:801
+msgid "Bermuda"
+msgstr "برمودا"
+
+#: includes/languages/trans_static.php:802
+msgid "Bhutan"
+msgstr "بوتان"
+
+#: includes/languages/trans_static.php:803
+msgid "Bolivia"
+msgstr "بولیوی"
+
+#: includes/languages/trans_static.php:804
+msgid "Bonaire"
+msgstr "بونیر"
+
+#: includes/languages/trans_static.php:805
+msgid "Bosnia And Herzegovina"
+msgstr "بوسنی و هرزگوین"
+
+#: includes/languages/trans_static.php:806
+msgid "Botswana"
+msgstr "بوتسوانا"
+
+#: includes/languages/trans_static.php:807
+msgid "Bouvet Island"
+msgstr "جزیره بوک"
+
+#: includes/languages/trans_static.php:808
+msgid "Brazil"
+msgstr "برزیل"
+
+#: includes/languages/trans_static.php:809
+msgid "British Indian Ocean Territory"
+msgstr "قلمرو اقیانوس هند بریتانیا"
+
+#: includes/languages/trans_static.php:810
+msgid "British Virgin Islands"
+msgstr "جزایر ویرجین بریتانیایی"
+
+#: includes/languages/trans_static.php:811
+msgid "Brunei"
+msgstr "برونئی"
+
+#: includes/languages/trans_static.php:812
+msgid "Bulgaria"
+msgstr "بلغارستان"
+
+#: includes/languages/trans_static.php:813
+msgid "Burkina Faso"
+msgstr "بورکینافاسو"
+
+#: includes/languages/trans_static.php:814
+msgid "Burundi"
+msgstr "بوروندی"
+
+#: includes/languages/trans_static.php:815
+msgid "Cambodia"
+msgstr "کامبوج"
+
+#: includes/languages/trans_static.php:816
+msgid "Cameroon"
+msgstr "کامرون"
+
+#: includes/languages/trans_static.php:817
+msgid "Canada"
+msgstr "کانادایی"
+
+#: includes/languages/trans_static.php:818
+msgid "Cape Verde"
+msgstr "کلاه سرخ"
+
+#: includes/languages/trans_static.php:819
+msgid "Cayman Islands"
+msgstr "جزایر کیمن"
+
+#: includes/languages/trans_static.php:820
+msgid "Central African Republic"
+msgstr "جمهوری آفریقای مرکزی"
+
+#: includes/languages/trans_static.php:821
+msgid "Chad"
+msgstr "چاد"
+
+#: includes/languages/trans_static.php:822
+msgid "Chile"
+msgstr "شیلی"
+
+#: includes/languages/trans_static.php:823
+msgid "China"
+msgstr "چین"
+
+#: includes/languages/trans_static.php:824
+msgid "Christmas Island"
+msgstr "جزیره کریسمس"
+
+#: includes/languages/trans_static.php:825
+msgid "Cocos (Keeling) Islands"
+msgstr "جزایر کوکوس"
+
+#: includes/languages/trans_static.php:826
+msgid "Colombia"
+msgstr "کلمبیا"
+
+#: includes/languages/trans_static.php:827
+msgid "Comoros"
+msgstr "کومور"
+
+#: includes/languages/trans_static.php:828
+msgid "Cook Islands"
+msgstr "جزایر کوک"
+
+#: includes/languages/trans_static.php:829
+msgid "Costa Rica"
+msgstr "کاستاریکا"
+
+#: includes/languages/trans_static.php:830
+msgid "Croatia"
+msgstr "کرواتی"
+
+#: includes/languages/trans_static.php:831
+msgid "Cuba"
+msgstr "کوبا"
+
+#: includes/languages/trans_static.php:832
+msgid "Curacao"
+msgstr "کوراسائو"
+
+#: includes/languages/trans_static.php:833
+msgid "Cyprus"
+msgstr "قبرس"
+
+#: includes/languages/trans_static.php:834
+msgid "Czech Republic"
+msgstr "جمهوری چک"
+
+#: includes/languages/trans_static.php:835
+msgid "Democratic Republic Of The Congo"
+msgstr "جمهوری دموکراتیک کنگو"
+
+#: includes/languages/trans_static.php:836
+msgid "Denmark"
+msgstr "علامت"
+
+#: includes/languages/trans_static.php:837
+msgid "Djibouti"
+msgstr "جیبوتی"
+
+#: includes/languages/trans_static.php:838
+msgid "Dominica"
+msgstr "دومینیکا"
+
+#: includes/languages/trans_static.php:839
+msgid "Dominican Republic"
+msgstr "جمهوری دومینیکن"
+
+#: includes/languages/trans_static.php:840
+msgid "East Timor"
+msgstr "تایمر شرقی"
+
+#: includes/languages/trans_static.php:841
+msgid "Ecuador"
+msgstr "اکوادور"
+
+#: includes/languages/trans_static.php:842
+msgid "Egypt"
+msgstr "مصر"
+
+#: includes/languages/trans_static.php:843
+msgid "El Salvador"
+msgstr "السالوادور"
+
+#: includes/languages/trans_static.php:844
+msgid "Equatorial Guinea"
+msgstr "گینه استوایی"
+
+#: includes/languages/trans_static.php:845
+msgid "Eritrea"
+msgstr "اریتره"
+
+#: includes/languages/trans_static.php:846
+msgid "Estonia"
+msgstr "استونی"
+
+#: includes/languages/trans_static.php:847
+msgid "Ethiopia"
+msgstr "اتیوپی"
+
+#: includes/languages/trans_static.php:848
+msgid "Falkland Islands"
+msgstr "جزایر فالکلند"
+
+#: includes/languages/trans_static.php:849
+msgid "Faroe Islands"
+msgstr "جزایر فارو"
+
+#: includes/languages/trans_static.php:850
+msgid "Fiji"
+msgstr "فیجی"
+
+#: includes/languages/trans_static.php:851
+msgid "Finland"
+msgstr "مالزی"
+
+#: includes/languages/trans_static.php:852
+msgid "France"
+msgstr "فرانسه"
+
+#: includes/languages/trans_static.php:853
+msgid "French Guiana"
+msgstr "گویان فرانسوی"
+
+#: includes/languages/trans_static.php:854
+msgid "French Polynesia"
+msgstr "پلینزی فرانسوی"
+
+#: includes/languages/trans_static.php:855
+msgid "French Southern Territories"
+msgstr "سرزمین‌های جنوبی فرانسوی"
+
+#: includes/languages/trans_static.php:856
+msgid "Gabon"
+msgstr "گابون"
+
+#: includes/languages/trans_static.php:857
+msgid "Gambia"
+msgstr "گامبیا"
+
+#: includes/languages/trans_static.php:858
+msgid "Georgia"
+msgstr "جورجیا"
+
+#: includes/languages/trans_static.php:859
+msgid "Germany"
+msgstr "آلمان"
+
+#: includes/languages/trans_static.php:860
+msgid "Ghana"
+msgstr "غنا"
+
+#: includes/languages/trans_static.php:861
+msgid "Gibraltar"
+msgstr "جبل الطارق"
+
+#: includes/languages/trans_static.php:862
+msgid "Greece"
+msgstr "یونان"
+
+#: includes/languages/trans_static.php:863
+msgid "Greenland"
+msgstr "گرینلند"
+
+#: includes/languages/trans_static.php:864
+msgid "Grenada"
+msgstr "گرانادا"
+
+#: includes/languages/trans_static.php:865
+msgid "Guadeloupe"
+msgstr "گوادلوپ"
+
+#: includes/languages/trans_static.php:866
+msgid "Guam"
+msgstr "گام"
+
+#: includes/languages/trans_static.php:867
+msgid "Guatemala"
+msgstr "گواتمالا"
+
+#: includes/languages/trans_static.php:868
+msgid "Guernsey"
+msgstr "گرنسی"
+
+#: includes/languages/trans_static.php:869
+msgid "Guinea"
+msgstr "گینه"
+
+#: includes/languages/trans_static.php:870
+msgid "Guinea-bissau"
+msgstr "گینه بیسائو"
+
+#: includes/languages/trans_static.php:871
+msgid "Guyana"
+msgstr "گویانا"
+
+#: includes/languages/trans_static.php:872
+msgid "Haiti"
+msgstr "هیتی"
+
+#: includes/languages/trans_static.php:873
+msgid "Heard Island And Mcdonald Islands"
+msgstr "جزیره هرد و جزایر مک‌دونالد"
+
+#: includes/languages/trans_static.php:874
+msgid "Honduras"
+msgstr "هندوراس"
+
+#: includes/languages/trans_static.php:875
+msgid "Hong Kong"
+msgstr "هنگ کنگ"
+
+#: includes/languages/trans_static.php:876
+msgid "Hungary"
+msgstr "مجارستان"
+
+#: includes/languages/trans_static.php:877
+msgid "Iceland"
+msgstr "اقیانوس آرام"
+
+#: includes/languages/trans_static.php:878
+msgid "India"
+msgstr "هندوستان"
+
+#: includes/languages/trans_static.php:879
+msgid "Indonesia"
+msgstr "اندونزی"
+
+#: includes/languages/trans_static.php:880
+msgid "Iraq"
+msgstr "عراق"
+
+#: includes/languages/trans_static.php:881
+msgid "Ireland"
+msgstr "ایرلند"
+
+#: includes/languages/trans_static.php:882
+msgid "Isle Of Man"
+msgstr "جزیره من"
+
+#: includes/languages/trans_static.php:883
+msgid "Italy"
+msgstr "ایتالیا"
+
+#: includes/languages/trans_static.php:884
+msgid "Ivory Coast"
+msgstr "ساحل عاج"
+
+#: includes/languages/trans_static.php:885
+msgid "Jamaica"
+msgstr "جامائیکا"
+
+#: includes/languages/trans_static.php:886
+msgid "Japan"
+msgstr "ژاپن"
+
+#: includes/languages/trans_static.php:887
+msgid "Jersey"
+msgstr "جرزی"
+
+#: includes/languages/trans_static.php:888
+msgid "Jordan"
+msgstr "اردن"
+
+#: includes/languages/trans_static.php:889
+msgid "Kazakhstan"
+msgstr "قزاقستان"
+
+#: includes/languages/trans_static.php:890
+msgid "Kenya"
+msgstr "کنیا"
+
+#: includes/languages/trans_static.php:891
+msgid "Kiribati"
+msgstr "کریباتی"
+
+#: includes/languages/trans_static.php:892
+msgid "Kosovo"
+msgstr "کوزوو"
+
+#: includes/languages/trans_static.php:893
+msgid "Kuwait"
+msgstr "کویت"
+
+#: includes/languages/trans_static.php:894
+msgid "Kyrgyzstan"
+msgstr "قرقیزستان"
+
+#: includes/languages/trans_static.php:895
+msgid "Laos"
+msgstr "لاوس"
+
+#: includes/languages/trans_static.php:896
+msgid "Latvia"
+msgstr "لتونی"
+
+#: includes/languages/trans_static.php:897
+msgid "Lebanon"
+msgstr "لبنان"
+
+#: includes/languages/trans_static.php:898
+msgid "Lesotho"
+msgstr "لسوتو"
+
+#: includes/languages/trans_static.php:899
+msgid "Liberia"
+msgstr "لیبریا"
+
+#: includes/languages/trans_static.php:900
+msgid "Libya"
+msgstr "لیبیا"
+
+#: includes/languages/trans_static.php:901
+msgid "Liechtenstein"
+msgstr "لیختن اشتاین"
+
+#: includes/languages/trans_static.php:902
+msgid "Lithuania"
+msgstr "لیتوانی"
+
+#: includes/languages/trans_static.php:903
+msgid "Luxembourg"
+msgstr "لوکسبورگ"
+
+#: includes/languages/trans_static.php:904
+msgid "Macau"
+msgstr "ماکائو"
+
+#: includes/languages/trans_static.php:905
+msgid "Macedonia"
+msgstr "مقدونیه"
+
+#: includes/languages/trans_static.php:906
+msgid "Madagascar"
+msgstr "ماداگاسکار"
+
+#: includes/languages/trans_static.php:907
+msgid "Malawi"
+msgstr "مالاوی"
+
+#: includes/languages/trans_static.php:908
+msgid "Malaysia"
+msgstr "مالزی"
+
+#: includes/languages/trans_static.php:909
+msgid "Maldives"
+msgstr "مالدیو"
+
+#: includes/languages/trans_static.php:910
+msgid "Mali"
+msgstr "مالی"
+
+#: includes/languages/trans_static.php:911
+msgid "Malta"
+msgstr "مالتا"
+
+#: includes/languages/trans_static.php:912
+msgid "Marshall Islands"
+msgstr "جزایر مارشال"
+
+#: includes/languages/trans_static.php:913
+msgid "Martinique"
+msgstr "مارتینیک"
+
+#: includes/languages/trans_static.php:914
+msgid "Mauritania"
+msgstr "موریتانی"
+
+#: includes/languages/trans_static.php:915
+msgid "Mauritius"
+msgstr "موریس"
+
+#: includes/languages/trans_static.php:916
+msgid "Mayotte"
+msgstr "مایوته"
+
+#: includes/languages/trans_static.php:917
+msgid "Mexico"
+msgstr "مکزیکو"
+
+#: includes/languages/trans_static.php:918
+msgid "Micronesia"
+msgstr "میکرونزی"
+
+#: includes/languages/trans_static.php:919
+msgid "Moldova"
+msgstr "مولداوی"
+
+#: includes/languages/trans_static.php:920
+msgid "Monaco"
+msgstr "موناکو"
+
+#: includes/languages/trans_static.php:921
+msgid "Mongolia"
+msgstr "مغولستان"
+
+#: includes/languages/trans_static.php:922
+msgid "Montenegro"
+msgstr "مونته‌نگرو"
+
+#: includes/languages/trans_static.php:923
+msgid "Montserrat"
+msgstr "مونتسرات"
+
+#: includes/languages/trans_static.php:924
+msgid "Morocco"
+msgstr "مراکش"
+
+#: includes/languages/trans_static.php:925
+msgid "Mozambique"
+msgstr "موزامبیک"
+
+#: includes/languages/trans_static.php:926
+msgid "Myanmar (Burma)"
+msgstr "میانمار (بورام)"
+
+#: includes/languages/trans_static.php:927
+msgid "Namibia"
+msgstr "نامیبیا"
+
+#: includes/languages/trans_static.php:928
+msgid "Nauru"
+msgstr "نائورو"
+
+#: includes/languages/trans_static.php:929
+msgid "Nepal"
+msgstr "نپال"
+
+#: includes/languages/trans_static.php:930
+msgid "Netherlands"
+msgstr "هلند"
+
+#: includes/languages/trans_static.php:931
+msgid "New Caledonia"
+msgstr "کالدونیای جدید"
+
+#: includes/languages/trans_static.php:932
+msgid "New Zealand"
+msgstr "نیوزلند"
+
+#: includes/languages/trans_static.php:933
+msgid "Nicaragua"
+msgstr "نیکاراگوئه"
+
+#: includes/languages/trans_static.php:934
+msgid "Niger"
+msgstr "نایگر"
+
+#: includes/languages/trans_static.php:935
+msgid "Nigeria"
+msgstr "نیجریه"
+
+#: includes/languages/trans_static.php:936
+msgid "Niue"
+msgstr "نیچه"
+
+#: includes/languages/trans_static.php:937
+msgid "Norfolk Island"
+msgstr "جزیره نورفولک"
+
+#: includes/languages/trans_static.php:938
+msgid "North Korea"
+msgstr "کره شمالی"
+
+#: includes/languages/trans_static.php:939
+msgid "Northern Mariana Islands"
+msgstr "جزایر ماریانای شمالی"
+
+#: includes/languages/trans_static.php:940
+msgid "Norway"
+msgstr "نروژی"
+
+#: includes/languages/trans_static.php:941
+msgid "Oman"
+msgstr "عمان"
+
+#: includes/languages/trans_static.php:942
+msgid "Pakistan"
+msgstr "پاکستان"
+
+#: includes/languages/trans_static.php:943
+msgid "Palau"
+msgstr "پائولو"
+
+#: includes/languages/trans_static.php:944
+msgid "Palestine"
+msgstr "فلسطین"
+
+#: includes/languages/trans_static.php:945
+msgid "Panama"
+msgstr "پاناما"
+
+#: includes/languages/trans_static.php:946
+msgid "Papua New Guinea"
+msgstr "پاپو گینه جدید"
+
+#: includes/languages/trans_static.php:947
+msgid "Paraguay"
+msgstr "پاراگوئه"
+
+#: includes/languages/trans_static.php:948
+msgid "Peru"
+msgstr "پرو"
+
+#: includes/languages/trans_static.php:949
+msgid "Philippines"
+msgstr "فیلیپین"
+
+#: includes/languages/trans_static.php:950
+msgid "Pitcairn Islands"
+msgstr "جزایر پیت کرن"
+
+#: includes/languages/trans_static.php:951
+msgid "Poland"
+msgstr "لهستان"
+
+#: includes/languages/trans_static.php:952
+msgid "Portugal"
+msgstr "کشور پرتغال"
+
+#: includes/languages/trans_static.php:953
+msgid "Puerto Rico"
+msgstr "پورتوریکو"
+
+#: includes/languages/trans_static.php:954
+msgid "Qatar"
+msgstr "قطر"
+
+#: includes/languages/trans_static.php:955
+msgid "Republic Of The Congo"
+msgstr "جمهوری کنگو"
+
+#: includes/languages/trans_static.php:956
+msgid "Réunion"
+msgstr "تجدید دیدار"
+
+#: includes/languages/trans_static.php:957
+msgid "Romania"
+msgstr "رومانی"
+
+#: includes/languages/trans_static.php:958
+msgid "Russia"
+msgstr "روسیه"
+
+#: includes/languages/trans_static.php:959
+msgid "Rwanda"
+msgstr "رواندا"
+
+#: includes/languages/trans_static.php:960
+msgid "Saint Barthélemy"
+msgstr "سنت بارتملی"
+
+#: includes/languages/trans_static.php:961
+msgid "Saint Helena"
+msgstr "صلیب هلنا"
+
+#: includes/languages/trans_static.php:962
+msgid "Saint Kitts And Nevis"
+msgstr "کتیبه‌های سنت و نه"
+
+#: includes/languages/trans_static.php:963
+msgid "Saint Lucia"
+msgstr "سنت لوسیا"
+
+#: includes/languages/trans_static.php:964
+msgid "Saint Martin"
+msgstr "مارتین سنت"
+
+#: includes/languages/trans_static.php:965
+msgid "Saint Pierre And Miquelon"
+msgstr "سنت پرور و میکلون"
+
+#: includes/languages/trans_static.php:966
+msgid "Saint Vincent And The Grenadines"
+msgstr "سنت وینسنت و گرانادین"
+
+#: includes/languages/trans_static.php:967
+msgid "Samoa"
+msgstr "ساموا"
+
+#: includes/languages/trans_static.php:968
+msgid "San Marino"
+msgstr "سان مارینو"
+
+#: includes/languages/trans_static.php:969
+msgid "São Tomé And Príncipe"
+msgstr "سائوتومه و پرنسیپ"
+
+#: includes/languages/trans_static.php:970
+msgid "Saudi Arabia"
+msgstr "عربستان سعودی"
+
+#: includes/languages/trans_static.php:971
+msgid "Senegal"
+msgstr "سنگال"
+
+#: includes/languages/trans_static.php:972
+msgid "Serbia"
+msgstr "صربستان"
+
+#: includes/languages/trans_static.php:973
+msgid "Seychelles"
+msgstr "سیشل"
+
+#: includes/languages/trans_static.php:974
+msgid "Sierra Leone"
+msgstr "سیرا لئون"
+
+#: includes/languages/trans_static.php:975
+msgid "Singapore"
+msgstr "سیناپور"
+
+#: includes/languages/trans_static.php:976
+msgid "Sint Maarten"
+msgstr "سینت مارتین"
+
+#: includes/languages/trans_static.php:977
+msgid "Slovakia"
+msgstr "اسلواکی"
+
+#: includes/languages/trans_static.php:978
+msgid "Slovenia"
+msgstr "اسلوونی"
+
+#: includes/languages/trans_static.php:979
+msgid "Solomon Islands"
+msgstr "جزایر سلیمان"
+
+#: includes/languages/trans_static.php:980
+msgid "Somalia"
+msgstr "سومالی"
+
+#: includes/languages/trans_static.php:981
+msgid "South Africa"
+msgstr "آفریقای جنوبی"
+
+#: includes/languages/trans_static.php:982
+msgid "South Georgia And The South Sandwich Islands"
+msgstr "جورجیا جنوبی و جزایر ساندویچ جنوبی"
+
+#: includes/languages/trans_static.php:983
+msgid "South Korea"
+msgstr "کره جنوبی"
+
+#: includes/languages/trans_static.php:984
+msgid "South Sudan"
+msgstr "سودان جنوبی"
+
+#: includes/languages/trans_static.php:985
+msgid "Spain"
+msgstr "اسپانیا"
+
+#: includes/languages/trans_static.php:986
+msgid "Sri Lanka"
+msgstr "سری لانکا"
+
+#: includes/languages/trans_static.php:987
+msgid "Sudan"
+msgstr "سودان"
+
+#: includes/languages/trans_static.php:988
+msgid "Suriname"
+msgstr "سورینام"
+
+#: includes/languages/trans_static.php:989
+msgid "Svalbard And Jan Mayen"
+msgstr "سوالبارد و یان ماین"
+
+#: includes/languages/trans_static.php:990
+msgid "Swaziland"
+msgstr "سوازیلند"
+
+#: includes/languages/trans_static.php:991
+msgid "Sweden"
+msgstr "سوئد"
+
+#: includes/languages/trans_static.php:992
+msgid "Switzerland"
+msgstr "سوئیس"
+
+#: includes/languages/trans_static.php:993
+msgid "Syria"
+msgstr "سوریه"
+
+#: includes/languages/trans_static.php:994
+msgid "Taiwan"
+msgstr "تایوان"
+
+#: includes/languages/trans_static.php:995
+msgid "Tajikistan"
+msgstr "تاجیکستان"
+
+#: includes/languages/trans_static.php:996
+msgid "Tanzania"
+msgstr "تانزانیا"
+
+#: includes/languages/trans_static.php:997
+msgid "Thailand"
+msgstr "تایلند"
+
+#: includes/languages/trans_static.php:998
+msgid "Togo"
+msgstr "توگو"
+
+#: includes/languages/trans_static.php:999
+msgid "Tokelau"
+msgstr "توکلو"
+
+#: includes/languages/trans_static.php:1000
+msgid "Tonga"
+msgstr "تنگا"
+
+#: includes/languages/trans_static.php:1001
+msgid "Trinidad And Tobago"
+msgstr "ترینیداد و توباگو"
+
+#: includes/languages/trans_static.php:1002
+msgid "Tunisia"
+msgstr "تونس"
+
+#: includes/languages/trans_static.php:1003
+msgid "Turkey"
+msgstr "ترکیه"
+
+#: includes/languages/trans_static.php:1004
+msgid "Turkmenistan"
+msgstr "تركمنستان"
+
+#: includes/languages/trans_static.php:1005
+msgid "Turks And Caicos Islands"
+msgstr "جزایر تورک و کیکوس"
+
+#: includes/languages/trans_static.php:1006
+msgid "Tuvalu"
+msgstr "تووالو"
+
+#: includes/languages/trans_static.php:1007
+msgid "U.s. Minor Outlying Islands'"
+msgstr "جزایر جزر و مدی کوچک"
+
+#: includes/languages/trans_static.php:1008
+msgid "U.s. Virgin Islands"
+msgstr "جزایر ویرجین بریتانیایی"
+
+#: includes/languages/trans_static.php:1009
+msgid "Uganda"
+msgstr "اوگاندا"
+
+#: includes/languages/trans_static.php:1010
+msgid "Ukraine"
+msgstr "اوکراین"
+
+#: includes/languages/trans_static.php:1011
+msgid "United Arab Emirates"
+msgstr "امارات متحده عربی"
+
+#: includes/languages/trans_static.php:1012
+msgid "United Kingdom"
+msgstr "انگلستان"
+
+#: includes/languages/trans_static.php:1013
+msgid "United States"
+msgstr "ایالات متحده"
+
+#: includes/languages/trans_static.php:1014
+msgid "Uruguay"
+msgstr "اروگوئه"
+
+#: includes/languages/trans_static.php:1015
+msgid "Uzbekistan"
+msgstr "ازبکستان"
+
+#: includes/languages/trans_static.php:1016
+msgid "Vanuatu"
+msgstr "وانواتو"
+
+#: includes/languages/trans_static.php:1017
+msgid "Vatican City"
+msgstr "شهر واتیکان"
+
+#: includes/languages/trans_static.php:1018
+msgid "Venezuela"
+msgstr "ونزوئلا"
+
+#: includes/languages/trans_static.php:1019
+msgid "Vietnam"
+msgstr "ویتنام"
+
+#: includes/languages/trans_static.php:1020
+msgid "Wallis And Futuna"
+msgstr "والیس و فوتونا"
+
+#: includes/languages/trans_static.php:1021
+msgid "Western Sahara"
+msgstr "ساحره غرب"
+
+#: includes/languages/trans_static.php:1022
+msgid "Yemen"
+msgstr "یمن"
+
+#: includes/languages/trans_static.php:1023
+msgid "Zambia"
+msgstr "زامبیا"
+
+#: includes/languages/trans_static.php:1024
+msgid "Zimbabwechoe"
+msgstr "زیمبابوه"
+
 #: includes/languages/trans_static_domain.php:7
 msgid "contact_check"
 msgstr "بررسی مخاطب"
@@ -28123,11 +29116,11 @@ msgstr "شما باید حداقل :min گزینه انتخاب کنید"
 msgid "You can choose up to :max options"
 msgstr "شما می‌توانید حداکثر :max گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:295
+#: lib/app/form/answer/add.php:296
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:308
+#: lib/app/form/answer/add.php:309
 msgid "You are answer to this form before"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
@@ -28234,6 +29227,10 @@ msgstr "abc@yourdomain.com"
 #: lib/app/form/item/type.php:296
 msgid "http://"
 msgstr "http://"
+
+#: lib/app/form/item/type.php:328
+msgid "Agree"
+msgstr "موافقت"
 
 #: lib/app/fund/add.php:31
 msgid "Fund successfully added"
@@ -30139,7 +31136,7 @@ msgstr "شناسه سند حسابداری تکراری است"
 
 #: lib/app/tax/doc/edit.php:36
 msgid "This accounting year is empty!"
-msgstr "این سال مالی خالی از سند حسابداری است"
+msgstr "این سال مالی خالی از سند حسابداری است!"
 
 #: lib/app/tax/doc/edit.php:41
 msgid "The number was reset"
