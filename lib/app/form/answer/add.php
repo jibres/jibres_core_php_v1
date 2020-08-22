@@ -20,6 +20,7 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		$form_id = $data['form_id'];
 
 		$multiple_choice_answer = [];
 
@@ -34,13 +35,13 @@ class add
 			$answer = [];
 		}
 
-		$load_form = \lib\app\form\form\get::get($data['form_id']);
+		$load_form = \lib\app\form\form\get::get($form_id);
 		if(!$load_form)
 		{
 			return false;
 		}
 
-		$check_true_item = \lib\db\form_item\get::by_form_id($data['form_id']);
+		$check_true_item = \lib\db\form_item\get::by_form_id($form_id);
 
 		if(!$check_true_item || !is_array($check_true_item))
 		{
@@ -242,7 +243,7 @@ class add
 							$ext = $item_detail['setting']['file']['filetype'];
 						}
 
-						$path = \dash\upload\form::upload('answer_'. $item_id, 1, $ext);
+						$path = \dash\upload\form::upload($form_id, 'answer_'. $item_id, 1, $ext);
 						if(!\dash\engine\process::status())
 						{
 							return false;
@@ -331,7 +332,7 @@ class add
 			if($check_unique && !empty($check_unique_args))
 			{
 				$check_unique_args['item_id'] = $item_id;
-				$check_unique_args['form_id'] = $data['form_id'];
+				$check_unique_args['form_id'] = $form_id;
 				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args);
 				if(isset($is_answer_befor['id']))
 				{
@@ -361,7 +362,7 @@ class add
 
 		$add_answer_args =
 		[
-			'form_id'     => $data['form_id'],
+			'form_id'     => $form_id,
 			'user_id'     => $data['user_id'],
 			'datecreated' => date("Y-m-d H:i:s"),
 			'startdate'   => date("Y-m-d H:i:s"),
@@ -381,7 +382,7 @@ class add
 					{
 						$insert_answerdetail[] =
 						[
-							'form_id'     => $data['form_id'],
+							'form_id'     => $form_id,
 							'user_id'     => $data['user_id'],
 							'answer_id'   => null,
 							'item_id'     => $item_id,
@@ -394,7 +395,7 @@ class add
 				{
 					$insert_answerdetail[] =
 					[
-						'form_id'     => $data['form_id'],
+						'form_id'     => $form_id,
 						'user_id'     => $data['user_id'],
 						'answer_id'   => null,
 						'item_id'     => $item_id,

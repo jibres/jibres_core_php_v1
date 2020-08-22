@@ -19,6 +19,7 @@ class check
 			'endmessage' => 'desc',
 			'starttime'  => 'datetime',
 			'endtime'    => 'datetime',
+			'file'       => 'string_1000',
 
 		];
 

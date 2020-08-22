@@ -5,6 +5,8 @@ class model
 {
 	public static function post()
 	{
+		$form_id = \dash\request::get('id');
+
 		if(\dash\request::post('removeitem') === 'removeitem')
 		{
 			\lib\app\form\item\remove::remove(\dash\request::post('id'));
@@ -28,6 +30,11 @@ class model
 			'redirect'   => \dash\request::post('redirect'),
 
 		];
+
+		if(\dash\request::files('file'))
+		{
+			$post['file']   = \dash\upload\form::form($form_id);
+		}
 
 		$result = \lib\app\form\form\edit::edit($post, \dash\request::get('id'));
 

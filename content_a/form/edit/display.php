@@ -36,6 +36,16 @@
 							<label for="endmessage"><?php echo T_("End message") ?></label>
 							<textarea name="endmessage" class="txt" rows="3" id="endmessage" placeholder="<?php echo T_("End message") ?>"><?php echo \dash\data::dataRow_endmessage(); ?></textarea>
 						</div>
+
+
+						<div class="c-xs-12 c-sm-12">
+							<div data-uploader data-name='file' data-final='#finalImagefile1'>
+								<input type="file" accept="image/*" id="file1">
+								<label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+								<label for="file1"><img id="finalImagefile1" src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo T_("File") ?>"></label>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>

@@ -23,6 +23,15 @@ class ready
 					$result['url'] = \lib\store::url(). '/f/'. $value;
 					break;
 
+				case 'file':
+					if($value)
+					{
+						$value = \lib\filepath::fix($value);
+					}
+
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
