@@ -42,7 +42,7 @@ class location
 					echo '"';
 					if($_country == $key)
 					{
-						echo 'selected';
+						echo ' selected';
 					}
 					echo ">";
 					echo ucfirst($value["name"]);
@@ -93,7 +93,7 @@ class location
 					echo '"';
 					if($_province == $key)
 					{
-						echo 'selected';
+						echo ' selected';
 					}
 					echo ">";
 					if(isset($value['name']))
@@ -155,7 +155,7 @@ class location
 					echo '"';
 					if($_city == $key)
 					{
-						echo 'selected';
+						echo ' selected';
 					}
 					echo ">";
 					if(isset($value['name']))
