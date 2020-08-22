@@ -4,11 +4,19 @@ namespace dash\utility;
 // create select for locations
 class location
 {
+
 	public static function pack($_country = null, $_province = null, $_city = null)
 	{
 		self::countrySelector($_country, $_province);
-		self::provinceSelector($_province, $_city);
-		self::citySelector($_city);
+		self::provinceSelector($_country, $_province, $_city);
+		self::citySelector($_country, $_province, $_city);
+	}
+
+
+	public static function packIran($_province = null, $_city = null)
+	{
+		self::provinceSelector($_country, $_province, $_city);
+		self::citySelector($_country, $_province, $_city);
 	}
 
 
@@ -63,10 +71,16 @@ class location
 	}
 
 
-	public static function provinceSelector($_province = null, $_city = null)
+	public static function provinceSelector($_country = null, $_province = null, $_city = null)
 	{
 		$placeholder = ("Please choose province");
-		echo '<div class="provinceSelector mB5" data-status2="hide">';
+		echo '<div class="provinceSelector mB5"';
+		if($_country !== 'IR')
+		{
+			// echo ' data-status="hide"';
+		}
+		echo ' data-status="hide"';
+		echo '>';
 		echo '<label for="province">';
 		echo T_("Province");
 		echo '</label>';
@@ -83,24 +97,28 @@ class location
 		{
 			echo '<option value="">'. $placeholder. '</option>';
 
-			$myProvinceList = \dash\utility\location\provinces::key_list('localname');
-			if(is_array($myProvinceList) && $myProvinceList)
+			if($_country === 'IR')
 			{
-				foreach ($myProvinceList as $key => $value)
+				$myProvinceList = \dash\utility\location\provinces::key_list('localname');
+				// $myProvinceList = [];
+				if(is_array($myProvinceList) && $myProvinceList)
 				{
-					echo '<option value="';
-					echo $key;
-					echo '"';
-					if($_province == $key)
+					foreach ($myProvinceList as $key => $value)
 					{
-						echo ' selected';
+						echo '<option value="';
+						echo $key;
+						echo '"';
+						if($_province == $key)
+						{
+							echo ' selected';
+						}
+						echo ">";
+						if(isset($value))
+						{
+							echo ucfirst($value);
+						}
+						echo '</option>';
 					}
-					echo ">";
-					if(isset($value['name']))
-					{
-						echo ucfirst($value["name"]);
-					}
-					echo '</option>';
 				}
 			}
 		}
@@ -110,10 +128,15 @@ class location
 	}
 
 
-	public static function citySelector($_city = null)
+	public static function citySelector($_country = null, $_province = null, $_city = null)
 	{
 		$placeholder = ("Please choose city");
-		echo '<div class="citySelector mB5" data-status2="hide">';
+		echo '<div class="citySelector mB5"';
+		if(!$_province)
+		{
+			echo ' data-status="hide"';
+		}
+		echo '>';
 		echo '<label for="city">';
 		echo T_("City");
 		echo '</label>';
@@ -127,22 +150,26 @@ class location
 
 			// get city list
 			$myCityList = \dash\utility\location\cites::$data;
-			$newCityList = [];
-			foreach ($myCityList as $key => $value)
+			$myCityList = [];
+			if($myCityList)
 			{
-				$temp = '';
+				$newCityList = [];
+				foreach ($myCityList as $key => $value)
+				{
+					$temp = '';
 
-				if(isset($value['province']) && isset($proviceList[$value['province']]))
-				{
-					$temp .= $proviceList[$value['province']]. ' - ';
+					if(isset($value['province']) && isset($proviceList[$value['province']]))
+					{
+						$temp .= $proviceList[$value['province']]. ' - ';
+					}
+					if(isset($value['localname']))
+					{
+						$temp .= $value['localname'];
+					}
+					$newCityList[$key] = $temp;
 				}
-				if(isset($value['localname']))
-				{
-					$temp .= $value['localname'];
-				}
-				$newCityList[$key] = $temp;
+				asort($newCityList);
 			}
-			asort($newCityList);
 
 
 
