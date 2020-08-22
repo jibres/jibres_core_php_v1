@@ -7,22 +7,34 @@ class controller
 	{
 		$child = \dash\url::child();
 
-		$load_form = \lib\app\form\form\get::get($child);
-		if(!$load_form || !isset($load_form['id']))
+		if($child)
 		{
-			\dash\header::status(404);
+			$load_form = \lib\app\form\form\get::get($child);
+			if(!$load_form || !isset($load_form['id']))
+			{
+				\dash\header::status(404);
+			}
+
+			$form_id = $load_form['id'];
+
+			$load_items = \lib\app\form\item\get::items($form_id);
+
+			\dash\data::formId($form_id);
+			\dash\data::formDetail($load_form);
+			\dash\data::formItems($load_items);
+			\dash\data::contactForm(true);
+
+			\dash\open::get();
+			\dash\open::post();
+		}
+		else
+		{
+			$args = [];
+			$args['status'] = 'publish';
+			$get_publish_form = \lib\app\form\form\search::list(null, $args);
+			\dash\data::dataTable($get_publish_form);
 		}
 
-		$form_id = $load_form['id'];
-
-		$load_items = \lib\app\form\item\get::items($form_id);
-
-		\dash\data::formId($form_id);
-		\dash\data::formDetail($load_form);
-		\dash\data::formItems($load_items);
-
-		\dash\open::get();
-		\dash\open::post();
 
 
 	}

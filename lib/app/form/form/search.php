@@ -29,8 +29,7 @@ class search
 		[
 			'order'   => 'order',
 			'sort'    => ['enum' => ['title', 'id']],
-			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'user_id' => 'code',
+			'status'    => ['enum' => ['publish']],
 		];
 
 		$require = [];
@@ -63,9 +62,9 @@ class search
 			self::$is_filtered = true;
 		}
 
-		if($data['type'])
+		if($data['status'])
 		{
-			$and[] = " form.type = '$data[type]' ";
+			$and[] = " form.status = '$data[status]' ";
 			self::$is_filtered = true;
 		}
 
@@ -86,7 +85,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY form.id ASC";
+			$order_sort = " ORDER BY form.id DESC";
 		}
 
 		$list = \lib\db\form\search::list($and, $or, $order_sort, $meta);
