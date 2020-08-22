@@ -70,12 +70,20 @@ function isRequired($value, $_html = false)
 	{
 		if($_html)
 		{
-	 		echo '<small class="fc-red">'.  T_("Required"). '</small>';
+	 		echo ' <small class="fc-red">'.  T_("Required"). '</small> ';
 		}
 		else
 		{
 			echo ' required ';
 		}
+	}
+}
+
+function HtmlDesc($value)
+{
+	if(\dash\get::index($value, 'desc'))
+	{
+	 	echo ' <small class="fc-mute">'.  \dash\get::index($value, 'desc'). '</small> ';
 	}
 }
 
@@ -125,7 +133,7 @@ function HtmlMaxLen($value)
 
 
 <?php function html_input_short_answer($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value) ?> >
 </div>
@@ -145,7 +153,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 	}
 }
 ?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <textarea class="txt" rows="<?php echo $rows ?>" id="<?php myID($value); ?>" name="<?php myName($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value) ?>></textarea>
 <?php } //endfunction ?>
 
@@ -158,7 +166,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_numeric($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="number" name="<?php myName($value); ?>" id="<?php myID($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); HtmlMin($value); HtmlMax($value) ?> >
 </div>
@@ -167,7 +175,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_single_choice($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="row">
 	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
 		<div class="c-xs-12 c-sm-12">
@@ -183,7 +191,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_multiple_choice($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="row">
 	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
 		<div class="c-xs-12 c-sm-12">
@@ -200,7 +208,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_dropdown($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div>
 	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
 		<option value=""><?php echo T_("Please select one item") ?></option>
@@ -214,7 +222,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_date($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
@@ -223,7 +231,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_birthdate($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
@@ -250,7 +258,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_gender($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div>
 	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
 		<option value=""><?php echo T_("Please select one item") ?></option>
@@ -269,7 +277,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_tel($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='tel' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); ?> >
 </div>
@@ -284,7 +292,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_nationalcode($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='nationalCode' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); ?> >
 </div>
@@ -293,7 +301,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_mobile($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="tel" maxlength="15" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='mobile-enter' <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
@@ -302,7 +310,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_email($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="email" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
@@ -311,7 +319,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_website($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="url" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
@@ -320,7 +328,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_password($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="input">
 	<input type="password" maxlength="100" name="<?php myName($value); ?>" id="<?php myID($value); ?>"  <?php isRequired($value); HtmlPlaceholder($value); ?> >
 </div>
@@ -328,7 +336,7 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 
 
 <?php function html_input_yes_no($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); HtmlDesc($value); ?></label>
 <div class="row">
 	<div class="c-xs-12 c-sm-6">
 		<div class="radio3">

@@ -30,6 +30,14 @@ class get
 
 	}
 
+
+	public static function by_item_id($_item_id)
+	{
+		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id = $_item_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function get_where($_where)
 	{
 		$where = \dash\db\config::make_where($_where);

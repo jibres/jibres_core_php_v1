@@ -38,7 +38,7 @@ class type
 			'default_load' =>
 			[
 				'placeholder' => T_("Type here ..."),
-				'maxlen'      => 500,
+				'maxlen'      => 200,
 			],
 		];
 
@@ -54,24 +54,6 @@ class type
 				'maxlen'     => 10000,
 			],
 		];
-
-
-
-		$type['descriptive_after_short_answer'] =
-		[
-			'key'         => 'descriptive_after_short_answer',
-			'title'       => T_('Descriptive answer after short answer'),
-			'placeholder' => true,
-			'maxlen'      => true,
-			'maxlen2'      => true,
-			'default_load' =>
-			[
-				'maxlen'     => 100,
-				'maxlen2'     => 10000,
-			],
-		];
-
-
 
 
 
@@ -105,11 +87,9 @@ class type
 			'key'          => 'single_choice',
 			'title'        => T_('Single choice'),
 			'choice'       => true,
-			// 'choiceinline' => true,
 			'random'       => true,
 			'default_load' =>
 			[
-				// 'choiceinline' => true,
 			],
 		];
 
@@ -133,7 +113,7 @@ class type
 		$type['dropdown'] =
 		[
 			'key'          => 'dropdown',
-			'title'        => T_('Dropdown'),
+			'title'        => T_('Dropdown list'),
 			'placeholder'  => true,
 			'choice'       => true,
 			'random'       => true,
@@ -201,11 +181,24 @@ class type
 			],
 		];
 
+		if(\dash\language::current() === 'fa')
+		{
+			$type['province_city'] =
+			[
+				'key'          => 'province_city',
+				'placeholder'  => true,
+				'title'        => T_('Province-City'),
+				'default_load' =>
+				[
+
+				],
+			];
+		}
+
 
 		$type['gender'] =
 		[
 			'key'          => 'gender',
-			'placeholder'  => true,
 			'title'        => T_('Gender'),
 			'default_load' =>
 			[
@@ -246,9 +239,10 @@ class type
 			'key'          => 'file',
 			'placeholder'  => true,
 			'title'        => T_('Upload'),
+			'maxlen'       => true,
+			'filetype'     => true,
 			'default_load' =>
 			[
-
 			],
 		];
 
@@ -319,6 +313,7 @@ class type
 		[
 			'key'          => 'message',
 			'title'        => T_('Message'),
+			'color'        => true,
 			'default_load' =>
 			[
 

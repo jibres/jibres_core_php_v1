@@ -287,6 +287,10 @@ class add
 					$answer[$item_id] = $my_answer;
 					break;
 
+				case 'message':
+					// no answer in message
+					break;
+
 				default:
 					\dash\notif::error(T_("Invalid item type"));
 					return false;

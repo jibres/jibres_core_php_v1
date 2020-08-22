@@ -157,6 +157,10 @@ function settingRecord($value)
 		echo "</div>";
 	}
 
+	echo "<div class='c-xs-12 c-sm-12 c-md-12'>";
+	settingDesc($value);
+	echo "</div>";
+
 	if(isset($value['type_detail']['placeholder']) && $value['type_detail']['placeholder'])
 	{
 		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
@@ -211,11 +215,33 @@ function settingRecord($value)
 		echo "</div>";
 	}
 
+	if(isset($value['type_detail']['filetype']) && $value['type_detail']['filetype'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingFileType($value);
+		echo "</div>";
+	}
+
+	if(isset($value['type_detail']['color']) && $value['type_detail']['color'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingColor($value);
+		echo "</div>";
+	}
+
+
+
+
 	echo "</div>";
 
 }
 ?>
 
+<?php function settingDesc($value) {?>
+<label for="item_desc_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Description") ?></label>
+<textarea class="txt" rows="2" name="item_desc_<?php echo \dash\get::index($value, 'id') ?>" id="item_desc_<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'desc'); ?></textarea>
+
+<?php } //endif ?>
 
 <?php function settingMaxLen($value) {?>
 <label for="item_maxlen_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Maximum len") ?></label>
@@ -296,4 +322,29 @@ function settingRecord($value)
 <?php } // endfunction ?>
 
 
+
+<?php function settingFileType($value) {?>
+	filetype
+<label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
+<select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
+	<?php if(isset($value['choice']) && is_array($value['choice'])) {?>
+  <?php foreach ($value['choice'] as $key => $value) {?>
+    <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
+  <?php } //endfor ?>
+  <?php } //endif ?>
+</select>
+<?php } // endfunction ?>
+
+
+<?php function settingColor($value) {?>
+	color
+<label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
+<select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
+	<?php if(isset($value['choice']) && is_array($value['choice'])) {?>
+  <?php foreach ($value['choice'] as $key => $value) {?>
+    <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
+  <?php } //endfor ?>
+  <?php } //endif ?>
+</select>
+<?php } // endfunction ?>
 

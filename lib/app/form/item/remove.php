@@ -14,9 +14,18 @@ class remove
 			return false;
 		}
 
-		// check not answer to this
+		$check_answer = \lib\db\form_answerdetail\get::by_item_id($_id);
+		if(isset($check_answer['id']))
+		{
+			\lib\db\form_item\update::update(['status' => 'deleted'], $_id);
+		}
+		else
+		{
+			// check not answer to this
 
-		\lib\db\form_item\delete::by_id($_id);
+			\lib\db\form_item\delete::by_id($_id);
+
+		}
 
 		\dash\notif::ok(T_("Item removed"));
 
