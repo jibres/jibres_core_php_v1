@@ -77,7 +77,7 @@
 
     <tr>
      <td><?php echo \dash\fit::date("2019-12-06"); ?></td>
-     <td><?php echo T_("Jibres brand is reborn."); ?> <a href="<?php ?>"><?php echo "Read More about Jibres brand styleguide."; ?></a></td>
+     <td><?php echo T_("Jibres brand is reborn."); ?> <a href="<?php ?>"><?php echo "Read More about Jibres brand style guide."; ?></a></td>
      <td></td>
     </tr>
 
