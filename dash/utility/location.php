@@ -53,12 +53,25 @@ class location
 						echo ' selected';
 					}
 					echo ">";
-					echo ucfirst($value["name"]);
-					if(\dash\language::current() != 'en')
+					$countryName = ucfirst($value["name"]);
+					echo $countryName;
+					if(\dash\language::current() === 'en')
+					{
+						if(isset($value['localname']) && $value['localname'])
+						{
+							echo ' - '. $value['localname'];
+						}
+					}
+					else
 					{
 						if(isset($value['name']))
 						{
-							echo ' - '. T_(ucfirst($value['name']));
+							$countryTransName = T_(ucfirst($value['name']));
+							if($countryName !== $countryTransName)
+							{
+								echo ' - '. $countryTransName;
+
+							}
 						}
 					}
 					echo '</option>';
