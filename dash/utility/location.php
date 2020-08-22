@@ -48,7 +48,10 @@ class location
 					echo ucfirst($value["name"]);
 					if(\dash\language::current() != 'en')
 					{
-						echo ' - '. T_(ucfirst($value['name']));
+						if(isset($value['name']))
+						{
+							echo ' - '. T_(ucfirst($value['name']));
+						}
 					}
 					echo '</option>';
 				}
@@ -93,7 +96,10 @@ class location
 						echo 'selected';
 					}
 					echo ">";
-					echo ucfirst($value["name"]);
+					if(isset($value['name']))
+					{
+						echo ucfirst($value["name"]);
+					}
 					echo '</option>';
 				}
 			}
@@ -152,7 +158,10 @@ class location
 						echo 'selected';
 					}
 					echo ">";
-					echo ucfirst($value["name"]);
+					if(isset($value['name']))
+					{
+						echo ucfirst($value["name"]);
+					}
 					echo '</option>';
 				}
 			}
