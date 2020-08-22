@@ -371,6 +371,11 @@ class add
 			$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
 
 			\dash\notif::ok(T_("Your answer was saved"));
+
+			if(isset($load_form['redirect']) && $load_form['redirect'])
+			{
+				\dash\redirect::to($load_form['redirect']);
+			}
 		}
 		else
 		{
