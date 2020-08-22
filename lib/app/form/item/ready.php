@@ -45,6 +45,23 @@ class ready
 			}
 		}
 
+		$random_choice = false;
+		if(isset($result['setting']) && is_array($result['setting']))
+		{
+			foreach ($result['setting'] as $k => $v)
+			{
+				if(isset($v['random']) && $v['random'])
+				{
+					$random_choice = true;
+				}
+			}
+		}
+
+		if($random_choice && isset($result['choice']) && is_array($result['choice']) && $result['choice'] && \dash\url::content() != 'a')
+		{
+			shuffle($result['choice']);
+		}
+
 		return $result;
 	}
 
