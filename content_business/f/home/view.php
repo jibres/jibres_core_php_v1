@@ -18,6 +18,7 @@ class view
 		if(\dash\data::formDetail_file())
 		{
 			\dash\face::cover(\dash\data::formDetail_file());
+			\dash\face::twitterCard('summary_large_image');
 		}
 
 		self::static_var();
