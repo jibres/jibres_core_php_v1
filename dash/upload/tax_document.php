@@ -43,8 +43,7 @@ class tax_document
 			'allow_size' => \dash\upload\size::MB(1),
 			'ext' =>
 			[
-				'jpeg','jpg','png',			// image
-				'pdf',
+				'doc','docx','xls','xlsx','ppt','pptx','ppsx','zip','rar','jpeg','jpg','png','pdf',
 			],
 		];
 
