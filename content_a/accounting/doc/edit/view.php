@@ -40,6 +40,8 @@ class view
 			}
 		}
 
+		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
+
 		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));
 
 		\dash\data::myType(\dash\data::dataRow_type());
@@ -55,11 +57,18 @@ class view
 		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?id='. \dash\request::get('id'));
 
 		$detail = \lib\app\tax\docdetail\get::list(\dash\request::get('id'));
+
 		if(!is_array($detail))
 		{
 			$detail = [];
 		}
 		\dash\data::docDetail($detail);
+
+		if(\dash\request::get('export'))
+		{
+			$export_name = "Accounting_document_". \dash\data::dataRow_number();
+			\dash\utility\export::csv(['name' => $export_name, 'data' => $detail]);
+		}
 		$desc = array_column($detail, 'desc');
 		if(!array_filter($desc))
 		{
