@@ -192,7 +192,7 @@ function html_input_short_answer($value)
 		myName($value);
 		echo '" id="';
 		myID($value);
-		echo '"';
+		echo '" ';
 		isRequired($value);
 		HtmlPlaceholder($value);
 		HtmlMaxLen($value);
