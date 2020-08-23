@@ -44,6 +44,14 @@ class view
 		$args['assistant'] = \dash\request::get('assistant');
 		$args['details']   = \dash\request::get('details');
 
+		$startdate         = \dash\request::get('startdate');
+		$startdate         = \dash\validate::date($startdate, false);
+		$enddate           = \dash\request::get('enddate');
+		$enddate           = \dash\validate::date($enddate, false);
+
+		$args['startdate'] = $startdate ? $startdate : null;
+		$args['enddate']   = $enddate ? $enddate : null;
+
 		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 

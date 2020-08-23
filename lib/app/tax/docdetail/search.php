@@ -35,6 +35,8 @@ class search
 			'total'     => 'id',
 			'assistant' => 'id',
 			'details'   => 'id',
+			'startdate' => 'date',
+			'enddate'   => 'date',
 		];
 
 		$require = [];
@@ -125,6 +127,19 @@ class search
 		{
 			$and[] = " tax_docdetail.assistant_id = $data[assistant] ";
 		}
+
+
+
+		if($data['startdate'])
+		{
+			$and[] = " tax_document.date >= '$data[startdate]' ";
+		}
+
+		if($data['enddate'])
+		{
+			$and[] = " tax_document.date <= '$data[enddate]' ";
+		}
+
 
 		// if($data['details'])
 		// {
