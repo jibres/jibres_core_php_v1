@@ -231,8 +231,10 @@ if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 	}
 }
 ?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<textarea class="txt" rows="<?php echo $rows ?>" id="<?php myID($value); ?>" name="<?php myName($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value) ?>></textarea>
+<div class="mB10">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<textarea class="txt" rows="<?php echo $rows ?>" id="<?php myID($value); ?>" name="<?php myName($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value) ?>></textarea>
+</div>
 <?php HtmlDesc($value); } //endfunction
 
 
