@@ -41,7 +41,7 @@ foreach ($formItems as $key => $value)
 		case 'numeric':   html_input_numeric($value); break;
 		case 'single_choice':  c12(); html_input_single_choice($value);c12(true);  break;
 		case 'multiple_choice':  c12(); html_input_multiple_choice($value);c12(true); break;
-		case 'dropdown':  c6() ; html_input_dropdown($value); c6(true); break;
+		case 'dropdown':  html_input_dropdown($value); break;
 		case 'date':   html_input_date($value); break;
 		case 'birthdate':   html_input_birthdate($value); break;
 		case 'country':  c12(); html_input_country($value);c12(true);  break;
@@ -300,14 +300,13 @@ function html_input_dropdown($value) {?>
 <div class="c-xs-6 c-6">
 
 	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-	<div>
-		<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>" data-placeholder="<?php HtmlPlaceholder($value, true); ?>">
-			<option value=""><?php HtmlPlaceholder($value, true); ?></option>
-			<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
-				<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
-			<?php } /*endfor*/ } /*endif*/ ?>
-		</select>
-	</div>
+
+	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>" data-placeholder="<?php HtmlPlaceholder($value, true); ?>">
+		<option value=""><?php HtmlPlaceholder($value, true); ?></option>
+		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+			<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
+		<?php } /*endfor*/ } /*endif*/ ?>
+	</select>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
