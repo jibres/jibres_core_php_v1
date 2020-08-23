@@ -53,6 +53,7 @@ class model
 			{
 				$get = \dash\request::get();
 				unset($get['value']);
+				unset($get['type']);
 				unset($get['did']);
 				$url = \dash\url::current(). '?'. http_build_query($get);
 				\dash\redirect::to($url);
@@ -112,6 +113,7 @@ class model
 			{
 				$get = \dash\request::get();
 				unset($get['value']);
+				unset($get['type']);
 				$url = \dash\url::current(). '?'. http_build_query($get);
 				\dash\redirect::to($url);
 			}

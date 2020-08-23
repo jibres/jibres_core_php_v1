@@ -76,7 +76,7 @@
               <td>
                 <?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?>
                 <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
-                  <div class="mLa20 ltr compact txtB"><a class="fc-white ltr" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc);  ?>"><?php echo T_("Remain"). ' '. \dash\fit::number_decimal($remain_doc, 'en'); ?></a></div>
+                  <div class="mLa20 ltr compact txtB"><a class="fc-white ltr" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><?php echo T_("Remain"). ' '. \dash\fit::number_decimal($remain_doc, 'en'); ?></a></div>
                 <?php } //endif ?>
 
               </td>

@@ -81,13 +81,13 @@ foreach (\dash\data::assistantList() as $key => $value)
       <div class="row align-end">
         <div class="c-xs-6 c-sm-3 c-md-2">
           <div class="radio3 mT10">
-            <input type="radio" name="type" value="debtor" id="debtor" <?php if(\dash\data::dataRowDetail_type() === 'debtor') {echo 'checked';} ?>  >
+            <input type="radio" name="type" value="debtor" id="debtor" <?php if(\dash\data::dataRowDetail_type() === 'debtor' || \dash\request::get('type') === 'debtor') {echo 'checked';} ?>  >
             <label for="debtor"><?php echo T_("Debtor"); ?></label>
           </div>
         </div>
         <div class="c-xs-6  c-sm-3 c-md-2">
           <div class="radio3 mT10">
-            <input type="radio" name="type" value="creditor" id="creditor" <?php if(\dash\data::dataRowDetail_type() === 'creditor') {echo 'checked';} ?>  >
+            <input type="radio" name="type" value="creditor" id="creditor" <?php if(\dash\data::dataRowDetail_type() === 'creditor' || \dash\request::get('type') === 'creditor') {echo 'checked';} ?>  >
             <label for="creditor"><?php echo T_("Creditor"); ?></label>
           </div>
         </div>
