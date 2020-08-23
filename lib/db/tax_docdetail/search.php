@@ -20,7 +20,7 @@ class search
 		$query =
 		"
 			SELECT
-				SUM(IFNULL(tax_docdetail.debtor,0) - IFNULL(tax_docdetail.creditor,0)) OVER(ORDER BY tax_document.number ASC) as `balance_now`,
+				SUM(IFNULL(tax_docdetail.debtor,0) - IFNULL(tax_docdetail.creditor,0)) OVER(ORDER BY tax_document.number asc) as `balance_now`,
 				tax_docdetail.*,
 				tax_document.number,
 				tax_document.desc AS `doc_desc`,
@@ -41,21 +41,7 @@ class search
 			$q[order]
 			$limit
 		";
-
-		// $query =
-		// "
-		// 	SELECT
-		// 		tax_docdetail.*,
-		// 		@balance_calc :=  (@balance_calc + (IFNULL(tax_docdetail.debtor,0) - IFNULL(tax_docdetail.creditor,0))) as `balance_now`
-		// 	FROM tax_docdetail
-		// 	INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-		// 	$q[where]
-		// 	$q[order]
-		// 	$limit
-		// ";
-
 		$result = \dash\db::get($query);
-		// var_dump($result);exit();
 		return $result;
 
 	}
