@@ -12,6 +12,8 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
+		\dash\data::userToggleSidebar(false);
+
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
 
