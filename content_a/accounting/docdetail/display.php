@@ -146,10 +146,11 @@
 					<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 					<td class=""><?php echo \dash\get::index($value, 'tstatus') ?></td>
 
-					<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>
-					<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></span></td>
+					<td class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></td>
+					<td class="txtR ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></td>
 
-					<td class="font-14 fc-blue"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></span></td>
+					<td class="txtR ltr font-14 txtB <?php if(\dash\get::index($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></td>
+
 				</tr>
 				<tr>
 					<td class="pTB5-f" colspan="12"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>

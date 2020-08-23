@@ -52,19 +52,20 @@ class ready
 		{
 			$result['type'] = 'debtor';
 			$result['value'] = $result['debtor'];
+			$result['creditor'] = 0;
 		}
 
 		if(isset($result['creditor']) && $result['creditor'] && !\dash\get::index($result, 'debtor'))
 		{
 			$result['type'] = 'creditor';
 			$result['value'] = $result['creditor'];
+			$result['debtor'] = 0;
 		}
 
 		if(round($result['value']) == $result['value'])
 		{
 			$result['value'] = round($result['value']);
 		}
-
 
 		$result['remain'] = floatval(\dash\get::index($result, 'debtor')) - floatval(\dash\get::index($result, 'creditor'));
 

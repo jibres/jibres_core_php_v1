@@ -61,7 +61,7 @@ class view
 		\dash\data::groupList(\lib\app\tax\coding\get::current_list_of('group'));
 		\dash\data::totalList(\lib\app\tax\coding\get::current_list_of('total', \dash\request::get('group')));
 		\dash\data::assistantList(\lib\app\tax\coding\get::current_list_of('assistant', \dash\request::get('group'), \dash\request::get('total')));
-		// \dash\data::detailsList(\lib\app\tax\coding\get::current_list_of('details', \dash\request::get('group'), \dash\request::get('total'), \dash\request::get('assistant')));
+		\dash\data::detailsList(\lib\app\tax\coding\get::current_list_of('details', \dash\request::get('group'), \dash\request::get('total'), \dash\request::get('assistant')));
 
 	}
 }

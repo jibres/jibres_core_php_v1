@@ -80,16 +80,11 @@ class fit{
 
 	public static function number_decimal($_number, $_lang = null)
 	{
-
-		if(!$_number)
-		{
-			return '-';
-		}
-
 		if(!is_numeric($_number))
 		{
 			return $_number;
 		}
+
 
 		$new_number = (string) $_number;
 
