@@ -4,7 +4,7 @@
 	<div class="box">
 		<div class="pad">
 			<div class="row">
-				<div class="c-xs-12	c-sm">
+				<div class="c-xs-12	c-sm-4 c-lg-2">
 					<?php if(\dash\data::accountingYear()) {?>
 						<label for="parent"><?php echo T_("Accounting year") ?></label>
 						<select class="select22" name="year_id">
@@ -16,7 +16,21 @@
 					<?php } // endif ?>
 				</div>
 
-				<div class="c-xs-12	c-sm">
+
+				<div class="c-xs-6 c-sm-4 c-lg-2">
+					<label for="startdate" ><?php echo T_("Start date"); ?></label>
+					<div class="input mB0-f">
+						<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="startdate" id="startdate" value="<?php echo \dash\request::get('startdate'); ?>" autocomplete='off'>
+					</div>
+				</div>
+				<div class="c-xs-6 c-sm-4 c-lg-2">
+					<label for="enddate" ><?php echo T_("End date"); ?></label>
+					<div class="input mB0-f">
+						<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="enddate" value="<?php echo \dash\request::get('enddate'); ?>" autocomplete='off'>
+					</div>
+				</div>
+
+				<div class="c-xs-12	c-sm-4 c-lg-3">
 					<?php if(\dash\data::groupList()) {?>
 						<label for="group"><?php echo T_("Group") ?></label>
 						<select class="select22" name="group">
@@ -29,7 +43,7 @@
 				</div>
 
 
-				<div class="c-xs-12	c-sm">
+				<div class="c-xs-12	c-sm-8 c-lg-3">
 					<?php if(\dash\data::totalList()) {?>
 						<label for="total"><?php echo T_("Accounting total") ?></label>
 						<select class="select22" name="total">
@@ -41,7 +55,7 @@
 					<?php } // endif ?>
 				</div>
 
-				<div class="c-xs-12	c-sm">
+				<div class="c-xs-12	c-sm-6 c-lg-6">
 					<?php if(\dash\data::assistantList()) {?>
 						<label for="assistant"><?php echo T_("Accounting assistant") ?></label>
 						<select class="select22" name="assistant">
@@ -53,7 +67,7 @@
 					<?php } // endif ?>
 				</div>
 
-				<div class="c-xs-12	c-sm">
+				<div class="c-xs-12	c-sm-6 c-lg-6">
 					<?php if(\dash\data::detailsList()) {?>
 						<label for="details"><?php echo T_("Accounting details") ?></label>
 						<select class="select22" name="details">
@@ -65,19 +79,6 @@
 					<?php } // endif ?>
 				</div>
 
-
-				<div class="c-xs-12 c-sm">
-					<label for="startdate" ><?php echo T_("Start date"); ?></label>
-					<div class="input mB0-f">
-						<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="startdate" id="startdate" value="<?php echo \dash\request::get('startdate'); ?>" autocomplete='off'>
-					</div>
-				</div>
-				<div class="c-xs-12 c-sm">
-					<label for="enddate" ><?php echo T_("End date"); ?></label>
-					<div class="input mB0-f">
-						<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="enddate" value="<?php echo \dash\request::get('enddate'); ?>" autocomplete='off'>
-					</div>
-				</div>
 			</div>
 		</div>
 		<footer>
