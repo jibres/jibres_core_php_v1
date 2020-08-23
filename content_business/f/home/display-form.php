@@ -238,7 +238,7 @@ function html_input_descriptive_after_short_answer($value) {?>
 
 
 
-function html_input_numeric($value, $_calll) {?>
+function html_input_numeric($value) {?>
 <div class="c-xs-12">
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="input">
