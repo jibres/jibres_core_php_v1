@@ -6,6 +6,19 @@ class view
 	public static function config()
 	{
 		\dash\face::title(\dash\data::formDetail_title());
+		if(\dash\data::formDetail_desc())
+		{
+			\dash\face::desc(strip_tags(\dash\data::formDetail_desc()));
+		}
+		else
+		{
+			\dash\face::desc(\dash\data::formDetail_title());
+		}
+
+		if(\dash\data::formDetail_file())
+		{
+			\dash\face::cover(\dash\data::formDetail_file());
+		}
 
 		self::static_var();
 	}
