@@ -3,7 +3,7 @@ namespace dash\utility;
 
 class enter
 {
-	public static $life_time_code = 60 * 5;
+	public static $life_time_code = 60 * 2;
 
 
 	public static function try($_module)
