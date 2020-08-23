@@ -73,17 +73,15 @@
               <td></td>
             <?php } //endif ?>
 
-              <td>
-                <?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?>
-                <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
-                  <div class="mLa20 ltr compact txtB"><a class="fc-white ltr" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><?php echo T_("Remain"). ' '. \dash\fit::number_decimal($remain_doc, 'en'); ?></a></div>
-                <?php } //endif ?>
-
-              </td>
+              <td><?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?></td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
-                <td class="p0"></td>
+                <td class="p0 txtRa txtB">
+                   <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
+                  <a class="fc-white  block" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><span class="compact mRa10"><?php echo T_("Diff"); ?></span><span class="compact ltr"><?php echo  \dash\fit::number_decimal($remain_doc, 'en'); ?></span></a>
+                <?php } //endif ?>
+                </td>
               <?php } //endif ?>
            </tr>
          </tfoot>
