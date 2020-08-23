@@ -129,7 +129,7 @@
 				<th><?php echo T_("Status") ?></th>
 				<th><?php echo T_("Debtor") ?></th>
 				<th><?php echo T_("Creditor") ?></th>
-				<th><?php echo T_("Balance") ?></th>
+				<th><?php echo T_("Remain") ?></th>
 			</tr>
 		</thead>
 		<tbody>
