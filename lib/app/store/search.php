@@ -38,6 +38,7 @@ class search
 		$and         = [];
 		$meta        = [];
 		$or          = [];
+		$meta['join'] = [];
 
 		$meta['limit'] = 20;
 
@@ -53,10 +54,16 @@ class search
 
 		$query_string = \dash\validate::search($_query_string);
 
+		$meta['join'][] = " INNER JOIN store_data ON store_data.id = store.id ";
 
 		if($query_string)
 		{
 			$or[]        = " store_data.title LIKE '%$query_string%'";
+
+			$meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
+
+			$or[]        = " users.displayname LIKE '%$query_string%'";
+			$or[]        = " users.mobile LIKE '%$query_string%'";
 
 			self::$is_filtered = true;
 		}
