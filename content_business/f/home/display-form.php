@@ -179,7 +179,9 @@ function HtmlMaxLen($value)
 
 function html_input_short_answer($value)
 {
-	echo '<label for="'. myID($value). '>';
+	echo '<label for="';
+	 myID($value);
+	 echo '">';
 	{
 		echo \dash\get::index($value, 'title');
 		isRequired($value, true);
