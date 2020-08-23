@@ -21,6 +21,8 @@ if(!is_array($formItems))
 				<?php if(\dash\data::formDetail_desc()) {?>
 					<div class="pA20"><?php echo \dash\data::formDetail_desc() ?></div>
 				<?php } // endif ?>
+				<div class="row">
+
 <?php
 foreach ($formItems as $key => $value)
 {
@@ -32,32 +34,32 @@ foreach ($formItems as $key => $value)
 	switch ($value['type'])
 	{
 
-		case 'short_answer': html_input_short_answer($value); break;
-		case 'displayname': html_input_displayname($value); break;
-		case 'descriptive_answer': html_input_descriptive_answer($value); break;
-		case 'descriptive_after_short_answer': html_input_descriptive_after_short_answer($value); break;
-		case 'numeric': html_input_numeric($value); break;
-		case 'single_choice': html_input_single_choice($value); break;
-		case 'multiple_choice': html_input_multiple_choice($value); break;
-		case 'dropdown': html_input_dropdown($value); break;
-		case 'date': html_input_date($value); break;
-		case 'birthdate': html_input_birthdate($value); break;
-		case 'country': html_input_country($value); break;
-		case 'province': html_input_province($value); break;
-		case 'city': html_input_city($value); break;
-		case 'province_city': html_input_province_city($value); break;
-		case 'gender': html_input_gender($value); break;
-		case 'time': html_input_time($value); break;
-		case 'tel': html_input_tel($value); break;
-		case 'file': html_input_file($value); break;
-		case 'nationalcode': html_input_nationalcode($value); break;
-		case 'mobile': html_input_mobile($value); break;
-		case 'email': html_input_email($value); break;
-		case 'website': html_input_website($value); break;
-		case 'password': html_input_password($value); break;
-		case 'yes_no': html_input_yes_no($value); break;
-		case 'message': html_input_message($value); break;
-		case 'agree': html_input_agree($value); break;
+		case 'short_answer': c6() ; html_input_short_answer($value); c6(true); break;
+		case 'displayname': c6() ; html_input_displayname($value); c6(true); break;
+		case 'descriptive_answer': c6() ; html_input_descriptive_answer($value); c6(true); break;
+		case 'descriptive_after_short_answer': c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
+		case 'numeric': c6() ; html_input_numeric($value); c6(true); break;
+		case 'single_choice': c6() ; html_input_single_choice($value); c6(true); break;
+		case 'multiple_choice': c6() ; html_input_multiple_choice($value); c6(true); break;
+		case 'dropdown': c6() ; html_input_dropdown($value); c6(true); break;
+		case 'date': c6() ; html_input_date($value); c6(true); break;
+		case 'birthdate': c6() ; html_input_birthdate($value); c6(true); break;
+		case 'country': c6() ; html_input_country($value); c6(true); break;
+		case 'province': c6() ; html_input_province($value); c6(true); break;
+		case 'city': c6() ; html_input_city($value); c6(true); break;
+		case 'province_city': c6() ; html_input_province_city($value); c6(true); break;
+		case 'gender': c6() ; html_input_gender($value); c6(true); break;
+		case 'time': c6() ; html_input_time($value); c6(true); break;
+		case 'tel': c6() ; html_input_tel($value); c6(true); break;
+		case 'file': c6() ; html_input_file($value); c6(true); break;
+		case 'nationalcode': c6() ; html_input_nationalcode($value); c6(true); break;
+		case 'mobile': c6() ; html_input_mobile($value); c6(true); break;
+		case 'email': c6() ; html_input_email($value); c6(true); break;
+		case 'website': c6() ; html_input_website($value); c6(true); break;
+		case 'password': c6() ; html_input_password($value); c6(true); break;
+		case 'yes_no': c6() ; html_input_yes_no($value); c6(true); break;
+		case 'message': c6() ; html_input_message($value); c6(true); break;
+		case 'agree': c6() ; html_input_agree($value); c6(true); break;
 
 		default:
 			# code...
@@ -65,6 +67,7 @@ foreach ($formItems as $key => $value)
 	}
 }
 ?>
+				</div>
 			</div>
 			<footer class="txtRa">
 				<button class="btn master"><?php echo T_("Submit") ?></button>
@@ -74,6 +77,19 @@ foreach ($formItems as $key => $value)
 	</div>
 </form>
 <?php
+
+function c6($_end = null)
+{
+	if($_end)
+	{
+		echo '</div>';
+	}
+	else
+	{
+		echo '<div class="c-xs-12 c-sm-6">';
+	}
+}
+
 function isRequired($value, $_html = false)
 {
 	if(\dash\get::index($value, 'require'))
@@ -159,13 +175,34 @@ function HtmlMaxLen($value)
 		echo ' maxlength="'. $value['maxlen']. '" ';
 	}
 }
-?>
-<?php function html_input_short_answer($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="input">
-	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value) ?> >
-</div>
-<?php HtmlDesc($value); } //endfunction
+
+
+function html_input_short_answer($value)
+{
+	echo '<label for="'. myID($value). '>';
+	{
+		echo \dash\get::index($value, 'title');
+		isRequired($value, true);
+	}
+	echo '</label>';
+
+	echo '<div class="input">';
+	{
+		echo '<input type="text" name="';
+		myName($value);
+		echo " id=";
+		myID($value);
+		echo '"';
+		isRequired($value);
+		HtmlPlaceholder($value);
+		HtmlMaxLen($value);
+		echo '>';
+	}
+	echo '</div>';
+
+	HtmlDesc($value);
+
+} //endfunction
 
 
 
@@ -201,10 +238,12 @@ function html_input_descriptive_after_short_answer($value) {?>
 
 
 
-function html_input_numeric($value) {?>
+function html_input_numeric($value, $_calll) {?>
+<div class="c-xs-12">
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="input">
 	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='price' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); HtmlMin($value); HtmlMax($value) ?> >
+</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
