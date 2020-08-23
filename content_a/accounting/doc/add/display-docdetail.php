@@ -8,7 +8,7 @@
       <div class="row">
         <div class="c-xs-12 c-sm-12 c-md-8">
         	<?php if(\dash\data::assistantList()) {?>
-            <label for="assistant_id"><?php echo T_("Accounting assistant") ?> <small class="fc-green">* <?php echo T_("Required") ?></small></label>
+            <label for="assistant_id"><?php echo T_("Accounting assistant") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
             <select class="select22" name="assistant_id" data-placeholder='<?php echo T_("Please choose assistant_id") ?>'>
               <option value=""><?php echo T_("Please choose assistant_id") ?></option>
 <?php
@@ -92,7 +92,7 @@ foreach (\dash\data::assistantList() as $key => $value)
           </div>
         </div>
         <div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xl-3">
-        	<label for="value"><?php echo T_("Amount") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
+        	<label for="value"><?php echo T_("Amount") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         	<div class="input mB0-f">
         		<input type="tel" minlength="0" maxlength="18"  name="value" data-format='price' value="<?php if(\dash\data::dataRowDetail_value()) {echo \dash\data::dataRowDetail_value();}else{echo \dash\request::get('value');} ?>" required>
             <label class="addon" data-kerkere='.ShowCalcVat'><i class="sf-calculator"></i></label>

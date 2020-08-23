@@ -46,7 +46,25 @@ class add
 		}
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
-		// $args['status']      = 'temp';
+
+		if(!$args['type'])
+		{
+			$args['type'] = 'normal';
+		}
+
+		if($args['type'] !== 'normal')
+		{
+			if(isset($args['year_id']))
+			{
+				$check_duplicate = \lib\db\tax_document\get::check_duplicate_type($args['year_id'], $args['type']);
+				if(isset($check_duplicate['id']))
+				{
+					\dash\notif::error(T_("This document already add to this year"));
+					return false;
+				}
+			}
+		}
+
 		$id = \lib\db\tax_document\insert::new_record($args);
 
 		\dash\notif::ok(T_("Accounting doc successfully added"));

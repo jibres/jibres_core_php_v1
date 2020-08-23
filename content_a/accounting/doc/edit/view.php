@@ -13,18 +13,21 @@ class view
 		\dash\data::back_link(\dash\url::that());
 
 
-
-		if(\dash\data::dataRow_status() === 'temp')
+		$did = \dash\request::get('did');
+		if(!$did)
 		{
-			\dash\face::btnSave('formlock1');
-			\dash\face::btnSaveValue('lock');
-			\dash\face::btnSaveText(T_("Lock"));
-		}
-		elseif(\dash\data::dataRow_status() === 'lock')
-		{
-			\dash\face::btnInsert('formlock1');
-			\dash\face::btnInsertValue('unlock');
-			\dash\face::btnInsertText(T_("Unlock"));
+			if(\dash\data::dataRow_status() === 'temp')
+			{
+				\dash\face::btnSave('formlock1');
+				\dash\face::btnSaveValue('lock');
+				\dash\face::btnSaveText(T_("Lock"));
+			}
+			elseif(\dash\data::dataRow_status() === 'lock')
+			{
+				\dash\face::btnInsert('formlock1');
+				\dash\face::btnInsertValue('unlock');
+				\dash\face::btnInsertText(T_("Unlock"));
+			}
 		}
 
 		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));

@@ -11,6 +11,18 @@
 
  <form method="post" autocomplete="off" class="box p0">
   <div class="pad">
+
+    <?php if(\dash\data::openingMode()) {?>
+      <div class="p0">
+        <?php if(\dash\data::openingDoc()) {?>
+          <div class="msg warn txtB txtC"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
+        <?php }else{ ?>
+          <div class="msg success2 txtB txtC"><?php echo T_("Opening Document"); ?></div>
+        <?php } //endif ?>
+
+
+      </div>
+    <?php } //endif ?>
     <div class="row align-end">
       <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 p0">
         <?php $defaultYear = null; ?>
@@ -33,7 +45,7 @@
       </div>
 
       <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-2 p0">
-        <label for="number"><?php echo T_("Document Number") ?> <small class="fc-green">* <?php echo T_("Required") ?></small></label>
+        <label for="number"><?php echo T_("Document Number") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div class="input mB0-f">
           <input type="number" min="1" max="9999999999" name="number" id="number" required value="<?php echo \dash\data::dataRow_number() ?>" data-format=int>
         </div>
@@ -46,7 +58,7 @@
       </div>
 
       <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 c-print-2">
-        <label for="date" ><?php echo T_("Date"); ?> <small class="fc-green">* <?php echo T_("Required") ?></small></label>
+        <label for="date" ><?php echo T_("Date"); ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
     		<div class="input mB0-f">
     		<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="date" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" autocomplete='off' required>
     		</div>
@@ -60,12 +72,14 @@
 
       <?php if(\dash\data::editMode()) {?>
         <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+          <?php if(!\dash\request::get('did')) {?>
       <div class="c-xs c-auto p0">
         <div class="btn mT10 linkDel outline" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
       </div>
       <div class="c-xs-auto c-auto p0">
         <button class="btn mT10 secondary outline"><?php echo T_("Edit") ?></button>
       </div>
+        <?php } //endif ?>
         <?php } //endif ?>
       <?php }else{ ?>
       <div class="c-xs-12 c-auto p0">

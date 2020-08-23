@@ -15,6 +15,18 @@ class view
 		\dash\data::accountingYear(\lib\app\tax\year\get::list());
 		\dash\data::dataRow_number(\lib\app\tax\doc\get::new_doc_number());
 
+		if(\dash\request::get('type') === 'opening')
+		{
+			\dash\data::openingMode(true);
+			$default_year = \lib\app\tax\year\get::default_year('id');
+
+			if($default_year)
+			{
+				$load_opening_doc = \lib\app\tax\doc\get::opening_doc($default_year);
+				\dash\data::openingDoc($load_opening_doc);
+			}
+		}
+
 	}
 }
 ?>

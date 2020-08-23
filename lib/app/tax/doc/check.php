@@ -30,12 +30,13 @@ class check
 	{
 		$condition =
 		[
-			'number'  => 'bigint',
-			'subnumber'  => 'int',
-			'desc'    => 'string_300',
-			'date'    => 'date',
-			'year_id' => 'id',
-			'status'  => ['enum' => ['draft', 'temp', 'lock']],
+			'number'    => 'bigint',
+			'subnumber' => 'int',
+			'desc'      => 'string_300',
+			'date'      => 'date',
+			'year_id'   => 'id',
+			'status'    => ['enum' => ['draft', 'temp', 'lock']],
+			'type'      => ['enum' => ['normal', 'opening', 'closing']],
 		];
 
 		$require = ['number', 'date', 'year_id'];

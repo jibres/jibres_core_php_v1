@@ -18,7 +18,7 @@ class get
 
 	private static $default_year = [];
 
-	public static function defult_year($_need = null)
+	public static function default_year($_need = null)
 	{
 		if(!self::$default_year)
 		{

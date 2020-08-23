@@ -16,7 +16,7 @@
             </nav>
 
             <?php if(\dash\data::parentList()) {?>
-              <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-green"><?php echo T_("Required") ?></small><?php } //endif ?></label>
+              <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-red"><?php echo T_("Required") ?></small><?php } //endif ?></label>
               <select class="select22" name="parent" <?php if(\dash\request::get('parent')) {echo 'disabled';} ?>>
                 <option value=""><?php echo T_("Please choose parent") ?></option>
                 <?php foreach (\dash\data::parentList() as $key => $value) {?>
@@ -28,12 +28,12 @@
               <input type="hidden" name="parent" value="<?php echo \dash\request::get('parent') ?>">
             <?php } ?>
 
-            <label for="code"><?php echo T_("Code") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
+            <label for="code"><?php echo T_("Code") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
             <div class="input">
               <input type="number"  max="9999999999" name="code" id="code" required value="<?php echo \dash\data::dataRow_code(); ?>" <?php if(\dash\data::editMode() && \dash\data::myType() !== 'details') { echo 'disabled'; }?> >
             </div>
 
-            <label for="title"><?php echo T_("Title") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
+            <label for="title"><?php echo T_("Title") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
             <div class="input">
               <input type="text" name="title" id="title" required value="<?php echo \dash\data::dataRow_title(); ?>">
             </div>
@@ -42,7 +42,7 @@
 
             <?php if(\dash\data::myType() === 'assistant' || \dash\data::myType() === 'total') {?>
 
-              <label for="balancetype"><?php echo T_("Balance type") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
+              <label for="balancetype"><?php echo T_("Balance type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
 
               <div class="f">
 
@@ -74,7 +74,7 @@
 
             <?php if(\dash\data::myType() === 'group') {?>
 
-              <label for="naturegroup"><?php echo T_("Nature") ?> <small class="fc-green"><?php echo T_("Required") ?></small></label>
+              <label for="naturegroup"><?php echo T_("Nature") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
 
               <div class="f">
 

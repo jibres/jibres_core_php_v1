@@ -39,5 +39,23 @@ class get
 		return $result;
 	}
 
+
+	public static function opening_doc($_year_id)
+	{
+		$year_id = \dash\validate::id($_year_id);
+		if($year_id)
+		{
+			$result = \lib\db\tax_document\get::opening_doc($year_id);
+			if($result)
+			{
+				$result = \lib\app\tax\doc\ready::row($result);
+				return $result;
+			}
+
+		}
+
+		return null;
+	}
+
 }
 ?>

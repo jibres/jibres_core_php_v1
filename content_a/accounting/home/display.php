@@ -1,10 +1,4 @@
-
-<div class="avand">
   <h2><?php echo T_("Accounting") ?></h2>
-
-
-
-
 
   <div class="f">
 
@@ -52,6 +46,16 @@
         <div class="statistic red">
           <div class="value"><i class="sf-plus"></i></div>
           <div class="label"><?php echo T_("Add Accounting Document"); ?></div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="c4 s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc/add?type=opening'; ?>'>
+        <div class="statistic brown">
+          <div class="value"><i class="sf-new-sign"></i></div>
+          <div class="label"><?php echo T_("Add Opening document"); ?></div>
         </div>
       </a>
     </div>
@@ -150,4 +154,3 @@
 
   </div>
 
-</div>
