@@ -39,7 +39,7 @@ foreach ($formItems as $key => $value)
 		case 'descriptive_answer': c12(); html_input_descriptive_answer($value);c12(true); break;
 		case 'descriptive_after_short_answer':  c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
 		case 'numeric':   html_input_numeric($value); break;
-		case 'single_choice':  c12(); html_input_single_choice($value);c12(true);  break;
+		case 'single_choice':  html_input_single_choice($value);  break;
 		case 'multiple_choice':  c12(); html_input_multiple_choice($value);c12(true); break;
 		case 'dropdown':  html_input_dropdown($value); break;
 		case 'date':   html_input_date($value); break;
@@ -264,16 +264,20 @@ function html_input_numeric($value) {?>
 
 
 function html_input_single_choice($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="row">
-	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
-		<div class="c-xs-12 c-sm-12">
-			<div class="radio3">
-				<input type="radio" name="<?php myName($value); ?>" id="<?php myID($value); echo $k; ?>">
-				<label for="<?php myID($value); echo $k; ?>"><?php echo \dash\get::index($v, 'title'); ?></label>
-			</div>
+<div class="c-sm-12 c-12">
+	<div class="mB10">
+		<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+		<div class="row">
+			<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+				<div class="c-xs-12 c-sm-12">
+					<div class="radio3">
+						<input type="radio" name="<?php myName($value); ?>" id="<?php myID($value); echo $k; ?>">
+						<label for="<?php myID($value); echo $k; ?>"><?php echo \dash\get::index($v, 'title'); ?></label>
+					</div>
+				</div>
+			<?php } /*endfor*/ } /*endif*/ ?>
 		</div>
-	<?php } /*endfor*/ } /*endif*/ ?>
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
@@ -298,15 +302,15 @@ function html_input_multiple_choice($value) {?>
 
 function html_input_dropdown($value) {?>
 <div class="c-xs-6 c-6">
-
 	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-
-	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>" data-placeholder="<?php HtmlPlaceholder($value, true); ?>">
-		<option value=""><?php HtmlPlaceholder($value, true); ?></option>
-		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
-			<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
-		<?php } /*endfor*/ } /*endif*/ ?>
-	</select>
+	<div class="mB10">
+		<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>" data-placeholder="<?php HtmlPlaceholder($value, true); ?>">
+			<option value=""><?php HtmlPlaceholder($value, true); ?></option>
+			<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+				<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
+			<?php } /*endfor*/ } /*endif*/ ?>
+		</select>
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
@@ -372,18 +376,20 @@ function html_input_province_city($value) {?>
 
 
 function html_input_gender($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="row">
-	<div class="c-xs-12 c-sm-6">
-		<div class="radio3">
-			<input type="radio" name="<?php myName($value); ?>" value="male" id="<?php myID($value); echo 'male'; ?>">
-			<label for="<?php myID($value); echo 'male'; ?>"><?php echo T_("I'm Male"); ?></label>
+<div class="mB10">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="row">
+		<div class="c-xs-12 c-sm-6">
+			<div class="radio3">
+				<input type="radio" name="<?php myName($value); ?>" value="male" id="<?php myID($value); echo 'male'; ?>">
+				<label for="<?php myID($value); echo 'male'; ?>"><?php echo T_("I'm Male"); ?></label>
+			</div>
 		</div>
-	</div>
-	<div class="c-xs-12 c-sm-6">
-		<div class="radio3">
-			<input type="radio" name="<?php myName($value); ?>" value="female" id="<?php myID($value); echo 'female'; ?>">
-			<label for="<?php myID($value); echo 'female'; ?>"><?php echo T_("I'm Female"); ?></label>
+		<div class="c-xs-12 c-sm-6">
+			<div class="radio3">
+				<input type="radio" name="<?php myName($value); ?>" value="female" id="<?php myID($value); echo 'female'; ?>">
+				<label for="<?php myID($value); echo 'female'; ?>"><?php echo T_("I'm Female"); ?></label>
+			</div>
 		</div>
 	</div>
 </div>
@@ -539,18 +545,20 @@ function html_input_agree($value)
 
 
 function html_input_yes_no($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="row">
-	<div class="c-xs-12 c-sm-6">
-		<div class="radio3">
-			<input type="radio" name="<?php myName($value); ?>" value="1" id="<?php myID($value); echo 'yes'; ?>">
-			<label for="<?php myID($value); echo 'yes'; ?>"><?php echo T_("Yes"); ?></label>
+<div class="mB10">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="row">
+		<div class="c-xs-12 c-sm-6">
+			<div class="radio3">
+				<input type="radio" name="<?php myName($value); ?>" value="1" id="<?php myID($value); echo 'yes'; ?>">
+				<label for="<?php myID($value); echo 'yes'; ?>"><?php echo T_("Yes"); ?></label>
+			</div>
 		</div>
-	</div>
-	<div class="c-xs-12 c-sm-6">
-		<div class="radio3">
-			<input type="radio" name="<?php myName($value); ?>" value="0" id="<?php myID($value); echo 'no'; ?>">
-			<label for="<?php myID($value); echo 'no'; ?>"><?php echo T_("No"); ?></label>
+		<div class="c-xs-12 c-sm-6">
+			<div class="radio3">
+				<input type="radio" name="<?php myName($value); ?>" value="0" id="<?php myID($value); echo 'no'; ?>">
+				<label for="<?php myID($value); echo 'no'; ?>"><?php echo T_("No"); ?></label>
+			</div>
 		</div>
 	</div>
 </div>
