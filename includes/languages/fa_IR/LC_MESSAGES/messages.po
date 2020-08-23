@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-23 15:14+0430\n"
-"PO-Revision-Date: 2020-08-23 15:15+0430\n"
+"POT-Creation-Date: 2020-08-23 16:50+0430\n"
+"PO-Revision-Date: 2020-08-23 16:51+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -4014,7 +4014,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/doc/add/display-list.php:21
 #: content_a/accounting/doc/add/display-list.php:89
 #: content_a/accounting/report/assistant/display.php:14
-#: content_a/accounting/report/detail/display.php:15
+#: content_a/accounting/report/detail/display.php:19
 #: content_a/accounting/report/group/display.php:13
 #: content_a/accounting/report/total/display.php:13
 #: content_a/accounting/turnover/display.php:97
@@ -4027,7 +4027,7 @@ msgstr "بدهکار"
 #: content_a/accounting/doc/add/display-list.php:22
 #: content_a/accounting/doc/add/display-list.php:91
 #: content_a/accounting/report/assistant/display.php:15
-#: content_a/accounting/report/detail/display.php:16
+#: content_a/accounting/report/detail/display.php:20
 #: content_a/accounting/report/group/display.php:14
 #: content_a/accounting/report/total/display.php:14
 #: content_a/accounting/turnover/display.php:104
@@ -5162,14 +5162,14 @@ msgid "No detail was founded"
 msgstr "هیچ جزئياتی یافت نشد"
 
 #: content_a/accounting/report/assistant/display.php:16
-#: content_a/accounting/report/detail/display.php:17
+#: content_a/accounting/report/detail/display.php:21
 #: content_a/accounting/report/group/display.php:15
 #: content_a/accounting/report/total/display.php:15
 msgid "Remain Debtor"
 msgstr "مانده بدهکار"
 
 #: content_a/accounting/report/assistant/display.php:17
-#: content_a/accounting/report/detail/display.php:18
+#: content_a/accounting/report/detail/display.php:22
 #: content_a/accounting/report/group/display.php:16
 #: content_a/accounting/report/total/display.php:16
 msgid "Remain Creditor"
@@ -5178,6 +5178,14 @@ msgstr "مانده بستانکار"
 #: content_a/accounting/report/assistant/view.php:9
 msgid "Accounting report assistant"
 msgstr "گزارش حسابداری در سطح معین"
+
+#: content_a/accounting/report/detail/display.php:15
+msgid "Opening debtor"
+msgstr "بدهکار در زمان افتتاحیه"
+
+#: content_a/accounting/report/detail/display.php:16
+msgid "Opening creditor"
+msgstr "بستانکار در زمان افتتاحیه"
 
 #: content_a/accounting/report/detail/view.php:9
 msgid "Accounting report detail"
@@ -5207,11 +5215,14 @@ msgstr "لطفا معین را انتخاب کنید"
 msgid "Please choose details"
 msgstr "لطفا تفصیل را وارد کنید"
 
-#: content_a/accounting/turnover/display.php:111
-#: content_a/accounting/turnover/display.php:132 content_love/domain/credit/display.php:10
+#: content_a/accounting/turnover/display.php:111 content_love/domain/credit/display.php:10
 #: content_love/domain/credit/display.php:29
 msgid "Balance"
 msgstr "تراز"
+
+#: content_a/accounting/turnover/display.php:132
+msgid "Remain"
+msgstr "مانده"
 
 #: content_a/accounting/year/add/display.php:17
 msgid "Start Date"
