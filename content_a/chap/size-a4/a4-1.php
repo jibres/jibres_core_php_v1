@@ -22,7 +22,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="c-6 txtC">
         <h1><?php echo T_("Invoice"); ?></h1>
       </div>
-      <div class="c-3 txtL">
+      <div class="c-3 txtRa">
         <div>
           <span class="compact pRa5"><?php echo T_("Serial Number"); ?></span>
           <span class="printEmptyBox"></span>
