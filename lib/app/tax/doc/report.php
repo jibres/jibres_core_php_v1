@@ -108,7 +108,6 @@ class report
 
 
 		$check_opening = array_combine(array_column($opening, 'string_id'), $opening);
-
 		foreach ($normal as $key => $value)
 		{
 			$string_id = null;
@@ -135,18 +134,19 @@ class report
 
 				if($diff > 0)
 				{
-					$result['remain_debtor'] = abs($diff);
-					$result['remain_creditor'] = 0;
+					$normal[$key]['remain_debtor'] = abs($diff);
+					$normal[$key]['remain_creditor'] = 0;
 				}
 				else
 				{
-					$result['remain_debtor'] = 0;
-					$result['remain_creditor'] = abs($diff);
+					$normal[$key]['remain_debtor'] = 0;
+					$normal[$key]['remain_creditor'] = abs($diff);
 				}
 
 				unset($check_opening[$string_id]);
 			}
 		}
+
 
 		if(!empty($check_opening))
 		{
@@ -156,8 +156,8 @@ class report
 				$check_opening[$key]['opening_debtor'] = $value['debtor'];
 				$check_opening[$key]['opening_creditor'] = $value['creditor'];
 
-				// $check_opening[$key]['debtor'] = null;
-				// $check_opening[$key]['creditor'] = null;
+				$check_opening[$key]['debtor'] = 0;
+				$check_opening[$key]['creditor'] = 0;
 
 			}
 			$normal = array_merge($normal, $check_opening);
