@@ -8,6 +8,16 @@ class view
 	{
 		\dash\face::title(T_('Accounting Document Number'). ' '. \dash\data::dataRow_number());
 
+		if(\dash\data::dataRow_type() === 'opening')
+		{
+			\dash\face::title(\dash\face::title(). ' | '. T_("Opening Document"));
+		}
+
+		if(\dash\data::dataRow_type() === 'closing')
+		{
+			\dash\face::title(\dash\face::title(). ' | '. T_("Closing Document"));
+		}
+
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());
