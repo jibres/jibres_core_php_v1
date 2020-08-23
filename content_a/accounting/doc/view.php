@@ -16,6 +16,7 @@ class view
 		\dash\data::action_text(T_('Add doc'));
 		\dash\data::action_link(\dash\url::that(). '/add');
 
+		\dash\data::userToggleSidebar(false);
 
 
 
