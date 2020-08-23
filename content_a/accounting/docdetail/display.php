@@ -52,19 +52,19 @@
 						</select>
 					<?php } // endif ?>
 				</div>
-				<?php if(false) {?>
-					<div class="c-xs-12	c-sm">
-						<?php if(\dash\data::detailsList()) {?>
-							<label for="details"><?php echo T_("Accounting details") ?></label>
-							<select class="select22" name="details">
-								<option value=""><?php echo T_("Please choose details") ?></option>
-								<?php foreach (\dash\data::detailsList() as $key => $value) {?>
-									<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if($value === \dash\request::get('details')) { echo 'selected';} ?>><?php echo $value; ?></option>
-								<?php } // endfor ?>
-							</select>
-						<?php } // endif ?>
-					</div>
-				<?php } // endif ?>
+
+				<div class="c-xs-12	c-sm">
+					<?php if(\dash\data::detailsList()) {?>
+						<label for="details"><?php echo T_("Accounting details") ?></label>
+						<select class="select22" name="details">
+							<option value=""><?php echo T_("Please choose details") ?></option>
+							<?php foreach (\dash\data::detailsList() as $key => $value) {?>
+								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if($value === \dash\request::get('details')) { echo 'selected';} ?>><?php echo $value; ?></option>
+							<?php } // endfor ?>
+						</select>
+					<?php } // endif ?>
+				</div>
+
 
 				<div class="c-xs-12 c-sm">
 					<label for="startdate" ><?php echo T_("Start date"); ?></label>

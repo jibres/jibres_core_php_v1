@@ -66,9 +66,9 @@
 
     <div class="c4 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/docdetail'; ?>'>
-        <div class="statistic">
-          <div class="value"><i class="sf-list"></i></div>
-          <div class="label"><?php echo T_("Accounting Document detail"); ?></div>
+        <div class="statistic gold">
+          <div class="value"><i class="sf-spin-alt"></i></div>
+          <div class="label"><?php echo T_("Account flow"); ?></div>
         </div>
       </a>
     </div>

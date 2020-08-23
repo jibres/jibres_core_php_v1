@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Accounting Documents detail'));
+		\dash\face::title(T_('Account flow'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
