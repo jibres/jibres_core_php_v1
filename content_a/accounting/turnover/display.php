@@ -95,21 +95,21 @@
 	<div class="c">
 		<a class="stat">
 			<h3><?php echo T_("Debtor");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_debtor());?></div>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_debtor());?></div>
 		</a>
 	</div>
 
 	<div class="c">
 		<a class="stat">
 			<h3><?php echo T_("Creditor");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_creditor());?></div>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_creditor());?></div>
 		</a>
 	</div>
 
 	<div class="c">
 		<a class="stat">
 			<h3><?php echo T_("Balance");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_balance());?></div>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_balance());?></div>
 		</a>
 	</div>
 
