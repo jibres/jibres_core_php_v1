@@ -88,9 +88,9 @@ class search
 		$query =
 		"
 			SELECT
-				SUM(tax_docdetail.debtor)  AS `debtor`,
-				SUM(tax_docdetail.creditor)  AS `creditor`,
-				(SUM(tax_docdetail.debtor) - SUM(tax_docdetail.creditor)) AS `balance`
+				SUM(IFNULL(tax_docdetail.debtor, 0))  AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0))  AS `creditor`,
+				(SUM(IFNULL(tax_docdetail.debtor, 0)) - SUM(IFNULL(tax_docdetail.creditor, 0))) AS `balance`
 			FROM tax_docdetail
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			$q[join]
