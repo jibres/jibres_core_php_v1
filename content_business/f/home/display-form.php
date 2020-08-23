@@ -297,14 +297,17 @@ function html_input_multiple_choice($value) {?>
 
 
 function html_input_dropdown($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div>
-	<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>">
-		<option value=""><?php HtmlPlaceholder($value, true); ?></option>
-		<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
-			<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
-		<?php } /*endfor*/ } /*endif*/ ?>
-	</select>
+<div class="c-xs-6 c-6">
+
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div>
+		<select class="select22" id="<?php myID($value); ?>" name="<?php myName($value); ?>" data-placeholder="<?php HtmlPlaceholder($value, true); ?>">
+			<option value=""><?php HtmlPlaceholder($value, true); ?></option>
+			<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
+				<option value="<?php echo \dash\get::index($v, 'title') ?>"><?php echo \dash\get::index($v, 'title'); ?></option>
+			<?php } /*endfor*/ } /*endif*/ ?>
+		</select>
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
