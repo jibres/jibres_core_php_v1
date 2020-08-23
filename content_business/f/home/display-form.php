@@ -190,7 +190,7 @@ function html_input_short_answer($value)
 	{
 		echo '<input type="text" name="';
 		myName($value);
-		echo " id=";
+		echo '" id="';
 		myID($value);
 		echo '"';
 		isRequired($value);
