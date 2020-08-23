@@ -73,7 +73,13 @@
               <td></td>
             <?php } //endif ?>
 
-              <td><?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?></td>
+              <td>
+                <?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?>
+                <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
+                  <div class="mLa20 ltr compact txtB"><a class="fc-white ltr" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc);  ?>"><?php echo T_("Remain"). ' '. \dash\fit::number_decimal($remain_doc, 'en'); ?></a></div>
+                <?php } //endif ?>
+
+              </td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
              <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
