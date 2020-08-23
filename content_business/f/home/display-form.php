@@ -38,22 +38,22 @@ foreach ($formItems as $key => $value)
 		case 'displayname':  c6() ; html_input_displayname($value); c6(true); break;
 		case 'descriptive_answer': c12(); html_input_descriptive_answer($value);c12(true); break;
 		case 'descriptive_after_short_answer':  c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
-		case 'numeric':  c6() ; html_input_numeric($value); c6(true); break;
+		case 'numeric':   html_input_numeric($value); break;
 		case 'single_choice':  c12(); html_input_single_choice($value);c12(true);  break;
 		case 'multiple_choice':  c12(); html_input_multiple_choice($value);c12(true); break;
 		case 'dropdown':  c6() ; html_input_dropdown($value); c6(true); break;
-		case 'date':  c6() ; html_input_date($value); c6(true); break;
-		case 'birthdate':  c6() ; html_input_birthdate($value); c6(true); break;
+		case 'date':   html_input_date($value); break;
+		case 'birthdate':   html_input_birthdate($value); break;
 		case 'country':  c12(); html_input_country($value);c12(true);  break;
 		case 'province':  c6() ; html_input_province($value); c6(true); break;
 		case 'city':  c6() ; html_input_city($value); c6(true); break;
 		case 'province_city':  c6() ; html_input_province_city($value); c6(true); break;
 		case 'gender':  c12() ; html_input_gender($value); c12(true); break;
-		case 'time':  c6() ; html_input_time($value); c6(true); break;
-		case 'tel':  c6() ; html_input_tel($value); c6(true); break;
+		case 'time':   html_input_time($value); break;
+		case 'tel':   html_input_tel($value); break;
 		case 'file':  c12(); html_input_file($value);c12(true); break;
 		case 'nationalcode':  c6() ; html_input_nationalcode($value); c6(true); break;
-		case 'mobile':  c6() ; html_input_mobile($value); c6(true); break;
+		case 'mobile':   html_input_mobile($value); break;
 		case 'email':  c6() ; html_input_email($value); c6(true); break;
 		case 'website':  c6() ; html_input_website($value); c6(true); break;
 		case 'password':  c6() ; html_input_password($value); c6(true); break;
@@ -253,7 +253,7 @@ function html_input_descriptive_after_short_answer($value) {?>
 
 
 function html_input_numeric($value) {?>
-<div class="c-xs-12">
+<div class="c-xs-6 c-12">
 <label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="input">
 	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='price' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); HtmlMin($value); HtmlMax($value) ?> >
@@ -311,18 +311,22 @@ function html_input_dropdown($value) {?>
 
 
 function html_input_date($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="input">
-	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+<div class="c-xs-6 c-12">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="input">
+		<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
 
 
 function html_input_birthdate($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="input">
-	<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+<div class="c-xs-6 c-12">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="input">
+		<input type="text" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='date' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
@@ -386,18 +390,22 @@ function html_input_gender($value) {?>
 
 
 function html_input_time($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="input">
-	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='time' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+<div class="c-xs-6 c-12">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="input">
+		<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='time' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
 
 
 function html_input_tel($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="input">
-	<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='tel' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); ?> >
+<div class="c-xs-6 c-12">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="input">
+		<input type="tel" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='tel' <?php isRequired($value); HtmlPlaceholder($value); HtmlMaxLen($value); ?> >
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
@@ -434,9 +442,11 @@ function html_input_nationalcode($value) {?>
 
 
 function html_input_mobile($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
-<div class="input">
-	<input type="tel" maxlength="15" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='mobile-enter' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+<div class="c-xs-6 c-12">
+	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+	<div class="input">
+		<input type="tel" maxlength="15" name="<?php myName($value); ?>" id="<?php myID($value); ?>" data-format='mobile-enter' <?php isRequired($value); HtmlPlaceholder($value); ?> >
+	</div>
 </div>
 <?php HtmlDesc($value); } //endfunction
 
