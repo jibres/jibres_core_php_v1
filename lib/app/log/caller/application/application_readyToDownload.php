@@ -14,6 +14,7 @@ class application_readyToDownload
 		$result['icon']      = 'android-1';
 		$result['cat']       = T_("Application");
 		$result['iconClass'] = 'fc-green';
+		$msg = T_("Build application completed");
 		$result['txt']       = $msg;
 		return $result;
 
