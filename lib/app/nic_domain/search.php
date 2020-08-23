@@ -165,6 +165,7 @@ class search
 							'irnicRegistrationDocRequired',
 							'irnicRenewalPendingHolderCheck'
 						)
+					LIMIT 1
 				) IS NULL ";
 		}
 		else
