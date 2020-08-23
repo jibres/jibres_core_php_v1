@@ -1,21 +1,4 @@
-summaryDetail.debtor
 
-<section class="f">
-	<div class="c s12 pRa10">
-		<a class="stat">
-			<h3><?php echo T_("Debtor");?></h3>
-			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_debtor());?></div>
-		</a>
-	</div>
-
-	<div class="c s12 pRa10">
-		<a class="stat">
-			<h3><?php echo T_("Creditor");?></h3>
-			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_creditor());?></div>
-		</a>
-	</div>
-
-</section>
 
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>">
 	<div class="box">
@@ -98,16 +81,31 @@ summaryDetail.debtor
 			</div>
 		</div>
 		<footer>
-			<div class="mT25 txtRa">
+			<div class="txtRa">
 				<?php if(\dash\request::get()) {?>
-					<a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Clear filter") ?></a>
+					<a href="<?php echo \dash\url::current() ?>" class="btn sm secondary outline"><?php echo T_("Clear filter") ?></a>
 				<?php } //endif ?>
-				<button class="btn master"><?php echo T_("Apply") ?></button>
+				<button class="btn sm master"><?php echo T_("Apply") ?></button>
 			</div>
 		</footer>
 	</div>
 </form>
+<section class="row">
+	<div class="c">
+		<a class="stat">
+			<h3><?php echo T_("Debtor");?></h3>
+			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_debtor());?></div>
+		</a>
+	</div>
 
+	<div class="c">
+		<a class="stat">
+			<h3><?php echo T_("Creditor");?></h3>
+			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_creditor());?></div>
+		</a>
+	</div>
+
+</section>
 <?php if(\dash\data::dataTable()) {?>
 	<table class="tbl1 v6  minimal font-12">
 		<thead>
