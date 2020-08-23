@@ -549,13 +549,13 @@ function html_input_yes_no($value) {?>
 <div class="mB10">
 	<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 	<div class="row">
-		<div class="c-xs-12 c-sm-6">
+		<div class="c-xs-6 c-sm-6">
 			<div class="radio3">
 				<input type="radio" name="<?php myName($value); ?>" value="1" id="<?php myID($value); echo 'yes'; ?>">
 				<label for="<?php myID($value); echo 'yes'; ?>"><?php echo T_("Yes"); ?></label>
 			</div>
 		</div>
-		<div class="c-xs-12 c-sm-6">
+		<div class="c-xs-6 c-sm-6">
 			<div class="radio3">
 				<input type="radio" name="<?php myName($value); ?>" value="0" id="<?php myID($value); echo 'no'; ?>">
 				<label for="<?php myID($value); echo 'no'; ?>"><?php echo T_("No"); ?></label>
