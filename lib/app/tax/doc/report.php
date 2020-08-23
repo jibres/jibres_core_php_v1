@@ -50,6 +50,7 @@ class report
 		$normal  = \dash\get::index($result, 'normal');
 		$opening = \dash\get::index($result, 'opening');
 
+		$coding = array_combine(array_column($coding, 'id'), $coding);
 
 		if(!is_array($coding))
 		{
