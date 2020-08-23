@@ -55,6 +55,9 @@ class view
 		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
+		$summary_detail = \lib\app\tax\docdetail\search::summary_detail();
+		\dash\data::summaryDetail($summary_detail);
+
 		\dash\data::groupList(\lib\app\tax\coding\get::current_list_of('group'));
 		\dash\data::totalList(\lib\app\tax\coding\get::current_list_of('total', \dash\request::get('group')));
 		\dash\data::assistantList(\lib\app\tax\coding\get::current_list_of('assistant', \dash\request::get('group'), \dash\request::get('total')));

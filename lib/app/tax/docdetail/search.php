@@ -8,7 +8,13 @@ class search
 	private static $filter_message = null;
 	private static $filter_args    = [];
 	private static $is_filtered    = false;
+	private static $summary_detail    = [];
 
+
+	public static function summary_detail()
+	{
+		return self::$summary_detail;
+	}
 
 	public static function filter_message()
 	{
@@ -177,6 +183,10 @@ class search
 		}
 
 		$list = \lib\db\tax_docdetail\search::list($and, $or, $order_sort, $meta);
+		$summary_list = \lib\db\tax_docdetail\search::summary_list($and, $or, $order_sort, $meta);
+
+		self::$summary_detail = $summary_list;
+
 
 		if(!is_array($list))
 		{

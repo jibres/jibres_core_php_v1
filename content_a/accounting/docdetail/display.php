@@ -1,3 +1,22 @@
+summaryDetail.debtor
+
+<section class="f">
+	<div class="c s12 pRa10">
+		<a class="stat">
+			<h3><?php echo T_("Debtor");?></h3>
+			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_debtor());?></div>
+		</a>
+	</div>
+
+	<div class="c s12 pRa10">
+		<a class="stat">
+			<h3><?php echo T_("Creditor");?></h3>
+			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_creditor());?></div>
+		</a>
+	</div>
+
+</section>
+
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>">
 	<div class="box">
 		<div class="pad">

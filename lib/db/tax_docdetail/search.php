@@ -44,5 +44,27 @@ class search
 		return $result;
 
 	}
+
+
+	public static function summary_list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
+	{
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+		$query =
+		"
+			SELECT
+				SUM(tax_docdetail.debtor)  AS `debtor`,
+				SUM(tax_docdetail.creditor)  AS `creditor`
+			FROM tax_docdetail
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			$q[join]
+			$q[where]
+			$q[order]
+		";
+
+		$result = \dash\db::get($query, null, true);
+		return $result;
+
+	}
 }
 ?>
