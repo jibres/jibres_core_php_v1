@@ -284,7 +284,8 @@ function html_input_single_choice($value) {?>
 
 
 function html_input_multiple_choice($value) {?>
-<label for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
+<div class="mB10">
+<label class="txtB" for="<?php myID($value); ?>"><?php echo \dash\get::index($value, 'title') ?> <?php isRequired($value, true); ?></label>
 <div class="row">
 	<?php if(isset($value['choice']) && is_array($value['choice'])) { foreach ($value['choice'] as $k => $v) { ?>
 		<div class="c-xs-12 c-sm-12">
@@ -295,7 +296,7 @@ function html_input_multiple_choice($value) {?>
 		</div>
 	<?php } /*endfor*/ } /*endif*/ ?>
 </div>
-
+</div>
 <?php HtmlDesc($value); } //endfunction
 
 
