@@ -34,32 +34,32 @@ foreach ($formItems as $key => $value)
 	switch ($value['type'])
 	{
 
-		case 'short_answer': c6() ; html_input_short_answer($value); c6(true); break;
-		case 'displayname': c6() ; html_input_displayname($value); c6(true); break;
-		case 'descriptive_answer': html_input_descriptive_answer($value); break;
-		case 'descriptive_after_short_answer': c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
-		case 'numeric': c6() ; html_input_numeric($value); c6(true); break;
-		case 'single_choice':  html_input_single_choice($value);  break;
-		case 'multiple_choice':  html_input_multiple_choice($value); break;
-		case 'dropdown': c6() ; html_input_dropdown($value); c6(true); break;
-		case 'date': c6() ; html_input_date($value); c6(true); break;
-		case 'birthdate': c6() ; html_input_birthdate($value); c6(true); break;
-		case 'country':  html_input_country($value);  break;
-		case 'province': c6() ; html_input_province($value); c6(true); break;
-		case 'city': c6() ; html_input_city($value); c6(true); break;
-		case 'province_city': c6() ; html_input_province_city($value); c6(true); break;
-		case 'gender': c6() ; html_input_gender($value); c6(true); break;
-		case 'time': c6() ; html_input_time($value); c6(true); break;
-		case 'tel': c6() ; html_input_tel($value); c6(true); break;
-		case 'file':  html_input_file($value); break;
-		case 'nationalcode': c6() ; html_input_nationalcode($value); c6(true); break;
-		case 'mobile': c6() ; html_input_mobile($value); c6(true); break;
-		case 'email': c6() ; html_input_email($value); c6(true); break;
-		case 'website': c6() ; html_input_website($value); c6(true); break;
-		case 'password': c6() ; html_input_password($value); c6(true); break;
-		case 'yes_no':  html_input_yes_no($value);  break;
-		case 'message':  html_input_message($value);  break;
-		case 'agree':  html_input_agree($value);  break;
+		case 'short_answer':  c6() ; html_input_short_answer($value); c6(true); break;
+		case 'displayname':  c6() ; html_input_displayname($value); c6(true); break;
+		case 'descriptive_answer': c12(); html_input_descriptive_answer($value);c12(true); break;
+		case 'descriptive_after_short_answer':  c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
+		case 'numeric':  c6() ; html_input_numeric($value); c6(true); break;
+		case 'single_choice':  c12(); html_input_single_choice($value);c12(true);  break;
+		case 'multiple_choice':  c12(); html_input_multiple_choice($value);c12(true); break;
+		case 'dropdown':  c6() ; html_input_dropdown($value); c6(true); break;
+		case 'date':  c6() ; html_input_date($value); c6(true); break;
+		case 'birthdate':  c6() ; html_input_birthdate($value); c6(true); break;
+		case 'country':  c12(); html_input_country($value);c12(true);  break;
+		case 'province':  c6() ; html_input_province($value); c6(true); break;
+		case 'city':  c6() ; html_input_city($value); c6(true); break;
+		case 'province_city':  c6() ; html_input_province_city($value); c6(true); break;
+		case 'gender':  c12() ; html_input_gender($value); c12(true); break;
+		case 'time':  c6() ; html_input_time($value); c6(true); break;
+		case 'tel':  c6() ; html_input_tel($value); c6(true); break;
+		case 'file':  c12(); html_input_file($value);c12(true); break;
+		case 'nationalcode':  c6() ; html_input_nationalcode($value); c6(true); break;
+		case 'mobile':  c6() ; html_input_mobile($value); c6(true); break;
+		case 'email':  c6() ; html_input_email($value); c6(true); break;
+		case 'website':  c6() ; html_input_website($value); c6(true); break;
+		case 'password':  c6() ; html_input_password($value); c6(true); break;
+		case 'yes_no':  c12(); html_input_yes_no($value);c12(true);  break;
+		case 'message':  c12(); html_input_message($value);c12(true);  break;
+		case 'agree':  c12(); html_input_agree($value);c12(true);  break;
 
 		default:
 			# code...
@@ -87,6 +87,18 @@ function c6($_end = null)
 	else
 	{
 		echo '<div class="c-xs-12 c-sm-6">';
+	}
+}
+
+function c12($_end = null)
+{
+	if($_end)
+	{
+		echo '</div>';
+	}
+	else
+	{
+		echo '<div class="c-xs-12 c-sm-12">';
 	}
 }
 
