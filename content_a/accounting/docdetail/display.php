@@ -105,6 +105,13 @@
 		</a>
 	</div>
 
+	<div class="c">
+		<a class="stat">
+			<h3><?php echo T_("Balance");?></h3>
+			<div class="val"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_balance());?></div>
+		</a>
+	</div>
+
 </section>
 <?php if(\dash\data::dataTable()) {?>
 	<table class="tbl1 v6  minimal font-12">

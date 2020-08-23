@@ -55,15 +55,16 @@ class search
 		"
 			SELECT
 				SUM(tax_docdetail.debtor)  AS `debtor`,
-				SUM(tax_docdetail.creditor)  AS `creditor`
+				SUM(tax_docdetail.creditor)  AS `creditor`,
+				(SUM(tax_docdetail.debtor) - SUM(tax_docdetail.creditor)) AS `balance`
 			FROM tax_docdetail
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			$q[join]
 			$q[where]
 			$q[order]
 		";
-
 		$result = \dash\db::get($query, null, true);
+
 		return $result;
 
 	}
