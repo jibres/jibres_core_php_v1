@@ -84,8 +84,7 @@ class get
 				MAX(assistant.title) AS `assistant_title`,
 				MAX(assistant.code) AS `assistant_code`,
 				MAX(details.title) AS `details_title`,
-				MAX(details.code) AS `details_code`,
-				(SELECT SUM(x.debtor) FROM tax_docdetail AS `x` WHERE x.id < tax_docdetail.id) AS `over_debtor`
+				MAX(details.code) AS `details_code`
 			FROM
 				tax_docdetail
 			LEFT JOIN tax_coding AS `details` ON details.id = tax_docdetail.details_id
@@ -96,26 +95,8 @@ class get
 			WHERE tax_document.status != 'draft' $year $startdate $enddate
 			GROUP BY tax_docdetail.details_id
 			ORDER BY details.parent1 ASC, details.parent2 ASC, details.parent3 ASC, details.id ASC
-
 		";
-
-		// $query =
-		// "
-		// 	SELECT
-		// 		tax_docdetail.details_id,
-		// 		tax_document.date,
-		// 		tax_docdetail.debtor,
-		// 		SUM(tax_docdetail.debtor) OVER(PARTITION BY tax_docdetail.details_id) AS `over_debtor`
-		// 		-- SUM(tax_docdetail.debtor) OVER(PARTITION BY tax_docdetail.details_id, tax_document.date) AS `over_debtor`
-		// 	FROM
-		// 		tax_docdetail
-		// 	INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-		// 	ORDER BY tax_document.date ASC
-
-		// ";
 		$result = \dash\db::get($query);
-		// \dash\notif::api($result);
-		// var_dump($result);exit();
 		return $result;
 	}
 
