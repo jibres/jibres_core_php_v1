@@ -65,10 +65,10 @@
 
 
     <div class="c4 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/docdetail'; ?>'>
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/turnover'; ?>'>
         <div class="statistic gold">
-          <div class="value"><i class="sf-spin-alt"></i></div>
-          <div class="label"><?php echo T_("Account flow"); ?></div>
+          <div class="value"><i class="sf-retweet"></i></div>
+          <div class="label"><?php echo T_("Turnover"); ?></div>
         </div>
       </a>
     </div>

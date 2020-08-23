@@ -1,12 +1,12 @@
 <?php
-namespace content_a\accounting\docdetail;
+namespace content_a\accounting\Turnover;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Account flow'));
+		\dash\face::title(T_('Turnover'));
 
 		// back
 		\dash\data::back_text(T_('Back'));

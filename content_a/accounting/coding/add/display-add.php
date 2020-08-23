@@ -9,9 +9,16 @@
 
           <div class="body">
 
-            <nav class="items long">
+            <nav class="items">
               <ul>
-                <li><a class="f" href="<?php echo \dash\url::this(). '/docdetail?contain='. \dash\data::dataRow_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
+                <li>
+                  <a class="item f" href="<?php echo \dash\url::this(). '/turnover?contain='. \dash\data::dataRow_id(); ?>">
+                    <i class="sf-retweet"></i>
+                    <div class="key"><?php echo T_("Check Turnover") ?></div>
+                    <div class="go"></div>
+
+                  </a>
+                </li>
               </ul>
             </nav>
 
