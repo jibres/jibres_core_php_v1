@@ -121,6 +121,7 @@
 				<th><?php echo T_("Status") ?></th>
 				<th><?php echo T_("Debtor") ?></th>
 				<th><?php echo T_("Creditor") ?></th>
+				<th><?php echo T_("Balance") ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -138,12 +139,13 @@
 					<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 					<td class=""><?php echo \dash\get::index($value, 'tstatus') ?></td>
 
-
 					<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></span></td>
 					<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></span></td>
+
+					<td class="font-14 fc-blue"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></span></td>
 				</tr>
 				<tr>
-					<td class="pTB5-f" colspan="11"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
+					<td class="pTB5-f" colspan="12"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
 				</tr>
 			<?php } //endif ?>
 		</tbody>
