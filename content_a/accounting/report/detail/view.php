@@ -14,6 +14,7 @@ class view
 
 		\dash\data::userToggleSidebar(false);
 
+		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
@@ -44,6 +45,17 @@ class view
 
 		$report = \lib\app\tax\doc\report::detail_report($args);
 		\dash\data::reportDetail($report);
+
+		if(\dash\request::get('export'))
+		{
+			$export_name = "Accounting_report_details";
+			foreach ($report as $key => $value)
+			{
+				unset($report[$key]['string_id']);
+			}
+
+			\dash\utility\export::csv(['name' => $export_name, 'data' => $report]);
+		}
 
 	}
 

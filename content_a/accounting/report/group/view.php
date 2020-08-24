@@ -17,6 +17,7 @@ class view
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
 
+		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
 		$year_id = \dash\request::get('year_id');
 		if(!$year_id)
@@ -44,6 +45,14 @@ class view
 
 		$report = \lib\app\tax\doc\report::group_report($args);
 		\dash\data::reportDetail($report);
+
+		if(\dash\request::get('export'))
+		{
+			$export_name = "Accounting_report_group";
+
+
+			\dash\utility\export::csv(['name' => $export_name, 'data' => $report]);
+		}
 
 	}
 
