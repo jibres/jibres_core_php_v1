@@ -381,16 +381,11 @@ class get
 			GROUP BY group.parent1
 			ORDER BY group.parent1 ASC
 		";
+
 		$result['opening'] = \dash\db::get($query);
 
 
-		$query =
-		"
-			SELECT
-				tax_coding.*
-			FROM tax_coding
-			WHERE tax_coding.type IN ('group')
-		";
+		$query = " SELECT tax_coding.* FROM tax_coding WHERE tax_coding.type = 'group' ";
 
 		$result['coding'] = \dash\db::get($query);
 
