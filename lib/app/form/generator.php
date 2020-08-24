@@ -446,6 +446,7 @@ class generator
 				}
 				echo '</select>';
 			}
+			self::_div();
 		}
 		self::_div();
 		self::HtmlDesc($value);
