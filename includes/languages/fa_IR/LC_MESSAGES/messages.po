@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-24 19:23+0430\n"
-"PO-Revision-Date: 2020-08-24 19:23+0430\n"
+"POT-Creation-Date: 2020-08-24 19:25+0430\n"
+"PO-Revision-Date: 2020-08-24 19:26+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -10600,8 +10600,8 @@ msgid "Google analytics setting"
 msgstr "تنظیمات تحلیل‌گر آمار گوگل"
 
 #: content_a/website/home/display.php:84
-msgid "Static file verify"
-msgstr "فایل‌های ثابت ثبت شده"
+msgid "Static file verification"
+msgstr "اعتبارسنجی از طریق فایل‌های ثابت"
 
 #: content_a/website/home/view.php:9
 msgid "Build Your Unique Online Website"
@@ -32764,6 +32764,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Static file verify"
+#~ msgstr "فایل‌های ثابت ثبت شده"
 
 #~ msgid "Choose your city"
 #~ msgstr "شهر خود را انتخاب کنید"
