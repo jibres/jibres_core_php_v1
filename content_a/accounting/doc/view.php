@@ -18,6 +18,7 @@ class view
 
 		\dash\data::userToggleSidebar(false);
 
+		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
 
 		$year = \lib\app\tax\year\get::list();
@@ -51,9 +52,25 @@ class view
 		$args['enddate']   = $enddate ? $enddate : null;
 		$args['month']     = \dash\request::get('month');
 
-
+		if(\dash\request::get('export'))
+		{
+			$args['export'] = true;
+		}
 
 		$dataTable = \lib\app\tax\doc\search::list(\dash\request::get('q'), $args);
+
+		if(\dash\request::get('export'))
+		{
+			$export_name = "Accounting_document_list";
+			foreach ($dataTable as $key => $value)
+			{
+				unset($dataTable[$key]['gallery_array']);
+				unset($dataTable[$key]['gallery']);
+			}
+
+			\dash\utility\export::csv(['name' => $export_name, 'data' => $dataTable]);
+		}
+
 		\dash\data::dataTable($dataTable);
 
 	}
