@@ -14,8 +14,7 @@ class view
 
 		\dash\data::userToggleSidebar(false);
 
-
-
+		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
@@ -54,8 +53,24 @@ class view
 		$args['startdate'] = $startdate ? $startdate : null;
 		$args['enddate']   = $enddate ? $enddate : null;
 
+		if(\dash\request::get('export'))
+		{
+			$args['export'] = true;
+		}
+
 		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
+
+		if(\dash\request::get('export'))
+		{
+			$export_name = "Accounting_turnover";
+			foreach ($dataTable as $key => $value)
+			{
+				unset($dataTable[$key]['string_id']);
+			}
+
+			\dash\utility\export::csv(['name' => $export_name, 'data' => $dataTable]);
+		}
 
 		$summary_detail = \lib\app\tax\docdetail\search::summary_detail();
 		\dash\data::summaryDetail($summary_detail);

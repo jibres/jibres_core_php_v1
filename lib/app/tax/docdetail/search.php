@@ -43,6 +43,7 @@ class search
 			'details'   => 'id',
 			'startdate' => 'date',
 			'enddate'   => 'date',
+			'export'    => 'bit',
 		];
 
 		$require = [];
@@ -57,7 +58,11 @@ class search
 		$meta['join'] = [];
 
 		$meta['limit'] = 50;
-		// $meta['pagination'] = false;
+
+		if($data['export'])
+		{
+			$meta['pagination'] = false;
+		}
 
 		$order_sort  = null;
 
