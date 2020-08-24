@@ -39,7 +39,7 @@
       <tbody>
         <?php foreach (\dash\data::fileList() as $key => $value) {?>
           <tr>
-            <td><a href="<?php echo \lib\store::url(). '/'. $key; ?>"><i class="sf-link-external compact"></i> </a><?php echo $key; ?></td>
+            <td><a target="_blank" href="<?php echo \lib\store::url(). '/'. $key; ?>"><i class="sf-link-external compact"></i> </a><?php echo $key; ?></td>
             <td><?php echo $value; ?></td>
             <td><div class="btn linkDel" data-confirm data-data='{"remove": "file", "name": "<?php echo $key; ?>", "content" : "<?php echo $value; ?>"}'><i class="sf-trash fc-red fs14"></i></div></td>
           </tr>
