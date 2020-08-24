@@ -21,7 +21,7 @@
 
           </div>
           <div class="c-xs-12 c-auto">
-            <button  class="btn master" ><?php echo T_("Route"); ?></button>
+            <button  class="btn master" ><?php echo T_("Add"); ?></button>
           </div>
         </div>
       </div>
