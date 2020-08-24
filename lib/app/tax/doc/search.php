@@ -47,7 +47,7 @@ class search
 		$or           = [];
 		$meta['join'] = [];
 
-		$meta['limit'] = 50;
+		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
 
 		$order_sort  = null;
