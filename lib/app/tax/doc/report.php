@@ -450,6 +450,7 @@ class report
 
 		$normal  = \dash\get::index($result, 'normal');
 		$opening = \dash\get::index($result, 'opening');
+		$coding = \dash\get::index($result, 'coding');
 
 		if(!is_array($normal))
 		{
@@ -460,6 +461,14 @@ class report
 		{
 			$opening = [];
 		}
+
+		if(!is_array($coding))
+		{
+			$coding = [];
+		}
+
+		$coding = array_combine(array_column($coding, 'id'), $coding);
+
 
 		$opening = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $opening);
 
@@ -533,6 +542,21 @@ class report
 			$normal = array_merge($normal, $check_opening);
 		}
 
+		foreach ($normal as $key => $value)
+		{
+			if(isset($value['group_id']))
+			{
+				if(isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
+				{
+					$normal[$key]['group_title'] = $coding[$value['group_id']]['title'];
+				}
+
+				if(isset($coding[$value['group_id']]) && $coding[$value['group_id']]['code'])
+				{
+					$normal[$key]['group_code'] = $coding[$value['group_id']]['code'];
+				}
+			}
+		}
 
 		$sort = array_column($normal, 'group_id');
 

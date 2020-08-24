@@ -19,55 +19,56 @@ if(!is_array($formItems))
 					<img src="<?php echo \dash\data::formDetail_file() ?>" alt="<?php echo \dash\data::formDetail_title(); ?>">
 				<?php } // endif ?>
 				<?php if(\dash\data::formDetail_desc()) {?>
-					<div class="pA20"><?php echo \dash\data::formDetail_desc() ?></div>
+					<div class="mB20"><?php echo \dash\data::formDetail_desc() ?></div>
 				<?php } // endif ?>
-				<div class="row">
+
+				<?php \lib\app\form\generator::html($formItems); ?>
 
 <?php
-foreach ($formItems as $key => $value)
-{
-	if(!isset($value['type']))
-	{
-		continue;
-	}
+// foreach ($formItems as $key => $value)
+// {
+// 	if(!isset($value['type']))
+// 	{
+// 		continue;
+// 	}
 
-	switch ($value['type'])
-	{
+// 	switch ($value['type'])
+// 	{
 
-		case 'short_answer':  c6() ; html_input_short_answer($value); c6(true); break;
-		case 'displayname':  c6() ; html_input_displayname($value); c6(true); break;
-		case 'descriptive_answer': c12(); html_input_descriptive_answer($value);c12(true); break;
-		case 'descriptive_after_short_answer':  c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
-		case 'numeric':   html_input_numeric($value); break;
-		case 'single_choice':  html_input_single_choice($value);  break;
-		case 'multiple_choice':  c12(); html_input_multiple_choice($value);c12(true); break;
-		case 'dropdown':  html_input_dropdown($value); break;
-		case 'date':   html_input_date($value); break;
-		case 'birthdate':   html_input_birthdate($value); break;
-		case 'country':  c12(); html_input_country($value);c12(true);  break;
-		case 'province':  c6() ; html_input_province($value); c6(true); break;
-		case 'city':  c6() ; html_input_city($value); c6(true); break;
-		case 'province_city':  c6() ; html_input_province_city($value); c6(true); break;
-		case 'gender':  c12() ; html_input_gender($value); c12(true); break;
-		case 'time':   html_input_time($value); break;
-		case 'tel':   html_input_tel($value); break;
-		case 'file':  c12(); html_input_file($value);c12(true); break;
-		case 'nationalcode':  c6() ; html_input_nationalcode($value); c6(true); break;
-		case 'mobile':   html_input_mobile($value); break;
-		case 'email':  c6() ; html_input_email($value); c6(true); break;
-		case 'website':  c6() ; html_input_website($value); c6(true); break;
-		case 'password':  c6() ; html_input_password($value); c6(true); break;
-		case 'yes_no':  c12(); html_input_yes_no($value);c12(true);  break;
-		case 'message':  c12(); html_input_message($value);c12(true);  break;
-		case 'agree':  c12(); html_input_agree($value);c12(true);  break;
+// 		case 'short_answer':  c6() ; html_input_short_answer($value); c6(true); break;
+// 		case 'displayname':  c6() ; html_input_displayname($value); c6(true); break;
+// 		case 'descriptive_answer': c12(); html_input_descriptive_answer($value);c12(true); break;
+// 		case 'descriptive_after_short_answer':  c6() ; html_input_descriptive_after_short_answer($value); c6(true); break;
+// 		case 'numeric':   html_input_numeric($value); break;
+// 		case 'single_choice':  html_input_single_choice($value);  break;
+// 		case 'multiple_choice':  c12(); html_input_multiple_choice($value);c12(true); break;
+// 		case 'dropdown':  html_input_dropdown($value); break;
+// 		case 'date':   html_input_date($value); break;
+// 		case 'birthdate':   html_input_birthdate($value); break;
+// 		case 'country':  c12(); html_input_country($value);c12(true);  break;
+// 		case 'province':  c6() ; html_input_province($value); c6(true); break;
+// 		case 'city':  c6() ; html_input_city($value); c6(true); break;
+// 		case 'province_city':  c6() ; html_input_province_city($value); c6(true); break;
+// 		case 'gender':  c12() ; html_input_gender($value); c12(true); break;
+// 		case 'time':   html_input_time($value); break;
+// 		case 'tel':   html_input_tel($value); break;
+// 		case 'file':  c12(); html_input_file($value);c12(true); break;
+// 		case 'nationalcode':  c6() ; html_input_nationalcode($value); c6(true); break;
+// 		case 'mobile':   html_input_mobile($value); break;
+// 		case 'email':  c6() ; html_input_email($value); c6(true); break;
+// 		case 'website':  c6() ; html_input_website($value); c6(true); break;
+// 		case 'password':  c6() ; html_input_password($value); c6(true); break;
+// 		case 'yes_no':  c12(); html_input_yes_no($value);c12(true);  break;
+// 		case 'message':  c12(); html_input_message($value);c12(true);  break;
+// 		case 'agree':  c12(); html_input_agree($value);c12(true);  break;
 
-		default:
-			# code...
-			break;
-	}
-}
+// 		default:
+// 			# code...
+// 			break;
+// 	}
+// }
 ?>
-				</div>
+
 			</div>
 			<footer class="txtRa">
 				<button class="btn master"><?php echo T_("Submit") ?></button>

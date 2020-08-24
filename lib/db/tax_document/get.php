@@ -350,7 +350,8 @@ class get
 		"
 			SELECT
 				group.parent1 AS `group_id`,
-				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = group.parent1) as `group_title`,
+				NULL AS `group_title`,
+				NULL AS `group_code`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM
@@ -368,9 +369,10 @@ class get
 		"
 			SELECT
 				group.parent1 AS `group_id`,
+				NULL AS `group_title`,
+				NULL AS `group_code`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
-				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`,
-				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = group.parent1) as `group_title`
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM
 				tax_docdetail
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
@@ -380,6 +382,18 @@ class get
 			ORDER BY group.parent1 ASC
 		";
 		$result['opening'] = \dash\db::get($query);
+
+
+		$query =
+		"
+			SELECT
+				tax_coding.*
+			FROM tax_coding
+			WHERE tax_coding.type IN ('group')
+		";
+
+		$result['coding'] = \dash\db::get($query);
+
 
 		return $result;
 
