@@ -81,6 +81,7 @@
         <nav class="items">
           <ul>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/googleanalytics"><div class="key"><?php echo T_("Google analytics setting"); ?></div><div class="go"></div></a></li>
+            <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/staticfile"><div class="key"><?php echo T_("Static file verify"); ?></div><div class="go"></div></a></li>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/domain"><div class="key"><?php echo T_("Connect store to your domain"); ?></div><div class="go"></div></a></li>
           </ul>
         </nav>

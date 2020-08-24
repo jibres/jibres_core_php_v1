@@ -5,7 +5,7 @@ namespace lib\app\setting;
 class get
 {
 	private static $load_setting_once = [];
-	private static function load_setting_once($_cat)
+	public static function load_setting_once($_cat)
 	{
 		if(isset(self::$load_setting_once[$_cat]))
 		{
