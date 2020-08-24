@@ -435,7 +435,7 @@ class generator
 			{
 				echo '<select class="select22" id="'; self::myID($value); echo '" name="'; self::myName($value); echo '" data-placeholder="'; self::HtmlPlaceholder($value, true); echo '">';
 				{
-					echo '<option value="">'; HtmlPlaceholder($value, true); echo '</option>';
+					echo '<option value="">'; self::HtmlPlaceholder($value, true); echo '</option>';
 					if(isset($value['choice']) && is_array($value['choice']))
 					{
 						foreach ($value['choice'] as $k => $v)
