@@ -31,5 +31,18 @@ class get
 
 	}
 
+
+	public static function business_static_file()
+	{
+		$filename = \dash\url::module();
+
+		$list = self::get_list();
+
+		if(isset($list[$filename]))
+		{
+			\dash\code::jsonBoom($list[$filename], null, 'txt');
+		}
+	}
+
 }
 ?>

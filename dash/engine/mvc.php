@@ -223,6 +223,11 @@ class mvc
 				}
 				else
 				{
+					if(!\dash\url::child() && \dash\url::module() && \dash\engine\store::inBusinessDomain())
+					{
+						\lib\app\staticfile\get::business_static_file();
+					}
+
 					\dash\header::status(404, T_("We can't find the page you're looking for!"));
 				}
 			}
