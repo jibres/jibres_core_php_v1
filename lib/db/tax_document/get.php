@@ -344,26 +344,45 @@ class get
 		}
 
 
+		$result = [];
+
 		$query =
 		"
 			SELECT
 				group.parent1 AS `group_id`,
-				SUM(tax_docdetail.debtor) AS `debtor`,
-				SUM(tax_docdetail.creditor) AS `creditor`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`,
 				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = group.parent1) as `group_title`
 			FROM
 				tax_docdetail
-
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' $year $startdate $enddate
+			WHERE tax_document.status != 'draft' AND tax_document.type = 'normal' $year $startdate $enddate
 			GROUP BY group.parent1
 			ORDER BY group.parent1 ASC
-
 		";
-		$result = \dash\db::get($query);
+
+		$result['normal'] = \dash\db::get($query);
+
+		$query =
+		"
+			SELECT
+				group.parent1 AS `group_id`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`,
+				(SELECT tax_coding.title from tax_coding WHERE tax_coding.id = group.parent1) as `group_title`
+			FROM
+				tax_docdetail
+			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			WHERE tax_document.status != 'draft' AND tax_document.type = 'opening' $year $startdate $enddate
+			GROUP BY group.parent1
+			ORDER BY group.parent1 ASC
+		";
+		$result['opening'] = \dash\db::get($query);
 
 		return $result;
+
 	}
 
 
