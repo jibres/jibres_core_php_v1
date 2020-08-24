@@ -280,6 +280,12 @@ class generator
 
 
 
+
+
+	/**
+	 * ---------------------------------- INPUT function ---------------------------------
+	 */
+
 	private static function html_input_short_answer($value)
 	{
 		self::div('c-xs-12 c-6');
@@ -316,12 +322,12 @@ class generator
 				self::HtmlPlaceholder($value);
 				self::HtmlMaxLen($value);
 				echo '></textarea>';
+				self::HtmlDesc($value);
 			}
 			self::_div();
 		}
 		self::_div();
 
-		self::HtmlDesc($value);
 	}
 
 
@@ -346,9 +352,9 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="price" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -381,11 +387,11 @@ class generator
 				}
 				self::_div();
 			}
+			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
 
-		self::HtmlDesc($value);
 	}
 
 
@@ -394,33 +400,37 @@ class generator
 
 	private static function html_input_multiple_choice($value)
 	{
-		self::div('mB10');
+		self::div('c-xs-12 c-12');
 		{
-			self::label_raw($value);
-			self::div('row');
+			self::div('mB10');
 			{
-				if(isset($value['choice']) && is_array($value['choice']))
+				self::label_raw($value);
+				self::div('row');
 				{
-					foreach ($value['choice'] as $k => $v)
+					if(isset($value['choice']) && is_array($value['choice']))
 					{
-						self::div('c-xs-12 c-sm-12');
+						foreach ($value['choice'] as $k => $v)
 						{
-							self::div('check1');
+							self::div('c-xs-12 c-sm-12');
 							{
-								self::input_raw('checkbox', $value, self::myName($value, true). '[]', self::myID($value, true). $k, ' value="'. \dash\get::index($v, 'title'). '" ');
-								self::label_checkbox($value, \dash\get::index($v, 'title'), self::myID($value, true). $k);
+								self::div('check1');
+								{
+									self::input_raw('checkbox', $value, self::myName($value, true). '[]', self::myID($value, true). $k, ' value="'. \dash\get::index($v, 'title'). '" ');
+									self::label_checkbox($value, \dash\get::index($v, 'title'), self::myID($value, true). $k);
+								}
+								self::_div();
 							}
 							self::_div();
 						}
-						self::_div();
 					}
-				}
 
+				}
+				self::_div();
 			}
+			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -446,10 +456,10 @@ class generator
 				}
 				echo '</select>';
 			}
+			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -459,9 +469,9 @@ class generator
 		{
 			self::label($value);
 			self::input('text', $value, ' data-format="date" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -471,33 +481,37 @@ class generator
 		{
 			self::label($value);
 			self::input('text', $value, ' data-format="date" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
 	private static function html_input_country($value)
 	{
-		self::div('mB10');
+		self::div('c-xs-12 c-12');
 		{
-			self::label($value, T_("Country"));
-			echo '<select class="select22" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '" data-model="country" data-next="#province" data-next-default="IR">';
-	  		echo '<option value="">'; self::HtmlPlaceholder($value, true, T_("Choose your country")); echo '</option>';
-	  		foreach (\dash\data::countryList() as $key => $value)
-	  		{
-	    		echo '<option value="'. $key. '">'. ucfirst($value['name']);
-	    		if(\dash\language::current() != 'en')
-	    		{
-	    			echo ' - '. T_(ucfirst($value['name']));
-	    		}
-	    		echo '</option>';
-	  		}
-			echo '</select>';
+			self::div('mB10');
+			{
+				self::label($value, T_("Country"));
+				echo '<select class="select22" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '" data-model="country" data-next="#province" data-next-default="IR">';
+		  		echo '<option value="">'; self::HtmlPlaceholder($value, true, T_("Choose your country")); echo '</option>';
+		  		foreach (\dash\data::countryList() as $key => $value)
+		  		{
+		    		echo '<option value="'. $key. '">'. ucfirst($value['name']);
+		    		if(\dash\language::current() != 'en')
+		    		{
+		    			echo ' - '. T_(ucfirst($value['name']));
+		    		}
+		    		echo '</option>';
+		  		}
+				echo '</select>';
 
+			}
+			self::HtmlDesc($value);
+			self::_div();
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -518,19 +532,24 @@ class generator
 
 	private static function html_input_province_city($value)
 	{
-		self::div('mB10');
+		self::div('c-xs-12 c-12');
 		{
-			self::label($value, T_("City"));
-			echo '<select class="select22" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '">';
-			 foreach (\dash\data::cityList() as $key => $value)
-			 {
-			 	echo '<option value="'. $key. '">'. $value .'</option>';
-			 }
-			echo '</select>';
+			self::div('mB10');
+			{
+				self::label($value, T_("City"));
+				echo '<select class="select22" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '">';
+				 foreach (\dash\data::cityList() as $key => $value)
+				 {
+				 	echo '<option value="'. $key. '">'. $value .'</option>';
+				 }
+				echo '</select>';
 
+			}
+			self::HtmlDesc($value);
+			self::_div();
 		}
 		self::_div();
-		self::HtmlDesc($value);
+
 	}
 
 
@@ -539,7 +558,7 @@ class generator
 
 	private static function html_input_gender($value)
 	{
-		self::div('mB10');
+		self::div('c-xs-12 c-12');
 		{
 			self::label_raw($value);
 			self::div('mB10');
@@ -565,10 +584,10 @@ class generator
 				self::_div();
 
 			}
+			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -578,9 +597,9 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="time" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -590,9 +609,9 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="tel" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -602,9 +621,9 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="nationalCode" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -614,9 +633,9 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="mobile-enter" ');
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -626,9 +645,9 @@ class generator
 		{
 			self::label($value);
 			self::input('email', $value);
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -638,9 +657,9 @@ class generator
 		{
 			self::label($value);
 			self::input('url', $value);
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
@@ -650,32 +669,36 @@ class generator
 		{
 			self::label($value);
 			self::input('password', $value);
+			self::HtmlDesc($value);
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
 
 
 	private static function html_input_file($value)
 	{
-		if(isset($value['setting']['file']['accept']))
+		self::div('c-xs-12 c-12');
 		{
-			$accept = $value['setting']['file']['accept'];
-		}
-		else
-		{
-			$accept = "*";
-		}
+			if(isset($value['setting']['file']['accept']))
+			{
+				$accept = $value['setting']['file']['accept'];
+			}
+			else
+			{
+				$accept = "*";
+			}
 
-		echo '<div data-uploader data-name="'. self::myName($value, true). '" data-final="#finalImage'. self::myID($value, true). '">';
-		{
-			echo '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
-			self::label($value,T_('Drag &amp; Drop your files or Browse'));
-			echo '<label for="'. self::myID($value, true). '"><img id="finalImage'. self::myID($value, true). '" alt="'. T_("File"). '"></label>';
-		}
-		echo '</div>';
+			echo '<div data-uploader data-name="'. self::myName($value, true). '" data-final="#finalImage'. self::myID($value, true). '">';
+			{
+				echo '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
+				self::label($value,T_('Drag &amp; Drop your files or Browse'));
+				echo '<label for="'. self::myID($value, true). '"><img id="finalImage'. self::myID($value, true). '" alt="'. T_("File"). '"></label>';
+			}
+			echo '</div>';
 
-		self::HtmlDesc($value);
+			self::HtmlDesc($value);
+		}
+		self::_div();
 	}
 
 
@@ -683,24 +706,28 @@ class generator
 	{
 		if(isset($value['title']))
 		{
-			if(isset($value['setting']['message']['color']) && $value['setting']['message']['color'])
+			self::div('c-xs-12 c-12');
 			{
-				$class = null;
-				switch ($value['setting']['message']['color'])
+				if(isset($value['setting']['message']['color']) && $value['setting']['message']['color'])
 				{
-					case 'red':		$class = 'danger2'; break;
-					case 'green':	$class = 'success2'; break;
-					case 'blue':	$class = 'primary2'; break;
-					case 'yellow':	$class = 'warn2'; break;
-					default: break;
+					$class = null;
+					switch ($value['setting']['message']['color'])
+					{
+						case 'red':		$class = 'danger2'; break;
+						case 'green':	$class = 'success2'; break;
+						case 'blue':	$class = 'primary2'; break;
+						case 'yellow':	$class = 'warn2'; break;
+						default: break;
+					}
 				}
+				echo '<div class="msg '. $class .'">'. $value['title'];
+				if(isset($value['desc']))
+				{
+					echo '<p>'. $value['desc'] .'</p>';
+				}
+				echo '</div>';
 			}
-			echo '<div class="msg '. $class .'">'. $value['title'];
-			if(isset($value['desc']))
-			{
-				echo '<p>'. $value['desc'] .'</p>';
-			}
-			echo '</div>';
+			self::_div();
 		}
 	}
 
@@ -710,28 +737,32 @@ class generator
 	{
 		if(isset($value['title']))
 		{
-			if(isset($value['setting']['agree']['color']) && $value['setting']['agree']['color'])
+			self::div('c-xs-12 c-12');
 			{
-				$class = null;
-				switch ($value['setting']['agree']['color'])
+				if(isset($value['setting']['agree']['color']) && $value['setting']['agree']['color'])
 				{
-					case 'red':		$class = 'danger2'; break;
-					case 'green':	$class = 'success2'; break;
-					case 'blue':	$class = 'primary2'; break;
-					case 'yellow':	$class = 'warn2'; break;
-					default: break;
+					$class = null;
+					switch ($value['setting']['agree']['color'])
+					{
+						case 'red':		$class = 'danger2'; break;
+						case 'green':	$class = 'success2'; break;
+						case 'blue':	$class = 'primary2'; break;
+						case 'yellow':	$class = 'warn2'; break;
+						default: break;
+					}
 				}
-			}
-			echo '<div class="msg '. $class .'">';
-				if(isset($value['desc']))
-				{
-					echo '<p>'. $value['desc'] .'</p>';
-				}
-				echo '<div class="check1">';
-					echo '<input type="checkbox" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '" value="1">';
-					echo '<label for="'; self::myID($value); echo '">'. $value['title'].'</label>';
+				echo '<div class="msg '. $class .'">';
+					if(isset($value['desc']))
+					{
+						echo '<p>'. $value['desc'] .'</p>';
+					}
+					echo '<div class="check1">';
+						echo '<input type="checkbox" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '" value="1">';
+						echo '<label for="'; self::myID($value); echo '">'. $value['title'].'</label>';
+					echo '</div>';
 				echo '</div>';
-			echo '</div>';
+			}
+			self::_div();
 		}
 	}
 
@@ -739,38 +770,41 @@ class generator
 
 	private static function html_input_yes_no($value)
 	{
-		self::div('mB10 c-xs-12 c-12');
+		self::div('c-xs-12 c-12');
 		{
-			self::label_raw($value);
-			self::div('row');
+			self::div('mB10');
 			{
-				self::div('c-xs-12 c-sm-6');
+				self::label_raw($value);
+				self::div('row');
 				{
-					self::div('radio3');
+					self::div('c-xs-12 c-sm-6');
 					{
-						self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'yes');
-						self::label_checkbox($value, T_("Yes"), self::myID($value, true). 'yes');
+						self::div('radio3');
+						{
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'yes');
+							self::label_checkbox($value, T_("Yes"), self::myID($value, true). 'yes');
+						}
+						self::_div();
 					}
 					self::_div();
-				}
-				self::_div();
 
-				self::div('c-xs-12 c-sm-6');
-				{
-					self::div('radio3');
+					self::div('c-xs-12 c-sm-6');
 					{
-						self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'no');
-						self::label_checkbox($value, T_("No"), self::myID($value, true). 'no');
+						self::div('radio3');
+						{
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'no');
+							self::label_checkbox($value, T_("No"), self::myID($value, true). 'no');
+						}
+						self::_div();
 					}
 					self::_div();
 				}
 				self::_div();
 			}
+			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
-		self::HtmlDesc($value);
 	}
-
 }
 ?>
