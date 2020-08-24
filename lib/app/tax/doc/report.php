@@ -488,6 +488,9 @@ class report
 				$new_debtor       = floatval($opening_debtor) + floatval($current_debtor);
 				$new_creditor     = floatval($opening_creditor) + floatval($current_creditor);
 
+				$normal[$key]['sum_debtor'] = $new_debtor;
+				$normal[$key]['sum_creditor'] = $new_creditor;
+
 				$diff = floatval($new_debtor) - floatval($new_creditor);
 
 				if($diff > 0)
@@ -502,6 +505,15 @@ class report
 				}
 
 				unset($check_opening[$group_id]);
+			}
+			else
+			{
+
+				$current_debtor   = $value['debtor'];
+				$current_creditor = $value['creditor'];
+
+				$normal[$key]['sum_debtor'] = $current_debtor;
+				$normal[$key]['sum_creditor'] = $current_creditor;
 			}
 		}
 

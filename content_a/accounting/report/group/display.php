@@ -12,8 +12,12 @@
           <th><?php echo T_("Opening debtor") ?></th>
           <th><?php echo T_("Opening creditor") ?></th>
 
-          <th class="txtR"><?php echo T_("Debtor") ?></th>
-          <th class="txtR"><?php echo T_("Creditor") ?></th>
+          <th class="txtR"><?php echo T_("Current Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Current Creditor") ?></th>
+
+          <th class="txtR"><?php echo T_("Sum Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Sum Creditor") ?></th>
+
           <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
           <th class="txtR"><?php echo T_("Remain Creditor") ?></th>
         </tr>
@@ -27,6 +31,10 @@
             <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'opening_creditor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'debtor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'creditor'), true, 'en') ?></code></td>
+
+          <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'sum_debtor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'sum_creditor'), true, 'en') ?></code></td>
+
           <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_debtor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_creditor'), true, 'en') ?></code></td>
           </tr>
