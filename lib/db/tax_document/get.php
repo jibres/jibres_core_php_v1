@@ -164,34 +164,74 @@ class get
 			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
 		}
 
+
+		$result = [];
+
 		$query =
 		"
 			SELECT
-				MAX(assistant.parent1) AS `group_id`,
-				MAX(assistant.parent2) AS `total_id`,
-				tax_docdetail.assistant_id AS `assistant_id`,
-				SUM(tax_docdetail.debtor) AS `debtor`,
-				SUM(tax_docdetail.creditor) AS `creditor`,
-				MAX(group.title) AS `group_title`,
-				MAX(group.code) AS `group_code`,
-				MAX(total.title) AS `total_title`,
-				MAX(total.code) AS `total_code`,
-				MAX(assistant.title) AS `assistant_title`,
-				MAX(assistant.code) AS `assistant_code`
+				tax_docdetail.assistant_id,
+				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`,
+				tax_coding.title AS `assistant_title`,
+				tax_coding.parent1 AS `group_id`,
+				tax_coding.parent2 AS `total_id`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM
 				tax_docdetail
-			LEFT JOIN tax_coding AS `assistant` ON assistant.id = tax_docdetail.assistant_id
-			LEFT JOIN tax_coding AS `total` ON total.id = assistant.parent2
-			LEFT JOIN tax_coding AS `group` ON group.id = assistant.parent1
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' $year $startdate $enddate
+			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
+			WHERE
+				tax_document.status != 'draft' AND
+				tax_document.type = 'normal'
+				$year
+				$startdate
+				$enddate
 			GROUP BY tax_docdetail.assistant_id
-			ORDER BY assistant.parent1 ASC, assistant.parent2 ASC, assistant.parent3 ASC, assistant.id ASC
-
 		";
-		$result = \dash\db::get($query);
+
+		$result['normal'] = \dash\db::get($query);
+
+		$query =
+		"
+			SELECT
+				tax_docdetail.assistant_id,
+				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`,
+				tax_coding.title AS `assistant_title`,
+				tax_coding.parent1 AS `group_id`,
+				tax_coding.parent2 AS `total_id`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
+			FROM
+				tax_docdetail
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
+			WHERE
+				tax_document.status != 'draft' AND
+				tax_document.type = 'opening'
+				$year
+				$startdate
+				$enddate
+			GROUP BY tax_docdetail.assistant_id
+		";
+		$result['opening'] = \dash\db::get($query);
+
+
+		$query =
+		"
+			SELECT
+				tax_coding.*,
+				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`
+			FROM tax_coding
+			WHERE tax_coding.type IN ('group', 'total')
+			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
+		";
+
+		$result['coding'] = \dash\db::get($query);
+
 		return $result;
 	}
+
 
 
 
