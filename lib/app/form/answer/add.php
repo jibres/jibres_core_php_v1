@@ -259,6 +259,11 @@ class add
 
 					break;
 
+				case 'postalcode':
+					$my_answer        = \dash\validate::postcode($my_answer, true, $validate_meta);
+					$answer[$item_id] = $my_answer;
+					break;
+
 				case 'nationalcode':
 					$my_answer        = \dash\validate::nationalcode($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;

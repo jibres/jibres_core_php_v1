@@ -205,34 +205,21 @@ class type
 		];
 
 
-		$type['province'] =
-		[
-			'key'          => 'province',
-			'placeholder'  => true,
-			'title'        => T_('Province'),
-			'group'        => T_('Location'),
-			'default_load' =>
-			[
-
-			],
-		];
-
-
-		// $type['city'] =
-		// [
-		// 	'key'          => 'city',
-		// 	'placeholder'  => true,
-		// 	'title'        => T_('City'),
-		// 	'group'        => T_('Location'),
-		// 	'default_load' =>
-		// 	[
-
-		// 	],
-		// ];
-
-
 		if(\dash\language::current() === 'fa')
 		{
+
+			$type['province'] =
+			[
+				'key'          => 'province',
+				'placeholder'  => true,
+				'title'        => T_('Province'),
+				'group'        => T_('Location'),
+				'default_load' =>
+				[
+
+				],
+			];
+
 			$type['province_city'] =
 			[
 				'key'          => 'province_city',
@@ -244,10 +231,21 @@ class type
 
 				],
 			];
+
 		}
 
 
+		$type['postalcode'] =
+		[
+			'key'          => 'postalcode',
+			'placeholder'  => true,
+			'title'        => T_('Postalcode'),
+			'group'        => T_('Location'),
+			'default_load' =>
+			[
 
+			],
+		];
 
 
 		$type['tel'] =
@@ -381,6 +379,7 @@ class type
 			'title'        => T_('Message'),
 			'group'        => T_("Other"),
 			'color'        => true,
+			'link'         => true,
 			'default_load' =>
 			[
 

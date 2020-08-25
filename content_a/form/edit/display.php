@@ -74,15 +74,7 @@
 								</td>
 
 								<td>
-
-									<select name="item_type_<?php echo $myKey ?>" class="select22">
-										<?php foreach (\dash\data::itemType() as $type_key => $type_value) {?>
-										<optgroup label="<?php echo \dash\get::index($type_value, 'title'); ?>">
-											<?php if(isset($type_value['list']) && is_array($type_value['list'])) { foreach ($type_value['list'] as $k => $v) {?>
-												<option value="<?php echo $v['key'] ?>" <?php if(\dash\get::index($value, 'type') === $v['key']) {echo 'selected';} ?>><?php echo $v['title']; ?></option>
-											<?php } /*endfor*/  } //endif?>
-										</optgroup>
-										<?php } //endif ?>
+									<select name="item_type_<?php echo $myKey ?>" class="select22"><?php foreach (\dash\data::itemType() as $type_key => $type_value) {?><optgroup label="<?php echo \dash\get::index($type_value, 'title'); ?>"><?php if(isset($type_value['list']) && is_array($type_value['list'])) { foreach ($type_value['list'] as $k => $v) {?><option value="<?php echo $v['key'] ?>" <?php if(\dash\get::index($value, 'type') === $v['key']) {echo 'selected';} ?>><?php echo $v['title']; ?></option><?php } /*endfor*/  } //endif?></optgroup><?php } //endif ?>
 									</select>
 								</td>
 
@@ -270,6 +262,12 @@ function settingRecord($value)
 		echo "</div>";
 	}
 
+	if(isset($value['type_detail']['link']) && $value['type_detail']['link'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingLink($value);
+		echo "</div>";
+	}
 
 
 
@@ -431,5 +429,18 @@ if(!is_array($saved_filetype))
 </select>
 </div>
 
+<?php } // endfunction ?>
+
+
+
+<?php function settingLink($value) {?>
+<label for="item_link_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Link"); ?></label>
+<div class="input">
+	<input type="text" name="item_link_<?php echo \dash\get::index($value, 'id') ?>" id="item_link_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'link'); ?>">
+</div>
+<div class="check1 mT25">
+	<input type="checkbox" name="item_targetblank_<?php echo \dash\get::index($value, 'id') ?>" id="targetblank<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'targetblank')) { echo 'checked';} ?>>
+	<label for="targetblank<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Open in blank page?"); ?></label>
+</div>
 <?php } // endfunction ?>
 

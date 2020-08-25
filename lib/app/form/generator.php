@@ -536,8 +536,18 @@ class generator
 			self::div('mB10');
 			{
 				self::label($value);
-				\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
-				\dash\utility\location::citySelectorHtml(null, self::myName($value, true), self::myID($value, true));
+				self::div();
+				{
+					\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
+				}
+				self::_div();
+
+				self::div();
+				{
+					\dash\utility\location::citySelectorHtml(null, self::myName($value, true), self::myID($value, true));
+				}
+				self::_div();
+
 				self::HtmlDesc($value);
 			}
 			self::_div();
@@ -705,9 +715,9 @@ class generator
 		{
 			self::div('c-xs-12 c-12');
 			{
+				$class = null;
 				if(isset($value['setting']['message']['color']) && $value['setting']['message']['color'])
 				{
-					$class = null;
 					switch ($value['setting']['message']['color'])
 					{
 						case 'red':		$class = 'danger2'; break;
@@ -717,7 +727,38 @@ class generator
 						default: break;
 					}
 				}
-				echo '<div class="msg '. $class .'">'. $value['title'];
+
+				$link        = null;
+				$targetblank = false;
+				if(isset($value['setting']['message']['link']) && $value['setting']['message']['link'])
+				{
+					$link = $value['setting']['message']['link'];
+				}
+
+				if(isset($value['setting']['message']['targetblank']) && $value['setting']['message']['targetblank'])
+				{
+					$targetblank = $value['setting']['message']['targetblank'];
+				}
+
+				echo '<div class="msg '. $class .'">';
+
+				if($link)
+				{
+					echo '<a href="'. $link. '"';
+					if($targetblank)
+					{
+						 echo ' target="_blank"';
+					}
+					echo '>';
+				}
+
+				echo $value['title'];
+
+				if($link)
+				{
+					echo '</a>';
+				}
+
 				if(isset($value['desc']))
 				{
 					echo '<p>'. $value['desc'] .'</p>';

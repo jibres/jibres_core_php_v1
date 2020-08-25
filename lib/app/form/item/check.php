@@ -29,6 +29,8 @@ class check
 			'sms_text'     => 'string_210',
 			'defaultvalue' => 'string_200',
 			'signup'       => 'bit',
+			'link'         => 'url',
+			'targetblank'  => 'bit',
 		];
 
 		$require = ['title', 'type'];
@@ -104,6 +106,12 @@ class check
 			$setting[$data['type']]['sms_text'] = $data['sms_text'];
 		}
 
+		if(\dash\get::index($_current_detail, 'type_detail', 'link'))
+		{
+			$setting[$data['type']]['link']        = $data['link'];
+			$setting[$data['type']]['targetblank'] = $data['targetblank'];
+		}
+
 		if(\dash\get::index($_current_detail, 'type_detail', 'signup'))
 		{
 			$setting[$data['type']]['signup'] = $data['signup'];
@@ -172,6 +180,8 @@ class check
 		unset($data['sms_text']);
 		unset($data['signup']);
 		unset($data['defaultvalue']);
+		unset($data['link']);
+		unset($data['targetblank']);
 		return $data;
 	}
 }
