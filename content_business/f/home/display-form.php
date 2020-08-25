@@ -16,7 +16,7 @@ if(!is_array($formItems))
 					<div class="msg warn txtC txtB"><?php echo T_("Your form is not publish. Only you can view this form.") ?> <a class="btn link" href="<?php echo \lib\store::admin_url(). '/a/form/edit?id='. \dash\data::formDetail_id() ?>"><?php echo T_("Edit form") ?></a></div>
 				<?php } //endif ?>
 				<?php if(\dash\data::formDetail_file()) {?>
-					<img src="<?php echo \dash\data::formDetail_file() ?>" alt="<?php echo \dash\data::formDetail_title(); ?>">
+					<img class="mB10" src="<?php echo \dash\data::formDetail_file() ?>" alt="<?php echo \dash\data::formDetail_title(); ?>">
 				<?php } // endif ?>
 				<?php if(\dash\data::formDetail_desc()) {?>
 					<div class="mB20"><?php echo \dash\data::formDetail_desc() ?></div>
