@@ -544,7 +544,7 @@ class generator
 
 				self::div();
 				{
-					\dash\utility\location::citySelectorHtml(null, self::myName($value, true), self::myID($value, true));
+					\dash\utility\location::citySelectorHtml(null, self::myName($value, true). 'city', self::myID($value, true). 'city');
 				}
 				self::_div();
 
