@@ -29,7 +29,7 @@ class check
 			'sms_text'     => 'string_210',
 			'defaultvalue' => 'string_200',
 			'signup'       => 'bit',
-			'link'         => 'url',
+			'link'         => 'string_200',
 			'targetblank'  => 'bit',
 		];
 
