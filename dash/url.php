@@ -348,6 +348,33 @@ class url
 	}
 
 
+	public static function jibres_domain()
+	{
+		$url = '';
+
+		if(self::isLocal())
+		{
+			$url = self::protocol(). '://jibres.local';
+		}
+		else
+		{
+			$url = 'https://';
+			$url .= 'jibres.';
+			if(self::tld() === 'ir')
+			{
+				$url .= 'ir';
+			}
+			// else
+			// {
+			// 	$url .= 'com';
+			// }
+		}
+		$url .= '/';
+
+		return $url;
+	}
+
+
 	public static function jibres_subdomain($_subdomain)
 	{
 		$url = '';
