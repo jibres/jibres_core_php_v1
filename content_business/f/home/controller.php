@@ -16,20 +16,25 @@ class controller
 			}
 
 			$form_id = $load_form['id'];
+			\dash\open::get();
 
 			if((isset($load_form['status']) && $load_form['status'] === 'publish'))
 			{
+				\dash\data::accessLoadItem(true);
+				\dash\open::post();
 				// ok
 			}
 			else
 			{
 				if(\dash\permission::check('showAllContactForm'))
 				{
+					\dash\data::accessLoadItem(true);
+					\dash\open::post();
 					// nothing to admin
 				}
 				else
 				{
-					\dash\header::status(403, T_("This form is not publish"));
+					// \dash\header::status(403, T_("This form is not publish"));
 				}
 			}
 
@@ -40,8 +45,6 @@ class controller
 			\dash\data::formItems($load_items);
 			\dash\data::contactForm(true);
 
-			\dash\open::get();
-			\dash\open::post();
 		}
 		else
 		{

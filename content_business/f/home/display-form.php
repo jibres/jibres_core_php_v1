@@ -12,7 +12,7 @@ if(!is_array($formItems))
 		<div class="box">
 			<header class="c-xs-0"><h2><?php echo \dash\data::formDetail_title(); ?></h2></header>
 			<div class="body" data-jform>
-				<?php if(\dash\data::formDetail_status() !== 'publish') {?>
+				<?php if(\dash\data::formDetail_status() !== 'publish' && \dash\data::accessLoadItem()) {?>
 					<div class="msg warn txtC txtB"><?php echo T_("Your form is not publish. Only you can view this form.") ?> <a class="btn link" href="<?php echo \lib\store::admin_url(). '/a/form/edit?id='. \dash\data::formDetail_id() ?>"><?php echo T_("Edit form") ?></a></div>
 				<?php } //endif ?>
 				<?php if(\dash\data::formDetail_file()) {?>
@@ -21,11 +21,13 @@ if(!is_array($formItems))
 				<?php if(\dash\data::formDetail_desc()) {?>
 					<div class="mB20"><?php echo \dash\data::formDetail_desc() ?></div>
 				<?php } // endif ?>
-				<?php \lib\app\form\generator::items($formItems); ?>
+				<?php if(\dash\data::accessLoadItem()) {\lib\app\form\generator::items($formItems);} ?>
 			</div>
+			<?php if(\dash\data::accessLoadItem()) {?>
 			<footer class="txtRa">
 				<button class="btn master"><?php echo T_("Submit") ?></button>
 			</footer>
+		<?php } //endif ?>
 		</div>
 	</div>
 </form>
