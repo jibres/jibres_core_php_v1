@@ -111,6 +111,7 @@ class location
 
 		echo '<select class="select22" name="'.$_name. '" id="'. $_id. '"';
 		echo ' data-next="#'.$_id. '"';
+		echo ' data-next-type="city"';
 		echo ' data-placeholder="'. $placeholder. '"';
 		if($_city)
 		{
