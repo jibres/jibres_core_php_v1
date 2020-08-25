@@ -136,7 +136,7 @@
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/order">
                     <div class="c-auto"><i class="sf-receipt-shopping-streamline"></i></div>
                     <div class="c">
-                        <h2><?php echo T_("Order setting"); ?></h2>
+                        <h2><?php echo T_("Orders"); ?></h2>
                         <p><?php echo T_("Order setting"); ?></p>
                     </div>
                 </a>
@@ -172,8 +172,8 @@
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/form">
                     <div class="c-auto"><i class="sf-file-text-o"></i></div>
                     <div class="c">
-                        <h2><?php echo T_("Contact form"); ?></h2>
-                        <p><?php echo T_("Build contact form"); ?></p>
+                        <h2><?php echo T_("Form Builder"); ?></h2>
+                        <p><?php echo T_("Create online forms and publish them."); ?> <?php echo T_("Collect data."); ?></p>
                     </div>
                 </a>
             </div>
