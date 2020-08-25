@@ -83,7 +83,8 @@ class search
 		$query =
 		"
 			SELECT
-				form_answer.*
+				form_answer.*,
+				(SELECT COUNT(*) FROM form_answerdetail WHERE form_answerdetail.answer_id = form_answer.id ) `count_answer`
 			FROM form_answer
 			$q[join]
 			$q[where]

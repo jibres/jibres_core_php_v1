@@ -6,18 +6,16 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Contact form'));
+		\dash\face::title(T_('Answer Detail'). ' | '. \dash\data::formDetail_title());
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that() . '?id='. \dash\request::get('id'));
 
-
-
-
-		$args = [];
+		$args              = [];
 
 		$args['answer_id'] = \dash\request::get('aid');
+		$args['form_id']   = \dash\request::get('id');
 
 		$q = \dash\request::get('q');
 

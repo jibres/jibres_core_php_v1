@@ -83,8 +83,10 @@ class search
 		$query =
 		"
 			SELECT
+				form_item.title AS `item_title`,
 				form_answerdetail.*
 			FROM form_answerdetail
+			LEFT JOIN form_item ON form_item.id = form_answerdetail.item_id
 			$q[join]
 			$q[where]
 			$q[order]
@@ -92,8 +94,6 @@ class search
 		";
 
 		$result = \dash\db::get($query);
-
-
 		return $result;
 
 	}
