@@ -214,7 +214,7 @@ class generator
 
 	private static function label_raw($value)
 	{
-		echo '<label>';
+		echo '<label class="txtB">';
 		echo \dash\get::index($value, 'title');
 		self::isRequired($value, true);
 		echo '</label>';
