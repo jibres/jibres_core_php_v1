@@ -217,10 +217,27 @@ class add
 					$answer[$item_id] = $my_answer;
 					break;
 
-				case 'city':
 				case 'province_city':
-					$my_answer        = \dash\validate::city($my_answer, true, $validate_meta);
-					$answer[$item_id] = $my_answer;
+					if(is_array($my_answer))
+					{
+						$province            = null;
+						$city                = null;
+						$array_province_city = [];
+
+						if(isset($my_answer[0]))
+						{
+							$province              = \dash\validate::province($my_answer[0], true, $validate_meta);
+							$array_province_city[] = $province;
+						}
+
+						if(isset($my_answer[1]))
+						{
+							$city                  = \dash\validate::city($my_answer[1], true, $validate_meta);
+							$array_province_city[] = $city;
+						}
+
+						$answer[$item_id] = implode('-', $array_province_city);
+					}
 					break;
 
 				case 'gender':
