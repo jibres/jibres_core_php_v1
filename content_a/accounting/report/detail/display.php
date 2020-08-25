@@ -8,7 +8,7 @@
       <thead>
         <tr class="font-10">
           <th class="collapsing"></th>
-          <th><?php echo T_("Accounting Group") ?></th>
+
           <th><?php echo T_("Accounting total") ?></th>
           <th><?php echo T_("Accounting assistant") ?></th>
           <th><?php echo T_("Accounting details") ?></th>
@@ -27,10 +27,17 @@
         </tr>
       </thead>
       <tbody>
+          <?php $lastGroup = null; ?>
         <?php foreach (\dash\data::reportDetail() as $key => $value) {?>
+           <?php if($lastGroup !== \dash\get::index($value, 'group_title')) {?>
+          <?php $lastGroup = \dash\get::index($value, 'group_title'); ?>
+          <tr class="positive">
+            <td colspan="10" class="txtB fs14"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id')]); ?>"><?php echo \dash\get::index($value, 'group_title') ?></a></td>
+          </tr>
+        <?php } //endif ?>
           <tr>
             <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
-            <td><?php echo \dash\get::index($value, 'group_title') ?></td>
+
             <td><?php echo \dash\get::index($value, 'total_title') ?></td>
             <td><?php echo \dash\get::index($value, 'assistant_title') ?></td>
             <td><?php echo \dash\get::index($value, 'details_title') ?></td>
