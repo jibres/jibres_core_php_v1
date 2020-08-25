@@ -88,6 +88,7 @@ class imageblock
 			'1.6'  => '16:10',
 			'1.9'  => '19:10',
 			'3.56' => '32:9',
+			'2.34' => '21:9',
 			'2.37' => '64:27',
 			'1.67' => '5:3',
 		];
@@ -153,7 +154,7 @@ class imageblock
 
 						$image_file_addr = \lib\filepath::fix_real_path($value);
 						$ratio = \dash\utility\image::get_ratio($image_file_addr);
-						$result['image_ratio'] = $ratio;
+						$result['image_ratio'] = round($ratio, 2);
 						$result['image_ratio_title'] = self::ratio_title($ratio);
 
 						$result[$key] = \lib\filepath::fix($value);

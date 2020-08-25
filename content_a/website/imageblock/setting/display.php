@@ -21,6 +21,7 @@
               <option value="16:10" <?php if(\dash\data::lineSetting_ratio() === '16:10') {echo 'selected';} ?>><?php echo \dash\fit::text("16:10") ?></option>
               <option value="19:10" <?php if(\dash\data::lineSetting_ratio() === '19:10') {echo 'selected';} ?>><?php echo \dash\fit::text("19:10") ?></option>
               <option value="32:9" <?php if(\dash\data::lineSetting_ratio() === '32:9') {echo 'selected';} ?>><?php echo \dash\fit::text("32:9") ?></option>
+              <option value="21:9" <?php if(\dash\data::lineSetting_ratio() === '21:9') {echo 'selected';} ?>><?php echo \dash\fit::text("21:9") ?></option>
               <option value="64:27" <?php if(\dash\data::lineSetting_ratio() === '64:27') {echo 'selected';} ?>><?php echo \dash\fit::text("64:27") ?></option>
               <option value="5:3" <?php if(\dash\data::lineSetting_ratio() === '5:3') {echo 'selected';} ?>><?php echo \dash\fit::text("5:3") ?></option>
             </select>

@@ -11,7 +11,7 @@ class edit
 			'title'   => 'string_200',
 			'sort'    => 'smallint',
 			'publish' => 'bit',
-			'ratio'   => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3']],
+			'ratio'   => ['enum' => ['16:9','16:10','19:10','32:9','64:27','5:3', '21:9']],
 			'style'   => ['enum' => ['simple','professional']],
 			'model'   => ['enum' => ['simple','special']],
 

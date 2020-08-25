@@ -13,7 +13,7 @@
           </header>
           <div class="desc ltr font-10"><?php echo \dash\get::index($value, 'url'); ?> <span><?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link"></i><?php }// endif ?></span></div>
 
-          <?php if(\dash\get::index($value, 'image_ratio') && $imageblock_ratio && round(\dash\get::index($value, 'image_ratio'), 2) != $imageblock_ratio) {?>
+          <?php if(false && \dash\get::index($value, 'image_ratio') && $imageblock_ratio && round(\dash\get::index($value, 'image_ratio'), 2) != $imageblock_ratio) {?>
             <div class="fc-orange">
               <i class="sf-exclamation-triangle fc-orange"></i> <?php echo T_("This image ratio is not match by imageblock ratio!") ?>
               <?php if(\dash\get::index($value, 'image_ratio_title')) { ?><span class="txtB"><?php echo T_("Image ratio :val", ['val' => \dash\fit::text(\dash\get::index($value, 'image_ratio_title'))]); ?></span><?php } // endif ?>
