@@ -45,7 +45,7 @@ else
   <table class="tbl1 v1">
     <thead>
       <tr>
-        <th class=""><?php echo T_("Item") ?></th>
+        <th class="collapsing"><?php echo T_("Item") ?></th>
         <th class=""><?php echo T_("Answer") ?></th>
       </tr>
     </thead>
@@ -53,7 +53,10 @@ else
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
           <td class="collapsing"><?php echo \dash\get::index($value, 'item_title'); ?></td>
-          <td class="collapsing"><?php echo \dash\get::index($value, 'answer'); ?></td>
+          <td class="">
+            <?php echo \dash\get::index($value, 'answer'); ?>
+            <?php echo \dash\get::index($value, 'textarea'); ?>
+          </td>
         </tr>
       <?php } //endif ?>
     </tbody>

@@ -368,6 +368,26 @@ class add
 		{
 			if(isset($my_answer))
 			{
+				$myType = null;
+				if(isset($items[$item_id]['type']))
+				{
+					$myType = $items[$item_id]['type'];
+				}
+
+				$new_answer   = null;
+				$new_textarea = null;
+
+				if(in_array($myType, ['descriptive_answer']))
+				{
+					$new_answer   = null;
+					$new_textarea = $my_answer;
+				}
+				else
+				{
+					$new_answer   = $my_answer;
+					$new_textarea = null;
+				}
+
 				if(is_array($my_answer))
 				{
 					foreach ($my_answer as $my_answer_one)
@@ -376,9 +396,10 @@ class add
 						[
 							'form_id'     => $form_id,
 							'user_id'     => $data['user_id'],
-							'answer_id'   => null,
+							'answer_id'   => null, // fill after this foreach
 							'item_id'     => $item_id,
-							'answer'      => $my_answer_one,
+							'answer'      => $new_answer,
+							'textarea'    => $new_textarea,
 							'datecreated' => date("Y-m-d H:i:s"),
 						];
 					}
@@ -389,14 +410,16 @@ class add
 					[
 						'form_id'     => $form_id,
 						'user_id'     => $data['user_id'],
-						'answer_id'   => null,
+						'answer_id'   => null, // fill after this foreach
 						'item_id'     => $item_id,
-						'answer'      => $my_answer,
+						'answer'      => $new_answer,
+						'textarea'    => $new_textarea,
 						'datecreated' => date("Y-m-d H:i:s"),
 					];
 				}
 			}
 		}
+
 
 		if($insert_answerdetail)
 		{
@@ -423,6 +446,10 @@ class add
 			{
 				\dash\notif::ok(T_("Your answer was saved"), ['alerty' => true]);
 			}
+		}
+		else
+		{
+			\dash\notif::warn(T_("No answer received"));
 		}
 
 

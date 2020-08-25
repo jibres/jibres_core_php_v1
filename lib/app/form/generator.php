@@ -83,7 +83,7 @@ class generator
 		{
 			if($_html)
 			{
-		 		echo ' <small class="fc-red">'.  T_("Required"). '</small>';
+		 		echo ' <small class="fc-red">* '.  T_("Required"). '</small>';
 			}
 			else
 			{
@@ -327,6 +327,8 @@ class generator
 				echo '<textarea class="txt" rows="'. $rows. '" ';
 				echo ' id="';
 				self::myID($value);
+				echo '" name="';
+				self::myName($value);
 				echo '" ';
 				self::isRequired($value);
 				self::HtmlPlaceholder($value);
