@@ -16,6 +16,7 @@ class view
 
 		// preview
 		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
+		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
 
 		\dash\face::btnSave('form1');
