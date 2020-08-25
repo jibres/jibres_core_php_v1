@@ -4,7 +4,7 @@
 
   <form method="post" autocomplete="off" >
 
-    <div class="box" data-uploader data-name='image' data-final='#finalImage' <?php echo \dash\data::ratioHtml(); ?> data-max-w='2000'>
+    <div class="box" data-uploader data-name='image' data-final='#finalImage' <?php echo \dash\data::ratioHtml(); ?> data-max-w=2048 data-max-h=2048>
       <input type="file" accept="image/gif, image/jpeg, image/png" id="image1">
       <label for="image1"><?php echo T_('Drag &amp; Drop your files or <span class="txtB">Browse</span>'); ?></label>
       <img id='finalImage' src="<?php echo \dash\data::dataRow_image() ?>" alt='<?php echo \dash\data::dataRow_alt() ?>'>
