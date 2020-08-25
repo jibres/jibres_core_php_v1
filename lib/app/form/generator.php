@@ -45,6 +45,7 @@ class generator
 				case 'yes_no':				self::html_input_yes_no($item);break;
 				case 'message':				self::html_input_message($item);break;
 				case 'agree':				self::html_input_agree($item);break;
+				case 'hidden':				self::html_input_hidden($item);break;
 
 				default:
 					# code...
@@ -802,5 +803,17 @@ class generator
 		}
 		self::_div();
 	}
+
+
+	private static function html_input_hidden($value)
+	{
+		$my_value = null;
+		if(isset($value['setting']['hidden']['defaultvalue']))
+		{
+			$my_value = $value['setting']['hidden']['defaultvalue'];
+		}
+		echo '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
+	}
+
 }
 ?>

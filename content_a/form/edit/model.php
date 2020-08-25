@@ -75,7 +75,7 @@ class model
 
 		foreach ($all_post as $key => $value)
 		{
-			if(preg_match("/^item_(title|desc|filetype|color|type|require|maxlen|placeholder|choice|choiceinline|random|check_unique|min|max|choice|send_sms|sms_text|signup)_(\d+)$/", $key, $split))
+			if(preg_match("/^item_(title|desc|filetype|color|type|require|maxlen|placeholder|choice|choiceinline|random|check_unique|min|max|choice|send_sms|sms_text|signup|defaultvalue)_(\d+)$/", $key, $split))
 			{
 				if(!isset($whole_edit[$split[2]]))
 				{

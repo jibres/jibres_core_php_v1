@@ -263,6 +263,13 @@ function settingRecord($value)
 		echo "</div>";
 	}
 
+	if(isset($value['type_detail']['defaultvalue']) && $value['type_detail']['defaultvalue'])
+	{
+		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
+		settingDefaultvalue($value);
+		echo "</div>";
+	}
+
 
 
 
@@ -396,6 +403,16 @@ if(!is_array($saved_filetype))
 <div class="check1 mT25">
 	<input type="checkbox" name="item_signup_<?php echo \dash\get::index($value, 'id') ?>" id="signup<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'signup')) { echo 'checked';} ?>>
 	<label for="signup<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Signup user by this item?"); ?></label>
+</div>
+<?php } // endfunction ?>
+
+
+
+<?php function settingDefaultvalue($value) {?>
+
+<label for="item_defaultvalue_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Default value") ?></label>
+<div class="input">
+	<input type="text" name="item_defaultvalue_<?php echo \dash\get::index($value, 'id') ?>" id="item_defaultvalue_<?php echo \dash\get::index($value, 'id') ?>" value="<?php echo \dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'defaultvalue'); ?>">
 </div>
 <?php } // endfunction ?>
 

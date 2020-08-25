@@ -308,6 +308,11 @@ class add
 					$answer[$item_id] = $my_answer;
 					break;
 
+				case 'hidden':
+					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
+					$answer[$item_id] = $my_answer;
+					break;
+
 				case 'password':
 					$my_answer        = \dash\validate::string_100($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;

@@ -27,6 +27,7 @@ class check
 			'filetype'     => 'tag',
 			'send_sms'     => 'bit',
 			'sms_text'     => 'string_210',
+			'defaultvalue' => 'string_200',
 			'signup'       => 'bit',
 		];
 
@@ -108,6 +109,11 @@ class check
 			$setting[$data['type']]['signup'] = $data['signup'];
 		}
 
+		if(\dash\get::index($_current_detail, 'type_detail', 'defaultvalue'))
+		{
+			$setting[$data['type']]['defaultvalue'] = $data['defaultvalue'];
+		}
+
 		if(\dash\get::index($_current_detail, 'type_detail', 'filetype'))
 		{
 			$filetype = \dash\upload\extentions::get_all_allow_ext();
@@ -165,6 +171,7 @@ class check
 		unset($data['send_sms']);
 		unset($data['sms_text']);
 		unset($data['signup']);
+		unset($data['defaultvalue']);
 		return $data;
 	}
 }

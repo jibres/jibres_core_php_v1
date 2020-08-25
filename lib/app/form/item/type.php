@@ -389,6 +389,20 @@ class type
 
 
 
+		$type['hidden'] =
+		[
+			'key'          => 'hidden',
+			'title'        => T_('Hidden input'),
+			'group'        => T_("Other"),
+			'defaultvalue' => true,
+			'default_load' =>
+			[
+
+			],
+		];
+
+
+
 		$type['agree'] =
 		[
 			'key'          => 'agree',
