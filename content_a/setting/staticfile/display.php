@@ -8,13 +8,13 @@
         </p>
         <div class="row align-end">
           <div class="c-xs-12 c">
-            <label for="filename"><?php echo T_("The file name"); ?> <span class="fc-red">*</span></label>
+            <label for="filename"><?php echo T_("file name"); ?> <span class="fc-red">*</span></label>
             <div class="input mB0-f ltr">
               <input type="text" name="filename" id="filename" <?php \dash\layout\autofocus::html() ?> required maxlength='50' minlength="1"  >
             </div>
           </div>
           <div class="c-xs-12 c">
-            <label for="filecontent"><?php echo T_("The file content"); ?> <span class="fc-red">*</span></label>
+            <label for="filecontent"><?php echo T_("file content"); ?> <span class="fc-red">*</span></label>
             <div class="input mB0-f ltr">
               <input type="text" name="filecontent" id="filecontent" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1"  >
             </div>
