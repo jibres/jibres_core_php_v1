@@ -26,7 +26,7 @@ class check
 			'max'          => 'number',
 			'filetype'     => 'tag',
 			'send_sms'     => 'bit',
-			'sms_text'     => 'string_100',
+			'sms_text'     => 'string_210',
 			'signup'       => 'bit',
 		];
 
