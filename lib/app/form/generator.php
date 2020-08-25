@@ -32,7 +32,6 @@ class generator
 				case 'birthdate':			self::html_input_birthdate($item);break;
 				case 'country':				self::html_input_country($item);break;
 				case 'province':			self::html_input_province($item);break;
-				case 'city':				self::html_input_city($item);break;
 				case 'province_city':		self::html_input_province_city($item);break;
 				case 'gender':				self::html_input_gender($item);break;
 				case 'time':				self::html_input_time($item);break;
@@ -505,22 +504,10 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label($value, T_("Country"));
-				echo '<select class="select22" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '" data-model="country" data-next="#province" data-next-default="IR">';
-		  		echo '<option value="">'; self::HtmlPlaceholder($value, true, T_("Choose your country")); echo '</option>';
-		  		foreach (\dash\data::countryList() as $key => $value)
-		  		{
-		    		echo '<option value="'. $key. '">'. ucfirst($value['name']);
-		    		if(\dash\language::current() != 'en')
-		    		{
-		    			echo ' - '. T_(ucfirst($value['name']));
-		    		}
-		    		echo '</option>';
-		  		}
-				echo '</select>';
-
+				self::label($value);
+				\dash\utility\location::countrySelectorHtml(null, null, self::myName($value, true), self::myID($value, true));
+				self::HtmlDesc($value);
 			}
-			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
@@ -529,16 +516,15 @@ class generator
 
 	private static function html_input_province($value)
 	{
-		self::HtmlDesc($value);
+		self::div('c-xs-12 c-12');
+		{
+			self::label($value);
+			\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
+			self::HtmlDesc($value);
+		}
+		self::_div();
+
 	}
-
-
-
-	private static function html_input_city($value)
-	{
-		self::HtmlDesc($value);
-	}
-
 
 
 
@@ -548,24 +534,16 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label($value, T_("City"));
-				echo '<select class="select22" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '">';
-				 foreach (\dash\data::cityList() as $key => $value)
-				 {
-				 	echo '<option value="'. $key. '">'. $value .'</option>';
-				 }
-				echo '</select>';
-
+				self::label($value);
+				\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
+				\dash\utility\location::citySelectorHtml(null, self::myName($value, true), self::myID($value, true));
+				self::HtmlDesc($value);
 			}
-			self::HtmlDesc($value);
 			self::_div();
 		}
 		self::_div();
 
 	}
-
-
-
 
 
 	private static function html_input_gender($value)

@@ -9,26 +9,32 @@ class location
 	{
 		self::countrySelector($_country, $_province);
 		self::provinceSelector($_country, $_province, $_city);
-		self::citySelector($_country, $_province, $_city);
+		self::citySelectorHtml($_city);
 	}
 
 
 	public static function packIran($_province = null, $_city = null)
 	{
-		self::provinceSelector($_country, $_province, $_city);
-		self::citySelector($_country, $_province, $_city);
+		self::provinceSelector('IR', $_province, $_city, true);
+		self::citySelectorHtml($_city);
 	}
 
 
 	public static function countrySelector($_country = null, $_province = null)
 	{
-		$placeholder = T_("Choose your country");
 		echo '<div class="countrySelector mB5">';
 		echo '<label for="country">';
 		echo T_("Country");
 		echo '</label>';
+		self::countrySelectorHtml(...func_get_args());
+    	echo '</div>';
+	}
 
-		echo '<select class="select22" name="country" id="country" data-model="country"';
+
+	public static function countrySelectorHtml($_country = null, $_province = null, $_name = 'country', $_id = 'country')
+	{
+		$placeholder = T_("Choose your country");
+		echo '<select class="select22" name="'. $_name. '" id="'. $_id. '" data-model="country"';
 		echo ' data-next="#province"';
 		echo ' data-placeholder="'. $placeholder. '"';
 		if($_province)
@@ -79,22 +85,31 @@ class location
 			}
 		}
 		echo '</select>';
-
-    echo '</div>';
 	}
 
 
-	public static function provinceSelector($_country = null, $_province = null, $_city = null)
+	public static function provinceSelector($_country = null, $_province = null, $_pack_iran = false)
 	{
-		$placeholder = ("Please choose province");
 		echo '<div class="provinceSelector mB5"';
-		echo ' data-status="hide"';
+		if(!$_pack_iran)
+		{
+			echo ' data-status="hide"';
+		}
 		echo '>';
 		echo '<label for="province">';
 		echo T_("Province");
 		echo '</label>';
+		self::provinceSelectorHtml(...func_get_args());
+	    echo '</div>';
+	}
 
-		echo '<select class="select22" name="province" id="province"';
+
+	public static function provinceSelectorHtml($_country = null, $_province = null, $_city = null, $_name = 'province', $_id = 'province')
+	{
+
+		$placeholder = ("Please choose province");
+
+		echo '<select class="select22" name="'.$_name. '" id="'. $_id. '"';
 		echo ' data-next="#city"';
 		echo ' data-placeholder="'. $placeholder. '"';
 		if($_city)
@@ -132,12 +147,13 @@ class location
 			}
 		}
 		echo '</select>';
-
-    echo '</div>';
 	}
 
 
-	public static function citySelector($_country = null, $_province = null, $_city = null)
+
+
+
+	public static function citySelectorHtml($_city = null, $_name = 'city', $_id = 'city')
 	{
 		$placeholder = ("Please choose city");
 		echo '<div class="citySelector mB5"';
@@ -147,7 +163,7 @@ class location
 		echo T_("City");
 		echo '</label>';
 
-		echo '<select class="select22" name="city" id="city"';
+		echo '<select class="select22" name="'. $_name. '" id="'. $_id. '"';
 		echo ' data-placeholder="'. $placeholder. '"';
 		echo '>';
 

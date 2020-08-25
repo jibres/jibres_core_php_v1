@@ -218,17 +218,17 @@ class type
 		];
 
 
-		$type['city'] =
-		[
-			'key'          => 'city',
-			'placeholder'  => true,
-			'title'        => T_('City'),
-			'group'        => T_('Location'),
-			'default_load' =>
-			[
+		// $type['city'] =
+		// [
+		// 	'key'          => 'city',
+		// 	'placeholder'  => true,
+		// 	'title'        => T_('City'),
+		// 	'group'        => T_('Location'),
+		// 	'default_load' =>
+		// 	[
 
-			],
-		];
+		// 	],
+		// ];
 
 
 		if(\dash\language::current() === 'fa')
