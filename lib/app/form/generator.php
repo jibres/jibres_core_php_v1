@@ -87,7 +87,7 @@ class generator
 			}
 			else
 			{
-				echo ' required';
+				// echo ' required';
 			}
 		}
 	}
@@ -575,23 +575,29 @@ class generator
 			self::label_raw($value, true);
 			self::div('mB10');
 			{
-				self::div('c-xs-12 c-sm-6');
+				self::div('row');
 				{
-					self::div('radio3');
+					self::div('c-xs-12 c-sm-6');
 					{
-						self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'male');
-						self::label_checkbox($value, T_("I'm Male"), self::myID($value, true). 'male');
+						self::div('radio3');
+						{
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'male', ' value="male" ');
+							self::label_checkbox($value, T_("I'm Male"), self::myID($value, true). 'male');
+						}
+						self::_div();
 					}
-				}
-				self::_div();
+					self::_div();
 
-				self::div('c-xs-12 c-sm-6');
-				{
-					self::div('radio3');
+					self::div('c-xs-12 c-sm-6');
 					{
-						self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'female');
-						self::label_checkbox($value, T_("I'm Female"), self::myID($value, true). 'female');
+						self::div('radio3');
+						{
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'female', ' value="female" ');
+							self::label_checkbox($value, T_("I'm Female"), self::myID($value, true). 'female');
+						}
+						self::_div();
 					}
+					self::_div();
 				}
 				self::_div();
 

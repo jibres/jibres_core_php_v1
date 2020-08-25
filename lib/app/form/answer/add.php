@@ -24,10 +24,11 @@ class add
 
 		$multiple_choice_answer = [];
 
-		$signup_user_args = [];
-		$signup_user      = false;
-		$send_sms         = false;
-		$sms_text         = null;
+		$signup_user_args   = [];
+		$signup_user        = false;
+		$send_sms           = false;
+		$sms_text           = null;
+		$requred_not_answer = [];
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
@@ -101,16 +102,21 @@ class add
 			{
 				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)))
 				{
-					\dash\notif::error(T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]));
-					return false;
+					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]), 'element' => 'answer_'. $item_id];
+					continue;
 				}
 
 			}
 
+			$validate_meta            = [];
+			$validate_meta['element'] = 'answer_'. $item_id;
+			$validate_meta['field_title'] = $item_detail['title'];
+
+
 			switch ($type)
 			{
 				case 'displayname':
-					$my_answer                       = \dash\validate::displayname($my_answer);
+					$my_answer                       = \dash\validate::displayname($my_answer, true, $validate_meta);
 					$answer[$item_id]                = $my_answer;
 					$signup_user_args['displayname'] = $my_answer;
 					break;
@@ -121,7 +127,7 @@ class add
 					}
 
 					$fn               = 'string_'. $maxlen;
-					$my_answer        = \dash\validate::$fn($my_answer);
+					$my_answer        = \dash\validate::$fn($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -135,7 +141,7 @@ class add
 						$fn = 'string_'. $maxlen;
 					}
 
-					$my_answer        = \dash\validate::$fn($my_answer);
+					$my_answer        = \dash\validate::$fn($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -145,12 +151,12 @@ class add
 				// 	break;
 
 				case 'numeric':
-					$my_answer        = \dash\validate::number($my_answer, true, ['min' => $min, 'max' => $max]);
+					$my_answer        = \dash\validate::number($my_answer, true, array_merge($validate_meta, ['min' => $min, 'max' => $max]));
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'single_choice':
-					$my_answer        = \dash\validate::string_100($my_answer);
+					$my_answer        = \dash\validate::string_100($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -162,7 +168,7 @@ class add
 
 					foreach ($my_answer as $k => $v)
 					{
-						$multiple_choice_answer[] = \dash\validate::string_200($v);
+						$multiple_choice_answer[] = \dash\validate::string_200($v, true, $validate_meta);
 					}
 
 					if($min)
@@ -187,50 +193,50 @@ class add
 					break;
 
 				case 'dropdown':
-					$my_answer        = \dash\validate::string_200($my_answer);
+					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'date':
-					$my_answer        = \dash\validate::date($my_answer);
+					$my_answer        = \dash\validate::date($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'birthdate':
-					$my_answer                    = \dash\validate::birthdate($my_answer);
+					$my_answer                    = \dash\validate::birthdate($my_answer, true, $validate_meta);
 					$answer[$item_id]             = $my_answer;
 					$signup_user_args['birthday'] = $my_answer;
 					break;
 
 				case 'country':
-					$my_answer        = \dash\validate::country($my_answer);
+					$my_answer        = \dash\validate::country($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'province':
-					$my_answer        = \dash\validate::province($my_answer);
+					$my_answer        = \dash\validate::province($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'city':
 				case 'province_city':
-					$my_answer        = \dash\validate::city($my_answer);
+					$my_answer        = \dash\validate::city($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'gender':
-					$my_answer                  = \dash\validate::enum($my_answer, true, ['enum' => ['male', 'female']]);
+					$my_answer                  = \dash\validate::enum($my_answer, true, array_merge($validate_meta, ['enum' => ['male', 'female']]));
 					$answer[$item_id]           = $my_answer;
 					$signup_user_args['gender'] = $my_answer;
 					break;
 
 				case 'time':
-					$my_answer        = \dash\validate::time($my_answer);
+					$my_answer        = \dash\validate::time($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'tel':
-					$my_answer        = \dash\validate::phone($my_answer);
+					$my_answer        = \dash\validate::phone($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
@@ -255,7 +261,7 @@ class add
 					break;
 
 				case 'nationalcode':
-					$my_answer        = \dash\validate::nationalcode($my_answer);
+					$my_answer        = \dash\validate::nationalcode($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 
 					if($check_unique)
@@ -265,7 +271,7 @@ class add
 					break;
 
 				case 'mobile':
-					$my_answer                  = \dash\validate::mobile($my_answer);
+					$my_answer                  = \dash\validate::mobile($my_answer, true, $validate_meta);
 
 					$answer[$item_id]           = $my_answer;
 
@@ -293,24 +299,24 @@ class add
 					break;
 
 				case 'email':
-					$my_answer                  = \dash\validate::email($my_answer);
+					$my_answer                  = \dash\validate::email($my_answer, true, $validate_meta);
 					$answer[$item_id]           = $my_answer;
 					$signup_user_args['mobile'] = $my_answer;
 					break;
 
 				case 'website':
-					$my_answer        = \dash\validate::url($my_answer);
+					$my_answer        = \dash\validate::url($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'password':
-					$my_answer        = \dash\validate::string_100($my_answer);
+					$my_answer        = \dash\validate::string_100($my_answer, true, $validate_meta);
 					$answer[$item_id] = $my_answer;
 					break;
 
 				case 'agree':
 				case 'yes_no':
-					$my_answer = \dash\validate::bit($my_answer);
+					$my_answer = \dash\validate::bit($my_answer, true, $validate_meta);
 					if(!$my_answer)
 					{
 						$my_answer = 0;
@@ -339,6 +345,24 @@ class add
 					\dash\notif::warn(T_("You are answer to this form before"));
 					return false;
 				}
+			}
+		}
+
+
+		if($requred_not_answer)
+		{
+			if(count($requred_not_answer) <= 2)
+			{
+				foreach ($requred_not_answer as $key => $value)
+				{
+					\dash\notif::error($value['message'], ['element' => $value['element']]);
+				}
+				return false;
+			}
+			else
+			{
+				\dash\notif::error(T_("Please fill the required field"), ['element' => array_column($requred_not_answer, 'element')]);
+				return false;
 			}
 		}
 
