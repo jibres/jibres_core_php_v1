@@ -6,6 +6,13 @@ class add
 {
 	public static function add($_args)
 	{
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("You are not in this business"));
+			return false;
+		}
+
 		$args = \lib\app\form\form\check::variable($_args);
 
 		if(!$args)
