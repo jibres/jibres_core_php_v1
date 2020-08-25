@@ -12,7 +12,11 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
+		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
+
 		$args            = [];
+		$args['sort']    = 'id';
+		$args['order']   = 'desc';
 		$args['form_id'] = \dash\request::get('id');
 		$q               = \dash\request::get('q');
 

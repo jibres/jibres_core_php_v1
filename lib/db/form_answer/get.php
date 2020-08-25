@@ -12,6 +12,13 @@ class get
 		return $result;
 	}
 
+	public static function count_all($_form_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 
 
 	public static function by_form_id($_form_id)
@@ -26,6 +33,43 @@ class get
 	{
 		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.id IN ($_ids) ";
 		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
+
+
+	public static function export_list($_form_id)
+	{
+		$result = [];
+
+		$query =
+		"
+			SELECT
+				form_answerdetail.answer_id,
+				form_answerdetail.item_id,
+				form_answerdetail.answer,
+				form_answerdetail.textarea
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.form_id = $_form_id
+		";
+
+		$result['answerdetail'] = \dash\db::get($query);
+
+		$query =
+		"
+			SELECT
+				form_item.*
+			FROM
+				form_item
+			WHERE
+				form_item.form_id = $_form_id
+		";
+
+		$result['items'] = \dash\db::get($query);
+
 		return $result;
 
 	}
