@@ -1,4 +1,4 @@
-<?php if(!\dash\data::dataTable()) {?>
+<?php if(!\dash\data::dataTable() && !\dash\request::get()) {?>
 
   <h2><?php echo T_("Contact form") ?></h2>
 
@@ -80,8 +80,10 @@
     <thead>
       <tr>
 
+        <th class="collapsing">#</th>
         <th><?php echo T_("Title") ?></th>
         <th><?php echo T_("Status") ?></th>
+        <th><?php echo T_("Item count") ?></th>
         <th class="collapsing"><?php echo T_("Edit") ?></th>
         <th class="collapsing"><?php echo T_("Answers") ?></th>
       </tr>
@@ -90,10 +92,10 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
 
-
-          <td><span class="txtB"><?php echo \dash\get::index($value, 'title') ?></span></td>
-          <td><span class="txtB"><?php echo T_(\dash\get::index($value, 'status')) ?></span></td>
-
+          <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></td>
+          <td><a target="_blank" href="<?php echo \lib\store::url(). '/f/'. \dash\get::index($value, 'id'); ?>"><i class="sf-link-external"></i></a> <?php echo \dash\get::index($value, 'title') ?></td>
+          <td><?php echo T_(\dash\get::index($value, 'status')) ?></td>
+          <td><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-edit"></i> <?php echo T_("Edit") ?></a></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-list"></i> <?php echo T_("Answers") ?></a></td>
         </tr>

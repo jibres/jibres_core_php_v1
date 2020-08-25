@@ -20,7 +20,8 @@ class search
 		$query =
 		"
 			SELECT
-				form.*
+				form.*,
+				(SELECT COUNT(*) FROM form_item WHERE form_item.form_id = form.id) AS `item_count`
 			FROM form
 			$q[join]
 			$q[where]
