@@ -16,6 +16,7 @@ class log
 	public static function oops($_type = null)
 	{
 		\dash\log::set('criticalErrorOops!');
+		self::to_supervisor('criticalErrorOops: '. $_type);
 		\dash\notif::error(T_("Oops! We cannot complete your request. Please contact to administrator"));
 		return false;
 	}
