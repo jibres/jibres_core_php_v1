@@ -86,7 +86,7 @@ class guard
 		// manifest-src
 		$csp .= "manifest-src 'self'; ";
 		// connect-src
-		$csp .= "connect-src 'self' ". self::csp_cdn(). ' '. self::csp_domain('cloud'). ' '. self::csp_domain('*', 'jibres'). " ". self::csp_domain(false, 'jibres'). "; ";
+		$csp .= "connect-src 'self' ". self::csp_cdn(). ' '. self::csp_domain('cloud'). ' '. self::csp_domain('*', 'jibres'). " ". self::csp_domain(false, 'jibres'). " https://www.google-analytics.com". "; ";
 		// form-action
 		$csp .= "form-action 'self'; ";
 
