@@ -26,8 +26,8 @@ class add
 
 		$signup_user_args   = [];
 		$signup_user        = false;
-		$send_sms           = false;
-		$sms_text           = null;
+		$send_sms           = [];
+		$sms_text           = [];
 		$requred_not_answer = [];
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
@@ -108,17 +108,16 @@ class add
 
 			}
 
-			$validate_meta            = [];
-			$validate_meta['element'] = 'answer_'. $item_id;
+			$validate_meta                = [];
+			$validate_meta['element']     = 'answer_'. $item_id;
 			$validate_meta['field_title'] = $item_detail['title'];
-
 
 			switch ($type)
 			{
 				case 'displayname':
 					$my_answer                       = \dash\validate::displayname($my_answer, true, $validate_meta);
 					$answer[$item_id]                = $my_answer;
-					$signup_user_args['displayname'] = $my_answer;
+					$signup_user_args['displayname'][] = $my_answer;
 					break;
 				case 'short_answer':
 					if(!$maxlen)
@@ -205,7 +204,7 @@ class add
 				case 'birthdate':
 					$my_answer                    = \dash\validate::birthdate($my_answer, true, $validate_meta);
 					$answer[$item_id]             = $my_answer;
-					$signup_user_args['birthday'] = $my_answer;
+					$signup_user_args['birthday'][] = $my_answer;
 					break;
 
 				case 'country':
@@ -227,7 +226,7 @@ class add
 				case 'gender':
 					$my_answer                  = \dash\validate::enum($my_answer, true, array_merge($validate_meta, ['enum' => ['male', 'female']]));
 					$answer[$item_id]           = $my_answer;
-					$signup_user_args['gender'] = $my_answer;
+					$signup_user_args['gender'][] = $my_answer;
 					break;
 
 				case 'time':
@@ -275,7 +274,7 @@ class add
 
 					$answer[$item_id]           = $my_answer;
 
-					$signup_user_args['mobile'] = $my_answer;
+					$signup_user_args['mobile'][] = $my_answer;
 
 					if(isset($item_detail['setting']['mobile']['signup']) && $item_detail['setting']['mobile']['signup'])
 					{
@@ -284,12 +283,12 @@ class add
 
 					if(isset($item_detail['setting']['mobile']['send_sms']) && $item_detail['setting']['mobile']['send_sms'])
 					{
-						$send_sms = true;
+						$send_sms[] = true;
 					}
 
 					if(isset($item_detail['setting']['mobile']['sms_text']) && $item_detail['setting']['mobile']['sms_text'])
 					{
-						$sms_text = $item_detail['setting']['mobile']['sms_text'];
+						$sms_text[] = $item_detail['setting']['mobile']['sms_text'];
 					}
 
 					if($check_unique)
@@ -301,7 +300,7 @@ class add
 				case 'email':
 					$my_answer                  = \dash\validate::email($my_answer, true, $validate_meta);
 					$answer[$item_id]           = $my_answer;
-					$signup_user_args['mobile'] = $my_answer;
+					$signup_user_args['email'][] = $my_answer;
 					break;
 
 				case 'website':
@@ -368,11 +367,81 @@ class add
 
 		if($signup_user && !empty($signup_user_args))
 		{
-			$user_id = \dash\db\users\insert::signup($signup_user_args);
+			$new_signup_user = [];
 
-			if($send_sms && $sms_text && $user_id)
+			// we only 5 signup form option
+			for ($i = 0; $i <= 5 ; $i++)
 			{
-				\dash\log::send_sms($user_id, $sms_text);
+				$temp = [];
+
+				if(isset($signup_user_args['displayname'][$i]))
+				{
+					$temp['displayname'] = $signup_user_args['displayname'][$i];
+				}
+
+				if(isset($signup_user_args['birthday'][$i]))
+				{
+					$temp['birthday'] = $signup_user_args['birthday'][$i];
+				}
+
+				if(isset($signup_user_args['gender'][$i]))
+				{
+					$temp['gender'] = $signup_user_args['gender'][$i];
+				}
+
+				if(isset($signup_user_args['mobile'][$i]))
+				{
+					$temp['mobile'] = $signup_user_args['mobile'][$i];
+				}
+
+				if(isset($signup_user_args['email'][$i]))
+				{
+					$temp['email'] = $signup_user_args['email'][$i];
+				}
+
+				if(isset($sms_text[$i]))
+				{
+					$temp['sms_text'] = $sms_text[$i];
+				}
+
+
+				if(isset($send_sms[$i]))
+				{
+					$temp['send_sms'] = $send_sms[$i];
+				}
+
+				if((isset($temp['mobile']) && $temp['mobile']) || (isset($temp['email']) && $temp['email']))
+				{
+					$new_signup_user[] = $temp;
+				}
+			}
+
+			if(!empty($new_signup_user))
+			{
+				foreach ($new_signup_user as $key => $value)
+				{
+					$my_send_sms = null;
+					if(isset($value['send_sms']) && $value['send_sms'])
+					{
+						$my_send_sms = $value['send_sms'];
+					}
+
+					$my_sms_text = null;
+					if(isset($value['sms_text']) && $value['sms_text'])
+					{
+						$my_sms_text = $value['sms_text'];
+					}
+
+					unset($value['sms_text']);
+					unset($value['send_sms']);
+
+					$user_id = \dash\db\users\insert::signup($value);
+
+					if($my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
+					{
+						\dash\log::send_sms($user_id, $my_sms_text);
+					}
+				}
 			}
 		}
 
