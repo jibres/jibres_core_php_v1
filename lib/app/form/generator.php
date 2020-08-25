@@ -538,13 +538,13 @@ class generator
 				self::label($value);
 				self::div();
 				{
-					\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
+					\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
 				self::div();
 				{
-					\dash\utility\location::citySelectorHtml(null, self::myName($value, true). 'city', self::myID($value, true). 'city');
+					\dash\utility\location::citySelectorHtml(null, self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 

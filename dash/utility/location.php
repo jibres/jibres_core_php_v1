@@ -104,13 +104,13 @@ class location
 	}
 
 
-	public static function provinceSelectorHtml($_country = null, $_province = null, $_city = null, $_name = 'province', $_id = 'province')
+	public static function provinceSelectorHtml($_country = null, $_province = null, $_city = null, $_name = 'province', $_id = 'province', $_city_name = 'city', $_city_id = 'city')
 	{
 
 		$placeholder = ("Please choose province");
 
 		echo '<select class="select22" name="'.$_name. '" id="'. $_id. '"';
-		echo ' data-next="#'.$_id. '"';
+		echo ' data-next="#'.$_city_id. '"';
 		echo ' data-next-type="city"';
 		echo ' data-placeholder="'. $placeholder. '"';
 		if($_city)
