@@ -212,10 +212,20 @@ class generator
 	}
 
 
-	private static function label_raw($value)
+	private static function label_raw($value, $_bold = false)
 	{
-		echo '<label class="txtB">';
-		echo \dash\get::index($value, 'title');
+		echo '<label>';
+		if($_bold)
+		{
+			echo '<span class="txtB">';
+			echo \dash\get::index($value, 'title');
+			echo '</span>';
+		}
+		else
+		{
+			echo \dash\get::index($value, 'title');
+		}
+
 		self::isRequired($value, true);
 		echo '</label>';
 	}
@@ -364,7 +374,7 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label_raw($value);
+				self::label_raw($value, true);
 
 				self::div('row');
 				{
@@ -404,7 +414,7 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label_raw($value);
+				self::label_raw($value, true);
 				self::div('row');
 				{
 					if(isset($value['choice']) && is_array($value['choice']))
@@ -560,7 +570,7 @@ class generator
 	{
 		self::div('c-xs-12 c-12');
 		{
-			self::label_raw($value);
+			self::label_raw($value, true);
 			self::div('mB10');
 			{
 				self::div('c-xs-12 c-sm-6');
@@ -774,7 +784,7 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label_raw($value);
+				self::label_raw($value, true);
 				self::div('row');
 				{
 					self::div('c-xs-12 c-sm-6');
