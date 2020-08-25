@@ -67,7 +67,7 @@ class imageblock
 		$result['ratio']        = $int_ratio;
 		$result['min_w']        = 800;
 		$result['min_h']        = 600;
-		$result['max_w']        = 1080;
+		$result['max_w']        = 2048;
 		$result['max_h']        = 1200;
 
 		return $result;
