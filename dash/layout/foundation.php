@@ -71,6 +71,7 @@ if(\dash\data::googleAnalytics())
 <?php }?>
  <meta content="<?php echo \dash\face::site(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\face::site(); ?>" name="apple-mobile-web-app-title"/>
+ <meta content="Jibres" name="generator"/>
 <?php if(\dash\engine\store::inBusinessWebsite()) {?>
  <link href="<?php echo \lib\store::logo();?>?v=1" type="image/png" rel="icon"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="shortcut icon"/>
@@ -99,9 +100,14 @@ if(\dash\data::googleAnalytics())
 <?php }?>
 <?php
 if (\dash\url::canonical())
-echo '<link rel="canonical" href="'. \dash\url::canonical(). '"/>';
+{
+  echo ' <link rel="canonical" href="'. \dash\url::canonical(). '"/>'. "\n";
+}
+if (\dash\url::root() === 'jibres')
+{
+ echo ' <link href="'. \dash\url::jibres_domain(). 'team" rel="author"/>'. "\n";
+}
 ?>
- <link href="<?php echo \dash\url::jibres_domain();?>team" rel="author"/>
 <?php // @todo add rel alternative ?>
  <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
 <?php
