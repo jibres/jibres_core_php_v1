@@ -27,6 +27,7 @@ class ready
 				case 'choice':
 					if($value && is_string($value))
 					{
+						$value = preg_replace('/\r|\n/','\n', trim($value));
 						$value = json_decode($value, true);
 					}
 
