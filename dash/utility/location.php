@@ -107,7 +107,7 @@ class location
 	public static function provinceSelectorHtml($_country = null, $_province = null, $_city = null, $_name = 'province', $_id = 'province', $_city_name = 'city', $_city_id = 'city')
 	{
 
-		$placeholder = ("Please choose province");
+		$placeholder = T_("Please choose province");
 
 		echo '<select class="select22" name="'.$_name. '" id="'. $_id. '"';
 		echo ' data-next="#'.$_city_id. '"';
@@ -156,7 +156,7 @@ class location
 
 	public static function citySelectorHtml($_city = null, $_name = 'city', $_id = 'city')
 	{
-		$placeholder = ("Please choose city");
+		$placeholder = T_("Please choose city");
 		echo '<div class="citySelector mB5"';
 		echo ' data-status="hide"';
 		echo '>';
