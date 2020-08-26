@@ -18,7 +18,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `log_notif` SET $set ";
+			$query = " INSERT IGNORE INTO `log_notif` SET $set ";
 			if(\dash\db::query($query))
 			{
 				return true;
