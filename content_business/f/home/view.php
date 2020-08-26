@@ -5,7 +5,20 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(\dash\data::formDetail_title());
+		if(\dash\data::formDetail_title())
+		{
+			\dash\face::title(\dash\data::formDetail_title());
+		}
+		else
+		{
+			$store_title = \lib\store::detail('title');
+			if($store_title)
+			{
+				\dash\face::title(T_("Forms"). ' | '. $store_title);
+			}
+
+		}
+
 		if(\dash\data::formDetail_desc())
 		{
 			\dash\face::desc(strip_tags(\dash\data::formDetail_desc()));
