@@ -53,6 +53,7 @@
 
 
 <?php function htmlTable() {?>
+<div class="tblBox fs14">
 
   <table class="tbl1 v1">
     <thead>
@@ -63,13 +64,12 @@
       <th><?php echo T_("type") ?></th>
       <th><?php echo T_("method") ?></th>
       <th><?php echo T_("message") ?></th>
-      <th><?php echo T_("messagemd5") ?></th>
+
       <th><?php echo T_("user_id") ?></th>
       <th><?php echo T_("urlkingdom") ?></th>
       <th><?php echo T_("urldir") ?></th>
       <th><?php echo T_("urlquery") ?></th>
       <th><?php echo T_("datecreated") ?></th>
-      <th><?php echo T_("meta") ?></th>
 
 
 
@@ -84,18 +84,19 @@
           <td><?php echo \dash\get::index($value, 'type') ?></td>
           <td><?php echo \dash\get::index($value, 'method') ?></td>
           <td><?php echo \dash\get::index($value, 'message') ?></td>
-          <td><?php echo \dash\get::index($value, 'messagemd5') ?></td>
+
           <td><?php echo \dash\get::index($value, 'user_id') ?></td>
           <td><?php echo \dash\get::index($value, 'urlkingdom') ?></td>
           <td><?php echo \dash\get::index($value, 'urldir') ?></td>
           <td><?php echo \dash\get::index($value, 'urlquery') ?></td>
           <td><?php echo \dash\get::index($value, 'datecreated') ?></td>
-          <td><?php echo \dash\get::index($value, 'meta') ?></td>
+
 
         </tr>
       <?php } //endif ?>
     </tbody>
   </table>
+</div>
 
 
 
