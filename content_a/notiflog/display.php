@@ -4,6 +4,13 @@
     <table class="tbl1 v4">
 
       <tbody>
+        <tr class="positive">
+          <td><?php echo T_("Count all") ?></td>
+          <td><?php echo \dash\fit::number(array_sum(array_column(\dash\data::messgeGroupBy(), 'count'))) ?>
+            <div class="btn linkDel" data-confirm data-data='{"emptytable": "emptytable"}'><?php echo T_("Delete all") ?></div>
+          </td>
+
+        </tr>
 
 <?php foreach (\dash\data::messgeGroupBy() as $key => $value) {?>
   <tr>
@@ -159,5 +166,5 @@
 
 
 <?php function htmlStartAddNew() {?>
-  <div class="msg fs14 success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
+  <div class="msg fs14 success2"><?php echo T_("Hi!") ?></div>
 <?php } //endif ?>
