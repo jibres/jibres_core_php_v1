@@ -160,6 +160,9 @@ class add
 					break;
 
 				case 'multiple_choice':
+
+					$multiple_choice_answer = [];
+
 					if(!is_array($my_answer))
 					{
 						$my_answer = [];
@@ -539,7 +542,6 @@ class add
 				}
 			}
 		}
-
 
 		if($insert_answerdetail)
 		{
