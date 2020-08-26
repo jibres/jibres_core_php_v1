@@ -52,7 +52,7 @@
         <th><?php echo T_("End date") ?></th>
         <th><?php echo T_("Count answer") ?></th>
         <th class="collapsing"><?php echo T_("Detail") ?></th>
-        <th class="collapsing"></th>
+
       </tr>
     </thead>
     <tbody>
@@ -63,7 +63,6 @@
           <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'enddate')); ?></td>
           <td><?php echo \dash\fit::number(\dash\get::index($value, 'count_answer')); ?></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
-          <td class=""><div data-confirm data-data='{"remove": "answer", "id": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red fs14"></i></div></td>
         </tr>
       <?php } //endif ?>
     </tbody>
