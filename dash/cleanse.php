@@ -596,13 +596,14 @@ class cleanse
 			case 'id_code': 			$data = \dash\validate\identify::id_code(...$fn_args); 				break;
 			case 'enum': 				$data = \dash\validate\dataarray::enum(...$fn_args); 				break;
 			case 'tag': 				$data = \dash\validate\dataarray::tag(...$fn_args); 				break;
-			case 'tag_long': 			$data = \dash\validate\dataarray::tag_long(...$fn_args); 				break;
+			case 'tag_long': 			$data = \dash\validate\dataarray::tag_long(...$fn_args); 			break;
 			case 'nationalcode': 		$data = \dash\validate\nationalcode::nationalcode(...$fn_args); 	break;
 			case 'number': 				$data = \dash\validate\number::number(...$fn_args); 				break;
 			case 'int': 				$data = \dash\validate\number::int(...$fn_args); 					break;
 			case 'float': 				$data = \dash\validate\number::float(...$fn_args); 					break;
 			case 'number_negative': 	$data = \dash\validate\number::number_negative(...$fn_args); 		break;
 			case 'postcode': 			$data = \dash\validate\number::postcode(...$fn_args); 				break;
+			case 'postcode_ir': 		$data = \dash\validate\number::postcode_ir(...$fn_args); 			break;
 			case 'phone': 				$data = \dash\validate\number::phone(...$fn_args); 					break;
 			case 'percent': 			$data = \dash\validate\number::number_percent(...$fn_args); 		break;
 			case 'price': 				$data = \dash\validate\number::price(...$fn_args); 					break;

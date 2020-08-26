@@ -176,6 +176,30 @@ class number
 	}
 
 
+	public static function postcode_ir($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['round' => true]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = (string) $data;
+
+		if(mb_strlen($data) != 10)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Post code must be exactly 10 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 	public static function phone($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = self::number($_data, $_notif, $_element, $_field_title, ['round' => true]);
