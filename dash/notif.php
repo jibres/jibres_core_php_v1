@@ -33,7 +33,7 @@ class notif
 			$add['meta'] = $_meta;
 		}
 
-		// self::log_notif($add);
+		self::log_notif($add);
 
 		array_push(self::$notif['msg'], $add);
 	}
@@ -41,6 +41,11 @@ class notif
 
 	private static function log_notif($_add)
 	{
+		if(\dash\url::content() === 'hook')
+		{
+			return;
+		}
+
 		$insert = [];
 
 		$insert['type']        = isset($_add['type']) ? $_add['type']: null;
