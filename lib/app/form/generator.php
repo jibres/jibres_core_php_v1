@@ -46,6 +46,7 @@ class generator
 				case 'message':				self::html_input_message($item);break;
 				case 'agree':				self::html_input_agree($item);break;
 				case 'hidden':				self::html_input_hidden($item);break;
+				case 'postalcode':			self::html_input_postalcode($item);break;
 
 				default:
 					# code...
@@ -640,6 +641,19 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="mobile-enter" ');
+			self::HtmlDesc($value);
+		}
+		self::_div();
+	}
+
+
+
+	private static function html_input_postalcode($value)
+	{
+		self::div('c-xs-6 c-6');
+		{
+			self::label($value);
+			self::input('tel', $value, ' data-format="postalCode" ');
 			self::HtmlDesc($value);
 		}
 		self::_div();
