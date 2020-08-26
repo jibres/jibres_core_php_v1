@@ -518,8 +518,8 @@ class add
 							'user_id'     => $data['user_id'],
 							'answer_id'   => null, // fill after this foreach
 							'item_id'     => $item_id,
-							'answer'      => $new_answer,
-							'textarea'    => $new_textarea,
+							'answer'      => $my_answer_one,
+							'textarea'    => null,
 							'datecreated' => date("Y-m-d H:i:s"),
 						];
 					}
