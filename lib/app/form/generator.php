@@ -571,7 +571,7 @@ class generator
 			{
 				self::div('row');
 				{
-					self::div('c-xs-12 c-sm-6');
+					self::div('c-xs-6 c-sm-6');
 					{
 						self::div('radio3');
 						{
@@ -582,7 +582,7 @@ class generator
 					}
 					self::_div();
 
-					self::div('c-xs-12 c-sm-6');
+					self::div('c-xs-6 c-sm-6');
 					{
 						self::div('radio3');
 						{
@@ -654,7 +654,7 @@ class generator
 
 	private static function html_input_postalcode($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="postalCode" ');
@@ -833,7 +833,7 @@ class generator
 				self::label_raw($value, true);
 				self::div('row');
 				{
-					self::div('c-xs-12 c-sm-6');
+					self::div('c-xs-6 c-sm-6');
 					{
 						self::div('radio3');
 						{
@@ -844,7 +844,7 @@ class generator
 					}
 					self::_div();
 
-					self::div('c-xs-12 c-sm-6');
+					self::div('c-xs-6 c-sm-6');
 					{
 						self::div('radio3');
 						{
