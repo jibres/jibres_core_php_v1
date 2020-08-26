@@ -105,7 +105,7 @@ class generator
 
 	private static function myName($value, $_return = false)
 	{
-		$myName = 'answer_'. \dash\get::index($value, 'id');
+		$myName = 'a_'. \dash\get::index($value, 'id');
 
 		if($_return)
 		{

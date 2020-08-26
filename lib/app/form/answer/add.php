@@ -102,14 +102,14 @@ class add
 			{
 				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)))
 				{
-					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]), 'element' => 'answer_'. $item_id];
+					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]), 'element' => 'a_'. $item_id];
 					continue;
 				}
 
 			}
 
 			$validate_meta                = [];
-			$validate_meta['element']     = 'answer_'. $item_id;
+			$validate_meta['element']     = 'a_'. $item_id;
 			$validate_meta['field_title'] = $item_detail['title'];
 
 			switch ($type)
@@ -257,7 +257,7 @@ class add
 					break;
 
 				case 'file':
-					if(\dash\request::files('answer_'. $item_id))
+					if(\dash\request::files('a_'. $item_id))
 					{
 						$ext = null;
 						if(isset($item_detail['setting']['file']['filetype']))
@@ -265,7 +265,7 @@ class add
 							$ext = $item_detail['setting']['file']['filetype'];
 						}
 
-						$path = \dash\upload\form::upload($form_id, 'answer_'. $item_id, 1, $ext);
+						$path = \dash\upload\form::upload($form_id, 'a_'. $item_id, 1, $ext);
 						if(!\dash\engine\process::status())
 						{
 							return false;
@@ -387,7 +387,7 @@ class add
 			}
 			else
 			{
-				\dash\notif::error(T_("Please fill the required field"), ['element' => array_column($requred_not_answer, 'element')]);
+				\dash\notif::error(T_("Please fill the required field"), ['alerty' => true, 'element' => array_column($requred_not_answer, 'element')]);
 				return false;
 			}
 		}

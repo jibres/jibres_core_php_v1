@@ -15,7 +15,7 @@ class model
 		$answer['answer'] = [];
 		foreach ($post as $key => $value)
 		{
-			if(preg_match("/^answer_(\d+)$/", $key, $split))
+			if(preg_match("/^a_(\d+)$/", $key, $split))
 			{
 				$answer['answer'][$split[1]] = $value;
 			}
