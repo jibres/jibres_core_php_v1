@@ -395,7 +395,15 @@ class url
 			}
 			else
 			{
-				$url .= 'com';
+				if(self::root() === 'jibres')
+				{
+					$url .= 'com';
+				}
+				else
+				{
+					// check inside business
+					$url .= 'ir';
+				}
 			}
 		}
 		$url .= '/';
