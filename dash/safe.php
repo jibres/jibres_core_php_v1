@@ -161,6 +161,8 @@ class safe
 	public static function forJson($_string)
 	{
 		$_string = preg_replace("/\<\/[\w]\>/", ' ', $_string);
+		$_string = preg_replace("/\r/", ' ', $_string);
+		$_string = preg_replace("/\n/", ' ', $_string);
 		$_string = strip_tags($_string);
 		$_string = trim($_string);
 		$_string = self::remove_2nl($_string);

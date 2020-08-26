@@ -103,7 +103,8 @@ class check
 		if(\dash\get::index($_current_detail, 'type_detail', 'send_sms'))
 		{
 			$setting[$data['type']]['send_sms'] = $data['send_sms'];
-			$setting[$data['type']]['sms_text'] = $data['sms_text'];
+			$setting[$data['type']]['sms_text'] = \dash\safe::forJson($data['sms_text']);
+
 		}
 
 		if(\dash\get::index($_current_detail, 'type_detail', 'link'))
@@ -165,7 +166,6 @@ class check
 		{
 			$data['choice'] = json_encode($choice, JSON_UNESCAPED_UNICODE);
 		}
-
 
 		unset($data['placeholder']);
 
