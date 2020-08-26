@@ -33,7 +33,28 @@ class notif
 			$add['meta'] = $_meta;
 		}
 
+		self::log_notif($add);
+
 		array_push(self::$notif['msg'], $add);
+	}
+
+
+	private static function log_notif($_add)
+	{
+		$insert = [];
+
+		$insert['type']        = isset($_add['type']) ? $_add['type']: null;
+		$insert['message']     = isset($_add['text']) ? $_add['text']: null;
+		$insert['messagemd5']  = md5($insert['message']);
+		$insert['meta']        = isset($_add['meta']) ? json_encode($_add['meta'], JSON_UNESCAPED_UNICODE): null;
+		$insert['method']      = \dash\request::is();
+		$insert['user_id']     = null;
+		$insert['urlkingdom']  = \dash\url::kingdom();
+		$insert['urldir']      = \dash\url::directory();
+		$insert['urlquery']    = \dash\url::query();
+		$insert['datecreated'] = date("Y-m-d H:i:s");
+
+		\dash\db\log_notif\insert::new_record($insert);
 	}
 
 
