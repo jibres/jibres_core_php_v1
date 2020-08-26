@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.log_notif (
+CREATE TABLE IF NOT EXISTS `log_notif` (
 `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `type` enum('ok', 'error', 'warn', 'info') NULL,
 `method` VARCHAR(100) NULL,
