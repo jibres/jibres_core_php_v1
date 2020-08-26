@@ -312,7 +312,7 @@ class guard
 				case 'api':
 				case 'api':
 				case 'business':
-					$allow_origin    = true;
+					$allow_origin     = true;
 					$allow_method_all = true;
 					break;
 
