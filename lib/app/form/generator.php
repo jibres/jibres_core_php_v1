@@ -270,6 +270,8 @@ class generator
 			self::isRequired($value);
 			self::HtmlPlaceholder($value);
 			self::HtmlMaxLen($value);
+			self::HtmlMin($value);
+			self::HtmlMax($value);
 			echo $_meta;
 			echo '>';
 		}
@@ -284,6 +286,8 @@ class generator
 		self::isRequired($value);
 		self::HtmlPlaceholder($value);
 		self::HtmlMaxLen($value);
+		self::HtmlMin($value);
+		self::HtmlMax($value);
 		echo $_meta;
 		echo '>';
 	}
