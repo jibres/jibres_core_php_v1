@@ -21,7 +21,8 @@ class search
 		"
 			SELECT
 				form.*,
-				(SELECT COUNT(*) FROM form_item WHERE form_item.form_id = form.id) AS `item_count`
+				(SELECT COUNT(*) FROM form_item WHERE form_item.form_id = form.id) AS `item_count`,
+				(SELECT COUNT(*) FROM form_answer WHERE form_answer.form_id = form.id) AS `answer_count`
 			FROM form
 			$q[join]
 			$q[where]
