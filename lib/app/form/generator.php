@@ -613,7 +613,7 @@ class generator
 
 	private static function html_input_tel($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-12');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="tel" ');
