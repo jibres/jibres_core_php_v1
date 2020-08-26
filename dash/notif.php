@@ -33,7 +33,7 @@ class notif
 			$add['meta'] = $_meta;
 		}
 
-		// self::log_notif($add);
+		self::log_notif($add);
 
 		array_push(self::$notif['msg'], $add);
 	}
