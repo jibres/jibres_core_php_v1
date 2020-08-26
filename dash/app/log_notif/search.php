@@ -10,6 +10,15 @@ class search
 	private static $is_filtered    = false;
 
 
+	public static function group_by()
+	{
+		$get_list_group_by = \dash\db\log_notif\get::group_by();
+		return $get_list_group_by;
+	}
+
+
+
+
 	public static function filter_message()
 	{
 		return self::$filter_message;

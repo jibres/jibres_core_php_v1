@@ -1,5 +1,22 @@
+<?php if(\dash\data::messgeGroupBy()) {?>
+  <div class="box">
+    <div class="pad">
+    <table class="tbl1 v4">
 
+      <tbody>
 
+<?php foreach (\dash\data::messgeGroupBy() as $key => $value) {?>
+  <tr>
+    <td><?php echo \dash\get::index($value, 'message') ?></td>
+    <td><?php echo \dash\fit::number(\dash\get::index($value, 'count')) ?></td>
+  </tr>
+<?php } //endif ?>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+<?php } //endif ?>
 
 
   <?php
@@ -37,7 +54,8 @@
 
 
 
-<?php function htmlSearchBox() {?>
+<?php function htmlSearchBox() { return; ?>
+
   <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
       <div class="input">
