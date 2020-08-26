@@ -7,11 +7,10 @@ class model
 	{
 		$post = \dash\request::post();
 
-		$answer            = [];
-		$answer['form_id'] = \dash\data::formId();
-
-		$answer['user_id'] = \lib\store::in_store() ? \dash\user::id() : null;
-
+		$answer              = [];
+		$answer['form_id']   = \dash\data::formId();
+		$answer['startdate'] = \dash\request::post('startdate');
+		$answer['user_id']   = \lib\store::in_store() ? \dash\user::id() : null;
 		$answer['answer'] = [];
 		foreach ($post as $key => $value)
 		{

@@ -8,9 +8,10 @@ class add
 	{
 		$condition =
 		[
-			'form_id' => 'id',
-			'user_id' => 'id',
-			'answer'  => 'bit', // just for skip clean error
+			'form_id'   => 'id',
+			'user_id'   => 'id',
+			'startdate' => 'datetime',
+			'answer'    => 'bit', // just for skip clean error
 		];
 
 
@@ -475,12 +476,25 @@ class add
 			}
 		}
 
+
+		$startdate = $data['startdate'];
+
+		if(!$startdate)
+		{
+			$data['startdate'] = date("Y-m-d H:i:s");
+		}
+
+		if(time() - strtotime($startdate) > (60*60*1))
+		{
+			$data['startdate'] = date("Y-m-d H:i:s", time() - (60*60*1));
+		}
+
 		$add_answer_args =
 		[
 			'form_id'     => $form_id,
 			'user_id'     => $data['user_id'],
 			'datecreated' => date("Y-m-d H:i:s"),
-			'startdate'   => date("Y-m-d H:i:s"),
+			'startdate'   => $data['startdate'],
 			'enddate'     => date("Y-m-d H:i:s"),
 		];
 
