@@ -11,9 +11,9 @@ namespace dash;
  *
  *** get from $_SERVER
  * 'protocol'   => 'http'
- * 'host'       => 'ermile.jibres.com'					[subdomain+domain]	(HTTP_HOST)
- * 'port'       => 80														(SERVER_PORT)
- * 'query'      => 'id=5&page=8'											(QUERY_STRING)
+ * 'host'       => 'ermile.jibres.com'						[subdomain+domain]	(HTTP_HOST)
+ * 'port'       => 80															(SERVER_PORT)
+ * 'query'      => 'id=5&page=8'									(QUERY_STRING)
  *
  * dont use uri directly in normal condition
  * 'uri'        => '/en/a/thirdparty/general/edit/test=yes?id=5&page=8'		(REQUEST_URI)
@@ -24,15 +24,15 @@ namespace dash;
  * 'root'       => 'jibres'
  * 'tld'        => 'com'
  *
- * 'domain'     => 'jibres.com'							[root+tld+port]
- * 'site'       => 'http://jibres.com'					[protocol+domain]
- * 'sitelang'   => 'http://jibres.com/en'				[site+lang]
+ * 'domain'     => 'jibres.com'										[root+tld+port]
+ * 'site'       => 'http://jibres.com'						[protocol+domain]
+ * 'sitelang'   => 'http://jibres.com/en'					[site+lang]
  * 'base'       => 'http://ermile.jibres.com'			[protocol+host]
  *
  * 'path'       => '/en/a/thirdparty/general/edit/test=yes?id=5&page=8'
  * 'lang'       => 'en'
  * 'content'    => 'a'
- * 'prefix'     => 'en/a'								[lang+content]
+ * 'prefix'     => 'en/a'													[lang+content]
  * 'module'     => 'thirdparty'
  * 'child'      => 'general'
  * 'subchild'   => 'edit'
@@ -41,8 +41,8 @@ namespace dash;
  *
  * 'kingdom'    => 'http://ermile.jibres.com/en'
  * 'here'       => 'http://ermile.jibres.com/en/a'
- * 'this' 		=> 'http://ermile.jibres.com/en/a/thirdparty'
- * 'that' 		=> 'http://ermile.jibres.com/en/a/thirdparty/general'
+ * 'this'       => 'http://ermile.jibres.com/en/a/thirdparty'
+ * 'that'       => 'http://ermile.jibres.com/en/a/thirdparty/general'
  * 'current'    => 'http://ermile.jibres.com/en/a/thirdparty/general/edit/test=yes'
  * 'pwd'        => 'http://ermile.jibres.com/en/a/thirdparty/general/edit/test=yes?id=5&page=8'
  */
