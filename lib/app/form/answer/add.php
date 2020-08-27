@@ -365,11 +365,14 @@ class add
 			}
 
 
-			if($check_unique && !empty($check_unique_args))
+			if($check_unique && !empty($check_unique_args) && isset($check_unique_args['answer']))
 			{
-				$check_unique_args['item_id'] = $item_id;
-				$check_unique_args['form_id'] = $form_id;
-				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args);
+				$check_unique_args_new            = [];
+				$check_unique_args_new['item_id'] = $item_id;
+				$check_unique_args_new['form_id'] = $form_id;
+				$check_unique_args_new['answer']  = $check_unique_args['answer'];
+
+				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args_new);
 				if(isset($is_answer_befor['id']))
 				{
 					\dash\notif::warn(T_("You are answer to this form before"));
