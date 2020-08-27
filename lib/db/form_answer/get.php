@@ -41,6 +41,9 @@ class get
 
 	public static function export_list($_form_id, $_start_limit = 0, $_end_limit = 50)
 	{
+		unset($result);
+		unset($answer_id);
+
 		$result = [];
 
 		$query =

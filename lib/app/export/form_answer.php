@@ -38,12 +38,11 @@ class form_answer
 		$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $end_limit);
 		$result       = \lib\app\form\answer\export::ready_for_export($result);
 
-
 		while ($result)
 		{
-
-
 			\dash\utility\export::csv_file(['name' => $file_name, 'data' => $result], $addr, $first_record);
+
+			unset($result);
 
 			$limit        = $start_limit + $step;
 			$start_limit  = $limit;
@@ -51,7 +50,7 @@ class form_answer
 			$first_record = false;
 			$end_limit    = $end_limit + $step;
 
-			$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $end_limit);
+			$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $step);
 			$result       = \lib\app\form\answer\export::ready_for_export($result);
 
 	        ob_flush();

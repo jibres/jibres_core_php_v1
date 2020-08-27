@@ -58,6 +58,20 @@ class export
 
 	public static function ready_for_export($_result)
 	{
+		unset($answer);
+		unset($answerdetail);
+		unset($items);
+		unset($template);
+		unset($type);
+		unset($choice);
+		unset($export);
+		unset($this_item_detail);
+		unset($this_item_detail);
+		unset($my_answer_id);
+		unset($new_export);
+
+
+
 		$answer       = \dash\get::index($_result, 'answer');
 		$answerdetail = \dash\get::index($_result, 'answerdetail');
 		$items        = \dash\get::index($_result, 'items');
