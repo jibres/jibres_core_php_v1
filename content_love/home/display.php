@@ -75,5 +75,15 @@
 	</div>
 
 
+	<div class="c4 s12">
+		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/notiflog'>
+			<div class="statistic red">
+				<div class="value"><i class="sf-camera-surveillance-1"></i></div>
+				<div class="label"><?php echo T_("Notif log"); ?></div>
+			</div>
+		</a>
+	</div>
+
+
 </div>
 
