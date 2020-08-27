@@ -39,10 +39,9 @@ class get
 
 
 
-	public static function export_list($_form_id, $_limit = 50)
+	public static function export_list($_form_id, $_start_limit = 0, $_end_limit = 50)
 	{
 		$result = [];
-
 
 		$query =
 		"
@@ -52,7 +51,7 @@ class get
 				form_answer
 			WHERE
 				form_answer.form_id = $_form_id
-			LIMIT $_limit
+			LIMIT $_start_limit, $_end_limit
 		";
 
 		$result['answer'] = \dash\db::get($query);

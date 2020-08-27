@@ -1,12 +1,12 @@
 <?php
-namespace content_a\products\export;
+namespace content_a\form\answer\export;
 
 
 class model
 {
 	public static function post()
 	{
-		\lib\app\product\export::queue();
+		\lib\app\form\answer\export::queue(\dash\request::get('id'));
 		\dash\redirect::pwd();
 	}
 }

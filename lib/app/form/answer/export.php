@@ -32,37 +32,44 @@ class export
 
 
 
-	public static function queue()
+	public static function queue($_form_id)
 	{
-		$count_all = self::count_all();
+		$form_id = \dash\validate::id($_form_id);
+
+		$count_all = self::count_all($form_id);
 		if(!$count_all)
 		{
-			\dash\notif::info(T_("You have not any product to export"));
+			\dash\notif::info(T_("You have not any answer to export"));
 			return;
 		}
 
-		return \lib\app\export\add::request('products');
+		return \lib\app\export\add::request('form_answer', ['form_id' => $_form_id]);
 
 	}
 
 
 	public static function list()
 	{
-		$get_by_type = \lib\db\export\get::by_type('products');
+		$get_by_type = \lib\db\export\get::by_type('form_answer');
 		$get_by_type = array_map(['\\lib\\app\\export\\ready', 'row'], $get_by_type);
 		return $get_by_type;
 	}
 
 
-	private static function ready_for_export($_result)
+	public static function ready_for_export($_result)
 	{
-		$answer = \dash\get::index($_result, 'answer');
+		$answer       = \dash\get::index($_result, 'answer');
 		$answerdetail = \dash\get::index($_result, 'answerdetail');
 		$items        = \dash\get::index($_result, 'items');
 
 		if(!is_array($answerdetail))
 		{
 			$answerdetail = [];
+		}
+
+		if(!$answerdetail)
+		{
+			return false;
 		}
 
 		if(!is_array($answer))
@@ -107,7 +114,6 @@ class export
 
 					$template[$item_id]['other_choice'] = [];
 				}
-
 			}
 			else
 			{

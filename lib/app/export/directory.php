@@ -24,6 +24,11 @@ class directory
 		return self::get('product', $_name);
 	}
 
+	public static function form_answer($_name)
+	{
+		return self::get('form', $_name);
+	}
+
 
 }
 ?>

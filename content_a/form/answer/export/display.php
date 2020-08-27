@@ -12,12 +12,9 @@
 	<div class="cauto mLa5 s12"><?php echo T_("Answer count"); ?> <b><?php echo \dash\fit::number(\dash\data::countAll()); ?></b></div>
 	<div class="c mLa5">
 		<?php if(\dash\data::countAll() < 50) {?>
-
 			<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>&download=now" class="mLa10"><?php echo T_("Download Now"); ?></a>
 		<?php }elseif(\dash\data::countAll() >= 50) {?>
-
-			<a href="<?php echo \dash\url::current(); ?>" data-confirm data-data='{"export":"answer"}' class="mLa10"><?php echo T_("Send export request"); ?></a>
-
+			<div class="btn link" data-confirm data-data='{"export":"answer"}' class="mLa10"><?php echo T_("Send export request"); ?></div>
 		<?php } //endif ?>
 	</div>
 </div>

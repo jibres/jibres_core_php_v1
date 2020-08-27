@@ -6,11 +6,6 @@ class add
 
 	public static function request($_type, $_meta = null)
 	{
-		if(is_array($_meta))
-		{
-			$_meta = json_encode($_meta, JSON_UNESCAPED_UNICODE);
-		}
-
 		$check_duplicate = \lib\db\export\get::check_duplicate($_type);
 		if($check_duplicate)
 		{
@@ -18,12 +13,17 @@ class add
 			return false;
 		}
 
-
 		$check_day_limit = \lib\db\export\get::check_day_limit($_type, date("Y-m-d"));
+
 		if(intval($check_day_limit) >= 5)
 		{
 			\dash\notif::error(T_("Your can make 5 export in every day"));
 			return false;
+		}
+
+		if(is_array($_meta))
+		{
+			$_meta = json_encode($_meta, JSON_UNESCAPED_UNICODE);
 		}
 
 		$insert =
