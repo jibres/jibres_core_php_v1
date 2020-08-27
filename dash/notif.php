@@ -39,6 +39,20 @@ class notif
 	}
 
 
+	private static $notif_log_status = true;
+
+	public static function turn_off_log()
+	{
+		self::$notif_log_status = false;
+	}
+
+	public static function turn_on_log()
+	{
+		self::$notif_log_status = true;
+	}
+
+
+
 	private static function log_notif($_add)
 	{
 		if(\dash\url::content() === 'hook')
@@ -46,17 +60,22 @@ class notif
 			return;
 		}
 
+		if(!self::$notif_log_status)
+		{
+			return;
+		}
+
 		$insert = [];
 
-		$insert['type']        = isset($_add['type']) ? $_add['type']: null;
-		$insert['message']     = isset($_add['text']) ? $_add['text']: null;
+		$insert['type']        = isset($_add['type']) ? addslashes($_add['type']): null;
+		$insert['message']     = isset($_add['text']) ? addslashes($_add['text']): null;
 		$insert['messagemd5']  = md5($insert['message']);
 		$insert['meta']        = isset($_add['meta']) ? json_encode($_add['meta'], JSON_UNESCAPED_UNICODE): null;
-		$insert['method']      = \dash\request::is();
+		$insert['method']      = addslashes(\dash\request::is());
 		$insert['user_id']     = null;
-		$insert['urlkingdom']  = \dash\url::kingdom();
-		$insert['urldir']      = \dash\url::directory();
-		$insert['urlquery']    = \dash\url::query();
+		$insert['urlkingdom']  = addslashes(\dash\url::kingdom());
+		$insert['urldir']      = addslashes(\dash\url::directory());
+		$insert['urlquery']    = addslashes(\dash\url::query());
 		$insert['datecreated'] = date("Y-m-d H:i:s");
 
 		\dash\db\log_notif\insert::new_record($insert);

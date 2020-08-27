@@ -13,6 +13,7 @@ class db
 	 */
 	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
+		\dash\notif::turn_off_log();
 
 		$default_options =
 		[
@@ -45,6 +46,7 @@ class db
 		// check the mysql link
 		if(!\dash\db\mysql\tools\connection::link())
 		{
+			\dash\notif::turn_on_log();
 			return null;
 		}
 
@@ -149,9 +151,11 @@ class db
 			{
 				\dash\notif::warn(nl2br($temp_error));
 			}
-
+			\dash\notif::turn_on_log();
 			return false;
 		}
+
+		\dash\notif::turn_on_log();
 
 		// return the mysql result
 		return $result;
