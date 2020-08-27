@@ -10,8 +10,9 @@ class product
 		ini_set('max_execution_time', 300); //300 seconds = 5 minutes
 		set_time_limit(300);
 
-		$start_limit  = 0;
-		$end_limit    = 1000;
+		$start_limit = 0;
+		$step        = 1000;
+		$end_limit   = $step;
 
 		$result       = \lib\db\products\get::export_list($start_limit, $end_limit);
 		$first_record = true;
@@ -26,13 +27,13 @@ class product
 
 			\dash\utility\export::csv_file(['name' => $file_name, 'data' => $result], $addr, $first_record);
 
-			$limit        = $start_limit + 1000;
+			$limit        = $start_limit + $step;
 			$start_limit  = $limit;
 
 			$first_record = false;
-			$end_limit    = $end_limit + 1000;
+			$end_limit    = $end_limit + $step;
 
-			$result       = \lib\db\products\get::export_list($start_limit, $end_limit);
+			$result       = \lib\db\products\get::export_list($start_limit, $step);
 
 		}
 
