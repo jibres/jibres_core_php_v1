@@ -39,24 +39,51 @@ class get
 
 
 
-	public static function export_list($_form_id)
+	public static function export_list($_form_id, $_limit = 50)
 	{
 		$result = [];
+
 
 		$query =
 		"
 			SELECT
-				form_answerdetail.answer_id,
-				form_answerdetail.item_id,
-				form_answerdetail.answer,
-				form_answerdetail.textarea
+				*
 			FROM
-				form_answerdetail
+				form_answer
 			WHERE
-				form_answerdetail.form_id = $_form_id
+				form_answer.form_id = $_form_id
+			LIMIT $_limit
 		";
 
-		$result['answerdetail'] = \dash\db::get($query);
+		$result['answer'] = \dash\db::get($query);
+
+		if(is_array($result['answer']))
+		{
+			$answer_id = array_column($result['answer'], 'id');
+			$answer_id = array_filter($answer_id);
+			$answer_id = array_unique($answer_id);
+			if($answer_id)
+			{
+				$answer_id = implode(',', $answer_id);
+				$query =
+				"
+					SELECT
+						form_answerdetail.answer_id,
+						form_answerdetail.item_id,
+						form_answerdetail.answer,
+						form_answerdetail.file,
+						form_answerdetail.textarea
+					FROM
+						form_answerdetail
+					WHERE
+						form_answerdetail.form_id = $_form_id AND
+						form_answerdetail.answer_id IN ($answer_id)
+				";
+
+				$result['answerdetail'] = \dash\db::get($query);
+			}
+		}
+
 
 		$query =
 		"
@@ -66,6 +93,7 @@ class get
 				form_item
 			WHERE
 				form_item.form_id = $_form_id
+			ORDER BY IFNULL(form_item.sort, form_item.id) ASC
 		";
 
 		$result['items'] = \dash\db::get($query);

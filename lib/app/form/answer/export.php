@@ -56,6 +56,7 @@ class export
 
 	private static function ready_for_export($_result)
 	{
+		$answer = \dash\get::index($_result, 'answer');
 		$answerdetail = \dash\get::index($_result, 'answerdetail');
 		$items        = \dash\get::index($_result, 'items');
 
@@ -64,37 +65,140 @@ class export
 			$answerdetail = [];
 		}
 
+		if(!is_array($answer))
+		{
+			$answer = [];
+		}
+
 		if(!is_array($items))
 		{
 			$items = [];
 		}
 
+		$items = array_map(['\\lib\\app\\form\\item\\ready', 'row'], $items);
+
 		$items = array_combine(array_column($items, 'id'), $items);
 
-		$temp_for_copy = array_column($items, 'id');
+		$template = [];
 
-		$export = [];
-		foreach ($answerdetail as $key => $value)
+
+		foreach ($items as $item_id => $item_detail)
 		{
-			if(!isset($export[$value['answer_id']]))
+			$type = isset($item_detail['type']) ? $item_detail['type'] : null;
+			if($type === 'message')
 			{
-				$export[$value['answer_id']] = [];
-				foreach ($temp_for_copy as $k => $v)
-				{
-					$export[$value['answer_id']][$v] = null;
-				}
+				continue;
 			}
 
-			$export[$value['answer_id']][$value['item_id']] = $value['answer'];
+			$choice = (isset($item_detail['choice']) && is_array($item_detail['choice'])) ? $item_detail['choice'] : [];
+
+			if($type === 'multiple_choice')
+			{
+				if(!isset($template[$item_id]))
+				{
+					$template[$item_id] = [];
+					foreach ($choice as $one_choice)
+					{
+						if(isset($one_choice['title']))
+						{
+							$template[$item_id][$one_choice['title']] = null;
+						}
+					}
+
+					$template[$item_id]['other_choice'] = [];
+				}
+
+			}
+			else
+			{
+				if(!isset($template[$item_id]))
+				{
+					$template[$item_id] = null;
+				}
+			}
+		}
+
+		$export = [];
+
+		foreach ($answerdetail as $one_answer)
+		{
+			$this_item_id     = isset($one_answer['item_id']) ? $one_answer['item_id'] : null;
+			$this_item_detail = [];
+
+			if($this_item_id)
+			{
+				$this_item_detail = isset($items[$this_item_id]) ? $items[$this_item_id] : [];
+			}
+
+			if(!isset($this_item_detail['type']))
+			{
+				continue;
+			}
+
+			if($this_item_detail['type'] === 'message')
+			{
+				continue;
+			}
+
+			if(!isset($one_answer['answer_id']))
+			{
+				continue;
+			}
+
+			$my_answer_id = $one_answer['answer_id'];
+
+			if(!isset($export[$my_answer_id]))
+			{
+				$export[$my_answer_id] = $template;
+			}
+
+			if($this_item_detail['type'] === 'multiple_choice')
+			{
+				if(array_key_exists($one_answer['answer'] , $export[$my_answer_id][$this_item_id]))
+				{
+					$export[$my_answer_id][$this_item_id][$one_answer['answer']] = $one_answer['answer'];
+				}
+				else
+				{
+					$export[$my_answer_id][$this_item_id]['other_choice'][] = $one_answer['answer'];
+				}
+			}
+			elseif($this_item_detail['type'] === 'descriptive_answer')
+			{
+				$export[$my_answer_id][$this_item_id] = $one_answer['textarea'];
+			}
+			elseif($this_item_detail['type'] === 'file')
+			{
+				$export[$my_answer_id][$this_item_id] = $one_answer['file'];
+			}
+			else
+			{
+				$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
+			}
 		}
 
 		$new_export = [];
 
-		foreach ($export as $key => $value)
+		foreach ($export as $answer_id => $answer_detail)
 		{
-			foreach ($value as $k => $v)
+			foreach ($answer_detail as $item_id => $answer)
 			{
-				$new_export[$key][$items[$k]['title']] = $v;
+				if(is_array($answer))
+				{
+					foreach ($answer as $choice => $choice_answer)
+					{
+						if(is_array($choice_answer))
+						{
+							$choice_answer = implode(',', $choice_answer);
+						}
+
+						$new_export[$answer_id][$items[$item_id]['title']. ' - '. $choice] = $choice_answer;
+					}
+				}
+				else
+				{
+					$new_export[$answer_id][$items[$item_id]['title']] = $answer;
+				}
 			}
 		}
 
