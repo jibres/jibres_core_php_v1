@@ -127,7 +127,14 @@ class fuel
 
 	public static function priority($_tld)
 	{
-		return "jibres101";
+		if($_tld === 'com')
+		{
+			return "jibres204";
+		}
+		else
+		{
+			return "jibres101";
+		}
 	}
 
 
