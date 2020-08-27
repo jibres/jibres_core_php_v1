@@ -22,10 +22,10 @@ class view
 			\lib\app\form\answer\export::download_now($form_id);
 		}
 
-		// if(\dash\request::get('id'))
-		// {
-		// 	\lib\app\export\download::export_products(\dash\request::get('id'));
-		// }
+		if(\dash\request::get('eid'))
+		{
+			\lib\app\export\download::export_form_answer(\dash\request::get('eid'));
+		}
 
 		$list = \lib\app\form\answer\export::list();
 		\dash\data::exportList($list);

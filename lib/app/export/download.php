@@ -8,6 +8,13 @@ class download
 		return self::by_id($_id, 'products');
 	}
 
+	public static function export_form_answer($_id)
+	{
+		return self::by_id($_id, 'form_answer');
+	}
+
+
+
 	public static function by_id($_id, $_type)
 	{
 		$_id = \dash\validate::id($_id);
