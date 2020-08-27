@@ -532,8 +532,7 @@ class url
 			{
 				if(self::tld() === 'ir')
 				{
-					// $talambarAddr .= 'ir';
-					$talambarAddr .= 'com';
+					$talambarAddr .= 'ir';
 				}
 				else
 				{
@@ -550,8 +549,7 @@ class url
 			}
 			else
 			{
-				// $talambarAddr .= 'ir';
-				$talambarAddr .= 'com';
+				$talambarAddr .= 'ir';
 			}
 		}
 
