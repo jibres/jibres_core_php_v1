@@ -32,6 +32,7 @@ class check
 			'phone'            => 'phone',
 			'mobile'           => 'mobile',
 			'google_analytics' => 'string_50',
+			'nosale'           => 'bit',
 		];
 
 		$require = ['title'];

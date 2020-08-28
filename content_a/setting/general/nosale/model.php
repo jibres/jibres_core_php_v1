@@ -10,7 +10,7 @@ class model
 
 		$post['nosale'] = \dash\request::post('nosale');
 
-		\lib\app\setting\set::nosale_setting($post);
+		\lib\app\store\edit::selfedit($post);
 
 		\dash\redirect::pwd();
 	}

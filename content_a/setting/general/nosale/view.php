@@ -7,9 +7,6 @@ class view
 	{
 		\dash\face::title(T_('Setting'). ' | '. T_('Saleing'));
 
-
-		\dash\data::nosaleSettingSaved(\lib\app\setting\get::nosale_setting());
-
 		// back
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::that());

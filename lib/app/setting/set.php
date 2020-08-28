@@ -87,31 +87,6 @@ class set
 
 
 
-	public static function nosale_setting($_args)
-	{
-
-		$condition =
-		[
-			'nosale'            => 'bit',
-
-		];
-
-		$data = \dash\cleanse::input($_args, $condition, [], []);
-
-		$args = \dash\cleanse::patch_mode($_args, $data);
-
-		$cat  = 'nosale_setting';
-
-		foreach ($args as $key => $value)
-		{
-			\lib\app\setting\tools::update($cat, $key, $value);
-		}
-
-		\dash\notif::ok(T_("setting saved"));
-		return true;
-
-	}
-
 
 	public static function telegram_setting($_args)
 	{
