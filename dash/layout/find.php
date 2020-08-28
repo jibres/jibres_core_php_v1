@@ -176,6 +176,11 @@ class find
 				// jibres homepage webiste
 				$myFooter = root.'content/home/layout/footer.php';
 			}
+			elseif($myContent === 'content_business')
+			{
+				// subdomain of stores
+				$myFooter = root.'content_business/home/layout/footer.php';
+			}
 		}
 
 
