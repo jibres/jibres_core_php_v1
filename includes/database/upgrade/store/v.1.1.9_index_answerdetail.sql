@@ -1,0 +1,2 @@
+ALTER TABLE jibres_XXXXXXX.form_answerdetail ADD KEY `form_answerdetail_index_value` (`answer`);
+ALTER TABLE jibres_XXXXXXX.form_answerdetail ADD KEY `form_answerdetail_index_multi_value` (`answer`, `item_id`, `form_id`);
