@@ -30,6 +30,7 @@
 				</tr>
 			<?php } //endfor ?>
 		</tbody>
+		<?php if(\dash\data::itemDetail_type() === 'multiple_choice') {}else{?>
 		<tfoot>
 			<tr>
 				<td><?php echo T_("Sum") ?></td>
@@ -37,6 +38,7 @@
 				<td class="ltr txtL"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(array_sum(array_column($myData['data_table'], 'percent'))); ?></b></td>
 			</tr>
 		</tfoot>
+	<?php } //endif ?>
 	</table>
 </div>
 
