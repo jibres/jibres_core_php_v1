@@ -157,35 +157,26 @@ class controller
 
 	private static function check_error_file()
 	{
+		$sqlHardCritical = YARD. 'jibres_log/database/log-hard-critical.sql';
+
+		if(is_file($sqlHardCritical))
+		{
+			\dash\log::set('su_sqlHardCritical');
+		}
+
+
 		$sqlError = YARD. 'jibres_log/database/error.sql';
 
 		if(is_file($sqlError))
 		{
-			$filectime = filectime($sqlError);
-
-			if((time() - $filectime) < 60)
-			{
-				\dash\log::set('su_sqlError');
-			}
-			elseif(self::every_hour())
-			{
-				\dash\log::set('su_sqlError');
-			}
+			\dash\log::set('su_sqlError');
 		}
 
 		$phpBug = YARD. 'jibres_log/php/exception.log';
+
 		if(is_file($phpBug))
 		{
-			$filectime = filectime($phpBug);
-
-			if((time() - $filectime) < 60)
-			{
-				\dash\log::set('su_phpBug');
-			}
-			elseif(self::every_hour())
-			{
-				\dash\log::set('su_phpBug');
-			}
+			\dash\log::set('su_phpBug');
 		}
 	}
 
