@@ -46,6 +46,25 @@ class get
 		return $result;
 	}
 
+	public static function count_answer_item_id($_form_id, $_item_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(DISTINCT form_answerdetail.answer_id) AS `count`
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.form_id = $_form_id AND
+				form_answerdetail.item_id = $_item_id
+		";
+
+		$result = \dash\db::get($query, 'count', true);
+
+		return $result;
+
+	}
+
 
 
 	public static function chart_pie($_form_id, $_item_id)
@@ -61,6 +80,7 @@ class get
 				form_answerdetail.form_id = $_form_id AND
 				form_answerdetail.item_id = $_item_id
 			GROUP BY form_answerdetail.answer
+			ORDER BY COUNT(*) DESC
 		";
 
 		$result = \dash\db::get($query);

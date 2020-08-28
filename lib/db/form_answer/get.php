@@ -37,6 +37,13 @@ class get
 
 	}
 
+	public static function count_by_form_id($_form_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 
 
 	public static function export_list($_form_id, $_start_limit = 0, $_end_limit = 50)

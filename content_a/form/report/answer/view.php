@@ -38,9 +38,9 @@ class view
 			\dash\data::noChart(true);
 		}
 
-		$chartdata = \lib\app\form\report::chart_pie($load_item);
+		$reportDetail = \lib\app\form\report::chart_pie($load_item);
 
-		\dash\data::chartdata($chartdata);
+		\dash\data::reportDetail($reportDetail);
 
 		// back
 		\dash\data::back_text(T_('Back'));
