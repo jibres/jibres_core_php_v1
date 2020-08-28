@@ -4,8 +4,51 @@ namespace lib\app\form;
 
 class report
 {
-	public static function chart_pie($_item)
+	public static function check($_item)
 	{
+		if(!$_item || !is_array($_item))
+		{
+			return null;
+		}
+
+		$type = isset($_item['type']) ? $_item['type']: null;
+
+		if(!$type)
+		{
+			return null;
+		}
+
+		if(isset($_item['type_detail']['chart']) && $_item['type_detail']['chart'])
+		{
+			// ok
+		}
+		else
+		{
+			return null;
+		}
+
+		if(isset($_item['type_detail']['chart_type']) && $_item['type_detail']['chart_type'])
+		{
+			$chart_type = $_item['type_detail']['chart_type'];
+		}
+		else
+		{
+			return null;
+		}
+
+		$item_id = \dash\get::index($_item, 'id');
+
+		if(!$item_id)
+		{
+			return null;
+		}
+
+		$form_id = \dash\get::index($_item, 'form_id');
+
+		if(!$form_id)
+		{
+			return null;
+		}
 
 		if(!$_item || !is_array($_item))
 		{
@@ -28,29 +71,28 @@ class report
 			return null;
 		}
 
-		if(isset($_item['type_detail']['chart_type']) && $_item['type_detail']['chart_type'] && is_array($_item['type_detail']['chart_type']) && in_array('pie', $_item['type_detail']['chart_type']))
-		{
-			$chart_type = $_item['type_detail']['chart_type'];
-			// ok
-		}
-		else
-		{
-			return null;
-		}
 
-		$item_id = \dash\get::index($_item, 'id');
 
-		if(!$item_id)
-		{
-			return null;
-		}
+		return
+		[
+			'item_id'    => $item_id,
+			'form_id'    => $form_id,
+			'type'       => $type,
+			'chart_type' => $chart_type,
+		];
+	}
 
-		$form_id = \dash\get::index($_item, 'form_id');
 
-		if(!$form_id)
+	public static function chart_pie($_item)
+	{
+		$var = self::check($_item);
+
+		if(!$var)
 		{
 			return null;
 		}
+
+		extract($var);
 
 		$load_answer = \lib\db\form_answerdetail\get::chart_pie($form_id, $item_id);
 		if(!is_array($load_answer))

@@ -55,7 +55,7 @@ class type
 			'key'          => 'short_answer',
 			'title'        => T_("Short answer"),
 			'chart' 	   => true,
-			'chart_type'   => ['wordcloud'],
+			'chart_type'   => 'wordcloud',
 			'group'        => T_("Text"),
 			'placeholder'  => true,
 			'maxlen'       => true,
@@ -72,7 +72,7 @@ class type
 			'key'          => 'descriptive_answer',
 			'title'        => T_('Descriptive answer'),
 			'chart' 	   => true,
-			'chart_type'   => ['wordcloud'],
+			'chart_type'   => 'wordcloud',
 			'group'        => T_('Text'),
 			'placeholder'  => true,
 			'maxlen'       => true,
@@ -89,7 +89,7 @@ class type
 			'key'          => 'numeric',
 			'title'        => T_('Numberic'),
 			'chart' 	   => true,
-			'chart_type'   => ['bar'],
+			'chart_type'   => 'bar',
 			'group'        => T_('Numberic'),
 			'placeholder'  => true,
 			'min'          => true,
@@ -107,7 +107,7 @@ class type
 			'key'          => 'yes_no',
 			'title'        => T_('Yes-no'),
 			'chart' 	   => true,
-			'chart_type'   => ['pie'],
+			'chart_type'   => 'pie',
 			'group'        => T_('Boolean'),
 			'default_load' =>
 			[
@@ -120,7 +120,7 @@ class type
 			'key'          => 'single_choice',
 			'title'        => T_('Single choice'),
 			'chart' 	   => true,
-			'chart_type'   => ['pie'],
+			'chart_type'   => 'pie',
 			'group'        => T_('Optional choice'),
 			'choice'       => true,
 			'random'       => true,
@@ -135,7 +135,7 @@ class type
 			'key'          => 'multiple_choice',
 			'title'        => T_('Multiple choice'),
 			'chart' 	   => true,
-			'chart_type'   => ['pie'],
+			'chart_type'   => 'pie',
 			'group'        => T_('Optional choice'),
 			'choice'       => true,
 			'random'       => true,
@@ -154,7 +154,7 @@ class type
 			'key'          => 'dropdown',
 			'title'        => T_('Dropdown list'),
 			'chart' 	   => true,
-			'chart_type'   => ['pie'],
+			'chart_type'   => 'pie',
 			'group'        => T_('Optional choice'),
 			'placeholder'  => true,
 			'choice'       => true,
@@ -235,7 +235,7 @@ class type
 				'key'          => 'province',
 				'placeholder'  => true,
 				'chart' 	   => true,
-				'chart_type'   => ['province'],
+				'chart_type'   => 'province',
 				'title'        => T_('Province'),
 				'group'        => T_('Location'),
 				'default_load' =>
@@ -249,7 +249,7 @@ class type
 				'key'          => 'province_city',
 				'placeholder'  => true,
 				'chart' 	   => true,
-				'chart_type'   => ['pie'],
+				'chart_type'   => 'pie',
 				'title'        => T_('Province-City'),
 				'group'        => T_('Location'),
 				'default_load' =>
@@ -266,7 +266,7 @@ class type
 			'key'          => 'postalcode',
 			'placeholder'  => true,
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'title'        => T_('Postalcode'),
 			'group'        => T_('Location'),
 			'default_load' =>
@@ -281,7 +281,7 @@ class type
 			'key'          => 'tel',
 			'placeholder'  => true,
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'title'        => T_('Phone'),
 			'group'        => T_('Numberic'),
 			'default_load' =>
@@ -297,7 +297,7 @@ class type
 			'key'          => 'file',
 			'placeholder'  => true,
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'title'        => T_('Upload'),
 			'group'        => T_('Other'),
 			'maxlen'       => true,
@@ -313,7 +313,7 @@ class type
 			'key'          => 'nationalcode',
 			'placeholder'  => true,
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'check_unique' => true,
 			'title'        => T_('Nationalcode'),
 			'group'        => T_('Numberic'),
@@ -329,7 +329,7 @@ class type
 			'key'          => 'mobile',
 			'title'        => T_('Mobile'),
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'group'        => T_('Signup form'),
 			'placeholder'  => true,
 			'check_unique' => true,
@@ -348,7 +348,7 @@ class type
 			'key'          => 'email',
 			'placeholder'  => true,
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'title'        => T_('Email'),
 			'group'        => T_('Signup form'),
 			'check_unique' => true,
@@ -364,7 +364,7 @@ class type
 			'key'          => 'displayname',
 			'title'        => T_('Full name'),
 			'chart' 	   => true,
-			'chart_type'   => ['wordcloud'],
+			'chart_type'   => 'wordcloud',
 			'group'        => T_('Signup form'),
 			'placeholder'  => true,
 			'default_load' =>
@@ -379,7 +379,7 @@ class type
 			'key'          => 'gender',
 			'title'        => T_('Gender'),
 			'chart' 	   => true,
-			'chart_type'   => ['pie'],
+			'chart_type'   => 'pie',
 			'group'        => T_('Signup form'),
 			'default_load' =>
 			[
@@ -393,7 +393,7 @@ class type
 			'key'          => 'website',
 			'placeholder'  => true,
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'title'        => T_('Website'),
 			'group'        => T_('Text'),
 			'default_load' =>
@@ -409,7 +409,7 @@ class type
 			'key'          => 'password',
 			'title'        => T_('Password'),
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'group'        => T_('Text'),
 			'placeholder'  => true,
 			'default_load' =>
@@ -424,7 +424,7 @@ class type
 			'key'          => 'message',
 			'title'        => T_('Message'),
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'group'        => T_("Other"),
 			'color'        => true,
 			'link'         => true,
@@ -441,7 +441,7 @@ class type
 			'key'          => 'hidden',
 			'title'        => T_('Hidden input'),
 			'chart' 	   => false,
-			'chart_type'   => [],
+			'chart_type'   => null,
 			'group'        => T_("Other"),
 			'defaultvalue' => true,
 			'default_load' =>
@@ -457,15 +457,13 @@ class type
 			'key'          => 'agree',
 			'title'        => T_('Agree'),
 			'chart' 	   => true,
-			'chart_type'   => ['pie'],
+			'chart_type'   => 'pie',
 			'group'        => T_('Boolean'),
 			'color'        => true,
 			'default_load' =>
 			[
 			],
 		];
-
-
 
 
 		return $type;
