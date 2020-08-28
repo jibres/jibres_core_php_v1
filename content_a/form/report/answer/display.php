@@ -45,6 +45,10 @@
 
   <?php require_once('display-bar.php'); ?>
 
+<?php }elseif(\dash\get::index($myData, 'chart_type') === 'province') {?>
+
+  <?php require_once('display-province.php'); ?>
+
 <?php }else{ ?>
 
 <div class="msg warn txtB font-14">Not ready this chart yet :/</div>

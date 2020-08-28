@@ -249,7 +249,7 @@ class type
 				'key'          => 'province_city',
 				'placeholder'  => true,
 				'chart' 	   => true,
-				'chart_type'   => 'pie',
+				'chart_type'   => 'province',
 				'title'        => T_('Province-City'),
 				'group'        => T_('Location'),
 				'default_load' =>
