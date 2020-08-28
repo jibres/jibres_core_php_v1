@@ -782,6 +782,8 @@ class log
 				}
 			}
 		}
+
+		self::to_supervisor('Auto archive file: '. $basename);
 	}
 }
 ?>
