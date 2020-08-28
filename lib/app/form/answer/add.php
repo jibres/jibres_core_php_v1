@@ -344,8 +344,12 @@ class add
 					$answer[$item_id] = $my_answer;
 					break;
 
-				case 'agree':
 				case 'yes_no':
+					$my_answer        = \dash\validate::enum($my_answer, true, array_merge($validate_meta, ['enum' => ['yes', 'no']]));
+					$answer[$item_id] = $my_answer;
+					break;
+
+				case 'agree':
 					$my_answer = \dash\validate::bit($my_answer, true, $validate_meta);
 					if(!$my_answer)
 					{

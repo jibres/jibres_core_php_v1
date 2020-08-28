@@ -837,7 +837,7 @@ class generator
 					{
 						self::div('radio3');
 						{
-							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'yes');
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'yes', ' value="yes" ');
 							self::label_checkbox($value, T_("Yes"), self::myID($value, true). 'yes');
 						}
 						self::_div();
@@ -848,7 +848,7 @@ class generator
 					{
 						self::div('radio3');
 						{
-							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'no');
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'no', ' value="no" ');
 							self::label_checkbox($value, T_("No"), self::myID($value, true). 'no');
 						}
 						self::_div();
