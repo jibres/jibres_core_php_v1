@@ -1,5 +1,5 @@
 
-    <div id="chartdivmap" class="box chart x600 notActive" data-abc='a/form_charts'></div>
+    <div id="chartdivmap" class="box chart x600 notActive" data-abc='a/form_map'></div>
 
 <?php if(\dash\get::index($myData, 'data_table')) {?>
 <div class="tblBox font-14">
