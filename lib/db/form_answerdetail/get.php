@@ -47,5 +47,25 @@ class get
 	}
 
 
+
+	public static function chart_pie($_form_id, $_item_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				form_answerdetail.answer
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.form_id = $_form_id AND
+				form_answerdetail.item_id = $_item_id
+			GROUP BY form_answerdetail.answer
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 }
 ?>
