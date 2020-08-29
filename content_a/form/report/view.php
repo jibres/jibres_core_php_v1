@@ -22,7 +22,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$items = \lib\app\form\item\get::items($id);
+		$items = \lib\app\form\item\get::items_answerable($id);
 
 		\dash\data::formItems($items);
 

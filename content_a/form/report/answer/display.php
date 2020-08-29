@@ -34,7 +34,15 @@
      </div>
     </section>
 
-<div class="msg info2 txtB font-14"><?php echo \dash\data::itemDetail_title() ?></div>
+<div class="msg info2 txtB font-14 f">
+  <div class="cauto"><?php echo \dash\data::itemDetail_title() ?></div>
+  <div class="c"></div>
+  <div class="cauto">
+    <?php if(\dash\get::index(\dash\data::itemDetail(), 'type_detail', 'compare')) {?>
+      <a class="btn outline secondary" href="<?php echo \dash\url::that(). '/compare?id='. \dash\request::get('id'). '&q1='. \dash\data::itemDetail_id() ?>"><?php echo T_("compare by other item") ?></a>
+    <?php } //endif ?>
+  </div>
+</div>
 
 
 <?php if(\dash\get::index($myData, 'chart_type') === 'pie') {?>

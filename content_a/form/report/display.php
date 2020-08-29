@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach (\dash\data::formItems() as $key => $value) { if(\dash\get::index($value, 'type') === 'message') {continue;} ?>
+      <?php foreach (\dash\data::formItems() as $key => $value) {?>
         <tr>
 
           <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></td>

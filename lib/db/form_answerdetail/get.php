@@ -105,5 +105,66 @@ class get
 		return $result;
 	}
 
+
+
+	public static function advance_chart($_form_id, $_item1, $_item2, $_item3)
+	{
+		if($_item3)
+		{
+			$query =
+			"
+				SELECT
+					count(myTable.q3) AS `count`,
+					myTable.q1,
+					myTable.q2,
+					myTable.q3
+				FROM
+				(
+					SELECT
+						form_answerdetail.answer_id,
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN form_answerdetail.answer END) 'q1',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN form_answerdetail.answer END) 'q2',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item3 THEN form_answerdetail.answer END) 'q3'
+					FROM
+						form_answerdetail
+					WHERE
+						form_answerdetail.form_id = $_form_id
+					GROUP BY
+					form_answerdetail.answer_id
+				)
+				AS `myTable`
+				GROUP BY myTable.q1, myTable.q2, myTable.q3
+			";
+		}
+		else
+		{
+			$query =
+			"
+				SELECT
+					count(myTable.q2) AS `count`,
+					myTable.q1,
+					myTable.q2
+				FROM
+				(
+					SELECT
+						form_answerdetail.answer_id,
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN form_answerdetail.answer END) 'q1',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN form_answerdetail.answer END) 'q2'
+					FROM
+						form_answerdetail
+					WHERE
+						form_answerdetail.form_id = $_form_id
+					GROUP BY
+					form_answerdetail.answer_id
+				)
+				AS `myTable`
+				GROUP BY myTable.q1, myTable.q2
+			";
+		}
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 }
 ?>

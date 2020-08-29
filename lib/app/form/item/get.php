@@ -26,6 +26,57 @@ class get
 		return $list;
 	}
 
+	public static function items_answerable($_form_id)
+	{
+		$list = self::items($_form_id);
+		if(!is_array($list))
+		{
+			return $list;
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['type']))
+			{
+				if($value['type'] === 'message')
+				{
+					continue;
+				}
+			}
+
+			$new_list[] = $value;
+		}
+
+		return $new_list;
+
+	}
+
+
+	public static function items_comparable($_form_id)
+	{
+		$list = self::items($_form_id);
+		if(!is_array($list))
+		{
+			return $list;
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['type_detail']['compare']) && $value['type_detail']['compare'])
+			{
+				$new_list[] = $value;
+			}
+
+		}
+
+		return $new_list;
+
+	}
+
 
 	public static function get($_id)
 	{

@@ -595,5 +595,203 @@ class report
 		$word = trim($word);
 		return $word;
 	}
+
+	private static function fix_choice($_choice)
+	{
+		$new_choice = [];
+		foreach ($_choice as $key => $value)
+		{
+			$new_choice[$value['title']] = $value['title'];
+		}
+
+		return $new_choice;
+	}
+
+
+	public static function compare($_q1, $_q2, $_q3)
+	{
+		$q1 = self::check($_q1);
+
+		if(!$q1)
+		{
+			return null;
+		}
+
+		$q2 = self::check($_q2);
+
+		if(!$q2)
+		{
+			return null;
+		}
+
+		$q3 = self::check($_q3);
+
+		// if(!$q3)
+		// {
+		// 	return null;
+		// }
+
+		$form_id = $q1['form_id'];
+		$q1_id = $_q1['id'];
+		$q2_id = $_q2['id'];
+		$q3_id = isset($_q3['id']) ? $_q3['id'] : null;
+
+		$choice1 = \dash\get::index($_q1, 'choice');
+		if(!is_array($choice1))
+		{
+			$choice1 = [];
+		}
+
+		$choice1 = self::fix_choice($choice1);
+
+		$choice2 = \dash\get::index($_q2, 'choice');
+		if(!is_array($choice2))
+		{
+			$choice2 = [];
+		}
+		$choice2 = self::fix_choice($choice2);
+
+		$choice3 = \dash\get::index($_q3, 'choice');
+		if(!is_array($choice3))
+		{
+			$choice3 = [];
+		}
+
+		$choice3 = self::fix_choice($choice3);
+
+
+		$all_choice = array_merge($choice1, $choice2, $choice3);
+		$all_choice = array_values($all_choice);
+
+
+		$result = \lib\db\form_answerdetail\get::advance_chart($form_id, $q1_id, $q2_id, $q3_id);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$ready = [];
+
+		$ready[] =
+		[
+			'id'     => "0.0",
+			'name'   => T_("All"),
+			'parent' => null,
+			'value'  => null,
+		];
+
+		foreach ($choice1 as $key1 => $value1)
+		{
+			$ready[] =
+			[
+				'id'     => "1.$key1",
+				'name'   => $value1,
+				'parent' => '0.0',
+				'value'  => null,
+			];
+
+			foreach ($choice2 as $key2 => $value2)
+			{
+				$ready[] =
+				[
+					'id'     => "2.$key1.$key2",
+					'name'   => $value2,
+					'parent' => "1.$key1",
+					'value'  => null,
+				];
+
+				if($choice3)
+				{
+					foreach ($choice3 as $key3 => $value3)
+					{
+						$ready[] =
+						[
+							'id'     => "3.$key1.$key2.$key3",
+							'name'   => $value3,
+							'parent' => "2.$key1.$key2",
+							'value'  => null,
+						];
+					}
+				}
+			}
+		}
+
+
+		$count_answer = array_sum(array_column($result, 'count'));
+
+		if(!$count_answer)
+		{
+			$count_answer = 1;
+		}
+
+		$ready_key = array_column($ready, 'id');
+
+		foreach ($result as $key => $value)
+		{
+			if($q3)
+			{
+				$check_key = array_search("3.$value[q1].$value[q2].$value[q3]", $ready_key);
+			}
+			else
+			{
+				$check_key = array_search("2.$value[q1].$value[q2]", $ready_key);
+			}
+
+			if($check_key !== false)
+			{
+				$ready[$check_key]['value'] = round((intval($value['count']) * 100)/ $count_answer);
+				// $ready[$check_key]['value'] = intval($value['count']);
+			}
+		}
+
+		// var_dump($ready);exit();
+
+		// $new_ready = [];
+		// foreach ($ready as $key => $value)
+		// {
+		// 	$id = $value['id'];
+		// 	if(!$id)
+		// 	{
+		// 		$new_ready[] = $value;
+		// 	}
+
+		// 	$explode = explode('.', $id);
+
+		// 	$new_id = [];
+		// 	foreach ($explode as $split_id)
+		// 	{
+		// 		if(is_numeric($split_id))
+		// 		{
+		// 			$new_id[] = $split_id;
+		// 		}
+		// 		else
+		// 		{
+		// 			$new_id[] = array_search($split_id, $all_choice);
+		// 		}
+		// 	}
+		// 	$new_id = implode('.', $new_id);
+		// 	$value['id'] = $new_id;
+		// 	$new_ready[] = $value;
+		// }
+
+		// var_dump($new_ready);exit();
+
+
+		$ready        = json_encode($ready, JSON_UNESCAPED_UNICODE);
+
+		$table = [];
+
+
+		// array_multisort($table, $result_sort, $my_order | $my_sort_detail);
+		// array_multisort($table, $result_sort, SORT_DESC | SORT_NUMERIC);
+
+		$return             = [];
+		$return['chart']    = $ready;
+
+		return $return;
+
+
+	}
 }
 ?>
