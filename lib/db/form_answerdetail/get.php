@@ -93,7 +93,7 @@ class get
 		$query =
 		"
 			SELECT
-				form_answerdetail.answer
+				IFNULL(form_answerdetail.answer, form_answerdetail.textarea) AS `answer`
 			FROM
 				form_answerdetail
 			WHERE
