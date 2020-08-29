@@ -747,6 +747,7 @@ class report
 				$temp_table['q2'] = $value['q2'];
 			}
 
+			$percent = 0;
 			if($check_key !== false)
 			{
 				$percent = round((intval($value['count']) * 100)/ $count_answer);
@@ -766,13 +767,7 @@ class report
 		// foreach ($ready as $key => $value)
 		// {
 		// 	$id = $value['id'];
-		// 	if(!$id)
-		// 	{
-		// 		$new_ready[] = $value;
-		// 	}
-
 		// 	$explode = explode('.', $id);
-
 		// 	$new_id = [];
 		// 	foreach ($explode as $split_id)
 		// 	{
@@ -787,6 +782,24 @@ class report
 		// 	}
 		// 	$new_id = implode('.', $new_id);
 		// 	$value['id'] = $new_id;
+
+		// 	$parent = $value['parent'];
+		// 	$explode = explode('.', $parent);
+		// 	$new_parent = [];
+		// 	foreach ($explode as $split_parent)
+		// 	{
+		// 		if(is_numeric($split_parent))
+		// 		{
+		// 			$new_parent[] = $split_parent;
+		// 		}
+		// 		else
+		// 		{
+		// 			$new_parent[] = '1'. array_search($split_parent, $all_choice);
+		// 		}
+		// 	}
+		// 	$new_parent = implode('.', $new_parent);
+		// 	$value['parent'] = $new_parent;
+
 		// 	$new_ready[] = $value;
 		// }
 		// // var_dump($ready, $new_ready);exit();
@@ -794,6 +807,7 @@ class report
 
 		// $ready = $new_ready;
 
+		// var_dump($ready);exit();
 
 		$ready        = json_encode($ready, JSON_UNESCAPED_UNICODE);
 
