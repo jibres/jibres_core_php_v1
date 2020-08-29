@@ -6,7 +6,7 @@ class su_sqlHardCritical
 	public static function site($_args = [])
 	{
 
-		$excerpt = T_("We have some very hard ciritical sql error!");
+		$excerpt = T_("We have some very hard ciritical sql query!");
 		$mymsg = isset($_args['mymsg']) ? $_args['mymsg'] : null;
 
 		$result              = [];
