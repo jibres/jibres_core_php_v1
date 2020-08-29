@@ -65,8 +65,8 @@ class guard
 	{
 		$csp = '';
 		// default src
-		// $csp .= "default-src 'self'; ";
-		$csp .= "default-src 'none'; ";
+		$csp .= "default-src 'self'; ";
+		// $csp .= "default-src 'none'; ";
 		// script-src
 		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
 		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com static.cloudflareinsights.com http://localhost:9759/jibres/; ";
