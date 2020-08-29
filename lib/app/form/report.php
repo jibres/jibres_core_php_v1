@@ -104,6 +104,10 @@ class report
 				return self::chart_province($_item);
 				break;
 
+			case 'wordcloud':
+				return self::chart_wordcloud($_item);
+				break;
+
 			default:
 				# code...
 				break;
@@ -431,6 +435,165 @@ class report
 		$result['chart']             = json_encode($chart, JSON_UNESCAPED_UNICODE);
 
 		return $result;
+	}
+
+
+	public static function chart_wordcloud($_item)
+	{
+		$var = self::check($_item);
+
+		if(!$var)
+		{
+			return null;
+		}
+
+		extract($var);
+
+		$load_answer = \lib\db\form_answerdetail\get::chart_wordcloud($form_id, $item_id);
+		if(!is_array($load_answer))
+		{
+			$load_answer = [];
+		}
+
+		$all_answer_count = \lib\db\form_answer\get::count_by_form_id($form_id);
+
+
+		$word             = [];
+		$myCount          = [];
+
+		$count_load_answer     = count($load_answer);
+
+		if($count_load_answer < 10)
+		{
+			$maxCountWord = 2;
+		}
+		elseif($count_load_answer < 200)
+		{
+			$maxCountWord = 10;
+		}
+		else
+		{
+			$maxCountWord = 0;
+		}
+
+
+		foreach ($load_answer as $key => $value)
+		{
+
+			$temp      = self::remove_2_char($value);
+
+			$myCountTemp = array_count_values(explode(' ', $temp));
+
+			foreach ($myCountTemp as $myWord => $myCountWord)
+			{
+				if(!isset($myCount[$myWord]))
+				{
+					$myCount[$myWord] = $myCountWord;
+				}
+				else
+				{
+					$myCount[$myWord] = $myCount[$myWord] + $myCountWord;
+				}
+			}
+		}
+
+		arsort($myCount);
+
+		$count = 0;
+		$chart = [];
+		foreach ($myCount as $key => $value)
+		{
+			$count++;
+
+			$chart[] = ['name' => $key, 'weight' => intval($value)];
+
+			if($count > 100)
+			{
+				break;
+			}
+		}
+
+
+		$table          = [];
+		$count_answer   = null;
+		$not_answer     = null;
+		$percent_answer = null;
+		$percent        = null;
+
+
+
+		$count_answer = \lib\db\form_answerdetail\get::count_answer_item_id($form_id, $item_id);
+
+		$not_answer   = floatval($all_answer_count) - floatval($count_answer);
+		if($not_answer < 0)
+		{
+			$not_answer = 0;
+		}
+
+
+
+		if($all_answer_count && $count_answer)
+		{
+			$percent_answer = round((($count_answer * 100) / $all_answer_count), 2);
+		}
+
+		$result                      = [];
+		$result['chart_type']        = 'wordcloud';
+		$result['count_answer_all']  = $all_answer_count;
+		$result['count_answer_item'] = $count_answer;
+		$result['count_not_answer']  = $not_answer;
+		$result['percent_answer']    = $percent_answer;
+		$result['data_table']        = $table;
+
+		$result['chart']             = json_encode($chart, JSON_UNESCAPED_UNICODE);
+
+		return $result;
+	}
+
+
+	private static function remove_2_char($_text)
+	{
+		$word = [];
+		$_text = strip_tags($_text);
+		$_text = str_replace('[', ' ', $_text);
+		$_text = str_replace(']', ' ', $_text);
+		$_text = str_replace('{', ' ', $_text);
+		$_text = str_replace('}', ' ', $_text);
+		$_text = str_replace('"', ' ', $_text);
+		$_text = str_replace('؛', ' ', $_text);
+		$_text = str_replace("'", ' ', $_text);
+		$_text = str_replace('(', ' ', $_text);
+		$_text = str_replace(')', ' ', $_text);
+		$_text = str_replace(':', ' ', $_text);
+		$_text = str_replace(',', ' ', $_text);
+		$_text = str_replace('،', ' ', $_text);
+		$_text = str_replace('-', ' ', $_text);
+		$_text = str_replace('_', ' ', $_text);
+		$_text = str_replace('?', ' ', $_text);
+		$_text = str_replace('؟', ' ', $_text);
+		$_text = str_replace('.', ' ', $_text);
+		$_text = str_replace('=', ' ', $_text);
+		$_text = str_replace('
+', ' ', $_text);
+
+		$_text = str_replace("\n", ' ', $_text);
+		$_text = str_replace('!', ' ', $_text);
+		$_text = str_replace('&nbsp;', ' ', $_text);
+
+		$split = explode(" ", $_text);
+
+		foreach ($split as $key => $value)
+		{
+			$value = trim($value);
+			if(mb_strlen($value) > 2 && !is_numeric($value))
+			{
+				$word[] = $value;
+			}
+		}
+
+		$word = implode(' ', $word);
+		$word = trim($word);
+		return $word;
 	}
 }
 ?>

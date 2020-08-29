@@ -49,6 +49,10 @@
 
   <?php require_once('display-province.php'); ?>
 
+<?php }elseif(\dash\get::index($myData, 'chart_type') === 'wordcloud') {?>
+
+  <?php require_once('display-wordcloud.php'); ?>
+
 <?php }else{ ?>
 
 <div class="msg warn txtB font-14">Not ready this chart yet :/</div>

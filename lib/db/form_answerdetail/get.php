@@ -87,5 +87,23 @@ class get
 		return $result;
 	}
 
+
+	public static function chart_wordcloud($_form_id, $_item_id)
+	{
+		$query =
+		"
+			SELECT
+				form_answerdetail.answer
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.form_id = $_form_id AND
+				form_answerdetail.item_id = $_item_id
+		";
+
+		$result = \dash\db::get($query, 'answer');
+		return $result;
+	}
+
 }
 ?>
