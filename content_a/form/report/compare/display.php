@@ -69,7 +69,11 @@
     <table class="tbl1 v6 minimal">
       <thead class="font-10">
         <tr>
-          <th><?php echo T_("Choice") ?></th>
+          <th><?php echo \dash\data::itemDetailQ1_title() ?></th>
+          <th><?php echo \dash\data::itemDetailQ2_title() ?></th>
+          <?php if(\dash\data::itemDetailQ3_title()) {?>
+            <th><?php echo \dash\data::itemDetailQ3_title() ?></th>
+          <?php } //endif ?>
           <th class="collapsing txtL"><?php echo T_("Frequency") ?></th>
           <th class="collapsing txtL"><?php echo T_("Percent frequency") ?></th>
         </tr>
@@ -77,7 +81,11 @@
       <tbody>
         <?php foreach ($myData['data_table'] as $key => $value) {?>
           <tr>
-            <td><?php echo \dash\get::index($value, 'name') ?></td>
+            <td><?php echo \dash\get::index($value, 'q1') ?></td>
+            <td><?php echo \dash\get::index($value, 'q2') ?></td>
+            <?php if(\dash\data::itemDetailQ3_title()) {?>
+              <td><?php echo \dash\get::index($value, 'q3') ?></td>
+            <?php } //endif ?>
             <td class="ltr txtL collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'count')) ?></td>
             <td class="ltr txtL collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'percent')); ?></b></td>
           </tr>
@@ -86,6 +94,10 @@
       <tfoot>
         <tr>
           <td><?php echo T_("Sum") ?></td>
+          <td></td>
+          <?php if(\dash\data::itemDetailQ3_title()) {?>
+            <td></td>
+          <?php } //endif ?>
           <td class="ltr txtL"><?php echo \dash\fit::number(array_sum(array_column($myData['data_table'], 'count'))) ?></td>
           <td class="ltr txtL"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(array_sum(array_column($myData['data_table'], 'percent'))); ?></b></td>
         </tr>
@@ -101,4 +113,3 @@
   <div id="chartitemtitle"></div>
   <div id="chartdata"><?php echo \dash\data::reportDetail_chart(); ?></div>
 </div>
-

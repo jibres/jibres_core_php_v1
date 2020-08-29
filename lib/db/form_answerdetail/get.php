@@ -114,7 +114,7 @@ class get
 			$query =
 			"
 				SELECT
-					count(myTable.q3) AS `count`,
+					count(*) AS `count`,
 					myTable.q1,
 					myTable.q2,
 					myTable.q3
@@ -122,9 +122,9 @@ class get
 				(
 					SELECT
 						form_answerdetail.answer_id,
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN form_answerdetail.answer END) 'q1',
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN form_answerdetail.answer END) 'q2',
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item3 THEN form_answerdetail.answer END) 'q3'
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN IF(form_answerdetail.answer IS NULL, 0, form_answerdetail.answer) END) 'q1',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN IF(form_answerdetail.answer IS NULL, 0, form_answerdetail.answer) END) 'q2',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item3 THEN IF(form_answerdetail.answer IS NULL, 0, form_answerdetail.answer) END) 'q3'
 					FROM
 						form_answerdetail
 					WHERE
@@ -141,7 +141,7 @@ class get
 			$query =
 			"
 				SELECT
-					count(myTable.q2) AS `count`,
+					count(*) AS `count`,
 					myTable.q1,
 					myTable.q2
 				FROM

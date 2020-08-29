@@ -137,7 +137,6 @@ class type
 			'key'          => 'multiple_choice',
 			'title'        => T_('Multiple choice'),
 			'chart' 	   => true,
-			'compare'      => true,
 			'chart_type'   => 'pie',
 			'group'        => T_('Optional choice'),
 			'choice'       => true,

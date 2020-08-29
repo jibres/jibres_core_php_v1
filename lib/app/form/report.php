@@ -727,22 +727,37 @@ class report
 
 		$ready_key = array_column($ready, 'id');
 
+
+		$ready_table = [];
 		foreach ($result as $key => $value)
 		{
+			$temp_table = [];
+			$temp_table['q1'] = $value['q1'];
+
 			if($q3)
 			{
 				$check_key = array_search("3.$value[q1].$value[q2].$value[q3]", $ready_key);
+				$temp_table['q2'] = $value['q2'];
+				$temp_table['q3'] = $value['q3'];
 			}
 			else
 			{
 				$check_key = array_search("2.$value[q1].$value[q2]", $ready_key);
+
+				$temp_table['q2'] = $value['q2'];
 			}
 
 			if($check_key !== false)
 			{
-				$ready[$check_key]['value'] = round((intval($value['count']) * 100)/ $count_answer);
+				$percent = round((intval($value['count']) * 100)/ $count_answer);
+				$ready[$check_key]['value'] = $percent;
 				// $ready[$check_key]['value'] = intval($value['count']);
 			}
+
+			$temp_table['count'] = $value['count'];
+			$temp_table['percent'] = $percent;
+
+			$ready_table[] = $temp_table;
 		}
 
 		// var_dump($ready);exit();
@@ -767,15 +782,17 @@ class report
 		// 		}
 		// 		else
 		// 		{
-		// 			$new_id[] = array_search($split_id, $all_choice);
+		// 			$new_id[] = '1'. array_search($split_id, $all_choice);
 		// 		}
 		// 	}
 		// 	$new_id = implode('.', $new_id);
 		// 	$value['id'] = $new_id;
 		// 	$new_ready[] = $value;
 		// }
+		// // var_dump($ready, $new_ready);exit();
 
-		// var_dump($new_ready);exit();
+
+		// $ready = $new_ready;
 
 
 		$ready        = json_encode($ready, JSON_UNESCAPED_UNICODE);
@@ -788,6 +805,8 @@ class report
 
 		$return             = [];
 		$return['chart']    = $ready;
+		$return['data_table'] = $ready_table;
+		// var_dump($return);exit();
 
 		return $return;
 
