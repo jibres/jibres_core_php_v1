@@ -32,19 +32,16 @@ class redirect
 	/**
 	 * redirect to current location
 	 */
-	public static function pwd()
+	public static function pwd($_scroll = true)
 	{
-		\dash\notif::replaceState();
-		self::to(\dash\url::pwd());
-	}
-
-
-	/**
-	 * redirect to current location
-	 */
-	public static function pwdTop()
-	{
-		\dash\notif::replaceState('top');
+		if($_scroll === 'top')
+		{
+			\dash\notif::replaceState('top');
+		}
+		else
+		{
+			\dash\notif::replaceState(true);
+		}
 		self::to(\dash\url::pwd());
 	}
 
