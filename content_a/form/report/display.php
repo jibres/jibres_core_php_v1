@@ -12,7 +12,7 @@
       <?php foreach (\dash\data::formItems() as $key => $value) {?>
         <tr>
 
-          <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></td>
+          <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'sort')); ?></td>
           <td><?php echo \dash\get::index($value, 'title'); ?></td>
           <td><?php echo \dash\get::index($value, 'type_detail', 'title') ?></td>
 

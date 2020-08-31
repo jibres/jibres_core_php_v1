@@ -35,6 +35,7 @@
     </section>
 
 <div class="msg info2 txtB font-14 f">
+  <div class="cauto"><span class="mRa10 txtB"><?php echo \dash\fit::number(\dash\data::itemDetail_sort()) ?>.</span></div>
   <div class="cauto"><?php echo \dash\data::itemDetail_title() ?></div>
   <div class="c"></div>
   <div class="cauto">

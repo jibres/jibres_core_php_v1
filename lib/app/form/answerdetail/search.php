@@ -45,7 +45,7 @@ class search
 		$meta        = [];
 		$or          = [];
 
-		$meta['limit'] = 20;
+		$meta['limit'] = 50;
 		// $meta['pagination'] = false;
 
 		$order_sort  = null;

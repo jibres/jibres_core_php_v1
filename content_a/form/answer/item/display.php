@@ -47,6 +47,7 @@ else
       <tr>
         <th class="collapsing"><?php echo T_("Item") ?></th>
         <th class=""><?php echo T_("Answer") ?></th>
+        <th class="collapsing"><?php echo T_("Other answer") ?></th>
       </tr>
     </thead>
     <tbody>
@@ -57,6 +58,7 @@ else
             <?php echo \dash\get::index($value, 'answer'); ?>
             <?php echo \dash\get::index($value, 'textarea'); ?>
           </td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/answer/detail?id='. \dash\request::get('id'). '&aid='. \dash\get::index($value, 'answer_id') ?>"><?php echo T_("Other answer") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>
