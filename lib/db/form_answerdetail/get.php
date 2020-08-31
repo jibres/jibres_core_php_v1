@@ -122,9 +122,9 @@ class get
 				(
 					SELECT
 						form_answerdetail.answer_id,
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN IF(form_answerdetail.answer IS NULL, 0, form_answerdetail.answer) END) 'q1',
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN IF(form_answerdetail.answer IS NULL, 0, form_answerdetail.answer) END) 'q2',
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item3 THEN IF(form_answerdetail.answer IS NULL, 0, form_answerdetail.answer) END) 'q3'
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN IF(form_answerdetail.answer IS NULL, 0, CONCAT('4', form_answerdetail.answer)) END) 'q1',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN IF(form_answerdetail.answer IS NULL, 0, CONCAT('5', form_answerdetail.answer)) END) 'q2',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item3 THEN IF(form_answerdetail.answer IS NULL, 0, CONCAT('6', form_answerdetail.answer)) END) 'q3'
 					FROM
 						form_answerdetail
 					WHERE
@@ -134,6 +134,7 @@ class get
 				)
 				AS `myTable`
 				GROUP BY myTable.q1, myTable.q2, myTable.q3
+				ORDER BY myTable.q1, myTable.q2, myTable.q3
 			";
 		}
 		else
@@ -148,8 +149,8 @@ class get
 				(
 					SELECT
 						form_answerdetail.answer_id,
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN form_answerdetail.answer END) 'q1',
-					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN form_answerdetail.answer END) 'q2'
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item1 THEN IF(form_answerdetail.answer IS NULL, 0, CONCAT('4', form_answerdetail.answer)) END) 'q1',
+					  	MAX(CASE WHEN form_answerdetail.item_id = $_item2 THEN IF(form_answerdetail.answer IS NULL, 0, CONCAT('5', form_answerdetail.answer)) END) 'q2'
 					FROM
 						form_answerdetail
 					WHERE
@@ -159,6 +160,7 @@ class get
 				)
 				AS `myTable`
 				GROUP BY myTable.q1, myTable.q2
+				ORDER BY myTable.q1, myTable.q2
 			";
 		}
 

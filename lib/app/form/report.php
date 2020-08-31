@@ -684,12 +684,12 @@ class report
 		return $word;
 	}
 
-	private static function fix_choice($_choice)
+	private static function fix_choice($_choice, $_index)
 	{
 		$new_choice = [];
 		foreach ($_choice as $key => $value)
 		{
-			$new_choice[$value['title']] = $value['title'];
+			$new_choice[$_index. $value['title']] = $_index. $value['title'];
 		}
 
 		return $new_choice;
@@ -730,14 +730,15 @@ class report
 			$choice1 = [];
 		}
 
-		$choice1 = self::fix_choice($choice1);
+		$choice1 = self::fix_choice($choice1, 4);
 
 		$choice2 = \dash\get::index($_q2, 'choice');
 		if(!is_array($choice2))
 		{
 			$choice2 = [];
 		}
-		$choice2 = self::fix_choice($choice2);
+
+		$choice2 = self::fix_choice($choice2, 5);
 
 		$choice3 = \dash\get::index($_q3, 'choice');
 		if(!is_array($choice3))
@@ -745,7 +746,7 @@ class report
 			$choice3 = [];
 		}
 
-		$choice3 = self::fix_choice($choice3);
+		$choice3 = self::fix_choice($choice3, 6);
 
 
 		$all_choice = array_merge($choice1, $choice2, $choice3);
@@ -754,39 +755,42 @@ class report
 
 		$result = \lib\db\form_answerdetail\get::advance_chart($form_id, $q1_id, $q2_id, $q3_id);
 
+
 		if(!is_array($result))
 		{
 			$result = [];
 		}
 
+
+
 		$ready = [];
 
 		$ready[] =
 		[
-			'id'     => "0.0",
+			'id'     => md5("0.0"),
 			'name'   => T_("All"),
-			'parent' => null,
-			'value'  => null,
+			// 'parent' => null,
+			// 'value'  => null,
 		];
 
 		foreach ($choice1 as $key1 => $value1)
 		{
 			$ready[] =
 			[
-				'id'     => "1.$key1",
+				'id'     => md5("1.$key1"),
 				'name'   => $value1,
-				'parent' => '0.0',
-				'value'  => null,
+				'parent' => md5('0.0'),
+				// 'value'  => 0,
 			];
 
 			foreach ($choice2 as $key2 => $value2)
 			{
 				$ready[] =
 				[
-					'id'     => "2.$key1.$key2",
-					'name'   => $value2,
-					'parent' => "1.$key1",
-					'value'  => null,
+					'id'     => md5("2.$key1.$key2"),
+					'name'   => $value1.'-'. $value2,
+					'parent' => md5("1.$key1"),
+					// 'value'  => 0,
 				];
 
 				if($choice3)
@@ -795,15 +799,16 @@ class report
 					{
 						$ready[] =
 						[
-							'id'     => "3.$key1.$key2.$key3",
-							'name'   => $value3,
-							'parent' => "2.$key1.$key2",
-							'value'  => null,
+							'id'     => md5("3.$key1.$key2.$key3"),
+							'name'   => $value1.'-'. $value2. '-'. $value3,
+							'parent' => md5("2.$key1.$key2"),
+							// 'value'  => 0,
 						];
 					}
 				}
 			}
 		}
+
 
 
 		$count_answer = array_sum(array_column($result, 'count'));
@@ -820,28 +825,28 @@ class report
 		foreach ($result as $key => $value)
 		{
 			$temp_table = [];
-			$temp_table['q1'] = $value['q1'];
+			$temp_table['q1'] = substr($value['q1'], 1);
 
 			if($q3)
 			{
-				$check_key = array_search("3.$value[q1].$value[q2].$value[q3]", $ready_key);
-				$temp_table['q2'] = $value['q2'];
-				$temp_table['q3'] = $value['q3'];
+				$check_key = array_search(md5("3.$value[q1].$value[q2].$value[q3]"), $ready_key);
+				$temp_table['q2'] = substr($value['q2'], 1);
+				$temp_table['q3'] = substr($value['q3'], 1);
 			}
 			else
 			{
-				$check_key = array_search("2.$value[q1].$value[q2]", $ready_key);
+				$check_key = array_search(md5("2.$value[q1].$value[q2]"), $ready_key);
 
-				$temp_table['q2'] = $value['q2'];
+				$temp_table['q2'] = substr($value['q2'], 1);
 			}
 
 			$percent = 0;
 			if($check_key !== false)
 			{
 				$percent = round((intval($value['count']) * 100)/ $count_answer);
-				$ready[$check_key]['value'] = $percent;
-				// $ready[$check_key]['value'] = intval($value['count']);
+				$ready[$check_key]['value'] = intval($value['count']);
 			}
+
 
 			$temp_table['count'] = $value['count'];
 			$temp_table['percent'] = $percent;
@@ -849,7 +854,6 @@ class report
 			$ready_table[] = $temp_table;
 		}
 
-		// var_dump($ready);exit();
 
 		// $new_ready = [];
 		// foreach ($ready as $key => $value)
@@ -865,14 +869,21 @@ class report
 		// 		}
 		// 		else
 		// 		{
-		// 			$new_id[] = '1'. array_search($split_id, $all_choice);
+		// 			$new_id[] = array_search($split_id, $all_choice);
 		// 		}
 		// 	}
 		// 	$new_id = implode('.', $new_id);
 		// 	$value['id'] = $new_id;
 
+		// 	if(!isset($value['parent']))
+		// 	{
+		// 		$new_ready[] = $value;
+		// 		continue;
+		// 	}
+
 		// 	$parent = $value['parent'];
 		// 	$explode = explode('.', $parent);
+
 		// 	$new_parent = [];
 		// 	foreach ($explode as $split_parent)
 		// 	{
@@ -882,7 +893,7 @@ class report
 		// 		}
 		// 		else
 		// 		{
-		// 			$new_parent[] = '1'. array_search($split_parent, $all_choice);
+		// 			$new_parent[] = array_search($split_parent, $all_choice);
 		// 		}
 		// 	}
 		// 	$new_parent = implode('.', $new_parent);
@@ -892,18 +903,13 @@ class report
 		// }
 		// // var_dump($ready, $new_ready);exit();
 
-
 		// $ready = $new_ready;
-
 		// var_dump($ready);exit();
 
 		$ready        = json_encode($ready, JSON_UNESCAPED_UNICODE);
 
 		$table = [];
 
-
-		// array_multisort($table, $result_sort, $my_order | $my_sort_detail);
-		// array_multisort($table, $result_sort, SORT_DESC | SORT_NUMERIC);
 
 		$return             = [];
 		$return['chart']    = $ready;
