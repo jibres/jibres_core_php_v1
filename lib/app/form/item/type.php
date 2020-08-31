@@ -220,7 +220,7 @@ class type
 			'key'          => 'country',
 			'placeholder'  => true,
 			'chart' 	   => true,
-			'chart_type'   => null, // 'country',
+			'chart_type'   => 'country',
 			'title'        => T_('Country'),
 			'group'        => T_('Location'),
 			'default_load' =>
