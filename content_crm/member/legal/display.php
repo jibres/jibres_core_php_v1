@@ -146,6 +146,11 @@
 					<input type="text" name="fax" id="ifax" value="<?php echo \dash\data::dataRowLegal_fax(); ?>" data-format="tel">
 				</div>
 
+				<label for="iurl"><?php echo T_("Url"); ?></label>
+				<div class="input">
+					<input type="url" name="url" id="iurl" value="<?php echo \dash\data::dataRowLegal_url(); ?>" >
+				</div>
+
 			</div>
 
 

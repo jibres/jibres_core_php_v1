@@ -89,7 +89,7 @@ else if($fax)
             <div class="c-3"><?php
 {
   echo '<span class="block ltr txtL pLR5">';
-  echo \lib\store::url();
+  echo \dash\get::index($customerLegal, 'url');
   echo '</span>';
 }
 ?></div>

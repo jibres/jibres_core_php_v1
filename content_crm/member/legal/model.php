@@ -70,6 +70,7 @@ class model
 				'postcode'              => \dash\request::post('postcode'),
 				'phone'                 => \dash\request::post('phone'),
 				'fax'                   => \dash\request::post('fax'),
+				'url'                   => \dash\request::post('url'),
 			];
 
 
