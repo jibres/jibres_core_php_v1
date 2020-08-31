@@ -778,7 +778,7 @@ class report
 			$ready[] =
 			[
 				'id'     => md5("1.$key1"),
-				'name'   => $value1,
+				'name'   => substr($value1, 1),
 				'parent' => md5('0.0'),
 				// 'value'  => 0,
 			];
@@ -788,7 +788,7 @@ class report
 				$ready[] =
 				[
 					'id'     => md5("2.$key1.$key2"),
-					'name'   => $value1.'-'. $value2,
+					'name'   => substr($value2, 1),
 					'parent' => md5("1.$key1"),
 					// 'value'  => 0,
 				];
@@ -800,7 +800,7 @@ class report
 						$ready[] =
 						[
 							'id'     => md5("3.$key1.$key2.$key3"),
-							'name'   => $value1.'-'. $value2. '-'. $value3,
+							'name'   => substr($value3, 1),
 							'parent' => md5("2.$key1.$key2"),
 							// 'value'  => 0,
 						];
