@@ -21,6 +21,22 @@ class legal
 	public static function get_inline($_user_id)
 	{
 		$get = \dash\db\userlegal\get::by_user_id($_user_id);
+
+		if(isset($get['country']) && $get['country'])
+		{
+			$get['country_name'] = \dash\utility\location\countres::get_name($get['country'], true);
+		}
+
+		if(isset($get['province']) && $get['province'])
+		{
+			$get['province_name'] = \dash\utility\location\provinces::get_localname($get['province']);
+		}
+
+		if(isset($get['city']) && $get['city'])
+		{
+			$get['city_name'] = \dash\utility\location\cites::get_localname($get['city']);
+		}
+
 		return $get;
 	}
 

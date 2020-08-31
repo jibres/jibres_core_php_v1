@@ -29,7 +29,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
         </div>
         <div>
           <span class="compact pRa5"><?php echo T_("Date"); ?></span>
-          <span class="printEmptyBox"><?php echo \dash\fit::date('now'); ?></span>
+          <span class="printEmptyBox"><?php echo \dash\fit::date(\dash\get::index($factorDetail, 'factor', 'date')); ?></span>
         </div>
       </div>
     </header>

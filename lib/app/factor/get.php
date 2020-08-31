@@ -316,28 +316,9 @@ class get
 				$factor['customer_mobile'] = $load_customer['mobile'];
 			}
 
-			$factor['customer_address'] = [];
-			if(isset($load_customer['id']))
-			{
-				$user_address = \dash\app\address::get_last_user_address($load_customer['id']);
+			$load_user_legal = \dash\app\user\legal::get($factor['customer']);
+			$factor['customer_legal'] = $load_user_legal;
 
-				$factor['customer_address'] = $user_address;
-
-				if(isset($user_address['name']) && $user_address['name'])
-				{
-					$factor['customer_displayname'] = $user_address['name'];
-				}
-
-				if(isset($user_address['phone']) && $user_address['phone'])
-				{
-					$factor['customer_phone'] = $user_address['phone'];
-				}
-
-				if(isset($user_address['mobile']) && $user_address['mobile'])
-				{
-					$factor['customer_mobile'] = $user_address['mobile'];
-				}
-			}
 		}
 
 		// load address saved on this factor
