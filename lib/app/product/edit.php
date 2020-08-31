@@ -384,7 +384,7 @@ class edit
 
 					if($_option['debug'])
 					{
-						\dash\notif::ok(T_("Your product successfully updated"));
+						\dash\notif::update(T_("Your product successfully updated"));
 					}
 				}
 			}
@@ -394,7 +394,7 @@ class edit
 				{
 					if($_option['debug'])
 					{
-						\dash\notif::ok(T_("Your product successfully updated"));
+						\dash\notif::update(T_("Your product successfully updated"));
 					}
 				}
 				else

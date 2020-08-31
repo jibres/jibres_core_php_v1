@@ -579,7 +579,7 @@ class property
 
 		\lib\db\productproperties\delete::one($property_id, $product_id);
 
-		\dash\notif::ok(T_("Property removed"));
+		\dash\notif::update(T_("Property removed"));
 		return true;
 	}
 
@@ -603,7 +603,7 @@ class property
 				else
 				{
 					\lib\db\productproperties\update::set_outstanding($property_id);
-					\dash\notif::ok(T_("Property set as outstanding"));
+					\dash\notif::update(T_("Property set as outstanding"));
 					return true;
 				}
 			}
@@ -612,7 +612,7 @@ class property
 				if(isset($result['outstanding']) && $result['outstanding'])
 				{
 					\lib\db\productproperties\update::unset_outstanding($property_id);
-					\dash\notif::ok(T_("Property remove from outstanding"));
+					\dash\notif::update(T_("Property remove from outstanding"));
 					return true;
 				}
 				else
