@@ -3,7 +3,7 @@
         <div class="c-1"><h2 class="txtC"><?php echo T_("Seller Details"); ?></h2></div>
         <div class="c-11">
           <div class="row padMore">
-            <div class="c-6 title"><?php echo \dash\get::index($storeData,'title'); ?></div>
+            <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo \dash\get::index($storeData,'title');} ?></div>
             <div class="c-3">
               <span><?php echo T_("VAT Number"); ?></span>
               <code><?php echo \dash\get::index($storeData, 'companyeconomiccode') ?></code>
