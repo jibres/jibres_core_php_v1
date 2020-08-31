@@ -372,12 +372,18 @@ class report
 		}
 
 		$opening = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $opening);
+		$normal = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $normal);
 
 		foreach ($opening as $key => $value)
 		{
 			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
 			{
 				$opening[$key]['group_title'] = $coding[$value['group_id']]['title'];
+			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
+			{
+				$opening[$key]['total_title'] = $coding[$value['total_id']]['title'];
 			}
 		}
 
@@ -389,6 +395,12 @@ class report
 			{
 				$normal[$key]['group_title'] = $coding[$value['group_id']]['title'];
 			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
+			{
+				$normal[$key]['total_title'] = $coding[$value['total_id']]['title'];
+			}
+
 		}
 
 
@@ -442,6 +454,9 @@ class report
 
 				$normal[$key]['sum_debtor'] = $current_debtor;
 				$normal[$key]['sum_creditor'] = $current_creditor;
+
+				$normal[$key]['opening_debtor'] = 0;
+				$normal[$key]['opening_creditor'] = 0;
 			}
 		}
 

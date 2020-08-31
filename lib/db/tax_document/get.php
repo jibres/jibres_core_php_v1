@@ -263,7 +263,6 @@ class get
 			SELECT
 				CONCAT(1, LPAD(IFNULL(MAX(tax_coding.parent1), 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(MAX(tax_coding.id), 6, '0')) AS `string_id`,
 				tax_coding.parent2 AS `total_id`,
-				MAX(tax_coding.title) AS `total_title`,
 				MAX(tax_coding.parent1) AS `group_id`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
@@ -313,7 +312,7 @@ class get
 				tax_coding.*,
 				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`
 			FROM tax_coding
-			WHERE tax_coding.type IN ('group')
+			WHERE tax_coding.type IN ('group', 'total')
 			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
 		";
 
