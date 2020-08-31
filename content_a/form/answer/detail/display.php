@@ -44,16 +44,10 @@ else
 
 <?php function htmlTable() {?>
   <table class="tbl1 v6 minimal">
-    <thead>
-      <tr>
-        <th class="collapsing"><?php echo T_("Item") ?></th>
-        <th class=""><?php echo T_("Answer") ?></th>
-      </tr>
-    </thead>
     <tbody class="font-12">
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <td class="collapsing"><?php echo \dash\get::index($value, 'item_title'); ?></td>
+          <th class="collapsing"><?php echo \dash\get::index($value, 'item_title'); ?></th>
           <td class="">
             <?php echo \dash\get::index($value, 'answer'); ?>
             <?php echo \dash\get::index($value, 'textarea'); ?>
