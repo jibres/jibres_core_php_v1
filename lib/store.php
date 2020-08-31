@@ -19,6 +19,7 @@ class store
 		$store_id = self::id();
 		if($store_id)
 		{
+			self::reset_cache();
 			self::clean();
 			self::init();
 		}

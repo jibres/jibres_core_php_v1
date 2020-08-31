@@ -1,4 +1,3 @@
-
     <div id="sellerDetails" class="oneSide">
       <div class="row">
         <div class="c-1"><h2 class="txtC"><?php echo T_("Seller Details"); ?></h2></div>
@@ -7,11 +6,11 @@
             <div class="c-6 title"><?php echo \dash\get::index($storeData,'title'); ?></div>
             <div class="c-3">
               <span><?php echo T_("VAT Number"); ?></span>
-              <code>411492163378</code>
+              <code><?php echo \dash\get::index($storeData, 'companyeconomiccode') ?></code>
             </div>
             <div class="c-3">
               <span><?php echo T_("Company ID Number"); ?></span>
-              <code>14005035554</code>
+              <code><?php echo \dash\get::index($storeData, 'companynationalid') ?></code>
             </div>
           </div>
           <div class="row padMore">
@@ -46,11 +45,11 @@ if($city)
 ?></div>
             <div class="c-3">
               <span><?php echo T_("Postal Code"); ?></span>
-              <code><?php echo \dash\get::index($storeData,'postcode'); ?></code>
+              <code><?php echo \dash\get::index($storeData, 'postcode'); ?></code>
             </div>
             <div class="c-3">
               <span><?php echo T_("Company Registration Number"); ?></span>
-              <code>13552</code>
+              <code><?php echo \dash\get::index($storeData, 'companyregisternumber') ?></code>
             </div>
           </div>
 
@@ -67,20 +66,21 @@ if($address)
 ?></div>
             <div class="c-3"><?php
 $phone = \dash\get::index($storeData,'phone');
-if($phone || 1)
+$fax = \dash\get::index($storeData,'fax');
+if($phone)
 {
   echo '<span>'. T_('Phone'). '</span>'. ' ';
   echo '<code>';
   // echo $phone;
-  echo '025-36505281';
+  echo $phone;
   echo '</code>';
 }
-else if($fax || 1)
+else if($fax)
 {
   echo '<span>'. T_('Fax'). '</span>'. ' ';
   echo '<code>';
   // echo $fax;
-  echo '025-36505281';
+  echo $fax;
   echo '</code>';
 }
 ?></div>

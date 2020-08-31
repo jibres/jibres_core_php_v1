@@ -164,7 +164,9 @@ class setup
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		return self::multi_save($data, 'pos');
+		$result = self::multi_save($data, 'pos');
+		\lib\store::refresh();
+		return $result;
 	}
 
 
@@ -184,7 +186,9 @@ class setup
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		return self::multi_save($data, 'payment');
+		$result = self::multi_save($data, 'payment');
+		\lib\store::refresh();
+		return $result;
 
 	}
 
@@ -204,7 +208,9 @@ class setup
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		return self::multi_save($data, 'vat');
+		$result = self::multi_save($data, 'vat');
+		\lib\store::refresh();
+		return $result;
 
 	}
 
@@ -275,7 +281,9 @@ class setup
 			return false;
 		}
 
-		return self::multi_save($data, 'address');
+		$result = self::multi_save($data, 'address');
+		\lib\store::refresh();
+		return $result;
 	}
 
 
@@ -296,7 +304,9 @@ class setup
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		return self::multi_save($data, 'company');
+		$result = self::multi_save($data, 'company');
+		\lib\store::refresh();
+		return $result;
 	}
 
 
@@ -316,7 +326,9 @@ class setup
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		return self::multi_save($data, 'units');
+		$result = self::multi_save($data, 'units');
+		\lib\store::refresh();
+		return $result;
 	}
 }
 ?>
