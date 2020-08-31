@@ -90,7 +90,7 @@
         <th class="collapsing"><?php echo T_("Report") ?></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="font-12">
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
 

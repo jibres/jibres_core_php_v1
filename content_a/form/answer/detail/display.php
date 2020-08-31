@@ -29,7 +29,7 @@ else
 }
 ?>
 <?php function htmlSearchBox() {?>
-  <div class="cbox fs12">
+  <div class="cbox fs12 p0">
     <form method="get" action='<?php echo \dash\url::current(); ?>'>
       <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
       <input type="hidden" name="aid" value="<?php echo \dash\request::get('aid') ?>">
@@ -43,14 +43,14 @@ else
 <?php } //endfunction ?>
 
 <?php function htmlTable() {?>
-  <table class="tbl1 v1">
+  <table class="tbl1 v6 minimal">
     <thead>
       <tr>
         <th class="collapsing"><?php echo T_("Item") ?></th>
         <th class=""><?php echo T_("Answer") ?></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="font-12">
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
           <td class="collapsing"><?php echo \dash\get::index($value, 'item_title'); ?></td>
