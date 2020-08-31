@@ -627,5 +627,131 @@ class report
 
 	}
 
+
+
+	public static function group_report_balancesheet($_args)
+	{
+		$data = self::analyze_args($_args);
+		$result = \lib\db\tax_document\get::group_report($data);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+
+		$normal  = \dash\get::index($result, 'normal');
+		$opening = \dash\get::index($result, 'opening');
+		$coding = \dash\get::index($result, 'coding');
+
+		if(!is_array($normal))
+		{
+			$normal = [];
+		}
+
+		if(!is_array($opening))
+		{
+			$opening = [];
+		}
+
+		if(!is_array($coding))
+		{
+			$coding = [];
+		}
+
+		$coding = array_combine(array_column($coding, 'id'), $coding);
+
+
+		// $opening = array_map(['\\lib\\app\\tax\\doc\\ready', 'report_balancesheet'], $opening);
+		// $normal = array_map(['\\lib\\app\\tax\\doc\\ready', 'report_balancesheet'], $normal);
+
+
+
+		$check_opening = array_combine(array_column($opening, 'group_id'), $opening);
+		foreach ($normal as $key => $value)
+		{
+			$group_id = null;
+			if(isset($value['group_id']))
+			{
+				$group_id = $value['group_id'];
+			}
+
+			if(isset($check_opening[$group_id]))
+			{
+				$opening_debtor   = $check_opening[$group_id]['debtor'];
+				$opening_creditor = $check_opening[$group_id]['creditor'];
+
+				$diff_opening = floatval($opening_debtor) - floatval($opening_creditor);
+
+				$normal[$key]['opening'] = $diff_opening;
+
+				$current_debtor   = $value['debtor'];
+				$current_creditor = $value['creditor'];
+
+				$diff_current = floatval($current_debtor) - floatval($current_creditor);
+
+				$normal[$key]['current'] = $diff_current;
+
+				unset($check_opening[$group_id]);
+			}
+			else
+			{
+
+				$current_debtor   = $value['debtor'];
+				$current_creditor = $value['creditor'];
+
+				$diff_current = floatval($current_debtor) - floatval($current_creditor);
+				$normal[$key]['current'] = $diff_current;
+
+				$normal[$key]['opening'] = 0;
+
+			}
+		}
+
+		if(!empty($check_opening))
+		{
+			$check_opening = array_values($check_opening);
+			foreach ($check_opening as $key => $value)
+			{
+
+				$opening_debtor   = $value['debtor'];
+				$opening_creditor = $value['creditor'];
+				$diff_opening = floatval($opening_debtor) - floatval($opening_creditor);
+
+				$normal[$key]['opening'] = $diff_opening;
+				$normal[$key]['current'] = 0;
+
+			}
+			$normal = array_merge($normal, $check_opening);
+		}
+
+		foreach ($normal as $key => $value)
+		{
+			if(isset($value['group_id']))
+			{
+				if(isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
+				{
+					$normal[$key]['group_title'] = $coding[$value['group_id']]['title'];
+				}
+
+				if(isset($coding[$value['group_id']]) && $coding[$value['group_id']]['code'])
+				{
+					$normal[$key]['group_code'] = $coding[$value['group_id']]['code'];
+				}
+			}
+		}
+
+		$sort = array_column($normal, 'group_id');
+
+		if(count($sort) === count($normal))
+		{
+			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
+		}
+
+
+		return $normal;
+
+	}
+
 }
 ?>
