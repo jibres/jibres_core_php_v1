@@ -34,7 +34,7 @@
 
 						<div class="c-xs-12 c-sm-12">
 							<label for="endmessage"><?php echo T_("End message") ?></label>
-							<textarea name="endmessage" class="txt" rows="3" id="endmessage" placeholder="<?php echo T_("End message") ?>"><?php echo \dash\data::dataRow_endmessage(); ?></textarea>
+							<textarea name="endmessage" data-editor='simple' class="txt" rows="3" id="endmessage" placeholder="<?php echo T_("End message") ?>"><?php echo \dash\data::dataRow_endmessage(); ?></textarea>
 						</div>
 
 
