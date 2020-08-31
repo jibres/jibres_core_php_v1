@@ -43,17 +43,14 @@ else
 <?php } //endfunction ?>
 
 <?php function htmlTable() {?>
-  <table class="tbl1 v6 minimal">
+  <table class="tbl1 v6">
     <tbody class="font-12">
-      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+<?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <th class="collapsing"><?php echo \dash\get::index($value, 'item_title'); ?></th>
-          <td class="">
-            <?php echo \dash\get::index($value, 'answer'); ?>
-            <?php echo \dash\get::index($value, 'textarea'); ?>
-          </td>
+          <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
+          <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
         </tr>
-      <?php } //endif ?>
+<?php } //endif ?>
     </tbody>
   </table>
   <?php \dash\utility\pagination::html(); ?>
