@@ -101,6 +101,20 @@ class notif
 	}
 
 
+	public static function create($_text, $_meta = [])
+	{
+		\dash\header::set(201);
+		self::add('ok', $_text, $_meta);
+	}
+
+
+	public static function update($_text, $_meta = [])
+	{
+		\dash\header::set(202);
+		self::add('ok', $_text, $_meta);
+	}
+
+
 	public static function warn($_text, $_meta = [])
 	{
 		self::add('warn', $_text, $_meta);
@@ -122,9 +136,9 @@ class notif
 	}
 
 
-	public static function popstate($_popstate = true)
+	public static function replaceState($_replaceState = true)
 	{
-		self::add_detail('popstate', $_popstate);
+		self::add_detail('replaceState', $_replaceState);
 	}
 
 

@@ -34,7 +34,7 @@ class redirect
 	 */
 	public static function pwd()
 	{
-		\dash\notif::popstate();
+		\dash\notif::replaceState();
 		self::to(\dash\url::pwd());
 	}
 
@@ -44,7 +44,7 @@ class redirect
 	 */
 	public static function pwdTop()
 	{
-		\dash\notif::popstate('top');
+		\dash\notif::replaceState('top');
 		self::to(\dash\url::pwd());
 	}
 
