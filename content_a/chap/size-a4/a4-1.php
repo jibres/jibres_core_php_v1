@@ -90,7 +90,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalVAT); ?></td>
-       <td class="valPrice lastCol"><?php echo \dash\fit::price($FinalPrice); ?></td>
+       <td class="valPrice lastCol"><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($FinalPrice); ?></td>
       </tr>
 <?php } //endfor ?>
      </tbody>
@@ -104,7 +104,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
-       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
+       <td class="valPrice"><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
       </tr>
      </tfoot>
     </table>
