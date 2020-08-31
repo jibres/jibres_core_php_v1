@@ -20,12 +20,16 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
       </div>
       <div class="c-6 txtC">
+        <?php $country = \dash\get::index($storeData,'country'); if($country === 'IR') {?>
+        <h1><?php echo T_("Sale Invoice"); ?></h1>
+        <?php }else{ ?>
         <h1><?php echo T_("Invoice"); ?></h1>
+        <?php } //endif ?>
       </div>
       <div class="c-3 txtRa">
         <div>
           <span class="compact pRa5"><?php echo T_("Serial Number"); ?></span>
-          <span class="printEmptyBox"></span>
+          <span class="printEmptyBox" id="factorid" data-val="<?php echo \dash\get::index($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(\dash\get::index($factorDetail, 'factor', 'id')) ?></span>
         </div>
         <div>
           <span class="compact pRa5"><?php echo T_("Date"); ?></span>
@@ -110,8 +114,13 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 
   </div>
 
-<div class="barcodeBox">
-  <svg class="barcodePrev wide" data-val="#barcode" data-height=20 data-hideValue></svg>
+<?php if(\dash\get::index($factorDetail, 'factor', 'desc')) {?>
+<p class="msg font-14"><?php echo nl2br(\dash\get::index($factorDetail, 'factor', 'desc')) ?></p>
+<?php } //endif ?>
+<div class="txtC">
+  <div class="barcodeBox">
+    <svg class="barcodePrev wide" data-val="#factorid" data-height=20 data-hideValue></svg>
+  </div>
 </div>
 
 

@@ -89,7 +89,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
  <div class="f factorDetail fs12 mB10 txtC">
   <div class="c12">
    <div class="datetime"><?php echo \dash\fit::date(\dash\get::index($factorDetail, 'factor', 'date')); ?></div>
-   <div><?php echo T_("Sale Invoice"); ?> <code id='barcode' data-val='<?php echo \dash\get::index($factorDetail, 'factor', 'id_code'); ?>'><?php echo \dash\get::index($factorDetail, 'factor', 'id_code'); ?></code></div>
+   <div><?php echo T_("Factor Number"); ?> <code id='barcode' data-val='<?php echo \dash\get::index($factorDetail, 'factor', 'id_code'); ?>'><?php echo \dash\get::index($factorDetail, 'factor', 'id_code'); ?></code></div>
   </div>
  </div>
 
