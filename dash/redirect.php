@@ -34,6 +34,17 @@ class redirect
 	 */
 	public static function pwd()
 	{
+		\dash\notif::popstate();
+		self::to(\dash\url::pwd());
+	}
+
+
+	/**
+	 * redirect to current location
+	 */
+	public static function pwdTop()
+	{
+		\dash\notif::popstate('top');
 		self::to(\dash\url::pwd());
 	}
 

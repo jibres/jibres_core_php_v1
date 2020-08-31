@@ -122,6 +122,12 @@ class notif
 	}
 
 
+	public static function popstate($_popstate = true)
+	{
+		self::add_detail('popstate', $_popstate);
+	}
+
+
 	public static function redirect($_url)
 	{
 		self::add_detail('redirect', $_url);
