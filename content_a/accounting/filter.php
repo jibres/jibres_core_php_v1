@@ -31,6 +31,7 @@
             </select>
           </div>
         <?php } // endif ?>
+        <?php if(\dash\url::subchild() != 'balancesheet') {?>
         <div class="c-xs-12 c-sm">
           <label for="startdate" ><?php echo T_("Start date"); ?></label>
           <div class="input mB0-f">
@@ -43,7 +44,9 @@
             <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="enddate" value="<?php echo \dash\request::get('enddate'); ?>" autocomplete='off'>
           </div>
         </div>
-        <?php if(\dash\url::child() === 'report') {?>
+      <?php } //endif ?>
+
+        <?php if(\dash\url::child() === 'report' && \dash\url::subchild() != 'balancesheet') {?>
           <div class="c-xs-12 c-sm-3">
             <label for="show" ><?php echo T_("Report type"); ?></label>
             <div class="row">
@@ -71,9 +74,11 @@
         <?php } //endif ?>
         <div class="c-xs-12 c-sm-auto p0">
           <div class="mT25 txtRa">
+          <?php if(\dash\url::subchild() != 'balancesheet') {?>
             <?php if(\dash\request::get('year_id')) {?>
               <div class="btn outline" data-title='<?php echo T_("Reset document number?") ?>' data-confirm data-data='{"resetnumber": "resetnumber", "year_id" : "<?php echo \dash\request::get('year_id'); ?>"}'><i class="sf-refresh"></i></div>
             <?php } //endif ?>
+          <?php } //endif ?>
         <?php if(\dash\request::get()) {?>
           <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Clear filter") ?></a>
         <?php } //endif ?>
