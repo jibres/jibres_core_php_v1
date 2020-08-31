@@ -83,14 +83,14 @@ $tableTotal['FinalPrice'] += $FinalPrice;
       <tr>
        <td><?php echo \dash\fit::number($key + 1); ?></td>
        <td class="txtLa productTitle"><?php echo \dash\get::index($datarow, 'title');?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price(\dash\get::index($datarow, 'count')); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($datarow, 'count')); ?></td>
        <td><?php echo \dash\get::index($datarow, 'unit'); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price(\dash\get::index($datarow, 'price')); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($totalPrice); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($totalDiscount); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($totalVAT); ?></td>
-       <td class="ltr txtR lastCol"><?php echo \dash\fit::price($FinalPrice); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($datarow, 'price')); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($totalVAT); ?></td>
+       <td class="valPrice lastCol"><?php echo \dash\fit::price($FinalPrice); ?></td>
       </tr>
 <?php } //endfor ?>
      </tbody>
@@ -100,11 +100,11 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td></td>
        <td></td>
        <td></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($tableTotal['totalPrice']); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
-       <td class="ltr txtR"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPrice']); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
       </tr>
      </tfoot>
     </table>
