@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-08-29 16:04+0430\n"
-"PO-Revision-Date: 2020-08-29 16:06+0430\n"
+"POT-Creation-Date: 2020-08-31 10:45+0430\n"
+"PO-Revision-Date: 2020-08-31 10:45+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4271,7 +4271,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_love/domain/log/display.php:22 content_love/domain/onlineniclog/display.php:4
 #: content_love/domain/onlineniclog/display.php:22
 #: content_support/ticket/ticketTable.php:119
-#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:679
+#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:767
 #: lib/app/form/report_advance.php:110
 msgid "All"
 msgstr "همه"
@@ -4324,7 +4324,7 @@ msgstr "تفصیل‌پذیر"
 #: content_a/factor/home/display.php:259 content_a/factor/home/display.php:267
 #: content_a/form/answer/detail/display.php:71 content_a/form/answer/detail/display.php:78
 #: content_a/form/answer/display.php:77 content_a/form/answer/display.php:84
-#: content_a/form/answer/item/display.php:70 content_a/form/answer/item/display.php:77
+#: content_a/form/answer/item/display.php:72 content_a/form/answer/item/display.php:79
 #: content_a/form/home/display.php:139 content_a/form/home/display.php:147
 #: content_a/notiflog/display.php:155 content_a/notiflog/display.php:163
 #: content_a/order/home/display.php:269 content_a/order/home/display.php:277
@@ -4368,7 +4368,7 @@ msgstr "پاک‌سازی فیلترها"
 #: content_a/accounting/coding/all/display.php:167
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:177
 #: content_a/factor/home/display.php:266 content_a/form/answer/detail/display.php:77
-#: content_a/form/answer/display.php:83 content_a/form/answer/item/display.php:76
+#: content_a/form/answer/display.php:83 content_a/form/answer/item/display.php:78
 #: content_a/form/home/display.php:146 content_a/notiflog/display.php:162
 #: content_a/order/home/display.php:276 content_a/products/comment/display.php:168
 #: content_a/products/tag/display.php:160 content_cms/attachment/home/display.php:137
@@ -4390,7 +4390,7 @@ msgstr "نتیجه‌ای یافت نشد!"
 #: content_a/accounting/coding/all/display.php:167
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:177
 #: content_a/factor/home/display.php:266 content_a/form/answer/detail/display.php:77
-#: content_a/form/answer/display.php:83 content_a/form/answer/item/display.php:76
+#: content_a/form/answer/display.php:83 content_a/form/answer/item/display.php:78
 #: content_a/form/home/display.php:146 content_a/notiflog/display.php:162
 #: content_a/order/home/display.php:276 content_a/products/comment/display.php:168
 #: content_a/products/tag/display.php:160 content_cms/attachment/home/display.php:137
@@ -4415,7 +4415,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/turnover/display.php:164 content_a/category/home/display.php:156
 #: content_a/company/display.php:136 content_a/factor/home/display.php:273
 #: content_a/form/answer/detail/display.php:83 content_a/form/answer/display.php:89
-#: content_a/form/answer/item/display.php:82 content_a/form/home/display.php:153
+#: content_a/form/answer/item/display.php:84 content_a/form/home/display.php:153
 #: content_a/notiflog/display.php:169 content_a/order/home/display.php:283
 #: content_a/products/home/display.php:243 content_a/products/tag/display.php:167
 #: content_a/units/display.php:149 content_account/notification/display.php:55
@@ -6324,7 +6324,7 @@ msgstr "برای شما"
 #: content_a/form/report/answer/display-bar.php:25
 #: content_a/form/report/answer/display-pie.php:36
 #: content_a/form/report/answer/display-province.php:25
-#: content_a/form/report/compare/display.php:96
+#: content_a/form/report/compare/display.php:99
 msgid "Sum"
 msgstr "جمع"
 
@@ -6886,10 +6886,11 @@ msgstr "افزودن فرم تماس جدید"
 
 #: content_a/form/answer/detail/display.php:50 content_a/form/answer/item/display.php:49
 #: content_a/form/report/answer/display-bar.php:38
+#: content_a/form/report/answer/display-country.php:31
 #: content_a/form/report/answer/display-pie.php:51
 #: content_a/form/report/answer/display-province.php:38
 #: content_a/form/report/answer/display-wordcloud.php:3
-#: content_a/form/report/compare/display.php:112
+#: content_a/form/report/compare/display.php:115
 #: content_a/products/comment/display.php:139 dash/app/log/support_tools.php:42
 #: dash/social/telegram/commands/ticket.php:101
 msgid "Answer"
@@ -6952,6 +6953,10 @@ msgstr "خروجی از پاسخ‌ فرم"
 #: content_a/form/report/display.php:23
 msgid "Answers"
 msgstr "پاسخ‌ها"
+
+#: content_a/form/answer/item/display.php:50 content_a/form/answer/item/display.php:61
+msgid "Other answer"
+msgstr "سایر پاسخ‌ها"
 
 #: content_a/form/duplicate/display.php:4
 msgid "Create duplicate form"
@@ -7160,34 +7165,38 @@ msgid "Add new Form"
 msgstr "افزودن فرم جدید"
 
 #: content_a/form/report/answer/display-bar.php:9
+#: content_a/form/report/answer/display-country.php:9
 #: content_a/form/report/answer/display-pie.php:19
 #: content_a/form/report/answer/display-province.php:9
 msgid "Choice"
 msgstr "گزینه‌"
 
 #: content_a/form/report/answer/display-bar.php:10
+#: content_a/form/report/answer/display-country.php:10
 #: content_a/form/report/answer/display-pie.php:20
 #: content_a/form/report/answer/display-province.php:10
-#: content_a/form/report/compare/display.php:77
+#: content_a/form/report/compare/display.php:80
 msgid "Frequency"
 msgstr "فراوانی"
 
 #: content_a/form/report/answer/display-bar.php:11
+#: content_a/form/report/answer/display-country.php:11
 #: content_a/form/report/answer/display-pie.php:21
 #: content_a/form/report/answer/display-province.php:11
-#: content_a/form/report/compare/display.php:78
+#: content_a/form/report/compare/display.php:81
 msgid "Percent frequency"
 msgstr "درصد فراوانی"
 
 #: content_a/form/report/answer/display-bar.php:19
 #: content_a/form/report/answer/display-bar.php:27
+#: content_a/form/report/answer/display-country.php:19
 #: content_a/form/report/answer/display-pie.php:29
 #: content_a/form/report/answer/display-pie.php:38
 #: content_a/form/report/answer/display-province.php:19
 #: content_a/form/report/answer/display-province.php:27
 #: content_a/form/report/answer/display.php:32
-#: content_a/form/report/compare/display.php:90
-#: content_a/form/report/compare/display.php:102 content_business/p/home/display.php:278
+#: content_a/form/report/compare/display.php:93
+#: content_a/form/report/compare/display.php:105 content_business/p/home/display.php:278
 #: content_business/p/home/display.php:283 content_business/p/home/display.php:288
 #: content_business/p/home/display.php:293 content_business/p/home/display.php:298
 #: content_business/p/home/view.php:101 content_love/gift/create/review/display.php:16
@@ -7215,25 +7224,25 @@ msgstr "تعداد پاسخ نداده‌ها"
 msgid "Percent answer"
 msgstr "درصد پاسخ"
 
-#: content_a/form/report/answer/display.php:42
+#: content_a/form/report/answer/display.php:43
 msgid "compare by other item"
 msgstr "مقایسه با آیتم دیگر"
 
-#: content_a/form/report/compare/display.php:20
-#: content_a/form/report/compare/display.php:42
+#: content_a/form/report/compare/display.php:22
+#: content_a/form/report/compare/display.php:45
 msgid "Compare with"
 msgstr "مقایسه با"
 
-#: content_a/form/report/compare/display.php:22
-#: content_a/form/report/compare/display.php:44
+#: content_a/form/report/compare/display.php:24
+#: content_a/form/report/compare/display.php:47
 msgid "Without item"
 msgstr "بدون آیتم"
 
-#: content_a/form/report/compare/display.php:57
+#: content_a/form/report/compare/display.php:60
 msgid "Try by another item"
 msgstr "با گزینه‌ی دیگری امتحان کنید"
 
-#: content_a/form/report/compare/display.php:59
+#: content_a/form/report/compare/display.php:62
 msgid "Compare"
 msgstr "مقایسه"
 
@@ -29694,12 +29703,12 @@ msgstr "ورودی مخفی"
 msgid "Agree"
 msgstr "موافقت"
 
-#: lib/app/form/report.php:189 lib/app/form/report.php:302 lib/app/form/report.php:303
+#: lib/app/form/report.php:194 lib/app/form/report.php:307 lib/app/form/report.php:308
 msgid "Other choice"
 msgstr "سایر گزینه‌ها"
 
-#: lib/app/form/report.php:200 lib/app/form/report.php:201 lib/app/form/report.php:314
-#: lib/app/form/report.php:315 lib/app/form/report.php:419
+#: lib/app/form/report.php:205 lib/app/form/report.php:206 lib/app/form/report.php:319
+#: lib/app/form/report.php:320 lib/app/form/report.php:424
 msgid "Not answer"
 msgstr "بدون پاسخ"
 
