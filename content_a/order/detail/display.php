@@ -43,12 +43,10 @@
               <td><?php echo T_("Total") ?></td>
               <td><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'total')). ' '. \lib\store::currency(); ?></td>
             </tr>
-            <?php if(\dash\get::index($orderDetail, 'factor', 'desc')) {?>
               <tr class="warning">
-                <td><?php echo T_("Description") ?></td>
+                <td><?php echo T_("Description") ?> <a href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id') ?>" class="btn link"><?php echo T_("Edit") ?></a></td>
                 <td><?php echo \dash\get::index($orderDetail, 'factor', 'desc'); ?></td>
               </tr>
-            <?php } //endif ?>
 
             <tr>
               <td><?php echo T_("Address") ?></td>
