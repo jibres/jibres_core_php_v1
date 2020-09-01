@@ -42,9 +42,10 @@ class add
 			// 	}
 			// }
 
-			if($count_store_free >= 3)
+			$businessMaxLimit = 5;
+			if($count_store_free >= $businessMaxLimit)
 			{
-				$msg = T_("You can not have more than 3 free or trial stores."). ' '. T_("Contact Us if you need more stores");
+				$msg = T_("You can not have more than :val free or trial stores.", ['val' => $businessMaxLimit]). ' '. T_("Contact Us if you need more stores");
 
 				\dash\notif::code(1418);
 				if($_notif)
