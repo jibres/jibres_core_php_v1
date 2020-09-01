@@ -22,17 +22,6 @@
             </div>
 
 
-            <div class="<?php echo $myHide; ?> c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/channel">
-                    <div class="c-auto"><i class="sf-atom"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Sales Channels"); ?></h2>
-                        <p><?php echo T_("Manage the channels you use to sell your products"); ?></p>
-                    </div>
-                </a>
-            </div>
-
-
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/place">
                     <div class="c-auto"><i class="sf-pin"></i></div>
@@ -154,30 +143,6 @@
             </div>
 
 
-
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/accounting">
-                    <div class="c-auto"><i class="sf-book"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Accounting"); ?></h2>
-                        <p><?php echo T_("Manage your business accounting"); ?></p>
-                    </div>
-                </a>
-            </div>
-
-
-
-
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/form">
-                    <div class="c-auto"><i class="sf-file-text-o"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Form Builder"); ?></h2>
-                        <p><?php echo T_("Create online forms and publish them."); ?> <?php echo T_("Collect data."); ?></p>
-                    </div>
-                </a>
-            </div>
-
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/sms">
                     <div class="c-auto"><i class="sf-envelope"></i></div>
@@ -189,6 +154,32 @@
             </div>
 
 
+        </div>
+    </div>
+</div>
+
+<div class="box" data-settings>
+    <div class="body">
+        <div class="row">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/accounting">
+                    <div class="c-auto"><i class="sf-book"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Accounting"); ?></h2>
+                        <p><?php echo T_("Manage your business accounting"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/form">
+                    <div class="c-auto"><i class="sf-edit-write"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Form Builder"); ?></h2>
+                        <p><?php echo T_("Create online forms and publish them."); ?> <?php echo T_("Collect data."); ?></p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>

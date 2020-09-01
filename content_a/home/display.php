@@ -12,7 +12,7 @@
      <ul>
 <?php if(\dash\permission::check('productList')) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::here();?>/products">
+        <a class="item f" href="<?php echo \dash\url::here();?>/products">
           <div class="key"><?php echo T_('Products');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'product_count')); ?></div>
           <div class="go"></div>
@@ -21,7 +21,7 @@
 <?php } //endif ?>
 <?php if(\dash\permission::check('productAdd')) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::here();?>/products/add">
+        <a class="item f" href="<?php echo \dash\url::here();?>/products/add">
           <div class="key"><?php echo T_('Add new Product');?></div>
           <div class="go plus"></div>
         </a>
@@ -32,14 +32,14 @@
    <nav class="items long">
      <ul>
        <li>
-        <a class="f" href="<?php echo \dash\url::here();?>/factor">
+        <a class="item f" href="<?php echo \dash\url::here();?>/factor">
           <div class="key"><?php echo T_('Orders');?></div>
           <div class="go"></div>
         </a>
        </li>
 <?php if(\dash\permission::check('factorSaleAdd')) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::here();?>/sale">
+        <a class="item f" href="<?php echo \dash\url::here();?>/sale">
           <div class="key"><?php echo T_('Sale Invoicing');?></div>
           <div class="go plus"></div>
         </a>
@@ -47,7 +47,7 @@
 <?php } //endif ?>
 <?php if(\dash\permission::check('factorBuyAdd')) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::here();?>/buy">
+        <a class="item f" href="<?php echo \dash\url::here();?>/buy">
           <div class="key"><?php echo T_('Buy Invocing');?></div>
           <div class="go plus"></div>
         </a>
@@ -59,7 +59,7 @@
      <ul>
 <?php if(\dash\permission::check('customerAccess')) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::kingdom();?>/crm">
+        <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm">
           <div class="key"><?php echo T_('Customer');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'customer_count')); ?></div>
           <div class="go"></div>
@@ -68,7 +68,7 @@
 <?php } //endif ?>
 <?php if(\dash\permission::check('staffAccess')) {?>
        <li>
-        <a class="f" href="<?php echo \dash\url::kingdom();?>/crm">
+        <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm">
           <div class="key"><?php echo T_('Staff');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'staff_count')); ?></div>
           <div class="go"></div>
@@ -80,18 +80,27 @@
 
     <nav class="items long">
       <ul>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/website"><div class="key"><?php echo T_("Website setting"); ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/android"><div class="key"><?php echo T_("Android app"); ?></div><div class="go"></div></a></li>
+        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/website"><div class="key"><?php echo T_("Website setting"); ?></div><div class="go"></div></a></li>
+        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/android"><div class="key"><?php echo T_("Android app"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
 
 
     <nav class="items long">
       <ul>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
-        <li><a class="f" href="<?php echo \dash\url::here(); ?>/order"><div class="key"><?php echo T_("Orders"); ?></div><div class="go"></div></a></li>
+        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
+        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/order"><div class="key"><?php echo T_("Orders"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
+
+
+    <nav class="items long">
+      <ul>
+        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/form"><i class="sf-edit-write"></i><div class="key"><?php echo T_("Form Builder"); ?></div><div class="go"></div></a></li>
+        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/accounting"><i class="sf-book"></i><div class="key"><?php echo T_("Accounting"); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+
 
 </div>
 
