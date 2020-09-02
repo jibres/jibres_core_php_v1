@@ -1,0 +1,1 @@
+<?php /*just need to exist this file to route page and posts. @TODO @reza Need to fix :| */ ?>

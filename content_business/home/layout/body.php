@@ -29,7 +29,7 @@ $module_url =
 	'shipping' => $here. '/shipping/display.php',
 ];
 
-if(\dash\data::postIsLoaded())
+if(\dash\engine\template::$finded_template)
 {
 	// load the business post
 	require_once(__DIR__. '/body/body_load_post.php');

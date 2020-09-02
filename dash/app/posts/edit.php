@@ -110,6 +110,11 @@ trait edit
 
 		$_args['meta'] = 'need - meta :/ ';
 
+		if($args['slug'])
+		{
+			$_args['url'] = 'need - url :/ ';
+		}
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
