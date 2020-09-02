@@ -716,7 +716,8 @@ class generator
 			echo '<div data-uploader data-name="'. self::myName($value, true). '" data-final="#finalImage'. self::myID($value, true). '">';
 			{
 				echo '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
-				self::label($value,T_('Drag &amp; Drop your files or Browse'));
+				// T_('Drag &amp; Drop your files or Browse')
+				self::label($value);
 				echo '<label for="'. self::myID($value, true). '"><img id="finalImage'. self::myID($value, true). '" alt="'. T_("File"). '"></label>';
 			}
 			echo '</div>';
