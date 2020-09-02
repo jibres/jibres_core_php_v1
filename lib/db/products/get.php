@@ -45,15 +45,22 @@ class get
 	{
 		$query   =
 		"
-			SELECT SUM(myTable.my_finalprice) AS `total_finalprice`, SUM(myTable.my_price) AS `total_price`, SUM(myTable.my_profit) AS `total_profit`
+			SELECT
+				SUM(myTable.my_finalprice) AS `total_finalprice`,
+				SUM(myTable.my_price) AS `total_price`,
+				SUM(myTable.my_profit) AS `total_profit`,
+				SUM(myTable.my_discount) AS `total_discount`,
+				SUM(myTable.my_buyprice) AS `total_buyprice`
 			FROM
 			(
 				SELECT
 					@stock := (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1),
 					@stock := IF(@stock < 0 OR @stock IS NULL, 0, @stock),
 					(products.finalprice * @stock) AS `my_finalprice`,
+					(products.discount * @stock) AS `my_discount`,
 					(products.price * @stock) AS `my_price`,
-					((products.price * @stock) - (products.finalprice * @stock)) AS `my_profit`
+					(products.buyprice * @stock) AS `my_buyprice`,
+					((products.finalprice * @stock) - (products.buyprice * @stock)) AS `my_profit`
 				FROM
 					products
 				WHERE
