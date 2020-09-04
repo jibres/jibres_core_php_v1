@@ -323,6 +323,8 @@ class who
 				}
 			}
 
+			$temp = \dash\safe::safe($temp);
+
 			$nic_contact_detail[] = $temp;
 		}
 
