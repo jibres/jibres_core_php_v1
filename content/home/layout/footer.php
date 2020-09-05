@@ -50,7 +50,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
     <div class="f">
         <div class="f" id="footerMenu">
 
-          <nav class="c s12 ph12 m6 pLR10 items simple">
+          <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li><h3><?php echo T_('eCommerce'); ?></h3></li>
               <li>
@@ -74,7 +74,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             </ul>
           </nav>
 
-          <nav class="c s12 ph12 m6 pLR10 items simple">
+          <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li><h3><?php echo T_('Domain Center'); ?></h3></li>
               <li>
@@ -110,7 +110,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             </ul>
           </nav>
 
-          <nav class="c s12 ph12 m6 pLR10 items simple">
+          <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li><h3><?php echo T_('Support'); ?></h3></li>
               <li>
@@ -153,7 +153,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             </ul>
           </nav>
 
-          <nav class="c s12 ph12 m6 pLR10 items simple">
+          <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li><h3><?php echo T_('Resources'); ?></h3></li>
               <li>
@@ -195,7 +195,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             </ul>
           </nav>
 
-          <nav class="c s12 ph12 m6 pLR10 items simple">
+          <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li><h3><?php echo T_('Jibres Company'); ?></h3></li>
               <li>

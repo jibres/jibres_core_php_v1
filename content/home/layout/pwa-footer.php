@@ -7,14 +7,17 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
   <div class="avand-md">
     <h2><a href="<?php echo \dash\url::kingdom() ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h2>
     <div class="f">
-      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://pub.daneshbonyan.ir/"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='DaneshBonyan Jibres'></a></div>
-      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div> -->
-      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-shaparak.png" alt=''></a></div> -->
-      <div class="c3 s4"><a tabindex='-1' target="_blank" href="https://jibres.ir/certificates"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bmn.png" alt=''></a></div>
-      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://trustseal.enamad.ir/?id=118387&Code=2iL8ULp5lVA5oSXMRiLp"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad.png" alt=''></a></div>
-      <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="http://qom.irannsr.org/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/content_view.php&cnt_id=225820&ctp_id=61&id=17394&sisOp=view"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-nsr.png" alt=''></a></div>
-      <!-- <div class="c3 s4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href=""><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png" alt=''></a></div> -->
-      <div class="c3 s4"><img data-src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=460, height=600, top=30")'></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://pub.daneshbonyan.ir/"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='دانش‌بنیان - جیبرس'></a></div>
+      <!-- <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt='جیبرس پرداخت یار رسمی بانک مرکزی '></a></div> -->
+      <!-- <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-shaparak.png" alt='جیبرس دارای مجوز ارائه درگاه پرداخت اینترنتی'></a></div> -->
+      <div class="c3 s6 ph4"><a tabindex='-1' href="<?php echo \dash\url::kingdom(); ?>/certificates"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bmn.png" alt='بنیاد ملی نخبگان'></a></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://www.nic.ir/List_of_Resellers"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-irnic.png" alt='جیبرس نماینده رسمی ایرنیک'></a></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://trustseal.enamad.ir/?id=118387&Code=2iL8ULp5lVA5oSXMRiLp"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad.png" alt='جیبرس دارای نماد اعتماد الکترونیکی'></a></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="http://qom.irannsr.org/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/content_view.php&cnt_id=225820&ctp_id=61&id=17394&sisOp=view"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-nsr.png" alt='جیبرس عضو رسمی سازمان نظام صنفی رایانه'></a></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' href="<?php echo \dash\url::kingdom() ?>/certificates"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png" alt='جیبرس برند ثبت شده'></a></div>
+
+      <div class="c3 s6 ph4"><a tabindex='-1' href="<?php echo \dash\url::kingdom(); ?>/certificates"><img id="samandehiCert" src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='جیبرس دارای نماد ساماندهی' data-open="https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe"></a></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' href="<?php echo \dash\url::kingdom(); ?>/certificates"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-chambertrust.png" alt='جیبرس عضو اتاق بازرگانی ایران'></a></div>
     </div>
   </div>
 </section>
@@ -29,7 +32,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
   <div class="avand">
     <figure class="f align-center logo">
       <a class="cauto s12" href="/">
-        <img loading="lazy" src="<?php echo \dash\url::cdn();
+        <img src="<?php echo \dash\url::cdn();
        if (\dash\language::current() === 'fa')
        {
         echo "/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg";
@@ -45,10 +48,9 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
 
     <div class="f">
-
         <div class="f" id="footerMenu">
 
-          <nav class="c3 s12 pLR10 items">
+          <nav class="c s12 ph12 m6 pLR10 items simple">
             <ul>
               <li><h3><?php echo T_('eCommerce'); ?></h3></li>
               <li>
@@ -63,26 +65,39 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                   <div class="go"></div>
                 </a>
               </li>
+              <li>
+                <a class="f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
+                  <div class="key"><?php echo T_('Developers API'); ?></div>
+                  <div class="go"></div>
+                </a>
+              </li>
             </ul>
           </nav>
 
-          <?php
-          if (false)
-          {
-          ?>
-
-          <nav class="c3 s12 pLR10 items">
+          <nav class="c s12 ph12 m6 pLR10 items simple">
             <ul>
-              <li><h3><?php echo T_('Domains'); ?></h3></li>
+              <li><h3><?php echo T_('Domain Center'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/domain">
+                <a class="f" href="<?php echo $kingdom; ?>/domains">
                 <div class="key"><?php echo T_('Domain Name Search'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/domain/transfer">
+                <a class="f" href="<?php echo $kingdom; ?>/domains/search">
+                <div class="key"><?php echo T_('Buy new domain'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/my/domain/transfer">
                 <div class="key"><?php echo T_('Transfer Domain'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/my/domain/renew">
+                <div class="key"><?php echo T_('Renew your Domain'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
@@ -95,12 +110,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             </ul>
           </nav>
 
-          <?php
-          } // endif
-          ?>
-
-
-          <nav class="c3 s12 pLR10 items">
+          <nav class="c s12 ph12 m6 pLR10 items simple">
             <ul>
               <li><h3><?php echo T_('Support'); ?></h3></li>
               <li>
@@ -122,20 +132,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 </a>
               </li>
               <li>
-                <a class="f" href="https://status.jibres.com" target="_blank" rel="nofollow noopener">
-                <div class="key"><?php echo T_('System Status'); ?> <span class="mLa5 sf-external-link"></span></div>
-                <div class="go"></div>
-                </a>
-              </li>
-              <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support/ticket/add">
-                <div class="key"><?php echo T_('Submit Ticket'); ?></div>
-                <div class="go"></div>
-                </a>
-              </li>
-              <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support/ticket/add?type=bug">
-                <div class="key"><?php echo T_('Report Bug'); ?></div>
+                <a class="f" href="<?php echo $kingdom; ?>/status">
+                <div class="key"><?php echo T_('System Status'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
@@ -145,10 +143,17 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 <div class="go"></div>
                 </a>
               </li>
+
+              <li>
+                <a class="f" href="<?php echo $kingdom; ?>/bug">
+                <div class="key"><?php echo T_('Jibres Bug Program'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
             </ul>
           </nav>
 
-          <nav class="c3 s12 pLR10 items">
+          <nav class="c s12 ph12 m6 pLR10 items simple">
             <ul>
               <li><h3><?php echo T_('Resources'); ?></h3></li>
               <li>
@@ -190,7 +195,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             </ul>
           </nav>
 
-          <nav class="c3 s12 pLR10 items">
+          <nav class="c s12 ph12 m6 pLR10 items simple">
             <ul>
               <li><h3><?php echo T_('Jibres Company'); ?></h3></li>
               <li>
@@ -224,8 +229,8 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 </a>
               </li>
               <li>
-                <a class="f" target="_blank" href="<?php echo $kingdom; ?>/careers">
-                <div class="key"><?php echo T_('Careers'); ?> <span class="mLa5 sf-external-link"></span></div>
+                <a class="f" href="<?php echo $kingdom; ?>/careers">
+                <div class="key"><?php echo T_('Careers'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
@@ -237,7 +242,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
               </li>
               <li>
                 <a class="f" href="<?php echo $kingdom; ?>/brand">
-                <div class="key"><?php echo T_('Brand Styleguide'); ?></div>
+                <div class="key"><?php echo T_('Brand Style Guide'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
@@ -254,7 +259,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
     <div id="jibresLastLine" class="f align-center">
       <div id="jibresCopyright" class="cauto s12">&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'). ' '. T_('Jibres, LLC'). ' ' ; ?>&reg;</div>
-      <nav class="c s12 langlist"><?php
+      <nav class="c s12 pLR10 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
           echo "<a hreflang='en' target='_blank' rel='follow noopener' href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
@@ -277,8 +282,6 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
         <a target="_blank" rel="nofollow noopener" href="https://instagram.com/JibresDotCom" class="instagram">Follow Jibres on Instagram</a>
       </nav>
     </div>
-
-
   </div>
 </div>
 
