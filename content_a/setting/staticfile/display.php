@@ -16,7 +16,7 @@
           <div class="c-xs-12 c">
             <label for="filecontent"><?php echo T_("file content"); ?> <span class="fc-red">* <?php echo T_("Required") ?></span></label>
             <div class="input mB0-f ltr">
-              <input type="text" name="filecontent" id="filecontent" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1"  >
+              <input type="text" name="filecontent" id="filecontent" <?php \dash\layout\autofocus::html() ?> maxlength='200' minlength="1"  >
             </div>
 
           </div>
