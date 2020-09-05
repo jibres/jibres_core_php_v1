@@ -166,8 +166,8 @@ class find
 		$myFooter = \dash\layout\func::page_footer();
 		$myContent = \dash\engine\content::get();
 
-		// set header for some scenario
-		// if we dont have header
+		// set footer for some scenario
+		// if we dont have footer
 		// and we are not in api content
 		if($myFooter === null && !\dash\engine\content::api_content())
 		{
