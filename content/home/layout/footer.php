@@ -54,19 +54,19 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <ul>
               <li><h3><?php echo T_('eCommerce'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/benefits">
+                <a class="item f" href="<?php echo $kingdom; ?>/benefits">
                   <div class="key"><?php echo T_('Benefits'); ?></div>
                   <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/pricing">
+                <a class="item f" href="<?php echo $kingdom; ?>/pricing">
                   <div class="key"><?php echo T_('Pricing'); ?></div>
                   <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
+                <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
                   <div class="key"><?php echo T_('Developers API'); ?></div>
                   <div class="go"></div>
                 </a>
@@ -78,31 +78,31 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <ul>
               <li><h3><?php echo T_('Domain Center'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/domains">
+                <a class="item f" href="<?php echo $kingdom; ?>/domains">
                 <div class="key"><?php echo T_('Domain Name Search'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/domains/search">
+                <a class="item f" href="<?php echo $kingdom; ?>/domains/search">
                 <div class="key"><?php echo T_('Buy new domain'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/my/domain/transfer">
+                <a class="item f" href="<?php echo $kingdom; ?>/my/domain/transfer">
                 <div class="key"><?php echo T_('Transfer Domain'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/my/domain/renew">
+                <a class="item f" href="<?php echo $kingdom; ?>/my/domain/renew">
                 <div class="key"><?php echo T_('Renew your Domain'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/whois">
+                <a class="item f" href="<?php echo $kingdom; ?>/whois">
                 <div class="key"><?php echo T_('Whois Lookup'); ?></div>
                 <div class="go"></div>
                 </a>
@@ -114,38 +114,38 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <ul>
               <li><h3><?php echo T_('Support'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support">
+                <a class="item f" href="<?php echo $kingdom; ?>/support">
                 <div class="key"><?php echo T_('Support Center'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/contact">
+                <a class="item f" href="<?php echo $kingdom; ?>/contact">
                 <div class="key"><?php echo T_('Contact'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support/faq">
+                <a class="item f" href="<?php echo $kingdom; ?>/support/faq">
                 <div class="key"><?php echo T_('FAQ'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/status">
+                <a class="item f" href="<?php echo $kingdom; ?>/status">
                 <div class="key"><?php echo T_('System Status'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback">
+                <a class="item f" href="<?php echo $kingdom; ?>/support/ticket/add?type=feedback">
                 <div class="key"><?php echo T_('Send us Feedback'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
 
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/bug">
+                <a class="item f" href="<?php echo $kingdom; ?>/bug">
                 <div class="key"><?php echo T_('Jibres Bug Program'); ?></div>
                 <div class="go"></div>
                 </a>
@@ -157,37 +157,37 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <ul>
               <li><h3><?php echo T_('Resources'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/blog">
+                <a class="item f" href="<?php echo $kingdom; ?>/blog">
                 <div class="key"><?php echo T_('Blog'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/terms">
+                <a class="item f" href="<?php echo $kingdom; ?>/terms">
                 <div class="key"><?php echo T_('Terms of Service'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/privacy">
+                <a class="item f" href="<?php echo $kingdom; ?>/privacy">
                 <div class="key"><?php echo T_('Privacy Policy'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/changelog">
+                <a class="item f" href="<?php echo $kingdom; ?>/changelog">
                 <div class="key"><?php echo T_('Changelog'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/certificates">
+                <a class="item f" href="<?php echo $kingdom; ?>/certificates">
                 <div class="key"><?php echo T_('Certificates'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/socialresponsibility">
+                <a class="item f" href="<?php echo $kingdom; ?>/socialresponsibility">
                 <div class="key"><?php echo T_('Social Responsibility'); ?></div>
                 <div class="go"></div>
                 </a>
@@ -199,55 +199,55 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <ul>
               <li><h3><?php echo T_('Jibres Company'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/about">
+                <a class="item f" href="<?php echo $kingdom; ?>/about">
                 <div class="key"><?php echo T_('About Jibres'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/mission">
+                <a class="item f" href="<?php echo $kingdom; ?>/mission">
                 <div class="key"><?php echo T_('Jibres Mission'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/vision">
+                <a class="item f" href="<?php echo $kingdom; ?>/vision">
                 <div class="key"><?php echo T_('Jibres Vision'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/values">
+                <a class="item f" href="<?php echo $kingdom; ?>/values">
                 <div class="key"><?php echo T_('Our Values'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/team">
+                <a class="item f" href="<?php echo $kingdom; ?>/team">
                 <div class="key"><?php echo T_('Our Team'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/careers">
+                <a class="item f" href="<?php echo $kingdom; ?>/careers">
                 <div class="key"><?php echo T_('Careers'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/logo">
+                <a class="item f" href="<?php echo $kingdom; ?>/logo">
                 <div class="key"><?php echo T_('Jibres Logo'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/brand">
+                <a class="item f" href="<?php echo $kingdom; ?>/brand">
                 <div class="key"><?php echo T_('Brand Style Guide'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/press">
+                <a class="item f" href="<?php echo $kingdom; ?>/press">
                 <div class="key"><?php echo T_('Press and Media'); ?></div>
                 <div class="go"></div>
                 </a>
@@ -262,11 +262,11 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
       <nav class="c s12 pLR10 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
-          echo "<a hreflang='en' target='_blank' rel='follow noopener' href='https://jibres.com'>English <span class='mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='en' target='_blank' rel='follow noopener' href='https://jibres.com'>English <span class='compact mLa5 sf-external-link'></span></a>";
         }
         else
         {
-          echo "<a hreflang='fa' target='_blank' rel='follow noopener' href='https://jibres.ir'>فارسی <span class='mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='fa' target='_blank' rel='follow noopener' href='https://jibres.ir'>فارسی <span class='compact mLa5 sf-external-link'></span></a>";
         }
       ?></nav>
       <nav class="cauto s12 os share1">
