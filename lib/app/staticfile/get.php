@@ -38,7 +38,12 @@ class get
 
 		$list = self::get_list();
 
-		if(isset($list[$filename]))
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		if(array_key_exists($filename, $list))
 		{
 			\dash\code::jsonBoom($list[$filename], null, 'txt');
 		}
