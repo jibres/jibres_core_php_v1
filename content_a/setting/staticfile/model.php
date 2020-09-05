@@ -12,7 +12,7 @@ class model
 			$post =
 			[
 				'filename'    => \dash\request::post('name'),
-				'filecontent' => \dash\request::post('content'),
+
 			];
 
 			$result = \lib\app\staticfile\remove::remove($post);

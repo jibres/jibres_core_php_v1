@@ -13,7 +13,7 @@ class remove
 			'filecontent' => 'string_500',
 		];
 
-		$data = \dash\cleanse::input($_args, $condition, ['filename', 'filecontent'], []);
+		$data = \dash\cleanse::input($_args, $condition, ['filename'], []);
 
 
 		$cat   = 'staticfile_verify';
@@ -31,7 +31,7 @@ class remove
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				if($value['key'] === $data['filename'] && $value['value'] === $data['filecontent'])
+				if($value['key'] === $data['filename'])
 				{
 					\lib\db\setting\delete::record($value['id']);
 					\dash\notif::ok(T_("File removed"));
