@@ -14,7 +14,7 @@ class add
 			'filecontent' => 'string_500',
 		];
 
-		$data = \dash\cleanse::input($_args, $condition, ['filename', 'filecontent'], []);
+		$data = \dash\cleanse::input($_args, $condition, ['filename'], []);
 
 		$args = \dash\cleanse::patch_mode($_args, $data);
 
