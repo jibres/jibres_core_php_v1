@@ -8,7 +8,7 @@
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step1-500.png" alt="<?php echo T_('Point of Sale Software'); ?>">
 <?php } ?>
         <h3 class="s0-"><?php echo T_('Point of Sale Software'); ?></h3>
-        <p class="s0"><?php echo T_('Barcode reader'). T_(','). T_('Receipt printer'). T_(','). T_('PC POS'). T_(','). T_('Label Printing Scale'). T_(','). T_('Invoice Software'); ?></p>
+        <p class="s0"><?php echo T_('Barcode reader'). T_(', '). T_('Receipt printer'). T_(', '). T_('PC POS'). T_(', '). T_('Label Printing Scale'). T_(', '). T_('Invoice Software'); ?></p>
       </div>
     </div>
 
@@ -28,7 +28,7 @@
         <img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-saleChannels-step3-500.png" alt='<?php echo T_('Mobile Online Store'); ?>'>
 <?php } ?>
         <h3 class="s0-"><?php echo T_('Mobile Online Store'); ?></h3>
-        <p class="s0"><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(','). T_('Fully Customizable'); ?></p>
+        <p class="s0"><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(', '). T_('Fully Customizable'); ?></p>
       </div>
     </div>
 
