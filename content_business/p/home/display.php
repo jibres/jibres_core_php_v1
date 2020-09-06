@@ -209,7 +209,7 @@ if(count($myGallery) > 1)
           <?php echo \dash\face::site(); ?> <?php echo T_("facebook"); ?>
         </a>
 
-        <a target="_blank" title='<?php echo T_("twitter"); ?>' href="https://twitter.com/intent/tweet?url=<?php echo urlencode(\dash\url::pwd()); ?>&amp;text=<?php echo urlencode(\dash\face::desc()); ?>&hastag=test&via=MyJibres" class="twitter">
+        <a target="_blank" title='<?php echo T_("twitter"); ?>' href="https://twitter.com/intent/tweet?url=<?php echo urlencode(\dash\url::pwd()); ?>&amp;text=<?php echo urlencode(\dash\face::desc()); ?>" class="twitter">
           <?php echo \dash\face::site(). ' '. T_("twitter"); ?>
         </a>
 

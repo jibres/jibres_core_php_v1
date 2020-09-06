@@ -91,14 +91,17 @@ class view
 		$currency = \lib\store::currency();
 		$seo_desc = [];
 
-		if(\dash\data::dataRow_price())
+		if(\dash\data::dataRow_finalprice() !== \dash\data::dataRow_price())
 		{
-			$seo_desc[] = T_("List Price"). ' '. \dash\fit::number(\dash\data::dataRow_price());
-		}
+			if(\dash\data::dataRow_price())
+			{
+				$seo_desc[] = T_("List Price"). ' '. \dash\fit::number(\dash\data::dataRow_price());
+			}
 
-		if(\dash\data::dataRow_discountpercent())
-		{
-			$seo_desc[] = T_("Discount"). ' '. \dash\fit::number(\dash\data::dataRow_discountpercent()). T_("%");
+			if(\dash\data::dataRow_discountpercent())
+			{
+				$seo_desc[] = T_("Discount"). ' '. \dash\fit::number(\dash\data::dataRow_discountpercent()). T_("%");
+			}
 		}
 
 		if(\dash\data::dataRow_finalprice())
