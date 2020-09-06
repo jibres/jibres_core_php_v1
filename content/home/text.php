@@ -1,3 +1,9 @@
+We know why people buy, and why people don't.
+
+
+
+<!-- shopify -->
+
 Build an online business
 Try Shopify free for 14 days, no credit card required.
 
@@ -471,10 +477,94 @@ SUPPORT • WEB DESIGNERS • MARKETING SPECIALISTS
 
 
 <!-- https://www.bigcartel.com/ -->
-
 Easy online stores for artists & makers
 We make it simple to build a unique online store, sell your work, and run a creative business.
 
 Keep your money
 We don’t take a cut of your sales or charge a bunch of fees. Just pick one of our affordable monthly plans to fit your needs and budget.
+
+
+<!-- https://www.3dcart.com/ -->
+Build an online store that ranks higher and sells more.
+Looking to grow your online business? We can help you increase visitors and sales with the leading ecommerce software for SEO. Starting at just $19/mo.
+
+
+
+<!-- https://www.riskified.com/ -->
+Turn shoppers into customers
+Increase revenue at every step of the eCommerce path to purchase.
+
+Fix the leaks in your eCommerce purchase funnel
+Inaccurate decisions and outdated banking systems are stopping your business from achieving its full eCommerce revenue potential. The world’s fastest-growing businesses trust our AI platform to reduce friction and minimize loss along the path to purchase.
+
+Maximize online revenue
+Riskified identifies legitimate shoppers and makes it easier for them to purchase. Partner with us to lift revenue, improve customer experience, and drive loyalty.
+
+Expand your business
+Our scalable solution adapts to meet your evolving needs as you enter markets, launch new products, and offer omnichannel fulfillment flows.
+
+Protect your bottom line
+Our machine-learning models deliver instant decisions, allowing you to streamline good shoppers’ journeys and nip eCommerce fraud attacks in the bud.
+
+
+
+<!-- https://shoplineapp.com/ -->
+Global Smart Commerce Enabler
+Empower merchants to succeed everywhere
+
+
+Website
+Simple and Powerful
+Creating a website has never been easier!
+SHOPLINE online store platform is designed to boost your sales and to handle everything from product listings, payments, shipping to marketing promotion settings. Our smart responsive web design (RWD) adapts perfectly to any browsing device and makes it easy for you to own a store that reflects your vision and brand values.
+
+
+Social Commerce
+Monetize your followers
+Convert your followers into customers
+Let social media be part of your sales channels! Whether it is Facebook or Whatsapp, SHOPLINE Social Commerce offers full-featured tools such as Livestream, Chatbot, Message and broadcast Center to boost your sales.
+
+
+Point of Sales (POS) System
+Retail POS
+Cut through the complexity
+All you need is an iPad to run your retail operations! SHOPLINE POS system streamlines every in-store operations including checkout process, stock management, membership sign-ups, and even staff attendance!
+
+
+<!-- https://www.netohq.com/ -->
+Build, optimise, and grow your wholesale or multi-channel ecommerce business.
+Neto is the only Australian B2B and multi-channel ecommerce platform that provides an all-in-one solution for ecommerce, POS, inventory management, order management, and shipping labelling.
+
+
+The Neto difference
+
+Local support & hosting
+Unlike our US competitors, Neto is hosted, supported and developed in Australia. We started out as an Australian multi-channel retailer. We speak your language, and we know this market.
+
+
+<!-- https://www.x-cart.com/ -->
+Finally, an eCommerce System Designed to Meet Your Needs
+Your business is constantly changing, you need an eCommerce platform that is flexible, scalable, and affordable. Big or small, our customizable features grow as your digital footprint expands.
+No risk, no credit cards required. Set up your personal store now, pick a plan later.
+
+Why choose X-Cart?
+Easy to use, easy to maintain, easy to modify
+
+
+
+<!-- https://craftcms.com/commerce -->
+Craft Commerce is flexible and customizable so you can build exactly the store you need.
+
+No themes. Every store created with Craft Commerce is unique.
+Completely customizable from design to variants to checkout to receipts.
+Pick and choose the features and functionality you need. No more, no less.
+
+
+<!-- https://cloudcart.com/ -->
+All-in-One eCommerce Platform with Marketing Tools for More Conversions!
+
+Save Time & Money for your Business
+Build a successful world-class, high converting online store without the need for a big initial investment in software. Invest your money smarter in advertisement in order to get more clients and drive more sales.
+
+
 
