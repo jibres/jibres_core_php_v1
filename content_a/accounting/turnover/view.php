@@ -44,6 +44,7 @@ class view
 		$args['total']     = \dash\request::get('total');
 		$args['assistant'] = \dash\request::get('assistant');
 		$args['details']   = \dash\request::get('details');
+		$args['status_verify'] = true;
 
 		$startdate         = \dash\request::get('startdate');
 		$startdate         = \dash\validate::date($startdate, false);

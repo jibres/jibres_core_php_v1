@@ -33,17 +33,18 @@ class search
 
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => ['enum' => ['number', 'date']],
-			'year_id'   => 'id',
-			'contain'   => 'id',
-			'group'     => 'id',
-			'total'     => 'id',
-			'assistant' => 'id',
-			'details'   => 'id',
-			'startdate' => 'date',
-			'enddate'   => 'date',
-			'export'    => 'bit',
+			'order'         => 'order',
+			'sort'          => ['enum' => ['number', 'date']],
+			'year_id'       => 'id',
+			'contain'       => 'id',
+			'group'         => 'id',
+			'total'         => 'id',
+			'assistant'     => 'id',
+			'details'       => 'id',
+			'startdate'     => 'date',
+			'enddate'       => 'date',
+			'export'        => 'bit',
+			'status_verify' => 'bit',
 		];
 
 		$require = [];
@@ -155,6 +156,11 @@ class search
 		if($data['details'])
 		{
 			$and[] = " tax_docdetail.details_id = $data[details] ";
+		}
+
+		if($data['status_verify'])
+		{
+			$and[] = " tax_document.status != 'draft' ";
 		}
 
 
