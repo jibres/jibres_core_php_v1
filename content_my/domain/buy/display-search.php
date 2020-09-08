@@ -1,3 +1,4 @@
+<?php if(\dash\url::content() === 'my') {?>
   <div class="f justify-center">
     <div class="c8 m9 s12">
 
@@ -19,6 +20,7 @@
         <?php } //endif ?>
     </div>
   </div>
+<?php } //endif ?>
 
 <?php
 $result = \dash\data::infoResult();
@@ -39,7 +41,7 @@ if(isset($result['com_master']))
 
 
 <div class="row ltr">
-  <div class="c-xs-12 c-sm-6 c-md-4">
+  <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
     <h5 class="txtB mT20"><?php echo T_("Dot IR TLD"); ?></h5>
     <?php if($result['ir_list']) {?>
@@ -83,7 +85,7 @@ if(isset($result['com_master']))
     <?php } //endif ?>
   <?php } //endif ?>
   </div>
-   <div class="c-xs-12 c-sm-6 c-md-4">
+   <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
     <h5 class="txtB mT20"><?php echo T_("International TLD"); ?></h5>
     <ul class="items">
@@ -119,7 +121,8 @@ if(isset($result['com_master']))
   </ul>
   <?php } //endif ?>
   </div>
-   <div class="c-xs-12 c-sm-6 c-md-4">
+  <?php if(\dash\url::content() === 'my') {?>
+   <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(\dash\data::domainSuggestion()) {?>
     <h5 class="txtB mT20"><?php echo T_("Our short suggestion"); ?></h5>
     <ul class="items">
@@ -140,6 +143,7 @@ if(isset($result['com_master']))
   </ul>
   <?php } //endif ?>
   </div>
+  <?php } //endif ?>
 </div>
 
 

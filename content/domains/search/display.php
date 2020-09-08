@@ -9,7 +9,7 @@
   </div>
  </form>
 
-<?php include "domainSearchResult.php"; ?>
+<?php include (root. 'content_my/domain/buy/display-search.php'); ?>
 
 
  </div>
