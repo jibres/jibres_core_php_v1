@@ -47,25 +47,32 @@
       <?php } //endif ?>
 
         <?php if(\dash\url::child() === 'report' && \dash\url::subchild() != 'balancesheet') {?>
-          <div class="c-xs-12 c-sm-3">
+          <div class="c-xs-12 c-sm-4">
             <label for="show" ><?php echo T_("Report type"); ?></label>
             <div class="row">
-              <div class="c-xs-4 c-sm-4">
+              <div class="c">
                 <div class="radio3">
                   <input type="radio" name="show" value="col2" id="col2" <?php if(\dash\request::get('show') === 'col2') { echo 'checked';} ?>>
                   <label for="col2"><?php echo T_("2 column"); ?></label>
                 </div>
               </div>
-              <div class="c-xs-4 c-sm-4">
+              <div class="c">
                 <div class="radio3">
                   <input type="radio" name="show" value="col4" id="col4" <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) { echo 'checked';} ?>>
                   <label for="col4"><?php echo T_("4 column"); ?></label>
                 </div>
               </div>
-              <div class="c-xs-4 c-sm-4">
+              <div class="c">
                 <div class="radio3">
                   <input type="radio" name="show" value="col6" id="col6" <?php if(\dash\request::get('show') === 'col6') { echo 'checked';} ?>>
                   <label for="col6"><?php echo T_("6 column"); ?></label>
+                </div>
+              </div>
+
+              <div class="c">
+                <div class="radio3">
+                  <input type="radio" name="show" value="balancesheet" id="balancesheet" <?php if(\dash\request::get('show') === 'balancesheet') { echo 'checked';} ?>>
+                  <label for="balancesheet"><?php echo T_("Balance sheet"); ?></label>
                 </div>
               </div>
 

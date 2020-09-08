@@ -44,14 +44,14 @@ class view
 		$args['enddate']   = $enddate ? $enddate : null;
 
 		$report = \lib\app\tax\doc\report::group_report($args);
+
 		\dash\data::reportDetail($report);
 
 		if(\dash\request::get('export'))
 		{
 			$export_name = "Accounting_report_group";
 
-
-			\dash\utility\export::csv(['name' => $export_name, 'data' => $report]);
+			\dash\utility\export::csv(['name' => $export_name, 'data' => \dash\data::reportDetail_list()]);
 		}
 
 	}
