@@ -58,6 +58,13 @@ class url
 			return false;
 		}
 
+		$check_is_ip = self::ip($data, false);
+		if($check_is_ip)
+		{
+			\dash\notif::error(T_("This is not a valid domain. This is an IP!"), ['element' => $_element, 'code' => 1605]);
+			return false;
+		}
+
 		$data = self::domain_clean($data, $_notif, $_element, $_field_title);
 
 		return $data;
