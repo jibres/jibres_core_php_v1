@@ -17,6 +17,13 @@
  </ul>
 </nav>
 
+
+<nav class="items">
+ <ul>
+   <li><a class="f" href="<?php echo \dash\url::here();?>/logout"><div class="key"><?php echo T_('Logout');?></div><div class="go"></div></a></li>
+ </ul>
+</nav>
+
 <?php }else{ ?>
 <nav class="items">
  <ul>
