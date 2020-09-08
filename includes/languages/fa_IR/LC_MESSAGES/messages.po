@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-08 09:44+0430\n"
-"PO-Revision-Date: 2020-09-08 09:44+0430\n"
+"POT-Creation-Date: 2020-09-08 21:06+0430\n"
+"PO-Revision-Date: 2020-09-08 21:08+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -764,7 +764,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_a/accounting/doc/add/display-doc.php:61 content_a/accounting/doc/display.php:8
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/irvat/all/display.php:133
-#: content_a/accounting/turnover/display.php:138 content_a/cart/add/display.php:53
+#: content_a/accounting/turnover/display.php:151 content_a/cart/add/display.php:53
 #: content_a/cart/home/display.php:111 content_a/chap/size-a4/a4-1.php:35
 #: content_a/factor/home/display.php:476 content_a/order/home/display.php:486
 #: content_a/products/comment/display.php:86 content_account/billing/display.php:53
@@ -1326,7 +1326,7 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_love/store/analytics/display.php:8 content_love/store/display.php:7
 #: content_love/store/display.php:9 content_love/store/domain/display.php:6
 #: content_love/store/domain/display.php:8 content_love/transactions/display.php:46
-#: content_my/domain/buy/display-search.php:11 content_my/domain/irnic/display.php:40
+#: content_my/domain/buy/display-search.php:12 content_my/domain/irnic/display.php:40
 #: content_my/domain/irnic/display.php:41 content_my/domain/predict/display.php:60
 #: content_my/domain/predict/display.php:61 content_my/domain/search/display.php:90
 #: content_my/domain/search/display.php:132 content_my/domain/short/display.php:45
@@ -1791,7 +1791,7 @@ msgstr "هزینه دامنه"
 msgid "Domains"
 msgstr "دامنه‌ها"
 
-#: content/domains/search/display.php:5 content_my/domain/buy/display-search.php:6
+#: content/domains/search/display.php:5 content_my/domain/buy/display-search.php:7
 msgid "Discover the perfect domain now"
 msgstr "همین الان به دنبال یک دامنه‌ی عالی بگردید"
 
@@ -3675,6 +3675,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/accounting/irvat/edit/view.php:12
 #: content_a/accounting/report/assistant/view.php:12
 #: content_a/accounting/report/balancesheet/view.php:12
+#: content_a/accounting/report/balancesheettemp/view.php:12
 #: content_a/accounting/report/detail/view.php:12
 #: content_a/accounting/report/group/view.php:12
 #: content_a/accounting/report/total/view.php:12 content_a/accounting/turnover/view.php:12
@@ -3952,6 +3953,7 @@ msgstr "لطفا والد را انتخاب کنید"
 
 #: content_a/accounting/coding/add/display-add.php:38
 #: content_a/accounting/report/balancesheet/display.php:10
+#: content_a/accounting/report/balancesheettemp/display.php:10
 #: content_a/accounting/report/group/display.php:10
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
 #: content_love/gift/all/display.php:60
@@ -4019,8 +4021,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/doc/add/display-docdetail.php:85
 #: content_a/accounting/doc/add/display-list.php:21
 #: content_a/accounting/doc/add/display-list.php:93
-#: content_a/accounting/turnover/display.php:107
-#: content_a/accounting/turnover/display.php:140
+#: content_a/accounting/turnover/display.php:153
 msgid "Debtor"
 msgstr "بدهکار"
 
@@ -4028,8 +4029,7 @@ msgstr "بدهکار"
 #: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/doc/add/display-list.php:22
 #: content_a/accounting/doc/add/display-list.php:95
-#: content_a/accounting/turnover/display.php:114
-#: content_a/accounting/turnover/display.php:141
+#: content_a/accounting/turnover/display.php:154
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -4041,7 +4041,7 @@ msgstr "بدهکار - بستانکار"
 msgid "Nature"
 msgstr "ماهیت"
 
-#: content_a/accounting/coding/add/display-add.php:91
+#: content_a/accounting/coding/add/display-add.php:91 content_a/accounting/filter.php:75
 #: includes/languages/trans_static.php:703
 msgid "Balance sheet"
 msgstr "ترازنامه‌ای"
@@ -4101,11 +4101,11 @@ msgstr "غیرفعال"
 #: content_a/accounting/coding/display.php:37
 #: content_a/accounting/doc/add/display-list.php:102
 #: content_a/accounting/doc/add/display-list.php:104
-#: content_a/accounting/doc/display.php:9 content_a/accounting/turnover/display.php:139
-#: content_a/accounting/year/display.php:8 content_a/android/apk/display.php:32
-#: content_a/form/answer/export/display.php:41 content_a/form/edit/display-woleedit.php:21
-#: content_a/form/edit/display.php:21 content_a/form/home/display.php:85
-#: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
+#: content_a/accounting/doc/display.php:9 content_a/accounting/year/display.php:8
+#: content_a/android/apk/display.php:32 content_a/form/answer/export/display.php:41
+#: content_a/form/edit/display-woleedit.php:21 content_a/form/edit/display.php:21
+#: content_a/form/home/display.php:85 content_a/order/detail/display.php:21
+#: content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
 #: content_a/products/edit/block/sidebar-menu.php:59
 #: content_a/products/export/display.php:57 content_a/products/status/view.php:18
@@ -4217,6 +4217,7 @@ msgstr "حذف"
 
 #: content_a/accounting/coding/add/display-choose.php:8
 #: content_a/accounting/report/balancesheet/display.php:11
+#: content_a/accounting/report/balancesheettemp/display.php:11
 #: content_a/accounting/report/group/display.php:11
 msgid "Accounting Group"
 msgstr "گروه"
@@ -4228,7 +4229,7 @@ msgstr "گروه"
 #: content_a/accounting/report/detail/display.php:12
 #: content_a/accounting/report/total/display.php:10
 #: content_a/accounting/turnover/display.php:48
-#: content_a/accounting/turnover/display.php:134
+#: content_a/accounting/turnover/display.php:147
 msgid "Accounting total"
 msgstr "کل"
 
@@ -4239,7 +4240,7 @@ msgstr "کل"
 #: content_a/accounting/report/assistant/display.php:12
 #: content_a/accounting/report/detail/display.php:13
 #: content_a/accounting/turnover/display.php:60
-#: content_a/accounting/turnover/display.php:135
+#: content_a/accounting/turnover/display.php:148
 msgid "Accounting assistant"
 msgstr "معین"
 
@@ -4249,7 +4250,7 @@ msgstr "معین"
 #: content_a/accounting/doc/add/display-docdetail.php:63
 #: content_a/accounting/report/detail/display.php:14
 #: content_a/accounting/turnover/display.php:72
-#: content_a/accounting/turnover/display.php:136
+#: content_a/accounting/turnover/display.php:149
 msgid "Accounting details"
 msgstr "تفصیل"
 
@@ -4277,7 +4278,7 @@ msgstr "همه"
 #: content_a/accounting/coding/all/display.php:15
 #: content_a/accounting/coding/display-list.php:19
 #: content_a/accounting/turnover/display.php:35
-#: content_a/accounting/turnover/display.php:133
+#: content_a/accounting/turnover/display.php:146
 #: content_a/category/property/display.php:15 content_a/category/property/display.php:19
 #: content_a/products/property/display.php:18 content_a/products/property/display.php:22
 #: content_a/products/property/display.php:129 lib/app/category/add.php:40
@@ -4411,7 +4412,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/coding/all/display.php:174
 #: content_a/accounting/coding/display-list.php:173
 #: content_a/accounting/doc/display.php:40 content_a/accounting/irvat/all/display.php:210
-#: content_a/accounting/turnover/display.php:174 content_a/category/home/display.php:156
+#: content_a/accounting/turnover/display.php:203 content_a/category/home/display.php:156
 #: content_a/company/display.php:136 content_a/factor/home/display.php:273
 #: content_a/form/answer/detail/display.php:74 content_a/form/answer/display.php:89
 #: content_a/form/answer/item/display.php:84 content_a/form/home/display.php:153
@@ -4567,7 +4568,7 @@ msgid "Vat price"
 msgstr "قیمت مالیات بر ارزش افزوده"
 
 #: content_a/accounting/doc/add/display-docdetail.php:150
-#: content_a/accounting/turnover/display.php:88
+#: content_a/accounting/turnover/display.php:99
 msgid "Tax price"
 msgstr "عوارض"
 
@@ -4590,7 +4591,11 @@ msgstr "در حال ویرایش"
 #: content_a/accounting/doc/add/display-list.php:76
 #: content_a/accounting/doc/add/display-list.php:93
 #: content_a/accounting/doc/add/display-list.php:95
-#: content_a/accounting/irvat/add/display.php:88 content_a/factor/home/display.php:129
+#: content_a/accounting/irvat/add/display.php:88
+#: content_a/accounting/report/assistant/display.php:58
+#: content_a/accounting/report/detail/display.php:63
+#: content_a/accounting/report/group/display.php:65
+#: content_a/accounting/report/total/display.php:55 content_a/factor/home/display.php:129
 #: content_a/order/add/display.php:20 content_a/order/detail/display.php:43
 #: content_a/order/home/display.php:138 content_a/sale/display.php:20
 #: content_business/cart/cartSummary.php:26 content_business/orders/display.php:19
@@ -4638,7 +4643,7 @@ msgstr "حداکثر اندازه فایل"
 msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/doc/display.php:7 content_a/accounting/turnover/display.php:132
+#: content_a/accounting/doc/display.php:7 content_a/accounting/turnover/display.php:144
 msgid "Number"
 msgstr "شماره"
 
@@ -4710,7 +4715,7 @@ msgstr "بازکردن قفل"
 msgid "Vat"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/accounting/doc/edit/view.php:141 content_a/accounting/turnover/display.php:87
+#: content_a/accounting/doc/edit/view.php:141 content_a/accounting/turnover/display.php:98
 msgid "Tax"
 msgstr "مالیات"
 
@@ -4756,11 +4761,11 @@ msgstr "۴ ستونه"
 msgid "6 column"
 msgstr "۶ ستونه"
 
-#: content_a/accounting/filter.php:79
+#: content_a/accounting/filter.php:86
 msgid "Reset document number?"
 msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 
-#: content_a/accounting/filter.php:83 content_a/accounting/turnover/display.php:95
+#: content_a/accounting/filter.php:90 content_a/accounting/turnover/display.php:107
 #: content_a/factor/home/display.php:386 content_a/order/home/display.php:396
 #: content_a/website/footer/template/display.php:11
 #: content_a/website/header/template/display.php:11 content_cms/posts/home/display.php:76
@@ -4768,7 +4773,7 @@ msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 msgid "Clear filter"
 msgstr "پاک‌سازی فیلترها"
 
-#: content_a/accounting/filter.php:85 content_a/accounting/turnover/display.php:97
+#: content_a/accounting/filter.php:92 content_a/accounting/turnover/display.php:109
 #: content_a/factor/home/display.php:387 content_a/order/home/display.php:397
 #: content_a/products/filter.php:35 content_cms/posts/home/display.php:77
 #: content_crm/member/home/display.php:336
@@ -4825,20 +4830,25 @@ msgid "Balance Sheet report"
 msgstr "گزارش ترازنامه‌ای"
 
 #: content_a/accounting/home/display.php:132
+#: content_a/accounting/report/balancesheettemp/view.php:9
+msgid "Balance Sheet temp report in group level"
+msgstr ""
+
+#: content_a/accounting/home/display.php:141
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:138
+#: content_a/accounting/home/display.php:147
 #: content_a/accounting/irvat/choosetype/display.php:18
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
-#: content_a/accounting/home/display.php:147
+#: content_a/accounting/home/display.php:156
 #: content_a/accounting/irvat/choosetype/display.php:26
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/home/display.php:156 content_love/gift/home/display.php:18
+#: content_a/accounting/home/display.php:165 content_love/gift/home/display.php:18
 msgid "List"
 msgstr "لیست"
 
@@ -5191,6 +5201,7 @@ msgstr "ویرایش فاکتور"
 
 #: content_a/accounting/report/assistant/display.php:4
 #: content_a/accounting/report/balancesheet/display.php:4
+#: content_a/accounting/report/balancesheettemp/display.php:4
 #: content_a/accounting/report/detail/display.php:4
 #: content_a/accounting/report/group/display.php:4
 #: content_a/accounting/report/total/display.php:3
@@ -5229,6 +5240,7 @@ msgstr "بستانکار طی دوره"
 #: content_a/accounting/report/detail/display.php:22
 #: content_a/accounting/report/group/display.php:21
 #: content_a/accounting/report/total/display.php:18
+#: content_a/accounting/turnover/display.php:119
 msgid "Sum Debtor"
 msgstr "جمع بدهکار"
 
@@ -5236,19 +5248,20 @@ msgstr "جمع بدهکار"
 #: content_a/accounting/report/detail/display.php:23
 #: content_a/accounting/report/group/display.php:22
 #: content_a/accounting/report/total/display.php:19
+#: content_a/accounting/turnover/display.php:126
 msgid "Sum Creditor"
 msgstr "جمع بستانکار"
 
 #: content_a/accounting/report/assistant/display.php:23
 #: content_a/accounting/report/detail/display.php:25
-#: content_a/accounting/report/group/display.php:25
+#: content_a/accounting/report/group/display.php:28
 #: content_a/accounting/report/total/display.php:21
 msgid "Remain Debtor"
 msgstr "مانده بدهکار"
 
 #: content_a/accounting/report/assistant/display.php:24
 #: content_a/accounting/report/detail/display.php:26
-#: content_a/accounting/report/group/display.php:26
+#: content_a/accounting/report/group/display.php:29
 #: content_a/accounting/report/total/display.php:22
 msgid "Remain Creditor"
 msgstr "مانده بستانکار"
@@ -5258,10 +5271,14 @@ msgid "Accounting report assistant"
 msgstr "گزارش حسابداری در سطح معین"
 
 #: content_a/accounting/report/balancesheet/display.php:13
+#: content_a/accounting/report/balancesheettemp/display.php:13
+#: content_a/accounting/report/group/display.php:25
 msgid "Opening value"
 msgstr "مقدار در افتتاحیه"
 
 #: content_a/accounting/report/balancesheet/display.php:14
+#: content_a/accounting/report/balancesheettemp/display.php:14
+#: content_a/accounting/report/group/display.php:26
 msgid "Current value"
 msgstr "مقدار فعلی"
 
@@ -5293,16 +5310,16 @@ msgstr "لطفا معین را انتخاب کنید"
 msgid "Please choose details"
 msgstr "لطفا تفصیل را وارد کنید"
 
-#: content_a/accounting/turnover/display.php:89
+#: content_a/accounting/turnover/display.php:100
 msgid "Total sales"
 msgstr "کل فروش"
 
-#: content_a/accounting/turnover/display.php:121 content_love/domain/credit/display.php:10
+#: content_a/accounting/turnover/display.php:133 content_love/domain/credit/display.php:10
 #: content_love/domain/credit/display.php:29
 msgid "Balance"
 msgstr "تراز"
 
-#: content_a/accounting/turnover/display.php:142
+#: content_a/accounting/turnover/display.php:155
 msgid "Remain"
 msgstr "مانده"
 
@@ -6835,7 +6852,7 @@ msgstr "جستجو با کلیدواژه‌ی :search"
 msgid "with condition"
 msgstr "به شرط"
 
-#: content_a/filter.php:69 content_my/domain/buy/display-search.php:61
+#: content_a/filter.php:69 content_my/domain/buy/display-search.php:63
 msgid "Invalid"
 msgstr "نامعتبر"
 
@@ -11558,8 +11575,9 @@ msgstr "بررسی"
 msgid "Logout from your account!"
 msgstr "خروج از حساب کاربری!"
 
-#: content_account/home/display.php:157 content_enter/app/display.php:20
-#: includes/languages/trans_static.php:566 includes/languages/trans_static_public.php:100
+#: content_account/home/display.php:157 content_business/profile/display-menu.php:23
+#: content_enter/app/display.php:20 includes/languages/trans_static.php:566
+#: includes/languages/trans_static_public.php:100
 msgid "Logout"
 msgstr "خروج از سیستم"
 
@@ -12350,7 +12368,7 @@ msgstr "هیچ سفارشی یافت نشد"
 
 #: content_business/orders/view.php:9 content_business/orders/view/view.php:9
 #: content_business/profile/display-menu.php:8
-#: content_business/profile/display-menu.php:25
+#: content_business/profile/display-menu.php:32
 msgid "My orders"
 msgstr "سفارشات من"
 
@@ -12462,7 +12480,7 @@ msgid "My profile"
 msgstr "پروفایل من"
 
 #: content_business/profile/display-menu.php:15
-#: content_business/profile/display-menu.php:24
+#: content_business/profile/display-menu.php:31
 msgid "My cart"
 msgstr "سبد خرید من"
 
@@ -12470,7 +12488,7 @@ msgstr "سبد خرید من"
 msgid "Change your password"
 msgstr "تغییر کلمه عبور"
 
-#: content_business/profile/display-menu.php:32 content_enter/home/display.php:61
+#: content_business/profile/display-menu.php:39 content_enter/home/display.php:61
 #: content_enter/signup/display.php:63 includes/languages/trans_static_public.php:166
 msgid "Login"
 msgstr "ورود به سیستم"
@@ -16778,41 +16796,41 @@ msgstr "آدرس‌های بیزینس"
 msgid "Invalid error syntax"
 msgstr "خطای ساختار اشتباه"
 
-#: content_my/domain/buy/display-search.php:7 content_my/home/display_site.php:29
+#: content_my/domain/buy/display-search.php:8 content_my/home/display_site.php:29
 msgid "Every website start with a great domain name"
 msgstr "داستان هر وب‌سایت با یک دامنه فوق العاده شروع می‌شود"
 
-#: content_my/domain/buy/display-search.php:17 content_my/domain/buy/model.php:20
+#: content_my/domain/buy/display-search.php:18 content_my/domain/buy/model.php:20
 #: content_my/domain/home/model.php:17 content_my/domain/search/model.php:17
 msgid "Please enter a valid domain"
 msgstr "لطفا دامنه را به صورت صحیح وارد کنید"
 
-#: content_my/domain/buy/display-search.php:44
+#: content_my/domain/buy/display-search.php:46
 msgid "Dot IR TLD"
 msgstr "پسوند‌های دات آی‌آر"
 
-#: content_my/domain/buy/display-search.php:59
+#: content_my/domain/buy/display-search.php:61
 msgid "Domain is restricted"
 msgstr "دامنه اجازه ثبت ندارد"
 
-#: content_my/domain/buy/display-search.php:63
-#: content_my/domain/buy/display-search.php:104
+#: content_my/domain/buy/display-search.php:65
+#: content_my/domain/buy/display-search.php:106
 msgid "Taken"
 msgstr "گرفته شده"
 
-#: content_my/domain/buy/display-search.php:82
-msgid "The IRNIC server not respond at this time!"
-msgstr "در حال حاضر ایرنیک پاسخ نمی‌دهد!"
+#: content_my/domain/buy/display-search.php:84
+msgid "The IRNIC server not respond at this time. Try again later!"
+msgstr "سرور ایرنیک در حال حاضر پاسخگو نیست. لطفا پس از مدتی مجدد تلاش کنید!"
 
-#: content_my/domain/buy/display-search.php:88
+#: content_my/domain/buy/display-search.php:90
 msgid "International TLD"
 msgstr "پسوند‌های بین‌المللی"
 
-#: content_my/domain/buy/display-search.php:102
+#: content_my/domain/buy/display-search.php:104
 msgid "Premium"
 msgstr "پرمیوم"
 
-#: content_my/domain/buy/display-search.php:124
+#: content_my/domain/buy/display-search.php:127
 msgid "Our short suggestion"
 msgstr "پیشنهاد ما"
 
@@ -20008,7 +20026,7 @@ msgstr "برنامه"
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:51
 #: lib/app/store/search.php:176 lib/app/store/search.php:296
 #: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:63
-#: lib/app/tax/docdetail/search.php:72 lib/app/tax/year/search.php:52
+#: lib/app/tax/docdetail/search.php:74 lib/app/tax/year/search.php:52
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
 
@@ -22739,23 +22757,27 @@ msgstr "مقدار آدرس اینترنتی اشتباه است"
 msgid "Domain must be contain one dot character."
 msgstr "دامنه حداقل باید دارای یک کاراکتر نقطه باشد."
 
-#: dash/validate/url.php:55 dash/validate/url.php:114
+#: dash/validate/url.php:55 dash/validate/url.php:121
 msgid "Domain can contain maximum 3 dot character"
 msgstr "دامنه حداکثر می‌توانید ۳ کاراکتر نقطه داشته باشد"
 
-#: dash/validate/url.php:91
+#: dash/validate/url.php:64
+msgid "This is not a valid domain. This is an IP!"
+msgstr "این یک دامنه معتبر نیست. این یک آدرس آی‌پی است!"
+
+#: dash/validate/url.php:98
 msgid "Domain can not start by dot character"
 msgstr "دامنه نمی‌تواند با نقطه شروع شود"
 
-#: dash/validate/url.php:146
+#: dash/validate/url.php:153
 msgid "This is not an IR domain"
 msgstr "این دامنه جزء دامنه‌های مجاز به ثبت در ایران نیست"
 
-#: dash/validate/url.php:171 dash/validate/url.php:195 dash/validate/url.php:217
+#: dash/validate/url.php:178 dash/validate/url.php:202 dash/validate/url.php:224
 msgid "IP is invalid"
 msgstr "آی‌پی نامعتبر است"
 
-#: dash/validate/url.php:240
+#: dash/validate/url.php:247
 msgid "DNS is invalid"
 msgstr "دی‌ان‌اس اشتباه است"
 
@@ -33128,6 +33150,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "The IRNIC server not respond at this time!"
+#~ msgstr "در حال حاضر ایرنیک پاسخ نمی‌دهد!"
 
 #~ msgid "Submit Ticket"
 #~ msgstr "ارسال تیکت"
