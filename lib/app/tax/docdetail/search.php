@@ -164,6 +164,7 @@ class search
 		if($data['status_verify'])
 		{
 			$and[] = " tax_document.status != 'draft' ";
+			$where_date[] = " myTaxDoc.status != 'draft' ";
 		}
 
 
