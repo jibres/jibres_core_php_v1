@@ -4,7 +4,7 @@ namespace lib\db\tax_docdetail;
 
 class search
 {
-	public static function list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
+	public static function list($_and = null, $_or = null, $_order_sort = null, $_meta = [], $_where_date = [])
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
@@ -15,6 +15,13 @@ class search
 		{
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
+
+		$where_date = null;
+		if($_where_date)
+		{
+			$where_date = ' AND '. implode(' AND ', $_where_date);
+		}
+
 
 
 		$query =
@@ -29,6 +36,7 @@ class search
 						myTaxDocDetail.assistant_id = tax_docdetail.assistant_id AND
 						myTaxDocDetail.details_id = tax_docdetail.details_id AND
 						myTaxDoc.number <= tax_document.number
+						$where_date
 				)
 				AS `balance_now`,
 				tax_docdetail.*,

@@ -129,7 +129,7 @@
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/balancesheettemp'; ?>'>
         <div class="statistic">
           <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Balance Sheet temp report"); ?></div>
+          <div class="label"><?php echo T_("Balance Sheet temp report in group level"); ?></div>
         </div>
       </a>
     </div>

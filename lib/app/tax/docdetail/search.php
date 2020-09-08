@@ -54,6 +54,7 @@ class search
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$and          = [];
+		$where_date   = [];
 		$meta         = [];
 		$or           = [];
 		$meta['join'] = [];
@@ -145,11 +146,13 @@ class search
 		if($data['startdate'])
 		{
 			$and[] = " tax_document.date >= '$data[startdate]' ";
+			$where_date[] = " myTaxDoc.date >= '$data[startdate]' ";
 		}
 
 		if($data['enddate'])
 		{
 			$and[] = " tax_document.date <= '$data[enddate]' ";
+			$where_date[] = " myTaxDoc.date <= '$data[enddate]' ";
 		}
 
 
@@ -193,7 +196,7 @@ class search
 			$order_sort = " ORDER BY tax_document.number ASC";
 		}
 
-		$list = \lib\db\tax_docdetail\search::list($and, $or, $order_sort, $meta);
+		$list = \lib\db\tax_docdetail\search::list($and, $or, $order_sort, $meta, $where_date);
 		$summary_list = \lib\db\tax_docdetail\search::summary_list($and, $or, $order_sort, $meta);
 
 		self::$summary_detail = $summary_list;

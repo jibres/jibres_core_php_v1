@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Balance Sheet report'));
+		\dash\face::title(T_('Balance Sheet temp report in group level'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
