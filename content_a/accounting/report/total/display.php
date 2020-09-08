@@ -31,8 +31,8 @@
             <td colspan="8" class="txtB fs14"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id')]); ?>"><?php echo \dash\get::index($value, 'group_title') ?></a></td>
           </tr>
         <?php } //endif ?>
-        <tr>
-          <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
+        <tr <?php if($key === 'sum') { echo 'class="negative"'; } ?>>
+          <td class="collapsing"><?php if($key !== 'sum') {echo \dash\fit::number(floatval($key) + 1); } else{ echo T_("Sum");} ?></td>
           <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id')]); ?>"><?php echo \dash\get::index($value, 'total_title') ?></a></td>
           <?php if(\dash\request::get('show') === 'col6') {?>
             <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'opening_debtor'), true, 'en') ?></code></td>

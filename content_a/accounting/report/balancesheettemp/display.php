@@ -16,18 +16,10 @@
         </tr>
       </thead>
       <tbody>
-         <?php $lastGroup = null; ?>
-      <?php foreach (\dash\data::reportDetail() as $key => $value) {?>
-        <?php if($lastGroup !== \dash\get::index($value, 'group_title')) {?>
-          <?php $lastGroup = \dash\get::index($value, 'group_title'); ?>
-          <tr class="positive">
-            <td colspan="8" class="txtB fs14"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id')]); ?>"><?php echo \dash\get::index($value, 'group_title') ?></a></td>
-          </tr>
-        <?php } //endif ?>
-
+        <?php foreach (\dash\data::reportDetail() as $key => $value) {?>
           <tr>
-            <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'total_code')) ?></td>
-            <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'total_id')]); ?>"><?php echo \dash\get::index($value, 'total_title') ?></a></td>
+            <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'group_code')) ?></td>
+            <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id')]); ?>"><?php echo \dash\get::index($value, 'group_title') ?></a></td>
           <td data-copy="<?php echo \dash\get::index($value, 'opening') ?>" class="font-12 ltr txtR fc-black"></i><code><?php echo \dash\fit::number(\dash\get::index($value, 'opening'), true, 'en') ?></code></td>
           <td data-copy="<?php echo \dash\get::index($value, 'current') ?>" class="font-12 ltr txtR fc-black"></i><code><?php echo \dash\fit::number(\dash\get::index($value, 'current'), true, 'en') ?></code></td>
           </tr>

@@ -484,6 +484,18 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
+		$sum                     = [];
+		$sum['remain_debtor']    = array_sum(array_column($normal, 'remain_debtor'));
+		$sum['remain_creditor']  = array_sum(array_column($normal, 'remain_creditor'));
+		$sum['sum_debtor']       = array_sum(array_column($normal, 'sum_debtor'));
+		$sum['sum_creditor']     = array_sum(array_column($normal, 'sum_creditor'));
+		$sum['opening_debtor']   = array_sum(array_column($normal, 'opening_debtor'));
+		$sum['opening_creditor'] = array_sum(array_column($normal, 'opening_creditor'));
+		$sum['debtor']           = array_sum(array_column($normal, 'debtor'));
+		$sum['creditor']         = array_sum(array_column($normal, 'creditor'));
+
+		$normal['sum'] = $sum;
+
 		return $normal;
 
 
@@ -630,6 +642,147 @@ class report
 
 
 	public static function group_report_balancesheet($_args)
+	{
+		$data = self::analyze_args($_args);
+
+		$result = \lib\db\tax_document\get::total_report($data);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$coding  = \dash\get::index($result, 'coding');
+		$normal  = \dash\get::index($result, 'normal');
+		$opening = \dash\get::index($result, 'opening');
+
+		$coding = array_combine(array_column($coding, 'id'), $coding);
+
+		if(!is_array($coding))
+		{
+			$coding = [];
+		}
+
+		if(!is_array($normal))
+		{
+			$normal = [];
+		}
+
+		if(!is_array($opening))
+		{
+			$opening = [];
+		}
+
+		// $opening = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $opening);
+		// $normal = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $normal);
+
+		foreach ($opening as $key => $value)
+		{
+			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
+			{
+				$opening[$key]['group_title'] = $coding[$value['group_id']]['title'];
+			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
+			{
+				$opening[$key]['total_title'] = $coding[$value['total_id']]['title'];
+			}
+		}
+
+		$normal = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $normal);
+
+		foreach ($normal as $key => $value)
+		{
+			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
+			{
+				$normal[$key]['group_title'] = $coding[$value['group_id']]['title'];
+			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
+			{
+				$normal[$key]['total_title'] = $coding[$value['total_id']]['title'];
+			}
+
+		}
+
+
+		$check_opening = array_combine(array_column($opening, 'string_id'), $opening);
+
+		foreach ($normal as $key => $value)
+		{
+			$string_id = null;
+			if(isset($value['string_id']))
+			{
+				$string_id = $value['string_id'];
+			}
+
+			if(isset($check_opening[$string_id]))
+			{
+				$opening_debtor   = $check_opening[$string_id]['debtor'];
+				$opening_creditor = $check_opening[$string_id]['creditor'];
+
+				$diff_opening = floatval($opening_debtor) - floatval($opening_creditor);
+
+				$normal[$key]['opening'] = $diff_opening;
+
+				$current_debtor   = $value['debtor'];
+				$current_creditor = $value['creditor'];
+
+				$diff_current = floatval($current_debtor) - floatval($current_creditor);
+
+				$normal[$key]['current'] = $diff_current;
+
+				unset($check_opening[$string_id]);
+			}
+			else
+			{
+
+				$current_debtor   = $value['debtor'];
+				$current_creditor = $value['creditor'];
+
+				$diff_current = floatval($current_debtor) - floatval($current_creditor);
+				$normal[$key]['current'] = $diff_current;
+
+				$normal[$key]['opening'] = 0;
+			}
+		}
+
+
+		if(!empty($check_opening))
+		{
+			$check_opening = array_values($check_opening);
+			foreach ($check_opening as $key => $value)
+			{
+				$opening_debtor   = $value['debtor'];
+				$opening_creditor = $value['creditor'];
+				$diff_opening = floatval($opening_debtor) - floatval($opening_creditor);
+
+				$normal[$key]['opening'] = $diff_opening;
+				$normal[$key]['current'] = 0;
+
+			}
+			$normal = array_merge($normal, $check_opening);
+		}
+
+
+		$sort = array_column($normal, 'string_id');
+
+		if(count($sort) === count($normal))
+		{
+			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
+		}
+
+		// var_dump($normal);exit();
+
+		return $normal;
+
+
+
+	}
+
+
+
+	public static function group_report_balancesheet_temp($_args)
 	{
 		$data = self::analyze_args($_args);
 		$result = \lib\db\tax_document\get::group_report($data);
