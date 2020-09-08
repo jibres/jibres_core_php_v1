@@ -118,7 +118,7 @@ class transfer
 		}
 		else
 		{
-			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
+			$check_nic_id = \lib\db\nic_contact\get::user_nic_id($user_id, $nic_id);
 			if(!isset($check_nic_id['nic_id']))
 			{
 				\dash\notif::error(T_("IRNIC handle not fount in your list"));
@@ -141,7 +141,7 @@ class transfer
 
 		$price = \lib\app\nic_domain\price::transfer();
 
-		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, $user_id);
 
 		\lib\app\domains\detect::domain('transfer', $domain);
 
@@ -173,7 +173,7 @@ class transfer
 		{
 			$insert =
 			[
-				'user_id'      => \dash\user::id(),
+				'user_id'      => $user_id,
 				'name'         => $domain,
 				'registrar'    => 'irnic',
 				'status'       => 'awaiting',
@@ -379,7 +379,7 @@ class transfer
 			$insert_billing =
 			[
 				'domain_id'      => $domain_id,
-				'user_id'        => \dash\user::id(),
+				'user_id'        => $user_id,
 				'action'         => 'transfer',
 				'status'         => 'enable',
 				'mode'           => 'manual',
@@ -428,7 +428,7 @@ class transfer
 			// // need to back money
 			// $insert_transaction =
 			// [
-			// 	'user_id' => \dash\user::id(),
+			// 	'user_id' => $user_id,
 			// 	'title'   => T_("Transfer failed :val", ['val' => $domain]),
 			// 	'verify'  => 1,
 			// 	'plus'    => $price,
