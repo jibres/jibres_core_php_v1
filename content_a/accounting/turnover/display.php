@@ -82,12 +82,34 @@
 			</div>
 		</div>
 		<footer>
-			<div class="txtRa">
-				<?php if(\dash\request::get()) {?>
-					<a href="<?php echo \dash\url::current() ?>" class="btn sm secondary outline"><?php echo T_("Clear filter") ?></a>
-				<?php } //endif ?>
-				<button class="btn sm master"><?php echo T_("Apply") ?></button>
+			<div class="f">
+				<div class="cauto">
+					<i class="sf-calculator mLR10" data-kerkere='.showDetailHide'></i>
+				</div>
+				<div class="cauto">
+					<div class="showDetailHide" data-kerkere-content='hide'>
+
+					<?php
+						$x = floatval(\dash\data::summaryDetail_balance());
+						$tax = $x;
+						$tax_price = $x / 2;
+						$total_sales = ($x / 6) * 100
+					?>
+					<div class="btn"><?php echo T_("Tax"); ?> <?php echo \dash\fit::number($tax) ?></div>
+					<div class="btn"><?php echo T_("Tax price"); ?> <?php echo \dash\fit::number($tax_price) ?></div>
+					<div class="btn"><?php echo T_("Total sales"); ?> <?php echo \dash\fit::number($total_sales) ?></div>
+					</div>
+
+				</div>
+				<div class="c"></div>
+				<div class="cauto">
+					<?php if(\dash\request::get()) {?>
+						<a href="<?php echo \dash\url::current() ?>" class="btn sm secondary outline"><?php echo T_("Clear filter") ?></a>
+					<?php } //endif ?>
+					<button class="btn sm master"><?php echo T_("Apply") ?></button>
+				</div>
 			</div>
+
 		</footer>
 	</div>
 </form>
