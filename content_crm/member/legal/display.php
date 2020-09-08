@@ -12,6 +12,7 @@
 	</div>
 
 	<div class="c s12 pA5">
+		<?php if(false) {?>
 		<?php if(!\dash\data::accountingDetailsId()) {?>
 			<form method="post" autocomplete="off">
 				<div class="box">
@@ -59,6 +60,7 @@
 				</footer>
 			</div>
 
+		<?php } //endif ?>
 		<?php } //endif ?>
 
 		<form class="box" method="post" autocomplete="off">

@@ -139,6 +139,7 @@
       </div>
 
       <div class="c-xs-12 c-sm-6 c-md-4">
+        <?php if(false) {?>
         <div class="box">
           <header><h2><?php echo T_("Smart accounting") ?></h2></header>
           <div class="body">
@@ -175,6 +176,7 @@
 
           </div>
         </div>
+      <?php } // endif ?>
         <div class="box">
           <header><h2><?php echo T_("Customer detail"); ?></h2></header>
           <div class="body">
