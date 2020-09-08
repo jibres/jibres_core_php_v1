@@ -142,10 +142,11 @@
 			<tr>
 				<td>#</td>
 				<th><?php echo T_("Number") ?></th>
-				<th><?php echo T_("Group") ?></th>
-				<th><?php echo T_("Accounting total") ?></th>
-				<th><?php echo T_("Accounting assistant") ?></th>
-				<th><?php echo T_("Accounting details") ?></th>
+
+				<?php if(\dash\request::get('group')) {}else{ echo '<th>'. T_("Group"). '</th>'; }?>
+				<?php if(\dash\request::get('total')) {}else{ echo '<th>'. T_("Accounting total"). '</th>'; }?>
+				<?php if(\dash\request::get('assistant')) {}else{ echo '<th>'. T_("Accounting assistant"). '</th>'; }?>
+				<?php if(\dash\request::get('details')) {}else{ echo '<th>'. T_("Accounting details"). '</th>'; }?>
 
 				<th><?php echo T_("Date") ?></th>
 
@@ -157,15 +158,31 @@
 		<tbody>
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 				<tr class="font-12">
-					<td><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>
+					<td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>
 					<td class="font-14">
 						<a class="link" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\get::index($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
 					</td>
 
-					<td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => null, 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'group_title'); ?></a></td>
-					<td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'total_title'); ?></a></td>
-					<td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id')]); ?>"><?php echo \dash\get::index($value, 'assistant_title'); ?></a></td>
-					<td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a></td>
+						<?php if(\dash\request::get('group')) {}else{?>
+					<td>
+						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => null, 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'group_title'); ?></a>
+					</td>
+					<?php } //endif ?>
+						<?php if(\dash\request::get('total')) {}else{?>
+					<td>
+						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'total_title'); ?></a>
+					</td>
+						<?php } //endif ?>
+						<?php if(\dash\request::get('assistant')) {}else{?>
+					<td>
+						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id')]); ?>"><?php echo \dash\get::index($value, 'assistant_title'); ?></a>
+					</td>
+						<?php } //endif	 ?>
+						<?php if(\dash\request::get('details')) {}else{?>
+					<td>
+						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a>
+					</td>
+						<?php } //endif ?>
 					<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 
 
