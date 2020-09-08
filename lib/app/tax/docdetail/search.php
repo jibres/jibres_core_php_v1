@@ -152,10 +152,10 @@ class search
 		}
 
 
-		// if($data['details'])
-		// {
-		// 	$and[] = " tax_docdetail.assistant_id = $data[details] ";
-		// }
+		if($data['details'])
+		{
+			$and[] = " tax_docdetail.details_id = $data[details] ";
+		}
 
 
 

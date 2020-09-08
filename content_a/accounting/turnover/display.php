@@ -73,7 +73,7 @@
 						<select class="select22" name="details">
 							<option value=""><?php echo T_("Please choose details") ?></option>
 							<?php foreach (\dash\data::detailsList() as $key => $value) {?>
-								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if($value === \dash\request::get('details')) { echo 'selected';} ?>><?php echo $value; ?></option>
+								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('details')) { echo 'selected';} ?>><?php echo $value; ?></option>
 							<?php } // endfor ?>
 						</select>
 					<?php } // endif ?>
