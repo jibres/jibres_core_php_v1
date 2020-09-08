@@ -27,7 +27,7 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach (\dash\data::reportDetail() as $key => $value) {?>
+        <?php foreach (\dash\data::reportDetail_list() as $key => $value) {?>
           <tr>
             <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'group_code')) ?></td>
             <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id')]); ?>"><?php echo \dash\get::index($value, 'group_title') ?></a></td>
@@ -49,5 +49,29 @@
           </tr>
         <?php } //endif ?>
       </tbody>
+      <tfoot>
+
+          <tr>
+            <td class="collapsing"><?php echo T_("Total") ?></td>
+            <td></td>
+
+          <?php if(\dash\request::get('show') === 'col6') {?>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'opening_debtor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'opening_creditor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'debtor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'creditor'), true, 'en') ?></code></td>
+          <?php } //endif ?>
+
+          <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'sum_debtor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'sum_creditor'), true, 'en') ?></code></td>
+          <?php } //endif ?>
+
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'remain_debtor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'remain_creditor'), true, 'en') ?></code></td>
+          </tr>
+
+
+      </tfoot>
     </table>
   <?php } //endif ?>

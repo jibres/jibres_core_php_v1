@@ -185,8 +185,17 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
-		return $normal;
+		$sum                     = [];
+		$sum['remain_debtor']    = array_sum(array_column($normal, 'remain_debtor'));
+		$sum['remain_creditor']  = array_sum(array_column($normal, 'remain_creditor'));
+		$sum['sum_debtor']       = array_sum(array_column($normal, 'sum_debtor'));
+		$sum['sum_creditor']     = array_sum(array_column($normal, 'sum_creditor'));
+		$sum['opening_debtor']   = array_sum(array_column($normal, 'opening_debtor'));
+		$sum['opening_creditor'] = array_sum(array_column($normal, 'opening_creditor'));
+		$sum['debtor']           = array_sum(array_column($normal, 'debtor'));
+		$sum['creditor']         = array_sum(array_column($normal, 'creditor'));
 
+		return ['list' => $normal, 'sum' => $sum];
 
 	}
 
@@ -332,7 +341,18 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
-		return $normal;
+		$sum                     = [];
+		$sum['remain_debtor']    = array_sum(array_column($normal, 'remain_debtor'));
+		$sum['remain_creditor']  = array_sum(array_column($normal, 'remain_creditor'));
+		$sum['sum_debtor']       = array_sum(array_column($normal, 'sum_debtor'));
+		$sum['sum_creditor']     = array_sum(array_column($normal, 'sum_creditor'));
+		$sum['opening_debtor']   = array_sum(array_column($normal, 'opening_debtor'));
+		$sum['opening_creditor'] = array_sum(array_column($normal, 'opening_creditor'));
+		$sum['debtor']           = array_sum(array_column($normal, 'debtor'));
+		$sum['creditor']         = array_sum(array_column($normal, 'creditor'));
+
+		return ['list' => $normal, 'sum' => $sum];
+
 
 
 	}
@@ -494,9 +514,7 @@ class report
 		$sum['debtor']           = array_sum(array_column($normal, 'debtor'));
 		$sum['creditor']         = array_sum(array_column($normal, 'creditor'));
 
-		$normal['sum'] = $sum;
-
-		return $normal;
+		return ['list' => $normal, 'sum' => $sum];
 
 
 	}
@@ -635,7 +653,19 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
-		return $normal;
+
+
+		$sum                     = [];
+		$sum['remain_debtor']    = array_sum(array_column($normal, 'remain_debtor'));
+		$sum['remain_creditor']  = array_sum(array_column($normal, 'remain_creditor'));
+		$sum['sum_debtor']       = array_sum(array_column($normal, 'sum_debtor'));
+		$sum['sum_creditor']     = array_sum(array_column($normal, 'sum_creditor'));
+		$sum['opening_debtor']   = array_sum(array_column($normal, 'opening_debtor'));
+		$sum['opening_creditor'] = array_sum(array_column($normal, 'opening_creditor'));
+		$sum['debtor']           = array_sum(array_column($normal, 'debtor'));
+		$sum['creditor']         = array_sum(array_column($normal, 'creditor'));
+
+		return ['list' => $normal, 'sum' => $sum];
 
 	}
 
