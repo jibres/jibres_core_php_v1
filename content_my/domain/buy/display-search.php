@@ -81,7 +81,7 @@ if(isset($result['com_master']))
     <?php } //endfor ?>
   </ul>
     <?php }else{ ?>
-      <div class="msg fs14"><?php echo T_("The IRNIC server not respond at this time!") ?></div>
+      <div class="msg danger fs14 rtl"><?php echo T_("The IRNIC server not respond at this time. Try again later!") ?></div>
     <?php } //endif ?>
   <?php } //endif ?>
   </div>
