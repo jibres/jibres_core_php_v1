@@ -205,8 +205,16 @@ class get
 
 	public static function list_details_raw()
 	{
-		$query = "SELECT DISTINCT tax_coding.title FROM tax_coding WHERE tax_coding.type = 'details'";
-		$result = \dash\db::get($query, 'title');
+		$query =
+		"
+			SELECT
+				tax_coding.*
+			FROM
+				tax_coding
+			WHERE tax_coding.type = 'details'
+		";
+
+		$result = \dash\db::get($query);
 		return $result;
 	}
 
