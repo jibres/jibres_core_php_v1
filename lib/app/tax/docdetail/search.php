@@ -190,7 +190,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY tax_document.date ASC, tax_document.number ASC";
+			$order_sort = " ORDER BY tax_document.number ASC";
 		}
 
 		$list = \lib\db\tax_docdetail\search::list($and, $or, $order_sort, $meta);
