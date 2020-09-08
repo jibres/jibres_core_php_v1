@@ -93,7 +93,7 @@ class run
 			{
 				if(\dash\engine\process::status())
 				{
-					\dash\notif::error(T_("Can not connect to domain server"));
+					\dash\notif::warn(T_("Can not connect to domain server"));
 				}
 
 				$insert_log['result'] = 'cannot-parse-xml';
@@ -151,13 +151,13 @@ class run
 		if($response && !is_string($response))
 		{
 			\dash\log::set('IRNIC:CurlErrorResponseIsNotString');
-			\dash\notif::error(T_("Result of IRNIC server is not valid!"));
+			\dash\notif::warn(T_("Result of IRNIC server is not valid!"));
 			return false;
 		}
 
 		if(mb_strlen($response) > 20000)
 		{
-			\dash\notif::error(T_("Response of IRNIC server is too large! Please contact to administrator"));
+			\dash\notif::warn(T_("Response of IRNIC server is too large! Please contact to administrator"));
 			\dash\log::set('IRNIC:CurlResponseMaxLen', ['responselen' => mb_strlen($response)]);
 			return false;
 		}
@@ -170,11 +170,11 @@ class run
 			{
 				if(is_string($response))
 				{
-					\dash\notif::error($response);
+					\dash\notif::warn($response);
 				}
 				else
 				{
-					\dash\notif::error(T_("Nic server is down!"));
+					\dash\notif::warn(T_("Nic server is down!"));
 				}
 			}
 			return $response;
@@ -184,7 +184,7 @@ class run
 		{
 			// echo Errors
 			\dash\log::set('IRNIC:CurlError', ['message' => $CurlError]);
-			\dash\notif::error(T_("Can not connect to domain server"));
+			\dash\notif::warn(T_("Can not connect to domain server"));
 
 			// \dash\notif::error(curl_error($ch));
 			return false;
@@ -195,14 +195,14 @@ class run
 		// با عرض پوزش، سامانه ایرنیک به جهت عملیات روزانه هر شب از ساعت ۲۳:۰۰ لغایت ۳۰ دقیقه بامداد در دسترس نمی‌باشد.
 		if($md5response === 'e933b76e159b9875b6af08f8b04cd40f')
 		{
-			\dash\notif::error(T_("IRNIC server in every day from 23:00 to 00:30 for upgrade process is busy and not respond."));
+			\dash\notif::warn(T_("IRNIC server in every day from 23:00 to 00:30 for upgrade process is busy and not respond."));
 			return false;
 		}
 
 		// کارگزار موقتاً در دسترس نمی‌باشد
 		if($md5response === 'ceb73d896cef2d43e15073ae71ef7531')
 		{
-			\dash\notif::error(T_("Server is temporary unavailable. We are sorry, IRNIC portal is not accessible due maintenance. We will back up soon"));
+			\dash\notif::warn(T_("Server is temporary unavailable. We are sorry, IRNIC portal is not accessible due maintenance. We will back up soon"));
 			return false;
 		}
 
@@ -211,7 +211,7 @@ class run
 		// Arvan 504 Time-out
 		if($md5response === '5f9bebf23e3d629f2651b895846e155c')
 		{
-			\dash\notif::error(T_("The waiting time for the domain server response was very long!"));
+			\dash\notif::warn(T_("The waiting time for the domain server response was very long!"));
 			return false;
 		}
 
