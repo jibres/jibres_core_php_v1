@@ -1,4 +1,8 @@
 <?php require_once(root. 'content_a/accounting/filter.php'); ?>
+<form method="post" id="formreset">
+	<input type="hidden" name="resetnumber" value="resetnumber">
+	<input type="hidden" name="year_id" value="<?php echo \dash\data::myYearId() ?>">
+</form>
 
 	<?php if(\dash\data::dataTable()) {?>
 		<table class="tbl1 v6  minimal font-12">

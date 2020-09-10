@@ -16,6 +16,10 @@ class view
 		\dash\data::action_text(T_('Add doc'));
 		\dash\data::action_link(\dash\url::that(). '/add');
 
+
+		\dash\face::btnInsert('formreset');
+		\dash\face::btnInsertText(T_("Reset"));
+
 		\dash\data::userToggleSidebar(false);
 
 		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
@@ -38,6 +42,8 @@ class view
 				}
 			}
 		}
+
+		\dash\data::myYearId($year_id);
 
 
 		$args['contain']   = \dash\request::get('contain');

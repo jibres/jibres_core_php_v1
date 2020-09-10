@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\Turnover;
+namespace content_a\accounting\turnover;
 
 
 class view
@@ -11,6 +11,10 @@ class view
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
+
+
+		\dash\face::btnInsert('formreset');
+		\dash\face::btnInsertText(T_("Reset"));
 
 		\dash\data::userToggleSidebar(false);
 
@@ -38,6 +42,8 @@ class view
 		{
 			$args['year_id'] = $year_id;
 		}
+
+		\dash\data::myYearId($year_id);
 
 		$args['contain']   = \dash\request::get('contain');
 		$args['group']     = \dash\request::get('group');

@@ -1,4 +1,7 @@
-
+<form method="post" id="formreset">
+	<input type="hidden" name="resetnumber" value="resetnumber">
+	<input type="hidden" name="year_id" value="<?php echo \dash\data::myYearId() ?>">
+</form>
 
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>">
 	<div class="box">
