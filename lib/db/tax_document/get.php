@@ -77,12 +77,23 @@ class get
 		$query =
 		"
 			SELECT
-				tax_docdetail.details_id,
 				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`,
-				tax_coding.title AS `details_title`,
 				tax_coding.parent1 AS `group_id`,
+				NULL AS `group_title`,
 				tax_coding.parent2 AS `total_id`,
+				NULL AS `total_title`,
 				tax_coding.parent3 AS `assistant_id`,
+				NULL AS `assistant_title`,
+				tax_docdetail.details_id,
+				tax_coding.title AS `details_title`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `opening_debtor`,
+				NULL AS `opening_creditor`,
+				NULL AS `opening`,
+				NULL AS `current`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM
@@ -103,12 +114,23 @@ class get
 		$query =
 		"
 			SELECT
-				tax_docdetail.details_id,
 				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`,
-				tax_coding.title AS `details_title`,
 				tax_coding.parent1 AS `group_id`,
+				NULL AS `group_title`,
 				tax_coding.parent2 AS `total_id`,
+				NULL AS `total_title`,
 				tax_coding.parent3 AS `assistant_id`,
+				NULL AS `assistant_title`,
+				tax_docdetail.details_id,
+				tax_coding.title AS `details_title`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `opening_debtor`,
+				NULL AS `opening_creditor`,
+				NULL AS `opening`,
+				NULL AS `current`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM
@@ -170,13 +192,13 @@ class get
 		$query =
 		"
 			SELECT
-				tax_docdetail.assistant_id,
 				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`,
-				tax_coding.title AS `assistant_title`,
 				tax_coding.parent1 AS `group_id`,
-				tax_coding.parent2 AS `total_id`,
 				NULL AS `group_title`,
+				tax_coding.parent2 AS `total_id`,
 				NULL AS `total_title`,
+				tax_docdetail.assistant_id,
+				tax_coding.title AS `assistant_title`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -205,13 +227,13 @@ class get
 		$query =
 		"
 			SELECT
-				tax_docdetail.assistant_id,
 				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`,
-				tax_coding.title AS `assistant_title`,
 				tax_coding.parent1 AS `group_id`,
-				tax_coding.parent2 AS `total_id`,
 				NULL AS `group_title`,
+				tax_coding.parent2 AS `total_id`,
 				NULL AS `total_title`,
+				tax_docdetail.assistant_id,
+				tax_coding.title AS `assistant_title`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -283,9 +305,9 @@ class get
 			SELECT
 				CONCAT(1, LPAD(IFNULL(MAX(tax_coding.parent1), 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0')) AS `string_id`,
 				MAX(tax_coding.parent1) AS `group_id`,
-				tax_coding.parent2 AS `total_id`,
 				NULL AS `group_title`,
-				NULL AS `total_title`,
+				tax_coding.parent2 AS `total_id`,
+				MAX(tax_coding.title) AS `total_title`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -317,8 +339,8 @@ class get
 			SELECT
 				CONCAT(1, LPAD(IFNULL(MAX(tax_coding.parent1), 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0')) AS `string_id`,
 				MAX(tax_coding.parent1) AS `group_id`,
-				tax_coding.parent2 AS `total_id`,
 				NULL AS `group_title`,
+				tax_coding.parent2 AS `total_id`,
 				MAX(tax_coding.title) AS `total_title`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
