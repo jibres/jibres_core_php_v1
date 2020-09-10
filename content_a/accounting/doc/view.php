@@ -52,6 +52,11 @@ class view
 		$args['enddate']   = $enddate ? $enddate : null;
 		$args['month']     = \dash\request::get('month');
 
+		if(\dash\request::get('status'))
+		{
+			$args['status'] = \dash\request::get('status');
+		}
+
 		if(\dash\request::get('export'))
 		{
 			$args['export'] = true;

@@ -35,6 +35,7 @@ class search
 			'enddate'   => 'date',
 			'month'     => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
 			'export'    => 'bit',
+			'status' => ['enum' => ['temp', 'draft', 'lock']],
 		];
 
 		$require = [];
@@ -120,6 +121,12 @@ class search
 		if($data['enddate'])
 		{
 			$and[] = " tax_document.date <= '$data[enddate]' ";
+		}
+
+		if($data['status'])
+		{
+			$and[] = " tax_document.status = '$data[status]' ";
+			self::$is_filtered = true;
 		}
 
 

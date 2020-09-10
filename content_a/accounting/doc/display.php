@@ -21,7 +21,7 @@
 						<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
 						<td class="">
 							<?php if(\dash\get::index($value, 'status') === 'lock') { echo '<i class="compact sf-lock fc-red mRa10"></i>';} else { echo '<i class="compact sf-unlock fc-green mRa10"></i>';}  ?>
-							<?php echo T_(\dash\get::index($value, 'tstatus')) ?>
+							<a href="<?php echo \dash\url::that(). '?status='. \dash\get::index($value, 'status'); ?>"><?php echo T_(\dash\get::index($value, 'tstatus')) ?></a>
 							<?php if(\dash\get::index($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
 						</td>
 						<td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')) ?></td>
