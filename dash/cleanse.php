@@ -608,8 +608,18 @@ class cleanse
 			case 'percent': 			$data = \dash\validate\number::number_percent(...$fn_args); 		break;
 			case 'price': 				$data = \dash\validate\number::price(...$fn_args); 					break;
 			case 'irnic_id': 			$data = \dash\validate\irnic::irnic_id(...$fn_args); 				break;
-			case 'bool': 				$data = boolval($_data); 											break;
 			case 'bit': 				$data = $_data ? 1 : null; 											break;
+
+			case 'bool':
+					if($_data === null)
+					{
+						$data = null;
+					}
+					else
+					{
+						$data = boolval($_data);
+					}
+				break;
 
 			case 'language':
 			case 'lang':

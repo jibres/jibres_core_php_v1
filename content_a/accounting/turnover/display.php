@@ -163,7 +163,7 @@
 			</tr>
 		</thead>
 		<tbody>
-				<?php if(\dash\request::get('status') === 'draft') { $myDataTable = \dash\data::dataTableDraft(); }else{  $myDataTable = \dash\data::dataTable(); } ?>
+				<?php $myDataTable = \dash\data::dataTable(); ?>
 				<?php foreach ($myDataTable as $key => $value) {?>
 				<tr class="font-12">
 					<td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>

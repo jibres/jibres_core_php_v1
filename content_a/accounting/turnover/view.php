@@ -44,30 +44,50 @@ class view
 		$args['total']     = \dash\request::get('total');
 		$args['assistant'] = \dash\request::get('assistant');
 		$args['details']   = \dash\request::get('details');
-		$args['status_verify'] = true;
 
-		$startdate         = \dash\request::get('startdate');
-		$startdate         = \dash\validate::date($startdate, false);
-		$enddate           = \dash\request::get('enddate');
-		$enddate           = \dash\validate::date($enddate, false);
+		if(\dash\request::get('status') === 'draft')
+		{
+			$args['status_unverify'] = true;
+		}
+		else
+		{
+			$args['status_verify'] = true;
+		}
 
-		$args['startdate'] = $startdate ? $startdate : null;
-		$args['enddate']   = $enddate ? $enddate : null;
+		$startdate              = \dash\request::get('startdate');
+		$startdate              = \dash\validate::date($startdate, false);
+		$enddate                = \dash\request::get('enddate');
+		$enddate                = \dash\validate::date($enddate, false);
+
+		$args['startdate']      = $startdate ? $startdate : null;
+		$args['enddate']        = $enddate ? $enddate : null;
+		$args['summary_detail'] = true;
 
 		if(\dash\request::get('export'))
 		{
-			$args['export'] = true;
+			$args['summary_detail'] = false;
+			$args['export']         = true;
 		}
 
 		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
-		$args_draft = $args;
-		unset($args_draft['status_verify']);
-		$args_draft['status_unverify'] = true;
 
-		$dataTableDraft = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args_draft);
-		\dash\data::dataTableDraft($dataTableDraft);
+		if(\dash\request::get('status') !== 'draft')
+		{
+			$args_draft                   = $args;
+			unset($args_draft['status_verify']);
+			unset($args_draft['export']);
+
+			$args_draft['status_unverify'] = true;
+			$args_draft['pagination']     = false;
+			$args_draft['limit']          = 1;
+			$args_draft['summary_detail'] = false;
+
+
+			$dataTableDraft = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args_draft);
+			\dash\data::dataTableDraft($dataTableDraft);
+		}
 
 
 		if(\dash\request::get('export'))

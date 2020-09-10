@@ -33,20 +33,23 @@ class search
 
 		$condition =
 		[
-			'order'         => 'order',
-			'sort'          => ['enum' => ['number', 'date']],
-			'year_id'       => 'id',
-			'contain'       => 'id',
-			'group'         => 'id',
-			'total'         => 'id',
-			'assistant'     => 'id',
-			'details'       => 'id',
-			'startdate'     => 'date',
-			'enddate'       => 'date',
-			'export'        => 'bit',
-			'status_verify' => 'bit',
+			'order'           => 'order',
+			'sort'            => ['enum' => ['number', 'date']],
+			'year_id'         => 'id',
+			'contain'         => 'id',
+			'group'           => 'id',
+			'total'           => 'id',
+			'assistant'       => 'id',
+			'details'         => 'id',
+			'startdate'       => 'date',
+			'enddate'         => 'date',
+			'export'          => 'bit',
+			'status_verify'   => 'bit',
 			'status_unverify' => 'bit',
-			'limit' => 'int',
+			'limit'           => 'int',
+			'pagination'      => 'bool',
+			'summary_detail'  => 'bool',
+
 
 		];
 
@@ -69,10 +72,21 @@ class search
 			$meta['limit'] = $data['limit'];
 		}
 
+		if($data['pagination'] === null)
+		{
+			$meta['pagination'] = true;
+		}
+		else
+		{
+			$meta['pagination'] = $data['pagination'];
+		}
+
 		if($data['export'])
 		{
 			$meta['pagination'] = false;
 		}
+
+
 
 		$order_sort  = null;
 
@@ -212,9 +226,12 @@ class search
 		}
 
 		$list = \lib\db\tax_docdetail\search::list($and, $or, $order_sort, $meta, $where_date);
-		$summary_list = \lib\db\tax_docdetail\search::summary_list($and, $or, $order_sort, $meta);
 
-		self::$summary_detail = $summary_list;
+		if($data['summary_detail'])
+		{
+			$summary_list = \lib\db\tax_docdetail\search::summary_list($and, $or, $order_sort, $meta);
+			self::$summary_detail = $summary_list;
+		}
 
 
 		if(!is_array($list))
