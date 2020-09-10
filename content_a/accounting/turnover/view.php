@@ -62,6 +62,14 @@ class view
 		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
+		$args_draft = $args;
+		unset($args_draft['status_verify']);
+		$args_draft['status_unverify'] = true;
+
+		$dataTableDraft = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args_draft);
+		\dash\data::dataTableDraft($dataTableDraft);
+
+
 		if(\dash\request::get('export'))
 		{
 			$export_name = "Accounting_turnover";

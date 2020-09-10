@@ -103,6 +103,9 @@
 				</div>
 				<div class="c"></div>
 				<div class="cauto">
+					<?php if(\dash\data::dataTableDraft()) {?>
+						<a class="btn link" href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['status' => 'draft']) ?>"><?php echo T_("You have some draft document!") ?></a>
+					<?php } // endif ?>
 					<?php if(\dash\request::get()) {?>
 						<a href="<?php echo \dash\url::current() ?>" class="btn sm secondary outline"><?php echo T_("Clear filter") ?></a>
 					<?php } //endif ?>
@@ -149,6 +152,10 @@
 				<?php if(\dash\request::get('details')) {}else{ echo '<th>'. T_("Accounting details"). '</th>'; }?>
 
 				<th><?php echo T_("Date") ?></th>
+				<?php if(\dash\request::get('status') === 'draft') { ?>
+				<th><?php echo T_("Status") ?></th>
+				<?php } // endif ?>
+
 
 				<th><?php echo T_("Debtor") ?></th>
 				<th><?php echo T_("Creditor") ?></th>
@@ -156,7 +163,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
+				<?php if(\dash\request::get('status') === 'draft') { $myDataTable = \dash\data::dataTableDraft(); }else{  $myDataTable = \dash\data::dataTable(); } ?>
+				<?php foreach ($myDataTable as $key => $value) {?>
 				<tr class="font-12">
 					<td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>
 					<td class="font-14">
@@ -184,6 +192,9 @@
 					</td>
 						<?php } //endif ?>
 					<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
+					<?php if(\dash\request::get('status') === 'draft') { ?>
+					<td><?php echo \dash\get::index($value, 'tstatus') ?></td>
+					<?php } // endif ?>
 
 
 					<td class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></td>

@@ -45,6 +45,9 @@ class search
 			'enddate'       => 'date',
 			'export'        => 'bit',
 			'status_verify' => 'bit',
+			'status_unverify' => 'bit',
+			'limit' => 'int',
+
 		];
 
 		$require = [];
@@ -59,7 +62,12 @@ class search
 		$or           = [];
 		$meta['join'] = [];
 
+
 		$meta['limit'] = 50;
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
 
 		if($data['export'])
 		{
@@ -165,6 +173,12 @@ class search
 		{
 			$and[] = " tax_document.status != 'draft' ";
 			$where_date[] = " myTaxDoc.status != 'draft' ";
+		}
+
+		if($data['status_unverify'])
+		{
+			$and[] = " tax_document.status = 'draft' ";
+			$where_date[] = " myTaxDoc.status = 'draft' ";
 		}
 
 
