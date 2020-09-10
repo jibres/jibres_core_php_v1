@@ -2,7 +2,9 @@
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
-  <table class="tbl1 v1 font-10">
+  <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
+    <h5 class="mT50"><?php echo \dash\get::index($group, 'detail', 'title'); ?></h5>
+    <table class="tbl1 v4 font-10">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -28,14 +30,8 @@
       </tr>
     </thead>
     <tbody>
-      <?php $lastGroup = null; ?>
-      <?php foreach (\dash\data::reportDetail_list() as $key => $value) {?>
-        <?php if($lastGroup !== \dash\get::index($value, 'group_title')) {?>
-          <?php $lastGroup = \dash\get::index($value, 'group_title'); ?>
-          <tr class="positive">
-            <td colspan="8" class="txtB fs14"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id')]); ?>"><?php echo \dash\get::index($value, 'group_title') ?></a></td>
-          </tr>
-        <?php } //endif ?>
+
+      <?php foreach ($group['list'] as $key => $value) {?>
         <tr>
           <td class="collapsing"><?php echo \dash\fit::number(floatval($key) + 1); ?></td>
           <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id')]); ?>"><?php echo \dash\get::index($value, 'total_title') ?></a></td>
@@ -66,6 +62,64 @@
             <td></td>
 
           <?php if(\dash\request::get('show') === 'col6') {?>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'opening_debtor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'opening_creditor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'debtor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'creditor'), true, 'en') ?></code></td>
+          <?php } //endif ?>
+
+          <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'sum_debtor'), true, 'en') ?></code></td>
+            <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'sum_creditor'), true, 'en') ?></code></td>
+          <?php } //endif ?>
+
+            <?php if(\dash\request::get('show') === 'balancesheet') {?>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'opening'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'current'), true, 'en') ?></code></td>
+        <?php }else{ ?>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_debtor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_creditor'), true, 'en') ?></code></td>
+
+          <?php } //endif ?>
+          </tr>
+      </tfoot>
+  </table>
+
+  <?php } //endfor ?>
+  <h5 class="mT50"><?php echo T_("Total") ?></h5>
+    <table class="tbl1 v6 font-10">
+    <thead>
+      <tr class="font-10">
+        <th class="collapsing"></th>
+
+        <th></th>
+        <?php if(\dash\request::get('show') === 'col6') {?>
+          <th><?php echo T_("Opening debtor") ?></th>
+          <th><?php echo T_("Opening creditor") ?></th>
+          <th class="txtR"><?php echo T_("Current Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Current Creditor") ?></th>
+        <?php } //endif ?>
+        <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
+          <th class="txtR"><?php echo T_("Sum Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Sum Creditor") ?></th>
+        <?php } //endif ?>
+          <?php if(\dash\request::get('show') === 'balancesheet') {?>
+          <th class="txtR"><?php echo T_("Opening value") ?></th>
+          <th class="txtR"><?php echo T_("Current value") ?></th>
+        <?php }else{ ?>
+          <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
+          <th class="txtR"><?php echo T_("Remain Creditor") ?></th>
+          <?php } //endif ?>
+      </tr>
+    </thead>
+
+     <tfoot>
+
+          <tr>
+            <td class="collapsing"><?php echo T_("Total") ?></td>
+            <td></td>
+
+          <?php if(\dash\request::get('show') === 'col6') {?>
             <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'opening_debtor'), true, 'en') ?></code></td>
             <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'opening_creditor'), true, 'en') ?></code></td>
             <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'debtor'), true, 'en') ?></code></td>
@@ -86,8 +140,7 @@
 
           <?php } //endif ?>
           </tr>
-
-
       </tfoot>
   </table>
+
 <?php } //endif ?>

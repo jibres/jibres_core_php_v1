@@ -223,7 +223,7 @@ class report
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
 
 
-		return ['list' => $normal, 'sum' => $sum];
+		return ['list' => $normal, 'sum' => $sum, 'pretty' => self::pretty_table($normal)];
 
 	}
 
@@ -406,7 +406,7 @@ class report
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
 
 
-		return ['list' => $normal, 'sum' => $sum];
+		return ['list' => $normal, 'sum' => $sum, 'pretty' => self::pretty_table($normal)];
 
 
 
@@ -594,7 +594,7 @@ class report
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
 
 
-		return ['list' => $normal, 'sum' => $sum];
+		return ['list' => $normal, 'sum' => $sum, 'pretty' => self::pretty_table($normal)];
 
 
 	}
@@ -784,6 +784,43 @@ class report
 		return $sum;
 	}
 
+
+	private static function pretty_table($_data)
+	{
+		$pretty = [];
+		foreach ($_data as $key => $value)
+		{
+			if(isset($value['group_id']) && $value['group_id'])
+			{
+				$group_id = $value['group_id'];
+				if(!isset($pretty[$group_id]))
+				{
+					$detail = ['group_id' => $group_id, 'title' => \dash\get::index($value, 'group_title')];
+					$pretty[$group_id] = ['detail' => $detail, 'list' => [], 'sum' => []];
+				}
+
+				$pretty[$group_id]['list'][] = $value;
+			}
+		}
+		foreach ($pretty as $key => $value)
+		{
+
+			$sum                     = [];
+			$sum['remain_debtor']    = self::my_array_sum(array_column($value['list'], 'remain_debtor'));
+			$sum['remain_creditor']  = self::my_array_sum(array_column($value['list'], 'remain_creditor'));
+			$sum['sum_debtor']       = self::my_array_sum(array_column($value['list'], 'sum_debtor'));
+			$sum['sum_creditor']     = self::my_array_sum(array_column($value['list'], 'sum_creditor'));
+			$sum['opening_debtor']   = self::my_array_sum(array_column($value['list'], 'opening_debtor'));
+			$sum['opening_creditor'] = self::my_array_sum(array_column($value['list'], 'opening_creditor'));
+			$sum['debtor']           = self::my_array_sum(array_column($value['list'], 'debtor'));
+			$sum['creditor']         = self::my_array_sum(array_column($value['list'], 'creditor'));
+			$sum['opening']          = self::my_array_sum(array_column($value['list'], 'opening'));
+			$sum['current']          = self::my_array_sum(array_column($value['list'], 'current'));
+			$pretty[$key]['sum'] = $sum;
+		}
+
+		return $pretty;
+	}
 
 
 
