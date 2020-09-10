@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-08 21:06+0430\n"
-"PO-Revision-Date: 2020-09-08 21:08+0430\n"
+"POT-Creation-Date: 2020-09-10 16:18+0430\n"
+"PO-Revision-Date: 2020-09-10 16:19+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -761,10 +761,10 @@ msgid "We are get all of certificates!"
 msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را گرفته‌ایم!"
 
 #: content/changelog/display.php:11 content_a/accounting/doc/add/display-doc.php:6
-#: content_a/accounting/doc/add/display-doc.php:61 content_a/accounting/doc/display.php:8
+#: content_a/accounting/doc/add/display-doc.php:61 content_a/accounting/doc/display.php:12
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/irvat/all/display.php:133
-#: content_a/accounting/turnover/display.php:151 content_a/cart/add/display.php:53
+#: content_a/accounting/turnover/display.php:157 content_a/cart/add/display.php:53
 #: content_a/cart/home/display.php:111 content_a/chap/size-a4/a4-1.php:35
 #: content_a/factor/home/display.php:476 content_a/order/home/display.php:486
 #: content_a/products/comment/display.php:86 content_account/billing/display.php:53
@@ -3674,8 +3674,6 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/accounting/irvat/choosetype/view.php:12
 #: content_a/accounting/irvat/edit/view.php:12
 #: content_a/accounting/report/assistant/view.php:12
-#: content_a/accounting/report/balancesheet/view.php:12
-#: content_a/accounting/report/balancesheettemp/view.php:12
 #: content_a/accounting/report/detail/view.php:12
 #: content_a/accounting/report/group/view.php:12
 #: content_a/accounting/report/total/view.php:12 content_a/accounting/turnover/view.php:12
@@ -3952,8 +3950,6 @@ msgid "Please choose parent"
 msgstr "لطفا والد را انتخاب کنید"
 
 #: content_a/accounting/coding/add/display-add.php:38
-#: content_a/accounting/report/balancesheet/display.php:10
-#: content_a/accounting/report/balancesheettemp/display.php:10
 #: content_a/accounting/report/group/display.php:10
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
 #: content_love/gift/all/display.php:60
@@ -4021,7 +4017,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/doc/add/display-docdetail.php:85
 #: content_a/accounting/doc/add/display-list.php:21
 #: content_a/accounting/doc/add/display-list.php:93
-#: content_a/accounting/turnover/display.php:153
+#: content_a/accounting/turnover/display.php:163
 msgid "Debtor"
 msgstr "بدهکار"
 
@@ -4029,7 +4025,7 @@ msgstr "بدهکار"
 #: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/doc/add/display-list.php:22
 #: content_a/accounting/doc/add/display-list.php:95
-#: content_a/accounting/turnover/display.php:154
+#: content_a/accounting/turnover/display.php:164
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -4101,11 +4097,11 @@ msgstr "غیرفعال"
 #: content_a/accounting/coding/display.php:37
 #: content_a/accounting/doc/add/display-list.php:102
 #: content_a/accounting/doc/add/display-list.php:104
-#: content_a/accounting/doc/display.php:9 content_a/accounting/year/display.php:8
-#: content_a/android/apk/display.php:32 content_a/form/answer/export/display.php:41
-#: content_a/form/edit/display-woleedit.php:21 content_a/form/edit/display.php:21
-#: content_a/form/home/display.php:85 content_a/order/detail/display.php:21
-#: content_a/products/comment/display.php:85
+#: content_a/accounting/doc/display.php:13 content_a/accounting/turnover/display.php:159
+#: content_a/accounting/year/display.php:8 content_a/android/apk/display.php:32
+#: content_a/form/answer/export/display.php:41 content_a/form/edit/display-woleedit.php:21
+#: content_a/form/edit/display.php:21 content_a/form/home/display.php:85
+#: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
 #: content_a/products/edit/block/sidebar-menu.php:59
 #: content_a/products/export/display.php:57 content_a/products/status/view.php:18
@@ -4216,8 +4212,6 @@ msgid "Remove"
 msgstr "حذف"
 
 #: content_a/accounting/coding/add/display-choose.php:8
-#: content_a/accounting/report/balancesheet/display.php:11
-#: content_a/accounting/report/balancesheettemp/display.php:11
 #: content_a/accounting/report/group/display.php:11
 msgid "Accounting Group"
 msgstr "گروه"
@@ -4225,11 +4219,14 @@ msgstr "گروه"
 #: content_a/accounting/coding/add/display-choose.php:17
 #: content_a/accounting/coding/all/display.php:21
 #: content_a/accounting/coding/display-list.php:25
+#: content_a/accounting/report/assistant/display-old.php:11
 #: content_a/accounting/report/assistant/display.php:11
-#: content_a/accounting/report/detail/display.php:12
-#: content_a/accounting/report/total/display.php:10
-#: content_a/accounting/turnover/display.php:48
-#: content_a/accounting/turnover/display.php:147
+#: content_a/accounting/report/detail/display-old.php:12
+#: content_a/accounting/report/detail/display.php:11
+#: content_a/accounting/report/total/display-old.php:10
+#: content_a/accounting/report/total/display.php:12
+#: content_a/accounting/turnover/display.php:51
+#: content_a/accounting/turnover/display.php:153
 msgid "Accounting total"
 msgstr "کل"
 
@@ -4237,10 +4234,12 @@ msgstr "کل"
 #: content_a/accounting/coding/all/display.php:27
 #: content_a/accounting/coding/display-list.php:31
 #: content_a/accounting/doc/add/display-docdetail.php:11
+#: content_a/accounting/report/assistant/display-old.php:12
 #: content_a/accounting/report/assistant/display.php:12
-#: content_a/accounting/report/detail/display.php:13
-#: content_a/accounting/turnover/display.php:60
-#: content_a/accounting/turnover/display.php:148
+#: content_a/accounting/report/detail/display-old.php:13
+#: content_a/accounting/report/detail/display.php:12
+#: content_a/accounting/turnover/display.php:63
+#: content_a/accounting/turnover/display.php:154
 msgid "Accounting assistant"
 msgstr "معین"
 
@@ -4248,9 +4247,10 @@ msgstr "معین"
 #: content_a/accounting/coding/all/display.php:34
 #: content_a/accounting/coding/display-list.php:38
 #: content_a/accounting/doc/add/display-docdetail.php:63
-#: content_a/accounting/report/detail/display.php:14
-#: content_a/accounting/turnover/display.php:72
-#: content_a/accounting/turnover/display.php:149
+#: content_a/accounting/report/detail/display-old.php:14
+#: content_a/accounting/report/detail/display.php:13
+#: content_a/accounting/turnover/display.php:75
+#: content_a/accounting/turnover/display.php:155
 msgid "Accounting details"
 msgstr "تفصیل"
 
@@ -4277,8 +4277,8 @@ msgstr "همه"
 
 #: content_a/accounting/coding/all/display.php:15
 #: content_a/accounting/coding/display-list.php:19
-#: content_a/accounting/turnover/display.php:35
-#: content_a/accounting/turnover/display.php:146
+#: content_a/accounting/turnover/display.php:38
+#: content_a/accounting/turnover/display.php:152
 #: content_a/category/property/display.php:15 content_a/category/property/display.php:19
 #: content_a/products/property/display.php:18 content_a/products/property/display.php:22
 #: content_a/products/property/display.php:129 lib/app/category/add.php:40
@@ -4411,8 +4411,8 @@ msgstr "کلمه ای جدید جستجو کنید."
 
 #: content_a/accounting/coding/all/display.php:174
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:40 content_a/accounting/irvat/all/display.php:210
-#: content_a/accounting/turnover/display.php:203 content_a/category/home/display.php:156
+#: content_a/accounting/doc/display.php:44 content_a/accounting/irvat/all/display.php:210
+#: content_a/accounting/turnover/display.php:217 content_a/category/home/display.php:156
 #: content_a/company/display.php:136 content_a/factor/home/display.php:273
 #: content_a/form/answer/detail/display.php:74 content_a/form/answer/display.php:89
 #: content_a/form/answer/item/display.php:84 content_a/form/home/display.php:153
@@ -4441,7 +4441,7 @@ msgstr "سلام!"
 
 #: content_a/accounting/coding/all/display.php:174
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:40 content_a/form/home/display.php:153
+#: content_a/accounting/doc/display.php:44 content_a/form/home/display.php:153
 msgid "Add new"
 msgstr "افزودن جدید"
 
@@ -4504,19 +4504,19 @@ msgstr "شما قبلا سند افتتاحیه در این سال ثبت کرد
 msgid "View Document"
 msgstr "نمایش سند"
 
-#: content_a/accounting/doc/add/display-doc.php:20 content_a/accounting/doc/display.php:25
+#: content_a/accounting/doc/add/display-doc.php:20 content_a/accounting/doc/display.php:29
 #: content_a/accounting/doc/edit/view.php:13
 msgid "Opening Document"
 msgstr "سند افتتاحیه"
 
 #: content_a/accounting/doc/add/display-doc.php:31 content_a/accounting/filter.php:25
-#: content_a/accounting/turnover/display.php:9
+#: content_a/accounting/turnover/display.php:12
 #: content_a/setting/accounting/resetnumber/display.php:14
 msgid "Accounting year"
 msgstr "سال مالی"
 
 #: content_a/accounting/doc/add/display-doc.php:33 content_a/accounting/filter.php:27
-#: content_a/accounting/turnover/display.php:11
+#: content_a/accounting/turnover/display.php:14
 #: content_a/setting/accounting/resetnumber/display.php:16
 msgid "Please choose year"
 msgstr "لطفا سال مالی را انتخاب کنید"
@@ -4568,7 +4568,7 @@ msgid "Vat price"
 msgstr "قیمت مالیات بر ارزش افزوده"
 
 #: content_a/accounting/doc/add/display-docdetail.php:150
-#: content_a/accounting/turnover/display.php:99
+#: content_a/accounting/turnover/display.php:102
 msgid "Tax price"
 msgstr "عوارض"
 
@@ -4592,10 +4592,19 @@ msgstr "در حال ویرایش"
 #: content_a/accounting/doc/add/display-list.php:93
 #: content_a/accounting/doc/add/display-list.php:95
 #: content_a/accounting/irvat/add/display.php:88
-#: content_a/accounting/report/assistant/display.php:58
-#: content_a/accounting/report/detail/display.php:63
+#: content_a/accounting/report/assistant/display-old.php:68
+#: content_a/accounting/report/assistant/display.php:62
+#: content_a/accounting/report/assistant/display.php:91
+#: content_a/accounting/report/assistant/display.php:122
+#: content_a/accounting/report/detail/display-old.php:73
+#: content_a/accounting/report/detail/display.php:68
+#: content_a/accounting/report/detail/display.php:98
+#: content_a/accounting/report/detail/display.php:130
 #: content_a/accounting/report/group/display.php:65
-#: content_a/accounting/report/total/display.php:55 content_a/factor/home/display.php:129
+#: content_a/accounting/report/total/display-old.php:65
+#: content_a/accounting/report/total/display.php:61
+#: content_a/accounting/report/total/display.php:89
+#: content_a/accounting/report/total/display.php:119 content_a/factor/home/display.php:129
 #: content_a/order/add/display.php:20 content_a/order/detail/display.php:43
 #: content_a/order/home/display.php:138 content_a/sale/display.php:20
 #: content_business/cart/cartSummary.php:26 content_business/orders/display.php:19
@@ -4643,20 +4652,20 @@ msgstr "حداکثر اندازه فایل"
 msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/doc/display.php:7 content_a/accounting/turnover/display.php:144
+#: content_a/accounting/doc/display.php:11 content_a/accounting/turnover/display.php:150
 msgid "Number"
 msgstr "شماره"
 
-#: content_a/accounting/doc/display.php:10 content_a/cart/home/display.php:26
+#: content_a/accounting/doc/display.php:14 content_a/cart/home/display.php:26
 #: content_a/cart/home/display.php:110 content_a/form/home/display.php:86
 msgid "Item count"
 msgstr "تعداد آیتم‌ها"
 
-#: content_a/accounting/doc/display.php:11
+#: content_a/accounting/doc/display.php:15
 msgid "Total debtor"
 msgstr "جمع بدهکار"
 
-#: content_a/accounting/doc/display.php:12
+#: content_a/accounting/doc/display.php:16
 msgid "Total creditor"
 msgstr "جمع بستانکار"
 
@@ -4715,7 +4724,8 @@ msgstr "بازکردن قفل"
 msgid "Vat"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/accounting/doc/edit/view.php:141 content_a/accounting/turnover/display.php:98
+#: content_a/accounting/doc/edit/view.php:141
+#: content_a/accounting/turnover/display.php:101
 msgid "Tax"
 msgstr "مالیات"
 
@@ -4727,18 +4737,23 @@ msgstr "سند حسابداری"
 msgid "Add doc"
 msgstr "افزودن سند"
 
+#: content_a/accounting/doc/view.php:21 content_a/accounting/turnover/view.php:17
+#: content_a/setting/accounting/resetnumber/display.php:31
+msgid "Reset"
+msgstr "تنظیم مجدد"
+
 #: content_a/accounting/filter.php:13
 msgid "Choose month"
 msgstr "لطفا ماه را انتخاب کنید"
 
-#: content_a/accounting/filter.php:36 content_a/accounting/turnover/display.php:21
+#: content_a/accounting/filter.php:36 content_a/accounting/turnover/display.php:24
 #: content_a/accounting/year/display.php:6 content_a/factor/home/display.php:494
 #: content_a/form/answer/display.php:51 content_a/order/home/display.php:504
 #: content_a/pricehistory/display.php:60
 msgid "Start date"
 msgstr "تاریخ شروع"
 
-#: content_a/accounting/filter.php:42 content_a/accounting/turnover/display.php:27
+#: content_a/accounting/filter.php:42 content_a/accounting/turnover/display.php:30
 #: content_a/accounting/year/display.php:7 content_a/factor/home/display.php:500
 #: content_a/form/answer/display.php:52 content_a/order/home/display.php:510
 #: content_a/pricehistory/display.php:61
@@ -4765,7 +4780,7 @@ msgstr "۶ ستونه"
 msgid "Reset document number?"
 msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 
-#: content_a/accounting/filter.php:90 content_a/accounting/turnover/display.php:107
+#: content_a/accounting/filter.php:90 content_a/accounting/turnover/display.php:113
 #: content_a/factor/home/display.php:386 content_a/order/home/display.php:396
 #: content_a/website/footer/template/display.php:11
 #: content_a/website/header/template/display.php:11 content_cms/posts/home/display.php:76
@@ -4773,7 +4788,7 @@ msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 msgid "Clear filter"
 msgstr "پاک‌سازی فیلترها"
 
-#: content_a/accounting/filter.php:92 content_a/accounting/turnover/display.php:109
+#: content_a/accounting/filter.php:92 content_a/accounting/turnover/display.php:115
 #: content_a/factor/home/display.php:387 content_a/order/home/display.php:397
 #: content_a/products/filter.php:35 content_cms/posts/home/display.php:77
 #: content_crm/member/home/display.php:336
@@ -4825,30 +4840,24 @@ msgid "Report on detail level"
 msgstr "گزارش در سطح تفصیل"
 
 #: content_a/accounting/home/display.php:123
-#: content_a/accounting/report/balancesheet/view.php:9
-msgid "Balance Sheet report"
-msgstr "گزارش ترازنامه‌ای"
+msgid "Balance Sheet temp report in group level"
+msgstr "ترازنامه آزمایشی در سطح گروه"
 
 #: content_a/accounting/home/display.php:132
-#: content_a/accounting/report/balancesheettemp/view.php:9
-msgid "Balance Sheet temp report in group level"
-msgstr ""
-
-#: content_a/accounting/home/display.php:141
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:147
+#: content_a/accounting/home/display.php:138
 #: content_a/accounting/irvat/choosetype/display.php:18
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
-#: content_a/accounting/home/display.php:156
+#: content_a/accounting/home/display.php:147
 #: content_a/accounting/irvat/choosetype/display.php:26
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/home/display.php:165 content_love/gift/home/display.php:18
+#: content_a/accounting/home/display.php:156 content_love/gift/home/display.php:18
 msgid "List"
 msgstr "لیست"
 
@@ -5199,88 +5208,151 @@ msgstr "شناسه یافت نشد"
 msgid "Edit factor"
 msgstr "ویرایش فاکتور"
 
-#: content_a/accounting/report/assistant/display.php:4
-#: content_a/accounting/report/balancesheet/display.php:4
-#: content_a/accounting/report/balancesheettemp/display.php:4
-#: content_a/accounting/report/detail/display.php:4
+#: content_a/accounting/report/assistant/display-old.php:4
+#: content_a/accounting/report/assistant/display.php:3
+#: content_a/accounting/report/detail/display-old.php:4
+#: content_a/accounting/report/detail/display.php:3
 #: content_a/accounting/report/group/display.php:4
+#: content_a/accounting/report/total/display-old.php:3
 #: content_a/accounting/report/total/display.php:3
 msgid "No detail was founded"
 msgstr "هیچ جزئياتی یافت نشد"
 
+#: content_a/accounting/report/assistant/display-old.php:14
 #: content_a/accounting/report/assistant/display.php:14
-#: content_a/accounting/report/detail/display.php:16
+#: content_a/accounting/report/assistant/display.php:100
+#: content_a/accounting/report/detail/display-old.php:16
+#: content_a/accounting/report/detail/display.php:15
+#: content_a/accounting/report/detail/display.php:108
 #: content_a/accounting/report/group/display.php:14
-#: content_a/accounting/report/total/display.php:12
+#: content_a/accounting/report/total/display-old.php:12
+#: content_a/accounting/report/total/display.php:14
+#: content_a/accounting/report/total/display.php:97
 msgid "Opening debtor"
 msgstr "بدهکار ابتدای دوره"
 
+#: content_a/accounting/report/assistant/display-old.php:15
 #: content_a/accounting/report/assistant/display.php:15
-#: content_a/accounting/report/detail/display.php:17
+#: content_a/accounting/report/assistant/display.php:101
+#: content_a/accounting/report/detail/display-old.php:17
+#: content_a/accounting/report/detail/display.php:16
+#: content_a/accounting/report/detail/display.php:109
 #: content_a/accounting/report/group/display.php:15
-#: content_a/accounting/report/total/display.php:13
+#: content_a/accounting/report/total/display-old.php:13
+#: content_a/accounting/report/total/display.php:15
+#: content_a/accounting/report/total/display.php:98
 msgid "Opening creditor"
 msgstr "بستانکار ابتدای دوره"
 
+#: content_a/accounting/report/assistant/display-old.php:16
 #: content_a/accounting/report/assistant/display.php:16
-#: content_a/accounting/report/detail/display.php:18
+#: content_a/accounting/report/assistant/display.php:102
+#: content_a/accounting/report/detail/display-old.php:18
+#: content_a/accounting/report/detail/display.php:17
+#: content_a/accounting/report/detail/display.php:110
 #: content_a/accounting/report/group/display.php:16
-#: content_a/accounting/report/total/display.php:14
+#: content_a/accounting/report/total/display-old.php:14
+#: content_a/accounting/report/total/display.php:16
+#: content_a/accounting/report/total/display.php:99
 msgid "Current Debtor"
 msgstr "بدهکار طی دوره"
 
+#: content_a/accounting/report/assistant/display-old.php:17
 #: content_a/accounting/report/assistant/display.php:17
-#: content_a/accounting/report/detail/display.php:19
+#: content_a/accounting/report/assistant/display.php:103
+#: content_a/accounting/report/detail/display-old.php:19
+#: content_a/accounting/report/detail/display.php:18
+#: content_a/accounting/report/detail/display.php:111
 #: content_a/accounting/report/group/display.php:17
-#: content_a/accounting/report/total/display.php:15
+#: content_a/accounting/report/total/display-old.php:15
+#: content_a/accounting/report/total/display.php:17
+#: content_a/accounting/report/total/display.php:100
 msgid "Current Creditor"
 msgstr "بستانکار طی دوره"
 
+#: content_a/accounting/report/assistant/display-old.php:20
 #: content_a/accounting/report/assistant/display.php:20
-#: content_a/accounting/report/detail/display.php:22
+#: content_a/accounting/report/assistant/display.php:106
+#: content_a/accounting/report/detail/display-old.php:22
+#: content_a/accounting/report/detail/display.php:21
+#: content_a/accounting/report/detail/display.php:114
 #: content_a/accounting/report/group/display.php:21
-#: content_a/accounting/report/total/display.php:18
-#: content_a/accounting/turnover/display.php:119
+#: content_a/accounting/report/total/display-old.php:18
+#: content_a/accounting/report/total/display.php:20
+#: content_a/accounting/report/total/display.php:103
+#: content_a/accounting/turnover/display.php:125
 msgid "Sum Debtor"
 msgstr "جمع بدهکار"
 
+#: content_a/accounting/report/assistant/display-old.php:21
 #: content_a/accounting/report/assistant/display.php:21
-#: content_a/accounting/report/detail/display.php:23
+#: content_a/accounting/report/assistant/display.php:107
+#: content_a/accounting/report/detail/display-old.php:23
+#: content_a/accounting/report/detail/display.php:22
+#: content_a/accounting/report/detail/display.php:115
 #: content_a/accounting/report/group/display.php:22
-#: content_a/accounting/report/total/display.php:19
-#: content_a/accounting/turnover/display.php:126
+#: content_a/accounting/report/total/display-old.php:19
+#: content_a/accounting/report/total/display.php:21
+#: content_a/accounting/report/total/display.php:104
+#: content_a/accounting/turnover/display.php:132
 msgid "Sum Creditor"
 msgstr "جمع بستانکار"
 
-#: content_a/accounting/report/assistant/display.php:23
+#: content_a/accounting/report/assistant/display-old.php:24
+#: content_a/accounting/report/assistant/display.php:24
+#: content_a/accounting/report/assistant/display.php:110
+#: content_a/accounting/report/detail/display-old.php:26
 #: content_a/accounting/report/detail/display.php:25
+#: content_a/accounting/report/detail/display.php:118
+#: content_a/accounting/report/group/display.php:25
+#: content_a/accounting/report/total/display-old.php:22
+#: content_a/accounting/report/total/display.php:24
+#: content_a/accounting/report/total/display.php:107
+msgid "Opening value"
+msgstr "مقدار در افتتاحیه"
+
+#: content_a/accounting/report/assistant/display-old.php:25
+#: content_a/accounting/report/assistant/display.php:25
+#: content_a/accounting/report/assistant/display.php:111
+#: content_a/accounting/report/detail/display-old.php:27
+#: content_a/accounting/report/detail/display.php:26
+#: content_a/accounting/report/detail/display.php:119
+#: content_a/accounting/report/group/display.php:26
+#: content_a/accounting/report/total/display-old.php:23
+#: content_a/accounting/report/total/display.php:25
+#: content_a/accounting/report/total/display.php:108
+msgid "Current value"
+msgstr "مقدار فعلی"
+
+#: content_a/accounting/report/assistant/display-old.php:27
+#: content_a/accounting/report/assistant/display.php:27
+#: content_a/accounting/report/assistant/display.php:113
+#: content_a/accounting/report/detail/display-old.php:29
+#: content_a/accounting/report/detail/display.php:28
+#: content_a/accounting/report/detail/display.php:121
 #: content_a/accounting/report/group/display.php:28
-#: content_a/accounting/report/total/display.php:21
+#: content_a/accounting/report/total/display-old.php:25
+#: content_a/accounting/report/total/display.php:27
+#: content_a/accounting/report/total/display.php:110
 msgid "Remain Debtor"
 msgstr "مانده بدهکار"
 
-#: content_a/accounting/report/assistant/display.php:24
-#: content_a/accounting/report/detail/display.php:26
+#: content_a/accounting/report/assistant/display-old.php:28
+#: content_a/accounting/report/assistant/display.php:28
+#: content_a/accounting/report/assistant/display.php:114
+#: content_a/accounting/report/detail/display-old.php:30
+#: content_a/accounting/report/detail/display.php:29
+#: content_a/accounting/report/detail/display.php:122
 #: content_a/accounting/report/group/display.php:29
-#: content_a/accounting/report/total/display.php:22
+#: content_a/accounting/report/total/display-old.php:26
+#: content_a/accounting/report/total/display.php:28
+#: content_a/accounting/report/total/display.php:111
 msgid "Remain Creditor"
 msgstr "مانده بستانکار"
 
 #: content_a/accounting/report/assistant/view.php:9
 msgid "Accounting report assistant"
 msgstr "گزارش حسابداری در سطح معین"
-
-#: content_a/accounting/report/balancesheet/display.php:13
-#: content_a/accounting/report/balancesheettemp/display.php:13
-#: content_a/accounting/report/group/display.php:25
-msgid "Opening value"
-msgstr "مقدار در افتتاحیه"
-
-#: content_a/accounting/report/balancesheet/display.php:14
-#: content_a/accounting/report/balancesheettemp/display.php:14
-#: content_a/accounting/report/group/display.php:26
-msgid "Current value"
-msgstr "مقدار فعلی"
 
 #: content_a/accounting/report/detail/view.php:9
 msgid "Accounting report detail"
@@ -5294,32 +5366,36 @@ msgstr "گزارش در سطح گروه"
 msgid "Accounting report total"
 msgstr "گزارش در سطح کل"
 
-#: content_a/accounting/turnover/display.php:37
+#: content_a/accounting/turnover/display.php:40
 msgid "Please choose group"
 msgstr "لطفا گروه را انتخاب کنید"
 
-#: content_a/accounting/turnover/display.php:50
+#: content_a/accounting/turnover/display.php:53
 msgid "Please choose total"
 msgstr "لطفا کل را انتخاب کنید"
 
-#: content_a/accounting/turnover/display.php:62
+#: content_a/accounting/turnover/display.php:65
 msgid "Please choose assistant"
 msgstr "لطفا معین را انتخاب کنید"
 
-#: content_a/accounting/turnover/display.php:74
+#: content_a/accounting/turnover/display.php:77
 msgid "Please choose details"
 msgstr "لطفا تفصیل را وارد کنید"
 
-#: content_a/accounting/turnover/display.php:100
+#: content_a/accounting/turnover/display.php:103
 msgid "Total sales"
 msgstr "کل فروش"
 
-#: content_a/accounting/turnover/display.php:133 content_love/domain/credit/display.php:10
+#: content_a/accounting/turnover/display.php:110
+msgid "You have some draft document!"
+msgstr "شما تعدادی سند پیش‌نویس دارید!"
+
+#: content_a/accounting/turnover/display.php:139 content_love/domain/credit/display.php:10
 #: content_love/domain/credit/display.php:29
 msgid "Balance"
 msgstr "تراز"
 
-#: content_a/accounting/turnover/display.php:155
+#: content_a/accounting/turnover/display.php:165
 msgid "Remain"
 msgstr "مانده"
 
@@ -8880,10 +8956,6 @@ msgstr "انتخاب سال مالی"
 #: content_a/setting/accounting/resetnumber/display.php:6
 msgid "Reset Accounting document number"
 msgstr "تنظیم مجدد شماره‌های سند حسابداری"
-
-#: content_a/setting/accounting/resetnumber/display.php:31
-msgid "Reset"
-msgstr "تنظیم مجدد"
 
 #: content_a/setting/accounting/resetnumber/view.php:8
 msgid "Accounting resetnumber setting"
@@ -20025,8 +20097,8 @@ msgstr "برنامه"
 #: lib/app/nic_domainbilling/search.php:262 lib/app/nic_log/search.php:103
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:51
 #: lib/app/store/search.php:176 lib/app/store/search.php:296
-#: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:63
-#: lib/app/tax/docdetail/search.php:74 lib/app/tax/year/search.php:52
+#: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:64
+#: lib/app/tax/docdetail/search.php:96 lib/app/tax/year/search.php:52
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
 
@@ -20440,7 +20512,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:684
+#: dash/cleanse.php:694
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -33150,6 +33222,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Balance Sheet report"
+#~ msgstr "گزارش ترازنامه‌ای"
 
 #~ msgid "The IRNIC server not respond at this time!"
 #~ msgstr "در حال حاضر ایرنیک پاسخ نمی‌دهد!"
