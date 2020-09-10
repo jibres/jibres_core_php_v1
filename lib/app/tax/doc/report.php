@@ -304,6 +304,14 @@ class report
 					$normal[$key]['remain_creditor'] = abs($diff);
 				}
 
+				$diff_opening = floatval($opening_debtor) - floatval($opening_creditor);
+
+				$normal[$key]['opening'] = $diff_opening;
+
+				$diff_current = floatval($current_debtor) - floatval($current_creditor);
+
+				$normal[$key]['current'] = $diff_current;
+
 				unset($check_opening[$string_id]);
 			}
 			else
@@ -314,6 +322,13 @@ class report
 
 				$normal[$key]['sum_debtor'] = $current_debtor;
 				$normal[$key]['sum_creditor'] = $current_creditor;
+
+				$normal[$key]['opening_debtor'] = 0;
+				$normal[$key]['opening_creditor'] = 0;
+
+				$diff_current = floatval($current_debtor) - floatval($current_creditor);
+				$normal[$key]['opening'] = 0;
+				$normal[$key]['current'] = $diff_current;
 			}
 		}
 
@@ -329,6 +344,15 @@ class report
 				$check_opening[$key]['debtor'] = 0;
 				$check_opening[$key]['creditor'] = 0;
 
+
+				$opening_debtor   = $value['debtor'];
+				$opening_creditor = $value['creditor'];
+
+				$diff_opening = floatval($opening_debtor) - floatval($opening_creditor);
+
+				$check_opening[$key]['opening'] = $diff_opening;
+				$check_opening[$key]['current'] = 0;
+
 			}
 			$normal = array_merge($normal, $check_opening);
 		}
@@ -342,14 +366,17 @@ class report
 		}
 
 		$sum                     = [];
-		$sum['remain_debtor']    = array_sum(array_column($normal, 'remain_debtor'));
-		$sum['remain_creditor']  = array_sum(array_column($normal, 'remain_creditor'));
-		$sum['sum_debtor']       = array_sum(array_column($normal, 'sum_debtor'));
-		$sum['sum_creditor']     = array_sum(array_column($normal, 'sum_creditor'));
-		$sum['opening_debtor']   = array_sum(array_column($normal, 'opening_debtor'));
-		$sum['opening_creditor'] = array_sum(array_column($normal, 'opening_creditor'));
-		$sum['debtor']           = array_sum(array_column($normal, 'debtor'));
-		$sum['creditor']         = array_sum(array_column($normal, 'creditor'));
+		$sum['remain_debtor']    = self::my_array_sum(array_column($normal, 'remain_debtor'));
+		$sum['remain_creditor']  = self::my_array_sum(array_column($normal, 'remain_creditor'));
+		$sum['sum_debtor']       = self::my_array_sum(array_column($normal, 'sum_debtor'));
+		$sum['sum_creditor']     = self::my_array_sum(array_column($normal, 'sum_creditor'));
+		$sum['opening_debtor']   = self::my_array_sum(array_column($normal, 'opening_debtor'));
+		$sum['opening_creditor'] = self::my_array_sum(array_column($normal, 'opening_creditor'));
+		$sum['debtor']           = self::my_array_sum(array_column($normal, 'debtor'));
+		$sum['creditor']         = self::my_array_sum(array_column($normal, 'creditor'));
+		$sum['opening']          = self::my_array_sum(array_column($normal, 'opening'));
+		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
+
 
 		return ['list' => $normal, 'sum' => $sum];
 

@@ -175,6 +175,16 @@ class get
 				tax_coding.title AS `assistant_title`,
 				tax_coding.parent1 AS `group_id`,
 				tax_coding.parent2 AS `total_id`,
+				NULL AS `group_title`,
+				NULL AS `total_title`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `opening_debtor`,
+				NULL AS `opening_creditor`,
+				NULL AS `opening`,
+				NULL AS `current`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM
@@ -200,6 +210,16 @@ class get
 				tax_coding.title AS `assistant_title`,
 				tax_coding.parent1 AS `group_id`,
 				tax_coding.parent2 AS `total_id`,
+				NULL AS `group_title`,
+				NULL AS `total_title`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `opening_debtor`,
+				NULL AS `opening_creditor`,
+				NULL AS `opening`,
+				NULL AS `current`,
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM

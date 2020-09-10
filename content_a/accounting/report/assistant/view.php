@@ -54,7 +54,7 @@ class view
 				unset($report[$key]['string_id']);
 			}
 
-			\dash\utility\export::csv(['name' => $export_name, 'data' => $report]);
+			\dash\utility\export::csv(['name' => $export_name, 'data' => \dash\data::reportDetail_list()]);
 		}
 
 
