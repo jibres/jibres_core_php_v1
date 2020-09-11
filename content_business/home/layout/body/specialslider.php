@@ -1,27 +1,34 @@
 <?php
 
 $specialslider = [];
+$specialsliderRatio = 16/9;
 
 if(isset($line_detail['value']['specialslider']) && is_array($line_detail['value']['specialslider']))
 {
 	$specialslider = $line_detail['value']['specialslider'];
 }
+if(isset($line_detail['value']['ratio']) && is_array($line_detail['value']['ratio']))
+{
+	$specialsliderRatio = $line_detail['value']['ratio'];
+}
+if($specialsliderRatio)
+{
+	$specialsliderRatio = round($specialsliderRatio, 2);
+}
+
 
 $model = 'special';
 if(isset($line_detail['value']['model']))
 {
 	$model = $line_detail['value']['model'];
 }
-
-
 ?>
-
 
 
 <?php if($model === 'simple') {?>
 <?php if($specialslider) {?>
 <div class="avand">
-  <div class="jSlider1 mB10" data-slider>
+  <div class="jSlider1 mB10" data-slider <?php echo 'data-slider-ratio="'.$specialsliderRatio. '"'; ?>>
 	<?php foreach ($specialslider as $key => $value) {?>
 		 <a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
     		<img src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'image')); ?>" alt="<?php echo \dash\get::index($value, 'alt'); ?>">
@@ -49,7 +56,7 @@ if(isset($line_detail['value']['model']))
             </figure>
           </a>
     	<?php unset($specialslider[0]); }else{  // count > 5?>
-	    	<div class="jSlider1" data-slider>
+	    	<div class="jSlider1" data-slider <?php echo 'data-slider-ratio="'.$specialsliderRatio. '"'; ?>>
 	    		<?php
 	    		$count_foreach = count($specialslider) - 4;
 	    		$count = 0;
