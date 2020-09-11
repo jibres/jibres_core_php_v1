@@ -11,20 +11,22 @@ else
 {
  echo \dash\url::kingdom();
 }
-?>"><img src='<?php echo \dash\url::icon(); ?>' alt='<?php echo T_("Jibres") ?>'><span><?php echo T_("Jibres") ?></span></a></h1>
-<?php } ?>
-   <?php
+// close a start tag
+echo '">';
+
+echo "<img src='". \dash\url::icon(). "' alt='". \dash\face::hereTitle(). "'>";
+
+echo "<span>";
+echo \dash\face::hereTitle();
+echo "</span>";
+echo "</a>";
+echo "</h1>";
+}
+
 if(\dash\url::module() === null)
 {
  echo "<h2>";
-	if(\dash\engine\store::inBusinessWebsite())
-	{
-		echo \lib\store::title();
-	}
-	else
-	{
- 		echo T_("Jibres");
-	}
+ echo \dash\face::hereTitle();
  echo "</h2>";
 }
 else
