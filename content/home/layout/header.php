@@ -34,12 +34,12 @@ else
    </div>
   </div>
 <?php
-if (\dash\language::current() !== 'fa' && \dash\request::country() === 'IR') {?>
-  <a id="jibresGoToFa" href="https://jibres.ir" target="_blank">سلام. برای استفاده از نسخه فارسی جیبرس کلیک کنید</a>
-<?php }?>
-
-<?php if (\dash\url::isLocal() && \dash\language::current() !== 'fa') {?>
-  <a id="jibresGoToFa" href="<?php echo \dash\url::site() ?>/fa" target="_blank">سلام. برای استفاده از نسخه فارسی جیبرس کلیک کنید</a>
+if (\dash\language::current() !== 'fa' && (\dash\request::country() === 'IR' || \dash\url::isLocal())) {?>
+  <a id="jibresGoToFa" href="<?php echo \dash\url::site() ?>/fa" target="_blank">
+    <img src="<?php echo \dash\url::cdn(); ?>/img/flags/svg/ir.svg" alt='ایران'>
+    <b>سلام هم‌وطن.</b>
+    <span>برای استفاده از نسخه فارسی جیبرس از اینجا وارد شوید</span>
+  </a>
 <?php }?>
 
   <section id='jibresPageTitle'>
