@@ -16,7 +16,16 @@ else
    <?php
 if(\dash\url::module() === null)
 {
- echo "<h2>". T_("Jibres"). "</h2>";
+ echo "<h2>";
+	if(\dash\engine\store::inBusinessWebsite())
+	{
+		echo \lib\store::title();
+	}
+	else
+	{
+ 		echo T_("Jibres");
+	}
+ echo "</h2>";
 }
 else
 {
