@@ -471,6 +471,98 @@ class get
 	}
 
 
+	public static function group_report_balancesheet($_args)
+	{
+		$year = null;
+		if(isset($_args['year_id']) && $_args['year_id'])
+		{
+			$year = " AND tax_docdetail.year_id = $_args[year_id] ";
+		}
+
+		$startdate = null;
+		if(isset($_args['startdate']) && $_args['startdate'])
+		{
+			$startdate = " AND tax_document.date >= '$_args[startdate]' ";
+		}
+
+		$enddate = null;
+		if(isset($_args['enddate']) && $_args['enddate'])
+		{
+			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
+		}
+
+
+		$result = [];
+
+		$query =
+		"
+			SELECT
+				balancesheet.naturegroup,
+				group.parent1 AS `group_id`,
+				NULL AS `group_title`,
+				NULL AS `group_code`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `opening_debtor`,
+				NULL AS `opening_creditor`,
+				NULL AS `opening`,
+				NULL AS `current`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
+			FROM
+				tax_docdetail
+			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
+			LEFT JOIN tax_coding AS `balancesheet` ON balancesheet.id = group.parent1
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			WHERE tax_document.status != 'draft' AND tax_document.type = 'normal' $year $startdate $enddate
+			GROUP BY group.parent1
+			ORDER BY group.parent1 ASC
+		";
+
+		$result['normal'] = \dash\db::get($query);
+
+		$query =
+		"
+			SELECT
+				balancesheet.naturegroup,
+				group.parent1 AS `group_id`,
+				NULL AS `group_title`,
+				NULL AS `group_code`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `opening_debtor`,
+				NULL AS `opening_creditor`,
+				NULL AS `opening`,
+				NULL AS `current`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
+			FROM
+				tax_docdetail
+			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
+			LEFT JOIN tax_coding AS `balancesheet` ON balancesheet.id = group.parent1
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			WHERE tax_document.status != 'draft' AND tax_document.type = 'opening' $year $startdate $enddate
+			GROUP BY group.parent1
+			ORDER BY group.parent1 ASC
+		";
+
+		$result['opening'] = \dash\db::get($query);
+
+		$query = " SELECT tax_coding.* FROM tax_coding WHERE tax_coding.type = 'group' ";
+
+		$result['coding'] = \dash\db::get($query);
+
+		return $result;
+
+	}
+
+
+
+
 
 }
 ?>
