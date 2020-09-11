@@ -50,8 +50,8 @@ class view
 			\dash\data::global_env('Jibres');
 		}
 
-		\dash\face::site(T_(\dash\face::siteTitle()));
-		\dash\face::intro(T_(\dash\face::siteDesc()));
+		\dash\face::site(T_(\dash\face::hereTitle()));
+		\dash\face::intro(T_(\dash\face::hereDesc()));
 		\dash\face::slogan(T_(\dash\face::siteSlogan()));
 		\dash\face::logo(\dash\url::icon());
 

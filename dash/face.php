@@ -42,7 +42,18 @@ class face
 			return \lib\store::title();
 		}
 
-		return T_("Jibres");
+		return T_(self::siteTitle());
+	}
+
+
+	public static function hereDesc()
+	{
+		if(\dash\engine\store::inBusinessWebsite())
+		{
+			return \lib\store::desc();
+		}
+
+		return T_(self::siteDesc());
 	}
 
 
