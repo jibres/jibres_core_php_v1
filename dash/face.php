@@ -37,7 +37,7 @@ class face
 
 	public static function hereTitle()
 	{
-		if(\dash\engine\store::inBusinessWebsite())
+		if(\dash\engine\store::inStore())
 		{
 			return \lib\store::title();
 		}
@@ -48,7 +48,7 @@ class face
 
 	public static function hereDesc()
 	{
-		if(\dash\engine\store::inBusinessWebsite())
+		if(\dash\engine\store::inStore())
 		{
 			return \lib\store::desc();
 		}
@@ -59,7 +59,7 @@ class face
 
 	public static function hereIcon()
 	{
-		if(\dash\engine\store::inBusinessWebsite())
+		if(\dash\engine\store::inStore())
 		{
 			return \lib\store::logo();
 		}
