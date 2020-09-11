@@ -12,6 +12,13 @@ class redirect
 	 */
 	public static function to($_url, $_php = true, $_arg = null)
 	{
+		// set header for redirect via php
+		if(!is_numeric($_arg))
+		{
+			$_arg = 307;
+		}
+		\dash\header::set($_arg);
+
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
 			self::via_pushstate($_url, $_php);
@@ -73,21 +80,14 @@ class redirect
 	 * @param  integer $_type [description]
 	 * @return [type]         [description]
 	 */
-	private static function via_php($_loc, $_type = 301)
+	private static function via_php($_loc, $_type = 307)
 	{
 		if (!headers_sent())
 		{
-			if(!$_type)
-			{
-				$_type = 301;
-			}
-			// set header for redirect via php
-			\dash\header::set($_type);
-
 			header('Pragma: no-cache');
 			header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 			header("Expires: Fri, 08 Sep 2017 06:12:00 GMT");
-			header('Location: '. $_loc, true , $_type);
+			header('Location: '. $_loc);
 		}
 	}
 
