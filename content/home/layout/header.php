@@ -22,15 +22,7 @@
      <div class="cauto"><?php
 if (\dash\user::id())
 {
- if (\dash\url::store())
- {
-  echo '<a class="master" href="'. \dash\url::kingdom(). '/a">'. T_("Store Panel"). '</a>';
- }
- else
- {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/my">'. T_("Dashboard"). '</a>';
- }
-
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/my">'. T_("Jibres Panel"). '</a>';
 }
 else
 {
@@ -50,32 +42,26 @@ if (\dash\language::current() !== 'fa' && \dash\request::country() === 'IR') {?>
   <a id="jibresGoToFa" href="<?php echo \dash\url::site() ?>/fa" target="_blank">سلام. برای استفاده از نسخه فارسی جیبرس کلیک کنید</a>
 <?php }?>
 
-  <section id='jibresPageTitle'><div class="typing"><span class="typed"></span></div>
+  <section id='jibresPageTitle'>
+    <div class="avand">
+      <div class="typing"><span class="typed"></span></div>
 <?php
 if (\dash\url::module())
 {
 ?>
-    <div id="typed-strings">
-     <h2><?php echo \dash\face::title(); ?></h2>
-    </div>
+      <div id="typed-strings">
+       <h2><?php echo \dash\face::title(); ?></h2>
+      </div>
 <?php
 }
 else
 {
 ?>
-    <div id="typed-strings">
-     <h3><?php echo T_('Invoice Software'); ?></h3>
-     <h4><?php echo T_('Easy Invoicing Software'); ?></h4>
-     <h3><?php echo T_('Online Invoicing Software'); ?></h3>
-     <h2><?php echo T_('Free Invoicing Software'); ?></h2>
-     <h3><?php echo T_('Accounting Software'); ?></h3>
-     <h2><?php echo T_('Online Accounting Software'); ?></h2>
-     <h3><?php echo T_('Sales'); ?></h3>
-     <h3><?php echo T_('Sales Software'); ?></h3>
-     <h4><?php echo T_('Integrated Sales'); ?></h4>
-     <h2 class="bold"><?php echo T_('Integrated Ecommerce Platform'); ?></h2>
-    </div>
+      <div id="typed-strings">
+      <h2 class="bold"><?php echo T_('Everything you need to sell online'); ?></h2>
+      </div>
 <?php
 }
 ?>
+    </div>
   </section>
