@@ -35,7 +35,7 @@ else
   </div>
 <?php
 if (\dash\language::current() !== 'fa' && (\dash\request::country() === 'IR' || \dash\url::isLocal())) {?>
-  <a id="jibresGoToFa" href="<?php echo \dash\url::site() ?>/fa" target="_blank">
+  <a id="jibresGoToFa" href="https://jibres.ir">
     <img src="<?php echo \dash\url::cdn(); ?>/img/flags/svg/ir.svg" alt='ایران'>
     <b>سلام هم‌وطن.</b>
     <span>برای استفاده از نسخه فارسی جیبرس از اینجا وارد شوید</span>
