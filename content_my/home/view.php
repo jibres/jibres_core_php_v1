@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Jibres Panel'));
+		\dash\face::title(T_('Control Center'));
 		\dash\face::specialTitle(true);
 		\dash\face::help(\dash\url::support().'/my');
 

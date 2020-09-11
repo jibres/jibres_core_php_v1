@@ -22,7 +22,7 @@
      <div class="cauto"><?php
 if (\dash\user::id())
 {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/my">'. T_("Jibres Panel"). '</a>';
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/my">'. T_("Control Center"). '</a>';
 }
 else
 {

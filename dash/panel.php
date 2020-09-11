@@ -29,12 +29,12 @@ class panel
 		// return [];
 	}
 
-	private static function jibresPanelLink($_onlyMenu = null)
+	private static function jibresControlCenterLink($_onlyMenu = null)
 	{
 		$menu =
 		[
 			[
-					'title'  => T_("Jibres Panel"),
+					'title'  => T_("Control Center"),
 					'link'   => \dash\url::sitelang(). '/my',
 					// 'icon'   => 'diamond',
 					// 'img'    => \dash\url::icon(),
@@ -68,7 +68,7 @@ class panel
 
 	private static function sidebar_jibres_primary()
 	{
-		$menu = self::jibresPanelLink();
+		$menu = self::jibresControlCenterLink();
 		$menu[] =
 		[
 			'title'  => T_("Domain Center"),
@@ -112,13 +112,13 @@ class panel
 	{
 		if(\dash\engine\store::inStore())
 		{
-			$menu = self::jibresPanelLink(true);
+			$menu = self::jibresControlCenterLink(true);
 			$menu[] = self::businessDashboardLink();
 			$menu[] = ['seperator' => true];
 		}
 		else
 		{
-			$menu = self::jibresPanelLink();
+			$menu = self::jibresControlCenterLink();
 		}
 
 		$menu[] =
@@ -229,13 +229,13 @@ class panel
 	{
 		if(\dash\engine\store::inStore())
 		{
-			$menu = self::jibresPanelLink(true);
+			$menu = self::jibresControlCenterLink(true);
 			$menu[] = self::businessDashboardLink();
 			$menu[] = ['seperator' => true];
 		}
 		else
 		{
-			$menu = self::jibresPanelLink();
+			$menu = self::jibresControlCenterLink();
 		}
 
 		$menu[] =
@@ -316,7 +316,7 @@ class panel
 
 	private static function sidebar_jibres_support()
 	{
-		$menu = self::jibresPanelLink();
+		$menu = self::jibresControlCenterLink();
 
 		$menu[] =
 		[
@@ -348,7 +348,7 @@ class panel
 
 	private static function sidebar_businsess()
 	{
-		$menu = self::jibresPanelLink();
+		$menu = self::jibresControlCenterLink();
 
 		$menu[] =
 		[

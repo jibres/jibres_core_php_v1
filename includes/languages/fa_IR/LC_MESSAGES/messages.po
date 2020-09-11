@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-11 18:22+0430\n"
-"PO-Revision-Date: 2020-09-11 18:43+0430\n"
+"POT-Creation-Date: 2020-09-11 18:54+0430\n"
+"PO-Revision-Date: 2020-09-11 18:54+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2553,51 +2553,11 @@ msgstr "تمام حقوق محفوظ است."
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
-#: content/home/layout/header.php:27
-#: content_business/home/layout/template/comingsoon-bak.php:43
-#: content_business/home/layout/template/visitcard-bak.php:43
-msgid "Store Panel"
-msgstr "پنل فروشگاه"
+#: content/home/layout/header.php:25 dash/panel.php:37
+msgid "Control Center"
+msgstr "مرکز کنترل"
 
-#: content/home/layout/header.php:31 content/home/view.php:43 content/ip/home/view.php:9
-#: content_a/channels/home/view.php:10 content_a/factor/home/view.php:119
-#: content_a/order/home/view.php:119 content_a/order/view.php:11
-#: content_a/products/home/view.php:13 content_a/setting/home/view.php:10
-#: content_a/setting/pos/view.php:10 content_a/website/home/view.php:12
-#: content_cms/posts/home/view.php:83 content_cms/terms/view.php:58
-#: content_crm/sms/home/view.php:19 content_love/application/home/view.php:12
-#: content_love/domain/action/view.php:12 content_love/domain/all/view.php:12
-#: content_love/domain/billing/view.php:12 content_love/domain/buyers/view.php:12
-#: content_love/domain/credit/view.php:12 content_love/domain/domainbuy/view.php:12
-#: content_love/domain/domaincheck/view.php:12 content_love/domain/domaininfo/view.php:12
-#: content_love/domain/fetch/view.php:12 content_love/domain/home/view.php:12
-#: content_love/domain/irnic/view.php:12 content_love/domain/log/view.php:12
-#: content_love/domain/nicdetail/view.php:12 content_love/domain/onlineniclog/view.php:12
-#: content_love/domain/polls/view.php:12 content_love/gift/all/view.php:12
-#: content_love/store/domain/view.php:19 content_love/store/view.php:12
-#: content_love/transactions/view.php:13 content_my/bill/view.php:12
-#: content_my/business/home/view.php:12 content_my/domain/buy/view.php:13
-#: content_my/domain/history/view.php:12 content_my/domain/home/view.php:13
-#: content_my/domain/option/view.php:12 content_my/domain/payments/view.php:12
-#: content_my/domain/predict/view.php:12 content_my/domain/renew/view.php:12
-#: content_my/domain/search/view.php:12 content_my/domain/short/view.php:12
-#: content_my/domain/transfer/view.php:12 content_my/domain/whois/view.php:14
-#: content_my/ipg/gateway/view.php:13 content_my/ipg/home/view.php:14
-#: content_my/ipg/iban/view.php:13 content_my/ipg/profile/view.php:13
-#: content_my/ipg/setup/gateway/view.php:13 content_my/ipg/setup/iban/view.php:13
-#: content_my/ipg/setup/profile/view.php:13 content_my/ipg/setup/type/view.php:13
-#: content_my/ipg/setup/upload/view.php:13 content_my/ipg/upload/view.php:13
-#: content_my/ipg/wallet/view.php:13 content_my/wallet/view.php:12
-#: content_pardakhtyar/customer/dashboard/view.php:9
-#: content_pardakhtyar/customer/home/display.php:70 content_pardakhtyar/home/view.php:9
-#: content_pardakhtyar/shop/home/display.php:70 dash/layout/admin/sidebar/sidebar-a.php:4
-#: dash/layout/admin/sidebar/sidebar-domain.php:4
-#: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:101
-#: includes/languages/trans_static_public.php:89
-msgid "Dashboard"
-msgstr "داشبورد"
-
-#: content/home/layout/header.php:37 content/home/view.php:49
+#: content/home/layout/header.php:29 content/home/view.php:49
 #: content_business/home/layout/template/comingsoon-bak.php:48
 #: content_business/home/layout/template/visitcard-bak.php:48
 #: content_crm/member/glance/display.php:45 content_crm/member/glance/display.php:71
@@ -2608,11 +2568,11 @@ msgstr "داشبورد"
 msgid "Enter"
 msgstr "ورود"
 
-#: content/home/layout/header.php:38
+#: content/home/layout/header.php:30
 msgid "SIGN UP"
 msgstr "ثبت‌نام"
 
-#: content/home/layout/header.php:69
+#: content/home/layout/header.php:61
 msgid "Everything you need to sell online"
 msgstr "از صفر تا صد فروش آنلاین در اختیار شما هستیم"
 
@@ -2651,6 +2611,43 @@ msgstr "بفروش و لذت ببر"
 #: content/pricing/display.php:108 lib/currency.php:166
 msgid "Hezar Toman"
 msgstr "هزار تومان"
+
+#: content/home/view.php:43 content/ip/home/view.php:9 content_a/channels/home/view.php:10
+#: content_a/factor/home/view.php:119 content_a/order/home/view.php:119
+#: content_a/order/view.php:11 content_a/products/home/view.php:13
+#: content_a/setting/home/view.php:10 content_a/setting/pos/view.php:10
+#: content_a/website/home/view.php:12 content_cms/posts/home/view.php:83
+#: content_cms/terms/view.php:58 content_crm/sms/home/view.php:19
+#: content_love/application/home/view.php:12 content_love/domain/action/view.php:12
+#: content_love/domain/all/view.php:12 content_love/domain/billing/view.php:12
+#: content_love/domain/buyers/view.php:12 content_love/domain/credit/view.php:12
+#: content_love/domain/domainbuy/view.php:12 content_love/domain/domaincheck/view.php:12
+#: content_love/domain/domaininfo/view.php:12 content_love/domain/fetch/view.php:12
+#: content_love/domain/home/view.php:12 content_love/domain/irnic/view.php:12
+#: content_love/domain/log/view.php:12 content_love/domain/nicdetail/view.php:12
+#: content_love/domain/onlineniclog/view.php:12 content_love/domain/polls/view.php:12
+#: content_love/gift/all/view.php:12 content_love/store/domain/view.php:19
+#: content_love/store/view.php:12 content_love/transactions/view.php:13
+#: content_my/bill/view.php:12 content_my/business/home/view.php:12
+#: content_my/domain/buy/view.php:13 content_my/domain/history/view.php:12
+#: content_my/domain/home/view.php:13 content_my/domain/option/view.php:12
+#: content_my/domain/payments/view.php:12 content_my/domain/predict/view.php:12
+#: content_my/domain/renew/view.php:12 content_my/domain/search/view.php:12
+#: content_my/domain/short/view.php:12 content_my/domain/transfer/view.php:12
+#: content_my/domain/whois/view.php:14 content_my/ipg/gateway/view.php:13
+#: content_my/ipg/home/view.php:14 content_my/ipg/iban/view.php:13
+#: content_my/ipg/profile/view.php:13 content_my/ipg/setup/gateway/view.php:13
+#: content_my/ipg/setup/iban/view.php:13 content_my/ipg/setup/profile/view.php:13
+#: content_my/ipg/setup/type/view.php:13 content_my/ipg/setup/upload/view.php:13
+#: content_my/ipg/upload/view.php:13 content_my/ipg/wallet/view.php:13
+#: content_my/wallet/view.php:12 content_pardakhtyar/customer/dashboard/view.php:9
+#: content_pardakhtyar/customer/home/display.php:70 content_pardakhtyar/home/view.php:9
+#: content_pardakhtyar/shop/home/display.php:70 dash/layout/admin/sidebar/sidebar-a.php:4
+#: dash/layout/admin/sidebar/sidebar-domain.php:4
+#: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:101
+#: includes/languages/trans_static_public.php:89
+msgid "Dashboard"
+msgstr "داشبورد"
 
 #: content/home/view.php:65
 msgid "Majid Sadeghi"
@@ -7410,7 +7407,7 @@ msgid "Have a good day;)"
 msgstr "روز خوبی داشته باشید؛)"
 
 #: content_a/home/view.php:16 content_my/home/view.php:9
-#: dash/layout/admin/admin-sidebar-frame.php:10 dash/panel.php:37
+#: dash/layout/admin/admin-sidebar-frame.php:10
 msgid "Jibres Panel"
 msgstr "پنل جیبرس"
 
@@ -12409,6 +12406,11 @@ msgstr "بیشتر بخوانید"
 #: content_business/home/layout/header/header_100.php:30
 msgid "Enter to account"
 msgstr "ورود به حساب‌کاربری"
+
+#: content_business/home/layout/template/comingsoon-bak.php:43
+#: content_business/home/layout/template/visitcard-bak.php:43
+msgid "Store Panel"
+msgstr "پنل فروشگاه"
 
 #: content_business/home/layout/template/comingsoon.php:3
 msgid "Coming soon ..."

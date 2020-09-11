@@ -13,7 +13,7 @@ class view
 		\dash\data::dashboardData(\lib\app\cache\get::admin_dashboard());
 
 		// back
-		\dash\data::back_text(T_('Jibres Panel'));
+		\dash\data::back_text(T_('Control Center'));
 		\dash\data::back_link(\dash\url::sitelang(). '/my');
 	}
 }
