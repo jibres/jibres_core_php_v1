@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 
-		\dash\face::title(T_('Signup in :name' , ['name' => \dash\face::site()]));
+		\dash\face::title(T_('Signup in :name' , ['name' => \dash\face::hereTitle()]));
 		\dash\face::specialTitle(true);
 		\dash\face::desc(\dash\face::title());
 

@@ -15,7 +15,7 @@ class view
 			\dash\redirect::to($auth_url);
 		}
 
-		\dash\face::title(T_('Enter to :name with google', ['name' => \dash\face::site()]));
+		\dash\face::title(T_('Enter to :name with google', ['name' => \dash\face::hereTitle()]));
 
 		\dash\face::desc(\dash\face::title());
 	}
