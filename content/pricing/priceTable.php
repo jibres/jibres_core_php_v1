@@ -13,7 +13,7 @@
           <li><?php echo T_("Free Invoicing"); ?></li>
           <li><?php echo T_("Online Accounting"); ?></li>
         </ul>
-        <div class="priceBox">
+        <div class="priceItemBox">
           <div class="f">
             <div class="c price"><?php echo T_("Free"); ?></div>
           </div>
@@ -31,7 +31,7 @@
           <li><?php echo T_("Staff Accounts"); ?></li>
           <li><?php echo T_("Increase Basic Limits"); ?></li>
         </ul>
-        <div class="priceBox">
+        <div class="priceItemBox">
           <div class="f align-center monthly">
             <div class="c pRa10 txtLa period"><?php echo T_("Monthly"); ?></div>
             <div class="cauto price pRa5"><?php echo \dash\fit::number('14'); ?></div>
@@ -56,7 +56,7 @@
           <li><?php echo T_("Product Intro Website"); ?></li>
           <li><?php echo T_("Without Limit"); ?></li>
         </ul>
-        <div class="priceBox">
+        <div class="priceItemBox">
           <div class="f align-center monthly">
             <div class="c pRa10 txtLa period"><?php echo T_("Monthly"); ?></div>
             <div class="cauto price pRa5"><?php echo \dash\fit::number('30'); ?></div>
@@ -82,7 +82,7 @@
           <li><?php echo T_("Full Permission Control"); ?></li>
           <li><?php echo T_("Search Engine Optimized"); ?></li>
         </ul>
-        <div class="priceBox">
+        <div class="priceItemBox">
           <div class="f align-center monthly">
             <div class="c pRa10 txtLa period"><?php echo T_("Monthly"); ?></div>
             <div class="cauto price pRa5"><?php echo \dash\fit::number('75'); ?></div>
