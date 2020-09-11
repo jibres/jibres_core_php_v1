@@ -240,6 +240,7 @@ class mvc
 		$my_view = self::$folder_addr. '\\view';
 		if(\dash\request::is('get') && !\dash\request::json_accept())
 		{
+			\dash\header::set('206', true);
 			\dash\engine\view::variable();
 
 			// run content default function for set something if needed

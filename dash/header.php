@@ -5,6 +5,7 @@ class header
 {
 	private static $HEADER;
 	private static $status_code = null;
+	private static $status_code_default = null;
 
 
 	/**
@@ -214,16 +215,41 @@ class header
 	}
 
 
-	public static function set($_code)
+	public static function set($_code, $_default = null)
 	{
-		if(!self::$status_code)
+		// set default if needed
+		if($_default)
 		{
+			self::$status_code_default = $_code;
+		}
+
+		if(self::$status_code)
+		{
+			// if we have status code
+			if(self::$status_code_default)
+			{
+				// if we have default before this
+				self::set_force($_code);
+			}
+			else
+			{
+				// do nothing
+			}
+		}
+		else
+		{
+			// on normal mode set
+			self::set_force($_code);
+		}
+	}
+
+	public static function set_force($_code)
+	{
 			self::$status_code = $_code;
 			$desc          = self::desc($_code);
 			$status_header = trim("HTTP/1.1 $_code $desc");
 			// set header
 			@header($status_header, true, $_code);
-		}
 	}
 }
 ?>
