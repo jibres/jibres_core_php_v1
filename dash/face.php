@@ -46,6 +46,17 @@ class face
 	}
 
 
+	public static function hereIcon()
+	{
+		if(\dash\engine\store::inBusinessWebsite())
+		{
+			return \lib\store::logo();
+		}
+
+		return \dash\url::icon();
+	}
+
+
 	public static function siteDesc()
 	{
 		return "Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.";

@@ -14,7 +14,7 @@ else
 // close a start tag
 echo '">';
 
-echo "<img src='". \dash\url::icon(). "' alt='". \dash\face::hereTitle(). "'>";
+echo "<img src='". \dash\face::hereIcon(). "' alt='". \dash\face::hereTitle(). "'>";
 
 echo "<span>";
 echo \dash\face::hereTitle();

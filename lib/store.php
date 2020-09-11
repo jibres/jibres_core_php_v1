@@ -615,7 +615,6 @@ class store
 	public static function logo()
 	{
 		return self::detail('logo');
-
 	}
 
 
