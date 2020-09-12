@@ -2,8 +2,8 @@
  <div class="avand-lg impact zero">
 
   <div class="logoEffect">
-    <img alt="Shadow of Jibres logo" class="shadow" src="<?php echo \dash\url::cdn(); ?>/images/logo/bg-logo-shadow.png">
-    <img alt='<?php echo T_("Jibres logo"); ?>' class="logo" src="<?php echo \dash\url::icon(); ?>">
+    <img alt="<?php echo T_("Shadow of Jibres logo") ?>" class="shadow" src="<?php echo \dash\url::cdn(); ?>/images/logo/bg-logo-shadow.png">
+    <img alt='<?php echo T_("Jibres Beautiful logo"); ?>' class="logo" src="<?php echo \dash\url::icon(); ?>">
     <video loop muted playsinline autoplay>
         <source type='video/mp4' src="<?php echo \dash\url::cdn(); ?>/video/bg-logo.mp4"/>
     </video>

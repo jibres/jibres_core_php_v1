@@ -10,7 +10,7 @@ class view
 
 		\dash\face::title(T_('Enter to :name', ['name' => \dash\face::hereTitle()]));
 		\dash\face::specialTitle(true);
-		\dash\face::desc(\dash\face::intro());
+		\dash\face::desc(T_("Welcome back. Bring your idea to life with Jibres."));
 
 		if(mb_strlen(\dash\face::desc()) < 150)
 		{
