@@ -16,6 +16,10 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'status':
+					$result[$key] = $value;
+					$result['tstatus'] = T_(ucfirst($value));
+					break;
 				default:
 					$result[$key] = $value;
 					break;
