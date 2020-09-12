@@ -13,5 +13,13 @@ class get
 		return $result;
 	}
 
+
+	public static function by_id($_id)
+	{
+		$query  = " SELECT * FROM business_domain WHERE business_domain.id = '$_id' LIMIT 1 ";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
 }
 ?>
