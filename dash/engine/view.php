@@ -92,7 +92,6 @@ class view
 				\dash\face::titlePWA($page_title);
 			}
 			// set desktop title
-			\dash\face::title($page_title);
 			if(\dash\url::content())
 			{
 				if(\dash\face::specialTitle())
@@ -116,7 +115,7 @@ class view
 			}
 
 			// \dash\data::global_title(\dash\face::seo(). ' | '. \dash\face::site());
-			\dash\data::global_title(\dash\face::seo());
+			\dash\data::global_title($page_title);
 		}
 		else
 		{
