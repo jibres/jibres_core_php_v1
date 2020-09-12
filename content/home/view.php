@@ -22,9 +22,40 @@ class view
 		$homepageShortDesc .= T_('Sell more and more.'). ' ';
 
 
-		\dash\face::seo(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
+		\dash\face::seo(\dash\face::site(). ' - '. T_('No.1 Free eCommerce Solution'));
 
-		\dash\face::title(\dash\face::site(). ' - '. T_('Sell and Enjoy'). ' :)');
+		// Starting An Online Store? - Try Shopify® For Free
+		#All-In-One Commerce Solution - Ecommerce Software And Point Of Sale
+		#Start, grow, and scale your business - Shopify
+		#
+		#
+		#
+		#1 Free E-commerce Shopping Cart &amp; Online Store Solution - Try Ecwid!
+		#Ecwid: #1 Free and Easy E-commerce Shopping Cart Solution - Try Ecwid Today!
+		#
+		#
+		#BigCommerce.com - eCommerce CMS - Create your online store
+		#BigCommerce: Ecommerce for a New Era
+		#
+		#
+		#Jibres #1
+		#Jibres Sell and Enjoy
+
+
+
+
+
+		// Open your online store with the Ecwid designer. Create a store yourself, without programmers and designers. Sell anywhere. Manage your store. Market your bussines. Try it free. Features: Single Dashboard, Easy-To-Use Marketing Tools.
+
+		// Try Shopify for free and get more than just an ecommerce solution. Sell anywhere, to anyone, with Shopify's ecommerce platform and point of sale features.
+		//
+		// Try the best ecommerce platform for growing brands with a free 15-day trial. Standard Plan: $29.95 per month. Integrate Anything. Design with Freedom. Operate without Worry. Powerful Analytics. Shows: Design with Freedom, Operate without Worry, Powerful Analytics.
+		// Learn how BigCommerce can fuel your business with all the capabilities of enterprise ecommerce—without the cost or complexity.
+
+
+
+
+		\dash\face::title(\dash\face::site(). ' - '. T_('Start Selling'));
 		// set pwa title
 		\dash\face::titlePWA(\dash\face::site());
 		\dash\face::logoPWA(\dash\url::icon());

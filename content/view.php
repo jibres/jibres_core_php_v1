@@ -8,22 +8,26 @@ class view
 		// define default value for global
 		$jibresDesc = '';
 		$jibresDesc .= T_('Integrated Ecommerce Platform Software'). ' / ';
-		$jibresDesc .= T_('Start Selling Online.'). ' ';
-		$jibresDesc .= T_('Quickly Start Free!'). ' ';
+		// $jibresDesc .= T_('Start Selling Online.'). ' ';
+		if(\dash\language::current() == 'en')
+		{
+			$jibresDesc .= T_('Quickly Start Free!'). ' ';
+		}
 
-		$jibresDesc .= T_('Online Store Website'). T_(' & ');
-		$jibresDesc .= T_('Mobile Online Store'). T_(' & ');
-		$jibresDesc .= T_('Social Marketing'). T_(' & ');
-		$jibresDesc .= T_('POS Software'). ' | ';
+		$jibresDesc .= T_('Online Store Website'). T_('&');
+		$jibresDesc .= T_('Mobile Online Store'). T_('&');
+		$jibresDesc .= T_('Social Marketing'). T_('&');
+		$jibresDesc .= T_('POS Software');
 
 		if(\dash\language::current() == 'en')
 		{
-			$jibresDesc .= T_('Accept Credit Cards'). '. ';
-			$jibresDesc .= T_('Fully Hosted'). '. ';
-			$jibresDesc .= T_('SEO Optimized'). '. ';
-			$jibresDesc .= T_('SSL Certificate'). '. ';
+			$jibresDesc .= ' / ';
+			// $jibresDesc .= T_('Accept Credit Cards');
+			// $jibresDesc .= T_('Fully Hosted');
+			$jibresDesc .= T_('SEO Optimized');
+			// $jibresDesc .= T_('SSL Certificate');
+			// $jibresDesc .= T_('Fully API');
 		}
-		$jibresDesc .= T_('Fully API');
 
 
 		\dash\face::site(T_("Jibres"));
