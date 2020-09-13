@@ -10,9 +10,10 @@ class model
 		{
 			$post =
 			[
-				'type'  => \dash\request::post('type'),
-				'key'   => \dash\request::post('key'),
-				'value' => \dash\request::post('value'),
+				'type'             => \dash\request::post('type'),
+				'key'              => \dash\request::post('key'),
+				'value'            => \dash\request::post('value'),
+				'addtocdnpaneldns' => \dash\request::post('addtocdnpaneldns'),
 			];
 
 			$result = \lib\app\business_domain\dns::add(\dash\data::dataRow_id(), $post);

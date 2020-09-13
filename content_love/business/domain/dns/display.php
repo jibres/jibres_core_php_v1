@@ -40,6 +40,14 @@
           </div>
         </div>
 
+        <div class="check1">
+          <input type="checkbox" name="addtocdnpaneldns" value="1" id="iaddtocdnpaneldns" checked>
+          <label for="iaddtocdnpaneldns"><?php echo T_("Also add to CDN panel DNS record") ?></label>
+        </div>
+        <div class="fc-mute">
+          <?php echo T_("If you do not add to the panel, the system will automatically add to the panel after a few minutes, but if you sync in the meantime, this information will be deleted."); ?>
+        </div>
+
 
 
       </div>
@@ -53,18 +61,22 @@
     <table class="tbl1 v4 font-12">
       <thead>
         <tr>
+          <th class="collapsing"></th>
           <th><?php echo T_("Type") ?></th>
           <th><?php echo T_("Key") ?></th>
           <th><?php echo T_("Value") ?></th>
+          <th><?php echo T_("Status") ?></th>
           <th class="collapsing"></th>
         </tr>
       </thead>
       <tbody>
         <?php foreach (\dash\data::dnsList() as $key => $value) {?>
           <tr>
+            <td class="collapsing"><?php if(\dash\get::index($value, 'verify')) {?><i title="<?php echo T_("Verified") ?>" class="sf-check fc-green"></i><?php }else{ ?><i title="<?php echo T_("Not verify") ?>" class="sf-exclamation-triangle fc-orange"></i><?php } //endif ?></td>
             <td><?php echo \dash\get::index($value, 'type'); ?></td>
             <td><?php echo \dash\get::index($value, 'key'); ?></td>
             <td><?php echo \dash\get::index($value, 'value'); ?></td>
+            <td><?php echo \dash\get::index($value, 'status'); ?></td>
             <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
           </tr>
         <?php } // endif ?>

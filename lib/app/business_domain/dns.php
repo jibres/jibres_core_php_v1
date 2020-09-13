@@ -3,6 +3,21 @@ namespace lib\app\business_domain;
 
 class dns
 {
+
+	private static function meta($_data, $_data2 = [])
+	{
+		if(is_array($_data) || is_object($_data))
+		{
+			// if($_data2 && is_array($_data2))
+			// {
+			// 	$_data = array_merge($_data, $_data2);
+			// }
+
+			return json_encode($_data, JSON_UNESCAPED_UNICODE);
+		}
+		return null;
+	}
+
 	public static function check($_id)
 	{
 		$load = \lib\app\business_domain\get::get($_id);
@@ -150,9 +165,10 @@ class dns
 	{
 		$condition =
 		[
-			'type'   => ['enum' => ['A', 'AAAA','ALIAS','CNAME','MX','NS','PTR','SOA','SRV', 'TXT']],
-			'key'    => 'string_100',
-			'value'  => 'string_100',
+			'type'             => ['enum' => ['A', 'AAAA','ALIAS','CNAME','MX','NS','PTR','SOA','SRV', 'TXT']],
+			'key'              => 'string_100',
+			'value'            => 'string_100',
+			'addtocdnpaneldns' => 'bit',
 		];
 
 		$require = ['type', 'key', 'value'];
@@ -164,6 +180,21 @@ class dns
 		$load = \lib\app\business_domain\get::get($_id);
 		if(!$load || !isset($load['id']))
 		{
+			return false;
+		}
+
+		$check_duplicate =
+		[
+			'business_domain_id' => $load['id'],
+			'type'               => $data['type'],
+			'key'                => $data['key'],
+			'value'              => $data['value'],
+		];
+
+		$check_duplicate = \lib\db\business_domain\get::dns_where_one($check_duplicate);
+		if($check_duplicate)
+		{
+			\dash\notif::error(T_("Duplicate DNS record"));
 			return false;
 		}
 
@@ -187,10 +218,108 @@ class dns
 		}
 
 
+		if($data['addtocdnpaneldns'])
+		{
+			self::add_dns_to_cdn_panel($_id, $dns_id);
+		}
+
+
 		\dash\notif::create(T_("DNS record saved"));
 		return true;
 
+	}
 
+
+	public static function add_dns_to_cdn_panel($_id, $_dns_id)
+	{
+		$dns_id = \dash\validate::id($_dns_id);
+		if(!$dns_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$load_dns_record = \lib\db\business_domain\get::dns_record($dns_id);
+
+		if(isset($load_dns_record['id']))
+		{
+			if(isset($load_dns_record['business_domain_id']) && floatval($load_dns_record['business_domain_id']) === floatval($id) )
+			{
+				$load = \lib\app\business_domain\get::get($_id);
+				if(!$load || !isset($load['domain']))
+				{
+					return false;
+				}
+
+				$domain = $load['domain'];
+
+				$add_dns =
+				[
+					"type"           =>  $load_dns_record['type'],
+					"name"           =>  $load_dns_record['key'],
+					"value"          =>  json_encode([["ip" => $load_dns_record['value'], /*"port" => null, "weight" => null , "country" => null*/]]),
+					"ttl"            =>  120,
+					"cloud"          =>  true,
+					"upstream_https" =>  "default",
+					"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
+				];
+
+				$result_add = \lib\arvancloud\api::add_dns_record($domain, $add_dns);
+
+				if(array_key_exists('status', $result_add))
+				{
+					$meta = $result_add;
+					$meta['args'] = ['type' => $add_dns['type'], 'name' => $add_dns['name'], 'value' => $load_dns_record['value']];
+
+					if($result_add['status'])
+					{
+						\lib\app\business_domain\edit::dns_edit(['status' => 'ok', 'verify' => 1], $dns_id);
+						\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_added', ['meta' => self::meta($meta)]);
+					}
+					else
+					{
+
+						\lib\app\business_domain\edit::dns_set_status($dns_id, 'failed');
+						\lib\app\business_domain\action::new_action($_id, 'arvancloud_error_dns', ['meta' => self::meta($meta)]);
+					}
+				}
+				else
+				{
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_error_dns', ['meta' => self::meta($result_add)]);
+				}
+			}
+			else
+			{
+				\dash\notif::error(T_("DNS record and domain is is not match!"));
+				return false;
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("DNS record not found"));
+			return false;
+		}
+	}
+
+
+	public static function get_dns_from_cdn_panel($_id)
+	{
+		$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
+			if(!$get_dns_record || !is_array($get_dns_record) || !isset($get_dns_record['data']) || (isset($get_dns_record['data']) && !is_array($get_dns_record['data'])))
+			{
+				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not connect get domain a record','cronjobstatus' => 'error_dns', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
+				self::send_to_supervisor('Can not connect get domain dns record from arvan panel. domain: '. $domain);
+				\dash\notif::error(T_("Can not get domain dns record from CDN panel"));
+				return false;
+			}
 	}
 }
 ?>

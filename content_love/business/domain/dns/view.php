@@ -20,6 +20,8 @@ class view
 		\dash\data::dnsList($dnsList);
 
 
+		// \lib\app\business_domain\dns::add_dns_to_cdn_panel(11, 8);
+
 	}
 }
 ?>

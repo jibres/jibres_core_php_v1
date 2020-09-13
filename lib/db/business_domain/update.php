@@ -18,5 +18,23 @@ class update
 		}
 	}
 
+
+	public static function update_dns($_args, $_id)
+	{
+		$set = \dash\db\config::make_set($_args);
+		if($set)
+		{
+			$query = " UPDATE `business_domain_dns` SET $set WHERE business_domain_dns.id = $_id LIMIT 1 ";
+			return \dash\db::query($query, 'master');
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
+
 }
 ?>
