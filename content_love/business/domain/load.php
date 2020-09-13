@@ -22,8 +22,9 @@ class load
 	public static function dashboardDetail()
 	{
 		$result = [];
-		$result['dns_count'] = rand();
-		$result['log_count'] = rand();
+		$result['dns_count'] = \lib\app\business_domain\dns::get_count(\dash\data::dataRow_id());
+		$result['action_count'] = \lib\app\business_domain\action::get_count(\dash\data::dataRow_id());
+
 		\dash\data::dashboardDetail($result);
 	}
 }

@@ -15,7 +15,7 @@
   <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '/log?id='. \dash\request::get('id'); ?>" class="stat x70">
       <h3><?php echo T_("Log");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'log_count'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'action_count'));?></div>
     </a>
   </div>
   <div class="c pRa10">

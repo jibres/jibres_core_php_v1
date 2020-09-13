@@ -3,9 +3,46 @@ namespace lib\app\business_domain;
 
 class action
 {
+
 	private static $filter_message = null;
 	private static $filter_args    = [];
 	private static $is_filtered    = false;
+
+	public static function new_action($_id, $_action, $_args = [])
+	{
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$_args['datecreated']        = date("Y-m-d H:i:s");
+		$_args['business_domain_id'] = $_id;
+		$_args['action']             = $_action;
+
+		return self::add($_args);
+	}
+
+
+	public static function add($_args)
+	{
+		\lib\db\business_domain\insert::new_record_action($_args);
+	}
+
+
+	public static function get_count($_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$count = \lib\db\business_domain\get::action_count($id);
+
+		return intval($count);
+	}
+
+
 
 
 	public static function filter_message()
@@ -137,9 +174,14 @@ class action
 		{
 			switch ($key)
 			{
-				case 'status':
+				case 'meta':
+
+					if($value)
+					{
+						$value = json_decode($value, true);
+					}
+
 					$result[$key] = $value;
-					$result['tstatus'] = T_(ucfirst($value));
 					break;
 				default:
 					$result[$key] = $value;

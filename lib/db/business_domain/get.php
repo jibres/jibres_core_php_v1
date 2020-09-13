@@ -21,5 +21,21 @@ class get
 		return $result;
 	}
 
+
+	public static function action_count($_id)
+	{
+		$query  = " SELECT COUNT(*) AS `count` FROM business_domain_action WHERE business_domain_action.business_domain_id = '$_id' ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+	public static function dns_count($_id)
+	{
+		$query  = " SELECT COUNT(*) AS `count` FROM business_domain_dns WHERE business_domain_dns.business_domain_id = '$_id' ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
 }
 ?>
