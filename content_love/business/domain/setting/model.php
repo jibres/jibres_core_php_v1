@@ -15,6 +15,27 @@ class model
 			}
 		}
 
+
+		if(\dash\request::post('addtocdnpanel') === 'addtocdnpanel')
+		{
+			$result = \lib\app\business_domain\cdnpanel::add(\dash\data::dataRow_id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
+		if(\dash\request::post('removefromcdnpanel') === 'removefromcdnpanel')
+		{
+			$result = \lib\app\business_domain\cdnpanel::remove(\dash\data::dataRow_id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
 		if(\dash\request::post('removedomain') === 'removedomain')
 		{
 			$result = \lib\app\business_domain\remove::remove(\dash\data::dataRow_id());

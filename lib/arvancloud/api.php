@@ -135,6 +135,11 @@ class api
 		return self::run($_domain, 'get');
 	}
 
+	public static function delete_domain($_domain, $_id)
+	{
+		return self::run($_domain, 'delete', ['id' => $_id]);
+	}
+
 
 	public static function add_domain($_domain)
 	{

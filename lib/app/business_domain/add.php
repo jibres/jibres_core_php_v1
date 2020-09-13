@@ -52,6 +52,7 @@ class add
 			'tld'         => null,
 			'store_id'    => null,
 			'domain_id'   => null,
+			'cdn'         => $cdn,
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 

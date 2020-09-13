@@ -14,6 +14,7 @@ class view
 
 		\content_love\business\domain\load::dashboardDetail();
 
+
 	}
 }
 ?>
