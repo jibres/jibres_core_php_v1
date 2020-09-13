@@ -121,6 +121,14 @@ class dns
 		{
 			if(isset($load_dns_record['business_domain_id']) && floatval($load_dns_record['business_domain_id']) === floatval($id) )
 			{
+				if(isset($load_dns_record['status']) && $load_dns_record['status'] === 'ok')
+				{
+					// must remove from cdn panel
+					\dash\notif::error(__LINE__);
+					\dash\notif::error('must remove from cdn panel');
+					return false
+				}
+
 				$delete = \lib\db\business_domain\delete::dns_record($dns_id);
 				\dash\notif::delete(T_("DNS record removed"));
 				return true;
