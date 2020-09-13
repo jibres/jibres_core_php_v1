@@ -1,5 +1,5 @@
 <?php
-namespace content_love\business\domain\detail;
+namespace content_love\business\domain\log;
 
 
 class view
@@ -13,6 +13,9 @@ class view
 		\dash\data::back_link(\dash\url::that());
 
 		\content_love\business\domain\load::dashboardDetail();
+
+		$list = \lib\app\business_domain\action::domain_action_list(\dash\data::dataRow_id());
+		\dash\data::dataTable($list);
 
 
 	}

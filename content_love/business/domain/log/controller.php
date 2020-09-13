@@ -1,5 +1,5 @@
 <?php
-namespace content_love\business\domain\detail;
+namespace content_love\business\domain\log;
 
 
 class controller
