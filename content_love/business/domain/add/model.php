@@ -17,7 +17,7 @@ class model
 
 		if(isset($result['id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/detail?id='. $result['id']);
+			\dash\redirect::to(\dash\url::that(). '/detail?id='. $result['id']);
 		}
 
 	}
