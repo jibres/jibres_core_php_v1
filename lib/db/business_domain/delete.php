@@ -12,6 +12,14 @@ class delete
 		return $result;
 	}
 
+
+	public static function dns_record($_id)
+	{
+		$query = "DELETE FROM business_domain_dns WHERE business_domain_dns.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+	}
+
 	public static function all_domain_dns($_id)
 	{
 		$query = "DELETE FROM business_domain_dns WHERE business_domain_dns.business_domain_id = $_id ";

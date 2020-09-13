@@ -67,10 +67,3 @@
   </div>
 
 </div>
-
-
-<div class="hide">
-
-  cdnpanel
-  httpsrequest
-</div>
