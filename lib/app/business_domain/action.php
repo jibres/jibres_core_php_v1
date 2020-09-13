@@ -18,6 +18,7 @@ class action
 		$_args['datecreated']        = date("Y-m-d H:i:s");
 		$_args['business_domain_id'] = $_id;
 		$_args['action']             = $_action;
+		$_args['gateway']            = \dash\temp::get('run:by:system') ? 'system' : 'user';
 
 		return self::add($_args);
 	}

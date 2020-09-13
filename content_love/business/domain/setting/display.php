@@ -3,6 +3,7 @@
   <form method="post" autocomplete="off">
     <input type="hidden" name="checkdns" value="checkdns">
     <div class="box">
+      <header><h2><?php echo T_("DNS") ?></h2></header>
       <div class="body">
         <?php if(\dash\data::dataRow_checkdns()) {?>
           <div class="msg minimal f"><div class="c"><?php echo T_("DNS Resolved") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></div></div>
@@ -18,10 +19,34 @@
 
       </div>
       <footer class="txtRa">
-        <?php if(\dash\data::dataRow_checkdns()) {?>
-          <button class="btn primary"><?php echo T_("Check DNS again") ?></button>
-        <?php }else{ ?>
           <button class="btn master"><?php echo T_("Check DNS") ?></button>
+      </footer>
+    </div>
+  </form>
+
+
+   <form method="post" autocomplete="off">
+
+    <?php if(!\dash\data::dataRow_cdnpanel()) {?>
+      <input type="hidden" name="addtocdnpanel" value="addtocdnpanel">
+    <?php }else{ ?>
+      <input type="hidden" name="removefromcdnpanel" value="removefromcdnpanel">
+    <?php } //endif ?>
+
+    <div class="box">
+      <header><h2><?php echo T_("CDN panel status") ?></h2></header>
+      <div class="body">
+        <?php if(\dash\data::dataRow_cdnpanel()) {?>
+          <div class="msg minimal f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
+        <?php }else{ ?>
+          <div class="msg minimal"><?php echo T_("Not add to CDN panel yet"); ?></div>
+        <?php } //endif ?>
+      </div>
+      <footer class="txtRa">
+        <?php if(!\dash\data::dataRow_cdnpanel()) {?>
+          <button class="btn master"><?php echo T_("Add to CDN panel Now!") ?></button>
+        <?php }else{ ?>
+          <button class="btn danger"><?php echo T_("Remove from CDN panel") ?></button>
         <?php } //endif ?>
       </footer>
     </div>
