@@ -5,10 +5,17 @@
     <div class="box">
       <div class="body">
         <?php if(\dash\data::dataRow_checkdns()) {?>
-          <p><?php echo T_("DNS Checked") ?> <?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></p>
+          <div class="msg minimal f"><div class="c"><?php echo T_("DNS Resolved") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></div></div>
+          <?php if(\dash\data::dataRow_dnsok()) {?>
+            <div class="msg minimal f"><div class="c"><?php echo T_("DNS was set on our DNS record") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_dnsok()); ?></div></div>
+          <?php }else{ ?>
+            <div class="msg minimal"><?php echo T_("DNS was is not set on our dns record") ?></div>
+          <?php } //endif ?>
         <?php }else{ ?>
-          <p><?php echo T_("DNS not checked yet") ?></p>
+          <div class="msg minimal"><?php echo T_("DNS not resolved yet") ?></div>
         <?php } //endif ?>
+
+
       </div>
       <footer class="txtRa">
         <?php if(\dash\data::dataRow_checkdns()) {?>

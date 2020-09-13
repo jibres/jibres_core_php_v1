@@ -36,7 +36,7 @@
       <td><?php echo \dash\get::index($value, 'tstatus'); ?></td>
 
 
-      <td><?php if(\dash\get::index($value, 'https')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
+      <td><?php if(\dash\get::index($value, 'dnsok')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
       <td><?php if(\dash\get::index($value, 'master')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
       <td><?php if(\dash\get::index($value, 'master')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
 

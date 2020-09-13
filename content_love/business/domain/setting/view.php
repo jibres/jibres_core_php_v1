@@ -14,8 +14,6 @@ class view
 
 		\content_love\business\domain\load::dashboardDetail();
 
-		$result = \lib\app\business_domain\dns::check(\dash\data::dataRow_id());
-
 	}
 }
 ?>

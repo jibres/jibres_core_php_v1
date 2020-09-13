@@ -31,7 +31,17 @@ class dns
 		}
 
 		\lib\app\business_domain\edit::set_date($_id, 'checkdns');
-		\lib\app\business_domain\action::new_action($_id, 'checkdns', ['meta' => json_encode($dns)]);
+		\lib\app\business_domain\action::new_action($_id, 'dns_resolved', ['meta' => json_encode($dns)]);
+
+		$arvan_ns1 = \lib\app\nic_usersetting\defaultval::ns1();
+		$arvan_ns2 = \lib\app\nic_usersetting\defaultval::ns2();
+
+		if(in_array($arvan_ns1, $dns) && in_array($arvan_ns2, $dns))
+		{
+			\lib\app\business_domain\edit::set_date($_id, 'dnsok');
+			\lib\app\business_domain\action::new_action($_id, 'dns_ok', ['meta' => json_encode($dns), 'desc' => T_("DNS was set on our default DNS record")]);
+		}
+
 
 		\dash\notif::ok(T_("DNS detail saved"));
 		return true;
