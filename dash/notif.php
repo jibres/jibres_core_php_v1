@@ -114,6 +114,12 @@ class notif
 		self::add('ok', $_text, $_meta);
 	}
 
+	public static function delete($_text, $_meta = [])
+	{
+		// \dash\header::set(202); // if need change header status of delete request
+		self::add('ok', $_text, $_meta);
+	}
+
 
 	public static function warn($_text, $_meta = [])
 	{
