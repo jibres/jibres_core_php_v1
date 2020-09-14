@@ -121,21 +121,21 @@
 </form>
 <section class="row">
 	<div class="c">
-		<a class="stat">
+		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_debtor(); ?>'>
 			<h3><?php echo T_("Sum Debtor");?></h3>
 			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_debtor());?></div>
 		</a>
 	</div>
 
 	<div class="c">
-		<a class="stat">
+		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_creditor(); ?>'>
 			<h3><?php echo T_("Sum Creditor");?></h3>
 			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_creditor());?></div>
 		</a>
 	</div>
 
 	<div class="c">
-		<a class="stat">
+		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_balance(); ?>'>
 			<h3><?php echo T_("Balance");?></h3>
 			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_balance());?></div>
 		</a>
@@ -146,8 +146,7 @@
 	<table class="tbl1 v6  minimal font-12">
 		<thead>
 			<tr>
-				<td>#</td>
-				<th><?php echo T_("Number") ?></th>
+				<th class=""><?php echo T_("Number") ?></th>
 
 				<?php if(\dash\request::get('group')) {}else{ echo '<th>'. T_("Group"). '</th>'; }?>
 				<?php if(\dash\request::get('total')) {}else{ echo '<th>'. T_("Accounting total"). '</th>'; }?>
@@ -171,41 +170,42 @@
 				<?php $myDataTable = \dash\data::dataTable(); ?>
 				<?php foreach ($myDataTable as $key => $value) {?>
 				<tr class="font-12">
-					<td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>
 					<td class="font-14">
 						<a class="link" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\get::index($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
 					</td>
 
-						<?php if(\dash\request::get('group')) {}else{?>
-					<td>
-						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => null, 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'group_title'); ?></a>
-					</td>
+
+					<?php if(\dash\request::get('group')) {}else{?>
+						<td>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => null, 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'group_title'); ?></a>
+						</td>
 					<?php } //endif ?>
-						<?php if(\dash\request::get('total')) {}else{?>
-					<td>
-						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'total_title'); ?></a>
-					</td>
+					<?php if(\dash\request::get('total')) {}else{?>
+						<td>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'total_title'); ?></a>
+						</td>
 						<?php } //endif ?>
-						<?php if(\dash\request::get('assistant')) {}else{?>
-					<td>
-						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id')]); ?>"><?php echo \dash\get::index($value, 'assistant_title'); ?></a>
-					</td>
-						<?php } //endif	 ?>
-						<?php if(\dash\request::get('details')) {}else{?>
-					<td>
-						<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a>
-					</td>
-						<?php } //endif ?>
+					<?php if(\dash\request::get('assistant')) {}else{?>
+						<td>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id')]); ?>"><?php echo \dash\get::index($value, 'assistant_title'); ?></a>
+						</td>
+					<?php } //endif	 ?>
+					<?php if(\dash\request::get('details')) {}else{?>
+						<td>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a>
+						</td>
+					<?php } //endif ?>
 					<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
+
 					<?php if(\dash\request::get('status') === 'draft') { ?>
-					<td><?php echo \dash\get::index($value, 'tstatus') ?></td>
+						<td><?php echo \dash\get::index($value, 'tstatus') ?></td>
 					<?php } // endif ?>
 
 
-					<td class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></td>
-					<td class="txtR ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></td>
+					<td data-copy='<?php echo \dash\get::index($value, 'debtor') ?>' class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></td>
+					<td data-copy='<?php echo \dash\get::index($value, 'creditor') ?>' class="txtR ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></td>
 					<?php if(\dash\url::subchild() === 'detail' or true) {?>
-					<td class="txtR ltr font-14 txtB <?php if(\dash\get::index($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></td>
+					<td data-copy='<?php echo \dash\get::index($value, 'balance_now') ?>' class="txtR ltr font-14 txtB <?php if(\dash\get::index($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></td>
 					<?php } //endif ?>
 
 				</tr>
