@@ -11,6 +11,8 @@ class model
 			$post['year_id'] = \dash\request::post('year_id');
 
 			\lib\app\tax\doc\edit::reset_number($post);
+
+			\dash\redirect::pwd();
 		}
 	}
 }
