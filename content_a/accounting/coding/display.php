@@ -21,7 +21,8 @@
 					<div class="body">
 						<nav class="items long">
 			              <ul>
-			                <li><a class="f" href="<?php echo \dash\url::this(). '/docdetail?contain='. \dash\data::loadDetail_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
+			              	<?php if(\dash\data::dataRow_type() === 'details') { $detail_url = '/detail';}else{$detail_url = null;} ?>
+			                <li><a class="f" href="<?php echo \dash\url::this(). '/turnover'.$detail_url .'?contain='. \dash\data::loadDetail_id(); ?>"><div class="key"><?php echo T_("Show contain document") ?></div><div class="go"></div></a></li>
 			              </ul>
 			            </nav>
 						<table class="tbl1 v4">
