@@ -126,7 +126,7 @@ class dns
 					// must remove from cdn panel
 					\dash\notif::error(__LINE__);
 					\dash\notif::error('must remove from cdn panel');
-					return false
+					return false;
 				}
 
 				$delete = \lib\db\business_domain\delete::dns_record($dns_id);
@@ -173,7 +173,7 @@ class dns
 	{
 		$condition =
 		[
-			'type'             => ['enum' => ['A', 'AAAA','ALIAS','CNAME','MX','NS','PTR','SOA','SRV', 'TXT']],
+			'type'             => ['enum' => ['A', 'AAAA', 'ANAME', 'CNAME','MX','NS','PTR',/*'SOA','SRV',*/ 'TXT']],
 			'key'              => 'string_100',
 			'value'            => 'string_100',
 			'addtocdnpaneldns' => 'bit',
@@ -269,11 +269,50 @@ class dns
 
 				$domain = $load['domain'];
 
+				$value = [];
+				switch ($load_dns_record['type'])
+				{
+					case 'TXT':
+						$value = ['text' => $load_dns_record['value']];
+						break;
+
+					case 'CNAME':
+						$value = ['host' => $load_dns_record['value'], "host_header" =>  "source"];
+						break;
+
+					case 'NS':
+						$value = ['host' => $load_dns_record['value']];
+						break;
+
+					case 'PTR':
+						$value = ['domain' => $load_dns_record['value']];
+						break;
+
+					case 'MX':
+						$value = ['host' => $load_dns_record['value'], "priority" =>  1]; // get static value from user
+						break;
+
+					case 'SRV':
+						$value = ['target' => $load_dns_record['value'], "port" => 80, "weight" => 1]; // get static value from user
+						break;
+
+					case 'ANAME':
+						$value = ['location' => $load_dns_record['value'], "host_header" =>  "source"];
+						break;
+
+					case 'A':
+					default:
+						$value = [["ip" => $load_dns_record['value'], /*"port" => null, "weight" => null , "country" => null*/]];
+						break;
+				}
+
+				$value = json_encode($value);
+
 				$add_dns =
 				[
 					"type"           =>  $load_dns_record['type'],
 					"name"           =>  $load_dns_record['key'],
-					"value"          =>  json_encode([["ip" => $load_dns_record['value'], /*"port" => null, "weight" => null , "country" => null*/]]),
+					"value"          =>  $value,
 					"ttl"            =>  120,
 					"cloud"          =>  true,
 					"upstream_https" =>  "default",
@@ -282,26 +321,19 @@ class dns
 
 				$result_add = \lib\arvancloud\api::add_dns_record($domain, $add_dns);
 
-				if(array_key_exists('status', $result_add))
+				$meta = $result_add;
+
+				if(isset($result_add['data']['id']))
 				{
-					$meta = $result_add;
 					$meta['args'] = ['type' => $add_dns['type'], 'name' => $add_dns['name'], 'value' => $load_dns_record['value']];
-
-					if($result_add['status'])
-					{
-						\lib\app\business_domain\edit::dns_edit(['status' => 'ok', 'verify' => 1], $dns_id);
-						\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_added', ['meta' => self::meta($meta)]);
-					}
-					else
-					{
-
-						\lib\app\business_domain\edit::dns_set_status($dns_id, 'failed');
-						\lib\app\business_domain\action::new_action($_id, 'arvancloud_error_dns', ['meta' => self::meta($meta)]);
-					}
+					\lib\app\business_domain\edit::dns_edit(['status' => 'ok', 'verify' => 1], $dns_id);
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_added', ['meta' => self::meta($meta)]);
 				}
 				else
 				{
-					\lib\app\business_domain\action::new_action($_id, 'arvancloud_error_dns', ['meta' => self::meta($result_add)]);
+
+					\lib\app\business_domain\edit::dns_set_status($dns_id, 'failed');
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_error_dns', ['meta' => self::meta($meta)]);
 				}
 			}
 			else

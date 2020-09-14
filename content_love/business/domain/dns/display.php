@@ -15,13 +15,15 @@
                 <option value=""><?php echo T_("Type") ?></option>
                 <option value="A">A</option>
                 <option value="AAAA">AAAA</option>
-                <option value="ALIAS">ALIAS</option>
+                <option value="ANAME">ANAME</option>
                 <option value="CNAME">CNAME</option>
                 <option value="MX">MX</option>
                 <option value="NS">NS</option>
                 <option value="PTR">PTR</option>
+                <?php if(false) {?>
                 <option value="SOA">SOA</option>
                 <option value="SRV">SRV</option>
+              <?php } //endif ?>
                 <option value="TXT">TXT</option>
               </select>
             </div>
