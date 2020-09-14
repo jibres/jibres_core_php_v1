@@ -164,7 +164,10 @@ class api
 		return self::run($_domain. '/dns-service/check-ns', 'put', null, []);
 	}
 
-
+	public static function remove_dns_record($_domain, $_id)
+	{
+		return self::run($_domain. '/dns-records/'. $_id, 'delete');
+	}
 
 	public static function add_dns_record($_domain, $_args)
 	{

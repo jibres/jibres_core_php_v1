@@ -116,6 +116,15 @@ class dns
 			return false;
 		}
 
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+		$domain = $load['domain'];
+
+
 		$load_dns_record = \lib\db\business_domain\get::dns_record($dns_id);
 		if(isset($load_dns_record['id']))
 		{
@@ -125,18 +134,25 @@ class dns
 				{
 					$current_list = self::get_dns_from_cdn_panel($_id);
 					$find = false;
+					$cdn_id = null;
 					foreach ($current_list as $key => $value)
 					{
 						if(\dash\validate::is_equal($value['type'], $load_dns_record['type']) && \dash\validate::is_equal($value['key'], $load_dns_record['key']) && \dash\validate::is_equal($value['value'], $load_dns_record['value']))
 						{
 							$find = true;
-
+							$cdn_id = $value['id'];
+							break;
 						}
 					}
-					// must remove from cdn panel
-					\dash\notif::error(__LINE__);
-					\dash\notif::error('must remove from cdn panel');
-					return false;
+
+					if(!$cdn_id)
+					{
+						\dash\notif::warn(T_("We can not find this record on CDN panel"));
+					}
+
+					$result_remove = \lib\arvancloud\api::remove_dns_record($domain, $cdn_id);
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_remove', ['meta' => self::meta($result_remove)]);
+
 				}
 
 				$delete = \lib\db\business_domain\delete::dns_record($dns_id);
