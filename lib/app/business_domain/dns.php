@@ -123,6 +123,16 @@ class dns
 			{
 				if(isset($load_dns_record['status']) && $load_dns_record['status'] === 'ok')
 				{
+					$current_list = self::get_dns_from_cdn_panel($_id);
+					$find = false;
+					foreach ($current_list as $key => $value)
+					{
+						if(\dash\validate::is_equal($value['type'], $load_dns_record['type']) && \dash\validate::is_equal($value['key'], $load_dns_record['key']) && \dash\validate::is_equal($value['value'], $load_dns_record['value']))
+						{
+							$find = true;
+
+						}
+					}
 					// must remove from cdn panel
 					\dash\notif::error(__LINE__);
 					\dash\notif::error('must remove from cdn panel');
@@ -350,7 +360,7 @@ class dns
 	}
 
 
-	public static function fetch($_id)
+	public static function get_dns_from_cdn_panel($_id)
 	{
 		$load = \lib\app\business_domain\get::get($_id);
 		if(!$load || !isset($load['domain']))
@@ -373,13 +383,6 @@ class dns
 		if(!is_array($cdn_panel_list))
 		{
 			$cdn_panel_list = [];
-		}
-
-
-		$local_list = \lib\db\business_domain\get::dns_list($_id);
-		if(!is_array($local_list))
-		{
-			$local_list = [];
 		}
 
 		$current_list = [];
@@ -439,6 +442,19 @@ class dns
 			}
 		}
 
+		return $current_list;
+	}
+
+
+	public static function fetch($_id)
+	{
+		$current_list = self::get_dns_from_cdn_panel($_id);
+
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
 		$multi_insert = [];
 		foreach ($current_list as $key => $value)
 		{
@@ -454,6 +470,14 @@ class dns
 			];
 		}
 
+
+		$local_list = \lib\db\business_domain\get::dns_list($_id);
+		if(!is_array($local_list))
+		{
+			$local_list = [];
+		}
+
+
 		if($local_list)
 		{
 			\lib\db\business_domain\delete::all_domain_dns($_id);
@@ -464,7 +488,7 @@ class dns
 			\lib\db\business_domain\insert::multi_dns($multi_insert);
 		}
 
-		\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_ok', ['meta' => self::meta($get_dns_record)]);
+		\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_ok', ['meta' => self::meta($current_list)]);
 
 		\dash\notif::ok(T_("Fetch DNS successfully"));
 
