@@ -20,6 +20,12 @@ class view
 
 		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
+		self::load_list();
+	}
+
+	public static function load_list()
+	{
+
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
 

@@ -12,7 +12,8 @@
             <nav class="items">
               <ul>
                 <li>
-                  <a class="item f" href="<?php echo \dash\url::this(). '/turnover?contain='. \dash\data::dataRow_id(); ?>">
+                  <?php if(\dash\data::dataRow_type() === 'details') { $detail_url = '/detail';}else{$detail_url = null;} ?>
+                  <a class="item f" href="<?php echo \dash\url::this(). '/turnover'.$detail_url .'?contain='. \dash\data::dataRow_id(); ?>">
                     <i class="sf-retweet"></i>
                     <div class="key"><?php echo T_("Check Turnover") ?></div>
                     <div class="go"></div>

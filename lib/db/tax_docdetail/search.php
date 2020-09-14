@@ -32,7 +32,6 @@ class search
 					FROM tax_docdetail AS `myTaxDocDetail`
 					INNER JOIN tax_document AS `myTaxDoc` ON myTaxDoc.id = myTaxDocDetail.tax_document_id
 					WHERE
-						myTaxDocDetail.year_id = tax_docdetail.year_id AND
 						myTaxDocDetail.assistant_id = tax_docdetail.assistant_id AND
 						myTaxDocDetail.details_id = tax_docdetail.details_id AND
 						myTaxDoc.number <= tax_document.number

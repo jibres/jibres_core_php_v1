@@ -162,7 +162,9 @@
 
 				<th><?php echo T_("Debtor") ?></th>
 				<th><?php echo T_("Creditor") ?></th>
-				<th><?php echo T_("Remain") ?></th>
+				<?php if(\dash\url::subchild() === 'detail') {?>
+					<th><?php echo T_("Remain") ?></th>
+				<?php } //endif ?>
 			</tr>
 		</thead>
 		<tbody>
@@ -202,8 +204,9 @@
 
 					<td class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></td>
 					<td class="txtR ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></td>
-
+					<?php if(\dash\url::subchild() === 'detail') {?>
 					<td class="txtR ltr font-14 txtB <?php if(\dash\get::index($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></td>
+					<?php } //endif ?>
 
 				</tr>
 				<tr>
