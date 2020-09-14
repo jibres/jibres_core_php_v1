@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-14 17:49+0430\n"
-"PO-Revision-Date: 2020-09-14 18:17+0430\n"
+"POT-Creation-Date: 2020-09-14 18:19+0430\n"
+"PO-Revision-Date: 2020-09-14 18:19+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -15543,8 +15543,8 @@ msgstr ""
 "اطلاعات جدید شما پاک خواهند شد."
 
 #: content_love/business/domain/dns/display.php:53
-msgid "You can insert Jibres DNS record of thsi domain"
-msgstr ""
+msgid "You can insert Jibres DNS record to this domain"
+msgstr "شما می‌توانید اطلاعات مربوط به دی‌ان‌اس‌های جیبرس را به این دامنه اضافه کنید"
 
 #: content_love/business/domain/dns/display.php:53
 msgid "Insert now!"
