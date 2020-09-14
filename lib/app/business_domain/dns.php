@@ -350,16 +350,125 @@ class dns
 	}
 
 
-	public static function get_dns_from_cdn_panel($_id)
+	public static function fetch($_id)
 	{
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+		$domain = $load['domain'];
+
 		$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
-			if(!$get_dns_record || !is_array($get_dns_record) || !isset($get_dns_record['data']) || (isset($get_dns_record['data']) && !is_array($get_dns_record['data'])))
+
+		if(!isset($get_dns_record['data']))
+		{
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_error', ['meta' => self::meta($get_dns_record)]);
+			\dash\notif::error(T_("Can not connect to CDN panel"));
+			return false;
+		}
+
+		$cdn_panel_list = $get_dns_record['data'];
+		if(!is_array($cdn_panel_list))
+		{
+			$cdn_panel_list = [];
+		}
+
+
+		$local_list = \lib\db\business_domain\get::dns_list($_id);
+		if(!is_array($local_list))
+		{
+			$local_list = [];
+		}
+
+		$current_list = [];
+
+		foreach ($cdn_panel_list as $key => $value)
+		{
+			if(isset($value['type']) && isset($value['name']) && isset($value['value']) && isset($value['id']))
 			{
-				\lib\db\store_domain\update::record(['status' => 'failed', 'message' => 'Can not connect get domain a record','cronjobstatus' => 'error_dns', 'datemodified' => date("Y-m-d H:i:s")], $store_domain_id);
-				self::send_to_supervisor('Can not connect get domain dns record from arvan panel. domain: '. $domain);
-				\dash\notif::error(T_("Can not get domain dns record from CDN panel"));
-				return false;
+				$temp =
+				[
+					'id'   => $value['id'],
+					'type' => mb_strtoupper($value['type']),
+					'key'  => $value['name'],
+
+				];
+
+				$this_value = null;
+				switch ($temp['type'])
+				{
+					case 'TXT':
+						$this_value = isset($value['value']['text']) ? $value['value']['text'] : null;
+						break;
+
+					case 'CNAME':
+						$this_value = isset($value['value']['host']) ? $value['value']['host'] : null;
+						break;
+
+					case 'NS':
+						$this_value = isset($value['value']['host']) ? $value['value']['host'] : null;
+						break;
+
+					case 'PTR':
+						$this_value = isset($value['value']['domain']) ? $value['value']['domain'] : null;
+						break;
+
+					case 'MX':
+						$this_value = isset($value['value']['host']) ? $value['value']['host'] : null;
+						break;
+
+					case 'SRV':
+						$this_value = isset($value['value']['target']) ? $value['value']['target'] : null;
+						break;
+
+					case 'ANAME':
+						$this_value = isset($value['value']['location']) ? $value['value']['location'] : null;
+						break;
+
+					case 'A':
+					default:
+						$this_value = isset($value['value'][0]['ip']) ? $value['value'][0]['ip'] : null;
+						break;
+				}
+
+				$temp['value'] = $this_value;
+
+				$current_list[] = $temp;
 			}
+		}
+
+		$multi_insert = [];
+		foreach ($current_list as $key => $value)
+		{
+			$multi_insert[] =
+			[
+				'business_domain_id' => $_id,
+				'type'               => $value['type'],
+				'key'                => $value['key'],
+				'value'              => $value['value'],
+				'datecreated'        => date("Y-m-d H:i:s"),
+				'status'             => 'ok',
+				'verify'             => 0,
+			];
+		}
+
+		if($local_list)
+		{
+			\lib\db\business_domain\delete::all_domain_dns($_id);
+		}
+
+		if(!empty($multi_insert))
+		{
+			\lib\db\business_domain\insert::multi_dns($multi_insert);
+		}
+
+		\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_ok', ['meta' => self::meta($get_dns_record)]);
+
+		\dash\notif::ok(T_("Fetch DNS successfully"));
+
+		return true;
 	}
 }
 ?>

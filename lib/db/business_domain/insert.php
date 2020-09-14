@@ -77,5 +77,15 @@ class insert
 		}
 	}
 
+	public static function multi_dns($_args)
+	{
+		$set = \dash\db\config::make_multi_insert($_args);
+		if($set)
+		{
+			$query = " INSERT INTO `business_domain_dns` $set ";
+			return \dash\db::query($query, 'master');
+		}
+	}
+
 }
 ?>

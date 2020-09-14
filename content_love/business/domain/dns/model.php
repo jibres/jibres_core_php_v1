@@ -25,6 +25,12 @@ class model
 			$result = \lib\app\business_domain\dns::remove(\dash\data::dataRow_id(), \dash\request::post('dnsid'));
 		}
 
+
+		if(\dash\request::post('dnsfetch') === 'dnsfetch')
+		{
+			$result = \lib\app\business_domain\dns::fetch(\dash\data::dataRow_id());
+		}
+
 		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();

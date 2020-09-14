@@ -53,8 +53,11 @@
 
 
       </div>
-      <footer class="txtRa">
-          <button class="btn master"><?php echo T_("Add DNS") ?></button>
+      <footer class="f">
+        <div class="cauto"><div data-confirm data-data='{"dnsfetch": "dnsfetch"}' class="btn link"><?php echo T_("Fetch DNS") ?></div></div>
+        <div class="c"></div>
+        <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
+
       </footer>
     </div>
   </form>
