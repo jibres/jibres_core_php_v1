@@ -100,61 +100,73 @@ class search
 		if($data['year_id'])
 		{
 			$and[] = " tax_docdetail.year_id = $data[year_id] ";
+			$where_date[] = " myTaxDocDetail.year_id = $data[year_id] ";
 		}
 
 		if($data['contain'])
 		{
-			$load_all_child = \lib\db\tax_coding\get::all_child_id($data['contain']);
-			if($load_all_child)
-			{
-				$load_all_child = array_map('floatval', $load_all_child);
-				$load_all_child = array_filter($load_all_child);
-				$load_all_child = array_unique($load_all_child);
+			$and[] =
+			"
+				(
+					tax_docdetail.assistant_id IN
+					(
+						SELECT
+							tax_coding.id
+						FROM
+							tax_coding
+						WHERE
+							tax_coding.id = $data[contain] OR
+							tax_coding.parent1 = $data[contain] OR
+							tax_coding.parent2 = $data[contain] OR
+							tax_coding.parent3 = $data[contain]
+					)
+					OR
 
-				if($load_all_child)
-				{
-					$load_all_child = implode(',', $load_all_child);
-					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child) OR tax_docdetail.details_id IN ($load_all_child) ) ";
+					tax_docdetail.details_id IN
+					(
+						SELECT
+							tax_coding.id
+						FROM
+							tax_coding
+						WHERE
+							tax_coding.id = $data[contain] OR
+							tax_coding.parent1 = $data[contain] OR
+							tax_coding.parent2 = $data[contain] OR
+							tax_coding.parent3 = $data[contain]
+					)
+				)
+			";
 
-				}
-			}
+
 		}
 
 
 		if($data['group'])
 		{
-			$load_all_child_group = \lib\db\tax_coding\get::all_child_id_group($data['group']);
-			if($load_all_child_group)
-			{
-				$load_all_child_group = array_map('floatval', $load_all_child_group);
-				$load_all_child_group = array_filter($load_all_child_group);
-				$load_all_child_group = array_unique($load_all_child_group);
-
-				if($load_all_child_group)
-				{
-					$load_all_child_group = implode(',', $load_all_child_group);
-					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child_group) OR tax_docdetail.details_id IN ($load_all_child_group) ) ";
-				}
-			}
+			$and[] =
+			"
+				(
+					tax_docdetail.assistant_id IN 	( SELECT tax_coding.id AS `id` FROM tax_coding WHERE tax_coding.id = $data[group] OR tax_coding.parent1 = $data[group] )
+					OR
+					tax_docdetail.details_id IN 	( SELECT tax_coding.id AS `id` FROM tax_coding WHERE tax_coding.id = $data[group] OR tax_coding.parent1 = $data[group] )
+				)
+			";
 		}
 
 
 
 		if($data['total'])
 		{
-			$load_all_child_total = \lib\db\tax_coding\get::all_child_id_total($data['total'], $data['group']);
-			if($load_all_child_total)
-			{
-				$load_all_child_total = array_map('floatval', $load_all_child_total);
-				$load_all_child_total = array_filter($load_all_child_total);
-				$load_all_child_total = array_unique($load_all_child_total);
+			$myGroupQuery = null;
 
-				if($load_all_child_total)
-				{
-					$load_all_child_total = implode(',', $load_all_child_total);
-					$and[] = " (tax_docdetail.assistant_id IN ($load_all_child_total) OR tax_docdetail.details_id IN ($load_all_child_total) ) ";
-				}
+			if($data['group'])
+			{
+				$myGroupQuery = " AND tax_coding.parent1 = $data[group] ";
 			}
+
+			$total_ids_query = "SELECT tax_coding.id AS `id` FROM tax_coding WHERE (tax_coding.id = $data[total] OR tax_coding.parent2 = $data[total] ) $myGroupQuery ";
+
+			$and[] = " ( tax_docdetail.assistant_id IN 	( $total_ids_query ) OR tax_docdetail.details_id IN	( $total_ids_query ) ) ";
 		}
 
 
@@ -162,7 +174,6 @@ class search
 		{
 			$and[] = " tax_docdetail.assistant_id = $data[assistant] ";
 		}
-
 
 
 		if($data['startdate'])
@@ -239,7 +250,64 @@ class search
 			$list = [];
 		}
 
+		$all_to_assistant = \lib\db\tax_coding\get::all_to_assistant();
+
+		$coding_by_assistant = [];
+
+		$all_to_assistant = array_combine(array_column($all_to_assistant, 'id'), $all_to_assistant);
+
+		foreach ($all_to_assistant as $key => $value)
+		{
+			if(isset($value['type']) && $value['type'] === 'assistant')
+			{
+				if(!isset($coding_by_assistant[$value['id']]))
+				{
+					if(isset($value['parent1']) && isset($all_to_assistant[$value['parent1']]['title']))
+					{
+						$value['group_title'] = $all_to_assistant[$value['parent1']]['title'];
+					}
+
+					if(isset($value['parent2']) && isset($all_to_assistant[$value['parent2']]['title']))
+					{
+						$value['total_title'] = $all_to_assistant[$value['parent2']]['title'];
+					}
+
+					if(isset($value['title']))
+					{
+						$value['assistant_title'] = $value['title'];
+					}
+
+					$coding_by_assistant[$value['id']] = $value;
+				}
+			}
+		}
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['assistant_id']))
+			{
+				if(isset($coding_by_assistant[$value['assistant_id']]))
+				{
+					if(isset($coding_by_assistant[$value['assistant_id']]['group_title']))
+					{
+						$list[$key]['group_title'] = $coding_by_assistant[$value['assistant_id']]['group_title'];
+					}
+
+					if(isset($coding_by_assistant[$value['assistant_id']]['total_title']))
+					{
+						$list[$key]['total_title'] = $coding_by_assistant[$value['assistant_id']]['total_title'];
+					}
+
+					if(isset($coding_by_assistant[$value['assistant_id']]['assistant_title']))
+					{
+						$list[$key]['assistant_title'] = $coding_by_assistant[$value['assistant_id']]['assistant_title'];
+					}
+				}
+			}
+		}
+
 		$list = array_map(['\\lib\\app\\tax\\docdetail\\ready', 'row'], $list);
+
 
 		$filter_args_data = [];
 

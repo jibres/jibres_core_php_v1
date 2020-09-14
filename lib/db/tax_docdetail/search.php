@@ -44,45 +44,16 @@ class search
 				tax_document.desc AS `doc_desc`,
 				tax_document.date,
 				tax_document.status,
-				assistant_detail.title AS `assistant_title`,
-				details_detail.title AS `details_title`,
-				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = details_detail.parent2) AS `total_title`,
-				(SELECT tax_coding.id FROM tax_coding WHERE tax_coding.id = details_detail.parent2) AS `total_id`,
-				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = details_detail.parent1) AS `group_title`,
-				(SELECT tax_coding.id FROM tax_coding WHERE tax_coding.id = details_detail.parent1) AS `group_id`
+				details_detail.title AS `details_title`
 			FROM tax_docdetail
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			LEFT JOIN tax_coding AS `assistant_detail` ON assistant_detail.id = tax_docdetail.assistant_id
 			LEFT JOIN tax_coding AS `details_detail` ON details_detail.id = tax_docdetail.details_id
 			$q[join]
 			$q[where]
 			$q[order]
 			$limit
 		";
-		// $query =
-		// "
-		// 	SELECT
-		// 		SUM(IFNULL(tax_docdetail.debtor,0) - IFNULL(tax_docdetail.creditor,0)) OVER(ORDER BY tax_document.number asc) as `balance_now`,
-		// 		tax_docdetail.*,
-		// 		tax_document.number,
-		// 		tax_document.desc AS `doc_desc`,
-		// 		tax_document.date,
-		// 		tax_document.status,
-		// 		assistant_detail.title AS `assistant_title`,
-		// 		details_detail.title AS `details_title`,
-		// 		(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = details_detail.parent2) AS `total_title`,
-		// 		(SELECT tax_coding.id FROM tax_coding WHERE tax_coding.id = details_detail.parent2) AS `total_id`,
-		// 		(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = details_detail.parent1) AS `group_title`,
-		// 		(SELECT tax_coding.id FROM tax_coding WHERE tax_coding.id = details_detail.parent1) AS `group_id`
-		// 	FROM tax_docdetail
-		// 	INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-		// 	LEFT JOIN tax_coding AS `assistant_detail` ON assistant_detail.id = tax_docdetail.assistant_id
-		// 	LEFT JOIN tax_coding AS `details_detail` ON details_detail.id = tax_docdetail.details_id
-		// 	$q[join]
-		// 	$q[where]
-		// 	$q[order]
-		// 	$limit
-		// ";
+
 		$result = \dash\db::get($query);
 		return $result;
 
