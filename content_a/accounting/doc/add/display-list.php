@@ -98,15 +98,18 @@
   </form>
 
 
+<?php if(!\dash\data::printAllMode()) {?>
   <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
     <div class="msg p0 mT20 success txtB txtC fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }else{ ?>
     <div class="msg p0 mT20 danger txtB txtC fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }//endif ?>
+  <?php }//endif ?>
 
 <?php } //endif ?>
 
 <?php if(\dash\data::editMode()) {?>
+<?php if(!\dash\data::printAllMode()) {?>
 <form method="post" class="p0">
   <input type="hidden" name="uploaddoc" value="uploaddoc">
     <div class="box">
@@ -144,4 +147,5 @@
     </div>
 </form>
 
+<?php } //endif ?>
 <?php } //endif ?>

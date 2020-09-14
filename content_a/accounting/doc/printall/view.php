@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\doc;
+namespace content_a\accounting\doc\printall;
 
 
 class view
@@ -15,9 +15,6 @@ class view
 		// back
 		\dash\data::action_text(T_('Add doc'));
 		\dash\data::action_link(\dash\url::that(). '/add');
-
-
-		\dash\face::btnPreview(\dash\url::that(). '/printall');
 
 
 		\dash\face::btnInsert('formreset');
@@ -73,19 +70,8 @@ class view
 
 		$dataTable = \lib\app\tax\doc\search::list(\dash\request::get('q'), $args);
 
-		if(\dash\request::get('export'))
-		{
-			$export_name = "Accounting_document_list";
-			foreach ($dataTable as $key => $value)
-			{
-				unset($dataTable[$key]['gallery_array']);
-				unset($dataTable[$key]['gallery']);
-			}
 
-			\dash\utility\export::csv(['name' => $export_name, 'data' => $dataTable]);
-		}
-
-		\dash\data::dataTable($dataTable);
+		\dash\data::dataTableAll($dataTable);
 
 	}
 }
