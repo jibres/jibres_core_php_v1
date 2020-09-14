@@ -22,8 +22,8 @@
           <th class="txtR"><?php echo T_("Sum Creditor") ?></th>
         <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
+          <th class="txtR"><?php echo T_("End value") ?></th>
           <th class="txtR"><?php echo T_("Opening value") ?></th>
-          <th class="txtR"><?php echo T_("Current value") ?></th>
         <?php }else{ ?>
           <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
           <th class="txtR"><?php echo T_("Remain Creditor") ?></th>
@@ -53,8 +53,8 @@
             <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'sum_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
+            <td data-copy="<?php echo \dash\get::index($value, 'end_value') ?>" class="font-12 ltr txtR fc-black"></i><code><?php echo \dash\fit::number(\dash\get::index($value, 'end_value'), true, 'en') ?></code></td>
             <td data-copy="<?php echo \dash\get::index($value, 'opening') ?>" class="font-12 ltr txtR fc-black"></i><code><?php echo \dash\fit::number(\dash\get::index($value, 'opening'), true, 'en') ?></code></td>
-            <td data-copy="<?php echo \dash\get::index($value, 'current') ?>" class="font-12 ltr txtR fc-black"></i><code><?php echo \dash\fit::number(\dash\get::index($value, 'current'), true, 'en') ?></code></td>
           <?php }else{ ?>
             <td class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_debtor'), true, 'en') ?></code></td>
             <td class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(\dash\get::index($value, 'remain_creditor'), true, 'en') ?></code></td>
@@ -83,8 +83,8 @@
           <?php } //endif ?>
 
             <?php if(\dash\request::get('show') === 'balancesheet') {?>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'end_value'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'opening'), true, 'en') ?></code></td>
-          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'current'), true, 'en') ?></code></td>
         <?php }else{ ?>
           <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_debtor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_creditor'), true, 'en') ?></code></td>
@@ -115,8 +115,8 @@
           <th class="txtR"><?php echo T_("Sum Creditor") ?></th>
         <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
+          <th class="txtR"><?php echo T_("End value") ?></th>
           <th class="txtR"><?php echo T_("Opening value") ?></th>
-          <th class="txtR"><?php echo T_("Current value") ?></th>
         <?php }else{ ?>
           <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
           <th class="txtR"><?php echo T_("Remain Creditor") ?></th>
@@ -145,8 +145,8 @@
           <?php } //endif ?>
 
             <?php if(\dash\request::get('show') === 'balancesheet') {?>
+          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'end_value'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'opening'), true, 'en') ?></code></td>
-          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'current'), true, 'en') ?></code></td>
         <?php }else{ ?>
           <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'remain_debtor'), true, 'en') ?></code></td>
           <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index(\dash\data::reportDetail_sum(), 'remain_creditor'), true, 'en') ?></code></td>
