@@ -24,7 +24,9 @@
         <th><?php echo T_("Check DNS"); ?></th>
         <th><?php echo T_("Add to CDN Panel"); ?></th>
         <th><?php echo T_("HTTPS"); ?></th>
-        <th><?php echo T_("Date created"); ?></th>
+        <th><?php echo T_("Last modified"); ?></th>
+        <th><?php echo T_("Count Log"); ?></th>
+        <th><?php echo T_("Count DNS"); ?></th>
         <th class="collapsing"><?php echo T_("Detail"); ?></th>
       </tr>
     </thead>
@@ -45,7 +47,10 @@
         <td><?php if(\dash\get::index($value, 'master')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
         <td><?php if(\dash\get::index($value, 'master')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
 
-        <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+        <td><div><?php echo \dash\fit::date_time(\dash\get::index($value, 'last_log_time')); ?></div><div><?php echo \dash\fit::date_human(\dash\get::index($value, 'last_log_time')); ?></div></td>
+        <td><a href="<?php echo \dash\url::that(). '/log?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_log')); ?></a></td>
+        <td><a href="<?php echo \dash\url::that(). '/dns?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_dns')); ?></a></td>
+
 
         <td class="collapsing"><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
       </tr>
