@@ -84,12 +84,18 @@ class dns
 			return false;
 		}
 
+		$jibres_ip = \dash\setting\dns_server::ip();
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
 			{
 				default:
+					if(strpos($value, $jibres_ip) !== false)
+					{
+						$value = T_("Connected to Jibres CDN");
+					}
 					$result[$key] = $value;
 					break;
 			}
