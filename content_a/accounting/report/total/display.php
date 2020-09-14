@@ -74,11 +74,11 @@
           <?php } //endif ?>
 
             <?php if(\dash\request::get('show') === 'balancesheet') {?>
-          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'opening'), true, 'en') ?></code></td>
-          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'current'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR" data-copy='<?php echo \dash\get::index($group['sum'], 'opening'); ?>'><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'opening'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR" data-copy='<?php echo \dash\get::index($group['sum'], 'current'); ?>'><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'current'), true, 'en') ?></code></td>
         <?php }else{ ?>
-          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_debtor'), true, 'en') ?></code></td>
-          <td class="font-12 ltr txtR"><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_creditor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR" data-copy='<?php echo \dash\get::index($group['sum'], 'remain_debtor'); ?>'><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_debtor'), true, 'en') ?></code></td>
+          <td class="font-12 ltr txtR" data-copy='<?php echo \dash\get::index($group['sum'], 'remain_creditor'); ?>'><code><?php echo \dash\fit::number(\dash\get::index($group['sum'], 'remain_creditor'), true, 'en') ?></code></td>
 
           <?php } //endif ?>
           </tr>
