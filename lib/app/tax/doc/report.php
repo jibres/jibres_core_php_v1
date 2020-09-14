@@ -210,6 +210,11 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
+		foreach ($normal as $key => $value)
+		{
+			$normal[$key]['end_value'] = floatval($value['opening']) + floatval($value['current']);
+		}
+
 		$sum                     = [];
 		$sum['remain_debtor']    = self::my_array_sum(array_column($normal, 'remain_debtor'));
 		$sum['remain_creditor']  = self::my_array_sum(array_column($normal, 'remain_creditor'));
@@ -221,6 +226,8 @@ class report
 		$sum['creditor']         = self::my_array_sum(array_column($normal, 'creditor'));
 		$sum['opening']          = self::my_array_sum(array_column($normal, 'opening'));
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
+		$sum['end_value']          = self::my_array_sum(array_column($normal, 'end_value'));
+
 
 
 		return ['list' => $normal, 'sum' => $sum, 'pretty' => self::pretty_table($normal)];
@@ -393,6 +400,11 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
+		foreach ($normal as $key => $value)
+		{
+			$normal[$key]['end_value'] = floatval($value['opening']) + floatval($value['current']);
+		}
+
 		$sum                     = [];
 		$sum['remain_debtor']    = self::my_array_sum(array_column($normal, 'remain_debtor'));
 		$sum['remain_creditor']  = self::my_array_sum(array_column($normal, 'remain_creditor'));
@@ -404,6 +416,7 @@ class report
 		$sum['creditor']         = self::my_array_sum(array_column($normal, 'creditor'));
 		$sum['opening']          = self::my_array_sum(array_column($normal, 'opening'));
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
+		$sum['end_value']          = self::my_array_sum(array_column($normal, 'end_value'));
 
 
 		return ['list' => $normal, 'sum' => $sum, 'pretty' => self::pretty_table($normal)];
@@ -581,6 +594,12 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
+		foreach ($normal as $key => $value)
+		{
+			$normal[$key]['end_value'] = floatval($value['opening']) + floatval($value['current']);
+		}
+
+
 		$sum                     = [];
 		$sum['remain_debtor']    = self::my_array_sum(array_column($normal, 'remain_debtor'));
 		$sum['remain_creditor']  = self::my_array_sum(array_column($normal, 'remain_creditor'));
@@ -592,7 +611,7 @@ class report
 		$sum['creditor']         = self::my_array_sum(array_column($normal, 'creditor'));
 		$sum['opening']          = self::my_array_sum(array_column($normal, 'opening'));
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
-
+		$sum['end_value']          = self::my_array_sum(array_column($normal, 'end_value'));
 
 		return ['list' => $normal, 'sum' => $sum, 'pretty' => self::pretty_table($normal)];
 
@@ -755,6 +774,10 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
+		foreach ($normal as $key => $value)
+		{
+			$normal[$key]['end_value'] = floatval($value['opening']) + floatval($value['current']);
+		}
 
 
 		$sum                     = [];
@@ -768,6 +791,7 @@ class report
 		$sum['creditor']         = self::my_array_sum(array_column($normal, 'creditor'));
 		$sum['opening']          = self::my_array_sum(array_column($normal, 'opening'));
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
+		$sum['end_value']          = self::my_array_sum(array_column($normal, 'end_value'));
 
 		return ['list' => $normal, 'sum' => $sum];
 
@@ -930,6 +954,11 @@ class report
 			array_multisort($normal, SORT_DESC, SORT_NUMERIC, $sort);
 		}
 
+		foreach ($normal as $key => $value)
+		{
+			$normal[$key]['end_value'] = floatval($value['opening']) + floatval($value['current']);
+		}
+
 
 
 		$sum                     = [];
@@ -943,6 +972,7 @@ class report
 		$sum['creditor']         = self::my_array_sum(array_column($normal, 'creditor'));
 		$sum['opening']          = self::my_array_sum(array_column($normal, 'opening'));
 		$sum['current']          = self::my_array_sum(array_column($normal, 'current'));
+		$sum['end_value']          = self::my_array_sum(array_column($normal, 'end_value'));
 
 		return ['list' => $normal, 'sum' => $sum];
 
@@ -991,6 +1021,7 @@ class report
 			$sum['creditor']         = self::my_array_sum(array_column($value['list'], 'creditor'));
 			$sum['opening']          = self::my_array_sum(array_column($value['list'], 'opening'));
 			$sum['current']          = self::my_array_sum(array_column($value['list'], 'current'));
+			$sum['end_value']          = self::my_array_sum(array_column($value['list'], 'end_value'));
 			$pretty[$key]['sum'] = $sum;
 		}
 
