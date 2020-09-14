@@ -45,6 +45,18 @@ class model
 			}
 		}
 
+
+		if(\dash\request::post('httpsrequest') === 'httpsrequest')
+		{
+			$result = \lib\app\business_domain\https::request(\dash\data::dataRow_id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
+
 	}
 }
 ?>

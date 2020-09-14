@@ -37,7 +37,7 @@
       <header><h2><?php echo T_("CDN panel status") ?></h2></header>
       <div class="body">
         <?php if(\dash\data::dataRow_cdnpanel()) {?>
-          <div class="msg minimal f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
+          <div class="msg minimal success2 f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
         <?php }else{ ?>
           <div class="msg minimal"><?php echo T_("Not add to CDN panel yet"); ?></div>
         <?php } //endif ?>
@@ -48,6 +48,32 @@
         <?php }else{ ?>
           <button class="btn danger"><?php echo T_("Remove from CDN panel") ?></button>
         <?php } //endif ?>
+      </footer>
+    </div>
+  </form>
+
+
+
+   <form method="post" autocomplete="off">
+     <input type="hidden" name="httpsrequest" value="httpsrequest">
+    <div class="box">
+      <header><h2><?php echo T_("HTTPS") ?></h2></header>
+      <div class="body">
+        <?php if(\dash\data::dataRow_httpsrequest()) {?>
+          <div class="msg minimal f"><div class="c"><?php echo T_("Last HTTPS request date") ?></div> <div class="cauto ltr txtL compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_httpsrequest()); ?></div></div>
+        <?php }else{ ?>
+          <div class="msg minimal"><?php echo T_("Not send HTTPS request to CDN panel yet"); ?></div>
+        <?php } //endif ?>
+
+        <?php if(\dash\data::dataRow_httpsverify()) {?>
+          <div class="msg minimal success2"><?php echo T_("HTTPS ok") ?></div>
+        <?php }else{ ?>
+          <div class="msg minimal danger2"><?php echo T_("HTTPS not ok!") ?></div>
+        <?php } //endif ?>
+
+      </div>
+      <footer class="txtRa">
+          <button class="btn master"><?php echo T_("Send HTTPS request") ?></button>
       </footer>
     </div>
   </form>

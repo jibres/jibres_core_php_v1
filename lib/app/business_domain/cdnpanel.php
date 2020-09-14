@@ -119,6 +119,12 @@ class cdnpanel
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_domain_add', ['desc' => "Domain successfully added to CDN panel", 'meta' => self::meta($add_domain)]);
 
+
+			// fetch dns record
+			$result_fetch = \lib\arvancloud\api::check_dns_record($domain);
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_check', ['meta' => self::meta($result_fetch)]);
+
+
 			\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
 			\dash\notif::ok(T_("Domain successfully added to CDN panel"));
 			return true;

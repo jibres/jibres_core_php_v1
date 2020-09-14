@@ -44,8 +44,8 @@
 
 
         <td><?php if(\dash\get::index($value, 'dnsok')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-        <td><?php if(\dash\get::index($value, 'master')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-        <td><?php if(\dash\get::index($value, 'master')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
+        <td><?php if(\dash\get::index($value, 'cdnpanel')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
+        <td><?php if(\dash\get::index($value, 'httpsverify')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
 
         <td><div><?php echo \dash\fit::date_time(\dash\get::index($value, 'last_log_time')); ?></div><div><?php echo \dash\fit::date_human(\dash\get::index($value, 'last_log_time')); ?></div></td>
         <td><a href="<?php echo \dash\url::that(). '/log?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_log')); ?></a></td>

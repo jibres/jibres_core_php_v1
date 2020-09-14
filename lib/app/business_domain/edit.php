@@ -6,12 +6,19 @@ class edit
 {
 	public static function set_date($_id, $_field)
 	{
-		$result = \lib\db\business_domain\update::update([$_field => date("Y-m-d H:i:s")], $_id);
+		$result = \lib\db\business_domain\update::update([$_field => date("Y-m-d H:i:s"), 'datemodified' => date("Y-m-d H:i:s")], $_id);
 	}
 
 	public static function unset_date($_id, $_field)
 	{
-		$result = \lib\db\business_domain\update::update([$_field => null], $_id);
+		$result = \lib\db\business_domain\update::update([$_field => null, 'datemodified' => date("Y-m-d H:i:s")], $_id);
+	}
+
+
+	public static function edit_raw($_args, $_id)
+	{
+		$_args['datemodified'] = date("Y-m-d H:i:s");
+		$result = \lib\db\business_domain\update::update($_args, $_id);
 	}
 
 
