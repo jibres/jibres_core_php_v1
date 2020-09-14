@@ -50,6 +50,8 @@
           <?php echo T_("If you do not add to the panel, the system will automatically add to the panel after a few minutes, but if you sync in the meantime, this information will be deleted."); ?>
         </div>
 
+        <p class="msg minimal mT10"><?php echo T_("You can insert Jibres DNS record of thsi domain"); ?> <span data-confirm data-data='{"jibresdns": "jibresdns"}' class="link"><?php echo T_("Insert now!") ?></span></p>
+
 
 
       </div>

@@ -26,6 +26,12 @@ class model
 		}
 
 
+		if(\dash\request::post('jibresdns') === 'jibresdns')
+		{
+			$result = \lib\app\business_domain\dns::jibres_dns(\dash\data::dataRow_id());
+		}
+
+
 		if(\dash\request::post('dnsfetch') === 'dnsfetch')
 		{
 			$result = \lib\app\business_domain\dns::fetch(\dash\data::dataRow_id());

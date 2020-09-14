@@ -64,8 +64,8 @@ class cdnpanel
 		}
 		else
 		{
-			\dash\notif::error(T_("DNS record of this domain is not set on our DNS!"));
-			return false;
+			\dash\notif::warn(T_("DNS record of this domain is not set on our DNS!"));
+			// return false;
 		}
 
 		if(isset($load['cdn']) && $load['cdn'])

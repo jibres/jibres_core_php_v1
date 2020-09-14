@@ -468,6 +468,34 @@ class dns
 	}
 
 
+	public static function jibres_dns($_id)
+	{
+		$jibres_ip = \dash\setting\dns_server::ip();
+
+		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'A', 'key' => '@', 'value' => $jibres_ip]);
+
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		\dash\notif::clean();
+
+		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'A', 'key' => '*', 'value' => $jibres_ip]);
+
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		\dash\notif::clean();
+
+		\dash\notif::ok(T_("Jibres DNS record added"));
+
+		return true;
+	}
+
+
 	public static function fetch($_id)
 	{
 		$current_list = self::get_dns_from_cdn_panel($_id);
