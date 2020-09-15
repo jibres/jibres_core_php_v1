@@ -17,7 +17,7 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 
-		\dash\face::btnPreview(\dash\url::that(). '/printall');
+		// \dash\face::btnPreview(\dash\url::that(). '/printall');
 
 
 		\dash\face::btnInsert('formreset');

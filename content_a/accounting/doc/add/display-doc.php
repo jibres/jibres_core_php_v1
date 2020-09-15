@@ -10,7 +10,6 @@
  </div>
 
 
-    <?php if(!\dash\data::printAllMode()) {?>
  <form method="post" autocomplete="off" class="box p0">
   <div class="pad">
 
@@ -93,4 +92,3 @@
   </div>
 
  </form>
-  <?php } //endif ?>

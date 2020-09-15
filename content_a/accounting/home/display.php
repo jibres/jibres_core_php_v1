@@ -20,11 +20,21 @@
     </div>
 
 
-    <div class="c4 s12">
+    <div class="c2 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc/add?type=opening'; ?>'>
         <div class="statistic brown">
           <div class="value"><i class="sf-new-sign"></i></div>
           <div class="label"><?php echo T_("Add Opening document"); ?></div>
+        </div>
+      </a>
+    </div>
+
+
+     <div class="c2 s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc/printall'; ?>'>
+        <div class="statistic brown">
+          <div class="value"><i class="sf-print"></i></div>
+          <div class="label"><?php echo T_("Print All Document"); ?></div>
         </div>
       </a>
     </div>

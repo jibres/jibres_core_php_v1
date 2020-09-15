@@ -6,23 +6,16 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Accounting Documents'));
+		\dash\face::title(T_('Print Accounting Documents'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		// back
-		\dash\data::action_text(T_('Add doc'));
-		\dash\data::action_link(\dash\url::that(). '/add');
 
-
-		\dash\face::btnInsert('formreset');
-		\dash\face::btnInsertText(T_("Reset"));
 
 		\dash\data::userToggleSidebar(false);
 
-		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
 
 		$year = \lib\app\tax\year\get::list();
