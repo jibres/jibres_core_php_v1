@@ -374,10 +374,10 @@ class posts
 		$condition =
 		[
 			'language'    => 'language',
-			'title'       => 'title',
+			'title'       => 'string_100',
 			'seotitle'    => 'seotitle',
 			'excerpt'     => 'string_300',
-			'subtitle'    => 'title',
+			'subtitle'    => 'string_500',
 			'slug'        => 'string_100',
 			'url'         => 'url',
 			'content'     => 'html',
