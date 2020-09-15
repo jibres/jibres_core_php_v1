@@ -394,6 +394,18 @@ class dns
 
 		$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
 
+		if(!is_array($get_dns_record))
+		{
+			$get_dns_record = [];
+		}
+
+		if(array_key_exists('status', $get_dns_record) && $get_dns_record['status'] === false)
+		{
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_error', ['meta' => self::meta($get_dns_record)]);
+			\dash\notif::warn(T_("Can not get DNS record from CDN panel"));
+			return [];
+		}
+
 		if(!isset($get_dns_record['data']))
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_error', ['meta' => self::meta($get_dns_record)]);
