@@ -16,25 +16,25 @@ class irnic
 		}
 
 
-		if(!preg_match("/^[A-Za-z0-9\-]+$/", $data))
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("Invalid IRNIC id"), ['element' => $_element]);
-				\dash\cleanse::$status = false;
-			}
-			return false;
-		}
+		// if(!preg_match("/^[A-Za-z0-9\-]+$/", $data))
+		// {
+		// 	if($_notif)
+		// 	{
+		// 		\dash\notif::error(T_("Invalid IRNIC id"), ['element' => $_element]);
+		// 		\dash\cleanse::$status = false;
+		// 	}
+		// 	return false;
+		// }
 
-		if(substr_count($data, '-') > 1)
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("The IRNIC id must have one separator"), ['element' => $_element]);
-				\dash\cleanse::$status = false;
-			}
-			return false;
-		}
+		// if(substr_count($data, '-') > 1)
+		// {
+		// 	if($_notif)
+		// 	{
+		// 		\dash\notif::error(T_("The IRNIC id must have one separator"), ['element' => $_element]);
+		// 		\dash\cleanse::$status = false;
+		// 	}
+		// 	return false;
+		// }
 
 		if(substr($data, -6) !== '-irnic')
 		{
