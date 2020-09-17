@@ -46,6 +46,8 @@ class datetime
 			return false;
 		}
 
+		$data = \dash\utility\convert::to_en_number($data);
+
 		$convertedDate = strtotime($data);
 		if ($convertedDate === false)
 		{
