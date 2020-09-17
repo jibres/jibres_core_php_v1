@@ -54,6 +54,7 @@ class add
 		}
 		else
 		{
+			\dash\notif::error(T_("This contact is not available from IRNIC!"));
 			return false;
 		}
 	}
