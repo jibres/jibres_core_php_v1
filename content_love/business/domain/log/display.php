@@ -22,9 +22,11 @@
               <td><?php echo \dash\get::index($value, 'action'); ?></td>
               <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
               <td class="collapsing">
+                <?php if(\dash\get::index($value, 'meta') && is_array($value['meta'])) {?>
                 <span data-kerkere=".showDetail<?php echo \dash\get::index($value, 'id'); ?>">
                   <i class="sf-list"></i>
                 </span>
+              <?php } //endif ?>
               </td>
             </tr>
             <?php if(\dash\get::index($value, 'meta') && is_array($value['meta'])) {?>

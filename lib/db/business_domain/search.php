@@ -13,7 +13,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'master');
 		}
 
 		$query =
@@ -33,7 +33,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\db::get($query, null, false, 'master');
 
 		return $result;
 	}
@@ -47,12 +47,12 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'master');
 		}
 
 		$query = "SELECT business_domain_action.* FROM business_domain_action $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\db::get($query, null, false, 'master');
 
 		return $result;
 	}

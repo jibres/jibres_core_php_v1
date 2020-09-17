@@ -31,6 +31,7 @@ class dns
 
 		if(!$get_dns || !is_array($get_dns))
 		{
+			\lib\app\business_domain\action::new_action($_id, 'dns_failed', ['meta' => json_encode($get_dns)]);
 			\dash\notif::error(T_("Can not get DNS detail!"));
 			return false;
 		}

@@ -4,11 +4,24 @@ namespace lib\app\business_domain;
 
 class add
 {
+	public static function store_add($_args)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$_args['store_id'] = \lib\store::id();
+
+		return self::add($_args);
+	}
 	public static function add($_args)
 	{
 		$condition =
 		[
-			'domain'      => 'domain',
+			'domain'   => 'domain',
+			'store_id' => 'id',
 		];
 
 		$require = ['domain'];
@@ -46,11 +59,11 @@ class add
 		[
 			'domain'      => $domain,
 			'status'      => 'pending',
-			'user_id'     => \dash\user::id(),
+			'user_id'     => \dash\user::jibres_user(),
 			'subdomain'   => null,
 			'root'        => null,
 			'tld'         => null,
-			'store_id'    => null,
+			'store_id'    => $data['store_id'],
 			'domain_id'   => null,
 			'cdn'         => $cdn,
 			'datecreated' => date("Y-m-d H:i:s"),
@@ -64,6 +77,9 @@ class add
 			return false;
 		}
 
+		\lib\app\business_domain\action::new_action($business_domain_id, 'add_domain');
+
+		\dash\notif::create(T_("Domain added"));
 
 		return ['id' => $business_domain_id];
 	}

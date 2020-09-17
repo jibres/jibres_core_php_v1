@@ -20,12 +20,26 @@ class search
 	}
 
 
+	public static function my_business_list($_query_string, $_args)
+	{
+		if(!\lib\store::id())
+		{
+			return null;
+		}
+
+		$_args['store_id'] = \lib\store::id();
+
+		return self::list($_query_string, $_args);
+	}
+
+
 	public static function list($_query_string, $_args)
 	{
 		$condition =
 		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['name','id']],
+			'order'    => 'order',
+			'sort'     => ['enum' => ['name','id']],
+			'store_id' => 'id',
 		];
 
 		$require = [];
@@ -45,6 +59,11 @@ class search
 
 		$order_sort  = null;
 
+
+		if($data['store_id'])
+		{
+			$and[] = " business_domain.store_id = $data[store_id] ";
+		}
 
 		if(mb_strlen($_query_string) > 50)
 		{
