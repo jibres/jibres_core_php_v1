@@ -43,7 +43,7 @@ class cdnpanel
 
 		\lib\app\business_domain\action::new_action($_id, 'arvancloud_remove_domain', ['desc' => "Domain remove result", 'meta' => self::meta($remove_domain)]);
 
-		\lib\app\business_domain\edit::unset_date($_id, 'cdnpanel');
+		\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'httpsverify' => 0, 'httpsrequest' => null, 'cdnpanel' => null], $_id);
 
 		\dash\notif::ok(T_("Domain successfully removed from CDN panel"));
 		return true;
