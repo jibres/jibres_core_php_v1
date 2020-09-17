@@ -50,7 +50,8 @@ class app
 				break;
 
 			case 'unknown':
-				$url .= 'img/avatar/unknown.png';
+				// $url .= 'img/avatar/unknown.png';
+				$url .= 'img/avatar/default.png';
 				break;
 
 			default:
