@@ -42,6 +42,7 @@ class model
 
 
 				\dash\notif::direct();
+				\dash\header::set(200);
 				\dash\redirect::to(\dash\url::this().'/opening');
 			}
 			else
