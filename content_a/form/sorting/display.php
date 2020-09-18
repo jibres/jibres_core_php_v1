@@ -1,16 +1,7 @@
-<div class="row">
-	<div class="c-xs-12 c-sm-12 c-md-4">
-		<?php require_once(root. 'content_a/form/itemLink.php');
-		 ?>
-	</div>
-	<div class="c-xs-12 c-sm-12 c-md-8">
-
-
 	<div class="box">
 		<div class="body">
-			<div class="txtB">
-				<?php echo \dash\data::dataRow_title(); ?>
-			</div>
+			<span><?php echo T_("Form Title"); ?></span>
+			<span class="txtB"> <?php echo \dash\data::dataRow_title(); ?></span>
 		</div>
 	</div>
 
@@ -22,21 +13,14 @@ if(!is_array($dataTable))
   $dataTable = [];
 }
 ?>
-<div class="msg fs14"><?php echo T_("Select any of the items you want and move them to sort") ?></div>
-<form method="post" data-sortable data-ratio='16x9' data-willy class="ltr">
-<?php foreach ($dataTable as $key => $value) {?>
-<?php $loopTitle = \dash\get::index($value, 'title'); ?>
 
-  <div class="roundedBox" data-handle data-gr="<?php echo rand(1, 20); ?>">
-    <figure class="overlay" >
-    	<input type="hidden" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
-    	<img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo $loopTitle; ?>" data-gr="3">
-      <figcaption><h2><?php echo $loopTitle; ?></h2></figcaption>
-    </figure>
-  </div>
+<div class="msg minimal info2 txtB font-14"><?php echo T_("Drag the item and move it where you want to change the question sort. Items is sorted from left to right") ?></div>
+
+<form method="post" data-sortable data-ratio='16x9' data-willy class="ltr row">
+<?php foreach ($dataTable as $key => $value) {?>
+ <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3 c-xxl-2">
+ 	<input type="hidden" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
+  <div class="sortItem" data-handle><?php echo \dash\fit::number($key+1). '. '. \dash\get::index($value, 'title'); ?></div>
+ </div>
 <?php } //endfor ?>
 </form>
-
-
-	</div>
-</div>
