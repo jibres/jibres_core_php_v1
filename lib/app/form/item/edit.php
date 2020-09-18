@@ -75,7 +75,7 @@ class edit
 			$_args['choice'] = $args['choice'];
 		}
 
-		// $args = \dash\cleanse::patch_mode($_args, $args);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		foreach ($args as $key => $value)
 		{
@@ -87,7 +87,7 @@ class edit
 
 		if(empty($args))
 		{
-			// \dash\notif::info(T_("No data to change"));
+			\dash\notif::info(T_("No data to change"));
 			return false;
 		}
 
