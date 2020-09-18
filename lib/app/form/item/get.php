@@ -100,5 +100,37 @@ class get
 
 		return $load;
 	}
+
+
+
+	public static function get_by_id_form_id($_id, $_form_id)
+	{
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		$form_id = \dash\validate::id($_form_id);
+
+		if(!$form_id)
+		{
+			return false;
+		}
+
+
+		$load = \lib\db\form_item\get::get_by_id_form_id($id, $form_id);
+
+		if(!$load)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$load = \lib\app\form\item\ready::row($load);
+
+		return $load;
+	}
 }
 ?>

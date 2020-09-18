@@ -4,6 +4,34 @@ namespace lib\app\form\item;
 
 class edit
 {
+
+	public static function save_sort($_sort, $_form_id)
+	{
+		$_form_id = \dash\validate::id($_form_id);
+
+		if(!is_array($_sort))
+		{
+			$_sort = [];
+		}
+
+		$new_sort = [];
+		foreach ($_sort as $key => $value)
+		{
+			$key = \dash\validate::number($key);
+			$value = \dash\validate::id($value);
+
+			$new_sort[$key] = $value;
+		}
+
+		if(!empty($new_sort))
+		{
+			\lib\db\form_item\update::set_sort($_form_id, $new_sort);
+			\dash\notif::ok(T_("Sort saved"));
+			return true;
+		}
+	}
+
+
 	private static $form_detail = [];
 
 	public static function edit($_args, $_id, $_form_id)
