@@ -87,7 +87,15 @@
 <nav class="items">
  <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-      <li><a class="f" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><div class="key"><?php echo \dash\get::index($value, 'title');?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')); ?></div><div class="go"></div></a></li>
+      <li>
+        <a class="f item" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
+          <i class="<?php echo \dash\get::index($value, 'status_class') ?>"></i>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
+          <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
     <?php } // endfor ?>
  </ul>
 </nav>
