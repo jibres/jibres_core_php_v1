@@ -15,7 +15,8 @@
 			<div class="msg">
 				<div class="f">
 					<div class="c s12">
-						<?php echo \dash\get::index($value, 'type_detail', 'title'); ?>
+						<small><?php echo T_("Item type") ?></small>
+						<b><?php echo \dash\get::index($value, 'type_detail', 'title'); ?></b>
 					</div>
 					<div class="cauto s12">
 						<a class="btn link" href="<?php echo \dash\url::this(). '/item/type?'. \dash\request::fix_get() ?>"><?php echo T_("Change type") ?></a>
@@ -54,122 +55,86 @@ function settingRecord($value)
 		return;
 	}
 
-	echo "<div class='row'>";
+
 
 	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-12'>";
 		settingChoice($value);
-		echo "</div>";
 	}
 
-	echo "<div class='c-xs-12 c-sm-12 c-md-12'>";
 	settingDesc($value);
-	echo "</div>";
 
 	if(isset($value['type_detail']['placeholder']) && $value['type_detail']['placeholder'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingPlaceHolder($value);
-		echo "</div>";
 	}
 
 
 	if(isset($value['type_detail']['maxlen']) && $value['type_detail']['maxlen'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
-		settingMaxLen($value)
-;		echo "</div>";
+		settingMaxLen($value);
+
 	}
 
 	if(isset($value['type_detail']['min']) && $value['type_detail']['min'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-2'>";
 		settingMin($value);
-		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['max']) && $value['type_detail']['max'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-2'>";
 		settingMax($value);
-		echo "</div>";
 	}
 
 
 
 	if(isset($value['type_detail']['choiceinline']) && $value['type_detail']['choiceinline'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingChoiceInline($value);
-		echo "</div>";
 	}
 
 
 	if(isset($value['type_detail']['random']) && $value['type_detail']['random'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingRandom($value);
-		echo "</div>";
 	}
 
 
 	if(isset($value['type_detail']['check_unique']) && $value['type_detail']['check_unique'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingCheckUnique($value);
-		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['filetype']) && $value['type_detail']['filetype'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingFileType($value);
-		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['color']) && $value['type_detail']['color'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingColor($value);
-		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['send_sms']) && $value['type_detail']['send_sms'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingSendSms($value);
-		echo "</div>";
 	}
 
 
 	if(isset($value['type_detail']['signup']) && $value['type_detail']['signup'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingSignup($value);
-		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['defaultvalue']) && $value['type_detail']['defaultvalue'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingDefaultvalue($value);
-		echo "</div>";
 	}
 
 	if(isset($value['type_detail']['link']) && $value['type_detail']['link'])
 	{
-		echo "<div class='c-xs-12 c-sm-12 c-md-6'>";
 		settingLink($value);
-		echo "</div>";
 	}
-
-
-
-
-
-
-	echo "</div>";
 
 }
 

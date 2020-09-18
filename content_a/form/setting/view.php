@@ -14,9 +14,6 @@ class view
 
 		$form_id = \dash\request::get('id');
 
-		// preview
-		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
-
 		\dash\face::btnSave('form1');
 	}
 }

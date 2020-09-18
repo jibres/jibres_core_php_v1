@@ -19,15 +19,10 @@ class view
 		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
 
-		// \dash\face::btnSave('form1');
-
 		$items = \lib\app\form\item\get::items($form_id);
 
 		\dash\data::formItems($items);
 
-		\dash\data::itemType(\lib\app\form\item\type::get_group());
-
-		\dash\data::allAllowFileExt(\dash\upload\extentions::get_all_allow_ext());
 	}
 }
 ?>

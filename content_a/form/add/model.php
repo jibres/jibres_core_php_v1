@@ -8,7 +8,6 @@ class model
 		$post =
 		[
 			'title' => \dash\request::post('title'),
-			'slug' => \dash\request::post('slug'),
 		];
 
 		$result = \lib\app\form\form\add::add($post);

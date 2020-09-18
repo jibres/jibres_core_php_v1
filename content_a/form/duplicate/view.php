@@ -8,14 +8,12 @@ class view
 	{
 		\dash\face::title(T_('Duplicate form'));
 
-		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
 
 		$form_id = \dash\request::get('id');
+		// back
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this(). '/edit?'. \dash\request::fix_get());
 
-		// preview
-		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
 	}
 }
 ?>

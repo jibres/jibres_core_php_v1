@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Edit new contact form'));
+		\dash\face::title(T_('Add new item'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
@@ -14,13 +14,7 @@ class view
 
 		$form_id = \dash\request::get('id');
 
-		// preview
-		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
-		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
-
-
 		\dash\face::btnInsert('form1');
-
 
 		\dash\data::itemType(\lib\app\form\item\type::get_group());
 

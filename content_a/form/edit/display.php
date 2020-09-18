@@ -16,6 +16,7 @@
 
 
 	<?php if(\dash\data::formItems()) {?>
+		<h3><?php echo T_("Items") ?></h3>
 			<nav class="items long">
 			 <ul>
 			<?php foreach (\dash\data::formItems() as $key => $value) { ?>

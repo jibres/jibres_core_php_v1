@@ -3,6 +3,7 @@
 <nav class="items">
  <ul>
       <li><a class="f" href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id'); ?>"><div class="key"><?php echo T_("Glance");?></div><div class="go"></div></a></li>
+      <li><a class="f" target="_blank" href="<?php echo \dash\face::btnPreview(); ?>"><div class="key"><?php echo T_("Preview");?></div><div class="go"></div></a></li>
  </ul>
 </nav>
 

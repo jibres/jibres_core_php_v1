@@ -26,10 +26,6 @@ class controller
 
 		\dash\data::itemDetail($load_item);
 
-		// var_dump($load_item);exit();
-
-
-
 	}
 }
 ?>

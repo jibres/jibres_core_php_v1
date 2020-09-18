@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Edit contact form'));
+		\dash\face::title(T_('Edit item type'));
 
 			// back
 		\dash\data::back_text(T_('Back'));

@@ -19,9 +19,6 @@ class model
 		}
 
 
-
-
-
 		$all_post = \dash\request::post();
 
 		$whole_edit = [];

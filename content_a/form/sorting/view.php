@@ -14,8 +14,6 @@ class view
 
 		$form_id = \dash\request::get('id');
 
-		// \dash\face::btnSave('form1');
-
 		$items = \lib\app\form\item\get::items($form_id);
 
 		\dash\data::formItems($items);

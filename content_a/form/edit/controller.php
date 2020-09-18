@@ -13,7 +13,7 @@ class controller
 		{
 			\dash\header::status(404);
 		}
-		\dash\data::editMode(true);
+
 		\dash\data::dataRow($load);
 
 	}
