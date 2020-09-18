@@ -1,3 +1,11 @@
+<div class="row">
+	<div class="c-xs-12 c-sm-12 c-md-4">
+		<?php require_once(root. 'content_a/form/itemLink.php');
+		 ?>
+	</div>
+	<div class="c-xs-12 c-sm-12 c-md-8">
+
+
 
 <form method="post" autocomplete="off" id="form1">
 	<div class="box">
@@ -47,3 +55,5 @@
 		</div>
 	</div>
 </form>
+	</div>
+</div>

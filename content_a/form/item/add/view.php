@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\edit;
+namespace content_a\form\item\add;
 
 
 class view
@@ -19,11 +19,8 @@ class view
 		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
 
-		// \dash\face::btnSave('form1');
+		\dash\face::btnInsert('form1');
 
-		$items = \lib\app\form\item\get::items($form_id);
-
-		\dash\data::formItems($items);
 
 		\dash\data::itemType(\lib\app\form\item\type::get_group());
 

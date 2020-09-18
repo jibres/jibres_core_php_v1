@@ -28,8 +28,6 @@
 		</div>
 		<footer class="f">
 			<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove item") ?></div></div>
-			<div class="c"></div>
-			<div class="cauto"><button class="btn master save"><?php if(\dash\data::editMode()) {echo T_("Save"); }else{ echo T_("Add");} ?></button></div>
 
 
 		</footer>

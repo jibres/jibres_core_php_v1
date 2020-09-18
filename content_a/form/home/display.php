@@ -17,17 +17,23 @@
 
 
   <?php
-  if(\dash\data::dataTable())
+  $dataTable = \dash\data::dataTable();
+  if(!is_array($dataTable))
+  {
+    $dataTable = [];
+  }
+
+  if($dataTable)
   {
     if(\dash\data::isFiltered())
     {
-      htmlSearchBox();
+      htmlSearchBox(count($dataTable));
       htmlTable();
       htmlFilter();
     }
     else
     {
-      htmlSearchBox();
+      htmlSearchBox(count($dataTable));
       htmlTable();
     }
 
@@ -36,7 +42,7 @@
   {
     if(\dash\data::isFiltered())
     {
-      htmlSearchBox();
+      htmlSearchBox(count($dataTable));
 
       htmlFilter();
     }
@@ -59,7 +65,8 @@
 
 
 
-<?php function htmlSearchBox() {?>
+<?php function htmlSearchBox($_count) { if($_count > 10) {?>
+
   <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
       <div class="input">
@@ -68,7 +75,7 @@
       </div>
     </form>
   </div>
-<?php } //endfunction ?>
+<?php } /*end if*/ } //endfunction ?>
 
 
 
@@ -76,63 +83,18 @@
 
 <?php function htmlTable() {?>
 
-  <table class="tbl1 v1">
-    <thead>
-      <tr>
 
-        <th class="collapsing">#</th>
-        <th><?php echo T_("Title") ?></th>
-        <th><?php echo T_("Status") ?></th>
-        <th><?php echo T_("Item count") ?></th>
-        <th><?php echo T_("Answers count") ?></th>
+<nav class="items">
+ <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+      <li><a class="f" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><div class="key"><?php echo \dash\get::index($value, 'title');?></div><div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')); ?></div><div class="go"></div></a></li>
+    <?php } // endfor ?>
+ </ul>
+</nav>
 
-        <th class="collapsing"><?php echo T_("Edit") ?></th>
-        <th class="collapsing"><?php echo T_("Answers") ?></th>
-        <th class="collapsing"><?php echo T_("Report") ?></th>
-      </tr>
-    </thead>
-    <tbody class="font-12">
-      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-        <tr>
-
-          <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></td>
-          <td><a target="_blank" href="<?php echo \lib\store::url(). '/f/'. \dash\get::index($value, 'id'); ?>"><i class="sf-link-external"></i></a> <?php echo \dash\get::index($value, 'title') ?></td>
-          <td><?php echo T_(\dash\get::index($value, 'status')) ?></td>
-          <td><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?></td>
-          <td><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')); ?></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-edit"></i> <?php echo T_("Edit") ?></a></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-list"></i> <?php echo T_("Answers") ?></a></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/report?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-chart"></i> <?php echo T_("Report") ?></a></td>
-        </tr>
-      <?php } //endif ?>
-    </tbody>
-  </table>
-
-
-
-
-  <?php \dash\utility\pagination::html(); ?>
+<?php \dash\utility\pagination::html(); ?>
 
 <?php } //endif ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php function htmlFilter() {?>
   <p class="f fs14 msg info2">
