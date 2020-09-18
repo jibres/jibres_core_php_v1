@@ -12,9 +12,18 @@
 				<input type="text" name="item_title_<?php echo $myKey ?>" placeholder="<?php echo T_("Title") ?>" value="<?php echo \dash\get::index($value, 'title'); ?>">
 			</div>
 
-			<label><?php echo T_("Item type") ?></label>
-			<select name="item_type_<?php echo $myKey ?>" class="select22"><?php foreach (\dash\data::itemType() as $type_key => $type_value) {?><optgroup label="<?php echo \dash\get::index($type_value, 'title'); ?>"><?php if(isset($type_value['list']) && is_array($type_value['list'])) { foreach ($type_value['list'] as $k => $v) {?><option value="<?php echo $v['key'] ?>" <?php if(\dash\get::index($value, 'type') === $v['key']) {echo 'selected';} ?>><?php echo $v['title']; ?></option><?php } /*endfor*/  } //endif?></optgroup><?php } //endif ?>
-			</select>
+			<div class="msg">
+				<div class="f">
+					<div class="c s12">
+						<?php echo \dash\get::index($value, 'type_detail', 'title'); ?>
+					</div>
+					<div class="cauto s12">
+						<a class="btn link" href="<?php echo \dash\url::this(). '/item/type?'. \dash\request::fix_get() ?>"><?php echo T_("Change type") ?></a>
+					</div>
+				</div>
+
+			</div>
+
 			<div class="mT10">
 
 			<div class="switch1">
