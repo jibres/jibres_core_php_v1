@@ -11,7 +11,7 @@ class view
 		\dash\face::title(T_("Export form answer"));
 		// back
 		\dash\data::back_text(T_('Answers'));
-		\dash\data::back_link(\dash\url::this(). '?id='. $form_id);
+		\dash\data::back_link(\dash\url::this(). '/answer?id='. $form_id);
 
 
 		$count_all = \lib\app\form\answer\export::count_all($form_id);

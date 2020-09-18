@@ -1,7 +1,8 @@
+
+
 <nav class="items">
  <ul>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id'); ?>"><i class="sf-info-circle"></i><div class="key"><?php echo T_("Glance");?></div><div class="go"></div></a></li>
-      <li><a class="f item" target="_blank" href="<?php echo \dash\face::btnPreview(); ?>"><i class="sf-link-external"></i><div class="key"><?php echo T_("Preview");?></div><div class="go"></div></a></li>
  </ul>
 </nav>
 

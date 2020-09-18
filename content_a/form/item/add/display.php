@@ -1,21 +1,18 @@
 <div class="row">
-	<div class="c-xs-12 c-sm-12 c-md-4">
-		<?php require_once(root. 'content_a/form/itemLink.php');
-		 ?>
+	<div class="c-xs-0 c-sm-0 c-lg-4 d-lg-block">
+		<?php require_once(root. 'content_a/form/itemLink.php');?>
 	</div>
-	<div class="c-xs-12 c-sm-12 c-md-8">
+	<div class="c-xs-12 c-sm-12 c-lg-8">
 
-
-	<div class="box">
-		<div class="body">
-			<div class="txtB">
-				<?php echo \dash\data::dataRow_title(); ?>
+		<div class="box">
+			<div class="body">
+				<div class="txtB">
+					<?php echo \dash\data::dataRow_title(); ?>
+				</div>
 			</div>
 		</div>
-	</div>
 
-
-	<form method="post" autocomplete="off" id="form1">
+		<form method="post" autocomplete="off" id="form1">
 			<div class="box">
 				<header><h2><?php echo T_("Add new item") ?></h2></header>
 				<div class="body">
@@ -42,6 +39,6 @@
 					</div>
 				</div>
 			</div>
-	</form>
+		</form>
 	</div>
 </div>

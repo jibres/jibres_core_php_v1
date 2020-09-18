@@ -83,23 +83,47 @@
 
 <?php function htmlTable() {?>
 
+<?php if (\dash\detect\device::detectPWA()) { ?>
 
-<nav class="items">
+
+<nav class="items pwaMultiLine">
  <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
       <li>
-        <a class="f item" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
+        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
           <i class="<?php echo \dash\get::index($value, 'status_class') ?>"></i>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
-          <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
-          <div class="go"></div>
+
+          <div class="key">
+            <div class="line1"><?php echo \dash\get::index($value, 'title');?></div>
+            <div class="line2 f">
+              <div class="cauto"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
+              <div class="c"></div>
+              <div class="cauto"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
+            </div>
+          </div>
         </a>
       </li>
     <?php } // endfor ?>
  </ul>
 </nav>
+<?php } else { ?>
 
+<nav class="items">
+ <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+      <li>
+        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
+          <i class="<?php echo \dash\get::index($value, 'status_class') ?>"></i>
+          <div class="value c0"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
+          <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
+          <div class="go c0"></div>
+        </a>
+      </li>
+    <?php } // endfor ?>
+ </ul>
+</nav>
+<?php } //endif ?>
 <?php \dash\utility\pagination::html(); ?>
 
 <?php } //endif ?>

@@ -9,8 +9,10 @@ class view
 		\dash\face::title(T_('Answers'). ' | '. \dash\data::formDetail_title());
 
 		// back
+				// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+
 
 		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
 

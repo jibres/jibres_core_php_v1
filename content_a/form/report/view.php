@@ -17,10 +17,10 @@ class view
 
 		\dash\face::title(T_('Report'). ' | '. \dash\data::formDetail_title());
 
-
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+
 
 		$items = \lib\app\form\item\get::items_answerable($id);
 
