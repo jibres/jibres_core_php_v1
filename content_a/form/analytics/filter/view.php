@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\analytics\table;
+namespace content_a\form\analytics\filter;
 
 
 class view
