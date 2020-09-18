@@ -76,7 +76,7 @@ class request
 
 
 
-	public static function fix_get($_args)
+	public static function fix_get($_args = [])
 	{
 		$get = self::get();
 		if(!is_array($_args))
