@@ -114,10 +114,10 @@
       <li>
         <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
           <i class="<?php echo \dash\get::index($value, 'status_class') ?>"></i>
-          <div class="value c0"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
+          <div class="value s0"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
           <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
-          <div class="go c0"></div>
+          <div class="go s0"></div>
         </a>
       </li>
     <?php } // endfor ?>

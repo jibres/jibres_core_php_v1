@@ -16,9 +16,9 @@ if(!is_array($dataTable))
 
 <div class="msg minimal info2 txtB font-14"><?php echo T_("Drag the item and move it where you want to change the question sort. Items is sorted from left to right") ?></div>
 
-<form method="post" data-sortable data-ratio='16x9' data-willy class="ltr row">
+<form method="post" data-sortable data-willy class="ltr row">
 <?php foreach ($dataTable as $key => $value) {?>
- <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3 c-xxl-2">
+ <div class="c-xs-6 c-sm-6 c-md-4 c-xl-3 c-xxl-2">
  	<input type="hidden" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
   <div class="sortItem" data-handle><?php echo \dash\fit::number($key+1). '. '. \dash\get::index($value, 'title'); ?></div>
  </div>
