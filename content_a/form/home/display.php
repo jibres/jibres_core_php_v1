@@ -85,6 +85,7 @@
         <th><?php echo T_("Status") ?></th>
         <th><?php echo T_("Item count") ?></th>
         <th><?php echo T_("Answers count") ?></th>
+        <th class="collapsing"><?php echo T_("Analytics") ?></th>
         <th class="collapsing"><?php echo T_("Edit") ?></th>
         <th class="collapsing"><?php echo T_("Answers") ?></th>
         <th class="collapsing"><?php echo T_("Report") ?></th>
@@ -99,6 +100,7 @@
           <td><?php echo T_(\dash\get::index($value, 'status')) ?></td>
           <td><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?></td>
           <td><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')); ?></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/analytics?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-analytics-chart-graph"></i> <?php echo T_("Analytics") ?></a></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-edit"></i> <?php echo T_("Edit") ?></a></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-list"></i> <?php echo T_("Answers") ?></a></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/report?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-chart"></i> <?php echo T_("Report") ?></a></td>

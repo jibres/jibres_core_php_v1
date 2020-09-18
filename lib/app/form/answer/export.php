@@ -224,5 +224,41 @@ class export
 
 		return $new_export;
 	}
+
+
+	public static $sql_column_list = [];
+
+	public static function ready_for_export_sql($_result, $_table_name)
+	{
+		$result = self::ready_for_export($_result);
+		if(!is_array($result))
+		{
+			return;
+		}
+
+		$new_result = [];
+
+		foreach ($result as $key => $value)
+		{
+			foreach ($value as $k => $v)
+			{
+				if($k)
+				{
+					$md5_key = 'i_'. md5($k);
+
+					$new_result[$key][$md5_key] = $v;
+					self::$sql_column_list[$md5_key] = $k;
+				}
+			}
+		}
+
+		$sql = [];
+		foreach ($new_result as $key => $value)
+		{
+			$sql[] = "INSERT IGNORE INTO `$_table_name` SET ". \dash\db\config::make_set($value, ['type' => 'insert']);
+		}
+
+		return $sql;
+	}
 }
 ?>

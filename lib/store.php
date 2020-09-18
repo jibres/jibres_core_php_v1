@@ -692,5 +692,29 @@ class store
 			return $setting;
 		}
 	}
+
+
+
+	public static function my_fuel()
+	{
+		if(self::detail('fuel'))
+		{
+			$fuel      = \dash\engine\fuel::get(self::detail('fuel'));
+			return $fuel;
+		}
+
+		return null;
+	}
+
+	public static function my_db_name()
+	{
+		if(self::id())
+		{
+			$db_name           = \dash\engine\store::make_database_name(self::id());
+			return $db_name;
+		}
+
+		return null;
+	}
 }
 ?>

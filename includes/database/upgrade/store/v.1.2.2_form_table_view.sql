@@ -14,6 +14,19 @@ CONSTRAINT `form_view_form_id` FOREIGN KEY (`form_id`) REFERENCES `form` (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form_view_field (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`view_id` int(10) UNSIGNED  NULL,
+`field_md5` VARCHAR(100) NULL,
+`field_title` text NULL,
+`field_type` VARCHAR(100) NULL,
+`maxlen` int(10) NULL,
+`datecreated` timestamp NULL ,
+PRIMARY KEY (`id`),
+CONSTRAINT `form_view_field_view_id` FOREIGN KEY (`view_id`) REFERENCES `form_view` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form_filter (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `view_id` int(10) UNSIGNED  NULL,
@@ -23,6 +36,9 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form_filter (
 PRIMARY KEY (`id`),
 CONSTRAINT `form_filter_view_id` FOREIGN KEY (`view_id`) REFERENCES `form_view` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form_filter_where (
