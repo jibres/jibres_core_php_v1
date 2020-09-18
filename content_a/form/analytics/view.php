@@ -13,6 +13,12 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
+
+		// back
+		\dash\data::action_text(T_('Create new view'));
+		\dash\data::action_link(\dash\url::that() . '/create?id='. \dash\request::get('id'));
+
+
 		$args            = [];
 		$args['sort']    = 'id';
 		$args['order']   = 'desc';

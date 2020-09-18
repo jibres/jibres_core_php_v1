@@ -59,11 +59,11 @@
 ?>
 <div class="tblBox">
 
-  <table class="tbl1 v1">
+  <table class="tbl1 v8">
     <thead>
       <tr>
         <?php foreach ($fields as $key => $value) {?>
-          <th><?php echo $value ?></th>
+          <th class="collapsing"><?php echo $value ?></th>
         <?php } //endif ?>
       </tr>
     </thead>
@@ -71,7 +71,7 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
           <?php foreach ($fields as $field => $field_title) {?>
-          <td><?php echo \dash\get::index($value, $field) ?></td>
+          <td class="collapsing"><?php echo \dash\get::index($value, $field) ?></td>
         <?php } //endif ?>
         </tr>
       <?php } //endif ?>
