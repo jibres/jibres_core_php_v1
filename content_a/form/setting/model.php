@@ -12,7 +12,6 @@ class model
 		[
 			'title'      => \dash\request::post('title'),
 			'slug'       => \dash\request::post('slug'),
-			'status'     => \dash\request::post('status'),
 			'desc'       => \dash\request::post('desc') ? $_POST['desc'] : null,
 		];
 

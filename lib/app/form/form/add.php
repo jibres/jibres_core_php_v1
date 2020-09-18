@@ -22,7 +22,7 @@ class add
 
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
-		$args['status']      = 'draft';
+		$args['status']      = 'publish';
 		$args['user_id']     = \dash\user::id();
 
 		$id = \lib\db\form\insert::new_record($args);

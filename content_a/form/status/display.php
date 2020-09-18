@@ -51,8 +51,8 @@
 
           <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
             <div class="radio4">
-              <input  id="deleted" type="radio" name="status" value="deleted" <?php if(\dash\data::dataRow_status() == 'deleted') {echo 'checked';} ?>>
-              <label for="deleted">
+              <input  id="trash" type="radio" name="status" value="trash" <?php if(\dash\data::dataRow_status() == 'trash') {echo 'checked';} ?>>
+              <label for="trash">
                 <div>
                   <div class="title"><?php echo T_("Trash"); ?></div>
                   <div class="addr"><?php echo T_("Move to trash"); ?></div>
@@ -65,9 +65,9 @@
 
         </div>
 		</div>
-		<?php if(\dash\data::dataRow_status() == 'deleted') { ?>
+		<?php if(\dash\data::dataRow_status() == 'trash') { ?>
 			<footer class="txtRa">
-				<div class="linkDel btn" data-confirm><?php echo T_("Delete completely") ?></div>
+				<div class="linkDel btn" data-confirm data-data='{"status" : "deleted"}'><?php echo T_("Delete completely") ?></div>
 			</footer>
 		<?php } ?>
 	</div>

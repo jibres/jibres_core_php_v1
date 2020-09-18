@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\setting;
+namespace content_a\form\thankyou;
 
 class model
 {

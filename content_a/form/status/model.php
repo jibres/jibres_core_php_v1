@@ -7,7 +7,6 @@ class model
 	{
 		$form_id = \dash\request::get('id');
 
-
 		$post =
 		[
 			'status'     => \dash\request::post('status'),
@@ -17,7 +16,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::pwd();
+			if(\dash\request::post('status') === 'deleted')
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
 		}
 
 	}

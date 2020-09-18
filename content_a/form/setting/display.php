@@ -15,14 +15,6 @@
 				<input type="text" id="ititle" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
 			</div>
 
-			<label for="status"><?php echo T_("Status") ?></label>
-			<select class="select22" name="status">
-				<option value=""><?php echo T_("Please select on item") ?></option>
-				<option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') { echo 'selected';} ?>><?php echo T_("draft") ?></option>
-				<option value="publish" <?php if(\dash\data::dataRow_status() === 'publish') { echo 'selected';} ?>><?php echo T_("publish") ?></option>
-				<option value="expire" <?php if(\dash\data::dataRow_status() === 'expire') { echo 'selected';} ?>><?php echo T_("expire") ?></option>
-				<option value="lock" <?php if(\dash\data::dataRow_status() === 'lock') { echo 'selected';} ?>><?php echo T_("lock") ?></option>
-			</select>
 			<div class="mB10">
 				<label for="desc"><?php echo T_("Description") ?></label>
 				<textarea name="desc" data-editor class="txt" rows="3" id="desc" placeholder="<?php echo T_("Description") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>

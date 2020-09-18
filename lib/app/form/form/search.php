@@ -67,6 +67,11 @@ class search
 			$and[] = " form.status = '$data[status]' ";
 			self::$is_filtered = true;
 		}
+		else
+		{
+			$and[] = " form.status != 'deleted' ";
+
+		}
 
 		if($data['sort'] && !$order_sort)
 		{
