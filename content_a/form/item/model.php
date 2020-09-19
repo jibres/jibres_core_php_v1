@@ -41,6 +41,7 @@ class model
 		{
 			foreach ($whole_edit as $key => $value)
 			{
+				$value['type'] = \dash\data::itemDetail_type();
 				\lib\app\form\item\edit::edit($value, $key, $form_id);
 			}
 		}

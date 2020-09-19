@@ -4,7 +4,7 @@ namespace lib\app\form\item;
 
 class get
 {
-	public static function items($_form_id)
+	public static function items($_form_id, $_load_choice = true)
 	{
 		$_form_id = \dash\validate::id($_form_id);
 
@@ -21,14 +21,49 @@ class get
 			$list = [];
 		}
 
-		$list = array_map(['\\lib\\app\\form\\item\\ready', 'row'], $list);
+		$all_choice = [];
+		$choice = [];
 
-		return $list;
+		if($_load_choice)
+		{
+
+			$item_ids = array_column($list, 'id');
+
+
+			$all_choice = \lib\db\form_choice\get::item_id_form_id(implode(',', $item_ids), $_form_id);
+
+			if(!is_array($all_choice))
+			{
+				$all_choice = [];
+			}
+
+			$all_choice = array_map(['\\lib\\app\\form\\choice\\ready', 'row'], $all_choice);
+
+			foreach ($all_choice as $key => $value)
+			{
+				if(!isset($choice[$value['item_id']]))
+				{
+					$choice[$value['item_id']] = [];
+				}
+
+				$choice[$value['item_id']][] = $value;
+			}
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			$new_list[] = \lib\app\form\item\ready::row($value, $choice);
+		}
+
+		return $new_list;
 	}
+
 
 	public static function items_answerable($_form_id)
 	{
-		$list = self::items($_form_id);
+		$list = self::items($_form_id, false);
 		if(!is_array($list))
 		{
 			return $list;
@@ -56,7 +91,7 @@ class get
 
 	public static function items_comparable($_form_id)
 	{
-		$list = self::items($_form_id);
+		$list = self::items($_form_id, false);
 		if(!is_array($list))
 		{
 			return $list;

@@ -344,7 +344,6 @@ class cleanse
 				{
 					$field_title = $_meta['field_title'][$required_field];
 				}
-
 				// contain null, '', 0, false
 				if(!$data[$required_field])
 				{

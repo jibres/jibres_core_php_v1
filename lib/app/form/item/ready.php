@@ -5,7 +5,7 @@ namespace lib\app\form\item;
 class ready
 {
 
-	public static function row($_data)
+	public static function row($_data, $_choice = [])
 	{
 		if(!is_array($_data))
 		{
@@ -69,6 +69,11 @@ class ready
 
 			$accept = '*.'. implode(' *.', $filetype);
 			$result['setting']['file']['accept'] = $accept;
+		}
+
+		if(isset($_choice[$result['id']]))
+		{
+			$result['choice'] = $_choice[$result['id']];
 		}
 
 		return $result;

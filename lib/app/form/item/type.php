@@ -109,7 +109,7 @@ class type
 			'chart' 	   => true,
 			'compare'      => true,
 			'chart_type'   => 'pie',
-			'group'        => T_('Boolean'),
+			'group'        => T_('Optional choice'),
 			'default_load' =>
 			[
 			],
@@ -463,7 +463,7 @@ class type
 			'chart' 	   => true,
 			'compare'      => true,
 			'chart_type'   => 'pie',
-			'group'        => T_('Boolean'),
+			'group'        => T_('Other'),
 			'color'        => true,
 			'default_load' =>
 			[

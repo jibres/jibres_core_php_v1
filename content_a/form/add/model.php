@@ -14,7 +14,7 @@ class model
 
 		if(isset($result['id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
+			\dash\redirect::to(\dash\url::this(). '/item/add?id='. $result['id']);
 		}
 	}
 }
