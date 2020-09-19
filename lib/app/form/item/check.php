@@ -167,6 +167,7 @@ class check
 		}
 
 		unset($data['placeholder']);
+		unset($data['choice']); // the choice is not modified in tihs form
 
 		unset($data['choiceinline']);
 		unset($data['random']);

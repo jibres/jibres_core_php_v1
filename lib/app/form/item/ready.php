@@ -58,10 +58,6 @@ class ready
 			}
 		}
 
-		if($random_choice && isset($result['choice']) && is_array($result['choice']) && $result['choice'] && \dash\url::content() != 'a')
-		{
-			shuffle($result['choice']);
-		}
 
 		if(isset($result['setting']['file']['filetype']) && is_array($result['setting']['file']['filetype']) && $result['setting']['file']['filetype'])
 		{
@@ -74,6 +70,11 @@ class ready
 		if(isset($_choice[$result['id']]))
 		{
 			$result['choice'] = $_choice[$result['id']];
+		}
+
+		if($random_choice && isset($result['choice']) && is_array($result['choice']) && $result['choice'] && \dash\url::content() != 'a')
+		{
+			shuffle($result['choice']);
 		}
 
 		return $result;
