@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor() || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}else{echo " data-desktop";}?>>
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor() || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}else{echo " data-desktop";}?>>
 <head>
  <meta charset="UTF-8"/>
  <base href="<?php echo \dash\url::base();?>"/>
