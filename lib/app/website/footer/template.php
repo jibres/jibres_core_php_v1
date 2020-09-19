@@ -75,6 +75,7 @@ class template
 
 		$list             = [];
 		$list['footer_100'] = self::footer_100();
+		$list['footer_201'] = self::footer_201();
 		$list['footer_300'] = self::footer_300();
 
 
@@ -129,6 +130,40 @@ class template
 
 		return $myFooter;
 	}
+
+
+	private static function footer_201()
+	{
+		$myFooter =
+		[
+			'key'          => 'footer_201',
+			'title'        => T_("Footer #201"),
+			'desc'         => T_("A complete footer"),
+			'sample_image' => \dash\url::cdn(). '/img/template/footer/footer100.png',
+			'version'      => 1,
+			'tag'          =>
+			[
+				'modern' => T_('#modern'),
+				'complete' => T_('#complete'),
+			],
+			'contain'      =>
+			[
+
+				'footer_main_txt' =>
+				[
+					"title" => T_("Footer Text"),
+				],
+
+				'footer_phone' =>
+				[
+					"title" => T_("Footer Phone number"),
+				],
+			],
+		];
+
+		return $myFooter;
+	}
+
 
 
 	private static function footer_300()
