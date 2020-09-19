@@ -14,6 +14,8 @@ class view
 
 		$form_id = \dash\request::get('id');
 
+		$choice = \lib\app\form\choice\get::choice_item(\dash\request::get('item'));
+		\dash\data::choiceList($choice);
 
 		\dash\face::btnSave('form1');
 

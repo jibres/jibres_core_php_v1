@@ -26,6 +26,21 @@ class controller
 
 		\dash\data::itemDetail($load_item);
 
+
+		$cid = \dash\request::get('cid');
+		if($cid)
+		{
+
+			$load_choice = \lib\app\form\choice\get::get($cid);
+			if(!$load_choice)
+			{
+				\dash\header::status(404);
+			}
+			\dash\data::editMode(true);
+			\dash\data::choiceDataRow($load_choice);
+
+		}
+
 	}
 }
 ?>

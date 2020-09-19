@@ -56,10 +56,6 @@ function settingRecord($value)
 		return;
 	}
 
-	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
-	{
-		settingChoice($value);
-	}
 
 	settingDesc($value);
 
@@ -134,6 +130,13 @@ function settingRecord($value)
 	{
 		settingLink($value);
 	}
+
+
+	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
+	{
+		settingChoice($value);
+	}
+
 
 }
 
@@ -337,7 +340,21 @@ function settingDefaultvalue($value) {?>
 		</div>
 	</div>
 
- 	<?php if(\dash\data::choiseList()) {?>
- 	<?php } //endif ?>
+ 	 <?php if(\dash\data::choiceList()) {?>
+
+      <div class="tblBox font-14">
+        <table class="tbl1 v4">
+          <tbody>
+            <?php foreach (\dash\data::choiceList() as $key => $value) {?>
+            	<tr>
+	            	<td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
+	                <td><?php echo \dash\get::index($value, 'title') ?></td>
+              </tr>
+            <?php } //endfor ?>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  <?php } //endif ?>
 
 <?php } // endfunction ?>

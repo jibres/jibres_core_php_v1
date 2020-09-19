@@ -15,7 +15,7 @@ class model
 			\lib\app\form\choice\remove::remove($id);
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current(). '?'. \dash\request::fix_get(['cid' => null]));
 			}
 			return;
 		}
@@ -33,13 +33,25 @@ class model
 			'title' => \dash\request::post('title'),
 		];
 
-		\lib\app\form\choice\add::add($post, $item_id, $form_id);
-
-
-		if(\dash\engine\process::status())
+		if(\dash\data::editMode())
 		{
-			\dash\redirect::pwd();
+			\lib\app\form\choice\edit::edit($post, \dash\request::get('cid'));
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::current(). '?'. \dash\request::fix_get(['cid' => null]));
+			}
 		}
+		else
+		{
+			\lib\app\form\choice\add::add($post, $item_id, $form_id);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
+
 
 	}
 }
