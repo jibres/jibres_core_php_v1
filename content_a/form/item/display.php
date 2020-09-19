@@ -37,11 +37,12 @@
 			<?php settingRecord(\dash\data::itemDetail()); ?>
 		</div>
 		<footer class="f">
-			<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove item") ?></div></div>
+			<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove question") ?></div></div>
 
 
 		</footer>
 	</div>
+
 </form>
 </div>
 <?php
@@ -50,12 +51,10 @@
 
 function settingRecord($value)
 {
-	if(!isset($value['type_detail'])
-)	{
+	if(!isset($value['type_detail']))
+	{
 		return;
 	}
-
-
 
 	if(isset($value['type_detail']['choice']) && $value['type_detail']['choice'])
 	{
@@ -186,18 +185,6 @@ function settingMin($value) {?>
 
 
 
-
-
- function settingChoice($value) {?>
-<label for="item_choice_<?php echo \dash\get::index($value, 'id') ?>"><?php echo T_("Choices") ?> <small><?php echo T_("Type choice and press Enter") ?></small></label>
-<select name="item_choice_<?php echo \dash\get::index($value, 'id') ?>[]" id="item_choice_<?php echo \dash\get::index($value, 'id') ?>" class="select22" data-model="tag" multiple="multiple">
-	<?php if(isset($value['choice']) && is_array($value['choice'])) {?>
-  <?php foreach ($value['choice'] as $key => $value) {?>
-    <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
-  <?php } //endfor ?>
-  <?php } //endif ?>
-</select>
-<?php } // endfunction
 
 
 
@@ -334,4 +321,23 @@ function settingDefaultvalue($value) {?>
 	<input type="checkbox" name="item_targetblank_<?php echo \dash\get::index($value, 'id') ?>" id="targetblank<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index($value, 'setting', \dash\get::index($value,'type') , 'targetblank')) { echo 'checked';} ?>>
 	<label for="targetblank<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Open in blank page?"); ?></label>
 </div>
+<?php } // endfunction
+
+
+
+ function settingChoice($value) {?>
+ 	<div class="msg">
+		<div class="f">
+			<div class="c s12">
+				<?php echo T_("Choices") ?>
+			</div>
+			<div class="cauto s12">
+				<a class="btn link" href="<?php echo \dash\url::this(). '/item/choice?'. \dash\request::fix_get() ?>"><?php echo T_("Manage choice") ?></a>
+			</div>
+		</div>
+	</div>
+
+ 	<?php if(\dash\data::choiseList()) {?>
+ 	<?php } //endif ?>
+
 <?php } // endfunction ?>

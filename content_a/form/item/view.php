@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Edit item'));
+		\dash\face::title(T_('Edit question'));
 
 			// back
 		\dash\data::back_text(T_('Back'));

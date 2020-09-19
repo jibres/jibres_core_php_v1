@@ -10,7 +10,7 @@ class view
 
 			// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		\dash\data::back_link(\dash\url::this(). '/item?'. \dash\request::fix_get());
 
 		\dash\data::itemType(\lib\app\form\item\type::get_group());
 
