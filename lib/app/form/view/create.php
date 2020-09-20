@@ -38,7 +38,7 @@ class create
 
 		$form_id = $laod_form['id'];
 
-		$step         = 20;
+		$step         = 500;
 		$start_limit  = 0;
 		$end_limit    = $step;
 		$first_record = true;

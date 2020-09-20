@@ -27,10 +27,12 @@ class search_table
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['id']],
-			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'order'      => 'order',
+			'sort'       => ['enum' => ['id']],
+			'type'       => ['enum' => ['assistant', 'group', 'total', 'details']],
 			'table_name' => 'string_200',
+			'filter_id'  => 'id',
+			'form_id'    => 'id',
 		];
 
 		$require = ['table_name'];
@@ -45,6 +47,26 @@ class search_table
 
 		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
+
+		if($data['filter_id'])
+		{
+			$where_list = \lib\app\form\filter\get::where_list($data['filter_id'], $data['form_id']);
+			if($where_list && is_array($where_list))
+			{
+				foreach ($where_list as $key => $value)
+				{
+					$temp = " `$data[table_name]`.$value[field] $value[condition] ";
+					if(isset($value['value']) && $value['value'])
+					{
+						$temp .= " '$value[value]' ";
+					}
+
+					$and[] = $temp;
+				}
+			self::$is_filtered = true;
+			}
+		}
+
 
 		$order_sort  = null;
 

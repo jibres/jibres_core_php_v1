@@ -1,4 +1,6 @@
-
+<?php if(\dash\data::filterDetail_title()) {?>
+  <div class="msg txtB txtC fs14 info2"><?php echo \dash\data::filterDetail_title(); ?></div>
+<?php } //endif ?>
   <?php
   if(\dash\data::dataTable())
   {

@@ -30,6 +30,8 @@ class view
 		$args['sort']    = 'id';
 		$args['order']   = 'desc';
 		$args['table_name'] = $table_name;
+		$args['filter_id'] = \dash\request::get('fid');
+		$args['form_id'] = \dash\request::get('id');
 		$q               = \dash\request::get('q');
 
 
