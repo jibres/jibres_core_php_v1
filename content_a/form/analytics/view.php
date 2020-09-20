@@ -13,11 +13,9 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
+		$allFilter = \lib\app\form\filter\get::all_form_filter(\dash\request::get('id'));
 
-		// back
-		\dash\data::action_text(T_('Create new view'));
-		\dash\data::action_link(\dash\url::that() . '/create?id='. \dash\request::get('id'));
-
+		\dash\data::allFilter($allFilter);
 
 	}
 

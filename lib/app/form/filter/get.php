@@ -30,6 +30,26 @@ class get
 	}
 
 
+	public static function all_form_filter($_form_id)
+	{
+		$id = \dash\validate::id($_form_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\form_filter\get::by_form_id($id);
+
+		if(!is_array($load))
+		{
+			$load = [];
+		}
+
+		$load = array_map(['\\lib\\app\\form\\filter\\ready', 'row'], $load);
+
+		return $load;
+	}
+
 
 	public static function where_list($_filter_id, $_form_id)
 	{
