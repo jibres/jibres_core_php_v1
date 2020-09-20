@@ -4,6 +4,26 @@ namespace lib\app\form\filter;
 
 class add
 {
+	public static function duplicate($_args, $_form_id, $_filter_id)
+	{
+
+		$load_filter = \lib\app\form\filter\get::get($_filter_id);
+		if(!$load_filter)
+		{
+			return false;
+		}
+
+		$result = self::add($_args, $_form_id);
+		if(!isset($result['id']))
+		{
+			return false;
+		}
+
+		\lib\db\form_filter\insert::duplicate($_form_id, $_filter_id, $result['id']);
+		return ['id' => $result['id']];
+	}
+
+
 	public static function add($_args, $_form_id)
 	{
 
