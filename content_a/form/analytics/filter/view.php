@@ -17,30 +17,13 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/filter?'. \dash\request::fix_get());
 
 
+		$where_list = \lib\app\form\filter\get::where_list(\dash\request::get('fid'), \dash\request::get('id'));
+		\dash\data::whereList($where_list);
 
 
-		$fields = array_column(\dash\data::viewFieldDetail(), 'field_title', 'field_md5');
+		$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail());
+
 		\dash\data::fields($fields);
-		$args            = [];
-		$args['sort']    = 'id';
-		$args['order']   = 'desc';
-		$args['table_name'] = \dash\data::viewDetail_table_name();
-		$q               = \dash\request::get('q');
-
-
-		$dataTable = \lib\app\form\view\search_table::list($q, $args);
-
-
-
-		$filterBox     = \lib\app\form\view\search::filter_message();
-		$isFiltered    = \lib\app\form\view\search::is_filtered();
-
-
-		\dash\data::filterBox($filterBox);
-		\dash\data::isFiltered($isFiltered);
-
-
-		\dash\data::dataTable($dataTable);
 
 	}
 

@@ -1,109 +1,53 @@
+<div class="avand-xl">
+  <form method="post" autocomplete="off">
+    <div class="box">
+      <header><h2><?php echo \dash\data::filterDetail_title() ?></h2></header>
+      <div class="body">
+        <label for="ititle"><?php echo T_("Question") ?></label>
+        <select class="select22" name="field">
+          <option value=""><?php echo T_("Please select on item") ?></option>
+          <?php foreach (\dash\data::fields() as $key => $value) {?>
+            <option value="<?php echo \dash\get::index($value, 'field') ?>"><?php echo \dash\get::index($value, 'title') ?></option>
+          <?php } //endfor ?>
+        </select>
 
-  <?php
-  if(\dash\data::dataTable())
-  {
-    if(\dash\data::isFiltered())
-    {
-      htmlSearchBox();
-      htmlTable();
-      htmlFilter();
-    }
-    else
-    {
-      htmlSearchBox();
-      htmlTable();
-    }
+        <label for="condition"><?php echo T_("Operator") ?></label>
+        <select class="select22" name="condition">
+          <option value=""><?php echo T_("Please select on item") ?></option>
+          <option value="IS NULL">IS NULL</option>
+          <option value="IS NOT NULL">IS NOT NULL</option>
+          <option value=">=">>=</option>
+          <option value="<="><=</option>
+          <option value="=">=</option>
+          <option value="!=">!=</option>
 
-  }
-  else
-  {
-    if(\dash\data::isFiltered())
-    {
-      htmlSearchBox();
+        </select>
 
-      htmlFilter();
-    }
-    else
-    {
-      htmlStartAddNew();
-    }
-  }
-  ?>
+      </div>
+      <footer class="txtRa">
+        <button class="btn master"><?php echo T_("Add") ?></button>
+      </footer>
+    </div>
+  </form>
 
-<?php function htmlSearchBox() {?>
-  <div class="cbox fs12">
-    <form method="get" action='<?php echo \dash\url::current(); ?>' >
-      <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
-      <div class="input">
-        <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-        <button class="addon btn "><?php echo T_("Search"); ?></button>
+  <?php if(\dash\data::whereList()) {?>
+    <form method="post" autocomplete="off">
+      <input type="hidden" name="sortable" value="sortable">
+      <div class="tblBox font-14">
+        <table class="tbl1 v4">
+          <tbody>
+            <?php foreach (\dash\data::whereList() as $key => $value) {?>
+              <tr>
+                <td><?php echo \dash\get::index($value, 'field_title') ?></td>
+                <td><?php echo \dash\get::index($value, 'condition') ?></td>
+                <td class="collapsing">
+                    <div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
+                </td>
+              </tr>
+            <?php } //endfor ?>
+          </tbody>
+        </table>
       </div>
     </form>
-  </div>
-<?php } //endfunction ?>
-
-<?php function htmlTable() {?>
-
-<?php
-
-  $dataTable = \dash\data::dataTable();
-
-  if(!is_array($dataTable))
-  {
-    $dataTable = [];
-  }
-
-  $fields = \dash\data::fields();
-
-
-?>
-<div class="tblBox">
-
-  <table class="tbl1 v8">
-    <thead>
-      <tr>
-        <?php foreach ($fields as $key => $value) {?>
-          <th class="collapsing"><?php echo $value ?></th>
-        <?php } //endif ?>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-        <tr>
-          <?php foreach ($fields as $field => $field_title) {?>
-          <td class="collapsing"><?php echo \dash\get::index($value, $field) ?></td>
-        <?php } //endif ?>
-        </tr>
-      <?php } //endif ?>
-    </tbody>
-  </table>
+  <?php } //endif ?>
 </div>
- <?php \dash\utility\pagination::html(); ?>
-
-<?php } //endif ?>
-
-<?php function htmlFilter() {?>
-  <p class="f fs14 msg info2">
-    <span class="c"><?php echo \dash\data::filterBox(); ?></span>
-    <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>"><?php echo T_("Clear filters"); ?></a>
-  </p>
-<?php } //endif ?>
-
-<?php function htmlFilterNoResult() {?>
-  <p class="f fs14 msg warn2">
-    <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-    <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>"><?php echo T_("Clear filters"); ?></a>
-  </p>
-<?php } //endif ?>
-
-<?php function htmlStartAddNew() {?>
-
-  <div class="welcome">
-    <p><?php echo T_("Create now"); ?></p>
-    <h2><?php echo T_("Create form view"); ?></h2>
-
-    <div class="buildBtn">
-      <a class="btn xl master" data-data='{"create": "create"}' data-confirm ><?php echo T_("Buil it now"); ?></a>
-    </div>
-  </div>
-<?php } //endif ?>

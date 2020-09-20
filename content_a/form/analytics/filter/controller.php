@@ -17,31 +17,20 @@ class controller
 
 		\dash\data::formDetail($load);
 
+		$filter_id = \dash\request::get('fid');
 
-		$view_id = \dash\request::get('vid');
+		if(!$filter_id)
+		{
+			\dash\redirect::to(\dash\url::that(). '/addfilter?id='. \dash\request::get('id'));
+		}
 
-		$load_view = \lib\app\form\view\get::get($view_id);
-		if(!$load_view)
+		$load_filter = \lib\app\form\filter\get::get($filter_id);
+		if(!$load_filter)
 		{
 			\dash\header::status(404);
 		}
 
-		\dash\data::viewDetail($load_view);
-
-
-
-
-		$load_view_field = \lib\app\form\view\field::get_by_view_id($view_id);
-		if(!$load_view_field)
-		{
-			\dash\header::status(404);
-		}
-
-		\dash\data::viewFieldDetail($load_view_field);
-
-
-
-
+		\dash\data::filterDetail($load_filter);
 	}
 
 }
