@@ -12,9 +12,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '?id='. \dash\request::get('id'));
 
-		// back
-		\dash\data::action_text(T_('Filter'));
-		\dash\data::action_link(\dash\url::that(). '/filter?'. \dash\request::fix_get());
 
 		$table_name = \lib\app\form\view\get::is_created_table(\dash\request::get('id'));
 

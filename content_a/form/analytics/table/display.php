@@ -1,5 +1,14 @@
 <?php if(\dash\data::filterDetail_title()) {?>
-  <div class="msg txtB txtC fs14 info2"><?php echo \dash\data::filterDetail_title(); ?></div>
+  <div class="box">
+    <div class="body">
+      <div class="f">
+        <div class="cauto"><?php echo \dash\data::filterDetail_title(); ?></div>
+        <div class="c"></div>
+        <div class="cauto"><a class="btn" href="<?php echo \dash\url::that(). '/filter?'. \dash\request::fix_get(); ?>"><?php echo T_("View filter") ?></a></div>
+      </div>
+
+    </div>
+  </div>
 <?php } //endif ?>
   <?php
   if(\dash\data::dataTable())
@@ -32,7 +41,7 @@
   }
   ?>
 
-<?php function htmlSearchBox() {?>
+<?php function htmlSearchBox() { return;?>
   <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
       <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
@@ -65,15 +74,23 @@
     <thead>
       <tr>
         <?php foreach ($fields as $key => $value) {?>
-          <th class="collapsing"><?php echo \dash\get::index($value, 'title') ?></th>
+          <?php if(\dash\get::index($value, 'field') === 'f_answer_id') {?>
+            <th class="collapsing"><?php echo T_("Show") ?></th>
+            <?php }else{ ?>
+            <th class="collapsing"><?php echo \dash\get::index($value, 'title') ?></th>
+            <?php }//endif ?>
         <?php } //endif ?>
       </tr>
     </thead>
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <?php foreach ($fields as $filed) {?>
-          <td class="collapsing"><?php echo \dash\get::index($value, \dash\get::index($filed, 'field')) ?></td>
+          <?php foreach ($fields as $field) {?>
+            <?php if(\dash\get::index($field, 'field') === 'f_answer_id') {?>
+              <td><a class="btn primary2 xs" href="<?php echo \dash\url::this(). '/answer/detail?id='. \dash\request::get('id'). '&aid='. \dash\get::index($value, \dash\get::index($field, 'field'))  ?>"><?php echo T_("Show") ?></a></td>
+            <?php }else{ ?>
+              <td class="collapsing"><?php echo \dash\get::index($value, \dash\get::index($field, 'field')) ?></td>
+            <?php }//endif ?>
         <?php } //endif ?>
         </tr>
       <?php } //endif ?>

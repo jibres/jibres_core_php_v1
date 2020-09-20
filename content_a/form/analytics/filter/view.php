@@ -13,9 +13,12 @@ class view
 		\dash\data::back_link(\dash\url::that(). '?id='. \dash\request::get('id'));
 
 		// back
-		\dash\data::action_text(T_('Filter'));
-		\dash\data::action_link(\dash\url::that(). '/filter?'. \dash\request::fix_get());
+		\dash\data::action_text(T_('Manage condition'));
+		\dash\data::action_link(\dash\url::that(). '/addcondition?'. \dash\request::fix_get());
 
+
+		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?'. \dash\request::fix_get());
+		\dash\face::btnView(\dash\url::that(). '/table?'. \dash\request::fix_get());
 
 		$where_list = \lib\app\form\filter\get::where_list(\dash\request::get('fid'), \dash\request::get('id'));
 		\dash\data::whereList($where_list);
