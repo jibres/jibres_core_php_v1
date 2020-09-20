@@ -51,19 +51,23 @@ class search_table
 		if($data['filter_id'])
 		{
 			$where_list = \lib\app\form\filter\get::where_list($data['filter_id'], $data['form_id']);
+
 			if($where_list && is_array($where_list))
 			{
 				foreach ($where_list as $key => $value)
 				{
-					$temp = " `$data[table_name]`.$value[field] $value[condition] ";
-					if(isset($value['value']) && $value['value'])
+					if(isset($value['query_condition']))
 					{
-						$temp .= " '$value[value]' ";
-					}
+						$temp = " `$data[table_name]`.$value[field] $value[query_condition] ";
+						if(isset($value['value']) && $value['value'])
+						{
+							$temp .= " '$value[value]' ";
+						}
 
-					$and[] = $temp;
+						self::$is_filtered = true;
+						$and[] = $temp;
+					}
 				}
-			self::$is_filtered = true;
 			}
 		}
 

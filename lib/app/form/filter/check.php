@@ -25,12 +25,9 @@ class check
 	public static function variable_where($_args, $_fields = [])
 	{
 
-
-
-
 		$condition =
 		[
-			'condition' => ['enum' => ['IS NULL', 'IS NOT NULL', '>=', '<=', '=', '!=',]],
+			'condition' => ['enum' => ['isnull','isnotnull','larger','less','equal','notequal',]],
 			'operator'  => ['enum' => ['and', 'or']],
 			'field'     => ['enum' => array_column($_fields, 'field')],
 			'value'     => 'string_100',

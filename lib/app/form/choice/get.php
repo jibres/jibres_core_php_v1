@@ -51,5 +51,27 @@ class get
 
 		return $load;
 	}
+
+
+	public static function all_choice($_form_id)
+	{
+		$form_id = \dash\validate::id($_form_id);
+
+		if(!$form_id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\form_choice\get::by_form_id($form_id);
+
+		if(!is_array($load))
+		{
+			$load = [];
+		}
+
+		$load = array_map(['\\lib\\app\\form\\choice\\ready', 'row'], $load);
+
+		return $load;
+	}
 }
 ?>

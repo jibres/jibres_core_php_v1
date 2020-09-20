@@ -44,6 +44,43 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'condition':
+					$query_condition = null;
+
+					switch ($value)
+					{
+						case 'isnull':
+							$query_condition = 'IS NULL';
+							break;
+
+						case 'isnotnull':
+							$query_condition = 'IS NOT NULL';
+							break;
+
+						case 'larger':
+							$query_condition = '>=';
+							break;
+
+						case 'less':
+							$query_condition = '<=';
+							break;
+
+						case 'equal':
+							$query_condition = '=';
+							break;
+
+						case 'notequal':
+							$query_condition = '!=';
+							break;
+
+						default:
+
+							break;
+					}
+					$result[$key] = $value;
+					$result['query_condition'] = $query_condition;
+					break;
+
 				case 'field':
 					$result[$key] = $value;
 					if(isset($_field_title[$value]['title']))
