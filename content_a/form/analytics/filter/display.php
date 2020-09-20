@@ -16,6 +16,7 @@
               <th class="collapsing"></th>
               <th></th>
               <th></th>
+              <th></th>
               <th class="collapsing txtL"><?php echo T_("Inside") ?></th>
               <th class="collapsing txtL"><?php echo T_("Outside") ?></th>
               <th class="collapsing txtL"><?php echo T_("Count after") ?></th>
