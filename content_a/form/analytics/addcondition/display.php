@@ -1,3 +1,8 @@
+<?php require_once(root. 'content_a/form/analytics/pageStep.php'); ?>
+
+<form method="post" id="formexec">
+  <input type="hidden" name="execfilter" value="execfilter">
+</form>
 <div class="avand-xl">
   <form method="post" autocomplete="off">
     <div class="box">

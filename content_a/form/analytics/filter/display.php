@@ -1,9 +1,4 @@
-
-<div class="box">
-  <div class="body">
-    <div class="btn master" data-confirm data-data='{"execfilter": "execfilter"}'><?php echo T_("Execute filter") ?></div>
-  </div>
-</div>
+<?php require_once(root. 'content_a/form/analytics/pageStep.php'); ?>
 
 
   <?php if(\dash\data::whereList()) {?>

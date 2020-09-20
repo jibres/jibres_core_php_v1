@@ -7,6 +7,13 @@ class model
 	public static function post()
 	{
 
+		if(\dash\request::post('execfilter') === 'execfilter')
+		{
+			\lib\app\form\filter\run::run(\dash\request::get('id'), \dash\request::get('fid'));
+			\dash\redirect::pwd();
+			return;
+		}
+
 		if(\dash\request::post('removefilter') === 'removefilter')
 		{
 			\lib\app\form\filter\remove::remove(\dash\request::get('fid'));

@@ -1,14 +1,5 @@
 <?php if(\dash\data::filterDetail_title()) {?>
-  <div class="box">
-    <div class="body">
-      <div class="f">
-        <div class="cauto"><?php echo \dash\data::filterDetail_title(); ?></div>
-        <div class="c"></div>
-        <div class="cauto"><a class="btn" href="<?php echo \dash\url::that(). '/filter?'. \dash\request::fix_get(); ?>"><?php echo T_("View filter") ?></a></div>
-      </div>
-
-    </div>
-  </div>
+  <?php require_once(root. 'content_a/form/analytics/pageStep.php'); ?>
 <?php } //endif ?>
   <?php
   if(\dash\data::dataTable())

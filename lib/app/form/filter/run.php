@@ -45,6 +45,7 @@ class run
 			}
 		}
 
+		\dash\notif::ok(T_("Filter executed"));
 	}
 
 
