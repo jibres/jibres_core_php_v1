@@ -46,31 +46,38 @@ class ready
 			{
 				case 'condition':
 					$query_condition = null;
+					$condition_title = null;
 
 					switch ($value)
 					{
 						case 'isnull':
 							$query_condition = 'IS NULL';
+							$condition_title = T_("Not answer");
 							break;
 
 						case 'isnotnull':
 							$query_condition = 'IS NOT NULL';
+							$condition_title = T_("Answered");
 							break;
 
 						case 'larger':
 							$query_condition = '>=';
+							$condition_title = T_("Is larger than");
 							break;
 
 						case 'less':
 							$query_condition = '<=';
+							$condition_title = T_("Is less than");
 							break;
 
 						case 'equal':
 							$query_condition = '=';
+							$condition_title = T_("Is equal");
 							break;
 
 						case 'notequal':
 							$query_condition = '!=';
+							$condition_title = T_("Is not equal");
 							break;
 
 						default:
@@ -79,6 +86,7 @@ class ready
 					}
 					$result[$key] = $value;
 					$result['query_condition'] = $query_condition;
+					$result['condition_title'] = $condition_title;
 					break;
 
 				case 'field':
@@ -86,6 +94,11 @@ class ready
 					if(isset($_field_title[$value]['title']))
 					{
 						$result['field_title'] = $_field_title[$value]['title'];
+					}
+
+					if(isset($_field_title[$value]['item_id']))
+					{
+						$result['item_id'] = $_field_title[$value]['item_id'];
 					}
 					break;
 

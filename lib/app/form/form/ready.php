@@ -129,7 +129,7 @@ class ready
 					{
 						if(isset($load_items[$key[1]]['choice'][$key[2]]['title']))
 						{
-							$my_field[] = ['field' => $one_field, 'title' => $load_items[$key[1]]['title']. ' - '. $load_items[$key[1]]['choice'][$key[2]]['title']];
+							$my_field[] = ['item_id' => $key[1], 'field' => $one_field, 'title' => $load_items[$key[1]]['title']. ' - '. $load_items[$key[1]]['choice'][$key[2]]['title']];
 						}
 					}
 				}
@@ -137,7 +137,7 @@ class ready
 				{
 					if(isset($load_items[$key[1]]['title']))
 					{
-						$my_field[] = ['field' => $one_field, 'title' => $load_items[$key[1]]['title']];
+						$my_field[] = ['item_id' => $key[1], 'field' => $one_field, 'title' => $load_items[$key[1]]['title']];
 					}
 				}
 			}

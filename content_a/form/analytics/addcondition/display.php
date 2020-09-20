@@ -54,7 +54,7 @@
               <tr>
                 <td class="collapsing"><code class="link"><?php echo \dash\get::index($value, 'field') ?></code></td>
                 <td><?php echo \dash\get::index($value, 'field_title') ?></td>
-                <td><?php echo \dash\get::index($value, 'condition') ?></td>
+                <td><?php echo \dash\get::index($value, 'condition_title') ?></td>
                 <td><?php echo \dash\get::index($value, 'value') ?></td>
                 <td class="collapsing">
                     <div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
