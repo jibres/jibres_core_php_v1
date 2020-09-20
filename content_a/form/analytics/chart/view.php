@@ -20,7 +20,14 @@ class view
 		$chart[] = [T_("All"), floatval(40881)];
 		foreach ($where_list as $key => $value)
 		{
-			$chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['outside'])];
+			if(\dash\request::get('inside'))
+			{
+				$chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['inside'])];
+			}
+			else
+			{
+				$chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['outside'])];
+			}
 			$last_count = $value['count_after'];
 		}
 		$chart[] = [T_("Remain"), floatval($last_count)];

@@ -9,7 +9,7 @@
           <thead>
             <tr>
               <th class="collapsing"></th>
-              <th></th>
+              <th><?php echo \dash\data::filterDetail_title() ?></th>
               <th></th>
               <th></th>
               <th class="collapsing txtL"><?php echo T_("Inside") ?></th>

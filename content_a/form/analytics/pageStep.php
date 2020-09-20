@@ -19,8 +19,14 @@
     </a>
   </div>
   <div class="c">
-    <a href="<?php echo \dash\url::that(). '/chart?'. \dash\request::fix_get(); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart') { echo 'active'; } ?>">
+    <a href="<?php echo \dash\url::that(). '/chart?'. \dash\request::fix_get(['inside' => null]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart') { echo 'active'; } ?>">
       <h3><?php echo T_("Chart");?></h3>
+      <div class="val"><i class="sf-chart"></i></div>
+    </a>
+  </div>
+  <div class="c hide">
+    <a href="<?php echo \dash\url::that(). '/chart?'. \dash\request::fix_get(['inside' => 1]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart') { echo 'active'; } ?>">
+      <h3><?php echo T_("Chart inside");?></h3>
       <div class="val"><i class="sf-chart"></i></div>
     </a>
   </div>
