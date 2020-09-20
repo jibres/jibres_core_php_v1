@@ -16,7 +16,6 @@ class view
 		\dash\data::action_text(T_('Manage condition'));
 		\dash\data::action_link(\dash\url::that(). '/addcondition?'. \dash\request::fix_get());
 
-
 		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?'. \dash\request::fix_get());
 		\dash\face::btnView(\dash\url::that(). '/table?'. \dash\request::fix_get());
 

@@ -11,6 +11,8 @@
 
 <div class="avand-md">
 
+
+
 <nav class="items">
  <ul>
       <li><a class="f item" href="<?php echo \dash\url::that(). '/table?id='. \dash\request::get('id'); ?>"><i class="sf-table"></i><div class="key"><?php echo T_("Show all result");?></div><div class="go"></div></a></li>

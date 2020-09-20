@@ -5,6 +5,27 @@ namespace lib\db\form_view;
 class search_table
 {
 
+	public static function get_count_all($_table)
+	{
+		$query = "SELECT COUNT(*) AS `count`	FROM `$_table` ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function get_count_where($_table, $_where)
+	{
+		$where = implode(' AND ', $_where);
+		$query = "SELECT COUNT(*) AS `count`	FROM `$_table` WHERE $where ";
+		$result = \dash\db::get($query, 'count', true);
+		if(!is_numeric($result))
+		{
+			return 0;
+		}
+		return floatval($result);
+	}
+
+
+
 
 
 	public static function list($_table, $_and = null, $_or = null, $_order_sort = null, $_meta = [])

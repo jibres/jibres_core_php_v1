@@ -6,24 +6,14 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('remove') === 'remove')
+		if(\dash\request::post('execfilter') === 'execfilter')
 		{
-			\lib\app\form\filter\remove::remove_where(\dash\request::post('id'));
+			\lib\app\form\filter\run::run(\dash\request::get('id'), \dash\request::get('fid'));
 			\dash\redirect::pwd();
 			return;
 		}
 
-		$post =
-		[
-			'field'     => \dash\request::post('field'),
-			'operator'  => \dash\request::post('operator'),
-			'condition' => \dash\request::post('condition'),
-			'value'     => \dash\request::post('value'),
-		];
 
-		\lib\app\form\filter\add::add_where($post, \dash\request::get('id'), \dash\request::get('fid'));
-
-		\dash\redirect::pwd();
 	}
 
 }

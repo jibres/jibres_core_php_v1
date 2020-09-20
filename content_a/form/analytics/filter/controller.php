@@ -30,6 +30,7 @@ class controller
 			\dash\header::status(404);
 		}
 
+
 		\dash\data::filterDetail($load_filter);
 	}
 
