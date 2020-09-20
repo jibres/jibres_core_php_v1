@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-20 17:20+0430\n"
-"PO-Revision-Date: 2020-09-20 17:21+0430\n"
+"POT-Creation-Date: 2020-09-20 19:18+0430\n"
+"PO-Revision-Date: 2020-09-20 19:20+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5160,10 +5160,11 @@ msgstr "افزودن فاکتور جدید"
 
 #: content_a/accounting/irvat/all/display.php:6 content_a/android/home/display.php:117
 #: content_a/cart/add/display.php:22 content_a/cart/add/display.php:52
-#: content_a/home/display.php:133 content_a/order/add/display.php:17
-#: content_a/sale/display.php:17 content_crm/member/home/display.php:73
-#: content_love/domain/home/display.php:213 content_su/tg/system/display.php:10
-#: content_su/tg/users/display.php:85 includes/languages/trans_static_public.php:899
+#: content_a/form/analytics/chart/display.php:8 content_a/home/display.php:133
+#: content_a/order/add/display.php:17 content_a/sale/display.php:17
+#: content_crm/member/home/display.php:73 content_love/domain/home/display.php:213
+#: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
+#: includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -5438,7 +5439,7 @@ msgid "Balance"
 msgstr "تراز"
 
 #: content_a/accounting/turnover/display.php:165
-#: content_a/form/analytics/chart/view.php:26
+#: content_a/form/analytics/chart/view.php:33
 #: content_a/form/analytics/filter/display.php:47
 msgid "Remain"
 msgstr "مانده"
@@ -7113,8 +7114,8 @@ msgid "Table not created"
 msgstr "جدول ساخته نشده"
 
 #: content_a/form/analytics/chart/display.php:7
-msgid "Funnel chart"
-msgstr "نمودار قیفی"
+msgid "Filter chart"
+msgstr "نمودار فیلتر"
 
 #: content_a/form/analytics/create/display.php:2 content_a/form/analytics/display.php:3
 #: content_a/form/analytics/table/display.php:112
@@ -7196,6 +7197,10 @@ msgstr "نمایش ردیف‌ها"
 #: content_a/form/analytics/pageStep.php:23
 msgid "Chart"
 msgstr "نمودار"
+
+#: content_a/form/analytics/pageStep.php:29
+msgid "Chart inside"
+msgstr "نمودار شامل شده‌ها"
 
 #: content_a/form/analytics/table/display.php:69
 #: content_a/form/analytics/table/display.php:81
@@ -7335,7 +7340,7 @@ msgstr "عنوان گزینه"
 
 #: content_a/form/item/choice/display.php:30
 msgid "Editing..."
-msgstr "در حال ویرایش"
+msgstr "در حال ویرایش..."
 
 #: content_a/form/item/choice/view.php:9
 msgid "Manage item choice"
@@ -33902,6 +33907,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Funnel chart"
+#~ msgstr "نمودار قیفی"
 
 #~ msgid "Manage condition"
 #~ msgstr "مدیریت شروط"
