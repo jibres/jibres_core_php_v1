@@ -11,7 +11,7 @@
         <label for="ititle"><?php echo T_("Question") ?></label>
         <select class="select22" name="field">
           <option value=""><?php echo T_("Please select on item") ?></option>
-          <?php foreach (\dash\data::fields() as $key => $value) {?>
+          <?php foreach (\dash\data::fields() as $key => $value) { if(\dash\get::index($value, 'field') === 'f_answer_id') {continue;}?>
             <option value="<?php echo \dash\get::index($value, 'field') ?>"><?php echo \dash\get::index($value, 'title') ?></option>
           <?php } //endfor ?>
         </select>

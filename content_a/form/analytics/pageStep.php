@@ -18,7 +18,7 @@
       <div class="val"><i class="sf-table"></i></div>
     </a>
   </div>
-  <div class="c pRa10">
+  <div class="c">
     <a href="<?php echo \dash\url::that(). '/chart?'. \dash\request::fix_get(); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart') { echo 'active'; } ?>">
       <h3><?php echo T_("Chart");?></h3>
       <div class="val"><i class="sf-chart"></i></div>
