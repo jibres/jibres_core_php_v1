@@ -19,7 +19,7 @@
     </a>
   </div>
   <div class="c pRa10">
-    <a href="<?php echo \dash\url::that(). '/chart?id='. \dash\request::get('id'); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart') { echo 'active'; } ?>">
+    <a href="<?php echo \dash\url::that(). '/chart?'. \dash\request::fix_get(); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart') { echo 'active'; } ?>">
       <h3><?php echo T_("Chart");?></h3>
       <div class="val"><i class="sf-chart"></i></div>
     </a>

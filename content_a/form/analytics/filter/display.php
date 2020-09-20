@@ -18,7 +18,18 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach (\dash\data::whereList() as $key => $value) {?>
+            <?php $first = true; $last = null; foreach (\dash\data::whereList() as $key => $value) { $last = \dash\get::index($value, 'count_after'); ?>
+              <?php if($first) { $first = false;?>
+                <tr class="positive">
+
+                <td class="collapsing font-12"><span class=""><?php echo T_("All") ?></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+                <td colspan="3" class="collapsing txtL ltr txtB"><?php echo \dash\fit::price(\dash\get::index($value, 'count_after') + \dash\get::index($value, 'outside')) ?></td>
+                </tr>
+              <?php } // endif ?>
               <tr>
                 <td class="collapsing font-12"><span class=""><?php echo \dash\fit::number(\dash\get::index($value, 'item_id')) ?>.</span></td>
                 <td class="collapsing font-12"><?php echo \dash\get::index($value, 'field_title') ?></td>
@@ -30,6 +41,17 @@
               </tr>
             <?php } //endfor ?>
           </tbody>
+          <tfoot>
+            <tr>
+
+                <td class="collapsing font-12"><span class=""><?php echo T_("Remain") ?></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+                <td colspan="3" class="collapsing txtL ltr txtB"><?php echo \dash\fit::price($last) ?></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </form>
