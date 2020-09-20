@@ -4,7 +4,8 @@
 
 
 <div class="hide">
-  <div id="charttitle"><?php echo T_("Funnel chart"); ?></div>
+  <div id="charttitle"><?php  T_("Filter chart"); ?></div>
+  <div id="chartunit"><?php  T_("Count"); ?></div>
   <div id="chartitemtitle"></div>
   <div id="chartdata"><?php echo \dash\data::chartDetail(); ?></div>
 </div>
