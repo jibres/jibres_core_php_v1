@@ -36,7 +36,7 @@
 
       </div>
       <footer class="f">
-        <div class="cauto"><a class="btn danger" href="<?php echo \dash\url::that(). '/table?id='.\dash\request::get('id').'&fid='. \dash\data::filterDetail_id() ?>"><?php echo T_("Execute conditions"); ?></a></div>
+        <div class="cauto"><div data-confirm data-data='{"removefilter": "removefilter"}' class="btn linkDel" ><?php echo T_("Remove filter"); ?></div></div>
         <div class="c"></div>
         <div class="cauto"><button class="btn master"><?php echo T_("Add") ?></button></div>
 

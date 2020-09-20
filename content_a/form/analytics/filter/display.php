@@ -19,5 +19,7 @@
         </table>
       </div>
     </form>
+  <?php }else{ ?>
+    <div class="msg font-14 txtC warn2"><?php echo T_("No filter added") ?></div>
   <?php } //endif ?>
 </div>

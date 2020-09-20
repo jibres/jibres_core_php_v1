@@ -8,15 +8,15 @@ class remove
 	public static function remove($_id)
 	{
 
-		$load = \lib\app\form\item\get::get($_id);
+		$load = \lib\app\form\filter\get::get($_id);
 		if(!$load)
 		{
 			return false;
 		}
+		\lib\db\form_filter\delete::delete_where_by_filter_id($_id);
+		\lib\db\form_filter\delete::by_id($_id);
 
-		\lib\db\form_item\update::update(['status' => 'deleted'], $_id);
-
-		\dash\notif::ok(T_("Item removed"));
+		\dash\notif::ok(T_("Filter removed"));
 
 		return true;
 	}
