@@ -11,5 +11,13 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+	public static function show_table($_id)
+	{
+		$query = "SHOW TABLES LIKE 'form_view_table_$_id'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 }
 ?>

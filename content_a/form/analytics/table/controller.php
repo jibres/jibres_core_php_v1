@@ -16,32 +16,6 @@ class controller
 		}
 
 		\dash\data::formDetail($load);
-
-
-		$view_id = \dash\request::get('vid');
-
-		$load_view = \lib\app\form\view\get::get($view_id);
-		if(!$load_view)
-		{
-			\dash\header::status(404);
-		}
-
-		\dash\data::viewDetail($load_view);
-
-
-
-
-		$load_view_field = \lib\app\form\view\field::get_by_view_id($view_id);
-		if(!$load_view_field)
-		{
-			\dash\header::status(404);
-		}
-
-		\dash\data::viewFieldDetail($load_view_field);
-
-
-
-
 	}
 
 }

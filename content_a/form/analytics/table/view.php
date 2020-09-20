@@ -16,15 +16,20 @@ class view
 		\dash\data::action_text(T_('Filter'));
 		\dash\data::action_link(\dash\url::that(). '/filter?'. \dash\request::fix_get());
 
+		$table_name = \lib\app\form\view\get::is_created_table(\dash\request::get('id'));
 
+		if(!$table_name)
+		{
+			\dash\header::status(404, T_("Table not created"));
+		}
 
+		$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail());
 
-		$fields = array_column(\dash\data::viewFieldDetail(), 'field_title', 'field_md5');
 		\dash\data::fields($fields);
 		$args            = [];
 		$args['sort']    = 'id';
 		$args['order']   = 'desc';
-		$args['table_name'] = \dash\data::viewDetail_table_name();
+		$args['table_name'] = $table_name;
 		$q               = \dash\request::get('q');
 
 

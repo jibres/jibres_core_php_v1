@@ -77,11 +77,7 @@ class get
 				$query =
 				"
 					SELECT
-						form_answerdetail.answer_id,
-						form_answerdetail.item_id,
-						form_answerdetail.answer,
-						form_answerdetail.file,
-						form_answerdetail.textarea
+						*
 					FROM
 						form_answerdetail
 					WHERE
@@ -106,6 +102,19 @@ class get
 		";
 
 		$result['items'] = \dash\db::get($query);
+
+
+		$query =
+		"
+			SELECT
+				form_choice.*
+			FROM
+				form_choice
+			WHERE
+				form_choice.form_id = $_form_id
+		";
+
+		$result['choice'] = \dash\db::get($query);
 
 		return $result;
 

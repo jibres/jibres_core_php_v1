@@ -19,26 +19,6 @@ class view
 		\dash\data::action_link(\dash\url::that() . '/create?id='. \dash\request::get('id'));
 
 
-		$args            = [];
-		$args['sort']    = 'id';
-		$args['order']   = 'desc';
-		$args['form_id'] = \dash\request::get('id');
-		$q               = \dash\request::get('q');
-
-
-		$dataTable = \lib\app\form\view\search::list($q, $args);
-
-
-		$filterBox     = \lib\app\form\view\search::filter_message();
-		$isFiltered    = \lib\app\form\view\search::is_filtered();
-
-
-		\dash\data::filterBox($filterBox);
-		\dash\data::isFiltered($isFiltered);
-
-
-		\dash\data::dataTable($dataTable);
-
 	}
 
 }

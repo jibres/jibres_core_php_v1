@@ -7,8 +7,6 @@ class create
 
 	public static function new_view($_form_id)
 	{
-
-
 		$laod_form = \lib\app\form\form\get::get($_form_id);
 
 		if(!$laod_form || !isset($laod_form['id']))
@@ -24,36 +22,23 @@ class create
 			return false;
 		}
 
-		$insert_view =
-		[
-			'form_id'     => $laod_form['id'],
-			'user_id'     => \dash\user::id(),
-			'title'       => T_("Form view"),
-			'desc'        => null,
-			'table_name'  => null,
-			'countrecord' => $count_answer,
-			'datecreated' => date("Y-m-d H:i:s"),
-		];
-
-		$view_id = \lib\db\form_view\insert::new_record($insert_view);
-
-		if(!$view_id)
+		if(isset($laod_form['analyze']) && $laod_form['analyze'])
 		{
-			\dash\log::oops('formViewDBInsertError');
+			\dash\notif::error(T_("The analyze of this form is created before"));
 			return false;
 		}
 
 
-		$table_name = 'form_view_table_'. $view_id;
+		$table_name = 'form_view_table_'. $_form_id;
 
-		\lib\db\form_view\update::update(['table_name' => $table_name], $view_id);
+
 
 		ini_set('max_execution_time', 10000); //10000 seconds = 5 minutes
 		set_time_limit(10000);
 
 		$form_id = $laod_form['id'];
 
-		$step         = 500;
+		$step         = 20;
 		$start_limit  = 0;
 		$end_limit    = $step;
 		$first_record = true;
@@ -71,7 +56,6 @@ class create
 		$result       = \lib\app\form\answer\export::ready_for_export_sql($result, $table_name);
 
 		$table_columns = \lib\app\form\answer\export::$sql_column_list;
-
 
 		while ($result)
 		{
@@ -100,21 +84,16 @@ class create
 		$insert_form_fields = [];
 		foreach ($table_columns as $key => $value)
 		{
-			$insert_form_fields[] =
-			[
-				'view_id'     => $view_id,
-				'field_md5'   => $key,
-				'field_title' => $value,
-				'field_type'  => 'text',
-				'maxlen'      => null,
-				'datecreated' => date("Y-m-d H:i:s"),
-			];
+			$insert_form_fields[] = $key;
 		}
+
 
 		if(!empty($insert_form_fields))
 		{
-			\lib\db\form_view_field\insert::multi_insert($insert_form_fields);
+			\lib\db\form\update::update(['analyzefield' => json_encode($insert_form_fields, JSON_UNESCAPED_UNICODE)], $form_id);
 		}
+
+		\lib\db\form\update::update(['analyze' => date("Y-m-d H:i:s")], $form_id);
 
 		\lib\db\form_view\insert::create_table($table_name, $table_columns);
 

@@ -63,15 +63,15 @@
     <thead>
       <tr>
         <?php foreach ($fields as $key => $value) {?>
-          <th class="collapsing"><?php echo $value ?></th>
+          <th class="collapsing"><?php echo \dash\get::index($value, 'title') ?></th>
         <?php } //endif ?>
       </tr>
     </thead>
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <?php foreach ($fields as $field => $field_title) {?>
-          <td class="collapsing"><?php echo \dash\get::index($value, $field) ?></td>
+          <?php foreach ($fields as $filed) {?>
+          <td class="collapsing"><?php echo \dash\get::index($value, \dash\get::index($filed, 'field')) ?></td>
         <?php } //endif ?>
         </tr>
       <?php } //endif ?>

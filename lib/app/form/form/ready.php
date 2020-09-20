@@ -85,5 +85,72 @@ class ready
 
 
 
+	public static function fields($_form_detail)
+	{
+		$field = isset($_form_detail['analyzefield']) ? $_form_detail['analyzefield'] : null;
+		if(!$field)
+		{
+			return [];
+		}
+		if(is_string($field))
+		{
+			$field = json_decode($field, true);
+		}
+
+		if(!is_array($field))
+		{
+			$field = [];
+		}
+
+		if(!$field)
+		{
+			return [];
+		}
+
+		$load_items = \lib\app\form\item\get::items($_form_detail['id']);
+		if(!is_array($load_items))
+		{
+			$load_items = [];
+		}
+
+		$load_items = array_combine(array_column($load_items, 'id'), $load_items);
+
+		$my_field = [];
+
+		foreach ($field as $one_field)
+		{
+			$key = explode('_', $one_field);
+
+			if(isset($key[1]) && is_numeric($key[1]))
+			{
+				if(isset($key[2]) && is_numeric($key[2]))
+				{
+					if(isset($load_items[$key[1]]['title']))
+					{
+						if(isset($load_items[$key[1]]['choice'][$key[2]]['title']))
+						{
+							$my_field[] = ['field' => $one_field, 'title' => $load_items[$key[1]]['title']. ' - '. $load_items[$key[1]]['choice'][$key[2]]['title']];
+						}
+					}
+				}
+				else
+				{
+					if(isset($load_items[$key[1]]['title']))
+					{
+						$my_field[] = ['field' => $one_field, 'title' => $load_items[$key[1]]['title']];
+					}
+				}
+			}
+			else
+			{
+				$my_field[] = ['field' => $one_field, 'title' => $one_field];
+			}
+
+		}
+
+		return $my_field;
+	}
+
+
 }
 ?>

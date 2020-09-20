@@ -37,7 +37,10 @@ class get
 				$all_choice = [];
 			}
 
+
 			$all_choice = array_map(['\\lib\\app\\form\\choice\\ready', 'row'], $all_choice);
+
+			$all_choice = array_combine(array_column($all_choice, 'id'), $all_choice);
 
 			foreach ($all_choice as $key => $value)
 			{
@@ -46,7 +49,7 @@ class get
 					$choice[$value['item_id']] = [];
 				}
 
-				$choice[$value['item_id']][] = $value;
+				$choice[$value['item_id']][$key] = $value;
 			}
 		}
 

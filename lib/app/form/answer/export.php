@@ -96,7 +96,33 @@ class export
 			$items = [];
 		}
 
-		$items = array_map(['\\lib\\app\\form\\item\\ready', 'row'], $items);
+		$all_choice_raw = \dash\get::index($_result, 'choice');
+		$allChoice     = [];
+
+		if(!is_array($all_choice_raw))
+		{
+			$all_choice_raw = [];
+		}
+
+		$all_choice_raw = array_map(['\\lib\\app\\form\\choice\\ready', 'row'], $all_choice_raw);
+
+		foreach ($all_choice_raw as $key => $value)
+		{
+			if(!isset($allChoice[$value['item_id']]))
+			{
+				$allChoice[$value['item_id']] = [];
+			}
+
+			$allChoice[$value['item_id']][] = $value;
+		}
+
+		$new_item = [];
+		foreach ($items as $key => $value)
+		{
+			$new_item[] = \lib\app\form\item\ready::row($value, $allChoice);
+		}
+
+		$items = $new_item;
 
 		$items = array_combine(array_column($items, 'id'), $items);
 
@@ -120,9 +146,9 @@ class export
 					$template[$item_id] = [];
 					foreach ($choice as $one_choice)
 					{
-						if(isset($one_choice['title']))
+						if(isset($one_choice['id']))
 						{
-							$template[$item_id][$one_choice['title']] = null;
+							$template[$item_id][$one_choice['id']] = null;
 						}
 					}
 
@@ -165,6 +191,7 @@ class export
 				continue;
 			}
 
+
 			$my_answer_id = $one_answer['answer_id'];
 
 			if(!isset($export[$my_answer_id]))
@@ -174,9 +201,9 @@ class export
 
 			if($this_item_detail['type'] === 'multiple_choice')
 			{
-				if(array_key_exists($one_answer['answer'] , $export[$my_answer_id][$this_item_id]))
+				if(array_key_exists($one_answer['choice_id'] , $export[$my_answer_id][$this_item_id]))
 				{
-					$export[$my_answer_id][$this_item_id][$one_answer['answer']] = $one_answer['answer'];
+					$export[$my_answer_id][$this_item_id][$one_answer['choice_id']] = $one_answer['answer'];
 				}
 				else
 				{
@@ -197,10 +224,13 @@ class export
 			}
 		}
 
+
 		$new_export = [];
 
 		foreach ($export as $answer_id => $answer_detail)
 		{
+			$new_export[$answer_id]['answer_id'] = $answer_id;
+
 			foreach ($answer_detail as $item_id => $answer)
 			{
 				if(is_array($answer))
@@ -212,12 +242,12 @@ class export
 							$choice_answer = implode(',', $choice_answer);
 						}
 
-						$new_export[$answer_id][$items[$item_id]['title']. ' - '. $choice] = $choice_answer;
+						$new_export[$answer_id][$items[$item_id]['id']. '_'. $choice] = $choice_answer;
 					}
 				}
 				else
 				{
-					$new_export[$answer_id][$items[$item_id]['title']] = $answer;
+					$new_export[$answer_id][$items[$item_id]['id']] = $answer;
 				}
 			}
 		}
@@ -244,10 +274,10 @@ class export
 			{
 				if($k)
 				{
-					$md5_key = 'i_'. md5($k);
+					$myKey = 'f_'. $k;
 
-					$new_result[$key][$md5_key] = $v;
-					self::$sql_column_list[$md5_key] = $k;
+					$new_result[$key][$myKey] = $v;
+					self::$sql_column_list[$myKey] = $k;
 				}
 			}
 		}
