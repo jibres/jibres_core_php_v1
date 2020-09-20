@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\analytics\chart;
+namespace content_a\form\analytics\chart2;
 
 
 class view
@@ -17,17 +17,17 @@ class view
 
 		$chart = [];
 		$last_count = null;
-		$chart[] = [T_("All"), floatval(40882)];
+
 		foreach ($where_list as $key => $value)
 		{
 			if(\dash\request::get('inside'))
 			{
-				$chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['inside'])];
+				// $chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['inside'])];
 			}
 			else
 			{
-				$chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['outside'])];
 			}
+				$chart[] = [$value['field_title']. ' '. $value['condition_title'], floatval($value['outside'])];
 			$last_count = $value['count_after'];
 		}
 		$chart[] = [T_("Remain"), floatval($last_count)];
