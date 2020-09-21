@@ -4,12 +4,31 @@ namespace lib\app\form\filter;
 
 class run
 {
-	public static function run($_form_id, $_filter_id)
+	public static function count_all($_form_id, $_filter_id)
 	{
 		$where_list = \lib\app\form\filter\get::where_list($_filter_id, $_form_id);
 
 		$table_name	 = \lib\app\form\view\get::is_created_table($_form_id);
 
+
+		if(!$table_name)
+		{
+			\dash\notif::error(T_("Table not created"));
+			return false;
+		}
+
+		$count_all = \lib\db\form_view\search_table::get_count_all($table_name);
+
+		return $count_all;
+
+	}
+
+
+	public static function run($_form_id, $_filter_id)
+	{
+		$table_name	 = \lib\app\form\view\get::is_created_table($_form_id);
+
+		$where_list = \lib\app\form\filter\get::where_list($_filter_id, $_form_id);
 
 		if(!$table_name)
 		{

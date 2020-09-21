@@ -17,7 +17,7 @@ class view
 
 		$chart = [];
 		$last_count = null;
-		$chart[] = [T_("All"), floatval(40882)];
+		$chart[] = [T_("All"), floatval(\lib\app\form\filter\run::count_all(\dash\request::get('id'), \dash\request::get('fid')))];
 		foreach ($where_list as $key => $value)
 		{
 			if(\dash\request::get('inside'))
