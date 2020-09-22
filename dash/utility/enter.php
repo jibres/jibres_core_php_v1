@@ -799,6 +799,16 @@ class enter
 	 */
 	public static function generate_verification_code()
 	{
+		$date_start          = date("Y-m-d", strtotime('-2 days'));
+		$date_end            = date("Y-m-d");
+		$check_count_ip_code = \dash\db\logs::count_caller_ip_date('enter_VerificationCode', $date_start, $date_end);
+
+		if($check_count_ip_code > 100)
+		{
+			\dash\log::to_supervisor('Too meany request of create verification code '. $check_count_ip_code);
+			\dash\header::status(429, T_("Too many request for generate code"));
+		}
+
 		// check last code time and if is not okay make new code
 		$last_code_ok = false;
 		// get saved session last verification code
