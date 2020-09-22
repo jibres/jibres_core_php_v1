@@ -9,7 +9,6 @@
             <div class="c"></div>
             <div class="cauto"><?php echo $myType['title']; ?></div>
           </div>
-
         <label for="condition"><?php echo T_("Operator") ?></label>
         <select class="select22 mB10" name="condition">
           <option value=""><?php echo T_("Please select on item") ?></option>
@@ -22,7 +21,8 @@
 
         </select>
 
-        <div data-response='condition' data-response-hide data-response-where='larger|less' data-response-effect='slide'>
+
+        <div class="mB10" data-response='condition' data-response-hide data-response-where='larger|less' data-response-effect='slide'>
           <label for="value"><?php echo T_("Value") ?></label>
           <div class="input">
             <input type="text" name="value" >
@@ -30,7 +30,17 @@
         </div>
 
 
-        <div data-response='condition' data-response-hide data-response-where='equal|notequal' data-response-effect='slide'>
+        <div class="mB10" data-response='condition' data-response-hide data-response-where='equal|notequal' data-response-effect='slide'>
+          <?php if($myType['key'] === 'province_city') {?>
+            <?php
+              echo "<div class='mTB10'>";
+                  \dash\utility\location::provinceSelectorHtml('IR', null, null, 'value[]', 'cityP', 'value[]', 'cityP_city');
+              echo "</div>";
+              echo "<div>";
+                  \dash\utility\location::citySelectorHtml(null, 'value[]', 'cityP_city');
+              echo "</div>";
+            ?>
+          <?php }else{ ?>
           <label for="value"><?php echo T_("Value") ?></label>
            <select name="value" id="vaue" class="select22" data-model='tag'>
             <option value=""><?php echo T_("Value"); ?></option>
@@ -40,13 +50,15 @@
               <?php } //endfor ?>
             <?php } //endif ?>
             </select>
+          <?php } //endif ?>
         </div>
 
 
       </div>
       <footer class="f">
+        <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['field' => null]) ?>"><?php echo T_("Cancel") ?></a></div>
         <div class="c"></div>
-        <div class="cauto"><button class="btn master"><?php echo T_("Next") ?></button></div>
+        <div class="cauto"><button class="btn master"><?php echo T_("Add condition") ?></button></div>
       </footer>
     </div>
   </form>

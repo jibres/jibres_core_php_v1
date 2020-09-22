@@ -27,12 +27,18 @@ class model
 			return;
 		}
 
+		$value = \dash\request::post('value');
+		if(is_array($value))
+		{
+			$value = implode('-', $value);
+		}
+
 		$post =
 		[
 			'field'     => \dash\request::post('field'),
 			'operator'  => \dash\request::post('operator'),
 			'condition' => \dash\request::post('condition'),
-			'value'     => \dash\request::post('value'),
+			'value'     => $value,
 		];
 
 		\lib\app\form\filter\add::add_where($post, \dash\request::get('id'), \dash\request::get('fid'));
