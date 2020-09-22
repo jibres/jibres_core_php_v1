@@ -239,7 +239,7 @@ class model
 				else
 				{
 					\dash\notif::ok(T_("File successfully uploaded"));
-	 				// \dash\redirect::pwd();
+	 				\dash\redirect::pwd();
 				}
 			}
 
