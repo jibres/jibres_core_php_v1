@@ -27,12 +27,15 @@ class search_table
 
 		$condition =
 		[
-			'order'      => 'order',
-			'sort'       => ['enum' => ['id']],
-			'type'       => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'table_name' => 'string_200',
-			'filter_id'  => 'id',
-			'form_id'    => 'id',
+			'order'       => 'order',
+			'sort'        => ['enum' => ['id']],
+			'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'table_name'  => 'string_200',
+			'filter_id'   => 'id',
+			'form_id'     => 'id',
+			'export'      => 'bit',
+			'start_limit' => 'int',
+			'limit'       => 'int',
 		];
 
 		$require = ['table_name'];
@@ -46,7 +49,21 @@ class search_table
 		$or          = [];
 
 		$meta['limit'] = 20;
-		// $meta['pagination'] = false;
+
+		if($data['export'])
+		{
+			$meta['pagination'] = false;
+		}
+
+		if($data['start_limit'])
+		{
+			$meta['start_limit'] = $data['start_limit'];
+		}
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
 
 		if($data['filter_id'])
 		{

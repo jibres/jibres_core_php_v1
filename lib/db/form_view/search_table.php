@@ -36,9 +36,17 @@ class search_table
 		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM `$_table` $q[join] $q[where] ";
 
 		$limit = null;
-		if($q['pagination'] !== false)
+
+		if($q['start_limit'] && $q['limit'])
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = " LIMIT $q[start_limit], $q[limit] ";
+		}
+		else
+		{
+			if($q['pagination'] !== false)
+			{
+				$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			}
 		}
 
 		$query =

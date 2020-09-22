@@ -30,10 +30,17 @@
       <div class="val"><i class="sf-chart"></i></div>
     </a>
   </div>
-    <div class="c ">
+  <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '/chart2?'. \dash\request::fix_get(); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'chart2') { echo 'active'; } ?>">
       <h3><?php echo T_("Chart");?></h3>
       <div class="val"><i class="sf-chart"></i></div>
+    </a>
+  </div>
+
+  <div class="c ">
+    <a href="<?php echo \dash\url::that(). '/export?'. \dash\request::fix_get(); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'export') { echo 'active'; } ?>">
+      <h3><?php echo T_("Export");?></h3>
+      <div class="val"><i class="sf-file"></i></div>
     </a>
   </div>
 

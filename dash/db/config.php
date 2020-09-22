@@ -46,6 +46,12 @@ class config
 			$limit = $_meta['limit'];
 		}
 
+		$start_limit = null;
+		if(array_key_exists('start_limit', $_meta))
+		{
+			$start_limit = $_meta['start_limit'];
+		}
+
 		if(isset($_meta['join']) && is_array($_meta['join']) && $_meta['join'])
 		{
 			$join = implode(' ', $_meta['join']);
@@ -57,11 +63,12 @@ class config
 
 		return
 		[
-			'where'      => $where,
-			'order'      => $order,
-			'pagination' => $pagination,
-			'limit'      => $limit,
-			'join'      => $join,
+			'where'       => $where,
+			'order'       => $order,
+			'pagination'  => $pagination,
+			'limit'       => $limit,
+			'start_limit' => $start_limit,
+			'join'        => $join,
 		];
 	}
 
