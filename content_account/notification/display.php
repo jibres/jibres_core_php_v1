@@ -24,13 +24,15 @@ if(\dash\data::dataTable())
             echo $value['caller'];
           } ?></div>
 
-        <?php if(isset($value['excerpt']) && $value['excerpt']) {?>
-        <div class="key grow excerpt" data-excerpt><?php echo $value['excerpt']; ?></div>
-        <?php } // endif ?>
+          <div class="key grow excerpt" data-excerpt>
+            <?php if(isset($value['excerpt']) && $value['excerpt']) {?>
+              <?php echo $value['excerpt']; ?>
+            <?php } // endif ?>
+            <?php if(isset($value['txt']) && $value['txt']) {?>
+            <div><?php echo $value['txt']; ?></div>
+            <?php } // endif ?>
+          </div>
 
-        <?php if(isset($value['txt']) && $value['txt']) {?>
-        <div class="key grow" data-desc><?php echo $value['txt']; ?></div>
-        <?php } // endif ?>
 
         <div class="value c-xs-0" title="<?php echo \dash\fit::date($value['datecreated']); ?>"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
 
