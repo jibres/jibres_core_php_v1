@@ -246,6 +246,29 @@ class comment
 			$args['status'] = 'awaiting';
 		}
 
+		$only_star = false;
+		if($args['content'] === null)
+		{
+			$only_star = true;
+			$args['status'] = 'approved';
+		}
+
+		if($only_star)
+		{
+			// if(isset($args['product_id']))
+			// {
+			// 	if(isset($args['user_id']) && $args['user_id'])
+			// 	{
+			// 		$check_duplicate_star = \lib\db\productcomment\get::check_duplicate_star($args['user_id'], $args['product_id']);
+			// 	}
+			// 	else
+			// 	{
+
+			// 	}
+			// }
+			// var_dump($args);exit();
+		}
+
 		// // check duplicate
 		// $check_duplicate = \lib\db\productcomment\get::check_duplicate(\dash\user::id(), $args['product_id']);
 		// if(isset($check_duplicate['id']))
@@ -573,7 +596,7 @@ class comment
 
 	public static function get_public_list($_product_id)
 	{
-		return self::list(null, ['status' => 'approved', 'product_id' => $_product_id], ['check_login' => false]);
+		return self::list(null, ['status' => 'approved', 'have_content' => true, 'product_id' => $_product_id], ['check_login' => false]);
 	}
 
 
@@ -606,7 +629,8 @@ class comment
 			'order'      => 'order',
 			'sort'       => ['enum' => ['title', 'status']],
 			'status'     => ['enum' => ['spam', 'deleted', 'unapproved', 'approved', 'awaiting']],
-			'product_id' => 'id'
+			'product_id' => 'id',
+			'have_content' => 'bit',
 		];
 
 		$require = [];
@@ -650,6 +674,11 @@ class comment
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY productcomment.id DESC";
+		}
+
+		if($data['have_content'])
+		{
+			$and[] = " productcomment.content IS NOT NULL ";
 		}
 
 		if($data['product_id'])
