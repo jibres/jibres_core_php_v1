@@ -12,7 +12,7 @@ $storeData = \dash\data::store_store_data();
           <p class="mB0-f"><?php echo T_("If you want to have the details of your website in full detail, please enter your Google Analytics code here. \nTo do this, you need to register on Google Analytics and get the code from there"); ?></p>
             <label for="igoogleanalytics"><?php echo T_("Google Analytics code"); ?> <span class="fc-red">*</span></label>
             <div class="input ltr">
-              <input type="text" name="google_analytics" id="igoogleanalytics"  value="<?php echo \dash\get::index($storeData, 'google_analytics'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
+              <input type="text" name="google_analytics" id="igoogleanalytics" placeholder="UA-123456789-0"  value="<?php echo \dash\get::index($storeData, 'google_analytics'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
             </div>
         </div>
         <footer class="txtRa">
