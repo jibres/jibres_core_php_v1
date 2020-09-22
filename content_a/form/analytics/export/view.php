@@ -24,8 +24,7 @@ class view
 			}
 
 			$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail());
-
-			\dash\data::fields($fields);
+			$fields = array_combine(array_column($fields, 'field'), $fields);
 			$args                = [];
 			$args['sort']        = 'id';
 			$args['order']       = 'desc';
@@ -38,7 +37,7 @@ class view
 
 			$result = \lib\app\form\view\search_table::list($q, $args);
 
-
+			$result = self::ready_field($result, $fields);
 			$first_record = true;
 
 			$file_name = 'Export_Form_filter_'. date("Y_m_d"). '_'. rand(11111, 99999);
@@ -55,16 +54,35 @@ class view
 				$args['start_limit'] = $args['start_limit'] + 500;
 
 				$result = \lib\app\form\view\search_table::list($q, $args);
+
+				$result = self::ready_field($result, $fields);
+
 			}
+
 			\dash\file::download($addr);
 
 		}
 
-		// $table_name = \lib\app\form\view\get::is_created_table(\dash\request::get('id'));
 
-		// $count_all = floatval(\lib\app\form\filter\run::count_all(\dash\request::get('id'), \dash\request::get('fid')));
-		// \dash\data::cuntAll($count_all);
 
+	}
+
+	private static function ready_field($_data, $_field)
+	{
+
+		$new_result = [];
+		foreach ($_data as $key => $value)
+		{
+			foreach ($value as $k => $v)
+			{
+				if(isset($_field[$k]['title']))
+				{
+					$new_result[$key][$_field[$k]['title']] = $v;
+				}
+			}
+		}
+
+		return $new_result;
 
 	}
 
