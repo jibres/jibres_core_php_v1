@@ -98,9 +98,11 @@ class add
 				$check_unique = true;
 			}
 
+			$is_required = false;
 
 			if(isset($item_detail['require']) && $item_detail['require'])
 			{
+				$is_required = true;
 				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)) || (is_array($my_answer) && empty(array_filter($my_answer))))
 				{
 					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]), 'element' => 'a_'. $item_id];
@@ -237,7 +239,15 @@ class add
 						if(isset($my_answer[1]))
 						{
 							$city                  = \dash\validate::city($my_answer[1], true, $validate_meta);
-							$array_province_city[] = $city;
+							if($is_required && !$city)
+							{
+								$requred_not_answer[] = ['message' => T_(":val is required", ['val' => T_("City")]), 'element' => 'a_'. $item_id];
+							}
+
+							if($city)
+							{
+								$array_province_city[] = $city;
+							}
 						}
 
 						$answer[$item_id] = ['answer' => implode('-', $array_province_city)];
