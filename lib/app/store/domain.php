@@ -159,9 +159,9 @@ class domain
 
 		$domain_addr = \dash\engine\store::customer_domain_addr();
 
-		if(is_file($domain_addr. $data['domain']))
+		if(is_file($domain_addr. $data['domain']. \dash\engine\store::$ext))
 		{
-			\dash\file::delete($domain_addr. $data['domain']);
+			\dash\file::delete($domain_addr. $data['domain']. \dash\engine\store::$ext);
 		}
 
 		\lib\store::clean();
