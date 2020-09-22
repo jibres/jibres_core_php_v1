@@ -101,7 +101,7 @@ class add
 
 			if(isset($item_detail['require']) && $item_detail['require'])
 			{
-				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)))
+				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)) || (is_array($my_answer) && empty(array_filter($my_answer))))
 				{
 					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]), 'element' => 'a_'. $item_id];
 					continue;
