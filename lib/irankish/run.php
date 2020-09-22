@@ -111,8 +111,9 @@ class run
                 'FileAttachment' => []
             ];
 
-            $my_result['AddAcceptorPardakhtYar'] = $client->AddAcceptorPardakhtYar(['acceptor' => $add_acceptor, 'token' => $my_token]);
-            $my_result['AddAcceptorPardakhtYar'] = $client->AddAcceptorPardakhtYar($add_acceptor);
+            // $my_result['AddAcceptorPardakhtYar'] = $client->AddAcceptorPardakhtYar(['acceptor' => $add_acceptor, 'token' => $my_token]);
+            // $my_result['AddAcceptorPardakhtYar'] = $client->AddAcceptorPardakhtYar([$add_acceptor, $my_token]);
+            // $my_result['AddAcceptorPardakhtYar'] = $client->AddAcceptorPardakhtYar($add_acceptor);
 
             // $my_result['Inquery'] = $client->Inquery(['trackid' => null, 'token' => null]);
 
