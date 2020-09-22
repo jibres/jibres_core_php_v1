@@ -31,6 +31,24 @@ class controller
 		}
 
 		\dash\data::filterDetail($load_filter);
+
+
+		$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail(), true);
+
+		\dash\data::fields($fields);
+
+		if(\dash\request::get('field'))
+		{
+			$field = \dash\request::get('field');
+
+			if(isset($fields[$field]['item_id']) && $fields[$field]['item_id'])
+			{
+				$load_item = \lib\app\form\item\get::get($fields[$field]['item_id']);
+				\dash\data::itemDetail($load_item);
+
+			}
+
+		}
 	}
 
 }

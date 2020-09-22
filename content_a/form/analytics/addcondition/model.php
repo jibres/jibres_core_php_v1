@@ -37,7 +37,7 @@ class model
 
 		\lib\app\form\filter\add::add_where($post, \dash\request::get('id'), \dash\request::get('fid'));
 
-		\dash\redirect::pwd();
+		\dash\redirect::to(\dash\url::that(). '/filter?'. \dash\request::fix_get(['filter' => null]));
 	}
 
 }

@@ -12,6 +12,11 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '?id='. \dash\request::get('id'));
 
+		\dash\face::btnInsert('formexec');
+		\dash\face::btnInsertText(T_("Execute filter"));
+
+		$count_all = floatval(\lib\app\form\filter\run::count_all(\dash\request::get('id'), \dash\request::get('fid')));
+		\dash\data::countAll($count_all);
 		// // back
 		// \dash\data::action_text(T_('Manage condition'));
 		// \dash\data::action_link(\dash\url::that(). '/addcondition?'. \dash\request::fix_get());

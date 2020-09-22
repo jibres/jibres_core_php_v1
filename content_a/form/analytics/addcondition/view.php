@@ -12,13 +12,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '/filter?'. \dash\request::fix_get());
 
-		\dash\face::btnInsert('formexec');
-		\dash\face::btnInsertText(T_("Execute filter"));
-		$where_list = \lib\app\form\filter\get::where_list(\dash\request::get('fid'), \dash\request::get('id'));
-		\dash\data::whereList($where_list);
-
-		$allChoice = \lib\app\form\choice\get::all_choice(\dash\request::get('id'));
-		\dash\data::allChoice($allChoice);
 
 		$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail());
 

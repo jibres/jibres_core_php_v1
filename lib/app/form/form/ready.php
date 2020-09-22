@@ -85,7 +85,7 @@ class ready
 
 
 
-	public static function fields($_form_detail)
+	public static function fields($_form_detail, $_by_key = false)
 	{
 		$field = isset($_form_detail['analyzefield']) ? $_form_detail['analyzefield'] : null;
 		if(!$field)
@@ -146,6 +146,11 @@ class ready
 				$my_field[] = ['field' => $one_field, 'title' => $one_field];
 			}
 
+		}
+
+		if($_by_key)
+		{
+			$my_field = array_combine(array_column($my_field, 'field'), $my_field);
 		}
 
 		return $my_field;
