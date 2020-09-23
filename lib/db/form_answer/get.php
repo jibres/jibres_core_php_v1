@@ -5,6 +5,20 @@ namespace lib\db\form_answer;
 class get
 {
 
+
+	public static function user_answer($_answer_id)
+	{
+		$result                  = [];
+		$query                   = "SELECT * FROM form_answer WHERE form_answer.id = $_answer_id LIMIT 1";
+		$result['answer']        = \dash\db::get($query, null, true);
+
+		$query                   = "SELECT * FROM form_answerdetail WHERE form_answerdetail.answer_id = $_answer_id ";
+		$result['answer_detail'] = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM form_answer WHERE form_answer.id = $_id LIMIT 1";

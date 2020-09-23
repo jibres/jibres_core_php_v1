@@ -31,6 +31,11 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
+		$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
+
+		\dash\data::formItems($load_items);
+
+
 	}
 
 }

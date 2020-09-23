@@ -170,6 +170,22 @@ class generator
 		}
 	}
 
+
+	private static function HtmlValue($value, $_raw = false)
+	{
+		if(isset($value['user_answer']) && is_string($value['user_answer']))
+		{
+			if($_raw)
+			{
+				echo $value['user_answer'];
+			}
+			else
+			{
+				echo ' value="'. $value['user_answer']. '"';
+			}
+		}
+	}
+
 	private static function HtmlMax($value)
 	{
 		if(isset($value['type']) && isset($value['setting'][$value['type']]['max']) && $value['setting'][$value['type']]['max'] && is_numeric($value['setting'][$value['type']]['max']))
@@ -272,6 +288,7 @@ class generator
 			self::HtmlMaxLen($value);
 			self::HtmlMin($value);
 			self::HtmlMax($value);
+			self::HtmlValue($value);
 			echo $_meta;
 			echo '>';
 		}
@@ -288,6 +305,8 @@ class generator
 		self::HtmlMaxLen($value);
 		self::HtmlMin($value);
 		self::HtmlMax($value);
+
+
 		echo $_meta;
 		echo '>';
 	}
@@ -338,7 +357,9 @@ class generator
 				self::isRequired($value);
 				self::HtmlPlaceholder($value);
 				self::HtmlMaxLen($value);
-				echo '></textarea>';
+				echo '>';
+				self::HtmlValue($value, true);
+				echo '</textarea>';
 				self::HtmlDesc($value);
 			}
 			self::_div();

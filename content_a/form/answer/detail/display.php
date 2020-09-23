@@ -43,16 +43,23 @@ else
 <?php } //endfunction ?>
 
 <?php function htmlTable() {?>
+  <div class="printArea" data-size='A4'>
+
   <table class="tbl1 v6">
     <tbody class="font-12">
-<?php foreach (\dash\data::dataTable() as $key => $value) {?>
+<?php $i=0; foreach (\dash\data::dataTable() as $key => $value) { $i++;  ?>
+      <?php  if($i % 2) { ?>
         <tr>
+      <?php } //endif ?>
           <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
           <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
+      <?php  if(!($i % 2)) { ?>
         </tr>
+      <?php } //endif ?>
 <?php } //endif ?>
     </tbody>
   </table>
+  </div>
   <?php \dash\utility\pagination::html(); ?>
 <?php } //endif ?>
 

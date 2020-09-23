@@ -170,5 +170,81 @@ class get
 
 		return $load;
 	}
+
+
+
+	public static function items_answer($_form_id, $_answer_id)
+	{
+		$items         = self::items($_form_id);
+
+		$load_answer   = \lib\db\form_answer\get::user_answer($_answer_id);
+
+		$answer        = \dash\get::index($load_answer, 'answer');
+		$answer_detail = \dash\get::index($load_answer, 'answer_detail');
+
+		if(!is_array($answer_detail))
+		{
+			$answer_detail = [];
+		}
+
+		if(!$answer || !$answer_detail)
+		{
+			return $items;
+		}
+
+		foreach ($answer_detail as $one_answer)
+		{
+			foreach ($items as $key => $item)
+			{
+				if($one_answer['item_id'] === $item['id'])
+				{
+					switch ($item['type'])
+					{
+						case 'short_answer':
+						case 'displayname':
+						case 'numeric':
+						case 'date':
+						case 'birthdate':
+						case 'country':
+						case 'province':
+						case 'province_city':
+						case 'gender':
+						case 'time':
+						case 'tel':
+						case 'nationalcode':
+						case 'mobile':
+						case 'email':
+						case 'website':
+						case 'password':
+						case 'yes_no':
+						case 'message':
+						case 'agree':
+						case 'hidden':
+						case 'postalcode':
+						case 'single_choice':
+						case 'dropdown':
+							$items[$key]['user_answer'] = $one_answer['answer'];
+							break;
+
+						case 'descriptive_answer':
+							$items[$key]['user_answer'] = $one_answer['textarea'];
+							break;
+
+						case 'file':
+						case 'multiple_choice':
+							if(!isset($items[$key]['user_answer']))
+							{
+								$items[$key]['user_answer'] = [];
+							}
+							$items[$key]['user_answer'][] = ['title' => $one_answer['answer'], 'choice_id' => $one_answer['choice_id']];
+							break;
+					}
+				}
+
+			}
+		}
+
+		return $items;
+	}
 }
 ?>
