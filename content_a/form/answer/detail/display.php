@@ -44,7 +44,10 @@ else
 
 <?php function htmlTable() {?>
   <div class="printArea" data-size='A4'>
-    <div class="msg info2 txtC txtB"><?php echo T_("Answer ID") ?> <code><?php echo \dash\request::get('aid'); ?></code></div>
+    <div class="msg info2 txtL ltr txtB">
+      <span><?php echo T_("Answer ID") ?></span>
+      <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+     </div>
   <table class="tbl1 v6">
     <tbody class="font-12">
 <?php $i=0; foreach (\dash\data::dataTable() as $key => $value) { $i++;  ?>
