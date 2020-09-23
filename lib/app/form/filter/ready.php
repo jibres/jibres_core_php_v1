@@ -55,6 +55,11 @@ class ready
 							$condition_title = T_("Not answer");
 							break;
 
+						case 'like':
+							$query_condition = 'LIKE';
+							$condition_title = T_("Like");
+							break;
+
 						case 'isnotnull':
 							$query_condition = 'IS NOT NULL';
 							$condition_title = T_("Answered");

@@ -49,7 +49,14 @@ class run
 				$temp = " `$table_name`.$value[field] $value[query_condition] ";
 				if(isset($value['value']) && $value['value'])
 				{
-					$temp .= " '$value[value]' ";
+					if($value['query_condition'] === 'LIKE')
+					{
+						$temp .= " '$value[value]%' ";
+					}
+					else
+					{
+						$temp .= " '$value[value]' ";
+					}
 				}
 
 				$all_where[] = $temp;

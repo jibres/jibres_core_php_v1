@@ -27,7 +27,7 @@ class check
 
 		$condition =
 		[
-			'condition' => ['enum' => ['isnull','isnotnull','larger','less','equal','notequal',]],
+			'condition' => ['enum' => ['isnull','isnotnull','larger','less','equal','notequal', 'like']],
 			'operator'  => ['enum' => ['and', 'or']],
 			'field'     => ['enum' => array_column($_fields, 'field')],
 			'value'     => 'string_100',

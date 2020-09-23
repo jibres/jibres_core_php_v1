@@ -18,29 +18,12 @@
           <option value="less"><?php echo T_("Is less than") ?></option>
           <option value="equal">=</option>
           <option value="notequal">!=</option>
+          <option value="like">Like</option>
 
         </select>
 
 
-        <div class="mB10" data-response='condition' data-response-hide data-response-where='larger|less' data-response-effect='slide'>
-          <label for="value"><?php echo T_("Value") ?></label>
-          <div class="input">
-            <input type="text" name="value" >
-          </div>
-        </div>
-
-
-        <div class="mB10" data-response='condition' data-response-hide data-response-where='equal|notequal' data-response-effect='slide'>
-          <?php if($myType['key'] === 'province_city') {?>
-            <?php
-              echo "<div class='mTB10'>";
-                  \dash\utility\location::provinceSelectorHtml('IR', null, null, 'value[]', 'cityP', 'value[]', 'cityP_city');
-              echo "</div>";
-              echo "<div>";
-                  \dash\utility\location::citySelectorHtml(null, 'value[]', 'cityP_city');
-              echo "</div>";
-            ?>
-          <?php }else{ ?>
+        <div class="mB10" data-response='condition' data-response-hide data-response-where='equal|notequal|larger|less|like' data-response-effect='slide'>
           <label for="value"><?php echo T_("Value") ?></label>
            <select name="value" id="vaue" class="select22" data-model='tag'>
             <option value=""><?php echo T_("Value"); ?></option>
@@ -50,7 +33,6 @@
               <?php } //endfor ?>
             <?php } //endif ?>
             </select>
-          <?php } //endif ?>
         </div>
 
 
