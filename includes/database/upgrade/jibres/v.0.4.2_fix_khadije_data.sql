@@ -1165,3 +1165,36 @@ UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26'
 UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1494587 LIMIT 1;
 UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1496800 LIMIT 1;
 UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1506009 LIMIT 1;
+
+
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-25' WHERE form_answerdetail.id = 110530 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-14' WHERE form_answerdetail.id = 370630 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-14' WHERE form_answerdetail.id = 543748 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-23' WHERE form_answerdetail.id = 554244 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-04' WHERE form_answerdetail.id = 632491 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-15' WHERE form_answerdetail.id = 689233 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-17' WHERE form_answerdetail.id = 689233 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-10' WHERE form_answerdetail.id = 724727 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-04' WHERE form_answerdetail.id = 767399 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 815718 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-07' WHERE form_answerdetail.id = 1136671 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1213850 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-04' WHERE form_answerdetail.id = 1213850 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-32' WHERE form_answerdetail.id = 1239796 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1421848 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-15' WHERE form_answerdetail.id = 1471113 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-12' WHERE form_answerdetail.id = 1485105 LIMIT 1;
+
+
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-10' WHERE form_answerdetail.id = 215722 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-30' WHERE form_answerdetail.id = 273063 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-14' WHERE form_answerdetail.id = 819698 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-07' WHERE form_answerdetail.id = 922718 LIMIT 1;
+
+
+
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 433689 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 706707 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1068518 LIMIT 1;
+UPDATE business_1000089.form_answerdetail SET form_answerdetail.answer = 'IR-26' WHERE form_answerdetail.id = 1486103 LIMIT 1;
+
