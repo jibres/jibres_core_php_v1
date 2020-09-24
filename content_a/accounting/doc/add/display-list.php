@@ -8,7 +8,7 @@
   <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
     <div class="pad2">
-       <table class="tbl1 v6 minimal mB0">
+       <table class="tbl1 v6 repeatHead minimal mB0">
          <thead>
            <tr class="font-12">
 
@@ -62,13 +62,9 @@
             </tr>
            <?php } //endfor ?>
          </tbody>
-         <tfoot class="">
-
+         <tfoot class="dontRepeatFoot">
            <tr>
-
                 <td class="collapsing"></td>
-
-
              <?php if(!\dash\data::descEmpty()) {?>
               <td></td>
             <?php } //endif ?>
