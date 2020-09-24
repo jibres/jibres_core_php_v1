@@ -25,7 +25,7 @@ if(\dash\data::dataTableAll())
 			\dash\data::myTitle(\dash\data::myTitle(). ' | '. T_("Closing Document"));
 		}
 
-		echo "<div class='printArea' data-size='A4'>";
+		echo "<div class='printArea pageBreak' data-size='A4'>";
 			echo "<h1>". \dash\data::myTitle(). '</h1>';
 			echo '<div class="box ">';
 				echo '<div class="pad">';
