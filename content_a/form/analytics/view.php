@@ -12,6 +12,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
+		\dash\face::btnSetting(\dash\url::that(). '/remove?id='. \dash\request::get('id'));
 
 		$allFilter = \lib\app\form\filter\get::all_form_filter(\dash\request::get('id'));
 

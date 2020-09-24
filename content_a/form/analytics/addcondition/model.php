@@ -14,12 +14,7 @@ class model
 			return;
 		}
 
-		if(\dash\request::post('removefilter') === 'removefilter')
-		{
-			\lib\app\form\filter\remove::remove(\dash\request::get('fid'));
-			\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
-			return;
-		}
+
 		if(\dash\request::post('remove') === 'remove')
 		{
 			\lib\app\form\filter\remove::remove_where(\dash\request::post('id'));

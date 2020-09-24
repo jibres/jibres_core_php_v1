@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\analytics\addfilter;
+namespace content_a\form\analytics\remove;
 
 
 class controller
@@ -8,7 +8,6 @@ class controller
 	{
 
 		\content_a\form\analytics\controller::form_id();
-
 	}
 
 }

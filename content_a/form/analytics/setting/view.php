@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\analytics\export;
+namespace content_a\form\analytics\setting;
 
 
 class view
