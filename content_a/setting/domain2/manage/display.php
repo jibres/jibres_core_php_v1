@@ -1,12 +1,21 @@
 
-<div class="avand-lg">
 
+
+<div class="avand-lg">
 
   <form method="post" autocomplete="off">
     <input type="hidden" name="adddns" value="adddns">
+
     <div class="box">
+
       <header><h2><?php echo T_("Add DNS record") ?></h2></header>
+
       <div class="body">
+
+        <div class="msg txtL txtB ltr">
+          <?php echo \dash\data::domainDetail_domain() ?>
+        </div>
+
         <div class="row">
           <div class="c-xs-12 c-sm-2">
             <div>
@@ -41,10 +50,8 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
+
       <footer class="f">
         <div class="c"></div>
         <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>

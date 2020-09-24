@@ -27,7 +27,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that());
+			\dash\redirect::pwd();
 		}
 	}
 

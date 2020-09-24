@@ -4,6 +4,30 @@ namespace lib\app\business_domain;
 
 class get
 {
+	public static function my_store_domain($_domain)
+	{
+		$store_id = \lib\store::id();
+
+		if(!$store_id)
+		{
+			return false;
+		}
+
+		$domain = \dash\validate::domain($_domain);
+
+		$load = \lib\db\business_domain\get::by_store_id_domain($store_id, $domain);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load = \lib\app\business_domain\ready::row($load);
+
+		return $load;
+	}
+
+
 	public static function get($_id)
 	{
 
