@@ -49,7 +49,7 @@ class search
 		$meta['limit'] = 50;
 		if($data['export'])
 		{
-			$meta['pagination'] = false;
+			$meta['limit'] = 500;
 		}
 
 		$order_sort  = null;

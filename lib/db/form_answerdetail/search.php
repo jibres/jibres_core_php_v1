@@ -84,6 +84,7 @@ class search
 		"
 			SELECT
 				form_item.title AS `item_title`,
+				form_item.type AS `item_type`,
 				form_answerdetail.*
 			FROM form_answerdetail
 			LEFT JOIN form_item ON form_item.id = form_answerdetail.item_id

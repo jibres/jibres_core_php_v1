@@ -10,7 +10,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::that() . '?id='. \dash\request::get('id'));
+		\dash\data::back_link(\dash\url::that() . '/table?'. \dash\request::fix_get(['aid' => null]));
 
 
 		$table_name = \lib\app\form\view\get::is_created_table(\dash\request::get('id'));
@@ -40,7 +40,7 @@ class view
 
 		$args['answer_id'] = \dash\request::get('aid');
 		$args['form_id']   = \dash\request::get('id');
-		$args['export'] = true;
+		$args['export'] = true; // set 100 limit
 
 		$q = \dash\request::get('q');
 
@@ -50,15 +50,28 @@ class view
 		$isFiltered    = \lib\app\form\answerdetail\search::is_filtered();
 
 
+		$new_result = [];
+		foreach ($dataTable as $key => $value)
+		{
+			if(!isset($new_result[$value['answer_id']]))
+			{
+				$new_result[$value['answer_id']]  = [];
+			}
+
+			$new_result[$value['answer_id']][] = $value;
+		}
+
+		\dash\data::resultAnswer($new_result);
+
 		\dash\data::filterBox($filterBox);
 		\dash\data::isFiltered($isFiltered);
 
 
 		\dash\data::dataTable($dataTable);
 
-		$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
+		// $load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
 
-		\dash\data::formItems($load_items);
+		// \dash\data::formItems($load_items);
 
 
 	}
