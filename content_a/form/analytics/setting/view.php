@@ -16,6 +16,8 @@ class view
 
 		\dash\data::fields($fields);
 
+		\dash\face::btnSave('form1');
+
 		if(\dash\request::get('export') === 'export')
 		{
 
@@ -36,7 +38,7 @@ class view
 			$args['form_id']     = \dash\request::get('id');
 			$q                   = \dash\request::get('q');
 			$args['start_limit'] = 10;
-			$args['limit']       = 500;
+			$args['limit']       = 50;
 
 			$result = \lib\app\form\view\search_table::list($q, $args);
 
@@ -54,7 +56,7 @@ class view
 
 				$first_record = false;
 
-				$args['start_limit'] = $args['start_limit'] + 500;
+				$args['start_limit'] = $args['start_limit'] + 50;
 
 				$result = \lib\app\form\view\search_table::list($q, $args);
 
@@ -72,15 +74,17 @@ class view
 
 	private static function ready_field($_data, $_field)
 	{
-
 		$new_result = [];
 		foreach ($_data as $key => $value)
 		{
 			foreach ($value as $k => $v)
 			{
-				if(isset($_field[$k]['title']))
+				if((isset($_field[$k]['visible']) && $_field[$k]['visible']) || $k === 'f_answer_id')
 				{
-					$new_result[$key][$_field[$k]['title']] = $v;
+					if(isset($_field[$k]['title']))
+					{
+						$new_result[$key][$_field[$k]['title']] = $v;
+					}
 				}
 			}
 		}

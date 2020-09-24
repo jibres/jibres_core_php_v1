@@ -1,6 +1,6 @@
 <?php require_once(root. 'content_a/form/analytics/pageStep.php'); ?>
 <div class="avand-md">
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" id="form1">
   <div class="box">
     <div class="body">
     	<div class="msg f">
