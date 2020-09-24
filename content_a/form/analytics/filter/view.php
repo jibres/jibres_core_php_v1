@@ -34,6 +34,15 @@ class view
 
 		\dash\data::fields($fields);
 
+		if(\dash\request::get('x'))
+		{
+			$result = [];
+			$result['form'] = \dash\data::formDetail();
+			$result['fields'] = $fields;
+			\dash\code::jsonBoom($result);
+
+		}
+
 	}
 
 }
