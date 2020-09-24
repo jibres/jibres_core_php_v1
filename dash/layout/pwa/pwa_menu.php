@@ -19,6 +19,8 @@ class pwa_menu
 					break;
 
 				case 'my':
+				case 'account':
+				case 'support':
 					return self::primary();
 					break;
 
