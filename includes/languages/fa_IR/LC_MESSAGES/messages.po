@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-24 14:58+0330\n"
-"PO-Revision-Date: 2020-09-24 14:58+0330\n"
+"POT-Creation-Date: 2020-09-24 15:11+0330\n"
+"PO-Revision-Date: 2020-09-24 15:11+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7135,11 +7135,15 @@ msgstr "تحلیل‌گر آمار"
 msgid "Table not created"
 msgstr "جدول ساخته نشده"
 
-#: content_a/form/analytics/answer/display.php:6
+#: content_a/form/analytics/answer/display.php:7
 msgid "Form ID"
 msgstr "شناسه فرم"
 
-#: content_a/form/analytics/answer/display.php:8
+#: content_a/form/analytics/answer/display.php:11
+msgid "Filter ID"
+msgstr "شناسه فیلتر"
+
+#: content_a/form/analytics/answer/display.php:13
 #: content_a/form/answer/detail/display.php:48
 msgid "Answer ID"
 msgstr "شناسه پاسخ"

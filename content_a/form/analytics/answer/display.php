@@ -3,8 +3,13 @@
     <table class="tbl1 v6 repeatHead">
       <thead>
         <tr>
+          <td colspan="2"><?php echo \dash\data::formDetail_title() ?></td>
           <td><?php echo T_("Form ID") ?></td>
           <td><code class="compact txtB"><?php echo \dash\request::get('id'); ?></code></td>
+        </tr>
+        <tr>
+          <td><?php echo T_("Filter ID") ?></td>
+          <td><code class="compact txtB"><?php echo \dash\request::get('fid'); ?></code></td>
           <td><?php echo T_("Answer ID") ?></td>
           <td><code class="compact txtB"><?php echo $key; ?></code></td>
 
