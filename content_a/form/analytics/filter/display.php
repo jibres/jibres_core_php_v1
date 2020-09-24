@@ -23,13 +23,11 @@
             <?php $i = 0; $first = true; $last = null; foreach (\dash\data::whereList() as $key => $value) { $i++; $last = \dash\get::index($value, 'count_after'); ?>
               <?php if($first) { $first = false;?>
                 <tr class="positive">
-
-                <td class="collapsing font-12"><span class=""><?php echo T_("All") ?></span></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-                <td colspan="3" class="collapsing txtL ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(\dash\data::countAll()) ?></td>
+                  <td class="collapsing font-12"><span class=""><?php echo T_("All") ?></span></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3" class="collapsing txtL ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(\dash\data::countAll()) ?></td>
                 </tr>
               <?php } // endif ?>
               <tr>
@@ -50,12 +48,10 @@
           </tbody>
           <tfoot>
             <tr>
-
                 <td class="collapsing font-12"><span class=""><?php echo T_("Remain") ?></span></td>
                 <td></td>
                 <td></td>
                 <td></td>
-
                 <td colspan="3" class="collapsing txtL ltr txtB"><?php echo \dash\fit::price($last) ?></td>
             </tr>
           </tfoot>
