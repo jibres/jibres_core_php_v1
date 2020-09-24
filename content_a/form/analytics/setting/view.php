@@ -12,6 +12,9 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '?id='. \dash\request::get('id'));
 
+		$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail());
+
+		\dash\data::fields($fields);
 
 		if(\dash\request::get('export') === 'export')
 		{
