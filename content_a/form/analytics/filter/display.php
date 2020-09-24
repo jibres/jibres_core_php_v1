@@ -34,7 +34,12 @@
               <?php } // endif ?>
               <tr>
                 <td class="collapsing font-12"><div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
-                <td class="collapsing font-12"><span class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'item_id')) ?>.</span> <?php echo \dash\get::index($value, 'field_title') ?></td>
+                <td class="collapsing font-12">
+                  <a href="<?php echo \dash\url::this().'/report/answer?'. \dash\request::fix_get(['iid' => \dash\get::index($value, 'item_id')]) ?>">
+                    <span class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'item_id')) ?>.</span> <?php echo \dash\get::index($value, 'field_title') ?>
+                  </a>
+
+                </td>
                 <td class="collapsing"><?php echo \dash\get::index($value, 'condition_title') ?></td>
                 <td class="collapsing"><?php echo \dash\get::index($value, 'value') ?></td>
                 <td class="collapsing txtL ltr"><?php echo \dash\fit::price(\dash\get::index($value, 'inside')) ?></td>
