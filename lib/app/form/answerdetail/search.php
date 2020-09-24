@@ -27,13 +27,15 @@ class search
 
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => ['enum' => ['title', 'id']],
-			'type'      => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'answer_id' => 'id',
-			'form_id'   => 'id',
-			'item_id'   => 'id',
-			'export'    => 'bit',
+			'order'      => 'order',
+			'sort'       => ['enum' => ['title', 'id']],
+			'type'       => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'answer_id'  => 'id',
+			'form_id'    => 'id',
+			'item_id'    => 'id',
+			'export'     => 'bit',
+			'filter_id'  => 'id',
+			'table_name' => 'string_100',
 		];
 
 		$require = [];
@@ -49,10 +51,48 @@ class search
 		$meta['limit'] = 50;
 		if($data['export'])
 		{
-			$meta['limit'] = 500;
+			$meta['pagination'] = false;
 		}
 
 		$order_sort  = null;
+
+
+		if($data['filter_id'] && $data['table_name'])
+		{
+			$where_list = \lib\app\form\filter\get::where_list($data['filter_id'], $data['form_id']);
+
+
+			if($where_list && is_array($where_list))
+			{
+				$answer_id_in = [];
+				foreach ($where_list as $key => $value)
+				{
+					if(isset($value['query_condition']))
+					{
+						$temp = " `$data[table_name]`.$value[field] $value[query_condition] ";
+						if(isset($value['value']) && $value['value'])
+						{
+							if($value['query_condition'] === 'LIKE')
+							{
+								$temp .= " '$value[value]%' ";
+							}
+							else
+							{
+								$temp .= " '$value[value]' ";
+							}
+						}
+
+						$answer_id_in[] = $temp;
+
+					}
+
+				}
+				$answer_id_in = " form_answerdetail.answer_id IN ( SELECT $data[table_name].f_answer_id FROM $data[table_name] WHERE ". implode(' AND ', $answer_id_in). ')';
+
+				$and[] = $answer_id_in;
+			}
+		}
+
 
 		if($data['answer_id'])
 		{

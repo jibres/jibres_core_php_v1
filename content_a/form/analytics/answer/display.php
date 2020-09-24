@@ -1,10 +1,15 @@
 <?php foreach (\dash\data::resultAnswer() as $key => $value) {?>
-  <div class="printArea" data-size='A4'>
-    <div class="msg info2 txtL ltr txtB">
-      <span><?php echo T_("Answer ID") ?></span>
-      <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'. $key; ?></code></span>
-    </div>
-    <table class="tbl1 v6">
+  <div class='printArea pageBreak' data-size='A4' data-height='auto'>
+    <table class="tbl1 v6 repeatHead">
+      <thead>
+        <tr>
+          <td><?php echo T_("Form ID") ?></td>
+          <td><code class="compact txtB"><?php echo \dash\request::get('id'); ?></code></td>
+          <td><?php echo T_("Answer ID") ?></td>
+          <td><code class="compact txtB"><?php echo $key; ?></code></td>
+
+        </tr>
+      </thead>
       <tbody class="font-12">
         <?php $items = \dash\data::fields(); ?>
         <?php $i=0; foreach ($value as $k => $v) { $extra = in_array($v['item_type'], ['descriptive_answer']); if(isset($items[$v['item_id']]['visible']) && $items[$v['item_id']]['visible']) {}else{continue;} $i++;  ?>
@@ -17,5 +22,7 @@
     </tbody>
   </table>
 </div>
-<div class="pageBreak"></div>
+<div class=""></div>
 <?php } //endif ?>
+
+<?php \dash\utility\pagination::html() ?>

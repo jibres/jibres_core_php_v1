@@ -39,6 +39,8 @@ class view
 		$args              = [];
 
 		$args['answer_id'] = \dash\request::get('aid');
+		$args['filter_id'] = \dash\request::get('fid');
+		$args['table_name'] = $table_name;
 		$args['form_id']   = \dash\request::get('id');
 		$args['export'] = true; // set 100 limit
 
