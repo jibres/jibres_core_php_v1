@@ -85,8 +85,8 @@ if(\dash\data::dataTableAll())
 
 		require($add_addr. 'display-list.php');
 		echo "</div>";
-
 	}
+		\dash\utility\pagination::html();
 
 
  }

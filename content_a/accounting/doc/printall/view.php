@@ -61,6 +61,8 @@ class view
 			$args['export'] = true;
 		}
 
+		$args['limit'] = 200;
+
 		$dataTable = \lib\app\tax\doc\search::list(\dash\request::get('q'), $args);
 
 

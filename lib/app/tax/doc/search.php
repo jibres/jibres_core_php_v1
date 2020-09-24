@@ -35,7 +35,8 @@ class search
 			'enddate'   => 'date',
 			'month'     => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
 			'export'    => 'bit',
-			'status' => ['enum' => ['temp', 'draft', 'lock']],
+			'limit'     => 'int',
+			'status'    => ['enum' => ['temp', 'draft', 'lock']],
 		];
 
 		$require = [];
@@ -50,6 +51,12 @@ class search
 		$meta['join'] = [];
 
 		$meta['limit'] = 20;
+
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
 
 		if($data['export'])
 		{
