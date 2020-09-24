@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-24 13:10+0330\n"
-"PO-Revision-Date: 2020-09-24 13:16+0330\n"
+"POT-Creation-Date: 2020-09-24 14:58+0330\n"
+"PO-Revision-Date: 2020-09-24 14:58+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4004,7 +4004,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/coding/add/display-add.php:60
 #: content_a/accounting/doc/add/display-docdetail.php:85
 #: content_a/accounting/doc/add/display-list.php:21
-#: content_a/accounting/doc/add/display-list.php:93
+#: content_a/accounting/doc/add/display-list.php:89
 #: content_a/accounting/turnover/display.php:162
 msgid "Debtor"
 msgstr "بدهکار"
@@ -4012,7 +4012,7 @@ msgstr "بدهکار"
 #: content_a/accounting/coding/add/display-add.php:67
 #: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/doc/add/display-list.php:22
-#: content_a/accounting/doc/add/display-list.php:95
+#: content_a/accounting/doc/add/display-list.php:91
 #: content_a/accounting/turnover/display.php:163
 msgid "Creditor"
 msgstr "بستانکار"
@@ -4083,8 +4083,8 @@ msgstr "غیرفعال"
 
 #: content_a/accounting/coding/add/display-add.php:154
 #: content_a/accounting/coding/display.php:38
-#: content_a/accounting/doc/add/display-list.php:103
-#: content_a/accounting/doc/add/display-list.php:105
+#: content_a/accounting/doc/add/display-list.php:99
+#: content_a/accounting/doc/add/display-list.php:101
 #: content_a/accounting/doc/display.php:13 content_a/accounting/turnover/display.php:158
 #: content_a/accounting/year/display.php:8 content_a/android/apk/display.php:32
 #: content_a/form/answer/export/display.php:41 content_a/form/itemLink.php:14
@@ -4587,9 +4587,9 @@ msgstr "شرح"
 msgid "Editing"
 msgstr "در حال ویرایش"
 
-#: content_a/accounting/doc/add/display-list.php:76
-#: content_a/accounting/doc/add/display-list.php:93
-#: content_a/accounting/doc/add/display-list.php:95
+#: content_a/accounting/doc/add/display-list.php:72
+#: content_a/accounting/doc/add/display-list.php:89
+#: content_a/accounting/doc/add/display-list.php:91
 #: content_a/accounting/irvat/add/display.php:88
 #: content_a/accounting/report/assistant/display-old.php:68
 #: content_a/accounting/report/assistant/display.php:62
@@ -4612,23 +4612,23 @@ msgstr "در حال ویرایش"
 msgid "Total"
 msgstr "مجموع"
 
-#: content_a/accounting/doc/add/display-list.php:82
+#: content_a/accounting/doc/add/display-list.php:78
 msgid "Diff"
 msgstr "تفاوت"
 
-#: content_a/accounting/doc/add/display-list.php:103
+#: content_a/accounting/doc/add/display-list.php:99
 msgid "Document balance"
 msgstr "سند در تعادل است"
 
-#: content_a/accounting/doc/add/display-list.php:105
+#: content_a/accounting/doc/add/display-list.php:101
 msgid "Accounting document is not balance!"
 msgstr "سند در تعادل نیست!"
 
-#: content_a/accounting/doc/add/display-list.php:118
+#: content_a/accounting/doc/add/display-list.php:114
 msgid "Document gallery is full!"
 msgstr "ظرفیت گالری تکمیل است!"
 
-#: content_a/accounting/doc/add/display-list.php:122
+#: content_a/accounting/doc/add/display-list.php:118
 #: content_a/accounting/irvat/add/display.php:428
 #: content_a/android/intro/display-test-multi-upload.php:30
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:67
@@ -4638,7 +4638,7 @@ msgstr "ظرفیت گالری تکمیل است!"
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل خود را بکشید و اینجا رها کنید یا انتخاب کنید"
 
-#: content_a/accounting/doc/add/display-list.php:122
+#: content_a/accounting/doc/add/display-list.php:118
 #: content_a/accounting/irvat/add/display.php:422
 #: content_a/products/edit/block/gallery.php:9
 #: content_a/website/header/box/header_logo.php:17
@@ -5578,7 +5578,7 @@ msgid "Myket"
 msgstr "مایکت"
 
 #: content_a/android/download/display.php:42 content_a/android/load.php:30
-#: content_a/form/analytics/setting/display.php:31 content_a/order/edit/display.php:11
+#: content_a/form/analytics/setting/display.php:37 content_a/order/edit/display.php:11
 #: content_a/products/desc/display.php:22 content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:4
 #: content_a/products/property/display.php:159 content_a/products/sharetext/display.php:22
@@ -7135,7 +7135,11 @@ msgstr "تحلیل‌گر آمار"
 msgid "Table not created"
 msgstr "جدول ساخته نشده"
 
-#: content_a/form/analytics/answer/display.php:4
+#: content_a/form/analytics/answer/display.php:6
+msgid "Form ID"
+msgstr "شناسه فرم"
+
+#: content_a/form/analytics/answer/display.php:8
 #: content_a/form/answer/detail/display.php:48
 msgid "Answer ID"
 msgstr "شناسه پاسخ"
@@ -7264,15 +7268,23 @@ msgstr "خروجی از داده فیلتر شده"
 msgid "Export now"
 msgstr "همین الان خروجی بگیر"
 
-#: content_a/form/analytics/setting/display.php:17
+#: content_a/form/analytics/setting/display.php:13
+msgid "Print all data"
+msgstr "چاپ همه اطلاعات"
+
+#: content_a/form/analytics/setting/display.php:15
+msgid "Print"
+msgstr "چاپ"
+
+#: content_a/form/analytics/setting/display.php:23
 msgid "You can customize visible field"
 msgstr "شما می‌توانید ستون‌ها را جهت نمایش سفارشی کنید"
 
-#: content_a/form/analytics/setting/display.php:39
+#: content_a/form/analytics/setting/display.php:45
 msgid "Remove this filter. All condition of this filter will be removed"
 msgstr "حذف این فیلتر. تمامی شروط تعریف شده در این فیلتر به همراه خود فیلتر حذف خواهند شد"
 
-#: content_a/form/analytics/setting/display.php:42
+#: content_a/form/analytics/setting/display.php:48
 msgid "Remove filter"
 msgstr "حذف فیلتر"
 
@@ -9476,7 +9488,7 @@ msgstr "نتیجه‌ای یافت نشد"
 
 #: content_a/setting/domain2/existdomain/display.php:9
 msgid "You can connect one or more domains to your business. After connecting the domains"
-msgstr "شما می‌توانید یک یا چند دامنه اختصاصی به بیزینس خود متصل کنید."
+msgstr "شما می‌توانید یک یا چند دامنه اختصاصی به بیزینس خود متصل کنید"
 
 #: content_a/setting/domain2/manage/display.php:8
 #: content_love/business/domain/dns/display.php:8
@@ -20664,14 +20676,14 @@ msgstr "برنامه"
 #: lib/app/application/queue_search.php:74 lib/app/business_domain/action.php:102
 #: lib/app/business_domain/search.php:70 lib/app/cart/search.php:58
 #: lib/app/domains/search.php:95 lib/app/form/answer/search.php:54
-#: lib/app/form/answerdetail/search.php:74 lib/app/form/form/search.php:53
+#: lib/app/form/answerdetail/search.php:114 lib/app/form/form/search.php:53
 #: lib/app/form/view/search.php:54 lib/app/form/view/search_table.php:112
 #: lib/app/gift/search.php:75 lib/app/giftusage/search.php:75 lib/app/irvat/search.php:86
 #: lib/app/nic_domain/search.php:95 lib/app/nic_domainbilling/search.php:113
 #: lib/app/nic_domainbilling/search.php:262 lib/app/nic_log/search.php:103
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:51
 #: lib/app/store/search.php:176 lib/app/store/search.php:296
-#: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:64
+#: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:71
 #: lib/app/tax/docdetail/search.php:96 lib/app/tax/year/search.php:52
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
