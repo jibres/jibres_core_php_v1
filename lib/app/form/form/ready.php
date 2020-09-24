@@ -113,13 +113,14 @@ class ready
 			$load_items = [];
 		}
 
+
 		$load_items = array_combine(array_column($load_items, 'id'), $load_items);
 
 		$my_field = [];
 
-		foreach ($field as $one_field)
+		foreach ($field as $field_key => $one_field)
 		{
-			$key = explode('_', $one_field);
+			$key = explode('_', $field_key);
 
 			if(isset($key[1]) && is_numeric($key[1]))
 			{
@@ -129,7 +130,7 @@ class ready
 					{
 						if(isset($load_items[$key[1]]['choice'][$key[2]]['title']))
 						{
-							$my_field[] = ['item_id' => $key[1], 'field' => $one_field, 'title' => $load_items[$key[1]]['title']. ' - '. $load_items[$key[1]]['choice'][$key[2]]['title']];
+							$my_field[] = ['item_id' => $key[1], 'field' => $field_key, 'visible' => $one_field['visible'], 'title' => $load_items[$key[1]]['title']. ' - '. $load_items[$key[1]]['choice'][$key[2]]['title']];
 						}
 					}
 				}
@@ -137,13 +138,13 @@ class ready
 				{
 					if(isset($load_items[$key[1]]['title']))
 					{
-						$my_field[] = ['item_id' => $key[1], 'field' => $one_field, 'title' => $load_items[$key[1]]['title']];
+						$my_field[] = ['item_id' => $key[1], 'field' => $field_key, 'visible' => $one_field['visible'], 'title' => $load_items[$key[1]]['title']];
 					}
 				}
 			}
 			else
 			{
-				$my_field[] = ['field' => $one_field, 'title' => $one_field];
+				$my_field[] = ['field' => $field_key, 'visible' => $one_field['visible'], 'title' => $field_key];
 			}
 
 		}

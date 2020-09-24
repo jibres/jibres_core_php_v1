@@ -84,7 +84,7 @@ class create
 		$insert_form_fields = [];
 		foreach ($table_columns as $key => $value)
 		{
-			$insert_form_fields[] = $key;
+			$insert_form_fields[$key] = ['field' => $key, 'visible' => true, 'type' => null];
 		}
 
 
