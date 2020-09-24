@@ -33,6 +33,7 @@ class search_table
 			'table_name'  => 'string_200',
 			'filter_id'   => 'id',
 			'form_id'     => 'id',
+			'f_answer_id'     => 'id',
 			'export'      => 'bit',
 			'start_limit' => 'int',
 			'limit'       => 'int',
@@ -63,6 +64,13 @@ class search_table
 		if($data['limit'])
 		{
 			$meta['limit'] = $data['limit'];
+		}
+
+
+		if($data['f_answer_id'])
+		{
+			$and[] = " `$data[table_name]`.f_answer_id = $data[f_answer_id] ";
+			$meta['pagination'] = false;
 		}
 
 		if($data['filter_id'])

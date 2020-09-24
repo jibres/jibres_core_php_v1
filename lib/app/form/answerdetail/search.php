@@ -33,6 +33,7 @@ class search
 			'answer_id' => 'id',
 			'form_id'   => 'id',
 			'item_id'   => 'id',
+			'export'    => 'bit',
 		];
 
 		$require = [];
@@ -46,7 +47,10 @@ class search
 		$or          = [];
 
 		$meta['limit'] = 50;
-		// $meta['pagination'] = false;
+		if($data['export'])
+		{
+			$meta['pagination'] = false;
+		}
 
 		$order_sort  = null;
 
