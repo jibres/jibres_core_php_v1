@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\domain2\manage;
+namespace content_a\setting\domain\manage;
 
 
 class model
@@ -35,6 +35,17 @@ class model
 		if(\dash\request::post('dnsfetch') === 'dnsfetch')
 		{
 			$result = \lib\app\business_domain\dns::fetch(\dash\data::domainID());
+		}
+
+
+
+		if(\dash\request::post('removedomain') === 'removedomain')
+		{
+			$result = \lib\app\business_domain\remove::remove(\dash\data::domainID());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
 		}
 
 		if(\dash\engine\process::status())

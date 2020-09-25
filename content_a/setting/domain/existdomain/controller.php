@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\domain2\existdomain;
+namespace content_a\setting\domain\existdomain;
 
 class controller
 {
