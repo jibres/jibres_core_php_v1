@@ -19,7 +19,7 @@ class enterprise_check
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 		curl_setopt($ch, CURLOPT_HEADER, 1);
-		curl_setopt($ch, CURLOPT_NOBODY, 1)
+		curl_setopt($ch, CURLOPT_NOBODY, 1);
 
 		$response  = curl_exec($ch);
 		$CurlError = curl_error($ch);
