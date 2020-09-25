@@ -4,6 +4,14 @@ namespace lib\db\business_domain;
 
 class get
 {
+	// check domain in list in route customer domain
+	public static function check_is_customer_domain($_domain)
+	{
+		$query  = " SELECT * FROM business_domain WHERE business_domain.domain = '$_domain' LIMIT 1 ";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
 
 	public static function by_store_id_domain($_store_id, $_domain)
 	{

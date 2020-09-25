@@ -4,6 +4,21 @@ namespace lib\app\business_domain;
 
 class get
 {
+	public static function is_customer_domain($_domain)
+	{
+		$_domain = \dash\validate::string_200($_domain);
+		$get     = \lib\db\business_domain\get::check_is_customer_domain($_domain);
+
+		if(!isset($get['id']))
+		{
+			return false;
+		}
+
+		return $get;
+
+	}
+
+
 	public static function my_store_domain($_domain)
 	{
 		$store_id = \lib\store::id();
