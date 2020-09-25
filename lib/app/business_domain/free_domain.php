@@ -15,7 +15,7 @@ class free_domain
 
 		$result = \lib\app\business_domain\enterprise_check::is_connected_to_jibres($load['domain']);
 
-		if(strpos($result, 'x-powered-by: Jibres') !== false)
+		if(strpos($result, 'x-powered-by: jibres') !== false)
 		{
 			$is_connected_to_jibres = true;
 		}
