@@ -178,12 +178,21 @@ class action
 			{
 				case 'meta':
 
+
 					if($value)
 					{
-						$value = json_decode($value, true);
+						$temp = json_decode($value, true);
+						if(!is_array($temp))
+						{
+							$temp = $value;
+						}
+						$result[$key] = $temp;
+					}
+					else
+					{
+						$result[$key] = $value;
 					}
 
-					$result[$key] = $value;
 					break;
 				default:
 					$result[$key] = $value;
