@@ -109,7 +109,7 @@ class api
 		if(!is_array($result))
 		{
 			\dash\notif::error('Jibres: Can not parse JSON!');
-			return $response;
+			return addslashes($response);
 		}
 
 		return $result;
