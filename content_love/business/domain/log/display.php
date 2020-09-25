@@ -31,7 +31,7 @@
             </tr>
             <?php if(\dash\get::index($value, 'meta')) {?>
             <tr class="fs08 showDetail<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
-              <td colspan="4" class="txtL"><pre><?php if(is_array($value['meta'])){ echo json_encode($value['meta'], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); }else{ echo $value['meta'];} ?></pre></td>
+              <td colspan="4" class="txtL"><pre><?php if(is_array($value['meta'])){ echo json_encode($value['meta'], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); }else{ echo htmlspecialchars($value['meta']);} ?></pre></td>
             </tr>
             <?php } //endif ?>
           <?php } //endfor ?>
