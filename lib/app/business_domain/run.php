@@ -80,7 +80,7 @@ class run
 
 			if(isset($value['last_action_time']))
 			{
-				if(time() - strtotime($value['last_action_time']) < (60*60*1))
+				if(time() - strtotime($value['last_action_time']) < (60*5))
 				{
 					continue;
 				}
