@@ -31,6 +31,7 @@ class enterprise_check
 
 		if(strpos($response, 'x-powered-by: Jibres') !== false)
 		{
+			return $response;
 			return true;
 		}
 		else
