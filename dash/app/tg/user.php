@@ -61,7 +61,6 @@ class user
 	// add new user in users table and user_telegram table
 	public static function add($_args, $_option = [])
 	{
-		$_args['force_add'] = true;
 
 		$myStatus   = 'active';
 		$myUsername = null;
