@@ -77,11 +77,15 @@ class https
 			else
 			{
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_domain_dns_not_active', ['meta' => self::meta($get_domain)]);
+				\dash\notif::error(T_("Domain DNS is not active on CDN panel"));
+				return false;
 			}
 		}
 		else
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_get_domani_error', ['meta' => self::meta($get_domain)]);
+			\dash\notif::error(T_("Can not get Domain DNS from CDN panel"));
+			return false;
 		}
 
 
