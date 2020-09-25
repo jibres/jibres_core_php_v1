@@ -54,7 +54,8 @@
 
   <div class="c s6">
     <div class="msg fs14">
-    <a class="btn success" target="_blank" href="https://cdn.talambar.<?php if(\dash\url::tld() === 'ir') {echo 'ir';}else{echo 'com';} ?>/tmp/update/?hey=CDN"><?php echo T_("Pull CDN repository"); ?></a>
+      <a class="btn success" target="_blank" href="https://cdn.talambar.<?php if(\dash\url::tld() === 'ir') {echo 'ir';}else{echo 'com';} ?>/tmp/update/?hey=CDN"><?php echo T_("Pull CDN repository"); ?></a>
+      <a class="btn" href="<?php echo \dash\url::here(). '/tempfile' ?>"><?php echo T_("Temp files") ?></a>
     </div>
   </div>
 

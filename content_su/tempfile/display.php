@@ -1,4 +1,7 @@
-
+<div class="msg  xl txtB txtC">
+<?php echo T_("Remove all temp file") ?>
+<div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove now") ?></div>
+</div>
 <?php if(\dash\data::logList()) {?>
   <div class="f">
     <?php foreach (\dash\data::logList() as $key => $value) {?>
