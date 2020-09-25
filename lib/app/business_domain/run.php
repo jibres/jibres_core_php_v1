@@ -38,6 +38,10 @@ class run
 			return;
 		}
 
+
+		self::check_free_domains();
+
+
 		// check dns resolved
 		// check dns is set on our dns record
 
@@ -140,6 +144,24 @@ class run
 		{
 			\lib\app\business_domain\edit::set_date($value['id'], 'datemodified');
 			\lib\app\business_domain\https::request($value['id']);
+		}
+	}
+
+
+	private static function check_free_domains()
+	{
+
+		$last_free_domains =  \lib\db\business_domain\get::last_free_domains();
+
+		if(!$last_free_domains)
+		{
+			return;
+		}
+
+		foreach ($last_free_domains as $key => $value)
+		{
+			\lib\app\business_domain\edit::set_date($value['id'], 'datemodified');
+			\lib\app\business_domain\free_domain::check($value['id']);
 		}
 	}
 }

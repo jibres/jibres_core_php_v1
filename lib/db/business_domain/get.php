@@ -126,6 +126,32 @@ class get
 	}
 
 
+	public static function last_free_domains()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*
+			FROM
+				business_domain
+			WHERE
+				(
+					business_domain.subdomain IS NOT NULL OR
+					business_domain.cdn = 'enterprise'
+				) AND
+				business_domain.status = 'pending'
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 10
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+
+
+
 
 
 
