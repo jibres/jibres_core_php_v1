@@ -32,5 +32,26 @@ class edit
 		$_args['datemodified'] = date("Y-m-d H:i:s");
 		$result = \lib\db\business_domain\update::update_dns($_args, $_dns_id);
 	}
+
+
+	public static function changemaster($_domain_id)
+	{
+		$_domain_id = \dash\validate::id($_domain_id);
+
+		$store_id = \lib\store::id();
+		if(!$store_id)
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\lib\db\business_domain\update::reset_all_master_store($store_id);
+
+		$result = \lib\db\business_domain\update::update_id_store_id(['master' => 1, 'datemodified' => date("Y-m-d H:i:s")], $_domain_id, $store_id);
+
+		\dash\notif::ok(T_("Your business master domain set"));
+
+		return true;
+	}
 }
 ?>

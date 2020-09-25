@@ -1,22 +1,40 @@
 <div class="avand-lg">
 
-  <?php if(false) {?>
+
   <form method="post" autocomplete="off">
     <input type="hidden" name="setting" value="setting">
     <div class="box">
       <header><h2><?php echo T_("Domain setting") ?></h2></header>
       <div class="body">
+        <?php if(!\dash\data::masterDomain()) {?>
+          <p>
+              <?php echo T_("You have not any master doamin") ?>
+            </p>
 
+            <div class="msg">
+              <?php echo T_("If your want to set this domain as your business master domain") ?>
+              <div class="btn link" data-confirm data-data='{"changemaster": "changemaster"}'><?php echo T_("Click here") ?></div>
+            </div>
+        <?php }else{ ?>
+          <?php if(\dash\data::masterDomain_domain() === \dash\request::get('domain')) {?>
+            <div class="msg success2 minimal"><?php echo T_("Add this time you set :domain as master domain", ['domain' => '<b>'. \dash\data::masterDomain_domain(). '</b>']) ?></div>
+          <?php }else{ ?>
+            <p>
+              <div><?php echo T_("Add this time you set :domain as master domain", ['domain' => '<b>'. \dash\data::masterDomain_domain(). '</b>']) ?></div>
+            </p>
+
+            <div class="msg">
+              <?php echo T_("If your want to change business domain master to :domain", ['domain' => '<b>'. \dash\data::domainDetail_domain(). '</b>']) ?>
+              <div class="btn link" data-confirm data-data='{"changemaster": "changemaster"}'><?php echo T_("Change it now") ?></div>
+            </div>
+
+          <?php } //endif ?>
+        <?php } //endif ?>
       </div>
-      <footer class="f">
-        <div class="c"></div>
-        <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
-      </footer>
     </div>
   </form>
 
-<?php } //endif ?>
-  <form method="post" autocomplete="off">
+  <form method="post" autocomplete="off" class="hide">
     <input type="hidden" name="adddns" value="adddns">
     <div class="box">
       <header><h2><?php echo T_("DNS records") ?></h2></header>
@@ -63,7 +81,7 @@
     </div>
   </form>
         <?php if(\dash\data::dnsList()) {?>
-          <table class="tbl1 v4 font-12">
+          <table class="tbl1 v4 font-12 hide">
             <thead>
               <tr>
                 <th class="collapsing"></th>

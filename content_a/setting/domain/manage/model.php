@@ -38,6 +38,10 @@ class model
 		}
 
 
+		if(\dash\request::post('changemaster') === 'changemaster')
+		{
+			$result = \lib\app\business_domain\edit::changemaster(\dash\data::domainID());
+		}
 
 		if(\dash\request::post('removedomain') === 'removedomain')
 		{

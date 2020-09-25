@@ -124,6 +124,14 @@ class get
 
 
 
+	public static function by_store_id_master_domain($_store_id)
+	{
+		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.master = 1 LIMIT 1 ";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
+
 
 	public static function by_store_id_domain($_store_id, $_domain)
 	{

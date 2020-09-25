@@ -19,6 +19,28 @@ class get
 	}
 
 
+	public static function my_business_master_domain()
+	{
+		$store_id = \lib\store::id();
+
+		if(!$store_id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\business_domain\get::by_store_id_master_domain($store_id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load = \lib\app\business_domain\ready::row($load);
+
+		return $load;
+	}
+
+
 	public static function my_store_domain($_domain)
 	{
 		$store_id = \lib\store::id();

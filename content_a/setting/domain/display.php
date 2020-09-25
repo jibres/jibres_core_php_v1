@@ -2,7 +2,7 @@
 
 <?php if(!\dash\data::dataTable()){?>
 
-  <div class="msg warn2 txtC txtB fs14"><?php echo T_("No result found") ?></div>
+  <?php require_once('add/display.php'); ?>
 
 <?php }else{ ?>
 
