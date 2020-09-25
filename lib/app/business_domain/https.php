@@ -58,6 +58,7 @@ class https
 			}
 		}
 
+		$send_request = false;
 
 		if(isset($load['httpsverify']) && $load['httpsverify'])
 		{
@@ -75,30 +76,7 @@ class https
 
 			if(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'off')
 			{
-				$set_https = [];
-
-				$set_https['current_setting'] = $get_https_setting;
-
-				$add_https_args =
-				[
-					"f_ssl_type" => "arvan",
-				];
-
-				$set_https['ssl_type'] = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
-
-
-				$add_https_args =
-				[
-					"ar_wildcard" => true,
-				];
-
-				$set_https['ar_wildcard'] = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
-
-				\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_sended', ['meta' => self::meta($set_https)]);
-				\lib\app\business_domain\edit::set_date($_id, 'httpsrequest');
-				\dash\notif::ok(T_("HTTPS request was sended"));
-				return true;
-
+				$send_request = true;
 			}
 			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
 			{
@@ -115,6 +93,7 @@ class https
 				else
 				{
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_not_ok', ['meta' => self::meta($get_https_setting)]);
+					$send_request = true;
 				}
 			}
 			else
@@ -129,6 +108,34 @@ class https
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_error', ['meta' => self::meta($get_https_setting)]);
 			\dash\notif::error(T_("Can not connect to CDN service"));
 			return false;
+		}
+
+
+		if($send_request)
+		{
+			$set_https = [];
+
+			$set_https['current_setting'] = $get_https_setting;
+
+			$add_https_args =
+			[
+				"f_ssl_type" => "arvan",
+			];
+
+			$set_https['ssl_type'] = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+
+
+			$add_https_args =
+			[
+				"ar_wildcard" => true,
+			];
+
+			$set_https['ar_wildcard'] = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_sended', ['meta' => self::meta($set_https)]);
+			\lib\app\business_domain\edit::set_date($_id, 'httpsrequest');
+			\dash\notif::ok(T_("HTTPS request was sended"));
+			return true;
 		}
 
 	}
