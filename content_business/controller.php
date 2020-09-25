@@ -5,10 +5,9 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::subdomain() === 'shop')
+		if(\dash\engine\store::free_subdomain())
 		{
-			\dash\data::externalShop(true);
-			// this is special page for shop aname
+			\dash\engine\prepare::html_raw_page('dnsPoint');
 		}
 		else
 		{

@@ -277,6 +277,8 @@ class store
 			'developers',
 			'api',
 			'core',
+			'business',
+			'shop',
 		];
 
 		if(in_array($_subdomain, $free_subdomain))

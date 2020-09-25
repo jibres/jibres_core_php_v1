@@ -665,9 +665,7 @@ class prepare
 			$is_bot = false;
 			if($is_bot)
 			{
-				$emergencydomain = core. 'layout/html/botMode.html';
-				require_once ($emergencydomain);
-				\dash\code::boom();
+				self::html_raw_page('botMode');
 			}
 			else
 			{
@@ -684,14 +682,18 @@ class prepare
 					return true;
 				}
 
-				$emergencydomain = core. 'layout/html/emergencyMode.html';
-				require_once ($emergencydomain);
-				\dash\code::boom();
+				self::html_raw_page('emergencyMode');
 			}
 		}
 
+		self::html_raw_page('unknownMode');
+	}
 
-		$emergencydomain = core. 'layout/html/unknownMode.html';
+
+
+	public static function html_raw_page($_file_name)
+	{
+		$emergencydomain = core. 'layout/html/'.$_file_name.'.html';
 		require_once ($emergencydomain);
 		\dash\code::boom();
 	}
