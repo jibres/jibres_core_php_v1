@@ -15,6 +15,21 @@ class model
 			}
 		}
 
+		if(\dash\request::post('changecdn') === 'changecdn')
+		{
+			$post =
+			[
+				'cdn' => \dash\request::post('cdn'),
+			];
+
+
+			$result = \lib\app\business_domain\edit::edit($post, \dash\data::dataRow_id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
 
 		if(\dash\request::post('addtocdnpanel') === 'addtocdnpanel')
 		{

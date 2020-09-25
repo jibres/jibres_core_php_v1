@@ -55,5 +55,31 @@ class edit
 
 		return true;
 	}
+
+
+	public static function edit($_args, $_id)
+	{
+		$condition =
+		[
+			'cdn'   => ['enum' => ['arvancloud', 'cloudflare', 'enterprise']],
+		];
+
+		$require = ['cdn'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$id = \dash\validate::id($_id);
+
+		$data['datemodified'] = date("Y-m-d H:i:s");
+
+		$result = \lib\db\business_domain\update::update($data, $id);
+
+		\dash\notif::ok(T_("Domain record updated"));
+		return true;
+
+	}
+
 }
 ?>

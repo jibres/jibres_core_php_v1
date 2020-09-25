@@ -1,5 +1,34 @@
 <?php require_once(root. 'content_love/business/domain/pageStep.php'); ?>
 <div class="avand-md">
+
+    <form method="post" autocomplete="off">
+    <input type="hidden" name="changecdn" value="changecdn">
+    <div class="box">
+      <header><h2><?php echo T_("CDN") ?></h2></header>
+      <div class="body">
+        <p><?php echo T_("Change CDN!") ?></p>
+        <div class="radio3 mB10">
+          <input type="radio" name="cdn" value="arvancloud" id="arvancloud" <?php if(\dash\data::dataRow_cdn() === 'arvancloud') {echo 'checked';} ?>>
+          <label for="arvancloud">Arvan Cloud</label>
+        </div>
+        <div class="radio3 mB10">
+          <input type="radio" name="cdn" value="cloudflare" id="cloudflare" <?php if(\dash\data::dataRow_cdn() === 'cloudflare') {echo 'checked';} ?>>
+          <label for="cloudflare">Cloudflare</label>
+        </div>
+
+        <div class="radio3 mB10">
+          <input type="radio" name="cdn" value="enterprise" id="enterprise" <?php if(\dash\data::dataRow_cdn() === 'enterprise') {echo 'checked';} ?>>
+          <label for="enterprise">Enterprise</label>
+        </div>
+
+
+      </div>
+      <footer class="txtRa">
+          <button class="btn success"><?php echo T_("Save") ?></button>
+      </footer>
+    </div>
+  </form>
+
   <form method="post" autocomplete="off">
     <input type="hidden" name="checkdns" value="checkdns">
     <div class="box">

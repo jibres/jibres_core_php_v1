@@ -42,6 +42,8 @@ class get
 			FROM
 				business_domain
 			WHERE
+				business_domain.subdomain IS NULL AND
+				business_domain.cdn != 'enterprise' AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NULL
 			ORDER BY
@@ -62,6 +64,8 @@ class get
 			FROM
 				business_domain
 			WHERE
+				business_domain.subdomain IS NULL AND
+				business_domain.cdn != 'enterprise' AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NULL
@@ -84,6 +88,8 @@ class get
 			FROM
 				business_domain
 			WHERE
+				business_domain.subdomain IS NULL AND
+				business_domain.cdn != 'enterprise' AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NOT NULL
@@ -105,6 +111,8 @@ class get
 			FROM
 				business_domain
 			WHERE
+				business_domain.subdomain IS NULL AND
+				business_domain.cdn != 'enterprise' AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NOT NULL AND
