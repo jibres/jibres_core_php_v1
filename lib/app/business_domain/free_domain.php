@@ -13,18 +13,26 @@ class free_domain
 			return false;
 		}
 
-		$is_connected_to_jibres = \lib\app\business_domain\enterprise_check::is_connected_to_jibres($load['domain']);
+		$result = \lib\app\business_domain\enterprise_check::is_connected_to_jibres($load['domain']);
 
+		if(strpos($response, 'x-powered-by: Jibres') !== false)
+		{
+			$is_connected_to_jibres = true;
+		}
+		else
+		{
+			$is_connected_to_jibres = false;
+		}
 
 		if($is_connected_to_jibres)
 		{
 			\lib\app\business_domain\edit::edit_raw(['status' => 'ok'], $_id);
-			\lib\app\business_domain\action::new_action($_id, 'enterprise_connected', ['meta' => $is_connected_to_jibres]);
+			\lib\app\business_domain\action::new_action($_id, 'enterprise_connected', ['meta' => $result]);
 		}
 		else
 		{
 			\dash\notif::error(T_("This domain was not connected to Jibres"));
-			\lib\app\business_domain\action::new_action($_id, 'enterprise_not_connected', ['meta' => $is_connected_to_jibres]);
+			\lib\app\business_domain\action::new_action($_id, 'enterprise_not_connected', ['meta' => $result]);
 			return false;
 		}
 
