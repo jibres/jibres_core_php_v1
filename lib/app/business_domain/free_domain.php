@@ -27,12 +27,12 @@ class free_domain
 		if($is_connected_to_jibres)
 		{
 			\lib\app\business_domain\edit::edit_raw(['status' => 'ok'], $_id);
-			\lib\app\business_domain\action::new_action($_id, 'enterprise_connected', ['meta' => $result]);
+			\lib\app\business_domain\action::new_action($_id, 'enterprise_connected');
 		}
 		else
 		{
 			\dash\notif::error(T_("This domain was not connected to Jibres"));
-			\lib\app\business_domain\action::new_action($_id, 'enterprise_not_connected', ['meta' => $result]);
+			\lib\app\business_domain\action::new_action($_id, 'enterprise_not_connected');
 			return false;
 		}
 
