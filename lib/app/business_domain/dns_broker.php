@@ -10,8 +10,9 @@ class dns_broker
 
 		$header   = [];
 
-		$post_field           = [];
-		$post_field['domain'] = $_doamin;
+		$post_field                 = [];
+		$post_field['domain']       = $_doamin;
+		$post_field['type']         = 'DNS_NS';
 		$post_field['broker_token'] = \dash\setting\checkdns::broker_token();
 
 		$ch = curl_init();

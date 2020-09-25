@@ -26,8 +26,9 @@ class dns
 			return false;
 		}
 
-		$get_dns = \lib\app\business_domain\dns_broker::local_get($load['domain']);
-		// $get_dns = \lib\app\business_domain\dns_broker::get($load['domain']);
+		// $get_dns = \lib\app\business_domain\dns_broker::local_get($load['domain']);
+		$get_dns = \lib\app\business_domain\dns_broker::get($load['domain']);
+
 
 		if(!$get_dns || !is_array($get_dns))
 		{
