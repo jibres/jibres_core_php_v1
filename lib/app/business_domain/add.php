@@ -55,14 +55,55 @@ class add
 			return false;
 		}
 
+
+		$subdomain = null;
+		$root      = null;
+		$tld       = null;
+
+		$my_domain = $data['domain'];
+		$my_domain = explode('.', $my_domain);
+		// remove empty character for example reza.
+		$my_domain = array_filter($my_domain);
+
+		if(count($my_domain) >= 4)
+		{
+			$subdomain = $my_domain[0];
+
+			array_shift($my_domain);
+			reset($my_domain);
+
+			$root      = $my_domain[0];
+
+			array_shift($my_domain);
+			reset($my_domain);
+
+			$tld       = implode('.', $my_domain);
+		}
+		elseif(count($my_domain) === 3)
+		{
+			$subdomain = $my_domain[0];
+			$root      = $my_domain[1];
+			$tld       = $my_domain[2];
+		}
+		elseif(count($my_domain) === 2)
+		{
+			$root      = $my_domain[0];
+			$tld       = $my_domain[1];
+		}
+		else
+		{
+			\dash\notif::error(T_("Domain is not valid"), 'domain');
+			return false;
+		}
+
 		$insert =
 		[
 			'domain'      => $domain,
 			'status'      => 'pending',
 			'user_id'     => \dash\user::jibres_user(),
-			'subdomain'   => null,
-			'root'        => null,
-			'tld'         => null,
+			'subdomain'   => $subdomain,
+			'root'        => $root,
+			'tld'         => $tld,
 			'store_id'    => $data['store_id'],
 			'domain_id'   => null,
 			'cdn'         => $cdn,

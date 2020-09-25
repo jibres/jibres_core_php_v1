@@ -272,6 +272,12 @@ class store
 			$_subdomain        = \dash\url::subdomain();
 		}
 
+		// shop.mydomain.com is not a free subdomain!
+		if(\dash\url::root() !== 'jibres')
+		{
+			return false;
+		}
+
 		$free_subdomain =
 		[
 			'developers',
@@ -280,6 +286,7 @@ class store
 			'business',
 			'shop',
 		];
+
 
 		if(in_array($_subdomain, $free_subdomain))
 		{
@@ -546,7 +553,6 @@ class store
 
 		$load_detail = \dash\file::read($customer_domain);
 		$load_detail = json_decode($load_detail, true);
-
 
 		self::$customerDomainDetail = $load_detail;
 
