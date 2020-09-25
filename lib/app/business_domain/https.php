@@ -67,6 +67,24 @@ class https
 		}
 
 
+		$get_domain = \lib\arvancloud\api::get_domain($domain);
+		if(isset($get_domain['data']['services']['dns']))
+		{
+			if($get_domain['data']['services']['dns'] === 'active')
+			{
+				// continue
+			}
+			else
+			{
+				\lib\app\business_domain\action::new_action($_id, 'arvancloud_domain_dns_not_active', ['meta' => self::meta($get_domain)]);
+			}
+		}
+		else
+		{
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_get_domani_error', ['meta' => self::meta($get_domain)]);
+		}
+
+
 		$get_https_setting = \lib\arvancloud\api::get_arvan_request($domain);
 
 
