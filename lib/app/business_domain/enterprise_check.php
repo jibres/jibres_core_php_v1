@@ -29,9 +29,10 @@ class enterprise_check
 
 		curl_close ($ch);
 
+		return addslashes($response);
+
 		if(strpos($response, 'x-powered-by: Jibres') !== false)
 		{
-			return addslashes($response);
 			return true;
 		}
 		else
