@@ -1,12 +1,26 @@
 <div class="avand-lg">
+
+  <?php if(false) {?>
+  <form method="post" autocomplete="off">
+    <input type="hidden" name="setting" value="setting">
+    <div class="box">
+      <header><h2><?php echo T_("Domain setting") ?></h2></header>
+      <div class="body">
+
+      </div>
+      <footer class="f">
+        <div class="c"></div>
+        <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
+      </footer>
+    </div>
+  </form>
+
+<?php } //endif ?>
   <form method="post" autocomplete="off">
     <input type="hidden" name="adddns" value="adddns">
     <div class="box">
-      <header><h2><?php echo T_("Add DNS record") ?></h2></header>
+      <header><h2><?php echo T_("DNS records") ?></h2></header>
       <div class="body">
-        <div class="msg txtL txtB ltr">
-          <?php echo \dash\data::domainDetail_domain() ?>
-        </div>
         <div class="row">
           <div class="c-xs-12 c-sm-2">
             <div>
@@ -48,30 +62,30 @@
       </footer>
     </div>
   </form>
-  <?php if(\dash\data::dnsList()) {?>
-    <table class="tbl1 v4 font-12">
-      <thead>
-        <tr>
-          <th class="collapsing"></th>
-          <th><?php echo T_("Type") ?></th>
-          <th><?php echo T_("Key") ?></th>
-          <th><?php echo T_("Value") ?></th>
-          <th><?php echo T_("Status") ?></th>
-          <th class="collapsing"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach (\dash\data::dnsList() as $key => $value) {?>
-          <tr>
-            <td class="collapsing"><?php if(\dash\get::index($value, 'verify')) {?><i title="<?php echo T_("Verified") ?>" class="sf-check fc-green"></i><?php }else{ ?><i title="<?php echo T_("Not verify") ?>" class="sf-exclamation-triangle fc-orange"></i><?php } //endif ?></td>
-            <td><?php echo \dash\get::index($value, 'type'); ?></td>
-            <td><?php echo \dash\get::index($value, 'key'); ?></td>
-            <td><?php echo \dash\get::index($value, 'value'); ?></td>
-            <td><?php echo \dash\get::index($value, 'status'); ?></td>
-            <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
-          </tr>
+        <?php if(\dash\data::dnsList()) {?>
+          <table class="tbl1 v4 font-12">
+            <thead>
+              <tr>
+                <th class="collapsing"></th>
+                <th><?php echo T_("Type") ?></th>
+                <th><?php echo T_("Key") ?></th>
+                <th><?php echo T_("Value") ?></th>
+                <th><?php echo T_("Status") ?></th>
+                <th class="collapsing"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach (\dash\data::dnsList() as $key => $value) {?>
+                <tr>
+                  <td class="collapsing"><?php if(\dash\get::index($value, 'verify')) {?><i title="<?php echo T_("Verified") ?>" class="sf-check fc-green"></i><?php }else{ ?><i title="<?php echo T_("Not verify") ?>" class="sf-exclamation-triangle fc-orange"></i><?php } //endif ?></td>
+                  <td><?php echo \dash\get::index($value, 'type'); ?></td>
+                  <td><?php echo \dash\get::index($value, 'key'); ?></td>
+                  <td><?php echo \dash\get::index($value, 'value'); ?></td>
+                  <td><?php echo \dash\get::index($value, 'status'); ?></td>
+                  <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
+                </tr>
+              <?php } // endif ?>
+            </tbody>
+          </table>
         <?php } // endif ?>
-      </tbody>
-    </table>
-  <?php } // endif ?>
 </div>

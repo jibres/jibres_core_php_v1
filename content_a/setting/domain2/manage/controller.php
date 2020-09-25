@@ -14,6 +14,8 @@ class controller
 		$load = \lib\app\business_domain\get::my_store_domain($domain);
 
 		\dash\data::domainDetail($load);
+
+		\dash\data::domainID($load['id']);
 	}
 }
 ?>
