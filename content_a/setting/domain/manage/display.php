@@ -71,7 +71,7 @@
                 <th><?php echo T_("Key") ?></th>
                 <th><?php echo T_("Value") ?></th>
                 <th><?php echo T_("Status") ?></th>
-                <th class="collapsing"></th>
+
               </tr>
             </thead>
             <tbody>
@@ -82,7 +82,7 @@
                   <td><?php echo \dash\get::index($value, 'key'); ?></td>
                   <td><?php echo \dash\get::index($value, 'value'); ?></td>
                   <td><?php echo \dash\get::index($value, 'status'); ?></td>
-                  <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
+
                 </tr>
               <?php } // endif ?>
             </tbody>
