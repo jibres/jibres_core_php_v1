@@ -50,17 +50,8 @@ class controller
 
 		if(!\dash\engine\store::inStore())
 		{
-			// send new domain request to cdn panel
-			\lib\app\store\domain::multi_check_business_domain('new');
 
-			// check ssl request
-			\lib\app\store\domain::multi_check_business_domain('ssl');
-
-			if(self::at('06:00'))
-			{
-				// dns error, and other thing
-				\lib\app\store\domain::multi_check_business_domain('other');
-			}
+			\lib\app\business_domain\run::run();
 
 			// to not check every min all backup setting!
 			// the backup setting have special schedule

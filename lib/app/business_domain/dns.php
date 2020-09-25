@@ -31,6 +31,7 @@ class dns
 
 		if(!$get_dns || !is_array($get_dns))
 		{
+			\lib\app\business_domain\edit::set_date($_id, 'datemodified');
 			\lib\app\business_domain\action::new_action($_id, 'dns_failed', ['meta' => json_encode($get_dns)]);
 			\dash\notif::error(T_("Can not get DNS detail!"));
 			return false;
@@ -506,6 +507,68 @@ class dns
 		\dash\notif::ok(T_("Jibres DNS record added"));
 
 		return true;
+	}
+
+
+	public static function check_if_not_exist_add($_id)
+	{
+		$local_list = \lib\db\business_domain\get::dns_list($_id);
+		if(!is_array($local_list))
+		{
+			$local_list = [];
+		}
+
+
+		$jibres_ip = \dash\setting\dns_server::ip();
+
+
+		$count_founded = 0;
+		foreach ($local_list as $key => $value)
+		{
+			if(isset($value['type']) && isset($value['key']) && isset($value['value']) && isset($value['status']) && $value['status'] === 'ok')
+			{
+				if($value['type'] === 'A' && in_array($value['key'], ['*', '@']) && strpos($value['value'], $jibres_ip) !== false)
+				{
+					$count_founded++;
+				}
+			}
+		}
+
+		if($count_founded >= 2)
+		{
+			return true;
+		}
+
+		self::fetch($_id);
+
+		$local_list = \lib\db\business_domain\get::dns_list($_id);
+		if(!is_array($local_list))
+		{
+			$local_list = [];
+		}
+
+		$jibres_ip = \dash\setting\dns_server::ip();
+
+
+		$count_founded = 0;
+		foreach ($local_list as $key => $value)
+		{
+			if(isset($value['type']) && isset($value['key']) && isset($value['value']) && isset($value['status']) && $value['status'] === 'ok')
+			{
+				if($value['type'] === 'A' && in_array($value['key'], ['*', '@']) && strpos($value['value'], $jibres_ip) !== false)
+				{
+					$count_founded++;
+				}
+			}
+		}
+
+		if($count_founded >= 2)
+		{
+			return true;
+		}
+
+		self::jibres_dns($_id);
+
 	}
 
 

@@ -13,6 +13,118 @@ class get
 	}
 
 
+
+	public static function have_pending_domain()
+	{
+		$query  = " SELECT * FROM business_domain WHERE business_domain.status = 'pending' LIMIT 1 ";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
+	public static function last_domain_not_resolved()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*,
+				(
+					SELECT
+						business_domain_action.datecreated
+					FROM
+						business_domain_action
+					WHERE
+						business_domain_action.business_domain_id = business_domain.id AND
+						business_domain_action.action = 'dns_failed'
+					ORDER BY
+						business_domain_action.id DESC
+					LIMIT 1
+				) AS `last_action_time`
+			FROM
+				business_domain
+			WHERE
+				business_domain.status = 'pending' AND
+				business_domain.checkdns IS NULL
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 10
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+	public static function last_not_added_to_cdn_panel()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*
+			FROM
+				business_domain
+			WHERE
+				business_domain.status = 'pending' AND
+				business_domain.checkdns IS NOT NULL AND
+				business_domain.cdnpanel IS NULL
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+
+	public static function last_not_add_dns_record()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*
+			FROM
+				business_domain
+			WHERE
+				business_domain.status = 'pending' AND
+				business_domain.checkdns IS NOT NULL AND
+				business_domain.cdnpanel IS NOT NULL
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 2
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+	public static function last_not_send_https_request()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*
+			FROM
+				business_domain
+			WHERE
+				business_domain.status = 'pending' AND
+				business_domain.checkdns IS NOT NULL AND
+				business_domain.cdnpanel IS NOT NULL AND
+				business_domain.httpsrequest IS NULL
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 3
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+
+
+
+
+
+
+
 	public static function by_store_id_domain($_store_id, $_domain)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.domain = '$_domain' LIMIT 1 ";

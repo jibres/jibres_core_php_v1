@@ -134,7 +134,7 @@ class cdnpanel
 		}
 		elseif(isset($add_domain['message']) && $add_domain['message'] === 'The given data was invalid.')
 		{
-			\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "This domain is already is use in CDN panel", 'meta' => self::meta($add_domain)]);
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_already_inuse', ['desc' => "This domain is already is use in CDN panel", 'meta' => self::meta($add_domain)]);
 			\dash\notif::error(T_("This domain is already in use in CDN panel"));
 			return false;
 		}
