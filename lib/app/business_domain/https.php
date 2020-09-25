@@ -19,6 +19,18 @@ class https
 		return null;
 	}
 
+	public static function reset($_id)
+	{
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+		\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'httpsverify' => null, 'httpsrequest' => null], $_id);
+		\dash\notif::ok(T_("HTTPS setting reset"));
+		return true;
+	}
 
 
 	public static function request($_id)
@@ -90,13 +102,20 @@ class https
 			}
 			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
 			{
-				\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
+				if(isset($get_https_setting['data']['f_ssl_status']) && $get_https_setting['data']['f_ssl_status'])
+				{
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
 
-				\lib\app\business_domain\edit::edit_raw(['status' => 'ok', 'httpsverify' => 1, 'httpsrequest' => date("Y-m-d H:i:s")], $_id);
+					\lib\app\business_domain\edit::edit_raw(['status' => 'ok', 'httpsverify' => 1, 'httpsrequest' => date("Y-m-d H:i:s")], $_id);
 
-				\dash\notif::ok(T_("HTTPS request is OK"));
+					\dash\notif::ok(T_("HTTPS request is OK"));
 
-				return true;
+					return true;
+				}
+				else
+				{
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_not_ok', ['meta' => self::meta($get_https_setting)]);
+				}
 			}
 			else
 			{
