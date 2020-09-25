@@ -7,7 +7,7 @@ class cdnpanel
 	{
 		if(is_array($_data) || is_object($_data))
 		{
-			return json_encode($_data, JSON_UNESCAPED_UNICODE);
+			return json_encode($_data);
 		}
 		return null;
 	}

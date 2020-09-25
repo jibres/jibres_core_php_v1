@@ -14,7 +14,7 @@ class https
 			// 	$_data = array_merge($_data, $_data2);
 			// }
 
-			return json_encode($_data, JSON_UNESCAPED_UNICODE);
+			return json_encode($_data);
 		}
 		return null;
 	}
