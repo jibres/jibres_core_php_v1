@@ -552,45 +552,58 @@ class store
 
 		if($load_detail && isset($load_detail['store_id']))
 		{
-			// if(isset($load_detail['master']) && $load_detail['master'])
-			// {
-				self::init_by_id($load_detail['store_id']);
+			if(isset($load_detail['master']) && $load_detail['master'])
+			{
+				return self::set_customer_domain($load_detail);
+			}
+			else
+			{
+				// must redirect to master
+				$master_domain = \lib\db\business_domain\get::by_store_id_master_domain($load_detail['store_id']);
 
-				if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+				if(isset($master_domain['domain']))
 				{
-					// nothing
+					$new_url = \dash\url::protocol(). '://';
+					$new_url .= $master_domain['domain'];
+					$new_url .= \dash\url::path();
+					if($new_url !== \dash\url::pwd())
+					{
+						\dash\redirect::to($new_url);
+					}
+
 				}
 				else
 				{
-					\dash\engine\content::set('content_business');
+					return self::set_customer_domain($load_detail);
 				}
-				self::$inCustomerDomain = true;
-				self::$customerDomainStore_id = $load_detail['store_id'];
-				return true;
-
-			// }
-			// else
-			// {
-			// 	// must redirect to master
-			// 	$master_domain = \lib\db\store_domain\get::master_domain($load_detail['store_id']);
-			// 	if(isset($master_domain['domain']))
-			// 	{
-			// 		$new_url = \dash\url::protocol(). '://';
-			// 		$new_url .= $master_domain['domain'];
-			// 		$new_url .= \dash\url::path();
-			// 		if($new_url !== \dash\url::pwd())
-			// 		{
-			// 			\dash\redirect::to($new_url);
-			// 		}
-
-			// 	}
-			// }
+			}
 		}
 		else
 		{
 			// remove old file
 			\dash\file::delete($customer_domain);
 		}
+	}
+
+
+	private static function set_customer_domain($load_detail)
+	{
+		self::init_by_id($load_detail['store_id']);
+
+		if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\engine\content::set('content_business');
+		}
+
+		self::$inCustomerDomain = true;
+
+		self::$customerDomainStore_id = $load_detail['store_id'];
+
+		return true;
 	}
 
 

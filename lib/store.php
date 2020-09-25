@@ -77,7 +77,7 @@ class store
 			\dash\file::delete($addr);
 		}
 
-		$domain_list = \lib\db\store_domain\get::by_store_id($id);
+		$domain_list = \lib\db\business_domain\get::by_store_id($id);
 		if($domain_list && is_array($domain_list))
 		{
 			foreach ($domain_list as $key => $value)

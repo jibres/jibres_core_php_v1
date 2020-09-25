@@ -49,6 +49,8 @@ class edit
 
 		$result = \lib\db\business_domain\update::update_id_store_id(['master' => 1, 'datemodified' => date("Y-m-d H:i:s")], $_domain_id, $store_id);
 
+		\lib\store::reset_cache();
+
 		\dash\notif::ok(T_("Your business master domain set"));
 
 		return true;

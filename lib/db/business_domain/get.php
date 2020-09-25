@@ -132,6 +132,13 @@ class get
 	}
 
 
+	public static function by_store_id($_store_id)
+	{
+		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id ";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
 
 	public static function by_store_id_domain($_store_id, $_domain)
 	{
