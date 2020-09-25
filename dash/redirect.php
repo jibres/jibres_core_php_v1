@@ -12,12 +12,13 @@ class redirect
 	 */
 	public static function to($_url, $_php = true, $_arg = null)
 	{
+		$statusCode = 307;
 		// set header for redirect via php
-		if(!is_numeric($_arg))
+		if(is_numeric($_arg))
 		{
-			$_arg = 307;
+			$statusCode = $_arg;
 		}
-		\dash\header::set($_arg);
+		\dash\header::set($statusCode);
 
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
