@@ -11,7 +11,7 @@
 
         <label for="idomain"><?php echo T_("Domain"); ?> <span class="fc-red">*</span></label>
         <div class="input ltr">
-          <input type="text" name="domain" id="idomain" <?php \dash\layout\autofocus::html() ?> required maxlength='100' minlength="1"  >
+          <input type="text" name="domain" id="idomain" value="<?php echo \dash\request::get('domain') ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='100' minlength="1"  >
         </div>
 
       </div>

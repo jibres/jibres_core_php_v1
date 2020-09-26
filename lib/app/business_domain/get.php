@@ -19,6 +19,21 @@ class get
 	}
 
 
+	public static function my_domain_not_connected_list()
+	{
+		$user_id = \dash\user::jibres_user();
+		if(!$user_id)
+		{
+			return [];
+		}
+
+		$list = \lib\db\business_domain\get::my_domain_not_connected_list($user_id);
+
+		return $list;
+
+	}
+
+
 	public static function my_business_master_domain()
 	{
 		$store_id = \lib\store::id();

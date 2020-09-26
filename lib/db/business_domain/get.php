@@ -13,6 +13,30 @@ class get
 	}
 
 
+	public static function my_domain_not_connected_list($_user_id)
+	{
+		$query  =
+		"
+			SELECT
+				jibres_nic.domain.name
+			FROM
+				jibres_nic.domain
+			WHERE
+				jibres_nic.domain.verify = 1 AND
+				jibres_nic.domain.available = 0 AND
+				jibres_nic.domain.status != 'deleted' AND
+				jibres_nic.domain.user_id = $_user_id AND
+				jibres_nic.domain.name NOT IN
+				(
+					SELECT jibres.business_domain.domain FROM jibres.business_domain
+				)
+			LIMIT 200
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
 
 	public static function have_pending_domain()
 	{
