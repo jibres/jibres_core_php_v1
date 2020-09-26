@@ -199,49 +199,51 @@
 
 
 <section id="jibresFeatures">
-  <div class="avand">
+  <div class="avand-lg">
     <h2><?php echo T_("All the tools you need..."); ?></h2>
     <div class="row">
-      <div class="c-4">
+      <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="">
-          <i class="sf-search"></i>
-          <h3><?php echo T_("Free SSL"); ?></h3>
-          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+          <i class="sf-lamp"></i>
+          <h3><?php echo T_("SEO Optimized"); ?></h3>
+          <p><?php echo T_("Billions of searches are conducted online every single day. Many people search for specific products and services with the intent to pay for these things."); ?></p>
         </a>
       </div>
-      <div class="c-4">
+      <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="">
-          <i class="sf-search"></i>
-          <h3><?php echo T_("Free SSL"); ?></h3>
-          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+          <i class="sf-database"></i>
+          <h3><?php echo T_("Fully Hosted"); ?></h3>
+          <p><?php echo T_("We are maintain your store files and data in the cloud. You would not need to setup your own server, we are storing your data for you."); ?></p>
         </a>
       </div>
-      <div class="c-4">
+      <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="">
-          <i class="sf-search"></i>
-          <h3><?php echo T_("Free SSL"); ?></h3>
-          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+          <i class="sf-shield"></i>
+          <h3><?php echo T_("Free SSL Certificate"); ?></h3>
+          <p><?php echo T_("SSL Protection For Anyone."); ?></p><p><?php echo T_("Protect you information, generate trust and improve Search Engine Ranking.") ?></p>
         </a>
       </div>
-      <div class="c-4">
+    </div>
+    <div class="row">
+      <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="">
-          <i class="sf-search"></i>
-          <h3><?php echo T_("Free SSL"); ?></h3>
-          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+          <i class="sf-card"></i>
+          <h3><?php echo T_("Accept Credit Cards"); ?></h3>
+          <p><?php echo T_("It's easy to accept various payment options in Jibres, including PayPal, Credit Cards and other offline methods."); ?></p>
         </a>
       </div>
-      <div class="c-4">
+      <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="">
-          <i class="sf-search"></i>
-          <h3><?php echo T_("Free SSL"); ?></h3>
-          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+          <i class="sf-server-accept"></i>
+          <h3><?php echo T_("Fully API"); ?></h3>
+          <p><?php echo T_("API gives you full creative control to add Jibres buying experiences anywhere your customers are, including websites, apps, and social networks."); ?></p>
         </a>
       </div>
-      <div class="c-4">
+      <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="">
-          <i class="sf-search"></i>
-          <h3><?php echo T_("Free SSL"); ?></h3>
-          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+          <i class="sf-heart"></i>
+          <h3><?php echo T_("Premium Support"); ?></h3>
+          <p><?php echo T_("With the Most Helpful Humans in the world, You're Never Alone."); ?></p><p><?php echo T_("Rely on our 24/7/365 Human Support.") ?></p>
         </a>
       </div>
     </div>
@@ -249,10 +251,10 @@
 </section>
 
 <section id="jibresApp">
-  <div class="avand">
+  <div class="avand-lg">
     <div class="row">
-      <div class="c-xs-0 c-sm-0 c-lg-6"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
-      <div class="c-xs-12 c-sm-12 c-lg-6 text">
+      <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
+      <div class="c-xs-12 c-sm-12 c-lg-7 text">
         <h1><?php echo T_("Jibres Mobile App"); ?></h1>
         <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
 
