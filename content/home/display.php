@@ -198,6 +198,30 @@
 </section>
 
 
+<section id="jibresApp">
+  <div class="avand">
+    <div class="row">
+      <div class="c-xs-0 c-sm-0 c-md-6"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
+      <div class="c-6 text">
+        <h1><?php echo T_("Jibres Mobile App"); ?></h1>
+        <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
+
+        <div class="dl">
+          <a href="<?php echo \dash\url::kingdom(); ?>/app/android" title='<?php echo T_("Download Jibres App from Google play") ?>' target="_blank" rel="noopener">
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+          </a>
+          <a href="<?php echo \dash\url::kingdom(); ?>/app/direct" title='<?php echo T_("Direct download Jibres app") ?>'>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-direct.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <?php if(\dash\data::quote()) { ?>
 <section id='jibresQuote'>
   <div class="avand">

@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-26 17:29+0330\n"
-"PO-Revision-Date: 2020-09-26 17:32+0330\n"
+"POT-Creation-Date: 2020-09-26 18:14+0330\n"
+"PO-Revision-Date: 2020-09-26 18:16+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -2398,6 +2398,30 @@ msgid "World #1 Financial Platform"
 msgstr "پلتفرم مالی شماره یک جهان"
 
 #: content/home/display.php:204
+msgid "Download Jibres App"
+msgstr "دانلود اپلیکیشن جیبرس"
+
+#: content/home/display.php:206
+msgid "Jibres Mobile App"
+msgstr "اپلیکیشن موبایل جیبرس"
+
+#: content/home/display.php:207
+msgid "No matter where you are, Jibres stays in sync across all of your devices."
+msgstr "هر کجا که هستید، جیبرس را همراه خود داشته باشید."
+
+#: content/home/display.php:210
+msgid "Download Jibres App from Google play"
+msgstr "دانلود اپ جیبرس از گوگل پلی"
+
+#: content/home/display.php:211
+msgid "Jibres app on Google play"
+msgstr "اپلیکیشن جیبرس در گوگل پلی"
+
+#: content/home/display.php:213 content/home/display.php:214
+msgid "Direct download Jibres app"
+msgstr "دانلود مستقیم اپ جیبرس"
+
+#: content/home/display.php:228
 msgid "Our Happy Friends!"
 msgstr "دوستان خوشحال ما!"
 
