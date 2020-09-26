@@ -47,15 +47,22 @@ class store
 	}
 
 
-	public static function reset_cache()
+	public static function reset_cache($_id = null)
 	{
-		$id = self::id();
-		$subdomain = self::detail('subdomain');
-
-		$addr = \dash\engine\store::subdomain_addr(). $subdomain. \dash\engine\store::$ext;
-		if(is_file($addr))
+		if(!$_id)
 		{
-			\dash\file::delete($addr);
+			$id = self::id();
+			$subdomain = self::detail('subdomain');
+
+			$addr = \dash\engine\store::subdomain_addr(). $subdomain. \dash\engine\store::$ext;
+			if(is_file($addr))
+			{
+				\dash\file::delete($addr);
+			}
+		}
+		else
+		{
+			$id = $_id;
 		}
 
 		$addr = \dash\engine\store::detail_addr(). $id. \dash\engine\store::$ext;
@@ -93,7 +100,10 @@ class store
 			}
 		}
 
-		self::clean();
+		if(!$_id)
+		{
+			self::clean();
+		}
 
 	}
 

@@ -27,6 +27,7 @@ class search
 			return null;
 		}
 
+		$_args['my_list'] = true;
 		$_args['store_id'] = \lib\store::id();
 
 		return self::list($_query_string, $_args);
@@ -40,12 +41,13 @@ class search
 			'order'    => 'order',
 			'sort'     => ['enum' => ['name','id']],
 			'store_id' => 'id',
+			'my_list'  => 'bit',
 		];
 
 		$require = [];
 		$meta    =	[];
 
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
 
@@ -69,6 +71,11 @@ class search
 		{
 			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
 			return false;
+		}
+
+		if($data['my_list'])
+		{
+			$and[] = " business_domain.status NOT IN ('pending_delete', 'delete') ";
 		}
 
 		$query_string = \dash\validate::search($_query_string);

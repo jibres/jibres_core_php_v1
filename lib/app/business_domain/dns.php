@@ -94,6 +94,19 @@ class dns
 		{
 			switch ($key)
 			{
+				case 'status':
+					if($value === 'pending_delete')
+					{
+						$result['tstatus'] = T_("Pending Delete");
+					}
+					else
+					{
+						$result['tstatus'] = T_($value);
+					}
+					$result[$key] = $value;
+
+					break;
+
 				default:
 					if(strpos($value, $jibres_ip) !== false)
 					{
@@ -105,6 +118,56 @@ class dns
 		}
 
 		return $result;
+	}
+
+
+	public static function remove_by_user($_id, $_dns_id)
+	{
+		$dns_id = \dash\validate::id($_dns_id);
+		if(!$dns_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+		$domain = $load['domain'];
+
+
+		$load_dns_record = \lib\db\business_domain\get::dns_record($dns_id);
+		if(isset($load_dns_record['id']))
+		{
+			if(isset($load_dns_record['business_domain_id']) && floatval($load_dns_record['business_domain_id']) === floatval($id) )
+			{
+				$delete = \lib\db\business_domain\delete::dns_record_by_user($dns_id);
+				\dash\notif::delete(T_("DNS record removed"));
+				return true;
+
+			}
+			else
+			{
+				\dash\notif::error(T_("DNS record and domain is is not match!"));
+				return false;
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("DNS record not found"));
+			return false;
+		}
 	}
 
 
@@ -139,7 +202,7 @@ class dns
 		{
 			if(isset($load_dns_record['business_domain_id']) && floatval($load_dns_record['business_domain_id']) === floatval($id) )
 			{
-				if(isset($load_dns_record['status']) && $load_dns_record['status'] === 'ok')
+				if(isset($load_dns_record['status']) && ($load_dns_record['status'] === 'ok' || $load_dns_record['status'] === 'pending_delete'))
 				{
 					$current_list = self::get_dns_from_cdn_panel($_id);
 					$find = false;

@@ -31,12 +31,9 @@ class run
 		 *
 		 */
 
-		// no pending domain was founded
-		// all domain was connected successfully
-		if(!self::have_pending_domain())
-		{
-			return;
-		}
+		self::pending_dns_sync();
+
+		self::pending_domain_delete();
 
 
 		self::check_free_domains();
@@ -68,6 +65,45 @@ class run
 		}
 
 		return true;
+	}
+
+
+	private static function pending_dns_sync()
+	{
+		$pending_dns_add =  \lib\db\business_domain\get::pending_dns_add();
+
+		$pending_dns_remove =  \lib\db\business_domain\get::pending_dns_remove();
+
+		if(!$pending_dns_add && !$pending_dns_remove)
+		{
+			return;
+		}
+
+		foreach ($pending_dns_add as $key => $value)
+		{
+			\lib\app\business_domain\dns::add_dns_to_cdn_panel($value['business_domain_id'], $value['id']);
+		}
+
+
+		foreach ($pending_dns_remove as $key => $value)
+		{
+			\lib\app\business_domain\dns::remove($value['business_domain_id'], $value['id']);
+		}
+	}
+
+
+	private static function pending_domain_delete()
+	{
+		$pending_domain_delete =  \lib\db\business_domain\get::pending_domain_delete();
+		if(!$pending_domain_delete)
+		{
+			return;
+		}
+
+		foreach ($pending_domain_delete as $key => $value)
+		{
+			\lib\app\business_domain\remove::remove($value['id']);
+		}
 	}
 
 

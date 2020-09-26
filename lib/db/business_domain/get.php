@@ -55,6 +55,66 @@ class get
 	}
 
 
+
+	public static function pending_dns_add()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain_dns.*
+			FROM
+				business_domain_dns
+			WHERE
+				business_domain_dns.status = 'pending'
+			ORDER BY
+				business_domain_dns.datemodified ASC
+			LIMIT 2
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+	public static function pending_dns_remove()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain_dns.*
+			FROM
+				business_domain_dns
+			WHERE
+				business_domain_dns.status = 'pending_delete'
+			ORDER BY
+				business_domain_dns.datemodified ASC
+			LIMIT 10
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+
+
+	public static function pending_domain_delete()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*
+			FROM
+				business_domain
+			WHERE
+				business_domain.status = 'pending_delete'
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+
 	public static function last_not_added_to_cdn_panel()
 	{
 		$query  =

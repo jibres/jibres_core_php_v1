@@ -13,7 +13,6 @@ class model
 				'type'             => \dash\request::post('type'),
 				'key'              => \dash\request::post('key'),
 				'value'            => \dash\request::post('value'),
-				'addtocdnpaneldns' => \dash\request::post('addtocdnpaneldns'),
 			];
 
 			$result = \lib\app\business_domain\dns::add(\dash\data::domainID(), $post);
@@ -22,7 +21,7 @@ class model
 
 		if(\dash\request::post('removedns') === 'removedns')
 		{
-			$result = \lib\app\business_domain\dns::remove(\dash\data::domainID(), \dash\request::post('dnsid'));
+			$result = \lib\app\business_domain\dns::remove_by_user(\dash\data::domainID(), \dash\request::post('dnsid'));
 		}
 
 
@@ -45,7 +44,7 @@ class model
 
 		if(\dash\request::post('removedomain') === 'removedomain')
 		{
-			$result = \lib\app\business_domain\remove::remove(\dash\data::domainID());
+			$result = \lib\app\business_domain\remove::remove_by_user(\dash\data::domainID());
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::that());
