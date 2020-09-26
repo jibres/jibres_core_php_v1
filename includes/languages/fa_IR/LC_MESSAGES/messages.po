@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-09-25 16:27+0330\n"
-"PO-Revision-Date: 2020-09-25 16:30+0330\n"
+"POT-Creation-Date: 2020-09-26 17:29+0330\n"
+"PO-Revision-Date: 2020-09-26 17:32+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -91,9 +91,9 @@ msgstr "مزایای جیبرس"
 msgid "What can you do with Jibres?"
 msgstr "جیبرس چه کارهایی میتواند انجام دهد؟"
 
-#: content/blog/display.php:35 content_a/setting/domain-old/display.php:74
-#: content_my/business/home/display_pwa.php:54 content_my/business/home/display_pwa.php:60
-#: content_my/business/home/display_pwa.php:66 content_my/business/home/display_pwa.php:72
+#: content/blog/display.php:35 content_my/business/home/display_pwa.php:54
+#: content_my/business/home/display_pwa.php:60 content_my/business/home/display_pwa.php:66
+#: content_my/business/home/display_pwa.php:72
 #: content_my/business/home/display_site.php:135
 #: content_my/business/home/display_site.php:141
 #: content_my/business/home/display_site.php:147
@@ -145,7 +145,7 @@ msgstr ""
 #: content_love/gift/home/giftcard.php:24 content_love/gift/home/giftcard.php:27
 #: content_r10/android/intro/view.php:29 content_r10/android/splash/view.php:13
 #: content_r10/android/view.php:12 content_su/update/display.php:32
-#: content_su/update/display.php:88 content_v2/android/splash/view.php:20
+#: content_su/update/display.php:89 content_v2/android/splash/view.php:20
 #: content_v2/android/view.php:26 dash/engine/view.php:15
 #: dash/layout/admin/admin-sidebar.php:123 dash/layout/admin/admin-sidebar.php:124
 #: dash/layout/schema.php:5 dash/utility/sms.php:43 includes/languages/trans_static.php:7
@@ -1015,7 +1015,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_support/ticket/contact_ticket/model.php:126
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:355
-#: lib/store.php:513
+#: lib/store.php:523
 msgid "Email"
 msgstr "رایانامه"
 
@@ -1313,20 +1313,20 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_crm/--log/home/display.php:50 content_crm/--log/home/display.php:55
 #: content_crm/member/home/display.php:57 content_crm/member/home/display.php:58
 #: content_crm/transactions/display.php:46 content_love/application/home/display.php:58
-#: content_love/application/home/display.php:59 content_love/business/domain/display.php:6
-#: content_love/business/domain/display.php:8 content_love/domain/all/display.php:44
-#: content_love/domain/all/display.php:45 content_love/domain/billing/display.php:72
-#: content_love/domain/fetch/display.php:44 content_love/domain/fetch/display.php:45
-#: content_love/domain/irnic/display.php:40 content_love/domain/irnic/display.php:41
-#: content_love/domain/log/display.php:78 content_love/domain/log/display.php:79
-#: content_love/domain/onlineniclog/display.php:78
+#: content_love/application/home/display.php:59
+#: content_love/business/domain/alllist/display.php:6
+#: content_love/business/domain/alllist/display.php:8
+#: content_love/domain/all/display.php:44 content_love/domain/all/display.php:45
+#: content_love/domain/billing/display.php:72 content_love/domain/fetch/display.php:44
+#: content_love/domain/fetch/display.php:45 content_love/domain/irnic/display.php:40
+#: content_love/domain/irnic/display.php:41 content_love/domain/log/display.php:78
+#: content_love/domain/log/display.php:79 content_love/domain/onlineniclog/display.php:78
 #: content_love/domain/onlineniclog/display.php:79 content_love/gift/all/display.php:44
 #: content_love/gift/all/display.php:45 content_love/gift/usage/display.php:44
 #: content_love/gift/usage/display.php:45 content_love/notiflog/display.php:69
 #: content_love/notiflog/display.php:70 content_love/store/analytics/display.php:6
 #: content_love/store/analytics/display.php:8 content_love/store/display.php:7
-#: content_love/store/display.php:9 content_love/store/domain/display.php:6
-#: content_love/store/domain/display.php:8 content_love/transactions/display.php:46
+#: content_love/store/display.php:9 content_love/transactions/display.php:46
 #: content_my/domain/buy/display-search.php:12 content_my/domain/irnic/display.php:40
 #: content_my/domain/irnic/display.php:41 content_my/domain/predict/display.php:60
 #: content_my/domain/predict/display.php:61 content_my/domain/search/display.php:90
@@ -2439,12 +2439,12 @@ msgid "Developers API"
 msgstr "رابط برنامه‌نویسی توسعه‌دهندگان API"
 
 #: content/home/layout/footer.php:79 content/home/layout/pwa-footer.php:79
-#: content_a/setting/domain-old/display.php:27 content_my/domain/home/view.php:9
-#: content_my/home/display_pwa.php:7 dash/panel.php:74
+#: content_my/domain/home/view.php:9 content_my/home/display_pwa.php:7 dash/panel.php:74
 msgid "Domain Center"
 msgstr "مرکز دامنه"
 
 #: content/home/layout/footer.php:88 content/home/layout/pwa-footer.php:88
+#: content_a/setting/domain/add/display.php:5
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:19
 msgid "Buy new domain"
 msgstr "خرید دامنه جدید"
@@ -2637,21 +2637,20 @@ msgstr "هزار تومان"
 #: content_love/domain/irnic/view.php:12 content_love/domain/log/view.php:12
 #: content_love/domain/nicdetail/view.php:12 content_love/domain/onlineniclog/view.php:12
 #: content_love/domain/polls/view.php:12 content_love/gift/all/view.php:12
-#: content_love/store/domain/view.php:19 content_love/store/view.php:12
-#: content_love/transactions/view.php:13 content_my/bill/view.php:12
-#: content_my/business/home/view.php:12 content_my/domain/buy/view.php:13
-#: content_my/domain/history/view.php:12 content_my/domain/home/view.php:13
-#: content_my/domain/option/view.php:12 content_my/domain/payments/view.php:12
-#: content_my/domain/predict/view.php:12 content_my/domain/renew/view.php:12
-#: content_my/domain/search/view.php:12 content_my/domain/short/view.php:12
-#: content_my/domain/transfer/view.php:12 content_my/domain/whois/view.php:14
-#: content_my/ipg/gateway/view.php:13 content_my/ipg/home/view.php:14
-#: content_my/ipg/iban/view.php:13 content_my/ipg/profile/view.php:13
-#: content_my/ipg/setup/gateway/view.php:13 content_my/ipg/setup/iban/view.php:13
-#: content_my/ipg/setup/profile/view.php:13 content_my/ipg/setup/type/view.php:13
-#: content_my/ipg/setup/upload/view.php:13 content_my/ipg/upload/view.php:13
-#: content_my/ipg/wallet/view.php:13 content_my/wallet/view.php:12
-#: content_pardakhtyar/customer/dashboard/view.php:9
+#: content_love/store/view.php:12 content_love/transactions/view.php:13
+#: content_my/bill/view.php:12 content_my/business/home/view.php:12
+#: content_my/domain/buy/view.php:13 content_my/domain/history/view.php:12
+#: content_my/domain/home/view.php:13 content_my/domain/option/view.php:12
+#: content_my/domain/payments/view.php:12 content_my/domain/predict/view.php:12
+#: content_my/domain/renew/view.php:12 content_my/domain/search/view.php:12
+#: content_my/domain/short/view.php:12 content_my/domain/transfer/view.php:12
+#: content_my/domain/whois/view.php:14 content_my/ipg/gateway/view.php:13
+#: content_my/ipg/home/view.php:14 content_my/ipg/iban/view.php:13
+#: content_my/ipg/profile/view.php:13 content_my/ipg/setup/gateway/view.php:13
+#: content_my/ipg/setup/iban/view.php:13 content_my/ipg/setup/profile/view.php:13
+#: content_my/ipg/setup/type/view.php:13 content_my/ipg/setup/upload/view.php:13
+#: content_my/ipg/upload/view.php:13 content_my/ipg/wallet/view.php:13
+#: content_my/wallet/view.php:12 content_pardakhtyar/customer/dashboard/view.php:9
 #: content_pardakhtyar/customer/home/display.php:70 content_pardakhtyar/home/view.php:9
 #: content_pardakhtyar/shop/home/display.php:70 dash/layout/admin/sidebar/sidebar-a.php:4
 #: dash/layout/admin/sidebar/sidebar-domain.php:4
@@ -3697,10 +3696,9 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/products/share/view.php:22 content_a/products/sharetext/view.php:22
 #: content_a/products/shipping/view.php:29 content_a/products/status/view.php:22
 #: content_a/products/variants/view.php:22 content_a/setting/company/view.php:11
-#: content_a/setting/domain-old/view.php:11 content_a/setting/domain/add/view.php:11
+#: content_a/setting/domain/add/view.php:11
 #: content_a/setting/domain/existdomain/view.php:11
-#: content_a/setting/domain/manage/view.php:11
-#: content_a/setting/domain/subdomain/view.php:11 content_a/setting/domain/view.php:11
+#: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/view.php:11
 #: content_a/setting/fund/view.php:16 content_a/setting/googleanalytics/view.php:13
 #: content_a/setting/logo/view.php:15 content_a/setting/payment/bank/view.php:11
 #: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
@@ -3727,22 +3725,23 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_crm/member/home/view.php:32 content_enter/pass/change/display.php:21
 #: content_enter/pass/view.php:37 content_enter/twostep/display.php:29
 #: content_enter/verify/view.php:24 content_enter/verify/view.php:73
-#: content_love/application/edit/view.php:12 content_love/gift/create/add/view.php:12
-#: content_love/gift/create/code/view.php:12 content_love/gift/create/message/view.php:12
-#: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
+#: content_love/application/edit/view.php:12
+#: content_love/business/domain/alllist/view.php:13
+#: content_love/gift/create/add/view.php:12 content_love/gift/create/code/view.php:12
+#: content_love/gift/create/message/view.php:12 content_love/gift/create/price/view.php:12
+#: content_love/gift/create/review/view.php:12
 #: content_love/gift/create/setting/view.php:12 content_love/gift/create/usage/view.php:12
 #: content_love/gift/edit/view.php:12 content_love/gift/home/view.php:12
 #: content_love/gift/usage/view.php:12 content_love/gift/view/view.php:12
-#: content_love/notiflog/view.php:12 content_love/store/domain/detail/view.php:16
-#: content_my/business/error/view.php:23 content_my/business/start/display.php:36
-#: content_my/domain/irnic/add/view.php:16 content_my/domain/irnic/edit/view.php:14
-#: content_my/ipg/iban/add/view.php:12 content_my/ipg/wallet/add/view.php:12
-#: content_pay/home/display.php:168 content_su/backup/display.php:9
-#: content_su/log/display.php:20 content_su/nano/display.php:5
-#: content_su/smsclient/edit/view.php:9 content_su/smsclient/home/view.php:9
-#: content_su/tempfile/display.php:21 content_support/home/view.php:74
-#: content_support/message/edit/view.php:19 content_support/message/view.php:38
-#: content_v2/app/view.php:142
+#: content_love/notiflog/view.php:12 content_my/business/error/view.php:23
+#: content_my/business/start/display.php:36 content_my/domain/irnic/add/view.php:16
+#: content_my/domain/irnic/edit/view.php:14 content_my/ipg/iban/add/view.php:12
+#: content_my/ipg/wallet/add/view.php:12 content_pay/home/display.php:168
+#: content_su/backup/display.php:9 content_su/log/display.php:20
+#: content_su/nano/display.php:5 content_su/smsclient/edit/view.php:9
+#: content_su/smsclient/home/view.php:9 content_su/tempfile/display.php:24
+#: content_support/home/view.php:74 content_support/message/edit/view.php:19
+#: content_support/message/view.php:38 content_v2/app/view.php:142
 msgid "Back"
 msgstr "بازگشت"
 
@@ -3850,21 +3849,18 @@ msgstr "بفروش و لذت ببر"
 msgid "World #1 Financial Platform."
 msgstr "پلتفرم مالی شماره یک جهان."
 
-#: content/whois/display.php:7 content_a/setting/domain-old/view.php:8
-#: content_a/setting/domain/existdomain/display.php:12 content_a/setting/domain/view.php:8
-#: content_love/business/domain/add/display.php:11
-#: content_love/business/domain/display.php:22 content_love/domain/all/display.php:60
-#: content_love/domain/billing/display.php:89 content_love/domain/detail/display.php:9
-#: content_love/domain/domaincheck/display.php:5
+#: content/whois/display.php:7 content_a/setting/domain/existdomain/display.php:12
+#: content_a/setting/domain/view.php:8 content_love/business/domain/add/display.php:11
+#: content_love/business/domain/alllist/display.php:22
+#: content_love/domain/all/display.php:60 content_love/domain/billing/display.php:89
+#: content_love/domain/detail/display.php:9 content_love/domain/domaincheck/display.php:5
 #: content_love/domain/domaininfo/display.php:5 content_love/domain/fetch/display.php:60
 #: content_love/domain/log/display.php:94 content_love/domain/log/view/display.php:33
 #: content_love/domain/onlineniclog/display.php:94
 #: content_love/domain/onlineniclog/view/display.php:23
-#: content_love/domain/setting/display.php:13
-#: content_love/store/domain/detail/display.php:8 content_love/store/domain/display.php:18
-#: content_my/domain/payments/display.php:9 content_my/domain/predict/display.php:75
-#: content_my/domain/renew/display.php:11 content_my/domain/renew/display.php:37
-#: content_my/domain/search/display-imported.php:8
+#: content_love/domain/setting/display.php:13 content_my/domain/payments/display.php:9
+#: content_my/domain/predict/display.php:75 content_my/domain/renew/display.php:11
+#: content_my/domain/renew/display.php:37 content_my/domain/search/display-imported.php:8
 #: content_my/domain/search/display-maybemydomain.php:8
 #: content_my/domain/search/display-mydomain.php:8
 #: content_my/domain/setting/display.php:11 content_my/domain/transfer/display.php:11
@@ -4092,22 +4088,20 @@ msgstr "غیرفعال"
 #: content_a/products/comment/edit/display.php:28
 #: content_a/products/edit/block/sidebar-menu.php:59
 #: content_a/products/export/display.php:57 content_a/products/status/view.php:18
-#: content_a/setting/domain/manage/display.php:91 content_business/orders/display.php:21
+#: content_a/setting/domain/manage/display.php:90 content_business/orders/display.php:21
 #: content_cms/comments/edit/display.php:41 content_cms/comments/home/display.php:84
 #: content_cms/posts/edit/display.php:604 content_cms/posts/home/display.php:101
 #: content_cms/terms/display.php:107 content_cms/terms/display.php:222
 #: content_cms/terms/display.php:239 content_crm/member/home/display.php:129
 #: content_crm/member/security/display.php:76 content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
+#: content_love/business/domain/alllist/display.php:23
 #: content_love/business/domain/detail/display.php:17
-#: content_love/business/domain/display.php:23
 #: content_love/business/domain/dns/display.php:75
 #: content_love/domain/fetch/display.php:65 content_love/domain/setting/display.php:120
 #: content_love/domain/setting/display.php:274 content_love/domain/setting/display.php:311
 #: content_love/gift/all/display.php:62 content_love/gift/create/review/display.php:33
 #: content_love/gift/edit/display.php:74 content_love/gift/view/display.php:30
-#: content_love/store/domain/detail/display.php:14
-#: content_love/store/domain/display.php:23
 #: content_my/domain/search/display-maybemydomain.php:9
 #: content_my/domain/search/display-mydomain.php:9
 #: content_su/smsclient/home/display.php:16 content_support/ticket/show/chatList.php:20
@@ -4181,8 +4175,8 @@ msgstr "ویرایش"
 #: content_a/company/display.php:122 content_a/form/analytics/filter/display.php:34
 #: content_a/form/item/choice/display.php:32 content_a/products/bullet/display.php:28
 #: content_a/products/property/display.php:106 content_a/products/tag/display.php:27
-#: content_a/setting/domain-old/display.php:82 content_a/setting/fund/display.php:40
-#: content_a/setting/pcpos/display.php:161 content_a/setting/staticfile/display.php:36
+#: content_a/setting/fund/display.php:40 content_a/setting/pcpos/display.php:161
+#: content_a/setting/staticfile/display.php:36
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:37
@@ -4298,9 +4292,9 @@ msgstr "ماهیت گروه"
 #: content_crm/--log/home/logTable.php:9 content_crm/member/billing/display.php:33
 #: content_crm/member/billing/display.php:71 content_crm/member/home/display.php:83
 #: content_crm/transactions/display.php:72 content_crm/transactions/display.php:103
-#: content_love/business/domain/display.php:30 content_love/store/domain/display.php:27
-#: content_pay/home/display.php:271 content_su/apilog/home/display.php:103
-#: content_su/smsclient/home/display.php:52 includes/languages/trans_static.php:706
+#: content_love/business/domain/alllist/display.php:30 content_pay/home/display.php:271
+#: content_su/apilog/home/display.php:103 content_su/smsclient/home/display.php:52
+#: includes/languages/trans_static.php:706
 msgid "Detail"
 msgstr "جزئیات"
 
@@ -5208,14 +5202,14 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_a/products/comment/view.php:58 content_a/products/home/view.php:92
 #: content_a/setting/domain/view.php:50 content_business/search/view.php:39
 #: content_cms/terms/display.php:229 content_love/application/home/view.php:48
-#: content_love/business/domain/view.php:48 content_love/domain/all/view.php:41
+#: content_love/business/domain/alllist/view.php:44 content_love/domain/all/view.php:41
 #: content_love/domain/fetch/view.php:48 content_love/domain/home/view.php:45
 #: content_love/domain/irnic/view.php:41 content_love/domain/log/view.php:47
 #: content_love/domain/onlineniclog/view.php:47 content_love/gift/all/view.php:39
 #: content_love/gift/usage/view.php:39 content_love/store/analytics/view.php:36
-#: content_love/store/domain/view.php:40 content_love/store/view.php:44
-#: content_my/domain/irnic/view.php:55 content_my/domain/predict/view.php:52
-#: content_my/domain/search/view.php:83 includes/languages/trans_static.php:594
+#: content_love/store/view.php:44 content_my/domain/irnic/view.php:55
+#: content_my/domain/predict/view.php:52 content_my/domain/search/view.php:83
+#: includes/languages/trans_static.php:594
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -5627,11 +5621,12 @@ msgstr "مایکت"
 #: content_crm/member/identification/display.php:35
 #: content_crm/member/legal/display.php:43 content_crm/member/legal/display.php:160
 #: content_crm/member/security/display.php:103 content_crm/member/social/display.php:58
-#: content_crm/permission/add/display.php:65 content_my/domain/option/display.php:92
-#: content_su/backup/display.php:63 content_su/cronjob/display.php:16
-#: content_su/nano/display.php:12 content_support/message/edit/display.php:18
-#: content_support/ticket/show/chatList.php:58 dash/layout/admin/admin-titlebox.php:67
-#: dash/layout/pwa/pwa-header.php:93
+#: content_crm/permission/add/display.php:65
+#: content_love/business/domain/setting/display.php:27
+#: content_my/domain/option/display.php:92 content_su/backup/display.php:63
+#: content_su/cronjob/display.php:16 content_su/nano/display.php:12
+#: content_support/message/edit/display.php:18 content_support/ticket/show/chatList.php:58
+#: dash/layout/admin/admin-titlebox.php:67 dash/layout/pwa/pwa-header.php:93
 msgid "Save"
 msgstr "ذخیره"
 
@@ -6294,10 +6289,9 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/pricehistory/view.php:12 content_a/products/tag/view.php:12
 #: content_a/report/products/view.php:10 content_a/report/productvalue/view.php:10
 #: content_a/setting/accounting/view.php:10 content_a/setting/address/view.php:11
-#: content_a/setting/cart/view.php:11 content_a/setting/domain-old/view.php:8
-#: content_a/setting/domain/add/view.php:8 content_a/setting/domain/existdomain/view.php:8
-#: content_a/setting/domain/manage/view.php:8
-#: content_a/setting/domain/subdomain/view.php:8 content_a/setting/domain/view.php:8
+#: content_a/setting/cart/view.php:11 content_a/setting/domain/add/view.php:8
+#: content_a/setting/domain/existdomain/view.php:8
+#: content_a/setting/domain/manage/view.php:8 content_a/setting/domain/view.php:8
 #: content_a/setting/fund/view.php:8 content_a/setting/general/lang/view.php:8
 #: content_a/setting/general/lang/view.php:12 content_a/setting/general/nosale/view.php:8
 #: content_a/setting/general/nosale/view.php:11 content_a/setting/general/title/view.php:8
@@ -6310,8 +6304,7 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/sms/kavenegar/view.php:11 content_a/setting/social/view.php:8
 #: content_a/setting/staticfile/view.php:8 content_a/setting/telegram/view.php:10
 #: content_a/units/view.php:11 content_love/business/domain/pageStep.php:23
-#: content_love/gift/create/stepGuide.php:93
-#: content_love/store/domain/detail/display.php:29 content_my/domain/irnic/view.php:16
+#: content_love/gift/create/stepGuide.php:93 content_my/domain/irnic/view.php:16
 #: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
 #: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
 #: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:201
@@ -6332,7 +6325,7 @@ msgstr ""
 #: content_a/products/property/display.php:38 content_a/products/property/display.php:130
 #: content_a/setting/domain/manage/display.php:45
 #: content_a/setting/domain/manage/display.php:47
-#: content_a/setting/domain/manage/display.php:88
+#: content_a/setting/domain/manage/display.php:87
 #: content_a/website/productline/display.php:18 content_cms/attachment/home/display.php:80
 #: content_cms/terms/display.php:101 content_love/business/domain/dns/display.php:13
 #: content_love/business/domain/dns/display.php:15
@@ -7102,7 +7095,7 @@ msgstr "کوچکتر از"
 #: content_a/form/analytics/addcondition/display-condition.php:29
 #: content_a/products/property/display.php:49 content_a/products/property/display.php:131
 #: content_a/setting/domain/manage/display.php:70
-#: content_a/setting/domain/manage/display.php:90 content_account/billing/display.php:54
+#: content_a/setting/domain/manage/display.php:89 content_account/billing/display.php:54
 #: content_crm/member/billing/display.php:25 content_crm/member/glance/display.php:27
 #: content_love/business/domain/dns/display.php:38
 #: content_love/business/domain/dns/display.php:74
@@ -7871,7 +7864,7 @@ msgstr "کوئری آدرس"
 msgid "datecreated"
 msgstr "تاریخ‌ایجاد"
 
-#: content_a/notiflog/view.php:9 content_love/home/display.php:82
+#: content_a/notiflog/view.php:9 content_love/home/display.php:74
 #: content_love/notiflog/view.php:9
 msgid "Notif log"
 msgstr "لاگ اطلاع‌رسانی"
@@ -8094,7 +8087,6 @@ msgstr "نمایش آمار"
 #: content_a/pricehistory/display.php:35 content_crm/--log/home/logTable.php:91
 #: content_love/business/domain/detail/display.php:18
 #: content_love/domain/setting/display.php:276
-#: content_love/store/domain/detail/display.php:10
 #: content_my/domain/search/display-imported.php:9
 msgid "Date created"
 msgstr "تاریخ ثبت"
@@ -8102,8 +8094,6 @@ msgstr "تاریخ ثبت"
 #: content_a/pricehistory/display.php:36 content_crm/--log/home/logTable.php:98
 #: content_love/domain/all/display.php:64 content_love/domain/fetch/display.php:64
 #: content_love/domain/setting/display.php:277
-#: content_love/store/domain/detail/display.php:11
-#: content_love/store/domain/display.php:25
 #: content_my/domain/search/display-maybemydomain.php:11
 #: content_my/domain/search/display-mydomain.php:11
 msgid "Date modified"
@@ -8160,7 +8150,7 @@ msgstr "حجم فایل"
 
 #: content_a/products/cartlimit/display.php:17
 #: content_a/products/organization/display.php:88 content_su/backup/display.php:117
-#: content_su/tempfile/display.php:31 dash/upload/size.php:88 dash/utility/human.php:104
+#: content_su/tempfile/display.php:34 dash/upload/size.php:88 dash/utility/human.php:104
 #: includes/languages/trans_static_public.php:45
 msgid "MB"
 msgstr "مگابایت"
@@ -8240,8 +8230,9 @@ msgstr "حذف شده"
 #: content_cms/posts/edit/controller.php:14 content_my/domain/irnic/edit/controller.php:23
 #: content_support/message/edit/view.php:26 content_support/ticket/show/model.php:13
 #: content_support/ticket/show/view.php:44 dash/app/file.php:60 dash/app/posts.php:446
-#: lib/app/business_domain/dns.php:115 lib/app/business_domain/dns.php:123
-#: lib/app/business_domain/dns.php:280 lib/app/business_domain/dns.php:288
+#: lib/app/business_domain/dns.php:129 lib/app/business_domain/dns.php:137
+#: lib/app/business_domain/dns.php:179 lib/app/business_domain/dns.php:187
+#: lib/app/business_domain/dns.php:344 lib/app/business_domain/dns.php:352
 #: lib/app/category/edit.php:16 lib/app/export/download.php:30
 #: lib/app/form/answer/remove.php:12 lib/app/form/choice/get.php:23
 #: lib/app/form/filter/get.php:23 lib/app/form/form/get.php:21
@@ -9408,77 +9399,19 @@ msgstr "متن"
 msgid "Store legal information"
 msgstr "اطلاعات حقوقی فروشگاه"
 
-#: content_a/setting/domain-old/display.php:19
-#: content_a/setting/domain/existdomain/display.php:6
-#: content_a/website/home/display.php:85
-msgid "Connect store to your domain"
-msgstr "اتصال دامنه اختصاصی شما به فروشگاه"
-
-#: content_a/setting/domain-old/display.php:22
-msgid ""
-"You can connect one or more domains to your business. After connecting the domains, "
-"select one of them as the primary domain."
-msgstr ""
-"شما می‌توانید یک یا چند دامنه اختصاصی به بیزینس خود متصل کنید. بعد از اتصال دامنه لطفا "
-"یکی را به عنوان دامنه اصلی انتخاب کنید."
-
-#: content_a/setting/domain-old/display.php:26
-msgid "If you want to register new domain, Come here"
-msgstr "اگر می‌‌خواهید دامنه جدیدی سفارش دهید، به اینجا بیایید"
-
-#: content_a/setting/domain-old/display.php:33
-msgid "Connect new domain"
-msgstr "اتصال بیزینس به دامنه اختصاصی"
-
-#: content_a/setting/domain-old/display.php:40
-msgid "Connect"
-msgstr "اتصال"
-
-#: content_a/setting/domain-old/display.php:50
-msgid "Connected domain"
-msgstr "دامنه‌های متصل شده"
-
-#: content_a/setting/domain-old/display.php:64
-msgid "Waiting to check domain"
-msgstr "در انتظار بررسی دامنه"
-
-#: content_a/setting/domain-old/display.php:66
-msgid "Domain successfully connected"
-msgstr "دامنه با موفقیت متصل شد"
-
-#: content_a/setting/domain-old/display.php:68
-msgid "Domain connection failed"
-msgstr "اتصال دامنه با خطا مواجه شده است"
-
-#: content_a/setting/domain-old/display.php:70
-msgid "Pending connect domain"
-msgstr "در انتظار اتصال دامنه"
-
-#: content_a/setting/domain-old/display.php:87 content_love/store/domain/display.php:22
-msgid "Primary domain"
-msgstr "دامنه اصلی"
-
-#: content_a/setting/domain-old/display.php:89
-msgid "Set as primary"
-msgstr "تنظیم به عنوان دامنه اصلی"
-
-#: content_a/setting/domain/add/display.php:5
-msgid "Register new domain"
-msgstr "ثبت‌ دامنه جدید"
-
 #: content_a/setting/domain/add/display.php:14
 msgid "Connect existing domain"
 msgstr "اتصال به دامنه از پیش خریداری شده"
 
-#: content_a/setting/domain/add/display.php:15
-msgid "Connect a subdomain"
-msgstr "اتصال به زیردامنه"
-
 #: content_a/setting/domain/add/view.php:8 content_a/setting/domain/existdomain/view.php:8
-#: content_a/setting/domain/subdomain/view.php:8 content_a/setting/domain/view.php:32
-#: content_love/business/domain/add/view.php:9
+#: content_a/setting/domain/view.php:32 content_love/business/domain/add/view.php:9
 msgid "Add new domain"
 msgstr "افزودن دامنه جدید"
+
+#: content_a/setting/domain/existdomain/display.php:6
+#: content_a/website/home/display.php:85
+msgid "Connect store to your domain"
+msgstr "اتصال دامنه اختصاصی شما به فروشگاه"
 
 #: content_a/setting/domain/existdomain/display.php:9
 msgid "You can connect one or more domains to your business. After connecting the domains"
@@ -9519,7 +9452,7 @@ msgid "DNS records"
 msgstr "رکورد‌های دی‌ان‌اس"
 
 #: content_a/setting/domain/manage/display.php:64
-#: content_a/setting/domain/manage/display.php:89
+#: content_a/setting/domain/manage/display.php:88
 #: content_love/business/domain/dns/display.php:32
 #: content_love/business/domain/dns/display.php:73
 #: includes/languages/trans_static_public.php:111
@@ -9531,34 +9464,20 @@ msgstr "کلید"
 msgid "Add DNS"
 msgstr "افزودن دی‌ان‌اس"
 
-#: content_a/setting/domain/manage/display.php:98
-#: content_love/business/domain/dns/display.php:82
-msgid "Verified"
-msgstr "تایید شده"
-
-#: content_a/setting/domain/manage/display.php:98
-#: content_love/business/domain/dns/display.php:82
-msgid "Not verify"
-msgstr "تایید نشده است"
-
-#: content_a/setting/domain/manage/display.php:115
+#: content_a/setting/domain/manage/display.php:118
 msgid "Remove domain from your business"
 msgstr "حذف دامنه از بیزینس"
 
-#: content_a/setting/domain/manage/display.php:116
+#: content_a/setting/domain/manage/display.php:119
 msgid ""
 "If you sure to want to remove this domain from your business click the below button"
 msgstr "اگر از حذف این دامنه از بیزینس خود مطمئن هستید روی دکمه زیر کلیک کنید"
 
-#: content_a/setting/domain/manage/display.php:120
-#: content_love/business/domain/setting/display.php:89
+#: content_a/setting/domain/manage/display.php:123
+#: content_love/business/domain/setting/display.php:121
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:16
 msgid "Remove domain"
 msgstr "حذف دامنه"
-
-#: content_a/setting/domain/subdomain/display.php:5
-msgid "To connect a subdomain to your business you must set a A record on you Domain"
-msgstr "برای اتصال یک زیردامنه به بیزینس، شما باید یک ای رکورد برای دامنه خود ثبت کنید"
 
 #: content_a/setting/fund/display.php:7
 msgid "Edit fund"
@@ -10412,7 +10331,7 @@ msgstr "این گزینه‌ها در وب‌سایت شما استفاده خو
 #: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
 #: content_crm/member/social/display.php:27 content_crm/member/social/display.php:30
-#: lib/store.php:506
+#: lib/store.php:516
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -10425,7 +10344,7 @@ msgstr "کانال"
 msgid "Telegram Admin user"
 msgstr "نام کاربری ادمین تلگرام"
 
-#: content_a/setting/social/display.php:38 lib/store.php:508
+#: content_a/setting/social/display.php:38 lib/store.php:518
 msgid "Youtube"
 msgstr "یوتیوب"
 
@@ -10433,35 +10352,35 @@ msgstr "یوتیوب"
 #: content_account/my/social/display.php:27 content_account/my/social/display.php:30
 #: content_crm/member/social/display.php:40 content_crm/member/social/display.php:43
 #: dash/engine/static_files.php:28 dash/engine/static_files.php:37
-#: dash/engine/static_files.php:47 lib/store.php:509
+#: dash/engine/static_files.php:47 lib/store.php:519
 msgid "Twitter"
 msgstr "توییتر"
 
 #: content_a/setting/social/display.php:52 content_account/my/home/display.php:175
 #: content_account/my/social/display.php:34 content_account/my/social/display.php:37
 #: content_crm/member/social/display.php:46 content_crm/member/social/display.php:49
-#: includes/languages/trans_static_public.php:251 lib/store.php:510
+#: includes/languages/trans_static_public.php:251 lib/store.php:520
 msgid "Linkedin"
 msgstr "لینکدین"
 
 #: content_a/setting/social/display.php:59 dash/engine/static_files.php:29
-#: includes/languages/trans_static_public.php:250 lib/store.php:511
+#: includes/languages/trans_static_public.php:250 lib/store.php:521
 msgid "Github"
 msgstr "گیت‌هاب"
 
 #: content_a/setting/social/display.php:66 content_account/my/home/display.php:165
 #: content_account/my/social/display.php:20 content_account/my/social/display.php:23
 #: content_crm/member/social/display.php:34 content_crm/member/social/display.php:37
-#: lib/store.php:512
+#: lib/store.php:522
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
 #: content_a/setting/social/display.php:80 includes/languages/trans_static_public.php:252
-#: lib/store.php:514
+#: lib/store.php:524
 msgid "Aparat"
 msgstr "آپارات"
 
-#: content_a/setting/social/display.php:87 lib/store.php:515
+#: content_a/setting/social/display.php:87 lib/store.php:525
 msgid "Eitaa"
 msgstr "ایتا"
 
@@ -13581,7 +13500,7 @@ msgstr "پیام"
 #: content_crm/--log/home/logTable.php:60 content_crm/member/security/display.php:137
 #: content_su/home/display.php:87 content_su/tg/home/view.php:8
 #: content_support/ticket/show/display.php:165 dash/layout/admin/sidebar/sidebar-su.php:27
-#: includes/languages/trans_static.php:626 lib/store.php:507
+#: includes/languages/trans_static.php:626 lib/store.php:517
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -15887,6 +15806,52 @@ msgstr ""
 "دامنه پس از ثبت در لیست قرار خواهد گرفت و مراحل یکی پس از دیگری به ترتیب و به صورت "
 "خودکار تا اتصال نهایی آن به جیبرس طی خواهند شد"
 
+#: content_love/business/domain/alllist/display.php:15
+msgid "No result found"
+msgstr "نتیجه‌ای یافت نشد"
+
+#: content_love/business/domain/alllist/display.php:24
+#: content_love/business/domain/setting/display.php:51
+msgid "Check DNS"
+msgstr "بررسی دی‌ان‌اس"
+
+#: content_love/business/domain/alllist/display.php:25
+msgid "Add to CDN Panel"
+msgstr "به پنل سی‌دی‌ان اضافه شده است"
+
+#: content_love/business/domain/alllist/display.php:26
+#: content_love/business/domain/setting/display.php:89
+msgid "HTTPS"
+msgstr "اچ‌تی‌تی‌پی‌اس"
+
+#: content_love/business/domain/alllist/display.php:27 content_su/log/display.php:25
+#: content_su/log/display.php:55 content_su/log/display.php:86
+#: content_su/log/display.php:117
+msgid "Last modified"
+msgstr "آخرین به‌روزرسانی"
+
+#: content_love/business/domain/alllist/display.php:28
+msgid "Count Log"
+msgstr "تعداد لاگ‌ها"
+
+#: content_love/business/domain/alllist/display.php:29
+msgid "Count DNS"
+msgstr "تعداد دی‌ان‌اس‌ها"
+
+#: content_love/business/domain/alllist/display.php:55
+msgid "Show detail"
+msgstr "نمایش جزئیات"
+
+#: content_love/business/domain/alllist/view.php:9 content_love/business/domain/view.php:9
+#: content_love/home/display.php:85
+msgid "Business domains"
+msgstr "دامنه‌های کسب و کار"
+
+#: content_love/business/domain/alllist/view.php:17
+#: content_love/business/domain/view.php:17
+msgid "Add New domain"
+msgstr "افزودن دامنه جدید"
+
 #: content_love/business/domain/detail/display.php:10
 msgid "This domain connected to Business"
 msgstr "این دامنه به بیزینس متصل شده است"
@@ -15900,52 +15865,53 @@ msgid "This domain is not connected to any business or any domain!"
 msgstr "این دامنه به هیچ فروشگاهی و یا هیچ دامنه‌ای متصل نشده است!"
 
 #: content_love/business/domain/detail/display.php:21
-#: content_love/business/domain/setting/display.php:9
+#: content_love/business/domain/setting/display.php:38
 msgid "DNS Resolved"
 msgstr "دی‌ان‌اس شناسایی شد"
 
 #: content_love/business/domain/detail/display.php:23
-#: content_love/business/domain/setting/display.php:11
+#: content_love/business/domain/setting/display.php:40
 msgid "DNS was set on our DNS record"
 msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم شده است"
 
 #: content_love/business/domain/detail/display.php:25
-#: content_love/business/domain/setting/display.php:13
+#: content_love/business/domain/setting/display.php:42
 msgid "DNS was is not set on our dns record"
 msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم شده است"
 
 #: content_love/business/domain/detail/display.php:28
-#: content_love/business/domain/setting/display.php:16
+#: content_love/business/domain/setting/display.php:45
 msgid "DNS not resolved yet"
 msgstr "دی‌ان‌اس هنوز شناسایی نشده است"
 
 #: content_love/business/domain/detail/display.php:32
-#: content_love/business/domain/setting/display.php:40
+#: content_love/business/domain/display.php:43
+#: content_love/business/domain/setting/display.php:69
 msgid "Added to CDN panel"
 msgstr "به پنل سی‌دی‌ان اضافه شده است"
 
 #: content_love/business/domain/detail/display.php:34
-#: content_love/business/domain/setting/display.php:42
+#: content_love/business/domain/setting/display.php:71
 msgid "Not add to CDN panel yet"
 msgstr "هنوز به پنل سی‌دی‌ان اضافه نشده است"
 
 #: content_love/business/domain/detail/display.php:38
-#: content_love/business/domain/setting/display.php:63
+#: content_love/business/domain/setting/display.php:92
 msgid "Last HTTPS request date"
 msgstr "آخرین زمان ارسال درخواست اچ‌تی‌تی‌پی‌اس"
 
 #: content_love/business/domain/detail/display.php:40
-#: content_love/business/domain/setting/display.php:65
+#: content_love/business/domain/setting/display.php:94
 msgid "Not send HTTPS request to CDN panel yet"
 msgstr "هنوز درخواست اچ‌تی‌تی‌پی‌اس به پنل سی‌دی‌ان ارسال نشده است"
 
 #: content_love/business/domain/detail/display.php:44
-#: content_love/business/domain/setting/display.php:69
+#: content_love/business/domain/setting/display.php:98
 msgid "HTTPS ok"
 msgstr "اچ‌تی‌تی‌پی‌اس کامل است"
 
 #: content_love/business/domain/detail/display.php:46
-#: content_love/business/domain/setting/display.php:71
+#: content_love/business/domain/setting/display.php:100
 msgid "HTTPS not ok!"
 msgstr "اچ‌تی‌تی‌پی‌اس کامل نیست!"
 
@@ -15955,43 +15921,45 @@ msgstr "اچ‌تی‌تی‌پی‌اس کامل نیست!"
 msgid "Domain Detail"
 msgstr "جزئیات دامنه‌"
 
-#: content_love/business/domain/display.php:15
-msgid "No result found"
-msgstr "نتیجه‌ای یافت نشد"
+#: content_love/business/domain/display.php:4
+msgid "All Domains"
+msgstr "همه دامنه‌ها"
 
-#: content_love/business/domain/display.php:24
-#: content_love/business/domain/setting/display.php:22
-msgid "Check DNS"
-msgstr "بررسی دی‌ان‌اس"
+#: content_love/business/domain/display.php:11
+msgid "Connected domains"
+msgstr "دامنه‌های متصل شده"
+
+#: content_love/business/domain/display.php:18
+msgid "Pending domain"
+msgstr "دامنه‌های در انتظار"
 
 #: content_love/business/domain/display.php:25
-msgid "Add to CDN Panel"
-msgstr "به پنل سی‌دی‌ان اضافه شده است"
+msgid "Cancel domain"
+msgstr "دامنه‌های لغو شده"
 
-#: content_love/business/domain/display.php:26
-#: content_love/business/domain/setting/display.php:60
-#: content_love/store/domain/detail/display.php:32
-#: content_love/store/domain/display.php:21
-msgid "HTTPS"
-msgstr "اچ‌تی‌تی‌پی‌اس"
+#: content_love/business/domain/display.php:31
+msgid "Count action"
+msgstr "تعداد اتفاقات"
 
-#: content_love/business/domain/display.php:27 content_su/log/display.php:25
-#: content_su/log/display.php:55 content_su/log/display.php:86
-#: content_su/log/display.php:117
-msgid "Last modified"
-msgstr "آخرین به‌روزرسانی"
+#: content_love/business/domain/display.php:47
+msgid "Not added to CDN panel"
+msgstr "به پنل سی‌دی‌ان اضافه نشده است"
 
-#: content_love/business/domain/display.php:28
-msgid "Count Log"
-msgstr "تعداد لاگ‌ها"
+#: content_love/business/domain/display.php:59
+msgid "DNS resolved"
+msgstr "دی‌ان‌اس شناسایی شده است"
 
-#: content_love/business/domain/display.php:29
-msgid "Count DNS"
-msgstr "تعداد دی‌ان‌اس‌ها"
+#: content_love/business/domain/display.php:65
+msgid "DNS not resolved"
+msgstr "دی‌ان‌اس شناسایی نشده است"
 
-#: content_love/business/domain/display.php:55 content_love/store/domain/display.php:50
-msgid "Show detail"
-msgstr "نمایش جزئیات"
+#: content_love/business/domain/display.php:71
+msgid "HTTPS request"
+msgstr "درخواست اچ‌تی‌تی‌پی‌اس"
+
+#: content_love/business/domain/display.php:77
+msgid "HTTPS OK"
+msgstr "اچ‌تی‌تی‌پی‌اس کامل است"
 
 #: content_love/business/domain/dns/display.php:8
 msgid "Add DNS record"
@@ -16022,6 +15990,14 @@ msgstr "همین الان اضافه کن!"
 msgid "Fetch DNS"
 msgstr "همگام‌سازی دی‌ان‌اس"
 
+#: content_love/business/domain/dns/display.php:82
+msgid "Verified"
+msgstr "تایید شده"
+
+#: content_love/business/domain/dns/display.php:82
+msgid "Not verify"
+msgstr "تایید نشده است"
+
 #: content_love/business/domain/dns/view.php:9
 msgid "Domain DNS Detail"
 msgstr "جزئیات دی‌ان‌اس دامنه"
@@ -16038,45 +16014,48 @@ msgstr "هیچ عملیاتی برای این دامنه ثبت نشده است"
 msgid "DNS Record"
 msgstr "دی‌ان‌اس رکورد"
 
-#: content_love/business/domain/setting/display.php:6
-#: content_love/domain/fetch/display.php:66 content_love/store/domain/display.php:20
+#: content_love/business/domain/setting/display.php:7
+msgid "CDN"
+msgstr "سی‌دی‌ان"
+
+#: content_love/business/domain/setting/display.php:9
+msgid "Change CDN!"
+msgstr "تغییر سی‌دی‌ان!"
+
+#: content_love/business/domain/setting/display.php:35
+#: content_love/domain/fetch/display.php:66
 #: content_my/domain/search/display-maybemydomain.php:12
 #: content_my/domain/search/display-mydomain.php:12
 msgid "DNS"
 msgstr "دی‌ان‌اس"
 
-#: content_love/business/domain/setting/display.php:37
+#: content_love/business/domain/setting/display.php:66
 msgid "CDN panel status"
 msgstr "وضعیت سی‌دی‌ان"
 
-#: content_love/business/domain/setting/display.php:47
+#: content_love/business/domain/setting/display.php:76
 msgid "Add to CDN panel Now!"
 msgstr "هم‌اکنون به پنل سی‌دی‌ان اضافه کن!"
 
-#: content_love/business/domain/setting/display.php:49
+#: content_love/business/domain/setting/display.php:78
 msgid "Remove from CDN panel"
 msgstr "حذف از پنل سی‌دی‌ان"
 
-#: content_love/business/domain/setting/display.php:76
+#: content_love/business/domain/setting/display.php:105
+msgid "Reset HTTPS date"
+msgstr "ریست تاریخ درخواست اچ‌تی‌تی‌پی‌اس"
+
+#: content_love/business/domain/setting/display.php:107
 msgid "Send HTTPS request"
 msgstr "ارسال درخواست اچ‌تی‌تی‌پی‌اس"
 
-#: content_love/business/domain/setting/display.php:86
+#: content_love/business/domain/setting/display.php:118
 msgid "All action, dns record and Domain record of this domain will be removed"
 msgstr "همه لاگ‌ها، دی‌ان‌اس‌ها و خود دامنه به صورت کامل حذف‌ خواهند شد"
 
-#: content_love/business/domain/view.php:9 content_love/home/display.php:93
-msgid "Business domains"
-msgstr "دامنه‌های کسب و کار"
-
-#: content_love/business/domain/view.php:17
-msgid "Add New domain"
-msgstr "افزودن دامنه جدید"
-
-#: content_love/business/home/view.php:9 content_love/store/domain/display.php:19
-#: content_my/home/display_site.php:9 content_su/update/display.php:33
-#: content_su/update/display.php:96 dash/layout/pwa/pwa_menu.php:115
-#: lib/app/log/caller/business/business_createNew.php:19
+#: content_love/business/home/view.php:9 content_my/home/display_site.php:9
+#: content_su/update/display.php:33 content_su/update/display.php:97
+#: dash/layout/pwa/pwa_menu.php:115 lib/app/log/caller/business/business_createNew.php:19
 msgid "Business"
 msgstr "بیزینس"
 
@@ -17166,10 +17145,6 @@ msgstr "کارت‌ هدیه"
 msgid "Transaction"
 msgstr "تراکنش‌"
 
-#: content_love/home/display.php:72 content_love/store/domain/view.php:9
-msgid "Store domains"
-msgstr "دامنه‌های فروشگاه"
-
 #: content_love/home/view.php:9 content_love/view.php:9
 msgid "Jibres Management"
 msgstr "مدیریت جیبرس"
@@ -17209,67 +17184,6 @@ msgstr "مالک"
 #: content_love/store/display.php:23
 msgid "plan"
 msgstr "پلن"
-
-#: content_love/store/domain/detail/display.php:17
-msgid "Set status on ok"
-msgstr "تنظیم وضعیت بر روی اوکی"
-
-#: content_love/store/domain/detail/display.php:18
-msgid "Set status on failed"
-msgstr "تنظیم وضعیت بر روی خطا"
-
-#: content_love/store/domain/detail/display.php:19
-msgid "Set status on pending"
-msgstr "تنظیم وضعیت بر روی درانتظار"
-
-#: content_love/store/domain/detail/display.php:24
-#: content_love/store/domain/display.php:24 content_su/tg/sendmessage/display.php:11
-#: dash/app/log/caller/sendNotifBySms.php:18 dash/app/ticket.php:196
-#: lib/app/form/item/type.php:429
-msgid "Message"
-msgstr "پیام"
-
-#: content_love/store/domain/detail/display.php:31
-msgid "DNS record"
-msgstr "دی‌ان‌اس رکورد"
-
-#: content_love/store/domain/detail/display.php:33
-msgid "Master domain"
-msgstr "دامنه اصلی"
-
-#: content_love/store/domain/detail/display.php:38
-#: content_love/store/domain/detail/display.php:48
-msgid "Cronjob status"
-msgstr "وضعیت کرون‌جاب"
-
-#: content_love/store/domain/detail/display.php:43
-msgid "Cronjob date"
-msgstr "تاریخ کرون‌جاب"
-
-#: content_love/store/domain/detail/display.php:53
-msgid "SSL request date"
-msgstr "تاریخ ارسال درخواست ‌اس‌اس‌ال"
-
-#: content_love/store/domain/detail/display.php:58
-msgid "Raw request"
-msgstr "درخواست خام"
-
-#: content_love/store/domain/detail/display.php:75
-msgid "Send request again"
-msgstr "ارسال مجدد درخواست"
-
-#: content_love/store/domain/detail/display.php:76
-msgid "Reset config"
-msgstr "ریست تنظیمات"
-
-#: content_love/store/domain/detail/view.php:9
-msgid "Store domains detail"
-msgstr "جزئیات دامنه‌های فروشگاه‌ها"
-
-#: content_love/store/domain/display.php:26 content_su/home/display.php:69
-#: content_su/tools/display.php:43 dash/layout/admin/sidebar/sidebar-su.php:9
-msgid "Cronjob"
-msgstr "کرون جاب"
 
 #: content_my/bill/view.php:9 content_my/home/display_pwa.php:46
 msgid "Pay bill"
@@ -19141,6 +19055,11 @@ msgstr "تاریخ و زمان"
 msgid "Server information"
 msgstr "اطلاعات سرور"
 
+#: content_su/home/display.php:69 content_su/tools/display.php:43
+#: dash/layout/admin/sidebar/sidebar-su.php:9
+msgid "Cronjob"
+msgstr "کرون جاب"
+
 #: content_su/home/display.php:72 content_su/tools/display.php:56
 #: dash/layout/admin/sidebar/sidebar-su.php:12
 msgid "Git status"
@@ -19312,6 +19231,18 @@ msgstr "هزینه تماس"
 msgid "Unavailable list"
 msgstr "لیست در دسترس نیست"
 
+#: content_su/tempfile/display.php:2
+msgid "Remove all temp file"
+msgstr "حذف همه‌فایل‌های موقتی"
+
+#: content_su/tempfile/display.php:3
+msgid "Remove now"
+msgstr "همین الان حذف کن"
+
+#: content_su/tempfile/model.php:11
+msgid "Temp file removed"
+msgstr "فایل‌های موقتی حذف شدند"
+
 #: content_su/tg/home/display.php:10 dash/layout/admin/sidebar/sidebar-crm.php:6
 #: dash/panel.php:254 includes/languages/trans_static.php:603
 #: includes/languages/trans_static_public.php:96
@@ -19409,6 +19340,11 @@ msgid ""
 "Unique identifier for the target chat or username of the target channel (in the format "
 "@channelusername)"
 msgstr "شناسه منحصربه‌فرد برای ارسال پیام به شخص یا کانال در فرمت @نام_کاربری"
+
+#: content_su/tg/sendmessage/display.php:11 dash/app/log/caller/sendNotifBySms.php:18
+#: dash/app/ticket.php:196 lib/app/form/item/type.php:429
+msgid "Message"
+msgstr "پیام"
 
 #: content_su/tg/sendmessage/display.php:12 content_su/tg/sendphoto/display.php:25
 msgid "Text of the message to be sent"
@@ -19526,31 +19462,35 @@ msgstr "دریافت مخازن گیت"
 msgid "Pull CDN repository"
 msgstr "به‌روزرسانی مخازن گیت سی‌دی‌ان"
 
-#: content_su/update/display.php:68 content_su/update/display.php:69
+#: content_su/update/display.php:58
+msgid "Temp files"
+msgstr "فایل‌های موقتی"
+
+#: content_su/update/display.php:69 content_su/update/display.php:70
 msgid "Force unlock page"
 msgstr "صفحه بازکردن قفل به اجبار"
 
-#: content_su/update/display.php:83
+#: content_su/update/display.php:84
 msgid "Database need to upgrade"
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد"
 
-#: content_su/update/display.php:89 content_su/update/display.php:97
+#: content_su/update/display.php:90 content_su/update/display.php:98
 msgid "current version"
 msgstr "نسخه فعلی"
 
-#: content_su/update/display.php:90 content_su/update/display.php:98
+#: content_su/update/display.php:91 content_su/update/display.php:99
 msgid "new version"
 msgstr "نسخه جدید"
 
-#: content_su/update/display.php:106
+#: content_su/update/display.php:107
 msgid "Run all step by one click"
 msgstr "اجرای همه مراحل با یک دکمه"
 
-#: content_su/update/display.php:106
+#: content_su/update/display.php:107
 msgid "For when you don't have heavy updates"
 msgstr "برای زمانی که آپدیت سنگین ندارید"
 
-#: content_su/update/display.php:108
+#: content_su/update/display.php:109
 msgid "Update & Upgrade all"
 msgstr "به‌روزرسانی و ارتقاء همه"
 
@@ -20703,7 +20643,7 @@ msgstr "برنامه"
 
 #: dash/app/log_notif/search.php:62 dash/utility/ip.php:263
 #: lib/app/application/queue_search.php:74 lib/app/business_domain/action.php:102
-#: lib/app/business_domain/search.php:70 lib/app/cart/search.php:58
+#: lib/app/business_domain/search.php:72 lib/app/cart/search.php:58
 #: lib/app/domains/search.php:95 lib/app/form/answer/search.php:54
 #: lib/app/form/answerdetail/search.php:114 lib/app/form/form/search.php:53
 #: lib/app/form/view/search.php:54 lib/app/form/view/search_table.php:112
@@ -21889,7 +21829,7 @@ msgstr "سطح دسترسی ذخیره شد"
 msgid "Permission denied"
 msgstr "دسترسی غیر مجاز"
 
-#: dash/redirect_html.php:33
+#: dash/redirect_html.php:21
 msgid "REDIRECTING ..."
 msgstr "در حال انتقال..."
 
@@ -29860,7 +29800,8 @@ msgstr "نمی‌توانیم فایل اپلیکیشن را از سرویس ت�
 msgid "Application splash setting saved"
 msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 
-#: lib/app/business_domain/add.php:38 lib/app/store/domain.php:236
+#: lib/app/business_domain/add.php:38 lib/app/business_domain/add.php:95
+#: lib/app/store/domain.php:236
 msgid "Domain is not valid"
 msgstr "دامنه معتبر نیست"
 
@@ -29868,7 +29809,7 @@ msgstr "دامنه معتبر نیست"
 msgid "Duplicate domain. This domain already added to domains list"
 msgstr "دامنه تکراری است. این دامنه قبلا به سیستم اضافه شده است"
 
-#: lib/app/business_domain/add.php:82
+#: lib/app/business_domain/add.php:123
 msgid "Domain added"
 msgstr "دامنه اضافه شد"
 
@@ -29912,98 +29853,124 @@ msgstr "این دامنه در پنل سی‌دی‌ان درحال استفاد
 msgid "Can not add domain to CND panel"
 msgstr "نمی‌توانیم دامنه را در پنل سی‌دی‌ان ثبت کنیم"
 
-#: lib/app/business_domain/dns.php:36
+#: lib/app/business_domain/dns.php:37
 msgid "Can not get DNS detail!"
 msgstr "نمی‌توانیم جزئیات دی‌ان‌اس را دریافت کنیم!"
 
-#: lib/app/business_domain/dns.php:59
+#: lib/app/business_domain/dns.php:60
 msgid "DNS was set on our default DNS record"
 msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم شده است"
 
-#: lib/app/business_domain/dns.php:63
+#: lib/app/business_domain/dns.php:64
 msgid "DNS detail saved"
 msgstr "جزئیات دی‌ان‌اس ذخیره شد"
 
-#: lib/app/business_domain/dns.php:99
+#: lib/app/business_domain/dns.php:100
+msgid "Pending Delete"
+msgstr "در انتظار حذف"
+
+#: lib/app/business_domain/dns.php:113
 msgid "Connected to Jibres CDN"
 msgstr "به سی‌دی‌ان جیبرس متصل شده است"
 
-#: lib/app/business_domain/dns.php:158
-msgid "We can not find this record on CDN panel"
-msgstr "ما این دی‌ان‌اس رکورد را در پنل سی‌دی‌ان پیدا نکردیم"
-
-#: lib/app/business_domain/dns.php:167
+#: lib/app/business_domain/dns.php:156 lib/app/business_domain/dns.php:231
 msgid "DNS record removed"
 msgstr "رکورد دی‌ان‌اس حذف شد"
 
-#: lib/app/business_domain/dns.php:173 lib/app/business_domain/dns.php:375
+#: lib/app/business_domain/dns.php:162 lib/app/business_domain/dns.php:237
+#: lib/app/business_domain/dns.php:439
 msgid "DNS record and domain is is not match!"
 msgstr "شناسه دی‌ان‌اس و دامنه با هم مطابقت ندارد!"
 
-#: lib/app/business_domain/dns.php:179 lib/app/business_domain/dns.php:381
+#: lib/app/business_domain/dns.php:168 lib/app/business_domain/dns.php:243
+#: lib/app/business_domain/dns.php:445
 msgid "DNS record not found"
 msgstr "رکورد‌ دی‌ان‌اس یافت نشد"
 
-#: lib/app/business_domain/dns.php:239
+#: lib/app/business_domain/dns.php:222
+msgid "We can not find this record on CDN panel"
+msgstr "ما این دی‌ان‌اس رکورد را در پنل سی‌دی‌ان پیدا نکردیم"
+
+#: lib/app/business_domain/dns.php:303
 msgid "Duplicate DNS record"
 msgstr "دی‌ان‌اس تکراری است"
 
-#: lib/app/business_domain/dns.php:269
+#: lib/app/business_domain/dns.php:333
 msgid "DNS record saved"
 msgstr "رکورد‌های دی‌ان‌اس ذخیره شدند"
 
-#: lib/app/business_domain/dns.php:407
+#: lib/app/business_domain/dns.php:471
 msgid "Can not get DNS record from CDN panel"
 msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
 
-#: lib/app/business_domain/dns.php:414
+#: lib/app/business_domain/dns.php:478
 msgid "Can not connect to CDN panel"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
-#: lib/app/business_domain/dns.php:507
+#: lib/app/business_domain/dns.php:571
 msgid "Jibres DNS record added"
 msgstr "رکورد‌های دی‌ان‌اس جیبرس اضافه شدند"
 
-#: lib/app/business_domain/dns.php:619
+#: lib/app/business_domain/dns.php:683
 msgid "Fetch DNS successfully"
 msgstr "دریافت دی‌ان‌اس با موفقیت انجام شد"
 
-#: lib/app/business_domain/dns_broker.php:37
+#: lib/app/business_domain/dns_broker.php:38
 msgid "Can not connect to Check DNS server!"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم!"
 
-#: lib/app/business_domain/edit.php:52
+#: lib/app/business_domain/edit.php:54
 msgid "Your business master domain set"
 msgstr "دامنه اصلی بیزینس شما تنظیم شد"
+
+#: lib/app/business_domain/edit.php:79
+msgid "Domain record updated"
+msgstr "ردیف دامنه به‌روزرسانی شد"
+
+#: lib/app/business_domain/free_domain.php:34
+msgid "This domain was not connected to Jibres"
+msgstr "این دامنه به جیبرس متصل نشده است"
 
 #: lib/app/business_domain/get.php:81
 msgid "Domain detail not found"
 msgstr "جزئیات دامنه یافت نشد"
 
-#: lib/app/business_domain/https.php:44
+#: lib/app/business_domain/https.php:31
+msgid "HTTPS setting reset"
+msgstr "تنظیمات اچ‌تی‌تی‌پی‌اس ریست شد"
+
+#: lib/app/business_domain/https.php:56
 msgid "You can send 1 HTTPS request in every 10 minutes"
 msgstr "شما هر ده دقیقه می‌توانید یک درخواست صدور اچ‌تی‌تی‌پی‌اس صادر کنید"
 
-#: lib/app/business_domain/https.php:52
+#: lib/app/business_domain/https.php:65
 msgid "HTTPS request of this domain is active. Can not send HTTPS request again!"
 msgstr ""
 "هم اکنون این دامنه با پروتکل اچ‌تی‌تی‌پی‌اس در حال کار است. نمی‌توانید درخواست اچ‌تی‌تی‌پی‌اس را "
 "مجددا صادر کنید!"
 
-#: lib/app/business_domain/https.php:87
-msgid "HTTPS request was sended"
-msgstr "درخواست اچ‌تی‌تی‌پی‌اس ارسال شده است"
+#: lib/app/business_domain/https.php:80
+msgid "Domain DNS is not active on CDN panel"
+msgstr "دی‌ان‌اس‌های این دامنه در پنل سی‌دی‌ان فعال نیستند"
 
-#: lib/app/business_domain/https.php:97
+#: lib/app/business_domain/https.php:87
+msgid "Can not get Domain DNS from CDN panel"
+msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
+
+#: lib/app/business_domain/https.php:111
 msgid "HTTPS request is OK"
 msgstr "درخواست اچ‌تی‌تی‌پی‌اس کامل شده است"
 
-#: lib/app/business_domain/https.php:111
+#: lib/app/business_domain/https.php:131
 msgid "Can not connect to CDN service"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
-#: lib/app/business_domain/remove.php:20 lib/app/nic_domain/edit.php:441
-#: lib/app/nic_domain/remove.php:37
+#: lib/app/business_domain/https.php:159
+msgid "HTTPS request was sended"
+msgstr "درخواست اچ‌تی‌تی‌پی‌اس ارسال شده است"
+
+#: lib/app/business_domain/remove.php:27 lib/app/business_domain/remove.php:45
+#: lib/app/nic_domain/edit.php:441 lib/app/nic_domain/remove.php:37
 msgid "Domain removed"
 msgstr "دامنه حذف شد"
 
@@ -34049,11 +34016,87 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid ""
+#~ "You can connect one or more domains to your business. After connecting the domains, "
+#~ "select one of them as the primary domain."
+#~ msgstr ""
+#~ "شما می‌توانید یک یا چند دامنه اختصاصی به بیزینس خود متصل کنید. بعد از اتصال دامنه "
+#~ "لطفا یکی را به عنوان دامنه اصلی انتخاب کنید."
+
+#~ msgid "If you want to register new domain, Come here"
+#~ msgstr "اگر می‌‌خواهید دامنه جدیدی سفارش دهید، به اینجا بیایید"
+
+#~ msgid "Connect new domain"
+#~ msgstr "اتصال بیزینس به دامنه اختصاصی"
+
+#~ msgid "Connect"
+#~ msgstr "اتصال"
+
+#~ msgid "Waiting to check domain"
+#~ msgstr "در انتظار بررسی دامنه"
+
+#~ msgid "Domain successfully connected"
+#~ msgstr "دامنه با موفقیت متصل شد"
+
+#~ msgid "Domain connection failed"
+#~ msgstr "اتصال دامنه با خطا مواجه شده است"
+
+#~ msgid "Primary domain"
+#~ msgstr "دامنه اصلی"
+
+#~ msgid "Set as primary"
+#~ msgstr "تنظیم به عنوان دامنه اصلی"
+
+#~ msgid "Register new domain"
+#~ msgstr "ثبت‌ دامنه جدید"
+
+#~ msgid "Connect a subdomain"
+#~ msgstr "اتصال به زیردامنه"
+
+#~ msgid "To connect a subdomain to your business you must set a A record on you Domain"
+#~ msgstr "برای اتصال یک زیردامنه به بیزینس، شما باید یک ای رکورد برای دامنه خود ثبت کنید"
+
+#~ msgid "Store domains"
+#~ msgstr "دامنه‌های فروشگاه"
+
+#~ msgid "Set status on ok"
+#~ msgstr "تنظیم وضعیت بر روی اوکی"
+
+#~ msgid "Set status on failed"
+#~ msgstr "تنظیم وضعیت بر روی خطا"
+
+#~ msgid "Set status on pending"
+#~ msgstr "تنظیم وضعیت بر روی درانتظار"
+
+#~ msgid "DNS record"
+#~ msgstr "دی‌ان‌اس رکورد"
+
+#~ msgid "Master domain"
+#~ msgstr "دامنه اصلی"
+
+#~ msgid "Cronjob status"
+#~ msgstr "وضعیت کرون‌جاب"
+
+#~ msgid "Cronjob date"
+#~ msgstr "تاریخ کرون‌جاب"
+
+#~ msgid "SSL request date"
+#~ msgstr "تاریخ ارسال درخواست ‌اس‌اس‌ال"
+
+#~ msgid "Raw request"
+#~ msgstr "درخواست خام"
+
+#~ msgid "Send request again"
+#~ msgstr "ارسال مجدد درخواست"
+
+#~ msgid "Reset config"
+#~ msgstr "ریست تنظیمات"
+
+#~ msgid "Store domains detail"
+#~ msgstr "جزئیات دامنه‌های فروشگاه‌ها"
+
 #~ msgid "Form ID"
 #~ msgstr "شناسه فرم"
-
-#~ msgid "Manage domain"
-#~ msgstr "مدیریت دامنه"
 
 #~ msgid "Manage filter"
 #~ msgstr "مدیریت فیلتر"
