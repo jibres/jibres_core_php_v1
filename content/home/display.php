@@ -198,6 +198,56 @@
 </section>
 
 
+<section id="jibresFeatures">
+  <div class="avand">
+    <h2><?php echo T_("All the tools you need..."); ?></h2>
+    <div class="row">
+      <div class="c-4">
+        <a href="">
+          <i class="sf-search"></i>
+          <h3><?php echo T_("Free SSL"); ?></h3>
+          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+        </a>
+      </div>
+      <div class="c-4">
+        <a href="">
+          <i class="sf-search"></i>
+          <h3><?php echo T_("Free SSL"); ?></h3>
+          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+        </a>
+      </div>
+      <div class="c-4">
+        <a href="">
+          <i class="sf-search"></i>
+          <h3><?php echo T_("Free SSL"); ?></h3>
+          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+        </a>
+      </div>
+      <div class="c-4">
+        <a href="">
+          <i class="sf-search"></i>
+          <h3><?php echo T_("Free SSL"); ?></h3>
+          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+        </a>
+      </div>
+      <div class="c-4">
+        <a href="">
+          <i class="sf-search"></i>
+          <h3><?php echo T_("Free SSL"); ?></h3>
+          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+        </a>
+      </div>
+      <div class="c-4">
+        <a href="">
+          <i class="sf-search"></i>
+          <h3><?php echo T_("Free SSL"); ?></h3>
+          <p>You can mark your project as Laravel project, which will enable easy Laravel commands from our UI. Quickly manage your Laravel application in Ploi.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="jibresApp">
   <div class="avand">
     <div class="row">
