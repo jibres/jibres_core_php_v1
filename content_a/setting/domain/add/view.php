@@ -11,6 +11,9 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());
 
+		// $myDomainList = \lib\app\business_domain\get::my_domain_not_connected_list();
+		// \dash\data::myDomainList();
+
 
 	}
 }
