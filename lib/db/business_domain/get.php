@@ -126,6 +126,34 @@ class get
 	}
 
 
+	public static function last_waiting_https_request($_date)
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.*
+			FROM
+				business_domain
+			WHERE
+				business_domain.subdomain IS NULL AND
+				business_domain.cdn != 'enterprise' AND
+				business_domain.status = 'pending' AND
+				business_domain.checkdns IS NOT NULL AND
+				business_domain.cdnpanel IS NOT NULL AND
+				business_domain.httpsrequest IS NOT NULL AND
+				business_domain.httpsrequest < '$_date' AND
+				business_domain.httpsverify IS NULL
+			ORDER BY
+				business_domain.datemodified ASC
+			LIMIT 5
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+
 	public static function last_free_domains()
 	{
 		$query  =

@@ -53,6 +53,8 @@ class run
 
 		self::https_request();
 
+		self::https_request_check();
+
 	}
 
 
@@ -146,6 +148,28 @@ class run
 			\lib\app\business_domain\https::request($value['id']);
 		}
 	}
+
+
+	private static function https_request_check()
+	{
+		$date = date("Y-m-d H:i:s", time() - (60*10));
+
+		$last_waiting_https_request =  \lib\db\business_domain\get::last_waiting_https_request($date);
+
+
+		if(!$last_waiting_https_request)
+		{
+			return;
+		}
+
+		foreach ($last_waiting_https_request as $key => $value)
+		{
+			\lib\app\business_domain\edit::set_date($value['id'], 'datemodified');
+			\lib\app\business_domain\https::request($value['id']);
+		}
+	}
+
+
 
 
 	private static function check_free_domains()
