@@ -264,5 +264,90 @@ class get
 		return $result;
 	}
 
+
+
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM business_domain";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_ok()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.status = 'ok' ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+	public static function count_pending()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.status = 'pending' ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+	public static function count_failed()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.status = 'failed' ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+	public static function count_action()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain_action";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_cdn_ok()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.cdnpanel IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_cdn_nok()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.cdnpanel IS NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_dns_resolved()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.checkdns IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_dns_notresolved()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.checkdns IS NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_https_request()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.httpsrequest IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+	public static function count_https_request_ok()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.httpsverify IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+
+
 }
 ?>

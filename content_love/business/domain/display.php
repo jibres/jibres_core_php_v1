@@ -1,63 +1,83 @@
+<section class="f">
+  <div class="c pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist' ?>" class="stat">
+      <h3><?php echo T_("All Domains");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_all_domain());?></div>
+    </a>
+  </div>
 
-  <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::current(); ?>' >
+  <div class="c pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist?status=ok'; ?>" class="stat">
+      <h3><?php echo T_("Connected domains");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_ok());?></div>
+    </a>
+  </div>
 
-    <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
+  <div class="c pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist?status=pending'; ?>" class="stat">
+      <h3><?php echo T_("Pending domain");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_pending());?></div>
+    </a>
+  </div>
 
-      <button class="addon btn "><?php echo T_("Search"); ?></button>
-    </div>
-  </form>
-</div>
+  <div class="c pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist?status=failed'; ?>" class="stat">
+      <h3><?php echo T_("Cancel domain");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_failed());?></div>
+    </a>
+  </div>
+  <div class="c3 s12">
+    <a href="<?php echo \dash\url::current(). '/action'; ?>" class="stat">
+      <h3><?php echo T_("Count action");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_action());?></div>
+    </a>
+  </div>
+</section>
 
-<?php if(!\dash\data::dataTable()){?>
-
-  <div class="msg warn2 txtC txtB fs14"><?php echo T_("No result found") ?></div>
-
-<?php }else{ ?>
-
-  <table class="tbl1 v6 fs11">
-    <thead>
-      <tr>
-        <th><?php echo T_("Domain"); ?></th>
-        <th><?php echo T_("Status"); ?></th>
-        <th><?php echo T_("Check DNS"); ?></th>
-        <th><?php echo T_("Add to CDN Panel"); ?></th>
-        <th><?php echo T_("HTTPS"); ?></th>
-        <th><?php echo T_("Last modified"); ?></th>
-        <th><?php echo T_("Count Log"); ?></th>
-        <th><?php echo T_("Count DNS"); ?></th>
-        <th class="collapsing"><?php echo T_("Detail"); ?></th>
-      </tr>
-    </thead>
-    <tbody>
-   <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-      <tr>
-        <td class="ltr txtL">
-          <div class="">
-            <a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'domain'); ?>">
-              <code><?php echo \dash\get::index($value, 'domain'); ?></code><i class="sf-external-link"></i>
-            </a>
-          </div>
-        </td>
-        <td><?php echo \dash\get::index($value, 'tstatus'); ?></td>
-
-
-        <td><?php if(\dash\get::index($value, 'dnsok')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-        <td><?php if(\dash\get::index($value, 'cdnpanel')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-        <td><?php if(\dash\get::index($value, 'httpsverify')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-
-        <td><div><?php echo \dash\fit::date_time(\dash\get::index($value, 'last_log_time')); ?></div><div><?php echo \dash\fit::date_human(\dash\get::index($value, 'last_log_time')); ?></div></td>
-        <td><a href="<?php echo \dash\url::that(). '/log?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_log')); ?></a></td>
-        <td><a href="<?php echo \dash\url::that(). '/dns?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_dns')); ?></a></td>
+<section class="f">
+  <div class="c9 s12 pRa10">
+    <div id="chartdivactionday" class="box chart x210" data-hint1='Action lasy 30 days per date' data-abc='management/domainhomepage'></div>
+  </div>
+  <div class="c3 s12">
+    <a href="<?php echo \dash\url::current(). '/alllist?addcdnpanel=yes'; ?>" class="stat">
+      <h3><?php echo T_("Added to CDN panel");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_cdn_ok());?></div>
+    </a>
+    <a href="<?php echo \dash\url::current(). '/alllist?addcdnpanel=no'; ?>" class="stat">
+      <h3><?php echo T_("Not added to CDN panel");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_cdn_nok());?></div>
+    </a>
+  </div>
+</section>
 
 
-        <td class="collapsing"><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
-      </tr>
-    <?php } //endfor ?>
-    </tbody>
-  </table>
 
-<?php \dash\utility\pagination::html(); ?>
 
-<?php } //endif ?>
+<section class="f">
+  <div class="c3 s6 pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist?dns=resulved'; ?>" class="stat">
+      <h3><?php echo T_("DNS resolved");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_dns_resolved());?></div>
+    </a>
+  </div>
+  <div class="c3 s6 pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist?dns=notresulved'; ?>" class="stat">
+      <h3><?php echo T_("DNS not resolved");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_dns_notresolved());?></div>
+    </a>
+  </div>
+  <div class="c3 s6 pRa10">
+    <a href="<?php echo \dash\url::current(). '/alllist?https=request'; ?>" class="stat">
+      <h3><?php echo T_("HTTPS request");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_https_request());?></div>
+    </a>
+  </div>
+  <div class="c3 s6">
+    <a href="<?php echo \dash\url::current(). '/alllist?https=requestok'; ?>" class="stat">
+      <h3><?php echo T_("HTTPS OK");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_https_request_ok());?></div>
+    </a>
+  </div>
+</section>
+
+
