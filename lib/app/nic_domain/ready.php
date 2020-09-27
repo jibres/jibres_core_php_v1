@@ -209,6 +209,7 @@ class ready
 		}
 
 
+		$result['jibres_dns'] = false;
 		if(isset($result['available']) && $result['available'] === '1')
 		{
 			$new_result = [];
@@ -219,6 +220,19 @@ class ready
 			$result = $new_result;
 		}
 
+		if(isset($result['ns1']) && isset($result['ns2']) && $result['ns1'] && $result['ns2'])
+		{
+			$check_dns = [$result['ns1'], $result['ns2']];
+
+			$arvan_ns1 = \lib\app\nic_usersetting\defaultval::ns1();
+			$arvan_ns2 = \lib\app\nic_usersetting\defaultval::ns2();
+
+			if(in_array($arvan_ns1, $check_dns) && in_array($arvan_ns2, $check_dns))
+			{
+				$result['jibres_dns'] = true;
+			}
+
+		}
 		return $result;
 	}
 }

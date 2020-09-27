@@ -90,7 +90,7 @@ class model
 			\dash\header::status(422, T_("Can not set 2 link in one message!"));
 		}
 
-		$title = \dash\validate::string_50(\dash\request::get('title'));
+		$title = \dash\validate::string_100(\dash\request::get('title'));
 
 		// insert tickets
 		$result = self::add_new('site', $content, $file['path'], $title);
