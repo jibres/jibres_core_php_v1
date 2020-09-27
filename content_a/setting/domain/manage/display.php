@@ -6,6 +6,17 @@
     <div class="box">
       <header><h2><?php echo T_("Domain setting") ?></h2></header>
       <div class="body">
+
+        <?php if(\dash\data::domainDetail_status() === 'pending') {?>
+          <div class="mB20">
+           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
+           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_dnsok()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS is ok"); ?></a>
+           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_cdnpanel()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Add to CDN panel"); ?></a>
+           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>
+           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsverify()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS verify"); ?></a>
+          </div>
+        <?php } //endif ?>
+
         <?php if(!\dash\data::masterDomain()) {?>
           <p>
               <?php echo T_("You have not any master doamin") ?>
