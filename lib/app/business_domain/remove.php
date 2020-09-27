@@ -38,6 +38,12 @@ class remove
 			return false;
 		}
 
+		if(isset($load['master']) && $load['master'])
+		{
+			\dash\notif::error(T_("You can not remove master Domain. Please change your business master domain and try it later"));
+			return false;
+		}
+
 		$id = $load['id'];
 
 		\lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $id);

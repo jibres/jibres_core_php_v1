@@ -116,11 +116,10 @@
     <div class="box">
       <div class="body">
         <p><?php echo T_("Remove domain from your business") ?></p>
-        <p class="fc-red"><?php echo T_("If you sure to want to remove this domain from your business click the below button") ?></p>
       </div>
       <footer class="f">
         <div class="c"></div>
-        <div class="cauto"><button class="btn linkDel" data-confirm data-data='{"removedomain" : "removedomain"}'><?php echo T_("Remove domain") ?></button></div>
+        <div class="cauto"><a href="<?php echo \dash\url::that(). '/remove?'. \dash\request::fix_get() ?>" class="btn linkDel" ><?php echo T_("Remove domain") ?></a></div>
       </footer>
     </div>
 

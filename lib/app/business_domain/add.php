@@ -16,6 +16,8 @@ class add
 
 		return self::add($_args);
 	}
+
+
 	public static function add($_args)
 	{
 		$condition =
@@ -112,12 +114,28 @@ class add
 			return false;
 		}
 
+		$master_domain = null;
+
+		if(\lib\store::id())
+		{
+			$master_domain = \lib\app\business_domain\get::my_business_master_domain();
+			if(!$master_domain)
+			{
+				$master_domain = 1;
+			}
+			else
+			{
+				$master_domain =  null;
+			}
+		}
+
 		$insert =
 		[
 			'domain'      => $domain,
 			'status'      => 'pending',
 			'user_id'     => \dash\user::jibres_user(),
 			'subdomain'   => $subdomain,
+			'master'      => $master_domain,
 			'root'        => $root,
 			'tld'         => $tld,
 			'store_id'    => $data['store_id'],

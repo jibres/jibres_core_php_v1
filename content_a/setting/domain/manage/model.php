@@ -42,14 +42,6 @@ class model
 			$result = \lib\app\business_domain\edit::changemaster(\dash\data::domainID());
 		}
 
-		if(\dash\request::post('removedomain') === 'removedomain')
-		{
-			$result = \lib\app\business_domain\remove::remove_by_user(\dash\data::domainID());
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::that());
-			}
-		}
 
 		if(\dash\engine\process::status())
 		{
