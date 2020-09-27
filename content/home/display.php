@@ -69,25 +69,6 @@
 </section>
 
 
-<section id='keepitsimple'>
- <div class="title">
-  <h2 title='<?php echo T_('Simplest forever'); ?>'><?php echo T_('Keep it simple'); ?></h2>
-  <h3><?php echo T_('Simplicity is the ultimate sophistication'); ?></h3>
-  <h3><?php echo T_('No one can fulfill your e-commerce needs like us'); ?> <span>💪</span></h3>
- </div>
-
- <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-  <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
-  <g class="parallax">
-   <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
-   <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
-   <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.1)" />
-   <use xlink:href="#gentle-wave" x="48" y="7" fill="#f7f7f9" />
-  </g>
- </svg>
-</section>
-
-
 
 <section id='pricingPlans' class="s0">
   <div class="avand">
@@ -243,28 +224,26 @@
   </div>
 </section>
 
-<section id="jibresApp">
-  <div class="avand-lg">
-    <div class="row">
-      <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
-      <div class="c-xs-12 c-sm-12 c-lg-7 text">
-        <h1><?php echo T_("Jibres Mobile App"); ?></h1>
-        <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
 
-        <div class="dl">
-          <a href="<?php echo \dash\url::kingdom(); ?>/app/android" title='<?php echo T_("Download Jibres App from Google play") ?>' target="_blank" rel="noopener">
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
-          </a>
-          <a href="<?php echo \dash\url::kingdom(); ?>/app/direct" title='<?php echo T_("Direct download Jibres app") ?>'>
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-direct.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
-          </a>
-        </div>
 
-      </div>
-    </div>
+<section id='keepitsimple'>
+ <div class="title">
+  <h2 title='<?php echo T_('Simplest forever'); ?>'><?php echo T_('Keep it simple'); ?></h2>
+  <h3><?php echo T_('Simplicity is the ultimate sophistication'); ?></h3>
+  <h3><?php echo T_('No one can fulfill your e-commerce needs like us'); ?> <span>💪</span></h3>
+ </div>
 
-  </div>
+ <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+  <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+  <g class="parallax">
+   <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+   <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+   <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.1)" />
+   <use xlink:href="#gentle-wave" x="48" y="7" fill="#f7f7f9" />
+  </g>
+ </svg>
 </section>
+
 
 
 <?php if(\dash\data::quote()) { ?>
@@ -291,6 +270,30 @@
   </div>
 </section>
 <?php } ?>
+
+
+<section id="jibresApp">
+  <div class="avand-lg">
+    <div class="row">
+      <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
+      <div class="c-xs-12 c-sm-12 c-lg-7 text">
+        <h1><?php echo T_("Jibres Mobile App"); ?></h1>
+        <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
+
+        <div class="dl">
+          <a href="<?php echo \dash\url::kingdom(); ?>/app/android" title='<?php echo T_("Download Jibres App from Google play") ?>' target="_blank" rel="noopener">
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+          </a>
+          <a href="<?php echo \dash\url::kingdom(); ?>/app/direct" title='<?php echo T_("Direct download Jibres app") ?>'>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-direct.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <div class="keywords hide">
   <span>[dfvs</span>
