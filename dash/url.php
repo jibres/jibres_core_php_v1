@@ -412,6 +412,28 @@ class url
 	}
 
 
+	public static function jibres_tld()
+	{
+		if(self::isLocal())
+		{
+			$tld = 'local';
+		}
+		else
+		{
+			if(self::tld() === 'ir')
+			{
+				$tld = 'ir';
+			}
+			else
+			{
+				$tld = 'com';
+			}
+		}
+
+		return $tld;
+	}
+
+
 	/**
 	 * if we are in different address, return in
 	 * @return string of another addr
