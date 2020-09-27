@@ -6,13 +6,22 @@ class add
 {
 	public static function store_add($_args)
 	{
-		if(!\lib\store::id())
+		$store_id = \lib\store::id();
+		if(!$store_id)
 		{
 			\dash\notif::error(T_("Store not found"));
 			return false;
 		}
 
-		$_args['store_id'] = \lib\store::id();
+		$count_store_domain = \lib\db\business_domain\get::count_store_domain($store_id);
+
+		if($count_store_domain > 100)
+		{
+			\dash\log::oops('maximumCapacityAddStoreDomain', T_("Your business domain capacity is full!"));
+			return false;
+		}
+
+		$_args['store_id'] = $store_id;
 
 		self::add($_args);
 

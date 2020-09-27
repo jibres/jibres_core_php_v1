@@ -311,6 +311,14 @@ class dns
 		}
 
 
+		$count_store_domain_dns = \lib\db\business_domain\get::count_domain_dns($load['id']);
+
+		if($count_store_domain_dns > 50)
+		{
+			\dash\log::oops('maximumCapacityAddDomainDNS', T_("Your business domain dns capacity is full!"));
+			return false;
+		}
+
 		$insert =
 		[
 			'business_domain_id' => $load['id'],

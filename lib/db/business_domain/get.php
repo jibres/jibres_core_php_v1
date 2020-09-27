@@ -21,6 +21,23 @@ class get
 	}
 
 
+	public static function count_store_domain($_store_id)
+	{
+		$query  = " SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.store_id = $_store_id ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return floatval($result);
+	}
+
+	public static function count_domain_dns($_domain_id)
+	{
+		$query  = " SELECT COUNT(*) AS `count` FROM business_domain_dns WHERE business_domain_dns.business_domain_id = $_domain_id ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return floatval($result);
+	}
+
+
+
+
 
 
 	public static function my_domain_not_connected_list($_user_id)

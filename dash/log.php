@@ -13,11 +13,19 @@ class log
 	 *
 	 * @param      <type>  $_type  The type
 	 */
-	public static function oops($_type = null)
+	public static function oops($_type = null, $_msg = null)
 	{
 		\dash\log::set('criticalErrorOops!');
 		self::to_supervisor('criticalErrorOops: '. $_type);
-		\dash\notif::error(T_("Oops! We cannot complete your request. Please contact to administrator"));
+
+		if($_msg)
+		{
+			\dash\notif::error($_msg);
+		}
+		else
+		{
+			\dash\notif::error(T_("Oops! We cannot complete your request. Please contact to administrator"));
+		}
 		return false;
 	}
 
