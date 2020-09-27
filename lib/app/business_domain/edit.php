@@ -34,6 +34,19 @@ class edit
 	}
 
 
+	public static function set_my_master($_domain)
+	{
+		$load = \lib\app\business_domain\get::my_store_domain($_domain);
+		if(!$load || !isset($load['id']))
+		{
+			\dash\notif::error(T_("Invalid domain"));
+			return false;
+		}
+
+		return self::changemaster($load['id']);
+	}
+
+
 	public static function changemaster($_domain_id)
 	{
 		$_domain_id = \dash\validate::id($_domain_id);

@@ -13,7 +13,6 @@ class view
 
 
 
-
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
@@ -28,16 +27,18 @@ class view
 
 		if($list)
 		{
+			\dash\face::btnSetting(\dash\url::that(). '/setting');
 					// back
 			\dash\data::action_text(T_('Add new domain'));
 			\dash\data::action_link(\dash\url::that(). '/add');
 		}
+		else
+		{
+			$myDomainList = \lib\app\business_domain\get::my_domain_not_connected_list();
+			\dash\data::myDomainList($myDomainList);
+		}
 
 		\dash\data::dataTable($list);
-
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
-		\dash\data::sortLink($sortLink);
-
 
 		\dash\data::filterBox(\lib\app\business_domain\search::filter_message());
 

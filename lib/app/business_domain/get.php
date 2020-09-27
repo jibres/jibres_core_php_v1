@@ -18,6 +18,26 @@ class get
 
 	}
 
+	public static function my_all_domains()
+	{
+		$store_id = \lib\store::id();
+
+		if(!$store_id)
+		{
+			return false;
+		}
+
+		$list = \lib\db\business_domain\get::all_domain_store_id($store_id);
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		return $list;
+
+	}
+
 
 	public static function my_domain_not_connected_list()
 	{

@@ -22,17 +22,18 @@ class check
 
 		$condition =
 		[
-			'title'            => 'title',
-			'website'          => 'website',
-			'desc'             => 'desc',
-			'logo'             => 'string_300',
-			'lang'             => 'language',
-			'status'           => ['enum' => ['enable', 'disable', 'close']],
-			'address'          => 'address',
-			'phone'            => 'phone',
-			'mobile'           => 'mobile',
-			'google_analytics' => 'string_50',
-			'nosale'           => 'bit',
+			'title'                         => 'title',
+			'website'                       => 'website',
+			'desc'                          => 'desc',
+			'logo'                          => 'string_300',
+			'lang'                          => 'language',
+			'status'                        => ['enum' => ['enable', 'disable', 'close']],
+			'address'                       => 'address',
+			'phone'                         => 'phone',
+			'mobile'                        => 'mobile',
+			'google_analytics'              => 'string_50',
+			'nosale'                        => 'bit',
+			'redirect_all_domain_to_master' => 'bit',
 		];
 
 		$require = ['title'];

@@ -13,6 +13,16 @@ class get
 	}
 
 
+	public static function all_domain_store_id($_store_id)
+	{
+		$query  = " SELECT business_domain.domain, business_domain.master FROM business_domain WHERE business_domain.store_id = '$_store_id' AND business_domain.status NOT IN ('deleted', 'pending_delete', 'failed') ";
+		$result = \dash\db::get($query, null, false, 'master');
+		return $result;
+	}
+
+
+
+
 	public static function my_domain_not_connected_list($_user_id)
 	{
 		$query  =

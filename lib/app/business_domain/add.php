@@ -51,7 +51,23 @@ class add
 		$check_duplicate = \lib\db\business_domain\get::by_domain($domain);
 		if(isset($check_duplicate['id']))
 		{
-			\dash\notif::error(T_("Duplicate domain. This domain already added to domains list"), 'domain');
+			$msg = T_("Duplicate domain. This domain already added to domains list");
+
+			if(floatval($check_duplicate['store_id']) === floatval(\lib\store::id()))
+			{
+				$msg = T_("This domain is alreay exists in your business domain list");
+			}
+			else
+			{
+				$msg = T_("Duplicate domain. This domain already taken by another business");
+			}
+
+			if($check_duplicate['status'] === 'pending_delete')
+			{
+				$msg = T_("This domain is pending for delete. Please try it later");
+			}
+
+			\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
 			return false;
 		}
 
