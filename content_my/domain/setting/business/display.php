@@ -60,6 +60,14 @@
      </nav>
 
           <?php }else{ ?>
+            <div class="welcome">
+    <p><?php echo T_("Create your business now to connect your domain to your business"); ?></p>
+    <h2><?php echo T_("Make your website and online business quickly!"); ?></h2>
+
+    <div class="buildBtn">
+      <a class="btn xl master" href="<?php echo \dash\url::here(); ?>/business/start" ><?php echo T_("Buil it now"); ?></a>
+    </div>
+  </div>
 
           <?php } // endif ?>
 
