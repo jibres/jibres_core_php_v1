@@ -175,6 +175,7 @@
       <div class="c4 m6 s12 pA15">
         <div class="item f f-column justify-between">
           <p class="flex-1"><?php echo $value['quote']; ?></p>
+          <div class="shapeTop"></div>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
           <footer class="f align-center from">
             <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>" alt='<?php echo $value['name']; ?>'></div>
