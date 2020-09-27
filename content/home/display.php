@@ -159,7 +159,7 @@
    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.1)" />
-   <use xlink:href="#gentle-wave" x="48" y="7" fill="#f7f7f9" />
+   <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
   </g>
  </svg>
 </section>
@@ -170,9 +170,9 @@
 <section id='jibresQuote'>
   <div class="avand">
     <h2><?php echo T_("Our Happy Friends!"); ?></h2>
-    <div class="f">
+    <div class="row padMore">
 <?php foreach (\dash\data::quote() as $key => $value) {?>
-      <div class="c4 m6 s12 pA15">
+      <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4 itemBox">
         <div class="item f f-column justify-between">
           <p class="flex-1"><?php echo $value['quote']; ?></p>
           <div class="shapeTop"></div>
@@ -212,7 +212,6 @@
 
       </div>
     </div>
-
   </div>
 </section>
 
