@@ -1,6 +1,19 @@
 <div class="avand-lg">
 
 
+  <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() || \dash\data::domainDetail_cdn() === 'enterprise')) {?>
+  <div class="box">
+    <div class="body">
+      <p>
+        <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set a record for that subdomain at the following address:") ?>
+      <div class="msg ltr txtL"><span data-copy='business.jibres.com'><code>business.jibres.com</code></span></div>
+      </p>
+    </div>
+  </div>
+      <?php } //endif ?>
+
+
+
   <form method="post" autocomplete="off">
     <input type="hidden" name="setting" value="setting">
     <div class="box">
