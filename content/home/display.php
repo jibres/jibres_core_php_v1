@@ -190,13 +190,6 @@
 </section>
 
 
-<section id='jibresRoadmap'>
-  <div class="avand">
-    <h3><?php echo T_("Jibres Roadmap"); ?></h3>
-    <h2><?php echo T_('World #1 Financial Platform'); ?></h2>
-  </div>
-</section>
-
 
 <section id="jibresFeatures">
   <div class="avand-lg">
