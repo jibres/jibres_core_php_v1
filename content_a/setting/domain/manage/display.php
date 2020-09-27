@@ -100,7 +100,9 @@
                   <td><?php echo \dash\get::index($value, 'tstatus'); ?></td>
                   <td class="collapsing">
                     <?php if(\dash\get::index($value, 'status') !== 'pending_delete') {?>
-                    <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
+                      <?php if(\dash\get::index($value, 'allow_remove')) {?>
+                        <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
+                      <?php } //endif ?>
                   <?php } //endif ?>
                   </td>
 

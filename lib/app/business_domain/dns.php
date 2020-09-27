@@ -117,6 +117,12 @@ class dns
 			}
 		}
 
+		$result['allow_remove'] = true;
+		if(isset($result['key']) && isset($result['type']) && $result['key'] === '@' && $result['type'] === 'NS')
+		{
+			$result['allow_remove'] = false;
+		}
+
 		return $result;
 	}
 
