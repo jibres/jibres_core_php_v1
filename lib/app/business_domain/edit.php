@@ -34,6 +34,23 @@ class edit
 	}
 
 
+	public static function reset_redirect_domain_setting($_new_option = null)
+	{
+		if(\lib\store::id())
+		{
+			$store_id = \lib\store::id();
+			if($_new_option)
+			{
+				\lib\db\business_domain\update::reset_all_redirect_store($store_id, 1);
+			}
+			else
+			{
+				\lib\db\business_domain\update::reset_all_redirect_store($store_id, 0);
+			}
+			\lib\store::reset_cache();
+		}
+	}
+
 	public static function set_my_master($_domain)
 	{
 		$load = \lib\app\business_domain\get::my_store_domain($_domain);

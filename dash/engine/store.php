@@ -564,23 +564,30 @@ class store
 			}
 			else
 			{
-				// must redirect to master
-				$master_domain = \lib\db\business_domain\get::by_store_id_master_domain($load_detail['store_id']);
-
-				if(isset($master_domain['domain']))
+				if(isset($load_detail['redirecttomaster']) && $load_detail['redirecttomaster'] === '0')
 				{
-					$new_url = \dash\url::protocol(). '://';
-					$new_url .= $master_domain['domain'];
-					$new_url .= \dash\url::path();
-					if($new_url !== \dash\url::pwd())
-					{
-						\dash\redirect::to($new_url);
-					}
-
+					return self::set_customer_domain($load_detail);
 				}
 				else
 				{
-					return self::set_customer_domain($load_detail);
+					// must redirect to master
+					$master_domain = \lib\db\business_domain\get::by_store_id_master_domain($load_detail['store_id']);
+
+					if(isset($master_domain['domain']))
+					{
+						$new_url = \dash\url::protocol(). '://';
+						$new_url .= $master_domain['domain'];
+						$new_url .= \dash\url::path();
+						if($new_url !== \dash\url::pwd())
+						{
+							\dash\redirect::to($new_url);
+						}
+
+					}
+					else
+					{
+						return self::set_customer_domain($load_detail);
+					}
 				}
 			}
 		}

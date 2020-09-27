@@ -14,7 +14,11 @@ class add
 
 		$_args['store_id'] = \lib\store::id();
 
-		return self::add($_args);
+		self::add($_args);
+
+		\lib\app\business_domain\edit::reset_redirect_domain_setting();
+
+		return true;
 	}
 
 

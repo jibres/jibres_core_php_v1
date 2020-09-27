@@ -55,6 +55,16 @@ class update
 	}
 
 
+	public static function reset_all_redirect_store($_store_id, $_value)
+	{
+		$query = " UPDATE `business_domain` SET business_domain.redirecttomaster = $_value WHERE business_domain.store_id = $_store_id ";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+	}
+
+
+
+
 
 }
 ?>

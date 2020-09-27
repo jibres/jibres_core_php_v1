@@ -20,12 +20,11 @@ class model
 
 			\lib\app\store\edit::selfedit($post);
 
-			if(\dash\engine\process::status())
-			{
-				\lib\store::refresh();
-				\dash\redirect::pwd();
-			}
+			\lib\app\business_domain\edit::reset_redirect_domain_setting(\dash\request::post('redirect_all_domain_to_master'));
 
+			\lib\store::refresh();
+
+			\dash\redirect::pwd();
 		}
 
 	}
