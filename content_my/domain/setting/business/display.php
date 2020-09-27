@@ -1,27 +1,30 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 <div class="avand-md">
-  <div class="box">
-    <div class="body">
+
 
         <?php if(\dash\data::domainConnected()) {?>
 
           <?php if(\dash\data::domainConnectedToMyBusiness()) {?>
 
-            <div class="c-xs-12 c-sm-6">
-              <div class="dcard grShadow grGreen2 grBlue2 x3 op100">
+
+              <div class="dcard grShadow grGreen2 grBlue2 x2 op100">
+                <div><?php echo T_("Your domain was conncted to") ?></div>
                 <a class="mB25 fcWhite900 fs20"><?php echo \dash\get::index(\dash\data::domainConnectedToMyBusiness(), 'detail', 'title') ?></a>
                 <div class="f">
-                  <div class="c6 pA5"><a href="<?php echo \dash\url::current(). '?type=edit&id='. $value['id']; ?>" class="link"><div class="grShadow pA10 txtC"><?php echo T_("Edit") ?></div></a></div>
+                  <div class="pA5"><a href="<?php echo \dash\get::index(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link"><div class="grShadow pA10 txtC"><?php echo T_("Manage Domain") ?></div></a></div>
                 </div>
               </div>
-            </div>
+
 
           <?php }else{ ?>
+            <div class="fs14">
+
             <div class="msg warn2">
               <?php echo T_("Your domain was connected to a business but we can not find this business in you business list!") ?>
               <p>
                 <?php echo T_("If you need to know wath happend") ?> <a href="<?php echo \dash\url::support(). '/ticket/add?title=domainConnectedToAnotherBusiness' ?>" class="link"><?php echo T_("Contact with us") ?></a>
               </p>
+            </div>
             </div>
 
           <?php } //endif ?>
@@ -29,12 +32,12 @@
         <?php }else{ ?>
 
           <?php if(\dash\data::myBusinessList()) {?>
-                 <h5 class="txtB mT20"><?php echo T_("Business that you are owner"); ?></h5>
+                 <h5 class="txtB mT20"><?php echo T_("You can add domain to your business"); ?></h5>
      <nav class="items">
       <ul>
       <?php foreach (\dash\data::myBusinessList() as $key => $value) {?>
          <li>
-          <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>/a">
+          <a class="f" href="<?php echo \dash\get::index($value, 'url'). '/a/setting/domain/existdomain?domain='. \dash\data::domainDetail_name(); ?>">
            <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
            <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
            <div class="value"><?php echo \dash\get::index($value, 'subdomain'); ?></div>
@@ -62,6 +65,3 @@
 
         <?php } //endif ?>
     </div>
-  </div>
-</div>
-
