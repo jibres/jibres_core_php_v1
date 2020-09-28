@@ -55,13 +55,13 @@
 
 <section class="f">
   <div class="c3 s6 pRa10">
-    <a href="<?php echo \dash\url::current(). '/alllist?dns=resulved'; ?>" class="stat">
+    <a href="<?php echo \dash\url::current(). '/alllist?dns=resolved'; ?>" class="stat">
       <h3><?php echo T_("DNS resolved");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_dns_resolved());?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
-    <a href="<?php echo \dash\url::current(). '/alllist?dns=notresulved'; ?>" class="stat">
+    <a href="<?php echo \dash\url::current(). '/alllist?dns=notresolved'; ?>" class="stat">
       <h3><?php echo T_("DNS not resolved");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_dns_notresolved());?></div>
     </a>

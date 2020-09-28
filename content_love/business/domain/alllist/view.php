@@ -25,6 +25,25 @@ class view
 
 		];
 
+		if(\dash\request::get('status'))
+		{
+			$args['filter_status'] = \dash\request::get('status');
+		}
+
+		if(\dash\request::get('addcdnpanel'))
+		{
+			$args['filter_addcdnpanel'] = \dash\request::get("addcdnpanel");
+		}
+
+		if(\dash\request::get('dns'))
+		{
+			$args['filter_dns'] = \dash\request::get("dns");
+		}
+
+		if(\dash\request::get('https'))
+		{
+			$args['filter_https'] = \dash\request::get("https");
+		}
 
 
 		$search_string = \dash\request::get('q');

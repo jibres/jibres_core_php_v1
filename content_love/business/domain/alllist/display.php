@@ -60,4 +60,11 @@
 
 <?php \dash\utility\pagination::html(); ?>
 
+<?php if(\dash\data::isFiltered()) {?>
+<p class="f fs14 msg warn2">
+  <span class="c"><?php echo \dash\data::filterBox(); ?></span>
+  <a class="cauto" href="<?php echo \dash\url::current(); ?>"><?php echo T_("Clear filters"); ?></a>
+</p>
+<?php } //endif ?>
+
 <?php } //endif ?>

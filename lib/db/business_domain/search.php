@@ -50,7 +50,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'master');
 		}
 
-		$query = "SELECT business_domain_action.* FROM business_domain_action $q[join] $q[where] $q[order] $limit ";
+		$query = "SELECT business_domain_action.*, business_domain.domain FROM business_domain_action $q[join] $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false, 'master');
 

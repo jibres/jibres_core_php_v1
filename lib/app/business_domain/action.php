@@ -133,6 +133,7 @@ class action
 			$order_sort = " ORDER BY business_domain_action.id DESC";
 		}
 
+		$meta['join'][] = " LEFT JOIN business_domain ON business_domain.id = business_domain_action.business_domain_id ";
 
 		$list = \lib\db\business_domain\search::list_action($and, $or, $order_sort, $meta);
 

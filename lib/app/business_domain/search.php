@@ -38,11 +38,17 @@ class search
 	{
 		$condition =
 		[
-			'order'    => 'order',
-			'sort'     => ['enum' => ['name','id']],
-			'store_id' => 'id',
-			'my_list'  => 'bit',
+			'order'       => 'order',
+			'sort'        => ['enum' => ['name','id']],
+			'store_id'    => 'id',
+			'my_list'     => 'bit',
+			'filter_status'      => ['enum' => ['ok','pending','failed']],
+			'filter_addcdnpanel' => ['enum' => ['yes', 'no']],
+			'filter_dns'         => ['enum' => ['resolved', 'notresolved']],
+			'filter_https'       => ['enum' => ['request', 'requestok']],
 		];
+
+
 
 		$require = [];
 		$meta    =	[];
@@ -77,6 +83,79 @@ class search
 		{
 			$and[] = " business_domain.status NOT IN ('pending_delete', 'delete') ";
 		}
+
+
+		if($data['filter_status'])
+		{
+			self::$is_filtered = true;
+			self::$filter_args[T_("Status")] = T_($data['filter_status']);
+
+			if($data['filter_status'] === 'ok')
+			{
+				$and[] = " business_domain.status = 'ok' ";
+			}
+			elseif($data['filter_status'] === 'pending')
+			{
+				$and[] = " business_domain.status = 'pending' ";
+			}
+			elseif($data['filter_status'] === 'failed')
+			{
+				$and[] = " business_domain.status = 'failed' ";
+			}
+		}
+
+
+		if($data['filter_addcdnpanel'])
+		{
+			self::$is_filtered = true;
+
+			if($data['filter_addcdnpanel'] === 'yes')
+			{
+				$and[] = " business_domain.cdnpanel IS NOT NULL ";
+				self::$filter_args[T_("CDN panel")] = T_('Added');
+			}
+			elseif($data['filter_addcdnpanel'] === 'no')
+			{
+				$and[] = " business_domain.cdnpanel IS NULL ";
+				self::$filter_args[T_("CDN panel")] = T_('Not added');
+			}
+		}
+
+
+		if($data['filter_dns'])
+		{
+			self::$is_filtered = true;
+
+			if($data['filter_dns'] === 'resolved')
+			{
+				$and[] = " business_domain.checkdns IS NOT NULL ";
+				self::$filter_args[T_("DNS")] = T_('Resolved');
+
+			}
+			elseif($data['filter_dns'] === 'notresolved')
+			{
+				$and[] = " business_domain.checkdns IS NULL ";
+				self::$filter_args[T_("DNS")] = T_('Not Resolved');
+			}
+		}
+
+
+		if($data['filter_https'])
+		{
+			self::$is_filtered = true;
+
+			if($data['filter_https'] === 'request')
+			{
+				$and[] = " business_domain.httpsrequest IS NOT NULL ";
+				self::$filter_args[T_("HTTPS")] = T_('Request sended');
+			}
+			elseif($data['filter_https'] === 'requestok')
+			{
+				$and[] = " business_domain.httpsverify = 1 ";
+				self::$filter_args[T_("HTTPS")] = T_('Ok');
+			}
+		}
+
 
 		$query_string = \dash\validate::search($_query_string);
 
