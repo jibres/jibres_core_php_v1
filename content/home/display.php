@@ -51,6 +51,22 @@
  </div>
 </section>
 
+<section id="jibresLogin">
+  <div class="avand-md">
+    <div class="example">
+      <form method="post" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
+        <input type="hidden" name="go" value="1">
+        <div class="input">
+          <input type="tel" name="usernameormobile" placeholder="<?php echo T_("Enter mobile") ?>">
+          <button class="btn master addon"><?php echo T_("Go") ?></button>
+        </div>
+        <div class="hide">
+          <input type="password" name="password" value="">
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
 <section id="jibresDomain">
   <div class="avand-md">
