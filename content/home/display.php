@@ -83,6 +83,19 @@
 </section>
 
 
+<section class="jibresChannel" id="jibresOnlineWebsite">
+  <div class="avand-lg">
+    <div class="row padMore">
+      <div class="c-6">
+        <h2 class="bigCart row align-end"><?php echo T_('Online Store Website'); ?></h2>
+      </div>
+      <div class="c-6">
+        <h3 class="bigCart blue row align-end"><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section id='statistic'>
   <div class="avand">
