@@ -14,25 +14,20 @@
 
 
 
-  <form method="post" autocomplete="off">
-    <input type="hidden" name="setting" value="setting">
+  <?php if(\dash\data::domainDetail_status() === 'pending') {?>
     <div class="box">
       <div class="body">
-
-        <?php if(\dash\data::domainDetail_status() === 'pending') {?>
-          <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
-          <div class="mB20">
-           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
-           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_dnsok()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS is ok"); ?></a>
-           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_cdnpanel()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Add to CDN panel"); ?></a>
-           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>
-           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsverify()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS verify"); ?></a>
-          </div>
-        <?php } //endif ?>
-
+        <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
+        <div class="mB20">
+          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
+          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_dnsok()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS is ok"); ?></a>
+          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_cdnpanel()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Add to CDN panel"); ?></a>
+          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>
+          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsverify()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS verify"); ?></a>
+        </div>
       </div>
     </div>
-  </form>
+  <?php } //endif ?>
 
   <form method="post" autocomplete="off" class="">
     <input type="hidden" name="adddns" value="adddns">
