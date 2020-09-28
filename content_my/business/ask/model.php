@@ -6,7 +6,9 @@ class model
 {
 	public static function post()
 	{
-		$question_answer = [];
+		$new_get = [];
+		$new_get['st2'] = time();
+
 		if(\dash\request::post('skip') === 'skip')
 		{
 			// needless to check question
@@ -34,17 +36,15 @@ class model
 									return false;
 								}
 
-								$question_answer[$question['id']] = $answer;
+								$new_get[$question['id']] = $answer;
 							}
 						}
 					}
 				}
 			}
-
-			// \dash\session::set('createNewStore_question_answer', $question_answer, 'CreateNewStore');
 		}
-		\lib\app\store\timeline::set('ask');
-		\dash\redirect::to(\dash\url::this(). '/subdomain?'. \dash\request::fix_get($question_answer));
+
+		\dash\redirect::to(\dash\url::this(). '/subdomain?'. \dash\request::fix_get($new_get));
 		return;
 
 	}

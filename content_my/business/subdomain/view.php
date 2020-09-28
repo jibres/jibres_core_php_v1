@@ -8,8 +8,6 @@ class view
 	{
 		\dash\face::title(T_("Business address"));
 
-		\lib\app\store\timeline::set('subdomain');
-
 		\dash\data::userToggleSidebar(false);
 
 		// if(\dash\detect\device::detectPWA())

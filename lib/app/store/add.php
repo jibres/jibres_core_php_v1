@@ -347,13 +347,108 @@ class add
 	{
 		$store_analytics                 = [];
 		$store_analytics['id']           = $_id;
-		$store_analytics['question1']    = (isset($_args['Q1']) && is_numeric($_args['Q1'])) ? $_args['Q1'] : null;
-		$store_analytics['question2']    = (isset($_args['Q2']) && is_numeric($_args['Q2'])) ? $_args['Q2'] : null;
-		$store_analytics['question3']    = (isset($_args['Q3']) && is_numeric($_args['Q3'])) ? $_args['Q3'] : null;
+
+		if(\dash\get::index($_args, 'Q1'))
+		{
+			$Q1 = $_args['Q1'];
+			$Q1 = \dash\validate::smallint($Q1, false);
+			if($Q1)
+			{
+				$store_analytics['question1'] = $Q1;
+			}
+		}
+
+		if(\dash\get::index($_args, 'Q2'))
+		{
+			$Q2 = $_args['Q2'];
+			$Q2 = \dash\validate::smallint($Q2, false);
+			if($Q2)
+			{
+				$store_analytics['question2'] = $Q2;
+			}
+		}
+
+		if(\dash\get::index($_args, 'Q3'))
+		{
+			$Q3 = $_args['Q3'];
+			$Q3 = \dash\validate::smallint($Q3, false);
+			if($Q3)
+			{
+				$store_analytics['question3'] = $Q3;
+			}
+		}
+
+
 		$store_analytics['lastactivity'] = date("Y-m-d H:i:s");
 		$store_analytics['datecreated']  = date("Y-m-d H:i:s");
 
+
 		$result = \lib\db\store\insert::store_analytics($store_analytics);
+
+		$store_timeline = [];
+		$store_timeline['store_id'] = $_id;
+
+		if(\dash\get::index($_args, 'st1'))
+		{
+			$st1 = $_args['st1'];
+			$st1 = \dash\validate::bigint($st1, false);
+			if($st1)
+			{
+				$st1 = date("Y-m-d H:i:s", $st1);
+				if($st1)
+				{
+					$store_timeline['start'] = $st1;
+				}
+			}
+		}
+
+
+		if(\dash\get::index($_args, 'st2'))
+		{
+			$st2 = $_args['st2'];
+			$st2 = \dash\validate::bigint($st2, false);
+			if($st2)
+			{
+				$st2 = date("Y-m-d H:i:s", $st2);
+				if($st2)
+				{
+					$store_timeline['ask'] = $st2;
+				}
+			}
+		}
+
+
+		if(\dash\get::index($_args, 'st3'))
+		{
+			$st3 = $_args['st3'];
+			$st3 = \dash\validate::bigint($st3, false);
+			if($st3)
+			{
+				$st3 = date("Y-m-d H:i:s", $st3);
+				if($st3)
+				{
+					$store_timeline['subdomain'] = $st3;
+				}
+			}
+		}
+
+		if(\dash\get::index($_args, 'st4'))
+		{
+			$st4 = $_args['st4'];
+			$st4 = \dash\validate::bigint($st4, false);
+			if($st4)
+			{
+				$st4 = date("Y-m-d H:i:s", $st4);
+				if($st4)
+				{
+					$store_timeline['startcreate'] = $st4;
+				}
+			}
+		}
+
+		$store_timeline['endcreate'] = date("Y-m-d H:i:s");
+		$result = \lib\db\store\insert::store_timeline($store_timeline);
+
 
 		return $result;
 	}

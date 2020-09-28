@@ -24,13 +24,7 @@ class model
 				return false;
 			}
 
-			// \dash\session::set('createNewStore_title', $title, 'CreateNewStore');
-
-			// \lib\app\store\timeline::clean();
-
-			// \lib\app\store\timeline::set('start');
-
-			\dash\redirect::to(\dash\url::this(). '/ask?'. \dash\request::fix_get(['title' => $title]));
+			\dash\redirect::to(\dash\url::this(). '/ask?'. \dash\request::fix_get(['title' => $title, 'st1' => time()]));
 			return;
 		}
 		else
