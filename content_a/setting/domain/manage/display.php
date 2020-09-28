@@ -17,10 +17,10 @@
   <form method="post" autocomplete="off">
     <input type="hidden" name="setting" value="setting">
     <div class="box">
-      <header><h2><?php echo T_("Domain setting") ?></h2></header>
       <div class="body">
 
         <?php if(\dash\data::domainDetail_status() === 'pending') {?>
+          <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
           <div class="mB20">
            <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
            <a class="checklist fc-black" <?php if(\dash\data::domainDetail_dnsok()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS is ok"); ?></a>
@@ -30,30 +30,6 @@
           </div>
         <?php } //endif ?>
 
-        <?php if(!\dash\data::masterDomain()) {?>
-          <p>
-              <?php echo T_("You have not any master doamin") ?>
-            </p>
-
-            <div class="msg">
-              <?php echo T_("If your want to set this domain as your business master domain") ?>
-              <div class="btn link" data-confirm data-data='{"changemaster": "changemaster"}'><?php echo T_("Click here") ?></div>
-            </div>
-        <?php }else{ ?>
-          <?php if(\dash\data::masterDomain_domain() === \dash\request::get('domain')) {?>
-            <div class="msg success2 minimal"><?php echo T_("Add this time you set :domain as master domain", ['domain' => '<b>'. \dash\data::masterDomain_domain(). '</b>']) ?></div>
-          <?php }else{ ?>
-            <p>
-              <div><?php echo T_("Add this time you set :domain as master domain", ['domain' => '<b>'. \dash\data::masterDomain_domain(). '</b>']) ?></div>
-            </p>
-
-            <div class="msg">
-              <?php echo T_("If your want to change business domain master to :domain", ['domain' => '<b>'. \dash\data::domainDetail_domain(). '</b>']) ?>
-              <div class="btn link" data-confirm data-data='{"changemaster": "changemaster"}'><?php echo T_("Change it now") ?></div>
-            </div>
-
-          <?php } //endif ?>
-        <?php } //endif ?>
       </div>
     </div>
   </form>
