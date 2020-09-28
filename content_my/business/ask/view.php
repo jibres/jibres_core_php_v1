@@ -14,7 +14,7 @@ class view
 		\dash\data::userToggleSidebar(false);
 
 
-		if(\dash\detect\device::detectPWA())
+		// if(\dash\detect\device::detectPWA())
 		{
 			// back
 			\dash\face::title(T_("Create a new business"));

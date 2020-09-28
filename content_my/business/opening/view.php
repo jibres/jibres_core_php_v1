@@ -8,10 +8,10 @@ class view
 	{
 		\dash\face::title(T_("Big Opening"));
 
-		$subdomain = \dash\session::get('myNewStoreSubdomain');
+		// $subdomain = \dash\session::get('myNewStoreSubdomain');
 
-		\lib\app\store\timeline::set('opening', \dash\session::get('myNewStoreID'));
-		\lib\app\store\timeline::clean();
+		// \lib\app\store\timeline::set('opening', \dash\session::get('myNewStoreID'));
+		// \lib\app\store\timeline::clean();
 
 		if($subdomain)
 		{
@@ -33,7 +33,7 @@ class view
 
 		\dash\data::userToggleSidebar(false);
 
-		if(\dash\detect\device::detectPWA())
+		// if(\dash\detect\device::detectPWA())
 		{
 			// back
 			\dash\data::back_text(T_('My business'));

@@ -7,6 +7,7 @@ class model
 	public static function post()
 	{
 		$can = \dash\data::canAddStore();
+
 		if(isset($can['can']) && $can['can'])
 		{
 			$title = \dash\validate::title(\dash\request::post('bt'));
@@ -23,18 +24,19 @@ class model
 				return false;
 			}
 
-			\dash\session::set('createNewStore_title', $title, 'CreateNewStore');
+			// \dash\session::set('createNewStore_title', $title, 'CreateNewStore');
 
-			\lib\app\store\timeline::clean();
+			// \lib\app\store\timeline::clean();
 
-			\lib\app\store\timeline::set('start');
+			// \lib\app\store\timeline::set('start');
 
-			\dash\redirect::to(\dash\url::this(). '/ask');
+			\dash\redirect::to(\dash\url::this(). '/ask?'. \dash\request::fix_get(['title' => $title]));
 			return;
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not add new business!"));
+
+			\dash\log::oops('userCanNotAddNewStoreLimit', T_("Can not add new business!"));
 			return false;
 		}
 	}

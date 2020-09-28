@@ -22,7 +22,7 @@
             <div class="msg warn2">
               <?php echo T_("Your domain was connected to a business but we can not find this business in you business list!") ?>
               <p>
-                <?php echo T_("If you need to know wath happend") ?> <a href="<?php echo \dash\url::support(). '/ticket/add?title=domainConnectedToAnotherBusiness' ?>" class="link"><?php echo T_("Contact with us") ?></a>
+                <?php echo T_("If you need to know what happened") ?> <a href="<?php echo \dash\url::support(). '/ticket/add?title=domainConnectedToAnotherBusiness' ?>" class="link"><?php echo T_("Contact with us") ?></a>
               </p>
             </div>
             </div>

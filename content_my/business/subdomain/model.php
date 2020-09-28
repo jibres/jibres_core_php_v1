@@ -15,9 +15,9 @@ class model
 			return false;
 		}
 
-		\dash\session::set('createNewStore_subdomain', $subdomain, 'CreateNewStore');
-		\lib\app\store\timeline::set('subdomain');
-		\dash\redirect::to(\dash\url::this().'/creating');
+		// \dash\session::set('createNewStore_subdomain', $subdomain, 'CreateNewStore');
+		// \lib\app\store\timeline::set('subdomain');
+		\dash\redirect::to(\dash\url::this().'/creating?'. \dash\request::fix_get(['subdomain' => $subdomain]));
 	}
 }
 ?>

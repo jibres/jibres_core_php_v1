@@ -206,8 +206,10 @@ class get
 
 		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
 
-		// \lib\db\nic_domain\update::update_by_dumain($update_domain, $_load_domain['name']);
-
+		if(!\dash\url::isLocal())
+		{
+			\lib\db\nic_domain\update::update_by_dumain($update_domain, $_load_domain['name']);
+		}
 	}
 
 

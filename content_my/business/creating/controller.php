@@ -6,7 +6,12 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\session::get('createNewStore_subdomain', 'CreateNewStore'))
+		if(!\dash\request::get('title'))
+		{
+			\dash\redirect::to(\dash\url::this(). '/start');
+		}
+
+		if(!\dash\request::get('subdomain'))
 		{
 			\dash\redirect::to(\dash\url::this(). '/subdomain');
 		}

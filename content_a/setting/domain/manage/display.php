@@ -5,7 +5,7 @@
   <div class="box">
     <div class="body">
       <p>
-        <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set a record for that subdomain at the following address:") ?>
+        <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set A record for that subdomain at the following address:") ?>
       <div class="msg ltr txtL"><span data-copy='business.jibres.com'><code>business.jibres.com</code></span></div>
       </p>
     </div>

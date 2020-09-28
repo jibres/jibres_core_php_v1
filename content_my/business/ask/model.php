@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		$question_answer = [];
 		if(\dash\request::post('skip') === 'skip')
 		{
 			// needless to check question
@@ -14,7 +15,6 @@ class model
 		{
 			$polls = \lib\app\store\polls::all();
 
-			$question_answer = [];
 
 			if(isset($polls['questions']) && is_array($polls['questions']))
 			{
@@ -41,10 +41,10 @@ class model
 				}
 			}
 
-			\dash\session::set('createNewStore_question_answer', $question_answer, 'CreateNewStore');
+			// \dash\session::set('createNewStore_question_answer', $question_answer, 'CreateNewStore');
 		}
 		\lib\app\store\timeline::set('ask');
-		\dash\redirect::to(\dash\url::this(). '/subdomain');
+		\dash\redirect::to(\dash\url::this(). '/subdomain?'. \dash\request::fix_get($question_answer));
 		return;
 
 	}

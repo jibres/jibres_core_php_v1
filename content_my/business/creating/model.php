@@ -10,9 +10,24 @@ class model
 		{
 			\lib\app\store\timeline::set('startcreate');
 
-			$title           = \dash\session::get('createNewStore_title', 'CreateNewStore');
-			$subdomain       = \dash\session::get('createNewStore_subdomain', 'CreateNewStore');
-			$question_answer = \dash\session::get('createNewStore_question_answer', 'CreateNewStore');
+			$title           = \dash\request::get('title');
+			$subdomain       = \dash\request::get('subdomain');
+
+			$question_answer = [];
+			if(\dash\request::get('Q1'))
+			{
+				$question_answer['Q1'] = \dash\request::get('Q1');
+			}
+
+			if(\dash\request::get('Q2'))
+			{
+				$question_answer['Q2'] = \dash\request::get('Q2');
+			}
+
+			if(\dash\request::get('Q3'))
+			{
+				$question_answer['Q3'] = \dash\request::get('Q3');
+			}
 
 			$post =
 			[
@@ -21,37 +36,41 @@ class model
 				'answer'    => $question_answer,
 			];
 
+			\dash\temp::set('clesnse_not_end_with_error', true);
+
 			$result = \lib\app\store\add::free($post);
 
-			if(\dash\engine\process::status())
+			if(\dash\engine\process::status() && isset($result['store_id']))
 			{
-				\dash\session::clean_cat('CreateNewStore');
+				// \dash\session::clean_cat('CreateNewStore');
 
-				if(isset($result['subdomain']))
-				{
-					\dash\session::set('myNewStoreSubdomain', $result['subdomain']);
-				}
+				// if(isset($result['subdomain']))
+				// {
+				// 	\dash\session::set('myNewStoreSubdomain', $result['subdomain']);
+				// }
 
-				\lib\app\store\timeline::set('endcreate');
+				// \lib\app\store\timeline::set('endcreate');
 
-				if(isset($result['store_id']))
-				{
-					\dash\session::set('myNewStoreID', $result['store_id']);
-					\lib\app\store\timeline::set_store_id($result['store_id']);
-				}
-
+				// if(isset($result['store_id']))
+				// {
+				// 	\dash\session::set('myNewStoreID', $result['store_id']);
+				// 	\lib\app\store\timeline::set_store_id($result['store_id']);
+				// }
 
 				\dash\notif::direct();
-				\dash\header::set(200);
-				\dash\redirect::to(\dash\url::this().'/opening');
+				// \dash\header::set(200);
+				$url = \dash\url::kingdom(). '/'. \dash\store_coding::encode($result['store_id']). '/a?'. \dash\request::fix_get(['bigopening' => 1]);
+				\dash\redirect::to($url);
 			}
 			else
 			{
 				\dash\log::set('CreateNewStoreError', ['detail' => $post]);
 
-				\dash\session::set('createNewStore_error', \dash\notif::get(), 'CreateNewStore');
+				// \dash\session::set('createNewStore_error', \dash\notif::get(), 'CreateNewStore');
+				\dash\notif::error(T_("Can not create your business!"));
+				\dash\redirect::to(\dash\url::this());
 
-				\dash\header::status(501, T_("Can not create your business!"));
+
 				return false;
 			}
 		}
