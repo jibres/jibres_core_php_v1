@@ -164,6 +164,18 @@ class extentions
 			}
 		}
 
+		if($_ext === 'svg')
+		{
+			// script can not in file content. For example in svg user can send script!
+			if(strpos(@file_get_contents($_file_addr), 'script') !== false)
+			{
+				\dash\notif::error(T_("Can not upload this file. Some keywords of this file is wrong!"));
+				$myResult['allow'] = false;
+			}
+		}
+
+
+
 		// else return the
 		return $myResult;
 	}
