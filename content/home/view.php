@@ -56,6 +56,12 @@ class view
 
 
 		\dash\face::title(\dash\face::site(). ' - '. T_('Start Selling'));
+		// for bots check seo title
+		if(\dash\agent::isBot())
+		{
+			\dash\face::title(\dash\face::seo());
+		}
+
 		// set pwa title
 		\dash\face::titlePWA(\dash\face::site());
 		\dash\face::logoPWA(\dash\url::icon());
