@@ -22,6 +22,8 @@ class view
 			\dash\session::set('redirect_page_title', null);
 			\dash\session::set('redirect_page_button', null);
 		}
+
+		\dash\data::global_scriptPage('pay_formsubmit.js');
 	}
 }
 ?>
