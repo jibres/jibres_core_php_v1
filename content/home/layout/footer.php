@@ -43,7 +43,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
        }
        ?>" alt='<?php echo T_("Jibres Vertical Logo") ?>'>
       </a>
-      <figcaption class="c s12"><?php echo \dash\face::intro(); ?> <a href="<?php echo $kingdom; ?>/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
+      <figcaption class="c s12"><?php echo T_("Integrated Ecommerce Platform Software") ?> / <?php echo T_("Quickly Start Free! Online Store Website & Mobile Online Store & Social Marketing & POS Software"); ?> / <?php echo T_("Accept Credit Cards - Fully Hosted - SEO Optimized - SSL Certificate - Fully API.") ?> <a href="<?php echo $kingdom; ?>/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
     </figure>
 
 
