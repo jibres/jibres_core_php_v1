@@ -18,7 +18,7 @@
 
 <nav class="items">
  <ul>
-      <li><a class="f item" href="<?php echo \dash\url::this(). '/answer?id='. \dash\request::get('id'); ?>"><i class="sf-file-1"></i><div class="key"><?php echo T_("Answers");?></div><div class="go"></div></a></li>
+      <li><a class="f item" href="<?php echo \dash\url::this(). '/answer?id='. \dash\request::get('id'); ?>"><i class="sf-file"></i><div class="key"><?php echo T_("Answers");?></div><div class="go"></div></a></li>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/report?id='. \dash\request::get('id'); ?>"><i class="sf-pie-chart"></i><div class="key"><?php echo T_("Reports");?></div><div class="go"></div></a></li>
  </ul>
 </nav>

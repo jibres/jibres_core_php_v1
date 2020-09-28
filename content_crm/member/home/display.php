@@ -668,7 +668,7 @@ if(\dash\request::get('status'))
    <div class="c s6">
     <a class="dcard <?php if(\dash\request::get('status') == 'active' || !\dash\request::get('status')) {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=active' data-shortkey="49ctrlshift">
      <div class="statistic green">
-      <div class="value"><i class="sf-user-5"></i></div>
+      <div class="value"><i class="sf-user"></i></div>
       <div class="label"><?php echo T_("Active"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
      </div>
     </a>

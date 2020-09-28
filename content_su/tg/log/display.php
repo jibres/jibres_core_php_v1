@@ -115,7 +115,7 @@ if(!is_array($dataTable))
           <a href="<?php echo \dash\url::that(); ?>?hooktext=<?php echo \dash\get::index($value, 'hooktext'); ?>"><?php echo \dash\get::index($value, 'hooktext'); ?></a>
         </div>
         <div class="f fs09">
-          <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#hook" class="cauto mRa5"><i class="sf-save-1"></i></a>
+          <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#hook" class="cauto mRa5"><i class="sf-save"></i></a>
           <a href="<?php echo \dash\url::that(); ?>?hookdate=<?php echo \dash\get::index($value, 'hookdate'); ?>" title='<?php echo \dash\get::index($value, 'hookdate'); ?>' class="cauto"><?php echo \dash\get::index($value, 'hookdate'); ?></a>
           <div class="cauto">
             <?php if(isset($value['hookmessageid']) && $value['hookmessageid']) {?>
@@ -150,13 +150,13 @@ if(!is_array($dataTable))
           <a href="<?php echo \dash\url::that(); ?>?sendtext=<?php echo \dash\get::index($value, 'sendtext'); ?>"><?php echo \dash\get::index($value, 'sendtext'); ?></a>
         </div>
         <div class="f fs09">
-          <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#send" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save-1"></i></a>
+          <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#send" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save"></i></a>
           <a href="<?php echo \dash\url::that(); ?>?senddate=<?php echo \dash\get::index($value, 'senddate'); ?>" title='<?php echo \dash\get::index($value, 'senddate'); ?>' class="c txtB"><?php echo \dash\get::index($value, 'senddate'); ?></a>
         </div>
           <?php if(isset($value['response']) && $value['response']) {?>
 
         <div class="f fs09">
-          <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#response" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save-1"></i></a>
+          <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#response" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save"></i></a>
           <a href="<?php echo \dash\url::that(); ?>?responsedate=<?php echo \dash\get::index($value, 'responsedate'); ?>" title='<?php echo \dash\get::index($value, 'responsedate'); ?>' class="c txtB"><?php echo \dash\get::index($value, 'responsedate'); ?></a>
         </div>
 
@@ -168,7 +168,7 @@ if(!is_array($dataTable))
 
       <td class="collapsing">
 
-        <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#meta"><?php if(isset($value['meta']) && $value['meta']) {?><i class="sf-folder-1 fc-green"></i><?php }else{ ?><i class="sf-folder fc-mute" title='<?php echo T_("Without meta"); ?>'></i><?php } ?></a>
+        <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo \dash\get::index($value, 'id'); ?>#meta"><?php if(isset($value['meta']) && $value['meta']) {?><i class="sf-folder fc-green"></i><?php }else{ ?><i class="sf-folder fc-mute" title='<?php echo T_("Without meta"); ?>'></i><?php } ?></a>
       </td>
 
       <td class="collapsing">

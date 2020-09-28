@@ -18,7 +18,7 @@
 
     <a class="dcard" href="<?php echo \dash\url::here(); ?>/member">
      <div class="statistic sm green">
-      <div class="label mB10"><i class="fs20 mRa5 sf-user-5"></i> <?php echo T_("Active Users"); ?></div>
+      <div class="label mB10"><i class="fs20 mRa5 sf-user"></i> <?php echo T_("Active Users"); ?></div>
       <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_activeUser()); ?></div>
      </div>
     </a>

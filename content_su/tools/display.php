@@ -90,7 +90,7 @@
   <div class="c4 s12">
       <a class="dcard x1" target="_blank" href='<?php echo \dash\url::here(); ?>/log'>
        <div class="statistic">
-        <div class="value"><i class="sf-folder-1"></i></div>
+        <div class="value"><i class="sf-folder"></i></div>
         <div class="label"><?php echo T_("Log"); ?></div>
        </div>
       </a>

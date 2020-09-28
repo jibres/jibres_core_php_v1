@@ -57,7 +57,7 @@ if(\dash\url::module() === 'signup')
 ?>
 
 <a href="<?php echo \dash\url::kingdom(); ?>/enter" id='ebusername' class="c <?php echo $isUserNameClass; ?>" title='<?php echo T_("Sign in instead"); ?>'>
-      <i class="sf-user-5"></i>
+      <i class="sf-user"></i>
      <span><?php echo T_("Login"); ?></span>
    </a>
 

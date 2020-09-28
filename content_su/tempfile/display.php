@@ -28,7 +28,7 @@
 
     <div class="c2 mA5 txtC">
       <a class="msg block" href='<?php echo \dash\url::this(); ?>?folder=<?php echo \dash\request::get('folder'); ?>&file=<?php echo \dash\get::index($value, 'name'); ?>'  >
-        <i class="sf-file-1 fs30"></i>
+        <i class="sf-file fs30"></i>
         <div class="label ltr txtB mT5"><?php echo \dash\get::index($value, 'name'); ?></div>
         <div class=" txtC mT10 ltr"><?php echo \dash\fit::date_human($value['mtime']); ?></div>
         <div class="label txtB"><?php echo \dash\fit::text($value['size']); ?> <?php echo T_("MB"); ?></div>

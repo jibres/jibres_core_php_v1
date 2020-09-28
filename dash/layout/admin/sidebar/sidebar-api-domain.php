@@ -1,5 +1,5 @@
      <!-- INTRO -->
-     <li><a href="<?php echo \dash\url::current(); ?>#intro"><i class='sf-tree-1'></i> <span><?php echo T_("Introduction"); ?></span></a></li>
+     <li><a href="<?php echo \dash\url::current(); ?>#intro"><i class='sf-tree'></i> <span><?php echo T_("Introduction"); ?></span></a></li>
      <li><a href="<?php echo \dash\url::current(); ?>#endpoints"><i class='sf-terminal'></i> <span><?php echo T_("Endpoints"); ?></span></a></li>
      <li><a href="<?php echo \dash\url::current(); ?>#requests"><i class='sf-angle-double-left'></i> <span><?php echo T_("Requests"); ?></span></a></li>
      <li><a href="<?php echo \dash\url::current(); ?>#responses"><i class='sf-angle-double-right'></i> <span><?php echo T_("Responses"); ?></span></a></li>

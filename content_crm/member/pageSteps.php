@@ -40,7 +40,7 @@
    <div class="c s6">
     <a class="dcard <?php if(\dash\url::child() == 'legal') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>/legal?id=<?php echo \dash\request::get('id'); ?>&action=list' data-shortkey="51ctrlshift" >
      <div class="statistic">
-      <div class="value"><i class="sf-user-5 fc-red"></i></div>
+      <div class="value"><i class="sf-user fc-red"></i></div>
       <div class="label"><?php echo T_("Legal"); ?> <kbd class=" hide mT5">Shift+3</kbd></div>
      </div>
     </a>

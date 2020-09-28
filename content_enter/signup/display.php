@@ -7,7 +7,7 @@
 
  <div class='flex fix' id='displaynameBox'>
     <label for='displayname'>
-      <i class="sf-user-4"></i>
+      <i class="sf-user"></i>
     </label>
     <input id='displayname' name="displayname" type='text' placeholder='<?php echo T_("Name"); ?>' autocomplete="off" maxlength="50" value="<?php echo \dash\data::get_displayname(); ?>" required title='<?php echo T_("We will call you with this name"); ?>'>
    </div>
@@ -59,7 +59,7 @@ $isUserNameClass = \dash\url::module() === 'username' ? 'active' : '';
 ?>
 
 <a href="<?php echo \dash\url::kingdom(); ?>/enter" id='ebusername' class="c <?php echo $isUserNameClass; ?>" title='<?php echo T_("Sign in instead"); ?>'>
-  <i class="sf-user-5"></i>
+  <i class="sf-user"></i>
  <span><?php echo T_("Login"); ?></span>
 </a>
 
