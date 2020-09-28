@@ -54,7 +54,7 @@
 <section id="jibresLogin">
   <div class="avand-md">
     <div class="example">
-      <form method="get" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
+      <form method="get" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
         <input type="hidden" name="autosend" value="1">
         <input type="hidden" name="go" value="1">
         <div class="input">

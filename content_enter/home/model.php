@@ -225,13 +225,26 @@ class model
 		// the user not found must be signup
 		if(!$user_data)
 		{
-			\dash\log::set('userNotFound');
-			\dash\utility\enter::try('login_user_not_found');
-			$msg_not_found = T_("Username not found");
-			$msg_not_found.= '<br> '. T_("Are you want to signup?");
-			$msg_not_found.= ' <br> <a href="'.\dash\url::kingdom().'/enter/signup">'. T_("Click to signup"). '</a>';
-			\dash\notif::error($msg_not_found, 'usernameormobile');
-			return false;
+			if(\dash\request::get('go'))
+			{
+				$signupURL = \dash\url::here().'/signup';
+				if(\dash\request::get())
+				{
+					$signupURL .= '?'. \dash\request::fix_get();
+				}
+
+				\dash\redirect::to($signupURL);
+			}
+			else
+			{
+				\dash\log::set('userNotFound');
+				\dash\utility\enter::try('login_user_not_found');
+				$msg_not_found = T_("Username not found");
+				$msg_not_found.= '<br> '. T_("Are you want to signup?");
+				$msg_not_found.= ' <br> <a href="'.\dash\url::kingdom().'/enter/signup">'. T_("Click to signup"). '</a>';
+				\dash\notif::error($msg_not_found, 'usernameormobile');
+				return false;
+			}
 		}
 
 		// if this user is blocked or filtered go to block page
