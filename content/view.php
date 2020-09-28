@@ -14,9 +14,9 @@ class view
 			$jibresDesc .= T_('Quickly Start Free!'). ' ';
 		}
 
-		$jibresDesc .= T_('Online Store Website'). T_('&');
-		$jibresDesc .= T_('Mobile Online Store'). T_('&');
-		$jibresDesc .= T_('Social Marketing'). T_('&');
+		$jibresDesc .= T_('Online Store Website'). T_(' & ');
+		$jibresDesc .= T_('Mobile Online Store'). T_(' & ');
+		$jibresDesc .= T_('Social Marketing'). T_(' & ');
 		$jibresDesc .= T_('POS Software');
 
 		if(\dash\language::current() == 'en')
