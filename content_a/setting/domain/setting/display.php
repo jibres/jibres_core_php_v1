@@ -4,7 +4,7 @@
     <div class="data">
       <h3><?php echo T_("Master domain");?></h3>
       <div class="body">
-        <p><?php echo T_("The master domin");?></p>
+        <p><?php echo T_("Choose the main domain of your business. With it, other domains connected to your business will be transferred to this domain");?></p>
       </div>
     </div>
   </div>
@@ -29,7 +29,12 @@
     <div class="data">
       <h3><?php echo T_("Redirect all domain to master");?></h3>
       <div class="body">
-        <p><?php echo T_("The master domin");?></p>
+        <p><?php echo T_("Enable these settings if you want to route all business domain independently");?></p>
+        <?php if(\dash\data::redirectAllDomainToMaster()) { ?>
+          <div class="msg minimal warn2"><?php echo T_("Be careful in this case you are at risk in terms of content and SEO") ?></div>
+        <?php }else{ ?>
+          <div class="msg minimal success2"><?php echo T_("All sites linked to your business will be redirected to the main domain") ?></div>
+        <?php } // endif ?>
       </div>
     </div>
   </div>
