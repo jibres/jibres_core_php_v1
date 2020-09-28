@@ -9,9 +9,8 @@
   </div>
 </div>
 
-<div class="hide">
-  <div id="urlthat"><?php echo \dash\url::that(). '?'. \dash\request::fix_get(); ?></div>
-  <div id="urlthis"><?php echo \dash\url::this(). '?'. \dash\request::fix_get(); ?></div>
-  <div id="urlthisopening"><?php echo \dash\url::this(). '/opening?'. \dash\request::fix_get(); ?></div>
-  <div id="urlthiserror"><?php echo \dash\url::this(). '/error?'. \dash\request::fix_get(); ?></div>
+<div class="hiden">
+  <form method="post" id="createstoreform">
+    <input type="hidden" name="create" value="store">
+  </form>
 </div>
