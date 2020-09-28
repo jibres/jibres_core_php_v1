@@ -14,7 +14,7 @@
 	<div class="c s12">
 		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/all'>
 			<div class="statistic red">
-				<div class="value"><i class="sf-list"></i></div>
+				<div class="value"><i class="sf-list-ul"></i></div>
 				<div class="label"><?php echo T_("List"); ?></div>
 			</div>
 		</a>

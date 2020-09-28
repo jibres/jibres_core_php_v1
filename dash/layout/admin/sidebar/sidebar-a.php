@@ -14,7 +14,7 @@ $urlHere = \dash\url::here();
 
       <?php if(\dash\permission::check('factorSaleList')) {?><li><a href="<?php echo $urlHere; ?>/factor?type=sale"><i class="floatRa mRa10 fc-mute sf-basket"></i><?php echo T_("List of sales"); ?></a></li><?php } //endif ?>
       <?php if(\dash\permission::check('factorBuyList')) {?><li><a href="<?php echo $urlHere; ?>/factor?type=buy"><i class="floatRa mRa10 fc-mute sf-bag"></i><?php echo T_("List of purchases"); ?></a></li><?php } //endif ?>
-      <?php if(\dash\permission::check('factorAccess')) {?><li><a href="<?php echo $urlHere; ?>/factor"><i class="floatRa mRa10 fc-mute sf-list"></i><?php echo T_("List of all factors"); ?></a></li><?php } //endif ?>
+      <?php if(\dash\permission::check('factorAccess')) {?><li><a href="<?php echo $urlHere; ?>/factor"><i class="floatRa mRa10 fc-mute sf-list-ul"></i><?php echo T_("List of all factors"); ?></a></li><?php } //endif ?>
 <?php } //endif ?>
     </ul>
   </li>

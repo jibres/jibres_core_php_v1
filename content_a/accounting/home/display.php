@@ -4,7 +4,7 @@
     <div class="c4 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc'; ?>'>
         <div class="statistic green">
-          <div class="value"><i class="sf-list"></i></div>
+          <div class="value"><i class="sf-list-ul"></i></div>
           <div class="label"><?php echo T_("Accounting Document"); ?></div>
         </div>
       </a>
@@ -52,7 +52,7 @@
     <div class="c4 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/coding/all'; ?>'>
         <div class="statistic blue">
-          <div class="value"><i class="sf-list"></i></div>
+          <div class="value"><i class="sf-list-ul"></i></div>
           <div class="label"><?php echo T_("Accounting Coding list"); ?></div>
         </div>
       </a>
@@ -200,7 +200,7 @@
     <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/all'>
         <div class="statistic red">
-          <div class="value"><i class="sf-list"></i></div>
+          <div class="value"><i class="sf-list-ul"></i></div>
           <div class="label"><?php echo T_("List"); ?></div>
         </div>
       </a>

@@ -5,7 +5,7 @@
         <?php if(\dash\detect\device::detectPWA()) {?>
           <li>
             <a class="item f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>">
-              <i class="sf-list"></i>
+              <i class="sf-list-ul"></i>
               <div class="key"><?php echo T_("Edit Description") ?></div>
               <div class="go"></div>
             </a>

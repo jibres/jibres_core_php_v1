@@ -186,7 +186,7 @@ if(!is_array($dataTable))
     <a class="dcard <?php if(!\dash\request::get('status') ) { echo 'active';} ?>" href='<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>' data-shortkey="49ctrlshift" >
      <div class="statistic">
       <div class="value"><?php echo \dash\fit::number(\dash\data::commentCounter_all()); ?></div>
-      <div class="label"><i class="sf-list"></i> <?php echo T_("All"); ?> </div>
+      <div class="label"><i class="sf-list-ul"></i> <?php echo T_("All"); ?> </div>
      </div>
     </a>
    </div>

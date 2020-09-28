@@ -76,7 +76,7 @@
    <div class="c s6">
     <a class="dcard <?php if(\dash\url::child() == 'description') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>/description?id=<?php echo \dash\request::get('id'); ?>' data-shortkey="55ctrlshift" >
      <div class="statistic tail">
-      <div class="value"><i class="sf-list"></i></div>
+      <div class="value"><i class="sf-list-ul"></i></div>
       <div class="label"><?php echo T_("Description"); ?> <kbd class=" hide mT5">Shift+7</kbd></div>
      </div>
     </a>

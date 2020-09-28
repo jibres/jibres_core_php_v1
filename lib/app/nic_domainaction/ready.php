@@ -177,7 +177,7 @@ class ready
 
 						case 'domain_imported':
 							$result['title'] = T_("Import manually domains successful");
-							$result['icon']    = '<i class="sf-list fs12 fc-green"></i>';
+							$result['icon']    = '<i class="sf-list-ul fs12 fc-green"></i>';
 							break;
 
 						case 'transfer_failed':

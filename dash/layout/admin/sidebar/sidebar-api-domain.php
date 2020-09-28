@@ -19,7 +19,7 @@
      <li><a href="<?php echo \dash\url::current(); ?>#domain-buy"><i class="sf-shop"></i><span><?php echo T_("Buy new domain"); ?></span></a></li>
      <li><a href="<?php echo \dash\url::current(); ?>#domain-renew"><i class="sf-shop"></i><span><?php echo T_("Renew domain"); ?></span></a></li>
      <li><a href="<?php echo \dash\url::current(); ?>#domain-transfer"><i class="sf-shop"></i><span><?php echo T_("Transfer domain"); ?></span></a></li>
-     <li><a href="<?php echo \dash\url::current(); ?>#domain-history"><i class="sf-list"></i><span><?php echo T_("Domain history"); ?></span></a></li>
+     <li><a href="<?php echo \dash\url::current(); ?>#domain-history"><i class="sf-list-ul"></i><span><?php echo T_("Domain history"); ?></span></a></li>
      <li class="hr"></li>
      <!--   CONTACT   -->
      <li><a href="<?php echo \dash\url::current() ?>#contact-fetch"><i class="sf-th"></i><span><?php echo T_("Fetch contacts"); ?></span></a></li>

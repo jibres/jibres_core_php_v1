@@ -24,7 +24,7 @@
               <td class="collapsing">
                 <?php if(\dash\get::index($value, 'meta')) {?>
                 <span data-kerkere=".showDetail<?php echo \dash\get::index($value, 'id'); ?>">
-                  <i class="sf-list"></i>
+                  <i class="sf-list-ul"></i>
                 </span>
               <?php } //endif ?>
               </td>

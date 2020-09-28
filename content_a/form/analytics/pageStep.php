@@ -3,7 +3,7 @@
   <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '/filter?'. \dash\request::fix_get(['field' => null]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'filter') { echo 'active'; } ?>">
       <h3><?php echo T_("Filter list");?></h3>
-      <div class="val"><i class="sf-list"></i></div>
+      <div class="val"><i class="sf-list-ul"></i></div>
     </a>
   </div>
   <div class="c pRa10">
