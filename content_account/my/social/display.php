@@ -12,7 +12,7 @@
             <label for="website"><?php echo T_("Website"); ?></label>
             <div class="input ltr">
               <input type="url" name="website" id="website" placeholder='<?php echo T_("like"); ?> https://ermile.com' value="<?php echo \dash\data::dataRow_website(); ?>" maxlength='40' minlength="1" pattern=".{1,40}">
-              <span class="addon"><i class="sf-earth"></i></span>
+              <span class="addon"><i class="sf-globe"></i></span>
             </div>
 
           <hr>

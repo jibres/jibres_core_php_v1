@@ -7,7 +7,7 @@
 
  <div class="f" id='eMethods'>
 	 <a href="<?php echo \dash\url::kingdom(); ?>" id='ebusername' class="c" >
-	    <i class="sf-earth"></i>
+	    <i class="sf-globe"></i>
 	    <span><?php echo T_("Let's go"); ?></span>
 	 </a>
   </div>

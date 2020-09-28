@@ -13,9 +13,9 @@
       <li class="hr"></li>
 
       <?php // -------------------------------------------------------------- LOCATION  ?>
-      <li><a href="<?php echo \dash\url::current(); ?>#location-country"><i class='sf-earth'></i> <span><?php echo T_("Country list"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#location-province"><i class='sf-earth'></i> <span><?php echo T_("Province list"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#location-city"><i class='sf-earth'></i> <span><?php echo T_("City list"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#location-country"><i class='sf-globe'></i> <span><?php echo T_("Country list"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#location-province"><i class='sf-globe'></i> <span><?php echo T_("Province list"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#location-city"><i class='sf-globe'></i> <span><?php echo T_("City list"); ?></span></a></li>
       <li class="hr"></li>
 
 
