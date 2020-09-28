@@ -83,18 +83,61 @@
 </section>
 
 
-<section class="jibresChannel" id="jibresOnlineWebsite">
+<section class="jibresChannel">
   <div class="avand-lg">
     <div class="row padMore">
       <div class="c-6">
         <h2 class="bigCart row align-end"><?php echo T_('Online Store Website'); ?></h2>
       </div>
       <div class="c-6">
-        <h3 class="bigCart blue row align-end"><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></h3>
+        <h3 class="bigCart bgBlue row align-end"><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></h3>
       </div>
     </div>
   </div>
 </section>
+
+
+<section class="jibresChannel">
+  <div class="avand-lg">
+    <div class="row padMore">
+      <div class="c-6">
+        <h2 class="bigCart bgJibres row align-end"><?php echo T_('Mobile Online Store'); ?></h2>
+      </div>
+      <div class="c-6">
+        <h3 class="bigCart bgBlack row align-end"><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(', '). T_('Fully Customizable'); ?></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="jibresChannel">
+  <div class="avand-lg">
+    <div class="row padMore">
+      <div class="c-6">
+        <h2 class="bigCart bgBlue row align-end"><?php echo T_('Point of Sale Software'); ?></h2>
+      </div>
+      <div class="c-6">
+        <h3 class="bigCart row align-end"><?php echo T_('Barcode reader'). T_(', '). T_('Receipt printer'). T_(', '). T_('PC POS'). T_(', '). T_('Label Printing Scale'). T_(', '). T_('Invoice Software'); ?></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="jibresChannel">
+  <div class="avand-lg">
+    <div class="row padMore">
+      <div class="c-6">
+        <h2 class="bigCart bgBlack row align-end"><?php echo T_('Social Marketing'); ?></h2>
+      </div>
+      <div class="c-6">
+        <h3 class="bigCart bgBlue row align-end"><?php echo T_('Easily add ecommerce to any website and social networks by embedding a single buy button.'); ?></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <section id='statistic'>
