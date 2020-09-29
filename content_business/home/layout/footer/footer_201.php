@@ -24,46 +24,26 @@
 		<nav class="mid">
 			<div class="f">
 				<div class="c3">
-					<h4><?php echo "Company" ?></h4>
-					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Career</a></li>
-						<li><a href="">Pricing</a></li>
-					</ul>
+					<?php \lib\website::menu_with_title('footer_menu_1'); ?>
 				</div>
 
 				<div class="c3">
-					<h4><?php echo "Products" ?></h4>
-					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Career</a></li>
-						<li><a href="">Pricing</a></li>
-					</ul>
+					<?php \lib\website::menu_with_title('footer_menu_2'); ?>
 				</div>
 
 				<div class="c3">
-					<h4><?php echo "Use Cases" ?></h4>
-					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Career</a></li>
-						<li><a href="">Pricing</a></li>
-					</ul>
+					<?php \lib\website::menu_with_title('footer_menu_3'); ?>
 				</div>
 
 				<div class="c3">
-					<h4><?php echo "Resources" ?></h4>
-					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Career</a></li>
-						<li><a href="">Pricing</a></li>
-					</ul>
+					<?php \lib\website::menu_with_title('footer_menu_4'); ?>
 				</div>
 
 			</div>
 		</nav>
 		<hr>
 		<div class="bottom ltr">
-			<p>&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'); ?> <a href="/privacy">Privacy</a> and <a href="/terms">Terms</a>.</p>
+			<p>&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'); ?> <a href="/privacy"><?php echo T_("Privacy") ?></a> <?php echo T_("And"); ?> <a href="/terms"><?php echo T_("Terms") ?></a>.</p>
 		</div>
 	</div>
 </div>

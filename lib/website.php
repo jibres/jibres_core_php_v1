@@ -21,6 +21,13 @@ class website
 		\lib\app\website\menu\generate::menu($_key, $_class);
 	}
 
+	public static function menu_with_title($_key, $_class = null)
+	{
+		\lib\app\website\menu\generate::menu_with_title($_key, $_class);
+	}
+
+
+
 
 
 	public static function have_header_menu()

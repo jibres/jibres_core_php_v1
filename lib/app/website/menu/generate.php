@@ -36,6 +36,46 @@ class generate
 	}
 
 
+  public static function menu_with_title($_key, $_class = null)
+  {
+    $customized_key = '';
+    if(in_array(substr($_key, 0, 6), ['header', 'footer']))
+    {
+      $customized_key = substr($_key, 0, 6);
+    }
+
+    $website = \dash\data::website();
+
+    if(isset($website[$customized_key][$_key]) && isset($website['menu'][$website[$customized_key][$_key]]['list']) && is_array($website['menu'][$website[$customized_key][$_key]]['list']))
+    {
+        if(isset($website['menu'][$website[$customized_key][$_key]]['title']))
+        {
+          echo '<h4>'. $website['menu'][$website[$customized_key][$_key]]['title']. '</h4>';
+        }
+        echo '<nav';
+        if($_class)
+        {
+          echo ' class="'. $_class. '"';
+        }
+        echo '>';
+        echo '<ul>';
+        foreach ($website['menu'][$website[$customized_key][$_key]]['list'] as $menuValue)
+        {
+            echo '<li>';
+              echo '<a ';
+              if(\dash\get::index($menuValue, 'target'))
+              {
+                echo 'target="_blank" data-direct ';
+              }
+              echo ' href="'. \dash\get::index($menuValue, 'url'). '">'. \dash\get::index($menuValue, 'title'). '</a>';
+            echo '</li>';
+        }
+        echo '</ul>';
+        echo '</nav>';
+    }
+  }
+
+
 
   public static function have_header_menu()
   {

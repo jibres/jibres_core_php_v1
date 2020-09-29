@@ -47,21 +47,17 @@ if($postList && is_array($postList))
 
 <?php }else{?>
 
-<div class="avand">
-  <div class="row roundedBox">
-        <?php foreach ($postList as $key => $value) {?>
-          <div class="row">
-              <div class="c-3">
-                <a class="overlay"<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
-                  <figure>
-                    <img src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'meta','thumb')); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-                    <figcaption><h2><?php echo \dash\get::index($value, 'title'); ?></h2></figcaption>
-                  </figure>
-                </a>
-              </div>
-          </div>
-        <?php } //endfor ?>
-  </div>
+
+
+<div class="avand-md">
+  <?php foreach ($postList as $key => $value) {?>
+      <a class="overlay"<?php if(\dash\get::index($value, 'link')) { echo ' href="'.  \dash\get::index($value, 'link'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
+        <figure>
+          <img src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'meta','thumb')); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+          <figcaption><h2><?php echo \dash\get::index($value, 'title'); ?></h2></figcaption>
+        </figure>
+      </a>
+  <?php } //endfor ?>
 </div>
 <?php } //endif ?>
 <?php } //endif ?>
