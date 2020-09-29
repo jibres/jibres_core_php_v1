@@ -127,13 +127,16 @@ class model
 
 	private static function upload_suggestion_image($_id)
 	{
-		$url = \dash\request::post('url');
-		if($url)
+		if(\dash\request::post('poof'))
 		{
-			\lib\app\product\gallery::upload_from_url($_id, $url);
-			if(\dash\engine\process::status())
+			$url = \dash\request::post('url');
+			if($url)
 			{
-				\dash\redirect::pwd();
+				\lib\app\product\gallery::upload_from_url($_id, $url);
+				if(\dash\engine\process::status())
+				{
+					\dash\redirect::pwd();
+				}
 			}
 		}
 		return false;

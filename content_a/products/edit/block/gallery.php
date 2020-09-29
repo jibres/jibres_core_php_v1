@@ -39,7 +39,7 @@
 
     <div class="box">
       <div class="pad1">
-          <div class="row" id='poofImageFetch' data-title='<?php echo \dash\data::productDataRow_title(); ?>'></div>
+        <div class="row" data-digikala-crawl='<?php echo \dash\data::productDataRow_title(); ?>'></div>
       </div>
     </div>
     <?php } //endif ?>
