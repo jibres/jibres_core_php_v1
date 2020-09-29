@@ -21,10 +21,11 @@ class controller
 
 		\dash\permission::access('contentA');
 
-		// \lib\app\store\timeline::set('loadstore', \lib\store::id());
-		\dash\session::clean('myNewStoreSubdomain');
-		\dash\session::clean('myNewStoreID');
 
+		if(\dash\request::get('domain') && !\dash\url::module())
+		{
+			\dash\redirect::to(\dash\url::this(). '/setting/domain/existdomain?'. \dash\request::fix_get());
+		}
 		// self::check_setup_page();
 
 	}
