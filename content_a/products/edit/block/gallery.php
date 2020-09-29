@@ -37,9 +37,7 @@
 
     <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) {?>
 
-    <div class="box">
-      <div class="pad1">
-        <div class="row" data-digikala-crawl='<?php echo \dash\data::productDataRow_title(); ?>'></div>
-      </div>
-    </div>
+
+     <div class="row" data-digikala-crawl='<?php echo \dash\data::productDataRow_title(); ?>'></div>
+
     <?php } //endif ?>
