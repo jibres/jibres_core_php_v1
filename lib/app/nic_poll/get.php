@@ -56,6 +56,9 @@ class get
 									if(in_array('irnicRegistrationApproved', $poll['detail'][$insert['domain']]['status']))
 									{
 										$log_meta['domainstatus'] = 'approved';
+
+										// load domain to add in business_domain list
+										\lib\app\business_domain\add::from_domain_approved($insert['domain']);
 									}
 									elseif(in_array('irnicRegistrationRejected', $poll['detail'][$insert['domain']]['status']))
 									{

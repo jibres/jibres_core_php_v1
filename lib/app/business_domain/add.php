@@ -4,6 +4,57 @@ namespace lib\app\business_domain;
 
 class add
 {
+	private static $debug = true;
+
+	public static function from_domain_approved($_domain)
+	{
+		$domain = \dash\validate::domain($_domain, false);
+
+		if(!$domain)
+		{
+			return;
+		}
+
+		$domain_detail = \lib\db\nic_domain\get::domain_anyone($domain);
+
+		if(!isset($domain_detail['id']))
+		{
+			// domain not founded
+			return;
+		}
+
+		$domain_detail = \lib\app\nic_domain\ready::row($domain_detail);
+
+		if(isset($domain_detail['jibres_dns']) && $domain_detail['jibres_dns'])
+		{
+
+		}
+		else
+		{
+			// is not jibres dns
+			return;
+		}
+
+		$load_domain = \lib\db\business_domain\get::by_domain($domain);
+
+		if(isset($load_domain['id']))
+		{
+			// this domain is already added to business domain list
+			return;
+		}
+
+		$add =
+		[
+			'domain_id' => \dash\coding::decode($domain_detail['id']),
+			'domain'    => $domain,
+		];
+
+		self::$debug = false;
+
+		return self::add($add);
+	}
+
+
 	public static function store_add($_args)
 	{
 		$store_id = \lib\store::id();
@@ -94,7 +145,10 @@ class add
 
 			if($have_error)
 			{
-				\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
+				if(self::$debug)
+				{
+					\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
+				}
 				return false;
 			}
 		}
@@ -136,7 +190,10 @@ class add
 		}
 		else
 		{
-			\dash\notif::error(T_("Domain is not valid"), 'domain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Domain is not valid"), 'domain');
+			}
 			return false;
 		}
 
@@ -191,7 +248,11 @@ class add
 
 		\lib\app\business_domain\edit::reset_redirect_domain_setting();
 
-		\dash\notif::create(T_("Domain added"));
+		if(self::$debug)
+		{
+			\dash\notif::create(T_("Domain added"));
+		}
+
 
 
 		return ['id' => $business_domain_id];

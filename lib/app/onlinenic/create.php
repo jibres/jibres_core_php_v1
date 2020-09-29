@@ -555,6 +555,8 @@ class create
 			// commit ok
 			\dash\notif::ok(T_("Domain :domain was registered in your name", ['domain' => $domain]), ['alerty' => true]);
 
+			\lib\app\business_domain\add::from_domain_approved($domain);
+
 			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
 
 			return true;
