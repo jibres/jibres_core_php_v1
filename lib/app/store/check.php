@@ -32,6 +32,7 @@ class check
 			'phone'                         => 'phone',
 			'mobile'                        => 'mobile',
 			'google_analytics'              => 'string_50',
+			'enamad'                        => 'string_100',
 			'nosale'                        => 'bit',
 			'redirect_all_domain_to_master' => 'bit',
 		];

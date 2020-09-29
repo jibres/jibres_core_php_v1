@@ -27,7 +27,20 @@ class website
 	}
 
 
+	public static function load_enamd()
+	{
+		$storeData = \dash\data::store_store_data();
+		$enamad = isset($storeData['enamad']) ? $storeData['enamad'] : null;
+		if($enamad)
+		{
+			$explode_enamad = explode('_', $enamad);
+			if(isset($explode_enamad[0]) && isset($explode_enamad[1]))
+			{
+				echo '<a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id='.$explode_enamad[0].'&amp;Code='.$explode_enamad[1].'"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id='.$explode_enamad[0].'&amp;Code='.$explode_enamad[1].'" alt="" style="cursor:pointer" id="'.$explode_enamad[1].'"></a>';
+			}
 
+		}
+	}
 
 
 	public static function have_header_menu()
