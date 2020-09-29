@@ -32,17 +32,31 @@ class model
 			$notif_msg = T_("Your footer menu was removed");
 		}
 
-		if(\dash\request::files('logo'))
+		if(\dash\request::post('footer_menu_3'))
 		{
-			$post['footer_logo'] = 'have_logo';
-			$notif_msg = T_("Your footer logo was saved");
+			$post['footer_menu_3'] = \dash\request::post('footer_menu_3');
+			$notif_msg = T_("Your footer menu was saved");
 		}
 
-		if(\dash\request::post('remove_footer') === 'logo')
+		if(\dash\request::post('footer_menu_3') === '0')
 		{
-			$post['footer_logo'] = 'remove_logo';
-			$notif_msg = T_("Your footer logo was removed");
+			$post['footer_menu_3'] = null;
+			$notif_msg = T_("Your footer menu was removed");
 		}
+
+
+		if(\dash\request::post('footer_menu_4'))
+		{
+			$post['footer_menu_4'] = \dash\request::post('footer_menu_4');
+			$notif_msg = T_("Your footer menu was saved");
+		}
+
+		if(\dash\request::post('footer_menu_4') === '0')
+		{
+			$post['footer_menu_4'] = null;
+			$notif_msg = T_("Your footer menu was removed");
+		}
+
 
 
 		$customize_footer = \lib\app\website\footer\set::customize_footer($post);

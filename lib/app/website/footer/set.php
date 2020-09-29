@@ -41,6 +41,8 @@ class set
 		[
 			'footer_menu_1' => $menu,
 			'footer_menu_2' => $menu,
+			'footer_menu_3' => $menu,
+			'footer_menu_4' => $menu,
 			'footer_logo'   => 'string',
 		];
 

@@ -14,11 +14,11 @@ class view
 		// preview
 		\dash\face::btnPreview(\lib\store::url());
 
-		// if(true) // check need to load menu
-		// {
-		// 	$menu = \lib\app\website\menu\get::list_all_menu();
-		// 	\dash\data::allMenu($menu);
-		// }
+		if(true) // check need to load menu
+		{
+			$menu = \lib\app\website\menu\get::list_all_menu();
+			\dash\data::allMenu($menu);
+		}
 
 		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
 	}
