@@ -1,4 +1,4 @@
-<?php $ifmaster = (\dash\data::masterDomain_domain() === \dash\request::get('domain') && is_array(\dash\data::domainList()) && count(\dash\data::domainList()) > 2); ?>
+<?php $ifmaster = (\dash\data::masterDomain_domain() === \dash\request::get('domain') && is_array(\dash\data::domainList()) && count(\dash\data::domainList()) >= 2); ?>
 <div class="avand-lg">
   <input type="hidden" name="setting" value="setting">
   <div class="box">

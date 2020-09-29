@@ -13,19 +13,25 @@ class remove
 
 		$id = $load['id'];
 
-
-		$remove_from_cdn_panel = \lib\app\business_domain\cdnpanel::remove($id);
-		if($remove_from_cdn_panel)
+		if(isset($load['domain_id']) && $load['domain_id'])
 		{
-			\lib\store::reset_cache($load['store_id']);
-
-			\lib\db\business_domain\delete::all_domain_action($id);
-			\lib\db\business_domain\delete::all_domain_dns($id);
-			\lib\db\business_domain\delete::by_id($id);
-
-
-			\dash\notif::delete(T_("Domain removed"));
+			\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'store_id' => null], $load['id']);
 		}
+		else
+		{
+			$remove_from_cdn_panel = \lib\app\business_domain\cdnpanel::remove($id);
+			if($remove_from_cdn_panel)
+			{
+				\lib\store::reset_cache($load['store_id']);
+
+				\lib\db\business_domain\delete::all_domain_action($id);
+				\lib\db\business_domain\delete::all_domain_dns($id);
+				\lib\db\business_domain\delete::by_id($id);
+			}
+		}
+
+		\dash\notif::delete(T_("Domain removed"));
+
 		return true;
 	}
 
@@ -38,7 +44,11 @@ class remove
 			return false;
 		}
 
-		if(isset($load['master']) && $load['master'])
+
+		$all_domain_name = \lib\app\business_domain\get::my_all_domains();
+
+
+		if(isset($load['master']) && $load['master'] && is_array($all_domain_name) && count($all_domain_name) >= 2)
 		{
 			\dash\notif::error(T_("You can not remove master Domain. Please change your business master domain and try it later"));
 			return false;
