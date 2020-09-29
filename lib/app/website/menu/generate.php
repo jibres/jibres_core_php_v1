@@ -95,5 +95,29 @@ class generate
 
     return false;
   }
+
+
+
+
+  public static function have_footer_menu()
+  {
+    $website = \dash\data::website();
+
+    if(isset($website['footer']) && is_array($website['footer']))
+    {
+      if(
+          (isset($website['footer']['footer_menu_1']) && $website['footer']['footer_menu_1']) ||
+          (isset($website['footer']['footer_menu_2']) && $website['footer']['footer_menu_2']) ||
+          (isset($website['footer']['footer_menu_3']) && $website['footer']['footer_menu_3']) ||
+          (isset($website['footer']['footer_menu_4']) && $website['footer']['footer_menu_4'])
+
+        )
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 ?>

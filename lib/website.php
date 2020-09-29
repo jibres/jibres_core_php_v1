@@ -56,6 +56,11 @@ class website
 
 
 
+	public static function have_footer_menu()
+	{
+		return \lib\app\website\menu\generate::have_footer_menu();
+	}
+
 	public static function have_header_menu()
 	{
 		return \lib\app\website\menu\generate::have_header_menu();

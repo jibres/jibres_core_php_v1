@@ -16,6 +16,7 @@
 			</div>
 		</div>
 		<hr>
+		<?php if(\lib\website::have_footer_menu()) {?>
 		<nav class="mid">
 			<div class="f">
 				<div class="c3">
@@ -37,6 +38,7 @@
 			</div>
 		</nav>
 		<hr>
+	<?php } //endif ?>
 		<div class="bottom ltr">
 			<p><?php echo \dash\get::index($website, 'footer', 'maintext', 'text') ?></p>
 		</div>
