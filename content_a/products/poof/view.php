@@ -30,8 +30,6 @@ class view
 		}
 
 		\dash\face::help(\dash\url::support().'/property');
-
-		\dash\data::global_scriptPage('a_product_poof.js');
 	}
 }
 ?>
