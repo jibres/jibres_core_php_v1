@@ -52,6 +52,17 @@ class gallery
 
 	}
 
+
+	public static function upload_from_url($_id, $_url)
+	{
+		$uploaded_file = \dash\upload\product::set_product_gallery_from_url(\dash\request::get('id'), $_url);
+
+		if($uploaded_file)
+		{
+			\lib\app\product\gallery::gallery($_id, $uploaded_file, 'add');
+		}
+	}
+
 	private static function get_gallery_field($_product_id)
 	{
 

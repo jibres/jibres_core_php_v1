@@ -181,6 +181,20 @@ class extentions
 	}
 
 
+	public static function get_ext_from_mime($_mime)
+	{
+		$mime = self::mime();
+		foreach ($mime as $key => $value)
+		{
+			if(isset($value['mime']) && $value['mime'] === $_mime)
+			{
+				return $key;
+			}
+		}
+		return null;
+	}
+
+
 	public static function _mime_content_type($_addr)
 	{
 		if(!function_exists('finfo_open'))

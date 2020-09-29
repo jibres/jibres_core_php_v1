@@ -17,7 +17,7 @@ class validation_file
 	 */
 	public static function ok($_upload_name, $_meta = [])
 	{
-		switch (\dash\request::files($_upload_name, 'error'))
+		switch (\dash\upload\file::my_files($_upload_name, 'error'))
 		{
 			case UPLOAD_ERR_OK:
 				// no error
@@ -41,9 +41,9 @@ class validation_file
 
 		$fileName = null;
 
-		$tmp_name = \dash\request::files($_upload_name, 'tmp_name');
+		$tmp_name = \dash\upload\file::my_files($_upload_name, 'tmp_name');
 
-		$fileInfo           = pathinfo(\dash\request::files($_upload_name, 'name'));
+		$fileInfo           = pathinfo(\dash\upload\file::my_files($_upload_name, 'name'));
 
 		if(isset($fileInfo['filename']))
 		{
@@ -86,7 +86,7 @@ class validation_file
 			return false;
 		}
 
-		$fileSize = \dash\request::files($_upload_name, 'size');
+		$fileSize = \dash\upload\file::my_files($_upload_name, 'size');
 
 		//check file extention with allowed extention list
 		// set file data like name, ext, mime

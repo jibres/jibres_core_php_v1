@@ -4,6 +4,75 @@ namespace dash\upload;
 
 class file
 {
+	private static $MY_FILES = [];
+	private static $upload_name = null;
+
+	private static function config_my_files($_upload_name, $_meta)
+	{
+		self::$upload_name = $_upload_name;
+		if(isset($_meta['upload_from_path']) && isset($_meta['upload_name']))
+		{
+			self::$upload_name = $_meta['upload_name'];
+			$my_temp_file = $_meta['upload_from_path'];
+			if(is_file($my_temp_file))
+			{
+				$mime = \dash\upload\extentions::_mime_content_type($my_temp_file);
+
+				$file_name = basename($my_temp_file);
+				$ext = \dash\upload\extentions::get_ext_from_mime($mime);
+				if($ext)
+				{
+					$file_name .= '.'. $ext;
+				}
+
+				self::$MY_FILES[$_meta['upload_name']] =
+				[
+					'name'     => $file_name,
+					'type'     => $mime,
+					'tmp_name' => $my_temp_file,
+					'error'    => 0,
+					'size'     => filesize($my_temp_file),
+				];
+			}
+		}
+	}
+
+	public static function my_files($_name = null, $_key = null)
+	{
+		if(!self::$MY_FILES)
+		{
+			self::$MY_FILES = $_FILES;
+		}
+
+		if($_name)
+		{
+			if(isset(self::$MY_FILES[$_name]) && (isset(self::$MY_FILES[$_name]['error']) && self::$MY_FILES[$_name]['error'] != 4))
+			{
+				if($_key)
+				{
+					if(isset(self::$MY_FILES[$_name][$_key]))
+					{
+						return self::$MY_FILES[$_name][$_key];
+					}
+					else
+					{
+						return null;
+					}
+				}
+				else
+				{
+					return self::$MY_FILES[$_name];
+				}
+
+			}
+			else
+			{
+				return null;
+			}
+		}
+		return self::$MY_FILES;
+	}
+
 	/**
 	 * File Uploading
 	 * setp by step file upload
@@ -25,8 +94,10 @@ class file
 
 		$default_meta =
 		[
-			'allow_size' => null,
-			'ext'        => null,
+			'allow_size'       => null,
+			'upload_from_path' => null,
+			'upload_name'      => null,
+			'ext'              => null,
 		];
 
 		if(!is_array($_meta))
@@ -36,13 +107,17 @@ class file
 
 		$_meta = array_merge($default_meta, $_meta);
 
-		if(!\dash\request::files($_upload_name))
+		self::config_my_files($_upload_name, $_meta);
+
+		$upload_name = self::$upload_name;
+
+		if(!\dash\upload\file::my_files($upload_name))
 		{
 			return null;
 		}
 
-		// 1. we have an error in $_FILE[$_upload_name]
-		$myFile = \dash\upload\validation_file::ok($_upload_name, $_meta);
+		// 1. we have an error in $_FILE[$upload_name]
+		$myFile = \dash\upload\validation_file::ok($upload_name, $_meta);
 
 		if(!$myFile || !isset($myFile['ext']) || !isset($myFile['md5']) || !isset($myFile['tmp_name']) || !isset($myFile['size']))
 		{
