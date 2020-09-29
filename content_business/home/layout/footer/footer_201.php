@@ -5,15 +5,12 @@
 			<div class="row align-end">
 				<div class="c-xs-12 c-sm-12 c-md">
 					<h3><a href="<?php echo \dash\url::kingdom(); ?>" target="_blank"><?php echo \dash\get::index(\lib\store::detail(), 'store_data', 'title'); ?></a></h3>
-					<p><?php echo \dash\get::index($website, 'footer', 'maintext', 'text') ?></p>
+					<p><?php echo \lib\store::desc(); ?></p>
 				</div>
 				<div class="c-xs-12 c-sm-12 c-md-auto">
 					<div class="certifications txtRa">
 						<?php \lib\website::load_enamd(); ?>
-
 						<?php \lib\website::load_samandehi(); ?>
-
-
 					</div>
 				</div>
 			</div>
@@ -41,7 +38,7 @@
 		</nav>
 		<hr>
 		<div class="bottom ltr">
-			<p>&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'); ?> <a href="/privacy"><?php echo T_("Privacy") ?></a> <?php echo T_("And"); ?> <a href="/terms"><?php echo T_("Terms") ?></a>.</p>
+			<p><?php echo \dash\get::index($website, 'footer', 'maintext', 'text') ?></p>
 		</div>
 	</div>
 </div>
