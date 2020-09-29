@@ -8,6 +8,10 @@ class send
 
 	public static function notification()
 	{
+		if(\dash\url::isLocal())
+		{
+			return false;
+		}
 
 		$not_send = \dash\db\logs::notif_not_send();
 		if(!$not_send || !is_array($not_send))
