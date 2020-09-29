@@ -25,6 +25,7 @@
     <input id='passcode' name="password" type='password' placeholder='<?php echo T_("Password?"); ?>'  minlength="6" maxlength="40" <?php if(\dash\request::get('clean') || \dash\user::id()) { ?> autocomplete="new-password" <?php }else{ ?> autocomplete="off" <?php } // endif ?>>
    </div>
 
+<?php \dash\utility\hive::html(); ?>
  <div class='flex fix' id='eramz'>
     <label for='ramz' title='<?php echo T_("Password"); ?>'>
       <i class="sf-lock"></i>

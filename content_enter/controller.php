@@ -126,12 +126,14 @@ class controller
 						}
 						else
 						{
-							\dash\header::status(403, $check_unlock);
+							// \dash\header::status(403, $check_unlock);
+							\dash\redirect::to(\dash\url::here());
 						}
 					}
 					else
 					{
-						\dash\header::status(403, $check_unlock);
+						// \dash\header::status(403, $check_unlock);
+						\dash\redirect::to(\dash\url::here());
 					}
 				}
 			}
