@@ -51,7 +51,7 @@
      <nav class="items">
       <ul>
        <li>
-        <a class="f" href="<?php echo \dash\url::here(); ?>/business/start">
+        <a class="f" href="<?php echo \dash\url::here(). '/business/start?domain='. \dash\data::domainDetail_name(); ?>">
          <div class="go plus ok"></div>
          <div class="key"><?php echo T_("Add New Business");?></div>
         </a>
