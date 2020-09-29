@@ -86,7 +86,7 @@ class guard
 		// manifest-src
 		$csp .= "manifest-src 'self'; ";
 		// connect-src
-		$csp .= "connect-src 'self' https://*.jibres.ir https://*.jibres.com https://www.google-analytics.com";
+		$csp .= "connect-src 'self' https://*.jibres.ir https://*.jibres.com https:";
 		if(\dash\url::isLocal())
 		{
 			$csp .=  " *.jibres.local";
