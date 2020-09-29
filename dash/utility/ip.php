@@ -204,6 +204,10 @@ class ip
 	private static function get_from_server($_ip)
 	{
 
+		if(\dash\url::isLocal())
+		{
+			return false;
+		}
 		$apiKey = 'hIenwLNiGpPOoSk';
 
 		if(!$apiKey)
