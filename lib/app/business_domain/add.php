@@ -33,8 +33,9 @@ class add
 	{
 		$condition =
 		[
-			'domain'   => 'domain',
-			'store_id' => 'id',
+			'domain'    => 'domain',
+			'store_id'  => 'id',
+			'domain_id' => 'id',
 		];
 
 		$require = ['domain'];
@@ -171,7 +172,7 @@ class add
 				'root'        => $root,
 				'tld'         => $tld,
 				'store_id'    => $data['store_id'],
-				'domain_id'   => null,
+				'domain_id'   => $data['domain_id'],
 				'cdn'         => $cdn,
 				'datecreated' => date("Y-m-d H:i:s"),
 			];
