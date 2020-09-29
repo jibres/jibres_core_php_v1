@@ -152,7 +152,7 @@ class controller
 
 		if(is_file($sqlHardCritical))
 		{
-			\dash\log::set('su_sqlHardCritical');
+			// \dash\log::set('su_sqlHardCritical');
 		}
 
 
