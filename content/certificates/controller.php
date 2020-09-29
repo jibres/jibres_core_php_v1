@@ -27,6 +27,10 @@ class controller
 					$link = "https://trustseal.enamad.ir/?id=118387&Code=2iL8ULp5lVA5oSXMRiLp";
 					break;
 
+				case 'shaparak':
+					$link = "https://shaparak.com/tips/payment-facilitators";
+					break;
+
 				default:
 					break;
 			}
