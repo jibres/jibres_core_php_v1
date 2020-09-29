@@ -20,7 +20,7 @@ class model
 
 			\lib\app\store\edit::selfedit($post);
 
-			\lib\app\business_domain\edit::reset_redirect_domain_setting(\dash\request::post('redirect_all_domain_to_master'));
+			\lib\app\business_domain\edit::reset_redirect_domain_setting(\dash\request::post('redirect_all_domain_to_master'), true);
 
 			\lib\store::refresh();
 

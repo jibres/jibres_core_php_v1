@@ -1,5 +1,18 @@
 <div class="avand-lg">
+  <div class="box">
+    <div class="body">
+      <div class="f">
+        <div class="cauto fc-mute"><?php echo \dash\data::domainDetail_tstatus(); ?></div>
+        <div class="c"></div>
+        <div class="cauto">
+          <div class="txtB ltr">
+            <a href="<?php echo \dash\url::protocol(). '://'. \dash\data::domainDetail_domain();  ?>" target="_blank"><?php echo \dash\data::domainDetail_domain() ?> <i class="sf-link-external"></i></a>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </div>
 
   <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() || \dash\data::domainDetail_cdn() === 'enterprise')) {?>
   <div class="box">
@@ -20,7 +33,6 @@
         <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
         <div class="mB20">
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
-          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_dnsok()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS is ok"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_cdnpanel()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Add to CDN panel"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsverify()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS verify"); ?></a>

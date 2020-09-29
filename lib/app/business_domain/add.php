@@ -25,8 +25,6 @@ class add
 
 		self::add($_args);
 
-		\lib\app\business_domain\edit::reset_redirect_domain_setting();
-
 		return true;
 	}
 
@@ -63,18 +61,29 @@ class add
 			$cdn = 'arvancloud';
 		}
 
+		$update_store_id = null;
+
 		$check_duplicate = \lib\db\business_domain\get::by_domain($domain);
+
 		if(isset($check_duplicate['id']))
 		{
-			$msg = T_("Duplicate domain. This domain already added to domains list");
+
+			$have_error = true;
+			$msg        = T_("Duplicate domain. This domain already added to domains list");
 
 			if(floatval($check_duplicate['store_id']) === floatval(\lib\store::id()))
 			{
 				$msg = T_("This domain is alreay exists in your business domain list");
 			}
-			else
+			elseif(isset($check_duplicate['store_id']))
 			{
 				$msg = T_("Duplicate domain. This domain already taken by another business");
+			}
+			else
+			{
+				// domain was connected to jibres but not in any store. we connecte first to this store by update this record and set store id in this record
+				$have_error      = false;
+				$update_store_id = $check_duplicate['id'];
 			}
 
 			if($check_duplicate['status'] === 'pending_delete')
@@ -82,8 +91,11 @@ class add
 				$msg = T_("This domain is pending for delete. Please try it later");
 			}
 
-			\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
-			return false;
+			if($have_error)
+			{
+				\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
+				return false;
+			}
 		}
 
 
@@ -142,32 +154,44 @@ class add
 			}
 		}
 
-		$insert =
-		[
-			'domain'      => $domain,
-			'status'      => 'pending',
-			'user_id'     => \dash\user::jibres_user(),
-			'subdomain'   => $subdomain,
-			'master'      => $master_domain,
-			'root'        => $root,
-			'tld'         => $tld,
-			'store_id'    => $data['store_id'],
-			'domain_id'   => null,
-			'cdn'         => $cdn,
-			'datecreated' => date("Y-m-d H:i:s"),
-		];
-
-		$business_domain_id = \lib\db\business_domain\insert::new_record($insert);
-
-		if(!$business_domain_id)
+		if($update_store_id)
 		{
-			\dash\log::oops('dbBusinessDomainInsertError');
-			return false;
+			\lib\app\business_domain\edit::edit_raw(['store_id' => $data['store_id']], $update_store_id);
+			$business_domain_id = $update_store_id;
+		}
+		else
+		{
+			$insert =
+			[
+				'domain'      => $domain,
+				'status'      => 'pending',
+				'user_id'     => \dash\user::jibres_user(),
+				'subdomain'   => $subdomain,
+				'master'      => $master_domain,
+				'root'        => $root,
+				'tld'         => $tld,
+				'store_id'    => $data['store_id'],
+				'domain_id'   => null,
+				'cdn'         => $cdn,
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			$business_domain_id = \lib\db\business_domain\insert::new_record($insert);
+
+			if(!$business_domain_id)
+			{
+				\dash\log::oops('dbBusinessDomainInsertError');
+				return false;
+			}
+
 		}
 
 		\lib\app\business_domain\action::new_action($business_domain_id, 'add_domain');
 
+		\lib\app\business_domain\edit::reset_redirect_domain_setting();
+
 		\dash\notif::create(T_("Domain added"));
+
 
 		return ['id' => $business_domain_id];
 	}

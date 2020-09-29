@@ -34,18 +34,34 @@ class edit
 	}
 
 
-	public static function reset_redirect_domain_setting($_new_option = null)
+	public static function reset_redirect_domain_setting($_new_option = null, $_set = null)
 	{
 		if(\lib\store::id())
 		{
 			$store_id = \lib\store::id();
-			if($_new_option)
+			if($_set)
 			{
-				\lib\db\business_domain\update::reset_all_redirect_store($store_id, 1);
+				if($_new_option)
+				{
+					\lib\db\business_domain\update::reset_all_redirect_store($store_id, 1);
+				}
+				else
+				{
+					\lib\db\business_domain\update::reset_all_redirect_store($store_id, 0);
+				}
 			}
 			else
 			{
-				\lib\db\business_domain\update::reset_all_redirect_store($store_id, 0);
+				$check_default_before = \lib\store::detail('redirect_all_domain_to_master');
+
+				if($check_default_before)
+				{
+					\lib\db\business_domain\update::reset_all_redirect_store($store_id, 1);
+				}
+				else
+				{
+					\lib\db\business_domain\update::reset_all_redirect_store($store_id, 0);
+				}
 			}
 			\lib\store::reset_cache();
 		}

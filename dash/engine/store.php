@@ -538,21 +538,23 @@ class store
 			\dash\file::makeDir(self::customer_domain_addr(), null, true);
 		}
 
+		$load_detail = [];
+
 		if(!is_file($customer_domain))
 		{
 			$check_db = \lib\app\business_domain\get::is_customer_domain($_domain);
-			if(!isset($check_db['store_id']))
-			{
-				return false;
-			}
-			else
+			$load_detail = $check_db;
+
+			if(isset($check_db['store_id']))
 			{
 				\dash\file::write($customer_domain, json_encode($check_db, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 			}
 		}
-
-		$load_detail = \dash\file::read($customer_domain);
-		$load_detail = json_decode($load_detail, true);
+		else
+		{
+			$load_detail = \dash\file::read($customer_domain);
+			$load_detail = json_decode($load_detail, true);
+		}
 
 		self::$customerDomainDetail = $load_detail;
 
@@ -590,6 +592,14 @@ class store
 					}
 				}
 			}
+		}
+		elseif(isset($load_detail['domain_id']))
+		{
+			\dash\engine\prepare::html_raw_page('domainRegistered');
+		}
+		elseif(isset($load_detail['id']))
+		{
+			\dash\engine\prepare::html_raw_page('domainOnlyConnected');
 		}
 		else
 		{
