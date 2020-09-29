@@ -154,7 +154,7 @@ class https
 
 			$set_https['ar_wildcard'] = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
 
-			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_sended', ['meta' => self::meta($set_https)]);
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_sended');
 			\lib\app\business_domain\edit::set_date($_id, 'httpsrequest');
 			\dash\notif::ok(T_("HTTPS request was sended"));
 			return true;
