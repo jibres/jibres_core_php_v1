@@ -30,6 +30,11 @@ class model
 			$post['defaulttracking'] = \dash\request::post('defaulttracking');
 		}
 
+		if(array_key_exists('runaction_product_suggestion', $all_post))
+		{
+			$post['product_suggestion'] = \dash\request::post('product_suggestion');
+		}
+
 
 		if(array_key_exists('runaction_comment', $all_post))
 		{

@@ -34,3 +34,12 @@
         <?php } //endif ?>
       </div>
     </div>
+
+    <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) {?>
+
+    <div class="box">
+      <div class="pad1">
+          <div class="row" id='poofImageFetch' data-title='<?php echo \dash\data::productDataRow_title(); ?>'></div>
+      </div>
+    </div>
+    <?php } //endif ?>

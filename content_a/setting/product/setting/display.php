@@ -146,3 +146,27 @@ $storeData = \dash\data::store_store_data();
 
 
 
+
+<section class="f" data-option='product-setting-suggestion'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Product detail suggestion");?></h3>
+      <div class="body">
+        <p><?php echo T_("Enable product suggestion");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+
+      <div class="action">
+        <input type="hidden" name="runaction_product_suggestion" value="1">
+        <div class="switch1">
+          <input type="checkbox" name="product_suggestion" id="product_suggestion" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) { echo 'checked'; } ?>>
+          <label for="product_suggestion" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
+        </div>
+      </div>
+
+  </form>
+</section>
+
+

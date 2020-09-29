@@ -17,6 +17,7 @@ class set
 			'share_text'         => 'desc',
 			'view_text'          => 'desc',
 			'preparationtime'    => 'smallint',
+			'product_suggestion' => 'bit',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

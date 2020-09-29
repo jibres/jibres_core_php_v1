@@ -61,6 +61,11 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(self::upload_suggestion_image($id))
+		{
+			return true;
+		}
+
 		if(self::upload_editor($id))
 		{
 			return true;
@@ -117,6 +122,21 @@ class model
 
 		// \dash\redirect::pwd();
 
+	}
+
+
+	private static function upload_suggestion_image($_id)
+	{
+		$url = \dash\request::post('url');
+		if($url)
+		{
+			\lib\app\product\gallery::upload_from_url($_id, $url);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+		return false;
 	}
 
 
