@@ -19,7 +19,22 @@
     <div class="body">
       <p>
         <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set A record for that subdomain at the following address:") ?>
-      <div class="msg ltr txtL"><span data-copy='business.jibres.com'><code>business.jibres.com</code></span></div>
+        <table class="tbl1 v4 minimal">
+          <thead class="font-12">
+            <tr>
+              <th><?php echo T_("Type") ?></th>
+              <th><?php echo T_("Key") ?></th>
+              <th><?php echo T_("Value") ?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A</td>
+              <td>@</td>
+              <td><span data-copy='business.jibres.com'><code>business.jibres.com</code> <span class="btn sm"><?php echo T_("Copy") ?></span></span></td>
+            </tr>
+          </tbody>
+        </table>
       </p>
     </div>
   </div>
