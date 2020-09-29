@@ -135,6 +135,34 @@ class cdnpanel
 		elseif(isset($add_domain['message']) && $add_domain['message'] === 'The given data was invalid.')
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_already_inuse', ['desc' => "This domain is already is use in CDN panel", 'meta' => self::meta($add_domain)]);
+
+			$get_domain = \lib\arvancloud\api::get_domain($domain);
+
+			if(isset($get_domain['data']['id']))
+			{
+				// fetch dns record
+				$result_fetch = \lib\arvancloud\api::check_dns_record($domain);
+				\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_check', ['meta' => self::meta($result_fetch)]);
+
+
+				\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
+				\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+				return true;
+			}
+			else
+			{
+				if(array_key_exists('status', $get_domain) && !$get_domain['status'])
+				{
+					\lib\app\business_domain\edit::edit_raw(['status' => 'failed'], $_id);
+
+					\lib\app\business_domain\action::new_action($_id, 'domain_set_failed', ['desc' => "The domain already added to another account in cdnpanel", 'meta' => self::meta($get_domain)]);
+				}
+				else
+				{
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_unknown_error', ['desc' => "Can not add domain to CND panel", 'meta' => self::meta($get_domain)]);
+				}
+			}
+
 			\dash\notif::error(T_("This domain is already in use in CDN panel"));
 			return false;
 		}
