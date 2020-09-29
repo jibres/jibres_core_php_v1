@@ -36,7 +36,7 @@ class website
 			$explode_enamad = explode('_', $enamad);
 			if(isset($explode_enamad[0]) && isset($explode_enamad[1]))
 			{
-				echo '<a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id='.$explode_enamad[0].'&amp;Code='.$explode_enamad[1].'"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id='.$explode_enamad[0].'&amp;Code='.$explode_enamad[1].'" alt="" style="cursor:pointer" id="'.$explode_enamad[1].'"></a>';
+				echo '<a class="cert enamad" referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id='.$explode_enamad[0].'&amp;Code='.$explode_enamad[1].'"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id='.$explode_enamad[0].'&amp;Code='.$explode_enamad[1].'" alt="'. T_("Enamad"). '" id="'.$explode_enamad[1].'"></a>';
 			}
 
 		}

@@ -16,7 +16,7 @@ $storeData = \dash\data::store_store_data();
                 <div class="f">
                   <div class="cauto"><code><?php echo \dash\data::enamadID() ?></code></div>
                   <div class="c"></div>
-                  <div class="cauto"><?php echo T_("Enamd ID") ?></div>
+                  <div class="cauto"><?php echo T_("Enamad ID") ?></div>
                 </div>
               </div>
             <?php } //endif ?>
@@ -25,7 +25,7 @@ $storeData = \dash\data::store_store_data();
                 <div class="f">
                   <div class="cauto"><code><?php echo \dash\data::enamadCode() ?></code></div>
                   <div class="c"></div>
-                  <div class="cauto"><?php echo T_("Enamd code") ?></div>
+                  <div class="cauto"><?php echo T_("Enamad code") ?></div>
                 </div>
               </div>
             <?php } //endif ?>
