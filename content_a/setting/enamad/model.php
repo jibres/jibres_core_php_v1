@@ -24,10 +24,10 @@ class model
 				return false;
 			}
 
-			if(preg_match("/trustseal\.enamad\.ir\/\?id\=(\d+)\&amp\;Code\=([^\"]+)/", $enamad, $split))
+			if(preg_match("/trustseal\.enamad\.ir\/\?id\=(\d+)(\&amp\;|\&)Code\=([^\"]+)/", $enamad, $split))
 			{
 				$post = [];
-				$post['enamad'] = $split[1]. '_'. $split[2];
+				$post['enamad'] = $split[1]. '_'. $split[3];
 			}
 			else
 			{

@@ -11,12 +11,8 @@
 					<div class="certifications txtRa">
 						<?php \lib\website::load_enamd(); ?>
 
-						<div class="hide">
+						<?php \lib\website::load_samandehi(); ?>
 
-						<div class="cert samandehi" id="samandehiCert" data-open="https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe">
-							<img src="<?php echo \dash\url::cdn(); ?>/img/business/cert/samandehi-review.png" alt="مجوز ساماندهی  <?php echo \dash\get::index(\lib\store::detail(), 'store_data', 'title'); ?>">
-						</div>
-						</div>
 
 					</div>
 				</div>

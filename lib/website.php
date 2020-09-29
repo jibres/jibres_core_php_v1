@@ -42,6 +42,19 @@ class website
 		}
 	}
 
+	public static function load_samandehi()
+	{
+		$storeData = \dash\data::store_store_data();
+		$samandehi_link1 = isset($storeData['samandehi_link1']) ? $storeData['samandehi_link1'] : null;
+		$samandehi_link2 = isset($storeData['samandehi_link2']) ? $storeData['samandehi_link2'] : null;
+		if($samandehi_link1 && $samandehi_link2)
+		{
+			echo '<div class="cert samandehi" id="samandehiCert" data-open="'. $samandehi_link1. '"><img src="'. $samandehi_link2.'" alt="'. T_("Samandehi").'"></div>';
+		}
+	}
+
+
+
 
 	public static function have_header_menu()
 	{

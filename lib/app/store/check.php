@@ -34,6 +34,9 @@ class check
 			'google_analytics'              => 'string_50',
 			'enamad'                        => 'string_100',
 			'nosale'                        => 'bit',
+			'samandehi_link1'               => 'url',
+			'samandehi_link2'               => 'url',
+
 			'redirect_all_domain_to_master' => 'bit',
 		];
 
