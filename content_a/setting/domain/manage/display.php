@@ -55,6 +55,7 @@
       </div>
     </div>
   <?php } //endif ?>
+  <?php if(\dash\data::domainDetail_cdnpanel()) {?>
 
   <form method="post" autocomplete="off" class="">
     <input type="hidden" name="adddns" value="adddns">
@@ -133,6 +134,8 @@
             </tbody>
           </table>
         <?php } // endif ?>
+
+    <?php } // endif ?>
 
 
 
