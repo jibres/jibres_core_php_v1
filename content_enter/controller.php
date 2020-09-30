@@ -41,10 +41,10 @@ class controller
 
 		// save referer
 		// to redirect the user ofter login or signup on the referered address
-		$referer = \dash\validate::url(\dash\request::get('referer'));
+		$referer = \dash\validate::url(\dash\request::get('referer'), false);
 		if($referer)
 		{
-			$_SESSION['enter_referer'] = \dash\request::get('referer');
+			$_SESSION['enter_referer'] = $referer;
 		}
 	}
 

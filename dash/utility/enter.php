@@ -325,9 +325,9 @@ class enter
 
 		// get url language
 		// if have referer redirect to referer
-		if(\dash\validate::url(\dash\request::get('referer')))
+		if(\dash\validate::url(\dash\request::get('referer'), false))
 		{
-			$host = \dash\validate::url(\dash\request::get('referer'));
+			$host = \dash\validate::url(\dash\request::get('referer'), false);
 		}
 		elseif(isset($_SESSION['enter_referer']) && $_SESSION['enter_referer'])
 		{
@@ -590,8 +590,8 @@ class enter
 		if($_auto_redirect)
 		{
 
-			$mobile  = \dash\validate::mobile(\dash\request::get('mobile'));
-			$referer = \dash\validate::url(\dash\request::get('referer'));
+			$mobile  = \dash\validate::mobile(\dash\request::get('mobile'), false);
+			$referer = \dash\validate::url(\dash\request::get('referer'), false);
 
 			if($referer || $mobile)
 			{

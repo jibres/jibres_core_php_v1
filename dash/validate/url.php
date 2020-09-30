@@ -15,6 +15,8 @@ class url
 			return $data;
 		}
 
+		$data = filter_var($data, FILTER_SANITIZE_URL);
+
 		if(!filter_var($data, FILTER_VALIDATE_URL))
 		{
 			if($_notif)
