@@ -89,7 +89,7 @@ class request
 
 		$get = array_merge($get, $_args);
 
-		return http_build_query($get);
+		return http_build_query($get, null, '&', PHP_QUERY_RFC3986);
 	}
 
 
