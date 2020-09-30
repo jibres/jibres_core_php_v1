@@ -457,6 +457,23 @@ class get
 		return $result;
 	}
 
+	public static function count_all_dns_record()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain_dns ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+	public static function count_all_dns_record_status($_status)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM business_domain_dns WHERE business_domain_dns.status = '$_status' ";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return $result;
+	}
+
+
+
 
 
 

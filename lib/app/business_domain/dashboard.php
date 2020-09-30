@@ -80,5 +80,21 @@ class dashboard
 		return floatval($result);
 	}
 
+
+	public static function count_all_dns_record()
+	{
+		$result = \lib\db\business_domain\get::count_all_dns_record();
+		return floatval($result);
+	}
+
+	public static function count_all_dns_record_status($_status)
+	{
+		$status = \dash\validate::string_50($_status);
+		$result = \lib\db\business_domain\get::count_all_dns_record_status($status);
+		return floatval($result);
+
+	}
+
+
 }
 ?>

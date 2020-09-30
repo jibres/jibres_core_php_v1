@@ -81,3 +81,33 @@
 </section>
 
 
+
+
+<section class="f">
+  <div class="c3 s6 pRa10">
+    <a href="<?php echo \dash\url::current(). '/dnslist'; ?>" class="stat">
+      <h3><?php echo T_("All DNS record");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_all_dns_record());?></div>
+    </a>
+  </div>
+  <div class="c3 s6 pRa10">
+    <a href="<?php echo \dash\url::current(). '/dnslist?status=pending'; ?>" class="stat">
+      <h3><?php echo T_("DNS pending");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_all_dns_record_status('pending'));?></div>
+    </a>
+  </div>
+  <div class="c3 s6 pRa10">
+    <a href="<?php echo \dash\url::current(). '/dnslist?status=ok'; ?>" class="stat">
+      <h3><?php echo T_("DNS ok");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_all_dns_record_status('ok'));?></div>
+    </a>
+  </div>
+  <div class="c3 s6">
+    <a href="<?php echo \dash\url::current(). '/dnslist?status=failed'; ?>" class="stat">
+      <h3><?php echo T_("DNS Failed");?></h3>
+      <div class="val"><?php echo \dash\fit::stats(\lib\app\business_domain\dashboard::count_all_dns_record_status('failed'));?></div>
+    </a>
+  </div>
+</section>
+
+
