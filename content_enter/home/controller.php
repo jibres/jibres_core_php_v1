@@ -16,8 +16,8 @@ class controller
 		{
 			if(\dash\user::login())
 			{
+				\dash\notif::info(T_("You are login"));
 				$url = \dash\url::kingdom();
-
 				\dash\redirect::to($url);
 				return;
 			}
