@@ -42,26 +42,18 @@ if (\dash\language::current() !== 'fa' && (\dash\request::country() === 'IR' || 
   </a>
 <?php }?>
 
-  <section id='jibresPageTitle'>
-    <div class="avand">
-      <div class="typing"><span class="typed"></span></div>
 <?php
 if (\dash\url::module())
 {
 ?>
+  <section id='jibresPageTitle'>
+    <div class="avand">
+      <div class="typing"><span class="typed"></span></div>
       <div id="typed-strings">
        <h2><?php echo \dash\face::title(); ?></h2>
       </div>
-<?php
-}
-else
-{
-?>
-      <div id="typed-strings">
-      <h2 class="bold"><?php echo T_('Everything you need to sell online'); ?></h2>
-      </div>
-<?php
-}
-?>
     </div>
   </section>
+<?php
+}
+?>

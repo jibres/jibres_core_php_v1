@@ -1,4 +1,23 @@
 
+<section class="jibresBanner" id="homeLanding">
+  <div class="avand-md">
+    <h1 class="bold"><?php echo T_('Everything you need to sell online'); ?></h1>
+    <h2><?php echo T_("Start your online business"); ?></h2>
+
+    <form class="row" method="get" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
+      <div class="c-xs-12 c-sm-8 c-lg-8">
+        <input class="input" type="tel" name="mobile" placeholder="<?php echo T_("Enter your mobile number") ?>">
+      </div>
+      <div class="c-xs-12 c-sm-4 c-lg-4">
+        <button class="btn3"><?php echo T_("Enter") ?></button>
+      </div>
+    </form>
+    <p><?php echo T_("Try Jibres for free, and explore all services you need to start, run, and grow your business."); ?></p>
+
+  </div>
+</section>
+
+
 <section class="jibresBanner" id='saleChannels'>
  <div class="avand impact">
   <div class="f">
@@ -51,20 +70,6 @@
  </div>
 </section>
 
-<section id="jibresLogin">
-  <div class="avand-md">
-    <div class="example">
-      <form method="get" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
-        <input type="hidden" name="autosend" value="1">
-        <input type="hidden" name="go" value="1">
-        <div class="input">
-          <input type="tel" name="mobile" placeholder="<?php echo T_("Enter mobile") ?>">
-          <button class="btn master addon"><?php echo T_("Go") ?></button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
 
 <section id="jibresDomain">
   <div class="avand-md">
