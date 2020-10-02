@@ -1,8 +1,7 @@
 
 <section class="jibresBanner" id="homeLanding">
-  <div class="avand-md">
+  <div class="avand-sm">
     <h1 class="bold"><?php echo T_('Everything you need to sell online'); ?></h1>
-    <h2><?php echo T_("Start your online business"); ?></h2>
 
     <form class="row" method="get" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
       <div class="c-xs-12 c-sm-8 c-lg-8">
@@ -18,6 +17,7 @@
 </section>
 
 
+    <h2><?php echo T_("Start your online business"); ?></h2>
 <section class="jibresBanner" id='saleChannels'>
  <div class="avand impact">
   <div class="f">
