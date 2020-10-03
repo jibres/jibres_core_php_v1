@@ -63,9 +63,9 @@ class back
         $payir['api']   = \dash\setting\payir::get('api');
         $payir['token'] = $token;
 
-        if(\dash\utility\pay\setting::get_plus())
+        if(\dash\utility\pay\setting::getAmount())
         {
-            $amount  = floatval(\dash\utility\pay\setting::get_plus()) * 10;
+            $amount  = floatval(\dash\utility\pay\setting::getAmount()) * 10;
         }
         else
         {

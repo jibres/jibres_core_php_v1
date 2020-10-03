@@ -47,7 +47,7 @@ class back
         \dash\utility\pay\setting::save(true);
 
 
-        $zarinpal['Amount']  = \dash\utility\pay\setting::get_plus();
+        $zarinpal['Amount']  = \dash\utility\pay\setting::getAmount();
 
         if($_REQUEST['Status'] == 'NOK')
         {

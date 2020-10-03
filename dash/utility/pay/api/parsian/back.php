@@ -57,7 +57,7 @@ class back
         $parsian['LoginAccount'] = \dash\setting\parsian::get('LoginAccount');
         $parsian['Token']        = $Token;
 
-        $Amount_SESSION  = floatval(\dash\utility\pay\setting::get_plus());
+        $Amount_SESSION  = floatval(\dash\utility\pay\setting::getAmount());
 
         if(!$Amount_SESSION)
         {

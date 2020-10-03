@@ -70,7 +70,7 @@ class back
         $mellat['orderId']         = $transaction_id;
 
 
-        $amount_SESSION  = floatval(\dash\utility\pay\setting::get_plus());
+        $amount_SESSION  = floatval(\dash\utility\pay\setting::getAmount());
 
         if(!$amount_SESSION)
         {

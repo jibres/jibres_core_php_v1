@@ -21,7 +21,7 @@ trait set
 			'title'       => null,
 			'status'      => 'enable',
 			'verify'      => 0,
-			'unit'        => 1,
+			'currency'    => null,
 			'minus'       => null,
 			'plus'        => null,
 			'type'        => null,
@@ -145,33 +145,24 @@ trait set
 			return false;
 		}
 
-		$unit = $_args['unit'];
-		if(!$unit)
+		$currency = $_args['currency'];
+		if(!$currency)
+		{
+			$currency = \lib\currency::default();
+		}
+
+		if(!$currency)
 		{
 			if($debug)
 			{
-				\dash\db\logs::set('transactions:set:unit:is:null', $_args['user_id'], $log_meta);
-				\dash\notif::error(T_("Transaction unit can not be null"));
+				\dash\db\logs::set('transactions:set:currency:is:null', $_args['user_id'], $log_meta);
+				\dash\notif::error(T_("Transaction currency can not be null"));
 			}
 			return false;
+
 		}
 
-
-
-		unset($_args['unit']);
-		unset($insert['unit']);
-
-		// check and make error on unit_id
-		$insert['unit_id'] = 1;
-		if(!isset($insert['unit_id']))
-		{
-			if($debug)
-			{
-				\dash\db\logs::set('transactions:set:unit_id:is:null', $_args['user_id'], $log_meta);
-				\dash\notif::error(T_("Transaction unit_id can not be null"));
-			}
-			return false;
-		}
+		$insert['currency'] = $currency;
 
 
 		$minus = null;
@@ -215,7 +206,7 @@ trait set
 
 		if(intval($insert['verify']) === 1)
 		{
-			$budget_before           = self::budget($_args['user_id'], ['type' => $_args['type'], 'unit' => $insert['unit_id']]);
+			$budget_before           = self::budget($_args['user_id'], ['type' => $_args['type'], 'currency' => $insert['currency']]);
 			$budget_before           = floatval($budget_before);
 
 			$budget                  = $budget_before + (floatval($plus) - floatval($minus));
@@ -232,6 +223,9 @@ trait set
 				$insert['dateverify'] = intval($_args['dateverify']);
 			}
 		}
+
+		unset($insert['unit']);
+		unset($insert['unit_id']);
 
 		$insert_id = self::insert($insert);
 

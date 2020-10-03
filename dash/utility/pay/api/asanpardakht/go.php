@@ -43,7 +43,7 @@ class go
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $price = \dash\utility\pay\setting::get_plus();
+        $price = \dash\utility\pay\setting::getAmount();
         $price = floatval($price) * 10;
 
         $orderId        = $transaction_id;

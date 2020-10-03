@@ -167,6 +167,27 @@ class setting
 	}
 
 
+
+	public static function getAmount()
+	{
+		$plus = floatval(\dash\utility\pay\setting::get_plus());
+		$currency = \dash\utility\pay\setting::get_currency();
+		if($currency)
+		{
+			$load_currency = \lib\currency::detail($currency);
+			if(isset($load_currency['exchange_rial']) && $load_currency['exchange_rial'])
+			{
+				$plus = $plus * floatval($load_currency['exchange_rial']); // convert to rial
+				$plus = $plus / 10; // convert to tomain!
+			}
+		}
+
+
+		return $plus;
+
+
+	}
+
 	public static function __callStatic($_fn, $_arg)
 	{
 		if(substr($_fn, 0, 4) === 'get_')

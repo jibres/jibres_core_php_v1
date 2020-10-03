@@ -49,19 +49,12 @@ if(\dash\data::dataRow_banktoken())
 }
 
 ?>
-
-
-
-
-
-
-
 <div class="payTicket <?php echo $ticketClass; ?>">
 	<div class="f fix topBox">
 		<div class="c8">
 			<div class="payPriceBox">
 				<span class="price"><?php echo \dash\fit::number(\dash\data::dataRow_plus()); ?></span>
-				<abbr class="unit"><?php echo \lib\currency::unit(); ?></abbr>
+				<abbr class="unit"><?php echo \dash\data::dataRow_currency_name(); ?></abbr>
 			</div>
 		</div>
 		<div class="cauto">
@@ -73,12 +66,12 @@ if(\dash\data::dataRow_banktoken())
 		</div>
 	</div>
 </div>
-
-<?php } //endfunction ?>
-
+<?php } //endfunction
 
 
-<?php function bPayTicketDetail() {?>
+
+
+function bPayTicketDetail() {?>
 
 <?php
 
@@ -174,15 +167,21 @@ if(\dash\data::payDetail_final_msg())
 		</div>
 
 	<?php suDetail(); ?>
-
-
-<?php } //endfunction ?>
-
+<?php } //endfunction
 
 
 
 
-<?php function ipayBank() {?>
+
+
+
+
+
+
+
+
+
+ function ipayBank() {?>
 
 <?php
 $myPayment = \dash\data::myPayment();
@@ -238,7 +237,7 @@ $myPayment = \dash\data::myPayment();
 	</div>
 	<?php } //endif ?>
 
-<?php } // endfunction ?>
+<?php } // endfunction
 
 
 
@@ -248,23 +247,7 @@ $myPayment = \dash\data::myPayment();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php function suDetail() {?>
+ function suDetail() {?>
 
 <?php if(!\dash\permission::supervisor()) {return;}?>
 
@@ -295,8 +278,4 @@ $myPayment = \dash\data::myPayment();
 		</div>
 	</div>
 </div>
-
-
-
 <?php } //endfunction ?>
-

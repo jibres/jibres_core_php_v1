@@ -50,7 +50,7 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $amount_SESSION  = floatval(\dash\utility\pay\setting::get_plus()) * 10;
+        $amount_SESSION  = floatval(\dash\utility\pay\setting::getAmount()) * 10;
 
         if(!$amount_SESSION)
         {

@@ -228,12 +228,13 @@ class cart
 				'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
 				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
 				'amount'        => abs($result['price']),
+				'currency'      => \lib\store::currency('code'),
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
 				'final_fn_args' =>
 				[
-					'factor_id' => $result['factor_id'],
-					'user_id'   => \dash\user::id(),
-					'amount'    => abs($result['price']),
+					'factor_id'     => $result['factor_id'],
+					'user_id'       => \dash\user::id(),
+					'amount'        => abs($result['price']),
 				],
 			];
 

@@ -144,7 +144,6 @@ class start
 			'amount'          => 0,
 			'bank'            => null,
 			'title'           => null,
-			'unit'            => null,
 			'type'            => null,
 			'fromurl'         => null, // from url
 			'turn_back'       => null, // back to this url
@@ -157,6 +156,7 @@ class start
 			'final_fn_args'   => null,
 			'final_msg'       => false,
 			'user_id'         => null,
+			'currency'        => null,
 			'get_token'       => false,
 			'api_mode'        => false,
 			'other_field'     => [],
@@ -229,6 +229,7 @@ class start
 			'auto_go'         => $_args['auto_go'],
 			'get_token'       => $_args['get_token'],
 			'api_mode'        => $_args['api_mode'],
+			'currency'        => $_args['currency'],
 			'raw'             => $_args,
 		];
 
@@ -240,7 +241,7 @@ class start
 		[
 			'caller'           => 'payment',
 			'title'            => $_args['title'] ? $_args['title'] : T_("Pay whith :bank",['bank' => T_(ucfirst($_args['bank']))]),
-			'unit'             => $_args['unit'] ? $_args['unit'] : 'toman',
+			'currency'         => $_args['currency'],
 			'type'             => $_args['type'] ? $_args['type'] : 'money',
 			'plus'             => $_args['amount'],
 			'amount_request'   => $_args['amount'],
@@ -257,9 +258,9 @@ class start
 
 		$token = json_encode($insert_transaction);
 		$token .= (string) time();
-		$token .= (string) rand(1,9999);
-		$token .= (string) rand(1,9999);
-		$token .= (string) rand(1,9999);
+		$token .= (string) rand();
+		$token .= (string) rand();
+		$token .= (string) rand();
 		$token = md5($token);
 
 		$insert_transaction['condition'] = 'request';

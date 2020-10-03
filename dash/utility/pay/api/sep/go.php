@@ -28,7 +28,7 @@ class go
         $sep['MID']         = \dash\setting\sep::get('MID');
         $sep['RedirectURL'] = $RedirectURL;
 
-        $amount = \dash\utility\pay\setting::get_plus();
+        $amount = \dash\utility\pay\setting::getAmount();
         $amount = floatval($amount) * 10;
 
         // change rial to toman

@@ -41,7 +41,7 @@ class go
         // change rial to toman
         // but the plus is toman
         // need less to *10 the plus
-        $irkish['amount'] = (string) (floatval(\dash\utility\pay\setting::get_plus()) * 10);
+        $irkish['amount'] = (string) (floatval(\dash\utility\pay\setting::getAmount()) * 10);
 
         $transaction_id = \dash\utility\pay\setting::get_id();
 

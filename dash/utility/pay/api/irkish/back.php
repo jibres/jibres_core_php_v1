@@ -63,7 +63,7 @@ class back
         $irkish['referenceNumber'] = (string) $referenceId;
         $irkish['sha1Key']         = \dash\setting\irkish::get('sha1');
 
-        $amount_SESSION  = floatval(\dash\utility\pay\setting::get_plus());
+        $amount_SESSION  = floatval(\dash\utility\pay\setting::getAmount());
 
         if(!$amount_SESSION)
         {

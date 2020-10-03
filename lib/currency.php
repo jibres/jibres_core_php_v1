@@ -160,21 +160,35 @@ class currency {
 	}
 
 
+	public static function jibres_currency()
+	{
+		return 'IRT'; // in jibres default currency is IRT
+		return 'IRHT'; // in jibres default currency is IRHT
+	}
+
+
 	public static function default()
 	{
-		if(\dash\url::tld() === 'ir')
+		if(!\dash\engine\store::inStore())
 		{
-			return 'IRT';
+			return self::jibres_currency();
 		}
-
-		if(\dash\language::current() === 'fa')
+		else
 		{
-			return 'IRT';
-		}
+			if(\dash\url::tld() === 'ir')
+			{
+				return 'IRT';
+			}
 
-		if(\dash\language::current() === 'en')
-		{
-			return 'USD';
+			if(\dash\language::current() === 'fa')
+			{
+				return 'IRT';
+			}
+
+			if(\dash\language::current() === 'en')
+			{
+				return 'USD';
+			}
 		}
 
 		return null;
@@ -183,34 +197,44 @@ class currency {
 
 	public static function unit()
 	{
-		$toman = T_("Toman");
-		$hezarToman = T_("Hezar Toman");
+		$currency = self::default();
 
-		// if store is loaded, read from store settings
-
-		if(\dash\user::id())
+		if($currency)
 		{
-			// @todo read from user unit
-			// until add $ always we use toman
-			return $toman;
+			$currency_name = self::name($currency);
+			return $currency_name;
 		}
 
-		if(\dash\url::tld() === 'ir')
-		{
-			return $toman;
-		}
+		return null;
 
-		if(\dash\language::current() === 'fa')
-		{
-			return $toman;
-		}
+		// $toman = T_("Toman");
+		// $hezarToman = T_("Hezar Toman");
 
-		if(\dash\language::current() === 'en')
-		{
-			return '$';
-		}
+		// // if store is loaded, read from store settings
 
-		return '$';
+		// if(\dash\user::id())
+		// {
+		// 	// @todo read from user unit
+		// 	// until add $ always we use toman
+		// 	return $toman;
+		// }
+
+		// if(\dash\url::tld() === 'ir')
+		// {
+		// 	return $toman;
+		// }
+
+		// if(\dash\language::current() === 'fa')
+		// {
+		// 	return $toman;
+		// }
+
+		// if(\dash\language::current() === 'en')
+		// {
+		// 	return '$';
+		// }
+
+		// return '$';
 	}
 
 }

@@ -48,7 +48,7 @@ class go
         }
 
 
-        $amount = \dash\utility\pay\setting::get_plus();
+        $amount = \dash\utility\pay\setting::getAmount();
         $amount = floatval($amount) * 10;
 
         // change rial to toman

@@ -62,7 +62,7 @@ class back
         \dash\utility\pay\setting::set_payment_response2($_REQUEST);
         \dash\utility\pay\setting::save(true);
 
-        $Amount_Record  = floatval(\dash\utility\pay\setting::get_plus());
+        $Amount_Record  = floatval(\dash\utility\pay\setting::getAmount());
 
         if(!$Amount_Record)
         {
