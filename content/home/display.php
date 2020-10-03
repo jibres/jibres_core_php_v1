@@ -3,9 +3,9 @@
   <div class="avand-sm">
     <h1 class="bold"><?php echo T_('Everything you need to sell online'); ?></h1>
 
-    <form class="row" method="get" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter' ?>">
+    <form class="row" method="post" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter/hi' ?>">
       <div class="c-xs-12 c-sm-8 c-lg-8">
-        <input class="input" type="tel" name="mobile" placeholder="<?php echo T_("Enter your mobile number") ?>">
+        <input class="input" type="tel" data-format="mobile-enter" maxlength="15" name="mobile" placeholder="<?php echo T_("Enter your mobile number") ?>">
       </div>
       <div class="c-xs-12 c-sm-4 c-lg-4">
         <button class="btn3"><?php echo T_("Enter") ?></button>
