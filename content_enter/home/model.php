@@ -242,7 +242,7 @@ class model
 				$msg_not_found = T_("Username not found");
 				$msg_not_found.= '<br> '. T_("Are you want to signup?");
 				$msg_not_found.= ' <br> <a href="'.\dash\url::kingdom().'/enter/signup">'. T_("Click to signup"). '</a>';
-				\dash\notif::error($msg_not_found, 'usernameormobile');
+				\dash\notif::error($msg_not_found, ['element' => 'usernameormobile', 'alerty' => true, 'html' => $msg_not_found]);
 				return false;
 			}
 		}
