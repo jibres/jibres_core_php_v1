@@ -9,25 +9,28 @@ class transactions
 	{
 		$master_class_name = '\\dash\\db\\transactions';
 
-		if(!\dash\url::subdomain())
-		{
-			return $master_class_name;
-		}
-
-		if(defined('transaction_table_name'))
-		{
-			$class_name = '\\lib\\db\\'. transaction_table_name;
-
-			if(is_callable([$class_name, $_fn]))
-			{
-				return $class_name;
-			}
-			else
-			{
-				return $master_class_name;
-			}
-		}
 		return $master_class_name;
+
+		// this code is expired
+		// if(!\dash\url::subdomain())
+		// {
+		// 	return $master_class_name;
+		// }
+
+		// if(defined('transaction_table_name'))
+		// {
+		// 	$class_name = '\\lib\\db\\'. transaction_table_name;
+
+		// 	if(is_callable([$class_name, $_fn]))
+		// 	{
+		// 		return $class_name;
+		// 	}
+		// 	else
+		// 	{
+		// 		return $master_class_name;
+		// 	}
+		// }
+		// return $master_class_name;
 	}
 
 
