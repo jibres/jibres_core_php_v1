@@ -9,8 +9,8 @@ class currency {
 
 		$currency =
 		[
-			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => T_('Toman'), 'is_ir' => true, 'exchange_rial' => 10],
-			'IRR' 	=> ['symbol' => 'IRR', 	'decimal_digits' => 0, 'code' => 'IRR', 'symbol_native' => '﷼',		 'name' => T_('Rial'), 'is_ir' => true, 'exchange_rial' => 1],
+			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => T_('Toman'), 'group' => 'iran', 'exchange_rial' => 10],
+			'IRR' 	=> ['symbol' => 'IRR', 	'decimal_digits' => 0, 'code' => 'IRR', 'symbol_native' => '﷼',		 'name' => T_('Rial'), 'group' => 'iran', 'exchange_rial' => 1],
 			'USD' 	=> ['symbol' => '$', 	'decimal_digits' => 2, 'code' => 'USD', 'symbol_native' => '$',		 'name' => T_('US Dollar')],
 			'EUR' 	=> ['symbol' => '€', 	'decimal_digits' => 2, 'code' => 'EUR', 'symbol_native' => '€',		 'name' => T_('Euro')],
 			'GBP' 	=> ['symbol' => '£', 	'decimal_digits' => 2, 'code' => 'GBP', 'symbol_native' => '£',		 'name' => T_('British Pound Sterling')],
@@ -63,8 +63,8 @@ class currency {
 			// 'ILS' 	=> ['symbol' => '₪','decimal_digits' => 2, 'code' => 'ILS', 'symbol_native' => '₪',		 'name' => T_('Israeli New Sheqel')],
 			'INR' 	=> ['symbol' => 'Rs', 	'decimal_digits' => 2, 'code' => 'INR', 'symbol_native' => 'টকা',	 'name' => T_('Indian Rupee')],
 			'IQD' 	=> ['symbol' => 'IQD', 	'decimal_digits' => 0, 'code' => 'IQD', 'symbol_native' => 'د.ع.‏',	 'name' => T_('Iraqi Dinar')],
-			'IRHT' 	=> ['symbol' => 'IRHT',	'decimal_digits' => 0, 'code' => 'IRHT','symbol_native' => 'هزار تومان','name' => T_('Thousand Toman'), 'is_ir' => true, 'exchange_rial' => 10000],
-			'IRHR' 	=> ['symbol' => 'IRHR',	'decimal_digits' => 0, 'code' => 'IRHR','symbol_native' => 'هزار ریال','name' => T_('Thousand Rial'), 'is_ir' => true, 'exchange_rial' => 1000],
+			'IRHT' 	=> ['symbol' => 'IRHT',	'decimal_digits' => 0, 'code' => 'IRHT','symbol_native' => 'هزار تومان','name' => T_('Thousand Toman'), 'group' => 'iran', 'exchange_rial' => 10000],
+			'IRHR' 	=> ['symbol' => 'IRHR',	'decimal_digits' => 0, 'code' => 'IRHR','symbol_native' => 'هزار ریال','name' => T_('Thousand Rial'), 'group' => 'iran', 'exchange_rial' => 1000],
 			'ISK' 	=> ['symbol' => 'Ikr', 	'decimal_digits' => 0, 'code' => 'ISK', 'symbol_native' => 'kr',	 'name' => T_('Icelandic Króna')],
 			'JMD' 	=> ['symbol' => 'J$', 	'decimal_digits' => 2, 'code' => 'JMD', 'symbol_native' => '$',		 'name' => T_('Jamaican Dollar')],
 			'JOD' 	=> ['symbol' => 'JD', 	'decimal_digits' => 3, 'code' => 'JOD', 'symbol_native' => 'د.أ.‏',	 'name' => T_('Jordanian Dinar')],
@@ -154,6 +154,27 @@ class currency {
 		if(isset($list[$_key]))
 		{
 			return $list[$_key];
+		}
+
+		return null;
+	}
+
+
+	public static function default()
+	{
+		if(\dash\url::tld() === 'ir')
+		{
+			return 'IRT';
+		}
+
+		if(\dash\language::current() === 'fa')
+		{
+			return 'IRT';
+		}
+
+		if(\dash\language::current() === 'en')
+		{
+			return 'USD';
 		}
 
 		return null;
