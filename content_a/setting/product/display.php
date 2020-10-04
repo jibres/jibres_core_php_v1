@@ -46,6 +46,7 @@
         <ul>
           <li><a class="f" href="<?php echo \dash\url::that(); ?>/text"><div class="key"><?php echo T_("Product Default share text"); ?></div><div class="go"></div></a></li>
           <li><a class="f" href="<?php echo \dash\url::that(); ?>/viewtext"><div class="key"><?php echo T_("Product Default view text"); ?></div><div class="go"></div></a></li>
+          <li><a class="f" href="<?php echo \dash\url::that(); ?>/tag"><div class="key"><?php echo T_("Add tag to all product"); ?></div><div class="go"></div></a></li>
         </ul>
       </nav>
 
