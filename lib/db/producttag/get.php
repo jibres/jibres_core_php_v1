@@ -64,5 +64,14 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+
+	public static function check_duplicate_title($_title)
+	{
+		$query  = "SELECT * FROM producttag WHERE producttag.title = '$_title'  LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 }
 ?>

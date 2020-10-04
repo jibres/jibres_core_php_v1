@@ -17,7 +17,7 @@ class insert
 			$query = " INSERT INTO `producttag` SET $set ";
 			if(\dash\db::query($query))
 			{
-				return true;
+				return \dash\db::insert_id();;
 			}
 			else
 			{
@@ -28,6 +28,19 @@ class insert
 		{
 			return false;
 		}
+	}
+
+
+
+	public static function apply_to_all_product($_tag_id)
+	{
+		$query_delete_current_tag = "DELETE FROM producttagusage WHERE producttagusage.producttag_id = $_tag_id ";
+		\dash\db::query($query_delete_current_tag);
+
+		$query = "INSERT INTO `producttagusage` (`producttag_id`,`product_id`) SELECT $_tag_id, products.id FROM products WHERE products.status != 'deleted' ";
+		$result = \dash\db::query($query);
+		return $result;
+
 	}
 }
 ?>

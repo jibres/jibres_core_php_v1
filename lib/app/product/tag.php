@@ -4,6 +4,52 @@ namespace lib\app\product;
 class tag
 {
 
+	public static function apply_to_all($_args)
+	{
+		$condition =
+		[
+			'tag'      => 'string_30',
+		];
+
+		$require = ['tag'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$tag_id = null;
+
+		$check_duplicate = \lib\db\producttag\get::check_duplicate_title($data['tag']);
+
+		if(isset($check_duplicate['id']))
+		{
+			$tag_id = $check_duplicate['id'];
+		}
+		else
+		{
+			$insert_args = self::check(['title' => $data['tag']]);
+			if(!$insert_args || !\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			$tag_id = \lib\db\producttag\insert::new_record($insert_args);
+		}
+
+		if(!$tag_id)
+		{
+			\dash\notif::error(T_("Can not add tag"));
+			return false;
+		}
+
+		\lib\db\producttag\insert::apply_to_all_product($tag_id);
+
+		\dash\notif::ok(T_("Tag added to all prodcut"));
+		return true;
+	}
+
+
+
 	public static function all_tag()
 	{
 		$result = \lib\db\producttag\get::all_tag();
