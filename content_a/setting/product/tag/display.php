@@ -3,9 +3,9 @@
 <div class="avand-md">
 
   <div  class="box impact mB25-f">
-    <header><h2><?php echo T_("Set Product view Text");?></h2></header>
+    <header><h2><?php echo T_("Add tag to all product");?></h2></header>
       <div class="body">
-        <p><?php echo T_("Your can add a tag to all products");?></p>
+        <p><?php echo T_("Your can add tag to all products");?></p>
          <div>
         <div class="row align-center">
           <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
