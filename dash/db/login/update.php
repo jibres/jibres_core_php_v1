@@ -25,10 +25,10 @@ class update
 		return $result;
 	}
 
-	public static function change_password($_user_id)
+	public static function change_password($_user_id, $_current_login_id)
 	{
 		$date = date("Y-m-d H:i:s");
-		$query = "UPDATE login SET login.status = 'changepassword', login.datemodified = '$date' WHERE login.user_id = $_user_id AND login.status = 'active' ";
+		$query = "UPDATE login SET login.status = 'changepassword', login.datemodified = '$date' WHERE login.user_id = $_user_id AND login.status = 'active' AND login.id != $_current_login_id ";
 		$result = \dash\db::query($query);
 		return $result;
 	}

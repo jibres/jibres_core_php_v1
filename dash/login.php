@@ -111,7 +111,7 @@ class login
 
 		if(isset($load['user_id']))
 		{
-			\dash\db\login\update::change_password($load['user_id']);
+			\dash\db\login\update::change_password($load['user_id'], $load['id']);
 		}
 
 		self::delete_cookie();
