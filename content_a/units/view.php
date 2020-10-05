@@ -19,8 +19,8 @@ class view
 
 		if(\dash\data::removeMode())
 		{
-			$allCompany = \lib\app\product\unit::list(null, ['pagenation' => false]);
-			\dash\data::allCompany($allCompany);
+			$allUnit = \lib\app\product\unit::list(null, ['pagenation' => false]);
+			\dash\data::allUnit($allUnit);
 		}
 
 		if(\dash\data::removeMode())
