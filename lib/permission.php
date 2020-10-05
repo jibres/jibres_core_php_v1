@@ -39,11 +39,6 @@ class permission
 		{
 			return null;
 		}
-
-		if($_force)
-		{
-			\dash\user::refresh();
-		}
 	}
 
 

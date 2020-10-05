@@ -125,7 +125,7 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\log::set('editProfileSecurity', ['code' => $user_id]);
-			\dash\user::refresh();
+
 			\dash\redirect::pwd();
 		}
 	}

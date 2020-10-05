@@ -141,7 +141,7 @@ class tools
 
 		if(!\dash\user::id())
 		{
-			\dash\user::init($get['user_id']);
+			\dash\user::init($get['user_id'], 'api_business');
 		}
 
 		return true;

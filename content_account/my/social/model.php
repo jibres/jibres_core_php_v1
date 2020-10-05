@@ -39,7 +39,7 @@ class model
 			\dash\notif::clean();
 			\dash\notif::ok(T_("Your profile successfully updated"));
 			\dash\log::set('editProfileSocial', ['code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 			\dash\redirect::pwd();
 		}
 	}

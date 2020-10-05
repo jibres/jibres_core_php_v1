@@ -32,7 +32,7 @@ class power
 		\dash\engine\guard::origin();
 
 		// // check if isset remember me and login by this
-		\dash\user::check_remeber_login();
+		\dash\login::check();
 
 		// LAUNCH !
 		\dash\engine\mvc::fire();

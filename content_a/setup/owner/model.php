@@ -59,7 +59,7 @@ class model
 		{
 			\dash\notif::clean();
 			\dash\log::set('editProfileInSetup', ['code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 
 			// save every field in somewhere and set the owner detail is complete
 			$next_level = \lib\app\setting\setup::owner();

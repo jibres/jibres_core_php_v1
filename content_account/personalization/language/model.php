@@ -35,7 +35,7 @@ class model
 			\dash\notif::clean();
 			\dash\notif::ok(T_("Your language was changed"));
 			\dash\log::set('editProfileUsername', ['newlanguage' => \dash\request::post('language'), 'code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 			// \dash\notif::direct();
 			\dash\redirect::pwd();
 		}

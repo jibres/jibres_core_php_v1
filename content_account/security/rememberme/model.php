@@ -34,7 +34,7 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\log::set('editProfileSecurityRemember', ['code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 			\dash\redirect::pwd();
 		}
 	}

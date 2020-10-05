@@ -60,7 +60,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\user::refresh();
+
 			\dash\notif::direct(true);
 			\dash\log::set('editProfileAvatar', ['code' => \dash\user::id()]);
 			\dash\redirect::pwd();

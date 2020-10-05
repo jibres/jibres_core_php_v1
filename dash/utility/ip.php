@@ -7,6 +7,49 @@ namespace dash\utility;
 class ip
 {
 
+	public static function id($_ip = null)
+	{
+		$ip = $_ip;
+		if(!$_ip)
+		{
+			$ip = \dash\server::ip();
+		}
+
+
+		$ip_type = 'ipv4';
+
+		if(\dash\validate::ipv4($ip, false))
+		{
+			$ip      = \dash\validate::ipv4($ip, false);
+			$load_ip = \dash\db\ip::get_ipv4($ip);
+			$ip_type = 'ipv4';
+		}
+		elseif(\dash\validate::ipv6($ip, false))
+		{
+			$ip      = \dash\validate::ipv6($ip, false);
+			$load_ip = \dash\db\ip::get_ipv6($ip);
+			$ip_type = 'ipv6';
+		}
+
+		if(isset($load_ip['id']))
+		{
+			return $load_ip['id'];
+		}
+		else
+		{
+			$load_ip = self::new_ip($ip, $ip_type);
+			if(isset($load_ip['id']))
+			{
+				return $load_ip['id'];
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+	}
+
 	public static function check($_if_login_is_ok = false)
 	{
 		if($_if_login_is_ok)
@@ -120,7 +163,7 @@ class ip
 		$insert['block']        = 'new';
 		$insert['datecreated']  = date("Y-m-d H:i:s");
 
-		\dash\db\ip::insert($insert);
+		$insert['id'] = \dash\db\ip::insert($insert);
 
 		return $insert;
 	}

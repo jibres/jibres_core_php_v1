@@ -106,6 +106,12 @@ class store
 	{
 		if(self::inStore())
 		{
+			// like shop.customerdomain.com
+			if(self::inCustomerDomain())
+			{
+				return false;
+			}
+
 			if(\dash\url::subdomain())
 			{
 				return true;
@@ -246,21 +252,11 @@ class store
 
 		$store_id = \dash\store_coding::decode($store);
 
-		$user_id = \dash\user::id();
-
 		$lock = self::init_by_id($store_id);
 
 		if(!$lock)
 		{
 			\dash\header::status(404, T_("Store not found"));
-		}
-
-		if(self::inStore())
-		{
-			if(!\dash\user::is_init_store_user())
-			{
-				\dash\user::store_init($user_id);
-			}
 		}
 	}
 
@@ -312,17 +308,7 @@ class store
 			return;
 		}
 
-		$user_id = \dash\user::id();
-
 		self::init_subdomain($subdomain);
-
-		if(self::inStore())
-		{
-			if(!\dash\user::is_init_store_user())
-			{
-				\dash\user::store_init($user_id);
-			}
-		}
 	}
 
 

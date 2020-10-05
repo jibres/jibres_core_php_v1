@@ -53,7 +53,7 @@ class user
 	{
 		if($_user_id)
 		{
-			return \dash\user::init($_user_id);
+			return \dash\user::init($_user_id, 'telegram');
 		}
 	}
 

@@ -485,11 +485,6 @@ class enter
 			}
 		}
 
-		if($set_session)
-		{
-			// set remeber and save session
-			\dash\db\sessions::set($user_id);
-		}
 
 		$url = self::find_redirect_url($_url);
 
@@ -539,28 +534,7 @@ class enter
 	{
 		\dash\utility\cookie::delete('login');
 
-		if($_user_id && is_numeric($_user_id))
-		{
-			if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']) && isset($_SESSION['auth']['mobile']))
-			{
-				if($_SESSION['auth']['mobile'] === $_SESSION['main_mobile'])
-				{
-					\dash\db\sessions::logout($_user_id);
-				}
-				// if the admin user login by this user
-				// not save the session
-			}
-			else
-			{
-				// set this session as logout
-				\dash\db\sessions::logout($_user_id);
-			}
-		}
-
-		/**
-		 * destroy user id
-		 */
-		\dash\user::destroy();
+		\dash\login::logout();
 
 		$_SESSION = [];
 
@@ -1134,7 +1108,7 @@ class enter
 
 			\dash\log::set('userDeletedOK');
 
-			\dash\db\sessions::delete_account(\dash\user::id());
+			\dash\login::logout();
 
 			self::next_step('byebye');
 			// self::clean_session(true);
@@ -1237,7 +1211,7 @@ class enter
 			];
 
 			\dash\log::set('twoStepActive');
-			\dash\user::refresh();
+
 			self::set_session('alert', $alert);
 			self::next_step('alert');
 			self::go_to('alert');
@@ -1263,7 +1237,7 @@ class enter
 			];
 
 			\dash\log::set('twoStepDeactive');
-			\dash\user::refresh();
+
 			self::set_session('alert', $alert);
 			self::next_step('alert');
 			self::go_to('alert');
@@ -1276,8 +1250,9 @@ class enter
 
 			// set off two_step of this user
 			\dash\app\user::update_password(self::get_session('temp_ramz_hash'), \dash\user::id());
-			// \dash\db\sessions::change_password(\dash\user::id());
-			\dash\user::refresh();
+
+			\dash\login::change_password();
+
 			$alert =
 			[
 				'clean_session' => true,

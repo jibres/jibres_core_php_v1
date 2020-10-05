@@ -115,8 +115,6 @@ class model
 
 			\dash\utility\enter::clean_session();
 
-			\dash\user::full_destroy();
-
 			\dash\utility\enter::load_user_data($user_id, 'user_id');
 
 			$_SESSION['main_account'] = $main_account;

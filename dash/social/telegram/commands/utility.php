@@ -65,7 +65,7 @@ class utility
 				if($chatID === 46898544 || $chatID === 344542267 || $chatID === 33263188)
 				{
 					bot::sendMessage('💔 '.T_("Wow"));
-					\dash\user::destroy();
+
 					\dash\app\tg\user::hard_delete($chatID);
 					\dash\code::boom();
 				}
@@ -81,7 +81,7 @@ class utility
 					\dash\log::set('tg:user:logout');
 
 					bot::sendMessage('📴 '.T_("Booom"));
-					\dash\user::destroy();
+
 					\dash\code::boom();
 				break;
 

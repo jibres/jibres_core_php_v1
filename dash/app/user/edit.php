@@ -9,7 +9,7 @@ trait edit
 	{
 		\dash\db\users::update(['password' => $_password_hash], $_user_id);
 
-		\dash\db\sessions::change_password($_user_id);
+		\dash\db\login\update::change_password($_user_id);
 
 		//--------------- Every store is free
 
@@ -202,7 +202,7 @@ trait edit
 		{
 			if(floatval($id) === floatval(\dash\user::id()))
 			{
-				\dash\user::refresh();
+
 			}
 
 			\dash\notif::ok(T_("User successfully updated"));

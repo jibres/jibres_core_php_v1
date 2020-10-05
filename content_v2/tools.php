@@ -158,12 +158,13 @@ class tools
 		$session_id_text = \dash\url::subdomain(). '.'. \dash\url::root(). '.'. \dash\url::store(). 'v2-'. $apikey;
 		$session_id = 'APIV2-'. md5($session_id_text);
 
-		\dash\session::restart($session_id);
+		// \dash\session::restart($session_id);
 
-		if(!\dash\user::id())
-		{
-			\dash\user::store_init($get['user_id'], true);
-		}
+		// if(!\dash\user::id())
+		// {
+		//
+		// 	\dash\user::store_init($get['user_id'], true);
+		// }
 
 		return true;
 	}

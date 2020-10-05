@@ -137,7 +137,7 @@ class account
 			$user_id = $_user_id;
 		}
 
-		\dash\user::destroy();
+
 		\dash\app\tg\user::init($user_id);
 	}
 }

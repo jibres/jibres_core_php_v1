@@ -41,15 +41,6 @@ class timeline
 		if(!\dash\session::get(self::$key))
 		{
 			$session = [];
-			if(isset($_SESSION['auth']['logintime']))
-			{
-				$session['login'] = date("Y-m-d H:i:s", $_SESSION['auth']['logintime']);
-				$session['login_diff'] = time() - intval($_SESSION['auth']['logintime']);
-				if(intval($session['login_diff']) > 99999999)
-				{
-					$session['login_diff'] = 99999999;
-				}
-			}
 
 			$session['start'] = date("Y-m-d H:i:s");
 

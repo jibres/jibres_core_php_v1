@@ -503,12 +503,7 @@ class user
 			'encode' => false,
 		];
 
-		$result['sessions']     =
-		[
-			'count'  => \dash\db\sessions::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
+
 
 		$result['transactions'] =
 		[

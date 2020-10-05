@@ -35,7 +35,7 @@ class model
 			\dash\notif::clean();
 			\dash\notif::ok(T_("Your sidebar was changed"));
 			\dash\log::set('editProfileUsername', ['newsidebar' => \dash\request::post('sidebar'), 'code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 			\dash\notif::direct();
 			\dash\redirect::pwd();
 		}

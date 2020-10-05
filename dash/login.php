@@ -1,0 +1,425 @@
+<?php
+namespace dash;
+
+class login
+{
+	public static function check()
+	{
+		$cookie = self::read_cookie();
+
+		if(!$cookie)
+		{
+			return false;
+		}
+
+		$place = self::where_am_i();
+
+		if($place === 'jibres' || $place === 'admin')
+		{
+			$load = \dash\db\login\get::load_code_force_jibres($cookie);
+		}
+		else
+		{
+			$load = \dash\db\login\get::load_code($cookie);
+		}
+
+
+		$is_ok = self::validate($load);
+
+		if(!$is_ok)
+		{
+			self::delete_cookie();
+			return false;
+		}
+
+		if($place === 'jibres' || $place === 'admin')
+		{
+			$user_detail = \dash\db\users::jibres_get_by_id($load['user_id']);
+
+			if($place === 'admin')
+			{
+				if(isset($user_detail['id']))
+				{
+					$in_store_user = \dash\db\users::get_by_jibres_user_id($user_detail['id']);
+
+					if(isset($in_store_user['id']))
+					{
+						// change id and permission
+						$user_detail['user_in_store']     = true;
+
+						$user_detail['jibres_user_id']    = $user_detail['id'];
+						$user_detail['id']                = $in_store_user['id'];
+
+						$user_detail['jibres_permission'] = $user_detail['permission'];
+						$user_detail['permission']        = $in_store_user['permission'];
+					}
+				}
+			}
+		}
+		else
+		{
+			$user_detail = \dash\db\users::get_by_id($load['user_id']);
+		}
+
+		\dash\user::set_detail($user_detail);
+
+		return $user_detail;
+	}
+
+
+	public static function logout()
+	{
+		$cookie = self::read_cookie();
+		if(!$cookie)
+		{
+			return false;
+		}
+
+		$load = \dash\db\login\get::load_code($cookie);
+
+		if(isset($load['id']))
+		{
+			\dash\db\login\update::logout($load['id']);
+		}
+
+		self::delete_cookie();
+	}
+
+
+	public static function change_password()
+	{
+		$cookie = self::read_cookie();
+		if(!$cookie)
+		{
+			return false;
+		}
+
+		$load = \dash\db\login\get::load_code($cookie);
+
+		if(isset($load['user_id']))
+		{
+			\dash\db\login\update::change_password($load['user_id']);
+		}
+
+		self::delete_cookie();
+	}
+
+
+	private static function validate($_detail)
+	{
+		if(isset($_detail['status']) && $_detail['status'] === 'active')
+		{
+			// ok
+		}
+		else
+		{
+			return false;
+		}
+
+		if(!isset($_detail['user_id']))
+		{
+			return false;
+		}
+
+		if(!$_detail['user_id'] || !is_numeric($_detail['user_id']))
+		{
+			return false;
+		}
+
+		if(isset($_detail['place']) && $_detail['place'] === self::where_am_i())
+		{
+			// ok
+		}
+		else
+		{
+			if(isset($_detail['place']) && $_detail['place'] === 'jibres' && self::where_am_i() === 'admin')
+			{
+				// no problem
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		if(isset($_detail['trustdomain']) && $_detail['trustdomain'] === \dash\url::host())
+		{
+			// ok
+		}
+		else
+		{
+			return false;
+		}
+
+		if(isset($_detail['ip_md5']) && isset($_detail['agent_md5']))
+		{
+			// ok
+		}
+		else
+		{
+			return false;
+		}
+
+
+		$ip_md5    = md5(\dash\server::ip());
+		$agent_md5 = md5(\dash\agent::get());
+
+		$ip_ok = false;
+		$agen_ok = false;
+
+		if($_detail['ip_md5'] === $ip_md5)
+		{
+			$ip_ok = true;
+		}
+
+		if($_detail['agent_md5'] === $agent_md5)
+		{
+			$agen_ok = true;
+		}
+
+		if($ip_ok && $agen_ok)
+		{
+			// ok
+		}
+		else
+		{
+			if(!$ip_ok && !$agen_ok)
+			{
+				return false;
+			}
+
+			if(!$ip_ok)
+			{
+				$myIp      = \dash\server::ip();
+				$ip_md5    = md5($myIp);
+				$agent_md5 = md5(\dash\agent::get());
+				$ip_id     = \dash\utility\ip::id($myIp);
+				$agent_id  = \dash\agent::get(true);
+
+				$insert_login_ip =
+				[
+					'login_id'    => $_detail['id'],
+					'ip'          => $myIp,
+					'ip_id'       => $ip_id,
+					'agent_id'    => $agent_id,
+					'datecreated' => date("Y-m-d H:i:s"),
+				];
+
+				\dash\db\login\insert::new_record_login_ip($insert_login_ip);
+			}
+
+			if(!$agen_ok)
+			{
+				return false;
+			}
+		}
+
+		if(isset($_detail['datecreated']) && $_detail['datecreated'])
+		{
+			// ok
+			$one_month = 60*60*24*30;
+
+			if(time() - strtotime($_detail['datecreated']) > $one_month)
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+
+	/**
+	 * Delete cookie
+	 */
+	private static function delete_cookie()
+	{
+		\dash\utility\cookie::delete(self::cookie_name());
+	}
+
+
+	private static function where_am_i()
+	{
+		if(\dash\engine\store::inBusinessDomain())
+		{
+			$place = 'customer_domain';
+		}
+		elseif(\dash\engine\store::inBusinessSubdomain())
+		{
+			$place = 'subdomain';
+		}
+		elseif(\dash\engine\store::inBusinessAdmin())
+		{
+			$place = 'admin';
+		}
+		else
+		{
+			$place = 'jibres';
+		}
+
+		return $place;
+	}
+
+	/**
+	 * Init user
+	 *
+	 * @param      <type>   $_user_id  The user identifier
+	 * @param      <type>   $_place    The place
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function init($_user_id, $_place = null)
+	{
+		if(!$_place)
+		{
+			$place = self::where_am_i();
+		}
+		else
+		{
+			$place = $_place;
+		}
+
+		$place = \dash\validate::enum($place, false, ['enum' => ['jibres', 'subdomain', 'admin', 'customer_domain', 'api_core', 'api_business', 'telegram']]);
+		if(!$place)
+		{
+			\dash\log::oops('login:placeLoginIsRequired');
+			return false;
+		}
+
+		$load_user = [];
+
+		switch ($place)
+		{
+			case 'jibres':
+			case 'admin':
+			case 'api_core':
+				$load_user  = \dash\db\users::jibres_get_by_id($_user_id);
+				break;
+
+			case 'subdomain':
+			case 'customer_domain':
+			case 'api_business':
+			case 'telegram':
+			default:
+				$load_user  = \dash\db\users::get_by_id($_user_id);
+				break;
+		}
+
+		if(!$load_user || !is_array($load_user))
+		{
+			\dash\log::oops('login:initUserNotFound');
+			return false;
+		}
+
+		$code      = self::generate_login_code($_user_id, $load_user);
+		$myIp      = \dash\server::ip();
+		$ip_md5    = md5($myIp);
+		$agent_md5 = md5(\dash\agent::get());
+		$ip_id     = \dash\utility\ip::id($myIp);
+		$agent_id  = \dash\agent::get(true);
+
+		$insert_login_record =
+		[
+			'code'           => $code,
+			'user_id'        => $_user_id,
+			// 'jibres_user_id' => $_user_id,
+			'ip'             => \dash\server::ip(),
+			'ip_id'          => $ip_id,
+			'ip_md5'         => $ip_md5,
+			'agent_id'       => $agent_id,
+			'agent_md5'      => $agent_md5,
+			'status'         => 'active',
+			'place'          => $place,
+			'trustdomain'    => \dash\url::host(),
+			'datecreated'    => date("Y-m-d H:i:s"),
+		];
+
+		$login_id = \dash\db\login\insert::new_record($insert_login_record);
+
+		if(!$login_id)
+		{
+			\dash\log::oops('login:canNotInsertLoginRecord');
+			return false;
+		}
+
+		$insert_login_ip =
+		[
+			'login_id'    => $login_id,
+			'ip'          => $myIp,
+			'ip_id'       => $ip_id,
+			'agent_id'    => $agent_id,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		\dash\db\login\insert::new_record_login_ip($insert_login_ip);
+
+		\dash\utility\cookie::write(self::cookie_name(), $code);
+
+	}
+
+
+
+	private static function generate_login_code($_user_id, $_user_detail)
+	{
+		$code = '';
+		$code .= json_encode($_user_detail);
+		$code .= '$_<3_$';
+		$code .= $_user_id;
+		$code .= time();
+		$code .= rand();
+		$code .= rand();
+		$code .= rand();
+		$code = md5($code);
+		$code = \dash\utility::hasher($code);
+		return $code;
+	}
+
+
+	private static function cookie_name()
+	{
+		$place = self::where_am_i();
+
+		$cookie_name = null;
+
+		if($place === 'subdomain')
+		{
+			if(\dash\url::subdomain())
+			{
+				$cookie_name = 'jibres_login_'. \dash\url::subdomain();
+			}
+			else
+			{
+				$cookie_name = 'jibres_login';
+			}
+		}
+		else
+		{
+			$cookie_name = 'jibres_login';
+		}
+
+		return $cookie_name;
+	}
+
+
+
+	private static function read_cookie()
+	{
+		$cookie = \dash\utility\cookie::read(self::cookie_name());
+		if($cookie)
+		{
+			$cookie = \dash\validate::string_100($cookie, false);
+		}
+
+		if($cookie)
+		{
+			return $cookie;
+		}
+
+		return null;
+	}
+}
+?>

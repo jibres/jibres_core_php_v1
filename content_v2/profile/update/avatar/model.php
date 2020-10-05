@@ -31,7 +31,7 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\log::set('editProfileAPI', ['code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 		}
 
 		\content_v2\tools::say($result);

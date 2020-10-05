@@ -179,7 +179,7 @@ class store
 	 */
 	public static function in_store()
 	{
-		if(\dash\user::is_init_store_user())
+		if(\dash\user::detail('user_in_store'))
 		{
 			return true;
 		}

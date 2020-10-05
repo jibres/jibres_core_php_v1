@@ -35,7 +35,7 @@ class model
 			\dash\notif::clean();
 			\dash\notif::update(T_("Your username was changed"));
 			\dash\log::set('editProfileUsername', ['newusername' => \dash\request::post('username'), 'code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 			\dash\redirect::pwd();
 		}
 	}

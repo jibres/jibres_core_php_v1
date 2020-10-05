@@ -40,7 +40,7 @@ class model
 			\dash\notif::clean();
 			\dash\notif::ok(T_("Your theme was changed"));
 			\dash\log::set('editProfileUsername', ['newtheme' => \dash\request::post('theme'), 'code' => \dash\user::id()]);
-			\dash\user::refresh();
+
 			\dash\notif::direct();
 			\dash\redirect::pwd();
 		}
