@@ -122,7 +122,7 @@ class controller
 		// remove all expire session
 		if(self::at('01:10'))
 		{
-			\dash\db\sessions::remove_old_expire();
+			\dash\db\login\update::remove_old_expire();
 		}
 
 

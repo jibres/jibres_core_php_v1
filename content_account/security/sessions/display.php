@@ -47,6 +47,7 @@
           </div>
           <div class="pA5 c s7">
             <div class="mB5"><b><?php echo \dash\get::index($row, 'osName'); ?></b> <?php echo \dash\fit::number(\dash\get::index($row, 'osVer')); ?></div>
+            <div class="fc-mute ltr compact font-12"><?php  echo \dash\fit::date_time(\dash\get::index($row, 'datecreated')) ?></div>
 
             <?php if(isset($row['code']) && $row['code'] === \dash\data::currentCookie()) {?>
 

@@ -375,6 +375,7 @@ class login
 		$code .= rand();
 		$code = md5($code);
 		$code = \dash\utility::hasher($code);
+		$code = \dash\validate::string_100($code);
 		return $code;
 	}
 
@@ -406,7 +407,7 @@ class login
 
 
 
-	private static function read_cookie()
+	public static function read_cookie()
 	{
 		$cookie = \dash\utility\cookie::read(self::cookie_name());
 		if($cookie)
@@ -420,6 +421,77 @@ class login
 		}
 
 		return null;
+	}
+
+
+
+	public static function terminate_all_other_session($_user_id)
+	{
+		$user_id = \dash\validate::id($_user_id, false);
+
+		if(!$user_id)
+		{
+			return false;
+		}
+
+		$current_login_id = null;
+
+		$cookie = self::read_cookie();
+
+		if($cookie)
+		{
+			$load = \dash\db\login\get::load_code($cookie);
+
+			if(isset($load['id']))
+			{
+				$current_login_id = $load['id'];
+			}
+		}
+
+		\dash\db\login\update::terminate_all_other_session($user_id, $current_login_id);
+
+		\dash\log::set('sessionTerminateAllOther');
+		\dash\notif::ok(T_("All other session terminated"));
+		return true;
+	}
+
+
+	public static function terminate_id($_id, $_user_id)
+	{
+		$user_id = \dash\validate::id($_user_id, false);
+
+		if(!$user_id)
+		{
+			return false;
+		}
+
+		$id = \dash\validate::id($_id, false);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		\dash\log::set('sessionTerminateByID');
+		\dash\db\login\update::terminate_id($id, $user_id);
+		\dash\notif::ok(T_("Session terminated"));
+		return true;
+	}
+
+
+
+	public static function get_active_sessions($_user_id)
+	{
+		$user_id = \dash\validate::id($_user_id, false);
+
+		if(!$user_id)
+		{
+			return false;
+		}
+
+		$list = \dash\db\login\get::get_active_sessions($user_id);
+
+		return $list;
 	}
 }
 ?>

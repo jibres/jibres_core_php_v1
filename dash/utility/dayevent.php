@@ -49,7 +49,7 @@ class dayevent
 		$result['log']             = \dash\db\logs::get_count();
 		$result['visitor']         = \dash\db\visitors::get_count();
 		$result['agent']           = \dash\db\agents::get_count();
-		// $result['session']         = \dash\db\sessions::get_count();
+		$result['session']         = \dash\db\login\get::get_count_all();
 		$result['urls']            = \dash\db\visitors::url_get_count();
 		$result['ticket']          = \dash\db\tickets::get_count(['parent' => null]);
 		$result['ticket_message']  = \dash\db\tickets::get_count(['parent' => ['IS NOT', 'NULL']]);

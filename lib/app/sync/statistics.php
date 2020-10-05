@@ -62,7 +62,7 @@ class statistics
 
 		$result['log']                 = floatval(\dash\db\logs::get_count());
 		$result['agent']               = floatval(\dash\db\agents::get_count());
-		// $result['session']             = floatval(\dash\db\sessions::get_count());
+		$result['session']             = floatval(\dash\db\login\get::get_count_all());
 		$result['ticket']              = floatval(\dash\db\tickets::get_count(['parent' => null]));
 		$result['ticket_message']      = floatval(\dash\db\tickets::get_count(['parent' => ['IS NOT', 'NULL']]));
 		$result['comment']             = floatval(\dash\db\comments::get_count());

@@ -45,28 +45,29 @@ class view
 		}
 
 		$user_id = \dash\user::id();
-		$list    = \dash\db\sessions::get_active_sessions($user_id);
+		$list    = \dash\login::get_active_sessions($user_id);
 
 		if(!$list)
 		{
 			return false;
 		}
 
-		\dash\data::currentCookie(\dash\db\sessions::get_cookie());
+		\dash\data::currentCookie(\dash\login::read_cookie());
 
 		$mySessionData = [];
 		foreach ($list as $key => $row)
 		{
-			@$mySessionData[$key]['id']         = $row['id'];
-			@$mySessionData[$key]['code']       = $row['code'];
-			@$mySessionData[$key]['ip']         = long2ip($row['ip']);
-			@$mySessionData[$key]['last']       = $row['last_seen'];
-			@$mySessionData[$key]['browser']    = T_(ucfirst($row['agent_name']));
-			@$mySessionData[$key]['browserVer'] = $row['agent_version'];
-			@$mySessionData[$key]['os']         = $row['agent_os'];
-			@$mySessionData[$key]['osName']     = T_($row['agent_os']);
-			@$mySessionData[$key]['osVer']      = T_($row['agent_osnum']);
-			@$mySessionData[$key]['agent']      = $row['agent_agent'];
+			@$mySessionData[$key]['id']          = $row['id'];
+			@$mySessionData[$key]['code']        = $row['code'];
+			@$mySessionData[$key]['ip']          = long2ip($row['ip']);
+			@$mySessionData[$key]['last']        = $row['last_seen'];
+			@$mySessionData[$key]['browser']     = T_(ucfirst($row['agent_name']));
+			@$mySessionData[$key]['browserVer']  = $row['agent_version'];
+			@$mySessionData[$key]['os']          = $row['agent_os'];
+			@$mySessionData[$key]['osName']      = T_($row['agent_os']);
+			@$mySessionData[$key]['osVer']       = T_($row['agent_osnum']);
+			@$mySessionData[$key]['agent']       = $row['agent_agent'];
+			@$mySessionData[$key]['datecreated'] = $row['datecreated'];
 
 
 			if(isset($row['agent_os']))

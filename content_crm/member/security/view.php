@@ -48,7 +48,7 @@ class view
 	{
 		$user_id = \dash\coding::decode(\dash\request::get('id'));
 
-		$list    = \dash\db\sessions::get_active_sessions($user_id);
+		$list    = \dash\login::get_active_sessions($user_id);
 
 		if(!$list)
 		{

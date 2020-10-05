@@ -45,14 +45,14 @@ class view
 		}
 
 		$user_id = \dash\user::id();
-		$list    = \dash\db\sessions::get_active_sessions($user_id);
+		$list    = \dash\login::get_active_sessions($user_id);
 
 		if(!$list)
 		{
 			return false;
 		}
 
-		\dash\data::currentCookie(\dash\db\sessions::get_cookie());
+		\dash\data::currentCookie(\dash\login::read_cookie());
 
 		$mySessionData = [];
 		foreach ($list as $key => $row)

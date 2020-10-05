@@ -12,7 +12,7 @@ class view
 		}
 
 		$user_id = \dash\user::id();
-		$list    = \dash\db\sessions::get_active_sessions($user_id);
+		$list    = \dash\login::get_active_sessions($user_id);
 
 		$mySessionData = [];
 
