@@ -5,6 +5,19 @@ class login
 {
 	public static function check()
 	{
+		$login = self::try_to_login();
+		if(!$login)
+		{
+			if(\dash\engine\content::get_name() === 'business')
+			{
+				\dash\user::set_user_guest();
+			}
+		}
+	}
+
+
+	public static function try_to_login()
+	{
 		$cookie = self::read_cookie();
 
 		if(!$cookie)
@@ -491,7 +504,57 @@ class login
 
 		$list = \dash\db\login\get::get_active_sessions($user_id);
 
-		return $list;
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+
+		$current_code = self::read_cookie();
+
+		$mySessionData = [];
+		foreach ($list as $key => $row)
+		{
+			$mySessionData[$key]['id']          = $row['id'];
+			$mySessionData[$key]['code']        = $row['code'];
+			$mySessionData[$key]['ip']          = $row['ip'];
+			$mySessionData[$key]['browser']     = T_(ucfirst($row['agent_name']));
+			$mySessionData[$key]['browserVer']  = $row['agent_version'];
+			$mySessionData[$key]['os']          = $row['agent_os'];
+			$mySessionData[$key]['osName']      = T_($row['agent_os']);
+			$mySessionData[$key]['osVer']       = T_($row['agent_osnum']);
+			$mySessionData[$key]['agent']       = $row['agent_agent'];
+			$mySessionData[$key]['datecreated'] = $row['datecreated'];
+
+			if($current_code && $row['code'] === $current_code)
+			{
+				$mySessionData[$key]['current_session'] = true;
+			}
+
+
+			if(isset($row['agent_os']))
+			{
+				switch ($row['agent_os'])
+				{
+					case 'nt':
+						$mySessionData[$key]['os'] = 'Windows';
+						$mySessionData[$key]['osName'] = T_('Windows');
+						break;
+
+					case 'lin':
+						$mySessionData[$key]['os'] = 'Linux';
+						$mySessionData[$key]['osName'] = T_('Linux');
+						break;
+
+					default:
+						break;
+				}
+			}
+		}
+
+
+
+		return $mySessionData;
 	}
 }
 ?>

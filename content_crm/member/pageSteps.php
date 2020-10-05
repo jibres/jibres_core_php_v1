@@ -85,7 +85,7 @@
   <div class="c s6">
     <a class="dcard <?php if(\dash\url::child() == 'log') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>/log?id=<?php echo \dash\request::get('id'); ?>' data-shortkey="56ctrlshift" >
      <div class="statistic tail">
-      <div class="value"><i class="sf-camera-surveillance-1"></i></div>
+      <div class="value"><i class="sf-camera-surveillance"></i></div>
       <div class="label"><?php echo T_("Log"); ?> <kbd class=" hide mT5">Shift+8</kbd></div>
      </div>
     </a>

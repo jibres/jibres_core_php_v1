@@ -287,7 +287,7 @@ class user
 
 
 	// set user guest id if not exists
-	private static function set_user_guest()
+	public static function set_user_guest()
 	{
 		$user_guest_id = \dash\utility\cookie::read('user_guest_id');
 		if($user_guest_id)
