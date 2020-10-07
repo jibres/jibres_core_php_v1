@@ -1234,7 +1234,7 @@ class posts
 			}
 		}
 
-		if(isset($result['slug']))
+		if(isset($result['url']))
 		{
 			if(\dash\engine\store::inStore())
 			{
@@ -1248,7 +1248,8 @@ class posts
 			{
 				$my_link .= 'support/';
 			}
-			$my_link .= $result['slug'];
+
+			$my_link .= $result['url'];
 
 			$result['link'] = $my_link;
 		}
@@ -1256,7 +1257,6 @@ class posts
 		{
 			$result['link'] = null;
 		}
-
 
 		return $result;
 	}
