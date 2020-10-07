@@ -1,5 +1,5 @@
 <?php
-namespace content_business\category;
+namespace content_business\collection;
 
 
 class view

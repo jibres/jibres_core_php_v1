@@ -20,7 +20,7 @@ $here = root. 'content_business';
 $module_url =
 [
 	'f'        => $here. '/f/home/display.php',
-	'category' => $here. '/category/display.php',
+	'collection' => $here. '/collection/display.php',
 	'app'      => $here. '/app/display.php',
 	'p'        => $here. '/p/home/display.php',
 	'cart'     => $here. '/cart/display.php',

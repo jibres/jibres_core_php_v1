@@ -242,7 +242,7 @@ class pwa_menu
 			],
 			'category' =>
 			[
-				'href' => \dash\url::kingdom(). '/category',
+				'href' => \dash\url::kingdom(). '/collection',
 				'icon' => 'th-large',
 				'title' => T_('Category'),
 			],

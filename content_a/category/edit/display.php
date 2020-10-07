@@ -12,7 +12,7 @@
            <div class="switch1 mT10">
               <input type="checkbox" name="showonwebsite" id="showonwebsite"  <?php if(\dash\data::dataRow_showonwebsite()) {echo 'checked';}?> >
               <label for="showonwebsite" data-on="<?php echo T_("Yes") ?>" data-off="<?php echo T_("No") ?>"></label>
-              <label for="showonwebsite"><?php echo T_("Is displayed on the site categories screen?"); ?> <small><a target="_blank" href="<?php echo \lib\store::url(). '/category'; ?>"><?php echo T_("Show category page") ?></a></small></label>
+              <label for="showonwebsite"><?php echo T_("Is displayed on the site categories screen?"); ?> <small><a target="_blank" href="<?php echo \lib\store::url(). '/collection'; ?>"><?php echo T_("Show category page") ?></a></small></label>
             </div>
         </div>
       </section>

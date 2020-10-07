@@ -166,7 +166,7 @@ class ready
 
 		$result['full_slug']  = $new_slug;
 		$result['full_title'] = $new_title;
-		$result['url'] = \lib\store::url(). '/category/'. $new_slug;
+		$result['url'] = \lib\store::url(). '/collection/'. $new_slug;
 	}
 }
 ?>
