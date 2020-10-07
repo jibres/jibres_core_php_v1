@@ -123,12 +123,6 @@ class view
 			$productImageRatioHtml = 'data-ratio='. $productSettingSaved['ratio_detail']['ratio'];
 		}
 		\dash\data::productImageRatioHtml($productImageRatioHtml);
-
-		if(isset($productSettingSaved['product_suggestion']) && $productSettingSaved['product_suggestion'])
-		{
-			\dash\data::global_scriptPage('a_product_poof.js');
-		}
-
 	}
 }
 ?>
