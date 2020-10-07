@@ -225,7 +225,7 @@ class store
 			// not route any content in customer domain
 			if(\dash\url::content())
 			{
-				if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+				if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay' || \dash\url::content() === 'n')
 				{
 					// the user can login by custom domain
 				}
@@ -599,7 +599,7 @@ class store
 	{
 		self::init_by_id($load_detail['store_id']);
 
-		if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay')
+		if(\dash\url::content() === 'enter' || \dash\url::content() === 'pay' || \dash\url::content() === 'n')
 		{
 			// nothing
 		}
