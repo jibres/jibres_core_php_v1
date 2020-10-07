@@ -86,7 +86,7 @@ function loadPostTemplate()
   ?>
   <div class='msg simple f mT20'>
     <div class="c"><time datetime="<?php echo \dash\data::datarow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::datarow_publishdate()); ?></time></div>
-    <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::datarow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::datarow_id(); ?></span></a></div>
+    <div class="cauto os"><a href="<?php echo \dash\url::kingdom(). '/n/'. \dash\data::datarow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::datarow_id(); ?></span></a></div>
   </div>
 
   <?php
