@@ -73,7 +73,7 @@
 
     <?php foreach (\dash\data::menuDetailList() as $key => $value) {?>
        <li>
-        <a class="f" href2="<?php echo \dash\get::index($value, 'url');?>" data-kerkere='.showMenuItem_<?php echo $key; ?>' data-kerkere-single>
+        <a class="f item" href2="<?php echo \dash\get::index($value, 'url');?>" data-kerkere='.showMenuItem_<?php echo $key; ?>' data-kerkere-single>
           <div class="key"><?php echo \dash\get::index($value, 'title');?>
             <?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
           </div>
@@ -95,6 +95,10 @@
                 <input type="text" name="url" id="url" value="<?php echo \dash\get::index($value, 'url'); ?>"  required>
               </div>
 
+
+              <div class="input mB10">
+                <input type="number" name="sort" id="sort" value="<?php echo \dash\get::index($value, 'sort'); ?>" min="0" max="9999">
+              </div>
 
               <div class="check1 mB5">
                 <input type="checkbox" name="target" id="target_<?php echo $key; ?>" <?php if(\dash\get::index($value, 'target')) { echo 'checked'; } ?>>

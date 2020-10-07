@@ -278,5 +278,88 @@ class add
 		}
 
 	}
+
+
+
+	public static function menu_item_sort($_sort, $_id)
+	{
+		if(!is_array($_sort))
+		{
+			$_sort = [];
+		}
+
+		$sort = [];
+
+		foreach ($_sort as $key => $value)
+		{
+			if(is_numeric($key) && is_numeric($value))
+			{
+				$sort[$key] = $value;
+			}
+		}
+
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
+
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid menu id"));
+			return false;
+		}
+
+		$load = \lib\db\setting\get::by_id($id);
+		if(!$load || !isset($load['value']) || !isset($load['id']))
+		{
+			\dash\notif::error(T_("Menu detail not found"));
+			return false;
+		}
+
+		$load_detail = json_decode($load['value'], true);
+
+		if(!isset($load_detail['list']))
+		{
+			$load_detail['list'] = [];
+		}
+
+		foreach ($sort as $key => $value)
+		{
+			if(isset($load_detail['list'][$value]))
+			{
+				$load_detail['list'][$value]['sort'] = $key;
+			}
+		}
+
+		$sort_column = array_column($load_detail['list'], 'sort');
+
+		if(count($sort_column) === count($load_detail['list']))
+		{
+			$my_sorted_list = $load_detail['list'];
+
+			array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+			$load_detail['list'] = $my_sorted_list;
+		}
+
+
+		$new_detail = json_encode($load_detail, JSON_UNESCAPED_UNICODE);
+
+		$result = \lib\db\setting\update::value($new_detail, $load['id']);
+
+		if($result)
+		{
+			\lib\app\website\generator::remove_catch();
+
+			\dash\notif::ok(T_("Items sorted"));
+			return true;
+		}
+		else
+		{
+			\dash\log::oops('db');
+			return false;
+		}
+
+	}
+
+
 }
 ?>
