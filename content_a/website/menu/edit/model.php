@@ -44,7 +44,6 @@ class model
 				'title'   => \dash\request::post('title'),
 				'url'     => \dash\request::post('url'),
 				'target'  => \dash\request::post('target'),
-				'sort'    => \dash\request::post('sort'),
 				'itemkey' => \dash\request::post('itemkey'),
 				'remove'  => \dash\request::post('remove'),
 			];

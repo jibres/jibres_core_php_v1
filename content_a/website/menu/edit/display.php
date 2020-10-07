@@ -17,10 +17,6 @@
             <input type="text" name="url" id="url" value=""  required>
           </div>
 
-          <label for="sort"><?php echo T_("Sort"); ?></label>
-          <div class="input">
-            <input type="number" name="sort" id="sort" value="" min="0" max="9999">
-          </div>
 
           <div class="switch1 mB5">
             <input type="checkbox" name="target" id="target" >
@@ -83,6 +79,7 @@
           </div>
           <div class="go"></div>
         </a>
+       </li>
 
         <div class="showMenuItem_<?php echo $key; ?>" data-kerkere-content='hide'>
           <form method="post" class="box" autocomplete="off">
@@ -98,10 +95,6 @@
                 <input type="text" name="url" id="url" value="<?php echo \dash\get::index($value, 'url'); ?>"  required>
               </div>
 
-
-              <div class="input mB10">
-                <input type="number" name="sort" id="sort" value="<?php echo \dash\get::index($value, 'sort'); ?>" min="0" max="9999">
-              </div>
 
               <div class="check1 mB5">
                 <input type="checkbox" name="target" id="target_<?php echo $key; ?>" <?php if(\dash\get::index($value, 'target')) { echo 'checked'; } ?>>
@@ -122,7 +115,6 @@
 
         </div>
 
-       </li>
     <?php } //enfor ?>
      </ul>
    </nav>
