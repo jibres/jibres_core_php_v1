@@ -487,6 +487,23 @@ class term
 			}
 		}
 
+
+		if(isset($result['url']))
+		{
+			if(\dash\engine\store::inStore())
+			{
+				$my_link = \lib\store::url(). '/';
+			}
+			else
+			{
+				$my_link = \dash\url::kingdom(). '/';
+			}
+
+			$my_link.= $result['url'];
+			$result['link'] = $my_link;
+		}
+
+
 		return $result;
 	}
 

@@ -131,7 +131,7 @@ if(!is_array($dataTable))
 
           <?php }else{ ?>
 
-            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/<?php echo \dash\get::index($value, 'url'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
+            <td class="fs08"><a href="<?php echo \dash\get::index($value, 'link'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
           <?php } //endif ?>
 
           <?php if(!\dash\request::get('type')) {?>
