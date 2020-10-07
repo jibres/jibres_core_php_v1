@@ -687,7 +687,7 @@ $myFirstURL = '';
     <div class="seoPreview">
       <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
         <h3><?php if(\dash\data::dataRow_seotitle()) { echo \dash\data::dataRow_seotitle(); } else { echo \dash\data::dataRow_title();} ?> | <?php echo \dash\face::site(); ?></h3>
-        <cite><span><?php echo \dash\url::kingdom(); ?>/<?php echo $myFirstURL; ?></span><?php echo \dash\data::dataRow_slug(); ?></cite>
+        <cite><span><?php echo \dash\data::dataRow_link(); ?></cite>
       </a>
       <div class="f">
         <div class="c s12">

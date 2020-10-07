@@ -117,7 +117,7 @@ $sortLink = \dash\data::sortLink();
         </td>
         <td class="s0 m0 fs09 ltr txtL pRa10" title="<?php echo \dash\get::index($value, 'url'); ?>">
 
-          <a href="<?php echo \dash\url::kingdom(); ?>/<?php echo \dash\get::index($value, 'url'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
+          <a href="<?php echo \dash\get::index($value, 'link'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
         <?php if(!\dash\request::get('type') || \dash\request::get('type') == 'post') {?>
 
 

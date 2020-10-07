@@ -688,8 +688,10 @@ class posts
 
 		if($data['status'] === 'publish' && !$publishtime)
 		{
-			$publishtime = date("H:i");
+			$publishtime = date("H:i:s");
 		}
+
+		$data['publishdate'] = trim($publishdate. ' '. $publishtime);
 
 		$meta = $_option['meta'];
 
@@ -1234,7 +1236,14 @@ class posts
 
 		if(isset($result['slug']))
 		{
-			$my_link = \dash\url::kingdom(). '/';
+			if(\dash\engine\store::inStore())
+			{
+				$my_link = \lib\store::url(). '/';
+			}
+			else
+			{
+				$my_link = \dash\url::kingdom(). '/';
+			}
 			if(isset($result['type']) && $result['type'] === 'help')
 			{
 				$my_link .= 'support/';
