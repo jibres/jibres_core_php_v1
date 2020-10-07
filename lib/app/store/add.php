@@ -42,7 +42,9 @@ class add
 			// 	}
 			// }
 
-			$businessMaxLimit = 5;
+
+			$businessMaxLimit = \dash\app\user\business::businesscount($user_id);
+
 			if($count_store_free >= $businessMaxLimit)
 			{
 				$msg = T_("You can not have more than :val free or trial stores.", ['val' => $businessMaxLimit]). ' '. T_("Contact Us if you need more stores");
