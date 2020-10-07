@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-05 14:31+0330\n"
-"PO-Revision-Date: 2020-10-05 14:39+0330\n"
+"POT-Creation-Date: 2020-10-07 12:44+0330\n"
+"PO-Revision-Date: 2020-10-07 12:55+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2171,6 +2171,8 @@ msgid ""
 "Try Jibres for free, and explore all services you need to start, run, and grow your "
 "business."
 msgstr ""
+"جیبرس را به صورت رایگان امتحان کنید و تمام خدمات مورد نیاز برای شروع، اداره و رشد "
+"بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:23
 msgid "Start your online business"
@@ -2461,10 +2463,14 @@ msgid ""
 "Quickly Start Free! Online Store Website & Mobile Online Store & Social Marketing & POS "
 "Software"
 msgstr ""
+"به‌سرعت و رایگان شروع کن! وب‌سایت فروشگاه آنلاین و اپلیکیشن موبایل فروشگاهی و فروش در "
+"شبکه‌های اجتماعی و نرم‌افزار صندوق فروشگاهی"
 
 #: content/home/layout/footer.php:46
 msgid "Accept Credit Cards - Fully Hosted - SEO Optimized - SSL Certificate - Fully API."
 msgstr ""
+"پذیرش کارت‌های اعتباری - هاست رایگان - دوستدار موتورهای جستجو - گواهی امنیتی SSL - "
+"ای‌پی‌آی کامل."
 
 #: content/home/layout/footer.php:46 content/home/layout/pwa-footer.php:46
 msgid "Learn more about Jibres"
@@ -3760,10 +3766,11 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/website/imageblock/add/view.php:33
 #: content_a/website/imageblock/setting/view.php:20
 #: content_a/website/imageblock/view.php:19 content_a/website/menu/add/view.php:13
-#: content_a/website/menu/edit/view.php:13 content_a/website/menu/view.php:13
-#: content_a/website/news/view.php:19 content_a/website/productline/view.php:19
-#: content_a/website/quote/add/view.php:33 content_a/website/quote/setting/view.php:20
-#: content_a/website/quote/view.php:19 content_a/website/specialslider/add/view.php:33
+#: content_a/website/menu/edit/view.php:13 content_a/website/menu/sort/view.php:13
+#: content_a/website/menu/view.php:13 content_a/website/news/view.php:19
+#: content_a/website/productline/view.php:19 content_a/website/quote/add/view.php:33
+#: content_a/website/quote/setting/view.php:20 content_a/website/quote/view.php:19
+#: content_a/website/specialslider/add/view.php:33
 #: content_a/website/specialslider/setting/view.php:20
 #: content_a/website/specialslider/view.php:19 content_a/website/status/view.php:12
 #: content_a/website/text/view.php:19 content_a/website/titleline/view.php:19
@@ -4167,7 +4174,7 @@ msgstr "وضعیت"
 #: content_a/setting/place/inventory/display.php:17
 #: content_a/setting/staticfile/display.php:24 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
-#: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:34
+#: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:30
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:84
 #: content_cms/terms/display.php:166 content_crm/member/add/display.php:12
@@ -4200,7 +4207,7 @@ msgstr "افزودن"
 #: content_a/setting/fund/display.php:39 content_a/setting/place/inventory/display.php:19
 #: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
 #: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
-#: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:48
+#: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:44
 #: content_a/website/quote/add/display.php:61 content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
 #: content_a/website/specialslider/display.php:28 content_account/address.php:153
@@ -4225,7 +4232,7 @@ msgstr "ویرایش"
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:37
-#: content_a/website/menu/edit/display.php:59 content_a/website/menu/edit/display.php:114
+#: content_a/website/menu/edit/display.php:55 content_a/website/menu/edit/display.php:111
 #: content_a/website/news/display.php:47 content_a/website/productline/display.php:48
 #: content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
@@ -5669,8 +5676,8 @@ msgstr "مایکت"
 #: content_account/security/rememberme/display.php:14
 #: content_business/profile/detail/display.php:44 content_cms/posts/edit/display.php:62
 #: content_crm/member/avatar/display.php:25 content_crm/member/avatar/display.php:33
-#: content_crm/member/contact/display.php:28 content_crm/member/education/display.php:39
-#: content_crm/member/general/display.php:144
+#: content_crm/member/business/display.php:18 content_crm/member/contact/display.php:28
+#: content_crm/member/education/display.php:39 content_crm/member/general/display.php:144
 #: content_crm/member/identification/display.php:35
 #: content_crm/member/legal/display.php:43 content_crm/member/legal/display.php:160
 #: content_crm/member/security/display.php:103 content_crm/member/social/display.php:58
@@ -6301,8 +6308,7 @@ msgid "variants"
 msgstr "تنوع محصول"
 
 #: content_a/category/home/display.php:115 content_a/products/filter.php:68
-#: content_a/website/menu/edit/display.php:20 content_business/search/display.php:19
-#: content_my/domain/search/display.php:98
+#: content_business/search/display.php:19 content_my/domain/search/display.php:98
 msgid "Sort"
 msgstr "ترتیب"
 
@@ -8411,7 +8417,7 @@ msgstr "در حال انتظار"
 
 #: content_a/products/comment/edit/display.php:51
 #: content_a/website/imageblock/setting/display.php:43
-#: content_a/website/menu/edit/display.php:117 content_a/website/news/display.php:51
+#: content_a/website/menu/edit/display.php:114 content_a/website/news/display.php:51
 #: content_a/website/productline/display.php:52
 #: content_a/website/quote/setting/display.php:38
 #: content_a/website/specialslider/setting/display.php:51
@@ -9513,7 +9519,7 @@ msgid ""
 "record for that subdomain at the following address:"
 msgstr ""
 "برای اتصال زیر دامنه به بیزینس خود باید وارد پنل مدیریت دامنه خود شده و یک ای‌رکورد به "
-"آدرس زیر برای‌ آن زیردامنه ثبت کنید"
+"آدرس زیر برای‌ آن زیردامنه ثبت کنید:"
 
 #: content_a/setting/domain/manage/display.php:26
 #: content_a/setting/domain/manage/display.php:87
@@ -11670,7 +11676,7 @@ msgid "Image Alt"
 msgstr "متن جایگزین عکس"
 
 #: content_a/website/imageblock/add/display.php:33
-#: content_a/website/menu/edit/display.php:28 content_a/website/menu/edit/display.php:108
+#: content_a/website/menu/edit/display.php:24 content_a/website/menu/edit/display.php:105
 #: content_a/website/specialslider/add/display.php:33
 msgid "Open in New tab"
 msgstr "باز کردن در صفحه جدید"
@@ -11753,25 +11759,33 @@ msgstr "افزودن فهرست جدید"
 msgid "Add item to menu"
 msgstr "افزودن گزینه جدید در فهرست"
 
-#: content_a/website/menu/edit/display.php:39
+#: content_a/website/menu/edit/display.php:35
 msgid "Manage menu"
 msgstr "مدیریت فهرست"
 
-#: content_a/website/menu/edit/display.php:45
+#: content_a/website/menu/edit/display.php:41
 msgid "Edit menu title"
 msgstr "ویرایش عنوان فهرست"
 
-#: content_a/website/menu/edit/display.php:52
+#: content_a/website/menu/edit/display.php:48
 msgid "Usage menu list"
 msgstr "لیست بخش‌هایی که این فهرست در آن استفاده شده است"
 
-#: content_a/website/menu/edit/display.php:58
+#: content_a/website/menu/edit/display.php:54
 msgid "This menu not use anywhere. You can remove it"
 msgstr "این فهرست در هیچ قسمتی استفاده نشده است. می‌توانید آن را حذف کنید"
 
 #: content_a/website/menu/edit/view.php:10
 msgid "Edit menu items"
 msgstr "ویرایش گزینه‌های فهرست"
+
+#: content_a/website/menu/sort/display.php:4
+msgid "Select any of the menu items you want and move them to sort"
+msgstr "یک آیتم‌ را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
+
+#: content_a/website/menu/sort/view.php:10
+msgid "Sort menu items"
+msgstr "مرتب سازی آیتم‌های فهرست"
 
 #: content_a/website/menu/view.php:10
 msgid "Menu list"
@@ -12292,12 +12306,12 @@ msgstr "بیشتر بدانید"
 #: content_b1/user/address/fetch/view.php:14 content_b1/user/address/remove/model.php:14
 #: content_b1/user/edit/avatar/model.php:16 content_crm/member/description/model.php:19
 #: content_crm/member/main/view.php:18 content_crm/member/main/view.php:25
-#: dash/app/address.php:36 dash/app/user/edit.php:130 dash/app/user/legal.php:81
-#: lib/pardakhtyar/app/acceptor.php:145 lib/pardakhtyar/app/acceptor.php:152
-#: lib/pardakhtyar/app/customer.php:158 lib/pardakhtyar/app/merchantIbans.php:127
-#: lib/pardakhtyar/app/merchantIbans.php:134 lib/pardakhtyar/app/shop.php:148
-#: lib/pardakhtyar/app/shop.php:155 lib/pardakhtyar/app/terminal.php:136
-#: lib/pardakhtyar/app/terminal.php:143
+#: dash/app/address.php:36 dash/app/user/business.php:68 dash/app/user/edit.php:130
+#: dash/app/user/legal.php:81 lib/pardakhtyar/app/acceptor.php:145
+#: lib/pardakhtyar/app/acceptor.php:152 lib/pardakhtyar/app/customer.php:158
+#: lib/pardakhtyar/app/merchantIbans.php:127 lib/pardakhtyar/app/merchantIbans.php:134
+#: lib/pardakhtyar/app/shop.php:148 lib/pardakhtyar/app/shop.php:155
+#: lib/pardakhtyar/app/terminal.php:136 lib/pardakhtyar/app/terminal.php:143
 msgid "Invalid user id"
 msgstr "شناسه کاربر اشتباه است"
 
@@ -13770,7 +13784,8 @@ msgstr "ناشناس"
 msgid "Latest logs"
 msgstr "آخرین لاگ‌ها"
 
-#: content_crm/home/view.php:12 includes/languages/trans_static_public.php:1115
+#: content_crm/home/view.php:12 content_love/home/display.php:95
+#: includes/languages/trans_static_public.php:1115
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
 
@@ -13800,14 +13815,26 @@ msgstr "تصویر پروفایل خود را تنظیم کنید"
 msgid "To change user avatar choose a new avatar"
 msgstr "برای تغییر آواتار کاربر، فایلی را آپلود کنید"
 
-#: content_crm/member/avatar/model.php:46 dash/app/user/edit.php:208
-#: dash/app/user/legal.php:130
+#: content_crm/member/avatar/model.php:46 dash/app/user/business.php:95
+#: dash/app/user/edit.php:208 dash/app/user/legal.php:130
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
 #: content_crm/member/avatar/view.php:11
 msgid "Member avatar"
 msgstr "عکس عضو"
+
+#: content_crm/member/business/display.php:9
+msgid "User business Setting"
+msgstr "تنظیمات بیزینس کاربران"
+
+#: content_crm/member/business/display.php:11
+msgid "Count allow user create business"
+msgstr "تعداد مجاز ساخت بیزینس برای کاربر"
+
+#: content_crm/member/business/view.php:11
+msgid "Edit jibres business user detail"
+msgstr "ویرایش تنظیمات مربوط به بیزینس کاربران"
 
 #: content_crm/member/contact/display.php:24
 msgid "Like abc@example.com"
@@ -14340,6 +14367,13 @@ msgstr "کاربر حذف شده است"
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31 dash/app/ticket.php:187
 msgid "Ticket"
 msgstr "تیکت"
+
+#: content_crm/member/pageSteps.php:99 content_love/business/home/view.php:9
+#: content_my/home/display_site.php:9 content_su/update/display.php:33
+#: content_su/update/display.php:97 dash/layout/pwa/pwa_menu.php:115
+#: lib/app/log/caller/business/business_createNew.php:19
+msgid "Business"
+msgstr "بیزینس"
 
 #: content_crm/member/psidebar.php:25
 msgid "General Detail"
@@ -15667,7 +15701,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/shaparak/profile/get.php:11 lib/app/shaparak/profile/set.php:11
 #: lib/app/shaparak/shop/get.php:11 lib/app/shaparak/shop/set.php:11
 #: lib/app/shaparak/wallet/get.php:11 lib/app/shaparak/wallet/get.php:27
-#: lib/app/shaparak/wallet/set.php:21 lib/app/store/add.php:100
+#: lib/app/shaparak/wallet/set.php:21 lib/app/store/add.php:102
 msgid "Please login to continue"
 msgstr "لطفا برای ادامه مراحل وارد سیستم شوید"
 
@@ -16306,12 +16340,6 @@ msgstr "ارسال درخواست اچ‌تی‌تی‌پی‌اس"
 #: content_love/business/domain/setting/display.php:118
 msgid "All action, dns record and Domain record of this domain will be removed"
 msgstr "همه لاگ‌ها، دی‌ان‌اس‌ها و خود دامنه به صورت کامل حذف‌ خواهند شد"
-
-#: content_love/business/home/view.php:9 content_my/home/display_site.php:9
-#: content_su/update/display.php:33 content_su/update/display.php:97
-#: dash/layout/pwa/pwa_menu.php:115 lib/app/log/caller/business/business_createNew.php:19
-msgid "Business"
-msgstr "بیزینس"
 
 #: content_love/domain/action/display.php:57 content_love/domain/buyers/display.php:46
 #: content_love/domain/detail/action/display.php:27
@@ -21170,7 +21198,7 @@ msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/edit.php:122 dash/app/user/legal.php:73
+#: dash/app/user/business.php:60 dash/app/user/edit.php:122 dash/app/user/legal.php:73
 msgid "Can not access to edit user"
 msgstr "دسترسی لازم برای ویرایش کاربر وجود ندارد"
 
@@ -30120,7 +30148,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 
 #: lib/app/business_domain/add.php:71
 msgid "Your business domain capacity is full!"
-msgstr "ظرفیت تعداد دامنه‌های متصل به بیزینس شما تکمیل است"
+msgstr "ظرفیت تعداد دامنه‌های متصل به بیزینس شما تکمیل است!"
 
 #: lib/app/business_domain/add.php:103 lib/app/business_domain/add.php:195
 #: lib/app/store/domain.php:236
@@ -30231,7 +30259,7 @@ msgstr "دی‌ان‌اس تکراری است"
 
 #: lib/app/business_domain/dns.php:325
 msgid "Your business domain dns capacity is full!"
-msgstr "ظرفیت تعداد رکورد‌های دی‌ان‌اس این دامنه تکمیل است"
+msgstr "ظرفیت تعداد رکورد‌های دی‌ان‌اس این دامنه تکمیل است!"
 
 #: lib/app/business_domain/dns.php:354
 msgid "DNS record saved"
@@ -32700,28 +32728,28 @@ msgstr "حداکثر ظرفیت فایل ثابت اعتبارسنجی برای 
 msgid "Static file added"
 msgstr "فایل اضافه شد"
 
-#: lib/app/store/add.php:48
+#: lib/app/store/add.php:50
 msgid "You can not have more than :val free or trial stores."
 msgstr "شما نمی‌توانید بیش از :val فروشگاه رایگان یا آزمایشی داشته باشید."
 
-#: lib/app/store/add.php:48
+#: lib/app/store/add.php:50
 msgid "Contact Us if you need more stores"
 msgstr "اگر به فروشگاه‌های بیشتری نیاز دارید با ما تماس بگیرید"
 
-#: lib/app/store/add.php:111 lib/app/store/subdomain.php:23
+#: lib/app/store/add.php:113 lib/app/store/subdomain.php:23
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً گرفته شده است"
 
-#: lib/app/store/add.php:157 lib/app/store/add.php:173 lib/app/store/add.php:189
-#: lib/app/store/add.php:205
+#: lib/app/store/add.php:159 lib/app/store/add.php:175 lib/app/store/add.php:191
+#: lib/app/store/add.php:207
 msgid "Can not add your store"
 msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
 
-#: lib/app/store/add.php:217
+#: lib/app/store/add.php:219
 msgid "We can not create your store!"
 msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
-#: lib/app/store/add.php:238
+#: lib/app/store/add.php:240
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
@@ -33503,12 +33531,13 @@ msgstr "این فهرست در بخش‌های مختلف استفاده شده 
 msgid "Your menu was removed"
 msgstr "فهرست شما حذف شد"
 
-#: lib/app/website/menu/add.php:170 lib/app/website/menu/edit.php:15
-#: lib/app/website/menu/get.php:112
+#: lib/app/website/menu/add.php:170 lib/app/website/menu/add.php:306
+#: lib/app/website/menu/edit.php:15 lib/app/website/menu/get.php:112
 msgid "Invalid menu id"
 msgstr "شناسه فهرست اشتباه است"
 
-#: lib/app/website/menu/add.php:177 lib/app/website/menu/get.php:102
+#: lib/app/website/menu/add.php:177 lib/app/website/menu/add.php:313
+#: lib/app/website/menu/get.php:102
 msgid "Menu detail not found"
 msgstr "جزئیات فهرست یافت نشد"
 
@@ -33531,6 +33560,10 @@ msgstr "گزینه فهرست به‌روزرسانی شد"
 #: lib/app/website/menu/add.php:270
 msgid "Your item added to your menu"
 msgstr "گزینه به لیست شما اضافه شد"
+
+#: lib/app/website/menu/add.php:352
+msgid "Items sorted"
+msgstr "مرتب‌سازی انجام شد"
 
 #: lib/app/website/menu/edit.php:38
 msgid "Invalid menu detail"
@@ -34642,10 +34675,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Edit item"
 #~ msgstr "ویرایش آیتم"
-
-#~ msgid "Select any of the items you want and move them to sort"
-#~ msgstr ""
-#~ "یک آیتم‌ها را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
 
 #~ msgid "Boolean"
 #~ msgstr "درست و غلط"
