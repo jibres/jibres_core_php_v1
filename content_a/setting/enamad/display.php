@@ -33,7 +33,7 @@ $storeData = \dash\data::store_store_data();
           <?php if(!\dash\get::index($storeData, 'enamad')) {?>
 
             <label for="ienamad"><?php echo T_("Enamad code"); ?> <span class="fc-red">*</span></label>
-            <textarea class="txt ltr txtL" rows="5" name="enamad" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1"  required></textarea>
+            <textarea class="txt ltr txtL" rows="5" name="enamad" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]"  required></textarea>
           <?php } //endif ?>
         </div>
         <footer class="txtRa">
