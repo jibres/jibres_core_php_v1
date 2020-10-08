@@ -603,32 +603,6 @@ class get
 	}
 
 
-	public static function duplicate_id()
-	{
-		$query =
-		"
-			SELECT
-				products.id
-			FROM
-				products
-			INNER JOIN
-				(
-					SELECT
-						title
-					FROM
-						products
-					GROUP BY title
-					HAVING COUNT(*) > 1
-				) dup
-			   ON products.title = dup.title
-		";
-		$result = \dash\db::get($query, 'id');
-
-		return $result;
-	}
-
-
-
 	public static function variants_have_child($_id)
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.parent = $_id AND products.status != 'deleted' LIMIT 1";

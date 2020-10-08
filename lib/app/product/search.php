@@ -150,21 +150,11 @@ class search
 
 		if(isset($data['dup']) && $data['dup'])
 		{
-			$duplicate_id = \lib\db\products\get::duplicate_id();
 			self::$filter_args['Duplicate title'] = null;
 			self::$is_filtered              = true;
+			$join[] = "	INNER JOIN 	(SELECT title FROM products GROUP BY title	HAVING COUNT(*) > 1) dup ON products.title = dup.title";
 
-			if($duplicate_id)
-			{
-				$duplicate_id = implode(',', $duplicate_id);
-				$and[]        = "products.id IN ($duplicate_id)";
-				$order_sort   = 'ORDER BY products.title ASC';
-			}
-			else
-			{
-				$type = 'no-duplicatetitle';
-			}
-
+			$order_sort   = 'ORDER BY products.title ASC';
 		}
 
 
