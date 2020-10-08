@@ -76,7 +76,7 @@ class controller
 
 		if(!empty($save_param))
 		{
-			$_SESSION['param'] = $save_param;
+			\dash\session::set('param', $save_param);
 		}
 	}
 }

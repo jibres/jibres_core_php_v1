@@ -55,6 +55,22 @@ class session
 		}
 	}
 
+
+	public static function get_cat($_cat)
+	{
+		if(!isset($_SESSION))
+		{
+			return false;
+		}
+
+		if(isset($_SESSION[self::$key][$_cat]))
+		{
+			return $_SESSION[self::$key][$_cat];
+		}
+
+		return null;
+	}
+
 	/**
 	 * save data in session
 	 * by key and cat

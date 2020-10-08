@@ -14,10 +14,10 @@ class view
 		$get_mobile     = \dash\validate::mobile(\dash\request::get('mobile'));
 
 		$main_account = false;
-		if(isset($_SESSION['main_account']) && $_SESSION['main_account'])
-		{
-			$main_account = true;
-		}
+		// if(isset($_SESSION['main_account']) && $_SESSION['main_account'])
+		// {
+		// 	$main_account = true;
+		// }
 
 
 		if(\dash\user::login('mobile'))

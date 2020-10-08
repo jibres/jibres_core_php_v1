@@ -32,8 +32,6 @@ class controller
 		}
 
 
-		// self::check_block_cookie();
-
 		self::check_unlock_page();
 		self::if_login_route();
 		self::if_login_not_route();
@@ -44,21 +42,10 @@ class controller
 		$referer = \dash\validate::url(\dash\request::get('referer'), false);
 		if($referer)
 		{
-			$_SESSION['enter_referer'] = $referer;
+			\dash\session::set('enter_referer', $referer);
 		}
 	}
 
-	public static function check_block_cookie()
-	{
-		if(empty($_SESSION) || !$_SESSION)
-		{
-			if(\dash\url::module() !== 'app')
-			{
-				\dash\notif::warn(T_("Your cookies may have been blocked"). ' '. T_("You need to enable cookie for usign this service"));
-			}
-			$_SESSION['check_cookie_is_blocked'] = true;
-		}
-	}
 
 
 	public static function check_baned_user()

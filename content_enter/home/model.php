@@ -117,8 +117,8 @@ class model
 
 			\dash\utility\enter::load_user_data($user_id, 'user_id');
 
-			$_SESSION['main_account'] = $main_account;
-			$_SESSION['main_mobile']  = $main_mobile;
+			// $_SESSION['main_account'] = $main_account;
+			// $_SESSION['main_mobile']  = $main_mobile;
 
 			\dash\session::clean_all();
 

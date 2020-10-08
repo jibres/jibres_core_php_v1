@@ -1,11 +1,21 @@
 <?php
 namespace dash;
 
+
+/**
+ * This class describes a login.
+ *
+ */
 class login
 {
+
+	/**
+	 * Check user is login or no
+	 * if not login and in content_business set guest cookie
+	 */
 	public static function check()
 	{
-		$login = self::try_to_login();
+		$login = self::is_login();
 		if(!$login)
 		{
 			if(\dash\engine\content::get_name() === 'business')
@@ -16,7 +26,11 @@ class login
 	}
 
 
-	public static function try_to_login()
+	/**
+	 * Check user is login or no
+	 *
+	 */
+	private static function is_login()
 	{
 		$cookie = self::read_cookie();
 
@@ -80,6 +94,11 @@ class login
 	}
 
 
+	/**
+	 * Logout user by remove cookie and disable login record
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function logout()
 	{
 		$cookie = self::read_cookie();
@@ -99,6 +118,12 @@ class login
 	}
 
 
+
+	/**
+	 * User change the password So must be disable all login cookie
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function change_password()
 	{
 		$cookie = self::read_cookie();
@@ -118,6 +143,13 @@ class login
 	}
 
 
+	/**
+	 * Validate login record
+	 *
+	 * @param      <type>   $_detail  The detail
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	private static function validate($_detail)
 	{
 		if(isset($_detail['status']) && $_detail['status'] === 'active')
@@ -177,7 +209,7 @@ class login
 		$ip_md5    = md5(\dash\server::ip());
 		$agent_md5 = md5(\dash\agent::get());
 
-		$ip_ok = false;
+		$ip_ok   = false;
 		$agen_ok = false;
 
 		if($_detail['ip_md5'] === $ip_md5)
@@ -201,6 +233,7 @@ class login
 				return false;
 			}
 
+			// ip is changed must be save new ip
 			if(!$ip_ok)
 			{
 				$myIp      = \dash\server::ip();
@@ -255,6 +288,11 @@ class login
 	}
 
 
+	/**
+	 * Show place of user
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	private static function where_am_i()
 	{
 		if(\dash\engine\store::inBusinessDomain())
@@ -277,8 +315,11 @@ class login
 		return $place;
 	}
 
+
 	/**
 	 * Init user
+	 * After login success this function is called
+	 * Set the login cookie
 	 *
 	 * @param      <type>   $_user_id  The user identifier
 	 * @param      <type>   $_place    The place
@@ -375,7 +416,14 @@ class login
 	}
 
 
-
+	/**
+	 * Generate login cookie
+	 *
+	 * @param      <type>  $_user_id      The user identifier
+	 * @param      <type>  $_user_detail  The user detail
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	private static function generate_login_code($_user_id, $_user_detail)
 	{
 		$code = '';
@@ -393,6 +441,11 @@ class login
 	}
 
 
+	/**
+	 * Retrun cookie name by check place
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	private static function cookie_name()
 	{
 		$place = self::where_am_i();
@@ -419,7 +472,11 @@ class login
 	}
 
 
-
+	/**
+	 * Reads login cookie.
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function read_cookie()
 	{
 		$cookie = \dash\utility\cookie::read(self::cookie_name());
@@ -437,7 +494,13 @@ class login
 	}
 
 
-
+	/**
+	 * Terminate all login session
+	 *
+	 * @param      <type>   $_user_id  The user identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function terminate_all_other_session($_user_id)
 	{
 		$user_id = \dash\validate::id($_user_id, false);
@@ -469,6 +532,14 @@ class login
 	}
 
 
+	/**
+	 * Terminate one login session by id
+	 *
+	 * @param      <type>   $_id       The identifier
+	 * @param      <type>   $_user_id  The user identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function terminate_id($_id, $_user_id)
 	{
 		$user_id = \dash\validate::id($_user_id, false);
@@ -492,7 +563,13 @@ class login
 	}
 
 
-
+	/**
+	 * Gets the active sessions.
+	 *
+	 * @param      <type>         $_user_id  The user identifier
+	 *
+	 * @return     array|boolean  The active sessions.
+	 */
 	public static function get_active_sessions($_user_id)
 	{
 		$user_id = \dash\validate::id($_user_id, false);
@@ -552,9 +629,10 @@ class login
 			}
 		}
 
-
-
 		return $mySessionData;
 	}
+
+
+
 }
 ?>

@@ -52,38 +52,38 @@ class runtime
 
 		self::set('engine', 'end', true);
 
-		if(isset($_SESSION['auth']['permission']) && $_SESSION['auth']['permission'] === 'supervisor')
-		{
-			$runtime = self::$runtime;
+		// if(isset($_SESSION['auth']['permission']) && $_SESSION['auth']['permission'] === 'supervisor')
+		// {
+		// 	$runtime = self::$runtime;
 
-			$last_time = null;
+		// 	$last_time = null;
 
-			$len       = 0;
-			$last_time = 0;
+		// 	$len       = 0;
+		// 	$last_time = 0;
 
-			foreach ($runtime as $key => $time)
-			{
+		// 	foreach ($runtime as $key => $time)
+		// 	{
 
-				if($last_time)
-				{
-					$len = floatval($time) - floatval($last_time);
-				}
+		// 		if($last_time)
+		// 		{
+		// 			$len = floatval($time) - floatval($last_time);
+		// 		}
 
-				$last_time = $time;
+		// 		$last_time = $time;
 
-				$header = 'x-RunTime-'. $key. ': ';
+		// 		$header = 'x-RunTime-'. $key. ': ';
 
-				$header .= date("H:i:s", intval($time));
+		// 		$header .= date("H:i:s", intval($time));
 
-				if($len)
-				{
-					$header.= ' -len '. round($len, 3). ' s';
-				}
+		// 		if($len)
+		// 		{
+		// 			$header.= ' -len '. round($len, 3). ' s';
+		// 		}
 
-				@header($header);
-			}
+		// 		@header($header);
+		// 	}
 
-		}
+		// }
 	}
 }
 ?>

@@ -56,63 +56,31 @@ class enter
 		{
 			$alert = [];
 
-			if(isset($_SESSION['enter']['alert']))
+			if(\dash\session::get('alert', 'enter'))
 			{
-				$alert = $_SESSION['enter']['alert'];
+				$alert = \dash\session::get('alert', 'enter');
 			}
 
-			unset($_SESSION['enter']);
+			\dash\session::clean_cat('enter');
 
-			$_SESSION['enter']['alert'] = $alert;
+			\dash\session::set('alert', $alert, 'enter');
 		}
 		else
 		{
-			unset($_SESSION['enter']);
 			\dash\session::clean_cat('enter');
 		}
 	}
 
 
-	public static function set_session($_key, $_value, $_sub_key = null)
+	public static function set_session($_key, $_value)
 	{
-		if(!isset($_SESSION['enter']))
-		{
-			$_SESSION['enter'] = [];
-		}
-
-		if($_sub_key)
-		{
-			if(!isset($_SESSION['enter'][$_key]))
-			{
-				$_SESSION['enter'][$_key] = [];
-			}
-
-			$_SESSION['enter'][$_key][$_sub_key] = $_value;
-		}
-		else
-		{
-			$_SESSION['enter'][$_key] = $_value;
-		}
+		\dash\session::set($_key, $_value, 'enter');
 	}
 
 
-	public static function get_session($_key, $_sub_key = null)
+	public static function get_session($_key)
 	{
-		if($_sub_key)
-		{
-			if(isset($_SESSION['enter'][$_key][$_sub_key]))
-			{
-				return $_SESSION['enter'][$_key][$_sub_key];
-			}
-		}
-		else
-		{
-			if(isset($_SESSION['enter'][$_key]))
-			{
-				return $_SESSION['enter'][$_key];
-			}
-		}
-		return null;
+		return \dash\session::get($_key, 'enter');
 	}
 
 
@@ -191,24 +159,27 @@ class enter
 	 */
 	public static function user_data($_key = null)
 	{
-		if(!isset($_SESSION['enter']['user_data']))
+		if(!self::get_session('user_data'))
 		{
 			self::load_user_data(self::get_session('usernameormobile'), 'usernameormobile');
 		}
 
+		$user_data = self::get_session('user_data');
+
 		if($_key)
 		{
-			if(isset($_SESSION['enter']['user_data'][$_key]))
+			if(isset($user_data[$_key]))
 			{
-				return $_SESSION['enter']['user_data'][$_key];
+				return $user_data[$_key];
 			}
 			return null;
 		}
 
-		if(isset($_SESSION['enter']['user_data']))
+		if($user_data)
 		{
-			return $_SESSION['enter']['user_data'];
+			return $user_data;
 		}
+
 		return null;
 	}
 
@@ -234,10 +205,10 @@ class enter
 		}
 
 		// save ref in users table
-		if(isset($_SESSION['ref']) && !isset($_args['ref']))
+		if(\dash\session::get('ref') && !isset($_args['ref']))
 		{
-			$_args['ref'] = floatval($_SESSION['ref']);
-			unset($_SESSION['ref']);
+			$_args['ref'] = floatval(\dash\session::get('ref'));
+			\dash\session::clean('ref');
 		}
 
 		$mobile = self::get_session('mobile');
@@ -291,12 +262,12 @@ class enter
 
 		self::set_session('first_signup', true);
 
-		// save ref in users table
-		if(isset($_SESSION['ref']) && !isset($_args['ref']))
+		if(\dash\session::get('ref') && !isset($_args['ref']))
 		{
-			$_args['ref'] = floatval($_SESSION['ref']);
-			unset($_SESSION['ref']);
+			$_args['ref'] = floatval(\dash\session::get('ref'));
+			\dash\session::clean('ref');
 		}
+
 
 		$user_id = \dash\app\user::quick_add($_args);
 
@@ -329,10 +300,10 @@ class enter
 		{
 			$host = \dash\validate::url(\dash\request::get('referer'), false);
 		}
-		elseif(isset($_SESSION['enter_referer']) && $_SESSION['enter_referer'])
+		elseif(\dash\session::get('enter_referer'))
 		{
-			$host = $_SESSION['enter_referer'];
-			unset($_SESSION['enter_referer']);
+			$host = \dash\session::get('enter_referer');
+			\dash\session::clean('enter_referer');
 		}
 		elseif(self::get_session('app_mode'))
 		{
@@ -395,30 +366,30 @@ class enter
 
 		if($twostep)
 		{
-			if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']) && self::user_data('mobile') )
-			{
-				if(self::user_data('mobile') === $_SESSION['main_mobile'])
-				{
-					if(self::get_session('twostep_is_ok'))
-					{
-						// no problem
-					}
-					else
-					{
-						// set session verify_from set
-						\dash\utility\enter::set_session('verify_from', 'ask_twostep');
+			// if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']) && self::user_data('mobile') )
+			// {
+			// 	if(self::user_data('mobile') === $_SESSION['main_mobile'])
+			// 	{
+			// 		if(self::get_session('twostep_is_ok'))
+			// 		{
+			// 			// no problem
+			// 		}
+			// 		else
+			// 		{
+			// 			// set session verify_from set
+			// 			\dash\utility\enter::set_session('verify_from', 'ask_twostep');
 
-						// send code way
-						\dash\utility\enter::go_to_verify();
-					}
-				}
-				else
-				{
-					// if the admin user login by this user
-					// not ask two-step
-				}
-			}
-			else
+			// 			// send code way
+			// 			\dash\utility\enter::go_to_verify();
+			// 		}
+			// 	}
+			// 	else
+			// 	{
+			// 		// if the admin user login by this user
+			// 		// not ask two-step
+			// 	}
+			// }
+			// else
 			{
 				if(self::get_session('twostep_is_ok'))
 				{
@@ -460,21 +431,21 @@ class enter
 
 		$alert_notif_login = true;
 
-		if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']))
-		{
-			if(isset($_SESSION['auth']['mobile']) && $_SESSION['auth']['mobile'] === $_SESSION['main_mobile'])
-			{
-				// nothign
-				// read $set_session
-			}
-			else
-			{
-				$alert_notif_login = false;
-				// not save session for other people never
-				$set_session = false;
-			}
-		}
-		else
+		// if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']))
+		// {
+		// 	if(isset($_SESSION['auth']['mobile']) && $_SESSION['auth']['mobile'] === $_SESSION['main_mobile'])
+		// 	{
+		// 		// nothign
+		// 		// read $set_session
+		// 	}
+		// 	else
+		// 	{
+		// 		$alert_notif_login = false;
+		// 		// not save session for other people never
+		// 		$set_session = false;
+		// 	}
+		// }
+		// else
 		{
 			// check user status
 			// if the user status is awaiting
@@ -536,7 +507,7 @@ class enter
 
 		\dash\login::logout();
 
-		$_SESSION = [];
+		// $_SESSION = [];
 
 		// unset and destroy session then regenerate it
 		session_unset();
@@ -1315,12 +1286,12 @@ class enter
 	{
 		if($_acction === true)
 		{
-			self::set_session('lock', true, $_module);
+			self::set_session('lock_'. $_module, true);
 		}
 
 		if($_acction === false)
 		{
-			self::set_session('lock', false, $_module);
+			self::set_session('lock_'. $_module, false);
 		}
 
 		if($_acction === null)
@@ -1332,7 +1303,7 @@ class enter
 				// return false;
 			}
 			// get lock from session
-			$is_lock = self::get_session('lock', $_module);
+			$is_lock = self::get_session('lock_'. $_module);
 			// if is lock or not set
 			if($is_lock === true || $is_lock === null)
 			{
@@ -1364,10 +1335,22 @@ class enter
 	 */
 	public static function next_step($_module)
 	{
+		$all_other_lock = \dash\session::get_cat('enter');
+
 		// unset all other lock
-		unset($_SESSION['enter']['lock']);
+		if(is_array($all_other_lock))
+		{
+			foreach ($all_other_lock as $key => $value)
+			{
+				if(substr($key, 0, 5) === 'lock_')
+				{
+					\dash\session::clean($key , 'enter');
+				}
+			}
+		}
+
 		// set jusn this lock
-		self::set_session('lock', false, $_module);
+		self::set_session('lock_'. $_module, false);
 	}
 
 
