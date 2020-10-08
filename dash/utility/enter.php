@@ -507,15 +507,7 @@ class enter
 
 		\dash\login::logout();
 
-		// $_SESSION = [];
-
-		// unset and destroy session then regenerate it
-		session_unset();
-
-		if(session_status() === PHP_SESSION_ACTIVE)
-		{
-			session_destroy();
-		}
+		\dash\session::destroy();
 
 		if(is_array($_COOKIE))
 		{
@@ -1007,39 +999,6 @@ class enter
 		/**
 		 ***********************************************************
 		 * VERIFY FROM
-		 * USERNAME
-		 * TRY TO REMOVE USER NAME
-		 ***********************************************************
-		 */
-		// if(self::get_session('verify_from') === 'username_remove' && is_numeric(self::user_data('id')))
-		// {
-		// 	// set temp ramz in use pass
-		// 	\dash\app\user::quick_update(['username' => null], self::user_data('id'));
-		// 	// remove usename from sessions
-		// 	unset($_SESSION['auth']['username']);
-		// 	// set the alert message
-		// 	$alert =
-		// 	[
-		// 		'clean_session' => true,
-		// 		'text' => T_("Your username was removed"),
-		// 		'link' => \dash\url::kingdom(),
-		// 	];
-
-		// 	\dash\log::set('usernameRemoved');
-
-		// 	self::set_session('alert', $alert);
-		// 	// open lock of alert page
-		// 	self::next_step('alert');
-
-		// 	// self::clean_session(true);
-		// 	// go to alert page
-		// 	self::go_to('alert');
-		// 	return;
-		// }
-
-		/**
-		 ***********************************************************
-		 * VERIFY FROM
 		 * ENTER/DELETE
 		 * DELETE ACCOUNT
 		 ***********************************************************
@@ -1086,81 +1045,6 @@ class enter
 			self::go_to('byebye');
 			return;
 		}
-
-		/**
-		 ***********************************************************
-		 * VERIFY FROM
-		 * USERNAME/SET
-		 * USERNAME/CHANGE
-		 ***********************************************************
-		 */
-		// if(
-		// 	(
-		// 		self::get_session('verify_from') === 'username_set' ||
-		// 		self::get_session('verify_from') === 'username_change'
-		// 	) &&
-		// 	self::get_session('temp_username') &&
-		// 	is_numeric(self::user_data('id'))
-		//   )
-		// {
-		// 	// set temp ramz in use pass
-		// 	\dash\app\user::quick_update(['username' => self::get_session('temp_username')], self::user_data('id'));
-		// 	// set the alert message
-		// 	if(self::get_session('verify_from') === 'username_set')
-		// 	{
-		// 		\dash\log::set('usernameSetOK');
-		// 		$text = T_("Your username was set");
-		// 	}
-		// 	else
-		// 	{
-		// 		\dash\log::set('usernameChangeOK');
-		// 		$text = T_("Your username was change");
-		// 	}
-
-
-		// 	if(isset($_SESSION['auth']) && is_array($_SESSION['auth']))
-		// 	{
-		// 		$_SESSION['auth']['username'] = self::get_session('temp_username');
-		// 	}
-
-		// 	// set the alert message
-		// 	$alert =
-		// 	[
-		// 		'clean_session' => true,
-		// 		'text'          => $text,
-		// 		'link'          => \dash\url::kingdom(),
-		// 	];
-
-		// 	self::set_session('alert', $alert);
-		// 	// open lock of alert page
-		// 	self::next_step('alert');
-		// 	// self::clean_session(true);
-		// 	// go to alert page
-		// 	self::go_to('alert');
-		// 	return;
-		// }
-
-		// /**
-		//  ***********************************************************
-		//  * VERIFY FROM
-		//  * EMAIL/SET
-		//  * EMAIL/CHANGE
-		//  ***********************************************************
-		//  */
-		// if(
-		// 	(
-		// 		self::get_session('verify_from') === 'email_set' ||
-		// 		self::get_session('verify_from') === 'email_change'
-		// 	) &&
-		// 	self::get_session('temp_email') &&
-		// 	is_numeric(self::user_data('id'))
-		//   )
-		// {
-		// 	\dash\log::set('emailOK');
-
-		// 	// set temp ramz in use pass
-		// 	\dash\app\user::quick_update(['email' => self::get_session('temp_email')], self::user_data('id'));
-		// }
 
 
 

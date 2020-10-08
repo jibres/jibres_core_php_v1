@@ -10,6 +10,71 @@ class session
 	private static $key_time  = 'storage_time';
 	private static $key_limit = 'storage_time_limit';
 
+
+	/**
+	 * start session
+	 */
+	public static function start()
+	{
+		// in api content needless to start session
+		// check apikey and start session by function \dash\session::restart()
+		if(\dash\engine\content::api_content())
+		{
+			return;
+		}
+
+		if(is_string(\dash\url::root()))
+		{
+			session_name(\dash\url::root());
+		}
+
+		$cookie_secure   = true;
+		$cookie_samesite = 'Strict';
+		if(\dash\url::isLocal() && \dash\url::protocol() === 'http')
+		{
+			$cookie_secure = false;
+		}
+
+		// set session cookie params
+		if(PHP_VERSION_ID < 70300)
+		{
+			// session_set_cookie_params(0, '/', '.'.\dash\url::domain(), $cookie_secure, true);
+			session_set_cookie_params(0, '/; samesite='.$cookie_samesite, '.'.\dash\url::domain(), $cookie_secure, true);
+		}
+		else
+		{
+			session_set_cookie_params(
+			[
+				'lifetime' => 0,
+				'path'     => '/',
+				'domain'   => '.'.\dash\url::domain(),
+				'secure'   => $cookie_secure,
+				'httponly' => true,
+				'samesite' => $cookie_samesite
+			]);
+		}
+
+		// start sessions
+		session_start();
+		session_write_close();
+	}
+
+
+	public static function destroy()
+	{
+		$_SESSION = [];
+
+		// unset and destroy session then regenerate it
+		session_unset();
+
+		if(session_status() === PHP_SESSION_ACTIVE)
+		{
+			session_destroy();
+		}
+	}
+
+
+
 	public static function clean_all()
 	{
 		if(!isset($_SESSION))
@@ -22,6 +87,8 @@ class session
 		unset($_SESSION[self::$key_limit]);
 	}
 
+
+
 	public static function clean_cat($_cat)
 	{
 		if(!isset($_SESSION))
@@ -33,6 +100,8 @@ class session
 		unset($_SESSION[self::$key_time][$_cat]);
 		unset($_SESSION[self::$key_limit][$_cat]);
 	}
+
+
 
 	public static function clean($_key, $_cat = null)
 	{
@@ -71,6 +140,7 @@ class session
 		return null;
 	}
 
+
 	/**
 	 * save data in session
 	 * by key and cat
@@ -81,6 +151,8 @@ class session
 	 */
 	public static function set($_key, $_value, $_cat = null, $_time = null)
 	{
+		session_start();
+
 		if(!isset($_SESSION))
 		{
 			return false;
@@ -105,6 +177,8 @@ class session
 				$_SESSION[self::$key_limit][$_key] = $_time;
 			}
 		}
+
+		session_write_close();
 	}
 
 
@@ -207,6 +281,7 @@ class session
 		session_id($_session_id);
 		// start new session
 		session_start();
+		session_write_close();
 	}
 }
 ?>

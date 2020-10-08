@@ -45,7 +45,7 @@ class prepare
 		self::static_files();
 
 		// start session
-		self::session_start();
+		\dash\session::start();
 
 		// self::user_country_redirect();
 
@@ -148,53 +148,6 @@ class prepare
 		}
 	}
 
-
-	/**
-	 * start session
-	 */
-	private static function session_start()
-	{
-		// in api content needless to start session
-		// check apikey and start session by function \dash\session::restart()
-		if(\dash\engine\content::api_content())
-		{
-			return;
-		}
-
-		if(is_string(\dash\url::root()))
-		{
-			session_name(\dash\url::root());
-		}
-
-		$cookie_secure   = true;
-		$cookie_samesite = 'Strict';
-		if(\dash\url::isLocal() && \dash\url::protocol() === 'http')
-		{
-			$cookie_secure = false;
-		}
-
-		// set session cookie params
-		if(PHP_VERSION_ID < 70300)
-		{
-			// session_set_cookie_params(0, '/', '.'.\dash\url::domain(), $cookie_secure, true);
-			session_set_cookie_params(0, '/; samesite='.$cookie_samesite, '.'.\dash\url::domain(), $cookie_secure, true);
-		}
-		else
-		{
-			session_set_cookie_params(
-			[
-				'lifetime' => 0,
-				'path'     => '/',
-				'domain'   => '.'.\dash\url::domain(),
-				'secure'   => $cookie_secure,
-				'httponly' => true,
-				'samesite' => $cookie_samesite
-			]);
-		}
-
-		// start sessions
-		session_start();
-	}
 
 
 	/**
