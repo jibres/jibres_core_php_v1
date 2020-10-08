@@ -42,18 +42,18 @@ class view
 		];
 
 
-		if(\dash\request::get('dup')) 	$args['dup'] = \dash\request::get('dup');
-		if(\dash\request::get('bar')) 	$args['bar'] = \dash\request::get('bar');
-		if(\dash\request::get('bup')) 	$args['bup'] = \dash\request::get('bup');
-		if(\dash\request::get('p')) 	$args['p']     = \dash\request::get('p');
-		if(\dash\request::get('d')) 	$args['d']     = \dash\request::get('d');
+		if(\dash\request::get('dup')) 	$args['dup']  = \dash\request::get('dup');
+		if(\dash\request::get('bar')) 	$args['bar']  = \dash\request::get('bar');
+		if(\dash\request::get('bup')) 	$args['bup']  = \dash\request::get('bup');
+		if(\dash\request::get('p')) 	$args['p']    = \dash\request::get('p');
+		if(\dash\request::get('d')) 	$args['d']    = \dash\request::get('d');
 		if(\dash\request::get('st')) 	$args['st']   = \dash\request::get('st');
-		if(\dash\request::get('nst')) 	$args['nst'] = \dash\request::get('nst');
-		if(\dash\request::get('g')) 	$args['g']     = \dash\request::get('g');
-		if(\dash\request::get('v')) 	$args['v']     = \dash\request::get('v');
+		if(\dash\request::get('nst')) 	$args['nst']  = \dash\request::get('nst');
+		if(\dash\request::get('g')) 	$args['g']    = \dash\request::get('g');
+		if(\dash\request::get('v')) 	$args['v']    = \dash\request::get('v');
 		if(\dash\request::get('so')) 	$args['so']   = \dash\request::get('so');
-		if(\dash\request::get('w')) 	$args['w']     = \dash\request::get('w');
-		if(\dash\request::get('t')) 	$args['t']     = \dash\request::get('t');
+		if(\dash\request::get('w')) 	$args['w']    = \dash\request::get('w');
+		if(\dash\request::get('t')) 	$args['t']    = \dash\request::get('t');
 
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
@@ -94,6 +94,20 @@ class view
 		{
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
+
+
+		$company_list = \lib\app\product\company::list();
+		\dash\data::listCompanies($company_list);
+
+		$unit_list = \lib\app\product\unit::list();
+		\dash\data::listUnits($unit_list);
+
+		$category_list = \lib\app\category\get::all_category();
+		$category_list = array_reverse($category_list);
+		\dash\data::listCategory($category_list);
+
+		$all_tag = \lib\app\product\tag::all_tag();
+		\dash\data::allTagList($all_tag);
 
 
 

@@ -2,8 +2,6 @@
 
 function BoxProductFilter()
 {
-
-  $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
   if(\dash\data::productFilterList()) {?>
 
 
@@ -14,6 +12,68 @@ function BoxProductFilter()
       <a class='btn <?php if(\dash\get::index($value, 'is_active')) { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
     <?php } //endfor ?>
     </div>
+
+
+
+
+
+      <div class="mB10">
+        <div class="row align-center">
+          <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
+
+        <div>
+         <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>">
+          <option value="" readonly></option>
+          <?php foreach (\dash\data::listCategory() as $key => $value) {?>
+            <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('catid') === $value['id']){echo 'selected';} ?>><?php echo $value['title']; ?></option>
+          <?php } //endfor ?>
+        </select>
+        </div>
+      </div>
+
+      <div class="row align-center">
+          <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/products/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
+      <div>
+         <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one tag") ?>">
+          <option value="" readonly></option>
+          <?php foreach (\dash\data::allTagList() as $key => $value) {?>
+            <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('tagid') === $value['id']){echo 'selected';} ?>><?php echo $value['title']; ?></option>
+          <?php } //endfor ?>
+        </select>
+      </div>
+
+       <div class="mB10">
+        <div class="row align-center">
+          <div class="c"><label for='unit'><?php echo T_("Unit"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/units"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
+        <select name="unitid" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
+            <option value=""><?php echo T_("like Qty, kg, etc"); ?></option>
+            <?php foreach (\dash\data::listUnits() as $key => $value) {?>
+              <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('unitid') === $value['id']){echo 'selected';} ?>  ><?php echo $value['title']; ?></option>
+            <?php } //endfor ?>
+        </select>
+      </div>
+
+      <div class="mB10">
+        <div class="row align-center">
+          <div class="c"><label for='company'><?php echo T_("Brand"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
+        <select name="companyid" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
+          <option value=""><?php echo T_("Product Brand"); ?></option>
+            <?php foreach (\dash\data::listCompanies() as $key => $value) {?>
+            <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('companyid') === $value['id']){echo 'selected';} ?> ><?php echo $value['title']; ?></option>
+          <?php } //endfor ?>
+
+        </select>
+      </div>
+
+
 
 <div class="txtRa fs12">
   <?php if(\dash\request::get()) {?>
@@ -31,16 +91,17 @@ function BoxProductFilter()
 <?php function htmlSearchBox() {?>
 <form method="get" action="<?php echo \dash\url::that(); ?>">
 
-  <?php  if(\dash\data::productFilterList()) {?>
-    <?php foreach (\dash\data::productFilterList() as $key => $value) {?>
-      <?php if(\dash\get::index($value, 'is_active')) {?>
-        <?php foreach ($value['query'] as $k => $v) {?>
-          <input type="hidden" name="<?php echo $k ?>" value="<?php echo $v ?>">
-        <?php } //endfor ?>
-      <?php } //endif ?>
-    <?php } //endfor ?>
-  <?php } //endif ?>
-
+<?php
+$all_get = \dash\request::get();
+unset($all_get['page']);
+if($all_get)
+{
+  foreach ($all_get as $key => $value)
+  {
+    echo '<input type="hidden" name="'. $key. '" value="'. $value .'">';
+  }
+}
+?>
 
   <div class="searchBox">
     <div class="f">
@@ -75,13 +136,6 @@ function BoxProductFilter()
 <?php if(\dash\request::get('filter')) {?>
 
 <div class="applyFilters">
-
-  <?php if(\dash\request::get('duplicatetitle')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Duplicate title"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('hbarcode')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Have barcode"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('hnotbarcode')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Have not barcode"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('wbuyprice')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Without buyprice"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('wprice')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Without price"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
-  <?php if(\dash\request::get('wdiscount')) {?><a class="btn danger2 sm mRa5" href="<?php echo \dash\url::that(); ?>"><span><?php echo T_("Without discount"); ?></span><i class="fc-red pLa10 sf-times"></i></a><?php }// endif ?>
 
   <?php if(false) {?>
     <a class="btn primary outline sm mLa10 floatRa s0" href="<?php echo \dash\url::that(); ?>"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
