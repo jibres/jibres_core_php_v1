@@ -102,18 +102,18 @@ class filter
 				}
 			}
 
-			$query_string = null;
-			if(isset($value['run_by_another']) && $value['run_by_another'])
+			if($active)
 			{
-				$query_string = \dash\request::fix_get($value['query']);
+				$value['query'] = array_map(function($_a) {return null;}, $value['query']);
+				$query_string               = \dash\request::fix_get($value['query']);
 			}
 			else
 			{
-				$query_string = \dash\request::build_query($value['query']);
+				$query_string               = \dash\request::fix_get($value['query']);
 			}
 
 			$list[$key]['query_string'] = $query_string;
-			$list[$key]['is_active'] = $active;
+			$list[$key]['is_active']    = $active;
 		}
 
 		return $list;
@@ -125,16 +125,6 @@ class filter
 
 		$list = [];
 
-		$list['duplicate_title'] =
-		[
-			'key'            => 'duplicate_title',
-			'group'          => T_("Duplicate Title"),
-			'title'          => T_("Duplicate Title"),
-			'query'			 => ['dup' => 1],
-			'public'         => false,
-			'run_by_another' => false,
-		];
-
 		$list['with_barcode'] =
 		[
 			'key'            => 'with_barcode',
@@ -142,7 +132,6 @@ class filter
 			'title'          => T_("With Barcode"),
 			'query'			 => ['bar' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 		$list['without_barcode'] =
@@ -152,7 +141,6 @@ class filter
 			'title'          => T_("Without Barcode"),
 			'query'			 => ['bar' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -163,7 +151,6 @@ class filter
 			'title'          => T_("With Buyprice"),
 			'query'			 => ['bup' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 		$list['without_buyprice'] =
@@ -173,7 +160,6 @@ class filter
 			'title'          => T_("Without Buyprice"),
 			'query'			 => ['bup' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -184,7 +170,6 @@ class filter
 			'title'          => T_("With Price"),
 			'query'			 => ['p' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 		$list['without_price'] =
@@ -194,7 +179,6 @@ class filter
 			'title'          => T_("Without Price"),
 			'query'			 => ['p' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -205,7 +189,6 @@ class filter
 			'title'          => T_("With Discount"),
 			'query'			 => ['d' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 		$list['without_discount'] =
@@ -215,7 +198,6 @@ class filter
 			'title'          => T_("Without Discount"),
 			'query'			 => ['d' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -226,7 +208,6 @@ class filter
 			'title'          => T_("Instock"),
 			'query'			 => ['st' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 		$list['product_outofinstork'] =
@@ -236,7 +217,6 @@ class filter
 			'title'          => T_("Out of stock"),
 			'query'			 => ['st' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 		$list['product_negrativeinventory'] =
@@ -246,7 +226,6 @@ class filter
 			'title'          => T_("Negative Inventory"),
 			'query'			 => ['nst' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -257,7 +236,6 @@ class filter
 			'title'          => T_("Have gallery"),
 			'query'			 => ['g' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -268,7 +246,6 @@ class filter
 			'title'          => T_("Have not gallery"),
 			'query'			 => ['g' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -279,7 +256,6 @@ class filter
 			'title'          => T_("Have variants"),
 			'query'			 => ['v' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -290,7 +266,6 @@ class filter
 			'title'          => T_("Have not variants"),
 			'query'			 => ['v' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -301,7 +276,6 @@ class filter
 			'title'          => T_("Have sold"),
 			'query'			 => ['so' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -312,7 +286,6 @@ class filter
 			'title'          => T_("Have not sold"),
 			'query'			 => ['so' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -323,7 +296,6 @@ class filter
 			'title'          => T_("Have weight"),
 			'query'			 => ['w' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -334,7 +306,6 @@ class filter
 			'title'          => T_("Have not weight"),
 			'query'			 => ['w' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -345,7 +316,6 @@ class filter
 			'title'          => T_("Have tag"),
 			'query'			 => ['t' => 'y'],
 			'public'         => false,
-			'run_by_another' => true,
 		];
 
 
@@ -356,41 +326,20 @@ class filter
 			'title'          => T_("Have not tag"),
 			'query'			 => ['t' => 'n'],
 			'public'         => false,
-			'run_by_another' => true,
+		];
+
+
+		$list['duplicate_title'] =
+		[
+			'key'            => 'duplicate_title',
+			'group'          => T_("Duplicate Title"),
+			'title'          => T_("Duplicate Title"),
+			'query'			 => ['dup' => 1],
+			'public'         => false,
 		];
 
 
 
-		// $list['collection'] =
-		// [
-		// 	'key'            => 'collection',
-		// 	'group'          => T_("Collection"),
-		// 	'title'          => T_("Collection"),
-		// 	'query'			 => [],
-		// 	'public'         => false,
-		// 	'run_by_another' => true,
-		// ];
-
-
-		// $list['unit'] =
-		// [
-		// 	'key'            => 'unit',
-		// 	'group'          => T_("Collection"),
-		// 	'title'          => T_("Collection"),
-		// 	'query'			 => [],
-		// 	'public'         => false,
-		// 	'run_by_another' => true,
-		// ];
-
-		// $list['company'] =
-		// [
-		// 	'key'            => 'company',
-		// 	'group'          => T_("Collection"),
-		// 	'title'          => T_("Collection"),
-		// 	'query'			 => [],
-		// 	'public'         => false,
-		// 	'run_by_another' => true,
-		// ];
 
 		return $list;
 

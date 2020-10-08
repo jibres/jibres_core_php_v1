@@ -34,11 +34,11 @@ class view
 			// 'price'        => \dash\request::get('price'),
 			// 'buyprice'     => \dash\request::get('buyprice'),
 			// 'cat'          => \dash\request::get('cat'),
-			'cat_id'       => \dash\request::get('catid'),
-			'tag_id'       => \dash\request::get('tagid'),
+			'cat_id'       => \dash\request::get('catid') ? \dash\request::get('catid') : null,
+			'tag_id'       => \dash\request::get('tagid') ? \dash\request::get('tagid') : null,
 			// 'discount'     => \dash\request::get('discount'),
-			'unit_id'      => \dash\request::get('unitid'),
-			'company_id'   => \dash\request::get('companyid'),
+			'unit_id'      => \dash\request::get('unitid') ? \dash\request::get('unitid') : null,
+			'company_id'   => \dash\request::get('companyid') ? \dash\request::get('companyid') : null,
 		];
 
 
