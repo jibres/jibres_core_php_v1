@@ -104,12 +104,12 @@ class filter
 
 			if($active)
 			{
-				$value['query'] = array_map(function($_a) {return null;}, $value['query']);
-				$query_string               = \dash\request::fix_get($value['query']);
+				$myQuery      = array_map(function($_a) {return null;}, $value['query']);
+				$query_string = \dash\request::fix_get($myQuery);
 			}
 			else
 			{
-				$query_string               = \dash\request::fix_get($value['query']);
+				$query_string = \dash\request::fix_get($value['query']);
 			}
 
 			$list[$key]['query_string'] = $query_string;
