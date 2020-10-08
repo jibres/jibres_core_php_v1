@@ -436,7 +436,7 @@ class login
 		$code .= rand();
 		$code = md5($code);
 		$code = \dash\utility::hasher($code);
-		$code = \dash\validate::string_100($code);
+		$code = \dash\validate::string_100($code, false);
 		return $code;
 	}
 
