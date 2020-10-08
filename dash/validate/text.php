@@ -92,7 +92,6 @@ class text
 		// remove 2 space in everywhere
 		$data = preg_replace("/\h+/", " ", $data);
 
-		$data_before = $data;
 
 		if(isset($_meta['html']) && $_meta['html'])
 		{
@@ -103,6 +102,7 @@ class text
 			$data = strip_tags($data);
 		}
 
+		$data_before = $data;
 
 		$data = str_replace('"',   '', $data);
 		$data = str_replace("'",   '', $data);
