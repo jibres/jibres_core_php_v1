@@ -658,6 +658,11 @@ class cleanse
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'y_n':
+				$meta['enum'] = ['y', 'n'];
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'weekday':
 				$meta['enum'] = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
