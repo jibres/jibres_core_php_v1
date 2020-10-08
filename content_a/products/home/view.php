@@ -7,6 +7,7 @@ class view
 	public static function config()
 	{
 
+
 		\dash\face::title(T_('Products'));
 
 		// back
@@ -23,6 +24,8 @@ class view
 		// \dash\face::help(\dash\url::support().'/products');
 		\dash\face::btnSetting(\dash\url::here().'/setting/product');
 
+		$productFilterList = \lib\app\product\filter::list();
+		\dash\data::productFilterList($productFilterList);
 		$args =
 		[
 			'order'        => \dash\request::get('order'),
@@ -38,19 +41,19 @@ class view
 			'company_id'   => \dash\request::get('companyid'),
 		];
 
-		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle'] = true;
-		if(\dash\request::get('hbarcode')) 		 $args['hbarcode']       = true;
-		if(\dash\request::get('hnotbarcode')) 	 $args['hnotbarcode']    = true;
-		if(\dash\request::get('wbuyprice')) 	 $args['wbuyprice']      = true;
-		if(\dash\request::get('wprice')) 		 $args['wprice']         = true;
-		if(\dash\request::get('wdiscount')) 	 $args['wdiscount']      = true;
-		if(\dash\request::get('instock')) 		 $args['instock']        = true;
-		if(\dash\request::get('outofstock')) 	 $args['outofstock']     = true;
-		if(\dash\request::get('withoutimage'))   $args['withoutimage']   = true;
-		if(\dash\request::get('havevariants')) 	 $args['havevariants']   = true;
-		if(\dash\request::get('negativeinventory')) 	 $args['negativeinventory']   = true;
-		if(\dash\request::get('notsold')) 	 $args['notsold']   = true;
-		if(\dash\request::get('notweight')) 	 $args['notweight']   = true;
+
+		if(\dash\request::get('dup')) 	$args['dup'] = \dash\request::get('dup');
+		if(\dash\request::get('bar')) 	$args['bar'] = \dash\request::get('bar');
+		if(\dash\request::get('bup')) 	$args['bup'] = \dash\request::get('bup');
+		if(\dash\request::get('p')) 	$args['p']     = \dash\request::get('p');
+		if(\dash\request::get('d')) 	$args['d']     = \dash\request::get('d');
+		if(\dash\request::get('st')) 	$args['st']   = \dash\request::get('st');
+		if(\dash\request::get('nst')) 	$args['nst'] = \dash\request::get('nst');
+		if(\dash\request::get('g')) 	$args['g']     = \dash\request::get('g');
+		if(\dash\request::get('v')) 	$args['v']     = \dash\request::get('v');
+		if(\dash\request::get('so')) 	$args['so']   = \dash\request::get('so');
+		if(\dash\request::get('w')) 	$args['w']     = \dash\request::get('w');
+		if(\dash\request::get('t')) 	$args['t']     = \dash\request::get('t');
 
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));

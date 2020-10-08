@@ -89,7 +89,13 @@ class request
 
 		$get = array_merge($get, $_args);
 
-		return http_build_query($get, null, '&', PHP_QUERY_RFC3986);
+		return self::build_query($get);
+	}
+
+
+	public static function build_query($_args)
+	{
+		return http_build_query($_args, null, '&', PHP_QUERY_RFC3986);
 	}
 
 

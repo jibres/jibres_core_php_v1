@@ -718,9 +718,7 @@ class get
 
 	public static function website_last_product($_and, $_or, $_order, $_meta)
 	{
-		$q = \lib\db\products\search::ready_to_sql($_and, $_or, $_order, $_meta);
-
-
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order, $_meta);
 		$query  = " SELECT products.* FROM products $q[join] $q[where] ORDER BY $q[order] LIMIT $q[limit]";
 		$result = \dash\db::get($query);
 
