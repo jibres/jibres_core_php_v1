@@ -26,15 +26,24 @@ class update
 	}
 
 
-
-	public static function set_block($_id)
+	public static function update($_args, $_id, $_fuel = null)
 	{
-		$date = date("Y-m-d H:i:s");
-		$query = "UPDATE login SET login.status = 'block', login.datemodified = '$date' WHERE login.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$_args['datemodified'] = date("Y-m-d H:i:s");
+		$set    = \dash\db\config::make_set($_args);
+		$query  = "UPDATE login SET $set WHERE login.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, $_fuel);
 		return $result;
 	}
 
+
+
+	public static function set_block($_id, $_fuel = null)
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "UPDATE login SET login.status = 'block', login.datemodified = '$date' WHERE login.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, $_fuel);
+		return $result;
+	}
 
 
 	public static function change_password($_user_id, $_current_login_id)

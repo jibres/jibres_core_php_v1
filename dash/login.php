@@ -39,9 +39,9 @@ class login
 			return false;
 		}
 
-		$place = self::where_am_i();
+		$current_place = self::where_am_i();
 
-		if($place === 'jibres' || $place === 'admin')
+		if($current_place === 'jibres' || $current_place === 'admin')
 		{
 			$load = \dash\db\login\get::load_code_force_jibres($cookie);
 		}
@@ -50,6 +50,12 @@ class login
 			$load = \dash\db\login\get::load_code($cookie);
 		}
 
+		// the record place
+		$place = null;
+		if(isset($load['place']))
+		{
+			$place = $load['place'];
+		}
 
 		$is_ok = self::validate($load);
 
@@ -57,8 +63,18 @@ class login
 		{
 			if(isset($load['id']))
 			{
-				\dash\db\login\update::set_block($load['id']);
+				if($place === 'jibres' || $place === 'admin')
+				{
+					\dash\db\login\update::set_block($load['id'], 'master');
+				}
+				else
+				{
+					// i dont know where is database of this cookie
+					// So, Not blocked it
+					// \dash\db\login\update::set_block($load['id']);
+				}
 			}
+
 			self::delete_cookie();
 			return false;
 		}
@@ -199,6 +215,8 @@ class login
 			}
 		}
 
+		$place = $_detail['place'];
+
 		if(isset($_detail['trustdomain']) && $_detail['trustdomain'] === \dash\url::host())
 		{
 			// ok
@@ -263,7 +281,26 @@ class login
 					'datecreated' => date("Y-m-d H:i:s"),
 				];
 
-				\dash\db\login\insert::new_record_login_ip($insert_login_ip);
+				$login_update =
+				[
+					'ip'             => $myIp,
+					'ip_id'          => $ip_id,
+					'ip_md5'         => $ip_md5,
+					'agent_id'       => $agent_id,
+					'agent_md5'      => $agent_md5,
+				];
+
+				$fuel = null;
+
+				if($place === 'jibres' || $place === 'admin')
+				{
+					$fuel = 'master';
+				}
+
+				\dash\db\login\insert::new_record_login_ip($insert_login_ip, $fuel);
+				\dash\db\login\update::update($login_update, $_detail['id'], $fuel);
+
+
 			}
 
 			if(!$agen_ok)
