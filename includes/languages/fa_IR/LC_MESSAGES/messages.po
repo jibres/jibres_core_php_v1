@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-09 14:33+0330\n"
-"PO-Revision-Date: 2020-10-09 14:34+0330\n"
+"POT-Creation-Date: 2020-10-09 16:13+0330\n"
+"PO-Revision-Date: 2020-10-09 16:18+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3721,8 +3721,9 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/android/splash/view.php:12 content_a/android/title/view.php:12
 #: content_a/cart/add/view.php:18 content_a/cart/home/view.php:12
 #: content_a/cart/user/view.php:13 content_a/category/property/view.php:17
-#: content_a/company/view.php:30 content_a/company/view.php:37
-#: content_a/form/add/view.php:12 content_a/form/analytics/addcondition/view.php:12
+#: content_a/category/remove/view.php:17 content_a/company/view.php:30
+#: content_a/company/view.php:37 content_a/form/add/view.php:12
+#: content_a/form/analytics/addcondition/view.php:12
 #: content_a/form/analytics/addfilter/view.php:12
 #: content_a/form/analytics/answer/view.php:12 content_a/form/analytics/chart/view.php:12
 #: content_a/form/analytics/chart2/view.php:12 content_a/form/analytics/create/view.php:12
@@ -6142,10 +6143,12 @@ msgid "Categories"
 msgstr "دسته‌بندی‌ها"
 
 #: content_a/category/edit/controller.php:15 content_a/category/property/controller.php:15
-#: lib/app/category/add.php:25 lib/app/category/add.php:49 lib/app/category/add.php:131
-#: lib/app/category/add.php:142 lib/app/category/edit.php:50 lib/app/category/get.php:27
-#: lib/app/category/get.php:34 lib/app/category/get.php:56 lib/app/category/get.php:63
-#: lib/app/category/remove.php:36 lib/app/category/search.php:44
+#: content_a/category/remove/controller.php:15 lib/app/category/add.php:25
+#: lib/app/category/add.php:49 lib/app/category/add.php:131 lib/app/category/add.php:142
+#: lib/app/category/edit.php:50 lib/app/category/get.php:27 lib/app/category/get.php:34
+#: lib/app/category/get.php:56 lib/app/category/get.php:63 lib/app/category/remove.php:25
+#: lib/app/category/remove.php:46 lib/app/category/remove.php:81
+#: lib/app/category/search.php:44
 msgid "Invalid category id"
 msgstr "شناسه دسته‌بندی اشتباه است"
 
@@ -6273,17 +6276,25 @@ msgstr ""
 msgid "Set product general property"
 msgstr "تنظیم مشخصات عمومی محصول"
 
-#: content_a/category/edit/display.php:95
-msgid "Show products by this category"
-msgstr "نمایش محصولات موجود در این دسته‌بندی"
+#: content_a/category/edit/display.php:96
+msgid "You can delete this category because we are not found any product in that."
+msgstr "هیچ محصولی با این دسته‌بندی یافت نشد. شما می‌توانید این دسته‌بندی را حذف کنید."
 
-#: content_a/category/edit/display.php:100 content_a/category/edit/display.php:103
+#: content_a/category/edit/display.php:98
+msgid ""
+"You can delete this category and merge all product in this category by another category."
+msgstr ""
+"شما می‌توانید این دسته‌بندی را حذف کنید و همه محصولات موجود در این دسته بندی را با دسته "
+"بندی دیگر ادغام کنید."
+
+#: content_a/category/edit/display.php:103 content_a/category/edit/display.php:105
+#: content_a/category/remove/display.php:4 content_a/category/remove/view.php:8
 msgid "Remove category"
 msgstr "حذف دسته‌بندی"
 
-#: content_a/category/edit/display.php:102
-msgid "You can delete this category because we are not found any product in that."
-msgstr "هیچ محصولی با این دسته‌بندی یافت نشد. شما می‌توانید این دسته‌بندی را حذف کنید."
+#: content_a/category/edit/display.php:113 content_a/category/remove/display.php:9
+msgid "Show products by this category"
+msgstr "نمایش محصولات موجود در این دسته‌بندی"
 
 #: content_a/category/edit/model.php:42 content_b1/category/photo/model.php:37
 msgid "Category file deleted"
@@ -6406,6 +6417,62 @@ msgstr ""
 #: lib/app/onlinenic/log/search.php:69
 msgid "Type"
 msgstr "نوع"
+
+#: content_a/category/remove/display.php:7
+msgid ":val products by this category founded"
+msgstr ":val محصول با این دسته‌بندی یافت شد"
+
+#: content_a/category/remove/display.php:13
+msgid "You can remove this category from all product or change it to another category"
+msgstr ""
+"شما می‌توانید این دسته‌بندی را از همه محصولات دارای این دسته‌بندی حذف کنید و یا دسته‌بندی "
+"جدیدی برای آنها انتخاب کنید"
+
+#: content_a/category/remove/display.php:20
+msgid "Remove this category from all products"
+msgstr "حذف این دسته‌بندی از همه محصولات"
+
+#: content_a/category/remove/display.php:26
+msgid "Selecte new category"
+msgstr "انتخاب دسته‌بندی جدید"
+
+#: content_a/category/remove/display.php:34
+msgid "New Category"
+msgstr "دسته‌بندی جدید"
+
+#: content_a/category/remove/display.php:35 content_a/products/home/filter.php:72
+msgid "Select one category"
+msgstr "لطفا یک دسته را انتخاب کنید"
+
+#: content_a/category/remove/display.php:37 content_a/products/home/filter.php:74
+#: content_a/products/home/filter.php:92 content_a/products/home/filter.php:109
+#: content_a/products/home/filter.php:126 content_a/products/home/filter.php:141
+#: content_cms/posts/edit/display.php:176 content_crm/member/home/display.php:385
+#: content_crm/member/home/display.php:411 content_crm/member/home/display.php:431
+#: content_crm/member/home/display.php:457 content_crm/member/home/display.php:483
+#: content_crm/member/home/display.php:510 content_crm/member/home/display.php:537
+#: content_crm/member/home/display.php:564 content_crm/member/home/display.php:590
+#: content_crm/member/home/display.php:616 content_crm/member/home/display.php:644
+msgid "Non"
+msgstr "هیچ"
+
+#: content_a/category/remove/display.php:53
+msgid "Save change and remove category"
+msgstr "ذخیره تغییرات و حذف دسته‌بندی"
+
+#: content_a/category/remove/model.php:22
+msgid ""
+"This category used in some product. Please specify what you want to do with these "
+"products. Do you want to delete this category from them or select a new category for "
+"them?"
+msgstr ""
+"این دسته‌بندی در تعدادی از محصولات استفاده شده است. لطفا مشخص کنید که می‌خواهید چه کاری "
+"انجام دهید؟ آیا می‌خواهید این دسته‌بندی را از محصولات حذف کنید و یا اینکه آن را با دسته "
+"بندی جدید جایگزین کنید؟"
+
+#: content_a/category/remove/model.php:34
+msgid "Please choose new category"
+msgstr "لطفا دسته‌بندی جدید را انتخاب کنید"
 
 #: content_a/category/sort/display.php:8
 msgid "Select any of the categories you want and move them to sort"
@@ -8706,22 +8773,6 @@ msgstr "جستجو در محصولات"
 #: content_a/products/home/filter.php:56
 msgid "Show all products where"
 msgstr "نمایش محصولات با شرط"
-
-#: content_a/products/home/filter.php:72
-msgid "Select one category"
-msgstr "لطفا یک دسته را انتخاب کنید"
-
-#: content_a/products/home/filter.php:74 content_a/products/home/filter.php:92
-#: content_a/products/home/filter.php:109 content_a/products/home/filter.php:126
-#: content_a/products/home/filter.php:141 content_cms/posts/edit/display.php:176
-#: content_crm/member/home/display.php:385 content_crm/member/home/display.php:411
-#: content_crm/member/home/display.php:431 content_crm/member/home/display.php:457
-#: content_crm/member/home/display.php:483 content_crm/member/home/display.php:510
-#: content_crm/member/home/display.php:537 content_crm/member/home/display.php:564
-#: content_crm/member/home/display.php:590 content_crm/member/home/display.php:616
-#: content_crm/member/home/display.php:644
-msgid "Non"
-msgstr "هیچ"
 
 #: content_a/products/home/filter.php:90
 msgid "Select one tag"
@@ -12857,12 +12908,12 @@ msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: content_account/security/view.php:74 content_v2/account/session/view.php:42
-#: dash/login.php:661 includes/languages/trans_static_public.php:342
+#: dash/login.php:668 includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
 #: content_account/security/view.php:78 content_v2/account/session/view.php:46
-#: dash/login.php:666 includes/languages/trans_static_public.php:343
+#: dash/login.php:673 includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
 
@@ -20502,7 +20553,7 @@ msgstr "کد اعتبارسنجی یافت نشد"
 msgid "Code is ok"
 msgstr "کد صحیح است"
 
-#: content_v2/account/session/model.php:13 dash/login.php:573
+#: content_v2/account/session/model.php:13 dash/login.php:580
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
@@ -22075,7 +22126,7 @@ msgstr "محصولات"
 msgid "Oops! We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/login.php:604
+#: dash/login.php:611
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -30385,14 +30436,13 @@ msgstr "شناسایی نشده است"
 msgid "Request sended"
 msgstr "درخواست‌ ارسال شده"
 
-#: lib/app/cart/add.php:48 lib/app/cart/checkout.php:20 lib/app/category/remove.php:28
-#: lib/app/irvat/gallery.php:90 lib/app/product/company.php:21
-#: lib/app/product/gallery.php:122 lib/app/product/gallery.php:197
-#: lib/app/product/remove.php:10 lib/app/product/unit.php:21
-#: lib/app/product/updateprice.php:154 lib/app/product/variants.php:84
-#: lib/app/product/variants.php:258 lib/app/product/variants.php:275
-#: lib/app/setting/setup.php:92 lib/app/setting/setup.php:228 lib/app/store/edit.php:47
-#: lib/app/tax/doc/gallery.php:102
+#: lib/app/cart/add.php:48 lib/app/cart/checkout.php:20 lib/app/irvat/gallery.php:90
+#: lib/app/product/company.php:21 lib/app/product/gallery.php:122
+#: lib/app/product/gallery.php:197 lib/app/product/remove.php:10
+#: lib/app/product/unit.php:21 lib/app/product/updateprice.php:154
+#: lib/app/product/variants.php:84 lib/app/product/variants.php:258
+#: lib/app/product/variants.php:275 lib/app/setting/setup.php:92
+#: lib/app/setting/setup.php:228 lib/app/store/edit.php:47 lib/app/tax/doc/gallery.php:102
 msgid "Your are not in this store!"
 msgstr "شما در این فروشگاه نیستید!"
 
@@ -30535,12 +30585,16 @@ msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌
 msgid "Category saved without chnage"
 msgstr "دسته‌بندی بدون تغییر ذخیره شد"
 
-#: lib/app/category/remove.php:42
+#: lib/app/category/remove.php:54
+msgid "Please select one category"
+msgstr "لطفا یک دسته را انتخاب کنید"
+
+#: lib/app/category/remove.php:87
 msgid "Some product save by this category and you can not remove it"
 msgstr ""
 "تعدادی از محصولات با این دسته‌بندی ذخیره شده‌اند و شما نمی‌توانید این دسته بندی را حذف کنید"
 
-#: lib/app/category/remove.php:49
+#: lib/app/category/remove.php:94
 msgid "Category successfully removed"
 msgstr "دسته‌بندی با موفقیت حذف شد"
 
@@ -35299,9 +35353,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Category properties inherited from the parent category"
 #~ msgstr "خصوصیات به ارث رسیده از دسته بندی والد"
-
-#~ msgid "Can not choose this category as parent of another category"
-#~ msgstr "شما نمی‌توانید از این دسته‌بندی به عنوان والد دسته‌بندی دیگر استفاده کنید"
 
 #~ msgid "Customer address"
 #~ msgstr "آدرس مشتری"
