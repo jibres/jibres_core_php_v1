@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-08 18:50+0330\n"
-"PO-Revision-Date: 2020-10-08 18:54+0330\n"
+"POT-Creation-Date: 2020-10-09 14:33+0330\n"
+"PO-Revision-Date: 2020-10-09 14:34+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1753,9 +1753,9 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_love/gift/usage/display.php:60 content_love/transactions/add/display.php:67
 #: content_love/transactions/minus/display.php:67
 #: content_my/domain/payments/display.php:11
-#: content_my/domain/setting/action/display.php:44 lib/app/product/filter.php:183
-#: lib/app/product/filter.php:193 lib/app/product/property.php:176
-#: lib/app/product/search.php:97 lib/app/product/site_list.php:266
+#: content_my/domain/setting/action/display.php:44 lib/app/product/filter.php:169
+#: lib/app/product/filter.php:178 lib/app/product/property.php:176
+#: lib/app/product/search.php:98 lib/app/product/site_list.php:266
 #: lib/app/product/updateprice.php:125
 msgid "Price"
 msgstr "قیمت"
@@ -4138,13 +4138,14 @@ msgstr "غیرفعال"
 #: content_a/order/detail/display.php:21 content_a/products/comment/display.php:85
 #: content_a/products/comment/edit/display.php:28
 #: content_a/products/edit/block/sidebar-menu.php:59
-#: content_a/products/export/display.php:57 content_a/products/status/view.php:18
-#: content_a/setting/domain/manage/display.php:113 content_business/orders/display.php:21
-#: content_cms/comments/edit/display.php:41 content_cms/comments/home/display.php:84
-#: content_cms/posts/edit/display.php:604 content_cms/posts/home/display.php:101
-#: content_cms/terms/display.php:107 content_cms/terms/display.php:222
-#: content_cms/terms/display.php:239 content_crm/member/home/display.php:129
-#: content_crm/member/security/display.php:76 content_developers/docs/004-responses.php:58
+#: content_a/products/export/display.php:57 content_a/products/home/filter.php:138
+#: content_a/products/status/view.php:18 content_a/setting/domain/manage/display.php:113
+#: content_business/orders/display.php:21 content_cms/comments/edit/display.php:41
+#: content_cms/comments/home/display.php:84 content_cms/posts/edit/display.php:604
+#: content_cms/posts/home/display.php:101 content_cms/terms/display.php:107
+#: content_cms/terms/display.php:222 content_cms/terms/display.php:239
+#: content_crm/member/home/display.php:129 content_crm/member/security/display.php:76
+#: content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
 #: content_love/business/domain/alllist/display.php:23
 #: content_love/business/domain/detail/display.php:17
@@ -4373,7 +4374,7 @@ msgstr "تفصیل‌پذیر"
 #: content_a/notiflog/display.php:155 content_a/notiflog/display.php:163
 #: content_a/order/home/display.php:269 content_a/order/home/display.php:277
 #: content_a/products/comment/display.php:161 content_a/products/comment/display.php:169
-#: content_a/products/filter.php:80 content_a/products/home/display.php:232
+#: content_a/products/home/display.php:232 content_a/products/home/filter.php:162
 #: content_a/products/tag/display.php:153 content_a/products/tag/display.php:161
 #: content_business/search/display.php:46 content_cms/attachment/home/display.php:130
 #: content_cms/attachment/home/display.php:138 content_cms/comments/home/display.php:170
@@ -4658,7 +4659,7 @@ msgstr "در حال ویرایش"
 #: content_a/order/add/display.php:20 content_a/order/detail/display.php:43
 #: content_a/order/home/display.php:138 content_a/sale/display.php:20
 #: content_business/cart/cartSummary.php:26 content_business/orders/display.php:19
-#: dash/utility/pagination.php:405
+#: dash/utility/pagination.php:424
 msgid "Total"
 msgstr "مجموع"
 
@@ -4847,7 +4848,7 @@ msgstr "پاک‌سازی فیلترها"
 
 #: content_a/accounting/filter.php:92 content_a/accounting/turnover/display.php:115
 #: content_a/factor/home/display.php:387 content_a/order/home/display.php:397
-#: content_a/products/filter.php:83 content_cms/posts/home/display.php:77
+#: content_a/products/home/filter.php:164 content_cms/posts/home/display.php:77
 #: content_crm/member/home/display.php:336
 msgid "Apply"
 msgstr "اعمال‌کردن"
@@ -5256,7 +5257,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 
 #: content_a/accounting/irvat/all/view.php:51 content_a/category/home/view.php:45
 #: content_a/factor/home/view.php:63 content_a/order/home/view.php:63
-#: content_a/products/comment/view.php:58 content_a/products/home/view.php:95
+#: content_a/products/comment/view.php:58 content_a/products/home/view.php:96
 #: content_a/setting/domain/view.php:51 content_business/search/view.php:39
 #: content_cms/terms/display.php:229 content_love/application/home/view.php:48
 #: content_love/business/domain/action/view.php:39
@@ -6308,7 +6309,7 @@ msgstr "از"
 msgid "variants"
 msgstr "تنوع محصول"
 
-#: content_a/category/home/display.php:115 content_a/products/filter.php:122
+#: content_a/category/home/display.php:115 content_a/products/home/filter.php:31
 #: content_business/search/display.php:19 content_my/domain/search/display.php:98
 msgid "Sort"
 msgstr "ترتیب"
@@ -6487,12 +6488,12 @@ msgstr "شماره سریال"
 msgid "Qty"
 msgstr "تعداد"
 
-#: content_a/chap/size-a4/a4-1.php:50 content_a/products/filter.php:51
+#: content_a/chap/size-a4/a4-1.php:50 content_a/products/home/filter.php:104
 #: content_a/products/organization/display.php:45 content_a/units/display.php:109
 #: content_crm/transactions/add/display.php:51
 #: content_crm/transactions/minus/display.php:51
 #: content_love/transactions/add/display.php:51
-#: content_love/transactions/minus/display.php:51 lib/app/product/search.php:136
+#: content_love/transactions/minus/display.php:51 lib/app/product/search.php:137
 msgid "Unit"
 msgstr "واحد"
 
@@ -6659,7 +6660,7 @@ msgstr "انصراف"
 
 #: content_a/company/display.php:98 content_account/my/profile/display.php:39
 #: content_business/profile/detail/display.php:38 includes/languages/trans_static.php:517
-#: lib/app/product/search.php:143
+#: lib/app/product/search.php:144
 msgid "Company"
 msgstr "شرکت"
 
@@ -6829,9 +6830,9 @@ msgstr "آیتم‌ها"
 #: content_love/domain/billing/display.php:93
 #: content_love/domain/setting/action/display.php:48
 #: content_love/gift/usage/display.php:61 content_my/domain/payments/display.php:12
-#: content_my/domain/setting/action/display.php:48 lib/app/product/filter.php:204
-#: lib/app/product/filter.php:214 lib/app/product/property.php:170
-#: lib/app/product/search.php:111 lib/app/product/updateprice.php:129
+#: content_my/domain/setting/action/display.php:48 lib/app/product/filter.php:188
+#: lib/app/product/filter.php:197 lib/app/product/property.php:170
+#: lib/app/product/search.php:112 lib/app/product/updateprice.php:129
 msgid "Discount"
 msgstr "تخفیف"
 
@@ -7095,11 +7096,11 @@ msgstr "فقط دارای کد"
 msgid "No barcode & code"
 msgstr "بدون بارکد و کد"
 
-#: content_a/filter.php:104 lib/app/product/search.php:197
+#: content_a/filter.php:104 lib/app/product/search.php:188
 msgid "Without buyprice"
 msgstr "بدون قیمت خرید"
 
-#: content_a/filter.php:109 lib/app/product/search.php:211
+#: content_a/filter.php:109 lib/app/product/search.php:202
 msgid "Without price"
 msgstr "بدون قیمت"
 
@@ -7111,7 +7112,7 @@ msgstr "بدون حداقل موجودی"
 msgid "Without max stock"
 msgstr "بدون حداکثر موجودی"
 
-#: content_a/filter.php:124 lib/app/product/search.php:227
+#: content_a/filter.php:124 lib/app/product/search.php:218
 msgid "Without discount"
 msgstr "بدون تخفیف"
 
@@ -7281,7 +7282,7 @@ msgstr "کپی"
 msgid "Duplicate filter"
 msgstr "کپی از فیلتر"
 
-#: content_a/form/analytics/filter/display.php:15 content_a/products/filter.php:109
+#: content_a/form/analytics/filter/display.php:15 content_a/products/home/filter.php:18
 #: content_crm/member/home/display.php:711 content_crm/member/security/display.php:83
 #: content_my/domain/search/display.php:85 includes/languages/trans_static.php:523
 msgid "Filter"
@@ -8184,7 +8185,7 @@ msgstr "نمایش تغییر قیمت در تاریخ خاص"
 
 #: content_a/pricehistory/display.php:56 content_a/products/child/display.php:87
 #: content_a/products/child/display.php:157 content_a/products/home/display.php:171
-#: lib/app/product/search.php:103
+#: lib/app/product/search.php:104
 msgid "Buy price"
 msgstr "قیمت خرید"
 
@@ -8271,8 +8272,8 @@ msgstr "ویرایش گزینه‌ها"
 #: content_a/products/child/display.php:108 content_a/products/child/display.php:178
 #: content_a/products/home/display.php:176
 #: content_a/products/variants/display-add-product.php:29
-#: content_a/products/variants/display-add-product.php:62 lib/app/product/filter.php:225
-#: lib/app/product/filter.php:235 lib/app/product/filter.php:245
+#: content_a/products/variants/display-add-product.php:62 lib/app/product/filter.php:207
+#: lib/app/product/filter.php:216 lib/app/product/filter.php:225
 msgid "Stock"
 msgstr "موجودی انبار"
 
@@ -8293,12 +8294,12 @@ msgid "Manage product variants"
 msgstr "مدیریت تنوع محصول"
 
 #: content_a/products/child/view.php:30 content_a/products/comment/display.php:225
-#: content_a/products/edit/view.php:113 content_a/products/organization/view.php:35
+#: content_a/products/inventory/display.php:94 content_a/products/organization/view.php:35
 #: content_a/products/shipping/view.php:35 content_a/products/status/view.php:28
 #: content_cms/comments/home/display.php:234 content_cms/posts/edit/display.php:620
 #: content_cms/posts/home/display.php:198 content_love/domain/setting/display.php:127
 #: includes/languages/trans_static.php:535 includes/languages/trans_static_public.php:1109
-#: lib/app/factor/action.php:69 lib/app/factor/ready.php:80
+#: lib/app/factor/action.php:69 lib/app/factor/ready.php:80 lib/app/product/load.php:132
 msgid "Deleted"
 msgstr "حذف شده"
 
@@ -8476,8 +8477,8 @@ msgstr "یک نسخه کپی از این محصول ایجاد کنید"
 msgid "Make copy from :val"
 msgstr "یک نسخه کپی از :val تهیه کنید"
 
-#: content_a/products/edit/block/barcode.php:10 lib/app/product/filter.php:141
-#: lib/app/product/filter.php:151 lib/app/product/search.php:90
+#: content_a/products/edit/block/barcode.php:10 lib/app/product/filter.php:131
+#: lib/app/product/filter.php:140 lib/app/product/search.php:91
 #: lib/app/product/site_list.php:143
 msgid "Barcode"
 msgstr "بارکد"
@@ -8594,30 +8595,30 @@ msgstr "عنوان فنی"
 msgid "Description about product"
 msgstr "توضیحاتی در مورد این محصول"
 
-#: content_a/products/edit/display-master.php:50 content_a/products/filter.php:22
+#: content_a/products/edit/display-master.php:50 content_a/products/home/filter.php:67
 #: content_business/collection/view.php:9 content_cms/home/display.php:26
 #: content_cms/posts/edit/display.php:246 content_cms/posts/home/view.php:111
 #: content_support/faq/display.php:12 content_support/tag/display.php:12
 #: content_support/tag/view.php:10 dash/layout/pwa/pwa_menu.php:247
-#: lib/app/product/property.php:247 lib/app/product/search.php:121
+#: lib/app/product/property.php:247 lib/app/product/search.php:122
 msgid "Category"
 msgstr "دسته بندی"
 
 #: content_a/products/edit/display-master.php:51
-#: content_a/products/edit/display-master.php:62 content_a/products/filter.php:23
-#: content_a/products/filter.php:38 content_a/products/filter.php:52
-#: content_a/products/filter.php:65 content_a/products/organization/display.php:46
+#: content_a/products/edit/display-master.php:62 content_a/products/home/filter.php:68
+#: content_a/products/home/filter.php:87 content_a/products/home/filter.php:105
+#: content_a/products/home/filter.php:122 content_a/products/organization/display.php:46
 #: content_a/products/organization/display.php:62
 #: content_a/setting/product/tag/display.php:12 content_love/domain/detail/display.php:72
 #: content_love/domain/setting/display.php:47 content_my/domain/setting/display.php:45
 msgid "Manage"
 msgstr "مدیریت"
 
-#: content_a/products/edit/display-master.php:61 content_a/products/filter.php:37
+#: content_a/products/edit/display-master.php:61 content_a/products/home/filter.php:86
 #: content_a/setting/product/tag/display.php:11 content_cms/posts/edit/display.php:319
 #: content_support/ticket/show/display.php:231 includes/languages/trans_static.php:585
-#: lib/app/product/filter.php:344 lib/app/product/filter.php:355
-#: lib/app/product/property.php:334 lib/app/product/search.php:129
+#: lib/app/product/filter.php:315 lib/app/product/filter.php:325
+#: lib/app/product/property.php:334 lib/app/product/search.php:130
 msgid "Tag"
 msgstr "تگ"
 
@@ -8694,41 +8695,59 @@ msgstr "واردکردن دسته‌ای محصولات"
 msgid "Export products"
 msgstr "خروجی از محصولات"
 
-#: content_a/products/filter.php:8
+#: content_a/products/home/display.php:121 content_a/products/variants/view.php:18
+msgid "Variants"
+msgstr "تنوع محصول"
+
+#: content_a/products/home/filter.php:23 content_business/search/display.php:11
+msgid "Search products"
+msgstr "جستجو در محصولات"
+
+#: content_a/products/home/filter.php:56
 msgid "Show all products where"
 msgstr "نمایش محصولات با شرط"
 
-#: content_a/products/filter.php:27
+#: content_a/products/home/filter.php:72
 msgid "Select one category"
 msgstr "لطفا یک دسته را انتخاب کنید"
 
-#: content_a/products/filter.php:41
+#: content_a/products/home/filter.php:74 content_a/products/home/filter.php:92
+#: content_a/products/home/filter.php:109 content_a/products/home/filter.php:126
+#: content_a/products/home/filter.php:141 content_cms/posts/edit/display.php:176
+#: content_crm/member/home/display.php:385 content_crm/member/home/display.php:411
+#: content_crm/member/home/display.php:431 content_crm/member/home/display.php:457
+#: content_crm/member/home/display.php:483 content_crm/member/home/display.php:510
+#: content_crm/member/home/display.php:537 content_crm/member/home/display.php:564
+#: content_crm/member/home/display.php:590 content_crm/member/home/display.php:616
+#: content_crm/member/home/display.php:644
+msgid "Non"
+msgstr "هیچ"
+
+#: content_a/products/home/filter.php:90
 msgid "Select one tag"
 msgstr "یکی از تگ‌ها را انتخاب کنید"
 
-#: content_a/products/filter.php:54 content_a/products/filter.php:55
-#: content_a/products/organization/display.php:48
+#: content_a/products/home/filter.php:107 content_a/products/organization/display.php:48
 #: content_a/products/organization/display.php:49
 msgid "like Qty, kg, etc"
 msgstr "مثل عدد، کیلوگرم، تعداد"
 
-#: content_a/products/filter.php:64 content_a/products/organization/display.php:61
+#: content_a/products/home/filter.php:121 content_a/products/organization/display.php:61
 msgid "Brand"
 msgstr "برند"
 
-#: content_a/products/filter.php:67 content_a/products/filter.php:68
-#: content_a/products/organization/display.php:64
+#: content_a/products/home/filter.php:124 content_a/products/organization/display.php:64
 #: content_a/products/organization/display.php:65
 msgid "Product Brand"
 msgstr "برند محصول"
 
-#: content_a/products/filter.php:114 content_business/search/display.php:11
-msgid "Search products"
-msgstr "جستجو در محصولات"
+#: content_a/products/home/filter.php:139
+msgid "Product Status"
+msgstr "وضعیت محصول"
 
-#: content_a/products/home/display.php:121 content_a/products/variants/view.php:18
-msgid "Variants"
-msgstr "تنوع محصول"
+#: content_a/products/home/filter.php:157
+msgid "Product founded"
+msgstr "محصول یافت شد"
 
 #: content_a/products/home/view.php:18
 msgid "Add product"
@@ -8939,9 +8958,8 @@ msgstr "محصول به‌زودی موجود خواهد شد"
 msgid "The product is unavailable"
 msgstr "محصول موجود نیست"
 
-#: content_a/products/inventory/display.php:68 content_a/products/inventory/display.php:81
-#: content_a/products/status/display.php:62 content_a/products/status/display.php:75
-#: includes/languages/trans_static.php:534
+#: content_a/products/inventory/display.php:68 content_a/products/status/display.php:62
+#: content_a/products/status/display.php:75 includes/languages/trans_static.php:534
 msgid "Discountinued"
 msgstr "توقف تولید"
 
@@ -8949,11 +8967,23 @@ msgstr "توقف تولید"
 msgid "The product is discountinued"
 msgstr "تولید این محصول متوقف شده است"
 
-#: content_a/products/inventory/display.php:82 content_a/products/status/display.php:76
+#: content_a/products/inventory/display.php:81
+msgid "Archive"
+msgstr "بایگانی"
+
+#: content_a/products/inventory/display.php:82
+msgid "The product is archived"
+msgstr "محصول بایگانی شده است"
+
+#: content_a/products/inventory/display.php:82
+msgid "The archived product not show in website and admin product list"
+msgstr "محصولاتی که بایگانی شده باشند در لیست محصولات نمایش داده نخواهند شد"
+
+#: content_a/products/inventory/display.php:95 content_a/products/status/display.php:76
 msgid "The product is deleted"
 msgstr "محصول حذف شده است"
 
-#: content_a/products/inventory/display.php:93 content_a/products/status/display.php:87
+#: content_a/products/inventory/display.php:106 content_a/products/status/display.php:87
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:87
 msgid "Remove product"
 msgstr "حذف محصول"
@@ -9057,8 +9087,8 @@ msgstr "پست با موفقیت به تلگرام ارسال شد"
 msgid "Product Share text"
 msgstr "متن اشتراک گذاری محصول در شبکه‌های اجتماعی"
 
-#: content_a/products/shipping/display.php:18 lib/app/product/filter.php:322
-#: lib/app/product/filter.php:333 lib/app/product/property.php:254
+#: content_a/products/shipping/display.php:18 lib/app/product/filter.php:295
+#: lib/app/product/filter.php:305 lib/app/product/property.php:254
 #: lib/app/product/property.php:258
 msgid "Weight"
 msgstr "وزن"
@@ -12827,12 +12857,12 @@ msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: content_account/security/view.php:74 content_v2/account/session/view.php:42
-#: dash/login.php:626 includes/languages/trans_static_public.php:342
+#: dash/login.php:661 includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
 #: content_account/security/view.php:78 content_v2/account/session/view.php:46
-#: dash/login.php:631 includes/languages/trans_static_public.php:343
+#: dash/login.php:666 includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
 
@@ -13369,15 +13399,6 @@ msgstr "حالت ویژه"
 msgid "Use Special mode"
 msgstr "استفاده از حالت ویژه نمایشی"
 
-#: content_cms/posts/edit/display.php:176 content_crm/member/home/display.php:385
-#: content_crm/member/home/display.php:411 content_crm/member/home/display.php:431
-#: content_crm/member/home/display.php:457 content_crm/member/home/display.php:483
-#: content_crm/member/home/display.php:510 content_crm/member/home/display.php:537
-#: content_crm/member/home/display.php:564 content_crm/member/home/display.php:590
-#: content_crm/member/home/display.php:616 content_crm/member/home/display.php:644
-msgid "Non"
-msgstr "هیچ"
-
 #: content_cms/posts/edit/display.php:198 content_cms/posts/edit/display.php:224
 #: includes/languages/trans_static_public.php:153
 #: includes/languages/trans_static_public.php:466
@@ -13413,7 +13434,7 @@ msgid "Standard"
 msgstr "استاندارد"
 
 #: content_cms/posts/edit/display.php:401 content_cms/posts/edit/display.php:773
-#: lib/app/product/filter.php:256 lib/app/product/filter.php:267
+#: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
 
@@ -20481,7 +20502,7 @@ msgstr "کد اعتبارسنجی یافت نشد"
 msgid "Code is ok"
 msgstr "کد صحیح است"
 
-#: content_v2/account/session/model.php:13 dash/login.php:538
+#: content_v2/account/session/model.php:13 dash/login.php:573
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
@@ -22054,7 +22075,7 @@ msgstr "محصولات"
 msgid "Oops! We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/login.php:569
+#: dash/login.php:604
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -32252,106 +32273,106 @@ msgstr "قیمت خرید، صعودی"
 msgid "Buy price DESC"
 msgstr "قیمت خرید نزولی"
 
-#: lib/app/product/filter.php:131 lib/app/product/filter.php:132
-msgid "Duplicate Title"
-msgstr "عنوان تکراری"
-
-#: lib/app/product/filter.php:142
+#: lib/app/product/filter.php:132
 msgid "With Barcode"
 msgstr "دارای بارکد"
 
-#: lib/app/product/filter.php:152
+#: lib/app/product/filter.php:141
 msgid "Without Barcode"
 msgstr "بدون بارکد"
 
-#: lib/app/product/filter.php:162 lib/app/product/filter.php:172
+#: lib/app/product/filter.php:150 lib/app/product/filter.php:159
 #: lib/app/product/updateprice.php:121
 msgid "Buyprice"
 msgstr "قیمت خرید"
 
-#: lib/app/product/filter.php:163
+#: lib/app/product/filter.php:151
 msgid "With Buyprice"
 msgstr "دارای قیمت خرید"
 
-#: lib/app/product/filter.php:173
+#: lib/app/product/filter.php:160
 msgid "Without Buyprice"
 msgstr "بدون قیمت خرید"
 
-#: lib/app/product/filter.php:184
+#: lib/app/product/filter.php:170
 msgid "With Price"
 msgstr "دارای قیمت"
 
-#: lib/app/product/filter.php:194
+#: lib/app/product/filter.php:179
 msgid "Without Price"
 msgstr "بدون قیمت"
 
-#: lib/app/product/filter.php:205
+#: lib/app/product/filter.php:189
 msgid "With Discount"
 msgstr "با تخفیف"
 
-#: lib/app/product/filter.php:215
+#: lib/app/product/filter.php:198
 msgid "Without Discount"
 msgstr "بدون تخفیف"
 
-#: lib/app/product/filter.php:226 lib/app/product/search.php:236
+#: lib/app/product/filter.php:208 lib/app/product/search.php:227
 msgid "Instock"
 msgstr "در انبار موجود است"
 
-#: lib/app/product/filter.php:236 lib/app/product/search.php:242
+#: lib/app/product/filter.php:217 lib/app/product/search.php:233
 msgid "Out of stock"
 msgstr "بدون موجودی"
 
-#: lib/app/product/filter.php:246
+#: lib/app/product/filter.php:226
 msgid "Negative Inventory"
 msgstr "موجودی منفی"
 
-#: lib/app/product/filter.php:257
+#: lib/app/product/filter.php:236
 msgid "Have gallery"
 msgstr "دارای گالری تصاویر"
 
-#: lib/app/product/filter.php:268
+#: lib/app/product/filter.php:246
 msgid "Have not gallery"
 msgstr "بدون گالری تصاویر"
 
-#: lib/app/product/filter.php:278 lib/app/product/filter.php:289
+#: lib/app/product/filter.php:255 lib/app/product/filter.php:265
 msgid "Variant"
 msgstr "تنوع محصول"
 
-#: lib/app/product/filter.php:279 lib/app/product/search.php:272
+#: lib/app/product/filter.php:256 lib/app/product/search.php:263
 msgid "Have variants"
 msgstr "دارای تنوع"
 
-#: lib/app/product/filter.php:290 lib/app/product/search.php:278
+#: lib/app/product/filter.php:266 lib/app/product/search.php:269
 msgid "Have not variants"
 msgstr "بدون تنوع محصول"
 
-#: lib/app/product/filter.php:300 lib/app/product/filter.php:311
+#: lib/app/product/filter.php:275 lib/app/product/filter.php:285
 msgid "Sold"
 msgstr "فروخته‌شده"
 
-#: lib/app/product/filter.php:301
+#: lib/app/product/filter.php:276
 msgid "Have sold"
 msgstr "فروخته شده"
 
-#: lib/app/product/filter.php:312
+#: lib/app/product/filter.php:286
 msgid "Have not sold"
 msgstr "فروخته نشده"
 
-#: lib/app/product/filter.php:323
+#: lib/app/product/filter.php:296
 msgid "Have weight"
 msgstr "دارای وزن"
 
-#: lib/app/product/filter.php:334
+#: lib/app/product/filter.php:306
 msgid "Have not weight"
 msgstr "بدون وزن"
 
-#: lib/app/product/filter.php:345
+#: lib/app/product/filter.php:316
 msgid "Have tag"
 msgstr "دارای تگ"
 
-#: lib/app/product/filter.php:356
+#: lib/app/product/filter.php:326
 msgid "Have not tag"
 msgstr "بدون تگ"
+
+#: lib/app/product/filter.php:335 lib/app/product/filter.php:336
+msgid "Duplicate Title"
+msgstr "عنوان تکراری"
 
 #: lib/app/product/find.php:38
 msgid "This barcode is scanned before"
@@ -32489,59 +32510,59 @@ msgstr "همه محصولات با تنوع :val :col حذف شد"
 msgid "No data to remove!"
 msgstr "داده‌ای برای حذف وجود ندارد!"
 
-#: lib/app/product/search.php:177
+#: lib/app/product/search.php:168
 msgid "With barcode"
 msgstr "دارای بارکد"
 
-#: lib/app/product/search.php:183
+#: lib/app/product/search.php:174
 msgid "Without barcode"
 msgstr "بدون بارکد"
 
-#: lib/app/product/search.php:191
+#: lib/app/product/search.php:182
 msgid "With buyprice"
 msgstr "دارای قیمت خرید"
 
-#: lib/app/product/search.php:205
+#: lib/app/product/search.php:196
 msgid "With price"
 msgstr "دارای قیمت"
 
-#: lib/app/product/search.php:220
+#: lib/app/product/search.php:211
 msgid "With discount"
 msgstr "دارای تخفیف"
 
-#: lib/app/product/search.php:250
+#: lib/app/product/search.php:241
 msgid "Negative"
 msgstr "منفی"
 
-#: lib/app/product/search.php:258
+#: lib/app/product/search.php:249
 msgid "With image"
 msgstr "دارای تصویر"
 
-#: lib/app/product/search.php:264
+#: lib/app/product/search.php:255
 msgid "Without image"
 msgstr "بدون تصویر"
 
-#: lib/app/product/search.php:286
+#: lib/app/product/search.php:277
 msgid "Solded"
 msgstr "فروخته شده"
 
-#: lib/app/product/search.php:292
+#: lib/app/product/search.php:283
 msgid "Not sold"
 msgstr "به فروش نرسیده"
 
-#: lib/app/product/search.php:300
+#: lib/app/product/search.php:291
 msgid "With weight"
 msgstr "دارای وزن"
 
-#: lib/app/product/search.php:306
+#: lib/app/product/search.php:297
 msgid "Without weight"
 msgstr "بدون وزن"
 
-#: lib/app/product/search.php:315
+#: lib/app/product/search.php:306
 msgid "With tag"
 msgstr "دارای"
 
-#: lib/app/product/search.php:322
+#: lib/app/product/search.php:313
 msgid "Without tag"
 msgstr "بدون تگ"
 
