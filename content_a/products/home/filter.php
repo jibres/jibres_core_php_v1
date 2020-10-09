@@ -142,7 +142,7 @@ function BoxProductFilter()
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
-            <?php foreach (['unset','available','unavailable','soon','discountinued', 'deleted', 'archive'] as $value) {?>
+            <?php foreach (['available','unavailable','soon','discountinued', 'archive', 'deleted'] as $value) {?>
             <option value="<?php echo $value; ?>" <?php if(\dash\request::get('status') === $value){echo 'selected';} ?> ><?php echo T_(ucfirst($value)); ?></option>
           <?php } //endfor ?>
 
