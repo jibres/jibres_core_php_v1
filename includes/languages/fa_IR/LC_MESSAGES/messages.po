@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-09 16:13+0330\n"
-"PO-Revision-Date: 2020-10-09 16:18+0330\n"
+"POT-Creation-Date: 2020-10-09 17:54+0330\n"
+"PO-Revision-Date: 2020-10-09 17:54+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6456,7 +6456,7 @@ msgstr "لطفا یک دسته را انتخاب کنید"
 msgid "Non"
 msgstr "هیچ"
 
-#: content_a/category/remove/display.php:53
+#: content_a/category/remove/display.php:54
 msgid "Save change and remove category"
 msgstr "ذخیره تغییرات و حذف دسته‌بندی"
 
@@ -9018,7 +9018,7 @@ msgstr "توقف تولید"
 msgid "The product is discountinued"
 msgstr "تولید این محصول متوقف شده است"
 
-#: content_a/products/inventory/display.php:81
+#: content_a/products/inventory/display.php:81 includes/languages/trans_static.php:1027
 msgid "Archive"
 msgstr "بایگانی"
 
@@ -12908,12 +12908,12 @@ msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: content_account/security/view.php:74 content_v2/account/session/view.php:42
-#: dash/login.php:668 includes/languages/trans_static_public.php:342
+#: dash/login.php:704 includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
 #: content_account/security/view.php:78 content_v2/account/session/view.php:46
-#: dash/login.php:673 includes/languages/trans_static_public.php:343
+#: dash/login.php:709 includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
 
@@ -20553,7 +20553,7 @@ msgstr "کد اعتبارسنجی یافت نشد"
 msgid "Code is ok"
 msgstr "کد صحیح است"
 
-#: content_v2/account/session/model.php:13 dash/login.php:580
+#: content_v2/account/session/model.php:13 dash/login.php:616
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
@@ -21230,11 +21230,11 @@ msgstr "این آدرس یک کلمه کلیدی سیستم است و قابل �
 msgid "Mobile is required"
 msgstr "موبایل الزامی است"
 
-#: dash/app/user.php:540
+#: dash/app/user.php:542
 msgid "Can not remove user by permission"
 msgstr "نمی‌توانید کاربری که داری سطح دسترسی هست را حذف کنید"
 
-#: dash/app/user.php:546
+#: dash/app/user.php:548
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
@@ -22126,7 +22126,7 @@ msgstr "محصولات"
 msgid "Oops! We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/login.php:611
+#: dash/login.php:647
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -26799,6 +26799,10 @@ msgstr "زامبیا"
 #: includes/languages/trans_static.php:1024
 msgid "Zimbabwechoe"
 msgstr "زیمبابوه"
+
+#: includes/languages/trans_static.php:1028
+msgid "archive"
+msgstr "بایگانی"
 
 #: includes/languages/trans_static_domain.php:7
 msgid "contact_check"

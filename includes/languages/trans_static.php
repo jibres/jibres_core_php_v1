@@ -1022,6 +1022,10 @@ class TransStatic
 	echo T_("Yemen");
 	echo T_("Zambia");
 	echo T_("Zimbabwechoe");
+
+
+	echo T_("Archive");
+	echo T_("archive");
  }
 }
 ?>
