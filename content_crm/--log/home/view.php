@@ -57,10 +57,6 @@ class view
 			$args['logs.subdomain'] = \dash\request::get('subdomain');
 		}
 
-		if(\dash\request::get('caller'))
-		{
-			$args['logs.caller'] = $_GET['caller'];
-		}
 
 		if(\dash\request::get('from'))
 		{
