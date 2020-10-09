@@ -82,9 +82,13 @@ class session
 			return false;
 		}
 
+		session_start();
+
 		unset($_SESSION[self::$key]);
 		unset($_SESSION[self::$key_time]);
 		unset($_SESSION[self::$key_limit]);
+
+		session_write_close();
 	}
 
 
@@ -96,9 +100,13 @@ class session
 			return false;
 		}
 
+		session_start();
+
 		unset($_SESSION[self::$key][$_cat]);
 		unset($_SESSION[self::$key_time][$_cat]);
 		unset($_SESSION[self::$key_limit][$_cat]);
+
+		session_write_close();
 	}
 
 
@@ -109,6 +117,8 @@ class session
 		{
 			return false;
 		}
+
+		session_start();
 
 		if($_cat)
 		{
@@ -122,6 +132,8 @@ class session
 			unset($_SESSION[self::$key_time][$_key]);
 			unset($_SESSION[self::$key_limit][$_key]);
 		}
+
+		session_write_close();
 	}
 
 
