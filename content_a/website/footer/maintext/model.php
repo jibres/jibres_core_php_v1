@@ -7,7 +7,7 @@ class model
 	{
 		$post =
 		[
-			'text'   => isset($_POST['text']) ? $_POST['text'] : null,
+			'text'   => \dash\request::post_raw('text'),
 
 		];
 

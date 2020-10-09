@@ -127,7 +127,7 @@ class model
 			'title'       => \dash\request::post('title'),
 			'tag'         => \dash\request::post('tag'),
 			'slug'        => \dash\request::post('slug'),
-			'content'     => isset($_POST['content']) ? $_POST['content'] : null,
+			'content'     => \dash\request::post_raw('content'),
 			'publishdate' => \dash\request::post('publishdate'),
 			'publishtime' => \dash\request::post('publishtime'),
 			'status'      => \dash\request::post('status'),
@@ -139,12 +139,12 @@ class model
 			'seotitle'    => \dash\request::post('seotitle'),
 			'subtype'     => \dash\request::post('subtype'),
 			'btntitle'    => \dash\request::post('btntitle'),
-			'btnurl'      => \dash\request::post('btnurl') ? $_POST['btnurl'] : null,
+			'btnurl'      => \dash\request::post_raw('btnurl'),
 			'btntarget'   => \dash\request::post('btntarget'),
 			'btncolor'    => \dash\request::post('btncolor'),
 			'srctitle'    => \dash\request::post('srctitle'),
-			'srcurl'      => \dash\request::post('srcurl') ? $_POST['srcurl'] : null,
-			'redirecturl' => \dash\request::post('redirecturl') ? $_POST['redirecturl'] : null,
+			'srcurl'      => \dash\request::post_raw('srcurl'),
+			'redirecturl' => \dash\request::post_raw('redirecturl'),
 
 		];
 

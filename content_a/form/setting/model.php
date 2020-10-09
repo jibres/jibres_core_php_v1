@@ -12,7 +12,7 @@ class model
 		[
 			'title'      => \dash\request::post('title'),
 			'slug'       => \dash\request::post('slug'),
-			'desc'       => \dash\request::post('desc') ? $_POST['desc'] : null,
+			'desc'       => \dash\request::post_raw('desc'),
 		];
 
 		if(\dash\request::files('file'))

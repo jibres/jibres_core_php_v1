@@ -84,7 +84,7 @@ class model
 			return false;
 		}
 
-		if(strip_tags($_POST['content']) != $_POST['content'])
+		if(strip_tags(\dash\request::post_raw('content')) != \dash\request::post_raw('content'))
 		{
 			\dash\session::set('ticket_load_page_time', time());
 			\dash\header::status(422, T_("You try to add some html code!"));

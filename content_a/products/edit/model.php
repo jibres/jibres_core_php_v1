@@ -36,7 +36,7 @@ class model
 
 		if(array_key_exists('desc', $_POST))
 		{
-			$post['desc']      = isset($_POST['desc']) ? $_POST['desc'] : null;
+			$post['desc']      = \dash\request::post_raw('desc');
 		}
 
 		$post['cat']       = \dash\request::post('cat');

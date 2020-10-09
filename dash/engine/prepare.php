@@ -628,7 +628,7 @@ class prepare
 					return;
 				}
 
-				if(isset($_POST['emergencydomain']) && $_POST['emergencydomain'] === 'emergencydomain')
+				if(\dash\request::post_raw('emergencydomain') === 'emergencydomain')
 				{
 					\dash\utility\cookie::write('emergencydomain', 'ok');
 					\dash\redirect::pwd();

@@ -21,7 +21,7 @@ class model
 		[
 			'parent'  => \dash\request::post('parent'),
 			'id'      => \dash\request::get('id'),
-			'content' => \dash\request::post('content') ? $_POST['content'] : null,
+			'content' => \dash\request::post_raw('content'),
 
 		];
 

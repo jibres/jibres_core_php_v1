@@ -14,9 +14,9 @@ class model
 		else
 		{
 			$samandehi = null;
-			if(isset($_POST['samandehi']) && is_string($_POST['samandehi']))
+			if(\dash\request::post_raw('samandehi'))
 			{
-				$samandehi = $_POST['samandehi'];
+				$samandehi = \dash\request::post_raw('samandehi');
 			}
 
 			if(!$samandehi)

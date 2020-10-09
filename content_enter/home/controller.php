@@ -23,7 +23,7 @@ class controller
 			}
 		}
 
-		// save all param-* | param_* in $_GET | $_POST
+		// save all param-* | param_* in GET | POST
 		self::save_param();
 
 

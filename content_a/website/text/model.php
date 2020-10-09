@@ -11,7 +11,7 @@ class model
 			'title'   => \dash\request::post('title'),
 			// 'sort'    => \dash\request::post('sort'),
 			'publish' => 1,
-			'text'    => \dash\request::post('text') ? $_POST['text'] : null,
+			'text'    => \dash\request::post_raw('text'),
 		];
 
 

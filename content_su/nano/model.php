@@ -6,7 +6,7 @@ class model
 	public static function post()
 	{
 
-		$fileContent = isset($_POST['fileContent']) ? $_POST['fileContent'] : null;
+		$fileContent = \dash\request::post_raw('fileContent');
 		if(!$fileContent)
 		{
 			\dash\notif::error(T_("Please fill the file content"), 'fileContent');

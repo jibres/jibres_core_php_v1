@@ -10,7 +10,7 @@ class model
 		$id = \dash\request::get('id');
 
 		$post         = [];
-		$post['desc'] = isset($_POST['desc']) ? $_POST['desc'] : null;
+		$post['desc'] = \dash\request::post_raw('desc');
 
 		$result = \lib\app\product\edit::edit($post, $id);
 	}

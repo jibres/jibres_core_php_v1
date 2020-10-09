@@ -50,7 +50,7 @@ class model
 			return false;
 		}
 
-		if(self::answer_save($id, \dash\request::post('content') ? $_POST['content'] : null, \dash\request::post('addnote'), \dash\request::post('sendmessage')))
+		if(self::answer_save($id, \dash\request::post_raw('content'), \dash\request::post('addnote'), \dash\request::post('sendmessage')))
 		{
 			\dash\redirect::pwd();
 		}

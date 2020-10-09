@@ -40,6 +40,35 @@ class request
 
 
 	/**
+	 * Return Raw post input
+	 * not safe for html editor
+	 * this record was safe in app level
+	 *
+	 * @param      <type>  $_name  The name
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function post_raw($_name = null)
+	{
+		if(isset($_name))
+		{
+			if(array_key_exists($_name, $_POST))
+			{
+				return $_POST[$_name];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $_POST;
+		}
+	}
+
+
+	/**
 	 * filter get and safe it
 	 * @param  [type] $_name [description]
 	 * @param  [type] $_arg  [description]

@@ -10,7 +10,7 @@ class model
 		$id = \dash\request::get('id');
 
 		$post         = [];
-		$post['sharetext'] = isset($_POST['sharetext']) ? $_POST['sharetext'] : null;
+		$post['sharetext'] = \dash\request::post_raw('sharetext');
 
 		$result = \lib\app\product\edit::edit($post, $id);
 	}
