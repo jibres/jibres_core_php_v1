@@ -30,7 +30,7 @@ class back
         $username = \dash\setting\asanpardakht::get('Username');
         $password = \dash\setting\asanpardakht::get('Password');
 
-        $ReturningParams    = isset($_REQUEST['ReturningParams']) ? (string) $_REQUEST['ReturningParams'] : null;
+        $ReturningParams    = (string) \dash\request::request('ReturningParams');
 
         \dash\utility\pay\api\asanpardakht\bank::set_key_iv();
 
@@ -59,7 +59,7 @@ class back
 
         \dash\utility\pay\setting::set_amount_end($Amount / 10);
         \dash\utility\pay\setting::set_condition('pending');
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
         $Amount_Record  = floatval(\dash\utility\pay\setting::getAmount());

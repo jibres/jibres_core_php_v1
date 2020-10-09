@@ -28,10 +28,10 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $RefId           = isset($_REQUEST['RefId'])              ? (string) $_REQUEST['RefId']               : null;
-        $ResCode         = isset($_REQUEST['ResCode'])            ? (string) $_REQUEST['ResCode']             : null;
-        $SaleOrderId     = isset($_REQUEST['SaleOrderId'])        ? (string) $_REQUEST['SaleOrderId']         : null;
-        $SaleReferenceId = isset($_REQUEST['SaleReferenceId'])    ? (string) $_REQUEST['SaleReferenceId']     : null;
+        $RefId           = (string) \dash\request::request('RefId');
+        $ResCode         = (string) \dash\request::request('ResCode');
+        $SaleOrderId     = (string) \dash\request::request('SaleOrderId');
+        $SaleReferenceId = (string) \dash\request::request('SaleReferenceId');
         // RefId: 123
         // ResCode: 123
         // SaleOrderId: 123
@@ -81,7 +81,7 @@ class back
 
 
         \dash\utility\pay\setting::set_condition('pending');
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
 

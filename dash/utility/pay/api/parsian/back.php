@@ -21,14 +21,14 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $Token          = isset($_REQUEST['Token'])           ? (string) $_REQUEST['Token']          : null;
-        $OrderId        = isset($_REQUEST['OrderId'])         ? (string) $_REQUEST['OrderId']        : null;
-        $status         = isset($_REQUEST['status'])          ? (string) $_REQUEST['status']         : null;
-        $TerminalNo     = isset($_REQUEST['TerminalNo'])      ? (string) $_REQUEST['TerminalNo']     : null;
-        $RRN            = isset($_REQUEST['RRN'])             ? (string) $_REQUEST['RRN']            : null;
-        $TspToken       = isset($_REQUEST['TspToken'])        ? (string) $_REQUEST['TspToken']       : null;
-        $HashCardNumber = isset($_REQUEST['HashCardNumber'])  ? (string) $_REQUEST['HashCardNumber'] : null;
-        $Amount         = isset($_REQUEST['Amount'])          ? (string) $_REQUEST['Amount']         : null;
+        $Token          = (string) \dash\request::request('Token');
+        $OrderId        = (string) \dash\request::request('OrderId');
+        $status         = (string) \dash\request::request('status');
+        $TerminalNo     = (string) \dash\request::request('TerminalNo');
+        $RRN            = (string) \dash\request::request('RRN');
+        $TspToken       = (string) \dash\request::request('TspToken');
+        $HashCardNumber = (string) \dash\request::request('HashCardNumber');
+        $Amount         = (string) \dash\request::request('Amount');
         $Amount         = str_replace(',', '', $Amount);
 
         if(!$Token)
@@ -50,7 +50,7 @@ class back
         }
 
         \dash\utility\pay\setting::set_condition('pending');
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
         $parsian                 = [];

@@ -22,13 +22,13 @@ class back
         }
 
 
-        $token         = isset($_REQUEST['token'])          ? (string) $_REQUEST['token']           : null;
-        $merchantId    = isset($_REQUEST['merchantId'])     ? (string) $_REQUEST['merchantId']      : null;
-        $resultCode    = isset($_REQUEST['resultCode'])     ? (string) $_REQUEST['resultCode']      : null;
-        $paymentId     = isset($_REQUEST['paymentId'])      ? (string) $_REQUEST['paymentId']       : null;
-        $InvoiceNumber = isset($_REQUEST['InvoiceNumber'])  ? (string) $_REQUEST['InvoiceNumber']   : null;
-        $referenceId   = isset($_REQUEST['referenceId'])    ? (string) $_REQUEST['referenceId']     : null;
-        $amount        = isset($_REQUEST['amount'])         ? (string) $_REQUEST['amount']          : null;
+        $token         = (string) \dash\request::request('token');
+        $merchantId    = (string) \dash\request::request('merchantId');
+        $resultCode    = (string) \dash\request::request('resultCode');
+        $paymentId     = (string) \dash\request::request('paymentId');
+        $InvoiceNumber = (string) \dash\request::request('InvoiceNumber');
+        $referenceId   = (string) \dash\request::request('referenceId');
+        $amount        = (string) \dash\request::request('amount');
         $amount        = str_replace(',', '', $amount);
 
         if(!$token)
@@ -74,7 +74,7 @@ class back
 
         \dash\utility\pay\setting::set_condition('pending');
         \dash\utility\pay\setting::set_amount_end($amount / 10);
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
         if(intval($resultCode) === 100)

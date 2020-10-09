@@ -69,6 +69,33 @@ class request
 
 
 	/**
+	 * Get request raw
+	 * Use in bank api gateway
+	 *
+	 * @param      <type>  $_name  The name
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function request($_name = null)
+	{
+		if(isset($_name))
+		{
+			if(array_key_exists($_name, $_REQUEST))
+			{
+				return $_REQUEST[$_name];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $_REQUEST;
+		}
+	}
+
+	/**
 	 * filter get and safe it
 	 * @param  [type] $_name [description]
 	 * @param  [type] $_arg  [description]

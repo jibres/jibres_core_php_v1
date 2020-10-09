@@ -22,14 +22,14 @@ class back
         }
 
 
-        $State     = isset($_REQUEST['State'])      ? (string) $_REQUEST['State']       : null;
-        $StateCode = isset($_REQUEST['StateCode'])  ? (string) $_REQUEST['StateCode']   : null;
-        $ResNum    = isset($_REQUEST['ResNum'])     ? (string) $_REQUEST['ResNum']      : null;
-        $MID       = isset($_REQUEST['MID'])        ? (string) $_REQUEST['MID']         : null;
-        $RefNum    = isset($_REQUEST['RefNum'])     ? (string) $_REQUEST['RefNum']      : null;
-        $CID       = isset($_REQUEST['CID'])        ? (string) $_REQUEST['CID']         : null;
-        $TRACENO   = isset($_REQUEST['TRACENO'])    ? (string) $_REQUEST['TRACENO']     : null;
-        $SecurePan = isset($_REQUEST['SecurePan'])  ? (string) $_REQUEST['SecurePan']   : null;
+        $State     = (string) \dash\request::request('State');
+        $StateCode = (string) \dash\request::request('StateCode');
+        $ResNum    = (string) \dash\request::request('ResNum');
+        $MID       = (string) \dash\request::request('MID');
+        $RefNum    = (string) \dash\request::request('RefNum');
+        $CID       = (string) \dash\request::request('CID');
+        $TRACENO   = (string) \dash\request::request('TRACENO');
+        $SecurePan = (string) \dash\request::request('SecurePan');
 
         if(!$ResNum)
         {
@@ -68,7 +68,7 @@ class back
         $sep['Password'] = \dash\setting\sep::get('Password');
 
         \dash\utility\pay\setting::set_condition('pending');
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
 

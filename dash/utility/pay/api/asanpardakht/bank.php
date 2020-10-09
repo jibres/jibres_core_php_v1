@@ -64,7 +64,7 @@ class bank
             {
                 $result = $result->RequestOperationResult;
 
-                if ($result{0} == '0')
+                if (is_string($result) && substr($result, 0, 1) == '0')
                 {
                     $token = substr($result,2);
                     return $token;

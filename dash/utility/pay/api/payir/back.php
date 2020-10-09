@@ -22,15 +22,15 @@ class back
         }
 
 
-        $token  = isset($_REQUEST['token'])        ? (string) $_REQUEST['token']         : null;
-        $status = isset($_REQUEST['status'])       ? (string) $_REQUEST['status']        : null;
+        $token  = (string) \dash\request::request('token');
+        $status = (string) \dash\request::request('status');
 
         // old version
-        // $transId      = isset($_REQUEST['transId'])        ? (string) $_REQUEST['transId']         : null;
-        // $description  = isset($_REQUEST['description'])    ? (string) $_REQUEST['description']     : null;
-        // $factorNumber = isset($_REQUEST['factorNumber'])   ? (string) $_REQUEST['factorNumber']    : null;
-        // $cardNumber   = isset($_REQUEST['cardNumber'])     ? (string) $_REQUEST['cardNumber']      : null;
-        // $message      = isset($_REQUEST['message'])        ? (string) $_REQUEST['message']         : null;
+        // $transId      = (string) \dash\request::request('transId');
+        // $description  = (string) \dash\request::request('description');
+        // $factorNumber = (string) \dash\request::request('factorNumber');
+        // $cardNumber   = (string) \dash\request::request('cardNumber');
+        // $message      = (string) \dash\request::request('message');
 
         // if(!$status)
         // {
@@ -79,7 +79,7 @@ class back
 
 
         \dash\utility\pay\setting::set_condition('pending');
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
         if(intval($status) === 1)

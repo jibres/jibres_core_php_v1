@@ -7,7 +7,7 @@ class back
 
     public static function verify($_token)
     {
-        if(!isset($_REQUEST['Authority']) || !isset($_REQUEST['Status']))
+        if(!\dash\request::request('Authority') || !\dash\request::request('Status'))
         {
             return \dash\utility\pay\setting::turn_back();
         }
@@ -28,7 +28,7 @@ class back
 
         $zarinpal               = [];
         $zarinpal['MerchantID'] = \dash\setting\zarinpal::get('MerchantID');
-        $zarinpal['Authority']  = $_REQUEST['Authority'];
+        $zarinpal['Authority']  = \dash\request::request('Authority');
 
         \dash\utility\pay\setting::load_banktoken($_token, $zarinpal['Authority'], 'zarinpal');
 
@@ -43,13 +43,13 @@ class back
 
 
         \dash\utility\pay\setting::set_condition('pending');
-        \dash\utility\pay\setting::set_payment_response2($_REQUEST);
+        \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
 
         $zarinpal['Amount']  = \dash\utility\pay\setting::getAmount();
 
-        if($_REQUEST['Status'] == 'NOK')
+        if(\dash\request::request('Status') == 'NOK')
         {
             return \dash\utility\pay\verify::bank_error('cancel');
         }
