@@ -314,15 +314,10 @@ class search
 		}
 
 
-
-
-
-
-
+		$and[] = " products.status NOT IN ('deleted', 'archive') ";
 
 		if($data['websitemode'])
 		{
-			$and[] = " products.status != 'deleted'";
 			// $and[] = " products.instock = 'yes'";
 			$and[] = " products.parent IS NULL ";
 		}
@@ -391,11 +386,11 @@ class search
 				{
 					if($order === 'asc')
 					{
-						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MIN(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status != 'deleted' AND sProducts.parent = products.id) ,products.$sort) $order";
+						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MIN(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status NOT IN  ('deleted', 'archive') AND sProducts.parent = products.id) ,products.$sort) $order";
 					}
 					else
 					{
-						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status != 'deleted' AND sProducts.parent = products.id) ,products.$sort) $order";
+						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status NOT IN  ('deleted', 'archive') AND sProducts.parent = products.id) ,products.$sort) $order";
 					}
 				}
 				else
@@ -410,7 +405,6 @@ class search
 		{
 			$order_sort = " ORDER BY products.id DESC";
 		}
-		$and[] = " products.status != 'deleted' ";
 
 		$and = array_merge($and, $_where);
 
@@ -668,7 +662,7 @@ class search
 		$or    = [];
 		$order = null;
 
-		$and[] = " products.status != 'deleted'";
+		$and[] = " products.status NOT IN ('deleted', 'archive') ";
 		// $and[] = " products.instock = 'yes'";
 		$and[] = " products.parent IS NULL ";
 

@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.products CHANGE `status` `status` ENUM('unset','available','unavailable','soon','discountinued','deleted','archive') CHARACTER SET utf8mb4 NULL DEFAULT NULL;

@@ -24,7 +24,7 @@ else
 
         <div class="row">
 
-          <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
+          <div class="c-xs-12 c-sm-6 c-md-6 c-xl-4">
             <div class="radio4">
               <input  id="available" type="radio" name="status" value="available" <?php if(\dash\data::productDataRow_status() == 'available') {echo 'checked';} ?>>
               <label for="available">
@@ -36,7 +36,7 @@ else
             </div>
           </div>
 
-          <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
+          <div class="c-xs-12 c-sm-6 c-md-6 c-xl-4">
             <div class="radio4">
               <input  id="soon" type="radio" name="status" value="soon" <?php if(\dash\data::productDataRow_status() == 'soon') {echo 'checked';} ?>>
               <label for="soon">
@@ -48,7 +48,7 @@ else
             </div>
           </div>
 
-          <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
+          <div class="c-xs-12 c-sm-6 c-md-6 c-xl-4">
             <div class="radio4">
               <input  id="unavailable" type="radio" name="status" value="unavailable" <?php if(\dash\data::productDataRow_status() == 'unavailable') {echo 'checked';} ?>>
               <label for="unavailable">
@@ -60,7 +60,7 @@ else
             </div>
           </div>
 
-          <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
+          <div class="c-xs-12 c-sm-6 c-md-6 c-xl-4">
             <div class="radio4">
               <input  id="discountinued" type="radio" name="status" value="discountinued" <?php if(\dash\data::productDataRow_status() == 'discountinued') {echo 'checked';} ?>>
               <label for="discountinued">
@@ -72,13 +72,26 @@ else
             </div>
           </div>
 
+
+          <div class="c-xs-12 c-sm-6 c-md-6 c-xl-4">
+            <div class="radio4">
+              <input  id="archive" type="radio" name="status" value="archive" <?php if(\dash\data::productDataRow_status() == 'archive') {echo 'checked';} ?>>
+              <label for="archive">
+                <div>
+                  <div class="title"><?php echo T_("Archive"); ?></div>
+                  <div class="addr"><?php echo T_("The product is archived"); ?> <small><?php echo T_("The archived product not show in website and admin product list") ?></small></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
           <?php if(\dash\data::productIsDeleted()) {?>
-            <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
+            <div class="c-xs-12 c-sm-6 c-md-6 c-xl-4">
               <div class="radio4">
                 <input  id="deleted" type="radio" name="status" value="deleted" <?php if(\dash\data::productDataRow_status() == 'deleted') {echo 'checked';} ?>>
                 <label for="deleted">
                   <div>
-                    <div class="title"><?php echo T_("Discountinued"); ?></div>
+                    <div class="title fc-red"><?php echo T_("Deleted"); ?></div>
                     <div class="addr"><?php echo T_("The product is deleted"); ?></div>
                   </div>
                 </label>

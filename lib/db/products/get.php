@@ -425,14 +425,14 @@ class get
 
 	public static function prev($_id)
 	{
-		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MAX(products.id) FROM products WHERE products.status != 'deleted' AND products.parent IS NULL AND products.id < $_id) LIMIT 1 ";
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MAX(products.id) FROM products WHERE products.status NOT IN ('deleted', 'archive') AND products.parent IS NULL AND products.id < $_id) LIMIT 1 ";
 		$result = \dash\db::get($query, 'id', true);
 		return $result;
 	}
 
 	public static function next($_id)
 	{
-		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MIN(products.id) FROM products WHERE products.status != 'deleted' AND products.parent IS NULL AND products.id > $_id) LIMIT 1 ";
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MIN(products.id) FROM products WHERE products.status NOT IN ('deleted', 'archive') AND products.parent IS NULL AND products.id > $_id) LIMIT 1 ";
 		$result = \dash\db::get($query, 'id', true);
 		return $result;
 	}

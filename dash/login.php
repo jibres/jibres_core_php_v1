@@ -39,9 +39,9 @@ class login
 			return false;
 		}
 
-		$current_place = self::where_am_i();
+		$place = self::where_am_i();
 
-		if($current_place === 'jibres' || $current_place === 'admin')
+		if($place === 'jibres' || $place === 'admin')
 		{
 			$load = \dash\db\login\get::load_code_force_jibres($cookie);
 		}
@@ -50,12 +50,6 @@ class login
 			$load = \dash\db\login\get::load_code($cookie);
 		}
 
-		// the record place
-		$place = null;
-		if(isset($load['place']))
-		{
-			$place = $load['place'];
-		}
 
 		$is_ok = self::validate($load);
 
