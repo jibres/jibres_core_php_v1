@@ -35,9 +35,8 @@
       </div>
     </div>
 
-    <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) {?>
-
-
-     <div class="row" data-digikala-crawl='<?php echo \dash\data::productDataRow_title(); ?>'></div>
-
-    <?php } //endif ?>
+<?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) {?>
+  <?php if(\dash\data::productDataRow_title()) { // if have not product title not suggest product image. for example in add product module?>
+      <div class="row" data-digikala-crawl='<?php echo \dash\data::productDataRow_title(); ?>'></div>
+  <?php } //endif ?>
+<?php } //endif ?>
