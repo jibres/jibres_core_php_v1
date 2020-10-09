@@ -248,7 +248,7 @@ class search
 			self::$filter_args['Image']   = T_("With image");
 			self::$is_filtered        = true;
 		}
-		elseif(isset($data['g']) && $data['g'] === 'y')
+		elseif(isset($data['g']) && $data['g'] === 'n')
 		{
 			$and[] = "products.thumb IS NULL";
 			self::$filter_args['Image']   = T_("Without image");
@@ -262,7 +262,7 @@ class search
 			self::$filter_args['Variants']   = T_("Have variants");
 			self::$is_filtered        = true;
 		}
-		elseif(isset($data['v']) && $data['v'] === 'y')
+		elseif(isset($data['v']) && $data['v'] === 'n')
 		{
 			$and[] = " products.variant_child  != 1 ";
 			self::$filter_args['Variants']   = T_("Have not variants");
