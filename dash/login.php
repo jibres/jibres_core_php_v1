@@ -299,7 +299,14 @@ class login
 
 			if(!$agen_ok)
 			{
-				return false;
+				if(\dash\url::isLocal())
+				{
+					// nothing in local change agent. for test and debug pwa mode
+				}
+				else
+				{
+					return false;
+				}
 			}
 		}
 

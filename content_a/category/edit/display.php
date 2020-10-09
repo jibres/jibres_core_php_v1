@@ -90,20 +90,34 @@
           <a class="btn link" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
         </footer>
       </section>
-      <nav class="items long">
+       <section class="box">
+          <div class="pad">
+            <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
+            <p><?php echo T_("You can delete this category because we are not found any product in that."); ?></p>
+            <?php }else{ ?>
+              <p><?php echo T_("You can delete this category and merge all product in this category by another category."); ?></p>
+            <?php }//endif ?>
+          </div>
+          <footer>
+            <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
+              <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn linkDel" ><?php echo T_("Remove category"); ?></span></div>
+            <?php }else{ ?>
+              <div class="txtRa"><a href="<?php echo \dash\url::this(). '/remove?'. \dash\request::fix_get() ?>" class="btn linkDel" ><?php echo T_("Remove category"); ?></a></div>
+            <?php }//endif ?>
+          </footer>
+        </section>
+    <nav class="items long">
       <ul>
-          <li><a class="f" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><div class="key"><?php echo T_("Show products by this category"); ?></div><div class="go"></div></a></li>
+          <li>
+            <a class="f item" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>">
+              <div class="key"><?php echo T_("Show products by this category"); ?></div>
+              <div class="value"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></div>
+              <div class="go"></div>
+            </a>
+          </li>
       </ul>
     </nav>
-      <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
-        <section class="box">
-          <header><h2><?php echo T_("Remove category"); ?></h2></header>
-          <div class="body">
-            <p><?php echo T_("You can delete this category because we are not found any product in that."); ?></p>
-            <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn linkDel" ><?php echo T_("Remove category"); ?></span></div>
-          </div>
-        </section>
-      <?php }//endif ?>
+
     </div>
   </div>
 </form>
