@@ -317,6 +317,8 @@ class user
 			$data['displayname'] = trim($data['firstname']. ' '. $data['lastname']);
 		}
 
+		$data['forceremember'] = $data['forceremember'] ? 1 : 0;
+
 		return $data;
 	}
 

@@ -483,7 +483,21 @@ class login
 
 		\dash\db\login\insert::new_record_login_ip($insert_login_ip);
 
-		\dash\utility\cookie::write(self::cookie_name(), $code);
+
+		unset($load_user['permission']); //! just for not return false in check permission
+		$load_user = \dash\app\user::ready($load_user);
+		// if user set save remember set cookie life time for 1 month
+		if(isset($load_user['forceremember']) && $load_user['forceremember'])
+		{
+			$time = (60*60*24*30);
+		}
+		else
+		{
+			$time = null;
+		}
+
+
+		\dash\utility\cookie::write(self::cookie_name(), $code, $time);
 
 	}
 
