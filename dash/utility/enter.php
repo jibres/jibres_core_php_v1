@@ -366,30 +366,30 @@ class enter
 
 		if($twostep)
 		{
-			// if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']) && self::user_data('mobile') )
-			// {
-			// 	if(self::user_data('mobile') === $_SESSION['main_mobile'])
-			// 	{
-			// 		if(self::get_session('twostep_is_ok'))
-			// 		{
-			// 			// no problem
-			// 		}
-			// 		else
-			// 		{
-			// 			// set session verify_from set
-			// 			\dash\utility\enter::set_session('verify_from', 'ask_twostep');
+			if(\dash\session::get('main_account') && \dash\session::get('main_mobile') && self::user_data('mobile') )
+			{
+				if(self::user_data('mobile') === \dash\session::get('main_mobile'))
+				{
+					if(self::get_session('twostep_is_ok'))
+					{
+						// no problem
+					}
+					else
+					{
+						// set session verify_from set
+						\dash\utility\enter::set_session('verify_from', 'ask_twostep');
 
-			// 			// send code way
-			// 			\dash\utility\enter::go_to_verify();
-			// 		}
-			// 	}
-			// 	else
-			// 	{
-			// 		// if the admin user login by this user
-			// 		// not ask two-step
-			// 	}
-			// }
-			// else
+						// send code way
+						\dash\utility\enter::go_to_verify();
+					}
+				}
+				else
+				{
+					// if the admin user login by this user
+					// not ask two-step
+				}
+			}
+			else
 			{
 				if(self::get_session('twostep_is_ok'))
 				{
@@ -431,21 +431,21 @@ class enter
 
 		$alert_notif_login = true;
 
-		// if(isset($_SESSION['main_account']) && isset($_SESSION['main_mobile']))
-		// {
-		// 	if(isset($_SESSION['auth']['mobile']) && $_SESSION['auth']['mobile'] === $_SESSION['main_mobile'])
-		// 	{
-		// 		// nothign
-		// 		// read $set_session
-		// 	}
-		// 	else
-		// 	{
-		// 		$alert_notif_login = false;
-		// 		// not save session for other people never
-		// 		$set_session = false;
-		// 	}
-		// }
-		// else
+		if(\dash\session::get('main_account') && \dash\session::get('main_mobile'))
+		{
+			if(\dash\user::detail('mobile') === \dash\session::get('main_mobile'))
+			{
+				// nothign
+				// read $set_session
+			}
+			else
+			{
+				$alert_notif_login = false;
+				// not save session for other people never
+				$set_session = false;
+			}
+		}
+		else
 		{
 			// check user status
 			// if the user status is awaiting

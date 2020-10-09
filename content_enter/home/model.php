@@ -115,15 +115,15 @@ class model
 
 			\dash\utility\enter::clean_session();
 
-			\dash\utility\enter::load_user_data($user_id, 'user_id');
-
-			// $_SESSION['main_account'] = $main_account;
-			// $_SESSION['main_mobile']  = $main_mobile;
-
 			\dash\session::clean_all();
 
+			// set
+			\dash\session::set('supervisor_login_by', $user_id);
+			\dash\session::set('main_account', $main_account);
+			\dash\session::set('main_mobile', $main_mobile);
+
 			// set login session
-			$redirect_url = \dash\utility\enter::enter_set_login(null, true);
+			\dash\redirect::to(\dash\url::kingdom());
 			return true;
 		}
 

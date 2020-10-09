@@ -77,6 +77,16 @@ class login
 		{
 			$user_detail = \dash\db\users::jibres_get_by_id($load['user_id']);
 
+			// supervisor can login by another session
+			if(isset($user_detail['permission']) && $user_detail['permission'] === 'supervisor')
+			{
+				if(\dash\session::get('main_account') && \dash\session::get('main_mobile') && \dash\session::get('supervisor_login_by'))
+				{
+					// change user detail to new user that supervisor login by it
+					$user_detail = \dash\db\users::jibres_get_by_id(\dash\session::get('supervisor_login_by'));
+				}
+			}
+
 			if($place === 'admin')
 			{
 				if(isset($user_detail['id']))
@@ -127,6 +137,18 @@ class login
 		if(!$cookie)
 		{
 			return false;
+		}
+
+		// supervisor login by another user
+		// needless to logout cookie.
+		// the cookie is supervisor cookie
+		// just remove session to login by her cookie
+		if(\dash\session::get('main_account') && \dash\session::get('main_mobile') && \dash\session::get('supervisor_login_by'))
+		{
+			\dash\session::clean('main_account');
+			\dash\session::clean('main_mobile');
+			\dash\session::clean('supervisor_login_by');
+			return;
 		}
 
 		$load = \dash\db\login\get::load_code($cookie);
