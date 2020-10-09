@@ -133,6 +133,24 @@ function BoxProductFilter()
 
         </select>
       </div>
+
+      <div class="mB10">
+        <label for='status'><?php echo T_("Status"); ?></label>
+        <select name="status" id="status" class="select22" data-placeholder='<?php echo T_("Product Status"); ?>'>
+          <?php if(\dash\request::get('status')) {?>
+            <option value="0"><?php echo T_("Non") ?></option>
+          <?php }else{?>
+            <option value="" readonly></option>
+          <?php } //endif ?>
+            <?php foreach (['unset','available','unavailable','soon','discountinued', 'deleted', 'archive'] as $value) {?>
+            <option value="<?php echo $value; ?>" <?php if(\dash\request::get('status') === $value){echo 'selected';} ?> ><?php echo T_(ucfirst($value)); ?></option>
+          <?php } //endfor ?>
+
+        </select>
+      </div>
+
+
+
       <div class="f font-12">
         <div class="cauto">
           <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>

@@ -31,6 +31,7 @@ class view
 			'order'        => \dash\request::get('order'),
 			'sort'         => \dash\request::get('sort'),
 			'barcode'      => \dash\request::get('barcode'),
+			'status'      => \dash\request::get('status'),
 			// 'price'        => \dash\request::get('price'),
 			// 'buyprice'     => \dash\request::get('buyprice'),
 			// 'cat'          => \dash\request::get('cat'),

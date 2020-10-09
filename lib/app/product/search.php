@@ -29,6 +29,7 @@ class search
 		[
 			'order'       => 'order',
 			'sort'        => ['enum' => ['title','price','buyprice', 'finalprice', 'discount']],
+			'status'      => ['enum' => ['unset','available','unavailable','soon','discountinued', 'deleted', 'archive']],
 			'limit'       => 'int',
 			'barcode'     => 'barcode',
 			'price'       => 'price',
@@ -314,7 +315,16 @@ class search
 		}
 
 
-		$and[] = " products.status NOT IN ('deleted', 'archive') ";
+		if($data['status'])
+		{
+			$and[] = " products.status = '$data[status]' ";
+			self::$filter_args['status'] = T_($data['status']);
+			self::$is_filtered           = true;
+		}
+		else
+		{
+			$and[] = " products.status NOT IN ('deleted', 'archive') ";
+		}
 
 		if($data['websitemode'])
 		{
