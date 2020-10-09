@@ -385,24 +385,43 @@ class pagination
 			{
 				$temp_get             = $get;
 				$temp_get['page']     = $value['page'];
-				$temp_link            = $this_link . '?'. http_build_query($temp_get);
+				$temp_link            = $this_link . '?'. \dash\request::build_query($temp_get);
 				$result[$key]['link'] = $temp_link;
 			}
-			$result[$key]['total_rows'] = self::detail('total_rows');
 		}
 
 		return $result;
 	}
 
 
+	/**
+	 * Gets the total rows.
+	 *
+	 * @return     integer  The total rows.
+	 */
+	public static function get_total_rows()
+	{
+		$total_rows = self::detail('total_rows');
 
+		if($total_rows)
+		{
+			return floatval($total_rows);
+		}
+
+		return floatval(0);
+	}
+
+
+	/**
+	 * Make html of pagination
+	 */
 	public static function html()
 	{
 		$page_number = self::page_number();
 		if($page_number)
 		{
 			echo "<nav class='pagination f fs11 mTB5' data-xhr='pagination'>";
-			echo "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='txtB'>". \dash\fit::number($page_number[0]['total_rows']) ."</span></a>";
+			echo "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='txtB'>". \dash\fit::number(self::get_total_rows()) ."</span></a>";
 			echo "<div class='c flex justify-center'>";
 			foreach ($page_number as $key => $value)
 			{

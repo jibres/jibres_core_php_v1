@@ -133,12 +133,19 @@ function BoxProductFilter()
 
         </select>
       </div>
-<div class="txtRa fs12">
-  <?php if(\dash\request::get()) {?>
-    <a class="btn outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
-  <?php }//endif ?>
+      <div class="f font-12">
+        <div class="cauto">
+          <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>
+          <div class="fc-mute mA10"><span class="txtB"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Product founded") ?></div>
+        </div>
+        <div class="c"></div>
+        <div class="cauto">
+          <?php if(\dash\request::get()) {?>
+            <a class="btn outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
+          <?php }//endif ?>
+          <button class="btn primary"><?php echo T_("Apply"); ?></button>
+        </div>
+      </div>
 
-  <button class="btn primary"><?php echo T_("Apply"); ?></button>
-</div>
 <?php } // endif ?>
 <?php } //endfunction ?>
