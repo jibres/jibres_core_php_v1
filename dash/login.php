@@ -55,6 +55,10 @@ class login
 
 		if(!$is_ok)
 		{
+			if(isset($load['id']))
+			{
+				\dash\db\login\update::set_block($load['id']);
+			}
 			self::delete_cookie();
 			return false;
 		}

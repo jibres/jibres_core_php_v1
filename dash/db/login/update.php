@@ -25,6 +25,18 @@ class update
 		return $result;
 	}
 
+
+
+	public static function set_block($_id)
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "UPDATE login SET login.status = 'block', login.datemodified = '$date' WHERE login.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
 	public static function change_password($_user_id, $_current_login_id)
 	{
 		$date = date("Y-m-d H:i:s");
