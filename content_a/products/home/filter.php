@@ -57,7 +57,7 @@ function BoxProductFilter()
     <div class="mB20">
 
     <?php $first = true; $myClass = null; $lastGroup = null; foreach (\dash\data::productFilterList() as $key => $value) {?>
-    <?php if($lastGroup !== $value['group']) { $lastGroup = $value['group']; if(!$first) { $myClass = 'mLa20'; } } //endif ?>
+    <?php if($lastGroup !== $value['group']) { $lastGroup = $value['group']; if(!$first) { if(\dash\request::is_pwa()) { $myClass = null; echo '<div class="block"></div>'; }else{ $myClass = 'mLa10'; } } } //endif ?>
       <a class='btn <?php echo $myClass; ?>  <?php if(\dash\get::index($value, 'is_active')) { echo 'primary2'; }else{ echo 'light';}?>  mB10 ' href="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
       <?php $myClass = null; $first = false; ?>
     <?php } //endfor ?>

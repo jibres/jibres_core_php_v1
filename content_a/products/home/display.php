@@ -1,5 +1,5 @@
 
-<?php require_once (root. 'content_a/products/filter.php'); ?>
+<?php require_once ('filter.php'); ?>
 
 
 <?php
