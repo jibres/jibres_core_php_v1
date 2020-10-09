@@ -256,6 +256,17 @@ class request
 	}
 
 
+	/**
+	 * Determines if pwa.
+	 *
+	 * @return     boolean  True if pwa, False otherwise.
+	 */
+	public static function is_pwa()
+	{
+		return \dash\detect\device::detectPWA();
+	}
+
+
 	public static function is_app($_app_model = null)
 	{
 		$x_app_request = \dash\header::get('x-app-request');
