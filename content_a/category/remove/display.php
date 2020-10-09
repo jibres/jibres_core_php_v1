@@ -39,7 +39,8 @@
               <option value="" readonly></option>
             <?php } //endif ?>
             <?php foreach (\dash\data::listCategory() as $key => $value) {?>
-              <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('catid') === $value['id']){echo 'selected';} ?>><?php echo $value['title']; ?></option>
+              <?php if($value['id'] === \dash\request::get('id')) {continue;}?>
+              <option value="<?php echo $value['id']; ?>" ><?php echo $value['title']; ?></option>
             <?php } //endfor ?>
           </select>
         </div>
