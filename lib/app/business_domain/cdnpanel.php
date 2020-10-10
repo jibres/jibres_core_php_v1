@@ -107,9 +107,16 @@ class cdnpanel
 			}
 			else
 			{
+
+				if(isset($check_exist_domain_on_cdn_panel['message']) && $check_exist_domain_on_cdn_panel['message'] === '/msg.domain.not_found')
+				{
+					\lib\app\business_domain\edit::edit_raw(['status' => 'failed'], $_id);
+				}
+
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "arvancloud not responded", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
 				\dash\notif::error(T_("Oops! Unknown error!"));
 				return false;
+
 			}
 		}
 
