@@ -131,6 +131,45 @@ class request
 	}
 
 
+	/**
+	 * Determines if key exists in php input
+	 *
+	 * @param      <type>  $_key    The key
+	 * @param      string  $_where  The where
+	 *
+	 * @return     <type>  True if key exists, False otherwise.
+	 */
+	public static function key_exists($_key, $_where = 'get')
+	{
+		switch ($_where)
+		{
+			case 'get':
+			case 'GET':
+				return array_key_exists($_key, $_GET);
+				break;
+
+			case 'post':
+			case 'POST':
+				return array_key_exists($_key, $_POST);
+				break;
+
+			case 'request':
+			case 'REQUEST':
+				return array_key_exists($_key, $_REQUEST);
+				break;
+
+			case 'files':
+			case 'FILES':
+				return array_key_exists($_key, $_FILES);
+				break;
+
+			default:
+				return null;
+				break;
+		}
+	}
+
+
 
 	public static function fix_get($_args = [])
 	{

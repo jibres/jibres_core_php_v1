@@ -47,7 +47,7 @@ class controller
 		}
 
 
-		if(array_key_exists('buy', $_GET))
+		if(\dash\request::key_exists('buy', 'GET'))
 		{
 			$result = \lib\app\cart\add::new_cart_website($child, 1);
 			if($result)
@@ -55,7 +55,7 @@ class controller
 				\dash\redirect::to(\dash\url::kingdom(). '/cart');
 			}
 		}
-		elseif(array_key_exists('cart', $_GET))
+		elseif(\dash\request::key_exists('cart', 'GET'))
 		{
 			$result = \lib\app\cart\add::new_cart_website($child, 1);
 			if($result)

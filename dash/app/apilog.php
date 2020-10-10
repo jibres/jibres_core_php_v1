@@ -93,7 +93,7 @@ class apilog
 
 	private static function getBody()
 	{
-		$request = $_REQUEST;
+		$request = \dash\request::request();
 		$myBody  = null;
 
 		if($request)

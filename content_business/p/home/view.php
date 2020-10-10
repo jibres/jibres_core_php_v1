@@ -8,7 +8,7 @@ class view
 		$id = \dash\data::dataRow_id();
 
 		// auto add product to cart and redirec to cart
-		if(array_key_exists('order', $_GET))
+		if(\dash\request::key_exists('order', 'GET'))
 		{
 			$result = \lib\app\cart\add::new_cart_website($id, 1);
 			\dash\redirect::to(\dash\url::kingdom(). '/cart');

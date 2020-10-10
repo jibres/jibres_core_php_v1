@@ -34,7 +34,7 @@ class model
 		$post['title']     = \dash\request::post('title');
 		$post['title2']    = \dash\request::post('title2');
 
-		if(array_key_exists('desc', $_POST))
+		if(\dash\request::key_exists('desc', 'POST'))
 		{
 			$post['desc']      = \dash\request::post_raw('desc');
 		}
