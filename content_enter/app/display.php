@@ -24,7 +24,7 @@ if(\dash\user::id())
 else
 {
 
-	\dash\utility\hive::html();
+	\dash\csrf::html();
 ?>
 
 

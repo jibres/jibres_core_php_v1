@@ -7,7 +7,7 @@ class controller
 	{
 		\dash\utility\ip::check();
 
-		\dash\utility\hive::set();
+		\dash\csrf::set();
 	}
 }
 ?>

@@ -2,6 +2,7 @@
 
 
 <div class="f">
+  <?php \dash\csrf::html(); ?>
   <div class="c8 s12 pRa10">
     <?php
 
@@ -38,7 +39,7 @@
         <p><?php echo T_("If your problem is solved or do not need to track, please close this ticket by press below bottom."); ?> <?php echo T_("You can open it anytime you need."); ?></p>
       </div>
       <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
         <input type="hidden" name="TicketFormType" value="changeStatus">
         <button class="btn block mTB10 secondary" name="status" value="close"><?php echo T_("Close ticket"); ?></button>
 
@@ -57,7 +58,7 @@
         <p><?php echo T_("This ticket is closed."); ?> <?php echo T_("You can open it anytime you need."); ?> <?php echo T_("Also you can delete it if you do not need it."); ?></p>
       </div>
       <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
         <input type="hidden" name="TicketFormType" value="changeStatus">
         <button class="btn block sm mTB10 danger outline" name="status" value="deleted"><?php echo T_("Delete ticket"); ?></button>
         <button class="btn block lg mTB10 success" name="status" value="awaiting"><?php echo T_("Open it again"); ?></button>
@@ -72,7 +73,7 @@
         <p><?php echo T_("This is deleted ticket."); ?> <?php echo T_("You can change it to close condition if need to save it in history!"); ?></p>
       </div>
       <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
         <input type="hidden" name="TicketFormType" value="changeStatus">
         <button class="btn block mTB10 secondary" name="status" value="close"><?php echo T_("Close ticket"); ?></button>
       </form>
@@ -80,7 +81,7 @@
   <?php if(\dash\permission::check('supportTicketAnswer')) {?>
 
       <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
         <input type="hidden" name="TicketFormType" value="changeStatus">
         <button class="btn block mTB10 danger" name="status" value="spam"><?php echo T_("Spam"); ?></button>
       </form>
@@ -97,7 +98,7 @@
     <?php if(\dash\permission::check('supportTicketAnswer')) {?>
 
         <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
           <input type="hidden" name="TicketFormType" value="changeStatus">
           <button class="btn primary floatRa xs" name="status" value="deleted"><?php echo T_("Not spam"); ?></button>
         </form>
@@ -117,7 +118,7 @@
         <p><?php echo T_("If your problem is not solved yet, please set this ticket as unsolved"); ?></p>
       </div>
       <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
         <input type="hidden" name="TicketFormSolved" value="solvedForm">
         <button class="btn block mTB10 warn" name="solved" value="0"><?php echo T_("Un Solved ticket"); ?></button>
       </form>
@@ -128,7 +129,7 @@
         <p><?php echo T_("If your problem is solved, please set this ticket as solved"); ?></p>
       </div>
       <form method="post">
-            <?php \dash\utility\hive::html(); ?>
+            <?php \dash\csrf::html(false); ?>
         <input type="hidden" name="TicketFormSolved" value="solvedForm">
         <button class="btn block mTB10 success" name="solved" value="1"><?php echo T_("Solved ticket"); ?></button>
       </form>
@@ -211,7 +212,7 @@
 
       <div class="cbox">
         <form method="post">
-              <?php \dash\utility\hive::html(); ?>
+              <?php \dash\csrf::html(false); ?>
 
           <?php if(\dash\permission::check('supportTicketAssignTag')) {?>
 

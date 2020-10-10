@@ -8,7 +8,7 @@
            <label for="forceremember"></label>
            <label for="forceremember"><?php echo T_("Save remember session"); ?></label>
           </div>
-          <?php \dash\utility\hive::html(); ?>
+          <?php \dash\csrf::html(); ?>
 
           <div class="txtRa mT20">
             <button class="btn success"><?php echo T_("Save"); ?></button>

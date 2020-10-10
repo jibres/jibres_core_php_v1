@@ -76,7 +76,7 @@
 
 
      <form method="post" data-clear autocomplete="off" enctype="multipart/form-data">
-<?php \dash\utility\hive::html(); ?>
+<?php \dash\csrf::html(); ?>
 
       <label for="iu1"><?php echo T_("Your Nickname"); ?></label>
       <div class="input">

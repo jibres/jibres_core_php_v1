@@ -7,7 +7,7 @@ $storeData = \dash\data::store_store_data();
   <div class="cbox">
    <form method="post" autocomplete="off">
 
-      <?php \dash\utility\hive::html(); ?>
+      <?php \dash\csrf::html(); ?>
       <label for="ititle"><?php echo T_("Name"); ?> <span class="fc-red">*</span></label>
       <div class="input">
         <input type="text" name="title" id="ititle" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\get::index($storeData, 'title'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>

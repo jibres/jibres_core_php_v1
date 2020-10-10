@@ -12,7 +12,7 @@ if(\dash\user::id())
 <?php
 } // endif
 
-\dash\utility\hive::html();
+\dash\csrf::html();
 ?>
 
 

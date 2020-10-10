@@ -37,7 +37,7 @@ if(\dash\data::el_username())
 
 
 <?php
-\dash\utility\hive::html();
+\dash\csrf::html();
 ?>
 
 

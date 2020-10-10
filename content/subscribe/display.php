@@ -5,7 +5,7 @@
   <div class="c6 s12">
    <p><?php echo T_("Subscribe to Jibres world"); ?></p>
    <form method="post" data-clear>
-    <?php \dash\utility\hive::html(); ?>
+    <?php \dash\csrf::html(); ?>
 
     <div class="input pA5">
      <label class="addon" for="mobile"><?php echo T_("Mobile"); ?></label>

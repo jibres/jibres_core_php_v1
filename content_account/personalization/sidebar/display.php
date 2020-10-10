@@ -12,7 +12,7 @@
        </div>
       </div>
       <form method="post" autocomplete="off">
-          <?php \dash\utility\hive::html(); ?>
+          <?php \dash\csrf::html(); ?>
           <div class="switch1 mT20">
            <input type="checkbox" name="sidebar" id="isidebar" <?php if(\dash\user::detail('sidebar')) { echo "checked"; }?>>
            <label for="isidebar"></label>

@@ -27,7 +27,7 @@ class controller
 		self::save_param();
 
 
-		\dash\utility\hive::set(true);
+		\dash\csrf::set(true);
 	}
 
 

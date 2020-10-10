@@ -9,7 +9,7 @@
 				<div class="body">
 					<form method="post" autocomplete="off">
 
-						<?php \dash\utility\hive::html(); ?>
+						<?php \dash\csrf::html(); ?>
 						<label for="firstname"><?php echo T_("First name"); ?></label>
 						<div class="input">
 							<input type="text" name="firstname" id="firstname" placeholder='<?php echo T_("Firstname"); ?>' value="<?php echo \dash\data::dataRow_firstname(); ?>" maxlength='40' minlength="1" pattern=".{1,40}">

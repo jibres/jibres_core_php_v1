@@ -7,7 +7,7 @@ class controller
 	{
 		\dash\utility\ip::check(true);
 
-		\dash\utility\hive::set();
+		\dash\csrf::set();
 
 		self::loadTicketDetail();
 	}

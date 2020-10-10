@@ -3,7 +3,7 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
-        <?php \dash\utility\hive::html(); ?>
+        <?php \dash\csrf::html(); ?>
         <label for="email"><?php echo T_("Email"); ?></label>
         <div class="input">
           <input type="email" name="email" id="email" placeholder='<?php echo T_("like"); ?> abc@example.com' maxlength='100'>

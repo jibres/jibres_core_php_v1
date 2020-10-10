@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\utility\hive::set();
+		\dash\csrf::set();
 
 		\dash\permission::access('settingEdit');
 

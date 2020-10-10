@@ -7,7 +7,7 @@ $storeData = \dash\data::store_store_data();
 
     <div class="box">
       <div class="body">
-        <?php \dash\utility\hive::html(); ?>
+        <?php \dash\csrf::html(); ?>
 
         <label for="lang"><?php echo T_("Please choose your business default language"); ?></label>
         <div>

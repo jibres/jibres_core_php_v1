@@ -266,7 +266,7 @@ if(\dash\data::masterTicketDetail_solved())
 ?>
 
   <form method="post">
-        <?php \dash\utility\hive::html(); ?>
+        <?php \dash\csrf::html(); ?>
 
     <p class="msg info mB0-f ovh"><?php echo \dash\data::solvedMsg(); ?>
       <input type="hidden" name="TicketFormType" value="changeStatus">

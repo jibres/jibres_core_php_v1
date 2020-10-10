@@ -5,7 +5,7 @@
     <div class="cbox">
 
       <form method="post" autocomplete="off">
-        <?php \dash\utility\hive::html(); ?>
+        <?php \dash\csrf::html(); ?>
         <label for="language"><?php echo T_("Language"); ?></label>
         <select name="language" class="select22" id="language">
           <option value="" readonly><?php echo T_("Please select one language"); ?> *</option>

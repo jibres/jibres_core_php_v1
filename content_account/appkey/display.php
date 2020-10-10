@@ -32,7 +32,7 @@
 
       <?php }else{ ?>
 
-        <button data-confirm data-data='{"add" : "appkey" <?php echo \dash\utility\hive::get_json(); ?>}' class="btn primary mT5 block"><?php echo T_("Make appkey"); ?></button>
+        <button data-confirm data-data='{"add" : "appkey" <?php echo \dash\csrf::get_json(); ?>}' class="btn primary mT5 block"><?php echo T_("Make appkey"); ?></button>
       <?php } //endif ?>
 
 
