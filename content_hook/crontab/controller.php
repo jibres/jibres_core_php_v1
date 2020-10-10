@@ -120,11 +120,12 @@ class controller
 		}
 
 		// remove all expire session
+		// clean csrf token used or expired
 		if(self::at('01:10'))
 		{
 			\dash\db\login\update::remove_old_expire();
+			\dash\csrf::clean();
 		}
-
 
 
 		if(self::every_hour())

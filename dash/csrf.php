@@ -39,7 +39,15 @@ class csrf
 
 	private static function make()
 	{
-		$token = md5((string) time(). (string) microtime(). (string) rand(). (string) rand(). (string) rand());
+		$token = '';
+		$token .= (string) time();
+		$token .= (string) rand();
+		$token .= (string) microtime();
+		$token .= (string) rand();
+		$token .= (string) rand();
+		$token .= '$_<3_$';
+		$token .= \dash\url::pwd();
+		$token = md5($token);
 
 		$insert =
 		[
@@ -150,6 +158,13 @@ class csrf
 		{
 			echo '<div class="hide"><input type="hidden" name="csrftoken" value="'. $csrf['token']. '"></div>';
 		}
+	}
+
+
+
+	public static function clean()
+	{
+		\dash\db\csrf\delete::clean();
 	}
 
 }
