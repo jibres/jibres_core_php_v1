@@ -31,17 +31,15 @@ class cdnpanel
 		if(isset($check_exist_domain_on_cdn_panel['data']['id']))
 		{
 			$arvan_domain_id = $check_exist_domain_on_cdn_panel['data']['id'];
+			$remove_domain = \lib\arvancloud\api::delete_domain($domain, $arvan_domain_id);
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_remove_domain', ['desc' => "Domain remove result", 'meta' => self::meta($remove_domain)]);
 		}
 		else
 		{
-			\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "can not load domain detail", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_delete_domain_not_founde', ['desc' => "can not load domain detail", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
 			\dash\notif::error(T_("ID of this domain is not found in CDN panel"));
-			return false;
 		}
 
-		$remove_domain = \lib\arvancloud\api::delete_domain($domain, $arvan_domain_id);
-
-		\lib\app\business_domain\action::new_action($_id, 'arvancloud_remove_domain', ['desc' => "Domain remove result", 'meta' => self::meta($remove_domain)]);
 
 		\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'httpsverify' => 0, 'httpsrequest' => null, 'cdnpanel' => null], $_id);
 
@@ -107,16 +105,9 @@ class cdnpanel
 			}
 			else
 			{
-
-				if(isset($check_exist_domain_on_cdn_panel['message']) && $check_exist_domain_on_cdn_panel['message'] === '/msg.domain.not_found')
-				{
-					\lib\app\business_domain\edit::edit_raw(['status' => 'failed'], $_id);
-				}
-
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "arvancloud not responded", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
 				\dash\notif::error(T_("Oops! Unknown error!"));
 				return false;
-
 			}
 		}
 
