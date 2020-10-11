@@ -469,11 +469,6 @@ function T_($_msgid, $_replace = null)
 	if($_replace !== false && !is_array($result) && strpos($result, ':') !== false)
 	{
 		$replaceArray = null;
-		// if we have trans
-		// if(isset($_SESSION['trans']) && is_array($_SESSION['trans']))
-		// {
-		// 	$replaceArray = $_SESSION['trans'];
-		// }
 		// if we have replace in parameter
 		if($_replace && is_array($_replace))
 		{
