@@ -1,5 +1,6 @@
 <?php
 namespace dash;
+
 /**
  * Class for session.
  * save data in session and get it
@@ -54,12 +55,41 @@ class session
 			]);
 		}
 
-		// start sessions
-		session_start();
-		session_write_close();
+		// not start session
+		// start if need in get and set session
 	}
 
 
+	/**
+	 * Start session if not started
+	 */
+	private static function sessionStart()
+	{
+		if(session_status() !== PHP_SESSION_ACTIVE)
+		{
+			session_start();
+		}
+	}
+
+
+	/**
+	 * Close session and return result
+	 *
+	 * @param      <type>  $_data  The data
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function close($_data = null)
+	{
+		session_write_close();
+		return $_data;
+	}
+
+
+
+	/**
+	 * Destroys the session
+	 */
 	public static function destroy()
 	{
 		$_SESSION = [];
@@ -75,50 +105,52 @@ class session
 
 
 
+	/**
+	 * Clean all session detail
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function clean_all()
 	{
-		if(!isset($_SESSION))
-		{
-			return false;
-		}
-
-		session_start();
+		self::sessionStart();
 
 		unset($_SESSION[self::$key]);
 		unset($_SESSION[self::$key_time]);
 		unset($_SESSION[self::$key_limit]);
 
-		session_write_close();
+		self::close();
 	}
 
 
-
+	/**
+	 * Clean one category in sessio
+	 *
+	 * @param      <type>  $_cat   The cat
+	 */
 	public static function clean_cat($_cat)
 	{
-		if(!isset($_SESSION))
-		{
-			return false;
-		}
-
-		session_start();
+		self::sessionStart();
 
 		unset($_SESSION[self::$key][$_cat]);
 		unset($_SESSION[self::$key_time][$_cat]);
 		unset($_SESSION[self::$key_limit][$_cat]);
 
-		session_write_close();
+		self::close();
 	}
 
 
 
+	/**
+	 * Clean one index in session
+	 *
+	 * @param      <type>   $_key   The key
+	 * @param      <type>   $_cat   The cat
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function clean($_key, $_cat = null)
 	{
-		if(!isset($_SESSION))
-		{
-			return false;
-		}
-
-		session_start();
+		self::sessionStart();
 
 		if($_cat)
 		{
@@ -133,23 +165,27 @@ class session
 			unset($_SESSION[self::$key_limit][$_key]);
 		}
 
-		session_write_close();
+		self::close();
 	}
 
 
+	/**
+	 * Gets All data exist in category
+	 *
+	 * @param      <type>   $_cat   The cat
+	 *
+	 * @return     boolean  The cat.
+	 */
 	public static function get_cat($_cat)
 	{
-		if(!isset($_SESSION))
-		{
-			return false;
-		}
+		self::sessionStart();
 
 		if(isset($_SESSION[self::$key][$_cat]))
 		{
-			return $_SESSION[self::$key][$_cat];
+			return self::close($_SESSION[self::$key][$_cat]);
 		}
 
-		return null;
+		return self::close(null);
 	}
 
 
@@ -163,12 +199,7 @@ class session
 	 */
 	public static function set($_key, $_value, $_cat = null, $_time = null)
 	{
-		session_start();
-
-		if(!isset($_SESSION))
-		{
-			return false;
-		}
+		self::sessionStart();
 
 		if($_cat)
 		{
@@ -190,7 +221,7 @@ class session
 			}
 		}
 
-		session_write_close();
+		self::close();
 	}
 
 
@@ -204,6 +235,8 @@ class session
 	 */
 	public static function get($_key = null, $_cat = null)
 	{
+		self::sessionStart();
+
 		if($_key)
 		{
 			if($_cat)
@@ -215,15 +248,15 @@ class session
 						if(time() - intval($_SESSION[self::$key_time][$_cat][$_key]) > intval($_SESSION[self::$key_limit][$_cat][$_key]))
 						{
 							self::clean($_key, $_cat);
-							return null;
+							return self::close(null);
 						}
 					}
 
-					return $_SESSION[self::$key][$_cat][$_key];
+					return self::close($_SESSION[self::$key][$_cat][$_key]);
 				}
 				else
 				{
-					return null;
+					return self::close(null);
 				}
 			}
 			else
@@ -235,15 +268,15 @@ class session
 						if(time() - intval($_SESSION[self::$key_time][$_key]) > intval($_SESSION[self::$key_limit][$_key]))
 						{
 							self::clean($_key);
-							return null;
+							return self::close(null);
 						}
 					}
 
-					return $_SESSION[self::$key][$_key];
+					return self::close($_SESSION[self::$key][$_key]);
 				}
 				else
 				{
-					return null;
+					return self::close(null);
 				}
 			}
 		}
@@ -251,28 +284,28 @@ class session
 		{
 			if(!$_cat)
 			{
-				return $_SESSION[self::$key];
+				return self::close($_SESSION[self::$key]);
 			}
 			else
 			{
 				if(isset($_SESSION[self::$key][$_cat]))
 				{
-					return $_SESSION[self::$key][$_cat];
+					return self::close($_SESSION[self::$key][$_cat]);
 				}
 				else
 				{
-					return null;
+					return self::close(null);
 				}
 			}
 		}
 
 		if(isset($_SESSION))
 		{
-			return $_SESSION;
+			return self::close($_SESSION);
 		}
 		else
 		{
-			return null;
+			return self::close(null);
 		}
 	}
 
@@ -287,13 +320,13 @@ class session
 		// if a session is currently opened, close it
 		if (session_id() != '')
 		{
-			session_write_close();
+			self::close();
 		}
 		// use new id
 		session_id($_session_id);
 		// start new session
-		session_start();
-		session_write_close();
+		self::sessionStart();
+		self::close();
 	}
 }
 ?>
