@@ -391,7 +391,7 @@ class create
 				[
 					'msg_go'        => T_("Buy :domain For :year", ['domain' => $domain, 'year' => \dash\fit::number($period)]),
 					'auto_go'       => false,
-					'auto_back'     => false,
+					'auto_back'     => true,
 					'final_msg'     => true,
 					'turn_back'     => \dash\url::kingdom(). '/my/domain?resultid='. $domain_code,
 					'user_id'       => $user_id,

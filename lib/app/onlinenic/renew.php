@@ -232,7 +232,7 @@ class renew
 				[
 					'msg_go'        => T_("Renew :domain For :year year", ['domain' => $domain, 'year' => \dash\fit::number($period)]),
 					'auto_go'       => false,
-					'auto_back'     => false,
+					'auto_back'     => true,
 					'final_msg'     => true,
 					'turn_back'     => \dash\url::kingdom(). '/my/domain',
 					'user_id'       => $user_id,
