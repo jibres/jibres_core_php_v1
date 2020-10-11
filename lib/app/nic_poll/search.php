@@ -57,7 +57,11 @@ class search
 
 		$query_string = \dash\validate::search($_query_string);
 
-
+		if($query_string)
+		{
+			$or[] = " (poll.domain LIKE '%$query_string%' OR poll.index LIKE '%$query_string%' OR poll.note LIKE '%$query_string%'  ) ";
+			self::$is_filtered = true;
+		}
 
 		if($data['sort'] && !$order_sort)
 		{
@@ -85,7 +89,7 @@ class search
 
 		if(is_array($list))
 		{
-			// $list = array_map(['\\lib\\app\\nic_poll\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\nic_poll\\ready', 'row'], $list);
 		}
 		else
 		{
