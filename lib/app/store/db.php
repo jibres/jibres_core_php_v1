@@ -70,7 +70,9 @@ class db
 		if($is_ok)
 		{
 			self::set_last_db_version($update_sql_query, $_store_id);
+			\lib\app\store\config::init($_store_id, $fuel, $customer_db_name, $_args);
 		}
+
 
 		return $is_ok;
 	}
