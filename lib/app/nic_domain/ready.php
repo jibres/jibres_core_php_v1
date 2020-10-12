@@ -180,9 +180,9 @@ class ready
 
 						if($other_status)
 						{
-							foreach ($other_status as $key => $value)
+							foreach ($other_status as $v)
 							{
-								$other_status_html.= '<span class="badge light" title="'. $value. '">'. T_($value). '</span>';
+								$other_status_html.= '<span class="badge light" title="'. $v. '">'. T_($v). '</span>';
 							}
 						}
 
@@ -202,6 +202,12 @@ class ready
 				case 'result':
 					break;
 
+				case 'status':
+					$result[$key] = $value;
+					$result['tstatus'] = T_($value);
+
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
@@ -217,7 +223,10 @@ class ready
 			$status_html =  '<a href="'.\dash\url::this(). '/buy/'. $result['name'].'"><div class="ibtn x30 wide"><span>'. T_("Register now").'</span><i class="sf-shop fc-green"></i></div></a>';
 			$new_result['status_html'] = $status_html;
 
-			$result = $new_result;
+			if(\dash\url::content() !== 'love')
+			{
+				$result = $new_result;
+			}
 		}
 
 		if(isset($result['ns1']) && isset($result['ns2']) && $result['ns1'] && $result['ns2'])

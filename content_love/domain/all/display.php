@@ -59,6 +59,7 @@ else
 
                 <th data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
 
+                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'status', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'status', 'link'); ?>"><?php echo T_("Status"); ?></a></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateregister', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateregister', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
                 <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>"><?php echo T_("Date modified"); ?></a></th>
@@ -75,9 +76,10 @@ else
                     <a href="<?php echo \dash\url::this(); ?>/setting?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
                 </td>
 
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\get::index($value, 'tstatus'); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\fit::date_time(\dash\get::index($value, 'dateexpire')); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\fit::date_time(\dash\get::index($value, 'dateregister')); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\fit::date_time(\dash\get::index($value, 'dateupdate')); ?></td>
 
 
                 <td class="collapsing">
