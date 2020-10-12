@@ -111,6 +111,33 @@
   </form>
 
 
+
+   <form method="post" autocomplete="off">
+     <input type="hidden" name="changestatus" value="changestatus">
+    <div class="box">
+      <header><h2><?php echo T_("Status") ?></h2></header>
+      <div class="body">
+        <p><?php echo T_("You can change status of this domain maually") ?></p>
+        <div>
+          <select class="select22" name="status">
+            <option value="pending" <?php if(\dash\data::dataRow_status() === 'pending') {echo 'selected';} ?>><?php echo T_('Pending') ?></option>
+            <option value="failed" <?php if(\dash\data::dataRow_status() === 'failed') {echo 'selected';} ?>><?php echo T_('Failed') ?></option>
+            <option value="ok" <?php if(\dash\data::dataRow_status() === 'ok') {echo 'selected';} ?>><?php echo T_('Ok') ?></option>
+            <option value="pending_delete" <?php if(\dash\data::dataRow_status() === 'pending_delete') {echo 'selected';} ?>><?php echo T_('Pending_delete') ?></option>
+            <option value="deleted" <?php if(\dash\data::dataRow_status() === 'deleted') {echo 'selected';} ?>><?php echo T_('Deleted') ?></option>
+            <option value="inprogress" <?php if(\dash\data::dataRow_status() === 'inprogress') {echo 'selected';} ?>><?php echo T_('Inprogress') ?></option>
+            <option value="dns_not_resolved" <?php if(\dash\data::dataRow_status() === 'dns_not_resolved') {echo 'selected';} ?>><?php echo T_('Dns_not_resolved') ?></option>
+          </select>
+        </div>
+      </div>
+      <footer class="txtRa">
+        <button class="btn success"><?php echo T_("Save") ?></button>
+
+      </footer>
+    </div>
+  </form>
+
+
   <div class="box">
     <div class="body">
       <div class="f">

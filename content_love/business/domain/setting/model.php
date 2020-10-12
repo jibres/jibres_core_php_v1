@@ -82,6 +82,19 @@ class model
 		}
 
 
+		if(\dash\request::post('changestatus') === 'changestatus')
+		{
+			$result = \lib\app\business_domain\edit::edit(['status' => \dash\request::post('status')], \dash\data::dataRow_id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
+
+
+
 
 	}
 }

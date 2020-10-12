@@ -107,16 +107,19 @@ class edit
 	{
 		$condition =
 		[
-			'cdn'   => ['enum' => ['arvancloud', 'cloudflare', 'enterprise']],
+			'cdn'    => ['enum' => ['arvancloud', 'cloudflare', 'enterprise']],
+			'status' => ['enum' => ['pending','failed','ok','pending_delete','deleted','inprogress','dns_not_resolved']],
 		];
 
-		$require = ['cdn'];
+		$require = ['cdn', 'status'];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$id = \dash\validate::id($_id);
+
+		$data = \dash\cleanse::patch_mode($_args, $data);
 
 		$data['datemodified'] = date("Y-m-d H:i:s");
 
