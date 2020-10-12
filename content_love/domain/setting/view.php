@@ -10,7 +10,7 @@ class view
 
 		// btn
 		\dash\data::back_text(T_('Domains'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/all');
 
 		$args =
 		[

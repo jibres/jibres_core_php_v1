@@ -10,7 +10,7 @@ class view
 
 		// btn
 		\dash\data::back_text(T_('Domains'));
-		\dash\data::back_link(\dash\url::this(). '/search');
+		\dash\data::back_link(\dash\url::this(). '/all');
 
 		$load_domain = \lib\app\business_domain\get::is_customer_domain(\dash\data::domainDetail_name());
 
