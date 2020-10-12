@@ -207,7 +207,11 @@ class run
 
 
 
-
+	/**
+	 * For example mradib.com
+	 * this domain is enterprise domain
+	 * need check headers
+	 */
 	private static function check_free_domains()
 	{
 

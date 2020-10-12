@@ -178,7 +178,7 @@ class get
 				business_domain.subdomain IS NULL AND
 				business_domain.cdn != 'enterprise' AND
 				business_domain.status = 'pending' AND
-				business_domain.checkdns IS NOT NULL AND
+				-- business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NULL
 			ORDER BY
 				business_domain.datemodified ASC
