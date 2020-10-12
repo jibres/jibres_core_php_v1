@@ -25,6 +25,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive' => false,
             ];
 
             $client = @new \SoapClient('https://sep.shaparak.ir/payments/initpayment.asmx?wsdl', $soap_meta);
@@ -68,6 +69,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive'   => false,
             ];
 
             $client    = @new \SoapClient('https://sep.shaparak.ir/payments/referencepayment.asmx?WSDL', $soap_meta);
@@ -109,6 +111,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive'   => false,
             ];
 
             $client    = @new \SoapClient('https://sep.shaparak.ir/payments/referencepayment.asmx?WSDL', $soap_meta);

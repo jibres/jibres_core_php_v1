@@ -25,6 +25,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive'   => false,
             ];
 
             $client = @new \SoapClient('https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl', $soap_meta);
@@ -78,6 +79,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive'   => false,
             ];
 
             $client    = @new \SoapClient('https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl', $soap_meta);

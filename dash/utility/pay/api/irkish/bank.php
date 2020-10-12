@@ -29,6 +29,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive' => false,
 
             ];
 
@@ -76,6 +77,7 @@ class bank
             [
                 'soap_version' => 'SOAP_1_1',
                 'exceptions'   => true,
+                'keep_alive' => false,
                 // 'cache_wsdl'   => WSDL_CACHE_NONE ,
                 // 'encoding'     => 'UTF-8',
             ];

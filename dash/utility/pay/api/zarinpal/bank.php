@@ -22,7 +22,7 @@ class bank
 
         try
         {
-            $client = @new \soapclient('https://de.zarinpal.com/pg/services/WebGate/wsdl', ['exceptions'   => true,]);
+            $client = @new \soapclient('https://de.zarinpal.com/pg/services/WebGate/wsdl', ['exceptions'   => true, 'keep_alive' => false]);
 
             $result                 = $client->PaymentRequest($_args);
             self::$payment_response = $result;
@@ -63,7 +63,7 @@ class bank
     {
         try
         {
-            $client = @new \soapclient('https://de.zarinpal.com/pg/services/WebGate/wsdl', ['exceptions' => true]);
+            $client = @new \soapclient('https://de.zarinpal.com/pg/services/WebGate/wsdl', ['exceptions' => true, 'keep_alive' => false]);
 
             $result                         = $client->PaymentVerification($_args);
             self::$payment_response         = $result;

@@ -123,7 +123,7 @@ class bank
                 ]
             ];
 
-            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
+            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true, 'keep_alive' => false];
             $client = @new \SoapClient("https://services.asanpardakht.net/paygate/merchantservices.asmx?WSDL", $params);
 
             $username = \dash\setting\asanpardakht::get('Username');
@@ -201,7 +201,7 @@ class bank
             ];
 
 
-            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
+            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true, 'keep_alive' => false];
 
             $client = @new \SoapClient("https://services.asanpardakht.net/paygate/internalutils.asmx?WSDL", $params);
 
@@ -288,7 +288,7 @@ class bank
                 ]
             ];
 
-            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
+            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true, 'keep_alive' => false];
 
             $client = @new \SoapClient("https://services.asanpardakht.net/paygate/internalutils.asmx?WSDL", $params);
         }

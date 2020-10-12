@@ -25,6 +25,7 @@ class bank
                 'cache_wsdl'   => WSDL_CACHE_NONE ,
                 'encoding'     => 'UTF-8',
                 'exceptions'   => true,
+                'keep_alive'   => false,
             ];
 
             $client = @new \SoapClient('https://pec.shaparak.ir/NewIPGServices/Sale/SaleService.asmx?WSDL',$soap_meta);
@@ -72,6 +73,7 @@ class bank
                 'soap_version' => 'SOAP_1_1',
                 'cache_wsdl'   => WSDL_CACHE_NONE ,
                 'encoding'     => 'UTF-8',
+                'keep_alive'   => false
             ];
 
             // ClientConfirmResponseData ConfirmPaymentResult(ClientConfirmRequestData data)
@@ -117,6 +119,7 @@ class bank
                 'soap_version' => 'SOAP_1_1',
                 'cache_wsdl'   => WSDL_CACHE_NONE ,
                 'encoding'     => 'UTF-8',
+                'keep_alive'   => false,
             ];
 
             $client = new \SoapClient('https://pec.shaparak.ir/NewIPGServices/Reverse/ReversalService.asmx?WSDL', $soap_meta);
