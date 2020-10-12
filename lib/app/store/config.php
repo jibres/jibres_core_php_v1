@@ -33,6 +33,8 @@ class config
 
 		\lib\db\setting\insert::default_setting('product_setting', 'comment', '1', $_fuel, $_database);
 
+		\lib\db\setting\insert::default_setting('store_setting', 'lang', \dash\language::current(), $_fuel, $_database);
+
 	}
 }
 ?>
