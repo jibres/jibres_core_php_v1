@@ -23,15 +23,16 @@ class power
 		\dash\language::detect_language();
 
 
-		\dash\engine\prepare::basics();
-
 		// find store detail and set to connect to true store
 		\dash\engine\store::config();
+
+
+		\dash\engine\prepare::basics();
 
 		// check origin
 		\dash\engine\guard::origin();
 
-		// // check if isset remember me and login by this
+		// check login
 		\dash\login::check();
 
 		// LAUNCH !
