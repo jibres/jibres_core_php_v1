@@ -22,6 +22,12 @@ class controller
 		\dash\permission::access('contentA');
 
 
+		if(\dash\request::get('bigopening'))
+		{
+			\lib\app\store\config::first_setup();
+		}
+
+
 		if(\dash\request::get('domain') && !\dash\url::module())
 		{
 			\dash\redirect::to(\dash\url::this(). '/setting/domain/existdomain?'. \dash\request::fix_get());

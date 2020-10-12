@@ -3,6 +3,20 @@ namespace lib\app\website;
 
 class init
 {
+
+	/**
+	 * After create new business call this function to init first detail
+	 */
+	public static function first_init()
+	{
+		self::status();
+		self::header();
+		self::body();
+		self::footer();
+		self::menu();
+	}
+
+
 	public static function status()
 	{
 		\lib\app\website\status\set::status(['status' => 'publish']);
@@ -24,6 +38,62 @@ class init
 		\lib\app\website\footer\set::set_footer_template(['footer' => 'footer_100']);
 		\lib\app\website\generator::remove_catch();
 		\dash\notif::clean();
+	}
+
+
+
+	private static function menu()
+	{
+		$menu1 = \lib\app\website\menu\add::new_menu(['title' => T_("Example menu 1")]);
+
+		if(isset($menu1['id']))
+		{
+
+			$customize_header = \lib\app\website\header\set::customize_header(['header_menu_1' => $menu1['key']]);
+
+			$menu_item1 =
+			[
+				'title' => T_("About"),
+				'url'   => '/about',
+			];
+
+			\lib\app\website\menu\add::menu_item($menu_item1, $menu1['id']);
+
+			$menu_item2 =
+			[
+				'title' => T_("Contact"),
+				'url'   => '/contact',
+			];
+
+			\lib\app\website\menu\add::menu_item($menu_item2, $menu1['id']);
+		}
+
+
+		$menu2 = \lib\app\website\menu\add::new_menu(['title' => T_("Example menu 2")]);
+
+		if(isset($menu2['id']))
+		{
+			$customize_header = \lib\app\website\header\set::customize_header(['header_menu_2' => $menu2['key']]);
+
+			$menu_item1 =
+			[
+				'title'  => T_("Instagram"),
+				'url'    => 'https://www.instagram.com/JibresDotCom/',
+				'target' => 1,
+			];
+
+			\lib\app\website\menu\add::menu_item($menu_item1, $menu2['id']);
+
+			$menu_item2 =
+			[
+				'title'  => T_("Telegram"),
+				'url'    => 'https://t.me/Jibres',
+				'target' => 1,
+			];
+
+			\lib\app\website\menu\add::menu_item($menu_item2, $menu2['id']);
+		}
+
 	}
 
 

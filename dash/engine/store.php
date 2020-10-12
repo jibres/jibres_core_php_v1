@@ -458,8 +458,6 @@ class store
 			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
 			$detail['fuel']      = isset($_store_detail['fuel']) ? $_store_detail['fuel'] : null;
 
-			// @header('x-lockStoreDetail: '. json_encode($detail, JSON_UNESCAPED_UNICODE));
-
 			self::$store_loaded_detail = $detail;
 
 			self::$IN_SOTE = true;

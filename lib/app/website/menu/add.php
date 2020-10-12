@@ -61,7 +61,7 @@ class add
 			\lib\app\website\generator::remove_catch();
 
 			\dash\notif::ok(T_("Your menu was saved"));
-			return ['id' => \dash\coding::encode($menu_id)];
+			return ['id' => \dash\coding::encode($menu_id), 'key' => $key];
 		}
 		else
 		{

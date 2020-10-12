@@ -36,5 +36,91 @@ class config
 		\lib\db\setting\insert::default_setting('store_setting', 'lang', \dash\language::current(), $_fuel, $_database);
 
 	}
+
+
+	/**
+	 * After create store user login in store and run this function
+	 */
+	public static function first_setup()
+	{
+		$setup_before = \lib\db\setting\get::by_cat_key('business_first_setup_data', 'execute');
+		if(!$setup_before)
+		{
+			\lib\db\setting\set::cat_key_value('business_first_setup_data', 'execute', date("Y-m-d H:i:s"));
+			// continue function to init setup
+		}
+		else
+		{
+			// setup execute before needless to run again
+			return false;
+		}
+
+		// first init website header, footer, body
+		\lib\app\website\init::first_init();
+
+		self::add_example_product();
+
+		\dash\notif::clean();
+	}
+
+
+
+	private static function add_example_product()
+	{
+		$args =
+		[
+			'title'         => T_("Example product 1"),
+			'stock'         => 10,
+			'weight'        => 10,
+			'desc'          => T_("Description of example product 1"),
+			'trackquantity' => 1,
+			'sku'           => '123456',
+			'sharetext'     => T_("Share this product by this text"),
+			'buyprice'      => 1000,
+			'price'         => 1500,
+			'discount'      => 100,
+			'company'       => T_("Example company"),
+			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
+			'cat'           => [T_("Example category 1")],
+			'unit'          => T_("Number"), // in add manual user send the unit
+		];
+
+		$product_id = \lib\app\product\add::add($args);
+
+		if(isset($product_id['id']))
+		{
+
+		}
+
+
+		\dash\notif::clean();
+		\dash\engine\process::continue();
+
+		$args =
+		[
+			'title'         => T_("Example product 2"),
+			'stock'         => 10,
+			'weight'        => 10,
+			'desc'          => T_("Description of example product 2"),
+			'trackquantity' => 1,
+			'sku'           => '654321',
+			'sharetext'     => T_("Share this product by this text"),
+			'buyprice'      => 1000,
+			'price'         => 1500,
+			'discount'      => 100,
+			'company'       => T_("Example company"),
+			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
+			'cat'           => [T_("Example category 1")],
+			'unit'          => T_("Number"), // in add manual user send the unit
+		];
+
+		$product_id = \lib\app\product\add::add($args);
+
+		if(isset($product_id['id']))
+		{
+
+		}
+	}
+
 }
 ?>
