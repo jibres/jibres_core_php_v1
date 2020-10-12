@@ -38,7 +38,7 @@ class dns
 			if(isset($load['datecreated']) && $load['datecreated'] && (time() - strtotime($load['datecreated']) > (60*60*24*7)))
 			{
 				\lib\app\business_domain\action::new_action($_id, 'dns_failed_for_long_time', ['meta' => json_encode($get_dns)]);
-				\lib\app\business_domain\edit::edit_raw(['status' => 'dns_not_resolved'], $_id);
+				// \lib\app\business_domain\edit::edit_raw(['status' => 'dns_not_resolved'], $_id);
 			}
 
 			\dash\notif::error(T_("Can not get DNS detail!"));
