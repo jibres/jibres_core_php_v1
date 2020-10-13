@@ -26,7 +26,7 @@ class edit
 			return true;
 		}
 
-		if(isset($load_domain['verify']) && $load_domain['verify'])
+		if(\lib\app\nic_domain\ready::is_verify($load_domain))
 		{
 			// no problem
 		}

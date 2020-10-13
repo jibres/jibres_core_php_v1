@@ -286,5 +286,17 @@ class ready
 
 		return $result;
 	}
+
+
+	public static function is_verify($_detail)
+	{
+		$detail = self::row($_detail);
+		if(isset($detail['verify']) && $detail['verify'])
+		{
+			return true;
+		}
+
+		return false;
+	}
 }
 ?>

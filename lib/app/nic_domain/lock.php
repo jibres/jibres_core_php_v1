@@ -53,7 +53,7 @@ class lock
 			return false;
 		}
 
-		if(isset($load_domain['verify']) && $load_domain['verify'])
+		if(\lib\app\nic_domain\ready::is_verify($load_domain))
 		{
 
 		}
@@ -155,7 +155,7 @@ class lock
 			return false;
 		}
 
-		if(isset($load_domain['verify']) && $load_domain['verify'])
+		if(\lib\app\nic_domain\ready::is_verify($load_domain))
 		{
 
 		}
