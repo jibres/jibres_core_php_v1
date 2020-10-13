@@ -18,16 +18,38 @@ class price
 	}
 
 
-	public static function renew($_period)
+	public static function renew($_period, $_expire_date = null)
 	{
+		$price = 0;
 		if($_period === '5year')
 		{
-			return 14000;
+			$price = 14000;
 		}
 		else
 		{
-			return 4000;
+			$price = 4000;
 		}
+
+		if($_expire_date)
+		{
+
+			$date1 = date_create($_expire_date);
+			$date2 = date_create(date("Y-m-d"));
+			$diff  = date_diff($date2, $date1);
+			$days  = 0;
+
+			if(isset($diff->days))
+			{
+				$days = $diff->days;
+			}
+
+			if($days > 30 && $days < 60)
+			{
+				$price = $price * 2;
+			}
+		}
+
+		return $price;
 	}
 
 

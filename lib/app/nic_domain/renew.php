@@ -69,8 +69,6 @@ class renew
 
 		$period_month = 0;
 
-		$price = \lib\app\nic_domain\price::renew($period);
-
 		if($period === '1year')
 		{
 			$period_month = 12;
@@ -180,6 +178,8 @@ class renew
 			return false;
 		}
 
+		$price = \lib\app\nic_domain\price::renew($period, $current_date_expire);
+
 		$reseller = isset($get_domain_info['reseller']) ? $get_domain_info['reseller'] : null;
 		$bill     = isset($get_domain_info['bill']) ? $get_domain_info['bill'] : null;
 
@@ -229,7 +229,11 @@ class renew
 
 			if($dont_know_nic_bill)
 			{
-				$domain_action_detail['detail'] = json_encode(['dont_know_nic_bill' => true, 'must_set_reseller' => $reseller === $jibres_nic_contact ? true : false]);
+				$domain_action_detail['detail'] = json_encode(['current_date_expire' => $current_date_expire, 'dont_know_nic_bill' => true, 'must_set_reseller' => $reseller === $jibres_nic_contact ? true : false]);
+			}
+			else
+			{
+				$domain_action_detail['detail'] = json_encode(['current_date_expire' => $current_date_expire]);
 			}
 
 			\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);

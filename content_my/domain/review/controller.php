@@ -119,7 +119,14 @@ class controller
 	        }
 	        elseif(\dash\request::get('type') === 'renew')
 	        {
-	        	$price = \lib\app\nic_domain\price::renew(\dash\data::myPeriod());
+	        	if(isset($load_last_activity['detail']['current_date_expire']) && $load_last_activity['detail']['current_date_expire'])
+	        	{
+	        		$price = \lib\app\nic_domain\price::renew(\dash\data::myPeriod(), $load_last_activity['detail']['current_date_expire']);
+	        	}
+	        	else
+	        	{
+	        		$price = \lib\app\nic_domain\price::renew(\dash\data::myPeriod());
+	        	}
 	        }
 	        elseif(\dash\request::get('type') === 'transfer')
 	        {
