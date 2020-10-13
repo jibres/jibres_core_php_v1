@@ -187,6 +187,28 @@ else
 
   <div class="panel mB10">
     <table class="tbl1 v4 mB0">
+      <tr>
+        <td colspan="2" ><?php echo T_("This detail was founded in whois answer") ?></td>
+      </tr>
+     <tr>
+      <td><?php echo T_("Email") ?></td>
+      <td class="txtRa"><?php echo \dash\data::domainDetail_email() ?></td>
+     </tr>
+
+     <tr>
+      <td><?php echo T_("Mobile") ?></td>
+      <td class="txtRa"><?php echo \dash\fit::mobile(\dash\data::domainDetail_mobile()) ?></td>
+     </tr>
+     <tr>
+      <td><?php echo T_("Last check domain owner with whois") ?></td>
+      <td class="txtRa"><?php echo \dash\fit::date_time(\dash\data::domainDetail_ownercheckdate()) ?></td>
+     </tr>
+
+    </table>
+  </div>
+
+  <div class="panel mB10">
+    <table class="tbl1 v4 mB0">
      <tr>
       <td>
         <?php if(\dash\data::domainDetail_verify()) {?>
