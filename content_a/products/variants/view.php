@@ -17,10 +17,41 @@ class view
 
 		\dash\face::title(T_("Variants"). ' | '. $title);
 
-
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/child?id='. \dash\request::get('id'));
+
+		if(\dash\data::productDataRow_first_sale())
+		{
+			\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		}
+		else
+		{
+		  if(
+		      (!\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent() && !\dash\data::productDataRow_variants()) ||
+		      (!\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent() && \dash\data::productDataRow_variants() && \dash\request::get('makevariants'))
+		    )
+		  {
+			\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		  }
+		  elseif(!\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent() && \dash\data::productDataRow_variants())
+		  {
+		   	// nothing
+		  }
+		  elseif(\dash\data::productDataRow_variant_child())
+		  {
+		   	// nothing
+		  }
+		  elseif(\dash\data::productDataRow_parent())
+		  {
+			\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		  }
+		  else
+		  {
+			\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		  }
+		}
+
 
 
 		if(\dash\data::productDataRow_url())
