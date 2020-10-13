@@ -48,5 +48,16 @@ class update
 		$result = \dash\db::query($query, 'nic');
 		return $result;
 	}
+
+
+	public static function remove_verify_from_all($_domain)
+	{
+		$query  = "UPDATE domain SET domain.verify = NULL WHERE domain.name = '$_domain' ";
+		$result = \dash\db::query($query, 'nic');
+		return $result;
+	}
+
+
+
 }
 ?>

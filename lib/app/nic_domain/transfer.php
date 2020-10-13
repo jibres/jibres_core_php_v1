@@ -356,10 +356,12 @@ class transfer
 
 		if($result)
 		{
+			// remove verify from all user to accept transfer and then enable domain fo everyone have email of this domain
+			\lib\db\nic_domain\update::remove_verify_from_all($domain);
 
 			$update =
 			[
-				'verify'    => 1,
+				// 'verify'    => 1, // need to wait for transfer complete
 				'available' => 0,
 				'status'    => 'enable',
 			];
