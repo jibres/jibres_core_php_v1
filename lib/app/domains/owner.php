@@ -18,6 +18,7 @@ class owner
 		foreach ($not_checked as $key => $value)
 		{
 			self::check_owner($value);
+			break;
 		}
 
 	}
