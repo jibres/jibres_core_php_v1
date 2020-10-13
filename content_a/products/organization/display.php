@@ -30,14 +30,14 @@ $child_list         = \dash\data::productDataRow_child();
           </div>
         </div>
 
-        <?php if(false) {?>
+
         <div class="c">
           <div class="radio3">
             <input type="radio" name="type" value="file" id="typeFile" <?php if(\dash\data::productDataRow_type() == 'file') { echo 'checked'; } if($have_variant_child || \dash\data::productDataRow_parent()) { echo ' disabled ';} ?>>
             <label for="typeFile"><?php echo T_("File"); ?></label>
           </div>
         </div>
-      <?php } //endif ?>
+
       </div>
     <?php } //endif ?>
       <div class="mB10">
