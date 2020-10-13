@@ -55,13 +55,19 @@ class search
 
 
 
+	public static function count_list($_and, $_or, $_order_sort = null, $_meta = [])
+	{
+		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$query = "SELECT COUNT(*) AS `count` FROM domain $q[where] ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
 
 
 	public static function calc_pay_period_predict($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
-
 
 		$query = "SELECT domain.dateexpire, domain.id FROM domain $q[where] $q[order] ";
 

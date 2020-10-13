@@ -52,7 +52,7 @@ class dashboard
 		$result                          = [];
 		$result['maybe_my_domain']   = intval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
 		$result['available_domain'] = intval(\lib\db\nic_domain\get::my_available_count($user_id));
-		$result['my_domain']      = intval(\lib\db\nic_domain\get::my_active_count($user_id));
+		$result['my_domain']      = intval(\lib\app\nic_domain\search::get_my_active_count($user_id));
 
 		$count_autorenew = intval(\lib\db\nic_domain\get::my_autorenew_count($user_id));
 
@@ -151,7 +151,7 @@ class dashboard
 		$user_id = \dash\user::id();
 
 		$result              = [];
-		$result['mydomain']  = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
+		$result['mydomain']  = floatval(\lib\app\nic_domain\search::get_my_active_count($user_id));
 		$result['maybe']     = floatval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
 		$result['available'] = floatval(\lib\db\nic_domain\get::my_available_count($user_id));
 		$result['imported'] = floatval(\lib\db\nic_domain\get::my_imported_count($user_id));

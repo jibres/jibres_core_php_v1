@@ -262,6 +262,53 @@ class user
 	}
 
 
+	private static $email_list = [];
+	private static $load_emails_list = false;
+	public static function email_list($_verify = false)
+	{
+		if(!self::id())
+		{
+			return [];
+		}
+
+
+		if(self::$load_emails_list)
+		{
+			$email_list = self::$email_list;
+		}
+		else
+		{
+			$email_list             = \dash\db\useremail::get_by_user_id(self::id());
+			self::$email_list       = $email_list;
+			self::$load_emails_list = true;
+		}
+
+
+		if(!is_array($email_list))
+		{
+			$email_list = [];
+		}
+
+		$result = [];
+
+		foreach ($email_list as $key => $value)
+		{
+			if($_verify)
+			{
+				if(isset($value['verify']) && $value['verify'])
+				{
+					$result[] = $value['email'];
+				}
+			}
+			else
+			{
+				$result[] = $value['email'];
+			}
+		}
+
+		return $result;
+
+	}
 
 
 

@@ -4,6 +4,7 @@ namespace lib\app\nic_domain;
 
 class ready
 {
+
 	public static function row($_data)
 	{
 		$domain = isset($_data['name']) ? $_data['name'] : null;
@@ -205,13 +206,48 @@ class ready
 				case 'status':
 					$result[$key] = $value;
 					$result['tstatus'] = T_($value);
+					break;
 
+				case 'verify':
+					$result[$key] = $value;
 					break;
 
 				default:
 					$result[$key] = $value;
 					break;
 			}
+		}
+
+
+		/**
+		 * set verify user by check mobile and email
+		 */
+		if(array_key_exists('verify', $result) && !$result['verify'])
+		{
+			if(\dash\url::content() === 'my')
+			{
+				$mobile = null;
+				if(\dash\user::detail('verifymobile'))
+				{
+					$mobile = \dash\user::detail('mobile');
+					if(isset($result['mobile']) && $result['mobile'] === $mobile)
+					{
+						$result['verify'] = 1;
+					}
+				}
+
+
+				$have_emails = \dash\user::email_list(true);
+
+				if($have_emails && is_array($have_emails))
+				{
+					if(isset($result['email']) && in_array($result['email'], $have_emails))
+					{
+						$result['verify'] = 1;
+					}
+				}
+			}
+
 		}
 
 

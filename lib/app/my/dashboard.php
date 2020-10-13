@@ -26,7 +26,7 @@ class dashboard
 
 		$result['store_count']  = $store_count;
 
-		$domain_count = floatval(\lib\db\nic_domain\get::my_active_count($user_id));
+		$domain_count = floatval(\lib\app\nic_domain\search::get_my_active_count($user_id));
 
 		$result['domain_count'] = $domain_count;
 

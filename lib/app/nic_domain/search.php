@@ -63,6 +63,7 @@ class search
 			'status'    => 'string_100',
 			'user_id'   => 'id',
 			'is_admin'  => 'bit',
+			'get_count'  => 'bit',
 
 		];
 
@@ -203,14 +204,30 @@ class search
 				self::$filter_args[T_("Lock")] = T_("Unknown");
 			}
 
-			if(!$data['list'])
+			if(!$data['list'] || $data['list'] === 'mydomain')
 			{
-				$and[] = " domain.verify = 1 AND domain.available = 0 ";
-			}
-			elseif($data['list'] === 'mydomain')
-			{
+				$mobile = null;
+				if(\dash\user::detail('verifymobile'))
+				{
+					$mobile = \dash\user::detail('mobile');
+				}
+
+				$emails = null;
+				$have_emails = \dash\user::email_list(true);
+
+				if($have_emails)
+				{
+					$emails = implode("','", $have_emails);
+				}
+
+				$mobile_emails_query = null;
+				if($emails || $mobile)
+				{
+					$mobile_emails_query = " OR (domain.available = 0 AND (domain.mobile = '$mobile' OR domain.email IN ('$emails') ) )";
+				}
+
 				// $and[] = " domain.status = 'enable' ";
-				$and[] = " domain.verify = 1 AND domain.available = 0 ";
+				$and[] = " ( ( domain.verify = 1 AND domain.available = 0 ) $mobile_emails_query )";
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("My domains");
 			}
@@ -251,9 +268,18 @@ class search
 			$and[] = " domain.user_id = $data[user_id] ";
 		}
 
-		$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
+		if($data['get_count'])
+		{
+			$count = \lib\db\nic_domain\search::count_list($and, $or, $order_sort, $meta);
+			return floatval($count);
+		}
+		else
+		{
+			$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
+		}
 
-
+		// var_dump(func_get_args());
+		// var_dump($list);exit();
 		if($data['is_admin'])
 		{
 			$users_id = array_column($list, 'user_id');
@@ -409,7 +435,10 @@ class search
 
 	}
 
-
+	public static function get_my_active_count($_user_id)
+	{
+		return self::get_list(null, ['user_id' => $_user_id, 'get_count' => true]);
+	}
 
 
 }
