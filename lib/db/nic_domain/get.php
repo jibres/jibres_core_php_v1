@@ -4,6 +4,30 @@ namespace lib\db\nic_domain;
 
 class get
 {
+
+
+	public static function need_check_owner_again()
+	{
+		$date = date("Y-m-d H:i:s", strtotime("-1 days"));
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				domain
+			WHERE
+				domain.email IS NULL AND
+				domain.mobile IS NULL AND
+				domain.ownercheckdate IS NOT NULL AND
+				domain.ownercheckdate < '$date' AND
+				domain.available != 1
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
 	public static function not_checked_owner()
 	{
 		$query  =
@@ -17,7 +41,7 @@ class get
 				domain.mobile IS NULL AND
 				domain.ownercheckdate IS NULL AND
 				domain.available != 1
-			LIMIT 2
+			LIMIT 1
 		";
 
 		$result = \dash\db::get($query, null, false, 'nic');

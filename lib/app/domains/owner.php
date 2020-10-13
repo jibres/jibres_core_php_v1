@@ -10,16 +10,24 @@ class owner
 	public static function check()
 	{
 		$not_checked = \lib\db\nic_domain\get::not_checked_owner();
-		if(!$not_checked || !is_array($not_checked))
+		if($not_checked && is_array($not_checked))
 		{
-			return;
+			foreach ($not_checked as $key => $value)
+			{
+				self::check_owner($value);
+			}
 		}
 
-		foreach ($not_checked as $key => $value)
+		$need_check_owner_again = \lib\db\nic_domain\get::need_check_owner_again();
+
+		if($need_check_owner_again && is_array($need_check_owner_again))
 		{
-			self::check_owner($value);
-			break;
+			foreach ($need_check_owner_again as $key => $value)
+			{
+				self::check_owner($value);
+			}
 		}
+
 
 	}
 
