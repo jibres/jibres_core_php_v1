@@ -107,6 +107,12 @@ $myData = \dash\data::dashboardDetail();
             <div class="go"></div>
           </a>
        </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/autorenew">
+            <div class="key"><?php echo T_('Auto renew list');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
      </ul>
    </nav>
 

@@ -4,20 +4,32 @@ namespace lib\app\nic_domain;
 
 class autorenew
 {
-	public static function run()
+	public static function run($_get_list = false, $_hour = null, $_return_raw = false)
 	{
 		// get all domain with auto renew and less than 1 year left to expire and hour of expire is this hour
 		$last_year = date("Y-m-d", strtotime("+365 days"));
-		$hour      = date("H");
+		if($_hour)
+		{
+			$hour      = $_hour;
+		}
+		else
+		{
+			$hour      = date("H");
+		}
 
 		$list = \lib\db\nic_domain\get::autorenew_list($last_year, $hour);
 
 		if(empty($list) || !$list || !is_array($list))
 		{
-			return;
+			return [];
 		}
 
 		$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+
+		if($_return_raw)
+		{
+			return $list;
+		}
 
 		$not_allow_renew =
 		[
@@ -30,6 +42,8 @@ class autorenew
 			'irnicRegistrationDocRequired',
 			'irnicRenewalPendingHolderCheck'
 		];
+
+		$final_list = [];
 
 		foreach ($list as $key => $value)
 		{
@@ -138,13 +152,23 @@ class autorenew
 					continue;
 				}
 
-				if(\dash\validate::ir_domain($value['name'], false))
+				if($_get_list)
 				{
-					$result = \lib\app\nic_domain\renew::renew($renew);
+					$value['auto_renew_args'] = $renew;
+					$final_list[] = $value;
+					continue;
 				}
 				else
 				{
-					$result = \lib\app\onlinenic\renew::renew($renew);
+					if(\dash\validate::ir_domain($value['name'], false))
+					{
+						$result = \lib\app\nic_domain\renew::renew($renew);
+					}
+					else
+					{
+						$result = \lib\app\onlinenic\renew::renew($renew);
+					}
+
 				}
 
 				if($result === false && \dash\temp::get('ji128-irnic-not-allow'))
@@ -167,6 +191,7 @@ class autorenew
 			}
 		}
 
+		return $final_list;
 	}
 
 
