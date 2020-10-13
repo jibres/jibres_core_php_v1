@@ -154,12 +154,11 @@ if(!is_array($dataTable))
 
 <div class="fs14 msg info2 pTB20">
   <p><?php echo T_("Hi!"); ?></p>
-  <p><?php echo T_("First step to set up your online store is add products."); ?> <?php echo T_("After add products, you can sell them to your customers."); ?></p>
-  <p><a href="<?php echo \dash\url::that(); ?>/add"><?php echo T_("Try to start with add new product!"); ?></a></p>
+  <p><?php echo T_("No category founded."); ?> </p>
+  <p><a href="<?php echo \dash\url::that(); ?>/add"><?php echo T_("Try to start with add new category!"); ?></a></p>
 
 </div>
 
-<img class="banner" src="<?php echo \dash\url::cdn(); ?>/img/product/camera1.png" align='<?php echo T_("add new product"); ?>'>
 
 
 <?php } //endfunction ?>

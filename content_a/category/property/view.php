@@ -17,8 +17,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. $id);
 
-		\dash\face::btnView(\dash\data::dataRow_url());
-
 		$catList = \lib\app\product\property::property_cat_name($id);
 		\dash\data::catList($catList);
 
