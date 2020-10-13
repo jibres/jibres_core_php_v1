@@ -46,13 +46,13 @@
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
             <i class="sf-package"></i>
-            <div class="key"><?php echo T_("Organization"); ?></div>
+            <div class="key"><?php echo T_("Organize"); ?></div>
             <div class="value"><?php echo T_("Type, vendor, tags"); ?></div>
             <div class="go"></div>
           </a>
         </li>
 
-        <?php if(!\dash\data::productDataRow_parent() && \dash\data::productDataRow_status() !== 'available') {?>
+
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
             <i class="sf-plug"></i>
@@ -61,7 +61,7 @@
             <div class="go"></div>
           </a>
         </li>
-      <?php } //endif ?>
+
       </ul>
     </nav>
 

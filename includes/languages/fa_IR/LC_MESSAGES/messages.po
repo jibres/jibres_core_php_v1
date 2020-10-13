@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-13 16:34+0330\n"
-"PO-Revision-Date: 2020-10-13 16:37+0330\n"
+"POT-Creation-Date: 2020-10-13 16:54+0330\n"
+"PO-Revision-Date: 2020-10-13 16:54+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8642,11 +8642,8 @@ msgid "Not tracking"
 msgstr "بدون رهگیری"
 
 #: content_a/products/edit/block/sidebar-menu.php:49
-#: content_a/products/organization/display.php:16
-#: content_a/products/organization/view.php:18
-#: content_my/domain/whoisdetail/whoisDetailForm.php:19
-msgid "Organization"
-msgstr "سازمان"
+msgid "Organize"
+msgstr "سازماندهی"
 
 #: content_a/products/edit/block/sidebar-menu.php:50
 msgid "Type, vendor, tags"
@@ -9057,6 +9054,12 @@ msgstr "محصول حذف شده است"
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:87
 msgid "Remove product"
 msgstr "حذف محصول"
+
+#: content_a/products/organization/display.php:16
+#: content_a/products/organization/view.php:18
+#: content_my/domain/whoisdetail/whoisDetailForm.php:19
+msgid "Organization"
+msgstr "سازمان"
 
 #: content_a/products/organization/display.php:29 includes/languages/trans_static.php:529
 msgid "Service"
@@ -35408,9 +35411,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Edit Bullet"
 #~ msgstr "ویرایش ویژگی‌های برجسته"
-
-#~ msgid "Organize"
-#~ msgstr "سازماندهی"
 
 #~ msgid "Manage product feature bullet"
 #~ msgstr "مدیریت ویژگی‌های برجسته محصولات"
