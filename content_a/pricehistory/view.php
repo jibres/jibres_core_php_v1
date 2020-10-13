@@ -12,7 +12,10 @@ class view
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::here(). '/setting/product');
 
-		$id = \content_a\pricehistory\controller::myId();
+		\dash\data::action_text(T_('Choose another product'));
+		\dash\data::action_link(\dash\url::this(). '/choose');
+
+		$id = \dash\request::get('id');
 		if($id)
 		{
 			$chart = \lib\app\product\updateprice::chart($id);

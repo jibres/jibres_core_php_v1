@@ -8,31 +8,17 @@ class controller
 	{
 		\dash\permission::access('productPriceHistoryView');
 
-		if(self::myId())
+		if(\dash\request::get('id'))
 		{
-			// check load product detail
-			if(!\lib\app\product\load::one(self::myId()))
+			if(!\lib\app\product\load::one(\dash\request::get('id')))
 			{
 				\dash\header::status(404);
 			}
-
 		}
-	}
-
-
-	public static function myId()
-	{
-		if(\dash\request::get('id'))
+		else
 		{
-			return \dash\request::get('id');
+			\dash\redirect::to(\dash\url::this(). '/choose');
 		}
-
-		if(\dash\request::get('oid'))
-		{
-			return \dash\request::get('oid');
-		}
-
-		return null;
 	}
 }
 ?>
