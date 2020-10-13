@@ -128,7 +128,7 @@ class who
 		$whois_lines = explode("\n", $whois);
 
 		$pre = [];
-
+		$group_index = 0;
 
 		foreach ($whois_lines as  $line)
 		{
@@ -139,6 +139,7 @@ class who
 
 			if($line === '')
 			{
+				$group_index++;
 				continue;
 			}
 
@@ -159,7 +160,7 @@ class who
 
 			$key = mb_strtolower($key);
 
-			if(in_array($key, ['holder-c','admin-c','tech-c','bill-c', 'nic-hdl', 'registrar',]))
+			if(in_array($key, ['holder-c','admin-c','tech-c','bill-c', 'registrar',]))
 			{
 				$group = 'registrar_info';
 			}
@@ -217,7 +218,7 @@ class who
 				}
 			}
 
-			if(in_array($key, ['person', 'e-mail', 'address', 'phone', 'org']))
+			if(in_array($key, ['person', 'e-mail', 'address', 'phone', 'org', 'nic-hdl', 'fax-no']))
 			{
 				$group = 'registrar';
 			}
@@ -225,13 +226,44 @@ class who
 
 			if($group !== 'other')
 			{
-				if($group && !isset($pre[$group]))
-				{
-					$pre[$group] = [];
-				}
+				// if($group && !isset($pre[$group]))
+				// {
+				// 	if($group === 'registrar')
+				// 	{
+				// 		$pre[$group_index][$group] = [];
+				// 	}
+				// 	else
+				// 	{
+				// 		$pre[$group] = [];
+				// 	}
+				// }
+
 				if($key || $value)
 				{
-					$pre[$group][$key] = $value;
+					if($group === 'registrar')
+					{
+						if(isset($pre[$group][$group_index][$key]))
+						{
+							$pre[$group][$group_index][$key] = [$pre[$group][$group_index][$key]];
+							$pre[$group][$group_index][$key][] = $value;
+						}
+						else
+						{
+							$pre[$group][$group_index][$key] = $value;
+						}
+					}
+					else
+					{
+						if(isset($pre[$group][$key]))
+						{
+							$pre[$group][$key] = [$pre[$group][$key]];
+							$pre[$group][$key][] = $value;
+						}
+						else
+						{
+							$pre[$group][$key] = $value;
+						}
+					}
 				}
 			}
 

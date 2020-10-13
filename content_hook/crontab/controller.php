@@ -51,6 +51,8 @@ class controller
 		if(!\dash\engine\store::inStore())
 		{
 
+			\lib\app\domains\owner::check();
+
 			\lib\app\business_domain\run::run();
 
 			// to not check every min all backup setting!

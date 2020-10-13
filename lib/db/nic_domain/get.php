@@ -4,6 +4,26 @@ namespace lib\db\nic_domain;
 
 class get
 {
+	public static function not_checked_owner()
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				domain
+			WHERE
+				domain.email IS NULL AND
+				domain.mobile IS NULL AND
+				domain.ownercheckdate IS NULL AND
+				domain.available != 1
+			LIMIT 2
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
 
 	public static function count_group_by_nic_status($_user_id)
 	{
