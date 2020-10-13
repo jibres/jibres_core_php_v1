@@ -17,6 +17,20 @@ class autorenew
 			return;
 		}
 
+		$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
+
+		$not_allow_renew =
+		[
+			'serverRenewProhibited',
+			'pendingDelete',
+			'pendingRenew',
+			'irnicRegistrationRejected',
+			'irnicRegistrationPendingHolderCheck',
+			'irnicRegistrationPendingDomainCheck',
+			'irnicRegistrationDocRequired',
+			'irnicRenewalPendingHolderCheck'
+		];
+
 		foreach ($list as $key => $value)
 		{
 			if(!isset($value['dateexpire']))
@@ -34,10 +48,29 @@ class autorenew
 				continue;
 			}
 
+			if(isset($value['nicstatus_array']) && is_array($value['nicstatus_array']))
+			{
+				$continue = false;
+				foreach ($not_allow_renew as $not_allow_renew_status)
+				{
+					if(in_array($not_allow_renew_status, $value['nicstatus_array']))
+					{
+						$continue = true;
+						break;
+					}
+				}
+
+				if($continue)
+				{
+					continue;
+				}
+			}
+
 			$dateexpire = $value['dateexpire'];
 			$user_id    = $value['user_id'];
 
 			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+
 
 			$domainlifetime = \lib\app\nic_usersetting\defaultval::domainlifetime();
 
@@ -57,17 +90,33 @@ class autorenew
 
 			if($remain_time < $life_time)
 			{
-				// must renew this domain whit $autrenweperiod
-				$price = \lib\app\nic_domain\price::renew($autorenewperiod);
+				$domain_id = \dash\coding::decode($value['id']);
+				if($domain_id)
+				{
+					\lib\db\nic_domain\update::update(['datemodified' => date("Y-m-d H:i:s")], $domain_id);
+				}
+
+				if(isset($value['lastfetch']) && $value['lastfetch'])
+				{
+					if(time() - strtotime($value['lastfetch']) > (60*60*24*7))
+					{
+						\lib\app\nic_domain\get::force_fetch($value['name']);
+						// continue;
+					}
+				}
+
 
 				$user_budget = floatval(\dash\db\transactions::budget($user_id));
 
-				if(floatval($price) > $user_budget)
+				if(\dash\validate::ir_domain($value['name'], false))
 				{
-					// save action log
-					continue;
+					// must renew this domain whit $autrenweperiod
+					$price = \lib\app\nic_domain\price::renew($autorenewperiod, $dateexpire);
 				}
-
+				else
+				{
+					$price = \lib\app\nic_domain\price::renew($value['name'], substr($autorenewperiod, 0, 1));
+				}
 
 				$renew =
 				[
@@ -79,19 +128,45 @@ class autorenew
 					'usebudget'            => true,
 				];
 
-				$result = \lib\app\nic_domain\renew::renew($renew);
+				\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+
+				if(floatval($price) > $user_budget)
+				{
+					$renew['auto_status'] = 'failed_price';
+					$renew['user_budget_now'] = $user_budget;
+					\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+					continue;
+				}
+
+				if(\dash\validate::ir_domain($value['name'], false))
+				{
+					$result = \lib\app\nic_domain\renew::renew($renew);
+				}
+				else
+				{
+					$result = \lib\app\onlinenic\renew::renew($renew);
+				}
+
 				if($result === false && \dash\temp::get('ji128-irnic-not-allow'))
 				{
-					// save log
+					$renew['auto_status'] = 'failed';
+					\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
 				}
-
-				if($result)
+				elseif($result)
 				{
-					// save log
-				}
 
+					$renew['auto_status'] = 'ok';
+					\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+				}
+				else
+				{
+					$renew['auto_status'] = 'unknown';
+					\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+
+				}
 			}
 		}
+
 	}
 
 

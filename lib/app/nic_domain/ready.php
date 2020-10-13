@@ -47,6 +47,15 @@ class ready
 			switch ($key)
 			{
 				case 'nicstatus':
+					if(\dash\url::content() === 'hook')
+					{
+						$result[$key] = $value;
+						if($value && is_string($value))
+						{
+							$result['nicstatus_array'] = json_decode($value, true);
+						}
+					}
+
 					$status_html = '<div class="ibtn x30 wide"><span>'.T_("Unknown").'</span><i class="sf-question"></i></div>';
 					if($value && is_string($value))
 					{
@@ -201,6 +210,10 @@ class ready
 
 				case 'user_id':
 				case 'result':
+					if(\dash\url::content() === 'hook')
+					{
+						$result[$key] = $value;
+					}
 					break;
 
 				case 'status':

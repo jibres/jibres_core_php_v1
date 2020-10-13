@@ -77,6 +77,12 @@ class price
 	}
 
 
+	public static function renew($_domain, $_period)
+	{
+		return self::get_price($_domain, $_period, 'renew');
+	}
+
+
 	public static function get_price($_domain, $_period, $_type)
 	{
 		$info = \lib\app\onlinenic\check::check($_domain, $_type);

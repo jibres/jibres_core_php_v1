@@ -105,7 +105,7 @@ class get
 							'irnicRenewalPendingHolderCheck'
 						)
 				) IS NULL
-			ORDER BY domain.dateexpire ASC
+			ORDER BY domain.datemodified ASC, domain.dateexpire ASC
 		";
 		$result = \dash\db::get($query, null, false, 'nic');
 		return $result;
