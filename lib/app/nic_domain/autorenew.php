@@ -142,13 +142,19 @@ class autorenew
 					'usebudget'            => true,
 				];
 
-				\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+				if(!$_get_list)
+				{
+					\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+				}
 
 				if(floatval($price) > $user_budget)
 				{
 					$renew['auto_status'] = 'failed_price';
 					$renew['user_budget_now'] = $user_budget;
-					\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+					if(!$_get_list)
+					{
+						\dash\log::set('domain_AutoRenewAlert', ['domain_detail' => $renew]);
+					}
 					continue;
 				}
 
