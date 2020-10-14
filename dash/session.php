@@ -315,7 +315,7 @@ class session
 	 * @param  [type] $_session_id new session id
 	 * @return [type]              [description]
 	 */
-	public static function restart($_session_id)
+	public static function restart($_session_id, $_close = true)
 	{
 		// if a session is currently opened, close it
 		if (session_id() != '')
@@ -326,7 +326,11 @@ class session
 		session_id($_session_id);
 		// start new session
 		self::sessionStart();
-		self::close();
+
+		if($_close)
+		{
+			self::close();
+		}
 	}
 }
 ?>

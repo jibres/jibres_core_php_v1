@@ -7,7 +7,7 @@ class session
 	{
 
 		$newName = \dash\url::root().'Telegram'. hook::from('id');
-		\dash\session::restart($newName);
+		\dash\session::restart($newName, false);
 	}
 }
 ?>
