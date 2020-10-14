@@ -274,7 +274,14 @@ class prepare
 		}
 		else
 		{
-			$target_host = 'https://';
+			if(\dash\engine\store::inCustomerDomain())
+			{
+				$target_host = \dash\url::real_protocol(). '://';
+			}
+			else
+			{
+				$target_host = 'https://';
+			}
 		}
 
 		if(\dash\url::subdomain() && \dash\url::subdomain() !== 'www')

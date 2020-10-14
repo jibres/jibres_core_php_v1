@@ -745,6 +745,8 @@ class url
 	private static function _protocol()
 	{
 		$protocol = 'http';
+
+		// this index for arvancloud
 		if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']))
 		{
 			if($_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
@@ -757,6 +759,24 @@ class url
 			}
 		}
 		elseif((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || self::server('SERVER_PORT') == 443)
+		{
+			$protocol = 'https';
+		}
+
+		return $protocol;
+	}
+
+
+	/**
+	 * Get the curren and real protocol
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function real_protocol()
+	{
+		$protocol = 'http';
+
+		if((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || self::server('SERVER_PORT') == 443)
 		{
 			$protocol = 'https';
 		}
