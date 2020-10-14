@@ -81,11 +81,10 @@ class domain_AutoRenewAlert
 
 		$tg_msg .= " 🔃 \n";
 
-		$tg_msg .= T_("Domain credit low!");
+		$tg_msg .= self::get_msg($_args);
 
 		$tg_msg .= "\n";
 
-		$tg_msg .= self::get_msg($_args);
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];
