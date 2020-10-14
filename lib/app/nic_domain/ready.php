@@ -47,7 +47,7 @@ class ready
 			switch ($key)
 			{
 				case 'nicstatus':
-					if(\dash\url::content() === 'hook')
+					if(\dash\url::content() === 'hook' || \dash\url::content() === 'love')
 					{
 						$result[$key] = $value;
 						if($value && is_string($value))
@@ -210,7 +210,7 @@ class ready
 
 				case 'user_id':
 				case 'result':
-					if(\dash\url::content() === 'hook')
+					if(\dash\url::content() === 'hook' || \dash\url::content() === 'love')
 					{
 						$result[$key] = $value;
 					}

@@ -135,6 +135,14 @@ else
       </footer>
     </div>
   </form>
+
+  <div class="box">
+    <header data-kerkere='.showBodyRaw'><h2><?php echo T_("Record detail raw") ?></h2></header>
+    <div class="body showBodyRaw" data-kerkere-content='hide'>
+<pre><?php print_r(\dash\data::domainDetail()) ?></pre>
+    </div>
+  </div>
+
  </div>
 
 
