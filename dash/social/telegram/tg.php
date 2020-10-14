@@ -47,6 +47,9 @@ class tg
 		{
 			return T_('Telegram is off!');
 		}
+
+		\dash\session::sessionStart();
+
 		// set bot name
 		$myName = \dash\social\telegram\tg::setting('bot');
 		if($myName)
