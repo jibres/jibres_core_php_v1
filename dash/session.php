@@ -63,7 +63,7 @@ class session
 	/**
 	 * Start session if not started
 	 */
-	private static function sessionStart()
+	public static function sessionStart()
 	{
 		if(session_status() !== PHP_SESSION_ACTIVE)
 		{
