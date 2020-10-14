@@ -37,6 +37,7 @@ class remove
 							if(isset($value['product_id']) && isset($value['count']))
 							{
 								\lib\app\product\inventory::set('deleted_order', (floatval($value['count']) * -1), $value['product_id'], $load_detail['id']);
+								\lib\app\product\edit::in_stock($value['product_id']);
 							}
 						}
 					}
