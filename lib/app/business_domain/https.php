@@ -66,6 +66,7 @@ class https
 			return false;
 		}
 
+		\lib\arvancloud\api::check_dns_record($domain);
 
 		$get_domain = \lib\arvancloud\api::get_domain($domain);
 		if(isset($get_domain['data']['services']['dns']))
