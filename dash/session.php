@@ -326,7 +326,6 @@ class session
 		session_id($_session_id);
 		// start new session
 		self::sessionStart();
-		session_start();
 
 		if($_close)
 		{
