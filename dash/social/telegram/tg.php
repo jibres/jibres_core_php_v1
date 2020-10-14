@@ -49,6 +49,7 @@ class tg
 		}
 
 		\dash\session::sessionStart();
+		session_start();
 
 		// set bot name
 		$myName = \dash\social\telegram\tg::setting('bot');
