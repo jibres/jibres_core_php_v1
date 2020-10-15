@@ -105,7 +105,7 @@ class view
 		$category_list = array_reverse($category_list);
 		\dash\data::listCategory($category_list);
 
-		$all_tag = \lib\app\product\tag::all_tag();
+		$all_tag = \lib\app\tag\get::all_tag();
 		\dash\data::allTagList($all_tag);
 
 

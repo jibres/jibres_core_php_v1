@@ -45,10 +45,10 @@ class view
 		$category_list = array_reverse($category_list);
 		\dash\data::listCategory($category_list);
 
-		$all_tag = \lib\app\product\tag::all_tag();
+		$all_tag = \lib\app\tag\get::all_tag();
 		\dash\data::allTagList($all_tag);
 
-		$tag_list = \lib\app\product\tag::get($id);
+		$tag_list = \lib\app\tag\get::product_tag($id);
 		if(!is_array($tag_list))
 		{
 			$tag_list = [];

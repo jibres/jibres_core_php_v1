@@ -1,8 +1,10 @@
 <?php
-namespace lib\app\product;
+namespace lib\app\tag;
 
-class tag
+
+class add
 {
+
 
 	public static function apply_to_all($_args)
 	{
@@ -50,13 +52,90 @@ class tag
 
 
 
-	public static function all_tag()
+
+	public static function add($_args)
 	{
-		$result = \lib\db\producttag\get::all_tag();
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		if(!\dash\permission::check('productTagListAdd'))
+		{
+			return false;
+		}
+
+
+		$args = \lib\app\tag\check::variable($_args);
+		if(!$args)
+		{
+			return false;
+		}
+
+
+		$args['datecreated']   = date("Y-m-d H:i:s");
+		$args['status']        = 'enable';
+		$args['language']      = \dash\language::current();
+
+		$id = \lib\db\producttag\insert::new_record($args);
+		if(!$id)
+		{
+			\dash\log::set('productTagDbErrorInsert');
+			\dash\notif::error(T_("No way to insert data"));
+			return false;
+		}
+
+		\dash\notif::ok(T_("Tag successfully added"));
+
+
+		$result       = [];
+		$result['id'] = $id;
 		return $result;
 	}
 
-	public static function add($_tag, $_product_id)
+
+
+	public static function product_tag_plus($_cat_id, $_product_id)
+	{
+		$product_detail = \lib\app\product\get::get($_product_id);
+		if(!$product_detail)
+		{
+			return false;
+		}
+
+		$load_cat = \lib\app\tag\get::get($_cat_id);
+		if(!$load_cat)
+		{
+			return false;
+		}
+
+
+		$check_product_have_cat = \lib\db\producttagusage\get::check_product_have_tag($_product_id, $_cat_id);
+
+		if($check_product_have_cat)
+		{
+			\dash\notif::warn(T_("This product have this tag"));
+			return true;
+		}
+		else
+		{
+			$insert =
+			[
+				'producttag_id' => $_cat_id,
+				'product_id'         => $_product_id,
+			];
+			\lib\db\producttagusage\insert::new_record($insert);
+			\dash\notif::ok(T_("Tag added to this product"));
+			return true;
+		}
+
+	}
+
+
+
+
+	public static function product_add($_tag, $_product_id)
 	{
 		if(!\dash\permission::check('productAssignTag'))
 		{
@@ -233,209 +312,10 @@ class tag
 	}
 
 
-	public static function load_product_by_tag($_tag)
-	{
-		$_tag = \dash\validate::string($_tag);
-		if(!$_tag)
-		{
-			return false;
-		}
-
-		$_tag     = urldecode($_tag);
-		$load_tag = \lib\db\producttag\get::by_slug($_tag);
-		return $load_tag;
-	}
-
-
-	public static function get($_product_id)
-	{
-		$detail = \lib\app\product\get::inline_get($_product_id);
-		if(!$detail)
-		{
-			return false;
-		}
-
-		$get_usage = \lib\db\producttagusage\get::usage($_product_id);
-
-		return $get_usage;
-	}
-
-
-	public static function get_tag($_tag_id)
-	{
-		$_tag_id = \dash\validate::id($_tag_id);
-		if(!$_tag_id)
-		{
-			return false;
-		}
-
-		$load = \lib\db\producttag\get::by_id($_tag_id);
-		if(!$load)
-		{
-			return null;
-		}
-
-		return $load;
-	}
-
-
-	public static function list($_string, $_args = [])
-	{
-		$and          = [];
-		$or           = [];
-
-		$query_string = \dash\validate::search($_string);
-
-		if($query_string)
-		{
-			$or[]  = "producttag.title LIKE '%$query_string%'";
-		}
-
-		$list         = \lib\db\producttag\search::list($and, $or);
-
-		return $list;
-	}
-
-
-	public static function remove($_id)
-	{
-		$load = self::get_tag($_id);
-		if(!$load)
-		{
-			\dash\notif::error(T_("Tag not found"));
-			return false;
-		}
-
-		$check_usage = \lib\db\producttagusage\get::check_usage_tag($_id);
-		if($check_usage)
-		{
-			\dash\notif::error(T_("This tag use in some product and can not be removed"));
-			return false;
-		}
-
-		\lib\db\producttag\delete::record($_id);
-		\dash\notif::ok(T_("Tag removed"));
-		return true;
-	}
 
 
 
-	public static function check($_args, $_id = null)
-	{
-		$condition =
-		[
-			'title'    => 'title',
-			'slug'     => 'slug',
-			'language' => 'language',
-			'desc'     => 'desc',
-			'status'   => ['enum' => ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']],
-		];
-
-		$require = ['title'];
-
-		$meta = [];
-
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-		if(!$data['slug'])
-		{
-			$data['slug'] = \dash\validate::slug($data['title'], false);
-		}
-
-		$data['slug'] = str_replace('-', '_', $data['slug']);
-
-		// check duplicate
-		// lang+slug
-		$check_duplicate = \lib\db\producttag\get::check_duplicate($data['slug'], $data['language']);
-
-		if(isset($check_duplicate['id']))
-		{
-			if(floatval($check_duplicate['id']) === floatval($_id))
-			{
-				// no problem to edit it
-			}
-			else
-			{
-
-				\dash\notif::error(T_("Duplicate tag"), ['element' => ['slug', 'language', 'title']]);
-				return false;
-			}
-		}
-
-		return $data;
-	}
 
 
-
-	public static function add_tag($_args)
-	{
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
-
-		$args = self::check($_args);
-		if(!$args)
-		{
-			return false;
-		}
-
-		if(!\dash\get::index($args, 'status'))
-		{
-			$args['status'] = 'enable';
-		}
-
-		$tag_id = \lib\db\producttag\insert::new_record($args);
-
-		if(!$tag_id)
-		{
-			\dash\notif::error(T_("No way to insert tag"));
-			return false;
-		}
-
-		\dash\notif::ok(T_("Tag successfully added"));
-		return true;
-
-
-	}
-
-
-
-	public static function edit($_args, $_id)
-	{
-		$_id = \dash\validate::id($_id);
-		if(!$_id)
-		{
-			\dash\notif::error(T_("Id not set"));
-			return false;
-		}
-
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
-
-
-		$args = self::check($_args, $_id);
-		if(!$args)
-		{
-			return false;
-		}
-
-		if(!\dash\get::index($args, 'status'))
-		{
-			$args['status'] = 'enable';
-		}
-
-		\lib\db\producttag\update::update($args, $_id);
-
-		\dash\notif::ok(T_("Tag successfully edited"));
-		return true;
-
-	}
 }
 ?>

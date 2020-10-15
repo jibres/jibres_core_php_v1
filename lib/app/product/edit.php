@@ -216,7 +216,7 @@ class edit
 
 		if(array_key_exists('tag', $args))
 		{
-			\lib\app\product\tag::add($args['tag'], $id);
+			\lib\app\tag\add::product_add($args['tag'], $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;

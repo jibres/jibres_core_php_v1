@@ -11,5 +11,11 @@ class update
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+		public static function record()
+	{
+		$result = \dash\db\config::public_update('producttag', ...func_get_args());
+		return $result;
+	}
 }
 ?>

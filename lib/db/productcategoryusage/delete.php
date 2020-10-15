@@ -5,7 +5,7 @@ namespace lib\db\productcategoryusage;
 class delete
 {
 
-		public static function category_usage_cat_id($_id)
+	public static function category_usage_cat_id($_id)
 	{
 		$query  = "DELETE FROM productcategoryusage WHERE productcategoryusage.productcategory_id = $_id ";
 		$result = \dash\db::query($query);

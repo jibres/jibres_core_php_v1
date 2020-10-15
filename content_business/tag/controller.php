@@ -11,7 +11,7 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
-		$load_product = \lib\app\product\tag::load_product_by_tag($child);
+		$load_product = \lib\app\tag\get::load_product_by_tag($child);
 
 		if(!$load_product)
 		{

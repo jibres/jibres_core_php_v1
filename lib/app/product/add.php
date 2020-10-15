@@ -241,7 +241,7 @@ class add
 
 		if($my_tag)
 		{
-			\lib\app\product\tag::add($my_tag, $product_id);
+			\lib\app\tag\add::product_add($my_tag, $product_id);
 			if(!\dash\engine\process::status())
 			{
 				return false;

@@ -4,6 +4,12 @@ namespace lib\db\producttagusage;
 
 class delete
 {
+	public static function tag_usage_tag_id($_id)
+	{
+		$query  = "DELETE FROM producttagusage WHERE producttagusage.producttag_id = $_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 
 
 	public static function hard_delete($_where)

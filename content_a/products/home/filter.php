@@ -84,7 +84,7 @@ function BoxProductFilter()
 
       <div class="row align-center">
           <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/products/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
       <div>
          <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one tag") ?>">

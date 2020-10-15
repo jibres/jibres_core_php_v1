@@ -38,5 +38,14 @@ class get
 	}
 
 
+		public static function check_product_have_tag($_product_id, $_tag_id)
+	{
+		$query  = "SELECT * FROM producttagusage WHERE producttagusage.producttag_id = $_tag_id AND producttagusage.product_id = $_product_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+
+	}
+
+
 }
 ?>

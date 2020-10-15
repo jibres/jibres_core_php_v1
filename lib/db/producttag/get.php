@@ -34,6 +34,33 @@ class get
 	}
 
 
+	public static function one($_id)
+	{
+		$query  =
+		"
+			SELECT
+				(SELECT COUNT(*) AS `count` FROM producttagusage WHERE  producttagusage.producttag_id = producttag.id) AS `count`,
+				producttag.*
+			FROM
+				producttag
+			WHERE
+				producttag.id = $_id
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
+	public static function get_count_product($_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM producttagusage WHERE  producttagusage.producttag_id = $_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 	public static function by_id($_id)
 	{
 		$query  = "SELECT * FROM producttag WHERE producttag.id = $_id LIMIT 1";
@@ -57,6 +84,12 @@ class get
 		return $result;
 	}
 
+	public static function check_unique_slug($_slug)
+	{
+		$query  = "SELECT * FROM producttag WHERE producttag.slug = '$_slug'  LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 	public static function check_duplicate($_slug, $_language)
 	{

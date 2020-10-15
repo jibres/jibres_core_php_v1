@@ -9,7 +9,7 @@ class model
 		$post           = [];
 		$post['tag'] = \dash\request::post('tag');
 
-		\lib\app\product\tag::apply_to_all($post);
+		\lib\app\tag\add::apply_to_all($post);
 
 		\dash\redirect::pwd();
 	}
