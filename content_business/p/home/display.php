@@ -38,6 +38,8 @@ if(count($myGallery) > 1)
   }
   echo "</div>";
 }
+// @TODO @reza @javad
+// if have one item in gallery and this item is not image not show this video (for example) in website
 ?>
         </div>
         <div class="c-xs-12 c">
