@@ -19,7 +19,7 @@
 
       <section class="box">
       <div class="pad mB50">
-        <label for="productid"><?php echo T_("Choose product to add product to this gategory"); ?></label>
+        <label for="productid"><?php echo T_("Choose product to add product to this Tag"); ?></label>
         <div>
           <select name="add_product_id" class="select22" data-model='html'  <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-placeholder='<?php echo T_("Search in products"); ?>'>
               </select>
