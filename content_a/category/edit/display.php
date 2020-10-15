@@ -56,6 +56,28 @@
         </div>
       </section>
 
+      <section class="box">
+      <div class="pad mB50">
+        <label for="productid"><?php echo T_("Choose product to add product to this gategory"); ?></label>
+        <div>
+          <select name="add_product_id" class="select22" data-model='html'  <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-placeholder='<?php echo T_("Search in products"); ?>'>
+              </select>
+        </div>
+      </div>
+      <footer class="f">
+        <div class="cauto">
+          <a class="btn link" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>">
+              <span class="ltr"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></span>
+              <?php echo T_("Product founded by this category"); ?>
+            </a>
+
+        </div>
+        <div class="c"></div>
+        <div class="cauto"><button class="btn master" name="add_product" value="add_product"><?php echo T_("Add"); ?></button></div>
+
+      </footer>
+    </section>
+
 
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-4">

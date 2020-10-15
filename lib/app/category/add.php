@@ -233,6 +233,44 @@ class add
 
 
 
+	public static function product_cat_plus($_cat_id, $_product_id)
+	{
+		$product_detail = \lib\app\product\get::get($_product_id);
+		if(!$product_detail)
+		{
+			return false;
+		}
+
+		$load_cat = \lib\app\category\get::get($_cat_id);
+		if(!$load_cat)
+		{
+			return false;
+		}
+
+
+		$check_product_have_cat = \lib\db\productcategoryusage\get::check_product_have_cat($_product_id, $_cat_id);
+
+		if($check_product_have_cat)
+		{
+			\dash\notif::warn(T_("This product have this category"));
+			return true;
+		}
+		else
+		{
+			$insert =
+			[
+				'productcategory_id' => $_cat_id,
+				'product_id'         => $_product_id,
+			];
+			\lib\db\productcategoryusage\insert::new_record($insert);
+			\dash\notif::ok(T_("Category added to this product"));
+			return true;
+		}
+
+	}
+
+
+
 	public static function product_cat($_cat, $_product_id)
 	{
 

@@ -38,5 +38,14 @@ class get
 	}
 
 
+	public static function check_product_have_cat($_product_id, $_category_id)
+	{
+		$query  = "SELECT * FROM productcategoryusage WHERE productcategoryusage.productcategory_id = $_category_id AND productcategoryusage.product_id = $_product_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+
+	}
+
+
 }
 ?>

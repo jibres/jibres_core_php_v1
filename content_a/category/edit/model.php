@@ -6,18 +6,20 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('save_default_property') === 'save_default_property')
-		{
-			$post        = [];
-			$post['cat'] = \dash\request::post('cat');
-			$post['key'] = \dash\request::post('key');
-			\lib\app\category\add::property($post, \dash\request::get('id'));
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::pwd();
-			}
-			return;
-		}
+
+
+		// if(\dash\request::post('save_default_property') === 'save_default_property')
+		// {
+		// 	$post        = [];
+		// 	$post['cat'] = \dash\request::post('cat');
+		// 	$post['key'] = \dash\request::post('key');
+		// 	\lib\app\category\add::property($post, \dash\request::get('id'));
+		// 	if(\dash\engine\process::status())
+		// 	{
+		// 		\dash\redirect::pwd();
+		// 	}
+		// 	return;
+		// }
 
 
 		$id = \dash\request::get('id');
@@ -62,6 +64,13 @@ class model
 		}
 
 		$result = \lib\app\category\edit::edit($args, $id);
+
+		$add_product_id = \dash\request::post('add_product_id');
+
+		if($add_product_id)
+		{
+			\lib\app\category\add::product_cat_plus(\dash\request::get('id'), $add_product_id);
+		}
 
 		if(\dash\engine\process::status())
 		{
