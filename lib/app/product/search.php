@@ -475,6 +475,7 @@ class search
 
 		self::load_variants($list);
 
+
 		return $list;
 	}
 
@@ -535,8 +536,17 @@ class search
 			}
 		}
 
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['variant_child']) && $value['variant_child'])
+			{
+				$list[$key]['stock'] = \lib\number::down(\lib\db\productinventory\get::product_variant_stock($value['id']));
+			}
+		}
+
+
 		$product_ids = array_column($list, 'id');
-		$product_ids = array_map('intval', $product_ids);
+		$product_ids = array_map('floatval', $product_ids);
 
 		$product_ids = array_filter($product_ids);
 
