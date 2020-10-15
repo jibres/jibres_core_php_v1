@@ -353,5 +353,107 @@ class gallery
 
 	}
 
+
+	public static function set_sort($_sort, $_id)
+	{
+		$sort = [];
+		if(!is_array($_sort))
+		{
+			\dash\notif::error(T_("Invalid sort arguments"));
+			return false;
+		}
+
+		foreach ($_sort as $key => $value)
+		{
+			if(is_numeric($key) && \dash\validate::code($value, false))
+			{
+				$sort[$key] = \dash\coding::decode($value);
+			}
+		}
+
+		$load_product = \lib\app\product\get::get($_id);
+		if(!$load_product)
+		{
+			return false;
+		}
+
+		$gallery_array = [];
+		if(isset($load_product['gallery_array']['files']) && is_array($load_product['gallery_array']['files']))
+		{
+			$gallery_array = $load_product['gallery_array']['files'];
+		}
+
+		$current_thumb_id = null;
+		if(isset($load_product['gallery_array']['thumbid']) && is_array($load_product['gallery_array']['thumbid']))
+		{
+			$current_thumb_id = $load_product['gallery_array']['thumbid'];
+		}
+
+
+		if(!$gallery_array)
+		{
+			\dash\notif::error(T_("No images founded for sorting"));
+			return false;
+		}
+
+
+		// check count
+		if(count($sort) === count($gallery_array))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::warn(T_("Please reload page to sort all image in this product gallery"));
+			return false;
+		}
+
+		$new_gallery = [];
+
+		foreach ($sort as $sort_index => $sort_id)
+		{
+			foreach ($gallery_array as $gallery)
+			{
+				if(isset($gallery['id']) && $gallery['id'] === $sort_id)
+				{
+					$new_gallery[] = $gallery;
+				}
+			}
+		}
+
+		$save_gallery = [];
+
+
+		if(isset($new_gallery[0]['id']) && isset($new_gallery[0]['path']))
+		{
+			$ext = substr(strrchr($new_gallery[0]['path'], '.'), 1);
+			$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+			if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+			{
+				\lib\db\products\update::thumb($new_gallery[0]['path'], $_id);
+				$save_gallery['thumbid'] = $new_gallery[0]['id'];
+			}
+			else
+			{
+				$save_gallery['thumbid'] = $current_thumb_id;
+			}
+		}
+		else
+		{
+			$save_gallery['thumbid'] = $current_thumb_id;
+		}
+
+		$save_gallery['files'] = $new_gallery;
+
+
+		$update_gallery = json_encode($save_gallery, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\products\update::gallery($update_gallery, $_id);
+
+
+		\dash\notif::ok(T_("Sort saved"));
+
+	}
+
 }
 ?>

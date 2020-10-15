@@ -1,4 +1,10 @@
-
+<?php
+  $gallery = \dash\data::productDataRow_gallery_array();
+  if(!is_array($gallery))
+  {
+    $gallery = [];
+  }
+?>
     <div class="box">
       <div class="pad1">
         <?php if(is_array(\dash\data::productDataRow_gallery_array()) && count(\dash\data::productDataRow_gallery_array()) > 10) {?>
@@ -6,7 +12,11 @@
         <?php }else{ ?>
           <div data-uploader data-max-w="1000" data-max-h="1000" data-name='gallery' <?php echo \dash\data::productImageRatioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
             <input type="file" id="file1">
-            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr>
+              <?php if(count($gallery) >= 3) {?>
+                <a href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
+              <?php } //endif ?>
+            <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
         <?php if(\dash\data::productDataRow_gallery_array()) {?>
           <div class="previewList">
