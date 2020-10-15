@@ -43,6 +43,39 @@ class gallery
 				}
 			}
 
+			$first_is_not_image = false;
+
+			if(isset($gallery_raw[0]['type']) && $gallery_raw[0]['type'] !== 'image')
+			{
+				$first_is_not_image = true;
+			}
+
+			$new_gallery_raw = [];
+			$temp_gallery_raw = $gallery_raw;
+
+			if($first_is_not_image && count($gallery_raw) >= 2)
+			{
+				foreach ($temp_gallery_raw as $key => $value)
+				{
+					$break = false;
+
+					if(isset($value['type']) && $value['type'] === 'image')
+					{
+						$new_gallery_raw[] = $value;
+						unset($temp_gallery_raw[$key]);
+						$break = true;
+					}
+
+					if($break)
+					{
+						break;
+					}
+				}
+
+				$new_gallery_raw = array_merge($new_gallery_raw, $temp_gallery_raw);
+				$gallery_raw = $new_gallery_raw;
+			}
+
 			return $gallery_raw;
 		}
 		else
@@ -264,7 +297,7 @@ class gallery
 				}
 			}
 		}
-		else
+		else // remove image from gallery
 		{
 			$fileid = $_file_detail; // the file id
 			$fileid = \dash\validate::code($fileid);
@@ -309,8 +342,18 @@ class gallery
 				$next_image = null;
 				foreach ($product_gallery_field['files'] as $key => $value)
 				{
-					$next_image = $value;
-					break;
+					$ext = substr(strrchr($value['path'], '.'), 1);
+					$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+					if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+					{
+						$next_image = $value;
+						break;
+					}
+
+					if($next_image)
+					{
+						break;
+					}
 				}
 
 				if((!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])) && $next_image && isset($next_image['id']) && isset($next_image['path']))
@@ -414,7 +457,7 @@ class gallery
 		{
 			foreach ($gallery_array as $gallery)
 			{
-				if(isset($gallery['id']) && $gallery['id'] === $sort_id)
+				if(isset($gallery['id']) && floatval($gallery['id']) === floatval($sort_id))
 				{
 					$new_gallery[] = $gallery;
 				}
@@ -444,7 +487,6 @@ class gallery
 		}
 
 		$save_gallery['files'] = $new_gallery;
-
 
 		$update_gallery = json_encode($save_gallery, JSON_UNESCAPED_UNICODE);
 
