@@ -12,12 +12,21 @@ class controller
 		}
 
 		$mobile = \dash\request::post('mobile');
+
+		if(!$mobile)
+		{
+			\dash\notif::error(T_("Please enter your mobile"), 'mobile');
+			\dash\code::end();
+			return;
+		}
+
 		$mobile = \dash\validate::mobile($mobile, false);
 
 		if(!$mobile)
 		{
 			\dash\notif::error(T_("Invalid mobile, Please enter a valid mobile"), 'mobile');
-			return false;
+			\dash\code::end();
+			return;
 		}
 
 		$get             = [];
