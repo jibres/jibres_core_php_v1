@@ -38,6 +38,13 @@
 
       <nav class="items">
         <ul>
+          <li><a class="f" href="<?php echo $urlHere; ?>/products/export"><div class="key"><?php echo T_("Export products"); ?></div><div class="go"></div></a></li>
+          <li><a class="f" href="<?php echo $urlHere; ?>/products/import"><div class="key"><?php echo T_("Import products"); ?></div><div class="go"></div></a></li>
+        </ul>
+      </nav>
+
+      <nav class="items">
+        <ul>
           <li><a class="f" href="<?php echo \dash\url::this(); ?>/units"><div class="key"><?php echo T_("Store Units"); ?></div><div class="go"></div></a></li>
         </ul>
       </nav>
