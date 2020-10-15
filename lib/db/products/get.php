@@ -412,6 +412,12 @@ class get
 	}
 
 
+	public static function count_all_for_dashboard()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM products WHERE products.status NOT IN ('deleted', 'archive') AND products.parent IS NULL ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 
 
 

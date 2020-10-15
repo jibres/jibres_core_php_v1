@@ -65,15 +65,18 @@ class get
 
 	public static function product_count()
 	{
-		$detail = \lib\app\cache\file::get(__FUNCTION__);
-		if(!$detail)
-		{
-			$product_count = \lib\db\products\get::count_all();
-			\lib\app\cache\file::set(__FUNCTION__, $product_count);
-			return intval($product_count);
-		}
+		$product_count = \lib\db\products\get::count_all_for_dashboard();
+		return intval($product_count);
 
-		return intval($detail);
+		// $detail = \lib\app\cache\file::get(__FUNCTION__);
+		// if(!$detail)
+		// {
+		// 	$product_count = \lib\db\products\get::count_all();
+		// 	\lib\app\cache\file::set(__FUNCTION__, $product_count);
+		// 	return intval($product_count);
+		// }
+
+		// return intval($detail);
 	}
 
 
