@@ -44,11 +44,16 @@ class dashboard
 			$avatar = null;
 		}
 
+		$verify_email = false;
+		if(\dash\user::email_list(true))
+		{
+			$verify_email = true;
+		}
 
 		$result['complete_profile'] =
 		[
 			'mobile'       => \dash\user::detail('verifymobile') ? true : false,
-			'email'        => \dash\user::detail('email') ? true : false,
+			'email'        => $verify_email,
 			'username'     => \dash\user::detail('username') ? true : false,
 			'birthday'     => \dash\user::detail('birthday') ? true : false,
 			'avatar'       => $avatar ? true : false,
