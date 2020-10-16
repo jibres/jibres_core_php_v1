@@ -259,5 +259,258 @@ class url
 		return $data;
 	}
 
+
+
+	/**
+	 * This function tested by this domain
+	 *
+	 * abc.com
+	 * http://abc.com
+	 * http://abc.com:2020
+	 * http://noshahr.gov.ir
+	 * noshahr.gov.ir
+	 * subdomain.noshahr.gov.ir
+	 * https://www.abc.com/
+	 * www.abc.com
+	 * 127.0.0.2
+	 * http://username:password@hostname:9090/path?arg=value#anchor
+	 * //www.example.com/path?googleguy=googley
+	 * user:pass@example.com:8080/path/to/index.html
+	 * http://127.0.0.2:2020/
+	 * https://username:password@x.subdomain.noshahr.gov.ir:9090/path?arg=value#anchor
+	 *
+	 * @param      <type>   $_url   The url
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function parseUrl($_url)
+	{
+		$url = \dash\validate::string_1000($_url, false);
+		if(!$url)
+		{
+			return false;
+		}
+
+		if(substr($url, 0, 2) === '//')
+		{
+			$url = substr($url, 2);
+		}
+
+		$remove_protocol = false;
+		if(preg_match("/^(http|https|ftp|mailto|file|data|irc)\:\/\/(.*)/", $url))
+		{
+			// nothing
+		}
+		else
+		{
+			if(strpos($url, '://') === false)
+			{
+				$remove_protocol = true;
+				$url = 'http://'. $url;
+			}
+		}
+
+
+		$parse_url = parse_url($url);
+
+		if($parse_url === false || !is_array($parse_url))
+		{
+			return false;
+		}
+
+		$default =
+		[
+			'protocol'  => null,
+			'root'      => null,
+			'domain'    => null,
+			'tld'       => null,
+			'subdomain' => null,
+
+
+			// -- from path info
+			'scheme'   => null,
+			'host'     => null,
+			'port'     => null,
+			'user'     => null,
+			'pass'     => null,
+			'path'     => null,
+			'query'    => null,
+			'fragment' => null,
+		];
+
+
+		$parse_url = array_merge($default, $parse_url);
+
+		if($parse_url['scheme'])
+		{
+			if(is_string($parse_url['scheme']) && in_array($parse_url['scheme'], ['http','https','ftp','mailto','file','data','irc']))
+			{
+				$parse_url['protocol'] = $parse_url['scheme'];
+			}
+		}
+
+		if($parse_url['host'] && is_string($parse_url['host']))
+		{
+			$parse_url['domain'] = $parse_url['host'];
+		}
+
+		$domain = $parse_url['domain'];
+
+		$subdomain = null;
+		$root      = null;
+		$tld       = null;
+
+		if($domain)
+		{
+			$my_domain = $domain;
+
+			if(\dash\validate::ip($my_domain, false))
+			{
+				// host is ip
+			}
+			else
+			{
+				$my_domain = explode('.', $my_domain);
+
+				// remove empty character for example reza.
+				$my_domain = array_filter($my_domain);
+				$my_domain = array_values($my_domain);
+
+				if(count($my_domain) >= 4)
+				{
+
+					$subdomain = $my_domain[0];
+
+					array_shift($my_domain);
+					reset($my_domain);
+
+					$root      = $my_domain[0];
+
+					array_shift($my_domain);
+					reset($my_domain);
+
+					$tld       = implode('.', $my_domain);
+				}
+				elseif(count($my_domain) === 3)
+				{
+					$subdomain = $my_domain[0];
+					$root      = $my_domain[1];
+					$tld       = $my_domain[2];
+
+					$check_tld = $root. '.'. $tld;
+
+					if(in_array($check_tld, self::special_tld()))
+					{
+						$tld       = $check_tld;
+						$root      = $subdomain;
+						$subdomain = null;
+					}
+				}
+				elseif(count($my_domain) === 2)
+				{
+					$root      = $my_domain[0];
+					$tld       = $my_domain[1];
+				}
+				else
+				{
+					// invalid domain!
+				}
+			}
+		}
+
+		$parse_url['subdomain'] = $subdomain;
+		$parse_url['root']      = $root;
+		$parse_url['tld']       = $tld;
+
+		// the protocol was set only for validate url
+		if($remove_protocol)
+		{
+			$parse_url['scheme']   = null;
+			$parse_url['protocol'] = null;
+		}
+
+		return $parse_url;
+	}
+
+
+	/**
+	 * Special tld
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function special_tld()
+	{
+		$list =
+		[
+			// ir special domain tld
+			'id.ir',
+			'co.ir',
+			'net.ir',
+			'gov.ir',
+			'co.ir',
+			'sch.ir',
+			'ac.ir',
+			'org.ir',
+
+			// international special domain : get from onlinenic domain allow list
+			'aaa.pro',
+			'ac.vn',
+			'aca.pro',
+			'acct.pro',
+			'avocat.pro',
+			'bar.pro',
+			'co.ag',
+			'co.in',
+			'co.lc',
+			'co.uk',
+			'com.ag',
+			'com.co',
+			'com.lc',
+			'com.tw',
+			'com.vc',
+			'cpa.pro',
+			'edu.vn',
+			'eng.pro',
+			'firm.in',
+			'gen.in',
+			'gov.vn',
+			'health.vn',
+			'ind.in',
+			'info.vn',
+			'int.vn',
+			'jur.pro',
+			'l.lc',
+			'law.pro',
+			'ltd.uk',
+			'me.uk',
+			'med.pro',
+			'name.vn',
+			'net.ag',
+			'net.co',
+			'net.in',
+			'net.lc',
+			'net.tw',
+			'net.uk',
+			'net.vc',
+			'net.vn',
+			'nom.ag',
+			'nom.co',
+			'org.ag',
+			'org.in',
+			'org.lc',
+			'org.tw',
+			'org.uk',
+			'org.vc',
+			'org.vn',
+			'p.lc',
+			'plc.uk',
+			'pro.vn',
+			'recht.pro',
+
+		];
+
+		return $list;
+	}
+
 }
 ?>
