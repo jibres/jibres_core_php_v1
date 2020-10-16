@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\log\show;
+namespace content_love\log\show;
 
 
 class view
@@ -7,6 +7,10 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_("Log"));
+
+		// btn
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
 
 		$log_id = \dash\request::get('id');
 

@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\log\home;
+namespace content_love\log\home;
 
 
 class view
@@ -11,7 +11,9 @@ class view
 		\dash\data::action_link(\dash\url::this(). '/caller');
 		\dash\data::action_text(T_("Show log caller"));
 
-
+		// btn
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
 		self::search_log();
 
