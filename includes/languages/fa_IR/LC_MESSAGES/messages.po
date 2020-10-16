@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-16 13:11+0330\n"
-"PO-Revision-Date: 2020-10-16 13:12+0330\n"
+"POT-Creation-Date: 2020-10-16 17:09+0330\n"
+"PO-Revision-Date: 2020-10-16 17:15+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1330,7 +1330,6 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_love/gift/all/display.php:44 content_love/gift/all/display.php:45
 #: content_love/gift/usage/display.php:44 content_love/gift/usage/display.php:45
 #: content_love/notiflog/display.php:69 content_love/notiflog/display.php:70
-#: content_love/store/analytics/display.php:6 content_love/store/analytics/display.php:8
 #: content_love/store/display.php:7 content_love/store/display.php:9
 #: content_love/transactions/display.php:46 content_my/domain/buy/display-search.php:12
 #: content_my/domain/irnic/display.php:40 content_my/domain/irnic/display.php:41
@@ -2303,15 +2302,14 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:18
 #: content_a/setting/place/inventory/display.php:31
 #: content_a/setting/place/inventory/display.php:44 content_a/website/news/view.php:15
-#: content_a/website/productline/view.php:15 content_love/store/analytics/display.php:23
-#: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:363
-#: includes/languages/trans_static.php:599 lib/app/export/product.php:43
-#: lib/app/website/body/template.php:91
+#: content_a/website/productline/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:6
+#: dash/panel.php:363 includes/languages/trans_static.php:599
+#: lib/app/export/product.php:43 lib/app/website/body/template.php:91
 msgid "Products"
 msgstr "محصولات"
 
 #: content/home/display.php:96 content_my/business/home/display_site.php:65
-#: dash/layout/admin/sidebar/sidebar-a.php:10
+#: dash/layout/admin/sidebar/sidebar-a.php:10 lib/app/store/analytics.php:38
 msgid "Factor"
 msgstr "فاکتور"
 
@@ -3785,11 +3783,13 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_enter/pass/view.php:37 content_enter/twostep/display.php:29
 #: content_enter/verify/view.php:24 content_enter/verify/view.php:73
 #: content_love/application/edit/view.php:12
+#: content_love/business/analytics/table/view.php:12
+#: content_love/business/analytics/view.php:12
 #: content_love/business/domain/alllist/view.php:13
 #: content_love/business/domain/dnslist/view.php:13
-#: content_love/gift/create/add/view.php:12 content_love/gift/create/code/view.php:12
-#: content_love/gift/create/message/view.php:12 content_love/gift/create/price/view.php:12
-#: content_love/gift/create/review/view.php:12
+#: content_love/business/question/view.php:12 content_love/gift/create/add/view.php:12
+#: content_love/gift/create/code/view.php:12 content_love/gift/create/message/view.php:12
+#: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
 #: content_love/gift/create/setting/view.php:12 content_love/gift/create/usage/view.php:12
 #: content_love/gift/edit/view.php:12 content_love/gift/home/view.php:12
 #: content_love/gift/usage/view.php:12 content_love/gift/view/view.php:12
@@ -4032,9 +4032,10 @@ msgstr "کد"
 #: content_crm/permission/delete/display.php:30
 #: content_crm/transactions/add/display.php:32 content_crm/transactions/add/display.php:33
 #: content_crm/transactions/display.php:64 content_crm/transactions/minus/display.php:32
-#: content_crm/transactions/minus/display.php:33 content_love/domain/action/display.php:11
+#: content_crm/transactions/minus/display.php:33
+#: content_love/business/analytics/display.php:36
+#: content_love/domain/action/display.php:11
 #: content_love/domain/setting/action/display.php:13
-#: content_love/store/analytics/display.php:20
 #: content_love/transactions/add/display.php:32
 #: content_love/transactions/add/display.php:33 content_love/transactions/display.php:64
 #: content_love/transactions/minus/display.php:32
@@ -5105,7 +5106,7 @@ msgstr "کدملی مدیرعامل"
 #: content_crm/member/pageSteps.php:71 content_love/domain/nicdetail/display.php:14
 #: content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.php:299
-#: dash/layout/admin/sidebar/sidebar-account.php:9
+#: dash/layout/admin/sidebar/sidebar-account.php:9 lib/app/store/analytics.php:28
 msgid "Address"
 msgstr "آدرس"
 
@@ -5280,9 +5281,9 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_love/domain/irnic/view.php:41 content_love/domain/log/view.php:47
 #: content_love/domain/onlineniclog/view.php:47 content_love/domain/polls/view.php:37
 #: content_love/gift/all/view.php:39 content_love/gift/usage/view.php:39
-#: content_love/store/analytics/view.php:36 content_love/store/view.php:44
-#: content_my/domain/irnic/view.php:55 content_my/domain/predict/view.php:52
-#: content_my/domain/search/view.php:83 includes/languages/trans_static.php:594
+#: content_love/store/view.php:44 content_my/domain/irnic/view.php:55
+#: content_my/domain/predict/view.php:52 content_my/domain/search/view.php:83
+#: includes/languages/trans_static.php:594
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -5802,7 +5803,7 @@ msgid "App Intro detail"
 msgstr "جزئیات صفحه معرفی اپ"
 
 #: content_a/android/intro/display-test-multi-upload.php:12
-#: content_a/android/intro/display.php:12
+#: content_a/android/intro/display.php:12 lib/app/store/analytics.php:30
 msgid "Page"
 msgstr "صفحه"
 
@@ -6048,7 +6049,7 @@ msgstr "جستجو در لیست برای افزودن کالا"
 #: content_a/sale/display.php:16 content_a/tag/home/display.php:56
 #: content_a/units/display.php:62 content_my/business/home/display_site.php:63
 #: includes/languages/trans_static.php:527 lib/app/factor/search.php:131
-#: lib/app/website/body/line/productline.php:12
+#: lib/app/store/analytics.php:37 lib/app/website/body/line/productline.php:12
 msgid "Product"
 msgstr "محصول"
 
@@ -6083,10 +6084,12 @@ msgstr "نمایش"
 #: content_a/cart/home/display.php:112 content_crm/--log/home/logTable.php:8
 #: content_crm/permission/display.php:43 content_crm/permission/display.php:102
 #: content_crm/transactions/display.php:63 content_love/application/home/display.php:75
-#: content_love/domain/action/display.php:15 content_love/domain/all/display.php:67
-#: content_love/domain/autorenew/display.php:20 content_love/domain/billing/display.php:96
-#: content_love/domain/buyers/display.php:17 content_love/domain/log/display.php:100
-#: content_love/domain/log/view/display.php:40
+#: content_love/business/question/display.php:16
+#: content_love/business/question/display.php:24
+#: content_love/business/question/display.php:32 content_love/domain/action/display.php:15
+#: content_love/domain/all/display.php:67 content_love/domain/autorenew/display.php:20
+#: content_love/domain/billing/display.php:96 content_love/domain/buyers/display.php:17
+#: content_love/domain/log/display.php:100 content_love/domain/log/view/display.php:40
 #: content_love/domain/onlineniclog/display.php:100
 #: content_love/domain/onlineniclog/view/display.php:30
 #: content_love/gift/usage/display.php:65 content_love/transactions/display.php:63
@@ -6110,6 +6113,7 @@ msgstr "هیچ داده ای وجود ندارد!"
 #: content_a/cart/home/view.php:9 content_a/home/display.php:91
 #: content_a/setting/home/display.php:118
 #: content_business/home/layout/header/header_100.php:24 dash/layout/pwa/pwa_menu.php:253
+#: lib/app/store/analytics.php:63
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -6661,6 +6665,7 @@ msgstr "برای شما"
 #: content_a/form/report/answer/display-pie.php:36
 #: content_a/form/report/answer/display-province.php:25
 #: content_a/form/report/compare/display.php:99
+#: content_love/business/analytics/display.php:37
 msgid "Sum"
 msgstr "جمع"
 
@@ -6688,7 +6693,6 @@ msgid "Print factor"
 msgstr "چاپ فاکتور"
 
 #: content_a/chap/view.php:12 content_a/sale/view.php:17
-#: content_love/store/analytics/display.php:24
 msgid "Factors"
 msgstr "فاکتورها"
 
@@ -6906,7 +6910,7 @@ msgstr "نتایج پیشرفته"
 #: content_a/order/home/display.php:131 content_my/business/home/display_site.php:64
 #: content_su/smsclient/home/display.php:14 includes/languages/trans_static.php:61
 #: lib/app/factor/search.php:95 lib/app/factor/search.php:104
-#: lib/app/log/caller/business/business_creatingNew.php:42
+#: lib/app/log/caller/business/business_creatingNew.php:42 lib/app/store/analytics.php:21
 msgid "Customer"
 msgstr "مشتری"
 
@@ -7219,6 +7223,7 @@ msgstr "تامین‌کننده"
 
 #: content_a/filter.php:135 content_a/home/display.php:72
 #: content_my/business/home/display_site.php:34 includes/languages/trans_static.php:65
+#: lib/app/store/analytics.php:22
 msgid "Staff"
 msgstr "کارمند"
 
@@ -7252,7 +7257,7 @@ msgstr "پاسخ نداده است"
 #: content_support/ticket/ticketTable.php:127
 #: dash/layout/admin/sidebar/sidebar-support.php:17
 #: includes/languages/trans_static.php:556 includes/languages/trans_static_public.php:989
-#: lib/app/form/filter/ready.php:65
+#: lib/app/form/filter/ready.php:65 lib/app/store/analytics.php:107
 msgid "Answered"
 msgstr "پاسخ داده شده"
 
@@ -7613,11 +7618,11 @@ msgstr "حذف سوال"
 msgid "Maximum len"
 msgstr "حداکثر طول"
 
-#: content_a/form/item/display.php:161
+#: content_a/form/item/display.php:161 content_love/business/analytics/display.php:39
 msgid "Minimum"
 msgstr "حداقل"
 
-#: content_a/form/item/display.php:172
+#: content_a/form/item/display.php:172 content_love/business/analytics/display.php:38
 msgid "Maximum"
 msgstr "حداکثر"
 
@@ -8476,6 +8481,7 @@ msgid "Author"
 msgstr "نویسنده"
 
 #: content_a/products/comment/display.php:84 content_cms/comments/home/display.php:83
+#: lib/app/store/analytics.php:27
 msgid "Comment"
 msgstr "دیدگاه"
 
@@ -8719,6 +8725,7 @@ msgstr "مدیریت"
 #: content_support/ticket/show/display.php:232 includes/languages/trans_static.php:585
 #: lib/app/product/filter.php:315 lib/app/product/filter.php:325
 #: lib/app/product/property.php:334 lib/app/product/search.php:130
+#: lib/app/store/analytics.php:46
 msgid "Tag"
 msgstr "تگ"
 
@@ -10188,7 +10195,7 @@ msgid "Sina"
 msgstr "بانک سینا"
 
 #: content_a/setting/pcpos/display.php:24 includes/languages/trans_static_public.php:518
-#: lib/app/setting/get.php:75
+#: lib/app/setting/get.php:75 lib/app/store/analytics.php:31
 msgid "Post"
 msgstr "نوشته"
 
@@ -11698,7 +11705,8 @@ msgstr "متن آگهی"
 #: content_a/website/menu/edit/display.php:15
 #: content_a/website/specialslider/add/display.php:24
 #: content_crm/--log/home/logTable.php:63 content_crm/member/legal/display.php:151
-#: content_love/store/display.php:18 content_su/apilog/home/display.php:80
+#: content_love/business/analytics/table/display.php:7 content_love/store/display.php:18
+#: content_su/apilog/home/display.php:80
 msgid "Url"
 msgstr "نشانی اینترنتی"
 
@@ -13480,7 +13488,8 @@ msgstr "نمودار رویدار روز!"
 
 #: content_cms/home/display.php:12 dash/layout/admin/sidebar/sidebar-cms.php:6
 #: dash/panel.php:136 dash/social/telegram/commands/news.php:16
-#: lib/app/website/body/line/news.php:12 lib/app/website/body/template.php:98
+#: lib/app/store/analytics.php:29 lib/app/website/body/line/news.php:12
+#: lib/app/website/body/template.php:98
 msgid "News"
 msgstr "اخبار"
 
@@ -13931,6 +13940,7 @@ msgstr "عبارات"
 #: content_love/domain/onlineniclog/view/view.php:12 content_love/store/view.php:15
 #: content_su/apilog/home/view.php:9 content_su/home/display.php:76
 #: content_su/tools/display.php:94 dash/layout/admin/sidebar/sidebar-su.php:16
+#: lib/app/store/analytics.php:62
 msgid "Log"
 msgstr "لاگ"
 
@@ -14158,7 +14168,7 @@ msgstr "متاهل"
 msgid "Edit user general detail"
 msgstr "ویرایش‌کردن جزئیات‌‌کاربر"
 
-#: content_crm/member/glance/display.php:26
+#: content_crm/member/glance/display.php:26 lib/app/store/search.php:168
 msgid "Field"
 msgstr "فیلد"
 
@@ -14197,7 +14207,7 @@ msgid "Are you sure to delete this user?"
 msgstr "آیا از حذف این کاربر اطمینان دارید؟"
 
 #: content_crm/member/glance/model.php:17 content_crm/member/log/model.php:71
-#: content_crm/member/security/model.php:71
+#: content_crm/member/security/model.php:71 lib/app/store/analytics.php:56
 msgid "User removed"
 msgstr "کاربر حذف شده"
 
@@ -14484,7 +14494,6 @@ msgid "User log"
 msgstr "لاگ کاربر"
 
 #: content_crm/member/main/view.php:37 content_developers/docs/001-intro.php:17
-#: content_love/store/analytics/display.php:26
 #: content_pardakhtyar/customer/dashboard/view.php:14
 #: includes/languages/trans_static.php:62
 msgid "Customers"
@@ -14588,13 +14597,14 @@ msgstr "کاربر حذف شده است"
 #: content_support/ticket/report/view.php:16 content_support/ticket/show/view.php:26
 #: content_support/ticket/tags/view.php:52 content_support/view.php:54
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31 dash/app/ticket.php:187
+#: lib/app/store/analytics.php:25
 msgid "Ticket"
 msgstr "تیکت"
 
 #: content_crm/member/pageSteps.php:99 content_love/business/home/view.php:9
-#: content_my/home/display_site.php:9 content_su/update/display.php:33
-#: content_su/update/display.php:97 dash/layout/pwa/pwa_menu.php:115
-#: lib/app/log/caller/business/business_createNew.php:19
+#: content_love/business/question/display.php:8 content_my/home/display_site.php:9
+#: content_su/update/display.php:33 content_su/update/display.php:97
+#: dash/layout/pwa/pwa_menu.php:115 lib/app/log/caller/business/business_createNew.php:19
 #: lib/app/log/caller/business/business_creatingNew.php:19
 msgid "Business"
 msgstr "بیزینس"
@@ -16276,6 +16286,56 @@ msgstr "لیست صف ایجاد برنامه"
 msgid "Show api log"
 msgstr "نمایش لاگ ای‌پی‌آی"
 
+#: content_love/business/analytics/display.php:7
+msgid "Average Creating time"
+msgstr "میانگین زمان ساخت بیزینس"
+
+#: content_love/business/analytics/display.php:8
+#: content_love/business/analytics/display.php:16
+#: content_love/business/analytics/display.php:24 dash/utility/human.php:33
+#: includes/languages/trans_static_public.php:31
+msgid "second"
+msgstr "ثانیه"
+
+#: content_love/business/analytics/display.php:15
+msgid "Maximum Creating time"
+msgstr "بیشتر زمان ساخت بیزینس"
+
+#: content_love/business/analytics/display.php:23
+msgid "Minimum Creating time"
+msgstr "کمترین زمان ساخت بیزینس"
+
+#: content_love/business/analytics/display.php:40
+#: includes/languages/trans_static_public.php:900
+msgid "Average"
+msgstr "میانگین"
+
+#: content_love/business/analytics/display.php:52
+msgid "Show list"
+msgstr "نمایش لیست"
+
+#: content_love/business/analytics/table/display.php:8 content_love/store/display.php:19
+msgid "subdomain"
+msgstr "زیردامنه"
+
+#: content_love/business/analytics/table/display.php:9 content_love/store/display.php:20
+#: includes/languages/trans_static.php:280 includes/languages/trans_static.php:304
+#: includes/languages/trans_static.php:328 includes/languages/trans_static.php:346
+#: includes/languages/trans_static_public.php:224
+#: includes/languages/trans_static_public.php:402
+msgid "title"
+msgstr "عنوان"
+
+#: content_love/business/analytics/table/display.php:10 content_love/store/display.php:21
+msgid "owner"
+msgstr "مالک"
+
+#: content_love/business/analytics/table/view.php:9
+#: content_love/business/analytics/view.php:9 content_love/business/question/view.php:9
+#: content_love/home/display.php:26
+msgid "Store analytics"
+msgstr "آمار فروشگاه"
+
 #: content_love/business/domain/action/display.php:15
 #: content_love/business/domain/alllist/display.php:15
 #: content_love/business/domain/dnslist/display.php:15
@@ -16333,7 +16393,7 @@ msgstr "نمایش جزئیات"
 
 #: content_love/business/domain/alllist/view.php:9
 #: content_love/business/domain/dnslist/view.php:9 content_love/business/domain/view.php:9
-#: content_love/home/display.php:85
+#: content_love/business/home/display.php:15 content_love/home/display.php:85
 msgid "Business domains"
 msgstr "دامنه‌های کسب و کار"
 
@@ -16584,6 +16644,38 @@ msgstr "دی‌ان‌اس شناسایی نشده است"
 msgid "All action, dns record and Domain record of this domain will be removed"
 msgstr "همه لاگ‌ها، دی‌ان‌اس‌ها و خود دامنه به صورت کامل حذف‌ خواهند شد"
 
+#: content_love/business/home/display.php:6
+msgid "Business list"
+msgstr "لیست بیزینس‌ها"
+
+#: content_love/business/home/display.php:24
+msgid "Business analytics"
+msgstr "آمار بیزینس‌ها"
+
+#: content_love/business/home/display.php:33
+msgid "Business question answer"
+msgstr "پاسخ به سوالات بیزینس"
+
+#: content_love/business/question/display.php:7
+msgid "Total business"
+msgstr "مجموع بیزینس‌ها"
+
+#: content_love/business/question/display.php:15
+msgid "Total Answered to all question"
+msgstr "تعداد کسانی که به همه سوالات پاسخ دادند"
+
+#: content_love/business/question/display.php:23
+msgid "Total Skip all answer"
+msgstr "مجموع کسانی به هیچ سوالی پاسخ نداده‌اند"
+
+#: content_love/business/question/display.php:31
+msgid "Total Answer to some question"
+msgstr "تعداد کسانی که به بعضی از سوالات پاسخ دادند"
+
+#: content_love/business/question/display.php:64
+msgid "Total skip and answer"
+msgstr "مجموع پاسخ‌ها و رد کرده‌ها"
+
 #: content_love/domain/action/display.php:57 content_love/domain/buyers/display.php:46
 #: content_love/domain/detail/action/display.php:27
 #: content_love/domain/nicdetail/display.php:60
@@ -16708,8 +16800,7 @@ msgid "Renew domain"
 msgstr "تمدید دامنه"
 
 #: content_love/domain/detail/display.php:67 content_love/domain/setting/display.php:41
-#: content_love/store/analytics/display.php:22 content_my/domain/setting/display.php:39
-#: content_support/ticket/show/chatList.php:26
+#: content_my/domain/setting/display.php:39 content_support/ticket/show/chatList.php:26
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
@@ -17249,7 +17340,6 @@ msgid "Result"
 msgstr "نتیجه"
 
 #: content_love/domain/nicdetail/display.php:12
-#: content_love/store/analytics/display.php:41
 msgid "Person"
 msgstr "نفر"
 
@@ -17261,7 +17351,7 @@ msgstr "ارگان"
 msgid "Domain nicdetail"
 msgstr "جزئیات مخاطبان نیک دامنه‌ها"
 
-#: content_love/domain/polls/display.php:51 content_love/store/analytics/display.php:18
+#: content_love/domain/polls/display.php:51
 msgid "Id"
 msgstr "کد"
 
@@ -17683,10 +17773,6 @@ msgstr "پنل مدیر فنی"
 msgid "Store list"
 msgstr "لیست فروشگاه‌ها"
 
-#: content_love/home/display.php:26
-msgid "Store analytics"
-msgstr "آمار فروشگاه"
-
 #: content_love/home/display.php:45
 msgid "Android application queue"
 msgstr "صف ساخت برنامه اندروید"
@@ -17695,7 +17781,7 @@ msgstr "صف ساخت برنامه اندروید"
 msgid "Gift card"
 msgstr "کارت‌ هدیه"
 
-#: content_love/home/display.php:63
+#: content_love/home/display.php:63 lib/app/store/analytics.php:32
 msgid "Transaction"
 msgstr "تراکنش‌"
 
@@ -17703,41 +17789,13 @@ msgstr "تراکنش‌"
 msgid "Jibres Management"
 msgstr "مدیریت جیبرس"
 
-#: content_love/store/analytics/display.php:19 content_su/apilog/home/display.php:78
-msgid "Subdomain"
-msgstr "زیردامنه"
-
-#: content_love/store/analytics/display.php:21
-msgid "Plan"
-msgstr "پلن"
-
-#: content_love/store/analytics/display.php:25
-msgid "Sum factors"
-msgstr "جمع فاکتور‌ها"
-
-#: content_love/store/analytics/view.php:9 content_love/store/view.php:9
-#: content_my/home/display_pwa.php:15
-msgid "Stores"
-msgstr "فروشگاه‌ها"
-
-#: content_love/store/display.php:19
-msgid "subdomain"
-msgstr "زیردامنه"
-
-#: content_love/store/display.php:20 includes/languages/trans_static.php:280
-#: includes/languages/trans_static.php:304 includes/languages/trans_static.php:328
-#: includes/languages/trans_static.php:346 includes/languages/trans_static_public.php:224
-#: includes/languages/trans_static_public.php:402
-msgid "title"
-msgstr "عنوان"
-
-#: content_love/store/display.php:21
-msgid "owner"
-msgstr "مالک"
-
 #: content_love/store/display.php:23
 msgid "plan"
 msgstr "پلن"
+
+#: content_love/store/view.php:9 content_my/home/display_pwa.php:15
+msgid "Stores"
+msgstr "فروشگاه‌ها"
 
 #: content_my/bill/view.php:9 content_my/home/display_pwa.php:46
 msgid "Pay bill"
@@ -19385,6 +19443,10 @@ msgstr "حذف لاگ‌ها تا یک‌ ماه پیش"
 msgid "Auth"
 msgstr "شناسایی"
 
+#: content_su/apilog/home/display.php:78
+msgid "Subdomain"
+msgstr "زیردامنه"
+
 #: content_su/apilog/home/display.php:83
 msgid "Header len"
 msgstr "طول هدر"
@@ -19845,7 +19907,7 @@ msgstr "فایل‌های موقتی حذف شدند"
 #: content_su/tg/home/display.php:10 dash/layout/admin/sidebar/sidebar-crm.php:6
 #: dash/panel.php:254 includes/languages/trans_static.php:603
 #: includes/languages/trans_static_public.php:96
-#: includes/languages/trans_static_public.php:980
+#: includes/languages/trans_static_public.php:980 lib/app/store/analytics.php:20
 msgid "Users"
 msgstr "کاربران"
 
@@ -20278,7 +20340,7 @@ msgstr "ما اینجاییم تا به سوالات شما پاسخ دهیم."
 msgid "Please write your message"
 msgstr "لطفا پیام خود را بنویسید"
 
-#: content_support/ticket/addForm.php:27
+#: content_support/ticket/addForm.php:27 lib/app/store/analytics.php:45
 msgid "Attachment"
 msgstr "ضمیمه"
 
@@ -21267,7 +21329,7 @@ msgstr "برنامه"
 #: lib/app/nic_domain/search.php:96 lib/app/nic_domainbilling/search.php:113
 #: lib/app/nic_domainbilling/search.php:262 lib/app/nic_log/search.php:103
 #: lib/app/onlinenic/log/search.php:103 lib/app/store/search.php:51
-#: lib/app/store/search.php:176 lib/app/store/search.php:296
+#: lib/app/store/search.php:187 lib/app/store/search.php:306
 #: lib/app/tax/coding/search.php:379 lib/app/tax/doc/search.php:71
 #: lib/app/tax/docdetail/search.php:96 lib/app/tax/year/search.php:52
 msgid "Please search by keyword less than 50 characters"
@@ -23205,10 +23267,6 @@ msgstr "روز"
 #: includes/languages/trans_static_public.php:30
 msgid "minute"
 msgstr "دقیقه"
-
-#: dash/utility/human.php:33 includes/languages/trans_static_public.php:31
-msgid "second"
-msgstr "ثانیه"
 
 #: dash/utility/human.php:42
 msgid "In the future"
@@ -25474,11 +25532,11 @@ msgstr "تعطیل شده"
 msgid "Schedule"
 msgstr "زمانبندی شده"
 
-#: includes/languages/trans_static.php:584
+#: includes/languages/trans_static.php:584 lib/app/store/analytics.php:47
 msgid "Cat"
 msgstr "دسته‌بندی"
 
-#: includes/languages/trans_static.php:587
+#: includes/languages/trans_static.php:587 lib/app/store/analytics.php:33
 msgid "Term"
 msgstr "عبارت"
 
@@ -29599,10 +29657,6 @@ msgstr "پس دادن"
 msgid "discount"
 msgstr "تخفیف"
 
-#: includes/languages/trans_static_public.php:900
-msgid "Average"
-msgstr "میانگین"
-
 #: includes/languages/trans_static_public.php:901
 msgid "teacher"
 msgstr "معلم"
@@ -31343,7 +31397,7 @@ msgid "The question 1 is not choiceable"
 msgstr "گزینه ال گزینه‌ای نیست"
 
 #: lib/app/form/report_advance.php:51 lib/app/form/report_advance.php:74
-#: lib/app/form/report_advance.php:101
+#: lib/app/form/report_advance.php:101 lib/app/store/analytics.php:108
 msgid "Skipped"
 msgstr "رد شده"
 
@@ -33180,6 +33234,114 @@ msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنی�
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
+#: lib/app/store/analytics.php:18
+msgid "Database traffic"
+msgstr "حجم تبادل دیتابیس"
+
+#: lib/app/store/analytics.php:19
+msgid "Database Size"
+msgstr "حجم دیتابیس"
+
+#: lib/app/store/analytics.php:23
+msgid "Agent"
+msgstr "نماینده"
+
+#: lib/app/store/analytics.php:24
+msgid "Session"
+msgstr "نشست‌ها"
+
+#: lib/app/store/analytics.php:26
+msgid "Ticket_message"
+msgstr "پیام داخلی تیکت"
+
+#: lib/app/store/analytics.php:34
+msgid "Term usages"
+msgstr "موارد استفاده عبارت"
+
+#: lib/app/store/analytics.php:35
+msgid "Sum plus transaction"
+msgstr "جمع مبالغ اضافه شده در تراکنش‌ها"
+
+#: lib/app/store/analytics.php:36
+msgid "Sum minus transaction"
+msgstr "جمع مبالغ کسر شده در تراکنش‌ها"
+
+#: lib/app/store/analytics.php:39
+msgid "Factor buy"
+msgstr "فاکتور‌های خرید"
+
+#: lib/app/store/analytics.php:40
+msgid "Factor sale"
+msgstr "فاکتور فروش"
+
+#: lib/app/store/analytics.php:41
+msgid "Factor detail"
+msgstr "جزئیات فاکتور"
+
+#: lib/app/store/analytics.php:42
+msgid "Sum factor"
+msgstr "جمع فاکتور‌ها"
+
+#: lib/app/store/analytics.php:43
+msgid "Plan history"
+msgstr "تاریخچه پلن"
+
+#: lib/app/store/analytics.php:44
+msgid "Help center article"
+msgstr "مقالات مرکز راهنمایی"
+
+#: lib/app/store/analytics.php:48
+msgid "Support tag"
+msgstr "کلیدواژه‌های پشتیبانی"
+
+#: lib/app/store/analytics.php:49
+msgid "Help tag"
+msgstr "کلیدواژه‌های مرکز راهنمایی"
+
+#: lib/app/store/analytics.php:50
+msgid "User mobile"
+msgstr "کاربران دارای موبایل"
+
+#: lib/app/store/analytics.php:51
+msgid "User email"
+msgstr "کاربران دارای موبایل"
+
+#: lib/app/store/analytics.php:52
+msgid "User chatid"
+msgstr "کاربران دارای شناسه تلگرام"
+
+#: lib/app/store/analytics.php:53
+msgid "User username"
+msgstr "کاربران دارای نام کاربری"
+
+#: lib/app/store/analytics.php:54
+msgid "User android"
+msgstr "کاربران دارای شناسه اندروید"
+
+#: lib/app/store/analytics.php:55
+msgid "User awaiting"
+msgstr "کاربران درانتظار"
+
+#: lib/app/store/analytics.php:57
+msgid "User filter"
+msgstr "کاربران فیلترشده"
+
+#: lib/app/store/analytics.php:58
+msgid "User unreachabl"
+msgstr "کاربران غیر قابل دسترس"
+
+#: lib/app/store/analytics.php:59
+msgid "User permission"
+msgstr "کاربران دارای سطح دسترسی"
+
+#: lib/app/store/analytics.php:64
+msgid "Sync"
+msgstr "همگام‌سازی"
+
+#: lib/app/store/analytics.php:65
+msgid "Api log"
+msgstr "لاگ ای‌پی‌آی"
+
 #: lib/app/store/check.php:54
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
@@ -34944,6 +35106,9 @@ msgstr "یارد"
 msgid "Samandehi"
 msgstr "ساماندهی"
 
+#~ msgid "Plan"
+#~ msgstr "پلن"
+
 #~ msgid "Click to verify"
 #~ msgstr "برای تایید کلیک کنید"
 
@@ -36017,9 +36182,6 @@ msgstr "ساماندهی"
 
 #~ msgid "The ticket solved"
 #~ msgstr "وضعیت حل شدن تیکت"
-
-#~ msgid "Maximum length"
-#~ msgstr "حداکثر طول"
 
 #~ msgid "Replace {PRODUCT_ID} by your product id"
 #~ msgstr "به جای عبارت {PRODUCT_ID}  کد محصول خود را قرار دهید"
