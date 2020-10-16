@@ -9,9 +9,10 @@ class model
 		$new_get = [];
 		$new_get['st2'] = time();
 
+		$my_skip = false;
 		if(\dash\request::post('skip') === 'skip')
 		{
-			\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => true]);
+			$my_skip = true;
 			// needless to check question
 		}
 		else
@@ -44,7 +45,7 @@ class model
 			}
 		}
 
-		\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => false, 'my_answer' => $new_get]);
+		\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => $my_skip, 'my_answer' => $new_get]);
 
 		\dash\redirect::to(\dash\url::this(). '/subdomain?'. \dash\request::fix_get($new_get));
 		return;
