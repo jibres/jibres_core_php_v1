@@ -112,7 +112,12 @@ class pagination
 		$page             = \dash\request::get('page');
 		$url_get_length   = \dash\request::get('length');
 
-		$page             = $page && ctype_digit($page) ? $page : 1;
+		$page = \dash\validate::int($page, false);
+		if(!$page)
+		{
+			$page = 1;
+		}
+
 		$page             = intval($page) > 0 ? intval($page) : 1;
 		$_total_rows      = intval($_total_rows);
 
