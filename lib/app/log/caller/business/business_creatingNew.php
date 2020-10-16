@@ -50,7 +50,7 @@ class business_creatingNew
 				$my_business_limit      = isset($_args['data']['my_business_limit']) ? $_args['data']['my_business_limit'] : null;
 				if($my_business_limit)
 				{
-					$msg .= ' '. T_("But user can not add because have limit on create stor");
+					$msg .= ' '. T_("But user can not add because have limit on create store");
 
 				}
 				break;

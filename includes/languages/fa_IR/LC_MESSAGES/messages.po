@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-15 17:42+0330\n"
-"PO-Revision-Date: 2020-10-15 17:43+0330\n"
+"POT-Creation-Date: 2020-10-16 11:46+0330\n"
+"PO-Revision-Date: 2020-10-16 11:47+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4243,7 +4243,7 @@ msgstr "ویرایش"
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:37
-#: content_a/website/menu/edit/display.php:55 content_a/website/menu/edit/display.php:111
+#: content_a/website/menu/edit/display.php:59 content_a/website/menu/edit/display.php:113
 #: content_a/website/news/display.php:47 content_a/website/productline/display.php:48
 #: content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
@@ -4670,7 +4670,7 @@ msgstr "در حال ویرایش"
 #: content_a/order/add/display.php:20 content_a/order/detail/display.php:43
 #: content_a/order/home/display.php:138 content_a/sale/display.php:20
 #: content_business/cart/cartSummary.php:26 content_business/orders/display.php:19
-#: dash/utility/pagination.php:424
+#: dash/utility/pagination.php:429
 msgid "Total"
 msgstr "مجموع"
 
@@ -8513,7 +8513,7 @@ msgstr "در حال انتظار"
 
 #: content_a/products/comment/edit/display.php:51
 #: content_a/website/imageblock/setting/display.php:43
-#: content_a/website/menu/edit/display.php:114 content_a/website/news/display.php:51
+#: content_a/website/menu/edit/display.php:116 content_a/website/news/display.php:51
 #: content_a/website/productline/display.php:52
 #: content_a/website/quote/setting/display.php:38
 #: content_a/website/specialslider/setting/display.php:51
@@ -8798,7 +8798,8 @@ msgstr "خروجی از محصولات"
 msgid "Select any of the image you want and move them to sort"
 msgstr "یک تصویر را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
 
-#: content_a/products/gallerysort/display.php:15
+#: content_a/products/gallerysort/display.php:16
+#: content_a/products/gallerysort/display.php:21
 msgid "File :val"
 msgstr "فایل :val"
 
@@ -10586,6 +10587,7 @@ msgid "To set your business currency"
 msgstr "برای تنظیم واحد‌های فروشگاه"
 
 #: content_a/setting/shipping/setting/display.php:24
+#: content_a/website/menu/edit/display.php:48
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
@@ -11876,7 +11878,7 @@ msgid "Image Alt"
 msgstr "متن جایگزین عکس"
 
 #: content_a/website/imageblock/add/display.php:33
-#: content_a/website/menu/edit/display.php:24 content_a/website/menu/edit/display.php:105
+#: content_a/website/menu/edit/display.php:24 content_a/website/menu/edit/display.php:107
 #: content_a/website/specialslider/add/display.php:33
 msgid "Open in New tab"
 msgstr "باز کردن در صفحه جدید"
@@ -11968,10 +11970,14 @@ msgid "Edit menu title"
 msgstr "ویرایش عنوان فهرست"
 
 #: content_a/website/menu/edit/display.php:48
+msgid "For sorting menu items"
+msgstr "برای مرتب‌سازی آیتم‌های فهرست"
+
+#: content_a/website/menu/edit/display.php:52
 msgid "Usage menu list"
 msgstr "لیست بخش‌هایی که این فهرست در آن استفاده شده است"
 
-#: content_a/website/menu/edit/display.php:54
+#: content_a/website/menu/edit/display.php:58
 msgid "This menu not use anywhere. You can remove it"
 msgstr "این فهرست در هیچ قسمتی استفاده نشده است. می‌توانید آن را حذف کنید"
 
@@ -14589,6 +14595,7 @@ msgstr "تیکت"
 #: content_my/home/display_site.php:9 content_su/update/display.php:33
 #: content_su/update/display.php:97 dash/layout/pwa/pwa_menu.php:115
 #: lib/app/log/caller/business/business_createNew.php:19
+#: lib/app/log/caller/business/business_creatingNew.php:19
 msgid "Business"
 msgstr "بیزینس"
 
@@ -17901,15 +17908,15 @@ msgstr "ساخت بیزینس‌های بیشتر"
 msgid "Limit of create business"
 msgstr "محدودیت در ساخت بیزینس"
 
-#: content_my/business/start/model.php:17
+#: content_my/business/start/model.php:17 content_my/business/start/model.php:18
 msgid "Please enter name of your business"
 msgstr "لطفا نام بیزینس خودتون رو وارد کنید"
 
-#: content_my/business/start/model.php:23
+#: content_my/business/start/model.php:24 content_my/business/start/model.php:25
 msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: content_my/business/start/model.php:33
+#: content_my/business/start/model.php:38 content_my/business/start/model.php:39
 msgid "Can not add new business!"
 msgstr "نمی‌توانید بیزینس جدیدی را اضافه کنید!"
 
@@ -17948,6 +17955,11 @@ msgstr "بیزینس آنلاین منو بساز"
 #: content_my/business/subdomain/display.php:19
 msgid "choose subdomain on Jibres"
 msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
+
+#: content_my/business/subdomain/model.php:28 lib/app/store/add.php:113
+#: lib/app/store/subdomain.php:23
+msgid "This subdomain is already occupied"
+msgstr "این زیر دامنه قبلاً گرفته شده است"
 
 #: content_my/business/subdomain/view.php:9
 msgid "Business address"
@@ -23234,11 +23246,11 @@ msgstr "لطفا با مدیر سیستم تماس بگیرید"
 msgid "Your ip is not valid!"
 msgstr "آی‌پی شما معتبر نیست!"
 
-#: dash/utility/pagination.php:164
+#: dash/utility/pagination.php:169
 msgid "page :current of :total"
 msgstr "صفحه :current از :total"
 
-#: dash/utility/pagination.php:166
+#: dash/utility/pagination.php:171
 msgid "Show record :min to :max of :total"
 msgstr "نمایش رکورد :min تا :max از :total"
 
@@ -30413,8 +30425,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 msgid "Your business domain capacity is full!"
 msgstr "ظرفیت تعداد دامنه‌های متصل به بیزینس شما تکمیل است!"
 
-#: lib/app/business_domain/add.php:103 lib/app/business_domain/add.php:195
-#: lib/app/store/domain.php:236
+#: lib/app/business_domain/add.php:103 lib/app/store/domain.php:236
 msgid "Domain is not valid"
 msgstr "دامنه معتبر نیست"
 
@@ -30434,7 +30445,14 @@ msgstr "این دامنه تکراری است. دامنه توسط بیزینس 
 msgid "This domain is pending for delete. Please try it later"
 msgstr "این دامنه در انتظار حذف است. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/business_domain/add.php:253
+#: lib/app/business_domain/add.php:161 lib/app/business_domain/edit.php:75
+#: lib/app/nic_domain/get.php:26 lib/app/nic_domain/lock.php:52
+#: lib/app/nic_domain/lock.php:154 lib/app/onlinenic/lock.php:52
+#: lib/app/onlinenic/lock.php:155 lib/app/store/domain.php:617
+msgid "Invalid domain"
+msgstr "دامنه اشتباه است"
+
+#: lib/app/business_domain/add.php:218
 msgid "Domain added"
 msgstr "دامنه اضافه شد"
 
@@ -30547,13 +30565,6 @@ msgstr "دریافت دی‌ان‌اس با موفقیت انجام شد"
 #: lib/app/business_domain/dns_broker.php:38
 msgid "Can not connect to Check DNS server!"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم!"
-
-#: lib/app/business_domain/edit.php:75 lib/app/nic_domain/get.php:26
-#: lib/app/nic_domain/lock.php:52 lib/app/nic_domain/lock.php:154
-#: lib/app/onlinenic/lock.php:52 lib/app/onlinenic/lock.php:155
-#: lib/app/store/domain.php:617
-msgid "Invalid domain"
-msgstr "دامنه اشتباه است"
 
 #: lib/app/business_domain/edit.php:100
 msgid "Your business master domain set"
@@ -31582,6 +31593,50 @@ msgstr "آدرس بیزینس"
 #: lib/app/log/caller/business/business_createNew.php:38
 msgid "Business owner"
 msgstr "مالک بیزینس"
+
+#: lib/app/log/caller/business/business_creatingNew.php:16
+msgid "Creating New business Alert"
+msgstr "هشدار در حال ساخت بیزینس جدید"
+
+#: lib/app/log/caller/business/business_creatingNew.php:48
+msgid "User start creating store by title :title"
+msgstr "مشتری فرایند ساخت بیزینس جدید را با عنوان :title آغاز کرد"
+
+#: lib/app/log/caller/business/business_creatingNew.php:53
+msgid "But user can not add because have limit on create store"
+msgstr "اما مشتری نتوانست مراحل را ادامه دهد چون با محدودیت تعداد بیزینس مواجه شد"
+
+#: lib/app/log/caller/business/business_creatingNew.php:62
+msgid "User skip ask step"
+msgstr "کاربر از مرحله پرسش رد شد و به سوالات پاسخ نداد"
+
+#: lib/app/log/caller/business/business_creatingNew.php:66
+msgid "User answer to question in ask step"
+msgstr "کاربر به سوالات موجود در این مرحله پاسخ داد"
+
+#: lib/app/log/caller/business/business_creatingNew.php:103
+msgid "User try choose subdomain :subdomain"
+msgstr "مشتری برای انتخاب زیر دامنه  :subdomain تلاش کرد"
+
+#: lib/app/log/caller/business/business_creatingNew.php:109
+msgid "But we can not support this subdomain!"
+msgstr "اما ما این زیردامنه را پشتیبانی نمی‌کنیم!"
+
+#: lib/app/log/caller/business/business_creatingNew.php:132
+msgid "But this sbudomain already exists"
+msgstr "اما این زیر دامنه قبلاً گرفته شده است"
+
+#: lib/app/log/caller/business/business_creatingNew.php:139
+msgid "And creating business was started ;)"
+msgstr "و ساخت بیزینس جدید آغاز شد ;)"
+
+#: lib/app/log/caller/business/business_creatingNew.php:148
+msgid "We can not complete creating store"
+msgstr "ما نتوانستیم فرایند ساخت فروشگاه را تکمیل کنیم"
+
+#: lib/app/log/caller/business/business_creatingNew.php:217
+msgid "Creating New business in progress"
+msgstr "ساخت بیزینس جدید در حال انجام است"
 
 #: lib/app/log/caller/domain/domain_AutoRenewAlert.php:13
 #: lib/app/log/caller/domain/domain_AutoRenewAlert.php:29
@@ -33111,10 +33166,6 @@ msgstr "شما نمی‌توانید بیش از :val فروشگاه رایگا�
 #: lib/app/store/add.php:50
 msgid "Contact Us if you need more stores"
 msgstr "اگر به فروشگاه‌های بیشتری نیاز دارید با ما تماس بگیرید"
-
-#: lib/app/store/add.php:113 lib/app/store/subdomain.php:23
-msgid "This subdomain is already occupied"
-msgstr "این زیر دامنه قبلاً گرفته شده است"
 
 #: lib/app/store/add.php:159 lib/app/store/add.php:175 lib/app/store/add.php:191
 #: lib/app/store/add.php:207
