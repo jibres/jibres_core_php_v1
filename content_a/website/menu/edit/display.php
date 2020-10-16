@@ -44,6 +44,10 @@
             <button class="addon btn primary"><?php echo T_("Edit"); ?></button>
           </div>
 
+            <p>
+              <?php echo T_("For sorting menu items") ?> <a class="link" href="<?php echo \dash\url::that(). '/sort?'. \dash\request::fix_get() ?>"><?php echo T_("Click here") ?></a>
+            </p>
+
           <?php if(\dash\data::usageList()) {?>
             <p><?php echo T_("Usage menu list") ?></p>
             <?php foreach (\dash\data::usageList() as $key => $value) {?>
@@ -55,6 +59,8 @@
               <span data-confirm data-data='{"menuid": "<?php echo \dash\request::get('id'); ?>", "removemenu": "removemenu"}' class="link fc-red" ><?php echo T_("Remove"); ?></span>
             </p>
           <?php }//endif ?>
+
+
 
 
 
@@ -95,10 +101,6 @@
                 <input type="text" name="url" id="url" value="<?php echo \dash\get::index($value, 'url'); ?>"  required>
               </div>
 
-
-              <div class="input mB10">
-                <input type="number" name="sort" id="sort" value="<?php echo \dash\get::index($value, 'sort'); ?>" min="0" max="9999">
-              </div>
 
               <div class="check1 mB5">
                 <input type="checkbox" name="target" id="target_<?php echo $key; ?>" <?php if(\dash\get::index($value, 'target')) { echo 'checked'; } ?>>
