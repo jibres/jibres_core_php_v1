@@ -11,12 +11,12 @@ class model
 
 		if(\dash\request::post('skip') === 'skip')
 		{
+			\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => true]);
 			// needless to check question
 		}
 		else
 		{
 			$polls = \lib\app\store\polls::all();
-
 
 			if(isset($polls['questions']) && is_array($polls['questions']))
 			{
@@ -43,6 +43,8 @@ class model
 				}
 			}
 		}
+
+		\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => false, 'my_answer' => $new_get]);
 
 		\dash\redirect::to(\dash\url::this(). '/subdomain?'. \dash\request::fix_get($new_get));
 		return;

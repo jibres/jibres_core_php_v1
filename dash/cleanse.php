@@ -726,19 +726,27 @@ class cleanse
 		// show all result in local
 		if(\dash\url::isLocal())
 		{
-			\dash\notif::api("END CLEANSE FUNCTION");
+			// \dash\notif::api("END CLEANSE FUNCTION");
 		}
 
-		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
+		if(\dash\temp::get('clesnse_not_end_with_error'))
 		{
 			\dash\header::set(423);
 		}
 		else
 		{
-			\dash\header::status(423, $_msg);
+			if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
+			{
+				\dash\header::set(423);
+			}
+			else
+			{
+				\dash\header::status(423, $_msg);
+			}
+
+			\dash\code::end();
 		}
 
-		\dash\code::end();
 	}
 }
 ?>
