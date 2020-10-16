@@ -153,47 +153,12 @@ class add
 			}
 		}
 
-
-		$subdomain = null;
-		$root      = null;
-		$tld       = null;
-
 		$my_domain = $data['domain'];
-		$my_domain = explode('.', $my_domain);
-		// remove empty character for example reza.
-		$my_domain = array_filter($my_domain);
 
-		if(count($my_domain) >= 4)
+		$parse_url = \dash\validate\url::parseUrl($my_domain);
+		if(!$parse_url)
 		{
-			$subdomain = $my_domain[0];
-
-			array_shift($my_domain);
-			reset($my_domain);
-
-			$root      = $my_domain[0];
-
-			array_shift($my_domain);
-			reset($my_domain);
-
-			$tld       = implode('.', $my_domain);
-		}
-		elseif(count($my_domain) === 3)
-		{
-			$subdomain = $my_domain[0];
-			$root      = $my_domain[1];
-			$tld       = $my_domain[2];
-		}
-		elseif(count($my_domain) === 2)
-		{
-			$root      = $my_domain[0];
-			$tld       = $my_domain[1];
-		}
-		else
-		{
-			if(self::$debug)
-			{
-				\dash\notif::error(T_("Domain is not valid"), 'domain');
-			}
+			\dash\notif::error(T_("Invalid domain"));
 			return false;
 		}
 
@@ -221,13 +186,13 @@ class add
 		{
 			$insert =
 			[
-				'domain'      => $domain,
+				'domain'      => $parse_url['domain'],
 				'status'      => 'pending',
 				'user_id'     => \dash\user::jibres_user(),
-				'subdomain'   => $subdomain,
+				'subdomain'   => $parse_url['subdomain'],
 				'master'      => $master_domain,
-				'root'        => $root,
-				'tld'         => $tld,
+				'root'        => $parse_url['root'],
+				'tld'         => $parse_url['tld'],
 				'store_id'    => $data['store_id'],
 				'domain_id'   => $data['domain_id'],
 				'cdn'         => $cdn,
