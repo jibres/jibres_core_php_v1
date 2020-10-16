@@ -163,7 +163,10 @@ class email
 
 		$url = \dash\url::kingdom(). '/enter/verifyemail/'. $code;
 		$body = '';
-		$body = '<a href="'.$url.'" target="_blank">'. T_("Click to verify"). '</a>';
+		$body .= '<p>';
+		$body .= T_("To confirm your email in Jibres"). ' ';
+		$body .= '<a href="'.$url.'" target="_blank">'. T_("Click here"). '</a>';
+		$body .= '</p>';
 
 		$email =
 		[
