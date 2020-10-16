@@ -7,6 +7,36 @@ class get
 
 
 
+	public static function summary($_fields)
+	{
+		$select = [];
+		foreach ($_fields as $key => $value)
+		{
+			$select[] =
+			"
+				SUM(store_analytics.$key) AS `sum_$key`,
+				MAX(store_analytics.$key) AS `max_$key`,
+				MIN(store_analytics.$key) AS `min_$key`,
+				AVG(store_analytics.$key) AS `avg_$key`
+			";
+		}
+
+		$select = implode(',', $select);
+
+		$query =
+		"
+			SELECT
+				$select
+			FROM
+				store_analytics
+		";
+		$result = \dash\db::get($query, null, true, 'master');
+
+		return $result;
+	}
+
+
+
 
 	public static function average_creating_time()
 	{

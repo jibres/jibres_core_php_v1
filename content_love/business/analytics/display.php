@@ -29,52 +29,30 @@
     </ul>
   </nav>
 
-
-  <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::that(); ?>' >
-
-    <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-
-      <button class="addon btn "><?php echo T_("Search"); ?></button>
-    </div>
-  </form>
-</div>
-
-
-
-<table class="tbl1 v6 fs11">
-  <thead>
-    <tr>
-      <th><?php echo T_("Id"); ?></th>
-      <th><?php echo T_("Subdomain"); ?></th>
-      <th><?php echo T_("Title"); ?></th>
-      <th><?php echo T_("Plan"); ?></th>
-      <th><?php echo T_("Last activity"); ?></th>
-      <th><?php echo T_("Products"); ?></th>
-      <th><?php echo T_("Factors"); ?></th>
-      <th><?php echo T_("Sum factors"); ?></th>
-      <th><?php echo T_("Customers"); ?></th>
-
-    </tr>
-  </thead>
-  <tbody>
-<?php foreach (\dash\data::dataTable() as $key => $value) {?>
-    <tr>
-      <td><code><?php echo \dash\get::index($value, 'id'); ?></code></td>
-      <td><div class=""><?php echo \dash\get::index($value, 'subdomain'); ?></div></td>
-      <td><?php echo \dash\get::index($value, 'title'); ?></td>
-      <td><?php echo \dash\get::index($value, 't_plan'); ?></td>
-      <td><?php echo \dash\fit::date_human(\dash\get::index($value, 'lastactivity')); ?></td>
-      <td><?php echo \dash\fit::number(\dash\get::index($value, 'product')); ?></td>
-      <td><?php echo \dash\fit::number(\dash\get::index($value, 'factor')); ?></td>
-      <td><?php echo \dash\fit::number(\dash\get::index($value, 'sumfactor')); ?></td>
-      <td><?php echo \dash\fit::number(\dash\get::index($value, 'customer')); ?> <small><?php echo T_("Person"); ?></small></td>
-    </tr>
-<?php } //endfor ?>
-  </tbody>
-</table>
-
-
-<?php \dash\utility\pagination::html(); ?>
+  <div class="tblBox">
+    <table class="tbl1 v5 font-14">
+      <thead>
+        <tr>
+          <th><?php echo T_("Title"); ?></th>
+          <th><?php echo T_("Sum"); ?></th>
+          <th><?php echo T_("Maximum"); ?></th>
+          <th><?php echo T_("Minimum"); ?></th>
+          <th><?php echo T_("Average"); ?></th>
+          <th class="collapsing"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach (\dash\data::storeAnalytics() as $key => $value) {?>
+          <tr>
+            <td><?php echo \dash\get::index($value, 'title'); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'sum')); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'max')); ?></td>
+            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'min')); ?></td>
+            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'avg')); ?></td>
+            <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
+          </tr>
+        <?php } //endfor ?>
+      </tbody>
+    </table>
+  </div>
 </div>

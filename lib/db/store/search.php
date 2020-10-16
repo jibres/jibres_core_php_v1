@@ -36,7 +36,7 @@ class search
 
 
 
-	public static function list_analytics($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function list_analytics($_and, $_or, $_order_sort = null, $_meta = [], $_f)
 	{
 
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);

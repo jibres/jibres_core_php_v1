@@ -150,16 +150,27 @@ class search
 	public static function list_analytics($_query_string, $_args)
 	{
 
+		$field_list = \lib\app\store\analytics::field_list();
+
 		$condition =
 		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['name','id']],
+			'order' => 'order',
+			'sort'  => ['enum' => ['name','id']],
+			'f'      => ['enum' => array_keys($field_list)],
 		];
 
-		$require = [];
-		$meta    =	[];
+		$require = ['f'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+				'f' => T_("Field"),
+			],
+		];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 
 		$and         = [];
@@ -206,12 +217,11 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY store.id DESC";
+			$order_sort = " ORDER BY store_analytics.$data[f] DESC";
 		}
 
 
-
-		$list = \lib\db\store\search::list_analytics($and, $or, $order_sort, $meta);
+		$list = \lib\db\store\search::list_analytics($and, $or, $order_sort, $meta, $data['f']);
 
 		if(!is_array($list))
 		{
