@@ -1,5 +1,5 @@
 <?php
-namespace content_love\store\analytics;
+namespace content_love\business\analytics;
 
 
 class controller

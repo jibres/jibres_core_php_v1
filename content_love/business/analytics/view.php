@@ -1,18 +1,23 @@
 <?php
-namespace content_love\store\analytics;
+namespace content_love\business\analytics;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Stores"));
+		\dash\face::title(T_("Store analytics"));
+
+				// btn
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
+
+
 
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
-
 		];
 
 		$search_string = \dash\request::get('q');
@@ -23,7 +28,6 @@ class view
 
 		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
 		\dash\data::sortLink($sortLink);
-
 
 		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
 
