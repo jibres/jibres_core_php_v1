@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-16 11:46+0330\n"
-"PO-Revision-Date: 2020-10-16 11:47+0330\n"
+"POT-Creation-Date: 2020-10-16 13:11+0330\n"
+"PO-Revision-Date: 2020-10-16 13:12+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4714,7 +4714,7 @@ msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:11 content_a/accounting/turnover/display.php:149
-#: lib/app/store/config.php:85 lib/app/store/config.php:114
+#: lib/app/store/config.php:85 lib/app/store/config.php:120 lib/app/store/config.php:225
 msgid "Number"
 msgstr "شماره"
 
@@ -6906,6 +6906,7 @@ msgstr "نتایج پیشرفته"
 #: content_a/order/home/display.php:131 content_my/business/home/display_site.php:64
 #: content_su/smsclient/home/display.php:14 includes/languages/trans_static.php:61
 #: lib/app/factor/search.php:95 lib/app/factor/search.php:104
+#: lib/app/log/caller/business/business_creatingNew.php:42
 msgid "Customer"
 msgstr "مشتری"
 
@@ -8421,12 +8422,12 @@ msgstr "حذف شده"
 #: lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:310
 #: lib/app/nic_domain/get.php:337 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
-#: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/store/domain.php:432
-#: lib/app/tax/coding/get.php:154 lib/app/tax/doc/get.php:34
-#: lib/app/tax/docdetail/edit.php:16 lib/app/tax/docdetail/get.php:22
-#: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
-#: lib/app/tax/year/get.php:66 lib/app/website/body/edit.php:31
-#: lib/app/website/body/edit.php:111 lib/app/website/body/line/imageblock.php:183
+#: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/tax/coding/get.php:154
+#: lib/app/tax/doc/get.php:34 lib/app/tax/docdetail/edit.php:16
+#: lib/app/tax/docdetail/get.php:22 lib/app/tax/docdetail/remove.php:13
+#: lib/app/tax/docdetail/remove.php:20 lib/app/tax/year/get.php:66
+#: lib/app/website/body/edit.php:31 lib/app/website/body/edit.php:111
+#: lib/app/website/body/line/imageblock.php:183
 #: lib/app/website/body/line/imageblock.php:348 lib/app/website/body/line/news.php:69
 #: lib/app/website/body/line/productline.php:69 lib/app/website/body/line/quote.php:110
 #: lib/app/website/body/line/quote.php:281 lib/app/website/body/line/slider.php:182
@@ -9459,8 +9460,7 @@ msgstr "ذخیره و چاپ"
 #: content_a/sale/model.php:57 content_pardakhtyar/customer/dashboard/model.php:43
 #: content_pardakhtyar/customer/dashboard/model.php:87 content_su/backup/model.php:47
 #: content_su/smsclient/edit/model.php:47 content_su/smsclient/home/model.php:47
-#: dash/utility/pay/verify.php:40 lib/app/store/domain.php:545
-#: lib/app/store/domain.php:554
+#: dash/utility/pay/verify.php:40
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
@@ -10587,7 +10587,7 @@ msgid "To set your business currency"
 msgstr "برای تنظیم واحد‌های فروشگاه"
 
 #: content_a/setting/shipping/setting/display.php:24
-#: content_a/website/menu/edit/display.php:48
+#: content_a/website/menu/edit/display.php:48 dash/app/user/email.php:168
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
@@ -13856,7 +13856,7 @@ msgstr "دسته‌بندی والد"
 
 #: content_cms/terms/display.php:199 content_cms/terms/display.php:224
 #: content_cms/terms/display.php:241 content_crm/member/general/display.php:119
-#: content_crm/member/general/display.php:129 content_my/business/ask/model.php:35
+#: content_crm/member/general/display.php:129 content_my/business/ask/model.php:36
 msgid "Please select one itme"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -15885,8 +15885,8 @@ msgid "Active two-step"
 msgstr "فعال‌سازی ورود دو مرحله‌ای"
 
 #: content_enter/twostep/model.php:11 content_enter/twostep/view.php:11
-#: dash/app/user/email.php:35 dash/app/user/email.php:87 dash/app/user/email.php:194
-#: dash/app/user/email.php:258 lib/app/application/queue_search.php:27
+#: dash/app/user/email.php:35 dash/app/user/email.php:87 dash/app/user/email.php:197
+#: dash/app/user/email.php:261 lib/app/application/queue_search.php:27
 #: lib/app/cart/add.php:25 lib/app/cart/add.php:42 lib/app/cart/add.php:108
 #: lib/app/cart/add.php:158 lib/app/cart/checkout.php:14 lib/app/cart/edit.php:22
 #: lib/app/cart/get.php:13 lib/app/cart/get.php:40 lib/app/cart/remove.php:20
@@ -21481,12 +21481,12 @@ msgstr "دسترسی لازم برای ویرایش کاربر وجود ندار
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
 
-#: dash/app/user/email.php:29 dash/app/user/email.php:81 dash/app/user/email.php:188
-#: dash/app/user/email.php:252
+#: dash/app/user/email.php:29 dash/app/user/email.php:81 dash/app/user/email.php:191
+#: dash/app/user/email.php:255
 msgid "Please enter email"
 msgstr "لطفا ایمیل را وارد کنید"
 
-#: dash/app/user/email.php:49 dash/app/user/email.php:101 dash/app/user/email.php:208
+#: dash/app/user/email.php:49 dash/app/user/email.php:101 dash/app/user/email.php:211
 msgid "Email not found"
 msgstr "ایمیل یافت نشد"
 
@@ -21502,47 +21502,47 @@ msgstr "شما قبلا این ایمیل را تایید کرده‌اید"
 msgid "This email is already verified for another user"
 msgstr "این ایمیل قبلا توسط کاربر دیگری تایید شده است"
 
-#: dash/app/user/email.php:166
-msgid "Click to verify"
-msgstr "برای تایید کلیک کنید"
+#: dash/app/user/email.php:167
+msgid "To confirm your email in Jibres"
+msgstr "برای تایید ایمیل خود در جیبرس"
 
-#: dash/app/user/email.php:173
+#: dash/app/user/email.php:176
 msgid "Verify your mail"
 msgstr "ایمیل خود را تایید کنید"
 
-#: dash/app/user/email.php:178
+#: dash/app/user/email.php:181
 msgid "A verification email was send to your email"
 msgstr "ایمیل اعتبار سنجی ارسال شد"
 
-#: dash/app/user/email.php:214
+#: dash/app/user/email.php:217
 msgid "This email is already set as primary email"
 msgstr "این ایمیل قبلا به عنوان ایمیل اصلی انتخاب شده است"
 
-#: dash/app/user/email.php:224
+#: dash/app/user/email.php:227
 msgid "Please verify the email to set as primary"
 msgstr "لطفا برای تنظیم به عنوان ایمیل اصلی،‌ این ایمیل را تایید کنید"
 
-#: dash/app/user/email.php:236
+#: dash/app/user/email.php:239
 msgid "Your email was set as primary"
 msgstr "ایمیل شما به عنوان ایمیل اصلی تنظیم شد"
 
-#: dash/app/user/email.php:270
+#: dash/app/user/email.php:273
 msgid "This email already added to your panel"
 msgstr "این ایمیل قبلا به حساب کاربری شما اضافه شده است"
 
-#: dash/app/user/email.php:274
+#: dash/app/user/email.php:277
 msgid "This email is already taken"
 msgstr "این ایمیل قبلا گرفته شده است"
 
-#: dash/app/user/email.php:284
+#: dash/app/user/email.php:287
 msgid "This email is already exist in your list"
 msgstr "این ایمیل قبلا به لیست ایمیل‌های شما اضافه شده است"
 
-#: dash/app/user/email.php:292
+#: dash/app/user/email.php:295
 msgid "Maximum email capacity is 20 per user"
 msgstr "ظرفیت ایمیل برای هر کاربر ۲۰ مورد است"
 
-#: dash/app/user/email.php:308
+#: dash/app/user/email.php:311
 msgid "Your email was added"
 msgstr "ایمیل شما اضافه شد"
 
@@ -30425,7 +30425,7 @@ msgstr "تنظیمات صفحه نخست اپلیکیشن ذخیره شد"
 msgid "Your business domain capacity is full!"
 msgstr "ظرفیت تعداد دامنه‌های متصل به بیزینس شما تکمیل است!"
 
-#: lib/app/business_domain/add.php:103 lib/app/store/domain.php:236
+#: lib/app/business_domain/add.php:103
 msgid "Domain is not valid"
 msgstr "دامنه معتبر نیست"
 
@@ -30448,7 +30448,7 @@ msgstr "این دامنه در انتظار حذف است. لطفا چند دق�
 #: lib/app/business_domain/add.php:161 lib/app/business_domain/edit.php:75
 #: lib/app/nic_domain/get.php:26 lib/app/nic_domain/lock.php:52
 #: lib/app/nic_domain/lock.php:154 lib/app/onlinenic/lock.php:52
-#: lib/app/onlinenic/lock.php:155 lib/app/store/domain.php:617
+#: lib/app/onlinenic/lock.php:155
 msgid "Invalid domain"
 msgstr "دامنه اشتباه است"
 
@@ -30472,7 +30472,7 @@ msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌ه
 msgid "CDN field is not valid"
 msgstr "مقدار سی‌دی‌ان اشتباه است"
 
-#: lib/app/business_domain/cdnpanel.php:86 lib/app/store/domain.php:693
+#: lib/app/business_domain/cdnpanel.php:86
 msgid "Sorry, Can not connect to CDN API to connect your domain. Please Try again"
 msgstr "متاسفیم. نمی‌توانیم به ای‌پی‌آی آروان متصل شویم. لطفا مجددا تلاش کنید"
 
@@ -30488,7 +30488,7 @@ msgstr "اوه! خطای نامشخص!"
 msgid "Domain successfully added to CDN panel"
 msgstr "دامنه با موفقیت به پنل سی‌دی‌ان اضافه شد"
 
-#: lib/app/business_domain/cdnpanel.php:164 lib/app/store/domain.php:735
+#: lib/app/business_domain/cdnpanel.php:164
 msgid "This domain is already in use in CDN panel"
 msgstr "این دامنه در پنل سی‌دی‌ان درحال استفاده است"
 
@@ -31598,43 +31598,43 @@ msgstr "مالک بیزینس"
 msgid "Creating New business Alert"
 msgstr "هشدار در حال ساخت بیزینس جدید"
 
-#: lib/app/log/caller/business/business_creatingNew.php:48
+#: lib/app/log/caller/business/business_creatingNew.php:64
 msgid "User start creating store by title :title"
 msgstr "مشتری فرایند ساخت بیزینس جدید را با عنوان :title آغاز کرد"
 
-#: lib/app/log/caller/business/business_creatingNew.php:53
+#: lib/app/log/caller/business/business_creatingNew.php:69
 msgid "But user can not add because have limit on create store"
 msgstr "اما مشتری نتوانست مراحل را ادامه دهد چون با محدودیت تعداد بیزینس مواجه شد"
 
-#: lib/app/log/caller/business/business_creatingNew.php:62
+#: lib/app/log/caller/business/business_creatingNew.php:78
 msgid "User skip ask step"
 msgstr "کاربر از مرحله پرسش رد شد و به سوالات پاسخ نداد"
 
-#: lib/app/log/caller/business/business_creatingNew.php:66
+#: lib/app/log/caller/business/business_creatingNew.php:82
 msgid "User answer to question in ask step"
 msgstr "کاربر به سوالات موجود در این مرحله پاسخ داد"
 
-#: lib/app/log/caller/business/business_creatingNew.php:103
+#: lib/app/log/caller/business/business_creatingNew.php:119
 msgid "User try choose subdomain :subdomain"
 msgstr "مشتری برای انتخاب زیر دامنه  :subdomain تلاش کرد"
 
-#: lib/app/log/caller/business/business_creatingNew.php:109
+#: lib/app/log/caller/business/business_creatingNew.php:125
 msgid "But we can not support this subdomain!"
 msgstr "اما ما این زیردامنه را پشتیبانی نمی‌کنیم!"
 
-#: lib/app/log/caller/business/business_creatingNew.php:132
+#: lib/app/log/caller/business/business_creatingNew.php:148
 msgid "But this sbudomain already exists"
 msgstr "اما این زیر دامنه قبلاً گرفته شده است"
 
-#: lib/app/log/caller/business/business_creatingNew.php:139
+#: lib/app/log/caller/business/business_creatingNew.php:155
 msgid "And creating business was started ;)"
 msgstr "و ساخت بیزینس جدید آغاز شد ;)"
 
-#: lib/app/log/caller/business/business_creatingNew.php:148
+#: lib/app/log/caller/business/business_creatingNew.php:164
 msgid "We can not complete creating store"
 msgstr "ما نتوانستیم فرایند ساخت فروشگاه را تکمیل کنیم"
 
-#: lib/app/log/caller/business/business_creatingNew.php:217
+#: lib/app/log/caller/business/business_creatingNew.php:239
 msgid "Creating New business in progress"
 msgstr "ساخت بیزینس جدید در حال انجام است"
 
@@ -33192,122 +33192,70 @@ msgstr "محصول نمونه ۱"
 msgid "Description of example product 1"
 msgstr "توضیحاتی در مورد محصول نمونه ۱"
 
-#: lib/app/store/config.php:78 lib/app/store/config.php:107
+#: lib/app/store/config.php:78 lib/app/store/config.php:113 lib/app/store/config.php:148
+#: lib/app/store/config.php:183 lib/app/store/config.php:218
 msgid "Share this product by this text"
 msgstr "با این متن محصول خود را به اشتراک بگذارید"
 
-#: lib/app/store/config.php:82 lib/app/store/config.php:111
+#: lib/app/store/config.php:82 lib/app/store/config.php:117 lib/app/store/config.php:152
+#: lib/app/store/config.php:187 lib/app/store/config.php:222
 msgid "Example company"
 msgstr "شرکت سازنده نمونه"
 
-#: lib/app/store/config.php:83 lib/app/store/config.php:112
+#: lib/app/store/config.php:83 lib/app/store/config.php:118 lib/app/store/config.php:153
+#: lib/app/store/config.php:188 lib/app/store/config.php:223
 msgid "Example tag 1"
 msgstr "تگ نمونه ۱"
 
-#: lib/app/store/config.php:83 lib/app/store/config.php:112
+#: lib/app/store/config.php:83 lib/app/store/config.php:118 lib/app/store/config.php:153
+#: lib/app/store/config.php:188 lib/app/store/config.php:223
 msgid "Example tag 2"
 msgstr "تگ نمونه ۲"
 
-#: lib/app/store/config.php:84 lib/app/store/config.php:113
+#: lib/app/store/config.php:84 lib/app/store/config.php:119 lib/app/store/config.php:189
+#: lib/app/store/config.php:224
 msgid "Example category 1"
 msgstr "دسته‌بندی نمونه ۱"
 
-#: lib/app/store/config.php:101
+#: lib/app/store/config.php:107
 msgid "Example product 2"
 msgstr "محصول نمونه ۲"
 
-#: lib/app/store/config.php:104
+#: lib/app/store/config.php:110
 msgid "Description of example product 2"
 msgstr "توضیحاتی در مورد محصول نمونه ۲"
 
-#: lib/app/store/domain.php:42 lib/app/store/domain.php:48 lib/app/store/domain.php:97
-#: lib/app/store/domain.php:103
-msgid "This domain not found in your domain list!"
-msgstr "این دامنه در لیست دامنه‌های متصل شما یافت نشد!"
+#: lib/app/store/config.php:142
+msgid "Example product 3"
+msgstr "محصول نمونه ۳"
 
-#: lib/app/store/domain.php:57
-msgid "Primary domain saved"
-msgstr "دامنه به عنوان دامنه اصلی ذخیره شد"
+#: lib/app/store/config.php:145
+msgid "Description of example product 3"
+msgstr "توضیحاتی در مورد محصول نمونه ۳"
 
-#: lib/app/store/domain.php:174
-msgid "Domain disconnected"
-msgstr "اتصال دامنه اختصاصی شما به فروشگاه قطع شد"
+#: lib/app/store/config.php:154
+msgid "Example category 2"
+msgstr "دسته‌بندی نمونه ۲"
 
-#: lib/app/store/domain.php:253
-msgid "This domain was added to your business"
-msgstr "این دامنه به فروشگاه شما متصل شده است"
+#: lib/app/store/config.php:155 lib/app/store/config.php:190
+msgid "Box"
+msgstr "جعبه"
 
-#: lib/app/store/domain.php:258
-msgid "This domain is reserved in another account. Can not choose it"
-msgstr "این دامنه قبلا در اکانت دیگری رزرو شده است و امکان ثبت مجدد آن نیست"
+#: lib/app/store/config.php:177
+msgid "Example product 4"
+msgstr "محصول نمونه ۴"
 
-#: lib/app/store/domain.php:266
-msgid ""
-"You have used the maximum capacity of connection to the store. Can not connect new "
-"domain!"
-msgstr ""
-"شما از حداکثر ظرفیت اتصال دامنه به بیزینس خود استفاده کرده‌اید. امکان اتصال دامنه جدید "
-"وجود ندارد!"
+#: lib/app/store/config.php:180
+msgid "Description of example product 4"
+msgstr "توضیحاتی در مورد محصول نمونه ۴"
 
-#: lib/app/store/domain.php:338
-msgid "Your domain connected to your store"
-msgstr "دامنه اختصاصی شما به فروشگاه متصل شد"
+#: lib/app/store/config.php:212
+msgid "Example product 5"
+msgstr "محصول نمونه ۵"
 
-#: lib/app/store/domain.php:379
-msgid "We can not get your domain DNS record"
-msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
-
-#: lib/app/store/domain.php:384
-msgid "DNS record not set on our dns"
-msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم نشده است"
-
-#: lib/app/store/domain.php:388
-msgid "dns record not found"
-msgstr "رکورد‌های دی‌ان‌اس یافت نشد"
-
-#: lib/app/store/domain.php:392
-msgid "Can not connect to CDN Service"
-msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
-
-#: lib/app/store/domain.php:396
-msgid "This domain is already is use in CDN panel"
-msgstr "این دامنه در پنل سی‌دی‌ان درحال استفاده است"
-
-#: lib/app/store/domain.php:400 lib/app/store/domain.php:742
-msgid "Can not add domain to CND Service"
-msgstr "نمی‌توانیم دامنه را در پنل سی‌دی‌ان ثبت کنیم"
-
-#: lib/app/store/domain.php:404
-msgid "Can not connect get domain a record"
-msgstr "نمی‌توانیم ای‌رکورد دامنه را دریافت کنیم"
-
-#: lib/app/store/domain.php:408
-msgid "request of https was sended"
-msgstr "درخواست https ارسال شده است"
-
-#: lib/app/store/domain.php:477
-msgid "Update successfully"
-msgstr "بروزرسانی با موفقیت انجام شد"
-
-#: lib/app/store/domain.php:583
-msgid "Can not get DNS record"
-msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را دریافت کنیم"
-
-#: lib/app/store/domain.php:604
-msgid "DNS not set on our dns record"
-msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم نشده است"
-
-#: lib/app/store/domain.php:624
-msgid "Domain is not connected to your store"
-msgstr "دامنه به فروشگاه شما متصل نشده است"
-
-#: lib/app/store/domain.php:633
-msgid "This domain is already connected to your business successfully"
-msgstr "این دامنه قبلا به بیزینس شما با موفقیت متصل شده است"
-
-#: lib/app/store/domain.php:760
-msgid "Can not get domain dns record from CDN panel"
-msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
+#: lib/app/store/config.php:215
+msgid "Description of example product 5"
+msgstr "توضیحاتی در مورد محصول نمونه ۵"
 
 #: lib/app/store/edit.php:38
 msgid "Your social network was saved"
@@ -34996,6 +34944,76 @@ msgstr "یارد"
 msgid "Samandehi"
 msgstr "ساماندهی"
 
+#~ msgid "Click to verify"
+#~ msgstr "برای تایید کلیک کنید"
+
+#~ msgid "This domain not found in your domain list!"
+#~ msgstr "این دامنه در لیست دامنه‌های متصل شما یافت نشد!"
+
+#~ msgid "Primary domain saved"
+#~ msgstr "دامنه به عنوان دامنه اصلی ذخیره شد"
+
+#~ msgid "Domain disconnected"
+#~ msgstr "اتصال دامنه اختصاصی شما به فروشگاه قطع شد"
+
+#~ msgid "This domain was added to your business"
+#~ msgstr "این دامنه به فروشگاه شما متصل شده است"
+
+#~ msgid "This domain is reserved in another account. Can not choose it"
+#~ msgstr "این دامنه قبلا در اکانت دیگری رزرو شده است و امکان ثبت مجدد آن نیست"
+
+#~ msgid ""
+#~ "You have used the maximum capacity of connection to the store. Can not connect new "
+#~ "domain!"
+#~ msgstr ""
+#~ "شما از حداکثر ظرفیت اتصال دامنه به بیزینس خود استفاده کرده‌اید. امکان اتصال دامنه "
+#~ "جدید وجود ندارد!"
+
+#~ msgid "Your domain connected to your store"
+#~ msgstr "دامنه اختصاصی شما به فروشگاه متصل شد"
+
+#~ msgid "We can not get your domain DNS record"
+#~ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
+
+#~ msgid "DNS record not set on our dns"
+#~ msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم نشده است"
+
+#~ msgid "dns record not found"
+#~ msgstr "رکورد‌های دی‌ان‌اس یافت نشد"
+
+#~ msgid "Can not connect to CDN Service"
+#~ msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
+
+#~ msgid "This domain is already is use in CDN panel"
+#~ msgstr "این دامنه در پنل سی‌دی‌ان درحال استفاده است"
+
+#~ msgid "Can not add domain to CND Service"
+#~ msgstr "نمی‌توانیم دامنه را در پنل سی‌دی‌ان ثبت کنیم"
+
+#~ msgid "Can not connect get domain a record"
+#~ msgstr "نمی‌توانیم ای‌رکورد دامنه را دریافت کنیم"
+
+#~ msgid "request of https was sended"
+#~ msgstr "درخواست https ارسال شده است"
+
+#~ msgid "Update successfully"
+#~ msgstr "بروزرسانی با موفقیت انجام شد"
+
+#~ msgid "Can not get DNS record"
+#~ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را دریافت کنیم"
+
+#~ msgid "DNS not set on our dns record"
+#~ msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم نشده است"
+
+#~ msgid "Domain is not connected to your store"
+#~ msgstr "دامنه به فروشگاه شما متصل نشده است"
+
+#~ msgid "This domain is already connected to your business successfully"
+#~ msgstr "این دامنه قبلا به بیزینس شما با موفقیت متصل شده است"
+
+#~ msgid "Can not get domain dns record from CDN panel"
+#~ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
+
 #~ msgid "Show chart"
 #~ msgstr "نمایش آمار"
 
@@ -36441,9 +36459,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Maximum renew date is 6 year"
 #~ msgstr "حداکثر زمان تمدید ۶ سال است"
-
-#~ msgid "You must confirm your mobile in the future"
-#~ msgstr "شما باید حساب کاربری خود را در آینده تایید کنید"
 
 #~ msgid "Verify now"
 #~ msgstr "هم اکنون تایید می‌کنم"
