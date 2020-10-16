@@ -37,6 +37,22 @@ class business_creatingNew
 		// ]
 		$msg          = '';
 
+		if(isset($_args['data']['log_user_detail']))
+		{
+			$msg .= ' '. T_("Customer");
+
+			if(isset($_args['data']['log_user_detail']['fullname']))
+			{
+				$msg .= ' '. $_args['data']['log_user_detail']['fullname']. ' ';
+			}
+			if(isset($_args['data']['log_user_detail']['mobile']) && $_args['data']['log_user_detail']['mobile'])
+			{
+				$msg .= ' '. \dash\fit::mobile($_args['data']['log_user_detail']['mobile']). ' ';
+			}
+			$msg .= ' | ';
+
+		}
+
 		$my_message      = isset($_args['data']['my_message']) ? $_args['data']['my_message'] : null;
 
 		$my_step      = isset($_args['data']['my_step']) ? $_args['data']['my_step'] : null;
@@ -185,6 +201,12 @@ class business_creatingNew
 	{
 		// 7 days
 		return date("Y-m-d H:i:s", time() + (60*60*24*7));
+	}
+
+
+	public static function save_user_detail()
+	{
+		return true;
 	}
 
 

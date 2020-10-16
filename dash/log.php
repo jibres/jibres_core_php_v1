@@ -89,6 +89,30 @@ class log
 
 		$before_add = self::call_fn($_caller, 'before_add', $_args);
 
+		$save_user_detail = self::call_fn($_caller, 'save_user_detail');
+
+		if($save_user_detail && \dash\user::id())
+		{
+
+			$temp = [];
+
+			$temp['id']            = \dash\user::detail('id');
+			$temp['username']      = \dash\user::detail('username');
+			$temp['displayname']   = \dash\user::detail('displayname');
+			$temp['gender']        = \dash\user::detail('gender');
+			$temp['gender_string'] = \dash\user::detail('gender_string');
+			$temp['mobile']        = \dash\user::detail('mobile');
+			$temp['verifymobile']  = \dash\user::detail('verifymobile');
+			$temp['status']        = \dash\user::detail('status');
+			$temp['avatar']        = \dash\user::detail('avatar');
+			$temp['datecreated']   = \dash\user::detail('datecreated');
+			$temp['datemodified']  = \dash\user::detail('datemodified');
+			$temp['fullname']      = \dash\user::detail('fullname');
+
+			$data['log_user_detail'] = $temp;
+
+		}
+
 		if(is_array($before_add))
 		{
 			$_args = array_merge($_args, $before_add);
