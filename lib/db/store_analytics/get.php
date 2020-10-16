@@ -26,5 +26,90 @@ class get
 
 		return $result;
 	}
+
+
+
+
+
+	public static function chart_question($_index)
+	{
+
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				store_analytics.question$_index AS `q`
+			FROM
+				store_analytics
+			WHERE store_analytics.question$_index IS NOT NULL
+			GROUP BY store_analytics.question$_index
+		";
+
+		$result = \dash\db::get($query, ['q', 'count'], true, 'master');
+		return $result;
+	}
+
+
+	public static function answer_question()
+	{
+
+		$result = [];
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				store_analytics
+		";
+
+		$result['total'] = \dash\db::get($query, 'count', true, 'master');
+
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				store_analytics
+			WHERE
+				store_analytics.question1 IS NOT NULL AND
+				store_analytics.question2 IS NOT NULL AND
+				store_analytics.question3 IS NOT NULL
+		";
+
+		$result['answer_all'] = \dash\db::get($query, 'count', true, 'master');
+
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				store_analytics
+			WHERE
+				store_analytics.question1 IS NULL AND
+				store_analytics.question2 IS NULL AND
+				store_analytics.question3 IS NULL
+		";
+
+		$result['skip_all'] = \dash\db::get($query, 'count', true, 'master');
+
+
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				store_analytics
+			WHERE
+				store_analytics.question1 IS NOT NULL OR
+				store_analytics.question2 IS NOT NULL OR
+				store_analytics.question3 IS NOT NULL
+		";
+
+		$result['som_answer'] = \dash\db::get($query, 'count', true, 'master');
+
+		return $result;
+	}
+
+
 }
 ?>
