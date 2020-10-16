@@ -15,9 +15,9 @@ class business_creatingNew
 
 		$result['title']     = T_("Creating New business Alert");
 
-		$result['icon']      = 'shop';
+		$result['icon']      = 'binoculars';
 		$result['cat']       = T_("Business");
-		$result['iconClass'] = 'fc-green';
+		$result['iconClass'] = 'fc-blue';
 		$result['txt']       = self::get_msg($_args);
 		return $result;
 
