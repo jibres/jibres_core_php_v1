@@ -62,6 +62,13 @@ class fit{
 	}
 
 
+
+	public static function number_en($_text)
+	{
+		return self::number($_text, true, 'en');
+	}
+
+
 	public static function price($_price)
 	{
 		return self::number_decimal($_price, 'en');
