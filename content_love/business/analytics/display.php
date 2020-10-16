@@ -1,3 +1,34 @@
+<div class="avand">
+  <?php $store_time_line = \lib\app\store\analytics::average_creating_time(); ?>
+  <nav class="items">
+    <ul>
+      <li>
+        <a class="f item">
+          <div class="key"><?php echo T_("Average Creating time"); ?></div>
+          <div class="value"><?php echo \dash\fit::text(\dash\get::index($store_time_line, 'avg'));?> <small><?php echo T_("second") ?></small></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f item">
+          <div class="key"><?php echo T_("Maximum Creating time"); ?></div>
+          <div class="value"><?php echo \dash\fit::text(\dash\get::index($store_time_line, 'max'));?> <small><?php echo T_("second") ?></small></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f item">
+          <div class="key"><?php echo T_("Minimum Creating time"); ?></div>
+          <div class="value"><?php echo \dash\fit::text(\dash\get::index($store_time_line, 'min'));?> <small><?php echo T_("second") ?></small></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
 
   <div class="cbox fs12">
   <form method="get" action='<?php echo \dash\url::that(); ?>' >
@@ -46,3 +77,4 @@
 
 
 <?php \dash\utility\pagination::html(); ?>
+</div>
