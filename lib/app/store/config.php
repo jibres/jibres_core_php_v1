@@ -89,7 +89,13 @@ class config
 
 		if(isset($product_id['id']))
 		{
+			$file_detail =
+			[
+				'path' => \dash\url::cdn(). "/images/slider-sample/food/". rand(1, 40).".jpg",
+				'id' => null,
+			];
 
+			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
 		}
 
 
@@ -118,6 +124,118 @@ class config
 
 		if(isset($product_id['id']))
 		{
+			$file_detail =
+			[
+				'path' => \dash\url::cdn(). "/images/slider-sample/food/". rand(1, 40).".jpg",
+				'id' => null,
+			];
+
+			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
+
+		}
+
+			\dash\notif::clean();
+		\dash\engine\process::continue();
+
+		$args =
+		[
+			'title'         => T_("Example product 3"),
+			'stock'         => 10,
+			'weight'        => 10,
+			'desc'          => T_("Description of example product 3"),
+			'trackquantity' => 1,
+			'sku'           => null,
+			'sharetext'     => T_("Share this product by this text"),
+			'buyprice'      => 1000,
+			'price'         => 1500,
+			'discount'      => 100,
+			'company'       => T_("Example company"),
+			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
+			'cat'           => [T_("Example category 2")],
+			'unit'          => T_("Box"), // in add manual user send the unit
+		];
+
+		$product_id = \lib\app\product\add::add($args);
+
+		if(isset($product_id['id']))
+		{
+			$file_detail =
+			[
+				'path' => \dash\url::cdn(). "/images/slider-sample/food/". rand(1, 40).".jpg",
+				'id' => null,
+			];
+
+			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
+
+		}
+
+		\dash\notif::clean();
+		\dash\engine\process::continue();
+
+		$args =
+		[
+			'title'         => T_("Example product 4"),
+			'stock'         => 10,
+			'weight'        => 10,
+			'desc'          => T_("Description of example product 4"),
+			'trackquantity' => 1,
+			'sku'           => null,
+			'sharetext'     => T_("Share this product by this text"),
+			'buyprice'      => 1000,
+			'price'         => 1500,
+			'discount'      => 100,
+			'company'       => T_("Example company"),
+			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
+			'cat'           => [T_("Example category 1")],
+			'unit'          => T_("Box"), // in add manual user send the unit
+		];
+
+		$product_id = \lib\app\product\add::add($args);
+
+		if(isset($product_id['id']))
+		{
+			$file_detail =
+			[
+				'path' => \dash\url::cdn(). "/images/slider-sample/food/". rand(1, 40).".jpg",
+				'id' => null,
+			];
+
+			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
+
+		}
+
+		\dash\notif::clean();
+		\dash\engine\process::continue();
+
+		$args =
+		[
+			'title'         => T_("Example product 5"),
+			'stock'         => 10,
+			'weight'        => 10,
+			'desc'          => T_("Description of example product 5"),
+			'trackquantity' => 1,
+			'sku'           => null,
+			'sharetext'     => T_("Share this product by this text"),
+			'buyprice'      => 1000,
+			'price'         => 1500,
+			'discount'      => 100,
+			'company'       => T_("Example company"),
+			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
+			'cat'           => [T_("Example category 1")],
+			'unit'          => T_("Number"), // in add manual user send the unit
+		];
+
+		$product_id = \lib\app\product\add::add($args);
+
+		if(isset($product_id['id']))
+		{
+			$file_detail =
+			[
+				'path' => \dash\url::cdn(). "/images/slider-sample/food/". rand(1, 40).".jpg",
+				'id' => null,
+			];
+
+			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
 
 		}
 	}
