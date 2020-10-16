@@ -29,7 +29,7 @@ class add
 		}
 		else
 		{
-			$insert_args = self::check(['title' => $data['tag']]);
+			$insert_args = \lib\app\tag\check::variable(['title' => $data['tag']]);
 			if(!$insert_args || !\dash\engine\process::status())
 			{
 				return false;
