@@ -65,6 +65,11 @@ class view
 			$args['logs.from'] = \dash\request::get('from');
 		}
 
+		if(\dash\request::get('caller'))
+		{
+			$args['logs.caller'] = \dash\request::get('caller');
+		}
+
 		if(\dash\request::get('to'))
 		{
 			$args['logs.to'] = \dash\request::get('to');
