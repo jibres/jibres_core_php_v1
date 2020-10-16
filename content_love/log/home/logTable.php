@@ -89,7 +89,7 @@
 
         <td class="collapsing">
           <a href="<?php echo \dash\url::this(); ?>?datecreated=<?php echo \dash\get::index($value, 'datecreated'); ?>" title='<?php echo T_("Date created"); ?>'>
-            <?php echo \dash\fit::date($value['datecreated']); ?>
+            <?php echo \dash\fit::date_time($value['datecreated']); ?>
 
           </a>
         <?php if(isset($value['datemodified']) && $value['datemodified']) {?>
@@ -97,7 +97,7 @@
         <br>
         <span class="badge danger2" title='<?php echo T_("Date modified"); ?>'>
           <a href="<?php echo \dash\url::this(); ?>?datecreated=<?php echo \dash\get::index($value, 'datemodified'); ?>">
-            <?php echo \dash\fit::date($value['datemodified']); ?>
+            <?php echo \dash\fit::date_time($value['datemodified']); ?>
           </a>
         </span>
         <?php } // endif ?>
