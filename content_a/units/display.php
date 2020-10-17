@@ -131,7 +131,7 @@
           </td>
           <td class="txtC"><?php if(isset($value['int']) && $value['int']) { ?><i class="sf-check fc-green"></i><?php }else{ echo '-';} ?></td>
           <td class="collapsing">
-            <a class="block" href="<?php echo \dash\url::this(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write fs11  mRa10"></i><span class="sm"><?php echo T_("Edit"); ?></span></a>
+            <a class="block" href="<?php echo \dash\url::this(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit fs11  mRa10"></i><span class="sm"><?php echo T_("Edit"); ?></span></a>
             <a class="block" href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm"><?php echo T_("Remove"); ?></span></a>
 
           </td>

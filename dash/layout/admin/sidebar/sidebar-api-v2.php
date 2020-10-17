@@ -22,10 +22,10 @@
       <?php // -------------------------------------------------------------- PROFILE  ?>
       <li><a href="<?php echo \dash\url::current(); ?>#get-profile"><i class='sf-download'></i> <span><?php echo T_("Get profile detail"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#upload-avatar"><i class='sf-cloud-upload'></i> <span><?php echo T_("Upload avatar"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#update-profile"><i class='sf-edit-write'></i> <span><?php echo T_("Update profile"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#update-profile"><i class='sf-edit'></i> <span><?php echo T_("Update profile"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#profile-address-add"><i class='sf-plus-circle'></i> <span><?php echo T_("Add new address"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#profile-address-list"><i class='sf-th'></i> <span><?php echo T_("Get list of your address"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#profile-address-edit"><i class='sf-edit-write'></i> <span><?php echo T_("Edit address"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#profile-address-edit"><i class='sf-edit'></i> <span><?php echo T_("Edit address"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#profile-address-remove"><i class='sf-eraser'></i> <span><?php echo T_("Remove address"); ?></span></a></li>
       <li class="hr"></li>
 
@@ -33,11 +33,11 @@
       <li><a href="<?php echo \dash\url::current(); ?>#user-list"><i class='sf-th'></i> <span><?php echo T_("Users list"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#user-add-crm"><i class='sf-plus-circle'></i> <span><?php echo T_("Add new user"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#get-user-detail"><i class='sf-download'></i> <span><?php echo T_("Get one user detail"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#edit-user"><i class='sf-edit-write'></i> <span><?php echo T_("Edit user"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#edit-user"><i class='sf-edit'></i> <span><?php echo T_("Edit user"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#edit-user-avatar"><i class='sf-cloud-upload'></i> <span><?php echo T_("Set user avatar"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#user-address-add"><i class='sf-plus-circle'></i> <span><?php echo T_("Add new address to user"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#user-address-list"><i class='sf-th'></i> <span><?php echo T_("Get list of user address"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#user-address-edit"><i class='sf-edit-write'></i> <span><?php echo T_("Edit user address"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#user-address-edit"><i class='sf-edit'></i> <span><?php echo T_("Edit user address"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#user-address-remove"><i class='sf-eraser'></i> <span><?php echo T_("Remove user address"); ?></span></a></li>
       <li class="hr"></li>
 
@@ -72,7 +72,7 @@
 
       <?php // -------------------------------------------------------------- PRODUCT  ?>
       <li><a href="<?php echo \dash\url::current(); ?>#product-add"><i class='sf-plus-circle'></i> <span><?php echo T_("Add new product"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#product-edit"><i class='sf-edit-write'></i> <span><?php echo T_("Edit product"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#product-edit"><i class='sf-edit'></i> <span><?php echo T_("Edit product"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#product-gallery"><i class='sf-cloud-upload'></i> <span><?php echo T_("Upload product gallery"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#product-gallery-thumb"><i class='sf-cog'></i> <span><?php echo T_("Set product thumb"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#product-gallery-remove"><i class='sf-eraser'></i> <span><?php echo T_("Remove file gallery"); ?></span></a></li>
@@ -104,5 +104,5 @@
       <li><a href="<?php echo \dash\url::current(); ?>#add-to-cart"><i class='sf-plus-circle'></i> <span><?php echo T_("Add to cart"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#show-cart"><i class='sf-th'></i> <span><?php echo T_("Get cart detail"); ?></span></a></li>
       <li><a href="<?php echo \dash\url::current(); ?>#delete-from-cart"><i class='sf-eraser'></i> <span><?php echo T_("Delete from cart"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#edit-cart"><i class='sf-edit-write'></i> <span><?php echo T_("Edit cart"); ?></span></a></li>
-      <li><a href="<?php echo \dash\url::current(); ?>#checkout-cart"><i class='sf-edit-write'></i> <span><?php echo T_("Checkout cart"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#edit-cart"><i class='sf-edit'></i> <span><?php echo T_("Edit cart"); ?></span></a></li>
+      <li><a href="<?php echo \dash\url::current(); ?>#checkout-cart"><i class='sf-edit'></i> <span><?php echo T_("Checkout cart"); ?></span></a></li>

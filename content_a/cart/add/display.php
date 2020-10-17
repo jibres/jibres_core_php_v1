@@ -1,5 +1,5 @@
 <div class="avand">
-  <div class="msg">
+  <div class="msg hide">
     <div class="f fs14">
       <div class="cauto"><img class="avatar" src="<?php echo \dash\data::userDetail_avatar() ?>"></div>
       <div class="c"><?php echo \dash\data::userDetail_displayname(); ?></div>
@@ -67,7 +67,7 @@ if(!is_array($dataTable))
             <input type="hidden" name="product" value="<?php echo \dash\get::index($value, 'product_id'); ?>">
             <div class="input w100">
               <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count') ?>">
-              <button class="addon btn primary"><i class="sf-edit-write"></i></button>
+              <button class="addon btn primary"><i class="sf-edit"></i></button>
             </div>
           </form>
         </td>

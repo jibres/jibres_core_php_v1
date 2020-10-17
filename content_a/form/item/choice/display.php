@@ -24,7 +24,7 @@
                 <td class="collapsing" data-handle ><i class="sf-sort"></i>
                   <input type="hidden" name="sort[]" value="<?php echo \dash\get::index($value, 'id') ?>">
                 </td>
-                <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => \dash\get::index($value, 'id')]) ?>"><i class="sf-edit-write"></i> <?php echo \dash\get::index($value, 'title') ?></a></td>
+                <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => \dash\get::index($value, 'id')]) ?>"><i class="sf-edit"></i> <?php echo \dash\get::index($value, 'title') ?></a></td>
                 <td class="collapsing">
                   <?php if(\dash\get::index($value, 'id') === \dash\request::get('cid')) {?>
                     <div class="fc-mute"><i><?php echo T_("Editing...") ?></i></div>

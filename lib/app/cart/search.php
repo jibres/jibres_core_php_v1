@@ -246,24 +246,33 @@ class search
 
 
 
-	public static function detail($_user_id = null, $_guestid = null)
+	public static function detail($_identify)
 	{
+		$user_id = \dash\validate::id($_identify, false);
+		$guestid = \dash\validate::md5($_identify, false);
+
+		if(!$user_id && !$guestid)
+		{
+			\dash\notif::error(T_("Invalid cart identify"));
+			return false;
+		}
 
 		$and                = [];
-		if($_user_id)
+		if($user_id)
 		{
-			$user_id = \dash\coding::decode($_user_id);
+			$user_id = \dash\coding::decode($user_id);
 
 			if(!$user_id)
 			{
 				\dash\notif::error(T_("Invalid user"));
 				return false;
 			}
+
 			$and[]              = " cart.user_id = $user_id " ;
 		}
 		else
 		{
-			$and[]              = " cart.guestid = '$_guestid' " ;
+			$and[]              = " cart.guestid = '$guestid' " ;
 
 		}
 
@@ -281,13 +290,13 @@ class search
 			return null;
 		}
 
-		if($_user_id)
+		if($user_id)
 		{
 			\lib\db\cart\update::set_view_user_id($user_id);
 		}
-		elseif($_guestid)
+		elseif($guestid)
 		{
-			\lib\db\cart\update::set_view_guestid($_guestid);
+			\lib\db\cart\update::set_view_guestid($guestid);
 		}
 
 
@@ -309,13 +318,13 @@ class search
 
 		if($must_remove)
 		{
-			if($_user_id)
+			if($user_id)
 			{
 				\lib\db\cart\delete::autoremove_product_user_id(implode(',', $must_remove), $user_id);
 			}
-			elseif($_guestid)
+			elseif($guestid)
 			{
-				\lib\db\cart\delete::autoremove_product_guestid(implode(',', $must_remove), $_guestid);
+				\lib\db\cart\delete::autoremove_product_guestid(implode(',', $must_remove), $guestid);
 			}
 		}
 
