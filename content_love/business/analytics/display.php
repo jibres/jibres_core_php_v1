@@ -28,9 +28,8 @@
 
     </ul>
   </nav>
-
   <div class="tblBox">
-    <table class="tbl1 v5 font-14">
+    <table class="tbl1 v6 font-14">
       <thead>
         <tr>
           <th><?php echo T_("Title"); ?></th>
@@ -42,7 +41,44 @@
         </tr>
       </thead>
       <tbody>
+        <?php foreach (\dash\data::storeAnalytics() as $key => $value) { if(!\dash\get::index($value, 'important')) { continue; } ?>
+          <tr>
+            <td><?php echo \dash\get::index($value, 'title'); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'sum')); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'max')); ?></td>
+            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'min')); ?></td>
+            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'avg')); ?></td>
+            <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
+          </tr>
+        <?php } //endfor ?>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tblBox">
+    <table class="tbl1 v2 font-14">
+      <thead>
+        <tr>
+          <th><?php echo T_("Title"); ?></th>
+          <th><?php echo T_("Sum"); ?></th>
+          <th><?php echo T_("Maximum"); ?></th>
+          <th><?php echo T_("Minimum"); ?></th>
+          <th><?php echo T_("Average"); ?></th>
+          <th class="collapsing"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php $last_group = null; ?>
         <?php foreach (\dash\data::storeAnalytics() as $key => $value) {?>
+          <?php if($last_group !== \dash\get::index($value, 'group')) { $last_group = \dash\get::index($value, 'group') ?>
+            <tr class="active">
+              <td colspan="6" class="txtC txtB">
+                <?php echo str_repeat(' - ', 20); ?>
+                <?php echo \dash\get::index($value, 'group'); ?>
+                <?php echo str_repeat(' - ', 20); ?>
+              </td>
+            </tr>
+          <?php } //endif ?>
           <tr>
             <td><?php echo \dash\get::index($value, 'title'); ?></td>
             <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'sum')); ?></td>
