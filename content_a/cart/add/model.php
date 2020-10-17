@@ -5,7 +5,7 @@ class model
 {
 	public static function post()
 	{
-		$user    = \dash\request::get('user');
+		$user    = \dash\request::get('identify');
 		$product = \dash\request::post('product');
 		$count   = \dash\request::post('count');
 

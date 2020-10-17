@@ -13,7 +13,7 @@
       <p><?php echo T_("Search in product and add to user cart") ?></p>
       <div class="f">
         <div class="c">
-          <select name="product" class="select22 barCode" id="productSearch"  data-model='html' <?php \dash\layout\autofocus::html() ?>  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::that(). '?user='. \dash\request::get('user'); ?>&json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
+          <select name="product" class="select22 barCode" id="productSearch"  data-model='html' <?php \dash\layout\autofocus::html() ?>  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::that(). '?identify='. \dash\request::get('identify'); ?>&json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
           </select>
 
         </div>

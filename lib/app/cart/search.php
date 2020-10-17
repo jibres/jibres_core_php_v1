@@ -248,7 +248,7 @@ class search
 
 	public static function detail($_identify)
 	{
-		$user_id = \dash\validate::id($_identify, false);
+		$user_id = \dash\validate::code($_identify, false);
 		$guestid = \dash\validate::md5($_identify, false);
 
 		if(!$user_id && !$guestid)

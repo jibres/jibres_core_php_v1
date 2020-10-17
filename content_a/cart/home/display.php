@@ -125,10 +125,10 @@ if(!is_array($dataTable))
         <td>
           <?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
         </td>
-        <td><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></td>
+        <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
 
         <td class="collapsing">
-            <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+            <a <?php if(\dash\get::index($value, 'user_id')) {?> href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" <?php } // endif ?> class="f align-center userPack">
               <div class="c pRa10">
                 <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
                 <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
