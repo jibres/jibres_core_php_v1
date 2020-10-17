@@ -40,7 +40,7 @@ class view
 
 
 			$chart                     = [];
-			$chart['post']             = \dash\utility\dayevent::chart(['field' => ['news', 'page', 'help', 'attachment']]);
+			$chart['post']             = \dash\app\dayevent::chart(['field' => ['news', 'page', 'help', 'attachment']]);
 			$dashboard_detail['chart'] = $chart;
 
 			// \dash\session::set('cpDashboardCache_'. \dash\language::current(), $dashboard_detail, null, (60*1));

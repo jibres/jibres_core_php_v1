@@ -142,7 +142,7 @@ class controller
 
 		if(self::at('01:00'))
 		{
-			\dash\utility\dayevent::save();
+			\dash\app\dayevent::save();
 		}
 	}
 

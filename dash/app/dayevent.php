@@ -1,5 +1,5 @@
 <?php
-namespace dash\utility;
+namespace dash\app;
 
 
 class dayevent

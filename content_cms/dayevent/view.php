@@ -12,7 +12,7 @@ class view
 		\dash\data::action_link(\dash\url::this());
 
 
-		$chart = \dash\utility\dayevent::chart();
+		$chart = \dash\app\dayevent::chart();
 		\dash\data::cahrtDetail($chart);
 
 	}
