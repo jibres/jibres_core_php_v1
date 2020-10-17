@@ -38,10 +38,12 @@ class statistics
 		$result['lastchangesetting']   = null;
 		$result['lastadminlogin']      = null;
 		$result['laststafflogin']      = null;
+
 		$result['lastsale']            = \lib\db\factors\get::last_sale_date();
 		$result['lastbuy']             = \lib\db\factors\get::last_buy_date();
+
 		$result['dbtrafic']            = null;
-		$result['dbsize']              = null;
+		$result['dbsize']              = floatval(\dash\db::db_size());
 
 		$result['customer']            = floatval(\dash\db\users::get_count(['status' => [' != ', "'removed'"]]));
 		$result['staff']               = floatval(\dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]));
@@ -85,6 +87,53 @@ class statistics
 
 		$result['user_chatid']         = floatval(\dash\db\user_telegram::get_count());
 		$result['user_android']        = floatval(\dash\db\user_android::get_count());
+
+
+		$result['user_permission']      = floatval(\dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]));
+		$result['app_download']         = floatval(\dash\db\config::public_get_count('app_download'));
+		$result['csrf']                 = floatval(\dash\db\config::public_get_count('csrf'));
+		$result['dayevent']             = floatval(\dash\db\config::public_get_count('dayevent'));
+		$result['factoraction']         = floatval(\dash\db\config::public_get_count('factoraction'));
+		$result['factoraddress']        = floatval(\dash\db\config::public_get_count('factoraddress'));
+		$result['files']                = floatval(\dash\db\config::public_get_count('files'));
+		$result['fileusage']            = floatval(\dash\db\config::public_get_count('fileusage'));
+		$result['form']                 = floatval(\dash\db\config::public_get_count('form'));
+		$result['form_answer']          = floatval(\dash\db\config::public_get_count('form_answer'));
+		$result['form_answerdetail']    = floatval(\dash\db\config::public_get_count('form_answerdetail'));
+		$result['form_choice']          = floatval(\dash\db\config::public_get_count('form_choice'));
+		$result['form_filter']          = floatval(\dash\db\config::public_get_count('form_filter'));
+		$result['form_filter_where']    = floatval(\dash\db\config::public_get_count('form_filter_where'));
+		$result['form_item']            = floatval(\dash\db\config::public_get_count('form_item'));
+		$result['funds']                = floatval(\dash\db\config::public_get_count('funds'));
+		$result['importexport']         = floatval(\dash\db\config::public_get_count('importexport'));
+		$result['inventory']            = floatval(\dash\db\config::public_get_count('inventory'));
+		$result['ir_vat']               = floatval(\dash\db\config::public_get_count('ir_vat'));
+		$result['log_notif']            = floatval(\dash\db\config::public_get_count('log_notif'));
+		$result['login']                = floatval(\dash\db\config::public_get_count('login'));
+		$result['login_ip']             = floatval(\dash\db\config::public_get_count('login_ip'));
+		$result['pos']                  = floatval(\dash\db\config::public_get_count('pos'));
+		$result['productcategory']      = floatval(\dash\db\config::public_get_count('productcategory'));
+		$result['productcategoryusage'] = floatval(\dash\db\config::public_get_count('productcategoryusage'));
+		$result['productcomment']       = floatval(\dash\db\config::public_get_count('productcomment'));
+		$result['productcompany']       = floatval(\dash\db\config::public_get_count('productcompany'));
+		$result['productinventory']     = floatval(\dash\db\config::public_get_count('productinventory'));
+		$result['productprices']        = floatval(\dash\db\config::public_get_count('productprices'));
+		$result['productproperties']    = floatval(\dash\db\config::public_get_count('productproperties'));
+		$result['producttag']           = floatval(\dash\db\config::public_get_count('producttag'));
+		$result['producttagusage']      = floatval(\dash\db\config::public_get_count('producttagusage'));
+		$result['productunit']          = floatval(\dash\db\config::public_get_count('productunit'));
+		$result['setting']              = floatval(\dash\db\config::public_get_count('setting'));
+		$result['tax_coding']           = floatval(\dash\db\config::public_get_count('tax_coding'));
+		$result['tax_docdetail']        = floatval(\dash\db\config::public_get_count('tax_docdetail'));
+		$result['tax_document']         = floatval(\dash\db\config::public_get_count('tax_document'));
+		$result['tax_year']             = floatval(\dash\db\config::public_get_count('tax_year'));
+		$result['telegrams']            = floatval(\dash\db\config::public_get_count('telegrams'));
+		$result['urls']                 = floatval(\dash\db\config::public_get_count('urls'));
+		$result['user_auth']            = floatval(\dash\db\config::public_get_count('user_auth'));
+		$result['user_telegram']        = floatval(\dash\db\config::public_get_count('user_telegram'));
+		$result['userdetail']           = floatval(\dash\db\config::public_get_count('userdetail'));
+		$result['userlegal']            = floatval(\dash\db\config::public_get_count('userlegal'));
+		$result['visitors']             = floatval(\dash\db\config::public_get_count('visitors'));
 
 		return $result;
 
