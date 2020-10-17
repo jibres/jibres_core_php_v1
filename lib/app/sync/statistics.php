@@ -21,8 +21,10 @@ class statistics
 		}
 	}
 
-
-	private static function calc()
+	/**
+	 * Call in \dash\app\dayevent
+	 */
+	public static function calc()
 	{
 		$result                        = [];
 		$result['users']               = floatval(\dash\db\users::get_count());
