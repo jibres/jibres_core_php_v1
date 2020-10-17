@@ -93,13 +93,21 @@ class search
 		"
 			SELECT
 				products.*
-			FROM products
-			INNER JOIN producttagusage ON producttagusage.product_id = products.id
-			WHERE
-				products.status = 'available' AND
-				products.id != $_id AND
-				producttagusage.producttag_id IN ($ids)
-			ORDER BY products.instock ASC, (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			FROM
+				products
+			WHERE products.id IN
+			(
+				SELECT
+					products.id
+				FROM products
+				INNER JOIN producttagusage ON producttagusage.product_id = products.id
+				WHERE
+					products.status = 'available' AND
+					products.id != $_id AND
+					producttagusage.producttag_id IN ($ids)
+				GROUP BY products.id
+				ORDER BY products.instock ASC, (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
+			)
 			LIMIT $_limit
 		";
 
