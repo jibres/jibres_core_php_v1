@@ -340,5 +340,28 @@ class db
 			return $result;
 		}
 	}
+
+
+	public static function db_size()
+	{
+		$db_name = \dash\db\mysql\tools\connection::get_last_db_name();
+
+		if(!$db_name)
+		{
+			return null;
+		}
+
+		$query =
+		"
+			SELECT
+				ROUND(SUM(data_length + index_length) / 1024 / 1024, 4) AS `size`
+			FROM
+				information_schema.tables
+			WHERE table_schema = '$db_name'
+		";
+		$result = \dash\db::get($query, 'size', true);
+		return $result;
+	}
+
 }
 ?>

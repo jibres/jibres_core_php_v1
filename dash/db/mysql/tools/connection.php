@@ -7,6 +7,8 @@ class connection
 	// save link to database
 	private static $link;
 	private static $link_open  = [];
+	private static $lastDbName = null;
+
 
 	public static function link()
 	{
@@ -17,6 +19,12 @@ class connection
 	public static function link_open()
 	{
 		return self::$link_open;
+	}
+
+
+	public static function get_last_db_name()
+	{
+		return self::$lastDbName;
 	}
 
 
@@ -181,6 +189,8 @@ class connection
 		{
 			$myDbName = $myLove['database'];
 		}
+
+		self::$lastDbName = $myDbName;
 
 		// if link exist before this, use it
 		if(isset($myLove['code']))
