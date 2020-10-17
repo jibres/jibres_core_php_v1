@@ -3,6 +3,7 @@
   <div class="avand-sm">
     <h1 class="bold"><?php echo T_('Everything you need to sell online'); ?></h1>
 
+    <?php if(!\dash\user::login()) {?>
     <form class="row" method="post" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter/hi' ?>">
       <div class="c-xs-12 c-sm-8 c-lg-8">
         <input class="input" type="tel" data-format="mobile-enter" maxlength="15" name="mobile" placeholder="<?php echo T_("Enter your mobile number") ?>">
@@ -11,6 +12,7 @@
         <button class="btn3"><?php echo T_("Enter") ?></button>
       </div>
     </form>
+  <?php } // endif ?>
     <p><?php echo T_("Try Jibres for free, and explore all services you need to start, run, and grow your business."); ?></p>
 
   </div>
