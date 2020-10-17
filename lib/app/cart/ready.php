@@ -20,7 +20,15 @@ class ready
 			switch ($key)
 			{
 				case 'user_id':
-					$result[$key] = \dash\coding::encode($value);
+				case 'identify':
+					if(mb_strlen($value) === 32)
+					{
+						$result[$key] = $value;
+					}
+					else
+					{
+						$result[$key] = \dash\coding::encode($value);
+					}
 					break;
 
 				case 'product_id':

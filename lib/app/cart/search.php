@@ -253,7 +253,7 @@ class search
 
 		if(!$user_id && !$guestid)
 		{
-			\dash\notif::error(T_("Invalid cart identify"));
+			// \dash\notif::error(T_("Invalid cart identify"));
 			return false;
 		}
 
