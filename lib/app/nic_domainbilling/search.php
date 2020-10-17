@@ -108,13 +108,8 @@ class search
 		}
 
 
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 
 		if($query_string)
@@ -257,13 +252,8 @@ class search
 		}
 
 
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 
 		if($query_string)

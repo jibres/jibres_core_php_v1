@@ -334,7 +334,7 @@ class search
 
 
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 		if(substr($query_string, 0, 1) === '+' && is_numeric(\dash\number::clean(substr($query_string, 1))))
 		{

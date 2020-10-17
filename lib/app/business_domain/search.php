@@ -73,11 +73,7 @@ class search
 			$and[] = " business_domain.store_id = $data[store_id] ";
 		}
 
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
+
 
 		if($data['my_list'])
 		{
@@ -157,7 +153,7 @@ class search
 		}
 
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 		$meta['join'][] = " LEFT JOIN store_data ON store_data.id = business_domain.store_id ";
 		$meta['join'][] = " LEFT JOIN users ON users.id = business_domain.user_id ";

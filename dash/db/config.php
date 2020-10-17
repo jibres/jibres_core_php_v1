@@ -836,7 +836,7 @@ class config
 		{
 
 			$_string = trim($_string);
-			$_string = \dash\safe::forQueryString($_string);
+			$_string = \dash\validate::search($_string, false);
 			$search = str_replace('__string__', $_string, $search_field);
 			// "($search_field LIKE '%$_string%' )";
 

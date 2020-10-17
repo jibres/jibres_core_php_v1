@@ -37,7 +37,7 @@ else
 <div class="fs12">
     <form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::that(); ?>">
         <div class="input search">
-            <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
+            <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\validate::search_string(); ?>">
             <button class="btn addon success"><?php echo T_("Search"); ?></button>
         </div>
     </form>

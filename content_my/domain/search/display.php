@@ -87,7 +87,7 @@ else
                 <div class="c pRa10">
                     <div>
                         <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
-                            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
+                            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
                             <button class="addon btn light3 s0"><i class="sf-search"></i></button>
                         </div>
                     </div>
@@ -129,7 +129,7 @@ else
     <form method="get" action="<?php echo \dash\url::that(); ?>">
         <?php if(\dash\request::get('list')) {?><input type="hidden" name="list" value="<?php echo \dash\request::get('list'); ?>"><?php } //endif ?>
         <div class="input search  mB10 <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
-            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
+            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
             <button class="addon btn light3 s0"><i class="sf-search"></i></button>
         </div>
     </form>

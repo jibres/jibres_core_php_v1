@@ -70,5 +70,22 @@ class validate
 
 		return false;
 	}
+
+
+
+	/**
+	 * Get string searched in search input
+	 */
+	public static function search_string()
+	{
+		$q = \dash\request::get('q');
+
+		if($q)
+		{
+			$q = \dash\validate::search($q, false);
+		}
+
+		return $q;
+	}
 }
 ?>

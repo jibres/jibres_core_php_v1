@@ -31,11 +31,7 @@ class search
 
 		if($_string)
 		{
-			$_string = \dash\safe::forQueryString($_string);
-			if(mb_strlen($_string) > 50)
-			{
-				$_string = null;
-			}
+			$_string = \dash\validate::search($_string, false);
 		}
 
 		$_category_id = \dash\validate::id($_category_id);
@@ -131,7 +127,7 @@ class search
 		$order_sort  = null;
 
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 
 		if($data['showonwebsite'])

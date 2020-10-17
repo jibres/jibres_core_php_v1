@@ -33,11 +33,7 @@ class search
 	{
 		if($_string)
 		{
-			$_string = \dash\safe::forQueryString($_string);
-			if(mb_strlen($_string) > 50)
-			{
-				$_string = null;
-			}
+			$_string = \dash\validate::search($_string, false);
 		}
 
 		unset($_args['sort']);

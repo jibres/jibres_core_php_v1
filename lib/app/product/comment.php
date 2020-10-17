@@ -647,7 +647,7 @@ class comment
 
 		$order_sort  = null;
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{

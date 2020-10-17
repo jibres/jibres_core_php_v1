@@ -108,7 +108,7 @@ else
               <input type="text" name="seller" placeholder='<?php echo T_("Seller"); ?>' value="<?php echo \dash\request::get('seller'); ?>">
             </div>
             <div class="input search">
-                <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\request::get('q'); ?>">
+                <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\validate::search_string(); ?>">
             </div>
       </div>
       <footer class="txtRa">

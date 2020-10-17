@@ -91,12 +91,6 @@ class search
 		$order_sort  = null;
 
 
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
-
 		if($data['year_id'])
 		{
 			$and[] = " tax_docdetail.year_id = $data[year_id] ";
@@ -208,7 +202,7 @@ class search
 
 
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{

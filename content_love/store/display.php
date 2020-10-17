@@ -4,7 +4,7 @@
   <form method="get" action='<?php echo \dash\url::this(); ?>' >
 
     <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\request::get('q'); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
+      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
 
       <button class="addon btn "><?php echo T_("Search"); ?></button>
     </div>

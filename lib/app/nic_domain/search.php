@@ -91,14 +91,7 @@ class search
 		$order_sort  = null;
 
 
-		if(mb_strlen($_query_string) > 50)
-		{
-			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
-			return false;
-		}
-
-		$query_string = \dash\validate::search($_query_string);
-
+		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{
@@ -278,8 +271,6 @@ class search
 			$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
 		}
 
-		// var_dump(func_get_args());
-		// var_dump($list);exit();
 		if($data['is_admin'])
 		{
 			$users_id = array_column($list, 'user_id');

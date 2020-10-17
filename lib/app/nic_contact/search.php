@@ -101,7 +101,7 @@ class search
 			self::$is_filtered          = true;
 		}
 
-		$query_string = \dash\validate::search($_query_string);
+		$query_string = \dash\validate::search($_query_string, false);
 
 
 		if($query_string)
