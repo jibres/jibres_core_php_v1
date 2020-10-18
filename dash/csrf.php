@@ -133,7 +133,39 @@ class csrf
 			return false;
 		}
 
-		\dash\db\csrf\update::set_used($check['id']);
+		$check_status = null;
+
+		if(isset($check['status']))
+		{
+			$check_status = $check['status'];
+
+		}
+		else
+		{
+			return false;
+		}
+
+		// active code was active 1 day
+		if($check_status === 'active')
+		{
+			\dash\db\csrf\update::set_used($check['id']);
+		}
+		else
+		{
+			// code is not active for example used but have error and need to fix it
+			if(isset($check['datecreated']) && $check['datecreated'])
+			{
+				// if used active for 14 min
+				if(time() - strtotime($check['datecreated']) > (60*14))
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 		return true;
 	}
