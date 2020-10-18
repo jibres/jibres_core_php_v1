@@ -38,12 +38,11 @@
    <div class="f">
     <div class="c6 s12 pRa10">
      <h5 class="txtB mT20"><?php echo T_("Business that you are owner"); ?></h5>
-     <nav class="items">
-      <ul>
 <?php
 $listStore_owner = \dash\data::listStore_owner();
 if($listStore_owner && is_array($listStore_owner))
 {
+     echo '<nav class="items"><ul>';
  foreach ($listStore_owner as $key => $value)
  {
 ?>
@@ -57,10 +56,9 @@ if($listStore_owner && is_array($listStore_owner))
        </li>
 <?php
   } //endfor
+      echo '</ul></nav>';
 } //endif
 ?>
-      </ul>
-     </nav>
 
      <nav class="items">
       <ul>
