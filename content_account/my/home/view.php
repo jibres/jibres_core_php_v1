@@ -14,6 +14,8 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 
+		\dash\data::myMasterEmail(\dash\user::primary_email());
+
 		\dash\data::isLtr(\dash\language::dir() === 'ltr' ? true : false);
 
 		if(\dash\data::dataRow_permission())

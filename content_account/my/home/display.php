@@ -50,7 +50,7 @@ else
 
          <tr>
           <th class="s0"><?php echo T_("Email"); ?></th>
-          <td><?php echo \dash\data::dataRow_email(); ?></td>
+          <td><?php echo \dash\data::myMasterEmail(); ?></td>
           <td class="collapsing txtRa"><a href="<?php echo \dash\url::this(); ?>/email" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
 

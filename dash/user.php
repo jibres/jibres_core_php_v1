@@ -264,7 +264,7 @@ class user
 
 	private static $email_list = [];
 	private static $load_emails_list = false;
-	public static function email_list($_verify = false)
+	public static function email_list($_verify = false, $_raw = false)
 	{
 		if(!self::id())
 		{
@@ -291,23 +291,48 @@ class user
 
 		$result = [];
 
-		foreach ($email_list as $key => $value)
+		if($_raw)
 		{
-			if($_verify)
+			$result = $email_list;
+		}
+		else
+		{
+			foreach ($email_list as $key => $value)
 			{
-				if(isset($value['verify']) && $value['verify'])
+				if($_verify)
+				{
+					if(isset($value['verify']) && $value['verify'])
+					{
+						$result[] = $value['email'];
+					}
+				}
+				else
 				{
 					$result[] = $value['email'];
 				}
-			}
-			else
-			{
-				$result[] = $value['email'];
 			}
 		}
 
 		return $result;
 
+	}
+
+
+	public static function primary_email()
+	{
+		$list = self::email_list(false, true);
+		if($list && is_array($list))
+		{
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['primary']) && $value['primary'] && isset($value['email']))
+				{
+					return $value['email'];
+				}
+			}
+		}
+
+		return null;
 	}
 
 
