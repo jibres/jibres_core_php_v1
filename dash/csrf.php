@@ -73,16 +73,12 @@ class csrf
 
 	public static function get_json($_new = false)
 	{
-		if($_new)
-		{
-			self::make();
-		}
-
 		$csrf = \dash\data::csrfDetail();
 
-		if(!$csrf)
+		if($_new || !$csrf)
 		{
-			return null;
+			self::make();
+			$csrf = \dash\data::csrfDetail();
 		}
 
 		$csrf_string = [];
@@ -91,6 +87,11 @@ class csrf
 		{
 			foreach ($csrf as $key => $value)
 			{
+				if($key === 'token')
+				{
+					$key = 'csrftoken';
+				}
+
 				$csrf_string[] = '"'. $key. '":"'. $value. '"';
 			}
 		}
