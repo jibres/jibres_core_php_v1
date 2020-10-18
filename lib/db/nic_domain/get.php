@@ -16,6 +16,7 @@ class get
 			FROM
 				domain
 			WHERE
+				domain.registrar = 'irnic' AND
 				domain.email IS NULL AND
 				domain.mobile IS NULL AND
 				domain.ownercheckdate IS NOT NULL AND
@@ -37,6 +38,7 @@ class get
 			FROM
 				domain
 			WHERE
+				domain.registrar = 'irnic' AND
 				domain.email IS NULL AND
 				domain.mobile IS NULL AND
 				domain.ownercheckdate IS NULL AND
