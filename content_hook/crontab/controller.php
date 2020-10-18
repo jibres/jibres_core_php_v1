@@ -130,7 +130,7 @@ class controller
 		}
 
 
-		if(self::every_hour())
+		if(self::every_10_min())
 		{
 
 			\dash\db\logs::expire_notif();
