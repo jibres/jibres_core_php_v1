@@ -65,14 +65,14 @@ class cronjob
 				$subdomain           = str_replace('.conf', '', $subdomain);
 				$HTTP_HOST           = $subdomain. '.'. $SERVER_NAME;
 				$server['HTTP_HOST'] = $HTTP_HOST;
-				$store_exec = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' /dev/null 2>&1 ";
+				$store_exec = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "'  2>/dev/null ";
 				$exec[] = $store_exec;
 			}
 		}
 
 		$exec_addr = __DIR__. '/exec.me.php';
 
-		$exec = implode(" & ", $exec);
+		$exec = implode(" && ", $exec);
 
 		file_put_contents($exec_addr, $exec);
 
