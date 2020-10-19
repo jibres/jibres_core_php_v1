@@ -71,7 +71,7 @@ trait times
 	{
 		$time_now    = date("i");
 		// every 10 minuts
-		if((is_string($time_now) && mb_strlen($time_now) === 2 && substr($time_now, 0, 1) == '0') || \dash\permission::supervisor())
+		if((is_string($time_now) && mb_strlen($time_now) === 2 && substr($time_now, 1, 1) == '0') || \dash\permission::supervisor())
 		{
 			return true;
 		}
