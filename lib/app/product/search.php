@@ -731,7 +731,6 @@ class search
 
 		self::detect_min_variant_price($last_product);
 
-		// var_dump($last_product);exit();
 		return $last_product;
 	}
 

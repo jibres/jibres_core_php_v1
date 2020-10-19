@@ -35,8 +35,6 @@ class check
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		// var_dump($data);exit();
-
 		switch ($data['type'])
 		{
 			case 'group':

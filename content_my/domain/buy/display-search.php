@@ -24,7 +24,6 @@
 
 <?php
 $result = \dash\data::infoResult();
-// var_dump($result);
 
 if(isset($result['ir_master']))
 {

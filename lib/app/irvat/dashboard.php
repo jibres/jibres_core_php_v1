@@ -10,7 +10,6 @@ class dashboard
 
 		$result['total_factor'] = floatval(\lib\db\irvat\get::total_factor());
 
-		// var_dump($result);exit();
 		return $result;
 	}
 }

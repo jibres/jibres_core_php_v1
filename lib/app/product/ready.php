@@ -341,10 +341,6 @@ class ready
 		{
 			$result['cart_limit']['sale_step_input'] = true;
 		}
-
-
-		// var_dump($cart_setting);
-		// var_dump($result);exit();
 	}
 
 	/**

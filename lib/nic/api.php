@@ -102,7 +102,7 @@ class api
 
 		if(!is_array($result))
 		{
-			// var_dump($response);exit();
+
 			return false;
 		}
 
@@ -117,7 +117,6 @@ class api
 
 		if(!$result['ok'])
 		{
-			// var_dump($response, json_decode($response, true));exit();
 			// build error
 			return false;
 		}

@@ -157,7 +157,6 @@ class check
 
 		\lib\app\domains\detect::domain_check_multi($result);
 
-		// var_dump($result);exit();
 		return $result;
 	}
 

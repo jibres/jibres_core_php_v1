@@ -144,7 +144,6 @@ class ready
 
 		}
 
-		// var_dump($result);exit();
 		return $result;
 	}
 

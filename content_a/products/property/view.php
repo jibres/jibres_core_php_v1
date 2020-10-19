@@ -42,7 +42,6 @@ class view
 		$keyList = \lib\app\product\property::all_key_name();
 		\dash\data::keyList($keyList);
 
-		// var_dump($property_list);exit();
 		$pid = \dash\request::get('pid');
 		if($pid && isset($property_list['saved']) && is_array($property_list['saved']))
 		{

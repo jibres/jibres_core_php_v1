@@ -66,11 +66,7 @@ class dashboard
 		];
 
 
-
 		$result['complete_profile']['percent'] = round((count(array_filter($result['complete_profile'])) * 100) / count($result['complete_profile']));
-
-
-		// var_dump($result);exit();
 
 		return $result;
 	}

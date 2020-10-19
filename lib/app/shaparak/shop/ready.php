@@ -160,8 +160,6 @@ class ready
 			$result['countryCode'] = "IR";
 		}
 
-		// var_dump($result);exit();
-
 		return $result;
 	}
 }

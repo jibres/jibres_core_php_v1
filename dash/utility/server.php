@@ -129,7 +129,7 @@ class server
 
 		$totalMemory = self::humanFileSize(memory_get_usage());
 
-		// var_dump($totalMemory);
+
 		return $totalMemory;
 	}
 

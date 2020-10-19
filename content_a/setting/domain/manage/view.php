@@ -14,7 +14,6 @@ class view
 
 		$dnsList = \lib\app\business_domain\dns::list(\dash\data::domainID());
 		\dash\data::dnsList($dnsList);
-		// var_dump($dnsList);exit();
 
 		$master_domain = \lib\app\business_domain\get::my_business_master_domain();
 		\dash\data::masterDomain($master_domain);

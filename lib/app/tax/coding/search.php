@@ -181,8 +181,7 @@ class search
 		}
 		$html .= '</div>';
 
-		// var_dump($html);exit();
-		// var_dump($result);exit();
+
 		return $html;
 	}
 

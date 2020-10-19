@@ -65,7 +65,7 @@ class api
 
 		try
 		{
-			// var_dump($response);exit();
+
 			$object = @new \SimpleXMLElement($response);
 			return $object;
 		}

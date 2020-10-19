@@ -221,8 +221,6 @@ class analytics
 			}
 		}
 
-
-		// var_dump($answer);exit();
 		return $answer;
 	}
 

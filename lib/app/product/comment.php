@@ -266,7 +266,7 @@ class comment
 
 			// 	}
 			// }
-			// var_dump($args);exit();
+
 		}
 
 		// // check duplicate

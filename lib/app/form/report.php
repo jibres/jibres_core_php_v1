@@ -901,10 +901,10 @@ class report
 
 		// 	$new_ready[] = $value;
 		// }
-		// // var_dump($ready, $new_ready);exit();
+
 
 		// $ready = $new_ready;
-		// var_dump($ready);exit();
+
 
 		$ready        = json_encode($ready, JSON_UNESCAPED_UNICODE);
 
@@ -914,7 +914,6 @@ class report
 		$return             = [];
 		$return['chart']    = $ready;
 		$return['data_table'] = $ready_table;
-		// var_dump($return);exit();
 
 		return $return;
 
