@@ -1,46 +1,26 @@
-
-
-<div class="f justify-center">
-
-  <div class="c7 m8 s12">
-    <div class="cbox">
-      <form method="post">
-
-        <div class="switch1">
-         <input type="checkbox" name="active" id="active" <?php if(\dash\data::cronjob()) { echo 'checked';} ?>>
-         <label for="active"></label>
-         <label for="active"><?php echo T_("Run cronjob for this service"); ?>
-         </label>
+<div class="avand-xl">
+  <form method="post">
+    <div class="box">
+      <div class="pad">
+        <div class="body">
+          <div class="switch1">
+            <input type="checkbox" name="active" id="active" <?php if(\dash\data::cronjob()) { echo 'checked';} ?>>
+            <label for="active"></label>
+            <label for="active"><?php echo T_("Run cronjob for this service"); ?></label>
         </div>
-
-        <button class="btn primary block"><?php echo T_("Save"); ?></button>
-    </form>
-
-
-      <div class="txtRa">
-        <a class="btn mT20 danger" target="_blank" href="<?php echo \dash\url::site(); ?>/hook/crontab"><?php echo T_("Manual execute"); ?></a>
-
       </div>
     </div>
+    <footer class="txtRa">
+      <button class="btn primary"><?php echo T_("Save"); ?></button>
+      <a class="btn danger" target="_blank" href="<?php echo \dash\url::site(); ?>/hook/crontab"><?php echo T_("Manual execute"); ?></a>
+      <a class="btn secondary outline" target="_blank" href="<?php echo \dash\url::this(); ?>?download=crontabme"><?php echo T_("Downalod crontab me file"); ?></a>
+    </footer>
   </div>
-
-</div>
-
-
-
-
-<div class="f justify-center">
-
-  <div class="c7 m8 s12">
-    <div class="cbox ltr">
-
-
-      <h3><code>UNIX crontab</code></h3>
-        <?php echo nl2br(\dash\data::unixcrontab()); ?>
-
-    </div>
+</form>
+  <div class="ltr">
+    <h3><code>UNIX crontab</code></h3>
+    <?php echo nl2br(\dash\data::unixcrontab()); ?>
   </div>
-
 </div>
 
 
