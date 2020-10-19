@@ -115,7 +115,7 @@ class controller
 
 		\dash\app\log\send::notification();
 
-		if(self::every_hour())
+		if(self::every_10_min())
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
