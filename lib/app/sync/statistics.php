@@ -145,7 +145,7 @@ class statistics
 	private static function make_query($_set, $_store_id)
 	{
 		$make_set = \dash\db\config::make_set($_set);
-		$query = "INSERT INTO store_analytics SET $make_set, store_analytics.id = $_store_id ON DUPLICATE KEY UPDATE $make_set";
+		$query = "UPDATE store_analytics SET $make_set WHERE store_analytics.id = $_store_id LIMIT 1";
 		return $query;
 	}
 }
