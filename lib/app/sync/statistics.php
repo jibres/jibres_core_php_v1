@@ -15,7 +15,10 @@ class statistics
 		if(\dash\engine\store::inStore())
 		{
 			$calc  = self::calc();
+
 			$query = self::make_query($calc, \lib\store::id());
+
+			\dash\log::to_supervisor('Debug cronjob hook'. __LINE__. json_encode($query));
 
 			\lib\app\sync\tools::add($query, 'master');
 		}
