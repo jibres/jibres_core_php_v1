@@ -72,7 +72,7 @@ class cronjob
 
 		$exec_addr = __DIR__. '/exec.me.php';
 
-		$exec = implode(" /dev/null 2>&1 ", $exec);
+		$exec = implode(" & ", $exec);
 
 		file_put_contents($exec_addr, $exec);
 
