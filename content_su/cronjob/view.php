@@ -11,6 +11,11 @@ class view
 			\dash\file::download(core. '/engine/cronjob/exec.me.php');
 		}
 
+		if(\dash\request::get('download') === 'result')
+		{
+			\dash\file::download(core. '/engine/cronjob/resultexect.me.log');
+		}
+
 		\dash\data::cronjob(\dash\engine\cronjob\options::status());
 		\dash\data::cronjobPHP(\dash\engine\cronjob\options::current_cronjob_path());
 

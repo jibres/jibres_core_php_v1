@@ -78,7 +78,9 @@ class cronjob
 
 		$exec_php = 'cd '. $jibres_addr. 'public_html && sh '. $exec_addr;
 
-		shell_exec($exec_php);
+		$result = shell_exec($exec_php);
+
+		file_put_contents(__DIR__. '/resultexect.me.log', $result);
 
 	}
 
