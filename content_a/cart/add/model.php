@@ -5,21 +5,22 @@ class model
 {
 	public static function post()
 	{
-		$user    = \dash\request::get('identify');
+		$user    = \dash\request::get('user');
+		$guestid = \dash\request::get('guestid');
 		$product = \dash\request::post('product');
 		$count   = \dash\request::post('count');
 
 		if(\dash\request::post('type') === 'edit_count')
 		{
-			\lib\app\cart\edit::update_cart($product, $count, $user);
+			\lib\app\cart\edit::edit($product, $count, $user, $guestid);
 		}
 		elseif(\dash\request::post('type') === 'remove')
 		{
-			\lib\app\cart\remove::from_cart($product, $user);
+			\lib\app\cart\remove::from_cart_admin($product, $user, $guestid);
 		}
 		else
 		{
-			\lib\app\cart\add::new_cart($product, $count, $user);
+			\lib\app\cart\add::new_cart_admin($product, $count, $user, $guestid);
 		}
 
 		if(\dash\engine\process::status())

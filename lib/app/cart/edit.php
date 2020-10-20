@@ -7,9 +7,6 @@ namespace lib\app\cart;
 class edit
 {
 
-
-
-
 	public static function update_cart($_product_id, $_count, $_user_id = null, $_type = null)
 	{
 		$user_guest = null;
@@ -38,8 +35,17 @@ class edit
 
 		}
 
+		return self::edit($_product_id, $_count, $user_id, $user_guest, $_type);
+
+	}
+
+
+	public static function edit($_product_id, $_count, $_user_id, $_guestid, $_type = null)
+	{
+
 		$condition =
 		[
+			'guestid' => 'md5',
 			'user_id' => 'code',
 			'product' => 'id',
 			'count'   => 'smallint',
@@ -48,22 +54,34 @@ class edit
 
 		$args =
 		[
-			'user_id' => $user_id,
+			'guestid' => $_guestid,
+			'user_id' => $_user_id ? $_user_id : null,
 			'product' => $_product_id,
 			'count'   => $_count,
 			'type'    => $_type,
 		];
 
 		$require = ['product', 'count'];
+
 		$meta    =	[];
+
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
+		$user_id    = \dash\coding::decode($data['user_id']);
 
-		$user_id = \dash\coding::decode($data['user_id']);
+		$user_guest = $data['guestid'];
+
+		if(!$user_id && !$user_guest)
+		{
+			\dash\notif::error(T_("User identify error"));
+			return false;
+		}
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);
+
 		if(!$load_product)
 		{
+			\dash\notif::error(T_("Invalid product"));
 			return false;
 		}
 
