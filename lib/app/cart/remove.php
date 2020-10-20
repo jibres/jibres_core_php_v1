@@ -7,6 +7,22 @@ namespace lib\app\cart;
 class remove
 {
 
+	public static function expired()
+	{
+		if(!\dash\session::get('checkExpiredCart'))
+		{
+			\dash\session::set('checkExpiredCart', true);
+
+			$date = date("Y-m-d H:i:s", strtotime("-30 days"));
+			$count = \lib\db\cart\get::must_deleted_expired($date);
+
+			if($count)
+			{
+				\lib\db\cart\delete::must_deleted_expired($date);
+			}
+		}
+	}
+
 
 	public static function from_cart($_product_id, $_user_id = null)
 	{

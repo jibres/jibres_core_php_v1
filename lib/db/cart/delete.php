@@ -5,6 +5,13 @@ namespace lib\db\cart;
 class delete
 {
 
+	public static function must_deleted_expired($_date)
+	{
+		$query   = "DELETE FROM cart WHERE cart.user_id IS NULL AND cart.datecreated < '$_date' ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 	public static function by_product_user($_product_id, $_user_id)
 	{
 		$query  = "DELETE FROM cart WHERE cart.product_id = $_product_id AND cart.user_id = $_user_id LIMIT 1";

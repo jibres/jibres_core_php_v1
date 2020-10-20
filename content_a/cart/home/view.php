@@ -6,6 +6,9 @@ class view
 {
 	public static function config()
 	{
+		\lib\app\cart\remove::expired();
+
+
 		\dash\face::title(T_('Cart'));
 
 		// back

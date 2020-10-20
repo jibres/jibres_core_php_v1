@@ -5,6 +5,14 @@ namespace lib\db\cart;
 class get
 {
 
+	public static function must_deleted_expired($_date)
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.user_id IS NULL AND cart.datecreated < '$_date' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function count_all()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM cart ";
