@@ -16,7 +16,7 @@ class model
 		{
 			$id = $user['customer'];
 			$id = \dash\coding::encode($id);
-			\dash\redirect::to(\dash\url::this(). '/add?identify='. $id);
+			\dash\redirect::to(\dash\url::this(). '/add?user='. $id);
 			return;
 		}
 		else

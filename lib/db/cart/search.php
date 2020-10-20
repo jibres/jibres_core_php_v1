@@ -21,6 +21,8 @@ class search
 					IFNULL(cart.user_id, cart.guestid) AS `id`
 				FROM
 					cart
+				LEFT JOIN products ON products.id = cart.product_id
+				LEFT JOIN users ON users.id = cart.user_id
 					$q[where]
 				GROUP BY
 					IFNULL(cart.user_id, cart.guestid)
@@ -42,6 +44,8 @@ class search
 				MAX(cart.user_id) AS `user_id`,
 				MAX(cart.guestid) AS `guestid`
 			FROM cart
+			LEFT JOIN products ON products.id = cart.product_id
+			LEFT JOIN users ON users.id = cart.user_id
 			$q[where]
 			GROUP by IFNULL(cart.user_id, cart.guestid)
 			$q[order]

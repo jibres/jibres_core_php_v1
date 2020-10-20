@@ -73,6 +73,14 @@ class search
 				{
 					$or[] = " cart.user_id = '$search_user_id[id]' ";
 				}
+
+			}
+			else
+			{
+				$or[] = " products.title LIKE '%$query_string%' ";
+				$or[] = " users.mobile LIKE '%$query_string%' ";
+				$or[] = " users.displayname LIKE '%$query_string%' ";
+
 			}
 
 			self::$is_filtered = true;

@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		// check expire cart
 		\lib\app\cart\remove::expired();
 
 
