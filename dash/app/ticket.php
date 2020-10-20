@@ -258,6 +258,10 @@ class ticket
 	public static function add($_args)
 	{
 
+		// check is not bot
+		// if the agent is bot exit code!
+		\dash\validate::is_not_bot();
+
 
 		// check args
 		$args = self::check($_args);
