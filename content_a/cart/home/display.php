@@ -106,7 +106,7 @@ else
 
                     <div class="c">
                         <a class='btn <?php if(\dash\request::get('hu') === 'y') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?hu=y"><?php echo T_("User login and add cart"); ?></a>
-                        <a class='btn <?php if(\dash\request::get('hu') === 'n') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?hu=n"><?php echo T_("Gues user add cart"); ?></a>
+                        <a class='btn <?php if(\dash\request::get('hu') === 'n') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?hu=n"><?php echo T_("Guest user add cart"); ?></a>
 
 
                     </div>
