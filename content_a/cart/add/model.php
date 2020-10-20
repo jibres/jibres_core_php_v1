@@ -20,7 +20,7 @@ class model
 		}
 		else
 		{
-			\lib\app\cart\add::new_cart_admin($product, $count, $user, $guestid);
+			\lib\app\cart\add::add($product, $count, $user, $guestid);
 		}
 
 		if(\dash\engine\process::status())

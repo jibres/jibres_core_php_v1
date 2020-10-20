@@ -64,7 +64,14 @@ class add
 			$user_id = $_user_id;
 		}
 
+		return self::add($_product_id, $_count, $user_id, $_user_guest, $_mode);
 
+	}
+
+
+
+	public static function add($_product_id, $_count, $_user_id, $_guest_id, $_mode = null)
+	{
 		$condition =
 		[
 			'user_id' => 'code',
@@ -75,20 +82,26 @@ class add
 
 		$args =
 		[
-			'user_id' => $user_id,
-			'guestid' => $_user_guest,
+			'user_id' => $_user_id ? $_user_id : null,
+			'guestid' => $_guest_id,
 			'product' => $_product_id,
 			'count'   => $_count,
 		];
 
 		$require = ['product', 'count'];
-		$meta    =	[];
+
+		$meta    = [];
 
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$guestid = $data['guestid'];
+
+		$user_id = \dash\coding::decode($data['user_id']);
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);
 		if(!$load_product)
 		{
+			\dash\notif::error(T_("Invalid product"));
 			return false;
 		}
 
@@ -104,9 +117,9 @@ class add
 			$user_id = \dash\coding::decode($data['user_id']);
 			$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
 		}
-		elseif($data['guestid'])
+		elseif($guestid)
 		{
-			$check_exist_record = \lib\db\cart\get::product_user_guest($data['product'], $data['guestid']);
+			$check_exist_record = \lib\db\cart\get::product_user_guest($data['product'], $guestid);
 		}
 		else
 		{
@@ -136,7 +149,7 @@ class add
 			$new_record =
 			[
 				'user_id'         => $user_id,
-				'guestid'         => $data['guestid'],
+				'guestid'         => $guestid,
 				'product_id'      => $data['product'],
 				'count'           => $data['count'],
 				'datecreated'     => date("Y-m-d H:i:s"),
@@ -154,9 +167,9 @@ class add
 			{
 				\lib\db\cart\update::the_count($data['product'], $user_id, $new_count);
 			}
-			elseif($data['guestid'])
+			elseif($guestid)
 			{
-				\lib\db\cart\update::the_count_guest($data['product'], $data['guestid'], $new_count);
+				\lib\db\cart\update::the_count_guest($data['product'], $guestid, $new_count);
 			}
 			else
 			{

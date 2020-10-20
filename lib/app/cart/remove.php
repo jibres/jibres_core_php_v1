@@ -46,7 +46,7 @@ class remove
 
 		$condition =
 		[
-			'user_id' => 'id',
+			'user_id' => 'code',
 			'product' => 'id',
 			'guestid' => 'md5',
 		];
