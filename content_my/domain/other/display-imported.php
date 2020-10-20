@@ -1,6 +1,22 @@
 
 <?php $sortLink = \dash\data::sortLink(); ?>
 
+
+<?php if (\dash\detect\device::detectPWA()) { ?>
+<nav class="items">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+       <a class="item f" href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>">
+        <div class="key"><code><?php echo \dash\get::index($value, 'name'); ?></code></div>
+        <div class="go"></div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
+<?php } else { ?>
+
 <div class="fs12">
     <table class="tbl1 v1 responsive">
         <thead>
@@ -28,4 +44,5 @@
         </tbody>
     </table>
 </div>
+<?php } //endif ?>
 <?php \dash\utility\pagination::html(); ?>
