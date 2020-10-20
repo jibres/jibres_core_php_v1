@@ -40,7 +40,7 @@ class search
 				SUM(cart.count) AS `product_count`,
 				MAX(cart.datecreated) AS `datecreated`,
 				MAX(cart.user_id) AS `user_id`,
-				IFNULL(cart.user_id, cart.guestid) AS `identify`
+				MAX(cart.guestid) AS `guestid`
 			FROM cart
 			$q[where]
 			GROUP by IFNULL(cart.user_id, cart.guestid)

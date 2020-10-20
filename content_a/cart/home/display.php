@@ -117,7 +117,7 @@ if(!is_array($dataTable))
       <?php foreach ($dataTable as $key => $value) {?>
 
       <tr class="">
-        <td class="collapsing"><a href="<?php echo \dash\url::this(); ?>/add?identify=<?php echo \dash\get::index($value, 'identify'); ?>"><i class="sf-list-ul"></i> <?php echo T_("Detail"); ?></a></td>
+        <td class="collapsing"><a href="<?php echo \dash\url::this(). '/add?'. \dash\request::fix_get(['user' => $value['user_id'], 'guestid' => $value['guestid']]); ?>"><i class="sf-list-ul"></i> <?php echo T_("Detail"); ?></a></td>
 
         <td>
           <?php echo \dash\fit::number(\dash\get::index($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small>

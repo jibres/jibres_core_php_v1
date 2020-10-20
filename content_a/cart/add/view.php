@@ -12,13 +12,14 @@ class view
 
 		\dash\face::title(T_('Add cart'));
 
-		$identify = \dash\request::get('identify');
+		$user = \dash\request::get('user');
+		$guestid = \dash\request::get('guestid');
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$dataTable = \lib\app\cart\search::detail($identify);
+		$dataTable = \lib\app\cart\search::detail($user, $guestid);
 
 		\dash\data::dataTable($dataTable);
 
