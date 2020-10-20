@@ -340,11 +340,17 @@ class user
 	// get user guest id if exists
 	public static function get_user_guest()
 	{
-		$user_guest_id = \dash\utility\cookie::read('user_guest_id');
-		if($user_guest_id && \dash\validate::md5($user_guest_id, false))
+		if(\dash\engine\content::get_name() === 'business')
 		{
-			return $user_guest_id;
+			\dash\user::set_user_guest();
+
+			$user_guest_id = \dash\utility\cookie::read('user_guest_id');
+			if($user_guest_id && \dash\validate::md5($user_guest_id, false))
+			{
+				return $user_guest_id;
+			}
 		}
+
 		return null;
 	}
 
@@ -361,6 +367,12 @@ class user
 	// set user guest id if not exists
 	public static function set_user_guest()
 	{
+		if(self::id())
+		{
+			// not set get user if user login
+			return;
+		}
+
 		$user_guest_id = \dash\utility\cookie::read('user_guest_id');
 		if($user_guest_id)
 		{
@@ -385,6 +397,8 @@ class user
 		$new_guest_id = md5($new_guest_id);
 
 		\dash\utility\cookie::write('user_guest_id', $new_guest_id, (60*60*24*7));
+
+		return $new_guest_id;
 	}
 
 }

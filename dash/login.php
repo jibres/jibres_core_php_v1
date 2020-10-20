@@ -8,29 +8,11 @@ namespace dash;
  */
 class login
 {
-
-	/**
-	 * Check user is login or no
-	 * if not login and in content_business set guest cookie
-	 */
-	public static function check()
-	{
-		$login = self::is_login();
-		if(!$login)
-		{
-			if(\dash\engine\content::get_name() === 'business')
-			{
-				\dash\user::set_user_guest();
-			}
-		}
-	}
-
-
 	/**
 	 * Check user is login or no
 	 *
 	 */
-	private static function is_login()
+	public static function check()
 	{
 		$cookie = self::read_cookie();
 
