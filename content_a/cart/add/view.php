@@ -19,10 +19,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$dataTable = \lib\app\cart\search::detail($user, $guestid);
-
-		\dash\data::dataTable($dataTable);
-
 		if(\dash\request::get('user'))
 		{
 			$user_detail = \dash\app\user::get(\dash\request::get('user'));
@@ -30,8 +26,9 @@ class view
 		}
 
 
-
 		$cart_detail = \lib\app\cart\search::detail($user, $guestid);
+		\dash\data::dataTable($cart_detail);
+
 		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
 		\dash\data::cartSummary($cart_summary);
 	}

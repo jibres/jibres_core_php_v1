@@ -109,6 +109,11 @@ class ready
 				$result['url'] = $get_from_product['url'];
 			}
 
+			if(isset($get_from_product['edit_url']))
+			{
+				$result['edit_url'] = $get_from_product['edit_url'];
+			}
+
 			if(array_key_exists('trackquantity', $get_from_product))
 			{
 				$result['trackquantity'] = $get_from_product['trackquantity'];

@@ -39,6 +39,10 @@ class ready
 				case 'id':
 					$result[$key] = $value;
 					$result['url'] = \lib\store::url(). '/p/'. $value;
+					if(\dash\url::content() === 'a')
+					{
+						$result['edit_url'] = \dash\url::here(). '/products/edit?id='. $value;
+					}
 					break;
 
 				case 'cat_id':

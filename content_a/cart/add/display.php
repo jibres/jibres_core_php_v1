@@ -100,7 +100,7 @@ if(!is_array($dataTable))
        <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
       </div>
       <div class="c">
-       <h3 class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
+       <h3 class="title"><a href="<?php echo \dash\get::index($value, 'edit_url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
 
         <?php if(!\dash\get::index($value, 'view')) {?>
           <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
