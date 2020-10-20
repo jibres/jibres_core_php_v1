@@ -55,9 +55,9 @@
       <div class="c"></div>
       <div class="cauto">
         <?php if(\dash\url::tld() === 'ir') {?>
-          <a class="btn link" href="https://jibres.com/su/update">Also upgrade in .com Server</a>
+          <a class="btn link" target="_blank" href="https://jibres.com/su/update">Also upgrade in .com Server</a>
         <?php }else{ ?>
-          <a class="btn link" href="https://jibres.ir/su/update">Also upgrade in .ir Server</a>
+          <a class="btn link" target="_blank" href="https://jibres.ir/su/update">Also upgrade in .ir Server</a>
         <?php } //endif ?>
       </div>
     </div>
