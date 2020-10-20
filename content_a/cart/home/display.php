@@ -1,29 +1,29 @@
 <?php $myData = \dash\data::myData(); ?>
 
 <section class="row">
-  <div class="c-xs-12 c-md-3">
-    <a class="stat">
+  <div class="c-xs-6 c-sm-6 c-md-3">
+    <a class="stat x70">
       <h3><?php echo T_("Cart count");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'count'));?></div>
     </a>
   </div>
 
-  <div class="c-xs-12 c-md-3">
-    <a class="stat">
+  <div class="c-xs-6 c-sm-6 c-md-3">
+    <a class="stat x70">
       <h3><?php echo T_("Total price");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'price'));?></div>
     </a>
   </div>
 
-  <div class="c-xs-12 c-md-3">
-    <a class="stat">
+  <div class="c-xs-6 c-sm-6 c-md-3">
+    <a class="stat x70">
       <h3><?php echo T_("Product count");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'product'));?></div>
     </a>
   </div>
 
-  <div class="c-xs-12 c-md-3">
-    <a class="stat">
+  <div class="c-xs-6 c-sm-6 c-md-3">
+    <a class="stat x70">
       <h3><?php echo T_("Item count");?></h3>
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'item'));?></div>
     </a>
@@ -132,6 +132,35 @@ if(!is_array($dataTable))
 }
 
 ?>
+<?php if(\dash\request::is_pwa()) {?>
+
+  <nav class="items pwaMultiLine">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+      <a class="f" href="<?php echo \dash\url::this(). '/add?'. \dash\request::fix_get(['user' => $value['user_id'], 'guestid' => $value['guestid']]); ?>">
+        <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" alt="<?php echo T_("Cart") ?>">
+        <div class="key">
+          <div class="line1"> <?php echo \dash\fit::number(\dash\get::index($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small></div>
+          <div class="line2 f">
+            <div class="cauto">
+              <?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
+            </div>
+            <div class="c"></div>
+            <div class="cauto">
+              <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
+            </div>
+          </div>
+        </div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
+
+  <?php }else{ ?>
+
+<div class="tblBox">
 
   <table class="tbl1 v1 cbox fs12">
     <thead>
@@ -139,8 +168,8 @@ if(!is_array($dataTable))
         <th class="collapsing"><?php echo T_("View"); ?></th>
         <th><?php echo T_("Product count"); ?></th>
         <th><?php echo T_("Item count"); ?></th>
-        <th><?php echo T_("Date"); ?></th>
-        <th class="collapsing"><?php echo T_("User"); ?></th>
+        <th class="s0"><?php echo T_("Date"); ?></th>
+        <th class="collapsing txtL"><?php echo T_("User"); ?></th>
       </tr>
     </thead>
 
@@ -148,7 +177,7 @@ if(!is_array($dataTable))
       <?php foreach ($dataTable as $key => $value) {?>
 
       <tr class="">
-        <td class="collapsing"><a href="<?php echo \dash\url::this(). '/add?'. \dash\request::fix_get(['user' => $value['user_id'], 'guestid' => $value['guestid']]); ?>"><i class="sf-list-ul"></i> <?php echo T_("Detail"); ?></a></td>
+        <td class="collapsing"><a href="<?php echo \dash\url::this(). '/add?'. \dash\request::fix_get(['user' => $value['user_id'], 'guestid' => $value['guestid']]); ?>"><i class="sf-list-ul"></i> <span class="s0"><?php echo T_("Detail"); ?></span></a></td>
 
         <td>
           <?php echo \dash\fit::number(\dash\get::index($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small>
@@ -156,7 +185,7 @@ if(!is_array($dataTable))
         <td>
           <?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
         </td>
-        <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+        <td class="s0"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
 
         <td class="collapsing">
             <a <?php if(\dash\get::index($value, 'user_id')) {?> href="<?php echo \dash\url::kingdom(). '/crm/member/general?id='.\dash\get::index($value, 'user_id'); ?>" <?php } // endif ?> class="f align-center userPack">
@@ -172,6 +201,8 @@ if(!is_array($dataTable))
     </tbody>
   </table>
 
+</div>
+  <?php } //endif ?>
 <?php \dash\utility\pagination::html(); ?>
 
 <?php } //endif
