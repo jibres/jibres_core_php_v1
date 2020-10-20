@@ -8,7 +8,7 @@
 		</a>
 	</div>
 
-	<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_status() === 'enable') {?>
+	<?php if(\dash\data::domainDetail_verify()) {?>
 
 		<?php if(\dash\data::internationalDomain()) {?>
 			<?php // nothing yet.  ?>
