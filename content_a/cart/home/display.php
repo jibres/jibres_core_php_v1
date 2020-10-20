@@ -1,4 +1,5 @@
 <?php $myData = \dash\data::myData(); ?>
+
 <section class="row">
   <div class="c-xs-12 c-md-3">
     <a class="stat">
@@ -27,8 +28,6 @@
       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'item'));?></div>
     </a>
   </div>
-
-
 </section>
 
 <?php
@@ -60,7 +59,61 @@ else
         htmlStartAddNew();
     }
 }
-?>
+
+
+
+
+ function htmlSearchBox() {?>
+
+    <form method="get" action="<?php echo \dash\url::that(); ?>">
+        <?php if(\dash\request::get('hu')) {?><input type="hidden" name="hu" value="<?php echo \dash\request::get('hu'); ?>"><?php } //endif ?>
+        <?php if(\dash\request::get('order')) {?><input type="hidden" name="order" value="<?php echo \dash\request::get('order'); ?>"><?php } //endif ?>
+        <?php if(\dash\request::get('sort')) {?><input type="hidden" name="sort" value="<?php echo \dash\request::get('sort'); ?>"><?php } //endif ?>
+
+
+        <div class="searchBox">
+            <div class="f">
+                <div class="cauto pRa10">
+                    <a class="btn light3 <?php if(in_array('hu', array_keys(\dash\request::get()))) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
+                </div>
+                <div class="c pRa10">
+                    <div>
+                        <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+                            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
+                            <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cauto">
+                    <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
+                        <option value="<?php echo \dash\url::that(); ?>"><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
+                        <?php foreach (\dash\data::mySort() as $key => $value) {?>
+                            <option value="<?php echo \dash\url::that(). '?'. $value['link']; ?>" <?php if(\dash\request::get('sort') == $value['sort'] && \dash\request::get('order') == $value['order']) { echo 'selected'; }?> ><?php echo $value['title']; ?></option>
+                        <?php } //endif ?>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="filterBox" data-kerkere-content='hide'>
+
+                <p><?php echo T_("Show cart where"); ?></p>
+
+                <div class="f align-center">
+
+                    <div class="c">
+                        <a class='btn <?php if(\dash\request::get('hu') === 'y') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?hu=y"><?php echo T_("User login and add cart"); ?></a>
+                        <a class='btn <?php if(\dash\request::get('hu') === 'n') { echo 'primary2'; }else{ echo 'light';} ?>  mB5 ' href="<?php echo \dash\url::that(); ?>?hu=n"><?php echo T_("Gues user add cart"); ?></a>
+
+
+                    </div>
+                </div>
+            </div>
+    </form>
+<?php } //endfunction
 
 
 
@@ -68,29 +121,7 @@ else
 
 
 
-<?php function htmlSearchBox() {?>
-<div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' >
-    <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-
-      <?php if(\dash\request::get('type')) {?>
-
-      <input type="hidden" name="type" value="<?php echo \dash\request::get('type'); ?>">
-
-      <?php } // endif ?>
-
-      <button class="addon btn "><?php echo T_("Search"); ?></button>
-    </div>
-  </form>
-</div>
-<?php } //endfunction ?>
-
-
-
-
-
-<?php function htmlTable() {?>
+ function htmlTable() {?>
 
 <?php
 $sortLink = \dash\data::sortLink();
@@ -143,7 +174,7 @@ if(!is_array($dataTable))
 
 <?php \dash\utility\pagination::html(); ?>
 
-<?php } //endif ?>
+<?php } //endif
 
 
 
@@ -151,37 +182,18 @@ if(!is_array($dataTable))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php function htmlFilter() {?>
+ function htmlFilter() {?>
 <p class="f fs14 msg info2">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::here(); ?>/<?php echo \dash\url::module(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endif ?>
-
-
 <?php function htmlFilterNoResult() {?>
 <p class="f fs14 msg warn2">
   <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
   <a class="cauto" href="<?php echo \dash\url::here(); ?>/<?php echo \dash\url::module(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endif ?>
-
-
 <?php function htmlStartAddNew() {?>
 <p class="fs14 msg success2 pTB20"><?php echo T_("No record exist!"); ?></p>
 <?php } //endif ?>
-
-

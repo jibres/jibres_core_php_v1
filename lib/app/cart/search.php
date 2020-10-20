@@ -29,9 +29,10 @@ class search
 
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => ['enum' => ['datecreated']],
-			'user_id'   => 'code',
+			'order'   => 'order',
+			'sort'    => ['enum' => ['date', 'item', 'count']],
+			'hu'      => 'y_n',
+			'user_id' => 'code',
 		];
 
 		$require = [];
@@ -52,6 +53,19 @@ class search
 
 		$order_sort  = null;
 
+
+		if($data['hu'] === 'y')
+		{
+			$and[] = " cart.user_id IS NOT NULL ";
+			self::$filter_args[T_("User login and add cart")] = ' ';
+			self::$is_filtered = true;
+		}
+		elseif($data['hu'] === 'n')
+		{
+			$and[] = " cart.user_id IS NULL ";
+			self::$filter_args[T_("Guest user add cart")] = ' ';
+			self::$is_filtered = true;
+		}
 
 
 		$query_string = \dash\validate::search($_query_string, false);
@@ -89,18 +103,31 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['datecreated']))
+			$sort = " MAX(cart.datecreated) ";
+			switch ($data['sort'])
 			{
+				case 'item':
+					$sort = " COUNT(*) ";
+					break;
 
-				$sort = mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = mb_strtolower($data['order']);
-				}
+				case 'count':
+					$sort = " SUM(cart.count) ";
+					break;
 
-				$order_sort = " ORDER BY $sort $order";
+				case 'date':
+					$sort = " MAX(cart.datecreated) ";
+					break;
+
 			}
+
+
+			$order = null;
+			if($data['order'])
+			{
+				$order = mb_strtolower($data['order']);
+			}
+
+			$order_sort = " ORDER BY $sort $order";
 		}
 
 		if(!$order_sort)
