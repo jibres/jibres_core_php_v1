@@ -10,6 +10,16 @@ class model
 		$product = \dash\request::post('product');
 		$count   = \dash\request::post('count');
 
+		if(\dash\request::post('removeall') === 'removeall')
+		{
+			\lib\app\cart\remove::remove_all($user, $guestid);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+		}
+
 		if(\dash\request::post('type') === 'edit_count')
 		{
 			\lib\app\cart\edit::edit($product, $count, $user, $guestid);

@@ -57,6 +57,42 @@ class remove
 	}
 
 
+	public static function remove_all($_user_id, $_guest_id)
+	{
+		$condition =
+		[
+			'user_id' => 'code',
+			'guestid' => 'md5',
+		];
+
+		$args =
+		[
+			'guestid' => $_guest_id,
+			'user_id' => $_user_id ? $_user_id : null,
+		];
+
+		$require = [];
+		$meta    =	[];
+		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$user_id    = \dash\coding::decode($data['user_id']);
+
+		$user_guest = $data['guestid'];
+
+		if($user_id)
+		{
+			\lib\db\cart\delete::by_user_id($user_id);
+		}
+		else
+		{
+			\lib\db\cart\delete::by_guest_id($user_guest);
+		}
+
+		\dash\notif::ok(T_("Cart removed"));
+		return true;
+	}
+
+
 	public static function remove($_product_id, $_user_id, $_guest_id)
 	{
 

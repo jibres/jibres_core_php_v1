@@ -37,8 +37,11 @@ if(!is_array($dataTable))
       </div>
 
     </div>
-    <footer class="txtRa">
-      <button class="btn success"><?php echo T_("Add"); ?></button>
+    <footer class="f">
+      <div class="cauto"><div class="btn linkDel" data-confirm data-data='{"removeall": "removeall"}'><?php echo T_("Remove All") ?></div></div>
+      <div class="c"></div>
+      <div class="cauto"><button class="btn success"><?php echo T_("Add"); ?></button></div>
+
     </footer>
   </div>
 
