@@ -47,9 +47,21 @@
 
 <div class="f">
   <div class="c s6">
-    <div class="msg fs14">
-    <a class="btn warn" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull git repository"); ?></a>
+    <div class="msg fs14 f">
+      <div class="cauto">
+          <a class="btn warn" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull git repository"); ?></a>
+
+      </div>
+      <div class="c"></div>
+      <div class="cauto">
+        <?php if(\dash\url::tld() === 'ir') {?>
+          <a class="btn link" href="https://jibres.com/su/update">Also upgrade in .com Server</a>
+        <?php }else{ ?>
+          <a class="btn link" href="https://jibres.ir/su/update">Also upgrade in .ir Server</a>
+        <?php } //endif ?>
+      </div>
     </div>
+
   </div>
 
   <div class="c s6">
