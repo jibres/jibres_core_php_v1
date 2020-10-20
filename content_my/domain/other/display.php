@@ -144,7 +144,7 @@ elseif(\dash\request::get('list') === 'renew')
 }
 elseif(\dash\request::get('list') === 'import')
 {
-    require_once('display-maybemydomain.php');
+    require_once('display-imported.php');
 
 }
 elseif(\dash\request::get('list') === 'available')
