@@ -82,14 +82,6 @@
     </a>
    </div>
 
-  <div class="c s6">
-    <a class="dcard <?php if(\dash\url::child() == 'log') { echo 'active';} ?>" href='<?php echo \dash\url::this(); ?>/log?id=<?php echo \dash\request::get('id'); ?>'>
-     <div class="statistic">
-      <div class="value"><i class="sf-camera-surveillance"></i></div>
-      <div class="label"><?php echo T_("Log"); ?></div>
-     </div>
-    </a>
-   </div>
 
    <?php if(!\dash\engine\store::inStore()) {?>
   <div class="c s6">
