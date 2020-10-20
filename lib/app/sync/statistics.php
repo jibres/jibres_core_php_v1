@@ -109,7 +109,7 @@ class statistics
 		$result['form_item']            = floatval(\dash\db\config::public_get_count('form_item'));
 		$result['funds']                = floatval(\dash\db\config::public_get_count('funds'));
 		$result['importexport']         = floatval(\dash\db\config::public_get_count('importexport'));
-		$result['inventory']            = floatval(\dash\db\config::public_get_count('inventory'));
+		// $result['inventory']            = floatval(\dash\db\config::public_get_count('inventory'));
 		$result['ir_vat']               = floatval(\dash\db\config::public_get_count('ir_vat'));
 		$result['log_notif']            = floatval(\dash\db\config::public_get_count('log_notif'));
 		$result['login']                = floatval(\dash\db\config::public_get_count('login'));

@@ -63,7 +63,7 @@ class analytics
 
 
 			'product'              => ['group' => T_("Product"), 'title' => T_('Product'), 'important' => true,],
-			'inventory'            => ['group' => T_("Product"), 'title' => T_("Inventory")],
+			// 'inventory'            => ['group' => T_("Product"), 'title' => T_("Inventory")],
 			'productcategory'      => ['group' => T_("Product"), 'title' => T_("Product category")],
 			'productcategoryusage' => ['group' => T_("Product"), 'title' => T_("Product categoryusage")],
 			'productcomment'       => ['group' => T_("Product"), 'title' => T_("Product comment")],
