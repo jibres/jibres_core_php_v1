@@ -216,18 +216,18 @@ class search
 				$mobile_emails_query = null;
 				if($emails || $mobile)
 				{
-					$mobile_emails_query = " OR (domain.available = 0 AND (domain.mobile = '$mobile' OR domain.email IN ('$emails') ) )";
+					$mobile_emails_query = " OR (( domain.available = 0 OR domain.available IS NULL) AND (domain.mobile = '$mobile' OR domain.email IN ('$emails') ) )";
 				}
 
 				// $and[] = " domain.status = 'enable' ";
-				$and[] = " ( ( domain.verify = 1 AND domain.available = 0 ) $mobile_emails_query )";
+				$and[] = " ( ( domain.verify = 1 AND ( domain.available = 0 OR domain.available IS NULL) ) $mobile_emails_query )";
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("My domains");
 			}
 			elseif($data['list'] === 'renew')
 			{
 				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
-				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND (domain.gateway IS NULL OR domain.gateway != 'import') ";
+				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND ( domain.available = 0 OR domain.available IS NULL) AND (domain.gateway IS NULL OR domain.gateway != 'import') ";
 
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Maybe for your");
@@ -241,7 +241,7 @@ class search
 			}
 			elseif($data['list'] === 'import')
 			{
-				$and[] = " domain.gateway = 'import' AND domain.available = 0 AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
+				$and[] = " domain.gateway = 'import' AND ( domain.available = 0 OR domain.available IS NULL)AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
 
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("Available");

@@ -4,7 +4,7 @@
   <div class="f">
    <div class="c9 s12 pRa10">
 
-    <section class="f">
+    <section class="f hide">
      <div class="c s12 pRa10">
       <a href="<?php echo \dash\url::this() ?>/search" class="stat">
        <h3><?php echo T_("Your Domains");?></h3>
@@ -24,37 +24,6 @@
       </a>
      </div>
     </section>
-
-    <div id="chartdiv" class="box chart x210 s0" data-abc='my/domainhomepage'></div>
-
-
-
-
-    <section class="f s0">
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent=\dash\get::index($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-       <h3><?php echo T_("Domain with Auto Renew");?></h3>
-      </a>
-     </div>
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent=\dash\get::index($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-       <h3><?php echo T_("Domain Locked");?></h3>
-      </a>
-     </div>
-
-     <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent=\dash\get::index($myData, 'domain_active_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-       <h3><?php echo T_("Active domain");?></h3>
-      </a>
-     </div>
-   </section>
-
-
-
-
 
 
     <section class="f">
@@ -87,6 +56,39 @@
      </div>
     </section>
 
+    <div id="chartdiv" class="box chart x320 s0" data-abc='my/domainhomepage'></div>
+
+
+
+
+    <section class="f s0">
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+       <?php $myPercent=\dash\get::index($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Domain with Auto Renew");?></h3>
+      </a>
+     </div>
+     <div class="c pRa10">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+       <?php $myPercent=\dash\get::index($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Domain Locked");?></h3>
+      </a>
+     </div>
+
+     <div class="c">
+      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+       <?php $myPercent=\dash\get::index($myData, 'domain_active_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Active domain");?></h3>
+      </a>
+     </div>
+   </section>
+
+
+
+
+
+
+
    </div>
 
 
@@ -100,6 +102,14 @@
         <div class="go next"></div>
        </a>
       </li>
+      <?php if(\dash\get::index($myData, 'maybe_my_domain') || \dash\get::index($myData, 'available_domain')) {?>
+      <li>
+       <a class="f" href="<?php echo \dash\url::this();?>/other">
+        <div class="key"><?php echo T_('Other domain');?></div>
+        <div class="go next"></div>
+       </a>
+      </li>
+    <?php } //endif ?>
      </ul>
     </nav>
 
@@ -172,11 +182,6 @@
        <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">
         <div class="key"><?php echo T_('Domain API');?></div>
         <div class="go next"></div>
-       </a>
-      </li>
-      <li>
-       <a class="f" >
-        <div class="key"><?php echo T_('Build for Developers ;)');?></div>
        </a>
       </li>
      </ul>

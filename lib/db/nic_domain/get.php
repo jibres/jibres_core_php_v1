@@ -61,7 +61,7 @@ class get
 			FROM
 				domainstatus
 			WHERE
-				domainstatus.domain IN (SELECT domain.name FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'deleted' AND domain.verify = 1 and domain.available = 0)
+				domainstatus.domain IN (SELECT domain.name FROM domain WHERE domain.user_id = $_user_id AND domain.status != 'deleted' AND domain.verify = 1 and ( domain.available = 0 OR domain.available IS NULL))
 			GROUP BY domainstatus.status
 		";
 
@@ -217,7 +217,7 @@ class get
 	{
 		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
 
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.available = 0 AND (domain.gateway IS NULL OR domain.gateway != 'import')  AND domain.status != 'deleted' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND ( domain.verify = 0 OR domain.verify IS NULL ) AND ( domain.available = 0 OR domain.available IS NULL) AND (domain.gateway IS NULL OR domain.gateway != 'import')  AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -234,7 +234,7 @@ class get
 	public static function my_imported_count($_user_id)
 	{
 		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.gateway = 'import' AND domain.available = 0 AND ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.status != 'deleted' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.gateway = 'import' AND ( domain.available = 0 OR domain.available IS NULL)  AND ( domain.verify = 0 OR domain.verify IS NULL ) AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -243,7 +243,7 @@ class get
 	public static function my_active_count($_user_id)
 	{
 		// $query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.status = 'enable' ";
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND domain.available = 0 AND domain.status != 'deleted' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND ( domain.available = 0 OR domain.available IS NULL) AND domain.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -262,7 +262,7 @@ class get
 
 	public static function my_autorenew_count($_user_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.available = 0 AND domain.status != 'deleted' AND domain.autorenew = 1 ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND ( domain.available = 0 OR domain.available IS NULL) AND domain.status != 'deleted' AND domain.autorenew = 1 ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
@@ -270,7 +270,7 @@ class get
 
 	public static function my_lock_count($_user_id)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND domain.available = 0 AND domain.status != 'deleted' AND domain.lock = 1 ";
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.user_id = $_user_id AND domain.verify = 1 AND ( domain.available = 0 OR domain.available IS NULL) AND domain.status != 'deleted' AND domain.lock = 1 ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}

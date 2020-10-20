@@ -1,12 +1,12 @@
 <?php
-namespace content_my\domain\search;
+namespace content_my\domain\other;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("My Domains"));
+		\dash\face::title(T_("Domains"));
 
 		// btn
 		\dash\data::back_text(T_('Dashboard'));
@@ -17,11 +17,35 @@ class view
 		\dash\face::btnImport(\dash\url::this().'/import');
 		// \dash\face::btnExport(\dash\url::this().'/export');
 
+		$urlGetList = \dash\request::get('list');
+
+		$data_list  = $urlGetList;
+
+		switch ($urlGetList)
+		{
+			case 'renew':
+				// \dash\data::action_text(T_('Renew Domain'));
+				// \dash\data::action_link(\dash\url::this(). '/renew');
+				$data_list = 'renew';
+				break;
+			case 'import':
+				\dash\face::btnImport(null);
+				// \dash\data::action_text(T_('Import domain'));
+				// \dash\data::action_link(\dash\url::this(). '/import');
+				break;
+
+			default:
+				$data_list = 'renew';
+				// \dash\data::action_text(T_('Renew Domain'));
+				// \dash\data::action_link(\dash\url::this(). '/renew');
+				break;
+		}
+
 		$args =
 		[
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
-			'list'    => \dash\request::get('list'),
+			'list'    => $data_list,
 			'lock'      => \dash\request::get('lock'),
 			'autorenew' => \dash\request::get('autorenew'),
 			// 'status' => \dash\request::get('status'),
