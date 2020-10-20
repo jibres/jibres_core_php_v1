@@ -1,1 +1,0 @@
-DELETE FROM jibres.login WHERE jibres.login.place = 'telegram';
