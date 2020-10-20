@@ -87,5 +87,30 @@ class validate
 
 		return $q;
 	}
+
+
+	/**
+	 * Determines whether the specified continue is not bottom.
+	 *
+	 * @param      boolean  $_continue  The continue
+	 *
+	 * @return     boolean  True if the specified continue is not bottom, False otherwise.
+	 */
+	public static function is_not_bot($_continue = false)
+	{
+		if(\dash\agent::isBot())
+		{
+			if($_continue)
+			{
+				// not exist code
+				return false;
+			}
+			else
+			{
+				\dash\header::status(400, T_("You were identified as a robot. Contact your system administrator if you feel that something has happened"));
+			}
+		}
+		return false;
+	}
 }
 ?>

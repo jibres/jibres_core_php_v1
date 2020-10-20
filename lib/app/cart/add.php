@@ -33,6 +33,11 @@ class add
 
 	public static function new_cart($_product_id, $_count, $_user_id = null, $_user_guest = null, $_mode = null)
 	{
+		// check is not bot
+		// if the agent is bot exit code!
+		\dash\validate::is_not_bot();
+
+
 		if($_mode !== 'website')
 		{
 			if(!\dash\user::id())
