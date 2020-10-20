@@ -66,8 +66,8 @@ if(!is_array($dataTable))
       <tr class="">
         <td class="collapsing s0"><?php echo \dash\fit::number($key + 1) ?></td>
         <td>
-          <?php echo \dash\get::index($value, 'title'); ?>
             <div class="btn linkDel" data-confirm data-data='{"type": "remove", "product": "<?php echo \dash\get::index($value, 'product_id'); ?>"}'><?php echo T_("Remove") ?></div>
+          <?php echo \dash\get::index($value, 'title'); ?>
           </td>
         <td class="collapsing">
           <form method="post" autocomplete="off">
