@@ -36,16 +36,25 @@ class remove
 			$user_id = \dash\coding::decode($user_id);
 		}
 
+		return self::remove($_product_id, $user_id, $user_guest);
+
+	}
+
+
+	public static function remove($_product_id, $_user_id, $_guest_id)
+	{
 
 		$condition =
 		[
 			'user_id' => 'id',
 			'product' => 'id',
+			'guestid' => 'md5',
 		];
 
 		$args =
 		[
-			'user_id' => $user_id,
+			'guestid' => $_guest_id,
+			'user_id' => $_user_id ? $_user_id : null,
 			'product' => $_product_id,
 		];
 
@@ -53,8 +62,12 @@ class remove
 		$meta    =	[];
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
+		$user_id    = \dash\coding::decode($data['user_id']);
 
 		$load_product = \lib\app\product\get::inline_get($data['product']);
+
+		$user_guest = $data['guestid'];
+
 		if(!$load_product)
 		{
 			return false;

@@ -16,7 +16,7 @@ class model
 		}
 		elseif(\dash\request::post('type') === 'remove')
 		{
-			\lib\app\cart\remove::from_cart_admin($product, $user, $guestid);
+			\lib\app\cart\remove::remove($product, $user, $guestid);
 		}
 		else
 		{
