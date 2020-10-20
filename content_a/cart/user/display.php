@@ -1,8 +1,8 @@
 <div class="avand-md">
-  <form method="post">
-
-     <div class="cbox p0">
-      <p>
+  <form method="post" autocomplete="off">
+    <div class="box">
+      <div class="body">
+         <p>
         <?php echo T_("Choose exists customer or click on '+' button and Add new customer Quickly") ?>
       </p>
     <div class="f">
@@ -30,10 +30,12 @@
           <input type="text" name="memberN" id="memberN" placeholder='<?php echo T_("Customer Name"); ?>'  maxlength='40' minlength="1">
         </div>
     </div>
-    <div class="txtRa mT10">
+
+      </div>
+      <footer class="txtRa">
 
       <button class="btn primary"><?php echo T_("Go"); ?></button>
+      </footer>
     </div>
-  </div>
   </form>
 </div>

@@ -23,9 +23,11 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
-
-		// $user_detail = \dash\app\user::get($user);
-		// \dash\data::userDetail($user_detail);
+		if(\dash\request::get('user'))
+		{
+			$user_detail = \dash\app\user::get(\dash\request::get('user'));
+			\dash\data::userDetail($user_detail);
+		}
 	}
 }
 ?>
