@@ -61,7 +61,7 @@ class edit
 			'type'    => $_type,
 		];
 
-		$require = ['product', 'count'];
+		$require = ['product'];
 
 		$meta    =	[];
 

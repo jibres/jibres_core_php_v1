@@ -28,6 +28,12 @@ class view
 			$user_detail = \dash\app\user::get(\dash\request::get('user'));
 			\dash\data::userDetail($user_detail);
 		}
+
+
+
+		$cart_detail = \lib\app\cart\search::detail($user, $guestid);
+		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
+		\dash\data::cartSummary($cart_summary);
 	}
 }
 ?>

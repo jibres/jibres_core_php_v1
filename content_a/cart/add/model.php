@@ -7,8 +7,9 @@ class model
 	{
 		$user    = \dash\request::get('user');
 		$guestid = \dash\request::get('guestid');
-		$product = \dash\request::post('product');
+		$product = \dash\request::post('product_id');
 		$count   = \dash\request::post('count');
+		$type    = \dash\request::post('type');
 
 		if(\dash\request::post('removeall') === 'removeall')
 		{
@@ -20,9 +21,9 @@ class model
 			}
 		}
 
-		if(\dash\request::post('type') === 'edit_count')
+		if($type === 'edit_count' || $type === 'plus_count' || $type === 'minus_count')
 		{
-			\lib\app\cart\edit::edit($product, $count, $user, $guestid);
+			\lib\app\cart\edit::edit($product, $count, $user, $guestid, $type);
 		}
 		elseif(\dash\request::post('type') === 'remove')
 		{
