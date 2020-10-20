@@ -426,10 +426,16 @@ class login
 				$load_user  = \dash\db\users::jibres_get_by_id($_user_id);
 				break;
 
+				// in telegram we have not cookie and return user detail
+			case 'telegram':
+				$load_user  = \dash\db\users::get_by_id($_user_id);
+				return $load_user;
+
+				break;
+
 			case 'subdomain':
 			case 'customer_domain':
 			case 'api_business':
-			case 'telegram':
 			default:
 				$load_user  = \dash\db\users::get_by_id($_user_id);
 				break;
@@ -484,10 +490,13 @@ class login
 		\dash\db\login\insert::new_record_login_ip($insert_login_ip);
 
 
-		unset($load_user['permission']); //! just for not return false in check permission
-		$load_user = \dash\app\user::ready($load_user);
+		$load_user_ready = $load_user;
+
+		unset($load_user_ready['permission']); //! just for not return false in check permission
+
+		$load_user_ready = \dash\app\user::ready($load_user_ready);
 		// if user set save remember set cookie life time for 1 month
-		if(isset($load_user['forceremember']) && $load_user['forceremember'])
+		if(isset($load_user_ready['forceremember']) && $load_user_ready['forceremember'])
 		{
 			$time = (60*60*24*30);
 		}
@@ -498,6 +507,8 @@ class login
 
 
 		\dash\utility\cookie::write(self::cookie_name(), $code, $time);
+
+		return $load_user;
 
 	}
 
