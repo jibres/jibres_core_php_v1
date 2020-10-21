@@ -6,7 +6,10 @@
 <?php } //endif ?>
 
 <div class="cbox pA0">
-    <div class="chart x310" id='usageChart'></div>
+    <div class="chart x310" id='usageChart' data-abc='su/live_monitor'></div>
+</div>
+<div class="hide">
+  <div id="hereurl"><?php echo \dash\url::here() ?></div>
 </div>
 
 <div class="f">
