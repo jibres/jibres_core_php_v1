@@ -5,6 +5,9 @@ class view
 {
 	public static function config()
 	{
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here());
+
 		$result                            = [];
 		$result['mbstring']                = extension_loaded('mbstring');
 		$result['soap']                    = class_exists("soapclient");

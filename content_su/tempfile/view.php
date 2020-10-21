@@ -5,6 +5,18 @@ class view
 {
 	public static function config()
 	{
+		if(\dash\request::get('folder'))
+		{
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
+
+		}
+		else
+		{
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::here());
+
+		}
 		if(\dash\request::get('folder') && \dash\request::get('file'))
 		{
 			$addr = YARD. 'jibres_temp/stores/'. \dash\request::get('folder'). '/'. \dash\request::get('file');
@@ -135,17 +147,18 @@ class view
 		$output .= ' <script src="'. $myCode. 'js/highlight/highlight.min.js"></script>';
 		$output .= ' <link rel="stylesheet" href="'. $myCode. 'css/lib/highlight-atom-one-dark.css">';
 		$output .= ' <style>';
-		$output .= 'body{margin:0;height:100%;} .clear{position:absolute;top:1em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none} .zip{position:absolute;bottom:1.5em;right:2em;background-color:#000;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none}
-		.downloaditnow{position:absolute;top:5em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none}
+		$output .= 'body{margin:0;height:100%;} .backbtnsu {position:absolute;top:1em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none} .clear{position:absolute;top:4em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none} .zip{position:absolute;bottom:1.5em;right:2em;background-color:#000;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none}
+		.downloaditnow{position:absolute;top:7em;right:2em;border:1px solid #fff;color:#fff;border-radius:3px;padding:0.5em 1em;text-decoration:none}
 		.hljs{padding:0;max-height:100%;height:100%;}';
 		$output .= ' </style>';
 
 
 		$output .= "</head><body>";
 		// $output .= '<a class="clear primary" href="'. \dash\url::this(). '?folder='.\dash\request::get('folder').'">Back!</a>';
+		$output .= '<a class="backbtnsu" href="'. \dash\url::this(). '?folder='.\dash\request::get('folder').  '">Back</a>';
 		$output .= '<a class="clear" href="'. \dash\url::this(). '?clear=1&folder='.\dash\request::get('folder').'&file='.\dash\request::get('file').'">Clear it!</a>';
 		$output .= '<a class="downloaditnow" href="'. \dash\url::this(). '?download=1&folder='.\dash\request::get('folder').'&file='.\dash\request::get('file').'">Download it!</a>';
-
+		$output .= '<a class="zip" href="?name='. $name. '&zip=true">ZIP it!</a>';
 		$output .= "<pre class=''>";
 		$output .= $fileData;
 		$output .= "</pre>";

@@ -17,7 +17,7 @@
 <?php } // endif ?>
 
 <?php if(\dash\data::logFileList()) {?>
-<a class="btn mB10 outline primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Back"); ?></a>
+
 <div class="cbox fs11">
   <table class="tbl1 v3 fs12">
     <thead>

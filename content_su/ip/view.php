@@ -7,6 +7,9 @@ class view
 	public static function config()
 	{
 
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here());
+
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$details = json_decode(@file_get_contents("http://ipinfo.io/{$ip}/json"), true);
 		\dash\data::ipDetail($details);

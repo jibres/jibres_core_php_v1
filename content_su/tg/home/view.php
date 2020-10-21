@@ -5,6 +5,9 @@ class view
 {
 	public static function config()
 	{
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here());
+
 		\dash\face::title(T_("Telegram"));
 
 		\dash\data::action_text(T_('Check logs'));

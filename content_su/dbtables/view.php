@@ -9,8 +9,16 @@ class view
 
 		\dash\log::set('showDataTableRaw');
 
-		\dash\data::back_text(T_('Select table'));
-		\dash\data::back_link(\dash\url::this());
+		if(\dash\request::get('table'))
+		{
+			\dash\data::back_text(T_('Select table'));
+			\dash\data::back_link(\dash\url::this());
+		}
+		else
+		{
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::here());
+		}
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)

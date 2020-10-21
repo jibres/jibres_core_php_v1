@@ -6,6 +6,9 @@ class view
 {
 	public static function config()
 	{
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here());
+
 		if(\dash\request::get('download') === 'crontabme')
 		{
 			\dash\file::download(core. '/engine/cronjob/exec.me.php');

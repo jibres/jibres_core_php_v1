@@ -7,6 +7,9 @@ class view
 	public static function config()
 	{
 
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here());
+
 		$configBackup = @\dash\file::read(database. 'backup/schedule.json');
 		if($configBackup && is_string($configBackup))
 		{

@@ -64,7 +64,6 @@
     <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/backup"><?php echo T_("Backup"); ?></a>
     <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/dbtables"><?php echo T_("Raw table"); ?></a>
 
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/time"><?php echo T_("Date and time"); ?></a>
     <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/info"><?php echo T_("Server information"); ?></a>
     <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/cronjob"><?php echo T_("Cronjob"); ?></a>
     <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/ip"><?php echo T_("IP"); ?></a>

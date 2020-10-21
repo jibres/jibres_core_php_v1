@@ -87,7 +87,7 @@ class permissionlist
 			}
 		}
 
-
+		echo '<a href="'. \dash\url::here(). '">Back</a>';
 		echo '<h1>EXTRACT PERMISSION CALLERS ('.self::$count.' callers founded | used in: '.self::$count_use.' place)</h1><hr><h3>DASH</h3>';
 		echo '<h3>New in project</h3>';
 		\dash\code::pretty($new_project, true);

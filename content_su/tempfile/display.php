@@ -21,7 +21,6 @@
 
 <?php if(\dash\data::logFileList()) {?>
 
-<a class="btn mB10 outline primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Back"); ?></a>
 <div class="f">
   <?php foreach (\dash\data::logFileList() as $key => $value) {?>
     <?php if((isset($value['is_old']) && !$value['is_old']) || !isset($value['is_old'])) {?>
