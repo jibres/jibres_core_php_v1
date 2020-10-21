@@ -28,7 +28,7 @@ class statistics
 	public static function calc()
 	{
 		$result                        = [];
-		$result['users']               = floatval(\dash\db\users::get_count());
+		$result['user']                = floatval(\dash\db\users::get_count());
 		$result['user_mobile']         = floatval(\dash\db\users::get_count(['mobile' => ['IS NOT', 'NULL']]));
 		$result['user_email']          = floatval(\dash\db\users::get_count(['email' => ['IS NOT', 'NULL']]));
 		$result['user_username']       = floatval(\dash\db\users::get_count(['username' => ['IS NOT', 'NULL']]));
