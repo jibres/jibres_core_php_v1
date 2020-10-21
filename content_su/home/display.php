@@ -1,12 +1,12 @@
 
-<?php if(\dash\data::gitHaveChange()) {?>
+<?php if(\dash\data::gitHaveChange() && !\dash\url::isLocal()) {?>
 
 <a href="<?php echo \dash\url::here(); ?>/gitstatus" class=" msg danger fs18 block txtC"><?php echo T_("Some code was changed!!!"); ?></a>
 
 <?php } //endif ?>
 
 <div class="cbox pA0">
-    <div class="chart x400" id='usageChart'></div>
+    <div class="chart x310" id='usageChart'></div>
 </div>
 
 <div class="f">
@@ -59,37 +59,145 @@
 
 </div>
 
+<div class="row">
 
-<nav class="font-12">
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/backup"><?php echo T_("Backup"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/dbtables"><?php echo T_("Raw table"); ?></a>
+  <div class="c-xs-12 c-sm-12 c-md-4">
 
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/info"><?php echo T_("Server information"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/cronjob"><?php echo T_("Cronjob"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/ip"><?php echo T_("IP"); ?></a>
+    <nav class="items">
+     <ul>
+      <li>
+          <a class="f" href="<?php echo \dash\url::here(); ?>/update">
+            <div class="key"><?php echo T_('Update');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
 
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/gitstatus"><?php echo T_("Git status"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/nano"><?php echo T_("Nano"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/update" data-shortkey="85+80" data-shortkey-timeout='500'><?php echo T_("Update"); ?><kbd class="floatLa mRa10 fs08">up</kbd></a>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here(); ?>/backup">
+            <div class="key"><?php echo T_('Backup');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/dbtables">
+            <div class="key"><?php echo T_('Raw table');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/info">
+            <div class="key"><?php echo T_('Server information');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/cronjob">
+            <div class="key"><?php echo T_('Cronjob');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/server">
+            <div class="key"><?php echo T_('Server');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+     </ul>
+   </nav>
 
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/log"><?php echo T_("Log"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/tempfile"><?php echo T_("Temp file"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/apilog"><?php echo T_("Api Log"); ?></a>
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/smsclient"><?php echo T_("Sms client"); ?></a>
+  </div>
 
-    <?php if(\dash\url::isLocal()) {?>
-
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/permission"><?php echo T_("Permission"); ?></a>
-
-    <?php } //endif ?>
-
-    <a class="btn outline mA5" href="<?php echo \dash\url::here(); ?>/tg" data-shortkey="84+71" data-shortkey-timeout='500'><?php echo T_("Telegram"); ?><kbd class="floatLa mRa10 fs08">tg</kbd></a>
-
-</nav>
+  <div class="c-xs-12 c-sm-12 c-md-4">
 
 
+    <nav class="items">
+     <ul>
+       <li>
+
+          <a class="f" href="<?php echo \dash\url::here(); ?>/ip">
+            <div class="key"><?php echo T_('IP');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/gitstatus">
+            <div class="key"><?php echo T_('Git status');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/nano">
+            <div class="key"><?php echo T_('Nano');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/log">
+            <div class="key"><?php echo T_('Log');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/session">
+            <div class="key"><?php echo T_('Session');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/shorturl">
+            <div class="key"><?php echo T_('Short url');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+     </ul>
+   </nav>
+
+
+  </div>
+
+  <div class="c-xs-12 c-sm-12 c-md-4">
 
 
 
+    <nav class="items">
+     <ul>
+       <li>
 
+          <a class="f" href="<?php echo \dash\url::here(); ?>/tempfile">
+            <div class="key"><?php echo T_('Temp file');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/apilog">
+            <div class="key"><?php echo T_('Api Log');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/smsclient">
+            <div class="key"><?php echo T_('Sms client');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+       <?php if(\dash\url::isLocal()) {?>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/permission">
+            <div class="key"><?php echo T_('Permission');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+      <?php } //endif ?>
 
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/tg">
+            <div class="key"><?php echo T_('Telegram');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
+     </ul>
+   </nav>
+
+  </div>
+</div>
