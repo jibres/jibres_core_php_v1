@@ -26,7 +26,7 @@ class business_createNew
 
 
 
-	public static function get_msg($_args = [])
+	public static function get_msg($_args = [], $_avatar = false)
 	{
 		$msg          = '';
 		$my_name      = isset($_args['data']['my_name']) ? $_args['data']['my_name'] : null;
@@ -35,7 +35,32 @@ class business_createNew
 
 		$msg .= T_("Business title") . ' '. $my_name. "\n";
 		$msg .= T_("Business subdomain") . ' '. $my_subdomain. "\n";
-		$msg .= T_("Business owner") . ' '. $my_owner. "\n";
+
+		if(isset($_args['data']['log_user_detail']))
+		{
+			$msg .= T_("Business owner") . ' '. $my_owner. "\n";
+
+
+			if(isset($_args['data']['log_user_detail']['fullname']))
+			{
+				$msg .= ' '. $_args['data']['log_user_detail']['fullname']. ' ';
+			}
+			if(isset($_args['data']['log_user_detail']['mobile']) && $_args['data']['log_user_detail']['mobile'])
+			{
+				$msg .= ' '. \dash\fit::mobile($_args['data']['log_user_detail']['mobile']). ' ';
+			}
+			$msg .= "\n";
+
+			if($_avatar)
+			{
+				if(isset($_args['data']['log_user_detail']['avatar']) && $_args['data']['log_user_detail']['avatar'])
+				{
+					$msg .= ' '. $_args['data']['log_user_detail']['avatar']. "\n";
+				}
+			}
+		}
+
+
 
 		return $msg;
 	}
@@ -51,6 +76,12 @@ class business_createNew
 	{
 		// 7 days
 		return date("Y-m-d H:i:s", time() + (60*60*24*7));
+	}
+
+
+	public static function save_user_detail()
+	{
+		return true;
 	}
 
 
@@ -84,7 +115,7 @@ class business_createNew
 
 		$tg_msg .= "\n";
 
-		$tg_msg .= self::get_msg($_args);
+		$tg_msg .= self::get_msg($_args, true);
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];
