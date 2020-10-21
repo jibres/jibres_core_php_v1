@@ -17,7 +17,7 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$save = \lib\db\setting\update::overwirte_platform_cat_key_lang($data['status'], 'website', 'status', 'active', \dash\language::current());
+		$save = \lib\db\setting\update::overwirte_platform_cat_key($data['status'], 'website', 'status', 'active');
 
 		\lib\app\website\generator::remove_catch();
 

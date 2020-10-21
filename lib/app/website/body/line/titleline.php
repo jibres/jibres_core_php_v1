@@ -6,7 +6,7 @@ class titleline
 
 	public static function suggest_new_name()
 	{
-		$count_titleline = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_titleline');
+		$count_titleline = \lib\db\setting\get::count_platform_cat_key( 'website', 'homepage', 'body_line_titleline');
 		$count_titleline = intval($count_titleline) + 1;
 
 		return T_("Title"). ' '. \dash\fit::number($count_titleline);
@@ -70,7 +70,7 @@ class titleline
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{

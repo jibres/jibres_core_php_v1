@@ -20,7 +20,7 @@ class maintext
 
 		$maintext = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-		$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang($maintext, 'website', 'footer', 'maintext', \dash\language::current());
+		$query_result = \lib\db\setting\update::overwirte_platform_cat_key($maintext, 'website', 'footer', 'maintext');
 
 		\lib\app\website\generator::remove_catch();
 
@@ -32,7 +32,7 @@ class maintext
 
 	public static function get()
 	{
-		$maintext = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'footer', 'maintext');
+		$maintext = \lib\db\setting\get::platform_cat_key( 'website', 'footer', 'maintext');
 		if(isset($maintext['value']) && is_string($maintext['value']))
 		{
 			$maintext = json_decode($maintext['value'], true);

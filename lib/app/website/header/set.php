@@ -17,7 +17,7 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$save = \lib\db\setting\update::overwirte_platform_cat_key_lang($data['header'], 'website', 'header', 'active', \dash\language::current());
+		$save = \lib\db\setting\update::overwirte_platform_cat_key($data['header'], 'website', 'header', 'active');
 
 		\lib\app\website\generator::remove_catch();
 
@@ -73,11 +73,11 @@ class set
 
 			if($key === 'header_logo' && $value === 'remove_logo')
 			{
-				$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang(null, 'website', 'header_customized', $key, \dash\language::current());
+				$query_result = \lib\db\setting\update::overwirte_platform_cat_key(null, 'website', 'header_customized', $key);
 			}
 			else
 			{
-				$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang($value, 'website', 'header_customized', $key, \dash\language::current());
+				$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'header_customized', $key);
 			}
 
 

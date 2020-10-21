@@ -6,7 +6,7 @@ class slider
 
 	public static function suggest_new_name()
 	{
-		$count_slider = \lib\db\setting\get::count_lang_platform_cat_key(\dash\language::current(), 'website', 'homepage', 'body_line_slider');
+		$count_slider = \lib\db\setting\get::count_platform_cat_key( 'website', 'homepage', 'body_line_slider');
 		$count_slider = intval($count_slider) + 1;
 
 		return T_("Slider"). ' '. \dash\fit::number($count_slider);
@@ -183,7 +183,7 @@ class slider
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{

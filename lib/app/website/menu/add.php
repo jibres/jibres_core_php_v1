@@ -47,7 +47,6 @@ class add
 
 		$insert =
 		[
-			'lang'     => \dash\language::current(),
 			'platform' => 'website',
 			'cat'      => 'menu',
 			'key'      => $key,

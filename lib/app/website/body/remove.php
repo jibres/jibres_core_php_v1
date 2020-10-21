@@ -15,7 +15,7 @@ class remove
 			return false;
 		}
 
-		$get_line = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $line_id);
+		$get_line = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $line_id);
 
 		$founded_line = [];
 

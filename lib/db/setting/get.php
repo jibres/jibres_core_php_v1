@@ -108,7 +108,15 @@ class get
 	}
 
 
-	public static function get_body_line($_lang, $_sort = [])
+	public static function count_platform_cat_key($_platform, $_cat, $_key)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function get_body_line($_sort = [])
 	{
 		$sort = null;
 
@@ -124,7 +132,6 @@ class get
 			FROM
 				setting
 			WHERE
-				setting.lang = '$_lang' AND
 				setting.platform = 'website' AND
 				setting.cat = 'homepage' AND
 				setting.key LIKE 'body_line%'
@@ -136,7 +143,7 @@ class get
 	}
 
 
-		public static function get_website_all($_lang, $_sort = [])
+		public static function get_website_all($_sort = [])
 	{
 		$sort = null;
 
@@ -152,7 +159,6 @@ class get
 			FROM
 				setting
 			WHERE
-				setting.lang = '$_lang' AND
 				setting.platform = 'website'
 			$sort
 

@@ -5,7 +5,7 @@ class generator
 {
 	public static function remove_catch()
 	{
-		\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id(). '_'. \dash\language::current(). \dash\engine\store::$ext);
+		\dash\file::delete(\dash\engine\store::website_addr(). \lib\store::id(). \dash\engine\store::$ext);
 	}
 
 
@@ -58,7 +58,7 @@ class generator
 			\dash\file::makeDir($addr, null, true);
 		}
 
-		$addr .= \lib\store::id(). '_'. \dash\language::current(). \dash\engine\store::$ext;
+		$addr .= \lib\store::id(). \dash\engine\store::$ext;
 
 		$website_setting = [];
 
@@ -108,7 +108,7 @@ class generator
 		$result  = [];
 		$setting = [];
 
-		$active_status = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'status', 'active');
+		$active_status = \lib\db\setting\get::platform_cat_key( 'website', 'status', 'active');
 
 		if(!$active_status || !isset($active_status['value']))
 		{

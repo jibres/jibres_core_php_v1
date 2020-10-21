@@ -23,7 +23,7 @@ class topline
 
 		$topline = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-		$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang($topline, 'website', 'header', 'topline', \dash\language::current());
+		$query_result = \lib\db\setting\update::overwirte_platform_cat_key($topline, 'website', 'header', 'topline');
 
 		\lib\app\website\generator::remove_catch();
 
@@ -35,7 +35,7 @@ class topline
 
 	public static function get()
 	{
-		$topline = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'header', 'topline');
+		$topline = \lib\db\setting\get::platform_cat_key( 'website', 'header', 'topline');
 		if(isset($topline['value']) && is_string($topline['value']))
 		{
 			$topline = json_decode($topline['value'], true);

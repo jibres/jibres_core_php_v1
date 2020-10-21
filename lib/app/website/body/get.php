@@ -8,7 +8,7 @@ class get
 
 	public static function get_sort_body_line($_all = false)
 	{
-		$sort = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'body', 'sort_line');
+		$sort = \lib\db\setting\get::platform_cat_key( 'website', 'body', 'sort_line');
 
 		if(isset($sort['value']))
 		{
@@ -30,11 +30,11 @@ class get
 
 		if($_all)
 		{
-			$load_line = \lib\db\setting\get::get_website_all(\dash\language::current(), $sort);
+			$load_line = \lib\db\setting\get::get_website_all($sort);
 		}
 		else
 		{
-			$load_line = \lib\db\setting\get::get_body_line(\dash\language::current(), $sort);
+			$load_line = \lib\db\setting\get::get_body_line($sort);
 		}
 
 		return $load_line;
@@ -99,7 +99,7 @@ class get
 
 		$id = \dash\coding::decode($id);
 
-		$setting = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $id);
+		$setting = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $id);
 
 		$result = [];
 
@@ -121,7 +121,7 @@ class get
 
 	public static function have_any_slider()
 	{
-		$have_any_slider = \lib\db\setting\get::lang_platform_cat_multi_key(\dash\language::current(), 'website', 'homepage', ['body_line_specialslider','body_line_slider']);
+		$have_any_slider = \lib\db\setting\get::platform_cat_multi_key( 'website', 'homepage', ['body_line_specialslider','body_line_slider']);
 		if($have_any_slider)
 		{
 			return true;

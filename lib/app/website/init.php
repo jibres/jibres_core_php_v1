@@ -192,7 +192,7 @@ class init
 
 
   		$value = json_encode($value, JSON_UNESCAPED_UNICODE);
-		$lang = \dash\language::current();
+
 		$cat  = 'homepage';
 		$key  = 'body_line_specialslider';
 
@@ -202,7 +202,6 @@ class init
 			'cat'      => $cat,
 			'key'      => $key,
 			'value'    => $value,
-			'lang'     => $lang,
   		];
 
   		$id = \lib\db\setting\insert::new_record($insert);

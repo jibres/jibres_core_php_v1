@@ -32,7 +32,7 @@ class edit
 			return false;
 		}
 
-		$get_line = \lib\db\setting\get::lang_platform_cat_id(\dash\language::current(), 'website', 'homepage', $line_id);
+		$get_line = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $line_id);
 
 		$founded_line = [];
 
@@ -67,7 +67,7 @@ class edit
 
 	public static function set_sort_add_new_line($_id)
 	{
-		$sort = \lib\db\setting\get::lang_platform_cat_key(\dash\language::current(), 'website', 'body', 'sort_line');
+		$sort = \lib\db\setting\get::platform_cat_key( 'website', 'body', 'sort_line');
 
 		if(isset($sort['value']))
 		{
@@ -117,7 +117,7 @@ class edit
 
 		$sort = json_encode($sort, JSON_UNESCAPED_UNICODE);
 
-		\lib\db\setting\update::overwirte_platform_cat_key_lang($sort, 'website', 'body', 'sort_line', \dash\language::current());
+		\lib\db\setting\update::overwirte_platform_cat_key($sort, 'website', 'body', 'sort_line');
 
 		\lib\app\website\generator::remove_catch();
 

@@ -37,7 +37,6 @@ class add
 
 		$insert =
 		[
-			'lang'     => \dash\language::current(),
 			'platform' => 'website',
 			'cat'      => 'homepage',
 			'key'      => 'body_line_'. $_key,

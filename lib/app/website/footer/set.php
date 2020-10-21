@@ -17,7 +17,7 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$save = \lib\db\setting\update::overwirte_platform_cat_key_lang($data['footer'], 'website', 'footer', 'active', \dash\language::current());
+		$save = \lib\db\setting\update::overwirte_platform_cat_key($data['footer'], 'website', 'footer', 'active');
 
 		\lib\app\website\generator::remove_catch();
 
@@ -75,11 +75,11 @@ class set
 
 			if($key === 'footer_logo' && $value === 'remove_logo')
 			{
-				$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang(null, 'website', 'footer_customized', $key, \dash\language::current());
+				$query_result = \lib\db\setting\update::overwirte_platform_cat_key(null, 'website', 'footer_customized', $key);
 			}
 			else
 			{
-				$query_result = \lib\db\setting\update::overwirte_platform_cat_key_lang($value, 'website', 'footer_customized', $key, \dash\language::current());
+				$query_result = \lib\db\setting\update::overwirte_platform_cat_key($value, 'website', 'footer_customized', $key);
 			}
 
 
