@@ -32,7 +32,7 @@ class maintext
 
 	public static function get()
 	{
-		$maintext = \lib\db\setting\get::platform_cat_key( 'website', 'footer', 'maintext');
+		$maintext = \lib\db\setting\get::platform_cat_key('website', 'footer', 'maintext');
 		if(isset($maintext['value']) && is_string($maintext['value']))
 		{
 			$maintext = json_decode($maintext['value'], true);

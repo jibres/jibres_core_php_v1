@@ -6,7 +6,7 @@ class news
 
 	public static function suggest_new_name()
 	{
-		$count_news = \lib\db\setting\get::count_platform_cat_key( 'website', 'homepage', 'body_line_news');
+		$count_news = \lib\db\setting\get::count_platform_cat_key('website', 'homepage', 'body_line_news');
 		$count_news = intval($count_news) + 1;
 
 		return T_("News"). ' '. \dash\fit::number($count_news);
@@ -70,7 +70,7 @@ class news
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::platform_cat_id('website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{

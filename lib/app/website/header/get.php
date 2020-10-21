@@ -5,7 +5,7 @@ class get
 {
 	public static function isset_header($_only_name = false)
 	{
-		$active_header = \lib\db\setting\get::platform_cat_key( 'website', 'header', 'active');
+		$active_header = \lib\db\setting\get::platform_cat_key('website', 'header', 'active');
 		if(!$active_header || !isset($active_header['value']))
 		{
 			return false;
@@ -54,7 +54,7 @@ class get
 
 		if($contain)
 		{
-			$load_saved_detail = \lib\db\setting\get::platform_cat_multi_key( 'website', 'header_customized', $contain);
+			$load_saved_detail = \lib\db\setting\get::platform_cat_multi_key('website', 'header_customized', $contain);
 			if(is_array($load_saved_detail))
 			{
 				$load_saved_detail = array_column($load_saved_detail, 'value', 'key');

@@ -32,7 +32,7 @@ class edit
 			return false;
 		}
 
-		$get_line = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $line_id);
+		$get_line = \lib\db\setting\get::platform_cat_id('website', 'homepage', $line_id);
 
 		$founded_line = [];
 
@@ -67,7 +67,7 @@ class edit
 
 	public static function set_sort_add_new_line($_id)
 	{
-		$sort = \lib\db\setting\get::platform_cat_key( 'website', 'body', 'sort_line');
+		$sort = \lib\db\setting\get::platform_cat_key('website', 'body', 'sort_line');
 
 		if(isset($sort['value']))
 		{

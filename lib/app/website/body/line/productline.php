@@ -6,7 +6,7 @@ class productline
 
 	public static function suggest_new_name()
 	{
-		$count_productline = \lib\db\setting\get::count_platform_cat_key( 'website', 'homepage', 'body_line_productline');
+		$count_productline = \lib\db\setting\get::count_platform_cat_key('website', 'homepage', 'body_line_productline');
 		$count_productline = intval($count_productline) + 1;
 
 		return T_("Product"). ' '. \dash\fit::number($count_productline);
@@ -70,7 +70,7 @@ class productline
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::platform_cat_id('website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{

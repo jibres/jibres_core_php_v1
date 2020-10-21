@@ -6,7 +6,7 @@ class quote
 
 	public static function suggest_new_name()
 	{
-		$count_quote = \lib\db\setting\get::count_platform_cat_key( 'website', 'homepage', 'body_line_quote');
+		$count_quote = \lib\db\setting\get::count_platform_cat_key('website', 'homepage', 'body_line_quote');
 		$count_quote = intval($count_quote) + 1;
 
 		return T_("Quote"). ' '. \dash\fit::number($count_quote);
@@ -111,7 +111,7 @@ class quote
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::platform_cat_id('website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{

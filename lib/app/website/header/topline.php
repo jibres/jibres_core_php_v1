@@ -35,7 +35,7 @@ class topline
 
 	public static function get()
 	{
-		$topline = \lib\db\setting\get::platform_cat_key( 'website', 'header', 'topline');
+		$topline = \lib\db\setting\get::platform_cat_key('website', 'header', 'topline');
 		if(isset($topline['value']) && is_string($topline['value']))
 		{
 			$topline = json_decode($topline['value'], true);

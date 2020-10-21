@@ -108,7 +108,7 @@ class generator
 		$result  = [];
 		$setting = [];
 
-		$active_status = \lib\db\setting\get::platform_cat_key( 'website', 'status', 'active');
+		$active_status = \lib\db\setting\get::platform_cat_key('website', 'status', 'active');
 
 		if(!$active_status || !isset($active_status['value']))
 		{

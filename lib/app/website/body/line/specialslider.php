@@ -6,7 +6,7 @@ class specialslider
 
 	public static function suggest_new_name()
 	{
-		$count_specialslider = \lib\db\setting\get::count_platform_cat_key( 'website', 'homepage', 'body_line_specialslider');
+		$count_specialslider = \lib\db\setting\get::count_platform_cat_key('website', 'homepage', 'body_line_specialslider');
 		$count_specialslider = intval($count_specialslider) + 1;
 
 		return T_("Slider"). ' '. \dash\fit::number($count_specialslider);
@@ -183,7 +183,7 @@ class specialslider
 			return false;
 		}
 
-		$saved_record = \lib\db\setting\get::platform_cat_id( 'website', 'homepage', $_line_id);
+		$saved_record = \lib\db\setting\get::platform_cat_id('website', 'homepage', $_line_id);
 
 		if(!$saved_record)
 		{
