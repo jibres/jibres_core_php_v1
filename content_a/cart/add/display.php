@@ -9,7 +9,7 @@ if(!is_array($dataTable))
 $have_user = false;
 ?>
 
-<?php if(isset($dataTable[0]['user_id']) && $dataTable[0]['user_id']) { $have_user = true; ?>
+<?php if(\dash\data::userDetail()) { $have_user = true; ?>
   <div class="msg">
     <div class="f fs14">
       <div class="cauto"><img class="avatar" src="<?php echo \dash\data::userDetail_avatar() ?>"></div>
@@ -38,7 +38,7 @@ $have_user = false;
           </div>
 
 
-          <?php if(!$have_user) {?>
+          <?php if(!$have_user && $dataTable) {?>
             <div class="fc-mute pA10"><?php echo T_("This shopping cart is not assigned to the customer and the customer has added the shopping cart without logging in. Click here if you want to dedicate this shopping cart to a specific customer") ?> <span data-kerkere='.assignUser' class="btn link"><?php echo T_("Assign to customer") ?></span></div>
           <?php } //endif ?>
 
@@ -53,7 +53,7 @@ $have_user = false;
       </div>
 
     </form>
-    <?php if(!$have_user) {?>
+    <?php if(!$have_user && $dataTable) {?>
       <form method="post" autocomplete="off" data-refresh data-kerkere-content='hide' class="assignUser">
         <input type="hidden" name="assing" value="assing">
       <div class="box">

@@ -43,8 +43,6 @@ class user
 	 */
 	public static function init($_user_id, $_place = null)
 	{
-		// check some function in login user
-		self::delete_user_guest();
 
 		$detail = \dash\login::init($_user_id, $_place);
 
@@ -55,6 +53,8 @@ class user
 
 		self::set_detail($detail);
 
+		// check some function in login user
+		self::delete_user_guest();
 
 	}
 
@@ -338,9 +338,9 @@ class user
 
 
 	// get user guest id if exists
-	public static function get_user_guest()
+	public static function get_user_guest($_force = false)
 	{
-		if(\dash\engine\content::get_name() === 'business')
+		if(\dash\engine\content::get_name() === 'business' || $_force)
 		{
 			\dash\user::set_user_guest();
 
@@ -357,8 +357,17 @@ class user
 
 	public static function delete_user_guest()
 	{
-		if(self::get_user_guest())
+		$guest  = self::get_user_guest(true);
+
+		if($guest)
 		{
+			$code = self::code();
+
+			if($code && $guest)
+			{
+				\lib\app\cart\add::assing_to_user($guest, $code);
+			}
+
 			\dash\utility\cookie::delete('user_guest_id');
 		}
 	}
