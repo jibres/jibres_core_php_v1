@@ -35,6 +35,12 @@ class backlink
 	}
 
 
+	private static function get_name($_name)
+	{
+		return $_name . '_'. \lib\store::id();
+	}
+
+
 	public static function products()
 	{
 		return self::get('products');
@@ -45,11 +51,11 @@ class backlink
 	{
 		if(\dash\url::child())
 		{
-			\dash\session::set('backlink_child_'. $_module, \dash\url::child());
+			\dash\session::set(self::get_name('backlink_child_'. $_module), \dash\url::child());
 		}
 		else
 		{
-			\dash\session::set('backlink_child_'. $_module, null);
+			\dash\session::set(self::get_name('backlink_child_'. $_module), null);
 		}
 
 		$get = \dash\request::get();
@@ -57,7 +63,7 @@ class backlink
 		$args = array_merge($get, $_args);
 		$args = array_filter($args);
 
-		\dash\session::set('backlink_'. $_module, $args);
+		\dash\session::set(self::get_name('backlink_'. $_module), $args);
 
 	}
 
@@ -65,14 +71,14 @@ class backlink
 	public static function get($_module)
 	{
 		$url   = \dash\url::here(). '/'. $_module;
-		$child = \dash\session::get('backlink_child_'. $_module);
+		$child = \dash\session::get(self::get_name('backlink_child_'. $_module));
 
 		if($child)
 		{
 			$url .= '/'. $child;
 		}
 
-		$args = \dash\session::get('backlink_'. $_module);
+		$args = \dash\session::get(self::get_name('backlink_'. $_module));
 
 		if($args && is_array($args))
 		{
