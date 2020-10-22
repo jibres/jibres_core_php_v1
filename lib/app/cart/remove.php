@@ -9,9 +9,9 @@ class remove
 
 	public static function expired()
 	{
-		if(!\dash\session::get('checkExpiredCart'))
+		if(!\dash\session::get('checkExpiredCart_'. \lib\store::id()))
 		{
-			\dash\session::set('checkExpiredCart', true);
+			\dash\session::set('checkExpiredCart_'. \lib\store::id(), true);
 
 			$date = date("Y-m-d H:i:s", strtotime("-30 days"));
 			$count = \lib\db\cart\get::must_deleted_expired($date);
