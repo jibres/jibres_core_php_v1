@@ -11,7 +11,7 @@ class insert
 		{
 			$query = " INSERT INTO `csrf` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\db::query($query, null, ['ignore_error' => true]))
 			{
 				$id = \dash\db::insert_id();
 				return $id;
