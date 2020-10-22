@@ -41,3 +41,19 @@
   </li>
  </ul>
 </nav>
+
+<form method="post" action="<?php echo \dash\url::this() ?>">
+  <div class="box">
+    <div class="pad">
+      <input type="hidden" name="findanswerid" value="findanswerid">
+      <label for="aid"><?php echo T_("Find answer detail by id") ?></label>
+      <div class="input">
+        <input type="number" name="aid" placeholder="<?php echo T_("Answer id") ?>" id="aid">
+      </div>
+    </div>
+    <footer class="txtRa">
+      <button class="btn"><?php echo T_("Go") ?></button>
+    </footer>
+  </div>
+</form>
+
