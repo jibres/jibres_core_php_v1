@@ -136,12 +136,10 @@ if(\dash\data::payDetail_final_msg())
 				<?php if(\dash\data::dataRow_condition() === 'request' || \dash\data::dataRow_condition() === 'redirect') {?>
 
 
-					<div class="msg pTB5 mB5"><?php echo T_("Choose a gateway"); ?></div>
-					<div class="msg pA5">
+
 
 						<?php ipayBank(); ?>
 
-					</div>
 
 					<input type="hidden" name="ok" value="1">
 
@@ -185,58 +183,66 @@ if(\dash\data::payDetail_final_msg())
 
 <?php
 $myPayment = \dash\data::myPayment();
+if(!is_array($myPayment))
+{
+	$myPayment = [];
+}
 ?>
+	<?php if(!array_filter($myPayment)) {?>
+		<p class="txtB txtC mT10"><?php echo T_("No payment gateway was founded") ?></p>
+	<?php }else{ ?>
+		<div class="msg pTB5 mB5"><?php echo T_("Choose a gateway"); ?></div>
+		<div class="msg pA5">
+			<?php if(isset($myPayment['parsian']['status']) && $myPayment['parsian']['status']) {?>
+			<div class="radioGateway" title='<?php echo T_("Parsian"); ?>'>
+			<input type="radio" name="bank" value="parsian" id="parsian"  checked>
+			<label for='parsian' class="spay-64-parsian"></label>
+			</div>
+			<?php } //endif ?>
 
+			<?php if(isset($myPayment['asanpardakht']['status']) && $myPayment['asanpardakht']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="asanpardakht" id="asanpardakht" >
+			<label for='asanpardakht' class="spay-64-asanpardakht"></label>
+			</div>
+			<?php } //endif ?>
 
-	<?php if(isset($myPayment['parsian']['status']) && $myPayment['parsian']['status']) {?>
-	<div class="radioGateway" title='<?php echo T_("Parsian"); ?>'>
-	<input type="radio" name="bank" value="parsian" id="parsian"  checked>
-	<label for='parsian' class="spay-64-parsian"></label>
-	</div>
+			<?php if(isset($myPayment['irkish']['status']) && $myPayment['irkish']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="irKish" id="irKish" >
+			<label for='irKish' class="spay-64-irkish"></label>
+			</div>
+			<?php } //endif ?>
+
+			<?php if(isset($myPayment['zarinpal']['status']) && $myPayment['zarinpal']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" >
+			<label for='ZarinPal' class="spay-64-zarinpal"></label>
+			</div>
+			<?php } //endif ?>
+
+			<?php if(isset($myPayment['payir']['status']) && $myPayment['payir']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="payir" id="payir" >
+			<label for='payir' class="spay-64-payir"></label>
+			</div>
+			<?php } //endif ?>
+
+			<?php if(isset($myPayment['mellat']['status']) && $myPayment['mellat']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="mellat" id="mellat" >
+			<label for='mellat' class="spay-64-mellat"></label>
+			</div>
+			<?php } //endif ?>
+
+			<?php if(isset($myPayment['sep']['status']) && $myPayment['sep']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="sep" id="sep" >
+			<label for='sep' class="spay-64-sepah"></label>
+			</div>
+			<?php } //endif ?>
+		</div>
 	<?php } //endif ?>
-
-	<?php if(isset($myPayment['asanpardakht']['status']) && $myPayment['asanpardakht']['status']) {?>
-	<div class="radioGateway">
-	<input type="radio" name="bank" value="asanpardakht" id="asanpardakht" >
-	<label for='asanpardakht' class="spay-64-asanpardakht"></label>
-	</div>
-	<?php } //endif ?>
-
-	<?php if(isset($myPayment['irkish']['status']) && $myPayment['irkish']['status']) {?>
-	<div class="radioGateway">
-	<input type="radio" name="bank" value="irKish" id="irKish" >
-	<label for='irKish' class="spay-64-irkish"></label>
-	</div>
-	<?php } //endif ?>
-
-	<?php if(isset($myPayment['zarinpal']['status']) && $myPayment['zarinpal']['status']) {?>
-	<div class="radioGateway">
-	<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" >
-	<label for='ZarinPal' class="spay-64-zarinpal"></label>
-	</div>
-	<?php } //endif ?>
-
-	<?php if(isset($myPayment['payir']['status']) && $myPayment['payir']['status']) {?>
-	<div class="radioGateway">
-	<input type="radio" name="bank" value="payir" id="payir" >
-	<label for='payir' class="spay-64-payir"></label>
-	</div>
-	<?php } //endif ?>
-
-	<?php if(isset($myPayment['mellat']['status']) && $myPayment['mellat']['status']) {?>
-	<div class="radioGateway">
-	<input type="radio" name="bank" value="mellat" id="mellat" >
-	<label for='mellat' class="spay-64-mellat"></label>
-	</div>
-	<?php } //endif ?>
-
-	<?php if(isset($myPayment['sep']['status']) && $myPayment['sep']['status']) {?>
-	<div class="radioGateway">
-	<input type="radio" name="bank" value="sep" id="sep" >
-	<label for='sep' class="spay-64-sepah"></label>
-	</div>
-	<?php } //endif ?>
-
 <?php } // endfunction
 
 
