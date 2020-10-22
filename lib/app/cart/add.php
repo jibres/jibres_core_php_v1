@@ -6,6 +6,36 @@ namespace lib\app\cart;
  */
 class add
 {
+	public static function assing_to_user($_guest_id, $_user_id)
+	{
+		$condition =
+		[
+			'user_id' => 'code',
+			'guestid' => 'md5',
+		];
+
+		$args =
+		[
+			'user_id' => $_user_id,
+			'guestid' => $_guest_id,
+		];
+
+		$require = ['guestid', 'user_id'];
+
+		$meta    = [];
+
+		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
+
+		$user_id = \dash\coding::decode($data['user_id']);
+
+		\lib\db\cart\update::assing_to_user($data['guestid'], $user_id);
+
+		\dash\notif::ok(T_("Cart assigned to user"));
+
+		return true;
+
+	}
+
 
 	public static function new_cart_website($_product_id, $_count)
 	{
