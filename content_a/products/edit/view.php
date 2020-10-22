@@ -8,7 +8,7 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-
+		\dash\data::editMode(true);
 
 		\dash\face::title(T_("Edit Product"));
 

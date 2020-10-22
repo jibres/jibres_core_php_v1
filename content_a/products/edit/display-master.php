@@ -34,7 +34,9 @@
       <?php require_once('block/barcode.php'); ?>
 
 <?php } //endif ?>
-      <?php require_once('block/seo.php'); ?>
+<?php if(\dash\data::editMode()) {?>
+    <?php require_once('block/seo.php'); ?>
+<?php } //endif ?>
 
 
 
