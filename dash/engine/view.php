@@ -6,6 +6,13 @@ class view
 
 	public static function variable()
 	{
+		// load customer business website
+		if(\dash\engine\content::get() === 'content_business' && \dash\engine\store::inBusinessWebsite())
+		{
+			// load detail of business website
+			\dash\layout\business::check_website();
+		}
+
 		\dash\face::title(null);
 		\dash\face::seo(null);
 		\dash\face::desc(null);

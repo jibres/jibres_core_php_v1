@@ -30,9 +30,6 @@ class view
 			\dash\face::logo($store_logo);
 		}
 
-		// @todo reza use new class to only load and return store
-		\dash\layout\business::check_website();
-
 		switch (\dash\data::website_template())
 		{
 			case 'comingsoon':

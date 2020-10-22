@@ -8,13 +8,6 @@ class find
 
 	public static function allBlocks()
 	{
-		// load customer business website
-		if(\dash\engine\content::get() === 'content_business')
-		{
-			// load detail of business website
-			\dash\layout\business::check_website();
-		}
-
 		self::sidebar();
 		self::header();
 		// self::nav();

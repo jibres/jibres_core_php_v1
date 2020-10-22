@@ -41,8 +41,6 @@ class pwa_menu
 
 	public static function businessWebsiteMenu()
 	{
-		\dash\layout\business::check_website();
-
 		if(\dash\data::nosale())
 		{
 			return null;
