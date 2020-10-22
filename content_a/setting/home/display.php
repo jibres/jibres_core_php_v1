@@ -1,5 +1,20 @@
+
 <?php $myHide = \dash\url::isLocal() ? null : 'hide'; ?>
 <div class="box" data-settings>
+    <?php if(false) {?>
+    <div class="pad">
+        <div>
+
+         <select class="select22" data-link data-placeholder="<?php echo T_("Search") ?>">
+                <option readonly value=""><span><?php echo T_("Search"); ?></span></option>
+                <?php foreach (\dash\data::settingSearch() as $key => $value) {?>
+                    <option value="<?php echo $value['link']; ?>"><?php echo $value['title']; ?></option>
+                <?php } //endif ?>
+                </select>
+        </div>
+    </div>
+<?php } //endif ?>
+
     <div class="body">
         <div class="row">
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
