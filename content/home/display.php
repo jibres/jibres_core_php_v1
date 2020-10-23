@@ -106,8 +106,23 @@
 </section>
 
 
-<section id="jibresInvoide">
+<section id="jibresInvoice">
+  <div class="avand">
+    <div class="row align-center">
+      <div class="c-xs-12 c-sm-6">
+        <h2><?php echo T_("Create a Invoice You're Proud Of"); ?></h2>
+      </div>
+      <div class="c-xs-12 c-sm-6">
+        <h3><?php echo T_("Invoice your customers in seconds"); ?></h3>
+        <p><?php echo T_("Create, send, and track professional invoices in seconds. Customize awesome invoices to reflect your brand and increase your customer's trust. Add your company logo, personalize the free invoice template, and create impressive invoices and estimates within seconds."); ?></p>
+        <p><?php echo T_("Looking to send an invoice right now? Use Jibres online invoice generator to be more productive. Create and send a beautiful invoice from any device, anytime.") ?></p>
+
+        <p><?php echo T_(" Your account is always connected and your data is saved securely for you. Send invoices via email, SMS, and Telegram. Just one click and your invoice gets sent to your client.") ?></p>
+      </div>
+    </div>
+  </div>
 </section>
+
 
 <section id="jibresFeatures">
   <div class="avand-lg">
