@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-10-22 13:52+0330\n"
-"PO-Revision-Date: 2020-10-22 13:55+0330\n"
+"POT-Creation-Date: 2020-10-23 13:48+0330\n"
+"PO-Revision-Date: 2020-10-23 13:50+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1277,7 +1277,7 @@ msgstr ""
 "وب‌سایت نیاز به جایی دارین که اون‌ها رو روش قرار بدین یعنی همون هاست."
 
 #: content/domains/home/display.php:4 content/domains/pricing/display.php:4
-#: content/home/display.php:42 content_my/home/display_site.php:28
+#: content/home/display.php:82 content_my/home/display_site.php:28
 msgid "Search for your dream domain"
 msgstr "به دنبال دامنه‌ی رویایی خودتان بگردید"
 
@@ -1353,7 +1353,7 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 msgid "Search"
 msgstr "جستجو"
 
-#: content/domains/home/display.php:18 content/home/display.php:43
+#: content/domains/home/display.php:18 content/home/display.php:83
 #: content_love/domain/domainbuy/display.php:126 content_my/home/display_site.php:33
 msgid "Register Domain"
 msgstr "ثبت دامنه"
@@ -2175,71 +2175,32 @@ msgstr ""
 "جیبرس را به صورت رایگان امتحان کنید و تمام خدمات مورد نیاز برای شروع، اداره و رشد "
 "بیزینس خود را کاوش کنید."
 
-#: content/home/display.php:25
-msgid "Start your online business"
-msgstr "بیزینس آنلاین خود را شروع کنید"
-
-#: content/home/display.php:29
-msgid "Sales channels represent the different marketplaces where you sell your products."
-msgstr ""
-"کانال‌های فروش نمایانگر بازارهای مختلفی هستند که شما می‌توانید محصولات خود را از طریق "
-"آن‌ها بفروشید."
-
-#: content/home/display.php:29
-msgid ""
-"By use each sales channel on Jibres, you can keep track of your products, orders, and "
-"customers in one place."
-msgstr ""
-"با افزودن و استفاده از هر کدام از کانال‌های فروش در جیبرس، شما می‌توانید موجودی کالاها، "
-"سفارشات و مشتریان را به صورت یکپارچه داشته باشید."
-
-#: content/home/display.php:29
-msgid "Read more about Jibres"
-msgstr "درباره جیبرس بیشتر بخوانید"
-
-#: content/home/display.php:37
-msgid "Jibres Domain Center"
-msgstr "مرکز دامنه جیبرس"
-
-#: content/home/display.php:39
-msgid "Get your :val .IR domain"
-msgstr "با :val دامنه دات آی‌آر خودتون رو بخرید"
-
-#: content/home/display.php:47
-msgid ""
-"Every website starts with a great domain name. Jibres offers cheap domain names with "
-"the most reliable service. Buy domain names with Jibres and see why we are cool!"
-msgstr ""
-"داستان هر وب‌سایت با یک دامنه خوب شروع می‌شود. جیبرس در کنار یک سرویس قابل اطمینان، "
-"پیشنهاد خرید و تمدید دامنه را با کم‌ترین و ارزان‌ترین قیمت ممکن برای شما دارد. یک دامنه "
-"با جیبرس بخرید تا بفهمید چرا ما خفن هستیم!"
-
-#: content/home/display.php:56 content/home/view.php:11 content/view.php:17
+#: content/home/display.php:27 content/home/view.php:11 content/view.php:17
 #: content_a/channels/home/display.php:8 content_a/setting/home/display.php:209
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
-#: content/home/display.php:59
+#: content/home/display.php:28
 msgid "Online store builder allow you robust your business in a faster way, simpler way!"
 msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
-#: content/home/display.php:63 content/home/view.php:12 content/view.php:18
+#: content/home/display.php:34 content/home/view.php:12 content/view.php:18
 #: content_a/channels/home/display.php:18 content_a/setting/home/display.php:219
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
-#: content/home/display.php:66
+#: content/home/display.php:35
 msgid "Create mobile app for your online store."
 msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی داشته باشید."
 
-#: content/home/display.php:66 content/pricing/display.php:38
+#: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
 #: content_a/cart/add/display.php:127 content_business/cart/cartSummary.php:21
 msgid "Free"
 msgstr "رایگان"
 
-#: content/home/display.php:66 content/home/display.php:73
+#: content/home/display.php:35 content/home/display.php:42
 #: content_a/chap/size-a4/oneSide-buyer.php:31 content_a/chap/size-a4/oneSide-buyer.php:41
 #: content_a/chap/size-a4/oneSide-seller.php:29
 #: content_a/chap/size-a4/oneSide-seller.php:39 content_a/filter.php:27
@@ -2248,56 +2209,95 @@ msgstr "رایگان"
 msgid ", "
 msgstr "، "
 
-#: content/home/display.php:66
+#: content/home/display.php:35
 msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
-#: content/home/display.php:70 content_a/channels/home/display.php:28
+#: content/home/display.php:41 content_a/channels/home/display.php:28
 #: content_a/setting/home/display.php:229
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
-#: content/home/display.php:73
+#: content/home/display.php:42
 msgid "Barcode reader"
 msgstr "بارکدخوان"
 
-#: content/home/display.php:73
+#: content/home/display.php:42
 msgid "Receipt printer"
 msgstr "فیش پرینتر"
 
-#: content/home/display.php:73
+#: content/home/display.php:42
 msgid "PC POS"
 msgstr "اتصال به پی‌سی پوز"
 
-#: content/home/display.php:73
+#: content/home/display.php:42
 msgid "Label Printing Scale"
 msgstr "ترازوی لیبل پرینتر"
 
-#: content/home/display.php:73
+#: content/home/display.php:42
 msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
-#: content/home/display.php:77 content/home/view.php:13 content/view.php:19
+#: content/home/display.php:48 content/home/view.php:13 content/view.php:19
 #: content_a/channels/home/display.php:38 content_a/setting/home/display.php:239
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
-#: content/home/display.php:80
+#: content/home/display.php:49
 msgid ""
 "Easily add ecommerce to any website and social networks by embedding a single buy "
 "button."
 msgstr ""
 "با دکمه خرید جیبرس، به‌راحتی تجارت الکترونیکی خودتان را در شبکه‌های اجتماعی گسترش دهید."
 
-#: content/home/display.php:90
+#: content/home/display.php:65
+msgid "Start your online business"
+msgstr "بیزینس آنلاین خود را شروع کنید"
+
+#: content/home/display.php:69
+msgid "Sales channels represent the different marketplaces where you sell your products."
+msgstr ""
+"کانال‌های فروش نمایانگر بازارهای مختلفی هستند که شما می‌توانید محصولات خود را از طریق "
+"آن‌ها بفروشید."
+
+#: content/home/display.php:69
+msgid ""
+"By use each sales channel on Jibres, you can keep track of your products, orders, and "
+"customers in one place."
+msgstr ""
+"با افزودن و استفاده از هر کدام از کانال‌های فروش در جیبرس، شما می‌توانید موجودی کالاها، "
+"سفارشات و مشتریان را به صورت یکپارچه داشته باشید."
+
+#: content/home/display.php:69
+msgid "Read more about Jibres"
+msgstr "درباره جیبرس بیشتر بخوانید"
+
+#: content/home/display.php:77
+msgid "Jibres Domain Center"
+msgstr "مرکز دامنه جیبرس"
+
+#: content/home/display.php:79
+msgid "Get your :val .IR domain"
+msgstr "با :val دامنه دات آی‌آر خودتون رو بخرید"
+
+#: content/home/display.php:87
+msgid ""
+"Every website starts with a great domain name. Jibres offers cheap domain names with "
+"the most reliable service. Buy domain names with Jibres and see why we are cool!"
+msgstr ""
+"داستان هر وب‌سایت با یک دامنه خوب شروع می‌شود. جیبرس در کنار یک سرویس قابل اطمینان، "
+"پیشنهاد خرید و تمدید دامنه را با کم‌ترین و ارزان‌ترین قیمت ممکن برای شما دارد. یک دامنه "
+"با جیبرس بخرید تا بفهمید چرا ما خفن هستیم!"
+
+#: content/home/display.php:95
 msgid "Of course Made with love 😍"
 msgstr "صد البته با عشق ساختیمش 😍"
 
-#: content/home/display.php:90
+#: content/home/display.php:95
 msgid "Jibres has created for futuristic entrepreneurs"
 msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته شده است"
 
-#: content/home/display.php:94 content_a/home/display.php:16
+#: content/home/display.php:99 content_a/home/display.php:16
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:33
 #: content_a/setting/place/inventory/display.php:31
@@ -2308,24 +2308,62 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 msgid "Products"
 msgstr "محصولات"
 
-#: content/home/display.php:98 content_my/business/home/display_site.php:65
+#: content/home/display.php:103 content_my/business/home/display_site.php:65
 #: dash/layout/admin/sidebar/sidebar-a.php:10 lib/app/store/analytics.php:79
 msgid "Factor"
 msgstr "فاکتور"
 
-#: content/home/display.php:102
+#: content/home/display.php:107
 msgid "Sold on Jibres"
 msgstr "فروخته شده با جیبرس"
 
-#: content/home/display.php:112
+#: content/home/display.php:118
+msgid "Create an Invoice You're Proud Of"
+msgstr "فاکتور بسازید و به آن افتخار کنید"
+
+#: content/home/display.php:121
+msgid "Invoice your customers in seconds"
+msgstr "فاکتور مشتریان خود را در چند ثانیه بسازید"
+
+#: content/home/display.php:122
+msgid ""
+"Create, send, and track professional invoices in seconds. Customize awesome invoices to "
+"reflect your brand and increase your customer's trust. Add your company logo, "
+"personalize the free invoice template, and create impressive invoices and estimates "
+"within seconds."
+msgstr ""
+"در عرض چند ثانیه فاکتور حرفه‌ای بسازید، پرینت، ارسال و رهگیری کنید. فاکتورهایی فوق‌العاده "
+"و سفارشی برای خودتون بسازید. برند خودتون رو برجسته کنید و با فاکتورهای معتبر، اعتماد "
+"بیشتری از جانب مشتریان کسب کنید. لوگوی خودتون رو به فاکتور اضافه کنید، قالب فاکتور رو "
+"به‌صورت رایگان سفارشی کنید و پیش فاکتور یا فاکتورهایی چشم‌گیر در چند ثانیه بسازید."
+
+#: content/home/display.php:123
+msgid ""
+"Looking to send an invoice right now? Use Jibres online invoice generator to be more "
+"productive. Create and send a beautiful invoice from any device, anytime."
+msgstr ""
+"همین الان میخواین فاکتور ارسال کنید؟ دنبال صدور آنلاین فاکتور هستید؟ از فاکتورساز جیبرس "
+"استفاده کنید و بهره‌وری خودتون رو افزایش بدید. با هر دستگاهی که هستید در هر زمانی که "
+"مایلید می‌تونید به فاکتورساز جیبرس برای ساخت و ارسال فاکتورهای خودتون دسترسی داشته باشید."
+
+#: content/home/display.php:125
+msgid ""
+"Your account is always connected and your data is saved securely for you. Send invoices "
+"via email, SMS, and Telegram. Just one click and your invoice gets sent to your client."
+msgstr ""
+"فاکتورهای ثبت‌شده به‌صورت رمزگذاری شده و کاملا ایمن در حساب‌کاربری شما ذخیره شده و همیشه "
+"در دسترس شما هستند. شما می‌توانید فاکتورها را چاپ کنید یا آن را از طریق ایمیل، پیامک، "
+"تلگرام یا واتس‌اپ ارسال کنید. فقط با یک کلیک فاکتور برای مشتری شما ارسال می‌شود."
+
+#: content/home/display.php:134
 msgid "All the tools you need..."
 msgstr "تمام ابزاری که نیاز دارید..."
 
-#: content/home/display.php:117 content/view.php:27
+#: content/home/display.php:139 content/view.php:27
 msgid "SEO Optimized"
 msgstr "دوستدار موتورهای جستجو"
 
-#: content/home/display.php:118
+#: content/home/display.php:140
 msgid ""
 "Billions of searches are conducted online every single day. Many people search for "
 "specific products and services with the intent to pay for these things."
@@ -2333,11 +2371,11 @@ msgstr ""
 "هر روز میلیاردها جستجو به‌صورت آنلاین انجام می‌شود. بسیاری از مردم با هدف خرید کالا یا "
 "خدمات جستجو می‌کنند و حاضر به پرداخت هزینه برای آن هستند."
 
-#: content/home/display.php:124
+#: content/home/display.php:146
 msgid "Fully Hosted"
 msgstr "هاست رایگان"
 
-#: content/home/display.php:125
+#: content/home/display.php:147
 msgid ""
 "We are maintain your store files and data in the cloud. You would not need to setup "
 "your own server, we are storing your data for you."
@@ -2345,23 +2383,23 @@ msgstr ""
 "ما فایل‌های بیزینس شما در سرورهای ابری ذخیره و نگهداری می‌کنیم. شما نیاز خرید و راه‌اندازی "
 "هاست یا سرور ندارید. ما برای شما، داده‌های شما را نگه می‌داریم."
 
-#: content/home/display.php:131
+#: content/home/display.php:153
 msgid "Free SSL Certificate"
 msgstr "گواهی امنیتی SSL رایگان"
 
-#: content/home/display.php:132
+#: content/home/display.php:154
 msgid "SSL Protection For Anyone."
 msgstr "محافظت امنیتی برای هر کسی."
 
-#: content/home/display.php:132
+#: content/home/display.php:154
 msgid "Protect you information, generate trust and improve Search Engine Ranking."
 msgstr "حفاظت از داده‌های شما، ایجاد اعتماد و بهبود رتبه‌بندی در موتورهای جستجو."
 
-#: content/home/display.php:140
+#: content/home/display.php:162
 msgid "Accept Credit Cards"
 msgstr "پذیرش کارت‌های اعتباری"
 
-#: content/home/display.php:141
+#: content/home/display.php:163
 msgid ""
 "It's easy to accept various payment options in Jibres, including PayPal, Credit Cards "
 "and other offline methods."
@@ -2369,11 +2407,11 @@ msgstr ""
 "با جیبرس به‌آسانی می‌توانید هزینه خدمات و کالاهای خود را به‌صورت آنلاین از طریق کارت "
 "اعتباری و درگاه آنلاین و حتی روش‌های آفلاین دریافت کنید."
 
-#: content/home/display.php:147
+#: content/home/display.php:169
 msgid "Fully API"
 msgstr "ای‌پی‌آی کامل"
 
-#: content/home/display.php:148
+#: content/home/display.php:170
 msgid ""
 "API gives you full creative control to add Jibres buying experiences anywhere your "
 "customers are, including websites, apps, and social networks."
@@ -2381,59 +2419,59 @@ msgstr ""
 "رابط برنامه‌نویسی جیبرس به شما کنترل خلاقانه و کاملی برای ایجاد تجربه خرید در هر جایی "
 "توسط مشتریان‌تان را می‌دهد. وب‌سایت، اپلیکیشن‌ها و حتی شبکه‌های اجتماعی."
 
-#: content/home/display.php:154
+#: content/home/display.php:176
 msgid "Premium Support"
 msgstr "پشتیبانی متفاوت"
 
-#: content/home/display.php:155
+#: content/home/display.php:177
 msgid "With the Most Helpful Humans in the world, You're Never Alone."
 msgstr "با صمیم قلب برای کمک به شما اینجا هستیم. شما هیچوقت تنها نیستید."
 
-#: content/home/display.php:155
+#: content/home/display.php:177
 msgid "Rely on our 24/7/365 Human Support."
 msgstr "به پشتیبانی انسانی ۲۴/۷/۳۶۵ ما اعتماد کنید."
 
-#: content/home/display.php:166
+#: content/home/display.php:188
 msgid "Download Jibres App"
 msgstr "دانلود اپلیکیشن جیبرس"
 
-#: content/home/display.php:168
+#: content/home/display.php:190
 msgid "Jibres Mobile App"
 msgstr "اپلیکیشن موبایل جیبرس"
 
-#: content/home/display.php:169
+#: content/home/display.php:191
 msgid "No matter where you are, Jibres stays in sync across all of your devices."
 msgstr "هر کجا که هستید، جیبرس را همراه خود داشته باشید."
 
-#: content/home/display.php:172
+#: content/home/display.php:194
 msgid "Download Jibres App from Google play"
 msgstr "دانلود اپ جیبرس از گوگل پلی"
 
-#: content/home/display.php:173
+#: content/home/display.php:195
 msgid "Jibres app on Google play"
 msgstr "اپلیکیشن جیبرس در گوگل پلی"
 
-#: content/home/display.php:175 content/home/display.php:176
+#: content/home/display.php:197 content/home/display.php:198
 msgid "Direct download Jibres app"
 msgstr "دانلود مستقیم اپ جیبرس"
 
-#: content/home/display.php:188
+#: content/home/display.php:210
 msgid "Simplest forever"
 msgstr "ساده‌ترین برای همیشه"
 
-#: content/home/display.php:188
+#: content/home/display.php:210
 msgid "Keep it simple"
 msgstr "ساده نگهش داشتیم"
 
-#: content/home/display.php:189
+#: content/home/display.php:211
 msgid "Simplicity is the ultimate sophistication"
 msgstr "سادگی غایت پیچیدگی است"
 
-#: content/home/display.php:190
+#: content/home/display.php:212
 msgid "No one can fulfill your e-commerce needs like us"
 msgstr "هیچ‌کسی مثل ما نمی‌تونه نیازهای یک بیزینس الکترونیکی رو برآورده کنه"
 
-#: content/home/display.php:209
+#: content/home/display.php:231
 msgid "Our Happy Friends!"
 msgstr "دوستان خوشحال ما!"
 
@@ -6301,8 +6339,8 @@ msgid "Choose exists customer or click on '+' button and Add new customer Quickl
 msgstr ""
 "یکی از مشتریان خود را انتخاب کنید و یا با زدن دکمه \"+\" یک مشتری را سریع اضافه کنید"
 
-#: content_a/cart/user/display.php:37 content_a/pricehistory/choose/display.php:13
-#: content_a/pricehistory/display.php:23
+#: content_a/cart/user/display.php:37 content_a/form/itemLink.php:55
+#: content_a/pricehistory/choose/display.php:13 content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:46 content_enter/pass/change/display.php:17
 #: content_enter/verify/call/display.php:9 content_enter/verify/display.php:69
@@ -7714,6 +7752,14 @@ msgstr "با فرم تماس از مشتریان خود نظرسنجی کنید"
 msgid "Add contact form now!"
 msgstr "همین الان یک فرم تماس ایجاد کنید!"
 
+#: content_a/form/home/model.php:12 content_a/form/itemLink.php:51
+msgid "Answer id"
+msgstr "کد پاسخ"
+
+#: content_a/form/home/model.php:15
+msgid "Please enter the answer id to load detail"
+msgstr "برای بارگزاری اطلاعات، لطفا کد پاسخ را وارد کنید"
+
 #: content_a/form/home/view.php:9 content_a/home/display.php:99
 #: content_a/setting/home/display.php:193
 msgid "Form Builder"
@@ -7904,6 +7950,10 @@ msgstr "تجزیه و تحلیل اطلاعات"
 #: content_a/form/itemLink.php:39
 msgid "Add new question"
 msgstr "افزودن سوال جدید"
+
+#: content_a/form/itemLink.php:49
+msgid "Find answer detail by id"
+msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
 #: content_a/form/report/answer/display-bar.php:9
 #: content_a/form/report/answer/display-country.php:9
@@ -8560,9 +8610,9 @@ msgstr "حذف شده"
 #: lib/app/business_domain/dns.php:192 lib/app/business_domain/dns.php:200
 #: lib/app/business_domain/dns.php:365 lib/app/business_domain/dns.php:373
 #: lib/app/category/edit.php:16 lib/app/export/download.php:30
-#: lib/app/form/answer/remove.php:12 lib/app/form/choice/get.php:23
-#: lib/app/form/filter/get.php:23 lib/app/form/form/get.php:21
-#: lib/app/form/item/get.php:13 lib/app/form/item/get.php:133
+#: lib/app/form/answer/get.php:12 lib/app/form/answer/remove.php:12
+#: lib/app/form/choice/get.php:23 lib/app/form/filter/get.php:23
+#: lib/app/form/form/get.php:21 lib/app/form/item/get.php:13 lib/app/form/item/get.php:133
 #: lib/app/form/item/get.php:165 lib/app/form/view/field.php:21
 #: lib/app/form/view/get.php:21 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
 #: lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:310
@@ -31323,6 +31373,10 @@ msgstr "هیچ پاسخی دریافت نشد"
 #: lib/app/form/answer/export.php:42
 msgid "You have not any answer to export"
 msgstr "شما هیچ پاسخی برای خروجی گرفتن ندارید"
+
+#: lib/app/form/answer/get.php:19
+msgid "Answer not found"
+msgstr "پاسخی یافت نشد"
 
 #: lib/app/form/choice/add.php:37
 msgid "Choice successfully added"
