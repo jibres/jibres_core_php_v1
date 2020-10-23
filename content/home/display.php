@@ -1,7 +1,7 @@
 
 <section id="homeLanding">
   <div class="avand-sm">
-    <h1 class="bold"><?php echo T_('Everything you need to sell online'); ?></h1>
+    <h2 class="bold"><?php echo T_('Everything you need to sell online'); ?></h2>
 
     <?php if(!\dash\user::login()) {?>
     <form class="row" method="post" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter/hi' ?>">
@@ -106,6 +106,8 @@
 </section>
 
 
+<section id="jibresInvoide">
+</section>
 
 <section id="jibresFeatures">
   <div class="avand-lg">
@@ -165,7 +167,7 @@
     <div class="row">
       <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
       <div class="c-xs-12 c-sm-12 c-lg-7 text">
-        <h1><?php echo T_("Jibres Mobile App"); ?></h1>
+        <h2><?php echo T_("Jibres Mobile App"); ?></h2>
         <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
 
         <div class="dl">
