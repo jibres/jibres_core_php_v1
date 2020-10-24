@@ -5,9 +5,11 @@ class controller
 {
 	public static function routing()
 	{
+		\content_a\form\tag\controller::check_form_id();
+
 		\dash\permission::access('tagEdit');
 
-		$dataRow = \lib\app\form\tag\get::get(\dash\request::get('id'));
+		$dataRow = \lib\app\form\tag\get::get(\dash\request::get('tid'));
 		\dash\data::dataRow($dataRow);
 
 		if(!$dataRow)

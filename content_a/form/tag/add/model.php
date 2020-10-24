@@ -15,11 +15,11 @@ class model
 		{
 			if(isset($result['id']))
 			{
-				\dash\redirect::to(\dash\url::that(). '/edit?id='. $result['id']);
+				\dash\redirect::to(\dash\url::that(). '/edit?tid='. $result['id']. '&id='. \dash\request::get('id'));
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::that());
+				\dash\redirect::to(\dash\url::that(). \dash\request::fix_get(null, true));
 			}
 		}
 	}

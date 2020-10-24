@@ -170,8 +170,12 @@ class request
 	}
 
 
+	public static function full_get($_args = null)
+	{
+		return self::fix_get($_args, true);
+	}
 
-	public static function fix_get($_args = [])
+	public static function fix_get($_args = [], $_full = false)
 	{
 		$get = self::get();
 		if(!is_array($_args))
@@ -184,7 +188,13 @@ class request
 
 		$get = array_merge($get, $_args);
 
-		return self::build_query($get);
+		$query = self::build_query($get);
+		if($_full)
+		{
+			$query = '?'. $query;
+		}
+
+		return $query;
 	}
 
 

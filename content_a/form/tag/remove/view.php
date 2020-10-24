@@ -12,10 +12,10 @@ class view
 			\dash\face::title(\dash\face::title(). ' | '. \dash\data::dataRow_title());
 		}
 
-		$id = \dash\request::get('id');
+		$id = \dash\request::get('tid');
 
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::that(). '/edit?id='. $id);
+		\dash\data::back_link(\dash\url::that(). '/edit?tid='. $id. '&id='. \dash\request::get('id'));
 
 
 		$tag_list = \lib\app\form\tag\get::all_tag();

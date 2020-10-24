@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		$id     = \dash\request::get('id');
+		$id     = \dash\request::get('tid');
 		$wd     = \dash\request::post('wd');
 		$tag_id = \dash\request::post('tagid');
 
@@ -51,7 +51,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that());
+			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
 		}
 		else
 		{

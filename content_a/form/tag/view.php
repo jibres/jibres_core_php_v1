@@ -12,7 +12,7 @@ class view
 		{
 			\dash\data::action_text(T_('Add new tag'));
 			\dash\data::action_icon('plus');
-			\dash\data::action_link(\dash\url::that(). '/add');
+			\dash\data::action_link(\dash\url::that(). '/add'. \dash\request::full_get());
 		}
 
 		\dash\data::back_text(T_('Form'));
