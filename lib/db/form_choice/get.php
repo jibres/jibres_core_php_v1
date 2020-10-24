@@ -24,6 +24,11 @@ class get
 
 	public static function item_id_form_id($_ids, $_form_id)
 	{
+		if(!$_ids)
+		{
+			return false;
+		}
+
 		$query = "SELECT * FROM form_choice WHERE form_choice.form_id = $_form_id AND form_choice.item_id IN ($_ids) ORDER BY form_choice.sort ASC, form_choice.id ASC ";
 		$result = \dash\db::get($query);
 		return $result;
