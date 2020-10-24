@@ -6,7 +6,7 @@ class delete
 {
 	public static function tag_usage_tag_id($_id)
 	{
-		$query  = "DELETE FROM form_tagusage WHERE form_tagusage.producttag_id = $_id ";
+		$query  = "DELETE FROM form_tagusage WHERE form_tagusage.answer_id = $_id ";
 		$result = \dash\db::query($query);
 		return $result;
 	}
@@ -22,17 +22,17 @@ class delete
 		}
 	}
 
-	public static function hard_delete_product_tag($_product_tag_ids, $_product_id)
+	public static function hard_delete_answer_tag($_form_tag_id, $_answer_id)
 	{
-		$query = "DELETE FROM form_tagusage WHERE form_tagusage.producttag_id IN ($_product_tag_ids) AND form_tagusage.product_id = $_product_id ";
+		$query = "DELETE FROM form_tagusage WHERE form_tagusage.form_tag_id IN ($_form_tag_id) AND form_tagusage.answer_id = $_answer_id ";
 		return \dash\db::query($query);
 	}
 
 
 
-	public static function hard_delete_all_product_tag($_product_id)
+	public static function hard_delete_all_answer_tag($_answer_id)
 	{
-		$query = "DELETE FROM form_tagusage WHERE form_tagusage.product_id = $_product_id ";
+		$query = "DELETE FROM form_tagusage WHERE form_tagusage.answer_id = $_answer_id ";
 		return \dash\db::query($query);
 	}
 

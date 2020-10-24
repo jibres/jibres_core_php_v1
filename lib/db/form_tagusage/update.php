@@ -12,7 +12,7 @@ class update
 			DELETE FROM
 				form_tagusage
 			WHERE
-				form_tagusage.producttag_id = $_old_id AND
+				form_tagusage.form_tag_id = $_old_id AND
 				form_tagusage.product_id IN
 				(
 					SELECT x.product_id FROM
@@ -22,7 +22,7 @@ class update
 						FROM
 							form_tagusage
 						WHERE
-							form_tagusage.producttag_id = $_old_id OR form_tagusage.producttag_id = $_new_id
+							form_tagusage.form_tag_id = $_old_id OR form_tagusage.form_tag_id = $_new_id
 						GROUP BY form_tagusage.product_id
 						HAVING COUNT(*) >= 2
 					)
@@ -37,9 +37,9 @@ class update
 			UPDATE
 				form_tagusage
 			SET
-				form_tagusage.producttag_id = $_new_id
+				form_tagusage.form_tag_id = $_new_id
 			WHERE
-				form_tagusage.producttag_id = $_old_id
+				form_tagusage.form_tag_id = $_old_id
 
 		";
 		$result = \dash\db::query($query);

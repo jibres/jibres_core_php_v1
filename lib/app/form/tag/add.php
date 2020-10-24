@@ -48,48 +48,25 @@ class add
 
 
 
-	public static function answer_tag_plus($_tag_id, $_answer_id)
-	{
-		$answer_detail = \lib\app\form\answer\get::get($_answer_id);
-		if(!$answer_detail)
-		{
-			return false;
-		}
-
-		$load_cat = \lib\app\form\tag\get::get($_tag_id);
-		if(!$load_cat)
-		{
-			return false;
-		}
 
 
-		$check_answer_have_cat = \lib\db\form_tagusage\get::check_answer_have_tag($_answer_id, $_tag_id);
-
-		if($check_answer_have_cat)
-		{
-			\dash\notif::warn(T_("This answer have this tag"));
-			return true;
-		}
-		else
-		{
-			$insert =
-			[
-				'form_tag_id' => $_tag_id,
-				'answer_id'   => $_answer_id,
-			];
-			\lib\db\form_tagusage\insert::new_record($insert);
-			\dash\notif::ok(T_("Tag added to this answer"));
-			return true;
-		}
-
-	}
-
-
-
-
-	public static function answer_add($_tag, $_answer_id)
+	public static function answer_add($_tag, $_answer_id, $_form_id)
 	{
 		if(!\dash\permission::check('formAssignTag'))
+		{
+			return false;
+		}
+
+		$_answer_id = \dash\validate::id($_answer_id);
+		if(!$_answer_id)
+		{
+			\dash\notif::error(T_("Answer id is required"));
+			return false;
+		}
+
+		$load_form = \lib\app\form\form\get::get($_form_id);
+
+		if(!$load_form)
 		{
 			return false;
 		}
@@ -228,7 +205,8 @@ class add
 				$insert_multi[] =
 				[
 					'form_tag_id' => $value,
-					'answer_id'    => $_answer_id,
+					'answer_id'   => $_answer_id,
+					'form_id'     => $_form_id,
 
 				];
 			}
@@ -255,6 +233,7 @@ class add
 		{
 			\dash\log::set('formAddTag', ['code' => $_answer_id, 'tag' => $_tag]);
 		}
+
 
 		return true;
 
