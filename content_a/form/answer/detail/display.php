@@ -1,8 +1,6 @@
 <?php require_once(root. 'content_a/form/answer/pageStep.php') ?>
 <?php   htmlSearchBox(); ?>
 
-<div class="row">
-  <div class="c-xs-12 c-sm-12 c-md-8">
     <?php
     if(\dash\data::dataTable())
     {
@@ -24,8 +22,8 @@
       }
     }
     ?>
-  </div>
-  <div class="c-xs-12 c-sm-12 c-md-4">
+
+<div class="avand-lg">
 
     <form method="post" id="form1">
       <input type="hidden" name="addtag" value="addtag">
@@ -83,22 +81,42 @@
       </div>
     </form>
 
-    <h3 class="hide"><?php echo T_("Answer comment") ?></h3>
-    <nav class="items">
-      <ul>
-        <?php foreach (\dash\data::commentList() as $key => $value) {?>
-          <li>
-            <a class="f">
-              <div class="key"><?php echo \dash\get::index($value, 'content'); ?></div>
-              <div class="value"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated'));?></div>
-            </a>
-          </li>
-        <?php } //endfor ?>
-      </ul>
-    </nav>
+    <?php if(\dash\data::commentList()) {?>
+      <div class="box">
+        <header><h2><?php echo T_("Answer comment") ?></h2></header>
+        <div class="pad">
+          <div class="tblBox">
+            <table class="tbl1 v4">
+              <thead>
+                <tr>
+                  <th><?php echo T_("Comment") ?></th>
+                  <th class="collapsing"><?php echo T_("Privacy") ?></th>
+                  <th class="collapsing"><?php echo T_("Date") ?></th>
+                  <th class="collapsing"></th>
+                </tr>
+              </thead>
+              <tbody>
 
-  </div>
+              <?php foreach (\dash\data::commentList() as $key => $value) {?>
+                  <tr>
+                    <td><?php echo \dash\get::index($value, 'content'); ?></td>
+                    <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'privacy'))); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated'));?></td>
+                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
+                  </tr>
+              <?php } //endfor ?>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+
+  <?php } //endif ?>
 </div>
+
 
 <?php function htmlSearchBox() {?>
   <div class="cbox fs12 p0">

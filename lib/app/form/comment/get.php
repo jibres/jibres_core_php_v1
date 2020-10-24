@@ -18,5 +18,26 @@ class get
 		return $list;
 
 	}
+
+
+	public static function one($_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Id not set"));
+			return false;
+		}
+
+		$load = \lib\db\form_comment\get::get($id);
+		if(!$load)
+		{
+			\dash\notif::error(T_("Comment not found"));
+			return false;
+		}
+
+		return $load;
+
+	}
 }
 ?>

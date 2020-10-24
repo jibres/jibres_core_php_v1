@@ -19,6 +19,17 @@ class model
 		}
 
 
+		if(\dash\request::post('removecomment') === 'removecomment')
+		{
+			$id = \dash\request::post('id');
+			\lib\app\form\comment\remove::remove($id);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
 		if(\dash\request::post('formcomment') === 'formcomment')
 		{
 			$post = [];
