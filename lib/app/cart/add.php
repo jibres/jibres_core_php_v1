@@ -8,6 +8,11 @@ class add
 {
 	public static function assing_to_user($_guest_id, $_user_id)
 	{
+		if(!\dash\engine\store::inStore())
+		{
+			return false;
+		}
+
 		$condition =
 		[
 			'user_id' => 'code',
