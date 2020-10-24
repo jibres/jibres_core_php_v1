@@ -18,7 +18,7 @@ class view
 		\dash\data::back_link(\dash\url::that(). '/edit?id='. $id);
 
 
-		$tag_list = \lib\app\tag\get::all_tag();
+		$tag_list = \lib\app\form\tag\get::all_tag();
 		$tag_list = array_reverse($tag_list);
 		\dash\data::listTag($tag_list);
 	}

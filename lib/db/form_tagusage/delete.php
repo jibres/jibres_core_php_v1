@@ -6,7 +6,7 @@ class delete
 {
 	public static function tag_usage_tag_id($_id)
 	{
-		$query  = "DELETE FROM form_tagusage WHERE form_tagusage.answer_id = $_id ";
+		$query  = "DELETE FROM form_tagusage WHERE form_tagusage.form_tag_id = $_id ";
 		$result = \dash\db::query($query);
 		return $result;
 	}

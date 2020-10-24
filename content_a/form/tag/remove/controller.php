@@ -7,7 +7,7 @@ class controller
 	{
 		\dash\permission::access('tagEdit');
 
-		$dataRow = \lib\app\tag\get::get(\dash\request::get('id'));
+		$dataRow = \lib\app\form\tag\get::get(\dash\request::get('id'));
 		\dash\data::dataRow($dataRow);
 
 		if(!$dataRow)

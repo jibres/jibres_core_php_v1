@@ -13,17 +13,17 @@ class update
 				form_tagusage
 			WHERE
 				form_tagusage.form_tag_id = $_old_id AND
-				form_tagusage.product_id IN
+				form_tagusage.answer_id IN
 				(
-					SELECT x.product_id FROM
+					SELECT x.answer_id FROM
 					(
 						SELECT
-							form_tagusage.product_id
+							form_tagusage.answer_id
 						FROM
 							form_tagusage
 						WHERE
 							form_tagusage.form_tag_id = $_old_id OR form_tagusage.form_tag_id = $_new_id
-						GROUP BY form_tagusage.product_id
+						GROUP BY form_tagusage.answer_id
 						HAVING COUNT(*) >= 2
 					)
 					AS `x`

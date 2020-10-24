@@ -48,7 +48,9 @@ class get
 			LIMIT 1
 		";
 
+
 		$result = \dash\db::get($query, null, true);
+
 		return $result;
 	}
 
