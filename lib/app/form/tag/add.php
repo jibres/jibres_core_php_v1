@@ -116,7 +116,7 @@ class add
 		}
 
 
-		$check_exist_tag = \lib\db\form_tag\get::mulit_title($tag);
+		$check_exist_tag = \lib\db\form_tag\get::mulit_title($tag, $_form_id);
 
 		$all_tags_id = [];
 

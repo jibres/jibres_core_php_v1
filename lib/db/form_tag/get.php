@@ -12,7 +12,7 @@ class get
 		return $result;
 	}
 
-	public static function mulit_title($_titles)
+	public static function mulit_title($_titles, $_form_id)
 	{
 		if(!is_array($_titles) || !$_titles)
 		{
@@ -26,6 +26,7 @@ class get
 			SELECT *
 			FROM form_tag
 			WHERE
+				form_tag.form_id = $_form_id AND
 				form_tag.title IN ('$_titles')
 		";
 		$result = \dash\db::get($query);
