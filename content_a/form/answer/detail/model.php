@@ -6,6 +6,11 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::pot('addtag') === 'addtag')
+		{
+
+		}
+
 		if(\dash\request::post('remove') === 'answer')
 		{
 			$answer_id = \dash\request::post('id');

@@ -1,0 +1,47 @@
+<?php
+namespace content_a\form\tag\edit;
+
+
+class model
+{
+	public static function post()
+	{
+
+
+
+		$id = \dash\request::get('id');
+
+		if(\dash\request::post('delete') === 'delete')
+		{
+			\lib\app\form\tag\remove::remove($id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that());
+			}
+			return;
+		}
+
+
+		$args                  = [];
+		$args['title']         = \dash\request::post('title');
+		$args['slug']          = \dash\request::post('slug');
+
+
+		$result = \lib\app\form\tag\edit::edit($args, $id);
+
+		$add_form_id = \dash\request::post('add_form_id');
+
+		if($add_form_id)
+		{
+			\lib\app\form\tag\add::form_tag_plus(\dash\request::get('id'), $add_form_id);
+		}
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
+
+	}
+}
+?>

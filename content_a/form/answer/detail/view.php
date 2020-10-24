@@ -35,6 +35,18 @@ class view
 
 		\dash\data::formItems($load_items);
 
+		\dash\face::btnSave('form1');
+
+		$all_tag = \lib\app\form\tag\get::all_tag();
+		\dash\data::allTagList($all_tag);
+
+
+		$tag_list = \lib\app\form\tag\get::answer_tag(\dash\request::get('aid'));
+		if(!is_array($tag_list))
+		{
+			$tag_list = [];
+		}
+		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
 
 	}
 
