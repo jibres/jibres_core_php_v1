@@ -23,7 +23,7 @@
     }
     ?>
 
-<div class="avand-lg">
+<div class="avand-lg p0">
 
     <form method="post" id="form1">
       <input type="hidden" name="addtag" value="addtag">
@@ -74,7 +74,7 @@
           </div>
         </div>
         <footer class="f">
-          <div class="cauto"><i data-kerkere='.showAttachment' class="sf-attach fs14"></i></div>
+          <div class="cauto hide"><i data-kerkere='.showAttachment' class="sf-attach fs14"></i></div>
           <div class="c"></div>
           <div class="cauto"><button class="btn success"><?php echo T_("Add comment") ?></button></div>
         </footer>
