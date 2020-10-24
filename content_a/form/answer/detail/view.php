@@ -48,6 +48,10 @@ class view
 		}
 		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
 
+
+		$comment_list = \lib\app\form\comment\get::get(\dash\request::get('aid'));
+
+		\dash\data::commentList($comment_list);
 	}
 
 }

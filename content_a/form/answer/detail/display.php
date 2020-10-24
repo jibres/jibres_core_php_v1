@@ -86,10 +86,10 @@
     <h3 class="hide"><?php echo T_("Answer comment") ?></h3>
     <nav class="items">
       <ul>
-        <?php foreach ([] as $key => $value) {?>
+        <?php foreach (\dash\data::commentList() as $key => $value) {?>
           <li>
             <a class="f">
-              <div class="key"><?php if(\dash\get::index($value, 'action') === 'comment'){ echo \dash\get::index($value, 'comment'); }else{ echo \dash\get::index($value, 't_action');}?></div>
+              <div class="key"><?php echo \dash\get::index($value, 'content'); ?></div>
               <div class="value"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated'));?></div>
             </a>
           </li>
