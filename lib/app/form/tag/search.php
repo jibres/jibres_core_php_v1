@@ -102,9 +102,10 @@ class search
 	{
 		$condition =
 		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['title']],
+			'order'      => 'order',
+			'sort'       => ['enum' => ['title']],
 			'pagination' => 'bit',
+			'form_id'    => 'id',
 
 		];
 
@@ -148,6 +149,11 @@ class search
 			}
 
 			$order_sort = " ORDER BY $sort $order";
+		}
+
+		if($data['form_id'])
+		{
+			$and[] = " form_tag.form_id = $data[form_id] ";
 		}
 
 		if(!$order_sort)

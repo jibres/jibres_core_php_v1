@@ -23,6 +23,7 @@ class view
 		[
 			'order'   => \dash\request::get('order'),
 			'sort'    => \dash\request::get('sort'),
+			'form_id' => \dash\request::get('id'),
 		];
 
 
