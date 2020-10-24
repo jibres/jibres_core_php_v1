@@ -365,7 +365,10 @@ class user
 
 			if($code && $guest)
 			{
-				\lib\app\cart\add::assing_to_user($guest, $code);
+				if(\dash\engine\store::inStore())
+				{
+					\lib\app\cart\add::assing_to_user($guest, $code);
+				}
 			}
 
 			\dash\utility\cookie::delete('user_guest_id');
