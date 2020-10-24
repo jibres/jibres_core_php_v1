@@ -15,9 +15,8 @@ class view
 			\dash\data::action_link(\dash\url::that(). '/add'. \dash\request::full_get());
 		}
 
-		\dash\data::back_text(T_('Form'));
-		\dash\data::back_link(\dash\url::here(). '/form');
-
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here(). '/form/edit?id='. \dash\request::get('id'));
 
 
 		$args =

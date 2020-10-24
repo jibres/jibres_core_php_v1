@@ -8,6 +8,7 @@ class model
 	{
 		$args           = [];
 		$args['title']  = \dash\request::post('tag');
+		$args['form_id']  = \dash\request::get('id');
 
 		$result = \lib\app\form\tag\add::add($args);
 

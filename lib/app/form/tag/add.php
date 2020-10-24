@@ -26,9 +26,10 @@ class add
 		}
 
 
-		$args['datecreated']   = date("Y-m-d H:i:s");
-		$args['status']        = 'enable';
-		$args['language']      = \dash\language::current();
+		$args['datecreated'] = date("Y-m-d H:i:s");
+		$args['status']      = 'enable';
+		$args['creator']     = \dash\user::id();
+		$args['language']    = \dash\language::current();
 
 		$id = \lib\db\form_tag\insert::new_record($args);
 		if(!$id)
@@ -159,11 +160,12 @@ class add
 
 				$multi_insert_tag[] =
 				[
-					'status'   => 'enable',
-					'title'    => $value,
-					'slug'     => $slug,
-					'url'      => $slug,
-					'creator'  => \dash\user::id(),
+					'status'  => 'enable',
+					'title'   => $value,
+					'slug'    => $slug,
+					'url'     => $slug,
+					'creator' => \dash\user::id(),
+					'form_id' => $_form_id,
 					// 'language' => \dash\language::current(),
 				];
 			}

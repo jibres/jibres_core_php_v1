@@ -86,9 +86,9 @@ class get
 		return $result;
 	}
 
-	public static function check_unique_slug($_slug)
+	public static function check_unique_slug($_slug, $_form_id)
 	{
-		$query  = "SELECT * FROM form_tag WHERE form_tag.slug = '$_slug'  LIMIT 1";
+		$query  = "SELECT * FROM form_tag WHERE form_tag.slug = '$_slug' AND form_tag.form_id = $_form_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
