@@ -51,6 +51,9 @@
       </div>
     </div>
 
+    <div class="txtC">
+      <a class="hey" href="<?php echo \dash\url::kingdom() ?>/about"><div class="inside"><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?></div></a>
+    </div>
 
   </div>
 </section>
@@ -66,7 +69,7 @@
   </div>
 
   <div class="title mT20">
-   <p><?php echo T_('Sales channels represent the different marketplaces where you sell your products.'); ?><br><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?> <a href="<?php echo \dash\url::kingdom() ?>/about"><?php echo T_('Read more about Jibres'); ?></a></p>
+   <p><?php echo T_('Sales channels represent the different marketplaces where you sell your products.'); ?></p>
   </div>
  </div>
 </section>
