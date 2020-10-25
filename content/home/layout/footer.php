@@ -5,7 +5,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 ?>
 <section id="jibresCertificates">
   <div class="avand-md">
-    <h2><a href="<?php echo \dash\url::kingdom() ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h2>
+    <h3><a href="<?php echo \dash\url::kingdom() ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h3>
     <div class="f">
       <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo \dash\url::kingdom() ?>/certificates/daneshbonyan"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt='دانش‌بنیان - جیبرس'></a></div>
       <!-- <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="https://shaparak.com/tips/%D8%B4%D8%B1%DA%A9%D8%AA-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%DB%8C%D8%A7%D8%B1"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt='جیبرس پرداخت یار رسمی بانک مرکزی '></a></div> -->
@@ -24,7 +24,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 <?php } ?>
 
 <section id="jibresSupportLine">
-    <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
+    <h4><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h4>
     <a class="btn lg success" href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact with a Live Person'); ?></a>
 </section>
 

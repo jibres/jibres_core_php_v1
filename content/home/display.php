@@ -210,9 +210,9 @@
 
 <section id='keepitsimple'>
  <div class="title">
-  <h2 title='<?php echo T_('Simplest forever'); ?>'><?php echo T_('Keep it simple'); ?></h2>
-  <h3><?php echo T_('Simplicity is the ultimate sophistication'); ?></h3>
-  <h3><?php echo T_('No one can fulfill your e-commerce needs like us'); ?> <span>💪</span></h3>
+  <h3 title='<?php echo T_('Simplest forever'); ?>'><?php echo T_('Keep it simple'); ?></h3>
+  <p><?php echo T_('Simplicity is the ultimate sophistication'); ?></p>
+  <p><?php echo T_('No one can fulfill your e-commerce needs like us'); ?> <span>💪</span></p>
  </div>
 
  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -231,7 +231,7 @@
 <?php if(\dash\data::quote()) { ?>
 <section id='jibresQuote'>
   <div class="avand">
-    <h2><?php echo T_("Our Happy Friends!"); ?></h2>
+    <h4><?php echo T_("Our Happy Friends!"); ?></h4>
     <div class="row padMore">
 <?php foreach (\dash\data::quote() as $key => $value) {?>
       <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4 itemBox">
@@ -274,7 +274,7 @@
 <section id='jibresPrivacy'>
   <div class="avand-md">
     <div class="securitySign"></div>
-    <h2><a href="<?php echo \dash\url::kingdom() ?>/privacy"><?php echo T_("Security & Privacy") ?></a></h2>
+    <h3><a href="<?php echo \dash\url::kingdom() ?>/privacy"><?php echo T_("Security & Privacy") ?></a></h3>
     <p><?php echo T_("Privacy is at the core of everything we do. We are here to protect your information. Privacy is one of our most important core values. In a world of increasing complexity we firmly believe your data is yours and yours alone.") ?></p>
   </div>
 </section>
