@@ -1,29 +1,68 @@
-<?php require_once(root. 'content_a/form/answer/pageStep.php') ?>
+<?php if(\dash\request::get('print')) {?>
+
+   <div class="printArea" data-size='A4'>
+      <div class="msg info2 txtL ltr txtB font-12">
+      <div class="f">
+        <div class="cauto">
+          <span><?php echo T_("Answer ID") ?></span>
+          <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+        </div>
+        <div class="c"></div>
+        <div class="cauto">
+          <a class="font-14 p0" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => null]) ?>"><?php echo T_("Back") ?></a>
+        </div>
+      </div>
 
 
-    <?php
-    if(\dash\data::dataTable())
-    {
-      if(\dash\data::isFiltered())
-      {
-        htmlTable();
-        htmlFilter();
-      }
-      else
-      {
-        htmlTable();
-      }
-    }
-    else
-    {
-      if(\dash\data::isFiltered())
-      {
-        htmlFilter();
-      }
-    }
-    ?>
+    </div>
+  <table class="tbl1 v6">
+    <tbody class="font-12">
+<?php $i=0; foreach (\dash\data::dataTable() as $key => $value) { $i++;  ?>
+      <?php  if($i % 2) { ?>
+        <tr>
+      <?php } //endif ?>
+          <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
+          <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
+      <?php  if(!($i % 2)) { ?>
+        </tr>
+      <?php } //endif ?>
+<?php } //endif ?>
+    </tbody>
+  </table>
+  </div>
+  <?php \dash\utility\pagination::html(); ?>
+<?php }else{ ?>
 
-<div class="avand-lg p0">
+<div class="row">
+   <div class="c-xs-12 c-sm-12 c-md-6">
+    <div class="msg info2 txtL ltr txtB font-12">
+      <div class="f">
+        <div class="cauto">
+          <span><?php echo T_("Answer ID") ?></span>
+          <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+        </div>
+        <div class="c"></div>
+        <div class="cauto">
+          <a class="font-14" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><i class="sf-print"></i></a>
+        </div>
+      </div>
+
+
+    </div>
+  <table class="tbl1 v6">
+    <tbody class="font-12">
+<?php foreach (\dash\data::dataTable() as $key => $value) {?>
+        <tr>
+          <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
+          <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
+        </tr>
+<?php } //endif ?>
+    </tbody>
+  </table>
+  </div>
+  <?php \dash\utility\pagination::html(); ?>
+
+  <div class="c-xs-12 c-sm-12 c-md-6">
 
     <form method="post" id="form1">
       <input type="hidden" name="addtag" value="addtag">
@@ -118,58 +157,6 @@
 
 
   <?php } //endif ?>
+  </div>
 </div>
-
-
-<?php function htmlSearchBox() {?>
-  <div class="cbox fs12 p0">
-    <form method="get" action='<?php echo \dash\url::current(); ?>'>
-      <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
-      <input type="hidden" name="aid" value="<?php echo \dash\request::get('aid') ?>">
-      <div class="input">
-        <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-        <button class="addon btn "><i class="sf-search"></i></button>
-        <div class="addon hide btn" data-confirm data-data='{"remove": "answer", "id": "<?php echo \dash\request::get('aid'); ?>"}'><i class="sf-trash fc-red fs14"></i></div>
-      </div>
-    </form>
-  </div>
-<?php } //endfunction ?>
-
-
-<?php function htmlTable() {?>
-  <div class="printArea" data-size='A4'>
-    <div class="msg info2 txtL ltr txtB">
-      <span><?php echo T_("Answer ID") ?></span>
-      <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
-     </div>
-  <table class="tbl1 v6">
-    <tbody class="font-12">
-<?php $i=0; foreach (\dash\data::dataTable() as $key => $value) { $i++;  ?>
-      <?php  if($i % 2) { ?>
-        <tr>
-      <?php } //endif ?>
-          <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
-          <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
-      <?php  if(!($i % 2)) { ?>
-        </tr>
-      <?php } //endif ?>
-<?php } //endif ?>
-    </tbody>
-  </table>
-  </div>
-  <?php \dash\utility\pagination::html(); ?>
-<?php } //endif ?>
-
-<?php function htmlFilter() {?>
-  <p class="f fs14 msg info2">
-    <span class="c"><?php echo \dash\data::filterBox(); ?></span>
-    <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&aid='. \dash\request::get('aid'); ?>"><?php echo T_("Clear filters"); ?></a>
-  </p>
-<?php } //endif ?>
-
-<?php function htmlFilterNoResult() {?>
-  <p class="f fs14 msg warn2">
-    <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-    <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&aid='. \dash\request::get('aid'); ?>"><?php echo T_("Clear filters"); ?></a>
-  </p>
 <?php } //endif ?>
