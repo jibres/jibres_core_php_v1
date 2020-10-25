@@ -52,7 +52,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
-              <li><h3><?php echo T_('eCommerce'); ?></h3></li>
+              <li class="title"><?php echo T_('eCommerce'); ?></li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/benefits">
                   <div class="key"><?php echo T_('Benefits'); ?></div>
@@ -76,7 +76,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
-              <li><h3><?php echo T_('Domain Center'); ?></h3></li>
+              <li class="title"><?php echo T_('Domain Center'); ?></li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/domains">
                 <div class="key"><?php echo T_('Domain Name Search'); ?></div>
@@ -112,7 +112,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
-              <li><h3><?php echo T_('Support'); ?></h3></li>
+              <li class="title"><?php echo T_('Support'); ?></li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/support">
                 <div class="key"><?php echo T_('Support Center'); ?></div>
@@ -155,7 +155,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
-              <li><h3><?php echo T_('Resources'); ?></h3></li>
+              <li class="title"><?php echo T_('Resources'); ?></li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/blog">
                 <div class="key"><?php echo T_('Blog'); ?></div>
@@ -197,7 +197,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
-              <li><h3><?php echo T_('Jibres Company'); ?></h3></li>
+              <li class="title"><?php echo T_('Jibres Company'); ?></li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/about">
                 <div class="key"><?php echo T_('About Jibres'); ?></div>

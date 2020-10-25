@@ -99,15 +99,15 @@
     <div class="f txtC">
       <div class="c s12 pA10">
           <div class="fs50"><?php echo \dash\fit::stats(\dash\data::homepagenumber_product()) ?>+</div>
-          <h4><?php echo T_('Products'); ?></h4>
+          <div class="font-14"><?php echo T_('Products'); ?></div>
       </div>
       <div class="c s12 pA10">
           <div class="fs50"><?php echo \dash\fit::stats(\dash\data::homepagenumber_factor()) ?>+</div>
-          <h4><?php echo T_('Factor'); ?></h4>
+          <div class="font-14"><?php echo T_('Factor'); ?></div>
       </div>
       <div class="c s12 pA10">
           <div class="fs40"><?php echo \dash\fit::stats(\dash\data::homepagenumber_sum_factor()) ?>+</div>
-          <h4><?php echo T_('Sold on Jibres'); ?></h4>
+          <div class="font-14"><?php echo T_('Sold on Jibres'); ?></div>
       </div>
     </div>
   </div>
