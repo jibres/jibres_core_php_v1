@@ -20,7 +20,7 @@ class insert
 
 			$query =
 			"
-				INSERT INTO
+				INSERT IGNORE INTO
 					`form_tagusage`
 					(`form_tag_id`,`form_id`, `answer_id`)
 				SELECT
@@ -37,7 +37,7 @@ class insert
 		{
 			$query =
 			"
-				INSERT INTO
+				INSERT IGNORE INTO
 					`form_tagusage`
 					(`form_tag_id`,`form_id`, `answer_id`)
 				SELECT
