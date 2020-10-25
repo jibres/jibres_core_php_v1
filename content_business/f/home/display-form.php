@@ -33,3 +33,38 @@ if(!is_array($formItems))
 		</div>
 	</div>
 </form>
+
+<?php if(\dash\data::formDetail_inquiry()) {?>
+
+	<div class="avand-md">
+		<div class="box">
+			<div class="pad">
+
+				<header class="c-xs-0"><h2><?php echo T_("Inquiry"); ?></h2></header>
+				<div class="body" data-jform>
+					<?php if(\dash\data::formDetail_inquirymsg()) {?>
+						<div class="mB20"><?php echo \dash\data::formDetail_inquirymsg() ?></div>
+					<?php } // endif ?>
+					<?php \lib\app\form\inquiry::items(\dash\data::formDetail(), $formItems);?>
+				</div>
+				<?php if(\dash\data::tagList()) {?>
+					<?php foreach (\dash\data::tagList() as $key => $value) {?>
+						<div class="msg">
+							<?php echo \dash\get::index($value, 'title') ?>
+							<p><?php echo \dash\get::index($value, 'desc') ?></p>
+						</div>
+					<?php } //endfor ?>
+				<?php } //endif ?>
+
+				<?php if(\dash\data::commentList()) {?>
+					<?php foreach (\dash\data::commentList() as $key => $value) {?>
+						<div class="msg">
+							<?php echo \dash\get::index($value, 'content') ?>
+						</div>
+					<?php } //endfor ?>
+				<?php } //endif ?>
+			</div>
+			</div>
+	</div>
+
+<?php } //endif ?>

@@ -45,6 +45,8 @@ class controller
 			\dash\data::formItems($load_items);
 			\dash\data::contactForm(true);
 
+			\lib\app\form\inquiry::check($load_form, $load_items);
+
 		}
 		else
 		{
@@ -57,5 +59,7 @@ class controller
 
 
 	}
+
+
 }
 ?>

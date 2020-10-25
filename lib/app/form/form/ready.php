@@ -23,6 +23,13 @@ class ready
 					$result['url'] = \lib\store::url(). '/f/'. $value;
 					break;
 
+				case 'inquirysetting':
+					if($value)
+					{
+						$result[$key] = json_decode($value, true);
+					}
+					break;
+
 				case 'status':
 					$result[$key] = $value;
 					$status_class = null;

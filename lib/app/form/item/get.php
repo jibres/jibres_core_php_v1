@@ -63,6 +63,32 @@ class get
 		return $new_list;
 	}
 
+	public static function items_inquiryable($_form_id)
+	{
+		$list = self::items($_form_id, false);
+		if(!is_array($list))
+		{
+			return $list;
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['type']))
+			{
+				if($value['type'] === 'mobile' || $value['type'] === 'nationalcode')
+				{
+					$new_list[] = $value;
+				}
+			}
+
+		}
+
+		return $new_list;
+
+	}
+
 
 	public static function items_answerable($_form_id)
 	{

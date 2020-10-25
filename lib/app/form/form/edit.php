@@ -20,6 +20,11 @@ class edit
 			return false;
 		}
 
+		if(isset($args['inquirysetting']))
+		{
+			$_args['inquirysetting'] = 'JUST FOT NOT REMOVE IN PATHC MODE FUNCTION :)';
+		}
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(empty($args))

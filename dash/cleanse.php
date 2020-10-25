@@ -663,6 +663,11 @@ class cleanse
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'array':
+			case 'isarray':
+				$data = \dash\validate\dataarray::isarray($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'weekday':
 				$meta['enum'] = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);

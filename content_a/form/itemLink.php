@@ -14,6 +14,8 @@
       <li><a class="f item" href="<?php echo \dash\url::this(). '/status?id='. \dash\request::get('id'); ?>"><i class="sf-plug"></i><div class="key"><?php echo T_("Status");?></div><div class="go"></div></a></li>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/sorting?id='. \dash\request::get('id'); ?>"><i class="sf-sort"></i><div class="key"><?php echo T_("Sort items");?></div><div class="go"></div></a></li>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/tag?id='. \dash\request::get('id'); ?>"><i class="sf-tag"></i><div class="key"><?php echo T_("Tags");?></div><div class="go"></div></a></li>
+      <li><a class="f item" href="<?php echo \dash\url::this(). '/inquiry?id='. \dash\request::get('id'); ?>"><i class="sf-group-full"></i><div class="key"><?php echo T_("Inquiry");?></div><div class="go"></div></a></li>
+
  </ul>
 </nav>
 

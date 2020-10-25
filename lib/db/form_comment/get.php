@@ -11,6 +11,16 @@ class get
 		return $result;
 	}
 
+	public static function get_by_answer_id_public($_answer_id)
+	{
+		$query = "SELECT * FROM form_comment WHERE form_comment.answer_id = $_answer_id AND form_comment.privacy = 'public'  ORDER BY form_comment.id DESC";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
+
 	public static function get($_id)
 	{
 		$query = "SELECT * FROM form_comment WHERE form_comment.id = $_id  LIMIT 1";

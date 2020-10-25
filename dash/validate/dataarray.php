@@ -4,6 +4,30 @@ namespace dash\validate;
 class dataarray
 {
 
+	public static function isarray($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = $_data;
+
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
+		if(!is_array($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be array", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+
+		return $data;
+	}
+
+
 
 
 	public static function enum($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
