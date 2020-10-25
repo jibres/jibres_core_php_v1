@@ -1,10 +1,19 @@
 <?php
-if(\dash\data::contactForm())
+if(\dash\data::inquiryForm())
 {
-	require_once('display-form.php');
+	require_once('display-form-inquiry.php');
 }
 else
 {
-	require_once('display-list.php');
+
+	if(\dash\data::contactForm())
+	{
+		require_once('display-form.php');
+	}
+	else
+	{
+		require_once('display-list.php');
+	}
+
 }
 ?>

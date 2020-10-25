@@ -100,6 +100,7 @@ class inquiry
 			if(!$search)
 			{
 				\dash\notif::error(T_("Invalid mobile"));
+				return false;
 			}
 		}
 		elseif($current_search['type'] === 'nationalcode')
@@ -108,6 +109,7 @@ class inquiry
 			if(!$search)
 			{
 				\dash\notif::error(T_("Invalid nationalcode"));
+				return false;
 			}
 		}
 		else
@@ -120,11 +122,13 @@ class inquiry
 			return false;
 		}
 
+		\dash\data::inquiryExec(true);
+
 		$result = \lib\db\form_answerdetail\get::by_item_id_answer($f, $search);
 
 		if(!$result || !isset($result['answer_id']))
 		{
-			\dash\notif::error(T_("No data matched by this condition"));
+			\dash\notif::error(T_("You have not complete this form"));
 			return false;
 		}
 
@@ -144,7 +148,9 @@ class inquiry
 
 		\dash\data::commentList($comment_list);
 
-		\dash\notif::ok(T_("Search complete"));
+		\dash\data::inquiryExecHaveResult($comment_list || $tag_list);
+
+		\dash\notif::ok(T_("You have already complete this form"));
 
 		return true;
 
@@ -154,7 +160,7 @@ class inquiry
 
 	private static function input_quiry($value, $_type)
 	{
-		echo '<form method="get" autocomplete="off" action="'.\dash\url::that().'">';
+		echo '<form method="get" autocomplete="off" action="'.\dash\url::current().'">';
 		echo '<input type="hidden" name="i" value="1">';
 		echo '<input type="hidden" name="f" value="'. $value['id']. '">';
 		echo '<label for="'. $value['id']. '" >';

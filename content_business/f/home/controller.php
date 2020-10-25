@@ -7,6 +7,17 @@ class controller
 	{
 		$child = \dash\url::child();
 
+		if(\dash\url::subchild())
+		{
+			if(\dash\url::subchild() === 'inquiry')
+			{
+				\dash\data::inquiryForm(true);
+			}
+			else
+			{
+				\dash\header::status(404);
+			}
+		}
 		if($child)
 		{
 			$load_form = \lib\app\form\form\get::get($child);
@@ -45,7 +56,10 @@ class controller
 			\dash\data::formItems($load_items);
 			\dash\data::contactForm(true);
 
-			\lib\app\form\inquiry::check($load_form, $load_items);
+			if(\dash\data::inquiryForm())
+			{
+				\lib\app\form\inquiry::check($load_form, $load_items);
+			}
 
 		}
 		else
