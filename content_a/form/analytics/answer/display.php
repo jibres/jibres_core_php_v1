@@ -46,6 +46,9 @@
           </select>
         </div>
         </div>
+          <footer class="txtRa">
+          <button class="btn master"><?php echo T_("Save") ?></button>
+        </footer>
       </div>
     </form>
 

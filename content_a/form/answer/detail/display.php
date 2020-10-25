@@ -1,5 +1,5 @@
 <?php require_once(root. 'content_a/form/answer/pageStep.php') ?>
-<?php   htmlSearchBox(); ?>
+
 
     <?php
     if(\dash\data::dataTable())
@@ -41,6 +41,9 @@
           </select>
         </div>
         </div>
+        <footer class="txtRa">
+          <button class="btn master"><?php echo T_("Save") ?></button>
+        </footer>
       </div>
     </form>
 

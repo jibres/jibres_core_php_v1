@@ -35,7 +35,7 @@ class view
 
 		\dash\data::formItems($load_items);
 
-		\dash\face::btnSave('form1');
+		// \dash\face::btnSave('form1');
 
 		$all_tag = \lib\app\form\tag\get::all_tag();
 		\dash\data::allTagList($all_tag);

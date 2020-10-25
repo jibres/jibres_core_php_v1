@@ -35,21 +35,6 @@
 							<label for="inquirymsg"><?php echo T_("Inquiry Message") ?></label>
 							<textarea name="inquirymsg" data-editor class="txt" rows="3" id="inquirymsg" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_inquirymsg(); ?></textarea>
 						</div>
-
-						<div class="switch1">
-							<input type="checkbox" name="showcomment" id="showcomment" <?php if(\dash\get::index($inquerySetting, 'showcomment')) {echo 'checked';} ?>>
-							<label for="showcomment"></label>
-							<label for="showcomment"><?php echo T_("Show public comment to user") ?></label>
-						</div>
-
-
-						<div class="switch1">
-							<input type="checkbox" name="showpulictag" id="showpulictag" <?php if(\dash\get::index($inquerySetting, 'showpulictag')) {echo 'checked';} ?>>
-							<label for="showpulictag"></label>
-							<label for="showpulictag"><?php echo T_("Show public tag") ?></label>
-						</div>
-
-
 					</div>
 
 				</div>

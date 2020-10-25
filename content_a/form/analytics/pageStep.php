@@ -37,7 +37,14 @@
     </a>
   </div>
 
-  <div class="c ">
+  <div class="c pRa10">
+    <a href="<?php echo \dash\url::that(). '/tag?'. \dash\request::fix_get(['field' => null]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'tag') { echo 'active'; } ?>">
+      <h3><?php echo T_("Tag");?></h3>
+      <div class="val"><i class="sf-tag"></i></div>
+    </a>
+  </div>
+
+    <div class="c ">
     <a href="<?php echo \dash\url::that(). '/setting?'. \dash\request::fix_get(['field' => null]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'setting') { echo 'active'; } ?>">
       <h3><?php echo T_("Action");?></h3>
       <div class="val"><i class="sf-cogs"></i></div>
