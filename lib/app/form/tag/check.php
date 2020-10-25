@@ -13,6 +13,7 @@ class check
 			'desc'    => 'html',
 			'slug'    => 'slug',
 			'form_id' => 'id',
+			'privacy' => ['enum' => ['public', 'private']],
 
 		];
 

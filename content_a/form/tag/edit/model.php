@@ -24,8 +24,10 @@ class model
 
 
 		$args                  = [];
-		$args['title']         = \dash\request::post('title');
-		$args['slug']          = \dash\request::post('slug');
+		$args['title']   = \dash\request::post('title');
+		$args['desc']    = \dash\request::post_raw('desc');
+		$args['slug']    = \dash\request::post('slug');
+		$args['privacy'] = \dash\request::post('privacy');
 
 
 		$result = \lib\app\form\tag\edit::edit($args, $id);

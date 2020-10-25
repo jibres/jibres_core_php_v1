@@ -36,6 +36,13 @@ class get
 
 
 
+	public static function public_answer_tag($_answer_id)
+	{
+		$get_usage = \lib\db\form_tagusage\get::usage_public($_answer_id);
+
+		return $get_usage;
+	}
+
 	public static function answer_tag($_answer_id)
 	{
 		$get_usage = \lib\db\form_tagusage\get::usage($_answer_id);

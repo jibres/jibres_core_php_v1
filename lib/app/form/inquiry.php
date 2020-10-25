@@ -131,7 +131,7 @@ class inquiry
 		$answer_id = $result['answer_id'];
 
 
-		$tag_list = \lib\app\form\tag\get::answer_tag($answer_id);
+		$tag_list = \lib\app\form\tag\get::public_answer_tag($answer_id);
 
 		if(!is_array($tag_list))
 		{

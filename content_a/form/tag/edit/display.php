@@ -8,6 +8,26 @@
             <input type="text" name="title" id="itagname" placeholder='<?php echo T_("Tag name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
           </div>
 
+          <div class="mB10">
+              <label for="desc"><?php echo T_("Description") ?></label>
+              <textarea name="desc" data-editor class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+            </div>
+
+
+         <div class="row">
+            <div class="c-xs-6 c-sm-6">
+              <div class="radio3">
+                <input type="radio" name="privacy" value="public" <?php if(\dash\data::dataRow_privacy() === 'public') {echo 'checked';} ?>  id="privacypublic">
+                <label for="privacypublic"><?php echo T_("Public") ?></label>
+              </div>
+            </div>
+            <div class="c-xs-6 c-sm-6">
+              <div class="radio3">
+                <input type="radio" name="privacy" value="private"  <?php if(\dash\data::dataRow_privacy() === 'private') {echo 'checked';} ?> id="privacyprivate">
+                <label for="privacyprivate"><?php echo T_("Private") ?></label>
+              </div>
+            </div>
+          </div>
         </div>
 
       </section>
