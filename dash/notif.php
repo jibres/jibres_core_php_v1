@@ -245,5 +245,44 @@ class notif
 	{
 		self::$notif = [];
 	}
+
+
+	public static function get_in_html()
+	{
+		$notif = self::get();
+		if(isset($notif['msg']) && is_array($notif['msg']))
+		{
+			foreach ($notif['msg'] as $key => $value)
+			{
+				if(isset($value['type']) && isset($value['text']))
+				{
+					$class = null;
+					switch ($value['type'])
+					{
+						case 'error':
+							$class = 'danger2';
+							break;
+
+						case 'ok':
+							$class = 'success2';
+							break;
+						case 'warn':
+							$class = 'warn2';
+							break;
+
+						case 'info':
+							$class = 'info2';
+							break;
+
+						default:
+							/*nothing*/
+							break;
+					}
+
+					echo '<div class="msg '. $class. '">'. $value['text']. '</div>';
+				}
+			}
+		}
+	}
 }
 ?>
