@@ -11,7 +11,7 @@ class model
 		[
 			'inquiry_mode' => 1,
 			'inquiry'      => \dash\request::post('inquiry'),
-			'inquirymsg'   => \dash\request::post('inquirymsg'),
+			'inquirymsg'   => \dash\request::post_raw('inquirymsg'),
 			'showcomment'  => \dash\request::post('showcomment'),
 			'showpulictag' => \dash\request::post('showpulictag'),
 			'question'     => \dash\request::post('question'),
