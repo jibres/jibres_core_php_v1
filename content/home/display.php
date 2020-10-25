@@ -66,6 +66,7 @@
  <div class="avand-lg impact">
   <div class="f">
     <h2><?php echo T_("Start your online business"); ?></h2>
+    <h3><?php echo T_('No.1 Free eCommerce Solution') ?></h3>
   </div>
 
   <div class="title mT20">
