@@ -23,7 +23,14 @@ class get
 
 	public static function all_tag()
 	{
-		$result = \lib\db\form_tag\get::all_tag();
+		$id = \dash\request::get('id');
+		$id = \dash\validate::id($id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$result = \lib\db\form_tag\get::all_tag($id);
 		return $result;
 	}
 

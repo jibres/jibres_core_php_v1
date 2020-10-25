@@ -24,6 +24,48 @@ class run
 	}
 
 
+	public static function get_raw_query_string($_form_id, $_filter_id)
+	{
+		$table_name	 = \lib\app\form\view\get::is_created_table($_form_id);
+
+		$where_list = \lib\app\form\filter\get::where_list($_filter_id, $_form_id);
+
+		if(!$table_name)
+		{
+			\dash\notif::error(T_("Table not created"));
+			return false;
+		}
+
+
+
+		$all_where = [];
+
+		foreach ($where_list as $key => $value)
+		{
+			if(isset($value['query_condition']))
+			{
+				$temp = " `$table_name`.$value[field] $value[query_condition] ";
+				if(isset($value['value']) && $value['value'])
+				{
+					if($value['query_condition'] === 'LIKE')
+					{
+						$temp .= " '$value[value]%' ";
+					}
+					else
+					{
+						$temp .= " '$value[value]' ";
+					}
+				}
+
+				$all_where[] = $temp;
+			}
+		}
+
+		return $all_where;
+	}
+
+
+
 	public static function run($_form_id, $_filter_id)
 	{
 		$table_name	 = \lib\app\form\view\get::is_created_table($_form_id);

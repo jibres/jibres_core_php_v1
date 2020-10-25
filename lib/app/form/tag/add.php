@@ -5,6 +5,62 @@ namespace lib\app\form\tag;
 class add
 {
 
+	public static function to_filter($_args)
+	{
+		$condition =
+		[
+			'tag'       => 'string_50',
+			'type'      => ['enum' => ['include', 'notinclude', 'all']],
+			'filter_id' => 'id',
+			'form_id'   => 'id',
+		];
+
+		$require = ['tag', 'type', 'filter_id', 'form_id'];
+
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$tag_id = null;
+
+		$check_duplicate = \lib\db\form_tag\get::check_duplicate_title($data['tag'], $data['form_id']);
+
+		if(isset($check_duplicate['id']))
+		{
+			$tag_id = $check_duplicate['id'];
+		}
+		else
+		{
+			$insert_args = \lib\app\form\tag\check::variable(['title' => $data['tag'], 'form_id' => $data['form_id']]);
+			if(!$insert_args || !\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			$tag_id = \lib\db\form_tag\insert::new_record($insert_args);
+		}
+
+		if(!$tag_id)
+		{
+			\dash\notif::error(T_("Can not add tag"));
+			return false;
+		}
+
+
+		$where = \lib\app\form\filter\run::get_raw_query_string($data['form_id'], $data['filter_id']);
+
+		$table_name	 = \lib\app\form\view\get::is_created_table($data['form_id']);
+
+
+		\lib\db\form_tag\insert::apply_to_filter($tag_id, $data['form_id'], $table_name, $where, $data['type']);
+
+
+		\dash\notif::ok(T_("Tag added"));
+		return true;
+
+	}
+
 	public static function add($_args)
 	{
 		if(!\lib\store::id())

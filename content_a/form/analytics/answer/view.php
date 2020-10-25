@@ -71,6 +71,21 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
+		$all_tag = \lib\app\form\tag\get::all_tag();
+		\dash\data::allTagList($all_tag);
+
+
+		$tag_list = \lib\app\form\tag\get::answer_tag(\dash\request::get('aid'));
+		if(!is_array($tag_list))
+		{
+			$tag_list = [];
+		}
+		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
+
+
+		$comment_list = \lib\app\form\comment\get::get(\dash\request::get('aid'));
+
+		\dash\data::commentList($comment_list);
 		// $load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
 
 		// \dash\data::formItems($load_items);

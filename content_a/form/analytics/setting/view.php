@@ -16,7 +16,7 @@ class view
 
 		\dash\data::fields($fields);
 
-		\dash\face::btnSave('form1');
+		// \dash\face::btnSave('form1');
 
 		if(\dash\request::get('export') === 'export')
 		{
@@ -67,6 +67,11 @@ class view
 			\dash\file::download($addr);
 
 		}
+
+
+		$all_tag = \lib\app\form\tag\get::all_tag();
+		\dash\data::allTagList($all_tag);
+
 
 
 

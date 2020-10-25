@@ -1026,6 +1026,17 @@ class TransStatic
 
 	echo T_("Archive");
 	echo T_("archive");
+
+
+	echo T_("Privacy");
+	echo T_("privacy");
+
+	echo T_("Public");
+	echo T_("public");
+
+	echo T_("Private");
+	echo T_("private");
+
  }
 }
 ?>

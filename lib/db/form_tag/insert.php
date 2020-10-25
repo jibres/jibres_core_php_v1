@@ -4,10 +4,63 @@ namespace lib\db\form_tag;
 
 class insert
 {
+
+	public static function apply_to_filter($_tag_id, $_form_id, $_table_name, $_where, $_type)
+	{
+		if(!$_where)
+		{
+			return false;
+		}
+
+		$where = implode(' AND ', $_where);
+
+		if($_type === 'include' || $_type === 'notinclude')
+		{
+			$type = $_type === 'include' ? '  ' : ' NOT  ';
+
+			$query =
+			"
+				INSERT INTO
+					`form_tagusage`
+					(`form_tag_id`,`form_id`, `answer_id`)
+				SELECT
+					$_tag_id,
+					$_form_id,
+					`$_table_name`.`f_answer_id`
+				FROM
+					`$_table_name`
+				WHERE $type	( $where )
+			";
+
+		}
+		else
+		{
+			$query =
+			"
+				INSERT INTO
+					`form_tagusage`
+					(`form_tag_id`,`form_id`, `answer_id`)
+				SELECT
+					$_tag_id,
+					$_form_id,
+					`$_table_name`.`f_answer_id`
+				FROM
+					`$_table_name`
+			";
+		}
+
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
 	public static function multi_insert()
 	{
 		return \dash\db\config::public_multi_insert('form_tag', ...func_get_args());
 	}
+
+
 
 	public static function new_record($_args)
 	{
@@ -31,16 +84,5 @@ class insert
 	}
 
 
-
-	public static function apply_to_all_product($_tag_id)
-	{
-		$query_delete_current_tag = "DELETE FROM form_tagusage WHERE form_tagusage.form_tag_id = $_tag_id ";
-		\dash\db::query($query_delete_current_tag);
-
-		$query = "INSERT INTO `form_tagusage` (`form_tag_id`,`answer_id`) SELECT $_tag_id, products.id FROM products WHERE products.status != 'deleted' ";
-		$result = \dash\db::query($query);
-		return $result;
-
-	}
 }
 ?>

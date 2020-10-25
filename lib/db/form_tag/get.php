@@ -4,10 +4,10 @@ namespace lib\db\form_tag;
 
 class get
 {
-	public static function all_tag()
+	public static function all_tag($_id)
 	{
 
-		$query  = "SELECT form_tag.id, form_tag.title FROM form_tag ";
+		$query  = "SELECT form_tag.id, form_tag.title FROM form_tag WHERE form_tag.form_id = $_id ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
@@ -103,9 +103,9 @@ class get
 
 
 
-	public static function check_duplicate_title($_title)
+	public static function check_duplicate_title($_title, $_form_id)
 	{
-		$query  = "SELECT * FROM form_tag WHERE form_tag.title = '$_title'  LIMIT 1";
+		$query  = "SELECT * FROM form_tag WHERE form_tag.title = '$_title' AND form_tag.form_id = $_form_id  LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

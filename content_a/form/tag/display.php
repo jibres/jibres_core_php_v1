@@ -53,7 +53,7 @@ if(!is_array($dataTable))
               <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
             <?php } //endif ?>
 
-        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small><?php echo T_("Form"); ?></small></div>
+        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small><?php echo T_("Answer"); ?></small></div>
         <div class="go"></div>
       </a>
      </li>
