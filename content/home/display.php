@@ -269,3 +269,13 @@
   <span>تهحقثس</span>
   <span>سشمث</span>
 </div>
+
+
+<section id='jibresPrivacy'>
+  <div class="avand-md">
+    <div class="securitySign"></div>
+    <h2><a href="<?php echo \dash\url::kingdom() ?>/privacy"><?php echo T_("Security & Privacy") ?></a></h2>
+    <p><?php echo T_("Privacy is at the core of everything we do. We are here to protect your information. Privacy is one of our most important core values. In a world of increasing complexity we firmly believe your data is yours and yours alone.") ?></p>
+  </div>
+</section>
+
