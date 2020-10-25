@@ -61,7 +61,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
               </li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/pricing">
-                  <div class="key"><?php echo T_('Pricing'); ?></div>
+                  <div class="key"><?php echo T_('Jibres Pricing'); ?></div>
                   <div class="go"></div>
                 </a>
               </li>

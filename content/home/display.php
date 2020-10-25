@@ -9,7 +9,7 @@
         <input class="input" type="tel" data-format="mobile-enter" maxlength="15" name="mobile" placeholder="<?php echo T_("Enter your mobile number") ?>">
       </div>
       <div class="c-xs-12 c-sm-4 c-lg-4">
-        <button class="btn3"><?php echo T_("Enter") ?></button>
+        <button class="btn3"><?php echo T_("Go") ?></button>
       </div>
     </form>
   <?php } // endif ?>
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="txtC">
+    <div class="txtC mT10">
       <a class="hey" href="<?php echo \dash\url::kingdom() ?>/about"><div class="inside"><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?></div></a>
     </div>
 
