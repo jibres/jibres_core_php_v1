@@ -55,7 +55,9 @@ class view
 
 
 
-		\dash\face::title(\dash\face::site(). ' - '. T_('Start Selling'));
+		// \dash\face::title(\dash\face::site(). ' - '. T_('Start Selling'));
+		\dash\face::title(\dash\face::site(). ' - '. T_('No.1 Free eCommerce Solution'));
+
 		// for bots check seo title
 		if(\dash\agent::isBot())
 		{
