@@ -12,7 +12,7 @@
         {
          echo "src='". \dash\url::cdn(). "/logo/en/svg/Jibres-Logo-en.svg". "' alt='". T_('Jibres Logo'). "'";
         }
-       ?>><h1><?php echo T_("Jibres"); ?></h1></a>
+       ?>><h1><?php echo T_("Jibres"); ?> - <?php echo T_('No.1 Free eCommerce Solution'); ?></h1></a>
      </div>
      <nav class="c s0">
        <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
