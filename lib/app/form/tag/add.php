@@ -104,12 +104,98 @@ class add
 	}
 
 
-
-
-
-	public static function answer_add($_tag, $_answer_id, $_form_id)
+	public static function force_add($_tag, $_form_id)
 	{
-		if(!\dash\permission::check('formAssignTag'))
+		$get = \lib\db\form_tag\get::by_title($_tag, $_form_id);
+		if(isset($get['id']))
+		{
+			return $get;
+		}
+		else
+		{
+
+			$args = ['title' => $_tag, 'form_id' => $_form_id];
+
+			$args = \lib\app\form\tag\check::variable($args);
+			if(!$args)
+			{
+				return false;
+			}
+
+
+			$args['datecreated'] = date("Y-m-d H:i:s");
+			$args['status']      = 'enable';
+			$args['creator']     = \dash\user::id();
+			$args['language']    = \dash\language::current();
+
+			$id = \lib\db\form_tag\insert::new_record($args);
+			if(!$id)
+			{
+				\dash\log::set('formTagDbErrorInsert');
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
+			}
+
+			$result       = [];
+			$result['id'] = $id;
+			return $result;
+		}
+	}
+
+
+
+	public static function answer_tag_plus($_tag, $_answer_id, $_form_id)
+	{
+		$_answer_id = \dash\validate::id($_answer_id);
+		if(!$_answer_id)
+		{
+			\dash\notif::error(T_("Answer id is required"));
+			return false;
+		}
+
+		$load_form = \lib\app\form\form\get::get($_form_id);
+
+		if(!$load_form)
+		{
+			return false;
+		}
+
+		$load_tag = \lib\app\form\tag\add::force_add($_tag, $_form_id);
+		if(!$load_tag || !isset($load_tag['id']))
+		{
+			return false;
+		}
+
+		$tag_id = $load_tag['id'];
+
+
+		$check_answer_have_cat = \lib\db\form_tagusage\get::check_answer_have_tag($_answer_id, $tag_id);
+
+		if($check_answer_have_cat)
+		{
+			return true;
+		}
+		else
+		{
+			$insert =
+			[
+				'form_tag_id' => $tag_id,
+				'answer_id'   => $_answer_id,
+				'form_id'     => $_form_id,
+			];
+
+			\lib\db\form_tagusage\insert::new_record($insert);
+
+			return true;
+		}
+
+	}
+
+
+
+	public static function answer_add($_tag, $_answer_id, $_form_id, $_force = false)
+	{
+		if(!\dash\permission::check('formAssignTag') && !$_force)
 		{
 			return false;
 		}

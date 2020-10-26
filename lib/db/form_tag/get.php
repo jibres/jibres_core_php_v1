@@ -71,6 +71,13 @@ class get
 		return $result;
 	}
 
+	public static function by_title($_title, $_form_id)
+	{
+		$query  = "SELECT * FROM form_tag WHERE form_tag.title = '$_title' AND form_tag.form_id = $_form_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function by_slug($_slug)
 	{

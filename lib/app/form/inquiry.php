@@ -142,7 +142,7 @@ class inquiry
 
 		$result = \lib\db\form_answerdetail\get::by_items_id_answer(implode(',', $trust_field), $q);
 
-		if(!$result || !isset($result['answer_id']))
+		if(!$result || !isset($result['answer_id']) || !isset($result['form_id']))
 		{
 			\dash\notif::error(T_("You have not complete this form"));
 			return false;
@@ -150,6 +150,11 @@ class inquiry
 
 		$answer_id = $result['answer_id'];
 
+		// add tag to this answer
+		$x = \lib\app\form\tag\add::answer_tag_plus(T_("Viewd"), $answer_id, $result['form_id'], true);
+
+
+		\dash\data::answerID($answer_id);
 
 		$tag_list = \lib\app\form\tag\get::public_answer_tag($answer_id);
 

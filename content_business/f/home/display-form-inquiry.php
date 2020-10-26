@@ -21,6 +21,12 @@ if(!is_array($formItems))
 
 					<div class="pad">
 
+						<?php if(\dash\data::answerID()) {?>
+							<div class="msg minimal">
+								<?php echo T_("Your tracking numbert is") ?> <code><?php echo \dash\data::answerID() ?></code>
+							</div>
+						<?php } //endif ?>
+
 
 					<?php if(\dash\data::tagList()) {?>
 						<?php foreach (\dash\data::tagList() as $key => $value) {?>

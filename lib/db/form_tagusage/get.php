@@ -68,7 +68,7 @@ class get
 	}
 
 
-		public static function check_product_have_tag($_answer_id, $_tag_id)
+		public static function check_answer_have_tag($_answer_id, $_tag_id)
 	{
 		$query  = "SELECT * FROM form_tagusage WHERE form_tagusage.form_tag_id = $_tag_id AND form_tagusage.answer_id = $_answer_id LIMIT 1 ";
 		$result = \dash\db::get($query, null, true);
