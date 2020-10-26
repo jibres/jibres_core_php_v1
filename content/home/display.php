@@ -71,7 +71,7 @@
  </div>
 </section>
 
-
+<?php if(\dash\language::current() === 'fa') {?>
 <section id="jibresDomain">
   <div class="avand-md">
    <h2><a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Jibres Domain Center"); ?></a></h2>
@@ -87,6 +87,7 @@
    <p class="txtC fc-mute"><?php echo T_('Every website starts with a great domain name. Jibres offers cheap domain names with the most reliable service. Buy domain names with Jibres and see why we are cool!'); ?></p>
   </div>
 </section>
+<?php }?>
 
 
 
