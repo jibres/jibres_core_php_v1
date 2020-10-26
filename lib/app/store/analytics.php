@@ -23,7 +23,7 @@ class analytics
 			//
 			'dbsize'               => ['group' => T_("Database"), 'title' => T_('Database Size'), 'important' => true,],
 
-			'users'                => ['group' => T_("Users"), 'title' => T_('Users') , 'important' => true,],
+			'user'                => ['group' => T_("Users"), 'title' => T_('Users') , 'important' => true,],
 			'customer'             => ['group' => T_("Users"), 'title' => T_('Customer')],
 			'staff'                => ['group' => T_("Users"), 'title' => T_('Staff')],
 			'comment'              => ['group' => T_("Users"), 'title' => T_('Comment')],
