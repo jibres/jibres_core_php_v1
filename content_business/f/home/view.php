@@ -41,6 +41,11 @@ class view
 				\dash\face::cover(\dash\data::formDetail_inquiryimage());
 				\dash\face::twitterCard('summary_large_image');
 			}
+
+			if(\dash\data::formDetail_inquirymsg())
+			{
+				\dash\face::desc(strip_tags(\dash\data::formDetail_inquirymsg()));
+			}
 		}
 
 		self::static_var();
