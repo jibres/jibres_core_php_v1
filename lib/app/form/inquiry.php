@@ -17,6 +17,21 @@ class inquiry
 			return false;
 		}
 
+		echo '<form method="get" autocomplete="off" action="'.\dash\url::current().'">';
+		echo '<input type="hidden" name="i" value="1">';
+		echo '<label >'. T_("Search"). '</label>';
+		echo '</label>';
+
+		echo '<div class="input">';
+		echo '<input type="tel" name="q" ';
+		echo ' maxlength=15 ';
+		echo '>';
+		echo '<button class="addon btn primary2"><i class="sf-search"></i></button>';
+		echo '</div>';
+		echo '</form>';
+
+		return;
+
 		foreach ($_items as $key => $value)
 		{
 			if(in_array($value['id'], $question))
@@ -44,10 +59,11 @@ class inquiry
 		$f = \dash\request::get('f');
 		$q = \dash\request::get('q');
 
-		$f = \dash\validate::id($f, false);
+		// $f = \dash\validate::id($f, false);
 		$q = \dash\validate::search($q, false);
 
-		if(!$f || !$q)
+		// if(!$f || !$q)
+		if(!$q)
 		{
 			return false;
 		}
@@ -82,49 +98,49 @@ class inquiry
 			}
 		}
 
-		if(!in_array($f, $trust_field))
+		if(!$trust_field)
 		{
 			return false;
 		}
 
-		if(!isset($current_search['type']))
-		{
-			return false;
-		}
+		// if(!isset($current_search['type']))
+		// {
+		// 	return false;
+		// }
 
-		$search = null;
+		// $search = null;
 
-		if($current_search['type'] === 'mobile')
-		{
-			$search = \dash\validate::mobile($q, false);
-			if(!$search)
-			{
-				\dash\notif::error(T_("Invalid mobile"));
-				return false;
-			}
-		}
-		elseif($current_search['type'] === 'nationalcode')
-		{
-			$search = \dash\validate::nationalcode($q, false);
-			if(!$search)
-			{
-				\dash\notif::error(T_("Invalid nationalcode"));
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		// if($current_search['type'] === 'mobile')
+		// {
+		// 	$search = \dash\validate::mobile($q, false);
+		// 	if(!$search)
+		// 	{
+		// 		\dash\notif::error(T_("Invalid mobile"));
+		// 		return false;
+		// 	}
+		// }
+		// elseif($current_search['type'] === 'nationalcode')
+		// {
+		// 	$search = \dash\validate::nationalcode($q, false);
+		// 	if(!$search)
+		// 	{
+		// 		\dash\notif::error(T_("Invalid nationalcode"));
+		// 		return false;
+		// 	}
+		// }
+		// else
+		// {
+		// 	return false;
+		// }
 
-		if(!$search)
-		{
-			return false;
-		}
+		// if(!$search)
+		// {
+		// 	return false;
+		// }
 
 		\dash\data::inquiryExec(true);
 
-		$result = \lib\db\form_answerdetail\get::by_item_id_answer($f, $search);
+		$result = \lib\db\form_answerdetail\get::by_items_id_answer(implode(',', $trust_field), $q);
 
 		if(!$result || !isset($result['answer_id']))
 		{
