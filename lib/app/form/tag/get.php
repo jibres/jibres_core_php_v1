@@ -40,6 +40,40 @@ class get
 	{
 		$get_usage = \lib\db\form_tagusage\get::usage_public($_answer_id);
 
+		if(!is_array($get_usage))
+		{
+			$get_usage = [];
+		}
+
+		foreach ($get_usage as $key => $value)
+		{
+			if(isset($value['color']) && $value['color'])
+			{
+				switch ($value['color'])
+				{
+					case 'red':
+						$get_usage[$key]['class'] = 'danger2';
+						break;
+
+					case 'green':
+						$get_usage[$key]['class'] = 'success2';
+						break;
+
+					case 'blue':
+						$get_usage[$key]['class'] = 'primary2';
+						break;
+
+					case 'black':
+						$get_usage[$key]['class'] = 'secondary2';
+						break;
+
+					default:
+						$get_usage[$key]['class'] = '';
+						break;
+				}
+			}
+		}
+
 		return $get_usage;
 	}
 

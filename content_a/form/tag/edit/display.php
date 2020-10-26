@@ -14,7 +14,8 @@
             </div>
 
 
-         <div class="row">
+          <label class=""><?php echo T_("Privacy") ?></label>
+         <div class="row mB10">
             <div class="c-xs-6 c-sm-6">
               <div class="radio3">
                 <input type="radio" name="privacy" value="public" <?php if(\dash\data::dataRow_privacy() === 'public') {echo 'checked';} ?>  id="privacypublic">
@@ -28,6 +29,39 @@
               </div>
             </div>
           </div>
+
+          <label class=""><?php echo T_("Color") ?></label>
+           <div class="row">
+            <div class="c-xs-6 c-sm-3">
+              <div class="radio3">
+                <input type="radio" name="color" value="red" <?php if(\dash\data::dataRow_color() === 'red') {echo 'checked';} ?>  id="colorred">
+                <label for="colorred"><?php echo T_("Red") ?></label>
+              </div>
+            </div>
+            <div class="c-xs-6 c-sm-3">
+              <div class="radio3">
+                <input type="radio" name="color" value="green"  <?php if(\dash\data::dataRow_color() === 'green') {echo 'checked';} ?> id="colorgreen">
+                <label for="colorgreen"><?php echo T_("Green") ?></label>
+              </div>
+            </div>
+
+             <div class="c-xs-6 c-sm-3">
+              <div class="radio3">
+                <input type="radio" name="color" value="blue"  <?php if(\dash\data::dataRow_color() === 'blue') {echo 'checked';} ?> id="colorblue">
+                <label for="colorblue"><?php echo T_("Blue") ?></label>
+              </div>
+            </div>
+
+             <div class="c-xs-6 c-sm-3">
+              <div class="radio3">
+                <input type="radio" name="color" value="black"  <?php if(\dash\data::dataRow_color() === 'black') {echo 'checked';} ?> id="colorblack">
+                <label for="colorblack"><?php echo T_("Black") ?></label>
+              </div>
+            </div>
+
+          </div>
+
+
         </div>
 
       </section>

@@ -14,6 +14,7 @@ class check
 			'slug'    => 'slug',
 			'form_id' => 'id',
 			'privacy' => ['enum' => ['public', 'private']],
+			'color'   => ['enum' => ['red', 'green', 'blue', 'black']],
 
 		];
 

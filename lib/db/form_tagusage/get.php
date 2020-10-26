@@ -18,9 +18,8 @@ class get
 				form_tag.id AS `form_tag_id`,
 				form_tag.title,
 				form_tag.slug,
-				form_tag.desc
-
-
+				form_tag.desc,
+				form_tag.color
 			FROM
 				form_tagusage
 			INNER JOIN form_tag ON form_tag.id = form_tagusage.form_tag_id

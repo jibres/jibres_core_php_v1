@@ -24,7 +24,7 @@ if(!is_array($formItems))
 
 					<?php if(\dash\data::tagList()) {?>
 						<?php foreach (\dash\data::tagList() as $key => $value) {?>
-							<div class="msg minimal">
+							<div class="msg minimal <?php echo \dash\get::index($value, 'class') ?>">
 								<?php if(\dash\get::index($value, 'desc')) {?><p><?php echo \dash\get::index($value, 'desc') ?></p><?php } //endif ?>
 							</div>
 						<?php } //endfor ?>

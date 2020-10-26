@@ -168,7 +168,7 @@ class inquiry
 		echo '</label>';
 
 		echo '<div class="input">';
-		echo '<input type="text" name="q" ';
+		echo '<input type="tel" name="q" ';
 
 		if($_type === 'mobile')
 		{
