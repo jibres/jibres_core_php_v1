@@ -34,6 +34,15 @@ class view
 			\dash\face::twitterCard('summary_large_image');
 		}
 
+		if(\dash\data::inquiryForm())
+		{
+			if(\dash\data::formDetail_inquiryimage())
+			{
+				\dash\face::cover(\dash\data::formDetail_inquiryimage());
+				\dash\face::twitterCard('summary_large_image');
+			}
+		}
+
 		self::static_var();
 	}
 

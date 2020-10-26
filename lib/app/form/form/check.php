@@ -27,6 +27,7 @@ class check
 			'showcomment'  => 'bit',
 			'showpulictag' => 'bit',
 			'question'     => 'array',
+			'inquiryimage' => 'string_1000',
 
 
 		];

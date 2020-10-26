@@ -17,6 +17,11 @@ class model
 			'question'     => \dash\request::post('question'),
 		];
 
+		if(\dash\request::files('file'))
+		{
+			$post['inquiryimage']   = \dash\upload\form::form($form_id);
+		}
+
 		$result = \lib\app\form\form\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())

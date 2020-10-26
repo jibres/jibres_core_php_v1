@@ -72,6 +72,7 @@ class ready
 					break;
 
 				case 'file':
+				case 'inquiryimage':
 					if($value)
 					{
 						$value = \lib\filepath::fix($value);
