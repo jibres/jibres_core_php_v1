@@ -166,7 +166,7 @@ echo " data-preload";
 ?>
 
  <div class="js">
-  <script async src="<?php echo \dash\layout\func::staticmtime('js/siftal.min.js');?>"></script>
+  <script async src="<?php echo \dash\layout\func::staticmtime('js/jibres.min.js');?>"></script>
 <?php
 // load pageScript
 \dash\layout\find::pageScript();
