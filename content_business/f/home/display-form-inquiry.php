@@ -12,17 +12,6 @@ if(!is_array($formItems))
 <?php if(\dash\data::formDetail_inquiry()) {?>
 
 	<div class="avand-md">
-		<div class="box">
-			<div class="pad">
-
-				<div class="body" data-jform>
-					<?php if(\dash\data::formDetail_inquirymsg()) {?>
-						<div class="mB20"><?php echo \dash\data::formDetail_inquirymsg() ?></div>
-					<?php } // endif ?>
-					<?php \lib\app\form\inquiry::items(\dash\data::formDetail(), $formItems);?>
-				</div>
-			</div>
-			</div>
 			<?php if(\dash\data::inquiryExec()) {?>
 				<div class="font-18 txtC txtB">
 					<?php \dash\notif::get_in_html() ?>
@@ -56,6 +45,17 @@ if(!is_array($formItems))
 			<?php } //endif ?>
 
 			<?php } //endif ?>
+		<div class="box">
+			<div class="pad">
+
+				<div class="body" data-jform>
+					<?php if(\dash\data::formDetail_inquirymsg()) {?>
+						<div class="mB20"><?php echo \dash\data::formDetail_inquirymsg() ?></div>
+					<?php } // endif ?>
+					<?php \lib\app\form\inquiry::items(\dash\data::formDetail(), $formItems);?>
+				</div>
+			</div>
+			</div>
 	</div>
 
 <?php } //endif ?>

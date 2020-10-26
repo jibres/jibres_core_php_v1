@@ -271,7 +271,7 @@ class notif
 							break;
 
 						case 'info':
-							$class = 'info2';
+							// $class = 'info2';
 							break;
 
 						default:
