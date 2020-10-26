@@ -22,7 +22,7 @@ class search_table
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_hot_query = [])
 	{
 
 		$condition =
@@ -37,6 +37,7 @@ class search_table
 			'export'      => 'bit',
 			'start_limit' => 'int',
 			'limit'       => 'int',
+			'get_count' => 'bit',
 		];
 
 		$require = ['table_name'];
@@ -100,6 +101,14 @@ class search_table
 						$and[] = $temp;
 					}
 				}
+
+				if($_hot_query && is_array($_hot_query))
+				{
+					foreach ($_hot_query as $hv)
+					{
+						$and[] = $hv;
+					}
+				}
 			}
 		}
 
@@ -142,7 +151,15 @@ class search_table
 			$order_sort = " ORDER BY $data[table_name].id ASC";
 		}
 
-		$list = \lib\db\form_view\search_table::list($data['table_name'], $and, $or, $order_sort, $meta);
+		if($data['get_count'])
+		{
+			$list = \lib\db\form_view\search_table::list_count($data['table_name'], $and, $or, $order_sort, $meta);
+			return floatval($list);
+		}
+		else
+		{
+			$list = \lib\db\form_view\search_table::list($data['table_name'], $and, $or, $order_sort, $meta);
+		}
 
 		if(!is_array($list))
 		{

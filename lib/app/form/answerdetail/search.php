@@ -22,7 +22,7 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_hot_query = [])
 	{
 
 		$condition =
@@ -36,6 +36,7 @@ class search
 			'export'     => 'bit',
 			'filter_id'  => 'id',
 			'table_name' => 'string_100',
+			'get_count'  => 'bit',
 		];
 
 		$require = [];
@@ -87,6 +88,15 @@ class search
 					}
 
 				}
+
+				if($_hot_query && is_array($_hot_query))
+				{
+					foreach ($_hot_query as $hv)
+					{
+						$answer_id_in[] = $hv;
+					}
+				}
+
 				$answer_id_in = " form_answerdetail.answer_id IN ( SELECT $data[table_name].f_answer_id FROM $data[table_name] WHERE ". implode(' AND ', $answer_id_in). ')';
 
 				$and[] = $answer_id_in;
@@ -139,7 +149,16 @@ class search
 			$order_sort = " ORDER BY form_answerdetail.id ASC";
 		}
 
-		$list = \lib\db\form_answerdetail\search::list($and, $or, $order_sort, $meta);
+		if($data['get_count'])
+		{
+			$list = \lib\db\form_answerdetail\search::list_count($and, $or, $order_sort, $meta);
+			return floatval($list);
+
+		}
+		else
+		{
+			$list = \lib\db\form_answerdetail\search::list($and, $or, $order_sort, $meta);
+		}
 
 		if(!is_array($list))
 		{

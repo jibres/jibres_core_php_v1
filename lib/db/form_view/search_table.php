@@ -26,6 +26,30 @@ class search_table
 
 
 
+	public static function list_count($_table, $_and = null, $_or = null, $_order_sort = null, $_meta = [])
+	{
+
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+
+
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM `$_table`
+			$q[join]
+			$q[where]
+
+		";
+
+		$result = \dash\db::get($query, 'count', true);
+
+
+		return $result;
+
+	}
+
 
 
 	public static function list($_table, $_and = null, $_or = null, $_order_sort = null, $_meta = [])

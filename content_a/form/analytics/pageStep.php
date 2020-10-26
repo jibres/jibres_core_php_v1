@@ -37,6 +37,13 @@
     </a>
   </div>
 
+   <div class="c pRa10">
+    <a href="<?php echo \dash\url::that(). '/province?'. \dash\request::fix_get(['field' => null]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'province') { echo 'active'; } ?>">
+      <h3><?php echo T_("Province");?></h3>
+      <div class="val"><i class="sf-globe"></i></div>
+    </a>
+  </div>
+
   <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '/tag?'. \dash\request::fix_get(['field' => null]); ?>" class="stat x70 <?php if(\dash\url::subchild() === 'tag') { echo 'active'; } ?>">
       <h3><?php echo T_("Tag");?></h3>
