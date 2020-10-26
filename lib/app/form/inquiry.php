@@ -150,7 +150,7 @@ class inquiry
 
 		\dash\data::inquiryExecHaveResult($comment_list || $tag_list);
 
-		\dash\notif::ok(T_("You have already complete this form"));
+		\dash\notif::info(T_("You have already complete this form"));
 
 		return true;
 
