@@ -67,7 +67,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
               </li>
               <li>
                 <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
-                  <div class="key"><?php echo T_('Developers API'); ?></div>
+                  <div class="key">API</div>
                   <div class="go"></div>
                 </a>
               </li>
