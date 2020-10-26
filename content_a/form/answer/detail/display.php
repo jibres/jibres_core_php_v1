@@ -22,7 +22,15 @@
         <tr>
       <?php } //endif ?>
           <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
-          <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
+          <td class="">
+            <?php if(\dash\get::index($value, 'province_name') || \dash\get::index($value, 'city_name')) {?>
+              <?php echo \dash\get::index($value, 'province_name'); ?>
+              <?php echo \dash\get::index($value, 'city_name'); ?>
+            <?php }else{ ?>
+              <?php echo \dash\get::index($value, 'answer'); ?>
+              <?php echo \dash\get::index($value, 'textarea'); ?>
+            <?php } //endif ?>
+          </td>
       <?php  if(!($i % 2)) { ?>
         </tr>
       <?php } //endif ?>
@@ -54,7 +62,16 @@
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
           <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
-          <td class=""><?php echo \dash\get::index($value, 'answer'); ?><?php echo \dash\get::index($value, 'textarea'); ?></td>
+          <td class="">
+            <?php if(\dash\get::index($value, 'province_name') || \dash\get::index($value, 'city_name')) {?>
+              <?php echo \dash\get::index($value, 'province_name'); ?>
+              <?php echo \dash\get::index($value, 'city_name'); ?>
+            <?php }else{ ?>
+              <?php echo \dash\get::index($value, 'answer'); ?>
+              <?php echo \dash\get::index($value, 'textarea'); ?>
+            <?php } //endif ?>
+
+            </td>
         </tr>
 <?php } //endif ?>
     </tbody>
