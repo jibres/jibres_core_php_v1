@@ -65,12 +65,8 @@
 <section id='saleChannels'>
  <div class="avand-lg impact">
   <div class="f">
-    <h2><?php echo T_("Start your online business"); ?></h2>
-    <h3><?php echo T_('No.1 Free eCommerce Solution') ?></h3>
-  </div>
-
-  <div class="title mT20">
-   <p><?php echo T_('Sales channels represent the different marketplaces where you sell your products.'); ?></p>
+    <h3><?php echo T_("Start your online business"); ?></h3>
+    <h4><?php echo T_('No.1 Free eCommerce Solution') ?></h4>
   </div>
  </div>
 </section>
@@ -96,7 +92,7 @@
 
 <section id='statistic'>
   <div class="avand">
-    <h2 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h2>
+    <h3 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h3>
     <div class="f txtC">
       <div class="c s12 pA10">
           <div class="fs50"><?php echo \dash\fit::stats(\dash\data::homepagenumber_product()) ?>+</div>
@@ -119,10 +115,10 @@
   <div class="avand">
     <div class="row align-center">
       <div class="c-xs-12 c-sm-6">
-        <h2><?php echo T_("Create an Invoice You're Proud Of"); ?></h2>
+        <h3><?php echo T_("Create an Invoice You're Proud Of"); ?></h3>
       </div>
       <div class="c-xs-12 c-sm-6">
-        <h3><?php echo T_("Invoice your customers in seconds"); ?></h3>
+        <h2><?php echo T_("Invoice your customers in seconds"); ?></h2>
         <p><?php echo T_("Create, send, and track professional invoices in seconds. Customize awesome invoices to reflect your brand and increase your customer's trust. Add your company logo, personalize the free invoice template, and create impressive invoices and estimates within seconds."); ?></p>
         <p><?php echo T_("Looking to send an invoice right now? Use Jibres online invoice generator to be more productive. Create and send a beautiful invoice from any device, anytime.") ?></p>
 
@@ -135,49 +131,49 @@
 
 <section id="jibresFeatures">
   <div class="avand-lg">
-    <h2><?php echo T_("All the tools you need..."); ?></h2>
+    <h3><?php echo T_("All-in-one Commerce Solution for your Business"); ?></h3>
     <div class="row">
       <div class="item c-xs-12 c-sm-12 c-md-4">
-        <a href="">
+        <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-lamp"></i>
-          <h3><?php echo T_("SEO Optimized"); ?></h3>
+          <h4><?php echo T_("SEO Optimized"); ?></h4>
           <p><?php echo T_("Billions of searches are conducted online every single day. Many people search for specific products and services with the intent to pay for these things."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
-        <a href="">
+        <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-database"></i>
-          <h3><?php echo T_("Fully Hosted"); ?></h3>
+          <h4><?php echo T_("Fully Hosted"); ?></h4>
           <p><?php echo T_("We are maintain your store files and data in the cloud. You would not need to setup your own server, we are storing your data for you."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
-        <a href="">
+        <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-shield"></i>
-          <h3><?php echo T_("Free SSL Certificate"); ?></h3>
+          <h4><?php echo T_("Free SSL Certificate"); ?></h4>
           <p><?php echo T_("SSL Protection For Anyone."); ?></p><p><?php echo T_("Protect you information, generate trust and improve Search Engine Ranking.") ?></p>
         </a>
       </div>
     </div>
     <div class="row">
       <div class="item c-xs-12 c-sm-12 c-md-4">
-        <a href="">
+        <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-card"></i>
-          <h3><?php echo T_("Accept Credit Cards"); ?></h3>
+          <h4><?php echo T_("Accept Credit Cards"); ?></h4>
           <p><?php echo T_("It's easy to accept various payment options in Jibres, including PayPal, Credit Cards and other offline methods."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
-        <a href="">
+        <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-server-accept"></i>
-          <h3><?php echo T_("Fully API"); ?></h3>
+          <h4><?php echo T_("Fully API"); ?></h4>
           <p><?php echo T_("API gives you full creative control to add Jibres buying experiences anywhere your customers are, including websites, apps, and social networks."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
-        <a href="">
+        <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-heart"></i>
-          <h3><?php echo T_("Premium Support"); ?></h3>
+          <h4><?php echo T_("Premium Support"); ?></h4>
           <p><?php echo T_("With the Most Helpful Humans in the world, You're Never Alone."); ?></p><p><?php echo T_("Rely on our 24/7/365 Human Support.") ?></p>
         </a>
       </div>
