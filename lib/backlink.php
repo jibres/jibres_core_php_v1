@@ -25,7 +25,8 @@ class backlink
 
 	public static function product_barcode_scaned()
 	{
-		\dash\session::clean('backlink_products');
+		\dash\session::clean('backlink_child_products'. '_'. \lib\store::id());
+		\dash\session::clean('backlink_products'. '_'. \lib\store::id());
 	}
 
 
