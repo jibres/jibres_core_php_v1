@@ -799,7 +799,7 @@ class comments
 		$pagenation_query =
 		"SELECT	id	FROM comments WHERE	 comments.status = 'unapproved'
 		 -- comments::admin_get() for pagenation ";
-		list($limit_start, $_limit) = \dash\db\mysql\tools\pagination::pagnation($pagenation_query, $_limit);
+		list($limit_start, $_limit) = \dash\db\mysql\tools\pagination::pagination($pagenation_query, $_limit);
 		$limit = " LIMIT $limit_start, $_limit ";
 
 		$query =

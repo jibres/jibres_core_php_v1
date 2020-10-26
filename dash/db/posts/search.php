@@ -188,7 +188,7 @@ trait search
 		{
 			$pagenation_query = "SELECT	COUNT(*) AS `count` FROM posts WHERE $where $search ";
 			$pagenation_query = \dash\db::get($pagenation_query, 'count', true);
-			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagnation($pagenation_query, $limit);
+			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination($pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
 		else

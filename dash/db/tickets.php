@@ -812,7 +812,7 @@ class tickets
 		$pagenation_query =
 		"SELECT	id	FROM tickets WHERE	tickets.type = 'ticket' AND tickets.status = 'unapproved'
 		 -- tickets::admin_get() for pagenation ";
-		list($limit_start, $_limit) = \dash\db\mysql\tools\pagination::pagnation($pagenation_query, $_limit);
+		list($limit_start, $_limit) = \dash\db\mysql\tools\pagination::pagination($pagenation_query, $_limit);
 		$limit = " LIMIT $limit_start, $_limit ";
 
 		$query =

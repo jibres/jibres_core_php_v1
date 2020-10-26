@@ -54,7 +54,11 @@ class search
 
 		if($query_string)
 		{
+			$meta['join'][] = " LEFT JOIN form_answerdetail ON form_answerdetail.answer_id = form_answer.id ";
+
 			$or[] = " form_answer.id LIKE '%$query_string%' ";
+			$or[] = " form_answerdetail.answer LIKE '%$query_string%' ";
+
 			self::$is_filtered = true;
 		}
 
@@ -85,6 +89,7 @@ class search
 		}
 
 		$list = \lib\db\form_answer\search::list($and, $or, $order_sort, $meta);
+
 
 		if(!is_array($list))
 		{

@@ -294,7 +294,7 @@ class posts
 			";
 
 			$pagenation_query = \dash\db::get($pagenation_query, 'count', true);
-			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagnation((int) $pagenation_query, $_options['limit']);
+			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination((int) $pagenation_query, $_options['limit']);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
 
