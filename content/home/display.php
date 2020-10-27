@@ -150,7 +150,7 @@
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-shield"></i>
+          <i class="sf-unlock-alt"></i>
           <h4><?php echo T_("Free SSL Certificate"); ?></h4>
           <p><?php echo T_("SSL Protection For Anyone."); ?></p><p><?php echo T_("Protect you information, generate trust and improve Search Engine Ranking.") ?></p>
         </a>
