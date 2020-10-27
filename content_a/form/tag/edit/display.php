@@ -84,11 +84,11 @@
             <?php }//endif ?>
           </footer>
         </section>
-    <nav class="items long hide">
+    <nav class="items long">
       <ul>
           <li>
-            <a class="f item" href="<?php echo \dash\url::here(); ?>/forms?tagid=<?php echo \dash\data::dataRow_id(); ?>">
-              <div class="key"><?php echo T_("Show forms by this tag"); ?></div>
+            <a class="f item" href="<?php echo \dash\url::here(). '/form/answer?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'tagid' => \dash\data::dataRow_id()]); ?>">
+              <div class="key"><?php echo T_("Show answer by this tag"); ?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></div>
               <div class="go"></div>
             </a>

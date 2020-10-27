@@ -20,6 +20,7 @@ class view
 		$args['sort']    = 'id';
 		$args['order']   = 'desc';
 		$args['form_id'] = \dash\request::get('id');
+		$args['tag_id'] = \dash\request::get('tagid');
 		$q               = \dash\request::get('q');
 
 		$dataTable = \lib\app\form\answer\search::list($q, $args);

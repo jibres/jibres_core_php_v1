@@ -31,6 +31,7 @@ class search
 			'sort'    => ['enum' => ['id']],
 			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
 			'form_id' => 'id',
+			'tag_id' => 'id',
 		];
 
 		$require = [];
@@ -47,6 +48,14 @@ class search
 		// $meta['pagination'] = false;
 
 		$order_sort  = null;
+
+		if($data['tag_id'])
+		{
+			$meta['join'][] = " LEFT JOIN form_tagusage ON form_tagusage.answer_id = form_answer.id ";
+			$and[] = " form_tagusage.form_tag_id = $data[tag_id] ";
+			self::$is_filtered = true;
+
+		}
 
 
 
