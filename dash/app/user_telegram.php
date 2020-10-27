@@ -200,6 +200,8 @@ class user_telegram
 			return false;
 		}
 
+		unset($args['title']);
+
 		$user_telegram = \dash\db\user_telegram::insert($args);
 
 		if(!$user_telegram)
