@@ -130,6 +130,21 @@
 </section>
 
 
+<section id="jibresForm">
+  <div class="avand-md">
+    <h2><?php echo T_("Free Online Form Builder"); ?></h2>
+
+    <p><?php echo T_("Let us handle your data collection. Focus on the work that can't be automated. Create beautiful online forms without any technical knowledge. Jibres form builder allows you to quickly create efficient forms that are easy to take and get higher completion rates."); ?></p>
+    <p><?php echo T_("Design professional forms with Jibres Online Form Builder. Customize to match your branding. Create a form to register in style, get contact details, or to collect feedback.") ?></p>
+
+    <h5 class="txtB"><?php echo T_("100% Free"); ?></h5>
+    <p><?php echo T_("Every form has its URL, so you can share the form with or without your own website. Create forms and surveys that people enjoy answering with Jibres.") ?></p>
+
+    <h5 class="txtB"><?php echo T_("Reduce paper usage") ?></h5>
+    <p><?php echo T_("Don't let paperwork slow you down anymore. Jibres Forms will increase your efficiency by automating tiresome manual tasks. You'll never have to waste paper and your valuable time again. Sit back and watch your work flow.") ?></p>
+  </div>
+</section>
+
 <section id="jibresFeatures">
   <div class="avand-lg">
     <h3><?php echo T_("All-in-one Commerce Solution for your Business"); ?></h3>
