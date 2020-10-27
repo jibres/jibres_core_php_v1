@@ -104,14 +104,14 @@ class user
 			'status'      => 'active',
 		];
 
-		if(tg::isCallback())
-		{
-			$newUserDetail['status'] = 'callback';
-		}
-		if(tg::isInline())
-		{
-			$newUserDetail['status'] = 'inline';
-		}
+		// if(tg::isCallback())
+		// {
+		// 	$newUserDetail['status'] = 'callback';
+		// }
+		// if(tg::isInline())
+		// {
+		// 	$newUserDetail['status'] = 'inline';
+		// }
 
 		$result = \dash\app\tg\user::add($newUserDetail);
 
