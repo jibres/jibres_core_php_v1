@@ -193,10 +193,18 @@
 
         <div class="dl">
           <a href="<?php echo \dash\url::kingdom(); ?>/app/android" title='<?php echo T_("Download Jibres App from Google play") ?>' target="_blank" rel="noopener">
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+<?php if(\dash\language::current() === 'fa') {?>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/googleplay-fa.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+<?php } else {?>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+<?php }?>
           </a>
           <a href="<?php echo \dash\url::kingdom(); ?>/app/direct" title='<?php echo T_("Direct download Jibres app") ?>'>
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/app-dl-direct.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+<?php if(\dash\language::current() === 'fa') {?>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/downloadapk-fa.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+<?php } else {?>
+            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/downloadapk.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+<?php }?>
           </a>
         </div>
 
