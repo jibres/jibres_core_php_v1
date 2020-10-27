@@ -9,12 +9,14 @@ class model
 
 		$post =
 		[
-			'inquiry_mode' => 1,
-			'inquiry'      => \dash\request::post('inquiry'),
-			'inquirymsg'   => \dash\request::post_raw('inquirymsg'),
-			'showcomment'  => \dash\request::post('showcomment'),
-			'showpulictag' => \dash\request::post('showpulictag'),
-			'question'     => \dash\request::post('question'),
+			'inquiry_mode'            => 1,
+			'inquiry'                 => \dash\request::post('inquiry'),
+			'inquirymsg'              => \dash\request::post_raw('inquirymsg'),
+			'showcomment'             => \dash\request::post('showcomment'),
+			'showpulictag'            => \dash\request::post('showpulictag'),
+			'question'                => \dash\request::post('question'),
+			'inquiry_msg_founded'     => \dash\request::post('inquiry_msg_founded'),
+			'inquiry_msg_not_founded' => \dash\request::post('inquiry_msg_not_founded'),
 		];
 
 		if(\dash\request::files('file'))

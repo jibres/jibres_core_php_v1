@@ -8,26 +8,28 @@ class check
 	{
 		$condition =
 		[
-			'title'        => 'title',
-			'slug'         => 'slug',
-			'lang'         => 'lang',
-			'password'     => 'string_100',
-			'privacy'      => ['enum' => ['public', 'private']],
-			'status'       => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','trash','full']],
-			'redirect'     => 'string_1000',
-			'desc'         => 'html',
-			'endmessage'   => 'desc',
-			'starttime'    => 'datetime',
-			'endtime'      => 'datetime',
-			'file'         => 'string_1000',
+			'title'                   => 'title',
+			'slug'                    => 'slug',
+			'lang'                    => 'lang',
+			'password'                => 'string_100',
+			'privacy'                 => ['enum' => ['public', 'private']],
+			'status'                  => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','trash','full']],
+			'redirect'                => 'string_1000',
+			'desc'                    => 'html',
+			'endmessage'              => 'desc',
+			'starttime'               => 'datetime',
+			'endtime'                 => 'datetime',
+			'file'                    => 'string_1000',
 
-			'inquiry_mode' => 'bit',
-			'inquiry'      => 'bit',
-			'inquirymsg'   => 'html',
-			'showcomment'  => 'bit',
-			'showpulictag' => 'bit',
-			'question'     => 'array',
-			'inquiryimage' => 'string_1000',
+			'inquiry_mode'            => 'bit',
+			'inquiry'                 => 'bit',
+			'inquirymsg'              => 'html',
+			'showcomment'             => 'bit',
+			'showpulictag'            => 'bit',
+			'question'                => 'array',
+			'inquiryimage'            => 'string_1000',
+			'inquiry_msg_founded'     => 'string_250',
+			'inquiry_msg_not_founded' => 'string_250',
 
 
 		];
@@ -46,10 +48,13 @@ class check
 
 		if($data['inquiry_mode'])
 		{
-			$data['inquirysetting']                 = [];
+			$data['inquirysetting']                            = [];
 
-			$data['inquirysetting']['showcomment']  = $data['showcomment'];
-			$data['inquirysetting']['showpulictag'] = $data['showpulictag'];
+			$data['inquirysetting']['showcomment']             = $data['showcomment'];
+			$data['inquirysetting']['showpulictag']            = $data['showpulictag'];
+
+			$data['inquirysetting']['inquiry_msg_founded']     = $data['inquiry_msg_founded'];
+			$data['inquirysetting']['inquiry_msg_not_founded'] = $data['inquiry_msg_not_founded'];
 
 			if($data['question'])
 			{
@@ -71,6 +76,9 @@ class check
 		unset($data['showcomment']);
 		unset($data['inquiry_mode']);
 		unset($data['question']);
+		unset($data['inquiry_msg_founded']);
+		unset($data['inquiry_msg_not_founded']);
+
 
 		return $data;
 	}

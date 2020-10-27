@@ -31,10 +31,24 @@
 							<?php } //endif ?>
 						<?php } //endif ?>
 
+
+
+
+						<label for="messagef"><?php echo T_("Message if result founded") ?></label>
+						<div class="input">
+							<input type="text" id="messagef" name="inquiry_msg_founded" value="<?php echo \dash\get::index($inquerySetting, 'inquiry_msg_founded'); ?>">
+						</div>
+
+						<label for="messagenf"><?php echo T_("Message if result not founded") ?></label>
+						<div class="input">
+							<input type="text" id="messagenf" name="inquiry_msg_not_founded" value="<?php echo \dash\get::index($inquerySetting, 'inquiry_msg_not_founded'); ?>">
+						</div>
+
 						<div class="mB10">
 							<label for="inquirymsg"><?php echo T_("Inquiry Message") ?></label>
 							<textarea name="inquirymsg" data-editor class="txt" rows="3" id="inquirymsg" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_inquirymsg(); ?></textarea>
 						</div>
+
 
 
 					<div class="mB10">

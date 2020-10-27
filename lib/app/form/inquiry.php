@@ -144,7 +144,14 @@ class inquiry
 
 		if(!$result || !isset($result['answer_id']) || !isset($result['form_id']))
 		{
-			\dash\notif::error(T_("You have not complete this form"));
+			if(isset($_form_detail['inquirysetting']['inquiry_msg_not_founded']) && $_form_detail['inquirysetting']['inquiry_msg_not_founded'])
+			{
+				\dash\notif::error($_form_detail['inquirysetting']['inquiry_msg_not_founded']);
+			}
+			else
+			{
+				\dash\notif::error(T_("You have not complete this form"));
+			}
 			return false;
 		}
 
@@ -171,7 +178,14 @@ class inquiry
 
 		\dash\data::inquiryExecHaveResult($comment_list || $tag_list);
 
-		\dash\notif::info(T_("You have already complete this form"));
+		if(isset($_form_detail['inquirysetting']['inquiry_msg_founded']) && $_form_detail['inquirysetting']['inquiry_msg_founded'])
+		{
+			\dash\notif::info($_form_detail['inquirysetting']['inquiry_msg_founded']);
+		}
+		else
+		{
+			\dash\notif::info(T_("You have already complete this form"));
+		}
 
 		return true;
 
