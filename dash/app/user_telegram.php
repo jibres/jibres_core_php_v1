@@ -82,6 +82,7 @@ class user_telegram
 			'firstname' => 'displayname',
 			'lastname'  => 'displayname',
 			'username'  => 'displayname',
+			'title'     => 'displayname',
 			'language'  => 'language',
 			'status'    => ['enum' => ['active','deactive','spam','bot','block','unreachable','unknown','filter','awaiting','inline','callback']],
 		];
