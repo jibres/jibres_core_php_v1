@@ -9,7 +9,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		\dash\face::title(T_("Telegram log");
+		\dash\face::title(T_("Telegram log"));
 		// add back level to summary link
 		\dash\data::action_text(T_('Back to log list'));
 		\dash\data::action_link(\dash\url::this() .'/log');
