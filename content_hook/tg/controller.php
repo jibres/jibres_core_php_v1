@@ -14,6 +14,8 @@ class controller
 
 		if(\dash\url::child() === $myhook)
 		{
+			\dash\temp::set('clesnse_not_end_with_error', true);
+
 			// fire telegram api
 			\dash\social\telegram\tg::fire();
 
