@@ -163,6 +163,7 @@ class header
 		}
 
 		\dash\log::file($status_header. ' -- '. $_text, "$_code.log", 'header');
+		\dash\log::file(json_encode(debug_backtrace()), "$_code.log", 'header');
 
 
 		// translate desc of header if in this level T_ fn is defined!
