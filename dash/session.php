@@ -325,7 +325,8 @@ class session
 		// use new id
 		session_id($_session_id);
 		// start new session
-		self::sessionStart();
+		// self::sessionStart();
+		session_start();
 
 		if($_close)
 		{
