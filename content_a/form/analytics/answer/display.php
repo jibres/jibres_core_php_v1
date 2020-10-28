@@ -15,7 +15,22 @@
         <?php  if(($i % 2) || ($extra)) { echo '<tr>';} ?>
 
         <th <?php if($extra) { echo 'colspan=""'; }else{echo 'class="w25p"'; } ?>><?php echo \dash\get::index($v, 'item_title'); ?></th>
-        <td <?php if($extra) { echo 'colspan="3"'; }else{echo 'class="w25p"'; } ?>><?php echo \dash\get::index($v, 'answer'); ?><?php echo \dash\get::index($v, 'textarea'); ?></td>
+        <td <?php if($extra) { echo 'colspan="3"'; }else{echo 'class="w25p"'; } ?>>
+          <?php
+            if(\dash\get::index($v, 'province_name') || \dash\get::index($v, 'city_name'))
+            {
+              echo \dash\get::index($v, 'province_name');
+              echo ' ';
+              echo \dash\get::index($v, 'city_name');
+            }
+            else
+            {
+              echo \dash\get::index($v, 'answer');
+              echo ' ';
+              echo \dash\get::index($v, 'textarea');
+            }
+          ?>
+          </td>
         <?php  if(!($i % 2) || ($extra)) { echo '</tr>'; } ?>
       <?php } //endif ?>
     </tbody>
