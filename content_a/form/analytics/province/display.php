@@ -16,6 +16,7 @@
                 <div class="c2"></div>
                 <div class="cauto"> <a class="btn link" href="<?php echo \dash\url::that(). '/table'. \dash\request::full_get(['province' => $key]) ?>"><?php echo T_("List") ?></a></div>
                 <div class="cauto"> <a class="btn link" href="<?php echo \dash\url::that(). '/setting'.\dash\request::full_get(['province' => $key, 'export' => 'export']) ?>"><?php echo T_("Export") ?></a></div>
+                <div class="cauto"> <a class="btn link" href="<?php echo \dash\url::that(). '/answer'. \dash\request::full_get(['province' => $key, 'printall' => 1]) ?>"><?php echo T_("Print") ?></a></div>
               </div>
             </div>
 

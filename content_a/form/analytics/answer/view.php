@@ -36,17 +36,86 @@ class view
 
 		\dash\data::fields($new_field);
 
-		$args              = [];
 
-		$args['answer_id'] = \dash\request::get('aid');
-		$args['filter_id'] = \dash\request::get('fid');
+		$hot_query = [];
+
+		if(\dash\request::get('province'))
+		{
+
+			$form_id = \dash\request::get('id');
+			$item_province = [];
+
+			$items = \lib\app\form\item\get::items($form_id);
+
+
+			if(!is_array($items))
+			{
+				$items = [];
+			}
+
+			foreach ($items as $key => $value)
+			{
+				if(isset($value['type']) && $value['type'] && in_array($value['type'], ['province_city', 'province']))
+				{
+					$item_province[] = "`$table_name`.`f_$value[id]`";
+				}
+			}
+
+
+			$province = \dash\utility\location\provinces::$data;
+
+
+			foreach ($province as $key => $value)
+			{
+				if($value['country'] === 'IR')
+				{
+					if($key === \dash\request::get('province'))
+					{
+
+						if($item_province)
+						{
+
+
+							$args =
+							[
+								'form_id'    => $form_id,
+								'filter_id'  => \dash\request::get('fid'),
+								'table_name' => $table_name,
+								// 'get_count'  => true,
+							];
+
+							$hot_query = [];
+							foreach ($item_province as $V)
+							{
+								$hot_query[] = "$V LIKE '$key%' ";
+							}
+
+							$hot_query = implode(" OR ", $hot_query);
+							$hot_query = "$hot_query";
+							$hot_query = [$hot_query];
+
+						}
+
+					}
+
+				}
+			}
+
+		}
+
+
+
+		$args               = [];
+
+		$args['answer_id']  = \dash\request::get('aid');
+		$args['filter_id']  = \dash\request::get('fid');
 		$args['table_name'] = $table_name;
-		$args['form_id']   = \dash\request::get('id');
-		$args['export'] = true; // set 100 limit
+		$args['form_id']    = \dash\request::get('id');
+		$args['export']     = true; // set 100 limit
 
 		$q = \dash\request::get('q');
 
-		$dataTable = \lib\app\form\answerdetail\search::list($q, $args);
+		$dataTable = \lib\app\form\answerdetail\search::list($q, $args, $hot_query);
 
 		$filterBox     = \lib\app\form\answerdetail\search::filter_message();
 		$isFiltered    = \lib\app\form\answerdetail\search::is_filtered();
