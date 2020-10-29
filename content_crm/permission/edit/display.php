@@ -12,8 +12,18 @@ if(!is_array($permissionList))
 
 ?>
 <div class="box">
-  <div class="pad">
-    <?php echo \dash\data::dataRow_key(); ?>
+  <div class="body">
+    <div class="row">
+      <div class="c-xs-auto c-sm-auto">
+        <?php echo \dash\data::dataRow_key(); ?>
+      </div>
+
+      <div class="c-xs c-sm"></div>
+
+      <div class="c-xs-auto c-sm-auto hide">
+        <a class="btn link" href="<?php echo \dash\url::this(). '/user?id='. \dash\request::get('id') ?>"><?php echo T_("Manage users by this permission") ?></a>
+      </div>
+    </div>
   </div>
 </div>
 

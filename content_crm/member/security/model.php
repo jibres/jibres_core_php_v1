@@ -16,7 +16,7 @@ class model
 			'status'        => \dash\request::post('status'),
 			'language'      => \dash\request::post('language'),
 			'username'      => \dash\request::post('username'),
-			'permission'    => \dash\request::post('permission') == '0' ? null : \dash\request::post('permission'),
+			'permission'    => \dash\request::post('permission'),
 
 		];
 
@@ -29,12 +29,19 @@ class model
 			}
 		}
 
-		if(floatval(\dash\coding::decode(\dash\request::get('id'))) === \dash\user::id())
+		if(floatval(\dash\coding::decode(\dash\request::get('id'))) === floatval(\dash\user::id()))
 		{
-			if(isset($post['permission']) && $post['permission'] !== 'admin' && \dash\user::detail('permission') === 'admin' )
+			if(\dash\user::detail('permission') === 'supervisor')
 			{
-				\dash\notif::warn(T_("You can not set your permission less than admin!"));
-				$post['permission'] = 'admin';
+				unset($post['permission']);
+			}
+			else
+			{
+				if(isset($post['permission']) && $post['permission'] !== 'admin' && \dash\user::detail('permission') === 'admin' )
+				{
+					\dash\notif::warn(T_("You can not set your permission less than admin!"));
+					$post['permission'] = 'admin';
+				}
 			}
 		}
 

@@ -17,7 +17,11 @@ class edit
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$slug = \dash\validate::slug($data['title'], false);
+		if(mb_strtolower($data['title']) === 'admin' || mb_strtolower($data['title']) === 'supervisor' || strpos(mb_strtolower($data['title']), 'supervisor') !== false)
+		{
+			\dash\notif::error(T_("Can not choose this name in permission title, Try another title"), 'title');
+			return false;
+		}
 
 		$load = \dash\app\permission\get::get($_id);
 		if(!$load)

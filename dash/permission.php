@@ -139,20 +139,17 @@ class permission
 	// show all group name
 	public static function groups($_project = false)
 	{
-
 		$all_group = [];
 
-		if($_project)
+		$list = \dash\app\permission\get::list();
+
+		if(!is_array($list))
 		{
-			$all_group = self::$project_group;
+			$list = [];
 		}
-		else
-		{
-			if(is_array(self::$core_group) && is_array(self::$project_group))
-			{
-				$all_group = array_merge(self::$core_group, self::$project_group);
-			}
-		}
+
+		$all_group = array_column($list, 'key');
+
 
 		return $all_group;
 	}

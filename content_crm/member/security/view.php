@@ -11,8 +11,6 @@ class view
 
 		\dash\face::title(T_('Edit user security'));
 
-		\dash\data::action_link(\dash\url::this());
-		\dash\data::action_text(T_('Back to dashbaord'));
 
 		if(\dash\permission::check("cpUsersPermission"))
 		{

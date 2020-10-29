@@ -19,12 +19,9 @@
       <label for="permission"><?php echo T_("Permission"); ?></label>
       <select name="permission" class="select22" id="permission">
         <option value="" readonly><?php echo T_("No permission"); ?></option>
-        <option value="0" readonly><?php echo T_("No permission"); ?></option>
-
+        <option value="admin" <?php if(\dash\data::dataRowMember_permission() == 'admin')  { echo 'selected'; }?>><?php echo T_("Administrator"); ?></option>
         <?php foreach (\dash\data::permGroup() as $key => $value) {?>
-
-          <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowMember_permission() == $key)  { echo 'selected'; }?> > <?php echo T_($value['title']); ?></option>
-
+          <option value="<?php echo $value; ?>" <?php if(\dash\data::dataRowMember_permission() == $value)  { echo 'selected'; }?> > <?php echo $value; ?></option>
         <?php } ?>
       </select>
     </div>

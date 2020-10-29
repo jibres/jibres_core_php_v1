@@ -268,7 +268,7 @@ class user
 			'sidebar'       => 'bit',
 			'signature'     => 'html',
 			'type'          => 'string_50',
-			'permission'    => ['enum' => array_keys(\dash\permission::groups())],
+			'permission'    => ['enum' => array_merge(\dash\permission::groups(), ['admin'])],
 			'password'      => 'password',
 		];
 

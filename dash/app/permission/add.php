@@ -18,7 +18,11 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$slug = \dash\validate::slug($data['title'], false);
+		if(mb_strtolower($data['title']) === 'admin' || mb_strtolower($data['title']) === 'supervisor' || strpos(mb_strtolower($data['title']), 'supervisor') !== false)
+		{
+			\dash\notif::error(T_("Can not choose this name in permission title, Try another title"), 'title');
+			return false;
+		}
 
 
 		$check_duplicate = \lib\db\setting\get::by_cat_key('permission', $data['title']);

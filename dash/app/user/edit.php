@@ -44,18 +44,36 @@ trait edit
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore())
 		{
-			if(isset($_args['mobile']))
+			if(array_key_exists('mobile', $_args))
 			{
-				$mobile = \dash\validate::mobile($_args['mobile'], false);
-				if($mobile)
+				if($_args['mobile'])
 				{
-					$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id(['mobile' => $mobile]);
+					$mobile = \dash\validate::mobile($_args['mobile'], false);
+					if($mobile)
+					{
+						$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id(['mobile' => $mobile]);
+					}
+				}
+				else
+				{
+					$_args['jibres_user_id'] = null;
 				}
 			}
 
 			if(array_key_exists('permission', $_args))
 			{
 				$is_staff = $_args['permission'] ? true : false;
+				$load_user = \dash\db\users::get_by_id($_id);
+
+				if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'])
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Please set mobile to this user and then change the permission"));
+					return false;
+				}
 			}
 		}
 
@@ -63,11 +81,12 @@ trait edit
 
 		$result = \dash\db\users::update($_args, $_id);
 
+
 		if($result)
 		{
 			if($is_staff === true || $is_staff === false)
 			{
-				$load_user = \dash\db\users::get_by_id($_id);
+
 				if(isset($load_user['jibres_user_id']))
 				{
 					if($is_staff === true)
@@ -80,6 +99,10 @@ trait edit
 					}
 
 					\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $load_user['jibres_user_id'], $set);
+				}
+				else
+				{
+					\dash\notif::warn(T_("Please set mobile to this user and then change the permission"));
 				}
 			}
 

@@ -184,7 +184,7 @@ class app
 				case 'displayname':
 					if($value === false)
 					{
-						$value = T_("Without user");
+						$value = T_("Without name");
 					}
 					else
 					{
