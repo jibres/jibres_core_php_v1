@@ -4,11 +4,11 @@
       <div class="pad">
         <label for="title"><?php echo T_("Permission Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div class="input">
-          <input type="text" name="title" id="title" required>
+          <input type="text" name="title" id="title" required value="<?php echo \dash\data::dataRow_key(); ?>">
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn master"><?php echo T_("Add") ?></button>
+        <button class="btn master"><?php echo T_("Edit") ?></button>
       </footer>
     </div>
   </form>

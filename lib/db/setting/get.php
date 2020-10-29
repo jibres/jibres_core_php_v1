@@ -20,6 +20,12 @@ class get
 		return $result;
 	}
 
+	public static function count_by_cat($_cat)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.cat = '$_cat' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 
 	public static function by_cat_key($_cat, $_key)
 	{

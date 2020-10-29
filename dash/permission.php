@@ -4,14 +4,9 @@ namespace dash;
 /** Access: handle permissions **/
 class permission
 {
-	// check to not duplicate load permission file
-	private static $load                    = false;
-	// check to not duplicate load user data
-	private static $user_loaded             = false;
 	// user permissio as a group name
 	private static $user_permission         = null;
-	// loaded user group permission and find whate containg of the user
-	private static $user_permission_contain = [];
+
 	// list of project permissin list
 	private static $project_perm_list       = [];
 	// list of project permission group
@@ -22,50 +17,6 @@ class permission
 	private static $core_group              = [];
 
 
-	// read permission file and json_decode to make an array of it
-	public static function read_file($_addr)
-	{
-		$perm = [];
-
-		if(is_file($_addr))
-		{
-			$perm = \dash\file::read($_addr);
-			$perm = json_decode($perm, true);
-			if(!is_array($perm))
-			{
-				$perm = [];
-			}
-		}
-		return $perm;
-	}
-
-
-	// load all permission file and if exist lib\permission check this list by this function
-	private static function load()
-	{
-		if(!self::$load)
-		{
-			self::$load              = true;
-			self::$project_perm_list = self::read_file(root.'/includes/permission/list.json');
-			self::$project_group     = self::read_file(root.'/includes/permission/group.me.json');
-
-
-			if(empty(self::$core_group))
-			{
-				self::$core_group['admin'] = ["title" => "admin"];
-			}
-
-			if(is_callable(['\lib\permission', 'perm_list']))
-			{
-				self::$project_perm_list = \lib\permission::perm_list(self::$project_perm_list, 'project');
-			}
-
-			if(is_callable(['\lib\permission', 'group_list']))
-			{
-				self::$project_group = \lib\permission::group_list(self::$project_group, 'project');
-			}
-		}
-	}
 
 
 	public static function who_have($_caller, $_admin = true)
@@ -118,7 +69,6 @@ class permission
 			return false;
 		}
 
-		self::load();
 
 		$new = self::groups();
 
@@ -189,7 +139,6 @@ class permission
 	// show all group name
 	public static function groups($_project = false)
 	{
-		self::load();
 
 		$all_group = [];
 
@@ -212,7 +161,6 @@ class permission
 	// show all permission list
 	public static function lists($_project = false)
 	{
-		self::load();
 
 		$all_list = [];
 
@@ -233,57 +181,73 @@ class permission
 
 	public static function list_raw_project()
 	{
-		self::load();
 		return self::$project_perm_list;
 	}
 
 
-	public static function list_raw_dash()
-	{
-		self::load();
-		return self::$core_perm_list;
-	}
 
 
 	// make an array to draw permission list in quick view
 	public static function categorize_list()
 	{
-		self::load();
+		$list     = \dash\plan::public_show_master_contain();
+
+		$group    = \dash\plan::group_permission();
+
+		$business = \dash\engine\store::inStore();
+
+		$jibres   = !$business;
 
 		$result   = [];
-		$core_cat = [];
 
-		foreach (self::$core_perm_list as $key => $value)
+		foreach ($list as $key => $value)
 		{
-			if(!isset($core_cat[$value['cat']]))
+			if(isset($value['group']))
 			{
-				$core_cat[$value['cat']] = [];
-			}
+				$myJibres   = \dash\get::index($value, 'jibres');
+				$myBusiness = \dash\get::index($value, 'business');
 
-			$core_cat[$value['cat']][$key] = $value;
+				// access to load permissin caller
+				$access     = false;
+
+				if($myJibres && !$myBusiness)
+				{
+					if($myJibres === $jibres)
+					{
+						$access = true;
+					}
+				}
+				elseif(!$myJibres && $myBusiness)
+				{
+					if($myBusiness === $business)
+					{
+						$access = true;
+					}
+				}
+				elseif($myJibres && $myBusiness)
+				{
+					$access = true;
+				}
+
+
+				if($access)
+				{
+					if(!isset($result[$value['group']]))
+					{
+						if(isset($group[$value['group']]))
+						{
+							$result[$value['group']] = $group[$value['group']];
+						}
+						else
+						{
+							$result[$value['group']] = ['title' => $value['group'], 'advance' => []];
+						}
+					}
+
+					$result[$value['group']]['advance'][] = $value;
+				}
+			}
 		}
-
-		$result['dash'] = $core_cat;
-
-		$project_cat = [];
-
-		foreach (self::$project_perm_list as $key => $value)
-		{
-			if(!isset($value['cat']))
-			{
-				$value['cat'] = null;
-			}
-
-			if(!isset($project_cat[$value['cat']]))
-			{
-				$project_cat[$value['cat']] = [];
-			}
-
-			$project_cat[$value['cat']][$key] = $value;
-		}
-
-		$result['project'] = $project_cat;
-
 		return $result;
 	}
 
@@ -291,7 +255,6 @@ class permission
 	// save permission if file of every where
 	public static function save_permission($_name, $_lable, $_contain, $_update = false)
 	{
-		self::load();
 
 		if(!$_name)
 		{
@@ -300,7 +263,6 @@ class permission
 		}
 
 		$groups = self::groups();
-
 		if(!$_update)
 		{
 			$_name = \dash\validate::slug($_name, false);
@@ -406,47 +368,11 @@ class permission
 	}
 
 
-	// load user data
-	private static function load_user($_user_id, $_force = false)
-	{
-		if($_user_id && is_numeric($_user_id))
-		{
-			$user_id = $_user_id;
-		}
-		else
-		{
-			$user_id = \dash\user::id();
-		}
-
-		if(!self::$user_loaded)
-		{
-			self::$user_loaded     = true;
-			self::$user_permission = \dash\user::detail('permission');
-		}
-
-		if($_force)
-		{
-			$user_detail = \dash\db\users::get_by_id($user_id);
-
-			self::$user_permission = null;
-
-			if(isset($user_detail['permission']))
-			{
-				self::$user_permission = $user_detail['permission'];
-			}
-		}
-
-		if(is_callable(['\lib\permission', 'load_user']))
-		{
-			\lib\permission::load_user($_user_id, $_force);
-		}
-	}
 
 
 	// opern permission for edit or delete
 	public static function load_permission($_id)
 	{
-		self::load();
 
 		if(array_key_exists($_id, self::$project_group))
 		{
@@ -462,12 +388,17 @@ class permission
 	}
 
 
-	// check the user is supervisor or not
-	public static function supervisor($_force_load_user = false)
-	{
-		self::load_user(null, $_force_load_user);
 
-		if(self::$user_permission === 'supervisor')
+
+
+	// check the user is supervisor or not
+	public static function supervisor()
+	{
+
+		$myPermission = \dash\user::detail('permission');
+
+
+		if($myPermission === 'supervisor')
 		{
 			return true;
 		}
@@ -481,44 +412,11 @@ class permission
 		return false;
 	}
 
-	// for test and debug permission caller
-	private static $test_mode = false;
-	private static $dump      = false;
-	private static $test_access = [];
 
-	public static function test_access($_caller = null, $_dump = false)
-	{
-		if(\dash\url::isLocal())
-		{
-			self::$test_mode     = true;
-			if(!self::$dump && $_dump)
-			{
-				self::$dump          = $_dump;
-			}
-			self::$test_access[] = $_caller;
-		}
-	}
-
-
-	private static function check_test($_caller)
-	{
-		if(in_array($_caller, self::$test_access))
-		{
-			return true;
-		}
-		else
-		{
-			if(self::$dump)
-			{
-				\dash\code::dump($_caller);
-			}
-			return false;
-		}
-	}
 
 
 	// check permission
-	public static function check($_caller, $_user_id = null)
+	public static function check($_caller)
 	{
 		// user is not login
 		if(!\dash\user::id())
@@ -526,18 +424,11 @@ class permission
 			return false;
 		}
 
-		// for test and debug permission
-		// if(self::$test_mode)
-		// {
-		// 	return self::check_test($_caller);
-		// }
-
-		self::load_user($_user_id);
-
-		if(self::supervisor(false))
+		if(self::supervisor())
 		{
 			return true;
 		}
+
 
 		// we have store and need to check permission but the user not in this store
 		if(\dash\engine\store::inStore())
@@ -548,51 +439,33 @@ class permission
 			}
 		}
 
-		$all_list = self::lists();
-		if(array_key_exists($_caller, $all_list))
+		$check_plan = \dash\plan::check($_caller);
+		// we have not this caller to this plan
+		if($check_plan === false)
 		{
-			if(isset($all_list[$_caller]['check']) && $all_list[$_caller]['check'])
-			{
-				self::load_user($_user_id, true);
-			}
-		}
-
-		if(is_callable(['\lib\permission', 'plan']))
-		{
-			$check_plan = \lib\permission::plan($_caller);
-			if($check_plan === false)
-			{
-				return false;
-			}
-			else
-			{
-				if(is_callable(['\lib\permission', 'check']))
-				{
-					$check_advance_perm = \lib\permission::check($_caller);
-
-					if($check_advance_perm === false)
-					{
-						return false;
-					}
-					elseif($check_advance_perm === true)
-					{
-						return true;
-					}
-				}
-			}
+			return false;
 		}
 
 
-		if(self::$user_permission === 'admin')
+		$myPermission = \dash\user::detail('permission');
+
+		// user have not any permission
+		if(!$myPermission)
+		{
+			return false;
+		}
+
+		// admin access to everything
+		if($myPermission === 'admin' || $myPermission === 'supervisor')
 		{
 			return true;
 		}
 
 		$all_contain = self::groups();
 
-		if(isset($all_contain[self::$user_permission]['contain']))
+		if(isset($all_contain[$myPermission]['contain']))
 		{
-			if(is_array($all_contain[self::$user_permission]['contain']) && in_array($_caller, $all_contain[self::$user_permission]['contain']))
+			if(is_array($all_contain[$myPermission]['contain']) && in_array($_caller, $all_contain[$myPermission]['contain']))
 			{
 				return true;
 			}

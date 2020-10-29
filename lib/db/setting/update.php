@@ -14,6 +14,15 @@ class update
 	}
 
 
+	public static function key($_key, $_id)
+	{
+		$query = "UPDATE setting SET setting.key = '$_key'  WHERE setting.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
 	public static function value($_value, $_id)
 	{
 		$query = "UPDATE setting SET setting.value = '$_value'  WHERE setting.id = $_id LIMIT 1";

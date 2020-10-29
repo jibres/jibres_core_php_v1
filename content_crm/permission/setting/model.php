@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\permission\add;
+namespace content_crm\permission\setting;
 
 
 class model
@@ -9,11 +9,11 @@ class model
 		$post          = [];
 		$post['title'] = \dash\request::post('title');
 
-		$result = \dash\app\permission\add::add($post);
+		$result = \dash\app\permission\edit::edit_title($post, \dash\request::get('id'));
 
 		if(isset($result['id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
+			\dash\redirect::pwd();
 		}
 
 
