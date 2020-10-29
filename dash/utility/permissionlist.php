@@ -6,13 +6,14 @@ class permissionlist
 {
 	private static $count_use = 0;
 	private static $count = 0;
+	private static $position = [];
 
 	private static function find($_path)
 	{
 		$permission_caller = [];
 		$directory         = new \RecursiveDirectoryIterator($_path);
 		$flattened         = new \RecursiveIteratorIterator($directory);
-		$files             = new \RegexIterator($flattened, "/\\.(php|html)\$/i");
+		$files             = new \RegexIterator($flattened, "/\\.(php)\$/i");
 
 		foreach($files as $file)
 		{
@@ -21,7 +22,7 @@ class permissionlist
 			$lines       = file($file);
 			$find_access = "\\permission::access(";
 			$find_check  = "\\permission::check(";
-			$find_html   = "perm(";
+
 
 			foreach($lines as $num => $line)
 			{
@@ -32,6 +33,12 @@ class permissionlist
 					{
 						self::$count_use++;
 						$permission_caller[] = $split[2];
+
+						if(!isset(self::$position[$split[2]]))
+						{
+							self::$position[$split[2]] = [];
+						}
+						self::$position[$split[2]][] = substr($file, 0). ' : line '. $num;
 					}
 				}
 
@@ -42,21 +49,18 @@ class permissionlist
 					{
 						self::$count_use++;
 						$permission_caller[] = $split[2];
+
+						if(!isset(self::$position[$split[2]]))
+						{
+							self::$position[$split[2]] = [];
+						}
+						self::$position[$split[2]][] = substr($file, 0). ' : line '. $num;
 					}
+
+
 				}
 
-				if($fileExt === 'html')
-				{
-					if(strpos($line, $find_html) !== false)
-					{
-						preg_match("/perm\((\'|\")([\w\d\:\_\-]+)(\'|\")\)/", $line, $split);
-						if(isset($split[2]))
-						{
-							self::$count_use++;
-							$permission_caller[] = $split[2];
-						}
-					}
-				}
+
 			}
 		}
 
@@ -76,25 +80,32 @@ class permissionlist
 		$mypath            = realpath(root).DIRECTORY_SEPARATOR;
 
 		$permission_caller = self::find($mypath);
-		$list_raw_project = \dash\permission::list_raw_project();
+
+		$list_raw_project = \dash\plan_list::public_show_master_contain();
+		$list_raw_project = array_keys($list_raw_project);
+
 
 		$new_project = [];
 		foreach ($permission_caller as $key => $value)
 		{
-			if(!array_key_exists($value, $list_raw_project))
+			if(!in_array($value, $list_raw_project))
 			{
 				$new_project[] = $value;
 			}
 		}
 
 		echo '<a href="'. \dash\url::here(). '">Back</a>';
-		echo '<h1>EXTRACT PERMISSION CALLERS ('.self::$count.' callers founded | used in: '.self::$count_use.' place)</h1><hr><h3>DASH</h3>';
+		echo '<h1>EXTRACT PERMISSION CALLERS ('.self::$count.' callers founded | used in: '.self::$count_use.' place)</h1><hr>';
 		echo '<h3>New in project</h3>';
-		\dash\code::pretty($new_project, true);
+		\dash\code::dump($new_project, true);
 
 
-		echo '<hr><h3>PROJECT</h3>';
+
 		echo '<hr><h3>All project</h3>';
-		\dash\code::pretty($permission_caller, true);
+		\dash\code::dump($permission_caller, true);
+
+
+		echo '<hr><h3>Position</h3>';
+		\dash\code::dump(self::$position, true);
 	}
 }
