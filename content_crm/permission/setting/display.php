@@ -12,4 +12,18 @@
       </footer>
     </div>
   </form>
+
+  <div class="box">
+      <div class="body">
+        <p><?php echo T_("Remove Permission") ?></p>
+        <?php if(\dash\data::dataRow_user_count()) {?>
+          sdfdfs
+        <?php }else{ ?>
+          <?php echo T_("You can remove this permission") ?>
+        <?php } //endif ?>
+      </div>
+      <footer class="txtRa">
+        <div class="btn linkDel" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
+      </footer>
+    </div>
 </div>

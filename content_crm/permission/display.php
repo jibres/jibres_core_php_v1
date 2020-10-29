@@ -6,6 +6,7 @@ if(!is_array($listPermission))
 }
 ?>
 
+<?php if($listPermission) {?>
 
   <h3><?php echo T_("List of permissions") ?></h3>
   <nav class="items">
@@ -23,4 +24,13 @@ if(!is_array($listPermission))
     <?php } //endif ?>
      </ul>
   </nav>
+
+<?php }else{ ?>
+<div class="msg info2 txtB font-14">
+  <p><?php echo T_("Hi") ?></p>
+  <p><?php echo T_("You have not any permission group") ?></p>
+  <p><a href="<?php echo \dash\url::this(). '/add' ?>"><?php echo T_("Add new permission") ?></a></p>
+
+</div>
+<?php } //endif ?>
 

@@ -6,6 +6,16 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('remove') === 'remove')
+		{
+			\dash\app\permission\remove::remove(\dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+		}
+
 		$post          = [];
 		$post['title'] = \dash\request::post('title');
 
