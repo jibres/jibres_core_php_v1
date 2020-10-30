@@ -155,19 +155,23 @@ class plan_list
 		$group['products'] =
 		[
 			'key'      => 'products',
-			'title'    => T_("Manage products"),
-			'jibres'   => false,
-			'business' => true,
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'title'    => T_("Access to products"),
+			'desc'     => T_("Access to display and edit products as well as items such as product tag, categories and anything about the products."),
 			'advance'  => [],
 		];
 
 		$group['orders'] =
 		[
 			'key'      => 'orders',
-			'title'    => T_("Manage orders"),
-			'jibres'   => false,
-			'business' => true,
+			'title'    => T_("Access to orders"),
+			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'advance'  => [],
+		];
+
+		$group['cart'] =
+		[
+			'key'      => 'cart',
+			'title'    => T_("Access to cart"),
 			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
@@ -176,19 +180,33 @@ class plan_list
 		$group['form'] =
 		[
 			'key'      => 'form',
-			'title'    => T_("form"),
-			'jibres'   => false,
-			'business' => true,
+			'title'    => T_("Access to form builder"),
 			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
+		$group['accounting'] =
+		[
+			'key'      => 'accounting',
+			'title'    => T_("Access to accounting"),
+			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'advance'  => [],
+		];
+
+
+		$group['application'] =
+		[
+			'key'      => 'application',
+			'title'    => T_("Manage application"),
+			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'advance'  => [],
+		];
+
+
 		$group['setting'] =
 		[
 			'key'      => 'setting',
-			'title'    => T_("setting"),
-			'jibres'   => true,
-			'business' => true,
+			'title'    => T_("Manage Setting"),
 			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
@@ -196,9 +214,7 @@ class plan_list
 		$group['crm'] =
 		[
 			'key'      => 'crm',
-			'title'    => T_("crm"),
-			'jibres'   => true,
-			'business' => true,
+			'title'    => T_("Access to CRM"),
 			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
@@ -206,9 +222,7 @@ class plan_list
 		$group['cms'] =
 		[
 			'key'      => 'cms',
-			'title'    => T_("cms"),
-			'jibres'   => true,
-			'business' => true,
+			'title'    => T_("Access to CMS"),
 			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
@@ -216,9 +230,16 @@ class plan_list
 		$group['support'] =
 		[
 			'key'      => 'support',
-			'title'    => T_("support"),
-			'jibres'   => true,
-			'business' => true,
+			'title'    => T_("Manage support center"),
+			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'advance'  => [],
+		];
+
+
+		$group['report'] =
+		[
+			'key'      => 'report',
+			'title'    => T_("Access to report"),
 			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
