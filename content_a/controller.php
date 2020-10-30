@@ -19,7 +19,8 @@ class controller
 		// check user is login
 		\dash\redirect::to_login();
 
-		\dash\permission::access('contentA');
+
+		\dash\permission::has_permission();
 
 
 		if(\dash\request::get('bigopening'))

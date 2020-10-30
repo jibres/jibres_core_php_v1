@@ -202,14 +202,7 @@ class permission
 
 		$myPermission = \dash\user::detail('permission');
 
-
 		if($myPermission === 'supervisor')
-		{
-			return true;
-		}
-
-		// the user is supervisor in jibres database
-		if(\dash\user::jibres_user('permission') === 'supervisor')
 		{
 			return true;
 		}
@@ -218,10 +211,37 @@ class permission
 	}
 
 
+	/**
+	 * Determines user have any permission or no
+	 *
+	 * @return     boolean  True if permission, False otherwise.
+	 */
+	public static function has_permission()
+	{
+		return self::check(null, ['only_check_has_permission' => true]);
+	}
+
+
+	/**
+	 * Check group permission for example
+	 * @example products
+	 * The product is not a permission caller
+	 * It's just a group.
+	 * By this function check user access to load group (whitout check any caller)
+	 *
+	 * @param      <type>  $_caller_group  The caller group
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function check_group($_caller_group)
+	{
+		return self::check($_caller, ['check_group' => true]);
+
+	}
 
 
 	// check permission
-	public static function check($_caller)
+	public static function check($_caller, $_args = null)
 	{
 		// user is not login
 		if(!\dash\user::id())
@@ -231,9 +251,8 @@ class permission
 
 		if(self::supervisor())
 		{
-			return true;
+			// return true;
 		}
-
 
 		// we have store and need to check permission but the user not in this store
 		if(\dash\engine\store::inStore())
@@ -244,18 +263,31 @@ class permission
 			}
 		}
 
-		$check_plan = \dash\plan::check($_caller);
-		// we have not this caller to this plan
-		if($check_plan === false)
-		{
-			return false;
-		}
-
-
 		$myPermission = \dash\user::detail('permission');
 
 		// user have not any permission
 		if(!$myPermission)
+		{
+			return false;
+		}
+
+		// needless to caller only check have permission and is staff
+		if(isset($_args['only_check_has_permission']) && $_args['only_check_has_permission'] === true)
+		{
+			if($myPermission)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		$check_plan = \dash\plan::check($_caller);
+
+		// we have not this caller to this plan
+		if($check_plan === false)
 		{
 			return false;
 		}
@@ -266,16 +298,85 @@ class permission
 			return true;
 		}
 
-		$all_contain = self::groups();
 
-		if(isset($all_contain[$myPermission]['contain']))
+		$all_contain = \dash\app\permission\get::load_permission($myPermission);
+
+		// permission not founded
+		if(!$all_contain)
 		{
-			if(is_array($all_contain[$myPermission]['contain']) && in_array($_caller, $all_contain[$myPermission]['contain']))
+			return false;
+		}
+
+		foreach ($all_contain as $group => $detail)
+		{
+			if(isset($detail['allow_access_title'][$_caller]) && $detail['allow_access_title'][$_caller])
 			{
-				return true;
+				// ok. Permission exists in allow access
+				if(array_key_exists('status', $detail))
+				{
+					if($detail['status'])
+					{
+						// permission exists and status is true
+						return true;
+					}
+					else
+					{
+						// permission exists but status is not true
+						return false;
+					}
+				}
+				else
+				{
+					// BUG! status not founded in json!
+					return false;
+				}
+			}
+
+			if(isset($detail['disallow_access_title'][$_caller]) && $detail['disallow_access_title'][$_caller])
+			{
+				if(isset($detail['access']) && $detail['access'] === 'full')
+				{
+					if(array_key_exists('status', $detail))
+					{
+						if($detail['status'])
+						{
+							// permission not exists but access is full and status is true
+							return true;
+						}
+						else
+						{
+							// permission not exists and access is full and status is not true
+							return false;
+						}
+					}
+					else
+					{
+						// BUG! status not founded in json!
+						return false;
+					}
+				}
+				else
+				{
+					// user not access to this caller and access is not full
+					return false;
+				}
 			}
 		}
 
+		if(isset($_args['check_group']) && $_args['check_group'] === true)
+		{
+			if(isset($all_contain[$_caller]['status']) && $all_contain[$_caller]['status'])
+			{
+				// only check group access
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		// not found this caller anywhere
 		return false;
 	}
 

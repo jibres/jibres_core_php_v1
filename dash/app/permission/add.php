@@ -7,23 +7,11 @@ class add
 
 	public static function add($_args)
 	{
-		$condition =
-		[
-			'title'      => 'title',
-		];
-
-		$require = ['title'];
-
-		$meta =	[];
-
-		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-		if(mb_strtolower($data['title']) === 'admin' || mb_strtolower($data['title']) === 'supervisor' || strpos(mb_strtolower($data['title']), 'supervisor') !== false)
+		$data = \dash\app\permission\check::variable($_args);
+		if(!$data)
 		{
-			\dash\notif::error(T_("Can not choose this name in permission title, Try another title"), 'title');
 			return false;
 		}
-
 
 		$check_duplicate = \lib\db\setting\get::by_cat_key('permission', $data['title']);
 		if(isset($check_duplicate['id']))

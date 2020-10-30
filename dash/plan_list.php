@@ -259,8 +259,11 @@ class plan_list
 	{
 		$master                                 = [];
 
+		$master['ProductEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductEdit', 					'title' => T_('Edit product'), 'require' => []];
+
+
+
 		$master['productAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAdd', 					'title' => T_('productAdd'), 'require' => []];
-		$master['ProductEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductEdit', 					'title' => T_('ProductEdit'), 'require' => []];
 		$master['productCategoryListView']      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCategoryListView', 		'title' => T_('productCategoryListView'), 'require' => []];
 		$master['productTagView']               = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagView', 				'title' => T_('productTagView'), 'require' => []];
 		$master['productUnitListView']          = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productUnitListView', 			'title' => T_('productUnitListView'), 'require' => []];
