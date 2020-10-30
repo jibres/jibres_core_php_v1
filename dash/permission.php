@@ -222,27 +222,21 @@ class permission
 	}
 
 
-	/**
-	 * Check group permission for example
-	 * @example products
-	 * The product is not a permission caller
-	 * It's just a group.
-	 * By this function check user access to load group (whitout check any caller)
-	 *
-	 * @param      <type>  $_caller_group  The caller group
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function check_group($_caller_group)
-	{
-		return self::check($_caller, ['check_group' => true]);
-
-	}
-
 
 	// check permission
 	public static function check($_caller, $_args = null)
 	{
+		// only check group
+		if(substr($_caller, 0, 7) === '_group_')
+		{
+			return self::check(substr($_caller, 8), ['check_group' => true]);
+		}
+
+		if(substr($_caller, 0, 6) === '_plan_')
+		{
+			return self::check(substr($_caller, 7), ['check_plan' => true]);
+		}
+
 		// user is not login
 		if(!\dash\user::id())
 		{
@@ -290,6 +284,12 @@ class permission
 		if($check_plan === false)
 		{
 			return false;
+		}
+
+		if(isset($_args['check_plan']) && $_args['check_plan'] === true)
+		{
+			// only check plan
+			return true;
 		}
 
 		// admin access to everything
