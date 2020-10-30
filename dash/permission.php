@@ -222,6 +222,17 @@ class permission
 	}
 
 
+	/**
+	 * Determines if admin.
+	 *
+	 * @return     boolean  True if admin, False otherwise.
+	 */
+	public static function is_admin()
+	{
+		return self::check(null, ['is_admin' => true]);
+	}
+
+
 
 	// check permission
 	public static function check($_caller, $_args = null)
@@ -232,6 +243,7 @@ class permission
 			return self::check(substr($_caller, 8), ['check_group' => true]);
 		}
 
+		// only check plan
 		if(substr($_caller, 0, 6) === '_plan_')
 		{
 			return self::check(substr($_caller, 7), ['check_plan' => true]);
@@ -278,6 +290,19 @@ class permission
 			}
 		}
 
+		// only check is admin not any caller
+		if(isset($_args['is_admin']) && $_args['is_admin'] === true)
+		{
+			if($myPermission === 'admin' || $myPermission === 'supervisor')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		$check_plan = \dash\plan::check($_caller);
 
 		// we have not this caller to this plan
@@ -288,7 +313,7 @@ class permission
 
 		if(isset($_args['check_plan']) && $_args['check_plan'] === true)
 		{
-			// only check plan
+			// only check plan and this caller is exists on this plan
 			return true;
 		}
 
