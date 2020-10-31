@@ -115,7 +115,7 @@ class TransStatic
 	echo T_("productExport");
 	echo T_("productCategoryListAdd");
 	echo T_("productCategoryListEdit");
-	echo T_("_group_products");
+
 	echo T_("productUnitListAdd");
 	echo T_("productUnitListEdit");
 	echo T_("reportListChartHours");
@@ -207,7 +207,7 @@ class TransStatic
 	echo T_("thirdpartyTransaction");
 	echo T_("productPropertyEdit");
 	echo T_("productView");
-	echo T_("_group_products");
+
 	echo T_("categoryPropertyAddEdit");
 	echo T_("categoryRemove");
 	echo T_("categoryAdd");
