@@ -86,11 +86,20 @@ class permissionlist
 
 
 		$new_project = [];
+		$group_plan = [];
 		foreach ($permission_caller as $key => $value)
 		{
 			if(!in_array($value, $list_raw_project))
 			{
-				$new_project[] = $value;
+				if(substr($value, 0,7) === '_group_' || substr($value, 0, 6) === '_plan_')
+				{
+					$group_plan[] = $value;
+				}
+				else
+				{
+					$new_project[] = $value;
+				}
+
 			}
 		}
 
@@ -103,6 +112,10 @@ class permissionlist
 
 		echo '<hr><h3>All project</h3>';
 		\dash\code::dump($permission_caller, true);
+
+		echo '<hr><h3>Group and plan</h3>';
+		\dash\code::dump($group_plan, true);
+
 
 
 		echo '<hr><h3>Position</h3>';

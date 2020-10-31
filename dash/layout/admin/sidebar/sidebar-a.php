@@ -3,7 +3,7 @@ $urlHere = \dash\url::here();
 ?>
   <li><a href="<?php echo $urlHere; ?>" <?php if(\dash\url::content() === 'a') {?> class="activeContent"<?php }//endif ?>><i class='sf-gauge'></i> <span><?php echo T_("Dashboard"); ?></span></a></li>
   <li>
-  <?php if(\dash\permission::check('productList')) {?><a href="<?php echo $urlHere; ?>/products"><i class="sf-box"></i><?php echo T_("Products"); ?></a><?php } //endif ?>
+  <?php if(\dash\permission::check('_group_products')) {?><a href="<?php echo $urlHere; ?>/products"><i class="sf-box"></i><?php echo T_("Products"); ?></a><?php } //endif ?>
 
   </li>
   <li>
@@ -18,4 +18,4 @@ $urlHere = \dash\url::here();
 <?php } //endif ?>
     </ul>
   </li>
-  <li><?php if(\dash\permission::check('settingView')) {?><a href="<?php echo $urlHere; ?>/setting"><i class="sf-cogs"></i><?php echo T_("Setting"); ?></a><?php } //endif ?></li>
+  <li><?php if(\dash\permission::check('_group_setting')) {?><a href="<?php echo $urlHere; ?>/setting"><i class="sf-cogs"></i><?php echo T_("Setting"); ?></a><?php } //endif ?></li>

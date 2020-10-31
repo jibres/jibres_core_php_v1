@@ -5,16 +5,16 @@ namespace lib\website;
 class product_type2
 {
 
-	public static function paint($_productList)
+	public static function paint($__group_products)
 	{
-		if(!$_productList || !is_array($_productList))
+		if(!$__group_products || !is_array($__group_products))
 		{
 			return;
 		}
 
 		echo '<div class="row">';
 
-		foreach ($_productList as $key => $myProduct)
+		foreach ($__group_products as $key => $myProduct)
 		{
 			echo '<div class="c-xs-6 c-sm-4 c-md-3 c-lg-3 c-xl-2">';
 			self::create_element_product_2($myProduct);

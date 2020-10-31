@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('productList');
+		\dash\permission::access('_group_products');
 	}
 }
 ?>

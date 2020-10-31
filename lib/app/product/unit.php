@@ -230,7 +230,7 @@ class unit
 			return false;
 		}
 
-		\dash\permission::access('productUnitListView');
+		\dash\permission::access('_group_products');
 
 		$id = \dash\validate::id($_id);
 
@@ -356,7 +356,7 @@ class unit
 			return false;
 		}
 
-		\dash\permission::access('productUnitListView');
+		\dash\permission::access('_group_products');
 
 
 		$result = \lib\db\productunit\get::list();

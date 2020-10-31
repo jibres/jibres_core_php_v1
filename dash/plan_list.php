@@ -19,19 +19,16 @@ class plan_list
 			'settingEdit',
 			'settingView',
 			'productAdd',
-			'productCategoryListView',
 			'productTagView',
-			'productUnitListView',
-			'productCompanyListView',
 			'productPriceHistoryView',
 			'settingEditPos',
-			'channelsView',
+			'_group_setting',
 			'factorAccess',
 			'factorSaleList',
 			'factorBuyList',
 			'factorSaleAdd',
 			'factorBuyAdd',
-			'categoryView',
+			'_group_products',
 			'categoryEdit',
 			'categoryAdd',
 			'staffAccess',
@@ -259,15 +256,25 @@ class plan_list
 	{
 		$master                                 = [];
 
-		$master['ProductEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductEdit', 					'title' => T_('Edit product'), 'require' => []];
-
-
-
 		$master['productAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAdd', 					'title' => T_('productAdd'), 'require' => []];
-		$master['productCategoryListView']      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCategoryListView', 		'title' => T_('productCategoryListView'), 'require' => []];
+		$master['ProductEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductEdit', 					'title' => T_('Edit product'), 'require' => []];
 		$master['productTagView']               = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagView', 				'title' => T_('productTagView'), 'require' => []];
-		$master['productUnitListView']          = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productUnitListView', 			'title' => T_('productUnitListView'), 'require' => []];
-		$master['productCompanyListView']       = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCompanyListView', 		'title' => T_('productCompanyListView'), 'require' => []];
+
+
+
+		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('settingEdit'), 'require' => []];
+
+
+
+
+
+
+
+
+
+
+
+
 		$master['productPriceHistoryView']      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productPriceHistoryView', 		'title' => T_('productPriceHistoryView'), 'require' => []];
 		$master['productList']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productList', 					'title' => T_('productList'), 'require' => []];
 		$master['ProductAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductAdd', 					'title' => T_('ProductAdd'), 'require' => []];
@@ -289,7 +296,7 @@ class plan_list
 		$master['productTagListAdd']            = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagListAdd', 			'title' => T_('productTagListAdd'), 'require' => []];
 		$master['productAssignTag']             = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAssignTag', 			'title' => T_('productAssignTag'), 'require' => []];
 		$master['productTagListView']           = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagListView', 			'title' => T_('productTagListView'), 'require' => []];
-		$master['categoryView']                 = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'categoryView', 				'title' => T_('categoryView'), 'require' => []];
+		$master['_group_products']                 = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => '_group_products', 				'title' => T_('_group_products'), 'require' => []];
 		$master['categoryEdit']                 = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'categoryEdit', 				'title' => T_('categoryEdit'), 'require' => []];
 		$master['categoryAdd']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'categoryAdd', 					'title' => T_('categoryAdd'), 'require' => []];
 		$master['tagEdit']                      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'tagEdit', 						'title' => T_('tagEdit'), 'require' => []];
@@ -303,11 +310,9 @@ class plan_list
 		$master['formAssignTag']                = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'formAssignTag', 				'title' => T_('formAssignTag'), 'require' => []];
 		$master['formTagListView']              = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'formTagListView', 				'title' => T_('formTagListView'), 'require' => []];
 
-		$master['websiteManager']               = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'websiteManager', 				'title' => T_('websiteManager'), 'require' => []];
-		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('settingEdit'), 'require' => []];
-		$master['settingView']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingView', 					'title' => T_('settingView'), 'require' => []];
+
 		$master['settingEditPos']               = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEditPos', 				'title' => T_('settingEditPos'), 'require' => []];
-		$master['channelsView']                 = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'channelsView', 				'title' => T_('channelsView'), 'require' => []];
+		$master['_group_setting']                 = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => '_group_setting', 				'title' => T_('_group_setting'), 'require' => []];
 		$master['showDomainStats']              = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'showDomainStats', 				'title' => T_('showDomainStats'), 'require' => []];
 
 

@@ -37,7 +37,7 @@ class controller
 			}
 			else
 			{
-				if(\dash\permission::check('showAllContactForm'))
+				if(\dash\permission::check('_group_form'))
 				{
 					\dash\data::accessLoadItem(true);
 					\dash\open::post();

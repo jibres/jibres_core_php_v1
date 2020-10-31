@@ -47,7 +47,7 @@ class get
 			return false;
 		}
 
-		\dash\permission::access('productCategoryListView');
+		\dash\permission::access('_group_products');
 
 		$_id = \dash\validate::id($_id);
 

@@ -229,7 +229,7 @@ class company
 			return false;
 		}
 
-		\dash\permission::access('productCompanyListView');
+		\dash\permission::access('_group_products');
 
 		$id = \dash\validate::id($_id);
 
@@ -354,7 +354,7 @@ class company
 			return false;
 		}
 
-		\dash\permission::access('productCompanyListView');
+		\dash\permission::access('_group_products');
 
 
 		$result = \lib\db\productcompany\get::list();

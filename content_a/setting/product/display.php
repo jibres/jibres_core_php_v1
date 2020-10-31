@@ -12,10 +12,10 @@
       <nav class="items">
         <ul>
 
-          <?php if(\dash\permission::check('productCategoryListView')) {?><li><a class="f" href="<?php echo $urlHere; ?>/category"><div class="key"><?php echo T_("Categories of Product"); ?></div><div class="go"></div></a></li><?php } //endif ?>
-          <?php if(\dash\permission::check('productTagView')) {?><li><a class="f" href="<?php echo $urlHere; ?>/tag"><div class="key"><?php echo T_("Product tag"); ?></div><div class="go"></div></a></li><?php } //endif ?>
-          <?php if(\dash\permission::check('productUnitListView')) {?><li><a class="f" href="<?php echo $urlHere; ?>/units"><div class="key"><?php echo T_("Product Units"); ?></div><div class="go"></div></a></li><?php } //endif ?>
-          <?php if(\dash\permission::check('productCompanyListView')) {?><li><a class="f" href="<?php echo $urlHere; ?>/company"><div class="key"><?php echo T_("Product Compnay"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/category"><div class="key"><?php echo T_("Categories of Product"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/tag"><div class="key"><?php echo T_("Product tag"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/units"><div class="key"><?php echo T_("Product Units"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/company"><div class="key"><?php echo T_("Product Compnay"); ?></div><div class="go"></div></a></li><?php } //endif ?>
 
 
         </ul>

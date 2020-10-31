@@ -417,7 +417,7 @@ class panel
 			];
 		}
 
-		if(\dash\permission::check('settingView'))
+		if(\dash\permission::check('_group_setting'))
 		{
 			$menu[] =
 			[

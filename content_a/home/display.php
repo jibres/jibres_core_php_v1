@@ -10,7 +10,7 @@
   <div class="c-3 c-xs-12">
    <nav class="items long">
      <ul>
-<?php if(\dash\permission::check('productList')) {?>
+<?php if(\dash\permission::check('_group_products')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/products">
           <div class="key"><?php echo T_('Products');?></div>

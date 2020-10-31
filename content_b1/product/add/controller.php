@@ -8,7 +8,7 @@ class controller
 	{
 		\content_b1\tools::appkey_required();
 		\content_b1\tools::apikey_required();
-		\dash\permission::access('ProductAdd');
+		\dash\permission::access('productAdd');
 
 	}
 }
