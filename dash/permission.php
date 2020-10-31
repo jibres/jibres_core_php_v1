@@ -240,13 +240,13 @@ class permission
 		// only check group
 		if(substr($_caller, 0, 7) === '_group_')
 		{
-			return self::check(substr($_caller, 8), ['check_group' => true]);
+			return self::check(substr($_caller, 7), ['check_group' => true]);
 		}
 
 		// only check plan
 		if(substr($_caller, 0, 6) === '_plan_')
 		{
-			return self::check(substr($_caller, 7), ['check_plan' => true]);
+			return self::check(substr($_caller, 6), ['check_plan' => true]);
 		}
 
 		// user is not login
@@ -268,6 +268,8 @@ class permission
 				return false;
 			}
 		}
+
+
 
 		$myPermission = \dash\user::detail('permission');
 

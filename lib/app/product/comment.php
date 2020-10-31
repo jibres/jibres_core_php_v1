@@ -417,7 +417,7 @@ class comment
 
 	public static function remove($_id)
 	{
-		if(!\dash\permission::check('productCommentDelete'))
+		if(!\dash\permission::check('manageProductComment'))
 		{
 			return false;
 		}
@@ -499,7 +499,7 @@ class comment
 			return false;
 		}
 
-		if(!\dash\permission::check('productCommentListEdit'))
+		if(!\dash\permission::check('manageProductComment'))
 		{
 			return false;
 		}

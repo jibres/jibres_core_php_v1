@@ -21,13 +21,13 @@
         </ul>
       </nav>
 
-      <?php if(\dash\permission::check('productPriceHistoryView')) {?>
+
       <nav class="items">
         <ul>
           <li><a class="f" href="<?php echo $urlHere; ?>/pricehistory"><div class="key"><?php echo T_("Price history"); ?></div><div class="go"></div></a></li>
         </ul>
       </nav>
-      <?php } //endif ?>
+
 
       <nav class="items">
         <ul>

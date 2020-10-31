@@ -53,7 +53,7 @@ class unit
 	public static function add($_args)
 	{
 
-		if(!\dash\permission::check('productUnitListAdd'))
+		if(!\dash\permission::check('mamageProductUnit'))
 		{
 			return false;
 		}
@@ -105,7 +105,7 @@ class unit
 
 	public static function remove($_args, $_id)
 	{
-		if(!\dash\permission::check('productUnitDelete'))
+		if(!\dash\permission::check('mamageProductUnit'))
 		{
 			return false;
 		}
@@ -262,7 +262,7 @@ class unit
 			return false;
 		}
 
-		if(!\dash\permission::check('productUnitListEdit'))
+		if(!\dash\permission::check('mamageProductUnit'))
 		{
 			return false;
 		}

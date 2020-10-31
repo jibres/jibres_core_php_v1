@@ -14,7 +14,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('productCategoryListEdit'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -120,7 +120,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('productCategoryListEdit'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -195,7 +195,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('productCategoryListAdd'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}

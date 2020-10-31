@@ -79,7 +79,7 @@ class edit
 
 	public static function edit($_args, $_id, $_option = [])
 	{
-		\dash\permission::access('productEdit');
+		\dash\permission::access('ProductEdit');
 
 		$default_option =
 		[

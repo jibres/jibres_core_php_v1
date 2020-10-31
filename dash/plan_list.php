@@ -12,50 +12,54 @@ class plan_list
 	{
 		$master =
 		[
-			'contentA',
-			'ProductEdit',
-			'showAllContactForm',
-			'websiteManager',
-			'settingEdit',
-			'settingView',
+			/* the group caller must be exists in plan */
+			'setting',
+			'products',
+			'orders',
+			'cart',
+			'form',
+			'accounting',
+			'application',
+			'setting',
+			'crm',
+			'cms',
+			'support',
+			'report',
+			/* the group caller must be exists in plan */
+
+			'EnterByAnother',
 			'productAdd',
-			'productTagView',
-			'productPriceHistoryView',
-			'settingEditPos',
-			'_group_setting',
+			'ProductEdit',
+			'ProductDelete',
+			'mamageProductUnit',
+			'manageProductCompany',
+			'manageProductComment',
+			'manageProductTag',
+			'manageProductCategory',
+			'settingEdit',
 			'factorAccess',
 			'factorSaleList',
 			'factorBuyList',
 			'factorSaleAdd',
 			'factorBuyAdd',
-			'_group_products',
-			'categoryEdit',
-			'categoryAdd',
-			'staffAccess',
-			'productList',
-			'customerAccess',
-			'tagEdit',
-			'tagAdd',
-			'tagView',
-			'ProductAdd',
-			'ProductDelete',
 			'contentCrm',
-			'listOfStores',
-			'EnterByAnother',
+			'staffAccess',
+			'customerAccess',
 			'cpPermissionView',
 			'cpPermissionAdd',
 			'cpPermissionEdit',
 			'cpPermissionDelete',
-			'cpSMS',
-			'cpUsersEdit',
-			'cpSmsSend',
-			'cpUsersView',
 			'cpUsersPasswordChange',
 			'cpUsersPermission',
 			'cpUsersAdd',
 			'aCustomerView',
 			'aCustomerEdit',
 			'mClassroomAdd',
+			'contentCp',
+			'cpSMS',
+			'cpUsersEdit',
+			'cpSmsSend',
+			'cpUsersView',
 			'contentPardakhtyar',
 			'cpPageAdd',
 			'cpHelpCenterAdd',
@@ -91,8 +95,17 @@ class plan_list
 			'cpTagSupportView',
 			'cpTagView',
 			'cpDayEvent',
+			'cpTransaction',
+			'cpTransactionAdd',
+			'cpHelpCenterViewAll',
+			'cpPostsEditPublished',
+			'cpPostsEditForOthers',
+			'cpHelpCenterDelete',
+			'cpPageDelete',
+			'cpHelpCenterDeleteForOthers',
+			'cpPostsDeleteForOthers',
+			'cpCommentsDelete',
 			'supportTicketManage',
-			'contentCp',
 			'supportTicketAddNote',
 			'supportEditMessage',
 			'supportTicketSignature',
@@ -105,39 +118,7 @@ class plan_list
 			'supportTicketDelete',
 			'supportTicketShowMobile',
 			'supportTicketReport',
-			'productEdit',
-			'productUnitListAdd',
-			'productUnitDelete',
-			'productUnitListEdit',
-			'productCompanyListAdd',
-			'productCompanyDelete',
-			'productCompanyListEdit',
-			'productCommentDelete',
-			'productCommentListEdit',
-			'productCategoryListEdit',
-			'productCategoryDelete',
-			'productCategoryListAdd',
-			'formTagListEdit',
-			'answerTagDelete',
-			'formTagListAdd',
-			'formAssignTag',
-			'formTagListView',
-			'productTagListEdit',
-			'productTagDelete',
-			'productTagListAdd',
-			'productAssignTag',
-			'productTagListView',
-			'showDomainStats',
-			'cpTransaction',
-			'cpTransactionAdd',
-			'cpHelpCenterViewAll',
-			'cpPostsEditPublished',
-			'cpPostsEditForOthers',
-			'cpHelpCenterDelete',
-			'cpPageDelete',
-			'cpHelpCenterDeleteForOthers',
-			'cpPostsDeleteForOthers',
-			'cpCommentsDelete',
+
 		];
 
 		return $master;
@@ -256,64 +237,19 @@ class plan_list
 	{
 		$master                                 = [];
 
-		$master['productAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAdd', 					'title' => T_('productAdd'), 'require' => []];
+		$master['EnterByAnother']               = ['jibres' => true, 'business' => false,  'group' => 'manage',	     'caller' => 'EnterByAnother', 				'title' => T_('EnterByAnother'), 'require' => []];
+
+		$master['productAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAdd', 					'title' => T_('Add new product'), 'require' => []];
 		$master['ProductEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductEdit', 					'title' => T_('Edit product'), 'require' => []];
-		$master['productTagView']               = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagView', 				'title' => T_('productTagView'), 'require' => []];
+		$master['ProductDelete']                = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductDelete', 				'title' => T_('Delete product'), 'require' => []];
+		$master['mamageProductUnit']            = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'mamageProductUnit', 			'title' => T_('Mamage Product Unit'), 'require' => []];
+		$master['manageProductCompany']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCompany', 		'title' => T_('Manage Product Company'), 'require' => []];
+		$master['manageProductComment']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductComment', 		'title' => T_('Manage Product Comment'), 'require' => []];
+		$master['manageProductTag']             = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductTag', 			'title' => T_('Manage Product Tag'), 'require' => []];
+		$master['manageProductCategory']        = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCategory', 		'title' => T_('Manage Product Category'), 'require' => []];
 
 
-
-		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('settingEdit'), 'require' => []];
-
-
-
-
-
-
-
-
-
-
-
-
-		$master['productPriceHistoryView']      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productPriceHistoryView', 		'title' => T_('productPriceHistoryView'), 'require' => []];
-		$master['productList']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productList', 					'title' => T_('productList'), 'require' => []];
-		$master['ProductAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductAdd', 					'title' => T_('ProductAdd'), 'require' => []];
-		$master['ProductDelete']                = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductDelete', 				'title' => T_('ProductDelete'), 'require' => []];
-		$master['productEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productEdit', 					'title' => T_('productEdit'), 'require' => []];
-		$master['productUnitListAdd']           = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productUnitListAdd', 			'title' => T_('productUnitListAdd'), 'require' => []];
-		$master['productUnitDelete']            = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productUnitDelete', 			'title' => T_('productUnitDelete'), 'require' => []];
-		$master['productUnitListEdit']          = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productUnitListEdit', 			'title' => T_('productUnitListEdit'), 'require' => []];
-		$master['productCompanyListAdd']        = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCompanyListAdd', 		'title' => T_('productCompanyListAdd'), 'require' => []];
-		$master['productCompanyDelete']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCompanyDelete', 		'title' => T_('productCompanyDelete'), 'require' => []];
-		$master['productCompanyListEdit']       = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCompanyListEdit', 		'title' => T_('productCompanyListEdit'), 'require' => []];
-		$master['productCommentDelete']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCommentDelete', 		'title' => T_('productCommentDelete'), 'require' => []];
-		$master['productCommentListEdit']       = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCommentListEdit', 		'title' => T_('productCommentListEdit'), 'require' => []];
-		$master['productCategoryListEdit']      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCategoryListEdit', 		'title' => T_('productCategoryListEdit'), 'require' => []];
-		$master['productCategoryDelete']        = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCategoryDelete', 		'title' => T_('productCategoryDelete'), 'require' => []];
-		$master['productCategoryListAdd']       = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productCategoryListAdd', 		'title' => T_('productCategoryListAdd'), 'require' => []];
-		$master['productTagListEdit']           = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagListEdit', 			'title' => T_('productTagListEdit'), 'require' => []];
-		$master['productTagDelete']             = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagDelete', 			'title' => T_('productTagDelete'), 'require' => []];
-		$master['productTagListAdd']            = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagListAdd', 			'title' => T_('productTagListAdd'), 'require' => []];
-		$master['productAssignTag']             = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAssignTag', 			'title' => T_('productAssignTag'), 'require' => []];
-		$master['productTagListView']           = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productTagListView', 			'title' => T_('productTagListView'), 'require' => []];
-		$master['_group_products']                 = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => '_group_products', 				'title' => T_('_group_products'), 'require' => []];
-		$master['categoryEdit']                 = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'categoryEdit', 				'title' => T_('categoryEdit'), 'require' => []];
-		$master['categoryAdd']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'categoryAdd', 					'title' => T_('categoryAdd'), 'require' => []];
-		$master['tagEdit']                      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'tagEdit', 						'title' => T_('tagEdit'), 'require' => []];
-		$master['tagAdd']                       = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'tagAdd', 						'title' => T_('tagAdd'), 'require' => []];
-		$master['tagView']                      = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'tagView', 						'title' => T_('tagView'), 'require' => []];
-
-		$master['showAllContactForm']           = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'showAllContactForm', 			'title' => T_('showAllContactForm'), 'require' => []];
-		$master['formTagListEdit']              = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'formTagListEdit', 				'title' => T_('formTagListEdit'), 'require' => []];
-		$master['answerTagDelete']              = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'answerTagDelete', 				'title' => T_('answerTagDelete'), 'require' => []];
-		$master['formTagListAdd']               = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'formTagListAdd', 				'title' => T_('formTagListAdd'), 'require' => []];
-		$master['formAssignTag']                = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'formAssignTag', 				'title' => T_('formAssignTag'), 'require' => []];
-		$master['formTagListView']              = ['jibres' => false, 'business' => true,  'group' => 'form', 		'caller' => 'formTagListView', 				'title' => T_('formTagListView'), 'require' => []];
-
-
-		$master['settingEditPos']               = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEditPos', 				'title' => T_('settingEditPos'), 'require' => []];
-		$master['_group_setting']                 = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => '_group_setting', 				'title' => T_('_group_setting'), 'require' => []];
-		$master['showDomainStats']              = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'showDomainStats', 				'title' => T_('showDomainStats'), 'require' => []];
+		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
 
 
 		$master['factorAccess']                 = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorAccess', 				'title' => T_('factorAccess'), 'require' => []];
@@ -338,8 +274,7 @@ class plan_list
 		$master['mClassroomAdd']                = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'mClassroomAdd', 				'title' => T_('mClassroomAdd'), 'require' => []];
 
 
-		$master['listOfStores']                 = ['jibres' => true, 'business' => false,  'group' => 'adminpanel',	'caller' => 'listOfStores', 				'title' => T_('listOfStores'), 'require' => []];
-		$master['EnterByAnother']               = ['jibres' => true, 'business' => false,  'group' => 'adminpanel',	'caller' => 'EnterByAnother', 				'title' => T_('EnterByAnother'), 'require' => []];
+
 
 		$master['contentCp']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'contentCp', 					'title' => T_('contentCp'), 'require' => []];
 		$master['cpSMS']                        = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpSMS', 						'title' => T_('cpSMS'), 'require' => []];

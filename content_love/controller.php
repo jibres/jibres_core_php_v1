@@ -12,7 +12,10 @@ class controller
 
 		\dash\redirect::remove_store();
 
-		\dash\permission::access('listOfStores');
+		if(!\dash\permission::supervisor())
+		{
+			\dash\header::status(403);
+		}
 	}
 }
 ?>

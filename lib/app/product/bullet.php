@@ -30,7 +30,7 @@ class bullet
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		\dash\permission::access('productEdit');
+		\dash\permission::access('ProductEdit');
 
 
 		$product_detail = \lib\app\product\get::inline_get($_id);

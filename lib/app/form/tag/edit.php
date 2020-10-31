@@ -14,11 +14,6 @@ class edit
 			return false;
 		}
 
-		if(!\dash\permission::check('formTagListEdit'))
-		{
-			return false;
-		}
-
 		if(!$_id || !is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid tag id"));

@@ -7,7 +7,6 @@ class controller
 	{
 		\content_a\form\tag\controller::check_form_id();
 
-		\dash\permission::access('tagView');
 	}
 
 	public static function check_form_id()

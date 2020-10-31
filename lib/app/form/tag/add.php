@@ -69,10 +69,6 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('formTagListAdd'))
-		{
-			return false;
-		}
 
 
 		$args = \lib\app\form\tag\check::variable($_args);
@@ -195,10 +191,10 @@ class add
 
 	public static function answer_add($_tag, $_answer_id, $_form_id, $_force = false)
 	{
-		if(!\dash\permission::check('formAssignTag') && !$_force)
-		{
-			return false;
-		}
+		// if(!perm('formAssignTag') && !$_force)
+		// {
+		// 	return false;
+		// }
 
 		$_answer_id = \dash\validate::id($_answer_id);
 		if(!$_answer_id)

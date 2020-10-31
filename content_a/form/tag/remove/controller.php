@@ -7,7 +7,6 @@ class controller
 	{
 		\content_a\form\tag\controller::check_form_id();
 
-		\dash\permission::access('tagEdit');
 
 		$dataRow = \lib\app\form\tag\get::get(\dash\request::get('tid'));
 		\dash\data::dataRow($dataRow);

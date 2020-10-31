@@ -58,11 +58,6 @@ class remove
 
 	public static function remove($_id)
 	{
-		if(!\dash\permission::check('answerTagDelete'))
-		{
-			return false;
-		}
-
 
 		$load = \lib\app\form\tag\get::inline_get($_id);
 

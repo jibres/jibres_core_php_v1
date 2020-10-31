@@ -114,7 +114,6 @@ class get
 			return false;
 		}
 
-		\dash\permission::access('formTagListView');
 
 		$_id = \dash\validate::id($_id);
 

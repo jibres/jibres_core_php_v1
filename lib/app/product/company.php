@@ -53,7 +53,7 @@ class company
 	public static function add($_args)
 	{
 
-		if(!\dash\permission::check('productCompanyListAdd'))
+		if(!\dash\permission::check('manageProductCompany'))
 		{
 			return false;
 		}
@@ -104,7 +104,7 @@ class company
 
 	public static function remove($_args, $_id)
 	{
-		if(!\dash\permission::check('productCompanyDelete'))
+		if(!\dash\permission::check('manageProductCompany'))
 		{
 			return false;
 		}
@@ -261,7 +261,7 @@ class company
 			return false;
 		}
 
-		if(!\dash\permission::check('productCompanyListEdit'))
+		if(!\dash\permission::check('manageProductCompany'))
 		{
 			return false;
 		}

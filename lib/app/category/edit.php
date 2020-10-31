@@ -40,7 +40,7 @@ class edit
 			return false;
 		}
 
-		if(!\dash\permission::check('productCategoryListEdit'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}

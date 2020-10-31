@@ -61,7 +61,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('productTagListAdd'))
+		if(!\dash\permission::check('manageProductTag'))
 		{
 			return false;
 		}
@@ -137,7 +137,7 @@ class add
 
 	public static function product_add($_tag, $_product_id)
 	{
-		if(!\dash\permission::check('productAssignTag'))
+		if(!\dash\permission::check('manageProductTag'))
 		{
 			return false;
 		}

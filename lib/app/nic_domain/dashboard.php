@@ -6,7 +6,11 @@ class dashboard
 {
 	public static function admin()
 	{
-		\dash\permission::access('showDomainStats');
+		if(!\dash\permission::is_admin())
+		{
+			\dash\header::status(403);
+		}
+
 
 		$today      = date("Y-m-d");
 		$yesterday  = date("Y-m-d", strtotime("yesterday"));
