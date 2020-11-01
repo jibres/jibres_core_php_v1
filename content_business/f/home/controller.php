@@ -20,7 +20,7 @@ class controller
 		}
 		if($child)
 		{
-			$load_form = \lib\app\form\form\get::get($child);
+			$load_form = \lib\app\form\form\get::public_get($child);
 			if(!$load_form || !isset($load_form['id']))
 			{
 				\dash\header::status(404);
@@ -66,7 +66,7 @@ class controller
 		{
 			$args = [];
 			$args['status'] = 'publish';
-			$get_publish_form = \lib\app\form\form\search::list(null, $args);
+			$get_publish_form = \lib\app\form\form\search::public_list(null, $args);
 			\dash\data::dataTable($get_publish_form);
 		}
 

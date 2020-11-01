@@ -32,7 +32,7 @@ class get
 	public static function public_comment($_answer_id)
 	{
 
-		$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
+		$load_answer = \lib\app\form\answer\get::public_by_id($_answer_id);
 		if(!$load_answer)
 		{
 			return false;

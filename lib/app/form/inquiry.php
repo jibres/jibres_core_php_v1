@@ -158,13 +158,12 @@ class inquiry
 		$answer_id = $result['answer_id'];
 
 		// add tag to this answer
-		$x = \lib\app\form\tag\add::answer_tag_plus(T_("Viewd"), $answer_id, $result['form_id'], true);
+		$x = \lib\app\form\tag\add::public_answer_tag_plus(T_("Viewd"), $answer_id, $result['form_id'], true);
 
 
 		\dash\data::answerID($answer_id);
 
 		$tag_list = \lib\app\form\tag\get::public_answer_tag($answer_id);
-
 		if(!is_array($tag_list))
 		{
 			$tag_list = [];

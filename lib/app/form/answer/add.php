@@ -39,7 +39,7 @@ class add
 
 		$answer_detail = [];
 
-		$load_form = \lib\app\form\form\get::get($form_id);
+		$load_form = \lib\app\form\form\get::public_get($form_id);
 		if(!$load_form)
 		{
 			return false;

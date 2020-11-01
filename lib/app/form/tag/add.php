@@ -105,10 +105,6 @@ class add
 
 	public static function force_add($_tag, $_form_id)
 	{
-		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription'))
-		{
-			\dash\permission::deny();
-		}
 
 		$get = \lib\db\form_tag\get::by_title($_tag, $_form_id);
 		if(isset($get['id']))
@@ -147,13 +143,19 @@ class add
 	}
 
 
-
 	public static function answer_tag_plus($_tag, $_answer_id, $_form_id)
 	{
 		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription'))
 		{
 			\dash\permission::deny();
 		}
+
+		return self::public_answer_tag_plus(...func_get_args());
+
+	}
+
+	public static function public_answer_tag_plus($_tag, $_answer_id, $_form_id)
+	{
 
 		$_answer_id = \dash\validate::id($_answer_id);
 		if(!$_answer_id)
@@ -162,7 +164,7 @@ class add
 			return false;
 		}
 
-		$load_form = \lib\app\form\form\get::get($_form_id);
+		$load_form = \lib\app\form\form\get::public_get($_form_id);
 
 		if(!$load_form)
 		{

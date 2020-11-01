@@ -8,6 +8,14 @@ class get
 	{
 		\dash\permission::access('_group_form');
 
+		return self::public_get($_id);
+
+	}
+
+
+	public static function public_get($_id)
+	{
+
 		$id = \dash\validate::id($_id);
 
 		if(!$id)

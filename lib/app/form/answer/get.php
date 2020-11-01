@@ -8,6 +8,13 @@ class get
 	{
 		\dash\permission::access('_group_form');
 
+		return self::public_by_id($_id);
+	}
+
+
+	public static function public_by_id($_id)
+	{
+
 		$id = \dash\validate::id($_id);
 		if(!$id)
 		{

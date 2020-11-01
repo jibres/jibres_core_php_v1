@@ -21,11 +21,18 @@ class search
 		return self::$is_filtered;
 	}
 
-
 	public static function list($_query_string, $_args)
 	{
-
 		\dash\permission::access('_group_form');
+
+		return self::public_list($_query_string, $_args);
+	}
+
+
+
+	public static function public_list($_query_string, $_args)
+	{
+
 
 		$condition =
 		[
