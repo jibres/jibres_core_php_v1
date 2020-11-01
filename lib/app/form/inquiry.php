@@ -140,6 +140,12 @@ class inquiry
 
 		\dash\data::inquiryExec(true);
 
+		$mobile = \dash\validate::mobile($q, false);
+		if($mobile)
+		{
+			$q = $mobile;
+		}
+
 		$result = \lib\db\form_answerdetail\get::by_items_id_answer(implode(',', $trust_field), $q);
 
 		if(!$result || !isset($result['answer_id']) || !isset($result['form_id']))
