@@ -26,7 +26,7 @@
 			</div>
 
 			<div class="mT10">
-
+				<input type="hidden" name="item_checkrequire_<?php echo $myKey ?>" value="1">
 			<div class="switch1">
 				<input type="checkbox" name="item_require_<?php echo $myKey ?>" id="check1<?php echo $myKey; ?>" <?php if(\dash\get::index($value, 'require')) { echo 'checked';} ?>>
 				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Is required?"); ?></label>

@@ -31,6 +31,7 @@ class check
 			'signup'       => 'bit',
 			'link'         => 'string_200',
 			'targetblank'  => 'bit',
+			'checkrequire' => 'bit',
 		];
 
 		$require = ['title', 'type'];

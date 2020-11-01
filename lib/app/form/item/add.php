@@ -22,6 +22,8 @@ class add
 			return false;
 		}
 
+		unset($args['checkrequire']);
+
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$args['form_id']      = $_form_id;
