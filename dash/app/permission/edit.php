@@ -85,13 +85,14 @@ class edit
 				$new_value[$group][$permission_caller] = $access;
 
 			}
+
+			if(!isset($new_value[$group]) || (isset($new_value[$group]) && empty($new_value[$group])))
+			{
+				$old_value[$group]['contain'] = [];
+			}
 		}
 
-		if(!$new_value)
-		{
-			\dash\notif::info(T_("No change in your permission"));
-			return false;
-		}
+
 
 
 		foreach ($new_value as $group => $contain)

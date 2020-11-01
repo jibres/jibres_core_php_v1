@@ -39,7 +39,6 @@ class plan_list
 			'settingEdit',
 			'ManageForm',
 			'AdvanceFormAnalyze',
-			'FormFilter',
 			'ManageFormTags',
 			'FormDescription',
 			'factorAccess',
@@ -258,7 +257,6 @@ class plan_list
 
 		$master['ManageForm']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageForm', 						'title' => T_('Manage Form'), 'require' => []];
 		$master['AdvanceFormAnalyze']           = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'AdvanceFormAnalyze', 				'title' => T_('Advance Form Analyze'), 'require' => []];
-		$master['FormFilter']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormFilter', 						'title' => T_('Form Filter'), 'require' => []];
 		$master['ManageFormTags']               = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageFormTags', 					'title' => T_('Manage Form Tags'), 'require' => []];
 		$master['FormRemoveAnswer']             = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormRemoveAnswer', 				'title' => T_('Remove form answer'), 'require' => []];
 		$master['FormDescription']              = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormDescription', 					'title' => T_('Form Description'), 'require' => []];
