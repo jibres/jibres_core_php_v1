@@ -6,6 +6,8 @@ class run
 {
 	public static function count_all($_form_id, $_filter_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$where_list = \lib\app\form\filter\get::where_list($_filter_id, $_form_id);
 
 		$table_name	 = \lib\app\form\view\get::is_created_table($_form_id);
@@ -68,6 +70,8 @@ class run
 
 	public static function run($_form_id, $_filter_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$table_name	 = \lib\app\form\view\get::is_created_table($_form_id);
 
 		$where_list = \lib\app\form\filter\get::where_list($_filter_id, $_form_id);

@@ -6,6 +6,7 @@ class add
 {
 	public static function duplicate($_args, $_form_id, $_filter_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$load_filter = \lib\app\form\filter\get::get($_filter_id);
 		if(!$load_filter)
@@ -26,6 +27,7 @@ class add
 
 	public static function add($_args, $_form_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$load = \lib\app\form\form\get::get($_form_id);
 		if(!$load)
@@ -55,6 +57,8 @@ class add
 
 	public static function add_where($_args, $_form_id, $_filter_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$load = \lib\app\form\form\get::get($_form_id);
 		if(!$load)
 		{

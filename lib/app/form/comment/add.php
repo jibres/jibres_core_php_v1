@@ -6,6 +6,8 @@ class add
 {
 	public static function add($_args)
 	{
+		\dash\permission::access('FormDescription');
+
 		$condition =
 		[
 			'comment'   => 'desc',

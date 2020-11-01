@@ -6,6 +6,7 @@ class get
 {
 	public static function get($_answer_id)
 	{
+		\dash\permission::access('_group_form');
 
 		$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
 		if(!$load_answer)
@@ -20,6 +21,14 @@ class get
 	}
 
 
+	/**
+	 * Get comment to show to users
+	 * needless to check permission
+	 *
+	 * @param      <type>   $_answer_id  The answer identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function public_comment($_answer_id)
 	{
 
@@ -40,6 +49,8 @@ class get
 
 	public static function one($_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$id = \dash\validate::id($_id);
 		if(!$id)
 		{

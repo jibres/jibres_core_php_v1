@@ -6,6 +6,7 @@ class field
 {
 	public static function get_by_view_id($_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$id = \dash\validate::id($_id);
 

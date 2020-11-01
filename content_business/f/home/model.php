@@ -20,7 +20,7 @@ class model
 			}
 		}
 
-		\lib\app\form\answer\add::new_answer($answer);
+		\lib\app\form\answer\add::public_new_answer($answer);
 
 		if(\dash\engine\process::status())
 		{

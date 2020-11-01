@@ -7,6 +7,8 @@ class remove
 
 	public static function remove($_form_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$laod_form = \lib\app\form\form\get::get($_form_id);
 
 		if(!$laod_form || !isset($laod_form['id']))

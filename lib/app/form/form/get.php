@@ -6,6 +6,7 @@ class get
 {
 	public static function get($_id)
 	{
+		\dash\permission::access('_group_form');
 
 		$id = \dash\validate::id($_id);
 

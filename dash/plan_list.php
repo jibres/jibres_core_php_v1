@@ -37,6 +37,11 @@ class plan_list
 			'manageProductTag',
 			'manageProductCategory',
 			'settingEdit',
+			'ManageForm',
+			'AdvanceFormAnalyze',
+			'FormFilter',
+			'ManageFormTags',
+			'FormDescription',
 			'factorAccess',
 			'factorSaleList',
 			'factorBuyList',
@@ -118,7 +123,6 @@ class plan_list
 			'supportTicketDelete',
 			'supportTicketShowMobile',
 			'supportTicketReport',
-
 		];
 
 		return $master;
@@ -142,7 +146,7 @@ class plan_list
 		[
 			'key'      => 'orders',
 			'title'    => T_("Access to orders"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -150,7 +154,7 @@ class plan_list
 		[
 			'key'      => 'cart',
 			'title'    => T_("Access to cart"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -159,7 +163,7 @@ class plan_list
 		[
 			'key'      => 'form',
 			'title'    => T_("Access to form builder"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => T_("Access to form builder, Add new from, Manage form answer, ..."),
 			'advance'  => [],
 		];
 
@@ -167,7 +171,7 @@ class plan_list
 		[
 			'key'      => 'accounting',
 			'title'    => T_("Access to accounting"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -176,7 +180,7 @@ class plan_list
 		[
 			'key'      => 'application',
 			'title'    => T_("Manage application"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -185,7 +189,7 @@ class plan_list
 		[
 			'key'      => 'setting',
 			'title'    => T_("Manage Setting"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -193,7 +197,7 @@ class plan_list
 		[
 			'key'      => 'crm',
 			'title'    => T_("Access to CRM"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -201,7 +205,7 @@ class plan_list
 		[
 			'key'      => 'cms',
 			'title'    => T_("Access to CMS"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -209,7 +213,7 @@ class plan_list
 		[
 			'key'      => 'support',
 			'title'    => T_("Manage support center"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -218,7 +222,7 @@ class plan_list
 		[
 			'key'      => 'report',
 			'title'    => T_("Access to report"),
-			'desc'     => T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
@@ -250,6 +254,14 @@ class plan_list
 
 
 		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
+
+
+		$master['ManageForm']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageForm', 						'title' => T_('Manage Form'), 'require' => []];
+		$master['AdvanceFormAnalyze']           = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'AdvanceFormAnalyze', 				'title' => T_('Advance Form Analyze'), 'require' => []];
+		$master['FormFilter']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormFilter', 						'title' => T_('Form Filter'), 'require' => []];
+		$master['ManageFormTags']               = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageFormTags', 					'title' => T_('Manage Form Tags'), 'require' => []];
+		$master['FormRemoveAnswer']             = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormRemoveAnswer', 				'title' => T_('Remove form answer'), 'require' => []];
+		$master['FormDescription']              = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormDescription', 					'title' => T_('Form Description'), 'require' => []];
 
 
 		$master['factorAccess']                 = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorAccess', 				'title' => T_('factorAccess'), 'require' => []];

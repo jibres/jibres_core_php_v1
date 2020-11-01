@@ -8,6 +8,7 @@ class get
 
 	public static function get($_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$id = \dash\validate::id($_id);
 
@@ -32,6 +33,8 @@ class get
 
 	public static function all_form_filter($_form_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$id = \dash\validate::id($_form_id);
 		if(!$id)
 		{
@@ -53,6 +56,7 @@ class get
 
 	public static function where_list($_filter_id, $_form_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$id = \dash\validate::id($_filter_id);
 

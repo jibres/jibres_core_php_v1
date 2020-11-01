@@ -24,6 +24,7 @@ class search
 
 	public static function list($_query_string, $_args, $_hot_query = [])
 	{
+		\dash\permission::access('_group_form');
 
 		$condition =
 		[

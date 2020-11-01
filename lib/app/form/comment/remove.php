@@ -6,7 +6,7 @@ class remove
 {
 	public static function remove($_id)
 	{
-
+		\dash\permission::access('FormDescription');
 
 		$get = \lib\app\form\comment\get::one($_id);
 		if(!$get)

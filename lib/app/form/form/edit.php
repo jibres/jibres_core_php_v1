@@ -6,6 +6,8 @@ class edit
 {
 	public static function edit($_args, $_id)
 	{
+		\dash\permission::access('ManageForm');
+
 		$load = \lib\app\form\form\get::get($_id);
 		if(!$load)
 		{

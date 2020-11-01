@@ -8,6 +8,9 @@ class remove
 
 	public static function remove_action($_id, $_action)
 	{
+
+		\dash\permission::access('ManageFormTags');
+
 		$load = \lib\app\form\tag\get::inline_get($_id);
 
 		if(!isset($load['id']))
@@ -58,6 +61,9 @@ class remove
 
 	public static function remove($_id)
 	{
+
+		\dash\permission::access('ManageFormTags');
+
 
 		$load = \lib\app\form\tag\get::inline_get($_id);
 

@@ -63,7 +63,7 @@ if(!is_array($permissionList))
         <input type="hidden" name="runaction_<?php echo $myGroup; ?>" value="1">
         <div class="switch1">
           <input type="checkbox" name="<?php echo $myGroup; ?>" id="<?php echo $myGroup; ?>"  <?php if(\dash\get::index($savedPerm, $myGroup, 'status')) { echo 'checked'; } ?>>
-          <label for="<?php echo $myGroup; ?>" data-on="<?php echo T_("Access"); ?>" data-off="<?php echo T_("Deny") ?>"></label>
+          <label for="<?php echo $myGroup; ?>" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
         </div>
       </div>
   </form>

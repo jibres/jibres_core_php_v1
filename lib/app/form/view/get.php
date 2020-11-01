@@ -6,6 +6,7 @@ class get
 {
 	public static function get($_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$id = \dash\validate::id($_id);
 
@@ -31,6 +32,9 @@ class get
 
 	public static function is_created_table($_form_id)
 	{
+
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$form_id = \dash\validate::id($_form_id);
 
 		if(!$form_id)

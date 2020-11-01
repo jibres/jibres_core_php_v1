@@ -8,6 +8,8 @@ class remove
 	public static function remove($_id)
 	{
 
+		\dash\permission::access('ManageForm');
+
 		$load = \lib\app\form\item\get::get($_id);
 		if(!$load)
 		{

@@ -4,7 +4,7 @@ namespace lib\app\form\answer;
 
 class add
 {
-	public static function new_answer($_args)
+	public static function public_new_answer($_args)
 	{
 		$condition =
 		[

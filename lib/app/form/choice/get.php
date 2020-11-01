@@ -8,6 +8,7 @@ class get
 
 	public static function get($_id)
 	{
+		\dash\permission::access('_group_form');
 
 		$id = \dash\validate::id($_id);
 
@@ -33,6 +34,8 @@ class get
 
 	public static function choice_item($_item)
 	{
+		\dash\permission::access('_group_form');
+
 		$item = \dash\validate::id($_item);
 
 		if(!$item)
@@ -55,6 +58,8 @@ class get
 
 	public static function all_choice($_form_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$form_id = \dash\validate::id($_form_id);
 
 		if(!$form_id)

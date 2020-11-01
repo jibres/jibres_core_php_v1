@@ -6,6 +6,8 @@ class export
 
 	public static function count_all($_form_id)
 	{
+		\dash\permission::access('ManageForm');
+
 		$form_id = \dash\validate::id($_form_id);
 		$count_product_available = \lib\db\form_answer\get::count_all($form_id);
 		return intval($count_product_available);
@@ -14,7 +16,9 @@ class export
 
 	public static function download_now($_form_id)
 	{
+
 		$form_id = \dash\validate::id($_form_id);
+
 		$count_all = self::count_all($_form_id);
 
 		if($count_all > 50)
@@ -34,6 +38,8 @@ class export
 
 	public static function queue($_form_id)
 	{
+		\dash\permission::access('ManageForm');
+
 		$form_id = \dash\validate::id($_form_id);
 
 		$count_all = self::count_all($form_id);
@@ -50,12 +56,22 @@ class export
 
 	public static function list()
 	{
+		\dash\permission::access('ManageForm');
+
 		$get_by_type = \lib\db\export\get::by_type('form_answer');
 		$get_by_type = array_map(['\\lib\\app\\export\\ready', 'row'], $get_by_type);
 		return $get_by_type;
 	}
 
 
+	/**
+	 * Ready data to export
+	 * this function needless to call permission caller
+	 *
+	 * @param      <type>         $_result  The result
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
 	public static function ready_for_export($_result)
 	{
 		unset($answer);
@@ -254,6 +270,7 @@ class export
 
 		return $new_export;
 	}
+
 
 
 	public static $sql_column_list = [];

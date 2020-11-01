@@ -5,6 +5,8 @@ class chart
 {
 	public static function advance_chart($_survey_id, $_question1, $_question2, $_question3, $_args = [])
 	{
+		\dash\permission::access('_group_form');
+
 		$result = \lib\db\answers::advance_chart($_survey_id, $_question1, $_question2, $_question3);
 
 		if(!is_array($result))

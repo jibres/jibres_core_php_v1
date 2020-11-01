@@ -7,6 +7,9 @@ class edit
 
 	public static function save_sort($_item_id, $_sort)
 	{
+
+		\dash\permission::access('ManageForm');
+
 		$_item_id = \dash\validate::id($_item_id);
 
 		if(!is_array($_sort))
@@ -34,6 +37,7 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
+		\dash\permission::access('ManageForm');
 
 		$load = \lib\app\form\choice\get::get($_id);
 		if(!$load)

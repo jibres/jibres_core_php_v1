@@ -7,6 +7,8 @@ class edit
 
 	public static function fields($_form_id, $_fields)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$_form_id = \dash\validate::id($_form_id);
 
 		$load_form = \lib\app\form\form\get::get($_form_id);

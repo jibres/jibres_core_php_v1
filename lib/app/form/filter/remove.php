@@ -7,6 +7,7 @@ class remove
 
 	public static function remove($_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$load = \lib\app\form\filter\get::get($_id);
 		if(!$load)
@@ -24,6 +25,7 @@ class remove
 
 	public static function remove_where($_id)
 	{
+		\dash\permission::access('AdvanceFormAnalyze');
 
 		$id = \dash\validate::id($_id);
 

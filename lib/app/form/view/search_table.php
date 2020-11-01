@@ -25,6 +25,8 @@ class search_table
 	public static function list($_query_string, $_args, $_hot_query = [])
 	{
 
+		\dash\permission::access('AdvanceFormAnalyze');
+
 		$condition =
 		[
 			'order'       => 'order',

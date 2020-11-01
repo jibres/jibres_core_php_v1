@@ -415,14 +415,21 @@ class permission
 
 		if(!$check)
 		{
-			if(!$_msg)
-			{
-				$_msg = T_("Permission denied");
-			}
-
-			\dash\header::status(403, $_msg);
+			self::deny($_msg);
 		}
+
 		return true;
+	}
+
+
+	public static function deny($_msg = null)
+	{
+		if(!$_msg)
+		{
+			$_msg = T_("Permission denied");
+		}
+
+		\dash\header::status(403, $_msg);
 	}
 }
 ?>

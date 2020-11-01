@@ -6,6 +6,8 @@ class report
 {
 	public static function check($_item)
 	{
+		\dash\permission::access('_group_form');
+
 		if(!$_item || !is_array($_item))
 		{
 			return null;
@@ -85,6 +87,9 @@ class report
 
 	public static function chart($_item)
 	{
+
+		\dash\permission::access('_group_form');
+
 		if(!isset($_item['type_detail']['chart_type']))
 		{
 			return null;

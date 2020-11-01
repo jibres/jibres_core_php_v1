@@ -25,6 +25,8 @@ class search
 	public static function list($_query_string, $_args)
 	{
 
+		\dash\permission::access('_group_form');
+
 		$condition =
 		[
 			'order'   => 'order',

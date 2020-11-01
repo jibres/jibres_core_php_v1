@@ -7,6 +7,9 @@ class add
 
 	public static function to_filter($_args)
 	{
+
+		\dash\permission::access('ManageFormTags');
+
 		$condition =
 		[
 			'tag'       => 'string_50',
@@ -61,14 +64,14 @@ class add
 
 	}
 
+
 	public static function add($_args)
 	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
 
+		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription'))
+		{
+			\dash\permission::deny();
+		}
 
 
 		$args = \lib\app\form\tag\check::variable($_args);
@@ -102,6 +105,11 @@ class add
 
 	public static function force_add($_tag, $_form_id)
 	{
+		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription'))
+		{
+			\dash\permission::deny();
+		}
+
 		$get = \lib\db\form_tag\get::by_title($_tag, $_form_id);
 		if(isset($get['id']))
 		{
@@ -142,6 +150,11 @@ class add
 
 	public static function answer_tag_plus($_tag, $_answer_id, $_form_id)
 	{
+		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription'))
+		{
+			\dash\permission::deny();
+		}
+
 		$_answer_id = \dash\validate::id($_answer_id);
 		if(!$_answer_id)
 		{
@@ -191,10 +204,10 @@ class add
 
 	public static function answer_add($_tag, $_answer_id, $_form_id, $_force = false)
 	{
-		// if(!perm('formAssignTag') && !$_force)
-		// {
-		// 	return false;
-		// }
+		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription') && !$_force)
+		{
+			\dash\permission::deny();
+		}
 
 		$_answer_id = \dash\validate::id($_answer_id);
 		if(!$_answer_id)

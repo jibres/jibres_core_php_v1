@@ -6,6 +6,7 @@ class add
 {
 	public static function add($_args, $_item_id, $_form_id)
 	{
+		\dash\permission::access('ManageForm');
 
 		$load = \lib\app\form\form\get::get($_form_id);
 		if(!$load)

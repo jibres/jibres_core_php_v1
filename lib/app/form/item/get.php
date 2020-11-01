@@ -4,6 +4,16 @@ namespace lib\app\form\item;
 
 class get
 {
+	/**
+	 * Get form items
+	 * this function call in website form generator
+	 * needless to check permission
+	 *
+	 * @param      <type>         $_form_id      The form identifier
+	 * @param      boolean        $_load_choice  The load choice
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
 	public static function items($_form_id, $_load_choice = true)
 	{
 		$_form_id = \dash\validate::id($_form_id);
@@ -65,6 +75,8 @@ class get
 
 	public static function items_inquiryable($_form_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$list = self::items($_form_id, false);
 		if(!is_array($list))
 		{
@@ -92,6 +104,8 @@ class get
 
 	public static function items_answerable($_form_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$list = self::items($_form_id, false);
 		if(!is_array($list))
 		{
@@ -120,6 +134,8 @@ class get
 
 	public static function items_comparable($_form_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$list = self::items($_form_id, false);
 		if(!is_array($list))
 		{
@@ -145,6 +161,8 @@ class get
 	public static function get($_id)
 	{
 
+		\dash\permission::access('_group_form');
+
 		$id = \dash\validate::id($_id);
 
 		if(!$id)
@@ -169,6 +187,8 @@ class get
 
 	public static function get_by_id_form_id($_id, $_form_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$id = \dash\validate::id($_id);
 
 		if(!$id)
@@ -201,6 +221,8 @@ class get
 
 	public static function items_answer($_form_id, $_answer_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$items         = self::items($_form_id);
 
 		$load_answer   = \lib\db\form_answer\get::user_answer($_answer_id);

@@ -8,11 +8,9 @@ class edit
 
 	public static function edit($_args, $_id, $_properties = [])
 	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
+
+		\dash\permission::access('ManageFormTags');
+
 
 		if(!$_id || !is_numeric($_id))
 		{

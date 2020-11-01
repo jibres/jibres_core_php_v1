@@ -6,6 +6,8 @@ class remove
 {
 	public static function remove($_answer_id)
 	{
+		\dash\permission::access('FormRemoveAnswer');
+
 		$answer_id = \dash\validate::id($_answer_id);
 		if(!$answer_id)
 		{

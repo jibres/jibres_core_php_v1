@@ -21,78 +21,6 @@ class search
 	}
 
 
-	public static function list_child($_tag_id, $_string = null, $_args = [])
-	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
-
-		if($_string)
-		{
-			$_string = \dash\validate::search($_string, false);
-		}
-
-		$_tag_id = \dash\validate::id($_tag_id);
-		if(!$_tag_id)
-		{
-			\dash\notif::error(T_("Invalid tag id"));
-			return false;
-		}
-
-		$meta = [];
-
-		$load_tag = \lib\app\form\tag\get::inline_get($_tag_id);
-
-		$parent_field = null;
-
-		if(!isset($load_tag['parent1']))
-		{
-			$parent_field    = 'parent1';
-			$meta['parent2'] = null;
-			$meta['parent3'] = null;
-		}
-
-		if(isset($load_tag['parent1']) && $load_tag['parent1'])
-		{
-			$parent_field    = 'parent2';
-			$meta['parent3'] = null;
-		}
-
-		if(isset($load_tag['parent2']) && $load_tag['parent2'])
-		{
-			$parent_field = 'parent3';
-		}
-
-		if(isset($load_tag['parent3']) && $load_tag['parent3'])
-		{
-			\dash\notif::error(T_("This record is not childable"));
-			return false;
-		}
-
-		if(!$parent_field)
-		{
-			\dash\notif::error(T_("This record have not child"));
-			return false;
-		}
-
-		$result = \lib\db\form_tag\get::list_child($_tag_id, $parent_field, $_string, $meta);
-
-		$temp            = [];
-
-
-		foreach ($result as $key => $value)
-		{
-			$check = \lib\app\form\tag\ready::row($value);
-			if($check)
-			{
-				$temp[] = $check;
-			}
-		}
-		// j($temp);
-		return $temp;
-	}
 
 
 
@@ -100,6 +28,10 @@ class search
 
 	public static function list($_query_string = null, $_args = [])
 	{
+
+		\dash\permission::access('_group_form');
+
+
 		$condition =
 		[
 			'order'      => 'order',

@@ -9,6 +9,8 @@ class get
 
 	public static function load_answer_by_tag($_tag)
 	{
+		\dash\permission::access('_group_form');
+
 		$_tag = \dash\validate::string($_tag);
 		if(!$_tag)
 		{
@@ -23,6 +25,8 @@ class get
 
 	public static function all_tag()
 	{
+		\dash\permission::access('_group_form');
+
 		$id = \dash\request::get('id');
 		$id = \dash\validate::id($id);
 		if(!$id)
@@ -79,6 +83,8 @@ class get
 
 	public static function answer_tag($_answer_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$get_usage = \lib\db\form_tagusage\get::usage($_answer_id);
 
 		return $get_usage;
@@ -108,11 +114,7 @@ class get
 
 	public static function get($_id)
 	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
+		\dash\permission::access('_group_form');
 
 
 		$_id = \dash\validate::id($_id);
