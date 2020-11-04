@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-01 12:51+0330\n"
-"PO-Revision-Date: 2020-11-01 12:53+0330\n"
+"POT-Creation-Date: 2020-11-04 15:02+0330\n"
+"PO-Revision-Date: 2020-11-04 15:04+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4322,7 +4322,7 @@ msgstr "وضعیت"
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:84
 #: content_cms/terms/display.php:166 content_crm/member/add/display.php:12
-#: content_crm/member/security/display.php:136 content_crm/permission/add/display.php:11
+#: content_crm/member/security/display.php:144 content_crm/permission/add/display.php:11
 #: content_love/business/domain/add/display.php:18 content_my/ipg/iban/add/display.php:21
 #: content_my/ipg/wallet/add/display.php:17 content_pardakhtyar/customer/add/display.php:9
 #: content_pardakhtyar/customer/dashboard/shaba-detail.php:33
@@ -5083,7 +5083,7 @@ msgstr "افزودن درآمد"
 msgid "List"
 msgstr "لیست"
 
-#: content_a/accounting/home/view.php:9 content_a/home/display.php:100
+#: content_a/accounting/home/view.php:9 content_a/home/display.php:115
 #: content_a/setting/home/display.php:183 content_crm/member/legal/display.php:19
 #: content_crm/member/legal/display.php:50 lib/app/store/analytics.php:94
 #: lib/app/store/analytics.php:95 lib/app/store/analytics.php:96
@@ -5342,7 +5342,7 @@ msgstr "جنسیت"
 #: content_a/cart/user/display.php:25 content_a/order/add/display.php:50
 #: content_a/sale/display.php:50 content_crm/member/home/display.php:159
 #: content_my/ipg/profile/display.php:22 content_my/ipg/setup/profile/display.php:22
-#: dash/app.php:172 dash/app/user.php:197 dash/user.php:195
+#: dash/app.php:172 dash/app/user.php:232 dash/user.php:195
 msgid "Mr"
 msgstr "آقای"
 
@@ -5350,7 +5350,7 @@ msgstr "آقای"
 #: content_a/cart/user/display.php:26 content_a/order/add/display.php:51
 #: content_a/sale/display.php:51 content_crm/member/home/display.php:159
 #: content_my/ipg/profile/display.php:28 content_my/ipg/setup/profile/display.php:28
-#: dash/app.php:176 dash/app/user.php:201 dash/user.php:199
+#: dash/app.php:176 dash/app/user.php:236 dash/user.php:199
 msgid "Mrs"
 msgstr "خانم"
 
@@ -5369,7 +5369,7 @@ msgstr "افزودن فاکتور جدید"
 #: content_a/accounting/irvat/all/display.php:6 content_a/android/home/display.php:117
 #: content_a/cart/add/display.php:35 content_a/cart/add/display.php:37
 #: content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:133
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:134
 #: content_a/order/add/display.php:17 content_a/sale/display.php:17
 #: content_crm/member/home/display.php:73 content_love/domain/home/display.php:219
 #: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
@@ -5838,7 +5838,7 @@ msgstr "مایکت"
 #: content_crm/member/education/display.php:39 content_crm/member/general/display.php:144
 #: content_crm/member/identification/display.php:35
 #: content_crm/member/legal/display.php:43 content_crm/member/legal/display.php:160
-#: content_crm/member/security/display.php:100 content_crm/member/social/display.php:58
+#: content_crm/member/security/display.php:108 content_crm/member/social/display.php:58
 #: content_crm/permission/advance/display.php:90
 #: content_love/business/domain/setting/display.php:27
 #: content_love/business/domain/setting/display.php:134
@@ -6279,7 +6279,7 @@ msgstr "این محصول از سبد خرید شما حذف شد"
 
 #: content_a/cart/add/display.php:211 content_account/address.php:78
 #: content_business/cart/display.php:52 content_crm/member/glance/display.php:225
-#: content_crm/member/security/display.php:108 includes/languages/trans_static.php:541
+#: content_crm/member/security/display.php:116 includes/languages/trans_static.php:541
 #: includes/languages/trans_static_public.php:88
 msgid "Delete"
 msgstr "حذف"
@@ -6332,7 +6332,7 @@ msgid "Guest user add cart"
 msgstr "کاربر مهمان سبد خرید اضافه کرده"
 
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
-#: content_a/home/display.php:91 content_a/setting/home/display.php:133
+#: content_a/home/display.php:99 content_a/setting/home/display.php:133
 #: content_business/home/layout/header/header_100.php:24 dash/layout/pwa/pwa_menu.php:251
 #: lib/app/store/analytics.php:87
 msgid "Cart"
@@ -7189,7 +7189,7 @@ msgid "Advance result"
 msgstr "نتایج پیشرفته"
 
 #: content_a/factor/home/display.php:123 content_a/filter.php:71 content_a/filter.php:140
-#: content_a/home/display.php:63 content_a/order/detail/display.php:9
+#: content_a/home/display.php:66 content_a/order/detail/display.php:9
 #: content_a/order/home/display.php:131 content_my/business/home/display_site.php:64
 #: content_su/smsclient/home/display.php:14 includes/languages/trans_static.php:61
 #: lib/app/factor/search.php:95 lib/app/factor/search.php:104
@@ -7487,7 +7487,7 @@ msgstr "بدون تخفیف"
 msgid "Supplier"
 msgstr "تامین‌کننده"
 
-#: content_a/filter.php:135 content_a/home/display.php:72
+#: content_a/filter.php:135 content_a/home/display.php:75
 #: content_my/business/home/display_site.php:34 includes/languages/trans_static.php:65
 #: lib/app/store/analytics.php:28
 msgid "Staff"
@@ -7948,7 +7948,7 @@ msgstr "کد پاسخ"
 msgid "Please enter the answer id to load detail"
 msgstr "برای بارگزاری اطلاعات، لطفا کد پاسخ را وارد کنید"
 
-#: content_a/form/home/view.php:9 content_a/home/display.php:99
+#: content_a/form/home/view.php:9 content_a/home/display.php:111
 #: content_a/setting/home/display.php:193
 msgid "Form Builder"
 msgstr "فرم‌ساز"
@@ -8512,34 +8512,34 @@ msgstr "انتخاب صندوق"
 msgid "Add new Product"
 msgstr "افزودن محصول جدید"
 
-#: content_a/home/display.php:36 content_a/home/display.php:92
+#: content_a/home/display.php:38 content_a/home/display.php:100
 #: content_a/order/add/view.php:14 content_a/order/detail/view.php:20
 #: content_a/order/view.php:9 content_a/setting/home/display.php:143
 #: dash/layout/pwa/pwa_menu.php:187 dash/panel.php:373
 msgid "Orders"
 msgstr "سفارشات"
 
-#: content_a/home/display.php:43
+#: content_a/home/display.php:46
 msgid "Sale Invoicing"
 msgstr "صدور فاکتور فروش"
 
-#: content_a/home/display.php:51
+#: content_a/home/display.php:54
 msgid "Buy Invocing"
 msgstr "صدور فاکتور خرید"
 
-#: content_a/home/display.php:83
+#: content_a/home/display.php:87
 msgid "Website setting"
 msgstr "تنظیمات وب‌سایت"
 
-#: content_a/home/display.php:84
+#: content_a/home/display.php:90
 msgid "Android app"
 msgstr "اپلیکیشن اندروید"
 
-#: content_a/home/display.php:131
+#: content_a/home/display.php:132
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:132
+#: content_a/home/display.php:133
 msgid "Sum price"
 msgstr "جمع مبالغ"
 
@@ -12749,7 +12749,7 @@ msgstr "ساخت کلید نرم‌افزار شما"
 msgid "If you want to revoke or remove this appkey"
 msgstr "اگر می‌خواهید کلید را ابطال یا حذف کنید"
 
-#: content_account/appkey/display.php:30 content_enter/block/display.php:4
+#: content_account/appkey/display.php:30 content_enter/block/display.php:9
 #: dash/social/telegram/commands/ermile.php:333
 msgid "Contact us"
 msgstr "با ما تماس بگیرید"
@@ -13353,7 +13353,7 @@ msgid "Signing to account"
 msgstr "ورود به حساب کاربری"
 
 #: content_account/security/display.php:39 content_crm/member/home/display.php:126
-#: content_crm/member/security/display.php:87 content_enter/pass/display.php:30
+#: content_crm/member/security/display.php:95 content_enter/pass/display.php:30
 #: content_enter/pass/display.php:33 content_enter/pass/view.php:10
 #: includes/languages/trans_static_public.php:163 lib/app/form/item/type.php:414
 msgid "Password"
@@ -13502,17 +13502,17 @@ msgid "No active session found"
 msgstr "هیچ نشست فعالی یافت نشد"
 
 #: content_account/security/sessions/display.php:54
-#: content_crm/member/security/display.php:186
+#: content_crm/member/security/display.php:194
 msgid "This device"
 msgstr "این دستگاه"
 
 #: content_account/security/sessions/display.php:65
-#: content_crm/member/security/display.php:197
+#: content_crm/member/security/display.php:205
 msgid "Check ip address"
 msgstr "بررسی آدرس آی‌پی"
 
 #: content_account/security/sessions/display.php:68
-#: content_crm/member/security/display.php:200 includes/languages/trans_static.php:563
+#: content_crm/member/security/display.php:208 includes/languages/trans_static.php:563
 msgid "Terminate"
 msgstr "مسدودسازی"
 
@@ -14393,7 +14393,7 @@ msgstr "آخرین اعضا"
 #: content_crm/home/display.php:68 content_crm/home/display.php:91
 #: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:144
 #: content_my/domain/search/display.php:187 content_my/domain/setting/display.php:57
-#: dash/app/user.php:52 dash/app/user.php:94 dash/app/user.php:144
+#: dash/app/user.php:87 dash/app/user.php:129 dash/app/user.php:179
 #: dash/app/visitor.php:112 dash/app/visitor.php:141
 #: includes/languages/trans_static.php:570 lib/app/factor/action.php:70
 #: lib/app/factor/ready.php:81 lib/app/nic_domain/ready.php:59
@@ -14602,12 +14602,12 @@ msgstr "نسخه"
 msgid "Manufacturer"
 msgstr "سازنده"
 
-#: content_crm/member/glance/display.php:224 content_crm/member/security/display.php:107
+#: content_crm/member/glance/display.php:224 content_crm/member/security/display.php:115
 msgid "Are you sure to delete this user?"
 msgstr "آیا از حذف این کاربر اطمینان دارید؟"
 
 #: content_crm/member/glance/model.php:17 content_crm/member/log/model.php:71
-#: content_crm/member/security/model.php:78 lib/app/store/analytics.php:37
+#: content_crm/member/security/model.php:79 lib/app/store/analytics.php:37
 msgid "User removed"
 msgstr "کاربر حذف شده"
 
@@ -14812,7 +14812,7 @@ msgstr "غیر فعال"
 msgid "Removed"
 msgstr "حذف شده"
 
-#: content_crm/member/home/display.php:721 content_crm/member/security/display.php:81
+#: content_crm/member/home/display.php:721 content_crm/member/security/display.php:84
 #: includes/languages/trans_static.php:523
 msgid "Unreachable"
 msgstr "غیر قابل دسترسی"
@@ -14869,23 +14869,23 @@ msgstr "لطفا کد معین را انتخاب کنید"
 msgid "Edit user legal detail"
 msgstr "ویرایش اطلاعات حقوقی مشتری"
 
-#: content_crm/member/log/model.php:36 content_crm/member/security/model.php:42
+#: content_crm/member/log/model.php:36 content_crm/member/security/model.php:43
 msgid "You can not set your permission less than admin!"
 msgstr "شما نمی‌توانید سطح دسترسی خود را پایین‌تر از مدیریت قرار دهید!"
 
-#: content_crm/member/log/model.php:60 content_crm/member/security/model.php:67
+#: content_crm/member/log/model.php:60 content_crm/member/security/model.php:68
 msgid "Chatid save"
 msgstr "شناسه چت ذخیره شد"
 
-#: content_crm/member/log/model.php:83 content_crm/member/security/model.php:90
+#: content_crm/member/log/model.php:83 content_crm/member/security/model.php:91
 msgid "Chatid removed"
 msgstr "شناسه تلگرام حذف شد"
 
-#: content_crm/member/log/model.php:106 content_crm/member/security/model.php:113
+#: content_crm/member/log/model.php:106 content_crm/member/security/model.php:114
 msgid "Please set repassword"
 msgstr "لطفا تکرار کلمه عبور را وارد کنید"
 
-#: content_crm/member/log/model.php:112 content_crm/member/security/model.php:119
+#: content_crm/member/log/model.php:112 content_crm/member/security/model.php:120
 msgid "Password not match whit repassword"
 msgstr "تکرار کلمه عبور با کلمه عبور برابر نیست"
 
@@ -15054,55 +15054,68 @@ msgstr "ورود دو مرحله ای"
 msgid "Show sidebar"
 msgstr "نمایش نوار کناری"
 
-#: content_crm/member/security/display.php:87
+#: content_crm/member/security/display.php:81
+msgid "Ban"
+msgstr "مسدود"
+
+#: content_crm/member/security/display.php:82 content_su/ip/display.php:77
+#: includes/languages/trans_static.php:557
+msgid "Block"
+msgstr "قفل شده"
+
+#: content_crm/member/security/display.php:88 content_crm/member/security/display.php:90
+msgid "Ban Expire date"
+msgstr "تاریخ انقضای محدودیت"
+
+#: content_crm/member/security/display.php:95
 msgid "Enter to change pass"
 msgstr "برای تغییر کلمه عبور آن را وارد کنید"
 
-#: content_crm/member/security/display.php:89 content_crm/member/security/display.php:94
+#: content_crm/member/security/display.php:97 content_crm/member/security/display.php:102
 msgid "Password was set, enter to change it!"
 msgstr "کلمه عبور تنظیم شده است، برای تغییر آن کلمه عبور را وارد کنید!"
 
-#: content_crm/member/security/display.php:89 content_crm/member/security/display.php:94
+#: content_crm/member/security/display.php:97 content_crm/member/security/display.php:102
 msgid "Password not set, enter  to set it!"
 msgstr "کلمه عبور تنظیم نشده است، آن را تنظیم کنید!"
 
-#: content_crm/member/security/display.php:92
+#: content_crm/member/security/display.php:100
 msgid "Confirm password"
 msgstr "تایید رمز عبور"
 
-#: content_crm/member/security/display.php:92
+#: content_crm/member/security/display.php:100
 msgid "Require to change current password"
 msgstr "برای تغییر کلمه عبور فعلی الزامی است"
 
-#: content_crm/member/security/display.php:104
+#: content_crm/member/security/display.php:112
 msgid "Delete user"
 msgstr "حذف کاربر"
 
-#: content_crm/member/security/display.php:121
+#: content_crm/member/security/display.php:129
 msgid "User have chatid"
 msgstr "کاربر دارای شناسه تلگرام است"
 
-#: content_crm/member/security/display.php:126
+#: content_crm/member/security/display.php:134
 msgid "Remove chatid"
 msgstr "حذف شناسه تلگرام"
 
-#: content_crm/member/security/display.php:134
+#: content_crm/member/security/display.php:142
 #: includes/languages/trans_static_public.php:406
 msgid "chatid"
 msgstr "شناسه چت"
 
-#: content_crm/member/security/display.php:134 content_love/log/home/logTable.php:60
+#: content_crm/member/security/display.php:142 content_love/log/home/logTable.php:60
 #: content_su/home/display.php:197 content_su/tg/home/view.php:11
 #: content_support/ticket/show/display.php:166 dash/layout/admin/sidebar/sidebar-su.php:27
 #: includes/languages/trans_static.php:625 lib/app/website/init.php:89 lib/store.php:517
 msgid "Telegram"
 msgstr "تلگرام"
 
-#: content_crm/member/security/display.php:146
+#: content_crm/member/security/display.php:154
 msgid "User have android"
 msgstr "کاربر دارای شناسه اندروید است"
 
-#: content_crm/member/security/display.php:160
+#: content_crm/member/security/display.php:168
 msgid "Active sessions"
 msgstr "ورودهای فعال"
 
@@ -15927,7 +15940,7 @@ msgid "Alert!"
 msgstr "هشدار!"
 
 #: content_enter/alert/view.php:16 content_enter/verify/model.php:69
-#: dash/utility/enter.php:908 dash/utility/enter.php:919 dash/utility/enter.php:926
+#: dash/utility/enter.php:1017 dash/utility/enter.php:1028 dash/utility/enter.php:1035
 #: lib/app/product/comment.php:30
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
@@ -16005,7 +16018,11 @@ msgstr "شما مسدود شدید!"
 msgid "You are blocked becauese of some reason!"
 msgstr "شما به دلایلی بلاک شده‌اید!"
 
-#: content_enter/block/display.php:4
+#: content_enter/block/display.php:5
+msgid "Your account block will be expire until"
+msgstr "محدودیت اکانت شما تا تاریخ زیر ادامه خواهد داشت"
+
+#: content_enter/block/display.php:9
 msgid "If have problem"
 msgstr "در صورت بروز مشکل"
 
@@ -16272,7 +16289,7 @@ msgstr "مرورگر شما گذرواژه ذخیره شده ای را ارسا�
 msgid "Pleaes set mobile number"
 msgstr "لطفا شماره تلفن‌همراه را وارد کنید"
 
-#: content_enter/signup/model.php:82 dash/utility/enter.php:1310
+#: content_enter/signup/model.php:82 dash/utility/enter.php:1424
 msgid "Please do not use your mobile in password!"
 msgstr "لطفا از موبایل خود در گذرواژه استفاده نکنید!"
 
@@ -20218,10 +20235,6 @@ msgstr "نمایش اطلاعات سرور"
 msgid "Show PHP info"
 msgstr "نمایش اطلاعات پی‌اچ‌پی"
 
-#: content_su/ip/display.php:77 includes/languages/trans_static.php:557
-msgid "Block"
-msgstr "قفل شده"
-
 #: content_su/ip/display.php:79
 msgid "Count block"
 msgstr "تعداد دفعات بلاک شده"
@@ -21980,15 +21993,15 @@ msgstr "شما نمی‌توانید آدرس یک حرفی یا دو حرفی �
 msgid "This address is a system keyword and cannot be selected"
 msgstr "این آدرس یک کلمه کلیدی سیستم است و قابل انتخاب نیست"
 
-#: dash/app/user.php:285
+#: dash/app/user.php:321
 msgid "Mobile is required"
 msgstr "موبایل الزامی است"
 
-#: dash/app/user.php:542
+#: dash/app/user.php:578
 msgid "Can not remove user by permission"
 msgstr "نمی‌توانید کاربری که داری سطح دسترسی هست را حذف کنید"
 
-#: dash/app/user.php:548
+#: dash/app/user.php:584
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
@@ -24036,55 +24049,59 @@ msgstr "نام فایل غیرمجاز"
 msgid "Can not upload this file because the extension of file is not allowed"
 msgstr "امکان بارگذاری این نوع فایل وجود ندارد"
 
-#: dash/utility/enter.php:352
+#: dash/utility/enter.php:76 dash/utility/enter.php:92 dash/utility/enter.php:107
+msgid "Your are baned"
+msgstr "شما مسدود شدید"
+
+#: dash/utility/enter.php:461
 msgid "User id not found to save your session"
 msgstr "شناسه کاربر برای ذخیره نشست یافت نشد"
 
-#: dash/utility/enter.php:746
+#: dash/utility/enter.php:855
 msgid "Too many request for generate code"
 msgstr "تعداد درخواست‌های زیادی برای ساخت کد اعتبار سنجی از سمت آی‌پی‌ شما ارسال شده است"
 
-#: dash/utility/enter.php:839
+#: dash/utility/enter.php:948
 msgid "Please fill the verification code"
 msgstr "لطفا کد اعتبارسنجی را وارد کنید"
 
-#: dash/utility/enter.php:848
+#: dash/utility/enter.php:957
 msgid "What happend? the code is number. you try to send string!?"
 msgstr "چی شده؟ کد باید عددی باشد. شما چطوری دارین متن وارد میکنید!؟"
 
-#: dash/utility/enter.php:855
+#: dash/utility/enter.php:964
 msgid "Please enter the 5 digit code sent to your mobile phone"
 msgstr "لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:876
+#: dash/utility/enter.php:985
 msgid "System error, try again"
 msgstr "خطای سیستم، دوباره تلاش کنید"
 
-#: dash/utility/enter.php:900
+#: dash/utility/enter.php:1009
 msgid "Your sms not deliver to us!"
 msgstr "پیامک شما بدست ما نرسیده است!"
 
-#: dash/utility/enter.php:944
+#: dash/utility/enter.php:1053
 msgid "Wrong code entered, Please enter the 5 digit code sent to your mobile phone"
 msgstr "کد اشتباهی وارد شده است، لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:1064
+#: dash/utility/enter.php:1173
 msgid "Your two-step verification is now active for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما فعال است"
 
-#: dash/utility/enter.php:1090
+#: dash/utility/enter.php:1201
 msgid "Your two-step verification is now deactive for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما غیر فعال است"
 
-#: dash/utility/enter.php:1114
+#: dash/utility/enter.php:1228
 msgid "Your password was changed"
 msgstr "کلمه عبور شما تغییر یافت"
 
-#: dash/utility/enter.php:1295
+#: dash/utility/enter.php:1409
 msgid "You must set 6 character and large in password"
 msgstr "گذرواژه باید حداقل ۶ کاراکتر باشد"
 
-#: dash/utility/enter.php:1302
+#: dash/utility/enter.php:1416
 msgid "You must set less than 99 character in password"
 msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
 
@@ -31781,7 +31798,7 @@ msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
 #: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:34
-#: lib/app/form/item/edit.php:93
+#: lib/app/form/item/edit.php:100
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 
@@ -31839,7 +31856,7 @@ msgstr "شرط حذف شد"
 msgid "Filter executed"
 msgstr "فیلتر اجرا شد"
 
-#: lib/app/form/form/add.php:26 lib/app/form/form/add.php:53 lib/app/form/item/add.php:31
+#: lib/app/form/form/add.php:26 lib/app/form/form/add.php:53 lib/app/form/item/add.php:33
 msgid "Contact form successfully added"
 msgstr "فرم تماس با موفقیت اضافه شد"
 
@@ -31859,23 +31876,23 @@ msgstr "من آقا هستم"
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
-#: lib/app/form/inquiry.php:153
+#: lib/app/form/inquiry.php:159
 msgid "You have not complete this form"
 msgstr "شما این فرم را تکمیل نکرده‌اید"
 
-#: lib/app/form/inquiry.php:161
+#: lib/app/form/inquiry.php:167
 msgid "Viewd"
 msgstr "مشاهده شده"
 
-#: lib/app/form/inquiry.php:186
+#: lib/app/form/inquiry.php:192
 msgid "You have already complete this form"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
-#: lib/app/form/item/check.php:76
+#: lib/app/form/item/check.php:77
 msgid "Minimum is larger than Maximum!"
 msgstr "مقدار حداقل بیشتر از مقدار حداکثر است!"
 
-#: lib/app/form/item/check.php:136
+#: lib/app/form/item/check.php:137
 msgid "Invalid extentions"
 msgstr "نوع فایل نامعتبر است"
 
