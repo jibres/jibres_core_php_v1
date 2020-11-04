@@ -72,8 +72,8 @@ class enter
 
 				\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*60))));
 
-				\dash\log::to_supervisor("my_user_id: ". $user_id. " ban for 1 hour");
-				\dash\notif::error(T_("Your are baned"));
+				\dash\log::to_supervisor("User ban alert! user_id: ". $user_id. " ban for 1 hour");
+				\dash\notif::error(T_("You are banned"));
 				self::set_logout($user_id);
 			}
 			else
@@ -88,8 +88,8 @@ class enter
 					// ban user up to 24 hour
 
 					\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*60*24))));
-					\dash\log::to_supervisor("my_user_id: ". $user_id. " ban for 24 hour");
-					\dash\notif::error(T_("Your are baned"));
+					\dash\log::to_supervisor("User ban alert! user_id: ". $user_id. " ban for 24 hour");
+					\dash\notif::error(T_("You are banned"));
 					self::set_logout($user_id);
 
 				}
@@ -103,8 +103,8 @@ class enter
 					{
 						// ban forever.
 						\dash\app\user::ban($user_id);
-						\dash\log::to_supervisor("my_user_id: ". $user_id. " ban forever");
-						\dash\notif::error(T_("Your are baned"));
+						\dash\log::to_supervisor("User ban alert! user_id: ". $user_id. " ban forever");
+						\dash\notif::error(T_("You are banned"));
 						self::set_logout($user_id);
 					}
 					else
