@@ -28,6 +28,21 @@ class logs
 	}
 
 
+	public static function count_where_date($_where, $_date_time)
+	{
+		$where = \dash\db\config::make_where($_where);
+
+		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE $where AND logs.datecreated >= '$_date_time' ";
+		$result = \dash\db::get($query, 'count', true);
+		if(!is_numeric($result))
+		{
+			$result = 0;
+		}
+
+		return floatval($result);
+	}
+
+
 
 	public static function expire_notif()
 	{

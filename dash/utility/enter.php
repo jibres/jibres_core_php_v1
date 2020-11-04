@@ -8,6 +8,115 @@ class enter
 
 	public static function try($_module)
 	{
+		$log_caller = 'enterTry:'. $_module;
+
+		\dash\log::set($log_caller);
+
+		$ban_try_1 = 1;
+		$ban_try_2 = 10;
+		$ban_try_3 = 50;
+
+		switch ($_module)
+		{
+			case 'enter_invalid_force_code':
+				$ban_try_1 = 1;
+				$ban_try_2 = 3;
+				$ban_try_3 = 5;
+				break;
+
+			case 'diffrent_mobile':
+				$ban_try_1 = 100;
+				$ban_try_2 = 1000;
+				$ban_try_3 = 50000;
+				break;
+
+			case 'invalid_password':
+			case 'verify_invalid_code':
+			case 'login_user_not_found':
+			case 'login_status_block':
+			case 'browser_pass_saved_invalid':
+			case 'change_pass_invalid_old_pass':
+			case 'pass_invalid_pass':
+			case 'pass_recovery_pass_not_set':
+			case 'pass_set_password_not_set':
+			case 'pass_signup_password_not_set':
+			case 'username_username_not_set':
+			case 'change_pass_have_not_pass':
+				$ban_try_1 = 5;
+				$ban_try_2 = 10;
+				$ban_try_3 = 50;
+				break;
+
+			default:
+				# code...
+				break;
+		}
+
+
+		$check_log           = [];
+		$check_log['caller'] = $log_caller;
+
+		$user_id = (\dash\user::id()) ? \dash\user::id() : self::user_id();
+
+		if($user_id)
+		{
+			$check_log['from'] = $user_id;
+
+			$this_hour = date("Y-m-d H:i:s", (time() - (60*60)));
+			$get_count_log = \dash\db\logs::count_where_date($check_log, $this_hour);
+
+
+			if($get_count_log > $ban_try_1)
+			{
+				// ban user up to 1 hour
+
+				\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*60))));
+
+				\dash\log::to_supervisor("my_user_id: ". $user_id. " ban for 1 hour");
+				\dash\notif::error(T_("Your are baned"));
+				self::set_logout($user_id);
+			}
+			else
+			{
+
+				$today = date("Y-m-d H:i:s", strtotime("-1 days"));
+
+				$get_count_log = \dash\db\logs::count_where_date($check_log, $today);
+
+				if($get_count_log > $ban_try_2)
+				{
+					// ban user up to 24 hour
+
+					\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*60*24))));
+					\dash\log::to_supervisor("my_user_id: ". $user_id. " ban for 24 hour");
+					\dash\notif::error(T_("Your are baned"));
+					self::set_logout($user_id);
+
+				}
+				else
+				{
+					$this_month = date("Y-m-d H:i:s", strtotime("-30 days"));
+
+					$get_count_log = \dash\db\logs::count_where_date($check_log, $this_month);
+
+					if($get_count_log > $ban_try_3)
+					{
+						// ban forever.
+						\dash\app\user::ban($user_id);
+						\dash\log::to_supervisor("my_user_id: ". $user_id. " ban forever");
+						\dash\notif::error(T_("Your are baned"));
+						self::set_logout($user_id);
+					}
+					else
+					{
+						// nothing
+						// user is ok!
+					}
+				}
+			}
+		}
+
+
 		self::set_session($_module, intval(self::get_session($_module)) + 1);
 
 		$count_try = intval(self::get_session($_module));

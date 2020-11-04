@@ -11,6 +11,41 @@ class user
 	use \dash\app\user\get;
 
 
+	public static function ban($_user_id, $_ban_expire = null)
+	{
+		$user_id = \dash\validate::id($_user_id, false);
+		if($user_id)
+		{
+			$update = [];
+			$update['status'] = 'ban';
+
+			if($_ban_expire)
+			{
+				$update['ban_expire'] = $_ban_expire;
+			}
+			else
+			{
+				$update['ban_expire'] = null;
+			}
+
+			\dash\db\users::update($update, $user_id);
+		}
+	}
+
+
+	public static function un_ban($_user_id)
+	{
+		$user_id = \dash\validate::id($_user_id, false);
+		if($user_id)
+		{
+			$update = [];
+			$update['status'] = 'awaiting';
+
+			\dash\db\users::update($update, $user_id);
+		}
+	}
+
+
 
 	public static function lates_user($_args = [])
 	{

@@ -246,16 +246,39 @@ class model
 		}
 
 		// if this user is blocked or filtered go to block page
-		if(in_array(\dash\utility\enter::user_data('status'), ['filter', 'block']))
+		if(in_array(\dash\utility\enter::user_data('status'), ['filter', 'block', 'ban']))
 		{
 			\dash\log::set('statusBlockOrFilter');
 
-			\dash\utility\enter::try('login_status_block');
-			// block page
-			\dash\utility\enter::next_step('block');
-			// go to block page
-			\dash\utility\enter::go_to('block');
-			return;
+			$is_ban = true;
+
+			if(\dash\utility\enter::user_data('status') === 'ban' && \dash\utility\enter::user_data('ban_expire') && \dash\utility\enter::user_data('id'))
+			{
+				if(time() > strtotime(\dash\utility\enter::user_data('ban_expire')))
+				{
+					\dash\app\user::un_ban(\dash\utility\enter::user_data('id'));
+					$is_ban = false;
+				}
+			}
+
+			if($is_ban)
+			{
+				\dash\utility\enter::try('login_status_block');
+				// block page
+				\dash\utility\enter::next_step('block');
+				if(\dash\utility\enter::user_data('ban_expire'))
+				{
+					// go to block page
+					\dash\utility\enter::go_to('block?e='. \dash\utility\enter::user_data('ban_expire'));
+				}
+				else
+				{
+					// go to block page
+					\dash\utility\enter::go_to('block');
+				}
+				return;
+			}
+
 		}
 
 		// the password field is empty
