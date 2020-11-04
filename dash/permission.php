@@ -257,7 +257,7 @@ class permission
 
 		if(self::supervisor())
 		{
-			// return true;
+			return true;
 		}
 
 		// we have store and need to check permission but the user not in this store
