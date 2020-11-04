@@ -1176,6 +1176,8 @@ class enter
 
 			\dash\log::set('twoStepActive');
 
+			\dash\login::terminate_all_other_session(self::user_data('id'));
+
 			self::set_session('alert', $alert);
 			self::next_step('alert');
 			self::go_to('alert');
@@ -1201,6 +1203,9 @@ class enter
 			];
 
 			\dash\log::set('twoStepDeactive');
+
+
+			\dash\login::terminate_all_other_session(self::user_data('id'));
 
 			self::set_session('alert', $alert);
 			self::next_step('alert');

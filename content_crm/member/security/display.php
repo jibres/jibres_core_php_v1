@@ -78,9 +78,17 @@
       <option value="deactive" <?php if(\dash\data::dataRowMember_status() == 'deactive') { echo 'selected';} ?> ><?php echo T_("Deactive"); ?></option>
       <option value="removed" <?php if(\dash\data::dataRowMember_status() == 'removed') { echo 'selected';} ?> ><?php echo T_("Removed"); ?></option>
       <option value="filter" <?php if(\dash\data::dataRowMember_status() == 'filter') { echo 'selected';} ?> ><?php echo T_("Filter"); ?></option>
+      <option value="ban" <?php if(\dash\data::dataRowMember_status() == 'ban') { echo 'selected';} ?> ><?php echo T_("Ban"); ?></option>
+      <option value="block" <?php if(\dash\data::dataRowMember_status() == 'block') { echo 'selected';} ?> ><?php echo T_("Block"); ?></option>
+
       <option value="unreachable" <?php if(\dash\data::dataRowMember_status() == 'unreachable') { echo 'selected';} ?> ><?php echo T_("Unreachable"); ?></option>
     </select>
   </div>
+
+      <label for="ban_expire"><?php echo T_("Ban Expire date"); ?></label>
+    <div class="input ltr">
+      <input type="text" name="ban_expire" id="ban_expire" placeholder='<?php echo T_("Ban Expire date"); ?>' value="<?php echo \dash\data::dataRowMember_ban_expire(); ?>" >
+    </div>
 
   <?php if(\dash\permission::check('cpUsersPasswordChange')) {?>
 

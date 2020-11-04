@@ -17,6 +17,7 @@ class model
 			'language'      => \dash\request::post('language'),
 			'username'      => \dash\request::post('username'),
 			'permission'    => \dash\request::post('permission'),
+			'ban_expire'    => \dash\request::post('ban_expire'),
 
 		];
 
