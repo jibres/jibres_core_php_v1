@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-04 15:02+0330\n"
-"PO-Revision-Date: 2020-11-04 15:04+0330\n"
+"POT-Creation-Date: 2020-11-04 16:10+0330\n"
+"PO-Revision-Date: 2020-11-04 16:12+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -23005,10 +23005,6 @@ msgstr "مدیریت مرکز پشتیبانی"
 msgid "Access to report"
 msgstr "دسترسی به گزارشات"
 
-#: dash/plan_list.php:243
-msgid "EnterByAnother"
-msgstr "ورود با کاربر دیگر"
-
 #: dash/plan_list.php:247
 msgid "Delete product"
 msgstr "حذف محصول"
@@ -24050,7 +24046,7 @@ msgid "Can not upload this file because the extension of file is not allowed"
 msgstr "امکان بارگذاری این نوع فایل وجود ندارد"
 
 #: dash/utility/enter.php:76 dash/utility/enter.php:92 dash/utility/enter.php:107
-msgid "Your are baned"
+msgid "You are banned"
 msgstr "شما مسدود شدید"
 
 #: dash/utility/enter.php:461
@@ -35889,6 +35885,9 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "EnterByAnother"
+#~ msgstr "ورود با کاربر دیگر"
 
 #~ msgid "Access"
 #~ msgstr "دسترسی"
