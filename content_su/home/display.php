@@ -199,6 +199,14 @@
           </a>
        </li>
 
+        <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/processlist">
+            <div class="key"><?php echo T_('Show mysql process list');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
+
+
      </ul>
    </nav>
 
