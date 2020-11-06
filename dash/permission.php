@@ -4,20 +4,6 @@ namespace dash;
 /** Access: handle permissions **/
 class permission
 {
-	// user permissio as a group name
-	private static $user_permission         = null;
-
-	// list of project permissin list
-	private static $project_perm_list       = [];
-	// list of project permission group
-	private static $project_group           = [];
-	// list of dash permission list
-	private static $core_perm_list          = [];
-	// list of dash permission group
-	private static $core_group              = [];
-
-
-
 
 	public static function who_have($_caller, $_admin = true)
 	{
@@ -31,6 +17,7 @@ class permission
 		}
 
 		$group     = self::groups();
+
 		foreach ($group as $key => $value)
 		{
 			if(isset($value['contain']) && is_array($value['contain']))
@@ -43,44 +30,6 @@ class permission
 		}
 		return $perm_name;
 
-	}
-
-
-
-
-	// get count of user by permission group
-	public static function usercount()
-	{
-		if(is_callable(['\lib\permission', 'usercount']))
-		{
-			$count = \lib\permission::usercount();
-			if($count === null)
-			{
-				$count = \dash\db\users::permission_group();
-			}
-		}
-		else
-		{
-			$count = \dash\db\users::permission_group();
-		}
-
-		$group = self::groups();
-
-		$new_count = [];
-
-		foreach ($group as $key => $value)
-		{
-			if(array_key_exists($key, $count))
-			{
-				$new_count[$key] = intval($count[$key]);
-			}
-			else
-			{
-				$new_count[$key] = 0;
-			}
-		}
-
-		return $new_count;
 	}
 
 
@@ -98,32 +47,8 @@ class permission
 
 		$all_group = array_column($list, 'key');
 
-
 		return $all_group;
 	}
-
-
-	// show all permission list
-	public static function lists($_project = false)
-	{
-
-		$all_list = [];
-
-		if($_project)
-		{
-			$all_list = self::$project_perm_list;
-		}
-		else
-		{
-			if(is_array(self::$core_perm_list) && is_array(self::$project_perm_list))
-			{
-				$all_list = array_merge(self::$core_perm_list, self::$project_perm_list);
-			}
-		}
-		return $all_list;
-	}
-
-
 
 
 	// make an array to draw permission list in quick view
@@ -189,11 +114,6 @@ class permission
 		}
 		return $result;
 	}
-
-
-
-
-
 
 
 	// check the user is supervisor or not
@@ -268,8 +188,6 @@ class permission
 				return false;
 			}
 		}
-
-
 
 		$myPermission = \dash\user::detail('permission');
 
