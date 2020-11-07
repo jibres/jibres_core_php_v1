@@ -82,7 +82,7 @@ class check
 
 		if($data['number'])
 		{
-			$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number']);
+			$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number'], $data['year_id']);
 			if(isset($check_duplicate_number['id']))
 			{
 				if(floatval($check_duplicate_number['id']) === floatval($_id))

@@ -519,5 +519,127 @@ class closing
 		\dash\notif::ok(T_("Year closing complete"));
 	}
 
+
+	public static function opening($_year_id)
+	{
+
+		$load_opening_doc = \lib\app\tax\doc\get::opening_doc($_year_id);
+
+		if($load_opening_doc)
+		{
+			\dash\notif::error(T_("The opening document already added"));
+			return false;
+		}
+
+		$year_id = \dash\validate::id($_year_id);
+
+		$get_last_year = \lib\db\tax_year\get::last_year($year_id);
+
+		if(!$get_last_year)
+		{
+			\dash\notif::error(T_("Can not find last year!"));
+			return false;
+		}
+
+		$load_year = \lib\app\tax\year\get::get($_year_id);
+		if(!isset($load_year['title']))
+		{
+			\dash\notif::error(T_("Invalid year"));
+			return false;
+		}
+
+
+		$closing = self::get_closing($get_last_year);
+
+		if(!isset($closing['closing']) || !isset($closing['closing']['doc_id']))
+		{
+			\dash\notif::error(T_("Can not find last year closing document"));
+			return false;
+		}
+
+		$doc_id = $closing['closing']['doc_id'];
+		$load_doc = \lib\app\tax\docdetail\get::list($doc_id);
+
+
+		if(!$load_doc || !is_array($load_doc))
+		{
+			\dash\notif::error(T_("Can not find last year closing document"));
+			return false;
+		}
+
+
+		$post =
+		[
+			'number'    => 1,
+			'subnumber' => 1,
+			'year_id'   => $year_id,
+			'desc'      => T_("Opening document :year", ['year' => $load_year['title']]),
+			'date'      => $load_year['startdate'], // start of year
+			'type'      => 'opening', // closing - opening
+		];
+
+		$result = \lib\app\tax\doc\add::add($post);
+
+		if(!isset($result['id']))
+		{
+			\dash\notif::error(T_("Can not add accounting document"));
+			return false;
+		}
+
+
+		foreach ($load_doc as $key => $value)
+		{
+			if($value['type'] === 'creditor')
+			{
+				$type = 'debtor';
+			}
+			else
+			{
+				$type = 'creditor';
+			}
+
+			$post =
+			[
+				'tax_document_id' => $result['id'],
+				'type'            => $type,
+				'value'           => abs($value['value']),
+				'desc'            => null,
+				'sort'            => $key,
+				'assistant_id'    => $value['assistant_id'],
+				'details_title'   => $value['details_title'],
+			];
+
+			\lib\app\tax\docdetail\add::add($post);
+
+		}
+
+
+		$lock =
+		[
+			'status' => 'lock',
+		];
+
+		\lib\app\tax\doc\edit::edit_status($lock, $result['id']);
+
+		$opening = [];
+		$opening['opening'] =
+		[
+			'doc_number' => 1,
+			'doc_id'     => $result['id'],
+			'date'       => date("Y-m-d H:i:s"),
+		];
+
+		$opening                = json_encode($opening, JSON_UNESCAPED_UNICODE);
+		$update                 = [];
+		$update['opening']      = $opening;
+		$update['datemodified'] = date("Y-m-d H:i:s");
+		\lib\db\tax_year\update::update($update, $year_id);
+
+
+		\dash\notif::clean();
+
+		\dash\notif::ok(T_("Year opening complete"));
+	}
+
 }
 ?>

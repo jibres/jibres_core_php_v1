@@ -43,9 +43,9 @@ class get
 	}
 
 
-	public static function check_duplicate_number($_number)
+	public static function check_duplicate_number($_number, $_year_id)
 	{
-		$query = "SELECT * FROM tax_document WHERE tax_document.number = $_number LIMIT 1";
+		$query = "SELECT * FROM tax_document WHERE tax_document.number = $_number AND tax_document.year_id = $_year_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

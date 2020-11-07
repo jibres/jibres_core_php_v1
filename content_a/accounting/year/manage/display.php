@@ -1,4 +1,23 @@
 
+<section class="f" data-option='accounting-opening'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Add opening document") ?></h3>
+      <div class="body">
+        <p><?php echo T_("In some cases, the system automatically issues documents that need a specific title. Set these titles in this section.");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12" >
+      <div class="action">
+          <span class="btn master" data-confirm data-data='{"opening": "opening"}'><?php echo T_("Open now") ?></span>
+      </div>
+  </div>
+  <footer class="txtRa">
+  	<a class="btn link" href='<?php echo \dash\url::this(). '/doc/add?type=opening'; ?>'><?php echo T_("Add opening document manually") ?></a>
+  </footer>
+</section>
+
 <section class="f" data-option='accounting-close-harmful-profit'>
   <div class="c8 s12">
     <div class="data">

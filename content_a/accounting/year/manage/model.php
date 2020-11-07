@@ -39,6 +39,18 @@ class model
 			return;
 		}
 
+
+		if(\dash\request::post('opening') === 'opening')
+		{
+			\lib\app\tax\doc\closing::opening(\dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd(\dash\url::that());
+			}
+			return;
+		}
+
 	}
 }
 ?>

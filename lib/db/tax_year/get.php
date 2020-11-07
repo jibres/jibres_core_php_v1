@@ -4,6 +4,28 @@ namespace lib\db\tax_year;
 
 class get
 {
+
+	public static function last_year($_year_id)
+	{
+		$query =
+		"
+			SELECT
+				LASTYEAR.*
+			FROM
+				tax_year AS `LASTYEAR`
+			WHERE
+				DATE(LASTYEAR.enddate) <= DATE((SELECT tax_year.startdate FROM tax_year WHERE tax_year.id = $_year_id ))
+			ORDER BY LASTYEAR.enddate DESC
+			LIMIT 1
+
+		";
+
+		$result = \dash\db::get($query, null, true);
+
+		return $result;
+	}
+
+
 	public static function last_end_date()
 	{
 		$query = "SELECT MAX(tax_year.enddate) AS `enddate` FROM tax_year ";
