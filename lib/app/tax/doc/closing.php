@@ -338,7 +338,7 @@ class closing
 
 		\dash\notif::clean();
 
-		\dash\notif::ok(T_("accumulated document is closed"));
+		\dash\notif::ok(T_("Operation complete"));
 	}
 
 
