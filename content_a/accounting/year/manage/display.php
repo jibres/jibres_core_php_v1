@@ -11,6 +11,11 @@
 				<span class="btn master" data-confirm data-data='{"accumulated": "accumulated"}'><?php echo T_("Move Now") ?></span>
 			</div>
 
+			<div class="msg danger2">
+				<?php echo T_("Send closing document") ?>
+				<span class="btn master" data-confirm data-data='{"closing": "closing"}'><?php echo T_("Run Now") ?></span>
+			</div>
+
 		<?php if(\dash\data::closeHarmfullProfitList()) {?>
 			<div class="tblBox">
 				<table class="tbl1 v4">

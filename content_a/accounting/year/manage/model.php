@@ -28,6 +28,18 @@ class model
 		}
 
 
+		if(\dash\request::post('closing') === 'closing')
+		{
+			\lib\app\tax\doc\closing::closing(\dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd(\dash\url::that());
+			}
+			return;
+		}
+
+
 
 
 
