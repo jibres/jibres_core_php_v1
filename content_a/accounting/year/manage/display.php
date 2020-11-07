@@ -4,7 +4,7 @@
     <div class="data">
       <h3><?php echo T_("Add opening document") ?></h3>
       <div class="body">
-        <p><?php echo T_("In some cases, the system automatically issues documents that need a specific title. Set these titles in this section.");?></p>
+        <p></p>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
     <div class="data">
       <h3><?php echo T_("Close all harmful-profit document") ?></h3>
       <div class="body">
-        <p><?php echo T_("In some cases, the system automatically issues documents that need a specific title. Set these titles in this section.");?></p>
+        <p></p>
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
     <div class="data">
       <h3><?php echo T_("Move harmful-profit to accumulated") ?></h3>
       <div class="body">
-        <p><?php echo T_("In some cases, the system automatically issues documents that need a specific title. Set these titles in this section.");?></p>
+        <p></p>
       </div>
     </div>
   </div>
@@ -102,7 +102,7 @@
     <div class="data">
       <h3><?php echo T_("Send closing document") ?></h3>
       <div class="body">
-        <p><?php echo T_("In some cases, the system automatically issues documents that need a specific title. Set these titles in this section.");?></p>
+        <p></p>
       </div>
     </div>
   </div>
