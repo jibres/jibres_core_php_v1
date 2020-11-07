@@ -73,6 +73,18 @@ class get
 		return $result;
 	}
 
+	public static function id_by_code($_code)
+	{
+		$query = "SELECT tax_coding.id FROM tax_coding WHERE tax_coding.code = $_code LIMIT 1";
+		$result = \dash\db::get($query, 'id', true);
+
+		if(!$result)
+		{
+			return null;
+		}
+		return $result;
+	}
+
 	public static function by_code($_code)
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.code = $_code LIMIT 1";

@@ -66,10 +66,15 @@ class closing
 
 		$accounting_setting = \lib\app\setting\get::accounting_setting();
 
-		$assistant_close_harmful_profit = (isset($accounting_setting['assistant_close_harmful_profit']) && $accounting_setting['assistant_close_harmful_profit']) ? $accounting_setting['assistant_close_harmful_profit']: null;
-		$assistant_close_accumulated    = (isset($accounting_setting['assistant_close_accumulated']) && $accounting_setting['assistant_close_accumulated']) ? $accounting_setting['assistant_close_accumulated']: null;
-		$assistant_closing              = (isset($accounting_setting['assistant_closing']) && $accounting_setting['assistant_closing']) ? $accounting_setting['assistant_closing']: null;
-
+		$assistant_close_harmful_profit = null;
+		if(isset($accounting_setting['assistant_close_harmful_profit']) && $accounting_setting['assistant_close_harmful_profit'])
+		{
+			$assistant_close_harmful_profit =  $accounting_setting['assistant_close_harmful_profit'];
+		}
+		else
+		{
+			$assistant_close_harmful_profit = \lib\db\tax_coding\get::id_by_code(3803);
+		}
 
 		if(!$assistant_close_harmful_profit)
 		{
@@ -184,7 +189,7 @@ class closing
 
 		\dash\notif::clean();
 
-		\dash\notif::ok(T_("All harmful-profit document is closed"));
+		\dash\notif::ok(T_("Operation complete"));
 	}
 
 
@@ -217,9 +222,26 @@ class closing
 
 		$accounting_setting = \lib\app\setting\get::accounting_setting();
 
-		$assistant_close_harmful_profit = (isset($accounting_setting['assistant_close_harmful_profit']) && $accounting_setting['assistant_close_harmful_profit']) ? $accounting_setting['assistant_close_harmful_profit']: null;
-		$assistant_close_accumulated    = (isset($accounting_setting['assistant_close_accumulated']) && $accounting_setting['assistant_close_accumulated']) ? $accounting_setting['assistant_close_accumulated']: null;
-		$assistant_closing              = (isset($accounting_setting['assistant_closing']) && $accounting_setting['assistant_closing']) ? $accounting_setting['assistant_closing']: null;
+		$assistant_close_harmful_profit = null;
+		if(isset($accounting_setting['assistant_close_harmful_profit']) && $accounting_setting['assistant_close_harmful_profit'])
+		{
+			$assistant_close_harmful_profit =  $accounting_setting['assistant_close_harmful_profit'];
+		}
+		else
+		{
+			$assistant_close_harmful_profit = \lib\db\tax_coding\get::id_by_code(3803);
+		}
+
+		$assistant_close_accumulated    = null;
+
+		if(isset($accounting_setting['assistant_close_accumulated']) && $accounting_setting['assistant_close_accumulated'])
+		{
+		 	$assistant_close_accumulated   = $accounting_setting['assistant_close_accumulated'];
+		}
+		else
+		{
+			$assistant_close_accumulated = \lib\db\tax_coding\get::id_by_code(3701);
+		}
 
 
 		if(!$assistant_close_harmful_profit)
@@ -395,14 +417,18 @@ class closing
 		$closing = self::get_closing($load_year);
 
 
-
 		$accounting_setting = \lib\app\setting\get::accounting_setting();
 
-		$assistant_close_harmful_profit = (isset($accounting_setting['assistant_close_harmful_profit']) && $accounting_setting['assistant_close_harmful_profit']) ? $accounting_setting['assistant_close_harmful_profit']: null;
-		$assistant_close_accumulated    = (isset($accounting_setting['assistant_close_accumulated']) && $accounting_setting['assistant_close_accumulated']) ? $accounting_setting['assistant_close_accumulated']: null;
-		$assistant_closing              = (isset($accounting_setting['assistant_closing']) && $accounting_setting['assistant_closing']) ? $accounting_setting['assistant_closing']: null;
+		$assistant_closing              = null;
 
-
+		if(isset($accounting_setting['assistant_closing']) && $accounting_setting['assistant_closing'])
+		{
+			$assistant_closing = $accounting_setting['assistant_closing'];
+		}
+		else
+		{
+			$assistant_closing = \lib\db\tax_coding\get::id_by_code(1901);
+		}
 		if(!$assistant_closing)
 		{
 			\dash\notif::error(T_("Please set accounting setting assistant closing detail id to continue"));
