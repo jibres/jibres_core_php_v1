@@ -620,6 +620,11 @@ class cleanse
 					}
 				break;
 
+			case 'currency':
+				$meta['enum'] = array_keys(\lib\currency::list());
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'language':
 			case 'lang':
 				$data = \dash\validate\text::language(...$fn_args);
