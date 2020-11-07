@@ -8,6 +8,8 @@
   <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
     <div class="pad2">
+      <div class="tblBox">
+
        <table class="tbl1 v6 repeatHead minimal mB0">
          <thead>
            <tr class="font-12">
@@ -83,6 +85,7 @@
          </tfoot>
 
        </table>
+      </div>
     </div>
     <footer class="hide">
       <div class="f">

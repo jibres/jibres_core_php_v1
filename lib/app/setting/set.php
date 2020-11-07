@@ -42,9 +42,12 @@ class set
 
 		$condition =
 		[
-			'currency'            => 'string_100',
-
+			'currency'                                                  => 'currency',
+			'assistant_close_harmful_profit'                            => 'id',
+			'assistant_close_accumulated' => 'id',
+			'assistant_closing'                                         => 'id',
 		];
+
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
 

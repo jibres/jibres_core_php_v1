@@ -32,3 +32,22 @@
       </div>
   </div>
 </section>
+
+
+
+
+<section class="f" data-option='accounting-setting-defautl-doc'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set Default accounting detail");?></h3>
+      <div class="body">
+        <p><?php echo T_("In some cases, the system automatically issues documents that need a specific title. Set these titles in this section.");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12" >
+      <div class="action">
+          <a class="btn master" href="<?php echo \dash\url::that(). '/defaultdetail' ?>"><?php echo T_("Set default accounting detail") ?></a>
+      </div>
+  </div>
+</section>

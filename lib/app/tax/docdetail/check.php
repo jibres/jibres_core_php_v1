@@ -18,6 +18,7 @@ class check
 			// 'creditor'     => 'float',
 			'type'            => ['enum' => ['debtor', 'creditor']],
 			'value'           => 'float',
+			'sort'           => 'int',
 
 		];
 
