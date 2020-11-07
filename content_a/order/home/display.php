@@ -1,53 +1,3 @@
-
-
-<div class="f">
-  <?php if(\dash\permission::check('factorAccess')) {?>
-  <div class="c s12">
-    <a class="dcard <?php if(!\dash\request::get('type')) {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>' data-shortkey="49shift">
-     <div class="statistic gray">
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_all()); ?></div>
-      <div class="label"><i class="fs16 mRa5 sf-shop"></i> <?php echo T_("All"); ?></div>
-     </div>
-    </a>
-  </div>
-  <?php } //endif ?>
-
-  <div class="c s6">
-    <a class="dcard <?php if(\dash\request::get('type') == 'saleorder') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?type=saleorder' data-shortkey="49shift">
-     <div class="statistic gray">
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_saleorder()); ?></div>
-      <div class="label"><i class="fs16 mRa5 sf-cloud-upload"></i> <?php echo T_("Order"); ?></div>
-     </div>
-    </a>
-  </div>
-
-
-  <div class="c s6">
-    <a class="dcard <?php if(\dash\request::get('type') == 'sale') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?type=sale' data-shortkey="49shift">
-     <div class="statistic gray">
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_sale()); ?></div>
-      <div class="label"><i class="fs16 mRa5 sf-cloud-upload"></i> <?php echo T_("Sale"); ?></div>
-     </div>
-    </a>
-  </div>
-
-
-  <div class="c s6">
-    <a class="dcard <?php if(\dash\request::get('type') == 'buy') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?type=buy' data-shortkey="49shift">
-     <div class="statistic gray">
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_buy()); ?></div>
-      <div class="label"><i class="fs16 mRa5 sf-cloud-download"></i> <?php echo T_("Buy"); ?></div>
-     </div>
-    </a>
-  </div>
-
-
-
-
-</div>
-
-
-
 <?php
 
 
@@ -86,10 +36,6 @@ else
 }
 ?>
 
-
-
-
-
 <?php function htmlSearchBox() {?>
 <div class="cbox fs12">
   <form method="get" action='<?php echo \dash\url::this(); ?>' >
@@ -109,8 +55,6 @@ else
   </form>
 </div>
 <?php } //endfunction ?>
-
-
 
 
 <?php function htmlTable() {?>
@@ -148,32 +92,21 @@ $sortLink = \dash\data::sortLink();
     </thead>
     <tbody>
       <?php foreach ($dataTable as $key => $value) {?>
-
         <tr>
           <td>
             <?php if(isset($value['customer'])) {?>
-
             <a href="<?php echo \dash\url::this(); ?>?customer=<?php echo \dash\get::index($value, 'customer'); ?>">
               <?php if(isset($value['avatar'])) {?>
                 <img src="<?php echo $value['avatar']; ?>" class="avatar">
               <?php } ?>
               <?php if(isset($value['firstname']) || isset($value['lastname'])) {?>
-
               <?php echo \dash\get::index($value, 'firstname'); ?> <b><?php echo \dash\get::index($value, 'lastname'); ?></b>
-
             <?php }elseif(isset($value['displayname'])) { ?>
-
                <b><?php echo \dash\get::index($value, 'displayname'); ?></b>
-
             <?php }else{ ?>
-
               <small><?php echo T_("Without name"); ?></small>
-
             <?php } // endif ?>
-
             </a>
-
-
           <?php }else{ ?>
 
             <a href="<?php echo \dash\url::this(); ?>?customer=-quick">
@@ -220,47 +153,29 @@ $sortLink = \dash\data::sortLink();
             $counterI    = 0;
 
             ?>
-
             <?php foreach ($productInFactor as $myKey => $myValue) {?>
-
               <?php $counterI++; ?>
-
               <?php if($counterI == 7) {?>
-
                 <?php $needMore = true; ?>
-
-
                 <a data-kerkere='.openDetailFactor_<?php echo \dash\get::index($value, 'id'); ?>' class="badge primary outline"><?php echo T_("More"); ?> ... <span class="mLR5">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
               <?php } //endif ?>
-
               <?php if($needMore) {?>
-
                 <?php $openKerkere = true;  ?>
                 <?php $needMore = false;  ?>
-
-
                 <div class="openDetailFactor_<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
               <?php } //endif ?>
-
                 <a class="badge <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary';}else{ echo 'secondary outline';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo \dash\get::index($myValue, 'id'); ?>"><?php echo \dash\get::index($myValue, 'title'); ?> <span class="mLR5"><?php echo \dash\fit::number(\dash\get::index($myValue, 'count')); ?></span></a>
-
             <?php } //endfor ?>
-
               <?php if($openKerkere) {?>
                 </div>
               <?php }//endif ?>
-
           </td>
         </tr>
       <?php } //endfor ?>
     </tbody>
   </table>
-
 <?php \dash\utility\pagination::html(); ?>
-
 <?php } // endfunction ?>
-
-
 
 
 <?php function htmlFilter() {?>
@@ -287,19 +202,7 @@ $sortLink = \dash\data::sortLink();
 <?php } // endfunction ?>
 
 
-
-
-
-
-
-
-
-
-
-
 <?php function iKerkere() {?>
-
-
 
 <div class="ShowFilterResult"
 <?php
@@ -402,8 +305,6 @@ if(
 <?php } // endfunction ?>
 
 
-
-
 <?php function iFilterproduct() {?>
 <label for="productid"><?php echo T_("Choose product"); ?></label>
     <select name="product" class="select22" id="productSearch"  data-model='html'  <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose product"); ?>'>
@@ -411,12 +312,10 @@ if(
 <?php } // endfunction ?>
 
 
-
 <?php function iFiltercustomer() {?>
   <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
         </select>
 <?php } // endfunction ?>
-
 
 <?php function iFilterweekday() {?>
 <div class="f">
@@ -480,7 +379,6 @@ if(
 <?php } // endfunction ?>
 
 
-
 <?php function iFilterdate() {?>
 <div class="input ltr">
   <input type="text" name="date" title='<?php echo T_("Date"); ?>' placeholder='<?php echo T_("Special date"); ?>' id="date"  value="<?php echo \dash\request::get('date'); ?>" maxlength='20' data-format="date">
@@ -493,7 +391,6 @@ if(
 </div>
 
 <?php } // endfunction ?>
-
 
 <?php function iFilterstartenddate() {?>
 
@@ -513,8 +410,6 @@ if(
 
     </div>
 <?php } // endfunction ?>
-
-
 
 
 <?php function iFilterprice() {?>
@@ -542,8 +437,6 @@ if(
 <?php } // endfunction ?>
 
 
-
-
 <?php function iFilteritem() {?>
 
     <div class="f">
@@ -567,8 +460,6 @@ if(
       </div>
     </div>
 <?php } // endfunction ?>
-
-
 <?php function iFiltersum() {?>
 
     <div class="f">
@@ -592,8 +483,6 @@ if(
       </div>
     </div>
 <?php } // endfunction ?>
-
-
 
 <?php function iFilterdiscount() {?>
 
@@ -619,8 +508,6 @@ if(
     </div>
 <?php } // endfunction ?>
 
-
-
 <?php function iFiltertype() {?>
 <div class="f">
   <div class="c">
@@ -640,7 +527,3 @@ if(
 
 </div>
 <?php } // endfunction ?>
-
-
-
-

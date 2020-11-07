@@ -10,6 +10,16 @@ class backlink
 	}
 
 
+	public static function set_order($_args = [])
+	{
+		return self::set('order', $_args);
+	}
+
+	public static function order()
+	{
+		return self::get('order');
+	}
+
 	public static function factor()
 	{
 		return self::get('factor');
