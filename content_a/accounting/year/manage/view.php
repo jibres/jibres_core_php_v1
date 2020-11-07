@@ -21,6 +21,11 @@ class view
 
 		\dash\data::closeHarmfullProfitList($close_harmful_profit);
 
+
+		$closing_list = \lib\app\tax\doc\closing::closing_list(\dash\request::get('id'));
+
+		\dash\data::closingList($closing_list);
+
 	}
 }
 ?>

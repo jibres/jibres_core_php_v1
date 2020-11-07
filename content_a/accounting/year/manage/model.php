@@ -39,22 +39,6 @@ class model
 			return;
 		}
 
-
-
-
-
-		$post =
-		[
-			'title'     => \dash\request::post('title'),
-		];
-
-		$result = \lib\app\tax\year\edit::edit($post, \dash\request::get('id'));
-
-
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::pwd();
-		}
 	}
 }
 ?>

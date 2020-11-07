@@ -342,7 +342,7 @@ class closing
 	}
 
 
-	public static function closing($_year_id)
+	public static function closing_list($_year_id)
 	{
 		$args              = [];
 		$args['year_id']   = $_year_id;
@@ -355,7 +355,6 @@ class closing
 		}
 		else
 		{
-			\dash\notif::error(T_("No Document to close!"));
 			return false;
 		}
 
@@ -373,6 +372,13 @@ class closing
 			}
 		}
 
+		return $list;
+	}
+
+	public static function closing($_year_id)
+	{
+
+		$list = self::closing_list($_year_id);
 		if(!$list)
 		{
 			\dash\notif::error(T_("No Document to close!"));
