@@ -57,6 +57,21 @@ class view
 
 		\dash\data::dataTable($myFactorList);
 
+		if(!is_array($myFactorList))
+		{
+			$myFactorList = [];
+		}
+
+		if(count(array_filter(array_column($myFactorList, 'subvat'))) === 0 )
+		{
+			\dash\data::hideSubvat(true);
+		}
+
+		if(count(array_filter(array_column($myFactorList, 'shipping'))) === 0 )
+		{
+			\dash\data::hideShipping(true);
+		}
+
 		\dash\data::filterBox(\lib\app\factor\search::filter_message());
 
 

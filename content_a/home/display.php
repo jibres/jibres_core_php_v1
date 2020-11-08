@@ -34,11 +34,12 @@
 
 <?php if(\dash\permission::check('_group_order')) {?>
        <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/factor">
+        <a class="item f" href="<?php echo \dash\url::here();?>/order">
           <div class="key"><?php echo T_('Orders');?></div>
           <div class="go"></div>
         </a>
        </li>
+      <li><a class="item f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
 <?php } //endif ?>
 <?php if(\dash\permission::check('factorSaleAdd')) {?>
        <li>
@@ -91,18 +92,6 @@
       <?php } //endif ?>
       </ul>
     </nav>
-
-
-    <nav class="items long">
-      <ul>
-        <?php if(\dash\permission::check('_group_order')) {?>
-          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
-          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/order"><div class="key"><?php echo T_("Orders"); ?></div><div class="go"></div></a></li>
-        <?php  }// endif ?>
-
-      </ul>
-    </nav>
-
 
     <nav class="items long">
       <ul>

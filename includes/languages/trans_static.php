@@ -1036,6 +1036,9 @@ class TransStatic
 	echo T_("Private");
 	echo T_("private");
 
+	echo T_('saleorder');
+	echo T_('Saleorder');
+
  }
 }
 ?>

@@ -58,8 +58,15 @@ $sortLink = \dash\data::sortLink();
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'qty', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'qty', 'link'); ?>"><?php echo T_("Qty"); ?></a></th>
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subprice', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subprice', 'link'); ?>"><?php echo T_("Price"); ?></a></th>
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subdiscount', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subdiscount', 'link'); ?>"><?php echo T_("Discount"); ?></a></th>
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subvat', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subvat', 'link'); ?>"><?php echo T_("VAT"); ?></a></th>
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'shipping', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'shipping', 'link'); ?>"><?php echo T_("Shipping"); ?></a></th>
+
+        <?php if(!\dash\data::hideSubvat()) {?>
+          <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subvat', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subvat', 'link'); ?>"><?php echo T_("VAT"); ?></a></th>
+        <?php } //endif ?>
+
+        <?php if(!\dash\data::hideShipping()) {?>
+          <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'shipping', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'shipping', 'link'); ?>"><?php echo T_("Shipping"); ?></a></th>
+        <?php } //endif ?>
+
         <th data-sort="<?php echo \dash\get::index($sortLink, 'subtotal', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subtotal', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
         <th data-sort="<?php echo \dash\get::index($sortLink, 'date', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a></th>
 
@@ -101,8 +108,14 @@ $sortLink = \dash\data::sortLink();
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo \dash\get::index($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'qty')); ?></a></td>
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo \dash\get::index($value, 'subprice'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subprice')); ?></a></td>
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subdiscountequal=<?php echo \dash\get::index($value, 'subdiscount'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subdiscount')); ?></a></td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo \dash\get::index($value, 'subvat'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subvat')); ?></a></td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?shipping=<?php echo \dash\get::index($value, 'shipping'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'shipping')); ?></a></td>
+
+          <?php if(!\dash\data::hideSubvat()) {?>
+            <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo \dash\get::index($value, 'subvat'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subvat')); ?></a></td>
+          <?php } //endif ?>
+
+          <?php if(!\dash\data::hideShipping()) {?>
+            <td class="s0"><a href="<?php echo \dash\url::this(); ?>?shipping=<?php echo \dash\get::index($value, 'shipping'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'shipping')); ?></a></td>
+          <?php } //endif ?>
           <td ><a href="<?php echo \dash\url::this(); ?>?total=<?php echo \dash\get::index($value, 'total'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></a></td>
           <td class="collapsing">
             <div class="f">
