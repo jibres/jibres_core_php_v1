@@ -23,6 +23,7 @@ class view
 
 		\dash\data::sortList(\lib\app\factor\filter::sort_list());
 
+		if(\dash\request::get('pay'))					 { $args['pay']       		  = \dash\request::get('pay');				}
 		if(\dash\request::get('customer'))				 { $args['customer']          = \dash\request::get('customer');			}
 		if(\dash\request::get('type'))					 { $args['type']              = \dash\request::get('type');				}
 		if(\dash\request::get('product'))				 { $args['product']           = \dash\request::get('product');			}

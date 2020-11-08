@@ -53,7 +53,7 @@ $sortLink = \dash\data::sortLink();
   <table class="tbl1 v6 fs12 txtC">
     <thead>
       <tr class="fs08">
-        <th data-sort="<?php echo \dash\get::index($sortLink, 'customer', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a></th>
+        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'customer', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a></th>
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'item', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'item', 'link'); ?>"><?php echo T_("Items"); ?></a></th>
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'qty', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'qty', 'link'); ?>"><?php echo T_("Qty"); ?></a></th>
         <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subprice', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subprice', 'link'); ?>"><?php echo T_("Price"); ?></a></th>
@@ -74,7 +74,7 @@ $sortLink = \dash\data::sortLink();
     <tbody>
       <?php foreach ($dataTable as $key => $value) {?>
         <tr>
-          <td>
+          <td class="s0">
             <?php if(isset($value['customer'])) {?>
             <a href="<?php echo \dash\url::this(); ?>?customer=<?php echo \dash\get::index($value, 'customer'); ?>">
               <?php if(isset($value['avatar'])) {?>

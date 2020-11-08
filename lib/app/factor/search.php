@@ -38,6 +38,7 @@ class search
 			'date'              => 'date',
 			'time'              => 'time',
 			'weekday'           => 'weekday',
+			'pay'               => 'y_n',
 
 			'subpricelarger'    => 'bigint',
 			'subpriceless'      => 'bigint',
@@ -289,6 +290,19 @@ class search
 		{
 			$and[] = " factors.subdiscount =  $data[subdiscountequal] ";
 			self::$filter_args[T_('Subdiscount equal')] = self::price_sum_down($data['subdiscountequal']);
+			self::$is_filtered = true;
+		}
+
+		if($data['pay'] === 'y')
+		{
+			$and[] = " factors.pay IS NOT NULL ";
+			self::$filter_args[T_('Pay')] = T_("Payed");
+			self::$is_filtered = true;
+		}
+		elseif($data['pay'] === 'n')
+		{
+			$and[] = " factors.pay IS NULL ";
+			self::$filter_args[T_('Pay')] = T_("Not Payed");
 			self::$is_filtered = true;
 		}
 
