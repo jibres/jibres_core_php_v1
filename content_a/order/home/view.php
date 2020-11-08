@@ -15,6 +15,14 @@ class view
 			'sort'         => \dash\request::get('sort'),
 		];
 
+
+		$orderFilterList = \lib\app\factor\filter::list();
+		\dash\data::orderFilterList($orderFilterList);
+
+
+
+		\dash\data::sortList(\lib\app\factor\filter::sort_list());
+
 		if(\dash\request::get('customer'))				 { $args['customer']          = \dash\request::get('customer');			}
 		if(\dash\request::get('type'))					 { $args['type']              = \dash\request::get('type');				}
 		if(\dash\request::get('product'))				 { $args['product']           = \dash\request::get('product');			}
