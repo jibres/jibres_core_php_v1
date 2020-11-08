@@ -9,17 +9,13 @@ class view
 		\dash\face::title(T_('Print factor'));
 
 		// back
-		\dash\data::back_text(T_('Factors'));
-		\dash\data::back_link(\lib\backlink::factor());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here(). '/order/detail?id='. \dash\request::get('id'));
 
 		$id = \dash\request::get('id');
 
 		$factorDetail = \lib\app\factor\get::full($id);
-
 		\dash\data::factorDetail($factorDetail);
-
-
-
 
 		$printSize  = \dash\url::child();
 		$printModel = \dash\request::get('model');
@@ -59,28 +55,8 @@ class view
 
 		\dash\data::pageSize(\dash\request::get('size'));
 
-
-		\dash\face::btnNext(\dash\url::here(). '/factor/next/'. \dash\request::get('id'));
-		\dash\face::btnPrev(\dash\url::here(). '/factor/prev/'. \dash\request::get('id'));
-
-
-		if(isset($factorDetail['factor']['type']))
-		{
-			switch ($factorDetail['factor']['type'])
-			{
-				case 'buy':
-					\dash\data::back_text(T_('Back to last buy'));
-					\dash\data::back_link(\dash\url::here(). '/factor?type=buy');
-				case 'sale':
-					\dash\data::back_text(T_('Back to last sales'));
-					\dash\data::back_link(\dash\url::here(). '/factor?type=sale');
-					break;
-
-				default:
-					# code...
-					break;
-			}
-		}
+		\dash\face::btnNext(\dash\url::here(). '/order/next/'. \dash\request::get('id'));
+		\dash\face::btnPrev(\dash\url::here(). '/order/prev/'. \dash\request::get('id'));
 	}
 }
 ?>

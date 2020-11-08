@@ -1,5 +1,5 @@
 <?php
-namespace content_a\order\detail;
+namespace content_a\order\comment;
 
 
 class view
@@ -20,22 +20,6 @@ class view
 		\dash\data::back_text(T_('Orders'));
 		\dash\data::back_link(\dash\url::this());
 
-		$payment_detail = \lib\app\setting\setup::ready('payment', true);
-
-		$myPaymentDetail = [];
-
-		if(is_array($payment_detail))
-		{
-			foreach ($payment_detail as $key => $value)
-			{
-				if(substr($key, 0, 8) === 'payment_')
-				{
-					$myPaymentDetail[$key] = $value;
-				}
-			}
-		}
-
-		\dash\data::paymentDetail($myPaymentDetail);
 
 		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));
 
