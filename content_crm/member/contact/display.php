@@ -19,11 +19,6 @@
 		  <input type="tel" name="phone" id="phone" placeholder='<?php echo T_("Like"); ?> 02536505281' value="<?php echo \dash\data::dataRowMember_phone(); ?>" maxlength='50'>
 		</div>
 
-		<label for="email"><?php echo T_("Email"); ?></label>
-		<div class="input">
-		  <input type="text" name="email" id="email" placeholder='<?php echo T_("Like abc@example.com"); ?>' value="<?php $email = \dash\data::dataRowMember_detail(); echo \dash\get::index($email, 'email'); ?>" maxlength='30'>
-		</div>
-
 
 	 <button class="mT25 btn primary block"><?php echo T_("Save"); ?></button>
 	</form>

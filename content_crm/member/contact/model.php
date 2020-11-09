@@ -12,7 +12,7 @@ class model
 		[
 			'phone'        => \dash\request::post('phone'),
 			// 'mobile'       => \dash\request::post('mobile'),
-			'email'        => \dash\request::post('email'),
+			// 'email'        => \dash\request::post('email'),
 		];
 
 		\dash\app\user::edit($post, \dash\request::get('id'));
