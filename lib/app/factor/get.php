@@ -33,7 +33,7 @@ class get
 
 		if(!$_raw)
 		{
-			$next = \dash\url::here(). '/chap/receipt?id='. $next;
+			$next = \dash\url::here(). '/order/detail?id='. $next;
 		}
 
 		self::$factor_next[$_id] = $next;
@@ -65,7 +65,7 @@ class get
 
 		if(!$_raw)
 		{
-			$prev = \dash\url::here(). '/chap/receipt?id='. $prev;
+			$prev = \dash\url::here(). '/order/detail?id='. $prev;
 		}
 
 		self::$factor_prev[$_id] = $prev;

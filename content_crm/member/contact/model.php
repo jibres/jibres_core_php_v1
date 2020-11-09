@@ -15,6 +15,8 @@ class model
 			// 'email'        => \dash\request::post('email'),
 		];
 
+
+
 		\dash\app\user::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())

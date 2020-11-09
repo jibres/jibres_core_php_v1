@@ -59,6 +59,23 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'type':
+					$result[$key] = $value;
+					switch ($value)
+					{
+						case 'sale': 		$t_type = T_("Sale");				break;
+						case 'buy': 		$t_type = T_("Buy");				break;
+						case 'presell': 	$t_type = T_("Presell");			break;
+						case 'lending': 	$t_type = T_("Lending");			break;
+						case 'backbuy': 	$t_type = T_("Back buy");			break;
+						case 'backsell': 	$t_type = T_("Back sell");			break;
+						case 'waste': 		$t_type = T_("Waste pay");			break;
+						case 'saleorder': 	$t_type = T_("Sale order");			break;
+						default:			$t_type = T_("Unknown");			break;
+					}
+					$result['t_type'] = $t_type;
+					break;
+
 				case 'status':
 					$result[$key] = $value;
 					switch ($value)
