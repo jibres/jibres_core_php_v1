@@ -14,12 +14,23 @@ class ready
 	 */
 	public static function row($_data)
 	{
+		$product_ready = [];
 
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
 			{
+				case 'product_id':
+					$result[$key] = $value;
+					$product_ready['id'] = $value;
+					break;
+
+				case 'thumb':
+					$result[$key] = $value;
+					$product_ready['thumb'] = $value;
+					break;
+
 				case 'customer':
 					if($value)
 					{
@@ -104,6 +115,14 @@ class ready
 					$result[$key] = $value;
 					break;
 			}
+		}
+
+		if(!empty($product_ready))
+		{
+			$product_ready           = \lib\app\product\ready::row($product_ready, ['check_allow_shop' => false, 'check_cart_limit' => false]);
+			$result['edit_url']      = \dash\get::index($product_ready, 'edit_url');
+			$result['thumb']         = \dash\get::index($product_ready, 'thumb');
+			$result['thumb_default'] = \dash\get::index($product_ready, 'thumb_default');
 		}
 
 		return $result;

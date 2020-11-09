@@ -35,7 +35,7 @@ class get
 
 	public static function by_items_id_answer($_item_ids, $_answer)
 	{
-		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id IN ($_item_ids) AND form_answerdetail.answer = '$_answer' LIMIT 1";
+		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id IN ($_item_ids) AND form_answerdetail.answer IN ('$_answer') LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

@@ -90,6 +90,7 @@ class get
 				products.optionvalue2,
 				products.optionname3,
 				products.optionvalue3,
+				products.thumb,
 				products.price AS `product_price`,
 				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`,
 				productunit.title AS `unit`

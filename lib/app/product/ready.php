@@ -9,8 +9,10 @@ class ready
 	{
 		$default_option =
 		[
-			'load_gallery' => false,
-			'parent_thumb' => null,
+			'load_gallery'     => false,
+			'parent_thumb'     => null,
+			'check_allow_shop' => true,
+			'check_cart_limit' => true,
 		];
 
 		if(!is_array($_option))
@@ -274,13 +276,15 @@ class ready
 
 		$result['category_list'] = [];
 
-		self::allow_shop($result);
+		if($_option['check_allow_shop'])
+		{
+			self::allow_shop($result);
+		}
 
-		self::cart_limit($result);
-
-
-
-
+		if($_option['check_cart_limit'])
+		{
+			self::cart_limit($result);
+		}
 
 		return $result;
 	}

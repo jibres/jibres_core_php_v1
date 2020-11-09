@@ -140,10 +140,11 @@ class inquiry
 
 		\dash\data::inquiryExec(true);
 
+
 		$mobile = \dash\validate::mobile($q, false);
 		if($mobile)
 		{
-			$q = $mobile;
+			$q = $q. "','". $mobile;
 		}
 
 		$result = \lib\db\form_answerdetail\get::by_items_id_answer(implode(',', $trust_field), $q);
