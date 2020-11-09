@@ -33,6 +33,7 @@ class model
 
 		if(!$my_mobile)
 		{
+			\dash\log::set('enterVerifySMSmobileNotFoundInModel');
 			return false;
 		}
 
