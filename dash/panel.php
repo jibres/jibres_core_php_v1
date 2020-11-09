@@ -371,9 +371,9 @@ class panel
 			$menu[] =
 			[
 				'title'  => T_("Orders"),
-				'link'   => \dash\url::here().'/factor',
+				'link'   => \dash\url::here().'/order',
 				'icon'   => 'caddie-shopping-streamline',
-				'active' => (\dash\url::module()==='factor'? true :false)
+				'active' => (\dash\url::module()==='order'? true :false)
 			];
 		}
 

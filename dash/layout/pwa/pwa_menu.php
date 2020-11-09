@@ -182,7 +182,7 @@ class pwa_menu
 			],
 			'orders' =>
 			[
-				'href' => \dash\url::kingdom(). '/a/factor',
+				'href' => \dash\url::kingdom(). '/a/order',
 				'icon' => 'caddie-shopping-streamline',
 				'title' => T_('Orders'),
 			],
