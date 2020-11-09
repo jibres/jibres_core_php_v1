@@ -80,7 +80,7 @@ class ready
 						case 'lending': 	$t_type = T_("Lending");			break;
 						case 'backbuy': 	$t_type = T_("Back buy");			break;
 						case 'backsell': 	$t_type = T_("Back sell");			break;
-						case 'waste': 		$t_type = T_("Waste pay");			break;
+						case 'waste': 		$t_type = T_("Waste");				break;
 						case 'saleorder': 	$t_type = T_("Sale order");			break;
 						default:			$t_type = T_("Unknown");			break;
 					}
