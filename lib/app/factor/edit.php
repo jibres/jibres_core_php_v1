@@ -25,6 +25,12 @@ class edit
 			return false;
 		}
 
+		// if(isset($check_ok['status']) && $check_ok['status'] === 'deleted')
+		// {
+		// 	\dash\notif::error(T_("Item not found"));
+		// 	return false;
+		// }
+
 		$current_count = floatval(\dash\get::index($check_ok, 'count'));
 
 		switch ($_type)
@@ -41,6 +47,15 @@ class edit
 				$new_count = $current_count - $count;
 				break;
 
+			case 'remove':
+				\lib\db\factordetails\delete::by_id($id);
+				\lib\app\factor\calculate::again($factor_id);
+				\lib\db\factordetails\delete::record($id);
+				\dash\notif::ok(T_("Item removed"));
+				return true;
+
+				break;
+
 			default:
 				\dash\notif::error(T_("Invalid type"));
 				return false;
@@ -54,6 +69,8 @@ class edit
 		}
 
 		\lib\db\factordetails\update::record(['count' => $new_count], $id);
+
+		\lib\app\factor\calculate::again($factor_id);
 
 		\dash\notif::ok(T_("Data saved"));
 		return true;

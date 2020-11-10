@@ -12,13 +12,9 @@ class model
 		$type             = \dash\request::post('type');
 		$factor_detail_id = \dash\request::post('factor_detail_id');
 
-		if($type === 'edit_count' || $type === 'plus_count' || $type === 'minus_count')
+		if($type === 'edit_count' || $type === 'plus_count' || $type === 'minus_count' || $type === 'remove')
 		{
 			\lib\app\factor\edit::edit_count_product($factor_detail_id, $factor_id, $type, $count);
-		}
-		elseif(\dash\request::post('type') === 'remove')
-		{
-			\lib\app\factor\remove::remove_product($factor_detail_id, $factor_id, $product);
 		}
 		else
 		{
