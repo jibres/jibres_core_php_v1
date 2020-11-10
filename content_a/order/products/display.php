@@ -8,6 +8,7 @@ if(!is_array($dataTable))
 
 $have_user = false;
 ?>
+<?php $orderDetail = \dash\data::orderDetail(); ?>
 
 
 <div class="row p0">
@@ -42,6 +43,25 @@ $have_user = false;
             <input type="number" name="count" placeholder="<?php echo T_("Count"); ?>" value="1" id="count">
           </div>
 
+          <div data-kerkere='.showAdvanceOrder' class="btn link"><?php echo T_("Advance") ?></div>
+          <div class="showAdvanceOrder" data-kerkere-content='hide'>
+            <label for="price"><?php echo T_("Price") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product price") ?></small></label>
+            <div class="input mB20-f">
+              <input type="number" name="price" placeholder="<?php echo T_("Price"); ?>"  id="price">
+            </div>
+
+            <label for="discount"><?php echo T_("Discount") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product discount") ?></small></label>
+            <div class="input mB20-f">
+              <input type="number" name="discount" placeholder="<?php echo T_("Discount"); ?>"  id="discount">
+            </div>
+
+            <div class="switch1">
+              <input type="checkbox" name="addanother" id="addanother">
+              <label for="addanother"></label>
+              <label for="addanother"><?php echo T_("Add another record") ?></label>
+            </div>
+
+          </div>
         </div>
 
         <footer class="txtRa">
@@ -52,64 +72,41 @@ $have_user = false;
     </form>
 
 
-<?php if($dataTable) {?>
+
+<?php if(\dash\get::index($orderDetail, 'factor_detail')) {?>
   <div class="box cartPage">
     <div class="pad">
-
-
-      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+      <?php foreach (\dash\get::index($orderDetail, 'factor_detail') as $key => $value) {?>
         <div class="cartItem">
           <div class="row align-center">
             <div class="c-auto">
               <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
             </div>
             <div class="c">
-              <h3 class="title"><a href="<?php echo \dash\get::index($value, 'edit_url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
-
-              <?php if(!\dash\get::index($value, 'view')) {?>
-                <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
-              <?php } // endif ?>
-
-              <?php if(\dash\get::index($value, 'trackquantity')) {?>
-
-                <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
-                <?php if($stock >= 10) {?>
-                  <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
-                <?php }elseif($stock > 0) {?>
-                  <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val :unit left in stock - order soon.", ['val' => \dash\fit::number($stock), 'unit' => \dash\get::index($value, 'unit')]); ?></div>
-                <?php }elseif ($stock <= 0) {?>
-                  <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
-                <?php } // endif ?>
-              <?php } //endif ?>
-
+              <h3 class="title"><a href="<?php echo \dash\get::index($value, 'edit_url') ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
               <div class="priceShow" data-cart>
                 <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
                 <span class="unit"><?php echo \lib\store::currency(); ?></span>
               </div>
               <span class="compact ltr fc-mute font-12"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></span>
             </div>
-
-
             <div class="c-auto c-xs-12">
-              <?php if(!\dash\get::index($value, 'allow_shop')) {?>
-                <div class="availability" data-red data-type='view'><?php echo T_("This product was removed from your cart"); ?></div>
-              <?php }else{ ?>
-                <div class="itemOperation">
+               <div class="itemOperation">
                   <div class="productCount">
                     <div class="input">
                       <?php
 
                       $json =
                       [
-                        'product_id' => \dash\get::index($value, 'product_id'),
-                        'type'       => null,
-                        'count'      => 1,
-                        'user'       => \dash\request::get('user'),
-                        'guestid'    => \dash\request::get('guestid'),
+                        'product_id'       => \dash\get::index($value, 'product_id'),
+                        'type'             => null,
+                        'count'            => 1,
+                        'factor_detail_id' => \dash\get::index($value, 'id'),
                       ];
 
-                      $plus  = json_encode(array_merge($json, ['type' => 'plus_count']));
-                      $minus = json_encode(array_merge($json, ['type' => 'minus_count']));
+                      $plus   = json_encode(array_merge($json, ['type' => 'plus_count']));
+                      $minus  = json_encode(array_merge($json, ['type' => 'minus_count']));
+                      $remove = json_encode(array_merge($json, ['type' => 'remove']));
 
                       ?>
                       <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $plus ?>'>+</label>
@@ -119,23 +116,16 @@ $have_user = false;
 
                   </div>
 
-                  <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
+                  <div class="productDel" data-confirm data-data='<?php echo $remove ?>' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
 
                 </div>
-              <?php } // endif ?>
-
             </div>
           </div>
         </div>
       <?php } //endfor ?>
-
     </div>
   </div>
-
-
-
 <?php }else{ ?>
   <div class="msg info2 fs14 txtB"><?php echo T_("This order is empty") ?></div>
 <?php } ?>
-
 </div>

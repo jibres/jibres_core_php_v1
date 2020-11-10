@@ -6,68 +6,31 @@ class model
 {
 	public static function post()
 	{
-		$user    = \dash\request::get('user');
-		$guestid = \dash\request::get('guestid');
-		$product = \dash\request::post('product_id');
-		$count   = \dash\request::post('count');
-		$type    = \dash\request::post('type');
-
-
-		if(\dash\request::post('assing') === 'assing')
-		{
-
-			$post                = [];
-			$post['customer']    = \dash\request::post('customer');
-			$post['mobile']      = \dash\request::post('memberTl');
-			$post['gender']      = \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null;
-			$post['displayname'] = \dash\request::post('memberN');
-
-			$user = \lib\app\cart\check::cart_user($post);
-
-
-			if(isset($user['customer']))
-			{
-
-				$id = $user['customer'];
-
-				$code = \dash\coding::encode($id);
-
-				\lib\app\cart\add::assing_to_user($guestid, $code);
-
-				if(\dash\engine\process::status())
-				{
-					\dash\redirect::to(\dash\url::that(). '?user='. $code);
-				}
-
-				return;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		if(\dash\request::post('removeall') === 'removeall')
-		{
-			\lib\app\cart\remove::remove_all($user, $guestid);
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::this());
-			}
-		}
+		$factor_id               = \dash\request::get('id');
+		$product          = \dash\request::post('product_id');
+		$count            = \dash\request::post('count');
+		$type             = \dash\request::post('type');
+		$factor_detail_id = \dash\request::post('factor_detail_id');
 
 		if($type === 'edit_count' || $type === 'plus_count' || $type === 'minus_count')
 		{
-			\lib\app\cart\edit::edit($product, $count, $user, $guestid, $type);
+			\lib\app\factor\edit::edit_count_product($factor_detail_id, $factor_id, $type, $count);
 		}
 		elseif(\dash\request::post('type') === 'remove')
 		{
-			\lib\app\cart\remove::remove($product, $user, $guestid);
+			\lib\app\factor\remove::remove_product($factor_detail_id, $factor_id, $product);
 		}
 		else
 		{
-			\lib\app\cart\add::add($product, $count, $user, $guestid);
+			$post               = [];
+			$post['product_id'] = $product_id;
+			$post['count']      = $count;
+			$post['price']      = $price;
+			$post['discount']   = $discount;
+			$post['addanother'] = $addanother;
+
+
+			\lib\app\factor\add::add_product($post, $factor_id);
 		}
 
 		if(\dash\engine\process::status())

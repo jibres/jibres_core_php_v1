@@ -4,6 +4,63 @@ namespace lib\app\factor;
 
 class edit
 {
+	public static function edit_count_product($_id, $_factor_id, $_type, $_count)
+	{
+		$id        = \dash\validate::id($_id);
+		$factor_id = \dash\validate::id($_factor_id);
+		$count     = \dash\validate::int($_count);
+		$count     = \lib\number::up($count);
+
+		if(!$id || !$factor_id)
+		{
+			\dash\notif::error(T_("Id is required"));
+			return false;
+		}
+
+		$check_ok  = \lib\db\factordetails\get::by_id_factor_id($id, $factor_id);
+
+		if(!isset($check_ok['id']))
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$current_count = floatval(\dash\get::index($check_ok, 'count'));
+
+		switch ($_type)
+		{
+			case 'edit_count':
+				$new_count = $count;
+				break;
+
+			case 'plus_count':
+				$new_count = $current_count + $count;
+				break;
+
+			case 'minus_count':
+				$new_count = $current_count - $count;
+				break;
+
+			default:
+				\dash\notif::error(T_("Invalid type"));
+				return false;
+				break;
+		}
+
+		if($new_count < 1)
+		{
+			\dash\notif::error(T_("Can not set count product in factor less than 1"));
+			return false;
+		}
+
+		\lib\db\factordetails\update::record(['count' => $new_count], $id);
+
+		\dash\notif::ok(T_("Data saved"));
+		return true;
+	}
+
+
+
 	public static function auto_expire_order()
 	{
 		$order_setting = \lib\app\setting\get::order_setting();
