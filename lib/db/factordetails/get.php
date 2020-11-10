@@ -107,6 +107,14 @@ class get
 	}
 
 
+
+	public static function by_factor_id_product_id($_factor_id, $_product_id)
+	{
+		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id = $_factor_id AND factordetails.product_id = $_product_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function by_id_factor_id($_id, $_factor_id)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.id = $_id AND factordetails.factor_id = $_factor_id LIMIT 1";

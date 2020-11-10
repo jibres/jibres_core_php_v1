@@ -19,11 +19,11 @@ class model
 		else
 		{
 			$post               = [];
-			$post['product_id'] = $product_id;
+			$post['product_id'] = $product;
 			$post['count']      = $count;
-			$post['price']      = $price;
-			$post['discount']   = $discount;
-			$post['addanother'] = $addanother;
+			$post['price']      = \dash\request::post('price');
+			$post['discount']   = \dash\request::post('discount');
+			$post['addanother'] = \dash\request::post('addanother');
 
 
 			\lib\app\factor\add::add_product($post, $factor_id);

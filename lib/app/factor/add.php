@@ -246,5 +246,121 @@ class add
 
 		return $return;
 	}
+
+
+	public static function add_product($_args, $_factor_id)
+	{
+		$condition =
+		[
+			'product_id' => 'id',
+			'count'      => 'int',
+			'price'      => 'price',
+			'discount'   => 'price',
+			'addanother' => 'bit',
+		];
+
+		$require = ['product_id', 'count'];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+				'product_id' => 'product',
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$load_factor = \lib\app\factor\get::inline_get($_factor_id);
+		if(!$load_factor)
+		{
+			return false;
+		}
+
+		$load_product = \lib\app\product\get::get($data['product_id']);
+		if(!$load_product)
+		{
+			return false;
+		}
+
+		\dash\db::transaction();
+
+		$add_new_record = true;
+
+		if(!$data['addanother'])
+		{
+			// check exist this product in factor and plus the count
+			$check_exist = \lib\db\factordetails\get::by_factor_id_product_id($load_factor['id'], $data['product_id']);
+			if(isset($check_exist['id']))
+			{
+				$add_new_record = false;
+
+				$new_count = floatval(\lib\number::up($data['count'])) + floatval($check_exist['count']);
+
+				\lib\db\factordetails\update::record(['count' => $new_count], $check_exist['id']);
+			}
+		}
+
+		$option = [];
+		$option['type'] = $load_factor['type'];
+
+		if($add_new_record)
+		{
+			$price = $data['price'];
+			if($price === null)
+			{
+				$load_product['price'];
+			}
+
+			$discount = $data['discount'];
+			if($discount === null)
+			{
+				$load_product['discount'];
+			}
+
+			$count      = $data['count'];
+
+
+			$ready = [];
+			$ready[] =
+			[
+				'product' => $data['product_id'],
+				// 'price'      => $price,
+				'discount'   => $discount,
+				'count'      => $count,
+			];
+
+			$factor_detail = \lib\app\factor\check_detail::factor_detail($ready, $option);
+
+			foreach ($factor_detail as $key => $value)
+			{
+				$factor_detail[$key]['factor_id'] = $load_factor['id'];
+				unset($factor_detail[$key]['sub_price_temp']);
+				unset($factor_detail[$key]['sub_discount_temp']);
+				unset($factor_detail[$key]['sub_vat_temp']);
+				unset($factor_detail[$key]['track_stock_temp']);
+
+			}
+
+			$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
+
+			if(!$add_detail)
+			{
+				\dash\db::rollback();
+				return false;
+			}
+
+		}
+
+		\lib\app\factor\calculate::again($load_factor['id']);
+
+		\dash\db::commit();
+
+		\dash\notif::ok(T_("Product added to factor"));
+
+		return true;
+
+	}
 }
 ?>
