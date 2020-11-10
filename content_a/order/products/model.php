@@ -23,7 +23,6 @@ class model
 			$post['count']      = $count;
 			$post['price']      = \dash\request::post('price');
 			$post['discount']   = \dash\request::post('discount');
-			$post['addanother'] = \dash\request::post('addanother');
 
 
 			\lib\app\factor\add::add_product($post, $factor_id);

@@ -55,12 +55,6 @@ $have_user = false;
               <input type="number" name="discount" placeholder="<?php echo T_("Discount"); ?>"  id="discount">
             </div>
 
-            <div class="switch1">
-              <input type="checkbox" name="addanother" id="addanother">
-              <label for="addanother"></label>
-              <label for="addanother"><?php echo T_("Add another record") ?></label>
-            </div>
-
           </div>
         </div>
 
@@ -87,8 +81,31 @@ $have_user = false;
               <div class="priceShow" data-cart>
                 <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
                 <span class="unit"><?php echo \lib\store::currency(); ?></span>
+
               </div>
+                <?php if(\dash\get::index($value, 'discount')) {?>
+                  <div class="fc-mute font-12">
+                    <span class=""><?php echo T_("Discount") ?></span>
+                    <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></span>
+                    <span class="unit"><?php echo \lib\store::currency(); ?></span>
+                  </div>
+                <?php } //endif ?>
+
+                <?php if(\dash\get::index($value, 'vat')) {?>
+                  <div class="fc-mute font-12">
+                    <span class=""><?php echo T_("Vat") ?></span>
+                    <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'vat')); ?></span>
+                    <span class="unit"><?php echo \lib\store::currency(); ?></span>
+                  </div>
+                <?php } //endif ?>
               <span class="compact ltr fc-mute font-12"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></span>
+            </div>
+            <div class="c">
+              <div class="priceShow" data-cart>
+                    <span class=""><?php echo T_("Total") ?></span>
+                    <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'sum')); ?></span>
+                    <span class="unit"><?php echo \lib\store::currency(); ?></span>
+                  </div>
             </div>
             <div class="c-auto c-xs-12">
                <div class="itemOperation">

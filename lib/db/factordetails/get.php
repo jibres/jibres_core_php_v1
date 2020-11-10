@@ -115,6 +115,33 @@ class get
 		return $result;
 	}
 
+	public static function check_exist_record($_factor_id, $_product_id, $_price, $_discount)
+	{
+		if(!$_discount)
+		{
+			$discount = ' AND ( factordetails.discount = 0 OR factordetails.discount IS NULL )';
+		}
+		else
+		{
+			$discount = " AND  factordetails.discount = $_discount ";
+		}
+
+		if(!$_price)
+		{
+			$price = ' AND ( factordetails.price = 0 OR factordetails.price IS NULL )';
+		}
+		else
+		{
+			$price = " AND  factordetails.price = $_price ";
+		}
+
+		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id = $_factor_id AND factordetails.product_id = $_product_id $price $discount LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 	public static function by_id_factor_id($_id, $_factor_id)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.id = $_id AND factordetails.factor_id = $_factor_id LIMIT 1";

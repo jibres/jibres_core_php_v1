@@ -256,7 +256,6 @@ class add
 			'count'      => 'int',
 			'price'      => 'price',
 			'discount'   => 'price',
-			'addanother' => 'bit',
 		];
 
 		$require = ['product_id', 'count'];
@@ -288,39 +287,38 @@ class add
 
 		$add_new_record = true;
 
-		if(!$data['addanother'])
+		$price = $data['price'];
+		if($price === null)
 		{
-			// check exist this product in factor and plus the count
-			$check_exist = \lib\db\factordetails\get::by_factor_id_product_id($load_factor['id'], $data['product_id']);
-			if(isset($check_exist['id']))
-			{
-				$add_new_record = false;
-
-				$new_count = floatval(\lib\number::up($data['count'])) + floatval($check_exist['count']);
-
-				\lib\db\factordetails\update::record(['count' => $new_count], $check_exist['id']);
-			}
+			$price = $load_product['price'];
 		}
+
+		$discount = $data['discount'];
+		if($discount === null)
+		{
+			$discount = $load_product['discount'];
+		}
+
+		$count      = $data['count'];
+
+		// check exist this product in factor and plus the count
+		$check_exist = \lib\db\factordetails\get::check_exist_record($load_factor['id'], $data['product_id'], \lib\price::up($price), \lib\price::up($discount));
+
+		if(isset($check_exist['id']))
+		{
+			$add_new_record = false;
+
+			$new_count = floatval(\lib\number::up($data['count'])) + floatval($check_exist['count']);
+
+			\lib\db\factordetails\update::record(['count' => $new_count], $check_exist['id']);
+		}
+
 
 		$option = [];
 		$option['type'] = $load_factor['type'];
 
 		if($add_new_record)
 		{
-			$price = $data['price'];
-			if($price === null)
-			{
-				$load_product['price'];
-			}
-
-			$discount = $data['discount'];
-			if($discount === null)
-			{
-				$load_product['discount'];
-			}
-
-			$count      = $data['count'];
-
 
 			$ready = [];
 			$ready[] =
