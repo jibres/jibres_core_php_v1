@@ -4,6 +4,13 @@ namespace lib\db\productinventory;
 
 class get
 {
+	public static function sum_stock($_product_id)
+	{
+		$query = "SELECT SUM(productinventory.count) AS `stock` FROM productinventory WHERE productinventory.product_id = $_product_id ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function product_last_record($_product_id)
 	{

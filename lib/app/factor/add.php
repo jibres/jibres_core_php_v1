@@ -79,8 +79,14 @@ class add
 			}
 		}
 
+		// the factor mode
+		$mode = 'admin';
+
 		if($_option['from_cart'])
 		{
+			// change factor mode to customer
+			$mode = 'customer';
+
 			$shipping_value = 0;
 			$shipping = \lib\app\setting\get::shipping_setting();
 
@@ -114,16 +120,17 @@ class add
 
 		}
 
-		$factor['total']       = $factor_total;
+		$factor['total']     = $factor_total;
 
-		$factor['status']      = $factor['status'] ? $factor['status'] : 'draft';
-		$factor['seller']      = \dash\user::id();
-		$factor['date']        = date("Y-m-d H:i:s");
-		$factor['title']       = null;
-		$factor['pre']         = null;
-		$factor['transport']   = null;
-		$factor['pay']         = null;
-		$factor['desc']        = $factor['desc'];
+		$factor['status']    = $factor['status'] ? $factor['status'] : 'draft';
+		$factor['seller']    = \dash\user::id();
+		$factor['date']      = date("Y-m-d H:i:s");
+		$factor['title']     = null;
+		$factor['pre']       = null;
+		$factor['transport'] = null;
+		$factor['pay']       = null;
+		$factor['desc']      = $factor['desc'];
+		$factor['mode']      = $mode;
 
 
 		// qty field in int(10)

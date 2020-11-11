@@ -108,6 +108,29 @@ class get
 
 
 
+	public static function sum_detail($_factor_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) 					AS `item`,
+				SUM(factordetails.count) 	AS `qty`,
+				SUM(factordetails.price) 	AS `subprice`,
+				SUM(factordetails.discount) AS `subdiscount`,
+				SUM(factordetails.vat) 		AS `subvat`,
+				SUM(factordetails.finalprice * factordetails.count) AS `subtotal`
+			FROM
+				factordetails
+			WHERE
+				factordetails.factor_id = $_factor_id AND
+				factordetails.status = 'enable'
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 	public static function by_factor_id_product_id($_factor_id, $_product_id)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id = $_factor_id AND factordetails.product_id = $_product_id LIMIT 1";

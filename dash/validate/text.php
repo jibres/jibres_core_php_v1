@@ -15,7 +15,7 @@ class text
 			return null;
 		}
 
-		if(!is_string($data))
+		if(!is_string($data) && !is_numeric($data))
 		{
 			if($_notif)
 			{
@@ -23,6 +23,11 @@ class text
 				\dash\cleanse::$status = false;
 			}
 			return false;
+		}
+
+		if(is_numeric($data))
+		{
+			$data = (string) $data;
 		}
 
 		$length = null;

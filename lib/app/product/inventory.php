@@ -38,7 +38,7 @@ class inventory
 
 	public static function get($_product_id)
 	{
-		$last_stock = \lib\db\productinventory\get::product_last_record($_product_id);
+		$last_stock = \lib\db\productinventory\get::sum_stock($_product_id);
 		if(isset($last_stock['stock']))
 		{
 			return floatval($last_stock['stock']);
@@ -52,7 +52,7 @@ class inventory
 	public static function manual($_count, $_product_id)
 	{
 
-		$last_stock = \lib\db\productinventory\get::product_last_record($_product_id);
+		$last_stock = \lib\db\productinventory\get::sum_stock($_product_id);
 
 		if(!$last_stock || !array_key_exists('stock', $last_stock))
 		{
@@ -141,7 +141,7 @@ class inventory
 				break;
 		}
 
-		$last_stock = \lib\db\productinventory\get::product_last_record($_product_id);
+		$last_stock = \lib\db\productinventory\get::sum_stock($_product_id);
 
 		if(!$last_stock || !array_key_exists('stock', $last_stock))
 		{
