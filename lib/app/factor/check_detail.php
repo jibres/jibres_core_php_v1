@@ -29,7 +29,7 @@ class check_detail
 
 		$condition =
 		[
-			'list' => ['product' => 'id', 'count' => 'smallint', 'discount' => 'price'],
+			'list' => ['product' => 'id', 'count' => 'smallint', 'discount' => 'price', 'price' => 'price'],
 		];
 
 		$require = [];

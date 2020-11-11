@@ -109,6 +109,7 @@ class model
 				'product'  => $value,
 				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
 				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
+				'price'    => null, // get from product price
 			];
 		}
 

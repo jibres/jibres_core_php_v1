@@ -324,7 +324,7 @@ class add
 			$ready[] =
 			[
 				'product' => $data['product_id'],
-				// 'price'      => $price,
+				'price'      => $price,
 				'discount'   => $discount,
 				'count'      => $count,
 			];

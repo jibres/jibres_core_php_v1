@@ -120,6 +120,7 @@ class cart
 				'product'  => $value['product_id'],
 				'count'    => $value['count'],
 				'discount' => null,
+				'price'    => null,
 			];
 
 		}
