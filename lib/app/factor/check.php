@@ -36,10 +36,10 @@ class check
 				[
 					'buy',
 					'sale',
-					'prefactor',
+					// 'prefactor',
 					'lending',
 					'backbuy',
-					'backfactor',
+					// 'backfactor',
 					'waste',
 					'saleorder'
 				]

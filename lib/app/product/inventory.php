@@ -49,6 +49,48 @@ class inventory
 		}
 	}
 
+
+	public static function refresh($_product_id, $_factor_id = null)
+	{
+		$last_stock = \lib\db\productinventory\get::sum_stock($_product_id);
+
+		if(!$last_stock || !array_key_exists('stock', $last_stock))
+		{
+			return false;
+		}
+
+
+		$stock = floatval($last_stock['stock']);
+		$thisstock = $stock;
+
+		$insert =
+		[
+			'inventory_id'       => null,
+			'product_id'         => $_product_id,
+			'datecreated'        => date("Y-m-d H:i:s"),
+			'manualcount'        => null,
+			'count'              => null,
+			'stock'              => $stock,
+			'thisstock'          => $stock,
+			'action'             => 'refresh',
+			'factor_id'          => $_factor_id,
+			'user_id'            => \dash\user::id(),
+			'other_inventory_id' => null,
+		];
+
+		\lib\db\productinventory\insert::new_record($insert);
+
+		if($stock > 0)
+		{
+			\lib\app\product\edit::in_stock($_product_id);
+		}
+		else
+		{
+			\lib\app\product\edit::out_of_stock($_product_id);
+		}
+
+	}
+
 	public static function manual($_count, $_product_id)
 	{
 
@@ -98,6 +140,8 @@ class inventory
 	public static function set($_action, $_count, $_product_id, $_factor_id = null, $_parent = null)
 	{
 
+		$count = abs(floatval($_count));
+
 		$stock = 0;
 
 		switch ($_action)
@@ -108,31 +152,46 @@ class inventory
 				return null;
 				break;
 
-			case 'move_to_inventory':
-			case 'move_from_inventory':
+			/* --------------------------------------- like sale must be minus stock ------------------------------*/
 
-			case 'warehouse_handling':
-			case 'edit_sale':
-			case 'buy':
-			case 'edit_buy':
 			case 'presell':
 			case 'edit_presell':
 			case 'lending':
 			case 'edit_lending':
+
 			case 'backbuy':
 			case 'edit_backbuy':
-			case 'backsell':
-			case 'edit_backsell':
+
 			case 'waste':
 			case 'edit_waste':
+
 			case 'saleorder':
 			case 'edit_saleorder':
+
+			case 'move_from_inventory':
+
+			case 'sale':
+			case 'edit_sale':
+				$count = $count * -1;
+				break;
+
+
+			/* --------------------------------------- like buy must be plus stock ------------------------------*/
+			case 'move_to_inventory':
+
+			case 'warehouse_handling':
+
+			case 'buy':
+			case 'edit_buy':
+
+			case 'backsell':
+			case 'edit_backsell':
+
 			case 'reject_order':
 			case 'cancel_order':
 			case 'expire_order':
 			case 'deleted_order':
-			case 'sale':
-
+				$count = $count; // no change
 				break;
 
 			default:
@@ -152,7 +211,7 @@ class inventory
 			$stock = floatval($last_stock['stock']);
 		}
 
-		$stock = $stock + floatval($_count);
+		$stock = $stock + floatval($count);
 
 		$thisstock = $stock;
 
@@ -161,7 +220,7 @@ class inventory
 			'inventory_id'       => null,
 			'product_id'         => $_product_id,
 			'datecreated'        => date("Y-m-d H:i:s"),
-			'count'              => $_count,
+			'count'              => $count,
 			'stock'              => $stock,
 			'thisstock'          => $thisstock,
 			'action'             => $_action,

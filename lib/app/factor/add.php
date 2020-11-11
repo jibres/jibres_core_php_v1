@@ -234,7 +234,7 @@ class add
 
 		foreach ($product_need_track_stock as $key => $value)
 		{
-			\lib\app\product\inventory::set('sale', (floatval($value['count']) * -1), $value['product_id'], $factor_id);
+			\lib\app\product\inventory::set('sale', $value['count'], $value['product_id'], $factor_id);
 			$get_stock = \lib\app\product\inventory::get($value['product_id']);
 			if(!is_null($get_stock))
 			{

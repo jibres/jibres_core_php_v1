@@ -140,8 +140,77 @@ class calculate
 
 		$update = \lib\db\factors\update::record($factor, $_factor_id);
 
-		return $update;
+		// calculate product inventory
+		$product_neet_track_count = \lib\db\factordetails\get::product_neet_track_count($_factor_id);
+		if(!is_array($product_neet_track_count))
+		{
+			$product_neet_track_count = [];
+		}
 
+		if(!$product_neet_track_count)
+		{
+			// no product in this factor need to track quantity
+			// need to check if this factor have anry inventory record
+			// if exist need to remove it and re calculate product inventory
+			$old_inventory_record = \lib\db\productinventory\get::by_factor_id($_factor_id);
+			if(!is_array($old_inventory_record))
+			{
+				$old_inventory_record = [];
+			}
+
+			foreach ($old_inventory_record as $key => $value)
+			{
+				\lib\db\productinventory\delete::record($value['id']);
+
+				\lib\app\product\inventory::refresh($value['product_id'], $_factor_id);
+
+				$get_stock = \lib\app\product\inventory::get($value['product_id']);
+
+				if(!is_null($get_stock))
+				{
+					if($get_stock <= 0)
+					{
+						\lib\app\product\edit::out_of_stock($value['product_id']);
+					}
+				}
+			}
+		}
+
+		$allow_action_type =
+		[
+			'move_to_inventory',	'move_from_inventory',	'warehouse_handling',		'edit_sale',
+			'buy',					'edit_buy',				'presell',					'edit_presell',
+			'lending',				'edit_lending',			'backbuy',					'edit_backbuy',
+			'backsell',				'edit_backsell',		'waste',					'edit_waste',
+			'saleorder',			'edit_saleorder',		'reject_order',				'cancel_order',
+			'expire_order',			'deleted_order',		'sale',
+		];
+
+		foreach ($product_neet_track_count as $key => $value)
+		{
+			\lib\db\productinventory\delete::by_factor_id_product_id($_factor_id, $value['product_id']);
+
+			$action_type = 'edit_'. $load_factor['type'];
+			if(!in_array($action_type, $allow_action_type))
+			{
+				\dash\log::set('invalidFactorType');
+				$action_type = 'edit_saleorder';
+			}
+
+			\lib\app\product\inventory::set($action_type, $value['count'], $value['product_id'], $_factor_id);
+
+			$get_stock = \lib\app\product\inventory::get($value['product_id']);
+
+			if(!is_null($get_stock))
+			{
+				if($get_stock <= 0)
+				{
+					\lib\app\product\edit::out_of_stock($value['product_id']);
+				}
+			}
+		}
+
+		return true;
 	}
 }
 ?>

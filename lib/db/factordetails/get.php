@@ -131,6 +131,34 @@ class get
 
 
 
+
+
+	public static function product_neet_track_count($_factor_id)
+	{
+		$query =
+		"
+			SELECT
+				SUM(factordetails.count) 	AS `count`,
+				factordetails.product_id AS `product_id`
+			FROM
+				factordetails
+			INNER JOIN products ON products.id = factordetails.product_id
+			WHERE
+				factordetails.factor_id  = $_factor_id AND
+				factordetails.status     = 'enable' AND
+				products.trackquantity = 'yes'
+			GROUP BY factordetails.product_id
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
+
+
+
 	public static function by_factor_id_product_id($_factor_id, $_product_id)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id = $_factor_id AND factordetails.product_id = $_product_id LIMIT 1";

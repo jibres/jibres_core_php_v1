@@ -30,6 +30,7 @@ class edit
 		// 	\dash\notif::error(T_("Item not found"));
 		// 	return false;
 		// }
+		\dash\db::transaction();
 
 		$current_count = floatval(\dash\get::index($check_ok, 'count'));
 
@@ -48,16 +49,17 @@ class edit
 				break;
 
 			case 'remove':
-				\lib\db\factordetails\delete::by_id($id);
-				\lib\app\factor\calculate::again($factor_id);
 				\lib\db\factordetails\delete::record($id);
+				\lib\app\factor\calculate::again($factor_id);
 				\dash\notif::ok(T_("Item removed"));
+				\dash\db::commit();
 				return true;
 
 				break;
 
 			default:
 				\dash\notif::error(T_("Invalid type"));
+				\dash\db::rollback();
 				return false;
 				break;
 		}
@@ -71,6 +73,8 @@ class edit
 		\lib\db\factordetails\update::record(['count' => $new_count], $id);
 
 		\lib\app\factor\calculate::again($factor_id);
+
+		\dash\db::commit();
 
 		\dash\notif::ok(T_("Data saved"));
 		return true;
@@ -102,7 +106,7 @@ class edit
 						{
 							foreach ($check_have_stock_record as $key => $value)
 							{
-								\lib\app\product\inventory::set('expire_order', (floatval($value['count']) * -1), $value['product_id'], null, $value['id']);
+								\lib\app\product\inventory::set('expire_order', $value['count'], $value['product_id'], null, $value['id']);
 								$get_stock = \lib\app\product\inventory::get($value['product_id']);
 								if(!is_null($get_stock))
 								{
@@ -148,7 +152,7 @@ class edit
 		{
 			foreach ($check_have_stock_record as $key => $value)
 			{
-				\lib\app\product\inventory::set('cancel_order', (floatval($value['count']) * -1), $value['product_id'], null, $value['id']);
+				\lib\app\product\inventory::set('cancel_order', $value['count'], $value['product_id'], null, $value['id']);
 				$get_stock = \lib\app\product\inventory::get($value['product_id']);
 				if(!is_null($get_stock))
 				{
