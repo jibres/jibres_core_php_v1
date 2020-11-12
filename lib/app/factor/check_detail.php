@@ -95,6 +95,7 @@ class check_detail
 				$value['discount'] = \lib\price::up($value['discount']);
 			}
 
+			$trust_order_list[$key]['price']      = floatval($value['price']);
 			$trust_order_list[$key]['count']      = floatval($value['count']);
 			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? floatval($value['discount']) : null;
 			$trust_order_list[$key]['product_id'] = $value['product'];
@@ -158,7 +159,15 @@ class check_detail
 
 			$factor_detail_record = [];
 
-			$price      = floatval($this_proudct['price']);
+			if(is_numeric($value['price']))
+			{
+				$price      = floatval($value['price']);
+			}
+			else
+			{
+				$price      = floatval($this_proudct['price']);
+			}
+
 			$discount   = $value['discount'] === null ? floatval($this_proudct['discount']) : floatval($value['discount']);
 			$vat        = 0;
 			$finalprice = $price - $discount;

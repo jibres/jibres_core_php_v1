@@ -318,22 +318,22 @@ class add
 			$new_count = floatval(\lib\number::up($data['count'])) + floatval($check_exist['count']);
 
 			\lib\db\factordetails\update::record(['count' => $new_count], $check_exist['id']);
+
+			\lib\app\factor\edit::refresh_detail_record($check_exist['id']);
 		}
-
-
-		$option = [];
-		$option['type'] = $load_factor['type'];
 
 		if($add_new_record)
 		{
+			$option = [];
+			$option['type'] = $load_factor['type'];
 
 			$ready = [];
 			$ready[] =
 			[
-				'product' => $data['product_id'],
-				'price'      => $price,
-				'discount'   => $discount,
-				'count'      => $count,
+				'product'  => $data['product_id'],
+				'price'    => $price,
+				'discount' => $discount,
+				'count'    => $count,
 			];
 
 			$factor_detail = \lib\app\factor\check_detail::factor_detail($ready, $option);

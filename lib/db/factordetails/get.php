@@ -27,6 +27,14 @@ class get
 	}
 
 
+	public static function by_id($_id)
+	{
+		$query = "SELECT * FROM factordetails WHERE factordetails.id = $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function by_factor_id($_id)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id = $_id";

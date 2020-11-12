@@ -20,3 +20,34 @@
     <li><a class="f item" href="<?php echo \dash\url::this(). '/address?id='. \dash\request::get('id'); ?>"><i class="sf-arrows-out"></i><div class="key"><?php echo T_("Address detail"); ?></div><div class="go"></div></a></li>
   </ul>
 </nav>
+
+
+<nav class="items">
+  <ul>
+    <?php if(\dash\get::index(\dash\data::orderDetail(), 'factor', 'total')) {?>
+    <li>
+      <a class="f item" href="<?php echo \dash\url::this(). '/detail?id='. \dash\request::get('id'); ?>">
+        <i class="sf-dollar"></i>
+        <div class="key"><?php echo T_("Total"); ?></div>
+        <div class="value">
+          <span class="fc-blue txtB"><?php echo \dash\fit::number(\dash\get::index(\dash\data::orderDetail(), 'factor', 'total')); ?></span>
+          <small class="fc-mute"><?php echo \lib\store::currency() ?></small>
+        </div>
+      </a>
+    </li>
+  <?php } //endif ?>
+  <?php if(\dash\get::index(\dash\data::orderDetail(), 'factor', 'shipping')) {?>
+    <li>
+      <a class="f item" href="<?php echo \dash\url::this(). '/detail?id='. \dash\request::get('id'); ?>">
+        <i class="sf-dollar"></i>
+        <div class="key"><?php echo T_("Shipping"); ?></div>
+        <div class="value">
+          <span class="fc-blue txtB"><?php echo \dash\fit::number(\dash\get::index(\dash\data::orderDetail(), 'factor', 'shipping')); ?></span>
+          <small class="fc-mute"><?php echo \lib\store::currency() ?></small>
+        </div>
+      </a>
+    </li>
+  <?php } //endif ?>
+
+  </ul>
+</nav>

@@ -4,6 +4,30 @@ namespace lib\app\factor;
 
 class edit
 {
+	public static function refresh_detail_record($_id)
+	{
+		$load_record = \lib\db\factordetails\get::by_id($_id);
+
+		if(!isset($load_record['id']))
+		{
+			return false;
+		}
+
+		// 'price' => string '650000' (length=6)
+		// 'discount' => string '150000' (length=6)
+		// 'vat' => string '0' (length=1)
+		// 'finalprice' => string '500000' (length=6)
+		// 'count' => string '8000' (length=4)
+		// 'sum' => string '2500000000' (length=10)
+
+		$update        = [];
+		$update['sum'] = floatval($load_record['finalprice']) * floatval($load_record['count']);
+
+		\lib\db\factordetails\update::record($update, $_id);
+
+	}
+
+
 	public static function edit_count_product($_id, $_factor_id, $_type, $_count)
 	{
 		$id        = \dash\validate::id($_id);
@@ -71,6 +95,8 @@ class edit
 		}
 
 		\lib\db\factordetails\update::record(['count' => $new_count], $id);
+
+		\lib\app\factor\edit::refresh_detail_record($id);
 
 		\lib\app\factor\calculate::again($factor_id);
 
