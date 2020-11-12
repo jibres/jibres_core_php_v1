@@ -95,6 +95,15 @@ class check_detail
 				$value['discount'] = \lib\price::up($value['discount']);
 			}
 
+			if(isset($value['price']) && is_numeric($value['price']))
+			{
+				$value['price'] = \lib\price::up($value['price']);
+			}
+			else
+			{
+				$value['price'] = null;
+			}
+
 			$trust_order_list[$key]['price']      = $value['price'];
 			$trust_order_list[$key]['count']      = floatval($value['count']);
 			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? floatval($value['discount']) : null;
@@ -208,6 +217,12 @@ class check_detail
 			$factor_detail_record['finalprice']        = $finalprice;
 			$factor_detail_record['count']             = $count;
 			$factor_detail_record['sum']               = $finalprice * $count;
+
+			if($factor_detail_record['sum'] < 0)
+			{
+				\dash\notif::error(T_("Can not add factor item price less than 0"));
+				return false;
+			}
 
 			$factor_detail_record['sub_vat_temp']      = $vat * $count;
 			$factor_detail_record['sub_price_temp']    = $price * $count;

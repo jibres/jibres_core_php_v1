@@ -41,6 +41,7 @@ class calculate
 			$factor['subtotal']    = 0;
 			$factor['qty']         = 0;
 			$factor['item']        = 0;
+			$factor['shipping']    = 0;
 		}
 
 		$factor['discount']    = $load_factor['discount'];
@@ -105,10 +106,22 @@ class calculate
 			return false;
 		}
 
+		if($factor['qty'] && floatval($factor['qty']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column qty"));
+			return false;
+		}
+
 		// item field in bigint(20)
 		if( $factor['item'] && !\dash\validate::bigint($factor['item'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column item"), 'item');
+			return false;
+		}
+
+		if($factor['item'] && floatval($factor['item']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column item"));
 			return false;
 		}
 
@@ -119,10 +132,22 @@ class calculate
 			return false;
 		}
 
+		if($factor['subprice'] && floatval($factor['subprice']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subprice"));
+			return false;
+		}
+
 		// subdiscount field in bigint(20)
 		if( $factor['subdiscount'] && !\dash\validate::bigint($factor['subdiscount'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
+			return false;
+		}
+
+		if($factor['subdiscount'] && floatval($factor['subdiscount']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subdiscount"));
 			return false;
 		}
 
@@ -134,10 +159,22 @@ class calculate
 			return false;
 		}
 
+		if($factor['subtotal'] && floatval($factor['subtotal']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subtotal"));
+			return false;
+		}
+
 		// total field in bigint(20)
 		if( $factor['total'] && !\dash\validate::bigint($factor['total'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column total"), 'total');
+			return false;
+		}
+
+		if($factor['total'] && floatval($factor['total']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column total"));
 			return false;
 		}
 

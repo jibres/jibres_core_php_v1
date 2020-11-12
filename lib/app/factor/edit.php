@@ -98,12 +98,21 @@ class edit
 
 		\lib\app\factor\edit::refresh_detail_record($id);
 
-		\lib\app\factor\calculate::again($factor_id);
+		$ok = \lib\app\factor\calculate::again($factor_id);
 
-		\dash\db::commit();
+		if($ok)
+		{
+			\dash\db::commit();
+			\dash\notif::ok(T_("Data saved"));
+			return true;
+		}
+		else
+		{
+			\dash\db::rollback();
+			return false;
+		}
 
-		\dash\notif::ok(T_("Data saved"));
-		return true;
+
 	}
 
 

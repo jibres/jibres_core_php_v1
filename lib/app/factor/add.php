@@ -137,10 +137,16 @@ class add
 		$factor['mode']      = $mode;
 
 
-		// qty field in int(10)
+			// qty field in int(10)
 		if( $factor['qty'] && !\dash\validate::int($factor['qty'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
+			return false;
+		}
+
+		if($factor['qty'] && floatval($factor['qty']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column qty"));
 			return false;
 		}
 
@@ -151,6 +157,12 @@ class add
 			return false;
 		}
 
+		if($factor['item'] && floatval($factor['item']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column item"));
+			return false;
+		}
+
 		// subprice field in bigint(20)
 		if( $factor['subprice'] && !\dash\validate::bigint($factor['subprice'], false))
 		{
@@ -158,10 +170,22 @@ class add
 			return false;
 		}
 
+		if($factor['subprice'] && floatval($factor['subprice']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subprice"));
+			return false;
+		}
+
 		// subdiscount field in bigint(20)
 		if( $factor['subdiscount'] && !\dash\validate::bigint($factor['subdiscount'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
+			return false;
+		}
+
+		if($factor['subdiscount'] && floatval($factor['subdiscount']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subdiscount"));
 			return false;
 		}
 
@@ -173,6 +197,12 @@ class add
 			return false;
 		}
 
+		if($factor['subtotal'] && floatval($factor['subtotal']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subtotal"));
+			return false;
+		}
+
 		// total field in bigint(20)
 		if( $factor['total'] && !\dash\validate::bigint($factor['total'], false))
 		{
@@ -180,6 +210,11 @@ class add
 			return false;
 		}
 
+		if($factor['total'] && floatval($factor['total']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column total"));
+			return false;
+		}
 
 		// start transaction of db
 		\dash\db::transaction();
@@ -342,6 +377,12 @@ class add
 
 			$factor_detail = \lib\app\factor\check_detail::factor_detail($ready, $option);
 
+			if(!$factor_detail || !\dash\engine\process::status())
+			{
+				return false;
+			}
+
+
 			foreach ($factor_detail as $key => $value)
 			{
 				$factor_detail[$key]['factor_id'] = $load_factor['id'];
@@ -362,13 +403,21 @@ class add
 
 		}
 
-		\lib\app\factor\calculate::again($load_factor['id']);
+		$ok = \lib\app\factor\calculate::again($load_factor['id']);
 
-		\dash\db::commit();
+		if($ok)
+		{
+			\dash\db::commit();
+			\dash\notif::ok(T_("Product added to factor"));
+			return true;
+		}
+		else
+		{
+			\dash\db::rollback();
+			return false;
+		}
 
-		\dash\notif::ok(T_("Product added to factor"));
 
-		return true;
 
 	}
 }
