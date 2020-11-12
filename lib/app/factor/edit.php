@@ -94,6 +94,12 @@ class edit
 			return false;
 		}
 
+		if(!\dash\validate::int($new_count, false))
+		{
+			\dash\notif::error(T_("Data is out of range for column count"));
+			return false;
+		}
+
 		\lib\db\factordetails\update::record(['count' => $new_count], $id);
 
 		\lib\app\factor\edit::refresh_detail_record($id);
