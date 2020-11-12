@@ -95,7 +95,7 @@ class check_detail
 				$value['discount'] = \lib\price::up($value['discount']);
 			}
 
-			$trust_order_list[$key]['price']      = floatval($value['price']);
+			$trust_order_list[$key]['price']      = $value['price'];
 			$trust_order_list[$key]['count']      = floatval($value['count']);
 			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? floatval($value['discount']) : null;
 			$trust_order_list[$key]['product_id'] = $value['product'];

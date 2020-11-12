@@ -89,6 +89,10 @@ class calculate
 				$shipping_value = \lib\number::up($shipping_value);
 				$factor_total = floatval($factor_total) + $shipping_value;
 			}
+			else
+			{
+				$factor['shipping'] = 0;
+			}
 
 		}
 
