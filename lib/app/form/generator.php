@@ -734,7 +734,7 @@ class generator
 				$accept = "*";
 			}
 
-			echo '<div data-uploader data-name="'. self::myName($value, true). '" data-final="#finalImage'. self::myID($value, true). '">';
+			echo '<div data-uploader data-name="'. self::myName($value, true). '" data-ratio=1 data-ratio-free data-final="#finalImage'. self::myID($value, true). '">';
 			{
 				echo '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
 				// T_('Drag &amp; Drop your files or Browse')

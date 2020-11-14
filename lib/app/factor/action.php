@@ -50,26 +50,31 @@ class action
 
 				case 'action':
 					$result[$key] = $value;
+					$result['lock'] = true;
 					switch ($value)
 					{
-						case 'enable': 				$t_status = T_("Enable");				break;
-						case 'disable': 			$t_status = T_("Disable");				break;
-						case 'draft': 				$t_status = T_("Draft");				break;
-						case 'order': 				$t_status = T_("Order");				break;
-						case 'expire': 				$t_status = T_("Expire");				break;
-						case 'cancel': 				$t_status = T_("Cancel");				break;
-						case 'pending_pay': 		$t_status = T_("Pending pay");			break;
-						case 'pending_verify': 		$t_status = T_("Pending verify");		break;
-						case 'pending_prepare': 	$t_status = T_("Pending prepare");		break;
-						case 'pending_send': 		$t_status = T_("Pending send");			break;
-						case 'sending': 			$t_status = T_("Sending");				break;
-						case 'deliver': 			$t_status = T_("Deliver");				break;
-						case 'reject': 				$t_status = T_("Reject");				break;
-						case 'spam': 				$t_status = T_("Spam");					break;
-						case 'deleted': 			$t_status = T_("Deleted");				break;
-						default:					$t_status = T_("Unknown");				break;
+						case 'comment': 			$t_action = T_('Notes'); 			$result['lock'] = false; break;
+						case 'order': 				$t_action = T_('Order register');	break;
+						case 'expire': 				$t_action = T_('Expired'); 			break;
+						case 'cancel': 				$t_action = T_('Canceled'); 		break;
+						case 'go_to_bank': 			$t_action = T_('Go to bank'); 		break;
+						case 'pay_successfull': 	$t_action = T_('pay successfull'); 	break;
+						case 'pay_error': 			$t_action = T_('pay error'); 		break;
+						case 'pay_cancel': 			$t_action = T_('pay cancel'); 		break;
+						case 'pay_verified': 		$t_action = T_('pay verified'); 	break;
+						case 'pay_unverified': 		$t_action = T_('pay unverified'); 	break;
+						case 'sending': 			$t_action = T_('sending'); 			break;
+						case 'pending_pay': 		$t_action = T_('pending pay'); 		break;
+						case 'pending_verify': 		$t_action = T_('pending verify'); 	break;
+						case 'pending_prepare': 	$t_action = T_('pending prepare'); 	break;
+						case 'pending_send': 		$t_action = T_('pending send'); 	break;
+						case 'deliver': 			$t_action = T_('deliver'); 			break;
+						case 'reject': 				$t_action = T_('reject'); 			break;
+						case 'spam': 				$t_action = T_('spam'); 			break;
+						case 'deleted': 			$t_action = T_('deleted'); 			break;
+						default:					$t_action = T_("Unknown");			break;
 					}
-					$result['t_action'] = $t_status;
+					$result['t_action'] = $t_action;
 					break;
 
 				default:
@@ -102,6 +107,41 @@ class action
 	}
 
 
+	public static function remove($_id, $_factor_id)
+	{
+		$id        = \dash\validate::id($_id);
+		$factor_id = \dash\validate::id($_factor_id);
+
+		if(!$id || !$factor_id)
+		{
+			\dash\notif::error(T_("Id is required"));
+			return false;
+		}
+
+		$load = \lib\db\factoraction\get::by_id_factor_id($id, $factor_id);
+		if(!isset($load['id']) || !isset($load['action']))
+		{
+			\dash\notif::error(T_("Invalid factor action detail"));
+			return false;
+		}
+
+		$load = self::ready($load);
+
+		if(isset($load['lock']) && $load['lock'])
+		{
+			\dash\notif::error(T_("Can not remove system action"));
+			return false;
+		}
+
+
+		$remove = \lib\db\factoraction\delete::by_id_factor_id($id, $factor_id);
+
+		\dash\notif::ok(T_("Data removed"));
+
+		return true;
+	}
+
+
 	public static function add($_args, $_factor_id)
 	{
 		$condition =
@@ -116,6 +156,15 @@ class action
 		$meta =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['action'] === 'comment')
+		{
+			if(!$data['desc'] && !$data['file'])
+			{
+				\dash\notif::error(T_("Please enter the description or attach a file"), 'cdesc');
+				return false;
+			}
+		}
 
 		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
 

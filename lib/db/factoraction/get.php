@@ -13,6 +13,14 @@ class get
 	}
 
 
+	public static function by_id_factor_id($_id, $_factor_id)
+	{
+		$query = "SELECT * FROM factoraction WHERE id = $_id AND factoraction.factor_id = $_factor_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function all_by_factor_id_public($_id)
 	{
 		$query =
