@@ -321,6 +321,21 @@ class get
 		// load address saved on this factor
 		$factor_address = \lib\db\factoraddress\get::by_factor_id($_id);
 
+		if(!is_array($factor_address))
+		{
+			$factor_address = [];
+		}
+
+		if(!\dash\get::index($factor_address, 'name') && \dash\get::index($factor, 'customer_displayname'))
+		{
+			$factor_address['name'] = $factor['customer_displayname'];
+		}
+
+		if(!\dash\get::index($factor_address, 'mobile') && \dash\get::index($factor, 'customer_mobile'))
+		{
+			$factor_address['mobile'] = $factor['customer_mobile'];
+		}
+
 		$factor_action = \lib\app\factor\action::get_by_factor_id($_id);
 
 

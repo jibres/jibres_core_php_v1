@@ -82,49 +82,10 @@
 
     <form method="post" autocomplete="off">
 
-      <?php
-      $address = \dash\get::index(\dash\data::orderDetail(), 'address');
-      \dash\data::dataRowAddress($address);
-      ?>
 
       <div class="box">
         <header><h2><?php echo T_("Edit Order Address") ?></h2></header>
         <div class="body">
-          <?php if(\dash\get::index($address, 'address')) {?>
-            <div class="msg">
-
-              <?php if(isset($address['company']) && $address['company']) {?>
-                <i class="fs16 mRa5 sf-building"></i>
-              <?php }else{ ?>
-                <i class="fs16 mRa5 sf-pin"></i>
-              <?php } // endif ?>
-              <?php if(isset($address['country']) && $address['country']) {?><i class="flag <?php echo mb_strtolower($address['country']); ?>"></i><?php } //endif ?>
-
-              <span ><?php echo \dash\get::index($address, 'location_string'); ?></span>
-
-              <span><?php echo \dash\get::index($address, 'address'); ?></span>
-
-              <?php if(isset($address['postcode']) && $address['postcode']) {?>
-
-                <span title='<?php echo T_("Postal code"); ?>' class="compact"><?php echo \dash\fit::text($address['postcode']); ?><i class="sf-crosshairs mRL5"></i></span>
-
-              <?php }//endif ?>
-              <?php echo \dash\get::index($address, 'name'); ?></td>
-
-
-              <?php if(isset($address['phone']) && $address['phone']) {?>
-
-                <div title='<?php echo T_("Phone"); ?>'><i class="sf-phone"></i> <?php echo \dash\fit::text($address['phone']); ?></div>
-              <?php } //endif ?>
-
-              <?php if(isset($address['mobile']) && $address['mobile']) {?>
-
-                <div title='<?php echo T_("Mobile"); ?>' class="mT5"><i class="sf-mobile"></i> <?php echo \dash\fit::mobile($address['mobile']); ?></div>
-              <?php } //endif ?>
-
-
-            </div>
-          <?php } //endif ?>
 
           <label for="name"><?php echo T_("Name"); ?></label>
           <div class="input">
@@ -155,12 +116,6 @@
                 <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); } ?>" data-format="tel">
               </div>
             </div>
-          </div>
-
-          <div class="switch1 mB20 mT20">
-            <input type="checkbox" name="company" id="company" <?php if(\dash\data::dataRowAddress_company())  { echo 'checked'; } ?>>
-            <label for="company" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
-            <label for="company" ><?php echo T_("Is this a company's address?"); ?></label>
           </div>
 
         </div>
