@@ -7,6 +7,38 @@ class model
 
 	public static function post()
 	{
+		if(\dash\request::post('changecustomer') === 'changecustomer')
+		{
+			$post                = [];
+			$post['customer']    = \dash\request::post('customer');
+			$post['mobile']      = \dash\request::post('memberTl');
+			$post['gender']      = \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null;
+			$post['displayname'] = \dash\request::post('memberN');
+
+			\lib\app\factor\edit::edit_customer($post, \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+
+			return false;
+		}
+
+		if(\dash\request::post('removecustomer') === 'removecustomer')
+		{
+
+			\lib\app\factor\edit::remove_customer(\dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+
+			return false;
+		}
+
+
 		$post             = [];
 		$post['name']     = \dash\request::post('name');
 		$post['country']  = \dash\request::post('country');

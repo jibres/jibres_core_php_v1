@@ -273,6 +273,49 @@ class edit
 	}
 
 
+	public static function edit_customer($_args, $_factor_id)
+	{
+		$load_factor = \lib\app\factor\get::one($_factor_id);
+
+		if(!$load_factor)
+		{
+			return false;
+		}
+
+		$data = \lib\app\factor\check::factor($_args);
+
+		if(!$data['customer'])
+		{
+			\dash\notif::error(T_("Please choose a customer or add new customer"));
+			return false;
+		}
+
+
+		\lib\db\factors\update::record(['customer' => $data['customer']], $load_factor['id']);
+
+		\dash\notif::ok(T_("customer changed"));
+		return true;
+	}
+
+
+	public static function remove_customer($_factor_id)
+	{
+		$load_factor = \lib\app\factor\get::one($_factor_id);
+
+		if(!$load_factor)
+		{
+			return false;
+		}
+
+
+		\lib\db\factors\update::record(['customer' => null], $load_factor['id']);
+
+		\dash\notif::ok(T_("Customer removed from this order"));
+		return true;
+	}
+
+
+
 	public static function edit_address($_args, $_factor_id)
 	{
 		$load_factor = \lib\app\factor\get::one($_factor_id);
