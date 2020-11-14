@@ -1,4 +1,4 @@
-<?php if(\dash\url::child() === 'product') { $editMode = true; }else{ $editMode = false; } ?>
+<?php if(\dash\url::child() === 'products') { $editMode = true; }else{ $editMode = false; } ?>
 
 <?php if(\dash\get::index($orderDetail, 'factor_detail')) {?>
   <div class="box cartPage">

@@ -43,18 +43,22 @@ $have_user = false;
             <input type="number" name="count" placeholder="<?php echo T_("Count"); ?>" value="1" id="count">
           </div>
 
-          <div data-kerkere='.showAdvanceOrder' class="btn link"><?php echo T_("Advance") ?></div>
+          <div data-kerkere='.showAdvanceOrder' class="mB10 link"><?php echo T_("Special price and discount") ?></div>
           <div class="showAdvanceOrder" data-kerkere-content='hide'>
-            <label for="price"><?php echo T_("Price") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product price") ?></small></label>
-            <div class="input mB20-f">
-              <input type="number" name="price" placeholder="<?php echo T_("Price"); ?>"  id="price">
+            <div class="row">
+              <div class="c-xs-12 c-sm-6">
+                <label for="price"><?php echo T_("Price") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product price") ?></small></label>
+                <div class="input mB20-f">
+                  <input type="number" name="price" placeholder="<?php echo T_("Price"); ?>"  id="price">
+                </div>
+              </div>
+              <div class="c-xs-12 c-sm-6">
+                <label for="discount"><?php echo T_("Discount") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product discount") ?></small></label>
+                <div class="input mB20-f">
+                  <input type="number" name="discount" placeholder="<?php echo T_("Discount"); ?>"  id="discount">
+                </div>
+              </div>
             </div>
-
-            <label for="discount"><?php echo T_("Discount") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product discount") ?></small></label>
-            <div class="input mB20-f">
-              <input type="number" name="discount" placeholder="<?php echo T_("Discount"); ?>"  id="discount">
-            </div>
-
           </div>
         </div>
 
