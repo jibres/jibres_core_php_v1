@@ -55,6 +55,7 @@ class ready
 				case 'shipping':
 				case 'finalprice':
 				case 'discount':
+				case 'vat':
 					$value = \lib\price::down($value);
 					$result[$key] = $value;
 					break;

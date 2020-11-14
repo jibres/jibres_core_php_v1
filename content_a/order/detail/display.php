@@ -98,39 +98,7 @@
       </div>
     </div>
 
+    <?php require_once(root. 'content_a/order/productList.php') ?>
 
-
-<?php if(\dash\get::index($orderDetail, 'factor_detail')) {?>
-  <div class="box cartPage">
-    <div class="pad">
-      <?php foreach (\dash\get::index($orderDetail, 'factor_detail') as $key => $value) {?>
-        <div class="cartItem">
-          <div class="row align-center">
-            <div class="c-auto">
-              <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
-            </div>
-            <div class="c">
-              <h3 class="title"><a href="<?php echo \dash\get::index($value, 'edit_url') ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
-              <div class="priceShow" data-cart>
-                <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
-                <span class="unit"><?php echo \lib\store::currency(); ?></span>
-              </div>
-              <span class="compact ltr fc-mute font-12"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></span>
-            </div>
-            <div class="c-auto c-xs-12">
-                <div class="itemOperation">
-                  <div class="productCount">
-                   <div class="value"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'count')). ' '. \dash\get::index($value, 'unit'); ?></div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      <?php } //endfor ?>
-    </div>
-  </div>
-<?php }else{ ?>
-  <div class="msg info2 fs14 txtB"><?php echo T_("This order is empty") ?></div>
-<?php } ?>
   </div>
 </div>
