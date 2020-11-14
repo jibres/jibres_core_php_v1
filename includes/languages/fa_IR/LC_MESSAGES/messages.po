@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-14 14:36+0330\n"
-"PO-Revision-Date: 2020-11-14 14:45+0330\n"
+"POT-Creation-Date: 2020-11-14 15:39+0330\n"
+"PO-Revision-Date: 2020-11-14 15:39+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -670,14 +670,14 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/form/item/display.php:144 content_a/form/setting/display.php:15
 #: content_a/form/setting/display.php:16 content_a/form/tag/edit/display.php:12
 #: content_a/order/add/display.php:62 content_a/order/comment/display.php:13
-#: content_a/order/detail/display.php:80 content_a/order/status/display.php:13
-#: content_a/products/desc/display.php:12 content_a/products/desc/display.php:18
-#: content_a/setting/fund/display.php:18 content_a/setting/fund/display.php:61
-#: content_a/setting/general/title/display.php:16 content_cms/terms/display.php:105
-#: content_cms/terms/display.php:212 content_cms/terms/display.php:213
-#: content_cms/terms/display.php:254 content_crm/log/home/logTable.php:10
-#: content_crm/member/pageSteps.php:80 content_crm/transactions/add/display.php:78
-#: content_crm/transactions/add/display.php:79
+#: content_a/order/detail/display.php:80 content_a/order/status/display.php:44
+#: content_a/order/status/display.php:56 content_a/products/desc/display.php:12
+#: content_a/products/desc/display.php:18 content_a/setting/fund/display.php:18
+#: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:16
+#: content_cms/terms/display.php:105 content_cms/terms/display.php:212
+#: content_cms/terms/display.php:213 content_cms/terms/display.php:254
+#: content_crm/log/home/logTable.php:10 content_crm/member/pageSteps.php:80
+#: content_crm/transactions/add/display.php:78 content_crm/transactions/add/display.php:79
 #: content_crm/transactions/minus/display.php:78
 #: content_crm/transactions/minus/display.php:79
 #: content_developers/docs/004-responses.php:59 content_love/domain/credit/display.php:31
@@ -5874,8 +5874,9 @@ msgstr "مایکت"
 #: content_a/form/analytics/setting/display.php:38
 #: content_a/form/analytics/tag/display.php:41
 #: content_a/form/answer/detail/display.php:101 content_a/order/address/display.php:76
-#: content_a/order/comment/display.php:17 content_a/order/status/display.php:17
-#: content_a/products/desc/display.php:22 content_a/products/edit/display-child.php:4
+#: content_a/order/comment/display.php:17 content_a/order/status/display.php:48
+#: content_a/order/status/display.php:60 content_a/products/desc/display.php:22
+#: content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:4
 #: content_a/products/property/display.php:159 content_a/products/sharetext/display.php:22
 #: content_a/products/variants/display-add-product.php:98
@@ -8853,6 +8854,30 @@ msgstr "برای اینکه از تخفیف اصلی محصول خوانده ش�
 #: content_a/order/products/view.php:13
 msgid "Manage order"
 msgstr "مدیریت سفارش"
+
+#: content_a/order/status/display.php:18
+msgid "Has the order been sent?"
+msgstr "آیا سفارش ارسال شده است؟"
+
+#: content_a/order/status/display.php:20
+msgid "Set as sent"
+msgstr "تنظیم به عنوان ارسال شده"
+
+#: content_a/order/status/display.php:24
+msgid "Set Deliver to customer"
+msgstr "تحویل مشتری داده شد"
+
+#: content_a/order/status/display.php:26
+msgid "Set as delivered"
+msgstr "تنظیم به عنوان تحویل داده شده"
+
+#: content_a/order/status/display.php:30
+msgid "Reject Order?"
+msgstr "سفارش لغو شود؟"
+
+#: content_a/order/status/display.php:32
+msgid "Set as rejected"
+msgstr "تنظیم به عنوان سفارش لغو شده"
 
 #: content_a/order/status/view.php:18
 msgid "Order Edit"
@@ -36295,24 +36320,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Order products"
 #~ msgstr "محصولات این سفارش"
-
-#~ msgid "Has the order been sent?"
-#~ msgstr "آیا سفارش ارسال شده است؟"
-
-#~ msgid "Set as sent"
-#~ msgstr "تنظیم به عنوان ارسال شده"
-
-#~ msgid "Set Deliver to customer"
-#~ msgstr "تحویل مشتری داده شد"
-
-#~ msgid "Set as delivered"
-#~ msgstr "تنظیم به عنوان تحویل داده شده"
-
-#~ msgid "Reject Order?"
-#~ msgstr "سفارش لغو شود؟"
-
-#~ msgid "Set as rejected"
-#~ msgstr "تنظیم به عنوان سفارش لغو شده"
 
 #~ msgid "Like abc@example.com"
 #~ msgstr "مثل abc@example.com"

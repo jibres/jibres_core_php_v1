@@ -25,7 +25,7 @@
   <ul>
     <?php if(\dash\get::index(\dash\data::orderDetail(), 'factor', 'total')) {?>
     <li>
-      <a class="f item" href="<?php echo \dash\url::this(). '/detail?id='. \dash\request::get('id'); ?>">
+      <a class="f item" href="<?php echo \dash\url::this(). '/discount?id='. \dash\request::get('id'); ?>">
         <i class="sf-dollar"></i>
         <div class="key"><?php echo T_("Total"); ?></div>
         <div class="value">
@@ -37,7 +37,7 @@
   <?php } //endif ?>
   <?php if(\dash\get::index(\dash\data::orderDetail(), 'factor', 'shipping')) {?>
     <li>
-      <a class="f item" href="<?php echo \dash\url::this(). '/detail?id='. \dash\request::get('id'); ?>">
+      <a class="f item" href="<?php echo \dash\url::this(). '/discount?id='. \dash\request::get('id'); ?>">
         <i class="sf-dollar"></i>
         <div class="key"><?php echo T_("Shipping"); ?></div>
         <div class="value">

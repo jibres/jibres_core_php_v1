@@ -30,6 +30,7 @@ class check
 		[
 			'desc'        => 'desc',
 			'discount'    => 'price',
+			'shipping'    => 'price',
 			'type'        =>
 			[
 				'enum' =>
@@ -141,6 +142,12 @@ class check
 		{
 			$data['discount'] = \lib\price::up($data['discount']);
 			$data['discount'] = \lib\number::up($data['discount']);
+		}
+
+		if($data['shipping'])
+		{
+			$data['shipping'] = \lib\price::up($data['shipping']);
+			// $data['discount'] = \lib\number::up($data['discount']);
 		}
 
 

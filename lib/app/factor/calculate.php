@@ -5,7 +5,7 @@ namespace lib\app\factor;
 class calculate
 {
 
-	public static function again($_factor_id)
+	public static function again($_factor_id, $_option = [])
 	{
 		$load_factor = \lib\app\factor\get::one($_factor_id);
 		if(!$load_factor)
@@ -44,7 +44,8 @@ class calculate
 			$factor['shipping']    = 0;
 		}
 
-		$factor['discount']    = $load_factor['discount'];
+		$factor['discount']    = \lib\price::up($load_factor['discount']);
+		$factor['discount']    = \lib\number::up($factor['discount']);
 
 		$factor_total = floatval($factor['subtotal']) - floatval($factor['discount']);
 
@@ -57,44 +58,57 @@ class calculate
 			}
 		}
 
-		if($load_factor['mode'] === 'customer')
+
+
+
+		if(isset($_option['shipping_value']) && $_option['shipping_value'] && is_numeric($_option['shipping_value']))
 		{
+			$shipping_value = floatval($_option['shipping_value']);
+			$factor['shipping'] = $shipping_value;
 
-			$shipping_value = 0;
-			$shipping = \lib\app\setting\get::shipping_setting();
-
-			if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
+			$shipping_value = \lib\number::up($shipping_value);
+			$factor_total = floatval($factor_total) + $shipping_value;
+		}
+		else
+		{
+			if($load_factor['mode'] === 'customer')
 			{
-				if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
+
+				$shipping_value = 0;
+				$shipping = \lib\app\setting\get::shipping_setting();
+
+				if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
 				{
-					if(\lib\price::total_down($factor_total) >= floatval($shipping['freeshippingprice']))
+					if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
 					{
-						$shipping_value = 0;
+						if(\lib\price::total_down($factor_total) >= floatval($shipping['freeshippingprice']))
+						{
+							$shipping_value = 0;
+						}
+						else
+						{
+							$shipping_value = floatval($shipping['sendbypostprice']);
+						}
 					}
 					else
 					{
 						$shipping_value = floatval($shipping['sendbypostprice']);
 					}
 				}
+
+				if($shipping_value)
+				{
+					$shipping_value = \lib\price::up($shipping_value);
+					$factor['shipping'] = $shipping_value;
+
+					$shipping_value = \lib\number::up($shipping_value);
+					$factor_total = floatval($factor_total) + $shipping_value;
+				}
 				else
 				{
-					$shipping_value = floatval($shipping['sendbypostprice']);
+					$factor['shipping'] = 0;
 				}
 			}
-
-			if($shipping_value)
-			{
-				$shipping_value = \lib\price::up($shipping_value);
-				$factor['shipping'] = $shipping_value;
-
-				$shipping_value = \lib\number::up($shipping_value);
-				$factor_total = floatval($factor_total) + $shipping_value;
-			}
-			else
-			{
-				$factor['shipping'] = 0;
-			}
-
 		}
 
 		$factor['total']     = $factor_total;

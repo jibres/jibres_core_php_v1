@@ -257,7 +257,9 @@ class edit
 
 		$args = \lib\app\factor\check::factor($_args, ['factor_detail' => $load_factor]);
 
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
+		// var_dump($args);exit();
 
 		if(empty($args))
 		{
@@ -266,7 +268,24 @@ class edit
 		}
 		else
 		{
+			\dash\db::transaction();
+
 			\lib\db\factors\update::record($args, $load_factor['id']);
+
+			$ok = \lib\app\factor\calculate::again($load_factor['id'], ['shipping_value' => \dash\get::index($args, 'shipping')]);
+
+			if($ok)
+			{
+				\dash\db::commit();
+				\dash\notif::ok(T_("Data saved"));
+				return true;
+			}
+			else
+			{
+				\dash\db::rollback();
+				return false;
+			}
+
 			\dash\notif::ok(T_("Order updated"));
 			return true;
 		}

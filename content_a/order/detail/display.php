@@ -34,6 +34,26 @@
               <td><?php echo \dash\fit::date_time(\dash\get::index($orderDetail, 'factor', 'datecreated')); ?> <small class="fc-mute mLa20"><?php echo \dash\fit::date_human(\dash\get::index($orderDetail, 'factor', 'datecreated')) ?></small></td>
             </tr>
 
+            <tr class="">
+              <td class="collapsing"><?php echo T_("Subtotal") ?></td>
+              <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subtotal')). ' '. \lib\store::currency(); ?></td>
+            </tr>
+
+            <?php if(\dash\get::index($orderDetail, 'factor', 'subdiscount')) {?>
+            <tr class="">
+              <td class="collapsing"><?php echo T_("Subdiscount") ?></td>
+              <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subdiscount')). ' '. \lib\store::currency(); ?></td>
+            </tr>
+          <?php } //endif ?>
+
+
+          <?php if(\dash\get::index($orderDetail, 'factor', 'subvat')) {?>
+            <tr class="">
+              <td class="collapsing"><?php echo T_("Subvat") ?></td>
+              <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subvat')). ' '. \lib\store::currency(); ?></td>
+            </tr>
+          <?php } //endif ?>
+
             <?php if(\dash\get::index($orderDetail, 'factor', 'discount')) {?>
               <tr>
                 <td class="collapsing"><?php echo T_("Discount") ?></td>
@@ -46,6 +66,9 @@
                 <td><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'shipping')). ' '. \lib\store::currency(); ?></td>
               </tr>
             <?php } //endif ?>
+
+
+
 
             <tr class="active">
               <td class="collapsing"><?php echo T_("Total") ?></td>
