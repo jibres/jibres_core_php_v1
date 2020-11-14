@@ -1,5 +1,5 @@
 <?php
-namespace content_a\order\edit;
+namespace content_a\order\status;
 
 
 class model

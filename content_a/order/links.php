@@ -14,10 +14,9 @@
 <nav class="items">
   <ul>
     <li><a class="f item" href="<?php echo \dash\url::this(). '/products?id='. \dash\request::get('id'); ?>"><i class="sf-tags"></i><div class="key"><?php echo T_("Products"); ?></div><div class="go"></div></a></li>
-    <li><a class="f item" href="<?php echo \dash\url::this(). '/comment?id='. \dash\request::get('id'); ?>"><i class="sf-comments-o"></i><div class="key"><?php echo T_("Activity"); ?></div><div class="go"></div></a></li>
-    <li><a class="f item" href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id'); ?>"><i class="sf-arrows-out"></i><div class="key"><?php echo T_("Manage status"); ?></div><div class="go"></div></a></li>
-    <li><a class="f item" href="<?php echo \dash\url::this(). '/customer?id='. \dash\request::get('id'); ?>"><i class="sf-user"></i><div class="key"><?php echo T_("Customer"); ?></div><div class="go"></div></a></li>
-    <li><a class="f item" href="<?php echo \dash\url::this(). '/address?id='. \dash\request::get('id'); ?>"><i class="sf-arrows-out"></i><div class="key"><?php echo T_("Address detail"); ?></div><div class="go"></div></a></li>
+    <li><a class="f item" href="<?php echo \dash\url::this(). '/comment?id='. \dash\request::get('id'); ?>"><i class="sf-comments-o"></i><div class="key"><?php echo T_("Activity & comment"); ?></div><div class="go"></div></a></li>
+    <li><a class="f item" href="<?php echo \dash\url::this(). '/address?id='. \dash\request::get('id'); ?>"><i class="sf-user"></i><div class="key"><?php echo T_("Customer & Address"); ?></div><div class="go"></div></a></li>
+    <li><a class="f item" href="<?php echo \dash\url::this(). '/status?id='. \dash\request::get('id'); ?>"><i class="sf-arrows-out"></i><div class="key"><?php echo T_("Manage status"); ?></div><div class="go"></div></a></li>
   </ul>
 </nav>
 
