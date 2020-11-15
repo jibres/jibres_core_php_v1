@@ -241,7 +241,7 @@ class search
 			if(isset($value['allow_shop']) && $value['allow_shop'])
 			{
 				$count++;
-				$subtotal += floatval($value['count']) * floatval($value['product_price']);
+				$subtotal += floatval($value['count']) * floatval($value['finalprice']);
 				$discount += floatval($value['count']) * floatval($value['discount']);
 			}
 		}

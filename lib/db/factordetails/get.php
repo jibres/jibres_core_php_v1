@@ -123,9 +123,9 @@ class get
 			SELECT
 				COUNT(*) 					AS `item`,
 				SUM(factordetails.count) 	AS `qty`,
-				SUM(factordetails.price) 	AS `subprice`,
-				SUM(factordetails.discount) AS `subdiscount`,
-				SUM(factordetails.vat) 		AS `subvat`,
+				SUM(factordetails.price * factordetails.count) 	AS `subprice`,
+				SUM(factordetails.discount * factordetails.count) AS `subdiscount`,
+				SUM(factordetails.vat * factordetails.count) 		AS `subvat`,
 				SUM(factordetails.finalprice * factordetails.count) AS `subtotal`
 			FROM
 				factordetails

@@ -289,7 +289,7 @@ class get
 
 		if($factor_detail)
 		{
-			$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'row'], $factor_detail);
+			$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'detail'], $factor_detail);
 		}
 
 		// load customer detail

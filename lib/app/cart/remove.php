@@ -49,7 +49,7 @@ class remove
 			{
 				$user_id = $_user_id;
 			}
-			$user_id = \dash\coding::decode($user_id);
+			// $user_id = \dash\coding::decode($user_id);
 		}
 
 		return self::remove($_product_id, $user_id, $user_guest);

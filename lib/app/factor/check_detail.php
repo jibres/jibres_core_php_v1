@@ -208,6 +208,7 @@ class check_detail
 				}
 			}
 
+
 			$factor_detail_record['product_id']        = $value['product_id'];
 
 			$factor_detail_record['status']            = 'enable';
@@ -225,7 +226,7 @@ class check_detail
 			}
 
 			$factor_detail_record['sub_vat_temp']      = $vat * $count;
-			$factor_detail_record['sub_price_temp']    = $price * $count;
+			$factor_detail_record['sub_price_temp']    = $finalprice * $count; // @check
 			$factor_detail_record['sub_discount_temp'] = $discount * $count;
 
 			$factor_detail[] = $factor_detail_record;

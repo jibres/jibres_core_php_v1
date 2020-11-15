@@ -36,21 +36,21 @@
 
             <tr class="">
               <td class="collapsing"><?php echo T_("Subtotal") ?></td>
-              <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subtotal')). ' '. \lib\store::currency(); ?></td>
+              <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subtotal')). ' '. \lib\store::currency(); ?></td>
             </tr>
 
             <?php if(\dash\get::index($orderDetail, 'factor', 'subdiscount')) {?>
             <tr class="">
               <td class="collapsing"><?php echo T_("Subdiscount") ?></td>
-              <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subdiscount')). ' '. \lib\store::currency(); ?></td>
+              <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subdiscount')). ' '. \lib\store::currency(); ?></td>
             </tr>
           <?php } //endif ?>
 
 
           <?php if(\dash\get::index($orderDetail, 'factor', 'subvat')) {?>
             <tr class="">
-              <td class="collapsing"><?php echo T_("Subvat") ?></td>
-              <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subvat')). ' '. \lib\store::currency(); ?></td>
+              <td class="collapsing"><?php echo T_("Vat") ?></td>
+              <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subvat')). ' '. \lib\store::currency(); ?></td>
             </tr>
           <?php } //endif ?>
 

@@ -47,7 +47,7 @@ class calculate
 		$factor['discount']    = \lib\price::up($load_factor['discount']);
 		$factor['discount']    = \lib\number::up($factor['discount']);
 
-		$factor_total = floatval($factor['subtotal']) - floatval($factor['discount']);
+		$factor_total = floatval($factor['subtotal']) - floatval($factor['subdiscount']) - floatval($factor['discount']);
 
 		if($factor['discount'])
 		{
