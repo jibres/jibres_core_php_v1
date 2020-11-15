@@ -115,7 +115,7 @@ class controller
 
 		\dash\app\log\send::notification();
 
-		if(self::every_10_min())
+		if(self::at('03:43'))
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
