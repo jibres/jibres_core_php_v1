@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <form method="post" autocomplete="off">
+    <form method="post" autocomplete="off" class="hide">
 
       <div class="box">
         <div class="body">
