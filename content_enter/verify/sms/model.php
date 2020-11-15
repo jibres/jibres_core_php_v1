@@ -52,8 +52,16 @@ class model
 			]
 		];
 
+		if(\dash\engine\store::inStore())
+		{
+			$msg = T_(":code is your verification code.", ['code' => "code ". $code]);
+		}
+		else
+		{
+			$msg = T_(":code is your Jibres verification code.", ['code' => "code ". $code]);
+		}
+
 		// $msg = "code ". $code;
-		$msg = T_(":code is your Jibres verification code.", ['code' => "code ". $code]);
 		// $msg = "Use above code to verify your account";
 
 		if(\dash\url::isLocal())
