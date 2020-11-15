@@ -40,7 +40,7 @@
                     <span class="unit"><?php echo \lib\store::currency(); ?></span>
                   </div>
             </div>
-            <div class="c-auto c-xs-12">
+            <div class="c">
                <div class="itemOperation">
               <?php if($editMode) {?>
                   <div class="productCount">

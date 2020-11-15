@@ -1,12 +1,11 @@
 <?php $orderDetail = \dash\data::orderDetail(); ?>
 
-<div class="row p0">
+<div class="row">
 
-  <div class="c-xs-12 c-sm-3">
+  <div class="c-xs-12 c-sm-12 c-md-3">
     <?php require_once(root. '/content_a/order/links.php'); ?>
   </div>
-
-  <div class="c-xs-12 c-sm-9">
+  <div class="c-xs-12 c-sm-12 c-md-9">
 
     <?php if(\dash\get::index($orderDetail, 'factor', 'customer')) {?>
       <div class="box">
@@ -103,13 +102,13 @@
           </div>
 
           <div class="f">
-            <div class="c pRa5">
+            <div class="c s12 pRa5">
               <label for="iphone"><?php echo T_("Phone"); ?></label>
               <div class="input">
                 <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
               </div>
             </div>
-            <div class="c">
+            <div class="c s12">
 
               <label for="iMobile"><?php echo T_("Mobile"); ?></label>
               <div class="input">

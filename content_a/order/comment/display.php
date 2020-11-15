@@ -1,10 +1,10 @@
 <?php $orderDetail = \dash\data::orderDetail(); ?>
 
-<div class="row p0">
-  <div class="c-xs-12 c-sm-3">
+<div class="row">
+  <div class="c-xs-12 c-sm-12 c-md-3">
     <?php require_once(root. '/content_a/order/links.php'); ?>
   </div>
-  <div class="c-xs-12 c-sm-9">
+  <div class="c-xs-12 c-sm-12 c-md-9">
 
     <form method="post" autocomplete="off">
       <input type="hidden" name="editdesc" value="editdesc">
