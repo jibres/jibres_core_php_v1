@@ -9,6 +9,8 @@
 
     <form method="post" autocomplete="off">
 
+      <input type="hidden" name="updateshipping" value="updateshipping">
+
       <div class="box">
         <div class="pad">
           <label for='idiscount'><?php echo T_("Discount") ?></label>
@@ -48,11 +50,14 @@
             <?php } //endif ?>
           </div>
 
-          <label for='ipaylink'><?php echo T_("Pay link") ?></label>
-          <div class="input">
-            <div data-copy='<?php echo \dash\url::pwd() ?>' class="addon btn"><?php echo T_("Copy") ?></div>
-            <input type="tel" name="paylink" value="<?php echo \dash\url::pwd() ?>">
+          <div class="hide">
+            <label for='ipaylink'><?php echo T_("Pay link") ?></label>
+            <div class="input">
+              <div data-copy='<?php echo \dash\url::pwd() ?>' class="addon btn"><?php echo T_("Copy") ?></div>
+              <input type="tel" name="paylink" value="<?php echo \dash\url::pwd() ?>">
+            </div>
           </div>
+
         </div>
       </div>
     </form>

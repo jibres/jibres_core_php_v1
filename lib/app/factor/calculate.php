@@ -59,9 +59,7 @@ class calculate
 		}
 
 
-
-
-		if(isset($_option['shipping_value']) && $_option['shipping_value'] && is_numeric($_option['shipping_value']))
+		if(isset($_option['shipping_value']) &&  is_numeric($_option['shipping_value']))
 		{
 			$shipping_value = floatval($_option['shipping_value']);
 			$factor['shipping'] = $shipping_value;
