@@ -5,12 +5,14 @@ namespace lib\app\factor;
 class get
 {
 
-	private static $factor_detail    = [];
-	private static $factor_prev      = [];
-	private static $factor_next      = [];
+	private static $factor_detail = [];
+	private static $factor_prev   = [];
+	private static $factor_next   = [];
 
+	private static $all_module    = ['detail', 'address', 'products', 'comment','status','discount', 'a4', 'receipt'];
+	private static $chap_module   = ['a4', 'receipt'];
 
-	public static function next($_id, $_raw = false)
+	public static function next($_id, $_raw = false, $_current_child = null)
 	{
 		if(isset(self::$factor_next[$_id]))
 		{
@@ -31,9 +33,22 @@ class get
 			$next = \lib\db\factors\get::first_factor_id();
 		}
 
+		$current_child = 'detail';
+		if($_current_child && is_string($_current_child) && in_array($_current_child, self::$all_module))
+		{
+			$current_child = $_current_child;
+		}
+
+		$current_module = 'order';
+		if(in_array($current_child, self::$chap_module))
+		{
+			$current_module = 'chap';
+		}
+
+
 		if(!$_raw)
 		{
-			$next = \dash\url::here(). '/order/detail?id='. $next;
+			$next = \dash\url::here(). '/'. $current_module.'/'.$current_child.'?id='. $next;
 		}
 
 		self::$factor_next[$_id] = $next;
@@ -42,7 +57,7 @@ class get
 	}
 
 
-	public static function prev($_id, $_raw = false)
+	public static function prev($_id, $_raw = false, $_current_child = null)
 	{
 		if(isset(self::$factor_prev[$_id]))
 		{
@@ -63,9 +78,21 @@ class get
 			$prev = \lib\db\factors\get::end_factor_id();
 		}
 
+		$current_child = 'detail';
+		if($_current_child && is_string($_current_child) && in_array($_current_child, self::$all_module))
+		{
+			$current_child = $_current_child;
+		}
+
+		$current_module = 'order';
+		if(in_array($current_child, self::$chap_module))
+		{
+			$current_module = 'chap';
+		}
+
 		if(!$_raw)
 		{
-			$prev = \dash\url::here(). '/order/detail?id='. $prev;
+			$prev = \dash\url::here(). '/'. $current_module.'/'. $current_child. '?id='. $prev;
 		}
 
 		self::$factor_prev[$_id] = $prev;

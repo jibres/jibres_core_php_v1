@@ -12,7 +12,7 @@ class controller
 			\dash\redirect::to(\dash\url::here());
 		}
 
-		\dash\redirect::to(\lib\app\factor\get::prev($subchild));
+		\dash\redirect::to(\lib\app\factor\get::prev($subchild, null, \dash\request::get('c')));
 	}
 }
 ?>

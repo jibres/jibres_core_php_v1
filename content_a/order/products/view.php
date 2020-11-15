@@ -10,16 +10,7 @@ class view
 		// show dropdown of product list
 		\lib\app\product\site_list::dropdown();
 
-		\dash\face::title(T_('Manage order'));
-
-		$user = \dash\request::get('user');
-		$guestid = \dash\request::get('guestid');
-
-		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
-
-
+		\content_a\order\view::master_order_view();
 	}
 }
 ?>
