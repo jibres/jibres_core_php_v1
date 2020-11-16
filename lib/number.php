@@ -8,12 +8,14 @@ class number
 
 	public static function up($_number)
 	{
-		return round(floatval($_number) * self::$rate);
+		return floatval($_number);
+		// return round(floatval($_number) * self::$rate);
 	}
 
 	public static function down($_number)
 	{
-		return floatval($_number) / self::$rate;
+		return floatval($_number);
+		// return floatval($_number) / self::$rate;
 	}
 }
 ?>

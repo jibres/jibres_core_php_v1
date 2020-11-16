@@ -43,7 +43,7 @@
           <div class="productCount">
            <div class="input">
             <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>+</label>
-            <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly>
+            <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly data-format='int'>
             <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>-</label>
            </div>
 
