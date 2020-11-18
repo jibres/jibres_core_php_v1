@@ -98,7 +98,7 @@ $sortLink = \dash\data::sortLink();
           <?php }else{ ?>
 
             <a href="<?php echo \dash\url::this(); ?>?customer=-quick">
-              <small class="disabled"><?php echo T_("Quick"); ?></small>
+              <small class="disabled"><?php echo T_("Without customer"); ?></small>
             </a>
 
           <?php } //endif ?>
