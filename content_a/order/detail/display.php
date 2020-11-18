@@ -36,10 +36,12 @@
                 <td><?php echo \dash\fit::date_time(\dash\get::index($orderDetail, 'factor', 'datecreated')); ?> <small class="fc-mute mLa20"><?php echo \dash\fit::date_human(\dash\get::index($orderDetail, 'factor', 'datecreated')) ?></small></td>
               </tr>
 
+              <?php if(\dash\get::index($orderDetail, 'factor', 'subprice')) {?>
               <tr class="">
-                <td class="collapsing fc-mute"><?php echo T_("Subtotal") ?></td>
-                <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subtotal')). ' '. \lib\store::currency(); ?></td>
+                <td class="collapsing fc-mute"><?php echo T_("Subprice") ?></td>
+                <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subprice')). ' '. \lib\store::currency(); ?></td>
               </tr>
+            <?php } //endif ?>
 
               <?php if(\dash\get::index($orderDetail, 'factor', 'subdiscount')) {?>
               <tr class="">

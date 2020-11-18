@@ -47,7 +47,7 @@ class calculate
 		$factor['discount']    = \lib\price::up($load_factor['discount']);
 		$factor['discount']    = \lib\number::up($factor['discount']);
 
-		$factor_total = floatval($factor['subtotal']) - floatval($factor['subdiscount']) - floatval($factor['discount']);
+		$factor_total = floatval($factor['subtotal']) - floatval($factor['discount']);
 
 		if($factor['discount'])
 		{
@@ -107,7 +107,18 @@ class calculate
 					$factor['shipping'] = 0;
 				}
 			}
+			else
+			{
+				if(isset($load_factor['shipping']))
+				{
+					$shipping_value = floatval($load_factor['shipping']);
+
+					$factor['shipping'] = $shipping_value;
+					$factor_total = floatval($factor_total) + $shipping_value;
+				}
+			}
 		}
+
 
 		$factor['total']     = $factor_total;
 
