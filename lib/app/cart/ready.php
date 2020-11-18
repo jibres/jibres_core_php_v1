@@ -65,6 +65,7 @@ class ready
 				case 'product_price':
 				case 'finalprice':
 				case 'shipping':
+				case 'vatprice':
 					if($value)
 					{
 						$result[$key] = \lib\price::down($value);

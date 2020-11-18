@@ -13,6 +13,13 @@
      </dl>
    <?php } //endif ?>
 
+     <?php if(\dash\data::cartSummary_subvat()) {?>
+     <dl class="subvat">
+      <dt><?php echo T_("Vat"); ?></dt>
+      <dd><?php echo \dash\fit::number(\dash\data::cartSummary_subvat()); ?> <?php echo \lib\store::currency(); ?> </dd>
+     </dl>
+   <?php } //endif ?>
+
      <dl class="shipping">
       <dt><?php echo T_("Shipping"); ?></dt>
         <?php if(\dash\data::cartSummary_shipping()) {?>

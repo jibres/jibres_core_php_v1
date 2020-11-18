@@ -236,12 +236,15 @@ class search
 		$subtotal = 0;
 		$discount = 0;
 		$count    = 0;
+		$subvat   = 0;
+
 		foreach ($_detail as $key => $value)
 		{
 			if(isset($value['allow_shop']) && $value['allow_shop'])
 			{
 				$count++;
-				$subtotal += floatval($value['count']) * floatval($value['finalprice']);
+				$subtotal += floatval($value['count']) * floatval($value['product_price']);
+				$subvat   += floatval($value['count']) * floatval($value['vatprice']);
 				$discount += floatval($value['count']) * floatval($value['discount']);
 			}
 		}
@@ -273,7 +276,8 @@ class search
 		$result['subtotal'] = $subtotal;
 		$result['shipping'] = $shipping_value;
 		$result['discount'] = $discount;
-		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'];
+		$result['subvat'] = $subvat;
+		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'] + $result['subvat'];
 
 		return $result;
 
