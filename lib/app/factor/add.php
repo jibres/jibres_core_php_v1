@@ -68,7 +68,7 @@ class add
 		$factor['item']        = count($factor_detail);
 		$factor['discount']    = $factor['discount'];
 
-		$factor_total = floatval($factor['subtotal']) - floatval($factor['subdiscount']) - floatval($factor['discount']); // all detail discount
+		$factor_total = floatval($factor['subtotal']) - floatval($factor['discount']); // all detail discount
 
 		if($factor['discount'])
 		{
