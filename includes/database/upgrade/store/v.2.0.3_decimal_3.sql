@@ -5,9 +5,9 @@ ALTER TABLE jibres_XXXXXXX.productinventory ADD `manualcount2` DECIMAL(22, 4) NU
 
 
 
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.count2      = (CAST(productinventory.count AS DECIMAL(22, 4)) / 1000) WHERE productinventory.count IS NOT NULL;
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.stock2        = (CAST(productinventory.stock AS DECIMAL(22, 4)) / 1000) WHERE productinventory.stock IS NOT NULL;
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.thisstock2 = (CAST(productinventory.thisstock AS DECIMAL(22, 4)) / 1000) WHERE productinventory.thisstock IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.count2       = (CAST(productinventory.count AS DECIMAL(22, 4)) / 1000) WHERE productinventory.count IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.stock2       = (CAST(productinventory.stock AS DECIMAL(22, 4)) / 1000) WHERE productinventory.stock IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.thisstock2   = (CAST(productinventory.thisstock AS DECIMAL(22, 4)) / 1000) WHERE productinventory.thisstock IS NOT NULL;
 UPDATE jibres_XXXXXXX.productinventory SET productinventory.manualcount2 = (CAST(productinventory.manualcount AS DECIMAL(22, 4)) / 1000) WHERE productinventory.manualcount IS NOT NULL;
 
 
@@ -18,7 +18,7 @@ ALTER TABLE jibres_XXXXXXX.productinventory DROP `manualcount`;
 
 
 
-ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `count2` `count` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `stock2` `stock` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `thisstock2` `thisstock` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `manualcount2` `manualcount` DECIMAL(22, 4) NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `count2` `count` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `stock2` `stock` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `thisstock2` `thisstock` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.productinventory CHANGE `manualcount2` `manualcount` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;

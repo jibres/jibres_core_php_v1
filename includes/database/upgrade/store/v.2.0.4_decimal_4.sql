@@ -12,5 +12,5 @@ ALTER TABLE jibres_XXXXXXX.cart DROP `price`;
 
 
 
-ALTER TABLE jibres_XXXXXXX.cart CHANGE `count2` `count` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.cart CHANGE `price2` `price` DECIMAL(22, 4) NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.cart CHANGE `count2` `count` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.cart CHANGE `price2` `price` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;

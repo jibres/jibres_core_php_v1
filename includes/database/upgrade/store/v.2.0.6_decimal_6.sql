@@ -37,13 +37,13 @@ ALTER TABLE jibres_XXXXXXX.factors DROP `total`;
 
 
 
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `qty2` `qty` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `subprice2` `subprice` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `subdiscount2` `subdiscount` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `subtotal2` `subtotal` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `subvat2` `subvat` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `discount23` `discount` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `discount22` `discount2` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `shipping2` `shipping` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `shippingvat2` `shippingvat` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `total2` `total` DECIMAL(22, 4) NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `total2` `total` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `shippingvat2` `shippingvat` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `shipping2` `shipping` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `discount22` `discount2` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `discount23` `discount` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `subdiscount2` `subdiscount` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `subvat2` `subvat` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `subtotal2` `subtotal` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `subprice2` `subprice` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;
+ALTER TABLE jibres_XXXXXXX.factors CHANGE `qty2` `qty` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `date`;

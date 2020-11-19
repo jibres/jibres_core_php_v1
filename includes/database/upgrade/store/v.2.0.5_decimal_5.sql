@@ -23,9 +23,9 @@ ALTER TABLE jibres_XXXXXXX.factordetails DROP `sum`;
 
 
 
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `price2` `price` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `discount2` `discount` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `vat2` `vat` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `finalprice2` `finalprice` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `count2` `count` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `sum2` `sum` DECIMAL(22, 4) NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `sum2` `sum` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `count2` `count` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `finalprice2` `finalprice` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `vat2` `vat` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `discount2` `discount` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `price2` `price` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `product_id`;

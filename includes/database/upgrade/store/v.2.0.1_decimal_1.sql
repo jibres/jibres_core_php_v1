@@ -21,9 +21,9 @@ ALTER TABLE jibres_XXXXXXX.products DROP `price`;
 ALTER TABLE jibres_XXXXXXX.products DROP `buyprice`;
 
 
-ALTER TABLE jibres_XXXXXXX.products CHANGE `finalprice2` `finalprice` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.products CHANGE `vatprice2` `vatprice` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.products CHANGE `discountpercent2` `discountpercent` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.products CHANGE `discount2` `discount` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.products CHANGE `price2` `price` DECIMAL(22, 4) NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.products CHANGE `buyprice2` `buyprice` DECIMAL(22, 4) NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.products CHANGE `finalprice2` `finalprice` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `slug`;
+ALTER TABLE jibres_XXXXXXX.products CHANGE `vatprice2` `vatprice` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `slug`;
+ALTER TABLE jibres_XXXXXXX.products CHANGE `discountpercent2` `discountpercent` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `slug`;
+ALTER TABLE jibres_XXXXXXX.products CHANGE `discount2` `discount` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `slug`;
+ALTER TABLE jibres_XXXXXXX.products CHANGE `price2` `price` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `slug`;
+ALTER TABLE jibres_XXXXXXX.products CHANGE `buyprice2` `buyprice` DECIMAL(22, 4) NULL DEFAULT NULL AFTER `slug`;
