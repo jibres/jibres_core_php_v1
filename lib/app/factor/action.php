@@ -51,28 +51,34 @@ class action
 				case 'action':
 					$result[$key] = $value;
 					$result['lock'] = true;
+					$t_action = null;
+
 					switch ($value)
 					{
-						case 'comment': 			$t_action = T_('Notes'); 			$result['lock'] = false; break;
-						case 'order': 				$t_action = T_('Order register');	break;
-						case 'expire': 				$t_action = T_('Expired'); 			break;
-						case 'cancel': 				$t_action = T_('Canceled'); 		break;
-						case 'go_to_bank': 			$t_action = T_('Go to bank'); 		break;
-						case 'pay_successfull': 	$t_action = T_('pay successfull'); 	break;
-						case 'pay_error': 			$t_action = T_('pay error'); 		break;
-						case 'pay_cancel': 			$t_action = T_('pay cancel'); 		break;
-						case 'pay_verified': 		$t_action = T_('pay verified'); 	break;
-						case 'pay_unverified': 		$t_action = T_('pay unverified'); 	break;
-						case 'sending': 			$t_action = T_('sending'); 			break;
-						case 'pending_pay': 		$t_action = T_('pending pay'); 		break;
-						case 'pending_verify': 		$t_action = T_('pending verify'); 	break;
-						case 'pending_prepare': 	$t_action = T_('pending prepare'); 	break;
-						case 'pending_send': 		$t_action = T_('pending send'); 	break;
-						case 'deliver': 			$t_action = T_('deliver'); 			break;
-						case 'reject': 				$t_action = T_('reject'); 			break;
-						case 'spam': 				$t_action = T_('spam'); 			break;
-						case 'deleted': 			$t_action = T_('deleted'); 			break;
-						default:					$t_action = T_("Unknown");			break;
+						case 'tracking': 					$t_action = T_('Tracking'); break;
+						case 'comment': 					$t_action = T_('Comment'); break;
+						case 'draft': 						$t_action = T_('Draft'); break;
+						case 'registered': 					$t_action = T_('Registered'); break;
+						case 'awaiting': 					$t_action = T_('Awaiting'); break;
+						case 'confirmed': 					$t_action = T_('Confirmed'); break;
+						case 'cancel': 						$t_action = T_('Cancel'); break;
+						case 'expire': 						$t_action = T_('Expire'); break;
+						case 'preparing': 					$t_action = T_('Preparing'); break;
+						case 'sending': 					$t_action = T_('Sending'); break;
+						case 'delivered': 					$t_action = T_('Delivered'); break;
+						case 'revert': 						$t_action = T_('Revert'); break;
+						case 'sucsess': 					$t_action = T_('Sucsess'); break;
+						case 'archive': 					$t_action = T_('Archive'); break;
+						case 'deleted': 					$t_action = T_('Deleted'); break;
+						case 'spam': 						$t_action = T_('Spam'); break;
+						case 'go_to_bank': 					$t_action = T_('Go to bank'); break;
+						case 'pay_error': 					$t_action = T_('Pay error'); break;
+						case 'pay_cancel': 					$t_action = T_('Pay cancel'); break;
+						case 'awaiting_payment': 			$t_action = T_('Awaiting payment'); break;
+						case 'awaiting_verify_payment': 	$t_action = T_('Awaiting verify payment'); break;
+						case 'unsuccessful_payment': 		$t_action = T_('Unsuccessful payment'); break;
+						case 'payment_unverified': 			$t_action = T_('Payment unverified'); break;
+						case 'successful_payment': 			$t_action = T_('Successful payment'); break;
 					}
 					$result['t_action'] = $t_action;
 					break;
@@ -127,7 +133,7 @@ class action
 
 		$load = self::ready($load);
 
-		if(isset($load['lock']) && $load['lock'])
+		if(isset($load['category']) && in_array($load['category'], ['status', 'paystatus']))
 		{
 			\dash\notif::error(T_("Can not remove system action"));
 			return false;
@@ -146,7 +152,37 @@ class action
 	{
 		$condition =
 		[
-			'action'     => ['enum' => ['comment','order','expire','cancel','go_to_bank','pay_successfull','pay_error','pay_cancel','pay_verified','pay_unverified','sending','pending_pay','pending_verify','pending_prepare','pending_send','deliver','reject','spam','deleted']],
+			'action'     =>
+			[
+				'enum' =>
+				[
+					'tracking',
+					'comment',
+					'draft',
+					'registered',
+					'awaiting',
+					'confirmed',
+					'cancel',
+					'expire',
+					'preparing',
+					'sending',
+					'delivered',
+					'revert',
+					'sucsess',
+					'archive',
+					'deleted',
+					'spam',
+					'go_to_bank',
+					'pay_error',
+					'pay_cancel',
+					'awaiting_payment',
+					'awaiting_verify_payment',
+					'unsuccessful_payment',
+					'payment_unverified',
+					'successful_payment'
+				]
+			],
+			'category' => ['enum' => ['comment', 'status', 'paystatus', 'tracking']],
 			'desc'       => 'desc',
 			'file'       => 'desc',
 		];
@@ -173,10 +209,48 @@ class action
 			return false;
 		}
 
+		$category = null;
+		switch ($data['action'])
+		{
+			case 'tracking':
+			case 'comment':
+				$category = 'comment';
+				break;
+
+			case 'draft':
+			case 'registered':
+			case 'awaiting':
+			case 'confirmed':
+			case 'cancel':
+			case 'expire':
+			case 'preparing':
+			case 'sending':
+			case 'delivered':
+			case 'revert':
+			case 'sucsess':
+			case 'archive':
+			case 'deleted':
+			case 'spam':
+				$category = 'status';
+				break;
+
+			case 'go_to_bank':
+			case 'pay_error':
+			case 'pay_cancel':
+			case 'awaiting_payment':
+			case 'awaiting_verify_payment':
+			case 'unsuccessful_payment':
+			case 'payment_unverified':
+			case 'successful_payment':
+				$category = 'paystatus';
+				break;
+		}
+
 		$insert =
 		[
 			'factor_id'   => $factor_id,
 			'action'      => $data['action'],
+			'category'    => $category,
 			'desc'        => $data['desc'],
 			'file'        => $data['file'],
 			'user_id'     => \dash\user::id(),
@@ -188,51 +262,51 @@ class action
 
 		// the status of factor : 'enable','disable','draft','order','expire','cancel','pending_pay','pending_verify','pending_prepare','pending_send','sending','deliver','reject','spam','deleted'
 
-		switch ($data['action'])
-		{
-			case 'pay_successfull':
-			case 'pay_verified':
-				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_prepare', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-				break;
+		// switch ($data['action'])
+		// {
+		// 	case 'pay_successfull':
+		// 	case 'pay_verified':
+		// 		\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_prepare', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+		// 		break;
 
-			case 'pay_error':
-			case 'pay_cancel':
-			case 'pay_unverified':
-				\lib\db\factors\update::record(['type' => 'saleorder', 'pay' => 0, 'status' => 'reject', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-				break;
+		// 	case 'pay_error':
+		// 	case 'pay_cancel':
+		// 	case 'pay_unverified':
+		// 		\lib\db\factors\update::record(['type' => 'saleorder', 'pay' => 0, 'status' => 'reject', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+		// 		break;
 
-			case 'cancel':
-				\lib\db\factors\update::record(['type' => 'saleorder', 'status' => 'cancel', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-				break;
+		// 	case 'cancel':
+		// 		\lib\db\factors\update::record(['type' => 'saleorder', 'status' => 'cancel', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
+		// 		break;
 
-			case 'sending':
-				$load_factor = \lib\app\factor\get::inline_get((string) $factor_id);
-				if(isset($load_factor['customer']))
-				{
-					\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
-				}
+		// 	case 'sending':
+		// 		$load_factor = \lib\app\factor\get::inline_get((string) $factor_id);
+		// 		if(isset($load_factor['customer']))
+		// 		{
+		// 			\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
+		// 		}
 
-				\lib\app\factor\edit::status($data['action'], $factor_id);
-				break;
+		// 		\lib\app\factor\edit::status($data['action'], $factor_id);
+		// 		break;
 
-			case 'expire':
-			case 'order':
-			case 'pending_pay':
-			case 'pending_verify':
-			case 'pending_prepare':
-			case 'pending_send':
-			case 'deliver':
-			case 'reject':
-			case 'spam':
-				\lib\app\factor\edit::status($data['action'], $factor_id);
-				break;
+		// 	case 'expire':
+		// 	case 'order':
+		// 	case 'pending_pay':
+		// 	case 'pending_verify':
+		// 	case 'pending_prepare':
+		// 	case 'pending_send':
+		// 	case 'deliver':
+		// 	case 'reject':
+		// 	case 'spam':
+		// 		\lib\app\factor\edit::status($data['action'], $factor_id);
+		// 		break;
 
-			case 'comment':
-			case 'go_to_bank':
-			default:
-				// nothing
-				break;
-		}
+		// 	case 'comment':
+		// 	case 'go_to_bank':
+		// 	default:
+		// 		// nothing
+		// 		break;
+		// }
 		return true;
 	}
 }

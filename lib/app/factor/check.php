@@ -50,21 +50,32 @@ class check
 			[
 				'enum' =>
 				[
-					'enable',
-					'disable',
 					'draft',
-					'order',
-					'expire',
+					'registered',
+					'awaiting',
+					'confirmed',
 					'cancel',
-					'pending_pay',
-					'pending_verify',
-					'pending_prepare',
-					'pending_send',
+					'expire',
+					'preparing',
 					'sending',
-					'deliver',
-					'reject',
-					'spam',
-					'deleted'
+					'delivered',
+					'revert',
+					'sucsess',
+					'archive',
+					'deleted',
+					'spam'
+				]
+			],
+
+			'paystatus'      =>
+			[
+				'enum' =>
+				[
+					'awaiting_payment',
+					'awaiting_verify_payment',
+					'unsuccessful_payment',
+					'payment_unverified',
+					'successful_payment'
 				]
 			],
 
@@ -75,6 +86,7 @@ class check
 			'displayname' => 'displayname',
 			'gender'      => ['enum' => ['male', 'female']],
 		];
+
 
 		$require = [];
 

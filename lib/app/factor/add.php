@@ -87,6 +87,13 @@ class add
 			// change factor mode to customer
 			$mode = 'customer';
 
+			// set default factor status as registered if not set factor status
+			if(!\dash\get::index($factor, 'status'))
+			{
+				$factor['status'] = 'registered';
+			}
+
+
 			$shipping_value = 0;
 			$shipping = \lib\app\setting\get::shipping_setting();
 
@@ -120,6 +127,13 @@ class add
 			else
 			{
 				$factor['shipping'] = 0;
+			}
+
+
+			// set default payment if have total
+			if($factor_total)
+			{
+				$factor['paystatus'] = 'awaiting_payment';
 			}
 
 		}
