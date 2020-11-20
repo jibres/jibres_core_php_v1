@@ -129,24 +129,16 @@ class add
 				$factor['shipping'] = 0;
 			}
 
-
-			// set default payment if have total
-			if($factor_total)
-			{
-				$factor['paystatus'] = 'awaiting_payment';
-			}
-
 		}
 
 		$factor['total']     = $factor_total;
 
-		$factor['status']    = $factor['status'] ? $factor['status'] : 'draft';
+		$factor['status']    = $factor['status'] ? $factor['status'] : 'registered';
 		$factor['seller']    = \dash\user::id();
 		$factor['date']      = date("Y-m-d H:i:s");
 		$factor['title']     = null;
 		$factor['pre']       = null;
 		$factor['transport'] = null;
-		$factor['pay']       = null;
 		$factor['desc']      = $factor['desc'];
 		$factor['mode']      = $mode;
 
@@ -251,12 +243,9 @@ class add
 			return false;
 		}
 
-		$return = [];
-
-		$return['factor_id'] = 'JF'. $factor_id;
+		$return              = [];
 		$return['factor_id'] = $factor_id;
-
-		$return['price'] = \lib\price::total_down($factor_total);
+		$return['price']     = \lib\price::total_down($factor_total);
 
 
 		$product_need_track_stock = [];

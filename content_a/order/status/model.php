@@ -7,19 +7,19 @@ class model
 
 	public static function post()
 	{
-		\dash\notif::warn(T_("Not ready"));
-		// $post =
-		// [
-		// 	'desc' => \dash\request::post('desc'),
-		// ];
+
+		$post =
+		[
+			'action' => \dash\request::post('orderaction'),
+		];
 
 
-		// \lib\app\factor\edit::edit_factor($post, \dash\request::get('id'));
+		\lib\app\factor\action::add($post, \dash\request::get('id'));
 
-		// if(\dash\engine\process::status())
-		// {
-		// 	\dash\redirect::pwd();
-		// }
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
 	}
 }
 ?>

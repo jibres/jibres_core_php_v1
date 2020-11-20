@@ -56,7 +56,7 @@ class action
 					switch ($value)
 					{
 						case 'tracking': 					$t_action = T_('Tracking'); break;
-						case 'notes': 					$t_action = T_('Notes'); break;
+						case 'notes': 						$t_action = T_('Notes'); break;
 						case 'draft': 						$t_action = T_('Draft'); break;
 						case 'registered': 					$t_action = T_('Registered'); break;
 						case 'awaiting': 					$t_action = T_('Awaiting'); break;
@@ -92,27 +92,31 @@ class action
 		return $result;
 	}
 
+
+	/**
+	 * Quick add new action
+	 *
+	 * @param      <type>  $_action     The action
+	 * @param      <type>  $_factor_id  The factor identifier
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function set($_action, $_factor_id)
 	{
-		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
-
-		if(!$_action || !$factor_id)
-		{
-			return false;
-		}
-
-		$insert =
-		[
-			'factor_id'   => $factor_id,
-			'action'      => $_action,
-			'user_id'     => \dash\user::id(),
-			'datecreated' => date("Y-m-d H:i:s")
-		];
-
-		return \lib\db\factoraction\insert::new_record($insert);
+		$args = [];
+		$args['action'] = $_action;
+		return self::add($args, $_factor_id);
 	}
 
 
+	/**
+	 * Remove an action
+	 *
+	 * @param      <type>   $_id         The identifier
+	 * @param      <type>   $_factor_id  The factor identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function remove($_id, $_factor_id)
 	{
 		$id        = \dash\validate::id($_id);
@@ -157,7 +161,7 @@ class action
 				'enum' =>
 				[
 					'tracking',
-					'comment',
+					'notes',
 					'draft',
 					'registered',
 					'awaiting',
@@ -182,7 +186,7 @@ class action
 					'successful_payment'
 				]
 			],
-			'category' => ['enum' => ['comment', 'status', 'paystatus', 'tracking']],
+			'category' => ['enum' => ['notes', 'status', 'paystatus', 'tracking']],
 			'desc'       => 'desc',
 			'file'       => 'desc',
 		];
@@ -193,7 +197,7 @@ class action
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if($data['action'] === 'comment')
+		if($data['action'] === 'notes')
 		{
 			if(!$data['desc'] && !$data['file'])
 			{
@@ -209,12 +213,20 @@ class action
 			return false;
 		}
 
+		$load_factor = \lib\app\factor\get::inline_get((string) $factor_id);
+		if(!$load_factor)
+		{
+			\dash\notif::error(T_("Order not found!"));
+			return false;
+		}
+
+
 		$category = null;
 		switch ($data['action'])
 		{
 			case 'tracking':
-			case 'comment':
-				$category = 'comment';
+			case 'notes':
+				$category = 'notes';
 				break;
 
 			case 'draft':
@@ -232,6 +244,11 @@ class action
 			case 'deleted':
 			case 'spam':
 				$category = 'status';
+				if(isset($load_factor['status']) && $load_factor['status'] === $data['action'])
+				{
+					\dash\notif::info(T_("Current status of this order is :status", ['status' => T_(ucfirst($data['action']))]));
+					return true;
+				}
 				break;
 
 			case 'go_to_bank':
@@ -243,8 +260,16 @@ class action
 			case 'payment_unverified':
 			case 'successful_payment':
 				$category = 'paystatus';
+
+				if(isset($load_factor['paystatus']) && $load_factor['paystatus'] === $data['action'])
+				{
+					\dash\notif::info(T_("No change in order payment status"));
+					return true;
+				}
 				break;
 		}
+
+
 
 		$insert =
 		[
@@ -258,55 +283,75 @@ class action
 		];
 
 		$result = \lib\db\factoraction\insert::new_record($insert);
+
 		\dash\notif::ok(T_("Operation accomplished"));
 
-		// the status of factor : 'enable','disable','draft','order','expire','cancel','pending_pay','pending_verify','pending_prepare','pending_send','sending','deliver','reject','spam','deleted'
+		$update_factor = [];
 
-		// switch ($data['action'])
-		// {
-		// 	case 'pay_successfull':
-		// 	case 'pay_verified':
-		// 		\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_prepare', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-		// 		break;
+		switch ($data['action'])
+		{
+			case 'tracking':
+			case 'notes':
+				// nothing
+				break;
 
-		// 	case 'pay_error':
-		// 	case 'pay_cancel':
-		// 	case 'pay_unverified':
-		// 		\lib\db\factors\update::record(['type' => 'saleorder', 'pay' => 0, 'status' => 'reject', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-		// 		break;
+			case 'cancel':
+				$update_factor['type']      = 'saleorder';
+				$update_factor['status']    = 'cancel';
+				break;
 
-		// 	case 'cancel':
-		// 		\lib\db\factors\update::record(['type' => 'saleorder', 'status' => 'cancel', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-		// 		break;
+			case 'draft':
+			case 'registered':
+			case 'awaiting':
+			case 'confirmed':
+			case 'expire':
+			case 'preparing':
+			case 'delivered':
+			case 'revert':
+			case 'success':
+			case 'archive':
+			case 'deleted':
+			case 'spam':
+				$update_factor['status']    = $data['action'];
 
-		// 	case 'sending':
-		// 		$load_factor = \lib\app\factor\get::inline_get((string) $factor_id);
-		// 		if(isset($load_factor['customer']))
-		// 		{
-		// 			\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
-		// 		}
+				break;
 
-		// 		\lib\app\factor\edit::status($data['action'], $factor_id);
-		// 		break;
+			case 'sending':
+				$update_factor['status']    = 'sending';
+				// if need to send alert to customer
+				// if(isset($load_factor['customer']))
+				// {
+				// 	\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
+				// }
 
-		// 	case 'expire':
-		// 	case 'order':
-		// 	case 'pending_pay':
-		// 	case 'pending_verify':
-		// 	case 'pending_prepare':
-		// 	case 'pending_send':
-		// 	case 'deliver':
-		// 	case 'reject':
-		// 	case 'spam':
-		// 		\lib\app\factor\edit::status($data['action'], $factor_id);
-		// 		break;
+				break;
 
-		// 	case 'comment':
-		// 	case 'go_to_bank':
-		// 	default:
-		// 		// nothing
-		// 		break;
-		// }
+			case 'successful_payment':
+				$update_factor['type']      = 'sale';
+				$update_factor['status']    = 'preparing';
+				$update_factor['paystatus'] = 'successful_payment';
+				break;
+
+			case 'pay_error':
+			case 'pay_cancel':
+			case 'go_to_bank':
+				break;
+
+			case 'awaiting_payment':
+			case 'awaiting_verify_payment':
+			case 'unsuccessful_payment':
+			case 'payment_unverified':
+				$update_factor['paystatus'] = $data['action'];
+				break;
+		}
+
+		if(!empty($update_factor))
+		{
+			$update_factor['datemodified'] = date("Y-m-d H:i:s");
+			\lib\db\factors\update::record($update_factor, $factor_id);
+		}
+
+
 		return true;
 	}
 }

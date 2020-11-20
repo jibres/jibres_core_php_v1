@@ -143,7 +143,7 @@ class cart
 		$factor_id = $result['factor_id'];
 
 		// set action log
-		// \lib\app\factor\action::set('order', $factor_id);
+		\lib\app\factor\action::set('registered', $factor_id);
 
 		if($data['address_id'])
 		{
@@ -217,7 +217,7 @@ class cart
 		{
 			\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 			// set status on pending_pay
-			// \lib\app\factor\edit::status('pending_pay', $factor_id);
+			\lib\app\factor\action::set('awaiting_payment', $factor_id);
 
 			// go to bank
 			$meta =
@@ -265,19 +265,16 @@ class cart
 		}
 		elseif($data['payway'] === 'on_deliver')
 		{
-			// \lib\app\factor\edit::status('pending_verify', $factor_id);
-			// \lib\app\factor\action::set('pending_verify', $factor_id);
+			\lib\app\factor\action::set('awaiting_payment', $factor_id);
+
 		}
 		elseif($data['payway'] === 'bank')
 		{
-			// \lib\app\factor\edit::status('pending_verify', $factor_id);
-			// \lib\app\factor\action::set('pending_verify', $factor_id);
+			\lib\app\factor\action::set('awaiting_payment', $factor_id);
 		}
 		elseif($data['payway'] === 'check')
 		{
-			// \lib\app\factor\edit::status('pending_verify', $factor_id);
-			// \lib\app\factor\action::set('pending_verify', $factor_id);
-
+			\lib\app\factor\action::set('awaiting_payment', $factor_id);
 		}
 
 		// \dash\log::set('order_adminNewOrder', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
@@ -299,8 +296,9 @@ class cart
 			$factor_id = \lib\app\factor\get::fix_id($_args['factor_id']);
 			if($factor_id)
 			{
-				\lib\db\factors\update::record(['type' => 'sale', 'pay' => 1, 'status' => 'pending_verify', 'datemodified' => date("Y-m-d H:i:s")], $factor_id);
-				\lib\app\factor\action::set('pay_successfull', $factor_id);
+
+				\lib\app\factor\action::set('successful_payment', $factor_id);
+
 				if(isset($_args['user_id']))
 				{
 					\dash\log::set('order_customerNewOrder', ['to' => $_args['user_id'], 'my_id' => $_args['factor_id'], 'my_amount' => $_args['amount'], 'my_currency' => \lib\store::currency()]);
