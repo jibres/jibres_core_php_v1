@@ -22,7 +22,7 @@ ENUM(
 'preparing',
 'delivered',
 'revert',
-'sucsess',
+'success',
 'archive'
 ) CHARACTER SET utf8mb4 NULL DEFAULT NULL;
 
@@ -63,7 +63,7 @@ ENUM(
 'sending',
 'delivered',
 'revert',
-'sucsess',
+'success',
 'archive',
 'deleted',
 'spam'

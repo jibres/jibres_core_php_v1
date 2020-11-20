@@ -117,7 +117,7 @@ class ready
 						case 'sending':			$t_status = T_('Sending'); 		break;
 						case 'delivered':		$t_status = T_('Delivered'); 	break;
 						case 'revert':			$t_status = T_('Revert'); 		break;
-						case 'sucsess':			$t_status = T_('Sucsess'); 		break;
+						case 'success':			$t_status = T_('Success'); 		break;
 						case 'archive':			$t_status = T_('Archive'); 		break;
 						case 'deleted':			$t_status = T_('Deleted'); 		break;
 						case 'spam':			$t_status = T_('Spam'); 		break;

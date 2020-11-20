@@ -69,7 +69,7 @@ ENUM(
 'sending',
 'delivered',
 'revert',
-'sucsess',
+'success',
 'archive',
 'deleted',
 'spam',
@@ -90,5 +90,5 @@ UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'comment' WHERE f
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'tracking' WHERE factoraction.action = 'tracking';
 
 
-UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'status' WHERE factoraction.action IN ('draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','sucsess','archive','deleted','spam');
+UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'status' WHERE factoraction.action IN ('draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','success','archive','deleted','spam');
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'paystatus' WHERE factoraction.action IN ('go_to_bank','pay_error','pay_cancel','awaiting_payment','awaiting_verify_payment','unsuccessful_payment','payment_unverified','successful_payment');

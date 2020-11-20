@@ -60,7 +60,7 @@ class check
 					'sending',
 					'delivered',
 					'revert',
-					'sucsess',
+					'success',
 					'archive',
 					'deleted',
 					'spam'

@@ -67,7 +67,7 @@ class action
 						case 'sending': 					$t_action = T_('Sending'); break;
 						case 'delivered': 					$t_action = T_('Delivered'); break;
 						case 'revert': 						$t_action = T_('Revert'); break;
-						case 'sucsess': 					$t_action = T_('Sucsess'); break;
+						case 'success': 					$t_action = T_('Success'); break;
 						case 'archive': 					$t_action = T_('Archive'); break;
 						case 'deleted': 					$t_action = T_('Deleted'); break;
 						case 'spam': 						$t_action = T_('Spam'); break;
@@ -168,7 +168,7 @@ class action
 					'sending',
 					'delivered',
 					'revert',
-					'sucsess',
+					'success',
 					'archive',
 					'deleted',
 					'spam',
@@ -227,7 +227,7 @@ class action
 			case 'sending':
 			case 'delivered':
 			case 'revert':
-			case 'sucsess':
+			case 'success':
 			case 'archive':
 			case 'deleted':
 			case 'spam':
