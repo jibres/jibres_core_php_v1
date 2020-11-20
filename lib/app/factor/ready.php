@@ -88,26 +88,40 @@ class ready
 					$result['t_type'] = $t_type;
 					break;
 
+				case 'paystatus':
+					$result[$key] = $value;
+					switch ($value)
+					{
+						case 'awaiting_payment':			$t_paystatus = T_('Awaiting payment'); 			break;
+						case 'awaiting_verify_payment':		$t_paystatus = T_('Awaiting Verify payment'); 	break;
+						case 'unsuccessful_payment':		$t_paystatus = T_('Unsuccessful payment'); 		break;
+						case 'payment_unverified':			$t_paystatus = T_('Payment unverified'); 		break;
+						case 'successful_payment':			$t_paystatus = T_('Successful payment'); 		break;
+						default:							$t_paystatus = T_("Unknown");					break;
+					}
+					$result['t_paystatus'] = $t_paystatus;
+					break;
+
+
 				case 'status':
 					$result[$key] = $value;
 					switch ($value)
 					{
-						case 'enable': 				$t_status = T_("Enable");				break;
-						case 'disable': 			$t_status = T_("Disable");				break;
-						case 'draft': 				$t_status = T_("Draft");				break;
-						case 'order': 				$t_status = T_("Order");				break;
-						case 'expire': 				$t_status = T_("Expire");				break;
-						case 'cancel': 				$t_status = T_("Cancel");				break;
-						case 'pending_pay': 		$t_status = T_("Pending pay");			break;
-						case 'pending_verify': 		$t_status = T_("Pending verify");		break;
-						case 'pending_prepare': 	$t_status = T_("Pending prepare");		break;
-						case 'pending_send': 		$t_status = T_("Pending send");			break;
-						case 'sending': 			$t_status = T_("Sending");				break;
-						case 'deliver': 			$t_status = T_("Deliver");				break;
-						case 'reject': 				$t_status = T_("Reject");				break;
-						case 'spam': 				$t_status = T_("Spam");					break;
-						case 'deleted': 			$t_status = T_("Deleted");				break;
-						default:					$t_status = T_("Unknown");				break;
+						case 'draft':			$t_status = T_('Draft'); 		break;
+						case 'registered':		$t_status = T_('Registered'); 	break;
+						case 'awaiting':		$t_status = T_('Awaiting'); 	break;
+						case 'confirmed':		$t_status = T_('Confirmed'); 	break;
+						case 'cancel':			$t_status = T_('Cancel'); 		break;
+						case 'expire':			$t_status = T_('Expire'); 		break;
+						case 'preparing':		$t_status = T_('Preparing'); 	break;
+						case 'sending':			$t_status = T_('Sending'); 		break;
+						case 'delivered':		$t_status = T_('Delivered'); 	break;
+						case 'revert':			$t_status = T_('Revert'); 		break;
+						case 'sucsess':			$t_status = T_('Sucsess'); 		break;
+						case 'archive':			$t_status = T_('Archive'); 		break;
+						case 'deleted':			$t_status = T_('Deleted'); 		break;
+						case 'spam':			$t_status = T_('Spam'); 		break;
+						default:				$t_status = T_("Unknown");		break;
 					}
 					$result['t_status'] = $t_status;
 					break;

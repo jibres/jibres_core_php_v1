@@ -108,7 +108,7 @@ class cart
 		$factor['customer'] = $user_id ? \dash\coding::encode($user_id): null;
 		$factor['guestid']  = $user_guest;
 		$factor['type']     = 'saleorder';
-		$factor['status']   = 'order';
+		// $factor['status']   = '';
 		$factor['desc']     = $data['desc'];
 		$factor['discount'] = null;
 
@@ -143,7 +143,7 @@ class cart
 		$factor_id = $result['factor_id'];
 
 		// set action log
-		\lib\app\factor\action::set('order', $factor_id);
+		// \lib\app\factor\action::set('order', $factor_id);
 
 		if($data['address_id'])
 		{
@@ -217,7 +217,7 @@ class cart
 		{
 			\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 			// set status on pending_pay
-			\lib\app\factor\edit::status('pending_pay', $factor_id);
+			// \lib\app\factor\edit::status('pending_pay', $factor_id);
 
 			// go to bank
 			$meta =
@@ -265,18 +265,18 @@ class cart
 		}
 		elseif($data['payway'] === 'on_deliver')
 		{
-			\lib\app\factor\edit::status('pending_verify', $factor_id);
-			\lib\app\factor\action::set('pending_verify', $factor_id);
+			// \lib\app\factor\edit::status('pending_verify', $factor_id);
+			// \lib\app\factor\action::set('pending_verify', $factor_id);
 		}
 		elseif($data['payway'] === 'bank')
 		{
-			\lib\app\factor\edit::status('pending_verify', $factor_id);
-			\lib\app\factor\action::set('pending_verify', $factor_id);
+			// \lib\app\factor\edit::status('pending_verify', $factor_id);
+			// \lib\app\factor\action::set('pending_verify', $factor_id);
 		}
 		elseif($data['payway'] === 'check')
 		{
-			\lib\app\factor\edit::status('pending_verify', $factor_id);
-			\lib\app\factor\action::set('pending_verify', $factor_id);
+			// \lib\app\factor\edit::status('pending_verify', $factor_id);
+			// \lib\app\factor\action::set('pending_verify', $factor_id);
 
 		}
 

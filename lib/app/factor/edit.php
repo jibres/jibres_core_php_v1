@@ -174,11 +174,7 @@ class edit
 			return false;
 		}
 
-		if(array_key_exists('pay', $load_factor) && !$load_factor['pay'])
-		{
-			// no proble
-		}
-		else
+		if(isset($load_factor['paystatus']) && ($load_factor['paystatus'] === 'successful_payment' || $load_factor['paystatus'] === 'awaiting_verify_payment'))
 		{
 			\dash\notif::error(T_("This factor is payed. To cancel this order contact to administrator"));
 			return false;
