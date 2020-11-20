@@ -1,10 +1,11 @@
-ALTER TABLE jibres_XXXXXXX.factoraction ADD `category` ENUM('comment', 'status', 'paystatus', 'tracking') CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `action`;
+ALTER TABLE jibres_XXXXXXX.factoraction ADD `category` ENUM('notes', 'status', 'paystatus', 'tracking') CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `action`;
 
 
 ALTER TABLE jibres_XXXXXXX.factoraction CHANGE `action` `action`
 ENUM(
 'tracking',
 'comment',
+'notes',
 'order',
 'expire',
 'cancel',
@@ -52,13 +53,14 @@ UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'preparing' WHERE f
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'sending' WHERE factoraction.action = 'pending_send';
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'delivered' WHERE factoraction.action = 'deliver';
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'revert' WHERE factoraction.action = 'reject';
+UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'notes' WHERE factoraction.action = 'comment';
 
 
 
 ALTER TABLE jibres_XXXXXXX.factoraction CHANGE `action` `action`
 ENUM(
 'tracking',
-'comment',
+'notes',
 'draft',
 'registered',
 'awaiting',
@@ -86,7 +88,7 @@ CHARACTER SET utf8mb4 NULL DEFAULT NULL;
 
 
 
-UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'comment' WHERE factoraction.action = 'comment';
+UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'notes' WHERE factoraction.action = 'notes';
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'tracking' WHERE factoraction.action = 'tracking';
 
 

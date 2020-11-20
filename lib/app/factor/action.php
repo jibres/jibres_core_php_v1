@@ -56,7 +56,7 @@ class action
 					switch ($value)
 					{
 						case 'tracking': 					$t_action = T_('Tracking'); break;
-						case 'comment': 					$t_action = T_('Comment'); break;
+						case 'notes': 					$t_action = T_('Notes'); break;
 						case 'draft': 						$t_action = T_('Draft'); break;
 						case 'registered': 					$t_action = T_('Registered'); break;
 						case 'awaiting': 					$t_action = T_('Awaiting'); break;

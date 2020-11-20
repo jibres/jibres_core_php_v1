@@ -54,24 +54,25 @@
         <table class="tbl1 v4">
           <thead>
             <tr>
-              <th colspan="4"><?php echo T_("Order Action and comment list") ?></th>
+              <th colspan="5"><?php echo T_("Notes") ?></th>
             </tr>
           </thead>
           <tbody>
-          <?php foreach (\dash\get::index($orderDetail, 'action') as $key => $value) {?>
+          <?php foreach (\dash\get::index($orderDetail, 'action') as $key => $value) { if(\dash\get::index($value, 'category') !== 'notes') {continue;} ?>
             <tr>
               <td class="collapsing"><?php echo \dash\get::index($value, 't_action') ?></td>
               <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?></td>
               <td>
                 <?php echo \dash\get::index($value, 'desc') ?>
+              </td>
+              <td class="">
                 <?php if(\dash\get::index($value, 'file')) {?>
                   <a target="_blank" class="" href="<?php echo \dash\get::index($value, 'file') ?>"> <i class="sf-attach"></i> <?php echo T_("Attachment") ?></a>
                 <?php } //endif ?>
+
               </td>
               <td class="collapsing">
-                <?php if(!\dash\get::index($value, 'lock')) {?>
                   <div class="productDel font-14" data-confirm data-data='{"removeaction": "removeaction", "actionid" : "<?php echo \dash\get::index($value, 'id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
-                <?php }//endif ?>
               </td>
             </tr>
           <?php } //endfor ?>
