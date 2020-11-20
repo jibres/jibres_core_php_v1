@@ -9,13 +9,31 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
     <?php require_once(root. '/content_a/order/links.php'); ?>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-9">
-    <form method="post" autocomplete="off">
+    <form method="post" autocomplete="off" data-patch>
 
       <div class="box">
         <div class="pad">
+          <div class="row mB10">
+            <div class="c">
+              <div class="btn master" data-confirm data-data='{"orderaction": "preparing"}'><?php echo T_("Set as preparing") ?></div>
+            </div>
+            <div class="c">
+              <div class="btn master" data-confirm data-data='{"orderaction": "sending"}'><?php echo T_("Set as sending") ?></div>
+            </div>
 
-          <p><i class="sf-arrows-out"></i> <?php echo T_("Change order status") ?></p>
-          <div>
+            <div class="c">
+              <div class="btn master" data-confirm data-data='{"orderaction": "delivered"}'><?php echo T_("Set as delivered") ?></div>
+            </div>
+
+            <div class="c">
+              <div class="btn master" data-kerkere='.showAllStatusOrder'> <?php echo T_("Something else") ?></div>
+            </div>
+
+
+          </div>
+
+
+          <div class="showAllStatusOrder" data-kerkere-content='hide'>
             <select name="orderaction" class="select22">
               <option value ="draft" <?php if($orderStatus === 'draft') { echo 'selected';} ?>><?php echo T_('Draft') ?></option>
               <option value ="registered" <?php if($orderStatus === 'registered') { echo 'selected';} ?>><?php echo T_('Registered') ?></option>
@@ -33,9 +51,6 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
             </select>
           </div>
         </div>
-        <footer class="txtRa">
-          <button class="btn master"><?php echo T_("Save") ?></button>
-        </footer>
       </div>
     </form>
     <?php  if(\dash\get::index($orderDetail, 'action')) {?>

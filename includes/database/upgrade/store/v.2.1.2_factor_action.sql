@@ -72,6 +72,7 @@ ENUM(
 'delivered',
 'revert',
 'success',
+'complete',
 'archive',
 'deleted',
 'spam',
