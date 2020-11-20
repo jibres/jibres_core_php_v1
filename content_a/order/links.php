@@ -1,6 +1,6 @@
 <nav class="items">
   <ul>
-    <li><a class="f item" href="<?php echo \dash\url::this(). '/detail?id='. \dash\request::get('id'); ?>"><i class="sf-thumbnails"></i><div class="key"><?php echo T_("Detail"); ?></div><div class="go"></div></a></li>
+    <li><a class="f item" href="<?php echo \dash\url::this(). '/detail?id='. \dash\request::get('id'); ?>"><i class="sf-thumbnails"></i><div class="key"><?php echo T_("Glance"); ?></div><div class="go"></div></a></li>
   </ul>
 </nav>
 

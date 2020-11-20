@@ -353,6 +353,30 @@ class get
 			$factor_address = [];
 		}
 
+		$factor_address['location_string'] = [];
+
+		if(isset($factor_address['country']) && $factor_address['country'])
+		{
+			$factor_address['country_name'] = \dash\utility\location\countres::get_localname($factor_address['country']);
+			$factor_address['location_string'][] = $factor_address['country_name'];
+		}
+
+		if(isset($factor_address['province']) && $factor_address['province'])
+		{
+			$factor_address['province_name'] = \dash\utility\location\provinces::get_localname($factor_address['province']);
+			$factor_address['location_string'][] = $factor_address['province_name'];
+		}
+
+		if(isset($factor_address['city']) && $factor_address['city'])
+		{
+			$factor_address['city_name'] = \dash\utility\location\cites::get_localname($factor_address['city']);
+			$factor_address['location_string'][] = $factor_address['city_name'];
+		}
+
+		$factor_address['location_string'] = implode(T_(","). ' ', $factor_address['location_string']);
+
+
+
 		if(!\dash\get::index($factor_address, 'name') && \dash\get::index($factor, 'customer_displayname'))
 		{
 			$factor_address['name'] = $factor['customer_displayname'];

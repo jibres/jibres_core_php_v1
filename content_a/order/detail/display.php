@@ -87,16 +87,23 @@
                 <td>
 
                   <address>
-                    <div class="title"><?php echo \dash\get::index($address, 'name'); ?></div>
-                    <?php if(\dash\get::index($address, 'mobile')) {?>
-                      <div class="mobile"><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(\dash\get::index($address, 'mobile')); ?></b></div>
+                     <?php if(\dash\get::index($address, 'name')) {?>
+                      <div class=""><?php echo \dash\fit::text(\dash\get::index($address, 'name')); ?></div>
                     <?php } //endif ?>
+
+                    <?php if(\dash\get::index($address, 'location_string')) {?>
+                      <div class=""><b><?php echo \dash\fit::text(\dash\get::index($address, 'location_string')); ?></b></div>
+                    <?php } //endif ?>
+
                     <div class="addr"><?php echo \dash\get::index($address, 'address'); ?></div>
-                    <?php if(\dash\get::index($address, 'postcode')) {?>
-                      <div class="postalcode"><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(\dash\get::index($address, 'postcode')); ?></b></div>
+                    <?php if(\dash\get::index($address, 'mobile')) {?>
+                      <div class="mobile"><?php echo T_("Mobile") ?> <b class="ltr compact"><?php echo \dash\fit::mobile(\dash\get::index($address, 'mobile')); ?></b></div>
                     <?php } //endif ?>
                     <?php if(\dash\get::index($address, 'phone')) {?>
-                      <div class="phone"><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(\dash\get::index($address, 'phone')); ?></b></div>
+                      <div class="phone"><?php echo T_("Phone") ?> <b class="ltr compact"><?php echo \dash\fit::text(\dash\get::index($address, 'phone')); ?></b></div>
+                    <?php } //endif ?>
+                    <?php if(\dash\get::index($address, 'postcode')) {?>
+                      <div class="postalcode"><?php echo T_("Postalcode") ?> <b class="ltr compact"><?php echo \dash\fit::text(\dash\get::index($address, 'postcode')); ?></b></div>
                     <?php } //endif ?>
                   </address>
                 </td>
