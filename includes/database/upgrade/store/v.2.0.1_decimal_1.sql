@@ -6,12 +6,12 @@ ALTER TABLE jibres_XXXXXXX.products ADD `price2` DECIMAL(22, 4) NULL DEFAULT NUL
 ALTER TABLE jibres_XXXXXXX.products ADD `buyprice2` DECIMAL(22, 4) NULL DEFAULT NULL;
 
 
-UPDATE jibres_XXXXXXX.products SET products.finalprice2      = (CAST(products.finalprice AS DECIMAL(22, 4)) / 100) WHERE products.finalprice IS NOT NULL;
-UPDATE jibres_XXXXXXX.products SET products.vatprice2        = (CAST(products.vatprice AS DECIMAL(22, 4)) / 100) WHERE products.vatprice IS NOT NULL;
-UPDATE jibres_XXXXXXX.products SET products.discountpercent2 = (CAST(products.discountpercent AS DECIMAL(5, 2)) / 100) WHERE products.discountpercent IS NOT NULL;
-UPDATE jibres_XXXXXXX.products SET products.discount2        = (CAST(products.discount AS DECIMAL(22, 4)) / 100) WHERE products.discount IS NOT NULL;
-UPDATE jibres_XXXXXXX.products SET products.price2           = (CAST(products.price AS DECIMAL(22, 4)) / 100) WHERE products.price IS NOT NULL;
-UPDATE jibres_XXXXXXX.products SET products.buyprice2        = (CAST(products.buyprice AS DECIMAL(22, 4)) / 100) WHERE products.buyprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.products SET products.finalprice2      = CAST((products.finalprice / 100) AS DECIMAL(22, 4)) WHERE products.finalprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.products SET products.vatprice2        = CAST((products.vatprice / 100) AS DECIMAL(22, 4)) WHERE products.vatprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.products SET products.discountpercent2 = CAST((products.discountpercent / 100) AS DECIMAL(5, 2)) WHERE products.discountpercent IS NOT NULL;
+UPDATE jibres_XXXXXXX.products SET products.discount2        = CAST((products.discount / 100) AS DECIMAL(22, 4)) WHERE products.discount IS NOT NULL;
+UPDATE jibres_XXXXXXX.products SET products.price2           = CAST((products.price / 100) AS DECIMAL(22, 4)) WHERE products.price IS NOT NULL;
+UPDATE jibres_XXXXXXX.products SET products.buyprice2        = CAST((products.buyprice / 100) AS DECIMAL(22, 4)) WHERE products.buyprice IS NOT NULL;
 
 ALTER TABLE jibres_XXXXXXX.products DROP `finalprice`;
 ALTER TABLE jibres_XXXXXXX.products DROP `vatprice`;

@@ -5,10 +5,10 @@ ALTER TABLE jibres_XXXXXXX.productinventory ADD `manualcount2` DECIMAL(13, 4) NU
 
 
 
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.count2       = (CAST(productinventory.count AS DECIMAL(13, 4)) / 1000) WHERE productinventory.count IS NOT NULL;
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.stock2       = (CAST(productinventory.stock AS DECIMAL(13, 4)) / 1000) WHERE productinventory.stock IS NOT NULL;
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.thisstock2   = (CAST(productinventory.thisstock AS DECIMAL(13, 4)) / 1000) WHERE productinventory.thisstock IS NOT NULL;
-UPDATE jibres_XXXXXXX.productinventory SET productinventory.manualcount2 = (CAST(productinventory.manualcount AS DECIMAL(13, 4)) / 1000) WHERE productinventory.manualcount IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.count2       = CAST((productinventory.count /  1000)  AS DECIMAL(13, 4)) WHERE productinventory.count IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.stock2       = CAST((productinventory.stock /  1000)  AS DECIMAL(13, 4)) WHERE productinventory.stock IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.thisstock2   = CAST((productinventory.thisstock /  1000)  AS DECIMAL(13, 4)) WHERE productinventory.thisstock IS NOT NULL;
+UPDATE jibres_XXXXXXX.productinventory SET productinventory.manualcount2 = CAST((productinventory.manualcount /  1000)  AS DECIMAL(13, 4)) WHERE productinventory.manualcount IS NOT NULL;
 
 
 ALTER TABLE jibres_XXXXXXX.productinventory DROP `count`;

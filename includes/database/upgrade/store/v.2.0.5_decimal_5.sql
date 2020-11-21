@@ -6,12 +6,12 @@ ALTER TABLE jibres_XXXXXXX.factordetails ADD `count2` DECIMAL(13, 4) NULL DEFAUL
 ALTER TABLE jibres_XXXXXXX.factordetails ADD `sum2` DECIMAL(31, 4) NULL DEFAULT NULL;
 
 
-UPDATE jibres_XXXXXXX.factordetails SET factordetails.price2      = (CAST(factordetails.price AS DECIMAL(22, 4)) / 100) WHERE factordetails.price IS NOT NULL;
-UPDATE jibres_XXXXXXX.factordetails SET factordetails.discount2   = (CAST(factordetails.discount AS DECIMAL(22, 4)) / 100) WHERE factordetails.discount IS NOT NULL;
-UPDATE jibres_XXXXXXX.factordetails SET factordetails.vat2        = (CAST(factordetails.vat AS DECIMAL(22, 4)) / 100) WHERE factordetails.vat IS NOT NULL;
-UPDATE jibres_XXXXXXX.factordetails SET factordetails.finalprice2 = (CAST(factordetails.finalprice AS DECIMAL(22, 4)) / 100) WHERE factordetails.finalprice IS NOT NULL;
-UPDATE jibres_XXXXXXX.factordetails SET factordetails.count2      = (CAST(factordetails.count AS DECIMAL(13, 4)) / 1000) WHERE factordetails.count IS NOT NULL;
-UPDATE jibres_XXXXXXX.factordetails SET factordetails.sum2        = (CAST(factordetails.sum AS DECIMAL(31, 4)) / 100000) WHERE factordetails.sum IS NOT NULL;
+UPDATE jibres_XXXXXXX.factordetails SET factordetails.price2      = CAST((factordetails.price / 100)  AS DECIMAL(22, 4)) WHERE factordetails.price IS NOT NULL;
+UPDATE jibres_XXXXXXX.factordetails SET factordetails.discount2   = CAST((factordetails.discount / 100)  AS DECIMAL(22, 4)) WHERE factordetails.discount IS NOT NULL;
+UPDATE jibres_XXXXXXX.factordetails SET factordetails.vat2        = CAST((factordetails.vat / 100)  AS DECIMAL(22, 4)) WHERE factordetails.vat IS NOT NULL;
+UPDATE jibres_XXXXXXX.factordetails SET factordetails.finalprice2 = CAST((factordetails.finalprice / 100)  AS DECIMAL(22, 4)) WHERE factordetails.finalprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.factordetails SET factordetails.count2      = CAST((factordetails.count / 1000)  AS DECIMAL(13, 4)) WHERE factordetails.count IS NOT NULL;
+UPDATE jibres_XXXXXXX.factordetails SET factordetails.sum2        = CAST((factordetails.sum / 100000)  AS DECIMAL(31, 4)) WHERE factordetails.sum IS NOT NULL;
 
 
 ALTER TABLE jibres_XXXXXXX.factordetails DROP `price`;

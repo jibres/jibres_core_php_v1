@@ -6,12 +6,12 @@ ALTER TABLE jibres_XXXXXXX.productprices ADD `price2` DECIMAL(22, 4) NULL DEFAUL
 ALTER TABLE jibres_XXXXXXX.productprices ADD `buyprice2` DECIMAL(22, 4) NULL DEFAULT NULL;
 
 
-UPDATE jibres_XXXXXXX.productprices SET productprices.finalprice2      = (CAST(productprices.finalprice AS DECIMAL(22, 4)) / 100) WHERE productprices.finalprice IS NOT NULL;
-UPDATE jibres_XXXXXXX.productprices SET productprices.vatprice2        = (CAST(productprices.vatprice AS DECIMAL(22, 4)) / 100) WHERE productprices.vatprice IS NOT NULL;
-UPDATE jibres_XXXXXXX.productprices SET productprices.discountpercent2 = (CAST(productprices.discountpercent AS DECIMAL(5, 2)) / 100) WHERE productprices.discountpercent IS NOT NULL;
-UPDATE jibres_XXXXXXX.productprices SET productprices.discount2        = (CAST(productprices.discount AS DECIMAL(22, 4)) / 100) WHERE productprices.discount IS NOT NULL;
-UPDATE jibres_XXXXXXX.productprices SET productprices.price2           = (CAST(productprices.price AS DECIMAL(22, 4)) / 100) WHERE productprices.price IS NOT NULL;
-UPDATE jibres_XXXXXXX.productprices SET productprices.buyprice2        = (CAST(productprices.buyprice AS DECIMAL(22, 4)) / 100) WHERE productprices.buyprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.productprices SET productprices.finalprice2      = CAST((productprices.finalprice / 100) AS DECIMAL(22, 4)) WHERE productprices.finalprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.productprices SET productprices.vatprice2        = CAST((productprices.vatprice / 100) AS DECIMAL(22, 4)) WHERE productprices.vatprice IS NOT NULL;
+UPDATE jibres_XXXXXXX.productprices SET productprices.discountpercent2 = CAST((productprices.discountpercent / 100) AS DECIMAL(5, 2)) WHERE productprices.discountpercent IS NOT NULL;
+UPDATE jibres_XXXXXXX.productprices SET productprices.discount2        = CAST((productprices.discount / 100) AS DECIMAL(22, 4)) WHERE productprices.discount IS NOT NULL;
+UPDATE jibres_XXXXXXX.productprices SET productprices.price2           = CAST((productprices.price / 100) AS DECIMAL(22, 4)) WHERE productprices.price IS NOT NULL;
+UPDATE jibres_XXXXXXX.productprices SET productprices.buyprice2        = CAST((productprices.buyprice / 100) AS DECIMAL(22, 4)) WHERE productprices.buyprice IS NOT NULL;
 
 ALTER TABLE jibres_XXXXXXX.productprices DROP `finalprice`;
 ALTER TABLE jibres_XXXXXXX.productprices DROP `vatprice`;
