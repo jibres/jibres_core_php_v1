@@ -13,20 +13,21 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
 
       <div class="box">
         <div class="pad">
+          <h6><?php echo T_("Change Order status") ?></h6>
           <div class="row mB10">
-            <div class="c">
-              <div class="btn master" data-confirm data-data='{"orderaction": "preparing"}'><?php echo T_("Set as preparing") ?></div>
+            <div class="c-auto">
+              <div class="btn <?php if($orderStatus === 'preparing') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "preparing"}'><?php echo T_("Set as preparing") ?></div>
             </div>
-            <div class="c">
-              <div class="btn master" data-confirm data-data='{"orderaction": "sending"}'><?php echo T_("Set as sending") ?></div>
-            </div>
-
-            <div class="c">
-              <div class="btn master" data-confirm data-data='{"orderaction": "delivered"}'><?php echo T_("Set as delivered") ?></div>
+            <div class="c-auto">
+              <div class="btn <?php if($orderStatus === 'sending') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "sending"}'><?php echo T_("Set as sending") ?></div>
             </div>
 
-            <div class="c">
-              <div class="btn master" data-kerkere='.showAllStatusOrder'> <?php echo T_("Something else") ?></div>
+            <div class="c-auto">
+              <div class="btn <?php if($orderStatus === 'delivered') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "delivered"}'><?php echo T_("Set as delivered") ?></div>
+            </div>
+
+            <div class="c-auto">
+              <div class="btn" data-kerkere='.showAllStatusOrder'> <?php echo T_("Something else") ?></div>
             </div>
 
 
@@ -53,7 +54,7 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
         </div>
       </div>
     </form>
-    <?php  if(\dash\get::index($orderDetail, 'action')) {?>
+    <?php   if(false && \dash\get::index($orderDetail, 'action')) {?>
       <div class="tblBox font-12">
         <table class="tbl1 v4">
           <tbody>
@@ -76,22 +77,32 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
     <div class="box">
       <div class="pad">
         <p><i class="sf-money-banknote"></i> <?php echo T_("Change order payment status") ?></p>
-        <div>
-          <select name="orderaction" class="select22">
-            <option value ="awaiting_payment" <?php if($orderPayStatus === 'awaiting_payment') { echo 'selected';} ?>><?php echo T_('Awaiting payment') ?></option>
-            <option value ="awaiting_verify_payment" <?php if($orderPayStatus === 'awaiting_verify_payment') { echo 'selected';} ?>><?php echo T_('Awaiting verify payment') ?></option>
-            <option value ="unsuccessful_payment" <?php if($orderPayStatus === 'unsuccessful_payment') { echo 'selected';} ?>><?php echo T_('Unsuccessful payment') ?></option>
-            <option value ="payment_unverified" <?php if($orderPayStatus === 'payment_unverified') { echo 'selected';} ?>><?php echo T_('Payment unverified') ?></option>
-            <option value ="successful_payment" <?php if($orderPayStatus === 'successful_payment') { echo 'selected';} ?>><?php echo T_('Successful payment') ?></option>
-          </select>
-        </div>
+         <div class="row mB10">
+            <div class="c-auto">
+              <div class="btn <?php if($orderPayStatus === 'awaiting_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "awaiting_payment"}'><?php echo T_('Awaiting payment') ?></div>
+            </div>
+            <div class="c-auto">
+              <div class="btn <?php if($orderPayStatus === 'awaiting_verify_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "awaiting_verify_payment"}'><?php echo T_('Awaiting verify payment') ?></div>
+            </div>
+
+            <div class="c-auto">
+              <div class="btn <?php if($orderPayStatus === 'unsuccessful_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "unsuccessful_payment"}'><?php echo T_('Unsuccessful payment') ?></div>
+            </div>
+
+            <div class="c-auto">
+              <div class="btn <?php if($orderPayStatus === 'payment_unverified') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "payment_unverified"}'><?php echo T_('Payment unverified') ?></div>
+            </div>
+
+            <div class="c-auto">
+              <div class="btn <?php if($orderPayStatus === 'successful_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "successful_payment"}'><?php echo T_('Successful payment') ?></div>
+            </div>
+          </div>
+
       </div>
-      <footer class="txtRa">
-        <button class="btn master"><?php echo T_("Save") ?></button>
-      </footer>
+
     </div>
   </form>
-  <?php  if(\dash\get::index($orderDetail, 'action')) {?>
+  <?php  if(false && \dash\get::index($orderDetail, 'action')) {?>
     <div class="tblBox font-12">
       <table class="tbl1 v4">
         <tbody>
