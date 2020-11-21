@@ -1,7 +1,6 @@
 ALTER TABLE jibres_XXXXXXX.factordetails ADD INDEX `factordetails_index_count` (`count`);
 ALTER TABLE jibres_XXXXXXX.factordetails ADD INDEX `factordetails_index_sum` (`sum`);
 
-
 ALTER TABLE jibres_XXXXXXX.factors ADD INDEX `factors_index_qty` (`qty`);
 ALTER TABLE jibres_XXXXXXX.factors ADD INDEX `factors_index_subprice` (`subprice`);
 ALTER TABLE jibres_XXXXXXX.factors ADD INDEX `factors_index_subdiscount` (`subdiscount`);

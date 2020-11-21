@@ -1,47 +1,6 @@
 ALTER TABLE jibres_XXXXXXX.factoraction ADD `category` ENUM('notes', 'status', 'paystatus', 'tracking') CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `action`;
 
-
-ALTER TABLE jibres_XXXXXXX.factoraction CHANGE `action` `action`
-ENUM(
-'tracking',
-'comment',
-'notes',
-'order',
-'expire',
-'cancel',
-'go_to_bank',
-'pay_successfull',
-'pay_error',
-'pay_cancel',
-'pay_verified',
-'pay_unverified',
-'sending',
-'pending_pay',
-'pending_verify',
-'pending_prepare',
-'pending_send',
-'deliver',
-'reject',
-'spam',
-'deleted',
-'initial',
-'registered',
-'awaiting',
-'confirmed',
-'preparing',
-'delivered',
-'revert',
-'sucess',
-'archive',
-'awaiting_payment',
-'awaiting_verify_payment',
-'unsuccessful_payment',
-'payment_unverified',
-'successful_payment'
-)
-CHARACTER SET utf8mb4 NULL DEFAULT NULL;
-
-
+ALTER TABLE jibres_XXXXXXX.factoraction CHANGE `action` `action` ENUM('tracking','comment','notes','order','expire','cancel','go_to_bank','pay_successfull','pay_error','pay_cancel','pay_verified','pay_unverified','sending','pending_pay','pending_verify','pending_prepare','pending_send','deliver','reject','spam','deleted','initial','registered','awaiting','confirmed','preparing','delivered','revert','sucess','archive','awaiting_payment','awaiting_verify_payment','unsuccessful_payment','payment_unverified','successful_payment') CHARACTER SET utf8mb4 NULL DEFAULT NULL;
 
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'registered' WHERE factoraction.action = 'order';
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'successful_payment' WHERE factoraction.action = 'pay_successfull';
@@ -55,43 +14,10 @@ UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'delivered' WHERE f
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'revert' WHERE factoraction.action = 'reject';
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.action = 'notes' WHERE factoraction.action = 'comment';
 
-
-
-ALTER TABLE jibres_XXXXXXX.factoraction CHANGE `action` `action`
-ENUM(
-'tracking',
-'notes',
-'draft',
-'registered',
-'awaiting',
-'confirmed',
-'cancel',
-'expire',
-'preparing',
-'sending',
-'delivered',
-'revert',
-'success',
-'complete',
-'archive',
-'deleted',
-'spam',
-'go_to_bank',
-'pay_error',
-'pay_cancel',
-'awaiting_payment',
-'awaiting_verify_payment',
-'unsuccessful_payment',
-'payment_unverified',
-'successful_payment'
-)
-CHARACTER SET utf8mb4 NULL DEFAULT NULL;
-
-
+ALTER TABLE jibres_XXXXXXX.factoraction CHANGE `action` `action` ENUM('tracking','notes','draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','success','complete','archive','deleted','spam','go_to_bank','pay_error','pay_cancel','awaiting_payment','awaiting_verify_payment','unsuccessful_payment','payment_unverified','successful_payment') CHARACTER SET utf8mb4 NULL DEFAULT NULL;
 
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'notes' WHERE factoraction.action = 'notes';
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'tracking' WHERE factoraction.action = 'tracking';
-
 
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'status' WHERE factoraction.action IN ('draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','success','archive','deleted','spam');
 UPDATE jibres_XXXXXXX.factoraction SET factoraction.category = 'paystatus' WHERE factoraction.action IN ('go_to_bank','pay_error','pay_cancel','awaiting_payment','awaiting_verify_payment','unsuccessful_payment','payment_unverified','successful_payment');
