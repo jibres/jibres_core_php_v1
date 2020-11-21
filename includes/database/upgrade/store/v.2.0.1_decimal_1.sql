@@ -1,3 +1,8 @@
+DELETE FROM business_1000001.productprices WHERE productprices.id = 34757 LIMIT 1;
+DELETE FROM business_1000001.productprices WHERE productprices.id = 34741 LIMIT 1;
+
+
+
 ALTER TABLE jibres_XXXXXXX.products ADD `finalprice2` DECIMAL(22, 4) NULL DEFAULT NULL;
 ALTER TABLE jibres_XXXXXXX.products ADD `vatprice2` DECIMAL(22, 4) NULL DEFAULT NULL;
 ALTER TABLE jibres_XXXXXXX.products ADD `discountpercent2` DECIMAL(5, 2) NULL DEFAULT NULL;
