@@ -39,7 +39,7 @@ class model
 
 
 		$post           = [];
-		$post['action'] = 'comment';
+		$post['action'] = 'notes';
 		$post['desc']   = \dash\request::post('cdesc');
 
 		if(\dash\request::files('file'))

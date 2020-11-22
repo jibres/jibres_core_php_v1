@@ -173,6 +173,7 @@ class action
 					'delivered',
 					'revert',
 					'success',
+					'complete',
 					'archive',
 					'deleted',
 					'spam',

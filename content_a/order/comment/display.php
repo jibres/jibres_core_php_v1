@@ -52,16 +52,9 @@
     <?php  if(\dash\get::index($orderDetail, 'action')) {?>
       <div class="tblBox font-12">
         <table class="tbl1 v4">
-          <thead>
-            <tr>
-              <th colspan="5"><?php echo T_("Notes") ?></th>
-            </tr>
-          </thead>
           <tbody>
           <?php foreach (\dash\get::index($orderDetail, 'action') as $key => $value) { if(\dash\get::index($value, 'category') !== 'notes') {continue;} ?>
             <tr>
-              <td class="collapsing"><?php echo \dash\get::index($value, 't_action') ?></td>
-              <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?></td>
               <td>
                 <?php echo \dash\get::index($value, 'desc') ?>
               </td>
@@ -71,6 +64,7 @@
                 <?php } //endif ?>
 
               </td>
+              <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?></td>
               <td class="collapsing">
                   <div class="productDel font-14" data-confirm data-data='{"removeaction": "removeaction", "actionid" : "<?php echo \dash\get::index($value, 'id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
               </td>
