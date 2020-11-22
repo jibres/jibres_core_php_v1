@@ -31,6 +31,7 @@ class check
 			'desc'        => 'desc',
 			'discount'    => 'price',
 			'shipping'    => 'price',
+			'date'    => 'datetime',
 			'type'        =>
 			[
 				'enum' =>

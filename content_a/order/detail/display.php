@@ -33,7 +33,11 @@
             <?php } //endif ?>
               <tr>
                 <td class="collapsing fc-mute"><?php echo T_("Order date") ?></td>
-                <td><?php echo \dash\fit::date_time(\dash\get::index($orderDetail, 'factor', 'datecreated')); ?> <small class="fc-mute mLa20"><?php echo \dash\fit::date_human(\dash\get::index($orderDetail, 'factor', 'datecreated')) ?></small></td>
+                <td>
+                  <?php echo \dash\fit::date_time(\dash\get::index($orderDetail, 'factor', 'datecreated')); ?>
+                  <small class="fc-mute mLa20"><?php echo \dash\fit::date_human(\dash\get::index($orderDetail, 'factor', 'datecreated')) ?></small>
+                  <a href="<?php echo \dash\url::this(). '/editdate?id='. \dash\request::get('id') ?>" class="btn link"><?php echo T_("Edit") ?></a>
+                </td>
               </tr>
 
               <?php if(\dash\get::index($orderDetail, 'factor', 'subprice')) {?>
