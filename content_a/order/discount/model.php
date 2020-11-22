@@ -24,21 +24,6 @@ class model
 			}
 		}
 
-
-		if(\dash\request::post('setaction') === 'pay_successfull')
-		{
-
-			$post           = [];
-			$post['action'] = 'pay_successfull';
-
-			\lib\app\factor\action::add($post, \dash\request::get('id'));
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::pwd();
-			}
-		}
-
 	}
 }
 ?>

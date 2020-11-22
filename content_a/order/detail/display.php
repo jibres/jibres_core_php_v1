@@ -115,18 +115,14 @@
                 <td><?php echo \dash\get::index($orderDetail, 'factor', 'desc'); ?></td>
               </tr>
             <?php } //endif ?>
-              <tr class="<?php if (\dash\get::index($orderDetail, 'factor', 'pay')) { echo 'positive'; }else{ echo 'negative';}?>">
-                <td class="collapsing"><?php echo T_("Pay status") ?></td>
-                <td>
-                  <?php if (\dash\get::index($orderDetail, 'factor', 'pay')) {?>
-                    <i class="sf-check-circle fc-green mRa10 fs14"></i><?php echo T_("Factor is payed") ?>
-                  <?php }else{ ?>
-                    <i class="sf-times-circle fc-red mRa10 fs14"></i><?php echo T_("Factor is not payed") ?>
-                    <!-- <p><?php echo T_("If you get the amount of this factor Set order as paid by click below link") ?></p>
-                    <div class="link btn" data-confirm data-data='{"setaction": "pay_successfull"}' ><?php echo T_("Amount received") ?></div> -->
-                  <?php } //endif ?>
-                </td>
+
+            <?php if(\dash\get::index($orderDetail, 'factor', 'paystatus')) {?>
+              <tr>
+                <td class="collapsing"><?php echo T_("Payment status") ?></td>
+                <td><?php echo \dash\get::index($orderDetail, 'factor', 't_paystatus'); ?></td>
               </tr>
+            <?php } //endif ?>
+
             </tbody>
           </table>
         </div>

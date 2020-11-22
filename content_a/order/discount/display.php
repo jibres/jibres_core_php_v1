@@ -31,37 +31,6 @@
     </form>
 
 
-    <form method="post" autocomplete="off">
-
-      <div class="box">
-        <div class="pad">
-
-
-          <div class="msg">
-
-            <?php if (\dash\get::index($orderDetail, 'factor', 'pay')) {?>
-              <i class="sf-check-circle fc-green mRa10 fs14"></i><?php echo T_("Factor is payed") ?>
-            <?php }else{ ?>
-              <i class="sf-times-circle fc-red mRa10 fs14"></i><?php echo T_("Factor is not payed") ?>
-              <p><?php echo T_("If you get the amount of this factor Set order as paid by click below link") ?>
-
-              <div class="link" data-confirm data-data='{"setaction": "pay_successfull"}' ><?php echo T_("Amount received") ?></div>
-              </p>
-            <?php } //endif ?>
-          </div>
-
-          <div class="hide">
-            <label for='ipaylink'><?php echo T_("Pay link") ?></label>
-            <div class="input">
-              <div data-copy='<?php echo \dash\url::pwd() ?>' class="addon btn"><?php echo T_("Copy") ?></div>
-              <input type="tel" name="paylink" value="<?php echo \dash\url::pwd() ?>">
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </form>
-
 
 
   </div>

@@ -373,7 +373,15 @@ class get
 			$factor_address['location_string'][] = $factor_address['city_name'];
 		}
 
-		$factor_address['location_string'] = implode(T_(","). ' ', $factor_address['location_string']);
+		if($factor_address['location_string'])
+		{
+			$factor_address['location_string'] = implode(T_(","). ' ', $factor_address['location_string']);
+		}
+		else
+		{
+			// unset to set address as empty array
+			unset($factor_address['location_string']);
+		}
 
 
 
