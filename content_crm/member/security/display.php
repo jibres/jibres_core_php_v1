@@ -12,7 +12,6 @@
 
   <form class="cbox" method="post" autocomplete="off">
 
-    <?php if(\dash\data::permGroup()) {?>
 
 
     <div class="mT10">
@@ -20,13 +19,14 @@
       <select name="permission" class="select22" id="permission">
         <option value="" readonly><?php echo T_("No permission"); ?></option>
         <option value="admin" <?php if(\dash\data::dataRowMember_permission() == 'admin')  { echo 'selected'; }?>><?php echo T_("Administrator"); ?></option>
-        <?php foreach (\dash\data::permGroup() as $key => $value) {?>
-          <option value="<?php echo $value; ?>" <?php if(\dash\data::dataRowMember_permission() == $value)  { echo 'selected'; }?> > <?php echo $value; ?></option>
+        <?php if(\dash\data::permGroup()) {?>
+          <?php foreach (\dash\data::permGroup() as $key => $value) {?>
+            <option value="<?php echo $value; ?>" <?php if(\dash\data::dataRowMember_permission() == $value)  { echo 'selected'; }?> > <?php echo $value; ?></option>
+          <?php } ?>
         <?php } ?>
       </select>
     </div>
 
-  <?php } ?>
 
 
     <div class="mTB10">
