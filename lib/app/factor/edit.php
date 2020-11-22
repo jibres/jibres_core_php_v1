@@ -32,7 +32,7 @@ class edit
 	{
 		$id        = \dash\validate::id($_id);
 		$factor_id = \dash\validate::id($_factor_id);
-		$count     = \dash\validate::int($_count);
+		$count     = \dash\validate::bigint($_count);
 		$count     = \lib\number::up($count);
 
 		if(!$id || !$factor_id)
@@ -88,13 +88,13 @@ class edit
 				break;
 		}
 
-		if($new_count < 1)
+		if($new_count <= 0)
 		{
-			\dash\notif::error(T_("Can not set count product in factor less than 1"));
+			\dash\notif::error(T_("Can not set count product in factor less than 0"));
 			return false;
 		}
 
-		if(!\dash\validate::int($new_count, false))
+		if(!\dash\validate::bigint($new_count, false))
 		{
 			\dash\notif::error(T_("Data is out of range for column count"));
 			return false;

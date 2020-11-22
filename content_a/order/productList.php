@@ -60,9 +60,15 @@
                       $remove = json_encode(array_merge($json, ['type' => 'remove']));
 
                       ?>
-                      <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $plus ?>'>+</label>
-                      <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly>
-                      <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $minus ?>'>-</label>
+                      <form method="post" autocomplete="off">
+                        <input type="hidden" name="product_id" value="<?php echo \dash\get::index($value, 'product_id') ?>">
+                        <input type="hidden" name="type" value="edit_count">
+                        <input type="hidden" name="factor_detail_id" value="<?php echo \dash\get::index($value, 'id') ?>">
+                        <div class="input">
+                          <button class="addon fc-blue sf-floppy-o" title="<?php echo T_("Save") ?>"></button>
+                          <input step="0.001" type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" >
+                        </div>
+                      </form>
                     </div>
 
                   </div>
@@ -70,7 +76,7 @@
                   <div class="productDel" data-confirm data-data='<?php echo $remove ?>' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
 
               <?php }else{ ?>
-                <span class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'count')) ?></span>
+                <span class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'count')) ?></span>
                   <small><?php echo \dash\get::index($value, 'unit') ?></small>
               <?php } //endif ?>
                 </div>

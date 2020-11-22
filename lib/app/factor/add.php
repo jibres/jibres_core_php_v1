@@ -261,7 +261,7 @@ class add
 		$condition =
 		[
 			'product_id' => 'id',
-			'count'      => 'int',
+			'count'      => 'bigint',
 			'price'      => 'price',
 			'discount'   => 'price',
 		];
@@ -318,7 +318,7 @@ class add
 
 			$new_count = floatval(\lib\number::up($data['count'])) + floatval($check_exist['count']);
 
-			if(!\dash\validate::int($new_count, false))
+			if(!\dash\validate::bigint($new_count, false))
 			{
 				\dash\notif::error(T_("Data is out of range for column count"));
 				return false;
