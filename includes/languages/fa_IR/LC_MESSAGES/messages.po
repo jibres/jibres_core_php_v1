@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-21 16:14+0330\n"
-"PO-Revision-Date: 2020-11-21 16:17+0330\n"
+"POT-Creation-Date: 2020-11-22 13:36+0330\n"
+"PO-Revision-Date: 2020-11-22 13:36+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4890,7 +4890,7 @@ msgid "New Accounting document number"
 msgstr "شماره سند حسابداری جدید"
 
 #: content_a/accounting/doc/duplicate/display.php:16
-#: content_a/order/discount/display.php:56 content_a/products/duplicate/display.php:12
+#: content_a/products/duplicate/display.php:12
 #: content_a/setting/domain/manage/display.php:34
 #: includes/languages/trans_static_public.php:107
 msgid "Copy"
@@ -6355,7 +6355,7 @@ msgstr "موجودی این محصول به طور موقت به اتمام رس
 msgid "This product was removed from your cart"
 msgstr "این محصول از سبد خرید شما حذف شد"
 
-#: content_a/cart/add/display.php:211 content_a/order/comment/display.php:75
+#: content_a/cart/add/display.php:211 content_a/order/comment/display.php:69
 #: content_a/order/productList.php:70 content_account/address.php:78
 #: content_business/cart/display.php:52 content_crm/member/glance/display.php:225
 #: content_crm/member/security/display.php:116 includes/languages/trans_static.php:541
@@ -7205,7 +7205,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/business_domain/edit.php:90 lib/app/category/add.php:13
 #: lib/app/category/add.php:119 lib/app/category/add.php:194 lib/app/category/edit.php:39
 #: lib/app/category/get.php:46 lib/app/category/get.php:78 lib/app/category/search.php:28
-#: lib/app/factor/add.php:35 lib/app/factor/get.php:164 lib/app/product/add.php:78
+#: lib/app/factor/add.php:105 lib/app/factor/get.php:164 lib/app/product/add.php:78
 #: lib/app/product/comment.php:198 lib/app/product/comment.php:468
 #: lib/app/product/comment.php:498 lib/app/product/company.php:63
 #: lib/app/product/company.php:228 lib/app/product/company.php:260
@@ -8468,11 +8468,7 @@ msgstr ""
 "مواردی مانند روش پرداخت، شماره پیگیری، توضیحات اضافه، مکالمات بین خود و مشتری و هر چیزی "
 "که به این سفارش ارتباط دارد را در این قسمت وارد کنید."
 
-#: content_a/order/comment/display.php:57 lib/app/factor/action.php:59
-msgid "Notes"
-msgstr "یادداشت‌ها"
-
-#: content_a/order/comment/display.php:70 content_support/ticket/addForm.php:27
+#: content_a/order/comment/display.php:63 content_support/ticket/addForm.php:27
 #: lib/app/store/analytics.php:60
 msgid "Attachment"
 msgstr "ضمیمه"
@@ -8502,35 +8498,13 @@ msgstr "جمع تخفیف‌ها"
 msgid "Postalcode"
 msgstr "کد پستی"
 
-#: content_a/order/detail/display.php:119
-msgid "Pay status"
+#: content_a/order/detail/display.php:121
+msgid "Payment status"
 msgstr "وضعیت پرداخت"
-
-#: content_a/order/detail/display.php:122 content_a/order/discount/display.php:43
-msgid "Factor is payed"
-msgstr "سفارش پرداخت شده است"
-
-#: content_a/order/detail/display.php:124 content_a/order/discount/display.php:45
-msgid "Factor is not payed"
-msgstr "سفارش پرداخت نشده است"
-
-#: content_a/order/detail/display.php:125 content_a/order/discount/display.php:46
-msgid "If you get the amount of this factor Set order as paid by click below link"
-msgstr ""
-"اگر مبلغ این سفارش را دریافت کرده‌اید می‌توانید با کلیک روی لینک زیر این سفارش را به "
-"عنوان سفارش پرداخت شده تنظیم کنید"
-
-#: content_a/order/detail/display.php:126 content_a/order/discount/display.php:48
-msgid "Amount received"
-msgstr "مبلغ دریافت شد"
 
 #: content_a/order/detail/model.php:82
 msgid "Please choose an action"
 msgstr "لطفا یک عملیات را انتخاب کنید"
-
-#: content_a/order/discount/display.php:54
-msgid "Pay link"
-msgstr "لینک پرداخت"
 
 #: content_a/order/home/display.php:71
 msgid "Invoice Date"
@@ -13039,7 +13013,7 @@ msgid "Welcome"
 msgstr "خوش آمدید"
 
 #: content_account/home/display.php:14 dash/app/address.php:220
-#: includes/languages/trans_static_public.php:33 lib/app/factor/get.php:376
+#: includes/languages/trans_static_public.php:33 lib/app/factor/get.php:378
 #: lib/app/product/property.php:247
 msgid ","
 msgstr "،"
@@ -13267,7 +13241,7 @@ msgid "Username"
 msgstr "نام‌کاربری"
 
 #: content_account/my/home/display.php:60 content_crm/member/home/display.php:132
-#: content_crm/member/security/display.php:19 content_su/home/display.php:189
+#: content_crm/member/security/display.php:18 content_su/home/display.php:189
 #: dash/layout/admin/sidebar/sidebar-su.php:23
 msgid "Permission"
 msgstr "سطح‌دسترسی"
@@ -15245,11 +15219,11 @@ msgstr "اطلاعات تماس"
 msgid "Social network"
 msgstr "شبکه‌های اجتماعی"
 
-#: content_crm/member/security/display.php:21
+#: content_crm/member/security/display.php:20
 msgid "No permission"
 msgstr "بدون سطح دسترسی"
 
-#: content_crm/member/security/display.php:22
+#: content_crm/member/security/display.php:21
 #: includes/languages/trans_static_public.php:152
 msgid "Administrator"
 msgstr "مدیر"
@@ -16153,7 +16127,7 @@ msgid "Alert!"
 msgstr "هشدار!"
 
 #: content_enter/alert/view.php:16 content_enter/verify/model.php:69
-#: dash/utility/enter.php:1017 dash/utility/enter.php:1028 dash/utility/enter.php:1035
+#: dash/utility/enter.php:1022 dash/utility/enter.php:1033 dash/utility/enter.php:1040
 #: lib/app/product/comment.php:30
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
@@ -16502,7 +16476,7 @@ msgstr "مرورگر شما گذرواژه ذخیره شده ای را ارسا�
 msgid "Pleaes set mobile number"
 msgstr "لطفا شماره تلفن‌همراه را وارد کنید"
 
-#: content_enter/signup/model.php:82 dash/utility/enter.php:1424
+#: content_enter/signup/model.php:82 dash/utility/enter.php:1429
 msgid "Please do not use your mobile in password!"
 msgstr "لطفا از موبایل خود در گذرواژه استفاده نکنید!"
 
@@ -16675,13 +16649,13 @@ msgstr "کد را به این شماره ارسال کنید!"
 msgid "Go and check it"
 msgstr "برو و چک کن"
 
-#: content_enter/verify/sms/model.php:57
+#: content_enter/verify/sms/model.php:59
 msgid ":code is your verification code."
 msgstr ""
 ":code\n"
 "این کد فعال‌سازی اکانت شماست."
 
-#: content_enter/verify/sms/model.php:61
+#: content_enter/verify/sms/model.php:65
 msgid ":code is your Jibres verification code."
 msgstr ""
 ":code\n"
@@ -24241,51 +24215,51 @@ msgstr "شما مسدود شدید"
 msgid "User id not found to save your session"
 msgstr "شناسه کاربر برای ذخیره نشست یافت نشد"
 
-#: dash/utility/enter.php:855
+#: dash/utility/enter.php:860
 msgid "Too many request for generate code"
 msgstr "تعداد درخواست‌های زیادی برای ساخت کد اعتبار سنجی از سمت آی‌پی‌ شما ارسال شده است"
 
-#: dash/utility/enter.php:948
+#: dash/utility/enter.php:953
 msgid "Please fill the verification code"
 msgstr "لطفا کد اعتبارسنجی را وارد کنید"
 
-#: dash/utility/enter.php:957
+#: dash/utility/enter.php:962
 msgid "What happend? the code is number. you try to send string!?"
 msgstr "چی شده؟ کد باید عددی باشد. شما چطوری دارین متن وارد میکنید!؟"
 
-#: dash/utility/enter.php:964
+#: dash/utility/enter.php:969
 msgid "Please enter the 5 digit code sent to your mobile phone"
 msgstr "لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:985
+#: dash/utility/enter.php:990
 msgid "System error, try again"
 msgstr "خطای سیستم، دوباره تلاش کنید"
 
-#: dash/utility/enter.php:1009
+#: dash/utility/enter.php:1014
 msgid "Your sms not deliver to us!"
 msgstr "پیامک شما بدست ما نرسیده است!"
 
-#: dash/utility/enter.php:1053
+#: dash/utility/enter.php:1058
 msgid "Wrong code entered, Please enter the 5 digit code sent to your mobile phone"
 msgstr "کد اشتباهی وارد شده است، لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:1173
+#: dash/utility/enter.php:1178
 msgid "Your two-step verification is now active for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما فعال است"
 
-#: dash/utility/enter.php:1201
+#: dash/utility/enter.php:1206
 msgid "Your two-step verification is now deactive for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما غیر فعال است"
 
-#: dash/utility/enter.php:1228
+#: dash/utility/enter.php:1233
 msgid "Your password was changed"
 msgstr "کلمه عبور شما تغییر یافت"
 
-#: dash/utility/enter.php:1409
+#: dash/utility/enter.php:1414
 msgid "You must set 6 character and large in password"
 msgstr "گذرواژه باید حداقل ۶ کاراکتر باشد"
 
-#: dash/utility/enter.php:1416
+#: dash/utility/enter.php:1421
 msgid "You must set less than 99 character in password"
 msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
 
@@ -31419,23 +31393,23 @@ msgstr ""
 "هم اکنون این دامنه با پروتکل اچ‌تی‌تی‌پی‌اس در حال کار است. نمی‌توانید درخواست اچ‌تی‌تی‌پی‌اس را "
 "مجددا صادر کنید!"
 
-#: lib/app/business_domain/https.php:81
+#: lib/app/business_domain/https.php:82
 msgid "Domain DNS is not active on CDN panel"
 msgstr "دی‌ان‌اس‌های این دامنه در پنل سی‌دی‌ان فعال نیستند"
 
-#: lib/app/business_domain/https.php:88
+#: lib/app/business_domain/https.php:89
 msgid "Can not get Domain DNS from CDN panel"
 msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
 
-#: lib/app/business_domain/https.php:112
+#: lib/app/business_domain/https.php:113
 msgid "HTTPS request is OK"
 msgstr "درخواست اچ‌تی‌تی‌پی‌اس کامل شده است"
 
-#: lib/app/business_domain/https.php:132
+#: lib/app/business_domain/https.php:133
 msgid "Can not connect to CDN service"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
-#: lib/app/business_domain/https.php:160
+#: lib/app/business_domain/https.php:161
 msgid "HTTPS request was sended"
 msgstr "درخواست اچ‌تی‌تی‌پی‌اس ارسال شده است"
 
@@ -31726,6 +31700,10 @@ msgstr "ساخت فایل خروجی از محصولات تکمیل شد"
 msgid "Tracking"
 msgstr "رهگیری"
 
+#: lib/app/factor/action.php:59
+msgid "Notes"
+msgstr "یادداشت‌ها"
+
 #: lib/app/factor/action.php:74
 msgid "Go to bank"
 msgstr "ارسال شده به بانک جهت پرداخت"
@@ -31756,91 +31734,43 @@ msgstr "نمی‌توانید وقایع سیستمی برای سفارش را �
 msgid "Data removed"
 msgstr "اطلاعات با موفقیت حذف شد"
 
-#: lib/app/factor/action.php:204
+#: lib/app/factor/action.php:205
 msgid "Please enter the description or attach a file"
 msgstr "لطفا توضیحات را تکمیل کنید و یا فایلی را ضمیمه کنید"
 
-#: lib/app/factor/action.php:219
+#: lib/app/factor/action.php:220
 msgid "Order not found!"
 msgstr "سفارش یافت نشد!"
 
-#: lib/app/factor/action.php:249
+#: lib/app/factor/action.php:250
 msgid "Current status of this order is :status"
 msgstr "وضعیت فعلی این سفارش :status است"
 
-#: lib/app/factor/action.php:266
+#: lib/app/factor/action.php:267
 msgid "No change in order payment status"
 msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 
-#: lib/app/factor/action.php:287
+#: lib/app/factor/action.php:288
 msgid "Operation accomplished"
 msgstr "عملیات با موفقیت انجام شد"
 
-#: lib/app/factor/add.php:77 lib/app/factor/calculate.php:56
+#: lib/app/factor/add.php:146 lib/app/factor/calculate.php:55
 msgid "Discount is larger than order total"
 msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
 
-#: lib/app/factor/add.php:149 lib/app/factor/calculate.php:128
-msgid "Data is out of range for column qty"
-msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - qty"
-
-#: lib/app/factor/add.php:155 lib/app/factor/calculate.php:134
-msgid "Can not save negative value in column qty"
-msgstr "نمی‌توانید مقدار منفی در آیتم‌های سفارش داشته باشید"
-
-#: lib/app/factor/add.php:162 lib/app/factor/calculate.php:141
-msgid "Data is out of range for column item"
-msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - item"
-
-#: lib/app/factor/add.php:168 lib/app/factor/calculate.php:147
-msgid "Can not save negative value in column item"
-msgstr "نمی‌توانید مقدار منفی در آیتم‌های سفارش داشته باشید"
-
-#: lib/app/factor/add.php:175 lib/app/factor/calculate.php:154
-msgid "Data is out of range for column subprice"
-msgstr "اطلاعات وارد شده برای مقدار مجموع ریز قیمت خارج از محدوده است"
-
-#: lib/app/factor/add.php:181 lib/app/factor/calculate.php:160
-msgid "Can not save negative value in column subprice"
-msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
-
-#: lib/app/factor/add.php:188 lib/app/factor/calculate.php:167
-msgid "Data is out of range for column subdiscount"
-msgstr "اطلاعات وارد شده برای مقدار مجموع ریز تخفیف خارج از محدوده است"
-
-#: lib/app/factor/add.php:194 lib/app/factor/calculate.php:173
-msgid "Can not save negative value in column subdiscount"
-msgstr "نمی‌توانید مقدار منفی در جمع تخفیف‌های فاکتور داشته باشید"
-
-#: lib/app/factor/add.php:202 lib/app/factor/calculate.php:181
-msgid "Data is out of range for column subtotal"
-msgstr "اطلاعات وارد شده برای مقدار مجموع ریز قیمت خارج از محدوده است"
-
-#: lib/app/factor/add.php:208 lib/app/factor/calculate.php:187
-msgid "Can not save negative value in column subtotal"
-msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
-
-#: lib/app/factor/add.php:215 lib/app/factor/calculate.php:194
-msgid "Data is out of range for column total"
-msgstr "اطلاعات وارد شده برای مقدار مجموع خارج از محدوده است"
-
-#: lib/app/factor/add.php:221 lib/app/factor/calculate.php:200
-msgid "Can not save negative value in column total"
-msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
-
-#: lib/app/factor/add.php:241
+#: lib/app/factor/add.php:200
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:293
+#: lib/app/factor/add.php:252
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
-#: lib/app/factor/add.php:364 lib/app/factor/edit.php:99
+#: lib/app/factor/add.php:323 lib/app/factor/edit.php:99
 msgid "Data is out of range for column count"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - count"
 
-#: lib/app/factor/add.php:420
+#: lib/app/factor/add.php:379
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
@@ -31867,6 +31797,54 @@ msgstr ""
 #: lib/app/factor/check.php:189
 msgid "Invalid user address"
 msgstr "شناسه آدرس اشتباه است"
+
+#: lib/app/factor/check.php:211
+msgid "Data is out of range for column qty"
+msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - qty"
+
+#: lib/app/factor/check.php:217
+msgid "Can not save negative value in column qty"
+msgstr "نمی‌توانید مقدار منفی در آیتم‌های سفارش داشته باشید"
+
+#: lib/app/factor/check.php:224
+msgid "Data is out of range for column item"
+msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - item"
+
+#: lib/app/factor/check.php:230
+msgid "Can not save negative value in column item"
+msgstr "نمی‌توانید مقدار منفی در آیتم‌های سفارش داشته باشید"
+
+#: lib/app/factor/check.php:237
+msgid "Data is out of range for column subprice"
+msgstr "اطلاعات وارد شده برای مقدار مجموع ریز قیمت خارج از محدوده است"
+
+#: lib/app/factor/check.php:243
+msgid "Can not save negative value in column subprice"
+msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
+
+#: lib/app/factor/check.php:250
+msgid "Data is out of range for column subdiscount"
+msgstr "اطلاعات وارد شده برای مقدار مجموع ریز تخفیف خارج از محدوده است"
+
+#: lib/app/factor/check.php:256
+msgid "Can not save negative value in column subdiscount"
+msgstr "نمی‌توانید مقدار منفی در جمع تخفیف‌های فاکتور داشته باشید"
+
+#: lib/app/factor/check.php:264
+msgid "Data is out of range for column subtotal"
+msgstr "اطلاعات وارد شده برای مقدار مجموع ریز قیمت خارج از محدوده است"
+
+#: lib/app/factor/check.php:270
+msgid "Can not save negative value in column subtotal"
+msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
+
+#: lib/app/factor/check.php:277
+msgid "Data is out of range for column total"
+msgstr "اطلاعات وارد شده برای مقدار مجموع خارج از محدوده است"
+
+#: lib/app/factor/check.php:283
+msgid "Can not save negative value in column total"
+msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
 
 #: lib/app/factor/check_detail.php:60
 msgid "The maximum count product in factor in your store is :val"
@@ -36306,6 +36284,23 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Factor is payed"
+#~ msgstr "سفارش پرداخت شده است"
+
+#~ msgid "Factor is not payed"
+#~ msgstr "سفارش پرداخت نشده است"
+
+#~ msgid "If you get the amount of this factor Set order as paid by click below link"
+#~ msgstr ""
+#~ "اگر مبلغ این سفارش را دریافت کرده‌اید می‌توانید با کلیک روی لینک زیر این سفارش را به "
+#~ "عنوان سفارش پرداخت شده تنظیم کنید"
+
+#~ msgid "Amount received"
+#~ msgstr "مبلغ دریافت شد"
+
+#~ msgid "Pay link"
+#~ msgstr "لینک پرداخت"
 
 #~ msgid "Order Action and comment list"
 #~ msgstr "لیست اتفاقات و یادداشت‌های سفارش"
