@@ -206,7 +206,7 @@ class check
 	public static function value_max_limit($factor, $_option = [])
 	{
 		// qty field in int(10)
-		if( floatval($factor['qty']) && !\dash\validate::int($factor['qty'], false))
+		if( floatval($factor['qty']) && !\dash\validate::bigint($factor['qty'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
 			return false;
