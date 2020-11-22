@@ -27,7 +27,14 @@ class order_adminNewOrder
 	{
 		$msg = '';
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
+		$total       = isset($_args['data']['my_factor_detail']['total']) ? $_args['data']['my_factor_detail']['total'] : null;
 		$msg = T_("New order registered by code :val.", ['val' => $my_id]);
+
+		if($total)
+		{
+			$msg .= "\n". T_("Total order amount :val", ['val' => \dash\fit::price($total)]);
+		}
+
 		return $msg;
 	}
 
