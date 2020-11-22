@@ -77,6 +77,7 @@ class https
 			}
 			else
 			{
+				// @reza @todo @check too many request of this action on domain fmir.ir.
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_domain_dns_not_active', ['meta' => self::meta($get_domain)]);
 				\dash\notif::error(T_("Domain DNS is not active on CDN panel"));
 				return false;
