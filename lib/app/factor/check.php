@@ -193,5 +193,98 @@ class check
 
 		return $data;
 	}
+
+
+	/**
+	 * Check max input size of factor field
+	 *
+	 * @param      <type>   $factor   The factor
+	 * @param      array    $_option  The option
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function value_max_limit($factor, $_option = [])
+	{
+		// qty field in int(10)
+		if( floatval($factor['qty']) && !\dash\validate::int($factor['qty'], false))
+		{
+			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
+			return false;
+		}
+
+		if($factor['qty'] && floatval($factor['qty']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column qty"));
+			return false;
+		}
+
+		// item field in bigint(20)
+		if( floatval($factor['item']) && !\dash\validate::bigint($factor['item'], false))
+		{
+			\dash\notif::error(T_("Data is out of range for column item"), 'item');
+			return false;
+		}
+
+		if($factor['item'] && floatval($factor['item']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column item"));
+			return false;
+		}
+
+		// subprice field in bigint(20)
+		if( floatval($factor['subprice']) && !\dash\validate::bigint($factor['subprice'], false))
+		{
+			\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
+			return false;
+		}
+
+		if($factor['subprice'] && floatval($factor['subprice']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subprice"));
+			return false;
+		}
+
+		// subdiscount field in bigint(20)
+		if( floatval($factor['subdiscount']) && !\dash\validate::bigint($factor['subdiscount'], false))
+		{
+			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
+			return false;
+		}
+
+		if($factor['subdiscount'] && floatval($factor['subdiscount']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subdiscount"));
+			return false;
+		}
+
+
+		// subtotal field in bigint(20)
+		if( floatval($factor['subtotal']) && !\dash\validate::bigint($factor['subtotal'], false))
+		{
+			\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
+			return false;
+		}
+
+		if($factor['subtotal'] && floatval($factor['subtotal']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column subtotal"));
+			return false;
+		}
+
+		// total field in bigint(20)
+		if( floatval($factor['total']) && !\dash\validate::bigint($factor['total'], false))
+		{
+			\dash\notif::error(T_("Data is out of range for column total"), 'total');
+			return false;
+		}
+
+		if($factor['total'] && floatval($factor['total']) < 0)
+		{
+			\dash\notif::error(T_("Can not save negative value in column total"));
+			return false;
+		}
+
+		return $factor;
+	}
 }
 ?>

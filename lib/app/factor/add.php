@@ -4,6 +4,76 @@ namespace lib\app\factor;
 
 class add
 {
+	public static function my_sum($_array, $_column)
+	{
+		$sum = 0;
+
+		if(is_array($_array))
+		{
+			foreach ($_array as $key => $value)
+			{
+				if(isset($value[$_column]))
+				{
+					$sum += floatval($value[$_column]);
+				}
+			}
+		}
+
+		return $sum;
+	}
+
+	public static function calculate_shipping_value($factor, $_option = [])
+	{
+
+		$shipping_value = 0;
+
+		if(isset($_option['shipping_value']) &&  is_numeric($_option['shipping_value']))
+		{
+			$shipping_value = floatval($_option['shipping_value']);
+			$factor['shipping'] = $shipping_value;
+		}
+		else
+		{
+			if(\dash\get::index($_option, 'mode') === 'customer')
+			{
+				$shipping = \lib\app\setting\get::shipping_setting();
+
+				if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
+				{
+					if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
+					{
+						if(\lib\price::total_down($factor['total']) >= floatval($shipping['freeshippingprice']))
+						{
+							$shipping_value = 0;
+						}
+						else
+						{
+							$shipping_value = floatval($shipping['sendbypostprice']);
+						}
+					}
+					else
+					{
+						$shipping_value = floatval($shipping['sendbypostprice']);
+					}
+				}
+			}
+			else
+			{
+				if(isset($_option['load_factor']['shipping']))
+				{
+					$shipping_value = floatval($_option['load_factor']['shipping']);
+
+					$factor['shipping'] = $shipping_value;
+				}
+			}
+		}
+
+
+		$factor['shipping'] = $shipping_value;
+
+		return $factor;
+	}
+
 
 	/**
 	 * add new factor
@@ -60,15 +130,14 @@ class add
 		}
 
 
-		$factor['subprice']    = array_sum(array_column($factor_detail, 'sub_price_temp'));
-		$factor['subdiscount'] = array_sum(array_column($factor_detail, 'sub_discount_temp'));
-		$factor['subvat']      = array_sum(array_column($factor_detail, 'sub_vat_temp'));;
-		$factor['subtotal']    = array_sum(array_column($factor_detail, 'sum'));
-		$factor['qty']         = array_sum(array_column($factor_detail, 'count'));
+		$factor['subprice']    = self::my_sum($factor_detail, 'sub_price_temp');
+		$factor['subdiscount'] = self::my_sum($factor_detail, 'sub_discount_temp');
+		$factor['subvat']      = self::my_sum($factor_detail, 'sub_vat_temp');
+		$factor['subtotal']    = self::my_sum($factor_detail, 'sum');
+		$factor['qty']         = self::my_sum($factor_detail, 'count');
 		$factor['item']        = count($factor_detail);
-		$factor['discount']    = $factor['discount'];
 
-		$factor_total = floatval($factor['subtotal']) - floatval($factor['discount']); // all detail discount
+		$factor['total']     = floatval($factor['subtotal']) - floatval($factor['discount']);
 
 		if($factor['discount'])
 		{
@@ -87,51 +156,11 @@ class add
 			// change factor mode to customer
 			$mode = 'customer';
 
-			// set default factor status as registered if not set factor status
-			if(!\dash\get::index($factor, 'status'))
-			{
-				$factor['status'] = 'registered';
-			}
-
-
-			$shipping_value = 0;
-			$shipping = \lib\app\setting\get::shipping_setting();
-
-			if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
-			{
-				if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
-				{
-					if(\lib\price::total_down($factor_total) >= floatval($shipping['freeshippingprice']))
-					{
-						$shipping_value = 0;
-					}
-					else
-					{
-						$shipping_value = floatval($shipping['sendbypostprice']);
-					}
-				}
-				else
-				{
-					$shipping_value = floatval($shipping['sendbypostprice']);
-				}
-			}
-
-			if($shipping_value)
-			{
-				$shipping_value = \lib\price::up($shipping_value);
-				$factor['shipping'] = $shipping_value;
-
-				$shipping_value = \lib\number::up($shipping_value);
-				$factor_total = floatval($factor_total) + $shipping_value;
-			}
-			else
-			{
-				$factor['shipping'] = 0;
-			}
+			$factor = self::calculate_shipping_value($factor, ['mode' => $mode]);
 
 		}
 
-		$factor['total']     = $factor_total;
+		$factor['total']     = (floatval($factor['subtotal']) - floatval($factor['discount'])) + floatval($factor['shipping']);
 
 		$factor['status']    = $factor['status'] ? $factor['status'] : 'registered';
 		$factor['seller']    = \dash\user::id();
@@ -143,84 +172,14 @@ class add
 		$factor['mode']      = $mode;
 
 
-			// qty field in int(10)
-		// if( $factor['qty'] && !\dash\validate::int($factor['qty'], false))
-		// {
-		// 	\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
-		// 	return false;
-		// }
+		// check max input size for factor
+		$factor          = \lib\app\factor\check::value_max_limit($factor, $_option);
 
-		if($factor['qty'] && floatval($factor['qty']) < 0)
+		if(!$factor || !\dash\engine\process::status())
 		{
-			\dash\notif::error(T_("Can not save negative value in column qty"));
 			return false;
 		}
 
-		// item field in bigint(20)
-		if( $factor['item'] && !\dash\validate::bigint($factor['item'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column item"), 'item');
-			return false;
-		}
-
-		if($factor['item'] && floatval($factor['item']) < 0)
-		{
-			\dash\notif::error(T_("Can not save negative value in column item"));
-			return false;
-		}
-
-		// subprice field in bigint(20)
-		if( $factor['subprice'] && !\dash\validate::bigint($factor['subprice'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
-			return false;
-		}
-
-		if($factor['subprice'] && floatval($factor['subprice']) < 0)
-		{
-			\dash\notif::error(T_("Can not save negative value in column subprice"));
-			return false;
-		}
-
-		// subdiscount field in bigint(20)
-		// if( $factor['subdiscount'] && !\dash\validate::bigint($factor['subdiscount'], false))
-		// {
-		// 	\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
-		// 	return false;
-		// }
-
-		if($factor['subdiscount'] && floatval($factor['subdiscount']) < 0)
-		{
-			\dash\notif::error(T_("Can not save negative value in column subdiscount"));
-			return false;
-		}
-
-
-		// subtotal field in bigint(20)
-		if( $factor['subtotal'] && !\dash\validate::bigint($factor['subtotal'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
-			return false;
-		}
-
-		if($factor['subtotal'] && floatval($factor['subtotal']) < 0)
-		{
-			\dash\notif::error(T_("Can not save negative value in column subtotal"));
-			return false;
-		}
-
-		// total field in bigint(20)
-		if( $factor['total'] && !\dash\validate::bigint($factor['total'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column total"), 'total');
-			return false;
-		}
-
-		if($factor['total'] && floatval($factor['total']) < 0)
-		{
-			\dash\notif::error(T_("Can not save negative value in column total"));
-			return false;
-		}
 
 		// start transaction of db
 		\dash\db::transaction();
@@ -245,7 +204,7 @@ class add
 
 		$return              = [];
 		$return['factor_id'] = $factor_id;
-		$return['price']     = \lib\price::total_down($factor_total);
+		$return['price']     = \lib\price::total_down($factor['total']);
 
 
 		$product_need_track_stock = [];
