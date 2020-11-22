@@ -40,7 +40,7 @@ $have_user = false;
 
           <label for="count"><?php echo T_("Count") ?></label>
           <div class="input mB20-f">
-            <input type="number" name="count" placeholder="<?php echo T_("Count"); ?>" value="1" id="count">
+            <input type="number" name="count" placeholder="<?php echo T_("Count"); ?>" value="1" step="0.001" id="count">
           </div>
 
           <div data-kerkere='.showAdvanceOrder' class="mB10 link"><?php echo T_("Special price and discount") ?></div>
