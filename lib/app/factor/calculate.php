@@ -123,11 +123,11 @@ class calculate
 		$factor['total']     = $factor_total;
 
 		// qty field in int(10)
-		if( $factor['qty'] && !\dash\validate::int($factor['qty'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
-			return false;
-		}
+		// if( $factor['qty'] && !\dash\validate::int($factor['qty'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
+		// 	return false;
+		// }
 
 		if($factor['qty'] && floatval($factor['qty']) < 0)
 		{
