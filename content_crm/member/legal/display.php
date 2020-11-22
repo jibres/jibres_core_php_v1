@@ -69,7 +69,7 @@
 
 				<label for="icompanyname"><?php echo T_("Company name"); ?></label>
 				<div class="input">
-					<input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRowLegal_companyname(); ?>" maxlength="40">
+					<input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRowLegal_companyname(); ?>" maxlength="100">
 				</div>
 
 
