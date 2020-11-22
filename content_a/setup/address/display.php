@@ -49,6 +49,12 @@
           <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRow_phone(); ?>" data-format="tel">
         </div>
 
+        <label for="iwebsite"><?php echo T_("Website"); ?></label>
+        <div class="input">
+
+          <input type="url" name="website" id="iwebsite" value="<?php echo \dash\data::dataRow_local_website(); ?>">
+        </div>
+
 
         <div class="f align-center mB10">
           <div class="c fc-mute"><?php echo \dash\data::stepDesc(); ?></div>

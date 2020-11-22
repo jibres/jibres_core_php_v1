@@ -15,6 +15,8 @@ class model
 		$post['phone']    = \dash\request::post('phone');
 		$post['mobile']   = \dash\request::post('mobile');
 		$post['fax']      = \dash\request::post('fax');
+		$post['local_website']  = \dash\request::post('website');
+
 
 		\lib\app\setting\setup::save_address($post);
 	}

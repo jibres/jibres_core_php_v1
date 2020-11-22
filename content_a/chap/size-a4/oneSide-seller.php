@@ -87,7 +87,14 @@ else if($fax)
             <div class="c-3"><?php
 {
   echo '<span class="block ltr txtL pLR5">';
-  echo \lib\store::url();
+  if(isset($storeData['local_website']) && $storeData['local_website'])
+  {
+    echo $storeData['local_website'];
+  }
+  else
+  {
+    echo \lib\store::url();
+  }
   echo '</span>';
 }
 ?></div>
