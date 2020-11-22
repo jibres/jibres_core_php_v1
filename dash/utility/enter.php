@@ -748,7 +748,12 @@ class enter
 		{
 			array_push($way, 'sms');
 			array_push($way, 'call');
-			array_push($way, 'sendsms');
+
+			// send sms is not active for business login
+			if(!\dash\engine\store::inStore())
+			{
+				array_push($way, 'sendsms');
+			}
 		}
 
 		if(\dash\url::isLocal() && empty($way))

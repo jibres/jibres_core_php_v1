@@ -52,9 +52,13 @@ class model
 			]
 		];
 
+		$sms_option = [];
+
 		if(\dash\engine\store::inStore())
 		{
 			$msg = T_(":code is your verification code.", ['code' => "code ". $code]);
+			$msg .= "\n". \dash\url::host();
+			$sms_option['footer'] = false;
 		}
 		else
 		{
@@ -70,7 +74,7 @@ class model
 		}
 		else
 		{
-			$kavenegar_send_result = \dash\utility\sms::send($my_mobile, $msg);
+			$kavenegar_send_result = \dash\utility\sms::send($my_mobile, $msg, $sms_option);
 		}
 
 		if($kavenegar_send_result === 411 && substr($my_mobile, 0, 2) === '98')
