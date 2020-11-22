@@ -42,7 +42,7 @@
 
         <label for="vatNumber"><?php echo T_("VAT number"); ?></label>
         <div class="input">
-          <input type="text" name="companyregisternumber" id="vatNumber" value="<?php echo \dash\data::dataRow_companyregisternumber(); ?>" data-format='vat'>
+          <input type="text" name="companyregisternumber" id="vatNumber" value="<?php echo \dash\data::dataRow_companyregisternumber(); ?>" data-format='int'>
         </div>
 
 <?php } //endif ?>
