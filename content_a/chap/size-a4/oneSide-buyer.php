@@ -60,10 +60,10 @@ if($city)
 $address = \dash\get::index($customerLegal, 'address');
 if($address)
 {
-  echo '<span>'. T_('Address'). '</span>'. ' ';
-  echo '<span>';
+  // echo '<span>'. T_('Address'). '</span>'. ' ';
+  // echo '<span>';
   echo $address;
-  echo '</span>';
+  // echo '</span>';
 }
 ?></div>
             <div class="c-3"><?php
