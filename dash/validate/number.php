@@ -231,6 +231,11 @@ class number
 			return false;
 		}
 
+		if(substr($_data, 0, 1) === '0')
+		{
+			$data = '0'. $data;
+		}
+
 		return $data;
 	}
 
