@@ -162,11 +162,11 @@ class calculate
 		}
 
 		// subdiscount field in bigint(20)
-		if( $factor['subdiscount'] && !\dash\validate::bigint($factor['subdiscount'], false))
-		{
-			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
-			return false;
-		}
+		// if( $factor['subdiscount'] && !\dash\validate::bigint($factor['subdiscount'], false))
+		// {
+		// 	\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
+		// 	return false;
+		// }
 
 		if($factor['subdiscount'] && floatval($factor['subdiscount']) < 0)
 		{
