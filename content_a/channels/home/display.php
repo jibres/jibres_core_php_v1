@@ -21,7 +21,7 @@
                 </a>
             </div>
 
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3 hide">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/pos">
                     <div class="c-auto"><i class="sf-tools"></i></div>
                     <div class="c">
@@ -31,7 +31,7 @@
                 </a>
             </div>
 
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3 hide">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/social">
                     <div class="c-auto"><i class="sf-network"></i></div>
                     <div class="c">
@@ -41,7 +41,7 @@
                 </a>
             </div>
 
-             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3 hide">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/telegram">
                     <div class="c-auto"><i class="sf-paper-plane"></i></div>
                     <div class="c">
