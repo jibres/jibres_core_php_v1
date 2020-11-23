@@ -32,7 +32,7 @@
    <nav class="items long">
      <ul>
 
-<?php if(\dash\permission::check('_group_order')) {?>
+<?php if(\dash\permission::check('_group_orders')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/order">
           <div class="key"><?php echo T_('Orders');?></div>

@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('_group_order');
+		\dash\permission::access('_group_orders');
 	}
 }
 ?>
