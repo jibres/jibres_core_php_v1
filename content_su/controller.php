@@ -16,7 +16,7 @@ class controller
 			\dash\notif::info(T_('Local mode'));
 			\dash\data::line_bottom(T_('You are in Supervisor Panel of Local Mode'));
 		}
-		else
+		// else
 		{
 			// Check permission and if user can do this operation
 			// allow to do it, else show related message in notify center
