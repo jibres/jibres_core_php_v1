@@ -29,7 +29,7 @@ class check_detail
 
 		$condition =
 		[
-			'list' => ['product' => 'id', 'count' => 'smallint', 'discount' => 'price', 'price' => 'price'],
+			'list' => ['product' => 'id', 'count' => 'count', 'discount' => 'price', 'price' => 'price'],
 		];
 
 		$require = [];
@@ -49,17 +49,17 @@ class check_detail
 		foreach ($list as $key => $value)
 		{
 
-			/**
-			 * @CHECK @REZA
-			 * Need to get from store or set manually
-			 */
-			$maxproductcount = 9999;
+			// /**
+			//  * @CHECK @REZA
+			//  * Need to get from store or set manually
+			//  */
+			// $maxproductcount = 9999;
 
-			if($maxproductcount && floatval($value['count']) > floatval($maxproductcount))
-			{
-				\dash\notif::error(T_("The maximum count product in factor in your store is :val", ['val' => \dash\fit::number($maxproductcount)]), $key + 1);
-				return false;
-			}
+			// if($maxproductcount && floatval($value['count']) > floatval($maxproductcount))
+			// {
+			// 	\dash\notif::error(T_("The maximum count product in factor in your store is :val", ['val' => \dash\fit::number($maxproductcount)]), $key + 1);
+			// 	return false;
+			// }
 
 			// up count to remove desimal
 			$value['count'] = \lib\number::up($value['count']);

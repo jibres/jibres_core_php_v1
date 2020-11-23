@@ -87,13 +87,13 @@ class number
 		{
 			if(floatval($data) !== floatval(round($data)))
 			{
-				if($_notif)
-				{
-
-					// \dash\notif::error(T_("Cannot use decimal number in field :val", ['val' => $_field_title]), ['element' => $_element]);
-					// \dash\cleanse::$status = false;
-				}
+				$data = round($data);
 			}
+		}
+
+		if(floatval($data) !== floatval(round($data)))
+		{
+			$data = round($data, 4);
 		}
 
 		return $data;
@@ -103,7 +103,8 @@ class number
 
 	public static function price($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		return self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 999999999999]);
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 99999999999999]);
+		return $data;
 	}
 
 
@@ -242,7 +243,13 @@ class number
 
 	public static function number_percent($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		return self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 100]);
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 100]);
+
+		if(floatval($data) !== floatval(round($data)))
+		{
+			$data = round($data, 2);
+		}
+		return $data;
 	}
 
 }

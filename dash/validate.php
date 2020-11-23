@@ -110,7 +110,7 @@ class validate
 				\dash\header::status(400, T_("You were identified as a robot. Contact your system administrator if you feel that something has happened"));
 			}
 		}
-		return false;
+		return true;
 	}
 }
 ?>

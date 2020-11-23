@@ -28,11 +28,11 @@ class check
 
 		$condition =
 		[
-			'desc'        => 'desc',
-			'discount'    => 'price',
-			'shipping'    => 'price',
-			'date'    => 'datetime',
-			'type'        =>
+			'desc'     => 'desc',
+			'discount' => 'price',
+			'shipping' => 'price',
+			'date'     => 'datetime',
+			'type'     =>
 			[
 				'enum' =>
 				[
@@ -206,8 +206,7 @@ class check
 	 */
 	public static function value_max_limit($factor, $_option = [])
 	{
-		// qty field in int(10)
-		if( floatval($factor['qty']) && !\dash\validate::bigint($factor['qty'], false))
+		if( floatval($factor['qty']) && !\dash\validate::qty($factor['qty'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
 			return false;
@@ -219,7 +218,6 @@ class check
 			return false;
 		}
 
-		// item field in bigint(20)
 		if( floatval($factor['item']) && !\dash\validate::bigint($factor['item'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column item"), 'item');
@@ -232,8 +230,7 @@ class check
 			return false;
 		}
 
-		// subprice field in bigint(20)
-		if( floatval($factor['subprice']) && !\dash\validate::bigint($factor['subprice'], false))
+		if( floatval($factor['subprice']) && !\dash\validate::total($factor['subprice'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
 			return false;
@@ -245,8 +242,7 @@ class check
 			return false;
 		}
 
-		// subdiscount field in bigint(20)
-		if( floatval($factor['subdiscount']) && !\dash\validate::bigint($factor['subdiscount'], false))
+		if( floatval($factor['subdiscount']) && !\dash\validate::total($factor['subdiscount'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
 			return false;
@@ -258,9 +254,7 @@ class check
 			return false;
 		}
 
-
-		// subtotal field in bigint(20)
-		if( floatval($factor['subtotal']) && !\dash\validate::bigint($factor['subtotal'], false))
+		if( floatval($factor['subtotal']) && !\dash\validate::total($factor['subtotal'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
 			return false;
@@ -272,8 +266,7 @@ class check
 			return false;
 		}
 
-		// total field in bigint(20)
-		if( floatval($factor['total']) && !\dash\validate::bigint($factor['total'], false))
+		if( floatval($factor['total']) && !\dash\validate::total($factor['total'], false))
 		{
 			\dash\notif::error(T_("Data is out of range for column total"), 'total');
 			return false;

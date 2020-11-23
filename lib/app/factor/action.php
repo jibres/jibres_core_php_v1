@@ -247,7 +247,7 @@ class action
 				$category = 'status';
 				if(isset($load_factor['status']) && $load_factor['status'] === $data['action'])
 				{
-					\dash\notif::info(T_("Current status of this order is :status", ['status' => T_(ucfirst($data['action']))]));
+					// \dash\notif::info(T_("Current status of this order is :status", ['status' => T_(ucfirst($data['action']))]));
 					return true;
 				}
 				break;
@@ -285,7 +285,7 @@ class action
 
 		$result = \lib\db\factoraction\insert::new_record($insert);
 
-		\dash\notif::ok(T_("Operation accomplished"));
+		// \dash\notif::ok(T_("Operation accomplished"));
 
 		$update_factor = [];
 

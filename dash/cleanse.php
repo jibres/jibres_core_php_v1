@@ -697,6 +697,36 @@ class cleanse
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'count':
+			case 'shipping_price':
+				// count is DECIMAL(13, 4)
+				// shipping is DECIMAL(13, 4)
+				// we can save 9 digit number and 4 decimal
+				// in this function we limit digit on 6 :)
+				$meta['min']   = 0;
+				$meta['max']   = 999999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'qty':
+				// qty is DECIMAL(19, 4)
+				// so we have 15 digit number
+				// we limit it at 14
+				$meta['min']   = 0;
+				$meta['max']   = 99999999999999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+			case 'total':
+				// total is DECIMAL(31, 4)
+				// we can save 27 digit number and 4 decimal
+				// in this function we limit digit on 26 :)
+				$meta['min']   = 0;
+				$meta['max']   = 99999999999999999999999999;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
+
 			case 'verification_code':
 				$meta['min']   = 10000;
 				$meta['max']   = 99999;
