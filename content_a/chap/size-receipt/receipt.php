@@ -47,36 +47,36 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 
 
-<?php if(isset($factorDetail['factor']['customer']) && $factorDetail['factor']['customer']) {?>
+<?php if(isset($factorDetail['address']) && $factorDetail['address']) {?>
+<?php $address = $factorDetail['address'] ?>
 <hr>
 <div class="customerDetail fs12 txtC">
   <div class="fs14"><?php echo T_("Customer Detail"); ?></div>
-<?php if(isset($factorDetail['factor']['customer_displayname']) && $factorDetail['factor']['customer_displayname']) {?>
-  <div class="pA10"><span class="txtB"><?php echo $factorDetail['factor']['customer_displayname']; ?></span></div>
+<?php if(isset($address['name']) && $address['name']) {?>
+  <div class="pA10"><span class="txtB"><?php echo $address['name']; ?></span></div>
 <?php } //endif ?>
 
-<?php if(isset($factorDetail['factor']['customer_address']) && $factorDetail['factor']['customer_address']) {?>
+<?php if(isset($address['address']) && $address['address']) {?>
   <div class="pA10">
     <?php echo T_("Address"); ?>
-
-  <?php if(isset($factorDetail['factor']['customer_address']['location_string']) && $factorDetail['factor']['customer_address']['location_string']) {?>
-    <span class="txtB"><?php echo $factorDetail['factor']['customer_address']['location_string']; ?></span>
+  <?php if(isset($address['location_string']) && $address['location_string']) {?>
+    <span class="txtB"><?php echo $address['location_string']; ?></span>
   <?php } //endif ?>
 
-  <?php if(isset($factorDetail['factor']['customer_address']['address']) && $factorDetail['factor']['customer_address']['address']) {?>
-    <span class="txtB"><?php echo $factorDetail['factor']['customer_address']['address']; ?></span>
+  <?php if(isset($address['address']) && $address['address']) {?>
+    <span class="txtB"><?php echo $address['address']; ?></span>
   <?php } //endif ?>
 
 
   </div>
 <?php } //endif address ?>
 
-<?php if(isset($factorDetail['factor']['customer_phone']) && $factorDetail['factor']['customer_phone']) {?>
-  <div class="pA10"><?php echo T_("Tel"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::text($factorDetail['factor']['customer_phone']); ?></span></div>
+<?php if(isset($address['phone']) && $address['phone']) {?>
+  <div class="pA10"><?php echo T_("Tel"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::text($address['phone']); ?></span></div>
 <?php } //endif ?>
 
-<?php if(isset($factorDetail['factor']['customer_mobile']) && $factorDetail['factor']['customer_mobile']) {?>
-  <div class="pA10"><?php echo T_("Mobile"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::mobile($factorDetail['factor']['customer_mobile']); ?></span></div>
+<?php if(isset($address['mobile']) && $address['mobile']) {?>
+  <div class="pA10"><?php echo T_("Mobile"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::mobile($address['mobile']); ?></span></div>
 <?php } //endif ?>
 
 
