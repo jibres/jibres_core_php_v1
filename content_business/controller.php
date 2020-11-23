@@ -22,6 +22,16 @@ class controller
 				\dash\data::nosale(true);
 			}
 		}
+
+		// redirect factor short address to full address
+		$module = \dash\url::module();
+		if(!\dash\url::child() && $module && substr($module, 0, 1) === ':' && \dash\validate::id(substr($module, 1), false))
+		{
+			$factor_id = \dash\validate::id(substr($module, 1), false);
+			$new_url = \dash\url::kingdom(). '/orders/view?id='. $factor_id;
+			\dash\redirect::to($new_url);
+			return;
+		}
 	}
 }
 ?>
