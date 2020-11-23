@@ -120,6 +120,17 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
   </div>
 
 <?php } //endif ?>
+
+ <form method="post" autocomplete="off">
+    <div class="box">
+
+      <footer class="txtRa">
+        <div class="btn linkDel" data-confirm data-data='{"removeorder": "removeorder"}'><?php echo T_("Remove order") ?></div>
+      </footer>
+    </div>
+
+  </form>
+
 <form method="post" autocomplete="off" class="hide">
 
   <div class="box">
