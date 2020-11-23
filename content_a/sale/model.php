@@ -104,11 +104,25 @@ class model
 
 		foreach ($product as $key => $value)
 		{
+			$my_discount = null;
+
+			if(array_key_exists($key, $discount))
+			{
+				if($discount[$key])
+				{
+					$my_discount = $discount[$key];
+				}
+				else
+				{
+					$my_discount = 0;
+				}
+			}
+
 			$factor_list[] =
 			[
 				'product'  => $value,
 				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
-				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
+				'discount' => $my_discount,
 				'price'    => null, // get from product price
 			];
 		}
