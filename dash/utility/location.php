@@ -174,9 +174,9 @@ class location
 			// get city list
 			$myCityList = \dash\utility\location\cites::$data;
 			$myCityList = [];
+			$newCityList = [];
 			if($myCityList)
 			{
-				$newCityList = [];
 				foreach ($myCityList as $key => $value)
 				{
 					$temp = '';

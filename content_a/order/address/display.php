@@ -10,29 +10,29 @@
     <?php if(\dash\get::index($orderDetail, 'factor', 'customer')) {?>
       <div class="box">
         <div class="body">
-          <div class="row">
-            <div class="c-xs-6 c-sm-3">
+          <div class="f">
+            <div class="cauto s12">
               <div>
                 <span class="fc-mute"><?php echo T_("Customer") ?></span>
                 <span class="txtB"><?php echo \dash\get::index($orderDetail, 'factor', 'customer_displayname') ?></span>
               </div>
             </div>
-            <div class="c-xs-6 c-sm-3">
+            <div class="c1 mB10"></div>
+            <div class="cauto s12">
               <div>
                 <span class="fc-mute"><?php echo T_("Mobile") ?></span>
                 <span class="txtB ltr compact"><?php echo \dash\fit::mobile(\dash\get::index($orderDetail, 'factor', 'customer_mobile')) ?></span>
               </div>
             </div>
-            <div class="c-xs-6 c-sm-3">
-
-            </div>
-            <div class="c-xs-6 c-sm-3">
+            <div class="c mB10"></div>
+            <div class="cauto s12">
               <div class="link" data-kerkere='.changecustomerForm'><?php echo T_("Change customer") ?></div>
             </div>
           </div>
 
         </div>
       </div>
+
     <?php } //endif ?>
 
     <form method="post" autocomplete="off" class="changecustomerForm" <?php if(\dash\get::index($orderDetail, 'factor', 'customer')) { echo 'data-kerkere-content="hide"'; }?>>
@@ -63,7 +63,7 @@
             </select>
 
             <div class="input mT5">
-              <input type="text" name="memberN" id="memberN" placeholder='<?php echo T_("Customer Name"); ?>'  maxlength='40' minlength="1">
+              <input type="text" name="memberN" id="memberN" placeholder='<?php echo T_("Customer Name"); ?>'  maxlength='70' minlength="1">
             </div>
           </div>
 
@@ -78,6 +78,66 @@
 
       </div>
     </form>
+    <?php if(\dash\get::index($orderDetail, 'factor', 'customer')) {?>
+
+      <div class="box">
+        <div class="body">
+          <div class="f">
+            <div class="cauto s12">
+              <div class="txtB">
+                <?php echo T_("Customer legal information") ?>
+              </div>
+            </div>
+            <div class="c"></div>
+            <div class="cauto s12">
+              <div>
+                <div class="link" data-kerkere='.viewCustomerLegalInformation'><?php echo T_("View") ?></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="viewCustomerLegalInformation" data-kerkere-content='hide'>
+            <?php $isNotSet = '<small class="fc-mute">'. T_("Not set"). '</small>'; ?>
+            <div class="pA10">
+              <div class="tblBox">
+                <table class="tbl1 v4">
+                  <tbody>
+                    <tr>
+                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Company name") ?></div></td>
+                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'companyname'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
+                    </tr>
+                    <tr>
+                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Economic code") ?></div></td>
+                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'companyeconomiccode'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
+                    </tr>
+                    <tr>
+                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Company national id") ?></div></td>
+                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'companynationalid'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
+                    </tr>
+                    <tr>
+                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Company register number") ?></div></td>
+                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'companyregisternumber'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
+                    </tr>
+                    <tr>
+                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Postcode") ?></div></td>
+                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'postcode'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
+                    </tr>
+                    <tr>
+                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Phone") ?></div></td>
+                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'phone'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><a href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. \dash\get::index($orderDetail, 'factor', 'customer') ?>" class="link"><?php echo T_("Edit legal information") ?></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <?php }// endif ?>
 
     <form method="post" autocomplete="off">
 
