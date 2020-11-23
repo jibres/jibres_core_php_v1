@@ -253,9 +253,7 @@ class edit
 
 		$args = \lib\app\factor\check::factor($_args, ['factor_detail' => $load_factor]);
 
-
 		$args = \dash\cleanse::patch_mode($_args, $args);
-		// var_dump($args);exit();
 
 		if(empty($args))
 		{

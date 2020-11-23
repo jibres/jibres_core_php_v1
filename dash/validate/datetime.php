@@ -68,7 +68,20 @@ class datetime
 
 		if(\dash\utility\jdate::is_jalali($data))
 		{
+			$time = null;
+
+			if(strpos($format, 'H') !== false)
+			{
+				$time = date("H:i:s", strtotime($data));
+			}
+
 			$data = \dash\utility\jdate::to_gregorian($data);
+
+			if($time)
+			{
+				$data = $data. ' '. $time;
+			}
+
 		}
 
 		try
