@@ -191,7 +191,6 @@ $sortLink = \dash\data::sortLink();
 <?php function htmlStartAddNew() {?>
 <p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?>
   <?php if(\dash\permission::check('factorSaleAdd')) {?><a href="<?php echo \dash\url::here(); ?>/sale"><?php echo T_("Try to start with add new sale!"); ?></a><?php } // endif ?>
-  <?php if(\dash\permission::check('factorBuyAdd')) {?><a href="<?php echo \dash\url::here(); ?>/buy"><?php echo T_("Try to start with add new buy!"); ?></a><?php } // endif ?>
 </p>
 <?php } // endfunction ?>
 
