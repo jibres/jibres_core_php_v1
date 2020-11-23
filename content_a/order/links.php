@@ -35,18 +35,7 @@
       </a>
     </li>
   <?php } //endif ?>
-  <?php if(\dash\get::index(\dash\data::orderDetail(), 'factor', 'shipping')) {?>
-    <li>
-      <a class="f item" href="<?php echo \dash\url::this(). '/discount?id='. \dash\request::get('id'); ?>">
-        <i class="sf-exchange"></i>
-        <div class="key"><?php echo T_("Shipping"); ?></div>
-        <div class="value">
-          <span class="fc-blue txtB"><?php echo \dash\fit::number(\dash\get::index(\dash\data::orderDetail(), 'factor', 'shipping')); ?></span>
-          <small class="fc-mute"><?php echo \lib\store::currency() ?></small>
-        </div>
-      </a>
-    </li>
-  <?php } //endif ?>
+
 
   </ul>
 </nav>

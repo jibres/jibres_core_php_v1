@@ -40,49 +40,6 @@
                 </td>
               </tr>
 
-              <?php if(\dash\get::index($orderDetail, 'factor', 'subprice')) {?>
-              <tr class="">
-                <td class="collapsing fc-mute"><?php echo T_("Subprice") ?></td>
-                <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subprice')). ' '. \lib\store::currency(); ?></td>
-              </tr>
-            <?php } //endif ?>
-
-              <?php if(\dash\get::index($orderDetail, 'factor', 'subdiscount')) {?>
-              <tr class="">
-                <td class="collapsing fc-mute"><?php echo T_("Subdiscount") ?></td>
-                <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subdiscount')). ' '. \lib\store::currency(); ?></td>
-              </tr>
-            <?php } //endif ?>
-
-
-            <?php if(\dash\get::index($orderDetail, 'factor', 'subvat')) {?>
-              <tr class="">
-                <td class="collapsing fc-mute"><?php echo T_("Vat") ?></td>
-                <td class=""><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'subvat')). ' '. \lib\store::currency(); ?></td>
-              </tr>
-            <?php } //endif ?>
-
-              <?php if(\dash\get::index($orderDetail, 'factor', 'discount')) {?>
-                <tr>
-                  <td class="collapsing fc-mute"><?php echo T_("Discount") ?></td>
-                  <td><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'discount')). ' '. \lib\store::currency(); ?></td>
-                </tr>
-              <?php } //endif ?>
-              <?php if(\dash\get::index($orderDetail, 'factor', 'shipping')) {?>
-                <tr>
-                  <td class="collapsing fc-mute"><?php echo T_("Shipping") ?></td>
-                  <td><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'shipping')). ' '. \lib\store::currency(); ?></td>
-                </tr>
-              <?php } //endif ?>
-
-
-
-
-              <tr class="active">
-                <td class="collapsing fc-mute"><?php echo T_("Total") ?></td>
-                <td class="txtB font-16"><?php echo \dash\fit::number(\dash\get::index($orderDetail, 'factor', 'total')). ' '. \lib\store::currency(); ?></td>
-              </tr>
-
 
               <?php $address = \dash\get::index(\dash\data::orderDetail(), 'address'); ?>
               <?php if($address) {?>
@@ -130,6 +87,7 @@
             </tbody>
           </table>
         </div>
+        <?php require_once(root. '/content_a/order/summary.php'); ?>
       </div>
     </div>
 

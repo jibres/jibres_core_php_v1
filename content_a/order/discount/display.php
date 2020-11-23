@@ -7,12 +7,16 @@
   <div class="c-xs-12 c-sm-12 c-md-9">
 
 
+
     <form method="post" autocomplete="off">
 
       <input type="hidden" name="updateshipping" value="updateshipping">
 
       <div class="box">
         <div class="pad">
+
+          <?php require_once(root. '/content_a/order/summary.php'); ?>
+
           <label for='idiscount'><?php echo T_("Discount") ?></label>
           <div class="input">
             <input type="tel" data-format='price' name="discount" value="<?php echo \dash\get::index($orderDetail, 'factor', 'discount') ?>">
