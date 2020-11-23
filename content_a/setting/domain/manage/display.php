@@ -33,6 +33,11 @@
               <td>@</td>
               <td><span data-copy='business.jibres.com'><code>business.jibres.com</code> <span class="btn sm"><?php echo T_("Copy") ?></span></span></td>
             </tr>
+            <tr>
+              <td>A</td>
+              <td>www</td>
+              <td><span data-copy='business.jibres.com'><code>business.jibres.com</code> <span class="btn sm"><?php echo T_("Copy") ?></span></span></td>
+            </tr>
           </tbody>
         </table>
       </p>
@@ -42,7 +47,7 @@
 
 
 
-  <?php if(\dash\data::domainDetail_status() === 'pending') {?>
+  <?php if(\dash\data::domainDetail_status() === 'pending' && !\dash\data::domainDetail_subdomain() && \dash\data::domainDetail_cdn() !== 'enterprise') {?>
     <div class="box">
       <div class="body">
         <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
@@ -55,6 +60,7 @@
       </div>
     </div>
   <?php } //endif ?>
+
   <?php if(\dash\data::domainDetail_cdnpanel()) {?>
 
   <form method="post" autocomplete="off" class="">

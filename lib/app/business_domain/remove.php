@@ -56,9 +56,26 @@ class remove
 
 		$id = $load['id'];
 
-		\lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $id);
+
+		$force_remove = false;
+		if(isset($load['subdomain']) && $load['subdomain'])
+		{
+			$force_remove = true;
+		}
+
+		if($force_remove)
+		{
+			self::remove($_id);
+			\dash\notif::clean();
+			\dash\engine\process::continue();
+		}
+		else
+		{
+			\lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $id);
+		}
 
 		\dash\notif::delete(T_("Domain removed"));
+
 		return true;
 	}
 
