@@ -20,7 +20,7 @@ if(\dash\data::dataTable())
 }
 else
 {
-  if(\dash\data::dataFilter() || \dash\request::get())
+  if(\dash\data::dataFilter())
   {
     htmlSearchBox();
     htmlFilterNoResult();
@@ -59,8 +59,8 @@ else
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg info2">
-  <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
+<p class="f fs14 msg info2 hide">
+  <span class="c"></span>
   <a class="cauto" href="<?php echo \dash\url::here(); ?>/<?php echo \dash\url::module(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endfunction ?>
@@ -111,7 +111,7 @@ else
       </a>
     </div>
 
-
+<?php if(false) {?>
   <?php if(\dash\permission::check('supportTicketReport')) {?>
     <div class="c3 m6 s12">
       <a class="dcard" href="<?php echo \dash\url::here(); ?>/ticket/report">
@@ -133,6 +133,7 @@ else
       </a>
     </div>
   <?php } //endif ?>
+<?php } //endif ?>
 
   </div>
 

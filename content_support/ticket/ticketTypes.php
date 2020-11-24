@@ -22,18 +22,6 @@
   </div>
   <?php } ?>
 
-  <?php if(\dash\permission::check('supportTicketManageSubdomain')) {?>
-
-  <div class="c">
-    <a class="dcard <?php if(\dash\data::accessMode() === 'all') {echo ' active'; }?>" href='<?php echo \dash\url::this(); ?>?access=all'>
-     <div class="statistic <?php if(\dash\data::accessMode() === 'all') { echo ' blue ';}else{ echo ' brown ';} ?>">
-      <div class="value mB10"><i class="sf-user-secret"></i></div>
-      <div class="label"><?php echo T_("Manage all tickets"); ?></div>
-     </div>
-    </a>
-  </div>
-
-  <?php } ?>
 
 </div>
 

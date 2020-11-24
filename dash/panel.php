@@ -316,7 +316,16 @@ class panel
 
 	private static function sidebar_jibres_support()
 	{
-		$menu = self::jibresControlCenterLink();
+		if(\dash\engine\store::inStore())
+		{
+			$menu = self::jibresControlCenterLink(true);
+			$menu[] = self::businessDashboardLink();
+			$menu[] = ['seperator' => true];
+		}
+		else
+		{
+			$menu = self::jibresControlCenterLink();
+		}
 
 		$menu[] =
 		[
@@ -404,6 +413,16 @@ class panel
 				'link'   => \dash\url::here().'/report',
 				'icon'   => 'bar-chart',
 				'active' => (\dash\url::module()==='report'? true :false)
+			];
+		}
+
+		{
+			$menu[] =
+			[
+				'title'  => T_("Support"),
+				'link'   => \dash\url::kingdom().'/support',
+				'icon'   => 'life-ring',
+				'active' => (\dash\url::content()==='support'? true :false)
 			];
 		}
 
