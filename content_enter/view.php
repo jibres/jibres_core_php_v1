@@ -80,6 +80,17 @@ class view
 			\dash\data::googleLogin(false);
 		}
 
+		if(\dash\engine\store::inStore())
+		{
+			$store_logo = \lib\store::logo();
+			if($store_logo)
+			{
+				\dash\face::cover($store_logo);
+				\dash\face::twitterCard('summary');
+				\dash\face::logo($store_logo);
+			}
+		}
+
 	}
 }
 ?>
