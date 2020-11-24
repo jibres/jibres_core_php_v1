@@ -23,7 +23,7 @@ class mobile
 			return null;
 		}
 
-		if(!is_string($_data))
+		if(!is_string($_data) && !is_numeric($_data))
 		{
 			if($_notif)
 			{
@@ -95,6 +95,7 @@ class mobile
 		{
 			$mymobile = '98'.$mymobile;
 		}
+
 
 
 		if(isset($_meta['ir_mobile']) && $_meta['ir_mobile'])
