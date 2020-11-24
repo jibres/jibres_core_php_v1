@@ -74,6 +74,7 @@ class model
 		}
 		else
 		{
+			\dash\utility\enter::set_kavenegar_log_type();
 			$kavenegar_send_result = \dash\utility\sms::send($my_mobile, $msg, $sms_option);
 		}
 

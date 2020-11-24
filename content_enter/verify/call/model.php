@@ -83,7 +83,7 @@ class model
 				$message = "Your verification code is $code";
 
 			}
-
+			\dash\utility\enter::set_kavenegar_log_type();
 			$kavenegar_send_result = \dash\utility\call::send_tts($my_mobile, $message, $code);
 		}
 

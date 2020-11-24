@@ -6,6 +6,21 @@ class enter
 	public static $life_time_code = 60 * 2;
 
 
+	public static function set_kavenegar_log_type()
+	{
+		// swich verify from
+		switch (\dash\utility\enter::get_session('verify_from'))
+		{
+			case 'ask_twostep':				\dash\temp::set('kavenegar_sms_type', 'twostep');			break;
+			case 'two_step_set':			\dash\temp::set('kavenegar_sms_type', 'twostepset');		break;
+			case 'two_step_unset':			\dash\temp::set('kavenegar_sms_type', 'twostepunset');		break;
+			case 'delete':					\dash\temp::set('kavenegar_sms_type', 'deleteaccount');		break;
+			case 'recovery':				\dash\temp::set('kavenegar_sms_type', 'recovermobile');		break;
+			case 'password_change':			\dash\temp::set('kavenegar_sms_type', 'changepassword');	break;
+			case 'signup':		case 'set':	\dash\temp::set('kavenegar_sms_type', 'signup');			break;
+		}
+	}
+
 	public static function try($_module)
 	{
 		$log_caller = 'enterTry:'. $_module;

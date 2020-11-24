@@ -179,6 +179,7 @@ class sms
 
 		$defalt =
 		[
+			'mode'         => null,
 			'mobile'       => null,
 			'mobiles'      => null,
 			'message'      => null,
@@ -206,6 +207,11 @@ class sms
 		$ip_md5 = md5($myIp);
 		$ip_id  = \dash\utility\ip::id($myIp);
 		$type   = \dash\temp::get('kavenegar_sms_type'); //enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL,
+
+		if(!$_args['mode'])
+		{
+			$_args['mode'] = 'sms';
+		}
 
 		$_args['urlmd5']      = md5(\dash\url::pwd());
 		$_args['url']         = \dash\url::pwd();

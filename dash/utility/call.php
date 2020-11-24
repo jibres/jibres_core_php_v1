@@ -82,6 +82,7 @@ class call
 
 		$insert_kavenegar_log =
 		[
+			'mode'         => 'tts',
 			'mobile'       => $mobile,
 			'mobiles'      => null,
 			'message'      => $_message,

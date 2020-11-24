@@ -94,7 +94,7 @@ class send
 		{
 			return false;
 		}
-
+		\dash\temp::set('kavenegar_sms_type', 'notif'); //enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL,
 		\dash\utility\sms::send($_mobile, $_text, $_meta);
 
 	}
