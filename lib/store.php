@@ -281,44 +281,47 @@ class store
 		{
 			if(array_key_exists('key', $value) && array_key_exists('value', $value))
 			{
-				if($value['key'] === 'domain')
-				{
-					if(!isset($result['domain']))
-					{
-						$result['domain'] = [];
-					}
-
-					$domain_status = null;
-					$domain_master = null;
-					$domain_subdomain = null;
-
-					// load domain status from jibres database
-					//@check @reza
-					$load_store_domain_record = \lib\db\store_domain\get::by_domain($value['value']);
-					if(isset($load_store_domain_record['status']))
-					{
-						$domain_status = $load_store_domain_record['status'];
-					}
-
-					if(isset($load_store_domain_record['master']))
-					{
-						$domain_master = $load_store_domain_record['master'];
-					}
-
-					if(isset($load_store_domain_record['subdomain']))
-					{
-						$domain_subdomain = $load_store_domain_record['subdomain'];
-					}
-
-					$result['domain'][] = ['domain' => $value['value'], 'status' => $domain_status, 'master' => $domain_master, 'subdomain' => $domain_subdomain];
-				}
-				else
-				{
-					$result[$value['key']] = $value['value'];
-				}
+				$result[$value['key']] = $value['value'];
 			}
 		}
 
+		if(!isset($result['domain']))
+		{
+			$result['domain'] = [];
+		}
+
+
+		// load domain status from jibres database
+		//@check @reza
+		$load_store_domain_record = \lib\db\business_domain\get::by_store_id($_store_id);
+		if(!is_array($load_store_domain_record))
+		{
+			$load_store_domain_record = [];
+		}
+
+		foreach ($load_store_domain_record as $key => $value)
+		{
+			$domain_status = null;
+			$domain_master = null;
+			$domain_subdomain = null;
+
+			if(isset($value['status']))
+			{
+				$domain_status = $value['status'];
+			}
+
+			if(isset($value['master']))
+			{
+				$domain_master = $value['master'];
+			}
+
+			if(isset($value['subdomain']))
+			{
+				$domain_subdomain = $value['subdomain'];
+			}
+
+			$result['domain'][] = ['domain' => $value['domain'], 'status' => $domain_status, 'master' => $domain_master, 'subdomain' => $domain_subdomain];
+		}
 
 		if(array_key_exists('logo', $result) && !$result['logo'])
 		{
@@ -586,7 +589,7 @@ class store
 		{
 			foreach ($store_detail['store_data']['domain'] as $key => $value)
 			{
-				if(isset($value['domain']) && $value['domain'] && isset($value['master']) && $value['master'] && (isset($value['status']) && $value['status'] === 'ok' || isset($value['subdomain']) && $value['subdomain']))
+				if(isset($value['domain']) && $value['domain'] && isset($value['master']) && $value['master'] && ((isset($value['status']) && $value['status'] === 'ok') || (isset($value['subdomain']) && $value['subdomain'])))
 				{
 
 					$store_domain = $value['domain'];

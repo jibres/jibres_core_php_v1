@@ -179,7 +179,7 @@ class add
 
 		if($update_store_id)
 		{
-			\lib\app\business_domain\edit::edit_raw(['store_id' => $data['store_id']], $update_store_id);
+			\lib\app\business_domain\edit::edit_raw(['store_id' => $data['store_id'], 'master' => $master_domain], $update_store_id);
 			$business_domain_id = $update_store_id;
 		}
 		else
@@ -212,6 +212,8 @@ class add
 		\lib\app\business_domain\action::new_action($business_domain_id, 'add_domain');
 
 		\lib\app\business_domain\edit::reset_redirect_domain_setting();
+
+		\lib\store::reset_cache();
 
 		if(self::$debug)
 		{

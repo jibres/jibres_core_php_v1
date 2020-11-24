@@ -35,7 +35,7 @@
             </tr>
             <tr>
               <td>A</td>
-              <td>www</td>
+              <td>*</td>
               <td><span data-copy='business.jibres.com'><code>business.jibres.com</code> <span class="btn sm"><?php echo T_("Copy") ?></span></span></td>
             </tr>
           </tbody>
