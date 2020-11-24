@@ -24,6 +24,11 @@ class bank
         {
             $client = @new \soapclient('https://de.zarinpal.com/pg/services/WebGate/wsdl', ['exceptions'   => true, 'keep_alive' => false]);
 
+            if(!isset($_args['Description']))
+            {
+                $_args['Description'] = T_("Pay");
+            }
+
             $result                 = $client->PaymentRequest($_args);
             self::$payment_response = $result;
             $msg                    = self::msg($result->Status);
