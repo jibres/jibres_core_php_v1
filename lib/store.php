@@ -320,7 +320,7 @@ class store
 				$domain_subdomain = $value['subdomain'];
 			}
 
-			$result['domain'][] = ['domain' => $value['domain'], 'status' => $domain_status, 'master' => $domain_master, 'subdomain' => $domain_subdomain];
+			@$result['domain'][] = ['domain' => $value['domain'], 'status' => $domain_status, 'master' => $domain_master, 'subdomain' => $domain_subdomain];
 		}
 
 		if(array_key_exists('logo', $result) && !$result['logo'])
