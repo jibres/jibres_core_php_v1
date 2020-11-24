@@ -74,10 +74,26 @@ class call
 		}
 
 
+		$datesend = date("Y-m-d H:i:s");
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_text = null, $_type = 'sms')
 		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth(), self::line());
 		$result = $api->tts($mobile, $_message);
+
+		$insert_kavenegar_log =
+		[
+			'mobile'       => $mobile,
+			'mobiles'      => null,
+			'message'      => $_message,
+			'line'         => self::line(),
+			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
+			'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
+			'datesend'     => $datesend,
+			'dateresponse' => date("Y-m-d H:i:s"),
+		];
+
+		\dash\utility\sms::save_history($insert_kavenegar_log);
+
 		return $result;
 	}
 }

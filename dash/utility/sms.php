@@ -132,11 +132,27 @@ class sms
 		}
 
 		$message = self::make_message($_message, $_options);
-		\dash\log::set('smsSend');
+
+		$datesend = date("Y-m-d H:i:s");
 
 		// send sms
 		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
 		$result    = $myApiData->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
+
+		$insert_kavenegar_log =
+		[
+			'mobile'       => $mobile,
+			'mobiles'      => null,
+			'message'      => $message,
+			'line'         => $_options['line'],
+			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
+			'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
+			'datesend'     => $datesend,
+			'dateresponse' => date("Y-m-d H:i:s"),
+		];
+
+		self::save_history($insert_kavenegar_log);
+
 
 		// success result
 		// {
@@ -150,6 +166,60 @@ class sms
 		// 	"cost": 180
 		// }
 		return $result;
+
+	}
+
+
+	public static function save_history($_args)
+	{
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$defalt =
+		[
+			'mobile'       => null,
+			'mobiles'      => null,
+			'message'      => null,
+			'urlmd5'       => null,
+			'url'          => null,
+			'type'         => null,
+			'user_id'      => null,
+			'store_id'     => null,
+			'ip'           => null,
+			'ip_id'        => null,
+			'ip_md5'       => null,
+			'agent_id'     => null,
+			'line'         => null,
+			'apikey'       => null,
+			'response'     => null,
+			'send'         => null,
+			'datecreated'  => null,
+			'datesend'     => null,
+			'dateresponse' => null,
+		];
+
+		$_args = array_merge($defalt, $_args);
+
+		$myIp   = \dash\server::ip();
+		$ip_md5 = md5($myIp);
+		$ip_id  = \dash\utility\ip::id($myIp);
+		$type   = \dash\temp::get('kavenegar_sms_type'); //enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL,
+
+		$_args['urlmd5']      = md5(\dash\url::pwd());
+		$_args['url']         = \dash\url::pwd();
+		$_args['type']        = $type; //  enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL;
+		$_args['user_id']     = \dash\user::id();
+		$_args['store_id']    = \lib\store::id();
+		$_args['ip']          = $myIp;
+		$_args['ip_id']       = $ip_id;
+		$_args['ip_md5']      = $ip_md5;
+		$_args['agent_id']    = \dash\agent::get(true);
+		$_args['apikey']      = self::kavenegar_auth();
+		$_args['datecreated'] = date("Y-m-d H:i:s");
+
+		\lib\db\kavenegar\insert::new_record($_args);
 
 	}
 
@@ -223,6 +293,8 @@ class sms
 			return null;
 		}
 
+		$datesend = date("Y-m-d H:i:s");
+
 		$result    = [];
 		$message   = self::make_message($_message, $_options);
 		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
@@ -232,6 +304,21 @@ class sms
 		{
 			$result[] = $myApiData->sendarray($_options['line'], $last_200_mobile, $message, $_options['type'], $_options['date']);
 		}
+
+		$insert_kavenegar_log =
+		[
+			'mobile'       => null,
+			'mobiles'      => json_decode($accepted_mobile),
+			'message'      => $message,
+			'line'         => $_options['line'],
+			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
+			'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
+			'datesend'     => $datesend,
+			'dateresponse' => date("Y-m-d H:i:s"),
+		];
+
+		self::save_history($insert_kavenegar_log);
+
 
 		return $result;
 	}
