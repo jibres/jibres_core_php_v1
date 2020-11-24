@@ -164,7 +164,7 @@ class store
 	{
 		$content = \dash\url::content();
 
-		if($content === 'enter' || $content === 'pay' || $content === 'n')
+		if($content === 'enter' || $content === 'pay' || $content === 'n' || $content === 'support')
 		{
 			return true;
 		}

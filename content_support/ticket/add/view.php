@@ -9,9 +9,6 @@ class view
 		\dash\face::title(T_("Add new ticket"));
 		\dash\face::desc(T_("Dot worry!"). ' '. T_("Ask your question."). ' '. T_("We are here to answer your questions."));
 
-		\dash\data::action_text(T_('Back to tickets list'));
-		\dash\data::action_link(\dash\url::this(). \dash\data::accessGet());
-
 		\dash\session::set('ticket_load_page_time', time());
 
 		// btn
