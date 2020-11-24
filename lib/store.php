@@ -294,7 +294,7 @@ class store
 
 					// load domain status from jibres database
 					//@check @reza
-					$load_store_domain_record = \lib\db\store_domain\get::by_domain($value['value']);
+					$load_store_domain_record = \lib\db\business_domain\get::by_domain($value['value']);
 					if(isset($load_store_domain_record['status']))
 					{
 						$domain_status = $load_store_domain_record['status'];
