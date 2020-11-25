@@ -342,10 +342,10 @@ class action
 			case 'sending':
 				$update_factor['status']    = 'sending';
 				// if need to send alert to customer
-				// if(isset($load_factor['customer']))
-				// {
-				// 	\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
-				// }
+				if(isset($load_factor['customer']))
+				{
+					\dash\log::set('order_customerSendingOrder', ['to' => $load_factor['customer'], 'my_id' => $factor_id]);
+				}
 
 				break;
 
