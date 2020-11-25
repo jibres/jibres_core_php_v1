@@ -140,6 +140,8 @@ class kavenegar_api
 
 			$json_data		= json_decode($response, true);
 
+			\dash\temp::set('rawKavenegrarResult', $json_data);
+
 			if(isset($json_data["return"]["status"]))
 			{
 				$this->status = $json_data["return"]["status"];
