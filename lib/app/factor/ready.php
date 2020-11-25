@@ -163,6 +163,19 @@ class ready
 					$product_ready['id'] = $value;
 					break;
 
+
+				case 'title':
+				case 'optionname1':
+				case 'optionvalue1':
+				case 'optionname2':
+				case 'optionvalue2':
+				case 'optionname3':
+				case 'optionvalue3':
+					$result[$key] = $value;
+					$product_ready[$key] = $value;
+					break;
+
+
 				case 'thumb':
 					$result[$key] = $value;
 					$product_ready['thumb'] = $value;
@@ -201,6 +214,7 @@ class ready
 		if(!empty($product_ready))
 		{
 			$product_ready           = \lib\app\product\ready::row($product_ready, ['check_allow_shop' => false, 'check_cart_limit' => false]);
+			$result['title']      = \dash\get::index($product_ready, 'title');
 			$result['edit_url']      = \dash\get::index($product_ready, 'edit_url');
 			$result['thumb']         = \dash\get::index($product_ready, 'thumb');
 			$result['thumb_default'] = \dash\get::index($product_ready, 'thumb_default');
