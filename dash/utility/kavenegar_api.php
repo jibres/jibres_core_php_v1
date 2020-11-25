@@ -120,6 +120,10 @@ class kavenegar_api
 			curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($handle, CURLOPT_POST, true);
 			curl_setopt($handle, CURLOPT_POSTFIELDS, $fields_string);
+
+			curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 10);
+			curl_setopt($handle, CURLOPT_TIMEOUT, 10);
+
 			// add timer to ajax request
 			curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, $CONNECTTIMEOUT);
 			curl_setopt($handle, CURLOPT_TIMEOUT, $TIMEOUT);
@@ -131,6 +135,8 @@ class kavenegar_api
 			//=====================================================================================//
 			// for debug you can uncomment below line to see the result get from server
 
+			\dash\temp::set('rawKavenegrarResult', \dash\safe::forJson($response));
+
 			if(!$response)
 			{
 				$this->status = -1;
@@ -138,9 +144,9 @@ class kavenegar_api
 				return false;
 			}
 
+
 			$json_data		= json_decode($response, true);
 
-			\dash\temp::set('rawKavenegrarResult', $json_data);
 
 			if(isset($json_data["return"]["status"]))
 			{

@@ -221,7 +221,7 @@ class sms
 		$_args['ip']          = $myIp;
 		$_args['ip_id']       = $ip_id;
 		$_args['ip_md5']      = $ip_md5;
-		$_args['response']    = json_encode(\dash\temp::get('rawKavenegrarResult'), JSON_UNESCAPED_UNICODE);
+		$_args['response']    = \dash\temp::get('rawKavenegrarResult');
 		$_args['agent_id']    = \dash\agent::get(true);
 		$_args['apikey']      = self::kavenegar_auth();
 		$_args['datecreated'] = date("Y-m-d H:i:s");
