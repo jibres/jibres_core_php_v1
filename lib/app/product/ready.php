@@ -260,12 +260,15 @@ class ready
 					$result['preparationdatestring'] = $preparationdatestring;
 					break;
 
+				case 'desc':
+					$result[$key] = self::analyze_desc_html($value);
+					break;
+
 				case 'country':
 				case 'city':
 				case 'province':
 				case 'zipcode':
 				case 'name':
-				case 'desc':
 				case 'alias':
 				case 'status':
 				default:
@@ -532,6 +535,27 @@ class ready
 		}
 
 		return $result;
+	}
+
+
+	private static function analyze_desc_html($_data)
+	{
+		if(!$_data || !is_string($_data))
+		{
+			return $_data;
+		}
+
+
+		if(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_data, $split))
+		{
+			$iframe = '<div class="shortCode">';
+			$iframe .= '<iframe src="https://www.aparat.com/video/video/embed/videohash/'. $split[5] .'/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';
+			$iframe .= '</div>';
+			$_data = str_replace($split[0], $iframe, $_data);
+
+		}
+
+		return $_data;
 	}
 
 }
