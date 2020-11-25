@@ -545,6 +545,10 @@ class ready
 			return $_data;
 		}
 
+		if(\dash\url::content() === 'a')
+		{
+			return $_data;
+		}
 
 		while(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_data, $split))
 		{
