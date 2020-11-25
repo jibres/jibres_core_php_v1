@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-25 12:46+0330\n"
-"PO-Revision-Date: 2020-11-25 12:48+0330\n"
+"POT-Creation-Date: 2020-11-25 13:32+0330\n"
+"PO-Revision-Date: 2020-11-25 13:32+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8917,6 +8917,7 @@ msgid "Successful payment"
 msgstr "پرداخت موفقیت‌آمیز"
 
 #: content_a/order/status/display.php:101
+#: lib/app/log/caller/order/order_customerTrackingNumber.php:13
 msgid "Tracking number"
 msgstr "شماره رهگیری"
 
@@ -31857,6 +31858,10 @@ msgstr "حداکثر ظرفیت عملیات‌ برای این سفارش تک�
 msgid "No change in order payment status"
 msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 
+#: lib/app/factor/action.php:299
+msgid "Operation accomplished"
+msgstr "عملیات با موفقیت انجام شد"
+
 #: lib/app/factor/add.php:146 lib/app/factor/calculate.php:55
 msgid "Discount is larger than order total"
 msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
@@ -32892,6 +32897,7 @@ msgstr "هورا :)"
 #: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:16
 #: lib/app/log/caller/order/order_customerNewOrder.php:16
 #: lib/app/log/caller/order/order_customerSendingOrder.php:16
+#: lib/app/log/caller/order/order_customerTrackingNumber.php:16
 msgid "Order"
 msgstr "سفارش"
 
@@ -32899,6 +32905,7 @@ msgstr "سفارش"
 #: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:21
 #: lib/app/log/caller/order/order_customerNewOrder.php:21
 #: lib/app/log/caller/order/order_customerSendingOrder.php:21
+#: lib/app/log/caller/order/order_customerTrackingNumber.php:21
 msgid "Show order"
 msgstr "نمایش سفارش"
 
@@ -32935,6 +32942,10 @@ msgstr ""
 #: lib/app/log/caller/order/order_customerSendingOrder.php:33
 msgid "We have sent your order by post and it will be delivered to you soon."
 msgstr "سفارش شما رو از طریق پست ارسال کردیم و بزودی به‌دست شما خواهد رسید."
+
+#: lib/app/log/caller/order/order_customerTrackingNumber.php:34
+msgid "Your Tracking number is :val"
+msgstr "کد رهگیری شما :val"
 
 #: lib/app/nic_contact/add.php:29
 msgid "Invalid contact"
@@ -36392,9 +36403,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Current status of this order is :status"
 #~ msgstr "وضعیت فعلی این سفارش :status است"
-
-#~ msgid "Operation accomplished"
-#~ msgstr "عملیات با موفقیت انجام شد"
 
 #~ msgid "The maximum count product in factor in your store is :val"
 #~ msgstr "حداکثر تعداد کالا در فاکتور در فروشگاه شما :val است"
