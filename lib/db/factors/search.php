@@ -134,7 +134,7 @@ class search
 			WHERE
 				factors.status = 'pending_pay' AND
 				factors.type = 'saleorder' AND
-				(factors.pay IS NULL OR factors.pay = 0) AND
+				factors.paystatus = 'awaiting_payment'  AND
 				factors.datecreated <= '$_expire_date'
 			";
 
