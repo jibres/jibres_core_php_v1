@@ -20,6 +20,10 @@ class model
 			'action' => \dash\request::post('orderaction'),
 		];
 
+		if(\dash\request::post('orderaction') === 'tracking')
+		{
+			$post['desc'] = \dash\request::post('trackingnumber');
+		}
 
 		\lib\app\factor\action::add($post, \dash\request::get('id'));
 
