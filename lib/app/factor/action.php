@@ -281,12 +281,22 @@ class action
 
 		if($data['action'] === 'tracking')
 		{
+			$data['desc'] = \dash\validate::bigint($data['desc']);
+
 			$check_exist_tracking = \lib\db\factoraction\get::by_action_factor_id($factor_id, 'tracking');
 			if(isset($check_exist_tracking['id']))
 			{
 				$insert_new_record = false;
 				\lib\db\factoraction\update::record(['desc' => $data['desc'], 'datemodified' => date("Y-m-d H:i:s")], $check_exist_tracking['id']);
 			}
+
+			// if need to send alert to customer
+			if(isset($load_factor['customer']))
+			{
+				\dash\log::set('order_customerTrackingNumber', ['to' => $load_factor['customer'], 'my_id' => $factor_id, 'my_tackingnumber' => $data['desc']]);
+			}
+
+			\dash\notif::ok(T_("Operation accomplished"));
 
 		}
 		if($insert_new_record)
