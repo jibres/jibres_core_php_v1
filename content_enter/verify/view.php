@@ -19,6 +19,25 @@ class view
 
 		self::verifyPageTitle();
 
+		$sendWayCod = \dash\data::sendWayCod();
+		if(is_array($sendWayCod) && count($sendWayCod) === 1)
+		{
+			$sendWayCod = array_values($sendWayCod);
+			$sendWayCod = $sendWayCod[0];
+			if(in_array($sendWayCod, ['sms', 'call', 'telegram']))
+			{
+
+				$OnlyOneWay =
+				[
+					'sendCode'         => $sendWayCod,
+					'usernameormobile' => $mobile_or_email,
+				];
+
+				\dash\temp::set('OnlyOneWay', $OnlyOneWay);
+				\content_enter\verify\model::post();
+			}
+		}
+
 		// back
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_text(T_('Back'));

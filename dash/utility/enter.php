@@ -762,11 +762,11 @@ class enter
 		if($mobile && \dash\validate::mobile($mobile, false))
 		{
 			array_push($way, 'sms');
-			array_push($way, 'call');
 
 			// send sms is not active for business login
 			if(!\dash\engine\store::inStore())
 			{
+				array_push($way, 'call');
 				array_push($way, 'sendsms');
 			}
 		}

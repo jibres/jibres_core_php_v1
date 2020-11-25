@@ -19,11 +19,18 @@ class model
 			'sendCode'         => ['enum' => $way],
 		];
 
-		$args =
-		[
-			'sendCode'         => \dash\request::post('sendCode'),
-			'usernameormobile' => \dash\request::post('usernameormobile'),
-		];
+		if(\dash\temp::get('OnlyOneWay'))
+		{
+			$args = \dash\temp::get('OnlyOneWay');
+		}
+		else
+		{
+			$args =
+			[
+				'sendCode'         => \dash\request::post('sendCode'),
+				'usernameormobile' => \dash\request::post('usernameormobile'),
+			];
+		}
 
 		$require = ['sendCode', 'usernameormobile'];
 
