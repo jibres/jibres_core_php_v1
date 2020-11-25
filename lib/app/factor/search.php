@@ -293,18 +293,18 @@ class search
 			self::$is_filtered = true;
 		}
 
-		if($data['pay'] === 'y')
-		{
-			$and[] = " factors.pay IS NOT NULL ";
-			self::$filter_args[T_('Pay')] = T_("Payed");
-			self::$is_filtered = true;
-		}
-		elseif($data['pay'] === 'n')
-		{
-			$and[] = " factors.pay IS NULL ";
-			self::$filter_args[T_('Pay')] = T_("Not Payed");
-			self::$is_filtered = true;
-		}
+		// if($data['pay'] === 'y')
+		// {
+		// 	$and[] = " factors.pay IS NOT NULL ";
+		// 	self::$filter_args[T_('Pay')] = T_("Payed");
+		// 	self::$is_filtered = true;
+		// }
+		// elseif($data['pay'] === 'n')
+		// {
+		// 	$and[] = " factors.pay IS NULL ";
+		// 	self::$filter_args[T_('Pay')] = T_("Not Payed");
+		// 	self::$is_filtered = true;
+		// }
 
 		$query_string = \dash\validate::search($_query_string, false);
 
