@@ -72,10 +72,48 @@ class model
 		{
 			$kavenegar_send_result = true;
 		}
-		else
+		// else
 		{
+
 			\dash\utility\enter::set_kavenegar_log_type();
-			$kavenegar_send_result = \dash\utility\sms::send($my_mobile, $msg, $sms_option);
+
+			if(\dash\language::current() === 'fa')
+			{
+				$lang = 'fa';
+			}
+			else
+			{
+				$lang = 'en';
+			}
+
+			$business = null;
+			if(\dash\engine\store::inStore())
+			{
+				$business = '-business';
+			}
+
+			$template = 'jibres'. $business. '-enter-'. $lang;
+
+			$token    = $code;
+
+			if(\dash\engine\store::inStore())
+			{
+				$sms_setting = \lib\app\setting\get::sms_setting();
+				if(isset($sms_setting['kavenegar_apikey']) && $sms_setting['kavenegar_apikey'])
+				{
+					$kavenegar_send_result = \dash\utility\sms::send($my_mobile, $msg, $sms_option);
+				}
+				else
+				{
+					$token2 = \lib\store::title();
+					$kavenegar_send_result = \dash\utility\sms::verification_code($my_mobile, $template, $token, null, null, null, $token2);
+				}
+			}
+			else
+			{
+				$kavenegar_send_result = \dash\utility\sms::verification_code($my_mobile, $template, $token);
+			}
+
 		}
 
 		if($kavenegar_send_result === 411 && substr($my_mobile, 0, 2) === '98')

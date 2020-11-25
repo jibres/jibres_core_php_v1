@@ -488,7 +488,7 @@ class kavenegar_api
 	 * @param      <type>  $_template  The template
 	 * @param      string  $_type      The type
 	 */
-	public function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_template = null, $_type = 'sms')
+	public function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_token10 = null, $_token20 = null, $_template = null, $_type = 'sms')
 	{
 
 		$path = $this->get_path('lookup','verify');
@@ -496,11 +496,14 @@ class kavenegar_api
 		[
 			'receptor' => $_mobile,
 			'token'    => $_token,
-			'token2'   => $_token2,
-			'token3'   => $_token3,
 			'template' => $_template,
 			'type'     => $_type,
 		];
+
+		if(!is_null($_token2)) $parameters['token2']   = $_token2;
+		if(!is_null($_token3)) $parameters['token3']   = $_token3;
+		if(!is_null($_token10)) $parameters['token10'] = $_token10;
+		if(!is_null($_token20)) $parameters['token20'] = $_token20;
 
 		$json = $this->execute($path, $parameters);
 

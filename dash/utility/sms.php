@@ -170,6 +170,50 @@ class sms
 	}
 
 
+	public static function verification_code($_mobile, $_template, $_token, $_token2 = null, $_token3 = null, $_token10 = null, $_token20 = null, $_type = null)
+	{
+		if(!$_mobile || !$_token || !$_template)
+		{
+			return null;
+		}
+
+		$default_option =
+		[
+			'line'           => self::line(),
+		];
+
+		$_options = [];
+
+		$_options = array_merge($default_option, $_options);
+
+
+		$mobile = \dash\validate::ir_mobile($_mobile, false);
+		if(!$mobile)
+		{
+			return false;
+		}
+
+		$datesend = date("Y-m-d H:i:s");
+
+		// send sms
+		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
+		$result    = $myApiData->verify($mobile, $_token, $_token2, $_token3, $_token10, $_token20, $_template, $_type);
+
+		$insert_kavenegar_log =
+		[
+			'mobile'       => $mobile,
+			'message'      => json_encode(array_filter(func_get_args()), JSON_UNESCAPED_UNICODE),
+			'line'         => $_options['line'],
+			'datesend'     => $datesend,
+			'dateresponse' => date("Y-m-d H:i:s"),
+		];
+
+		self::save_history($insert_kavenegar_log);
+
+
+	}
+
+
 	public static function save_history($_args)
 	{
 		if(!is_array($_args))
