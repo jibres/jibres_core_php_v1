@@ -23,13 +23,7 @@
       <?php } //endif ?>
           <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
           <td class="">
-            <?php if(\dash\get::index($value, 'province_name') || \dash\get::index($value, 'city_name')) {?>
-              <?php echo \dash\get::index($value, 'province_name'); ?>
-              <?php echo \dash\get::index($value, 'city_name'); ?>
-            <?php }else{ ?>
-              <?php echo \dash\get::index($value, 'answer'); ?>
-              <?php echo \dash\get::index($value, 'textarea'); ?>
-            <?php } //endif ?>
+            <?php  HTMLshowDetaiRecrod($value) ?>
           </td>
       <?php  if(!($i % 2)) { ?>
         </tr>
@@ -63,14 +57,7 @@
         <tr>
           <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
           <td class="">
-            <?php if(\dash\get::index($value, 'province_name') || \dash\get::index($value, 'city_name')) {?>
-              <?php echo \dash\get::index($value, 'province_name'); ?>
-              <?php echo \dash\get::index($value, 'city_name'); ?>
-            <?php }else{ ?>
-              <?php echo \dash\get::index($value, 'answer'); ?>
-              <?php echo \dash\get::index($value, 'textarea'); ?>
-            <?php } //endif ?>
-
+            <?php  HTMLshowDetaiRecrod($value) ?>
             </td>
         </tr>
 <?php } //endif ?>
@@ -177,3 +164,26 @@
   </div>
 </div>
 <?php } //endif ?>
+
+
+
+<?php
+function HTMLshowDetaiRecrod($value)
+{
+   if(\dash\get::index($value, 'province_name') || \dash\get::index($value, 'city_name'))
+  {
+    echo \dash\get::index($value, 'province_name');
+    echo \dash\get::index($value, 'city_name');
+  }
+  elseif(isset($value['item_type']) && $value['item_type'] === 'file')
+  {
+    echo '<a target="_blank" href="'. \lib\filepath::fix($value['answer']). '" class="btn link" >'. T_("Show file"). '</a>';
+  }
+  else
+  {
+    echo \dash\get::index($value, 'answer');
+    echo ' ';
+    echo \dash\get::index($value, 'textarea');
+  }
+}
+?>
