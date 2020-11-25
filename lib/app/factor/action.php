@@ -221,6 +221,13 @@ class action
 			return false;
 		}
 
+		$check_count_action = \lib\db\factoraction\get::count_by_factor_id($factor_id);
+		if(floatval($check_count_action) > 100)
+		{
+			\dash\notif::error(T_("Maximum capacity of order action is full!"));
+			return false;
+		}
+
 
 		$category = null;
 		switch ($data['action'])
@@ -270,20 +277,35 @@ class action
 				break;
 		}
 
+		$insert_new_record = true;
+
+		if($data['action'] === 'tracking')
+		{
+			$check_exist_tracking = \lib\db\factoraction\get::by_action_factor_id($factor_id, 'tracking');
+			if(isset($check_exist_tracking['id']))
+			{
+				$insert_new_record = false;
+				\lib\db\factoraction\update::record(['desc' => $data['desc'], 'datemodified' => date("Y-m-d H:i:s")], $check_exist_tracking['id']);
+			}
+
+		}
+		if($insert_new_record)
+		{
+			$insert =
+			[
+				'factor_id'   => $factor_id,
+				'action'      => $data['action'],
+				'category'    => $category,
+				'desc'        => $data['desc'],
+				'file'        => $data['file'],
+				'user_id'     => \dash\user::id(),
+				'datecreated' => date("Y-m-d H:i:s")
+			];
+
+			\lib\db\factoraction\insert::new_record($insert);
+		}
 
 
-		$insert =
-		[
-			'factor_id'   => $factor_id,
-			'action'      => $data['action'],
-			'category'    => $category,
-			'desc'        => $data['desc'],
-			'file'        => $data['file'],
-			'user_id'     => \dash\user::id(),
-			'datecreated' => date("Y-m-d H:i:s")
-		];
-
-		$result = \lib\db\factoraction\insert::new_record($insert);
 
 		// \dash\notif::ok(T_("Operation accomplished"));
 

@@ -22,6 +22,10 @@ class view
 			{
 				$myActionList[] = $value;
 			}
+			if(isset($value['action']) && $value['action'] === 'tracking')
+			{
+				\dash\data::myTrackingNumber($value['desc']);
+			}
 		}
 
 		\dash\data::myActionList($myActionList);

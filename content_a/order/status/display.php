@@ -100,7 +100,7 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
       <div class="body">
         <label for='itrackingnumber'><i class="sf-bell"></i> <?php echo T_("Tracking number") ?></label>
         <div class="input ltr">
-          <input type="tel" maxlength="30" name="trackingnumber" id="itrackingnumber" value="<?php echo null ?>">
+          <input type="tel" maxlength="30" name="trackingnumber" id="itrackingnumber" value="<?php echo \dash\data::myTrackingNumber(); ?>">
         </div>
         <div class="fc-mute mT10">
           <?php echo T_("Save Tracking number for this order") ?>.
