@@ -295,13 +295,17 @@ class store
 			$result['domain'] = [];
 		}
 
+		$load_store_domain_record = [];
 
-		// load domain status from jibres database
-		//@check @reza
-		$load_store_domain_record = \lib\db\business_domain\get::by_store_id($_store_id);
-		if(!is_array($load_store_domain_record))
+		if($_store_id)
 		{
-			$load_store_domain_record = [];
+			// load domain status from jibres database
+			//@check @reza
+			$load_store_domain_record = \lib\db\business_domain\get::by_store_id($_store_id);
+			if(!is_array($load_store_domain_record))
+			{
+				$load_store_domain_record = [];
+			}
 		}
 
 		foreach ($load_store_domain_record as $key => $value)
