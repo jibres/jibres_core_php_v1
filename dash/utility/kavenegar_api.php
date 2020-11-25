@@ -106,8 +106,8 @@ class kavenegar_api
 		}
 		else
 		{
-			$CONNECTTIMEOUT = 3;
-			$TIMEOUT        = 2;
+			$CONNECTTIMEOUT = 5;
+			$TIMEOUT        = 5;
 		}
 
 		//======================================================================================//
