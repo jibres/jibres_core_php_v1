@@ -44,8 +44,14 @@ class check
 
 		$meta =	[];
 
+
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if(substr_count($data['title'], ' ') > 8)
+		{
+			\dash\notif::error(T_("You can use less than 8 space character in business name"));
+			return false;
+		}
 
 		if($data['google_analytics'])
 		{

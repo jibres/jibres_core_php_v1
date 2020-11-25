@@ -26,6 +26,12 @@ class model
 				return false;
 			}
 
+			if(substr_count($title, ' ') > 8)
+			{
+				\dash\notif::error(T_("You can use less than 8 space character in business name"));
+				return false;
+			}
+
 			\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title]);
 
 			\dash\redirect::to(\dash\url::this(). '/ask?'. \dash\request::fix_get(['title' => $title, 'st1' => time()]));

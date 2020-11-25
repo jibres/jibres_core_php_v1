@@ -105,6 +105,13 @@ class add
 
 		// check title
 		$title     = $data['title'];
+
+		if(substr_count($title, ' ') > 8)
+		{
+			\dash\notif::error(T_("You can use less than 8 space character in business name"));
+			return false;
+		}
+
 		$subdomain = $data['subdomain'];
 
 		$check_exist = \lib\db\store\get::subdomain_exist($subdomain);
