@@ -96,6 +96,7 @@ class kavenegar_api
 			}
 			rtrim($fields_string, '&');
 		}
+		\dash\temp::set('rawKavenegrarSendParam', json_encode($_data, JSON_UNESCAPED_UNICODE));
 		// for debug you can uncomment below line to see the send parameters
 		if($_long_time_out)
 		{
@@ -120,9 +121,6 @@ class kavenegar_api
 			curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($handle, CURLOPT_POST, true);
 			curl_setopt($handle, CURLOPT_POSTFIELDS, $fields_string);
-
-			curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 10);
-			curl_setopt($handle, CURLOPT_TIMEOUT, 10);
 
 			// add timer to ajax request
 			curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, $CONNECTTIMEOUT);

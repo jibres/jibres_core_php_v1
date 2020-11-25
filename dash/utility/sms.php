@@ -213,6 +213,7 @@ class sms
 			$_args['mode'] = 'sms';
 		}
 
+
 		$_args['urlmd5']      = md5(\dash\url::pwd());
 		$_args['url']         = \dash\url::pwd();
 		$_args['type']        = $type; //  enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL;
@@ -222,6 +223,7 @@ class sms
 		$_args['ip_id']       = $ip_id;
 		$_args['ip_md5']      = $ip_md5;
 		$_args['response']    = \dash\temp::get('rawKavenegrarResult');
+		$_args['send']        = \dash\temp::get('rawKavenegrarSendParam');
 		$_args['agent_id']    = \dash\agent::get(true);
 		$_args['apikey']      = self::kavenegar_auth();
 		$_args['datecreated'] = date("Y-m-d H:i:s");
