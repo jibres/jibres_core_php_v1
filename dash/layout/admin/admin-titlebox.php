@@ -42,6 +42,9 @@ if(\dash\face::boxTitle() !== false)
      <a class="btn light <?php if(\dash\face::btnNext() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnNext() !== 'disabled') { echo 'href="'. \dash\face::btnNext().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
     </nav>
 <?php } // endif ?>
+<?php if(\dash\face::btnPrint()) { ?>
+     <a class="btn master" data-exec='print'><i class="pRa5 compact sf-print"></i><span><?php echo T_("Print"); ?></span></a>
+<?php } // endif ?>
 <?php if(\dash\data::action_text() && \dash\data::action_link()) { ?>
     <nav class="c-auto os">
      <a class="btn master" href="<?php echo \dash\data::action_link(); ?>" data-shortkey="120"><span><?php echo \dash\data::action_text(); ?></span> <kbd>F9</kbd></a>

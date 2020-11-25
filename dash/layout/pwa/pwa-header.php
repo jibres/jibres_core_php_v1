@@ -46,6 +46,12 @@ if(!\dash\face::disablePWA_Header())
   {
     echo "<a class='square duplicate' href='". \dash\face::btnDuplicate(). "'></a>";
   }
+
+  // if(\dash\face::btnPrint())
+  // {
+  //   echo "<a class='square print' data-exec='print'></a>";
+  // }
+
   // cart btn
   if(\dash\data::cart_link() !== null)
   {
