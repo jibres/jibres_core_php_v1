@@ -1,6 +1,6 @@
 <?php
 namespace dash\utility;
-require(core."utility/kavenegar_api.php");
+require_once(core."utility/kavenegar_api.php");
 
 /** Sms management class **/
 class sms
@@ -256,7 +256,6 @@ class sms
 		{
 			$_args['mode'] = 'sms';
 		}
-
 
 		$_args['urlmd5']      = md5(\dash\url::pwd());
 		$_args['url']         = \dash\url::pwd();

@@ -1,6 +1,6 @@
 <?php
 namespace dash\utility;
-require(core."utility/kavenegar_api.php");
+require_once(core."utility/kavenegar_api.php");
 
 /** call management class **/
 class call
@@ -87,8 +87,6 @@ class call
 			'mobiles'      => null,
 			'message'      => $_message,
 			'line'         => self::line(),
-			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
-			'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
 			'datesend'     => $datesend,
 			'dateresponse' => date("Y-m-d H:i:s"),
 		];
