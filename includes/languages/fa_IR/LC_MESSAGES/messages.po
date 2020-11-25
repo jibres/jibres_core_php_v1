@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-24 15:39+0330\n"
-"PO-Revision-Date: 2020-11-24 15:41+0330\n"
+"POT-Creation-Date: 2020-11-25 12:46+0330\n"
+"PO-Revision-Date: 2020-11-25 12:48+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5874,7 +5874,7 @@ msgstr "مایکت"
 #: content_a/form/answer/detail/display.php:101 content_a/order/address/display.php:75
 #: content_a/order/comment/display.php:17 content_a/order/discount/display.php:32
 #: content_a/order/editdate/display.php:46 content_a/order/productList.php:68
-#: content_a/order/status/display.php:143 content_a/products/desc/display.php:22
+#: content_a/order/status/display.php:112 content_a/products/desc/display.php:22
 #: content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:4
 #: content_a/products/property/display.php:159 content_a/products/sharetext/display.php:22
@@ -7076,7 +7076,7 @@ msgstr "شما می‌توانید هم اکنون این را حذف کنید!"
 #: content_a/company/display.php:67 content_a/company/display.php:189
 #: content_a/company/display.php:244
 #: content_a/form/analytics/addcondition/display-condition.php:41
-#: content_a/form/analytics/remove/display.php:8 content_a/order/status/display.php:43
+#: content_a/form/analytics/remove/display.php:8 content_a/order/status/display.php:46
 #: content_a/products/property/display.php:57 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
 #: content_account/address.php:10 content_my/business/ask/display.php:45
@@ -8116,7 +8116,7 @@ msgstr ""
 msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
-#: content_a/form/status/display.php:17 content_a/order/status/display.php:39
+#: content_a/form/status/display.php:17 content_a/order/status/display.php:42
 #: content_a/website/body/display.php:20 content_cms/posts/edit/display.php:613
 #: content_cms/posts/home/display.php:189 includes/languages/trans_static.php:550
 #: lib/app/factor/action.php:60 lib/app/factor/ready.php:110 lib/app/tax/doc/ready.php:40
@@ -8138,7 +8138,7 @@ msgstr "انتشار"
 msgid "The form is publish"
 msgstr "فرم منتشر شده است"
 
-#: content_a/form/status/display.php:41 content_a/order/status/display.php:44
+#: content_a/form/status/display.php:41 content_a/order/status/display.php:47
 #: content_love/domain/setting/display.php:128 includes/languages/trans_static.php:549
 #: lib/app/factor/action.php:65 lib/app/factor/ready.php:115
 msgid "Expire"
@@ -8796,28 +8796,36 @@ msgstr "برای اینکه از تخفیف اصلی محصول خوانده ش�
 msgid "Change Order status"
 msgstr "ویرایش وضعیت سفارش"
 
-#: content_a/order/status/display.php:19
+#: content_a/order/status/display.php:17
+msgid "Change order status by click on custome status"
+msgstr "با کلیک روی هر کدام از وضعیت‌های زیر، وضعیت سفارش را تغییر دهید"
+
+#: content_a/order/status/display.php:21
 msgid "Set as preparing"
 msgstr "درحال آماده سازی"
 
-#: content_a/order/status/display.php:22
+#: content_a/order/status/display.php:24
 msgid "Set as sending"
 msgstr "درحال ارسال"
 
-#: content_a/order/status/display.php:26
+#: content_a/order/status/display.php:28
 msgid "Set as delivered"
 msgstr "تنظیم به عنوان تحویل داده شده"
 
-#: content_a/order/status/display.php:30
+#: content_a/order/status/display.php:32
 msgid "Something else"
 msgstr "موارد دیگر"
 
-#: content_a/order/status/display.php:40 lib/app/factor/action.php:61
+#: content_a/order/status/display.php:40
+msgid "Choose order status to change it"
+msgstr "برای تغییر وضعیت سفارش لطفا وضعیت مورد نظر خود را انتخاب کنید"
+
+#: content_a/order/status/display.php:43 lib/app/factor/action.php:61
 #: lib/app/factor/ready.php:111
 msgid "Registered"
 msgstr "ثبت‌ شده"
 
-#: content_a/order/status/display.php:41 content_a/products/comment/display.php:198
+#: content_a/order/status/display.php:44 content_a/products/comment/display.php:198
 #: content_a/products/comment/edit/display.php:35 content_cms/comments/edit/display.php:48
 #: content_cms/comments/home/display.php:207 content_cms/terms/display.php:228
 #: content_crm/member/home/display.php:682 content_crm/member/security/display.php:77
@@ -8827,43 +8835,43 @@ msgstr "ثبت‌ شده"
 msgid "Awaiting"
 msgstr "در حال انتظار"
 
-#: content_a/order/status/display.php:42 lib/app/factor/action.php:63
+#: content_a/order/status/display.php:45 lib/app/factor/action.php:63
 #: lib/app/factor/ready.php:113
 msgid "Confirmed"
 msgstr "تایید شده"
 
-#: content_a/order/status/display.php:45 lib/app/factor/action.php:66
+#: content_a/order/status/display.php:48 lib/app/factor/action.php:66
 #: lib/app/factor/ready.php:116
 msgid "Preparing"
 msgstr "درحال آماده سازی"
 
-#: content_a/order/status/display.php:46 lib/app/factor/action.php:67
+#: content_a/order/status/display.php:49 lib/app/factor/action.php:67
 #: lib/app/factor/ready.php:117
 msgid "Sending"
 msgstr "درحال ارسال"
 
-#: content_a/order/status/display.php:47 lib/app/factor/action.php:68
+#: content_a/order/status/display.php:50 lib/app/factor/action.php:68
 #: lib/app/factor/ready.php:118
 msgid "Delivered"
 msgstr "تحویل داده شده"
 
-#: content_a/order/status/display.php:48 lib/app/factor/action.php:69
+#: content_a/order/status/display.php:51 lib/app/factor/action.php:69
 #: lib/app/factor/ready.php:119
 msgid "Revert"
 msgstr "بازگشت داده شده"
 
-#: content_a/order/status/display.php:49 includes/languages/trans_static.php:630
+#: content_a/order/status/display.php:52 includes/languages/trans_static.php:630
 #: lib/app/factor/action.php:70 lib/app/factor/ready.php:120
 msgid "Success"
 msgstr "موفقیت‌آمیز"
 
-#: content_a/order/status/display.php:50 content_a/products/inventory/display.php:81
+#: content_a/order/status/display.php:53 content_a/products/inventory/display.php:81
 #: includes/languages/trans_static.php:1026 lib/app/factor/action.php:71
 #: lib/app/factor/ready.php:121
 msgid "Archive"
 msgstr "بایگانی"
 
-#: content_a/order/status/display.php:51 content_a/products/comment/display.php:143
+#: content_a/order/status/display.php:54 content_a/products/comment/display.php:143
 #: content_a/products/comment/display.php:234
 #: content_a/products/comment/edit/display.php:47 content_cms/comments/edit/display.php:60
 #: content_cms/comments/home/display.php:152 content_cms/comments/home/display.php:243
@@ -8876,45 +8884,58 @@ msgstr "بایگانی"
 msgid "Spam"
 msgstr "هرزنامه"
 
-#: content_a/order/status/display.php:79
+#: content_a/order/status/display.php:66
 msgid "Change order payment status"
 msgstr "ویرایش وضعیت پرداخت سفارش"
 
-#: content_a/order/status/display.php:82 lib/app/factor/action.php:77
+#: content_a/order/status/display.php:67
+msgid "Change order payment status by click on custome status"
+msgstr "با کلیک روی هر کدام از وضعیت‌های زیر، وضعیت پرداخت سفارش را تغییر دهید"
+
+#: content_a/order/status/display.php:71 lib/app/factor/action.php:77
 #: lib/app/factor/ready.php:95
 msgid "Awaiting payment"
 msgstr "در انتظار پرداخت"
 
-#: content_a/order/status/display.php:85 lib/app/factor/action.php:78
+#: content_a/order/status/display.php:74 lib/app/factor/action.php:78
 msgid "Awaiting verify payment"
 msgstr "در انتظار تایید پرداخت"
 
-#: content_a/order/status/display.php:89 lib/app/factor/action.php:79
+#: content_a/order/status/display.php:78 lib/app/factor/action.php:79
 #: lib/app/factor/ready.php:97
 msgid "Unsuccessful payment"
 msgstr "پرداخت ناموفق"
 
-#: content_a/order/status/display.php:93 lib/app/factor/action.php:80
+#: content_a/order/status/display.php:82 lib/app/factor/action.php:80
 #: lib/app/factor/ready.php:98
 msgid "Payment unverified"
 msgstr "پرداخت تایید نشده"
 
-#: content_a/order/status/display.php:97 lib/app/factor/action.php:81
+#: content_a/order/status/display.php:86 lib/app/factor/action.php:81
 #: lib/app/factor/ready.php:99
 msgid "Successful payment"
 msgstr "پرداخت موفقیت‌آمیز"
 
-#: content_a/order/status/display.php:128
-msgid "Remove order"
-msgstr "حذف سفارش"
-
-#: content_a/order/status/display.php:138
+#: content_a/order/status/display.php:101
 msgid "Tracking number"
 msgstr "شماره رهگیری"
 
-#: content_a/order/status/display.php:140
+#: content_a/order/status/display.php:106
 msgid "Save Tracking number for this order"
 msgstr "ذخیره کد رهگیری برای این سفارش"
+
+#: content_a/order/status/display.php:107
+msgid "After saving the tracking code, we will send it to the customer"
+msgstr "بعد از ذخیره سازی شماره پیگیری ما آن را به مشتری اعلام خواهیم کرد"
+
+#: content_a/order/status/display.php:120
+msgid "Remove order"
+msgstr "حذف سفارش"
+
+#: content_a/order/status/display.php:129 content_love/domain/detail/pageStep.php:44
+#: content_love/domain/setting/pageStep.php:45 content_my/domain/setting/pageStep.php:61
+msgid "Action history"
+msgstr "تاریخچه"
 
 #: content_a/order/summary.php:7
 msgid "Subprice"
@@ -17655,11 +17676,6 @@ msgstr "مدیریت رابط‌های مجاز"
 #: content_my/domain/setting/pageStep.php:30
 msgid "DNS setting"
 msgstr "تنظیمات دی‌ان‌اس"
-
-#: content_love/domain/detail/pageStep.php:44 content_love/domain/setting/pageStep.php:45
-#: content_my/domain/setting/pageStep.php:61
-msgid "Action history"
-msgstr "تاریخچه"
 
 #: content_love/domain/detail/transfer/display.php:7
 #: content_love/domain/setting/transfer/display.php:7
@@ -31833,7 +31849,11 @@ msgstr "لطفا توضیحات را تکمیل کنید و یا فایلی را
 msgid "Order not found!"
 msgstr "سفارش یافت نشد!"
 
-#: lib/app/factor/action.php:267
+#: lib/app/factor/action.php:227
+msgid "Maximum capacity of order action is full!"
+msgstr "حداکثر ظرفیت عملیات‌ برای این سفارش تکمیل شده است!"
+
+#: lib/app/factor/action.php:274
 msgid "No change in order payment status"
 msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 
@@ -32863,30 +32883,17 @@ msgstr "ساخت فایل خروجی تکمیل شد"
 msgid "This file will be automatically deleted for a few minutes"
 msgstr "این فایل به صورت خودکار تا چند دقیقه دیگر حذف خواهد شد"
 
-#: lib/app/log/caller/order/order_adminNewOrder.php:13
-msgid "New order registered"
-msgstr "سفارش جدید ثبت شد"
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:13
+#: lib/app/log/caller/order/order_customerSendingOrder.php:13
+msgid "Hooray :)"
+msgstr "هورا :)"
 
-#: lib/app/log/caller/order/order_adminNewOrder.php:16
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:16
 #: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:16
 #: lib/app/log/caller/order/order_customerNewOrder.php:16
 #: lib/app/log/caller/order/order_customerSendingOrder.php:16
 msgid "Order"
 msgstr "سفارش"
-
-#: lib/app/log/caller/order/order_adminNewOrder.php:31
-msgid "New order registered by code :val."
-msgstr "سفارش جدید ثبت شد کد سفارش :val."
-
-#: lib/app/log/caller/order/order_adminNewOrder.php:35
-msgid "Total order amount :val"
-msgstr "مبلغ کل سفارش :val"
-
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:13
-#: lib/app/log/caller/order/order_customerSendingOrder.php:13
-msgid "Hooray :)"
-msgstr "هورا :)"
 
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:21
 #: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:21
@@ -36368,6 +36375,15 @@ msgstr "یارد"
 msgid "Samandehi"
 msgstr "ساماندهی"
 
+#~ msgid "New order registered"
+#~ msgstr "سفارش جدید ثبت شد"
+
+#~ msgid "New order registered by code :val."
+#~ msgstr "سفارش جدید ثبت شد کد سفارش :val."
+
+#~ msgid "Total order amount :val"
+#~ msgstr "مبلغ کل سفارش :val"
+
 #~ msgid "Try to start with add new buy!"
 #~ msgstr "با افزودن خرید جدید تلاشی برای شروع داشته باشید!"
 
@@ -37688,9 +37704,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Update avatar"
 #~ msgstr "به‌روزرسانی آواتار"
-
-#~ msgid "Upload your avatar to change it"
-#~ msgstr "برای تغییر آواتار خود کافیست آن را آپلود کنید"
 
 #~ msgid "You file location to upload"
 #~ msgstr "آدرس فایل شما برای آپلود"
