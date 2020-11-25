@@ -1220,6 +1220,18 @@ class posts
 					$result[$key] = $value;
 					break;
 
+
+				case 'content':
+					if(\dash\url::content() === 'cms')
+					{
+						$result[$key] = $value;
+					}
+					else
+					{
+						$result[$key] = \lib\shortcode::analyze_desc_html($value);
+					}
+					break;
+
 				case 'thumb':
 					if($value)
 					{
