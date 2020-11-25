@@ -497,9 +497,10 @@ class kavenegar_api
 			'receptor' => $_mobile,
 			'token'    => $_token,
 			'template' => $_template,
-			'type'     => $_type,
+
 		];
 
+		if(!is_null($_type)) $parameters['token2']     = $_type;
 		if(!is_null($_token2)) $parameters['token2']   = $_token2;
 		if(!is_null($_token3)) $parameters['token3']   = $_token3;
 		if(!is_null($_token10)) $parameters['token10'] = $_token10;

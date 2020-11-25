@@ -32,6 +32,10 @@ class kavenegar
 					$json['apikey'] = $sms_setting['kavenegar_apikey'];
 					$json['line']   = null;
 				}
+				else
+				{
+					$json['apikey'] = $json['business_apikey'];
+				}
 			}
 
 			self::$load = $json;
