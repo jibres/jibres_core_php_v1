@@ -72,7 +72,7 @@ class model
 		{
 			$kavenegar_send_result = true;
 		}
-		// else
+		else
 		{
 
 			\dash\utility\enter::set_kavenegar_log_type();
