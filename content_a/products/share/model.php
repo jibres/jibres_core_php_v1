@@ -83,7 +83,7 @@ class model
 		[
 			[
 				'text' => T_("Website"),
-				'url'  => \lib\store::url(). '/p/'. \dash\data::productDataRow_id(),
+				'url'  => \lib\store::url(),
 			],
 		];
 
@@ -117,7 +117,7 @@ class model
 				[
 					[
 						'text' => T_("Register a new order"),
-						'url'  => \lib\store::url(),
+						'url'  => \lib\store::url(). '/p/'. \dash\data::productDataRow_id(),
 					],
 				],
 
