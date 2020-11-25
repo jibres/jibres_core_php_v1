@@ -548,7 +548,7 @@ class ready
 
 		if(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_data, $split))
 		{
-			$iframe = '<div class="shortCode">';
+			$iframe = '<div class="shortcode" type="video" from="aparat">';
 			$iframe .= '<iframe src="https://www.aparat.com/video/video/embed/videohash/'. $split[5] .'/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';
 			$iframe .= '</div>';
 			$_data = str_replace($split[0], $iframe, $_data);
