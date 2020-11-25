@@ -277,8 +277,6 @@ class cart
 			\lib\app\factor\action::set('awaiting_payment', $factor_id);
 		}
 
-		// \dash\log::set('order_adminNewOrder', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
-
 		if(\dash\user::id())
 		{
 			\dash\log::set('order_customerNewOrder', ['to' => \dash\user::id(), 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
