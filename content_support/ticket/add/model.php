@@ -38,6 +38,11 @@ class model
 
 	public static function post()
 	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
 
 		$ticket_load_page_time = \dash\session::get('ticket_load_page_time');
 
