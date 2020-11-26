@@ -202,7 +202,6 @@ class sms
 		$insert_kavenegar_log =
 		[
 			'mobile'       => $mobile,
-			'message'      => json_encode(array_filter(func_get_args()), JSON_UNESCAPED_UNICODE),
 			'line'         => $_options['line'],
 			'datesend'     => $datesend,
 			'dateresponse' => date("Y-m-d H:i:s"),
@@ -272,6 +271,12 @@ class sms
 		{
 			$_args['cost'] = $decode_response['entries'][0]['cost'];
 		}
+
+		if(!\dash\get::index($_args, 'message') && isset($decode_response['entries'][0]['message']) && is_numeric($decode_response['entries'][0]['message']))
+		{
+			$_args['message'] = $decode_response['entries'][0]['message'];
+		}
+
 		if(isset($_args['message']) && is_string($_args['message']))
 		{
 			$_args['len'] = mb_strlen($_args['message']);
