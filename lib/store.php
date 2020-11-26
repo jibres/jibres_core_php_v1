@@ -575,6 +575,16 @@ class store
 	public static function admin_url()
 	{
 		$tld = \dash\url::tld() === 'ir' ? 'ir' : 'com';
+
+		if(\dash\language::currency() === 'fa')
+		{
+			$tld = 'ir';
+		}
+		else
+		{
+			$tld = 'com';
+		}
+
 		if(\dash\url::isLocal())
 		{
 			$tld = 'local';
