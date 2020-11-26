@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\smslog;
+namespace lib\app\sms\log;
 
 
 class get
@@ -8,7 +8,7 @@ class get
 	{
 		$id = \dash\validate::id($_id);
 
-		$load = \lib\db\kavenegar\get::by_id($_id);
+		$load = \lib\db\sms_log\get::by_id($_id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Log not founded"));

@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\smslog;
+namespace lib\app\sms\log;
 
 
 class ready

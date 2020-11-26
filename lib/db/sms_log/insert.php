@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\kavenegar;
+namespace lib\db\sms_log;
 
 
 class insert
@@ -9,9 +9,9 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `kavenegar` SET $set ";
+			$query = " INSERT INTO `sms_log` SET $set ";
 
-			if(\dash\db::query($query, 'api_log'))
+			if(\dash\db::query($query))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

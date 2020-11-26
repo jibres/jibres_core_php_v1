@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\smslog;
+namespace lib\app\sms\log;
 
 class search
 {
@@ -53,14 +53,14 @@ class search
 
 		if($data['store_id'])
 		{
-			$and[] = " kavenegar.store_id = $data[store_id] ";
+			$and[] = " sms_log.store_id = $data[store_id] ";
 		}
 
 		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{
-			$or[]        = " kavenegar.mobile LIKE '%$query_string%'";
+			$or[]        = " sms_log.mobile LIKE '%$query_string%'";
 
 
 			self::$is_filtered = true;
@@ -85,12 +85,12 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY kavenegar.id DESC";
+			$order_sort = " ORDER BY sms_log.id DESC";
 		}
 
 
 
-		$list = \lib\db\kavenegar\search::list($and, $or, $order_sort, $meta);
+		$list = \lib\db\sms_log\search::list($and, $or, $order_sort, $meta);
 
 		if(!is_array($list))
 		{

@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\kavenegar;
+namespace lib\db\sms_log;
 
 class search
 {
@@ -8,27 +8,27 @@ class search
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM kavenegar $q[join] $q[where] ";
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM sms_log $q[join] $q[where] ";
 
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'api_log');
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
 		$query =
 		"
 			SELECT
-				kavenegar.*
+				sms_log.*
 			FROM
-				kavenegar
+				sms_log
 			$q[join]
 			$q[where]
 			$q[order]
 			$limit
 		";
 
-		$result = \dash\db::get($query, null, false, 'api_log');
+		$result = \dash\db::get($query, null, false);
 
 		return $result;
 	}
