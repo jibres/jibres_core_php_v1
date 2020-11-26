@@ -576,7 +576,7 @@ class store
 	{
 		$tld = \dash\url::tld() === 'ir' ? 'ir' : 'com';
 
-		if(\dash\language::currency() === 'fa')
+		if(\dash\language::current() === 'fa')
 		{
 			$tld = 'ir';
 		}
