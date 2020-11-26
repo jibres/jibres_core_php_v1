@@ -258,6 +258,9 @@ class add
 
 	public static function add_product($_args, $_factor_id)
 	{
+
+		\dash\permission::access('manageFactors');
+
 		$condition =
 		[
 			'product_id' => 'id',

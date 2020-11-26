@@ -42,11 +42,12 @@ if(!is_array($permissionList))
         <?php } //endif ?>
 
         <?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'customized') {?>
-
+          <?php if(isset($savedPerm[$key]['allow_access_title']) && $savedPerm[$key]['allow_access_title']) { ?>
           <div><?php echo T_("Access to") ?></div>
           <?php if(isset($savedPerm[$key]['allow_access_title'])) { foreach ($savedPerm[$key]['allow_access_title'] as $allow_access_title) {?>
             <span class="badge mA5 light"><?php echo $allow_access_title ?></span>
           <?php } /*endfor*/ } //endif ?>
+        <?php } //endif ?>
           <div class="mT10"><?php echo T_("Disallow to") ?></div>
            <?php if(isset($savedPerm[$key]['disallow_access_title'])) { foreach ($savedPerm[$key]['disallow_access_title'] as $disallow_access_title) {?>
             <span class="badge mA5 light fc-red"><?php echo $disallow_access_title ?></span>

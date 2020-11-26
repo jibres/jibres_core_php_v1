@@ -6,13 +6,13 @@ class remove
 {
 	public static function remove($_id)
 	{
+		\dash\permission::access('manageFactors');
+
 		$load_detail = \lib\app\factor\get::by_id($_id);
 		if(!$load_detail || !isset($load_detail['status']))
 		{
 			return false;
 		}
-
-		\lib\app\factor\check::permission_order_manage($load_detail, false);
 
 		if($load_detail['status'] === 'deleted')
 		{

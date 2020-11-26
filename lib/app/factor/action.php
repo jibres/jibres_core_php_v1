@@ -221,6 +221,11 @@ class action
 			return false;
 		}
 
+		if(\dash\url::content() === 'a')
+		{
+			\dash\permission::access('manageFactors');
+		}
+
 		$check_count_action = \lib\db\factoraction\get::count_by_factor_id($factor_id);
 		if(floatval($check_count_action) > 100)
 		{

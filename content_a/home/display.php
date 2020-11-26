@@ -39,6 +39,8 @@
           <div class="go"></div>
         </a>
        </li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('manageCart')) {?>
       <li><a class="item f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
 <?php } //endif ?>
 <?php if(\dash\permission::check('factorSaleAdd')) {?>

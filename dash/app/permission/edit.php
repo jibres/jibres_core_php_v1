@@ -69,6 +69,11 @@ class edit
 				return false;
 			}
 
+			if(empty($caller))
+			{
+				$old_value[$group]['access'] = 'customized';
+			}
+
 			$advance = $list[$group]['advance'];
 
 			$all_caller = array_column($advance, 'caller');

@@ -31,6 +31,7 @@ class edit
 	public static function edit_count_product($_id, $_factor_id, $_type, $_count)
 	{
 
+		\dash\permission::access('manageFactors');
 
 		$id        = \dash\validate::id($_id);
 		$factor_id = \dash\validate::id($_factor_id);
@@ -51,7 +52,6 @@ class edit
 			return false;
 		}
 
-		\lib\app\factor\check::permission_order_manage_id($factor_id);
 
 		// if(isset($check_ok['status']) && $check_ok['status'] === 'deleted')
 		// {
@@ -211,6 +211,7 @@ class edit
 
 	public static function status($_status, $_factor_id)
 	{
+		\dash\permission::access('manageFactors');
 
 		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
 
@@ -219,7 +220,6 @@ class edit
 			return false;
 		}
 
-		\lib\app\factor\check::permission_order_manage_id($factor_id);
 
 		$update =
 		[
@@ -232,14 +232,14 @@ class edit
 
 	public static function type($_type, $_factor_id)
 	{
+		\dash\permission::access('manageFactors');
+
 		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
 
 		if(!$_type || !$factor_id)
 		{
 			return false;
 		}
-
-		\lib\app\factor\check::permission_order_manage_id($factor_id);
 
 		$update =
 		[
@@ -260,7 +260,7 @@ class edit
 			return false;
 		}
 
-		\lib\app\factor\check::permission_order_manage($load_factor, true);
+		\dash\permission::access('manageFactors');
 
 		$args = \lib\app\factor\check::factor($_args, ['factor_detail' => $load_factor]);
 
@@ -299,14 +299,14 @@ class edit
 
 	public static function edit_customer($_args, $_factor_id)
 	{
+		\dash\permission::access('manageFactors');
+
 		$load_factor = \lib\app\factor\get::one($_factor_id);
 
 		if(!$load_factor)
 		{
 			return false;
 		}
-
-		\lib\app\factor\check::permission_order_manage($load_factor, true);
 
 		$data = \lib\app\factor\check::factor($_args);
 
@@ -326,14 +326,14 @@ class edit
 
 	public static function remove_customer($_factor_id)
 	{
+		\dash\permission::access('manageFactors');
+
 		$load_factor = \lib\app\factor\get::one($_factor_id);
 
 		if(!$load_factor)
 		{
 			return false;
 		}
-
-		\lib\app\factor\check::permission_order_manage($load_factor, true);
 
 
 		\lib\db\factors\update::record(['customer' => null], $load_factor['id']);
@@ -346,14 +346,14 @@ class edit
 
 	public static function edit_address($_args, $_factor_id)
 	{
+		\dash\permission::access('manageFactors');
+
 		$load_factor = \lib\app\factor\get::one($_factor_id);
 
 		if(!$load_factor)
 		{
 			return false;
 		}
-
-		\lib\app\factor\check::permission_order_manage($load_factor, true);
 
 		$condition =
 		[

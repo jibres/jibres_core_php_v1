@@ -8,7 +8,15 @@ class controller
 	{
 
 		\dash\redirect::to_login();
-		\dash\permission::access('contentCrm');
+
+		if(\dash\url::module() === 'api' && \dash\permission::has_permission())
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\permission::access('contentCrm');
+		}
 	}
 }
 ?>
