@@ -22,7 +22,7 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\smslog\search::list($search_string, $args);
+		$list = \lib\app\sms\log\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
@@ -30,9 +30,9 @@ class view
 		\dash\data::sortLink($sortLink);
 
 
-		\dash\data::filterBox(\lib\app\smslog\search::filter_message());
+		\dash\data::filterBox(\lib\app\sms\log\search::filter_message());
 
-		$isFiltered = \lib\app\smslog\search::is_filtered();
+		$isFiltered = \lib\app\sms\log\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 
