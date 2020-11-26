@@ -375,7 +375,7 @@ class panel
 			'active' => (\dash\url::module()==='products'? true :false)
 		];
 
-		if(\dash\permission::check('factorAccess'))
+		if(\dash\permission::check('_group_orders'))
 		{
 			$menu[] =
 			[

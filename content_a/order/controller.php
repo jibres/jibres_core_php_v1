@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('factorSaleAdd');
+		\dash\permission::access('_group_orders');
 	}
 
 
@@ -15,7 +15,7 @@ class controller
 	 */
 	public static function load_order()
 	{
-		\dash\permission::access('factorSaleAdd');
+		\dash\permission::access('_group_orders');
 
 		$id = \dash\request::get('id');
 

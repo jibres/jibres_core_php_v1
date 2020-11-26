@@ -11,12 +11,8 @@ class view
 
 		\dash\face::title(T_('Sale invoicing'));
 
-
-		if(\dash\permission::check('factorSaleList'))
-		{
-			\dash\data::back_text(T_('Factors'));
-			\dash\data::back_link(\dash\url::here(). '/order?type=sale');
-		}
+		\dash\data::back_text(T_('Factors'));
+		\dash\data::back_link(\dash\url::here(). '/order?type=sale');
 
 		\lib\app\fund\login::check();
 

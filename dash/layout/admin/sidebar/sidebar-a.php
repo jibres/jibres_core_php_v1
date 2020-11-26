@@ -12,8 +12,8 @@ $urlHere = \dash\url::here();
       <?php if(\dash\permission::check('factorSaleAdd')) {?><li><a href="<?php echo $urlHere; ?>/sale"><i class="floatRa mRa10 fc-mute sf-cart-plus"></i><?php echo T_("register new sale factor"); ?> <kbd class="light">F2</kbd> </a></li><?php } //endif ?>
   <?php if(in_array(\dash\url::module(), ['order', 'sale', 'buy'])) {?>
 
-      <?php if(\dash\permission::check('factorSaleList')) {?><li><a href="<?php echo $urlHere; ?>/order?type=sale"><i class="floatRa mRa10 fc-mute sf-basket"></i><?php echo T_("List of sales"); ?></a></li><?php } //endif ?>
-      <?php if(\dash\permission::check('factorBuyList')) {?><li><a href="<?php echo $urlHere; ?>/order?type=buy"><i class="floatRa mRa10 fc-mute sf-bag"></i><?php echo T_("List of purchases"); ?></a></li><?php } //endif ?>
+      <?php if(\dash\permission::check('_group_orders')) {?><li><a href="<?php echo $urlHere; ?>/order?type=sale"><i class="floatRa mRa10 fc-mute sf-basket"></i><?php echo T_("List of sales"); ?></a></li><?php } //endif ?>
+      <?php if(\dash\permission::check('_group_orders')) {?><li><a href="<?php echo $urlHere; ?>/order?type=buy"><i class="floatRa mRa10 fc-mute sf-bag"></i><?php echo T_("List of purchases"); ?></a></li><?php } //endif ?>
       <?php if(\dash\permission::check('_group_orders')) {?><li><a href="<?php echo $urlHere; ?>/order"><i class="floatRa mRa10 fc-mute sf-list-ul"></i><?php echo T_("List of all factors"); ?></a></li><?php } //endif ?>
 <?php } //endif ?>
     </ul>

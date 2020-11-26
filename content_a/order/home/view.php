@@ -118,13 +118,11 @@ class view
 			switch ($moduleType)
 			{
 				case 'buy':
-					\dash\permission::access('factorBuyList');
 					$myBadgeLink = \dash\url::here(). '/'. $moduleType;
 					$myBadgeText = T_('Add new :type', ['type' => T_($moduleType)]);
 					break;
 
 				case 'sale':
-					\dash\permission::access('factorSaleList');
 					$myBadgeLink = \dash\url::here(). '/'. $moduleType;
 					$myBadgeText = T_('Add new :type', ['type' => T_($moduleType)]);
 					break;

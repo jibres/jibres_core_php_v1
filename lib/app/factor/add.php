@@ -109,7 +109,7 @@ class add
 		if(!$_option['from_cart'])
 		{
 			// check permission to add new factor
-			\dash\permission::access('factorAccess');
+			\dash\permission::access('factorSaleAdd');
 		}
 
 		// check args

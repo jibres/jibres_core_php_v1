@@ -168,11 +168,9 @@ class plan_list
 		$master['FormDescription']              = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormDescription', 					'title' => T_('Form Description'), 'require' => []];
 
 
-		$master['factorAccess']                 = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorAccess', 				'title' => T_('factorAccess'), 'require' => []];
-		$master['factorSaleList']               = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleList', 				'title' => T_('factorSaleList'), 'require' => []];
-		$master['factorBuyList']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorBuyList', 				'title' => T_('factorBuyList'), 'require' => []];
 		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('factorSaleAdd'), 'require' => []];
-		$master['factorBuyAdd']                 = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorBuyAdd', 				'title' => T_('factorBuyAdd'), 'require' => []];
+
+
 
 
 		$master['contentCrm']                   = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'contentCrm', 					'title' => T_('contentCrm'), 'require' => []];

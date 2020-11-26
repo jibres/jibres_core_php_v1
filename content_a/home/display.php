@@ -49,14 +49,7 @@
         </a>
        </li>
 <?php } //endif ?>
-<?php if(\dash\permission::check('factorBuyAdd')) {?>
-       <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/buy">
-          <div class="key"><?php echo T_('Buy Invocing');?></div>
-          <div class="go plus"></div>
-        </a>
-       </li>
-<?php } //endif ?>
+
      </ul>
    </nav>
    <nav class="items long">
