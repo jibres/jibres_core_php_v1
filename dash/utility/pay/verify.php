@@ -30,6 +30,20 @@ class verify
 
 	        \dash\utility\pay\setting::save();
 
+       		$detail = \dash\utility\pay\setting::get_all();
+
+			if(is_string($detail))
+			{
+				$detail = json_decode($detail, true);
+			}
+
+			if(!is_array($detail))
+			{
+				$detail = [];
+			}
+
+	        \dash\log::set('transaction_newPaySuccessfull', ['my_detail' => $detail]);
+
 	        self::call_final_fn();
 
 	        // \dash\utility\pay\transactions::final_verify($_transaction_id);

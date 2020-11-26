@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-26 14:30+0330\n"
-"PO-Revision-Date: 2020-11-26 14:31+0330\n"
+"POT-Creation-Date: 2020-11-26 15:13+0330\n"
+"PO-Revision-Date: 2020-11-26 15:13+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8922,8 +8922,9 @@ msgstr "پرداخت ناموفق"
 msgid "Payment unverified"
 msgstr "پرداخت تایید نشده"
 
-#: content_a/order/status/display.php:86 lib/app/factor/action.php:81
-#: lib/app/factor/ready.php:99
+#: content_a/order/status/display.php:86
+#: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:15
+#: lib/app/factor/action.php:81 lib/app/factor/ready.php:99
 msgid "Successful payment"
 msgstr "پرداخت موفقیت‌آمیز"
 
@@ -10153,7 +10154,7 @@ msgstr "ذخیره و چاپ"
 #: content_a/sale/model.php:57 content_pardakhtyar/customer/dashboard/model.php:43
 #: content_pardakhtyar/customer/dashboard/model.php:87 content_su/backup/model.php:47
 #: content_su/smsclient/edit/model.php:47 content_su/smsclient/home/model.php:47
-#: dash/utility/pay/verify.php:40
+#: dash/utility/pay/verify.php:54
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
@@ -10874,6 +10875,7 @@ msgstr "تست درگاه پرداخت"
 
 #: content_a/setting/payment/bank/view.php:9 content_a/setting/payment/way/view.php:9
 #: content_pay/home/display.php:126
+#: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:18
 msgid "Payment"
 msgstr "درگاه"
 
@@ -22039,6 +22041,10 @@ msgstr "تیکت به وضعیت حل نشده تغییر کرد"
 #: dash/app/log/caller/ticket/ticket_ticketAddTag.php:10
 msgid "Add tag to ticket"
 msgstr "افزودن کلیدواژه برای برقرار ارتباط بین تیکت‌ها"
+
+#: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:48
+msgid ":amount :currency paid. Description :title"
+msgstr "مبلغ :amount :currency پراخت شد. توضیحات :title"
 
 #: dash/app/log/support_tools.php:47 dash/app/log/support_tools.php:75
 #: dash/social/telegram/commands/ticket.php:95
@@ -36403,6 +36409,11 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#, fuzzy
+#~| msgid "Unsuccessful payment"
+#~ msgid "New successfull payment"
+#~ msgstr "پرداخت ناموفق"
 
 #~ msgid "Not Payed"
 #~ msgstr "پرداخت نشده"
