@@ -272,7 +272,7 @@ class sms
 			$_args['cost'] = $decode_response['entries'][0]['cost'];
 		}
 
-		if(!\dash\get::index($_args, 'message') && isset($decode_response['entries'][0]['message']) && is_numeric($decode_response['entries'][0]['message']))
+		if(!\dash\get::index($_args, 'message') && isset($decode_response['entries'][0]['message']))
 		{
 			$_args['message'] = $decode_response['entries'][0]['message'];
 		}
