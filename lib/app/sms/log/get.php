@@ -15,7 +15,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\app\smslog\ready::row($load);
+		$load = \lib\app\sms\log\ready::row($load);
 
 		return $load;
 	}

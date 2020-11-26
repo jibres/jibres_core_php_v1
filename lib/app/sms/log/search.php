@@ -123,7 +123,7 @@ class search
 				}
 			}
 		}
-		$list = array_map(['\\lib\\app\\smslog\\ready', 'row'], $list);
+		$list = array_map(['\\lib\\app\\sms\\log\\ready', 'row'], $list);
 
 		$filter_args_data = [];
 
