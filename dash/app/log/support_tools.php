@@ -5,6 +5,23 @@ class support_tools
 {
 	private static $load = [];
 
+	public static function ticket_short_link($_id)
+	{
+		$link = '';
+		if(\dash\engine\store::inStore())
+		{
+			$link .= \lib\store::url();
+		}
+		else
+		{
+			$link .= \dash\url::domain();
+		}
+
+		$link .= '/!'. $_id;
+
+		return $link;
+	}
+
 	public static function load($_args)
 	{
 		if(empty(self::$load))

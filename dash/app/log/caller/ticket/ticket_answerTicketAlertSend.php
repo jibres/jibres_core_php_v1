@@ -16,7 +16,7 @@ class ticket_answerTicketAlertSend
 
 
 		$excerpt = '';
-		$excerpt .=	'<a href="'.\dash\url::kingdom(). '/!'. $masterid. '">';
+		$excerpt .=	'<a href="'.\dash\app\log\support_tools::ticket_short_link($masterid). '">';
 		$excerpt .= T_("Show ticket");
 		$excerpt .= ' ';
 		$excerpt .= \dash\fit::text($masterid);
@@ -53,7 +53,7 @@ class ticket_answerTicketAlertSend
 		$masterid  =  \dash\app\log\support_tools::masterid($_args);
 		$title = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\fit::text($masterid)]);
 		$title .= "\n";
-		$title .= \dash\url::domain(). '/!'. $masterid;
+		$title .= \dash\app\log\support_tools::ticket_short_link($masterid);
 
 		$sms =
 		[
