@@ -367,7 +367,7 @@ class user
 			{
 				if(\dash\engine\store::inStore())
 				{
-					\lib\app\cart\add::assing_to_user($guest, $code);
+					\lib\app\cart\add::assing_to_user($guest, $code, true);
 				}
 			}
 

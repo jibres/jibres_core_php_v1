@@ -35,13 +35,18 @@ class edit
 
 		}
 
-		return self::edit($_product_id, $_count, $user_id, $user_guest, $_type);
+		return self::edit($_product_id, $_count, $user_id, $user_guest, $_type, true);
 
 	}
 
 
-	public static function edit($_product_id, $_count, $_user_id, $_guestid, $_type = null)
+	public static function edit($_product_id, $_count, $_user_id, $_guestid, $_type = null, $_from_website = false)
 	{
+
+		if(!$_from_website)
+		{
+			\dash\permission::access('manageCart');
+		}
 
 		$condition =
 		[

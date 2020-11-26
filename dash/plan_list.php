@@ -168,7 +168,9 @@ class plan_list
 		$master['FormDescription']              = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormDescription', 					'title' => T_('Form Description'), 'require' => []];
 
 
-		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('factorSaleAdd'), 'require' => []];
+		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('Add new sale order'), 'require' => []];
+		$master['manageCart']                   = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageCart', 				    'title' => T_('Manage Cart'), 'require' => []];
+
 
 
 

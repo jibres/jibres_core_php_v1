@@ -6,11 +6,12 @@ namespace lib\app\cart;
  */
 class add
 {
-	public static function assing_to_user($_guest_id, $_user_id)
+	public static function assing_to_user($_guest_id, $_user_id, $_force = false)
 	{
-		if(!\dash\engine\store::inStore())
+		// force is from website. user login and need to assing cart to user
+		if(!$_force)
 		{
-			return false;
+			\dash\permission::access('manageCart');
 		}
 
 		$condition =
@@ -35,7 +36,10 @@ class add
 
 		\lib\db\cart\update::assing_to_user($data['guestid'], $user_id);
 
-		\dash\notif::ok(T_("Cart assigned to user"));
+		if(!$_force)
+		{
+			\dash\notif::ok(T_("Cart assigned to user"));
+		}
 
 		return true;
 
@@ -83,11 +87,8 @@ class add
 				return false;
 			}
 
-			if(!\lib\store::in_store())
-			{
-				\dash\notif::error(T_("Your are not in this store!"));
-				return false;
-			}
+			\dash\permission::access('manageCart');
+
 		}
 
 		if(!$_user_id)

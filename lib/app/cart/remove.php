@@ -52,13 +52,15 @@ class remove
 			// $user_id = \dash\coding::decode($user_id);
 		}
 
-		return self::remove($_product_id, $user_id, $user_guest);
+		return self::remove($_product_id, $user_id, $user_guest, true);
 
 	}
 
 
 	public static function remove_all($_user_id, $_guest_id)
 	{
+		\dash\permission::access('manageCart');
+
 		$condition =
 		[
 			'user_id' => 'code',
@@ -93,8 +95,12 @@ class remove
 	}
 
 
-	public static function remove($_product_id, $_user_id, $_guest_id)
+	public static function remove($_product_id, $_user_id, $_guest_id, $_from_website = false)
 	{
+		if(!$_from_website)
+		{
+			\dash\permission::access('manageCart');
+		}
 
 		$condition =
 		[
