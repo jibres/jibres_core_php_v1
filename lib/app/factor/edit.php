@@ -171,7 +171,7 @@ class edit
 
 	public static function user_cancel($_id)
 	{
-		$load_factor = \lib\app\factor\get::one($_id);
+		$load_factor = \lib\app\factor\get::inline_get($_id);
 
 		if(!$load_factor)
 		{
