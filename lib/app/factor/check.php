@@ -4,7 +4,75 @@ namespace lib\app\factor;
 
 class check
 {
+	public static function permission_order_manage_id($_factor_id)
+	{
+		if(!\dash\validate::id($_factor_id))
+		{
+			\dash\header::status(404);
+		}
 
+		$load = \lib\db\factors\get::by_id($_factor_id);
+
+		return self::permission_order_manage($load, false);
+	}
+
+
+	public static function permission_order_manage($_load_factor, $_encode = false)
+	{
+		$deny = false;
+
+		if(\dash\permission::check('manageAllFactors'))
+		{
+			return true;
+		}
+		else
+		{
+			if(\dash\permission::check('manageSelfFactors'))
+			{
+				if(isset($_load_factor['seller']))
+				{
+					if($_encode)
+					{
+						if($_load_factor['seller'] === \dash\user::code())
+						{
+							return true;
+						}
+						else
+						{
+							$deny = true;
+						}
+					}
+					else
+					{
+						if(floatval($_load_factor['seller']) === floatval(\dash\user::id()))
+						{
+							return true;
+						}
+						else
+						{
+							$deny = true;
+						}
+					}
+				}
+				else
+				{
+					$deny = true;
+				}
+			}
+			else
+			{
+				$deny = true;
+			}
+		}
+
+		if($deny)
+		{
+			\dash\permission::deny();
+		}
+
+		return true;
+
+	}
 
 	/**
 	 * check args

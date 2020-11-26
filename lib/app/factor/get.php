@@ -165,6 +165,8 @@ class get
 			return false;
 		}
 
+		\dash\permission::access('_group_orders');
+
 		$_id = \dash\validate::string_50($_id);
 		if(!$_id)
 		{

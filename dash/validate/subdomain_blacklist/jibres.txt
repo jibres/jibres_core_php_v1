@@ -1,12 +1,2 @@
-ermile
-sarshomar
-tejarak
-azvir
-iranpresidents
-deadbrowser
-core
-developers
-developer
-api
-business
-store
+jibres
+admin

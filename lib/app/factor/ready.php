@@ -32,6 +32,7 @@ class ready
 					break;
 
 				case 'customer':
+				case 'seller':
 					if($value)
 					{
 						$value = \dash\coding::encode($value);

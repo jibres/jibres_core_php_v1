@@ -30,6 +30,8 @@ class edit
 
 	public static function edit_count_product($_id, $_factor_id, $_type, $_count)
 	{
+
+
 		$id        = \dash\validate::id($_id);
 		$factor_id = \dash\validate::id($_factor_id);
 		$count     = \dash\validate::bigint($_count);
@@ -48,6 +50,8 @@ class edit
 			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
+
+		\lib\app\factor\check::permission_order_manage_id($factor_id);
 
 		// if(isset($check_ok['status']) && $check_ok['status'] === 'deleted')
 		// {
@@ -207,12 +211,15 @@ class edit
 
 	public static function status($_status, $_factor_id)
 	{
+
 		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
 
 		if(!$_status || !$factor_id)
 		{
 			return false;
 		}
+
+		\lib\app\factor\check::permission_order_manage_id($factor_id);
 
 		$update =
 		[
@@ -232,6 +239,8 @@ class edit
 			return false;
 		}
 
+		\lib\app\factor\check::permission_order_manage_id($factor_id);
+
 		$update =
 		[
 			'type'       => $_type,
@@ -250,6 +259,8 @@ class edit
 		{
 			return false;
 		}
+
+		\lib\app\factor\check::permission_order_manage($load_factor, true);
 
 		$args = \lib\app\factor\check::factor($_args, ['factor_detail' => $load_factor]);
 
@@ -295,6 +306,8 @@ class edit
 			return false;
 		}
 
+		\lib\app\factor\check::permission_order_manage($load_factor, true);
+
 		$data = \lib\app\factor\check::factor($_args);
 
 		if(!$data['customer'])
@@ -320,6 +333,8 @@ class edit
 			return false;
 		}
 
+		\lib\app\factor\check::permission_order_manage($load_factor, true);
+
 
 		\lib\db\factors\update::record(['customer' => null], $load_factor['id']);
 
@@ -337,6 +352,8 @@ class edit
 		{
 			return false;
 		}
+
+		\lib\app\factor\check::permission_order_manage($load_factor, true);
 
 		$condition =
 		[
@@ -376,70 +393,5 @@ class edit
 		return true;
 	}
 
-
-	/**
-	 * edit a factor
-	 *
-	 * @param      <type>   $_factor  The arguments
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function edit($_id, $_factor, $_factor_detail, $_option = [])
-	{
-		\dash\notif::errot('Not ready');
-		return;
-
-		// $default_option =
-		// [
-		// 	'debug' => true,
-		// ];
-
-		// if(!is_array($_option))
-		// {
-		// 	$_option = [];
-		// }
-
-		// $_option = array_merge($default_option, $_option);
-
-
-		// $id = \dash\coding::decode($_id);
-
-		// if(!$id || !is_numeric($id))
-		// {
-		// 	if($_option['debug']) \dash\notif::error(T_("Id not set"));
-		// 	return false;
-		// }
-
-		// if(!\lib\store::id())
-		// {
-		// 	if($_option['debug']) \dash\notif::error(T_("Id not set"));
-		// 	return false;
-		// }
-
-		// if(!\lib\store::in_store())
-		// {
-		// 	\dash\notif::error(T_("You are not in this store"));
-		// 	return false;
-		// }
-
-		// $load_factor = \lib\db\factors::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
-
-		// if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
-		// {
-		// 	if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'factor', 'permission');
-		// 	return false;
-		// }
-
-		// \lib\db\factordetails::remove_factor($load_factor['id']);
-
-		// $return = \lib\app\factor::add($_factor, $_factor_detail, ['factor_id' => $load_factor['id'], 'debug' => false]);
-
-		// if(\dash\engine\process::status())
-		// {
-		// 	\dash\notif::ok(T_("Your factor successfully updated"));
-		// }
-
-		// return $return;
-	}
 }
 ?>

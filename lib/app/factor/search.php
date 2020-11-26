@@ -22,6 +22,7 @@ class search
 
 	private static function factors_list($_type, $_query_string, $_args)
 	{
+		\dash\permission::access('_group_orders');
 
 		$condition =
 		[

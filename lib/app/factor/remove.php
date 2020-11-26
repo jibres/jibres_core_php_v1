@@ -12,6 +12,8 @@ class remove
 			return false;
 		}
 
+		\lib\app\factor\check::permission_order_manage($load_detail, false);
+
 		if($load_detail['status'] === 'deleted')
 		{
 			\dash\notif::error(T_("This order was deleted before"));
