@@ -38,12 +38,6 @@ class model
 
 	public static function post()
 	{
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
-
 		$ticket_load_page_time = \dash\session::get('ticket_load_page_time');
 
 		if($ticket_load_page_time)
@@ -96,6 +90,19 @@ class model
 		}
 
 		$title = \dash\validate::string_100(\dash\request::get('title'));
+
+		if(!\dash\user::id())
+		{
+			$mobile = \dash\validate::mobile(\dash\request::post('mobile'), false);
+			if(!$mobile)
+			{
+				\dash\notif::error(T_("Mobile is required"), 'mobile');
+				return false;
+			}
+
+			$content = T_("Mobile") . ' '. $mobile. "\n". $content;
+		}
+
 
 		// insert tickets
 		$result = self::add_new('site', $content, $file['path'], $title);

@@ -5,7 +5,12 @@
     <?php \dash\csrf::html(false); ?>
 
     <?php if(\dash\url::child() === 'add') {?>
-
+      <?php if(!\dash\user::id()) {?>
+      <label for="imobile"><?php echo T_("Mobile") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+      <div class="input">
+        <input type="tel" name="mobile" data-format='mobile-enter'>
+      </div>
+    <?php } //endif ?>
     <label for="icontent"><?php echo T_("Please write your message"); ?> <small class="fc-red"><?php echo T_("Require"); ?> *</small></label>
 
     <?php }else{ ?>
