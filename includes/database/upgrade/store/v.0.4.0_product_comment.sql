@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.productcomment ADD `title` VARCHAR(300) CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `content`;

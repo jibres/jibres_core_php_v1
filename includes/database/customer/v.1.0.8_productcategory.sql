@@ -14,5 +14,9 @@ CREATE TABLE `jibres_XXXXXXX`.`productcategory` (
 `parent4` int(10) UNSIGNED DEFAULT NULL,
 `status` enum('enable','disable','deleted') DEFAULT NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-PRIMARY KEY (`id`)
+`showonwebsite` bit(1) NULL DEFAULT NULL,
+`sort` int(10) NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `productcategory_search_index_showonwebsite` (`showonwebsite`),
+KEY `productcategory_search_index_sort` (`sort`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

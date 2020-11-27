@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`comments` (
   `star` smallint(5) DEFAULT NULL,
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `ip` int(10) UNSIGNED DEFAULT NULL,
+  `ip` bigint(20)  DEFAULT NULL,
   `file` varchar(2000) DEFAULT NULL,
   `via` enum('site','telegram','sms','contact','admincontact','app') DEFAULT NULL,
   PRIMARY KEY (`id`),

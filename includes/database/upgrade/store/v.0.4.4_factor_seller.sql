@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.factors CHANGE `seller` `seller` int(10) unsigned NULL DEFAULT NULL;

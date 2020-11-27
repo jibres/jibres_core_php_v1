@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.factordetails CHANGE `vat` `vat` BIGINT NULL DEFAULT NULL;

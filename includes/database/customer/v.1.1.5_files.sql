@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`files` (
 `status` enum('awaiting','publish','block','filter','removed', 'spam') DEFAULT NULL,
 `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+`ip` bigint(20) NULL DEFAULT NULL,
+`domain` varchar(200) NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 CONSTRAINT `files_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 KEY `files_md5_search` (`md5`)

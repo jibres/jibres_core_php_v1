@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.cart ADD `guestid` varchar(50) CHARACTER SET utf8mb4 NULL DEFAULT NULL;

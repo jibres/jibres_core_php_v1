@@ -5,11 +5,11 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`transactions` (
   `title` varchar(255) NOT NULL,
   `caller` varchar(100) DEFAULT NULL,
   `type` enum('gift','prize','transfer','promo','money') NOT NULL,
-  `unit_id` smallint(3) NOT NULL,
   `amount_request` bigint(20) DEFAULT NULL,
   `amount_end` bigint(20) DEFAULT NULL,
   `plus` bigint(20) UNSIGNED DEFAULT NULL,
   `minus` bigint(20) UNSIGNED DEFAULT NULL,
+  `currency` varchar(50) NULL DEFAULT NULL,
   `budget_before` bigint(20) DEFAULT NULL,
   `budget` bigint(20) DEFAULT NULL,
   `status` enum('enable','disable','deleted','expired','awaiting','filtered','blocked','spam') NOT NULL DEFAULT 'enable',
@@ -45,5 +45,6 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`transactions` (
   KEY `transactions_index_verify` (`verify`),
   KEY `transactions_index_plus` (`plus`),
   KEY `transactions_index_minus` (`minus`),
-  KEY `index_search_condition` (`condition`)
+  KEY `index_search_condition` (`condition`),
+  KEY `transactions_currency_index` (`currency`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

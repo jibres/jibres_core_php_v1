@@ -1,5 +1,5 @@
 CREATE TABLE `jibres_XXXXXXX`.`inventory` (
-`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
 `name` varchar(200) DEFAULT NULL,
 `address_id` bigint(20) UNSIGNED DEFAULT NULL,
 `default` bit(1) DEFAULT NULL,

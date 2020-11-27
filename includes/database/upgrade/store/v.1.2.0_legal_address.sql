@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.userlegal ADD `url` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL;

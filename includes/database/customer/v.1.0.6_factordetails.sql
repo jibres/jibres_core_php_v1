@@ -1,15 +1,22 @@
 CREATE TABLE `jibres_XXXXXXX`.`factordetails` (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `factor_id` bigint(20) UNSIGNED NOT NULL,
 `product_id` int(10) UNSIGNED NOT NULL,
-`price` bigint(20) UNSIGNED DEFAULT NULL,
-`discount` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
-`vat` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
-`finalprice` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
-`count` int(10) UNSIGNED DEFAULT NULL,
-`sum` bigint(20) UNSIGNED DEFAULT NULL,
+`price` DECIMAL(22, 4)  DEFAULT NULL,
+`discount` DECIMAL(22, 4)  NULL DEFAULT NULL,
+`vat` DECIMAL(22, 4)  NULL DEFAULT NULL,
+`finalprice` DECIMAL(22, 4)  NULL DEFAULT NULL,
+`count` DECIMAL(13, 4)  DEFAULT NULL,
+`sum` DECIMAL(31, 4)  DEFAULT NULL,
 `productprice_id` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
-PRIMARY KEY (`factor_id`,`product_id`),
+`status` enum('enable','disable','draft','order','expire','cancel','pending_pay','pending_verify','pending_prepare','pending_send','sending','deliver','reject','spam','deleted') DEFAULT 'enable',
+PRIMARY KEY (`id`),
+KEY `factordetails_index_count` (`count`),
+KEY `factordetails_search_index_status` (`status`),
+KEY `factordetails_index_sum` (`sum`),
 CONSTRAINT `factordetails_factor_id` FOREIGN KEY (`factor_id`) REFERENCES `factors` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `factordetails_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `factordetails_productprice_id` FOREIGN KEY (`productprice_id`) REFERENCES `productprices` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+

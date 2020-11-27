@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.products ADD `sharetext` text CHARACTER SET utf8mb4 NULL DEFAULT NULL;

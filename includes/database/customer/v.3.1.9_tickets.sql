@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`tickets` (
   `status` enum('approved','awaiting','unapproved','spam','deleted','filter','close','answered') NOT NULL DEFAULT 'awaiting',
   `parent` bigint(20) UNSIGNED DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL,
-  `ip` int(10) UNSIGNED DEFAULT NULL,
+  `ip` bigint(20) DEFAULT NULL,
   `file` varchar(2000) DEFAULT NULL,
   `plus` int(10) UNSIGNED DEFAULT NULL,
   `answertime` int(10) UNSIGNED DEFAULT NULL,

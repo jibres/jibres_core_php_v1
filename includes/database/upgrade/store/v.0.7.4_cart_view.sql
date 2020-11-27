@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.cart ADD `view` bit(1)  NULL DEFAULT NULL;

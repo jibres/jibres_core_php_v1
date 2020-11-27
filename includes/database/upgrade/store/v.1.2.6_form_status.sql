@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.form CHANGE `status` `status` enum('draft','publish','expire','deleted','lock','awaiting','block','filter','close','trash','full') DEFAULT NULL;
