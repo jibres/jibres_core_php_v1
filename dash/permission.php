@@ -16,25 +16,28 @@ class permission
 			$perm_name = [];
 		}
 
-		$group     = self::groups();
+		$group = self::groups();
+
 
 		foreach ($group as $key => $value)
 		{
-			if(isset($value['contain']) && is_array($value['contain']))
+			\dash\temp::set('WhoHavePermissionCaller', $value);
+
+			if(\dash\permission::check($_caller))
 			{
-				if(in_array($_caller, $value['contain']))
-				{
-					array_push($perm_name, $key);
-				}
+				$perm_name[] = $value;
 			}
 		}
+
+		\dash\temp::set('WhoHavePermissionCaller', null);
+
 		return $perm_name;
 
 	}
 
 
 	// show all group name
-	public static function groups($_project = false)
+	public static function groups()
 	{
 		$all_group = [];
 
@@ -185,11 +188,26 @@ class permission
 		{
 			if(!\lib\store::in_store())
 			{
-				return false;
+				if(\dash\temp::get('WhoHavePermissionCaller'))
+				{
+					// only check who have this permission need less to check inStore
+				}
+				else
+				{
+					return false;
+				}
 			}
 		}
 
-		$myPermission = \dash\user::detail('permission');
+		if(\dash\temp::get('WhoHavePermissionCaller'))
+		{
+			$myPermission = \dash\temp::get('WhoHavePermissionCaller');
+		}
+		else
+		{
+			$myPermission = \dash\user::detail('permission');
+		}
+
 
 		// user have not any permission
 		if(!$myPermission)

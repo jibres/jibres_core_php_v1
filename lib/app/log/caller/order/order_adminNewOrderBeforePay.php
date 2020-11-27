@@ -55,7 +55,7 @@ class order_adminNewOrderBeforePay
 
 	public static function send_to()
 	{
-		return ['admin'];
+		return ['admin', 'orderNotificationReceiver'];
 	}
 
 

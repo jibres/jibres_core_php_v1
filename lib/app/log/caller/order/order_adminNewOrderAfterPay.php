@@ -60,7 +60,7 @@ class order_adminNewOrderAfterPay
 
 	public static function send_to()
 	{
-		return ['admin'];
+		return ['admin', 'orderNotificationReceiver'];
 	}
 
 
