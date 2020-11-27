@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-27 14:53+0330\n"
-"PO-Revision-Date: 2020-11-27 14:53+0330\n"
+"POT-Creation-Date: 2020-11-27 15:00+0330\n"
+"PO-Revision-Date: 2020-11-27 15:00+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4879,6 +4879,7 @@ msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:12 content_a/accounting/turnover/display.php:149
 #: lib/app/store/config.php:85 lib/app/store/config.php:120 lib/app/store/config.php:225
+#: lib/app/store/config.php:258 lib/app/store/config.php:291
 msgid "Number"
 msgstr "شماره"
 
@@ -34636,27 +34637,31 @@ msgid "Description of example product 1"
 msgstr "توضیحاتی در مورد محصول نمونه ۱"
 
 #: lib/app/store/config.php:78 lib/app/store/config.php:113 lib/app/store/config.php:148
-#: lib/app/store/config.php:183 lib/app/store/config.php:218
+#: lib/app/store/config.php:183 lib/app/store/config.php:218 lib/app/store/config.php:251
+#: lib/app/store/config.php:284
 msgid "Share this product by this text"
 msgstr "با این متن محصول خود را به اشتراک بگذارید"
 
 #: lib/app/store/config.php:82 lib/app/store/config.php:117 lib/app/store/config.php:152
-#: lib/app/store/config.php:187 lib/app/store/config.php:222
+#: lib/app/store/config.php:187 lib/app/store/config.php:222 lib/app/store/config.php:255
+#: lib/app/store/config.php:288
 msgid "Example company"
 msgstr "شرکت سازنده نمونه"
 
 #: lib/app/store/config.php:83 lib/app/store/config.php:118 lib/app/store/config.php:153
-#: lib/app/store/config.php:188 lib/app/store/config.php:223
+#: lib/app/store/config.php:188 lib/app/store/config.php:223 lib/app/store/config.php:256
+#: lib/app/store/config.php:289
 msgid "Example tag 1"
 msgstr "تگ نمونه ۱"
 
 #: lib/app/store/config.php:83 lib/app/store/config.php:118 lib/app/store/config.php:153
-#: lib/app/store/config.php:188 lib/app/store/config.php:223
+#: lib/app/store/config.php:188 lib/app/store/config.php:223 lib/app/store/config.php:256
+#: lib/app/store/config.php:289
 msgid "Example tag 2"
 msgstr "تگ نمونه ۲"
 
 #: lib/app/store/config.php:84 lib/app/store/config.php:119 lib/app/store/config.php:189
-#: lib/app/store/config.php:224
+#: lib/app/store/config.php:224 lib/app/store/config.php:257 lib/app/store/config.php:290
 msgid "Example category 1"
 msgstr "دسته‌بندی نمونه ۱"
 
@@ -34699,6 +34704,22 @@ msgstr "محصول نمونه ۵"
 #: lib/app/store/config.php:215
 msgid "Description of example product 5"
 msgstr "توضیحاتی در مورد محصول نمونه ۵"
+
+#: lib/app/store/config.php:245
+msgid "Example product 6"
+msgstr "محصول نمونه ۶"
+
+#: lib/app/store/config.php:248
+msgid "Description of example product 6"
+msgstr "توضیحاتی در مورد محصول نمونه ۶"
+
+#: lib/app/store/config.php:278
+msgid "Example product 7"
+msgstr "محصول نمونه ۷"
+
+#: lib/app/store/config.php:281
+msgid "Description of example product 7"
+msgstr "توضیحاتی در مورد محصول نمونه ۷"
 
 #: lib/app/store/edit.php:38
 msgid "Your social network was saved"
