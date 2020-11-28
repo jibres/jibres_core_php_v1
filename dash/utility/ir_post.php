@@ -18,25 +18,27 @@ class ir_post
 
 	public static function calculate($_weight, $_meta = [])
 	{
-
-		$default_meta =
+		$condition =
 		[
-			'type'     => null,
-			'location' => null,
-			'box_type' => null,
+			'type'          => ['enum' => ['sefareshi', 'pishtaz']],
+			'package_type'  => ['enum' => ['pocket', 'box']],
+			'from_province' => 'province',
+			'from_city'     => 'city',
+			'to_province'   => 'province',
+			'to_city'       => 'city',
+			'location_mode' => 'bit',
 		];
 
-		if(!is_array($_meta))
-		{
-			$_meta = [];
-		}
 
-		$_meta = array_merge($default_meta, $_meta);
+		$require = ['type'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_meta, $condition, $require, $meta);
 
 		$rate = [];
 
 		$_weight = \dash\validate::int($_weight);
-
 
 		if(!$_weight || !is_numeric($_weight) || $_weight < 0)
 		{
@@ -56,24 +58,20 @@ class ir_post
 		{
 			if($value)
 			{
-				$value = floatval($value) + 8000;
+				if($data['package_type'] === 'box')
+				{
+					$value = floatval($value) + 8000;
+				}
 				$value = $value + ((9 * $value) / 100);
 				$rate[$key] = $value;
 			}
 		}
 
 
-		if($_meta['location'])
+		// must be show by province near
+		if($data['location_mode'])
 		{
-			if(isset($rate[$_meta['location']]))
-			{
-				$rate = $rate[$_meta['location']];
-			}
-			else
-			{
-				// error
-				return false;
-			}
+			$rate = $rate['country'];
 		}
 
 		return $rate;

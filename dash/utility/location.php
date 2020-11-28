@@ -15,7 +15,7 @@ class location
 
 	public static function packIran($_province = null, $_city = null)
 	{
-		self::provinceSelector('IR', $_province, $_city, true);
+		self::provinceSelector('IR', $_province, true);
 		self::citySelectorHtml($_city);
 	}
 

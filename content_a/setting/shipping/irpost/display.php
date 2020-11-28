@@ -39,6 +39,9 @@
 				<?php } //endif ?>
 			</div>
 
+		<footer>
+			<a class="btn link" href="<?php echo \dash\url::that(). '/irpostdetail' ?>"><?php echo T_("Calculate by detail") ?></a>
+		</footer>
 		</div>
 	</div>
 
