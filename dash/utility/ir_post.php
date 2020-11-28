@@ -52,6 +52,16 @@ class ir_post
 			$rate = self::pishtaz($_weight);
 		}
 
+		foreach ($rate as $key => $value)
+		{
+			if($value)
+			{
+				$value = floatval($value) + 8000;
+				$value = $value + ((9 * $value) / 100);
+				$rate[$key] = $value;
+			}
+		}
+
 
 		if($_meta['location'])
 		{
