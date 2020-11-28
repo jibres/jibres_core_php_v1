@@ -1,4 +1,12 @@
-<?php $customerLegal = \dash\get::index($factorDetail, 'factor', 'customer_legal'); ?>
+<?php $customerLegal = \dash\get::index($factorDetail, 'factor', 'customer_legal');
+
+// hide all detail if have not customer details
+if(!$customerLegal)
+{
+  return;
+}
+
+?>
 
     <div id="sellerDetails" class="oneSide">
       <div class="row">

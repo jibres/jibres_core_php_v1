@@ -5,11 +5,11 @@
           <div class="row padMore">
             <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo \dash\get::index($storeData,'title');} ?></div>
             <div class="c-3">
-              <span><?php echo T_("VAT Number"); ?></span>
+              <span><?php echo \dash\get::index($storeData, 'companyeconomiccode') ? T_("VAT Number") : null ; ?></span>
               <code><?php echo \dash\get::index($storeData, 'companyeconomiccode') ?></code>
             </div>
             <div class="c-3">
-              <span><?php echo T_("Company ID Number"); ?></span>
+              <span><?php echo \dash\get::index($storeData, 'companynationalid') ? T_("Company ID Number") : null; ?></span>
               <code><?php echo \dash\get::index($storeData, 'companynationalid') ?></code>
             </div>
           </div>
@@ -44,11 +44,11 @@ if($city)
 }
 ?></div>
             <div class="c-3">
-              <span><?php echo T_("Postal Code"); ?></span>
+              <span><?php echo \dash\get::index($storeData, 'postcode') ? T_("Postal Code") : null ; ?></span>
               <code><?php echo \dash\get::index($storeData, 'postcode'); ?></code>
             </div>
             <div class="c-3">
-              <span><?php echo T_("Company Registration Number"); ?></span>
+              <span><?php echo \dash\get::index($storeData, 'companyregisternumber') ? T_("Company Registration Number") : null; ?></span>
               <code><?php echo \dash\get::index($storeData, 'companyregisternumber') ?></code>
             </div>
           </div>
