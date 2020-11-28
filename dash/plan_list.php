@@ -42,7 +42,7 @@ class plan_list
 		$group['products'] =
 		[
 			'key'      => 'products',
-			'title'    => T_("Access to products"),
+			'title'    => T_("Products"),
 			'desc'     => T_("Access to display and edit products as well as items such as product tag, categories and anything about the products."),
 			'advance'  => [],
 		];
@@ -50,16 +50,8 @@ class plan_list
 		$group['orders'] =
 		[
 			'key'      => 'orders',
-			'title'    => T_("Access to orders"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
-			'advance'  => [],
-		];
-
-		$group['cart'] =
-		[
-			'key'      => 'cart',
-			'title'    => T_("Access to cart"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'title'    => T_("Orders"),
+			'desc'     => T_("Access to view and manage orders as well as view and manage customers' shopping cart"),
 			'advance'  => [],
 		];
 
@@ -67,7 +59,7 @@ class plan_list
 		$group['form'] =
 		[
 			'key'      => 'form',
-			'title'    => T_("Access to form builder"),
+			'title'    => T_("Form builder"),
 			'desc'     => T_("Access to form builder, Add new from, Manage form answer, ..."),
 			'advance'  => [],
 		];
@@ -75,42 +67,42 @@ class plan_list
 		$group['accounting'] =
 		[
 			'key'      => 'accounting',
-			'title'    => T_("Access to accounting"),
+			'title'    => T_("accounting"),
 			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
 			'advance'  => [],
 		];
 
 
-		$group['application'] =
-		[
-			'key'      => 'application',
-			'title'    => T_("Manage application"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
-			'advance'  => [],
-		];
+		// $group['application'] =
+		// [
+		// 	'key'      => 'application',
+		// 	'title'    => T_("Manage application"),
+		// 	'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+		// 	'advance'  => [],
+		// ];
 
 
 		$group['setting'] =
 		[
 			'key'      => 'setting',
 			'title'    => T_("Manage Setting"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => T_("Access to change and manage business settings"),
 			'advance'  => [],
 		];
 
 		$group['crm'] =
 		[
 			'key'      => 'crm',
-			'title'    => T_("Access to CRM"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'title'    => T_("CRM"),
+			'desc'     => T_("Customer relationship management includes customer management, settings for access levels and ..."),
 			'advance'  => [],
 		];
 
 		$group['cms'] =
 		[
 			'key'      => 'cms',
-			'title'    => T_("Access to CMS"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'title'    => T_("CMS"),
+			'desc'     => T_("Manage media and business content such as news and site pages"),
 			'advance'  => [],
 		];
 
@@ -118,18 +110,18 @@ class plan_list
 		[
 			'key'      => 'support',
 			'title'    => T_("Manage support center"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+			'desc'     => T_("Access the support section and the business help center and ticket answering"),
 			'advance'  => [],
 		];
 
 
-		$group['report'] =
-		[
-			'key'      => 'report',
-			'title'    => T_("Access to report"),
-			'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
-			'advance'  => [],
-		];
+		// $group['report'] =
+		// [
+		// 	'key'      => 'report',
+		// 	'title'    => T_("Reports"),
+		// 	'desc'     => null, //T_("Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."),
+		// 	'advance'  => [],
+		// ];
 
 
 
@@ -158,6 +150,12 @@ class plan_list
 		$master['manageProductCategory']        = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCategory', 		'title' => T_('Manage Product Category'), 'require' => []];
 
 
+		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('Add new sale order'), 'require' => []];
+		$master['manageCart']                   = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageCart', 				 	'title' => T_('Manage Cart'), 'require' => []];
+		$master['manageFactors']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageFactors', 			 	'title' => T_('Manage Factors'), 'require' => []];
+		$master['orderNotificationReceiver']    = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'orderNotificationReceiver', 	'title' => T_('Order notification Receiver'), 'require' => []];
+
+
 		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
 
 
@@ -166,12 +164,6 @@ class plan_list
 		$master['ManageFormTags']               = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageFormTags', 					'title' => T_('Manage Form Tags'), 'require' => []];
 		$master['FormRemoveAnswer']             = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormRemoveAnswer', 				'title' => T_('Remove form answer'), 'require' => []];
 		$master['FormDescription']              = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormDescription', 					'title' => T_('Form Description'), 'require' => []];
-
-
-		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('Add new sale order'), 'require' => []];
-		$master['manageCart']                   = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageCart', 				 	'title' => T_('Manage Cart'), 'require' => []];
-		$master['manageFactors']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageFactors', 			 	'title' => T_('Manage Factors'), 'require' => []];
-		$master['orderNotificationReceiver']    = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'orderNotificationReceiver', 	'title' => T_('Order notification Receiver'), 'require' => []];
 
 
 
