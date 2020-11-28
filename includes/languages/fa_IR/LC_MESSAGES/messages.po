@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-27 15:00+0330\n"
-"PO-Revision-Date: 2020-11-27 15:00+0330\n"
+"POT-Creation-Date: 2020-11-28 12:56+0330\n"
+"PO-Revision-Date: 2020-11-28 13:00+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -961,7 +961,7 @@ msgstr "نام کامل"
 #: content/contact/display.php:26 content/subscribe/display.php:11
 #: content/template/default.php:206 content/template/default.php:207
 #: content_a/accounting/irvat/add/display.php:266
-#: content_a/accounting/irvat/add/display.php:378 content_a/cart/add/display.php:75
+#: content_a/accounting/irvat/add/display.php:378 content_a/cart/add/display.php:79
 #: content_a/cart/user/display.php:19 content_a/chap/size-receipt/receipt.php:79
 #: content_a/order/address/display.php:23 content_a/order/address/display.php:55
 #: content_a/order/address/display.php:173 content_a/order/detail/display.php:61
@@ -2198,7 +2198,7 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 
 #: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
-#: content_a/cart/add/display.php:127 content_a/order/summary.php:38
+#: content_a/cart/add/display.php:131 content_a/order/summary.php:38
 #: content_business/cart/cartSummary.php:28
 msgid "Free"
 msgstr "رایگان"
@@ -2301,7 +2301,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/setting/place/inventory/display.php:31
 #: content_a/setting/place/inventory/display.php:44 content_a/website/news/view.php:15
 #: content_a/website/productline/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:6
-#: dash/panel.php:372 includes/languages/trans_static.php:598
+#: dash/panel.php:372 dash/plan_list.php:45 includes/languages/trans_static.php:598
 #: lib/app/export/product.php:43 lib/app/website/body/template.php:91
 msgid "Products"
 msgstr "محصولات"
@@ -4322,7 +4322,7 @@ msgstr "وضعیت"
 #: content_a/accounting/doc/add/display-doc.php:87
 #: content_a/accounting/doc/add/display-docdetail.php:111
 #: content_a/accounting/irvat/add/display.php:133
-#: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:50
+#: content_a/accounting/year/add/display.php:49 content_a/cart/add/display.php:54
 #: content_a/category/add/display.php:12 content_a/category/edit/display.php:76
 #: content_a/category/property/display.php:47 content_a/company/display.php:73
 #: content_a/form/analytics/addfilter/display.php:11
@@ -4530,7 +4530,7 @@ msgstr "تفصیل‌پذیر"
 #: content_a/form/answer/item/display.php:79 content_a/form/home/display.php:134
 #: content_a/form/home/display.php:142 content_a/form/tag/display.php:96
 #: content_a/notiflog/display.php:155 content_a/notiflog/display.php:163
-#: content_a/order/home/display.php:178 content_a/order/home/display.php:186
+#: content_a/order/home/display.php:180 content_a/order/home/display.php:188
 #: content_a/order/home/filter.php:76 content_a/products/comment/display.php:161
 #: content_a/products/comment/display.php:169 content_a/products/home/display.php:232
 #: content_a/products/home/filter.php:162 content_a/tag/home/display.php:102
@@ -4578,7 +4578,7 @@ msgstr "پاک‌سازی فیلترها"
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:224
 #: content_a/form/analytics/table/display.php:104 content_a/form/answer/display.php:83
 #: content_a/form/answer/item/display.php:78 content_a/form/home/display.php:141
-#: content_a/notiflog/display.php:162 content_a/order/home/display.php:185
+#: content_a/notiflog/display.php:162 content_a/order/home/display.php:187
 #: content_a/products/comment/display.php:168 content_cms/attachment/home/display.php:137
 #: content_cms/comments/home/display.php:177 content_cms/posts/home/display.php:150
 #: content_cms/terms/display.php:270 content_crm/log/home/logTable.php:131
@@ -4600,7 +4600,7 @@ msgstr "نتیجه‌ای یافت نشد!"
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:224
 #: content_a/form/analytics/table/display.php:104 content_a/form/answer/display.php:83
 #: content_a/form/answer/item/display.php:78 content_a/form/home/display.php:141
-#: content_a/notiflog/display.php:162 content_a/order/home/display.php:185
+#: content_a/notiflog/display.php:162 content_a/order/home/display.php:187
 #: content_a/products/comment/display.php:168 content_cms/attachment/home/display.php:137
 #: content_cms/comments/home/display.php:177 content_cms/posts/home/display.php:150
 #: content_cms/terms/display.php:270 content_crm/log/home/logTable.php:131
@@ -4625,7 +4625,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/company/display.php:136 content_a/form/answer/display.php:89
 #: content_a/form/answer/item/display.php:84 content_a/form/home/display.php:148
 #: content_a/form/tag/display.php:104 content_a/notiflog/display.php:169
-#: content_a/order/home/display.php:192 content_a/products/home/display.php:243
+#: content_a/order/home/display.php:194 content_a/products/home/display.php:243
 #: content_a/tag/home/display.php:110 content_a/units/display.php:149
 #: content_account/notification/display.php:57 content_business/orders/display.php:54
 #: content_cms/attachment/home/display.php:144 content_cms/posts/home/display.php:157
@@ -4828,7 +4828,7 @@ msgstr "در حال ویرایش"
 #: content_a/accounting/report/total/display-old.php:65
 #: content_a/accounting/report/total/display.php:61
 #: content_a/accounting/report/total/display.php:89
-#: content_a/accounting/report/total/display.php:119 content_a/cart/add/display.php:132
+#: content_a/accounting/report/total/display.php:119 content_a/cart/add/display.php:136
 #: content_a/order/home/display.php:70 content_a/order/links.php:30
 #: content_a/order/productList.php:38 content_a/order/summary.php:44
 #: content_a/sale/display.php:20 content_business/cart/cartSummary.php:33
@@ -5214,7 +5214,7 @@ msgstr "ثبت خودکار سند حسابداری انجام شود؟"
 msgid "Customer detail"
 msgstr "جزئیات مشتری"
 
-#: content_a/accounting/irvat/add/display.php:187 content_a/cart/add/display.php:67
+#: content_a/accounting/irvat/add/display.php:187 content_a/cart/add/display.php:71
 #: content_a/cart/user/display.php:11 content_a/order/address/display.php:47
 #: content_a/order/home/filter.php:160 content_a/sale/display.php:36
 msgid "Choose customer"
@@ -5336,7 +5336,7 @@ msgstr "لطفا استان را انتخاب کنید"
 msgid "Save legal detail"
 msgstr "ذخیره اطلاعات حقوقی"
 
-#: content_a/accounting/irvat/add/display.php:373 content_a/cart/add/display.php:73
+#: content_a/accounting/irvat/add/display.php:373 content_a/cart/add/display.php:77
 #: content_a/cart/user/display.php:17 content_a/order/address/display.php:53
 #: content_a/sale/display.php:42
 msgid "Quickly add customer"
@@ -5346,14 +5346,14 @@ msgstr "افزودن سریع مشتری"
 msgid "Quickly add seller"
 msgstr "افزودن سریع فروشنده"
 
-#: content_a/accounting/irvat/add/display.php:378 content_a/cart/add/display.php:75
+#: content_a/accounting/irvat/add/display.php:378 content_a/cart/add/display.php:79
 #: content_a/cart/user/display.php:19 content_a/order/address/display.php:55
 #: content_a/sale/display.php:44 content_crm/member/contact/display.php:19
 #: content_crm/member/social/display.php:23 lib/app/form/filter/ready.php:60
 msgid "Like"
 msgstr "مثل"
 
-#: content_a/accounting/irvat/add/display.php:382 content_a/cart/add/display.php:79
+#: content_a/accounting/irvat/add/display.php:382 content_a/cart/add/display.php:83
 #: content_a/cart/user/display.php:23 content_a/order/address/display.php:59
 #: content_a/sale/display.php:48 content_a/setup/owner/display.php:10
 #: content_account/my/home/display.php:109 content_account/my/profile/display.php:34
@@ -5362,7 +5362,7 @@ msgstr "مثل"
 msgid "Gender"
 msgstr "جنسیت"
 
-#: content_a/accounting/irvat/add/display.php:384 content_a/cart/add/display.php:81
+#: content_a/accounting/irvat/add/display.php:384 content_a/cart/add/display.php:85
 #: content_a/cart/user/display.php:25 content_a/order/address/display.php:61
 #: content_a/sale/display.php:50 content_crm/member/home/display.php:159
 #: content_my/ipg/profile/display.php:22 content_my/ipg/setup/profile/display.php:22
@@ -5370,7 +5370,7 @@ msgstr "جنسیت"
 msgid "Mr"
 msgstr "آقای"
 
-#: content_a/accounting/irvat/add/display.php:385 content_a/cart/add/display.php:82
+#: content_a/accounting/irvat/add/display.php:385 content_a/cart/add/display.php:86
 #: content_a/cart/user/display.php:26 content_a/order/address/display.php:62
 #: content_a/sale/display.php:51 content_crm/member/home/display.php:159
 #: content_my/ipg/profile/display.php:28 content_my/ipg/setup/profile/display.php:28
@@ -5391,7 +5391,7 @@ msgid "Add new facotr"
 msgstr "افزودن فاکتور جدید"
 
 #: content_a/accounting/irvat/all/display.php:6 content_a/android/home/display.php:117
-#: content_a/cart/add/display.php:35 content_a/cart/add/display.php:37
+#: content_a/cart/add/display.php:39 content_a/cart/add/display.php:41
 #: content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:118
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
@@ -6270,16 +6270,16 @@ msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 msgid "Application desc"
 msgstr "توضیح برنامه"
 
-#: content_a/cart/add/display.php:28
+#: content_a/cart/add/display.php:32
 msgid "Search in product and add to user cart"
 msgstr "جستجو در محصولات برای افزودن آن به سبد خرید مشتری"
 
-#: content_a/cart/add/display.php:31 content_a/order/products/display.php:37
+#: content_a/cart/add/display.php:35 content_a/order/products/display.php:37
 #: content_a/sale/display.php:7
 msgid "Search in list to add product"
 msgstr "جستجو در لیست برای افزودن کالا"
 
-#: content_a/cart/add/display.php:42
+#: content_a/cart/add/display.php:46
 msgid ""
 "This shopping cart is not assigned to the customer and the customer has added the "
 "shopping cart without logging in. Click here if you want to dedicate this shopping cart "
@@ -6289,19 +6289,19 @@ msgstr ""
 "خود را اضافه کرده است. در صورتی که می‌خواهید این سبد خرید را به یکی از مشتریان خود "
 "اختصاص دهید اینجا کلیک کنید"
 
-#: content_a/cart/add/display.php:42
+#: content_a/cart/add/display.php:46
 msgid "Assign to customer"
 msgstr "اختصاص به مشتری"
 
-#: content_a/cart/add/display.php:48
+#: content_a/cart/add/display.php:52
 msgid "Remove All"
 msgstr "حذف همه"
 
-#: content_a/cart/add/display.php:60
+#: content_a/cart/add/display.php:64
 msgid "Assign cart to customer"
 msgstr "اختصاص سبد خرید به مشتری"
 
-#: content_a/cart/add/display.php:62
+#: content_a/cart/add/display.php:66
 msgid ""
 "To assign this shopping cart to a specific customer, select a customer or register a "
 "new customer"
@@ -6309,24 +6309,24 @@ msgstr ""
 "برای اختصاص این سبد خرید به مشتری خاص لطفا یکی از مشتریان را انتخاب کنید و یا مشتری "
 "جدیدی ثبت کنید"
 
-#: content_a/cart/add/display.php:86 content_a/cart/user/display.php:30
+#: content_a/cart/add/display.php:90 content_a/cart/user/display.php:30
 #: content_a/order/address/display.php:66 content_a/sale/display.php:55
 msgid "Customer Name"
 msgstr "نام مشتری"
 
-#: content_a/cart/add/display.php:94
+#: content_a/cart/add/display.php:98
 msgid "Assign cart to user"
 msgstr "اختصاص سبد خرید به مشتری"
 
-#: content_a/cart/add/display.php:108 content_business/cart/cartSummary.php:2
+#: content_a/cart/add/display.php:112 content_business/cart/cartSummary.php:2
 msgid "Order Summary"
 msgstr "خلاصه سفارش"
 
-#: content_a/cart/add/display.php:111 content_business/cart/cartSummary.php:5
+#: content_a/cart/add/display.php:115 content_business/cart/cartSummary.php:5
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_a/cart/add/display.php:117 content_a/order/discount/display.php:20
+#: content_a/cart/add/display.php:121 content_a/order/discount/display.php:20
 #: content_a/order/home/display.php:60 content_a/order/productList.php:21
 #: content_a/order/products/display.php:56 content_a/order/products/display.php:58
 #: content_a/order/summary.php:29 content_a/pricehistory/display.php:40
@@ -6344,17 +6344,13 @@ msgstr "مجموع"
 msgid "Discount"
 msgstr "تخفیف"
 
-#: content_a/cart/add/display.php:123 content_a/order/discount/display.php:25
+#: content_a/cart/add/display.php:127 content_a/order/discount/display.php:25
 #: content_a/order/home/display.php:67 content_a/order/summary.php:34
 #: content_a/products/edit/block/sidebar-menu.php:25
 #: content_a/products/shipping/display.php:16 content_a/products/shipping/view.php:18
 #: content_a/setting/home/display.php:84 content_business/cart/cartSummary.php:24
 msgid "Shipping"
 msgstr "حمل و نقل"
-
-#: content_a/cart/add/display.php:159 content_business/cart/display.php:18
-msgid "This product addet to your cart"
-msgstr "این محصول به سبد خرید شما اضافه شد"
 
 #: content_a/cart/add/display.php:166 content_business/cart/display.php:25
 msgid "In Stock"
@@ -6387,6 +6383,10 @@ msgstr "این سبد خرید خالی است"
 #: content_a/cart/add/view.php:13
 msgid "Add cart"
 msgstr "افزودن به سبد خرید"
+
+#: content_a/cart/add/view.php:29
+msgid "Save as order"
+msgstr "تبدیل به سفارش"
 
 #: content_a/cart/home/display.php:6
 msgid "Cart count"
@@ -6458,7 +6458,7 @@ msgid "Item"
 msgstr "گزینه"
 
 #: content_a/cart/home/display.php:168 content_a/order/address/display.php:94
-#: content_a/order/home/display.php:131 content_cms/attachment/home/display.php:109
+#: content_a/order/home/display.php:133 content_cms/attachment/home/display.php:109
 #: content_love/gift/all/display.php:63 dash/layout/admin/admin-titlebox.php:33
 #: includes/languages/trans_static_public.php:142
 msgid "View"
@@ -6744,7 +6744,7 @@ msgstr "عنوان نزولی"
 #: content_a/category/home/display.php:141 content_a/products/add/view.php:10
 #: content_a/products/export/display.php:19 content_a/products/home/display.php:228
 #: content_a/tag/home/display.php:98 dash/layout/admin/sidebar/sidebar-api-v2.php:74
-#: dash/plan_list.php:151
+#: dash/plan_list.php:143
 msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
@@ -6800,7 +6800,7 @@ msgstr ""
 "صفحه ویرایش مشخصات محصول برای هر محصولی که شامل این دسته بندی‌ است تنظیم کنید."
 
 #: content_a/category/property/display.php:31 content_a/category/property/display.php:35
-#: content_a/form/report/display.php:7 content_a/order/home/display.php:74
+#: content_a/form/report/display.php:7 content_a/order/home/display.php:75
 #: content_a/products/property/display.php:34 content_a/products/property/display.php:38
 #: content_a/products/property/display.php:130
 #: content_a/setting/domain/manage/display.php:25
@@ -8338,7 +8338,7 @@ msgstr "افزودن محصول جدید"
 
 #: content_a/home/display.php:38 content_a/order/view.php:9
 #: content_a/setting/home/display.php:143 dash/layout/pwa/pwa_menu.php:187
-#: dash/panel.php:382
+#: dash/panel.php:382 dash/plan_list.php:53
 msgid "Orders"
 msgstr "سفارشات"
 
@@ -8549,11 +8549,15 @@ msgstr "زمان"
 msgid "Invoice Date"
 msgstr "تاریخ فاکتور"
 
-#: content_a/order/home/display.php:77
+#: content_a/order/home/display.php:73
+msgid "Pay status"
+msgstr "وضعیت پرداخت"
+
+#: content_a/order/home/display.php:78
 msgid "Operation"
 msgstr "عملیات"
 
-#: content_a/order/home/display.php:95 content_a/products/bullet/view.php:15
+#: content_a/order/home/display.php:96 content_a/products/bullet/view.php:15
 #: content_a/products/cartlimit/view.php:15 content_a/products/child/view.php:15
 #: content_a/products/comment/display.php:119 content_a/products/comment/display.php:126
 #: content_a/products/comment/view.php:14 content_a/products/desc/view.php:15
@@ -8569,15 +8573,15 @@ msgstr "عملیات"
 msgid "Without name"
 msgstr "بدون نام"
 
-#: content_a/order/home/display.php:101
+#: content_a/order/home/display.php:102
 msgid "Without customer"
 msgstr "بدون مشتری"
 
-#: content_a/order/home/display.php:154 content_v2/app/view.php:255
+#: content_a/order/home/display.php:156 content_v2/app/view.php:255
 msgid "More"
 msgstr "بیشتر"
 
-#: content_a/order/home/display.php:193
+#: content_a/order/home/display.php:195
 msgid "Try to start with add new sale!"
 msgstr "با افزودن فروش جدید تلاشی برای شروع داشته باشید!"
 
@@ -13904,6 +13908,10 @@ msgstr "پرداخت"
 msgid "BUY"
 msgstr "خرید"
 
+#: content_business/cart/display.php:18
+msgid "This product addet to your cart"
+msgstr "این محصول به سبد خرید شما اضافه شد"
+
 #: content_business/cart/display.php:78
 msgid "Your Shopping Cart is empty"
 msgstr "سبد خرید شما خالی است"
@@ -14675,8 +14683,8 @@ msgstr "آخرین اعضا"
 #: dash/app/user.php:87 dash/app/user.php:129 dash/app/user.php:179
 #: dash/app/visitor.php:112 dash/app/visitor.php:141
 #: includes/languages/trans_static.php:570 lib/app/factor/ready.php:87
-#: lib/app/factor/ready.php:101 lib/app/factor/ready.php:125
-#: lib/app/nic_domain/ready.php:59 lib/app/nic_domain/search.php:197
+#: lib/app/factor/ready.php:125 lib/app/nic_domain/ready.php:59
+#: lib/app/nic_domain/search.php:197
 msgid "Unknown"
 msgstr "ناشناس"
 
@@ -14684,7 +14692,7 @@ msgstr "ناشناس"
 msgid "Latest logs"
 msgstr "آخرین لاگ‌ها"
 
-#: content_crm/home/view.php:12 content_love/home/display.php:95
+#: content_crm/home/view.php:12 content_love/home/display.php:95 dash/plan_list.php:96
 #: includes/languages/trans_static_public.php:1115
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
@@ -16634,7 +16642,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/cart/add.php:64 lib/app/cart/add.php:86 lib/app/cart/add.php:162
 #: lib/app/cart/add.php:212 lib/app/cart/checkout.php:14 lib/app/cart/edit.php:19
 #: lib/app/cart/get.php:13 lib/app/cart/get.php:40 lib/app/cart/remove.php:36
-#: lib/app/cart/search.php:215 lib/app/domains/search.php:27 lib/app/factor/cart.php:49
+#: lib/app/cart/search.php:215 lib/app/domains/search.php:27 lib/app/factor/cart.php:65
 #: lib/app/factor/get.php:239 lib/app/factor/search.php:481 lib/app/gift/search.php:27
 #: lib/app/giftusage/search.php:27 lib/app/irvat/search.php:29
 #: lib/app/nic_contact/add.php:21 lib/app/nic_contact/add.php:67
@@ -22780,11 +22788,11 @@ msgstr "دامنه‌های جیبرس"
 msgid "My Business"
 msgstr "بیزینس‌های من"
 
-#: dash/layout/admin/admin-sidebar-frame.php:17 lib/app/store/analytics.php:55
-#: lib/app/store/analytics.php:56 lib/app/store/analytics.php:57
-#: lib/app/store/analytics.php:58 lib/app/store/analytics.php:59
-#: lib/app/store/analytics.php:60 lib/app/store/analytics.php:61
-#: lib/app/store/analytics.php:62
+#: dash/layout/admin/admin-sidebar-frame.php:17 dash/plan_list.php:104
+#: lib/app/store/analytics.php:55 lib/app/store/analytics.php:56
+#: lib/app/store/analytics.php:57 lib/app/store/analytics.php:58
+#: lib/app/store/analytics.php:59 lib/app/store/analytics.php:60
+#: lib/app/store/analytics.php:61 lib/app/store/analytics.php:62
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
@@ -23091,7 +23099,7 @@ msgstr "تنظیم وضعیت تیکت"
 msgid "Set ticket solved"
 msgstr "تنظیم تیکت به عنوان حل شده"
 
-#: dash/layout/admin/sidebar/sidebar-api-v2.php:75 dash/plan_list.php:152
+#: dash/layout/admin/sidebar/sidebar-api-v2.php:75 dash/plan_list.php:144
 msgid "Edit product"
 msgstr "ویرایش محصول"
 
@@ -23259,10 +23267,6 @@ msgstr "سیستم مدیریت محتوا"
 msgid "Permission denied"
 msgstr "دسترسی غیر مجاز"
 
-#: dash/plan_list.php:45
-msgid "Access to products"
-msgstr "دسترسی به محصولات"
-
 #: dash/plan_list.php:46
 msgid ""
 "Access to display and edit products as well as items such as product tag, categories "
@@ -23271,416 +23275,416 @@ msgstr ""
 "دسترسی به نمایش محصولات، ویرایش آنها و هر چیزی که مرتبط با محصولات باشد مانند تگ‌ها، "
 "دسته بندی‌ها و ..."
 
-#: dash/plan_list.php:53
-msgid "Access to orders"
-msgstr "دسترسی به سفارشات"
+#: dash/plan_list.php:54
+msgid ""
+"Access to view and manage orders as well as view and manage customers' shopping cart"
+msgstr ""
+"دسترسی به نمایش و مدیریت سفارشات شامل مدیریت کامل سفارشات و مدیریت سبد خرید مشتریان"
 
-#: dash/plan_list.php:61
-msgid "Access to cart"
-msgstr "دسترسی به سبد خرید"
+#: dash/plan_list.php:62 lib/app/export/form_answer.php:65
+msgid "Form builder"
+msgstr "فرم‌ساز"
 
-#: dash/plan_list.php:70
-msgid "Access to form builder"
-msgstr "دسترسی به فرم‌ساز"
-
-#: dash/plan_list.php:71
+#: dash/plan_list.php:63
 msgid "Access to form builder, Add new from, Manage form answer, ..."
 msgstr "دسترسی به فرم‌ساز، افزودن فرم جدید، مدیریت فرم‌ها و پاسخ‌ها و ..."
 
-#: dash/plan_list.php:78
-msgid "Access to accounting"
-msgstr "دسترسی به حسابداری هوشمند"
+#: dash/plan_list.php:70
+msgid "accounting"
+msgstr "حسابداری"
 
-#: dash/plan_list.php:87
-msgid "Manage application"
-msgstr "مدیریت اپلیکیشن"
-
-#: dash/plan_list.php:96
+#: dash/plan_list.php:88
 msgid "Manage Setting"
 msgstr "مدیریت تنظیمات"
 
-#: dash/plan_list.php:104
-msgid "Access to CRM"
-msgstr "دسترسی به مدیریت ارتباط با مشتریان"
+#: dash/plan_list.php:89
+msgid "Access to change and manage business settings"
+msgstr "دسترسی به تغییر و مدیریت تنظیمات بیزینس"
+
+#: dash/plan_list.php:97
+msgid ""
+"Customer relationship management includes customer management, settings for access "
+"levels and ..."
+msgstr "مدیریت ارتباط با مشتریان شامل مدیریت مشتریان و تنظیم سطوح دسترسی و ..."
+
+#: dash/plan_list.php:105
+msgid "Manage media and business content such as news and site pages"
+msgstr "مدیریت محتوای بیزینس مانند اخبار و صفحات ثابت سایت"
 
 #: dash/plan_list.php:112
-msgid "Access to CMS"
-msgstr "دسترسی به سیستم مدیریت محتوا"
-
-#: dash/plan_list.php:120
 msgid "Manage support center"
 msgstr "مدیریت مرکز پشتیبانی"
 
-#: dash/plan_list.php:129
-msgid "Access to report"
-msgstr "دسترسی به گزارشات"
+#: dash/plan_list.php:113
+msgid "Access the support section and the business help center and ticket answering"
+msgstr "دسترسی به بخش پشتیبانی و مدیریت مرکز راهنمایی و پاسخگویی به تیکت‌ها"
 
-#: dash/plan_list.php:153
+#: dash/plan_list.php:145
 msgid "Delete product"
 msgstr "حذف محصول"
 
-#: dash/plan_list.php:154
+#: dash/plan_list.php:146
 msgid "Mamage Product Unit"
 msgstr "مدیریت واحد‌های محصولات"
 
-#: dash/plan_list.php:155
+#: dash/plan_list.php:147
 msgid "Manage Product Company"
 msgstr "مدیریت شرکت سازنده محصولات"
 
-#: dash/plan_list.php:156
+#: dash/plan_list.php:148
 msgid "Manage Product Comment"
 msgstr "مدیریت نظرات مشتریان"
 
-#: dash/plan_list.php:157
+#: dash/plan_list.php:149
 msgid "Manage Product Tag"
 msgstr "مدیریت تگ محصولات"
 
-#: dash/plan_list.php:158
+#: dash/plan_list.php:150
 msgid "Manage Product Category"
 msgstr "مدیریت دسته‌بندی محصولات"
 
-#: dash/plan_list.php:161
-msgid "Manage business setting"
-msgstr "مدیریت تنظیمات بیزینس"
-
-#: dash/plan_list.php:164
-msgid "Manage Form"
-msgstr "مدیریت فرم‌ساز"
-
-#: dash/plan_list.php:165
-msgid "Advance Form Analyze"
-msgstr "تجزیه و تحلیل پیشرفته"
-
-#: dash/plan_list.php:166
-msgid "Manage Form Tags"
-msgstr "مدیریت کلیدواژه فرم‌ها"
-
-#: dash/plan_list.php:167
-msgid "Remove form answer"
-msgstr "حذف پاسخ فرم‌ها"
-
-#: dash/plan_list.php:168
-msgid "Form Description"
-msgstr "ثبت توضیحات برای پاسخ‌ فرم‌ها"
-
-#: dash/plan_list.php:171
+#: dash/plan_list.php:153
 msgid "Add new sale order"
 msgstr "ثبت سفارش فروش جدید"
 
-#: dash/plan_list.php:172
+#: dash/plan_list.php:154
 msgid "Manage Cart"
 msgstr "مدیریت سبد خرید"
 
-#: dash/plan_list.php:173
+#: dash/plan_list.php:155
 msgid "Manage Factors"
 msgstr "مدیریت سفارشات"
 
-#: dash/plan_list.php:174
+#: dash/plan_list.php:156
 msgid "Order notification Receiver"
 msgstr "دریافت کننده پیام‌های سفارشات"
 
-#: dash/plan_list.php:180 includes/languages/trans_static_public.php:1114
+#: dash/plan_list.php:159
+msgid "Manage business setting"
+msgstr "مدیریت تنظیمات بیزینس"
+
+#: dash/plan_list.php:162
+msgid "Manage Form"
+msgstr "مدیریت فرم‌ساز"
+
+#: dash/plan_list.php:163
+msgid "Advance Form Analyze"
+msgstr "تجزیه و تحلیل پیشرفته"
+
+#: dash/plan_list.php:164
+msgid "Manage Form Tags"
+msgstr "مدیریت کلیدواژه فرم‌ها"
+
+#: dash/plan_list.php:165
+msgid "Remove form answer"
+msgstr "حذف پاسخ فرم‌ها"
+
+#: dash/plan_list.php:166
+msgid "Form Description"
+msgstr "ثبت توضیحات برای پاسخ‌ فرم‌ها"
+
+#: dash/plan_list.php:172 includes/languages/trans_static_public.php:1114
 msgid "contentCrm"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: dash/plan_list.php:181 includes/languages/trans_static.php:125
+#: dash/plan_list.php:173 includes/languages/trans_static.php:125
 msgid "staffAccess"
 msgstr "دسترسی به کارمند"
 
-#: dash/plan_list.php:182 includes/languages/trans_static.php:127
+#: dash/plan_list.php:174 includes/languages/trans_static.php:127
 msgid "customerAccess"
 msgstr "دسترسی به مشتریان"
 
-#: dash/plan_list.php:183 includes/languages/trans_static_public.php:438
+#: dash/plan_list.php:175 includes/languages/trans_static_public.php:438
 msgid "cpPermissionView"
 msgstr "نمایش سطوح دسترسی در کنترل پنل"
 
-#: dash/plan_list.php:184 includes/languages/trans_static_public.php:435
+#: dash/plan_list.php:176 includes/languages/trans_static_public.php:435
 msgid "cpPermissionAdd"
 msgstr "افزودن سطح دسترسی در کنترل پنل"
 
-#: dash/plan_list.php:185 includes/languages/trans_static_public.php:436
+#: dash/plan_list.php:177 includes/languages/trans_static_public.php:436
 msgid "cpPermissionEdit"
 msgstr "ویرایش سطح دسترسی در کنترل پنل"
 
-#: dash/plan_list.php:186 includes/languages/trans_static_public.php:437
+#: dash/plan_list.php:178 includes/languages/trans_static_public.php:437
 msgid "cpPermissionDelete"
 msgstr "حذف سطح دسترسی در کنترل پنل"
 
-#: dash/plan_list.php:187 includes/languages/trans_static_public.php:965
+#: dash/plan_list.php:179 includes/languages/trans_static_public.php:965
 msgid "cpUsersPasswordChange"
 msgstr "تغییر کلمه عبور کاربران"
 
-#: dash/plan_list.php:188 includes/languages/trans_static_public.php:964
+#: dash/plan_list.php:180 includes/languages/trans_static_public.php:964
 msgid "cpUsersPermission"
 msgstr "کنترل سطح دسترسی کاربران"
 
-#: dash/plan_list.php:189 includes/languages/trans_static_public.php:444
+#: dash/plan_list.php:181 includes/languages/trans_static_public.php:444
 msgid "cpUsersAdd"
 msgstr "افزودن کاربر در کنترل پنل"
 
-#: dash/plan_list.php:190
+#: dash/plan_list.php:182
 msgid "aCustomerView"
 msgstr "نمایش لیست مشتریان"
 
-#: dash/plan_list.php:191
+#: dash/plan_list.php:183
 msgid "aCustomerEdit"
 msgstr "ویرایش مشتری"
 
-#: dash/plan_list.php:192
+#: dash/plan_list.php:184
 msgid "mClassroomAdd"
 msgstr "افزودن کلاس درس"
 
-#: dash/plan_list.php:197 includes/languages/trans_static_public.php:441
+#: dash/plan_list.php:189 includes/languages/trans_static_public.php:441
 msgid "contentCp"
 msgstr "محتوای کنترل‌پنل"
 
-#: dash/plan_list.php:198 includes/languages/trans_static_public.php:946
+#: dash/plan_list.php:190 includes/languages/trans_static_public.php:946
 msgid "cpSMS"
 msgstr "داشبورد پیام کوتاه"
 
-#: dash/plan_list.php:199 includes/languages/trans_static_public.php:443
+#: dash/plan_list.php:191 includes/languages/trans_static_public.php:443
 msgid "cpUsersEdit"
 msgstr "ویرایش کاربران در کنترل پنل"
 
-#: dash/plan_list.php:200 includes/languages/trans_static_public.php:942
+#: dash/plan_list.php:192 includes/languages/trans_static_public.php:942
 msgid "cpSmsSend"
 msgstr "ارسال پیام کوتاه"
 
-#: dash/plan_list.php:201 includes/languages/trans_static_public.php:442
+#: dash/plan_list.php:193 includes/languages/trans_static_public.php:442
 msgid "cpUsersView"
 msgstr "نمایش کاربران در کنترل پنل"
 
-#: dash/plan_list.php:202
+#: dash/plan_list.php:194
 msgid "contentPardakhtyar"
 msgstr "مخزن پرداخت‌یاری"
 
-#: dash/plan_list.php:203 includes/languages/trans_static_public.php:452
+#: dash/plan_list.php:195 includes/languages/trans_static_public.php:452
 msgid "cpPageAdd"
 msgstr "افزودن صفحه‌ در کنترل پنل"
 
-#: dash/plan_list.php:204 includes/languages/trans_static_public.php:1028
+#: dash/plan_list.php:196 includes/languages/trans_static_public.php:1028
 msgid "cpHelpCenterAdd"
 msgstr "افزودن مقاله به مرکز راهنمایی"
 
-#: dash/plan_list.php:205 includes/languages/trans_static_public.php:453
+#: dash/plan_list.php:197 includes/languages/trans_static_public.php:453
 msgid "cpPostsAdd"
 msgstr "افزودن خبر در کنترل پنل"
 
-#: dash/plan_list.php:206 includes/languages/trans_static_public.php:950
+#: dash/plan_list.php:198 includes/languages/trans_static_public.php:950
 msgid "cpPostsViewAll"
 msgstr "نمایش اخبار سایرین"
 
-#: dash/plan_list.php:207 includes/languages/trans_static_public.php:456
+#: dash/plan_list.php:199 includes/languages/trans_static_public.php:456
 msgid "cpPageView"
 msgstr "نمایش لیست صفحات در کنترل پنل"
 
-#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1026
+#: dash/plan_list.php:200 includes/languages/trans_static_public.php:1026
 msgid "cpHelpCenterView"
 msgstr "نمایش مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:209 includes/languages/trans_static_public.php:457
+#: dash/plan_list.php:201 includes/languages/trans_static_public.php:457
 msgid "cpPostsView"
 msgstr "نمایش لیست اخبار در کنترل پنل"
 
-#: dash/plan_list.php:210 includes/languages/trans_static_public.php:454
+#: dash/plan_list.php:202 includes/languages/trans_static_public.php:454
 msgid "cpPageEdit"
 msgstr "ویرایش صفحه در کنترل پنل"
 
-#: dash/plan_list.php:211 includes/languages/trans_static_public.php:1029
+#: dash/plan_list.php:203 includes/languages/trans_static_public.php:1029
 msgid "cpHelpCenterEdit"
 msgstr "ویرایش مقاله در مرکز راهنمایی"
 
-#: dash/plan_list.php:212 includes/languages/trans_static_public.php:455
+#: dash/plan_list.php:204 includes/languages/trans_static_public.php:455
 msgid "cpPostsEdit"
 msgstr "ویرایش خبر در کنترل پنل"
 
-#: dash/plan_list.php:213 includes/languages/trans_static_public.php:951
+#: dash/plan_list.php:205 includes/languages/trans_static_public.php:951
 msgid "cpPostsEditStatus"
 msgstr "ویرایش وضعیت خبر‌ها"
 
-#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1030
+#: dash/plan_list.php:206 includes/languages/trans_static_public.php:1030
 msgid "cpHelpCenterEditStatus"
 msgstr "تغییرت وضعیت مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:215 includes/languages/trans_static_public.php:1031
+#: dash/plan_list.php:207 includes/languages/trans_static_public.php:1031
 msgid "cpHelpCenterEditPublished"
 msgstr "تغییر مقاله منتشر شده در مرکز راهنمایی"
 
-#: dash/plan_list.php:216 includes/languages/trans_static_public.php:1148
+#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1148
 msgid "cpChangePostCreator"
 msgstr "تغییر نویسنده مطالب"
 
-#: dash/plan_list.php:217 includes/languages/trans_static_public.php:954
+#: dash/plan_list.php:209 includes/languages/trans_static_public.php:954
 msgid "cpPostsDelete"
 msgstr "حذف خبر"
 
-#: dash/plan_list.php:218 includes/languages/trans_static_public.php:440
+#: dash/plan_list.php:210 includes/languages/trans_static_public.php:440
 msgid "cpCommentsView"
 msgstr "نمایش دیدگاه در کنترل پنل"
 
-#: dash/plan_list.php:219 includes/languages/trans_static_public.php:439
+#: dash/plan_list.php:211 includes/languages/trans_static_public.php:439
 msgid "cpCommentsEdit"
 msgstr "ویرایش دیدگاه در کنترل پنل"
 
-#: dash/plan_list.php:220 includes/languages/trans_static_public.php:956
+#: dash/plan_list.php:212 includes/languages/trans_static_public.php:956
 msgid "cpCategoryDelete"
 msgstr "حذف دسته بندی"
 
-#: dash/plan_list.php:221 includes/languages/trans_static_public.php:1021
+#: dash/plan_list.php:213 includes/languages/trans_static_public.php:1021
 msgid "cpTagHelpDelete"
 msgstr "حذف تگ‌های مرکز راهنمایی"
 
-#: dash/plan_list.php:222 includes/languages/trans_static_public.php:1025
+#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1025
 msgid "cpTagSupportDelete"
 msgstr "حذف تگ‌های پشتیبانی"
 
-#: dash/plan_list.php:223 includes/languages/trans_static_public.php:957
+#: dash/plan_list.php:215 includes/languages/trans_static_public.php:957
 msgid "cpTagDelete"
 msgstr "حذف تگ"
 
-#: dash/plan_list.php:224 includes/languages/trans_static_public.php:447
+#: dash/plan_list.php:216 includes/languages/trans_static_public.php:447
 msgid "cpCategoryEdit"
 msgstr "ویرایش دسته‌بندی‌ها در کنترل پنل"
 
-#: dash/plan_list.php:225 includes/languages/trans_static_public.php:1020
+#: dash/plan_list.php:217 includes/languages/trans_static_public.php:1020
 msgid "cpTagHelpEdit"
 msgstr "ویرایش تگ‌های مرکز راهنمایی"
 
-#: dash/plan_list.php:226 includes/languages/trans_static_public.php:1024
+#: dash/plan_list.php:218 includes/languages/trans_static_public.php:1024
 msgid "cpTagSupportEdit"
 msgstr "ویرایش تگ‌های پشتیبانی"
 
-#: dash/plan_list.php:227 includes/languages/trans_static_public.php:448
+#: dash/plan_list.php:219 includes/languages/trans_static_public.php:448
 msgid "cpTagEdit"
 msgstr "ویرایش کلید‌واژه‌ها در کنترل پنل"
 
-#: dash/plan_list.php:228 includes/languages/trans_static_public.php:449
+#: dash/plan_list.php:220 includes/languages/trans_static_public.php:449
 msgid "cpCategoryAdd"
 msgstr "افزودن دسته‌بندی جدید‌ در کنترل پنل"
 
-#: dash/plan_list.php:229 includes/languages/trans_static_public.php:1023
+#: dash/plan_list.php:221 includes/languages/trans_static_public.php:1023
 msgid "cpTagSupportAdd"
 msgstr "افزودن تگ‌های پشتیبانی"
 
-#: dash/plan_list.php:230 includes/languages/trans_static_public.php:1019
+#: dash/plan_list.php:222 includes/languages/trans_static_public.php:1019
 msgid "cpTagHelpAdd"
 msgstr "افزودن تگ به مرکز راهنمایی"
 
-#: dash/plan_list.php:231 includes/languages/trans_static_public.php:450
+#: dash/plan_list.php:223 includes/languages/trans_static_public.php:450
 msgid "cpTagAdd"
 msgstr "افزودن کلیدواژه در کنترل پنل"
 
-#: dash/plan_list.php:232 includes/languages/trans_static_public.php:445
+#: dash/plan_list.php:224 includes/languages/trans_static_public.php:445
 msgid "cpCategoryView"
 msgstr "نمایش دسته‌بندی‌ها در کنترل پنل"
 
-#: dash/plan_list.php:233 includes/languages/trans_static_public.php:1018
+#: dash/plan_list.php:225 includes/languages/trans_static_public.php:1018
 msgid "cpTagHelpView"
 msgstr "نمایش تگ‌های مرکز راهنمایی"
 
-#: dash/plan_list.php:234 includes/languages/trans_static_public.php:1022
+#: dash/plan_list.php:226 includes/languages/trans_static_public.php:1022
 msgid "cpTagSupportView"
 msgstr "نمایش تگ‌های پشتیبانی"
 
-#: dash/plan_list.php:235 includes/languages/trans_static_public.php:446
+#: dash/plan_list.php:227 includes/languages/trans_static_public.php:446
 msgid "cpTagView"
 msgstr "نمایش کلید‌واژه‌ها در کنترل پنل"
 
-#: dash/plan_list.php:236 includes/languages/trans_static_public.php:1143
+#: dash/plan_list.php:228 includes/languages/trans_static_public.php:1143
 msgid "cpDayEvent"
 msgstr "نمایش رویداد‌های روزانه"
 
-#: dash/plan_list.php:237
+#: dash/plan_list.php:229
 msgid "cpTransaction"
 msgstr "تراکنش‌‌ها"
 
-#: dash/plan_list.php:238
+#: dash/plan_list.php:230
 msgid "cpTransactionAdd"
 msgstr "افزودن تراکنش"
 
-#: dash/plan_list.php:239 includes/languages/trans_static_public.php:1027
+#: dash/plan_list.php:231 includes/languages/trans_static_public.php:1027
 msgid "cpHelpCenterViewAll"
 msgstr "نمایش مقالات سایرین در مرکز راهنمایی"
 
-#: dash/plan_list.php:240 includes/languages/trans_static_public.php:952
+#: dash/plan_list.php:232 includes/languages/trans_static_public.php:952
 msgid "cpPostsEditPublished"
 msgstr "ویرایش خبر منتشر شده"
 
-#: dash/plan_list.php:241 includes/languages/trans_static_public.php:953
+#: dash/plan_list.php:233 includes/languages/trans_static_public.php:953
 msgid "cpPostsEditForOthers"
 msgstr "ویرایش خبر سایرین"
 
-#: dash/plan_list.php:242 includes/languages/trans_static_public.php:1033
+#: dash/plan_list.php:234 includes/languages/trans_static_public.php:1033
 msgid "cpHelpCenterDelete"
 msgstr "حذف مقاله در مرکز راهنمایی"
 
-#: dash/plan_list.php:243 includes/languages/trans_static_public.php:958
+#: dash/plan_list.php:235 includes/languages/trans_static_public.php:958
 msgid "cpPageDelete"
 msgstr "حذف صفحه"
 
-#: dash/plan_list.php:244 includes/languages/trans_static_public.php:1034
+#: dash/plan_list.php:236 includes/languages/trans_static_public.php:1034
 msgid "cpHelpCenterDeleteForOthers"
 msgstr "حذف مقالات سایرین در مرکز راهنمایی"
 
-#: dash/plan_list.php:245 includes/languages/trans_static_public.php:955
+#: dash/plan_list.php:237 includes/languages/trans_static_public.php:955
 msgid "cpPostsDeleteForOthers"
 msgstr "حذف خبر سایرین"
 
-#: dash/plan_list.php:246 includes/languages/trans_static_public.php:963
+#: dash/plan_list.php:238 includes/languages/trans_static_public.php:963
 msgid "cpCommentsDelete"
 msgstr "حذف نظرات، دیدگاه‌ها و تماس با ما"
 
-#: dash/plan_list.php:248 includes/languages/trans_static_public.php:1039
+#: dash/plan_list.php:240 includes/languages/trans_static_public.php:1039
 msgid "supportTicketManage"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:249 includes/languages/trans_static_public.php:1046
+#: dash/plan_list.php:241 includes/languages/trans_static_public.php:1046
 msgid "supportTicketAddNote"
 msgstr "افزودن یادداشت به تیکت"
 
-#: dash/plan_list.php:250 includes/languages/trans_static_public.php:1042
+#: dash/plan_list.php:242 includes/languages/trans_static_public.php:1042
 msgid "supportEditMessage"
 msgstr "ویرایش پیام تیکت"
 
-#: dash/plan_list.php:251 includes/languages/trans_static_public.php:1047
+#: dash/plan_list.php:243 includes/languages/trans_static_public.php:1047
 msgid "supportTicketSignature"
 msgstr "داشتن امضا در تیکت"
 
-#: dash/plan_list.php:252 includes/languages/trans_static_public.php:1032
+#: dash/plan_list.php:244 includes/languages/trans_static_public.php:1032
 msgid "cpHelpCenterEditForOthers"
 msgstr "ویرایش مقالات سایرین در مرکز راهنمایی"
 
-#: dash/plan_list.php:253 includes/languages/trans_static_public.php:1003
+#: dash/plan_list.php:245 includes/languages/trans_static_public.php:1003
 #: includes/languages/trans_static_public.php:1041
 msgid "supportTicketAnswer"
 msgstr "توانایی پاسخ به تیکت‌ها"
 
-#: dash/plan_list.php:254 includes/languages/trans_static_public.php:1040
+#: dash/plan_list.php:246 includes/languages/trans_static_public.php:1040
 msgid "supportTicketManageSubdomain"
 msgstr "مدیریت تیکت در تمامی زیردامنه‌ها"
 
-#: dash/plan_list.php:255 includes/languages/trans_static_public.php:1045
+#: dash/plan_list.php:247 includes/languages/trans_static_public.php:1045
 msgid "supportTicketAssignTag"
 msgstr "افزودن تگ به تیکت"
 
-#: dash/plan_list.php:256 includes/languages/trans_static_public.php:1048
+#: dash/plan_list.php:248 includes/languages/trans_static_public.php:1048
 msgid "supportTicketClose"
 msgstr "بستن تیکت"
 
-#: dash/plan_list.php:257 includes/languages/trans_static_public.php:1049
+#: dash/plan_list.php:249 includes/languages/trans_static_public.php:1049
 msgid "supportTicketReOpen"
 msgstr "دوباره باز کردن تیکت"
 
-#: dash/plan_list.php:258 includes/languages/trans_static_public.php:1050
+#: dash/plan_list.php:250 includes/languages/trans_static_public.php:1050
 msgid "supportTicketDelete"
 msgstr "حذف تیکت"
 
-#: dash/plan_list.php:259 includes/languages/trans_static_public.php:1044
+#: dash/plan_list.php:251 includes/languages/trans_static_public.php:1044
 msgid "supportTicketShowMobile"
 msgstr "نمایش موبایل پاسخ دهنده تیکت"
 
-#: dash/plan_list.php:260 includes/languages/trans_static_public.php:1037
+#: dash/plan_list.php:252 includes/languages/trans_static_public.php:1037
 msgid "supportTicketReport"
 msgstr "نمایش گزارش‌های پشتیبانی"
 
@@ -31668,7 +31672,7 @@ msgstr "این محصول در سبد خرید شما وجود ندارد"
 msgid "Your cart was updated"
 msgstr "سبد خرید شما به‌روزرسانی شد"
 
-#: lib/app/cart/get.php:57 lib/app/factor/cart.php:103
+#: lib/app/cart/get.php:57 lib/app/factor/cart.php:119
 msgid "Your cart is empty!"
 msgstr "سبد خرید شما خالی است!"
 
@@ -31840,10 +31844,6 @@ msgstr "ساخت فایل خروجی از پاسخ‌ها تکمیل شد"
 msgid "This file will be automatically deleted tomorrow"
 msgstr "این فایل به صورت خودکار تا فردا حذف خواهد شد"
 
-#: lib/app/export/form_answer.php:65
-msgid "Form builder"
-msgstr "فرم‌ساز"
-
 #: lib/app/export/product.php:40
 msgid "Create export products completed"
 msgstr "ساخت فایل خروجی از محصولات تکمیل شد"
@@ -31926,15 +31926,15 @@ msgstr "اطلاعات وارد شده خارج از محدوده مجاز اس�
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
-#: lib/app/factor/cart.php:135
+#: lib/app/factor/cart.php:151
 msgid "Can not add your order."
 msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 
-#: lib/app/factor/cart.php:225
+#: lib/app/factor/cart.php:241
 msgid "Pay order"
 msgstr "پرداخت سفارش"
 
-#: lib/app/factor/cart.php:249 lib/app/nic_domain/create.php:515
+#: lib/app/factor/cart.php:265 lib/app/nic_domain/create.php:515
 #: lib/app/nic_domain/renew.php:349 lib/app/nic_domain/transfer.php:322
 #: lib/app/onlinenic/create.php:420 lib/app/onlinenic/renew.php:261
 #: lib/app/onlinenic/transfer.php:374
@@ -36445,6 +36445,33 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Access to products"
+#~ msgstr "دسترسی به محصولات"
+
+#~ msgid "Access to orders"
+#~ msgstr "دسترسی به سفارشات"
+
+#~ msgid "Access to cart"
+#~ msgstr "دسترسی به سبد خرید"
+
+#~ msgid "Access to form builder"
+#~ msgstr "دسترسی به فرم‌ساز"
+
+#~ msgid "Access to accounting"
+#~ msgstr "دسترسی به حسابداری هوشمند"
+
+#~ msgid "Manage application"
+#~ msgstr "مدیریت اپلیکیشن"
+
+#~ msgid "Access to CRM"
+#~ msgstr "دسترسی به مدیریت ارتباط با مشتریان"
+
+#~ msgid "Access to CMS"
+#~ msgstr "دسترسی به سیستم مدیریت محتوا"
+
+#~ msgid "Access to report"
+#~ msgstr "دسترسی به گزارشات"
 
 #~ msgid "Manage All Factors"
 #~ msgstr "مدیریت تمامی سفارشات"
