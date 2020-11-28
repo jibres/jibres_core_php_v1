@@ -6,6 +6,15 @@ namespace dash\utility;
 class ir_post
 {
 
+	public static function quick_view($_weight)
+	{
+		$result              = [];
+		$result['sefareshi'] = self::calculate($_weight, ['type' => 'sefareshi']);
+		$result['pishtaz']   = self::calculate($_weight, ['type' => 'pishtaz']);
+
+		return $result;
+	}
+
 
 	public static function calculate($_weight, $_meta = [])
 	{
@@ -34,6 +43,14 @@ class ir_post
 			return false;
 		}
 
+		if($_meta['type'] === 'sefareshi')
+		{
+			$rate = self::sefareshi($_weight);
+		}
+		elseif($_meta['type'] === 'pishtaz')
+		{
+			$rate = self::pishtaz($_weight);
+		}
 
 
 		if($_meta['location'])
@@ -55,6 +72,7 @@ class ir_post
 
 	private static function sefareshi($_weight)
 	{
+		$rate = [];
 		if($_weight <= 500)
 		{
 			$rate =
@@ -84,14 +102,16 @@ class ir_post
 		}
 		else
 		{
-			/* errro */
-			return false;
+			/*nothing*/
 		}
+
+		return $rate;
 
 	}
 
 	private static function pishtaz($_weight)
 	{
+		$rate = [];
 
 		if($_weight <= 500)
 		{
@@ -135,9 +155,10 @@ class ir_post
 		}
 		else
 		{
-			/* errro */
-			return false;
+			/*nothing*/
 		}
+
+		return $rate;
 	}
 
 }
