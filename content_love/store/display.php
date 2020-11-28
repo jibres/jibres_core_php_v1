@@ -11,6 +11,8 @@
   </form>
 </div>
 
+<div class="tblBox">
+
 <table class="tbl1 v1 fs12 selectable">
   <thead>
     <tr>
@@ -22,6 +24,7 @@
 
       <th><?php echo T_("plan"); ?></th>
       <th><?php echo T_("datecreated"); ?></th>
+      <th class="collapsing"><?php echo T_("Setting"); ?></th>
 
     </tr>
   </thead>
@@ -47,11 +50,14 @@
 
 
       <td><?php echo \dash\get::index($value, 't_plan'); ?></td>
-      <td>
-        <?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>
-        <br>
+      <td title="<?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>">
+
+
         <?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?>
 
+      </td>
+      <td class="collapsing">
+        <a href="<?php echo \dash\url::this(). '/setting?id='. \dash\get::index($value, 'id') ?>" class="link btn"><?php echo T_("Setting") ?></a>
       </td>
 
     </tr>
@@ -59,6 +65,8 @@
     <?php } //endfor ?>
   </tbody>
 </table>
+</div>
+
 
 <?php \dash\utility\pagination::html(); ?>
 

@@ -12,10 +12,6 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
-		\dash\data::action_text(T_('Log'));
-		\dash\data::action_link(\dash\url::this(). '/log');
-
-
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
