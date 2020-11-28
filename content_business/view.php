@@ -21,6 +21,10 @@ class view
 			\dash\face::desc($store_desc);
 			\dash\face::intro($store_desc);
 		}
+		else
+		{
+			\dash\face::desc($store_title);
+		}
 
 		$store_logo = \lib\store::logo();
 		if($store_logo)
