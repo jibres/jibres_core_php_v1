@@ -98,7 +98,7 @@ class ready
 						case 'unsuccessful_payment':		$t_paystatus = T_('Unsuccessful payment'); 		break;
 						case 'payment_unverified':			$t_paystatus = T_('Payment unverified'); 		break;
 						case 'successful_payment':			$t_paystatus = T_('Successful payment'); 		break;
-						default:							$t_paystatus = T_("Unknown");					break;
+						default:							$t_paystatus = '-';					break;
 					}
 					$result['t_paystatus'] = $t_paystatus;
 					break;

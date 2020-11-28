@@ -70,6 +70,7 @@ $sortLink = \dash\data::sortLink();
         <th data-sort="<?php echo \dash\get::index($sortLink, 'subtotal', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subtotal', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
         <th data-sort="<?php echo \dash\get::index($sortLink, 'date', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a></th>
 
+        <th class=""><?php echo T_("Pay status"); ?></th>
         <?php if(!\dash\request::get('type')) {?>
           <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'type', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
         <?php } //endif ?>
@@ -119,16 +120,17 @@ $sortLink = \dash\data::sortLink();
           <td ><a href="<?php echo \dash\url::this(); ?>?total=<?php echo \dash\get::index($value, 'total'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></a></td>
           <td class="collapsing">
             <div class="f">
-              <div class="c fs09"><?php echo \dash\fit::date_time(\dash\get::index($value, 'date')); ?>
+              <div class="c s0 fs09"><?php echo \dash\fit::date_time(\dash\get::index($value, 'date')); ?></div>
               <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></div>
-            </div>
+
           </td>
+          <td><?php echo \dash\get::index($value, 't_paystatus') ?></td>
           <?php if(!\dash\request::get('type')) {?>
 
           <td class="s0" ><a class="badge" href="<?php echo \dash\url::this(); ?>?type=<?php echo \dash\get::index($value, 'type'); ?>"><?php echo T_(ucfirst(\dash\get::index($value, 'type'))); ?></a></td>
           <?php } //endif ?>
           <td>
-            <a href="<?php echo \dash\url::this(); ?>/detail?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn primary outline sm"><?php echo T_("View"); ?></a>
+            <a href="<?php echo \dash\url::this(); ?>/detail?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn link"><?php echo T_("View"); ?></a>
           </td>
         </tr>
         <tr>
