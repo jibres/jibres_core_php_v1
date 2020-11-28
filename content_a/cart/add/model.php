@@ -12,6 +12,22 @@ class model
 		$type    = \dash\request::post('type');
 
 
+		if(\dash\request::post('make_order') === 'make_order')
+		{
+
+			$post = [];
+
+			$saveorder = \lib\app\factor\cart::to_factor($post, $user, $guestid, true);
+
+			if(\dash\engine\process::status() && isset($saveorder['factor_id']))
+			{
+				\dash\redirect::to(\dash\url::here(). '/order/detail?id='. $saveorder['factor_id']);
+			}
+
+			return;
+		}
+
+
 		if(\dash\request::post('assing') === 'assing')
 		{
 

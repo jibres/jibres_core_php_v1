@@ -9,6 +9,10 @@ if(!is_array($dataTable))
 $have_user = false;
 ?>
 
+<form method="post" class="hide" id="make_order">
+  <input type="hidden" name="make_order" value="make_order">
+</form>
+
 <?php if(\dash\data::userDetail()) { $have_user = true; ?>
   <div class="msg">
     <div class="f fs14">

@@ -12,7 +12,7 @@ class cart
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function to_factor($_args)
+	public static function to_factor($_args, $_user_id = null, $_user_guest = null, $_from_admin = false)
 	{
 		$condition =
 		[
@@ -38,12 +38,28 @@ class cart
 			'payway'     => ['enum' => ['online', 'bank', 'on_deliver', 'check']],
 		];
 
-		$user_id    = \dash\user::id();
-		$user_guest = null;
+		$user_id = null;
+
+		if($_from_admin)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id    = \dash\user::id();
+		}
+
+		if($_user_guest)
+		{
+			$user_guest = $_user_guest;
+		}
+		else
+		{
+			$user_guest = \dash\user::get_user_guest();
+		}
 
 		if(!$user_id)
 		{
-			$user_guest = \dash\user::get_user_guest();
 			if(!$user_guest)
 			{
 				\dash\notif::error(T_("Please login to continue"));
