@@ -155,10 +155,6 @@ $have_user = false;
             <div class="c">
               <h3 class="title"><a href="<?php echo \dash\get::index($value, 'edit_url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
 
-              <?php if(!\dash\get::index($value, 'view')) {?>
-                <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
-              <?php } // endif ?>
-
               <?php if(\dash\get::index($value, 'trackquantity')) {?>
 
                 <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
@@ -202,7 +198,7 @@ $have_user = false;
 
                       ?>
                       <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $plus ?>'>+</label>
-                      <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly>
+                      <input type="number" step="0.001" name="count" value="<?php echo floatval(\dash\get::index($value, 'count')); ?>" readonly data-format='price'>
                       <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $minus ?>'>-</label>
                     </div>
 
