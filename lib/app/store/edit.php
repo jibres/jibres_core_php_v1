@@ -4,6 +4,10 @@ namespace lib\app\store;
 
 class edit
 {
+	public static function change_subdomain($_subdomain, $_id)
+	{
+		\dash\notif::warn('not ready yet');
+	}
 
 	public static function social($_args)
 	{
