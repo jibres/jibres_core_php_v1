@@ -102,6 +102,14 @@
       </ul>
     </nav>
 
+    <?php if(\dash\permission::check('_group_setting') && !\dash\request::is_pwa()) {?>
+       <nav class="items long">
+      <ul>
+          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/setting"><i class="sf-cogs"></i><div class="key"><?php echo T_("Settings"); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+    <?php  }//endif ?>
+
 
 </div>
 

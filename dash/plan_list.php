@@ -16,7 +16,6 @@ class plan_list
 			'setting',
 			'products',
 			'orders',
-			'cart',
 			'form',
 			'accounting',
 			'application',
