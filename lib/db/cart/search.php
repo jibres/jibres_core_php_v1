@@ -97,6 +97,9 @@ class search
 				products.optionvalue2,
 				products.optionname3,
 				products.optionvalue3,
+				products.oversale,
+				products.minsale,
+				products.maxsale,
 				products.price AS `product_price`,
 				(SELECT productunit.title FROM productunit WHERE productunit.id = products.unit_id LIMIT 1) AS `unit`,
 				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`

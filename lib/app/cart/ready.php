@@ -40,7 +40,9 @@ class ready
 				case 'optionvalue2':
 				case 'optionname3':
 				case 'optionvalue3':
-
+				case 'oversale':
+				case 'minsale':
+				case 'maxsale':
 					$get_from_product[$key] = $value;
 					break;
 
@@ -105,40 +107,20 @@ class ready
 		{
 
 			$get_from_product = \lib\app\product\ready::row($get_from_product);
-			if(isset($get_from_product['url']))
-			{
-				$result['url'] = $get_from_product['url'];
-			}
 
-			if(isset($get_from_product['edit_url']))
-			{
-				$result['edit_url'] = $get_from_product['edit_url'];
-			}
 
-			if(array_key_exists('trackquantity', $get_from_product))
-			{
-				$result['trackquantity'] = $get_from_product['trackquantity'];
-			}
+			$result['oversale']      = \dash\get::index($get_from_product, 'oversale');
+			$result['minsale']       = \dash\get::index($get_from_product, 'minsale');
+			$result['maxsale']       = \dash\get::index($get_from_product, 'maxsale');
+			$result['url']           = \dash\get::index($get_from_product, 'url');
+			$result['edit_url']      = \dash\get::index($get_from_product, 'edit_url');
+			$result['trackquantity'] = \dash\get::index($get_from_product, 'trackquantity');
+			$result['instock']       = \dash\get::index($get_from_product, 'instock');
+			$result['title']         = \dash\get::index($get_from_product, 'title');
+			$result['status']        = \dash\get::index($get_from_product, 'status');
+			$result['allow_shop']    = \dash\get::index($get_from_product, 'allow_shop');
 
-			if(array_key_exists('instock', $get_from_product))
-			{
-				$result['instock'] = $get_from_product['instock'];
-			}
 
-			if(array_key_exists('title', $get_from_product))
-			{
-				$result['title'] = $get_from_product['title'];
-			}
-
-			if(array_key_exists('status', $get_from_product))
-			{
-				$result['status'] = $get_from_product['status'];
-			}
-
-			if(array_key_exists('allow_shop', $get_from_product))
-			{
-				$result['allow_shop'] = $get_from_product['allow_shop'];
-			}
 
 		}
 

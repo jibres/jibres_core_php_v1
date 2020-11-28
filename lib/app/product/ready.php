@@ -301,17 +301,18 @@ class ready
 		$salestep       = 1;
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
-		if(isset($cart_setting['maxproductincart']))
+
+		if(isset($cart_setting['maxproductincart']) && is_numeric($cart_setting['maxproductincart']) && $cart_setting['maxproductincart'])
 		{
 			$max_cart_limit = floatval($cart_setting['maxproductincart']);
 		}
 
-		if(isset($result['minsale']))
+		if(isset($result['minsale']) && is_numeric($result['minsale']) && $result['minsale'])
 		{
 			$minsale = floatval($result['minsale']);
 		}
 
-		if(isset($result['maxsale']))
+		if(isset($result['maxsale']) && is_numeric($result['maxsale']) && $result['maxsale'])
 		{
 			$maxsale = floatval($result['maxsale']);
 		}
@@ -320,7 +321,7 @@ class ready
 			$maxsale = $max_cart_limit;
 		}
 
-		if(isset($result['salestep']))
+		if(isset($result['salestep']) && is_numeric($result['salestep']) && $result['salestep'])
 		{
 			$salestep = floatval($result['salestep']);
 		}
@@ -330,9 +331,15 @@ class ready
 			$maxsale = floatval($result['stock']);
 		}
 
+		if(isset($result['oversale']) && $result['oversale'])
+		{
+			$maxsale = null;
+		}
+
 		$result['cart_limit']                   = [];
 		$result['cart_limit']['min_sale']       = $minsale;
 		$result['cart_limit']['max_sale']       = $maxsale;
+		$result['cart_limit']['sale_step']      = $salestep;
 		$result['cart_limit']['sale_step_list'] = [];
 		if($maxsale <= 100)
 		{

@@ -90,6 +90,7 @@ class edit
 			return false;
 		}
 
+
 		if($user_id)
 		{
 			$check_exist_record = \lib\db\cart\get::product_user($data['product'], $user_id);
@@ -139,6 +140,12 @@ class edit
 			}
 			else
 			{
+
+				if($_from_website)
+				{
+					$new_count = \lib\app\cart\check::max_limit_product($new_count, $load_product, $data['type']);
+				}
+
 				if($user_id)
 				{
 					\lib\db\cart\update::the_count($_product_id, $user_id, $new_count);
@@ -152,7 +159,10 @@ class edit
 		}
 
 
-		\dash\notif::ok(T_("Your cart was updated"));
+		if(!$_from_website)
+		{
+			\dash\notif::ok(T_("Your cart was updated"));
+		}
 		return true;
 	}
 

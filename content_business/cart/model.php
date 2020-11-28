@@ -43,7 +43,7 @@ class model
 
 		if($result)
 		{
-			\dash\notif::clean();
+			// \dash\notif::clean();
 			\dash\redirect::pwd();
 		}
 	}
