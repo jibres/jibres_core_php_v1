@@ -98,7 +98,7 @@ class ir_post
 			$price                  = $rate['province'];
 			$detail_result['basic'] = $basic_rate['province'];
 		}
-		elseif($data['send_type'] === 'otherprovince')
+		elseif($data['send_type'] === 'otherprovince' )
 		{
 			if($data['from_province'] && $data['to_province'])
 			{
@@ -115,6 +115,11 @@ class ir_post
 					$price                  = $rate['country'];
 					$detail_result['basic'] = $basic_rate['country'];
 				}
+			}
+			else
+			{
+				$price                  = $rate['country'];
+				$detail_result['basic'] = $basic_rate['country'];
 			}
 
 			if($data['from_city'] && $data['to_city'])
