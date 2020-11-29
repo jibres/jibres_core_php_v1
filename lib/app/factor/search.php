@@ -22,10 +22,18 @@ class search
 
 	private static function factors_list($_type, $_query_string, $_args)
 	{
-		\dash\permission::access('_group_orders');
+		if(isset($_args['my_orders']) && $_args['my_orders'])
+		{
+			/* only load my orders needless to check permission*/
+		}
+		else
+		{
+			\dash\permission::access('_group_orders');
+		}
 
 		$condition =
 		[
+			'my_orders'         => 'bit',
 			'order'             => 'order',
 			'sort'              => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
 
@@ -485,11 +493,11 @@ class search
 
 		if(\dash\user::id())
 		{
-			$result = self::list(null, ['customer' => \dash\user::code()]);
+			$result = self::list(null, ['my_orders' => true, 'customer' => \dash\user::code()]);
 		}
 		else
 		{
-			$result = self::list(null, ['guestid' => \dash\user::get_user_guest()]);
+			$result = self::list(null, ['my_orders' => true, 'guestid' => \dash\user::get_user_guest()]);
 
 		}
 
