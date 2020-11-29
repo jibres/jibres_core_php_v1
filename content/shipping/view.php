@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Jibres Shipping'));
-		\dash\face::desc(T_("Save up to 90% on shipping and send your products with confidence using simplified tools that scale with your business."));
+		\dash\face::desc(T_("Statistically, shipping cost is among the main reasons why shoppers abandon shopping carts."));
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
