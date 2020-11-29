@@ -1,5 +1,5 @@
 <div class="jibresBanner">
-	<div class="avand-lg impact">
+	<div class="avand-md impact">
 		<form method="get" autocomplete="off" action="<?php echo \dash\url::current(); ?>">
 
 				<div class="box2">
@@ -72,7 +72,7 @@
 	</form>
 </div>
 		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) { $currency = \dash\get::index($result, 'currency'); ?>
-<div class="avand-lg">
+<div class="avand-md">
 				<nav class="items">
 					<ul>
 						<?php if(\dash\get::index($result, 'basic')) {?>
