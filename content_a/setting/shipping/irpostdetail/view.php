@@ -14,12 +14,13 @@ class view
 		$weight = \dash\request::get('w');
 		if($weight)
 		{
-			$meta = [];
+			$meta                  = [];
+			$meta['detail']        = 1;
 			$meta['type']          = \dash\request::get('t');
 			$meta['package_type']  = \dash\request::get('p');
 			$meta['from_province'] = \dash\request::get('p1');
 			$meta['from_city']     = \dash\request::get('c1');
-			$meta['location_mode'] = 1;
+			$meta['send_type']     = \dash\request::get('sendtype');
 			$meta['to_province']   = \dash\request::get('p2');
 			$meta['to_city']       = \dash\request::get('c2');
 

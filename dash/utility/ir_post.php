@@ -20,6 +20,8 @@ class ir_post
 	{
 		$condition =
 		[
+			'detail'        => 'bit',
+			'send_type'     => ['enum' => ['inprovince', 'otherprovince']],
 			'type'          => ['enum' => ['sefareshi', 'pishtaz']],
 			'package_type'  => ['enum' => ['pocket', 'box']],
 			'from_province' => 'province',
@@ -38,6 +40,10 @@ class ir_post
 
 		$rate = [];
 
+		$detail_result = [];
+
+		$get_detail = $data['detail'];
+
 		$_weight = \dash\validate::int($_weight);
 
 		if(!$_weight || !is_numeric($_weight) || $_weight < 0)
@@ -54,24 +60,67 @@ class ir_post
 			$rate = self::pishtaz($_weight);
 		}
 
+		$basic_rate = $rate;
 		foreach ($rate as $key => $value)
 		{
 			if($value)
 			{
 				if($data['package_type'] === 'box')
 				{
-					$value = floatval($value) + 8000;
+					$detail_result['insurance']	= 8000;
+					$value = floatval($value) + $detail_result['insurance'];
 				}
-				$value = $value + ((9 * $value) / 100);
+
+				$detail_result['vat'] = ((9 * $value) / 100);
+				$value                = $value + $detail_result['vat'];
+
 				$rate[$key] = $value;
 			}
 		}
 
-
-		// must be show by province near
-		if($data['location_mode'])
+		if($data['send_type'] === 'inprovince')
 		{
-			$rate = $rate['country'];
+			$rate = $rate['province'];
+			$detail_result['price'] = $rate;
+			$detail_result['basic'] = $basic_rate['province'];
+		}
+		elseif($data['send_type'] === 'otherprovince')
+		{
+			if($data['from_province'] && $data['to_province'])
+			{
+				$from_province = \dash\utility\location\provinces::$data[$data['from_province']];
+				$to_province   = \dash\utility\location\provinces::$data[$data['to_province']];
+
+				if(isset($from_province['neighbor']) && in_array($data['from_province'], $from_province['neighbor']))
+				{
+					$rate                   = $rate['neighbor'];
+					$detail_result['price'] = $rate;
+					$detail_result['basic'] = $basic_rate['neighbor'];
+				}
+				else
+				{
+					$rate                   = $rate['country'];
+					$detail_result['price'] = $rate;
+					$detail_result['basic'] = $basic_rate['country'];
+				}
+			}
+
+			if($data['from_city'])
+			{
+				$from_city   = \dash\utility\location\cites::$data[$data['from_city']];
+				if(isset($from_city['province_center']) && $from_city['province_center'])
+				{
+					$detail_result['province_center'] = ((10 * $rate) / 100);
+					$rate                             = $rate + $detail_result['province_center'];
+					$detail_result['price'] = $rate;
+				}
+				// +10% for province center
+			}
+		}
+
+		if($get_detail)
+		{
+			return $detail_result;
 		}
 
 		return $rate;
