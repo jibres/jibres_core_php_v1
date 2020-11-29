@@ -8,6 +8,7 @@
 						<label for="weight"><?php echo T_("Weight") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
 						<div class="input">
 							<input type="tel" id="weight" name="w" value="<?php echo \dash\request::get('w') ?>" data-format='weight' maxlength="7" required>
+							<label for="weight" class="addon"><?php echo T_("Gram") ?></label>
 						</div>
 
 						<label><?php echo T_("Choose order type") ?></label>
