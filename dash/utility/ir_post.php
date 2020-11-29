@@ -74,6 +74,13 @@ class ir_post
 				}
 			}
 
+			foreach ($rate as $key => $value)
+			{
+				$rate[$key] = round($value / 10);
+			}
+
+			$rate['currency'] = T_("Toman");
+
 			return $rate;
 
 		}
@@ -131,6 +138,14 @@ class ir_post
 
 		$detail_result['vat'] = ((9 * $price) / 100);
 		$price                = $price + $detail_result['vat'];
+
+
+		foreach ($detail_result as $key => $value)
+		{
+			$detail_result[$key] = round($value / 10);
+		}
+
+		$detail_result['currency'] = T_("Toman");
 
 		return $detail_result;
 

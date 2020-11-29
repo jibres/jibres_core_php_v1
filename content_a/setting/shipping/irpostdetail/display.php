@@ -97,45 +97,77 @@
 			</footer>
 
 		</div>
-		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) {  ?>
+		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) { $currency = $result['currency']; ?>
 
-			<div class="box">
-				<div class="pad">
-					<div class="tblBox">
-						<table class="tbl1 v5">
-							<tbody>
-								<tr>
-									<td><?php echo T_("Basic price"); ?></td>
-									<td><?php echo \dash\fit::number(\dash\get::index($result, 'basic')) ?></td>
-								</tr>
-								<?php if(\dash\get::index($result, 'insurance')) {?>
-								<tr>
-									<td><?php echo T_("Insurance"); ?></td>
-									<td><?php echo \dash\fit::number(\dash\get::index($result, 'insurance')) ?></td>
-								</tr>
-								<?php } //endif ?>
-								<?php if (\dash\get::index($result, 'province_center')) {?>
-								<tr>
-									<td><?php echo T_("Send from province center"). ' '. T_("10%"); ?></td>
-									<td><?php echo \dash\fit::number(\dash\get::index($result, 'province_center')) ?></td>
-								</tr>
-								<?php } //endif ?>
-								<?php if(\dash\get::index($result, 'vat')) {?>
-								<tr>
-									<td><?php echo T_("Vat"). ' '. T_("9%"); ?> </td>
-									<td><?php echo \dash\fit::number(\dash\get::index($result, 'vat')) ?></td>
-								</tr>
-								<?php }// ?>
-								<tr class="active txtB">
-									<td><?php echo T_("Total"); ?></td>
-									<td><?php echo \dash\fit::number(\dash\get::index($result, 'price')) ?></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+			<nav class="items">
+			  <ul>
+			    <li>
+			    	<a class="f">
+				    	<div class="key">
+				    		<?php echo T_("Basic price"); ?>
+				    	</div>
+			    		<div class="value">
+			    			<?php echo \dash\fit::number(\dash\get::index($result, 'basic')) ?> <small><?php echo $currency ?></small>
+			    		</div>
+			    	</a>
+			   	</li>
 
-				</div>
-			</div>
+				<?php if(\dash\get::index($result, 'insurance')) {?>
+			   	<li>
+			    	<a class="f">
+				    	<div class="key">
+				    		<?php echo T_("Insurance"); ?>
+				    	</div>
+			    		<div class="value">
+			    			<?php echo \dash\fit::number(\dash\get::index($result, 'insurance')) ?> <small><?php echo $currency ?></small>
+			    		</div>
+			    	</a>
+			   	</li>
+				<?php } //endif ?>
+
+			   	<?php if(\dash\get::index($result, 'province_center')) {?>
+
+			   	<li>
+			    	<a class="f">
+				    	<div class="key">
+				    		<?php echo T_("Send from province center"). ' '. T_("10%"); ?>
+				    	</div>
+			    		<div class="value">
+			    			<?php echo \dash\fit::number(\dash\get::index($result, 'province_center')) ?> <small><?php echo $currency ?></small>
+			    		</div>
+			    	</a>
+			   	</li>
+				<?php } //endif ?>
+
+				<?php if(\dash\get::index($result, 'vat')) {?>
+
+			   	<li>
+			    	<a class="f">
+				    	<div class="key">
+				    		<?php echo T_("Vat"). ' '. T_("9%"); ?>
+				    	</div>
+			    		<div class="value">
+			    			<?php echo \dash\fit::number(\dash\get::index($result, 'vat')) ?> <small><?php echo $currency ?></small>
+			    		</div>
+			    	</a>
+			   	</li>
+				<?php } //endif ?>
+
+
+			   	<li>
+			    	<a class="f">
+				    	<div class="key">
+				    		<?php echo T_("Total"); ?>
+				    	</div>
+			    		<div class="value txtB">
+			    			<?php echo \dash\fit::number(\dash\get::index($result, 'price')) ?> <small><?php echo $currency ?></small>
+			    		</div>
+			    	</a>
+			   	</li>
+
+
+			  </ul>
+			</nav>
 		<?php } //endif ?>
 	</div>
 
