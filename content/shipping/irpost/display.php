@@ -11,7 +11,7 @@
 						</div>
 
 						<label><?php echo T_("Choose order type") ?></label>
-						<div class="row mB20">
+						<div class="row mB10">
 							<div class="c-xs-6 c-sm-6">
 								<div class="radio3">
 									<input type="radio" name="t" value="pishtaz" id="pishtaz" <?php if(\dash\request::get('t') === 'pishtaz' || !\dash\request::get('t')) {echo 'checked';} ?>>
@@ -25,7 +25,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row mB20">
+						<div class="row mB10">
 							<div class="c-xs-6 c-sm-6">
 								<label><?php echo T_("Sender location") ?></label>
 								<?php \dash\utility\location::provinceSelectorHtml('IR', \dash\request::get('p1'),  \dash\request::get('c1'), 'p1', 'p1', 'c1', 'c1'); ?>
@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<label><?php echo T_("Send to") ?></label>
-						<div class="row mB20">
+						<div class="row mB10">
 							<div class="c-xs-6 c-sm-6">
 								<div class="radio3">
 									<input type="radio" name="sendtype" value="otherprovince" id="otherprovince" <?php if(\dash\request::get('sendtype') === 'otherprovince' || !\dash\request::get('sendtype')) {echo 'checked';} ?>>
@@ -62,9 +62,9 @@
 						</div>
 					</div>
 					<footer class="f">
-						<div class="cauto"><a class="btn link" href="<?php echo \dash\url::current() ?>"><?php echo T_("Clear") ?></a></div>
+						<div class="cauto"><a class="btn link" href="<?php echo \dash\url::current() ?>"><?php echo T_("New") ?></a></div>
 						<div class="c"></div>
-						<div class="cauto"><button class="btn master"><?php echo T_("Calculate") ?></button></div>
+						<div class="cauto"><button class="btn success"><?php echo T_("Calculate") ?></button></div>
 					</footer>
 				</div>
 
@@ -129,8 +129,7 @@
 							</li>
 						<?php } //endif ?>
 
-
-						<?php if(\dash\get::index($result, 'price')) {?>
+							<?php if(\dash\get::index($result, 'price')) {?>
 							<li>
 								<a class="f">
 									<div class="key">
@@ -142,8 +141,19 @@
 								</a>
 							</li>
 						<?php } //endif ?>
+
+
+
 					</ul>
 				</nav>
+
+				<?php if(\dash\get::index($result, 'price')) {?>
+					<div class="txtC">
+						<div class="btn txtC mT20 master xl font-20" data-copy='<?php echo \dash\url::pwd() ?>'>
+							<?php echo \dash\fit::number(\dash\get::index($result, 'price')) ?> <small><?php echo $currency ?></small>
+						</div>
+					</div>
+				<?php } //endif ?>
 
 				<?php if(isset($result['error'])) { foreach ($result['error'] as $key => $value) {?>
 					<div class="msg danger2 txtB font-14"><?php echo $value ?></div>
