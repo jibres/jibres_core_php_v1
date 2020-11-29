@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::this());
 
-		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-shipping-1.jpg');
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-shipping-post-1.jpg');
 
 
 		$weight = \dash\request::get('w');
