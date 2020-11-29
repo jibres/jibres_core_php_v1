@@ -92,7 +92,7 @@
 			<footer class="f">
 				<div class="cauto"><a class="btn link" href="<?php echo \dash\url::current() ?>"><?php echo T_("Clear") ?></a></div>
 				<div class="c"></div>
-				<div class="cauto"><button class="btn master"><?php echo T_("Calcuate") ?></button></div>
+				<div class="cauto"><button class="btn master"><?php echo T_("Calculate") ?></button></div>
 
 			</footer>
 

@@ -6,7 +6,7 @@
 				<label for="weight"><?php echo T_("Weight") ?></label>
 				<div class="input">
 					<input type="tel" id="weight" name="weight" value="<?php echo \dash\request::get('weight') ?>" data-format='weight' maxlength="7">
-					<button class="addon btn primary"><?php echo T_("Calcuate"); ?></button>
+					<button class="addon btn primary"><?php echo T_("Calculate"); ?></button>
 				</div>
 
 
