@@ -12,7 +12,7 @@ class view
 		\dash\data::back_link(\dash\url::that());
 
 		$weight = \dash\request::get('w');
-		if($weight)
+		if(is_numeric($weight) || $weight)
 		{
 			$meta                  = [];
 			$meta['detail']        = 1;

@@ -24,21 +24,6 @@
 					</div>
 				</div>
 
-				<label><?php echo T_("Package type") ?></label>
-				<div class="row mB20">
-					<div class="c-xs-6 c-sm-6">
-						<div class="radio3">
-							<input type="radio" name="p" value="pocket" id="pocket" <?php if(\dash\request::get('p') === 'pocket') {echo 'checked';} ?>>
-							<label for="pocket"><?php echo T_("Pocket") ?></label>
-						</div>
-					</div>
-					<div class="c-xs-6 c-sm-6">
-						<div class="radio3">
-							<input type="radio" name="p" value="box" id="box" <?php if(\dash\request::get('p') === 'box') {echo 'checked';} ?>>
-							<label for="box"><?php echo T_("Box") ?></label>
-						</div>
-					</div>
-				</div>
 
 
 				<div class="row mB20">
@@ -97,10 +82,11 @@
 			</footer>
 
 		</div>
-		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) { $currency = $result['currency']; ?>
+		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) { $currency = \dash\get::index($result, 'currency'); ?>
 
 			<nav class="items">
 			  <ul>
+			   	<?php if(\dash\get::index($result, 'basic')) {?>
 			    <li>
 			    	<a class="f">
 				    	<div class="key">
@@ -111,19 +97,7 @@
 			    		</div>
 			    	</a>
 			   	</li>
-
-				<?php if(\dash\get::index($result, 'insurance')) {?>
-			   	<li>
-			    	<a class="f">
-				    	<div class="key">
-				    		<?php echo T_("Insurance"); ?>
-				    	</div>
-			    		<div class="value">
-			    			<?php echo \dash\fit::number(\dash\get::index($result, 'insurance')) ?> <small><?php echo $currency ?></small>
-			    		</div>
-			    	</a>
-			   	</li>
-				<?php } //endif ?>
+			   <?php } //endif ?>
 
 			   	<?php if(\dash\get::index($result, 'province_center')) {?>
 
@@ -138,6 +112,19 @@
 			    	</a>
 			   	</li>
 				<?php } //endif ?>
+				<?php if(\dash\get::index($result, 'insurance')) {?>
+			   	<li>
+			    	<a class="f">
+				    	<div class="key">
+				    		<?php echo T_("Insurance"); ?>
+				    	</div>
+			    		<div class="value">
+			    			<?php echo \dash\fit::number(\dash\get::index($result, 'insurance')) ?> <small><?php echo $currency ?></small>
+			    		</div>
+			    	</a>
+			   	</li>
+				<?php } //endif ?>
+
 
 				<?php if(\dash\get::index($result, 'vat')) {?>
 
@@ -154,6 +141,7 @@
 				<?php } //endif ?>
 
 
+				<?php if(\dash\get::index($result, 'price')) {?>
 			   	<li>
 			    	<a class="f">
 				    	<div class="key">
@@ -164,10 +152,15 @@
 			    		</div>
 			    	</a>
 			   	</li>
+			   <?php } //endif ?>
 
 
 			  </ul>
 			</nav>
+
+			<?php if(isset($result['error'])) { foreach ($result['error'] as $key => $value) {?>
+				<div class="msg danger2 txtB font-14"><?php echo $value ?></div>
+			<?php } } ?>
 		<?php } //endif ?>
 	</div>
 

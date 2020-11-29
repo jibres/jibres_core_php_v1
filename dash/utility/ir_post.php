@@ -6,6 +6,8 @@ namespace dash\utility;
 class ir_post
 {
 
+	private static $error = [];
+
 	public static function quick_view($_weight)
 	{
 		$result              = [];
@@ -48,7 +50,8 @@ class ir_post
 
 		if(!$_weight || !is_numeric($_weight) || $_weight < 0)
 		{
-			return false;
+			self::$error[] = T_("Please enter the package weight");
+			$weight = 0;
 		}
 
 		if($_meta['type'] === 'sefareshi')
@@ -74,16 +77,17 @@ class ir_post
 				}
 			}
 
-			foreach ($rate as $key => $value)
-			{
-				$rate[$key] = round($value / 10);
-			}
+			// foreach ($rate as $key => $value)
+			// {
+			// 	$rate[$key] = round($value / 10);
+			// }
 
-			$rate['currency'] = T_("Toman");
+			$rate['currency'] = T_("Rial");
 
 			return $rate;
 
 		}
+
 
 		$price = 0;
 
@@ -92,7 +96,6 @@ class ir_post
 		if($data['send_type'] === 'inprovince')
 		{
 			$price                  = $rate['province'];
-			$detail_result['price'] = $price;
 			$detail_result['basic'] = $basic_rate['province'];
 		}
 		elseif($data['send_type'] === 'otherprovince')
@@ -105,47 +108,53 @@ class ir_post
 				if(isset($from_province['neighbor']) && in_array($data['to_province'], $from_province['neighbor']))
 				{
 					$price                  = $rate['neighbor'];
-					$detail_result['price'] = $price;
 					$detail_result['basic'] = $basic_rate['neighbor'];
 				}
 				else
 				{
 					$price                  = $rate['country'];
-					$detail_result['price'] = $price;
 					$detail_result['basic'] = $basic_rate['country'];
 				}
 			}
 
-			if($data['from_city'])
+			if($data['from_city'] && $data['to_city'])
 			{
 				$from_city   = \dash\utility\location\cites::$data[$data['from_city']];
-				if(isset($from_city['province_center']) && $from_city['province_center'])
+				$to_city   = \dash\utility\location\cites::$data[$data['to_city']];
+				if(isset($from_city['province_center']) && $from_city['province_center'] && isset($to_city['province_center']) && $to_city['province_center'])
 				{
 					$detail_result['province_center'] = ((10 * $price) / 100);
 					$price                             = $price + $detail_result['province_center'];
-					$detail_result['price'] = $price;
 				}
 				// +10% for province center
 			}
 		}
 
 
-		if($data['package_type'] === 'box')
+		// if($data['package_type'] === 'box')
 		{
 			$detail_result['insurance']	= 8000;
 			$price = floatval($price) + $detail_result['insurance'];
+
 		}
 
 		$detail_result['vat'] = ((9 * $price) / 100);
 		$price                = $price + $detail_result['vat'];
 
+		$detail_result['price'] = $price;
 
-		foreach ($detail_result as $key => $value)
+		// foreach ($detail_result as $key => $value)
+		// {
+		// 	$detail_result[$key] = round($value / 10);
+		// }
+
+		$detail_result['currency'] = T_("Rial");
+
+		if(self::$error)
 		{
-			$detail_result[$key] = round($value / 10);
+			$detail_result = [];
+			$detail_result['error']    = self::$error;
 		}
-
-		$detail_result['currency'] = T_("Toman");
 
 		return $detail_result;
 
@@ -184,7 +193,13 @@ class ir_post
 		}
 		else
 		{
-			/*nothing*/
+			self::$error[] = T_("Can not send package more than 3 Kg By sefareshi post");
+			$rate =
+			[
+				'province' => 0,
+				'neighbor' => 0,
+				'country'  => 0,
+			];
 		}
 
 		return $rate;
@@ -237,7 +252,13 @@ class ir_post
 		}
 		else
 		{
-			/*nothing*/
+			self::$error[] = T_("Can not send package more than 25 Kg By pishtaz post");
+			$rate =
+			[
+				'province' => 0,
+				'neighbor' => 0,
+				'country'  => 0,
+			];
 		}
 
 		return $rate;
