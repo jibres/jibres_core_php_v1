@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-29 20:07+0330\n"
-"PO-Revision-Date: 2020-11-29 20:08+0330\n"
+"POT-Creation-Date: 2020-11-29 20:20+0330\n"
+"PO-Revision-Date: 2020-11-29 20:23+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -3436,7 +3436,7 @@ msgstr "به همین راحتی آیکن برنامه جیبرس به صفحه 
 
 #: content/shipping/display.php:6
 msgid "Ecommerce Shipping Story"
-msgstr ""
+msgstr "داستان حمل و نقل در تجارت الکترونیک"
 
 #: content/shipping/display.php:7
 msgid ""
@@ -3455,7 +3455,7 @@ msgstr ""
 
 #: content/shipping/display.php:8
 msgid "We're here to help."
-msgstr ""
+msgstr "ما برای کمک اینجا هستیم."
 
 #: content/shipping/display.php:9
 msgid ""
@@ -3467,7 +3467,7 @@ msgstr ""
 
 #: content/shipping/display.php:14
 msgid "Come up with a shipping strategy"
-msgstr ""
+msgstr "با یک استراتژی حمل و نقل شروع کنید"
 
 #: content/shipping/display.php:15
 msgid ""
@@ -3504,7 +3504,7 @@ msgstr ""
 
 #: content/shipping/display.php:22
 msgid "Determine ecommerce shipping cost"
-msgstr ""
+msgstr "تخمین هزینه حمل و نقل در تجارت الکترونیک"
 
 #: content/shipping/display.php:23
 msgid ""
@@ -3531,7 +3531,7 @@ msgstr ""
 
 #: content/shipping/display.php:30
 msgid "Offer free shipping"
-msgstr ""
+msgstr "پیشنهاد ارسال رایگان"
 
 #: content/shipping/display.php:31
 msgid ""
@@ -3561,7 +3561,7 @@ msgstr ""
 
 #: content/shipping/display.php:40
 msgid "Pack properly"
-msgstr ""
+msgstr "بسته‌بندی صحیح"
 
 #: content/shipping/display.php:41
 msgid ""
@@ -3715,24 +3715,27 @@ msgstr "مجموع"
 
 #: content/shipping/irpost/view.php:9
 msgid "Postal Service Shipping Calculator"
-msgstr ""
+msgstr "محاسبه هزینه پست"
 
 #: content/shipping/irpost/view.php:10
 msgid ""
 "Determining the cost of shipping domestically is now made easy. Simply fill in the "
 "blanks, and let our online calculator figure out your postage."
 msgstr ""
+"تخمین هزینه ارسال پستی هیچوقت اینقدر آسون نبوده. وزن رو وارد کنید تا ماشین‌حساب آنلاین "
+"ما هزینه پست رو برای شما محاسبه می‌کنه"
 
 #: content/shipping/view.php:9
 msgid "Jibres Shipping"
-msgstr ""
+msgstr "حمل و نقل در جیبرس"
 
 #: content/shipping/view.php:10
-#, php-format
 msgid ""
-"Save up to 90% on shipping and send your products with confidence using simplified "
-"tools that scale with your business."
+"Statistically, shipping cost is among the main reasons why shoppers abandon shopping "
+"carts."
 msgstr ""
+"از نگاه آماری، هزینه حمل و نقل از مهم‌ترین دلایلی است که خریداران را از خرید اینترنتی "
+"منصرف می‌کند. با ما همراه باشید."
 
 #: content/socialresponsibility/display.php:9 content/socialresponsibility/view.php:10
 msgid ""
