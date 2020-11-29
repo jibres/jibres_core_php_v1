@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-11-29 18:53+0330\n"
-"PO-Revision-Date: 2020-11-29 18:53+0330\n"
+"POT-Creation-Date: 2020-11-29 20:07+0330\n"
+"PO-Revision-Date: 2020-11-29 20:08+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -66,7 +66,7 @@ msgstr "درباره جیبرس"
 #: content/contact/view.php:17 content/domains/home/view.php:12
 #: content/enterprise/view.php:13 content/forceunlock/view.php:12 content/help/view.php:13
 #: content/press/view.php:15 content/pricing/view.php:13 content/privacy/view.php:15
-#: content/shipping/post/view.php:12 content/shipping/view.php:12
+#: content/shipping/irpost/view.php:12 content/shipping/view.php:12
 #: content/socialresponsibility/view.php:15 content/status/view.php:12
 #: content/subscribe/view.php:13 content/team/view.php:15 content/terms/view.php:15
 #: content/whois/view.php:13 content_business/app/view.php:15
@@ -1764,8 +1764,7 @@ msgstr "قیمت"
 
 #: content/domains/pricing/display.php:12 content_crm/transactions/minus/display.php:54
 #: content_my/domain/buy/display-settings-com.php:29
-#: content_my/domain/review/display.php:192 dash/utility/ir_post.php:82
-#: dash/utility/ir_post.php:148 lib/currency.php:12 lib/namecheap/api.php:159
+#: content_my/domain/review/display.php:192 lib/currency.php:12 lib/namecheap/api.php:159
 msgid "Toman"
 msgstr "تومان"
 
@@ -3435,11 +3434,11 @@ msgstr "در بالای صفحه گزینه Add را انتخاب کنید."
 msgid "Jibres icon has been added on your home screen."
 msgstr "به همین راحتی آیکن برنامه جیبرس به صفحه نخست گوشی شما اضافه شد."
 
-#: content/shipping/display.php:6 content/shipping/post/display.php:6
+#: content/shipping/display.php:6
 msgid "Ecommerce Shipping Story"
 msgstr ""
 
-#: content/shipping/display.php:7 content/shipping/post/display.php:7
+#: content/shipping/display.php:7
 msgid ""
 "When your customers aren't walking out of your store with their purchase in hand, you "
 "need them to feel confident they're getting what they paid for - on time, exactly as "
@@ -3447,18 +3446,18 @@ msgid ""
 "important to create a seamless shipping experience to guarantee customer satisfaction."
 msgstr ""
 
-#: content/shipping/display.php:8 content/shipping/post/display.php:8
+#: content/shipping/display.php:8
 msgid ""
 "There's a lot happening behind the scenes of ecommerce shipping. You may be trying to "
 "decide which carrier to use and wondering how to determine ecommerce shipping costs "
 "that will satisfy both you and your customers."
 msgstr ""
 
-#: content/shipping/display.php:8 content/shipping/post/display.php:8
+#: content/shipping/display.php:8
 msgid "We're here to help."
 msgstr ""
 
-#: content/shipping/display.php:9 content/shipping/post/display.php:9
+#: content/shipping/display.php:9
 msgid ""
 "When determining how to ship products from your ecommerce store, there are a few "
 "considerations. Will you use the postal service, a shipping carrier or local courier? "
@@ -3574,11 +3573,151 @@ msgid ""
 "rather than just the weight."
 msgstr ""
 
-#: content/shipping/post/view.php:9
+#: content/shipping/irpost/display.php:8 content_a/products/shipping/display.php:18
+#: content_a/setting/shipping/irpost/display.php:6
+#: content_a/setting/shipping/irpostdetail/display.php:6 lib/app/product/filter.php:295
+#: lib/app/product/filter.php:305 lib/app/product/property.php:254
+#: lib/app/product/property.php:258
+msgid "Weight"
+msgstr "وزن"
+
+#: content/shipping/irpost/display.php:8
+#: content_a/accounting/coding/add/display-add.php:27
+#: content_a/accounting/coding/add/display-add.php:39
+#: content_a/accounting/coding/add/display-add.php:44
+#: content_a/accounting/coding/add/display-add.php:53
+#: content_a/accounting/coding/add/display-add.php:85
+#: content_a/accounting/doc/add/display-doc.php:49
+#: content_a/accounting/doc/add/display-doc.php:62
+#: content_a/accounting/doc/add/display-docdetail.php:11
+#: content_a/accounting/doc/add/display-docdetail.php:95
+#: content_a/accounting/doc/duplicate/display.php:7
+#: content_a/accounting/irvat/add/display.php:156
+#: content_a/accounting/irvat/add/display.php:166 content_a/android/title/display.php:8
+#: content_a/form/add/display.php:6 content_a/form/item/add/display.php:23
+#: content_a/form/setting/display.php:9
+#: content_a/setting/shipping/irpostdetail/display.php:6
+#: content_a/setting/staticfile/display.php:11 content_crm/member/legal/display.php:26
+#: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
+#: content_crm/permission/user/display.php:5 content_my/ipg/profile/display.php:41
+#: content_my/ipg/profile/display.php:56 content_my/ipg/profile/display.php:71
+#: content_my/ipg/profile/display.php:109 content_my/ipg/setup/profile/display.php:41
+#: content_my/ipg/setup/profile/display.php:56 content_my/ipg/setup/profile/display.php:71
+#: content_my/ipg/setup/profile/display.php:109 content_support/ticket/addForm.php:9
+#: lib/app/form/generator.php:87
+msgid "Required"
+msgstr "الزامی"
+
+#: content/shipping/irpost/display.php:13
+#: content_a/setting/shipping/irpostdetail/display.php:11
+msgid "Choose order type"
+msgstr "انتخاب نوع سفارش"
+
+#: content/shipping/irpost/display.php:18 content_a/setting/shipping/irpost/display.php:31
+#: content_a/setting/shipping/irpostdetail/display.php:22
+msgid "Pishtaz"
+msgstr "پیشتاز"
+
+#: content/shipping/irpost/display.php:24 content_a/setting/shipping/irpost/display.php:25
+#: content_a/setting/shipping/irpostdetail/display.php:16
+msgid "Sefareshi"
+msgstr "سفارشی"
+
+#: content/shipping/irpost/display.php:30
+#: content_a/setting/shipping/irpostdetail/display.php:31
+msgid "Sender location"
+msgstr "ارسال از"
+
+#: content/shipping/irpost/display.php:37 content/shipping/irpost/display.php:55
+#: content_a/setting/shipping/irpostdetail/display.php:40
+#: content_a/setting/shipping/irpostdetail/display.php:60
+msgid "Send to"
+msgstr "ارسال به"
+
+#: content/shipping/irpost/display.php:42 content_a/setting/shipping/irpost/display.php:20
+#: content_a/setting/shipping/irpostdetail/display.php:51
+msgid "Other province"
+msgstr "سایر استان‌ها"
+
+#: content/shipping/irpost/display.php:48
+#: content_a/setting/shipping/irpostdetail/display.php:45
+msgid "In province"
+msgstr "داخل استان"
+
+#: content/shipping/irpost/display.php:65
+#: content_a/setting/shipping/irpostdetail/display.php:78
+msgid "Clear"
+msgstr "پاک‌سازی"
+
+#: content/shipping/irpost/display.php:67 content_a/setting/shipping/irpost/display.php:9
+#: content_a/setting/shipping/irpostdetail/display.php:80
+msgid "Calculate"
+msgstr "محاسبه"
+
+#: content/shipping/irpost/display.php:82
+#: content_a/setting/shipping/irpostdetail/display.php:93
+msgid "Basic price"
+msgstr "قیمت پایه"
+
+#: content/shipping/irpost/display.php:96
+#: content_a/setting/shipping/irpostdetail/display.php:107
+msgid "Send from province center"
+msgstr "ارسال از مرکز استان"
+
+#: content/shipping/irpost/display.php:96
+#: content_a/setting/shipping/irpostdetail/display.php:107
+msgid "10%"
+msgstr "۱۰٪"
+
+#: content/shipping/irpost/display.php:108
+#: content_a/setting/shipping/irpostdetail/display.php:119
+msgid "Insurance"
+msgstr "بیمه"
+
+#: content/shipping/irpost/display.php:123 content_a/accounting/doc/edit/view.php:134
+#: content_a/order/productList.php:29 content_a/order/summary.php:22
+#: content_a/setting/shipping/irpostdetail/display.php:134
+#: content_business/cart/cartSummary.php:18
+msgid "Vat"
+msgstr "مالیات بر ارزش افزوده"
+
+#: content/shipping/irpost/display.php:123
+#: content_a/setting/shipping/irpostdetail/display.php:134
+msgid "9%"
+msgstr "۹٪"
+
+#: content/shipping/irpost/display.php:137
+#: content_a/accounting/doc/add/display-list.php:74
+#: content_a/accounting/doc/add/display-list.php:92
+#: content_a/accounting/doc/add/display-list.php:94
+#: content_a/accounting/irvat/add/display.php:88
+#: content_a/accounting/report/assistant/display-old.php:68
+#: content_a/accounting/report/assistant/display.php:62
+#: content_a/accounting/report/assistant/display.php:91
+#: content_a/accounting/report/assistant/display.php:122
+#: content_a/accounting/report/balancesheet/display.php:65
+#: content_a/accounting/report/detail/display-old.php:73
+#: content_a/accounting/report/detail/display.php:68
+#: content_a/accounting/report/detail/display.php:98
+#: content_a/accounting/report/detail/display.php:130
+#: content_a/accounting/report/group/display.php:65
+#: content_a/accounting/report/total/display-old.php:65
+#: content_a/accounting/report/total/display.php:61
+#: content_a/accounting/report/total/display.php:89
+#: content_a/accounting/report/total/display.php:119 content_a/cart/add/display.php:136
+#: content_a/order/home/display.php:70 content_a/order/links.php:30
+#: content_a/order/productList.php:38 content_a/order/summary.php:44
+#: content_a/sale/display.php:20 content_a/setting/shipping/irpostdetail/display.php:148
+#: content_business/cart/cartSummary.php:33 content_business/orders/display.php:19
+#: dash/utility/pagination.php:429
+msgid "Total"
+msgstr "مجموع"
+
+#: content/shipping/irpost/view.php:9
 msgid "Postal Service Shipping Calculator"
 msgstr ""
 
-#: content/shipping/post/view.php:10
+#: content/shipping/irpost/view.php:10
 msgid ""
 "Determining the cost of shipping domestically is now made easy. Simply fill in the "
 "blanks, and let our online calculator figure out your postage."
@@ -4266,32 +4405,6 @@ msgstr "بررسی گردش حساب"
 msgid "Parent"
 msgstr "والد"
 
-#: content_a/accounting/coding/add/display-add.php:27
-#: content_a/accounting/coding/add/display-add.php:39
-#: content_a/accounting/coding/add/display-add.php:44
-#: content_a/accounting/coding/add/display-add.php:53
-#: content_a/accounting/coding/add/display-add.php:85
-#: content_a/accounting/doc/add/display-doc.php:49
-#: content_a/accounting/doc/add/display-doc.php:62
-#: content_a/accounting/doc/add/display-docdetail.php:11
-#: content_a/accounting/doc/add/display-docdetail.php:95
-#: content_a/accounting/doc/duplicate/display.php:7
-#: content_a/accounting/irvat/add/display.php:156
-#: content_a/accounting/irvat/add/display.php:166 content_a/android/title/display.php:8
-#: content_a/form/add/display.php:6 content_a/form/item/add/display.php:23
-#: content_a/form/setting/display.php:9
-#: content_a/setting/shipping/irpostdetail/display.php:6
-#: content_a/setting/staticfile/display.php:11 content_crm/member/legal/display.php:26
-#: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
-#: content_crm/permission/user/display.php:5 content_my/ipg/profile/display.php:41
-#: content_my/ipg/profile/display.php:56 content_my/ipg/profile/display.php:71
-#: content_my/ipg/profile/display.php:109 content_my/ipg/setup/profile/display.php:41
-#: content_my/ipg/setup/profile/display.php:56 content_my/ipg/setup/profile/display.php:71
-#: content_my/ipg/setup/profile/display.php:109 content_support/ticket/addForm.php:9
-#: lib/app/form/generator.php:87
-msgid "Required"
-msgstr "الزامی"
-
 #: content_a/accounting/coding/add/display-add.php:29
 msgid "Please choose parent"
 msgstr "لطفا والد را انتخاب کنید"
@@ -4976,32 +5089,6 @@ msgstr "شرح"
 msgid "Editing"
 msgstr "در حال ویرایش"
 
-#: content_a/accounting/doc/add/display-list.php:74
-#: content_a/accounting/doc/add/display-list.php:92
-#: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/irvat/add/display.php:88
-#: content_a/accounting/report/assistant/display-old.php:68
-#: content_a/accounting/report/assistant/display.php:62
-#: content_a/accounting/report/assistant/display.php:91
-#: content_a/accounting/report/assistant/display.php:122
-#: content_a/accounting/report/balancesheet/display.php:65
-#: content_a/accounting/report/detail/display-old.php:73
-#: content_a/accounting/report/detail/display.php:68
-#: content_a/accounting/report/detail/display.php:98
-#: content_a/accounting/report/detail/display.php:130
-#: content_a/accounting/report/group/display.php:65
-#: content_a/accounting/report/total/display-old.php:65
-#: content_a/accounting/report/total/display.php:61
-#: content_a/accounting/report/total/display.php:89
-#: content_a/accounting/report/total/display.php:119 content_a/cart/add/display.php:136
-#: content_a/order/home/display.php:70 content_a/order/links.php:30
-#: content_a/order/productList.php:38 content_a/order/summary.php:44
-#: content_a/sale/display.php:20 content_a/setting/shipping/irpostdetail/display.php:160
-#: content_business/cart/cartSummary.php:33 content_business/orders/display.php:19
-#: dash/utility/pagination.php:429
-msgid "Total"
-msgstr "مجموع"
-
 #: content_a/accounting/doc/add/display-list.php:80
 msgid "Diff"
 msgstr "تفاوت"
@@ -5116,12 +5203,6 @@ msgstr "قفل"
 #: content_a/accounting/doc/edit/view.php:39 content_su/update/display.php:41
 msgid "Unlock"
 msgstr "بازکردن قفل"
-
-#: content_a/accounting/doc/edit/view.php:134 content_a/order/productList.php:29
-#: content_a/order/summary.php:22 content_a/setting/shipping/irpostdetail/display.php:147
-#: content_business/cart/cartSummary.php:18
-msgid "Vat"
-msgstr "مالیات بر ارزش افزوده"
 
 #: content_a/accounting/doc/edit/view.php:141
 #: content_a/accounting/turnover/display.php:101
@@ -10049,14 +10130,6 @@ msgstr "پست با موفقیت به تلگرام ارسال شد"
 msgid "Product Share text"
 msgstr "متن اشتراک گذاری محصول در شبکه‌های اجتماعی"
 
-#: content_a/products/shipping/display.php:18
-#: content_a/setting/shipping/irpost/display.php:6
-#: content_a/setting/shipping/irpostdetail/display.php:6 lib/app/product/filter.php:295
-#: lib/app/product/filter.php:305 lib/app/product/property.php:254
-#: lib/app/product/property.php:258
-msgid "Weight"
-msgstr "وزن"
-
 #: content_a/products/shipping/display.php:24
 msgid "Preparation time"
 msgstr "زمان آماده سازی"
@@ -11515,11 +11588,6 @@ msgstr "متن ثابت صفحه ارسال سفارش"
 msgid "Calculate IR POST Shipping price"
 msgstr "محاسبه هزینه ارسال با پست"
 
-#: content_a/setting/shipping/irpost/display.php:9
-#: content_a/setting/shipping/irpostdetail/display.php:95
-msgid "Calculate"
-msgstr "محاسبه"
-
 #: content_a/setting/shipping/irpost/display.php:18
 msgid "In Province"
 msgstr "داخل استان"
@@ -11528,78 +11596,9 @@ msgstr "داخل استان"
 msgid "Neighbor Province"
 msgstr "استان همجوار"
 
-#: content_a/setting/shipping/irpost/display.php:20
-#: content_a/setting/shipping/irpostdetail/display.php:66
-msgid "Other province"
-msgstr "سایر استان‌ها"
-
-#: content_a/setting/shipping/irpost/display.php:25
-#: content_a/setting/shipping/irpostdetail/display.php:16
-msgid "Sefareshi"
-msgstr "سفارشی"
-
-#: content_a/setting/shipping/irpost/display.php:31
-#: content_a/setting/shipping/irpostdetail/display.php:22
-msgid "Pishtaz"
-msgstr "پیشتاز"
-
 #: content_a/setting/shipping/irpost/display.php:43
 msgid "Calculate by detail"
 msgstr "محاسبه با جزئیات"
-
-#: content_a/setting/shipping/irpostdetail/display.php:11
-msgid "Choose order type"
-msgstr "انتخاب نوع سفارش"
-
-#: content_a/setting/shipping/irpostdetail/display.php:27
-msgid "Package type"
-msgstr "نوع بسته"
-
-#: content_a/setting/shipping/irpostdetail/display.php:32
-msgid "Pocket"
-msgstr "پاکت"
-
-#: content_a/setting/shipping/irpostdetail/display.php:38 lib/app/store/config.php:155
-#: lib/app/store/config.php:190
-msgid "Box"
-msgstr "جعبه"
-
-#: content_a/setting/shipping/irpostdetail/display.php:46
-msgid "Sender location"
-msgstr "ارسال از"
-
-#: content_a/setting/shipping/irpostdetail/display.php:55
-#: content_a/setting/shipping/irpostdetail/display.php:75
-msgid "Send to"
-msgstr "ارسال به"
-
-#: content_a/setting/shipping/irpostdetail/display.php:60
-msgid "In province"
-msgstr "داخل استان"
-
-#: content_a/setting/shipping/irpostdetail/display.php:93
-msgid "Clear"
-msgstr "پاک‌سازی"
-
-#: content_a/setting/shipping/irpostdetail/display.php:107
-msgid "Basic price"
-msgstr "قیمت پایه"
-
-#: content_a/setting/shipping/irpostdetail/display.php:119
-msgid "Insurance"
-msgstr "بیمه"
-
-#: content_a/setting/shipping/irpostdetail/display.php:133
-msgid "Send from province center"
-msgstr "ارسال از مرکز استان"
-
-#: content_a/setting/shipping/irpostdetail/display.php:133
-msgid "10%"
-msgstr "۱۰٪"
-
-#: content_a/setting/shipping/irpostdetail/display.php:147
-msgid "9%"
-msgstr "۹٪"
 
 #: content_a/setting/shipping/setting/display.php:6
 msgid "Selling physical products? You need to ship them!"
@@ -21979,7 +21978,8 @@ msgstr "نمونه"
 msgid "50% Deals test sample long string test"
 msgstr "تخفیف ۵۰٪ آزمون آزمون رشته رشته طولانی"
 
-#: content_v2/app/view.php:754 lib/currency.php:13
+#: content_v2/app/view.php:754 dash/utility/ir_post.php:85 dash/utility/ir_post.php:156
+#: lib/currency.php:13
 msgid "Rial"
 msgstr "ریال"
 
@@ -24761,6 +24761,18 @@ msgstr "لطفا با مدیر سیستم تماس بگیرید"
 #: dash/utility/ip.php:86
 msgid "Your ip is not valid!"
 msgstr "آی‌پی شما معتبر نیست!"
+
+#: dash/utility/ir_post.php:53
+msgid "Please enter the package weight"
+msgstr "لطفا وزن بسته را وارد کنید"
+
+#: dash/utility/ir_post.php:201
+msgid "Can not send package more than 3 Kg By sefareshi post"
+msgstr "نمی‌توانید بسته‌ای با حجم بالاتر از ۳ کیلوگرم با پست سفارشی ارسال کنید"
+
+#: dash/utility/ir_post.php:260
+msgid "Can not send package more than 25 Kg By pishtaz post"
+msgstr "نمی‌توانید بسته‌ای با حجم بالاتر از ۲۵ کیلوگرم با پست پیشتاز ارسال کنید"
 
 #: dash/utility/pagination.php:169
 msgid "page :current of :total"
@@ -34974,6 +34986,10 @@ msgstr "توضیحاتی در مورد محصول نمونه ۳"
 msgid "Example category 2"
 msgstr "دسته‌بندی نمونه ۲"
 
+#: lib/app/store/config.php:155 lib/app/store/config.php:190
+msgid "Box"
+msgstr "جعبه"
+
 #: lib/app/store/config.php:177
 msgid "Example product 4"
 msgstr "محصول نمونه ۴"
@@ -36730,6 +36746,12 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Package type"
+#~ msgstr "نوع بسته"
+
+#~ msgid "Pocket"
+#~ msgstr "پاکت"
 
 #~ msgid "Access to products"
 #~ msgstr "دسترسی به محصولات"
@@ -39777,9 +39799,6 @@ msgstr "ساماندهی"
 
 #~ msgid "What to do for old company?"
 #~ msgstr "می‌خواهید چه کاری برای شرکت سازنده ثبت شده انجام بدهید؟"
-
-#~ msgid "Please set the tag title"
-#~ msgstr "لطفا عنوان تگ را وارد کنید"
 
 #~ msgid "Please set the tag title less than 150 character"
 #~ msgstr "لطفا عنوان تگ را کمتر از ۱۵۰ حرف وارد کنید"
