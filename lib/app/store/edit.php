@@ -6,7 +6,47 @@ class edit
 {
 	public static function change_subdomain($_subdomain, $_id)
 	{
-		\dash\notif::warn('not ready yet');
+		$subdomain = \dash\validate::subdomain($_subdomain);
+		if(!$subdomain)
+		{
+			return false;
+		}
+
+		$check_exist = \lib\db\store\get::subdomain_exist($subdomain);
+		if(isset($check_exist['id']))
+		{
+			if(floatval($check_exist['id']) === floatval($_id))
+			{
+				\dash\notif::info(T_("No change in business subdomain"));
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("This subdomain is already occupied"), 'subdomain');
+				return false;
+			}
+		}
+
+		$load_store = \lib\db\store\get::by_id($_id);
+		if(!isset($load_store['id']))
+		{
+			\dash\notif::error(T_("Store not founde"));
+			return false;
+		}
+
+		\lib\db\store\update::subdomain($subdomain, $load_store['id']);
+
+		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
+
+		\lib\db\setting\update::overwirte_cat_key_fuel($subdomain, 'store_setting', 'subdomain', $load_store['fuel'], $my_store_db);
+
+		\lib\store::reset_cache($load_store['id']);
+
+		\dash\log::set('businessSubdomainUpdate', ['old_subdomain' => $load_store['subdomain'], 'new_subdomain' => $subdomain ]);
+
+		\dash\notif::ok(T_("Subdomain was changed"));
+
+		return true;
 	}
 
 	public static function social($_args)
