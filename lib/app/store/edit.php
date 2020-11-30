@@ -42,7 +42,7 @@ class edit
 
 		\lib\store::reset_cache($load_store['id']);
 
-		$addr = \dash\engine\store::subdomain_addr(). $subdomain. \dash\engine\store::$ext;
+		$addr = \dash\engine\store::subdomain_addr(). $load_store['subdomain']. \dash\engine\store::$ext;
 		if(is_file($addr))
 		{
 			\dash\file::delete($addr);
