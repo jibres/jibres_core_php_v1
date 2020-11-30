@@ -56,9 +56,7 @@
 
 
 
-  <a class="cbox pA0">
- <div class="chart x4" id="postchart"></div>
-</a>
+
 
 	<div class="f">
   <?php if(\dash\permission::check('cpHelpCenterView')) {?>
@@ -109,9 +107,6 @@
 </div>
 
 
-  <a class="cbox pA0">
- <div class="chart x4" id="wordcloud"></div>
-</a>
 
 
   <div class="f">
