@@ -32,6 +32,7 @@ class controller
 		}
 
 
+
 		self::check_unlock_page();
 		self::if_login_route();
 		self::if_login_not_route();
@@ -50,7 +51,7 @@ class controller
 
 	public static function check_baned_user()
 	{
-		if(\dash\url::module() !== 'ban')
+		if(\dash\url::module() !== 'ban' && \dash\url::module() !== 'block')
 		{
 			$ban = \dash\session::get('enter_baned_user');
 			if($ban)
@@ -60,7 +61,10 @@ class controller
 				\dash\utility\enter::go_to('ban');
 
 			}
+
+			\dash\utility\enter::check_user_ban();
 		}
+
 	}
 
 	private static function check_unlock_page()

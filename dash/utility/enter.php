@@ -21,6 +21,53 @@ class enter
 		}
 	}
 
+
+	public static function check_user_ban()
+	{
+		$user_id = (\dash\user::id()) ? \dash\user::id() : self::user_id();
+		if($user_id && is_numeric($user_id))
+		{
+			$load_user_data = \dash\db\users::get_by_id($user_id);
+
+			if(isset($load_user_data['status']))
+			{
+				if(in_array($load_user_data['status'], ['filter', 'block', 'ban']))
+				{
+
+					$is_ban = true;
+
+					if($load_user_data['status'] === 'ban' && $load_user_data['ban_expire'] && $load_user_data['id'])
+					{
+						if(time() > strtotime($load_user_data['ban_expire']))
+						{
+							\dash\app\user::un_ban($load_user_data['id']);
+							$is_ban = false;
+						}
+					}
+
+					if($is_ban)
+					{
+
+						\dash\utility\enter::next_step('block');
+
+						if($load_user_data['ban_expire'])
+						{
+							// go to block page
+							\dash\utility\enter::go_to('block?e='. $load_user_data['ban_expire']);
+						}
+						else
+						{
+							// go to block page
+							\dash\utility\enter::go_to('block');
+						}
+						return;
+					}
+
+				}
+			}
+		}
+	}
+
 	public static function try($_module)
 	{
 		$log_caller = 'enterTry:'. $_module;
@@ -72,6 +119,8 @@ class enter
 		$check_log['caller'] = $log_caller;
 
 		$user_id = (\dash\user::id()) ? \dash\user::id() : self::user_id();
+
+
 
 		if($user_id)
 		{
@@ -1407,10 +1456,8 @@ class enter
 				break;
 		}
 
-		if($url)
-		{
-			\dash\redirect::to($url);
-		}
+		\dash\redirect::to($url);
+
 	}
 
 
