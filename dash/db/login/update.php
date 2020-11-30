@@ -37,10 +37,16 @@ class update
 
 
 
-	public static function set_block($_id, $_fuel = null)
+	public static function set_block($_id, $_fuel = null, $_meta = null)
 	{
 		$date = date("Y-m-d H:i:s");
-		$query = "UPDATE login SET login.status = 'block', login.datemodified = '$date' WHERE login.id = $_id LIMIT 1";
+		$meta = null;
+		if($_meta)
+		{
+			$meta = ", login.meta = '$_meta'";
+		}
+
+		$query = "UPDATE login SET login.status = 'block', login.datemodified = '$date' $meta WHERE login.id = $_id LIMIT 1";
 		$result = \dash\db::query($query, $_fuel);
 		return $result;
 	}

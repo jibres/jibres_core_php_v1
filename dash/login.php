@@ -8,6 +8,7 @@ namespace dash;
  */
 class login
 {
+	private static $error = [];
 	/**
 	 * Check user is login or no
 	 *
@@ -41,7 +42,13 @@ class login
 			{
 				if($place === 'jibres' || $place === 'admin')
 				{
-					\dash\db\login\update::set_block($load['id'], 'master');
+					$blockMeta = null;
+					if(self::$error)
+					{
+						$blockMeta = json_encode(self::$error, JSON_UNESCAPED_UNICODE);
+					}
+
+					\dash\db\login\update::set_block($load['id'], 'master', $blockMeta);
 				}
 				else
 				{
@@ -184,16 +191,19 @@ class login
 		}
 		else
 		{
+			self::$error[] = 'Status of login is not active';
 			return false;
 		}
 
 		if(!isset($_detail['user_id']))
 		{
+			self::$error[] = 'User id not found in login record!';
 			return false;
 		}
 
 		if(!$_detail['user_id'] || !is_numeric($_detail['user_id']))
 		{
+			self::$error[] = 'User id is not numeric in login record';
 			return false;
 		}
 
@@ -209,6 +219,9 @@ class login
 			}
 			else
 			{
+				self::$error[] = 'place not match by login record';
+				self::$error[] = 'login place is :' .$_detail['place'];
+				self::$error[] = 'new place is :' . self::where_am_i();
 				return false;
 			}
 		}
@@ -221,6 +234,9 @@ class login
 		}
 		else
 		{
+			self::$error[] = 'trustdomain not match by login record';
+			self::$error[] = 'saved trustdomain is :' . $_detail['trustdomain'];
+			self::$error[] = 'used in :' . \dash\url::host();
 			return false;
 		}
 
@@ -230,6 +246,7 @@ class login
 		}
 		else
 		{
+			self::$error[] = 'ip and agent not found in login record';
 			return false;
 		}
 
@@ -258,6 +275,7 @@ class login
 		{
 			if(!$ip_ok && !$agen_ok)
 			{
+				self::$error[] = 'ip and agnet is changed';
 				return false;
 			}
 
@@ -309,6 +327,7 @@ class login
 				}
 				else
 				{
+					self::$error[] = 'only agent is changed';
 					return false;
 				}
 			}
@@ -321,11 +340,13 @@ class login
 
 			if(time() - strtotime($_detail['datecreated']) > $one_month)
 			{
+				self::$error[] = 'More than 1 month passed from login date created';
 				return false;
 			}
 		}
 		else
 		{
+			self::$error[] = 'Login record have not date created!';
 			return false;
 		}
 

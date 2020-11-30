@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.login ADD `meta` text NULL DEFAULT NULL;
