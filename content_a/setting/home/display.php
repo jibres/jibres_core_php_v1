@@ -199,6 +199,33 @@
     </div>
 </div>
 
+
+<div class="box" data-settings>
+    <div class="body">
+        <div class="row">
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::kingdom(); ?>/cms">
+                    <div class="c-auto"><i class="sf-file-text"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("CMS"); ?></h2>
+                        <p><?php echo T_("Manage your business news and contents"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::kingdom(); ?>/crm">
+                    <div class="c-auto"><i class="sf-atom"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Customers - CRM"); ?></h2>
+                        <p><?php echo T_("Manage business customers"); ?></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="box" data-settings>
     <div class="body">
         <div class="row">
