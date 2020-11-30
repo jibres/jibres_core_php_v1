@@ -42,6 +42,12 @@ class edit
 
 		\lib\store::reset_cache($load_store['id']);
 
+		$addr = \dash\engine\store::subdomain_addr(). $subdomain. \dash\engine\store::$ext;
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
 		\dash\log::set('businessSubdomainUpdate', ['old_subdomain' => $load_store['subdomain'], 'new_subdomain' => $subdomain ]);
 
 		\dash\notif::ok(T_("Subdomain was changed"));
