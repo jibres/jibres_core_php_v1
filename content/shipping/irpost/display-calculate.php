@@ -151,7 +151,7 @@
 
 				<?php if(\dash\get::index($result, 'price')) {?>
 					<div class="txtC">
-						<div class="btn txtC mT20 master xl font-20" data-copy='<?php echo \dash\url::pwd() ?>'>
+						<div class="btn txtC mT20 master xl font-20" data-copy='https://jibres.ir/shipping/irpost?<?php echo \dash\request::fix_get(); ?>'>
 							<?php echo \dash\fit::number(\dash\get::index($result, 'price')) ?> <small><?php echo $currency ?></small>
 						</div>
 					</div>
