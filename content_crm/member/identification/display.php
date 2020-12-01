@@ -1,5 +1,5 @@
-<div class="avand-xl">
-	<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+
 	<form method="post" autocomplete="off">
 		<div class="box">
 			<div class="body">
@@ -29,6 +29,29 @@
 						<label for="birthday"><?php echo T_("Birthday"); ?></label>
 						<div class="input ltr">
 							<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date"  name="birthday" id="birthday"  value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRowMember_birthday())); ?>"  autocomplete='off'>
+						</div>
+					</div>
+				</div>
+
+				<div class="f mB20">
+					<div class="c mRa10">
+						<div class="mT10">
+							<label for="gender"><?php echo T_("Gender"); ?></label>
+							<select name="gender" class="select22">
+								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
+								<option value="male" <?php if(\dash\data::dataRowMember_gender() == 'male') { echo 'selected';} ?> ><?php echo T_("Male"); ?></option>
+								<option value="female" <?php if(\dash\data::dataRowMember_gender() == 'female') { echo 'selected';} ?> ><?php echo T_("Female"); ?></option>
+							</select>
+						</div>
+					</div>
+					<div class="c">
+						<div class="mT10">
+							<label for="marital"><?php echo T_("Marital"); ?></label>
+							<select name="marital" class="select22">
+								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
+								<option value="single" <?php if(\dash\data::dataRowMember_marital() == 'single') { echo 'selected';} ?>><?php echo T_("Single"); ?></option>
+								<option value="married" <?php if(\dash\data::dataRowMember_marital() == 'married') { echo 'selected';} ?>><?php echo T_("Married"); ?></option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -71,28 +94,7 @@
 					</div>
 				</div>
 
-				<div class="f mB20">
-					<div class="c mRa10">
-						<div class="mT10">
-							<label for="gender"><?php echo T_("Gender"); ?></label>
-							<select name="gender" class="select22">
-								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
-								<option value="male" <?php if(\dash\data::dataRowMember_gender() == 'male') { echo 'selected';} ?> ><?php echo T_("Male"); ?></option>
-								<option value="female" <?php if(\dash\data::dataRowMember_gender() == 'female') { echo 'selected';} ?> ><?php echo T_("Female"); ?></option>
-							</select>
-						</div>
-					</div>
-					<div class="c">
-						<div class="mT10">
-							<label for="marital"><?php echo T_("Marital"); ?></label>
-							<select name="marital" class="select22">
-								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
-								<option value="single" <?php if(\dash\data::dataRowMember_marital() == 'single') { echo 'selected';} ?>><?php echo T_("Single"); ?></option>
-								<option value="married" <?php if(\dash\data::dataRowMember_marital() == 'married') { echo 'selected';} ?>><?php echo T_("Married"); ?></option>
-							</select>
-						</div>
-					</div>
-				</div>
+
 				<?php if(false) {?>
 
 				<?php $detail = \dash\data::dataRowMember_detail(); ?>
@@ -128,5 +130,3 @@
 			</footer>
 		</div>
 	</form>
-</div>
-

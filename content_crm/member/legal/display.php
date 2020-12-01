@@ -1,5 +1,5 @@
-<div class="avand-xl">
-	<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+
 	<?php if(false) {?>
 		<?php if(!\dash\data::accountingDetailsId()) {?>
 			<form method="post" autocomplete="off">
@@ -163,6 +163,3 @@
 		</footer>
 
 	</form>
-</div>
-
-

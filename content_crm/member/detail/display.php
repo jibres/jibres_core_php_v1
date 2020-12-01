@@ -1,15 +1,15 @@
-<div class="avand-md">
-	<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+<div class="avand-sm">
 	<div class="box">
 		<div class="body">
 
-			<p><?php echo T_("Change customer name and avatar") ?></p>
 			<form method="post" autocomplete="off">
 				<input type="hidden" name="editdisplayname" value="editdisplayname">
-				<div class="input">
+				<div class="input mB10">
 					<input type="text" name="displayname" value="<?php echo \dash\data::dataRowMember_displayname() ?>" maxlength="50">
-					<button class="btn master addon"><i class="sf-save"></i></button>
+					<button class="btn master addon"><?php echo T_("Save") ?></button>
 				</div>
+				<p class="fc-mute mB0-f"><?php echo T_("Change customer name and avatar") ?></p>
 			</form>
 
 		</div>
@@ -27,9 +27,11 @@
 					<?php }?>
 				</div>
 			</form>
-			<div class="txtL font-18">
-				<div class="linkDel" data-confirm data-data='{"btn": "remove"}'><i class="sf-trash"></i></div>
-			</div>
+			<?php if(\dash\data::dataRowMember_avatar_raw()) {?>
+				<div class="txtL font-18">
+					<div class="linkDel" data-confirm data-data='{"btn": "remove"}'><i class="sf-trash"></i></div>
+				</div>
+			<?php } //endif ?>
 		</div>
 	</div>
 </div>

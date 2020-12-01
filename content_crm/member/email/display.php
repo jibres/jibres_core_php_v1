@@ -1,5 +1,5 @@
-<div class="avand-md">
-	<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+<div class="avand-sm">
 	<form method="post" autocomplete="off">
 		<div class="box">
 			<div class="body">
