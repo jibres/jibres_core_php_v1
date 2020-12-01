@@ -37,21 +37,23 @@ if(!is_array($permissionList))
 
       <?php if(\dash\get::index($savedPerm, $key, 'status')) { ?>
 
-        <?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'full') {?>
-          <div class="badge mA5 success"><?php echo T_("Full access") ?></div>
-        <?php } //endif ?>
-
         <?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'customized') {?>
           <?php if(isset($savedPerm[$key]['allow_access_title']) && $savedPerm[$key]['allow_access_title']) { ?>
-          <div><?php echo T_("Access to") ?></div>
+          <div class="msg minimal success2">
+
+          <span><?php echo T_("Access to") ?></span>
           <?php if(isset($savedPerm[$key]['allow_access_title'])) { foreach ($savedPerm[$key]['allow_access_title'] as $allow_access_title) {?>
-            <span class="badge mA5 light"><?php echo $allow_access_title ?></span>
+            <span class="badge light"><?php echo $allow_access_title ?></span>
           <?php } /*endfor*/ } //endif ?>
+          </div>
         <?php } //endif ?>
-          <div class="mT10"><?php echo T_("Disallow to") ?></div>
+        <div class="msg minimal danger2 mB0">
+
+          <span><?php echo T_("Disallow to") ?></span>
            <?php if(isset($savedPerm[$key]['disallow_access_title'])) { foreach ($savedPerm[$key]['disallow_access_title'] as $disallow_access_title) {?>
-            <span class="badge mA5 light fc-red"><?php echo $disallow_access_title ?></span>
+            <span class="badge light fc-red"><?php echo $disallow_access_title ?></span>
           <?php } /*endfor*/ } //endif ?>
+        </div>
 
         <?php } //endif ?>
 
@@ -59,7 +61,7 @@ if(!is_array($permissionList))
 
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
+  <form class="c4 s12" method="post" data-patch data-refresh>
 
       <div class="action">
         <input type="hidden" name="runaction_<?php echo $key; ?>" value="1">
@@ -70,8 +72,17 @@ if(!is_array($permissionList))
       </div>
 
   </form>
-  <footer class="txtRa">
-    <a class="btn link" href="<?php echo \dash\url::this(). '/advance?id='. \dash\request::get('id'). '&group='. $key ?>"><?php echo T_("Advance") ?></a>
+  <footer class="f align-center">
+    <div class="c">
+<?php if(\dash\get::index($savedPerm, $key, 'status')) { ?>
+<?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'full') {?>
+        <div class="mLa25 badge success2 "><?php echo T_("Full access") ?></div>
+<?php } //endif ?>
+<?php } //endif ?>
+    </div>
+    <div class="cauto">
+      <a class="btn link" href="<?php echo \dash\url::this(). '/advance?id='. \dash\request::get('id'). '&group='. $key ?>"><?php echo T_("Advance") ?></a>
+    </div>
   </footer>
 </section>
 <?php } //endfor ?>

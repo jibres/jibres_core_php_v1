@@ -20,6 +20,7 @@ class model
 		}
 
 		\dash\app\permission\edit::edit($edit, \dash\request::get('id'));
+		\dash\redirect::pwd();
 
 
 	}

@@ -1,4 +1,4 @@
-<div class="avand-md">
+<div class="avand-sm">
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
