@@ -16,6 +16,9 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
 
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_filter('display-search-filter.php');
+
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)

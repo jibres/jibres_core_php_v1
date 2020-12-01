@@ -45,7 +45,7 @@ if(\dash\data::sortList())
   </div>
 
   <div class="filterBox" data-kerkere-content='hide'>
-    <?php require_once('display-search-filter.php'); ?>
+    <?php //require_once('display-search-filter.php'); ?>
   </div>
 
 </form>
