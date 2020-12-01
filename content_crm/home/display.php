@@ -1,116 +1,165 @@
+<?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
+<div class="row">
+  <div class="c-xs-12 c-sm-12 c-md-8">
+    <div id="chartdiv" class="box chart x310" data-abc='crm/homepage'></div>
+  </div>
+  <div class="c-xs-12 c-sm-12 c-md-4">
+    <nav class="items long">
+     <ul>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/member">
+          <div class="key"><?php echo T_('Customers');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'users')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/member">
+          <div class="key"><?php echo T_('Buyers');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+     </ul>
+   </nav>
+
+     <nav class="items long">
+     <ul>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/permission">
+          <div class="key"><?php echo T_('Permissions');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'permissions')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/member?permission">
+          <div class="key"><?php echo T_('User have permission');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
 
 
-<div class="f mB5">
-  <div class="c s6">
+     </ul>
+   </nav>
 
 
-    <a class="dcard" href="<?php echo \dash\url::here(); ?>/member?status=all">
-     <div class="statistic sm">
-      <div class="label mB10"><i class="fs20 mRa5 sf-group-full"></i> <?php echo T_("Total Users"); ?></div>
-      <div class="value counter" data-value=<?php echo \dash\data::dashboardDetail_users(); ?>><?php echo \dash\fit::number(\dash\data::dashboardDetail_users()); ?></div>
-     </div>
-    </a>
+   <nav class="items long">
+     <ul>
 
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
+          <div class="key"><?php echo T_('Transactions');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'transactions')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
+          <div class="key"><?php echo T_('Success transaction');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+
+     </ul>
+   </nav>
+
+   <nav class="items long">
+     <ul>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/log">
+          <div class="key"><?php echo T_('Logs');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+     </ul>
+   </nav>
 
   </div>
-  <div class="c s6">
-
-
-    <a class="dcard" href="<?php echo \dash\url::here(); ?>/member">
-     <div class="statistic sm green">
-      <div class="label mB10"><i class="fs20 mRa5 sf-user"></i> <?php echo T_("Active Users"); ?></div>
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_activeUser()); ?></div>
-     </div>
-    </a>
-
-
-  </div>
-  <div class="c s6">
-
-
-    <a class="dcard" href="<?php echo \dash\url::here(); ?>/permission">
-     <div class="statistic sm red">
-      <div class="label mB10"><i class="fs20 mRa5 sf-lock"></i> <?php echo T_("Permissions"); ?></div>
-      <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_permissions()); ?></div>
-     </div>
-    </a>
-
-
-  </div>
-
 </div>
 
+<section class="f s0">
+ <div class="c pRa10">
+  <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+   <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+   <h3><?php echo T_("Success transactions today");?></h3>
+  </a>
+ </div>
+ <div class="c pRa10">
+  <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+   <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+   <h3><?php echo T_("Success transactions in month");?></h3>
+  </a>
+ </div>
 
+ <div class="c">
+  <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+   <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+   <h3><?php echo T_("Total Success transactions percent");?></h3>
+  </a>
+ </div>
+</section>
 
-  <div class="f hide">
-    <div class="c6 s12 mB10 pRa5">
-      <div class="chart x3" id="statuschart"></div>
-    </div>
-    <div class="c6 s12 mB10 pLa5">
-      <div class="chart x3" id="genderchart"></div>
-    </div>
-  </div>
-
-  <div class="chart x2 mB10 hide" id="UsersChart"></div>
-  <div class="chart x2 mB10 hide" id="logChart"></div>
-
-
-  <div class="f align-center">
-    <div class="c s12 pRa10">
-
-
-
-      <div class="cbox fs11 mB10">
-        <h2><?php echo T_("Latest Members"); ?></h2>
-        <?php foreach (\dash\data::dashboardDetail_latestMember() as $key => $value) {?>
-
-          <a class="msg f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
-            <div><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Unknown");} ?></div>
-            <div class="cauto"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+<div class="row">
+  <?php if(\dash\data::dashboardDetail_latestMember()) {?>
+  <div class="c-xs-12 c-sm-6 c-md-6">
+    <label><?php echo T_("Last customers") ?></label>
+    <nav class="items long">
+       <ul>
+  <?php foreach (\dash\data::dashboardDetail_latestMember() as $key => $value) {?>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
+            <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
+            <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
           </a>
+        </li>
+  <?php } //endfor ?>
+       </ul>
+     </nav>
 
-        <?php }//endfor ?>
-
-      </div>
-
-
-    </div>
-    <div class="c s12 pRa10 hide">
-      <div class="chart mB10" id="userGuage" style="max-width:300px;margin:0 auto 10px"></div>
-    </div>
-    <div class="c s12">
-
-      <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
-      <div class="cbox fs11">
-        <h2><?php echo T_("Latest logs"); ?></h2>
-
-
-          <?php foreach (\dash\data::dashboardDetail_latestLogs() as $key => $value) {?>
-
-          <a class="msg f">
-            <div><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Unknown");} ?></div>
-            <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; }else{ echo \dash\get::index($value, 'caller');} ?></div>
-            <div class="cauto"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
-          </a>
-
-        <?php }//endfor ?>
-
-      </div>
-    <?php } //endif ?>
-
-
-    </div>
   </div>
+<?php } //endif ?>
 
-  <div class="chart x3 mB10 hide" id="identifyChart"></div>
+  <div class="c-xs-12 c-sm-6 c-md-6">
+    <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
+  <div class="c-xs-12 c-sm-6 c-md-6">
+    <label><?php echo T_("Last login") ?></label>
+    <nav class="items long">
+       <ul>
+  <?php foreach (\dash\data::dashboardDetail_latestLogs() as $key => $value) { ?>
+         <li>
+          <a class="item f">
+            <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
+            <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+          </a>
+        </li>
+  <?php } //endfor ?>
+       </ul>
+     </nav>
+
+  </div>
+<?php } //endif ?>
+  </div>
+</div>
+
+<div class="hide">
 
 
 
+<div id="charttitleunit"><?php echo T_("Count") ?></div>
+<div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
+<div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
 
-
-
-
-
-
-
-
+  <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
+  <div id="chartcategory"><?php echo \dash\get::index($dashboardDetail, 'chart', 'category') ?></div>
+  <div id="chartverify"><?php echo \dash\get::index($dashboardDetail, 'chart', 'verify') ?></div>
+  <div id="chartunverify"><?php echo \dash\get::index($dashboardDetail, 'chart', 'unverify') ?></div>
+</div>
