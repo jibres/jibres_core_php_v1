@@ -5,12 +5,17 @@ class view
 {
 	public static function config()
 	{
+		\dash\face::title(T_("Transactions"));
 
+		// back
+		\dash\data::back_text(T_('CRM'));
+		\dash\data::back_link(\dash\url::here());
 
-		\dash\face::title(T_("Transactions list"));
-		// add back level to summary link
-		\dash\data::action_link(\dash\url::here());
-		\dash\data::action_text(T_('Back to dashboard'));
+		// btn
+		\dash\data::action_text(T_('Add New Transaction'));
+		\dash\data::action_icon('plus');
+		\dash\data::action_link(\dash\url::this(). '/add');
+
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)
@@ -56,7 +61,7 @@ class view
 		$dataTable = \dash\app\transaction::list(\dash\request::get('q'), $args);
 
 		\dash\data::sortLink(\content_su\view::su_make_sortLink(\dash\app\transaction::$sort_field, \dash\url::this()));
-		\dash\data::dataTable($dataTable);
+		\dash\data::dataTable2($dataTable);
 
 		$check_empty_datatable = $args;
 		unset($check_empty_datatable['sort']);
