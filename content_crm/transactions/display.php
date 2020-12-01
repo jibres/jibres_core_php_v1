@@ -28,21 +28,14 @@
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
-        <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-        <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+      <a class="f align-center" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
+        <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
+        <div class="key"><?php echo \dash\get::index($value, 'displayname'); ?></div>
 
-            <?php if(isset($value['variants_detail']['stock'])) {?>
-              <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-            <?php }elseif(\dash\get::index($value, 'stock')){ ?>
-              <div class="key"><b><?php echo \dash\fit::number($value['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-            <?php } //endif ?>
+        <div class="value txtB"><?php if(isset($value['plus']) && $value['plus']) {?><b>+<?php echo \dash\fit::number($value['plus']); ?></b><?php }?><?php if(isset($value['minus']) && $value['minus']) {?><b>-<?php echo \dash\fit::number($value['minus']); ?></b><?php }?></div>
+        <div class="spay-32-<?php echo \dash\get::index($value, 'payment'); ?> key cauto"></div>
+        <div class="value"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
 
-            <?php if(isset($value['variants_detail']['count'])) {?>
-              <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
-            <?php } //endif ?>
-
-        <div class="value"><?php echo \dash\get::index($value, 'variant_price'); ?></div>
         <div class="go"></div>
       </a>
      </li>
