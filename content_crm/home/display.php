@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdiv" class="box chart x310" data-abc='crm/homepage'></div>
+    <div id="chartdivcrmhome" class="box chart x310" data-abc='crm/homepage'></div>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-4">
     <nav class="items long">
@@ -88,20 +88,20 @@
 
 <section class="row">
  <div class="c-xs-12 c-sm-6 c-md-4">
-  <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+  <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Success transactions today");?></h3>
   </a>
  </div>
  <div class="c-xs-12 c-sm-6 c-md-4">
-  <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+  <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Success transactions in month");?></h3>
   </a>
  </div>
 
  <div class="c-xs-12 c-sm-12 c-md-4">
-  <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+  <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Total Success transactions percent");?></h3>
   </a>
