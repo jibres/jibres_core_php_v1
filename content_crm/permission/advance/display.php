@@ -77,7 +77,7 @@ if(!is_array($permissionList))
     <div class="body">
       <div class="row">
         <?php foreach ($advancePerm as $key => $value) {?>
-          <div class="c-xs-12 c-sm-6 c-md-4">
+          <div class="c-xs-12 c-sm-12 c-md-6 c-xl-4">
               <div class="check1">
                 <input type="checkbox" name="c_<?php echo $value['caller'] ?>" id="<?php echo $value['caller'] ?>" <?php if(in_array($value['caller'], $saveAdvance) || $full) {echo 'checked';} if(!$status) { echo ' disabled readonly ';} ?>>
                 <label for="<?php echo $value['caller'] ?>"><?php echo $value['title'] ?></label>
