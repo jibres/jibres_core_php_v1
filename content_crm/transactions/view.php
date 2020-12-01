@@ -61,7 +61,7 @@ class view
 		$dataTable = \dash\app\transaction::list(\dash\request::get('q'), $args);
 
 		\dash\data::sortLink(\content_su\view::su_make_sortLink(\dash\app\transaction::$sort_field, \dash\url::this()));
-		\dash\data::dataTable2($dataTable);
+		\dash\data::dataTable($dataTable);
 
 		$check_empty_datatable = $args;
 		unset($check_empty_datatable['sort']);
