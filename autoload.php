@@ -20,7 +20,7 @@ class autoload
 		if(substr($_class_name, 0, 4) === 'dash')
 		{
 			$addr = core;
-			$addr = $addr. str_replace('dash', '', $_class_name);;
+			$addr = $addr. substr($_class_name, 4); // str_replace('dash', '', $_class_name);
 			$addr = self::fix_os_path($addr);
 
 			if(self::open($addr))
@@ -69,6 +69,7 @@ class autoload
 	{
 		$_addr = str_replace('\\', DIRECTORY_SEPARATOR, $_addr);
 		$_addr = str_replace('/', DIRECTORY_SEPARATOR, $_addr);
+		$_addr = str_replace(DIRECTORY_SEPARATOR. DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, $_addr);
 		return $_addr;
 	}
 }
