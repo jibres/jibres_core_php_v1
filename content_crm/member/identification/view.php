@@ -6,9 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\content_crm\member\main\view::dataRowMember();
-
-		\content_crm\member\main\view::static_var();
+		\content_crm\member\master::view();
+		\content_crm\member\master::static_var();
 
 		\dash\face::title(T_('Member identification detail'));
 	}

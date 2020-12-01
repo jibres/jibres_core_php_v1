@@ -308,8 +308,14 @@ class user
 			'password'      => 'password',
 		];
 
-		$require = [];
-		$meta    = [];
+		$require = ['displayname'];
+		$meta    =
+		[
+			'field_title' =>
+			[
+				'displayname' => T_("Display name"),
+			],
+		];
 
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 

@@ -43,7 +43,7 @@
     <nav class="items">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/identify'. $myID;?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/identification'. $myID;?>">
             <div class="key"><?php echo T_("Identification detail") ?></div>
             <div class="go"></div>
           </a>

@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('cpUsersEdit');
+		\content_crm\member\master::load();
 	}
 }
 ?>

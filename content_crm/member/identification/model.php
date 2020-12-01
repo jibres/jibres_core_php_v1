@@ -13,42 +13,32 @@ class model
 	 */
 	public static function post()
 	{
+		$post =
+		[
+			'firstname'    => \dash\request::post('name'),
+			'lastname'     => \dash\request::post('lastName'),
+			'father'       => \dash\request::post('father'),
+			'marital'      => \dash\request::post('marital'),
+			'birthday'     => \dash\request::post('birthday'),
+			'gender'       => \dash\request::post('gender'),
+			'nationality'  => \dash\request::post('nationality'),
+			'nationalcode' => \dash\request::post('nationalcode'),
+			'pasportcode'  => \dash\request::post('pasportcode'),
+			'pasportdate'  => \dash\request::post('passportdate'),
+		];
 
-		$file1     = \dash\upload\user::indenfity_set('file1');
+		// $file1     = \dash\upload\user::indenfity_set('file1');
+		// $file2     = \dash\upload\user::indenfity_set('file2');
 
-		// we have an error in upload file1
-		if($file1 === false)
-		{
-			return false;
-		}
+		// if($file1)
+		// {
+		// 	$post['file1'] = $file1;
+		// }
 
-		$file2     = \dash\upload\user::indenfity_set('file2');
-
-		// we have an error in upload file2
-		if($file2 === false)
-		{
-			return false;
-		}
-
-		$post                 = [];
-		if($file1)
-		{
-			$post['file1'] = $file1;
-		}
-
-		if($file2)
-		{
-			$post['file2'] = $file2;
-		}
-
-		// $post['nationality']  = \dash\request::post('nationality');
-		// $post['birthcity']    = \dash\request::post('birthplace');
-		// $post['issueplace']   = \dash\request::post('issueplace');
-		// $post['shcode']       = \dash\request::post('shcode');
-		// $post['pasportcode']  = \dash\request::post('pasportcode');
-		// $post['pasportdate']  = \dash\request::post('passportdate');
-		// $post['nationalcode'] = \dash\request::post('nationalcode');
-		// $post['shfrom']       = \dash\request::post('shfrom');
+		// if($file2)
+		// {
+		// 	$post['file2'] = $file2;
+		// }
 
 		\dash\app\user::edit($post, \dash\request::get('id'));
 

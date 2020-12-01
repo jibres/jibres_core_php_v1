@@ -1,22 +1,9 @@
-
-
-
-
-<?php require_once(root. 'content_crm/member/pageSteps.php'); ?>
-
-<div class="f">
-
-	<div class="cauto s12 pA5">
-		<?php require_once(root. 'content_crm/member/psidebar.php'); ?>
-
-	</div>
-
-	<div class="c s12 pA5">
-		<?php if(false) {?>
+<div class="avand-xl">
+	<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
+	<?php if(false) {?>
 		<?php if(!\dash\data::accountingDetailsId()) {?>
 			<form method="post" autocomplete="off">
 				<div class="box">
-					<header><h2><?php echo T_("Accounting") ?></h2></header>
 					<div class="body">
 						<input type="hidden" name="accounting" value="accounting">
 						<p>
@@ -61,105 +48,121 @@
 			</div>
 
 		<?php } //endif ?>
-		<?php } //endif ?>
+	<?php } //endif ?>
 
-		<form class="box" method="post" autocomplete="off">
-			<header><h2><?php echo T_("Legal information") ?></h2></header>
-			<div class="body">
+	<form class="box" method="post" autocomplete="off">
+		<div class="body">
 
-				<label for="icompanyname"><?php echo T_("Company name"); ?></label>
-				<div class="input">
-					<input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRowLegal_companyname(); ?>" maxlength="100">
+			<div class="row">
+				<div class="c-xs-12 c-sm-6">
+					<label for="icompanyname"><?php echo T_("Company name"); ?></label>
+					<div class="input">
+						<input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRowLegal_companyname(); ?>" maxlength="100">
+					</div>
+				</div>
+
+				<div class="c-xs-12 c-sm-6">
+					<label for="iceonationalcode"><?php echo T_("CEO nationalcode"); ?></label>
+					<div class="input">
+						<input type="text" name="ceonationalcode" id="iceonationalcode" value="<?php echo \dash\data::dataRowLegal_ceonationalcode(); ?>" data-format='nationalCode'>
+					</div>
+				</div>
+
+				<div class="c-xs-12 c-sm-4">
+					<label for="icompanyregisternumber"><?php echo T_("Company register number"); ?></label>
+					<div class="input">
+						<input type="text" name="companyregisternumber" id="icompanyregisternumber" value="<?php echo \dash\data::dataRowLegal_companyregisternumber(); ?>" data-format='int' maxlength="10">
+					</div>
+				</div>
+
+				<div class="c-xs-12 c-sm-4">
+					<label for="icompanynationalid"><?php echo T_("Company national id"); ?></label>
+					<div class="input">
+						<input type="text" name="companynationalid" id="icompanynationalid" value="<?php echo \dash\data::dataRowLegal_companynationalid(); ?>" data-format='int' maxlength="11">
+					</div>
+				</div>
+
+				<div class="c-xs-12 c-sm-4">
+					<label for="icompanyeconomiccode"><?php echo T_("Economic code"); ?></label>
+					<div class="input">
+						<input type="text" name="companyeconomiccode" id="icompanyeconomiccode" value="<?php echo \dash\data::dataRowLegal_companyeconomiccode(); ?>" data-format='int' maxlength="12">
+					</div>
 				</div>
 
 
-				<label for="icompanyregisternumber"><?php echo T_("Company register number"); ?></label>
-				<div class="input">
-					<input type="text" name="companyregisternumber" id="icompanyregisternumber" value="<?php echo \dash\data::dataRowLegal_companyregisternumber(); ?>" data-format='int' maxlength="10">
+				<div class="c-xs-12 c-sm-12">
+
+					<div class="mB10">
+						<label for='country'><?php echo T_("Country"); ?></label>
+						<select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRowLegal_province(); ?>'>
+							<option value=""><?php echo T_("Choose your country"); ?></option>
+							<?php foreach (\dash\data::countryList() as $key => $value) {?>
+
+								<option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowLegal_country() == $key) { echo 'selected';} ?>><?php echo ucfirst($value['name']); if(\dash\language::current() != 'en') { echo ' - '. T_(ucfirst($value['name']));} ?></option>
+
+							<?php } //endif ?>
+						</select>
+					</div>
+
+
+					<div class="mB10" data-status='hide'>
+						<label for='province'><?php echo T_("Province"); ?></label>
+						<select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRowLegal_city(); ?>'>
+							<option value="0"><?php echo T_("Please choose country"); ?></option>
+							<option value="<?php echo \dash\data::dataRowLegal_province(); ?>" selected><?php echo \dash\data::dataRowLegal_province(); ?></option>
+						</select>
+					</div>
+
+
+					<div class="mB10" data-status='hide'>
+						<label for='city'><?php echo T_("City"); ?></label>
+						<select name="city" id="city" class="select22">
+							<option value=""><?php echo T_("Please choose province"); ?></option>
+						</select>
+					</div>
+
+					<label for="address"><?php echo T_("Address"); ?></label>
+					<textarea class="txt mB10 pB25" name="address"  maxlength='300' rows="2"><?php echo \dash\data::dataRowLegal_address(); ?></textarea>
 				</div>
 
-				<label for="icompanynationalid"><?php echo T_("Company national id"); ?></label>
-				<div class="input">
-					<input type="text" name="companynationalid" id="icompanynationalid" value="<?php echo \dash\data::dataRowLegal_companynationalid(); ?>" data-format='int' maxlength="11">
+				<div class="c-xs-12 c-sm-6">
+					<label for="postcode"><?php echo T_("Post code"); ?></label>
+					<div class="input ltr">
+						<input type="text" name="postcode" id="postcode" value="<?php echo \dash\data::dataRowLegal_postcode(); ?>" data-format="postalCode" >
+					</div>
 				</div>
+				<div class="c-xs-12 c-sm-6">
+					<label for="iphone"><?php echo T_("Phone"); ?></label>
+					<div class="input">
+						<input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowLegal_phone(); ?>" data-format="tel">
+					</div>
 
-				<label for="icompanyeconomiccode"><?php echo T_("Economic code"); ?></label>
-				<div class="input">
-					<input type="text" name="companyeconomiccode" id="icompanyeconomiccode" value="<?php echo \dash\data::dataRowLegal_companyeconomiccode(); ?>" data-format='int' maxlength="12">
 				</div>
+				<div class="c-xs-12 c-sm-6">
 
-
-				<label for="iceonationalcode"><?php echo T_("CEO nationalcode"); ?></label>
-				<div class="input">
-					<input type="text" name="ceonationalcode" id="iceonationalcode" value="<?php echo \dash\data::dataRowLegal_ceonationalcode(); ?>" data-format='nationalCode'>
+					<label for="ifax"><?php echo T_("Fax"); ?></label>
+					<div class="input">
+						<input type="text" name="fax" id="ifax" value="<?php echo \dash\data::dataRowLegal_fax(); ?>" data-format="tel">
+					</div>
 				</div>
+				<div class="c-xs-12 c-sm-6">
 
-
-
-
-				<div class="mB10">
-					<label for='country'><?php echo T_("Country"); ?></label>
-					<select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRowLegal_province(); ?>'>
-						<option value=""><?php echo T_("Choose your country"); ?></option>
-						<?php foreach (\dash\data::countryList() as $key => $value) {?>
-
-							<option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowLegal_country() == $key) { echo 'selected';} ?>><?php echo ucfirst($value['name']); if(\dash\language::current() != 'en') { echo ' - '. T_(ucfirst($value['name']));} ?></option>
-
-						<?php } //endif ?>
-					</select>
+					<label for="iurl"><?php echo T_("Url"); ?></label>
+					<div class="input">
+						<input type="url" name="url" id="iurl" value="<?php echo \dash\data::dataRowLegal_url(); ?>" >
+					</div>
 				</div>
-
-
-				<div class="mB10" data-status='hide'>
-					<label for='province'><?php echo T_("Province"); ?></label>
-					<select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRowLegal_city(); ?>'>
-						<option value="0"><?php echo T_("Please choose country"); ?></option>
-						<option value="<?php echo \dash\data::dataRowLegal_province(); ?>" selected><?php echo \dash\data::dataRowLegal_province(); ?></option>
-					</select>
-				</div>
-
-
-				<div class="mB10" data-status='hide'>
-					<label for='city'><?php echo T_("City"); ?></label>
-					<select name="city" id="city" class="select22">
-						<option value=""><?php echo T_("Please choose province"); ?></option>
-					</select>
-				</div>
-
-
-				<label for="address"><?php echo T_("Address"); ?></label>
-				<textarea class="txt mB10 pB25" name="address"  maxlength='300' rows="2"><?php echo \dash\data::dataRowLegal_address(); ?></textarea>
-
-				<label for="postcode"><?php echo T_("Post code"); ?></label>
-				<div class="input ltr">
-					<input type="text" name="postcode" id="postcode" value="<?php echo \dash\data::dataRowLegal_postcode(); ?>" data-format="postalCode" >
-				</div>
-
-
-
-
-				<label for="iphone"><?php echo T_("Phone"); ?></label>
-				<div class="input">
-					<input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowLegal_phone(); ?>" data-format="tel">
-				</div>
-
-				<label for="ifax"><?php echo T_("Fax"); ?></label>
-				<div class="input">
-					<input type="text" name="fax" id="ifax" value="<?php echo \dash\data::dataRowLegal_fax(); ?>" data-format="tel">
-				</div>
-
-				<label for="iurl"><?php echo T_("Url"); ?></label>
-				<div class="input">
-					<input type="url" name="url" id="iurl" value="<?php echo \dash\data::dataRowLegal_url(); ?>" >
-				</div>
-
 			</div>
 
 
-			<footer class="txtRa">
-				<button class="btn primary" name="btn" value="add"><?php echo T_("Save"); ?></button>
-			</footer>
+		</div>
 
-		</form>
-	</div>
+
+		<footer class="txtRa">
+			<button class="btn primary" name="btn" value="add"><?php echo T_("Save"); ?></button>
+		</footer>
+
+	</form>
 </div>
+
+

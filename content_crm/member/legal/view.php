@@ -6,11 +6,11 @@ class view
 {
 	public static function config()
 	{
-		\content_crm\member\main\view::dataRowMember();
+
+		\content_crm\member\master::view();
+		\content_crm\member\master::static_var();
 
 		\dash\face::title(T_('Edit user legal detail'));
-
-		\content_crm\member\main\view::static_var();
 
 		\dash\data::dataRowLegal(\dash\app\user\legal::get(\dash\request::get('id')));
 
