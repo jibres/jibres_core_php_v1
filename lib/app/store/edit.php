@@ -30,7 +30,7 @@ class edit
 		$load_store = \lib\db\store\get::by_id($_id);
 		if(!isset($load_store['id']))
 		{
-			\dash\notif::error(T_("Store not founde"));
+			\dash\notif::error(T_("Store not found"));
 			return false;
 		}
 

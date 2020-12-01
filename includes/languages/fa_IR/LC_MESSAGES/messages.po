@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-01 13:20+0330\n"
-"PO-Revision-Date: 2020-12-01 13:37+0330\n"
+"POT-Creation-Date: 2020-12-01 14:33+0330\n"
+"PO-Revision-Date: 2020-12-01 14:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -5720,10 +5720,10 @@ msgstr "افزودن فاکتور جدید"
 #: content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:126
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
-#: content_a/sale/display.php:17 content_crm/member/home/display.php:73
-#: content_crmold/member/home/display.php:73 content_love/domain/home/display.php:219
-#: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
-#: includes/languages/trans_static_public.php:899
+#: content_a/sale/display.php:17 content_crm/home/display.php:157
+#: content_crm/member/home/display.php:73 content_crmold/member/home/display.php:73
+#: content_love/domain/home/display.php:219 content_su/tg/system/display.php:10
+#: content_su/tg/users/display.php:85 includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -8943,7 +8943,8 @@ msgstr "عملیات"
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/shipping/view.php:15 content_a/products/status/view.php:15
 #: content_a/products/variants/view.php:15 content_cms/comments/home/display.php:118
-#: content_cms/comments/home/display.php:125 content_support/ticket/show/display.php:179
+#: content_cms/comments/home/display.php:125 content_crm/home/display.php:120
+#: content_crm/home/display.php:140 content_support/ticket/show/display.php:179
 #: dash/app.php:89 dash/app.php:187 dash/app.php:193 dash/user.php:188
 #: lib/app/product/comment.php:781
 msgid "Without name"
@@ -11163,7 +11164,7 @@ msgstr "سیستم مدیریت محتوا"
 
 #: content_a/setting/home/display.php:211
 msgid "Manage your business news and contents"
-msgstr ""
+msgstr "مدیریت اخبار و محتوای بیزینس شما"
 
 #: content_a/setting/home/display.php:220 dash/panel.php:392
 msgid "Customers - CRM"
@@ -11171,7 +11172,7 @@ msgstr "مشتریان - CRM"
 
 #: content_a/setting/home/display.php:221
 msgid "Manage business customers"
-msgstr ""
+msgstr "مدیریت مشتریان بیزینس"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
 #: lib/app/store/edit.php:148
@@ -14671,7 +14672,7 @@ msgstr "بدون عنوان"
 
 #: content_cms/home/display.php:102
 msgid "Latest comment"
-msgstr ""
+msgstr "آخرین دیدگاه‌ها"
 
 #: content_cms/posts/add/display.php:7 content_cms/posts/edit/display.php:103
 msgid "Enter title here"
@@ -14926,15 +14927,15 @@ msgstr "تمامی خبرهای حذف شده"
 
 #: content_cms/posts/home/display.php:175
 msgid "Publish news and pages on your website."
-msgstr ""
+msgstr "اخبار و صفحات وب‌سایت خود را منتشر کنید"
 
 #: content_cms/posts/home/display.php:176
 msgid "Try to start with add new post!"
-msgstr ""
+msgstr "با خبر جدید تلاشی برای شروع داشته باشید!"
 
 #: content_cms/posts/home/display.php:180
 msgid "add new post"
-msgstr ""
+msgstr "افزودن نوشته جدید"
 
 #: content_cms/posts/home/view.php:43
 msgid "Back to list of helps"
@@ -15076,13 +15077,16 @@ msgstr "عبارت با موفقیت اضافه شد"
 msgid "Terms"
 msgstr "عبارات"
 
-#: content_crm/home/display.php:9 content_crmold/home/display.php:9
-msgid "Total Users"
-msgstr "همه‌ کاربران"
+#: content_crm/home/display.php:12 content_crm/member/main/view.php:37
+#: content_crmold/member/main/view.php:37 content_developers/docs/001-intro.php:17
+#: content_pardakhtyar/customer/dashboard/view.php:14
+#: includes/languages/trans_static.php:62
+msgid "Customers"
+msgstr "مشتریان"
 
-#: content_crm/home/display.php:21 content_crmold/home/display.php:21
-msgid "Active Users"
-msgstr "کاربران فعال"
+#: content_crm/home/display.php:20
+msgid "Buyers"
+msgstr "خریداران"
 
 #: content_crm/home/display.php:33 content_crm/permission/view.php:11
 #: content_crmold/home/display.php:33 content_crmold/permission/view.php:11
@@ -15092,25 +15096,55 @@ msgstr "کاربران فعال"
 msgid "Permissions"
 msgstr "سطوح‌دسترسی"
 
-#: content_crm/home/display.php:64 content_crmold/home/display.php:64
-msgid "Latest Members"
-msgstr "آخرین اعضا"
+#: content_crm/home/display.php:41
+msgid "User have permission"
+msgstr "کاربران دارای سطح دسترسی"
 
-#: content_crm/home/display.php:68 content_crm/home/display.php:91
-#: content_crmold/home/display.php:68 content_crmold/home/display.php:91
-#: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:144
-#: content_my/domain/search/display.php:187 content_my/domain/setting/display.php:57
-#: dash/app/user.php:87 dash/app/user.php:129 dash/app/user.php:179
-#: dash/app/visitor.php:112 dash/app/visitor.php:141
-#: includes/languages/trans_static.php:570 lib/app/factor/ready.php:87
-#: lib/app/factor/ready.php:125 lib/app/nic_domain/ready.php:59
-#: lib/app/nic_domain/search.php:197
-msgid "Unknown"
-msgstr "ناشناس"
+#: content_crm/home/display.php:56 dash/layout/admin/sidebar/sidebar-crm.php:24
+#: dash/panel.php:288
+msgid "Transactions"
+msgstr "تراکنش‌ها"
 
-#: content_crm/home/display.php:85 content_crmold/home/display.php:85
-msgid "Latest logs"
-msgstr "آخرین لاگ‌ها"
+#: content_crm/home/display.php:64
+msgid "Success transaction"
+msgstr "تراکنش‌های موفق"
+
+#: content_crm/home/display.php:78 content_love/domain/home/display.php:150
+#: content_love/home/display.php:105 content_su/tg/home/display.php:9
+msgid "Logs"
+msgstr "لاگ"
+
+#: content_crm/home/display.php:93
+msgid "Success transactions today"
+msgstr "تراکنش‌های موفق امروز"
+
+#: content_crm/home/display.php:99
+msgid "Success transactions in month"
+msgstr "تراکنش های موفق در ماه"
+
+#: content_crm/home/display.php:106
+msgid "Total Success transactions percent"
+msgstr "درصد موفقیت تمامی تراکنش‌ها"
+
+#: content_crm/home/display.php:114
+msgid "Last customers"
+msgstr "آخرین مشتریان"
+
+#: content_crm/home/display.php:134
+msgid "Last login"
+msgstr "آخرین ورود‌ها"
+
+#: content_crm/home/display.php:158
+msgid "Success transactions"
+msgstr "تراکنش‌های موفق"
+
+#: content_crm/home/display.php:159
+msgid "Unsuccess transactions"
+msgstr "تراکنش‌های ناموفق"
+
+#: content_crm/home/display.php:161
+msgid "Chart transactions per day in last 3 month"
+msgstr "نمودار تراکنش‌ها به تفکیک روز در سه ماه گذشته"
 
 #: content_crm/home/view.php:8 content_crmold/home/view.php:12
 #: content_love/home/display.php:95 dash/plan_list.php:95
@@ -15685,13 +15719,6 @@ msgstr "تکرار کلمه عبور با کلمه عبور برابر نیست"
 #: content_crm/member/log/view.php:12 content_crmold/member/log/view.php:12
 msgid "User log"
 msgstr "لاگ کاربر"
-
-#: content_crm/member/main/view.php:37 content_crmold/member/main/view.php:37
-#: content_developers/docs/001-intro.php:17
-#: content_pardakhtyar/customer/dashboard/view.php:14
-#: includes/languages/trans_static.php:62
-msgid "Customers"
-msgstr "مشتریان"
 
 #: content_crm/member/main/view.php:47 content_crmold/member/main/view.php:47
 msgid "Father"
@@ -16270,6 +16297,33 @@ msgstr "کاهش"
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:21
 msgid "Transactions list"
 msgstr "لیست تراکنش‌ها"
+
+#: content_crmold/home/display.php:9
+msgid "Total Users"
+msgstr "همه‌ کاربران"
+
+#: content_crmold/home/display.php:21
+msgid "Active Users"
+msgstr "کاربران فعال"
+
+#: content_crmold/home/display.php:64
+msgid "Latest Members"
+msgstr "آخرین اعضا"
+
+#: content_crmold/home/display.php:68 content_crmold/home/display.php:91
+#: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:144
+#: content_my/domain/search/display.php:187 content_my/domain/setting/display.php:57
+#: dash/app/user.php:87 dash/app/user.php:129 dash/app/user.php:179
+#: dash/app/visitor.php:112 dash/app/visitor.php:141
+#: includes/languages/trans_static.php:570 lib/app/factor/ready.php:87
+#: lib/app/factor/ready.php:125 lib/app/nic_domain/ready.php:59
+#: lib/app/nic_domain/search.php:197
+msgid "Unknown"
+msgstr "ناشناس"
+
+#: content_crmold/home/display.php:85
+msgid "Latest logs"
+msgstr "آخرین لاگ‌ها"
 
 #: content_developers/docs/001-intro.php:2
 msgid "Intro"
@@ -18519,11 +18573,6 @@ msgstr "پرداختی‌ها"
 #: content_love/domain/home/display.php:137
 msgid "IRNIC credit"
 msgstr "اعتبار ایرنیک"
-
-#: content_love/domain/home/display.php:150 content_love/home/display.php:105
-#: content_su/tg/home/display.php:9
-msgid "Logs"
-msgstr "لاگ"
 
 #: content_love/domain/home/display.php:157
 msgid "Onlinenic log"
@@ -23785,10 +23834,6 @@ msgstr "کتابخانه"
 #: dash/layout/admin/sidebar/sidebar-cms.php:65 dash/panel.php:217
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
-
-#: dash/layout/admin/sidebar/sidebar-crm.php:24 dash/panel.php:288
-msgid "Transactions"
-msgstr "تراکنش‌ها"
 
 #: dash/layout/admin/sidebar/sidebar-su.php:7
 msgid "Date and time"
@@ -35334,7 +35379,7 @@ msgstr "توضیحاتی در مورد محصول نمونه ۷"
 
 #: lib/app/store/edit.php:20
 msgid "No change in business subdomain"
-msgstr ""
+msgstr "هیچ تغییری در زیردامنه فروشگاه ایجاد نشد"
 
 #: lib/app/store/edit.php:33
 msgid "Store not founde"
@@ -35342,7 +35387,7 @@ msgstr ""
 
 #: lib/app/store/edit.php:53
 msgid "Subdomain was changed"
-msgstr ""
+msgstr "زیردامنه تغییر یافت"
 
 #: lib/app/store/edit.php:88
 msgid "Your social network was saved"
