@@ -1,4 +1,5 @@
-<form method="get" action="<?php echo \dash\url::that(); ?>">
+<?php if(\dash\data::listEngine_search()) {?>
+<form method="get" action="<?php echo \dash\data::listEngine_search(); ?>">
 <?php
 $all_get = \dash\request::get();
 unset($all_get['page']);
@@ -13,9 +14,12 @@ if($all_get)
 
   <div class="searchBox">
     <div class="f">
+<?php if(\dash\data::listEngine_filter()) {?>
       <div class="cauto pRa10">
         <a class="btn light3 <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
       </div>
+<?php }?>
+
       <div class="c pRa10">
         <div>
           <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
@@ -44,8 +48,14 @@ if(\dash\data::sortList())
     </div>
   </div>
 
-  <div class="filterBox" data-kerkere-content='hide'>
-    <?php //require_once('display-search-filter.php'); ?>
-  </div>
-
+<?php if(\dash\data::listEngine_filter()) {
+  echo '<div class="filterBox" data-kerkere-content="hide">';
+  $myFilterAddr = str_replace('display.php', 'display-filter.php', \dash\layout\func::display());
+  if(is_file($myFilterAddr))
+  {
+    require_once($myFilterAddr);
+  }
+  echo '</div>';
+}?>
 </form>
+<?php }?>

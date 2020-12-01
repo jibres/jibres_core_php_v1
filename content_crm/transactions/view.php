@@ -17,7 +17,8 @@ class view
 		\dash\data::action_link(\dash\url::this(). '/add');
 
 		\dash\data::listEngine_start(true);
-		\dash\data::listEngine_filter('display-search-filter.php');
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(true);
 
 
 		$search_string            = \dash\request::get('q');
