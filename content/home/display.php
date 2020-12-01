@@ -25,14 +25,14 @@
       <div class="c-xs-12 c-sm-12 c-lg-6">
         <a class="channel" href="<?php echo \dash\url::kingdom() ?>/" data-type='website'>
           <h2><?php echo T_('Online Store Website'); ?></h2>
-          <p><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></p>
+          <p><?php echo T_('Online store builder allows you robust your business in a faster way, simpler way!'); ?></p>
         </a>
       </div>
 
       <div class="c-xs-12 c-sm-12 c-lg-6">
         <a class="channel" href="<?php echo \dash\url::kingdom() ?>/" data-type='app'>
           <h2><?php echo T_('Mobile Online Store'); ?></h2>
-          <p><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(', '). T_('Fully Customizable'); ?>.</p>
+          <p><?php echo T_('Create a mobile app for your online store.'); ?> <?php echo T_('Free'). T_(', '). T_('Fully Customizable'); ?>.</p>
         </a>
       </div>
 
@@ -46,13 +46,13 @@
       <div class="c-xs-12 c-sm-12 c-lg-6">
         <a class="channel" href="<?php echo \dash\url::kingdom() ?>/" data-type='social'>
           <h2><?php echo T_('Social Marketing'); ?></h2>
-          <p><?php echo T_('Easily add ecommerce to any website and social networks by embedding a single buy button.'); ?></p>
+          <p><?php echo T_('Easily add e-commerce to any website and social networks by embedding a single buy button.'); ?></p>
         </a>
       </div>
     </div>
 
     <div class="txtC mT10">
-      <a class="hey" href="<?php echo \dash\url::kingdom() ?>/about"><div class="inside"><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?></div></a>
+      <a class="hey" href="<?php echo \dash\url::kingdom() ?>/about"><div class="inside"><?php echo T_('By using each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?></div></a>
     </div>
 
   </div>
@@ -141,7 +141,7 @@
     <p><?php echo T_("Every form has its URL, so you can share the form with or without your own website. Create forms and surveys that people enjoy answering with Jibres.") ?></p>
 
     <h5 class="txtB"><?php echo T_("Reduce paper usage") ?></h5>
-    <p><?php echo T_("Don't let paperwork slow you down anymore. Jibres Forms will increase your efficiency by automating tiresome manual tasks. You'll never have to waste paper and your valuable time again. Sit back and watch your work flow.") ?></p>
+    <p><?php echo T_("Don't let paperwork slow you down anymore. Jibres Forms will increase your efficiency by automating tiresome manual tasks. You'll never have to waste paper and your valuable time again. Sit back and watch your workflow.") ?></p>
   </div>
 </section>
 
@@ -167,7 +167,7 @@
         <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-unlock-alt"></i>
           <h4><?php echo T_("Free SSL Certificate"); ?></h4>
-          <p><?php echo T_("SSL Protection For Anyone."); ?></p><p><?php echo T_("Protect you information, generate trust and improve Search Engine Ranking.") ?></p>
+          <p><?php echo T_("SSL Protection For Anyone."); ?></p><p><?php echo T_("Protect your information, generate trust and improve Search Engine Ranking.") ?></p>
         </a>
       </div>
     </div>
@@ -176,7 +176,7 @@
         <a href="<?php echo \dash\url::kingdom(); ?>">
           <i class="sf-card"></i>
           <h4><?php echo T_("Accept Credit Cards"); ?></h4>
-          <p><?php echo T_("It's easy to accept various payment options in Jibres, including PayPal, Credit Cards and other offline methods."); ?></p>
+          <p><?php echo T_("It's easy to accept various payment options in Jibres, including PayPal, Credit Cards, and other offline methods."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
@@ -296,7 +296,7 @@
   <div class="avand-md">
     <div class="securitySign"></div>
     <h3><a href="<?php echo \dash\url::kingdom() ?>/privacy"><?php echo T_("Security & Privacy") ?></a></h3>
-    <p><?php echo T_("Privacy is at the core of everything we do. We are here to protect your information. Privacy is one of our most important core values. In a world of increasing complexity we firmly believe your data is yours and yours alone.") ?></p>
+    <p><?php echo T_("Privacy is at the core of everything we do. We are here to protect your information. Privacy is one of our most important core values. In a world of increasing complexity, we firmly believe your data is yours and yours alone.") ?></p>
   </div>
 </section>
 
