@@ -86,21 +86,21 @@
   </div>
 </div>
 
-<section class="f s0">
- <div class="c pRa10">
+<section class="row">
+ <div class="c-xs-12 c-sm-6 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Success transactions today");?></h3>
   </a>
  </div>
- <div class="c pRa10">
+ <div class="c-xs-12 c-sm-6 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Success transactions in month");?></h3>
   </a>
  </div>
 
- <div class="c">
+ <div class="c-xs-12 c-sm-12 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Total Success transactions percent");?></h3>
@@ -130,7 +130,7 @@
 
   <div class="c-xs-12 c-sm-6 c-md-6">
     <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
-  <div class="c-xs-12 c-sm-6 c-md-6">
+
     <label><?php echo T_("Last login") ?></label>
     <nav class="items long">
        <ul>
@@ -147,7 +147,6 @@
 
   </div>
 <?php } //endif ?>
-  </div>
 </div>
 
 <div class="hide">
