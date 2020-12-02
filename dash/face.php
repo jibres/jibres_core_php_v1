@@ -50,7 +50,14 @@ class face
 	{
 		if(\dash\engine\store::inStore())
 		{
-			return \lib\store::desc();
+			if(\lib\store::desc())
+			{
+				return \lib\store::desc();
+			}
+			else
+			{
+				return T_("If you're planning to build an online store, Jibres is ready for you. Start for Free.");
+			}
 		}
 
 		return T_(self::siteDesc());
