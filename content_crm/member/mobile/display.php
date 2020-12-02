@@ -5,7 +5,7 @@
 			<div class="body">
 				<label for="mobile"><?php echo T_("Mobile") ?></label>
 				<div class="input">
-					<input type="tel" name="mobile" value="<?php echo \dash\data::dataRowMember_mobile() ?>" data-format='mobile-enter'>
+					<input type="tel" name="mobile" value="<?php echo \dash\data::dataRowMember_mobile() ?>" data-format='mobile-enter' maxlength='20'>
 				</div>
 			</div>
 			<footer class="txtRa">
