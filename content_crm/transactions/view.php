@@ -12,14 +12,14 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 		// btn
-		\dash\data::action_text(T_('Add New Transaction'));
-		\dash\data::action_icon('plus');
-		\dash\data::action_link(\dash\url::this(). '/add');
+		// \dash\data::action_text(T_('Add New Transaction'));
+		// \dash\data::action_icon('plus');
+		// \dash\data::action_link(\dash\url::this(). '/add');
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(true);
-		\dash\data::listEngine_sort(true);
+		\dash\data::listEngine_filter(false);
+		\dash\data::listEngine_sort(false);
 
 		$args =
 		[
