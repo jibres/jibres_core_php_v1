@@ -10,7 +10,7 @@
 		}
 		else
 		{
-		  if(\dash\data::isFiltered())
+		  if(\dash\data::isFiltered() || \dash\request::get('q'))
 		  {
 		    require_once(core. 'layout/tools/display-search-bar.php');
 		    require_once(core. 'layout/tools/display-search-empty.php');
