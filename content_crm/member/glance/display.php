@@ -125,15 +125,20 @@ $dashboardDetail = \dash\data::dashboardDetail();
 
      <nav class="items long">
       <ul>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/description'. $myID;?>">
-            <div class="key"><?php echo T_("Notes") ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/address'. $myID;?>">
+          <div class="key"><?php echo T_("Addresses") ?></div>
+          <div class="go"></div>
+        </a>
+       </li>
+      </ul>
+    </nav>
+
+     <nav class="items long">
+      <ul>
          <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/address'. $myID;?>">
-            <div class="key"><?php echo T_("Addresses") ?></div>
+          <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id');?>">
+            <div class="key"><?php echo T_("Orders") ?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -144,9 +149,15 @@ $dashboardDetail = \dash\data::dashboardDetail();
             <div class="go"></div>
           </a>
         </li>
-         <li>
-          <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id');?>">
-            <div class="key"><?php echo T_("Orders") ?></div>
+      </ul>
+    </nav>
+
+
+     <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/description'. $myID;?>">
+            <div class="key"><?php echo T_("Notes") ?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -156,34 +167,39 @@ $dashboardDetail = \dash\data::dashboardDetail();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_("Transactions") ?></div>
+          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+            <div class="key"><?php echo T_("Payments") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
           </a>
         </li>
 
         <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_("Logins") ?></div>
+          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+            <div class="key"><?php echo T_("Messages") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+            <div class="key"><?php echo T_("Sessions") ?></div>
             <div class="go"></div>
           </a>
         </li>
 
          <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_("Logs") ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-        <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_("Notifications") ?></div>
+          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+            <div class="key"><?php echo T_("Customer Logs History") ?></div>
             <div class="go"></div>
           </a>
         </li>
