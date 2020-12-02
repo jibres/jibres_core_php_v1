@@ -12,11 +12,9 @@ switch (\dash\data::dataRowMember_status())
   case 'filter' :      $myIcon = 'stop nok'; break;
   case 'removed' :     $myIcon = 'ban nok'; break;
   case 'ban' :         $myIcon = 'ban'; break;
-
-
 }
 ?>
-  <nav class="items">
+  <nav class="items long">
     <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::this(). '/glance'. $myID;?>">

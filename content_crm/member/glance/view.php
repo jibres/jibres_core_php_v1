@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 
-		\dash\face::title(T_('Glance user'));
+		\dash\face::title(T_('Customer at a glance'));
 
 		\dash\data::back_text(T_("Customers"));
 		\dash\data::back_link(\dash\url::this());
