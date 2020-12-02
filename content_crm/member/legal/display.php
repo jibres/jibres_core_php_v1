@@ -1,7 +1,7 @@
 <?php require_once(root. 'content_crm/member/userDetail.php'); ?>
 <form class="box" method="post" autocomplete="off">
 	<div class="body">
-		<div class="row">
+		<div class="row mB10">
 			<div class="c-xs-6 c-sm-6">
 				<div class="radio3">
 					<input type="radio" name="accounttype" value="real" id="accounttypereal" <?php if(\dash\data::dataRowMember_accounttype() === 'real') { echo 'checked'; } ?>>
