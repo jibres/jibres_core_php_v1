@@ -56,6 +56,13 @@ class dashboard
 			$total_paid = 0;
 		}
 
+		$last_payment = \dash\db\transactions\get::last_payment_user($user_id);
+
+		if(!is_numeric($last_payment))
+		{
+			$last_payment = 0;
+		}
+
 		$cart_count = \lib\db\cart\get::user_cart_count($user_id);
 
 		if(!is_numeric($cart_count))
@@ -68,6 +75,10 @@ class dashboard
 		if(!is_numeric($average_order_pay))
 		{
 			$average_order_pay = 0;
+		}
+		else
+		{
+			$average_order_pay = round($average_order_pay);
 		}
 
 		$total_order_pay = \lib\db\factors\get::total_order_pay_user($user_id);
@@ -105,6 +116,7 @@ class dashboard
 
 
 		$one_user                      = [];
+		$one_user['last_payment']      = $last_payment;
 		$one_user['last_login']        = $last_login_date;
 		$one_user['last_ip']           = $last_login_ip;
 		$one_user['last_order']        = $last_order;

@@ -71,6 +71,11 @@ class fit{
 
 	public static function price($_price)
 	{
+		if(is_numeric($_price))
+		{
+			$_price = round($_price, 3);
+		}
+
 		return self::number_decimal($_price, 'en');
 	}
 

@@ -9,20 +9,20 @@ $dashboardDetail = \dash\data::dashboardDetail();
 
     <section class="row">
      <div class="c-4">
-      <a href="<?php echo \dash\url::here() ?>/business"  class="stat">
+      <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
        <h3><?php echo T_("Active Order");?></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'active_order'));?></div>
       </a>
      </div>
      <div class="c-4">
-      <a href="<?php echo \dash\url::here() ?>/domain" class="stat">
+      <a href="<?php echo \dash\url::kingdom(). '/support/ticket?user='. \dash\request::get('id') ?>" class="stat">
        <h3><?php echo T_("Active Ticket");?></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'active_ticket'));?></div>
       </a>
      </div>
      <div class="c-4">
-      <a href="<?php echo \dash\url::kingdom() ?>/account/billing" class="stat <?php if(\dash\get::index($dashboardDetail, 'balance')>0) echo " green"; ?>">
-       <h3><?php echo T_("Account Balance");?></h3>
+      <a href="<?php echo \dash\url::this(). '/transactions'. $myID ?>" class="stat <?php if(\dash\get::index($dashboardDetail, 'balance')>0) echo " green"; ?>">
+       <h3><?php echo T_("Account Balance");?> <small><?php echo \lib\store::currency() ?></small></h3>
        <div class="val"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'balance'));?></div>
       </a>
      </div>
@@ -48,10 +48,10 @@ $dashboardDetail = \dash\data::dashboardDetail();
               </a>
             </li>
             <li>
-              <a class="item f disabled" href="<?php echo \dash\url::that(). '/logins?id='. \dash\request::get('id');?>">
+              <a class="item f" href="<?php echo \dash\url::this(). '/sessions?id='. \dash\request::get('id');?>">
                 <div class="key"><?php echo T_('Last login at');?></div>
-                <div class="value"><?php echo \dash\fit::date_time(\dash\get::index($dashboardDetail, 'last_login'));?></div>
-                <div class="go detail"></div>
+                <div class="value ltr"><?php echo \dash\fit::date_time(\dash\get::index($dashboardDetail, 'last_login'));?></div>
+                <div class="go"></div>
               </a>
             </li>
              <li>
@@ -76,30 +76,30 @@ $dashboardDetail = \dash\data::dashboardDetail();
         <nav class="items long">
           <ul>
             <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
-                <div class="key"><?php echo T_('Last order');?></div>
-                <div class="value"><?php echo \dash\fit::date_time(\dash\get::index($dashboardDetail, 'last_order'));?></div>
+              <a class="item f" href="<?php echo \dash\url::this(). '/transactions'. $myID ?>">
+                <div class="key"><?php echo T_('Last payment');?></div>
+                <div class="value"><?php echo \dash\fit::price(\dash\get::index($dashboardDetail, 'last_payment'));?> <?php echo \lib\store::currency() ?></div>
                 <div class="go"></div>
               </a>
             </li>
             <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+              <a class="item f" href="<?php echo \dash\url::this(). '/transactions'. $myID ?>">
                 <div class="key"><?php echo T_('Total payed');?></div>
-                <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'total_paid'));?></div>
-                <div class="go"></div>
-              </a>
-            </li>
-            <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
-                <div class="key"><?php echo T_('Average order pay');?></div>
-                <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'average_order_pay'));?></div>
+                <div class="value"><?php echo \dash\fit::price(\dash\get::index($dashboardDetail, 'total_paid'));?> <?php echo \lib\store::currency() ?></div>
                 <div class="go"></div>
               </a>
             </li>
              <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
-                <div class="key"><?php echo T_('Balance');?></div>
-                <div class="value"></div>
+              <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>">
+                <div class="key"><?php echo T_('Total buy');?></div>
+                <div class="value"><?php echo \dash\fit::price(\dash\get::index($dashboardDetail, 'total_order_pay'));?> <?php echo \lib\store::currency() ?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>">
+                <div class="key"><?php echo T_('Average order pay');?></div>
+                <div class="value"><?php echo \dash\fit::price(\dash\get::index($dashboardDetail, 'average_order_pay'));?> <?php echo \lib\store::currency() ?></div>
                 <div class="go"></div>
               </a>
             </li>
@@ -111,10 +111,42 @@ $dashboardDetail = \dash\data::dashboardDetail();
 
     <div class="row">
       <div class="c-xs-12 c-sm-12 c-md-6">
-        list1
+        <?php if(is_array(\dash\get::index($dashboardDetail, 'last_5_order'))) {?>
+        <p class="mB0-f"><?php echo T_("Last orders"); ?></p>
+        <nav class="items long">
+          <ul>
+          <?php  foreach (\dash\get::index($dashboardDetail, 'last_5_order') as $key => $value) { ?>
+             <li>
+              <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/order/detail?id='. $value['id']; ?>">
+                <div class="key username">#<?php echo \dash\fit::text(\dash\get::index($value, 'id'));?></div>
+                <div class="key"><?php echo \dash\fit::number(\dash\get::index($value, 'total')) . ' '. \lib\store::currency();?></div>
+                <div class="value"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated'));?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+          <?php } //endfor ?>
+         </ul>
+        </nav>
+        <?php } // endif ?>
       </div>
       <div class="c-xs-12 c-sm-12 c-md-6">
-        list2
+        <?php if(is_array(\dash\get::index($dashboardDetail, 'last_5_ticket'))) {?>
+        <p class="mB0-f"><?php echo T_("Last tickets"); ?></p>
+        <nav class="items long">
+          <ul>
+          <?php  foreach (\dash\get::index($dashboardDetail, 'last_5_ticket') as $key => $value) { ?>
+             <li>
+              <a class="item f" href="<?php echo \dash\url::kingdom(). '/support/ticket/show?id='. $value['id'] ?>">
+                <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::number(\dash\get::index($value, 'id'));?></div>
+                <div class="value"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated'));?></div>
+
+                <div class="go"></div>
+              </a>
+            </li>
+          <?php } //endfor ?>
+         </ul>
+        </nav>
+        <?php } // endif ?>
       </div>
     </div>
 
@@ -221,20 +253,20 @@ $dashboardDetail = \dash\data::dashboardDetail();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/transactions'. $myID;?>">
             <div class="key"><?php echo T_("Payments") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+          <a class="item f" href="<?php echo \dash\url::kingdom(). '/support/ticket?user='. \dash\request::get('id') ?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
           </a>
         </li>
 
         <li>
-          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/message'. $myID;?>">
             <div class="key"><?php echo T_("Messages") ?></div>
             <div class="go"></div>
           </a>
@@ -245,14 +277,14 @@ $dashboardDetail = \dash\data::dashboardDetail();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/sessions'. $myID;?>">
             <div class="key"><?php echo T_("Sessions") ?></div>
             <div class="go"></div>
           </a>
         </li>
 
          <li>
-          <a class="item f disabled" href="<?php echo \dash\url::pwd();?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/log'. $myID;?>">
             <div class="key"><?php echo T_("Customer Logs History") ?></div>
             <div class="go"></div>
           </a>
