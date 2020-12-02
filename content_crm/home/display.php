@@ -36,7 +36,7 @@
    <nav class="items long">
      <ul>
       <li>
-       <a class="item f" href="<?php echo \dash\url::here();?>/member?permission">
+       <a class="item f" href="<?php echo \dash\url::here();?>/staff">
         <div class="key"><?php echo T_('Staffs');?></div>
         <div class="go"></div>
        </a>

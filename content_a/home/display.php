@@ -73,7 +73,7 @@
 <?php } //endif ?>
 <?php if(\dash\permission::check('staffAccess')) {?>
        <li>
-        <a class="item f disabled" href="<?php echo \dash\url::kingdom();?>/crm/staff">
+        <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/staff">
           <div class="key"><?php echo T_('Staff');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'staff_count')); ?></div>
           <div class="go search"></div>
