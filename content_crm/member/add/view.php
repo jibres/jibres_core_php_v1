@@ -9,10 +9,10 @@ class view
 	{
 		\dash\face::title(T_('Add new user'));
 
-		\dash\data::action_text(T_('Back to list of users'));
-		\dash\data::action_link(\dash\url::this());
+		\dash\data::back_text(T_('Customers'));
+		\dash\data::back_link(\dash\url::this());
 
-		\content_crm\member\main\view::static_var();
+
 	}
 }
 ?>

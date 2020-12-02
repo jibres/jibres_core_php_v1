@@ -10,6 +10,7 @@ class model
 		$post =
 		[
 			'mobile'      => \dash\request::post('mobile'),
+			'displayname'      => \dash\request::post('displayname'),
 		];
 
 		return $post;
@@ -27,7 +28,7 @@ class model
 		{
 			if(isset($result['user_id']))
 			{
-				\dash\redirect::to(\dash\url::here(). '/member/general?id='. $result['user_id']);
+				\dash\redirect::to(\dash\url::here(). '/member/glance?id='. $result['user_id']);
 			}
 			else
 			{
