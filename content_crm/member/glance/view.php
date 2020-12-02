@@ -11,6 +11,9 @@ class view
 
 		\dash\data::back_text(T_("Customers"));
 		\dash\data::back_link(\dash\url::this());
+
+		$dashboard = \dash\app\user\dashboard::one_user(\dash\request::get('id'));
+		\dash\data::dashboardDetail($dashboard);
 	}
 }
 ?>

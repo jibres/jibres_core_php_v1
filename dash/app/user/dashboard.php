@@ -4,7 +4,32 @@ namespace dash\app\user;
 
 class dashboard
 {
+	public static function one_user($_user_id)
+	{
+		$user_id = \dash\coding::decode($_user_id);
+		if(!$user_id)
+		{
+			return false;
+		}
 
+		$one_user                      = [];
+		$one_user['last_login']        = date("Y-m-d H:i:s", strtotime(time() - rand(1,10000)));
+		$one_user['last_order']        = date("Y-m-d H:i:s", strtotime(time() - rand(1,10000)));
+		$one_user['last_ip']           = '192.168.1.1';
+		$one_user['total_paid']        = rand(5000, 300000);
+		$one_user['cart_count']        = rand(1, 500);
+		$one_user['average_order_pay'] = rand(5000, 300000);
+		$one_user['balance']           = rand(5000, 300000);
+
+		return $one_user;
+	}
+
+
+	/**
+	 * Ther master CRM dashboard detail
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
 	public static function detail()
 	{
 		$dashboard_detail                 = [];
