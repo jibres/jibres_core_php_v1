@@ -135,7 +135,6 @@ class statistics
 		$result['user_auth']            = floatval(\dash\db\config::public_get_count('user_auth'));
 		$result['user_telegram']        = floatval(\dash\db\config::public_get_count('user_telegram'));
 		$result['userdetail']           = floatval(\dash\db\config::public_get_count('userdetail'));
-		$result['userlegal']            = floatval(\dash\db\config::public_get_count('userlegal'));
 		$result['visitors']             = floatval(\dash\db\config::public_get_count('visitors'));
 
 		return $result;

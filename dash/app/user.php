@@ -306,6 +306,10 @@ class user
 			'type'          => 'string_50',
 			'permission'    => ['enum' => array_merge(\dash\permission::groups(), ['admin'])],
 			'password'      => 'password',
+			'companyname'           => 'string_200',
+			'companyregisternumber' => 'bigint',
+			'companynationalid'     => 'bigint',
+			'companyeconomiccode'   => 'bigint',
 		];
 
 		$require = ['displayname'];

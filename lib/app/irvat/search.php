@@ -179,14 +179,14 @@ class search
 
 			$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
 
-			$load_some_user_legal = \dash\db\userlegal\get::by_multi_id(implode(',', $users_id));
+			// $load_some_user_legal = \dash\db\userlegal\get::by_multi_id(implode(',', $users_id));
 
-			if(!is_array($load_some_user_legal))
-			{
-				$load_some_user_legal = [];
-			}
+			// if(!is_array($load_some_user_legal))
+			// {
+			// 	$load_some_user_legal = [];
+			// }
 
-			$load_some_user_legal = array_combine(array_column($load_some_user_legal, 'user_id'), $load_some_user_legal);
+			// $load_some_user_legal = array_combine(array_column($load_some_user_legal, 'user_id'), $load_some_user_legal);
 		}
 
 		foreach ($list as $key => $value)

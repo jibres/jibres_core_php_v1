@@ -41,7 +41,6 @@ class analytics
 			'user_auth'            => ['group' => T_("Users"), 'title' => T_("User auth")],
 			'user_telegram'        => ['group' => T_("Users"), 'title' => T_("User telegram")],
 			'userdetail'           => ['group' => T_("Users"), 'title' => T_("Userdetail")],
-			'userlegal'            => ['group' => T_("Users"), 'title' => T_("Userlegal")],
 			'telegrams'            => ['group' => T_("Users"), 'title' => T_("Telegrams")],
 
 

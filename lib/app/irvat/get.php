@@ -74,7 +74,7 @@ class get
 	private static function load_user_detail($_user_id)
 	{
 		$load_user_detail = \dash\db\users::get_by_id($_user_id);
-		$load_user_detail_legal = \dash\app\user\legal::get_inline($_user_id);
+		$load_user_detail_legal = []; // \dash\app\user\legal::get_inline($_user_id);
 
 		$result = [];
 		$result['user'] = \dash\app\user::ready($load_user_detail);

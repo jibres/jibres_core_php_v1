@@ -16,7 +16,7 @@ class model
 					'accounting_details_id' => null
 				];
 
-				\dash\app\user\legal::set($post, \dash\request::get('id'));
+				// \dash\app\user\legal::set($post, \dash\request::get('id'));
 
 				\dash\redirect::pwd();
 			}
@@ -46,7 +46,7 @@ class model
 						'accounting_details_id'                 => $result['id'],
 					];
 
-					\dash\app\user\legal::set($post, \dash\request::get('id'));
+					// \dash\app\user\legal::set($post, \dash\request::get('id'));
 
 					\dash\redirect::pwd();
 				}
@@ -74,7 +74,7 @@ class model
 			];
 
 
-			\dash\app\user\legal::set($post, \dash\request::get('id'));
+			// \dash\app\user\legal::set($post, \dash\request::get('id'));
 
 			if(\dash\engine\process::status())
 			{

@@ -342,8 +342,8 @@ class get
 				$factor['customer_mobile'] = $load_customer['mobile'];
 			}
 
-			$load_user_legal = \dash\app\user\legal::get($factor['customer']);
-			$factor['customer_legal'] = $load_user_legal;
+			// $load_user_legal = \dash\app\user\legal::get($factor['customer']);
+			$factor['customer_legal'] = [];
 
 		}
 

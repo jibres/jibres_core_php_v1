@@ -176,7 +176,7 @@
 
 
 
-
+<?php if(false) {?>
   <h2 class="mTB20"><?php echo T_("Income-cost management") ?></h2>
   <div class="f">
     <div class="c s12">
@@ -205,6 +205,8 @@
         </div>
       </a>
     </div>
+
+  <?php } //endif ?>
 
 
   </div>

@@ -40,7 +40,7 @@ class model
 			];
 
 
-			\dash\app\user\legal::set($post, \dash\request::post('legal_user'));
+			// \dash\app\user\legal::set($post, \dash\request::post('legal_user'));
 
 		}
 
