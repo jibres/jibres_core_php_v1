@@ -66,8 +66,15 @@
             <div class="go"></div>
           </a>
         </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/address'. $myID;?>">
+            <div class="key"><?php echo T_("Addresses") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
       </ul>
     </nav>
+
     <nav class="items">
       <ul>
         <li>
@@ -88,12 +95,7 @@
             <div class="go"></div>
           </a>
         </li>
-        <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_("Addresses") ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
+
         <li>
           <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Logins") ?></div>
