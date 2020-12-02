@@ -72,6 +72,12 @@
             <div class="go"></div>
           </a>
         </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/cart/add?user='. \dash\request::get('id');?>">
+            <div class="key"><?php echo T_("Cart") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -102,12 +108,7 @@
             <div class="go"></div>
           </a>
         </li>
-        <li>
-          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_("Cart") ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
+
          <li>
           <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Logs") ?></div>

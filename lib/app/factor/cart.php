@@ -43,6 +43,8 @@ class cart
 		if($_from_admin)
 		{
 			$user_id = $_user_id;
+			$user_id = \dash\coding::decode($user_id);
+
 		}
 		else
 		{

@@ -25,12 +25,15 @@ class view
 			\dash\data::userDetail($user_detail);
 		}
 
-		\dash\face::btnInsert('make_order');
-		\dash\face::btnInsertText(T_("Save as order"));
-
-
 		$cart_detail = \lib\app\cart\search::detail($user, $guestid);
 		\dash\data::dataTable($cart_detail);
+
+		if($cart_detail)
+		{
+			\dash\face::btnInsert('make_order');
+			\dash\face::btnInsertText(T_("Save as order"));
+		}
+
 
 		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
 		\dash\data::cartSummary($cart_summary);
