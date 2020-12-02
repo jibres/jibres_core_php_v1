@@ -60,7 +60,7 @@ class view
 		\dash\face::site(T_(\dash\face::hereTitle()));
 		\dash\face::intro(T_(\dash\face::hereDesc()));
 		\dash\face::slogan(T_(\dash\face::siteSlogan()));
-		\dash\face::logo(\dash\url::icon());
+		\dash\face::logo(\dash\face::hereIcon());
 
 		// set custom logo
 		// if(\dash\option::config('site', 'logo'))
