@@ -23,10 +23,16 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
-			'status' => \dash\request::get('status'),
+			'order'     => \dash\request::get('order'),
+			'sort'      => \dash\request::get('sort'),
+			'status'    => \dash\request::get('status'),
+			'show_type' => 'verify',
 		];
+
+		if(\dash\url::child() === 'all')
+		{
+			$args['show_type'] = 'all';
+		}
 
 		$search_string   = \dash\validate::search(\dash\request::get('q'));
 		$transactionList = \dash\app\transaction\search::list($search_string, $args);

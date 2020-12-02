@@ -64,7 +64,7 @@
       </li>
 
        <li>
-        <a class="item f disabled" href="<?php echo \dash\url::here();?>/transactions">
+        <a class="item f" href="<?php echo \dash\url::here();?>/transactions/all">
           <div class="key"><?php echo T_('All payments');?></div>
           <div class="go"></div>
         </a>

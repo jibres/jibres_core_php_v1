@@ -20,6 +20,7 @@ class search
 			'order'  => 'order',
 			'sort'   => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
 			'status' => ['enum' => ['sale', 'buy', 'saleorder']],
+			'show_type' => ['enum' => ['verify', 'all']],
 		];
 
 		$require = [];
@@ -31,13 +32,16 @@ class search
 		$meta          = [];
 		$or            = [];
 		$order_sort    = null;
-		$meta['limit'] = 20;
+		$meta['limit'] = 15;
 
-		// if($data['subdiscountequal'])
-		// {
-		// 	$and[] = " transactions.subdiscount =  $data[subdiscountequal] ";
-		// 	self::$is_filtered = true;
-		// }
+		if($data['show_type'] === 'verify')
+		{
+			$and[] = " transactions.verify =  1 ";
+		}
+		else
+		{
+			/*nothing*/
+		}
 
 
 		$query_string = \dash\validate::search($_query_string, false);
