@@ -15,8 +15,9 @@
 	<?php if(\dash\data::startNewMobile()) { ?>
 		<a class="c link" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>
 	<?php }//endif ?>
-
+  <?php if(!\dash\data::OnlyOneWay()) {?>
 	<a class="link cauto" href="<?php echo \dash\url::here(); ?>/verify"><?php echo T_("Go back"); ?></a>
+<?php } //endif ?>
    </footer>
 
 

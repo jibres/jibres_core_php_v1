@@ -12,6 +12,13 @@ class view
 			\dash\utility\enter::set_session('run_send_sms_code', true);
 			\content_enter\verify\sms\model::send_sms_code();
 		}
+
+		$wayList = \dash\utility\enter::list_send_code_way();
+		if(is_array($wayList) && count($wayList) === 1)
+		{
+			\dash\data::startNewMobile(true);
+			\dash\data::OnlyOneWay(true);
+		}
 	}
 }
 ?>
