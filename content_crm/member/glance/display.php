@@ -11,13 +11,13 @@ $dashboardDetail = \dash\data::dashboardDetail();
      <div class="c-4">
       <a href="<?php echo \dash\url::here() ?>/business"  class="stat">
        <h3><?php echo T_("Active Order");?></h3>
-       <div class="val"></div>
+       <div class="val"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'active_order'));?></div>
       </a>
      </div>
      <div class="c-4">
       <a href="<?php echo \dash\url::here() ?>/domain" class="stat">
        <h3><?php echo T_("Active Ticket");?></h3>
-       <div class="val"></div>
+       <div class="val"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'active_ticket'));?></div>
       </a>
      </div>
      <div class="c-4">

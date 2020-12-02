@@ -65,6 +65,7 @@ class search
 			'subdiscountless'   => 'bigint',
 			'subdiscountequal'  => 'bigint',
 			'subtotal'          => 'bigint',
+			'limit'          => 'int',
 		];
 
 		$require = [];
@@ -92,6 +93,11 @@ class search
 		$or                 = [];
 		$join_factordetails = false;
 		$order_sort         = null;
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
 
 
 		$and[] = " factors.status != 'deleted' ";
@@ -477,7 +483,15 @@ class search
 		return \lib\number::down(\lib\price::down($_data));
 	}
 
+	public static function last_user_order($_user_id)
+	{
+		$args              = [];
+		$args['customer']  = \dash\coding::encode($_user_id);
+		$args['limit']     = 5;
+		$args['my_orders'] = true;
 
+		return self::factors_list('detail', null, $args);
+	}
 
 
 	public static function my_orders()

@@ -42,6 +42,13 @@ class dashboard
 			$last_order = null;
 		}
 
+		$active_order = \lib\db\factors\get::total_order_user_count($user_id);
+
+		if(!is_numeric($active_order))
+		{
+			$active_order = 0;
+		}
+
 		$total_paid = \dash\db\transactions\get::total_paid_user($user_id);
 
 		if(!is_numeric($total_paid))
@@ -63,6 +70,14 @@ class dashboard
 			$average_order_pay = 0;
 		}
 
+		$total_order_pay = \lib\db\factors\get::total_order_pay_user($user_id);
+
+		if(!is_numeric($total_order_pay))
+		{
+			$total_order_pay = 0;
+		}
+
+
 		$balance = \dash\db\transactions::budget($user_id);
 
 		if(!is_numeric($balance))
@@ -70,18 +85,38 @@ class dashboard
 			$balance = 0;
 		}
 
+		$ticket = \dash\db\tickets::count_user_ticket($user_id);
+
+		if(!is_numeric($ticket))
+		{
+			$ticket = 0;
+		}
+
+		$last_5_ticket = \dash\db\tickets::last_ticket_user($user_id);
+		if(!is_array($last_5_ticket))
+		{
+			$last_5_ticket = [];
+		}
+
+		$last_5_ticket = array_map(['\\dash\\app\\ticket', 'ready'], $last_5_ticket);
+
+		$last_5_order = \lib\app\factor\search::last_user_order($user_id);
+
 
 
 		$one_user                      = [];
-
-
 		$one_user['last_login']        = $last_login_date;
 		$one_user['last_ip']           = $last_login_ip;
 		$one_user['last_order']        = $last_order;
 		$one_user['total_paid']        = $total_paid;
 		$one_user['cart_count']        = $cart_count;
 		$one_user['average_order_pay'] = $average_order_pay;
+		$one_user['total_order_pay']   = $total_order_pay;
 		$one_user['balance']           = $balance;
+		$one_user['active_ticket']     = $ticket;
+		$one_user['active_order']      = $active_order;
+		$one_user['last_5_ticket']     = $last_5_ticket;
+		$one_user['last_5_order']      = $last_5_order;
 
 
 		return $one_user;

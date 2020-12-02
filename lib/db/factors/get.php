@@ -42,12 +42,31 @@ class get
 	}
 
 
+
+
+	public static function total_order_user_count($_user_id)
+	{
+		$query = "SELECT COUNT(*) as `count`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result ? $result : null;
+	}
+
+
 	public static function average_order_pay_user($_user_id)
 	{
 		$query = "SELECT AVG(factors.total) as `avg`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
 		$result = \dash\db::get($query, 'avg', true);
 		return $result ? $result : null;
 	}
+
+
+	public static function total_order_pay_user($_user_id)
+	{
+		$query = "SELECT SUM(factors.total) as `sum`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
+		$result = \dash\db::get($query, 'sum', true);
+		return $result ? $result : null;
+	}
+
 
 
 

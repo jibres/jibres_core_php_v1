@@ -28,6 +28,46 @@ class tickets
 	}
 
 
+
+	public static function count_user_ticket($_user_id)
+	{
+
+		$get_count =
+		"
+			SELECT COUNT(*) AS `count` FROM tickets
+			WHERE
+				tickets.type   = 'ticket' AND
+				tickets.parent IS NULL AND
+				(tickets.solved = 0 OR tickets.solved IS NULL) AND
+				tickets.user_id = $_user_id
+		";
+
+		$count = \dash\db::get($get_count, 'count', true);
+		return $count;
+
+	}
+
+
+
+	public static function last_ticket_user($_user_id)
+	{
+
+		$query =
+		"
+			SELECT * FROM tickets
+			WHERE
+				tickets.type   = 'ticket' AND
+				tickets.parent IS NULL AND
+				tickets.user_id = $_user_id
+			ORDER BY tickets.id DESC
+			LIMIT 5
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
 	public static function close_solved_ticket()
 	{
 		$yesterday = date("Y-m-d H:i:s", strtotime('-1 days'));
