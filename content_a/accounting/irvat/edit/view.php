@@ -17,7 +17,6 @@ class view
 
 		\dash\data::titleList(\lib\app\irvat\get::title_list());
 
-		\content_crm\member\main\view::static_var();
 
 
 		\content_a\accounting\irvat\add\view::static_var();
