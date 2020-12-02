@@ -1,4 +1,21 @@
-<?php $myID = '?id='. \dash\request::get('id'); ?>
+<?php
+$myID   = '?id='. \dash\request::get('id');
+$myIcon = 'check';
+
+switch (\dash\data::dataRowMember_status())
+{
+  case 'active' :      $myIcon = 'check ok'; break;
+  case 'awaiting' :    $myIcon = 'check'; break;
+  case 'deactive' :    $myIcon = 'times'; break;
+  case 'block' :       $myIcon = 'times nok'; break;
+  case 'unreachable' : $myIcon = 'times'; break;
+  case 'filter' :      $myIcon = 'times'; break;
+  case 'removed' :     $myIcon = 'times nok'; break;
+  case 'ban' :         $myIcon = 'times'; break;
+
+
+}
+?>
   <nav class="items">
     <ul>
       <li>
@@ -7,7 +24,7 @@
           <div class="key"><?php echo \dash\data::dataRowMember_displayname();?></div>
           <div class="value"><?php echo T_(\dash\data::dataRowMember_status());?></div>
           <div class="value"><?php echo \dash\fit::mobile(\dash\data::dataRowMember_mobile());?></div>
-          <div class="go check ok"></div>
+          <div class="go <?php echo $myIcon ?>"></div>
 
         </a>
       </li>
