@@ -46,7 +46,7 @@ class userdetail
 	{
 		$defalut =
 		[
-			'public_show_field' => " userdetail.*, cU.firstname, cU.lastname",
+			'public_show_field' => " userdetail.*, cU.displayname",
 			'master_join' => " LEFT JOIN users AS  `cU` ON cU.id = userdetail.creator",
 		];
 

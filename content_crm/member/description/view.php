@@ -6,13 +6,12 @@ class view
 {
 	public static function config()
 	{
-		\content_crm\member\main\view::dataRowMember();
+		\content_crm\member\master::view();
+
 
 		\dash\face::title(T_('User description'));
 
-		$args              = [];
-		$args['user_id']   = \dash\coding::decode(\dash\request::get('id'));
-		$dataTable         = \dash\db\userdetail::search(null, $args);
+		$dataTable = \dash\app\user\description::list(\dash\request::get('id'));
 
 		\dash\data::dataTable($dataTable);
 	}

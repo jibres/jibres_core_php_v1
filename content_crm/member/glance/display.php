@@ -71,38 +71,50 @@
     <nav class="items">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Transactions") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Orders") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Addresses") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Logins") ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_("Cart") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
+            <div class="key"><?php echo T_("Logs") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+        <li>
+          <a class="item f disabled" href="<?php echo null; // \dash\url::this(). '/detail'. $myID;?>">
+            <div class="key"><?php echo T_("Notifications") ?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -148,6 +160,28 @@
             <div class="go"></div>
           </a>
         </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+            <div class="key"><?php echo T_('Average order pay');?></div>
+            <div class="value"><?php echo \dash\fit::number(rand());?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+            <div class="key"><?php echo T_('Balance');?></div>
+            <div class="value"><?php echo \dash\fit::number(rand());?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
+            <div class="key"><?php echo T_('Last IP');?></div>
+            <div class="value"><?php echo \dash\fit::text('192.168.1.1');?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
       </ul>
     </nav>
   </div>
