@@ -17,7 +17,7 @@ class panel
 		}
 		if(\dash\url::content() === 'crm')
 		{
-			return self::sidebar_jibres_crm();
+			return self::sidebar_businsess();
 		}
 		if(\dash\url::content() === 'support')
 		{
@@ -225,95 +225,6 @@ class panel
 	}
 
 
-	private static function sidebar_jibres_crm()
-	{
-		if(\dash\engine\store::inStore())
-		{
-			$menu = self::jibresControlCenterLink(true);
-			$menu[] = self::businessDashboardLink();
-			$menu[] = ['seperator' => true];
-		}
-		else
-		{
-			$menu = self::jibresControlCenterLink();
-		}
-
-		$menu[] =
-		[
-			'title'  => T_("Customer Relationship Management"),
-			'link'   => \dash\url::here(),
-			'icon'   => 'atom',
-			'class'  => 'font-11',
-			'active' => 1,
-		];
-
-		if(\dash\permission::check('cpUsersView'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("Users"),
-				'link'   => \dash\url::here(). '/member',
-				'icon'   => 'users',
-				'active' => (\dash\url::module()==='member'? true :false)
-			];
-		}
-
-		if(\dash\permission::check('cpUsersAdd'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("Add new user"),
-				'link'   => \dash\url::here(). '/member/add',
-				'icon'   => 'user-plus',
-				'active' => (\dash\url::module()==='member'&& \dash\url::child()==='add'? true :false)
-			];
-		}
-
-		if(\dash\permission::check('cpPermissionView'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("Permissions"),
-				'link'   => \dash\url::here(). '/permission',
-				'icon'   => 'lock',
-				'active' => (\dash\url::module()==='permission'? true :false)
-			];
-		}
-
-
-		if(\dash\permission::check('cpTransaction'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("Transactions"),
-				'link'   => \dash\url::here(). '/transactions',
-				'icon'   => 'card',
-				'active' => (\dash\url::module()==='transactions'&& !\dash\url::child()? true :false)
-			];
-		}
-		if(\dash\permission::check('cpTransactionAdd'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("Plus charge account"),
-				'link'   => \dash\url::here(). '/transactions/add',
-				'icon'   => 'plus-circle',
-				'active' => (\dash\url::module()==='transactions'&& \dash\url::child()==='add'? true :false)
-			];
-
-			$menu[] =
-			[
-				'title'  => T_("Minus charge account"),
-				'link'   => \dash\url::here(). '/transactions/minus',
-				'icon'   => 'minus-circle',
-				'active' => (\dash\url::module()==='transactions'&& \dash\url::child()==='minus'? true :false)
-			];
-		}
-
-		return $menu;
-	}
-
-
 	private static function sidebar_jibres_support()
 	{
 		if(\dash\engine\store::inStore())
@@ -362,7 +273,7 @@ class panel
 		$menu[] =
 		[
 			'title'  => T_("Business Dashboard"),
-			'link'   => \dash\url::here(),
+			'link'   => \dash\url::kingdom(),
 			'icon'   => 'gauge',
 			'active' => 1,
 		];
@@ -370,7 +281,7 @@ class panel
 		$menu[] =
 		[
 			'title'  => T_("Products"),
-			'link'   => \dash\url::here().'/products',
+			'link'   => \dash\url::kingdom().'/a/products',
 			'icon'   => 'tags',
 			'active' => (\dash\url::module()==='products'? true :false)
 		];
@@ -380,7 +291,7 @@ class panel
 			$menu[] =
 			[
 				'title'  => T_("Orders"),
-				'link'   => \dash\url::here().'/order',
+				'link'   => \dash\url::kingdom().'/a/order',
 				'icon'   => 'caddie-shopping-streamline',
 				'active' => (\dash\url::module()==='order'? true :false)
 			];
@@ -410,7 +321,7 @@ class panel
 			$menu[] =
 			[
 				'title'  => T_("Reports"),
-				'link'   => \dash\url::here().'/report',
+				'link'   => \dash\url::kingdom().'/a/report',
 				'icon'   => 'bar-chart',
 				'active' => (\dash\url::module()==='report'? true :false)
 			];
@@ -430,7 +341,7 @@ class panel
 			$menu[] =
 			[
 				'title'  => T_("Sales Channels"),
-				'link'   => \dash\url::here().'/channels',
+				'link'   => \dash\url::kingdom().'/a/channels',
 				'icon'   => 'line-chart',
 				'active' => (\dash\url::module()==='channels'? true :false)
 			];
@@ -441,7 +352,7 @@ class panel
 			$menu[] =
 			[
 				'title'  => T_("Settings"),
-				'link'   => \dash\url::here().'/setting',
+				'link'   => \dash\url::kingdom().'/a/setting',
 				'icon'   => 'cogs',
 				'active' => (\dash\url::module()==='setting'? true :false)
 			];
