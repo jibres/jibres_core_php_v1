@@ -122,6 +122,13 @@ class log
 
 		$field['notif'] = $is_notif;
 
+		$log_type = self::call_fn($_caller, 'log_type');
+
+		if($log_type)
+		{
+			$field['type'] = $log_type;
+		}
+
 		if($is_notif)
 		{
 
@@ -176,6 +183,7 @@ class log
 				case 'sms':
 				case 'telegram':
 				case 'email':
+				case 'type':
 					$field[$key] = $value;
 					break;
 
@@ -588,6 +596,7 @@ class log
 			'data'       => null,
 			'status'     => 'enable',
 			'code'       => null,
+			'type'       => null,
 			'send'       => null,
 			'notif'      => null,
 			'expiredate' => null,
@@ -656,6 +665,7 @@ class log
 			'data'         => $_args['data'],
 			'status'       => $_args['status'],
 			'code'         => $_args['code'],
+			'type'         => $_args['type'],
 			'send'         => $_args['send'],
 			'expiredate'   => $_args['expiredate'],
 			'notif'        => $_args['notif'],

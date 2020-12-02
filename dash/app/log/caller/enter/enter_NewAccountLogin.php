@@ -12,7 +12,7 @@ class enter_NewAccountLogin
 
 		$result              = [];
 
-		$result['title']     = T_("New login to your account");
+		$result['title']     = T_("New login to account");
 
 		$result['icon']      = 'log-in';
 		$result['cat']       = T_("Enter");
@@ -53,6 +53,12 @@ class enter_NewAccountLogin
 	public static function is_notif()
 	{
 		return true;
+	}
+
+
+	public static function log_type()
+	{
+		return 'public';
 	}
 
 
