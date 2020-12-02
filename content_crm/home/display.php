@@ -94,13 +94,13 @@
  <div class="c-xs-12 c-sm-6 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-   <h3><?php echo T_("Success transactions today");?></h3>
+   <h3><?php echo T_("Success Payments - Today");?></h3>
   </a>
  </div>
  <div class="c-xs-12 c-sm-6 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
    <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-   <h3><?php echo T_("Success transactions in month");?></h3>
+   <h3><?php echo T_("Success Payments - This month");?></h3>
   </a>
  </div>
 
