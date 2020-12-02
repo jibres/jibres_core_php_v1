@@ -15,7 +15,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/products">
           <div class="key"><?php echo T_('Products');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'product_count')); ?></div>
-          <div class="go"></div>
+          <div class="go search"></div>
         </a>
       </li>
 <?php } //endif ?>
@@ -56,21 +56,27 @@
    </nav>
    <nav class="items long">
      <ul>
-<?php if(\dash\permission::check('customerAccess')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm">
+          <div class="key"><?php echo T_('CRM');?></div>
+          <div class="go"></div>
+        </a>
+       </li>
+<?php if(\dash\permission::check('customerAccess')) {?>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/member">
           <div class="key"><?php echo T_('Customer');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'customer_count')); ?></div>
-          <div class="go"></div>
+          <div class="go search"></div>
         </a>
        </li>
 <?php } //endif ?>
 <?php if(\dash\permission::check('staffAccess')) {?>
        <li>
-        <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm">
+        <a class="item f disabled" href="<?php echo \dash\url::kingdom();?>/crm/staff">
           <div class="key"><?php echo T_('Staff');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'staff_count')); ?></div>
-          <div class="go"></div>
+          <div class="go search"></div>
         </a>
        </li>
 <?php } //endif ?>

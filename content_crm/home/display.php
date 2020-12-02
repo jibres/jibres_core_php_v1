@@ -21,7 +21,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/member">
           <div class="key"><?php echo T_('Customers');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'users')); ?></div>
-          <div class="go"></div>
+          <div class="go search"></div>
         </a>
       </li>
        <li>
