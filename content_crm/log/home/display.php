@@ -2,7 +2,7 @@
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\url::kingdom(). '/pay/'. \dash\get::index($value, 'token') ?>">
+      <a class="f align-center">
         <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
         <div class="key">
           <div class="line1"><?php echo \dash\get::index($value, 'displayname'); ?></div>

@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\member\log;
+namespace content_crm\member\transactions;
 
 
 class controller

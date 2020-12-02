@@ -21,6 +21,7 @@ class search
 			'sort'   => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
 			'status' => ['enum' => ['sale', 'buy', 'saleorder']],
 			'show_type' => ['enum' => ['verify', 'all']],
+			'user_code' => 'code',
 		];
 
 		$require = [];
@@ -41,6 +42,13 @@ class search
 		else
 		{
 			/*nothing*/
+		}
+
+		if($data['user_code'])
+		{
+			$user_id = \dash\coding::decode($data['user_code']);
+			$and[] = " transactions.user_id =  $user_id ";
+
 		}
 
 

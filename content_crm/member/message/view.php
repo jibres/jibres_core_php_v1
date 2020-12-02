@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\member\log;
+namespace content_crm\member\message;
 
 
 class view
@@ -33,7 +33,8 @@ class view
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
 			'show_type' => 'user',
-			'from'        => \dash\coding::decode(\dash\request::get("id")),
+			'notif'     => 1,
+			'from'      => \dash\coding::decode(\dash\request::get("id")),
 		];
 
 

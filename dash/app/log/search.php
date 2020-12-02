@@ -22,7 +22,10 @@ class search
 			'status'    => ['enum' => ['enable']],
 			'show_type' => ['enum' => ['user', 'admin']],
 			'limit'     => 'int',
+			'to'        => 'id',
+			'from'      => 'id',
 			'caller'    => 'string_200',
+			'notif'     => 'bit',
 		];
 
 		$require = [];
@@ -54,6 +57,22 @@ class search
 		else
 		{
 			/*nothing*/
+		}
+
+		if($data['from'])
+		{
+			$and[] = " logs.from =  $data[from] ";
+		}
+
+
+		if($data['to'])
+		{
+			$and[] = " logs.to =  $data[to] ";
+		}
+
+		if($data['notif'])
+		{
+			$and[] = " logs.notif = 1  ";
 		}
 
 
