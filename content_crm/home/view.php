@@ -11,9 +11,6 @@ class view
 		// fill dashboard data
 		\dash\data::dashboardDetail(\dash\app\user\dashboard::detail());
 
-		// set store logo on CRM
-		\dash\face::logo(\lib\store::logo());
-
 		// back
 		\dash\data::back_text(T_('Business Dashboard'));
 		\dash\data::back_link(\dash\url::kingdom(). '/a');
