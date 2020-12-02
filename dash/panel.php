@@ -273,7 +273,7 @@ class panel
 		$menu[] =
 		[
 			'title'  => T_("Business Dashboard"),
-			'link'   => \dash\url::kingdom(),
+			'link'   => \dash\url::kingdom().'/a',
 			'icon'   => 'gauge',
 			'active' => 1,
 		];
