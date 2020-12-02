@@ -9,7 +9,7 @@ class view
 
 		\content_crm\member\master::view();
 
-		\dash\face::title(T_('Change user status'));
+		\dash\face::title(T_('Customer Status'));
 	}
 }
 ?>

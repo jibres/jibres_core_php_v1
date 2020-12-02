@@ -13,7 +13,6 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <div>
       	<select class="select22" name="status">
       		<option value="active" <?php if(\dash\data::dataRowMember_status() === 'active') {echo 'selected';} ?>><?php echo T_('Active') ?></option>
       		<option value="awaiting" <?php if(\dash\data::dataRowMember_status() === 'awaiting') {echo 'selected';} ?>><?php echo T_('Unverify') ?></option>
@@ -27,7 +26,6 @@
       			<option value="filter" <?php if(\dash\data::dataRowMember_status() === 'filter') {echo 'selected';} ?>><?php echo T_('filter') ?></option>
       		<?php } //endif ?>
       	</select>
-      </div>
     </div>
   </form>
 </section>
@@ -49,9 +47,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <div>
-      	<div class="btn warn" data-confirm data-data='{"resetban": "resetban"}'><?php echo T_("Reset user") ?></div>
-      </div>
+      <div class="btn warn" data-confirm data-data='{"resetban": "resetban"}'><?php echo T_("Reset user") ?></div>
     </div>
   </form>
 </section>
@@ -61,25 +57,23 @@
 <section class="f" data-option='crm-user-remove'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Remove user");?></h3>
+      <h3><?php echo T_("Delete customer");?></h3>
       <div class="body">
+      <p><?php echo T_("You can delete customer profile records from Jibres if the customer has no order history with your store. Customers with an order history can't be deleted from your store's records. If a deleted customer buys from your store in the future, a new record will be created for them."); ?></p>
 		<?php if(\dash\data::dataRowMember_status() === 'removed') {?>
-        <p><?php echo T_("The user was removed") ?></p>
+        <p class="msg minimal danger2"><?php echo T_("This customer was removed.") ?></p>
 		<?php }else{ ?>
-        <p><?php echo T_("Remove user") ?></p>
 		<?php } //endif ?>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <div>
 		<?php if(\dash\data::dataRowMember_status() === 'removed') {?>
-      		<div class="btn primary" data-confirm data-data='{"status": "awaiting"}'><?php echo T_("Restore user") ?></div>
+      		<div class="btn success" data-confirm data-data='{"status": "awaiting"}'><?php echo T_("Restore user") ?></div>
 		<?php }else{ ?>
       		<div class="btn danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove user") ?></div>
 		<?php } //endif ?>
-      </div>
     </div>
   </form>
 </section>
