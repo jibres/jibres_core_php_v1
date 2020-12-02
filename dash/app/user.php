@@ -272,6 +272,7 @@ class user
 		[
 			'username'      => 'username',
 			'theme'         => ['enum' => ['default','night','light']],
+			'accounttype'     => ['enum' => ['real', 'legal']],
 			'mobile'        => 'mobile',
 			'email'         => 'email',
 			'language'      => 'language',

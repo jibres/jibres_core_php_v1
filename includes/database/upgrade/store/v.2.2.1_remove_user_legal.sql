@@ -1,4 +1,4 @@
-ALTER TABLE jibres_XXXXXXX.users ADD `accounttype` enum('personal', 'legal') NULL DEFAULT 'personal' AFTER `status`;
+ALTER TABLE jibres_XXXXXXX.users ADD `accounttype` enum('real', 'legal') NULL DEFAULT 'real' AFTER `status`;
 
 ALTER TABLE jibres_XXXXXXX.users ADD `companyname` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL;
 ALTER TABLE jibres_XXXXXXX.users ADD `companyeconomiccode` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL;
