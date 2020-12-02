@@ -12,14 +12,77 @@ class dashboard
 			return false;
 		}
 
+		$last_login = \dash\db\login\get::last_login($user_id);
+
+		$last_login_date = null;
+		if(isset($last_login['datecreated']))
+		{
+			$last_login_date = $last_login['datecreated'];
+		}
+
+		$last_login_ip = \dash\db\login\get::last_login_ip($user_id);
+
+		if(isset($last_login_ip['ip']))
+		{
+			$last_login_ip = $last_login_ip['ip'];
+		}
+		else
+		{
+			$last_login_ip = null;
+		}
+
+		$last_order = \lib\db\factors\get::last_order($user_id);
+
+		if(isset($last_order['datecreated']))
+		{
+			$last_order = $last_order['datecreated'];
+		}
+		else
+		{
+			$last_order = null;
+		}
+
+		$total_paid = \dash\db\transactions\get::total_paid_user($user_id);
+
+		if(!is_numeric($total_paid))
+		{
+			$total_paid = 0;
+		}
+
+		$cart_count = \lib\db\cart\get::user_cart_count($user_id);
+
+		if(!is_numeric($cart_count))
+		{
+			$cart_count = 0;
+		}
+
+		$average_order_pay = \lib\db\factors\get::average_order_pay_user($user_id);
+
+		if(!is_numeric($average_order_pay))
+		{
+			$average_order_pay = 0;
+		}
+
+		$balance = \dash\db\transactions::budget($user_id);
+
+		if(!is_numeric($balance))
+		{
+			$balance = 0;
+		}
+
+
+
 		$one_user                      = [];
-		$one_user['last_login']        = date("Y-m-d H:i:s", strtotime(time() - rand(1,10000)));
-		$one_user['last_order']        = date("Y-m-d H:i:s", strtotime(time() - rand(1,10000)));
-		$one_user['last_ip']           = '192.168.1.1';
-		$one_user['total_paid']        = rand(5000, 300000);
-		$one_user['cart_count']        = rand(1, 500);
-		$one_user['average_order_pay'] = rand(5000, 300000);
-		$one_user['balance']           = rand(5000, 300000);
+
+
+		$one_user['last_login']        = $last_login_date;
+		$one_user['last_ip']           = $last_login_ip;
+		$one_user['last_order']        = $last_order;
+		$one_user['total_paid']        = $total_paid;
+		$one_user['cart_count']        = $cart_count;
+		$one_user['average_order_pay'] = $average_order_pay;
+		$one_user['balance']           = $balance;
+
 
 		return $one_user;
 	}

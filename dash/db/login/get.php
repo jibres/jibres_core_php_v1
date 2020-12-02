@@ -11,6 +11,32 @@ class get
 		return $result;
 	}
 
+	public static function last_login($_user_id)
+	{
+		$query = "SELECT login.* FROM login WHERE login.user_id = $_user_id ORDER BY login.id DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function last_login_ip($_user_id)
+	{
+		$query =
+		"
+			SELECT
+				login_ip.*
+			FROM
+				login_ip
+			INNER JOIN login ON login.id = login_ip.login_id
+			WHERE
+				login.user_id = $_user_id
+			ORDER BY login_ip.id DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function load_code_force_jibres($_code)
 	{
 		$query = "SELECT * FROM login WHERE login.code = '$_code' LIMIT 1";

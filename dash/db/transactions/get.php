@@ -4,6 +4,12 @@ namespace dash\db\transactions;
 
 class get
 {
+	public static function total_paid_user($_user_id)
+	{
+		$query = "SELECT SUM(transactions.plus) AS `total_paid` FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 ";
+		$result = \dash\db::get($query, 'total_paid', true);
+		return $result;
+	}
 
 	public static function first_pay_user($_user_id)
 	{

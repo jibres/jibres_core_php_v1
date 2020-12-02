@@ -34,17 +34,34 @@ class get
 	}
 
 
+	public static function last_order($_user_id)
+	{
+		$query = "SELECT factors.*  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id ORDER BY factors.id DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result ? $result : null;
+	}
+
+
+	public static function average_order_pay_user($_user_id)
+	{
+		$query = "SELECT AVG(factors.total) as `avg`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
+		$result = \dash\db::get($query, 'avg', true);
+		return $result ? $result : null;
+	}
+
+
+
 	public static function last_sale_date()
 	{
 		$query = "SELECT factors.datecreated AS `datecreated` FROM factors WHERE factors.type = 'sale' ORDER BY factors.id LIMIT 1";
-		$result = \dash\db::Get($query, 'datecreated', true);
+		$result = \dash\db::get($query, 'datecreated', true);
 		return $result ? $result : null;
 	}
 
 	public static function last_buy_date()
 	{
 		$query = "SELECT factors.datecreated AS `datecreated` FROM factors WHERE factors.type = 'buy' ORDER BY factors.id LIMIT 1";
-		$result = \dash\db::Get($query, 'datecreated', true);
+		$result = \dash\db::get($query, 'datecreated', true);
 		return $result ? $result : null;
 	}
 
