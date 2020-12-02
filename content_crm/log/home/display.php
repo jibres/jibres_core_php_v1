@@ -1,63 +1,18 @@
+<nav class="items">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+      <a class="f align-center" href="<?php echo \dash\url::kingdom(). '/pay/'. \dash\get::index($value, 'token') ?>">
+        <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
+        <div class="key username"><?php echo \dash\get::index($value, 'displayname'); ?></div>
 
-<?php
+        <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+        <div class="value datetime s0"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
+        <div class="go s0"></div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
 
-require_once ('logTable.php');
-
-
-if(\dash\data::dataTable())
-{
-  if(\dash\data::dataFilter())
-  {
-
-    htmlSearchBox();
-    htmlTable();
-    htmlFilter();
-
-  }
-  else
-  {
-    htmlSearchBox();
-    htmlTable();
-  }
-}
-else
-{
-  if(\dash\data::dataFilter())
-  {
-
-    htmlSearchBox();
-    htmlFilterNoResult();
-
-
-  }
-  else
-  {
-    htmlStartAddNew();
-
-  }
-
-}
-?>
-
-
-
-
-<?php function htmlSearchBox() {?>
-
-<div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' >
-    <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-      <?php if(\dash\request::get('type')) {?>
-
-      <input type="hidden" name="type" value="<?php echo \dash\request::get('type'); ?>">
-      <?php }// endif ?>
-      <button class="addon btn "><?php echo T_("Search"); ?></button>
-    </div>
-  </form>
-</div>
-
-<?php } //endfunction ?>
-
-
-
+<?php \dash\utility\pagination::html(); ?>

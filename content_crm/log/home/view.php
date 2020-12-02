@@ -1,24 +1,20 @@
 <?php
 namespace content_crm\log\home;
 
-
 class view
 {
 	public static function config()
 	{
-		if(!\dash\permission::supervisor())
-		{
-			\dash\header::status(404);
-		}
-
 		\dash\face::title(T_("Log"));
 
-		\dash\data::action_link(\dash\url::this(). '/caller');
-		\dash\data::action_text(T_("Show log caller"));
-
 		// btn
-		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_text(T_('CRM'));
 		\dash\data::back_link(\dash\url::here());
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		// \dash\data::listEngine_filter(true);
+		// \dash\data::listEngine_sort(true);
 
 		self::search_log();
 
