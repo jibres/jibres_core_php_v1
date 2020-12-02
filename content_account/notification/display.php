@@ -13,7 +13,7 @@ if(\dash\data::dataTable())
 
         <?php if(!isset($value['readdate'])) {?><i class="sf-new-sign"><?php echo T_("New"); ?></i><?php }?>
 
-        <i class="<?php if(isset($value['icon']) && $value['icon']) { echo 'sf-'. $value['icon']. ' '; }else{ echo 'sf-heart '; } if(isset($value['iconClass']) && $value['iconClass']) { echo $value['iconClass']; }?>" title='<?php if(isset($value['cat']))  { echo $value['cat']; }?>'></i>
+        <i class="<?php if(isset($value['icon']) && $value['icon']) { echo 'sf-'. $value['icon']. ' '; }else{ echo 'sf-heart '; } if(isset($value['iconClass']) && $value['iconClass']) { echo $value['iconClass']; }?> c-xs-0" title='<?php if(isset($value['cat']))  { echo $value['cat']; }?>'></i>
 
         <div class="key fit txtB c-xs-0"><?php if(isset($value['title']))
           {
@@ -37,10 +37,10 @@ if(\dash\data::dataTable())
         <div class="value c-xs-0" title="<?php echo \dash\fit::date($value['datecreated']); ?>"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
 
         <?php if(isset($value['sms']) && $value['sms']) {?>
-          <i class="sf-envelope style2 c-xs-0" title='<?php echo T_("Sended via SMS"); ?>'></i>
+          <i class="sf-envelope style2 s0" title='<?php echo T_("Sended via SMS"); ?>'></i>
         <?php } //endif ?>
         <?php if(isset($value['telegram']) && $value['telegram']) {?>
-          <i class="sf-paper-plane style2 c-xs-0" title='<?php echo T_("Sended via Telegram"); ?>'></i>
+          <i class="sf-paper-plane style2 s0" title='<?php echo T_("Sended via Telegram"); ?>'></i>
         <?php } //endif ?>
 
       </div>
