@@ -16,7 +16,7 @@ class view
 		}
 
 
-		\dash\face::title(T_('Change user permission'));
+		\dash\face::title(T_('Employee permission'));
 	}
 }
 ?>

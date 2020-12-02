@@ -9,7 +9,7 @@ class view
 
 		\content_crm\member\master::view();
 
-		\dash\face::title(T_('Change user email'));
+		\dash\face::title(T_('Change customer email address'));
 	}
 }
 ?>

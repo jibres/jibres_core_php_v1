@@ -9,7 +9,7 @@
 					<input type="text" name="displayname" value="<?php echo \dash\data::dataRowMember_displayname() ?>" maxlength="50">
 					<button class="btn master addon"><?php echo T_("Save") ?></button>
 				</div>
-				<p class="fc-mute mB0-f"><?php echo T_("Change customer name and avatar") ?></p>
+				<p class="fc-mute mB0-f"><?php echo T_("You can change customer name as many times as you want.") ?></p>
 			</form>
 
 		</div>
@@ -26,6 +26,7 @@
 						</label>
 					<?php }?>
 				</div>
+			<p class="fc-mute mB0-f"><?php echo T_("Drag & Drop your avatar or click on click on photo to browse") ?></p>
 			</form>
 			<?php if(\dash\data::dataRowMember_avatar_raw()) {?>
 				<div class="txtL font-18">

@@ -8,7 +8,7 @@ class view
 	{
 		\content_crm\member\master::view();
 
-		\dash\face::title(T_('Change user mobile'));
+		\dash\face::title(T_('Change customer mobile phone number'));
 	}
 }
 ?>
