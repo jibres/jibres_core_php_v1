@@ -12,6 +12,8 @@ UPDATE jibres_XXXXXXX.users SET users.companynationalid     = (SELECT userlegal.
 UPDATE jibres_XXXXXXX.users SET users.companyregisternumber = (SELECT userlegal.companyregisternumber FROM jibres_XXXXXXX.userlegal WHERE userlegal.user_id = users.id LIMIT 1);
 UPDATE jibres_XXXXXXX.users SET users.nationalcode          = (SELECT userlegal.ceonationalcode FROM jibres_XXXXXXX.userlegal WHERE userlegal.user_id = users.id LIMIT 1);
 UPDATE jibres_XXXXXXX.users SET users.website               = (SELECT userlegal.url FROM jibres_XXXXXXX.userlegal WHERE userlegal.user_id = users.id LIMIT 1);
+UPDATE jibres_XXXXXXX.users SET users.accounttype           = 'legal' WHERE users.id IN (SELECT userlegal.user_id FROM jibres_XXXXXXX.userlegal);
+
 
 INSERT INTO jibres_XXXXXXX.address
 (
@@ -46,6 +48,8 @@ userlegal.fax,
 'enable',
 userlegal.datecreated
 FROM jibres_XXXXXXX.userlegal;
+
+
 
 
 
