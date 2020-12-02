@@ -55,8 +55,7 @@ trait datalist
 		{
 			$option['order'] = 'desc';
 		}
-
-
+		$option['limit'] = 20;
 
 		if($option['sort'])
 		{
@@ -73,7 +72,7 @@ trait datalist
 		$result = \dash\db\transactions::search($_string, $option, $field);
 		if(is_array($result))
 		{
-			$result = array_map(['\\dash\\app', 'ready'], $result);
+			$result = array_map(['\\dash\\app\\transaction', 'ready'], $result);
 		}
 		return $result;
 	}

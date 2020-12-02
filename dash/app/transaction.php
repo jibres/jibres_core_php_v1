@@ -45,6 +45,26 @@ class transaction
 					}
 					break;
 
+				case 'displayname':
+					if(!$value && $value != '0')
+					{
+						$value = T_("Without name");
+					}
+					$result[$key] = $value;
+					break;
+				case 'avatar':
+					if($value)
+					{
+						$avatar = \lib\filepath::fix($value);
+					}
+					else
+					{
+						$avatar = \dash\app::static_avatar_url('unknown');
+					}
+
+					$result[$key] = $avatar;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

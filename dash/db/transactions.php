@@ -172,7 +172,6 @@ class transactions
 			"
 				(
 					users.mobile LIKE '%__string__%' OR
-					users.email LIKE '%__string__%' OR
 					transactions.plus LIKE '%$en_number%' OR
 					transactions.minus LIKE '%$en_number%' OR
 					transactions.title LIKE '%__string__%'
