@@ -5,13 +5,13 @@ $myIcon = 'check';
 switch (\dash\data::dataRowMember_status())
 {
   case 'active' :      $myIcon = 'check ok'; break;
-  case 'awaiting' :    $myIcon = 'check'; break;
+  case 'awaiting' :    $myIcon = 'detail'; break;
   case 'deactive' :    $myIcon = 'times'; break;
-  case 'block' :       $myIcon = 'times nok'; break;
+  case 'block' :       $myIcon = 'stop nok'; break;
   case 'unreachable' : $myIcon = 'times'; break;
-  case 'filter' :      $myIcon = 'times'; break;
-  case 'removed' :     $myIcon = 'times nok'; break;
-  case 'ban' :         $myIcon = 'times'; break;
+  case 'filter' :      $myIcon = 'stop nok'; break;
+  case 'removed' :     $myIcon = 'ban nok'; break;
+  case 'ban' :         $myIcon = 'ban'; break;
 
 
 }
