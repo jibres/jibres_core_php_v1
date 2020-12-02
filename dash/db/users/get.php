@@ -18,5 +18,13 @@ class get
 		$result = \dash\db::get($query);
 		return $result;
 	}
+
+
+	public static function group_by_permission()
+	{
+		$query  = "SELECT COUNT(*) AS `count`, users.permission  FROM users WHERE users.permission IS NOT NULL GROUP BY users.permission ";
+		$result = \dash\db::get($query, ['permission', 'count']);
+		return $result;
+	}
 }
 ?>

@@ -104,6 +104,25 @@ class get
 			$list = [];
 		}
 
+		$all_key = array_column($list, 'key');
+		if($all_key)
+		{
+			$user_count = \dash\db\users\get::group_by_permission();
+			if(!is_array($user_count))
+			{
+				$user_count = [];
+			}
+
+			foreach ($list as $key => $value)
+			{
+				if(isset($value['key']) && isset($user_count[$value['key']]))
+				{
+					$list[$key]['user_count'] = floatval($user_count[$value['key']]);
+				}
+			}
+		}
+
+
 		return $list;
 
 	}
