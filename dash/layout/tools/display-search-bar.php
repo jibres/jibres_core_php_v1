@@ -13,14 +13,14 @@ if($all_get)
 ?>
 
   <div class="searchBox">
-    <div class="f">
+    <div class="row">
 <?php if(\dash\data::listEngine_filter()) {?>
-      <div class="cauto pRa10">
+      <div class="cauto">
         <a class="btn light3 <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
       </div>
 <?php }?>
 
-      <div class="c pRa10">
+      <div class="c">
         <div>
           <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
             <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(). \dash\request::get('barcode'); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
@@ -28,7 +28,7 @@ if($all_get)
           </div>
         </div>
       </div>
-
+<?php if(\dash\data::listEngine_filter()) {?>
       <div class="cauto">
         <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
           <option><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
@@ -45,6 +45,7 @@ if(\dash\data::sortList())
 ?>
         </select>
       </div>
+<?php }?>
     </div>
   </div>
 

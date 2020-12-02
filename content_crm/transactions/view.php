@@ -19,6 +19,7 @@ class view
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_sort(true);
 
 
 		$search_string            = \dash\request::get('q');
