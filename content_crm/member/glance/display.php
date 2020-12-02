@@ -7,23 +7,50 @@ $dashboardDetail = \dash\data::dashboardDetail();
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-4">
 
-
     <nav class="items long">
       <ul>
         <li>
           <a class="item f">
-            <div class="key"><?php echo T_('Create user at');?></div>
-            <div class="value"><?php echo \dash\fit::date_time(\dash\data::dataRowMember_datecreated());?></div>
-            <div class="go"></div>
+            <div class="key"><?php echo T_('Account Create Date');?></div>
+            <div class="value datetime"><?php echo \dash\fit::date_time(\dash\data::dataRowMember_datecreated());?></div>
+            <div class="go detail"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::that(). '/logins?id='. \dash\request::get('id');?>">
-            <div class="key"><?php echo T_('Last login at');?></div>
-            <div class="value"><?php echo \dash\fit::date_time(\dash\get::index($dashboardDetail, 'last_login'));?></div>
-            <div class="go"></div>
+          <a class="item f">
+            <div class="key"><?php echo T_('Last Updated');?></div>
+            <div class="value datetime"><?php echo \dash\fit::date_time(\dash\data::dataRowMember_datecreated());?></div>
+            <div class="go detail"></div>
           </a>
         </li>
+        <li>
+          <a class="item f disabled" href="<?php echo \dash\url::that(). '/logins?id='. \dash\request::get('id');?>">
+            <div class="key"><?php echo T_('Last login at');?></div>
+            <div class="value"><?php echo \dash\fit::date_time(\dash\get::index($dashboardDetail, 'last_login'));?></div>
+            <div class="go detail"></div>
+          </a>
+        </li>
+         <li>
+<?php if(\dash\get::index($dashboardDetail, 'last_ip')) {?>
+          <a class="item f" target="_blank" href="<?php echo \dash\url::kingdom(). '/ip/'. \dash\get::index($dashboardDetail, 'last_ip');?>">
+            <div class="key"><?php echo T_('Last IP');?></div>
+            <code class="value"><?php echo \dash\get::index($dashboardDetail, 'last_ip');?></code>
+            <div class="go surveillance"></div>
+          </a>
+<?php } else {?>
+          <a class="item f">
+            <div class="key"><?php echo T_('Last IP');?></div>
+            <div class="value"><?php echo T_("Not logged in yet!");?></div>
+            <div class="go surveillance"></div>
+          </a>
+<?php }?>
+        </li>
+      </ul>
+    </nav>
+
+
+    <nav class="items long">
+      <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_('Last order');?></div>
@@ -49,13 +76,6 @@ $dashboardDetail = \dash\data::dashboardDetail();
           <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
             <div class="key"><?php echo T_('Balance');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'balance'));?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
-            <div class="key"><?php echo T_('Last IP');?></div>
-            <div class="value"><?php echo \dash\fit::text(\dash\get::index($dashboardDetail, 'last_ip'));?></div>
             <div class="go"></div>
           </a>
         </li>
