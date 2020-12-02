@@ -6,7 +6,7 @@ class view
 
 	public static function config()
 	{
-		\dash\face::title(T_("List of users"));
+		\dash\face::title(T_("Customers List"));
 
 		$allNeedSearch = \dash\request::get();
 		unset($allNeedSearch['page']);
@@ -27,10 +27,10 @@ class view
 
 		\dash\data::action_link(\dash\url::this(). '/add');
 		\dash\data::action_icon('plus');
-		\dash\data::action_text(T_('Add new user'));
+		\dash\data::action_text(T_('Add New Customers'));
 
 		\dash\data::back_link(\dash\url::here());
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('CRM'));
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());

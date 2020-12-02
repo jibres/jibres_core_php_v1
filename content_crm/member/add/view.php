@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\face::title(T_('Add new user'));
+		\dash\face::title(T_('Add New Customers'));
 
 		\dash\data::back_text(T_('Customers'));
 		\dash\data::back_link(\dash\url::this());
