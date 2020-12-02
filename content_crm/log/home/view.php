@@ -16,9 +16,53 @@ class view
 		// \dash\data::listEngine_filter(true);
 		// \dash\data::listEngine_sort(true);
 
-		self::search_log();
+			// back
+		\dash\data::back_text(T_('CRM'));
+		\dash\data::back_link(\dash\url::here());
+
+		// btn
+		// \dash\data::action_text(T_('Add New Transaction'));
+		// \dash\data::action_icon('plus');
+		// \dash\data::action_link(\dash\url::this(). '/add');
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(false);
+		\dash\data::listEngine_sort(false);
+
+		$args =
+		[
+			'order'     => \dash\request::get('order'),
+			'sort'      => \dash\request::get('sort'),
+			'status'    => \dash\request::get('status'),
+			'show_type' => 'user',
+		];
+
+		// if(\dash\permission::supervisor())
+		// {
+		// 	$args['show_type'] = 'admin';
+		// }
+
+		$search_string   = \dash\validate::search(\dash\request::get('q'));
+		$logList = \dash\app\log\search::list($search_string, $args);
+
+		\dash\data::dataTable($logList);
+
+		$isFiltered = \dash\app\log\search::is_filtered();
+		\dash\data::isFiltered($isFiltered);
+
+		if($isFiltered)
+		{
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
+		}
+
 
 	}
+
+
+
+
+
 
 	public static function search_log($_args = [])
 	{

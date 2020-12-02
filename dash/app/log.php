@@ -4,75 +4,6 @@ namespace dash\app;
 
 class log
 {
-	public static $sort_field =
-	[
-		'id',
-	];
-
-
-	public static function lates_log($_args = [])
-	{
-		if(!isset($_args['limit']))
-		{
-			$_args['limit'] = 5;
-		}
-
-		$_args['order_raw'] = 'logs.id DESC';
-		$_args['pagenation'] = false;
-
-		$list = \dash\db\logs::search(null, $_args);
-
-		if(is_array($list))
-		{
-			$list = array_map(['\\dash\\app\\log', 'ready'], $list);
-		}
-
-		return $list;
-	}
-
-
-	public static function chart_log_date($_args = [])
-	{
-
-		$result = \dash\db\logs::get_chart_date();
-
-		$hi_chart   = [];
-		$categories = [];
-		$values     = [];
-
-
-		if(!is_array($result))
-		{
-			$result = [];
-		}
-
-
-		foreach ($result as $key => $value)
-		{
-			$temp     = 0;
-			$date     = null;
-
-			if(array_key_exists('date', $value))
-			{
-				$date = $value['date'] ? \dash\datetime::fit($value['date'], null, 'date') : null;
-				$categories[] = $date;
-
-			}
-
-			if(array_key_exists('count', $value))
-			{
-				$temp = intval($value['count']);
-				$values[] = intval($temp);
-			}
-
-		}
-
-		$hi_chart['categories'] = json_encode($categories, JSON_UNESCAPED_UNICODE);
-		$hi_chart['value']      = json_encode($values, JSON_UNESCAPED_UNICODE);
-
-		return $hi_chart;
-
-	}
 
 	public static function set_readdate($_data, $_all = false, $_user_id = null)
 	{
@@ -149,10 +80,9 @@ class log
 
 		$_args = array_merge($default_meta, $_args);
 
-		if($_args['sort'] && !in_array($_args['sort'], self::$sort_field))
-		{
-			$_args['sort'] = null;
-		}
+
+		$_args['sort'] = null;
+
 
 
 		$result            = \dash\db\logs::search($_string, $_args);
@@ -219,6 +149,17 @@ class log
 			elseif($result_fn && is_array($result_fn))
 			{
 				$result = array_merge($result, $result_fn);
+			}
+			else
+			{
+				$title = T_("Unknown");
+
+				switch ($caller)
+				{
+					case 'kavenegar:service:411:call': $title = T_("Unknown"); break;
+				}
+				$result['title'] = $title;
+
 			}
 		}
 

@@ -21,7 +21,7 @@ class view
 			$dashboard_detail['activeUser']   = \dash\db\users::get_count(['status' => 'active']);
 			$dashboard_detail['permissions']  = count(\dash\permission::groups());
 			$dashboard_detail['logs']         = \dash\db\logs::get_count();
-			$dashboard_detail['latestLogs']   = \dash\app\log::lates_log(['caller' => 'userLogin']);
+
 			$dashboard_detail['latestMember'] = \dash\app\user::lates_user();
 
 

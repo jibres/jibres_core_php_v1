@@ -37,7 +37,7 @@ class dashboard
 		$dashboard_detail['permissions']  = count(\dash\permission::groups());
 		$dashboard_detail['chart']        = self::chart_transaction();
 		$dashboard_detail['success_percent'] = self::transactions_success_percent();
-		$dashboard_detail['latestLogs']   = \dash\app\log::lates_log(['caller' => 'enter_NewAccountLogin']);
+		$dashboard_detail['latestLogs']   = \dash\app\log\search::lates_log_caller('enter_NewAccountLogin');
 		$dashboard_detail['latestMember'] = \dash\app\user::lates_user();
 
 		return $dashboard_detail;
