@@ -12,7 +12,7 @@
 ?>
 
   <div class="f">
-   <div class="sidenavHandler c0 sauto mauto"><i class="sf-ellipsis-v"></i></div>
+   <div class="sidenavHandler c0 sauto"><i class="sf-ellipsis-v"></i></div>
    <a class="cauto logo" <?php echo $targetLink; ?> href="<?php echo $masterUrl ?>" ><img src="<?php echo \dash\face::logo(); ?>" alt='<?php echo \dash\face::site(); ?>'></a>
    <h1 class='c'><a <?php echo $targetLink; ?> href="<?php echo $masterUrl ?>"><?php echo \dash\face::site(); ?></a></h1>
    <div class='hm right flex cauto os'>
