@@ -26,10 +26,17 @@ class view
 		}
 
 		\dash\data::action_link(\dash\url::this(). '/add');
+		\dash\data::action_icon('plus');
 		\dash\data::action_text(T_('Add new user'));
 
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_text(T_('Back'));
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(false);
+		\dash\data::listEngine_sort(false);
+
 
 
 		if(!$args['order'])
