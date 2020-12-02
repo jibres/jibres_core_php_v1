@@ -25,6 +25,7 @@ class pwa_menu
 					break;
 
 				case 'a':
+				case 'crm':
 					return self::businessAdmin();
 					break;
 
@@ -97,8 +98,8 @@ class pwa_menu
 			[
 				'href' => \dash\url::kingdom(). '/my',
 				// 'selected' => true,
-				'icon' => 'gauge',
-				'title' => T_('Dashboard'),
+				'icon' => 'home',
+				'title' => T_('Control Center'),
 			],
 			'messages' =>
 			[
@@ -168,11 +169,11 @@ class pwa_menu
 	{
 		$myFooter =
 		[
-			'home' =>
+			'dashboard' =>
 			[
 				'href' => \dash\url::kingdom(). '/a',
-				'icon' => 'home',
-				'title' => T_('Home'),
+				'icon' => 'gauge',
+				'title' => T_('Dashboard'),
 			],
 			'products' =>
 			[
@@ -220,7 +221,7 @@ class pwa_menu
 				break;
 
 			default:
-				$myFooter['home']['selected'] = true;
+				$myFooter['dashboard']['selected'] = true;
 				break;
 		}
 

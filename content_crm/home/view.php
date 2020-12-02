@@ -12,7 +12,7 @@ class view
 		\dash\data::dashboardDetail(\dash\app\user\dashboard::detail());
 
 		// back
-		\dash\data::back_text(T_('Business Dashboard'));
+		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::kingdom(). '/a');
 	}
 }
