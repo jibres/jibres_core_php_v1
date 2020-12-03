@@ -11,6 +11,14 @@ class get
 		return $result;
 	}
 
+	public static function by_id($_id)
+	{
+		$query = "SELECT * FROM transactions WHERE transactions.id = $_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function last_payment_user($_user_id)
 	{
 		$query = "SELECT transactions.plus FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 ORDER BY transactions.id DESC LIMIT 1";

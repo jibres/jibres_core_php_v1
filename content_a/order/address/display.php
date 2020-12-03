@@ -118,14 +118,7 @@
                       <td class="collapsing"><div class="fc-mute"><?php echo T_("Company register number") ?></div></td>
                       <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'companyregisternumber'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
                     </tr>
-                    <tr>
-                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Postcode") ?></div></td>
-                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'postcode'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
-                    </tr>
-                    <tr>
-                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Phone") ?></div></td>
-                      <td><?php $data = \dash\get::index($orderDetail, 'factor', 'customer_legal', 'phone'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
-                    </tr>
+
                     <tr>
                       <td colspan="2"><a href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. \dash\get::index($orderDetail, 'factor', 'customer') ?>" class="link"><?php echo T_("Edit legal information") ?></a></td>
                     </tr>
