@@ -2,14 +2,13 @@
   <ul>
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
-        <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
-        <div class="key"><?php echo \dash\get::index($value, 'displayname'); ?><span class="badge success mLa10"><?php echo T_(ucfirst($value['permission'])); ?></span></div>
-        <div class="key mobile txtB"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
-        <div class="value status s0"><?php echo T_($value['status']); ?></div>
-        <div class="value humandate s0"><?php if(isset($value['datemodified']) && $value['datemodified']) { echo \dash\fit::date_human($value['datemodified']); }else{ echo \dash\fit::date_time($value['datecreated']);;} ?></div>
+      <a class="f align-center" href="<?php echo \dash\url::that(). '/view?id='. $value['id'] ?>">
 
-        <div class="go s0<?php if(isset($value['status']) && in_array($value['status'], ['disable','removed','filter','unreachable'])) { echo ' nok';}else{}?>"></div>
+        <div class="key"><?php echo T_($value['message']); ?></div>
+
+        <div class="value txtB"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
+        <div class="value"><?php echo \dash\fit::date_time($value['datesend']) ?></div>
+        <div class="go"></div>
       </a>
      </li>
 <?php } //endfor ?>
@@ -17,3 +16,4 @@
 </nav>
 
 <?php \dash\utility\pagination::html(); ?>
+

@@ -7,6 +7,11 @@ class get
 	public static function get($_id)
 	{
 		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
 
 		$load = \lib\db\sms_log\get::by_id($_id);
 		if(!$load)

@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\staff;
+namespace content_crm\sms\home;
 
 
 class controller

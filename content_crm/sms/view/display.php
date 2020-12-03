@@ -1,19 +1,21 @@
-<nav class="items">
-  <ul>
-<?php foreach (\dash\data::dataTable() as $key => $value) {?>
-     <li>
-      <a class="f align-center" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
-        <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
-        <div class="key"><?php echo \dash\get::index($value, 'displayname'); ?><span class="badge success mLa10"><?php echo T_(ucfirst($value['permission'])); ?></span></div>
-        <div class="key mobile txtB"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
-        <div class="value status s0"><?php echo T_($value['status']); ?></div>
-        <div class="value humandate s0"><?php if(isset($value['datemodified']) && $value['datemodified']) { echo \dash\fit::date_human($value['datemodified']); }else{ echo \dash\fit::date_time($value['datecreated']);;} ?></div>
-
-        <div class="go s0<?php if(isset($value['status']) && in_array($value['status'], ['disable','removed','filter','unreachable'])) { echo ' nok';}else{}?>"></div>
-      </a>
-     </li>
-<?php } //endfor ?>
-  </ul>
-</nav>
-
-<?php \dash\utility\pagination::html(); ?>
+<?php $data = \dash\data::dataRow(); ?>
+<div class="box">
+  <div class="body">
+    <div class="tblBox">
+      <table class="tbl1 v4">
+        <tbody>
+          <tr><td><?php echo T_('id') ?></td><td><?php echo \dash\get::index($data, 'id'); ?></td></tr>
+          <tr><td><?php echo T_('Mobile') ?></td><td><?php echo \dash\get::index($data, 'mobile'); ?></td></tr>
+          <?php if(\dash\get::index($data, 'mobiles')) {?><tr><td><?php echo T_('Mobiles') ?></td><td><?php echo \dash\get::index($data, 'mobiles'); ?></td></tr><?php } //endif ?>
+          <tr><td><?php echo T_('Message') ?></td><td><?php echo \dash\get::index($data, 'message'); ?></td></tr>
+          <tr><td><?php echo T_('Mode') ?></td><td><?php echo \dash\get::index($data, 'mode'); ?></td></tr>
+          <tr><td><?php echo T_('Type') ?></td><td><?php echo \dash\get::index($data, 'type'); ?></td></tr>
+          <tr><td><?php echo T_('IP') ?></td><td><?php echo \dash\get::index($data, 'ip'); ?></td></tr>
+          <tr><td><?php echo T_('Url') ?></td><td><?php echo \dash\get::index($data, 'url'); ?></td></tr>
+          <tr><td><?php echo T_('line') ?></td><td><?php echo \dash\get::index($data, 'line'); ?></td></tr>
+          <tr><td><?php echo T_('datecreated') ?></td><td><?php echo \dash\fit::date_time(\dash\get::index($data, 'datecreated')); ?></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
