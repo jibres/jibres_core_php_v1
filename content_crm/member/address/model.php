@@ -47,7 +47,7 @@ class model
 			if(\dash\engine\process::status())
 			{
 				\dash\notif::ok(T_("Address successfully added"));
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current(). \dash\request::full_get(['add' => null]));
 			}
 		}
 

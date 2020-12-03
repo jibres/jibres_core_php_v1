@@ -1,21 +1,20 @@
 
 
 <?php function bAddressAdd() {?>
+  <div class="box">
+    <div class="body">
 
-  <div class="cbox">
-    <h3 class="txtC">
+    <h6 class="txtC">
     <?php if(\dash\data::dataRowAddress()) {?>
-
         <?php echo T_("Edit address"); ?> <span class="txtB fc-blue"><?php echo \dash\data::dataRowAddress_title(); ?></span>
         <a class="badge secondary" href="<?php echo \dash\data::myUrlAddress(); if(\dash\request::get('id')) { echo '?id='. \dash\request::get('id'); }?>"><?php echo T_("Cancel"); ?></a>
-
     <?php }else{ ?>
 
       <?php echo T_("Add new address"); ?>
 
     <?php } //endif ?>
 
-    </h3>
+    </h6>
 
       <label for="title"><?php echo T_("Title of address"); ?></label>
       <div class="input">
@@ -66,25 +65,29 @@
      <label for="company" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
      <label for="company" ><?php echo T_("Is this a company's address?"); ?></label>
     </div>
+  </div>
+
+    <footer class="txtRa">
 
     <?php if(\dash\data::dataRowAddress()) {?>
 
       <div class="f">
         <div class="c pRa5">
-            <button class="btn primary block mT20" name="btn" value="add"><?php echo T_("Save"); ?></button>
+            <button class="btn master" name="btn" value="add"><?php echo T_("Save"); ?></button>
         </div>
 
         <div class="cauto os">
-          <div class="btn danger outline block mT20" data-confirm data-data='<?php echo json_encode(['addressid' => \dash\data::dataRowAddress_id(), 'btnremove' => 'delete']); ?>' name="btnremove" value="delete"><?php echo T_("Delete"); ?></div>
+          <div class="btn linkDel" data-confirm data-data='<?php echo json_encode(['addressid' => \dash\data::dataRowAddress_id(), 'btnremove' => 'delete']); ?>' name="btnremove" value="delete"><?php echo T_("Delete"); ?></div>
         </div>
       </div>
 
     <?php }else{ ?>
 
-      <button class="btn primary block mT20" name="save_address" value="new_address" cvalue="add"><?php echo T_("Add"); ?></button>
+      <button class="btn master" name="save_address" value="new_address" cvalue="add"><?php echo T_("Add"); ?></button>
 
     <?php } //endif ?>
 
+    </footer>
   </div>
 
 <?php } //endfunction ?>
