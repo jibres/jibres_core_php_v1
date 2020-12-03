@@ -259,6 +259,23 @@ $dashboardDetail = \dash\data::dashboardDetail();
           </a>
         </li>
         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/transactions/plus'. $myID;?>">
+            <div class="key"><?php echo T_("Increase account recharge") ?></div>
+            <div class="go plus ok"></div>
+          </a>
+        </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/transactions/minus'. $myID;?>">
+            <div class="key"><?php echo T_("Reduce account recharge") ?></div>
+            <div class="go minus-circle nok"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="items long">
+      <ul>
+        <li>
           <a class="item f" href="<?php echo \dash\url::kingdom(). '/support/ticket?user='. \dash\request::get('id') ?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
@@ -271,11 +288,6 @@ $dashboardDetail = \dash\data::dashboardDetail();
             <div class="go"></div>
           </a>
         </li>
-      </ul>
-    </nav>
-
-    <nav class="items long">
-      <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/sessions'. $myID;?>">
             <div class="key"><?php echo T_("Sessions") ?></div>
