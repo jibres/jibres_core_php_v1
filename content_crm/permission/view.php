@@ -6,8 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('cpPermissionView');
-
 		\dash\face::title(T_("Permissions"));
 
 		\dash\data::back_link(\dash\url::here());
@@ -22,10 +20,6 @@ class view
 		$listPermission = \dash\app\permission\get::list();
 
 		\dash\data::dataTable($listPermission);
-
-
-
-
 	}
 }
 ?>

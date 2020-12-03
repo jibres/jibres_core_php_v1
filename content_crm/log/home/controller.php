@@ -1,12 +1,12 @@
 <?php
-namespace content_crm\member\home;
-
+namespace content_crm\log;
 
 class controller
 {
+
 	public static function routing()
 	{
-
+		\dash\permission::access('crmLog');
 	}
 }
 ?>

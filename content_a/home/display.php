@@ -62,7 +62,7 @@
           <div class="go"></div>
         </a>
        </li>
-<?php if(\dash\permission::check('customerAccess')) {?>
+<?php if(\dash\permission::check('_group_crm')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/member">
           <div class="key"><?php echo T_('Customer');?></div>
@@ -71,7 +71,7 @@
         </a>
        </li>
 <?php } //endif ?>
-<?php if(\dash\permission::check('staffAccess')) {?>
+<?php if(\dash\permission::check('crmPermissionManagement')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/staff">
           <div class="key"><?php echo T_('Staff');?></div>

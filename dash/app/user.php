@@ -341,7 +341,7 @@ class user
 		}
 
 
-		if(!\dash\permission::check("cpUsersPermission"))
+		if(!\dash\permission::check("crmPermissionManagement"))
 		{
 			unset($data['permission']);
 		}

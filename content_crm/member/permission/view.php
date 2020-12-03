@@ -9,7 +9,7 @@ class view
 
 		\content_crm\member\master::view();
 
-		if(\dash\permission::check("cpUsersPermission"))
+		if(\dash\permission::check("crmPermissionManagement"))
 		{
 			$perm_list = \dash\permission::groups();
 			\dash\data::permGroup($perm_list);

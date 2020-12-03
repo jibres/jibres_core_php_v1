@@ -6,8 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('cpPermissionAdd');
-
 		\dash\face::title(T_("Add new permissions"));
 
 		\dash\data::back_link(\dash\url::this());

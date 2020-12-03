@@ -22,7 +22,7 @@ require_once ('sidebar/sidebar-a.php');
  }
 ?>
 <?php }//endif ?>
-<?php if(\dash\permission::check('contentCrm')) {?>
+<?php if(\dash\permission::check('_group_crm')) {?>
      <li><a href="<?php echo \dash\url::kingdom(); ?>/crm" <?php if(\dash\url::content() === 'crm') {?> class="activeContent"<?php }//endif ?> data-shortkey="77+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-group-full'></i> <?php echo T_("CRM Panel"); ?></a></li>
   <?php
   if(\dash\url::content() === 'crm')

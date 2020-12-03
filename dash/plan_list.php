@@ -167,20 +167,13 @@ class plan_list
 
 
 
+		$master['crmPermissionManagement']  = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmPermissionManagement', 			'title' => T_('Permission Management'), 'require' => []];
+		$master['crmTransactionsList']      = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmTransactionsList', 				'title' => T_('Show Payemnt List'), 'require' => []];
+		$master['crmCustomerManagement']    = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmCustomerManagement', 			'title' => T_('Manage Customers'), 'require' => []];
+		$master['crmLog']                   = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmLog', 							'title' => T_('Show logs'), 'require' => []];
+		$master['crmSms']                   = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmSms', 							'title' => T_('Show sms list'), 'require' => []];
+		$master['crmManageCustomerPayment'] = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmManageCustomerPayment', 		'title' => T_('Manage customer payemnts'), 'require' => []];
 
-		$master['contentCrm']                   = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'contentCrm', 					'title' => T_('contentCrm'), 'require' => []];
-		$master['staffAccess']                  = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'staffAccess', 					'title' => T_('staffAccess'), 'require' => []];
-		$master['customerAccess']               = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'customerAccess', 				'title' => T_('customerAccess'), 'require' => []];
-		$master['cpPermissionView']             = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpPermissionView', 			'title' => T_('cpPermissionView'), 'require' => []];
-		$master['cpPermissionAdd']              = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpPermissionAdd', 				'title' => T_('cpPermissionAdd'), 'require' => []];
-		$master['cpPermissionEdit']             = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpPermissionEdit', 			'title' => T_('cpPermissionEdit'), 'require' => []];
-		$master['cpPermissionDelete']           = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpPermissionDelete', 			'title' => T_('cpPermissionDelete'), 'require' => []];
-		$master['cpUsersPasswordChange']        = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpUsersPasswordChange', 		'title' => T_('cpUsersPasswordChange'), 'require' => []];
-		$master['cpUsersPermission']            = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpUsersPermission', 			'title' => T_('cpUsersPermission'), 'require' => []];
-		$master['cpUsersAdd']                   = ['jibres' => true,  'business' => true,  'group' => 'crm', 		'caller' => 'cpUsersAdd', 					'title' => T_('cpUsersAdd'), 'require' => []];
-		$master['aCustomerView']                = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'aCustomerView', 				'title' => T_('aCustomerView'), 'require' => []];
-		$master['aCustomerEdit']                = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'aCustomerEdit', 				'title' => T_('aCustomerEdit'), 'require' => []];
-		$master['mClassroomAdd']                = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'mClassroomAdd', 				'title' => T_('mClassroomAdd'), 'require' => []];
 
 
 

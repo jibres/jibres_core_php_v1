@@ -53,7 +53,7 @@
   <?php }// endif ?>
 
 
-   <?php if(\dash\permission::check('cpComment')) {?>
+   <?php if(\dash\permission::check('cpCommentsEdit')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/comment">
           <div class="key"><?php echo T_('Comments');?></div>

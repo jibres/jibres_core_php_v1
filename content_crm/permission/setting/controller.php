@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('crmPermissionManagement');
+
 		$id = \dash\request::get('id');
 
 		$dataRow = \dash\app\permission\get::get($id, true);
@@ -14,9 +16,6 @@ class controller
 		{
 			\dash\header::status(404);
 		}
-
-
-		\dash\permission::access('cpPermissionAdd');
 
 		\dash\data::dataRow($dataRow);
 	}

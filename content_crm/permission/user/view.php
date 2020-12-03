@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('cpPermissionAdd');
 
 		\dash\face::title(T_("Edit permissions"));
 

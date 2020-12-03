@@ -14,7 +14,7 @@ class master
 
 	public static function load()
 	{
-		\dash\permission::access('manageUsers');
+		\dash\permission::access('crmCustomerManagement');
 
 		$id = \dash\request::get('id');
 		$load = \dash\app\user::get($id);

@@ -15,7 +15,7 @@ class controller
 		}
 		else
 		{
-			\dash\permission::access('contentCrm');
+			\dash\permission::access('_group_crm');
 		}
 	}
 }

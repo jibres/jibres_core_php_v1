@@ -10,7 +10,11 @@ class controller
 		{
 			\dash\header::status(404, ';)');
 		}
-		\dash\permission::access('cpUsersEdit');
+
+		if(!\dash\permission::supervisor())
+		{
+			\dash\header::status(404, ';)');
+		}
 	}
 }
 ?>
