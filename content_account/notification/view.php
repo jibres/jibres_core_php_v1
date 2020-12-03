@@ -48,12 +48,10 @@ class view
 
 		$search_string   = \dash\request::get('q');
 
-		$sortLink  = \dash\app\sort::make_sortLink(\dash\app\log::$sort_field, \dash\url::this());
 		$dataTable = \dash\app\log::list($search_string, $args);
 		// select  and then update
 		\dash\app\log::set_readdate($dataTable, true);
 
-		\dash\data::sortLink($sortLink);
 		\dash\data::dataTable($dataTable);
 
 		$check_empty_datatable = $args;
