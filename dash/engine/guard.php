@@ -69,7 +69,7 @@ class guard
 		// $csp .= "default-src 'none'; ";
 		// script-src
 		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com static.cloudflareinsights.com http://localhost:9759/jibres/; ";
+		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com https://*.tawk.to https://cdn.jsdelivr.net static.cloudflareinsights.com http://localhost:9759/jibres/; ";
 		// style-src
 		$csp .= "style-src ". self::csp_cdn(). " https: 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_cdn(). "; ";
@@ -80,20 +80,20 @@ class guard
 		// media-src
 		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " data:; ";
 		// frame-src
-		$csp .= "frame-src 'self' https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/ https://www.youtube.com/ https://www.aparat.com; ";
+		$csp .= "frame-src 'self' https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/ https://*.tawk.to https://www.youtube.com/ https://www.aparat.com; ";
 		// base-uri
 		$csp .= "base-uri 'self'; ";
 		// manifest-src
 		$csp .= "manifest-src 'self'; ";
 		// connect-src
-		$csp .= "connect-src 'self' https://*.jibres.ir https://*.jibres.com https:";
+		$csp .= "connect-src 'self' https://*.jibres.ir https://*.jibres.com wss: https:";
 		if(\dash\url::isLocal())
 		{
 			$csp .=  " *.jibres.local";
 		}
 		$csp .=  "; ";
 		// form-action
-		$csp .= "form-action 'self'; ";
+		$csp .= "form-action 'self' https://va.tawk.to; ";
 
 		// -------------------------------------- blocked
 		// frame-ancestors

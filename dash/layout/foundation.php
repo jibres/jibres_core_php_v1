@@ -48,12 +48,12 @@ if(\dash\url::store())
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
  <meta content="index, follow" name="robots"/>
 <?php
-if(\dash\data::googleAnalytics())
+if(\dash\data::addons_googleAnalytics())
 {
   if(!\dash\url::isLocal())
   {
     // disable on local
-    echo " <meta content='". \dash\data::googleAnalytics(). "' name='gtag'/>\n";
+    echo " <meta content='". \dash\data::addons_googleAnalytics(). "' name='gtag'/>\n";
   }
 }
 ?>

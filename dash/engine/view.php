@@ -75,7 +75,9 @@ class view
 		}
 
 
-		\dash\data::googleAnalytics(self::google_analytics());
+		\dash\data::addons_googleAnalytics(self::addon_googleAnalytics());
+		\dash\data::addons_tawk(self::addon_tawk());
+
 
 		// @todo Javad check browser via new lib
 		// \dash\detect\browser::deadbrowserDetection();
@@ -242,7 +244,7 @@ class view
 	}
 
 
-	private static function google_analytics()
+	private static function addon_googleAnalytics()
 	{
 		// supersaeed guid
 		// UA-130946685-3
@@ -276,5 +278,37 @@ class view
 
 		return $google_analytics;
 	}
+
+
+
+	private static function addon_tawk()
+	{
+		$tawk = null;
+
+		if(\dash\url::tld() === 'ir')
+		{
+			$jibres_tawk = '5fc8dc17a1d54c18d8f00574';
+		}
+		else
+		{
+			$jibres_tawk = '5fc8dc17a1d54c18d8f00574';
+		}
+
+
+		if(!\dash\engine\store::inStore())
+		{
+			$tawk = $jibres_tawk;
+		}
+		else
+		{
+			if(\lib\store::detail('tawk'))
+			{
+				$tawk = \lib\store::detail('tawk');
+			}
+		}
+
+		return $tawk;
+	}
+
 }
 ?>
