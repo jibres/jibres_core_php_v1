@@ -34,7 +34,7 @@ class view
 			'sort'      => \dash\request::get('sort'),
 			'show_type' => 'user',
 			'notif'     => 1,
-			'from'      => \dash\coding::decode(\dash\request::get("id")),
+			'to'      => \dash\coding::decode(\dash\request::get("id")),
 		];
 
 

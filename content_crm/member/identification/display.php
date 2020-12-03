@@ -58,7 +58,7 @@
 
 
 				<div class="mB10">
-					<label for='country'><?php echo T_("Country"); ?></label>
+					<label for='country'><?php echo T_("Nationality"); ?></label>
 					<select class="select22" name="nationality" id="country" data-model='country' >
 						<option value=""><?php echo T_("Choose your country"); ?></option>
 						<?php foreach (\dash\data::countryList() as $key => $value) {?>
