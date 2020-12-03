@@ -32,6 +32,7 @@ class check
 			'phone'                         => 'phone',
 			'mobile'                        => 'mobile',
 			'google_analytics'              => 'string_50',
+			'addon_tawk'                    => 'string_50',
 			'enamad'                        => 'string_100',
 			'nosale'                        => 'bit',
 			'samandehi_link1'               => 'url',

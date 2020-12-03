@@ -301,9 +301,9 @@ class view
 		}
 		else
 		{
-			if(\lib\store::detail('tawk'))
+			if(\lib\store::detail('addon_tawk'))
 			{
-				$tawk = \lib\store::detail('tawk');
+				$tawk = \lib\store::detail('addon_tawk');
 			}
 		}
 

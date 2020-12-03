@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\googleanalytics;
+namespace content_a\setting\addon\googleanalytics;
 
 class view
 {
