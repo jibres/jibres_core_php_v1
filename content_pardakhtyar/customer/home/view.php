@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('aCustomerView');
 
 		\dash\data::page_title(T_("customer list"));
 		\dash\data::page_desc(T_('Check list of customers and search or filter in them to find your customer.'). ' '. T_('Also add or edit specefic customer.'));
