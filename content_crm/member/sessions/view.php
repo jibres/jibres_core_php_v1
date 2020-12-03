@@ -15,7 +15,9 @@ class view
 
 		$list    = \dash\login::get_active_sessions($user_id);
 
-		\dash\data::sessionsList($list);
+		\dash\data::dataTable($list);
+
+		\dash\data::listEngine_start(true);
 
 
 	}

@@ -1,12 +1,12 @@
 <?php require_once(root. 'content_crm/member/userDetail.php'); ?>
 
 <?php
-$sessionsList = \dash\data::sessionsList();
-if(!is_array($sessionsList))
+$dataTable = \dash\data::dataTable();
+if(!is_array($dataTable))
 {
-  $sessionsList = [];
+  $dataTable = [];
 }
-foreach ($sessionsList as $key => $row) {
+foreach ($dataTable as $key => $row) {
   ?>
   <div class="box">
     <div class="pad">

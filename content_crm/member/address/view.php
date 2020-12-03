@@ -39,8 +39,11 @@ class view
 		{
 			\dash\data::action_link(\dash\url::current() . \dash\request::full_get(['add' => 'new']));
 			\dash\data::action_text(T_("Add new address"));
+			\dash\data::listEngine_start(true);
 
 		}
+
+
 
 	}
 
