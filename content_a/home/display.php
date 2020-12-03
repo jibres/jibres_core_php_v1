@@ -56,13 +56,13 @@
    </nav>
    <nav class="items long">
      <ul>
+<?php if(\dash\permission::check('_group_crm')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm">
           <div class="key"><?php echo T_('CRM');?></div>
           <div class="go"></div>
         </a>
        </li>
-<?php if(\dash\permission::check('_group_crm')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/member">
           <div class="key"><?php echo T_('Customer');?></div>

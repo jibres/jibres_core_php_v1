@@ -167,12 +167,12 @@ class plan_list
 
 
 
+		$master['crmCustomerManagement']    = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmCustomerManagement', 			'title' => T_('Manage Customers'), 'require' => []];
+		$master['crmManageCustomerPayment'] = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmManageCustomerPayment', 		'title' => T_('Manage customer payemnts'), 'require' => []];
 		$master['crmPermissionManagement']  = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmPermissionManagement', 			'title' => T_('Permission Management'), 'require' => []];
 		$master['crmTransactionsList']      = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmTransactionsList', 				'title' => T_('Show Payemnt List'), 'require' => []];
-		$master['crmCustomerManagement']    = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmCustomerManagement', 			'title' => T_('Manage Customers'), 'require' => []];
 		$master['crmLog']                   = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmLog', 							'title' => T_('Show logs'), 'require' => []];
 		$master['crmSms']                   = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmSms', 							'title' => T_('Show sms list'), 'require' => []];
-		$master['crmManageCustomerPayment'] = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmManageCustomerPayment', 		'title' => T_('Manage customer payemnts'), 'require' => []];
 
 
 

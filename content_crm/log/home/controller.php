@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\log;
+namespace content_crm\log\home;
 
 class controller
 {
