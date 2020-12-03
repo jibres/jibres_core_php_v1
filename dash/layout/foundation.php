@@ -53,9 +53,14 @@ if(\dash\data::googleAnalytics())
   if(!\dash\url::isLocal())
   {
     // disable on local
-    $gAnalytics = \dash\data::googleAnalytics();
     echo " <meta content='". \dash\data::googleAnalytics(). "' name='gtag'/>\n";
   }
+}
+?>
+<?php
+if(\dash\data::addons_tawk())
+{
+  echo " <meta content='". \dash\data::addons_tawk(). "' name='tawk'/>\n";
 }
 ?>
  <meta content="yes" name="mobile-web-app-capable"/>
