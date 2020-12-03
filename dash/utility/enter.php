@@ -97,7 +97,7 @@ class enter
 			case 'login_user_not_found':
 			case 'login_status_block':
 			case 'browser_pass_saved_invalid':
-			case 'change_pass_invalid_old_pass':
+
 			case 'pass_invalid_pass':
 			case 'pass_recovery_pass_not_set':
 			case 'pass_set_password_not_set':
@@ -201,7 +201,7 @@ class enter
 			case 'login_user_not_found':
 			case 'login_status_block':
 			case 'browser_pass_saved_invalid':
-			case 'change_pass_invalid_old_pass':
+
 			case 'pass_invalid_pass':
 			case 'pass_recovery_pass_not_set':
 			case 'pass_set_password_not_set':

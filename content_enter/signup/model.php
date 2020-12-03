@@ -122,7 +122,6 @@ class model
 				}
 				else
 				{
-					\dash\code::sleep(3);
 					// redirect to enter password to login
 					// lock all step and set just this page to load
 					\dash\utility\enter::next_step('pass');
