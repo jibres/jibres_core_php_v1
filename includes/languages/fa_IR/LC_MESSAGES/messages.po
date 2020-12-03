@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-02 20:24+0330\n"
-"PO-Revision-Date: 2020-12-02 20:25+0330\n"
+"POT-Creation-Date: 2020-12-03 13:35+0330\n"
+"PO-Revision-Date: 2020-12-03 13:40+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -15109,7 +15109,7 @@ msgstr "مشتریان"
 
 #: content_crm/home/display.php:29
 msgid "Add new Customer"
-msgstr ""
+msgstr "افزودن مشتری جدید"
 
 #: content_crm/home/display.php:40 includes/languages/trans_static.php:66
 msgid "Staffs"
@@ -15125,23 +15125,23 @@ msgstr "سطوح‌دسترسی"
 
 #: content_crm/home/display.php:60
 msgid "Successful payments"
-msgstr ""
+msgstr "پرداختی‌های موفق"
 
 #: content_crm/home/display.php:68
 msgid "All payments"
-msgstr ""
+msgstr "همه پرداختی‌ها"
 
 #: content_crm/home/display.php:82
 msgid "Users Action Log"
-msgstr ""
+msgstr "رد پای عملیات‌های مشتریان"
 
 #: content_crm/home/display.php:97
 msgid "Success Payments - Today"
-msgstr ""
+msgstr "تراکنش های موفق - امروز"
 
 #: content_crm/home/display.php:103
 msgid "Success Payments - This month"
-msgstr ""
+msgstr "تراکنش های موفق - این ماه"
 
 #: content_crm/home/display.php:110
 msgid "Total Success transactions percent"
@@ -15153,7 +15153,7 @@ msgstr "آخرین مشتریان"
 
 #: content_crm/home/display.php:133
 msgid "No customers have been registered yet"
-msgstr ""
+msgstr "هنوز هیچ مشتری ثبت‌نام نکرده است"
 
 #: content_crm/home/display.php:138
 msgid "Last login"
@@ -15191,7 +15191,7 @@ msgstr "مثل 09120123456"
 
 #: content_crm/member/add/view.php:10 content_crm/member/home/view.php:37
 msgid "Add New Customers"
-msgstr ""
+msgstr "افزودن مشتری جدید"
 
 #: content_crm/member/address/view.php:21
 msgid "Customer addresses"
@@ -15253,11 +15253,11 @@ msgstr "برای تغییر آواتار کاربر، فایلی را آپلود
 
 #: content_crm/member/detail/view.php:11
 msgid "Update customer name and avatar"
-msgstr ""
+msgstr "به‌روزرسانی نام و تصویر مشتری"
 
 #: content_crm/member/email/view.php:12
 msgid "Change customer email address"
-msgstr ""
+msgstr "ویرایش آدرس ایمیل مشتری"
 
 #: content_crm/member/glance/display-nostalgia.php:26
 #: content_crmold/member/glance/display.php:26 lib/app/store/search.php:163
@@ -15314,11 +15314,11 @@ msgstr "آیا از حذف این کاربر اطمینان دارید؟"
 
 #: content_crm/member/glance/display.php:13
 msgid "Active Order"
-msgstr ""
+msgstr "سفارشات فعال"
 
 #: content_crm/member/glance/display.php:19
 msgid "Active Ticket"
-msgstr ""
+msgstr "تیکت‌های فعال"
 
 #: content_crm/member/glance/display.php:25 content_my/domain/review/display.php:220
 #: content_my/home/display_site.php:21
@@ -15327,11 +15327,11 @@ msgstr "موجودی حساب"
 
 #: content_crm/member/glance/display.php:38
 msgid "Account Create Date"
-msgstr ""
+msgstr "تاریخ ایجاد حساب کاربری"
 
 #: content_crm/member/glance/display.php:45
 msgid "Last Updated"
-msgstr ""
+msgstr "آخرین به‌روزرسانی"
 
 #: content_crm/member/glance/display.php:52
 msgid "Last login at"
@@ -15343,11 +15343,11 @@ msgstr "آخرین آی‌پی"
 
 #: content_crm/member/glance/display.php:67
 msgid "Not logged in yet!"
-msgstr ""
+msgstr "هنوز در سیستم وارد نشده است!"
 
 #: content_crm/member/glance/display.php:80
 msgid "Last payment"
-msgstr ""
+msgstr "آخرین پرداختی"
 
 #: content_crm/member/glance/display.php:87
 msgid "Total payed"
@@ -15355,7 +15355,7 @@ msgstr "مجموع پرداختی‌ها"
 
 #: content_crm/member/glance/display.php:94
 msgid "Total buy"
-msgstr ""
+msgstr "مجموع خرید"
 
 #: content_crm/member/glance/display.php:101
 msgid "Average order pay"
@@ -15363,11 +15363,11 @@ msgstr "میانگین مبلغ سفارش"
 
 #: content_crm/member/glance/display.php:115
 msgid "Last orders"
-msgstr ""
+msgstr "آخرین سفارشات"
 
 #: content_crm/member/glance/display.php:134
 msgid "Last tickets"
-msgstr ""
+msgstr "آخرین تیکت‌ها"
 
 #: content_crm/member/glance/display.php:140 content_crmold/member/pageSteps.php:53
 #: content_support/ticket/add/view.php:15 content_support/ticket/report/view.php:16
@@ -15417,7 +15417,7 @@ msgstr "پیام‌ها"
 
 #: content_crm/member/glance/display.php:288
 msgid "Customer Logs History"
-msgstr ""
+msgstr "تاریخچه رد پای مشتری"
 
 #: content_crm/member/glance/model.php:17 content_crm/member/security/model.php:79
 #: content_crmold/member/glance/model.php:17 content_crmold/member/log/model.php:71
@@ -15427,7 +15427,7 @@ msgstr "کاربر حذف شده"
 
 #: content_crm/member/glance/view.php:10
 msgid "Customer at a glance"
-msgstr ""
+msgstr "مشتری در یک نگاه"
 
 #: content_crm/member/home/display-old.php:56 content_crmold/member/home/display.php:56
 msgid "Advance result"
@@ -15645,7 +15645,7 @@ msgstr "غیر قابل دسترسی"
 
 #: content_crm/member/home/view.php:9
 msgid "Customers List"
-msgstr ""
+msgstr "لیست مشتریان"
 
 #: content_crm/member/identification/display.php:23
 #: content_crm/member/identification/display.php:25
@@ -15730,7 +15730,7 @@ msgstr "ویرایش اطلاعات حقوقی مشتری"
 
 #: content_crm/member/log/view.php:12 content_crm/member/message/view.php:12
 msgid "Customer log"
-msgstr ""
+msgstr "لاگ‌های مشتری"
 
 #: content_crm/member/master.php:34 content_crmold/member/main/view.php:47
 msgid "Father"
@@ -15821,11 +15821,11 @@ msgstr "نوه"
 
 #: content_crm/member/mobile/view.php:11
 msgid "Change customer mobile phone number"
-msgstr ""
+msgstr "ویرایش شماره تلفن همراه مشتری"
 
 #: content_crm/member/permission/display.php:5
 msgid "Change Permission"
-msgstr ""
+msgstr "ویرایش سطح دسترسی"
 
 #: content_crm/member/permission/display.php:7
 msgid ""
@@ -16066,7 +16066,7 @@ msgstr "تنظیم مجدد کاربر"
 
 #: content_crm/member/status/display.php:60
 msgid "Delete customer"
-msgstr ""
+msgstr "حذف مشتری"
 
 #: content_crm/member/status/display.php:62
 msgid ""
@@ -16078,7 +16078,7 @@ msgstr ""
 
 #: content_crm/member/status/display.php:64
 msgid "This customer was removed."
-msgstr ""
+msgstr "این مشتری حذف شذه است."
 
 #: content_crm/member/status/display.php:73
 msgid "Restore user"
@@ -16232,7 +16232,7 @@ msgstr "داشبورد پیامک"
 
 #: content_crm/staff/view.php:9
 msgid "Staff List"
-msgstr ""
+msgstr "لیست کارمندان"
 
 #: content_crm/transactions/add/display.php:8 content_crm/transactions/add/display.php:27
 #: content_crm/transactions/add/view.php:8 content_crm/transactions/minus/display.php:8
