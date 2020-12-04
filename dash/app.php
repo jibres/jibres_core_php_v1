@@ -105,7 +105,7 @@ class app
 				case 'avatar':
 					if($value)
 					{
-						$avatar = \lib\filepath::force_dl($value);
+						$avatar = \lib\filepath::fix_avatar($value);
 					}
 					else
 					{
