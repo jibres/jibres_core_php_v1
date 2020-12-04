@@ -146,7 +146,7 @@
        <ul>
   <?php foreach (\dash\data::dashboardDetail_latestLogs() as $key => $value) { ?>
          <li>
-          <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo \dash\coding::encode($value['from']); ?>">
             <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
             <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
