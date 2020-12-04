@@ -111,7 +111,7 @@ $dashboardDetail = \dash\data::dashboardDetail();
 
     <div class="row">
       <div class="c-xs-12 c-sm-12 c-md-6">
-        <?php if(is_array(\dash\get::index($dashboardDetail, 'last_5_order'))) {?>
+        <?php if(\dash\get::index($dashboardDetail, 'last_5_order')) {?>
         <p class="mB0-f"><?php echo T_("Last orders"); ?></p>
         <nav class="items long">
           <ul>
@@ -130,7 +130,7 @@ $dashboardDetail = \dash\data::dashboardDetail();
         <?php } // endif ?>
       </div>
       <div class="c-xs-12 c-sm-12 c-md-6">
-        <?php if(is_array(\dash\get::index($dashboardDetail, 'last_5_ticket'))) {?>
+        <?php if(\dash\get::index($dashboardDetail, 'last_5_ticket')) {?>
         <p class="mB0-f"><?php echo T_("Last tickets"); ?></p>
         <nav class="items long">
           <ul>
