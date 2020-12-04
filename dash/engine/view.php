@@ -283,62 +283,52 @@ class view
 
 	private static function addon_tawk()
 	{
-		$tawk = null;
-
-		if(\dash\url::tld() === 'ir')
-		{
-			$jibres_tawk = '5fc8dc17a1d54c18d8f00574';
-		}
-		else
-		{
-			$jibres_tawk = '5fc8dc17a1d54c18d8f00574';
-		}
-
-
-		if(!\dash\engine\store::inStore())
-		{
-			$tawk = $jibres_tawk;
-		}
-		else
+		if(\dash\engine\store::inStore())
 		{
 			if(\lib\store::detail('addon_tawk'))
 			{
-				$tawk = \lib\store::detail('addon_tawk');
+				return \lib\store::detail('addon_tawk');
+			}
+		}
+		else
+		{
+			if(\dash\url::tld() === 'ir')
+			{
+				return '5fc8dc17a1d54c18d8f00574';
+			}
+			else
+			{
+				return '5fc8dc17a1d54c18d8f00574';
 			}
 		}
 
-		return $tawk;
+		return null
 	}
 
 
 
 	private static function addon_raychat()
 	{
-		$raychat = null;
-
-		if(\dash\url::tld() === 'ir')
-		{
-			$jibres_raychat = '753a218c-a747-4aa1-a637-c3e8552bde75';
-		}
-		else
-		{
-			$jibres_raychat = '753a218c-a747-4aa1-a637-c3e8552bde75';
-		}
-
-
-		if(!\dash\engine\store::inStore())
-		{
-			$raychat = $jibres_raychat;
-		}
-		else
+		if(\dash\engine\store::inStore())
 		{
 			if(\lib\store::detail('addon_raychat'))
 			{
-				$raychat = \lib\store::detail('addon_raychat');
+				return \lib\store::detail('addon_raychat');
+			}
+		}
+		else
+		{
+			if(\dash\url::tld() === 'ir')
+			{
+				return '753a218c-a747-4aa1-a637-c3e8552bde75';
+			}
+			else
+			{
+				return '753a218c-a747-4aa1-a637-c3e8552bde75';
 			}
 		}
 
-		return $raychat;
+		return null
 	}
 
 }

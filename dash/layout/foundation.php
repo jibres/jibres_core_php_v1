@@ -56,11 +56,13 @@ if(\dash\data::addons_googleAnalytics())
     echo " <meta content='". \dash\data::addons_googleAnalytics(). "' name='gtag'/>\n";
   }
 }
-?>
-<?php
 if(\dash\data::addons_tawk())
 {
   echo " <meta content='". \dash\data::addons_tawk(). "' name='tawk'/>\n";
+}
+if(\dash\data::addons_raychat())
+{
+  echo " <meta content='". \dash\data::addons_raychat(). "' name='raychat'/>\n";
 }
 ?>
  <meta content="yes" name="mobile-web-app-capable"/>
