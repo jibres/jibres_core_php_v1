@@ -69,7 +69,7 @@ class guard
 		// $csp .= "default-src 'none'; ";
 		// script-src
 		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com https://*.tawk.to https://cdn.jsdelivr.net static.cloudflareinsights.com http://localhost:9759/jibres/; ";
+		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com https://*.raychat.io 'unsafe-eval' 'unsafe-inline' https://*.tawk.to https://cdn.jsdelivr.net/emojione/ static.cloudflareinsights.com http://localhost:9759/jibres/; ";
 		// style-src
 		$csp .= "style-src ". self::csp_cdn(). " https: 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_cdn(). "; ";
@@ -78,7 +78,7 @@ class guard
 		// font-src
 		$csp .= "font-src ". self::csp_cdn(). " https: data:; ";
 		// media-src
-		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " data:; ";
+		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " https://*.raychat.io data:; ";
 		// frame-src
 		$csp .= "frame-src 'self' https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/ https://*.tawk.to https://www.youtube.com/ https://www.aparat.com; ";
 		// base-uri
