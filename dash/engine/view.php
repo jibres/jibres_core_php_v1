@@ -302,7 +302,7 @@ class view
 			}
 		}
 
-		return null
+		return null;
 	}
 
 
@@ -328,7 +328,7 @@ class view
 			}
 		}
 
-		return null
+		return null;
 	}
 
 }
