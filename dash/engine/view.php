@@ -77,6 +77,7 @@ class view
 
 		\dash\data::addons_googleAnalytics(self::addon_googleAnalytics());
 		\dash\data::addons_tawk(self::addon_tawk());
+		\dash\data::addons_raychat(self::addon_raychat());
 
 
 		// @todo Javad check browser via new lib
@@ -280,7 +281,6 @@ class view
 	}
 
 
-
 	private static function addon_tawk()
 	{
 		$tawk = null;
@@ -308,6 +308,37 @@ class view
 		}
 
 		return $tawk;
+	}
+
+
+
+	private static function addon_raychat()
+	{
+		$raychat = null;
+
+		if(\dash\url::tld() === 'ir')
+		{
+			$jibres_raychat = '753a218c-a747-4aa1-a637-c3e8552bde75';
+		}
+		else
+		{
+			$jibres_raychat = '753a218c-a747-4aa1-a637-c3e8552bde75';
+		}
+
+
+		if(!\dash\engine\store::inStore())
+		{
+			$raychat = $jibres_raychat;
+		}
+		else
+		{
+			if(\lib\store::detail('addon_raychat'))
+			{
+				$raychat = \lib\store::detail('addon_raychat');
+			}
+		}
+
+		return $raychat;
 	}
 
 }
