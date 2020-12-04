@@ -145,7 +145,7 @@ class log
 				case 'avatar':
 					if($value)
 					{
-						$avatar = \lib\filepath::fix($value);
+						$avatar = \lib\filepath::fix_avatar($value);
 					}
 					else
 					{
