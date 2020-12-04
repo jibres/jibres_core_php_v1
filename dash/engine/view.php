@@ -306,7 +306,6 @@ class view
 	}
 
 
-
 	private static function addon_raychat()
 	{
 		if(\dash\engine\store::inStore())
@@ -322,9 +321,9 @@ class view
 			{
 				return '753a218c-a747-4aa1-a637-c3e8552bde75';
 			}
-			else
+			elseif(\dash\url::tld() === 'local')
 			{
-				return '753a218c-a747-4aa1-a637-c3e8552bde75';
+				return '9e05444f-b316-4e42-b85d-40e18c4ff8d7';
 			}
 		}
 
