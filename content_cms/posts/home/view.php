@@ -20,67 +20,25 @@ class view
 		$myType = \dash\request::get('type');
 
 		$myTitle = T_("Posts");
+		\dash\data::action_text(T_('Add new post'));
+		\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 
-
-		if($myType)
+		if($myType === 'page')
 		{
-			switch ($myType)
-			{
-				case 'page':
-					$myTitle = T_('Pages');
+			$myTitle = T_('Pages');
+			\dash\data::action_text(T_('Add new page'));
+			\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
 
-
-					if(\dash\permission::check('cpPageAdd'))
-					{
-						\dash\data::action_text(T_('Add new page'));
-						\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
-					}
-
-					break;
-
-				case 'help':
-					$myTitle     = T_('Help Center');
-					$myBadgeText = T_('Back to list of helps');
-
-
-					if(\dash\permission::check('cpHelpCenterAdd'))
-					{
-						\dash\data::action_text(T_('Add new help center article'));
-						\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
-					}
-					break;
-
-				case 'post':
-					if(\dash\permission::check('cpPostsAdd'))
-					{
-						\dash\data::action_text(T_('Add new post'));
-						\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
-					}
-					break;
-
-				default:
-					\dash\header::status(404);
-					\dash\data::action_text(T_('Add new post'));
-					\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
-					break;
-			}
-		}
-		else
-		{
-			if(\dash\permission::check('cpPostsAdd'))
-			{
-				\dash\data::action_text(T_('Add new post'));
-				\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
-			}
 		}
 
-		\dash\data::listSpecial(\dash\app\posts\special::list());
+
+		// \dash\data::listSpecial(\dash\app\posts\special::list());
 		// add back level to summary link
 
 		\dash\face::title($myTitle);
 
 
-		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_text(T_('CMS'));
 		\dash\data::back_link(\dash\url::here());
 
 
@@ -90,76 +48,35 @@ class view
 			$myTitle .= ' | '. T_('Search for :search', ['search' => $search_string]);
 		}
 
-		$get_post_counter_args = [];
-		$filterArray           = [];
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(false);
+		\dash\data::listEngine_sort(false);
+
 		$args =
 		[
-			'sort'  => \dash\request::get('sort'),
-			'order' => \dash\request::get('order'),
+			'order'     => \dash\request::get('order'),
+			'sort'      => \dash\request::get('sort'),
+			'status'    => \dash\request::get('status'),
+
 		];
 
 
-		if(\dash\request::get('status'))
-		{
-			$args['status'] = \dash\request::get('status');
-			$filterArray['status'] = $args['status'];
-		}
+		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$postList      = \dash\app\posts\search::list($search_string, $args);
 
-		if(\dash\request::get('term'))
-		{
-			$args['term'] = \dash\request::get('term');
-			$filterArray[T_("Category")] = $args['term'];
-		}
+		\dash\data::dataTable($postList);
 
-		if(\dash\request::get('type'))
-		{
-			$args['type'] = \dash\request::get('type');
-		}
-		else
-		{
-			$args['type'] = 'post';
-		}
+		$isFiltered = \dash\app\posts\search::is_filtered();
+		\dash\data::isFiltered($isFiltered);
 
-		$get_post_counter_args['type'] = $args['type'];
-
-		if(!$args['order'])
+		if($isFiltered)
 		{
-			$args['order'] = 'DESC';
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
 
-		if(!$args['sort'])
-		{
-			$args['sort'] = 'publishdate';
-		}
-
-		if(!\dash\permission::check('cpPostsViewAll'))
-		{
-			$args['user_id'] = \dash\user::id();
-			$get_post_counter_args['user_id'] = $args['user_id'];
-		}
-
-
-		if(\dash\request::get('special'))
-		{
-			$args['special'] = \dash\request::get('special');
-			$filterArray[T_("Special mode")] = T_(ucfirst($args['special']));
-
-		}
-
-		$args['language'] = \dash\language::current();
-		$get_post_counter_args['language'] = $args['language'];
-
-		\dash\data::sortLink(\content_cms\view::make_sort_link(\dash\app\posts::$sort_field, \dash\url::this()) );
-		\dash\data::dataTable(\dash\app\posts::list(\dash\request::get('q'), $args) );
-
-		// set dataFilter
-		$dataFilter = \dash\app\sort::createFilterMsg($search_string, $filterArray);
-		\dash\data::dataFilter($dataFilter);
-
-		// get post count group by status
-		$postCounter = \dash\app\posts::get_post_counter($get_post_counter_args);
-		\dash\data::postCounter($postCounter);
 	}
 }
 ?>

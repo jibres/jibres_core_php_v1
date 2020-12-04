@@ -8,7 +8,7 @@ class controller
 	{
 		\dash\redirect::to_login();
 
-		\dash\permission::access('contentCp');
+		\dash\permission::access('_group_cms');
 
 	}
 }
