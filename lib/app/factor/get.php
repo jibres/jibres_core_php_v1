@@ -342,6 +342,12 @@ class get
 				$factor['customer_mobile'] = $load_customer['mobile'];
 			}
 
+			if(isset($load_customer['avatar']))
+			{
+				$factor['customer_avatar'] = \lib\filepath::fix_avatar($load_customer['avatar']);
+			}
+
+
 			// $load_user_legal = \dash\app\user\legal::get($factor['customer']);
 			$factor['customer_legal'] = [];
 

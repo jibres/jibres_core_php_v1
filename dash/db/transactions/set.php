@@ -26,6 +26,7 @@ trait set
 			'plus'        => null,
 			'type'        => null,
 			'payment'     => null,
+			'factor_id'   => null,
 			'other_field' => [],
 
 		];
@@ -163,6 +164,18 @@ trait set
 		}
 
 		$insert['currency'] = $currency;
+
+
+
+		if($_args['factor_id'] && is_numeric($_args['factor_id']))
+		{
+			$insert['factor_id'] = $_args['factor_id'];
+		}
+
+		if(!\dash\engine\store::inStore())
+		{
+			unset($insert['factor_id']);
+		}
 
 
 		$minus = null;

@@ -7,15 +7,17 @@
   </div>
   <div class="c-xs-12 c-sm-12 c-md-9">
 
-    <?php if(\dash\get::index($orderDetail, 'factor', 'customer')) {?>
+    <?php if(\dash\get::index($orderDetail, 'factor', 'customer')) { ?>
       <div class="box">
         <div class="body">
           <div class="f">
             <div class="cauto s12">
-              <div>
-                <span class="fc-mute"><?php echo T_("Customer") ?></span>
-                <span class="txtB"><?php echo \dash\get::index($orderDetail, 'factor', 'customer_displayname') ?></span>
-              </div>
+              <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. \dash\get::index($orderDetail, 'factor', 'customer') ;?>">
+                <div>
+                    <span class="fc-mute"><?php echo T_("Customer") ?></span>
+                    <span class="txtB"><?php echo \dash\get::index($orderDetail, 'factor', 'customer_displayname') ?></span>
+                </div>
+              </a>
             </div>
             <div class="c1 mB10"></div>
             <div class="cauto s12">

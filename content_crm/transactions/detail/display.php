@@ -34,6 +34,15 @@
       </a>
      </li>
    <?php } //endif ?>
+    <?php if(\dash\data::dataRow_factor_id()) {?>
+     <li>
+      <a class="f item" href="<?php echo \dash\url::kingdom(). '/a/order/detail?id='. \dash\data::dataRow_factor_id() ?>">
+        <div class="key"><?php echo T_("Pay for order") ?></div>
+        <div class="value txtB"><?php echo T_("Order #:val", ["val" => \dash\data::dataRow_factor_id()]) ?></div>
+        <div class="go "></div>
+      </a>
+     </li>
+   <?php } //endif ?>
 
 
     <li>

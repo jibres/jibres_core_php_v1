@@ -248,6 +248,7 @@ class cart
 				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
 				'amount'        => abs($result['price']),
 				'currency'      => \lib\store::currency('code'),
+				'factor_id'     => $result['factor_id'],
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
 				'final_fn_args' =>
 				[
@@ -305,7 +306,7 @@ class cart
 	}
 
 
-	public static function after_pay($_args)
+	public static function after_pay($_args, $_transaction_detail = [])
 	{
 		if(isset($_args['factor_id']))
 		{
@@ -314,6 +315,28 @@ class cart
 			{
 
 				\lib\app\factor\action::set('successful_payment', $factor_id);
+
+				if($_args['user_id'])
+				{
+					$currency = null;
+					if(isset($_transaction_detail['currency']))
+					{
+						$currency = $_transaction_detail['currency'];
+					}
+
+					$insert_transaction =
+					[
+						'user_id'   => $_args['user_id'],
+						'factor_id' => $factor_id,
+						'title'     => T_("Pay order :val", ['val' => $factor_id]),
+						'verify'    => 1,
+						'minus'     => floatval($_args['amount']),
+						'currency'  => $currency,
+						'type'      => 'money',
+					];
+
+					$transaction_id = \dash\db\transactions::set($insert_transaction);
+				}
 
 				if(isset($_args['user_id']))
 				{
