@@ -308,6 +308,8 @@ class view
 
 	private static function addon_raychat()
 	{
+		return null;
+
 		if(\dash\engine\store::inStore())
 		{
 			if(\lib\store::detail('addon_raychat'))
