@@ -21,7 +21,7 @@ class get
 
 	public static function last_payment_user($_user_id)
 	{
-		$query = "SELECT transactions.plus FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 ORDER BY transactions.id DESC LIMIT 1";
+		$query = "SELECT transactions.plus FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 AND transactions.plus IS NOT NULL ORDER BY transactions.id DESC LIMIT 1";
 		$result = \dash\db::get($query, 'plus', true);
 		return $result;
 	}
