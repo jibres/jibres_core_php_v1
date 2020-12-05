@@ -18,7 +18,6 @@ class permission
 
 		$group = self::groups();
 
-
 		foreach ($group as $key => $value)
 		{
 			\dash\temp::set('WhoHavePermissionCaller', $value);
@@ -172,31 +171,9 @@ class permission
 			return self::check(substr($_caller, 6), ['check_plan' => true]);
 		}
 
-		// user is not login
-		if(!\dash\user::id())
-		{
-			return false;
-		}
-
 		if(self::supervisor())
 		{
 			return true;
-		}
-
-		// we have store and need to check permission but the user not in this store
-		if(\dash\engine\store::inStore())
-		{
-			if(!\lib\store::in_store())
-			{
-				if(\dash\temp::get('WhoHavePermissionCaller'))
-				{
-					// only check who have this permission need less to check inStore
-				}
-				else
-				{
-					return false;
-				}
-			}
 		}
 
 		if(\dash\temp::get('WhoHavePermissionCaller'))
@@ -205,6 +182,22 @@ class permission
 		}
 		else
 		{
+
+			// user is not login
+			if(!\dash\user::id())
+			{
+				return false;
+			}
+
+			// we have store and need to check permission but the user not in this store
+			if(\dash\engine\store::inStore())
+			{
+				if(!\lib\store::in_store())
+				{
+					return false;
+				}
+			}
+
 			$myPermission = \dash\user::detail('permission');
 		}
 
