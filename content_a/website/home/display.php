@@ -82,7 +82,6 @@
           <ul>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/addon/googleanalytics"><div class="key"><?php echo T_("Google analytics setting"); ?></div><div class="go"></div></a></li>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/addon/tawk"><div class="key"><?php echo T_("Tawk live chat"); ?></div><div class="go"></div></a></li>
-            <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/addon/raychat"><div class="key"><?php echo T_("Raychat live chat"); ?></div><div class="go"></div></a></li>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/staticfile"><div class="key"><?php echo T_("Static file verification"); ?></div><div class="go"></div></a></li>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/enamad"><div class="key"><?php echo T_("Enamad"); ?></div><div class="go"></div></a></li>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/samandehi"><div class="key"><?php echo T_("samandehi"); ?></div><div class="go"></div></a></li>
