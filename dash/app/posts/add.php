@@ -1,7 +1,7 @@
 <?php
 namespace dash\app\posts;
 
-trait add
+class add
 {
 
 	/**
@@ -11,52 +11,22 @@ trait add
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function add($_args, $_option = [])
+	public static function add($_args)
 	{
-
-		$default_option =
-		[
-			'save_log' => true,
-			'debug'    => true,
-		];
-
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
-
-		$_option = array_merge($default_option, $_option);
-
-		if(!\dash\user::id())
-		{
-			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
-			return false;
-		}
+		\dash\permission::access('cmsAddNewPost');
 
 		// check args
-		$args = self::check($_args, null, $_option);
-
-		$args['user_id'] = \dash\user::id();
+		$args = \dash\app\posts::check($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		if(!array_key_exists('status', $args))
-		{
-			$args['status'] = 'draft';
-		}
+		$args['user_id'] = \dash\user::id();
 
-		if(!$args['excerpt'])
-		{
-			$args['excerpt'] = \dash\utility\excerpt::extractRelevant($args['content']);
-		}
 
-		if(mb_strlen($args['excerpt']) > 300)
-		{
-			$args['excerpt'] = substr($args['excerpt'], 0, 300);
-		}
+
 
 		$return         = [];
 
@@ -64,7 +34,7 @@ trait add
 
 		if(!$post_id)
 		{
-			if($_option['debug']) \dash\notif::error(T_("No way to insert post"), 'db', 'system');
+			\dash\log::oops('dbErrorInsertPost', T_("No way to insert post"));
 			return false;
 		}
 
@@ -88,25 +58,25 @@ trait add
 			{
 				if(\dash\permission::check('cpTagHelpAdd'))
 				{
-					self::set_post_term($post_id, 'help_tag', 'posts', $tag);
+					\dash\app\posts::set_post_term($post_id, 'help_tag', 'posts', $tag);
 				}
 			}
 			else
 			{
 				if(\dash\permission::check('cpTagAdd'))
 				{
-					self::set_post_term($post_id, 'tag', 'posts', $tag);
+					\dash\app\posts::set_post_term($post_id, 'tag', 'posts', $tag);
 				}
 			}
 
 
 			if($args['type'] === 'mag')
 			{
-				$post_url = self::set_post_term($post_id, 'mag', 'posts', $cat);
+				$post_url = \dash\app\posts::set_post_term($post_id, 'mag', 'posts', $cat);
 			}
 			else
 			{
-				$post_url = self::set_post_term($post_id, 'cat', 'posts', $cat);
+				$post_url = \dash\app\posts::set_post_term($post_id, 'cat', 'posts', $cat);
 			}
 
 
@@ -129,7 +99,7 @@ trait add
 
 		if(\dash\engine\process::status())
 		{
-			if($_option['debug']) \dash\notif::ok(T_("Post successfuly added"));
+			\dash\notif::ok(T_("Post successfuly added"));
 		}
 
 		return $return;

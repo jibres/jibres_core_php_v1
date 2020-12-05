@@ -6,7 +6,6 @@ class posts
 	private static $raw_field = ['content'];
 	public static $datarow = null;
 
-	use \dash\app\posts\add;
 	use \dash\app\posts\datalist;
 	use \dash\app\posts\edit;
 	use \dash\app\posts\get;
@@ -419,6 +418,11 @@ class posts
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if(!$data['language'])
+		{
+			$data['language'] = \dash\language::current();
+		}
+
 		$default_option =
 		[
 			'meta'     => [],
@@ -809,6 +813,22 @@ class posts
 					unset($data['status']);
 				}
 				break;
+		}
+
+		if(!$data['excerpt'])
+		{
+			$data['excerpt'] = \dash\utility\excerpt::extractRelevant($data['content']);
+
+		}
+
+		if(mb_strlen($data['excerpt']) > 300)
+		{
+			$data['excerpt'] = substr($data['excerpt'], 0, 300);
+		}
+
+		if(!$data['status'])
+		{
+			$data['status'] = 'draft';
 		}
 
 
