@@ -141,7 +141,7 @@
 </section>
 
 <div class="row font-14 mT5">
-  <div class="c-xs-12 c-sm-6 c-md-6">
+  <div class="c-xs-12 c-sm-12 c-md-4">
     <p class="mB5-f font-14"><?php echo T_("Last customers") ?></p>
   <?php if(\dash\data::dashboardDetail_latestMember()) {?>
     <nav class="items long">
@@ -162,7 +162,7 @@
 <?php } //endif ?>
   </div>
 
-  <div class="c-xs-12 c-sm-6 c-md-6">
+  <div class="c-xs-12 c-sm-6 c-md-4">
     <p class="mB5-f font-14"><?php echo T_("Last login") ?></p>
     <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
     <nav class="items long">
@@ -183,4 +183,29 @@
 <?php } else { ?>
   <p class="msg"><?php echo T_("No entries have been made so far"); ?></p>
 <?php } //endif ?>
+
+  <div class="c-xs-12 c-sm-6 c-md-4">
+    <p class="mB5-f font-14"><?php echo T_("Last tickets") ?></p>
+    <?php if(\dash\data::dashboardDetail_latestTicket()) {?>
+    <nav class="items long">
+       <ul>
+  <?php foreach (\dash\data::dashboardDetail_latestTicket() as $key => $value) { ?>
+        <li>
+          <a class="f align-center" href="<?php echo \dash\url::here(). '/ticket/view?id='. $value['id'] ?>">
+            <div class="key"><?php echo T_("Ticket"). ' #'. $value['id'];  ?></div>
+            <div class="value s0"><?php echo \dash\fit::mobile(\dash\get::index($value, 'displayname')); ?></div>
+            <div class="value txtB s0"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
+            <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+  <?php } //endfor ?>
+       </ul>
+     </nav>
+
+  </div>
+<?php } else { ?>
+  <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
+<?php } //endif ?>
+
 </div>

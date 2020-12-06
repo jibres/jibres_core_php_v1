@@ -13,15 +13,22 @@ class search
 	}
 
 
+	public static function last_5_ticket()
+	{
+		return self::list(null, ['limit' => 5]);
+	}
+
+
 	public static function list($_query_string, $_args)
 	{
 		$condition =
 		[
-			'order'  => 'order',
-			'sort'   => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'status' => ['enum' => ['sale', 'buy', 'saleorder']],
+			'order'     => 'order',
+			'sort'      => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
+			'status'    => ['enum' => ['sale', 'buy', 'saleorder']],
 			'show_type' => ['enum' => ['verify', 'all']],
 			'user_code' => 'code',
+			'limit'     => 'int',
 		];
 
 		$require = [];
@@ -34,6 +41,11 @@ class search
 		$or            = [];
 		$order_sort    = null;
 		$meta['limit'] = 15;
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
 
 		$and[] = " tickets.parent IS NULL ";
 
