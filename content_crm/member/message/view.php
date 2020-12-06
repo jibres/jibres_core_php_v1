@@ -9,7 +9,7 @@ class view
 
 		\content_crm\member\master::view();
 
-		\dash\face::title(T_('Customer log'));
+		\dash\face::title(T_('Customer Notifications'));
 
 
 
@@ -19,9 +19,9 @@ class view
 		// \dash\data::listEngine_sort(true);
 
 		// btn
-		// \dash\data::action_text(T_('Add New Transaction'));
-		// \dash\data::action_icon('plus');
-		// \dash\data::action_link(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add New Notifications'));
+		\dash\data::action_icon('plus');
+		\dash\data::action_link(\dash\url::that(). '/add'. \dash\request::full_get());
 
 		\dash\data::listEngine_start(true);
 		// \dash\data::listEngine_search(\dash\url::that());
@@ -32,7 +32,7 @@ class view
 		[
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
-			'show_type' => 'user',
+			// 'show_type' => 'user',
 			'notif'     => 1,
 			'to'      => \dash\coding::decode(\dash\request::get("id")),
 		];
