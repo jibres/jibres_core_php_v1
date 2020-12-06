@@ -138,7 +138,7 @@ class setting
 		{
 			if(!$paymentDetail['auto_back'])
 			{
-				\dash\redirect::to($back_url. '/pay/'. self::get_token(), true, 307);
+				\dash\redirect::to($back_url. '/pay/'. self::get_token(), true, 302);
 			}
 		}
 
@@ -163,7 +163,7 @@ class setting
 				}
 			}
 		}
-		\dash\redirect::to($back_url, true, 307);
+		\dash\redirect::to($back_url, true, 302);
 	}
 
 
