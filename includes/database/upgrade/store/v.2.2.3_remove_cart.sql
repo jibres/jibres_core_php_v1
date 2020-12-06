@@ -1,0 +1,1 @@
+DELETE FROM jibres_XXXXXXX.cart WHERE 1;
