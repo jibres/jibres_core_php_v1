@@ -1,16 +1,42 @@
 <?php $data = \dash\data::dataRow(); ?>
+<nav class="items">
+  <ul>
+      <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("ID") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+
+     <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("Mobile") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+
+       <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("Line") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_line()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+
+    <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("Date created") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+  </ul>
+</nav>
+
 <div class="box">
-  <div class="body">
-    <div class="tblBox">
-      <table class="tbl1 v4">
-        <tbody>
-          <tr><td><?php echo T_('id') ?></td><td><?php echo \dash\get::index($data, 'id'); ?></td></tr>
-          <tr><td><?php echo T_('Mobile') ?></td><td class="ltr"><?php echo \dash\fit::mobile(\dash\get::index($data, 'mobile')); ?></td></tr>
-          <tr><td><?php echo T_('Message') ?></td><td><?php echo \dash\get::index($data, 'message'); ?></td></tr>
-          <tr><td><?php echo T_('line') ?></td><td><?php echo \dash\fit::text(\dash\get::index($data, 'line')); ?></td></tr>
-          <tr><td><?php echo T_('datecreated') ?></td><td><?php echo \dash\fit::date_time(\dash\get::index($data, 'datecreated')); ?></td></tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="pad">
+      <p><?php echo nl2br(\dash\get::index($data, 'message')); ?></p>
   </div>
 </div>
