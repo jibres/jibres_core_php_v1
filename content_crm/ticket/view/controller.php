@@ -17,7 +17,7 @@ class controller
 
 		if(isset($load['parent']) && $load['parent'])
 		{
-			\dash\redirect::to(\dash\url::this(). \dash\request::full_get(['id' => $load['parent']]));
+			\dash\redirect::to(\dash\url::this(). '/view'. \dash\request::full_get(['id' => $load['parent']]));
 		}
 
 		\dash\data::dataRow($load);

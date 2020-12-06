@@ -35,14 +35,8 @@ class search
 		$order_sort    = null;
 		$meta['limit'] = 15;
 
-		if($data['show_type'] === 'verify')
-		{
-			$and[] = " tickets.verify =  1 ";
-		}
-		else
-		{
-			/*nothing*/
-		}
+		$and[] = " tickets.parent IS NULL ";
+
 
 		if($data['user_code'])
 		{

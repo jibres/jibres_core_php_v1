@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcrmhome" class="box chart x350" data-abc='crm/homepage'>
+    <div id="chartdivcrmhome" class="box chart x450" data-abc='crm/homepage'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
@@ -66,6 +66,29 @@
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/transactions/all">
           <div class="key"><?php echo T_('All payments');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+
+     </ul>
+   </nav>
+
+
+   <nav class="items long">
+     <ul>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/ticket">
+          <div class="key"><?php echo T_('Tickets');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'tickets')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/notification">
+          <div class="key"><?php echo T_('Notifications');?></div>
           <div class="go"></div>
         </a>
       </li>
