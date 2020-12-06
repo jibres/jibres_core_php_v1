@@ -184,7 +184,7 @@ class get
 		{
 			// this domain is not enable for this user
 			// nic rejected this domain
-			$update_domain['status']       = 'disable';
+			// $update_domain['status']       = 'disable';
 			$update_domain['available']    = 1;
 
 			$update_domain['lock']         = null;
