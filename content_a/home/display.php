@@ -2,12 +2,12 @@
 
 
 <div class="row">
-  <div class="c-9 c-xs-12">
+  <div class="c-xs-12 c-sm-12 c-md-8">
 <?php if(\dash\permission::check('_group_products')) {?>
    <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
 <?php } //endif ?>
   </div>
-  <div class="c-3 c-xs-12">
+  <div class="c-xs-12 c-sm-12 c-md-4">
    <nav class="items long">
      <ul>
 
@@ -15,7 +15,17 @@
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/order">
           <i class="sf-cart-arrow-down"></i>
-          <div class="key"><?php echo T_('Orders');?></div>
+          <div class="key"><?php echo T_('Unprocessed Order');?></div>
+          <div class="value red">233</div>
+          <div class="go"></div>
+        </a>
+       </li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('_group_orders')) {?>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/order">
+          <i class="sf-shopping-cart"></i>
+          <div class="key"><?php echo T_('All Orders');?></div>
           <div class="go"></div>
         </a>
        </li>
