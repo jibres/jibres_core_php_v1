@@ -69,7 +69,7 @@ class guard
 		// $csp .= "default-src 'none'; ";
 		// script-src
 		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com https://*.tawk.to https://cdn.jsdelivr.net//emojione/ static.cloudflareinsights.com http://localhost:9759/jibres/; ";
+		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com https://*.tawk.to https://cdn.jsdelivr.net/emojione/ static.cloudflareinsights.com http://localhost:9759/jibres/; ";
 		// style-src
 		$csp .= "style-src ". self::csp_cdn(). " https: 'unsafe-inline'; ";
 		// $csp .= "style-src ". self::csp_cdn(). "; ";
