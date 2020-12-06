@@ -76,6 +76,23 @@ class smile
 			$count_order = 0;
 		}
 
+		if($count_order)
+		{
+			$alertyOpt =
+			[
+				'alerty'            => true,
+				'timeout'           => 2000,
+				'showConfirmButton' => false
+			];
+
+				// show alert as toast
+			$alertyOpt['toast']    = true;
+			$alertyOpt['position'] = 'top-end';
+
+			\dash\notif::ok(T_("You have :val new order!", ['val' => \dash\fit::number($count_order)]), $alertyOpt);
+
+		}
+
 		return floatval($count_order);
 
 	}

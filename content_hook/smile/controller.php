@@ -14,8 +14,6 @@ class controller
 		{
 			$myResult = \dash\app\smile::get();
 
-			$notifCount = \dash\app\log::my_notif_count();
-
 			$alertyOpt =
 			[
 				'alerty'            => true,
@@ -38,7 +36,15 @@ class controller
 				// it new message for the first time
 				if($myResult['notifNew'])
 				{
-					\dash\notif::ok(T_("You have new message!"), $alertyOpt);
+					if(isset($myResult['orderCount']) && $myResult['orderCount'])
+					{
+						/*nothing*/
+					}
+					else
+					{
+						\dash\notif::info(T_("You have :val new message!", ['val' => \dash\fit::number($myResult['notifCount'])]), $alertyOpt);
+					}
+
 				}
 			}
 		}
