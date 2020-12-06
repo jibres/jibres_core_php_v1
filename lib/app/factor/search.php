@@ -66,6 +66,7 @@ class search
 			'subdiscountequal'  => 'bigint',
 			'subtotal'          => 'bigint',
 			'limit'          => 'int',
+			'get_unprocessed' => 'bit',
 		];
 
 		$require = [];
@@ -101,6 +102,11 @@ class search
 
 
 		$and[] = " factors.status != 'deleted' ";
+
+		if($data['get_unprocessed'])
+		{
+			$and[] = " factors.status IN ('registered', 'awaiting', 'confirmed', 'preparing', 'sending') ";
+		}
 
 
 		if($data['customer'])

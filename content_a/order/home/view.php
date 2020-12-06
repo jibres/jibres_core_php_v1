@@ -49,6 +49,11 @@ class view
 		if(\dash\request::get('subdiscountequal'))	 	 { $args['subdiscountequal']  = \dash\request::get('subdiscountequal');	}
 		if(\dash\request::get('subtotal'))		 		 { $args['subtotal']          = \dash\request::get('subtotal');			}
 
+		if(\dash\url::child() === 'unprocessed')
+		{
+			$args['get_unprocessed'] = true;
+		}
+
 		$search_string = \dash\request::get('q');
 
 		\lib\backlink::set_order();
