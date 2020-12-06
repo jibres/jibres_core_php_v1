@@ -10,9 +10,44 @@
   <div class="c-3 c-xs-12">
    <nav class="items long">
      <ul>
+
+<?php if(\dash\permission::check('_group_orders')) {?>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/order">
+          <i class="sf-cart-arrow-down"></i>
+          <div class="key"><?php echo T_('Orders');?></div>
+          <div class="go"></div>
+        </a>
+       </li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('manageCart')) {?>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::here(); ?>/cart">
+          <i class="sf-bag"></i>
+          <div class="key"><?php echo T_("Cart"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('factorSaleAdd')) {?>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/sale">
+          <i class="sf-cash-register"></i>
+          <div class="key"><?php echo T_('Sale Invoicing');?></div>
+          <div class="go plus"></div>
+        </a>
+       </li>
+<?php } //endif ?>
+
+     </ul>
+   </nav>
+
+   <nav class="items long">
+     <ul>
 <?php if(\dash\permission::check('_group_products')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/products">
+          <i class="sf-tags"></i>
           <div class="key"><?php echo T_('Products');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'product_count')); ?></div>
           <div class="go search"></div>
@@ -22,6 +57,7 @@
 <?php if(\dash\permission::check('productAdd')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/products/add">
+          <i class="sf-plus-circle"></i>
           <div class="key"><?php echo T_('Add new Product');?></div>
           <div class="go plus"></div>
         </a>
@@ -29,43 +65,21 @@
 <?php } //endif ?>
      </ul>
    </nav>
-   <nav class="items long">
-     <ul>
 
-<?php if(\dash\permission::check('_group_orders')) {?>
-       <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/order">
-          <div class="key"><?php echo T_('Orders');?></div>
-          <div class="go"></div>
-        </a>
-       </li>
-<?php } //endif ?>
-<?php if(\dash\permission::check('manageCart')) {?>
-      <li><a class="item f" href="<?php echo \dash\url::here(); ?>/cart"><div class="key"><?php echo T_("Cart"); ?></div><div class="go"></div></a></li>
-<?php } //endif ?>
-<?php if(\dash\permission::check('factorSaleAdd')) {?>
-       <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/sale">
-          <div class="key"><?php echo T_('Sale Invoicing');?></div>
-          <div class="go plus"></div>
-        </a>
-       </li>
-<?php } //endif ?>
-
-     </ul>
-   </nav>
    <nav class="items long">
      <ul>
 <?php if(\dash\permission::check('_group_crm')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm">
+          <i class="sf-atom"></i>
           <div class="key"><?php echo T_('CRM');?></div>
           <div class="go"></div>
         </a>
        </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/member">
-          <div class="key"><?php echo T_('Customer');?></div>
+          <i class="sf-users"></i>
+          <div class="key"><?php echo T_('Customers');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'customer_count')); ?></div>
           <div class="go search"></div>
         </a>
@@ -74,7 +88,8 @@
 <?php if(\dash\permission::check('crmPermissionManagement')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/staff">
-          <div class="key"><?php echo T_('Staff');?></div>
+          <i class="sf-user-close-security"></i>
+          <div class="key"><?php echo T_('Staffs');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'staff_count')); ?></div>
           <div class="go search"></div>
         </a>
@@ -86,23 +101,42 @@
     <nav class="items long">
       <ul>
         <?php if(\dash\permission::check('_group_setting')) {?>
-        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/website"><div class="key"><?php echo T_("Website setting"); ?></div><div class="go"></div></a></li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/website">
+            <i class="sf-monitor"></i>
+            <div class="key"><?php echo T_("Website setting"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
       <?php } //endif ?>
       <?php if(\dash\permission::check('_group_application')) {?>
-        <li><a class="item f" href="<?php echo \dash\url::here(); ?>/android"><div class="key"><?php echo T_("Android app"); ?></div><div class="go"></div></a></li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/android">
+            <i class="sf-mobile"></i>
+            <div class="key"><?php echo T_("Android app"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
       <?php } //endif ?>
       </ul>
     </nav>
 
     <nav class="items long">
       <ul>
-
         <?php if(\dash\permission::check('_group_form')) {?>
-          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/form"><i class="sf-edit"></i><div class="key"><?php echo T_("Form Builder"); ?></div><div class="go"></div></a></li>
+          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/form">
+            <i class="sf-edit"></i>
+            <div class="key"><?php echo T_("Form Builder"); ?></div>
+            <div class="go"></div>
+          </a></li>
         <?php } //endif ?>
 
         <?php if(\dash\permission::check('_group_accounting')) {?>
-          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/accounting"><i class="sf-book"></i><div class="key"><?php echo T_("Accounting"); ?></div><div class="go"></div></a></li>
+          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/accounting">
+            <i class="sf-book"></i>
+            <div class="key"><?php echo T_("Accounting"); ?></div>
+            <div class="go"></div>
+          </a></li>
         <?php  }//endif ?>
 
       </ul>
