@@ -10,14 +10,7 @@ class controller
 		\dash\temp::set('force_stop_visitor', true);
 		\dash\temp::set('force_stop_query_log', true);
 
-
-		$myResult  = [];
-		$alertyOpt =
-		[
-			'alerty'            => true,
-			'timeout'           => 2000,
-			'showConfirmButton' => false
-		];
+		$myResult = [];
 
 		if(\dash\user::id())
 		{
@@ -28,6 +21,13 @@ class controller
 				'notifNew'   => $notifCount ? true : false,
 				'notifCount' => $notifCount,
 			];
+			$alertyOpt =
+			[
+				'alerty'            => true,
+				'timeout'           => 2000,
+				'showConfirmButton' => false
+			];
+
 			// show alert as toast
 			$alertyOpt['toast']    = true;
 			$alertyOpt['position'] = 'top-end';
