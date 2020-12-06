@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-06 18:02+0330\n"
-"PO-Revision-Date: 2020-12-06 18:09+0330\n"
+"POT-Creation-Date: 2020-12-06 19:37+0330\n"
+"PO-Revision-Date: 2020-12-06 19:38+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -971,7 +971,7 @@ msgstr "نام کامل"
 #: content_business/shipping/display.php:107 content_cms/comments/edit/display.php:13
 #: content_crm/member/add/display.php:9 content_crm/member/glance/display.php:167
 #: content_crm/member/home/display-old.php:120 content_crm/member/mobile/display.php:6
-#: content_crm/sms/view/display.php:8 content_enter/app/display.php:32
+#: content_crm/sms/view/display.php:14 content_enter/app/display.php:32
 #: content_enter/home/display.php:20 content_enter/pass/change/display.php:6
 #: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
 #: content_enter/pass/set/display.php:7 content_enter/pass/signup/display.php:7
@@ -4966,7 +4966,7 @@ msgid "Add coding"
 msgstr "افزودن سرفصل حسابداری"
 
 #: content_a/accounting/coding/display-list.php:107 content_a/form/answer/display.php:49
-#: content_crm/member/transactions/detail/display.php:7
+#: content_crm/member/transactions/detail/display.php:7 content_crm/sms/view/display.php:6
 #: content_crm/transactions/detail/display.php:6 content_love/smslog/display.php:17
 #: content_love/store/setting/display.php:9 content_su/tg/log/display.php:86
 #: content_su/tg/log/display.php:175
@@ -8638,7 +8638,7 @@ msgstr "افزودن محصول جدید"
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: content_a/home/display.php:92 content_crm/home/display.php:22
+#: content_a/home/display.php:92 content_crm/home/display.php:23
 #: content_crm/member/add/view.php:12 content_crm/member/glance/view.php:12
 #: content_developers/docs/001-intro.php:17
 #: content_pardakhtyar/customer/dashboard/view.php:14
@@ -8646,7 +8646,7 @@ msgstr "مدیریت ارتباط با مشتریان"
 msgid "Customers"
 msgstr "مشتریان"
 
-#: content_a/home/display.php:102 content_crm/home/display.php:40
+#: content_a/home/display.php:102 content_crm/home/display.php:43
 #: includes/languages/trans_static.php:66
 msgid "Staffs"
 msgstr "کارمندان"
@@ -8693,11 +8693,10 @@ msgstr "تعداد همه"
 msgid "Delete all"
 msgstr "حذف همه"
 
-#: content_a/notiflog/display.php:88 content_crm/sms/view/display.php:7
-#: content_love/application/edit/display.php:6 content_love/notiflog/display.php:88
-#: content_love/smslog/view/display.php:7 content_love/store/display.php:19
-#: content_v2/account/android/add/model.php:149 includes/languages/trans_static.php:236
-#: includes/languages/trans_static_public.php:398
+#: content_a/notiflog/display.php:88 content_love/application/edit/display.php:6
+#: content_love/notiflog/display.php:88 content_love/smslog/view/display.php:7
+#: content_love/store/display.php:19 content_v2/account/android/add/model.php:149
+#: includes/languages/trans_static.php:236 includes/languages/trans_static_public.php:398
 msgid "id"
 msgstr "کد"
 
@@ -8736,10 +8735,10 @@ msgstr "دایرکتوری"
 msgid "urlquery"
 msgstr "کوئری آدرس"
 
-#: content_a/notiflog/display.php:97 content_crm/sms/view/display.php:11
-#: content_love/notiflog/display.php:97 content_love/smslog/display.php:26
-#: content_love/smslog/view/display.php:27 content_love/store/display.php:26
-#: content_love/store/setting/display.php:29 content_pardakhtyar/check/display.php:101
+#: content_a/notiflog/display.php:97 content_love/notiflog/display.php:97
+#: content_love/smslog/display.php:26 content_love/smslog/view/display.php:27
+#: content_love/store/display.php:26 content_love/store/setting/display.php:29
+#: content_pardakhtyar/check/display.php:101
 #: includes/languages/trans_static_public.php:412
 msgid "datecreated"
 msgstr "تاریخ‌ایجاد"
@@ -8871,8 +8870,8 @@ msgstr "عملیات"
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/shipping/view.php:15 content_a/products/status/view.php:15
 #: content_a/products/variants/view.php:15 content_cms/comments/home/display.php:118
-#: content_cms/comments/home/display.php:125 content_crm/home/display.php:153
-#: content_crm/home/display.php:174 content_support/ticket/show/display.php:179
+#: content_cms/comments/home/display.php:125 content_crm/home/display.php:163
+#: content_crm/home/display.php:184 content_support/ticket/show/display.php:179
 #: dash/app.php:89 dash/app.php:187 dash/app.php:193 dash/app/log.php:139
 #: dash/app/transaction.php:51 dash/user.php:188 lib/app/product/comment.php:781
 msgid "Without name"
@@ -9281,7 +9280,7 @@ msgstr "ویرایش سفارش"
 
 #: content_a/pricehistory/display.php:15
 #: content_crm/member/transactions/detail/display.php:61
-#: content_crm/transactions/detail/display.php:58
+#: content_crm/sms/view/display.php:30 content_crm/transactions/detail/display.php:58
 #: content_love/business/domain/detail/display.php:18
 #: content_love/business/domain/dnslist/display.php:27
 #: content_love/domain/setting/display.php:306 content_love/log/home/logTable.php:91
@@ -11049,7 +11048,7 @@ msgstr "سفارشی‌سازی روند پرداخت آنلاین"
 
 #: content_a/setting/home/display.php:104 content_account/home/display.php:88
 #: content_account/home/display.php:92 content_account/notification/view.php:9
-#: content_business/profile/display-menu.php:7 content_crm/home/display.php:91
+#: content_business/profile/display-menu.php:7 content_crm/home/display.php:99
 #: content_crm/notification/home/view.php:9 dash/layout/admin/admin-header.php:22
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
@@ -14927,25 +14926,25 @@ msgstr "تراکنش‌های ناموفق"
 msgid "Chart transactions per day in last 3 month"
 msgstr "نمودار تراکنش‌ها به تفکیک روز در سه ماه گذشته"
 
-#: content_crm/home/display.php:29
+#: content_crm/home/display.php:31
 msgid "Add new Customer"
 msgstr "افزودن مشتری جدید"
 
-#: content_crm/home/display.php:46 content_crm/permission/view.php:9
+#: content_crm/home/display.php:50 content_crm/permission/view.php:9
 #: includes/languages/trans_static_public.php:205
 #: includes/languages/trans_static_public.php:981
 msgid "Permissions"
 msgstr "سطوح‌دسترسی"
 
-#: content_crm/home/display.php:60
+#: content_crm/home/display.php:65
 msgid "Successful payments"
 msgstr "پرداختی‌های موفق"
 
-#: content_crm/home/display.php:68
+#: content_crm/home/display.php:74
 msgid "All payments"
 msgstr "همه پرداختی‌ها"
 
-#: content_crm/home/display.php:83 content_crm/member/glance/display.php:280
+#: content_crm/home/display.php:90 content_crm/member/glance/display.php:280
 #: content_crm/ticket/home/view.php:9 content_support/faq/view.php:14
 #: content_support/home/view.php:13 content_support/message/view.php:35
 #: content_support/tag/view.php:14 content_support/ticket/home/display.php:99
@@ -14955,47 +14954,47 @@ msgstr "همه پرداختی‌ها"
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
-#: content_crm/home/display.php:104
-msgid "Show sended SMS list"
-msgstr "نمایش پیامک‌های ارسال شده"
+#: content_crm/home/display.php:113
+msgid "Sended SMS list"
+msgstr "پیامک‌های ارسال شده"
 
-#: content_crm/home/display.php:110
+#: content_crm/home/display.php:120
 msgid "Users Action Log"
 msgstr "ردپای عملیات‌ کاربران"
 
-#: content_crm/home/display.php:125
+#: content_crm/home/display.php:135
 msgid "Success Payments - Today"
 msgstr "تراکنش های موفق - امروز"
 
-#: content_crm/home/display.php:131
+#: content_crm/home/display.php:141
 msgid "Success Payments - This month"
 msgstr "تراکنش های موفق - این ماه"
 
-#: content_crm/home/display.php:138
+#: content_crm/home/display.php:148
 msgid "Total Success transactions percent"
 msgstr "درصد موفقیت تمامی تراکنش‌ها"
 
-#: content_crm/home/display.php:145
+#: content_crm/home/display.php:155
 msgid "Last customers"
 msgstr "آخرین مشتریان"
 
-#: content_crm/home/display.php:161
+#: content_crm/home/display.php:171
 msgid "No customers have been registered yet"
 msgstr "هنوز هیچ مشتری ثبت‌نام نکرده است"
 
-#: content_crm/home/display.php:166
+#: content_crm/home/display.php:176
 msgid "Last login"
 msgstr "آخرین ورود‌ها"
 
-#: content_crm/home/display.php:184
+#: content_crm/home/display.php:194
 msgid "No entries have been made so far"
 msgstr "تاکنون هیچ ورودی انجام نشده است."
 
-#: content_crm/home/display.php:188 content_crm/member/glance/display.php:134
+#: content_crm/home/display.php:198 content_crm/member/glance/display.php:134
 msgid "Last tickets"
 msgstr "آخرین تیکت‌ها"
 
-#: content_crm/home/display.php:195 content_crm/member/glance/display.php:140
+#: content_crm/home/display.php:205 content_crm/member/glance/display.php:140
 #: content_crm/ticket/home/display.php:6 content_support/ticket/add/view.php:15
 #: content_support/ticket/report/view.php:16 content_support/ticket/tags/view.php:52
 #: content_support/view.php:54 dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31
@@ -15003,7 +15002,7 @@ msgstr "آخرین تیکت‌ها"
 msgid "Ticket"
 msgstr "تیکت"
 
-#: content_crm/home/display.php:208
+#: content_crm/home/display.php:218
 msgid "No ticket have been received so far"
 msgstr "تاکنون هیچ تیکتی دریافت نشده است"
 
@@ -15859,15 +15858,8 @@ msgstr "افزودن سطح دسترسی جدید"
 msgid "Sms log"
 msgstr "لاگ پیامک"
 
-#: content_crm/sms/view/display.php:9 content_love/smslog/display.php:19
-#: content_love/smslog/view/display.php:10 content_su/tg/sendmessage/display.php:11
-#: dash/app/log/caller/sendNotifBySms.php:18 dash/app/ticket.php:196
-#: lib/app/form/item/type.php:429
-msgid "Message"
-msgstr "پیام"
-
-#: content_crm/sms/view/display.php:10 content_love/smslog/view/display.php:17
-msgid "line"
+#: content_crm/sms/view/display.php:22
+msgid "Line"
 msgstr "خط"
 
 #: content_crm/staff/view.php:9
@@ -17089,9 +17081,9 @@ msgstr "این ایمیل قبلا تایید شده است"
 msgid "Let's go"
 msgstr "بزن بریم"
 
-#: content_hook/smile/controller.php:41
-msgid "You have new message!"
-msgstr "شما پیام جدیدی دارید!"
+#: content_hook/smile/controller.php:45
+msgid "You have :val new message!"
+msgstr "شما :val پیام جدید دارید!"
 
 #: content_love/application/edit/display.php:4
 msgid "Cancel request"
@@ -18752,6 +18744,12 @@ msgstr "تلگرام"
 msgid "Show log caller"
 msgstr "نمایش عناوین لاگ‌ها"
 
+#: content_love/smslog/display.php:19 content_love/smslog/view/display.php:10
+#: content_su/tg/sendmessage/display.php:11 dash/app/log/caller/sendNotifBySms.php:18
+#: dash/app/ticket.php:196 lib/app/form/item/type.php:429
+msgid "Message"
+msgstr "پیام"
+
 #: content_love/smslog/display.php:22 content_love/smslog/view/display.php:11
 msgid "Mode"
 msgstr "مدل"
@@ -18763,6 +18761,10 @@ msgstr "چند موبایلی"
 #: content_love/smslog/view/display.php:9
 msgid "Mobiles"
 msgstr "موبایل‌ها"
+
+#: content_love/smslog/view/display.php:17
+msgid "line"
+msgstr "خط"
 
 #: content_love/smslog/view/display.php:18 includes/languages/trans_static_public.php:249
 msgid "apikey"
@@ -22608,6 +22610,10 @@ msgstr "پست با موفقیت به روز رسانی شد"
 #: dash/app/posts/edit.php:133
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
+
+#: dash/app/smile.php:92
+msgid "You have :val new order!"
+msgstr "شما :val سفارش جدید دارید!"
 
 #: dash/app/term.php:365
 msgid "Duplicate term"
@@ -39000,9 +39006,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Choose your line type and after add the line you can customize it"
 #~ msgstr "یک ردیف انتخاب کنید و آن را ثبت‌کنید. سپس می‌توانید آن را سفارشی سازی کنید"
-
-#~ msgid "Line"
-#~ msgstr "خط"
 
 #~ msgid "Add line to body"
 #~ msgstr "افزودن ردیف به محتوای بدنه"
