@@ -7,21 +7,15 @@ class controller
 
 	public static function routing()
 	{
-		\dash\temp::set('force_stop_visitor', true);
-		\dash\temp::set('force_stop_query_log', true);
 
 		$myResult = [];
 
 		if(\dash\user::id())
 		{
+			$myResult = \dash\app\smile::get();
+
 			$notifCount = \dash\app\log::my_notif_count();
 
-			$myResult =
-			[
-				'notifNew'   => $notifCount ? true : false,
-				'notifCount' => $notifCount,
-				'orderCount' => 5,
-			];
 			$alertyOpt =
 			[
 				'alerty'            => true,

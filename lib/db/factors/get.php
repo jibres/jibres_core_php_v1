@@ -68,6 +68,16 @@ class get
 	}
 
 
+	public static function count_new_order_fuel($_fuel, $_db_name)
+	{
+		// type: 'sale','buy','presell','lending','backbuy','backsell','waste','saleorder'
+		// status: 'draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','success','complete','archive','deleted','spam'
+		$query = "SELECT COUNT(*) as `count`  FROM factors WHERE factors.type IN ('sale', 'saleorder') AND factors.status IN ('registered', 'awaiting', 'confirmed', 'preparing', 'sending') ";
+		$result = \dash\db::get($query, 'count', true, $_fuel, ['database' => $_db_name]);
+		return $result;
+	}
+
+
 
 
 	public static function last_sale_date()
