@@ -176,7 +176,7 @@ class cart
 					'factor_id'    => \lib\app\factor\get::fix_id($result['factor_id']),
 					'title'        => \dash\get::index($load_address, 'title'),
 					'name'         => \dash\get::index($load_address, 'name'),
-					'company'      => \dash\get::index($load_address, 'company'),
+					// 'company'      => \dash\get::index($load_address, 'company'),
 					'companyname'  => \dash\get::index($load_address, 'companyname'),
 					'jobtitle'     => \dash\get::index($load_address, 'jobtitle'),
 					'country'      => \dash\get::index($load_address, 'country'),
