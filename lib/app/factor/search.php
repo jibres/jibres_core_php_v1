@@ -105,7 +105,7 @@ class search
 
 		if($data['get_unprocessed'])
 		{
-			$and[] = " factors.status IN ('registered', 'awaiting', 'confirmed', 'preparing', 'sending') ";
+			$and[] = " factors.status IN ('registered', 'awaiting', 'confirmed', 'preparing', 'sending') AND factors.paystatus != 'awaiting_payment' ";
 		}
 
 

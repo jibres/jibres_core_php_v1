@@ -70,7 +70,7 @@ class get
 
 	private static function unprocessed_order_query()
 	{
-		$query = "SELECT COUNT(*) as `count`  FROM factors WHERE factors.type IN ('sale', 'saleorder') AND factors.status IN ('registered', 'awaiting', 'confirmed', 'preparing', 'sending') ";
+		$query = "SELECT COUNT(*) as `count`  FROM factors WHERE factors.type IN ('sale', 'saleorder') AND factors.status IN ('registered', 'awaiting', 'confirmed', 'preparing', 'sending')  AND factors.paystatus != 'awaiting_payment' ";
 		return $query;
 	}
 
