@@ -296,6 +296,10 @@ class view
 			{
 				return '5fc8dc17a1d54c18d8f00574';
 			}
+			elseif(\dash\url::tld() === 'local')
+			{
+				return null;
+			}
 			else
 			{
 				return '5fc8dc17a1d54c18d8f00574';
