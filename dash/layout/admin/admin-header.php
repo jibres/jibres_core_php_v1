@@ -18,6 +18,7 @@
    <div class='hm right flex cauto os'>
     <a href="<?php echo \dash\url::sitelang(); ?>/support" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
 <?php if(\dash\user::id()) { ?>
+    <a href="<?php echo \dash\url::kingdom(); ?>/a/order" title='<?php echo T_("Orders"); ?>' class="orders"><i class="sf-shopping-cart"></i></a>
     <a href="<?php echo \dash\url::sitelang(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
     <a class="profileShow" href="<?php echo \dash\url::kingdom(). '/account';?>">
 <?php if(\dash\user::detail('avatar')) { ?>
