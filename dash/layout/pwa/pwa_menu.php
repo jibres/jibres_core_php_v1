@@ -106,6 +106,7 @@ class pwa_menu
 				'href' => \dash\url::kingdom(). '/account/notification',
 				'icon' => 'comments',
 				'title' => T_('Messages'),
+				'iconPulse' => true,
 			],
 			'business' =>
 			[
@@ -186,6 +187,7 @@ class pwa_menu
 				'href' => \dash\url::kingdom(). '/a/order',
 				'icon' => 'caddie-shopping-streamline',
 				'title' => T_('Orders'),
+				'iconPulse' => true,
 			],
 			// 'report' =>
 			// [

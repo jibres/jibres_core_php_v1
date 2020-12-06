@@ -23,7 +23,12 @@ if(\dash\layout\pwa\pwa_menu::get())
       {
         // echo "<div class='icon'><i class='sf-". $item['icon']. "'></i></div>";
         echo "<div class='icon'>";
-        echo "<i class='sf-". $item['icon']. "'";
+        echo "<i class='sf-". $item['icon'];
+        if(isset($item['iconPulse']) && $item['iconPulse'])
+        {
+          echo " pulse";
+        }
+        echo "'";
         if(isset($item['cartItem']) && $item['cartItem'])
         {
           echo ' data-item="'. $item['cartItem']. '"';
