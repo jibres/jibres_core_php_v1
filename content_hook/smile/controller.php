@@ -20,6 +20,7 @@ class controller
 			[
 				'notifNew'   => $notifCount ? true : false,
 				'notifCount' => $notifCount,
+				'orderCount' => 5,
 			];
 			$alertyOpt =
 			[
