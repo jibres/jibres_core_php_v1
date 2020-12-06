@@ -19,6 +19,7 @@
      <ul>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/member">
+          <i class="sf-users"></i>
           <div class="key"><?php echo T_('Customers');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'users')); ?></div>
           <div class="go search"></div>
@@ -26,6 +27,7 @@
       </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/member/add">
+          <i class="sf-user-plus"></i>
           <div class="key"><?php echo T_('Add new Customer');?></div>
           <div class="go plus"></div>
         </a>
@@ -37,12 +39,14 @@
      <ul>
       <li>
        <a class="item f" href="<?php echo \dash\url::here();?>/staff">
+        <i class="sf-user-close-security"></i>
         <div class="key"><?php echo T_('Staffs');?></div>
         <div class="go"></div>
        </a>
       </li>
        <li>
        <a class="item f" href="<?php echo \dash\url::here();?>/permission">
+        <i class="sf-unlock-alt"></i>
         <div class="key"><?php echo T_('Permissions');?></div>
         <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'permissions')); ?></div>
         <div class="go"></div>
@@ -57,6 +61,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
+        <i class="sf-money"></i>
           <div class="key"><?php echo T_('Successful payments');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'transactions')); ?></div>
           <div class="go"></div>
@@ -65,6 +70,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/transactions/all">
+        <i class="sf-receipt-shopping-streamline"></i>
           <div class="key"><?php echo T_('All payments');?></div>
           <div class="go"></div>
         </a>
@@ -80,6 +86,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/ticket">
+          <i class="sf-chat-alt-fill"></i>
           <div class="key"><?php echo T_('Tickets');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'tickets')); ?></div>
           <div class="go"></div>
@@ -88,6 +95,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/notification">
+          <i class="sf-bell"></i>
           <div class="key"><?php echo T_('Notifications');?></div>
           <div class="go"></div>
         </a>
@@ -101,12 +109,14 @@
      <ul>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/sms">
-          <div class="key"><?php echo T_('Show sended SMS list');?></div>
+          <i class="sf-envelope"></i>
+          <div class="key"><?php echo T_('Sended SMS list');?></div>
           <div class="go"></div>
         </a>
       </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/log">
+          <i class="sf-camera-surveillance"></i>
           <div class="key"><?php echo T_('Users Action Log');?></div>
           <div class="go"></div>
         </a>
