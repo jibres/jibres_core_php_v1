@@ -13,7 +13,7 @@
 
 <?php if(\dash\permission::check('_group_orders')) {?>
        <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/order">
+        <a class="item f" href="<?php echo \dash\url::here();?>/order/unprocessed">
           <i class="sf-cart-arrow-down"></i>
           <div class="key"><?php echo T_('Unprocessed Order');?></div>
           <div class="value red">233</div>
