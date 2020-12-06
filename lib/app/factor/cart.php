@@ -202,7 +202,7 @@ class cart
 				'factor_id'    => \lib\app\factor\get::fix_id($result['factor_id']),
 				'title'        => $data['title'],
 				'name'         => $data['name'],
-				'company'      => $data['company'],
+				// 'company'      => $data['company'],
 				'country'      => $data['country'],
 				'province'     => $data['province'],
 				'city'         => $data['city'],
