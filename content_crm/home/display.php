@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcrmhome" class="box chart x450" data-abc='crm/homepage'>
+    <div id="chartdivcrmhome" class="box chart x450" data-abc='crm/homepage' data-hint='123'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
