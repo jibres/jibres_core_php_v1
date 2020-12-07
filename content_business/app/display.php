@@ -3,7 +3,7 @@
   <div class="avand">
     <div class="f align-center">
       <div class="c8 s12">
-        <div class="text">
+        <div class="text dlApp">
           <h2><?php echo \dash\data::appDetail_downloadtitle() ? \dash\data::appDetail_downloadtitle() : \lib\store::detail('title'); ?></h2>
           <p><?php echo \dash\data::appDetail_downloaddesc(); ?></p>
           <div class="dl">
