@@ -14,6 +14,7 @@ class view
 		$myTitle .= ' | '. \lib\store::detail('title');
 
 		\dash\face::title($myTitle);
+		\dash\face::desc(T_("Download the app today! Shopping on the go is fast and easy with our free app."));
 
 		$appDetail = \lib\app\application\detail::get_dowload_page();
 		\dash\data::appDetail($appDetail);
