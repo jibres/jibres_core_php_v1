@@ -1,8 +1,8 @@
 
 <section class="appBox">
   <div class="avand">
-    <div class="f align-center">
-      <div class="c8 s12">
+    <div class="row align-center">
+      <div class="c-xs-12 c-sm-12 c-md-8">
         <div class="text dlApp">
           <h2><?php echo \dash\data::appDetail_downloadtitle() ? \dash\data::appDetail_downloadtitle() : \lib\store::detail('title'); ?></h2>
           <p><?php echo \dash\data::appDetail_downloaddesc(); ?></p>
@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="c4 s12">
+      <div class="c-xs-12 c-sm-12 c-md-4">
       	<div class="mobileFrame mT20-f">
       		<iframe src="<?php echo \dash\url::kingdom()?>"></iframe>
       	</div>
