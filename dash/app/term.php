@@ -15,6 +15,20 @@ class term
 		'status',
 	];
 
+
+	public static function get_all_tag()
+	{
+		$list = \dash\db\terms::get_all_tag();
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['self', 'ready'], $list);
+
+		return $list;
+	}
+
 	public static function load_category_html()
 	{
 		$category = [];
@@ -430,6 +444,7 @@ class term
 			switch ($key)
 			{
 				case 'id':
+				case 'term_id':
 				case 'parent':
 					if(isset($value))
 					{

@@ -96,35 +96,42 @@ trait get
 			return false;
 		}
 
-		$myPost = false;
-		if(floatval($load['user_id']) === floatval(\dash\user::id()))
-		{
-			$myPost = true;
-		}
-
-		if(!$myPost)
-		{
-			switch ($load['type'])
-			{
-				case 'help':
-					if(!\dash\permission::check('cpHelpCenterViewAll'))
-					{
-						return false;
-					}
-					break;
-
-				case 'post':
-					if(!\dash\permission::check('cpPostsViewAll'))
-					{
-						return false;
-					}
-					break;
-			}
-		}
-
 		$load = self::ready($load);
 
+		$tag = self::get_post_tag($id);
+		$load['tags'] = $tag;
+
+		$category = self::get_post_category($id);
+		$load['category'] = $category;
+
 		return $load;
+	}
+
+
+	private static function get_post_category($_id)
+	{
+		$load_category = \dash\db\termusages::usage($_id, 'cat', 'posts');
+		if(!is_array($load_category))
+		{
+			$load_category = [];
+		}
+
+		$load_category = array_map(['\\dash\\app\\term', 'ready'], $load_category);
+
+		return $load_category;
+	}
+
+	private static function get_post_tag($_id)
+	{
+		$load_tag = \dash\db\termusages::usage($_id, 'tag', 'posts');
+		if(!is_array($load_tag))
+		{
+			$load_tag = [];
+		}
+
+		$load_tag = array_map(['\\dash\\app\\term', 'ready'], $load_tag);
+
+		return $load_tag;
 	}
 
 

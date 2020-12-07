@@ -1,10 +1,26 @@
 <?php
-namespace content_cms\posts\main;
-
+namespace content_cms\posts\edit;
 
 class model
 {
-	public static function upload_gallery()
+	public static function post()
+	{
+		$posts = self::getPost();
+
+		if(!$posts || !\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		$post_detail = \dash\app\posts::edit($posts, \dash\request::get('id'));
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
+	}
+
+		public static function upload_gallery()
 	{
 		if(\dash\request::files('gallery'))
 		{

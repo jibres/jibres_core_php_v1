@@ -9,6 +9,12 @@ class terms
 	 * v1.0
 	 */
 
+	public static function get_all_tag()
+	{
+		$query = "SELECT * FROM terms WHERE terms.type = 'tag' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 
 	/**
 	 * insert new tag in terms table

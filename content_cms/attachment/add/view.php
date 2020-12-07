@@ -22,7 +22,6 @@ class view
 		\dash\data::action_text($myBadgeText);
 		\dash\data::action_link($myBadgeLink);
 
-		\content_cms\posts\main\view::myDataType();
 	}
 }
 ?>

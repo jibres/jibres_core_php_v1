@@ -5,103 +5,59 @@ class view
 {
 	public static function config()
 	{
-		\content_cms\posts\main\view::myDataType();
+		\dash\data::myType(\dash\data::dataRow_type());
 
-		$moduleTypeTxt = \dash\data::myDataType();
+		$moduleTypeTxt = \dash\data::myType();
 		$moduleType    = '';
 
-		if(\dash\data::myDataType())
+		if(\dash\data::myType())
 		{
-			$moduleType = '?type='. \dash\data::myDataType();
+			$moduleType = '?type='. \dash\data::myType();
 		}
-
-
 
 		\dash\data::moduleTypeTxt($moduleTypeTxt);
 		\dash\data::moduleType($moduleType);
 
+		\dash\face::btnSave('formEditPost');
+		\dash\face::btnSetting(\dash\url::this(). '/setting'. \dash\request::full_get());
 
-		$myTitle = T_("Edit post");
 
+		$myTitle     = T_("Edit post");
 		$myBadgeLink = \dash\url::this(). $moduleType;
 		$myBadgeText = T_('Back to list of posts');
-
-		// \dash\data::action_text($myBadgeText);
-		// \dash\data::action_link($myBadgeLink);
 
 		\dash\data::back_text(T_("Back"));
 		\dash\data::back_link($myBadgeLink);
 
+		$myType = \dash\data::myType();
 
-		$myType = \dash\data::myDataType();
-
-		if($myType)
+		if($myType === 'page')
 		{
-			switch ($myType)
-			{
-				case 'page':
-					\dash\permission::access('cpPageEdit');
-
-					$myTitle = T_('Edit page');
-
-					$pageList = \dash\db\posts::get(['type' => 'page', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
-					$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
-
-					\dash\data::pageList($pageList);
-					break;
-
-				case 'help':
-					\dash\permission::access('cpHelpCenterEdit');
-					$myTitle     = T_('Edit help');
-
-					\dash\data::listCats(\dash\app\term::cat_list('help'));
-					$pageList = \dash\db\posts::get(['type' => 'help', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
-					$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
-					\dash\data::pageList($pageList);
-					break;
-
-
-				case 'post':
-				default:
-
-					\dash\permission::access('cpPostsEdit');
-					\dash\data::listCats(\dash\app\term::cat_list());
-
-					\dash\data::listSpecial(\dash\app\posts\special::list());
-
-					$myTitle = T_('Edit post');
-
-					break;
-			}
+			$myTitle  = T_('Edit page');
+			$pageList = \dash\db\posts::get(['type' => 'page', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
+			$pageList = array_map(['\dash\app\posts', 'ready_row'], $pageList);
+			\dash\data::pageList($pageList);
 		}
 		else
 		{
-			\dash\permission::access('cpPostsEdit');
+			$myTitle = T_('Edit post');
 		}
 
 		\dash\face::title($myTitle);
 
 
+		$productImageRatioHtml = 'data-ratio=1 data-ratio-free';
+		// if(isset($productSettingSaved['ratio_detail']['ratio']))
+		// {
+		// 	$productImageRatioHtml = 'data-ratio='. $productSettingSaved['ratio_detail']['ratio'];
+		// }
+		\dash\data::productImageRatioHtml($productImageRatioHtml);
+		\dash\data::allTagList(\dash\app\term::get_all_tag());
+		\dash\data::tagsSavedTitle(array_column(\dash\data::dataRow_tags(), 'title'));
 
-		if(\dash\permission::check('cpChangePostCreator'))
-		{
-			$user_list = \dash\app\posts::get_user_can_write_post(\dash\data::myDataType());
-			\dash\data::postAdder($user_list);
-			if(is_array($user_list))
-			{
-				$allUserAuthorId = array_column($user_list, 'id');
-				\dash\data::allUserAuthorId($allUserAuthorId);
-			}
-		}
+		\dash\data::listCategory(\dash\app\term::cat_list());
+		\dash\data::listSavedCat(array_column(\dash\data::dataRow_category(), 'term_id'));
 
-		$creator = \dash\data::dataRow_user_id();
-		$creator = \dash\coding::decode($creator);
-		if($creator)
-		{
-			$user_detail = \dash\db\users::get_by_id($creator);
-			$user_detail = \dash\app\user::ready($user_detail);
-			\dash\data::userAuthorPost($user_detail);
-		}
 	}
 }
 ?>
