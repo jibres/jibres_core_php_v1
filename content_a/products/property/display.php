@@ -6,13 +6,12 @@ $productDataRow = \dash\data::productDataRow();
 ?>
   <div class="avand-xl">
     <section class="box">
-      <header><h2><?php echo T_("Property"); ?></h2></header>
+      <header><h2><?php echo T_("Set product property"); ?></h2></header>
       <form method="post" autocomplete="off" id="form1">
         <input type="hidden" name="addmode" value="1">
       <div class="body">
-        <p class="msg"><?php echo T_("Set product property"); ?></p>
         <div class="row">
-          <div class="c-4">
+          <div class="c-xs-12 c-sm-12 c-lg-4 mB5">
             <?php if(!\dash\data::catList()) {?>
               <div class="input">
                 <input type="text" name="cat" placeholder="<?php echo T_("Group"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'cat'); ?>">
@@ -28,7 +27,7 @@ $productDataRow = \dash\data::productDataRow();
               </div>
             <?php } //endif ?>
           </div>
-          <div class="c-4">
+          <div class="c-xs-12 c-sm-12 c-lg-4 mB5">
             <?php if(!\dash\data::keyList()) {?>
               <div class="input">
                 <input type="text" name="key" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'key'); ?>">
@@ -44,7 +43,7 @@ $productDataRow = \dash\data::productDataRow();
               </div>
             <?php } //endif ?>
           </div>
-          <div class="c-4">
+          <div class="c-xs-12 c-sm-12 c-lg-4 mB5">
             <div class="input">
               <input type="text" name="value" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'value'); ?>">
             </div>
