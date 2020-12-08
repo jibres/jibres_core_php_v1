@@ -593,15 +593,11 @@ class dns
 		$jibres_ip = \dash\setting\dns_server::ip();
 
 		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'A', 'key' => '@', 'value' => $jibres_ip]);
-
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		\dash\notif::clean();
-
 		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'A', 'key' => '*', 'value' => $jibres_ip]);
+
+		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'TXT', 'key' => '@', 'value' => 'v=spf1 mx include:spf.jibres.ir ~all']);
+		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'TXT', 'key' => '_dmarc', 'value' => 'v=DMARC1; p=reject; pct=100; rua=mailto:dmarc@jibres.ir']);
+		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'TXT', 'key' => 'default._bimi', 'value' => 'v=BIMI1; l=https://cdn.talambar.ir/logo/icon/svg/Jibres-Logo-icon.svg;']);
 
 		if(!\dash\engine\process::status())
 		{
