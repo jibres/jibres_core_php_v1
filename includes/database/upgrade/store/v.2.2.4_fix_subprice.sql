@@ -1,0 +1,1 @@
+UPDATE jibres_XXXXXXX.factors SET factors.subprice = (SELECT SUM(factordetails.price * factordetails.count) FROM jibres_XXXXXXX.factordetails WHERE factordetails.factor_id = factors.id) WHERE factors.subdiscount > 0 ;
