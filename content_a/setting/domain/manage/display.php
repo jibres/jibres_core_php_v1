@@ -105,11 +105,15 @@
       </div>
       <footer class="f">
         <div class="c"></div>
-        <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
+        <div class="cauto"><button class="btn master"><?php echo T_("Add") ?></button></div>
       </footer>
     </div>
   </form>
+
         <?php if(\dash\data::dnsList()) {?>
+          <?php $have_any_record = false; foreach (\dash\data::dnsList() as $key => $value) { if(\dash\get::index($value, 'allow_remove')) { $have_any_record = true; } }?>
+
+          <?php if($have_any_record) {?>
           <table class="tbl1 v4 font-12 ">
             <thead>
               <tr>
@@ -122,6 +126,7 @@
             </thead>
             <tbody>
               <?php foreach (\dash\data::dnsList() as $key => $value) {?>
+                      <?php if(\dash\get::index($value, 'allow_remove')) {?>
                 <tr>
                   <td><?php echo \dash\get::index($value, 'type'); ?></td>
                   <td><?php echo \dash\get::index($value, 'key'); ?></td>
@@ -129,16 +134,16 @@
                   <td><?php echo \dash\get::index($value, 'tstatus'); ?></td>
                   <td class="collapsing">
                     <?php if(\dash\get::index($value, 'status') !== 'pending_delete') {?>
-                      <?php if(\dash\get::index($value, 'allow_remove')) {?>
                         <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
                       <?php } //endif ?>
-                  <?php } //endif ?>
                   </td>
+                  <?php } //endif ?>
 
                 </tr>
               <?php } // endif ?>
             </tbody>
           </table>
+        <?php } // endif ?>
         <?php } // endif ?>
 
     <?php } // endif ?>

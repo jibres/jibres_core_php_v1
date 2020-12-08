@@ -125,9 +125,18 @@ class dns
 		}
 
 		$result['allow_remove'] = true;
-		if(isset($result['key']) && isset($result['type']) && $result['key'] === '@' && $result['type'] === 'NS')
+		if(isset($result['key']) && isset($result['type']))
 		{
-			$result['allow_remove'] = false;
+			if(
+				($result['key'] === '@' && $result['type'] === 'NS') ||
+				($result['key'] === '*' && $result['type'] === 'A') ||
+				($result['key'] === '@' && $result['type'] === 'A')
+			  )
+			{
+				$result['allow_remove'] = false;
+			}
+
+
 		}
 
 		return $result;
@@ -159,8 +168,20 @@ class dns
 
 		$domain = $load['domain'];
 
-
 		$load_dns_record = \lib\db\business_domain\get::dns_record($dns_id);
+
+		$ready = self::ready($load_dns_record);
+
+		if(isset($ready['allow_remove']) && $ready['allow_remove'])
+		{
+			/* no problem to remove*/
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not remove this dns recrod from your domain"));
+			return false;
+		}
+
 		if(isset($load_dns_record['id']))
 		{
 			if(isset($load_dns_record['business_domain_id']) && floatval($load_dns_record['business_domain_id']) === floatval($id) )
