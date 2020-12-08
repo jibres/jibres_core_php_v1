@@ -31,23 +31,61 @@ class dashboard
 			$last_login_ip = null;
 		}
 
-		$last_order = \lib\db\factors\get::last_order($user_id);
+		$last_order        = null;
+		$active_order      = null;
+		$cart_count        = null;
+		$average_order_pay = null;
+		$total_order_pay   = null;
+		$last_5_order      = [];
 
-		if(isset($last_order['datecreated']))
+		if(\dash\engine\store::inStore())
 		{
-			$last_order = $last_order['datecreated'];
-		}
-		else
-		{
-			$last_order = null;
+			$last_order = \lib\db\factors\get::last_order($user_id);
+
+			if(isset($last_order['datecreated']))
+			{
+				$last_order = $last_order['datecreated'];
+			}
+			else
+			{
+				$last_order = null;
+			}
+
+			$active_order = \lib\db\factors\get::total_order_user_count($user_id);
+
+			if(!is_numeric($active_order))
+			{
+				$active_order = 0;
+			}
+
+			$cart_count = \lib\db\cart\get::user_cart_count($user_id);
+
+			if(!is_numeric($cart_count))
+			{
+				$cart_count = 0;
+			}
+
+			$average_order_pay = \lib\db\factors\get::average_order_pay_user($user_id);
+
+			if(!is_numeric($average_order_pay))
+			{
+				$average_order_pay = 0;
+			}
+			else
+			{
+				$average_order_pay = round($average_order_pay);
+			}
+
+			$total_order_pay = \lib\db\factors\get::total_order_pay_user($user_id);
+
+			if(!is_numeric($total_order_pay))
+			{
+				$total_order_pay = 0;
+			}
+
+			$last_5_order = \lib\app\factor\search::last_user_order($user_id);
 		}
 
-		$active_order = \lib\db\factors\get::total_order_user_count($user_id);
-
-		if(!is_numeric($active_order))
-		{
-			$active_order = 0;
-		}
 
 		$total_paid = \dash\db\transactions\get::total_paid_user($user_id);
 
@@ -63,30 +101,6 @@ class dashboard
 			$last_payment = 0;
 		}
 
-		$cart_count = \lib\db\cart\get::user_cart_count($user_id);
-
-		if(!is_numeric($cart_count))
-		{
-			$cart_count = 0;
-		}
-
-		$average_order_pay = \lib\db\factors\get::average_order_pay_user($user_id);
-
-		if(!is_numeric($average_order_pay))
-		{
-			$average_order_pay = 0;
-		}
-		else
-		{
-			$average_order_pay = round($average_order_pay);
-		}
-
-		$total_order_pay = \lib\db\factors\get::total_order_pay_user($user_id);
-
-		if(!is_numeric($total_order_pay))
-		{
-			$total_order_pay = 0;
-		}
 
 
 		$balance = \dash\db\transactions::budget($user_id);
@@ -111,7 +125,6 @@ class dashboard
 
 		$last_5_ticket = array_map(['\\dash\\app\\ticket', 'ready'], $last_5_ticket);
 
-		$last_5_order = \lib\app\factor\search::last_user_order($user_id);
 
 
 

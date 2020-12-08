@@ -38,10 +38,19 @@ class model
 			return false;
 		}
 
-		if(!\lib\store::currency())
+		if(\dash\engine\store::inStore())
 		{
-			\dash\notif::error(T_("Please set your store currency first"));
-			return false;
+			if(!\lib\store::currency())
+			{
+				\dash\notif::error(T_("Please set your store currency first"));
+				return false;
+			}
+
+			$currency = \lib\store::currency();
+		}
+		else
+		{
+			$currency = \lib\currency::default();
 		}
 
 
@@ -52,7 +61,7 @@ class model
 			'user_id'   => $user_id,
 			'payment'   => null,
 			'type'      => 'money',
-			'unit'      => \lib\store::currency(),
+			'unit'      => $currency,
 			'date'      => date("Y-m-d H:i:s"),
 			'verify'    => 1,
 			'dateverify' => time(),
