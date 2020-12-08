@@ -179,6 +179,7 @@ class plan_list
 
 
 
+		$master['cmsAddNewPost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAddNewPost', 				'title' => T_('Add New Post'), 'require' => []];
 
 		$master['contentCp']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'contentCp', 					'title' => T_('contentCp'), 'require' => []];
 		$master['cpSMS']                        = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpSMS', 						'title' => T_('cpSMS'), 'require' => []];
