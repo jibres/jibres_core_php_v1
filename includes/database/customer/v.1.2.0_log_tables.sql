@@ -162,6 +162,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`dayevent` (
 CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`logs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `caller` varchar(200) DEFAULT NULL,
+  `type` enum('public', 'system', 'db', 'php') NULL DEFAULT NULL,
   `subdomain` varchar(100) DEFAULT NULL,
   `code` varchar(200) DEFAULT NULL,
   `send` bit(1) DEFAULT NULL,
@@ -305,6 +306,7 @@ ALTER TABLE `jibres_XXXXXXX`.`logs`
   ADD KEY `index_search_caller` (`caller`),
   ADD KEY `index_search_subdomain` (`subdomain`),
   ADD KEY `index_search_readdate` (`readdate`),
+  ADD KEY `jibres_log_index_type` (`type`),
   ADD KEY `index_search_datecreated` (`datecreated`);
 
 

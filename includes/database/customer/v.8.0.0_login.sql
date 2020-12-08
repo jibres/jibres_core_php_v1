@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.login (
 `datecreated` timestamp NULL,
 `datemodified` timestamp NULL,
 `trustdomain` VARCHAR(200) NULL DEFAULT NULL,
+`meta` text NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `jibres_login_code` (`code`),
 KEY `jibres_login_status` (`status`)
