@@ -45,34 +45,40 @@ function loadPostTemplate()
   <div><?php echo \dash\data::datarow_content(); ?></div>
 
   <?php
-  if(isset($meta['gallery']) && is_array($meta['gallery']))
+  if(isset($meta['gallery']['files']) && is_array($meta['gallery']['files']))
   {
     echo '<div class="gallery" id="lightgallery">';
-    foreach ($meta['gallery'] as $key => $myUrl)
+    foreach ($meta['gallery']['files'] as $key => $myUrl)
     {
-      $endUrl = substr($myUrl, -4);
-      if(in_array($endUrl, ['.jpg', '.png', '.gif']))
+      if(isset($myUrl['path']))
       {
-        echo '<a data-action href="'. $myUrl.'"><img src="'. $myUrl. '" alt="'. \dash\data::datarow_title(). '"></a>';
+        $endUrl = substr($myUrl['path'], -4);
+        if(in_array($endUrl, ['.jpg', '.png', '.gif']))
+        {
+          echo '<a data-action href="'. $myUrl['path'].'"><img src="'. $myUrl['path']. '" alt="'. \dash\data::datarow_title(). '"></a>';
+        }
       }
     }
     echo '</div>';
 
     echo '<div class="gallery2">';
-    foreach ($meta['gallery'] as $key => $myUrl)
+    foreach ($meta['gallery']['files'] as $key => $myUrl)
     {
-      $endUrl = substr($myUrl, -4);
-      if(in_array($endUrl, ['.mp4']))
+      if(isset($myUrl['path']))
       {
-        echo '<video controls><source src="'. $myUrl. '" type="video/mp4"></video>';
-      }
-      elseif(in_array($endUrl, ['.mp3']))
-      {
-        echo '<audio controls><source src="'. $myUrl .'" type="audio/mpeg"></audio>';
-      }
-      elseif(in_array($endUrl, ['.pdf']))
-      {
-        echo '<a href="'. $myUrl .'" class="btn lg mT25 primary">'. T_("Download"). ' '. T_("PDF"). '</a>';
+        $endUrl = substr($myUrl['path'], -4);
+        if(in_array($endUrl, ['.mp4']))
+        {
+          echo '<video controls><source src="'. $myUrl['path']. '" type="video/mp4"></video>';
+        }
+        elseif(in_array($endUrl, ['.mp3']))
+        {
+          echo '<audio controls><source src="'. $myUrl['path'] .'" type="audio/mpeg"></audio>';
+        }
+        elseif(in_array($endUrl, ['.pdf']))
+        {
+          echo '<a href="'. $myUrl['path'] .'" class="btn lg mT25 primary">'. T_("Download"). ' '. T_("PDF"). '</a>';
+        }
       }
     }
     echo '</div>';

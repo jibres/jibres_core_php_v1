@@ -40,9 +40,11 @@ $myFirstURL = '';
         <div data-uploader data-max-w="1000" data-max-h="1000" data-name='gallery' <?php echo \dash\data::productImageRatioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
           <input type="file" id="file1">
           <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr>
+            <?php if(false) {?>
             <?php if(count($gallery) >= 3) {?>
               <a href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
             <?php } //endif ?>
+          <?php } // end if false ?>
             <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
 
             <?php if($gallery) {?>
@@ -77,8 +79,8 @@ $myFirstURL = '';
         <header data-kerkere='.seoData' data-kerkere-icon='close' data-kerkere-status="close"><h2><?php echo T_("Customize for SEO"); ?></h2></header>
         <div class="pad">
           <div class="seoPreview">
-            <a target="_blank" href="<?php echo \dash\data::dataRow_url(); ?>">
-              <cite><?php echo \dash\data::dataRow_url(); ?></cite>
+            <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
+              <cite><?php echo \dash\data::dataRow_link(); ?></cite>
             </a>
             <div class="f">
               <div class="c s12 pLa10">
