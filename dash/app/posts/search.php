@@ -98,7 +98,8 @@ class search
 
 	public static function random_help_center()
 	{
-		$list = \dash\db\posts\search::random_help_center();
+		$language = \dash\language::current();
+		$list = \dash\db\posts\search::random_help_center($language);
 		if(!is_array($list))
 		{
 			$list = [];
