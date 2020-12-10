@@ -324,15 +324,15 @@ class login
 
 			if(!$agen_ok)
 			{
-				if(\dash\url::isLocal())
-				{
-					// nothing in local change agent. for test and debug pwa mode
-				}
-				else
-				{
-					self::$error[] = 'only agent is changed';
-					return false;
-				}
+				// if(\dash\url::isLocal())
+				// {
+				// 	// nothing in local change agent. for test and debug pwa mode
+				// }
+				// else
+				// {
+				// 	self::$error[] = 'only agent is changed';
+				// 	return false;
+				// }
 			}
 		}
 
