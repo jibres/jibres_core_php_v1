@@ -72,7 +72,6 @@ $myFirstURL = '';
 
 
       <div class="box">
-        <header data-kerkere='.seoData' data-kerkere-icon='close' data-kerkere-status="close"><h2><?php echo T_("Customize for SEO"); ?></h2></header>
         <div class="pad">
           <div class="seoPreview">
             <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
@@ -88,21 +87,11 @@ $myFirstURL = '';
               </div>
             </div>
           </div>
-          <div class="seoData" data-kerkere-content='hide'>
-            <hr>
 
-            <div>
-              <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
-              <div class="input ltr mB10">
-                <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo \dash\get::index($dataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
-              </div>
-            </div>
-            <div>
-              <label for='excerpt'><?php echo T_("SEO Description"); ?> <small><?php echo T_("If leave it empty we are generate it automatically"); ?></small></label>
-              <textarea class="txt" name="excerpt" id="excerpt" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo \dash\get::index($dataRow,'excerpt'); ?></textarea>
-            </div>
-          </div>
         </div>
+        <footer class="txtRa">
+          <a class="link sm" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a>
+        </footer>
       </div>
 
 
