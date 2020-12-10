@@ -105,7 +105,7 @@ class template
 			'key'          => 'imageblock',
 			'title'        => T_("Image box"),
 			'version'      => 1,
-			'max_capacity' => 5, // capacity of product
+			'max_capacity' => 6, // capacity of product
 		];
 
 
