@@ -7,7 +7,7 @@ class header_100
 	{
 		$myHeader =
 		[
-			'key'          => __CLASS__,
+			'key'          => 'header_100',
 			'title'        => T_("Header #100"),
 			'desc'         => T_("A modern and beautiful header"),
 			'sample_image' => \dash\url::cdn(). '/img/template/header/header100.jpg',

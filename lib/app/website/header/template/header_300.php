@@ -7,7 +7,7 @@ class header_300
 	{
 		$myHeader =
 		[
-			'key'          => __CLASS__,
+			'key'          => 'header_300',
 			'title'        => T_("Header #300"),
 			'desc'         => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
 			'sample_image' => \dash\url::cdn(). '/img/template/header/header300.jpg',

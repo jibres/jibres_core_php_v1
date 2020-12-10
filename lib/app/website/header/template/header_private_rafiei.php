@@ -7,7 +7,7 @@ class header_private_rafiei
 	{
 		$myHeader =
 		[
-			'key'          => __CLASS__,
+			'key'          => 'header_private_rafiei',
 			'title'        => T_("Header #Rafiei"),
 			'desc'         => T_("An enterprise theme for rafiei"),
 			// 'sample_image' => \dash\url::cdn(). '/img/template/header/header100.jpg',
