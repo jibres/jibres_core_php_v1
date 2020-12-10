@@ -68,17 +68,17 @@ class ready
 					$result['title'] = isset($value) ? (string) $value : null;
 					if(\dash\get::index($_data, 'optionname1') && \dash\get::index($_data, 'optionvalue1'))
 					{
-						$result['title'] .= ' - '.\dash\get::index($_data, 'optionname1'). ' '. \dash\get::index($_data, 'optionvalue1');
+						$result['title'] .= ' - '. \dash\get::index($_data, 'optionname1'). ' '. \dash\get::index($_data, 'optionvalue1');
 					}
 
 					if(\dash\get::index($_data, 'optionname2') && \dash\get::index($_data, 'optionvalue2'))
 					{
-						$result['title'] .= ' - '.\dash\get::index($_data, 'optionname2'). ' '. \dash\get::index($_data, 'optionvalue2');
+						$result['title'] .= ' - '. \dash\get::index($_data, 'optionname2'). ' '. \dash\get::index($_data, 'optionvalue2');
 					}
 
 					if(\dash\get::index($_data, 'optionname3') && \dash\get::index($_data, 'optionvalue3'))
 					{
-						$result['title'] .= ' - '.\dash\get::index($_data, 'optionname3'). ' '. \dash\get::index($_data, 'optionvalue3');
+						$result['title'] .= ' - '. \dash\get::index($_data, 'optionname3'). ' '. \dash\get::index($_data, 'optionvalue3');
 					}
 					break;
 

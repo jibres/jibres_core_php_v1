@@ -46,7 +46,7 @@ if($imageblock)
 		}
 		if(\dash\get::index($value, 'url'))
 		{
-			echo ' href="'.  \dash\get::index($value, 'url'). '"';
+			echo ' href="'. \dash\get::index($value, 'url'). '"';
 		}
 		echo '>';
 		{

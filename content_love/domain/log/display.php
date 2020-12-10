@@ -108,9 +108,9 @@ else
 
                 <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?q='. \dash\get::index($value, 'domain'); ?>"><code><?php echo \dash\get::index($value, 'domain'); ?></code></a></td>
                 <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?q='. \dash\get::index($value, 'nic_id'); ?>"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></a></td>
-                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?type='.\dash\get::index($value, 'type'); ?>"><code><?php echo \dash\get::index($value, 'type'); ?></code></a></td>
+                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?type='. \dash\get::index($value, 'type'); ?>"><code><?php echo \dash\get::index($value, 'type'); ?></code></a></td>
 
-                <td class="collapsing"><a href="<?php echo \dash\url::that(). '?result_code='.\dash\get::index($value, 'result_code'); ?>"><code><?php echo \dash\get::index($value, 'result_code'); ?></code></a></td>
+                <td class="collapsing"><a href="<?php echo \dash\url::that(). '?result_code='. \dash\get::index($value, 'result_code'); ?>"><code><?php echo \dash\get::index($value, 'result_code'); ?></code></a></td>
 
 
                 <td class="collapsing ltr txtL">
@@ -122,7 +122,7 @@ else
 
                 <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?ip='. \dash\get::index($value, 'ip'); ?>"><code><?php echo \dash\get::index($value, 'ip'); ?></code></a></td>
                 <td class="collapsing">
-                  <a href="<?php echo \dash\url::that(). '?user='.\dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+                  <a href="<?php echo \dash\url::that(). '?user='. \dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
                     <div class="c pRa10">
                       <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
                       <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
